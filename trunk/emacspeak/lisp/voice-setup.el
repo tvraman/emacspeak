@@ -431,6 +431,52 @@ command \\[customize-variable] on <personality>-settings."
   "Personality to use for references.")
 
 ;;}}}
+;;{{{ new light-weight voice lock 
+
+(defcustom voice-lock-mode t
+  "Determines  if property personality results in text being
+voicified."
+  :type 'boolean
+  :group 'emacspeak)
+
+;;;###autoload
+(defun voice-lock-mode (&optional arg)
+  "Toggle Voice Lock mode.
+With arg, turn Voice Lock mode on if and only if arg is positive.
+
+This light-weight voice lock engine leverages work already done by
+font-lock.  Voicification is effective only if font lock is on."
+  (interactive "P")
+  ;; Don't turn on Voice Lock mode if we don't have a display (we're running a
+  ;; batch job) or if the buffer is invisible (the name starts with a space).
+  (let ((on-p (and (not noninteractive)
+		   (not (eq (aref (buffer-name) 0) ?\ ))
+		   (if arg
+		       (> (prefix-numeric-value arg) 0)
+		     (not voice-lock-mode)))))
+    (set (make-local-variable 'voice-lock-mode) on-p)
+    ;; Turn on Voice Lock mode.
+    (when on-p
+      )
+    ;; Turn off Voice Lock mode.
+    (force-mode-line-update))
+  (when (interactive-p)
+    (message
+     (format "Turned %s voice lock mode"
+             (if voice-lock-mode "on" "off")))
+    (emacspeak-auditory-icon
+     (if voice-lock-mode
+         'on 'off ))))
+
+;; Install ourselves:
+(declaim (special text-property-default-nonsticky))
+(unless (assoc 'personality text-property-default-nonsticky)
+  (push  (cons 'personality t) text-property-default-nonsticky))
+
+(unless (assq 'voice-lock-mode minor-mode-alist)
+  (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
+
+;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file 
 

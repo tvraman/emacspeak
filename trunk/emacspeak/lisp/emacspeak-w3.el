@@ -52,15 +52,7 @@
 ;;{{{ requires
 
 ;;; Code:
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'emacspeak-keymap)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'wid-edit)
-(require 'emacspeak-xslt)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  custom
 
@@ -469,6 +461,7 @@ even if one is already defined."
 
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
+
 (declaim (special w3-mode-map))
 (define-prefix-command 'emacspeak-w3-xsl-map )
 (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)  
@@ -495,7 +488,7 @@ HTML."
      (point-max))))
 
 (declaim (special emacspeak-xslt-directory))
-
+;;;###autoload
 (defun emacspeak-w3-xslt-apply (xsl)
   "Apply specified transformation to current page."
   (interactive
@@ -509,7 +502,7 @@ HTML."
     (error "Not in a W3 buffer."))
   (let ((url (url-view-url t)))
     (emacspeak-w3-browse-url-with-style xsl url)))
-
+;;;###autoload
 (defun emacspeak-w3-xslt-select (xsl)
   "Select XSL transformation applied to WWW pages before they are displayed ."
   (interactive
@@ -524,7 +517,7 @@ HTML."
             (file-name-nondirectory
              xsl)))
   (emacspeak-auditory-icon 'select-object))
-
+;;;###autoload
 (defun emacspeak-w3-xsl-toggle ()
   "Toggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
@@ -537,7 +530,7 @@ libxslt package."
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
-
+;;;###autoload
 (defun emacspeak-w3-count-matches (prompt-url locator)
   "Count matches for locator  in HTML."
   (interactive
@@ -555,7 +548,7 @@ libxslt package."
      (cons "locator"
            (format "'%s'"
                    locator ))))))
-
+;;;###autoload
 (defun emacspeak-w3-count-nested-tables (prompt-url)
   "Count nested tables in HTML."
   (interactive
@@ -566,7 +559,7 @@ libxslt package."
   (emacspeak-w3-count-matches
    prompt-url
    "'//table//table'" ))
-
+;;;###autoload
 (defun emacspeak-w3-count-tables (prompt-url)
   "Count  tables in HTML."
   (interactive
@@ -587,12 +580,13 @@ source buffer."
   :group 'emacspeak-w3)
 
 (make-variable-buffer-local 'emacspeak-w3-xsl-keep-result)
+;;;###autoload
 (defun emacspeak-w3-set-xsl-keep-result (value)
   "Set value of `emacspeak-w3-xsl-keep-result'."
   (interactive  "sEnter name of result buffer: ")
   (declare (special emacspeak-w3-xsl-keep-result))
   (setq emacspeak-w3-xsl-keep-result value))
-
+;;;###autoload
 (defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result )
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
@@ -670,7 +664,7 @@ streams."
   :type  '(repeat
            (string :tag "Extension Suffix"))
   :group 'emacspeak-w3)
-
+;;;###autoload
 (defun emacspeak-w3-extract-media-streams ( &optional prompt-url speak)
   "Extract links to media streams.
 operate on current web page when in a W3 buffer; otherwise
@@ -693,7 +687,7 @@ spoken automatically."
      prompt-url
      (or (interactive-p)
 	 speak))))
-  
+  ;;;###autoload
 (defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
   "Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a W3 buffer; otherwise
@@ -730,7 +724,7 @@ Empty value finishes the list."
           (push i result)
         (setq done t)))
     result))
-
+;;;###autoload
 (defun emacspeak-w3-extract-nested-table-list (tables   &optional prompt-url speak)
   "Extract specified list of tables from a WWW page."
   (interactive
@@ -748,7 +742,7 @@ Empty value finishes the list."
      filter
      prompt-url
      (or (interactive-p) speak))))
-
+;;;###autoload
 (defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
   "Extract table at specified position.
  Optional arg url specifies the page to extract content from.
@@ -764,7 +758,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
    prompt-url
    (or (interactive-p)
        speak)))
-
+;;;###autoload
 (defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
   "Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list 
@@ -813,7 +807,7 @@ nested of tables found in the page."
                #'(lambda (v)
                    (cons v v ))
                values)))))
-
+;;;###autoload
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
   "Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -848,7 +842,7 @@ Empty value finishes the list."
           (push c result)
         (setq done t)))
     result))
-
+;;;###autoload
 (defun emacspeak-w3-extract-by-class-list(classes   &optional prompt-url speak)
   "Extract elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
@@ -911,7 +905,7 @@ XPath locator.")
   (expand-file-name "extract-node-by-id.xsl"
                     emacspeak-xslt-directory)
   "XSL transform to extract a node.")
-
+;;;###autoload
 (defun emacspeak-w3-extract-node-by-id (url node-id   )
   "Extract specified node from URI."
   (interactive
@@ -941,7 +935,7 @@ XPath locator.")
 urls.")
 
 (make-variable-buffer-local 'emacspeak-w3-class-filter)
-
+;;;###autoload
 (defun emacspeak-w3-class-filter-and-follow (&optional prompt-class)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
@@ -983,7 +977,7 @@ urls.")
 (make-variable-buffer-local 'emacspeak-w3-xpath-filter)
 (defvar emacspeak-w3-most-recent-xpath-filter nil
   "Caches most recently used xpath filter.")
-
+;;;###autoload
 (defun emacspeak-w3-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
@@ -1022,6 +1016,7 @@ used as well."
 ;;}}}
 ;;{{{  browse url using specified style
 
+;;;###autoload
 (defun emacspeak-w3-browse-url-with-style (style url)
   "Browse URL with specified XSL style."
   (interactive
@@ -1047,7 +1042,7 @@ used as well."
       (set-buffer src-buffer)
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
-
+;;;###autoload
 (defun emacspeak-w3-browse-xml-url-with-style (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
   (interactive
@@ -1093,6 +1088,7 @@ used as well."
 ;;}}}
 ;;{{{  google tool
 
+;;;###autoload
 (defun emacspeak-w3-google-who-links-to-this-page ()
   "Perform a google search to locate documents that link to the
 current page."
@@ -1103,10 +1099,11 @@ current page."
   (emacspeak-websearch-google
    (format "+link:%s"
            (url-view-url 'no-show))))
-(eval-when  (eval load)
-  (require 'url-parse)
-  (require 'emacspeak-websearch)
-  (defun emacspeak-w3-google-on-this-site ()
+
+  
+  
+;;;###autoload
+(defun emacspeak-w3-google-on-this-site ()
     "Perform a google search restricted to the current WWW site."
     (interactive)
     (declare (special major-mode))
@@ -1117,11 +1114,12 @@ current page."
 	     (aref 
 	      (url-generic-parse-url (url-view-url 'no-show))
 	      3)
-	     (read-from-minibuffer "Search this site for: ")))))
+	     (read-from-minibuffer "Search this site for: "))))
+
 
 (defvar emacspeak-w3-google-related-uri
   "http://www.google.com/search?hl=en&num=10&q=related:")
-
+;;;###autoload
 (defun emacspeak-w3-google-similar-to-this-page ()
   "Ask Google to find documents similar to this one."
   (interactive)
@@ -1151,6 +1149,7 @@ current page."
 ;;}}}
 ;;{{{ previewing buffers and regions 
 
+;;;###autoload
 (defun emacspeak-w3-preview-this-buffer ()
   "Preview this buffer."
   (interactive)
@@ -1162,7 +1161,7 @@ current page."
                   filename)
     (w3-open-local filename)
     (delete-file filename)))
-
+;;;###autoload
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this region."
   (interactive "r")
@@ -1251,6 +1250,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 ;;}}}
 ;;{{{ pull RSS feed
 
+;;;###autoload
 (defun emacspeak-w3-browse-rss-at-point ()
   "Browses RSS url under point."
   (interactive)

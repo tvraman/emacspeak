@@ -19,7 +19,7 @@
 (put 'forms 'custom-loads '("emacspeak-forms"))
 (put 'tts 'custom-loads '("dtk-speak" "dtk-tcl" "emacspeak-setup"))
 (put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
-(put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-personality" "emacspeak-pronounce" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak" "voice-setup"))
+(put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-pronounce" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak" "voice-setup"))
 (put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))
 (put 'emacspeak-calendar 'custom-loads '("emacspeak-calendar"))
 (put 'amphetadesk 'custom-loads '("amphetadesk"))

@@ -37,13 +37,10 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds)
-		   (require 'emacspeak-personality))
+;;{{{ required modules 
 
+(require 'emacspeak-preamble)
+;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:

@@ -36,21 +36,17 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'dtk-speak)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'advice)
-(require 'emacspeak-keymap)
-(require 'calendar)
-
 ;;{{{  Introduction:
 
 ;;; This module speech enables the Emacs Calendar.
 ;;; Speech enabling is not the same as speaking the screen:
 ;;; This is an excellent example of this. 
 
+;;}}}
+;;{{{ required modules
+;;; Code:
+(require 'emacspeak-preamble)
+(require 'calendar)
 ;;}}}
 ;;{{{  personalities
 (defcustom emacspeak-calendar-mark-personality 'ursula

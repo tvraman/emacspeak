@@ -43,7 +43,6 @@
   (require 'dtk-speak))
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
-(require 'emacspeak-personality)
 (require 'dtk-voices)
 (require 'emacspeak-keymap)
 ;;{{{ Introduction:

@@ -47,7 +47,6 @@
 (require 'backquote)
 (require 'thingatpt)
 (require 'emacspeak-speak)
-(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 
 ;;}}}

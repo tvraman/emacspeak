@@ -53,7 +53,7 @@
 
 (defvar emacspeak-prefix "\C-e"
   "Default prefix key used for emacspeak. ")
-
+;;;###autoload 
 (defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
 
@@ -381,7 +381,7 @@ relief."
 
 ;;}}}
 ;;{{{  removing emacspeak-self-insert-command in non-edit modes.
-
+;;;###autoload 
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
   (keymap)
   "We define keys that invoke editting commands to be

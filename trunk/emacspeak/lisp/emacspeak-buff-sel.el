@@ -37,13 +37,15 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
 ;;{{{  Introduction
 
 ;;; Advice for buff-sel
+
+;;}}}
+;;{{{ 
+;;; Code:
+
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ Advice for interactive commands.

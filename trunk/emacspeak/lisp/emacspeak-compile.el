@@ -37,11 +37,6 @@
 ;;}}}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'emacspeak-speak)
-
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -49,6 +44,10 @@
 ;;; This module makes compiling code from inside Emacs speech friendly.
 ;;; It is an example of how a little amount of code can make Emacspeak even better.
 ;;; Code:
+
+;;}}}
+;;{{{ Required modules
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  functions

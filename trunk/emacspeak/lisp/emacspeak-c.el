@@ -36,18 +36,16 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'dtk-speak)
-                   (require 'emacspeak-speak)
-                   (require 'emacspeak-sounds)
-                   (and (locate-library "cc-mode")
-                        (require 'cc-mode )))
 ;;{{{ Introduction:
 
 ;;; Make some of C and C++ mode more emacspeak friendly
 ;;; Works with both boring c-mode 
 ;;; and the excellent cc-mode
+
+;;}}}
+;;{{{  Required modules
+(require 'emacspeak-preamble)
+(require 'cc-mode)
 
 ;;}}}
 ;;{{{  emacs 19.30

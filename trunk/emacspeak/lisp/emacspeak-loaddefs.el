@@ -65,7 +65,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15978 38311))
+;;;;;;  (16001 41630))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -76,7 +76,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (15978 38311))
+;;;;;;  "emacspeak-eterm.el" (15998 24521))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -125,7 +125,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (15978 38313))
+;;;;;;  (15998 24561))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -165,13 +165,26 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15978 38313))
+;;;;;;  (15998 24587))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
 
 (autoload (quote emacspeak-imcom) "emacspeak-imcom" "\
 Start IMCom." t nil)
+
+;;;***
+
+;;;### (autoloads (emacspeak-keymap-remove-emacspeak-edit-commands)
+;;;;;;  "emacspeak-keymap" "emacspeak-keymap.el" (16001 40716))
+;;; Generated autoloads from emacspeak-keymap.el
+
+(defvar emacspeak-keymap nil "\
+Primary keymap used by emacspeak. ")
+
+(autoload (quote emacspeak-keymap-remove-emacspeak-edit-commands) "emacspeak-keymap" "\
+We define keys that invoke editting commands to be
+undefined" nil nil)
 
 ;;;***
 
@@ -189,7 +202,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (15978 38314))
+;;;;;;  (15998 24720))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -208,16 +221,22 @@ For detailed help, invoke command emacspeak-ocr bound to
 
 ;;;***
 
-;;;### (autoloads (voice-lock-mode) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (15989 1763))
+;;;### (autoloads (emacspeak-personality-prepend emacspeak-personality-append
+;;;;;;  emacspeak-personality-put) "emacspeak-personality" "emacspeak-personality.el"
+;;;;;;  (16000 61830))
 ;;; Generated autoloads from emacspeak-personality.el
 
-(autoload (quote voice-lock-mode) "emacspeak-personality" "\
-Toggle Voice Lock mode.
-With arg, turn Voice Lock mode on if and only if arg is positive.
+(autoload (quote emacspeak-personality-put) "emacspeak-personality" "\
+Apply personality to specified region, over-writing any current
+personality settings." nil nil)
 
-This light-weight voice lock engine leverages work already done by
-font-lock.  Voicification is effective only if font lock is on." t nil)
+(autoload (quote emacspeak-personality-append) "emacspeak-personality" "\
+Append specified personality to text bounded by start and end.
+Existing personality properties on the text range are preserved." nil nil)
+
+(autoload (quote emacspeak-personality-prepend) "emacspeak-personality" "\
+Prepend specified personality to text bounded by start and end.
+Existing personality properties on the text range are preserved." nil nil)
 
 ;;;***
 
@@ -335,8 +354,11 @@ pronunciation dictionaries are stored. ")
 
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-play-program emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15978 38315))
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (16000 61454))
 ;;; Generated autoloads from emacspeak-sounds.el
+
+(defsubst emacspeak-using-midi-p nil "\
+Predicate to test if we are using midi." (declare (special emacspeak-auditory-icon-function)) (or (eq emacspeak-auditory-icon-function (quote emacspeak-midi-icon)) (eq emacspeak-auditory-icon-function (quote emacspeak-queue-midi-icon))))
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
 Default theme for auditory icons. ")
@@ -346,6 +368,9 @@ Name of executable that plays sound files. ")
 
 (autoload (quote emacspeak-sounds-select-theme) "emacspeak-sounds" "\
 Select theme for auditory icons." t nil)
+
+(defsubst emacspeak-auditory-icon (icon) "\
+Play an auditory ICON." (declare (special emacspeak-auditory-icon-function)) (funcall emacspeak-auditory-icon-function icon))
 
 (autoload (quote emacspeak-toggle-auditory-icons) "emacspeak-sounds" "\
 Toggle use of auditory icons.
@@ -361,7 +386,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15978 38497))
+;;;;;;  "emacspeak-speak.el" (16000 59662))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -454,9 +479,130 @@ Optional interactive prefix arg displays documentation for specified resource." 
 
 ;;;***
 
-;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
-;;;;;;  "emacspeak-w3.el" (15978 38317))
+;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point emacspeak-w3-browse-rss-at-point
+;;;;;;  emacspeak-w3-preview-this-region emacspeak-w3-preview-this-buffer
+;;;;;;  emacspeak-w3-google-similar-to-this-page emacspeak-w3-google-on-this-site
+;;;;;;  emacspeak-w3-google-who-links-to-this-page emacspeak-w3-browse-xml-url-with-style
+;;;;;;  emacspeak-w3-browse-url-with-style emacspeak-w3-xpath-filter-and-follow
+;;;;;;  emacspeak-w3-class-filter-and-follow emacspeak-w3-extract-node-by-id
+;;;;;;  emacspeak-w3-extract-by-class-list emacspeak-w3-extract-by-class
+;;;;;;  emacspeak-w3-extract-tables-by-position-list emacspeak-w3-extract-table-by-position
+;;;;;;  emacspeak-w3-extract-nested-table-list emacspeak-w3-extract-nested-table
+;;;;;;  emacspeak-w3-extract-media-streams emacspeak-w3-xslt-filter
+;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
+;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
+;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16001 42246))
 ;;; Generated autoloads from emacspeak-w3.el
+
+(autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
+Apply specified transformation to current page." t nil)
+
+(autoload (quote emacspeak-w3-xslt-select) "emacspeak-w3" "\
+Select XSL transformation applied to WWW pages before they are displayed ." t nil)
+
+(autoload (quote emacspeak-w3-xsl-toggle) "emacspeak-w3" "\
+Toggle  application of XSL transformations.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package." t nil)
+
+(autoload (quote emacspeak-w3-count-matches) "emacspeak-w3" "\
+Count matches for locator  in HTML." t nil)
+
+(autoload (quote emacspeak-w3-count-nested-tables) "emacspeak-w3" "\
+Count nested tables in HTML." t nil)
+
+(autoload (quote emacspeak-w3-count-tables) "emacspeak-w3" "\
+Count  tables in HTML." t nil)
+
+(autoload (quote emacspeak-w3-set-xsl-keep-result) "emacspeak-w3" "\
+Set value of `emacspeak-w3-xsl-keep-result'." t nil)
+
+(autoload (quote emacspeak-w3-xslt-filter) "emacspeak-w3" "\
+Extract elements matching specified XPath path locator
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract table from.  " t nil)
+
+(autoload (quote emacspeak-w3-extract-media-streams) "emacspeak-w3" "\
+Extract links to media streams.
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically." t nil)
+
+(autoload (quote emacspeak-w3-extract-nested-table) "emacspeak-w3" "\
+Extract nested table specified by `table-index'. Default is to
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically." t nil)
+
+(autoload (quote emacspeak-w3-extract-nested-table-list) "emacspeak-w3" "\
+Extract specified list of tables from a WWW page." t nil)
+
+(autoload (quote emacspeak-w3-extract-table-by-position) "emacspeak-w3" "\
+Extract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive prefix arg causes url to be read from the minibuffer." t nil)
+
+(autoload (quote emacspeak-w3-extract-tables-by-position-list) "emacspeak-w3" "\
+Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page." t nil)
+
+(autoload (quote emacspeak-w3-extract-by-class) "emacspeak-w3" "\
+Extract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion." t nil)
+
+(autoload (quote emacspeak-w3-extract-by-class-list) "emacspeak-w3" "\
+Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. " t nil)
+
+(autoload (quote emacspeak-w3-extract-node-by-id) "emacspeak-w3" "\
+Extract specified node from URI." t nil)
+
+(autoload (quote emacspeak-w3-class-filter-and-follow) "emacspeak-w3" "\
+Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well." t nil)
+
+(autoload (quote emacspeak-w3-xpath-filter-and-follow) "emacspeak-w3" "\
+Follow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well." t nil)
+
+(autoload (quote emacspeak-w3-browse-url-with-style) "emacspeak-w3" "\
+Browse URL with specified XSL style." t nil)
+
+(autoload (quote emacspeak-w3-browse-xml-url-with-style) "emacspeak-w3" "\
+Browse XML URL with specified XSL style." t nil)
+
+(autoload (quote emacspeak-w3-google-who-links-to-this-page) "emacspeak-w3" "\
+Perform a google search to locate documents that link to the
+current page." t nil)
+
+(autoload (quote emacspeak-w3-google-on-this-site) "emacspeak-w3" "\
+Perform a google search restricted to the current WWW site." t nil)
+
+(autoload (quote emacspeak-w3-google-similar-to-this-page) "emacspeak-w3" "\
+Ask Google to find documents similar to this one." t nil)
+
+(autoload (quote emacspeak-w3-preview-this-buffer) "emacspeak-w3" "\
+Preview this buffer." t nil)
+
+(autoload (quote emacspeak-w3-preview-this-region) "emacspeak-w3" "\
+Preview this region." t nil)
+
+(autoload (quote emacspeak-w3-browse-rss-at-point) "emacspeak-w3" "\
+Browses RSS url under point." t nil)
 
 (autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
 Play url under point as realaudio" t nil)
@@ -854,6 +1000,42 @@ for the current voice family." t nil)
 
 (autoload (quote emacspeak-xml-shell) "emacspeak-xml-shell" "\
 Start Xml-Shell on contents of system-id." t nil)
+
+;;;***
+
+;;;### (autoloads (emacspeak-xslt-xml-url emacspeak-xslt-url emacspeak-xslt-region)
+;;;;;;  "emacspeak-xslt" "emacspeak-xslt.el" (16001 42360))
+;;; Generated autoloads from emacspeak-xslt.el
+
+(autoload (quote emacspeak-xslt-region) "emacspeak-xslt" "\
+Apply XSLT transformation to region and replace it with
+the result.  This uses XSLT processor xsltproc available as
+part of the libxslt package." nil nil)
+
+(autoload (quote emacspeak-xslt-url) "emacspeak-xslt" "\
+Apply XSLT transformation to url
+and return the results in a newly created buffer.
+  This uses XSLT processor xsltproc available as
+part of the libxslt package." nil nil)
+
+(autoload (quote emacspeak-xslt-xml-url) "emacspeak-xslt" "\
+Apply XSLT transformation to XML url
+and return the results in a newly created buffer.
+  This uses XSLT processor xsltproc available as
+part of the libxslt package." nil nil)
+
+;;;***
+
+;;;### (autoloads (voice-lock-mode) "voice-setup" "voice-setup.el"
+;;;;;;  (15998 23365))
+;;; Generated autoloads from voice-setup.el
+
+(autoload (quote voice-lock-mode) "voice-setup" "\
+Toggle Voice Lock mode.
+With arg, turn Voice Lock mode on if and only if arg is positive.
+
+This light-weight voice lock engine leverages work already done by
+font-lock.  Voicification is effective only if font lock is on." t nil)
 
 ;;;***
 

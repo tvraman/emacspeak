@@ -37,11 +37,6 @@
 
 ;;}}}
 
-(require 'advice)
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; This module extends the Emacs Calculator.
@@ -49,6 +44,10 @@
 ;;; We force a calc-load-everything,
 ;;; And use an after advice on this function
 ;;; To fix all of calc's interactive functions
+
+;;}}}
+;;{{{ required modules
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  advice calc interaction 

@@ -60,7 +60,6 @@
 (require 'advice)
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-personality)
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-fix-interactive)

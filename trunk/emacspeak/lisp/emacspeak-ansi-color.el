@@ -51,15 +51,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'acss-structure)
-(require 'voice-setup)
-(require 'emacspeak-personality)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ color to voice
 

@@ -39,16 +39,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Required modules
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-keymap)
-(eval-when (compile)
-  (and (locate-library "arc-mode")
-       (load-library "arc-mode")))
-
+(require 'emacspeak-preamble)
+(eval-when-compile
+  (require 'arc-mode))
 ;;}}}
 ;;{{{  Introduction 
 
