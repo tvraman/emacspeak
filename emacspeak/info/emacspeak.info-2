@@ -1002,11 +1002,10 @@ source-level documentation.
 * emacspeak-w3::
 * emacspeak-websearch::
 * emacspeak-widget::
-* emacspeak-wizards::
 * emacspeak::
 * dis-quote::
 * emacspeak-w3search::
-* ANONYMOUS::
+* emacspeak-wizards::
 
 
 File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands

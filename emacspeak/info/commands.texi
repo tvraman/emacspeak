@@ -67,8 +67,6 @@ documentation.
 * dis-quote::                   
 * emacspeak-w3search::          
 * emacspeak-wizards::           
-* ANONYMOUS::                   
-* ANONYMOUS::                   
 @end menu
 
 @node dtk-speak
@@ -5009,33 +5007,18 @@ Provides completion based on properties that are of interest.
 If no property is set, show a message and exit.
 @end deffn
 
-@node ANONYMOUS
-@section ANONYMOUS
-
-
 
 
 
 
 Automatically generated documentation
-for commands defined in module  ANONYMOUS.
+for commands defined in module  nil.
 
 
 
 @deffn emacspeak-w3-jump-to-submit
 Jump to next available submit button.
 @end deffn
-
-@node ANONYMOUS
-@section ANONYMOUS
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  ANONYMOUS.
 
 
 
