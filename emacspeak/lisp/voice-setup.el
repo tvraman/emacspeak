@@ -235,7 +235,7 @@ command \\[customize-variable] on <personality>-settings."
      :set
      '(lambda  (sym val)
         (let ((voice-name
-               (voice-setup-personality-from-style val)))
+ (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
           (dtk-define-voice-alias '(, personality) voice-name)
           (set-default sym val))))))
