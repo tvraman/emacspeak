@@ -41,9 +41,6 @@ relevant tables bubble to the top.
     <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
     <xsl:include href="object.xsl"/>
     <xsl:include href="identity.xsl"/>
-    <xsl:template match="/">
-        <xsl:apply-templates/>
-    </xsl:template>
     <!-- { html body  -->
     <!-- nuke these -->
     <xsl:template match="//script|//meta"/>
@@ -51,16 +48,16 @@ relevant tables bubble to the top.
         <head>
             <xsl:apply-templates select="title"/>
             <xsl:if test="string-length($base) &gt; 0">
-                <xsl:element name="base">
+                <base>
                     <xsl:attribute name="href">
                         <xsl:value-of select="$base"/>
                     </xsl:attribute>
-                </xsl:element>
+                </base>
             </xsl:if>
         </head>
     </xsl:template>
     <xsl:template match="body">
-        <xsl:element name="body">
+        <body>
             <xsl:apply-templates select="@*"/>
             <xsl:variable name="i" select="//table//table"/>
             <xsl:if test="count($i)  &gt; 0">
@@ -122,34 +119,33 @@ relevant tables bubble to the top.
                     of the table (where specified).
                 </p>
             </xsl:if>
-        </xsl:element>
+        </body>
     </xsl:template>
     
     <xsl:template match="//table//table">
         <xsl:variable name="rows" select="count(./tr)"/>
         <xsl:variable name="cols" select="count(./tr/td)"/>
-        <xsl:element name="a">
+        <a>
             <xsl:attribute name="href">
-                <xsl:text>#</xsl:text>
-                <xsl:value-of select="generate-id(.)"/>
+                <xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/>
             </xsl:attribute>
             <xsl:attribute name="name">
                 <xsl:text>src-</xsl:text>
                 <xsl:value-of select="generate-id(.)"/>
             </xsl:attribute>
             <xsl:choose>
+                <xsl:when test="$rows &lt;= 1 and $cols &lt;=  1">
+                    <xsl:apply-templates select="./tr/td/*"/>
+                </xsl:when>
                 <xsl:when test="@summary">
                     <xsl:value-of select="@summary"/>
-                </xsl:when>
-                <xsl:when test="$rows = 1 and $cols = 1">
-                    <xsl:apply-templates select="./tr/td/*"/>
                 </xsl:when>
                 <xsl:otherwise>
                     [<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:text> </xsl:text>
-        </xsl:element>
+        </a>
     </xsl:template>
     <!-- } -->
 </xsl:stylesheet>
