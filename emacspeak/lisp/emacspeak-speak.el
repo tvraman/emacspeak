@@ -1670,16 +1670,22 @@ current coding system, then we return an empty string."
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
-(defun emacspeak-speak-buffer-filename ()
+(defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file."
-  (interactive)
+or when the buffer is not visiting any file. 
+Interactive prefix arg `filename' speaks only the final path
+component.
+The result is put in the kill ring for convenience."
+  (interactive "P")
+(let ((location (or (buffer-file-name)
+               default-directory)))
+  (when filename
+    (setq location
+          (file-name-nondirectory location)))
+  (kill-new location)
   (dtk-speak
-   (or (buffer-file-name)
-       (format "Default directory is %s"
-               default-directory))))
-
+   location))) 
 ;;}}}
 ;;{{{  Speak text without moving point
 
