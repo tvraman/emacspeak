@@ -2847,6 +2847,16 @@ changed."
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
 ;;}}}
+;;{{{ disable transient mark mode
+(defadvice transient-mark-mode (around emacspeak pre act
+                                       comp)
+  "Transient mark mode is disabled by emacspeak."
+  (message
+   "Will not turn on transient mark mode when Emacspeak is
+running."))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
