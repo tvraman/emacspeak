@@ -118,7 +118,7 @@ in REGEXP."
 ;;; Workhorse functions.
 
 (eval-when-compile
-  (require 'cl))
+  (eval-when-compile (require 'cl)))
 
 (unless (fboundp 'make-bool-vector)
   (defalias 'make-bool-vector 'make-vector))

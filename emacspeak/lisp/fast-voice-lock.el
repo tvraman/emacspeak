@@ -200,7 +200,7 @@
 ;; - Wrap with `save-buffer-state' (Ray Van Tassle report)
 ;; - Made `fast-voice-lock-mode' wrap `voice-lock-support-mode'
 
-(require 'cl)
+(eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (load compile)
   (require 'dtk-voices)

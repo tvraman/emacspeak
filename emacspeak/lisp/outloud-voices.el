@@ -48,7 +48,7 @@
 ;;}}}
 ;; 
 ;;; Code:
-(require 'cl)
+(eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (load-library "cl-extra"))
 ;;{{{  voice table

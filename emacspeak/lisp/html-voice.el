@@ -108,7 +108,7 @@
 ;;   * It almost works for XEmacs 19.10/11, but with "screwy colours" 8-().
 
 ;;; Code:
-(require 'cl)
+(eval-when-compile (require 'cl))
 (eval-when (compile)
   (condition-case nil 
 (require 'html-helper-mode)  ; When we like to modify the syntax table

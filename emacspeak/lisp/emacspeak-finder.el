@@ -39,7 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;Inspired by finder.el
-(require 'cl)
+(eval-when-compile (require 'cl))
 (require 'lisp-mnt)
 
 (defvar emacspeak-finder-inf-file

@@ -30,7 +30,7 @@
 
 ;;; Code:
 
-
+(eval-when-compile (require 'cl))
 (require 'voice-lock)
 
 (eval-when-compile
