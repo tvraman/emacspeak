@@ -200,7 +200,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-archive-personality 'paul-surprized
+(defcustom emacspeak-eshell-ls-archive-personality 'paul-animated
   "Personality for archive files."
   :type 'symbol
   :group 'emacspeak-eshell)

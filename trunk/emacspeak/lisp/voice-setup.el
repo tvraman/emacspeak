@@ -289,7 +289,7 @@ command \\[customize-variable] on <personality>-settings."
   "Personality to use for function names.")
   
 (def-voice-font voice-lock-warning-personality
-  'paul-angry
+  'rita
   'font-lock-warning-face
   "Personality to use for warnings.")
 
