@@ -167,7 +167,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{ html helper mode: 
 
     (augment-auto-mode-alist ".css$" 'c++-mode)
-    (load-library-if-available "html-helper-prepare")
+    ;(load-library-if-available "html-helper-prepare")
 
     ;;}}}
     ;;{{{ python setup
@@ -419,11 +419,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ tramp
-    (load-library-if-available "tramp-prepare")
+    ;(load-library-if-available "tramp-prepare")
 
     ;;}}}
     ;;{{{  calendar
-
+    (require 'ediary)
     (require 'calendar)
     (global-set-key "\M-\C-c" 'calendar)
     ;;}}}

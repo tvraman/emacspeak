@@ -348,12 +348,10 @@ set the current local value to the result."
 
 (defadvice erc-make-notice (around emacspeak  pre act comp)
   "Ignore notices from server is emacspeak-erc-ignore-notices it set."
+  ad-do-it
   (cond
-   ((not emacspeak-erc-ignore-notices )
-    ad-do-it
-    ad-return-value)
-   (t					;ad-do-it
-    ". ")))
+   ((not emacspeak-erc-ignore-notices ) ad-return-value)
+   (t " ")))
 
 ;;}}}
 ;;{{{ define emacspeak keys
