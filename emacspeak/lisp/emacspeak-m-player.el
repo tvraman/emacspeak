@@ -48,7 +48,9 @@
   (require 'emacspeak-fix-interactive))
 (require 'emacspeak-aumix)
 (require 'emacspeak-sounds)
-
+;;; eventually move common media related definitions.
+;;; Alternatively integrate realaudio and media player into a single module.
+(require 'emacspeak-realaudio)
 ;;}}}
 ;;{{{ Introduction:
 
