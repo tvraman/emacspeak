@@ -25,9 +25,8 @@
       <title>Online Help</title>
       <qandaentry>
         <question>
-
           <para>
-            Getting help.</para>
+            Interactie help.</para>
         </question>
         <answer>
           <para>
@@ -38,12 +37,16 @@
             <simplelist type="vert">
               <member>
                 <command><keysym>c</keysym></command>
-                to lookup command run by a given key.
+                 looks up  command run by a given key.
               </member>
               <member>
                 <command><keysym>k</keysym></command>
-                to  look up documentation for a given key.
+                  looks up documentation for a given key.
               </member>
+              <member>
+                <command><keysym>w</keysym></command>
+looks up key that invokes specified command.
+</member>
             </simplelist>
           </para>
         </answer>
