@@ -64,7 +64,6 @@ Make sure you read the Emacs info pages
 
 %doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/*.texi 
 
-
 # local variables:
 # mode: rpm-spec
 # end:
