@@ -83,7 +83,10 @@
     <p>
       As of the last update, there are a total of
       <em><xsl:value-of select="count(//application)"/></em>
-      speech-enabled applications on the Emacspeak audio desktop.
+      speech-enabled applications 
+      in <em><xsl:value-of select="count(//category)"/></em> categories
+
+      on the Emacspeak audio desktop.
     </p>
     <ol>
       <xsl:for-each select="//category">
