@@ -148,34 +148,18 @@ Argument BODY specifies forms to execute."
 ;;}}}
 ;;{{{ getting and speaking text ranges
 
-;;; need to rationalize names
+
 (defsubst emacspeak-speak-get-text-range (property)
-  "Return text range  starting at point and having the same value as  specified by argument PROPERTY."
-  (let ((start (point))
-        (end (next-single-property-change (point)
-                                          property
-                                          (current-buffer)
-                                          (point-max))))
-    (buffer-substring start end )))
+  "Return text range  around  at point and having the same value as  specified by argument PROPERTY."
+  (buffer-substring
+   (previous-single-property-change (point)
+                                    property nil (point-min))
+   (next-single-property-change
+    (point) property nil (point-max))))
 
 (defun emacspeak-speak-text-range (property)
   "Speak text range identified by this PROPERTY."
   (dtk-speak (emacspeak-speak-get-text-range property)))
-
-(defsubst emacspeak-speak-property-range (property)
-  "Speak range of text around point that  has a constant value for
-specified property."
-  (interactive
-   (list
-    (read-from-minibuffer "Property: ")))
-  (dtk-speak 
-   (buffer-substring
-    (previous-single-property-change
-     (1+ (point)) property
-     nil (point-min))
-    (next-single-property-change
-     (point)
-     property nil (point-max)))))
 
 ;;}}}
 ;;{{{  Apply audio annotations
