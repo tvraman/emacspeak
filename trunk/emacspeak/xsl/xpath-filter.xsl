@@ -35,7 +35,6 @@ asks that nodes be processed only once -use with care.
           </xsl:attribute>
         </xsl:element>
       </xsl:if>
-      <xsl:apply-templates select="title"/>
     </head>
   </xsl:template>
   
