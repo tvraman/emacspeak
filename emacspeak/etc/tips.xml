@@ -58,7 +58,7 @@
             (<command>info</command>) by pressing
             <command><keysym>C-h i</keysym></command>.
             Press <command><keysym>h</keysym></command> when
-            using the <application>Info</application> to
+            using  <application>Info</application> to
             obtain a primer for first time users.
           </para>
         </answer>
@@ -96,7 +96,7 @@
         </question>
         <answer>
           <para>
-            Hitting the <command><keysym>tab</keysym></command>
+            Hitting  <command><keysym>tab</keysym></command>
             causes Emacs to complete the currently typed input as far as
             possible.
             If there is more than one choice available, Emacspeak plays
