@@ -16,12 +16,19 @@ Description: Generate Table of contents
     <!-- } -->
   <!-- {contents  --> 
     <xsl:template match="/html/body">
-      <h1>Table Of Contents</h1>
+      <table>
+<caption>Auto TOC</caption>
+<tr>
+<td><a href="#__about_this_style">About This Style</a></td>
+      </tr></table>
       <ol>
         <xsl:apply-templates select="//h1|//h2|//h3"
                              mode="toc"/>
       </ol>
       <xsl:apply-templates/>
+<h2><a name="__about_this_style">About This Style</a></h2>
+<p>This style genrates a table of contents.</p>
+        the sections in the 
     </xsl:template>
 
     <xsl:template match="//h1|//h2|//h3" mode="toc">
