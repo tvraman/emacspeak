@@ -91,7 +91,8 @@
 (require 'custom)
 (require 'backquote)
 (require 'acss-structure)
-
+(require 'dtk-voices)
+(require 'outloud-voices)
 ;;}}}
 ;;{{{  helper for voice custom items:
 (defun voice-setup-custom-menu ()
