@@ -239,7 +239,7 @@ automatically."
 (defadvice tnt-append-message-and-adjust-window (after emacspeak pre act comp)
   "Speak messages if autospeak is on, and the conversation buffer is selected."
   (let ((buffer  (ad-get-arg 0))
-        (message (ad-get-arg 1)))
+        (message (tnt-strip-html (ad-get-arg 1))))
     (when (and emacspeak-tnt-autospeak
                (eq (current-buffer)
                    buffer))
