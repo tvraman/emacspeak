@@ -449,9 +449,6 @@
     ("emacspeak.el"
         "Emacspeak -- The Complete Audio Desktop"
         (emacspeak  speech  dectalk ))
-    ("fast-voice-lock.el"
-        "Support mode for voice locking"
-        nil)
     ("html-outline.el"
         "Extends html-helper-mode to provide outline and imenu support"
         nil)

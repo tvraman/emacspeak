@@ -441,7 +441,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;***
 
 ;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
-;;;;;;  "emacspeak-w3.el" (15929 47662))
+;;;;;;  "emacspeak-w3.el" (15946 30468))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
@@ -599,10 +599,10 @@ in REGEXP." nil nil)
 
 ;;;***
 
-;;;### (autoloads (voice-lock-voiceify-buffer global-voice-lock-mode
-;;;;;;  turn-on-voice-lock voice-lock-mode voice-lock-maximum-size
-;;;;;;  voice-lock-maximum-decoration) "voice-lock" "voice-lock.el"
-;;;;;;  (15896 27085))
+;;;### (autoloads (voice-lock-voiceify-buffer voice-lock-support-mode
+;;;;;;  global-voice-lock-mode turn-on-voice-lock voice-lock-mode
+;;;;;;  voice-lock-maximum-size voice-lock-maximum-decoration) "voice-lock"
+;;;;;;  "voice-lock.el" (15946 33205))
 ;;; Generated autoloads from voice-lock.el
 
 (defvar voice-lock-maximum-decoration nil "\
@@ -701,10 +701,10 @@ Returns the new status of Global Voice Lock mode (non-nil means on).
 When Global Voice Lock mode is enabled, Voice Lock mode is automagically
 turned on in a buffer if its major mode is one of `voice-lock-global-modes'." t nil)
 
-(defvar voice-lock-support-mode nil "\
+(defvar voice-lock-support-mode (quote lazy-voice-lock-mode) "\
 *Support mode for Voice Lock mode.
 Support modes speed up Voice Lock mode by being choosy about when voiceification
-occurs.  Known support modes are Fast Lock mode (symbol `fast-voice-lock-mode') and
+occurs.  Known support modes are 
 Lazy Lock mode (symbol `lazy-voice-lock-mode').  See those modes for more info.
 If nil, means support for Voice Lock mode is never performed.
 If a symbol, use that support mode.
