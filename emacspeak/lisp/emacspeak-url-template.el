@@ -607,9 +607,7 @@ name of the list.")
 	(format "query=%s&qt=%s"
 		q q ))))
  nil
- "Search CNN"
- #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 10 url 'speak)))
+ "Search CNN")
 
 (emacspeak-url-template-define
  "CNN Weather "
