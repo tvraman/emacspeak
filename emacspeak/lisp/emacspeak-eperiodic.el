@@ -99,7 +99,7 @@
   "Eperiodic face for liquid elements."
   :group 'eperiodic)
 
-(def-voice-font emacspeak-eperiodic-gas-personality  voice-lighten
+(def-voice-font emacspeak-eperiodic-gas-personality  voice-lighten-extra
 ' eperiodic-gas-face
   "Eperiodic face for gaseous elements."
   :group 'eperiodic)
@@ -167,20 +167,20 @@ name)
 (defadvice eperiodic-find-element (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (message (emacspeak-eperiodic-name-element-at-point))
+    (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eperiodic-previous-element (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (message (emacspeak-eperiodic-name-element-at-point))
+    (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice eperiodic-next-element (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (message (emacspeak-eperiodic-name-element-at-point))
+    (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice eperiodic (after emacspeak pre act comp)
   "Provide spoken feedback."
@@ -207,6 +207,14 @@ name)
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
+
+(defadvice eperiodic-cycle-view (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+(message "View %s"
+         eperiodic-colour-element-function)))
+
 
 ;;}}}
 (provide 'emacspeak-eperiodic)
