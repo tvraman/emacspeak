@@ -705,7 +705,7 @@ sets punctuation mode to all, and turns on split caps."
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions 
 (add-hook 'after-init-hook
-          'emacspeak-fix-all-recent-commands)
+          'emacspeak-fix-commands-that-use-interactive)
 
 ;;}}}
 (provide 'emacspeak)
