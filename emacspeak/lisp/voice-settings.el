@@ -35,10 +35,13 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
+;;{{{ Required modules 
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (load-library "cl-extra"))
+
+;;}}}
 ;;{{{ flexible way of adding new voice lock modes:
 
 (defvar voice-lock-mode-specific-keywords-table
@@ -133,6 +136,7 @@ Return nil if not set."
   "keywords for voice locking scheme code.")
 
 ;;}}}
+
 ;;}}}
 ;;{{{ set voice lock keywords for various modes
 
