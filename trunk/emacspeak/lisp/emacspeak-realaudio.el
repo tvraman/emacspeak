@@ -197,16 +197,11 @@ urls have a .ram or .rm extension.")
   (kill-process emacspeak-realaudio-process)
   (message "Stopped RealAudio")
   (emacspeak-toggle-auditory-icons t))
-
-(defun emacspeak-realaudio-trplayer-command (char)
-  "Execute TRPlayer command."
-  (interactive "cTRPlayer Command:")
+(defun emacspeak-realaudio-dispatch (char )
+  "Dispatch `CHAR'  to realaudio process.
+Echo output and return it as a string."
   (declare (special emacspeak-realaudio-process))
-  (cond
-   ((char-equal char ?\;)
-    (emacspeak-realaudio-select-realaudio-buffer))
-   (t 
-    (let*  ((buffer (process-buffer emacspeak-realaudio-process))
+  (let*  ((buffer (process-buffer emacspeak-realaudio-process))
 	    (mark (save-excursion
 		    (set-buffer buffer)
 		    (point-max))))
@@ -218,7 +213,17 @@ urls have a .ram or .rm extension.")
 	       (save-excursion
 		 (set-buffer buffer)
 		 (buffer-substring mark (process-mark
-					 emacspeak-realaudio-process))))))))
+					 emacspeak-realaudio-process))))))
+
+
+(defun emacspeak-realaudio-trplayer-command (char)el
+  "Execute TRPlayer command."
+  (interactive "cTRPlayer Command:")
+  (declare (special emacspeak-realaudio-process))
+  (cond
+   ((char-equal char ?\;)
+    (emacspeak-realaudio-select-realaudio-buffer))
+   (t (emacspeak-realaudio-dispatch char ))))
 
 (emacspeak-fix-interactive-command-if-necessary
  'emacspeak-realaudio-trplayer-command)
