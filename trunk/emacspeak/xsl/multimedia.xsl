@@ -25,7 +25,7 @@ Eventually try produce only one instance of each link.
   </xsl:template>
   <xsl:template match="a">
     <xsl:variable name="url" select="@href"/>
-    <xsl:if test="contains($url,'.ra')       or contains($url, 'mp3')        or contains($url, 'm3u')">
+    <xsl:if test="contains($url,'.ra')       or contains($url, 'mp3')       or contains($url,'.rm')       or contains($url, 'm3u')">
       <li>
         <xsl:copy>
           <xsl:apply-templates select="@*"/>
@@ -36,7 +36,7 @@ Eventually try produce only one instance of each link.
   </xsl:template>
   <xsl:template match="objector embed">
     <xsl:variable name="url" select="@src"/>
-    <xsl:if test="contains($url,'.ra')       or contains($url, 'mp3')        or contains($url, 'm3u')">
+    <xsl:if test="contains($url,'.ra')       or contains($url, 'rm')       or contains($url, 'mp3')       or contains($url, 'm3u')">
       <li>
         <xsl:element name="a">
           <xsl:attribute name="href">
