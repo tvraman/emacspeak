@@ -56,7 +56,7 @@
 (require 'emacspeak-sounds)
 (require 'derived)
 (require 'xml-parse)
-;(require 'emacspeak-w3)
+(require 'emacspeak-w3)
 (eval-when-compile (require 'emacspeak-keymap))
 ;;}}}
 ;;{{{  Customization variables

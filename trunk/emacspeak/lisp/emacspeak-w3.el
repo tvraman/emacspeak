@@ -108,6 +108,7 @@
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+    (define-key w3-mode-map "\M-r" 'emacspeak-realaudio-play-url-at-point)
     (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
     (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
     (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
@@ -1232,6 +1233,22 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-rss-display url 'speak))
      (t (error "No URL under point.")))))
+
+;;}}}
+;;{{{  play url at point 
+(defun emacspeak-w3-realaudio-play-url-at-point (&optional prompt-time)
+  "Play url under point as realaudio"
+  (interactive "P")
+  (declare (special emacspeak-realaudio-dont-insist-on-ram-url))
+  (let ((url (w3-view-this-url 'no-show)))
+    (cond
+     ((or emacspeak-realaudio-dont-insist-on-ram-url
+	  (string-match ".rm?$" url)
+	  (string-match ".ram?$" url))
+      (message "Playing Realaudio URL under point")
+      (emacspeak-realaudio-play url prompt-time))
+     (t (message "%s does not look like realaudio"
+		 url)))))
 
 ;;}}}
 ;;{{{  emacs local variables 

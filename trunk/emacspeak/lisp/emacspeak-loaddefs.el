@@ -29,7 +29,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15897 145))
+;;;;;;  (15897 64692))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -129,7 +129,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15897 146))
+;;;;;;  (15897 64797))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -173,8 +173,8 @@ For detailed help, invoke command emacspeak-ocr bound to
 ;;;***
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
-;;;;;;  emacspeak-realaudio-play-url-at-point emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15897 30))
+;;;;;;  emacspeak-realaudio-process-sentinel emacspeak-realaudio-play)
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15898 416))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\
@@ -183,8 +183,8 @@ shortcuts directory for completion.  See documentation for
 user configurable variable
 emacspeak-realaudio-shortcuts-directory. " t nil)
 
-(autoload (quote emacspeak-realaudio-play-url-at-point) "emacspeak-realaudio" "\
-Play url under point as realaudio" t nil)
+(autoload (quote emacspeak-realaudio-process-sentinel) "emacspeak-realaudio" "\
+Cleanup after realaudio is done. " nil nil)
 
 (autoload (quote emacspeak-realaudio) "emacspeak-realaudio" "\
 Start or control streaming audio including MP3 and
@@ -241,7 +241,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15897 146))
+;;;;;;  "emacspeak-rss.el" (15897 64625))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
