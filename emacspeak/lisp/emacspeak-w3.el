@@ -588,11 +588,12 @@ source buffer."
   (declare (special emacspeak-w3-xsl-keep-result))
   (setq emacspeak-w3-xsl-keep-result value))
 ;;;###autoload
-(defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result )
+(defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result complement)
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  "
+specifies the page to extract table from.
+Optional arg COMPLEMENT inverts the filter.  "
   (interactive
    (list
     (read-from-minibuffer "XPath: ")
@@ -600,7 +601,8 @@ specifies the page to extract table from.  "
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-w3-xsl-keep-result
                     emacspeak-xslt-program
-                    emacspeak-w3-xsl-filter))
+                    emacspeak-w3-xsl-filter
+                    emacspeak-w3-xsl-junk))
   (unless (or prompt-url
               (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
@@ -625,7 +627,9 @@ specifies the page to extract table from.  "
       (search-forward "\n\n" nil t)
       (delete-region (point-min) (point))
       (emacspeak-xslt-region
-       emacspeak-w3-xsl-filter
+       (if complement
+           emacspeak-w3-xsl-junk
+           emacspeak-w3-xsl-filter)
        (point-min)
        (point-max)
        (list
@@ -650,6 +654,14 @@ specifies the page to extract table from.  "
           (set-buffer src-buffer)
           (rename-buffer  emacspeak-w3-xsl-keep-result  'unique)))
        (t (kill-buffer src-buffer))))))
+
+(defun emacspeak-w3-xslt-junk (path   &optional prompt-url)
+  "Junk elements matching specified locator."
+  (interactive
+   (list
+    (read-from-minibuffer "XPath: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter path prompt-url 'speak 'complement))
 
 (defcustom emacspeak-w3-media-stream-suffixes
   (list
@@ -870,11 +882,41 @@ completion. "
      prompt-url
      (or (interactive-p) speak))))
 
+(defun emacspeak-w3-junk-by-class-list(classes   &optional prompt-url speak)
+  "Junk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. "
+  (interactive
+   (list
+    (emacspeak-w3-css-get-class-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(@class=\"%s\")" c))
+           classes
+           " or "))
+    (emacspeak-w3-xslt-filter
+     (format "//*[%s]" filter)
+     prompt-url
+     (or (interactive-p) speak)
+     'complement)))
+
+
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
                     emacspeak-xslt-directory)
   "XSL transform to extract  elements matching a specified
 XPath locator.")
+(defvar emacspeak-w3-xsl-junk
+  (expand-file-name "xpath-junk.xsl"
+                    emacspeak-xslt-directory)
+  "XSL transform to junk  elements matching a specified
+XPath locator.")
+
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "k"
@@ -882,6 +924,7 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "a"
   'emacspeak-w3-xslt-apply)
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
+(define-key emacspeak-w3-xsl-map "j" 'emacspeak-w3-xslt-junk)
 (define-key emacspeak-w3-xsl-map "p"
   'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "r" 'emacspeak-w3-extract-media-streams)
@@ -895,7 +938,9 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
-(define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
+(define-key emacspeak-w3-xsl-map "C"
+  'emacspeak-w3-extract-by-class-list)
+(define-key emacspeak-w3-xsl-map "\C-c" 'emacspeak-w3-junk-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x"
   'emacspeak-w3-extract-nested-table)
