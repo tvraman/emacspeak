@@ -1091,8 +1091,10 @@ The line under point is then spoken.
 Signals end of buffer."
   (interactive)
   (let ((save-syntax (char-syntax 10))
-                     (voice-lock-mode t)
-                     (skipped nil)
+        (start (point))
+        (newlines nil)
+        (voice-lock-mode t)
+        (skipped nil)
         (skip 0))
     (unwind-protect
         (progn
@@ -1105,14 +1107,17 @@ Signals end of buffer."
            ((eobp)
             (message "At end of buffer"))
            (t
-            (setq skipped  (format "skip %d " skip))
-            (put-text-property  0 (length skipped)
-                                'personality
-                                'annotation-voice skipped)
-(emacspeak-auditory-icon 'select-object)
-             (dtk-speak
-              (concat skipped
-                      (thing-at-point 'line))))))
+            (setq newlines (1-  (count-lines start (point))))
+            (when (>  newlines 0)
+              (setq skipped
+                    (format "skip %d " newlines))
+              (put-text-property  0 (length skipped)
+                                  'personality
+                                  'annotation-voice skipped))
+            (emacspeak-auditory-icon 'select-object)
+            (dtk-speak
+             (concat skipped
+                     (thing-at-point 'line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
 
 (defun emacspeak-skip-blank-lines-backward ()
@@ -1122,6 +1127,8 @@ Signals beginning  of buffer."
   (interactive)
   (let ((save-syntax (char-syntax 10))
         (voice-lock-mode t)
+        (newlines nil)
+        (start (point))
         (skipped nil)
         (skip 0))
     (unwind-protect
@@ -1135,11 +1142,12 @@ Signals beginning  of buffer."
            ((bobp )
             (message "At start  of buffer"))
            (t
-            (setq skipped  (format "skip %d "
-                                   (abs skip)))
-            (put-text-property  0 (length skipped)
-                                'personality
-                                'annotation-voice skipped)
+            (setq newlines (1- (count-lines start (point))))
+            (when (> newlines 0)
+              (setq skipped  (format "skip %d " newlines))
+              (put-text-property  0 (length skipped)
+                                  'personality
+                                  'annotation-voice skipped))
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak
              (concat skipped
