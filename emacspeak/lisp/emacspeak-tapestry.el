@@ -37,19 +37,15 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile) (require 'tapestry))
-(require 'voice-setup)
-(condition-case nil 
-    (require 'tapestry)
-  (error "Could not locate tapestry.el"))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
+
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to speak window widnow layouts 
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
+(require 'tapestry)
 
 ;;}}}
 ;;{{{  Interactive defun 

@@ -36,19 +36,17 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(eval-when-compile (require 'dtk-speak)
-                   (require 'emacspeak-speak)
-                   (require 'emacspeak-sounds))
-
+
 ;;{{{  Introduction:
 
                                         ;;; tempo.el provides the
 ;;; infrastructure  for building up templates.
 ;;; This is used by html-helper-mode to allow for easy writing of HTML
 ;;; This module extends Emacspeak to provide fluent spoken feedback
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  First setup tempo variables:

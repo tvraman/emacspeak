@@ -56,18 +56,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'voice-setup)
-(require 'emacspeak-speak)
-(require 'emacspeak-personality)
-(require 'emacspeak-keymap)
-(require 'emacspeak-sounds)
-					;(eval-when-compile (require 'speedbar))
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ custom
 

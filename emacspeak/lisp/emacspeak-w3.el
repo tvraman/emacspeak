@@ -53,6 +53,7 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{  custom
 

@@ -37,13 +37,14 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
 
 ;;{{{  Introduction:
 ;;; This module is a simple table recognizer.
 ;;; Can recognize the columns in tabulated output, e.g. ps, ls output
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  helper functions:
