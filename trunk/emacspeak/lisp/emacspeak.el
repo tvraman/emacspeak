@@ -473,12 +473,6 @@ the block. Use in conjunction with emacspeak-hide-or-expose-block"
 ;;{{{ autoload  custom groups 
 (put 'voice-lock 'custom-loads '("voice-lock"))
 (put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
-(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
 (put 'emacspeak-widget 'custom-loads '("emacspeak-widget"))
 (put 'emacspeak-websearch 'custom-loads '("emacspeak-websearch"))
 (put 'emacspeak-w3 'custom-loads '("emacspeak-w3"))

@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{ voice locking:
 
-(defgroup  emacspeak-vm nil
+(defgroup emacspeak-vm nil
   "VM mail reader on the Emacspeak Desktop."
   :group 'emacspeak
   :group 'vm
