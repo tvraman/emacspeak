@@ -623,7 +623,8 @@ before the message is spoken."
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
-                     (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
+                     (setq emacspeak-lazy-message-time
+(float-time  (current-time)))))
       ;; so we really need to speak it
       (when
           emacspeak-speak-messages-should-pause-ongoing-speech
@@ -1015,7 +1016,8 @@ in completion buffers"
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
-                     (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
+                     (setq emacspeak-lazy-message-time
+(float-time   (current-time)))))
       ;; so we really need to speak it
       (tts-with-punctuations "all"
                              (dtk-speak ad-return-value)))))
