@@ -284,7 +284,8 @@ set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
-    synth {`v1 Via  IBM  Via Voice,
+
+synth {`v1 Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
 synth
 
