@@ -8,6 +8,7 @@ and <pagenum>end+1</pagenum>
 are extracted. All other nodes are ignored.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:set="http://exslt.org/sets"
   version="1.0">
   <xsl:param name="start" select="1"/>
   <xsl:param name="end" select="1"/>
@@ -15,8 +16,6 @@ are extracted. All other nodes are ignored.
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/> 
   <xsl:template match="/">
-    <xsl:variable name="first"/>
-    <xsl:variable name="last"/>
     <html>
       <head>
         <link>
@@ -39,16 +38,15 @@ are extracted. All other nodes are ignored.
         <xsl:variable name="pages" select="//pagenum"/>
         <xsl:choose>
           <xsl:when test="count($pages)  &gt; 0">
-            <strong>Book has pages</strong>
-            <xsl:for-each select="//*">
-              <xsl:choose>
-<xsl:when test="name() = 'pagenum' and $start = number(text())">
-Got start.
-                </xsl:when>
-<xsl:when test="name()='pagenum' and $end  &lt;  number(text())">
-Got end
-                </xsl:when>
-              </xsl:choose>
+            <xsl:variable name="all" select="//*"/>
+            <xsl:variable name="first"
+            select="//pagenum[number(text())=$start]"/>
+            <xsl:variable name="last"
+            select="//pagenum[number(text()) &gt; $end]"/>
+            <xsl:variable name="after" select="set:trailing($all, $first)"/>
+            <xsl:variable name="before" select="set:leading($all, $last)"/>
+            <xsl:for-each select="set:intersection($before, $after)">
+              <xsl:copy-of select="."/>
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
