@@ -150,10 +150,13 @@ field in the customization buffer.  You can use the notation
         (t binding)))
      (cdr emacspeak-super-keymap)))
   "*Specifies super key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
+You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
+on Linux by having it emit the sequence `C-x@s'.
+
+Bindings specified here are available on prefix key `super'
 for example, if you bind 
 `s' to command emacspeak-emergency-tts-restart 
-then that command will be available on key C-e x s
+then that command will be available on key `super  s'
 
 The value of this variable is an association list. The car
 of each element specifies a key sequence. The cdr specifies
@@ -204,10 +207,14 @@ field in the customization buffer.  You can use the notation
         (t binding)))
      (cdr emacspeak-hyper-keymap)))
   "*Specifies hyper key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
+Emacs can use the `hyper' key as a modifier key.
+You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
+on Linux by having it emit the sequence `C-x@h'.
+
+Bindings specified here are available on prefix key  `hyper'
 for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
-then that command will be available on key C-e x s
+`b' to command `bbdb '
+then that command will be available on key `hyper b'.
 
 The value of this variable is an association list. The car
 of each element specifies a key sequence. The cdr specifies
