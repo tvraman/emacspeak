@@ -735,18 +735,18 @@ files like /var/adm/messages and /var/adm/maillog over time."
 :group 'emacspeak)
 
 (defun emacspeak-speak-line (&optional arg)
-  "Speaks current line.
-With prefix ARG, speaks the rest of the line
-from point.  Negative prefix optional arg speaks from start of line
-  to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
-  indentation with a tone if audio indentation is in use.  Indicates
-  position of point with an aural highlight if option
-  `emacspeak-show-point' is turned on --see command `emacspeak-show-point'
-  bound to \\[emacspeak-show-point].
-Lines that start hidden blocks of text,
-e.g.  outline header lines,
-or header lines of blocks created by command
-`emacspeak-hide-or-expose-block' are indicated with auditory icon ellipses."
+  "Speaks current line.  With prefix ARG, speaks the rest of
+the line from point.  Negative prefix optional arg speaks
+from start of line to point.  Voicifies if option
+`voice-lock-mode' is on.  Indicates indentation with a tone
+if audio indentation is in use.  Indicates position of point
+with an aural highlight if option `emacspeak-show-point' is
+turned on --see command `emacspeak-show-point' bound to
+\\[emacspeak-show-point].  Lines that start hidden blocks of
+text, e.g.  outline header lines, or header lines of blocks
+created by command `emacspeak-hide-or-expose-block' are
+indicated with auditory icon ellipses."
+
   (interactive "P")
   (declare (special voice-lock-mode
                     emacspeak-speak-space-regexp
@@ -763,7 +763,6 @@ or header lines of blocks created by command
           (end nil )
           (inhibit-point-motion-hooks t)
           (line nil)
-          (auditory-icon nil)
           (orig (point))
           (indent nil))
       (beginning-of-line)
@@ -830,13 +829,13 @@ or header lines of blocks created by command
               (confirm nil))
           (when
               (or selective-display
-                 (< l emacspeak-speak-maximum-line-length)
-                 (get-text-property start
-                                    'emacspeak-speak-this-long-line)
-                 (setq confirm 
-                 (y-or-n-p
-                  (format "Speak  this  %s long line? "
-                          l))))
+                  (< l emacspeak-speak-maximum-line-length)
+                  (get-text-property start
+                                     'emacspeak-speak-this-long-line)
+                  (setq confirm 
+                        (y-or-n-p
+                         (format "Speak  this  %s long line? "
+                                 l))))
             (when confirm 
               ;; record the y answer
               (ems-modify-buffer-safely
@@ -854,10 +853,6 @@ or header lines of blocks created by command
                   (setq indent (format "indent %d" indent))
                   (put-text-property   0 (length indent)
                                        'personality 'indent-voice  indent )
-                  (setq auditory-icon (get-text-property 0  'auditory-icon line))
-                  (when auditory-icon
-                    (put-text-property   0 (length indent)
-                                         'auditory-icon auditory-icon  indent ))
                   (dtk-speak (concat indent line)))
               (dtk-speak line)))))))))
 

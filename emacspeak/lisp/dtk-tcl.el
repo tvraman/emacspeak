@@ -253,44 +253,43 @@ Optional argument FORCE  flushes the command to the speech server."
   "Quote any delimiters that need special treatment.
 Argument MODE  specifies the current pronunciation mode."
   (declare  (special dtk-bracket-regexp ))
-  (save-excursion
-    (save-match-data
-      (cond
-       ((string=  "all"  mode )
-        (let ((start nil)
-              (personality nil))
-          (while (re-search-forward dtk-bracket-regexp  nil t )
-            (setq start (1- (point)))
-            (setq personality
-                  (get-text-property
-                   start 'personality))
-            (cond
-             ((= ?| (char-after (match-beginning 0 )))
-              (replace-match " pipe "))
-             ((= ?< (char-after (match-beginning 0 )))
-              (replace-match " less than "))
-             ((= ?> (char-after (match-beginning 0 )))
-              (replace-match " greater than "))
-             ((= ?{ (char-after (match-beginning 0 )))
-              (replace-match " left brace "))
-             ((= ?} (char-after (match-beginning 0 )))
-              (replace-match " right brace "))
-             ((=  ?\] (char-after (match-beginning 0)))
-              (replace-match " right bracket "))
-             ((= ?\[ (char-after  (match-beginning 0)))
-              (replace-match " left bracket "))
-             ((= ?\\ (char-after (match-beginning 0 )))
-              (replace-match " backslash "))
-             ((= ?# (char-after (match-beginning 0 )))
-              (replace-match " pound "))
-             ((= ?` (char-after (match-beginning 0 )))
-              (replace-match " backquote ")))
-            (when personality
-              (put-text-property start (point)
-                                 'personality personality)))))
-       (t (save-match-data
-            (while (re-search-forward dtk-bracket-regexp   nil t )
-              (replace-match " " nil t ))))))))
+  (goto-char (point-min))
+  (cond
+   ((string=  "all"  mode )
+    (let ((start nil)
+          (personality nil))
+      (while (re-search-forward dtk-bracket-regexp  nil t )
+        (setq start (1- (point)))
+        (setq personality
+              (get-text-property
+               start 'personality))
+        (cond
+         ((= ?| (char-after (match-beginning 0 )))
+          (replace-match " pipe "))
+         ((= ?< (char-after (match-beginning 0 )))
+          (replace-match " less than "))
+         ((= ?> (char-after (match-beginning 0 )))
+          (replace-match " greater than "))
+         ((= ?{ (char-after (match-beginning 0 )))
+          (replace-match " left brace "))
+         ((= ?} (char-after (match-beginning 0 )))
+          (replace-match " right brace "))
+         ((=  ?\] (char-after (match-beginning 0)))
+          (replace-match " right bracket "))
+         ((= ?\[ (char-after  (match-beginning 0)))
+          (replace-match " left bracket "))
+         ((= ?\\ (char-after (match-beginning 0 )))
+          (replace-match " backslash "))
+         ((= ?# (char-after (match-beginning 0 )))
+          (replace-match " pound "))
+         ((= ?` (char-after (match-beginning 0 )))
+          (replace-match " backquote ")))
+        (when personality
+          (put-text-property start (point)
+                             'personality personality)))))
+   (t
+    (while (re-search-forward dtk-bracket-regexp   nil t )
+      (replace-match " " nil t )))))
 
 (defvar dtk-speak-nonprinting-chars t
   "*Option that specifies handling of non-printing chars.
@@ -300,27 +299,27 @@ Set this to t to avoid a dectalk bug that makes the speech box die if
 it seems some accented characters in certain contexts.")
 
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
+(declaim (special emacspeak-unibyte))
+
+(defvar dtk-octal-chars 
+  (if emacspeak-unibyte
+      "[\000-\010\013-\037\177-\377]"
+    "[\000-\010\013-\037]")
+  "Regular expression matching control chars.
+Set this once per emacspeak session for efficiency.")
 
 (defsubst dtk-fix-control-chars ()
   "Handle control characters in speech stream."
   (declare (special dtk-character-to-speech-table
-                    emacspeak-unibyte
+                    dtk-octal-chars
                     dtk-speak-nonprinting-chars))
-  (let ((specials
-         (if emacspeak-unibyte
-             "[\000-\037\177-\377]"
-           "[\000-\037]"))
-        (char nil))
+  (let ((char nil))
     (goto-char (point-min ))
     (when  dtk-speak-nonprinting-chars
-      (save-match-data
-        (while (re-search-forward specials nil t )
-          (setq char (char-after (match-beginning 0)))
-          (or
-           (= char  10)                 ;do nothing
-           (= char  9)                  ; do nothing
-           (replace-match
-            (format " %s " (aref  dtk-character-to-speech-table char)))))))))
+      (while (re-search-forward dtk-octal-chars nil t )
+        (setq char (char-after (match-beginning 0)))
+        (replace-match
+         (format " %s " (aref  dtk-character-to-speech-table char)))))))
 
 ;;; Takes a string, and replaces occurences of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -363,11 +362,10 @@ Argument MODE  specifies the current pronunciation mode."
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
       ;;; First cleanup  repeated patterns:
-  (save-excursion
     (mapcar
      (function (lambda (str)
                  (dtk-replace-duplicates str mode )))
-     dtk-cleanup-patterns ))
+     dtk-cleanup-patterns )
     ;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
   ;;; fix control chars
@@ -634,10 +632,12 @@ only speak upto the first ctrl-m."
                                         ;if we matched a punctuation,
                                         ;treat this as a chunk only if the punctuation is followed
                                         ;by white space
-          (unless (and dtk-speak-treat-embedded-punctuations-specially
-                       (char-after  (point))
-                       (= (char-syntax (preceding-char )) ?.)
-                       (not (= 32 (char-syntax (following-char )))))
+          ;dtk-speak-treat-embedded-punctuations-specially
+          ;has been T for a long time
+          (unless
+              (and (char-after  (point))
+                   (= (char-syntax (preceding-char )) ?.)
+                   (not (= 32 (char-syntax (following-char )))))
             (setq end (point ))
             (dtk-format-text-and-speak  start end )
             (setq start  end)))         ; end while
