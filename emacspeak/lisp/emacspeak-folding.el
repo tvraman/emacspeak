@@ -36,10 +36,10 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
+;;{{{ requires
+(require 'emacspeak-preamble)
 
-(require 'emacspeak-sounds)
+;;}}}
 ;;{{{  Introduction:
 
 ;;; Folding mode turns emacs into a folding editor.

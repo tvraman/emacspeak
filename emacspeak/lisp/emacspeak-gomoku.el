@@ -40,15 +40,8 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(require 'backquote)
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds)
-		   (when (locate-library "gomoku")
-		     (require 'gomoku)))
-
+(require 'emacspeak-preamble)
+(require 'gomoku)
 ;;}}}
 ;;{{{  Introduction 
 
@@ -189,7 +182,8 @@
   "Display statistics from previous games"
   (interactive)
   (declare (special gomoku-number-of-human-wins
-		    gomoku-number-of-emacs-wins))
+		    gomoku-number-of-emacs-wins
+                    gomoku-number-of-draws))
   (message (format "Wins %d losses %d%s"
 		   gomoku-number-of-human-wins
 		   gomoku-number-of-emacs-wins
@@ -355,6 +349,7 @@
 
 (defun emacspeak-gomoku-setup-keys ()
   "Add additional keybindings"
+  (declare (special gomoku-mode-map))
   (loop for key in (where-is-internal 'backward-char gomoku-mode-map)
         do
         (define-key gomoku-mode-map key 'gomoku-move-left))

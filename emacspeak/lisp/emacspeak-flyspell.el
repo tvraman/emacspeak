@@ -38,17 +38,15 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'advice)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; Commentary:
 
 ;;; This module speech enables flyspell.
+
+;;}}}
+;;{{{ Requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  define personalities

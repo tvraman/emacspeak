@@ -37,13 +37,14 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+
 ;;{{{  Introduction:
 
 ;;; Provide Emacspeak  advice to the hyperbole system
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ advice interactive commands:

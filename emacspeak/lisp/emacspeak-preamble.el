@@ -43,6 +43,7 @@
 (require 'advice)
 (require 'backquote)
 (require 'custom)
+(require 'widget)
 (require 'thingatpt)
 
 (declaim  (optimize  (safety 0) (speed 3)))

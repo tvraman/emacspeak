@@ -63,7 +63,7 @@
   current-column			;column containing point 
   elements                              ;  vector of  elements 
   )
-
+;;;###autoload
 (defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
   (assert (vectorp elements) t
