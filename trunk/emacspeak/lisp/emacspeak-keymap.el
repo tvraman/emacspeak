@@ -63,11 +63,10 @@
 ;;}}}
 ;;{{{   Binding keymap and submap
 
-(define-prefix-command 'emacspeak-prefix-command
-  'emacspeak-keymap "emacspeak")
+(define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap )
 
 (define-prefix-command  'emacspeak-dtk-submap-command
-  'emacspeak-dtk-submap "tts")
+  'emacspeak-dtk-submap )
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 
