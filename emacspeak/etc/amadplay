@@ -1,0 +1,6 @@
+#!/bin/sh
+#Description: Emacspeak tool  to  madplay mp3s
+
+
+madplay --tty-control -o cdda:- "$@"\
+ | aplay -f cdr -
