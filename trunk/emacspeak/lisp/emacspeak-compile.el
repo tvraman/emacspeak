@@ -92,6 +92,21 @@
 ;;}}}
 ;;{{{ advise process filter and sentinels
 
+(loop for f in 
+      (list 
+       'compilation-next-error
+       'compilation-previous-error
+       'next-error-no-select
+       'previous-error-no-select)
+      do
+      (eval
+       (`
+        (defadvice (, f) (after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'select-object))))))
+
 (defadvice compile (after emacspeak pre act )
   "provide auditory confirmation"
   (when (interactive-p)
