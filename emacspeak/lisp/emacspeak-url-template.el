@@ -751,7 +751,22 @@ name of the list.")
       'speak)))
 
 ;;}}}
+;;{{{ pbs --pulpit 
+(emacspeak-url-template-define
+ "Pulpit --- I Cringely"
+ "http://www.pbs.org/cringely/pulpit/pulpit%s.html"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer "Date:"
+                            (format-time-string "%Y%m%d"))))
+ nil
+ "Read pulpit from PBS."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//p" url 'speak)))
 
+
+;;}}}
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define
@@ -968,6 +983,29 @@ plays entire program."
      (emacspeak-w3-extract-tables-by-position-list 
       '(7 8    31 46)
       url 'speak)))
+
+(emacspeak-url-template-define
+ "Baseball Game Index" 
+ "http://gd.mlb.com/components/game/%s"
+ (list
+  #'(lambda nil
+      (let ((date 
+             (read-from-minibuffer
+              "Date: "
+              (format-time-string "%Y-%m-%d")))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result 
+              (format 
+               "year_%s/month_%s/day_%s/"
+               (first fields)
+               (second fields)
+               (third fields)))
+        result)))
+ nil
+ "Display baseball Play By Play."
+ )
 
 (emacspeak-url-template-define
  "Baseball Play By Play" 
