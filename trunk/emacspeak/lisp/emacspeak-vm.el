@@ -504,7 +504,6 @@ Leave point at front of decoded attachment."
 (add-hook 'vm-presentation-mode-hook
           (function
            (lambda nil
-             (modify-syntax-entry 10 " ")
              (emacspeak-pronounce-refresh-pronunciations))))
 
 (emacspeak-pronounce-augment-pronunciations 'vm-presentation-mode
