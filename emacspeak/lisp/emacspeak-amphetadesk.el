@@ -53,7 +53,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'browse-url)
-
+(require 'emacspeak-preamble)
+(require 'emacspeak-w3)
 ;;}}}
 ;;{{{ amphetadesk
 
@@ -89,8 +90,15 @@
 (defun emacspeak-amphetadesk ()
   "Open amphetadesk."
   (interactive)
-  (emacspeak-amphetadesk-ensure-live)
-  (browse-url "http://127.0.0.1:8888/"))
+(declare (special browse-url-browser-function))
+(emacspeak-amphetadesk-ensure-live)
+  (cond
+   ((and (featurep 'w3)
+     (eq browse-url-browser-function 'browse-url-w3))
+    (emacspeak-w3-without-xsl
+  (browse-url "http://127.0.0.1:8888/")))
+   (t
+    (browse-url "http://127.0.0.1:8888/"))))
 
 ;;}}}
 (provide 'emacspeak-amphetadesk)

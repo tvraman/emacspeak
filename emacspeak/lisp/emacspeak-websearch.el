@@ -1049,15 +1049,8 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                     emacspeak-websearch-google-feeling-lucky-p emacspeak-websearch-google-number-of-results))
   (let ((lucky-flag (if emacspeak-websearch-google-feeling-lucky-p
                         (not lucky)
-                      lucky))
-        (restore-xsl-p emacspeak-w3-xsl-p))
-    (when emacspeak-w3-xsl-p
-      (setq restore-xsl-p t
-            emacspeak-w3-xsl-p nil)
-      (add-hook 'emacspeak-w3-post-process-hook
-                #'(lambda ()
-                    (declare (special emacspeak-w3-xsl-p))
-                    (setq emacspeak-w3-xsl-p t))))
+                      lucky)))
+    (emacspeak-w3-without-xsl
     (browse-url 
      (concat emacspeak-websearch-google-uri
              (webjump-url-encode query)
@@ -1072,7 +1065,7 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
         (emacspeak-speak-line)
       (emacspeak-websearch-post-process
        "results"
-       'emacspeak-speak-line))))
+       'emacspeak-speak-line)))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
@@ -1092,6 +1085,7 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 (defun emacspeak-websearch-google-search-in-date-range ()
   "Use this from inside the calendar to do Google date-range searches."
   (interactive)
+  (declare (special calendar-mark-ring))
   (let ((query (emacspeak-websearch-read-query "Google for: "))
         (from (calendar-astro-date-string
                (calendar-cursor-to-date t)))
@@ -1105,9 +1099,12 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 	      (format " daterange:%s-%s"
 		      from
 		      to))))))
+
 (when (featurep 'calendar)
   (declaim (special calendar-mode-map))
-  (define-key calendar-mode-map "gg" 'emacspeak-websearch-google-search-in-date-range))
+  (define-key calendar-mode-map "gg"
+    'emacspeak-websearch-google-search-in-date-range))
+
 
 ;;}}}
 ;;{{{ froogle
