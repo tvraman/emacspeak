@@ -37,6 +37,23 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;{{{  Introduction:
+
+;;; Commentary:
+
+;;; speech-enable ido.el
+;;; This is an interesting task since most of the value-add
+;;; provided by package ido.el  is visual feedback.
+;;; Speech UI Challenge: What  is the most efficient means of
+;;; conveying a dynamically updating set of choices?
+;;; current strategy is to walk the list using c-s and c-r as
+;;; provided by ido
+;;; Set number matches shown to 3 using Custom so you dont hear
+;;; the entire list.
+
+;;; Code:
+
+;;}}}
 
 ;;{{{ required modules
 
@@ -72,7 +89,10 @@
 ;;{{{ speech-enable interactive commands:
 
 (defadvice ido-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "Provide auditory feedback.
+Tip: Use M-x customize to set ido-max-prospects to a small value
+  when using Emacspeak --- I set it to 3.
+The default value of 12 is too high for using ido effectively with speech. "
   (when (interactive-p)
     (emacspeak-auditory-icon
      (if ido-mode 'on 'off))

@@ -55,7 +55,6 @@
 ;;{{{ Define personalities 
 
 (def-voice-font emacspeak-dired-header-personality
-
   voice-lock-type-personality
   'dired-header
   "Personality for dired header line."
