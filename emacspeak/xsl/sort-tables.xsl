@@ -78,6 +78,8 @@ table width: <xsl:value-of select="@width"/>
           </xsl:attribute>
           <em>Table <xsl:value-of select="position()"/></em>
         </xsl:element>
+ <xsl:value-of select="count(./tr)"/> Rows 
+ And <xsl:value-of select="count(./tr/td)"/> Cells
         </h2>
         <xsl:element name="table">
           <xsl:apply-templates select="@*"/>
@@ -94,6 +96,8 @@ table width: <xsl:value-of select="@width"/>
         table. If the author has provided a summary and or
         caption for the nested table, those will be displayed
         as the hyperlink text.
+Lacking a summary attribute, I have generated hyperlinks of
+        the form row-count,cell-count.
 I have sorted them  so the most
       relevant tables occur first.
 Sort keys were number of text nodes in a table and the width
@@ -103,7 +107,15 @@ Sort keys were number of text nodes in a table and the width
   </xsl:template>
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      Table <xsl:value-of select="@summary"/></xsl:element>
+<xsl:choose>
+<xsl:when test="@summary">
+ <xsl:value-of select="@summary"/>
+        </xsl:when>
+<xsl:otherwise>
+<xsl:value-of select="count(./tr)"/>,<xsl:value-of select="count(./tr/td)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+</xsl:element>
   </xsl:template>
 <!-- } -->
 </xsl:stylesheet>
