@@ -61,6 +61,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-personality)
+(require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
@@ -618,7 +619,7 @@ before the message is spoken."
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (put-text-property 0 (length emacspeak-last-message)
-                       'personality 'paul-animated
+                       'personality voice-animate
                        emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value        ;we really do have a message
@@ -1052,7 +1053,7 @@ in completion buffers"
   ad-do-it
   (let ((cap "cap "))
     (put-text-property 0 (length cap)
-                       'personality 'paul-animated cap)
+                       'personality voice-animate  cap)
     (put-text-property 0  (length tmm-mid-prompt)
                        'personality 'inaudible
                        tmm-mid-prompt)
@@ -1065,7 +1066,7 @@ in completion buffers"
                                 (let ((string (car choice )))
                                   (put-text-property
                                    0 1
-                                   'personality 'paul-animated string)
+                                   'personality voice-animate  string)
                                   (when (string-match "^[A-Z]" string)
                                     (setq string
                                           (concat cap string)))
@@ -1097,7 +1098,7 @@ in completion buffers"
   "Personality used for highlighting comint prompts --emacs 21."
   :group 'comint)
 
-(defcustom emacspeak-comint-input-personality 'paul-animated
+(defcustom emacspeak-comint-input-personality voice-animate
   "Personality used for highlighting comint input --emacs 21."
   :type  'symbol
   :group 'emacspeak
@@ -1850,7 +1851,7 @@ Auditory highlight indicates position of point."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement )
     (ems-set-personality-temporarily  (point) (1+ (point))
-                                      'paul-animated
+                                      voice-animate
                                       (emacspeak-speak-line))))
 
 (defadvice newline (before emacspeak pre act)
@@ -2492,7 +2493,7 @@ Produce auditory icons if possible."
   (when (interactive-p )
     (emacspeak-auditory-icon 'mark-object )
     (ems-set-personality-temporarily (point) (1+ (point))
-                                     'paul-animated
+                                     voice-animate
                                      (emacspeak-speak-line ))))
 
 (defadvice pop-global-mark (after emacspeak pre act)
@@ -2500,7 +2501,7 @@ Produce auditory icons if possible."
   (when (interactive-p )
     (emacspeak-auditory-icon 'mark-object )
     (ems-set-personality-temporarily (point) (1+ (point))
-                                     'paul-animated
+                                     voice-animate
                                      (emacspeak-speak-line ))
     (emacspeak-speak-mode-line)))
 
