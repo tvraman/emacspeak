@@ -1319,29 +1319,23 @@ arrived voicemail."
           (file :tag "VoiceMail drop location"))
   :group 'emacspeak-speak)
 
-  
-(defsubst emacspeak-get-file-modification-time (filename)
-  "Return file modification time for file FILENAME."
-  (or                                (nth 5 (file-attributes filename ))
-                                     0))
-
 (defsubst emacspeak-get-file-size (filename)
   "Return file size for file FILENAME."
   (or (nth 7 (file-attributes filename))
       0))
 
-(defvar emacspeak-mail-last-alerted-time 0
+(defvar emacspeak-mail-last-alerted-time (list 0 0)
   "Least  significant 16 digits of the time when mail alert was last issued.
 Alert the user only if mail has arrived since this time in the
   future.")
 
 (defsubst emacspeak-mail-get-last-mail-arrival-time (f)
   "Return time when mail  last arrived."
-  (condition-case                                nil
-      (float-time (emacspeak-get-file-modification-time f))
-    (error 0)))
+  (if (file-exists-p f)
+      (nth 5 (file-attributes f ))
+    0))
                                      
-(defcustom emacspeak-mail-alert-interval 300
+(defcustom emacspeak-mail-alert-interval  300
   "Interval in seconds between mail alerts for the same pending
   message."
   :type 'integer
@@ -1353,16 +1347,17 @@ Alert the user only if mail has arrived since this time in the
                     emacspeak-mail-alert-interval))
   (let* ((mod-time (emacspeak-mail-get-last-mail-arrival-time f))
          (size (emacspeak-get-file-size f))
-         (result (and
-                  (or (> mod-time emacspeak-mail-last-alerted-time)
-                      (> (float-time (current-time))
-                         (+ emacspeak-mail-last-alerted-time
-                            emacspeak-mail-alert-interval)))
-                  (> size 0))))
+         (result (and (> size 0)
+                  (or
+                   (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
+                      (time-less-p ;unattended mail
+                       (time-add emacspeak-mail-last-alerted-time
+                                 (list 0 emacspeak-mail-alert-interval))
+                       (current-time))))))
     (when result 
-      (setq emacspeak-mail-last-alerted-time (float-time (current-time))))
+      (setq emacspeak-mail-last-alerted-time  (current-time)))
     result))
-      
+
      
 
 (defun emacspeak-mail-alert-user ()
