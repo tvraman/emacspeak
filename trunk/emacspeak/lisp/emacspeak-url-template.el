@@ -108,10 +108,24 @@
 prompting for a template.")
 ;;;###autoload
 (defun emacspeak-url-template-define (name template
-                                           &optional generators
-                                           post-action
+                                           &optional generators post-action
                                            documentation fetcher)
-  "Define a URL template."
+  "Define a URL template.
+
+name            Name used to identify template
+template        Template URI with `%s' for slots
+generators      List of prompters.
+                Generators are strings or functions.
+                String values specify prompts.
+                Function values are called to obtain values.
+post-action     Function called to apply post actions.
+                Possible actions include speaking the result.
+fetcher         Unless specified, browse-url retrieves URL.
+                If specified, fetcher is a function of one
+                argument
+                that is called with the URI to retrieve.
+documentation   Documents this template resource.
+"
   (declare (special emacspeak-url-template-table
                     emacspeak-url-template-name-alist))
   (unless (emacspeak-url-template-get  name)
@@ -346,10 +360,12 @@ to play a BBC Radio4 program on demand."
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-	   (list "feed" "st_util__print")))
+	   (list "feed" "st_util__print"))
+     (emacspeak-speak-buffer))
  "Display tech news from CNET"
  #'(lambda (url)
      (emacspeak-rss-display url))) 
+
 ;;}}}
 ;;{{{ Infoworld RSS
 (emacspeak-url-template-define
