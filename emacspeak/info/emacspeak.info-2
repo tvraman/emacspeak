@@ -1021,7 +1021,7 @@ dtk-speak.
 dtk-toggle-splitting-on-white-space
 ===================================
 
-   control e d SPACE
+   ` control e d SPACE '
 
    Toggle splitting of speech on white space.  This affects the
 internal state of emacspeak that decides if we split text purely by
@@ -1038,7 +1038,7 @@ choppy since the synthesizer is getting a word at a time.
 dtk-set-chunk-separator-syntax
 ==============================
 
-   control e d RETURN
+   ` control e d RETURN '
 
    Interactively set how text is split in chunks.  See the Emacs
 documentation on syntax tables for details on how characters are
@@ -1048,14 +1048,14 @@ syntax class.
 tts-restart
 ===========
 
-   control e control s
+   ` control e control s '
 
    Use this to nuke the currently running TTS server and restart it.
 
 dtk-select-server
 =================
 
-   control e d d
+   ` control e d d '
 
    Select a speech server interactively.  Argument PROGRAM specifies
 the speech server program.  When called  interactively, The selected
@@ -1064,7 +1064,7 @@ server is started immediately.
 dtk-toggle-debug
 ================
 
-   control e d b
+   ` control e d b '
 
    Toggle state of the debug FLAG.  When debugging is on, you can
 switch to the buffer *speaker* to examine the output from the process
@@ -1074,7 +1074,7 @@ that talks to the speech device by using command C-e d M-C-b.  Note:
 tts-show-debug-buffer
 =====================
 
-   control e d meta control b
+   ` control e d meta control b '
 
    Select TTS debugging buffer.
 
