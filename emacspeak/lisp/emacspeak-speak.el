@@ -945,7 +945,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
   (when char
-    (emacspeak-handle-action-at-point)
     (cond
      ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
      (t (dtk-dispatch
