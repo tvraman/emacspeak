@@ -212,12 +212,15 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all  
 
 all: $(OBJECTS)  
-config: emacspeak-loaddefs.el
+config: emacspeak-loaddefs.el emacspeak-cus-load.el
 
+emacspeak-cus-load.el: cus-load.el
+	mv cus-load.el emacspeak-cus-load.el
 # }}}
 # {{{build time target --loaddefs
 
 .PHONY: emacspeak-loaddefs.el
+.PHONY: cus-load.el
 
 emacspeak-loaddefs.el:
 	rm -f emacspeak-loaddefs.el
@@ -226,6 +229,8 @@ emacspeak-loaddefs.el:
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
+cus-load.el:
+	$(EMACS) $(BATCH) -l cus-dep.el -f custom-make-dependencies "."
 # }}}
 # {{{  Make rules for the various modules
 
