@@ -153,6 +153,10 @@
 
 ;;}}}
 ;;{{{ special form def-voice-font 
+;;; note that when defined, personalities are registered as observers
+;;; with the  voice they use
+;;; still need to add code to perform the corresponding unregister 
+;;; when  the personality is modified via the customize interface.
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
@@ -164,10 +168,10 @@
        :type (voice-setup-custom-menu)
        :group 'voice-fonts
        (,@ args))
+     ;;; other actions performed at define time 
      (voice-setup-set-voice-for-face (, face) '(, personality))
                                         ;record  personality as an observer of  voice
-     (put  '(, voice)
-           '(, personality) t))))
+     (put  '(, voice) '(, personality) t))))
 
 ;;}}}
 ;;{{{  special form defvoice 
@@ -190,6 +194,7 @@ Keys are personality names.")
            :punctuations (nth 5  style-list)))))
     (puthash  voice style-list voice-setup-personality-table)
     voice))
+
 (defsubst voice-setup-observing-personalities  (voice-name)
   "Return a list of personalities that are `observing' VOICE-NAME.
 Observing personalities are automatically updated when settings for
