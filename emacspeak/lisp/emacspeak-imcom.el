@@ -53,7 +53,7 @@
 (require 'thingatpt)
 (require 'emacspeak-personality)
 (require 'emacspeak-speak)
-;(require 'emacspeak-wizards)
+					;(require 'emacspeak-wizards)
 (require 'emacspeak-sounds)
 (require 'comint)
 (require 'derived)

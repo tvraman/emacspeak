@@ -250,9 +250,9 @@ automatically."
 ;;{{{ set up face to voice mapping
 
 (def-voice-font tnt-my-name-personality
- voice-smoothen
- 'tnt-my-name-face
- "tnt-my-name-face")
+  voice-smoothen
+  'tnt-my-name-face
+  "tnt-my-name-face")
 
 ;;}}}
 ;;{{{  Activate pronunciations 

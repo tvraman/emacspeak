@@ -71,7 +71,7 @@ The string can set any voice parameter.")
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
   (declare (special outloud-voice-table ))
-   (puthash name command-string outloud-voice-table))
+  (puthash name command-string outloud-voice-table))
 
 (defsubst outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
@@ -138,7 +138,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-      (puthash key table outloud-css-code-tables )))
+    (puthash key table outloud-css-code-tables )))
 
 (defsubst outloud-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -245,9 +245,9 @@ and TABLE gives the values along that dimension."
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value 
-  (aref (outloud-css-get-code-table family 'average-pitch)
-	value)
-  ""))
+      (aref (outloud-css-get-code-table family 'average-pitch)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  pitch range
@@ -333,9 +333,9 @@ and TABLE gives the values along that dimension."
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value 
-  (aref (outloud-css-get-code-table family 'pitch-range)
-	value)
-  ""))
+      (aref (outloud-css-get-code-table family 'pitch-range)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  stress
@@ -369,9 +369,9 @@ and TABLE gives the values along that dimension."
 (defsubst outloud-get-stress-code (value family)
   (or family (setq family 'paul ))
   (if value 
-  (aref (outloud-css-get-code-table family 'stress)
-        value)
-  ""))
+      (aref (outloud-css-get-code-table family 'stress)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  richness
@@ -406,9 +406,9 @@ and TABLE gives the values along that dimension."
 (defsubst outloud-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
-  (aref (outloud-css-get-code-table family 'richness)
-        value)
-  ""))
+      (aref (outloud-css-get-code-table family 'richness)
+	    value)
+    ""))
 
 ;;}}}
 
@@ -434,7 +434,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special outloud-voice-table))
   (loop for k being the hash-keys of outloud-voice-table 
-collect   k))
+	collect   k))
 
 ;;}}}
 ;;{{{ Configurater 

@@ -131,8 +131,6 @@ directory."
         (generated-autoload-file emacspeak-auto-autoloads-file))
     (update-autoloads-from-directories emacspeak-lisp-directory)))
 
-
-
 ;;}}}
 (provide 'emacspeak-autoload)
 ;;{{{ end of file

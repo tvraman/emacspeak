@@ -72,36 +72,36 @@ displayed buffers."
                        'personality  voice-annotate
                        description)
     (setq windows 
-    (cond
-     (details 
-          (loop for buffer in buffer-map
-                and window in window-list
-                collect
-                (let ((w (format "%s "  (second buffer)))
-                      (corners  (window-edges window))
-                      (tl nil )
-                      (br nil))
-                  (put-text-property 0 (length w)
-                                     'personality
-                                     voice-animate w)
-                  (setq tl
-                        (format  " %d %d "
-                                 (first corners) (second corners))
-                        br  (format " %d %d "
-                                    (third corners) (fourth corners)))
-                  (put-text-property 0 (length tl)
-                                     'personality voice-bolden tl)
-                  (put-text-property 0 (length br)
-                                     'personality voice-bolden br)
-		  (concat w
-			  " with top left "
-			  tl
-			  " and bottom right "
-			  br))))
-     (t
-          (loop for buffer in buffer-map
-                collect
-                (second buffer)))))
+	  (cond
+	   (details 
+	    (loop for buffer in buffer-map
+		  and window in window-list
+		  collect
+		  (let ((w (format "%s "  (second buffer)))
+			(corners  (window-edges window))
+			(tl nil )
+			(br nil))
+		    (put-text-property 0 (length w)
+				       'personality
+				       voice-animate w)
+		    (setq tl
+			  (format  " %d %d "
+				   (first corners) (second corners))
+			  br  (format " %d %d "
+				      (third corners) (fourth corners)))
+		    (put-text-property 0 (length tl)
+				       'personality voice-bolden tl)
+		    (put-text-property 0 (length br)
+				       'personality voice-bolden br)
+		    (concat w
+			    " with top left "
+			    tl
+			    " and bottom right "
+			    br))))
+	   (t
+	    (loop for buffer in buffer-map
+		  collect
+		  (second buffer)))))
     (tts-with-punctuations "all"
                            (dtk-speak
                             (concat description

@@ -94,7 +94,7 @@
   :group 'emacspeak-w3m)
 (defcustom emacspeak-w3m-disabled-personality voice-bolden
   "Personality for disabled fields in W3M."
-:type 'symbol
+  :type 'symbol
   :group 'emacspeak-w3m)
 
 ;;}}}
@@ -389,49 +389,49 @@
   "w3m-arrived-anchor-face")
 
 (def-voice-font  w3m-anchor-personality
-voice-bolden
-'w3m-anchor-face
-"w3m-anchor-face")
+  voice-bolden
+  'w3m-anchor-face
+  "w3m-anchor-face")
 
 (def-voice-font emacspeak-w3m-bold-personality
-'bold
-'w3m-bold-face
-"w3m-bold-face")
+  'bold
+  'w3m-bold-face
+  "w3m-bold-face")
 
 (def-voice-font  emacspeak-w3m-underline-personality
-'underlined
-'w3m-underline-face
-"w3m-underline-face")
+  'underlined
+  'w3m-underline-face
+  "w3m-underline-face")
 
 (def-voice-font  emacspeak-w3m-header-line-location-title-personality
-voice-bolden
-                                'w3m-header-line-location-title-face
-                                "w3m-header-line-location-title-face")
+  voice-bolden
+  'w3m-header-line-location-title-face
+  "w3m-header-line-location-title-face")
 
 (def-voice-font  personality
-voice-animate
-                                'w3m-header-line-location-content-face
-                                "w3m-header-line-location-content-face")
+  voice-animate
+  'w3m-header-line-location-content-face
+  "w3m-header-line-location-content-face")
 
 (def-voice-font  emacspeak-w3m-form-button-personality
-voice-smoothen
-                                'w3m-form-button-face
-                                "w3m-form-button-face")
+  voice-smoothen
+  'w3m-form-button-face
+  "w3m-form-button-face")
 
 (def-voice-font  emacspeak-w3m-form-button-pressed-personality
-voice-animate
-                                'w3m-form-button-pressed-face
-                                "w3m-form-button-pressed-face")
+  voice-animate
+  'w3m-form-button-pressed-face
+  "w3m-form-button-pressed-face")
 
 (def-voice-font  emacspeak-w3m-tab-unselected-personality
-voice-monotone
-                                'w3m-tab-unselected-face
-                                "w3m-tab-unselected-face")
+  voice-monotone
+  'w3m-tab-unselected-face
+  "w3m-tab-unselected-face")
 
 (def-voice-font  emacspeak-w3m-tab-selected-personality
-voice-animate
-'w3m-tab-selected-face
-"w3m-tab-selected-face")
+  voice-animate
+  'w3m-tab-selected-face
+  "w3m-tab-selected-face")
 
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
