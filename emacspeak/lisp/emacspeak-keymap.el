@@ -240,7 +240,7 @@ field in the customization buffer.  You can use the notation
            val)
 	  (set-default sym val)))
 
-(global-set-key "\C-x@hs"
+(global-set-key "\C-x@h"
   'emacspeak-hyper-keymap)
 
 ;;}}}
