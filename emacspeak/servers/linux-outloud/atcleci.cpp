@@ -159,7 +159,7 @@ static void (*_eciRegisterCallback) (void *,
 				     int (*)(void *, int, long, void *),
 				     void *);
 static int alsa_init ();
-extern "C" EXPORT int Tcleci_Init (Tcl_Interp * interp);
+extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int getTTSVersion (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -349,7 +349,7 @@ void TclEciFree (ClientData eciHandle) {
 //>
 //<tcleci_init
 
-int Tcleci_Init (Tcl_Interp * interp) {
+int Atcleci_Init (Tcl_Interp * interp) {
   int rc;
   void *eciHandle;
   void *eciLib;
