@@ -253,6 +253,20 @@ displayed in the messages area."
 
 ;;}}}
 ;;{{{ advice overlay-put 
+(defcustom emacspeak-personality-voiceify-overlays
+  'emacspeak-personality-prepend-personality
+  "Determines how and if we voiceify overlays.
+
+None means that overlay faces are not mapped to voices.
+Prepend means that the corresponding personality is prepended to the
+existing personalities on the text under overlay.
+
+Append means place corresponding personality at the end."
+  :type '(choice :tag "Overlay Voiceification"
+                 (const :tag "None" nil)
+                 (const :tag "Prepend" emacspeak-personality-prepend-personality)
+                 (const :tag "Append" emacspeak-personality-append-personality))
+  :group 'emacspeak-personality)
 
 (defadvice overlay-put (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
@@ -271,10 +285,11 @@ displayed in the messages area."
                        #'voice-setup-get-voice-for-face value))))
        (t (message "Got %s" value)))
       (when voice
-        (emacspeak-personality-append-personality
+        (and emacspeak-personality-voiceify-overlays
+             (funcall emacspeak-personality-voiceify-overlays
          (overlay-start overlay)
          (overlay-end overlay)
-         voice)
+         voice))
         (overlay-put overlay 'personality voice))
       (when (and emacspeak-personality-show-unmapped-faces
                  (not voice))
@@ -283,7 +298,8 @@ displayed in the messages area."
                  (mapcar #'(lambda (v)
                              (puthash  v t emacspeak-personality-unmapped-faces))
                          value))
-         (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
+         (t (puthash  value t
+                      emacspeak-personality-unmapped-faces)))))))
 
 ;;}}}
 (provide 'emacspeak-personality )
