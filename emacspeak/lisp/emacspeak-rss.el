@@ -55,14 +55,14 @@
 
 (defcustom emacspeak-rss-feeds
   '(
-    ("Wired News" ."http://www.wired.com/news_drop/netcenter/netcenter.rdf")
-    ("BBC News" . "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
-    ("CNet Tech News" . "http://rss.com.com/2547-12-0-5.xml")
-    ("XML.COM" . "http://www.xml.com/xml/news.rss")
+    ("Wired News" "http://www.wired.com/news_drop/netcenter/netcenter.rdf")
+    ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
+    ("CNet Tech News"  "http://rss.com.com/2547-12-0-5.xml")
+    ("XML.COM"  "http://www.xml.com/xml/news.rss")
     )
   "Table of RSS feeds."
   :type '(repeat
-	  (cons :tag "RSS Feed"
+	  (list :tag "RSS Feed"
 		(string :tag "Title")
 		(string :tag "URI")))
   :group 'emacspeak-rss)
@@ -95,7 +95,7 @@
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
 		       emacspeak-rss-feeds))))
-  (let ((uri (cdr
+  (let ((uri (cadr
               (assoc feed emacspeak-rss-feeds))))
     (emacspeak-rss-display uri 'speak)))
 
