@@ -158,24 +158,26 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line)))
-(defadvice jde-bug-highlight-breakpoint (after emacspeak pre
-                                               act comp)
+(defadvice jde-bug-highlight-breakpoint (after emacspeak pre act comp)
   "Annotate line with an auditory icon. "
   (let ((start nil))
     (save-excursion
+      (if (ad-get-arg 0)
+          (goto-line (ad-get-arg 0)))
       (beginning-of-line)
       (setq  start (point))
-      (back-to-indentation)
+      (end-of-line)
       (ems-modify-buffer-safely
        (put-text-property start (point)
                           'auditory-icon 'mark-object)))))
+
 (defadvice jde-bug-remove-breakpoint-highlight (after emacspeak pre act comp)
   "Clear auditory annotation"
   (let ((start nil))
     (save-excursion
       (beginning-of-line)
       (setq  start (point))
-      (back-to-indentation)
+      (end-of-line)
       (ems-modify-buffer-safely
        (remove-text-properties
         start (point)
