@@ -40,6 +40,11 @@ MPlayer output is handled using comint features.
 
 Adding outline and bookmark support.
 
+** emacspeak-gud.el:
+
+Speech-enables the new full screen GDB interface under Emacs
+(emacs 21.3.50)
+
 
 Local variables:
  mode: outline
