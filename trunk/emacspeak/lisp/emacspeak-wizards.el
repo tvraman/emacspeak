@@ -2744,6 +2744,27 @@ RIVO is implemented by rivo.pl ---
              command when ))))
 
 ;;}}}
+;;{{{ show commentary:
+(defun emacspeak-wizards-show-commentary (&optional file)
+  "Display commentary. Default is to display commentary from current buffer."
+  (interactive "P")
+  (let ((filename nil))
+    (cond
+     ((and (interactive-p)
+           file)
+      (setq filename (read-file-name "File: ")))
+     ((and (interactive-p)
+           (null file))
+      (setq filename (buffer-file-name (current-buffer))))
+     (t (setq filename file)))
+    (with-output-to-temp-buffer "*Commentary*"
+      (set-buffer standard-output)
+      (insert
+       (format
+        (ems-cleanup-commentary
+         (lm-commentary filename)))))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
