@@ -752,9 +752,11 @@ Also puts the displayed buffer in outline-minor-mode and gives it
 	       (set-buffer (, nav-center))
 	       (put-text-property (, start) (, end)
 				  'viewer  buffer))
-             (when bookmark
+             (cond
+              (bookmark
                (goto-char bookmark)
-               (emacspeak-speak-line)))))))
+               (emacspeak-speak-line))
+(t (emacspeak-speak-mode-line))))))))
 
 ;;}}}
 

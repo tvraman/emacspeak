@@ -1478,8 +1478,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (when    emacspeak-w3-post-process-hook
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
-      (setq emacspeak-w3-post-process-hook nil))
-    (emacspeak-speak-mode-line)))
+      (setq emacspeak-w3-post-process-hook nil))))
 
 ;;}}}
 ;;{{{ silence url history save
