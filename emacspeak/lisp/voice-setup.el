@@ -217,29 +217,28 @@ voice-setup-personality-table))
     voice))
 
 (defmacro defvoice (personality settings doc)
-  "Define voice using CSS setting.
-Setting is a list  of the form 
-(list paul 5 5 5 5 )
-which defines a standard male voice.
-Once defined, the newly declared personality can be customized by
-calling command 
-\\[customize-variable] on <personality>-settings."
+  "Define voice using CSS setting.  Setting is a list of the form
+(list paul 5 5 5 5 ) which defines a standard male voice.  Once
+defined, the newly declared personality can be customized by calling
+command \\[customize-variable] on <personality>-settings."
   (`
-   (defcustom  (, (intern (format "%s-settings"  personality)))
+   (defcustom (, (intern (format "%s-settings"  personality)))
      (, settings)
      (, doc)
      :type  '(list
-(symbol :tag "Family")
-(integer :tag "Average Pitch")
-(integer :tag "Pitch Range")
-(integer :tag "Stress")
-(integer :tag "Richness"))
+              (symbol :tag "Family")
+              (integer :tag "Average Pitch")
+              (integer :tag "Pitch Range")
+              (integer :tag "Stress")
+              (integer :tag "Richness"))
      :group 'tts
-     :set '(lambda  (sym val)
-             (let ((voice-name (voice-setup-personality-from-style val)))
-               (setq (, personality) voice-name)
-               (dtk-define-voice-alias '(, personality) voice-name)
-               (set-default sym val))))))
+     :set
+     '(lambda  (sym val)
+        (let ((voice-name
+               (voice-setup-personality-from-style val)))
+          (setq (, personality) voice-name)
+          (dtk-define-voice-alias '(, personality) voice-name)
+          (set-default sym val))))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
