@@ -2490,7 +2490,31 @@ Produce auditory icons if possible."
    (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
+;;{{{ advice non-incremental searchers 
+(defadvice search-forward (after emacspeak pre act comp)
+"Speak line we land on."
+(when (interactive-p)
+(emacspeak-speak-line)
+(emacspeak-auditory-icon 'select-object)))
+(defadvice search-backward (after emacspeak pre act comp)
+"Speak line we land on."
+(when (interactive-p)
+(emacspeak-speak-line)
+(emacspeak-auditory-icon 'select-object)))
 
+(defadvice word-search-forward (after emacspeak pre act comp)
+"Speak line we land on."
+(when (interactive-p)
+(emacspeak-speak-line)this is last ))
+
+(defadvice word-search-backward (after emacspeak pre act comp)
+"Speak line we land on."
+(when (interactive-p)
+(emacspeak-speak-line)this is last ))
+
+
+ 
+;;}}}
 ;;}}}
 ;;{{{  marking objects produces auditory icons
 
