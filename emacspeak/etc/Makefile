@@ -39,12 +39,10 @@
 # }}}
 # {{{ User level target--  config 
 config:
-	@rm -f   play emacspeak.sh
+	@rm -f    emacspeak.sh
 	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
 		emacspeak.sh.def > emacspeak.sh
-		@sed "s@<emacspeak-dir>@$(SRC)/@g" \
-		play.def > play
-	@chmod 755 play  emacspeak.sh
+	@chmod 755   emacspeak.sh
 
 # }}}
 # {{{maintainer target 
