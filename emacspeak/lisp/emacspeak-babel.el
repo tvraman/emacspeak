@@ -45,7 +45,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 (require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -59,9 +58,7 @@
 ;;}}}
 ;;{{{ speech-enable commands
 
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        '(babel
-          babel-as-string))
+
 
 (defun emacspeak-babel-done ()
   "Announce  completion of the translation request."

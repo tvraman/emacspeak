@@ -42,7 +42,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -63,8 +62,6 @@
 
 ;;}}}
 ;;{{{  fix interactive commands
-
-(emacspeak-fix-interactive-command-if-necessary 'dmacro-load)
 
 ;;}}}
 (provide  'emacspeak-dmacro)

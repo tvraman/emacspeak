@@ -41,7 +41,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
 (eval-when (compile)
   (require 'rmail))
 (require 'rmailsort)
@@ -79,32 +78,6 @@
             (if subject (format "on %s" subject) "")
             (if lines (format "%s lines" lines) "")
             labels))))
-
-;;}}}
-;;{{{  fix interactive commands:
-
-(add-hook 'after-load-alist
-          '("rmailkwd"
-(mapcar
- (function
-  (lambda (f)
-(emacspeak-fix-interactive-command-if-necessary f)))
- (list 'rmail-next-labeled-message
- 'rmail-previous-labeled-message
-'rmail-summary-by-labels))))
-
-
-(add-hook 'after-load-alist
-          '("rmailsort"
-(mapcar
- (function
-  (lambda (f)
-(emacspeak-fix-interactive-command-if-necessary f)))
- (list
-'rmail-sort-by-subject
- 'rmail-sort-by-keywords
-'rmail-sort-by-correspondent
-'rmail-sort-by-lines))))
 
 ;;}}}
 ;;{{{  Advice some commands.
@@ -272,16 +245,6 @@
 (declaim (special rmail-mode-map))
 (define-key rmail-mode-map "\C-m" 'emacspeak-rmail-summarize-current-message)
 (define-key rmail-mode-map "L" 'emacspeak-rmail-speak-current-message-labels)
-
-;;}}}
-;;{{{ fix interactive commands
-
-(loop for f in
-      '(rmail-input
-rmail-resend
-rmail-sort-by-keywords)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f))
 
 ;;}}}
 (provide  'emacspeak-rmail)

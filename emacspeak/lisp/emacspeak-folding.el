@@ -40,8 +40,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 (require 'emacspeak-sounds)
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
 ;;{{{  Introduction:
 
 ;;; Folding mode turns emacs into a folding editor.
@@ -54,7 +52,7 @@
 ;;}}}
 ;;{{{ Advice
 
-(emacspeak-fix-interactive-command-if-necessary 'fold-goto-line)
+
 (defadvice fold-goto-line (after emacspeak pre act)
   "Speak the line. "
   (when (interactive-p)

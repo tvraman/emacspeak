@@ -44,8 +44,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
-
 ;;}}}
 ;;{{{  Introduction:
 
@@ -54,17 +52,6 @@
 ;;; this module speech-enables find-dired
 
 ;;; Code:
-
-;;}}}
-;;{{{  speech enable interactive commands
-
-(defvar emacspeak-find-dired-interactive-commands
-  (list 'find-grep-dired
-        'find-name-dired
-'find-dired)
-  "Interactive comands defined in find-dired.")
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary emacspeak-find-dired-interactive-commands)
 
 ;;}}}
 (provide 'emacspeak-find-dired)

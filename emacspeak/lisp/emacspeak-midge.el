@@ -46,7 +46,6 @@
 (require 'emacspeak-speak)
 (require 'thingatpt)
 (require 'voice-lock)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -67,27 +66,6 @@
 ;;; http://www.dmriley.demon.co.uk/code/midge/ 
 
 ;;; Code:
-
-;;}}}
-;;{{{ auto advice 
-
-(defvar emacspeak-midge-interactive-functions-to-fix
-  '(midge-compile-ask
-    midge-define-block
-    midge-play-ask-foreground
-    midge-bend-line
-    midge-channel-block
-    midge-repeat-block
-    midge-choose-block
-    midge-play-ask-background
-    midge-bend-block
-    midge-define-line
-    midge-choose-line
-    midge-repeat-line)
-  "Interactive midge commands to auto advice.")
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        emacspeak-midge-interactive-functions-to-fix)
 
 ;;}}}
 ;;{{{ Speech enable interactive commands.

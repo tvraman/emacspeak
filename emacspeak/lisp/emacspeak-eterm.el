@@ -64,7 +64,6 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-keymap)
 (eval-when (compile)
-  (require 'emacspeak-fix-interactive)
   (condition-case nil
       (progn
         (require 'term)
@@ -458,8 +457,6 @@ Argument COUNT specifies number of words by which to move."
     (emacspeak-auditory-icon 'large-movement )
     (emacspeak-speak-line)))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-eterm-goto-line) 
-
 (defun emacspeak-eterm-search-forward ()
   "Search forward on the terminal."
   (interactive)
@@ -643,8 +640,6 @@ emacspeak eterm pointer to a register."
            (abs (- (marker-position emacspeak-eterm-marker )
                    (marker-position emacspeak-eterm-pointer)))
            register))
-(emacspeak-fix-interactive-command-if-necessary
- 'emacspeak-eterm-copy-region-to-register)
 
 (defun emacspeak-eterm-paste-register (register)
   "Paste contents of REGISTER at current location.
@@ -658,10 +653,6 @@ sent to the terminal as if it were typed by the user."
       (emacspeak-auditory-icon 'yank-object))
      (t (error "Register %c does not contain text"
                register)))))
-
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-eterm-paste-register)
-
-
 
 ;;}}}
 ;;{{{  Defining and speaking terminal windows:
@@ -876,8 +867,6 @@ and bottom right at %s %s"
              id (cdr top-left) (car top-left)
              (cdr bottom-right) (car bottom-right ))))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-eterm-define-window)
-
 (defun emacspeak-eterm-speak-window (id)
   "Speak an eterm window.
 Argument ID specifies the window."
@@ -896,8 +885,7 @@ Argument ID specifies the window."
 
 
 
-(emacspeak-fix-interactive-command-if-necessary
- 'emacspeak-eterm-speak-window)
+
 
 (defun emacspeak-eterm-yank-window (id)
   "Yank contents of  an eterm window at point."
@@ -915,9 +903,6 @@ Argument ID specifies the window."
         (emacspeak-eterm-get-window id )))))
   (emacspeak-auditory-icon 'yank-object)
   (message "Yanked contents of window %s at point" id ))
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-eterm-yank-window )
-
-
 
 (defun emacspeak-eterm-describe-window  (id)
   "Describe an eterm  window.
@@ -939,12 +924,6 @@ and bottom right at %s %s"
               (t " "))
              id (cdr top-left) (car top-left)
              (cdr bottom-right) (car bottom-right ))))
-
-(emacspeak-fix-interactive-command-if-necessary
- 'emacspeak-eterm-describe-window)
-
-
-
 
 (defvar emacspeak-eterm-focus-window nil
   "Current window that emacspeak eterm focuses on")

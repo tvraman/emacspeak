@@ -46,7 +46,6 @@
 (require 'advice)
 (require 'backquote)
 (require 'thingatpt)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
@@ -89,7 +88,6 @@
           (when (interactive-p)
             (emacspeak-speak-mode-line)
             (emacspeak-auditory-icon 'select-object))))))
-(emacspeak-fix-interactive-command-if-necessary 'ecb-add-source-path)
 
 ;;}}}
 ;;{{{  inform tree browser about emacspeak

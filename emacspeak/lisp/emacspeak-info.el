@@ -45,7 +45,6 @@
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'dtk-voices)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-keymap)
 ;;{{{ Introduction:
 
@@ -223,16 +222,6 @@ and then cue the next selected buffer."
   "Speak the line. "
   (when (interactive-p)
     (emacspeak-speak-line)))
-
-;;}}}
-;;{{{  Fix interactive commands where necessary:
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary 
-        (list 'Info-search 
-              'Info-index 
-              'Info-goto-emacs-key-command-node 
-              'Info-goto-emacs-command-node))
-
 
 ;;}}}
 ;;{{{ keymaps
