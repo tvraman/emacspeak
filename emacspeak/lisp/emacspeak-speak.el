@@ -94,7 +94,6 @@
   (`
    (progn
      (declare (special inhibit-point-motion-hooks))
-     (unwind-protect
          (let    ((save-read-only buffer-read-only)
                   (buffer-read-only nil )
                   (save-inhibit-read-only inhibit-read-only)
@@ -107,7 +106,8 @@
              (setq buffer-read-only save-read-only
                    inhibit-read-only save-inhibit-read-only
                    inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-             (set-buffer-modified-p modification-flag )))))))
+             (set-buffer-modified-p modification-flag ))))))
+
 (defmacro ems-set-personality-temporarily (start end value
                                                  &rest body)
   "Temporarily set personality.
@@ -116,7 +116,6 @@ Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   (`
-   (unwind-protect
        (progn
          (declare (special voice-lock-mode ))
          (let ((save-voice-lock voice-lock-mode)
@@ -144,7 +143,7 @@ Argument BODY specifies forms to execute."
                    inhibit-read-only save-inhibit-read-only
                    inhibit-point-motion-hooks save-inhibit-point-motion-hooks
                    voice-lock-mode save-voice-lock )
-             (set-buffer-modified-p modification-flag )))))))
+             (set-buffer-modified-p modification-flag ))))))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
