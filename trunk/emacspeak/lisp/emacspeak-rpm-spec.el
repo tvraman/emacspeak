@@ -164,32 +164,32 @@
 
 (def-voice-map rpm-spec-macro-personality  'harry
   'rpm-spec-macro-face
-  "*Personality for macros"
+  ".Personality for macros"
   :group 'emacspeak-rpm)
 
 (def-voice-map rpm-spec-tag-personality 'paul-smooth
   'rpm-spec-tag-face
-  "*Personality for tags"
+  ".Personality for tags"
   :group 'emacspeak-rpm)
 
 (def-voice-map rpm-spec-package-personality 'paul-animated
   'rpm-spec-package-face
-  "*Personality for package tag"
+  ".Personality for package tag"
   :group 'emacspeak-rpm)
 
 (def-voice-map rpm-spec-dir-personality 'betty
   'rpm-spec-dir-face
-  "*Personality for directory entries"
+  ".Personality for directory entries"
   :group 'emacspeak-rpm)
 
 (def-voice-map rpm-spec-doc-personality 'paul-monotone
   'rpm-spec-doc-face
-  "*Personality for documentation entries"
+  ".Personality for documentation entries"
   :group 'emacspeak-rpm)
 
 (def-voice-map rpm-spec-ghost-personality 'annotation-voice
   'rpm-spec-ghost-face
-  "*Personality for %ghost files"
+  ".Personality for %ghost files"
   :group 'emacspeak-rpm)
 
 ;;}}}
