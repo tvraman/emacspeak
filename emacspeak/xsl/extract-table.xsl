@@ -19,19 +19,24 @@ Parameter base specifies base URL of source document.
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
   <!--add base uri if available. -->
-  <xsl:template match="/html/head">
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
+<xsl:template match="head">
     <head>
-      <xsl:element name="base">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
-      </xsl:element>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="title"/>
+      <xsl:if test="string-length($base) &gt; 0">
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
+      </xsl:if>
     </head>
   </xsl:template>
   <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
-  <xsl:template match="/html/body">
+  <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <h2>Table (<xsl:value-of select="$table-index"/>) </h2>
