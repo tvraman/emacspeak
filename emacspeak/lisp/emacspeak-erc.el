@@ -339,7 +339,7 @@ display. String is the original message."
          (case-fold-search t))
     (save-excursion
       (set-buffer buffer)
-      (when (or emacspeak-erc-room-monitor
+      (when (and emacspeak-erc-room-monitor
                 emacspeak-erc-monitor-my-messages)
         (let ((emacspeak-speak-messages nil)
               (msg (emacspeak-erc-compute-message (ad-get-arg 0)
