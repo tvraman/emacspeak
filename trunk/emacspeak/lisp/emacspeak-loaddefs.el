@@ -1,6 +1,6 @@
 ;;;Auto generated
 
-;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15946 39008))
+;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15949 20703))
 ;;; Generated autoloads from cd-tool.el
 
 (autoload (quote cd-tool) "cd-tool" "\
@@ -27,7 +27,7 @@ cap C   Save clip to disk
 
 ;;;***
 
-;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15946 39008))
+;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15949 20703))
 ;;; Generated autoloads from eflite.el
 
 (autoload (quote tts-eflite) "eflite" "\
@@ -38,7 +38,7 @@ Use eflite TTS server." t nil)
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
 ;;;;;;  emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
-;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15946 39008))
+;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15949 20703))
 ;;; Generated autoloads from emacspeak-aumix.el
 
 (defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
@@ -64,7 +64,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -75,7 +75,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (15946 40005))
+;;;;;;  "emacspeak-eterm.el" (15949 20703))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -86,7 +86,7 @@ Start a terminal-emulator in a new buffer." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-filtertext) "emacspeak-filtertext" "emacspeak-filtertext.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-filtertext.el
 
 (autoload (quote emacspeak-filtertext) "emacspeak-filtertext" "\
@@ -96,7 +96,7 @@ preparation for interactively filtering text. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-forms-find-file) "emacspeak-forms" "emacspeak-forms.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-forms.el
 
 (autoload (quote emacspeak-forms-find-file) "emacspeak-forms" "\
@@ -106,7 +106,7 @@ Visit a forms file" t nil)
 
 ;;;### (autoloads (emacspeak-freeamp emacspeak-freeamp-freeamp-call-command
 ;;;;;;  emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "emacspeak-freeamp.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-freeamp.el
 
 (autoload (quote emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "\
@@ -124,7 +124,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (15946 40008))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -140,7 +140,7 @@ Apply grid to region." t nil)
 
 ;;;### (autoloads (emacspeak-hide-speak-block-sans-prefix emacspeak-hide-or-expose-all-blocks
 ;;;;;;  emacspeak-hide-or-expose-block) "emacspeak-hide" "emacspeak-hide.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-hide.el
 
 (autoload (quote emacspeak-hide-or-expose-block) "emacspeak-hide" "\
@@ -164,7 +164,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15946 40008))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -175,7 +175,7 @@ Start IMCom." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20703))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")
@@ -188,7 +188,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (15946 40015))
+;;;;;;  (15949 20704))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -208,7 +208,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 ;;;***
 
 ;;;### (autoloads (voice-lock-mode) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (15946 51020))
+;;;;;;  (15949 20704))
 ;;; Generated autoloads from emacspeak-personality.el
 
 (autoload (quote voice-lock-mode) "emacspeak-personality" "\
@@ -222,7 +222,7 @@ font-lock.  Voicification is effective only if font lock is on." t nil)
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-process-sentinel emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15946 39009))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\
@@ -266,7 +266,7 @@ Browse RAM file before playing the selected component." t nil)
 
 ;;;### (autoloads (emacspeak-remote-connect-to-server emacspeak-remote-ssh-to-server
 ;;;;;;  emacspeak-remote-quick-connect-to-server) "emacspeak-remote"
-;;;;;;  "emacspeak-remote.el" (15946 39009))
+;;;;;;  "emacspeak-remote.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-remote.el
 
 (defgroup emacspeak-remote nil "Emacspeak remote group." :group (quote emacspeak-remote))
@@ -289,7 +289,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15946 39009))
+;;;;;;  "emacspeak-rss.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -302,8 +302,8 @@ Browse specified RSS feed." t nil)
 
 ;;;***
 
-;;;### (autoloads nil "emacspeak-setup" "emacspeak-setup.el" (15946
-;;;;;;  39009))
+;;;### (autoloads nil "emacspeak-setup" "emacspeak-setup.el" (15949
+;;;;;;  20704))
 ;;; Generated autoloads from emacspeak-setup.el
 
 (defvar emacspeak-directory (expand-file-name "../" (file-name-directory load-file-name)) "\
@@ -334,7 +334,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-play-program emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15946 39009))
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
@@ -360,7 +360,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15946 40025))
+;;;;;;  "emacspeak-speak.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -375,7 +375,7 @@ set the current local value to the result." t nil)
 ;;;### (autoloads (emacspeak-table-copy-to-clipboard emacspeak-table-display-table-in-region
 ;;;;;;  emacspeak-table-view-csv-buffer emacspeak-table-find-csv-file
 ;;;;;;  emacspeak-table-find-file) "emacspeak-table-ui" "emacspeak-table-ui.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15949 20704))
 ;;; Generated autoloads from emacspeak-table-ui.el
 
 (autoload (quote emacspeak-table-find-file) "emacspeak-table-ui" "\
@@ -415,7 +415,7 @@ Current buffer must be in emacspeak-table mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tabulate-region) "emacspeak-tabulate"
-;;;;;;  "emacspeak-tabulate.el" (15946 39009))
+;;;;;;  "emacspeak-tabulate.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-tabulate.el
 
 (autoload (quote emacspeak-tabulate-region) "emacspeak-tabulate" "\
@@ -426,7 +426,7 @@ in the white-space." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry"
-;;;;;;  "emacspeak-tapestry.el" (15946 39009))
+;;;;;;  "emacspeak-tapestry.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-tapestry.el
 
 (autoload (quote emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry" "\
@@ -437,8 +437,8 @@ displayed buffers." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
-;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15946
-;;;;;;  39010))
+;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15949
+;;;;;;  20704))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
@@ -454,7 +454,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;***
 
 ;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
-;;;;;;  "emacspeak-w3.el" (15946 39010))
+;;;;;;  "emacspeak-w3.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
@@ -464,7 +464,7 @@ Play url under point as realaudio" t nil)
 
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google
 ;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15946 40032))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15949 20704))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -493,7 +493,7 @@ Optional interactive prefix arg results in prompting for a search term." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xml-shell) "emacspeak-xml-shell" "emacspeak-xml-shell.el"
-;;;;;;  (15946 40038))
+;;;;;;  (15949 20704))
 ;;; Generated autoloads from emacspeak-xml-shell.el
 
 (defgroup emacspeak-xml-shell nil "XML browser for the Emacspeak desktop.")
@@ -503,55 +503,8 @@ Start Xml-Shell on contents of system-id." t nil)
 
 ;;;***
 
-;;;### (autoloads (turn-on-lazy-voice-lock lazy-voice-lock-mode)
-;;;;;;  "lazy-voice-lock" "obselete/lazy-voice-lock.el" (15946 41480))
-;;; Generated autoloads from obselete/lazy-voice-lock.el
-
-(autoload (quote lazy-voice-lock-mode) "lazy-voice-lock" "\
-Toggle Lazy Lock mode.
-With arg, turn Lazy Lock mode on if and only if arg is positive.  Enable it
-automatically in your `~/.emacs' by:
-
- (setq voice-lock-support-mode 'lazy-voice-lock-mode)
-
-When Lazy Lock mode is enabled, voiceification can be lazy in a number of ways:
-
- - Demand-driven buffer voiceification if `lazy-voice-lock-minimum-size' is non-nil.
-   This means initial voiceification does not occur if the buffer is greater
-   than `lazy-voice-lock-minimum-size' characters in length.  Instead, voiceification
-   occurs when necessary, such as when scrolling through the buffer would
-   otherwise reveal unvoiceified areas.  This is useful if buffer voiceification
-   is too slow for large buffers.
-
- - Defer-driven buffer voiceification if `lazy-voice-lock-defer-driven' is non-nil.
-   This means all voiceification is deferred, such as voiceification that occurs
-   when scrolling through the buffer would otherwise reveal unvoiceified areas.
-   Instead, these areas are seen momentarily unvoiceified.  This is useful if
-   demand-driven voiceification is too slow to keep up with scrolling.
-
- - Deferred on-the-fly voiceification if `lazy-voice-lock-defer-time' is non-nil.
-   This means on-the-fly voiceification does not occur as you type.  Instead,
-   voiceification is deferred until after `lazy-voice-lock-defer-time' seconds of
-   Emacs idle time, while Emacs remains idle.  This is useful if on-the-fly
-   voiceification is too slow to keep up with your typing.
-
- - Stealthy buffer voiceification if `lazy-voice-lock-stealth-time' is non-nil.
-   This means remaining unvoiceified areas of buffers are voiceified if Emacs has
-   been idle for `lazy-voice-lock-stealth-time' seconds, while Emacs remains idle.
-   This is useful if any buffer has demand- or defer-driven voiceification.
-
-See also variables `lazy-voice-lock-stealth-lines', `lazy-voice-lock-stealth-nice' and
-`lazy-voice-lock-stealth-verbose' for stealth voiceification.
-
-Use \\[lazy-voice-lock-submit-bug-report] to send bug reports or feedback." t nil)
-
-(autoload (quote turn-on-lazy-voice-lock) "lazy-voice-lock" "\
-Unconditionally turn on Lazy Lock mode." nil nil)
-
-;;;***
-
 ;;;### (autoloads (regexp-opt-depth regexp-opt) "regexp-opt" "regexp-opt.el"
-;;;;;;  (15946 39010))
+;;;;;;  (15949 20704))
 ;;; Generated autoloads from regexp-opt.el
 
 (autoload (quote regexp-opt) "regexp-opt" "\
@@ -574,130 +527,8 @@ in REGEXP." nil nil)
 
 ;;;***
 
-;;;### (autoloads (voice-lock-voiceify-buffer voice-lock-support-mode
-;;;;;;  global-voice-lock-mode turn-on-voice-lock voice-lock-mode
-;;;;;;  voice-lock-maximum-size voice-lock-maximum-decoration) "voice-lock"
-;;;;;;  "obselete/voice-lock.el" (15946 39058))
-;;; Generated autoloads from obselete/voice-lock.el
-
-(defvar voice-lock-maximum-decoration nil "\
-*Maximum decoration level for voiceification.
-If nil, use the default decoration (typically the minimum available).
-If t, use the maximum decoration available.
-If a number, use that level of decoration (or if not available the maximum).
-If a list, each element should be a cons pair of the form (MAJOR-MODE . LEVEL),
-where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c-mode . t) (c++-mode . 2) (t . 1))
-means use the maximum decoration available for buffers in C mode, level 2
-decoration for buffers in C++ mode, and level 1 decoration otherwise.")
-
-(defvar voice-lock-maximum-size (* 250 1024) "\
-*Maximum size of a buffer for buffer voiceification.
-Only buffers less than this can be voiceified when Voice Lock mode is turned on.
-If nil, means size is irrelevant.
-If a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),
-where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c-mode . 256000) (c++-mode . 256000) (rmail-mode . 1048576))
-means that the maximum size is 250K for buffers in C or C++ modes, one megabyte
-for buffers in Rmail mode, and size is irrelevant otherwise.")
-
-(defvar voice-lock-mode-hook nil "\
-Function or functions to run on entry to Voice Lock mode.")
-
-(autoload (quote voice-lock-mode) "voice-lock" "\
-Toggle Voice Lock mode.
-With arg, turn Voice Lock mode on if and only if arg is positive.
-
-When Voice Lock mode is enabled, text is voiceified as you type it:
-
- - Comments are displayed in `voice-lock-comment-personality';
- - Strings are displayed in `voice-lock-string-personality';
- - Certain other expressions are displayed in other personalities according to the
-   value of the variable `voice-lock-keywords'.
-
-You can enable Voice Lock mode in any major mode automatically by turning on in
-the major mode's hook.  For example, put in your ~/.emacs:
-
- (add-hook 'c-mode-hook 'turn-on-voice-lock)
-
-Alternatively, you can use Global Voice Lock mode to automagically turn on Voice
-Lock mode in buffers whose major mode supports it and whose major mode is one
-of `voice-lock-global-modes'.  For example, put in your ~/.emacs:
-
- (global-voice-lock-mode t)
-
-There are a number of support modes that may be used to speed up Voice Lock mode
-in various ways, specified via the variable `voice-lock-support-mode'.  Where
-major modes support different levels of voiceification, you can use the variable
-`voice-lock-maximum-decoration' to specify which level you generally prefer.
-When you turn Voice Lock mode on/off the buffer is voiceified/devoiceified, though
-voiceification occurs only if the buffer is less than `voice-lock-maximum-size'.
-
-For example, to specify that Voice Lock mode use use Lazy Lock mode as a support
-mode and use maximum levels of voiceification, put in your ~/.emacs:
-
- (setq voice-lock-support-mode 'lazy-voice-lock-mode)
- (setq voice-lock-maximum-decoration t)
-
-To voiceify a buffer, without turning on Voice Lock mode and regardless of buffer
-size, you can use \\[voice-lock-voiceify-buffer].
-
-To voiceify a block (the function or paragraph containing point, or a number of
-lines around point), perhaps because modification on the current line caused
-syntactic change on other lines, you can use \\[voice-lock-voiceify-block].
-
-The default Voice Lock mode personalities and their attributes are defined in the
-variable `voice-lock-personality-attributes', and Voice Lock mode default settings in
-the variable `voice-lock-defaults-alist'.  You can set your own default settings
-for some mode, by setting a buffer local value for `voice-lock-defaults', via
-its mode hook." t nil)
-
-(autoload (quote turn-on-voice-lock) "voice-lock" "\
-Turn on Voice Lock mode conditionally.
-Turn on only if the device can display it." nil nil)
-
-(defvar voice-lock-global-modes t "\
-*Modes for which Voice Lock mode is automagically turned on.
-Global Voice Lock mode is controlled by the `global-voice-lock-mode' command.
-If nil, means no modes have Voice Lock mode automatically turned on.
-If t, all modes that support Voice Lock mode have it automatically turned on.
-If a list, it should be a list of `major-mode' symbol names for which Voice Lock
-mode should be automatically turned on.  The sense of the list is negated if it
-begins with `not'.  For example:
- (c-mode c++-mode)
-means that Voice Lock mode is turned on for buffers in C and C++ modes only.")
-
-(autoload (quote global-voice-lock-mode) "voice-lock" "\
-Toggle Global Voice Lock mode.
-With prefix ARG, turn Global Voice Lock mode on if and only if ARG is positive.
-Displays a message saying whether the mode is on or off if MESSAGE is non-nil.
-Returns the new status of Global Voice Lock mode (non-nil means on).
-
-When Global Voice Lock mode is enabled, Voice Lock mode is automagically
-turned on in a buffer if its major mode is one of `voice-lock-global-modes'." t nil)
-
-(defvar voice-lock-support-mode (quote lazy-voice-lock-mode) "\
-*Support mode for Voice Lock mode.
-Support modes speed up Voice Lock mode by being choosy about when voiceification
-occurs.  Known support modes are 
-Lazy Lock mode (symbol `lazy-voice-lock-mode').  See those modes for more info.
-If nil, means support for Voice Lock mode is never performed.
-If a symbol, use that support mode.
-If a list, each element should be of the form (MAJOR-MODE . SUPPORT-MODE),
-where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c-mode . lazy-voice-lock-mode) (c++-mode . lazy-voice-lock-mode) (t . lazy-voice-lock-mode))
-means that Fast Lock mode is used to support Voice Lock mode for buffers in C or
-C++ modes, and Lazy Lock mode is used to support Voice Lock mode otherwise.
-
-The value of this variable is used when Voice Lock mode is turned on.")
-
-(autoload (quote voice-lock-voiceify-buffer) "voice-lock" "\
-Voiceify the current buffer the way `voice-lock-mode' would." t nil)
-
-;;;***
-
 ;;;### (autoloads (xml-reformat-tags insert-xml read-xml) "xml-parse"
-;;;;;;  "xml-parse.el" (15946 39010))
+;;;;;;  "xml-parse.el" (15949 20704))
 ;;; Generated autoloads from xml-parse.el
 
 (autoload (quote read-xml) "xml-parse" "\
@@ -732,8 +563,8 @@ Note that this only works if the opening tag starts at column 0." t nil)
 
 ;;;***
 
-;;;### (autoloads (amphetadesk) "amphetadesk" "amphetadesk.el" (15946
-;;;;;;  39008))
+;;;### (autoloads (amphetadesk) "amphetadesk" "amphetadesk.el" (15949
+;;;;;;  20703))
 ;;; Generated autoloads from amphetadesk.el
 
 (autoload (quote amphetadesk) "amphetadesk" "\

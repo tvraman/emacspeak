@@ -68,7 +68,7 @@
 ;;; define a standard set of voice names.
 ;;; This module maps standard "personality" names to these pre-defined
 ;;; voices.
-;;; It  does this via special form def-voice-map 
+;;; It  does this via special form def-voice-font 
 ;;; which takes a personality name, a voice name and a face name to
 ;;; set up the mapping between face and personality, and personality
 ;;; and voice.
@@ -76,7 +76,7 @@
 ;;; This special form is available for use from other emacspeak
 ;;; modules.
 
-;;; Special form def-voice-map sets up the personality name to be
+;;; Special form def-voice-font sets up the personality name to be
 ;;; available via custom.
 
 ;;}}}
@@ -176,8 +176,8 @@ This function forces voice-lock mode on."
                 (set-buffer-modified-p modification-flag )))))))
 
 ;;}}}
-;;{{{ special form def-voice-map 
-(defmacro  def-voice-map (personality voice face doc &rest args)
+;;{{{ special form def-voice-font 
+(defmacro  def-voice-font (personality voice face doc &rest args)
   (`
    (defcustom (, personality)
      (, voice)
@@ -185,80 +185,80 @@ This function forces voice-lock mode on."
      :type 'symbol
      :group 'tts
      :set '(lambda  (sym val)
-             (voice-setup-set-voice-for-face (, face) (, voice))
-(set-default sym val))
-(,@ args))))
+             (voice-setup-set-voice-for-face (, face) '(, personality))
+             (set-default sym val))
+     (,@ args))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
 
-(def-voice-map voice-lock-comment-personality
+(def-voice-font voice-lock-comment-personality
   'paul-monotone
   'font-lock-comment-face
   "Personality to use for comments.")
           
-(def-voice-map voice-lock-underline-personality 
+(def-voice-font voice-lock-underline-personality 
   'paul-animated
   'underline
   "Personality to use for underline text.")
   
-(def-voice-map voice-lock-bold-personality 
+(def-voice-font voice-lock-bold-personality 
   'harry
   'bold
   "Personality to use for bold  text.")
   
 
-(def-voice-map voice-lock-italic-personality 
+(def-voice-font voice-lock-italic-personality 
   'paul-italic
   'bold-italic
   "Personality to use for italic  text.")
   
-(def-voice-map voice-lock-doc-string-personality
+(def-voice-font voice-lock-doc-string-personality
   'dennis
   'font-lock-doc-string-face
   "Personality to use for documentation strings.")
   
-(def-voice-map voice-lock-constant-personality
+(def-voice-font voice-lock-constant-personality
   'paul-smooth
   'font-lock-constant-face
   "Personality to use for  constants.")
   
-(def-voice-map voice-lock-string-personality
+(def-voice-font voice-lock-string-personality
   'betty
   'font-lock-string-face
   "Personality to use for string constants.")
 
-(def-voice-map voice-lock-function-name-personality
+(def-voice-font voice-lock-function-name-personality
   'harry
   'font-lock-function-name-face
   "Personality to use for function names.")
   
-(def-voice-map voice-lock-warning-personality
+(def-voice-font voice-lock-warning-personality
   'paul-angry
   'font-lock-warning-face
   "Personality to use for warnings.")
 
-(def-voice-map voice-lock-keyword-personality
+(def-voice-font voice-lock-keyword-personality
   'ursula
   'font-lock-keyword-face
   "Personality to use for keywords.")
   
-(def-voice-map voice-lock-builtin-personality
+(def-voice-font voice-lock-builtin-personality
   'harry
   'font-lock-builtin-face
   "Personality to use for built-in keywords.")
 
-(def-voice-map voice-lock-variable-name-personality
+(def-voice-font voice-lock-variable-name-personality
   'paul-animated
   'font-lock-variable-name-face
   "Personality to use for variables.")
   
-(def-voice-map voice-lock-type-personality
+(def-voice-font voice-lock-type-personality
   'paul-smooth
   'font-lock-type-face
   "Personality to use for data types.")
   
-(def-voice-map voice-lock-reference-personality
+(def-voice-font voice-lock-reference-personality
   'paul-animated
   'font-lock-reference-face
   "Personality to use for references.")
