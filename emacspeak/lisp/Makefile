@@ -160,6 +160,7 @@ emacspeak-realaudio.elc \
 emacspeak-reftex.elc \
 emacspeak-remote.elc \
 emacspeak-rmail.elc \
+emacspeak-rpm.elc  \
 emacspeak-sawfish.elc \
 emacspeak-setup.el \
 emacspeak-sgml-mode.elc \
@@ -190,7 +191,7 @@ emacspeak-wrolo.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt-process.elc 
 
-ADDON_OBJECTS= tapestry.elc  
+ADDON_OBJECTS= tapestry.elc   regexp-opt.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 	$(AUX_OBJECTS) $(ADDON_OBJECTS)
