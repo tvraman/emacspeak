@@ -75,7 +75,7 @@
 ;;{{{  state of auditory icons
 
 (defvar emacspeak-use-auditory-icons nil
-"Tells if emacspeak should use auditory icons.
+  "Tells if emacspeak should use auditory icons.
 Do not set this variable by hand,
 use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
@@ -152,12 +152,12 @@ If we add new icons we should declare them here. ")
   emacspeak-sounds-icon-list)
 
 (defvar emacspeak-default-sound ""
-"Default sound to play if requested icon not found.")
+  "Default sound to play if requested icon not found.")
 
 ;;; forward declaration. Actual value is in emacspeak-setup.el
 (defvar emacspeak-sounds-directory 
-(expand-file-name  "sounds/" emacspeak-directory)
-"Location of auditory icons.")
+  (expand-file-name  "sounds/" emacspeak-directory)
+  "Location of auditory icons.")
 
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
@@ -197,10 +197,10 @@ Do not set this by hand;
     t)
    ((file-exists-p (expand-file-name "define-theme.el"
                                      theme-name))
-                   (load-file (expand-file-name
-                               "define-theme.el"
-                               theme-name)))
-  (t (error "Theme %s is missing its configuration file. " theme-name))))
+    (load-file (expand-file-name
+                "define-theme.el"
+                theme-name)))
+   (t (error "Theme %s is missing its configuration file. " theme-name))))
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
@@ -212,8 +212,8 @@ Do not set this by hand;
   (interactive
    (list
     (expand-file-name
-    (read-file-name "Theme: "
-                    emacspeak-sounds-directory))))
+     (read-file-name "Theme: "
+                     emacspeak-sounds-directory))))
   (declare (special emacspeak-sounds-current-theme
                     emacspeak-sounds-themes-table))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
@@ -236,15 +236,15 @@ Do not set this by hand;
   "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
   (declare (special emacspeak-sounds-themes-table
                     emacspeak-sounds-current-theme))
-          (let ((f
-                 (expand-file-name
-                  (format "%s%s"
-                          sound-name
-                          (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
-emacspeak-sounds-current-theme)))
-            (if  (file-exists-p f)
-                f
-                emacspeak-default-sound)))  
+  (let ((f
+         (expand-file-name
+          (format "%s%s"
+                  sound-name
+                  (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
+          emacspeak-sounds-current-theme)))
+    (if  (file-exists-p f)
+        f
+      emacspeak-default-sound)))  
 
 ;;}}}
 ;;{{{  define themes 
@@ -257,9 +257,9 @@ emacspeak-sounds-current-theme)))
 (defsubst emacspeak-queue-auditory-icon (sound-name)
   "Queue auditory icon SOUND-NAME."
   (declare (special dtk-speaker-process))
-         (process-send-string dtk-speaker-process
-                            (format "a %s\n"
-        (emacspeak-get-sound-filename sound-name ))))
+  (process-send-string dtk-speaker-process
+                       (format "a %s\n"
+                               (emacspeak-get-sound-filename sound-name ))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -270,10 +270,10 @@ Sound is served only if `emacspeak-use-auditory-icons' is true.
 See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
   (declare (special dtk-speaker-process
                     emacspeak-use-auditory-icons))
-       (when emacspeak-use-auditory-icons
-         (process-send-string dtk-speaker-process
-                            (format "p %s\n"
-        (emacspeak-get-sound-filename sound-name )))))
+  (when emacspeak-use-auditory-icons
+    (process-send-string dtk-speaker-process
+                         (format "p %s\n"
+                                 (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
 ;;{{{  Play an icon
@@ -295,25 +295,25 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
                      emacspeak-play-args emacspeak-play-program))
   (and emacspeak-use-auditory-icons
        (let ((process-connection-type nil))
-       (start-process
-        "play" nil emacspeak-play-program
-        ;emacspeak-play-args ;breaks sox
-        (emacspeak-get-sound-filename sound-name )))))
+         (start-process
+          "play" nil emacspeak-play-program
+                                        ;emacspeak-play-args ;breaks sox
+          (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
 ;;{{{  queue a midi icon
 
 (defsubst emacspeak-queue-midi-icon (midi-name)
   "Queue midi icon midi-NAME."
-         (apply 'dtk-queue-note
-                (emacspeak-get-midi-note midi-name)))
+  (apply 'dtk-queue-note
+         (emacspeak-get-midi-note midi-name)))
 
 (defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
 
 (defsubst emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
-         (apply 'dtk-force-note
-                 (emacspeak-get-midi-note midi-name)))
+  (apply 'dtk-force-note
+         (emacspeak-get-midi-note midi-name)))
 
 ;;}}}
 ;;{{{  setup play function
@@ -341,7 +341,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 When producing midi icons, other modules should use names defined here.")
 
 (defvar emacspeak-default-midi-note nil
-"Default note to play if requested icon not found.")
+  "Default note to play if requested icon not found.")
 
 
 
@@ -358,8 +358,8 @@ is a .1ms note on instrument 60."
 (defsubst emacspeak-get-midi-note (midi-name)
   "Retrieve midi note that produces midi icon midi-name."
   (declare (special emacspeak-midi-table emacspeak-default-midi-note))
-          (or  (cl-gethash midi-name emacspeak-midi-table)
-               emacspeak-default-midi-note))
+  (or  (cl-gethash midi-name emacspeak-midi-table)
+       emacspeak-default-midi-note))
 
 
 (defsubst emacspeak-list-midi-icons ()
@@ -374,7 +374,7 @@ is a .1ms note on instrument 60."
 (emacspeak-define-midi 'close-object
                        '(117 20 .3))  
 (emacspeak-define-midi 'open-object
-'(52 75 .5))
+                       '(52 75 .5))
 (emacspeak-define-midi 'delete-object
                        '(8 85 .5 ))
 (emacspeak-define-midi 'save-object
@@ -416,8 +416,8 @@ is a .1ms note on instrument 60."
                        '(14 60 .5))
 (emacspeak-define-midi   'ask-question
                          '(14 80 .5))
- (emacspeak-define-midi 'yes-answer
-                        '(112 60 .1))
+(emacspeak-define-midi 'yes-answer
+                       '(112 60 .1))
 (emacspeak-define-midi 'no-answer
                        '(112 40 .1 ))
 (emacspeak-define-midi 'ask-short-question
@@ -519,10 +519,10 @@ Optional interactive PREFIX arg toggles global value."
   "Pick a player for producing auditory icons."
   (declare (special emacspeak-sounds-auditory-icon-players))
   (read 
-  (completing-read "Select auditory icon player: "
-                   emacspeak-sounds-auditory-icon-players
-                   nil nil 
-                   "emacspeak-")))
+   (completing-read "Select auditory icon player: "
+                    emacspeak-sounds-auditory-icon-players
+                    nil nil 
+                    "emacspeak-")))
 
 
 (defun  emacspeak-set-auditory-icon-player (player)
@@ -534,16 +534,18 @@ emacspeak-midi-icon for midi device. "
   (interactive
    (list
     (emacspeak-select-auditory-icon-player )))
-(declare (special emacspeak-aumix-midi-available-p
+  (declare (special emacspeak-aumix-midi-available-p
                     emacspeak-auditory-icon-function))
-    (cond
-     ((and (not emacspeak-aumix-midi-available-p)
-           (memq player '(emacspeak-midi-icon
-                          emacspeak-queue-midi-icon
-                          emacspeak-play-midi-icon)))
-      (message "Cannot use midi icons in your current
+  (cond
+   ((and (not emacspeak-aumix-midi-available-p)
+         (memq player '(emacspeak-midi-icon
+                        emacspeak-queue-midi-icon
+                        emacspeak-play-midi-icon)))
+    (message "Cannot use midi icons in your current
 environment."))
-     (t (setq emacspeak-auditory-icon-function player))))
+   (t (setq emacspeak-auditory-icon-function player)))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 
 ;;}}}
