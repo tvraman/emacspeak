@@ -333,6 +333,19 @@ to play a BBC Radio4 program on demand."
  )
 
 ;;}}}
+;;{{{ google translation service
+(emacspeak-url-template-define
+ "Translation Via Google"
+ "http://translate.google.com/translate_c?hl=en&langpair=%s%%7C%s&u=%s"
+ (list
+  "Translate from"
+  "Translate to"
+  "URI")
+ nil
+ "Translate a Web page using google. Source and target languages
+are specified as two-letter language codes.")
+
+;;}}}
 ;;{{{  google filters 
 (emacspeak-url-template-define
  "Google WebQuotes"
