@@ -54,7 +54,8 @@
 ;;; working ocr executable 
 ;;; by default this module assumes that the OCR executable
 ;;; is named "ocr"
-;;;
+
+;;; Code:
 
 ;;}}}
 ;;{{{ required modules

@@ -38,18 +38,21 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{  Introduction 
 
 ;;; Commentary:
 
 ;;; Auditory interface to misc games
 
+;;; Code:
+
 ;;}}}
-            
+;;{{{  Required modules
+
+
+
+(require 'emacspeak-preamble)
+;;}}}
 ;;{{{ doctar
 
 (defadvice doctor-txtype (after emacspeak pre act )

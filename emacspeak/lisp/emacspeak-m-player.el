@@ -38,10 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{ Introduction:
 
 ;;; Commentary:
@@ -59,7 +55,12 @@
 ;;;http://www.mplayerhq.hu/DOCS/faq.html
 ;;; Mplayer docs at 
 ;;; http://www.mplayerhq.hu/DOCS/
+;;; Code:
 
+;;}}}
+;;{{{  Required modules
+
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction 
 (defvar emacspeak-m-player-process nil
