@@ -127,14 +127,19 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
    (list
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
-          (minibuffer-history emacspeak-realaudio-history))
+          (minibuffer-history emacspeak-realaudio-history)
+          (file nil))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
-      (read-file-name "RealAudio resource: "
-                      emacspeak-realaudio-shortcuts-directory
-                      (if (eq major-mode 'dired-mode)
-                          (dired-get-filename)
-                        emacspeak-realaudio-last-url)))
+      (kill-new default-directory)
+      (setq file
+            (read-file-name "RealAudio resource: "
+                            emacspeak-realaudio-shortcuts-directory
+                            (if (eq major-mode 'dired-mode)
+                                (dired-get-filename)
+                              emacspeak-realaudio-last-url)))
+      (pop kill-ring)
+      file)
     current-prefix-arg))
   (declare (special emacspeak-realaudio-player emacspeak-realaudio-this-resource
                     emacspeak-realaudio-buffer 
@@ -184,7 +189,8 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
         (and emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p)))
-      (emacspeak-set-auditory-icon-player 'emacspeak-play-midi-icon))))
+      (emacspeak-set-auditory-icon-player
+       'emacspeak-play-midi-icon))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
