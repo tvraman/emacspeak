@@ -162,8 +162,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 (defun emacspeak-daisy-play-text (clip)
   "Play text clip specified by clip.
 Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
-  (declare (special 
-            emacspeak-daisy-this-book))
+  (declare (special emacspeak-daisy-this-book))
   (unless
       (string-equal "text" (xml-tag-name clip))
     (error "Invalid audio clip."))
@@ -245,15 +244,14 @@ after fetching it  if necessary."
      (t (emacspeak-daisy-book-add-content book src)
         (gethash src (emacspeak-daisy-book-content book))))))
 
-(defun emacspeak-daisy-play-smil (clip)
+(defun emacspeak-daisy-play-smil (clip )
   "Play a SMIL clip.
 Return buffer containing text content that results from playing
 the clip."
   (let ((audio (xml-tag-child clip "audio"))
         (text (xml-tag-child clip "text"))
         (seq (xml-tag-child  clip "seq")))
-    (when (and (not audio)
-	       seq)
+    (when (and (not audio) seq)
       (setq audio (xml-tag-child seq "audio")))
     (when audio
       (emacspeak-daisy-play-audio audio))
@@ -467,13 +465,22 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (defvar emacspeak-daisy-this-book nil
   "Holds pointer to book structure.")
 (make-variable-buffer-local 'emacspeak-daisy-this-book)
+
+(defcustom emacspeak-daisy-books-directory (expand-file-name "~/")
+  "Customize this to the root of where books are organized."
+  :type 'directory
+  :group 'emacspeak-daisy)
+
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename."
   (interactive
    (list
-    (read-file-name "Book Navigation File: ")))
-  (declare (special emacspeak-daisy-this-book))
+    (expand-file-name
+    (read-file-name "Book Navigation File: "
+                    emacspeak-daisy-books-directory))))
+  (declare (special emacspeak-daisy-this-book
+                    emacspeak-daisy-books-directory))
   (let ((buffer (get-buffer-create "*daisy*"))
         (ncx (find-file-noselect filename))
         (book (make-emacspeak-daisy-book
