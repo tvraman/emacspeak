@@ -133,7 +133,7 @@
                               'personality   emacspeak-calendar-mark-personality ))))))
 
 (defvar emacspeak-calendar-mode-line-format 
-'("Calendar"  (calendar-date-string (calendar-current-date) t))
+'("Calendar"  (calendar-date-string (calendar-current-date)))
 "Mode line format for calendar to use when Emacspeak is
 active.")
 (declaim (special calendar-mode-line-format))  
