@@ -271,10 +271,12 @@ Do not set this by hand;
 ;;;###autoload
 (defun emacspeak-native-auditory-icon (sound-name)
   "Play auditory icon using native Emacs player."
+  (declare (special emacspeak-use-auditory-icons))
+  (when emacspeak-use-auditory-icons
   (play-sound
    (list 'sound :file
 	 (format "%s"
-		 (emacspeak-get-sound-filename sound-name )))))
+		 (emacspeak-get-sound-filename sound-name ))))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
