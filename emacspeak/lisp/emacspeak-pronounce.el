@@ -520,7 +520,7 @@ pronunciation dictionary for the specified key."
     (emacspeak-pronounce-toggle-use-of-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
         (notify (emacspeak-pronounce-edit-generate-callback key))
-        (buffer-name (format "*Dictionary-%s" key))
+        (buffer-name (format "*Dictionary: %s" key))
         (buffer nil)
         (inhibit-read-only t))
     (when (get-buffer buffer-name) (kill-buffer buffer-name))
@@ -540,6 +540,12 @@ pronunciation dictionary for the specified key."
                             (string :tag "Phrase")
                             (string :tag "Pronounce as")))
       (widget-insert "\n")
+      (widget-create 'push-button
+                     :tag "Save Dictionary"
+                     :notify
+                     #'(lambda (&rest ignore)
+                         (call-interactively 'emacspeak-pronounce-save-dictionaries)))
+      (widget-insert "\n\n")
       (use-local-map widget-keymap)
       (widget-setup)
       (goto-char (point-min)))
@@ -558,24 +564,28 @@ pronunciation dictionary for the specified key."
         value)))))
 
 (defun emacspeak-pronounce-edit-pronunciations (key)
-  "Prompt for and launch a pronunciation editor on the
+   "Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key."
-  (interactive
-   (list
-    (let ((keys
-           (loop for k being the hash-keys of
-                 emacspeak-pronounce-dictionaries
-                 collect
-                 (symbol-name k))))
-      (read-from-minibuffer "Dictionary to edit: "
-                            (car keys)  ;initial
-                            nil         ;read
-                            nil         ;keymap
-                            'keys
-                            (car keys)))))
-  (declare (special emacspeak-pronounce-dictionaries))
-  (emacspeak-pronounce-edit-generate-pronunciation-editor
-   (intern key)))
+   (interactive
+    (list
+     (let ((keys
+            (loop for k being the hash-keys of
+                  emacspeak-pronounce-dictionaries
+                  collect
+                  (symbol-name k))))
+       (completing-read "Edit dictionary: "
+                        (mapcar
+                         #'(lambda (k)
+                             (cons k k ))
+                         keys)
+                        nil
+                        'REQUIRE-MATCH 
+                        nil
+                        'keys
+                        (car keys))))) 
+   (declare (special emacspeak-pronounce-dictionaries))
+   (emacspeak-pronounce-edit-generate-pronunciation-editor
+    (intern key)))
 
 ;;}}}
 ;;{{{ top level dispatch routine
