@@ -17,7 +17,7 @@ B:The set of nodes that precede the end page marker
 Leading and trailing nodes are computed using set:leading and -->
 <!--set:trailing
 and the final intersection is computed using set:intersection.
- -->
+-->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:set="http://exslt.org/sets"
