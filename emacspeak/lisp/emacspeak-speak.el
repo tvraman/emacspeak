@@ -486,9 +486,10 @@ setting.."
 ;;; Argument indent   indicates number of columns to indent.
 
 (defsubst emacspeak-indent (indent)
-  "Return indentation for this line as specified by argument INDENT."
+  "Produce tone indent."
   (when (> indent 1 )
-    (let ((duration (+ 50 (* 20  indent ))))
+    (let ((duration (+ 50 (* 20  indent )))
+          (dtk-stop-immediately nil))
       (dtk-tone  250 duration))))
 
 (defvar emacspeak-audio-indentation-methods
@@ -748,7 +749,7 @@ or header lines of blocks created by command
 `emacspeak-hide-or-expose-block' are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode
-emacspeak-speak-space-regexp
+                    emacspeak-speak-space-regexp
                     outline-minor-mode folding-mode
                     emacspeak-speak-maximum-line-length
                     emacspeak-use-midi
@@ -760,7 +761,6 @@ emacspeak-speak-space-regexp
   (save-excursion
     (let ((start  nil)
           (end nil )
-          (dtk-stop-immediately dtk-stop-immediately)
           (inhibit-point-motion-hooks t)
           (line nil)
           (auditory-icon nil)
@@ -769,11 +769,6 @@ emacspeak-speak-space-regexp
       (beginning-of-line)
       (emacspeak-handle-action-at-point)
       (setq start (point))
-      (when (and emacspeak-audio-indentation
-                 (null arg ))
-        (save-excursion
-          (back-to-indentation )
-          (setq indent  (current-column ))))
       (end-of-line)
       (setq end (point))
       (goto-char orig)
@@ -782,28 +777,31 @@ emacspeak-speak-space-regexp
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
       (when (and emacspeak-audio-indentation
-                 (string= emacspeak-audio-indentation "tone")
                  (null arg ))
-        (setq dtk-stop-immediately nil )
+        (save-excursion
+          (back-to-indentation )
+          (setq indent  (current-column ))))
+      (when (and emacspeak-audio-indentation
+                 (null arg )
+                 (string= emacspeak-audio-indentation "tone"))
         (emacspeak-indent indent ))
       (if emacspeak-show-point
           (ems-set-personality-temporarily
            (point) (1+ (point))
            'paul-animated
-           (setq line
-                 (buffer-substring  start end )))
+           (setq line (buffer-substring  start end )))
         (setq line (buffer-substring start end )))
       (when (get-text-property  start 'emacspeak-hidden-block)
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string= ""  (buffer-substring start end)) ;blank line
         (if dtk-stop-immediately (dtk-stop))
-        (dtk-tone 250   120 'force)
+        (dtk-tone 250   75 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'empty-line)))
        ((string-match  emacspeak-speak-space-regexp  (buffer-substring start end )) ;only white space
         (if dtk-stop-immediately (dtk-stop))
-        (dtk-tone 250   100 'force)
+        (dtk-tone 300   120 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'blank-line)))
        ((and
@@ -813,7 +811,7 @@ emacspeak-speak-space-regexp
         (if dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when emacspeak-use-midi-icons
-        (emacspeak-midi-icon 'horizontal-rule)))
+          (emacspeak-midi-icon 'horizontal-rule)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-decoration-rule
@@ -848,10 +846,10 @@ emacspeak-speak-space-regexp
               (ems-modify-buffer-safely
                (put-text-property start end
                                   'emacspeak-speak-this-long-line t)))
-           (when (and (null arg)
-                      emacspeak-speak-line-column-filter)
-             (setq line
-                   (emacspeak-speak-line-apply-column-filter line)))
+            (when (and (null arg)
+                       emacspeak-speak-line-column-filter)
+              (setq line
+                    (emacspeak-speak-line-apply-column-filter line)))
             (if (and (string= "speak" emacspeak-audio-indentation )
                      (null arg )
                      indent
