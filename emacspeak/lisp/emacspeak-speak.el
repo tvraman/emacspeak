@@ -66,7 +66,8 @@
 ;;}}}
 ;;{{{  custom group 
 (defconst  emacspeak-xemacs-p
-  (when (string-match "Lucid\\|XEmacs" emacs-version)
+  (when (or (boundp 'running-xemacs)
+      (string-match "Lucid\\|XEmacs" emacs-version))
   t)
 "T if we are running under XEmacs.")
 (defgroup emacspeak-speak nil
