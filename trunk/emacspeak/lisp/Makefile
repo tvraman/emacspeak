@@ -136,6 +136,7 @@ emacspeak-hide.elc \
 emacspeak-hideshow.elc \
 emacspeak-hyperbole.elc \
 emacspeak-ibuffer.elc \
+emacspeak-imcom.elc \
 emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
@@ -301,6 +302,7 @@ emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc
 emacspeak-hyperbole.elc: emacspeak-hyperbole.el dtk-speak.elc
 emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc
+emacspeak-imcom.elc: emacspeak-imcom.el dtk-speak.elc
 emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc 
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc

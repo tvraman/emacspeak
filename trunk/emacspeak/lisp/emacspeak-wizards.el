@@ -1464,10 +1464,8 @@ annotation is inserted into the working buffer when complete."
   "Switch to the shell buffer and cd to 
 the directory of the current buffer."
   (interactive)
-  (declare (special default-directory
-                    emacspeak-comint-autospeak))
-  (let ((dir default-directory)
-        (emacspeak-comint-autospeak t))
+  (declare (special default-directory))
+  (let ((dir default-directory))
     (shell)
     (unless (string-equal (expand-file-name dir)
                           (expand-file-name
@@ -1476,7 +1474,8 @@ the directory of the current buffer."
       (insert (format "cd %s" dir))
       (comint-send-input)
     (shell-process-cd dir))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
