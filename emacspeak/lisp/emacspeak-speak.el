@@ -1554,16 +1554,7 @@ semantic to do the work."
                                       (emacspeak-get-current-percentage-verbously)
                                       frame-info
                                       recursion-info
-                                      global-info
-                                      (unless (and buffer-read-only
-                                                   (buffer-modified-p)) ;avoid pathological case
-                                        (unless 
-                                            (or
-                                             (eq major-mode 'shell-mode) (eq major-mode 'comint-mode)
-                                             (not
-                                              (buffer-modified-p)))
-                                          "Modified ")
-                                        (when buffer-read-only "ReadOnly ")))))))))
+                                      global-info)))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
