@@ -464,6 +464,25 @@ Finally return the symbol"
       name))))
 
 ;;}}}
+;;{{{ Configurater 
+
+(defun outloud-configure-tts ()
+  "Configure TTS environment to use ViaVoice  family of synthesizers."
+  (declare (special tts-default-speech-rate
+                    outloud-default-speech-rate
+                    emacspeak-use-auditory-icons emacspeak-aumix-multichannel-capable-p))
+  (fset 'tts-get-voice-command 'outloud-get-voice-command)
+  (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
+  (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
+  (fset 'tts-personality-from-speech-style 'outloud-personality-from-speech-style)
+  (setq tts-default-speech-rate outloud-default-speech-rate)
+  (when (and emacspeak-use-auditory-icons
+             (not emacspeak-aumix-multichannel-capable-p)
+             (not (emacspeak-using-midi-p))
+             emacspeak-aumix-midi-available-p)
+    (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
+
+;;}}}
 (provide 'outloud-voices)
 ;;{{{  emacs local variables
 
