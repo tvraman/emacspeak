@@ -617,7 +617,7 @@ name of the list.")
  nil
  "Speak CNN Market Update."
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 8 url 'speak)))
+     (emacspeak-w3-extract-table-by-position 11 url 'speak)))
 
 ;;}}}
 ;;{{{ nfl 
