@@ -15,7 +15,7 @@ encoding="iso8859-15"/>
   <!-- { html body  --> 
 
   <xsl:template match="//script|meta|link"/>
-<xsl:template match="td/font|td/strong|td/span|td/font">
+<xsl:template match="td/font|td/strong|td/span|td/font|td/nobr">
 <span>
 <xsl:apply-templates/>
     </span><br/>
@@ -27,7 +27,7 @@ encoding="iso8859-15"/>
         </strong></p>
       <xsl:apply-templates 
                            select =
-        "//div|//h1|//h2|//h3|//h4|//h5|//h6|//td/strong|//td/em|//td/li|//td/font|//td/span|//p|//pre|//ul|//ol|//dl"/>
+        "//div|//h1|//h2|//h3|//h4|//h5|//h6|//td/strong|//td/em|//td/li|//td/font|//td/nobr|//td/span|//p|//pre|//ul|//ol|//dl"/>
 
 <h2><a name="__about_this_style">About This Style</a></h2>
 <p>
