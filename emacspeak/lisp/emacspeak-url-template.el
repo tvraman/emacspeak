@@ -307,10 +307,7 @@ documentation   Documents this template resource.
 (emacspeak-url-template-define
  "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer"Day:"
-                           "Today")))
+ (list "BBC 7 Schedule: ")
  nil
  "Retrieve BBC7 schedule for specified day."
  #'(lambda (url)
