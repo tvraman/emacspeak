@@ -69,26 +69,26 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   fprintf(stderr, "tts startup returned %d\n", status);
   switch (status) {
   case MMSYSERR_NODRIVER:
-    Tcl_AppendResult(interp, "TTS: Could not find any
- wave devices\n", NULL);
+    Tcl_AppendResult(interp,
+                     "TTS: Could not find any wave devices\n", NULL);
     return TCL_ERROR;
     break;
   case MMSYSERR_NOTENABLED:
-    Tcl_AppendResult(interp,"TTS: DECtalk license not
- found.\n", NULL);
+    Tcl_AppendResult(interp,
+                     "TTS: DECtalk license not found.\n", NULL);
     return TCL_ERROR;
     break;
   case MMSYSERR_ALLOCATED:
-    Tcl_AppendResult(interp,"TTS: DECtalk has exceeded
- license quota.\n", NULL);
+    Tcl_AppendResult(interp,
+                     "TTS: DECtalk has exceeded license quota.\n", NULL);
     return TCL_ERROR;
     break;
   case MMSYSERR_NOERROR:
     break;
 
   default:
-    Tcl_AppendResult(interp,"\n%s: TextToSpeechStartup
- failed, \n", NULL);
+    Tcl_AppendResult(interp,
+                     "\n%s: TextToSpeechStartup failed, \n", NULL);
     return TCL_ERROR;
   }
   if (dtkHandle == NULL) { 
