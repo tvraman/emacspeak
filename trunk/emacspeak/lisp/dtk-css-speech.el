@@ -83,18 +83,6 @@
 (require 'dtk-voices)
 
 ;;}}}
-;;{{{  A speech style structure
-
-(defstruct  dtk-speech-style
-  family
-  gain left-volume right-volume
-  average-pitch
-  pitch-range
-  stress
-  richness
-  )
-
-;;}}}
 ;;{{{  Mapping css parameters to dtk codes
 
 ;;{{{ voice family codes
@@ -562,11 +550,12 @@ and TABLE gives the values along that dimension."
 Then see if a voice defined for it.
 Finally return the symbol"
   (cond
-   ((= 0 (dtk-speech-style-gain style))
+   ((and (dtk-speech-style-gain style)
+     (= 0 (dtk-speech-style-gain style)))
     'inaudible)
    (t
     (let ((name (intern
-                 (format "%s-%s-%s-%s-%s"
+                 (format "%s-a%s-p%s-s%s-r%s"
                          (dtk-speech-style-family style)
                          (dtk-speech-style-average-pitch style)
                          (dtk-speech-style-pitch-range style)
