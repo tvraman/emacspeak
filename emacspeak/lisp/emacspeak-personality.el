@@ -96,9 +96,7 @@
 ;;{{{ Deactivate old voice lock routines.
 ;;; First, we deactivate the voice lock code from module voice-lock.el
 
-(defun voice-lock-set-major-mode-keywords (&rest ignore)
-  "Redefined to be a no-op."
-  t)
+
 
 ;;; by redefining its entry points to be no-ops.
 
