@@ -327,7 +327,7 @@ HTML head if none found."
   'emacspeak-xml-shell-goto-children)
 (define-key emacspeak-xml-shell-mode-map "\C-c\C-v"
   'emacspeak-xml-shell-browse-result)
-(define-key emacspeak-xml-shell-mode-map "\C-c\v" 'emacspeak-xml-shell-browse-current)
+(define-key emacspeak-xml-shell-mode-map "\C-cv" 'emacspeak-xml-shell-browse-current)
 
 ;;}}}
 (provide 'emacspeak-xml-shell)
