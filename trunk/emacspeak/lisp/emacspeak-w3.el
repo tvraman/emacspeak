@@ -1281,7 +1281,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 ;;{{{ backward compatibility 
 ;;; this will go away 
 (defalias 'make-dtk-speech-style 'make-acss)
-(defalias 'dtk-personality-from-speech-style 'tts-personality-from-speech-style)
+(defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
 (provide 'dtk-css-speech)
 ;;}}}
 ;;{{{  emacs local variables 

@@ -50,8 +50,7 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (load-library "cl-extra"))
-
+(require 'acss-structure)
 ;;}}}
 ;;{{{  voice table
 
@@ -70,7 +69,7 @@ The string can set any dtk parameter.")
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
   (declare (special dtk-voice-table ))
-  (setf (gethash name dtk-voice-table ) command-string))
+  (puthash  name command-string  dtk-voice-table))
 
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
@@ -164,7 +163,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special dtk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (setf  (gethash key dtk-css-code-tables) table )))
+      (puthash  key table dtk-css-code-tables )))
 
 (defsubst dtk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -560,6 +559,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{  dtk-define-voice-from-speech-style
+
 (defun dtk-define-voice-from-speech-style (name style)
   "Define NAME to be a dtk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
@@ -611,7 +611,8 @@ collect (list 'const  k)))
 
 (defun dtk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
-  (declare (special  dtk-default-speech-rate))
+  (declare (special  dtk-default-speech-rate
+                     tts-default-speech-rate))
   (fset 'tts-list-voices 'dtk-list-voices)
   (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
   (fset 'tts-get-voice-command 'dtk-get-voice-command)
