@@ -365,24 +365,24 @@ set the current local value to the result.")
              (t (fourth fields)))
             (third fields)
             (first fields)
-(cond
+            (cond
              ((string-equal "0" (second fields)) 
               "no")
              (t (second fields))))))
 
 (defvar emacspeak-erc-cricket-4-6-pattern
-"[0-9]+x\[46]"
-"Matches pattern used to  score number of fours and sixes in IRC #cricket.")
+  " [0-9]+x\[46] "
+  "Matches pattern used to  score number of fours and sixes in IRC #cricket.")
 
 (defun emacspeak-erc-cricket-convert-4-6-pattern (pattern)
   "Convert 4/6 pattern for IRC cricket channels."
   (format "%s %s"
-(substring pattern 0 -2)
-(cond
-((string-equal "4" 
-(substring pattern -1))
-"fours")
-(t "sixes"))))
+          (substring pattern 0 -2)
+          (cond
+           ((string-equal "4" 
+                          (substring pattern -1))
+            "fours")
+           (t "sixes"))))
 (defun emacspeak-erc-setup-cricket-rules ()
   "Set up #cricket channels."
   (interactive)
@@ -394,22 +394,22 @@ set the current local value to the result.")
    emacspeak-erc-cricket-4-6-pattern
    (cons 're-search-forward
          'emacspeak-erc-cricket-convert-4-6-pattern))
-(emacspeak-pronounce-add-buffer-local-dictionary-entry
-   "[0-9]+nb"
+  (emacspeak-pronounce-add-buffer-local-dictionary-entry
+   " [0-9]+nb "
    (cons
     're-search-forward
     #'(lambda (pattern)
         (format "%s no balls "
                 (substring pattern 0 -2)))))
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-   "[0-9]+b"
+   " [0-9]+b "
    (cons
     're-search-forward
     #'(lambda (pattern)
         (format "%s balls "
                 (substring pattern 0 -1)))))
-(emacspeak-pronounce-add-buffer-local-dictionary-entry
-   "[0-9]+w"
+  (emacspeak-pronounce-add-buffer-local-dictionary-entry
+   " [0-9]+w "
    (cons
     're-search-forward
     #'(lambda (pattern)
