@@ -506,11 +506,9 @@ Leave point at front of decoded attachment."
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'vm-presentation-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
-
 (add-hook 'mail-mode-hook
           'emacspeak-pronounce-refresh-pronunciations)
           
-
 (emacspeak-pronounce-augment-pronunciations 'mail-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 
