@@ -13,7 +13,6 @@
         Project see
         <ulink url="http://www.linuxdoc.org/LDP-COPYRIGHT.html">
           LDP Copyright Notice </ulink>.
-        
       </para>
     </legalnotice>
     <copyright>
@@ -40,6 +39,14 @@
         the interested user is expected to lookup the
         details of a command using these facilities.
       </para>
+      <para>
+The latest copy of this document is always available via CVS
+        from the Emacspeak CVS repository ---thanks to the
+        <inlinegraphic
+        fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"
+        />
+--- SourceForge project.
+</para>
     </abstract>
   </articleinfo>
   
