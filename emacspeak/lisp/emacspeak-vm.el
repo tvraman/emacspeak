@@ -625,6 +625,13 @@ text using pdftotext."
 text using wvText."
   :type 'string
   :group 'emacspeak-vm)
+(defcustom emacspeak-vm-cal2text
+  (expand-file-name "cal2text" emacspeak-etc-directory)
+  "Executable that converts calendar invitations    on
+  standard input to plain text."
+  :type 'string
+  :group 'emacspeak-vm)
+
 
 (defcustom emacspeak-vm-xls2html
   (expand-file-name "xls2html" emacspeak-etc-directory)
@@ -653,8 +660,7 @@ text using wvText."
 
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
-  (declare (special
-            vm-preview-lines
+  (declare (special vm-preview-lines
             vm-infer-mime-types
             vm-mime-decode-for-preview
             vm-auto-decode-mime-messages
@@ -667,7 +673,10 @@ text using wvText."
             emacspeak-vm-pdf2text
             emacspeak-vm-ppt2html
             emacspeak-vm-xls2html
-            emacspeak-vm-doc2text))
+            emacspeak-vm-doc2text
+            emacspeak-vm-cal2text))
+  (emacspeak-vm-add-mime-convertor
+   (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-convertor
    (list "application/pdf" "text/plain"
          emacspeak-vm-pdf2text))
