@@ -63,9 +63,9 @@ Nested Tables </a>
       </h2>
       
       <xsl:for-each select="//table//table">
+        <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
         <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
-        <xsl:sort select="count(.//text()|.//p)" order="descending"/>
-        <xsl:sort select="@width" order="descending"/>
+        <!--<xsl:sort select="@width" order="descending"/>-->
 <!--
 <p> sorting keys:
 Text <xsl:value-of select="count(.//text() | .//p)"/>
@@ -74,6 +74,9 @@ table width: <xsl:value-of select="@width"/>
 -->
 <h2>
         <xsl:element name="a">
+            <xsl:attribute name="href">
+            #src-<xsl:value-of select="generate-id(.)"/>
+          </xsl:attribute>
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
           </xsl:attribute>
@@ -107,7 +110,10 @@ Sort keys were number of text nodes in a table and the width
     </xsl:element>
   </xsl:template>
   <xsl:template match="//table//table">
-    <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
+    <xsl:element name="a">
+      <xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute>
+      <xsl:attribute name="name"><xsl:text>src-</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute>
+<xsl:value-of select="caption"/>
 <xsl:choose>
 <xsl:when test="@summary">
  <xsl:value-of select="@summary"/>
