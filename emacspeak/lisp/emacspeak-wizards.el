@@ -1331,7 +1331,7 @@ annotation is inserted into the working buffer when complete."
       (insert annotation)
       (insert "\n"))
     (pop-to-buffer parent-buffer)
-    (emacspeak-auditory-icon 'mark-object)))
+    (emacspeak-auditory-icon 'close-object)))
 
 
 ;;}}}
