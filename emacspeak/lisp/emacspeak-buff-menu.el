@@ -39,15 +39,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Required modules
+;;; Code:
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile
-  (require 'dtk-speak)
-  (require 'emacspeak-speak)
-  (require 'emacspeak-sounds)
-  (load-library "buff-menu"))
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction 
 

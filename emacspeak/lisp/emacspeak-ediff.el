@@ -47,8 +47,6 @@
 		   (require 'emacspeak-speak)
 		   (require 'emacspeak-keymap)
 		   (require 'emacspeak-sounds)
-		   (require 'emacspeak-personality)
-                   (require 'voice-setup)
 		   (require 'ediff)
 		   (require 'ediff-init))
     

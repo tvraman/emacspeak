@@ -1,8 +1,8 @@
-;;; emacspeak-perl.el --- Speech enable Perl Mode 
+;;; emacspeak-preamble.el --- standard  include for Emacspeak modules
 ;;; $Id$
 ;;; $Author$ 
-;;; DescriptionEmacspeak extensions for perl-mode
-;;; Keywords:emacspeak, audio interface to emacs perl
+;;; DescriptionEmacspeak extensions for auctex-mode
+;;; Keywords:emacspeak, audio interface to emacs AUCTEX
 ;;{{{  LCD Archive entry: 
 
 ;;; LCD Archive Entry:
@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2002, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
@@ -36,46 +37,21 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-
-(eval-when-compile (require 'cl))
+;;{{{ Required modules 
+
+(require 'cl)
+(require 'advice)
+(require 'backquote)
+(require 'custom)
+(require 'thingatpt)
+
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-;;{{{  Introduction:
-
-;;; Provide additional advice to perl-mode 
-
-;;}}}
-;;{{{  Advice electric insertion to talk:
-
-(defadvice electric-perl-terminator  (after emacspeak pre act comp )
-  "Speak what you inserted."
-  (when (interactive-p)
-    (emacspeak-speak-this-char last-input-char)))
-
-;;}}}
-;;{{{  Program structure:
-
-(defadvice mark-perl-function (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
-    (message "Marked procedure")))
-
-(defadvice perl-beginning-of-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
-
-(defadvice perl-end-of-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)))
-
 ;;}}}
 
-(provide  'emacspeak-perl)
+(provide  'emacspeak-preamble)
 ;;{{{  emacs local variables 
 
 ;;; local variables:

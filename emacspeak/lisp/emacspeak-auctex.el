@@ -37,11 +37,9 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-personality)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+;;{{{ Required modules 
+(require 'emacspeak-preamble)
+;;}}}
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to auctex

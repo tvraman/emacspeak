@@ -84,7 +84,7 @@ use `emacspeak-toggle-auditory-icons' bound to
 
 ;;}}}
 ;;{{{ Record if using midi 
-
+;;;###autoload
 (defsubst emacspeak-using-midi-p ()
   "Predicate to test if we are using midi."
   (declare (special emacspeak-auditory-icon-function))
@@ -346,7 +346,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-native-auditory-icon)
 	  (const emacspeak-queue-auditory-icon)
           (const emacspeak-midi-icon)))
-
+;;;###autoload 
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (declare (special emacspeak-auditory-icon-function))

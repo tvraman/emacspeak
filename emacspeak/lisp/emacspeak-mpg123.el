@@ -44,7 +44,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (eval-when-compile (require 'dtk-speak)
-                   (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds))
 

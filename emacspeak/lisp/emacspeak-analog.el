@@ -46,15 +46,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'backquote)
-  (require 'emacspeak-speak)
-  (require 'emacspeak-sounds)
-(require 'voice-setup)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ advice interactive commands
 (defadvice analog (after emacspeak pre act comp)

@@ -40,16 +40,15 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl)
+                   (require 'backquote))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'backquote)
 (require 'custom)
 (require 'voice-setup)
 (require 'thingatpt)
 (eval-when-compile
   (provide 'emacspeak-speak)            ;avoid recursive include
   (require 'dtk-speak )
-  (require 'emacspeak-personality)
   (require 'emacspeak-sounds)
   (require 'shell)
   (require 'which-func nil)

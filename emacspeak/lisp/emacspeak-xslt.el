@@ -48,9 +48,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  xslt 
@@ -71,7 +69,7 @@
   "If non-nil, xslt errors will be preserved in an errors buffer."
   :type 'boolean
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params )
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
@@ -103,7 +101,7 @@ part of the libxslt package."
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
     (setq modification-flag nil)))
-
+;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params)
   "Apply XSLT transformation to url
 and return the results in a newly created buffer.
@@ -141,7 +139,7 @@ part of the libxslt package."
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
-
+;;;###autoload
 (defun emacspeak-xslt-xml-url (xsl url &optional params)
   "Apply XSLT transformation to XML url
 and return the results in a newly created buffer.

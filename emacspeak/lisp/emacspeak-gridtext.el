@@ -45,7 +45,6 @@
 (require 'advice)
 (require 'thingatpt)
 (require 'emacspeak-speak)
-(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 (require 'emacspeak-table)
 (require 'emacspeak-table-ui)
