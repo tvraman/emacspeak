@@ -2432,6 +2432,14 @@ Use with caution."
     (when (interactive-p)
       (emacspeak-speak-line))))
 
+(defun emacspeak-wizards-vc-n ()
+  "Accelerator for VC viewer."
+  (interactive)
+  (declare (special last-input-char))
+  (emacspeak-wizards-vc-viewer (format "%c" last-input-char))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'open-object))
+
 (declaim (special emacspeak-wizards-vc-viewer-mode-map))
 
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
