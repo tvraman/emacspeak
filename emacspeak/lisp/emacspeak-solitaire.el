@@ -140,8 +140,7 @@
 ;;}}}
 ;;{{{ advice commands
 
-(defvar emacspeak-solitaire-autoshow nil
-  "*T means rows and columns are toned as we move")
+
 
 ;;}}}
 ;;{{{ advice commands

@@ -39,6 +39,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'dtk-voices)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
@@ -49,7 +50,17 @@
 ;;; Provide additional advice to forms-mode 
 
 ;;}}}
+;;{{{  custom
+(defgroup emacspeak-forms nil
+  "Emacspeak support for forms mode."
+  :group 'emacspeak
+  :group 'forms
+  :prefix "emacspeak-forms-")
+
+;;}}}
 ;;{{{ Helper functions
+
+
 (defvar emacspeak-forms-current-record-summarizer
   'emacspeak-forms-speak-field
   "Summarizer function for summarizing a record. Default is to
@@ -72,11 +83,15 @@ speak the first field")
    (format "Record %s of %s from %s"
            forms--current-record forms--total-records forms-file)))
 
-(defvar emacspeak-forms-rw-voice 'paul
-  "Personality for read-write fields. ")
+(defcustom emacspeak-forms-rw-voice 'paul
+  "Personality for read-write fields. "
+  :type 'symbol
+  :group 'emacspeak-forms)
 
-(defvar emacspeak-forms-ro-voice 'annotation-voice
-  "Personality for read-only fields. ")
+(defcustom emacspeak-forms-ro-voice 'annotation-voice
+  "Personality for read-only fields. "
+  :type 'symbol
+  :group 'emacspeak-forms)
 
 
 (defun emacspeak-forms-speak-field ()

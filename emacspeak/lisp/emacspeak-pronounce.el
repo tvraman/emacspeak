@@ -61,6 +61,7 @@
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'thingatpt)
 (require 'emacspeak-sounds)
 (eval-when (compile)
@@ -265,7 +266,10 @@ Modifies text in buffer."
 ;;{{{  loading, clearing  and saving dictionaries
 
 (defvar emacspeak-pronounce-dictionaries-file  nil
-  "File that holds the persistent emacspeak pronunciation dictionaries.")
+  "File that holds the persistent emacspeak pronunciation
+dictionaries."
+  :type '(file :tag "Dictionary File ")
+               :group 'emacspeak)
 
 (declaim (special emacspeak-resource-directory))
 (setq emacspeak-pronounce-dictionaries-file
