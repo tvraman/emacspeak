@@ -1549,12 +1549,18 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{  launch lynx 
+(defcustom emacspeak-wizards-links-program "links"
+  "Name of links executable."
+  :type 'file
+  :group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-links (url)
   "Launch links on  specified URL in a new terminal."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
+  (declare (special emacspeak-wizards-links-program))
   (require 'term)
   (delete-other-windows)
   (switch-to-buffer
@@ -1562,7 +1568,7 @@ Signals beginning  of buffer."
     (generate-new-buffer-name
      (format "links-%s"
              (substring url 7)))
-    "/usr/local/bin/links"
+    emacspeak-wizards-links-program
     nil
     url))
   (emacspeak-eterm-record-window   1 
@@ -1575,7 +1581,7 @@ Signals beginning  of buffer."
 (defcustom emacspeak-wizards-lynx-program
   "lynx"
   "Lynx executable."
-  :type 'filename
+  :type 'file
   :group 'emacspeak-wizards)
 
 

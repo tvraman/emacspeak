@@ -10,11 +10,11 @@ the  actual table which appears in a final section of the
 document.
 
 The default mode, which is the first pass, passes everything
-except tables unmodified.
+except nested tables unmodified.
 
-Tables are matched by rule match = //tables//table 
+Nested tables are matched by rule match = //tables//table 
 which creates the required anchor element, deferring the
-copying out of the table to the second-pass.
+copying out of the nested table to the second-pass.
 
 During the second pass, nested tables get recursively
 processed by calling apply-templates which by default
