@@ -47,8 +47,9 @@
   (require 'voice-lock)
   (require 'emacspeak-keymap)
   (require 'emacspeak-sounds)
-  (require 'emacspeak-widget)
   (require 'widget)
+  (require 'wid-edit)
+  (require 'emacspeak-widget)
   (require 'emacspeak-fix-interactive))
 
 ;;}}}
