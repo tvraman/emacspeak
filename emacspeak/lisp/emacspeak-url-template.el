@@ -183,6 +183,20 @@
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Google News Overview.")
 
+
+(emacspeak-url-template-define
+ "Google News search"
+ "http://news.google.com/news?hl=en&q=%s&btnG=Google+Search"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer
+       "Search news for: ")))
+ #'(lambda nil
+     (search-forward "Sorted by")
+     (forward-line 4)
+     (emacspeak-speak-line))
+ "Search Google news.")
+
 ;;}}}
 ;;{{{ yahoo daily news 
 (emacspeak-url-template-define
