@@ -55,7 +55,8 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
-(require 'dtk-css-speech)
+;(require 'dtk-css-speech)
+(require 'voice-setup)
 (require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 
@@ -82,7 +83,7 @@
                           color
                           (if style style "default"))))
     (unless (dtk-voice-defined-p voice-name)
-      (setq acss-spec (make-dtk-speech-style ))
+      (setq acss-spec (make-voice-setup-aural-style ))
       (setq style-parameter
             (if style-index
                 (+ 1 style-index)
@@ -91,11 +92,12 @@
             (if color-index
                 (+ 1 color-index)
               1))
-      (setf (dtk-speech-style-average-pitch acss-spec) color-parameter)
-      (setf (dtk-speech-style-pitch-range acss-spec) style-parameter)
-      (setf (dtk-speech-style-richness acss-spec) color-parameter)
-      (setf (dtk-speech-style-stress acss-spec) style-parameter)
-      (dtk-define-voice-from-speech-style voice-name acss-spec))
+      (setf (voice-setup-aural-style-average-pitch acss-spec) color-parameter)
+      (setf (voice-setup-aural-style-pitch-range acss-spec) style-parameter)
+      (setf (voice-setup-aural-style-richness acss-spec) color-parameter)
+      (setf (voice-setup-aural-style-stress acss-spec) style-parameter)
+      ;(dtk-define-voice-from-speech-style voice-name acss-spec)
+      )
     voice-name))
 
 (defadvice ansi-color-set-extent-face (after emacspeak pre act comp)
