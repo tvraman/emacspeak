@@ -148,6 +148,10 @@ displayed in the messages area."
   :group 'emacspeak-personality)
 
 
+(defvar emacspeak-personality-unmapped-faces (make-hash-table)
+  "Records faces that we have not yet mapped to personalities.")
+
+
 (defadvice put-text-property (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((start (ad-get-arg 0))
@@ -165,7 +169,7 @@ displayed in the messages area."
                                object))
        (when (and emacspeak-personality-show-unmapped-faces
                   (not voice))
-         (message "Unmapped face %s" face)))))
+         (puthash emacspeak-personality-unmapped-faces value t)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
