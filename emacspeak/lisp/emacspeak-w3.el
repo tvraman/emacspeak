@@ -871,6 +871,14 @@ filename)
 (delete-file filename)))
 
 ;;}}}
+;;{{{ fix bug in W3 under emacs 21 
+(defadvice w3-nasty-disgusting-http-equiv-handling (around fix-bug pre act comp)
+  (let ((emacspeak-use-auditory-icons nil))
+    (condition-case nil 
+        ad-do-it
+      (error (message "caught an error")))))
+
+;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 
