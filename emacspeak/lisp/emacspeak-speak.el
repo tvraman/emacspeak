@@ -1652,7 +1652,18 @@ current coding system, then we return an empty string."
                   (if (symbolp value) (eval value) value))
                  (t nil))))
           minor-mode-alist)))
+    (setq info
+          (mapcar
+           #'(lambda (form)
+               (cond
+                ((and form
+                      (listp form)
+                      (eq :eval (car form)))
+                 (eval (cadr form)))
+                (t form)))
+           info))
     (setq info (delete nil info))
+    (setq info (delete "" info))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat
