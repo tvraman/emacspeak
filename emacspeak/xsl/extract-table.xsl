@@ -21,6 +21,7 @@ node-set //table//table
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
+      <h2>Table <xsl:value-of select="$table-index"/></h2>
       <xsl:apply-templates select="//table//table[$table-index]"/>
     </xsl:element>
   </xsl:template>

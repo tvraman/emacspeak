@@ -523,8 +523,7 @@ Nil means no transform is used. ")
   :type 'string
   :group 'emacspeak-w3)
 
-(defun emacspeak-w3-xslt-region (xsl start end &optional
-                                     params )
+(defun emacspeak-w3-xslt-region (xsl start end &optional params )
   "Apply XSLT transformation to region and replace it with
 the result.
 This uses XSLT processor xsltproc available as part of the
@@ -535,21 +534,22 @@ libxslt package."
                  (random))))
     (write-region start end tempfile)
     (erase-buffer)
-(let ((parameters (when params 
-(mapconcat 
- #'(lambda (pair)
-     (format "--param %s %s "
-             (car pair)
-             (cdr pair)))
- params))))
-    (shell-command
-     (format "%s %s  --html --nonet --novalid %s %s"
-             emacspeak-xslt-program
-(or parameters "")
-             xsl tempfile)
-     (current-buffer)
-     "*xslt errors*")
-    (delete-file tempfile))))
+    (let ((parameters (when params 
+                        (mapconcat 
+                         #'(lambda (pair)
+                             (format "--param %s %s "
+                                     (car pair)
+                                     (cdr pair)))
+                         params
+                         " "))))
+      (shell-command
+       (format "%s %s  --html --nonet --novalid %s %s"
+               emacspeak-xslt-program
+               (or parameters "")
+               xsl tempfile)
+       (current-buffer)
+       "*xslt errors*")
+      (delete-file tempfile))))
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
@@ -589,9 +589,39 @@ libxslt package."
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
+
+(defvar emacspeak-w3-extract-table-xsl
+  (expand-file-name "extract-table.xsl"
+                    emacspeak-w3-xsl-directory)
+  "XSL transform to extract a table.")
+
+(defun emacspeak-w3-extract-table (table-index)
+  "Extracts specified table and displays it in a separate buffer."
+  (interactive "nTable index: ")
+  (declare (special emacspeak-xslt-program))
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in a W3 buffer."))
+  (save-excursion
+    (w3-source-document nil)
+    (let ((src-buffer (current-buffer))
+          (emacspeak-w3-xsl-p nil))
+      (emacspeak-w3-xslt-region
+       emacspeak-w3-extract-table-xsl
+       (point-min)
+       (point-max)
+       (list
+        (cons "table-index"
+              table-index)))
+      (w3-preview-this-buffer)
+      (kill-buffer src-buffer))))
+    
+
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
-(define-key emacspeak-w3-xsl-map "t" 'emacspeak-w3-xsl-toggle)
+(define-key emacspeak-w3-xsl-map "t"
+  'emacspeak-w3-xsl-toggle)
+(define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
+
 ;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
