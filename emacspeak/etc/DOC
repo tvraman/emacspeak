@@ -3819,13 +3819,6 @@ Speak current field.
 A field is
 defined  by Emacs 21.
 
-------------------------------------------------------------
-
-** voice-setup-face-to-voiceVoiceify faces in specified region that are not already voicefied.
-Face to voice mapping is specified in
-voice-setup-face-voice-table.
-This function forces voice-lock mode on.
-
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"
 end:
