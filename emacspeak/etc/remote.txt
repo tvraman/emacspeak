@@ -1,5 +1,23 @@
 *Running Speech Server  remotely
 
+** Using SSH 
+
+0) Make sure you can ssh from the remote machine to the local
+machine without providing a password.
+
+1)  Test the ssh speech server by starting 
+it from a shell buffer:
+tcl <emacspeak-location>/servers/ssh-<synth>
+--where <synth> is either dtk-exp or outloud 
+
+2) If you hear the speech server start up cleanly on the
+   local machine --all is well, type exit to quit that
+   running server.
+
+3) Now use command dtk-select-server to select either
+   ssh-outloud or ssh-dtk-exp as your speech server.
+
+
 ** Using RSH 
 
   Appended below is a simple shell script that is available
