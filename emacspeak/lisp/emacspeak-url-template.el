@@ -654,14 +654,18 @@ the broadcast. You must have mplayer installed."
   "Play NFL url under point."
   (interactive)
   (let ((url (w3-view-this-url 'no-show))
-        (fields nil))
+        (fields nil)
+        (stream nil))
     (cond
      (url
       (setq fields (split-string url "file="))
-      (emacspeak-m-player
-       (first
+      (setq stream (first
         (split-string (second fields)
-                      "'"))))
+                      "'")))
+      (if (string-match "launch_rw" stream)
+          (emacspeak-realaudio-play stream)
+      (emacspeak-m-player
+       stream)))
      (t "No url under point."))))
 
 ;;}}}
