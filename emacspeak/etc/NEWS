@@ -13,6 +13,11 @@ Emacspeak 16.0 provides the following user level enhancements:
 Module emacspeak-imcom provides a speech-enabled wrapper for
 Jabber client IMCom.
 
+** Pronunciation Dictionaries
+
+New Command to interactively edit Emacspeak pronunciation
+dictionaries.
+
 ** Tools:
 
 *** emacspeak-wizards-shell-toggle:
