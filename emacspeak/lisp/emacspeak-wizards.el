@@ -890,17 +890,16 @@ To leave, press \\[keyboard-quit]."
   "List all Emacspeak customizable options."
   (let ((options nil ))
     (mapatoms
-     (function
-      (lambda (symbol)
-        (when
-            (and (symbolp symbol)
-                 (get symbol 'custom-type)
-                 (or (string-match "emacspeak" (symbol-name symbol))
-                     (string-match "cd-tool" (symbol-name symbol))
-                     (string-match "dtk" (symbol-name symbol))
-                     (string-match "voice" (symbol-name symbol))
-                     (string-match "tts" (symbol-name symbol))))
-          (push symbol options)))))
+     #'(lambda (symbol)
+         (when
+             (and (symbolp symbol)
+                  (get symbol 'custom-type)
+                  (or (string-match "emacspeak" (symbol-name symbol))
+                      (string-match "cd-tool" (symbol-name symbol))
+                      (string-match "dtk" (symbol-name symbol))
+                      (string-match "voice" (symbol-name symbol))
+                      (string-match "tts" (symbol-name symbol))))
+           (push symbol options))))
     (setq options
           (sort options
                 #'(lambda (a b )
