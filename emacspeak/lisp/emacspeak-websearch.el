@@ -1250,7 +1250,7 @@ emacspeak-websearch-hotbot-options to an appropriate string."
 (emacspeak-websearch-set-key ?m 'map-directions)
 
 (defvar emacspeak-websearch-map-directions-uri
-  "http://maps.yahoo.com/py/ddResults.py?Pyt=Tmap&doit=1&newname=&newdesc=&Get+Directions=Get+Directions"
+  "http://maps.yahoo.com/py/ddResults.py?Pyt=Tmap&doit=1&newname=&newdesc=&Get+Directions=Get+Directions&textonly=1"
   "URI for getting driving directions from Yahoo.")
 
 (defvar emacspeak-websearch-map-maps-uri 
@@ -1295,22 +1295,20 @@ With optional interactive prefix arg MAP shows the location map instead."
     current-prefix-arg))
   (declare (special emacspeak-websearch-map-directions-uri
                     emacspeak-websearch-map-maps-uri))
-  (let ((url-be-asynchronous nil)
-	)
-    (browse-url 
-     (concat
-      (if map
-          emacspeak-websearch-map-maps-uri
-        emacspeak-websearch-map-directions-uri)
-      query))
-    (if  map
-        (emacspeak-websearch-post-process
-         "Nearby"
-         'emacspeak-speak-line)
+  (cond
+   (map
+      (browse-url 
+   (concat
+        emacspeak-websearch-map-maps-uri
+    query))
       (emacspeak-websearch-post-process
-       "Start out"
-       'w3-table-speak-current-table-column))))
-
+       "Nearby"
+       'emacspeak-speak-line))
+   (t 
+    (emacspeak-w3-xslt-filter "//center[4]"
+                              (concat
+                               emacspeak-websearch-map-directions-uri query)))))
+         
 ;;}}}
 ;;{{{  news yahoo
 

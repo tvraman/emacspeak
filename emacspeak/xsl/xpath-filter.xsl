@@ -41,7 +41,14 @@ shown in the output.
         </xsl:element><br/>
       </xsl:for-each>
 <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/> matching elements.</p>
+      <p>Found <xsl:value-of select="count($locator)"/> matching
+      elements
+in  
+<xsl:element name="a">
+        <xsl:attribute name="href">
+          <xsl:value-of select="$base"/>
+        </xsl:attribute>
+document </xsl:element>.</p>
     </xsl:element>
   </xsl:template>
 <!-- } -->
