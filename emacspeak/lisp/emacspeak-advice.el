@@ -1460,6 +1460,12 @@ in completion buffers"
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-current-column)))
 
+(defadvice indent-pp-sexp  (after emacspeak pre act)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'fill-object )
+    (message "Indented current s expression ")))
+
 (defadvice indent-sexp  (after emacspeak pre act)
   "Provide auditory feedback."
   (when (interactive-p)
