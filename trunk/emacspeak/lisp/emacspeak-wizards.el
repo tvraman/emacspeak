@@ -2271,7 +2271,7 @@ Moves to the longest line when called interactively."
                    (line-end-position)
                    'personality
                    personality
-(emacspeak-speak-line))
+(emacspeak-speak-line)))
 
 (defun emacspeak-wizards-generate-voice-sampler  (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
