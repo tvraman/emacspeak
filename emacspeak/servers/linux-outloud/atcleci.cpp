@@ -348,7 +348,7 @@ TclEciFree (ClientData eciHandle)
 int
 Tcleci_Init (Tcl_Interp * interp)
 {
-  int rc, tmp;
+  int rc;
   void *eciHandle;
   void *eciLib;
   //< configure shared library symbols
@@ -592,7 +592,7 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
   if (msg == eciIndexReply /* eciIndexReply */ )
     {
       char buffer[128];
-      sprintf (buffer, "index %d", lparam);
+      sprintf (buffer, "index %ld", lparam);
       rc = Tcl_Eval (interp, buffer);
       if (rc != TCL_OK)
 	Tcl_BackgroundError (interp);
@@ -803,7 +803,7 @@ int
 setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	   Tcl_Obj * CONST objv[])
 {
-  int rc, length, tmp;
+  int rc, length;
   char *output;
   if (objc != 2)
     {
