@@ -566,13 +566,19 @@ only speak upto the first ctrl-m."
                     dtk-split-caps dtk-program
                     emacspeak-pronounce-pronunciation-table
                     selective-display ))
-                                        ; If you dont want me to talk,
-                                        ; I wont.
-  (unless  dtk-quiet
                                         ; ensure  the process  is live
-    (unless (or (eq 'run (process-status dtk-speaker-process ))
-                (eq 'open (process-status dtk-speaker-process )))
-      (dtk-initialize))
+  (unless (or (eq 'run (process-status dtk-speaker-process ))
+              (eq 'open (process-status dtk-speaker-process )))
+    (dtk-initialize))
+                                        ; If you dont want me to talk,
+                                        ;or my server is not
+                                        ;running, I will remain silent.
+  (unless  
+      (or dtk-quiet
+          (not dtk-speak-server-initialized))
+                                        
+    
+
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
     (or (stringp text) (setq text (format "%s" text )))
