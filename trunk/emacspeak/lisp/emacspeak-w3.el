@@ -710,9 +710,67 @@ minibuffer."
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
+(defvar emacspeak-w3-xsl-filter
+  (expand-file-name "xpath-filter.xsl"
+                    emacspeak-w3-xsl-directory)
+  "XSL transform to extract  elements matching a specified
+XPath locator.")
+
+(defun emacspeak-w3-xslt-filter (path   &optional prompt)
+  "Extract elements matching specified XPath path locator
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract table from.  Interactive
+prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer "XPath: ")
+    current-prefix-arg))
+  (declare (special emacspeak-xslt-program
+                    emacspeak-w3-xsl-filter))
+  (unless (or prompt
+              (eq major-mode 'w3-mode))
+    (error "Not in a W3 buffer."))
+  (let ((w3-url (when (eq major-mode 'w3-mode)
+                  (url-view-url t)))
+        (source-url
+         (cond
+          ((and (interactive-p)
+                prompt)
+           (read-from-minibuffer "URL: "
+                                 "http://www."))
+          (t  prompt))))
+    (save-excursion
+      (cond
+       (source-url
+        (set-buffer (cdr (url-retrieve source-url))))
+       (t (w3-source-document nil)))
+      (let ((src-buffer (current-buffer))
+            (emacspeak-w3-xsl-p nil))
+        (emacspeak-w3-xslt-region
+         emacspeak-w3-xsl-filter
+         (point-min)
+         (point-max)
+         (list
+          (cons "path"
+                (format "\"'%s'\""
+                        path))
+          (cons "locator"
+                (format "'%s'"
+                        path))
+          (cons "base"
+                (format "\"'%s'\""
+                        (or source-url
+                            w3-url)))))
+        (w3-preview-this-buffer)
+        (kill-buffer src-buffer)))))
+
+
 
 (declaim (special emacspeak-w3-xsl-map))
-(define-key emacspeak-w3-xsl-map "a" 'emacspeak-w3-xslt-apply)
+(define-key emacspeak-w3-xsl-map "a"
+  'emacspeak-w3-xslt-apply)
+(define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
