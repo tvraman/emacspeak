@@ -3,12 +3,12 @@
 @section Document Authoring 
 
 The Emacspeak environment provides a rich collection of structured
-document authoring tools.
-These are well-suited for working in an eyes-free environment --you
-clearly dont want to use a @b{What You See Is What You Get} (WYSIWYG)
-authoring tool if you cannot see what you're getting.
- Structure-based authoring tools  allow you to focus on the act of
- content creation, leaving the minutii of visual layout to the computer.
+document authoring tools.  These are well-suited for working in an
+eyes-free environment --you clearly do not want to use a @b{What You See
+Is What You Get} (WYSIWYG) authoring tool if you cannot see what you're
+getting.  Structure-based authoring tools allow you to focus on the act
+of content creation, leaving the minutiae of visual layout to the
+computer.
 
 
 

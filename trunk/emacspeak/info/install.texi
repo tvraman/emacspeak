@@ -130,7 +130,7 @@ d
   If things appear to hang when you execute @samp{s}
   i.e. you don't see a TCL prompt
 @enumerate 
-@item The serial cable conecting your speech device is flaky
+@item The serial cable connecting your speech device is flaky
 @item Your serial port is flaky
 @item The stty settings on the port are incorrect for your system
 @end enumerate
