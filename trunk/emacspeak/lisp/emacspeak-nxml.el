@@ -284,7 +284,9 @@ voice-smoothen
    ((interactive-p)
     (let ((start (point)))
       ad-do-it
-      (emacspeak-speak-region start (point))))
+      (emacspeak-speak-region start (point))
+      (when (= (preceding-char) ?>)
+        (emacspeak-auditory-icon 'close-object))))
    (t ad-do-it))
   ad-return-value)
     
