@@ -2639,8 +2639,6 @@ Location is specified by name."
                            (dtk-speak time))
 (message time)))
 
-)
-
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
