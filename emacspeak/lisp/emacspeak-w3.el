@@ -501,6 +501,83 @@ even if one is already defined."
     (message "Could not find submit button.")))
 
 ;;}}}
+;;{{{ applying XSL transforms before displaying
+
+(defvar emacspeak-w3-xsl-directory
+  (expand-file-name "xsl/" emacspeak-directory)
+  "Directory holding XSL transformations.")
+
+(define-prefix-command 'emacspeak-w3-xsl-map )
+(define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)  
+
+(defvar emacspeak-w3-xsl-p nil
+  "T means we apply XSL transformation before displaying
+HTML.")
+
+(defvar emacspeak-w3-xsl-transform nil
+  "Specifies transform to use before displaying a page.
+Nil means no transform is used. ")
+
+(defcustom emacspeak-xslt-program "xsltproc"
+"Name of XSLT transformation engine."
+:type 'string
+:group 'emacspeak-w3)
+
+(defun emacspeak-w3-xslt-region (xsl start end )
+  "Apply XSLT transformation to region and replace it with the result."
+  (declare (special emacspeak-w3-xsl-program))
+  (let ((tempfile
+         (format "/tmp/trans%s.xml"
+                 (random))))
+    (write-region start end tempfile)
+    (erase-buffer)
+    (shell-command
+     (format "%s  --html %s %s"
+             emacspeak-xslt-program
+             xsl tempfile)
+     (current-buffer)
+     standard-output)
+    (delete-file tempfile)))
+
+(defadvice  w3-parse-buffer (before emacspeak pre act comp)
+  "Apply requested transform if any before displaying the HTML."
+  (when (and emacspeak-w3-xsl-p
+      emacspeak-w3-xsl-transform)
+    (emacspeak-w3-xslt-region
+     emacspeak-w3-xsl-transform
+     (point-min)
+     (point-max))))
+
+
+
+(defun emacspeak-w3-xslt-select (xsl)
+  "Select transformation to apply."
+  (interactive
+   (list
+    (expand-file-name
+    (read-file-name "XSL Transformation: "
+                    emacspeak-w3-xsl-directory))))
+  (declare (special emacspeak-w3-xsl-transform))
+  (setq emacspeak-w3-xsl-transform xsl)
+  (message "Will apply %s before displaying HTML pages."
+           xsl)
+  (emacspeak-auditory-icon 'select-object))
+
+(defun emacspeak-w3-xsl-toggle ()
+  "Toggle use of XSL transformations before displaying
+HTML."
+  (interactive)
+  (declare (special emacspeak-w3-xsl-p))
+  (setq emacspeak-w3-xsl-p
+        (not emacspeak-w3-xsl-p))
+  (emacspeak-auditory-icon
+   (if emacspeak-w3-xsl-p 'on 'off))
+  (message "Turned %s XSL"
+(if emacspeak-w3-xsl-p 'on 'off)))
+
+(define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
+(define-key emacspeak-w3-xsl-map "t" 'emacspeak-w3-xsl-toggle)
+;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 
