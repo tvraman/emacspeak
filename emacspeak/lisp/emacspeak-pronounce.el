@@ -64,6 +64,8 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(eval-when-compile (require 'wid-edit))
+(eval-when-compile (require 'voice-lock))
 (require 'thingatpt)
 (require 'emacspeak-sounds)
 (eval-when (compile)
@@ -508,7 +510,7 @@ Activates pronunciation dictionaries if not already active."
 ;;}}}
 ;;{{{  dictionary editor 
 
-(require 'widget)
+
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
   "Generate a widget-enabled edit buffer for editting the
