@@ -60,6 +60,9 @@ There are
 <xsl:value-of select="count(//table//table)"/>
  nested tables in this page.</p>
       <xsl:for-each select="//table//table">
+        <xsl:sort select="count(.//text())" order="descending"/>
+        <xsl:sort select="@width" order="descending"/>
+        <xsl:sort select="@height" order="descending"/>
         <xsl:element name="a">
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
