@@ -1676,6 +1676,32 @@ resources."
     (emacspeak-url-template-help-internal  name)))
 
 ;;}}}
+;;{{{ Generate texinfo documentation for all defined url
+
+(defun emacspeak-url-template-generate-texinfo-documentation (buffer)
+  "Generates texinfo section documenting all defined URL
+  templates."
+  (declare (special emacspeak-url-template-table))
+  (insert
+       "@node URL Templates \n@section  URL Templates\n\n")
+  (insert
+       (format 
+       "This section is generated automatically from the source-level documentation.
+Any errors or corrections should be made to the source-level
+documentation.
+This section documents a total of %d URL Templates.\n\n"
+        (hash-table-count emacspeak-url-template-table)))
+  (loop for key being the hash-keys of emacspeak-url-template-table
+      do
+(princ key (current-buffer))
+    (insert "\n\n")
+    (princ
+     (emacspeak-url-template-documentation
+      (emacspeak-url-template-get key))
+     (current-buffer))
+(insert "\n\n")))
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
