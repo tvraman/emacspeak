@@ -205,7 +205,8 @@ emacspeak-wrolo.elc \
 emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
-emacspeak-xslt-process.elc 
+emacspeak-xslt-process.elc  \
+xml-sexp.elc 
 
 ADDON_OBJECTS= tapestry.elc   xml-parse.elc 
 
@@ -393,6 +394,7 @@ emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc voice-setup.elc
 emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc voice-setup.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
 emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc voice-setup.elc
+xml-sexp.elc: xml-sexp.el
 emacspeak.elc: emacspeak.el
 loaddefs: emacspeak-loaddefs.elc
 # }}}
