@@ -2,6 +2,7 @@
 ;;
 ;;; Code:
 
+(put 'emacspeak-w3m 'custom-loads '("emacspeak-w3m"))
 (put 'dtk 'custom-loads '("dtk-tcl"))
 (put 'emacspeak-tnt 'custom-loads '("emacspeak-tnt"))
 (put 'emacspeak-forms 'custom-loads '("emacspeak-forms"))
@@ -9,21 +10,20 @@
 (put 'speedbar 'custom-loads '("emacspeak-speedbar"))
 (put 'emacspeak-xslt 'custom-loads '("emacspeak-xslt"))
 (put 'emacspeak-eshell 'custom-loads '("emacspeak-eshell"))
-(put 'emacspeak-rpm 'custom-loads '("emacspeak-rpm-spec"))
 (put 'emacspeak-speak 'custom-loads '("emacspeak-advice" "emacspeak-speak" "emacspeak-wizards"))
 (put 'flyspell 'custom-loads '("emacspeak-flyspell"))
 (put 'emacspeak-widget 'custom-loads '("emacspeak-widget"))
 (put 'eshell 'custom-loads '("emacspeak-eshell"))
 (put 'emacspeak-realaudio 'custom-loads '("emacspeak-realaudio"))
 (put 'emacspeak-imcom 'custom-loads '("emacspeak-imcom"))
-(put 'voice-lock 'custom-loads '("voice-lock"))
 (put 'emacspeak-ocr 'custom-loads '("emacspeak-ocr"))
 (put 'emacspeak-websearch 'custom-loads '("emacspeak-websearch"))
 (put 'forms 'custom-loads '("emacspeak-forms"))
-(put 'tts 'custom-loads '("dtk-speak" "dtk-tcl" "emacspeak-setup" "voice-setup"))
+(put 'tts 'custom-loads '("dtk-speak" "dtk-tcl" "emacspeak-setup"))
 (put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
-(put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-advice" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-personality" "emacspeak-pronounce" "emacspeak-replace" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak" "voice-lock"))
+(put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-advice" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-personality" "emacspeak-pronounce" "emacspeak-replace" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak"))
 (put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))
+(put 'emacspeak-calendar 'custom-loads '("emacspeak-calendar"))
 (put 'amphetadesk 'custom-loads '("amphetadesk"))
 (put 'comint 'custom-loads '("emacspeak-advice"))
 (put 'isearch 'custom-loads '("emacspeak-replace"))
@@ -45,6 +45,7 @@
 (put 'emacspeak-w3 'custom-loads '("emacspeak-w3"))
 (put 'eudc 'custom-loads '("emacspeak-eudc"))
 (put 'emacspeak-midge 'custom-loads '("emacspeak-midge"))
+(put 'emacspeak-personality 'custom-loads '("emacspeak-personality"))
 (put 'emacspeak-aumix 'custom-loads '("emacspeak-aumix"))
 (put 'emacspeak-m-player 'custom-loads '("emacspeak-m-player"))
 (put 'emacspeak-view-process 'custom-loads '("emacspeak-view-process"))
@@ -52,6 +53,7 @@
 (put 'aplications 'custom-loads '("amphetadesk"))
 (put 'emacspeak-ediff 'custom-loads '("emacspeak-ediff"))
 (put 'emacspeak-remote 'custom-loads '("emacspeak-remote"))
+(put 'emacspeak-hide 'custom-loads '("emacspeak-hide"))
 ;;; These are for handling :version.  We need to have a minimum of
 ;;; information so `custom-changed-variables' could do its job.  
 ;;; For both groups and variables we have to set `custom-version'.
