@@ -967,7 +967,7 @@ activity within the filter window."
             (message "Emacspeak eterm filter set to entire screen "))
      (t
       (setq window-id
-            (read-minibuffer  "Specify eterm window to focus on "))
+            (read-minibuffer  "Specify eterm window to filter on "))
       (assert (numberp window-id) t
               "Please specify a valid window id, a non-negative integer ")
       (cond
