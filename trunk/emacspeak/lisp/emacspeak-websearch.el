@@ -1098,6 +1098,9 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
              (format " daterange:%s-%s"
 from
 to))))))
+(when (featurep 'calendar)
+  (declaim (special calendar-mode-map))
+  (define-key calendar-mode-map "gg" 'emacspeak-websearch-google-search-in-date-range))
 
 ;;}}}
 ;;{{{ froogle
