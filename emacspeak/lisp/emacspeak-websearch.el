@@ -1026,17 +1026,11 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.google.com/search?q="
   "*URI for Google search")
 
-(defcustom emacspeak-websearch-google-feeling-lucky-p nil
-  "If non-nil, then Google search will use the 
-I'm Feeling Lucky button by default."
-  :type 'boolean 
-  :group 'emacspeak-websearch)
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
-  "Perform an Google search.
+  "Perform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
-I'm Feeling Lucky button on Google.
-Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p."
+I'm Feeling Lucky button on Google."
   (interactive
    (list
     (emacspeak-websearch-read-query 
@@ -1049,26 +1043,23 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                "query ")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
-                    emacspeak-websearch-google-feeling-lucky-p emacspeak-websearch-google-number-of-results))
-  (let ((lucky-flag (if emacspeak-websearch-google-feeling-lucky-p
-                        (not lucky)
-                      lucky)))
-    (emacspeak-w3-without-xsl
-     (browse-url 
-      (concat emacspeak-websearch-google-uri
-	      (webjump-url-encode query)
-	      (format "&num=%s"
-		      emacspeak-websearch-google-number-of-results)
-	      (when lucky-flag
-		(concat 
-		 "&btnI="
-		 (webjump-url-encode
-		  "I'm Feeling Lucky"))))))
-    (if lucky-flag
-        (emacspeak-speak-line)
-      (emacspeak-websearch-post-process
-       "results"
-       'emacspeak-speak-line))))
+                    emacspeak-websearch-google-number-of-results))
+  (emacspeak-w3-without-xsl
+   (browse-url 
+    (concat emacspeak-websearch-google-uri
+            (webjump-url-encode query)
+            (format "&num=%s"
+                    emacspeak-websearch-google-number-of-results)
+            (when lucky
+              (concat 
+               "&btnI="
+               (webjump-url-encode
+                "I'm Feeling Lucky"))))))
+  (if lucky
+      (emacspeak-speak-line)
+    (emacspeak-websearch-post-process
+     "results"
+     'emacspeak-speak-line)))  
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
@@ -1081,8 +1072,27 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
    (list
     (emacspeak-websearch-read-query 
      "Google Lucky Search: ")))
-  (let ((emacspeak-websearch-google-feeling-lucky-p t))
-    (emacspeak-websearch-google query)))
+  (emacspeak-websearch-google query 'lucky))
+
+(emacspeak-websearch-set-searcher 'google-specialize
+                                  'emacspeak-websearch-google-specialize)
+
+(emacspeak-websearch-set-key ?G  'google-specialize)
+
+(defun emacspeak-websearch-google-specialize (specialize query)
+  "Perform a specialized Google search. See the Google site for
+  what is possible here:
+http://www.google.com/options/specialsearches.html "
+  (interactive
+   (list
+    (emacspeak-websearch-read-query 
+     "Specialize google Search On: ")
+    (emacspeak-websearch-read-query 
+     "Google Query:")))
+  (let ((emacspeak-websearch-google-uri
+         (format "http://www.google.com/%s?q="
+                 specialize)))
+    (emacspeak-websearch-google query )))
 
 ;;;###autoload
 (defun emacspeak-websearch-google-search-in-date-range ()
