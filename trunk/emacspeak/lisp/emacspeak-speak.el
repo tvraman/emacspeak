@@ -442,7 +442,7 @@ current local  value to the result."
 		      ;; Avoid overflow from multiplying by 100!
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
-    percent))
+    (format "%d%%" percent)))
 
 ;;}}}
 ;;{{{  indentation:
@@ -1497,10 +1497,17 @@ semantic to do the work."
       (tts-with-punctuations "all"
       (dtk-speak mode-line-format )))
      (t
+      (let  ((buffer-name (buffer-name))
+(percentage (emacspeak-get-current-percentage-into-buffer)))
+(put-text-property 0 (length buffer-name)
+                   'personality 'paul-animated buffer-name)
+(put-text-property 0 (length percentage)
+                   'personality 'harry percentage)
       (tts-with-punctuations "all"
       (dtk-speak
        (concat frame-info
-               (format  "%s %s %s  %d%%  %s"
+               buffer-name
+               (format  "%s %s %s "
                         (if line-number-mode
                             (format "line %d"
                                     (emacspeak-get-current-line-number))
@@ -1509,9 +1516,8 @@ semantic to do the work."
                             (format "Column %d"
                                     (current-column))
                           "")
-                        (buffer-name)
-                        (emacspeak-get-current-percentage-into-buffer)
-                        (if  major-mode major-mode "")))))))))
+                        (if  major-mode major-mode ""))
+               percentage))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
