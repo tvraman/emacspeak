@@ -554,7 +554,7 @@ If N is negative, move backward instead."
 
 ;;; This is how I customize VM
 
-(defcustom emacspeak-vm-use-tvr-settings nil
+(defcustom emacspeak-vm-use-raman-settings t
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
   :group 'emacspeak)
@@ -599,7 +599,7 @@ Emacspeak."
 (when emacspeak-vm-use-tvr-settings
 (emacspeak-vm-use-tvr-settings))
 
-(defcustom emacspeak-vm-customize-mime-settings nil
+(defcustom emacspeak-vm-customize-mime-settings t
   "Non-nil will cause Emacspeak to configure VM mime
 settings to match what the author of Emacspeak uses."
   :type 'boolean
