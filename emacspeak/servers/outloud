@@ -280,7 +280,7 @@ notes_initialize
 set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 #set ECIINI unless already set
-if {![info exists env(ECIINI)] } {
+if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
 set env(ECIINI) $tclTTS/eci.ini
 }
 load $tclTTS/tcleci.so
