@@ -323,9 +323,8 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   :group 'emacspeak
   :type '(choice
           (const emacspeak-play-auditory-icon)
-          (const emacspeak-queue-auditory-icon)
           (const emacspeak-serve-auditory-icon)
-          (const emacspeak-play-midi-icon)))
+          (const emacspeak-midi-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
