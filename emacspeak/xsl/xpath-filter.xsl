@@ -36,8 +36,8 @@ shown in the output.
       <xsl:for-each select="$locator">
 <p>
 <em>
-<xsl:value-of select="name()"/>
-<xsl:value-of select="position()"/>
+<xsl:value-of select="name()"/> 
+<xsl:value-of select="position()"/> 
           </em>
         </p>
         <xsl:element name="{name()}">
