@@ -270,8 +270,6 @@ HTML head if none found."
     (insert
      (format "<base href=\"%s\">\n" base))
     (or head (insert "</head>\n"))))
-      
-   
 
 (defun emacspeak-xml-shell-display-as-html (start end)
   "Suitable for use in displaying current node as HTML."
