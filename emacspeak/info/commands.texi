@@ -3072,6 +3072,10 @@ Yank specified header into kill ring.
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
+@deffn emacspeak-w3-browse-rss-at-point ()
+Browses RSS url under point.
+@end deffn
+
 @deffn emacspeak-w3-class-filter-and-follow (&optional PROMPT-CLASS)
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
@@ -3108,6 +3112,14 @@ Extracts specified elements from current WWW page and displays it in a
 separate buffer. Optional arg url specifies the page to extract
 content from. Interactive use provides list of class values as
 completion. 
+@end deffn
+
+@deffn emacspeak-w3-extract-media-streams (&optional PROMPT-URL SPEAK)
+Extract links to media streams.
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
 @end deffn
 
 @deffn emacspeak-w3-extract-nested-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
@@ -3185,6 +3197,15 @@ Preview this region.
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
+@end deffn
+
+@deffn emacspeak-w3-set-xsl-keep-result (VALUE)
+Set value of `emacspeak-w3-xsl-keep-result'.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn emacspeak-w3-show-anchor-class ()
@@ -3308,15 +3329,8 @@ Search Encyclopedia Britannica.
 Perform a CiteSeer search. 
 @end deffn
 
-@deffn emacspeak-websearch-cnn-search (QUERY &optional PREFIX)
+@deffn emacspeak-websearch-cnn-search (QUERY)
 Perform an CNN search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-cnn-options to an appropriate string.
 @end deffn
 
 @deffn emacspeak-websearch-company-news (TICKER &optional PREFIX)
@@ -3382,6 +3396,10 @@ Perform a FolDoc search.
 
 @deffn emacspeak-websearch-freshmeat-search (QUERY)
 Search Freshmeat  Site. 
+@end deffn
+
+@deffn emacspeak-websearch-froogle (QUERY)
+Perform a Froogle search.
 @end deffn
 
 @deffn emacspeak-websearch-google (QUERY &optional LUCKY)
@@ -3627,8 +3645,6 @@ Customize Emacspeak.
 @end deffn
 
 @deffn emacspeak-customize-personal-settings (FILE)
-@kbd{ control e <f1> }
-
 Create a customization buffer for browsing and updating
 personal customizations.
 @end deffn
@@ -3940,6 +3956,10 @@ Browse  Emacspeak productivity tips.
 Browse URL with specified XSL style.
 @end deffn
 
+@deffn emacspeak-wizards-browse-xml-url-with-style (STYLE URL)
+Browse XML URL with specified XSL style.
+@end deffn
+
 @deffn emacspeak-wizards-count-slides-in-region ()
 Count slides starting from point.
 @end deffn
@@ -3962,6 +3982,12 @@ key             binding
 
 @deffn emacspeak-wizards-fix-read-only-text (START END)
 Nuke read-only property on text range.
+@end deffn
+
+@deffn emacspeak-wizards-generate-custom-loads (DIRECTORY)
+Generates  buffer containing the needed statements to set up
+autloading for all 
+defgroup declarations found in current directory.
 @end deffn
 
 @deffn emacspeak-wizards-generate-finder ()
@@ -4068,6 +4094,27 @@ Squeeze multiple blank lines in current buffer.
 Alternates between using W3 and W3M for browse-url.
 @end deffn
 
+@deffn emacspeak-wizards-vc-viewer (CONSOLE)
+View contents of specified virtual console.
+@end deffn
+
+@deffn emacspeak-wizards-vc-viewer-mode ()
+Major mode for interactively viewing virtual console contents.
+
+key             binding
+---             -------
+
+C-l		emacspeak-wizards-vc-viewer-refresh
+
+In addition to any hooks its parent mode `view-mode' might have run,
+this mode runs the hook `emacspeak-wizards-vc-viewer-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@deffn emacspeak-wizards-vc-viewer-refresh ()
+Refresh view of VC we're viewing.
+@end deffn
+
 @deffn emacspeak-wizards-xl-display ()
 Called to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
@@ -4155,7 +4202,19 @@ for commands defined in module  nil.
 @deffn emacspeak-m-player ()
 @kbd{ control e : }
 
-Emacspeak media player access.
+Play specified resource using m-player.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn emacspeak-rss-browse ()
+@kbd{ control e control u }
+
+Browse specified RSS feed.
+@end deffn
+
+@deffn emacspeak-rss-display ()
+Retrieve and display RSS news feed.
 @end deffn
 
 @deffn emacspeak-speak-current-field ()
