@@ -1330,9 +1330,11 @@ With optional interactive prefix arg MAP shows the location map instead."
      "Nearby"
      'emacspeak-speak-line))
    (t 
-    (emacspeak-w3-xslt-filter "//center[4]"
+    (emacspeak-w3-extract-table-by-position 20
                               (concat
-                               emacspeak-websearch-map-directions-uri query)))))
+                               emacspeak-websearch-map-directions-uri
+                               query)
+                              'speak))))
          
 ;;}}}
 ;;{{{  news yahoo
