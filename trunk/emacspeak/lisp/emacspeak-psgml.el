@@ -406,6 +406,11 @@ shortref- short reference")
 (define-key emacspeak-xml-browse-mode-map "\C-cu" 'sgml-show-tags)
 ;;}}}
 ;;{{{  toggle interactive parse:
+;;; silence psgml messages
+(defadvice sgml-message (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+ad-do-it))
 (defun emacspeak-psgml-toggle-interactive-font-lock()
   "Toggles variable sgml-set-face.
 When turned on, the  buffer is font locked interactively.
