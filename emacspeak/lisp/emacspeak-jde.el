@@ -326,6 +326,17 @@ If we are on the last call, do nothing."
   
 
 ;;}}}
+;;{{{ Advice EFC widgets:
+
+(defadvice efc-option-dialog (after emacspeak pre act comp)
+  "Announce dialog box we just opened."
+  (emacspeak-auditory-icon 'open-object)
+	    (dtk-speak
+             (ad-get-arg 0)))
+	    
+	    
+
+;;}}}
 (provide 'emacspeak-jde )
 ;;{{{ end of file 
 
