@@ -219,8 +219,11 @@ This helps pull in all emacspeak modules cleanly.")
         (dtk-quiet t))
     (mapcar
      #'(lambda (pair)
+         (condition-case nil
+             (progn
 	 (mapcar #'load-library (cdr pair))
-	 (load-library (car pair))
+	 (load-library (car pair)))
+           (error nil))
 	 (message "%s\n" (car pair)))
      emacspeak-modules-dependency-alist)
     (emacspeak-generate-texinfo-command-documentation
