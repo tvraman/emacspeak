@@ -67,18 +67,19 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Reloaded document.")))
-
-(defadvice nero-forward (after emacspeak pre act comp)
+(loop for  f in
+      (list 'nero-back 'nero-forward)
+      do
+      (eval
+`(defadvice ,f (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line)))))
 
-(defadvice nero-back(after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))
+
+
+
 (loop for f in
       (list
        'nero-follow-link
