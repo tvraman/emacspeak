@@ -53,6 +53,7 @@
 (require 'browse-url)
 (when (locate-library "url-vars")
   (load-library "url-vars"))
+;(require 'emacspeak-w3)
 ;;}}}
 ;;{{{  Introduction:
 
@@ -1033,7 +1034,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 I'm Feeling Lucky button by default."
   :type 'boolean 
   :group 'emacspeak-websearch)
-
+;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform an Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 

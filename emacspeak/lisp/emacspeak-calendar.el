@@ -43,7 +43,7 @@
 (require 'emacspeak-sounds)
 (require 'advice)
 (require 'emacspeak-keymap)
-(eval-when-compile (require 'calendar))
+(require 'calendar)
 
 ;;{{{  Introduction:
 
