@@ -786,7 +786,9 @@ end:\n\n")
 commands into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
   (interactive "FEnter filename to save DOC in: ")
-  (let ((buffer (find-file-noselect filename))
+  (declare (special emacspeak-speak-messages))
+  (let ((emacspeak-speak-messages nil)
+        (buffer (find-file-noselect filename))
         (module nil))
     (save-excursion
       (set-buffer buffer)
@@ -855,7 +857,7 @@ for commands defined in module  %s.\n\n"
               ""))
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
-      (texinfo-all-menus-update t)
+      (texinfo-all-menus-update)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 

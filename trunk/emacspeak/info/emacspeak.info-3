@@ -256,14 +256,14 @@ emacspeak-aumix-reset
 emacspeak-aumix-wave-decrease
 =============================
 
-   ` Control  cap E  Control  cap F  left '
+   ` control e control f left '
 
    Decrease volume of wave output.
 
 emacspeak-aumix-wave-increase
 =============================
 
-   ` Control  cap E  Control  cap F  right '
+   ` control e control f right '
 
    Increase volume of wave output.
 
@@ -1175,7 +1175,7 @@ emacspeak-hide-or-expose-all-blocks
 emacspeak-hide-or-expose-block
 ==============================
 
-   ` control e j '
+   ` Control  cap E  j '
 
    Hide or expose a block of text.  This command either hides or
 exposes a block of text starting on the current line.  A block of text
@@ -1305,7 +1305,7 @@ shuffle  the list.  Use command C-x @ h n to skip to the next track.
 emacspeak-mp3-playlist-skip
 ===========================
 
-   ` Control  cap X  @ h n '
+   ` control x @ h n '
 
    Skip currently playing track.
 
@@ -1509,7 +1509,7 @@ named file.
 emacspeak-ocr
 =============
 
-   ` control e control o '
+   ` Control  cap E  Control  cap O  '
 
    An OCR front-end for the Emacspeak desktop.
 
@@ -1592,7 +1592,7 @@ emacspeak-outline.
 emacspeak-outline-speak-previous-heading
 ========================================
 
-   ` Control  cap L  p '
+   ` control l p '
 
    Analogous to outline-previous-visible-heading, except that the
 outline section is optionally spoken
@@ -1685,7 +1685,7 @@ persistent dictionaries if not already loaded.
 emacspeak-pronounce-dispatch
 ============================
 
-   ` control e meta d '
+   ` Control  cap E  Meta  cap D  '
 
    Provides the user interface front-end to Emacspeak's pronunciation
 dictionaries.
