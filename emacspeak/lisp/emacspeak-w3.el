@@ -1235,7 +1235,8 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
      (t (error "No URL under point.")))))
 
 ;;}}}
-;;{{{  play url at point 
+;;{{{  play url at point
+;;;###autoload
 (defun emacspeak-w3-realaudio-play-url-at-point (&optional prompt-time)
   "Play url under point as realaudio"
   (interactive "P")
