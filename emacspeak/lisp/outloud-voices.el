@@ -129,16 +129,6 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice 'paul-monotone " `v1 `vf0`vb50  `vv85 ")
 
 ;;}}}
-;;{{{  Associate faces to standard voices:
-
-(outloud-define-voice-alias 'bold 'paul-smooth)
-(outloud-define-voice-alias 'bold-italic 'betty)
-(outloud-define-voice-alias 'underline 'ursula)
-(outloud-define-voice-alias 'fixed 'paul-monotone)
-(outloud-define-voice-alias 'italic 'paul-italic)
-(outloud-define-voice-alias 'excerpt 'annotation-voice )
-
-;;}}}
 ;;{{{  the inaudible voice
 
 (outloud-define-voice 'inaudible " `vv0 ")
