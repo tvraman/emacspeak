@@ -269,7 +269,6 @@
   "Personality for validation errors."
   :group 'emacspeak-nxml)
 
-
 ;;}}}
 ;;{{{ pronunciations 
 

@@ -55,8 +55,8 @@
 (require 'browse-url)
 (require 'emacspeak-preamble)
 (condition-case nil
-(require 'emacspeak-w3)
-(error nil))
+    (require 'emacspeak-w3)
+  (error nil))
 ;;}}}
 ;;{{{ amphetadesk
 

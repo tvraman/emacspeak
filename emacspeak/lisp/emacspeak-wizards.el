@@ -118,9 +118,9 @@ navigate this document."
   (interactive)
   (declare (special emacspeak-etc-directory))
   (emacspeak-w3-without-xsl
-  (browse-url
-   (format "file:///%stips.html"
-           emacspeak-etc-directory)))
+   (browse-url
+    (format "file:///%stips.html"
+	    emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
