@@ -204,7 +204,7 @@ generators  ; list of param generator
 
 
 (emacspeak-url-template-define "CNN Tecnology "
-"http://www.cnn.com/2001/TECH/%s/"
+"http://www.cnn.com/2001/TECH/science/%s/"
 (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN computing "
