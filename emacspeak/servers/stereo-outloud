@@ -242,7 +242,7 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                say "$prefix $text"
+                synth "$prefix $text"
                 set retval [tts_get_acknowledgement]
             }
             n {
