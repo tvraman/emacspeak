@@ -28,8 +28,8 @@
     <abstract>
       <para>
         <inlinegraphic
-        fileref="http://emacspeak.sf.net/emacspeak.jpg"
-        width="150" align="center" role="Logo"/>
+                       fileref="http://emacspeak.sf.net/emacspeak.jpg"
+                       width="150" align="center" role="Logo"/>
       </para>
       <para>
         This document is a collection of productivity tips
@@ -43,10 +43,10 @@
         subsequent sections are intentionally brief since
         the interested user is expected to lookup the
         details of a command using these facilities.
-See  <ulink
-         url="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How
-        To Ask  Questions The Smart Way</ulink>
-for how you can improve your own productivity while
+        See  <ulink
+                    url="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How
+          To Ask  Questions The Smart Way</ulink>
+        for how you can improve your own productivity while
         contributing to continuously improving the tools you
         rely on for your work.
       </para>
@@ -417,12 +417,12 @@ for how you can improve your own productivity while
       <title>State Of The Emacspeak Audio Desktop</title>
       <para>This section contains tips on querying and updating
         the status of the Emacspeak audio desktop.
-See section 
+        See section 
         <ulink
                url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
-status commands</ulink>
-in the Emacspeak online manual for additional details.
-</para>
+          status commands</ulink>
+        in the Emacspeak online manual for additional details.
+      </para>
       <qandaentry>
         <question> <para>Hearing The Current Context
           </para></question>
@@ -553,6 +553,14 @@ in the Emacspeak online manual for additional details.
           </para>
         </answer>
       </qandaentry>
+    </qandadiv>
+    <qandadiv>
+      <title>Multimedia On The Emacspeak Audio
+        Desktop</title>
+      <para>
+        This section contains tips on using the various
+        multimedia features of the Emacspeak audio
+        desktop.</para>
       <qandaentry>
         <question>
           <para>Setting State Of The Auditory Display</para>
@@ -576,13 +584,131 @@ in the Emacspeak online manual for additional details.
           </para>
         </answer>
       </qandaentry>
-    </qandadiv>
-    <qandadiv>
-      <title>Multimedia On The Emacspeak Audio
-        Desktop</title>
-      <para>
-        This section contains tips on using the various
-        multimedia features of the Emacspeak audio desktop.</para>
+      <qandaentry>
+        <question>
+          <para>Playing audio CDs</para>
+        </question>
+        <answer>
+          <para>Emacspeak built-in command
+            <command>cd-tool</command>
+            uses the command-line tools provided by RPM package 
+            <application>cdp</application>.
+            This is convenient for  playing tracks from a CD.
+            Use <application>cdcd</application> from within an Emacs
+            shell for more complex tasks such as querying a
+            <application>CDDB</application> database.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Playing MP3 using
+            <application>mpg123</application></para>
+        </question>
+        <answer>
+          <para><application>mpg123</application> is a
+            command-line MP3 player.
+            Emacs package <application>mpg123.el</application> provides
+            an Emacs front-end that is speech-enabled by
+            Emacspeak.
+            This front-end is most convenient for playing tracks out of
+            a given directory.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Playing MP3 files with <application>freeamp</application></para>
+        </question>
+        <answer>
+          <para>MP3 player
+            <application>freeamp</application> provides a
+            pluggable look and feel with many popular
+            front-ends for playing music. There are different front
+            -ends to <application>freeamp</application>,
+            including an Emacs front-end provided by Emacspeak
+            via module
+            <application>emacspeak-freeamp.el</application>.
+            The <application>freeamp</application> is more
+            convenient for setting up music playlists.
+            The emacspeak interface allows controlling the MP3 player
+            from anywhere on the audio desktop without the
+            need to explicitly switch context from the current task.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Setting up music playlists</para>
+        </question>
+        <answer>
+          <para>Application
+            <application>freeamp</application> can play music
+            listed 
+            in a <application>playlist</application> file --typically
+            such files are given the extension 
+            <computeroutput>.m3u</computeroutput>.
+            A playlist file contains names of MP3 files, one per line.
+            To create  a playlist file for use with
+            <application>freeamp</application>,
+          you might execute the following command from
+            within a <application>shell</application>
+            buffer:  
+<blockquote>
+<para>
+            <computeroutput>
+              cd $HOME/music; find . -name '*.mp3'  > playlist.m3u
+            </computeroutput>
+              </para>
+            </blockquote>
+        </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Playing Realaudio Streams</para>
+        </question>
+        <answer>
+          <para>
+Install <application>real player</application>
+--this is Real Networks' Real Media player.
+Next, install  command-line interface
+<application>trplayer</application>.
+Once you have this installed and configured, you can use
+            Emacspeak's built-in 
+RealMedia front-end provided by module
+            <application>emacspeak-realaudio.el</application>
+to conveniently play streaming media from anywhere on the
+            audio desktop --see command
+            <command>emacspeak-realaudio</command>.
+Note that when playing a stream, you can use all the
+            single-keystroke navigation commands provided by
+            <application>trplayer</application>
+by prefixing them with <keysym>C-e ;</keysym>
+from anywhere on the audio desktop; alternatively,
+you can use <keysym>C-e ;;</keysym> to switch to a special
+            Emacs buffer that contains
+            <application>trplayer</application>
+and then execute <application>trplayer</application>
+            commands directly.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Streaming media presets</para>
+        </question>
+        <answer>
+          <para>Streaming media on the WWW is often
+          well-hidden behind several mouse clicks.
+          Emacspeak allows you to configure your favorite
+          streams as an organized hierarchy.  The Emacspeak
+          distribution comes with such a collection of
+          streams I listen to on a frequent basis.  You can
+          access these by using standard Emacs completion
+          when prompted for a <computeroutput>RealAudio
+          Resource</computeroutput> by command
+          <command>emacspeak-realaudio</command>. </para>
+        </answer>
+      </qandaentry>
     </qandadiv>
     <qandadiv>
       <title>Authoring Tools</title>
