@@ -18,10 +18,18 @@ Description: Show list of anchors.
 <!-- {html body  --> 
 
 <xsl:template match="/html/body">
+<table>
+<caption>Anchors View</caption>
+<tr>
+<td><a href="#__about_this_style">About This Style</a></td>
+    </tr></table>
 <ul>
 <xsl:apply-templates select="//a"/>
 </ul>
+<h2><a name="__about_this_style">About This Style</a></h2>
+<p>This style produces a list of anchors found in the document.</p>
 </xsl:template>
+
 <xsl:template match="//a">
 <li>
 <xsl:copy>
