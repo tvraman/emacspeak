@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.5 from
+This is emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -935,7 +935,7 @@ location.  A period moves the pointer to the terminal cursor.  Return to
 normal term mode by typing q.
 
 
-File: emacspeak.info,  Node: Emacspeak Commands,  Next: Acknowledgements,  Prev: Running Terminal Based Applications,  Up: Top
+File: emacspeak.info,  Node: Emacspeak Commands,  Next: Emacspeak Customizations,  Prev: Running Terminal Based Applications,  Up: Top
 
 Emacspeak Commands
 ******************

@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.5 from
+This is emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -28,6 +28,7 @@ manual is divided into the following chapters.
 * Emacs Packages:  Emacs Packages.
 * Running Terminal Based Applications: Running Terminal Based Applications
 * Emacspeak Commands:  Emacspeak Commands.
+* Emacspeak Customizations:  Emacspeak Customizations.
 * Acknowledgements: Acknowledgements.
 
 Indices:
@@ -595,7 +596,6 @@ terminology for the editing cursor).
 ` control e meta control @ '
      emacspeak-speak-spaces-at-point  Speak the white space at point.
 
-
 
 File: emacspeak.info,  Node: Speech System,  Next: Voice-lock,  Prev: Reading,  Up: Basic Usage
 
@@ -735,7 +735,6 @@ working with program source.
      See variable `emacspeak-audio-indentation-methods' for possible
      values.  Automatically becomes local in any buffer where it is set.
 
-
 
 File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output Control,  Up: Speech System
 
@@ -780,7 +779,6 @@ server -or in the rare case to nuke a runaway speech server.
      server and restart it.  Useful if you want to switch to another
      synthesizer while emacspeak is running.  Also useful for emergency
      stopping of speech.
-
 
    Finally, here are the remaining commands available via the TTS
 related keymap `C-e d'.
@@ -832,7 +830,6 @@ related keymap `C-e d'.
 
 ` control e d z '
      emacspeak-zap-dtk  Send this command to the TTS engine  directly.
-
 
 
 File: emacspeak.info,  Node: Voice-lock,  Next: Status Information,  Prev: Speech System,  Up: Basic Usage
@@ -945,7 +942,6 @@ Commands For Speaking Status Information.
 ` control e % '
      emacspeak-speak-current-percentage  Announce the percentage into
      the current buffer.
-
 
 
 File: emacspeak.info,  Node: Audio Desktop,  Next: Using Online Help,  Prev: Basic Usage,  Up: Top
