@@ -499,21 +499,24 @@ Activates pronunciation dictionaries if not already active."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
-    (emacspeak-auditory-icon 'on)
-    (message
-     "Refreshed pronunciations for this buffer"))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'on)
+      (message
+       "Refreshed pronunciations for this buffer")))
    ( emacspeak-pronounce-pronunciation-table ;already on --refresh it
      (setq emacspeak-pronounce-pronunciation-table
            (emacspeak-pronounce-compose-pronunciation-table))
-     (emacspeak-auditory-icon 'on)
-     (message
-      "Refreshed pronunciation for this buffer"))
+     (when (interactive-p)
+       (emacspeak-auditory-icon 'on)
+       (message
+        "Refreshed pronunciation for this buffer")))
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
-    (message
-     "Refreshed pronunciations for this buffer")
-    (emacspeak-auditory-icon 'on))))
+    (when (interactive-p)
+      (message
+       "Refreshed pronunciations for this buffer")
+      (emacspeak-auditory-icon 'on)))))
 
 ;;}}}
 ;;{{{ common dictionary containing smileys and friends
@@ -539,7 +542,9 @@ for the specified mode."
   (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
     (loop for e in dictionary
           do
-          (push e mode-alist))
+          (unless (assoc (car e)
+                         mode-alist)
+          (push e mode-alist)))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
 
 ;;}}}
