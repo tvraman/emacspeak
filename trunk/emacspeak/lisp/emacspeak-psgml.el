@@ -424,15 +424,13 @@ shortref- short reference")
 (define-key emacspeak-xml-browse-mode-map "\C-cu" 'sgml-show-tags)
 ;;}}}
 ;;{{{  toggle interactive parse:
-(defun emacspeak-psgml-toggle-interactive-voice-locking ()
+(defun emacspeak-psgml-toggle-interactive-font-lock()
   "Toggles variable sgml-set-face.
-When turned on, the  buffer is voice locked interactively.
+When turned on, the  buffer is font locked interactively.
 Leave this off in general while editting."
   (interactive)
   (declare (special sgml-set-face))
-  (if sgml-set-face
-      (setq sgml-set-face nil)
-    (setq sgml-set-face t))
+  (setq sgml-set-face (not sgml-set-face))
   (message "Turned %s sgml-set-face "
            (if sgml-set-face "on" "off")))
 

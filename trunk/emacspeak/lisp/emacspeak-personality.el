@@ -296,6 +296,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
+             ((and (consp value) ;check for plain cons and pass
+                   (equal value (last value)))
+                   nil)
              ( (listp value)
                (setq voice
                      (delete nil 
