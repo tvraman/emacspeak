@@ -28,9 +28,10 @@ Additional wizrds.
 
 ** New URL templates.
 
-** emacspeak-w3.el
+** emacspeak-w3.el:
 
  Enhanced XSLT support.
+Added new custom options.
 
 ** emacspeak-m-player.el
 
