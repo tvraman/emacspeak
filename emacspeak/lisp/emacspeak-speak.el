@@ -507,7 +507,12 @@ that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX."
   :group 'emacspeak-speak
-  :type 'list)
+  :type '(choice
+          (const :tag "None" nil)
+(repeat :tag "Filter Specification"
+                 (list 
+                 (integer :tag "Start Column")
+                 (integer :tag "End Column")))))
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
