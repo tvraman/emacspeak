@@ -166,7 +166,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{ html helper mode: 
 
-    ;(augment-auto-mode-alist ".css$" 'c++-mode)
+                                        ;(augment-auto-mode-alist ".css$" 'c++-mode)
                                         ;(load-library-if-available "html-helper-prepare")
 
     ;;}}}
@@ -329,14 +329,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{ dismal
     (load-library-if-available "dismal-prepare")
     ;;}}}
-    ;;{{{ nxml
-
-    (load-library-if-available "nxml-prepare")
-    ;(load-library-if-available "xae-prepare")
-    (load-library-if-available "tdtd-prepare")
-                                        ;(load-library-if-available "xslide-prepare")
-    (load-library-if-available "xslt-process-prepare")
-    ;;}}}
     ;;{{{ sql
                                         ;(load-library-if-available "sql-prepare")
     ;;}}}
@@ -440,6 +432,17 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{ bib-find
     (load-library-if-available "bibfind")
+    ;;}}}
+;;{{{ igrep
+(load-library-if-available "igrep")
+;;}}}
+    ;;{{{ nxml
+
+    (load-library-if-available "nxml-prepare")
+    ;(load-library-if-available "xae-prepare")
+    (load-library-if-available "tdtd-prepare")
+                                        
+    (load-library-if-available "xslt-process-prepare")
     ;;}}}
     ))                                  ; end defun 
 ;;{{{ customize custom
