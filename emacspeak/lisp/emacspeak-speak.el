@@ -650,10 +650,12 @@ by cut -c on UNIX."
  '%s
  emacspeak-speak-filter-table)\n" k v )))
 
-(defvar emacspeak-speak-filter-persistent-store
+(defcustom emacspeak-speak-filter-persistent-store
   (expand-file-name ".filters"
                     emacspeak-resource-directory)
-  "File where emacspeak filters are persisted.")
+  "File where emacspeak filters are persisted."
+  :type 'file
+  :group 'emacspeak-speak)
 
 (defvar emacspeak-speak-filters-loaded-p nil
   "Records if we    have loaded filters in this session.")
@@ -688,7 +690,7 @@ by cut -c on UNIX."
 
 
 (defsubst emacspeak-speak-load-filter-settings ()
-  "Load emacspeak filter settings for future sessions."
+  "Load emacspeak filter settings.."
   (declare (special emacspeak-speak-filter-persistent-store
                     emacspeak-speak-filter-table
                     emacspeak-speak-filters-loaded-p))
@@ -703,25 +705,25 @@ by cut -c on UNIX."
 The filter is specified as a list of pairs.
 For example, to filter out columns 1 -- 10 and 20 -- 25,
 specify filter as 
-((0 9) (20 25)). Filter settings are persisted across
-sessions.
-A persisted filter is used as the default when prompting for
-a filter.
-This allows one to accumulate a set of filters for specific
-files like /var/adm/messages and /var/adm/maillog over time."
+((0 9) (20 25)). Filter settings are persisted across sessions.  A
+persisted filter is used as the default when prompting for a filter.
+This allows one to accumulate a set of filters for specific files like
+/var/adm/messages and /var/adm/maillog over time."
   (interactive
-   (list 
-    (read-minibuffer "Specify columns to filter out: "
-                     (format "%s"
-                             (if  (buffer-file-name )
-                                 (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
-                               "")))))
+   (list
+    (progn
+      (emacspeak-speak-load-filter-settings)
+      (read-minibuffer "Specify columns to filter out: "
+                       (format "%s"
+                               (if  (buffer-file-name )
+                                   (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
+                                 ""))))))
   (cond
    ((and (listp filter)
          (every 
-          (lambda (l)
-            (and (listp l)
-                 (= 2 (length l))))
+          #'(lambda (l)
+              (and (listp l)
+                   (= 2 (length l))))
           filter))
     (setq emacspeak-speak-line-column-filter filter)
     (when (buffer-file-name)
