@@ -60,6 +60,7 @@ documentation.
 * emacspeak-tapestry::          
 * emacspeak-tar::               
 * emacspeak-tetris::            
+* emacspeak-tnt::               
 * emacspeak-url-template::      
 * emacspeak-view::              
 * emacspeak-view-process::      
@@ -3860,6 +3861,23 @@ Speak current tetris row
 Speak next shape
 @end deffn
 
+@node emacspeak-tnt
+@section emacspeak-tnt
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tnt.
+
+
+
+@deffn emacspeak-tnt-toggle-autospeak
+Toggle TNT autospeak for this chat session.
+@end deffn
+
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -3987,12 +4005,6 @@ Move point to N buttons forward.
 If N is negative, move backward instead.
 @end deffn
 
-
-
-@deffn emacspeak-vm-mime-save-attachment-under-point
-Save attachment under point
-@end deffn
-
 @node emacspeak-w3
 @section emacspeak-w3
 
@@ -4036,6 +4048,12 @@ prefix arg causes url to be read from the minibuffer.
 
 
 
+@deffn emacspeak-w3-google-similar-to-this-page
+Ask Google to find documents similar to this one.
+@end deffn
+
+
+
 @deffn emacspeak-w3-url-rewrite-and-follow
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
@@ -4067,6 +4085,13 @@ Jump to next available submit button.
 Toggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
+@end deffn
+
+
+
+@deffn emacspeak-w3-google-who-links-to-this-page
+Perform a google search to locate documents that link to the
+current page.
 @end deffn
 
 
@@ -4224,7 +4249,10 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 
 @deffn emacspeak-websearch-google
-Perform an Google search
+Perform an Google search.
+Optional interactive prefix arg `lucky' is equivalent to hitting the 
+I'm Feeling Lucky button on Google.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky.
 @end deffn
 
 
@@ -4383,6 +4411,12 @@ Ebay search.
 
 @deffn emacspeak-websearch-vickers-search
 Search Vickers insider trading.
+@end deffn
+
+
+
+@deffn emacspeak-websearch-google-feeling-lucky
+Do a I'm Feeling Lucky Google search.
 @end deffn
 
 
@@ -4693,6 +4727,14 @@ Signals end of buffer.
 
 
 
+@deffn emacspeak-wizards-get-table-content-from-url
+Extract table specified by depth and count from HTML
+content at URL.
+Extracted content is placed as a csv file in task.csv.
+@end deffn
+
+
+
 @deffn emacspeak-link-current-file
 @kbd{ control e meta l }
 
@@ -4702,6 +4744,13 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-portfolio-quotes
+Bring up detailed stock quotes for portfolio specified by 
+emacspeak-websearch-personal-portfolio.
 @end deffn
 
 
@@ -4731,7 +4780,7 @@ Browse  Emacspeak productivity tips.
 
 
 
-@deffn emacspeak-wizard-get-table-content-from-file
+@deffn emacspeak-wizards-get-table-content-from-file
 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
@@ -4831,16 +4880,15 @@ visiting the ppts file.
 @deffn emacspeak-speak-run-shell-command
 @kbd{ control e ! }
 
-Invoke shell COMMAND and display its output as a table.
-The results are placed in a buffer in Emacspeak's table
-  browsing mode.
-  Use this for running shell commands that produce tabulated
-  output.  This command should be used for shell commands that
-  produce tabulated output that works with Emacspeak's table
-  recognizer.
-  Verify this first by running the command in a shell and
-  executing command `emacspeak-table-display-table-in-region'
-  normally bound to C-e TAB.
+Invoke shell COMMAND and display its output as a table.  The results
+are placed in a buffer in Emacspeak's table browsing mode.  Optional
+interactive prefix arg as-root runs the command as root (not yet
+implemented).  Use this for running shell commands that produce
+tabulated output.  This command should be used for shell commands that
+produce tabulated output that works with Emacspeak's table recognizer.
+Verify this first by running the command in a shell and executing
+command `emacspeak-table-display-table-in-region' normally bound to
+C-e TAB.
 @end deffn
 
 
@@ -4852,6 +4900,22 @@ Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-finder-mode
+Emacspeak Finder
+
+
+
+This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 @end deffn
 
 
@@ -4972,6 +5036,12 @@ the display to speak.
 
 
 
+@deffn emacspeak-wizards-generate-finder
+Generate a widget-enabled finder wizard.
+@end deffn
+
+
+
 @deffn emacspeak-speak-load-directory-settings
 Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
@@ -5022,14 +5092,6 @@ default-directory after switching.
 
 
 
-@deffn emacspeak-wizard-get-table-content-from-url
-Extract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv.
-@end deffn
-
-
-
 @deffn emacspeak-show-personality-at-point
 @kbd{ control e meta v }
 
@@ -5051,6 +5113,13 @@ We cleanup underlining, and set up outline mode correctly.
 @kbd{ control left }
 
 Move to next frame.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-finder-find
+Run find-dired on specified switches after prompting for the
+directory to where find is to be launched.
 @end deffn
 
 
@@ -5202,6 +5271,12 @@ Navigate forward  to the next child  of current node.
 
 Automatically generated documentation
 for commands defined in module  nil.
+
+
+
+@deffn emacspeak-w3-google-on-this-site
+Perform a google search restricted to the current WWW site.
+@end deffn
 
 
 

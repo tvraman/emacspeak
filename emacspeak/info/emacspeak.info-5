@@ -70,6 +70,10 @@ emacspeak-wizards.
      Move forward across blank lines.  The line under point is then
      spoken.  Signals end of buffer.
 
+ - emacspeak-wizards-get-table-content-from-url:
+     Extract table specified by depth and count from HTML content at
+     URL.  Extracted content is placed as a csv file in task.csv.
+
  - emacspeak-link-current-file:
      ` control e meta l '
 
@@ -79,6 +83,10 @@ emacspeak-wizards.
      that directory under its current name ; if location names   a file
      in an existing directory, the specified name is   used.  Signals
      an error if target already exists.
+
+ - emacspeak-wizards-portfolio-quotes:
+     Bring up detailed stock quotes for portfolio specified by
+     emacspeak-websearch-personal-portfolio.
 
  - emacspeak-lynx:
      Launch lynx on  specified URL in a new terminal.
@@ -96,7 +104,7 @@ emacspeak-wizards.
 
      Browse  Emacspeak productivity tips.
 
- - emacspeak-wizard-get-table-content-from-file:
+ - emacspeak-wizards-get-table-content-from-file:
      Extract table specified by depth and count from HTML content at
      file.  Extracted content is placed as a csv file in task.csv.
 
@@ -163,13 +171,15 @@ emacspeak-wizards.
      ` control e ! '
 
      Invoke shell COMMAND and display its output as a table.  The
-     results are placed in a buffer in Emacspeak's table   browsing
-     mode.    Use this for running shell commands that produce tabulated
-      output.  This command should be used for shell commands that
-     produce tabulated output that works with Emacspeak's table
-     recognizer.    Verify this first by running the command in a shell
-     and   executing command `emacspeak-table-display-table-in-region'
-     normally bound to C-e TAB.
+     results are placed in a buffer in Emacspeak's table browsing mode.
+     Optional interactive prefix arg as-root runs the command as root
+     (not yet implemented).  Use this for running shell commands that
+     produce tabulated output.  This command should be used for shell
+     commands that produce tabulated output that works with Emacspeak's
+     table recognizer.  Verify this first by running the command in a
+     shell and executing command
+     `emacspeak-table-display-table-in-region' normally bound to C-e
+     TAB.
 
  - emacspeak-speak-show-active-network-interfaces:
      ` control e  cap I  '
@@ -178,6 +188,15 @@ emacspeak-wizards.
      interactive prefix argument ADDRESS it prompts for a specific
      interface and shows its address. The address is also copied to the
      kill ring for convenient yanking.
+
+ - emacspeak-wizards-finder-mode:
+     Emacspeak Finder
+
+     This mode runs the hook `emacspeak-wizards-finder-mode-hook', as
+     the final step during initialization.
+
+     key             binding --             ------
+
 
  - emacspeak-generate-documentation:
      Generate docs for all emacspeak commands.  Prompts for FILENAME in
@@ -260,6 +279,9 @@ emacspeak-wizards.
      display is 0, the next is 1, and so on.  Optional argument ARG
      specifies the display to speak.
 
+ - emacspeak-wizards-generate-finder:
+     Generate a widget-enabled finder wizard.
+
  - emacspeak-speak-load-directory-settings:
      Load a directory specific Emacspeak settings file.  This is
      typically used to load up settings that are specific to an
@@ -296,10 +318,6 @@ emacspeak-wizards.
      interactive prefix arg `cd' executes cd default-directory after
      switching.
 
- - emacspeak-wizard-get-table-content-from-url:
-     Extract table specified by depth and count from HTML content at
-     URL.  Extracted content is placed as a csv file in task.csv.
-
  - emacspeak-show-personality-at-point:
      ` control e meta v '
 
@@ -315,6 +333,10 @@ emacspeak-wizards.
      ` control left '
 
      Move to next frame.
+
+ - emacspeak-wizards-finder-find:
+     Run find-dired on specified switches after prompting for the
+     directory to where find is to be launched.
 
  - emacspeak-customize-personal-settings:
      ` control e f1 '
@@ -412,6 +434,9 @@ emacspeak-xml-shell.
 
    Automatically generated documentation for commands defined in module
 nil.
+
+ - emacspeak-w3-google-on-this-site:
+     Perform a google search restricted to the current WWW site.
 
  - emacspeak-speak-current-field:
      ` control e . '
