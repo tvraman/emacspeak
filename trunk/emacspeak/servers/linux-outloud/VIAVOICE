@@ -8,14 +8,14 @@ sound card.
 
 * Pre-requisites:
 
-You need to download and install the IBM ViaVoice TTS
+You need to obtain  and install the IBM ViaVoice TTS
 (previously called Outloud) engine.  The The ViaVoice TTS  engine
-itself is not distributed as part of this package --you can
-obtain it from
-http://www-4.ibm.com/software/speech/dev/index.html
+itself is not distributed as part of this package.
 
-You should only need to install the RTK (runtime toolkit) as
-of this version of Emacspeak.
+
+
+You should only need to install the RTK (runtime toolkit).
+
 
 The Outloud speech server uses midi for producing auditory
 icons.  You need to obtain and install package stdiosynth
