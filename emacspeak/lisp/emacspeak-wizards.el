@@ -1331,7 +1331,6 @@ annotation is inserted into the working buffer when complete."
     (pop-to-buffer parent-buffer)
     (emacspeak-auditory-icon 'close-object)))
 
-
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
