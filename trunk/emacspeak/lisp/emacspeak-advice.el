@@ -680,16 +680,20 @@ before the message is spoken."
 ;;}}}
 
  
-
+(defcustom emacspeak-speak-cue-errors t
+  "Specifies if error messages are cued."
+  :type 'boolean
+  :group 'emacspeak-spek)
 (defadvice error (before emacspeak pre act)
   "Speak the error message.
 Also produces an auditory icon if possible."
+  (when emacspeak-speak-cue-errors
   (let ((dtk-stop-immediately nil ))
     (emacspeak-auditory-icon 'warn-user)
     (tts-with-punctuations "all"
                            (message
                             (apply #'format
-                                   (ad-get-args  0))))))
+                                   (ad-get-args  0)))))))
 
 (defadvice eval-minibuffer (before emacspeak pre act com)
   "Speak the prompt."
