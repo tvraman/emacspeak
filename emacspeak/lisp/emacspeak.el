@@ -600,7 +600,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "wrolo" 'emacspeak-wrolo)
                                                                                           
 ;;}}}
-
 ;;{{{ finder
 
 ;;; Finder is special -- it needs to conditionally
