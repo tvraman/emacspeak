@@ -565,7 +565,7 @@ If N is negative, move backward instead."
 
 
 
-(defun emacspeak-vm-use-tvr-settings ()
+(defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
 Emacspeak."
   (declare (special 
@@ -597,8 +597,8 @@ Emacspeak."
         emacspeak-vm-voice-lock-messages nil)
   t)
   
-(when emacspeak-vm-use-tvr-settings
-  (emacspeak-vm-use-tvr-settings))
+(when emacspeak-vm-use-raman-settings
+  (emacspeak-vm-use-raman-settings))
 
 (defcustom emacspeak-vm-customize-mime-settings t
   "Non-nil will cause Emacspeak to configure VM mime
