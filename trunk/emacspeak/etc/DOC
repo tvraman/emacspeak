@@ -348,7 +348,7 @@ Speaks the most recently displayed appointment message if any.
 
 ------------------------------------------------------------
 
-** emacspeak-daisy-mode An DAISY front-end for the Emacspeak desktop.
+** emacspeak-daisy-modeA DAISY front-end for the Emacspeak desktop.
 
 Pre-requisites:
 
@@ -382,10 +382,6 @@ s		emacspeak-daisy-stop-audio
 ?		describe-mode
 
 
-
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
-during initialization.
 
 ------------------------------------------------------------
 
@@ -504,6 +500,10 @@ emacspeak-dismal-col-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
+
+------------------------------------------------------------
+
+** emacspeak-ecb-tree-shift-returnDo shift return in ECB tree browser.
 
 ------------------------------------------------------------
 
@@ -3000,6 +3000,10 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-browse-url-with-styleBrowse URL with specified XSL style.
+
+------------------------------------------------------------
+
 ** emacspeak-next-frame	Key Sequence: <control right> 
 
 Move to next frame.
@@ -3028,15 +3032,6 @@ Display a summary of all Emacspeak commands.
 
 
 XL Sheets are converted to HTML and previewed using W3.
-
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-wizards-xl-mode-hook', as the final step
-during initialization.
-
-key             binding
----             -------
-
-
 
 ------------------------------------------------------------
 
@@ -3201,14 +3196,6 @@ also copied to the kill ring for convenient yanking.
 
 
 
-This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
-during initialization.
-
-key             binding
----             -------
-
-
-
 ------------------------------------------------------------
 
 ** emacspeak-generate-documentationGenerate docs for all emacspeak commands.
@@ -3263,15 +3250,6 @@ Get latest cvs snapshot of emacspeak.
 
 
 XL Sheets are converted to HTML and previewed using W3.
-
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
-during initialization.
-
-key             binding
----             -------
-
-
 
 ------------------------------------------------------------
 
