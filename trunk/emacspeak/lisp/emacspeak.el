@@ -45,12 +45,10 @@
 ;;; This is the main emacspeak module.
 ;;; It actually does very little:
 ;;; It loads the various parts of the system.
+;;; Code:
 
 ;;}}}
 ;;{{{ Required modules
-
-;;; Code:
-
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
