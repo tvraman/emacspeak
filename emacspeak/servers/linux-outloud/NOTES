@@ -15,7 +15,7 @@ obtain it from
 http://www-4.ibm.com/software/speech/dev/index.html
 
 You should only need to install the RTK (runtime toolkit) as
-of this version.
+of this version of Emacspeak.
 
 The Outloud speech server uses midi for producing auditory
 icons.  You need to obtain and install package stdiosynth
@@ -34,10 +34,14 @@ appreciated.)
 ** Is Outloud Working?
 
 Once you have successfully obtained and install IBM ViaVoice
-Outloud for Linux, first verify that the synthesis engine
-works by running the sample programs that come with that
-package.  Note that the sample programs only come with the
-SDK.  
+Outloud for Linux (RTK and SDK), first verify that the
+synthesis engine works by running the sample programs that
+come with that package.  Note that the sample programs only
+come with the SDK.
+If you choose to only install the RTK  (Run Time Kit)
+and run into trouble, you'll need the SDK to troubleshoot
+your problem.
+
 
 If you have only installed the RTK,
 try starting the ViaVoice speech server by typing 
@@ -57,21 +61,14 @@ support for Emacspeak you should first install Emacspeak the
 normal way.  See the Emacspeak Makefile for instructions.
 
 ** Compiling Outloud Support For Emacspeak:
-
+You need not do this step with Emacspeak 15.0 and later.
 Change to the linux-outloud subdirectory 
 of the Emacspeak source distribution.
    make 
 This should compile the Emacspeak Outloud TCL library to
 produce a file called tcleci.so.
-
-
-** Installing Outloud Support:
-
-In the linux/outloud directory type
-make install
-
-This should copy over the relevant files to where you've
-already installed emacspeak.
+Note that you need to have the SDK installed to execute this
+step successfully.
 
 * Testing:
 
