@@ -340,6 +340,14 @@ prompting for a template.")
    url))
 
 (emacspeak-url-template-define
+ "Yahoo DailyNews"
+ "http://dailynews.yahoo.com/"
+ nil
+ nil
+ "Retrieve and speak DailyNewspage from  Yahoo Daily News."
+ 'emacspeak-url-template-yahoo-news-processor)
+
+(emacspeak-url-template-define
  "Yahoo Politics"
  "http://dailynews.yahoo.com/news?tmpl=index2&cid=703"
  nil
