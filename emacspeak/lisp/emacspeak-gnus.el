@@ -413,7 +413,7 @@ instead you hear only the first screenful.")
   (save-excursion
     (set-buffer  "*Article*")
     (goto-char (point-min))
-    (setq dtk-punctuation-mode "some")
+    (setq dtk-punctuation-mode 'some)
     (voice-lock-mode 1)
     (emacspeak-dtk-sync)
     (cond

@@ -98,7 +98,7 @@ displayed buffers."
 	    (loop for buffer in buffer-map
 		  collect
 		  (second buffer)))))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (concat description
                                     (mapconcat #'identity

@@ -433,7 +433,7 @@
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
   (declare (special dtk-punctuation-mode))
-  (setq dtk-punctuation-mode "some")
+  (setq dtk-punctuation-mode 'some)
   (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}

@@ -125,7 +125,7 @@ use the minibuffer."
                          (emacspeak-speak-messages nil))
                      (when (ems-prompt-without-minibuffer-p (, prompt))
                        (emacspeak-auditory-icon 'open-object)
-                       (tts-with-punctuations "all"
+                       (tts-with-punctuations 'all
                                               (dtk-speak
                                                (format " %s "
                                                        (or (substring (, prompt) 1 ) "")))))

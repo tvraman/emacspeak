@@ -299,7 +299,7 @@ Argument MODE  specifies the current pronunciation mode."
   (let ((inhibit-read-only t))
     (goto-char (point-min))
     (cond
-     ((string-equal  "all"  mode )
+     ((eq 'all mode)
       (let ((start nil)
 	    (personality nil))
 	(while (re-search-forward dtk-bracket-regexp  nil t )
@@ -390,7 +390,7 @@ Argument MODE  specifies the current pronunciation mode."
       (setq personality
             (get-text-property (point) 'personality))
       (setq replacement
-            (if  (string-equal "all" mode)
+            (if  (eq 'all  mode)
                 (format " aw %s %s"
                         (/ (- (match-end 0 ) (match-beginning 0))
                            len)
@@ -433,7 +433,7 @@ Argument MODE  specifies the current pronunciation mode."
     (insert string)
     (goto-char (point-min))
 ;;; dtk will think it's processing a command otherwise:
-    (dtk-fix-brackets "all")
+    (dtk-fix-brackets 'all)
     (dtk-fix-backslash)
 ;;; fix control chars
     (dtk-fix-control-chars)))
@@ -547,7 +547,7 @@ Arguments START and END specify region to speak."
         (setq start  last
               personality
 	      (get-text-property last  'personality))) ; end while
-      ))					       ; end clause
+      ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
@@ -789,10 +789,11 @@ Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
   (interactive
    (list
-    (completing-read  "Enter punctuation mode: "
-                      dtk-punctuation-mode-alist
-                      nil
-                      t)
+    (intern
+     (completing-read  "Enter punctuation mode: "
+                       dtk-punctuation-mode-alist
+                       nil
+                       t))
     current-prefix-arg))
   (declare (special dtk-punctuation-mode dtk-speaker-process
                     dtk-speak-server-initialized
@@ -814,13 +815,13 @@ current local  value to the result."
   "Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
-  (dtk-set-punctuations "all" prefix))
+  (dtk-set-punctuations 'all prefix))
 
 (defun dtk-set-punctuations-to-some (&optional prefix )
   "Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
-  (dtk-set-punctuations "some" prefix))
+  (dtk-set-punctuations 'some prefix))
   
 
 (defun dtk-toggle-punctuation-mode (&optional prefix)
@@ -829,9 +830,9 @@ Interactive PREFIX arg makes the new setting global."
   (interactive "P")
   (declare (special dtk-punctuation-mode))
   (cond
-   ((string-equal "all" dtk-punctuation-mode)
+   ((eq 'all  dtk-punctuation-mode)
     (dtk-set-punctuations-to-some prefix ))
-   ((string-equal "some" dtk-punctuation-mode )
+   ((eq 'some  dtk-punctuation-mode )
     (dtk-set-punctuations-to-all prefix )))
   (when (interactive-p)
     (message "set punctuation mode to %s %s"
@@ -918,7 +919,7 @@ important to be interrupted.")
 (defvar dtk-speaker-process nil
   "Speaker process handle.")
 ;;;###autoload
-(defvar dtk-punctuation-mode  "all"
+(defvar dtk-punctuation-mode  'all
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;

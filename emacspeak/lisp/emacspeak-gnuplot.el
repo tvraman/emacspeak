@@ -153,7 +153,7 @@
 (add-hook 'gnuplot-mode-hook
           (function
            (lambda nil
-             (dtk-set-punctuations "all")
+             (dtk-set-punctuations 'all)
              (voice-lock-mode t))))
 
 ;;}}}
