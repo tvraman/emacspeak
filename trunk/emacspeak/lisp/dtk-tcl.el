@@ -723,9 +723,12 @@ current local  value to the result."
 
 (defun dtk-set-predefined-speech-rate (&optional prefix)
   "Set speech rate to one of nine predefined levels.
-Interactive PREFIX arg says to set the rate globally."
+Interactive PREFIX arg says to set the rate globally.
+Formula used is:
+rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (declare (special dtk-speech-rate-step
+dtk-speech-rate-base
                     last-input-char))
   (let ((level
          (condition-case nil
@@ -741,7 +744,7 @@ speech rate:")))
           (> level  9))
       (error "Invalid level %s" level ))
      (t (dtk-set-rate
-         (+ 0
+         (+ dtk-speech-rate-base
             (* dtk-speech-rate-step  level ))
          prefix )))))
 

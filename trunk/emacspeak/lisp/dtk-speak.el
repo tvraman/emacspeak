@@ -70,13 +70,16 @@ type.  You can use command
 \\[dtk-toggle-stop-immediately-while-typing] to toggle this setting."
   :group 'tts
   :type 'boolean)
+(defcustom dtk-speech-rate-base 50
+  "*Value of lowest tolerable speech rate."
+  :type 'integer
+  :group 'tts)
 
 (defcustom dtk-speech-rate-step 50
   "*Value of speech rate increment.
 This determines step size used when setting speech rate via command
 `dtk-set-predefined-speech-rate'.  Formula used is
-180 +  dtk-speech-rate-step*level for the Dectalk. Needs
-updating for ViaVoice Outloud."
+dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   :type 'integer
   :group 'tts)
 
