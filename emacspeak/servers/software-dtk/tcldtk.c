@@ -1,7 +1,4 @@
-
 /*$Id$*/
-
-
 /* <copyright*/
 /**
 *Copyright (C) 1995 -- 2000, T. V. Raman 
@@ -54,7 +51,6 @@ void TclDtkFree(ClientData dtkHandle) {
 }
 
 /* > */
-
 /* <init*/
 
 int Tcldtk_Init(Tcl_Interp *interp) {
@@ -183,4 +179,9 @@ int Resume(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST ob
   return TCL_ERROR;
 }
 
+/* > */
+/* <end of file*/
+/* local variables: */
+/* folded-file: t */
+/* end: */
 /* > */
