@@ -254,10 +254,11 @@ This is the personality used when speaking  things that have a pronunciation
 applied."
   :group 'emacspeak-pronounce
   :type (voice-setup-custom-menu))
-
+;;;###autoload
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
+  (declare (special emacspeak-pronounce-pronunciation-personality))
   (loop for  key  being the hash-keys  of pronunciation-table
         do
         (let ((word (symbol-name key))
@@ -497,7 +498,7 @@ explicitly turn pronunciations on or off."
     (message
      "Emacspeak pronunciations have been re-activated in this buffer")
     (emacspeak-auditory-icon 'on))))
-
+;;;###autoload
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer.
 Activates pronunciation dictionaries if not already active."
