@@ -527,6 +527,18 @@ name of the list.")
 
 ;;}}}
 ;;{{{ cnn 
+(emacspeak-url-template-define
+ "CNN Search"
+"http://search.cnn.com/cnn/search?%s"
+(list
+ #'(lambda ()
+     (let ((q (read-from-minibuffer "CNN Search: ")))
+       (format "query=%s&qt=%s"
+               q q ))))
+nil
+"Search CNN"
+#'(lambda (url)
+    (emacspeak-w3-extract-nested-table 10 url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Weather "
