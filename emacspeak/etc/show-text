@@ -1,0 +1,7 @@
+#!/bin/sh
+#$Id$
+#
+tempfile=/tmp/pdftotext-$$.pdf
+cat > $tempfile
+pdftotext $tempfile -
+rm -f $tempfile
