@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 16.7700
+Version: 16.7707
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
