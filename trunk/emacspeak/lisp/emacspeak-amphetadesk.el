@@ -80,6 +80,7 @@
   "Ensure AmphetaDesk is alive, and start it if necessary."
   (declare (special emacspeak-amphetadesk-program
                     emacspeak-amphetadesk-port))
+  (let ((emacspeak-speak-messages nil))
   (if (=  1
           (shell-command
            (format "netstat -nat | grep %s"
@@ -87,7 +88,7 @@
       (shell-command
        (format "%s &"
                emacspeak-amphetadesk-program)
-       "*AmphetaDesk*")))
+       "*AmphetaDesk*"))))
 
 ;;;###autoload
 (defun emacspeak-amphetadesk ()
@@ -106,7 +107,7 @@
                    (goto-char (point-min))
                    (emacspeak-speak-mode-line)))
     (emacspeak-w3-without-xsl
-     (browse-url "http://127.0.0.1:8888/")))
+     (w3-fetch "http://127.0.0.1:8888/")))
    (t
     (browse-url "http://127.0.0.1:8888/"))))
 
