@@ -233,14 +233,24 @@
  "Retrieve and speak Sports section from Yahoo Daily News.")
 
 (emacspeak-url-template-define
- "Yahoo Business"
- "http://dailynews.yahoo.com/htx/bs/?u"
+ "Yahoo Business News"
+ "http://story.news.yahoo.com/news?tmpl=index&cid=749"
  nil
  #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 3)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Business section from Yahoo Daily News.")
+     (declare (special  emacspeak-w3-url-rewrite-rule))
+     (setq emacspeak-w3-url-rewrite-rule
+           '("$" "&print=1"))
+     (search-forward "News Stories")
+     (emacspeak-w3-next-doc-element)
+     (w3-table-move-to-table-start)
+     (w3-table-move-to-next-table-column)
+     (w3-table-speak-this-cell))
+ "Retrieve and speak business  section from Yahoo Daily News."
+ #'(lambda (url)
+     (declare (special emacspeak-w3-xsl-p
+                       emacspeak-w3-xsl-transform))
+     (let ((emacspeak-w3-xsl-p nil))
+       (w3-fetch url))))
 
 (emacspeak-url-template-define
  "Yahoo Science"
@@ -309,16 +319,20 @@ Francisco ny for New york etc.")
  "http://dailynews.yahoo.com/h/tc/?u"
  nil
  #'(lambda nil
-     (declare (special emacspeak-w3-xsl-p
-                       emacspeak-w3-xsl-transform))
-     (let ((emacspeak-w3-xsl-p nil)
-           (emacspeak-w3-xsl-transform nil))
+     (declare (special  emacspeak-w3-url-rewrite-rule))
+(setq emacspeak-w3-url-rewrite-rule
+        '("$" "&print=1"))
        (search-forward "News Stories")
        (emacspeak-w3-next-doc-element)
        (w3-table-move-to-table-start)
        (w3-table-move-to-next-table-column)
-       (w3-table-speak-this-cell)))
- "Retrieve and speak Technology  section from Yahoo Daily News.")
+       (w3-table-speak-this-cell))
+ "Retrieve and speak Technology  section from Yahoo Daily News."
+ #'(lambda (url)
+     (declare (special emacspeak-w3-xsl-p
+                       emacspeak-w3-xsl-transform))
+     (let ((emacspeak-w3-xsl-p nil))
+       (w3-fetch url))))
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
