@@ -295,7 +295,7 @@ static void set_params(void) {
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;
   chunk_bytes = chunk_size * bits_per_frame / 8;
-  fprintf(stderr, "allocating %d bytes\n", chunk_bytes);
+  fprintf(stderr, "allocating %d samples\n", chunk_bytes);
   waveBuffer = (short *) malloc( chunk_bytes *sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
