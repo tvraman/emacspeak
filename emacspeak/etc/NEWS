@@ -5,6 +5,7 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 * Emacspeak 15.0 Additions And Changes:
 
 Emacspeak 15.0 provides the following user level enhancements:
+
 * Documentation:
 
 ** Online Manual:
@@ -30,6 +31,16 @@ as file etc/tips.html in the Emacspeak source distribution,
 and online as http://emacspeak.sf.net/tips.html.
 The source files used to create tips.html is available as
 tips.xml in the Emacspeak CVS repository.
+
+** User Guide:
+
+There is a new Emacspeak user guide, thanks to Jennifer
+Jobbst of the IBM Linux Technology Center.
+The user guide is available online at 
+http://emacspeak.sf.net/user-guide and is also bundled with
+the emacspeak sources in directory emacspeak/user-guide.
+The user-guide files are also placed in the /usr/share/docs
+directory by the Emacspeak RPM.
 
 ** Speech-enabled Applications List:
 
@@ -169,6 +180,14 @@ emacspeak-personal-keys.
 To accomodate this change, command emacspeak-view-register
 is moved to C-e v
 and command emacspeak-speak-version is moved to C-e V
+
+** Viavoice Outloud:
+
+The Viavoice Outloud server is now configured so that you
+only need install the ViaVoice TTS RTK (Run Time Toolkit).
+Note that you will need the Viavoice TTS SDK if you plan to
+recompile the Emacspeak Viavoice Outloud server or build
+other ViaVoice TTS applications.
 
 
 Local variables:
