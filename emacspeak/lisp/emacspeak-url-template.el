@@ -64,7 +64,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -382,7 +382,20 @@ to play a BBC Radio7 program on demand."
  )
 
 ;;}}}
+;;{{{ google scholar 
+
+(emacspeak-url-template-define
+ "Google Scholar"
+ "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s"
+ (list "Google Scholar Search: ")
+ #'(lambda nil
+     (search-forward "Results" nil t)
+     (emacspeak-speak-line))
+ "Google Scholar Search")
+
+;;}}}
 ;;{{{ google translation service
+
 (emacspeak-url-template-define
  "Translation Via Google"
  "http://translate.google.com/translate_c?hl=en&langpair=%s&u=%s"
@@ -426,36 +439,6 @@ from English to German.")
       url)))
 
 ;;}}}
-;;{{{  cnet news 
-
-(emacspeak-url-template-define
- "Tech News From CNet"
- "http://rss.com.com/2547-12-0-20.xml"
- nil
- #'(lambda nil
-     (declare (special emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
-	   (list "$" "&tag=st_util_print"))
-     (emacspeak-speak-buffer))
- "Display tech news from CNET"
- #'(lambda (url)
-     (emacspeak-rss-display url))) 
-
-;;}}}
-;;{{{ Infoworld RSS
-(emacspeak-url-template-define
- "InfoWorld RSS Feeds"
- "http://www.infoworld.com/rss/rss_info.html"
- nil
- nil
- "Produce  a set of RSS links published by InfoWorld."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//a[contains(@href, \".rdf\") and @class]"
-      url  'speak)))
- 
-
-;;}}}
 ;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define
@@ -491,6 +474,37 @@ from English to German.")
       (browse-url url))))
 
 ;;}}}
+;;{{{  cnet news 
+
+(emacspeak-url-template-define
+ "Tech News From CNet"
+ "http://rss.com.com/2547-12-0-20.xml"
+ nil
+ #'(lambda nil
+     (declare (special emacspeak-w3-url-rewrite-rule))
+     (setq emacspeak-w3-url-rewrite-rule
+	   (list "$" "&tag=st_util_print"))
+     (emacspeak-speak-buffer))
+ "Display tech news from CNET"
+ #'(lambda (url)
+     (emacspeak-rss-display url))) 
+
+;;}}}
+;;{{{ Infoworld RSS
+(emacspeak-url-template-define
+ "InfoWorld RSS Feeds"
+ "http://www.infoworld.com/rss/rss_info.html"
+ nil
+ nil
+ "Produce  a set of RSS links published by InfoWorld."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//a[contains(@href, \".rdf\") and @class]"
+      url  'speak)))
+ 
+
+;;}}}
+
 ;;{{{ mapquest
 
 (emacspeak-url-template-define
@@ -1026,11 +1040,11 @@ plays entire program."
  "sourceforge browse mirrors" 
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
-#'(lambda ()
+ #'(lambda ()
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
            '("prdownloads.sourceforge.net"
-            "umn.dl.sourceforge.net/sourceforge")))
+             "umn.dl.sourceforge.net/sourceforge")))
  "Retrieve download table  at Sourceforge for specified project."
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match "Current"
