@@ -422,8 +422,9 @@ even if one is already defined."
     (emacspeak-auditory-icon 'select-object)
     (browse-url
      (or redirect url))
+    (when (interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
 ;;{{{  jump to title in document
