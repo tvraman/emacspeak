@@ -171,7 +171,7 @@
                (let ((observing  (get sym 'observing)))
                  (when (and (symbolp sym)
                             (symbolp observing))
-                 (remprop observing sym))
+		   (remprop observing sym))
                  (set-default sym val)))
        (,@ args))
      ;;; other actions performed at define time 
@@ -219,7 +219,7 @@ VOICE-NAME are  changed."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
     (loop for o in observers
-          do ;o is already quoted 
+          do				;o is already quoted 
           (set o value))))
 
 (defmacro defvoice (personality settings doc)

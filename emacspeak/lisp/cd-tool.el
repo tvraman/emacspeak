@@ -39,7 +39,6 @@
 ;;}}}
 ;;{{{ required packages
 
-
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 
