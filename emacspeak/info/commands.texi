@@ -4478,7 +4478,7 @@ Squeeze multiple blank lines in current buffer.
 Show display status on thinkpads using tpctl.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-tramp-open-location (LOCATION)
+@deffn {Interactive Command} emacspeak-wizards-tramp-open-location (NAME)
 Open specified tramp location.
 Location is specified by name.
 @end deffn
