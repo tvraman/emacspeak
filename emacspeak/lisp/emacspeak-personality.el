@@ -159,17 +159,26 @@ displayed in the messages area."
          (prop (ad-get-arg 2))
          (value (ad-get-arg 3 ))
          (object (ad-get-arg 4))
-         (voice nil))
+         (voice nil)
+         (voices nil))
      (when (eq prop 'face)
-       (setq voice (voice-setup-get-voice-for-face   value))
+       (cond
+        ((symbolp value)
+       (setq voice (voice-setup-get-voice-for-face   value)))
+        ((listp value)
+        (setq voices
+              (remove nil 
+              (mapcar #'voice-setup-get-voice-for-face value)))
+        
+                           (setq voice (car (last voices))))
+                      (t (message "Got %s" value)))
        (when voice
             (put-text-property start end
-                               'personality
-                               (symbol-value voice)
+                               'personality voice
                                object))
        (when (and emacspeak-personality-show-unmapped-faces
                   (not voice))
-         (puthash emacspeak-personality-unmapped-faces value t)))))
+         (puthash  value t emacspeak-personality-unmapped-faces)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
