@@ -171,7 +171,7 @@ TEMPLATES = etc/emacspeak.sh.def etc/Makefile
 MISC=etc/extract-table.pl etc/last-log.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
-INFO = info/Makefile info/*.texi
+INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} \

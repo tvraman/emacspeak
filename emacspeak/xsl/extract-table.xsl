@@ -10,7 +10,8 @@ Parameter base specifies base URL of source document.
 
  -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes"/>
+  <xsl:output method="html" indent="yes"
+              encoding="iso8859-15"/>
   <xsl:param name="table-index">1</xsl:param>
   <xsl:param name="base"/>
   <xsl:include href="identity.xsl"/>

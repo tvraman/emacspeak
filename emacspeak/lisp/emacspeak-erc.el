@@ -195,13 +195,24 @@
 user is notified about activity in the room.")
 (make-variable-buffer-local 'emacspeak-erc-room-monitor)
 
-
-
 (defvar emacspeak-erc-people-to-monitor nil
   "List of strings specifying people to monitor in a given room.")
 
 (make-variable-buffer-local
  'emacspeak-erc-people-to-monitor)
+
+
+(defvar emacspeak-erc-monitor-my-messages t
+  "If T, then messages to your specified nick will be
+spoken.")
+
+(make-variable-buffer-local 'emacspeak-erc-monitor-my-messages)
+
+
+(defcustom emacspeak-erc-my-nick nil
+  "My IRC nick."
+  :type 'string
+  :group 'emacspeak-erc)
 
 
 (defsubst emacspeak-erc-read-person (action)
@@ -250,7 +261,9 @@ user is notified about activity in the room.")
 (defun emacspeak-erc-compute-message (string buffer)
   "Uses environment of buffer to decide what message to
 display. String is the original message."
-  (declare (special emacspeak-erc-people-to-monitor))
+  (declare (special emacspeak-erc-people-to-monitor
+                    emacspeak-erc-my-nick
+                    emacspeak-erc-monitor-my-messages))
   (let ((who-from (car (split-string string )))
         (case-fold-search t))
     (cond
@@ -262,17 +275,25 @@ display. String is the original message."
         emacspeak-erc-people-to-monitor
         :test #'string-equal))
       string)
+     ((and emacspeak-erc-monitor-my-messages
+           (string-match emacspeak-erc-my-nick string))
+      string)
      (t nil))))
 
 
 
-(defadvice erc-display-line-buffer  (after emacspeak pre act comp)
-  (declare (special emacspeak-erc-room-monitor))
+(defadvice erc-display-line-buffer  (after emacspeak pre act
+                                           comp)
+  "Speech-enable ERC."
+  (declare (special emacspeak-erc-room-monitor
+                    emacspeak-erc-monitor-my-messages
+                    emacspeak-erc-my-nick))
   (let ( (buffer (ad-get-arg 1))
          (case-fold-search t))
     (save-excursion
       (set-buffer buffer)
-      (when emacspeak-erc-room-monitor
+      (when (or emacspeak-erc-room-monitor
+                emacspeak-erc-monitor-my-messages)
         (let ((emacspeak-speak-messages nil)
               (msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
@@ -307,9 +328,34 @@ set the current local value to the result."
            (if emacspeak-erc-room-monitor "on" "off" )
 	   (if prefix "" "locally")))
 
+(defun emacspeak-erc-toggle-my-monitor  (&optional prefix)
+  "Toggle state of ERC  monitor of my messages.
+Interactive PREFIX arg means toggle the global default value, and then
+set the current local value to the result."
+  (interactive  "P")
+  (declare  (special  emacspeak-erc-monitor-my-messages))
+  (cond
+   (prefix
+    (setq-default  emacspeak-erc-monitor-my-messages
+                   (not  (default-value 'emacspeak-erc-monitor-my-messages )))
+    (setq emacspeak-erc-monitor-my-messages (default-value 'emacspeak-comint-autospeak )))
+   (t
+    (setq emacspeak-erc-monitor-my-messages
+          (not emacspeak-erc-monitor-my-messages ))))
+  (and emacspeak-erc-monitor-my-messages
+       
+       )
+  (emacspeak-auditory-icon
+   (if emacspeak-erc-monitor-my-messages 'on 'off))
+  (message "Turned %s messages monitor  %s "
+           (if emacspeak-erc-monitor-my-messages "on" "off" )
+	   (if prefix "" "locally")))
+
 ;;}}}
 ;;{{{ define emacspeak keys
 (declaim (special erc-mode-map))
+(define-key erc-mode-map "\C-cm"
+  'emacspeak-erc-toggle-my-monitor)
 (define-key erc-mode-map "\C-c\C-m"
   'emacspeak-erc-toggle-room-monitor)
 (define-key erc-mode-map "\C-c\C-a"
