@@ -57,14 +57,14 @@
 ;;{{{  user customizations:
 (defgroup tts nil
   "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
-  :group 'emacspeak)
+  :group 'emacspeak
+  :prefix "dtk-")
 
 (defcustom dtk-stop-immediately-while-typing t
-  "*Set it to nil if you dont want speech to flush as you type.
-You can use  command
+  "*Set it to nil if you dont want speech to flush as you
+type.  You can use command
 `dtk-toggle-stop-immediately-while-typing' bound to
-\\[dtk-toggle-stop-immediately-while-typing]
-to toggle this setting."
+\\[dtk-toggle-stop-immediately-while-typing] to toggle this setting."
   :group 'tts
   :type 'boolean)
 
