@@ -20,7 +20,6 @@ Filters out nodes matching param deletor if specified.
 <xsl:param name="deletor"/>
   <xsl:param name="base"/>
   <xsl:template match="*|@*" mode="copy" >
-    <br/>
     <xsl:copy>
        <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()" mode="copy"/>
