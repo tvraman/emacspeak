@@ -299,7 +299,7 @@ Argument MODE  specifies the current pronunciation mode."
   (let ((inhibit-read-only t))
     (goto-char (point-min))
     (cond
-     ((string=  "all"  mode )
+     ((string-equal  "all"  mode )
       (let ((start nil)
 	    (personality nil))
 	(while (re-search-forward dtk-bracket-regexp  nil t )
@@ -390,11 +390,11 @@ Argument MODE  specifies the current pronunciation mode."
       (setq personality
             (get-text-property (point) 'personality))
       (setq replacement
-            (if  (string= "all" mode)
+            (if  (string-equal "all" mode)
                 (format " aw %s %s"
                         (/ (- (match-end 0 ) (match-beginning 0))
                            len)
-                        (if (string= " " pattern)
+                        (if (string-equal " " pattern)
                             " space " string))
               ""))
       (replace-match replacement)
@@ -829,9 +829,9 @@ Interactive PREFIX arg makes the new setting global."
   (interactive "P")
   (declare (special dtk-punctuation-mode))
   (cond
-   ((string= "all" dtk-punctuation-mode)
+   ((string-equal "all" dtk-punctuation-mode)
     (dtk-set-punctuations-to-some prefix ))
-   ((string= "some" dtk-punctuation-mode )
+   ((string-equal "some" dtk-punctuation-mode )
     (dtk-set-punctuations-to-all prefix )))
   (when (interactive-p)
     (message "set punctuation mode to %s %s"

@@ -165,7 +165,7 @@ Point is left at the end of the XML structure read."
   (catch 'found
     (let ((children (xml-tag-children tag)))
       (while children
-	(if (string= name (xml-tag-name (car children)))
+	(if (string-equal name (xml-tag-name (car children)))
 	    (throw 'found (car children)))
 	(setq children (cdr children))))))
 
@@ -254,7 +254,7 @@ Note that this only works if the opening tag starts at column 0."
 	   read-xml
 	   xml-parse-read
 	   search-forward
-	   string=
+	   string-equal
 	   stringp
 	   substring
 	   xml-parse-concat)))
