@@ -1,4 +1,5 @@
 #$Id$
+CC=g++
 INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
