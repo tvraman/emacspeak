@@ -99,7 +99,6 @@
   :group 'emacspeak)
 
 ;;}}}
-
 ;;{{{  helper for voice custom items:
 
 (defalias 'tts-list-voices 'dectalk-list-voices)
@@ -153,6 +152,7 @@
 
 ;;}}}
 ;;{{{ special form def-voice-font 
+
 ;;; note that when defined, personalities are registered as observers
 ;;; with the  voice they use
 ;;; this gets unregistered when the mapping is changed via custom.
@@ -222,9 +222,11 @@ VOICE-NAME are  changed."
           do				;o is already quoted 
           (set o value))))
 
+;;; note that for now we dont use  gain settings 
+
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
-(list paul 5 5 5 5 \"all\") which defines a standard male voice
+(list paul 5 5 5 5 'all) which defines a standard male voice
 that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
 command \\[customize-variable] on <personality>-settings."
@@ -267,100 +269,86 @@ command \\[customize-variable] on <personality>-settings."
 
 ;;; these voices are device independent
 
-(defvoice  voice-punctuations-all
-  (list nil nil nil nil  nil 'all)
+(defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
 punctuations.")
 
-(defvoice  voice-punctuations-some
-  (list nil nil nil nil  nil 'some)
+(defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
   "Turns current voice into one that  speaks some
 punctuations.")  
 
-(defvoice  voice-punctuations-none
-  (list nil nil nil nil  nil "none")
+(defvoice  voice-punctuations-none (list nil nil nil nil  nil "none")
   "Turns current voice into one that  speaks no punctuations.")
 
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
-(defvoice  voice-monotone-medium
-  (list nil nil 2 2  nil)
+(defvoice  voice-monotone-medium (list nil nil 2 2  'all)
   "Turns current voice into a medium monotone.")
 
-(defvoice voice-animate
-  (list nil 7 7 6)
+(defvoice voice-animate (list nil 7 7 6)
   "Animates current voice.")
 
-(defvoice voice-animate-medium
-  (list nil 6 6  5)
+(defvoice voice-animate-medium (list nil 6 6  5)
   "Adds medium animation  current voice.")
 
-(defvoice voice-animate-extra
-  (list nil 8 8 7 )
+(defvoice voice-animate-extra (list nil 8 8 7 )
   "Adds extra animation  current voice.")
 
-(defvoice voice-smoothen 
-  (list nil nil nil 3 4)
+(defvoice voice-smoothen (list nil nil nil 3 4)
   "Smoothen current voice.")
 
-(defvoice voice-smoothen-extra
-  (list nil nil nil 3 2)
+(defvoice voice-smoothen-extra (list nil nil nil 3 2)
   "Extra smoothen current voice.")
 
-(defvoice voice-smoothen-medium
-  (list nil nil nil 3 3)
+(defvoice voice-smoothen-medium (list nil nil nil 3 3)
   "Extra smoothen current voice.")
 
-(defvoice voice-brighten-medium 
-  (list nil nil nil 5 6)
+(defvoice voice-brighten-medium (list nil nil nil 5 6)
   "Brighten current voice.")
 
-(defvoice voice-brighten 
-  (list nil nil nil 6 7)
+(defvoice voice-brighten (list nil nil nil 6 7)
   "Brighten current voice.")
 
-(defvoice voice-brighten-extra
-  (list nil nil nil 7 8 )
+(defvoice voice-brighten-extra (list nil nil nil 7 8 )
   "Extra brighten current voice.")
 
-(defvoice voice-bolden 
-  (list nil 1 6 6  nil)
+(defvoice voice-bolden (list nil 1 6 6  nil)
   "Bolden current voice.")
 
-(defvoice voice-bolden-extra
-  (list nil 0 6 7 8 )
+(defvoice voice-bolden-extra (list nil 0 6 7 8 )
   "Extra bolden current voice.")
 
-(defvoice voice-bolden-medium
-  (list nil 3 6 6  nil)
+(defvoice voice-bolden-medium (list nil 3 6 6  nil)
   "Add medium bolden current voice.")
 
-(defvoice voice-lighten
-  (list nil 7 7  1  nil)
+(defvoice voice-lighten (list nil 7 7  1  nil)
   "Lighten current voice.")
 
-(defvoice voice-lighten-medium
-  (list nil 6 6 3  nil)
+(defvoice voice-lighten-medium (list nil 6 6 3  nil)
   "Add medium lighten current voice.")
 
-(defvoice voice-lighten-extra
-  (list nil 9 8 7   9)
+(defvoice voice-lighten-extra (list nil 9 8 7   9)
   "Add extra lighten current voice.")
 
-(defvoice voice-bolden-and-animate
-  (list nil 8 8 8 8 )
+(defvoice voice-bolden-and-animate (list nil 8 8 8 8 )
   "Bolden and animate  current voice.")
+
+(defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
+  "Apply first female voice.")
+
+(defvoice voice-womanize-2 (list 'ursula 5 nil nil nil nil)
+  "Apply first female voice.")
 
 ;;}}}
 ;;{{{  indentation and annotation 
-(defvoice voice-indent
-  (list nil nil 3 1 3 )
+
+(defvoice voice-indent (list nil nil 3 1 3 )
   "Indicate indentation .")
 
-(defvoice voice-annotate
-  (list nil nil 4 0 4)
+(defvoice voice-annotate (list nil nil 4 0 4)
   "Indicate annotation.")
+
 ;;}}}
 ;;{{{ voice overlays 
 
@@ -383,6 +371,7 @@ punctuations.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
+
 (def-voice-font voice-lock-highlight-personality voice-bolden
   'match
   "Personality used for  matched text.")
@@ -390,6 +379,7 @@ punctuations.")
 (def-voice-font voice-lock-highlight-personality voice-animate
   'highlight
   "Personality used for highlighting text.")
+
 (def-voice-font voice-lock-fixed-personality voice-monotone
   'fixed
   "Personality to use for fixed pitch  text.")
