@@ -726,7 +726,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
    (or (interactive-p)
        speak)))
 
-(defun emacspeak-w3-extract-nested-tables-by-position-list (positions   &optional prompt-url speak)
+(defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
   "Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list 
 nested of tables found in the page."
@@ -849,7 +849,7 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "\C-t"
   'emacspeak-w3-count-tables)
 (define-key emacspeak-w3-xsl-map "T"
-  'emacspeak-w3-extract-nested-tables-by-position-list)
+  'emacspeak-w3-extract-tables-by-position-list)
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
