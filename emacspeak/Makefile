@@ -337,6 +337,23 @@ list_dist:
 	ls -1  $(DISTFILES)
 
 # }}}
+# {{{upload to sourceforge 
+
+
+TARBALL=emacspeak-${LABEL}.tar.gz
+RPM=/usr/src/redhat/RPMS/i386/emacspeak-${LABEL}-1.i386.rpm
+sourceforge: dist rpm
+	mv emacspeak.tar.gz ${TARBALL}
+	#cd info ; $(MAKE) sourceforge
+	( echo 'anonymous';				\
+	  echo prompt;					\
+	  echo hash;					\
+	  echo cd incoming;				\
+	  echo put $$TARBALL;			\
+	  echo put $$RPM;		\
+	  echo quit ) | cat
+
+# }}}
 # {{{ end of file 
 
 #local variables: 
