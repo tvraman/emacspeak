@@ -1119,36 +1119,108 @@ emacspeak-websearch.
      Launches specific websearch queries.  Search engine is selected by
      keystrokes listed below.  Once selected, the selected searcher
      prompts for additional information as appropriate.
-          Key                   Search a
-          AltaVista Simple Search Cap-A                        All The
-          Web b                                BBC Archives C-b
-                           Computer Science Bibliography c
-                            CNN Interactive Cap-C    Company News By
-          Ticker C-c                         Computer Science Citation
-          Index d                           Usenet Archives (formerly
-          Dejanews) Cap-D                  Hypertext Websters Dictionary
-          e                       Encyclopedia Britannica f
-                         CNN  Financial Network cap-F
-                Free Online Dictionary Of Computing g
-                    The Google WWW Index .
-          Advanced Google WWW Index Cap-G    Locate Gutenberg Etexts h
-                                    HotBot WWW Index j
-                     Ask Jeeves m                                Maps
-          from Yahoo Cap-M                     Merriam Webster
-          Dictionary n                         News Wire at Yahoo Cap-N
-                               Northern Light Search o
-             Open Directory Search p
-          People Search (Yahoo) r                             Search
-          RedHat Via Google Cap R                           RFBD
-          Catalog search C-r                          Find RPM packages
-          s                         Search for software t
-                  Machine translation u                   Usenet Index
-          from Google w                            Weather Channel  By
-          Zip Code cap W                             W3C Site v
-                            Vickers Insider Trades Cap V VectorVest
-          Stock  Reports y                              Master Yahoo
-          Index When using W3,  this interface attempts to speak the
-     most relevant information on the result page.
+    `a'
+          AltaVista Simple Search
+
+    `Cap-A'
+          All The Web
+
+    `b'
+          BBC Archives
+
+    `C-b'
+          Computer Science Bibliography
+
+    `c'
+          CNN Interactive
+
+    `Cap-C'
+          Company News By Ticker
+
+    `C-c'
+          Computer Science Citation  Index
+
+    `d'
+          Usenet Archives (formerly Dejanews)
+
+    `Cap-D'
+          Hypertext Websters Dictionary
+
+    `e'
+          Encyclopedia Britannica
+
+    `f'
+          CNN  Financial Network
+
+    `cap-F'
+          Free Online Dictionary Of Computing
+
+    `g'
+          Google search
+
+    `.'
+          Advanced Google WWW Index
+
+    `Cap-G'
+          Locate Gutenberg Etexts
+
+    `h'
+          HotBot WWW Index
+
+    `j'
+          Ask Jeeves
+
+    `m'
+          Maps from Yahoo
+
+    `Cap-M'
+          Merriam Webster Dictionary
+
+    `n'
+          News Wire at Yahoo
+
+    `Cap-N'
+          Northern Light Search
+
+    `o'
+          Open Directory Search
+
+    `p'
+          People Search (Yahoo)
+
+    `r'
+          Search RedHat Via Google
+
+    `Cap R'
+          RFBD Catalog search
+
+    `C-r'
+          Find RPM packages
+
+    `s'
+          Software search
+
+    `t'
+          Machine translation
+
+    `u'
+          Usenet Index from Google
+
+    `w'
+          Weather Channel  By Zip Code
+
+    `cap W'
+          W3C Site
+
+    `v'
+          Vickers Insider Trades
+
+    `Cap V'
+          VectorVest Stock  Reports
+
+    `y'
+          Master Yahoo Index When using W3,  this interface attempts to
+     speak the most relevant information on the result page.
 
  - emacspeak-websearch-google:
      Perform an Google search
