@@ -1,7 +1,13 @@
 #!/bin/sh
 #$Id$
 #
-tempfile=/tmp/pdftotext-$$.pdf
-cat > $tempfile
-pdftotext $tempfile -
-rm -f $tempfile
+
+if [ -x /usr/bin/pdftotext ]
+then
+    tempfile=/tmp/pdftotext-$$.pdf
+    cat > $tempfile
+    /usr/bin/pdftotext $tempfile -
+    rm -f $tempfile
+else 
+    echo "/usr/bin/pdftotext not found --install package XPDF."
+fi
