@@ -47,6 +47,8 @@
 ;;; actual URL.
 ;;; The user provides values for the parameterized portons
 ;;; of the URL e.g. the date.
+;;; See @xref{URL Templates}, for details on the URL templates
+;;; that are presently defined.
 
 ;;; Code:
 
