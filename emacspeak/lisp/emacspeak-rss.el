@@ -63,16 +63,16 @@
 (defcustom emacspeak-rss-feeds
   '(
     ("Wired News" ."http://www.wired.com/news_drop/netcenter/netcenter.rdf")
-("BBC News" . "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
-("CNet Tech News" . "http://rss.com.com/2547-12-0-5.xml")
-("XML.COM" . "http://www.xml.com/xml/news.rss")
-)
-"Table of RSS feeds."
-:type '(repeat
-(cons :tag "RSS Feed"
-      (string :tag "Title")
-      (string :tag "URI")))
-:group 'emacspeak-rss)
+    ("BBC News" . "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml")
+    ("CNet Tech News" . "http://rss.com.com/2547-12-0-5.xml")
+    ("XML.COM" . "http://www.xml.com/xml/news.rss")
+    )
+  "Table of RSS feeds."
+  :type '(repeat
+	  (cons :tag "RSS Feed"
+		(string :tag "Title")
+		(string :tag "URI")))
+  :group 'emacspeak-rss)
 
 ;;}}}
 ;;{{{  view feed
@@ -83,11 +83,11 @@
   (interactive
    (list
     (car
-    (browse-url-interactive-arg "RSS Feed: "))))
+     (browse-url-interactive-arg "RSS Feed: "))))
   (declare (special emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
-  (add-hook 'emacspeak-w3-post-process-hook
-            'emacspeak-speak-buffer))
+    (add-hook 'emacspeak-w3-post-process-hook
+	      'emacspeak-speak-buffer))
   (emacspeak-wizards-browse-xml-url-with-style
    (expand-file-name "rss.xsl"
                      emacspeak-xslt-directory)
@@ -98,8 +98,8 @@
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (completing-read "Feed:"
-                     emacspeak-rss-feeds))))
+      (completing-read "Feed:"
+		       emacspeak-rss-feeds))))
   (let ((uri (cdr
               (assoc feed emacspeak-rss-feeds))))
     (emacspeak-rss-display uri 'speak)))

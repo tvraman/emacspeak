@@ -196,15 +196,15 @@ speak its prompts. "
                                  (= ?c (aref  (, prompt) 0))
                                  (= ?K (aref  (, prompt) 0))
                                  (= ?k (aref  (, prompt) 0)))
-                       (tts-with-punctuations "all"
-                                              (dtk-speak
-                                               (,
-                                                (format " %s "
-                                                        (or
-                                                         (if (= ?* (aref  prompt 0))
-                                                             (substring prompt 2 )
-                                                           (substring prompt 1 ))
-                                                         ""))))))
+			 (tts-with-punctuations "all"
+						(dtk-speak
+						 (,
+						  (format " %s "
+							  (or
+							   (if (= ?* (aref  prompt 0))
+							       (substring prompt 2 )
+							     (substring prompt 1 ))
+							   ""))))))
                        (call-interactively
                         #'(lambda (&rest args)
                             (interactive (, prompt))
