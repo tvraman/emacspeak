@@ -2201,8 +2201,6 @@ hits."
      (emacspeak-url-template-get name))))
 
 ;;}}}
- 
-
 ;;{{{ longest line in region 
 
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
@@ -2225,6 +2223,33 @@ Moves to the longest line when called interactively."
         (forward-line 1)))
     (when (interactive-p)
       (message "Longest line is %s columns"
+               max)
+      (goto-char where))
+    max))
+
+
+
+;;}}}
+;;{{{ longest para in region 
+(defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
+  "Find longest paragraph in region.
+Moves to the longest paragraph when called interactively."
+  (interactive "r")
+  (let ((max 0)
+        (where nil)
+        (para-start start))
+    (save-excursion
+      (goto-char start)
+      (while (and (not (eobp))
+                  (< (point) end))
+        (forward-paragraph 1)
+        (when 
+            (< max (- (point) para-start ))
+          (setq max(- (point)  para-start))
+          (setq where para-start))
+        (setq para-start (point))))
+    (when (interactive-p)
+      (message "Longest paragraph is %s characters"
                max)
       (goto-char where))
     max))
