@@ -30,7 +30,7 @@
 ;;; Code:
 ;;{{{  required modules
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'w3m nil t)

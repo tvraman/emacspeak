@@ -49,8 +49,7 @@
 ;;; Code:
 
 ;;{{ Require
-(eval-when-compile
-  (require 'cl))
+(require 'cl)
 ;;}}
 
 (defvar emacspeak-ja-setup-hook nil
