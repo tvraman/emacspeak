@@ -336,7 +336,7 @@ prompting for a template.")
 		      '("$" "&printer=1"))
 		(emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
-   "//*[@class=\"article\"]"
+   "(//*[@class=\"article\"])"
    url))
 
 (emacspeak-url-template-define
@@ -876,6 +876,18 @@ the broadcast. You must have mplayer installed."
            (list "$" "&prtPage=1")))
  "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
+ )
+
+(emacspeak-url-template-define
+ "You Said It By Laxman"
+ "http://www1.indiatimes.com/cartoon/%scart%s.htm"
+ (list
+  (lambda ()
+    (read-from-minibuffer "Month: "))
+  (lambda ()
+    (read-from-minibuffer "Date: ")))
+ nil
+ "Retrieve Cartoon Times Of India."
  )
 
 ;;}}}
