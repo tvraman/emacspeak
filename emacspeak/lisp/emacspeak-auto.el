@@ -68,7 +68,7 @@
   (declare (special emacspeak-directory
                     emacspeak-lisp-directory
                     emacspeak-auto-autoloads-file))
-  (let ((dtk-quiet nil)
+  (let ((dtk-quiet t)
         (source-directory emacspeak-directory)
         (generated-autoload-file emacspeak-auto-autoloads-file))
 (update-autoloads-from-directories emacspeak-lisp-directory)))

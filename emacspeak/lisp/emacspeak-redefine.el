@@ -121,6 +121,7 @@ speech flush as you type."
 (defun emacspeak-forward-char (arg)
   "Forward-char redefined to speak char moved to. "
   (interactive "p")
+  (declare (special dtk-stop-immediately))
   (cond
    ((<= (+ arg (point)) (point-max))
     (forward-char arg)
@@ -133,6 +134,7 @@ speech flush as you type."
 (defun emacspeak-backward-char (arg)
   "Backward-char redefined to speak char moved to. "
   (interactive "p")
+  (declare (special dtk-stop-immediately))
   (cond
    ((>= (- (point) arg) (point-min))
     (backward-char arg)
