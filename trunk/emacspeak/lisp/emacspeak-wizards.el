@@ -651,15 +651,12 @@ Typically %s is replaced by project name.")
 GNU.
 Typically %s is replaced by project name.")
 
-
 (defcustom emacspeak-cvs-local-directory-pattern
   "~/sourceforge/cvs-%s"
   "Pattern from which name of local download directory is build.
  %s is replaced by the project name."
   :type 'string
   :group 'emacspeak-wizards)
-
-
 
 (defun emacspeak-cvs-sf-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from Sourceforge."
@@ -719,7 +716,7 @@ Typically %s is replaced by project name.")
                     emacspeak-cvs-gnu-anonymous-cvsroot-pattern))
   (let ((cvsroot
          (format emacspeak-cvs-gnu-anonymous-cvsroot-pattern
-                  project))
+		 project))
         (dir (expand-file-name
               (format emacspeak-cvs-local-directory-pattern
                       project))))
@@ -2029,9 +2026,9 @@ directory to where find is to be launched."
 	      (format "\"'%s'\""
 		      url))))
       (add-hook 'emacspeak-w3-post-process-hook
-	    #'(lambda nil
-		(emacspeak-speak-mode-line)
-		(emacspeak-auditory-icon 'open-object)))
+		#'(lambda nil
+		    (emacspeak-speak-mode-line)
+		    (emacspeak-auditory-icon 'open-object)))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer src-buffer))))
 

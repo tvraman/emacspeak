@@ -2780,10 +2780,10 @@ Argument O specifies overlay."
 (defsubst emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
   (let ((inhibit-field-text-motion t))
-  (save-excursion
-    (set-buffer (window-buffer (minibuffer-window)))
-    (buffer-substring (field-beginning)
-                      (field-end)))))
+    (save-excursion
+      (set-buffer (window-buffer (minibuffer-window)))
+      (buffer-substring (field-beginning)
+			(field-end)))))
 
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
