@@ -66,6 +66,7 @@
   name ;Human-readable name
   template  ;template URL string 
 generators  ; list of param generator
+post-action ;action to perform after opening
 )
 
   ;;}}}
@@ -102,14 +103,17 @@ generators  ; list of param generator
 ;;}}}
 ;;{{{  define resources 
 
-(defun emacspeak-url-template-define (name template generators )
+(defun emacspeak-url-template-define (name template
+                                           &optional generators post-action)
   "Define a URL template."
   (declare (special emacspeak-url-template-table))
   (emacspeak-url-template-set
    name
    (emacspeak-url-template-constructor :name name
                                        :template template
-                                       :generators generators)))
+                                       :generators
+                                       generators
+:post-action post-action)))
                                
 
 (defun emacspeak-url-template-load (file)
@@ -153,6 +157,12 @@ generators  ; list of param generator
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{ yahoo daily news 
+(emacspeak-url-template-define "Yahoo Daily News"
+                               "http://dailynews.yahoo.com/htx/ts/nm/?u"
+                               nil)
+
+;;}}}
 ;;{{{ Adobe pdf conversion 
 
 (emacspeak-url-template-define
@@ -279,7 +289,8 @@ generators  ; list of param generator
 
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (browse-url  (emacspeak-url-template-url ut)))
+  (browse-url  (emacspeak-url-template-url ut))
+  (funcall (emacspeak-url-template-post-action ut)))
 
 (defun emacspeak-url-template-fetch ()
   "Prompt for  URL template and fetch specified resource."

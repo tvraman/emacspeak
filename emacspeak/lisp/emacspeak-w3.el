@@ -381,7 +381,9 @@ implemented. ")))
     (w3-relative-link url)))
 
 (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
-(define-key w3-mode-map "\M-j" 'emacspeak-w3-javascript-follow-link)
+(define-key w3-mode-map "\M-j"
+  'emacspeak-w3-javascript-follow-link)
+(define-key w3-mode-map "t"  'emacspeak-w3-jump-to-title-in-content)
 
 ;;}}}
 ;;{{{ experimental --show class attribute from anchors 
@@ -435,7 +437,7 @@ are useful in jumping directly to the printer friendly
 version of an article for example.
 Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
@@ -456,6 +458,19 @@ even if one is already defined."
     (browse-url redirect)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+
+;;}}}
+;;{{{  jump to title in document
+
+(defun emacspeak-w3-jump-to-title-in-content ()
+  "Jumps to the occurrence of document title in page body."
+  (interactive)
+  (condition-case nil
+      (progn
+      (search-forward (buffer-name))
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))
+    (error "Title not found in body.")))
 
 ;;}}}
 (provide 'emacspeak-w3)
