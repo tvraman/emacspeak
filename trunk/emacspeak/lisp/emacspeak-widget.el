@@ -93,7 +93,7 @@
   :group 'emacspeak-widget
   :type 'symbol)
 
-(defcustom emacspeak-widget-inactive-personality  'betty
+(defcustom emacspeak-widget-inactive-personality  voice-lighten
   "Personality for inactive fields"
   :group 'emacspeak-widget
   :type 'symbol)
