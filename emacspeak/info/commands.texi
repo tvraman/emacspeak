@@ -2510,7 +2510,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
 @deffn {Interactive Command} emacspeak-speak-previous-field ()
 @kbd{ control e < }
 
-Skip backwards across and speak  contiguous sequence of non-blank characters.
+Skip backward across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
 @end deffn

@@ -105,7 +105,7 @@ Package @code{psgml} can be downloaded from
 Incremental search, a process by which the system prompts the user for a
 search string and moves the selection to the next available match while
 allowing the user to add more characters to the search string, is the
-search technique of choice amongst most Emacs users.  As the system
+search technique of choice among most Emacs users.  As the system
 successively finds each match and provides the user the option of
 continuing the search.  Incremental search is a more complex instance of
 traditional search interaction because in addition to either stopping or

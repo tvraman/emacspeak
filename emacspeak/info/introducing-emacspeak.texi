@@ -384,7 +384,7 @@ deletion keys, are reasonably easy for English speakers to learn,
 since they use English language mnemonics:  @kbd{Control-f} to move
 forward a character, @kbd{Meta-f} to move forward a word.  (Meta-f is
 usually written as @kbd{M-f}.)  p is for previous, n is for next, b is
-for backwards, and d is for delete.
+for backward, and d is for delete.
 
 Control key commands are often (but not always) for character
 movement;  Meta key commands are often (but not always) for word
