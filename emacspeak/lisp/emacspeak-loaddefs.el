@@ -574,7 +574,7 @@ emacspeak-play-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor emacspeak-speak-world-clock)
-;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16025 34117))
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16025 34720))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
@@ -905,7 +905,7 @@ Fall back summarizer for all widgets" nil nil)
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16025 33799))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16025 34720))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
