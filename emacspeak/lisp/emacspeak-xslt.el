@@ -121,6 +121,7 @@ part of the libxslt package."
      (format "<!--\n %s \n-->\n"
 	     command))
     (setq modification-flag nil)))
+;;; uses wget in a pipeline to avoid libxml2 bug:
 
 ;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params dont-add-command-as-comment)
@@ -142,10 +143,11 @@ part of the libxslt package."
                        params
                        " "))))
     (setq command (format
-		   "%s %s    --html --novalid %s '%s' %s"
+		   "wget -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
+                   url
 		   emacspeak-xslt-program
 		   (or parameters "")
-		   xsl url
+		   xsl "-"
 		   (if emacspeak-xslt-keep-errors
 		       ""
 		     " 2>/dev/null ")))
