@@ -89,7 +89,7 @@
 #define DEFAULT_SPEED 		11025
 
 /* globals */
-char *device = "default";
+
 static snd_pcm_t *AHandle = NULL;
 short *waveBuffer = NULL;
 static size_t bits_per_sample, bits_per_frame = 0;
@@ -847,6 +847,7 @@ int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int alsa_init () {
   int err;
+  char *device = "default";
   if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
     fprintf(stderr,
             "Playback open error: %s\n",
