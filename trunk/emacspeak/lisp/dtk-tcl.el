@@ -700,6 +700,7 @@ current local  value to the result."
   (when dtk-speak-server-initialized
     (cond
      (prefix
+      (setq tts-default-speech-rate rate)
       (setq-default dtk-speech-rate rate )
       (setq dtk-speech-rate rate))
      (t (setq dtk-speech-rate rate)))
