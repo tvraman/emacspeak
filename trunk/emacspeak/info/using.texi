@@ -503,9 +503,9 @@ emacspeak-speak-time
 
 
 @findex  emacspeak-speak-version
- @kindex  control e v 
+ @kindex  control e cap V 
  
-@item @kbd{ control e v }
+@item @kbd{ control e cap V }
 emacspeak-speak-version
  Announce version information for running emacspeak.
 
@@ -545,9 +545,9 @@ be spoken.
 to command @code{yank}.
 
 @findex  emacspeak-view-register
- @kindex  control e x 
+ @kindex  control e v 
  
-@item @kbd{ control e x }
+@item @kbd{ control e v }
 emacspeak-view-register
  Display the contents of a register, and then speak it.
 
