@@ -346,12 +346,11 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapcar
-   (function
-    (lambda (setting)
+    #'(lambda (setting)
       (aset table (first setting)
-            (format " `vr%s %s "
-                    (second setting)
-                    (third setting)))))
+            (format " `vr%s  "
+                    (second setting))))
+    ;;; stress markers not used for now.
    '(
      (0 0 "`00")
      (1 5 "`00")
@@ -362,8 +361,7 @@ and TABLE gives the values along that dimension."
      (6  30 "`v2")
      (7  35 "`v2")
      (8  40 "`v3")
-     (9  45 "`v4")
-     ))
+     (9  45 "`v4")))
   (outloud-css-set-code-table 'paul 'stress table)
   (outloud-css-set-code-table 'harry 'stress table)
   (outloud-css-set-code-table 'betty  'stress table))
