@@ -6,7 +6,7 @@
 (autoload 'xml-mode "psgml" "Major mode to edit XML files." t )
 (setq sgml-system-path
       (list "."
-(expand-file-name "~/text/xml/DTD")))
+            (expand-file-name "~/text/xml/DTD")))
 (setq-default sgml-namecase-general nil
               sgml-indent-data t)
 
@@ -31,15 +31,15 @@
   (declare (special psgml-xmllint-program))
   (save-restriction
     (widen)
-  (let ((orig (point)))
-    (shell-command-on-region (point-min) (point-max)
-     (format "%s  --format   - "
-             psgml-xmllint-program)
-     (current-buffer)
-'replace
-     "*xml errors*")
-(goto-char orig)
-    (emacspeak-auditory-icon 'task-done))))
+    (let ((orig (point)))
+      (shell-command-on-region (point-min) (point-max)
+                               (format "%s  --format   - "
+                                       psgml-xmllint-program)
+                               (current-buffer)
+                               'replace
+                               "*xml errors*")
+      (goto-char orig)
+      (emacspeak-auditory-icon 'task-done))))
 
 (defcustom psgml-xmlindent-program "xmlindent"
   "XML indent tool."
@@ -63,13 +63,15 @@
              psgml-xmlindent-program
              psgml-xmlindent-spaces
              this-file))
-    (revert-buffer nil 'quietly)))
+    (revert-buffer nil 'quietly)
+    (xml-mode)))
+
 (defun psgml-reindent-region (start end)
   "Reindent current region."
   (interactive "r")
-(save-excursion
-  (indent-region  start end nil)
-  (emacspeak-auditory-icon 'fill-object)))
+  (save-excursion
+    (indent-region  start end nil)
+    (emacspeak-auditory-icon 'fill-object)))
 
 (require 'psgml)
 
@@ -80,12 +82,12 @@
   (setq sgml-custom-dtd
         (cons 
          (list doctype
-           (format 
-            "%s\n<!DOCTYPE %s PUBLIC \"%s\" \"%s\">"
-            (if no-xml-declaration-p 
-                ""
-              "<?xml version=\"1.0\"?>")
-            doctype public system))
+               (format 
+                "%s\n<!DOCTYPE %s PUBLIC \"%s\" \"%s\">"
+                (if no-xml-declaration-p 
+                    ""
+                  "<?xml version=\"1.0\"?>")
+                doctype public system))
          sgml-custom-dtd)))
 
 ;;}}}
@@ -95,6 +97,8 @@
           (function
            (lambda nil
              (setq sgml-insert-missing-element-comment nil)
+             (define-key sgml-mode-map "\C-x\C-i"
+               'psgml-xmlindent-visited-file)
              (define-key sgml-mode-map "\C-xl"
                'psgml-xmllint-reindent-buffer)
              (define-key sgml-mode-map "\M-\C-q"
@@ -104,7 +108,7 @@
 ;;{{{ auto mode alist 
 
 (defvar xml-mode-extensions nil
-"Extensions for which we use xml mode.")
+  "Extensions for which we use xml mode.")
 (setq xml-mode-extensions
       (list "\\.glade$" 
             "\\.wml$"  
@@ -113,8 +117,6 @@
             "\\.tld$"
             "\\.xsd$"  
             "\\.vxml$"  
-            "\\.cml$"  
-            "\\.iml$"  
             "\\.xul$"
             "\\.xsl$"  
             "\\.jsp$"
@@ -145,36 +147,30 @@
 
 (augment-sgml-custom-dtd 
  "mathml"
-  "-//W3C//DTD mathml //EN"  
+ "-//W3C//DTD mathml //EN"  
  "DTD/DTD/mathml2.dtd")
 (augment-sgml-custom-dtd 
  "xsl:stylesheet"
-  "-//W3C//DTD xslt //EN"  
+ "-//W3C//DTD xslt //EN"  
  "DTD/xslt-1.0.dtd")
 
 (augment-sgml-custom-dtd 
- "slides"
- "-//T. V. Raman //DTD Slides 1.0//EN"
- "DTD/xhtml1-strict.dtd")
+ "html"
+ "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+ )
 
 (augment-sgml-custom-dtd
  "spec"
-"-//W3C//DTD Specification V2.1//EN"
-"http://www.w3.org/XML/1998/06/xmlspec-v21.dtd")
+ "-//W3C//DTD Specification V2.1//EN"
+ "http://www.w3.org/XML/1998/06/xmlspec-v21.dtd")
  
  
 
-(augment-sgml-custom-dtd
- "html"
- "-//W3C//DTD XHTML 1.0 Strict//EN"
- "DTD/xhtml1-strict.dtd")
 (augment-sgml-custom-dtd"schema"
                         "-//W3C//DTD XML Schema 1.0 //EN"
                         "DTD/XMLSchema.dtd")
-(augment-sgml-custom-dtd
- "iml"
- "-//IBM//dtd iml  1.0 //EN"
- "iml-1.0.dtd")
+
 (augment-sgml-custom-dtd
  "wnl"
  "-//WAPFORUM//DTD WML 1.1//EN"
@@ -189,10 +185,8 @@
  "xhtml+voicexml10/xhtml+voicexml10.dtd"
  )
 
-
 (setq sgml-set-face nil)
 (setq sgml-use-text-properties nil)
-(load "psgml-fontify")
 ;;}}}
 ;;{{{ end of file
 
