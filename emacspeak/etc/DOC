@@ -2652,6 +2652,13 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-class-filter-and-followFollow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-do-onclickDo  onclick action.
 
 ------------------------------------------------------------
@@ -2660,8 +2667,18 @@ If N is negative, move backward instead.
 HTML.  
 Extracts specified elements from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
+Optional arg url specifies the page to extract content  from.
+Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the
+minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-by-class-listExtract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. Interactive prefix arg causes url to be read from the
 minibuffer.
 
 ------------------------------------------------------------
@@ -2752,6 +2769,13 @@ are useful in jumping directly to the printer friendly
 version of an article for example.
 Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined.
+
+------------------------------------------------------------
+
+** emacspeak-w3-xpath-filter-and-followFollow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
 
 ------------------------------------------------------------
 
