@@ -35,6 +35,7 @@ relevant tables bubble to the top.
 -->
 <!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:set="http://exslt.org/sets"
     version="1.0">
     <xsl:param name="base"/>
