@@ -116,7 +116,7 @@ In the <code><xsl:value-of select="@league"/></code>,</xsl:template>
 <xsl:template match="l_pitcher">
 The losing  pitcher  was 
 <xsl:value-of select="pitcher/@name"/>
-and he goes  
+who is  now   
 <xsl:value-of select="@wins"/> and <xsl:value-of select="@losses"/>.
   </xsl:template>
 <xsl:template match="sv_pitcher">
