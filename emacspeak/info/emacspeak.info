@@ -13,7 +13,7 @@ emacspeak.info-1: 232
 emacspeak.info-2: 47461
 emacspeak.info-3: 93519
 emacspeak.info-4: 142630
-emacspeak.info-5: 190278
+emacspeak.info-5: 191568
 
 Tag Table:
 (Indirect)
@@ -108,29 +108,29 @@ Node: emacspeak-python142135
 Node: emacspeak-realaudio142630
 Node: emacspeak-redefine146261
 Node: emacspeak-remote150510
-Node: emacspeak-rmail151360
-Node: emacspeak-solitaire151780
-Node: emacspeak-sounds152283
-Node: emacspeak-speak153461
-Node: emacspeak-speedbar174187
-Node: emacspeak-table-ui174610
-Node: emacspeak-tabulate180172
-Node: emacspeak-tapestry180715
-Node: emacspeak-tar181114
-Node: emacspeak-tetris181596
-Node: emacspeak-tnt182684
-Node: emacspeak-url-template183032
-Node: emacspeak-view183988
-Node: emacspeak-view-process184318
-Node: emacspeak-vm184776
-Node: emacspeak-w3185640
-Node: emacspeak-w3search189794
-Node: emacspeak-websearch190278
-Node: emacspeak-widget197946
-Node: emacspeak-wizards198774
-Node: emacspeak-xml-shell214947
-Node: Acknowledgements216691
-Node: Concept Index216848
-Node: Key Index217331
+Node: emacspeak-rmail151449
+Node: emacspeak-solitaire151869
+Node: emacspeak-sounds152372
+Node: emacspeak-speak153550
+Node: emacspeak-speedbar174276
+Node: emacspeak-table-ui174699
+Node: emacspeak-tabulate180261
+Node: emacspeak-tapestry180804
+Node: emacspeak-tar181203
+Node: emacspeak-tetris181685
+Node: emacspeak-tnt182773
+Node: emacspeak-url-template183121
+Node: emacspeak-view184158
+Node: emacspeak-view-process184488
+Node: emacspeak-vm184946
+Node: emacspeak-w3185810
+Node: emacspeak-w3search191084
+Node: emacspeak-websearch191568
+Node: emacspeak-widget199308
+Node: emacspeak-wizards200136
+Node: emacspeak-xml-shell216407
+Node: Acknowledgements218151
+Node: Concept Index218308
+Node: Key Index218791
 
 End Tag Table

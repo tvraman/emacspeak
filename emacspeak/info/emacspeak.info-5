@@ -108,7 +108,7 @@ emacspeak-websearch.
      Perform an Google search.  Optional interactive prefix arg `lucky'
      is equivalent to hitting the I'm Feeling Lucky button on Google.
      Meaning of the `lucky' flag can be inverted by setting option
-     emacspeak-websearch-google-feeling-lucky.
+     emacspeak-websearch-google-feeling-lucky-p.
 
  - emacspeak-websearch-google-advanced: ()
      Present Google advanced search form simplified for speech
@@ -194,6 +194,9 @@ emacspeak-websearch.
 
  - emacspeak-websearch-streaming-audio-search: (QUERY)
      Search for streaming audio.
+
+ - emacspeak-websearch-teoma: (QUERY)
+     Perform an Teoma  search.
 
  - emacspeak-websearch-usenet: (GROUP &optional PREFIX)
      ` control e  cap U  '
@@ -581,6 +584,9 @@ emacspeak-wizards.
 
      key             binding --             ------
 
+
+ - emacspeak-wizards-fix-read-only-text: (START END)
+     Nuke read-only property on text range.
 
  - emacspeak-wizards-generate-finder: ()
      Generate a widget-enabled finder wizard.

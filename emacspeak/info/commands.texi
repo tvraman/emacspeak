@@ -3072,17 +3072,34 @@ for commands defined in module  emacspeak-w3.
 Browse link with specified XSL style.
 @end deffn
 
+@deffn emacspeak-w3-class-filter-and-follow (&optional PROMPT)
+Follow url and point, and filter the result by specified class.
+Class can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+@end deffn
+
 @deffn emacspeak-w3-do-onclick ()
 Do  onclick action.
 @end deffn
 
-@deffn emacspeak-w3-extract-by-class (CLASS &optional PROMPT)
+@deffn emacspeak-w3-extract-by-class (CLASS &optional PROMPT SPEAK)
 Extract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
+Optional arg url specifies the page to extract content  from.
+Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the
+minibuffer.
+@end deffn
+
+@deffn emacspeak-w3-extract-by-class-list (CLASSES &optional PROMPT SPEAK)
+Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. Interactive prefix arg causes url to be read from the
 minibuffer.
 @end deffn
 
@@ -3175,6 +3192,13 @@ Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined.
 @end deffn
 
+@deffn emacspeak-w3-xpath-filter-and-follow (&optional PROMPT)
+Follow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+@end deffn
+
 @deffn emacspeak-w3-xsl-toggle ()
 Toggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
@@ -3185,7 +3209,7 @@ libxslt package.
 Apply specified transformation to current page.
 @end deffn
 
-@deffn emacspeak-w3-xslt-filter (PATH &optional PROMPT)
+@deffn emacspeak-w3-xslt-filter (PATH &optional PROMPT SPEAK-RESULT)
 Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
