@@ -1032,13 +1032,6 @@ plays entire program."
      (emacspeak-w3-extract-table-by-match "Current"
                                           url)))
 
-(emacspeak-url-template-define
- "sourceforge download" 
- "http://unc.dl.sourceforge.net/sourceforge/%s/"
- (list "Project name")
- nil
- "Retrieve download page at Sourceforge for specified project.")
-
 ;;}}}
 ;;{{{  MLB scores
 (emacspeak-url-template-define
