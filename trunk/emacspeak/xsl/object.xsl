@@ -22,10 +22,16 @@ Transform HTML Object element into an anchor usable in W3.
       </a>
     </xsl:for-each>
   </xsl:template>
-<xsl:template match="frameset">
-    <xsl:apply-templates select="frame"/>
+  <xsl:template match="frame">
+    <a>
+      <xsl:attribute name="href">
+        <xsl:value-of select="@src"/>
+      </xsl:attribute>
+      Frame: <xsl:value-of select="@name"/><br/>
+    </a>
   </xsl:template>
-<xsl:template match="embed">
+  
+  <xsl:template match="embed">
     <xsl:for-each select="@src|@SRC">
       <a>
         <xsl:attribute name="href">
