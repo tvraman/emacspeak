@@ -142,9 +142,15 @@
       (tts-say title))))
 
 (defun tts-say-current-window ()
-  "Say the name of the current window."
+  "Say the name of the current window.
+If no window has focus, we switch to the first window on the
+managed list, and announce this fact."
   (interactive)
+  (cond
+   ((input-focus)
   (tts-say-window (input-focus)))
+   (t (tts-say "Switching to first managed window")
+(display-window (car (managed-windows))))))
 
 (defun tts-say-workspace-on-change (enable)
   "Enable/disable the reading of a workspace's name when you change to it."
