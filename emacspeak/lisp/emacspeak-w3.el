@@ -1586,8 +1586,8 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 (defcustom emacspeak-w3-base-uri-pronunciation
   " base "
   "Custom pronunciation for base URIs in w3 buffers."
-  :type '(choice
-          (string :tag "None" :value nil)
+  :type '(choice :tag "Base URI Pronunciation"
+          (const :tag "None" :value nil)
           (string :tag "Custom pronunciation" :value " base "))
   :group 'emacspeak-w3)
 
