@@ -117,9 +117,13 @@
   "Start IMCom."
   (interactive)
   (declare (special emacspeak-imcom-process))
-  (emacspeak-imcom-start-process)
+  (unless (eq 'run 
+      (process-status  emacspeak-imcom-process))
+  (emacspeak-imcom-start-process))
   (emacspeak-auditory-icon 'open-object)
-  (switch-to-buffer (process-buffer emacspeak-imcom-process)))
+  (switch-to-buffer (process-buffer
+                     emacspeak-imcom-process))
+  (emacspeak-speak-mode-line))
 
 ;;}}}
 ;;{{{  Define commands
