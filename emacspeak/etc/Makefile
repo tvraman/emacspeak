@@ -37,6 +37,8 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
+all: #fix perms
+	chmod 755 *.pl
 # {{{xml -> html 
 %.html: %.xml
 	xsltproc    $< > $@
