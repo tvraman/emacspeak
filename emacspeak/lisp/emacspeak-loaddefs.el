@@ -29,7 +29,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15896 27069))
+;;;;;;  (15896 64820))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -129,7 +129,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15896 27074))
+;;;;;;  (15896 64970))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -174,7 +174,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-play-url-at-point emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15896 27076))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15896 65123))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\
@@ -241,7 +241,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15896 64593))
+;;;;;;  "emacspeak-rss.el" (15896 64771))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -388,7 +388,7 @@ Describe the current layout of visible buffers in current frame." t nil)
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
 ;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15896
-;;;;;;  64251))
+;;;;;;  65046))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
