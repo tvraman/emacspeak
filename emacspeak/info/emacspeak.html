@@ -2296,18 +2296,17 @@ info documentation.
 
 <H3><A NAME="SEC48" HREF="emacspeak_toc.html#TOC48">OCR --Reading Print Documents</A></H3>
 <P>
-Module <EM>emacspeak-ocr</EM>
-implements 
-an OCR front-end for the Emacspeak desktop.  
+Module <CODE>emacspeak-ocr</CODE> implements an OCR front-end for the
+Emacspeak desktop.
 
 
 <P>
-Page image is acquired using tools from package <EM>SANE</EM> (Scanner
+Page image is acquired using tools from package <CODE>SANE</CODE> (Scanner
 Access Now Easy).  The acquired image is run through the OCR engine if
 one is available, and the results placed in a buffer that is suitable
 for browsing the results. This buffer is placed in mode
-<EM>emacspeak-ocr-mode</EM>
-a specialized mode for reading and scanning documents.
+<CODE>emacspeak-ocr-mode</CODE> a specialized mode for reading and scanning
+documents.
 
 
 
@@ -2315,9 +2314,8 @@ a specialized mode for reading and scanning documents.
 <H4><A NAME="SEC49" HREF="emacspeak_toc.html#TOC49">Emacspeak OCR Mode</A></H4>
 
 <P>
-Emacspeak OCR mode is a special major  mode for document scanning and  OCR.
- 
- 
+Emacspeak OCR mode is a special major  mode for document scanning and
+OCR.
 
 
 <P>
@@ -2362,7 +2360,7 @@ Emacspeak.
 
 
 <P>
-The Emacspeak OCR front-end is launched by command emacspeak-ocr bound
+The Emacspeak OCR front-end is launched by command <EM>emacspeak-ocr</EM> bound
 to <KBD>C-e C-o</KBD>.
 
 
@@ -2374,18 +2372,18 @@ facility to look up help on these commands.
 
 
 <P>
-emacspeak-ocr-mode provides the necessary functionality to
+Mode <EM>emacspeak-ocr-mode</EM> provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned
 images and the resulting text are saved under directory
-<CODE>~/ocr</CODE>; see variable <VAR>emacspeak-ocr-working-directory</VAR>.
-Invoking command emacspeak-ocr-open-working-directory bound
+<CODE>@~/ocr</CODE>; see variable <VAR>emacspeak-ocr-working-directory</VAR>.
+Invoking command <EM>emacspeak-ocr-open-working-directory</EM> bound
 to <KBD>d</KBD> will open this directory.
 
 
 <P>
 By default, the document being scanned is named `untitled'.
 You can name the document by using command
-emacspeak-ocr-name-document bound to
+<EM>emacspeak-ocr-name-document</EM> bound to
 <KBD>n</KBD>.  The document name is used
 in constructing the name of the image and text files.
 
