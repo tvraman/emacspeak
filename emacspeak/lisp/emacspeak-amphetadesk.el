@@ -55,9 +55,9 @@
 (require 'browse-url)
 (require 'emacspeak-preamble)
 (eval-when-compile
-(condition-case nil
-    (require 'emacspeak-w3)
-  (error nil)))
+  (condition-case nil
+      (require 'emacspeak-w3)
+    (error nil)))
 ;;}}}
 ;;{{{ amphetadesk
 
@@ -81,14 +81,14 @@
   (declare (special emacspeak-amphetadesk-program
                     emacspeak-amphetadesk-port))
   (let ((emacspeak-speak-messages nil))
-  (if (=  1
-          (shell-command
-           (format "netstat -nat | grep %s"
-		   emacspeak-amphetadesk-port)))
-      (shell-command
-       (format "%s &"
-               emacspeak-amphetadesk-program)
-       "*AmphetaDesk*"))))
+    (if (=  1
+	    (shell-command
+	     (format "netstat -nat | grep %s"
+		     emacspeak-amphetadesk-port)))
+	(shell-command
+	 (format "%s &"
+		 emacspeak-amphetadesk-program)
+	 "*AmphetaDesk*"))))
 
 ;;;###autoload
 (defun emacspeak-amphetadesk ()

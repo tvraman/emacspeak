@@ -564,7 +564,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
                          (webjump-url-encode (format "%s" query))))
             (results "*quotes-table*")
             (process nil))
-        ;;; nuke old results if any
+;;; nuke old results if any
         (when (get-buffer results )
           (kill-buffer results))
         (setq process
@@ -1044,12 +1044,12 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
     (emacspeak-websearch-read-query "Froogle Search: ")))
   (declare (special emacspeak-websearch-froogle-uri))
   (emacspeak-w3-without-xsl
-    (browse-url 
-     (format emacspeak-websearch-froogle-uri
-             (webjump-url-encode query)))
-    (emacspeak-websearch-post-process
-     query
-     'emacspeak-speak-line)))
+   (browse-url 
+    (format emacspeak-websearch-froogle-uri
+	    (webjump-url-encode query)))
+   (emacspeak-websearch-post-process
+    query
+    'emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ teoma
@@ -1481,7 +1481,7 @@ Light for: ")))
 
 (defvar emacspeak-websearch-exchange-rate-convertor-uri
   "http://www.xe.com/ucc/convert.cgi?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
-"URI template  for currency conversion.")
+  "URI template  for currency conversion.")
 
 (defun emacspeak-websearch-exchange-rate-convertor (conversion-spec)
   "Currency convertor."

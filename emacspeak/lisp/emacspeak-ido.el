@@ -54,7 +54,6 @@
   (setq emacspeak-ido-cache-current-directory
         ido-current-directory))
 
-
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
   (let ((voice-lock-mode t)

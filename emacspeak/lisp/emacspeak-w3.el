@@ -100,7 +100,7 @@
  #'(lambda ()
      (declare (special w3-mode-map))
      (modify-syntax-entry 10 " ")
-    (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
+     (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
      (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
      (define-key w3-mode-map "\M-j"
        'emacspeak-w3-javascript-follow-link)
@@ -523,7 +523,6 @@ Nil means no transform is used. "
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
   :group 'emacspeak-w3)
-
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the

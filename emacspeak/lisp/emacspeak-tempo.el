@@ -39,7 +39,7 @@
 
 ;;{{{  Introduction:
 
-                                        ;;; tempo.el provides the
+;;; tempo.el provides the
 ;;; infrastructure  for building up templates.
 ;;; This is used by html-helper-mode to allow for easy writing of HTML
 ;;; This module extends Emacspeak to provide fluent spoken feedback

@@ -263,53 +263,53 @@ Modifies text and point in buffer."
                 (pp nil)
                 (personality nil))
             (when word 
-            (goto-char (point-min))
-            (cond
-             ((stringp pronunciation)
-              (while (search-forward  word nil t)
-                (setq personality (get-text-property (point) 'personality))
-                (replace-match  pronunciation t t  )
-                (put-text-property
-                 (match-beginning 0)
-                 (+ (match-beginning 0) (length pronunciation))
-                 'personality
-                 (apply
-                  'append
-                  (mapcar
-                   #'(lambda (p)
-                       (when p
-                         (if (atom p) (list p) p)))
-                   (list emacspeak-pronounce-pronunciation-personality personality))))))
-             ((consp pronunciation )
-              (let ((matcher (car pronunciation))
-                    (pronouncer (cdr pronunciation))
-                    (pronunciation ""))
-                (while (funcall matcher   word nil t)
-                  (setq personality
-                        (get-text-property (point) 'personality))
-                  (setq pronunciation
-                        (save-match-data 
-			  (funcall pronouncer
-				   (buffer-substring 
-				    (match-beginning 0)
-				    (match-end 0)))))
-                  (replace-match pronunciation t t  )
-		  ;; get personality if any from pronunciation
-                  (setq pp
-                        (get-text-property (match-beginning 0) 'personality))
-                  (put-text-property
-                   (match-beginning 0)
-                   (+ (match-beginning 0) (length pronunciation))
-                   'personality
-                   (apply 'append
-                          (mapcar
-                           #'(lambda (p)
-                               (when p
-                                 (if (atom p) (list p) p)))
-                           (list
-                            emacspeak-pronounce-pronunciation-personality
-                            personality pp)))))))
-             (t nil)))))))
+	      (goto-char (point-min))
+	      (cond
+	       ((stringp pronunciation)
+		(while (search-forward  word nil t)
+		  (setq personality (get-text-property (point) 'personality))
+		  (replace-match  pronunciation t t  )
+		  (put-text-property
+		   (match-beginning 0)
+		   (+ (match-beginning 0) (length pronunciation))
+		   'personality
+		   (apply
+		    'append
+		    (mapcar
+		     #'(lambda (p)
+			 (when p
+			   (if (atom p) (list p) p)))
+		     (list emacspeak-pronounce-pronunciation-personality personality))))))
+	       ((consp pronunciation )
+		(let ((matcher (car pronunciation))
+		      (pronouncer (cdr pronunciation))
+		      (pronunciation ""))
+		  (while (funcall matcher   word nil t)
+		    (setq personality
+			  (get-text-property (point) 'personality))
+		    (setq pronunciation
+			  (save-match-data 
+			    (funcall pronouncer
+				     (buffer-substring 
+				      (match-beginning 0)
+				      (match-end 0)))))
+		    (replace-match pronunciation t t  )
+		    ;; get personality if any from pronunciation
+		    (setq pp
+			  (get-text-property (match-beginning 0) 'personality))
+		    (put-text-property
+		     (match-beginning 0)
+		     (+ (match-beginning 0) (length pronunciation))
+		     'personality
+		     (apply 'append
+			    (mapcar
+			     #'(lambda (p)
+				 (when p
+				   (if (atom p) (list p) p)))
+			     (list
+			      emacspeak-pronounce-pronunciation-personality
+			      personality pp)))))))
+	       (t nil)))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
