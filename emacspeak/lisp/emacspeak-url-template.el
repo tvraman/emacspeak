@@ -302,6 +302,22 @@ HTML.
 The PDF document needs to be available on the public Internet.")
 
 ;;}}}
+;;{{{ oasis 
+(emacspeak-url-template-define
+ "OASIS  Lists"
+ "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
+ (list
+  #'(lambda ()
+(read-from-minibuffer "OASIS Group: "))
+  #'(lambda ()
+(read-from-minibuffer  "YearMonth: "
+(format-time-string "%Y%m")
+nil nil
+(format-time-string "%Y%m"))))
+ "Use this to pull up the
+archived  mail from the OASIS list. You need to know the exact name of the list.")
+
+;;}}}
 ;;{{{ w3c 
 
 (emacspeak-url-template-define
