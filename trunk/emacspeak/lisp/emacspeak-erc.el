@@ -158,6 +158,52 @@ ad-return-value)
   ad-return-value)
 
 ;;}}}
+;;{{{ monitoring chatrooms 
+(defvar emacspeak-erc-room-monitor nil
+  "*Local to each chat room. If turned on,
+user is notified about activity in the room.")
+(make-variable-buffer-local 'emacspeak-erc-room-monitor)
+
+(defadvice erc-process-filter (after emacspeak pre act comp)
+  "If this chat room is being monitored, indicate that there
+is some activity."
+  (declare (special emacspeak-erc-room-monitor))
+  (let ((buffer (get-process-buffer (ad-get-arg 0))))
+    (save-excursion
+      (set-buffer buffer)
+      (when emacspeak-erc-room-monitor
+        (emacspeak-auditory-icon 'progress)
+        (message (buffer-name ))))))
+
+(defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
+  "Toggle state of ERC room monitor.
+Interactive 
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result."
+
+  (interactive  "P")
+  (declare  (special  emacspeak-erc-room-monitor))
+  (cond
+   (prefix
+    (setq-default  emacspeak-erc-room-monitor
+                   (not  (default-value 'emacspeak-erc-room-monitor )))
+    (setq emacspeak-erc-room-monitor (default-value 'emacspeak-comint-autospeak )))
+   (t
+      (setq emacspeak-erc-room-monitor
+	    (not emacspeak-erc-room-monitor ))))
+  (and emacspeak-erc-room-monitor
+       
+       )
+  (emacspeak-auditory-icon
+   (if emacspeak-erc-room-monitor 'on 'off))
+  (message "Turned %s room monitor  %s "
+           (if emacspeak-erc-room-monitor "on" "off" )
+	   (if prefix "" "locally")))
+
+;;}}}
+;;{{{ define emacspeak keys 
+(define-key erc-mode-map "\C-c\C-m" 'emacspeak-erc-toggle-room-monitor)
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:

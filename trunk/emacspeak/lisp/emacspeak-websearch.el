@@ -1395,6 +1395,34 @@ Light for: ")))
    'emacspeak-speak-line))
 
 ;;}}}
+;;{{{  IBM Machine Translation  
+
+(emacspeak-websearch-set-searcher 'machine-translate
+                                  'emacspeak-websearch-machine-translate)
+
+(emacspeak-websearch-set-key ?t 'machine-translate)
+
+(defvar emacspeak-websearch-machine-translate-uri
+  "http://demo.alphaworks.ibm.com/cgi-bin/mtconnect"
+  "*URI for launching a machine translation from IBM Alphaworks")
+
+(defun emacspeak-websearch-machine-translate (lang query)
+  "Perform a machine translation request"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Target language: ")
+    (emacspeak-websearch-read-query "Translate:")))
+  (declare (special emacspeak-websearch-machine-translate-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-machine-translate-uri
+             (format "?lang=%s" lang)
+             "&text="
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   'emacspeak-speak-line))
+
+;;}}}
 ;;{{{  usenet altavista 
 
 (emacspeak-websearch-set-searcher 'usenet-altavista
