@@ -186,25 +186,6 @@ COMMAND-STRING to the TTS engine."
 ;;{{{ default speech rate 
 
 ;;}}}
-;;{{{ standard symbols as voices:
-
-(outloud-define-voice-alias 'voice-lock-comment-personality 'paul-monotone)
-(outloud-define-voice-alias 'voice-lock-underline-personality 'paul-animated)
-(outloud-define-voice-alias 'voice-lock-bold-personality 'paul-bold)
-(outloud-define-voice-alias 'voice-lock-italic-personality 'paul-italic)
-(outloud-define-voice-alias 'voice-lock-doc-string-personality 'dennis)
-(outloud-define-voice-alias 'voice-lock-string-personality 'betty)
-(outloud-define-voice-alias 'voice-lock-function-name-personality 'harry)
-(outloud-define-voice-alias 'voice-lock-warning-personality 'paul-angry)
-(outloud-define-voice-alias 'voice-lock-keyword-personality
-                            'ursula)
-(outloud-define-voice-alias 'voice-lock-builtin-personality
-			    'harry)
-(outloud-define-voice-alias 'voice-lock-variable-name-personality 'paul-italic)
-(outloud-define-voice-alias 'voice-lock-type-personality 'paul-smooth)
-(outloud-define-voice-alias 'voice-lock-reference-personality 'paul-italic)
-
-;;}}}
 (provide 'outloud-voices)
 ;;{{{  emacs local variables
 
