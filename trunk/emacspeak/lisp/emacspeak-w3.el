@@ -532,7 +532,7 @@ Nil means no transform is used. ")
     (write-region start end tempfile)
     (erase-buffer)
     (shell-command
-     (format "%s  --html %s %s"
+     (format "%s  --html --nonet --novalid %s %s"
              emacspeak-xslt-program
              xsl tempfile)
      (current-buffer)

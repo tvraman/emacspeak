@@ -23,7 +23,7 @@
   <xsl:template match="html/body">
     <xsl:element name="body">
 <xsl:apply-templates 
-select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//span|//blockquote"/>
+select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
     </xsl:element>
   </xsl:template>
   
