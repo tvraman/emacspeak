@@ -445,8 +445,17 @@ content."
 
 (defun emacspeak-url-template-google-maps-xml (url)
   "Set up buffer containing XML data from google maps."
-  (let ((buffer (get-buffer-create "*Google Maps"))
-        (nxml-auto-insert-xml-declaration-flag nil))
+  (let ((nxml-auto-insert-xml-declaration-flag nil))
+  (switch-to-buffer
+   (emacspeak-url-template-google-maps-get-xml  url))
+  (nxml-mode)
+  (indent-region (point-min) (point-max))
+  (goto-char (point-min))
+  (forward-line 1)))
+
+(defun emacspeak-url-template-google-maps-get-xml (url)
+  "Return buffer containing XML from google."
+  (let ((buffer (get-buffer-create "*Google Maps")))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
@@ -464,18 +473,14 @@ content."
       (delete-region (point-min) (point))
       (search-forward "</page>" nil t)
       (delete-region (point) (point-max))
-      (nxml-mode)
       (goto-char (point-min))
       (delete-region (line-beginning-position) (line-end-position))
       (insert 
 "<?xml version=\"1.0\"
 encoding=\"iso-8859-14\"?>")
-      (indent-region (point-min) (point-max))
       )
-    (switch-to-buffer buffer)
-    (goto-char (point-min))
-    (forward-line 1)))
-
+buffer))
+  
 (emacspeak-url-template-define
   "Google Maps Give Me XML"
   "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
@@ -501,6 +506,50 @@ Here are some examples:
 <what> near <location address>
 "
   'emacspeak-url-template-google-maps-xml)
+
+(defun emacspeak-url-template-google-maps-speak (url)
+  "Audio format map information from Google Maps."
+  (let ((buffer (emacspeak-url-template-google-maps-get-xml
+  url))
+        (emacspeak-xslt-options ""))
+  (save-excursion
+    (set-buffer buffer)
+    (emacspeak-xslt-region
+     (expand-file-name "emapspeak.xsl"
+                       emacspeak-xslt-directory)
+     (point-min) (point-max)
+     (list
+     (cons "base"
+(format "\"'%s'\""
+			  url))))
+    (emacspeak-w3-preview-this-buffer))))
+
+(emacspeak-url-template-define
+  "EmapSpeak Via Google"
+  "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
+  (list
+   "Query: ")
+  nil
+  "EmapSpeak Via Google.
+
+Specify the query using English and  addresses as complete as
+  possible.
+
+Here are some examples:
+
+0) To find a location by address specify:
+
+650 Harry Road San Jose CA 95120
+
+1) To get directions, specify:
+
+<source address> to <destination address>
+
+2) To find businesses etc., near a location, specify:
+
+<what> near <location address>
+"
+  'emacspeak-url-template-google-maps-speak)
       
 ;;}}}
 ;;{{{ google scholar 
