@@ -335,6 +335,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
+(const emacspeak-queue-auditory-icon)
           (const emacspeak-midi-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
