@@ -510,7 +510,9 @@ Computing News at CNN.")
  nil
  "Speak CNN Market Update."
  #'(lambda (url)
-     (emacspeak-w3-extract-table 5 url)))
+     (emacspeak-w3-extract-table 7 url)
+     ;(w3-fetch url)
+))
 
 
 ;;}}}
