@@ -65,10 +65,13 @@
 
 ;;}}}
 ;;{{{ variables
+(defgroup emacspeak-realaudio nil
+  "Emacspeak Realaudio  customization.")
+
 (defcustom emacspeak-realaudio-revert-to-auditory-icons t
   "Set this to T if you want to switch back from using midi
 icons once a realaudio stream is done playing."
-  :group 'emacspeak
+  :group 'emacspeak-realaudio
   :type 'boolean)
 
 (defcustom emacspeak-realaudio-player
@@ -79,7 +82,7 @@ icons once a realaudio stream is done playing."
     "/usr/bin/trplayer")
    (t "rap"))
   "*Executable that plays realaudio"
-  :group 'emacspeak
+  :group 'emacspeak-realaudio
   :type 'string)
 
 (defcustom emacspeak-realaudio-player-options 
@@ -87,7 +90,7 @@ icons once a realaudio stream is done playing."
 		 "/usr/bin/trplayer")
     (list "-l" "-i" "-b" "-c" ))
   "*Options for realplayer."
-  :group 'emacspeak
+  :group 'emacspeak-realaudio
   :type 'string)
 
 (defvar emacspeak-realaudio-process nil
@@ -110,7 +113,7 @@ specifies the actual location of the realaudio stream
 
 (defvar emacspeak-realaudio-buffer "*realaudio*"
   "Name of realaudio process buffer")
-
+;;;###autoload
 (defun emacspeak-realaudio-play (resource &optional prompt-time)
   "Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
@@ -181,7 +184,7 @@ emacspeak-realaudio-shortcuts-directory. "
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
 urls have a .ram or .rm extension.")
-
+;;;###autoload
 (defun emacspeak-realaudio-play-url-at-point (&optional prompt-time)
   "Play url under point as realaudio"
   (interactive "P")
@@ -242,9 +245,9 @@ urls have a .ram or .rm extension.")
 (defcustom emacspeak-realaudio-reset-auditory-display t 
   "Set this to T if you want the audio settings reset after
 a realaudio sream is done playing."
-  :group 'emacspeak
+  :group 'emacspeak-realaudio
   :type 'boolean)
-
+;;;###autoload
 (defun emacspeak-realaudio  (&optional ignored)
   "Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -296,7 +299,7 @@ commands via single keystrokes."
         (forward-line 1)))
     (kill-buffer buff)
     result))
-
+;;;###autoload
 (defun emacspeak-realaudio-browse (ramfile &optional start-time)
   "Browse RAM file before playing the selected component."
   (interactive

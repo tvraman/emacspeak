@@ -168,12 +168,17 @@ If we add new icons we should declare them here. ")
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext ))
 
+
+(defgroup emacspeak-sounds nil
+"Emacspeak auditory icons.")
+;;;###autoload
+;;;###autoload
 (defcustom emacspeak-sounds-default-theme
   (expand-file-name "default-8k/"
                     emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
-  :group 'emacspeak)
+  :group 'emacspeak-sounds)
 
 (defvar emacspeak-sounds-current-theme 
   emacspeak-sounds-default-theme
@@ -204,7 +209,7 @@ Do not set this by hand;
   "Predicate to test if theme is available."
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
-
+;;;###autoload
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
   (interactive
@@ -289,7 +294,7 @@ you attempt to play sound when /dev/audio is busy.
 It's imperative that you use the -i flag to play on
 sparc20's."
   :type 'string
-  :group 'emacspeak)
+  :group 'emacspeak-sounds)
 
 (defsubst emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME.
@@ -324,7 +329,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 
 (defcustom emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
   "*Function that plays auditory icons."
-  :group 'emacspeak
+  :group 'emacspeak-sounds
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
@@ -480,6 +485,7 @@ is a .1ms note on instrument 60."
 ;;{{{  toggle auditory icons
 
 ;;; This is the main entry point to this module:
+;;;###autoload
 (defun emacspeak-toggle-auditory-icons (&optional prefix)
   "Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value."
@@ -525,7 +531,7 @@ Optional interactive PREFIX arg toggles global value."
                     emacspeak-sounds-auditory-icon-players
                     nil nil 
                     "emacspeak-")))
-
+;;;###autoload
 (defun  emacspeak-set-auditory-icon-player (player)
   "Select  player used for producing auditory icons.
 Recommended choices:

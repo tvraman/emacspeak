@@ -128,7 +128,7 @@ prompting for a template.")
                                        documentation
                                        :fetcher fetcher)))
                                
-
+;;;###autoload
 (defun emacspeak-url-template-load (file)
   "Load URL template resources from specified location."
   (interactive
@@ -959,7 +959,7 @@ Set up URL rewrite rule to get print page."
     (print-help-return-message))
   (emacspeak-speak-help)
   (emacspeak-auditory-icon 'help))
-
+;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
 Use Emacs completion to obtain a list of available resources.

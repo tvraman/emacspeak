@@ -75,6 +75,7 @@
 
 ;;}}}
 ;;{{{ searcher table
+;;;###autoload
 (defgroup emacspeak-websearch nil
   "Websearch tools for the Emacspeak desktop."
   :group 'emacspeak)
@@ -141,7 +142,7 @@
                                    'emacspeak-websearch-help)
 
 (emacspeak-websearch-set-key ?? 'help)
-
+;;;###autoload
 (defun emacspeak-websearch-dispatch  (&optional prefix)
   "Launches specific websearch queries.
 Press `?' to list available search engines.
@@ -341,7 +342,7 @@ to specify the type of search."
 (defvar emacspeak-websearch-emacspeak-archive-uri
   "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
   "URI to search Emacspeak mail archive at Vassar.")
-
+;;;###autoload
 (defun emacspeak-websearch-emacspeak-archive (query)
   "Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -1843,7 +1844,7 @@ Light for: ")))
 (defvar emacspeak-dejanews-uri 
   "http://groups.google.com/groups?"
   "URI to open a group on Usenet archive.")
-
+;;;###autoload
 (defun emacspeak-websearch-usenet (group &optional prefix)
   "Prompt and browse a Usenet newsgroup.
 Optional interactive prefix arg results in prompting for a search term."
