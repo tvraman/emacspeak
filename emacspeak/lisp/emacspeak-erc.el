@@ -268,7 +268,8 @@ display. String is the original message."
 
 (defadvice erc-display-line-buffer  (after emacspeak pre act comp)
   (declare (special emacspeak-erc-room-monitor))
-  (let ( (buffer (ad-get-arg 1)))
+  (let ( (buffer (ad-get-arg 1))
+         (case-fold-search t))
     (save-excursion
       (set-buffer buffer)
       (when emacspeak-erc-room-monitor
