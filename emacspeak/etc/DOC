@@ -3420,7 +3420,8 @@ meaning of `previous'.
 
 ** emacspeak-show-personality-at-point	Key Sequence: control e meta v 
 
-Show value of property personality at point.
+Show value of property personality (and possibly face)
+at point.
 
 ------------------------------------------------------------
 
@@ -3696,6 +3697,10 @@ Switch to the shell buffer and cd to
 ------------------------------------------------------------
 
 ** emacspeak-wizards-show-environment-vvariableDisplay value of specified environment variable.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-show-faceShow salient properties of specified face.
 
 ------------------------------------------------------------
 
