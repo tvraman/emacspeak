@@ -95,33 +95,30 @@ short *waveBuffer = NULL;
    ViaVoice SDK installed.
 */
 
-typedef enum
-  {
-    eciDataNotProcessed, eciDataProcessed
-  }
-  ECICallbackReturn;
+typedef enum {
+  eciDataNotProcessed, eciDataProcessed
+} ECICallbackReturn;
 
-typedef enum
-  {
-    eciWaveformBuffer, eciPhonemeBuffer, eciIndexReply, eciPhonemeIndexReply
-  }
-  ECIMessage;
+typedef enum {
+  eciWaveformBuffer,
+  eciPhonemeBuffer,
+  eciIndexReply,
+  eciPhonemeIndexReply} ECIMessage;
 
-typedef enum
-  {
-    eciSynthMode,
-    eciInputType,
-    eciTextMode,
-    eciDictionary,
-    eciSampleRate = 5,
-    eciWantPhonemeIndices = 7,
-    eciRealWorldUnits,
-    eciLanguageDialect,
-    eciNumberMode,
-    eciPhrasePrediction,
-    eciNumParams
-  }
-  ECIParam;
+typedef enum {
+  eciSynthMode,
+  eciInputType,
+  eciTextMode,
+  eciDictionary,
+  eciSampleRate = 5,
+  eciWantPhonemeIndices = 7,
+  eciRealWorldUnits,
+  eciLanguageDialect,
+  eciNumberMode,
+  eciPhrasePrediction,
+  eciNumParams
+} ECIParam;
+
 static void (*_eciVersion) (char *);
 static void *(*_eciNew) ();
 static void (*_eciDelete) (void *);
@@ -144,7 +141,9 @@ static void (*_eciRegisterCallback) (void *,
 				     void *);
 static int alsa_init ();
 static size_t alsa_configure (void);
+
 extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
+
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int getTTSVersion (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -655,7 +654,6 @@ int playTTS (int count) {
 }
 
 //>
-
 //<eciCallBack
 
 int eciCallback (void *eciHandle, int msg, long lparam, void *data) {
