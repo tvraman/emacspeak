@@ -1,0 +1,175 @@
+           Announcing Emacspeak-11.0 (Aster).
+           --------------------------------------
+
+For Immediate Release:
+
+Mountain View, Calif.,  (November 29, 1999)
+    Emacspeak-2000: Opening Doors To A Windows-Free 2000.
+    --Zero cost of ownership makes priceless software affordable!
+
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit
+operating environments.  By seamlessly blending all aspects
+of the Internet such as Web-surfing and electronic messaging
+into the audio desktop, Emacspeak enables speech access to
+local and remote information with a consistent and
+well-integrated user interface.  With support for the freely
+downloadable IBM ViaVoice Outloud speech synthesis engine,
+Emacspeak now turns Linux into the first zero-cost Internet
+access solution for blind and visually impaired users.
+
+Code Name Note:
+---------------
+
+After 10 years of loyal service, Aster Labrador retired
+from active duty as a guide-dog on November 28, 1999.  She
+has agreed to stay on as Emacspeak's press contact for the
+immediate future.  This release is code named Aster in
+honour of her unflagging service over these last 10 years.
+
+
+Emacspeak At The Bazaar:
+------------------------
+
+The speech-enabling approach as implemented in Emacspeak and
+its relevance to speech-enabling the Linux desktop will be
+presented at ``The Bazaar --The Technology Of Cooperation''
+at the Jacob Javits Center, New York, December 15, 1999.
+
+Major Enhancements:
+-------------------
+
+0) Support for IBM ViaVoice Outloud (beta) for Linux.
+1) Further enhancements to single-click web-search.
+2) Enhanced auditory icons using midi synthesis.
+3) Single click access to desktop audio utilities  including 
+   A) Mixer (aumix) support for setting mixer values
+   b) CD player support via cdplay
+   c) MP3 support via mpg123
+4) Speech-enabled RPM browser.
+5) Speech-enabled gnuplot support.
+
+--and a lot more than will fit in this margin.
+
+See the NEWS file for additional details.  The Emacspeak
+source distribution now includes a structured FAQ list
+designed to introduce new and old users to the Emacspeak
+environment.
+
+Opening Doors To A Windows-Free 2000:
+-------------------------------------
+
+Emacspeak is now (voluntarily) bundled with all major Linux
+distributions.  Extensive studies have shown that users
+consider Emacspeak to be absolutely priceless.  Thanks to
+this wide-spread user demand, the present version is being
+made available at the same zero cost as earlier releases.
+
+At the same time, Emacspeak-2000 continues to innovate in
+the area of speech interaction and carries forward the
+well-established Open Source tradition of introducing user
+interface features that eventually show up in commercial
+user environments.  On this theme, when recently challenged
+by a proponent of a crash-prone but well-marketed windowing
+system with the assertion "Emacs is a system from the 70's",
+the creator of Emacspeak expressed surprize at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proof interfaces until the year 2070 to catch up to
+where the Emacspeak audio desktop is today. Upon hearing
+this, the said proponent of the crash-prone system turned
+blue in the face (screen), crashed to the floor and refused
+to get booted (ever again).
+
+Industry experts welcomed this refreshing breath of Courage
+Certainty and Clarity (CCC) at a time when users are reeling
+from the Fear Uncertainty and Doubt (FUD) unleashed by
+complex software systems backed by even more convoluted
+press releases.
+
+Independent Test Results:
+-------------------------
+
+Independent test results have proven that unlike some modern
+software, Emacspeak can be easily uninstalled without
+adversely affecting the continued performance of the
+computer.  These same tests also revealed that once
+uninstalled, the user stopped functioning altogether.
+
+Speaking with Aster Labrador this morning, the creator
+of Emacspeak pointed out that these results once again
+emphasize the user-centric design of Emacspeak; "It is
+the user --and not the computer-- that stops
+functioning when Emacspeak is uninstalled!".
+
+Note from Aster: (UnDoctored Videos  Inc. is currently looking for
+volunteers to star in a video demonstrating such complete
+user failure).
+
+History:
+--------
+ 
+Emacspeak-11.0 --code named Aster-- goes the final step in
+making Linux a zero-cost Internet access solution for blind
+and visually impaired users.  Emacspeak-10.0 --(AKA
+Emacspeak-2000) code named WonderDog-- was the last in a
+series of award-winning software releases designed to make
+eyes-free computing a productive and pleasurable experience.
+Emacspeak-9.0 --(AKA Emacspeak 99) code named BlackLab--
+continued to innovate in the areas of speech interaction and
+interactive accessibility.  Emacspeak-8.0 --(AKA
+Emacspeak-98++) code named BlackDog-- was a major upgrade to
+the speech output extension to Emacs.
+
+Emacspeak-95 (code named Illinois) was released as
+Open Source on the Internet in May 1995 as the first
+complete speech interface to UNIX workstations.  The
+subsequent release, Emacspeak-96 (code named Egypt) made
+available in May 1996 provided significant enhancements to
+the interface. Emacspeak-97 (Tennessee) went further in
+providing a true audio desktop.  Emacspeak-98 integrated
+Internetworking into all aspects of the audio desktop to
+provide the first fully interactive speech-enabled WebTop.
+
+Obtaining Emacspeak:
+--------------------
+
+Visit Emacspeak at http://cs.cornell.edu/home/raman --You
+can also pick up emacspeak via anonymous ftp from
+ftp://ftp.cs.cornell.edu/pub/raman/emacspeak/.  You can
+subscribe to the emacspeak mailing list
+<emacspeak@cs.vassar.edu> by sending mail to the request
+address <emacspeak-request@cs.vassar.edu>.
+
+About Emacspeak:
+---------------
+        
+Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
+--home to Auditory User Interfaces (AUI) on the WWW--
+Emacspeak is mirrored world-wide by an international netwrok
+of software archives and voluntarily bundled with all major Linux
+distributions on CDROM.  On Monday, April 12, 1999,
+Emacspeak became part of the Permanent Research Collection
+on Information Technology at the Smithsonian's National
+Museum of American History.
+
+The Emacspeak mailing list is archived at
+<http://www.cs.vassar.edu/~priestdo/emacspeak/> --thanks to
+Greg Priest-Dorman.
+
+About This Release:
+-------------------
+
+This press release is certified to be Y2K compliant.
+More importantly,  the software described is W2K free.
+
+Press/Analyst Contact:  Aster Labrador
+              http://cs.cornell.edu/home/raman/aster/aster.gif
+
+Windows-Free (WF)  is a favorite  battle-cry of 
+The League Against Forced Fenestration (LAFF);
+--see   http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm
+for details on  the ill-effects of Forced Fenestration.
+
+CopyWrite  )C( Aster Labrador. All Writes Reserved.
+WonderDog (DM),BlackDog (DM) and Labrador (DM) are Registered Dogmarks of Aster Labrador.
+All other dogs belong to their respective owners.
