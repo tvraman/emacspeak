@@ -281,7 +281,7 @@ HTML head if none found."
      emacspeak-xml-shell-xslt
      start end))
   (emacspeak-xml-shell-setup-html-base emacspeak-xml-shell-document)
-  (w3-preview-this-buffer)
+  (emacspeak-w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 
 (defun emacspeak-xml-shell-browse-current ()
