@@ -1033,12 +1033,7 @@ I'm Feeling Lucky button on Google."
    (list
     (emacspeak-websearch-read-query 
      (format "Google %s: "
-             (if
-                 (if emacspeak-websearch-google-feeling-lucky-p
-                     (not current-prefix-arg)
-                   current-prefix-arg)
-                 "feeling lucky"
-               "query ")))
+             (if current-prefix-arg "Lucky Search" " Query")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
                     emacspeak-websearch-google-number-of-results))
