@@ -57,6 +57,13 @@
 
 ;;}}}
 ;;{{{ advice interactive commands
+(defadvice analog (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
 (defadvice analog-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -65,7 +72,7 @@
 (defadvice analog-bury-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (loop for command in
