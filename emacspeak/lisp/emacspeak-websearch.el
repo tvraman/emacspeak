@@ -847,7 +847,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
                                         ;(emacspeak-websearch-do-post "POST"
-  (emacspeak-w3-extract-nested-tables-by-position-list
+  (emacspeak-w3-extract-nested-table-list
    (list 5 6)
    (concat
     emacspeak-websearch-sourceforge-search-uri
