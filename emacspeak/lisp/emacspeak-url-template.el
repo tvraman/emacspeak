@@ -441,6 +441,48 @@ content."
  )
 
 ;;}}}
+;;{{{ google maps
+
+(defun emacspeak-url-template-google-maps-xml (url)
+  "Set up buffer containing XML data from google maps."
+  (let ((buffer (get-buffer-create "*Google Maps"))
+        (nxml-auto-insert-xml-declaration-flag nil))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (kill-all-local-variables)
+      (shell-command
+       (format "lynx -source %s" url)
+       (current-buffer))
+      (goto-char (point-min))
+      (while (search-forward "<" nil t)
+        (replace-match "
+<"  ))
+      (goto-char (point-min))
+      (search-forward "<page" nil t)
+      (search-backward "<?" nil t)
+      (delete-region (point-min) (point))
+      (search-forward "</page>" nil t)
+      (delete-region (point) (point-max))
+      (nxml-mode)
+      (indent-region (point-min) (point-max))
+      )
+    (switch-to-buffer buffer)))
+
+(emacspeak-url-template-define
+  "Google Maps Give Me XML"
+  "http://maps.google.com/maps?q=%s&what=%s&where=%s&start=%s&end=%s&btnG=Search"
+  (list
+   "Search For:"
+   "Where: "
+   "What: "
+   "Start: "
+   "End: ")
+  nil
+  "Get me XML from Google Maps."
+  'emacspeak-url-template-google-maps-xml)
+      
+;;}}}
 ;;{{{ google scholar 
 
 (emacspeak-url-template-define
