@@ -395,7 +395,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
         (book (make-emacspeak-daisy-book
                :base (file-name-directory filename))))
     (setf (emacspeak-daisy-book-content book)
-          (make-hash-table :test #'string-equal))
+          (make-hash-table :test #'equal))
     (save-excursion
       (set-buffer ncx)
       (goto-char (point-min))
