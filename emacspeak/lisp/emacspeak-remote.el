@@ -161,6 +161,22 @@ Use this once you are sure the guesses are usually correct."
    (emacspeak-remote-get-current-remote-hostname)
    (string-to-number  emacspeak-remote-default-port-to-connect)))
 
+(defun emacspeak-remote-ssh-to-server(login)
+  "Open ssh session to where we came from."
+  (interactive
+   (list
+    (read-from-minibuffer "Login: "
+                          (user-login-name))))
+  (unless (require 'ssh)
+    (error "You do not have module ssh.el installed."))
+  (ssh  
+   (format "%s -l %s"
+           (emacspeak-remote-get-current-remote-hostname)
+           login)
+   "remote-ssh"))
+           
+   
+
 (defun  emacspeak-remote-connect-to-server (host port)
   "Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
@@ -169,7 +185,7 @@ host is listening on for speech requests."
   (interactive
    (list
     (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table	;completion table
+                     emacspeak-eterm-remote-hosts-table ;completion table
                      nil                ;predicate
                      nil                ;must-match
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
