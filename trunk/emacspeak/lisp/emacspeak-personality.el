@@ -114,6 +114,14 @@
 
 ;;}}}
 ;;{{{ new light-weight voice lock 
+
+(defcustom voice-lock-mode t
+  "Determines  if property personality results in text being
+voicified."
+  :type 'boolean
+  :group 'emacspeak)
+
+
 (defun voice-lock-mode (&optional arg)
   "Toggle Voice Lock mode.
 With arg, turn Voice Lock mode on if and only if arg is positive.
