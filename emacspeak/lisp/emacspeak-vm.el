@@ -65,27 +65,6 @@ Note that some badly formed mime messages  cause trouble."
   :type 'boolean
   :group 'emacspeak-vm)
 
-(defvar vm-voice-lock-keywords nil
-  "Keywords to highlight in vm")
-
-(defvar vm-summary-voice-lock-keywords
-  "Additional expressions to highlight in vm  Summary mode.")
-
-;;;  Set vm-voice-lock-keywords
-
-(setq vm-voice-lock-keywords
-      (append vm-voice-lock-keywords
-              '(("^From: \\(.*\\)$" 1  emacspeak-vm-from-voice )
-                ("^To: \\(.*\\)$" 1 emacspeak-vm-to-voice)
-                ("^Subject: \\(.*\\)$" 1 emacspeak-vm-subject-voice)
-                ("^|?[a-zA-Z]*>+\\(.*\\)$" 1 emacspeak-vm-cite-voice )
-                )))
-
-
-
-(voice-lock-set-major-mode-keywords 'vm-summary-mode
-                                    'vm-summary-voice-lock-keywords)
-
 (add-hook 'vm-mode-hook
           'emacspeak-vm-mode-setup)
 

@@ -174,31 +174,7 @@
 (defvar rpm-spec-ghost-personality 'annotation-voice
   "*Personality for %ghost files")
 
-(defvar rpm-spec-voice-lock-keywords
-  '(
-    ("%[a-zA-Z0-9_]+" 0 rpm-spec-macro-personality)
-    ("^\\([a-zA-Z0-9]+\\)\\(\([a-zA-Z0-9,]+\)\\):"
-     (1 rpm-spec-tag-personality)
-     (2 rpm-spec-ghost-personality))
-    ("^\\([a-zA-Z0-9]+\\):" 1 rpm-spec-tag-personality)
-    ("%\\(define\\|files\\|package\\|description\\)[ \t]+\\([^ \t\n-]+\\)"
-     (2 rpm-spec-package-personality))
-    ("%configure " 0 rpm-spec-macro-personality)
-    ("%dir[ \t]+\\([^ \t\n]+\\)[ \t]*" 1 rpm-spec-dir-personality)
-    ("%doc\\(\\|dir\\)[ \t]+\\(.*\\)\n" 2 rpm-spec-doc-personality)
-    ("%\\(ghost\\|config\\)[ \t]+\\(.*\\)\n" 2 rpm-spec-ghost-personality)
-    ("^%.+-[a-zA-Z][ \t]+\\([a-zA-Z0-9\.-]+\\)" 1 rpm-spec-doc-personality)
-    ("^\\(.+\\)(\\([a-zA-Z]\\{2,2\\}\\)):" 
-     (1 rpm-spec-tag-personality)
-     (2 rpm-spec-doc-personality))
-    ("^\\*\\(.*[0-9] \\)\\(.*\\)\\(<.*>\\)\\(.*\\)\n"
-     (1 rpm-spec-dir-personality)
-     (2 rpm-spec-package-personality)
-     (3 rpm-spec-tag-personality)
-     (4 voice-lock-warning-personality))
-    ("%{[^{}]*}" 0 rpm-spec-macro-personality)
-    )
-  "Additional expressions to highlight in RPM Spec mode.")
+
 
 ;;}}}
 (provide 'emacspeak-rpm-spec)

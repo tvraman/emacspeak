@@ -49,8 +49,6 @@
 ;;}}}
 ;;{{{ voice locking:
 
-(defvar tcl-voice-lock-keywords nil
-  "Keywords to highlight in tcl mode")
 ;;;  Snarfed from tcl.el /usr/local/lib/emacs/site-lisp/tcl.el
 
 (defvar tcl-proc-list
@@ -120,29 +118,7 @@ This means that the \"loop\" command has three arguments.  The first
 argument is ignored (for indentation purposes).  The second argument
 is a Tcl expression, and the last argument is Tcl commands.")
 
-(setq tcl-voice-lock-keywords
-      (list
-       ;; Names of functions (and other "defining things").
-       (list (concat tcl-proc-regexp "\\([^ \t\n]+\\)")
-	     2 'voice-lock-function-name-personality)
 
-       ;; Names of type-defining things.
-       (list (concat "\\(\\s-\\|^\\)\\("
-		     ;; FIXME Use 'regexp-quote?
-		     (mapconcat 'identity tcl-typeword-list "\\|")
-		     "\\)\\(\\s-\\|$\\)")
-	     2 'voice-lock-type-personality)
-
-       ;; Keywords.  Only recognized if surrounded by whitespace.
-       ;; FIXME consider using "not word or symbol", not
-       ;; "whitespace".
-       (cons (concat "\\(\\s-\\|^\\)\\("
-		     ;; FIXME Use regexp-quote? 
-		     (mapconcat 'identity tcl-keyword-list "\\|")
-		     "\\)\\(\\s-\\|$\\)")
-	     2)
-       )
-      )
 
 
 

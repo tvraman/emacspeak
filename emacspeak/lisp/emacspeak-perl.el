@@ -48,29 +48,6 @@
 ;;; Provide additional advice to perl-mode 
 
 ;;}}}
-;;{{{ voice locking:
-(defvar perl-voice-lock-keywords
-  (list
-   (cons (concat "[ \n\t{]*\\("
-		 (mapconcat 'identity
-			    '("if" "until" "while" "elsif" "else" "unless" "for"
-			      "foreach" "continue" "exit" "die" "last" "goto" "next"
-			      "redo" "return" "local" "my"  "exec")
-			    "\\|")
-		 "\\)[ \n\t;(]") 1)
-   (mapconcat 'identity
-	      '("#endif" "#else" "#ifdef" "#ifndef" "#if" "#include"
-		"#define" "#undef")
-	      "\\|")
-   '("^[ \n\t]*sub[ \t]+\\([^ \t{]+\\)[ \t]*[{]" 1 voice-lock-function-name-personality)
-   '("[ \n\t{]*\\(eval\\)[ \n\t(;]" 1 voice-lock-function-name-personality)
-   '("\\(--- .* ---\\|=== .* ===\\)" . voice-lock-doc-string-personality)
-   )
-  "Additional expressions to highlight in Perl mode.")
-
-
-
-;;}}}
 ;;{{{  Advice electric insertion to talk:
 
 (defadvice electric-perl-terminator  (after emacspeak pre act comp )

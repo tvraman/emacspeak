@@ -68,23 +68,6 @@
 (when (eq system-type 'gnu/linux)
   (setq Man-switches "-a"))
 
-(defvar Man-voice-lock-keywords nil
-  "Keywords to highlight in Man mode")
-(declaim (special Man-voice-lock-keywords
-                  Man-heading-regexp Man-first-heading-regexp
-                  Man-see-also-regexp
-                  ))
-(setq Man-voice-lock-keywords
-      (list
-       ;; Regexp describing section headers 
-       (cons Man-heading-regexp   'voice-lock-underline-personality)
-       ;;Regexp for SEE ALSO section (or your equiv) 
-       (cons Man-see-also-regexp    'voice-lock-italic-personality)
-       ;;Regexp for first heading on a manpage 
-       (cons Man-first-heading-regexp     'voice-lock-underline-personality )
-       ;; Regexp matching a references in SEE ALSO 
-					;(cons Man-reference-regexp    'voice-lock-bold-personality)
-       ))
 ;;}}}
 ;;{{{  advice interactive commands 
 
