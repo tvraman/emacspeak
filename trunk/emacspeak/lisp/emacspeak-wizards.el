@@ -762,10 +762,15 @@ Warning! Contents of file commands.texi will be overwritten."
        (function
         (lambda (f)
           (let ((key (where-is-internal f)))
-            (insert (format "\n\n@unnumberedsec %s" f))
+            (insert (format "\n\n@unnumberedsec %s\n" f))
+            (insert 
+             (format "@findex %s\n" f))
             (if key
                 (condition-case nil
-                    (insert (format "\tKey Sequence:%s\n\n"
+                    (insert (format "@kindex %s\n%s\n\n"
+                                    (mapconcat
+                                     'key-description
+                                     key " ")
                                     (mapconcat
                                      'key-description
                                      key " ")))
