@@ -354,9 +354,9 @@ to play a BBC Radio4 program on demand."
  "http://news.com.com/"
  nil
  #'(lambda nil
-     (declare (special emacspeak-w3-xpath-filter))
-     (setq emacspeak-w3-xpath-filter
-           "(//table)[4]//td[5]"))
+     (declare (special emacspeak-w3-url-rewrite-rule))
+     (setq emacspeak-w3-url-rewrite-rule
+(list "feed" "ni_print")))
  "Display tech news from CNET"
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
