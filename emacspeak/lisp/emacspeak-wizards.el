@@ -2360,7 +2360,7 @@ Use with caution."
   :type 'string
   :group 'emacspeak-wizards)
 
-(define-derived-mode emacspeak-wizards-vc-viewer-mode  view-mode
+(define-derived-mode emacspeak-wizards-vc-viewer-mode  fundamental-mode
   "VC Viewer  Interaction"
   "Major mode for interactively viewing virtual console contents.\n\n
 \\{emacspeak-wizards-vc-viewer-mode-map}")
@@ -2369,16 +2369,16 @@ Use with caution."
   "Buffer local value specifying console we are viewing.")
 
 (make-variable-buffer-local 'emacspeak-wizards-vc-console)
+
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer (console)
   "View contents of specified virtual console."
-  (interactive
-   (list
-    (read-from-minibuffer "Virtual Console: ")))
+  (interactive "nConsole:")
   (declare (special emacspeak-wizards-vc-viewer-command
                     emacspeak-wizards-vc-console
                     temporary-file-directory))
-  (let ((command
+  (let ((emacspeak-speak-messages nil)
+        (command
          (format emacspeak-wizards-vc-viewer-command
                  console
                  (expand-file-name
@@ -2388,6 +2388,7 @@ Use with caution."
                  (format "*vc-%s*" console))))
     (shell-command command buffer)
     (switch-to-buffer buffer)
+    (kill-all-local-variables)
     (insert-file
      (expand-file-name
       (format "vc-%s.dump" console)
@@ -2396,8 +2397,8 @@ Use with caution."
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
     (goto-char (point-min))
-    (when (interactive-p)
-      (emacspeak-speak-line))))
+    (when (interactive-p) (emacspeak-speak-line))))
+
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
   "Refresh view of VC we're viewing."
