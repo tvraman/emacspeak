@@ -49,7 +49,8 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl)
+                   (load-library "cl-macs"))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
@@ -65,6 +66,17 @@
 (defgroup emacspeak-daisy nil
   "Daisy Digital Talking Books  for the Emacspeak desktop."
   :group 'emacspeak)
+
+;;}}}
+;;{{{ Book structure 
+
+;;; Book structure 
+
+(defstruct  (emacspeak-daisy-book
+             (:constructor emacspeak-daisy-book-constructor))
+  title
+  content
+  nav-center)
 
 ;;}}}
 ;;{{{  helpers
@@ -176,7 +188,6 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;}}}
 ;;{{{ Define handlers 
 
-
 (defsubst emacspeak-daisy-apply-handler (element)
   "Lookup and apply installed handler."
   (let* ((tag (xml-tag-name element))
@@ -190,13 +201,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 
 (defun  emacspeak-daisy-ncx-handler (ncx)
   "Process top-level NCX element."
-  (let ((buffer (get-buffer-create "*daisy*")))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (mapc 'emacspeak-daisy-apply-handler (xml-tag-children ncx))
-      (emacspeak-daisy-mode))
-(switch-to-buffer buffer)))
+      (mapc 'emacspeak-daisy-apply-handler (xml-tag-children ncx)))
 
 (defun emacspeak-daisy-text-handler (element)
   "Handle element <text>...</text>."
@@ -205,10 +210,10 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
    
 (defun emacspeak-daisy-head-handler (element)
   "Handle head element."
-  (declare (special emacspeak-daisy-book-title))
+  (declare (special emacspeak-daisy-this-book))
   (let ((title  (xml-tag-child element "title")))
     (when title
-      (setq emacspeak-daisy-book-title
+      (setf (emacspeak-daisy-book-title emacspeak-daisy-this-book)
             (apply #'concat (xml-tag-children title)))
       (force-mode-line-update))))
 
@@ -241,16 +246,13 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
     (emacspeak-daisy-text-handler   text)
     (put-text-property start (point)
                        'audio audio)))
-  
-
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 
 (declaim (special emacspeak-daisy-mode-map))
-(defvar emacspeak-daisy-book-title nil
-  "Title used in mode line.")
-(make-variable-buffer-local 'emacspeak-daisy-book-title)
+
+
 (define-derived-mode emacspeak-daisy-mode text-mode 
   "Major mode for Daisy Digital Talking Books.\n"
   " An DAISY front-end for the Emacspeak desktop.
@@ -277,7 +279,6 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn
-    (setq mode-line-format emacspeak-daisy-book-title)
     (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
@@ -295,6 +296,40 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
      (clip
   (emacspeak-daisy-play-audio-clip clip))
      (t (error "No audio clip under point.")))))
+
+;;}}}
+;;{{{  open a book (entry point)
+
+(defvar emacspeak-daisy-this-book nil
+  "Holds pointer to book structure.")
+(make-variable-buffer-local 'emacspeak-daisy-this-book)
+
+(defun emacspeak-daisy-open-book (filename)
+  "Open Digital Talking Book specified by navigation file filename."
+  (interactive
+   (list
+    (read-file-name "Book Navigation File: ")))
+  (declare (special emacspeak-daisy-this-book))
+  (let ((buffer (get-buffer-create "*daisy*"))
+        (ncx (find-file-noselect filename))
+        (book (emacspeak-daisy-book-constructor)))
+    (save-excursion
+      (set-buffer ncx)
+      (goto-char (point-min))
+      (search-forward"<ncx")
+      (beginning-of-line)
+      (setf (emacspeak-daisy-book-nav-center book)
+            (read-xml))
+      (kill-buffer ncx)
+      (set-buffer buffer)
+      (erase-buffer)
+      (setq emacspeak-daisy-this-book book)
+      (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book))
+      (emacspeak-daisy-mode))
+    (switch-to-buffer buffer)
+    (goto-char (point-min))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-daisy)
