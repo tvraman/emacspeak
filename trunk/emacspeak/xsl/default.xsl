@@ -14,7 +14,9 @@ Description: default transformation applied by Bubbles.
   encoding="iso8859-15"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
-  
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
   <!-- {nuke these elements. --> 
   
   <xsl:template match="script|meta|link"/>

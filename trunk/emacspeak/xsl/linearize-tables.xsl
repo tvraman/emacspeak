@@ -22,7 +22,10 @@ into a paragraph.
   
   <!-- } -->
   <!-- {listify tables --> 
-<xsl:template match="/html/head">
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
@@ -34,7 +37,7 @@ into a paragraph.
       </xsl:if>
     </head>
   </xsl:template>
-  <xsl:template match="/html/body">
+  <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
