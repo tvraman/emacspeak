@@ -18,14 +18,17 @@ Eventually try produce only one instance of each link.
   <xsl:template match="/html/body">
     <body>
       <p>Multimedia links. </p>
-      <ul>
+      <ol>
         <xsl:apply-templates select="//a"/>
-      </ul>
+      </ol>
     </body>
   </xsl:template>
   <xsl:template match="a">
     <xsl:variable name="url" select="@href"/>
-    <xsl:if test="contains($url,'.ra')       or contains($url, 'mp3')       or contains($url,'.rm')       or contains($url, 'm3u')">
+<xsl:variable name="suffix"
+      select="substring($url,
+      string-length($url) - 4)"/>
+     <xsl:if test="contains($suffix,'.ra')       or contains($suffix, 'mp3')       or contains($suffix,'.rm')       or contains($suffix, 'm3u')">
       <li>
         <xsl:copy>
           <xsl:apply-templates select="@*"/>
@@ -34,7 +37,7 @@ Eventually try produce only one instance of each link.
       </li>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="objector embed">
+  <xsl:template match="object|embed">
     <xsl:variable name="url" select="@src"/>
     <xsl:if test="contains($url,'.ra')       or contains($url, 'rm')       or contains($url, 'mp3')       or contains($url, 'm3u')">
       <li>
