@@ -1,18 +1,21 @@
 #$Id$
 TEXINDEX=texindex
 MAKEINFO = makeinfo 
+TEXI2HTML=texi2html
 infodir =/usr/info#normally supplied by caller
 INSTALL = install
 
 info: emacspeak.texi
 	chmod 644 *info*
 	makeinfo emacspeak.texi
+	texi2html emacspeak.texi
 
 install: emacspeak.info
 	if test  -e /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
 	$(INSTALL)  -m 644 emacspeak.info* $(infodir)
+	$(INSTALL)  -m 644 emacspeak*.html $(infodir)
 
 uninstall:
 	if test  -e /sbin/install-info ; then \
