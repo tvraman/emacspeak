@@ -666,7 +666,7 @@ Computing News at CNN.")
 
 (emacspeak-url-template-define
  "sourceforge download for North America" 
- "http://unc.dl.sourceforge.net/sourceforge/%s"
+ "http://umn.dl.sourceforge.net/sourceforge/%s/"
  (list
   (lambda nil 
     (read-from-minibuffer "Project name")))
