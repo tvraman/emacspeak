@@ -79,11 +79,10 @@
          (mapcar
           (function
            (lambda (g)
-             (webjump-url-encode
 	      (cond
 	       ((stringp g)
 		(read-from-minibuffer g))
-	       (t (funcall g))))))
+	       (t (funcall g)))))
           (emacspeak-url-template-generators ut))))
 
 ;;}}}
@@ -625,6 +624,23 @@ name of the list.")
 
 ;;}}}
 ;;{{{ cnn 
+
+;;{{{ cnnfn content 
+(emacspeak-url-template-define
+ "CNNFn Content"
+ "http://www.cnnfn.com/"
+ nil
+ nil
+ "Extract content links from CNN FN."
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class-list
+      (list
+       "t1headline"
+       "t1tease"
+       "tease" "t2headline")
+      url 'speak)))
+
+;;}}}
 (emacspeak-url-template-define
  "CNN Search"
  "http://search.cnn.com/cnn/search?%s"
