@@ -1134,8 +1134,9 @@ XPath locator.")
 ;;}}}
 ;;{{{ Browse XML files:
 
-(defun emacspeak-w3-browse-xml(location)
+(defun emacspeak-w3-browse-xml(location &optional prompt-style)
   "Browse XML+CSS using W3.
+With interactive prefix arg, also prompt for an  XSL stylesheet.
 XML files can be rendered by an XML browser that is CSS aware.
 Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
 good enough job for many things, especially the XML files from
@@ -1150,17 +1151,24 @@ XML files is quite usable:
 0) You get Aural CSS support.
 
 1) You get a navigable buffer using imenu if you have w3-imenu
-loaded.
-"
+loaded. "
   (interactive
    (list
-    (read-file-name "XML File: ")))
-  (let ((buffer (find-file-noselect location 'no-warn 'raw)))
+    (read-file-name "XML File: ")
+    current-prefix-arg))
+  (let ((buffer  (get-buffer-create " *xml work * ")))
     (save-excursion
       (set-buffer buffer)
+      (insert-file-contents location)
+      (when prompt-style
+        (let ((xslt (read-file-name "XSL: " emacspeak-xslt-directory)))
+          (emacspeak-xslt-region xslt (point-min)
+                                 (point-max))))
       (emacspeak-w3-preview-this-buffer)
-      (kill-buffer buffer)
+                                        ;(kill-buffer buffer)
       (emacspeak-auditory-icon 'open-object))))
+          
+
 
 ;;}}}
 ;;{{{  xsl keymap
