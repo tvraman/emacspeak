@@ -58,6 +58,7 @@ int Tcldtk_Init(Tcl_Interp *interp) {
   unsigned int  devNo = 0;
   DWORD devOptions = 0;
   devOptions |= WAVE_OPEN_SHAREABLE;
+  devOptions |=WAVE_FORMAT_1S16;
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
