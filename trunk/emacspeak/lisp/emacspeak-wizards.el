@@ -794,6 +794,36 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{  Generate documentation:
 
+(defsubst emacspeak-list-emacspeak-options ()
+  "List all Emacspeak customizable options."
+  (let ((options nil ))
+    (mapatoms
+     (function
+      (lambda (symbol)
+        (when
+            (and (symbolp symbol)
+                 (get symbol 'custom-type)
+                 (or (string-match "emacspeak" (symbol-name symbol))
+                     (string-match "dtk" (symbol-name symbol))
+                     (string-match "voice" (symbol-name symbol))
+                     (string-match "tts" (symbol-name symbol))))
+          (push symbol options)))))
+    (setq options
+          (sort options
+                #'(lambda (a b )
+                    (cond
+                     ((string-lessp
+		       (symbol-file a)
+		       (symbol-file b))
+                      t)
+                     ((string-equal (symbol-file a)
+                                    (symbol-file b))
+                      (string-lessp
+                       (symbol-name a)
+                       (symbol-name b)))
+                     (t nil)))))
+    options))
+
 (defsubst emacspeak-list-emacspeak-commands ()
   "List all Emacspeak commands."
   (let ((commands nil ))
@@ -860,6 +890,7 @@ Local variables: mode: outline paragraph-separate: \"[ ]*$\"
 end:\n\n")
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
+
 (defsubst ems-cleanup-commentary (commentary )
   "Cleanup commentary."
   (save-excursion
@@ -891,7 +922,7 @@ end:\n\n")
 ;;;###autoload
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
-commands into file commands.texi.
+commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
   (interactive "FEnter filename to save DOC in: ")
   (let ((emacspeak-speak-messages nil)
@@ -974,6 +1005,79 @@ for commands defined in module  %s.\n\n"
 			       'replace)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
+
+(defun emacspeak-generate-texinfo-option-documentation (filename)
+  "Generate texinfo documentation  for all emacspeak
+options  into file options.texi.
+Warning! Contents of file options.texi will be overwritten."
+  (interactive "FEnter filename to save DOC in: ")
+  (let ((emacspeak-speak-messages nil)
+        (dtk-quiet t)
+        (buffer (find-file-noselect filename))
+        (module nil))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert"@c $Id$\n")
+      (insert
+       "@node Emacspeak Options\n@chapter Emacspeak Options\n\n")
+      (insert
+       "This chapter is generated automatically from the source-level documentation.
+Any errors or corrections should be made to the source-level
+documentation.\n\n")
+      (mapcar
+       (function
+        (lambda (o)
+          (let ((this-module (symbol-file o))
+                (commentary nil))
+            (when this-module
+              (setq commentary
+                    (lm-commentary
+                     (substring
+		      (locate-library this-module)
+		      0 -1)))
+              (setq this-module
+                    (file-name-sans-extension this-module))
+              (when commentary
+                (setq commentary 
+                      (ems-cleanup-commentary commentary)))
+              (setq this-module
+                    (file-name-nondirectory this-module)))
+            (unless (string-equal module this-module)
+              (if this-module 
+                  (setq module this-module)
+                (setq module nil))
+              (when module 
+                (insert
+                 (format
+                  "@node %s Options\n@section %s Options\n\n\n"
+                  module module )))
+              (insert
+               (format "\n\n%s\n\n" 
+                       (or commentary "")))
+              (insert
+               (format
+                "Automatically generated documentation
+for options defined in module  %s.
+These options are customizable via Emacs' Custom interface.\n\n"
+                module)))
+            (insert (format "\n\n@defvar %s\n"
+                            o))
+            (insert
+             (or
+              (ems-texinfo-escape
+               (documentation-property  symbol 'variable-documentation))                        
+              ""))
+            (insert "\n@end defvar\n\n"))))
+       (emacspeak-list-emacspeak-options))
+      (texinfo-all-menus-update)
+      (shell-command-on-region (point-min) (point-max)
+			       "cat -s"
+			       (current-buffer)
+			       'replace)
+      (save-buffer)))
+  (emacspeak-auditory-icon 'task-done))
+
 
 ;;}}}
 ;;{{{ labelled frames
