@@ -1,12 +1,12 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 16.0
+Version: 16.5000
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
-Source: http://cs.cornell.edu/home/raman/emacspeak/emacspeak.tar.gz
-URL: http://cs.cornell.edu/home/raman/emacspeak/emacspeak.html
+Source: http://emacspeak.sf.net/emacspeak.tar.gz
+URL: http://emacspeak.sf.net
 Vendor: Emacspeak Inc 
 Packager: T. V. Raman <raman@cs.cornell.edu>
 Requires: emacs tcl tclx
@@ -99,3 +99,7 @@ Make sure you read the Emacs info pages
 /usr/share/info/emacspeak.info-3
 /usr/share/info/emacspeak.info-4
 /usr/share/info/emacspeak.info-5
+
+# local variables:
+# mode: rpm-spec
+# end:
