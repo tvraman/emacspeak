@@ -169,13 +169,15 @@ available TTS servers.")
      (let    ((save-punctuation-mode dtk-punctuation-mode))
        (unwind-protect
            (progn      
-             (setq dtk-punctuation-mode (, setting))
-             (dtk-interp-sync)
+             (process-send-string dtk-speaker-process
+                                  (format "tts_set_punctuations %s  \n "
+                                          (, setting)) )
              (,@ body)
              (dtk-force))
-         (setq dtk-punctuation-mode
-               save-punctuation-mode)
-         (dtk-interp-sync)
+         (setq dtk-punctuation-mode save-punctuation-mode)
+         (process-send-string dtk-speaker-process
+                              (format "tts_set_punctuations %s  \n "
+                                      dtk-punctuation-mode ))
          (dtk-force))))))
 
 ;;}}}

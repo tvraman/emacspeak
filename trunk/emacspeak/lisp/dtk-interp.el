@@ -1,3 +1,10 @@
+
+cd
+
+cd
+
+
+
 ;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server
 ;;; $Id$
 ;;; $Author$ 
@@ -143,7 +150,7 @@
 
 (defsubst dtk-interp-sync()
   (declare (special dtk-speaker-process
-                    dtk-punctuation-mode dtk-speech-rate dtk-character-scale
+                    dtk-punctuation-mode dtk-speech-rate 
                     dtk-capitalize dtk-split-caps
                     dtk-allcaps-beep))
   (let ((command (concat 
@@ -155,9 +162,7 @@
                           (if dtk-allcaps-beep 1  0 ))
                   (format "tts_split_caps  %s \n "
                           (if dtk-split-caps 1 0 ))
-                  (format "tts_set_speech_rate %s \n" dtk-speech-rate)
-                  (format "tts_set_character_scale %s \n "
-                          dtk-character-scale))))
+                  (format "tts_set_speech_rate %s \n" dtk-speech-rate))))
     (process-send-string dtk-speaker-process command )))
 
 ;;}}}
