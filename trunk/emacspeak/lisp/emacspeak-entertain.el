@@ -43,6 +43,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
+(require 'emacspeak-pronounce)
 (require 'emacspeak-sounds)
 (eval-when (compile)
   (condition-case nil
@@ -94,6 +95,46 @@
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
   ad-return-value)
+
+;;}}}
+;;{{{  hangman 
+(defun emacspeak-hangman-setup-pronunciations ()
+  "Setup pronunciation dictionaries."
+  (declare (special emacspeak-pronounce-pronunciation-table))
+(emacspeak-pronounce-add-dictionary-entry 'hm-mode "_" ".")
+(when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
+            (not emacspeak-pronounce-pronunciation-table))
+    (emacspeak-pronounce-toggle-use-of-dictionaries)))
+
+(defadvice hm-self-guess-char (after eemacspeak pre act comp)
+  "Speak the char."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+
+(defun emacspeak-hangman-speak-guess ()
+  "Speak current guessed string. "
+  (interactive)
+  (declare (special hm-current-guess-string
+                    hm-current-word))
+  (let ((string (make-string  (length hm-current-word)
+                              ?\))))
+    (loop for i from 0 to (1- (length hm-current-word))
+          do
+          (aset  string  i
+                 (aref hm-current-guess-string (* i 2 ))))
+     (message  "%s:  %s "
+             (length string)
+             string)))
+
+(defadvice hangman (after emacseak pre act comp)
+  "Speech enable hangman."
+  (when (interactive-p)
+    (emacspeak-hangman-setup-pronunciations)
+    (emacspeak-auditory-icon 'open-object)))
+
+(declaim (special hm-map))
+(define-key hm-map " " 'emacspeak-hangman-speak-guess)
+
 
 ;;}}}
 (provide 'emacspeak-entertain)
