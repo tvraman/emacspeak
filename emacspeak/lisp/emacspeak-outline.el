@@ -112,7 +112,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (and (looking-at "^$")
-    (emacspeak-skip-blank-lines-backward))
+    (skip-syntax-backward " "))
     (emacspeak-speak-line )))
 
 (defadvice outline-previous-visible-heading (after emacspeak pre act comp)
