@@ -41,7 +41,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-voices)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'forms)
@@ -164,9 +163,6 @@ Assumes that point is at the front of a field value."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
-(eval-when (load)
-  (emacspeak-fix-interactive-command-if-necessary 'forms-jump-record))
-
 (defadvice forms-search (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -216,9 +212,6 @@ Assumes that point is at the front of a field value."
   "Provide auditory feedback."
   (when  (interactive-p)
     (emacspeak-auditory-icon 'save-object)))
-
-(eval-when (load)
-  (emacspeak-fix-interactive-command-if-necessary 'forms-find-file))
 
 ;;}}}
 ;;{{{ smart filters

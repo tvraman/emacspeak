@@ -53,9 +53,9 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'voice-lock)
-(eval-when (compile) (require 'dired)
-           (require 'emacspeak-keymap)
-           (require 'emacspeak-fix-interactive))
+(eval-when-compile
+  (require 'dired)
+  (require 'emacspeak-keymap))
 (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
@@ -382,23 +382,6 @@ On a directory line, run du -s on the directory to speak its size."
              (define-key dired-mode-map  "," 'emacspeak-speak-previous-field)
              (define-key dired-mode-map '[up] 'dired-previous-line)
              (define-key dired-mode-map '[down] 'dired-next-line))))
-
-;;}}}
-;;{{{  fix interactive commands
-
-(loop for f in
-      '(dired-do-query-replace
-dired-do-search
-dired-flag-extension
-dired-kill-tree
-dired-make-relative-symlink
-dired-mark-extension
-dired-mark-sexp
-dired-omit-expunge
-dired-smart-shell-command
-dired-unmark-all-files)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f))
 
 ;;}}}
 (provide 'emacspeak-dired)

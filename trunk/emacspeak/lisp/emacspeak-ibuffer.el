@@ -44,8 +44,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
-
 ;;}}}
 ;;{{{  Introduction:
 
@@ -156,33 +154,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-ibuffer-speak-buffer-line)))
-
-;;}}}
-;;{{{ fix interactive commands 
-
-(defvar emacspeak-ibuffer-interactive-commands-to-fix
-  (list
-   'ibuffer-do-shell-command
-   'ibuffer-do-shell-command-replace
-   'ibuffer-do-eval
-   'ibuffer-do-view-and-eval
-   'ibuffer-mark-by-name-regexp
-   'ibuffer-mark-by-mode
-   'ibuffer-mark-by-mode-regexp
-   'ibuffer-limit-by-mode
-   'ibuffer-limit-by-name
-   'ibuffer-limit-by-filename
-   'ibuffer-limit-by-modes
-   'ibuffer-limit-by-size-lt
-   'ibuffer-limit-by-size-gt
-   'ibuffer-limit-by-content
-   )
-  "Ibuffer commands with interactive specs that are
-automatically advised to speak.")
-
-(mapcar
- 'emacspeak-fix-interactive-command-if-necessary
- emacspeak-ibuffer-interactive-commands-to-fix)ibuffer-mark-by-name-regexp
 
 ;;}}}
 (provide 'emacspeak-ibuffer)

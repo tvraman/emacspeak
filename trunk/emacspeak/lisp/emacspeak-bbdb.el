@@ -44,8 +44,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
 ;;}}}
 ;;{{{  Introduction:
 
@@ -184,19 +182,6 @@
 "Provide spoken feedback"
 (when (interactive-p)
 (emacspeak-speak-other-window 1)))
-
-;;}}}
-;;{{{ fix interactive commands
-
-(loop for f in
-      '(bbdb
-bbdb-company
-bbdb-phones
-bbdb-name
-bbdb-net)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f))
-
 
 ;;}}}
 (provide  'emacspeak-bbdb)

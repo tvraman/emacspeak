@@ -45,7 +45,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'voice-lock)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -121,8 +120,6 @@
     (emacspeak-auditory-icon 'mark-object))
    (t ad-do-it))
   ad-return-value)
-
-(emacspeak-fix-interactive-command-if-necessary  'sqlplus-save-session)
 
 ;;}}}
 ;;{{{ setup voice lock

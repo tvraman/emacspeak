@@ -71,11 +71,6 @@
             (emacspeak-auditory-icon 'open-object)
             (message "Displayed results of %s in other window"
                       (quote (, f))))))))
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        '(
-          network-connection
-          whois
-          traceroute))
 
 ;;}}}
 (provide 'emacspeak-net-utils)

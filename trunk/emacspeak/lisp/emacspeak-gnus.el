@@ -43,7 +43,6 @@
   (require 'gnus)
            (require 'gnus-sum)))
 (require 'voice-lock)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-keymap)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
@@ -551,31 +550,6 @@ instead you hear only the first screenful.")
     (emacspeak-auditory-icon 'scroll)
     (sit-for 1)
     (emacspeak-speak-current-window)))
-
-;;}}}
-;;{{{  fix interactive commands
-
-(loop for f in
-      '(gnus-fetch-group
-        gnus-group-apropos
-        gnus-group-description-apropos
-        gnus-group-enter-directory
-        gnus-group-kill-level
-        gnus-group-list-all-matching
-        gnus-group-list-level
-        gnus-group-list-matching
-        gnus-group-make-empty-virtual
-        gnus-group-mark-regexp
-        gnus-summary-import-article
-        gnus-summary-limit-to-author
-        gnus-summary-limit-to-marks
-        gnus-summary-limit-to-subject
-        gnus-summary-mark-above
-        gnus-summary-mark-below
-        gnus-summary-refer-article
-        gnus-summary-resend-message)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f))
 
 ;;}}}
 (provide 'emacspeak-gnus)

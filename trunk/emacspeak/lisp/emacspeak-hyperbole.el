@@ -41,8 +41,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
 ;;{{{  Introduction:
 
 ;;; Provide Emacspeak  advice to the hyperbole system
@@ -56,7 +54,7 @@
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
-(emacspeak-fix-interactive-command-if-necessary 'wconfig-add-by-name)
+
 ;;}}}
 ;;{{{  Fix default hyperbole menu:
 (declaim (special hyperb:kotl-p))

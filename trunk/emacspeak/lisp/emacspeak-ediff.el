@@ -46,7 +46,6 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
 (require 'voice-lock)
 (eval-when (compile)
   (condition-case nil 
@@ -382,7 +381,6 @@ ediff ..."))))
 ;;}}}
 ;;{{{ Advice:
 
-(emacspeak-fix-interactive-command-if-necessary 'vc-ediff)
 (defcustom emacspeak-ediff-always-autorefine-diffs t
   "Says if emacspeak should try computing fine differences each time.
 Set this to nil if things get too slow."

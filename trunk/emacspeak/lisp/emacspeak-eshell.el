@@ -46,7 +46,6 @@
 (require 'backquote)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
 (eval-when (load)
   (require 'esh-arg))
 ;;}}}
@@ -279,10 +278,6 @@ personalities."
 
 ;;}}}
 ;;{{{  advice esh-arg
-
-(mapc 'emacspeak-fix-interactive-command-if-necessary 
-      (list 'eshell-insert-buffer-name
-            'eshell-insert-process))
 
 (loop for f in 
       '(eshell-insert-buffer-name
