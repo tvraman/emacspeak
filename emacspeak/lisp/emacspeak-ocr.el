@@ -461,15 +461,16 @@ The scanned image is converted to JPEG."
             (read-from-minibuffer "Enter picture description: "))
       (let* ((emacspeak-ocr-image-extension ".jpg")
              (image (emacspeak-ocr-get-image-name))
-             (tempfile (format "temp%s.jpg" (gensym)))))
+             (tempfile (format "temp%s.jpg" (gensym))))
       (shell-command
        (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
                 image tempfile
                 emacspeak-ocr-jpeg-metadata-writer metadata 
                 tempfile image
-                tempfile)))
+                tempfile))))
     (message "Acquired  image to file %s"
              image-name)))
+
 
 
 (defvar emacspeak-ocr-process nil
