@@ -169,7 +169,9 @@
   'emacspeak-link-current-file)
 (define-key emacspeak-keymap "\M-s"
   'emacspeak-symlink-current-file)
-(define-key emacspeak-keymap "!" 'emacspeak-speak-run-shell-command)
+(define-key emacspeak-keymap "!"
+  'emacspeak-speak-run-shell-command)
+(define-key emacspeak-keymap "#" 'emacspeak-gridtext)
 (define-key emacspeak-keymap "\C-y" 'emacspeak-clipboard-paste)
 (define-key emacspeak-keymap "\C-p" 'emacspeak-speak-previous-window)
 (define-key emacspeak-keymap "\C-n" 'emacspeak-speak-next-window )

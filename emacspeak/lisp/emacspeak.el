@@ -302,6 +302,11 @@ documentation is up-to-date, please use it.  "
 
 ;;}}}
 ;;{{{ autoloads
+(autoload 'emacspeak-gridtext "emacspeak-gridtext"
+"Utilities for gridtext " t)
+
+(autoload 'emacspeak-gridtext-load "emacspeak-gridtext"
+"Utilities for gridtext " t)
 (autoload 'emacspeak-filtertext "emacspeak-filtertext"
 "Utilities for filtering text." t)
 (autoload 'emacspeak-url-template-load
