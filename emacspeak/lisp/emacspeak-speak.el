@@ -48,8 +48,6 @@
 (require 'dtk-speak)
 (eval-when-compile
   (require 'voice-lock)
-  (require 'which-func)
-           (require 'emacspeak-table-ui)
            (require 'emacspeak-sounds)
 (require 'shell))
 
@@ -433,6 +431,7 @@ current local  value to the result."
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
+;;{{{ simple percentage getter 
 
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
@@ -443,6 +442,27 @@ current local  value to the result."
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
     (format "%d%%" percent)))
+
+;;}}}
+;;;percentage getter with personality
+; (defsubst emacspeak-get-current-percentage-into-buffer ()
+;   "Return percentage of position into current buffer."
+;   (let* ((pos (point))
+; 	 (total (buffer-size))
+; 	 (percent (if (> total 50000)
+; 		      ;; Avoid overflow from multiplying by 100!
+; 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
+; 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max
+;                                                          total 1))))
+;          (message nil))
+;     (setq message
+;           (cond
+;            ((= 0 percent) " top")
+;            ((= 100 percent) " bottom ")
+;            (t (format " %d percent " percent))))
+;     (put-text-property 0 (length message)
+;                        'property 'harry message)
+;     message))
 
 ;;}}}
 ;;{{{  indentation:
@@ -1485,39 +1505,33 @@ semantic to do the work."
       (put-text-property 0 (length frame-info)
                          'personality 'annotation-voice frame-info))
      (t (setq frame-info "")))
-    (when (buffer-modified-p )
-      (dtk-tone 700 70))
-    (when buffer-read-only
-      (dtk-tone 250 50))
-    (when  emacspeak-mail-alert
-      (and (emacspeak-mail-alert-user)
-           (dtk-tone 450 75)))
+    (when (buffer-modified-p ) (dtk-tone 700 70))
+    (when buffer-read-only (dtk-tone 250 50))
+    (when  (and emacspeak-mail-alert (emacspeak-mail-alert-user))
+      (dtk-tone 450 75))
     (cond
      ((stringp mode-line-format)
-      (tts-with-punctuations "all"
-      (dtk-speak mode-line-format )))
+      (tts-with-punctuations "all" (dtk-speak mode-line-format )))
      (t
       (let  ((buffer-name (buffer-name))
-(percentage (emacspeak-get-current-percentage-into-buffer)))
-(put-text-property 0 (length buffer-name)
-                   'personality 'paul-animated buffer-name)
-(put-text-property 0 (length percentage)
-                   'personality 'harry percentage)
-      (tts-with-punctuations "all"
-      (dtk-speak
-       (concat frame-info
-               buffer-name
-               (format  "%s %s %s "
-                        (if line-number-mode
-                            (format "line %d"
-                                    (emacspeak-get-current-line-number))
-                          "")
-                        (if column-number-mode
-                            (format "Column %d"
-                                    (current-column))
-                          "")
-                        (if  major-mode major-mode ""))
-               percentage))))))))
+             (percentage (emacspeak-get-current-percentage-into-buffer)))
+        (put-text-property 0 (length buffer-name)
+                           'personality 'paul-animated buffer-name)
+        (tts-with-punctuations "all"
+                               (dtk-speak
+                                (concat frame-info
+                                        buffer-name
+                                        percentage
+                                        (format  "%s %s %s "
+                                                 (if line-number-mode
+                                                     (format "line %d"
+                                                             (emacspeak-get-current-line-number))
+                                                   "")
+                                                 (if column-number-mode
+                                                     (format "Column %d"
+                                                             (current-column))
+                                                   "")
+                                                 (if  major-mode major-mode ""))))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
