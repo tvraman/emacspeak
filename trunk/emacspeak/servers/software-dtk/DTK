@@ -27,13 +27,10 @@ Before attempting to build and install Software Dectalk
 support for Emacspeak you should first install Emacspeak the
 normal way.  See the Emacspeak Makefile for instructions.
 
-** Compiling Software Dectalk  Support For Emacspeak:
+** Downloading  Software Dectalk  Support For Emacspeak:
 
-Change to the software-dtk subdirectory 
-of the Emacspeak source distribution.
-   make 
-This should compile the Emacspeak Dectalk  TCL library to
-produce a file called tcldtk.so.
+Download and install software-dtk package from the Emacspeak site.
+This provides the compiled Emacspeak software dtk server --file servers/software-dtk/tcldtk.so
 
 * Testing:
 
