@@ -851,6 +851,78 @@ meaning of `next'."
   (emacspeak-select-this-buffer-other-window-display  1))
 
 ;;}}}
+;;{{{ emacspeak clipboard
+
+(eval-when (load)
+  (condition-case nil
+      (unless (file-exists-p emacspeak-resource-directory)
+        (make-directory emacspeak-resource-directory))
+    (error (message "Make sure you have an Emacspeak resource directory %s"
+                    emacspeak-resource-directory))))
+
+(defcustom emacspeak-clipboard-file
+  (concat emacspeak-resource-directory "/" "clipboard")
+  "File used to save Emacspeak clipboard.
+The emacspeak clipboard provides a convenient mechnaism for exchanging
+information between different Emacs sessions."
+:group 'emacspeak-speak
+  :type 'string)
+
+(defun emacspeak-clipboard-copy (start end &optional prompt)
+  "Copy contents of the region to the emacspeak clipboard.
+Previous contents of the clipboard will be overwritten.  The Emacspeak
+clipboard is a convenient way of sharing information between
+independent Emacspeak sessions running on the same or different
+machines.  Do not use this for sharing information within an Emacs
+session --Emacs' register commands are far more efficient and
+light-weight.  Optional interactive prefix arg results in Emacspeak
+prompting for the clipboard file to use.
+Argument START and END specifies  region.
+Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file."
+  (interactive "r\nP")
+  (declare (special emacspeak-resource-directory emacspeak-clipboard-file))
+  (let ((clip (buffer-substring-no-properties start end ))
+        (clipboard-file
+         (if prompt
+             (read-file-name "Copy region to clipboard file: "
+                             emacspeak-resource-directory
+                             emacspeak-clipboard-file)
+           emacspeak-clipboard-file))
+        (clipboard nil))
+    (setq clipboard (find-file-noselect  clipboard-file))
+    (let ((emacspeak-speak-messages nil))
+      (save-excursion
+        (set-buffer clipboard)
+        (erase-buffer)
+        (insert clip)
+        (save-buffer)))
+    (message "Copied %s lines to Emacspeak clipboard %s"
+             (count-lines start end)
+             clipboard-file)))
+
+
+
+(defun emacspeak-clipboard-paste (&optional paste-table)
+  "Yank contents of the Emacspeak clipboard at point.
+The Emacspeak clipboard is a convenient way of sharing information between
+independent Emacspeak sessions running on the same or different
+machines.  Do not use this for sharing information within an Emacs
+session --Emacs' register commands are far more efficient and
+light-weight.  Optional interactive prefix arg pastes from
+the emacspeak table clipboard instead."
+  (interactive "P")
+  (declare (special emacspeak-resource-directory emacspeak-clipboard-file))
+  (let ((start (point))
+        (clipboard-file emacspeak-clipboard-file))
+    (cond
+     (paste-table  (emacspeak-table-paste-from-clipboard))
+     (t(insert-file-contents clipboard-file)))
+    (message "Yanked %s lines from  Emacspeak clipboard %s"
+             (count-lines start (point))
+             (if paste-table "table clipboard"
+               clipboard-file))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
