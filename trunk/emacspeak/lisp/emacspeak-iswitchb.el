@@ -137,7 +137,8 @@
 ;;{{{ update keybindings
 
 (defun emacspeak-iswitchb-keys ()
-  "Add emacspeak keybindings for iswitchb."
+  "Add emacspeak keybindings for iswitchb.
+Place this on hook iswitchb-minibuffer-setup-hook."
   (define-key iswitchb-mode-map  [left]  'iswitchb-prev-match)
   (define-key iswitchb-mode-map  [right]  'iswitchb-next-match))
 ;;}}}
