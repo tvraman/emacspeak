@@ -194,7 +194,7 @@ ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 
 emacspeak:
 	cd lisp; $(MAKE)  SRC=$(SRC)
-	touch $(ID)
+	touch   $(ID)
 	chmod 644 $(ID)
 	@echo "Compiled on $(SNAPSHOT) by `whoami` on `hostname`" >> $(ID)
 	@echo "Now check installation of  the speech server. "  

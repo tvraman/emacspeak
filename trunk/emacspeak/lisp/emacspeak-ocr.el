@@ -340,6 +340,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 `?' to display mode-specific help for emacspeak-ocr-mode."
   (interactive)
   (declare (special emacspeak-ocr-working-directory
+                    emacspeak-ocr-document-name
                     buffer-read-only))
   (let  ((buffer (emacspeak-ocr-get-buffer )))
     (save-excursion
@@ -350,6 +351,7 @@ For detailed help, invoke command emacspeak-ocr bound to
       (switch-to-buffer buffer)
       (setq buffer-read-only t)
       (emacspeak-auditory-icon 'open-object)
+      (setq emacspeak-ocr-document-name (emacspeak-ocr-default-name))
       (emacspeak-speak-mode-line))))
 
 (defvar emacspeak-ocr-document-name nil
