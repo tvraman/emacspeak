@@ -29,7 +29,7 @@
     ("dtk-voices.el"
         "Define various device independent voices in terms of Dectalk codes."
         (voice  personality  dectalk))
-    ("eflite.el"
+    ("eflite-voices.el"
         "Emacspeak EFLITE "
         (emacspeak   audio desktop eflite))
     ("emacspeak-actions.el"
