@@ -457,6 +457,12 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (define-key emacspeak-daisy-mode-map "m" 'emacspeak-daisy-mark-position-in-content-under-point)
 (define-key emacspeak-daisy-mode-map "s"
   'emacspeak-daisy-stop-audio)
+(define-key emacspeak-daisy-mode-map "n"
+  'emacspeak-daisy-next-line)
+(define-key emacspeak-daisy-mode-map "p"
+  'emacspeak-daisy-previous-line)
+(define-key emacspeak-daisy-mode-map "o"
+  'emacspeak-daisy-define-outline-pattern)
 (define-key emacspeak-daisy-mode-map "S" 'emacspeak-daisy-save-bookmarks)
 (define-key emacspeak-daisy-mode-map "q" 'bury-buffer)
 (define-key emacspeak-daisy-mode-map " "
@@ -657,6 +663,7 @@ No-op if content under point is not currently displayed."
 (defun emacspeak-daisy-play-content-under-point ()
   "Play SMIL content  under point."
   (interactive)
+  (declare (special outline-regexp))
   (let ((title nil)
         (bookmark (get-text-property (point) 'bookmark))
         (content (get-text-property (point) 'content))
@@ -673,7 +680,8 @@ No-op if content under point is not currently displayed."
       (emacspeak-speak-mode-line))
      (content
       (emacspeak-daisy-configure-w3-to-record-viewer
-       (current-buffer) title start end bookmark)
+       (current-buffer) title outline-regexp
+       start end bookmark)
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-daisy-play-content  content))
      (t (error "No content under point.")))))
@@ -687,10 +695,50 @@ No-op if content under point is not currently displayed."
       (emacspeak-daisy-play-audio clip))
      (t (error "No audio clip under point.")))))
 
+(defun emacspeak-daisy-previous-line ()
+  "Move to previous line."
+  (interactive)
+  (forward-line -1)
+(beginning-of-line)
+(emacspeak-speak-line)
+(emacspeak-auditory-icon 'select-object))
+
+(defun emacspeak-daisy-define-outline-pattern (regexp)
+  "Define persistent outline regexp for this book."
+  (interactive "sOutline regexp:")
+  (unless (eq 'emacspeak-daisy-mode major-mode)
+    (error "This command should be used in emacspeak-daisy-mode."))
+  (setq utline-regexp regexp)
+  (let ((buffer (find-file-noselect
+                 (emacspeak-speak-get-directory-settings))))
+    (save-excursion
+      (set-buffer buffer)
+      (goto-char (point-max))
+      (insert
+       (format
+        " (setq outline-regexp  \"%s\")"
+        outline-regexp))
+      (basic-save-buffer)
+      (kill-buffer buffer)
+      (emacspeak-auditory-icon 'save-object)
+      (message "Saved outline pattern"))))
+
+)
+
+
+(defun emacspeak-daisy-next-line ()
+  "Move to next line."
+  (interactive)
+  (forward-line 1)
+(beginning-of-line)
+(emacspeak-speak-line)
+(emacspeak-auditory-icon 'select-object))
+
+
 ;;}}}
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
-(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title
+(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title outline 
                                                       start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks W3 to record the viewer in the navigation center when
@@ -703,6 +751,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
          (lambda  nil
 	   (let ((buffer (current-buffer)))
              (outline-minor-mode 1)
+             (setq outline-regexp outline)
              (rename-buffer title 'uniquely)
 	     (save-excursion
 	       (set-buffer (, nav-center))
