@@ -68,16 +68,6 @@
 ;;; visual characteristics --this was a key goal of the original
 ;;; Emacspeak design and it will be preserved going forward.
 
-;;; As I implement this module, I also plan to fix 
-;;; one of the shortcomings in the present voice lock architecture,
-;;; where 
-;;; the value of property 'personality is a symbol.
-;;; This makes it hard to apply voice lock properties cumulatively.
-;;; When this update is complete, the Emacspeak core in module
-;;; dtk-tcl.el ---function dtk-format-text-and-speak
-;;; will be updated to handle the case where property 'personality
-;;; holds either a symbol or a list.
-
 ;;; Finally, I may add better support for overlays --again this was a
 ;;; part of Emacs that was at its nascent stage in 1994, but is now
 ;;; stable.
