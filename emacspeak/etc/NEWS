@@ -44,6 +44,14 @@ New module  for easy access to media player mplayer.
 
 Enhanced reftex support.
 
+** emacspeak-pronounce.el:
+
+Added customizable dictionary
+emacspeak-pronounce-internet-smileys-pronunciations
+for holding Internet smileys.
+This dictionary is used by all  messaging tools including mail and
+instant messaging tools.
+
 ** emacspeak-ecb.el:
 
 Enhanced ECB support.
