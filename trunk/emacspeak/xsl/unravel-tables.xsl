@@ -42,6 +42,7 @@ used as the table-index for extract-tables.xsl.
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
+      <xsl:if test="count(//table//table)  &gt; 0">
       <table>
         <caption>
           <a href="#__about_unravel_tables">Tables Unravelled</a>
@@ -53,6 +54,7 @@ nested tables</a>
           </td>
         </tr>
       </table>
+      </xsl:if>
       <xsl:apply-templates/>
       <h2>
         <a name="__nested_tables" id="__nested_tables"> 

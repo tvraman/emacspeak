@@ -150,6 +150,10 @@ TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
 ECI=servers/linux-outloud
+DTKTTS=servers/software-dtk/tcldtk.c \
+servers/software-dtk/DTK \
+servers/software-dtk/Makefile
+
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/tcleci.cpp  \
 ${ECI}/VIAVOICE \
@@ -162,6 +166,7 @@ SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp \
 servers/dtk-mv \
+servers/dtk-soft \
 servers/outloud \
 servers/stereo-outloud \
 servers/tts-lib.tcl \
@@ -179,7 +184,7 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
-${SAWFISH} ${OUTLOUD} \
+${SAWFISH} ${OUTLOUD} ${DTKTTS} \
 ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile 
 
 # }}}
@@ -255,6 +260,7 @@ install:
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL)  ${DTKTTS}  $(libdir)/servers/software-dtk
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
 	cp   ${MISC}   $(libdir)/etc
