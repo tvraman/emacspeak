@@ -259,6 +259,22 @@ to skip to the next track. "
 (define-key mpg123-mode-map "K" 'emacspeak-mp3-playlist-stop)
 
 ;;}}}
+;;{{{ additional temporal navigation
+
+(defun emacspeak-mpg123-forward-minute (arg)
+  "Forw by ARG minutes."
+  (interactive "p")
+  (mpg123-forward (* 60 arg)))
+
+(defun emacspeak-mpg123-backward-minute (arg)
+  "Move back by specified number of minutes."
+  (interactive "p")
+  (mpg123-forward (* -60 arg)))
+
+(define-key mpg123-mode-map "\M-f"
+  'emacspeak-mpg123-forward-minute)
+(define-key mpg123-mode-map "\M-b" 'emacspeak-mpg123-backward-minute)
+;;}}}
 (provide 'emacspeak-mpg123)
 ;;{{{ end of file
 

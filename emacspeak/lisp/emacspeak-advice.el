@@ -1631,7 +1631,6 @@ Then indicate current buffer by speaking  the modeline."
   (when (interactive-p )
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
-
 (defadvice quit-window (after emacspeak pre act)
   "Produce an auditory icon to indicate closing of an object.
 Then indicate current buffer by speaking  the modeline."
@@ -1766,7 +1765,6 @@ Indicate change of selection with
   "Speak the help."
   (when (interactive-p)
     (emacspeak-speak-help )))
-
 (add-hook 'help-mode-hook
           (function
            (lambda nil
@@ -1908,7 +1906,7 @@ Provide an auditory icon if possible."
 (defadvice save-buffers-kill-emacs (after emacspeak pre act)
   "Play an auditory icon."
   (when (interactive-p )
-    (emacspeak-auditory-icon 'quit)))
+    (emacspeak-auditory-icon 'shutdown)))
 
 ;;{{{  composing mail
 
@@ -2615,11 +2613,13 @@ emacspeak running."
   (declare (special emacspeak-last-command-needs-minibuffer-spoken))
   (emacspeak-auditory-icon 'open-object)
   (when  emacspeak-last-command-needs-minibuffer-spoken
-    (tts-with-punctuations "all"
-                           (emacspeak-speak-line)
-                           (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
+    (unwind-protect
+        (tts-with-punctuations "all"
+                               (emacspeak-speak-line))
+      (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
 
-;(declaim (special minibuffer-setup-hook))
+
+
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
 (defun emacspeak-minibuffer-exit-hook ()
