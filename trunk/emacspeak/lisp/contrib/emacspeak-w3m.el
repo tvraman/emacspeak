@@ -313,6 +313,11 @@ ad-return-value)
   ad-return-value)
 
 
+(defadvice w3m (after emacspeak pre act comp)
+  (when (and (interactive-p)
+	     (eq (ad-get-arg 0) 'popup))
+    (emacspeak-speak-mode-line)))
+
 (defadvice w3m-close-window (after emacspeak pre act comp)
   "Produce auditory feedback."
   (when (interactive-p)
