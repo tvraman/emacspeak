@@ -61,7 +61,7 @@
 (defun tts-eflite ()
   "Use eflite TTS server."
   (interactive)
-  (let ((dtk-tcl "eflite"))
+  (let ((dtk-program "eflite"))
     (tts-restart)
     (message "This is Emacspeak! ")))
 
