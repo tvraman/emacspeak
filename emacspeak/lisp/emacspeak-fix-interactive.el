@@ -152,7 +152,7 @@ speak its prompts. "
                interactive-list))))))))))
 
 ;;}}}
-
+;;;###autoload
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  
 Fix the function definition of sym to make its interactive form
