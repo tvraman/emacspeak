@@ -121,11 +121,15 @@
 
 ;;}}}
 ;;{{{  Navigation
+(defcustom emacspeak-imenu-autospeak nil
+  "Speak contents of sections automatically if set."
+  :type 'boolean
+  :group 'emacspeak-imenu)
 
 (defun emacspeak-imenu-goto-next-index-position ()
   "Goto the next index position in current buffer"
-  (interactive)
   (declare (special emacspeak-imenu-flattened-index-alist
+                    emacspeak-imenu-autospeak
                     imenu--index-alist))
   (let ((position (point))
         (guess 0)
@@ -148,12 +152,15 @@
                 (setq target guess))))
     (goto-char target)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (if emacspeak-imenu-autospeak
+        (emacspeak-imenu-speak-this-section)
+    (emacspeak-speak-line))))
 
 (defun emacspeak-imenu-goto-previous-index-position ()
   "Goto the previous index position in current buffer"
   (interactive)
   (declare (special emacspeak-imenu-flattened-index-alist
+                    emacspeak-imenu-autospeak
                     imenu--index-alist))
   (let ((position (point))
         (guess 0)
@@ -176,7 +183,9 @@
                 (setq target guess))))
     (goto-char target)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (if emacspeak-imenu-autospeak
+        (emacspeak-imenu-speak-this-section)
+    (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{  speaking logical sections
