@@ -614,8 +614,8 @@ default-directory after switching."
   "Bring up or bring down ppp."
   (interactive)
   (if (emacspeak-wizards-ppp-status)
-      (emacspeak-sudo "ifdown ppp0")
-    (emacspeak-sudo "ifup ppp0")))
+      (emacspeak-sudo "ifdown ppp0  1>&- 2>&- &")
+    (emacspeak-sudo "ifup ppp0  1>&- 2>&- &")))
 
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
