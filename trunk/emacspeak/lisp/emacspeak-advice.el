@@ -1678,7 +1678,7 @@ Produce an auditory icon if possible."
   (cond
    ((interactive-p)
     (let ((dtk-stop-immediately nil))
-      (message (format "Kill buffer:  default  %s"
+      (dtk-speak (format "Kill buffer:  default  %s"
                          (buffer-name)))
       ad-do-it
       (emacspeak-auditory-icon 'close-object)
