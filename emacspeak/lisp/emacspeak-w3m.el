@@ -365,6 +365,7 @@
 
 (defadvice  w3m-w3m-dump-head-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
+  (require 'emacspeak-w3)
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
