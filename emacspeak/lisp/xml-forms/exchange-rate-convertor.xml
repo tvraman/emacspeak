@@ -17,7 +17,7 @@
             <select name="From" size="5">
               <option value="CAD">CAD Canada Dollars</option>
               <option selected="selected" value="USD">USD United States
-Dollars</option>
+              Dollars</option>
               <option value="EUR">EUR Euro</option>
               <option value="GBP">GBP United Kingdom Pounds</option>
               <option value="DEM">DEM Germany Deutsche Marks</option>
@@ -111,7 +111,7 @@ Dollars</option>
           <td>
             <select name="To" size="5" onchange="CheckMore()">
               <option value="USD" selected="selected">USD United States
-Dollars</option>
+              Dollars</option>
               <option value="CAD">CAD Canada Dollars</option>
               <option value="EUR">EUR Euro</option>
               <option value="GBP">GBP United Kingdom Pounds</option>

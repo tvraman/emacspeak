@@ -9,54 +9,54 @@ into a paragraph.
 -->
 
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
   
   <xsl:output method="html" indent="yes"
-              encoding="iso8859-15"/>
+  encoding="iso8859-15"/>
   
   <xsl:include href="identity.xsl"/>
-<!-- {nuke these elements. --> 
-
-<xsl:template match="script|meta|link"/>
-
-<!-- } -->
-<!-- {listify tables --> 
-<xsl:template match="/html/body">
+  <!-- {nuke these elements. --> 
+  
+  <xsl:template match="script|meta|link"/>
+  
+  <!-- } -->
+  <!-- {listify tables --> 
+  <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
         <caption>Tables Linearized</caption>
-<tr>
-<td><a href="#__about_linearize_tables">About This
-              Style</a></td>
-        </tr></table>
+        <tr>
+          <td><a href="#__about_linearize_tables">About This
+          Style</a></td>
+      </tr></table>
       <xsl:apply-templates />
     </xsl:element>
-
-<h2><a name="__about_linearize_tables">About This Style</a> </h2>
-
-      <p>
-Table contents are turned into a sequence of paragraphs, one per cell.
-  </p>
+    
+    <h2><a name="__about_linearize_tables">About This Style</a> </h2>
+    
+    <p>
+      Table contents are turned into a sequence of paragraphs, one per cell.
+    </p>
   </xsl:template>
-
-<xsl:template match="table">
-<div class="table">
-<xsl:apply-templates/>
-</div>
-</xsl:template>
-
-<xsl:template match="tr">
-<hr/>
-<xsl:apply-templates/>
-</xsl:template>
-<xsl:template match="td">
-<p>
-<xsl:apply-templates/>
-  </p>
-</xsl:template>
-<!-- } -->
+  
+  <xsl:template match="table">
+    <div class="table">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="tr">
+    <hr/>
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="td">
+    <p>
+      <xsl:apply-templates/>
+    </p>
+  </xsl:template>
+  <!-- } -->
 </xsl:stylesheet>
 
 <!--

@@ -14,8 +14,8 @@ This style-sheet is here mostly as  a sample template.
   <xsl:param name="class"/>
   <xsl:param name="base"/>
   <xsl:include href="identity.xsl"/>
-<!-- { html body  -->
-<!--add base uri if available. -->
+  <!-- { html body  -->
+  <!--add base uri if available. -->
   <xsl:template match="/html/head">
     <head>
       <xsl:element name="base">
@@ -26,30 +26,30 @@ This style-sheet is here mostly as  a sample template.
       <xsl:apply-templates/>
     </head>
   </xsl:template>
-<!-- nuke these -->
+  <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
-<!--
+        <!--
         <p>
-          <xsl:value-of select="name(.)"/>
+        <xsl:value-of select="name(.)"/>
         </p>
--->
+        -->
         <xsl:apply-templates/>
         <br/>
       </xsl:for-each>
       <h2>About This Document</h2>
       <p> Found <xsl:value-of select="count(//*[@class=$class])"/>
         nodes with <code>class</code> 
-<em><xsl:value-of select="$class"/></em> in
-<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-source document</xsl:element>
-    </p>
+        <em><xsl:value-of select="$class"/></em> in
+        <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
+        source document</xsl:element>
+      </p>
     </xsl:element>
   </xsl:template>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:

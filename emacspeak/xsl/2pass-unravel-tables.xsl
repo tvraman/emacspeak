@@ -28,8 +28,8 @@ applies rules from the first pass.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" indent="yes"/>
   <xsl:include href="identity.xsl"/>
-<!-- { html body  -->
-<!-- nuke these -->
+  <!-- { html body  -->
+  <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
@@ -41,10 +41,10 @@ applies rules from the first pass.
         <tr>
           <td>
             <a href="#__nested_tables">
-<xsl:value-of select="count(//table)"/> 
-tables of which 
-<xsl:value-of select="count(//table//table)"/>
-are nested</a>
+              <xsl:value-of select="count(//table)"/> 
+              tables of which 
+              <xsl:value-of select="count(//table//table)"/>
+            are nested</a>
           </td>
         </tr>
       </table>
@@ -53,9 +53,9 @@ are nested</a>
         <a name="__nested_tables" id="__nested_tables"> Nested Tables </a>
       </h2>
       <p>
-There are 
-<xsl:value-of select="count(//table//table)"/>
- nested tables in this page.</p>
+        There are 
+        <xsl:value-of select="count(//table//table)"/>
+      nested tables in this page.</p>
       <xsl:apply-templates select="//table//table" mode="second-pass"/>
       <h2>
         <a name="__about_unravel_tables">About This Style</a>
@@ -70,10 +70,10 @@ There are
       </p>
     </xsl:element>
   </xsl:template>
-<!-- rule that defers rendering of nested tables -->
+  <!-- rule that defers rendering of nested tables -->
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      Table <xsl:value-of select="position()"/><xsl:value-of select="@summary"/></xsl:element>
+    Table <xsl:value-of select="position()"/><xsl:value-of select="@summary"/></xsl:element>
   </xsl:template>
   <xsl:template match="//table//table" mode="second-pass">
     <xsl:element name="a">
@@ -86,7 +86,7 @@ There are
       </xsl:element>
     </xsl:element>
   </xsl:template>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:
