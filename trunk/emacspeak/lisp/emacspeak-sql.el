@@ -58,7 +58,6 @@
 ;;; sql-mode.el implemented by the above package
 ;;;sets up an Emacs to SQL interface where you can
 ;;;interactively evaluate SQL expressions.
-
 ;;; Code:
 
 ;;}}}
