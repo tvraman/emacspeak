@@ -98,6 +98,14 @@
 
 ;;}}}
 ;;{{{  hangman 
+
+(defun emacspeak-hangman-speak-statistics ()
+  "Speak statistics."
+  (interactive)
+   (message "         Games won: %d    Games Lost: %d"
+		    (aref hm-win-statistics 0)
+                    (aref hm-win-statistics 1)))
+
 (defun emacspeak-hangman-setup-pronunciations ()
   "Setup pronunciation dictionaries."
   (declare (special emacspeak-pronounce-pronunciation-table))
@@ -134,6 +142,7 @@
 
 (declaim (special hm-map))
 (define-key hm-map " " 'emacspeak-hangman-speak-guess)
+(define-key hm-map "=" 'emacspeak-hangman-speak-statistics)
 
 
 ;;}}}
