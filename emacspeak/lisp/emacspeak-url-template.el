@@ -1211,13 +1211,6 @@ plays entire program."
  "Open specified project page at SourceForge.")
 
 (emacspeak-url-template-define
- "sourceforge browse download" 
- "http://prdownloads.sourceforge.net/%s"
- (list "Project name")
- nil
- "Retrieve download page at Sourceforge for specified project.")
-
-(emacspeak-url-template-define
  "sourceforge browse mirrors" 
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
