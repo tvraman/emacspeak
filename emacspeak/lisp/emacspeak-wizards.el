@@ -1951,12 +1951,26 @@ directory to where find is to be launched."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-xslt-directory
-                    emacspeak-w3-xsl-p
-                    emacspeak-w3-xsl-transform))
-  (let ((emacspeak-w3-xsl-p t)
-        (emacspeak-w3-xsl-transform style))
-    (browse-url url)
-    (emacspeak-speak-mode-line)))
+                    emacspeak-w3-post-process-hook))
+  (save-excursion
+    (set-buffer (url-retrieve-synchronously url))
+    (let ((src-buffer (current-buffer))
+          (emacspeak-w3-xsl-p nil))
+          (emacspeak-xslt-region
+           style
+           (point-min)
+           (point-max)
+           (list
+            (cons "base"
+                  (format "\"'%s'\""
+                          url))))
+          (setq emacspeak-w3-post-process-hook
+                #'(lambda nil
+                    (emacspeak-speak-mode-line)
+                    (emacspeak-auditory-icon 'open-object)))
+          (emacspeak-w3-preview-this-buffer)
+          (kill-buffer src-buffer))))
+
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
