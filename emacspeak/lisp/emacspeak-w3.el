@@ -768,7 +768,6 @@ prefix arg causes url to be read from the minibuffer."
                    speak-result)
           (setq emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
-        (message "base is %s" source-url)
         (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
