@@ -10,6 +10,7 @@ documentation.
 * dtk-speak Options::           
 * emacspeak Options::           
 * emacspeak-advice Options::    
+* emacspeak-analog Options::    
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
 * emacspeak-calendar Options::  
@@ -29,6 +30,7 @@ documentation.
 * emacspeak-jde Options::       
 * emacspeak-keymap Options::    
 * emacspeak-loaddefs Options::  
+* emacspeak-m-player Options::  
 * emacspeak-ocr Options::       
 * emacspeak-outline Options::   
 * emacspeak-personality Options::  
@@ -46,6 +48,7 @@ documentation.
 * emacspeak-tnt Options::       
 * emacspeak-vm Options::        
 * emacspeak-w3 Options::        
+* emacspeak-w3m Options::       
 * emacspeak-websearch Options::  
 * emacspeak-widget Options::    
 * emacspeak-wizards Options::   
@@ -166,6 +169,20 @@ Personality used for highlighting comint prompts --emacs 21.
 * Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken.
+@end defvar
+
+@node emacspeak-analog Options
+@section emacspeak-analog Options
+
+Commentary:
+Speech-enables package analog --convenient log analyzer 
+
+Automatically generated documentation
+for options defined in module  emacspeak-analog.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-analog-entry-header-personality
+Personality used for header lines.
 @end defvar
 
 @node emacspeak-auctex Options
@@ -667,6 +684,21 @@ Name of executable that plays sound files.
 
 @defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
+@end defvar
+
+@node emacspeak-m-player Options
+@section emacspeak-m-player Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-m-player.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-m-player-options
+Options passed to mplayer.
+@end defvar
+
+@defvar {User Option} emacspeak-m-player-program
+Media player program.
 @end defvar
 
 @node emacspeak-ocr Options
@@ -1310,6 +1342,53 @@ HTML.
 @defvar {User Option} emacspeak-w3-xsl-transform
 Specifies transform to use before displaying a page.
 Nil means no transform is used. 
+@end defvar
+
+@node emacspeak-w3m Options
+@section emacspeak-w3m Options
+
+Commentary:
+
+
+
+Automatically generated documentation
+for options defined in module  emacspeak-w3m.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-w3m-bold-personality
+w3m-bold-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-button-personality
+w3m-form-button-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-personality
+w3m-form-button-pressed-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-personality
+Personality for forms.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-personality
+w3m-header-line-location-title-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-personality
+Image personality.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-personality
+w3m-tab-selected-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-personality
+w3m-tab-unselected-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-personality
+w3m-underline-face
 @end defvar
 
 @node emacspeak-websearch Options

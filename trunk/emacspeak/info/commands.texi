@@ -9,6 +9,7 @@ documentation.
 @menu
 * dtk-speak::                   
 * emacspeak::                   
+* emacspeak-analog::            
 * emacspeak-arc::               
 * emacspeak-aumix::             
 * emacspeak-bs::                
@@ -41,6 +42,7 @@ documentation.
 * emacspeak-info::              
 * emacspeak-keymap::            
 * emacspeak-kotl::              
+* emacspeak-m-player::          
 * emacspeak-man::               
 * emacspeak-mpg123::            
 * emacspeak-ocr::               
@@ -327,6 +329,39 @@ Give a brief overview of emacspeak.
 @kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node emacspeak-analog
+@section emacspeak-analog
+
+Commentary:
+Speech-enables package analog --convenient log analyzer 
+
+Automatically generated documentation
+for commands defined in module  emacspeak-analog.
+
+@deffn {Interactive Command} emacspeak-analog-backward-field-or-char ()
+Move back to next field if field specification is available.
+Otherwise move to previous char.
+Speak field or char moved to.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-analog-forward-field-or-char ()
+Move forward to next field if field specification is available.
+Otherwise move to next char.
+Speak field or char moved to.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-analog-next-line ()
+Move down and speak current field.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-analog-previous-line ()
+Move up and speak current field.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-analog-speak-this-field ()
+Speak current field.
 @end deffn
 
 @node emacspeak-arc
@@ -1387,6 +1422,68 @@ Setup additional keybindings
 @deffn {Interactive Command} emacspeak-kotl-speak-cell (ARG)
 Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+@end deffn
+
+@node emacspeak-m-player
+@section emacspeak-m-player
+
+Automatically generated documentation
+for commands defined in module  emacspeak-m-player.
+
+@deffn {Interactive Command} emacspeak-m-player (RESOURCE)
+@kbd{ control e : }
+
+Play specified resource using m-player.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-alt-src-step (STEP)
+Move within an ASF playlist.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-mode ()
+Major mode for m-player interaction. 
+
+key             binding
+---             -------
+
+q		emacspeak-m-player-quit
+SPC		emacspeak-m-player-pause
+a		emacspeak-m-player-alt-src-step
+P		emacspeak-m-player-play-tree-up
+p		emacspeak-m-player-play-tree-step
+S		emacspeak-m-player-seek-absolute
+s		emacspeak-m-player-seek-relative
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
+
+This mode runs the hook `emacspeak-m-player-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-pause ()
+Pause or unpause media player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-play-tree-step (STEP)
+Move within the play tree.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-play-tree-up (STEP)
+Move within the play tree.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-quit ()
+Quit media player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-seek-absolute (POSITION)
+Seek  to absolute specified position.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-seek-relative (OFFSET)
+Seek  by offset into stream from current position.
 @end deffn
 
 @node emacspeak-man
@@ -4410,14 +4507,6 @@ during initialization.
 
 Automatically generated documentation
 for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-m-player ()
-@kbd{ control e : }
-
-Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
 
 @deffn {Interactive Command} emacspeak-speak-current-field ()
 @kbd{ control e . }
