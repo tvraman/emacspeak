@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE article PUBLIC "-//Arbortext//DTD DocBk XML V2.0//EN" "/usr/share/sgml/docbook/xml-dtd-4.1.2-1.0-8/docbookx.dtd">
-<?xml-stylesheet href="/usr/share/sgml/docbook/xsl-stylesheets/html/docbook.xsl"
-type="text/xsl"?>
+<?xml-stylesheet href="tips.xsl" type="text/xsl"?>
 
 <article>
   <articleinfo>
