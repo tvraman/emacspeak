@@ -323,6 +323,7 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+
 (autoload 'emacspeak-m-player "emacspeak-m-player"
   "Emacspeak media player access."
   t)
@@ -358,7 +359,7 @@ functions for details.   "
   "Emacs interface to freeamp" t)
 (autoload 'cd-tool "cd-tool" 
   "Play music CDs from Emacs" t)
-(put 'emacspeak-aumix 'custom-loads '("emacspeak-aumix"))
+
 (mapcar 
  (function
   (lambda (f)
@@ -467,6 +468,44 @@ the block. Use in conjunction with emacspeak-hide-or-expose-block"
 
 (autoload 'emacspeak-realaudio-stop "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
+
+;;}}}
+;;{{{ autoload  custom groups 
+(put 'voice-lock 'custom-loads '("voice-lock"))
+(put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards"))
+(put 'emacspeak-widget 'custom-loads '("emacspeak-widget"))
+(put 'emacspeak-websearch 'custom-loads '("emacspeak-websearch"))
+(put 'emacspeak-w3 'custom-loads '("emacspeak-w3"))
+(put 'emacspeak-vm 'custom-loads '("emacspeak-vm"))
+(put 'emacspeak-view-process 'custom-loads '("emacspeak-view-process"))
+(put 'emacspeak-table-ui 'custom-loads '("emacspeak-table-ui"))
+(put 'emacspeak-speedbar 'custom-loads '("emacspeak-speedbar"))
+(put 'emacspeak-speak 'custom-loads '("emacspeak-speak"))
+(put 'emacspeak-remote 'custom-loads '("emacspeak-remote"))
+(put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
+(put 'emacspeak-ocr 'custom-loads '("emacspeak-ocr"))
+(put 'emacspeak-m-player 'custom-loads '("emacspeak-m-player"))
+(put 'emacspeak-midge 'custom-loads '("emacspeak-midge"))
+(put 'emacspeak-ispell 'custom-loads '("emacspeak-ispell"))
+(put 'emacspeak-imcom 'custom-loads '("emacspeak-imcom"))
+(put 'emacspeak-forms 'custom-loads '("emacspeak-forms"))
+(put 'emacspeak-flyspell 'custom-loads '("emacspeak-flyspell"))
+(put 'emacspeak-eudc 'custom-loads '("emacspeak-eudc"))
+(put 'emacspeak-eterm 'custom-loads '("emacspeak-eterm"))
+(put 'emacspeak-eshell 'custom-loads '("emacspeak-eshell"))
+(put 'emacspeak-erc 'custom-loads '("emacspeak-erc"))
+(put 'emacspeak 'custom-loads '("emacspeak"))
+(put 'emacspeak-ediff 'custom-loads '("emacspeak-ediff"))
+(put 'emacspeak-dismal 'custom-loads '("emacspeak-dismal"))
+(put 'emacspeak-daisy 'custom-loads '("emacspeak-daisy"))
+(put 'emacspeak-aumix 'custom-loads '("emacspeak-aumix"))
+(put 'dtk-speak 'custom-loads '("dtk-speak"))
 
 ;;}}}
 ;;{{{ Package Setup Helper
