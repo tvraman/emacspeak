@@ -1417,6 +1417,7 @@ Extracted content is placed as a csv file in task.csv."
     (erase-buffer)
     (message "Exit recursive edit when done.")
     (recursive-edit)
+    (local-set-key "\C-c\C-c" 'exit-recursive-edit)
     (setq annotation (buffer-string))
     (bury-buffer)
     annotation))
@@ -1433,8 +1434,10 @@ annotation is inserted into the working buffer when complete."
   (when  (or reset
              (null emacspeak-annotate-working-buffer))
     (setq emacspeak-annotate-working-buffer
+          (get-buffer-create
           (read-buffer "Annotation working buffer: "
-                       (cadr (emacspeak-annotate-make-buffer-list)))))
+                       (cadr
+                        (emacspeak-annotate-make-buffer-list))))))
   (let ((annotation nil)
         (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
