@@ -470,6 +470,8 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'xml-mode-hook
          'makefile-mode-hook
          'tex-mode-hook
+         'TeX-mode-hook
+         'LaTeX-mode-hook
          'tcl-mode-hook
          'html-helper-mode-hook
          'scheme-mode-hook
