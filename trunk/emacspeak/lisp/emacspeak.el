@@ -323,6 +323,9 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+(autoload 'emacspeak-daisy-open-book "emacspeak-daisy"
+  "Digital Talking Books on the Emacspeak Desktop."
+  t)
 (autoload 'emacspeak-ocr "emacspeak-ocr"
   "OCR front-end for Emacspeak desktop"
   t)
