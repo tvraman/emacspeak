@@ -93,7 +93,11 @@
 (defun emacspeak-freeamp-freeamp-call-command ()
   "Call appropriate freeamp command."
   (interactive)
-  (emacspeak-freeamp-freeamp-command last-input-char))
+  (emacspeak-freeamp-freeamp-command last-input-char)
+  (when (char-equal last-input-char ?q)
+    (emacspeak-aumix-reset)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 (define-key emacspeak-freeamp-mode-map  "o" 'emacspeak-freeamp)
 (loop for c in emacspeak-freeamp-freeamp-keys
