@@ -218,7 +218,7 @@ This helps pull in all emacspeak modules cleanly.")
      emacspeak-modules-dependency-alist)
     (emacspeak-generate-texinfo-command-documentation
      "commands.texi")
-(emacspeak-generate-documentation
+    (emacspeak-generate-documentation
      "../etc/DOC")
     (emacspeak-generate-texinfo-option-documentation
      "options.texi")))
