@@ -36,6 +36,7 @@
 
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
+set tts(old_rate) 0
 
 # }}}
 # {{{ procedures  
@@ -181,11 +182,16 @@ proc r {rate} {
 # {{{ speech task 
 
 proc speech_task {}  {
-    global queue tts
+    global queue tts 
     set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
-    say "\[_]\[:sa c]\[:np]\[:ra $r]\[:pu $mode]" 
+    say "\[_]\[:sa c]\[:np]\[]\[:pu $mode]" 
+    if {$tts(old_rate) != $r } {
+        say "\[:ra $r]" 
+        set tts(old_rate) $r
+    }
+   
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
@@ -196,7 +202,7 @@ proc speech_task {}  {
             }
             t {
                 set text  [lindex $event 1]
-                say " $text "
+                say "\[:np] $text "
             }
             a {
                 set sound [lindex $event 1]
@@ -300,6 +306,7 @@ load $tclTTS/tcldtk.so
 synth   {[:phoneme arpabet speak on ]
     [:pu s ]
     [:sa c]
+    [:np]
     Via  Software DecTalk, This,  is   Eamakspeak! 
 }
 #Start the main command loop:
