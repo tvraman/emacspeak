@@ -213,7 +213,7 @@ in the white-space."
 
 ;;}}}
 ;;{{{ Parse a region of tabular data
-
+;;;###autoload
 (defun ems-tabulate-parse-region (start end)
   "Parse  region as tabular data and return a vector of vectors"
   (let ((table nil)
