@@ -46,11 +46,15 @@
 ;;; This module is IBM ViaVoice Outloud specific.
 
 ;;}}}
-;; 
+;;{{{ Required modules
+
 ;;; Code:
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (load-library "cl-extra"))
+(require 'acss-structure)
+
+;;}}}
 ;;{{{  voice table
 
 (defvar tts-default-voice 'paul 
@@ -134,16 +138,330 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice 'inaudible " `vv0 ")
 
 ;;}}}
-;;{{{  return list of all defined voices
+;;{{{  Mapping css parameters to tts codes
 
-(defun outloud-voice-personality-list ()
-  "Return list of all defined voices."
-  (declare (special outloud-voice-table))
-  (loop for key being the hash-keys of outloud-voice-table
-	collect key ))
+;;{{{ voice family codes
+
+(defsubst outloud-get-family-code (name)
+  "Get control code for voice family NAME."
+  (outloud-get-voice-command-internal name))
 
 ;;}}}
-;;{{{ default speech rate 
+;;{{{  hash table for mapping families to their dimensions
+
+(defvar outloud-css-code-tables (make-hash-table)
+  "Hash table holding vectors of outloud codes.
+Keys are symbols of the form <FamilyName-Dimension>.
+Values are vectors holding the control codes for the 10 settings.")
+
+(defsubst outloud-css-set-code-table (family dimension table)
+  "Set up voice FAMILY.
+Argument DIMENSION is the dimension being set,
+and TABLE gives the values along that dimension."
+  (declare (special outloud-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (setf  (gethash key outloud-css-code-tables) table )))
+
+(defsubst outloud-css-get-code-table (family dimension)
+  "Retrieve table of values for specified FAMILY and DIMENSION."
+  (declare (special outloud-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (gethash key outloud-css-code-tables)))
+
+;;}}}
+;;{{{ volume
+
+(defvar outloud-gain-table (make-vector  10 "")
+  "Maps CSS volume settings to actual synthesizer codes.")
+
+;;}}}
+;;{{{  average pitch
+
+;;; Average pitch for standard male voice is 65 --this is mapped to
+;;; a setting of 5.
+;;; Average pitch varies inversely with speaker head size --a child
+;;; has a small head and a higher pitched voice.
+;;; We change parameter head-size in conjunction with average pitch to
+;;; produce a more natural change on the TTS engine.
+
+;;{{{  paul average pitch
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+            (first setting)
+            (format " `vb%s `vh%s "
+                    (second setting)
+                    (third setting)))))
+   '(
+     (0 0 90)
+     (1 13 81 )
+     (2 26 72)
+     (3 39 63)
+     (4 52 54  )
+     (5 65 50)
+     (6 74 40)
+     (7 83 30 )
+     (8 87 26)
+     (9 92 21)))
+  (outloud-css-set-code-table 'paul 'average-pitch table ))
+
+;;}}}
+;;{{{  harry average pitch
+
+(let ((table (make-vector 10 "")))
+
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+            (first setting)
+            (format " `vb%s `vh% s"
+                    (second setting)
+                    (third setting)))))
+   '(
+     (0 0 90)
+     (1 10 85 )
+     (2 20 80)
+     (3 30 70)
+     (4 40 60)
+     (5 50 60)
+     (6 60 50)
+     (7 70 40 )
+     (8 80 30)
+     (9 90 20)))
+  (outloud-css-set-code-table 'harry 'average-pitch table ))
+
+;;}}}
+;;{{{  betty average pitch
+
+;;;defalt baseline is average pitch of 81 
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vb%s `vh% s"
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 5 70)
+     (1 17 66)
+     (2 33 62)
+     (3 49 58)
+     (4 65 54 )
+     (5 81  50)
+     (6 85 55)
+     (7 89  60)
+     (8 93 65)
+     (9 97 69)))
+  (outloud-css-set-code-table 'betty 'average-pitch table ))
+
+;;}}}
+
+(defsubst outloud-get-average-pitch-code (value family)
+  "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
+  (or family (setq family 'paul))
+  (aref (outloud-css-get-code-table family 'average-pitch)
+	value))
+
+;;}}}
+;;{{{  pitch range
+
+;;;  Standard pitch range is 30 and is  mapped to
+;;; a setting of 5.
+;;; A value of 0 produces a flat monotone voice --maximum value of 100
+;;; produces a highly animated voice.
+
+;;{{{  paul pitch range
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vf%s  "
+		    (second setting)))))
+   '(
+     (0 0 )
+     (1 5 )
+     (2  15)
+     (3  20)
+     (4  25 )
+     (5  30 )
+     (6  47)
+     (7  64)
+     (8  81)
+     (9  100)))
+  (outloud-css-set-code-table 'paul 'pitch-range table ))
+
+;;}}}
+;;{{{  harry pitch range
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vf%s  "
+		    (second setting)))))
+   '(
+     (0 0 )
+     (1 5 )
+     (2  15)
+     (3  20)
+     (4  25 )
+     (5  30 )
+     (6  47)
+     (7  64)
+     (8  81)
+     (9  100)))
+  (outloud-css-set-code-table 'harry 'pitch-range table ))
+
+;;}}}
+;;{{{  betty pitch range
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+            (first setting)
+            (format " `vf%s  "
+                    (second setting)))))
+   '(
+     (0 0 )
+     (1 5 )
+     (2  15)
+     (3  20)
+     (4  25 )
+     (5  30 )
+     (6  47)
+     (7  64)
+     (8  81)
+     (9  100)))
+  (outloud-css-set-code-table 'betty 'pitch-range table ))
+
+;;}}}
+(defsubst outloud-get-pitch-range-code (value family)
+  "Get pitch-range code for specified VALUE and FAMILY."
+  (or family (setq family 'paul))
+  (aref (outloud-css-get-code-table family 'pitch-range)
+	value))
+
+;;}}}
+;;{{{  stress
+
+;;; On the outloud we map stress to roughness
+;;{{{  paul stress
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table (first setting)
+            (format " `vr%s " (second setting)))))
+   '(
+     (0 0 )
+     (1 0 )
+     (2  0)
+     (3  0)
+     (4  0 )
+     (5  0 )
+     (6  5)
+     (7  10)
+     (8  15)
+     (9  20)
+     ))
+  (outloud-css-set-code-table 'paul 'stress table)
+  (outloud-css-set-code-table 'harry 'stress table)
+  (outloud-css-set-code-table 'betty  'stress table))
+
+;;}}}
+(defsubst outloud-get-stress-code (value family)
+  (or family (setq family 'paul ))
+  (aref (outloud-css-get-code-table family 'stress)
+        value))
+
+;;}}}
+;;{{{  richness
+
+;;{{{  paul richness
+
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+            (first setting)
+            (format " `vv%s "
+                    (second setting)))))
+   '(
+     (0 60)
+     (1 78)
+     (2 80)
+     (3 84)
+     (4 88)
+     (5 92)
+     (6 93)
+     (7 95)
+     (8 97 )
+     (9 100)))
+  (outloud-css-set-code-table 'paul 'richness table)
+  (outloud-css-set-code-table 'harry 'richness table)
+  (outloud-css-set-code-table 'betty 'richness table))
+
+;;}}}
+
+(defsubst outloud-get-richness-code (value family)
+  (or family (setq family 'paul))
+  (aref (outloud-css-get-code-table family 'richness)
+        value))
+
+;;}}}
+
+;;}}}
+;;{{{  outloud-define-voice-from-speech-style
+
+(defun outloud-define-voice-from-speech-style (name style)
+  "Define NAME to be a outloud voice as specified by settings in STYLE."
+  (let* ((family(acss-family style))
+	 (command
+	  (concat 
+	   (outloud-get-family-code family)
+	   (outloud-get-average-pitch-code (acss-average-pitch style) family)
+	   (outloud-get-pitch-range-code (acss-pitch-range style) family)
+	   (outloud-get-stress-code (acss-stress style ) family)
+	   (outloud-get-richness-code (acss-richness style) family))))
+    (outloud-define-voice name command)))
+
+;;}}}
+;;{{{  outloud-personality-from-speech-style
+
+(defun outloud-personality-from-speech-style (style)
+  "First compute a symbol that will be name for this STYLE.
+Then see if a voice defined for it.
+Finally return the symbol"
+  (cond
+   ((= 0 (acss-gain style))
+    'inaudible)
+   (t
+    (let ((name (intern
+                 (format "%s-a%s-p%s-s%s-r%s"
+                         (acss-family style)
+                         (acss-average-pitch style)
+                         (acss-pitch-range style)
+                         (acss-stress style)
+                         (acss-richness style)))))
+      (unless (outloud-voice-defined-p name)
+        (outloud-define-voice-from-speech-style name style))
+      name))))
 
 ;;}}}
 (provide 'outloud-voices)

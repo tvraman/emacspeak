@@ -96,8 +96,7 @@
       (setf (acss-pitch-range style) style-parameter)
       (setf (acss-richness style) color-parameter)
       (setf (acss-stress style) style-parameter)
-      ;(dtk-define-voice-from-speech-style voice-name style)
-      )
+      (tts-define-voice-from-speech-style voice-name style))
     voice-name))
 
 (defadvice ansi-color-set-extent-face (after emacspeak pre act comp)
