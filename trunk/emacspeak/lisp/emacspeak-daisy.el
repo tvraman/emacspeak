@@ -106,9 +106,10 @@
 
 
 
-(defsubst emacspeak-daisy-resolve-uri (relative base)
-  "Resolve relative URI with respect to emacspeak-daisy-base-uri."
-  (expand-file-name relative base))
+(defsubst emacspeak-daisy-resolve-uri (relative book)
+  "Resolve relative URI with respect to base URI of book."
+  (expand-file-name relative
+                    (emacspeak-daisy-book-base book)))
 
 ;;}}}
 ;;{{{ find element by id 
@@ -364,6 +365,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
+(define-key emacspeak-daisy-mode-map "s" 'emacspeak-daisy-stop-audio)
 (define-key emacspeak-daisy-mode-map " "
   'emacspeak-daisy-play-audio-under-point)
 (define-key emacspeak-daisy-mode-map "\C-m"
