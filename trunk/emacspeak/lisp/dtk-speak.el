@@ -629,7 +629,7 @@ Argument OUTPUT is the newly arrived output."
 ;;}}}
 ;;{{{ helper --generate state switcher:
 
-(defun dtk-speak-generate-state-switcher (command switch documentation )
+(defun ems-generate-switcher (command switch documentation )
   "Generate desired command to switch the specified state."
   (eval
    `(defun ,command  (&optional prefix)
@@ -729,20 +729,20 @@ current local  value to the result."
              dtk-character-scale
              (if  prefix ""  "locally"))))
 
-(dtk-speak-generate-state-switcher 'dtk-toggle-quiet
+(ems-generate-switcher 'dtk-toggle-quiet
                                    'dtk-quiet
                                    "Toggles state of  dtk-quiet.
 Turning on this switch silences speech.
 Optional interactive prefix arg causes this setting to become global.")
 
-(dtk-speak-generate-state-switcher 'dtk-toggle-stop-immediately-while-typing
+(ems-generate-switcher 'dtk-toggle-stop-immediately-while-typing
                                    'dtk-stop-immediately-while-typing
                                    "Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
 type.  Optional argument PREFIX specifies if the setting applies
 to all buffers.")
 
-(dtk-speak-generate-state-switcher 'dtk-toggle-split-caps
+(ems-generate-switcher 'dtk-toggle-split-caps
                                    'dtk-split-caps
                                    "Toggle split caps mode.
 Split caps mode is useful when reading
@@ -750,21 +750,21 @@ Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.")
 
-(dtk-speak-generate-state-switcher' dtk-toggle-capitalization
+(ems-generate-switcher' dtk-toggle-capitalization
                                    'dtk-capitalize
                                    "Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
-(dtk-speak-generate-state-switcher' dtk-toggle-speak-nonprinting-chars
+(ems-generate-switcher' dtk-toggle-speak-nonprinting-chars
                                    'dtk-speak-nonprinting-chars
                                    "Toggle speak-nonprinting-chars.
 Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
-(dtk-speak-generate-state-switcher'dtk-toggle-allcaps-beep
+(ems-generate-switcher'dtk-toggle-allcaps-beep
                                    'dtk-allcaps-beep
                                    "Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
@@ -773,7 +773,7 @@ value, and then set the current local value to the result.
 Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
-(dtk-speak-generate-state-switcher 'dtk-toggle-debug
+(ems-generate-switcher 'dtk-toggle-debug
                                    'dtk-debug
 "Toggle state of the debug FLAG.
 When debugging is on, you can switch to the buffer
