@@ -1,0 +1,17 @@
+#!/usr/bin/perl -w
+#$Id$
+#Display Calendar invites in a readable form.
+use strict;
+my  %fields =qw(
+                DTSTART  Start
+DTEND End
+DESCRIPTION Description
+SUMMARY Summary
+LOCATION Location
+);
+while (<>){
+chomp;
+my ($f, $v) =split(':');
+  my $key=$fields{$f};
+  print "$key:\t$v\n" if defined($key);
+}
