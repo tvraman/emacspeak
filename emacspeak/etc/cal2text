@@ -4,15 +4,30 @@
 use strict;
 my  %fields =qw(
                 DTSTART  Start
-DTEND End
-DESCRIPTION Description
-SUMMARY Summary
-LOCATION Location
-);
+                DTEND End
+ATTENDEE Attendee 
+                DESCRIPTION Description
+                SUMMARY Summary
+                LOCATION Location
+               );
 print "\n\n";
-while (<>){
-chomp;
-my ($f, $v) =split(':');
+my @lines;
+my $i=0;
+while (<>) {
+  chomp;
+  if (/^\s/) {
+    s/^\s+//g;
+    $lines[$i-1] .= $_;
+  } else {
+    $lines[$i]=$_;
+    $i++;
+  }
+}
+my $j;
+for ($j=0; $j<$i; $j++) {
+  $_ = $lines[$j];
+  chomp;
+  my ($f, $v) =split(/[:;]/);
   my $key=$fields{$f};
   print "$key:\t$v\n" if defined($key);
 }
