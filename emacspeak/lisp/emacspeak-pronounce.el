@@ -792,7 +792,7 @@ specified pronunciation dictionary key."
 ;;}}}
 ;;{{{ phone numbers
 
-(defvar emacspeak-pronounce-us-phone-number-pattern "1?[0-9]\\{3\\}-[0-9]\\{3\\}-[0-9]\\{4\\}"
+(defvar emacspeak-pronounce-us-phone-number-pattern "1?-?[0-9]\\{3\\}-[0-9]\\{3\\}-[0-9]\\{4\\}"
   "Pattern that matches US phone numbers.")
 
 (defun emacspeak-pronounce-us-phone-number (phone)
