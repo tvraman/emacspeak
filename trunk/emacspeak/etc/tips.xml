@@ -14,29 +14,52 @@
     </title>
     <abstract>
       <para>
-        This document is a collection of tips for using the
+        This document is a collection of productivity tips for using the
         Emacspeak audio desktop.
       </para>
     </abstract>
   </articleinfo>
   
   <qandaset>
-    <title>Productivity Tips</title>
     <qandadiv>
       <title>Online Help</title>
+      <qandaentry>
+        <question>
+
+          <para>
+            Getting help.</para>
+        </question>
+        <answer>
+          <para>
+            Online documentation is accessed using commands available on key
+            <command><keysym>C-h</keysym></command>. The
+            type of help obtained is determined by the
+            keypress following <command ><keysym>C-h</keysym></command>.
+            <simplelist type="vert">
+              <member>
+                <command><keysym>c</keysym></command>
+                to lookup command run by a given key.
+              </member>
+              <member>
+                <command><keysym>k</keysym></command>
+                to  look up documentation for a given key.
+              </member>
+            </simplelist>
+          </para>
+        </answer>
+      </qandaentry>
       <qandaentry>
         <question>
           <para> Online hypertext help.</para>
         </question>
         <answer>
           <para>
-            Invoke the online hypertext help system 
-            (<command>info</command>) by
-            pressing 
+            Invoke the online hypertext help system
+            (<command>info</command>) by pressing
             <command><keysym>C-h i</keysym></command>.
-            Press <command><keysym>h</keysym></command> when using 
-            the <application>Info</application> to
-              obtain a primer for first time users.
+            Press <command><keysym>h</keysym></command> when
+            using the <application>Info</application> to
+            obtain a primer for first time users.
           </para>
         </answer>
       </qandaentry>
@@ -48,8 +71,59 @@
         <answer>
           <para>
             Press <command><keysym> C-h C-k </keysym></command>followed
-                by the key whose documentation you wish to
-                locate.
+            by the key whose documentation you wish to
+            locate.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>
+            Opening info page that documents a given command.
+          </para>
+        </question>
+        <answer>
+          <para>
+            Press <command><keysym>C-h
+                C-f</keysym></command>
+            and specify the command name when prompted.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>
+            Picking from available choices.</para>
+        </question>
+        <answer>
+          <para>
+            Hitting the <command><keysym>tab</keysym></command>
+            causes Emacs to complete the currently typed input as far as
+            possible.
+            If there is more than one choice available, Emacspeak plays
+            auditory icon <emphasis>help</emphasis>
+            and speaks the available choices.  At this point, you can
+            input more characters to unambiguously specify the
+            choice. Alternative, you can browse the
+            completion list which is typically displayed in
+            another window in a buffer called 
+            <literal>*Completions*</literal>.</para>
+          
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>
+            Minibuffer prompting and completion.</para>
+        </question>
+        <answer>
+          <para>
+            Emacs uses the <emphasis>minibuffer</emphasis> when
+            obtaining user input for a given command.
+            While using completion in the minibuffer by
+            hitting <command><keysym>tab</keysym></command>
+            you can switch to the 
+            <literal>*Completions*</literal>
+            buffer by pressing command <command><keysym>C-o</keysym></command>.
           </para>
         </answer>
       </qandaentry>
@@ -64,11 +138,11 @@
         <answer>
           <para>
             Use command <command>
-                                 dired</command>
+              dired</command>
             (directory editor) normally bound to
             <command><keysym>
                 C-x d              </keysym></command>
-             to operate on files and folders.
+            to operate on files and folders.
           </para>
         </answer>
       </qandaentry>
@@ -80,13 +154,13 @@
           <para>
             Use <command>locate</command>
             and <command>
-                         locate-with-filter</command> to
+              locate-with-filter</command> to
             find files and folders on your hard drive.
             Matching files and folders are displayed using
             the same interface as provided by command
             <command>dired</command>.  These
             commands use the <database>
-                                       locate database</database> that
+              locate database</database> that
             is typically rebuilt nightly on standard Linux
             systems.
           </para>
@@ -100,7 +174,7 @@
         <answer>
           <para>
             Use commands <command>
-                                  find-name-dired</command>, <command>find-grep-dired</command> and
+              find-name-dired</command>, <command>find-grep-dired</command> and
             <command>find-dired</command> to use UNIX
             <application>find</application> to locate files
             and folders on your hard drive.
