@@ -649,9 +649,7 @@ text using wvText."
             vm-mime-attachment-auto-type-alist
             vm-mime-type-converter-alist
             emacspeak-vm-pdf2text
-            emacspeak-vm-doc2text
-          
-            ))
+            emacspeak-vm-doc2text))
   (setq
    vm-infer-mime-types t
    vm-mime-decode-for-preview nil

@@ -2,7 +2,7 @@
 #for use in vm
 #Description: Install  package xlhtml to obtain xlhtml
 #http://www.xlhtml.org
-if which xlhtml
+if which xlhtml > /dev/null
 then
     tempfile=/tmp/xlhtml-$$.xls
     cat > $tempfile
