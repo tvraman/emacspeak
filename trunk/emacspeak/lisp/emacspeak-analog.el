@@ -234,18 +234,18 @@ Speak field or char moved to."
 (define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
 (define-key analog-mode-map '[down] 'emacspeak-analog-next-line)
 (defun emacspeak-analog-update-edit-keys ()
-  "We define keys that invoke editting commands to invoke emacspeak-wizards-speak-and-skip-extent-upto-char "
+  "We define keys that invoke editting commands to invoke
+emacspeak-wizards-speak-and-skip-extent-upto-char "
+  (declare (special analog-mode-map))
   (loop for k in
-        (where-is-internal 'emacspeak-self-insert-command
-                           analog-mode-map)
+        (where-is-internal 'emacspeak-self-insert-command)
         do
-        (define-key keymap k
+        (define-key analog-mode-map k
           'emacspeak-wizards-speak-and-skip-extent-upto-char ))
 (loop for k in
-        (where-is-internal 'completion-separator-self-insert-autofilling
-                           analog-mode-map)
+        (where-is-internal 'completion-separator-self-insert-command)
         do
-        (define-key keymap k
+        (define-key analog-mode-map k
           'emacspeak-wizards-speak-and-skip-extent-upto-char )))
 
 ;;}}}
