@@ -442,7 +442,16 @@ from English to German.")
 
 ;;}}}
 ;;{{{ yahoo daily news 
-
+(emacspeak-url-template-define
+ "Yahoo RSS Feeds"
+ "http://news.yahoo.com/rss"
+ nil
+ nil
+ "List Yahoo RSS Feeds."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//a[contains(@href,\"rss\")]"
+      url 'speak)))
 (defun emacspeak-url-template-yahoo-news-processor (url)
   "Process and speak Yahoo news."
   (declare (special emacspeak-w3-post-process-hook))
