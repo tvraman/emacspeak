@@ -132,11 +132,18 @@
 (defun emacspeak-widget-help-editable-field (widget)
   "Summarize an editable field"
   (let ((value (widget-value widget))
-        (help-echo (widget-get  widget :help-echo)))
+        (help-echo (widget-get  widget :help-echo))
+        (tag (widget-get widget :tag))
+        (type (widget-type widget)))
+    (when tag
+      (put-text-property 0 (length tag)
+                         'personality 'harry tag))
     (when help-echo
       (put-text-property 0 (length help-echo)
                          'personality 'paul-animated help-echo))
-    (concat 
+    (concat
+      (format " %s " type)
+       (or tag " ")
      (or help-echo " ")
      (or value " blank "))))
 
@@ -155,6 +162,29 @@
 
 (widget-put (get 'item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-item)
+
+;;}}}
+;;{{{ visibility 
+
+(defun emacspeak-widget-help-visibility (widget)
+  "Summarize visibility widget"
+  (let* ((value (widget-value widget))
+         (help-echo (widget-get widget :help-echo))
+         (tag (widget-get widget :tag)))
+    (when help-echo
+      (put-text-property 0 (length help-echo)
+                         'personality 'paul-animated
+                         help-echo))
+    (if value
+        (emacspeak-auditory-icon 'open-object)
+      (emacspeak-auditory-icon 'close-object))
+    (concat
+     (or tag " ")
+     (or  help-echo
+          (if value " hide  " " show  ")))))
+
+(widget-put (get 'item 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-visibility)
 
 ;;}}}
 ;;{{{  push button 
