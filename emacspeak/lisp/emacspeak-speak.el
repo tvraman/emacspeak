@@ -1921,6 +1921,20 @@ achieved by a change in voice personality."
      (concat context line))))
 
 ;;}}}
+;;{{{ speaking personality chunks
+(defun emacspeak-speak-this-personality-chunk ()
+  "Speak chunk of text around point that has current
+personality."
+  (interactive)
+  (let ((personality (get-text-property (point) 'personality))
+        (start (previous-single-property-change (point) 'personality))
+(end (next-single-property-change  (point) 'personality)))
+(emacspeak-speak-region
+ (or start (point-min))
+ (or end (point-max)))))
+  
+
+;;}}}
 ;;{{{  Execute command repeatedly, browse
 
 (defun emacspeak-execute-repeatedly (command)
