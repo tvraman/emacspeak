@@ -1348,7 +1348,7 @@ With optional interactive prefix arg MAP shows the location map instead."
 		      emacspeak-w3-url-rewrite-rule
 		      '("$" "&printer=1"))))
   (emacspeak-w3-xslt-filter
-   "/html/body/table[6]//p"
+   "/descendant::table[18]//td[1]"
    (concat emacspeak-websearch-news-yahoo-uri
            (format "p=%s&n=20&c=news"
                    (webjump-url-encode query)))
