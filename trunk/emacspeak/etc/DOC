@@ -113,16 +113,6 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 
 ------------------------------------------------------------
 
-** dtk-set-pronunciation-mode	Key Sequence: control e d m 
-
-Set pronunciation MODE.
-This command is valid only for newer
-Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
-europe, spell', all of which can be turned on or off.
-Argument STATE specifies new state.
-
-------------------------------------------------------------
-
 ** dtk-set-punctuations	Key Sequence: control e d p 
 
 Set punctuation mode to MODE.
@@ -387,6 +377,15 @@ Speaks the most recently displayed appointment message if any.
 
 ------------------------------------------------------------
 
+** emacspeak-daisy-define-outline-patternDefine persistent outline regexp for this book.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-mark-position-in-content-under-pointMark current position in displayed content.
+No-op if content under point is not currently displayed.
+
+------------------------------------------------------------
+
 ** emacspeak-daisy-modeA DAISY front-end for the Emacspeak desktop.
 
 Pre-requisites:
@@ -412,12 +411,15 @@ key             binding
 ---             -------
 
 P		emacspeak-daisy-play-page-range
-p		previous-line
-n		next-line
 RET		emacspeak-daisy-play-content-under-point
 SPC		emacspeak-daisy-play-audio-under-point
 q		bury-buffer
+S		emacspeak-daisy-save-bookmarks
+o		emacspeak-daisy-define-outline-pattern
+p		emacspeak-daisy-previous-line
+n		emacspeak-daisy-next-line
 s		emacspeak-daisy-stop-audio
+m		emacspeak-daisy-mark-position-in-content-under-point
 ?		describe-mode
 
 
@@ -425,6 +427,10 @@ s		emacspeak-daisy-stop-audio
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
 during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-next-lineMove to next line.
 
 ------------------------------------------------------------
 
@@ -447,6 +453,14 @@ navigation buffer that can be used to browse and read the book.
 ------------------------------------------------------------
 
 ** emacspeak-daisy-play-page-rangePlay pages in specified page range.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-previous-lineMove to previous line.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-save-bookmarksSave bookmarks for current book.
 
 ------------------------------------------------------------
 
@@ -572,6 +586,18 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-ecb-tree-backspaceBack up during incremental search in tree buffers.
+
+------------------------------------------------------------
+
+** emacspeak-ecb-tree-clearClear search pattern during incremental search in tree buffers.
+
+------------------------------------------------------------
+
+** emacspeak-ecb-tree-expand-common-prefixExpand to longest common prefix in tree buffer.
+
+------------------------------------------------------------
+
 ** emacspeak-ecb-tree-shift-returnDo shift return in ECB tree browser.
 
 ------------------------------------------------------------
@@ -593,11 +619,31 @@ Useful in voicifying rich text.
 
 ------------------------------------------------------------
 
+** emacspeak-eperiodic-goto-property-sectionMark position and jump to properties section.
+
+------------------------------------------------------------
+
+** emacspeak-eperiodic-next-lineMove to next row and speak element.
+
+------------------------------------------------------------
+
+** emacspeak-eperiodic-previous-lineMove to next row and speak element.
+
+------------------------------------------------------------
+
+** emacspeak-eperiodic-speak-current-elementSpeak element at point.
+
+------------------------------------------------------------
+
 ** emacspeak-erc-add-name-to-monitorAdd people to monitor in this room.
 
 ------------------------------------------------------------
 
 ** emacspeak-erc-delete-name-from-monitorRemove name to monitor in this room.
+
+------------------------------------------------------------
+
+** emacspeak-erc-setup-cricket-rulesSet up #cricket channels.
 
 ------------------------------------------------------------
 
@@ -1165,7 +1211,8 @@ s		emacspeak-m-player-seek-relative
 
 
 
-This mode runs the hook `emacspeak-m-player-mode-hook', as the final step
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization.
 
 ------------------------------------------------------------
@@ -1454,6 +1501,12 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-define-pronunciationInteractively define entries in the pronunciation dictionaries.
+Default term to define is delimited by region.
+First loads any persistent dictionaries if not already loaded.
+
+------------------------------------------------------------
+
+** emacspeak-pronounce-define-template-pronunciationInteractively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
 
@@ -1852,11 +1905,10 @@ Automatically defined advice to speak interactive prompts.
 
 ** emacspeak-speak-browse-buffer	Key Sequence: control e , 
 
-Browse the current buffer by reading it a paragraph at a
-time.
-Optional interactive prefix arg define-paragraph 
-prompts for regexp that defines paragraph start and
-paragraph-separate. 
+Browse current buffer.
+Default is to speak chunk having current personality.
+Interactive prefix arg `browse'  repeatedly browses  through
+  chunks having same personality as the current text chunk.
 
 ------------------------------------------------------------
 
@@ -1904,12 +1956,11 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 ** emacspeak-speak-continuously	Key Sequence: control e RETURN 
 
 Speak a buffer continuously.
-First prompts using the minibuffer for the kind of action to perform after
-speaking each chunk.
-E.G.  speak a line at a time etc.
-Speaking commences at current buffer position.
-Pressing  C-g breaks out, leaving point on last chunk that was spoken.
- Any other key continues to speak the buffer.
+First prompts using the minibuffer for the kind of action to
+perform after speaking each chunk.  E.G.  speak a line at a time
+etc.  Speaking commences at current buffer position.  Pressing
+C-g breaks out, leaving point on last chunk that
+was spoken.  Any other key continues to speak the buffer.
 
 ------------------------------------------------------------
 
@@ -2040,6 +2091,13 @@ the sense of the filter.
 
 ------------------------------------------------------------
 
+** emacspeak-speak-load-directory-settingsLoad a directory specific Emacspeak settings file.
+This is typically used to load up settings that are specific to
+an electronic book consisting of many files in the same
+directory.
+
+------------------------------------------------------------
+
 ** emacspeak-speak-message-again	Key Sequence: control e a 
 
 Speak the last message from Emacs once again.
@@ -2082,6 +2140,11 @@ Speak the mode-line.
 Skip across and speak the next contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
+
+------------------------------------------------------------
+
+** emacspeak-speak-next-personality-chunkMoves to the front of next chunk having current personality.
+Speak that chunk after moving.
 
 ------------------------------------------------------------
 
@@ -2159,6 +2222,11 @@ Semantics  of `other' is the same as for the builtin Emacs command
 Skip backwards across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
+
+------------------------------------------------------------
+
+** emacspeak-speak-previous-personality-chunkMoves to the front of previous chunk having current personality.
+Speak that chunk after moving.
 
 ------------------------------------------------------------
 
@@ -2242,6 +2310,11 @@ Speak the white space at point.
 ------------------------------------------------------------
 
 ** emacspeak-speak-spell-current-wordSpell word at  point.
+
+------------------------------------------------------------
+
+** emacspeak-speak-this-personality-chunkSpeak chunk of text around point that has current
+personality.
 
 ------------------------------------------------------------
 
@@ -2802,6 +2875,10 @@ used as well.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-customize-base-uri-pronunciationDefines custom buffer local pronunciation for base URI.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-do-onclickDo  onclick action.
 
 ------------------------------------------------------------
@@ -2826,7 +2903,7 @@ completion.
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-media-streamsExtract links to media streams.
-operate on current web page when in a W3 buffer; otherwise
+operate on current web page when in a W3 buffer; otherwise prompt for url.
 `prompt-url' is the URL to process. Prompts for URL when called
 interactively. Optional arg `speak' specifies if the result should be
 spoken automatically.
@@ -3017,6 +3094,10 @@ Optional arg COMPLEMENT inverts the filter.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-ibm-internalSearch IBM using trevi
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-alltheweb-searchPerform an AllTheWeb  search.
 
 ------------------------------------------------------------
@@ -3026,10 +3107,6 @@ Optional arg COMPLEMENT inverts the filter.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-amazon-searchAmazon search.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-appwatch-searchSearch AppWatch  Site. 
 
 ------------------------------------------------------------
 
@@ -3050,10 +3127,6 @@ Optional arg COMPLEMENT inverts the filter.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-citeseer-searchPerform a CiteSeer search. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-cnn-searchPerform an CNN search.  
 
 ------------------------------------------------------------
 
@@ -3091,26 +3164,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-emacspeak-archive	Key Sequence: control h  cap E    <f1>  cap E    <help>  cap E  
-
-Search Emacspeak mail archives.
-For example to find messages about Redhat at the Emacspeak
-archives, type +redhat
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-exchange-rate-convertorCurrency convertor.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-fn-cnn-searchPerform an CNN FNsearch.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 ------------------------------------------------------------
 
@@ -3157,25 +3211,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-hotbot-searchPerform a Hotbot  search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-hotbot-options to an appropriate string.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-inference-searchPerform an Inference search.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-machine-translatePerform a machine translation request
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-map-directions-searchGet driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
 
@@ -3201,10 +3236,6 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-packages-linuxSearch for Linux packages.
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-people-yahooPerform an Yahoo  people search
 
 ------------------------------------------------------------
@@ -3220,15 +3251,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-real-tunerSearch using Real Tuner from Real Networks.
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-recorded-books-searchPresent advanced search form for recorded books.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-redhatSearch RedHat site.
 
 ------------------------------------------------------------
 
@@ -3248,10 +3271,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-streaming-audio-searchSearch for streaming audio. 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-teomaPerform an Teoma  search.
 
 ------------------------------------------------------------
@@ -3263,11 +3282,7 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-vector-vest-searchLook up VectorVest reports .
-
-------------------------------------------------------------
-
-** emacspeak-websearch-vickers-searchSearch Vickers insider trading.
+** emacspeak-websearch-usenet-searchSearch a Usenet newsgroup.
 
 ------------------------------------------------------------
 
@@ -3547,13 +3562,6 @@ Speak host name.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-load-directory-settingsLoad a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory.
-
-------------------------------------------------------------
-
 ** emacspeak-speak-popup-messages	Key Sequence: control h  cap M    <f1>  cap M    <help>  cap M  
 
 Pop up messages buffer.
@@ -3808,6 +3816,15 @@ key             binding
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-rivoRivo wizard.
+Prompts for relevant information and schedules a rivo job using
+  UNIX AT scheduling facility.
+RIVO is implemented by rivo.pl ---
+ a Perl script  that can be used to launch realaudio and record
+   streaming media for  a specified duration.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-rpm-query-in-diredRun rpm -qi on current dired entry.
 
 ------------------------------------------------------------
@@ -3847,12 +3864,20 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncerToggle pronunciation of mm-dd-yyyy dates.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-tpctl-display-statusShow display status on thinkpads using tpctl.
 
 ------------------------------------------------------------
 
 ** emacspeak-wizards-tramp-open-locationOpen specified tramp location.
 Location is specified by name.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-unitsRun units in a comint sub-process.
 
 ------------------------------------------------------------
 
@@ -3881,6 +3906,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-vc-viewer-refreshRefresh view of VC we're viewing.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-vi-as-su-fileLaunch sudo vi on specified file in a terminal.
 
 ------------------------------------------------------------
 
