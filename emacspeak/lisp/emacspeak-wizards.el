@@ -1528,7 +1528,8 @@ annotation is inserted into the working buffer when complete."
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
-  (declare (special emacspeak-xslt-program))
+  (declare (special emacspeak-xslt-program
+                    modification-flag nil))
   (let ((parameters (when params 
                       (mapconcat 
                        #'(lambda (pair)
@@ -1544,7 +1545,8 @@ part of the libxslt package."
                                      xsl )
                              (current-buffer)
                              'replace
-                             "*xslt errors*")))
+                             "*xslt errors*")
+    (setq modification-flag nil)))
 
 ;;}}}
 ;;{{{  run rpm -qi on current dired entry
