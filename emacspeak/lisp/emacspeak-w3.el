@@ -1093,7 +1093,6 @@ current page."
     ad-do-it))(provide 'emacspeak-w3)
 
 ;;}}}
-
 ;;{{{  emacs local variables 
 
 ;;; local variables:
