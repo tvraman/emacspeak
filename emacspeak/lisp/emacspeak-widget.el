@@ -88,17 +88,19 @@ Returns a string with appropriate personality."
 (defsubst emacspeak-widget-help-echo (w)
   "Return help-echo with appropriate personality."
   (let ((h (widget-get w :help-echo))
-         (help nil))
+        (help nil))
     (setq help
-    (cond
-     ((and h (fboundp h))
- (widget-apply w :help-echo))
-     ((and h (stringp h)) h)
-      (t nil)))
+          (cond
+           ((and h
+                 (symbolp h)
+                 (fboundp h))
+            (widget-apply w :help-echo))
+           ((and h (stringp h)) h)
+           (t nil)))
     (when help
-    (put-text-property 0 (length help)
-                       'personality 'paul-animated help)
-  help)))
+      (put-text-property 0 (length help)
+                         'personality 'paul-animated help)
+      help)))
 
 ;;}}}
 ;;{{{  define summarizer
