@@ -1734,7 +1734,7 @@ Optional second arg `set' sets the TZ environment variable as well."
 ;;}}}
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
-Optional interactive prefix arg invokes world clock.
+Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
