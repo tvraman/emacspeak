@@ -17,8 +17,29 @@
             <label for="as_epq">Exact Phrase</label>
             <input id="as_epq" type="text" size="25" value="" name="as_epq"/>
           </td>
+          <td>
+            <select id="cat" name="cat">
+              <option value="0" selected="selected">Any </option>
+              <option value="1">Apparel &amp; Accessories</option>
+              <option value="1538">Arts &amp;
+              Entertainment</option>
+              <option value="139">Auto &amp; Vehicles</option>
+              <option value="155">Baby</option>
+              <option value="193">Books, Music &amp; Video</option>
+              <option value="389">Computers</option>
+              <option value="433">Electronics</option>
+              <option value="522">Flowers</option>
+              <option value="527">Food &amp; Gourmet</option>
+              <option value="627">Health &amp; Personal
+              Care</option>
+              <option value="726">Home &amp; Garden</option>
+              <option value="1085">Office</option>
+              <option value="1140">Sports &amp; Outdoors</option>
+              <option value="1272">Toys &amp; Games</option>
+            </select>
+          </td>
         </tr>
-<tr>
+        <tr>
           <td>
             <label for="as_oq">Partial match</label>
             <input id="as_oq" type="text" size="25" value="" name="as_oq"/>
@@ -27,69 +48,38 @@
             <label for="as_eq">Not Containing</label>
             <input id="as_eq" type="text" size="25" value="" name="as_eq"/>
           </td>
-        </tr>
-        <tr>
           <td>
-            <label for="limit">Price Limit </label>
-<input id="limit" type="radio" name="price" value="under" checked="checked"/>
-          </td>
-          <td><label for="price0">Less than</label>
-                             $<input id="price0" size="6" value="" name="price0"/></td>
-        </tr>
-        <tr>
-          <td>Price Range <input type="radio" name="price" value="between"/> </td>
-          <td>$<input id="price1" size="6" value="" name="price1"/>
-                            and $
-                            <input size="6" value="" name="price2"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="cat">Category</label>
-              <select id="cat" name="cat">
-                <option value="0" selected="selected">Any
-                          Category</option>
-                <option value="1">Apparel &amp;
-                          Accessories</option>
-                <option value="1538">Arts &amp;
-                          Entertainment</option>
-                <option value="139">Auto &amp;
-                          Vehicles</option>
-                <option value="155">Baby</option>
-                <option value="193">Books, Music &amp;
-                          Video</option>
-                <option value="389">Computers</option>
-                <option value="433">Electronics</option>
-                <option value="522">Flowers</option>
-                <option value="527">Food &amp;
-                          Gourmet</option>
-                <option value="627">Health &amp; Personal
-                          Care</option>
-                <option value="726">Home &amp;
-                          Garden</option>
-                <option value="1085">Office</option>
-                <option value="1140">Sports &amp;
-                          Outdoors</option>
-                <option value="1272">Toys &amp;
-                          Games</option>
-              </select>
-            </td>
-          <td>
-            <label for="num">Matches</label>
             <select id="num" name="num">
               <option value="10" selected="selected">10
-                                results</option>
-              <option value="20">20
-                                results</option>
-              <option value="30">30
-                                results</option>
-              <option value="50">50
-                                results</option>
-              <option value="100">100
-                                results</option>
+              results</option>
+              <option value="20">20 results</option>
+              <option value="30">30 results</option>
+              <option value="50">50 results</option>
+              <option value="100">100 results</option>
             </select>
           </td>
+        </tr>
+        <tr>
           <td>
+            <label for="limit">Price Limit</label>
+            <input id="limit" type="radio" name="price" value="under" checked="checked"/>
+          </td>
+          <td><label for="price0">Less than</label>
+          $
+          <input id="price0" size="6" value="" name="price0"/></td>
+        </tr>
+        <tr>
+          <td>Price Range 
+          <input type="radio" name="price" value="between"/>
+          </td>
+          <td>$
+          <input id="price1" size="6" value="" name="price1"/>
+          and $ 
+          <input size="6" value="" name="price2"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
             <input type="submit" name="btnG" value="Froogle Search"/>
           </td>
         </tr>
