@@ -241,7 +241,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15896 27077))
+;;;;;;  "emacspeak-rss.el" (15896 64593))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))

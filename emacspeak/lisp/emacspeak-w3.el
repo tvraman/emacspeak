@@ -1042,7 +1042,7 @@ used as well."
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
-(defun emacspeak-wizards-browse-xml-url-with-style (style url)
+(defun emacspeak-w3-browse-xml-url-with-style (style url)
   "Browse XML URL with specified XSL style."
   (interactive
    (list
