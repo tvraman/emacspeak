@@ -49,12 +49,14 @@
 ;;; This module speech-enables ECB
 
 ;;}}}
-;;{{{  advice interactive commands.
+;;{{{  advice interactive commands
+
 (defadvice ecb-activate (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -72,7 +74,6 @@
         ecb-nav-goto-next
         ecb-nav-goto-previous
         ecb-goto-window-compilation
-        ecb-eshell-goto-eshell
         ecb-goto-window-directories 
         ecb-goto-window-sources 
         ecb-goto-window-methods 
@@ -87,11 +88,13 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
+
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
+
 ;;}}}
 ;;{{{  inform tree browser about emacspeak
 
