@@ -17,8 +17,9 @@ info: *.texi
 
 commands.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
-	rm -f *.info*
+	rm -f *.info* emacspeak.html
 	make
+	make emacspeak.html
 
 options.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
@@ -60,7 +61,7 @@ emacspeak.pdf:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-emacspeak.html: emacspeak.texi
+emacspeak.html: emacspeak.texi 
 	makeinfo --no-split --html  emacspeak.texi
 	perl add-css.pl emacspeak.html
 

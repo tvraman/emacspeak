@@ -4139,6 +4139,11 @@ Browse  Emacspeak productivity tips.
 Count slides starting from point.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-find-grep (GLOB PATTERN)
+Run compile using find and grep. 
+Interactive  arguments specify filename pattern and search pattern.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-find-longest-line-in-region (START END)
 Find longest line in region.
 Moves to the longest line when called interactively.
