@@ -594,7 +594,7 @@ default-directory after switching."
 (defun emacspeak-wizards-tpctl-display-status ()
   "Show display status on thinkpads using tpctl."
   (interactive)
-  (emacspeak-sudo "tpctl --dull --sdi"))
+  (emacspeak-sudo "tpctl --dull --sdi | tail -1"))
 
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
