@@ -18,20 +18,16 @@ asks that nodes be processed only once -use with care.
   <xsl:param name="path"/>
   <xsl:param name="base"/>
   
-  <xsl:template  name="do-copy">
-    <xsl:copy-of select="."/>
-  </xsl:template>
-  
   <xsl:template match="*|@*" mode="copy" >
     <xsl:choose>
       <xsl:when test="$uniquify=1">
         <xsl:variable name="i" select="$locator"/>
         <xsl:if test="not(set:intersection(ancestor::*, $i))">
-          <xsl:copy-of select="."/>
+          <xsl:copy-of select="."/><br/>
         </xsl:if>
       </xsl:when>      
       <xsl:otherwise>
-        <xsl:copy-of select="."/>
+        <xsl:copy-of select="."/><br/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
