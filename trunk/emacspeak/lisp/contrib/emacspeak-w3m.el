@@ -34,9 +34,11 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'w3m nil t)
+(require 'w3m-form nil t)
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
+(require 'emacspeak-wizards)
 
 ;;}}}
 ;;{{{ keybindings 
@@ -52,6 +54,23 @@
 ;;}}}
 ;;{{{ helpers
 
+;;; The following definitions through fset are needed because at the
+;;; time of compilation w3m-el may be unavailable and corresponding
+;;; macros not working.
+
+(defun emacspeak-w3m-anchor ())
+(fset 'emacspeak-w3m-anchor
+      (byte-compile '(lambda () (w3m-anchor))))
+
+(defun emacspeak-w3m-action ())
+(fset 'emacspeak-w3m-action
+      (byte-compile '(lambda () (w3m-action))))
+
+(defun emacspeak-w3m-form-get (form name))
+(fset 'emacspeak-w3m-form-get
+      (byte-compile '(lambda (form name)
+		       (w3m-form-get form name))))
+
 (defsubst emacspeak-w3m-personalize-string (string personality)
   (let ((newstring (copy-sequence string)))
     (put-text-property 0 (length newstring)
@@ -60,23 +79,41 @@
     newstring))
 
 ;;}}}
+;;{{{ personalities
+
+(defvar emacspeak-w3m-form-personality 'paul-animated)
+(defvar emacspeak-w3m-button-personality 'harry)
+(defvar emacspeak-w3m-disabled-personality 'harry)
+
+;;}}}
 ;;{{{ anchors
+
+(defvar emacspeak-w3m-speak-action-alist
+  '((w3m-form-input . emacspeak-w3m-speak-form-input)
+    (w3m-form-input-radio . emacspeak-w3m-speak-form-input-radio)
+    (w3m-form-input-select . emacspeak-w3m-speak-form-input-select)
+    (w3m-form-input-textarea . emacspeak-w3m-speak-form-input-textarea)
+    (w3m-form-submit . emacspeak-w3m-speak-form-submit)
+    (w3m-form-input-password . emacspeak-w3m-speak-form-input-password)
+    (w3m-form-reset . emacspeak-w3m-speak-form-reset)))
+
 
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
   (if (get-text-property (point) 'w3m-cursor-anchor)
       (buffer-substring
-       (previous-single-property-change (1+ (point)) 'w3m-cursor-anchor)
-       (next-single-property-change (point) 'w3m-cursor-anchor))
+       (previous-single-property-change
+	(1+ (point)) 'w3m-cursor-anchor nil (point-min))
+       (next-single-property-change
+	(point) 'w3m-cursor-anchor nil (point-max)))
     (or default "")))
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
   (dtk-speak (emacspeak-w3m-anchor-text "Not found")))
 
-
 (defun emacspeak-w3m-speak-this-anchor ()
-  (let ((url (w3m-anchor))
-	(act (w3m-action)))
+  (let ((url (emacspeak-w3m-anchor))
+	(act (emacspeak-w3m-action)))
     (cond
      (url (emacspeak-w3m-speak-cursor-anchor))
      ((consp act)
@@ -97,7 +134,7 @@
 	   type
 	   name
 	   (emacspeak-w3m-personalize-string
-	    (or (w3m-form-get form name) value)
+	    (or (emacspeak-w3m-form-get form name) value)
 	    emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-input-password (form name)
@@ -120,10 +157,10 @@
 
 (defun emacspeak-w3m-speak-form-input-radio (form name value)
   (and dtk-stop-immediately (dtk-stop))
-  (let* ((active (equal value (w3m-form-get form name)))
+  (let* ((active (equal value (emacspeak-w3m-form-get form name)))
 	 (personality (if active
 			  emacspeak-w3m-form-personality
-			emacspeak-w3m-button-personality))
+			emacspeak-w3m-disabled-personality))
 	 (dtk-stop-immediately nil))
     (emacspeak-auditory-icon (if active 'on 'off))
     (dtk-speak
@@ -160,19 +197,6 @@
 	    "reset"
 	    emacspeak-w3m-button-personality))))
 
-
-(defvar emacspeak-w3m-form-personality 'paul-animated)
-(defvar emacspeak-w3m-button-personality 'harry)
-
-(defvar emacspeak-w3m-speak-action-alist
-  '((w3m-form-input . emacspeak-w3m-speak-form-input)
-    (w3m-form-input-radio . emacspeak-w3m-speak-form-input-radio)
-    (w3m-form-input-select . emacspeak-w3m-speak-form-input-select)
-    (w3m-form-input-textarea . emacspeak-w3m-speak-form-input-textarea)
-    (w3m-form-submit . emacspeak-w3m-speak-form-submit)
-    (w3m-form-input-password . emacspeak-w3m-speak-form-input-password)
-    (w3m-form-reset . emacspeak-w3m-speak-form-reset)))
-
 ;;}}}
 ;;{{{  advice interactive commands.
 
@@ -207,8 +231,8 @@
     (emacspeak-w3m-speak-this-anchor)))
 
 (defadvice w3m-view-this-url (around emacspeak pre act comp)
-  (let ((url (w3m-anchor))
-	(act (w3m-action)))
+  (let ((url (emacspeak-w3m-anchor))
+	(act (emacspeak-w3m-action)))
     ad-do-it
     (when (and (interactive-p)
 	       (not url)
@@ -255,19 +279,27 @@
 
 ;;}}}
 ;;{{{ TVR: applying XSL
+
+(defvar emacspeak-w3m-xsl-p nil
+  "*T means we apply XSL transformation before displaying HTML.")
+
+(defvar emacspeak-w3m-xsl-transform nil
+  "Specifies transform to use before displaying a page.
+Nil means no transform is used.")
+
 (defadvice  w3m-w3m-dump-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
-  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+  (when (and emacspeak-w3m-xsl-p emacspeak-w3m-xsl-transform)
     (emacspeak-xslt-region
-     emacspeak-w3-xsl-transform
+     emacspeak-w3m-xsl-transform
      (point-min)
      (point-max))))
 
 (defadvice  w3m-w3m-dump-head-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
-  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+  (when (and emacspeak-w3m-xsl-p emacspeak-w3m-xsl-transform)
     (emacspeak-xslt-region
-     emacspeak-w3-xsl-transform
+     emacspeak-w3m-xsl-transform
      (point-min)
      (point-max))))
 
