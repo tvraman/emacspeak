@@ -789,6 +789,5 @@ cap C   Save clip to disk
 (put 'emacspeak-aumix 'custom-loads '("emacspeak-aumix"))
 (put 'tts 'custom-loads '("tts"))
 
-
 ;;;***
 
