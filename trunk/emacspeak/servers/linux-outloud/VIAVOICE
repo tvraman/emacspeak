@@ -1,10 +1,10 @@
 $Id$
 Notes On Using IBM ViaVoice Outloud (Software TTS) with Emacspeak:
 
-IBM ViaVoice TTS (Text To Speech) formerly known as IBM
-ViaVoice Outloud is a text to speech synthesis engine that
-allows you to produce synthetic speech from text using a
-sound card. Note that ViaVoice TTS is no longer available on the Internet.
+IBM ViaVoice TTS (Text To Speech) formerly known as IBM ViaVoice
+Outloud is a text to speech synthesis engine that allows you to
+produce synthetic speech from text using a sound card. The TTS engine
+can be obtained from the RedHat FTP site --see below.
 
 * Pre-requisites:
 
@@ -12,6 +12,7 @@ You need to obtain  and install the IBM ViaVoice TTS
 (previously called Outloud) engine.  The The ViaVoice TTS  engine
 itself is not distributed as part of this package --see 
 ftp://people.redhat.com/jlamb
+linked from 
 http://www.redhat.com/services/techsupport/accessibility/s1-access-install.html
 
 You should only need to install the RTK (runtime toolkit).
@@ -44,10 +45,13 @@ your problem.
 
 
 If you have only installed the RTK,
+first build the ViaVoice TTS server by:
+
+cd servers/linux-outloud 
+make
 try starting the ViaVoice speech server by typing 
 
-bash $ tcl
-/usr/share/emacs/site-lisp/emacspeak/servers/outloud 
+bash $ tcl /usr/share/emacs/site-lisp/emacspeak/servers/outloud 
 at the shell prompt.
 
 Only after verifying that the TTS engine works and that you
@@ -62,15 +66,11 @@ normal way.  See the Emacspeak Makefile for instructions.
 
 ** Compiling Outloud Support For Emacspeak:
 
-You need not do this step with Emacspeak 15.0 and later.
-
 Change to the linux-outloud subdirectory 
 of the Emacspeak source distribution.
    make 
 This should compile the Emacspeak Outloud TCL library to
 produce a file called tcleci.so.
-Note that you need to have the SDK installed to execute this
-step successfully.
 
 * Testing:
 
@@ -79,11 +79,8 @@ support works.  The ViaVoice Outloud speech server is called
 outloud and is installed in the emacspeak directory along
 with other speech servers.
 
-To test this server, do:
-   tcl <full path to outloud>
-This should speak a welcome message and display a tcl>
-   prompt
-if all is well.
+To test this server, do: tcl <full path to outloud> This should speak
+a welcome message and display a tcl> prompt if all is well.
    
 * Using Outloud With Emacspeak:
 
