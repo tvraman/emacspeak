@@ -319,6 +319,7 @@ Return buffer that holds the result of playing the content."
    "navLabel"
    "navLisp"
    "navMap"
+   "navPoint"
    "navTarget")
   "Daisy XML elements.")
 
