@@ -905,11 +905,11 @@ To leave, press \\[keyboard-quit]."
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-		       (symbol-file a)
-		       (symbol-file b))
+		       (symbol-file (cons 'defvar a))
+		       (symbol-file (cons 'defvar b)))
                       t)
-                     ((string-equal (symbol-file a)
-                                    (symbol-file b))
+                     ((string-equal (symbol-file (cons 'defvar a))
+                                    (symbol-file (cons 'defvar b)))
                       (string-lessp
                        (symbol-name a)
                        (symbol-name b)))
