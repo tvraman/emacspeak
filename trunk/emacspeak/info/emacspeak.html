@@ -2294,7 +2294,199 @@ info documentation.
 
 
 
-<H1><A NAME="SEC48" HREF="emacspeak_toc.html#TOC48">Running Terminal Based Applications</A></H1>
+<H1><A NAME="SEC48" HREF="emacspeak_toc.html#TOC48">subsection OCR --Reading Print Documents</A></H1>
+<P>
+Module <EM>emacspeak-ocr</EM>
+implements 
+an OCR front-end for the Emacspeak desktop.  
+
+
+<P>
+Page image is acquired using tools from package <EM>SANE</EM> (Scanner
+Access Now Easy).  The acquired image is run through the OCR engine if
+one is available, and the results placed in a buffer that is suitable
+for browsing the results. This buffer is placed in mode
+<EM>emacspeak-ocr-mode</EM>
+a specialized mode for reading and scanning documents.
+
+
+
+
+<H4><A NAME="SEC49" HREF="emacspeak_toc.html#TOC49">Emacspeak OCR Mode</A></H4>
+
+<P>
+Emacspeak OCR mode is a special major  mode for document scanning and  OCR.
+ 
+ 
+
+
+<P>
+Pre-requisites:
+
+
+
+<UL>
+
+<LI>A working scanner back-end like SANE on Linux.
+
+<LI>An OCR engine.
+
+</UL>
+
+<P>
+ Make sure your scanner back-end works, and that you have the utilities
+to scan a document and acquire an image as a tiff file.  Then set
+variable <VAR>emacspeak-ocr-scan-image-program</VAR> to point at this
+utility.  By default, this is set to `scanimage' which is the image
+scanning utility provided by SANE.
+
+
+<P>
+By default, this front-end attempts to compress the acquired
+tiff image; make sure you have a utility like <CODE>tiffcp</CODE>.
+Variable <VAR>emacspeak-ocr-compress-image</VAR> is set to `tiffcp' by
+default; if you use something else, you should customize
+this variable.
+
+
+<P>
+Next, make sure you have an OCR engine installed and working.  By
+default this front-end assumes that OCR is available as <CODE>/usr/bin/ocr</CODE>.
+
+
+<P>
+Once you have ensured that acquiring an image and applying
+OCR to it work independently of Emacs, you can use this
+Emacspeak front-end to enable easy OCR access from within
+Emacspeak.
+
+
+<P>
+The Emacspeak OCR front-end is launched by command emacspeak-ocr bound
+to <KBD>C-e C-o</KBD>.
+
+
+<P>
+This command switches to a special buffer that has OCR
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+
+<P>
+emacspeak-ocr-mode provides the necessary functionality to
+scan, OCR, read and save documents.  By default, scanned
+images and the resulting text are saved under directory
+<CODE>~/ocr</CODE>; see variable <VAR>emacspeak-ocr-working-directory</VAR>.
+Invoking command emacspeak-ocr-open-working-directory bound
+to <KBD>d</KBD> will open this directory.
+
+
+<P>
+By default, the document being scanned is named `untitled'.
+You can name the document by using command
+emacspeak-ocr-name-document bound to
+<KBD>n</KBD>.  The document name is used
+in constructing the name of the image and text files.
+
+
+<P>
+Here is a list of all emacspeak OCR commands along with their
+key-bindings and a brief description:
+<DL COMPACT>
+
+<DT><KBD><KBD>digit</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-page</EM>
+Jumps to specified page in the OCR output.
+
+<DT><KBD><KBD>c</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-set-compress-image-options</EM>
+
+Interactively update  image compression options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session.
+
+<DT><KBD><KBD>i</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-set-scan-image-options</EM>
+Interactively update scan image options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session.
+
+<DT><KBD><KBD>spc</KBD></KBD>
+<DD>
+             <EM>emacspeak-ocr-read-current-page</EM>
+Speaks current page.
+<DT><KBD><KBD>s</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-save-current-page</EM>
+Saves current page as a text file.
+
+<DT><KBD><KBD>p</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-page</EM>
+Prompts for a page number and moves to the specified page.
+
+<DT><KBD><KBD>]</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-forward-page</EM>
+Move forward to the next page.
+
+<DT><KBD><KBD>[</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-backward-page</EM>
+Move back to the previous page.
+
+<DT><KBD><KBD>d</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-open-working-directory</EM>
+Open directory containing the results of OCR.
+
+<DT><KBD><KBD>n</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-name-document</EM>
+Name current document.
+
+<DT><KBD><KBD>o</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-recognize-image</EM>
+Launch OCR engine on a scanned image.
+
+<DT><KBD><KBD>i</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-scan-image</EM>
+Acquire an image using <CODE>scanimage</CODE>.
+
+<DT><KBD><KBD>RET</KBD></KBD>
+<DD>
+             <EM>emacspeak-ocr-scan-and-recognize</EM>
+Scan and recognize a page.
+
+<DT><KBD><KBD>w</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-write-document</EM>
+Write all pages of current document to a text file.
+
+<DT><KBD><KBD>q</KBD></KBD>
+<DD>
+               <EM>bury-buffer</EM>
+Bury the OCR buffer.
+<DT><KBD><KBD>c</KBD></KBD>
+<DD>
+               <EM>emacspeak-ocr-customize</EM>
+Customize Emacspeak OCR settings.
+
+<DT><KBD><KBD>?</KBD></KBD>
+<DD>
+               <EM>describe-mode</EM>
+Describe OCR mode.
+</DL>
+
+
+
+<H1><A NAME="SEC50" HREF="emacspeak_toc.html#TOC50">Running Terminal Based Applications</A></H1>
 
 <P>
 You can use the terminal emulator mode to run arbitrary terminal-based
@@ -2345,7 +2537,7 @@ instead of using the terminal emulator.
 
 
 
-<H2><A NAME="SEC49" HREF="emacspeak_toc.html#TOC49">Char Sub-mode of Term Mode</A></H2>
+<H2><A NAME="SEC51" HREF="emacspeak_toc.html#TOC51">Char Sub-mode of Term Mode</A></H2>
 
 <P>
 In char sub-mode of term, each character you type is sent directly to
@@ -2474,7 +2666,7 @@ in the char sub-mode, while others are generally available.
 
 
 
-<H2><A NAME="SEC50" HREF="emacspeak_toc.html#TOC50">Line Sub-mode of Term Mode</A></H2>
+<H2><A NAME="SEC52" HREF="emacspeak_toc.html#TOC52">Line Sub-mode of Term Mode</A></H2>
 
 <P>
 In line sub-mode of term mode, emacs editing commands work normally,
@@ -2562,7 +2754,7 @@ in the line sub-mode, while others are generally available.
 
 
 
-<H2><A NAME="SEC51" HREF="emacspeak_toc.html#TOC51">Eterm Mode Commands</A></H2>
+<H2><A NAME="SEC53" HREF="emacspeak_toc.html#TOC53">Eterm Mode Commands</A></H2>
 
 <P>
 The eterm mode maintains a pointer, which is not necessarily the same as
@@ -2599,14 +2791,14 @@ location.  A period moves the pointer to the terminal cursor.  Return to
 normal term mode by typing q.
 
 
-<H1><A NAME="SEC52" HREF="emacspeak_toc.html#TOC52">Acknowledgements.</A></H1>
+<H1><A NAME="SEC54" HREF="emacspeak_toc.html#TOC54">Acknowledgements.</A></H1>
 
 <P>
 Thanks.
      
 
 
-<H1><A NAME="SEC53" HREF="emacspeak_toc.html#TOC53">Concept Index</A></H1>
+<H1><A NAME="SEC55" HREF="emacspeak_toc.html#TOC55">Concept Index</A></H1>
 <P>
 Jump to:
 <A HREF="#cindex_c">c</A>
@@ -2644,7 +2836,7 @@ Jump to:
 
 
 
-<H1><A NAME="SEC54" HREF="emacspeak_toc.html#TOC54">Key Index</A></H1>
+<H1><A NAME="SEC56" HREF="emacspeak_toc.html#TOC56">Key Index</A></H1>
 <P>
 Jump to:
 <A HREF="#kindex_c">c</A>
