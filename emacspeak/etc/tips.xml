@@ -26,16 +26,16 @@
       <title>Online Help</title>
       <qandaentry>
         <question>
-          <para>
-            Learning online hypertext help system.</para>
+          <para> Online hypertext help.</para>
         </question>
         <answer>
           <para>
-            Invoke the online hypertext help system by
+            Invoke the online hypertext help system 
+            (<command>info</command>) by
             pressing 
-            <emphasis><keysym>C-h i</keysym> </emphasis>.
-            Press <emphasis><keysym>h</keysym></emphasis> when using the
-            <application>Info System</application> to
+            <command><keysym>C-h i</keysym></command>.
+            Press <command><keysym>h</keysym></command> when using 
+            the <application>Info</application> to
               obtain a primer for first time users.
           </para>
         </answer>
@@ -47,8 +47,7 @@
         </question>
         <answer>
           <para>
-            Press <emphasis><keysym> C-h</keysym>
-                <keysym>C-k </keysym> </emphasis> followed
+            Press <command><keysym> C-h C-k </keysym></command>followed
                 by the key whose documentation you wish to
                 locate.
           </para>
@@ -67,9 +66,9 @@
             Use command <command>
                                  dired</command>
             (directory editor) normally bound to
-            <emphasis><keysym>
-                C-x d              </keysym>
-            </emphasis> to operate on files and folders.
+            <command><keysym>
+                C-x d              </keysym></command>
+             to operate on files and folders.
           </para>
         </answer>
       </qandaentry>
@@ -96,7 +95,7 @@
       <qandaentry>
         <question>
           <para>
-            Using UNIX find from within Emacs.</para>
+            Using UNIX <command>find</command> from within Emacs.</para>
         </question>
         <answer>
           <para>
