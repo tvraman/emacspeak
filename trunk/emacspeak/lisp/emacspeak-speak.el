@@ -1932,6 +1932,65 @@ personality."
 (emacspeak-speak-region
  (or start (point-min))
  (or end (point-max)))))
+
+(defun emacspeak-speak-next-personality-chunk ()
+  "Moves to the front of next chunk having current personality.
+Speak that chunk after moving."
+  (interactive)
+  (let ((personality (get-text-property (point) 'personality))
+        (this-end (next-single-property-change (point)
+  'personality))
+        (next-start nil))
+    (cond
+     ((and (< this-end (point-max))
+           (setq next-start 
+           (text-property-any  this-end (point-max)
+                               'personality personality)))
+      (goto-char next-start)
+      (emacspeak-speak-this-personality-chunk))
+     (t (error "No more chunks with current personality.")))))
+
+;;; this helper is here since text-property-any doesn't work
+;;; backwards
+
+(defsubst ems-backwards-text-property-any (max min property
+                                               value)
+  "Scan backwards from max till we find specified property
+                                               setting.
+Return buffer position or nil on failure."
+  (let ((result nil)
+(start nil)
+(continue t))
+    (save-excursion
+      (while (and continue
+                  (not (bobp)))
+        (backward-char 1)
+(setq start (previous-single-property-change  (point) property))
+(if (null start)
+(setq continue nil)
+(setq continue
+      (not (eq  value 
+      (get-text-property start property)))))
+(or continue 
+(setq result start)))
+      result)))
+
+(defun emacspeak-speak-previous-personality-chunk ()
+  "Moves to the front of previous chunk having current personality.
+Speak that chunk after moving."
+  (interactive)
+  (let ((personality (get-text-property (point) 'personality))
+        (this-start (previous-single-property-change (point) 'personality))
+        (next-end nil))
+    (cond
+     ((and (> this-start (point-min))
+           (setq next-end
+           (ems-backwards-text-property-any  (1- this-start) (point-min)
+                               'personality personality)))
+      (goto-char next-end)
+      (emacspeak-speak-this-personality-chunk))
+     (t (error "No previous  chunks with current personality.")))))
+      
   
 
 ;;}}}
@@ -1961,12 +2020,11 @@ personality."
 
 (defun emacspeak-speak-continuously ()
   "Speak a buffer continuously.
-First prompts using the minibuffer for the kind of action to perform after
-speaking each chunk.
-E.G.  speak a line at a time etc.
-Speaking commences at current buffer position.
-Pressing  \\[keyboard-quit] breaks out, leaving point on last chunk that was spoken.
- Any other key continues to speak the buffer."
+First prompts using the minibuffer for the kind of action to
+perform after speaking each chunk.  E.G.  speak a line at a time
+etc.  Speaking commences at current buffer position.  Pressing
+\\[keyboard-quit] breaks out, leaving point on last chunk that
+was spoken.  Any other key continues to speak the buffer."
   (interactive)
   (let ((command (key-binding
                   (read-key-sequence "Press key sequence to repeat: "))))
