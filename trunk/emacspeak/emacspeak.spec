@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 15.0
+Version: 15.4010
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -9,6 +9,8 @@ Source: http://cs.cornell.edu/home/raman/emacspeak/emacspeak.tar.gz
 URL: http://cs.cornell.edu/home/raman/emacspeak/emacspeak.html
 Vendor: Emacspeak Inc 
 Packager: T. V. Raman <raman@cs.cornell.edu>
+Requires: emacs tcl tclx
+
 %description 
 Emacspeak is a speech interface that allows visually impaired users to
 interact independently and efficiently with the computer. Available free of
@@ -22,6 +24,8 @@ opens up the Internet to visually impaired users around the world. With
 support for the freely downloadable IBM ViaVoice Outloud speech synthesis
 engine, Emacspeak now turns Linux into the first zero-cost Internet access
 solution for blind and visually impaired users.
+
+
 
 %prep
 %setup
@@ -94,9 +98,9 @@ Make sure you read the Emacs info pages
 %doc user-guide/working-with-files.html
 %doc user-guide/espk-article.sgml
 /usr/bin/emacspeak
-/usr/info/emacspeak.info
-/usr/info/emacspeak.info-1
-/usr/info/emacspeak.info-2
-/usr/info/emacspeak.info-3
-/usr/info/emacspeak.info-4
-/usr/info/emacspeak.info-5
+/usr/share/info/emacspeak.info
+/usr/share/info/emacspeak.info-1
+/usr/share/info/emacspeak.info-2
+/usr/share/info/emacspeak.info-3
+/usr/share/info/emacspeak.info-4
+/usr/share/info/emacspeak.info-5
