@@ -2702,7 +2702,7 @@ value to apply."
                   (if (save-excursion
                         (skip-chars-backward " \t")
                         (not (bolp)))
-                      (buffer-substring (progn (beginning-of-line) (point))
+                      (buffer-substring (line-beginning-position)
                                         (1+ blinkpos))
                     ;; Show what follows the open in its line, if anything.
                     (if (save-excursion
@@ -2716,8 +2716,7 @@ value to apply."
                        (buffer-substring (progn
                                            (backward-char 1)
                                            (skip-chars-backward "\n \t")
-                                           (beginning-of-line)
-                                           (point))
+                                           (line-beginning-position))
                                          (progn (end-of-line)
                                                 (skip-chars-backward " \t")
                                                 (point)))
