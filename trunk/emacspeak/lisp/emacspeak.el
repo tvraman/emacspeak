@@ -446,7 +446,6 @@ Emacs 20.3"
 sets punctuation mode to all, activates the dictionary and turns on split caps."
   (declare (special dtk-split-caps
                     emacspeak-audio-indentation))
-  (voice-lock-mode 1)
   (dtk-set-punctuations "all")
   (or dtk-split-caps
       (dtk-toggle-split-caps))
