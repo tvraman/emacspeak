@@ -1145,7 +1145,9 @@ Set up URL rewrite rule to get print page."
 (emacspeak-url-template-define
  "Meerkat"
  "http://meerkat.oreillynet.com/?_fl=rss10&%s"
- (list "Meerkat recipe: ")
+ (list
+  #'(lambda nil
+  (read-from-minibuffer "Meerkat recipe: ")))
  nil
  "Meerkat tool"
  #'(lambda (url)
