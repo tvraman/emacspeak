@@ -1673,19 +1673,19 @@ Produce an auditory icon if possible."
 
 ;;; These functions have to be advised by hand:
 
-(defadvice kill-buffer (before emacspeak pre act)
+(defadvice kill-buffer (around emacspeak pre act)
   "Speak the prompt, please:."
-  (when (interactive-p )
+  (cond
+   ((interactive-p)
     (let ((dtk-stop-immediately nil))
-      (dtk-speak (format "Kill buffer:  default  %s"
-                         (buffer-name))))))
-
-(defadvice kill-buffer (after emacspeak pre act)
-  "Produce an auditory icon to indicate closing of an object.
-Then indicate current buffer by speaking  the modeline."
-  (when (interactive-p )
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+      (message (format "Kill buffer:  default  %s"
+                         (buffer-name)))
+      ad-do-it
+      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-speak-mode-line)))
+   (t ad-do-it))
+  ad-return-value)
+    
 (defadvice quit-window (after emacspeak pre act)
   "Produce an auditory icon to indicate closing of an object.
 Then indicate current buffer by speaking  the modeline."
