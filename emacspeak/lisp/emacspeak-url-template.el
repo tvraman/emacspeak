@@ -227,6 +227,21 @@ prompting for a template.")
  "Analyze WWW site using Netcraft.")
 ;;}}}
 ;;{{{ bbc 
+(emacspeak-url-template-define
+ "BBC Listen Again"
+ "http://www.bbc.co.uk/radio4/progs/listenagain.shtml"
+ nil
+ #'(lambda ()
+     (search-forward "ABCDEFGHIJKLMNOPQRSTUVWXYZ" nil t)
+     (forward-line 2)
+     (search-forward "A" nil t)
+     (emacspeak-speak-line))
+ "BBC Listen Again Listings"
+ #'(lambda (url)
+     (emacspeak-w3-browse-url-with-style
+      (expand-file-name "linearize-tables.xsl"
+                        emacspeak-xslt-directory)
+      url)))
 
 (emacspeak-url-template-define
  "BBC Programs On Demand"
