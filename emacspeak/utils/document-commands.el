@@ -26,6 +26,7 @@
 	  (setq load-path (append (delete path load-path) (list path))
 		(debug-on-error t))
 	(setq load-path (cons path (delete path load-path)))))))
+
 (defsubst augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
@@ -202,7 +203,7 @@
 This helps pull in all emacspeak modules cleanly.")
 
 (declaim (special load-path))
-(augment-load-path "../lisp")
+(augment-load-path (expand-file-name "~/emacs/lisp/emacspeak/lisp"))
 (augment-load-path emacs-personal-library-directory)
 
 (defun emacspeak-utils-generate-commands-documentation ()
