@@ -2820,9 +2820,8 @@ RIVO is implemented by rivo.pl ---
     (with-output-to-temp-buffer "*Commentary*"
       (set-buffer standard-output)
       (insert
-       (format
         (ems-cleanup-commentary
-         (lm-commentary filename)))))))
+         (lm-commentary filename))))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
