@@ -152,6 +152,7 @@ REALAUDIO=realaudio
 SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
 DTKTTS=servers/software-dtk/tcldtk.c \
+servers/software-dtk/tcldtk.so \
 servers/software-dtk/DTK \
 servers/software-dtk/Makefile
 
