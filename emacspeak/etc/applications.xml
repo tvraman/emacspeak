@@ -23,6 +23,43 @@ type="text/xsl"?>
       Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
     </p>
   </introduction>
+  <category name="help">
+    <application name="info">
+      Emacs' online hypertext documentation system.
+      Emacspeak uses audio formatting to highlight menus and hyperlinks.
+    </application>
+    <application name="man">
+      UNIX online manual browser with full aural highlighting and
+    structured browsing.</application>
+    <application name="help">
+      Speech-enabled online help across the audio
+    desktop.</application>
+    <application name="howto">
+    Emacspeak wizard for browsing Linux HOWTO documents.</application>  
+  </category>
+  <category name="desktop">
+    <application name="iswitchb">
+      Quickly switch to buffers on the audio desktop.
+    </application>
+    <application name="ido">
+      Efficiently find buffers and files on the audio desktop
+      --- the IDo way.
+    </application>
+    <application name="ibuffer">
+      Tool for locating open buffers on the audio desktop.
+    </application>
+    <application name="bs">
+      Tool for locating open buffers on the audio desktop.
+    </application>
+    <application name="buff-menu">
+    Browsing and selecting buffers on the audio desktop.</application>
+    <application name="buff-sel">
+      Interactive selection of buffers on the audio desktop.
+    </application>
+    <application name="yasg">
+      Pattern-based selection of open buffers.
+    </application>
+  </category>
   <category name="Multimedia">
     <application name="aumix">
       Emacspeak front-end for configuring  the 
@@ -164,27 +201,6 @@ type="text/xsl"?>
       Audio formatting is used to aurally highlight search hits,
       and is used to advantage when providing spoken
     feedback during  search and replace. </application>
-    <application name="iswitchb">
-      Quickly switch to buffers on the audio desktop.
-    </application>
-    <application name="ido">
-      Efficiently find buffers and files on the audio desktop
-      --- the IDo way.
-    </application>
-    <application name="ibuffer">
-      Tool for locating open buffers on the audio desktop.
-    </application>
-    <application name="bs">
-      Tool for locating open buffers on the audio desktop.
-    </application>
-    <application name="buff-menu">
-    Browsing and selecting buffers on the audio desktop.</application>
-    <application name="buff-sel">
-      Interactive selection of buffers on the audio desktop.
-    </application>
-    <application name="yasg">
-      Pattern-based selection of open buffers.
-    </application>
     <application name="browse-kill-ring">
       Speech-enabled browsable kill ring.
       Allows easy browsing of Emacs' builtin clipboard faclity.
@@ -305,15 +321,6 @@ type="text/xsl"?>
     <application name="imenu">
       Generates context-sensitive table of contents.
     </application>
-    <application name="info">
-      Emacs' online hypertext documentation system.
-      Emacspeak uses audio formatting to highlight menus and hyperlinks.
-    </application>
-    <application name="man">
-      UNIX online manual browser with full aural highlighting and
-    structured browsing.</application>
-    <application name="howto">
-    Emacspeak wizard for browsing Linux HOWTO documents.</application>
     <application name="ispell">
       Front-end to interactive spell checker.
       Errors are aurally highlighted and available corrections
@@ -413,9 +420,6 @@ type="text/xsl"?>
     <application name="clipboard">
       Emacspeak clipboard for cut and paste among different
     emacspeak sessions, possibly running on different hosts.</application>
-    <application name="help">
-      Speech-enabled online help across the audio
-    desktop.</application>
     <application name="eperiodic">
     Periodic table of elements.</application>
   </category>
