@@ -109,43 +109,41 @@
 Search engine is selected by keystrokes listed below.
 Once selected, the selected searcher prompts for additional information as appropriate.
 
-Key     Engine              Search
-a       AltaVista                   AltaVista Simple Search
-Cap A     AllTheWeb                   All The Web
-b       BBC                         BBC Archives
-C-b     Biblio                      Computer Science Bibliography
-c       CNN                         CNN Interactive
-Cap C   Company News                Lookup Company News By Ticker
-C-c     CiteSeer                    Computer Science Citation  Index
-d       usenet                    Usenet Archives (formerly Dejanews)
-Cap D   Dictionary                  Hypertext Websters Dictionary
-e   Encyclopedia                    Encyclopedia Britannica
-f       CNN-FN                      CNN  Financial Network
-cap F   FolDoc                      Free Online Dictionary Of Computing
-g       Google                      The Google WWW Index
-.       Advanced Google                      Advanced Google WWW Index
-Cap G   Gutenberg Locate Gutenberg Etexts
-h       HotBot                      HotBot WWW Index
-i       Inference                   Inference WWW Search 
-j       jeeves                      Ask Jeeves
-k       kerbango                    Kerbango Radio Tuner
-m       Map                         Driving directions from Yahoo
-Cap M   Dictionary                  Merriam Webster Dictionary
-n       news-yahoo                  News Wire at Yahoo
-Cap N   NLight                      Northern Light Search
-o       open-directory              Open Directory Search 
-p       People                      People Search (Yahoo)
-r       RedHat                      Search RedHat Via Google
-Cap R   RFBD                        RFB&D Catalog search
-C-r RPMFind                         Find RPM packages
-s       Software                  Search for software
-t       translate                 Machine translation 
-u       usenet            Usenet Index from Google
-w       Weather                     Weather Channel  By Zip Code
-cap W   W3C                         Search W3C Site
-v   Vickers                         Vickers Insider Trades
-Cap VVectorVestVectorVest Stock Reports
-y       yahoo                       Master Yahoo Index
+Key     Search
+a       AltaVista  Search
+Cap     AAll Web
+b       BBC Archives
+C-b     Computer Science Bibliography
+c       CNN Interactive
+Cap C   Company News By Ticker
+C-c     Computer Science Citation  Index
+d       Usenet Archives (formerly Dejanews)
+Cap D   Hypertext Websters Dictionary
+e       Encyclopedia Britannica
+f       CNN  Financial Network
+cap F   Free Online Dictionary Of Computing
+g       The Google Search
+.       Advanced Google Search
+Cap G   Locate Gutenberg Etexts
+h       HotBot WWW Index
+j       Ask Jeeves
+m       Maps from Yahoo
+Cap M   Merriam Webster Dictionary
+n       -yahoo                  News Wire at Yahoo
+Cap N   Northern Light Search
+o       Open Directory Search 
+p       People Search (Yahoo)
+r       RedHat Search Via Google
+Cap r   RFBD Catalog search
+C-r     Find RPM packages
+s       Software  Search
+t       Machine translation 
+u       Usenet Index from Google
+w       Weather Channel  By Zip Code
+cap W   Search W3C Site
+v       Vickers Insider Trades
+Cap V   VectorVest Stock Reports
+y       Master Yahoo Index
 
 When using W3,  this interface attempts to speak the most relevant information on the result page."
   (interactive "P")
@@ -155,15 +153,15 @@ When using W3,  this interface attempts to speak the most relevant information o
     (unwind-protect
         (progn
           (modify-syntax-entry 10  ">")
-    (while (null engine)
-      (setq engine
-            (emacspeak-websearch-get-engine 
-             (read-char 
-              (concat "Websearch? "
-                      (documentation this-command)))))))
+          (while (null engine)
+            (setq engine
+                  (emacspeak-websearch-get-engine 
+                   (read-char 
+                    (concat "Websearch? "
+                            (documentation this-command)))))))
       (set-syntax-table saved-syntax-table))
     (setq searcher (emacspeak-websearch-get-searcher engine))
-    (if searcher 
+    (if searcher
         (call-interactively searcher)
       (error "I do not know how to search using %s" engine))))
 
@@ -638,13 +636,14 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 "http://finance.yahoo.com/q?d=t&o=t"
 "URI for looking up detailed quote information. ")
 
-(defun emacspeak-websearch-company-news (ticker )
+(defun emacspeak-websearch-company-news (ticker &optional prefix)
   "Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades."
   (interactive
    (list
     (emacspeak-websearch-read-query
-     "Enter stock ticker of company to lookup: ")))
+     "Enter stock ticker of company to lookup: ")
+    current-prefix-arg))
   (declare (special emacspeak-websearch-company-news-uri
                     emacspeak-websearch-yahoo-company-news-quotes-uri))
   (let ((url-be-asynchronous nil)
@@ -657,11 +656,8 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
             (?r "z/a")
             (otherwise (format "%c" type-char))))
     (cond
-     ((char-equal type-char ?H)
-      (emacspeak-websearch-yahoo-historical-chart ticker))
      ((char-equal type-char ?h)
-      (emacspeak-websearch-yahoo-historical-chart ticker
-                                                  'csv)
+      (emacspeak-websearch-yahoo-historical-chart ticker prefix)
       (emacspeak-auditory-icon 'select-object)
       (message "Fetching data --just a minute."))
      ((char-equal type-char ?q)
@@ -685,15 +681,15 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
   (emacspeak-table-view-csv-buffer (process-buffer process)))
 
 (defun emacspeak-websearch-yahoo-historical-chart (ticker
-                                                   &optional data)
+                                                   &optional as-html)
   "Look up historical stock data.
-Optional second arg data processes the results as data rather than HTML."
+Optional second arg as-html processes the results as HTML rather than data."
   (interactive
    (list
     (emacspeak-websearch-read-query "Stock ticker:")
     current-prefix-arg))
-  (declare (special emacspeak-websearch-lynx-program))
-  (declare (special emacspeak-websearch-yahoo-charts-uri
+  (declare (special emacspeak-websearch-lynx-program
+   emacspeak-websearch-yahoo-charts-uri
                     emacspeak-websearch-yahoo-csv-charts-uri))
   (let (
         (start-month
@@ -719,7 +715,7 @@ Optional second arg data processes the results as data rather than HTML."
                  (read-char
                   "Daily: d Weekly: w Monthly: m"))))
     (cond
-     ((eq data 'csv)
+     ((not as-html)
       (let ((uri (concat emacspeak-websearch-yahoo-csv-charts-uri
                          (format "a=%s" start-month)
                          (format "&b=%s" start-date)
@@ -739,7 +735,7 @@ Optional second arg data processes the results as data rather than HTML."
                                "-dump"
                                uri))
         (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
-     (t (browse-url 
+     (t (browse-url
          (concat emacspeak-websearch-yahoo-charts-uri
                  (format "a=%s" start-month)
                  (format "&b=%s" start-date)
@@ -752,10 +748,7 @@ Optional second arg data processes the results as data rather than HTML."
         (emacspeak-websearch-post-process
          "Open"
          'emacspeak-speak-line)))))
-
         
-
-   
 ;;}}}
 ;;{{{  usenet
 
