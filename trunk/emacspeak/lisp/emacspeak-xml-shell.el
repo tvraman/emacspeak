@@ -263,7 +263,9 @@ region of text to process."
 
 (defcustom emacspeak-xml-shell-xslt nil
   "XSL transform to apply when displaying current node."
-  :type 'string
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Command"))
   :group 'emacspeak-xml-shell)
 
 (defsubst emacspeak-xml-shell-setup-html-base (base)

@@ -12,9 +12,7 @@
 (autoload 'calc-embedded-activate  "calc" "Activate =>'s in buffer" t)
 (autoload 'calc-grab-region	   "calc" "Grab region of Calc data" t)
 (autoload 'calc-grab-rectangle	   "calc" "Grab rectangle of data" t)
-(autoload 'edit-kbd-macro	   "macedit" "Edit Keyboard Macro" t)
-(autoload 'edit-last-kbd-macro	   "macedit" "Edit Keyboard Macro" t)
-(autoload 'read-kbd-macro	   "macedit" "Read Keyboard Macro" t)
+
 (augment-load-path "calc" "calc")
 (global-set-key "\e#" 'calc-dispatch)
 ;;; End of Calc autoloads.
