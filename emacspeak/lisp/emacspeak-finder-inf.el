@@ -281,6 +281,9 @@
     ("emacspeak-newsticker.el"
         "Speech-enable newsticker"
         (emacspeak  newsticker ))
+    ("emacspeak-nxml.el"
+        "Speech enable nxml mode"
+        (emacspeak  nxml streaming media ))
     ("emacspeak-ocr.el"
         "ocr Front-end for emacspeak desktop"
         (emacspeak  ocr))
