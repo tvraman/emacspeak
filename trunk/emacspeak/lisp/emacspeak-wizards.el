@@ -617,6 +617,27 @@ default-directory after switching."
       (emacspeak-sudo "ifdown ppp0  1>&- 2>&- &")
     (emacspeak-sudo "ifup ppp0  1>&- 2>&- &")))
 
+;;;###autoload 
+(defun emacspeak-wizards-edit-file-as-root (filename)
+  "Edit file as root using sudo vi.
+See /etc/sudoers for how to set up sudo."
+  (interactive
+   (list
+    (read-file-name "Edit file as root: ")))
+  (require 'term)
+  (delete-other-windows)
+  (switch-to-buffer
+   (term-ansi-make-term
+    (generate-new-buffer-name
+     (format "vi-%s"
+             (file-name-nondirectory filename)))
+    "sudo" 
+    nil
+    "vi" 
+    filename))
+  (term-char-mode)
+  (emacspeak-auditory-icon 'open-object))
+
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
 
@@ -2508,6 +2529,7 @@ for the current voice family."
     (goto-char (point-min))))
 
 ;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
