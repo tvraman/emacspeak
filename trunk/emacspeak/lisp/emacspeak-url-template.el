@@ -207,8 +207,9 @@
  "http://news.google.com/news?hl=en&q=%s&btnG=Google+Search"
  (list
   #'(lambda ()
+      (webjump-url-encode
       (read-from-minibuffer
-       "Search news for: ")))
+       "Search news for: "))))
  #'(lambda nil
      (search-forward "Sorted by")
      (forward-line 4)
