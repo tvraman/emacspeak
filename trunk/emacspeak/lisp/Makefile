@@ -52,8 +52,8 @@ COMPILE =  -f batch-byte-compile
 # {{{  grouping files into dependent modules
 
 #The various modules:
-DTK_OBJECTS = dtk-css-speech.elc	dtk-speak.elc		dtk-voices.elc\
-acss-structure.elc \
+DTK_OBJECTS = acss-structure.elc \
+dtk-css-speech.elc	dtk-speak.elc		dtk-voices.elc\
 outloud-voices.elc outloud-css-speech.elc \
 dtk-interp.elc		dtk-tcl.elc
 
