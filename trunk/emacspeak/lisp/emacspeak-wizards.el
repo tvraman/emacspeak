@@ -315,6 +315,23 @@ command `emacspeak-table-display-table-in-region' normally bound to
 
 ;;}}}
 ;;{{{ linux howtos
+
+(defcustom emacspeak-wizards-linux-howto-directory
+  (cond
+                     ((file-exists-p "/usr/doc/HOWTO/" )
+                      "/usr/doc/HOWTO/")
+                     ((file-exists-p "/usr/doc/howto/" )
+                      "/usr/doc/howto/")
+                     ((file-exists-p
+                       "/usr/share/doc/howto/")
+                      "/usr/share/doc/howto/")
+                     (t nil))
+"Root  of Linux Howtos."
+:type '(choice :tag "Howto Root"
+        (const nil :tag "None")
+        (directory :tag "Directory"))
+:group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-speak-browse-linux-howto (howto)
   "Browse a Linux Howto file.
@@ -322,14 +339,7 @@ We cleanup underlining, and set up outline mode correctly."
   (interactive 
    (list
     (read-file-name "Howto file: "
-                    (cond
-                     ((file-exists-p "/usr/doc/HOWTO/" )
-                      "/usr/doc/HOWTO/")
-                     ((file-exists-p
-                       "/usr/share/doc/HOWTO/")
-                      "/usr/share/doc/HOWTO/")
-                     (t (error "You dont have Linux howtos
-installed where I expected.")))
+                    emacspeak-wizards-linux-howto-directory
                     nil
                     t)))
   (declare (special view-exit-action))
