@@ -106,13 +106,35 @@
 (defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
   "Return a choice widget used in selecting voices."
-  (let ((v (tts-list-voices)))
-    (setq v
+  (let ((v (tts-list-voices))
+        (menu nil))
+    (setq menu
+          (mapcar
+           #'(lambda (voice)
+               (list 'const voice))
+           v))
+    (setq menu
           (cons 
            (list 'symbol :tag "Other")
-           v))
-    (cons 'choice v)))
+           menu))
+    (cons 'choice menu)))
 
+
+(defun voice-setup-read-personality (&optional prompt)
+  "Read name of a pre-defined personality using completion."
+  (let ((table (mapcar
+                #'(lambda (v)
+                    (cons
+                     (format "%s" v)
+                     (format "%s" v)))
+                (tts-list-voices))))
+    (completing-read
+     (or prompt "Personality: ")
+                     table)))
+
+  )
+    
+    (cons 'choice v))
 ;;}}}
 ;;{{{ map faces to voices 
 
