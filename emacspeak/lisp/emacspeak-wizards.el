@@ -530,7 +530,7 @@ default-directory after switching."
   (interactive "P")
   (declare (special explicit-shell-file-name
                     default-directory))
-  (let ((dir default-directory))
+  (let ((dir (expand-file-name default-directory)))
     (cond
      ((comint-check-proc "*root*")
       (pop-to-buffer "*root*"))
@@ -558,12 +558,10 @@ default-directory after switching."
       (when (featurep 'emacspeak)
         (dtk-speak "Enter root password: "))))
     (when cd
-      (unless (string-equal (expand-file-name dir)
-                            (expand-file-name
-                             default-directory))
+      (unless (string-equal dir
+                            (expand-file-name default-directory))
         (goto-char (point-max))
-        (insert (format "pushd %s"
-                        (expand-file-name dir)))
+        (insert (format "pushd %s" dir))
         (comint-send-input)
         (shell-process-cd dir)))
     (emacspeak-speak-mode-line)
