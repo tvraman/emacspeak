@@ -1402,7 +1402,12 @@ current page."
     (write-region (point-min) 
                   (point-max)
                   filename)
-    (w3-open-local filename)
+    (cond
+     ((interactive-p)
+    (w3-open-local filename))
+(t
+ (emacspeak-w3-without-xsl
+    (w3-open-local filename))))
     (delete-file filename)))
 
 ;;;###autoload
@@ -1415,7 +1420,12 @@ current page."
     (write-region start 
                   end
                   filename)
-    (w3-open-local filename)
+    (cond
+     ((interactive-p)
+    (w3-open-local filename))
+(t
+ (emacspeak-w3-without-xsl
+    (w3-open-local filename))))
     (delete-file filename)))
 
 ;;}}}
