@@ -948,7 +948,7 @@ emacspeak-tar.
      Speak size of file current entry
 
 
-File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-url-template,  Prev: emacspeak-tar,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-tnt,  Prev: emacspeak-tar,  Up: Emacspeak Commands
 
 emacspeak-tetris
 ================
@@ -990,7 +990,19 @@ emacspeak-tetris.
      Speak next shape
 
 
-File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-tnt,  Next: emacspeak-url-template,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
+
+emacspeak-tnt
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tnt.
+
+ - emacspeak-tnt-toggle-autospeak:
+     Toggle TNT autospeak for this chat session.
+
+
+File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tnt,  Up: Emacspeak Commands
 
 emacspeak-url-template
 ======================
@@ -1068,9 +1080,6 @@ emacspeak-vm.
      Move point to N buttons forward.  If N is negative, move backward
      instead.
 
- - emacspeak-vm-mime-save-attachment-under-point:
-     Save attachment under point
-
 
 File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: emacspeak-vm,  Up: Emacspeak Commands
 
@@ -1097,6 +1106,9 @@ emacspeak-w3.
      extract table from.  Interactive prefix arg causes url to be read
      from the minibuffer.
 
+ - emacspeak-w3-google-similar-to-this-page:
+     Ask Google to find documents similar to this one.
+
  - emacspeak-w3-url-rewrite-and-follow:
      Apply a url rewrite rule as specified in the current buffer before
      following link under point.  If no rewrite rule is defined, first
@@ -1117,6 +1129,10 @@ emacspeak-w3.
  - emacspeak-w3-xsl-toggle:
      Toggle  XSL transformations before displaying HTML.  This uses
      XSLT Processor xsltproc available as part of the libxslt package.
+
+ - emacspeak-w3-google-who-links-to-this-page:
+     Perform a google search to locate documents that link to the
+     current page.
 
  - emacspeak-w3-lynx-url-under-point:
      Display contents of URL under point using LYNX.  The document is
@@ -1210,7 +1226,10 @@ emacspeak-websearch.
      result page.
 
  - emacspeak-websearch-google:
-     Perform an Google search
+     Perform an Google search.  Optional interactive prefix arg `lucky'
+     is equivalent to hitting the I'm Feeling Lucky button on Google.
+     Meaning of the `lucky' flag can be inverted by setting option
+     emacspeak-websearch-google-feeling-lucky.
 
  - emacspeak-websearch-emacspeak-archive:
      ` control h e '
@@ -1297,6 +1316,9 @@ emacspeak-websearch.
 
  - emacspeak-websearch-vickers-search:
      Search Vickers insider trading.
+
+ - emacspeak-websearch-google-feeling-lucky:
+     Do a I'm Feeling Lucky Google search.
 
  - emacspeak-websearch-biblio-search:
      Search Computer Science Bibliographies.
