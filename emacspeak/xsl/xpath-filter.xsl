@@ -17,7 +17,7 @@ asks that nodes be processed only once -use with care.
   <xsl:param name="uniquify" select="1"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
-  
+  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:template match="*|@*" mode="copy" >
     <xsl:choose>
       <xsl:when test="$uniquify=1">
