@@ -1,26 +1,25 @@
 Emacspeak News --History Of User-Visible Changes
 $Id$
-Author: T. V. Raman <raman@cs.cornell.edu>
+Author: T. V. Raman <raman@users.sf.net>
 
-* Emacspeak 21.0 Additions And Changes:
+* Emacspeak 22.0 Additions And Changes:
 
-Emacspeak 21.0 provides the following user level enhancements:
+Emacspeak 22.0 provides the following user level enhancements:
 
 * user Visible Changes:
 
-** emacspeak-emms.el:
+** Updated modeline feedback:
 
-Speech-enables EMMS --- an Emacs interface to multimedia players.
+The feedback provided by emacspeak-speak-mode-line and
+emacspeak-speak-minor-mode-line
+has been updated.
 
+** Beeps Via PC Speaker:
 
-** emacspeak-cedet.el:
-
-Speech-enables cedet-1.0
-
-** emacspeak-nxml-mode.el:
-
-Speech enabled NXML outliner.
-
+The tts servers now provide support for using the PC speaker to
+produce beeps using the beep utility. This is useful in
+conjunction with software TTS on sound hardware that  provides a
+single wave output channel  under Linux.
 
 
 Local variables:
