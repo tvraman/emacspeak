@@ -104,6 +104,18 @@ outloud     For IBM ViaVoice Outloud
 The default is dtk-exp.")
 
 ;;}}}
+;;{{{  A speech style structure
+
+(defstruct  dtk-speech-style
+  family
+  gain left-volume right-volume
+  average-pitch
+  pitch-range
+  stress
+  richness
+  )
+
+;;}}}
 ;;{{{  Internal variables:
 
 (defvar dtk-stop-immediately t
