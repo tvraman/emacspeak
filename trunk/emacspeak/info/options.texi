@@ -314,7 +314,7 @@ Error personality for ERC.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-ignore-notices
-Set to T if you dont want to see notifcation messages from the
+Set to T if you dont want to see notification  messages from the
 server.
 @end defvar
 
@@ -418,7 +418,7 @@ for options defined in module  emacspeak-eterm.
 These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-eterm-bold-personality
-Persnality to indicate terminal bold.
+Personality to indicate terminal bold.
 @end defvar
 
 @defvar {User Option} emacspeak-eterm-default-personality
@@ -1314,7 +1314,7 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-clipboard-file
 File used to save Emacspeak clipboard.
-The emacspeak clipboard provides a convenient mechnaism for exchanging
+The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions.
 @end defvar
 
@@ -1334,7 +1334,7 @@ Pattern from which name of local download directory is build.
 @defvar {User Option} emacspeak-emergency-tts-server
 TTS server to use in an emergency.
 Set this to a TTS server that is known to work at all times.
-If you are debugging another speech servre and that server
+If you are debugging another speech server and that server
 gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.

@@ -259,7 +259,7 @@ Interactive PREFIX arg makes the new setting global.
 Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
 emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer o rin all buffers.
+Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
 @end deffn
 
 @deffn {Interactive Command} dtk-toggle-speak-nonprinting-chars (&optional PREFIX)
@@ -365,7 +365,7 @@ for commands defined in module  emacspeak-aumix.
 @kbd{ control e ( }
 
 Setup output parameters of the auditory display.
-Luanch this tool while you have auditory output on
+ Launch this tool while you have auditory output on
 multiple channels playing so you can
 adjust the settings to your preference.  Hit q to quit when
 you are done.
@@ -995,7 +995,7 @@ there is terminal activity.
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-review ()
 Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contents 
+In review mode, you can move around the terminal and listen to the contnets 
 without sending input to the terminal itself.
 @end deffn
 
@@ -1433,7 +1433,7 @@ Move back by specified number of minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-forward-minute (ARG)
-Forw by ARG minutes.
+Forward by ARG minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mpg123-speak-current-time ()
@@ -1580,7 +1580,7 @@ Pick a short but meaningful name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-open-working-directory ()
-Launch dired on OCR workng directory.
+Launch dired on OCR working directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-page ()
@@ -1606,7 +1606,7 @@ to an appropriately named file.
 Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
 steps of acquiring an image and running the OCR engine work
-corectly by themselves.
+correctly by themselves.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ocr-scan-image ()
@@ -1698,7 +1698,7 @@ Clear all current pronunciation dictionaries.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-pronounce-define-local-pronunciation (WORD PRONUNCIATION)
-Define buffer local pronounciation.
+Define buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 @end deffn
 
@@ -1735,7 +1735,7 @@ Writes out the persistent emacspeak pronunciation dictionaries.
 
 @deffn {Interactive Command} emacspeak-pronounce-toggle-use-of-dictionaries (&optional STATE)
 Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be dfined on a per file, per directory and/or per
+Pronunciations can be defined on a per file, per directory and/or per
 mode basis.
 Pronunciations are activated on a per buffer basis.
 Turning on the use of pronunciation dictionaries results in emacspeak
@@ -1832,7 +1832,7 @@ completions. Hit space to use this completion list.
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
 the audio desktop as `C-e ;'.
-Alternatively, switch to buffer *realaudo* using
+Alternatively, switch to buffer *realaudio* using
 `C-e ;;' if you wish to issue many
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation
@@ -2369,7 +2369,7 @@ any other key to speak entire line.
 Print the current buffer line number and narrowed line number of point.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-line-number-obselete ()
+@deffn {Interactive Command} emacspeak-speak-line-number-obsolete ()
 Speak the line number of the current line.
 @end deffn
 
@@ -2402,7 +2402,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.
 @deffn {Interactive Command} emacspeak-speak-message-at-time (TIME MESSAGE)
 @kbd{ control e @@ }
 
-Set up rin-at-time to speak message at specified time.
+Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec.
 @end deffn
@@ -2510,7 +2510,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
 @deffn {Interactive Command} emacspeak-speak-previous-field ()
 @kbd{ control e < }
 
-Skip backward across and speak  contiguous sequence of non-blank characters.
+Skip backwards across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
 @end deffn
@@ -2615,7 +2615,7 @@ Announce version information for running emacspeak.
 
 @deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs ()
 Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceeded by a blank line.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer.
 @end deffn
 
@@ -4260,7 +4260,7 @@ Switch to the shell buffer and cd to
  the directory of the current buffer.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-show-environment-vvariable (V)
+@deffn {Interactive Command} emacspeak-wizards-show-environment-variable (V)
 Display value of specified environment variable.
 @end deffn
 
@@ -4420,5 +4420,9 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 Speak current field.
 A field is
 defined  by Emacs 21.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-show-environment-vvariable ()
+Display value of specified environment variable.
 @end deffn
 

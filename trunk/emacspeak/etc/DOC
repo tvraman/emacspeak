@@ -176,7 +176,7 @@ Interactive PREFIX arg makes the new setting global.
 Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
 emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer o rin all buffers.
+Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
 
 ------------------------------------------------------------
 
@@ -257,7 +257,7 @@ Function to submit a bug to the programs maintainer.
 ** emacspeak-aumix	Key Sequence: control e ( 
 
 Setup output parameters of the auditory display.
-Luanch this tool while you have auditory output on
+ Launch this tool while you have auditory output on
 multiple channels playing so you can
 adjust the settings to your preference.  Hit q to quit when
 you are done.
@@ -1096,7 +1096,7 @@ to skip to the next track.
 
 ------------------------------------------------------------
 
-** emacspeak-mpg123-forward-minuteForw by ARG minutes.
+** emacspeak-mpg123-forward-minuteForward by ARG minutes.
 
 ------------------------------------------------------------
 
@@ -1239,7 +1239,7 @@ Pick a short but meaningful name.
 
 ------------------------------------------------------------
 
-** emacspeak-ocr-open-working-directoryLaunch dired on OCR workng directory.
+** emacspeak-ocr-open-working-directoryLaunch dired on OCR working directory.
 
 ------------------------------------------------------------
 
@@ -1265,7 +1265,7 @@ to an appropriately named file.
 ** emacspeak-ocr-scan-and-recognizeScan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
 steps of acquiring an image and running the OCR engine work
-corectly by themselves.
+correctly by themselves.
 
 ------------------------------------------------------------
 
@@ -1326,7 +1326,7 @@ except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-pronounce-define-local-pronunciationDefine buffer local pronounciation.
+** emacspeak-pronounce-define-local-pronunciationDefine buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 
 ------------------------------------------------------------
@@ -1363,7 +1363,7 @@ Activates pronunciation dictionaries if not already active.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-toggle-use-of-dictionariesToggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be dfined on a per file, per directory and/or per
+Pronunciations can be defined on a per file, per directory and/or per
 mode basis.
 Pronunciations are activated on a per buffer basis.
 Turning on the use of pronunciation dictionaries results in emacspeak
@@ -1436,7 +1436,7 @@ completions. Hit space to use this completion list.
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
 the audio desktop as `C-e ;'.
-Alternatively, switch to buffer *realaudo* using
+Alternatively, switch to buffer *realaudio* using
 `C-e ;;' if you wish to issue many
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation
@@ -1908,7 +1908,7 @@ Print the current buffer line number and narrowed line number of point.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-line-number-obseleteSpeak the line number of the current line.
+** emacspeak-speak-line-number-obsoleteSpeak the line number of the current line.
 
 ------------------------------------------------------------
 
@@ -1940,7 +1940,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.
 
 ** emacspeak-speak-message-at-time	Key Sequence: control e @ 
 
-Set up rin-at-time to speak message at specified time.
+Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec.
 
@@ -2153,7 +2153,7 @@ Announce version information for running emacspeak.
 ------------------------------------------------------------
 
 ** emacspeak-speak-voice-annotate-paragraphsLocate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceeded by a blank line.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer.
 
 ------------------------------------------------------------
@@ -3625,7 +3625,7 @@ hits.
 ** emacspeak-wizards-how-many-matchesIf you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
-run `how-many'to count  matching header lines.
+run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
@@ -3678,7 +3678,7 @@ Switch to the shell buffer and cd to
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-show-environment-vvariableDisplay value of specified environment variable.
+** emacspeak-wizards-show-environment-variableDisplay value of specified environment variable.
 
 ------------------------------------------------------------
 
@@ -3836,6 +3836,10 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 Speak current field.
 A field is
 defined  by Emacs 21.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-show-environment-vvariableDisplay value of specified environment variable.
 
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"

@@ -96,12 +96,12 @@ Emacs Packages.
 ***************
 
    Emacs - The extensible, self-documenting editor, derives its
-functionality from its powerful extension mechnaism. This extension
+functionality from its powerful extension mechanism. This extension
 mechanism is used to implement many user-level applications such as mail
 readers, WWW browsers, software development environments and so on.
 This chapter gives directions on how to locate the right Emacs package
 for addressing specific tasks.  The chapter is organized into logical
-sections that each pertain to a specific class of tasks; in dividual
+sections that each pertain to a specific class of tasks; in individual
 subsections within a section give a brief overview of particular Emacs
 packages that have been speech-enabled.
 
@@ -144,9 +144,9 @@ Creating Well-formatted Documents
 
    Before authoring a document, decide its primary audience if the
 document contains relatively simple content e.g., no mathematical
-equations etc.  and is primarily targetted at the WWW,  you are
-probably better off using HTML.  You can create well-structured HTML
-documents with the help of package `html-helper-mode' available from
+equations etc.  and is primarily targeted at the WWW,  you are probably
+better off using HTML.  You can create well-structured HTML documents
+with the help of package `html-helper-mode' available from
 `ftp://ftp.reed.edu/pub/src/html-helper-mode.tar.gz'.  Package
 `html-helper-mode' is speech-enabled by Emacspeak to provide auditory
 icons, structured navigation and outlines, as well as voice locking for
@@ -165,7 +165,7 @@ format the document for good visual presentation.
 
    The auctex package is an Emacs extension that facilitates authoring
 and maintaining structured documents in TeX and LaTeX.  Package
-`bibtex' facilitates maintainance and use of `bibtex' bibliography
+`bibtex' facilitates maintenance and use of `bibtex' bibliography
 databases.  The Texinfo package allows creation of software
 documentation that is suitable for both printing as well as online
 viewing as hypertext.  Emacspeak speech-enables packages `auctex',
@@ -218,7 +218,7 @@ Searching, Replacing, And Spell Checking
    Incremental search, a process by which the system prompts the user
 for a search string and moves the selection to the next available match
 while allowing the user to add more characters to the search string, is
-the search technique of choice amongst most Emacs users.  As the system
+the search technique of choice among most Emacs users.  As the system
 successively finds each match and provides the user the option of
 continuing the search.  Incremental search is a more complex instance of
 traditional search interaction because in addition to either stopping or
@@ -646,9 +646,9 @@ enable easy OCR access from within Emacspeak.
 bound to `C-e C-o'.
 
    This command switches to a special buffer that has OCR commands
-bounds to single keystrokes- see the ke-binding list at the end of this
-description.  Use Emacs online help facility to look up help on these
-commands.
+bounds to single keystrokes- see the key-binding list at the end of
+this description.  Use Emacs online help facility to look up help on
+these commands.
 
    Mode "emacspeak-ocr-mode" provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned images and the
@@ -735,7 +735,7 @@ Running Terminal Based Applications
    You can use the terminal emulator mode to run arbitrary
 terminal-based programs from within Emacs.  You open a terminal
 emulator buffer using M-x term, with an extra carriage return to accept
-the default shell (such as bash).  (Incidently, don't confuse this
+the default shell (such as bash).  (Incidentally, don't confuse this
 command with M-x terminal-emulator, which starts an older terminal
 emulator mode not supported by Emacspeak.)
 
