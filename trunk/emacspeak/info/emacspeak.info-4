@@ -197,6 +197,9 @@ emacspeak-remote.
      quietly uses the guesses that appear as defaults when prompting.
      Use this once you are sure the guesses are usually correct.
 
+ - emacspeak-remote-ssh-to-server: (LOGIN)
+     Open ssh session to where we came from.
+
 
 File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev: emacspeak-remote,  Up: Emacspeak Commands
 
@@ -1143,6 +1146,9 @@ emacspeak-url-template.
  - emacspeak-url-template-load: (FILE)
      Load URL template resources from specified location.
 
+ - emacspeak-url-template-nfl-play-broadcast: ()
+     Play NFL url under point.
+
  - emacspeak-url-template-save: (FILE)
      Save out url templates.
 
@@ -1214,15 +1220,30 @@ emacspeak-w3.
  - emacspeak-w3-browse-link-with-style: (STYLE)
      Browse link with specified XSL style.
 
+ - emacspeak-w3-class-filter-and-follow: (&optional PROMPT)
+     Follow url and point, and filter the result by specified class.
+     Class can be set locally for a buffer, and overridden with an
+     interactive prefix arg. If there is a known rewrite url rule, that
+     is used as well.
+
  - emacspeak-w3-do-onclick: ()
      Do  onclick action.
 
- - emacspeak-w3-extract-by-class: (CLASS &optional PROMPT)
+ - emacspeak-w3-extract-by-class: (CLASS &optional PROMPT SPEAK)
      Extract elements having specified class attribute  from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Optional arg url specifies the page to
-     extract table from.  Interactive prefix arg causes url to be read
-     from the minibuffer.
+     extract content  from.  Interactive use provides list of class
+     values as completion.  Interactive prefix arg causes url to be
+     read from the minibuffer.
+
+ - emacspeak-w3-extract-by-class-list: (CLASSES &optional PROMPT SPEAK)
+     Extract elements having class specified in list `classes' from
+     HTML.  Extracts specified elements from current WWW page and
+     displays it in a separate buffer. Optional arg url specifies the
+     page to extract content from. Interactive use provides list of
+     class values as completion. Interactive prefix arg causes url to
+     be read from the minibuffer.
 
  - emacspeak-w3-extract-node-by-id: (URL NODE-ID)
      Extract specified node from URI.
@@ -1263,7 +1284,7 @@ emacspeak-w3.
      Preview this buffer.
 
  - emacspeak-w3-preview-this-region: (START END)
-     Preview this buffer.
+     Preview this region.
 
  - emacspeak-w3-previous-doc-element: (&optional COUNT)
      Move back  to the previous document element.  Optional interactive
@@ -1292,6 +1313,12 @@ emacspeak-w3.
      Optional interactive prefix arg  prompts for a rewrite rule even
      if one is already defined.
 
+ - emacspeak-w3-xpath-filter-and-follow: (&optional PROMPT)
+     Follow url and point, and filter the result by specified xpath.
+     XPath can be set locally for a buffer, and overridden with an
+     interactive prefix arg. If there is a known rewrite url rule, that
+     is used as well.
+
  - emacspeak-w3-xsl-toggle: ()
      Toggle  XSL transformations before displaying HTML.  This uses
      XSLT Processor xsltproc available as part of the libxslt package.
@@ -1299,7 +1326,7 @@ emacspeak-w3.
  - emacspeak-w3-xslt-apply: (XSL)
      Apply specified transformation to current page.
 
- - emacspeak-w3-xslt-filter: (PATH &optional PROMPT)
+ - emacspeak-w3-xslt-filter: (PATH &optional PROMPT SPEAK-RESULT)
      Extract elements matching specified XPath path locator from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Optional arg url specifies the page to
