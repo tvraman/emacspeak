@@ -1244,7 +1244,9 @@ Negative prefix arg speaks from start of buffer to point."
         (continue t))
     (cond
      ((and completions-buffer
-           (window-live-p (get-buffer-window completions-buffer )))
+           (window-live-p (get-buffer-window
+                           completions-buffer )))
+      (save-excursion
       (save-window-excursion
         (save-match-data
           (select-window  (get-buffer-window completions-buffer ))
@@ -1259,7 +1261,7 @@ Negative prefix arg speaks from start of buffer to point."
             (if (eobp) (setq continue nil )))) ;end while
         (discard-input)
         (goto-char start )
-        (choose-completion )))
+        (choose-completion ))))
      (t (dtk-speak "No completions" )))))
 
 (defun emacspeak-speak-minibuffer(&optional arg)
@@ -2212,13 +2214,14 @@ Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'.
 Optional argument ARG  specifies `other' window to speak."
   (interactive "nSpeak window")
-  (save-window-excursion
-    (other-window arg )
-    (save-excursion
-      (set-buffer (window-buffer))
-      (emacspeak-speak-region
-       (max (point-min) (window-start) )
-       (min (point-max)(window-end ))))))
+  (save-excursion
+    (save-window-excursion
+      (other-window arg )
+      (save-excursion
+        (set-buffer (window-buffer))
+        (emacspeak-speak-region
+         (max (point-min) (window-start) )
+         (min (point-max)(window-end )))))))
 
 (defun emacspeak-speak-next-window ()
   "Speak the next window."
@@ -2251,6 +2254,7 @@ Speak the window contents after scrolling."
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
+  (save-excursion
   (let ((error nil)
         (start
          (save-window-excursion
@@ -2270,7 +2274,7 @@ Speak the window contents after scrolling."
          ((= start (window-start) )
           (message "At top of other window "))
          (t (emacspeak-auditory-icon 'scroll)
-            (emacspeak-speak-region (window-start) (window-end ))))))))
+            (emacspeak-speak-region (window-start) (window-end )))))))))
 
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.
@@ -2339,10 +2343,12 @@ Semantics  of `other' is the same as for the builtin Emacs command
             (error nil ))))))
     (or (numberp window)
         (setq window
-              (read-minibuffer "Window   between 1 and 9 to speak")))
+              (read-minibuffer "Window   between 1 and 9 to
+speak")))
+    (save-excursion
     (save-window-excursion
       (other-window window )
-      (emacspeak-speak-region (window-start) (window-end )))))
+      (emacspeak-speak-region (window-start) (window-end ))))))
 
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
