@@ -88,7 +88,6 @@ proc tts_set_character_scale {factor} {
 proc tts_say {text} {
     global tts
     set tts(not_stopped) 1
-    tts_gobble_acknowledgements 
     puts -nonewline  $tts(write)\
         "\[_]\[:sa w]$text\013"
         tts_gobble_acknowledgements
@@ -102,7 +101,7 @@ proc l {text} {
     set tts(not_stopped) 1
     set r $tts(speech_rate)
     set f  $tts(say_rate)
-    tts_gobble_acknowledgements 0.001
+    tts_gobble_acknowledgements 
     puts -nonewline  $tts(write)\
         "\[_]\[:ra $f]\[:sa le]$text"
         return ""
@@ -306,7 +305,7 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                puts -nonewline  $tts(write) "\[:i r 1]$text\[_.]\013"
+                puts -nonewline  $tts(write) "\[:i r $index]$text\[_.]\013"
                 set retval [tts_get_acknowledgement ]
             }
             t {
