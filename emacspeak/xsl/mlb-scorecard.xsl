@@ -60,13 +60,17 @@
       </xsl:choose>
     </xsl:variable>
     <h3>The <xsl:value-of select="team[1]/@name"/>
-      <xsl:value-of select="team[1]/gameteam/@R"/>
-      <xsl:value-of select="$status"/>
+      <xsl:value-of select="team[1]/gameteam/@R"/> 
+      <xsl:text> 
+</xsl:text> <xsl:value-of select="$status"/><xsl:text>
+</xsl:text>
     <xsl:value-of select="team[2]/@name"/>
     <xsl:value-of select="team[2]/gameteam/@R"/></h3>
     <p>
       <xsl:apply-templates select="team[1]"/> 
-      <xsl:value-of select="$status"/>
+     <xsl:text> 
+</xsl:text> <xsl:value-of select="$status"/><xsl:text>
+</xsl:text>
       <xsl:apply-templates select="team[2]"/>
       They are in the 
       <em><xsl:choose>
@@ -110,12 +114,16 @@
     <h3>The
  <xsl:value-of select="team[1]/@name"/>
       <xsl:value-of select="team[1]/gameteam/@R"/>
-      <xsl:value-of select="$status"/>
+     <xsl:text> 
+</xsl:text> <xsl:value-of select="$status"/><xsl:text>
+</xsl:text>
       <xsl:value-of select="team[2]/@name"/>
     <xsl:value-of select="team[2]/gameteam/@R"/></h3>
     <p>
       <xsl:apply-templates select="team[1]"/> 
-      <xsl:value-of select="$status"/>
+     <xsl:text> 
+</xsl:text> <xsl:value-of select="$status"/><xsl:text>
+</xsl:text>
       <xsl:apply-templates select="team[2]"/>
       <xsl:apply-templates select="l_pitcher"/>
       <xsl:apply-templates select="sv_pitcher"/>
