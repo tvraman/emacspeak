@@ -579,6 +579,12 @@ current after deletion."
 
 ;;}}}
 ;;{{{  advice minibuffer to speak
+(defcustom emacspeak-minibuffer-prompt-personality
+  annotation-voice
+  "Personality for minibuffer prompts.
+Set to nil  if you dont want any special personality."
+  :type 'symbol
+  :group 'emacspeak)
 
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
