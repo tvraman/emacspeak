@@ -226,6 +226,8 @@
 Precomputing this saves time at start-up.")
 
 ;;}}}
+(defvar emacspeak-play-emacspeak-startup-icon t
+  "If set to T, emacspeak plays its icon as it launches.")
 
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -272,10 +274,10 @@ documentation is up-to-date, please use it.  "
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
   (require 'emacspeak-buff-menu)
-  (when (file-exists-p "/usr/bin/mpg123")
+  (when (and  emacspeak-play-emacspeak-startup-icon 
+ (file-exists-p "/usr/bin/mpg123"))
     (start-process "mp3" nil "mpg123"
                    "-q"
-             
                    (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (mapcar 'emacspeak-fix-interactive-command-if-necessary
