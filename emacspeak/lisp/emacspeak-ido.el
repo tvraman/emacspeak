@@ -1,3 +1,4 @@
+
 ;;; emacspeak-ido.el --- speech-enable ido
 ;;; $Id$
 ;;; $Author$
@@ -85,7 +86,7 @@
 	     (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
 	  " "
 	(format "In directory: %s"
-		ido-current-directory))))))
+		ido-current-directory)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
