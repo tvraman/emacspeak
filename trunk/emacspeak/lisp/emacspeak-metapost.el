@@ -46,7 +46,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'emacspeak-personality)
-(require 'voice-settings)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -198,8 +197,7 @@
           (error t)))))
 
 ;;; setup the keywords 
-(voice-lock-set-major-mode-keywords 'metapost-mode
-				    'emacspeak-metapost-voice-lock-keywords)
+
 
 ;;}}}
 ;;{{{  completion 

@@ -285,8 +285,7 @@
   "The font lock keywords for the `View-process-mode'."
   )
 
-(voice-lock-set-major-mode-keywords 'View-process-mode
-                                    'View-process-voice-lock-keywords)
+
 
 ;;}}}
 (provide  'emacspeak-view-process)

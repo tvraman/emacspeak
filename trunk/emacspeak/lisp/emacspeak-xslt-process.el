@@ -46,7 +46,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'emacspeak-personality)
-(require 'voice-settings)
 (require 'emacspeak-sounds)
 
 ;;}}}

@@ -81,7 +81,7 @@ Note that some badly formed mime messages  cause trouble."
                 ("^|?[a-zA-Z]*>+\\(.*\\)$" 1 emacspeak-vm-cite-voice )
                 )))
 
-(voice-lock-set-major-mode-keywords 'vm-mode      'vm-voice-lock-keywords)
+
 
 (voice-lock-set-major-mode-keywords 'vm-summary-mode
                                     'vm-summary-voice-lock-keywords)

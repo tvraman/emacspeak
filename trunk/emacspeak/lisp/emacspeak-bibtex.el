@@ -238,8 +238,7 @@
          1 'voice-lock-variable-name-personality)
    "*Default expressions to highlight in BibTeX mode."))
 
-(voice-lock-set-major-mode-keywords 'bibtex-mode
-                                    'bibtex-voice-lock-keywords)
+
 
 ;;}}}
 (provide  'emacspeak-bibtex)

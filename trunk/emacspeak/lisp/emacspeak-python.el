@@ -318,8 +318,7 @@ If already at the beginning then move to previous block."
        1 voice-lock-function-name-personality)
      ))
   "Additional expressions to voiceify in Python mode.")
-(voice-lock-set-major-mode-keywords 'python-mode
-				    'python-voice-lock-keywords)
+
 
 ;;}}}
 ;;{{{ keybindings

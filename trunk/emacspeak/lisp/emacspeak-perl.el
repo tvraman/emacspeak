@@ -68,7 +68,7 @@
    )
   "Additional expressions to highlight in Perl mode.")
 
-(voice-lock-set-major-mode-keywords 'perl-mode 'perl-voice-lock-keywords)
+
 
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
