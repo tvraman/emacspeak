@@ -721,9 +721,18 @@ Optional second arg as-html processes the results as HTML rather than data."
 ;;{{{  usenet
 
 (emacspeak-websearch-set-searcher 'dejanews
-                                  'emacspeak-websearch-usenet)
+                                  'emacspeak-websearch-usenet-search)
+
 
 (emacspeak-websearch-set-key ?d 'dejanews)
+
+;;;###autoload
+(defun emacspeak-websearch-usenet-search (group)
+  "Search a Usenet newsgroup."
+  (interactive
+   (list
+    (read-from-minibuffer "Newsgroup: ")))
+  (emacspeak-websearch-usenet group 'search))
 
 ;;}}}
 ;;{{{ Webster
@@ -1665,7 +1674,7 @@ Light for: ")))
 ;;}}}
 ;;{{{ Browse usenet 
 
-(defvar emacspeak-dejanews-uri 
+(defvar emacspeak-usenet-uri 
   "http://groups.google.com/groups?"
   "URI to open a group on Usenet archive.")
 ;;;###autoload
@@ -1676,20 +1685,19 @@ Optional interactive prefix arg results in prompting for a search term."
    (list
     (read-from-minibuffer "Newsgroup: ")
     current-prefix-arg))
-  (declare (special emacspeak-dejanews-uri))
-  (let (
-        (url nil))
+  (declare (special emacspeak-usenet-uri))
+  (let ((url nil))
     (cond
      (prefix                            ;search
       (setq url
-            (concat emacspeak-dejanews-uri
+            (concat emacspeak-usenet-uri
                     (format "meta=group%%3D%s&q=%s"
                             group
                             (read-from-minibuffer
                              (format "Search %s for:" group))))))
      (t                                 ;browse
       (setq url 
-            (concat emacspeak-dejanews-uri
+            (concat emacspeak-usenet-uri
                     (format "as_ugroup=%s" group)
                     ))))
     (browse-url  url)
@@ -1702,7 +1710,6 @@ Optional interactive prefix arg results in prompting for a search term."
 ;;}}}
 
 ;;}}}
-
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
 
