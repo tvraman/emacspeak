@@ -104,7 +104,8 @@ proc tts_repeat  {} {
 }
 
 proc tts_pause {} {
-    pause
+    # textToSpeechPause is buggy -- stubbed out.
+    # pause
     return ""
 }
 

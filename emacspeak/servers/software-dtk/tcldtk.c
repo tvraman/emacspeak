@@ -22,7 +22,6 @@
  */
 /* > */
 /* <headers*/
-
 #include <tcl.h>
 #include <dtk/ttsapi.h>
 #define PACKAGENAME "tts"
@@ -167,9 +166,12 @@ int Stop(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv
 /* < pause and resume */
 
 int Pause(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if (TextToSpeechPause(dtkHandle)) return TCL_OK;
-  Tcl_SetResult(interp, "Could not pause synthesis", TCL_STATIC);
-  return TCL_ERROR;
+  if (TextToSpeechPause(dtkHandle) == 0) { /*paused successfully */
+    return TCL_OK;
+  } else {
+    Tcl_SetResult(interp, "Could not pause synthesis", TCL_STATIC);
+    return TCL_ERROR;
+  }
 }
 
 int Resume(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
