@@ -438,8 +438,8 @@ displayed buffers." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
-;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15978
-;;;;;;  38316))
+;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15994
+;;;;;;  4039))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
