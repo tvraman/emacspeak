@@ -2,11 +2,10 @@
 #$Id$
 #Description: Print out hostname wher ewe logged in from:
 use strict;
-
 #see /usr/include/utmp.h
 use constant  RECORD_SIZE => 292;
 use constant RECORD_FORMAT =>'l A32 A256';
-
+my $CONSOLE_SND  = 'play /usr/share/sounds/startup3.wav';
 my $user = shift;
 $user ||= $ENV{LOGNAME};
 my $u =qx(id -u);
@@ -26,6 +25,6 @@ open (OUT, "> $home/.emacspeak/.current-remote-hostname") or die "Cannot write o
 print OUT $host, "\n";
 close OUT;
 } else {
-  print STDERR "No host entry on lastlog.\n";
+  qx($CONSOLE_SND);
 }
 close LASTL;
