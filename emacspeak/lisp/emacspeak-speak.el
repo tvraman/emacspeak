@@ -1705,8 +1705,9 @@ See the documentation for function
   :type 'directory
   :group 'emacspeak-speak)
 ;;;###autoload
-(defun emacspeak-speak-world-clock (zone)
-  "Display current date and time  for specified zone."
+(defun emacspeak-speak-world-clock (zone &optional set)
+  "Display current date and time  for specified zone.
+Optional second arg `set' sets the TZ environment variable as well."
   (interactive
    (list
     (let ((completion-ignore-case t))
@@ -1714,9 +1715,14 @@ See the documentation for function
        (read-file-name
 	"Timezone: "
 	emacspeak-speak-zoneinfo-directory)
-       (length emacspeak-speak-zoneinfo-directory)))))
+       (length emacspeak-speak-zoneinfo-directory)))
+    current-prefix-arg))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
+  (when (and set
+             (= 16 (car set)))
+    ;; two interactive prefixes from caller
+    (setenv "TZ" zone))
   (shell-command
    (format "export TZ=%s; date +\"%s\""
 	   zone  
@@ -1724,20 +1730,24 @@ See the documentation for function
                    (format 
 		    " in %s, %%Z, %%z "
 		    zone)))))
-
+eeeeeeeeeeeeeeeeuram
 ;;}}}
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
-Optional interactive prefix invokes world clock."
+Optional interactive prefix arg invokes world clock.
+Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
-  (if world
-      (call-interactively 'emacspeak-speak-world-clock)
+  (cond
+   (world
+    (call-interactively 'emacspeak-speak-world-clock))
+   (t
     (tts-with-punctuations "some"
                            (dtk-speak
                             (format-time-string
-                             emacspeak-speak-time-format-string)))))
-                             
+                             emacspeak-speak-time-format-string))))))
+                            
+ 
 (defconst emacspeak-codename
   "GoodDog"
   "Code name of present release.")
