@@ -49,7 +49,7 @@
 (eval-when-compile
   (require 'voice-lock)
   (require 'which-func)
-           ;(require 'emacspeak-table-ui)
+           (require 'emacspeak-table-ui)
            (require 'emacspeak-sounds)
 (require 'shell))
 
@@ -66,12 +66,11 @@
 
 ;;}}}
 ;;{{{  custom group 
-(defvar  emacspeak-xemacs-p
+(defconst  emacspeak-xemacs-p
   (when (or (boundp 'running-xemacs)
       (string-match "Lucid\\|XEmacs" emacs-version))
   t)
 "T if we are running under XEmacs.")
-
 (defgroup emacspeak-speak nil
 "Basic speech output commands."
 :group 'emacspeak)
@@ -442,17 +441,8 @@ current local  value to the result."
 	 (percent (if (> total 50000)
 		      ;; Avoid overflow from multiplying by 100!
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
-		    (/ (+ (/ total 2) (* 100 (1- pos))) (max
-                                                         total 1))))
-         (message nil))
-    (setq message
-          (cond
-           ((= 0 percent) " top")
-           ((= 100 percent) " bottom ")
-           (t (format " %d%% " percent))))
-    (put-text-property 0 (length message)
-                       'property 'harry message)
-    message))
+		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
+    (format "%d%%" percent)))
 
 ;;}}}
 ;;{{{  indentation:
@@ -1505,27 +1495,29 @@ semantic to do the work."
     (cond
      ((stringp mode-line-format)
       (tts-with-punctuations "all"
-                             (dtk-speak mode-line-format )))
+      (dtk-speak mode-line-format )))
      (t
-      (let ((buffer-name (buffer-name)))
-        (put-text-property 0 (length buffer-name)
-                           'personality 'paul-animated buffer-name)
-        (tts-with-punctuations "all"
-                               (dtk-speak
-                                (concat frame-info
-                                        buffer-name
-                                        (format  "%s %s %s  "
-                                                 (if line-number-mode
-                                                     (format "line %d"
-                                                             (emacspeak-get-current-line-number))
-                                                   "")
-                                                 (if column-number-mode
-                                                     (format "Column %d"
-                                                             (current-column))
-                                                   "")
-                                                 (if  major-mode major-mode ""))
-                                        (emacspeak-get-current-percentage-into-buffer)
-                                        ))))))))
+      (let  ((buffer-name (buffer-name))
+(percentage (emacspeak-get-current-percentage-into-buffer)))
+(put-text-property 0 (length buffer-name)
+                   'personality 'paul-animated buffer-name)
+(put-text-property 0 (length percentage)
+                   'personality 'harry percentage)
+      (tts-with-punctuations "all"
+      (dtk-speak
+       (concat frame-info
+               buffer-name
+               (format  "%s %s %s "
+                        (if line-number-mode
+                            (format "line %d"
+                                    (emacspeak-get-current-line-number))
+                          "")
+                        (if column-number-mode
+                            (format "Column %d"
+                                    (current-column))
+                          "")
+                        (if  major-mode major-mode ""))
+               percentage))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
