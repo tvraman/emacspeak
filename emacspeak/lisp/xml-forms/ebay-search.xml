@@ -19,7 +19,7 @@
           <td>
             <input name="srchdesc" type="checkbox" value="y" id="srchdesc"/>
             <label for="srchdesc">Search in
-descriptions</label>
+            descriptions</label>
           </td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@ descriptions</label>
             <label for="itemLocation">Item location</label>
             <select name="ebaytag1code" size="1" id="itemLocation">
               <option selected="selected" value="0">All of eBay - include all
-regions</option>
+              regions</option>
               <option value="39">AZ--Phoenix</option>
               <option value="1">CA--Los Angeles</option>
               <option value="57">CA--Oakland</option>
@@ -139,7 +139,7 @@ regions</option>
             <label for="SortProperty">Sort by</label>
             <select name="SortProperty" size="1" id="SortProperty">
               <option value="MetaEndSort" selected="selected">Items ending
-first</option>
+              first</option>
               <option value="MetaNewSort">Newly-listed items first</option>
               <option value="MetaLowestPriceSort">Lowest prices first</option>
               <option value="MetaHighestPriceSort">Highest prices first</option>

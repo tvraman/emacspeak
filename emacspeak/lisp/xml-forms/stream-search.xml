@@ -8,18 +8,18 @@
   <body>
     <p/>
     <form action="http://www.billsparks.org/links/search.cgi" method="GET">
-        <table>
-          <tr>
-            <td>
-              <label for="s">Quick Search</label>
-              <input type="text" size="15" name="query"
-              id="s"/>
+      <table>
+        <tr>
+          <td>
+            <label for="s">Quick Search</label>
+            <input type="text" size="15" name="query"
+            id="s"/>
           </td>
-<td>
-              <input type="submit" value="Search!"/>
-            </td>
-          </tr>
-        </table>
+          <td>
+            <input type="submit" value="Search!"/>
+          </td>
+        </tr>
+      </table>
     </form>
   </body>
 </html>

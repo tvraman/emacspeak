@@ -9,7 +9,7 @@ Param locator is an XPath expression.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="text" />
   <xsl:param name="locator"/>
-<!-- { html   -->
+  <!-- { html   -->
   <xsl:template match="/">
     <xsl:value-of select="count($locator)"/>
   </xsl:template>
