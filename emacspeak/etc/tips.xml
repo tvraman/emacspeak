@@ -27,6 +27,11 @@
     </title>
     <abstract>
       <para>
+        <inlinegraphic
+                       fileref="http://emacspeak.sf.net/emacspeak.jpg"
+                       align="center" role="Logo"/>
+      </para>
+      <para>
         This document is a collection of productivity tips
         for using the Emacspeak audio desktop.  Make sure
         you listen to this document with punctuation mode
@@ -40,13 +45,13 @@
         details of a command using these facilities.
       </para>
       <para>
-The latest copy of this document is always available via CVS
+        The latest copy of this document is always available via CVS
         from the Emacspeak CVS repository ---thanks to the
         <inlinegraphic
-        fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"
-        />
---- SourceForge project.
-</para>
+                       fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"
+                       />
+        --- SourceForge project.
+      </para>
     </abstract>
   </articleinfo>
   
@@ -54,7 +59,7 @@ The latest copy of this document is always available via CVS
     <qandadiv id="help">
       <title>Online Help</title>
       <para>
-Tips on using Emacs online help facilities.</para>
+        Tips on using Emacs online help facilities.</para>
       <qandaentry>
         <question> <para> Interactive help.</para> </question>
         <answer>
@@ -150,7 +155,7 @@ Tips on using Emacs online help facilities.</para>
       <para>
         This section  contains tips  on working efficiently
         with files and folders, both local and remote.
-</para>
+      </para>
       <qandaentry>
         <question> <para> Working on files and folders.</para> </question>
         <answer>
@@ -167,16 +172,16 @@ Tips on using Emacs online help facilities.</para>
       <qandaentry>
         <question> <para> Working with remote directories.</para> </question> <answer> <para> Built-in Emacs package
             <application>ange-ftp</application>
-provides seamless access to remote files and folders by
+            provides seamless access to remote files and folders by
             using UNIX <command>ftp</command>
-behind the scenes.
-To open a remote directory, specify the directory location  as 
-<command>/username@host:/path</command>
-when prompted by command <command>dired</command>.
+            behind the scenes.
+            To open a remote directory, specify the directory location  as 
+            <command>/username@host:/path</command>
+            when prompted by command <command>dired</command>.
             Note that in the above,
             <emphasis>username</emphasis>
-defaults to <emphasis>anonymous</emphasis>.
-</para>
+            defaults to <emphasis>anonymous</emphasis>.
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -244,7 +249,7 @@ defaults to <emphasis>anonymous</emphasis>.
     <qandadiv id="read">
       <title>Reading, Browsing And Skimming</title>
       <para>
-This section contains tips for efficiently working with
+        This section contains tips for efficiently working with
         large amounts of content using speech output.</para>
       <qandaentry>
         <question> <para> Hiding and exposing text blocks. </para> </question>
@@ -273,29 +278,29 @@ This section contains tips for efficiently working with
         </question>
         <answer>
           <para>
-          Use commands
+            Use commands
             <simplelist type="vert">
               <member><command>emacspeak-skip-blank-lines-backward</command></member>
               <member><command>emacspeak-skip-blank-lines-forward</command></member>
             </simplelist>
-to move across contiguous blank lines.</para>
+            to move across contiguous blank lines.</para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question> <para><emphasis>Everything</emphasis> is
-        searchable.</para> </question>
+            searchable.</para> </question>
         <answer>
           <para>
             Everything
             is <emphasis>searchable</emphasis>
-in Emacs. Use this to advantage when working with all forms
+            in Emacs. Use this to advantage when working with all forms
             of content, since it is often more efficient to
             use Emacs commands 
-<command><keycap>C-s</keycap></command>
-and  <command><keycap>C-r</keycap></command>
-to perform forward or backward incremental search to locate
+            <command><keycap>C-s</keycap></command>
+            and  <command><keycap>C-r</keycap></command>
+            to perform forward or backward incremental search to locate
             relevant information  than to listen to  the  content.
- </para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -303,57 +308,57 @@ to perform forward or backward incremental search to locate
         </question>
         <answer>
           <para>
-Use Emacs <emphasis>mark</emphasis> to save temporary
+            Use Emacs <emphasis>mark</emphasis> to save temporary
             positions in a file.
-Use built-in Emacs <application>bookmark</application>
-to save the position across Emacs sessions. Use built-in
+            Use built-in Emacs <application>bookmark</application>
+            to save the position across Emacs sessions. Use built-in
             Emacs package <application>desktop</application>
-to have Emacs automatically recreate the state of the audio
+            to have Emacs automatically recreate the state of the audio
             desktop on restart.
-</para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question> <para>Working with  different portions of
-        a file at the same time.</para> </question>
+            a file at the same time.</para> </question>
         <answer>
           <para>
             Display the file in different Emacs
             <emphasis>windows</emphasis> 
             or <emphasis>frames</emphasis>;
-Emacs allows you to display different portions 
- of the file in each window or frame. Use Emacspeak commands 
+            Emacs allows you to display different portions 
+            of the file in each window or frame. Use Emacspeak commands 
             <simplelist type="vert">
               <member><command>emacspeak-speak-predefined-window</command></member>
               <member><command>emacspeak-speak-this-buffer-other-window-display</command></member>
               <member><command>emacspeak-speak-this-buffer-previous-display</command></member>
               <member><command>emacspeak-speak-this-buffer-next-display</command></member>
             </simplelist>
-to listen to a given  portion of a file whilst working on a
+            to listen to a given  portion of a file whilst working on a
             different portion of the same file.
-</para>
+          </para>
         </answer>
       </qandaentry>
     </qandadiv>
     <qandadiv>
       <title>Emacspeak Utilities</title>
-<para>This section gives tips on using some of the built-in
+      <para>This section gives tips on using some of the built-in
         productivity tools bundled with Emacspeak.
-Most of these are implemented in module
+        Most of these are implemented in module
         <application>emacspeak-wizards</application>.
       </para>
       <qandaentry>
         <question>
-<para>
-Launch a <command>root</command> shell.</para></question>
+          <para>
+            Launch a <command>root</command> shell.</para></question>
         <answer>
           <para>
-<emphasis>Never</emphasis> run Emacspeak as the
+            <emphasis>Never</emphasis> run Emacspeak as the
             <command>root</command> user.
-Instead use Emacspeak command 
-<command>emacspeak-root</command>
-to create a <command>root shell</command> after starting Emacspeak.
-</para>
+            Instead use Emacspeak command 
+            <command>emacspeak-root</command>
+            to create a <command>root shell</command> after starting Emacspeak.
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -362,9 +367,9 @@ to create a <command>root shell</command> after starting Emacspeak.
         </question>
         <answer>
           <para>
-Emacspeak provides a clipboard facility to enabling cut and
+            Emacspeak provides a clipboard facility to enabling cut and
             paste across different emacspeak sessions,
-see commands
+            see commands
             <simplelist type="vert">
               <member><command>emacspeak-clipboard-copy</command></member>
               <member><command>emacspeak-clipboard-paste</command></member>
@@ -378,11 +383,11 @@ see commands
         </question>
         <answer>
           <para>Emacspeak command
-          <command>emacspeak-copy-current-file</command>
+            <command>emacspeak-copy-current-file</command>
             lets you copy the file being visited to a
-          different location ---this is a convenient way of
-          publishing to a  WWW server.
-</para>
+            different location ---this is a convenient way of
+            publishing to a  WWW server.
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -391,9 +396,9 @@ see commands
         </question>
         <answer>
           <para>
-Emacspeak command
+            Emacspeak command
             <command>emacspeak-speak-telephone-directory</command>
-lets you maintain a telephone directory as a simple text file.</para>
+            lets you maintain a telephone directory as a simple text file.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -402,12 +407,12 @@ lets you maintain a telephone directory as a simple text file.</para>
         </question>
         <answer>
           <para>Many UNIX commands produce tabulated output,
-          e.g., command <command>df</command> for displaying
-          a disk usage summary.
-You can use Emacspeak command
-          <command>emacspeak-speak-run-shell-command</command>
-to run such commands and have the tabular output available
-          for browsing using Emacspeak's table browsing facilities.</para>
+            e.g., command <command>df</command> for displaying
+            a disk usage summary.
+            You can use Emacspeak command
+            <command>emacspeak-speak-run-shell-command</command>
+            to run such commands and have the tabular output available
+            for browsing using Emacspeak's table browsing facilities.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -416,17 +421,17 @@ to run such commands and have the tabular output available
         </question>
         <answer>
           <para>
-This is most useful when working with log files.
-Command <command>
+            This is most useful when working with log files.
+            Command <command>
               emacspeak-speak-line-set-column-filter</command>
             enables you to filter out uninteresting columns
             of each line as it is spoken.
             Note that columns are filtered out by making
             them <emphasis>inaudible</emphasis>
----in order for this to take effect,
+            ---in order for this to take effect,
             <command>voice-lock</command> needs to be active
             in the current buffer.
-</para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -435,14 +440,14 @@ Command <command>
         </question>
         <answer>
           <para>
-Use command
+            Use command
             <command>emacspeak-speak-browse-linux-howto</command>
-to browse Linux HOWTO documentation installed on your
+            to browse Linux HOWTO documentation installed on your
             system.
-          The command opens the specified HOWTO file and
-sets things up so you can use Emacs' outline facilities to
+            The command opens the specified HOWTO file and
+            sets things up so you can use Emacs' outline facilities to
             browse the document.
-             </para>
+          </para>
         </answer>
       </qandaentry>
     </qandadiv>
