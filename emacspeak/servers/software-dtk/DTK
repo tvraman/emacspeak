@@ -4,3 +4,8 @@ on getting Dectalk TTS software for Linux.
 
 You will need to acquire and install the above before being able to
 use software Dectalk TTS with Emacspeak.
+
+Once you have Software Dectalk installed, test the speech server by
+running 
+tcl servers/dtk-soft
+and make sure it works before running Emacspeak.
