@@ -2165,6 +2165,18 @@ Non-nil means we split speech on newlines in comint buffer."
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
+(defvar emacspeak-speak-comint-output nil
+  "Temporarily set to T by command
+emacspeak-speak-comint-send-input.")
+
+(defun emacspeak-speak-comint-send-input ()
+  "Causes output to be spoken i.e., as if comint autospeak were turned
+on."
+  (interactive)
+  (declare (special emacspeak-speak-comint-output))
+  (setq emacspeak-speak-comint-output t)
+  (call-interactively 'comint-send-input)
+  (emacspeak-auditory-icon 'select-object))
 
 ;;}}}
 ;;{{{   quiten messages
