@@ -331,8 +331,8 @@ If we are on the last call, do nothing."
 (defadvice efc-option-dialog (after emacspeak pre act comp)
   "Announce dialog box we just opened."
   (emacspeak-auditory-icon 'open-object)
-	    (dtk-speak
-             (ad-get-arg 0)))
+  (dtk-speak
+   (ad-get-arg 0)))
 	    
 	    
 

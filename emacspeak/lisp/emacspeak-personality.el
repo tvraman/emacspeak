@@ -128,7 +128,7 @@ Existing personality properties on the text range are preserved."
 	 (put-text-property start extent 'personality v object)
 	 (when (< extent end)
 	   (emacspeak-personality-append extent end v object)))
-	(t                        ;accumulate the new personality
+	(t			       ;accumulate the new personality
 	 (unless (or (equal  v orig)
                      (listp orig)
                      (and (listp orig)(memq v orig)))
@@ -163,7 +163,7 @@ Existing personality properties on the text range are preserved."
 	 (put-text-property start extent 'personality v object)
 	 (when (< extent end)
 	   (emacspeak-personality-prepend extent end v object)))
-	(t                        ;accumulate the new personality
+	(t			       ;accumulate the new personality
 	 (unless (or (equal v orig)
 		     (listp orig)
 		     (and (listp orig) (memq v orig)))
@@ -195,7 +195,7 @@ preserved."
 	((null orig)			;simple case
 	 (when (< extent end)
 	   (emacspeak-personality-remove extent end personality)))
-	(t                            ;remove the new personality
+	(t				;remove the new personality
 	 (setq new
 	       (cond
 		((equal orig personality) nil)
@@ -269,7 +269,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face value)))
-             ((ems-plain-cons-p value)) ;;pass on plain cons
+             ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -305,7 +305,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-	     ((ems-plain-cons-p value)) ;;pass on plain cons
+	     ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -341,7 +341,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((ems-plain-cons-p value)) ;;pass on plain cons
+             ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 

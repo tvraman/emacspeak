@@ -200,23 +200,23 @@ available."
 (defadvice tree-buffer-select (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-  (let ((node (ad-get-arg 0))) ;; note that logic is reversed
-    (cond
-     ((tree-node-is-expanded node)
-      (emacspeak-auditory-icon 'open-object))
-     (t (emacspeak-auditory-icon 'close-object))))))
+    (let ((node (ad-get-arg 0))) ;; note that logic is reversed
+      (cond
+       ((tree-node-is-expanded node)
+	(emacspeak-auditory-icon 'open-object))
+       (t (emacspeak-auditory-icon 'close-object))))))
       
 (defadvice tree-buffer-update (after emacspeak pre act comp)
   "Provide context speech feedback."
   (when (interactive-p)
-  (emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 
 (defadvice tree-buffer-nolog-message (after emacspeak pre
                                             act comp)
