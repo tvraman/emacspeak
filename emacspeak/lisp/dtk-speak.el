@@ -614,7 +614,9 @@ Argument OUTPUT is the newly arrived output."
 
 ;;}}}
 ;;{{{  sending commands
-
+(defun tts-say-version ()
+  "Speak version."
+  (dtk-interp-say-version))
 (defun dtk-set-rate (rate    &optional prefix)
   "Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the

@@ -7,7 +7,7 @@
 # {{{source common code set wd [file dirname $argv0]source $wd/tts-lib.tcl# }}}
 # {{{ procedures  
 
-proc Version {} {
+proc version {} {
     global tts
     q {this is [:version speak]  }
     d
