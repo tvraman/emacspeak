@@ -278,6 +278,22 @@
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ highlighting 
+(defadvice reftex-highlight (after emacspeak pre act comp)
+  "Add  voice properties."
+  (let ((beg (ad-get-arg 1))
+        (end (ad-get-arg 2)))
+    (ems-modify-buffer-safely
+    (put-text-property beg end
+                       'personality 'harry))
+    (emacspeak-speak-line)
+    (sit-for 2)))
+
+;;}}}
+;;{{{  indexing 
+
+;;}}}
+
 (provide 'emacspeak-reftex)
 ;;{{{ end of file
 

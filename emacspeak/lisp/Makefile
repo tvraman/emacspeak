@@ -109,6 +109,7 @@ emacspeak-custom.elc \
 emacspeak-daisy.elc \
 emacspeak-dictation.elc \
 emacspeak-dictionary.elc \
+emacspeak-desktop.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
 emacspeak-dmacro.elc \
@@ -280,6 +281,7 @@ emacspeak-checkdoc.elc: emacspeak-checkdoc.el dtk-speak.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc
 emacspeak-daisy.elc: emacspeak-daisy.el dtk-speak.elc
+emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc
 emacspeak-dictation.elc: emacspeak-dictation.el dtk-speak.elc
 emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc
 emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc

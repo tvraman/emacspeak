@@ -852,9 +852,10 @@ Produce an auditory icon as well."
   (defadvice read-char-exclusive (before emacspeak pre act comp)
     "Speak the prompt"
     (let ((prompt  (ad-get-arg 0)))
-      (when  prompt
+      (if  prompt
         (tts-with-punctuations "all"
-                               (dtk-speak prompt)))))
+                               (dtk-speak prompt))
+        (emacspeak-speak-message-again))))
 
   (defadvice read-command(around emacspeak pre act )
     "Prompt using speech as well. "
