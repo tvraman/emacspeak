@@ -167,7 +167,8 @@ The player is placed in a buffer in emacspeak-madplay-mode."
                  emacspeak-madplay-program
                    (directory-files
                     (expand-file-name resource)
-                    'full)))
+                    'full
+                    "mp3$")))
                   (t (start-process
                       "madplay" emacspeak-madplay-buffer-name
                       emacspeak-madplay-program
