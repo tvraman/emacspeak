@@ -167,13 +167,17 @@
        (, doc)
        :type (voice-setup-custom-menu)
        :group 'voice-fonts
+       :set '(lambda (sym val)
+               (let ((observing  (get sym 'observing)))
+                 (remprop observing sym)
+                 (set-default sym val)))
        (,@ args))
      ;;; other actions performed at define time 
      (voice-setup-set-voice-for-face (, face) '(, personality))
-                                        ;record  personality as an
-                                        ;observer of  voice
+;;;record  personality as an
+;;;observer of  voice and vice versa
      (when (symbolp '(, personality))
-     (put  '(, personality) 'observing '(, voice)))
+       (put  '(, personality) 'observing '(, voice)))
      (when (symbolp '(, voice))
        (put  '(, voice) '(, personality) t)))))
 
