@@ -92,6 +92,11 @@
             (emacspeak-auditory-icon 'select-object))))))
 
 ;;}}}
+;;{{{ key bindings
+(declaim (special analog-mode-map))
+(define-key analog-mode-map "f" 'analog-find-entry-file)
+
+;;}}}
 (provide 'emacspeak-analog)
 ;;{{{ end of file
 
