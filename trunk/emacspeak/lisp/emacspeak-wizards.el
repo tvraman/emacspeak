@@ -523,38 +523,55 @@ With prefix arg, opens the phone book for editting."
 
 ;;; convenience to launch a root shell.
 
-(defun emacspeak-root ()
-  "Start a root shell or switch to one that already exists."
-  (interactive)
-  (declare (special explicit-shell-file-name))
-  (cond
-   ((comint-check-proc "*root*")
-    (pop-to-buffer "*root*")
-    (when (featurep 'emacspeak)
-      (emacspeak-speak-mode-line)))
-   (t
-    (let* ((prog (or explicit-shell-file-name
-                     (getenv "ESHELL")
-                     (getenv "SHELL")
-                     "/bin/sh"))		     
-           (name (file-name-nondirectory prog))
-           (startfile (concat "~/.emacs_" name))
-           (xargs-name (intern-soft (concat "explicit-" name "-args")))
-           shell-buffer)
-      (save-excursion
-        (set-buffer (apply 'make-comint "root" prog
-                           (if (file-exists-p startfile) startfile)
-                           (if (and xargs-name (boundp xargs-name))
-                               (symbol-value xargs-name)
-                             '("-i"))))
-        (setq shell-buffer (current-buffer))
-        (shell-mode)
-        (switch-to-buffer shell-buffer)
-        (process-send-string
-         (get-buffer-process shell-buffer)
-         "su -l\n")))
-    (when (featurep 'emacspeak)
-      (dtk-speak "Enter root password: ")))))
+(defun emacspeak-root (&optional cd)
+  "Start a root shell or switch to one that already exists.
+Optional interactive prefix arg `cd' executes cd
+default-directory after switching."
+  (interactive "P")
+  (declare (special explicit-shell-file-name
+                    default-directory))
+  (let ((dir default-directory))
+    (cond
+     ((comint-check-proc "*root*")
+      (pop-to-buffer "*root*"))
+     (t
+      (let* ((prog (or explicit-shell-file-name
+                       (getenv "ESHELL")
+                       (getenv "SHELL")
+                       "/bin/sh"))		     
+             (name (file-name-nondirectory prog))
+             (startfile (concat "~/.emacs_" name))
+             (xargs-name (intern-soft (concat "explicit-" name "-args")))
+             shell-buffer)
+        (save-excursion
+          (set-buffer (apply 'make-comint "root" prog
+                             (if (file-exists-p startfile) startfile)
+                             (if (and xargs-name (boundp xargs-name))
+                                 (symbol-value xargs-name)
+                               '("-i"))))
+          (setq shell-buffer (current-buffer))
+          (shell-mode)
+          (switch-to-buffer shell-buffer)
+          (process-send-string
+           (get-buffer-process shell-buffer)
+           "su -l\n")))
+      (when (featurep 'emacspeak)
+        (dtk-speak "Enter root password: "))))
+    (when cd
+      (unless (string-equal (expand-file-name dir)
+                            (expand-file-name
+                             default-directory))
+        (goto-char (point-max))
+        (insert (format "cd %s" dir))
+        (comint-send-input)
+        (shell-process-cd dir)))
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'select-object)))
+  
+  
+    
+    
+      
 
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
@@ -1330,8 +1347,11 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ table wizard
-(declaim (special emacspeak-etc-directory))
+(defvar emacspeak-etc-directory
+  (expand-file-name  "etc/" emacspeak-directory)
+  "Directory containing miscellaneous files  for Emacspeak.")
 
+(declaim (special emacspeak-etc-directory))
 (defvar emacspeak-wizard-table-content-extractor
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
@@ -1462,8 +1482,8 @@ annotation is inserted into the working buffer when complete."
 ;;; buffer.
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to 
-the directory of the current buffer."
-  (interactive)
+ the directory of the current buffer."
+  (interactive )
   (declare (special default-directory))
   (let ((dir default-directory))
     (shell)
