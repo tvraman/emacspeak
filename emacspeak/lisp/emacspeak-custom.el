@@ -46,9 +46,9 @@
   (require 'emacspeak-speak)
   (require 'voice-lock)
   (require 'emacspeak-keymap)
-  (require 'emacspeak-sounds))
-
-(eval-when (compile)
+  (require 'emacspeak-sounds)
+  (require 'emacspeak-widget)
+  (require 'widget)
   (require 'emacspeak-fix-interactive))
 
 ;;}}}
@@ -59,10 +59,9 @@
 ;;; which speech-enables the widget libraries.
 
 ;;}}}
-;;{{{ fffffffffadvice
+;;{{{ Advice
 
-(defadvice customize-save-customized (after emacspeak pre
-                                            act comp)
+(defadvice customize-save-customized (after emacspeak pre act comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'save-object)
@@ -74,8 +73,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (message "Saved customizations.")))
-(defadvice custom-set (after emacspeak pre
-                                            act comp)
+(defadvice custom-set (after emacspeak pre act comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
@@ -124,12 +122,18 @@
     (emacspeak-auditory-icon 'large-movement)
     (voice-lock-mode 1)
     (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ custom hook
+
 (add-hook 'custom-mode-hook
           (function
            (lambda nil
              (voice-lock-mode 1))))
+
+;;}}}
+;;{{{ augment custom widgets
+
 ;;}}}
 (provide 'emacspeak-custom)
 
