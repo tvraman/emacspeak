@@ -1148,6 +1148,12 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 
+(defadvice url-lazy-message
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
 ;;}}}
 ;;{{{ pull RSS feed
 
