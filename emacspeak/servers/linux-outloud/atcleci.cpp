@@ -71,9 +71,8 @@ you like after a command.
 
 #define ECILIBRARYNAME "libibmeci.so"
 
-#define DSP "/dev/dsp"
+snd_pcm_t *AHandle;
 char *device = "default";                    /* playback device */
-int dsp = -1;
 //.04  second using 11025k samples.
 //note that in the tcl server we select for 0.02 seconds so
 //that we dont queue up too many speech samples,
@@ -149,7 +148,7 @@ static int (*_eciSetOutputDevice) (void *, int);
 static void (*_eciRegisterCallback) (void *,
 				     int (*)(void *, int, long, void *),
 				     void *);
-static int openDSP ();
+static int alsa_init ();
 extern "C" EXPORT int Tcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -161,7 +160,7 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
-int closeDSP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+int alsa_close (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int eciCallback (void *, int, long, void *);
 int playWaveFile (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 
@@ -341,8 +340,6 @@ void
 TclEciFree (ClientData eciHandle)
 {
   _eciDelete (eciHandle);
-  close (dsp);
-  dsp = -1;
 }
 
 int
@@ -539,7 +536,7 @@ Tcleci_Init (Tcl_Interp * interp)
 			(ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "playWave", playWaveFile, (ClientData) NULL,
 			NULL);
-  Tcl_CreateObjCommand (interp, "closeDSP", closeDSP, (ClientData) eciHandle,
+  Tcl_CreateObjCommand (interp, "alsa_close", alsa_close, (ClientData) eciHandle,
 			TclEciFree);
   //>
   rc = Tcl_Eval (interp, "proc index x {global tts; \
@@ -571,7 +568,7 @@ playWaveFile (ClientData unused, Tcl_Interp * interp, int objc,
     }
   while ((count = fread (samples, 2, 2 * BUFSIZE, fp)) > 0)
     {
-      write (dsp, samples, count);
+      //write (dsp, samples, count);
     }
   fclose (fp);
   fprintf (stderr, "Played %s\n", filename);
@@ -724,11 +721,6 @@ Synchronize (ClientData eciHandle, Tcl_Interp * interp,
       Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
       return TCL_ERROR;
     }
-  if (dsp != -1)
-    {
-      close (dsp);
-      dsp = -1;
-    }
   return TCL_OK;
 }
 
@@ -738,11 +730,7 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
 {
   if (_eciStop (eciHandle))
     {
-      if (dsp != -1)
-	{
-	  close (dsp);
-	  dsp = -1;
-	}
+      //possibly call alsa stop here 
       return TCL_OK;
     }
   Tcl_SetResult (interp, "Could not stop synthesis", TCL_STATIC);
@@ -783,19 +771,20 @@ Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
   Tcl_SetResult (interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
-
+/* initialize and open alsa device */
 int
-openDSP ()
-{/*converted to alsa */
+alsa_init ()
+{
+  
   return 0;
 }
 
 int
-closeDSP (ClientData eciHandle, Tcl_Interp * interp, int objc,
+alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	  Tcl_Obj * CONST objv[])
 {
-  close (dsp);
-  dsp = -1;
+  
+  //shut down alsa 
   return TCL_OK;
 }
 
@@ -814,7 +803,7 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
   output = Tcl_GetStringFromObj (objv[1], &length);
   if (Tcl_StringMatch (output, "buffer"))
     {
-      fprintf (stderr, "setting output to buffer\n");
+      fprintf (stderr, "setting output to buffer using alsa\n");
       //<set output wave buffer 
       rc = _eciSynchronize (eciHandle);
       if (!rc)
@@ -828,11 +817,10 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	  Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
 	  return TCL_ERROR;
 	}
-      openDSP ();
-      if (dsp == -1)
-	{
+      rc = alsa_init ();
+      if (!rc) {
 	  Tcl_AppendResult (interp, "Could not open output device ",
-			    DSP, NULL);
+			    device, NULL);
 	  return (TCL_ERROR);
 	}
       //>
@@ -855,7 +843,6 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	  Tcl_AppendResult (interp, "Error unsetting output buffer.\n", NULL);
 	  return TCL_OK;
 	}
-      close (dsp);
     }
   else
     {
