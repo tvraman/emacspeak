@@ -12,6 +12,7 @@ Turn html links to RSS items.
     doctype-public= "-//Netscape Communications//DTD RSS 0.91//EN" 
   doctype-system="http://my.netscape.com/publish/formats/rss-0.91.dtd"
               method="xml"  indent="yes"/>
+  <xsl:param name="base"> http://emacspeak.sf.net/</xsl:param>
   <!-- {identity default  -->   
 
   <xsl:template match="*|@*" >
@@ -69,9 +70,19 @@ Emacspeak is a speech interface that allows visually
 
 <xsl:template match="a">
     <xsl:if test="@href">
+      <xsl:variable name="url">
+        <xsl:choose>
+        <xsl:when test="contains(@href,'http:')">
+          <xsl:value-of select="@href"/>
+            </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="concat($base, @href)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        </xsl:variable>
 <item>
 <link>
-<xsl:value-of select="@href"/>
+          <xsl:value-of select="$url"/>
       </link>
 <title><xsl:apply-templates />
       </title>

@@ -38,27 +38,27 @@ Emacspeak is a speech interface that allows visually
       <description>Downloads</description>
     </item>
     <item>
-      <link>info/emacspeak.html</link>
+      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
       <title>Reference</title>
       <description>Reference</description>
     </item>
     <item>
-      <link>install-guide/</link>
+      <link> http://emacspeak.sf.net/install-guide/</link>
       <title>Installation</title>
       <description>Installation</description>
     </item>
     <item>
-      <link>user-guide/</link>
+      <link> http://emacspeak.sf.net/user-guide/</link>
       <title>Usage</title>
       <description>Usage</description>
     </item>
     <item>
-      <link>tips.html</link>
+      <link> http://emacspeak.sf.net/tips.html</link>
       <title>Tips</title>
       <description>Tips</description>
     </item>
     <item>
-      <link>applications.html</link>
+      <link> http://emacspeak.sf.net/applications.html</link>
       <title>Tools</title>
       <description>Tools</description>
     </item>
@@ -98,24 +98,24 @@ Emacspeak is a speech interface that allows visually
     (ACSS)</description>
     </item>
     <item>
-      <link>applications.html</link>
+      <link> http://emacspeak.sf.net/applications.html</link>
       <title>task-oriented
     tools</title>
       <description>task-oriented
     tools</description>
     </item>
     <item>
-      <link>info/emacspeak.html</link>
+      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
       <title>online manual</title>
       <description>online manual</description>
     </item>
     <item>
-      <link>tips.html</link>
+      <link> http://emacspeak.sf.net/tips.html</link>
       <title>productivity tips</title>
       <description>productivity tips</description>
     </item>
     <item>
-      <link>applications.html</link>
+      <link> http://emacspeak.sf.net/applications.html</link>
       <title>speech-enabled applications list</title>
       <description>speech-enabled applications list</description>
     </item>
@@ -125,7 +125,7 @@ Emacspeak is a speech interface that allows visually
       <description>Google</description>
     </item>
     <item>
-      <link>release-17.0.html</link>
+      <link> http://emacspeak.sf.net/release-17.0.html</link>
       <title>Announcing Emacspeak 17.0
       (HappyDog)</title>
       <description>Announcing Emacspeak 17.0
@@ -137,59 +137,59 @@ Emacspeak is a speech interface that allows visually
       <description>Emacspeak 17.0 adds support for Fonix Software Dectalk.</description>
     </item>
     <item>
-      <link>release-16.0.html</link>
+      <link> http://emacspeak.sf.net/release-16.0.html</link>
       <title>Announcing Emacspeak 16.0
       (CleverDog)</title>
       <description>Announcing Emacspeak 16.0
       (CleverDog)</description>
     </item>
     <item>
-      <link>release-15.0.html</link>
+      <link> http://emacspeak.sf.net/release-15.0.html</link>
       <title>Announcing Emacspeak 15.0
       (SmartDog)</title>
       <description>Announcing Emacspeak 15.0
       (SmartDog)</description>
     </item>
     <item>
-      <link>applications.html</link>
+      <link> http://emacspeak.sf.net/applications.html</link>
       <title>Speech-enabled
       Applications Catalog</title>
       <description>Speech-enabled
       Applications Catalog</description>
     </item>
     <item>
-      <link>release-14.0.html</link>
+      <link> http://emacspeak.sf.net/release-14.0.html</link>
       <title>Announcing Emacspeak 14.0
       (TopDog)</title>
       <description>Announcing Emacspeak 14.0
       (TopDog)</description>
     </item>
     <item>
-      <link>publications/colored-paper.html</link>
+      <link> http://emacspeak.sf.net/publications/colored-paper.html</link>
       <title>Welcome To
       Fancy Colored Paper Universe</title>
       <description>Welcome To
       Fancy Colored Paper Universe</description>
     </item>
     <item>
-      <link>publications/colored-paper.pdf</link>
+      <link> http://emacspeak.sf.net/publications/colored-paper.pdf</link>
       <title>PDF version</title>
       <description>PDF version</description>
     </item>
     <item>
-      <link>publications/semantic-www.html</link>
+      <link> http://emacspeak.sf.net/publications/semantic-www.html</link>
       <title>Speech-enabling
       the Semantic WWW</title>
       <description>Speech-enabling
       the Semantic WWW</description>
     </item>
     <item>
-      <link>publications/semantic-www.pdf</link>
+      <link> http://emacspeak.sf.net/publications/semantic-www.pdf</link>
       <title>PDF version</title>
       <description>PDF version</description>
     </item>
     <item>
-      <link>release-13.0.html</link>
+      <link> http://emacspeak.sf.net/release-13.0.html</link>
       <title>Announcing Emacspeak 13.0
       (YellowLab)</title>
       <description>Announcing Emacspeak 13.0
@@ -203,118 +203,118 @@ Emacspeak is a speech interface that allows visually
       Times On Emacspeak And Open Source</description>
     </item>
     <item>
-      <link>release-12.0.html</link>
+      <link> http://emacspeak.sf.net/release-12.0.html</link>
       <title>Announcing Emacspeak 12.0
       (GoldenDog)</title>
       <description>Announcing Emacspeak 12.0
       (GoldenDog)</description>
     </item>
     <item>
-      <link>april-2000.txt</link>
+      <link> http://emacspeak.sf.net/april-2000.txt</link>
       <title>If Emacspeak Were To Go
       Commercial ... April 2000</title>
       <description>If Emacspeak Were To Go
       Commercial ... April 2000</description>
     </item>
     <item>
-      <link>talks/bazaar-99/slides.html</link>
+      <link> http://emacspeak.sf.net/talks/bazaar-99/slides.html</link>
       <title>Emacspeak at Bazaar
       1999 (slides as a single file)</title>
       <description>Emacspeak at Bazaar
       1999 (slides as a single file)</description>
     </item>
     <item>
-      <link>talks/bazaar-99/title.html</link>
+      <link> http://emacspeak.sf.net/talks/bazaar-99/title.html</link>
       <title>for the presentation
       version</title>
       <description>for the presentation
       version</description>
     </item>
     <item>
-      <link>release-11.0.html</link>
+      <link> http://emacspeak.sf.net/release-11.0.html</link>
       <title>Announcing Emacspeak-11.0
       (Aster)</title>
       <description>Announcing Emacspeak-11.0
       (Aster)</description>
     </item>
     <item>
-      <link>release-10.0.html</link>
+      <link> http://emacspeak.sf.net/release-10.0.html</link>
       <title>Announcing Emacspeak-10.0
       (WonderDog)</title>
       <description>Announcing Emacspeak-10.0
       (WonderDog)</description>
     </item>
     <item>
-      <link>smithsonian/study.html</link>
+      <link> http://emacspeak.sf.net/smithsonian/study.html</link>
       <title>Emacspeak enters
       Smithsonian's permanent Research Collection</title>
       <description>Emacspeak enters
       Smithsonian's permanent Research Collection</description>
     </item>
     <item>
-      <link>OsgoodFile.html</link>
+      <link> http://emacspeak.sf.net/OsgoodFile.html</link>
       <title>CBS Radio --The Osgood File On
       Emacspeak</title>
       <description>CBS Radio --The Osgood File On
       Emacspeak</description>
     </item>
     <item>
-      <link>manual-announce.html</link>
+      <link> http://emacspeak.sf.net/manual-announce.html</link>
       <title>Announcing Emacspeak User
       Manual 2nd Edition As An Open Source Project.</title>
       <description>Announcing Emacspeak User
       Manual 2nd Edition As An Open Source Project.</description>
     </item>
     <item>
-      <link>release-9.0.html</link>
+      <link> http://emacspeak.sf.net/release-9.0.html</link>
       <title>Announcing Emacspeak-9.0
       (BlackLab)</title>
       <description>Announcing Emacspeak-9.0
       (BlackLab)</description>
     </item>
     <item>
-      <link>release-8.0.html</link>
+      <link> http://emacspeak.sf.net/release-8.0.html</link>
       <title>Announcing Emacspeak-8.0
       (BlackDog)</title>
       <description>Announcing Emacspeak-8.0
       (BlackDog)</description>
     </item>
     <item>
-      <link>release-7.0.html</link>
+      <link> http://emacspeak.sf.net/release-7.0.html</link>
       <title>Announcing Emacspeak-7.0
       (Labrador)</title>
       <description>Announcing Emacspeak-7.0
       (Labrador)</description>
     </item>
     <item>
-      <link>smithsonian/study.html</link>
+      <link> http://emacspeak.sf.net/smithsonian/study.html</link>
       <title>case study</title>
       <description>case study</description>
     </item>
     <item>
-      <link>publications/semantic-www.html</link>
+      <link> http://emacspeak.sf.net/publications/semantic-www.html</link>
       <title>Speech-enabling
       the Semantic WWW</title>
       <description>Speech-enabling
       the Semantic WWW</description>
     </item>
     <item>
-      <link>publications/semantic-www.pdf</link>
+      <link> http://emacspeak.sf.net/publications/semantic-www.pdf</link>
       <title>PDF version</title>
       <description>PDF version</description>
     </item>
     <item>
-      <link>talks/chi96.pdf</link>
+      <link> http://emacspeak.sf.net/talks/chi96.pdf</link>
       <title>CHI 96 Presentation</title>
       <description>CHI 96 Presentation</description>
     </item>
     <item>
-      <link>talks/chi96.txt</link>
+      <link> http://emacspeak.sf.net/talks/chi96.txt</link>
       <title>text version</title>
       <description>text version</description>
     </item>
     <item>
-      <link>publications/</link>
+      <link> http://emacspeak.sf.net/publications/</link>
       <title>in the publications directory.</title>
       <description>in the publications directory.</description>
     </item>
@@ -324,19 +324,19 @@ Emacspeak is a speech interface that allows visually
       <description>ETC</description>
     </item>
     <item>
-      <link>mailto:emacspeak-request@cs.vassar.edu</link>
+      <link> http://emacspeak.sf.net/mailto:emacspeak-request@cs.vassar.edu</link>
       <title>the list request
     address (maintained by) greg e. priest-dorman</title>
       <description>the list request
     address (maintained by) greg e. priest-dorman</description>
     </item>
     <item>
-      <link>release.html</link>
+      <link> http://emacspeak.sf.net/release.html</link>
       <title>the news page</title>
       <description>the news page</description>
     </item>
     <item>
-      <link>./release.html</link>
+      <link> http://emacspeak.sf.net/./release.html</link>
       <title>release notes</title>
       <description>release notes</description>
     </item>
@@ -353,12 +353,12 @@ Emacspeak is a speech interface that allows visually
     Ask Questions The Smart Way</description>
     </item>
     <item>
-      <link>COPYRIGHT</link>
+      <link> http://emacspeak.sf.net/COPYRIGHT</link>
       <title>Copyright</title>
       <description>Copyright</description>
     </item>
     <item>
-      <link>mailto:emacspeak-request@cs.vassar.edu</link>
+      <link> http://emacspeak.sf.net/mailto:emacspeak-request@cs.vassar.edu</link>
       <title>emacspeak-request@cs.vassar.edu</title>
       <description>emacspeak-request@cs.vassar.edu</description>
     </item>
@@ -375,7 +375,7 @@ Emacspeak is a speech interface that allows visually
     page</description>
     </item>
     <item>
-      <link>themes.html</link>
+      <link> http://emacspeak.sf.net/themes.html</link>
       <title>themes</title>
       <description>themes</description>
     </item>
