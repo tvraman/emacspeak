@@ -291,14 +291,12 @@ Argument MODE  specifies the current pronunciation mode."
     (while (re-search-forward dtk-bracket-regexp   nil t )
       (replace-match " " nil t )))))
 
-(defcustom dtk-speak-nonprinting-chars t
+(defvar dtk-speak-nonprinting-chars t
   "*Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
 Set this to t to avoid a dectalk bug that makes the speech box die if
-it seems some accented characters in certain contexts."
-  :group 'dtk
-  :type 'boolean)
+it seems some accented characters in certain contexts.")
 
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
 
@@ -866,6 +864,31 @@ value, and then set the current local value to the result."
     (message "Turned %s capitalization  mode%s "
              (if dtk-capitalize  "on" "off" )
              (if prefix "" " locally"))))
+(defun dtk-toggle-speak-nonprinting-chars  (&optional prefix)
+  "Toggle speak-nonprinting-chars.
+Switches behavior of how characters with the high bit set are handled.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result."
+  (interactive "P")
+  (declare (special dtk-speaker-process dtk-speak-nonprinting-chars
+                    dtk-speak-server-initialized))
+  (when dtk-speak-server-initialized
+    (cond
+     (prefix
+      (setq-default  dtk-speak-nonprinting-chars
+                     (not  (default-value 'dtk-speak-nonprinting-chars )))
+      (setq dtk-speak-nonprinting-chars (default-value 'dtk-speak-nonprinting-chars )))
+     (t (make-local-variable 'dtk-speak-nonprinting-chars)
+        (setq dtk-speak-nonprinting-chars
+              (not dtk-speak-nonprinting-chars ))))
+    (emacspeak-auditory-icon
+     (if dtk-speak-nonprinting-chars
+         'on
+       'off))
+    (message "Turned %s speak-nonprinting-chars  mode%s "
+             (if dtk-speak-nonprinting-chars  "on" "off" )
+             (if prefix "" " locally"))))
+
 
 
 (defun dtk-toggle-allcaps-beep  (&optional prefix)

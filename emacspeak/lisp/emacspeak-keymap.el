@@ -295,6 +295,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-dtk-submap "w" 'emacspeak-toggle-word-echo)
 (define-key emacspeak-dtk-submap "V" 'emacspeak-dtk-speak-version)
 (define-key emacspeak-dtk-submap "v" 'voice-lock-mode)
+(define-key emacspeak-dtk-submap "n" 'dtk-toggle-speak-nonprinting-chars)
 (define-key emacspeak-dtk-submap "s" 'dtk-toggle-split-caps)
 (define-key emacspeak-dtk-submap "r" 'dtk-set-rate)
 (define-key emacspeak-dtk-submap "\C-m" 'dtk-set-chunk-separator-syntax)
