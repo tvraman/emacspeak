@@ -124,7 +124,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{  gnus: 
 
-    ;;; gnus now customized through custom.
+;;; gnus now customized through custom.
     
 
     ;;}}}
@@ -188,7 +188,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (add-hook 'comint-mode-hook 'emacspeak-toggle-comint-autospeak)
     (push  ".class" completion-ignored-extensions)
 
-    ;;; emacs lisp mode:
+;;; emacs lisp mode:
     (add-hook 'emacs-lisp-mode-hook
               (function (lambda ()
                           (define-key emacs-lisp-mode-map
@@ -266,7 +266,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{  dmacros: dynamic macros
 
-    ;(load-library-if-available "dmacro-prepare")
+                                        ;(load-library-if-available "dmacro-prepare")
 
     ;;}}}
     ;;{{{  view processes
@@ -287,10 +287,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
           '(
             (global-set-key  "\M-M" 'ffap-menu)
             (global-set-key "\M-L" 'ffap-next)
-            ;(global-set-key "\C-x\C-f" 'find-file-at-point)
+                                        ;(global-set-key "\C-x\C-f" 'find-file-at-point)
             ;;(global-set-key "\C-x4f"   'ffap-other-window)
-            ;(global-set-key "\C-x5f"   'ffap-other-frame)
-))
+                                        ;(global-set-key "\C-x5f"   'ffap-other-frame)
+            ))
 
     
     (ffap-bindings)
@@ -309,15 +309,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "ecb-prepare")
     (load-library-if-available "pmd-emacs-prepare")
     ;;}}}    
-;;{{{ bind  ido 
-(global-set-key '[insert] 'ido-switch-buffer)
-;;}}}
+    ;;{{{ bind  ido 
+    (global-set-key '[insert] 'ido-switch-buffer)
+    ;;}}}
     ;;{{{  load yasb 
 
     (load-library-if-available "yasb-prepare")
     ;;}}}
     ;;{{{ buffer selection 
-    ;(load-library-if-available"buff-sel")
+                                        ;(load-library-if-available"buff-sel")
     ;;}}}
     ;;{{{ mail spools 
 
@@ -411,7 +411,17 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (require 'ediary)
     (require 'calendar)
     (global-set-key "\M-\C-c" 'calendar)
-(load-library-if-available "icalendar")
+    (load-library-if-available "icalendar")
+    (add-hook 'fancy-diary-display-mode-hook
+              #'(lambda ()
+                  (let ((state buffer-read-only))
+                    (when state (setq buffer-read-only nil))
+                    (while (not (eobp))
+                      (search-forward-regexp "^=+$" nil 'move)
+                      (add-text-properties (match-beginning 0) 
+                                           (match-end 0) 
+                                           '(invisible t)))
+                    (when state (setq buffer-read-only t)))))
     ;;}}}
     ;;{{{ dirvars
     (load-library-if-available "dirvars")
@@ -428,7 +438,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ newsticker
-    (load-library-if-available "newsticker")
+    (autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
+    (autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
+
+    (add-hook 'newsticker-mode-hook 'imenu-add-menubar-index)
     ;;}}}
     ;;{{{ kmacro
 
@@ -442,8 +455,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{ igrep
 
-(autoload 'igrep "igrep" "Advanced grep")
+    (autoload 'igrep "igrep" "Advanced grep")
 
+    ;;}}}
+    ;;{{{ crontab
+    (load-library-if-available "crontab-mode")
+    ;;}}}
+    ;;{{{ fold-dwim
+    (load-library-if-available "fold-dwim")
     ;;}}}
     ;;{{{ nxml
 
@@ -453,9 +472,33 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
                                         
     (load-library-if-available "xslt-process-prepare")
     ;;}}}
-    ;;{{{ crontab
-    (load-library-if-available "crontab-mode")
-;;}}}
+    ;;{{{ customize outline minor mode:
+                                        ; Outline-minor-mode key map
+    (define-prefix-command 'cm-map nil "Outline-")
+                                        ; HIDE
+    (define-key cm-map "q" 'hide-sublevels) ; Hide everything but the top-level headings
+    (define-key cm-map "t" 'hide-body) ; Hide everything but headings (all body lines)
+    (define-key cm-map "o" 'hide-other)    ; Hide other branches
+    (define-key cm-map "c" 'hide-entry) ; Hide this entry's body
+    (define-key cm-map "l" 'hide-leaves) ; Hide body lines in this entry and sub-entries
+    (define-key cm-map "d" 'hide-subtree) ; Hide everything in this entry and sub-entries
+                                        ; SHOW
+    (define-key cm-map "a" 'show-all)  ; Show (expand) everything
+    (define-key cm-map "e" 'show-entry) ; Show this heading's body
+    (define-key cm-map "i" 'show-children) ; Show this heading's immediate child sub-headings
+    (define-key cm-map "k" 'show-branches) ; Show all sub-headings under this heading
+    (define-key cm-map "s" 'show-subtree) ; Show (expand) everything in this heading & below
+                                        ; MOVE
+    (define-key cm-map "u" 'outline-up-heading)            ; Up
+    (define-key cm-map "n" 'outline-next-visible-heading)  ; Next
+    (define-key cm-map "p" 'outline-previous-visible-heading) ; Previous
+    (define-key cm-map "f" 'outline-forward-same-level) ; Forward - same level
+    (define-key cm-map "b" 'outline-backward-same-level) ; Backward - same level
+    (global-set-key "\M-o" cm-map)
+
+
+
+    ;;}}}
     ))                                  ; end defun 
 ;;{{{  start it up 
 
@@ -464,12 +507,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 (add-hook 'after-init-hook
           #'(lambda ()
               (declare (special tts-default-speech-rate))
-             (emacspeak-aumix-reset)
-             (shell)
-             (dtk-set-rate tts-default-speech-rate 'global)
-             (calendar)
-             (message "Successfully initialized Emacs")
-             (shell-command "play ~/cues/highbells.au")))
+              (emacspeak-aumix-reset)
+              (shell)
+              (dtk-set-rate tts-default-speech-rate 'global)
+              (calendar)
+              (message "Successfully initialized Emacs")
+              (shell-command "play ~/cues/highbells.au")))
 
 ;;}}}
 (provide 'emacs-startup)
