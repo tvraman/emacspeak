@@ -1,0 +1,92 @@
+# $Id$
+# Description:  Speech server
+#Usage: tcl speech-server port device-specific-script
+#Example: tcl speech-server 2222 dtk-exp
+# Keywords: Emacspeak, Speech, TCL
+# {{{ LCD Entry: 
+
+# LCD Archive Entry:
+# emacspeak| T. V. Raman |raman@cs.cornell.edu 
+# A speech interface to Emacs |
+# $Date$ |
+#  $Revision$ | 
+# Location undetermined
+#
+
+# }}}
+# {{{ Copyright:  
+
+# Copyright (c) 1995, 1996, 1997, 1998, 1999  T. V. Raman, Adobe Systems
+# Incorporated.
+#All Rights Reserved
+#
+# This file is not part of GNU Emacs, but the same permissions apply.
+#
+# GNU Emacs is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# GNU Emacs is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs; see the file COPYING.  If not, write to
+# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+# }}}
+# {{{Initialize and get ready
+
+set port [lindex $argv 0]
+#start up the server
+set server [server_create -myport  $port -reuseaddr]
+puts "Started speech server ..."
+# and wait for a connection
+set server_p 1
+puts "Waiting for a connection on port $port ..."
+#play program
+if {[info exists env(EMACSPEAK_PLAY_PROGRAM)] } {
+set play  $env(EMACSPEAK_PLAY_PROGRAM)
+} else {
+    set play "play"
+}
+set sound "train.au"
+catch "exec $play $sound >& /dev/null &" errCode
+set v [info tclversion]
+if {[string match {7.5} $v]
+    || [string match 7.6 $v]
+    || [string match 7.7 $v]
+    || [string match 7.8 $v]
+    || [string match 7.9 $v]
+    || [string match 8.0 $v]} {
+    set handles [server_accept -nobuf  $server]
+    #Now, connect the read and write handles to stdin and stdout
+    dup $handles  stdout
+    dup $handles stderr
+    dup $handles stdin
+} else {
+    set handles [server_accept -twoids  $server]
+    #Now, connect the read and write handles to stdin and stdout
+    dup [lindex $handles 1] stdout
+    dup [lindex $handles 1] stderr
+    dup [lindex $handles 0] stdin
+}
+
+#no more connections
+close $server
+#cue incoming connection
+catch "exec $play $sound >& /dev/null &" errCode
+#launch speech synthesizer code
+source [lindex $argv 1]
+# }}}
+# {{{ Emacs local variables  
+
+### Local variables:
+### major-mode: tcl-mode 
+### voice-lock-mode: t
+### folded-file: t
+### End:
+
+# }}}
