@@ -118,11 +118,15 @@
     </xsl:variable>
     <h3>The
  <xsl:value-of select="team[1]/@name"/>
+      <xsl:text>
+      </xsl:text>
       <xsl:value-of select="team[1]/gameteam/@R"/>
      <xsl:text> 
 </xsl:text> <xsl:value-of select="$status"/><xsl:text>
 </xsl:text>
       <xsl:value-of select="team[2]/@name"/>
+      <xsl:text>
+      </xsl:text>
     <xsl:value-of select="team[2]/gameteam/@R"/></h3>
     <p>
       <xsl:apply-templates select="team[1]"/> 
