@@ -209,10 +209,10 @@ VOICE-NAME are  changed."
 (defun voice-setup-update-personalities (personality)
   "Update  personalities  that use this voice to  new setting."
   (let ((value (symbol-value personality))
-        (users (voice-setup-observing-personalities personality)))
-    (loop for u in users
-          do ;u is already quoted 
-          (set u value))))
+        (observers (voice-setup-observing-personalities personality)))
+    (loop for o in observers
+          do ;o is already quoted 
+          (set o value))))
 
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
