@@ -122,7 +122,12 @@
   "Quick add URL to Amphetadesk by prompting for URL."
   (interactive
    (list
-    (read-from-minibuffer "URL:")))
+    (cond
+     ((and (eq major-mode 'w3-mode)
+           (w3-view-this-url 'no-show))
+      (w3-view-this-url 'no-show))
+     (t
+    (read-from-minibuffer "URL:")))))
   (declare (special emacspeak-amphetadesk-uri))
   (browse-url 
    (concat emacspeak-amphetadesk-uri
