@@ -11,6 +11,14 @@ Emacspeak 22.0 provides the following user level enhancements:
 
 Emacspeak jukebox interface using madplay and alsa.
 
+
+** emacspeak-alsaplayer.el:
+
+Emacspeak jukebox using alsaplayer. Allows multiple  active
+sessions 
+and finer grained control over the output compared to
+emacspeak-madplay
+
 ** Updated modeline feedback:
 
 The feedback provided by emacspeak-speak-mode-line and

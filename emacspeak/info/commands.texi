@@ -5,12 +5,13 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 656 commands.
+This chapter documents a total of 673 commands.
 
 @menu
 * cd-tool::                     
 * dtk-speak::                   
 * emacspeak::                   
+* emacspeak-alsaplayer::        
 * emacspeak-amphetadesk::       
 * emacspeak-arc::               
 * emacspeak-aumix::             
@@ -364,6 +365,109 @@ Give a brief overview of emacspeak.
 @kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node emacspeak-alsaplayer
+@section emacspeak-alsaplayer
+
+Commentary:
+This is work in progress:
+Defines a simple derived mode for interacting with
+alsaplayer.
+alsaplayer navigation commands  work via single keystrokes.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-alsaplayer.
+
+@deffn {Interactive Command} emacspeak-alsaplayer-add-to-queue (RESOURCE)
+Add specified resource to queue.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-clear ()
+Clear or resume alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-jump (TRACK)
+Jump to specified track.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-launch ()
+Launch Alsaplayer.
+user is placed in a buffer associated with the newly created
+Alsaplayer session.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-mode ()
+Major mode for alsaplayer interaction. 
+
+key             binding
+---             -------
+
+v		emacspeak-alsaplayer-status
+S		emacspeak-alsaplayer-stop
+s		emacspeak-alsaplayer-start
+r		emacspeak-alsaplayer-relative
+q		emacspeak-alsaplayer-quit
+p		emacspeak-alsaplayer-previous
+n		emacspeak-alsaplayer-next
+SPC		emacspeak-alsaplayer-pause
+l		emacspeak-alsaplayer-launch
+j		emacspeak-alsaplayer-jump
+g		emacspeak-alsaplayer-seek
+c		emacspeak-alsaplayer-clear
+A		emacspeak-alsaplayer-replace-queue
+a		emacspeak-alsaplayer-add-to-queue
+
+This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-next ()
+Next  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-pause ()
+Pause or resume alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-previous ()
+Previous  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-quit ()
+Quit or resume alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-relative (OFFSET)
+Relative seek  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-replace-queue (RESOURCE)
+Add specified resource to queue.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-seek (OFFSET)
+Absolute seek  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-speed (SETTING)
+Set speed in alsaplayer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-start ()
+Start  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-status ()
+Show alsaplayer status
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-stop ()
+Stop  alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-volume (SETTING)
+Set volume.
 @end deffn
 
 @node emacspeak-amphetadesk
