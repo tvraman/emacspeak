@@ -387,18 +387,6 @@ the words that were capitalized."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defcustom emacspeak-backward-delete-char-speak-deleted-char t
-  "*T means `backward-delete-char' speaks char that was
-deleted."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
-(defcustom emacspeak-delete-char-speak-current-char nil
-  "*T means `delete-char' speaks char that becomes current
-after deletion."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
 (defcustom emacspeak-backward-delete-char-speak-current-char nil
   "*T means `backward-delete-char' speaks char that becomes
 current after deletion."
@@ -410,11 +398,8 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-backward-delete-char-speak-deleted-char
-         (emacspeak-speak-this-char (preceding-char )))
-    ad-do-it
-    (and emacspeak-backward-delete-char-speak-current-char
-         (emacspeak-speak-this-char  (preceding-char ))))
+         (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
@@ -425,9 +410,7 @@ current after deletion."
     (dtk-tone 500 30 'force)
     (and emacspeak-delete-char-speak-deleted-char
          (emacspeak-speak-char t))
-    ad-do-it
-    (and emacspeak-delete-char-speak-current-char
-         (emacspeak-speak-char t)))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
@@ -436,11 +419,8 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-backward-delete-char-speak-deleted-char
-         (emacspeak-speak-this-char (preceding-char )))
-    ad-do-it
-    (and emacspeak-backward-delete-char-speak-current-char
-         (emacspeak-speak-this-char (preceding-char ))))
+         (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
@@ -449,11 +429,8 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-backward-delete-char-speak-deleted-char
-         (emacspeak-speak-this-char (preceding-char )))
-    ad-do-it
-    (and emacspeak-backward-delete-char-speak-current-char
-         (emacspeak-speak-this-char (preceding-char))))
+         (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
@@ -1153,9 +1130,7 @@ in completion buffers"
      (t (dtk-tone 500 30 'force)
         (and emacspeak-delete-char-speak-deleted-char
              (emacspeak-speak-char t))))
-    ad-do-it
-    (and emacspeak-delete-char-speak-current-char
-         (emacspeak-speak-char t)))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 

@@ -313,9 +313,7 @@ personalities."
      (t (dtk-tone 500 30 'force)
         (and emacspeak-delete-char-speak-deleted-char
              (emacspeak-speak-char t))))
-    ad-do-it
-    (and emacspeak-delete-char-speak-current-char
-         (emacspeak-speak-char t)))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
@@ -324,11 +322,8 @@ personalities."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-backward-delete-char-speak-deleted-char
-         (emacspeak-speak-this-char (preceding-char )))
-    ad-do-it
-    (and emacspeak-backward-delete-char-speak-current-char
-         (emacspeak-speak-this-char  (preceding-char ))))
+         (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 

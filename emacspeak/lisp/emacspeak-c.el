@@ -72,17 +72,11 @@
 
 (defadvice c-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
-  (declare (special
-            emacspeak-backward-delete-char-speak-deleted-char
-            emacspeak-backward-delete-char-speak-current-char))
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-    (and emacspeak-backward-delete-char-speak-deleted-char
-	 (emacspeak-speak-this-char (preceding-char )))
-    ad-do-it
-    (and emacspeak-backward-delete-char-speak-current-char
-	 (emacspeak-speak-this-char (preceding-char ))))
+	 (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
