@@ -905,11 +905,10 @@ To leave, press \\[keyboard-quit]."
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-		       (symbol-file (cons 'defvar a))
-		       (symbol-file (cons 'defvar b)))
+		       (symbol-file  a)
+		       (symbol-file  b))
                       t)
-                     ((string-equal (symbol-file (cons 'defvar a))
-                                    (symbol-file (cons 'defvar b)))
+                     ((string-equal (symbol-file  a) (symbol-file  b))
                       (string-lessp
                        (symbol-name a)
                        (symbol-name b)))
@@ -1120,7 +1119,7 @@ Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
         #'(lambda (o)
-            (let ((this-module (symbol-file (cons 'defvar o)))
+            (let ((this-module (symbol-file  o))
                   (commentary nil)
                   (source-file nil))
               (when this-module
