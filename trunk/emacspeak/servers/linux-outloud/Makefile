@@ -3,7 +3,7 @@ INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/linux-outloud
-TTS=tcleci.so eci.ini NOTES
+TTS=tcleci.so eci.ini VIAVOICE
 
 all: tcleci.so 
 

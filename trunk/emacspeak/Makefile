@@ -151,7 +151,7 @@ REALAUDIO=realaudio
 ECI=servers/linux-outloud
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/tcleci.cpp  \
-${ECI}/NOTES \
+${ECI}/VIAVOICE \
 ${ECI}/Makefile 
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
