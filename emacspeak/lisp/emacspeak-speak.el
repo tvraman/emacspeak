@@ -258,8 +258,11 @@ Useful to do this before you listen to an entire buffer."
                (char-equal ?Z (aref iso 15)))
       (setq second (+ (car (current-time-zone)) second)))
     ;; create the decoded date-time
+    (condition-case nil 
     (format-time-string emacspeak-speak-time-format-string
-                        (encode-time second minute hour day month year))))
+                        (encode-time second minute hour day month
+  year))
+    (error iso))))
 
 ;;}}}
 ;;{{{  Actions
