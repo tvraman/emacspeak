@@ -375,7 +375,7 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (16508 14030))
+;;;;;;  (16508 13734))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -750,11 +750,11 @@ Construct a table object from elements.
 ;;;### (autoloads (emacspeak-table-copy-to-clipboard emacspeak-table-display-table-in-region
 ;;;;;;  emacspeak-table-view-csv-buffer emacspeak-table-find-csv-file
 ;;;;;;  emacspeak-table-find-file) "emacspeak-table-ui" "emacspeak-table-ui.el"
-;;;;;;  (16507 64778))
+;;;;;;  (16508 13734))
 ;;; Generated autoloads from emacspeak-table-ui.el
 
 (defsubst emacspeak-table-prepare-table-buffer (table buffer &optional filename) "\
-Prepare tabular data." (declare (special positions)) (save-excursion (set-buffer buffer) (let ((i 0) (j 0) (count 0) (row-start 1) (column-start 1) (inhibit-read-only t)) (setq truncate-lines t) (erase-buffer) (set (make-local-variable (quote emacspeak-table)) table) (set (make-local-variable (quote positions)) (make-hash-table)) (when filename (setq buffer-file-name filename)) (setq count (1- (emacspeak-table-num-columns table))) (loop for row across (emacspeak-table-elements table) do (loop for element across row do (setf (gethash (intern (format "element:%s:%s" i j)) positions) (point)) (insert (format "%s%s" (emacspeak-table-this-element table i j) (if (= j count) "
+Prepare tabular data." (declare (special emacspeak-table positions)) (save-excursion (set-buffer buffer) (let ((i 0) (j 0) (count 0) (row-start 1) (column-start 1) (inhibit-read-only t)) (setq truncate-lines t) (erase-buffer) (set (make-local-variable (quote emacspeak-table)) table) (set (make-local-variable (quote positions)) (make-hash-table)) (when filename (setq buffer-file-name filename)) (setq count (1- (emacspeak-table-num-columns table))) (loop for row across (emacspeak-table-elements table) do (loop for element across row do (setf (gethash (intern (format "element:%s:%s" i j)) positions) (point)) (insert (format "%s%s" (emacspeak-table-this-element table i j) (if (= j count) "
 " "	"))) (put-text-property column-start (point) (quote column) j) (setq column-start (point)) (incf j)) (setq j 0) (put-text-property row-start (point) (quote row) i) (setq row-start (point)) (incf i)) (emacspeak-table-mode) (goto-char (point-min)))) (switch-to-buffer buffer) (setq truncate-lines t) (message "Use Emacspeak Table UI to browse this table."))
 
 (autoload (quote emacspeak-table-find-file) "emacspeak-table-ui" "\
@@ -1883,7 +1883,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16508 14181 520095))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16508 14629 142660))
 
 ;;;***
 
