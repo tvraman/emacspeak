@@ -34,7 +34,7 @@ Description: Show list of anchors.
 <p>This style produces a list of anchors found in the document.</p>
 </xsl:template>
 
-<xsl:template match="//a">
+<xsl:template match="a">
 <li>
 <xsl:copy>
       <xsl:apply-templates select="@*"/>
