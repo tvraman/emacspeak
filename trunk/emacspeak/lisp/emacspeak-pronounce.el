@@ -64,15 +64,14 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(eval-when-compile (require 'wid-edit))
-(eval-when-compile (require 'voice-lock))
+(eval-when-compile (require 'wid-edit)
+ (require 'voice-lock))
 (require 'thingatpt)
-(require 'emacspeak-sounds)
 (eval-when (compile)
                                         ;avoid recursive include during compile
-
   (provide 'emacspeak-pronounce)
-  (require 'dtk-speak))
+  (require 'dtk-speak)
+  (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Dictionary structure:

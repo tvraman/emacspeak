@@ -53,8 +53,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'custom)
-(require 'dtk-tcl)
-(require 'emacspeak-sounds)
+  (require 'dtk-tcl)
+
 ;;}}}
 ;;{{{  user customizations:
 
