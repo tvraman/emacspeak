@@ -113,7 +113,7 @@ and is expected to take <xsl:value-of select="@seconds"/>
 <xsl:template match="segment">
 <tr>
 <td>
-  <xsl:value-of select="@seconds"/>s
+  <xsl:value-of select="@seconds"/> s
 </td>
 <td>
   
