@@ -56,7 +56,6 @@
 (require 'emacspeak-preamble)
 (require 'webjump)
 ;;}}}
-
 ;;{{{  structures 
 
 (defstruct (emacspeak-url-template
@@ -222,7 +221,7 @@ documentation   Documents this template resource.
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
 		 :test #'string-equal)
-        query)))
+        (webjump-url-encode query))))
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
@@ -641,25 +640,6 @@ name of the list.")
       url 'speak)))
 
 ;;}}}
-(emacspeak-url-template-define
- "CNN Search"
- "http://search.cnn.com/cnn/search?%s"
- (list
-  #'(lambda ()
-      (let ((q (read-from-minibuffer "CNN Search: ")))
-	(format "query=%s&qt=%s"
-		q q ))))
- nil
- "Search CNN")
-
-(emacspeak-url-template-define
- "CNN Weather "
- "http://weather.cnn.com/weather/forecast.jsp?locCode=%s"
- (list "City Code: ")
- nil
- "Weather Forecast from CNN"
- #'(lambda (url)
-     (emacspeak-w3-extract-by-class "cnnBodyText" url 'speak)))
 
 (emacspeak-url-template-define
  "CNN headlines "
@@ -747,20 +727,6 @@ name of the list.")
 
 ;;}}}
 ;;{{{ nfl 
-(emacspeak-url-template-define
- "NFL Broadcast Schedule"
- "http://www.nfl.com/tvradio/schedule.html"
- nil
- nil
- "Pick out NFL broadcast links."
- #'(lambda (url)
-     (declare (special w3-mode-map))
-     (define-key w3-mode-map "N" 'emacspeak-url-template-nfl-play-broadcast)
-     (emacspeak-w3-extract-nested-table 9 url)
-     "Displays the table giving the NFL broadcast links for this
-week. Use command emacspeak-url-template-nfl-play-broadcast to play
-the broadcast. You must have mplayer installed."
-     ))
 
 (defun emacspeak-url-template-nfl-play-broadcast ()
   "Play NFL url under point."
@@ -919,6 +885,7 @@ plays entire program."
 
 ;;}}}
 ;;{{{ sourceforge
+
 (emacspeak-url-template-define
  "sourceforge Stats" 
  "http://sourceforge.net/project/stats/?group_id=%s"
