@@ -30,6 +30,7 @@ documentation.
 * emacspeak-flyspell Options::  
 * emacspeak-forms Options::     
 * emacspeak-hide Options::      
+* emacspeak-ido Options::       
 * emacspeak-imcom Options::     
 * emacspeak-imenu Options::     
 * emacspeak-info Options::      
@@ -1094,6 +1095,29 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-hidden-header-line-personality
 Personality used to identify header lines of blocks.
+@end defvar
+
+@node emacspeak-ido Options
+@section emacspeak-ido Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-ido.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-ido-first-match-personality
+Personality for first match in ido.
+@end defvar
+
+@defvar {User Option} emacspeak-ido-indicator-personality
+Personality for indicator in ido.
+@end defvar
+
+@defvar {User Option} emacspeak-ido-only-match-personality
+Personality for only match in ido.
+@end defvar
+
+@defvar {User Option} emacspeak-ido-subdir-personality
+Personality for subdirs in ido.
 @end defvar
 
 @node emacspeak-imcom Options
