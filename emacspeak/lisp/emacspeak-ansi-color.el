@@ -79,7 +79,8 @@
          (style-parameter nil))
     (setq voice-name
           (intern (format "emacspeak-ansi-color-%s-%s"
-                          color style)))
+                          color
+                          (if style style "default"))))
     (unless (dtk-voice-defined-p voice-name)
       (setq acss-spec (make-dtk-speech-style ))
       (setq style-parameter
