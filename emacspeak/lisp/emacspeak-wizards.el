@@ -601,6 +601,22 @@ default-directory after switching."
   (interactive)
   (emacspeak-sudo "tpctl --dull --sdi | tail -1"))
 
+(defvar emacspeak-wizards-ppp-status-command
+  "/sbin/ifconfig | grep ^ppp"
+  "Command to obtain ppp status.")
+
+(defun emacspeak-wizards-ppp-status ()
+  "Return ppp status."
+  (declare (special emacspeak-wizards-ppp-status-command))
+  (zerop (shell-command emacspeak-wizards-ppp-status-command)))
+
+(defun emacspeak-wizards-ppp-toggle ()
+  "Bring up or bring down ppp."
+  (interactive)
+  (if (emacspeak-wizards-ppp-status)
+      (emacspeak-sudo "ifdown ppp0")
+    (emacspeak-sudo "ifup ppp0")))
+
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
 
@@ -1583,7 +1599,6 @@ Signals beginning  of buffer."
   "Lynx executable."
   :type 'file
   :group 'emacspeak-wizards)
-
 
 ;;;###autoload
 (defun emacspeak-lynx (url)
