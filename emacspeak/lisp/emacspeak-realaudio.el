@@ -211,6 +211,10 @@ urls have a .ram or .rm extension.")
   "Execute TRPlayer command."
   (interactive "cTRPlayer Command:")
   (declare (special emacspeak-realaudio-process))
+  (cond
+   ((char-equal char ?\;)
+                (emacspeak-realaudio-select-realaudio-buffer))
+    (t 
   (let*  ((buffer (process-buffer emacspeak-realaudio-process))
           (mark (save-excursion
                   (set-buffer buffer)
@@ -223,7 +227,7 @@ urls have a .ram or .rm extension.")
              (save-excursion
                (set-buffer buffer)
                (buffer-substring mark (process-mark
-                                       emacspeak-realaudio-process))))))
+                                       emacspeak-realaudio-process))))))))
 
 (emacspeak-fix-interactive-command-if-necessary
  'emacspeak-realaudio-trplayer-command)
@@ -355,6 +359,12 @@ various navigation commands via single keystrokes."
       (define-key emacspeak-realaudio-mode-map
         (format "%c" c)
         'emacspeak-realaudio-trplayer-call-command))
+
+(defun emacspeak-realaudio-select-realaudio-buffer ()
+  "Switch to realaudio buffer."
+  (interactive)
+  (pop-to-buffer "*realaudio*")
+  (emacspeak-speak-mode-line))
 
 (define-key emacspeak-realaudio-mode-map [left]
   'emacspeak-aumix-wave-decrease)
