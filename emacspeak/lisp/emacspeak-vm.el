@@ -621,14 +621,14 @@ text using wvText."
 
 
 (defcustom emacspeak-vm-xls2html
-  (expand-file-name "xls2text" emacspeak-etc-directory)
+  (expand-file-name "xls2html" emacspeak-etc-directory)
   "Executable that converts MSXL documents on standard input to HTML
  using xlhtml."
   :type 'string
   :group 'emacspeak-vm)
 
 (defcustom emacspeak-vm-ppt2html
-  (expand-file-name "ppt2text" emacspeak-etc-directory)
+  (expand-file-name "ppt2html" emacspeak-etc-directory)
   "Executable that converts MSPPT documents on standard input to HTML
  using xlhtml."
   :type 'string
