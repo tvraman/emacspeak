@@ -189,25 +189,55 @@ emacspeak-xml-shell-document))
 ;;}}}
 ;;{{{ showing nodes
 
-(defun emacspeak-xml-shell-show-node ( xpath)
-  "Displays selected node specified by xpath."
-  (interactive
-   (list
-    (read-from-minibuffer "XPath:")))
+(defun emacspeak-xml-shell-process-node ( xpath display-function)
+  "Apply display-function to the contents of node specified by xpath.
+Display function accepts two arguments, start and end that specify the
+region of text to process."
   (declare (special emacspeak-xml-shell-process))
-  (save-excursion
-    (set-buffer (process-buffer emacspeak-xml-shell-process))
-    (goto-char (point-max))
-    (insert
-     (format "cat %s"
-             xpath))
-    (comint-send-input)
-    (accept-process-output)
-    (copy-to-register ?a
-                      (marker-position comint-last-input-end)
-                      (marker-position (process-mark emacspeak-xml-shell-process))
-                      'delete)
-    (message "Copied output to register.")))
+  (let ((start nil)
+        (end nil))
+    (save-excursion
+      (set-buffer (process-buffer emacspeak-xml-shell-process))
+      (goto-char (point-max))
+      (insert (format "cat %s" xpath))
+      (comint-send-input)
+      (accept-process-output  emacspeak-xml-shell-process)
+      (sit-for 1)
+      (goto-char (marker-position comint-last-input-end))
+      (forward-line 1)
+      (setq start (point))
+      (goto-char (marker-position (process-mark emacspeak-xml-shell-process)))
+      (setq end (point))
+      (funcall display-function start end)
+      (set-buffer (process-buffer emacspeak-xml-shell-process))
+      (delete-region
+       (max (point-min)start)
+       (min (point-max) end)))))
+
+
+(defvar emacspeak-xml-shell-xslt nil
+  "XSL transform to apply to processed node.")
+
+(defun emacspeak-xml-shell-transform-current (start end)
+  "Display current node."
+  (declare (special emacspeak-xml-shell-xslt))
+  (let ((output-buffer (get-buffer-create  "*XML Shell Output*")))
+    (save-excursion
+      (set-buffer output-buffer)
+      (erase-buffer)
+      (insert-buffer-substring 
+       (process-buffer emacspeak-xml-shell-process)
+                               start end)
+      (emacspeak-xslt-region emacspeak-xml-shell-xslt
+                             (point-min) (point-max)))
+    (switch-to-buffer output-buffer)))
+
+(defun emacspeak-xml-shell-current ()
+  "Display current node."
+  (interactive)
+  (emacspeak-xml-shell-process-node "."
+                                    'emacspeak-xml-shell-display-as-html)
+  (w3-preview-this-buffer))
 
 ;;}}}
 ;;{{{ keybindings
@@ -221,6 +251,9 @@ emacspeak-xml-shell-document))
 'emacspeak-xml-shell-goto-parent)
 (define-key emacspeak-xml-shell-mode-map [down] 
 'emacspeak-xml-shell-goto-children)
+
+(define-key emacspeak-xml-shell-mode-map " "
+  'emacspeak-xml-shell-current)
 
 ;;}}}
 (provide 'emacspeak-xml-shell)
