@@ -745,14 +745,14 @@ are indicated with auditory icon ellipses."
           (beginning-of-line 1)
 	  (skip-syntax-forward " " limit)
 	  (setq indent  (current-column )))
-        (when (string= emacspeak-audio-indentation-method "tone")
+        (when (string-equal emacspeak-audio-indentation-method "tone")
           (emacspeak-indent indent )))
       (when
           (or (text-invisible-p end)
               (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
-       ((string= ""  line)              ;blank line
+       ((string-equal ""  line)              ;blank line
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
         (when (emacspeak-using-midi-p)
@@ -762,19 +762,19 @@ are indicated with auditory icon ellipses."
         (dtk-tone 300   120 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'blank-line)))
-       ((and (not (string= "all" dtk-punctuation-mode))
+       ((and (not (string-equal "all" dtk-punctuation-mode))
              (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'horizontal-rule)))
-       ((and (not (string= "all" dtk-punctuation-mode))
+       ((and (not (string-equal "all" dtk-punctuation-mode))
              (string-match  emacspeak-decoration-rule line) ) ;decorative rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'decorative-rule)))
-       ((and (not (string= "all" dtk-punctuation-mode))
+       ((and (not (string-equal "all" dtk-punctuation-mode))
              (string-match  emacspeak-unspeakable-rule line) ) ;unspeakable rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 550   100 'force)
@@ -800,7 +800,7 @@ are indicated with auditory icon ellipses."
                 (setq line
                       (emacspeak-speak-line-apply-column-filter line
                                                                 emacspeak-speak-line-invert-filter)))
-              (if (and (string= "speak" emacspeak-audio-indentation-method )
+              (if (and (string-equal "speak" emacspeak-audio-indentation-method )
                        (null arg )
                        indent
                        (> indent 0))
@@ -1020,7 +1020,7 @@ setting to be global."
                nil t ))
         (table nil))
     (cond
-     ((string= "iso ascii" type)
+     ((string-equal "iso ascii" type)
       (setq table dtk-iso-ascii-character-to-speech-table))
      (t (setq table nil)))
     (cond
@@ -2979,8 +2979,8 @@ directory specific settings."
     (or (or (not (file-readable-p dir))
             (not (file-readable-p parent)))
         (and 
-         (string= (file-truename dir) "/")
-         (string= (file-truename parent) "/")))))
+         (string-equal (file-truename dir) "/")
+         (string-equal (file-truename parent) "/")))))
 
 (defun emacspeak-speak-get-directory-settings (dir)
   "Finds the next directory settings  file upwards in the directory tree
@@ -2990,7 +2990,7 @@ or an ascendant directory."
                     default-directory))
   (let ((file (find emacspeak-speak-directory-settings
 		    (directory-files dir)
-		    :test 'string=)))
+		    :test 'string-equal)))
     (cond
      (file (expand-file-name file dir))
      ((not (emacspeak-speak-root-dir-p dir))

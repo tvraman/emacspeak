@@ -126,7 +126,7 @@
   (let ((children (xml-tag-children tag))
 	(result nil))
     (while children
-      (when (string= name (xml-tag-name (car children)))
+      (when (string-equal name (xml-tag-name (car children)))
 	(nconc result (car children)))
       (setq children (cdr children)))
     result))

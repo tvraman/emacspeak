@@ -82,7 +82,7 @@
    (get-text-property (point) 'personality)
    (save-excursion
      (forward-char 1)
-     (string= diary-entry-marker (buffer-substring (point) (+ 1 (point ))))))
+     (string-equal diary-entry-marker (buffer-substring (point) (+ 1 (point ))))))
   )
 
 (defun emacspeak-speak-calendar-date()

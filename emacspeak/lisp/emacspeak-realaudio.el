@@ -154,7 +154,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
            (string-match "^http:"  resource))
     (setq resource
           (expand-file-name resource)))
-  (unless (string= resource (car emacspeak-realaudio-history))
+  (unless (string-equal resource (car emacspeak-realaudio-history))
     (pushnew resource emacspeak-realaudio-history))
   (when (get-buffer "*realaudio*")
     (kill-buffer emacspeak-realaudio-buffer))
@@ -309,7 +309,7 @@ Prompts for start and end times as well as file  to save the clippi"
                     emacspeak-realaudio-start-time-mark
                     emacspeak-realaudio-this-resource
                     emacspeak-realaudio-mp3-clipper))
-  (unless (string="mp3"
+  (unless (string-equal"mp3"
                   (file-name-extension emacspeak-realaudio-this-resource))
     (error  "Can only clip MP3  files."))
   (unless (file-executable-p emacspeak-realaudio-mp3-clipper)

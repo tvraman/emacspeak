@@ -155,12 +155,12 @@ When using W3,  this interface attempts to speak the most relevant information o
   ;; Adapted from w3-submit-form
   (require 'w3)
   (let* ((enctype (or enctype "application/x-www-form-urlencoded")))
-    (if (and (string= "GET" the-method)
+    (if (and (string-equal "GET" the-method)
 	     (string-match "\\([^\\?]*\\)\\?" the-url))
 	(setq the-url (url-match the-url 1)))
     (cond
-     ((or (string= "POST" the-method)
-	  (string= "PUT" the-method))
+     ((or (string-equal "POST" the-method)
+	  (string-equal "PUT" the-method))
       (if (consp query)
 	  (setq enctype (concat enctype "; boundary="
 				(substring (car query) 2 nil)
@@ -171,7 +171,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 	    (url-request-extra-headers
 	     (cons (cons "Content-type" enctype) url-request-extra-headers)))
 	(w3-fetch the-url)))
-     ((string= "GET" the-method)
+     ((string-equal "GET" the-method)
       (let ((the-url (concat the-url (if (string-match "gopher" enctype)
                                          "" "?") query)))
 	(w3-fetch the-url)))
@@ -1371,7 +1371,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-  "http://www.srh.noaa.gov/zipcity.php?inputstring="
+  "http://www.srh.noaa.gov/zipcity.php?inputstring-equal"
   "*URI for getting weather forecast.")
 
 (defun emacspeak-websearch-weather (query)
