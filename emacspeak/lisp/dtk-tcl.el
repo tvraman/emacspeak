@@ -700,7 +700,10 @@ Argument TEXT  is the list of strings to speak."
   "Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
-  (interactive "nEnter new rate:\nP")
+  (interactive 
+   (list
+    (read-from-minibuffer "Enter new rate: ")
+    current-prefix-arg))
   (declare (special dtk-speech-rate dtk-speaker-process
                     tts-default-speech-rate
                     dtk-program dtk-speak-server-initialized))
@@ -714,9 +717,10 @@ current local  value to the result."
     (dtk-interp-set-rate rate)
     (when prefix
       (tts-configure-synthesis-setup dtk-program))
-    (message "Set speech rate to %s %s\n"
-             rate
-             (if prefix "" "locally"))))
+    (when (interactive-p)
+      (message "Set speech rate to %s %s\n"
+               rate
+               (if prefix "" "locally")))))
 
 
 
