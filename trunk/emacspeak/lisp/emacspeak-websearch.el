@@ -117,7 +117,7 @@ C-b     Biblio                      Computer Science Bibliography
 c       CNN                         CNN Interactive
 Cap C   Company News                Lookup Company News By Ticker
 C-c     CiteSeer                    Computer Science Citation  Index
-d       dejanews                    Usenet Archives At Dejanews
+d       usenet                    Usenet Archives (formerly Dejanews)
 Cap D   Dictionary                  Hypertext Websters Dictionary
 e   Encyclopedia                    Encyclopedia Britannica
 f       CNN-FN                      CNN  Financial Network
@@ -757,35 +757,14 @@ Optional second arg data processes the results as data rather than HTML."
 
    
 ;;}}}
-;;{{{  dejanews
+;;{{{  usenet
 
 (emacspeak-websearch-set-searcher 'dejanews
-                                  'emacspeak-websearch-dejanews-search)
+                                  'emacspeak-websearch-usenet)
 
 (emacspeak-websearch-set-key ?d 'dejanews)
 
-(defvar emacspeak-websearch-dejanews-uri 
-  "http://www.dejanews.com/[ST_rn=ps]/dnquery.xp?ST=PS&defaultOp=AND&DBS=1&format=terse&maxhits=100&LNG=english&QRY="
-  "URI for Dejanews search")
 
-(defun emacspeak-websearch-dejanews-search (query &optional prefix)
-  "Perform a Dejanews search"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Dejanews Query: ")
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-dejanews-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-dejanews-uri
-             (webjump-url-encode query)
-             (if prefix 
-                 (read-from-minibuffer
-                  "Additional query parameters: ")
-               ""))))
-  (emacspeak-websearch-post-process
-   "Messages"
-   'w3-table-speak-this-cell))
 
 ;;}}}
 ;;{{{ Webster
@@ -1051,6 +1030,7 @@ Optional second arg data processes the results as data rather than HTML."
 
 ;;}}}
 ;;{{{ google advanced search 
+
 (emacspeak-websearch-set-searcher 'google-advanced
                                   'emacspeak-websearch-google-advanced)
 
@@ -1059,6 +1039,7 @@ Optional second arg data processes the results as data rather than HTML."
 
 (defvar emacspeak-websearch-google-advanced-form
   "
+<title>Advanced Google Search</title>
 <form method=GET  action=\"http://www.google.com/search\">
   <table>
     <tr>
@@ -1184,6 +1165,276 @@ Optional second arg data processes the results as data rather than HTML."
       (set-buffer buffer)
       (erase-buffer)
       (insert emacspeak-websearch-google-advanced-form)
+      (w3-preview-this-buffer)
+      (widget-forward 1)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-line))))
+
+;;}}}
+;;{{{  advanced usenet search 
+
+(emacspeak-websearch-set-searcher 'google-usenet-advanced
+                                  'emacspeak-websearch-google-usenet-advanced)
+
+(emacspeak-websearch-set-key ?u 'google-usenet-advanced)
+
+
+(defvar emacspeak-websearch-google-usenet-advanced-form
+  "
+<title>Advanced Usenet Search</title>
+<form method=\"GET\" action=\"http://groups.google.com/groups\" >
+  <table >
+    <tr >
+      <td > <label for=\"1\">All Words</label> </td>
+      <td> <input id=\"1\" type=\"text\" value=\"\" name=as_q size=25></input> </td>
+    </tr>
+    <tr>
+      <td > <label for=\"2\">Exact Match</label> </td>
+      <td> <input id=\"2\" type=\"text\" size=25 value=\"\" name=as_epq></input> </td>
+    </tr>
+    <tr>
+      <td><label for=\"3\">Partial Match</label></td>
+      <td> <input id=\"3\" type=\"text\" size=25 value=\"\" name=as_oq></input> </td>
+    </tr>
+    <tr>
+      <td><label for=\"4\">Not containing</label></td>
+      <td> <input id=\"4\" type=\"text\" size=25 value=\"\" name=as_eq></input> </td>
+    </tr>
+    <tr>
+      <td > <label for=\"group\">Group search</label> </td>
+      <td> <input id=\"group\" size=30 value=\"\" name=as_ugroup></input> </td>
+    </tr>
+    <tr>
+      <td > <label for=\"subject\">Subject Search</label> </td>
+      <td> <input id=\"subject\" size=30 value=\"\" name=as_usubject> </input> </td>
+    </tr>
+    <tr>
+      <td > <label for=\"author\">Author Search</label> </td>
+      <td> <input id=\"author\" size=30 value=\"\" name=as_uauthors> </input> </td>
+    </tr>
+    <tr>
+      <td > <label for=\"msgid\">Message ID</label> </td>
+      <td> <input id=\"msgid\" size=30 value=\"\" name=as_umsgid> </td>
+    </tr>
+    <tr >
+      <td> <label for=\"lang\">Language</label> </td>
+      <td >
+        <select id=\"lang\" name=lr>
+          <option  value=\"\">any language</option>
+          <option  value=\"lang_ar\">Arabic</option>
+          <option  value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)</option>
+          <option  value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)</option>
+          <option  value=\"lang_cs\">Czech</option>
+          <option  value=\"lang_da\">Danish</option>
+          <option  value=\"lang_nl\">Dutch</option>
+          <option  value=\"lang_en\">English</option>
+          <option  value=\"lang_et\">Estonian</option>
+          <option  value=\"lang_fi\">Finnish</option>
+          <option  value=\"lang_fr\">French</option>
+          <option  value=\"lang_de\">German</option>
+          <option  value=\"lang_el\">Greek</option>
+          <option  value=\"lang_iw\">Hebrew</option>
+          <option  value=\"lang_hu\">Hungarian</option>
+          <option  value=\"lang_is\">Icelandic</option>
+          <option  value=\"lang_it\">Italian</option>
+          <option  value=\"lang_ja\">Japanese</option>
+          <option  value=\"lang_ko\">Korean</option>
+          <option  value=\"lang_lv\">Latvian</option>
+          <option  value=\"lang_lt\">Lithuanian</option>
+          <option  value=\"lang_no\">Norwegian</option>
+          <option  value=\"lang_pl\">Polish</option>
+          <option  value=\"lang_pt\">Portuguese</option>
+          <option  value=\"lang_ro\">Romanian</option>
+          <option  value=\"lang_ru\">Russian</option>
+          <option  value=\"lang_es\">Spanish</option>
+          <option  value=\"lang_sv\">Swedish</option>
+          <option  value=\"lang_tr\">Turkish
+        </select>
+      </td>
+    </tr>
+    <tr >
+      <td > <label for=\"dates\">Since</label> </td>
+      <td >
+        <input id=\"dates\" name=as_drrb type=radio value=q checked>
+          <label for=\"since\"> messages posted </label>
+          <select id=\"since\" name=as_qdr>
+            <option  value=\"\" selected>anytime</option>
+            <option  value=\"d\">in the last 24 hours</option>
+            <option  value=\"w\">in the last week</option>
+            <option  value=\"m\">in the last month</option>
+            <option  value=\"y\">in the last year
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for=\"daterange\">Date Range</label></td>
+      <td > <input id=\"daterange\" name=as_drrb type=radio
+      value=b></input> </td>
+    </tr>
+    <tr>
+      <td>
+        <label for=\"miny\">Start Year</label>
+        <select id=\"miny\" name=as_miny>
+          <option  value=\"1995\" selected>1995</option>
+          <option  value=\"1996\">1996</option>
+          <option  value=\"1997\">1997</option>
+          <option  value=\"1998\">1998</option>
+          <option  value=\"1999\">1999</option>
+          <option  value=\"2000\">2000</option>
+          <option  value=\"2001\">2001
+        </select>
+        <label for=\"minm\">Start Month</label>
+        <select id=\"minm\"   name=as_minm<>
+          <option  value=\"1\">Jan</option>
+          <option  value=\"2\">Feb</option>
+          <option  value=\"3\" >Mar</option>
+          <option  value=\"4\">Apr</option>
+          <option  value=\"5\">May</option>
+          <option  value=\"6\">Jun</option>
+          <option  value=\"7\">Jul</option>
+          <option  value=\"8\">Aug</option>
+          <option  value=\"9\">Sep</option>
+          <option  value=\"10\">Oct</option>
+          <option  value=\"11\">Nov</option>
+          <option  value=\"12\">Dec</option>
+          </select>
+          <label for=\"mind\">Start Day</label>
+          <select id=\"mind\" name=as_mind>
+            <option  value=\"1\">1</option>
+            <option  value=\"2\">2</option>
+            <option  value=\"3\">3</option>
+            <option  value=\"4\">4</option>
+            <option  value=\"5\">5</option>
+            <option  value=\"6\">6</option>
+            <option  value=\"7\">7</option>
+            <option  value=\"8\">8</option>
+            <option  value=\"9\">9</option>
+            <option  value=\"10\">10</option>
+            <option  value=\"11\">11</option>
+            <option  value=\"12\">12</option>
+            <option  value=\"13\">13</option>
+            <option  value=\"14\">14</option>
+            <option  value=\"15\">15</option>
+            <option  value=\"16\">16</option>
+            <option  value=\"17\">17</option>
+            <option  value=\"18\">18</option>
+            <option  value=\"19\">19</option>
+            <option  value=\"20\">20</option>
+            <option  value=\"21\">21</option>
+            <option  value=\"22\">22</option>
+            <option  value=\"23\">23</option>
+            <option  value=\"24\">24</option>
+            <option  value=\"25\">25</option>
+            <option  value=\"26\">26</option>
+            <option  value=\"27\">27</option>
+            <option  value=\"28\">28</option>
+            <option  value=\"29\" selected>29</option>
+            <option  value=\"30\">30</option>
+            <option  value=\"31\">31</option>
+          </select>  
+      </td>
+</tr>
+<tr>
+      <td>
+        <label for=\"maxy\">End Year</label>
+        <select id=\"maxy\" name=as_maxy>
+          <option  value=\"1995\">1995</option>
+          <option  value=\"1996\">1996</option>
+          <option  value=\"1997\">1997</option>
+          <option  value=\"1998\">1998</option>
+          <option  value=\"1999\">1999</option>
+          <option  value=\"2000\">2000</option>
+          <option  value=\"2001\" selected>2001</option>
+        </select>
+        <label for=\"maxm\"> End Month</label>
+        <select id=\"maxm\" name=as_maxm>
+          <option  value=\"1\">Jan</option>
+          <option  value=\"2\">Feb</option>
+          <option  value=\"3\">Mar</option>
+          <option  value=\"4\">Apr</option>
+          <option  value=\"5\">May</option>
+          <option  value=\"6\">Jun</option>
+          <option  value=\"7\">Jul</option>
+          <option  value=\"8\">Aug</option>
+          <option  value=\"9\">Sep</option>
+          <option  value=\"10\" selected>Oct</option>
+          <option  value=\"11\">Nov</option>
+          <option  value=\"12\">Dec
+        </select>
+        <label for=\"maxd\">End Day</label>
+        <select id=\"maxd\" name=as_maxd>
+          <option  value=\"1\">1</option>
+          <option  value=\"2\">2</option>
+          <option  value=\"3\">3</option>
+          <option  value=\"4\">4</option>
+          <option  value=\"5\">5</option>
+          <option  value=\"6\">6</option>
+          <option  value=\"7\">7</option>
+          <option  value=\"8\">8</option>
+          <option  value=\"9\">9</option>
+          <option  value=\"10\">10</option>
+          <option  value=\"11\">11</option>
+          <option  value=\"12\">12</option>
+          <option  value=\"13\">13</option>
+          <option  value=\"14\">14</option>
+          <option  value=\"15\">15</option>
+          <option  value=\"16\">16</option>
+          <option  value=\"17\">17</option>
+          <option  value=\"18\">18</option>
+          <option  value=\"19\" selected>19</option>
+          <option  value=\"20\">20</option>
+          <option  value=\"21\">21</option>
+          <option  value=\"22\">22</option>
+          <option  value=\"23\">23</option>
+          <option  value=\"24\">24</option>
+          <option  value=\"25\">25</option>
+          <option  value=\"26\">26</option>
+          <option  value=\"27\">27</option>
+          <option  value=\"28\">28</option>
+          <option  value=\"29\">29</option>
+          <option  value=\"30\">30</option>
+          <option  value=\"31\">31
+        </select>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td >
+        <label for=\"num\">Results</label>
+        <select id=\"num\"name=num>
+          <option  value=\"10\">10 messages</option>
+          <option  value=\"20\">20 messages</option>
+          <option  value=\"30\">30 messages</option>
+          <option  value=\"50\">50 messages</option>
+          <option  value=\"100\">100 messages
+        </select> 
+      </td>
+      <td>
+        <label for=\"scoring\">Sort by</label>
+        <select id=\"scoring\" name=as_scoring>
+          <option  value=r selected>Sort by relevance</option>
+          <option  value=d>Sort by date
+        </select> 
+      </td>
+      <td>
+        <input type=submit name=btnG value=\"Google Search\">
+      </td>
+    </tr>
+  </table>
+</form>
+"
+"Usenet advanced search from google.")
+
+(defun emacspeak-websearch-google-usenet-advanced ()
+  "Present Google Usenet advanced search form simplified for speech interaction."
+  (interactive)
+  (declare (special emacspeak-websearch-google-usenet-advanced-form))
+  (let ((buffer (get-buffer-create " *google-advanced*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert emacspeak-websearch-google-usenet-advanced-form)
       (w3-preview-this-buffer)
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
@@ -1785,27 +2036,37 @@ Light for: ")))
 ;;{{{ Browse usenet using Dejanews
 
 (defvar emacspeak-dejanews-uri 
-  "http://x5.dejanews.com/[ST_rn=bg]/topics_bg.xp?search=topic&group="
-  "URI to open a group on Dejanews.")
+  "http://groups.google.com/groups?"
+  "URI to open a group on Usenet archive.")
 
-(defun emacspeak-dejanews-browse-group (group &optional prefix)
-  "Prompt and browse a newsgroup on Dejanews."
+(defun emacspeak-websearch-usenet (group &optional prefix)
+  "Prompt and browse a Usenet newsgroup.
+Optional interactive prefix arg results in prompting for a search term."
   (interactive
    (list
     (read-from-minibuffer "Newsgroup: ")
     current-prefix-arg))
   (declare (special emacspeak-dejanews-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-dejanews-uri
-             (if prefix 
-                 (read-from-minibuffer
-                  "Additional query parameters: ")
-               "")
-             (webjump-url-encode group)
-             ))
-    (search-forward group)
-    (w3-table-speak-this-cell)))
+  (let ((url-be-asynchronous nil)
+        (url nil))
+    (cond
+     (prefix                            ;search
+      (setq url
+            (concat emacspeak-dejanews-uri
+                    (format "meta=group%%3D%s&q=%s"
+                            group
+                            (read-from-minibuffer
+                             (format "Search %s for:" group))))))
+     (t                                 ;browse
+      (setq url 
+            (concat emacspeak-dejanews-uri
+                    (format "as_ugroup=%s" group)
+                    ))))
+    (browse-url  url)
+    (if prefix
+        (search-forward "Sorted " nil t)
+      (search-forward "Threads" nil t))
+    (emacspeak-speak-line)))
 
 
 
