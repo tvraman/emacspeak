@@ -130,6 +130,8 @@ sets up madplay to pipe output to alsa."
   "Directory to look for media files."
   :type 'directory
   :group 'emacspeak-madplay)
+(defvar emacspeak-madplay-buffer-name "madplay"
+  "Name of madplay buffer.")
 
 ;;;###autoload
 (defun emacspeak-madplay (resource)
@@ -143,27 +145,34 @@ The player is placed in a buffer in emacspeak-madplay-mode."
                     (when (eq major-mode 'dired-mode)
 		      (dired-get-filename)))))
   (declare (special emacspeak-madplay-process
+                    emacspeak-madplay-buffer-name
                     emacspeak-madplay-media-directory))
   (when (and emacspeak-madplay-process
              (eq 'run (process-status
                        emacspeak-madplay-process))
              (y-or-n-p "Stop currently playing music? "))
-    (kill-buffer (process-buffer emacspeak-madplay-process))
+    (delete-process emacspeak-madplay-process)
     (setq emacspeak-madplay-process nil))
-  (let ((process-connection-type t))
+  (let ((process-connection-type t)
+        (buffer (get-buffer-create
+                 emacspeak-madplay-buffer-name)))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
     (setq emacspeak-madplay-process
           (cond
                   ((file-directory-p resource)
           (apply 'start-process
-                 "madplay" "madplay"
+                 "madplay" emacspeak-madplay-buffer-name
                  emacspeak-madplay-program
                    (directory-files
                     (expand-file-name resource)
                     'full)))
                   (t (start-process
-                      "madplay" "madplay" emacspeak-madplay-program
-                   (expand-file-name resource)))))
-    (switch-to-buffer (process-buffer emacspeak-madplay-process))
+                      "madplay" emacspeak-madplay-buffer-name
+                      emacspeak-madplay-program
+                   (expand-file-name resource))))))
+    (switch-to-buffer buffer)
     (emacspeak-madplay-mode)))
 
 ;;}}}
