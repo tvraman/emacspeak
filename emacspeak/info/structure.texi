@@ -148,7 +148,7 @@ publishing on the WWW (see @pxref{Document Authoring}).
 Consider the following entry from file @code{ /etc/passwd}
 on my laptop.
 
-@samp{aster:KlZVoUxwQQBT2:501:100:Aster Labrador:/home/aster:/bin/bash}
+@samp{aster:KoUxwQ2:501:100:Aster Labrador:/home/aster:/bin/bash}
 
  File @code{ /etc/passwd} is a simple instance of a text file
 that stores structured data records as a series of fields delimited by
