@@ -1510,8 +1510,7 @@ semantic to do the work."
     (when  (and emacspeak-mail-alert (emacspeak-mail-alert-user))
       (dtk-tone 450 75))
     (cond
-     ((stringp mode-line-format)
-      (tts-with-punctuations "all" (dtk-speak mode-line-format )))
+     ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t
       (tts-with-punctuations "all"
                              (dtk-speak
