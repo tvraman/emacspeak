@@ -91,8 +91,7 @@
 ;;}}}
 ;;{{{  Advice:
 (defadvice calendar-exchange-point-and-mark (after emacspeak
-                                                   pre act
-                                                   comp)
+                                                   pre act comp)
   "Speak date under point"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -157,123 +156,94 @@
 
 
 (defadvice calendar-backward-day (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'select-object))
+    (emacspeak-speak-calendar-date )
+    (emacspeak-auditory-icon 'select-object)))
 
 
 (defadvice calendar-forward-day (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'select-object))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'select-object)))
 
 
 (defadvice calendar-backward-week (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  )
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice calendar-forward-week (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'large-movement))
-
-
+    (emacspeak-speak-calendar-date )
+(emacspeak-auditory-icon 'large-movement)))
+  
 (defadvice calendar-backward-month (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice calendar-forward-month (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'large-movement))
-
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice calendar-backward-year (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice calendar-forward-year (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'large-movement))
-
-
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice calendar-beginning-of-week (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice calendar-beginning-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice calendar-beginning-of-year (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice calendar-end-of-week (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'large-movement))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice calendar-end-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-(emacspeak-auditory-icon 'select-object)  )
+    (emacspeak-speak-calendar-date )
+(emacspeak-auditory-icon 'select-object)))
 
 (defadvice calendar-end-of-year (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
-    (emacspeak-speak-calendar-date ))
-  (emacspeak-auditory-icon 'select-object))
+    (emacspeak-speak-calendar-date )
+  (emacspeak-auditory-icon 'select-object)))
 
 (defadvice exit-calendar (after emacspeak pre act)
   "Speak modeline. "
