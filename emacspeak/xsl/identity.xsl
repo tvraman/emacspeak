@@ -10,12 +10,13 @@ Identity transform used in all style sheets.
   <!-- {identity default  -->   
   <xsl:template match="*|@*" >
     <xsl:copy>
+      <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
-<!-- fix to avoid a bizarre bug in xsltproc 
-where entity &nbsp; gets changed to &#0302; &#0240;
-when using the -html option. -->
+  <!-- fix to avoid a bizarre bug in xsltproc 
+  where entity &nbsp; gets changed to &#0302; &#0240;
+  when using the -html option. -->
   <xsl:template match="//body//text()">
     <xsl:value-of select="translate(., '&#160;', ' ')"/>
   </xsl:template>
