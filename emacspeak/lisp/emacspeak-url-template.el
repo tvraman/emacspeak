@@ -735,27 +735,7 @@ name of the list.")
       'speak)))
 
 ;;}}}
-;;{{{ nfl 
 
-(defun emacspeak-url-template-nfl-play-broadcast ()
-  "Play NFL url under point."
-  (interactive)
-  (let ((url (w3-view-this-url 'no-show))
-        (fields nil)
-        (stream nil))
-    (cond
-     (url
-      (setq fields (split-string url "file="))
-      (setq stream (first
-		    (split-string (second fields)
-				  "'")))
-      (if (string-match "launch_rw" stream)
-          (emacspeak-realaudio-play stream)
-	(emacspeak-m-player
-	 stream)))
-     (t "No url under point."))))
-
-;;}}}
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define

@@ -1173,7 +1173,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
 ;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16442 18378))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16442 22458))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1858,7 +1858,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
 ;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16442
-;;;;;;  19068 334148))
+;;;;;;  40942 272822))
 
 ;;;***
 
