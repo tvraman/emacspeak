@@ -29,36 +29,37 @@ emacspeak-redefine.
      traditional)   Character set CNS11643-3 (Chinese traditional)
      Character set Ethiopic characters   Character set Tibetan 1 column
       Character set Indian 1 Column   Character set Indian IS 13194
-     Character set Arabic 2-column   Character set emacs/w3-dingbats
-     Character set Lao   Character set ASCII with right-to-left
-     direction   Character set Arabic 1-column   Character set Arabic
-     digit   Character set VISCII upper-case   Character set VISCII
-     lower-case   Character set IPA   Character set SiSheng
-     (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set
-     Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)
-     Character set CNS11643-1 (Chinese traditional)   Character set
-     JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character
-     set JISX0208.1983/1990 (Japanese)   Character set GB2312
-     Character set JISX0208.1978 (Japanese)   Character set ISO8859-9
-     (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set
-     JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976
-     (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set
-     ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character
-     set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character
-     set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)
-     Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø
-     ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç
-      æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×
-     Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ
-     Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ
-      ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥
-     ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p
-     o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \
-       cap Z     cap Y     cap X     cap W     cap V     cap U     cap
-     T     cap S     cap R     cap Q     cap P     cap O     cap N
-     cap M     cap L     cap K     cap J     cap I     cap H     cap G
-       cap F     cap E     cap D     cap C     cap B     cap A    @
-     >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ '
+     Character set Arabic 2-column   Character set Lao   Character set
+     ASCII with right-to-left direction   Character set Arabic 1-column
+      Character set Arabic digit   Character set VISCII upper-case
+     Character set VISCII lower-case   Character set IPA   Character
+     set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)
+     Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese
+     traditional)   Character set CNS11643-1 (Chinese traditional)
+     Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)
+      Character set JISX0208.1983/1990 (Japanese)   Character set
+     GB2312   Character set JISX0208.1978 (Japanese)   Character set
+     ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)
+     Character set JISX0201.1976 (Japanese Roman)   Character set
+     JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)
+     Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)
+      Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)
+     Character set ISO8859-3 (Latin-3)   Character set ISO8859-2
+     (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û
+     ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê
+      é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú
+     Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É
+     È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸
+      ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨
+     §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v
+     u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e
+      d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap
+     X     cap W     cap V     cap U     cap T     cap S     cap R
+     cap Q     cap P     cap O     cap N     cap M     cap L     cap K
+       cap J     cap I     cap H     cap G     cap F     cap E     cap
+     D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9
+     8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (
+     '   &   %   $   #   "   !   SPACE '
 
      Insert a character.  Speaks the character if
      emacspeak-character-echo is true.  See  command
@@ -92,8 +93,6 @@ emacspeak-remote.
      port that that host is listening on for speech requests.
 
  - emacspeak-remote-quick-connect-to-server:
-     ` f8 '
-
      Connect to remote server.  Does not prompt for host or port, but
      quietly uses the guesses that appear as defaults when prompting.
      Use this once you are sure the guesses are usually correct.
@@ -137,24 +136,6 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 emacspeak-sounds
 ================
 
-   Commentary: This module provides the interface for generating
-auditory icons in emacspeak.  Design goal: 1) Auditory icons should be
-used to provide additional feedback, not as a gimmick.  2) The
-interface should be usable at all times without the icons: e.g. when on
-a machine without a sound card.  3) General principle for when to use
-an icon: Convey information about events taking place in parallel.  For
-instance, if making a selection automatically moves the current focus
-to the next choice, We speak the next choice, while indicating the fact
-that something was selected with a sound cue.   This interface will
-assume the availability of a shell command "play" that can take one or
-more sound files and play them.  This module will also provide a
-mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead
-of actual file names.  As of Emacspeak 13.0, this module defines a
-themes architecture for  auditory icons.  Sound files corresponding to
-a given theme are found in appropriate subdirectories of
-emacspeak-sounds-directory
-
    Automatically generated documentation for commands defined in module
 emacspeak-sounds.
 
@@ -193,17 +174,10 @@ File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: 
 emacspeak-speak
 ===============
 
-   Commentary: This module defines the core speech services used by
-emacspeak.  It depends on the speech server interface modules It
-protects other parts of emacspeak from becoming dependent on the speech
-server modules
-
    Automatically generated documentation for commands defined in module
 emacspeak-speak.
 
  - emacspeak-kill-buffer-quietly:
-     ` kp-f4   f4 '
-
      Kill current buffer without asking for confirmation.
 
  - emacspeak-speak-line-set-column-filter:
@@ -763,13 +737,6 @@ File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-table-ui,  Pre
 emacspeak-speedbar
 ==================
 
-   Commentary: This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from ftp://ftp.ultranet.com/pub/zappo/
-This module ensures that speedbar works smoothly outside a windowing
-system in addition to speech enabling all interactive commands.
-Emacspeak also adds an Emacspeak environment specific entry point to
-speedbar -emacspeak-speedbar-goto-speedbar- and binds this
-
    Automatically generated documentation for commands defined in module
 emacspeak-speedbar.
 
@@ -818,7 +785,7 @@ emacspeak-table-ui.
      giving you sufficient contextual information.  The etc/tables
      subdirectory of the emacspeak distribution contains some sample
      tables -these are the CalTrain schedules.  Execute command
-     `describe-mode' bound to C-c ? in a buffer that is in emacspeak
+     `describe-mode' bound to C-h m in a buffer that is in emacspeak
      table mode to read the documentation on the table browser.
 
      This function is advised.
@@ -902,7 +869,7 @@ emacspeak-table-ui.
      two-dimensional spatial layout while giving you sufficient
      contextual information.  The tables subdirectory of the emacspeak
      distribution contains some sample tables -these are the CalTrain
-     schedules.  Execute command `describe-mode' bound to C-c ? in a
+     schedules.  Execute command `describe-mode' bound to C-h m in a
      buffer that is in emacspeak table mode to read the documentation
      on the table browser.
 
@@ -1023,7 +990,7 @@ emacspeak-tetris.
      Speak next shape
 
 
-File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view-process,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
 
 emacspeak-url-template
 ======================
@@ -1049,7 +1016,19 @@ emacspeak-url-template.
      to obtain a list of available resources.
 
 
-File: emacspeak.info,  Node: emacspeak-view-process,  Next: emacspeak-view,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-view-process,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+
+emacspeak-view
+==============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-view.
+
+ - emacspeak-view-line-to-top:
+     Moves current line to top of window
+
+
+File: emacspeak.info,  Node: emacspeak-view-process,  Next: emacspeak-vm,  Prev: emacspeak-view,  Up: Emacspeak Commands
 
 emacspeak-view-process
 ======================
@@ -1064,19 +1043,7 @@ emacspeak-view-process.
      Set point to the current field in the next line.
 
 
-File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
-
-emacspeak-view
-==============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-view.
-
- - emacspeak-view-line-to-top:
-     Moves current line to top of window
-
-
-File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
 
 emacspeak-vm
 ============
@@ -1105,14 +1072,10 @@ emacspeak-vm.
      Save attachment under point
 
 
-File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-websearch,  Prev: emacspeak-vm,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: emacspeak-vm,  Up: Emacspeak Commands
 
 emacspeak-w3
 ============
-
-   Commentary: Ensure that speech support for W3 gets installed and
-loaded correctly.  The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
 
    Automatically generated documentation for commands defined in module
 emacspeak-w3.
@@ -1128,8 +1091,6 @@ emacspeak-w3.
      Toggle drawing of W3 table borders
 
  - emacspeak-w3-xslt-filter:
-     ` control e x e f '
-
      Extract elements matching specified XPath path locator from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Optional arg url specifies the page to
@@ -1154,8 +1115,6 @@ emacspeak-w3.
      Jump to next available submit button.
 
  - emacspeak-w3-xsl-toggle:
-     ` control e x e t '
-
      Toggle  XSL transformations before displaying HTML.  This uses
      XSLT Processor xsltproc available as part of the libxslt package.
 
@@ -1167,16 +1126,12 @@ emacspeak-w3.
      extraction code in W3.
 
  - emacspeak-w3-extract-table:
-     ` control e x e x '
-
      Extract tables from HTML.  Extracts specified table from current
      WWW page and displays it in a separate buffer.  Optional arg url
      specifies the page to extract table from.  Interactive prefix arg
      causes url to be read from the minibuffer.
 
  - emacspeak-w3-xslt-select:
-     ` control e x e s '
-
      Select transformation to apply.
 
  - emacspeak-w3-show-anchor-class:
@@ -1186,8 +1141,6 @@ emacspeak-w3.
      Jumps to the occurrence of document title in page body.
 
  - emacspeak-w3-extract-by-class:
-     ` control e x e c '
-
      Extract elements having specified class attribute  from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Optional arg url specifies the page to
@@ -1205,18 +1158,31 @@ emacspeak-w3.
      prefix argument COUNT specifies by how many eleemnts to move.
 
  - emacspeak-w3-xslt-apply:
-     ` control e x e a '
-
      Apply specified transformation to current page.
 
 
-File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-websearch,  Prev: emacspeak-w3,  Up: Emacspeak Commands
+
+emacspeak-w3search
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3search.
+
+ - emacspeak-websearch-blue-pages:
+     Search IBM Blue Pages
+
+ - emacspeak-websearch-ibm-internal:
+     Search IBM My News
+
+ - emacspeak-websearch-ibm-my-news:
+     Search IBM My News
+
+
+File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
 
 emacspeak-websearch
 ===================
-
-   Commentary: This module provides utility functions for searching the
-WWW
 
    Automatically generated documentation for commands defined in module
 emacspeak-websearch.
@@ -1425,28 +1391,19 @@ File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-wizards,  Prev: 
 emacspeak-widget
 ================
 
-   Commentary: This module implements the necessary extensions to
-provide talking widgets.
-
    Automatically generated documentation for commands defined in module
 emacspeak-widget.
 
  - emacspeak-widget-help:
-     ` meta h '
-
      Speak help for widget under point.
 
  - emacspeak-widget-summarize-parent:
-     ` meta p '
-
      Summarize parent of widget at point.
 
  - emacspeak-widget-browse-widget-interactively:
      Allows you to browse a widget
 
  - emacspeak-widget-update-from-minibuffer:
-     ` META RETURN '
-
      Sets widget at point by invoking its prompter.
 
  - emacspeak-widget-summarize-widget-under-point:

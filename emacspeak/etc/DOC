@@ -225,14 +225,40 @@ However it is irritating to have it on when reading documents.
 
 ------------------------------------------------------------
 
-** dtk-toggle-punctuation-mode	Key Sequence: delete 
-
-Toggle punctuation mode between "some" and "all".
+** dtk-toggle-punctuation-modeToggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
 
 ------------------------------------------------------------
 
 ** dtk-notes-shutdownShutdown midi system.
+
+------------------------------------------------------------
+
+** emacspeak-submit-bug	Key Sequence: control e control b 
+
+Function to submit a bug to the programs maintainer.
+
+------------------------------------------------------------
+
+** emacspeak-describe-emacspeak	Key Sequence: control h control e 
+
+Give a brief overview of emacspeak.
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-permissionsSpeak permissions of file current entry 
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-modification-timeSpeak modification time of the file on current line
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-nameSpeak the name of the file on current line
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-sizeSpeak the size of the file on current line
 
 ------------------------------------------------------------
 
@@ -357,6 +383,71 @@ unless `dired-listing-switches' contains -al
 
 ------------------------------------------------------------
 
+** emacspeak-dismal-forward-col-and-summarizeMove forward by arg columns
+ (the next column by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-valueDisplay the cell value in the message area
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarizeSummarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-listSpecify or reset row summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-headerDisplay current cell along with its column header.
+The `column header' is the entry in row 0.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-headerDisplays current cell along with its row header.
+The `row header' is the entry in column 0.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarizeMove forward by arg rows
+ (the next row by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-listSpecify or reset sheet summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarizeSummarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarizeSummarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-listSpecify or reset col summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-col-and-summarizeMove backward by arg columns
+ (the previous column by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-row-and-summarizeMove backward by arg rows
+ (the previous row by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
+
+------------------------------------------------------------
+
 ** emacspeak-ediff-speak-current-differenceSpeak the current difference
 
 ------------------------------------------------------------
@@ -432,6 +523,11 @@ This copies  region delimited by the emacspeak eterm marker
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
 
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
 ------------------------------------------------------------
 
 ** emacspeak-eterm-speak-pointerSpeak current pointer position.
@@ -441,6 +537,11 @@ emacspeak eterm pointer to a register.
 ** emacspeak-eterm-paste-registerPaste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -465,6 +566,11 @@ Argument COUNT specifies number of lines by which to move.
 
 ** emacspeak-eterm-yank-windowYank contents of  an eterm window at point.
 
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
 ------------------------------------------------------------
 
 ** emacspeak-eterm-speak-screenSpeak the screen.  Default is to speak from the emacspeak pointer  to point.
@@ -479,10 +585,20 @@ the Emacspeak pointer to be spoken.
 
 ** emacspeak-eterm-goto-lineMove emacspeak eterm pointer to a specified LINE.
 
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
 ------------------------------------------------------------
 
 ** emacspeak-eterm-describe-windowDescribe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -554,6 +670,11 @@ the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
 
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
 ------------------------------------------------------------
 
 ** emacspeak-eterm-toggle-reviewToggle state of eterm review. 
@@ -574,6 +695,11 @@ Start a terminal-emulator in a new buffer.
 
 ** emacspeak-eterm-speak-windowSpeak an eterm window.
 Argument ID specifies the window.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -608,9 +734,9 @@ emacspeak eterm pointer.
 key             binding
 ---             -------
 
-r               emacspeak-filtertext-revert
-^               flush-lines
-=               keep-lines
+r		emacspeak-filtertext-revert
+^		flush-lines
+=		keep-lines
 
 
 
@@ -680,17 +806,17 @@ The player is placed in a buffer in emacspeak-freeamp-mode.
 key             binding
 ---             -------
 
-right           emacspeak-aumix-wave-increase
-left            emacspeak-aumix-wave-decrease
-q               emacspeak-freeamp-freeamp-call-command
-=               emacspeak-freeamp-freeamp-call-command
-s               emacspeak-freeamp-freeamp-call-command
-b               emacspeak-freeamp-freeamp-call-command
-f               emacspeak-freeamp-freeamp-call-command
--               emacspeak-freeamp-freeamp-call-command
-+               emacspeak-freeamp-freeamp-call-command
-p               emacspeak-freeamp-freeamp-call-command
-o               emacspeak-freeamp
+right		emacspeak-aumix-wave-increase
+left		emacspeak-aumix-wave-decrease
+q		emacspeak-freeamp-freeamp-call-command
+=		emacspeak-freeamp-freeamp-call-command
+s		emacspeak-freeamp-freeamp-call-command
+b		emacspeak-freeamp-freeamp-call-command
+f		emacspeak-freeamp-freeamp-call-command
+-		emacspeak-freeamp-freeamp-call-command
++		emacspeak-freeamp-freeamp-call-command
+p		emacspeak-freeamp-freeamp-call-command
+o		emacspeak-freeamp
 
 
 
@@ -700,6 +826,11 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-freeamp-freeamp-commandExecute FreeAmp command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -800,9 +931,7 @@ blocks in current buffer to be hidden or exposed.
 
 ------------------------------------------------------------
 
-** emacspeak-imcom	Key Sequence: control e x j 
-
-Start IMCom.
+** emacspeak-imcomStart IMCom.
 
 ------------------------------------------------------------
 
@@ -812,40 +941,9 @@ Start IMCom.
 key             binding
 ---             -------
 
-C-c             Prefix Command
-C-d             comint-delchar-or-maybe-eof
-RET             comint-send-input
-C-down          comint-next-input
-C-up            comint-previous-input
-ESC             Prefix Command
+C-c		Prefix Command
 
-C-c v           emacspeak-imcom-view-chat-session
-C-c C-d         comint-send-eof
-C-c C-p         comint-previous-prompt
-C-c C-n         comint-next-prompt
-C-c C-l         comint-dynamic-list-input-ring
-C-c C-e         comint-show-maximum-output
-C-c C-r         comint-show-output
-C-c C-o         comint-kill-output
-C-c RET         comint-copy-old-input
-C-c C-\         comint-quit-subjob
-C-c C-z         comint-stop-subjob
-C-c C-c         comint-interrupt-subjob
-C-c C-w         backward-kill-word
-C-c C-u         comint-kill-input
-C-c C-a         comint-bol-or-process-mark
-C-c C-x         comint-get-next-from-history
-C-c SPC         comint-accumulate
-C-c ESC         Prefix Command
-
-ESC C-l         comint-show-output
-ESC s           comint-next-matching-input
-ESC r           comint-previous-matching-input
-ESC n           comint-next-input
-ESC p           comint-previous-input
-
-C-c ESC s       comint-next-matching-input-from-input
-C-c ESC r       comint-previous-matching-input-from-input
+C-c v		emacspeak-imcom-view-chat-session
 
 
 
@@ -864,6 +962,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-imenu-goto-next-index-positionGoto the next index position in current buffer
+
+------------------------------------------------------------
+
+** emacspeak-info-speak-headerSpeak info header line.
 
 ------------------------------------------------------------
 
@@ -1022,31 +1124,31 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
 key             binding
 ---             -------
 
-9               emacspeak-ocr-page
-8               emacspeak-ocr-page
-7               emacspeak-ocr-page
-6               emacspeak-ocr-page
-5               emacspeak-ocr-page
-4               emacspeak-ocr-page
-3               emacspeak-ocr-page
-2               emacspeak-ocr-page
-1               emacspeak-ocr-page
-C               emacspeak-ocr-set-compress-image-options
-I               emacspeak-ocr-set-scan-image-options
-SPC             emacspeak-ocr-read-current-page
-s               emacspeak-ocr-save-current-page
-p               emacspeak-ocr-page
-]               emacspeak-ocr-forward-page
-[               emacspeak-ocr-backward-page
-d               emacspeak-ocr-open-working-directory
-n               emacspeak-ocr-name-document
-o               emacspeak-ocr-recognize-image
-i               emacspeak-ocr-scan-image
-RET             emacspeak-ocr-scan-and-recognize
-w               emacspeak-ocr-write-document
-q               bury-buffer
-c               emacspeak-ocr-customize
-?               describe-mode
+9		emacspeak-ocr-page
+8		emacspeak-ocr-page
+7		emacspeak-ocr-page
+6		emacspeak-ocr-page
+5		emacspeak-ocr-page
+4		emacspeak-ocr-page
+3		emacspeak-ocr-page
+2		emacspeak-ocr-page
+1		emacspeak-ocr-page
+C		emacspeak-ocr-set-compress-image-options
+I		emacspeak-ocr-set-scan-image-options
+SPC		emacspeak-ocr-read-current-page
+s		emacspeak-ocr-save-current-page
+p		emacspeak-ocr-page
+]		emacspeak-ocr-forward-page
+[		emacspeak-ocr-backward-page
+d		emacspeak-ocr-open-working-directory
+n		emacspeak-ocr-name-document
+o		emacspeak-ocr-recognize-image
+i		emacspeak-ocr-scan-image
+RET		emacspeak-ocr-scan-and-recognize
+w		emacspeak-ocr-write-document
+q		bury-buffer
+c		emacspeak-ocr-customize
+?		describe-mode
 
 
 
@@ -1114,36 +1216,26 @@ Pick a short but meaningful name.
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-previous-heading	Key Sequence: control l p 
-
-Analogous to outline-previous-visible-heading,
+** emacspeak-outline-speak-previous-headingAnalogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-this-heading	Key Sequence: control l SPACE 
-
-Speak current outline section starting from point
+** emacspeak-outline-speak-this-headingSpeak current outline section starting from point
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-backward-heading	Key Sequence: control l b 
-
-Analogous to outline-backward-same-level
+** emacspeak-outline-speak-backward-headingAnalogous to outline-backward-same-level
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-next-heading	Key Sequence: control l n 
-
-Analogous to outline-next-visible-heading,
+** emacspeak-outline-speak-next-headingAnalogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-forward-heading	Key Sequence: control l f 
-
-Analogous to outline-forward-same-level,
+** emacspeak-outline-speak-forward-headingAnalogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
@@ -1271,24 +1363,24 @@ Browse RAM file before playing the selected component.
 key             binding
 ---             -------
 
-right           emacspeak-aumix-wave-increase
-left            emacspeak-aumix-wave-decrease
-}               emacspeak-realaudio-trplayer-call-command
-{               emacspeak-realaudio-trplayer-call-command
-]               emacspeak-realaudio-trplayer-call-command
-[               emacspeak-realaudio-trplayer-call-command
-9               emacspeak-realaudio-trplayer-call-command
-0               emacspeak-realaudio-trplayer-call-command
-,               emacspeak-realaudio-trplayer-call-command
-.               emacspeak-realaudio-trplayer-call-command
->               emacspeak-realaudio-trplayer-call-command
-<               emacspeak-realaudio-trplayer-call-command
-i               emacspeak-realaudio-trplayer-call-command
-l               emacspeak-realaudio-trplayer-call-command
-e               emacspeak-realaudio-trplayer-call-command
-s               emacspeak-realaudio-trplayer-call-command
-t               emacspeak-realaudio-trplayer-call-command
-p               emacspeak-realaudio-trplayer-call-command
+right		emacspeak-aumix-wave-increase
+left		emacspeak-aumix-wave-decrease
+}		emacspeak-realaudio-trplayer-call-command
+{		emacspeak-realaudio-trplayer-call-command
+]		emacspeak-realaudio-trplayer-call-command
+[		emacspeak-realaudio-trplayer-call-command
+9		emacspeak-realaudio-trplayer-call-command
+0		emacspeak-realaudio-trplayer-call-command
+,		emacspeak-realaudio-trplayer-call-command
+.		emacspeak-realaudio-trplayer-call-command
+>		emacspeak-realaudio-trplayer-call-command
+<		emacspeak-realaudio-trplayer-call-command
+i		emacspeak-realaudio-trplayer-call-command
+l		emacspeak-realaudio-trplayer-call-command
+e		emacspeak-realaudio-trplayer-call-command
+s		emacspeak-realaudio-trplayer-call-command
+t		emacspeak-realaudio-trplayer-call-command
+p		emacspeak-realaudio-trplayer-call-command
 
 
 
@@ -1347,7 +1439,7 @@ Backward-char redefined to speak char moved to.
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
+** emacspeak-self-insert-command	Key Sequence: Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -1377,9 +1469,7 @@ host is listening on for speech requests.
 
 ------------------------------------------------------------
 
-** emacspeak-remote-quick-connect-to-server	Key Sequence: f8 
-
-Connect to remote server.
+** emacspeak-remote-quick-connect-to-serverConnect to remote server.
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct.
@@ -1441,9 +1531,7 @@ audio player.
 
 ------------------------------------------------------------
 
-** emacspeak-kill-buffer-quietly	Key Sequence: kp-f4   f4 
-
-Kill current buffer without asking for confirmation.
+** emacspeak-kill-buffer-quietlyKill current buffer without asking for confirmation.
 
 ------------------------------------------------------------
 
@@ -2397,15 +2485,15 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-view-line-to-topMoves current line to top of window
+
+------------------------------------------------------------
+
 ** emacspeak-view-process-speak-current-fieldSpeak current field
 
 ------------------------------------------------------------
 
 ** emacspeak-view-process-goto-current-field-next-lineSet point to the current field in the next line.
-
-------------------------------------------------------------
-
-** emacspeak-view-line-to-topMoves current line to top of window
 
 ------------------------------------------------------------
 
@@ -2450,9 +2538,7 @@ specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xslt-filter	Key Sequence: control e x e f 
-
-Extract elements matching specified XPath path locator
+** emacspeak-w3-xslt-filterExtract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
 specifies the page to extract table from.  Interactive
@@ -2481,9 +2567,7 @@ even if one is already defined.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xsl-toggle	Key Sequence: control e x e t 
-
-Toggle  XSL transformations before displaying HTML.
+** emacspeak-w3-xsl-toggleToggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
 
@@ -2497,9 +2581,7 @@ the table structure extraction code in W3.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-table	Key Sequence: control e x e x 
-
-Extract tables from HTML.  Extracts specified table from
+** emacspeak-w3-extract-tableExtract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from.
 Interactive prefix arg causes url to be read from the
@@ -2507,9 +2589,7 @@ minibuffer.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xslt-select	Key Sequence: control e x e s 
-
-Select transformation to apply.
+** emacspeak-w3-xslt-selectSelect transformation to apply.
 
 ------------------------------------------------------------
 
@@ -2522,9 +2602,7 @@ element.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-by-class	Key Sequence: control e x e c 
-
-Extract elements having specified class attribute  from
+** emacspeak-w3-extract-by-classExtract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
 current WWW page and displays it in a separate buffer.
@@ -2548,9 +2626,19 @@ specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xslt-apply	Key Sequence: control e x e a 
+** emacspeak-w3-xslt-applyApply specified transformation to current page.
 
-Apply specified transformation to current page.
+------------------------------------------------------------
+
+** emacspeak-websearch-blue-pagesSearch IBM Blue Pages
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internalSearch IBM My News
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-my-newsSearch IBM My News
 
 ------------------------------------------------------------
 
@@ -2812,15 +2900,11 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 ------------------------------------------------------------
 
-** emacspeak-widget-help	Key Sequence: meta h 
-
-Speak help for widget under point.
+** emacspeak-widget-helpSpeak help for widget under point.
 
 ------------------------------------------------------------
 
-** emacspeak-widget-summarize-parent	Key Sequence: meta p 
-
-Summarize parent of widget at point.
+** emacspeak-widget-summarize-parentSummarize parent of widget at point.
 
 ------------------------------------------------------------
 
@@ -2828,9 +2912,7 @@ Summarize parent of widget at point.
 
 ------------------------------------------------------------
 
-** emacspeak-widget-update-from-minibuffer	Key Sequence: META RETURN 
-
-Sets widget at point by invoking its prompter.
+** emacspeak-widget-update-from-minibufferSets widget at point by invoking its prompter.
 
 ------------------------------------------------------------
 
@@ -2887,9 +2969,7 @@ Browse the Emacspeak FAQ.
 
 ------------------------------------------------------------
 
-** emacspeak-emergency-tts-restart	Key Sequence: control e x s 
-
-For use in an emergency.
+** emacspeak-emergency-tts-restartFor use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
 
@@ -2922,9 +3002,7 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
-** emacspeak-lynx	Key Sequence: control e x l 
-
-Launch lynx on  specified URL in a new terminal.
+** emacspeak-lynxLaunch lynx on  specified URL in a new terminal.
 
 ------------------------------------------------------------
 
@@ -3001,9 +3079,7 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
-** emacspeak-show-list-variable	Key Sequence: control e x v 
-
-Convenience command to view Emacs variables that are long lists.
+** emacspeak-show-list-variableConvenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed.
@@ -3117,9 +3193,7 @@ With optional PREFIX argument, label current frame.
 
 ------------------------------------------------------------
 
-** emacspeak-annotate-add-annotation	Key Sequence: control e x a 
-
-Add annotation to the annotation working buffer.
+** emacspeak-annotate-add-annotationAdd annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
 Interactive prefix arg `reset' prompts for the annotation
 buffer even if one is already set.
@@ -3211,16 +3285,14 @@ Move to next frame.
 
 ------------------------------------------------------------
 
-** emacspeak-customize-personal-settings	Key Sequence: control e f1   control e x c 
+** emacspeak-customize-personal-settings	Key Sequence: control e f1 
 
 Create a customization buffer for browsing and updating
 personal customizations.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-telephone-directory	Key Sequence: control e x t 
-
-Lookup and display a phone number.
+** emacspeak-speak-telephone-directoryLookup and display a phone number.
 With prefix arg, opens the phone book for editting.
 
 ------------------------------------------------------------
@@ -3278,9 +3350,7 @@ Switch to the shell buffer and cd to
 
 ------------------------------------------------------------
 
-** emacspeak-xml-shell	Key Sequence: control e x x 
-
-Start Xml-Shell on contents of system-id.
+** emacspeak-xml-shellStart Xml-Shell on contents of system-id.
 
 ------------------------------------------------------------
 
@@ -3291,13 +3361,13 @@ Interactive XML browser.
 key             binding
 ---             -------
 
-C-c             Prefix Command
-down            emacspeak-xml-shell-goto-children
-up              emacspeak-xml-shell-goto-parent
-right           emacspeak-xml-shell-goto-next-child
-left            emacspeak-xml-shell-goto-previous-child
+C-c		Prefix Command
+down		emacspeak-xml-shell-goto-children
+up		emacspeak-xml-shell-goto-parent
+right		emacspeak-xml-shell-goto-next-child
+left		emacspeak-xml-shell-goto-previous-child
 
-C-c v           emacspeak-xml-shell-browse-current
+C-c v		emacspeak-xml-shell-browse-current
 
 
 
@@ -3316,123 +3386,6 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-xml-shell-goto-next-childNavigate forward  to the next child  of current node.
-
-------------------------------------------------------------
-
-** emacspeak-submit-bug	Key Sequence: control e control b 
-
-Function to submit a bug to the programs maintainer.
-
-------------------------------------------------------------
-
-** emacspeak-describe-emacspeak	Key Sequence: control h control e 
-
-Give a brief overview of emacspeak.
-
-------------------------------------------------------------
-
-** quotes-setup-emacspeak-portfolioSet up variable emacspeak-websearch-personal-portfolio. 
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-permissionsSpeak permissions of file current entry 
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-modification-timeSpeak modification time of the file on current line
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-nameSpeak the name of the file on current line
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-sizeSpeak the size of the file on current line
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-col-and-summarizeMove forward by arg columns
- (the next column by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-valueDisplay the cell value in the message area
-
-------------------------------------------------------------
-
-** emacspeak-dismal-sheet-summarizeSummarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-row-summarizer-listSpecify or reset row summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-col-headerDisplay current cell along with its column header.
-The `column header' is the entry in row 0.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-row-headerDisplays current cell along with its row header.
-The `row header' is the entry in column 0.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-row-and-summarizeMove forward by arg rows
- (the next row by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-sheet-summarizer-listSpecify or reset sheet summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-row-summarizeSummarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-col-summarizeSummarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-col-summarizer-listSpecify or reset col summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-col-and-summarizeMove backward by arg columns
- (the previous column by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-row-and-summarizeMove backward by arg rows
- (the previous row by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
-
-------------------------------------------------------------
-
-** emacspeak-info-speak-headerSpeak info header line.
-
-------------------------------------------------------------
-
-** emacspeak-sf-statsShow emacspeak sf statistics.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-blue-pagesSearch IBM Blue Pages
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internalSearch IBM My News
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-newsSearch IBM My News
 
 ------------------------------------------------------------
 
