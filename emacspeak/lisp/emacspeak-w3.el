@@ -660,7 +660,7 @@ Empty value finishes the list."
            #'(lambda  (i)
                (format "((//table//table)[%s])" i))
            tables
-           " or "))
+           " | "))
     (emacspeak-w3-xslt-filter
      filter
      prompt-url
@@ -696,7 +696,7 @@ of tables found in the page."
            #'(lambda  (i)
                (format "(/descendant::table[%s])" i))
            positions 
-           " or "))
+           " | "))
     (emacspeak-w3-xslt-filter
      filter
      prompt-url
