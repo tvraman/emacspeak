@@ -12,8 +12,9 @@ Description: default transformation applied by Bubbles.
   
   <xsl:output method="html" indent="yes"
   encoding="iso8859-15"/>
-  
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
+  
   <!-- {nuke these elements. --> 
   
   <xsl:template match="script|meta|link"/>

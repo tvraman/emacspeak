@@ -50,6 +50,7 @@ This is a good XSLT/XPath puzzle for now.
       document </xsl:element>.</p>
     </body>
   </xsl:template>
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- nuke these -->
   <xsl:template match="//script|//meta//style"/>
