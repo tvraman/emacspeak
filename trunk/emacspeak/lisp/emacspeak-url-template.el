@@ -185,6 +185,21 @@
 
 ;;}}}
 ;;{{{ yahoo daily news 
+(emacspeak-url-template-define
+ "My Yahoo "
+ "http://my.yahoo.com"
+ nil
+ nil
+ "My Yahoo"
+ #'(lambda (url)
+     (emacspeak-wizards-browse-url-with-style
+      (expand-file-name "content.xsl"
+                        emacspeak-xslt-directory)
+      url)
+     (search-forward
+      (format-time-string "%A") nil t)
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer)))
 
 (emacspeak-url-template-define
  "Yahoo Politics"
