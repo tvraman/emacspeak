@@ -653,35 +653,46 @@ before the message is spoken."
       (dtk-speak
        (format " %s percent" ange-ftp-last-percent )))))
   
+;;{{{ advising signal
+
+; (defadvice signal (before emacspeak pre act compile)
+;   "Speak the error message as well."
+;   (let ((dtk-stop-immediately t))
+;     (dtk-speak
+;      (format "%s %s"
+;              (or (get (ad-get-arg 0) 'error-message)
+;                  "Peculiar error ")
+             
+;              (mapconcat
+;               (function 
+;                (lambda (x)
+;                  (format "%s" x)))
+;               (ad-get-arg 1)
+;               " ")))))
+
+;;; lighter weight version:
 
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
-  (let ((dtk-stop-immediately t))
-    (dtk-speak
-     (format "%s %s"
-             (or (get (ad-get-arg 0) 'error-message)
-                 "Peculiar error ")
-             
- 
-             (mapconcat
-              (function 
-               (lambda (x)
-                 (format "%s" x)))
-              (ad-get-arg 1)
-              " ")))))
+  (let ((dtk-stop-immediately nil)
+        (message  (get (ad-get-arg 0) 'error-message)))
+    (when message 
+      (dtk-speak message))))
+
+;;}}}
 
  
 
 
-(defadvice error (after emacspeak pre act)
+(defadvice error (before emacspeak pre act)
   "Speak the error message.
 Also produces an auditory icon if possible."
-  (let ((dtk-stop-immediately nil ))
+  (let ((dtk-stop-immediately t ))
     (emacspeak-auditory-icon 'warn-user)
     (tts-with-punctuations "all"
-                           (dtk-speak (apply 'format
-                                             (ad-get-args
-                                              0))))))
+                           (message
+                            (apply #'format
+                                   (ad-get-args  0))))))
 
 (defadvice eval-minibuffer (before emacspeak pre act com)
   "Speak the prompt."
