@@ -494,7 +494,7 @@ even if one is already defined."
 
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
-
+(declaim (special w3-mode-map))
 (define-prefix-command 'emacspeak-w3-xsl-map )
 (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)  
 
@@ -507,7 +507,7 @@ HTML.")
 Nil means no transform is used. ")
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
-  "Apply requested transform if any before displaying the
+  "Apply requested XSL transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
@@ -529,11 +529,10 @@ HTML."
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
   (let ((url (url-view-url t)))
-    (emacspeak-wizards-browse-url-with-style xsl url)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-wizards-browse-url-with-style xsl url)))
 
 (defun emacspeak-w3-xslt-select (xsl)
-  "Select transformation to apply."
+  "Select XSL transformation applied to WWW pages before they are displayed ."
   (interactive
    (list
     (expand-file-name
@@ -548,7 +547,7 @@ HTML."
   (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-w3-xsl-toggle ()
-  "Toggle  XSL transformations before displaying HTML.
+  "Toggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package."
   (interactive)
@@ -559,20 +558,6 @@ libxslt package."
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
-
-(defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
-  "Extract tables from HTML.  Extracts specified table from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from. "
-  (interactive
-   (list
-    (read-from-minibuffer
-     "Table index: ")
-    current-prefix-arg))
-  (emacspeak-w3-xslt-filter
-   (format "(//table//table)[%s]" table-index)
-   prompt-url
-   speak))
 
 (defun emacspeak-w3-count-matches (prompt-url locator)
   "Count matches for locator  in HTML."
@@ -614,184 +599,11 @@ Optional arg url specifies the page to extract table from. "
    prompt-url
    "//table"))
 
-  
-
-(defsubst  emacspeak-w3-get-table-list (&optional bound)
-  "Collect a list of numbers less than bound 
- by prompting repeatedly in the
-minibuffer.
-Empty value finishes the list."
-  (let ((result nil)
-        (i nil)
-        (done nil))
-    (while (not done)
-      (setq i
-            (read-from-minibuffer
-             (format "Index%s"
-                     (if bound
-                         (format " less than  %s" bound)
-                       ":"))))
-      (if (> (length i) 0)
-          (push i result)
-        (setq done t)))
-    result))
-
-(defun emacspeak-w3-extract-nested-table-list (tables   &optional prompt-url speak)
-  "Extract specified list of tables from a WWW page."
-  (interactive
-   (list
-    (emacspeak-w3-get-table-list)
-    current-prefix-arg))
-  (let ((filter nil))
-    (setq filter
-          (mapconcat
-           #'(lambda  (i)
-               (format "((//table//table)[%s])" i))
-           tables
-           " | "))
-    (emacspeak-w3-xslt-filter
-     filter
-     prompt-url
-     (or (interactive-p) speak))))
-
-(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
-  "Extract table at specified position.
- Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the minibuffer."
-  (interactive
-   (list
-    (read-from-minibuffer
-     "Table position: ")
-    current-prefix-arg))
-  (emacspeak-w3-xslt-filter
-   (format "/descendant::table[%s]"
-           position)
-   prompt-url
-   (or (interactive-p)
-       speak)))
-
-(defun emacspeak-w3-extract-nested-tables-by-position-list (positions   &optional prompt-url speak)
-  "Extract specified list of tables from a WWW page.
-Tables are specified by their position in the list 
-of tables found in the page."
-  (interactive
-   (list
-    (emacspeak-w3-get-table-list)
-    current-prefix-arg))
-  (let ((filter nil))
-    (setq filter
-          (mapconcat
-           #'(lambda  (i)
-               (format "(/descendant::table[%s])" i))
-           positions 
-           " | "))
-    (emacspeak-w3-xslt-filter
-     filter
-     prompt-url
-     (or (interactive-p) speak))))
-
-(defvar emacspeak-w3-buffer-css-class-cache nil
-  "Caches class attribute values for current buffer.")
-
-(make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
-
-        
-(defun emacspeak-w3-css-class-cache ()
-  "Build CSS class cache for buffer if needed."
-  (unless (eq major-mode 'w3-mode)
-    (error "Not in W3 buffer."))
-  (or emacspeak-w3-buffer-css-class-cache
-      (let ((values nil)
-            (buffer
-             (emacspeak-xslt-url
-              (expand-file-name "class-values.xsl"
-                                emacspeak-xslt-directory)
-              (url-view-url 'no-show))))
-        (setq values 
-              (save-excursion
-                (set-buffer buffer)
-                (shell-command-on-region (point-min) (point-max)
-                                         "sort | uniq "
-                                         (current-buffer))
-                (split-string (buffer-string))))
-        (setq emacspeak-w3-buffer-css-class-cache
-              (mapcar
-               #'(lambda (v)
-                   (cons v v ))
-               values)))))
-
-(defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
-  "Extract elements having specified class attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer. Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the minibuffer."
-  (interactive
-   (list
-    (completing-read "Class: "
-                     (emacspeak-w3-css-class-cache))
-    current-prefix-arg))
-  (emacspeak-w3-xslt-filter
-   (format "//*[@class=\"%s\"]"
-           class)
-   prompt-url
-   (or (interactive-p)
-       speak)))
-
-(defsubst  emacspeak-w3-css-get-class-list ()
-  "Collect a list of classes by prompting repeatedly in the
-minibuffer.
-Empty value finishes the list."
-  (let ((classes (emacspeak-w3-css-class-cache))
-        (result nil)
-        (c nil)
-        (done nil))
-    (while (not done)
-      (setq c
-            (completing-read "Class: "
-                             classes
-                             nil 'must-match))
-      (if (> (length c) 0)
-          (push c result)
-        (setq done t)))
-    result))
-
-(defun emacspeak-w3-extract-by-class-list(classes   &optional prompt-url speak)
-  "Extract elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
-completion. Interactive prefix arg causes url to be read from the
-minibuffer."
-  (interactive
-   (list
-    (emacspeak-w3-css-get-class-list)
-    current-prefix-arg))
-  (let ((filter nil))
-    (setq filter
-          (mapconcat
-           #'(lambda  (c)
-               (format "(@class=\"%s\")" c))
-           classes
-           " or "))
-    (emacspeak-w3-xslt-filter
-     (format "//*[%s]" filter)
-     prompt-url
-     (or (interactive-p) speak))))
-
-(defvar emacspeak-w3-xsl-filter
-  (expand-file-name "xpath-filter.xsl"
-                    emacspeak-xslt-directory)
-  "XSL transform to extract  elements matching a specified
-XPath locator.")
-
 (defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result )
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  Interactive
-prefix arg causes url to be read from the minibuffer."
+specifies the page to extract table from.  "
   (interactive
    (list
     (read-from-minibuffer "XPath: ")
@@ -841,6 +653,190 @@ prefix arg causes url to be read from the minibuffer."
               'emacspeak-speak-buffer))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer src-buffer))))
+
+  
+(defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
+  "Extract nested table specified by `table-index'. Default is to
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically."
+
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Table index: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "(//table//table)[%s]" table-index)
+   prompt-url
+   speak))
+
+(defsubst  emacspeak-w3-get-table-list (&optional bound)
+  "Collect a list of numbers less than bound 
+ by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((result nil)
+        (i nil)
+        (done nil))
+    (while (not done)
+      (setq i
+            (read-from-minibuffer
+             (format "Index%s"
+                     (if bound
+                         (format " less than  %s" bound)
+                       ":"))))
+      (if (> (length i) 0)
+          (push i result)
+        (setq done t)))
+    result))
+
+(defun emacspeak-w3-extract-nested-table-list (tables   &optional prompt-url speak)
+  "Extract specified list of tables from a WWW page."
+  (interactive
+   (list
+    (emacspeak-w3-get-table-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (i)
+               (format "((//table//table)[%s])" i))
+           tables
+           " | "))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
+  "Extract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Table position: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "/descendant::table[%s]"
+           position)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+(defun emacspeak-w3-extract-nested-tables-by-position-list (positions   &optional prompt-url speak)
+  "Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page."
+  (interactive
+   (list
+    (emacspeak-w3-get-table-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (i)
+               (format "(/descendant::table[%s])" i))
+           positions 
+           " | "))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defvar emacspeak-w3-buffer-css-class-cache nil
+  "Caches class attribute values for current buffer.")
+
+(make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
+        
+(defun emacspeak-w3-css-class-cache ()
+  "Build CSS class cache for buffer if needed."
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in W3 buffer."))
+  (or emacspeak-w3-buffer-css-class-cache
+      (let ((values nil)
+            (buffer
+             (emacspeak-xslt-url
+              (expand-file-name "class-values.xsl"
+                                emacspeak-xslt-directory)
+              (url-view-url 'no-show))))
+        (setq values 
+              (save-excursion
+                (set-buffer buffer)
+                (shell-command-on-region (point-min) (point-max)
+                                         "sort | uniq "
+                                         (current-buffer))
+                (split-string (buffer-string))))
+        (setq emacspeak-w3-buffer-css-class-cache
+              (mapcar
+               #'(lambda (v)
+                   (cons v v ))
+               values)))))
+
+(defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
+  "Extract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion."
+  (interactive
+   (list
+    (completing-read "Class: "
+                     (emacspeak-w3-css-class-cache))
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "//*[@class=\"%s\"]"
+           class)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+(defsubst  emacspeak-w3-css-get-class-list ()
+  "Collect a list of classes by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((classes (emacspeak-w3-css-class-cache))
+        (result nil)
+        (c nil)
+        (done nil))
+    (while (not done)
+      (setq c
+            (completing-read "Class: "
+                             classes
+                             nil 'must-match))
+      (if (> (length c) 0)
+          (push c result)
+        (setq done t)))
+    result))
+
+(defun emacspeak-w3-extract-by-class-list(classes   &optional prompt-url speak)
+  "Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. "
+  (interactive
+   (list
+    (emacspeak-w3-css-get-class-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(@class=\"%s\")" c))
+           classes
+           " or "))
+    (emacspeak-w3-xslt-filter
+     (format "//*[%s]" filter)
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defvar emacspeak-w3-xsl-filter
+  (expand-file-name "xpath-filter.xsl"
+                    emacspeak-xslt-directory)
+  "XSL transform to extract  elements matching a specified
+XPath locator.")
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "a"
