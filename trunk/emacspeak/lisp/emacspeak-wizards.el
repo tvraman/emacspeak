@@ -562,7 +562,7 @@ default-directory after switching."
                             (expand-file-name
                              default-directory))
         (goto-char (point-max))
-        (insert (format "cd %s"
+        (insert (format "pushd %s"
                         (expand-file-name dir)))
         (comint-send-input)
         (shell-process-cd dir)))
@@ -1492,7 +1492,7 @@ annotation is inserted into the working buffer when complete."
                           (expand-file-name
                            default-directory))
       (goto-char (point-max))
-      (insert (format "cd %s" dir))
+      (insert (format "pushd %s" dir))
       (comint-send-input)
     (shell-process-cd dir))
     (emacspeak-auditory-icon 'select-object)
