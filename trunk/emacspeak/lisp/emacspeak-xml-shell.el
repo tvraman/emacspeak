@@ -131,7 +131,7 @@ Interactive XML browser.
              (eq 'run 
                  (process-status  emacspeak-xml-shell-process)))
         emacspeak-xml-shell-document
-      (read-file-name
+      (read-from-minibuffer
        "Browse XML: "))))
   (declare (special emacspeak-xml-shell-process
                     emacspeak-xml-shell-document))
