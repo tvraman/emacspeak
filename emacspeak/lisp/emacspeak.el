@@ -557,6 +557,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
 (emacspeak-do-package-setup "sawfish" 'emacspeak-sawfish)
 (emacspeak-do-package-setup "sql-mode" 'emacspeak-sql)
+(emacspeak-do-package-setup "sql" 'emacspeak-sql)
 (emacspeak-do-package-setup "supercite" 'emacspeak-supercite)
 (emacspeak-do-package-setup "tar-mode" 'emacspeak-tar)
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
