@@ -291,24 +291,28 @@ displayed in the messages area."
         (voice nil))
     (when (and  emacspeak-personality-voiceify-faces
 		(eq prop 'face))
-      (cond
-       ((symbolp value)
-        (setq voice (voice-setup-get-voice-for-face   value)))
-       ( (listp value)
-        (setq voice
-              (delete nil 
-                      (mapcar   #'voice-setup-get-voice-for-face value))))
-       (t (message "Got %s" value)))
-      (when voice
-        (funcall emacspeak-personality-voiceify-faces start end voice object))
-      (when (and emacspeak-personality-show-unmapped-faces
-                 (not voice))
-        (cond
-         ((listp value)
-	  (mapcar #'(lambda (v)
-		      (puthash  v t emacspeak-personality-unmapped-faces))
-		  value))
-         (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
+      (condition-case nil
+          (progn
+            (cond
+             ((symbolp value)
+              (setq voice (voice-setup-get-voice-for-face   value)))
+             ( (listp value)
+               (setq voice
+                     (delete nil 
+                             (mapcar   #'voice-setup-get-voice-for-face value))))
+             (t (message "Got %s" value)))
+            (when voice
+              (funcall emacspeak-personality-voiceify-faces start end voice object))
+            (when (and emacspeak-personality-show-unmapped-faces
+                       (not voice))
+              (cond
+               ((listp value)
+                (mapcar #'(lambda (v)
+                            (puthash  v t emacspeak-personality-unmapped-faces))
+                        value))
+               (t (puthash  value t emacspeak-personality-unmapped-faces))))
+            )
+        (error nil)))))
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
