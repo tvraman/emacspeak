@@ -482,7 +482,8 @@ Leave point at front of decoded attachment."
       (list 'mail-mode-hook
             'vm-presentation-mode-hook)
       do 
-      (add-hook hook 'emacspeak-pronounce-refresh-pronunciations))
+      (add-hook hook 'emacspeak-pronounce-refresh-pronunciations
+                'append ))
 
 (loop for mode in 
       '(vm-presentation-mode 
