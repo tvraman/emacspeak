@@ -34,7 +34,7 @@
 ;;{{{  required modules
 
 (require 'emacspeak-preamble)
-(require 'w3m nil)
+(require 'w3m nil t)
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map
