@@ -669,6 +669,7 @@ sent to the terminal as if it were typed by the user."
 (defun  emacspeak-eterm-coordinate-within-window-p (coordinate id  )
   "Predicate to test if COORDINATE is within window.
 Argument ID specifies the window."
+  (when coordinate
   (let*  ((window  (emacspeak-eterm-get-window id ))
           (row (cdr coordinate))
           (column (car coordinate ))
@@ -686,7 +687,7 @@ Argument ID specifies the window."
      (or  (< row top-left-row )
           (> row bottom-right-row )
           (and (not left-stretch ) (< column top-left-column ))
-          (and (not right-stretch ) (> column bottom-right-column ))))))
+          (and (not right-stretch ) (> column bottom-right-column )))))))
  
 ;;; Translate a screen position to a buffer position
 
