@@ -40,14 +40,7 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(require 'derived)
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-(require 'emacspeak-aumix)
-(require 'emacspeak-sounds)
-(require 'thingatpt)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Introduction:
 

@@ -40,17 +40,7 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(require 'derived)
-
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-(require 'emacspeak-aumix)
-(require 'emacspeak-sounds)
-;;; eventually move common media related definitions.
-;;; Alternatively integrate realaudio and media player into a single module.
-(require 'emacspeak-realaudio)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Introduction:
 
@@ -77,7 +67,7 @@
 
 (define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
-
+(declaim (special emacspeak-aumix-multichannel-capable-p))
 (define-derived-mode emacspeak-m-player-mode fundamental-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n

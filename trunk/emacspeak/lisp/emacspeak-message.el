@@ -37,13 +37,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
 ;;{{{  Introduction
 
 ;;; advice for posting message commands
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  advice interactive commands
