@@ -332,7 +332,8 @@ Modifies text and point in buffer."
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
   (declare (special emacspeak-pronounce-dictionaries ))
-  (let ((filename (read-file-name
+  (let* ((ido-mode nil)
+         (filename (read-file-name
                    "Save pronunciation dictionaries to file: "
                    emacspeak-resource-directory
                    emacspeak-pronounce-dictionaries-file ))
