@@ -132,6 +132,7 @@
 (defun tts-say-window (window)
   "Say the name of window W."
   (interactive "%W")
+  (when window 
   (let ((title (window-name window))
         (position (window-position window))
         (dimensions (window-dimensions window)))
@@ -139,7 +140,7 @@
         (tts-say
          (format nil "%s at %s with dimensions %s"
                  title position dimensions))
-      (tts-say title))))
+      (tts-say title)))))
 
 (defun tts-say-current-window ()
   "Say the name of the current window."
