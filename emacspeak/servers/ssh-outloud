@@ -8,5 +8,9 @@
 # }}}
 remote=`cat $HOME/.emacspeak/.current-remote-hostname`
 tcl=/usr/bin/tcl
+EMACSPEAK_DIR=$HOME/emacs/lisp/emacspeak
+echo $EMACSPEAK_DIR
+export EMACSPEAK_DIR
+OUTLOUD=$HOME/emacs/lisp/emacspeak/servers/outloud
 
-echo "ssh $remote $tcl $1"
+ssh $remote  $TCL $OUTLOUD
