@@ -57,7 +57,6 @@
   (require 'dtk-speak))
 
   ;;}}}
-
   ;;{{{  Introduction:
 
 ;;; This module defines the interface to the
@@ -66,8 +65,6 @@
 
   ;;}}}
   ;;{{{  User customizations:
-
-
 
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
