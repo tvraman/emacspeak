@@ -196,7 +196,6 @@ emacspeak:
 	cd lisp; $(MAKE)  SRC=$(SRC)
 	touch   $(ID)
 	chmod 644 $(ID)
-	@echo "Compiled on $(SNAPSHOT) by `whoami` on `hostname`" >> $(ID)
 	@echo "Now check installation of  the speech server. "  
 	@echo "See Makefile for instructions." 
 	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs" 

@@ -79,7 +79,7 @@
 ;;}}}
 ;;{{{  The new functions: 
 
-(defun emacspeak-self-insert-command (arg)
+(defun emacspeak-self-insert-command (&optional arg)
   "Insert a character.
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
@@ -87,6 +87,7 @@ See  command emacspeak-toggle-word-echo bound to
 Toggle variable dtk-stop-immediately-while-typing if you want to have
 speech flush as you type."
   (interactive "p")
+  (or arg (setq arg 1))
   (declare (special last-input-char
                     dtk-stop-immediately-while-typing dtk-program 
                     buffer-undo-list  buffer-read-only
@@ -117,10 +118,11 @@ speech flush as you type."
    auto-fill-function
    (funcall auto-fill-function)))
 
-(defun emacspeak-forward-char (arg)
+(defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
   (interactive "p")
   (declare (special dtk-stop-immediately))
+  (or arg (setq arg 1))
   (cond
    ((<= (+ arg (point)) (point-max))
     (forward-char arg)
@@ -130,9 +132,10 @@ speech flush as you type."
    (t(ding)
      (message "End of buffer"))))
 
-(defun emacspeak-backward-char (arg)
+(defun emacspeak-backward-char (&optional arg)
   "Backward-char redefined to speak char moved to. "
   (interactive "p")
+  (or arg (setq arg 1))
   (declare (special dtk-stop-immediately))
   (cond
    ((>= (- (point) arg) (point-min))
@@ -143,27 +146,7 @@ speech flush as you type."
    (t (ding)
       (message "Beginning of buffer"))))
 
-;;{{{  kill buffer for emacs 21
 
-;;;There is a bug in emacs 21
-;;; that causes the normal emacspeak advice  to fire too late
-;;; Interestingly enough  if you just bind the key again 
-;;; the emacspeak advice works, which indicates that perhaps 
-;;; the bug stems from how it gets bound in commands.c
-;;; also, note that emacspeak-fix-interactive gets fooled by emacs 21
-;;; into auto-advising kill-buffer
-
-(defun emacspeak-kill-buffer (buffer)
-  "Speech-enabled version of kill-buffer for Emacs 21."
-  (interactive
-   (list 
-    (read-buffer "Kill buffer: "
-                 (current-buffer))))
-  (kill-buffer buffer)
-  (emacspeak-auditory-icon 'close-object)
-  (emacspeak-speak-mode-line))
-
-;;}}}
 
 ;;}}}
 ;;{{{  Rebinding functions to keys:
@@ -187,12 +170,6 @@ speech flush as you type."
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
-;;; for emacs 21 add kill-buffer to the above list:
-(declaim (special emacs-version))
-
-(when (string-match "^21" emacs-version)
-  (push 'kill-buffer 
-	emacspeak-functions-that-bypass-function-cell))
 (mapcar 
  (function
   (lambda (f)
