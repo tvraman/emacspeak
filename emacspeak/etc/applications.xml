@@ -8,7 +8,7 @@ type="text/xsl"?>
   <introduction>
     <h1>Speech-enabled Applications On The Emacspeak Desktop </h1>
     <p>
-      This document enumerates the speech-enabled applications available on the Emacspeak desktop.
+      This document catalogs the speech-enabled applications available on the Emacspeak desktop.
       Note that depending on your Emacs installation,
       you may need to download and install extra applications to
       avail yourself of all of the features of the Emacspeak audio
@@ -359,7 +359,7 @@ type="text/xsl"?>
     feedback during  search and replace. </application>
     <application name="browse-kill-ring">
       Speech-enabled browsable kill ring.
-      Allows easy browsing of Emacs' builtin clipboard faclity.
+      Allows easy browsing of Emacs' builtin clipboard facility.
     </application>
     <application name="calculator">
     Simple but powerful desktop calculator.</application>
