@@ -157,8 +157,7 @@
 (define-key emacspeak-keymap "A" 'emacspeak-appt-repeat-announcement)
 (define-key emacspeak-keymap "?"
   'emacspeak-websearch-dispatch )
-(define-key emacspeak-keymap "."
-  'emacspeak-speak-browse-buffer )
+(define-key emacspeak-keymap "," 'emacspeak-speak-browse-buffer )
 (define-key emacspeak-keymap ";" 'emacspeak-realaudio )
 (define-key emacspeak-keymap ":" 'emacspeak-realaudio-browse )
 (define-key emacspeak-keymap "C" 'emacspeak-speak-display-char)
@@ -184,9 +183,8 @@
 (define-key emacspeak-keymap "'" 'emacspeak-speak-sexp)
 (define-key emacspeak-keymap "=" 'emacspeak-speak-current-column)
 (define-key emacspeak-keymap "%" 'emacspeak-speak-current-percentage)
-(define-key emacspeak-keymap "<"
-  'emacspeak-speak-previous-field)
-(define-key emacspeak-keymap "," 'emacspeak-speak-current-field)
+(define-key emacspeak-keymap "<" 'emacspeak-speak-previous-field)
+(define-key emacspeak-keymap "." 'emacspeak-speak-current-field)
 (define-key emacspeak-keymap ">"  'emacspeak-speak-next-field)
 (define-key emacspeak-keymap " " 'dtk-resume)
 (define-key emacspeak-keymap "\C-w" 'emacspeak-speak-window-information)
