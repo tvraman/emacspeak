@@ -512,7 +512,7 @@ Activates pronunciation dictionaries if not already active."
   (interactive)
   (declare (special emacspeak-pronounce-help))
   (message emacspeak-pronounce-help)
-  (let ((event (read-event)))
+  (let ((event (read-char)))
     (case event
       (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
       (?d (call-interactively
