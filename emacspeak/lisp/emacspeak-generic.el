@@ -61,11 +61,11 @@
 
 (defadvice define-generic-mode (after emacspeak pre act comp)
   "Advice generated mode command to setup emacspeak extensions. "
-  (let ((name (ad-get-arg 0))
+  (let ((name (ad-get-arg 0)))
   (eval
    `(defadvice  ,name (after emacspeak pre act comp)
       "Setup Emacspeak programming mode hooks."
-  (emacspeak-setup-programming-mode))))))
+  (emacspeak-setup-programming-mode)))))
 
 ;;}}}
 (provide 'emacspeak-generic)
