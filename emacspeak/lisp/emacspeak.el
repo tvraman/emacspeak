@@ -283,6 +283,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "info" 'emacspeak-info)
 (emacspeak-do-package-setup "ispell" 'emacspeak-ispell)
 (emacspeak-do-package-setup "jde" 'emacspeak-jde)
+(emacspeak-do-package-setup "kmacro" 'emacspeak-kmacrokotl)
 (emacspeak-do-package-setup "kotl" 'emacspeak-kotl)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
 (emacspeak-do-package-setup "man" 'emacspeak-man)
