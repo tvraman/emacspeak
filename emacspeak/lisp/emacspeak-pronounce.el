@@ -66,6 +66,7 @@
 (require 'custom)
 (eval-when-compile (require 'wid-edit)
 		   (require 'emacspeak-personality))
+(require 'voice-setup)
 (require 'thingatpt)
 (eval-when (compile)
                                         ;avoid recursive include during compile
