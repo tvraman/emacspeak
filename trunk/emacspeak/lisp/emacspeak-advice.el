@@ -2344,13 +2344,11 @@ Pause ongoing speech first."
     (emacspeak-auditory-icon 'open-object)
     (dtk-pause)))
 
-
 (defadvice isearch-search (after emacspeak pre act)
   "Speak the search hit.
 Produce auditory icons if possible."
   (dtk-speak isearch-string)
-  (when (sit-for 0.5)
-    (emacspeak-auditory-icon 'search-hit)
+  (when  (sit-for 0.5)
     (ems-set-personality-temporarily
      (point)
      (if  isearch-forward
@@ -2358,6 +2356,7 @@ Produce auditory icons if possible."
        (+ (point) (length isearch-string )))
      'harry
      (emacspeak-speak-line nil ))))
+
 
 (defadvice isearch-delete-char (after emacspeak pre act)
   "Speak the search hit.
