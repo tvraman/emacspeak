@@ -704,7 +704,8 @@ To leave, press \\[keyboard-quit]."
                  (not (string-match "ad-Orig" (symbol-name f)))
                  (not (eq f 'emacspeak))
                  (or (string-match "emacspeak" (symbol-name f))
-                     (string-match "dtk" (symbol-name f))))
+                     (string-match "dtk" (symbol-name f))
+                     (string-match "tts" (symbol-name f))))
           (push f commands)))))
     (setq commands
           (sort commands 'string-lessp))
