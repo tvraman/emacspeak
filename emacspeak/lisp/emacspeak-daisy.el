@@ -65,6 +65,7 @@
 
 (defstruct  emacspeak-daisy-book
   base
+  basename
   title
   content
   audio-process
@@ -173,6 +174,40 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
          (path (emacspeak-daisy-resolve-uri relative
                                             emacspeak-daisy-this-book)))
     (emacspeak-w3-extract-node-by-id path fragment)))
+
+(defun emacspeak-daisy-play-page-range (start end )
+  "Play pages in specified page range."
+  (interactive
+   (list
+    (read-from-minibuffer "Start Page: ")
+    (read-from-minibuffer "End Page: ")))
+  (declare (special emacspeak-daisy-this-book))
+  (let ((path (emacspeak-daisy-resolve-uri
+               (concat
+                (emacspeak-daisy-book-basename emacspeak-daisy-this-book)
+                ".xml")
+                                            emacspeak-daisy-this-book))
+        (result nil))
+    (setq result
+          (emacspeak-xslt-xml-url
+    (expand-file-name "dtb-page-range.xsl"
+                      emacspeak-xslt-directory)
+    path
+    (list
+     (cons "start"
+           (format "'%s'"
+                   start ))
+(cons "end"
+           (format "'%s'"
+                   end ))
+(cons "base"
+           (format "'%s'"
+                   path)))))
+(save-excursion
+  (set-buffer result)
+  (emacspeak-w3-preview-this-buffer))
+(kill-buffer result)))
+
 
 (defun emacspeak-daisy-stop-audio ()
   "Stop audio."
@@ -441,7 +476,9 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   (let ((buffer (get-buffer-create "*daisy*"))
         (ncx (find-file-noselect filename))
         (book (make-emacspeak-daisy-book
-               :base (file-name-directory filename))))
+               :base (file-name-directory filename)
+               :basename (file-name-sans-extension
+                          (file-name-nondirectory filename )))))
     (setf (emacspeak-daisy-book-content book)
           (make-hash-table :test #'equal))
     (save-excursion

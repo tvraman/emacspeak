@@ -1,0 +1,103 @@
+<!-- distInfo 1.1.0 DTD 2002-02-27
+file: distInfo110.dtd 
+
+Author: James Pritchett
+Change list:
+2001-12-06  M. Moodie. Changed content model of changeMsg to eliminate ambiguity.
+2002-02-12  M. Moodie. Changed dtd version from 1.0.1 to 1.1.0 per changes in other DTDs.
+2002-02-27 M. Moodie. Grammatical changes suggested by editor.
+
+Description:
+An XML application to describe the contents of a single piece of DTB
+distribution media.  It consists of a list of books to be found on the
+media.  For each book, distInfo identifies the location of each book 
+within the media filesystem.  If the book is being distributed on multiple 
+distribution media (media units), the distInfo book element also includes:
+1) the sequence id of this media unit
+2) a distribution map for the book, telling where to find all the SMIL files for a book
+
+The following identifiers apply to this DTD: 
+"-//NISO//DTD distInfo v1.1.0//EN"
+"http://www.loc.gov/nls/z3986/v100/distInfo110.dtd"
+
+-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!ENTITY % URI 		"CDATA">
+<!ENTITY % SMILtimeVal	"CDATA">
+
+<!-- distInfo:  Root element, consists of one or more books.
+"version" specifies the version of this DTD used in this instance. Three 
+digits, with decimal point separators; digits one, two and three will 
+reflect major, moderate and minor changes, respectively. This attribute 
+must be present but parsers will not enforce its presence, just its value.
+-->
+<!ELEMENT distInfo (book+)>
+<!ATTLIST distInfo
+	version		CDATA		#FIXED "1.1.0"
+>
+
+<!-- book:  a DTB that is present, in part or whole, on this piece of
+distribution media.  The uid and pkgRef attributes are required.  "uid"
+matches the package unique-identifier.  "pkgRef" is a URI that locates the
+book's package file on this media unit.
+
+If this is a book fragment, then the "media" attribute identifies which
+fragment is stored on this media unit, and a single distMap element
+is present to describe which SMIL files are present on which media units.
+The media attribute is in the format "x:y", where x is the sequence
+number of this media unit, and y is the total number of media units
+in the distribution of this book.
+
+In the case of a book fragment, <book> should contain exactly one 
+<distMap> and optionally one or more <changeMsg> elements.
+-->
+<!ELEMENT book (distMap?, changeMsg*)>
+<!ATTLIST book
+	uid		CDATA		#REQUIRED
+	pkgRef		CDATA		#REQUIRED
+	media		CDATA		#IMPLIED
+>
+
+<!-- distMap:  a map identifying which media the various SMIL files
+reside upon.  This consists of one or more smilRef elements.  The
+distMap smilRefs should match one-to-one those of the book package spine.
+-->
+<!ELEMENT distMap (smilRef+)>
+
+<!-- smilRef:  a reference to a DTB SMIL file.  These are referenced
+by file name. The mediaRef attribute of each smilRef identifies the piece of 
+media that the file resides upon, and is in the format "x:y" (see above).
+-->
+<!ELEMENT smilRef EMPTY>
+<!ATTLIST smilRef
+	file		CDATA		#REQUIRED
+	mediaRef	CDATA 		#REQUIRED
+>
+
+<!-- changeMsg:  A pointer to a custom message to be read when a new disk is
+requested by the reading system.  "mediaRef" identifies the media unit which 
+this message (e.g., "Insert disc 2") specifies.  Player invokes the correct 
+<changeMsg> by matching its "mediaRef" attribute to the "mediaRef" attribute 
+of the selected <smilRef>.  "mediaRef" is in the format "x:y", where x is 
+the sequence number of the specified media unit, and y is the total number of media 
+pieces in the distribution of this book. 
+-->
+<!ELEMENT changeMsg ((text, audio?) | audio)>
+<!ATTLIST changeMsg
+	mediaRef	CDATA		#REQUIRED
+	lang 		NMTOKEN 	#IMPLIED 
+>
+
+<!-- text: Contains text of media change message.
+-->
+<!ELEMENT text (#PCDATA)>
+
+<!-- audio: Pointer to audio content of media change message.
+-->
+<!ELEMENT audio EMPTY>
+<!ATTLIST audio
+	src		%URI;			#REQUIRED
+	clipBegin	%SMILtimeVal;		#IMPLIED
+	clipEnd		%SMILtimeVal;		#IMPLIED
+>

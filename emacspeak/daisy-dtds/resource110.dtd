@@ -1,0 +1,90 @@
+<!-- Resource File 1.1.O DTD 2002-02-27
+ file: resource110.dtd  
+ 
+Authors: Tom McLaughlin, Michael Moodie, Thomas Kjellberg Christensen
+Change list:
+2001-12-06  M. Moodie. Changed content model of resource element to eliminate ambiguity.
+2002-02-12  M. Moodie. Changed dtd version from 1.0.1 to 1.1.0 per changes in other DTDs.
+2002-02-27 M. Moodie. Grammatical changes suggested by editor.
+
+The following identifiers apply to this DTD: 
+"-//NISO//DTD resource v1.1.0//EN"
+"http://www.loc.gov/nls/z3986/v100/resource110.dtd"
+-->
+
+<!-- ********** Attribute Types *********** -->
+<!-- languagecode: An RFC1766 language code. -->
+<!ENTITY % languagecode "NMTOKEN">
+
+<!-- SMILtimeVal: SMIL 2.0 clock value. -->
+<!ENTITY % SMILtimeVal "CDATA">
+
+<!ENTITY % URI "CDATA">
+
+<!-- **************** Resource Elements ********** -->
+
+<!-- Resources: Root element of DTD. 
+-->
+<!ELEMENT resources  (head?, (resource)+) >
+<!ATTLIST resources
+  version   	CDATA       	#FIXED "1.1.0"
+>
+
+<!-- Document Head - Contains metadata. 
+-->
+<!ELEMENT head (meta*)>
+
+<!-- Resource element contains information about the alternative representations 
+of an element present in the NCX or the textual content file. An alternative 
+representation can be used to convey navigational information, e.g., provide 
+a descriptive name for the kind of segment (part, chapter, section, etc.) 
+the user is encountering.  In addition, it can supply accessible versions of dtbook element names and names of skippable structures listed in the head of the NCX.  Text can be used for screen or Braille display, 
+audio for digital talking book players, and image for screen display.
+Attribute use:
+type - Specifies whether the resource applies to the textual content file (dtbook) or the NCX 
+(ncx). 
+elementRef - Specifies the name of the element for which the resource is to be supplied.      classRef - Specifies the class attribute value of the element for which the resource is to be supplied. 
+idRef - Specifies the name of the id attribute on the smilCustomTest element in NCX for which the resource is to be supplied. 
+lang - Specifies the language of the resource item, using an RFC 1766 language code.
+-->
+
+<!ELEMENT resource  (((text, audio?) | audio), img?) >
+
+<!ATTLIST resource
+  type		(ncx | dtbook)	#REQUIRED
+  elementRef   	CDATA       	#REQUIRED
+  classRef	CDATA		#IMPLIED
+  idRef		CDATA		#IMPLIED
+  lang     	%languagecode;  #IMPLIED
+>
+
+<!ELEMENT text  (#PCDATA) >
+ 
+<!ELEMENT audio  EMPTY > 
+<!ATTLIST audio 
+  src		%URI;		#REQUIRED 
+  clipBegin	%SMILtimeVal;	#IMPLIED 
+  clipEnd	%SMILtimeVal;	#IMPLIED 
+> 
+ 
+<!-- If the clipBegin attribute is not present in an instance of the 
+audio element, the audio file referenced must be played from its beginning.  
+If the clipEnd attribute is not present, the audio file must be played to 
+its end. If the value of the clipEnd attribute exceeds the duration of 
+the audio file, the value must be ignored, and the audio file played to 
+its end.
+--> 
+ 
+<!ELEMENT img  EMPTY > 
+<!ATTLIST img
+  src		%URI;		#REQUIRED
+>
+ 
+<!-- Meta Element - producer-defined metadata about this resource file.
+--> 
+<!ELEMENT meta EMPTY> 
+<!ATTLIST meta
+  name		CDATA		#REQUIRED
+  content	CDATA		#REQUIRED
+  scheme	CDATA		#IMPLIED
+>
