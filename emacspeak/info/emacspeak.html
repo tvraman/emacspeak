@@ -1,6 +1,6 @@
 <HTML>
 <head><link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css">
-<!-- Created by texi2html 1.56k from emacspeak.texi on 22 October 2001 -->
+<!-- Created by texi2html 1.56k from emacspeak.texi on 19 November 2001 -->
 
 <TITLE>Emacspeak User's Manual --2nd Edition.</TITLE>
 </HEAD>
@@ -8509,6 +8509,14 @@ Set up variable emacspeak-websearch-personal-portfolio.
 <H2><A NAME="SEC112" HREF="emacspeak.html#TOC112">emacspeak-w3</A></H2>
 
 <P>
+Commentary:
+Ensure that speech support for W3 gets installed and
+loaded correctly.
+The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
+
+
+<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
@@ -8541,8 +8549,20 @@ Toggle drawing of W3 table borders
 
 <P>
 <DL>
-<DT><U>emacspeak-w3-url-rewrite-and-follow:</U> <B></B>
+<DT><U>emacspeak-w3-xslt-filter:</U> <B></B>
 <DD><A NAME="IDX521"></A>
+Extract elements matching specified XPath path locator
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract table from.  Interactive
+prefix arg causes url to be read from the minibuffer.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>emacspeak-w3-url-rewrite-and-follow:</U> <B></B>
+<DD><A NAME="IDX522"></A>
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -8559,7 +8579,7 @@ even if one is already defined.
 <P>
 <DL>
 <DT><U>emacspeak-w3-speak-next-element:</U> <B></B>
-<DD><A NAME="IDX522"></A>
+<DD><A NAME="IDX523"></A>
 Speak next document element.
 </DL>
 
@@ -8567,15 +8587,25 @@ Speak next document element.
 <P>
 <DL>
 <DT><U>emacspeak-w3-jump-to-submit:</U> <B></B>
-<DD><A NAME="IDX523"></A>
+<DD><A NAME="IDX524"></A>
 Jump to next available submit button.
 </DL>
 
 
 <P>
 <DL>
+<DT><U>emacspeak-w3-xsl-toggle:</U> <B></B>
+<DD><A NAME="IDX525"></A>
+Toggle  XSL transformations before displaying HTML.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package.
+</DL>
+
+
+<P>
+<DL>
 <DT><U>emacspeak-w3-lynx-url-under-point:</U> <B></B>
-<DD><A NAME="IDX524"></A>
+<DD><A NAME="IDX526"></A>
 Display contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
 hyperlinks in that display are not active-- this facility is
@@ -8586,8 +8616,28 @@ the table structure extraction code in W3.
 
 <P>
 <DL>
+<DT><U>emacspeak-w3-extract-table:</U> <B></B>
+<DD><A NAME="IDX527"></A>
+Extract tables from HTML.  Extracts specified table from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>emacspeak-w3-xslt-select:</U> <B></B>
+<DD><A NAME="IDX528"></A>
+Select transformation to apply.
+</DL>
+
+
+<P>
+<DL>
 <DT><U>emacspeak-w3-show-anchor-class:</U> <B></B>
-<DD><A NAME="IDX525"></A>
+<DD><A NAME="IDX529"></A>
 Display any class attributes set on corresponding anchor
 element. 
 </DL>
@@ -8596,15 +8646,29 @@ element.
 <P>
 <DL>
 <DT><U>emacspeak-w3-jump-to-title-in-content:</U> <B></B>
-<DD><A NAME="IDX526"></A>
+<DD><A NAME="IDX530"></A>
 Jumps to the occurrence of document title in page body.
 </DL>
 
 
 <P>
 <DL>
+<DT><U>emacspeak-w3-extract-by-class:</U> <B></B>
+<DD><A NAME="IDX531"></A>
+Extract elements having specified class attribute  from
+HTML.  
+Extracts specified elements from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
+</DL>
+
+
+<P>
+<DL>
 <DT><U>emacspeak-w3-javascript-follow-link:</U> <B></B>
-<DD><A NAME="IDX527"></A>
+<DD><A NAME="IDX532"></A>
 Follow URL hidden inside a javascript link
 </DL>
 
@@ -8612,7 +8676,7 @@ Follow URL hidden inside a javascript link
 <P>
 <DL>
 <DT><U>emacspeak-w3-do-onclick:</U> <B></B>
-<DD><A NAME="IDX528"></A>
+<DD><A NAME="IDX533"></A>
 Do  onclick action.
 </DL>
 
@@ -8620,10 +8684,18 @@ Do  onclick action.
 <P>
 <DL>
 <DT><U>emacspeak-w3-previous-doc-element:</U> <B></B>
-<DD><A NAME="IDX529"></A>
+<DD><A NAME="IDX534"></A>
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>emacspeak-w3-xslt-apply:</U> <B></B>
+<DD><A NAME="IDX535"></A>
+Apply specified transformation to current page.
 </DL>
 
 
@@ -8639,7 +8711,7 @@ for commands defined in module  emacspeak-w3search.
 <P>
 <DL>
 <DT><U>emacspeak-websearch-blue-pages:</U> <B></B>
-<DD><A NAME="IDX530"></A>
+<DD><A NAME="IDX536"></A>
 Search IBM Blue Pages
 </DL>
 
@@ -8647,7 +8719,7 @@ Search IBM Blue Pages
 <P>
 <DL>
 <DT><U>emacspeak-websearch-ibm-internal:</U> <B></B>
-<DD><A NAME="IDX531"></A>
+<DD><A NAME="IDX537"></A>
 Search IBM My News
 </DL>
 
@@ -8655,7 +8727,7 @@ Search IBM My News
 <P>
 <DL>
 <DT><U>emacspeak-websearch-ibm-my-news:</U> <B></B>
-<DD><A NAME="IDX532"></A>
+<DD><A NAME="IDX538"></A>
 Search IBM My News
 </DL>
 
@@ -8672,7 +8744,7 @@ for commands defined in module  emacspeak-wizards.
 <P>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-previous-display:</U> <B></B>
-<DD><A NAME="IDX533"></A>
+<DD><A NAME="IDX539"></A>
 <KBD> control e left </KBD>
 
 
@@ -8687,7 +8759,7 @@ meaning of `previous'.
 <P>
 <DL>
 <DT><U>emacspeak-next-frame:</U> <B></B>
-<DD><A NAME="IDX534"></A>
+<DD><A NAME="IDX540"></A>
 <KBD> control right </KBD>
 
 
@@ -8699,7 +8771,7 @@ Move to next frame.
 <P>
 <DL>
 <DT><U>emacspeak-view-emacspeak-doc:</U> <B></B>
-<DD><A NAME="IDX535"></A>
+<DD><A NAME="IDX541"></A>
 <KBD> control e  cap D  </KBD>
 
 
@@ -8711,7 +8783,7 @@ Display a summary of all Emacspeak commands.
 <P>
 <DL>
 <DT><U>emacspeak-view-emacspeak-faq:</U> <B></B>
-<DD><A NAME="IDX536"></A>
+<DD><A NAME="IDX542"></A>
 <KBD> control e  cap F  </KBD>
 
 
@@ -8723,7 +8795,7 @@ Browse the Emacspeak FAQ.
 <P>
 <DL>
 <DT><U>emacspeak-emergency-tts-restart:</U> <B></B>
-<DD><A NAME="IDX537"></A>
+<DD><A NAME="IDX543"></A>
 <KBD> control e x s </KBD>
 
 
@@ -8737,7 +8809,7 @@ emacspeak-emergency-tts-server.
 <P>
 <DL>
 <DT><U>emacspeak-speak-popup-messages:</U> <B></B>
-<DD><A NAME="IDX538"></A>
+<DD><A NAME="IDX544"></A>
 <KBD> control h  cap M  </KBD>
 
 
@@ -8751,7 +8823,7 @@ previous window configuration.
 <P>
 <DL>
 <DT><U>emacspeak-skip-blank-lines-forward:</U> <B></B>
-<DD><A NAME="IDX539"></A>
+<DD><A NAME="IDX545"></A>
 <KBD> shift down </KBD>
 
 
@@ -8765,7 +8837,7 @@ Signals end of buffer.
 <P>
 <DL>
 <DT><U>emacspeak-link-current-file:</U> <B></B>
-<DD><A NAME="IDX540"></A>
+<DD><A NAME="IDX546"></A>
 <KBD> control e meta l </KBD>
 
 
@@ -8782,7 +8854,7 @@ Prompts for the new location and preserves modification time
 <P>
 <DL>
 <DT><U>emacspeak-lynx:</U> <B></B>
-<DD><A NAME="IDX541"></A>
+<DD><A NAME="IDX547"></A>
 <KBD> control e x l </KBD>
 
 
@@ -8794,7 +8866,7 @@ Launch lynx on  specified URL in a new terminal.
 <P>
 <DL>
 <DT><U>emacspeak-select-this-buffer-next-display:</U> <B></B>
-<DD><A NAME="IDX542"></A>
+<DD><A NAME="IDX548"></A>
 <KBD> control e control right </KBD>
 
 
@@ -8809,7 +8881,7 @@ meaning of `next'.
 <P>
 <DL>
 <DT><U>emacspeak-view-emacspeak-tips:</U> <B></B>
-<DD><A NAME="IDX543"></A>
+<DD><A NAME="IDX549"></A>
 <KBD> control e  cap T  </KBD>
 
 
@@ -8821,7 +8893,7 @@ Browse  Emacspeak productivity tips.
 <P>
 <DL>
 <DT><U>emacspeak-wizard-get-table-content-from-file:</U> <B></B>
-<DD><A NAME="IDX544"></A>
+<DD><A NAME="IDX550"></A>
 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
@@ -8831,7 +8903,7 @@ Extracted content is placed as a csv file in task.csv.
 <P>
 <DL>
 <DT><U>emacspeak-select-this-buffer-previous-display:</U> <B></B>
-<DD><A NAME="IDX545"></A>
+<DD><A NAME="IDX551"></A>
 <KBD> control e control left </KBD>
 
 
@@ -8846,7 +8918,7 @@ meaning of `previous'.
 <P>
 <DL>
 <DT><U>emacspeak-skip-blank-lines-backward:</U> <B></B>
-<DD><A NAME="IDX546"></A>
+<DD><A NAME="IDX552"></A>
 <KBD> shift up </KBD>
 
 
@@ -8860,7 +8932,7 @@ Signals beginning  of buffer.
 <P>
 <DL>
 <DT><U>emacspeak-learn-mode:</U> <B></B>
-<DD><A NAME="IDX547"></A>
+<DD><A NAME="IDX553"></A>
 <KBD> control e control h </KBD>
 
 
@@ -8873,7 +8945,7 @@ To leave, press C-g.
 <P>
 <DL>
 <DT><U>emacspeak-speak-hostname:</U> <B></B>
-<DD><A NAME="IDX548"></A>
+<DD><A NAME="IDX554"></A>
 <KBD> control e meta h </KBD>
 
 
@@ -8885,7 +8957,7 @@ Speak host name.
 <P>
 <DL>
 <DT><U>emacspeak-cvs-get-project-snapshot:</U> <B></B>
-<DD><A NAME="IDX549"></A>
+<DD><A NAME="IDX555"></A>
 Grab CVS snapshot  of specified project from Sourceforge.
 </DL>
 
@@ -8893,7 +8965,7 @@ Grab CVS snapshot  of specified project from Sourceforge.
 <P>
 <DL>
 <DT><U>emacspeak-symlink-current-file:</U> <B></B>
-<DD><A NAME="IDX550"></A>
+<DD><A NAME="IDX556"></A>
 <KBD> control e meta s </KBD>
 
 
@@ -8910,7 +8982,7 @@ Prompts for the new location and preserves modification time
 <P>
 <DL>
 <DT><U>emacspeak-show-list-variable:</U> <B></B>
-<DD><A NAME="IDX551"></A>
+<DD><A NAME="IDX557"></A>
 <KBD> control e x v </KBD>
 
 
@@ -8934,7 +9006,7 @@ Automatically defined advice to speak interactive prompts.
 <P>
 <DL>
 <DT><U>emacspeak-speak-run-shell-command:</U> <B></B>
-<DD><A NAME="IDX552"></A>
+<DD><A NAME="IDX558"></A>
 <KBD> control e ! </KBD>
 
 
@@ -8955,7 +9027,7 @@ The results are placed in a buffer in Emacspeak's table
 <P>
 <DL>
 <DT><U>emacspeak-speak-show-active-network-interfaces:</U> <B></B>
-<DD><A NAME="IDX553"></A>
+<DD><A NAME="IDX559"></A>
 <KBD> control e  cap I  </KBD>
 
 
@@ -8970,7 +9042,7 @@ also copied to the kill ring for convenient yanking.
 <P>
 <DL>
 <DT><U>emacspeak-generate-documentation:</U> <B></B>
-<DD><A NAME="IDX554"></A>
+<DD><A NAME="IDX560"></A>
 Generate docs for all emacspeak commands.
 Prompts for FILENAME in which to save the documentation.
 Warning! Contents of file filename will be overwritten.
@@ -8989,7 +9061,7 @@ Automatically defined advice to speak interactive prompts.
 <P>
 <DL>
 <DT><U>emacspeak-frame-read-frame-label:</U> <B></B>
-<DD><A NAME="IDX555"></A>
+<DD><A NAME="IDX561"></A>
 Read a frame label with completion.
 </DL>
 
@@ -8997,7 +9069,7 @@ Read a frame label with completion.
 <P>
 <DL>
 <DT><U>emacspeak-select-this-buffer-other-window-display:</U> <B></B>
-<DD><A NAME="IDX556"></A>
+<DD><A NAME="IDX562"></A>
 Switch  to this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
@@ -9015,7 +9087,7 @@ the display to select.
 <P>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-next-display:</U> <B></B>
-<DD><A NAME="IDX557"></A>
+<DD><A NAME="IDX563"></A>
 <KBD> control e right </KBD>
 
 
@@ -9030,7 +9102,7 @@ meaning of `next'.
 <P>
 <DL>
 <DT><U>emacspeak-cvs-get-anonymous:</U> <B></B>
-<DD><A NAME="IDX558"></A>
+<DD><A NAME="IDX564"></A>
 <KBD> control e control down </KBD>
 
 
@@ -9042,7 +9114,7 @@ Get latest cvs snapshot of emacspeak.
 <P>
 <DL>
 <DT><U>emacspeak-speak-show-memory-used:</U> <B></B>
-<DD><A NAME="IDX559"></A>
+<DD><A NAME="IDX565"></A>
 Convenience command to view state of memory used in this session so far.
 </DL>
 
@@ -9050,7 +9122,7 @@ Convenience command to view state of memory used in this session so far.
 <P>
 <DL>
 <DT><U>emacspeak-frame-label-or-switch-to-labelled-frame:</U> <B></B>
-<DD><A NAME="IDX560"></A>
+<DD><A NAME="IDX566"></A>
 <KBD> control e meta f </KBD>
 
 
@@ -9063,7 +9135,7 @@ With optional PREFIX argument, label current frame.
 <P>
 <DL>
 <DT><U>emacspeak-annotate-add-annotation:</U> <B></B>
-<DD><A NAME="IDX561"></A>
+<DD><A NAME="IDX567"></A>
 <KBD> control e x a </KBD>
 
 
@@ -9080,7 +9152,7 @@ annotation is inserted into the working buffer when complete.
 <P>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-other-window-display:</U> <B></B>
-<DD><A NAME="IDX562"></A>
+<DD><A NAME="IDX568"></A>
 <KBD> control e / </KBD>
 
 
@@ -9102,7 +9174,7 @@ the display to speak.
 <P>
 <DL>
 <DT><U>emacspeak-speak-load-directory-settings:</U> <B></B>
-<DD><A NAME="IDX563"></A>
+<DD><A NAME="IDX569"></A>
 Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
@@ -9113,7 +9185,7 @@ directory.
 <P>
 <DL>
 <DT><U>emacspeak-copy-current-file:</U> <B></B>
-<DD><A NAME="IDX564"></A>
+<DD><A NAME="IDX570"></A>
 <KBD> control e meta c </KBD>
 
 
@@ -9131,7 +9203,7 @@ Prompts for the new location and preserves modification time
 <P>
 <DL>
 <DT><U>emacspeak-clipboard-copy:</U> <B></B>
-<DD><A NAME="IDX565"></A>
+<DD><A NAME="IDX571"></A>
 <KBD> control e control c </KBD>
 
 
@@ -9152,7 +9224,7 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 <P>
 <DL>
 <DT><U>emacspeak-root:</U> <B></B>
-<DD><A NAME="IDX566"></A>
+<DD><A NAME="IDX572"></A>
 <KBD> control e control r </KBD>
 
 
@@ -9164,7 +9236,7 @@ Start a root shell or switch to one that already exists.
 <P>
 <DL>
 <DT><U>emacspeak-wizard-get-table-content-from-url:</U> <B></B>
-<DD><A NAME="IDX567"></A>
+<DD><A NAME="IDX573"></A>
 Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
@@ -9174,7 +9246,7 @@ Extracted content is placed as a csv file in task.csv.
 <P>
 <DL>
 <DT><U>emacspeak-show-personality-at-point:</U> <B></B>
-<DD><A NAME="IDX568"></A>
+<DD><A NAME="IDX574"></A>
 <KBD> control e meta v </KBD>
 
 
@@ -9186,7 +9258,7 @@ Show value of property personality at point.
 <P>
 <DL>
 <DT><U>emacspeak-speak-browse-linux-howto:</U> <B></B>
-<DD><A NAME="IDX569"></A>
+<DD><A NAME="IDX575"></A>
 <KBD> control e  cap H  </KBD>
 
 
@@ -9199,7 +9271,7 @@ We cleanup underlining, and set up outline mode correctly.
 <P>
 <DL>
 <DT><U>emacspeak-previous-frame:</U> <B></B>
-<DD><A NAME="IDX570"></A>
+<DD><A NAME="IDX576"></A>
 <KBD> control left </KBD>
 
 
@@ -9211,7 +9283,7 @@ Move to next frame.
 <P>
 <DL>
 <DT><U>emacspeak-customize-personal-settings:</U> <B></B>
-<DD><A NAME="IDX571"></A>
+<DD><A NAME="IDX577"></A>
 <KBD> control e f1   control e x c </KBD>
 
 
@@ -9224,7 +9296,7 @@ personal customizations.
 <P>
 <DL>
 <DT><U>emacspeak-speak-telephone-directory:</U> <B></B>
-<DD><A NAME="IDX572"></A>
+<DD><A NAME="IDX578"></A>
 <KBD> control e x t </KBD>
 
 
@@ -9237,7 +9309,7 @@ With prefix arg, opens the phone book for editting.
 <P>
 <DL>
 <DT><U>emacspeak-view-emacspeak-news:</U> <B></B>
-<DD><A NAME="IDX573"></A>
+<DD><A NAME="IDX579"></A>
 <KBD> control e  cap N  </KBD>
 
 
@@ -9249,7 +9321,7 @@ Display info on recent change to Emacspeak.
 <P>
 <DL>
 <DT><U>emacspeak-generate-texinfo-command-documentation:</U> <B></B>
-<DD><A NAME="IDX574"></A>
+<DD><A NAME="IDX580"></A>
 Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
@@ -9268,7 +9340,7 @@ Automatically defined advice to speak interactive prompts.
 <P>
 <DL>
 <DT><U>emacspeak-clipboard-paste:</U> <B></B>
-<DD><A NAME="IDX575"></A>
+<DD><A NAME="IDX581"></A>
 <KBD> control e control y </KBD>
 
 
@@ -9286,7 +9358,7 @@ the emacspeak table clipboard instead.
 <P>
 <DL>
 <DT><U>emacspeak-show-property-at-point:</U> <B></B>
-<DD><A NAME="IDX576"></A>
+<DD><A NAME="IDX582"></A>
 <KBD> control e meta p </KBD>
 
 
@@ -9306,7 +9378,7 @@ for commands defined in module  nil.
 <P>
 <DL>
 <DT><U>emacspeak-speak-current-field:</U> <B></B>
-<DD><A NAME="IDX577"></A>
+<DD><A NAME="IDX583"></A>
 <KBD> control e . </KBD>
 
 
@@ -9404,7 +9476,7 @@ under Linux as the only source of speech feedback since 1994.
 <H3><A NAME="FOOT3" HREF="emacspeak.html#DOCF3">(3)</A></H3>
 <P>d is mnemonic for Dectalk.
 <P><HR><P>
-This document was generated on 22 October 2001 using
+This document was generated on 19 November 2001 using
 <A HREF="http://wwwinfo.cern.ch/dis/texi2html/">texi2html</A>&nbsp;1.56k.
 </BODY>
 </HTML>
