@@ -1061,7 +1061,7 @@ documentation.\n\n")
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
                 module)))
-            (insert (format "\n\n@defvar {Customization} %s\n"
+            (insert (format "\n\n@defvar {User Option} %s\n"
                             o))
             (insert
              (or
