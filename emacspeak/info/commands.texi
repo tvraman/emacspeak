@@ -1895,6 +1895,10 @@ guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct.
 @end deffn
 
+@deffn emacspeak-remote-ssh-to-server (LOGIN)
+Open ssh session to where we came from.
+@end deffn
+
 @node emacspeak-rmail
 @section emacspeak-rmail
 
@@ -2993,6 +2997,10 @@ resources.
 Load URL template resources from specified location.
 @end deffn
 
+@deffn emacspeak-url-template-nfl-play-broadcast ()
+Play NFL url under point.
+@end deffn
+
 @deffn emacspeak-url-template-save (FILE)
 Save out url templates.
 @end deffn
@@ -3128,7 +3136,7 @@ Preview this buffer.
 @end deffn
 
 @deffn emacspeak-w3-preview-this-region (START END)
-Preview this buffer.
+Preview this region.
 @end deffn
 
 @deffn emacspeak-w3-previous-doc-element (&optional COUNT)
@@ -3332,7 +3340,7 @@ Search Freshmeat  Site.
 Perform an Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
 I'm Feeling Lucky button on Google.
-Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p.
 @end deffn
 
 @deffn emacspeak-websearch-google-advanced ()
@@ -3444,6 +3452,10 @@ Search SourceForge Site.
 
 @deffn emacspeak-websearch-streaming-audio-search (QUERY)
 Search for streaming audio. 
+@end deffn
+
+@deffn emacspeak-websearch-teoma (QUERY)
+Perform an Teoma  search.
 @end deffn
 
 @deffn emacspeak-websearch-usenet (GROUP &optional PREFIX)
@@ -3894,6 +3906,10 @@ during initialization.
 key             binding
 ---             -------
 
+@end deffn
+
+@deffn emacspeak-wizards-fix-read-only-text (START END)
+Nuke read-only property on text range.
 @end deffn
 
 @deffn emacspeak-wizards-generate-finder ()
