@@ -2,10 +2,8 @@
 <!-- { introduction -->
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
-Copyright: (C) 2001  All Rights Reserved.
-
 Description: Factor out nested tables to the end of document.
 Each nested table is replaced with an anchor that links to
 the  actual table which appears in a final section of the
