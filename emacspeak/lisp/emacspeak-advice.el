@@ -1944,8 +1944,7 @@ Otherwise cue user to the line just created."
 Provide an auditory icon if possible."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object )
-    (emacspeak-dtk-sync)
-    (emacspeak-speak-line)))
+    (emacspeak-speak-mode-line)))
 
 ;;{{{  composing mail
 
