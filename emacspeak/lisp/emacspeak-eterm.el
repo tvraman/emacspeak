@@ -1114,7 +1114,7 @@ See command emacspeak-toggle-eterm-autospeak bound to
                            (cons new-column new-row )
                            emacspeak-eterm-focus-window )
                           (emacspeak-eterm-coordinate-within-window-p
-                           (cons emacspeak-eterm-column emacspeak-eterm-row )
+                           (cons (term-current-column) (term-current-row))
                            emacspeak-eterm-focus-window ))))
       (cond
        ((and  eterm-line-mode
