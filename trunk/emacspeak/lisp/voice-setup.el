@@ -151,56 +151,6 @@
 ;;; voiceifies faces not already voiceified as specified in
 ;;; voice-setup-face-voice-table
 
-(defun voice-setup-face-to-voice (start end)
-  "Voiceify faces in specified region that are not already voicefied.
-Face to voice mapping is specified in
-voice-setup-face-voice-table.
-This function forces voice-lock mode on."
-  (interactive "r")
-  (declare (special buffer-read-only
-                    inhibit-read-only
-                    inhibit-point-motion-hooks
-                    voice-lock-mode))
-  (setq voice-lock-mode t)
-  ;;; this is ems-modify-buffer-safely inlined 
-  (unwind-protect
-      (let    ((save-read-only buffer-read-only)
-               (buffer-read-only nil )
-               (save-inhibit-read-only inhibit-read-only)
-               (inhibit-read-only t)
-               (save-inhibit-point-motion-hooks (if (boundp 'inhibit-point-motion-hooks)
-                                                    inhibit-point-motion-hooks
-                                                  nil))
-               (inhibit-point-motion-hooks t)
-               (modification-flag (buffer-modified-p)))
-        (unwind-protect
-               ;;; body
-            (save-excursion
-              (goto-char start)
-              (let ((face nil )
-                    (voice nil))
-                (goto-char start)
-                (while (and  (not (eobp))
-                             (< start end))
-                  (setq face (get-text-property (point) 'face ))
-                  (goto-char
-                   (or
-                    (next-single-property-change (point) 'face
-                                                 (current-buffer) end)
-                    end))
-                  (when(and face
-                            (symbolp face)
-                            (setq voice
-                                  (voice-setup-get-voice-for-face face))
-                            (not (get-text-property (point) 'personality)))
-                    (put-text-property start  (point)
-                                       'personality voice))
-                  (setq start (point)))
-                (setq buffer-read-only save-read-only
-                      inhibit-read-only save-inhibit-read-only
-                      inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-                (set-buffer-modified-p modification-flag )))))))
-
 ;;}}}
 ;;{{{ color to voices 
 
