@@ -2106,7 +2106,7 @@ set the current local value to the result."
              (if emacspeak-comint-output-monitor "on" "off" )
              (if prefix "" "locally"))))
 
-(defcustom emacspeak-comint-split-speech-on-newline  t
+(defcustom emacspeak-comint-split-speech-on-newline  nil
   "*Option to have comint split speech on newlines.
 Non-nil means we split speech on newlines in comint buffer."
   :group 'emacspeak-speak
