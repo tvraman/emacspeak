@@ -2408,8 +2408,8 @@ Argument PERSONALITY gives the value for property personality."
 ;;; Compute table of possible voices to use in completing-read
 (defsubst  emacspeak-possible-voices ()
   "Return possible voices."
-  (declare (special dtk-voice-table ))
-  (loop for key being the hash-keys of dtk-voice-table
+  (declare (special dectalk-voice-table ))
+  (loop for key being the hash-keys of dectalk-voice-table
         collect  (cons
                   (symbol-name key)
                   (symbol-name key))))

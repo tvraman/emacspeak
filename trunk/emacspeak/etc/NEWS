@@ -33,6 +33,13 @@ Updated to handle the bookshare variant of Daisy3 files.
 
 Place-holder for eventual FLite support.
 
+** TTS Support:
+
+TTS specific code is now restricted in modules of the form
+<synth-name>-voices.el.
+Support for additional  TTS engines 
+should be modeled on the code in dectalk-voices.el and outloud-voices.el
+
 
 Local variables:
  mode: outline

@@ -56,7 +56,7 @@
 (require 'backquote)
 (require 'custom)
 (require 'dtk-interp)
-(require 'dtk-voices)
+(require 'dectalk-voices)
 (require 'outloud-voices)
 
 ;;}}}
