@@ -349,6 +349,24 @@
       </para>
       <qandaentry>
         <question>
+
+          <para>Accumulating Comments While Reading</para>
+        </question>
+        <answer>
+          <para>
+            It is often useful to be able to  jot down comments or notes
+            while reading a large document.
+            Rather than switching back and forth between the document
+            you are reading and the document where the
+            comments are being joted down, you can use
+            Emacspeak utility 
+            <command>emacspeak-annotate-add-annotation</command> --see
+            that command's online documentation for details on
+            its use.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
           <para>
             Launch a <command>root</command> shell.</para></question>
         <answer>
