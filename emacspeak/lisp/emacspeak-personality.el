@@ -160,7 +160,9 @@ displayed in the messages area."
        (setq voice (voice-setup-get-voice-for-face   value))
        (when voice
             (put-text-property start end
-                               'personality voice object))
+                               'personality
+                               (symbol-value voice)
+                               object))
        (when (and emacspeak-personality-show-unmapped-faces
                   (not voice))
          (message "Unmapped face %s" face)))))

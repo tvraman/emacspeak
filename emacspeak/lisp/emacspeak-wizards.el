@@ -1315,10 +1315,13 @@ personal customizations."
   "Properties emacspeak is interested in.")
 
 (defun emacspeak-show-personality-at-point ()
-  "Show value of property personality at point."
+  "Show value of property personality (and possibly face)
+at point."
   (interactive )
-  (emacspeak-show-property-at-point 'personality))
-
+  (let ((p (get-text-property (point) 'personality))
+        (f (get-text-property (point) 'face)))
+    (message "Personality %s Face %s"
+             p f )))
 (defun emacspeak-show-property-at-point (&optional property )
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.

@@ -162,32 +162,32 @@
 ;;}}}
 ;;{{{ voice locking 
 
-(def-voice-map rpm-spec-macro-personality  'harry
+(def-voice-font rpm-spec-macro-personality  'harry
   'rpm-spec-macro-face
   ".Personality for macros"
   :group 'emacspeak-rpm)
 
-(def-voice-map rpm-spec-tag-personality 'paul-smooth
+(def-voice-font rpm-spec-tag-personality 'paul-smooth
   'rpm-spec-tag-face
   ".Personality for tags"
   :group 'emacspeak-rpm)
 
-(def-voice-map rpm-spec-package-personality 'paul-animated
+(def-voice-font rpm-spec-package-personality 'paul-animated
   'rpm-spec-package-face
   ".Personality for package tag"
   :group 'emacspeak-rpm)
 
-(def-voice-map rpm-spec-dir-personality 'betty
+(def-voice-font rpm-spec-dir-personality 'betty
   'rpm-spec-dir-face
   ".Personality for directory entries"
   :group 'emacspeak-rpm)
 
-(def-voice-map rpm-spec-doc-personality 'paul-monotone
+(def-voice-font rpm-spec-doc-personality 'paul-monotone
   'rpm-spec-doc-face
   ".Personality for documentation entries"
   :group 'emacspeak-rpm)
 
-(def-voice-map rpm-spec-ghost-personality 'annotation-voice
+(def-voice-font rpm-spec-ghost-personality 'annotation-voice
   'rpm-spec-ghost-face
   ".Personality for %ghost files"
   :group 'emacspeak-rpm)
