@@ -196,7 +196,9 @@ nil
 nil
 "This months Old Time Radio Programing"
 #'(lambda (url)
-    (emacspeak-w3-extract-nested-table 2 url)));;{{{  Linksys IP
+    (emacspeak-w3-extract-nested-table-list
+ (list 2 3 )
+ url)));;{{{  Linksys IP
 
 
 (emacspeak-url-template-define
