@@ -1,6 +1,6 @@
 #$Id$
 #
-CFLAGS=-g
+CFLAGS=-g -fpic
 CC=gcc
 LIBS=-ltts -ltts_us -ltcl
 
