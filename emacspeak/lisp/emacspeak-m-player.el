@@ -111,8 +111,7 @@ Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (read-from-minibuffer "Media  Resource: ")
-    current-prefix-arg))
+    (read-from-minibuffer "Media  Resource: ")))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
