@@ -649,7 +649,7 @@ specifies the page to extract table from.  "
                           prompt-url)))))
       (when  (or (interactive-p)
                  speak-result)
-        (setq emacspeak-w3-post-process-hook
+        (add-hook 'emacspeak-w3-post-process-hook
               'emacspeak-speak-buffer))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer src-buffer))))
@@ -1072,10 +1072,11 @@ current page."
 
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
-  (when (and emacspeak-w3-post-process-hook
-             (functionp emacspeak-w3-post-process-hook))
+  (when   (and emacspeak-w3-post-process-hook
+               (every
+                'fboundp emacspeak-w3-post-process-hook))
     (unwind-protect
-        (funcall emacspeak-w3-post-process-hook)
+        (mapcar #'funcall emacspeak-w3-post-process-hook)
       (setq emacspeak-w3-post-process-hook nil))))
 
 ;;}}}

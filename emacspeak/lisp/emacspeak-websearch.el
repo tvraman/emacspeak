@@ -225,7 +225,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   (declare (special emacspeak-w3-post-process-hook))
   (when (or   (eq browse-url-browser-function 'w3-fetch)
 	      (eq browse-url-browser-function 'browse-url-w3))
-    (setq emacspeak-w3-post-process-hook
+    (add-hook  'emacspeak-w3-post-process-hook
           (`
            (lambda nil
              (cond
@@ -267,7 +267,7 @@ ARGS specifies additional arguments to SPEAKER if any."
       (set-buffer buffer)
       (erase-buffer)
       (insert-file  form-markup)
-      (setq emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-w3-post-process-hook
             #'(lambda ()
                 (goto-char (point-min))
 		(widget-forward 1)
