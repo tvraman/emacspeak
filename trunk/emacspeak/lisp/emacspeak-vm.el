@@ -662,10 +662,9 @@ text using wvText."
    (append vm-mime-attachment-auto-type-alist
            '(("\.pdf" . "Application/pdf")))
    vm-mime-type-converter-alist
-   '(
-     ("application/pdf" "text/plain" emacspeak-vm-pdf2text)
-     ("application/msword" "text/plain" emacspeak-vm-doc2text))
-   ))
+   (list
+     (list "application/pdf" "text/plain" emacspeak-vm-pdf2text)
+     (list "application/msword" "text/plain" emacspeak-vm-doc2text))))
          
 
 (when emacspeak-vm-customize-mime-settings
