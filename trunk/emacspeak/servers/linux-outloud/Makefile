@@ -5,7 +5,7 @@ PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/linux-outloud
 CFLAGS= -g  -fPIC  -DPIC -pedantic -ansi -Wall 
-CPPFLAGS=    -DUNIX -fPIC -DPIC  -g
+
 
 TTS=tcleci.so eci.ini VIAVOICE
 
@@ -13,7 +13,7 @@ all: tcleci.so
 
 
 tcleci.lo: tcleci.cpp
-	libtool $(CC) $(CFLAGS) -c $<
+	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
 tcleci.so: tcleci.lo
 	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ tcleci.lo -ltcl -ldl -shared
