@@ -422,6 +422,7 @@ shortref- short reference")
 When turned on, the  buffer is voice locked interactively.
 Leave this off in general while editting."
   (interactive)
+  (declare (special sgml-set-face))
   (if sgml-set-face
       (setq sgml-set-face nil)
     (setq sgml-set-face t))
