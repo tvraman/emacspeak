@@ -406,7 +406,7 @@ content."
 
 (emacspeak-url-template-define
  "BBC Programs On Demand"
- "http://www.bbc.co.uk/radio/aod/shows/rpms%s.rpm"
+ "http://www.bbc.co.uk/radio/aod/shows/rpms/%s.rpm"
  (list "BBC Program: ")
  nil
  "Play BBC programs on demand."
