@@ -1933,7 +1933,8 @@ Otherwise cue user to the line just created."
 (defadvice keyboard-quit (before emacspeak pre act)
   "Stop speech first."
   (dtk-pause)
-  (emacspeak-auditory-icon 'warn-user))
+  (emacspeak-auditory-icon 'warn-user)
+  (dtk-speak "quit"))
 
 (defadvice keyboard-escape-quit (before emacspeak pre act)
   "Stop speech first."
