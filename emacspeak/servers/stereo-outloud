@@ -193,7 +193,6 @@ proc service {} {
     while {$talking == 1} {
         set status   [lsearch [select [list  stdin]  {} {} 0.09] stdin]
         if { $status >= 0} {
-            stop
             set tts(talking?) 0
             set talking 0
             break
