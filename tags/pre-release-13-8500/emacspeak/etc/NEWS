@@ -1,0 +1,78 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+
+* Emacspeak 14.0 Additions And Changes:
+
+Emacspeak 14.0 provides the following user level enhancements:
+
+* New Emacspeak Features:
+
+** XML Authoring Using XAE
+
+XAE is an XML authoring environment  put together by the
+author of JDE.
+
+** Form-based Editting Of Audtory Display Settings
+
+Personal audio mixer settings can be  modified using a forms-based
+user interface.
+
+
+** Semantic Support Within JDE
+
+Uses knowledge computed by the semantic package in better
+speech-enabling JDE.
+
+** URL Templates 
+
+Module emacspeak-url-template provides a programmable hot
+list mechanism.
+
+** Filtering Text
+
+Allows text to be progressively refined.
+
+** Overlaying Grids On Tabulated Information
+
+Grid overlays allow one to quickly skim selected portions of
+every line in the buffer or given region of text.
+
+** Speech-enables EShell
+
+EShel is a complete shell implemented in Emacs Lisp.
+Emacspeak speech-enables eshell to provide a powerful
+integrated shell.
+
+** Table Browsing:
+
+Enhancement to how tables are handled. 
+Additional features include sorting data
+   on a specific column.
+
+** Customizations To Auditory Display
+
+Provides customization options for use with sound cards that
+ provide multiple channels of output.
+
+** Emacs 21 Support:
+
+Supports many  new Emacs 21 packages.
+
+** Dictionary Server:
+
+Speech-enables interaction with dictionary servers.
+
+** Speech-enables ERC:
+
+ERC is a relatively modern Emacs IRC client.
+This version of emacspeak speech-enables most of this
+package.
+
+
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:
+
