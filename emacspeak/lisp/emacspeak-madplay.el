@@ -121,6 +121,12 @@ sets up madplay to pipe output to alsa."
   :type 'string
   :group 'emacspeak-madplay)
 
+(defcustom emacspeak-madplay-media-directory
+  (expand-file-name "~/mp3/")
+  "Directory to look for media files."
+  :type 'directory
+  :group 'emacspeak-madplay)
+
 ;;;###autoload
 (defun emacspeak-madplay (resource)
   "Play specified resource using madplay.
@@ -129,9 +135,11 @@ The player is placed in a buffer in emacspeak-madplay-mode."
   (interactive
    (list
     (read-file-name "MP3 Resource: "
+                    emacspeak-madplay-media-directory
                     (when (eq major-mode 'dired-mode)
 		      (dired-get-filename)))))
-  (declare (special emacspeak-madplay-process))
+  (declare (special emacspeak-madplay-process
+                    emacspeak-madplay-media-directory))
   (when (and emacspeak-madplay-process
              (eq 'run (process-status
                        emacspeak-madplay-process))

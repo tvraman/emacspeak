@@ -32,35 +32,37 @@
    (Runtime toolkit)
    to use Emacspeak with the ViaVoice TTS engine.
 
-February 2005 TVR: Updating to use alsalib output routines
+   February 2005 TVR: Updating to use alsalib output routines
 */
 
 //>
 //<Usage:
 
 /* TCL usage
-	package require tts
+   package require tts
 
-	proc index x {
-		puts "I just played index $x"
-	}
+   proc index x {
+   puts "I just played index $x"
+   }
 
-	synth "Hello world"
-	synth -index 0 "This is some" -index 1 "really wierd"
-	say -index 2 "text"
-	say -reset
+   synth "Hello world"
+   synth -index 0 "This is some" -index 1 "really wierd"
+   say -index 2 "text"
+   say -reset
 
-The only difference bewtween say and synth is that synth calls
-eciSynthesize and say doesn't.  You can put as many text blocks as
-you like after a command.
+   The only difference bewtween say and synth is that synth calls
+   eciSynthesize and say doesn't.  You can put as many text blocks as
+   you like after a command.
 */
 
 //>
-//<CPP Directives
+//<includes
 
+#include <assert.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/time.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -81,58 +83,68 @@ you like after a command.
 #define ECILIBRARYNAME "libibmeci.so"
 
 //>
-//< alsa: define  format and rate defaults
+//< alsa: globals  and defines
 
-snd_pcm_t *AHandle;
-snd_pcm_channel_area_t *areas;
-char *device = "default";                    /* playback device */
-short *waveBuffer;
-snd_pcm_format_t format = SND_PCM_FORMAT_S16;   /* sample format */
-unsigned int rate = 11025;                      /* stream rate */
-unsigned int channels = 1;                      /* count of channels */
-unsigned int buffer_time = 500000;              /* ring buffer in us */
-unsigned int period_time = 100000;		/* period time in us */
+#define DEFAULT_FORMAT		SND_PCM_FORMAT_S16
+#define DEFAULT_SPEED 		11025
 
-snd_pcm_uframes_t buffer_size;
-snd_pcm_uframes_t period_size;
-snd_output_t *output = NULL;
+
+/* globals */
+static snd_pcm_stream_t stream = SND_PCM_STREAM_PLAYBACK;
+char *device = "default";
+
+static snd_pcm_t *AHandle;
+
+short *waveBuffer = NULL;
+
+static size_t bits_per_sample, bits_per_frame;
+static snd_pcm_uframes_t chunk_size = 0;
+static size_t chunk_bytes;
+
+static unsigned period_time = 0;
+static unsigned buffer_time = 0;
+static snd_pcm_uframes_t period_frames = 0;
+static snd_pcm_uframes_t buffer_frames = 0;
+
+static int start_delay = 0;
+static int stop_delay = 0;
 
 //>
 //<decls and function prototypes 
 
 /* The following declarations are derived from the publically available
    documentation for ViaVoice TTS outloud.  
---they are placed here to obviate the need for having the
-ViaVoice SDK installed.
+   --they are placed here to obviate the need for having the
+   ViaVoice SDK installed.
 */
 
 typedef enum
-{
-  eciDataNotProcessed, eciDataProcessed
-}
-ECICallbackReturn;
+  {
+    eciDataNotProcessed, eciDataProcessed
+  }
+  ECICallbackReturn;
 
 typedef enum
-{
-  eciWaveformBuffer, eciPhonemeBuffer, eciIndexReply, eciPhonemeIndexReply
-}
-ECIMessage;
+  {
+    eciWaveformBuffer, eciPhonemeBuffer, eciIndexReply, eciPhonemeIndexReply
+  }
+  ECIMessage;
 
 typedef enum
-{
-  eciSynthMode,
-  eciInputType,
-  eciTextMode,
-  eciDictionary,
-  eciSampleRate = 5,
-  eciWantPhonemeIndices = 7,
-  eciRealWorldUnits,
-  eciLanguageDialect,
-  eciNumberMode,
-  eciPhrasePrediction,
-  eciNumParams
-}
-ECIParam;
+  {
+    eciSynthMode,
+    eciInputType,
+    eciTextMode,
+    eciDictionary,
+    eciSampleRate = 5,
+    eciWantPhonemeIndices = 7,
+    eciRealWorldUnits,
+    eciLanguageDialect,
+    eciNumberMode,
+    eciPhrasePrediction,
+    eciNumParams
+  }
+  ECIParam;
 static void (*_eciVersion) (char *);
 static void *(*_eciNew) ();
 static void (*_eciDelete) (void *);
@@ -154,6 +166,7 @@ static void (*_eciRegisterCallback) (void *,
 				     int (*)(void *, int, long, void *),
 				     void *);
 static int alsa_init ();
+static void set_params (void);
 extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -167,176 +180,220 @@ int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int alsa_close ();
 int eciCallback (void *, int, long, void *);
+
 //>
 //<alsa: set hw and sw params
 
+static void set_params(void) {
+  snd_pcm_hw_params_t *params;
+  snd_pcm_sw_params_t *swparams;
+  snd_pcm_uframes_t buffer_size;
+  int err;
+  size_t n;
+  snd_pcm_uframes_t xfer_align;
+  unsigned int rate = DEFAULT_SPEED;
+  snd_pcm_uframes_t start_threshold, stop_threshold;
+  snd_pcm_hw_params_alloca(&params);
+  snd_pcm_sw_params_alloca(&swparams);
+  err = snd_pcm_hw_params_any(AHandle, params);
+  if (err < 0) {
+    fprintf(stderr, "Broken configuration for this PCM: no configurations available");
+    exit(EXIT_FAILURE);
+  }
+  err = snd_pcm_hw_params_set_access(AHandle, params,
+                                     SND_PCM_ACCESS_RW_INTERLEAVED);
+  if (err < 0) {
+    fprintf(stderr, "Access type not available");
+    exit(EXIT_FAILURE);
+  }
+  err = snd_pcm_hw_params_set_format(AHandle, params, DEFAULT_FORMAT);
+  if (err < 0) {
+    fprintf(stderr, "Sample format non available");
+    exit(EXIT_FAILURE);
+  }
+  err = snd_pcm_hw_params_set_channels(AHandle, params, 1);
+  if (err < 0) {
+    fprintf(stderr, "Channels count non available");
+    exit(EXIT_FAILURE);
+  }
+  
+  err = snd_pcm_hw_params_set_rate_near(AHandle, params, &rate, 0);
+  assert(err >= 0);
 
-static int set_hwparams(snd_pcm_t *handle,
-			snd_pcm_hw_params_t *params,
-			snd_pcm_access_t access)
-{
-	unsigned int rrate;
-	int err, dir;
+  if (buffer_time == 0 && buffer_frames == 0) {
+    err = snd_pcm_hw_params_get_buffer_time_max(params,
+                                                &buffer_time, 0);
+    assert(err >= 0);
+    if (buffer_time > 500000)
+      buffer_time = 500000;
+  }
+  if (period_time == 0 && period_frames == 0) {
+    if (buffer_time > 0)
+      period_time = buffer_time / 4;
+    else
+      period_frames = buffer_frames / 4;
+  }
+  if (period_time > 0)
+    err = snd_pcm_hw_params_set_period_time_near(AHandle, params,
+                                                 &period_time, 0);
+  else
+    err = snd_pcm_hw_params_set_period_size_near(AHandle, params,
+                                                 &period_frames, 0);
+  assert(err >= 0);
+  if (buffer_time > 0) {
+    err = snd_pcm_hw_params_set_buffer_time_near(AHandle, params,
+                                                 &buffer_time, 0);
+  } else {
+    err = snd_pcm_hw_params_set_buffer_size_near(AHandle, params,
+                                                 &buffer_frames);
+  }
+  assert(err >= 0);
+  err = snd_pcm_hw_params(AHandle, params);
+  if (err < 0) {
+    fprintf(stderr, "Unable to install hw params:");
+    exit(EXIT_FAILURE);
+  }
+  snd_pcm_hw_params_get_period_size(params, &chunk_size, 0);
+  snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
+  if (chunk_size == buffer_size) {
+    fprintf(stderr, "Can't use period equal to buffer size (%lu == %lu)", chunk_size, buffer_size);
+    exit(EXIT_FAILURE);
+  }
+  snd_pcm_sw_params_current(AHandle, swparams);
+  err = snd_pcm_sw_params_get_xfer_align(swparams, &xfer_align);
+  if (err < 0) {
+    fprintf(stderr, "Unable to obtain xfer align\n");
+    exit(EXIT_FAILURE);
+  }
+  /* round up to closest transfer boundary */
+  n = (buffer_size / xfer_align) * xfer_align;
+  if (start_delay <= 0) {
+    start_threshold = n + (double) rate * start_delay / 1000000;
+  } else
+    start_threshold = (double) rate * start_delay / 1000000;
+  if (start_threshold < 1)
+    start_threshold = 1;
+  if (start_threshold > n)
+    start_threshold = n;
+  err = snd_pcm_sw_params_set_start_threshold(AHandle, swparams, start_threshold);
+  assert(err >= 0);
+  if (stop_delay <= 0) 
+    stop_threshold = buffer_size + (double) rate * stop_delay / 1000000;
+  else
+    stop_threshold = (double) rate * stop_delay / 1000000;
+  err = snd_pcm_sw_params_set_stop_threshold(AHandle, swparams, stop_threshold);
+  assert(err >= 0);
 
-	/* choose all parameters */
-	err = snd_pcm_hw_params_any(handle, params);
-	if (err < 0) {
-		printf("Broken configuration for playback: no configurations available: %s\n", snd_strerror(err));
-		return err;
-	}
-	/* set the interleaved read/write format */
-	err = snd_pcm_hw_params_set_access(handle, params, access);
-	if (err < 0) {
-		printf("Access type not available for playback: %s\n", snd_strerror(err));
-		return err;
-	}
-	/* set the sample format */
-	err = snd_pcm_hw_params_set_format(handle, params, format);
-	if (err < 0) {
-		printf("Sample format not available for playback: %s\n", snd_strerror(err));
-		return err;
-	}
-	/* set the count of channels */
-	err = snd_pcm_hw_params_set_channels(handle, params, channels);
-	if (err < 0) {
-		printf("Channels count (%i) not available for playbacks: %s\n", channels, snd_strerror(err));
-		return err;
-	}
-	/* set the stream rate */
-	rrate = rate;
-	err = snd_pcm_hw_params_set_rate_near(handle, params, &rrate, 0);
-	if (err < 0) {
-		printf("Rate %iHz not available for playback: %s\n", rate, snd_strerror(err));
-		return err;
-	}
-	if (rrate != rate) {
-		printf("Rate doesn't match (requested %iHz, get %iHz)\n", rate, err);
-		return TCL_ERROR;
-	}
-	/* set the buffer time */
-	err = snd_pcm_hw_params_set_buffer_time_near(handle, params, &buffer_time, &dir);
-	if (err < 0) {
-		printf("Unable to set buffer time %i for playback: %s\n", buffer_time, snd_strerror(err));
-		return err;
-	}
-	err = snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
-	if (err < 0) {
-		printf("Unable to get buffer size for playback: %s\n", snd_strerror(err));
-		return err;
-	}
-        fprintf(stderr,"Buffer size set to %i\n", buffer_size);
-	/* set the period time */
-	err = snd_pcm_hw_params_set_period_time_near(handle, params, &period_time, &dir);
-	if (err < 0) {
-		printf("Unable to set period time %i for playback: %s\n", period_time, snd_strerror(err));
-		return TCL_ERROR;
-	}
-	 err = snd_pcm_hw_params_get_period_size(params, &period_size, &dir);
- 	if (err < 0) {
- 		printf("Unable to get period size for playback: %s\n", snd_strerror(err));
- 		return err;
- 	}
- 	/* write the parameters to device */
- 	err = snd_pcm_hw_params(handle, params);
- 	if (err < 0) {
- 		printf("Unable to set hw params for playback: %s\n", snd_strerror(err));
- 		return err;
- 	}
+  err = snd_pcm_sw_params_set_xfer_align(AHandle, swparams, xfer_align);
+  assert(err >= 0);
 
-	return 0;
-}
-                        
-
-
-static int set_swparams(snd_pcm_t *handle, snd_pcm_sw_params_t *swparams)
-{
-        int err;
-
-        /* get the current swparams */
-        err = snd_pcm_sw_params_current(handle, swparams);
-        if (err < 0) {
-                printf("Unable to determine current swparams for playback: %s\n", snd_strerror(err));
-                return err;
-        }
-        /* start the transfer when the buffer is almost full: */
-        /* (buffer_size / avail_min) * avail_min */
-        err = snd_pcm_sw_params_set_start_threshold(handle, swparams, (buffer_size / period_size) * period_size);
-        if (err < 0) {
-                printf("Unable to set start threshold mode for playback: %s\n", snd_strerror(err));
-                return err;
-        }
-        /* allow the transfer when at least period_size samples can be processed */
-        err = snd_pcm_sw_params_set_avail_min(handle, swparams, period_size);
-        if (err < 0) {
-                printf("Unable to set avail min for playback: %s\n", snd_strerror(err));
-                return err;
-        }
-        /* align all transfers to 1 sample */
-        err = snd_pcm_sw_params_set_xfer_align(handle, swparams, 1);
-        if (err < 0) {
-                printf("Unable to set transfer align for playback: %s\n", snd_strerror(err));
-                return err;
-        }
-        /* write the parameters to the playback device */
-        err = snd_pcm_sw_params(handle, swparams);
-        if (err < 0) {
-                printf("Unable to set sw params for playback: %s\n", snd_strerror(err));
-                return err;
-        }
-        return 0;
+  if (snd_pcm_sw_params(AHandle, swparams) < 0) {
+    fprintf(stderr, "unable to install sw params:");
+    exit(EXIT_FAILURE);
+  }
+	
+  bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
+  bits_per_frame = bits_per_sample * 1;
+  chunk_bytes = chunk_size * bits_per_frame / 8;
+  fprintf(stderr, "allocating %d bytes\n", chunk_bytes);
+  waveBuffer = (short *) malloc( chunk_bytes);
+  if (waveBuffer == NULL) {
+    fprintf(stderr, "not enough memory");
+    exit(EXIT_FAILURE);
+  }
+  
 }
 
 //>
-//<alsa: xrun recovery, write samples 
+//<xrun and suspend 
 
-static int xrun_recovery(snd_pcm_t *handle, int err) {
-        if (err == -EPIPE) {    /* under-run */
-                err = snd_pcm_prepare(handle);
-                if (err < 0)
-                        printf("Can't recovery from underrun, prepare failed: %s\n", snd_strerror(err));
-                return 0;
-        } else if (err == -ESTRPIPE) {
-                while ((err = snd_pcm_resume(handle)) == -EAGAIN)
-                        sleep(1);       /* wait until the suspend flag is released */
-                if (err < 0) {
-                        err = snd_pcm_prepare(handle);
-                        if (err < 0)
-                                printf("Can't recovery from suspend, prepare failed: %s\n", snd_strerror(err));
-                }
-                return 0;
-        }
-        return err;
+#ifndef timersub
+
+#define	timersub(a, b, result)                          \
+  do {                                                  \
+    (result)->tv_sec = (a)->tv_sec - (b)->tv_sec;       \
+    (result)->tv_usec = (a)->tv_usec - (b)->tv_usec;    \
+    if ((result)->tv_usec < 0) {                        \
+      --(result)->tv_sec;                               \
+      (result)->tv_usec += 1000000;                     \
+    }                                                   \
+  } while (0)
+#endif
+
+static void xrun(void) {
+  snd_pcm_status_t *status;
+  int res;
+	
+  snd_pcm_status_alloca(&status);
+  if ((res = snd_pcm_status(AHandle, status))<0) {
+    fprintf(stderr, "status error: %s", snd_strerror(res));
+    exit(EXIT_FAILURE);
+  }
+  if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
+    struct timeval now, diff, tstamp;
+    gettimeofday(&now, 0);
+    snd_pcm_status_get_trigger_tstamp(status, &tstamp);
+    timersub(&now, &tstamp, &diff);
+    fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
+            stream == SND_PCM_STREAM_PLAYBACK ? "underrun" : "overrun",
+            diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
+    if ((res = snd_pcm_prepare(AHandle))<0) {
+      fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
+      exit(EXIT_FAILURE);
+    }
+    return;		/* ok, data should be accepted again */
+  }
+	
+  fprintf(stderr, "read/write error, state = %s", snd_pcm_state_name(snd_pcm_status_get_state(status)));
+  exit(EXIT_FAILURE);
 }
 
-/*
- *   Transfer method - write only
- */
+static void suspend(void) {
+  int res;
 
-static int write_loop(snd_pcm_t *handle,
-                      signed short *samples,
-                      snd_pcm_channel_area_t *areas,
-                      int count) {
-  signed short *ptr;
-  int err, cptr;
-  ptr = samples;
-  cptr = period_size;
-  fprintf(stderr, "Called with count=%d\n",count);
-  while (ptr < samples+count) {
-  while (cptr > 0) {
-    err = snd_pcm_writei(handle, ptr, cptr);
-    if (err == -EAGAIN) continue;
-    if (err < 0) {
-      if (xrun_recovery(handle, err) < 0) {
-        printf("Write error: %s\n", snd_strerror(err));
-        exit(EXIT_FAILURE);
-      }
-      break;  /* skip one period */
+	
+  fprintf(stderr, "Suspended. Trying resume. "); fflush(stderr);
+  while ((res = snd_pcm_resume(AHandle)) == -EAGAIN)
+    sleep(1);	/* wait until suspend flag is released */
+  if (res < 0) {
+		
+    fprintf(stderr, "Failed. Restarting stream. "); fflush(stderr);
+    if ((res = snd_pcm_prepare(AHandle)) < 0) {
+      fprintf(stderr, "suspend: prepare error: %s", snd_strerror(res));
+      exit(EXIT_FAILURE);
     }
-    ptr += err ;/* channels=1*/
-    cptr -= err;
   }
+	
+  fprintf(stderr, "Done.\n");
+}
+
+//>
+//<alsa: pcm_write
+
+static ssize_t pcm_write(short *data, size_t count) {
+  ssize_t r;
+  ssize_t result = 0;
+
+	
+  while (count > 0) {
+    r = snd_pcm_writei(AHandle, data, count);
+    if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
+      snd_pcm_wait(AHandle, 1000);
+    } else if (r == -EPIPE) {
+      xrun();
+    } else if (r == -ESTRPIPE) {
+      suspend();
+    } else if (r < 0) {
+      fprintf(stderr, "write error: %s", snd_strerror(r));
+      exit(EXIT_FAILURE);
+    }
+    if (r > 0) {
+      result += r;
+      count -= r;
+      data += r ;
+    }
   }
-  return TCL_OK;
+  return result;
 }
 
 //>
@@ -506,10 +563,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
   //>
   //<initialize alsa
   rc=alsa_init();
-  if (!rc) {
-    fprintf(stderr, "Could not initialize ALSA");
-    exit (1);
-  }
+  
   //>
   //<initialize TTS 
 
@@ -526,22 +580,22 @@ int Atcleci_Init (Tcl_Interp * interp) {
   _eciRegisterCallback (eciHandle, eciCallback, interp);
 
   //>
-//<set output to buffer 
-rc = _eciSynchronize (eciHandle);
-      if (!rc) {
-          Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
-          return TCL_ERROR;
-        }
-      rc = _eciSetOutputBuffer (eciHandle,
-                                (period_size * channels * snd_pcm_format_width(format)) / sizeof(short), waveBuffer);
-      if (!rc)
-        {
-          Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
-          return TCL_ERROR;
-        }
-      fprintf(stderr,"output buffered to waveBuffer with size %d\n",
-              (period_size * channels * snd_pcm_format_width(format))/ sizeof(short)); ;
-//>
+  //<set output to buffer 
+
+  rc = _eciSynchronize (eciHandle);
+  if (!rc) {
+    Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
+    return TCL_ERROR;
+  }
+  rc = _eciSetOutputBuffer (eciHandle, chunk_bytes, waveBuffer);
+  if (!rc) {
+      Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
+      return TCL_ERROR;
+    }
+  fprintf(stderr,"output buffered to waveBuffer with size %d\n",
+          chunk_bytes);
+
+  //>
   //<register tcl commands 
 
   Tcl_CreateObjCommand (interp, "setRate", SetRate,
@@ -580,7 +634,7 @@ set tts(last_index) $x}");
 
 int playTTS (int count) {
   fprintf(stderr,"playing %d samples\n",count);
-  write_loop(AHandle, waveBuffer, areas, count);
+  pcm_write(waveBuffer, count);
   return eciDataProcessed;
 }
 
@@ -592,14 +646,14 @@ int eciCallback (void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
   if (msg == eciIndexReply) {
-      char buffer[128];
-      sprintf (buffer, "index %ld", lparam);
-      rc = Tcl_Eval (interp, buffer);
-      if (rc != TCL_OK)
-	Tcl_BackgroundError (interp);
-    } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
-      playTTS (lparam);
-    }
+    char buffer[128];
+    sprintf (buffer, "index %ld", lparam);
+    rc = Tcl_Eval (interp, buffer);
+    if (rc != TCL_OK)
+      Tcl_BackgroundError (interp);
+  } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
+    playTTS (lparam);
+  }
   return 1;
 }
 
@@ -655,43 +709,43 @@ int Say (ClientData eciHandle, Tcl_Interp * interp,
          int objc, Tcl_Obj * CONST objv[]) {
   int i, rc, index, length;
   for (i = 1; i < objc; i++) {
-      // if string begins with -, assume it is an index value
-      char *txt = Tcl_GetStringFromObj (objv[i], &length);
-      if (Tcl_StringMatch (txt, "-reset")) {
-	  _eciReset (eciHandle);
-	  if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
-	      || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1)) {
-	      Tcl_AppendResult (interp, "Could not initialized tts", NULL);
-	      return TCL_ERROR;
-	    }
-	} else if (Tcl_StringMatch (txt, "-index")) {
-	  i++;
-	  if (i == objc) {
-	      Tcl_AppendResult (interp, "missing index parameter",
-				TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	  rc = Tcl_GetIntFromObj (interp, objv[i], &index);
-	  if (rc != TCL_OK)
-	    return rc;
-	  rc = _eciInsertIndex (eciHandle, index);
-	  if (!rc)
-	    {
-	      Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	}
-      else
-	{
-	  // assume objv[i] is text to synthesize...
-	  rc = _eciAddText (eciHandle, Tcl_GetStringFromObj (objv[i], NULL));
-	  if (!rc)
-	    {
-	      Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	}
+    // if string begins with -, assume it is an index value
+    char *txt = Tcl_GetStringFromObj (objv[i], &length);
+    if (Tcl_StringMatch (txt, "-reset")) {
+      _eciReset (eciHandle);
+      if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
+          || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1)) {
+        Tcl_AppendResult (interp, "Could not initialized tts", NULL);
+        return TCL_ERROR;
+      }
+    } else if (Tcl_StringMatch (txt, "-index")) {
+      i++;
+      if (i == objc) {
+        Tcl_AppendResult (interp, "missing index parameter",
+                          TCL_STATIC);
+        return TCL_ERROR;
+      }
+      rc = Tcl_GetIntFromObj (interp, objv[i], &index);
+      if (rc != TCL_OK)
+        return rc;
+      rc = _eciInsertIndex (eciHandle, index);
+      if (!rc)
+        {
+          Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
+          return TCL_ERROR;
+        }
     }
+    else
+      {
+        // assume objv[i] is text to synthesize...
+        rc = _eciAddText (eciHandle, Tcl_GetStringFromObj (objv[i], NULL));
+        if (!rc)
+          {
+            Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
+            return TCL_ERROR;
+          }
+      }
+  }
   if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth"))
     {
       rc = _eciSynthesize (eciHandle);
@@ -710,7 +764,7 @@ int Say (ClientData eciHandle, Tcl_Interp * interp,
 //<synchronize, stop
 
 int Synchronize (ClientData eciHandle, Tcl_Interp * interp,
-	     int objc, Tcl_Obj * CONST objv[]) {
+                 int objc, Tcl_Obj * CONST objv[]) {
   int rc = _eciSynchronize (eciHandle);
   if (!rc)
     {
@@ -721,7 +775,7 @@ int Synchronize (ClientData eciHandle, Tcl_Interp * interp,
 }
 
 int Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
-      Tcl_Obj * CONST objv[]) {
+          Tcl_Obj * CONST objv[]) {
   if (_eciStop (eciHandle))
     {
       //possibly call alsa stop here 
@@ -746,7 +800,7 @@ int SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int objc, Tcl_Obj * CO
 }
 
 int Pause (ClientData eciHandle, Tcl_Interp * interp, int objc,
-       Tcl_Obj * CONST objv[]) {
+           Tcl_Obj * CONST objv[]) {
   if (_eciPause (eciHandle, 1))
     return TCL_OK;
   Tcl_SetResult (interp, "Could not pause synthesis", TCL_STATIC);
@@ -754,7 +808,7 @@ int Pause (ClientData eciHandle, Tcl_Interp * interp, int objc,
 }
 
 int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	Tcl_Obj * CONST objv[]) {
+            Tcl_Obj * CONST objv[]) {
   if (_eciPause (eciHandle, 0))
     return TCL_OK;
   Tcl_SetResult (interp, "Could not resume synthesis", TCL_STATIC);
@@ -766,53 +820,13 @@ int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int alsa_init () {
   int err;
-  snd_pcm_hw_params_t *hwparams;
-  snd_pcm_sw_params_t *swparams;
-  snd_pcm_hw_params_alloca(&hwparams);
-  snd_pcm_sw_params_alloca(&swparams);
-  err = snd_output_stdio_attach(&output, stdout, 0);
-  if (err < 0) {
-    fprintf(stderr,
-            "Output failed: %s\n",
-            snd_strerror(err));
-    return TCL_ERROR;
-  }
   if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
     fprintf(stderr,
             "Playback open error: %s\n",
             snd_strerror(err));
     return TCL_ERROR;
   }
-        if ((err = set_hwparams(AHandle, hwparams, SND_PCM_ACCESS_RW_INTERLEAVED))!= TCL_OK ) {
-    fprintf(stderr,
-            "Setting of hwparams failed: %s\n",
-            snd_strerror(err));
-    alsa_close();
-    return TCL_ERROR;
-  }
-  if ((err = set_swparams(AHandle, swparams)) < 0) {
-    fprintf(stderr,
-            "Setting of swparams failed: %s\n",
-            snd_strerror(err));
-    return TCL_ERROR;
-  }
-
-  waveBuffer= (short *)malloc((period_size * channels * snd_pcm_format_width(format)) / 8);
-  if (waveBuffer == NULL) {
-    fprintf(stderr,
-            "Not enough memory\n");
-    return TCL_ERROR;
-  }
-  areas = (snd_pcm_channel_area_t*)calloc(channels, sizeof(snd_pcm_channel_area_t));
-  if (areas == NULL) {
-    fprintf(stderr,
-            "Not enough memory\n" );
-    return TCL_ERROR;
-  }
-  /*set up area -- simplified for single channel */
-  areas[0].addr = waveBuffer;
-  areas[0].first = 16;
-  areas[0].step =  16;
+  set_params();
   return TCL_OK;
 }
 
@@ -823,7 +837,6 @@ int alsa_close (){
   //shut down alsa
   snd_pcm_close(AHandle);
   free(waveBuffer);
-  free(areas);
   return TCL_OK;
 }
 
@@ -841,7 +854,7 @@ int setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 //<getVersion
 
 int getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	       Tcl_Obj * CONST objv[]) {
+                   Tcl_Obj * CONST objv[]) {
   char *version = (char *) malloc (16);
   if (objc != 1)
     {

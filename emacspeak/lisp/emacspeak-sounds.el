@@ -347,8 +347,10 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;;###autoload 
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
-  (declare (special emacspeak-auditory-icon-function))
-  (funcall emacspeak-auditory-icon-function icon))
+  (declare (special emacspeak-auditory-icon-function
+                    emacspeak-use-auditory-icons))
+  (when emacspeak-use-auditory-icons
+  (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
 ;;{{{  Map names to midi
