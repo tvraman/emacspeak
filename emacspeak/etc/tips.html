@@ -8,16 +8,35 @@
       <meta name="generator" content="DocBook XSL Stylesheets V1.18">
    </head>
    <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-      <div id="c40b1" class="article">
+      <div id="d117b1" class="article">
          <div class="titlepage">
-            <h1 class="title"><a name="c40b1">Tips And Tricks For The Emacspeak Audio Desktop
+            <h1 class="title"><a name="d117b1">Tips And Tricks For The Emacspeak Audio Desktop
                   </a></h1>
             <h3 class="author">T. V. Raman</h3>
+            <p class="copyright">Copyright &copy; 2001 by T. V. Raman</p>
+            <p>
+               This work is being made available under the same
+               copyright as that used by the Linux Documentation
+               Project see
+               <a href="http://www.linuxdoc.org/LDP-COPYRIGHT.html">
+                  LDP Copyright Notice </a>.
+               
+               
+            </p>
             <div class="abstract">
-               <p><a name="c40b1ab5"></a><b>Abstract</b></p>
+               <p><a name="d117b1ab9"></a><b>Abstract</b></p>
                <p>
-                  This document is a collection of productivity tips for using the
-                  Emacspeak audio desktop.
+                  This document is a collection of productivity tips
+                  for using the Emacspeak audio desktop.  Make sure
+                  you listen to this document with punctuation mode
+                  set to <i>all</i> to ensure that you
+                  do not miss important concepts.  Note that this
+                  document is to be used in concert with the built-in
+                  online help facilities.  Toward this end, the first
+                  section gives help on using Emacs online help;
+                  subsequent sections are intentionally brief since
+                  the interested user is expected to lookup the
+                  details of a command using these facilities.
                   
                </p>
             </div>
@@ -25,40 +44,61 @@
          </div>
          <div class="qandaset">
             <dl>
-               <dt>1. <a href="#c40b1b1a">Online Help</a></dt>
+               <dt>1. <a href="#help">Online Help</a></dt>
                <dd>
                   <dl>
-                     <dt>1.1. <a href="#c40b1b1ab1">
-                           Interactie help.</a></dt>
-                     <dt>1.2. <a href="#c40b1b1ab2"> Online hypertext help.</a></dt>
-                     <dt>1.3. <a href="#c40b1b1ab3">
-                           Opening info page that documents  a given key.</a></dt>
-                     <dt>1.4. <a href="#c40b1b1ab4">
-                           Opening info page that documents a given command.
-                           </a></dt>
-                     <dt>1.5. <a href="#c40b1b1ab5">
-                           Picking from available choices.</a></dt>
-                     <dt>1.6. <a href="#c40b1b1ab6">
-                           Minibuffer prompting and completion.</a></dt>
+                     <dt>1.1. <a href="#d117b1b1ab2"> Interactive help.</a></dt>
+                     <dt>1.2. <a href="#d117b1b1ab3"> Online hypertext help.</a></dt>
+                     <dt>1.3. <a href="#d117b1b1ab4"> Opening info page that documents  a given key.</a></dt>
+                     <dt>1.4. <a href="#d117b1b1ab5"> Opening info page that documents a given command. </a></dt>
+                     <dt>1.5. <a href="#d117b1b1ab6"> Picking from available choices.</a></dt>
+                     <dt>1.6. <a href="#d117b1b1ab7"> Minibuffer prompting and completion.</a></dt>
                   </dl>
                </dd>
-               <dt>2. <a href="#c40b1b1b1">Files And Folders</a></dt>
+               <dt>2. <a href="#folders">Files And Folders</a></dt>
                <dd>
                   <dl>
-                     <dt>2.1. <a href="#c40b1b1b1b1">
-                           Working on files and folders.</a></dt>
-                     <dt>2.2. <a href="#c40b1b1b1b2">Locating files.</a></dt>
-                     <dt>2.3. <a href="#c40b1b1b1b3">
-                           Using UNIX find from within Emacs.</a></dt>
+                     <dt>2.1. <a href="#d117b1b1b1b2"> Working on files and folders.</a></dt>
+                     <dt>2.2. <a href="#d117b1b1b1b3"> Working with remote directories.</a></dt>
+                     <dt>2.3. <a href="#d117b1b1b1b4">Locating files.</a></dt>
+                     <dt>2.4. <a href="#d117b1b1b1b5"> Using UNIX find from within Emacs.</a></dt>
+                     <dt>2.5. <a href="#d117b1b1b1b6"> Searching all files in a directory hierarchy. </a></dt>
+                     <dt>2.6. <a href="#d117b1b1b1b7"> Search and replace across a collection of files. </a></dt>
+                  </dl>
+               </dd>
+               <dt>3. <a href="#read">Reading, Browsing And Skimming</a></dt>
+               <dd>
+                  <dl>
+                     <dt>3.1. <a href="#d117b1b1b2b2"> Hiding and exposing text blocks. </a></dt>
+                     <dt>3.2. <a href="#d117b1b1b2b3">Skipping  across blank lines</a></dt>
+                     <dt>3.3. <a href="#d117b1b1b2b4">Everything is
+                           searchable.</a></dt>
+                     <dt>3.4. <a href="#d117b1b1b2b5">Saving positions in a file.</a></dt>
+                     <dt>3.5. <a href="#d117b1b1b2b6">Working with  different portions of
+                           a file at the same time.</a></dt>
+                  </dl>
+               </dd>
+               <dt>4. <a href="#d117b1b1b3">Emacspeak Utilities</a></dt>
+               <dd>
+                  <dl>
+                     <dt>4.1. <a href="#d117b1b1b3b2">
+                           Launch a root shell.</a></dt>
+                     <dt>4.2. <a href="#d117b1b1b3b3">Emacspeak Clipboard</a></dt>
+                     <dt>4.3. <a href="#d117b1b1b3b4">Copying current file.</a></dt>
+                     <dt>4.4. <a href="#d117b1b1b3b5">Personal telephone directory.</a></dt>
+                     <dt>4.5. <a href="#d117b1b1b3b6">Tabbulating shell command output.</a></dt>
+                     <dt>4.6. <a href="#d117b1b1b3b7">Filtering  specific columns of all lines.</a></dt>
                   </dl>
                </dd>
             </dl>
             <div class="qandadiv">
-               <h3 class="title"><a name="c40b1b1a">1. Online Help</a></h3>
+               <h3 class="title"><a name="help">1. Online Help</a></h3>
+               <p>
+                  Tips on using Emacs online help facilities.
+               </p>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab1"><b>1.1. </b>
-                           Interactie help.</a></p>
+                     <p><a name="d117b1b1ab2"><b>1.1. </b> Interactive help.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -71,7 +111,7 @@
                            <tr>
                               <td>
                                  <b>c</b>
-                                 lookups command run by a given key.
+                                 looks up  command run by a given key.
                                  
                               </td>
                            </tr>
@@ -96,7 +136,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab2"><b>1.2. </b> Online hypertext help.</a></p>
+                     <p><a name="d117b1b1ab3"><b>1.2. </b> Online hypertext help.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -112,8 +152,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab3"><b>1.3. </b>
-                           Opening info page that documents  a given key.</a></p>
+                     <p><a name="d117b1b1ab4"><b>1.3. </b> Opening info page that documents  a given key.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -126,9 +165,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab4"><b>1.4. </b>
-                           Opening info page that documents a given command.
-                           </a></p>
+                     <p><a name="d117b1b1ab5"><b>1.4. </b> Opening info page that documents a given command. </a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -140,8 +177,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab5"><b>1.5. </b>
-                           Picking from available choices.</a></p>
+                     <p><a name="d117b1b1ab6"><b>1.5. </b> Picking from available choices.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -152,7 +188,7 @@
                         auditory icon <i>help</i>
                         and speaks the available choices.  At this point, you can
                         input more characters to unambiguously specify the
-                        choice. Alternative, you can browse the
+                        choice. Alternatively, you can browse the
                         completion list which is typically displayed in
                         another window in a buffer called 
                         <tt>*Completions*</tt>.
@@ -161,8 +197,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1ab6"><b>1.6. </b>
-                           Minibuffer prompting and completion.</a></p>
+                     <p><a name="d117b1b1ab7"><b>1.6. </b> Minibuffer prompting and completion.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -179,11 +214,15 @@
                </div>
             </div>
             <div class="qandadiv">
-               <h3 class="title"><a name="c40b1b1b1">2. Files And Folders</a></h3>
+               <h3 class="title"><a name="folders">2. Files And Folders</a></h3>
+               <p>
+                  This section  contains tips  on working efficiently
+                  with files and folders, both local and remote.
+                  
+               </p>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1b1b1"><b>2.1. </b>
-                           Working on files and folders.</a></p>
+                     <p><a name="d117b1b1b1b2"><b>2.1. </b> Working on files and folders.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -199,7 +238,27 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1b1b2"><b>2.2. </b>Locating files.</a></p>
+                     <p><a name="d117b1b1b1b3"><b>2.2. </b> Working with remote directories.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b> Built-in Emacs package
+                        ange-ftp
+                        provides seamless access to remote files and folders by
+                        using UNIX <b>ftp</b>
+                        behind the scenes.
+                        To open a remote directory, specify the directory location  as 
+                        <b>/username@host:/path</b>
+                        when prompted by command <b>dired</b>.
+                        Note that in the above,
+                        <i>username</i>
+                        defaults to <i>anonymous</i>.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b1b4"><b>2.3. </b>Locating files.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -220,8 +279,7 @@
                </div>
                <div class="qandaentry">
                   <div class="question">
-                     <p><a name="c40b1b1b1b3"><b>2.3. </b>
-                           Using UNIX <b>find</b> from within Emacs.</a></p>
+                     <p><a name="d117b1b1b1b5"><b>2.4. </b> Using UNIX <b>find</b> from within Emacs.</a></p>
                   </div>
                   <div class="answer">
                      <p><b> </b>
@@ -230,6 +288,286 @@
                         <b>find-dired</b> to use UNIX
                         find to locate files
                         and folders on your hard drive.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b1b6"><b>2.5. </b> Searching all files in a directory hierarchy. </a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Install and use Emacs package
+                        igrep
+                        ---an extended Emacs interface to UNIX
+                        grep
+                        to search all files in a directory.
+                        For simpler tasks use command 
+                        <b>grep-dired</b> and command <b>find-grep-dired</b>.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b1b7"><b>2.6. </b> Search and replace across a collection of files. </a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        When working on a project consisting of many files, 
+                        build a tags table using UNIX command
+                        <b>etags</b>
+                        and use it to advantage from within Emacs with commands such
+                        as 
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td><b>find-tag</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>tags-search</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>tags-query-replace</b></td>
+                           </tr>
+                        </table>
+                        
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="qandadiv">
+               <h3 class="title"><a name="read">3. Reading, Browsing And Skimming</a></h3>
+               <p>
+                  This section contains tips for efficiently working with
+                  large amounts of content using speech output.
+               </p>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b2b2"><b>3.1. </b> Hiding and exposing text blocks. </a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        You can hide <i>blocks of text</i>
+                        when skimming a file.
+                        A <i>block of text</i>
+                        is defined as a sequence of contiguous lines starting with
+                        a common prefix e.g., cited lines in an email message or blocks of
+                        comments in programming languages.
+                        See commands 
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td> <b> C-e j</b>
+                                 <b> emacspeak-hide-or-expose-block</b></td>
+                           </tr>
+                           <tr>
+                              <td> <b>C-e C-j</b>
+                                 <b> emacspeak-hide-speak-block-sans-prefix</b>
+                                 
+                              </td>
+                           </tr>
+                        </table>
+                        to use these features.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b2b3"><b>3.2. </b>Skipping  across blank lines</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Use commands
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td><b>emacspeak-skip-blank-lines-backward</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>emacspeak-skip-blank-lines-forward</b></td>
+                           </tr>
+                        </table>
+                        to move across contiguous blank lines.
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b2b4"><b>3.3. </b><i>Everything</i> is
+                           searchable.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Everything
+                        is <i>searchable</i>
+                        in Emacs. Use this to advantage when working with all forms
+                        of content, since it is often more efficient to
+                        use Emacs commands 
+                        <b><b>C-s</b></b>
+                        and  <b><b>C-r</b></b>
+                        to perform forward or backward incremental search to locate
+                        relevant information  than to listen to  the  content.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b2b5"><b>3.4. </b>Saving positions in a file.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Use Emacs <i>mark</i> to save temporary
+                        positions in a file.
+                        Use built-in Emacs bookmark
+                        to save the position across Emacs sessions. Use built-in
+                        Emacs package desktop
+                        to have Emacs automatically recreate the state of the audio
+                        desktop on restart.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b2b6"><b>3.5. </b>Working with  different portions of
+                           a file at the same time.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Display the file in different Emacs
+                        <i>windows</i> 
+                        or <i>frames</i>;
+                        Emacs allows you to display different portions 
+                        of the file in each window or frame. Use Emacspeak commands 
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td><b>emacspeak-speak-predefined-window</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>emacspeak-speak-this-buffer-other-window-display</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>emacspeak-speak-this-buffer-previous-display</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>emacspeak-speak-this-buffer-next-display</b></td>
+                           </tr>
+                        </table>
+                        to listen to a given  portion of a file whilst working on a
+                        different portion of the same file.
+                        
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="qandadiv">
+               <h3 class="title"><a name="d117b1b1b3">4. Emacspeak Utilities</a></h3>
+               <p>This section gives tips on using some of the built-in
+                  productivity tools bundled with Emacspeak.
+                  Most of these are implemented in module
+                  emacspeak-wizards.
+                  
+               </p>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b2"><b>4.1. </b>
+                           Launch a <b>root</b> shell.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        <i>Never</i> run Emacspeak as the
+                        <b>root</b> user.
+                        Instead use Emacspeak command 
+                        <b>emacspeak-root</b>
+                        to create a <b>root shell</b> after starting Emacspeak.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b3"><b>4.2. </b>Emacspeak Clipboard</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Emacspeak provides a clipboard facility to enabling cut and
+                        paste across different emacspeak sessions,
+                        see commands
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td><b>emacspeak-clipboard-copy</b></td>
+                           </tr>
+                           <tr>
+                              <td><b>emacspeak-clipboard-paste</b></td>
+                           </tr>
+                        </table>
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b4"><b>4.3. </b>Copying current file.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>Emacspeak command
+                        <b>emacspeak-copy-current-file</b>
+                        lets you copy the file being visited to a
+                        different location ---this is a convenient way of
+                        publishing to a  WWW server.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b5"><b>4.4. </b>Personal telephone directory.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Emacspeak command
+                        <b>emacspeak-speak-telephone-directory</b>
+                        lets you maintain a telephone directory as a simple text file.
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b6"><b>4.5. </b>Tabbulating shell command output.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>Many UNIX commands produce tabulated output,
+                        e.g., command <b>df</b> for displaying
+                        a disk usage summary.
+                        You can use Emacspeak command
+                        <b>emacspeak-speak-run-shell-command</b>
+                        to run such commands and have the tabular output available
+                        for browsing using Emacspeak's table browsing facilities.
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="d117b1b1b3b7"><b>4.6. </b>Filtering  specific columns of all lines.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        This is most useful when working with log files.
+                        Command <b>
+                           emacspeak-speak-line-set-column-filter</b>
+                        enables you to filter out uninteresting columns
+                        of each line as it is spoken.
+                        Note that columns are filtered out by making
+                        them <i>inaudible</i>
+                        ---in order for this to take effect,
+                        <b>voice-lock</b> needs to be active
+                        in the current buffer.
                         
                      </p>
                   </div>
