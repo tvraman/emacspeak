@@ -1,4 +1,4 @@
-indent;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
+;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enhance vm
