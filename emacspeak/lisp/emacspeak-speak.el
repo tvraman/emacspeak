@@ -2779,9 +2779,11 @@ Argument O specifies overlay."
 
 (defsubst emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
+  (let ((inhibit-field-text-motion t))
   (save-excursion
     (set-buffer (window-buffer (minibuffer-window)))
-    (buffer-string)))
+    (buffer-substring (field-beginning)
+                      (field-end)))))
 
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
@@ -2794,6 +2796,7 @@ Argument O specifies overlay."
            (put-text-property (match-beginning 0)
                               (match-end 0)
                               'personality 'inaudible)))))))
+
 (defvar emacspeak-completions-current-prefix nil
   "Prefix typed in the minibuffer before completions was invoked.")
 
@@ -2814,10 +2817,8 @@ to reduce chatter."
            (window-live-p (get-buffer-window completions-buffer )))
       (select-window  (get-buffer-window completions-buffer ))
       (when (interactive-p)
-        (unless (get-text-property (point) 'mouse-face)
-          (goto-char (next-single-property-change (point)
-                                                  'mouse-face )))
         (setq voice-lock-mode t)
+        (message current-entry)
         (when (and  current-entry
                     (> (length current-entry) 0))
           (setq emacspeak-completions-current-prefix current-entry)
