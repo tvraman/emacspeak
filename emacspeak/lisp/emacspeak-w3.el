@@ -618,7 +618,7 @@ minibuffer."
                 (format "\"'%s'\""
                         (or source-url
                             w3-url)))))
-        emacspeak-w3-preview-this-buffer)
+        (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
 (defvar emacspeak-w3-extract-by-class-xsl
@@ -671,7 +671,7 @@ minibuffer."
                 (format "\"'%s'\""
                         (or source-url
                             w3-url)))))
-        emacspeak-w3-preview-this-buffer)
+        (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
 (defvar emacspeak-w3-xsl-filter
@@ -726,7 +726,7 @@ prefix arg causes url to be read from the minibuffer."
                 (format "\"'%s'\""
                         (or source-url
                             w3-url)))))
-        emacspeak-w3-preview-this-buffer)
+        (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
 (declaim (special emacspeak-w3-xsl-map))
@@ -765,7 +765,7 @@ prefix arg causes url to be read from the minibuffer."
                  (format "\"'%s'\"" url))))))
     (save-excursion
       (set-buffer  result)
-      emacspeak-w3-preview-this-buffer))))
+      (emacspeak-w3-preview-this-buffer))))
 
 ;;}}}
 ;;{{{  google tool
