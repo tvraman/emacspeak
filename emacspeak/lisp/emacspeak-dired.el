@@ -99,32 +99,43 @@ pronunciations only once.")
   (declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename (dired-get-filename t t ))
         (personality (get-text-property (point) 'personality)))
-     (cond
-      (filename
-         (put-text-property  0  (length filename)
-                             'personality personality filename )
-         (dtk-speak filename)
-         (setq emacspeak-speak-last-spoken-word-position (point)))
-       (t (emacspeak-speak-line )))))
+    (cond
+     (filename
+      (put-text-property  0  (length filename)
+                          'personality personality filename )
+      (dtk-speak filename)
+      (setq emacspeak-speak-last-spoken-word-position (point)))
+     (t (emacspeak-speak-line )))))
 
 ;;}}}
 ;;{{{  advice:
 
 (defadvice dired-query (before emacspeak pre act comp)
-"Produce auditory icon."
-(emacspeak-auditory-icon 'ask-short-question))
+  "Produce auditory icon."
+  (emacspeak-auditory-icon 'ask-short-question))
+
 (defadvice dired-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+(defadvice dired-up-directory (after emacspeak pre act)
+  "Produce an auditory icon."
+  (when (interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      (voice-lock-mode 1)
+      (emacspeak-dired-label-fields)
+      (emacspeak-auditory-icon 'open-object )
+      (emacspeak-speak-mode-line))))
 (defadvice dired (after emacspeak pre act)
-"Produce an auditory icon."
-(when (interactive-p)
-(voice-lock-mode 1)
-(emacspeak-dired-label-fields)
-(emacspeak-auditory-icon 'open-object )))
+  "Produce an auditory icon."
+  (when (interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      (voice-lock-mode 1)
+      (emacspeak-dired-label-fields)
+      (emacspeak-auditory-icon 'open-object )
+      (emacspeak-speak-mode-line))))
 
 (defadvice dired-find-file  (around  emacspeak pre act)
   "Produce an auditory icon."
@@ -154,55 +165,54 @@ pronunciations only once.")
 (defadvice dired-next-line (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'select-object)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-previous-line (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'select-object)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-next-marked-file (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-prev-marked-file  (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-dired-speak-line)))
+
 (defadvice dired-prev-subdir (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-dired-speak-line)))
 
 (defadvice dired-next-subdir (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-dired-speak-line)))
 
-(defadvice dired-mark (after emacspeak pre act)
-  "Speak the filename name."
-  (when (interactive-p )
-    (emacspeak-dired-speak-line))
-  )
 
-(defadvice dired-flag-file-deletion (after emacspeak pre act)
-  "Speak the filename name."
-  (when (interactive-p )
-    (emacspeak-dired-speak-line))
-  )
+
+
 
 (defadvice dired-next-dirline (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
-    (emacspeak-dired-speak-line))
-  )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-dired-speak-line)))
 
 (defadvice dired-prev-dirline (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
-    (emacspeak-dired-speak-line))
-  )
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-dired-speak-line)))
 
 (defadvice dired-unmark-backward (after emacspeak pre act)
   "Speak the filename name."
@@ -218,19 +228,19 @@ pronunciations only once.")
 ;;; with an auditory icon.
 
 (defadvice dired-mark (after emacspeak pre act)
-"Produce an auditory icon."
-(when (interactive-p)
-(emacspeak-auditory-icon 'mark-object )
-(emacspeak-dired-speak-line)))
+  "Produce an auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'mark-object )
+    (emacspeak-dired-speak-line)))
 
 (defadvice dired-flag-file-deletion (after emacspeak pre act )
-"Produce an auditory icon indicating that a file was marked for deletion."
-(when (interactive-p )
-(emacspeak-auditory-icon 'delete-object )
-(emacspeak-dired-speak-line )))
+  "Produce an auditory icon indicating that a file was marked for deletion."
+  (when (interactive-p )
+    (emacspeak-auditory-icon 'delete-object )
+    (emacspeak-dired-speak-line )))
 
-(defadvice dired-unmark (after emacspeak pre act)"Give speech feedback.
-Also provide an auditory icon."
+(defadvice dired-unmark (after emacspeak pre act)
+  "Give speech feedback. Also provide an auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object )
     (emacspeak-dired-speak-line)))
@@ -301,8 +311,8 @@ unless `dired-listing-switches' contains -al"
   (interactive)
   (emacspeak-auditory-icon 'select-object)
   (save-excursion (goto-char (point-min))
-    (forward-line 2)
-(emacspeak-speak-region (point-min) (point))))
+                  (forward-line 2)
+                  (emacspeak-speak-region (point-min) (point))))
 
 (defun emacspeak-dired-speak-file-size ()
   "Speak the size of the current file.
