@@ -339,8 +339,8 @@ sed "s@<version>@$(LABEL)@g" \
 # {{{ rpm 
 
 rpm: emacspeak.spec
-	rpm --erase emacspeak
-	/bin/rm -rf /usr/share/emacs/site-lisp/emacspeak
+	rpm --erase emacspeak || echo ""
+	/bin/rm -rf /usr/share/emacs/site-lisp/emacspeak || echo ""
 	@cp emacspeak.tar.bz2 /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
 	rpm  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
