@@ -669,7 +669,7 @@ Typically %s is replaced by project name.")
               (format emacspeak-cvs-local-directory-pattern
                       project))))
     (unless (file-exists-p dir)
-      (make-directory dir))
+      (make-directory dir 'parents))
     (cd dir)
     (let ((cvs-process nil))
       (setq cvs-process
