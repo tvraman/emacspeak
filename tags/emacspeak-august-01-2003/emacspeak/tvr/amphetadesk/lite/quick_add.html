@@ -1,0 +1,12 @@
+[$ include( catfile( get_setting("dir_templates"), "tpl_header.html") ) $]
+
+
+<p>
+   <form action="my_channels.html" method="POST" style="margin:0">
+<label for="uri">URI</label>
+<input id="uri" type="text" name="add_url" value=" " size="35" />
+      <input type="submit" name="submit" value="Add This Channel" />
+   </form>
+   </p>
+
+[$ include( catfile( get_setting("dir_templates"), "tpl_footer.html") ) $]
