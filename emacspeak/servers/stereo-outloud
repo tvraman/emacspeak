@@ -108,8 +108,14 @@ proc tts_pause {} {
 #formerly called tts_stop 
 
 proc s {} {
+    global tts
+    if {$tts(not_stopped) == 1} {
+        set tts(not_stopped) 0
     stop
     queue_clear
+    } else {
+        puts stderr StopNoOp
+}
 }
 
 #formerly called tts_tone
