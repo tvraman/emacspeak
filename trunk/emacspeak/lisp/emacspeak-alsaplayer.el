@@ -133,7 +133,11 @@ Alsaplayer session."
              "-n"
              (format "%s" emacspeak-alsaplayer-session)
              "--status")))
-    (switch-to-buffer emacspeak-alsaplayer-buffer-name)))
+    (switch-to-buffer buffer)
+    (rename-buffer
+     (format "%s-%s"
+                           emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
+    'unique)))
 
 ;;}}}
 ;;{{{  Invoke commands:
