@@ -42,7 +42,7 @@ used as the table-index for extract-tables.xsl.
       <xsl:apply-templates select="@*"/>
       <table>
         <caption>
-          <a href="##__about_unravel_tables">Tables Unravelled</a>
+          <a href="#__about_unravel_tables">Tables Unravelled</a>
         </caption>
         <tr>
           <td>
@@ -87,18 +87,7 @@ There are
   </xsl:template>
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      Table <xsl:value-of select="position()"/><xsl:value-of select="@summary"/></xsl:element>
-  </xsl:template>
-  <xsl:template match="//table//table" mode="second-pass">
-    <xsl:element name="a">
-      <xsl:attribute name="name">
-        <xsl:value-of select="generate-id(.)"/>
-      </xsl:attribute>
-      <xsl:element name="table">
-        <xsl:apply-templates select="@*"/>
-        <xsl:apply-templates/>
-      </xsl:element>
-    </xsl:element>
+      Table <xsl:value-of select="@summary"/></xsl:element>
   </xsl:template>
 <!-- } -->
 </xsl:stylesheet>
