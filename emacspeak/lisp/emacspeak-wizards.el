@@ -2189,7 +2189,7 @@ for `word' and displays hits in a compilation buffer."
 ;;}}}
 ;;{{{ generate autoloads for all custom groups in current directory
 
-(defun emacspeak-wizards-generate-custom-loads-for-current-directory (directory)
+(defun emacspeak-wizards-generate-custom-loads (directory)
   "Generates  buffer containing the needed statements to set up
 autloading for all 
 defgroup declarations found in current directory."
@@ -2203,16 +2203,16 @@ defgroup declarations found in current directory."
       (erase-buffer)
       (cd directory)
       (setq matches 
-      (shell-command
-       "grep '^(defgroup ' *.el | cut -d ' ' -f 2"
-                     (current-buffer)))
+            (shell-command
+             "grep '^(defgroup ' *.el | cut -d ' ' -f 2"
+             (current-buffer)))
       (when (= 0 matches) ;;;grep succeeded 
-      (goto-char (point-min))
-      (while (not (eobp))
-        (pushnew  (thing-at-point 'sexp)
-               module-list
-               :test #'eql)
-        (forward-line 1))))
+        (goto-char (point-min))
+        (while (not (eobp))
+          (pushnew  (thing-at-point 'sexp)
+                    module-list
+                    :test #'eql)
+          (forward-line 1))))
     (save-excursion
       (set-buffer result-buffer)
       (erase-buffer)
@@ -2222,8 +2222,13 @@ defgroup declarations found in current directory."
              (format
               "(put '%s 'custom-loads '(\"%s\"))\n"
               m m))))
-              (kill-buffer scratch-buffer)
-              (switch-to-buffer result-buffer)))
+    (kill-buffer scratch-buffer)
+    (switch-to-buffer result-buffer)
+    (emacs-lisp-mode)
+    (goto-char (point-min))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line))))
 
       
    
