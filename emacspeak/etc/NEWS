@@ -5,6 +5,43 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 * Emacspeak 15.0 Additions And Changes:
 
 Emacspeak 15.0 provides the following user level enhancements:
+* Documentation:
+
+** Online Manual:
+
+*** New Chapter: Emacspeak Commands
+
+The online info manual has a new chapter documenting all
+ emacspeak commands. It is organized into sections, one per
+Emacspeak source module.
+
+
+*** Online HTML Version:
+
+An HTML version of the Emacspeak manual produced by
+texi2html is now available as 
+http://emacspeak.sf.net/info/
+
+** Productivity Tips:
+
+A new document giving productivity tips for using the
+Emacspeak desktop is available 
+as file etc/tips.html in the Emacspeak source distribution,
+and online as http://emacspeak.sf.net/tips.html.
+The source files used to create tips.html is available as
+tips.xml in the Emacspeak CVS repository.
+
+** Speech-enabled Applications List:
+
+http://emacspeak.sf.net/applications.html gives a full list
+of speech-enabled applications available on the Emacspeak
+audio desktop.
+
+** Doc Links in Customization Buffer:
+
+The *Customizations* buffer created when
+ customizing group `emacspeak'  contains hyperlinks to
+available documentation and support resources.
 
 * New Emacspeak Features:
 
