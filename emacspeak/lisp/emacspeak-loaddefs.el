@@ -149,7 +149,7 @@ navigation buffer that can be used to browse and read the book.
 
 ;;;### (autoloads (emacspeak-eterm-remote-term emacspeak-eterm-cache-remote-host
 ;;;;;;  emacspeak-eterm-record-window) "emacspeak-eterm" "emacspeak-eterm.el"
-;;;;;;  (16508 4134))
+;;;;;;  (16508 12560))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -360,7 +360,7 @@ We define keys that invoke editting commands to be undefined
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (16508 3937))
+;;;;;;  (16508 12562))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")
@@ -375,7 +375,7 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (16507 64776))
+;;;;;;  (16508 14030))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -499,7 +499,7 @@ for the specified mode.
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-process-sentinel emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (16508 3992))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (16508 12562))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (defvar emacspeak-realaudio-history nil "\
@@ -599,7 +599,7 @@ host is listening on for speech requests.
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (16507 64778))
+;;;;;;  "emacspeak-rss.el" (16508 12562))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -1095,7 +1095,7 @@ Play url under point as realaudio
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google-search-in-date-range
 ;;;;;;  emacspeak-websearch-google emacspeak-websearch-usenet-search
 ;;;;;;  emacspeak-websearch-do-post emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16508 4249))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16508 12562))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -1787,7 +1787,7 @@ Turn on Voice Lock mode .
 ;;;***
 
 ;;;### (autoloads (xml-reformat-tags insert-xml read-xml) "xml-parse"
-;;;;;;  "xml-parse.el" (16507 20643))
+;;;;;;  "xml-parse.el" (16508 14142))
 ;;; Generated autoloads from xml-parse.el
 
 (autoload (quote read-xml) "xml-parse" "\
@@ -1883,7 +1883,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16508 4311 183108))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16508 14181 520095))
 
 ;;;***
 
