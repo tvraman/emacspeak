@@ -1460,7 +1460,7 @@ annotation is inserted into the working buffer when complete."
 ;;; switch to the shell buffer, and cd to the directory 
 ;;; that is the default-directory for the previously current
 ;;; buffer.
-(defun shell-toggle ()
+(defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to 
 the directory of the current buffer."
   (interactive)
