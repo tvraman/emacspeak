@@ -1509,8 +1509,7 @@ semantic to do the work."
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
-              (or (frame-parameter (selected-frame) 'emacspeak-label)
-                  (format "Frame %s " (frame-parameter (selected-frame) 'name))))
+                  (format " %s " (frame-parameter (selected-frame) 'name)))
         (put-text-property 0 (length frame-info)
                            'personality 'annotation-voice frame-info))
        (t (setq frame-info "")))
