@@ -2374,6 +2374,7 @@ Pause ongoing speech first."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-pause)))
+
 (defadvice isearch-cancel (before emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -2383,6 +2384,10 @@ Pause ongoing speech first."
   "Speak the search hit.
 Produce auditory icons if possible."
   (emacspeak-speak-string isearch-string voice-bolden)
+  (when isearch-wrapped
+    (emacspeak-auditory-icon 'scroll)
+    (dtk-speak "W:")
+    (sit-for 0.5))
   (when  (sit-for 0.5)
     (ems-set-personality-temporarily
      (point)
