@@ -2,12 +2,12 @@
 #$Id$
 #
 
-if [ -x /usr/bin/pdftotext ]
+if which pdftotext 
 then
     tempfile=/tmp/pdftotext-$$.pdf
     cat > $tempfile
-    /usr/bin/pdftotext $tempfile -
+    pdftotext $tempfile -
     rm -f $tempfile
 else 
-    echo "/usr/bin/pdftotext not found --install package XPDF."
+    echo "pdftotext not found --install package XPDF."
 fi
