@@ -309,7 +309,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  load yasb 
 
     (load-library-if-available "yasb-prepare")
-    (global-set-key "\C-cb" 'yasb)
     ;;}}}
     ;;{{{ swbuffer
     ;(load-library-if-available "swbuff")
