@@ -484,7 +484,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "calendar" 'emacspeak-calendar)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
-(emacspeak-do-package-setup "cmuscheme-mode" 'emacspeak-cmuscheme)
+(emacspeak-do-package-setup "cmuscheme" 'emacspeak-cmuscheme)
 (emacspeak-do-package-setup "compile" 'emacspeak-compile)
 (emacspeak-do-package-setup "cperl-mode" 'emacspeak-cperl)
 (emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
