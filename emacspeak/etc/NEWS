@@ -7,9 +7,28 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Emacspeak 17.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
+
 ** Enhanced Emacs 21 support:
 
 I have now switched to Emacs 21 on all my machines.
+
+** emacspeak-w3.el:
+
+Magic Lens: XSLT Based magic lens for selectively browsing content.
+
+
+** emacspeak-websearch.el: 
+
+Websearch now handles asynchronous searches.
+
+** emacspeak-url-template.el:
+
+Additional productivity web templates.
+
+** emacspeak-wizards.el:
+
+New productivity wizards.
+
 
 ** emacspeak-rpm-spec.el: 
 
@@ -28,16 +47,6 @@ Enhanced reftex support.
 ** emacspeak-ecb.el:
 
 Enhanced ECB support.
-
-
-** emacspeak-wizards:
-
-Many new wizards for productivity --see online documentation for
-details.
-
-** emacspeak-url-template.el
-
-New url templates.
 
 
 Local variables:
