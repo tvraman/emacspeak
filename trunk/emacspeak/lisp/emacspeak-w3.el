@@ -830,6 +830,15 @@ current page."
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
+;;{{{ advice focus on cell 
+(defadvice w3-table-focus-on-this-cell (around emacspeak pre act comp)
+  "Clone any url rewrite rules."
+  (let ((rule emacspeak-w3-url-rewrite-rule))
+    ad-do-it
+    (when rule
+      (setq emacspeak-w3-url-rewrite-rule rule))))
+
+;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 
