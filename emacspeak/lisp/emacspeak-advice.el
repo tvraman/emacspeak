@@ -621,7 +621,7 @@ before the message is spoken."
                        'personality voice-animate
                        emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value	;we really do have a message
+                 ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time
 			   (nth 1  (current-time)))))
@@ -1014,7 +1014,7 @@ in completion buffers"
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value	;we really do have a message
+                 ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time
 			   (nth 1    (current-time)))))
