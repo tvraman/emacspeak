@@ -371,11 +371,40 @@ to play a BBC Radio7 program on demand."
                         emacspeak-xslt-directory)
       url)))
 
+
+
+(defvar  emacspeak-url-template-bbc-channels-content 
+"http://www.bbc.co.uk/radio/aod/shows/rpms/"
+"Location of BBC audio content.")
+
+(defun emacspeak-url-template-bbc-channel-player (url)
+  "Extract program name, construct realplayer URL and play that
+content."
+  (declare (special  emacspeak-url-template-bbc-channels-content))
+(let ((content (second
+                (split-string url "?")))
+      (url nil))
+  (cond
+   ((null content)
+    (error "Cannot locate content particle in %s" url))
+   (t
+    (setq uri
+          (concat emacspeak-url-template-bbc-channels-content
+               content
+               ".rpm"))
+    (kill-new uri)
+ (emacspeak-realaudio-play uri)
+      (message "Playing content under point.")))))
+
+
 (emacspeak-url-template-define
  "BBC Channel On Demand"
  "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
  (list "BBC Channel: ")
- nil
+ #'(lambda ()
+     (declare (special emacspeak-w3-url-executor))
+     (setq emacspeak-w3-url-executor
+           'emacspeak-url-template-bbc-channel-player))
  "Display BBC Channel on demand."
  )
 
