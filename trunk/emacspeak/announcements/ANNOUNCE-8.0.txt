@@ -1,0 +1,117 @@
+                       Announcing Emacspeak-8.0 (BlackDog)
+                       -----------------------
+
+For Immediate Release:
+
+San Jose, Calif.,  (May 1, 1998)
+    Emacspeak Re-Establishes User-Centric Computing
+    --Interactive Accessibility enhances Speech-Enabled Desktop
+
+About Emacspeak:
+---------------
+
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit
+operating environments.  By seamlessly blending all aspects of
+the Internet such as Web-surfing and electronic messaging
+into the audio desktop, Emacspeak enables speech access to
+local and remote information with a consistent and
+well-integrated user interface.
+
+Major Enhancements:
+-------------------
+0) Efficient navigation and browsing of structured and multicolumn WWW pages:
+
+
+    A) Browse tables by either row or column.
+    B) Automatically generated  table of contents  
+1) Single click access to RealAudio content from anywhere on
+   the Emacspeak desktop.
+
+2) Speech-enabling extensions for the following:
+
+    A) Customizing Emacs: emacspeak-custom.el
+    B)  Buffer specific navigation: emacspeak-imenu.el
+    C) Java Development Environment: emacspeak-jde.el
+    D) Browsing Software: emacspeak-speedbar.el
+    E) Browsing Multiple Mail Spools: emacspeak-mspools.el
+    F) Developing Python Software: emacspeak-python.el
+
+3) Additional user-visible enhancements:
+ 
+    A) Dired Improvements: emacspeak-dired.el
+    B)  Running Remote Emacspeak Sessions: emacspeak-remote.el
+    C) Terminal Enhancements: emacspeak-eterm.el
+    D) Speech-Enabled Menubar Support
+    E)Enhanced Navigation In Completion Buffers
+    F) Emacspeak Clipboard
+    G) Work with multiple frames and displays
+
+See the release notes for details.
+
+Independent Test Results:
+-------------------------
+
+Independent test results have proven that unlike some modern
+software, Emacspeak-8.0 can be easily uninstalled without
+adversely affecting the continued performance of the
+computer.  These same tests also revealed that once
+uninstalled, the user stopped functioning altogether.
+
+Industry experts welcomed these results as a refreshing
+breath of Courage Certainty and Clarity (CCC) at a time
+when users are reeling from the Fear Uncertainty and
+Doubt (FUD) unleashed by complex software systems
+backed by even more convoluted press releases.
+
+Speaking with Aster Labrador this morning, the creator
+of Emacspeak pointed out that these results once again
+emphasize the user-centric design of Emacspeak; "It is
+the user --and not the computer-- that stops
+functioning when Emacspeak is uninstalled!".
+
+History:
+--------
+
+Emacspeak-8.0 --(AKA Emacspeak-98++) code named BlackDog--
+is a major upgrade to the speech output extension to Emacs.
+Emacspeak-95 (code named Illinois) was released on the
+Internet in May 1995 as the first complete speech interface
+to UNIX workstations.  The subsequent release, Emacspeak-96
+(code named Egypt) made available in May 1996 provided
+significant enhancements to the interface. Emacspeak-97
+(Tennessee) went further in providing a true audio desktop.
+Emacspeak-98 integrated Internetworking  into
+all aspects of the audio desktop to provide the first fully
+interactive speech-enabled WebTop.  This release
+re-establishes user-centric computing as demonstrated in the
+test results described earlier in this announcement.
+
+Obtaining Emacspeak:
+--------------------
+
+Visit Emacspeak at http://cs.cornell.edu/home/raman
+--You can also pick up emacspeak via anonymous ftp from
+ftp://ftp.cs.cornell.edu/pub/raman/emacspeak/.
+You can subscribe to the emacspeak mailing list
+<emacspeak@cs.vassar.edu> by sending mail to the list
+owner greg e. priest-dorman <priestdo@cs.vassar.edu>.
+
+About Emacspeak:
+---------------
+        
+Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
+--home to some of the most innovative auditory interfaces on
+the WWW-- Emacspeak is mirrored world-wide by an
+international netwrok of software archives and bundled with
+all major Linux distributions on CDROM.  The Emacspeak
+mailing list is archived at
+<http://www.cs.vassar.edu/~priestdo/emacspeak/> --thanks to
+Greg Priest-Dorman.
+
+Press/Analyst Contact:  Aster Labrador
+              http://cs.cornell.edu/home/raman/aster/aster.gif
+
+    CopyWrite  )C( Aster Labrador. All Writes Reserved.
+BlackDog (DM) and Labrador (DM) are Registered Dogmarks of Aster Labrador.
+     All other dogs belong to their respective owners.
