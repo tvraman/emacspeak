@@ -96,7 +96,8 @@ Values are alists containing string.pronunciation pairs.")
   (setf  (gethash key emacspeak-pronounce-dictionaries) pr-alist ))
 
 (defsubst emacspeak-pronounce-get-dictionary (key)
-  (declare (special emacspeak-pronounce-dictionaries))
+  (declare (special emacspeak-pronounce-dictionaries
+                    minibuffer-history))
   (when (stringp key)
     (setq key (intern key )))
   (gethash key emacspeak-pronounce-dictionaries))
@@ -453,7 +454,11 @@ Returns a pair of the form (key-type . key)."
   (let ((key nil)
         (key-type
          (read
-          (completing-read  "Define pronunciation that is specific to: " emacspeak-pronounce-pronunciation-keys nil t ))))
+          (completing-read
+           "Define pronunciation that is specific to: "
+           emacspeak-pronounce-pronunciation-keys nil t ) )))
+    (when (interactive-p) ;cleanup minibuffer history
+           (pop minibuffer-history))
     (cond
      ((eq key-type 'buffer)
       (setq key (buffer-name )))        ;handled differently
