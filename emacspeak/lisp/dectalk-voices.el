@@ -581,8 +581,8 @@ and TABLE gives the values along that dimension."
 		  (dectalk-get-average-pitch-code (acss-average-pitch style) family)
 		  (dectalk-get-pitch-range-code (acss-pitch-range style) family)
 		  (dectalk-get-stress-code (acss-stress style ) family)
-		  (dectalk-get-richness-code (acss-richness style) family)
-		  "]"))))
+		  (dectalk-get-richness-code (acss-richness style) family))
+		  "]")))
     (dectalk-define-voice name command)))
 
 ;;}}}
