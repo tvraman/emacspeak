@@ -34,6 +34,12 @@ shown in the output.
 <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching elements.</p>
       <xsl:for-each select="$locator">
+<p>
+<em>
+<xsl:value-of select="name()"/>
+<xsl:value-of select="position()"/>
+          </em>
+        </p>
         <xsl:element name="{name()}">
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
