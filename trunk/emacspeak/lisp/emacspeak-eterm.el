@@ -73,14 +73,12 @@
     (error nil )))
 
 ;;}}}
-;;{{{ cutom
+;;{{{ custom
 
 (defgroup emacspeak-eterm nil
   "Terminal emulator for the Emacspeak Desktop."
   :group 'emacspeak
   :prefix "emacspeak-eterm-")
-
-
 
 ;;}}}
 ;;{{{  keybindings:
@@ -253,7 +251,7 @@ in a non eterm buffer if executed via C-e C-e"
 
 (defun emacspeak-eterm-speak-screen (&optional flag )
   "Speak the screen.  Default is to speak from the emacspeak pointer  to point.
-.Optional prefix arg FLAG causes region above
+Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken."
   (interactive "P")
   (declare (special term-home-marker emacspeak-eterm-pointer ))
@@ -1154,10 +1152,6 @@ See command emacspeak-toggle-eterm-autospeak bound to
       (when (and (not  emacspeak-eterm-pointer-mode )
                  emacspeak-eterm-pointer)
         (emacspeak-eterm-pointer-to-cursor)))))
-
-
-
-
 
 (defun emacspeak-eterm-toggle-pointer-mode (flag)
   "Toggle emacspeak eterm pointer mode.
