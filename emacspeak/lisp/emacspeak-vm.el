@@ -37,7 +37,7 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
- (require 'cl)
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-voices)
@@ -309,12 +309,15 @@ Then speak the screenful. "
    vm-mode-map))
 
 (declaim (special vm-mode-map))
+(define-key vm-mode-map "\M-\C-m" 'widget-button-press)
+(define-key vm-mode-map "\M-\t"
+  'emacspeak-vm-next-button)
 (define-key vm-mode-map  "j"
   'emacspeak-hide-or-expose-all-blocks)
 (define-key vm-mode-map  "\M-g" 'vm-goto-message)
 (define-key vm-mode-map "J" 'vm-discard-cached-data)
 (define-key vm-mode-map "." 'emacspeak-vm-browse-message)
-(define-key vm-mode-map "," 'emacspeak-speak-rest-of-buffer)
+(define-key vm-mode-map "," 'emacspeak-vm-mime-save-attachment-under-point)
 (define-key vm-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 ;;}}}
 ;;{{{  deleting and killing
@@ -559,6 +562,9 @@ If N is negative, move backward instead."
   :type 'boolean
   :group 'emacspeak)
 
+
+
+
 (defun emacspeak-vm-use-tvr-settings ()
   "Customization settings for VM used by the author of
 Emacspeak."
@@ -587,17 +593,12 @@ Emacspeak."
         vm-delete-after-saving t
         vm-url-browser 'w3-fetch
         vm-confirm-new-folders t
-        vm-move-after-deleting t
+        vm-move-after-deleting nil
         emacspeak-vm-voice-lock-messages nil)
-  (add-hook 'vm-mode-hook
-            (function
-             (lambda nil
-               (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
-               (define-key vm-mode-map "\M-\t"
-                 'emacspeak-vm-next-button)))))
+  t)
   
 (when emacspeak-vm-use-tvr-settings
-(emacspeak-vm-use-tvr-settings))
+  (emacspeak-vm-use-tvr-settings))
 
 (defcustom emacspeak-vm-customize-mime-settings t
   "Non-nil will cause Emacspeak to configure VM mime
