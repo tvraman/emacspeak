@@ -141,14 +141,14 @@ When called  interactively, The selected server is started immediately.
 Toggle state of the debug FLAG.
 When debugging is on, you can switch to the buffer
 *speaker* to examine the output from the process
-that talks to the speech device by using command C-e d M-C-b.
+that talks to the speech device by using command C-e d C-M-b.
 Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 @end deffn
 
 
 
 @deffn tts-show-debug-buffer
-@kbd{ control e d meta control b }
+@kbd{ control e d CONTROL meta b }
 
 Select TTS debugging buffer.
 @end deffn
@@ -329,7 +329,7 @@ value, and then set the current local value to the result.
 
 
 @deffn dtk-stop
-@kbd{ pause   control e s }
+@kbd{ <pause>   control e s }
 
 Stop speech now.
 @end deffn
@@ -391,7 +391,7 @@ for commands defined in module  emacspeak.
 
 
 @deffn emacspeak-submit-bug
-@kbd{ control e control b }
+@kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
 @end deffn
@@ -483,7 +483,7 @@ Reset to default audio settings.
 
 
 @deffn emacspeak-aumix-wave-decrease
-@kbd{ control e control f left }
+@kbd{ control e control f <left> }
 
 Decrease volume of wave output. 
 @end deffn
@@ -491,7 +491,7 @@ Decrease volume of wave output.
 
 
 @deffn emacspeak-aumix-wave-increase
-@kbd{ control e control f right }
+@kbd{ control e control f <right> }
 
 Increase volume of wave output. 
 @end deffn
@@ -1183,7 +1183,7 @@ Move the pointer to the right edge.
 
 
 @deffn emacspeak-eterm-remote-term
-@kbd{ control e meta control r }
+@kbd{ control e CONTROL meta r }
 
 Start a terminal-emulator in a new buffer.
 @end deffn
@@ -1269,10 +1269,6 @@ r		emacspeak-filtertext-revert
 =		keep-lines
 
 
-
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -1284,7 +1280,7 @@ Revert to original text.
 
 
 @deffn emacspeak-filtertext
-@kbd{ control e \ }
+@kbd{ control e ^ }
 
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. 
@@ -1393,8 +1389,8 @@ Major mode for freeamp interaction.
 key             binding
 ---             -------
 
-right		emacspeak-aumix-wave-increase
-left		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
 q		emacspeak-freeamp-freeamp-call-command
 =		emacspeak-freeamp-freeamp-call-command
 s		emacspeak-freeamp-freeamp-call-command
@@ -1406,9 +1402,6 @@ p		emacspeak-freeamp-freeamp-call-command
 o		emacspeak-freeamp
 
 
-
-This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -1643,10 +1636,6 @@ C-c		Prefix Command
 C-c v		emacspeak-imcom-view-chat-session
 
 
-
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
-during initialization.
 @end deffn
 
 @node emacspeak-imenu
@@ -1857,6 +1846,13 @@ Like forward page, but tracks page number of current document.
 
 
 
+@deffn emacspeak-ocr-scan-photo
+Scan in a photograph.
+The scanned image is converted to JPEG.
+@end deffn
+
+
+
 @deffn emacspeak-ocr-backward-page
 Like backward page, but tracks page number of current document.
 @end deffn
@@ -1969,6 +1965,7 @@ p		emacspeak-ocr-page
 d		emacspeak-ocr-open-working-directory
 n		emacspeak-ocr-name-document
 o		emacspeak-ocr-recognize-image
+j		emacspeak-ocr-scan-photo
 i		emacspeak-ocr-scan-image
 RET		emacspeak-ocr-scan-and-recognize
 w		emacspeak-ocr-write-document
@@ -1977,10 +1974,6 @@ c		emacspeak-ocr-customize
 ?		describe-mode
 
 
-
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -2215,10 +2208,6 @@ Mode for browsing XML documents.
 
 Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
-
-In addition to any hooks its parent mode `xml-mode' might have run,
-this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -2314,8 +2303,8 @@ Major mode for streaming audio.
 key             binding
 ---             -------
 
-right		emacspeak-aumix-wave-increase
-left		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
 @}		emacspeak-realaudio-trplayer-call-command
 @{		emacspeak-realaudio-trplayer-call-command
 ]		emacspeak-realaudio-trplayer-call-command
@@ -2334,9 +2323,6 @@ t		emacspeak-realaudio-trplayer-call-command
 p		emacspeak-realaudio-trplayer-call-command
 
 
-
-This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -2405,7 +2391,7 @@ for commands defined in module  emacspeak-redefine.
 
 
 @deffn emacspeak-backward-char
-@kbd{ control b   left }
+@kbd{ control b   <left> }
 
 Backward-char redefined to speak char moved to. 
 @end deffn
@@ -2413,7 +2399,7 @@ Backward-char redefined to speak char moved to.
 
 
 @deffn emacspeak-self-insert-command
-@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE }
+@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2426,13 +2412,15 @@ speech flush as you type.
 
 
 @deffn emacspeak-kill-buffer
+@kbd{ control x k }
+
 Speech-enabled version of kill-buffer for Emacs 21.
 @end deffn
 
 
 
 @deffn emacspeak-forward-char
-@kbd{ control f   right }
+@kbd{ control f   <right> }
 
 Forward-char redefined to speak char moved to. 
 @end deffn
@@ -2693,7 +2681,7 @@ setting to be global.
 
 
 @deffn emacspeak-owindow-speak-line
-@kbd{ ESCAPE select }
+@kbd{ ESCAPE <select> }
 
 Speak the current line in the other window.
 @end deffn
@@ -2710,7 +2698,7 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 
 @deffn emacspeak-mark-forward-mark
-@kbd{ control down }
+@kbd{ <control down> }
 
 Cycle forward through the mark ring.
 @end deffn
@@ -2820,7 +2808,7 @@ Toggle the state of whether emacspeak echoes messages.
 
 
 @deffn emacspeak-owindow-scroll-up
-@kbd{ ESCAPE next }
+@kbd{ ESCAPE <next> }
 
 Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling.
@@ -2935,7 +2923,7 @@ any other key to speak entire buffer.
 
 
 @deffn emacspeak-speak-spaces-at-point
-@kbd{ control e meta control @@ }
+@kbd{ control e CONTROL meta @@ }
 
 Speak the white space at point.
 @end deffn
@@ -3038,7 +3026,7 @@ set the current local value to the result.
 
 
 @deffn emacspeak-mark-backward-mark
-@kbd{ control up }
+@kbd{ <control up> }
 
 Cycle backward through the mark ring.
 @end deffn
@@ -3175,6 +3163,8 @@ current local  value to the result.
 
 
 @deffn emacspeak-toggle-speak-line-invert-filter
+@kbd{ control e \ }
+
 Toggle state of   how column filter is interpreted.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
@@ -3235,18 +3225,10 @@ any other key to speak entire line.
 
 
 @deffn emacspeak-owindow-previous-line
-@kbd{ ESCAPE up }
+@kbd{ ESCAPE <up> }
 
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move.
-@end deffn
-
-
-
-@deffn emacspeak-customize
-@kbd{ control e  cap C  }
-
-Customize Emacspeak.
 @end deffn
 
 
@@ -3287,7 +3269,7 @@ Speak the line number of the current line.
 
 
 @deffn emacspeak-read-previous-line
-@kbd{ control e up }
+@kbd{ control e <up> }
 
 Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
@@ -3303,7 +3285,7 @@ Default is to read the previous word.
 
 
 @deffn emacspeak-owindow-scroll-down
-@kbd{ ESCAPE prior }
+@kbd{ ESCAPE <prior> }
 
 Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling.
@@ -3406,7 +3388,7 @@ results in the number of initial spaces being spoken.
 
 
 @deffn emacspeak-owindow-next-line
-@kbd{ ESCAPE down }
+@kbd{ ESCAPE <down> }
 
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move.
@@ -3430,7 +3412,7 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-read-next-line
-@kbd{ control e down }
+@kbd{ control e <down> }
 
 Read next line, specified by an offset, without moving.
 Default is to read the next line. 
@@ -4159,6 +4141,12 @@ Do  onclick action.
 
 
 
+@deffn emacspeak-w3-extract-node-by-id
+Extract specified node from URI.
+@end deffn
+
+
+
 @deffn emacspeak-w3-previous-doc-element
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
@@ -4641,7 +4629,7 @@ for commands defined in module  emacspeak-wizards.
 
 
 @deffn emacspeak-speak-this-buffer-previous-display
-@kbd{ control e left }
+@kbd{ control e <left> }
 
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -4657,10 +4645,30 @@ Run rpm -qi on current dired entry.
 
 
 
+@deffn emacspeak-wizards-use-w3-or-w3m
+Alternates between using W3 and W3M for browse-url.
+@end deffn
+
+
+
 @deffn emacspeak-next-frame
-@kbd{ control right }
+@kbd{ <control right> }
 
 Move to next frame.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-show-list-variable
+Convenience command to view Emacs variables that are long lists.
+Prompts for a variable name and displays its value in a separate buffer.
+Lists are displayed one element per line.
+Argument VAR specifies variable whose value is to be displayed.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -4718,7 +4726,7 @@ previous window configuration.
 
 
 @deffn emacspeak-skip-blank-lines-forward
-@kbd{ shift down }
+@kbd{ <shift down> }
 
 Move forward across blank lines.
 The line under point is then spoken.
@@ -4762,7 +4770,7 @@ Launch lynx on  specified URL in a new terminal.
 
 
 @deffn emacspeak-select-this-buffer-next-display
-@kbd{ control e control right }
+@kbd{ control e <control right> }
 
 Select this buffer as displayed in a `next' frame.
 See documentation for command
@@ -4798,7 +4806,7 @@ visiting the xls file.
 
 
 @deffn emacspeak-select-this-buffer-previous-display
-@kbd{ control e control left }
+@kbd{ control e <control left> }
 
 Select this buffer as displayed in a `previous' window.
 See documentation for command
@@ -4809,7 +4817,7 @@ meaning of `previous'.
 
 
 @deffn emacspeak-skip-blank-lines-backward
-@kbd{ shift up }
+@kbd{ <shift up> }
 
 Move backward  across blank lines.
 The line under point is   then spoken.
@@ -4850,20 +4858,6 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
-@end deffn
-
-
-
-@deffn emacspeak-show-list-variable
-Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -4956,7 +4950,7 @@ the display to select.
 
 
 @deffn emacspeak-speak-this-buffer-next-display
-@kbd{ control e right }
+@kbd{ control e <right> }
 
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -4967,7 +4961,7 @@ meaning of `next'.
 
 
 @deffn emacspeak-cvs-get-anonymous
-@kbd{ control e control down }
+@kbd{ control e <control down> }
 
 Get latest cvs snapshot of emacspeak.
 @end deffn
@@ -5042,6 +5036,14 @@ Generate a widget-enabled finder wizard.
 
 
 
+@deffn emacspeak-customize
+@kbd{ control e  cap C  }
+
+Customize Emacspeak.
+@end deffn
+
+
+
 @deffn emacspeak-speak-load-directory-settings
 Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
@@ -5110,7 +5112,7 @@ We cleanup underlining, and set up outline mode correctly.
 
 
 @deffn emacspeak-previous-frame
-@kbd{ control left }
+@kbd{ <control left> }
 
 Move to next frame.
 @end deffn
@@ -5125,7 +5127,7 @@ directory to where find is to be launched.
 
 
 @deffn emacspeak-customize-personal-settings
-@kbd{ control e f1 }
+@kbd{ control e <f1> }
 
 Create a customization buffer for browsing and updating
 personal customizations.
@@ -5187,7 +5189,7 @@ If no property is set, show a message and exit.
 
 
 @deffn emacspeak-wizards-shell-toggle
-@kbd{ control e f11 }
+@kbd{ control e <f11> }
 
 Switch to the shell buffer and cd to 
  the directory of the current buffer.
@@ -5233,18 +5235,14 @@ key             binding
 ---             -------
 
 C-c		Prefix Command
-down		emacspeak-xml-shell-goto-children
-up		emacspeak-xml-shell-goto-parent
-right		emacspeak-xml-shell-goto-next-child
-left		emacspeak-xml-shell-goto-previous-child
+<down>		emacspeak-xml-shell-goto-children
+<up>		emacspeak-xml-shell-goto-parent
+<right>		emacspeak-xml-shell-goto-next-child
+<left>		emacspeak-xml-shell-goto-previous-child
 
 C-c v		emacspeak-xml-shell-browse-current
 
 
-
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
-during initialization.
 @end deffn
 
 
@@ -5284,7 +5282,15 @@ Perform a google search restricted to the current WWW site.
 @kbd{ control e . }
 
 Speak current field.
-A field is defined currently as a sequence of non-white space characters.  may be made
-  mode specific later.
+A field is
+defined  by Emacs 21.
+@end deffn
+
+
+
+@deffn emacspeak-daisy-open-book
+@kbd{ control e control b }
+
+Digital Talking Books on the Emacspeak Desktop.
 @end deffn
 
