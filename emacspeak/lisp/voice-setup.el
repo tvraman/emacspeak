@@ -218,16 +218,26 @@ command \\[customize-variable] on <personality>-settings."
      (, settings)
      (, doc)
      :type  '(list
-              (symbol :tag "Family")
-              (integer :tag "Average Pitch")
-              (integer :tag "Pitch Range")
-              (integer :tag "Stress")
-              (integer :tag "Richness"))
+              (choice
+               (const :tag "Unspecified" nil)
+               (symbol :tag "Family"))
+              (choice
+               (const :tag "Unspecified" nil)
+               (integer :tag "Average Pitch"))
+              (choice
+               (const :tag "Unspecified" nil)
+               (integer :tag "Pitch Range"))
+              (choice
+               (const :tag "Unspecified" nil)
+               (integer :tag "Stress"))
+              (choice
+               (const :tag "Unspecified" nil)
+               (integer :tag "Richness")))
      :group 'tts
      :set
      '(lambda  (sym val)
         (let ((voice-name
- (voice-setup-personality-from-style val)))
+               (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
           (set-default sym val))))))
 
