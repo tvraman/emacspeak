@@ -152,6 +152,7 @@
     ("emacspeak-sawfish"  . nil )
     ("emacspeak-sgml-mode"  . nil )
     ("emacspeak-sh-script"  . nil )
+    ("emacspeak-sigbegone"  . nil )
     ("emacspeak-solitaire"  . nil )
     ("emacspeak-speedbar"  . ("speedbar-prepare"))
     ("emacspeak-sql"  . nil )

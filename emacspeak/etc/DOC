@@ -3552,6 +3552,11 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-find-grepRun compile using find and grep. 
+Interactive  arguments specify filename pattern and search pattern.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-find-longest-line-in-regionFind longest line in region.
 Moves to the longest line when called interactively.
 
