@@ -52,6 +52,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'voice-setup)
 (eval-when-compile (require 'dtk-speak)
                    (condition-case nil
                        (progn (require 'widget)
@@ -72,12 +73,12 @@
   :group 'emacspeak
   :group 'widgets
   :prefix "emacspeak-widget-")
-(defcustom emacspeak-widget-edit-personality  'paul-smooth
+(defcustom emacspeak-widget-edit-personality  voice-smoothen
   "Personality for edit fields"
   :group 'emacspeak-widget
   :type 'symbol)
 
-(defcustom emacspeak-widget-value-personality 'paul-smooth
+(defcustom emacspeak-widget-value-personality voice-animate
   "Personality for values"
   :group 'emacspeak-widget
   :type 'symbol)
@@ -87,7 +88,7 @@
   :group 'emacspeak-widget
   :type 'symbol)
 
-(defcustom emacspeak-widget-documentation-personality 'paul-monotone
+(defcustom emacspeak-widget-documentation-personality voice-smoothen-extra
   "Personality for documentation"
   :group 'emacspeak-widget
   :type 'symbol)
@@ -118,6 +119,7 @@ Returns a string with appropriate personality."
 
 (defsubst emacspeak-widget-help-echo (w)
   "Return help-echo with appropriate personality."
+  (declare (special voice-animate))
   (let ((h (widget-get w :help-echo))
         (help nil))
     (setq help
@@ -130,7 +132,7 @@ Returns a string with appropriate personality."
            (t nil)))
     (when help
       (put-text-property 0 (length help)
-                         'personality 'paul-animated help)
+                         'personality voice-animate help)
       help)))
 
 ;;}}}

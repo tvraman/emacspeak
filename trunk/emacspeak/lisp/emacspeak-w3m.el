@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{ personalities
 
-(defcustom emacspeak-w3m-form-personality 'paul-animated
+(defcustom emacspeak-w3m-form-personality voice-animate
   "personality used for forms."
   :type 'symbol
   :group 'emacspeak-w3m)
@@ -409,27 +409,27 @@
                                 "w3m-header-line-location-title-face")
 
 (def-voice-font  personality
-'paul-animated
+voice-animate
                                 'w3m-header-line-location-content-face
                                 "w3m-header-line-location-content-face")
 
 (def-voice-font  emacspeak-w3m-form-button-personality
-'paul-smooth
+voice-smoothen
                                 'w3m-form-button-face
                                 "w3m-form-button-face")
 
 (def-voice-font  emacspeak-w3m-form-button-pressed-personality
-'paul-animated
+voice-animate
                                 'w3m-form-button-pressed-face
                                 "w3m-form-button-pressed-face")
 
 (def-voice-font  emacspeak-w3m-tab-unselected-personality
-'paul-monotone
+voice-monotone
                                 'w3m-tab-unselected-face
                                 "w3m-tab-unselected-face")
 
 (def-voice-font  emacspeak-w3m-tab-selected-personality
-'paul-animated
+voice-animate
 'w3m-tab-selected-face
 "w3m-tab-selected-face")
 
