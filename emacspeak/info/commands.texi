@@ -4422,7 +4422,3 @@ A field is
 defined  by Emacs 21.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-show-environment-vvariable ()
-Display value of specified environment variable.
-@end deffn
-
