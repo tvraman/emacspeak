@@ -2174,6 +2174,90 @@ for `word' and displays hits in a compilation buffer."
     (put-text-property start end 
 		       'read-only nil)))
 ;;}}}
+;;{{{ VC viewer 
+(defcustom emacspeak-wizards-vc-viewer-command
+  "sudo setterm -dump %s -file %s"
+  "Command line for dumping out virtual console."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(define-derived-mode emacspeak-wizards-vc-viewer-mode  view-mode
+  "VC Viewer  Interaction"
+  "Major mode for interactively viewing virtual console contents.\n\n
+\\{emacspeak-wizards-vc-viewer-mode-map}")
+
+
+(defvar emacspeak-wizards-vc-console nil
+  "Buffer local value specifying console we are viewing.")
+
+(make-variable-buffer-local 'emacspeak-wizards-vc-console)
+
+
+(defun emacspeak-wizards-vc-viewer (console)
+  "View contents of specified virtual console."
+  (interactive
+   (list
+    (read-from-minibuffer "Virtual Console: ")))
+  (declare (special emacspeak-wizards-vc-viewer-command
+                    emacspeak-wizards-vc-console
+                    temporary-file-directory))
+  (let ((command
+         (format emacspeak-wizards-vc-viewer-command
+                 console
+                 (expand-file-name
+                  (format "vc-%s.dump" console)
+                  temporary-file-directory)))
+        (buffer (get-buffer-create
+                 (format "*vc-%s*" console))))
+    (shell-command command buffer)
+    (switch-to-buffer buffer)
+    (insert-file
+     (expand-file-name
+      (format "vc-%s.dump" console)
+      temporary-file-directory))
+    (set-buffer-modified-p nil)
+    (emacspeak-wizards-vc-viewer-mode)
+    (setq emacspeak-wizards-vc-console console)
+    (goto-char (point-min))
+    (when (interactive-p)
+      (emacspeak-speak-line))))
+
+(defun emacspeak-wizards-vc-viewer-refresh ()
+  "Refresh view of VC we're viewing."
+  (interactive)
+  (declare (special emacspeak-wizards-vc-console))
+  (unless (eq major-mode
+              'emacspeak-wizards-vc-viewer-mode)
+    (error "Not viewing a virtual console."))
+  (let ((console emacspeak-wizards-vc-console)
+        (command
+         (format emacspeak-wizards-vc-viewer-command
+                 emacspeak-wizards-vc-console
+                 (expand-file-name
+                  (format "vc-%s.dump"
+                          emacspeak-wizards-vc-console)
+                  temporary-file-directory)))
+        (inhibit-read-only t))
+    (shell-command command)
+    (fundamental-mode)
+    (erase-buffer)
+    (insert-file
+     (expand-file-name
+      (format "vc-%s.dump"
+              console)
+      temporary-file-directory))
+    (set-buffer-modified-p nil)
+    (emacspeak-wizards-vc-viewer-mode)
+    (setq emacspeak-wizards-vc-console console)
+    (goto-char (point-min))
+    (when (interactive-p)
+      (emacspeak-speak-line))))
+
+(declaim (special emacspeak-wizards-vc-viewer-mode-map))
+
+(define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
