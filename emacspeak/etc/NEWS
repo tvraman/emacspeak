@@ -21,6 +21,14 @@ produce beeps using the beep utility. This is useful in
 conjunction with software TTS on sound hardware that  provides a
 single wave output channel  under Linux.
 
+
+** Personalities:
+
+Emacspeak now defines voice personalities for all of the faces
+defined in the various supported packages.
+To see the correspondence between faces and personalities, run
+emacs command M-x list-faces-display
+
 
 Local variables:
  mode: outline

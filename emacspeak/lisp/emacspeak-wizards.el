@@ -1545,7 +1545,7 @@ at point."
   (let ((p (get-text-property (point) 'personality))
         (f (get-text-property (point) 'face))
         (o
-         (delete nil
+         (delq nil
 		 (mapcar
 		  #'(lambda (overlay)
 		      (overlay-get overlay 'face))
