@@ -180,8 +180,8 @@ Useful when eterm is in review mode.")
     (define-key emacspeak-eterm-keymap emacspeak-eterm-raw-prefix
       term-raw-map)
     ;;; handle emacs 21 wierdness 
-(local-unset-key "\eO")
-(local-unset-key "\e[")
+    (local-unset-key "\eO")
+    (local-unset-key "\e[")
     ))
 
 ;;}}}

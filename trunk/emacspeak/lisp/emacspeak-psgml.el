@@ -168,7 +168,7 @@ window")))
       (emacspeak-speak-line))))
 
 (defadvice sgml-up-element (after emacspeak pre act
-                                       comp)
+				  comp)
   "Speak line we moved to"
   (when (interactive-p)
     (let ((emacspeak-show-point t))

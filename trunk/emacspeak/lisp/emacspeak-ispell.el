@@ -123,10 +123,10 @@ many available corrections."
       (cond
        ((< (length choices)
            emacspeak-ispell-max-choices)
-      (loop for choice in choices
-            do
-            (insert (format "%s %s\n" position choice))
-            (incf position)))
+	(loop for choice in choices
+	      do
+	      (insert (format "%s %s\n" position choice))
+	      (incf position)))
        (t (insert
            (format "There were %s corrections available."
                    (length choices)))))
