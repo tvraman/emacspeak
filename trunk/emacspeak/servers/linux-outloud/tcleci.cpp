@@ -72,7 +72,7 @@ you like after a command.
 int  dsp;
 static int _flushSpeech = 0;
 //1 second using 11025k samples.
-#define BUFSIZE 1024
+#define BUFSIZE 1100
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
@@ -108,6 +108,7 @@ static void *(*_eciNew)();
 static void (*_eciDelete)(void *);
 static int (*_eciReset)(void *);
 static int (*_eciStop)(void *);
+static int (*_eciClearInput)(void *);
 static int (*_eciPause)(void *, int);
 static int (*_eciSynthesize)(void *);
 static int (*_eciSynchronize)(void *);
@@ -159,6 +160,7 @@ int Tcleci_Init(Tcl_Interp *interp) {
   _eciDelete = (void(*)(void*)) dlsym(eciLib, "eciDelete");
   _eciReset = (int (*)(void*)) dlsym(eciLib, "eciReset");
   _eciStop = (int (*)(void*)) dlsym(eciLib, "eciStop");
+  _eciClearInput = (int (*)(void*)) dlsym(eciLib, "eciClearInput");
   _eciPause = (int (*)(void*, int)) dlsym(eciLib, "eciPause");
   _eciSynthesize = (int (*)(void*)) dlsym(eciLib, "eciSynthesize");
   _eciSynchronize = (int (*)(void*)) dlsym(eciLib, "eciSynchronize");
@@ -185,7 +187,9 @@ int Tcleci_Init(Tcl_Interp *interp) {
   if(!_eciNew){okay=0; Tcl_AppendResult(interp, "eciNew undef\n", NULL);}
   if(!_eciDelete){okay=0;Tcl_AppendResult(interp, "eciDelete undef\n", NULL);}
   if(!_eciReset){okay=0;Tcl_AppendResult(interp, "eciReset undef\n", NULL);}
-  if(!_eciStop){okay=0;Tcl_AppendResult(interp, "eciStop undef\n", NULL);}
+  if(!_eciStop){okay=0;Tcl_AppendResult(interp, "eciStop
+ undef\n", NULL);}
+  if(!_eciClearInput){okay=0;Tcl_AppendResult(interp, "eciClearInput undef\n", NULL);}
   if(!_eciPause){okay=0;Tcl_AppendResult(interp, "eciPause undef\n", NULL);}
   if(!_eciSynthesize){okay=0;Tcl_AppendResult(interp, "eciSynthesize undef\n", NULL);}
   if(!_eciSpeaking){okay=0;Tcl_AppendResult(interp, "eciSpeaking undef\n", NULL);}
@@ -419,8 +423,13 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
   return TCL_ERROR;
 }
 
-int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if ( _eciSpeaking(eciHandle)) {
+int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int
+              objc, Tcl_Obj *CONST objv[]) {
+  if (_flushSpeech == 1) {
+    _eciClearInput(eciHandle);
+    _eciStop (eciHandle);
+    Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));
+  } else if ( _eciSpeaking(eciHandle)) {
     Tcl_SetObjResult( interp, Tcl_NewIntObj( 1 ));
   } else {
     Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));
