@@ -41,6 +41,7 @@ relevant tables bubble to the top.
     <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
     <xsl:include href="object.xsl"/>
     <xsl:include href="identity.xsl"/>
+    <xsl:include href="auto-rss-discover.xsl"/>
     <!-- { html body  -->
     <!-- nuke these -->
     <xsl:template match="//script|//meta"/>
@@ -119,6 +120,7 @@ relevant tables bubble to the top.
                     of the table (where specified).
                 </p>
             </xsl:if>
+            <xsl:call-template name="generate-rss"/>
         </body>
     </xsl:template>
     
