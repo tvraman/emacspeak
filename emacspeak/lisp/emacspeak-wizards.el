@@ -2704,7 +2704,7 @@ RIVO is implemented by rivo.pl ---
    streaming media for  a specified duration."
   (interactive
    (list
-    (read-from-minibuffer "At Time:")
+    (read-from-minibuffer "At Time: hh:mm Month Day")
     (let ((completion-ignore-case t)
           (emacspeak-speak-messages nil)
           (minibuffer-history emacspeak-realaudio-history))

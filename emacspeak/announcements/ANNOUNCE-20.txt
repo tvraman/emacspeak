@@ -3,7 +3,7 @@
 
 For Immediate Release:
 
-San Jose, Calif., (May 2, 2004)
+San Jose, Calif., (May 3, 2004)
     Emacspeak-2004: Empowering Experienced Users
     --Zero cost of ownership makes priceless software affordable!
 
@@ -34,6 +34,18 @@ speech-enabled access to the evolving semantic WWW.
 Major Enhancements:
 -------------------
 
+0)      Adds outline and bookmark support for Daisy Digital Books.
+1)      Speech-enables package ido.el.
+2)      Speech-enables package iswitchb.
+3)      Speech-enables new visual GDB interface (Emacs 21.3.50
+CVS).
+4)      Speech-enables package re-builder.el.
+5)      Enhances XSLT support within Emacs/W3.
+6)      New productivity wizards.
+7)      New URL templates for productive Web access.
+8)      Updated WebSearch tools.
+9)      Updated JDE support.
+10)     Updated ECB support. 
 
 
 See the NEWS file for additional details. 
@@ -100,28 +112,31 @@ by sending mail to the list request address
 emacspeak-request@cs.vassar.edu.  The latest development snapshot
 of Emacspeak is available via anonymous CVS from sourceforge.
 
-History: -------- Emacspeak-20.0 -- AKA LeapDog -- continues the
-long established GNU/Emacs tradition of integrated innovation to
-create a pleasurable computing environment for eyes-free
-interaction.  emacspeak-19.0 --AKA WorkDog-- is designed to
-enhance user productivity at work and leisure.  Emacspeak-18.0
---code named GoodDog-- continued the Emacspeak tradition of
-enhancing user productivity and thereby reducing total cost of
-ownership.  Emacspeak-17.0 --code named HappyDog-- enhances user
-productivity by exploiting today's evolving WWW
-standards. Emacspeak-16.0 --code named CleverDog-- the follow-up
-to SmartDog-- continued the tradition of working better, faster,
-smarter. Emacspeak-15.0 --code named SmartDog--followed up on
-TopDog as the next in a continuing a series of award-winning
-audio desktop releases from Emacspeak Inc.  Emacspeak-14.0 --code
-named TopDog--was the first release of this
-millennium. Emacspeak-13.0 --codenamed YellowLab-- was the
-closing release of the 20th. century. Emacspeak-12.0 --code named
-GoldenDog-- began leveraging the evolving semantic WWW to provide
-task-oriented speech access to Webformation. Emacspeak-11.0
---code named Aster-- went the final step in making Linux a
-zero-cost Internet access solution for blind and visually
-impaired users. Emacspeak-10.0 --(AKA Emacspeak-2000) code named
+History:
+--------
+
+ Emacspeak-20.0 -- AKA LeapDog -- continues the long established
+GNU/Emacs tradition of integrated innovation to create a
+pleasurable computing environment for eyes-free interaction.
+emacspeak-19.0 --AKA WorkDog-- is designed to enhance user
+productivity at work and leisure.  Emacspeak-18.0 --code named
+GoodDog-- continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of ownership.
+Emacspeak-17.0 --code named HappyDog-- enhances user productivity
+by exploiting today's evolving WWW standards. Emacspeak-16.0
+--code named CleverDog-- the follow-up to SmartDog-- continued
+the tradition of working better, faster, smarter. Emacspeak-15.0
+--code named SmartDog--followed up on TopDog as the next in a
+continuing a series of award-winning audio desktop releases from
+Emacspeak Inc.  Emacspeak-14.0 --code named TopDog--was the first
+release of this millennium. Emacspeak-13.0 --codenamed
+YellowLab-- was the closing release of the
+20th. century. Emacspeak-12.0 --code named GoldenDog-- began
+leveraging the evolving semantic WWW to provide task-oriented
+speech access to Webformation. Emacspeak-11.0 --code named
+Aster-- went the final step in making Linux a zero-cost Internet
+access solution for blind and visually impaired
+users. Emacspeak-10.0 --(AKA Emacspeak-2000) code named
 WonderDog-- continued the tradition of award-winning software
 releases designed to make eyes-free computing a productive and
 pleasurable experience. Emacspeak-9.0 --(AKA Emacspeak 99) code
