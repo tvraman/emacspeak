@@ -7,6 +7,9 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Emacspeak 16.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
+** Speech-enables W3M
+
+W3M is an alternative to using Emacs W3.
 
 ** IMCom for Jabber:
 
