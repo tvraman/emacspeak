@@ -371,7 +371,7 @@ set the current local value to the result.")
              (t (second fields))))))
 
 (defvar emacspeak-erc-cricket-4-6-pattern
-  " [0-9]+x\[46] "
+  " [0-9]+x\[46]"
   "Matches pattern used to  score number of fours and sixes in IRC #cricket.")
 
 (defun emacspeak-erc-cricket-convert-4-6-pattern (pattern)
@@ -395,14 +395,14 @@ set the current local value to the result.")
    (cons 're-search-forward
          'emacspeak-erc-cricket-convert-4-6-pattern))
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-   " [0-9]+nb "
+   " [0-9]+nb"
    (cons
     're-search-forward
     #'(lambda (pattern)
         (format "%s no balls "
                 (substring pattern 0 -2)))))
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-   " [0-9]+b "
+   "[0-9]+b"
    (cons
     're-search-forward
     #'(lambda (pattern)
