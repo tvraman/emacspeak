@@ -752,7 +752,9 @@ current page."
   (emacspeak-websearch-google
    (format "+link:%s"
            (url-view-url 'no-show))))
-(eval-when  (load)
+(eval-when  (eval load)
+  (require 'url-parse)
+  (require 'emacspeak-websearch)
 (defun emacspeak-w3-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
   (interactive)
@@ -761,8 +763,9 @@ current page."
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
    (format "+site:%s %s"
-           (url-host
-            (url-generic-parse-url (url-view-url 'no-show)))
+           (aref 
+            (url-generic-parse-url (url-view-url 'no-show))
+            3)
            (read-from-minibuffer "Search this site for: ")))))
 
 ;;}}}
