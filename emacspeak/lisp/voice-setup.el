@@ -56,8 +56,8 @@
 ;; When this minor mode is on, the voices of the current line are
 ;; updated with every insertion or deletion.
 ;;
-;; To define new reserved words or other patterns to highlight, use
-;; the `voice-lock-keywords' variable.  This should be mode-local.
+
+
 ;;
 
 ;;}}}
