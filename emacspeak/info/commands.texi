@@ -640,6 +640,10 @@ Play audio clip under point.
 Play SMIL content  under point.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-daisy-play-page-range (START END)
+Play pages in specified page range.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-daisy-stop-audio ()
 Stop audio.
 @end deffn
@@ -3764,6 +3768,10 @@ Present Google advanced search form simplified for speech interaction.
 
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky (QUERY)
 Do a I'm Feeling Lucky Google search.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range ()
+Use this from inside the calendar to do Google date-range searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-usenet-advanced ()
