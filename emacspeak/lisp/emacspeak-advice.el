@@ -1107,6 +1107,13 @@ in completion buffers"
 ;;}}}
 ;;{{{  Advice comint:
 (require 'shell)
+
+
+;;; Customize comint:
+(add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
+    (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+    (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
+
 (defvar emacspeak-comint-prompt-personality 'paul-monotone
   "Personality used for highlighting comint prompts.")
 
