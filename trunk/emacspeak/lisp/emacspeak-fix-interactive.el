@@ -115,6 +115,58 @@ after fixing them. "
         (push sym emacspeak-interactive-functions-that-are-fixed ))))))
   
 
+;;{{{  Understanding aid 
+(defun emacspeak-show-auto-advice-for-interactive (sym)
+  "Show the auto advice that will be genrated 
+by emacspeak to make 
+function definition of sym to make its interactive form speak its prompts. "
+  (let ((interactive-list
+         (split-string
+          (second (ad-interactive-form (symbol-function sym )))
+          "\n")))
+                                        ; advice if necessary
+    (when
+        (some
+         (function
+          (lambda (prompt)
+            (not
+             (or
+              (save-match-data 
+                (string-match  "^\\*?[pPr]" prompt ))
+              (string= "*" prompt )))))
+         interactive-list )
+      (progn
+        (`
+         (defadvice (, sym) (before  emacspeak-auto activate  )
+           "Automatically defined advice to speak interactive prompts. "
+           (interactive
+            (nconc  
+             (,@
+              (mapcar
+               (function 
+                (lambda (prompt)
+                  (` (let
+                         ((dtk-stop-immediately nil)
+                          (emacspeak-last-command-needs-minibuffer-spoken t)
+                          (emacspeak-speak-messages nil))
+                       (tts-with-punctuations "all"
+                                              (dtk-speak
+                                               (,
+                                                (format " %s "
+                                                        (or
+                                                         (if (= ?* (aref  prompt 0))
+                                                             (substring prompt 2 )
+                                                           (substring prompt 1 ))
+                                                         "")))))
+                       (call-interactively
+                        '(lambda (&rest args)
+                           (interactive (, prompt))
+                           args) nil)))))
+               interactive-list))))))))))
+
+
+;;}}}
+
 (defun emacspeak-fix-interactive (sym)
   "Fix the function definition of sym to make its interactive form speak its prompts. "
   (let ((interactive-list
@@ -144,6 +196,7 @@ after fixing them. "
                (lambda (prompt)
                  (` (let
                         ((dtk-stop-immediately nil)
+                         (emacspeak-last-command-needs-minibuffer-spoken t)
                          (emacspeak-speak-messages nil))
                       (tts-with-punctuations "all"
                                              (dtk-speak
@@ -154,12 +207,10 @@ after fixing them. "
                                                             (substring prompt 2 )
                                                           (substring prompt 1 ))
                                                         "")))))
-                      (let 
-                          ((emacspeak-last-command-needs-minibuffer-spoken t))
-                        (call-interactively
-                         '(lambda (&rest args)
-                            (interactive (, prompt))
-                            args) nil))))))
+                      (call-interactively
+                       '(lambda (&rest args)
+                          (interactive (, prompt))
+                          args) nil)))))
               interactive-list))))))))))
 
 ;;; inline function for use from other modules:

@@ -129,7 +129,7 @@ use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-midi-icons].
     task-done
     unmodified-object
     warn-user
-    window-config
+    window-resize
     y-answer
     yank-object
     yes-answer
@@ -441,6 +441,8 @@ is a .1ms note on instrument 60."
 
 (emacspeak-define-midi 'blank-line
                        '(9 20 .1))
+(emacspeak-define-midi 'window-resize
+                       '(107 20 .3))
 
 ;;}}}
 ;;{{{  queue a midi icon
