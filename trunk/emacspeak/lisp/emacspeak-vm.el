@@ -233,8 +233,7 @@ Note that some badly formed mime messages  cause trouble."
 ;;{{{  Moving between messages
 
 (add-hook 'vm-select-message-hook
-          (function (lambda nil 
-                      (emacspeak-vm-summarize-message))))
+          'emacspeak-vm-summarize-message)
 
 ;;}}}
 ;;{{{  Scrolling messages:
