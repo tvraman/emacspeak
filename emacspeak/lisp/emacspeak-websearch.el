@@ -1062,25 +1062,25 @@ Optional second arg data processes the results as data rather than HTML."
 <form method=GET  action=\"http://www.google.com/search\">
   <table>
     <tr>
-      <td>all   words </td>
-      <td> <input type=text  name=as_q > </td>
+      <td><label for=\"1\">all   words </td>
+      <td> <input id=\"1\" type=text  name=as_q > </td>
     </tr>
     <tr>
-      <td > exact </td>
-      <td> <input type=text   name=as_epq> </td>
+      <td > <label for=\"2\">exactSearch</label> </td>
+      <td> <input id=\"2\" type=text   name=as_epq> </td>
     </tr>
     <tr>
-      <td > any </td>
-      <td> <input type=text   name=as_oq> </td>
+      <td > <label for=\"3\">Partial match</label> </td>
+      <td> <input id=\"3\" type=text   name=as_oq> </td>
     </tr>
     <tr>
-      <td > without </td>
-      <td> <input type=text   name=as_eq> </td>
+      <td > <label for=\"4\">Not containing</label> </td>
+      <td> <input id=\"4\" type=text   name=as_eq> </td>
     </tr>
     <tr>
-      <td > Language </td>
+      <td > <label for=\"5\">Language</label> </td>
       <td>
-        <select name=lr >
+        <select id=\"5\" name=lr >
           <option >any language
             <option value=\"lang_ar\">Arabic
               <option value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)
@@ -1114,9 +1114,9 @@ Optional second arg data processes the results as data rather than HTML."
       </td>
     </tr>
     <tr>
-      <td > Newer than </td>
+      <td > <label for=\"6\">Newer than</label> </td>
       <td>
-        <select name=as_qdr>
+        <select id=\"6\" name=as_qdr>
           <option value=all> anytime 
             <option value=m3 >past 3 months
               <option value=m6 > past  6 months
@@ -1125,9 +1125,9 @@ Optional second arg data processes the results as data rather than HTML."
       </td>
     </tr>
     <tr>
-      <td> Match in</td>
+      <td> <label for=\"7\">Match in</label></td>
       <td>
-        <select name=as_occt>
+        <select id=\"7\" name=as_occt>
           <option value=any selected>anywhere in the page
             <option value=title >in the title of the page
               <option value=body >in the text of the page
@@ -1138,25 +1138,29 @@ Optional second arg data processes the results as data rather than HTML."
     </tr>
     <tr>
       <td >
-        <select name=as_dt>
+<label for=\"site\">Site Search</label>
+        <select id=\"site\" name=as_dt>
           <option value=i>Only
             <option value=e >Don't
-        </select>look in   domain
+        </select>
+<label for=\"8\">look in   domain</label>
       </td>
       <td>
-        <input   name=as_sitesearch>
+        <input   id=\"8\" name=as_sitesearch>
       </td>
     </tr>
     <tr >
       <td>Filters</td>
       <td>
-        <input type=radio checked value=off name=safe> No filtering
-          <input type=radio  value=active name=safe> 
+        <input id=\"9\" type=radio checked value=off
+          name=safe> <label for=\"9\">No filtering</label>
+          <input id=\"10\" type=radio  value=active name=safe>
+          <label for=\"10\">Safe</label>
       </td>
     </tr>
     <tr>
       <td  >
-        <select name=num>
+        <select id=\"11\" name=num>
           <option value=\"10\" selected>10 results
             <option value=\"20\">20 results
               <option value=\"30\">30 results
