@@ -277,11 +277,14 @@ functions for details. There is an info manual for
 Emacspeak, but it is still preliminary. The source code
 documentation is up-to-date, please use it.  "
   (interactive)
-  (declare (special default-enable-multibyte-characters
+  (declare (special mark-even-if-inactive
+                    default-enable-multibyte-characters
                     emacspeak-unibyte
                     emacspeak-play-program
                     emacspeak-sounds-directory
                     emacspeak-emacs-commands-to-fix))
+  ;;; fixes transient mark mode in emacspeak 
+  (setq mark-even-if-inactive t)
   (emacspeak-export-environment)
   (require 'dtk-speak)
   (dtk-initialize)
