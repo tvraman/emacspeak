@@ -14,18 +14,15 @@
     ("cd-tool.el"
         "Play  CDs from Emacs"
         nil)
+    ("dectalk-voices.el"
+        "Define various device independent voices in terms of Dectalk codes."
+        (voice  personality  dectalk))
     ("dtk-interp.el"
         "Language specific (e.g. TCL) interface to speech server"
         (tts  dectalk  speech server))
     ("dtk-speak.el"
         "Provides Emacs Lisp interface to speech server"
         (dectalk emacs elisp))
-    ("dectalk-voices.el"
-        "Define various device independent voices in terms of Dectalk codes."
-        (voice  personality  dectalk))
-    ("eflite-voices.el"
-        "Emacspeak EFLITE "
-        (emacspeak   audio desktop eflite))
     ("emacspeak-actions.el"
         "Emacspeak actions -- callbacks that can be associated with portions of a buffer"
         (emacspeak  audio interface to emacs actions))
@@ -467,6 +464,9 @@
     ("emacspeak.el"
         "Emacspeak -- The Complete Audio Desktop"
         (emacspeak  speech  dectalk ))
+    ("flite-voices.el"
+        "Emacspeak FLite"
+        (emacspeak   audio desktop flite))
     ("html-outline.el"
         "Extends html-helper-mode to provide outline and imenu support"
         nil)
