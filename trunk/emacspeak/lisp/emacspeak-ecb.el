@@ -226,6 +226,15 @@ available."
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
+(defadvice tree-buffer-show-menu-keyboard (around emacspeak pre
+                                                  act comp)
+  "When on the console, always use TMM."
+  (cond
+   ((and (interactive-p)
+         (not window-system))
+    (tree-buffer-show-menu-keyboard 'use-tmm)    )
+   (t ad-do-it)))
+
 ;;}}}
 ;;{{{ commands to speak ECB windows without  moving
 
