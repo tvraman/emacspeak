@@ -1310,13 +1310,17 @@ WIth prefix argument N, move N items (negative N means move backward)."
 ;;}}}
 ;;{{{ mail check
 
-(defvar emacspeak-mail-spool-file
-  (concat
+(defcustom emacspeak-mail-spool-file
+  (expand-file-name
+   (user-login-name)
    (if (boundp 'rmail-spool-directory)
        rmail-spool-directory
-     "/usr/spool/mail/")
-   (user-login-name))
-  "Mail spool file examined  to alert you about newly arrived mail.")
+     "/usr/spool/mail/"))
+  "Mail spool file examined  to alert you about newly
+arrived mail."
+  :type '(file :tag "Mail drop location")
+  :group 'emacspeak-speak)
+               
   
 (defsubst emacspeak-get-file-modification-time (filename)
   "Return file modification time for file FILENAME."
