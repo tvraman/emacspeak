@@ -1,4 +1,4 @@
-;;; emacspeak-load-path.el -- Setup Emacs load-path for compiling Emacspeak
+;;; emacspeak-load-path.el --- Setup load-path correctly for Emacspeak compilation
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Sets up load-path for emacspeak compilation and installation
@@ -35,18 +35,12 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(defvar emacspeak-directory
-  (expand-file-name "/home/raman/emacs/lisp/emacspeak")
+(defvar emacspeak-dir
+  (expand-file-name "/user/raman/emacs/lisp/emacspeak")
   "Directory where emacspeak is installed. ")
-
-
-(defvar emacspeak-lisp-directory
-  (expand-file-name "lisp/" emacspeak-directory)
-  "Directory containing lisp files for  Emacspeak.. ")  
-
-(or (member emacspeak-lisp-directory load-path )
+(or (member emacspeak-dir load-path )
 (setq load-path
-      (cons emacspeak-lisp-directory 
+      (cons emacspeak-dir 
                               load-path )))
 
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
