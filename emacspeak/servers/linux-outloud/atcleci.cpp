@@ -58,8 +58,6 @@
 //>
 //<includes
 
-
-
 #include <sys/time.h>
 #include <dlfcn.h>
 
