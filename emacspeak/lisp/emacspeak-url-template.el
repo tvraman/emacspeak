@@ -459,6 +459,14 @@ from English to German.")
 ;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define
+ "Google Text  News"
+ "http://news.google.com/news?ned=tus"
+ nil
+ #'(lambda nil
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Google News Overview.")
+
+(emacspeak-url-template-define
  "Google Headline News"
  "http://www.google.com/news/newsheadlines.html"
  nil
@@ -469,7 +477,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&q=%s&scoring=d&btnG=Google+Search"
+ "http://news.google.com/news?hl=en&ned=tusq=%s&scoring=d&btnG=Google+Search"
  (list "Search news for: ")
  #'(lambda nil
      (search-forward "Sorted by")
@@ -479,6 +487,8 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
+
+
 
 ;;}}}
 ;;{{{ mapquest
