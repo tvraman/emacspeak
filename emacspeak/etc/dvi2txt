@@ -3,7 +3,6 @@
 #Description: Install  package xpdftoobtain pdftotext
 if which pdftotext > /dev/null
 then
-    cd /tmp
     DVI=$1
     PDF=/tmp/dviviewfile$$.pdf
     TXT=/tmp/dviviewfile$$.txt
