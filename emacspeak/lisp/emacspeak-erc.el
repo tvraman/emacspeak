@@ -172,29 +172,35 @@ user is notified about activity in the room.")
 (make-variable-buffer-local
  'emacspeak-erc-people-to-monitor)
 
+
+(defsubst emacspeak-erc-read-person (action)
+  "Helper to prompt for and read person in ERC."
+  (read-from-minibuffer
+   (format "%s person" action)
+   (save-excursion
+     (search-backward  "<" (point-min) nil)
+     (thing-at-point 'sexp))))
+
 (defun emacspeak-erc-add-name-to-monitor (name)
   "Add people to monitor in this room."
   (interactive
    (list
-    (read-from-minibuffer "Who should I monitor? ")))
-(declare (special emacspeak-erc-people-to-monitor))
-(unless (eq major-mode 'erc-mode)
-  (error "Not in an ERC buffer."))
-(pushnew name emacspeak-erc-people-to-monitor
-         :test #'string-equal)
-(message "monitoring %s"
-         (mapconcat #'identity 
-emacspeak-erc-people-to-monitor " ")))
+    (emacspeak-erc-read-person "Add ")))
+  (declare (special emacspeak-erc-people-to-monitor))
+  (unless (eq major-mode 'erc-mode)
+    (error "Not in an ERC buffer."))
+  (pushnew name emacspeak-erc-people-to-monitor
+           :test #'string-equal)
+  (emacspeak-auditory-icon 'select-object)
+  (message "monitoring %s"
+           (mapconcat #'identity 
+                      emacspeak-erc-people-to-monitor " ")))
 
 (defun emacspeak-erc-delete-name-from-monitor (name)
   "Remove name to monitor in this room."
   (interactive
    (list
-    (read-from-minibuffer
-     (format 
-      "Currently monitoring %s"
-      (mapconcat #'identity 
-                 emacspeak-erc-people-to-monitor " ")))))
+    (emacspeak-erc-read-person "Delete ")))
   (declare (special emacspeak-erc-people-to-monitor))
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
@@ -203,7 +209,11 @@ emacspeak-erc-people-to-monitor " ")))
          (function
           (lambda (x)
             (string-equal x name)))
-         emacspeak-erc-people-to-monitor)))
+         emacspeak-erc-people-to-monitor))
+  (emacspeak-auditory-icon 'delete-object)
+  (message "monitoring %s"
+           (mapconcat #'identity 
+                      emacspeak-erc-people-to-monitor " ")))
 
 
 (defun emacspeak-erc-compute-message (string buffer)
