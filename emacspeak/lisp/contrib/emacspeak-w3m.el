@@ -1,4 +1,6 @@
 ;;; emacspeak-w3m.el --- speech-enables w3m-el
+;;; This file is not part of Emacspeak, but the same terms and
+;;; conditions apply.
 
 ;; Copyright (C) 2001,2002  Dimitri V. Paduchih
 
@@ -50,8 +52,8 @@
   "Return string containing text of anchor under point."
   (if (get-text-property (point) 'w3m-cursor-anchor)
       (buffer-substring
-       (previous-single-char-property-change (1+ (point)) 'w3m-cursor-anchor)
-       (next-single-char-property-change (point) 'w3m-cursor-anchor))
+       (previous-single-property-change (1+ (point)) 'w3m-cursor-anchor)
+       (next-single-property-change (point) 'w3m-cursor-anchor))
     (or default "")))
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
