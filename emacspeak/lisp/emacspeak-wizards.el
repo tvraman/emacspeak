@@ -1615,7 +1615,7 @@ visiting the xls file."
       (switch-to-buffer emacspeak-wizards-xl-preview-buffer)))))
 
 (emacspeak-wizards-augment-auto-mode-alist
-"\\.xls$"
+ "\\.xls$"
  'emacspeak-wizards-xl-mode)
 
 ;;}}}
@@ -1674,13 +1674,12 @@ visiting the ppts file."
 ;;}}}
 ;;{{{ detailed quotes 
 (defcustom emacspeak-wizards-quote-command 
-(expand-file-name "quotes.pl"
-emacspeak-etc-directory)
-"Command for pulling up detailed stock quotes.
+  (expand-file-name "quotes.pl"
+                    emacspeak-etc-directory)
+  "Command for pulling up detailed stock quotes.
 this requires Perl module Finance::YahooQuote."
-:type 'file
-:group 'emacspeak-wizards)
-
+  :type 'file
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-wizards-portfolio-quotes ()
   "Bring up detailed stock quotes for portfolio specified by 
@@ -1709,15 +1708,56 @@ emacspeak-websearch-personal-portfolio."
 
 \\{emacspeak-wizards-finder-mode-map")
 
+(defvar emacspeak-wizards-find-switches-widget
+"Widget to get find switch."
+'(cons :tag "Find Expression"
+                            (menu-choice :tag "Find Test"
+                             (string :tag "Test")
+                             (const "-name" )
+                             (const "-iname")
+                             (const "-path")
+                             (const "-ipath")
+                             (const "-regexp")
+                             (const "-iregexp")
+                             (const "-exec")
+                             (const "-atime")
+                             (const "-ctime")
+                             (const "-mtime")
+                             (const "-amin")
+                             (const "-mmin")
+                             (const "-cmin")
+                             (const "-size")
+                             (const "-type")
+                            (string :tag "Value"))))
+
 (defvar emacspeak-wizards-finder-args nil
   "List of switches to use as test arguments to find.")
 
 (make-variable-buffer-local 'emacspeak-wizards-finder-args)
 
+(defcustom emacspeak-wizards-find-switches-that-need-quoting
+  (list "-name" "-iname"
+        "-path" "-ipath"
+        "-regexp" "-iregexp")
+  "Find switches whose args need quoting."
+  :type '(repeat
+          (string))
+  :group 'emacspeak-wizards)
+
+
+(defsubst emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
+"Quote find arg if necessary."
+  (declare (special emacspeak-wizards-find-switches-that-need-quoting))
+  (if (member switch emacspeak-wizards-find-switches-that-need-quoting)
+      (format "'%s'" arg)
+    arg))
+
 (defun emacspeak-wizards-generate-finder   ()
   "Generate a widget-enabled finder wizard."
   (interactive)
-  (declare (special default-directory))
+  (declare (special default-directory
+                    emacspeak-wizards-find-switches-widget))
+  (require 'cus-edit)
   (let ((value nil)
         (notify (emacspeak-wizards-generate-finder-callback))
         (buffer-name "*Emacspeak Finder*")
@@ -1735,15 +1775,18 @@ emacspeak-websearch-personal-portfolio."
                      :tag "Find Criteria"
                      :value value
                      :notify notify
-                     '(cons :tag "Find Expression"
-                            (string :tag "Test")
-                            (string :tag "Value")))
+                     emacspeak-wizards-find-switches-widget)
       (widget-insert "\n")
       (widget-create 'push-button
                      :tag "Find Matching Files"
                      :notify
                      #'(lambda (&rest ignore)
-                         (call-interactively 'emacspeak-wizards-finder-find)))
+                         (call-interactively
+                          'emacspeak-wizards-finder-find)))
+(widget-create 'info-link 
+		 :tag "Help"
+		 :help-echo "Read the online help."
+		 "(find)Finding Files")
       (widget-insert "\n\n")
       (emacspeak-wizards-finder-mode)
       (use-local-map widget-keymap)
@@ -1772,9 +1815,11 @@ directory to where find is to be launched."
   (let ((find-args
          (mapconcat
           #'(lambda (pair)
-              (format "%s '%s'"
+              (format "%s %s"
                       (car pair)
-                      (cdr pair)))
+                      (emacspeak-wizards-find-quote-arg-if-necessary
+                       (car pair)
+                       (cdr pair))))
           emacspeak-wizards-finder-args
           " ")))
     (find-dired directory   find-args)
