@@ -864,18 +864,6 @@ The PDF document needs to be available on the public Internet.")
 
 
 ;;}}}
-;;{{{ oasis 
-(emacspeak-url-template-define
- "OASIS  Lists"
- "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
- (list "OASIS Group: "
-       #'(lambda ()
-	   (emacspeak-url-template-collect-date  "YearMonth: "
-                                                 "%Y%m")))
- "Use this to pull up the
-archived  mail from the OASIS list. You need to know the exact name of the list.")
-
-;;}}}
 ;;{{{ w3c 
 
 (emacspeak-url-template-define
@@ -1685,23 +1673,22 @@ resources."
   templates."
   (declare (special emacspeak-url-template-table))
   (insert
-       "@node URL Templates \n@section  URL Templates\n\n")
+   "@node URL Templates \n@section  URL Templates\n\n")
   (insert
-       (format 
-       "This section is generated automatically from the source-level documentation.
+   (format 
+    "This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This section documents a total of %d URL Templates.\n\n"
-        (hash-table-count emacspeak-url-template-table)))
+    (hash-table-count emacspeak-url-template-table)))
   (loop for key being the hash-keys of emacspeak-url-template-table
-      do
-(princ key (current-buffer))
-    (insert "\n\n")
-    (princ
-     (emacspeak-url-template-documentation
-      (emacspeak-url-template-get key))
-     (current-buffer))
-(insert "\n\n")))
+        do
+        (insert
+         (format "@kbd{%s}\n\n" key))
+        (insert
+         (emacspeak-url-template-documentation
+          (emacspeak-url-template-get key)))
+        (insert "\n\n")))
 
 ;;}}}
 (provide 'emacspeak-url-template)
