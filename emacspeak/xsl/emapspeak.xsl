@@ -29,33 +29,48 @@ Description: Transformation rules for speaking map metadata from google maps.
     <h2>Location
 <xsl:value-of select="position()"/>:
      <xsl:apply-templates select="info/title"/></h2>
-    <table summary="Coordinates">
+    <table summary="info">
 <tr>
-  <td>Lat: <xsl:value-of select="point/@lat"/></td>
+  <td>Location</td>
+<td>Lat: <xsl:value-of select="point/@lat"/></td>
   <td>Lng: <xsl:value-of select="point/@lng"/></td>
-</tr></table>
+    </tr>
 <xsl:apply-templates select="info"/>
+    </table>
   </xsl:template>
-  
 
 <xsl:template match="info">
-  <table summary="info">
-    <tr>
-<td>Address</td><td>Phone</td><td>Distance</td></tr>
 <tr>
   <td>
 <xsl:apply-templates select="address"/>
   </td>
-<td><xsl:value-of select="phone/text()"/></td>
-<td><xsl:value-of select="distance/text()"/></td>
+<td>Tel: <xsl:value-of select="phone/text()"/></td>
+<td>Distance: <xsl:value-of select="distance/text()"/></td>
 </tr>
-  </table>
+<tr>
+  <td>Description</td>
+<td>
+  <a>
+<xsl:attribute name="href">
+<xsl:value-of select="normalize-space(description/references/reference/url)"/>
+</xsl:attribute>
+<xsl:value-of select="description/references/reference/title"/>
+  </a>
+</td>
+<td>
+<a>
+<xsl:attribute name="href">
+<xsl:value-of select="normalize-space(url)"/>
+</xsl:attribute>
+Web Site</a>
+</td>
+</tr>
 </xsl:template>
 <xsl:template match="address">
 
   <xsl:apply-templates select="line"/>
 </xsl:template>
 <xsl:template match="line">
-<xsl:copy-of select="."/><br/>
+  <xsl:copy-of select="."/><br/>
 </xsl:template>
 </xsl:stylesheet>
