@@ -100,19 +100,9 @@ Used to resolve relative URIs.")
 (declare (special emacspeak-daisy-base-uri))
 (expand-file-name relative emacspeak-daisy-base-uri))
 
-(defsubst emacspeak-daisy-get-tag (element)
-  "Return tag name for parsed XML element."
-  (cond
-   ((stringp (car element)) (car element))
-    ((listp (car element)) (caar element))
-    (t (error "Malformed element"))))
 
-(defsubst emacspeak-daisy-get-attribute (element attribute)
-  "Returns value of attribute from element.
-Element is the result of parsing an XML element structure."
-  (format "%s"
-  (cdr
-   (assoc attribute (cdr element )))))
+
+
 
 ;;}}}
 ;;{{{  play a clip 
@@ -126,11 +116,11 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   (declare (special emacspeak-daisy-mpg123-player))
   (unless
       (and (listp clip)
- (eq 'audio (caar clip)))
+ (string-equal "audio" (caar clip)))
     (error "Invalid audio clip."))
-  (let ((src (emacspeak-daisy-get-attribute (car clip) 'src))
-        (begin (emacspeak-daisy-get-attribute (car clip) 'clipBegin))
-        (end (emacspeak-daisy-get-attribute (car clip) 'clipEnd))
+  (let ((src (xml-tag-attr  clip "src"))
+        (begin (xml-tag-attr  clip "clipBegin"))
+        (end (xml-tag-attr  clip "clipEnd"))
         (first nil)
         (last nil)
         (path nil))
@@ -189,10 +179,11 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 
 (defsubst emacspeak-daisy-apply-handler (element)
   "Lookup and apply installed handler."
-  (let* ((tag (emacspeak-daisy-get-tag element))
+  (let* ((tag (xml-tag-name element))
          (handler  (emacspeak-daisy-get-handler tag)))
     (cond
-     (handler (funcall handler element))
+     ((and handler
+           (fboundp handler))(funcall handler element))
      (t
       (insert
        (format "Handler for %s not implemented yet.\n" tag))))))
@@ -203,20 +194,25 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
-      (mapc 'emacspeak-daisy-apply-handler (cdr ncx))
+      (mapc 'emacspeak-daisy-apply-handler (xml-tag-children ncx))
       (emacspeak-daisy-mode))
 (switch-to-buffer buffer)))
 
 (defun emacspeak-daisy-text-handler (element)
   "Handle element <text>...</text>."
-  (mapc #'insert (cdr element)
-        (insert "\n")))
+  (mapc #'insert (xml-tag-children element))
+  (insert "\n"))
    
 
 (defun emacspeak-daisy-doctitle-handler (element)
   "Handle <doctitle>...</doctitle>"
-  (mapc 'emacspeak-daisy-apply-handler
-        (cdr element )))
+  (let ((text (xml-tag-child  element "text"))
+        (audio (xml-tag-child element "audio"))
+        (start (point)))
+    (emacspeak-daisy-text-handler   text)
+    (put-text-property start (point)
+                       'audio audio)))
+  
 
 
 ;;}}}
@@ -254,8 +250,19 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 
+(define-key emacspeak-daisy-mode-map "\C-m" 'emacspeak-daisy-play-audio-clip-under-point)
+
 ;;}}}
 ;;{{{ interactive commands
+
+(defun emacspeak-daisy-play-audio-clip-under-point ()
+  "Play audio clip under point."
+  (interactive)
+  (let ((clip (get-text-property (point) 'audio)))
+    (cond
+     (clip
+  (emacspeak-daisy-play-audio-clip clip))
+     (t (error "No audio clip under point.")))))
 
 ;;}}}
 (provide 'emacspeak-daisy)
