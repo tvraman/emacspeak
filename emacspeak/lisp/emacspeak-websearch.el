@@ -195,7 +195,7 @@ When using W3,  this interface attempts to speak the most relevant information o
                                          "" "?") query)))
 	(w3-fetch the-url)))
      (t
-      (w3-warn 'html (format "Unknown submit method: %s" the-method))
+      (message "Unknown submit method: %s" the-method)
       (let ((the-url (concat the-url "?" query)))
 	(w3-fetch the-url))))))
 ;;{{{ helpers to read the query 
