@@ -1496,7 +1496,7 @@ Light for: ")))
              zip)))
   (emacspeak-websearch-post-process
    zip
-   'w3-table-speak-this-cell))
+   'w3-table-focus-on-this-cell))
 
 ;;}}}
 ;;{{{ W3C

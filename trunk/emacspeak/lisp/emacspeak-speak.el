@@ -1915,6 +1915,7 @@ To leave, press \\[keyboard-quit]."
 (defun emacspeak-root ()
   "Start a root shell or switch to one that already exists."
   (interactive)
+  (declare (special explicit-shell-file-name))
   (cond
    ((comint-check-proc "*root*")
     (pop-to-buffer "*root*")
