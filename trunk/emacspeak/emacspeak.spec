@@ -1,7 +1,7 @@
 #$Id$
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 13.0
+Version: 14.4991
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -34,6 +34,8 @@ make
 make install
 
 %post 
+cd /usr/share/emacs/site-lisp/emacspeak
+find . -type d -print |xargs chmod 755
 echo "Emacspeak is now installed on your system.
 Note that this has installed the sources for Emacspeak speech server for
 ViaVoice Outloud  --a software speech synthesis engine.
@@ -57,12 +59,8 @@ from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
 %files 
  /usr/share/emacs/site-lisp/emacspeak/
 %doc servers/linux-outloud/NOTES
-%doc etc/NEWS
-%doc etc/NEWS-12.0
-%doc etc/NEWS-11.0
-%doc etc/NEWS-10.0
-%doc etc/NEWS-9.0
-%doc etc/NEWS-8.0
+%doc etc/NEWS*
+%doc etc/PREREQUISITES
 %doc etc/FAQ
 /usr/bin/emacspeak
 /usr/info/emacspeak.info

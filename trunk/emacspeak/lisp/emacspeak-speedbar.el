@@ -64,7 +64,7 @@
 (require 'voice-lock)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
-(eval-when-compile (require 'speedbar))
+;(eval-when-compile (require 'speedbar))
 (eval-when (compile)
   (require 'emacspeak-fix-interactive))
 
