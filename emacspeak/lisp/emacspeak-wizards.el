@@ -2374,6 +2374,7 @@ Use with caution."
 
 ;;}}}
 ;;{{{ google hits 
+
 ;;;###autoload
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
@@ -2382,6 +2383,7 @@ hits."
   (let ((name   "Google Hits"))
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
+
 
 ;;}}}
 ;;{{{ longest line in region 
