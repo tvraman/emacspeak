@@ -139,6 +139,7 @@ r       RedHat Search Via Google
 Cap r   Recorded Books  Catalog search
 C-r     Find RPM packages
 s       Software  Search
+Cap S   Shoutcast Search
 C-s     Streaming Audio
 t       Machine translation 
 u       Usenet Index from Google
@@ -2978,6 +2979,139 @@ Light for: ")))
 
 
 ;;}}}
+;;{{{ Shoutcast
+
+(emacspeak-websearch-set-searcher 'shoutcast-search
+                                  'emacspeak-websearch-shoutcast-search)
+
+(emacspeak-websearch-set-key ?S 'shoutcast-search)
+
+(defvar emacspeak-websearch-shoutcast-search-form
+"
+<title>Locate Shoutcast Streams</title>
+<form action='http://yp.shoutcast.com/directory'>
+<table>
+<tr>
+<td>
+      <label for='genre'>Genre</label>
+	<SELECT id='genre' name='genre' >
+      <OPTION VALUE='TopTen'>[Top 25 Streams]
+	<OPTION VALUE='Alternative'>Alternative
+		<OPTION VALUE='College'> - College
+		<OPTION VALUE='Industrial'> - Industrial
+		<OPTION VALUE='Hardcore/Punk'> - Hardcore/Punk
+		<OPTION VALUE='Ska'> - Ska
+	<OPTION VALUE='Americana'>Americana
+		<OPTION VALUE='Ska'> - Ska
+		<OPTION VALUE='Blues'> - Blues
+		<OPTION VALUE='Folk'> - Folk
+		<OPTION VALUE='Cajun/Zydeco'> - Cajun/Zydeco
+		<OPTION VALUE='Bluegrass'> - Bluegrass
+	<OPTION VALUE='Classical'>Classical
+		<OPTION VALUE='Contemporary'> - Contemporary
+		<OPTION VALUE='Opera/Vocal'> - Opera/Vocal
+		<OPTION VALUE='Symphonic'> - Symphonic
+	<OPTION VALUE='Country'>Country
+		<OPTION VALUE='Western Swing'> - Western Swing
+		<OPTION VALUE='New Country'> - New Country
+		<OPTION VALUE='Bluegrass'> - Bluegrass
+	<OPTION VALUE='Electronic'>Electronic
+		<OPTION VALUE='Ambient'> - Ambient
+		<OPTION VALUE='Drum and Bass'> - Drum and Bass
+		<OPTION VALUE='Trance'> - Trance
+		<OPTION VALUE='Techno'> - Techno
+		<OPTION VALUE='House'> - House
+		<OPTION VALUE='Downtempo'> - Downtempo
+		<OPTION VALUE='Breakbeat'> - Breakbeat
+		<OPTION VALUE='Acid Jazz'> - Acid Jazz
+	<OPTION VALUE='Hip%20Hop'>Hip-Hop/Rap
+		<OPTION VALUE='Hardcore'> - Hardcore
+		<OPTION VALUE='Alternative'> - Alternative
+		<OPTION VALUE='Turntablism'> - Turntablism
+		<OPTION VALUE='Old School'> - Old School
+		<OPTION VALUE='New School'> - New School
+	<OPTION VALUE='Jazz'>Jazz
+		<OPTION VALUE='Latin'> - Latin
+		<OPTION VALUE='Big Band/Swing'> - Big Band/Swing
+		<OPTION VALUE='Classic'> - Classic
+		<OPTION VALUE='Smooth'> - Smooth
+		<OPTION VALUE='Acid Jazz'> - Acid Jazz
+	<OPTION VALUE='Pop/Rock'>Pop/Rock
+		<OPTION VALUE='Oldies'> - Oldies
+		<OPTION VALUE='Classic'> - Classic
+		<OPTION VALUE='80s'> - 80s
+		<OPTION VALUE='Top 40'> - Top 40
+		<OPTION VALUE='Metal'> - Metal
+		<OPTION VALUE='Rock'> - Rock
+		<OPTION VALUE='Pop'> - Pop
+	<OPTION VALUE='R%26B/Soul'>R&B/Soul
+		<OPTION VALUE='Contemporary'> - Contemporary
+		<OPTION VALUE='Classic'> - Classic
+		<OPTION VALUE='Funk'> - Funk
+		<OPTION VALUE='Smooth'> - Smooth
+		<OPTION VALUE='Urban'> - Urban
+	<OPTION VALUE='Spiritual'>Spiritual
+		<OPTION VALUE='Pop'> - Pop
+		<OPTION VALUE='Rock'> - Rock
+		<OPTION VALUE='Alternative'> - Alternative
+		<OPTION VALUE='Gospel'> - Gospel
+		<OPTION VALUE='Country'> - Country
+	<OPTION VALUE='Spoken'>Spoken
+		<OPTION VALUE='Talk'> - Talk
+		<OPTION VALUE='Comedy'> - Comedy
+		<OPTION VALUE='Spoken Word'> - Spoken Word
+	<OPTION VALUE='World'>World
+		<OPTION VALUE='Reggae'> - Reggae/Island
+		<OPTION VALUE='African'> - African
+		<OPTION VALUE='Latin'> - Latin
+		<OPTION VALUE='European'> - European
+		<OPTION VALUE='Middle Eastern'> - Middle Eastern
+		<OPTION VALUE='Asian'> - Asian
+	<OPTION VALUE='Other/Mixed'>Other/Mixed
+		<OPTION VALUE='Eclectic'> - Eclectic
+		<OPTION VALUE='Film'> - Film/Show
+		<OPTION VALUE='Instrumental'> - Instrumental
+      </SELECT>
+</td>
+<td>
+<input name='s' id='find'><label for='find'>Find</label></td>
+      
+      <td>
+      <INPUT id='rg' name='st' type=radio value='gs'
+             CHECKED>
+<label for='rg'>Genre or Stream Title</label>
+
+      <INPUT id='rp' name='st' type=radio value='st'>
+<label for='rp'>Recently Played</label>
+</td>
+      <select name='l' id='count'>
+      <OPTION value='5'>5
+      <OPTION value='10'>10
+      <OPTION value='25' selected>25
+      <OPTION value='30'>30
+      <OPTION value='50'>50
+      <OPTION value='100'>100
+      </SELECT> <label for='count'>Results</label>
+      </td>
+<td>
+      <input type='submit' value='List'>
+</td>
+      </tr>
+</table>
+</form>
+"
+"Form for Shoutcast  search.")
+
+(defun emacspeak-websearch-shoutcast-search ()
+  "Ebay search."
+  (interactive)
+  (declare (special emacspeak-websearch-shoutcast-search-form))
+  (emacspeak-websearch-display-form emacspeak-websearch-shoutcast-search-form))
+
+
+
+;;}}}
+
 ;;{{{  site-specific search tools
 
 ;;; Load site-specific searchers 
