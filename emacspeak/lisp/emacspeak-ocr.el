@@ -196,6 +196,8 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
 (define-key emacspeak-ocr-mode-map "]"'emacspeak-ocr-forward-page)
 (define-key emacspeak-ocr-mode-map "p" 'emacspeak-ocr-page)
+(define-key emacspeak-ocr-mode-map " "
+  'emacspeak-ocr-read-current-page)
 
 (loop for i from 1 to 9
       do
@@ -279,9 +281,14 @@ Pick a short but meaningful name."
 
 (defun emacspeak-ocr-process-sentinel  (process state)
   "Alert user when OCR is complete."
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-current-page-number))
   (goto-char (point-max))
+  (setq emacspeak-ocr-current-page-number
+        emacspeak-ocr-last-page-number)
   (emacspeak-auditory-icon 'task-done)
-  (emacspeak-ocr-backward-page 1))
+  (goto-char (aref emacspeak-ocr-page-positions emacspeak-ocr-current-page-number)))
 
 
 (defun emacspeak-ocr-recognize-image ()
@@ -298,7 +305,7 @@ Pick a short but meaningful name."
           (1+ emacspeak-ocr-last-page-number))
     (aset emacspeak-ocr-page-positions
           emacspeak-ocr-last-page-number
-          (point))
+          (+ 3 (point)))
     (insert
      (format "\n%c\nPage %s\n" 12
              emacspeak-ocr-last-page-number))
@@ -348,6 +355,8 @@ corectly by themselves."
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-current-page-number))
   (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
    ((= emacspeak-ocr-last-page-number
        emacspeak-ocr-current-page-number)
     (message "This is the last page."))
@@ -365,6 +374,8 @@ corectly by themselves."
   (declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-current-page-number))
   (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
    ((= 1
        emacspeak-ocr-current-page-number)
     (message "This is the first page."))
@@ -390,6 +401,8 @@ corectly by themselves."
 (defun emacspeak-ocr-page ()
   "Move to specified page."
   (interactive )
+  (when (= 0 emacspeak-ocr-last-page-number)
+    (error "No pages in current document."))
   (let ((page
          (condition-case nil
              (read (format "%c" last-input-event ))
@@ -399,7 +412,30 @@ corectly by themselves."
               (read-minibuffer
                (format "Page number between 1 and %s: "
                        emacspeak-ocr-last-page-number))))
-    (emacspeak-ocr-goto-page page)))
+    (cond
+     ((> page emacspeak-ocr-last-page-number)
+      (message "Not that many pages in document."))
+     (t 
+      (emacspeak-ocr-goto-page page)))))
+
+(defun emacspeak-ocr-read-current-page ()
+  "Speaks current page."
+  (interactive)
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-current-page-number
+                    emacspeak-ocr-last-page-number))
+  (cond
+   ((= emacspeak-ocr-current-page-number
+       emacspeak-ocr-last-page-number)
+    (emacspeak-speak-region
+     (aref emacspeak-ocr-page-positions
+           emacspeak-ocr-current-page-number)
+     (point-max)))
+   (t (emacspeak-speak-region
+       (aref emacspeak-ocr-page-positions
+             emacspeak-ocr-current-page-number)
+       (aref emacspeak-ocr-page-positions
+             (1+ emacspeak-ocr-current-page-number))))))
 
 ;;}}}
 (provide 'emacspeak-ocr)
