@@ -116,6 +116,7 @@ Sort keys were number of text nodes in a table and the width
 <xsl:value-of select="count(./tr)"/>,<xsl:value-of select="count(./tr/td)"/>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:text> </xsl:text>
 </xsl:element>
   </xsl:template>
 <!-- } -->
