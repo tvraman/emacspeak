@@ -54,7 +54,8 @@
 (require 'backquote)
 (require 'custom)
 (require 'dtk-tcl)
-
+(require 'dtk-voices)
+(require 'outloud-voices)
 ;;}}}
 ;;{{{  user customizations:
 
@@ -606,32 +607,9 @@ This is setup on a per engine basis.")
   (unless tts-name (setq tts-name dtk-program))
   (cond
    ((string-match "outloud" tts-name)
-    (require 'outloud-voices)
-    (fset 'tts-get-voice-command 'outloud-get-voice-command)
-    (fset 'tts-voice-defined-p
-          'outloud-voice-defined-p)
-    (fset 'tts-define-voice-from-speech-style
-          'outloud-define-voice-from-speech-style)
-    (fset 'tts-personality-from-speech-style
-          'outloud-personality-from-speech-style)
-    (setq tts-default-speech-rate outloud-default-speech-rate))
-   (t (require 'dtk-voices)
-      (fset 'tts-get-voice-command 'dtk-get-voice-command)
-      (fset 'tts-voice-defined-p
-            'dtk-voice-defined-p)
-      (fset 'tts-define-voice-from-speech-style
-            'dtk-define-voice-from-speech-style)
-      (fset 'tts-personality-from-speech-style
-            'dectalk-personality-from-speech-style)
-      (setq tts-default-speech-rate dtk-default-speech-rate)))
-  (setq tts-voice-reset-code (tts-get-voice-command
-                              tts-default-voice))
-  (when (and (string-match  "outloud" dtk-program)
-             emacspeak-use-auditory-icons
-             (not emacspeak-aumix-multichannel-capable-p)
-             (not (emacspeak-using-midi-p))
-             emacspeak-aumix-midi-available-p)
-    (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
+    (outloud-configure-tts))
+   (t (dtk-configure-tts)))
+  (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
 ;;; forward declaration.
 (defun dtk-select-server (program )
