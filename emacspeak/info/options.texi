@@ -19,6 +19,7 @@ documentation.
 * emacspeak-calendar Options::  
 * emacspeak-custom Options::    
 * emacspeak-daisy Options::     
+* emacspeak-dired Options::     
 * emacspeak-dismal Options::    
 * emacspeak-ediff Options::     
 * emacspeak-entertain Options::  
@@ -409,6 +410,51 @@ Customize this to the root of where books are organized.
 These file name extensions are ignored when locating the
 navigation file for a book. Include all extensions except `.ncx'
   for optimal performance.
+@end defvar
+
+@node emacspeak-dired Options
+@section emacspeak-dired Options
+
+Commentary:
+This module speech enables dired.
+It reduces the amount of speech you hear:
+Typically you hear the file names as you move through the dired buffer
+Voicification is used to indicate directories, marked files etc.
+
+Automatically generated documentation
+for options defined in module  emacspeak-dired.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-dired-directory-personality
+Personality for directories in dired.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-flag-personality
+Personality for flag in dired.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-header-personality
+Personality for dired header line.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-ignored-personality
+Personality for ignored lines in dired.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-mark-personality
+Personality for dired mark.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-marked-personality
+Personality for marked files in dired.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-symlink-personality
+Personality for symlinks.
+@end defvar
+
+@defvar {User Option} emacspeak-dired-warning-personality
+Personality for dired warnings.
 @end defvar
 
 @node emacspeak-dismal Options
