@@ -1273,6 +1273,7 @@ in completion buffers"
                       (eq (selected-window)
                           (get-buffer-window
                            (process-buffer (ad-get-arg 0))))))
+
         (when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
         (condition-case nil
             (emacspeak-speak-region prior (point ))
