@@ -200,8 +200,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{  global key definitions 
-
-    (global-set-key "\C-x\C-v" 'view-file)
     (global-set-key "\C-xc" 'compile)
 
     (global-set-key  "\C-x%" 'comment-region)
