@@ -51,9 +51,9 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'backquote)
-(eval-when-compile
   (require 'emacspeak-speak)
-  (require 'emacspeak-sounds))
+  (require 'emacspeak-sounds)
+(require voice-setup)
 
 ;;}}}
 ;;{{{ advice interactive commands
@@ -90,6 +90,13 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
+
+;;}}}
+;;{{{ voice setup 
+
+(def-voice-font emacspeak-analog-entry-header-personality voice-bolden
+  'analog-entry-header-face
+  "Personality used for header lines.")
 
 ;;}}}
 ;;{{{ field navigation
