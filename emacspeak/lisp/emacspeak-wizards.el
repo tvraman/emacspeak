@@ -2398,9 +2398,10 @@ Interactive  arguments specify filename pattern and search pattern."
     (read-from-minibuffer "Look for: ")))
   (compile
    (format
-    "find . -type f -name '%s' | xargs -0 -e grep -n -e '%s'"
+    "find . -type f -name '%s' -print0 | xargs -0 -e grep -n -e '%s'"
     glob pattern))
   (emacspeak-auditory-icon 'task-done))
+
 ;;}}}
 ;;{{{ face wizard
 ;;;###autoload
