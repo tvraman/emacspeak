@@ -237,7 +237,7 @@ proc speech_task {} {
             }
             a {
                 set sound [lindex $event 1]
-                playWave $sound
+                exec play $sound &
             }
             b {
                 if {$tts(beep)} {
