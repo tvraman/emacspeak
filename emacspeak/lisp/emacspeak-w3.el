@@ -1005,7 +1005,9 @@ used as well."
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter 
             (read-from-minibuffer  "Specify xpath: "
-                                   emacspeak-w3-most-recent-xpath-filter)))
+                                   emacspeak-w3-most-recent-xpath-filter))
+      (setq emacspeak-w3-xpath-filter
+            emacspeak-w3-most-recent-xpath-filter))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
 			      (or redirect url)
 			      'speak)
