@@ -1941,8 +1941,7 @@ directory to where find is to be launched."
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
-  (declare (special emacspeak-xslt-directory
-                    emacspeak-w3-post-process-hook))
+  (declare (special emacspeak-w3-post-process-hook))
   (save-excursion
     (set-buffer (url-retrieve-synchronously url))
     (let ((src-buffer (current-buffer))
@@ -2233,6 +2232,19 @@ defgroup declarations found in current directory."
       
    
     
+
+;;}}}
+;;{{{ view RSS feed
+(defun emacspeak-wizards-rss-view (rss-url)
+  "Retrieve and display RSS news feed."
+  (interactive
+   (list
+    (read-from-minibuffer "RSS Feed: ")))
+  (declare (special emacspeak-xslt-directory))
+  (emacspeak-wizards-browse-url-with-style
+   (expand-file-name "rss.xsl"
+                     emacspeak-xslt-directory)
+   rss-url))
 
 ;;}}}
 (provide 'emacspeak-wizards)

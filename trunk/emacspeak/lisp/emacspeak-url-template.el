@@ -169,6 +169,17 @@ prompting for a template.")
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{ xml.com rss feed
+ (emacspeak-url-template-define
+  "XML.COM RSS Feed"
+  "http://www.xml.com/xml/news.rss"
+  nil
+  'emacspeak-speak-buffer
+  "Display RSS feed from XML.COM"
+  #'(lambda (url)
+      (emacspeak-wizards-rss-view url)))
+
+;;}}}
 ;;{{{ shoutcast 
 
 (emacspeak-url-template-define
