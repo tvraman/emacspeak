@@ -435,7 +435,7 @@ from English to German.")
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-	   (list "feed" "st_util__print"))
+	   (list "$" "&tag=st_util_print"))
      (emacspeak-speak-buffer))
  "Display tech news from CNET"
  #'(lambda (url)

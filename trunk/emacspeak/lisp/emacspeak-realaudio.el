@@ -216,7 +216,7 @@ Echo output and return it as a string."
 					 emacspeak-realaudio-process))))))
 
 
-(defun emacspeak-realaudio-trplayer-command (char)el
+(defun emacspeak-realaudio-trplayer-command (char)e
   "Execute TRPlayer command."
   (interactive "cTRPlayer Command:")
   (declare (special emacspeak-realaudio-process))
