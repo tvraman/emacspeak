@@ -280,10 +280,10 @@ signal ignore {sigint}
 tts_initialize
 set tts(speech_rate)  75
 notes_initialize
-set tclTTS $env(EMACSPEAK_DIR)/servers/linux-outloud
+set servers [file dirname $argv0]
+set tclTTS $servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
- cd /tmp
     synth {`v1 Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
 synth
