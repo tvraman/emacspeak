@@ -104,6 +104,7 @@
 (define-key emacspeak-keymap "v" 'emacspeak-speak-version)
 (define-key emacspeak-keymap "\C-v" 'view-mode)
 (define-key emacspeak-keymap "t" 'emacspeak-speak-time )
+(define-key emacspeak-keymap "T" 'emacspeak-speak-telephone-directory )
 (define-key emacspeak-keymap "s" 'dtk-stop)
 (define-key emacspeak-keymap "r" 'emacspeak-speak-region)
 (define-key emacspeak-keymap "R" 'emacspeak-speak-rectangle)
