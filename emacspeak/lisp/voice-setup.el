@@ -250,15 +250,15 @@ command \\[customize-variable] on <personality>-settings."
                       (integer :tag "Number"))
               (choice :tag "Punctuation Mode "
                       (const :tag "Unspecified" nil)
-                      (const :tag "All punctuations" 'all)
-                      (const :tag "Some punctuations" 'some)
-                      (const :tag "No punctuations" 'none)))
+                      (const :tag "All punctuations" all)
+                      (const :tag "Some punctuations" some)
+                      (const :tag "No punctuations" none)))
      :group 'voice-fonts
      :set
      '(lambda  (sym val)
         (let ((voice-name (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
-;;; update all observers		; ; ; ;	; ; ;
+;;; update all observers
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 
