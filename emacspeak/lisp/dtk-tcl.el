@@ -475,8 +475,11 @@ Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
                     emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
-             (get-text-property start 'auditory-icon))
-    (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
+             (or (tts-get-overlay-auditory-icon start)
+             (get-text-property start 'auditory-icon)))
+    (emacspeak-queue-auditory-icon
+     (or (tts-get-overlay-auditory-icon start)
+     (get-text-property start 'auditory-icon))))
   (cond
    (voice-lock-mode
     (let ((last  nil)
