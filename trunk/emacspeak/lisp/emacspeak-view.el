@@ -40,7 +40,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-voices)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 ;;{{{  Introduction:
@@ -57,14 +56,6 @@
                       (local-unset-key emacspeak-prefix )
 (emacspeak-view-setup-keys))))
 ;;; Generate automatic advise:
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        '(view-buffer
-view-file-other-window
-view-file
-View-search-regexp-backward
-view-buffer-other-window
-View-search-regexp-forward))
 
 ;;}}}
 ;;{{{ additional interactive commands

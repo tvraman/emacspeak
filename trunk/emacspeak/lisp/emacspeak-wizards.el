@@ -961,7 +961,7 @@ Argument VAR specifies variable whose value is to be displayed."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-speak-show-list-variable)
+
 (defun emacspeak-speak-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)

@@ -58,7 +58,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-keymap)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'wid-edit)
@@ -133,26 +132,6 @@ that is no longer supported by Emacspeak.")))
                                             (when (locate-library
                                                    "w3-imenu")
                                               (require 'w3-imenu)))))
-
-;;}}}
-;;{{{ fix interactive commands
-
-(loop for f in
-      (list 'url-insert-file-contents
-'w3-open-local
-'w3-read-html-bookmarks
-'w3-search-forward
-'w3-find-file
-'w3-follow-url-at-point
-'w3-follow-url-at-point-other-frame
-'w3-read-html-bookmarks)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f ))
-(eval-when (load eval)
-(eval-after-load  "w3-hot"
-  (progn
-    (emacspeak-fix-interactive-command-if-necessary 'w3-hotlist-apropos)
-(emacspeak-fix-interactive-command-if-necessary 'w3-hotlist-append))))
 
 ;;}}}
 ;;{{{  dump using lynx 

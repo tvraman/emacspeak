@@ -70,10 +70,6 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'open-object))))))
 
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        '(
-          find-function-on-key))
-
 ;;}}}
 
 (provide 'emacspeak-find-func)

@@ -132,7 +132,6 @@
     debugger-return-value
     define-mail-abbrev
     define-mail-alias
-    define-mail-alias
     describe-key
     describe-key-briefly
     desktop-save
@@ -145,7 +144,6 @@
     emacspeak-keymap-choose-new-emacspeak-prefix
     find-file
     find-file-literally
-    find-file-literally
     find-file-other-frame
     find-file-other-window
     find-file-read-only
@@ -154,10 +152,10 @@
     fold-goto-line
     global-unset-key
     goto-line
+    help-make-xrefs
     ielm-change-working-buffer
     increment-register
     insert-file
-    insert-file-literally
     insert-file-literally
     insert-register
     insert-variable
@@ -168,18 +166,10 @@
     local-unset-key
     locate-library
     mail-attach-file
-    mail-attach-file
     mail-fcc
-    mail-fcc
-    mail-fcc
-    make-frame-on-display
     make-frame-on-display
     make-obsolete
     makefile-insert-macro
-    makefile-insert-macro
-    makefile-insert-macro
-    makefile-insert-target
-    makefile-insert-target
     makefile-insert-target
     message-resend
     mime-include-audio
@@ -197,34 +187,30 @@
     number-to-register
     point-to-register
     prefer-coding-system
-    prefer-coding-system
     prepend-to-buffer
     prepend-to-register
     read-abbrev-file
     recover-file
     rename-buffer
     run-at-time
-    run-at-time
-    run-at-time
-    run-with-timer
     run-with-timer
     search-backward
-    set-buffer-file-coding-system
+    search-forward
+    select-frame-by-name
+    set-background-color
+    set-border-color
     set-buffer-file-coding-system
     set-buffer-process-coding-system
-    set-buffer-process-coding-system
-    set-foreground-color
+    set-cursor-color
     set-foreground-color
     set-frame-font
-    set-frame-font
+    set-frame-name
     set-left-margin
-    set-left-margin
-    set-right-margin
+    set-mouse-color
     set-right-margin
     set-selection-coding-system
     set-visited-file-name
     sort-regexp-fields
-    string-rectangle
     string-rectangle
     switch-to-buffer-other-frame
     switch-to-buffer-other-window
@@ -237,7 +223,6 @@
     view-register
     window-configuration-to-register
     zap-to-char
-search-forward
     )
   "Precomputed list of interactive functions that have to be fixed.
 Precomputing this saves time at start-up.")
