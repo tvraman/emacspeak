@@ -622,11 +622,12 @@ sourceforge.
 Typically %s is replaced by project name.")
 
 
-(defvar emacspeak-cvs-local-directory-pattern
-  "~/cvs-%s"
-  "Pattern from which name of local download directory is
-build.
-Typically, %s is replaced by the project name.")
+(defcustom emacspeak-cvs-local-directory-pattern
+  "~/sourceforge/cvs-%s"
+  "Pattern from which name of local download directory is build.
+ %s is replaced by the project name."
+:type 'string
+:group 'emacspeak-wizards)
 
 (defun emacspeak-cvs-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from Sourceforge."
