@@ -331,12 +331,13 @@ Modifies text and point in buffer."
 (defun emacspeak-pronounce-save-dictionaries  ()
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
-  (declare (special emacspeak-pronounce-dictionaries ))
-  (let* ((ido-mode nil)
+  (declare (special emacspeak-pronounce-dictionaries))
+  (let* (
          (filename (read-file-name
 		    "Save pronunciation dictionaries to file: "
 		    emacspeak-resource-directory
-		    emacspeak-pronounce-dictionaries-file ))
+                    nil nil 
+		    (file-name-nondirectory emacspeak-pronounce-dictionaries-file )))
 	 (buffer nil ))
     (setq buffer (find-file-noselect filename))
     (save-excursion
