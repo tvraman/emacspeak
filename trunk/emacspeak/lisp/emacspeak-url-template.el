@@ -199,6 +199,8 @@
       url)
      (search-forward
       (format-time-string "%A") nil t)
+     (setq emacspeak-w3-url-rewrite-rule
+           '("$" "&print=1"))
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer)))
 
@@ -320,13 +322,13 @@ Francisco ny for New york etc.")
  nil
  #'(lambda nil
      (declare (special  emacspeak-w3-url-rewrite-rule))
-(setq emacspeak-w3-url-rewrite-rule
-        '("$" "&print=1"))
-       (search-forward "News Stories")
-       (emacspeak-w3-next-doc-element)
-       (w3-table-move-to-table-start)
-       (w3-table-move-to-next-table-column)
-       (w3-table-speak-this-cell))
+     (setq emacspeak-w3-url-rewrite-rule
+           '("$" "&print=1"))
+     (search-forward "News Stories")
+     (emacspeak-w3-next-doc-element)
+     (w3-table-move-to-table-start)
+     (w3-table-move-to-next-table-column)
+     (w3-table-speak-this-cell))
  "Retrieve and speak Technology  section from Yahoo Daily News."
  #'(lambda (url)
      (declare (special emacspeak-w3-xsl-p
@@ -469,9 +471,9 @@ Computing News at CNN.")
            (emacspeak-w3-xsl-transform (expand-file-name
                                         "sort-tables.xsl"
                                         emacspeak-xslt-directory)))
-     (goto-char (point-min))
-     (search-forward (format-time-string "%B"))
-     (w3-table-speak-this-cell)))
+       (goto-char (point-min))
+       (search-forward (format-time-string "%B"))
+       (w3-table-speak-this-cell)))
  "Speak CNN Market Update.")
 
 
