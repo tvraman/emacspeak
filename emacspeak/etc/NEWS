@@ -65,6 +65,11 @@ to the default directory of the previously current buffer.
 
 Speak directory as part of the mode-line.
 
+** stereo-outloud:
+
+New speech server stereo-outloud implements a speech server
+for ViaVoice TTS using in-memory synthesis.
+
 
 Local variables:
  mode: outline
