@@ -442,28 +442,6 @@ and TABLE gives the values along that dimension."
     (outloud-define-voice name command)))
 
 ;;}}}
-;;{{{  outloud-personality-from-speech-style
-
-(defun outloud-personality-from-speech-style (style)
-  "First compute a symbol that will be name for this STYLE.
-Then see if a voice defined for it.
-Finally return the symbol"
-  (cond
-   ((= 0 (acss-gain style))
-    'inaudible)
-   (t
-    (let ((name (intern
-                 (format "%s-a%s-p%s-s%s-r%s"
-                         (acss-family style)
-                         (acss-average-pitch style)
-                         (acss-pitch-range style)
-                         (acss-stress style)
-                         (acss-richness style)))))
-      (unless (outloud-voice-defined-p name)
-        (outloud-define-voice-from-speech-style name style))
-      name))))
-
-;;}}}
 ;;{{{ list voices 
 
 (defun outloud-list-voices ()
@@ -486,7 +464,6 @@ collect (list 'const  k)))
   (fset 'tts-get-voice-command 'outloud-get-voice-command)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
-  ;(fset 'tts-personality-from-speech-style 'outloud-personality-from-speech-style)
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (when (and emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)

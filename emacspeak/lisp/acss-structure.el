@@ -98,8 +98,8 @@
 
 ;;; may be redefined at runtime when alternative tts engine is
 ;;; configured.
-(fset 'tts-voice-defined-p 'dtk-voice-defined-p)
-(fset 'tts-define-voice-from-speech-style
+(defalias 'tts-voice-defined-p 'dtk-voice-defined-p)
+(defalias 'tts-define-voice-from-speech-style
       'dtk-define-voice-from-speech-style)
 
 (defun acss-personality-from-speech-style (style)
