@@ -83,10 +83,8 @@ proc l {text} {
         set prefix "$prefix `vb80"
     }
     synth "$prefix  `ts2 $text`ts0"
-    if {$tts(stereo)} {
-        synchronize
-    }
-        return ""
+    synchronize
+    return ""
 }
 
 #formerly called tts_speak
@@ -201,7 +199,7 @@ proc service {} {
     global tts
     set talking [speakingP]
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.1] stdin]
+        set status   [lsearch [select [list  stdin]  {} {} 0.01] stdin]
         if { $status >= 0} {
             set tts(talking?) 0
             set talking 0
