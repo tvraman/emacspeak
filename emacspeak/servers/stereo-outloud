@@ -212,7 +212,6 @@ proc speech_task {} {
     global queue tts
     set tts(talking?) 1
     set tts(not_stopped) 1
-    set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "`v1 `vs$r "
