@@ -4,7 +4,7 @@ Notes On Using IBM ViaVoice Outloud (Software TTS) with Emacspeak:
 IBM ViaVoice TTS (Text To Speech) formerly known as IBM
 ViaVoice Outloud is a text to speech synthesis engine that
 allows you to produce synthetic speech from text using a
-sound card.
+sound card. Note that ViaVoice TTS is no longer available on the Internet.
 
 * Pre-requisites:
 
