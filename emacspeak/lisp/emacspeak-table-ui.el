@@ -40,6 +40,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'voice-setup)
 (require 'emacspeak-table)
 (require 'emacspeak-tabulate)
 (eval-when-compile (require 'dtk-speak)
@@ -58,7 +59,7 @@
   :group 'emacspeak
   :prefix "emacspeak-table-")
 
-(defcustom emacspeak-table-column-header-personality 'paul-smooth
+(defcustom emacspeak-table-column-header-personality voice-smoothen
   "personality for speaking column headers."
   :type 'symbol
   :group 'emacspeak-table)
@@ -347,6 +348,8 @@ specifies the filter"
 Optional prefix arg prompts for a new filter."
   (interactive "P")
   (declare (special emacspeak-table-speak-row-filter
+                    voice-animate
+                    voice-smoothen
                     emacspeak-table))
   (unless (and  emacspeak-table-speak-row-filter
                 (listp emacspeak-table-speak-row-filter)
@@ -374,7 +377,7 @@ Optional prefix arg prompts for a new filter."
                     (emacspeak-table-current-row emacspeak-table)
                     token))
              (put-text-property 0 (length value)
-                                'personality 'paul-smooth value)
+                                'personality voice-smoothen  value)
              value)
             ((and (listp token)
                   (numberp (first token))
@@ -384,7 +387,7 @@ Optional prefix arg prompts for a new filter."
                     (first token)
                     (second token)))
              (put-text-property 0 (length value)
-                                'personality 'paul-smooth value)
+                                'personality voice-smoothen value)
              value)
             (t  (format "%s" token))))))
       emacspeak-table-speak-row-filter

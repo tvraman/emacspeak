@@ -44,6 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
+                   (require 'voice-setup)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
                    (condition-case nil
@@ -118,7 +119,7 @@ Summarize the form to welcome the user. "
   (let((server "Server ")
        (host eudc-server))
     (put-text-property 0  (length host)
-                       'personality 'paul-animated
+                       'personality voice-animate
                        host)
     (put-text-property 0  (length server)
                        'personality 'annotation-voice
@@ -169,7 +170,7 @@ Summarize the form to welcome the user. "
   :prefix "emacspeak-eudc-")
 
 (defcustom emacspeak-eudc-attribute-value-personality
-  'paul-animated
+  voice-animate
   "Personality t use for voiceifying attribute values. "
   :type 'symbol
   :group 'emacspeak-eudc)

@@ -45,6 +45,7 @@
 
 (eval-when (compile)
   (require 'imenu))
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-keymap)
@@ -101,7 +102,7 @@
   "Provide auditory feedback"
   (when (interactive-p)
     (ems-set-personality-temporarily (point) (1+ (point))
-                                     'paul-animated
+                                     voice-animate
                                      (emacspeak-speak-line))))
 
 (defadvice imenu-go-find-at-position (around emacspeak pre act comp)
@@ -112,7 +113,7 @@
     ad-do-it
     (emacspeak-auditory-icon 'large-movement)
     (ems-set-personality-temporarily (point) (1+ (point))
-                                     'paul-animated
+                                     voice-animate
                                      (emacspeak-speak-line)))
    (t ad-do-it))
   ad-return-value)
@@ -122,7 +123,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (ems-set-personality-temporarily (point) (1+ (point))
-                                     'paul-animated
+                                     voice-animate
                                      (emacspeak-speak-line))))
 
 ;;}}}
