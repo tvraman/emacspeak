@@ -387,7 +387,9 @@ command \\[customize-variable] on <personality>-settings."
 (def-voice-font voice-lock-bold-italic-personality 
   voice-bolden-and-animate
   'bold-italic
-  "Personality to use for bold  text.")
+  "Personality to use for bold  italic text.")
+
+
   
 (def-voice-font voice-lock-doc-string-personality
   voice-smoothen-extra
