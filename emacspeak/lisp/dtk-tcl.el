@@ -696,6 +696,7 @@ Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
   (interactive "nEnter new rate:\nP")
   (declare (special dtk-speech-rate dtk-speaker-process
+                    tts-default-speech-rate
                     dtk-program dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (cond

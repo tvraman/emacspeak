@@ -1898,11 +1898,6 @@ Provide an auditory icon if possible."
     (emacspeak-dtk-sync)
     (emacspeak-speak-line)))
 
-(defadvice save-buffers-kill-emacs (before emacspeak pre act)
-  "Play an auditory icon."
-  (when (interactive-p )
-    (emacspeak-play-auditory-icon 'shutdown)))
-
 ;;{{{  composing mail
 
 (defadvice mail (after emacspeak pre act)
@@ -2859,9 +2854,10 @@ running."))
   "Play window resize icon."
   (emacspeak-auditory-icon 'window-resize))
 
-(when emacspeak-aumix-multichannel-capable-p
-  (add-hook 'window-size-change-functions
-            'emacspeak-window-resize))
+
+(add-hook 'window-size-change-functions
+            'emacspeak-window-resize)
+
 
 ;;}}}
 (provide 'emacspeak-advice)

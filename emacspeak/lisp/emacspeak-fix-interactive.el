@@ -154,12 +154,12 @@ after fixing them. "
                                                             (substring prompt 2 )
                                                           (substring prompt 1 ))
                                                         "")))))
-                      (setq
-                       emacspeak-last-command-needs-minibuffer-spoken t)
-                      (call-interactively
-                       '(lambda (&rest args)
-                          (interactive (, prompt))
-                          args) nil)))))
+                      (let 
+                          ((emacspeak-last-command-needs-minibuffer-spoken t))
+                        (call-interactively
+                         '(lambda (&rest args)
+                            (interactive (, prompt))
+                            args) nil))))))
               interactive-list))))))))))
 
 ;;; inline function for use from other modules:
