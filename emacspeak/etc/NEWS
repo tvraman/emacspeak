@@ -2,22 +2,26 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@cs.cornell.edu>
 
-* Emacspeak 14.0 Additions And Changes:
+* Emacspeak 15.0 Additions And Changes:
 
-Emacspeak 14.0 provides the following user level enhancements:
+Emacspeak 15.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
 
-** XML Authoring Using XAE
 
-XAE is an XML authoring environment  put together by the
-author of JDE.
+** OCR Front-End:
 
-** Form-based Editting Of Audtory Display Settings
+Module emacspeak-ocr provides a convenient to use OCR
+front-end for document scanning.
+Uses SANE for image acquisition and can be configured to use
+any available OCR engine.
 
-Personal audio mixer settings can be  modified using a forms-based
-user interface.
+** Speedch-enabled ECB:
 
+ECB --Emacs Class Browser-- provides a powerful class
+browser 
+for aiding in software development using a variety of
+languages including Java and Emacs Lisp.
 
 ** Semantic Support Within JDE
 
@@ -26,73 +30,25 @@ speech-enabling JDE.
 
 ** URL Templates 
 
-Module emacspeak-url-template provides a programmable hot
-list mechanism.
 
-** Filtering Text
-
-Allows text to be progressively refined.
-
-
-** Overlaying Grids On Tabulated Information
-
-Grid overlays allow one to quickly skim selected portions of
-every line in the buffer or given region of text.
-The result of overlaying the grid is presented in
-emacspeak's table browsing mode.
-This is useful in working with log files.
-
-** Speech-enables EShell
-
-EShel is a complete shell implemented in Emacs Lisp.
-Emacspeak speech-enables eshell to provide a powerful
-integrated shell.
-
-** Table Browsing:
-
-Enhancement to how tables are handled. 
-Additional features include sorting data
-   on a specific column.
-
-** Customizations To Auditory Display
-
-Provides customization options for use with sound cards that
- provide multiple channels of output.
-
-** Emacs 21 Support:
-
-Supports many  new Emacs 21 packages.
-
-** Dictionary Server:
-
-Speech-enables interaction with dictionary servers.
+New URL templates for Sourceforge, DDJ TechNetCast etc.
 
 ** Speech-enables ERC:
 
-ERC is a relatively modern Emacs IRC client.
-This version of emacspeak speech-enables most of this
-package.
+Enhanced with room monitors and the ability to hear things
+said by specific people.
+
+** Speech-enables MetaPost Mode:
+
+metapost mode helps authoring and maintaining metapost
+drawings.
 
 ** Convenience Commands:
 
+All Emacspeak convenience commands have been moved to module
+emacspeak-wizards.
 
-*** Convenience Command emacspeak-cvs-get-anonymous 
 
-Command emacspeak-cvs-get-anonymous bound to c-e c-down 
-can be used to retrieve a snapshot of the latest Emacspeak
-sources from Sourceforge.
-This will retrieve the source code into the users home
-directory 
-under ~/cvs-emacspeak.
-
-*** Convenience command emacspeak-root
-
-Convenience command emacspeak-root bound to C-e C-r
-launches a root shell or switches to one if it already
-exists.
-Command emacspeak-eterm-remote-term bound to C-e C-r in
-earlier versions is now on 
-C-e M-C-r
 
 
 Local variables:
