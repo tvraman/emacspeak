@@ -170,6 +170,18 @@ prompting for a template.")
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{  Linksys IP
+
+(emacspeak-url-template-define
+ "http://192.168.1.1/st_po.htm"
+ "Display IP information from Linksys router."
+ nil
+ nil
+ "Linksys Router"
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 3 url)))
+ 
+;;}}}
 ;;{{{ Netcraft surveys 
 (emacspeak-url-template-define
  "Netcraft Web Analysis"
@@ -181,7 +193,6 @@ prompting for a template.")
  "Analyze WWW site using Netcraft.")
  
 ;;}}}
-
 ;;{{{ bbc 
 (emacspeak-url-template-define
  "BBC News"
