@@ -3075,6 +3075,18 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
 @end deffn
 
+@deffn emacspeak-w3-count-matches (PROMPT-URL LOCATOR)
+Count matches for locator  in HTML.
+@end deffn
+
+@deffn emacspeak-w3-count-nested-tables (PROMPT-URL)
+Count nested tables in HTML.
+@end deffn
+
+@deffn emacspeak-w3-count-tables (PROMPT-URL)
+Count  tables in HTML.
+@end deffn
+
 @deffn emacspeak-w3-do-onclick ()
 Do  onclick action.
 @end deffn
@@ -3084,7 +3096,6 @@ Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Optional arg url specifies the page to extract content from.
 Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the minibuffer.
 @end deffn
 
 @deffn emacspeak-w3-extract-by-class-list (CLASSES &optional PROMPT-URL SPEAK)
@@ -3092,35 +3103,35 @@ Extract elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Optional arg url specifies the page to extract
 content from. Interactive use provides list of class values as
-completion. Interactive prefix arg causes url to be read from the
-minibuffer.
+completion. 
+@end deffn
+
+@deffn emacspeak-w3-extract-nested-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
+Extract nested table specified by `table-index'. Default is to
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
+@end deffn
+
+@deffn emacspeak-w3-extract-nested-table-list (TABLES &optional PROMPT-URL SPEAK)
+Extract specified list of tables from a WWW page.
+@end deffn
+
+@deffn emacspeak-w3-extract-nested-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
+Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page.
 @end deffn
 
 @deffn emacspeak-w3-extract-node-by-id (URL NODE-ID)
 Extract specified node from URI.
 @end deffn
 
-@deffn emacspeak-w3-extract-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
-Extract tables from HTML.  Extracts specified table from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from. 
-@end deffn
-
 @deffn emacspeak-w3-extract-table-by-position (POSITION &optional PROMPT-URL SPEAK)
 Extract table at specified position.
  Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the minibuffer.
-@end deffn
-
-@deffn emacspeak-w3-extract-table-list (TABLES &optional PROMPT-URL SPEAK)
-Extract specified list of tables from a WWW page.
-@end deffn
-
-@deffn emacspeak-w3-extract-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
-Extract specified list of tables from a WWW page.
-Tables are specified by their position in the list 
-of tables found in the page.
 @end deffn
 
 @deffn emacspeak-w3-google-similar-to-this-page ()
@@ -3210,7 +3221,7 @@ used as well.
 @end deffn
 
 @deffn emacspeak-w3-xsl-toggle ()
-Toggle  XSL transformations before displaying HTML.
+Toggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
 @end deffn
@@ -3223,12 +3234,11 @@ Apply specified transformation to current page.
 Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  Interactive
-prefix arg causes url to be read from the minibuffer.
+specifies the page to extract table from.  
 @end deffn
 
 @deffn emacspeak-w3-xslt-select (XSL)
-Select transformation to apply.
+Select XSL transformation applied to WWW pages before they are displayed .
 @end deffn
 
 @node emacspeak-w3search
@@ -4039,7 +4049,7 @@ Automatically defined advice to speak interactive prompts.
 
 @deffn emacspeak-wizards-spot-words (EXT WORD)
 Searches recursively in all files with extension `ext'
-for `word' and siplays hits in a compilation buffer.
+for `word' and displays hits in a compilation buffer.
 @end deffn
 
 @deffn emacspeak-wizards-squeeze-blanks (START END)
