@@ -1666,7 +1666,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?x 'exchange-rate-convertor)
 
 (defvar emacspeak-websearch-exchange-rate-form 
-(expand-file-name "xml-forms/google-usenet-advanced.xml"
+(expand-file-name "xml-forms/exchange-rate-convertor.xml"
                     emacspeak-lisp-directory)
 "Form for performing currency conversion.")
 
