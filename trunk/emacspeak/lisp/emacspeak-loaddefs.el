@@ -438,8 +438,8 @@ displayed buffers." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
-;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15965
-;;;;;;  32749))
+;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15964
+;;;;;;  10048))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
@@ -520,7 +520,7 @@ Optional interactive prefix arg results in prompting for a search term." t nil)
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (15963 42939))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (15975 32026))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -854,30 +854,6 @@ for the current voice family." t nil)
 
 (autoload (quote emacspeak-xml-shell) "emacspeak-xml-shell" "\
 Start Xml-Shell on contents of system-id." t nil)
-
-;;;***
-
-;;;### (autoloads (regexp-opt-depth regexp-opt) "regexp-opt" "regexp-opt.el"
-;;;;;;  (15961 18347))
-;;; Generated autoloads from regexp-opt.el
-
-(autoload (quote regexp-opt) "regexp-opt" "\
-Return a regexp to match a string in STRINGS.
-Each string should be unique in STRINGS and should not contain any regexps,
-quoted or not.  If optional PAREN is non-nil, ensure that the returned regexp
-is enclosed by at least one regexp grouping construct.
-The returned regexp is typically more efficient than the equivalent regexp:
-
- (let ((open-paren (if PAREN \"\\\\(\" \"\")) (close-paren (if PAREN \"\\\\)\" \"\")))
-   (concat open-paren (mapconcat 'regexp-quote STRINGS \"\\\\|\") close-paren))
-
-but typically contains more regexp grouping constructs.
-Use `regexp-opt-depth' to count them." nil nil)
-
-(autoload (quote regexp-opt-depth) "regexp-opt" "\
-Return the depth of REGEXP.
-This means the number of regexp grouping constructs (parenthesised expressions)
-in REGEXP." nil nil)
 
 ;;;***
 
