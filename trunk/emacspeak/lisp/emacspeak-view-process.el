@@ -227,12 +227,12 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-single-line-personality 'parul-monotone
+(defcustom View-process-single-line-personality 'paul-monotone
   "Personality for voice lock in view process mode"
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-signal-line-personality 'paul-disgusted
+(defcustom View-process-signal-line-personality 'paul-smooth
   "Indicate a signal"
   :type 'symbol
   :group 'emacspeak-view-process)
@@ -243,7 +243,7 @@
   :group 'emacspeak-view-process)
 
 	 
-(defcustom View-process-renice-line-personality 'paul-smooth
+(defcustom View-process-renice-line-personality 'paul-monotone
   "Indicate a reniced process"
   :type 'symbol
   :group 'emacspeak-view-process)
