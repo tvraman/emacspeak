@@ -674,7 +674,11 @@ Optional arg COMPLEMENT inverts the filter.  "
    ".pls"
    ".asx"
    ".mp3"
-   ".m3u")
+   ".m3u"
+".wma"
+".wmv"
+".avi"
+".mpg")
   "Suffixes to look for in detecting URLs that point to media
 streams."
   :type  '(repeat
