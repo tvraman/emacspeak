@@ -17,8 +17,6 @@ shown in the output.
   <xsl:param name="base"/>
   <xsl:include href="identity.xsl"/>
 <!-- { html body  -->
-<!-- nuke these -->
-  <xsl:template match="//script|//meta"/>
 <!--add base uri if available. -->
   <xsl:template match="/html/head">
     <head>
@@ -51,6 +49,9 @@ in
 document </xsl:element>.</p>
     </xsl:element>
   </xsl:template>
+<!-- nuke these -->
+  <xsl:template match="//script|//meta//style"/>
+
 <!-- } -->
 </xsl:stylesheet>
 <!--
