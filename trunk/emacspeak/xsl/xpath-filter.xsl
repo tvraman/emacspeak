@@ -58,6 +58,7 @@ asks that nodes be processed only once -use with care.
       document </xsl:element>.</p>
     </body>
   </xsl:template>
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- nuke these -->
   <xsl:template match="//script|//meta//style"/>

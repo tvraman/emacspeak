@@ -12,7 +12,7 @@ Description: Show list of anchors.
   
   <xsl:output method="html" indent="yes"
   encoding="iso8859-15"/>
-  
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
   
