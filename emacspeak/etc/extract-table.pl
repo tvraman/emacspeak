@@ -13,10 +13,18 @@ my %options = ();
 GetOptions (\%options,
 "task=s",
            "url=s",
+"file=s",
            "depth=i",
 "count=i");
-my $input="/tmp/$options{task}.html";
+
+$options{task} ||= "extract-table";
+my $input;
+if (defined ($options{file})) {
+  $input = $options{file};
+} else {
+  $input="/tmp/$options{task}.html";
 RetrieveURLToFile($options{url}, $input);
+}
 my $te = new HTML::TableExtract( depth => 2, count=>7);
 $te->parse_file($input);
 my $output = new FileHandle (">  /tmp/$options{task}.csv");
@@ -25,7 +33,9 @@ foreach $row ($te->rows) {
   $output->print(  join(',', @$row),"\n");
 }
 $output->close();
-unlink ($input);
+if (defined ($options{url})) {
+  unlink ($input);
+}
 # {{{  retrieve URL to file
 
 sub RetrieveURLToFile {
