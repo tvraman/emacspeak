@@ -772,8 +772,11 @@ documentation.\n\n")
        (function
         (lambda (f)
           (let ((key (where-is-internal f))
+                (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
+              (setq commentary
+                    (lm-commentary  (finder-find-library this-module)))
               (setq this-module
                     (file-name-sans-extension
                      (file-name-nondirectory this-module))))
@@ -785,6 +788,8 @@ documentation.\n\n")
                (format
                 "@node %s\n@section %s\n\n\n"
                 module module ))
+              (insert
+               (format "\n\n%s\n\n" commentary))
               (insert
                (format
                 "Automatically generated documentation
