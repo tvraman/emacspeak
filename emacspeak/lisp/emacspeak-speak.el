@@ -1820,9 +1820,9 @@ Optional interactive prefix invokes world clock."
   "Announce version information for running emacspeak."
   (interactive)
   (declare (special emacspeak-version
-                    voice-animate
+                    voice-animate voice-bold
                     emacspeak-sounds-directory
-                    emacspeak-play-emacspeak-startup-icon
+                    emacspeak-use-auditory-icons
                     emacspeak-codename))
   (let ((signature "You are using  ")
         (version (format "Emacspeak %s" emacspeak-version)))
@@ -1831,7 +1831,7 @@ Optional interactive prefix invokes world clock."
     (put-text-property 0 (length emacspeak-codename)
                        'personality voice-bolden
                        emacspeak-codename)
-    (when (and  emacspeak-play-emacspeak-startup-icon 
+    (when (and  emacspeak-use-auditory-icons
                 (file-exists-p "/usr/bin/mpg123"))
       (start-process "mp3" nil "mpg123"
                      "-q"
