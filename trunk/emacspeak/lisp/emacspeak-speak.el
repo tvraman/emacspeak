@@ -3385,7 +3385,16 @@ settings? "))
 We cleanup underlining, and set up outline mode correctly."
   (interactive 
    (list
-    (read-file-name "Howto file: " "/usr/doc/HOWTO/" nil
+    (read-file-name "Howto file: "
+                    (cond
+                     ((file-exists-p "/usr/doc/HOWTO/" )
+"/usr/doc/HOWTO/")
+                     ((file-exists-p
+                       "/usr/share/doc/HOWTO/")
+                      "/usr/share/doc/HOWTO/")
+                     (t (error "You dont have Linux howtos
+installed where I expected.")))
+                    nil
                     t)))
   (declare (special view-exit-action))
   (let ((buffer (find-file-noselect  howto))
