@@ -600,8 +600,6 @@ name of the list.")
       url
       'speak)))
 
-
-
 ;;}}}
 ;;{{{ nfl 
 (emacspeak-url-template-define
