@@ -38,11 +38,15 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  
+;;{{{  Introduction
 
 ;;; Commentary:
 ;;;Speech-enables EMMS --- the Emacs equivalent of XMMS
-;;; See http://savannah.gnu.org/search/?words=emms*&type_of_search=soft&group_id=0&Search=Search&exact=0&max_rows=25&type=1
+;;; See
+;;; http://savannah.gnu.org/search/?words=emms*&type_of_search=soft&group_id=0&Search=Search&exact=0&max_rows=25&type=1
+;;; EMMS is under active development,
+;;; to get the current CVS version, use Emacspeak command
+;;; M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
 ;;;
 ;;; Code:
 
@@ -52,9 +56,9 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-
 ;;{{{ Advice interactive commands:
-;;{{{ module emms
+
+;;{{{ module emms:
 
 (defun emacspeak-emms-speak-current-track ()
   "Speak current track."
@@ -95,11 +99,33 @@
 
 ;;}}}
 ;;{{{ Module emms-pbi:
+(loop for f in
+      '(emms-pbi emms-pbi-open-playlist
+                 emms-pbi-quit
+                 emms-pbi-popup-revert emms-pbi-popup-playlist
+                 )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-mode-line)))))
+
+(loop for f in
+      '(emms-pbi-recenter emms-pbi-play-current-line)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-emms-speak-current-track)))))
+
 
 ;;}}}
 ;;{{{ Module emms-stream:
 
 ;;}}}
+
 ;;}}}
 (provide 'emacspeak-emms)
 ;;{{{ end of file
