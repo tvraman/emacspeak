@@ -231,23 +231,26 @@ An automatically updating speedbar consumes resources.")
 (defun emacspeak-speedbar-click ()
   "Does the equivalent of the mouse click from the keyboard"
   (interactive)
-  (beginning-of-line)
-  (let ((target (next-single-property-change (point)
-                                             'speedbar-function))
-        (action-char nil))
-    (cond 
-     (target (goto-char target)
-             (forward-char 1)
-             (setq action-char (following-char))
-             (speedbar-do-function-pointer)
-             (emacspeak-speedbar-speak-line)
-             (emacspeak-auditory-icon
-              (case action-char
-                (?+ 'open-object)
-                (?- 'close-object)
-                (t 'large-movement)))
-             )
-     (t (message "No target on this line")))))
+  (save-excursion
+    (beginning-of-line)
+    (let ((target
+           (if (get-text-property (point) 'speedbar-function)
+               (point)
+             (next-single-property-change (point)
+                                          'speedbar-function)))
+          (action-char nil))
+      (cond 
+       (target (goto-char target)
+               (speedbar-do-function-pointer)
+               (forward-char 1)
+               (setq action-char (following-char))
+               (emacspeak-speedbar-speak-line)
+               (emacspeak-auditory-icon
+                (case action-char
+                  (?+ 'open-object)
+                  (?- 'close-object)
+                  (t 'large-movement))))
+      (t (message "No target on this line"))))))
 
 ;;}}}
 ;;{{{  hooks
