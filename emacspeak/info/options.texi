@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 377 user customizable
+This chapter documents a total of 376 user customizable
   options.
 
 @menu
@@ -2403,11 +2403,6 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-websearch-emapspeak-my-location
 Specifies location near we look by default.
-@end defvar
-
-@defvar {User Option} emacspeak-websearch-google-feeling-lucky-p
-If non-nil, then Google search will use the 
-I'm Feeling Lucky button by default.
 @end defvar
 
 @defvar {User Option} emacspeak-websearch-google-number-of-results

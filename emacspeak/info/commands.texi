@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 654 commands.
+This chapter documents a total of 655 commands.
 
 @menu
 * cd-tool::                     
@@ -3914,10 +3914,9 @@ Perform a Froogle search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google (QUERY &optional LUCKY)
-Perform an Google search.
+Perform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
 I'm Feeling Lucky button on Google.
-Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-advanced ()
@@ -3930,6 +3929,12 @@ Do a I'm Feeling Lucky Google search.
 
 @deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range ()
 Use this from inside the calendar to do Google date-range searches.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-google-specialize (SPECIALIZE QUERY)
+Perform a specialized Google search. See the Google site for
+  what is possible here:
+http://www.google.com/options/specialsearches.html 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-usenet-advanced ()
@@ -4775,7 +4780,7 @@ during initialization.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 88 URL Templates.
+This section documents a total of 89 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -4793,6 +4798,10 @@ Each URL template carries out the following steps:
 As an example, the URL templates that enable access to NPR media
 streams prompt for a program id and date, and automatically
 launch the realmedia player after fetching the resource.
+
+@kbd{Airport conditions}
+
+Display airport conditions from the FAA.
 
 @kbd{All Things Considered Stream from NPR}
 
