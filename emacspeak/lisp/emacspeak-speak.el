@@ -666,7 +666,7 @@ by cut -c on UNIX."
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively ignoring portions of lines.
 The filter is specified as a list of pairs.
-For example, to filter out columns 0 -- 10 and 20 -- 25,
+For example, to filter out columns 1 -- 10 and 20 -- 25,
 specify filter as 
 ((0 9) (20 25)). Filter settings are persisted across
 sessions.
@@ -676,11 +676,11 @@ This allows one to accumulate a set of filters for specific
 files like /var/adm/messages and /var/adm/maillog over time."
   (interactive
    (list 
-    (read-minibuffer "Specify filter list: "
+    (read-minibuffer "Specify columns to filter out: "
                      (format "%s"
-(if  (buffer-file-name )
-                             (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
-  "")))))
+                             (if  (buffer-file-name )
+                                 (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
+                               "")))))
   (cond
    ((and (listp filter)
          (every 

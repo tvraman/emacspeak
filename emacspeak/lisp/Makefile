@@ -160,6 +160,7 @@ emacspeak-enriched.elc \
 emacspeak-facemenu.elc \
 emacspeak-hide.elc \
 emacspeak-filtertext.elc \
+emacspeak-gridtext.elc \
 emacspeak-hideshow.elc \
 emacspeak-widget.elc \
 emacspeak-custom.elc \
@@ -333,6 +334,7 @@ emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc
+emacspeak-gridtext.elc: emacspeak-gridtext.el dtk-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc
@@ -424,6 +426,7 @@ websearch: emacspeak-websearch.elc
 babel: emacspeak-babel.elc
 hide: emacspeak-hide.elc
 filtertext: emacspeak-filtertext.elc
+gridtext: emacspeak-gridtext.elc
 hideshow: emacspeak-hideshow.elc
 widget: emacspeak-widget.elc
 custom: emacspeak-custom.elc
