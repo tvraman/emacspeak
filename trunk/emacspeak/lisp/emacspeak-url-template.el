@@ -543,6 +543,17 @@ Computing News at CNN.")
      ))
 
 ;;}}}
+;;{{{ nfl 
+(emacspeak-url-template-define
+ "NFL Broadcast Schedule"
+ "http://www.nfl.com/tvradio/schedule.html"
+ nil
+ nil
+ "Pick out NFL broadcast links."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 9 url)
+     "Displays the table giving the broadcast links for this week."))
+;;}}}
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define
