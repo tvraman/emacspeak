@@ -66,6 +66,15 @@
 
 ;;}}}
 ;;{{{ Communicate state
+(defun emacspeak-gomoku-goto-x-y (x y)
+  "Prompt for and go to that square."
+  (interactive
+   (list
+    (read-number "Row: ")
+    (read-number "Column: ")))
+  (gomoku-goto-xy x y)
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-gomoku-speak-square))
 
 (defun emacspeak-gomoku-speak-square ()
   "Speak coordinates and state of square at point"
@@ -355,7 +364,9 @@
         (define-key gomoku-mode-map key 'gomoku-move-right))
   (define-key gomoku-mode-map "\t"
     'emacspeak-gomoku-speak-emacs-previous-move)
-  (define-key gomoku-mode-map "\M-\t" 'emacspeak-gomoku-speak-humans-previous-move)
+  (define-key gomoku-mode-map "\M-\t"
+    'emacspeak-gomoku-speak-humans-previous-move) 
+  (define-key  gomoku-mode-map "f" 'emacspeak-gomoku-goto-x-y)
   ;; my navigational preference
   (define-key gomoku-mode-map "q" 'gomoku-move-nw)
   (define-key gomoku-mode-map "e" 'gomoku-move-up)
