@@ -92,7 +92,6 @@
 
 static snd_pcm_t *AHandle = NULL;
 short *waveBuffer = NULL;
-static size_t bits_per_sample, bits_per_frame = 0;
 static snd_pcm_uframes_t chunk_size = 0;
 static size_t chunk_bytes=0;
 static unsigned int period_time = 0;
@@ -179,7 +178,7 @@ int eciCallback (void *, int, long, void *);
 
 static void set_params(void) {
   //<init:
-
+  size_t bits_per_sample, bits_per_frame = 0;
   snd_pcm_hw_params_t *params;
   snd_pcm_sw_params_t *swparams;
   snd_pcm_uframes_t buffer_size;
