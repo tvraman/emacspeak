@@ -86,11 +86,6 @@ you like after a command.
 snd_pcm_t *AHandle;
 snd_pcm_channel_area_t *areas;
 char *device = "default";                    /* playback device */
-//.04  second using 11025k samples.
-//note that in the tcl server we select for 0.02 seconds so
-//that we dont queue up too many speech samples,
-//This is important for stopping speech immediately.
-#define BUFSIZE 512
 short *waveBuffer;
 snd_pcm_format_t format = SND_PCM_FORMAT_S16;   /* sample format */
 unsigned int rate = 11025;                      /* stream rate */
@@ -99,7 +94,7 @@ unsigned int buffer_time = 500000;              /* ring buffer in us */
 unsigned int period_time = 100000;		/* period time in us */
 
 snd_pcm_uframes_t buffer_size;
-snd_pcm_uframes_t period_size;
+snd_pcm_uframes_t period_size=4096;
 snd_output_t *output = NULL;
 
 //>
@@ -170,7 +165,7 @@ int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
-int alsa_close (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+int alsa_close ();
 int eciCallback (void *, int, long, void *);
 //>
 //<alsa: set hw and sw params
@@ -216,7 +211,7 @@ static int set_hwparams(snd_pcm_t *handle,
 	}
 	if (rrate != rate) {
 		printf("Rate doesn't match (requested %iHz, get %iHz)\n", rate, err);
-		return -EINVAL;
+		return TCL_ERROR;
 	}
 	/* set the buffer time */
 	err = snd_pcm_hw_params_set_buffer_time_near(handle, params, &buffer_time, &dir);
@@ -229,23 +224,25 @@ static int set_hwparams(snd_pcm_t *handle,
 		printf("Unable to get buffer size for playback: %s\n", snd_strerror(err));
 		return err;
 	}
+        fprintf(stderr,"Buffer size set to %i\n", buffer_size);
 	/* set the period time */
 	err = snd_pcm_hw_params_set_period_time_near(handle, params, &period_time, &dir);
 	if (err < 0) {
 		printf("Unable to set period time %i for playback: %s\n", period_time, snd_strerror(err));
-		return err;
+		return TCL_ERROR;
 	}
-	err = snd_pcm_hw_params_get_period_size(params, &period_size, &dir);
-	if (err < 0) {
-		printf("Unable to get period size for playback: %s\n", snd_strerror(err));
-		return err;
-	}
-	/* write the parameters to device */
-	err = snd_pcm_hw_params(handle, params);
-	if (err < 0) {
-		printf("Unable to set hw params for playback: %s\n", snd_strerror(err));
-		return err;
-	}
+	 err = snd_pcm_hw_params_get_period_size(params, &period_size, &dir);
+ 	if (err < 0) {
+ 		printf("Unable to get period size for playback: %s\n", snd_strerror(err));
+ 		return err;
+ 	}
+ 	/* write the parameters to device */
+ 	err = snd_pcm_hw_params(handle, params);
+ 	if (err < 0) {
+ 		printf("Unable to set hw params for playback: %s\n", snd_strerror(err));
+ 		return err;
+ 	}
+
 	return 0;
 }
                         
@@ -317,15 +314,17 @@ static int xrun_recovery(snd_pcm_t *handle, int err) {
 
 static int write_loop(snd_pcm_t *handle,
                       signed short *samples,
-                      snd_pcm_channel_area_t *areas) {
+                      snd_pcm_channel_area_t *areas,
+                      int count) {
   signed short *ptr;
   int err, cptr;
   ptr = samples;
   cptr = period_size;
+  fprintf(stderr, "Called with count=%d\n",count);
+  while (ptr < samples+count) {
   while (cptr > 0) {
     err = snd_pcm_writei(handle, ptr, cptr);
-    if (err == -EAGAIN)
-      continue;
+    if (err == -EAGAIN) continue;
     if (err < 0) {
       if (xrun_recovery(handle, err) < 0) {
         printf("Write error: %s\n", snd_strerror(err));
@@ -335,6 +334,7 @@ static int write_loop(snd_pcm_t *handle,
     }
     ptr += err ;/* channels=1*/
     cptr -= err;
+  }
   }
   return TCL_OK;
 }
@@ -504,6 +504,13 @@ int Atcleci_Init (Tcl_Interp * interp) {
     }
 
   //>
+  //<initialize alsa
+  rc=alsa_init();
+  if (!rc) {
+    fprintf(stderr, "Could not initialize ALSA");
+    exit (1);
+  }
+  //>
   //<initialize TTS 
 
   if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
@@ -519,13 +526,22 @@ int Atcleci_Init (Tcl_Interp * interp) {
   _eciRegisterCallback (eciHandle, eciCallback, interp);
 
   //>
-  //<initialize alsa
-  rc=alsa_init();
-  if (!rc) {
-    fprintf(stderr, "Could not initialize ALSA");
-    exit (1);
-  }
-  //>
+//<set output to buffer 
+rc = _eciSynchronize (eciHandle);
+      if (!rc) {
+          Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
+          return TCL_ERROR;
+        }
+      rc = _eciSetOutputBuffer (eciHandle,
+                                (period_size * channels * snd_pcm_format_width(format)) / sizeof(short), waveBuffer);
+      if (!rc)
+        {
+          Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
+          return TCL_ERROR;
+        }
+      fprintf(stderr,"output buffered to waveBuffer with size %d\n",
+              (period_size * channels * snd_pcm_format_width(format))/ sizeof(short)); ;
+//>
   //<register tcl commands 
 
   Tcl_CreateObjCommand (interp, "setRate", SetRate,
@@ -549,8 +565,6 @@ int Atcleci_Init (Tcl_Interp * interp) {
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
 			(ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand (interp, "alsa_close", alsa_close, (ClientData) eciHandle,
-			TclEciFree);
   //>
   //<set up index processing 
 
@@ -564,8 +578,9 @@ set tts(last_index) $x}");
 //>
 //<playTTS 
 
-int playTTS (int samples) {
-  write_loop(AHandle, waveBuffer, areas);
+int playTTS (int count) {
+  fprintf(stderr,"playing %d samples\n",count);
+  write_loop(AHandle, waveBuffer, areas, count);
   return eciDataProcessed;
 }
 
@@ -768,10 +783,11 @@ int alsa_init () {
             snd_strerror(err));
     return TCL_ERROR;
   }
-        if ((err = set_hwparams(AHandle, hwparams, SND_PCM_ACCESS_RW_INTERLEAVED)) < 0) {
+        if ((err = set_hwparams(AHandle, hwparams, SND_PCM_ACCESS_RW_INTERLEAVED))!= TCL_OK ) {
     fprintf(stderr,
             "Setting of hwparams failed: %s\n",
             snd_strerror(err));
+    alsa_close();
     return TCL_ERROR;
   }
   if ((err = set_swparams(AHandle, swparams)) < 0) {
@@ -803,8 +819,7 @@ int alsa_init () {
 //>
 //<alsa_close
 
-int alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	  Tcl_Obj * CONST objv[]) {
+int alsa_close (){
   //shut down alsa
   snd_pcm_close(AHandle);
   free(waveBuffer);
