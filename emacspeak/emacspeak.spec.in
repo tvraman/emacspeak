@@ -87,7 +87,21 @@ from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
 %doc info/structure.texi
 %doc info/tts.texi
 %doc info/using.texi
+%doc info/commands.texi
+%doc user-guide/acknowledgments.html
+%doc user-guide/before-you-begin.html
+%doc user-guide/entertainment.html
+%doc user-guide/index.html
+%doc user-guide/introduction.html
+%doc user-guide/productivity.html
+%doc user-guide/system-administration.html
+%doc user-guide/working-online.html
+%doc user-guide/working-with-files.html
+%doc user-guide/espk-article.sgml
 /usr/bin/emacspeak
 /usr/info/emacspeak.info
 /usr/info/emacspeak.info-1
 /usr/info/emacspeak.info-2
+/usr/info/emacspeak.info-3
+/usr/info/emacspeak.info-4
+/usr/info/emacspeak.info-5
