@@ -1086,7 +1086,18 @@ in completion buffers"
 
 ;;}}}
 ;;{{{  Advice comint:
-
+(defadvice comint-insert-previous-argument (around emacspeak pre
+                                                   act comp)
+  "Provide auditory feedback."
+  (cond
+   ((interactive-p)
+    (let ((orig (point)))
+      ad-do-it
+      (emacspeak-speak-region orig (point))
+      (emacspeak-auditory-icon 'select-object)))
+   (t ad-do-it))
+  ad-return-value)
+      
 (require 'shell)
 
 ;;; Customize comint:
