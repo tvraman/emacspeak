@@ -84,6 +84,7 @@ you like after a command.
 //< alsa: define  format and rate defaults
 
 snd_pcm_t *AHandle;
+snd_pcm_channel_area_t *areas;
 char *device = "default";                    /* playback device */
 //.04  second using 11025k samples.
 //note that in the tcl server we select for 0.02 seconds so
@@ -291,8 +292,7 @@ static int set_swparams(snd_pcm_t *handle, snd_pcm_sw_params_t *swparams)
 //>
 //<alsa: xrun recovery, write samples 
 
-static int xrun_recovery(snd_pcm_t *handle, int err)
-{
+static int xrun_recovery(snd_pcm_t *handle, int err) {
         if (err == -EPIPE) {    /* under-run */
                 err = snd_pcm_prepare(handle);
                 if (err < 0)
@@ -317,12 +317,11 @@ static int xrun_recovery(snd_pcm_t *handle, int err)
 
 static int write_loop(snd_pcm_t *handle,
                       signed short *samples,
-                      snd_pcm_channel_area_t *areas)
-{
+                      snd_pcm_channel_area_t *areas) {
         signed short *ptr;
         int err, cptr;
 
-        while (1) {
+        while (samples) {
                 ptr = samples;
                 cptr = period_size;
                 while (cptr > 0) {
@@ -340,6 +339,7 @@ static int write_loop(snd_pcm_t *handle,
                         cptr -= err;
                 }
         }
+        return TCL_OK;
 }
 
 //>
@@ -568,6 +568,7 @@ set tts(last_index) $x}");
 //<playTTS 
 
 int playTTS (int samples) {
+  write_loop(AHandle, waveBuffer, areas);
   return eciDataProcessed;
 }
 
@@ -749,14 +750,12 @@ int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
 }
 
 //>
-
 //<alsa_init
 
 int alsa_init () {
   int err;
   snd_pcm_hw_params_t *hwparams;
   snd_pcm_sw_params_t *swparams;
-  snd_pcm_channel_area_t *areas;
   snd_pcm_hw_params_alloca(&hwparams);
   snd_pcm_sw_params_alloca(&swparams);
   err = snd_output_stdio_attach(&output, stdout, 0);
@@ -805,7 +804,6 @@ int alsa_init () {
 }
 
 //>
-
 //<alsa_close
 
 int alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
@@ -813,6 +811,7 @@ int alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
   //shut down alsa
   snd_pcm_close(AHandle);
   free(waveBuffer);
+  free(areas);
   return TCL_OK;
 }
 
@@ -827,7 +826,6 @@ int setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 }
 
 //>
-
 //<getVersion
 
 int getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
