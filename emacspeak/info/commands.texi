@@ -345,6 +345,11 @@ to all buffers.
 Commentary:
 The complete audio desktop.
 
+Emacspeak extends Emacs to be a fully functional audio desktop.
+This is the main emacspeak module.
+It actually does very little:
+It loads the various parts of the system.
+
 Automatically generated documentation
 for commands defined in module  emacspeak.
 
@@ -368,6 +373,10 @@ for commands defined in module  emacspeak-amphetadesk.
 
 @deffn {Interactive Command} emacspeak-amphetadesk ()
 Open amphetadesk.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-amphetadesk-quick-add (URL)
+Quick add URL to Amphetadesk by prompting for URL.
 @end deffn
 
 @node emacspeak-analog
@@ -2139,6 +2148,10 @@ commands via single keystrokes.
 Browse RAM file before playing the selected component.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-realaudio-get-current-time-in-seconds ()
+Return current time in seconds.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-realaudio-mode ()
 Major mode for streaming audio. 
 
@@ -2152,12 +2165,21 @@ during initialization.
 @deffn {Interactive Command} emacspeak-realaudio-play (RESOURCE &optional PROMPT-TIME)
 Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
-user configurable variable
-emacspeak-realaudio-shortcuts-directory. 
+user configurable variable emacspeak-realaudio-shortcuts-directory. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-realaudio-select-realaudio-buffer ()
 Switch to realaudio buffer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-realaudio-set-end-mark (&optional MARK-TIME)
+Set end mark. Default is to set marker to current play time.
+Mark is specified in seconds.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-realaudio-set-start-mark (&optional MARK-TIME)
+Set start mark. Default is to set marker to current play time.
+Mark is specified in seconds.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-realaudio-stop ()
@@ -2175,6 +2197,11 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-realaudio-write-mp3-clip (START END FILE)
+Writes specified clip from current mp3 stream.
+Prompts for start and end times as well as file  to save the clippi
 @end deffn
 
 @node emacspeak-redefine
@@ -2196,7 +2223,7 @@ Forward-char redefined to speak char moved to.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-self-insert-command (&optional ARG)
-@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian glyph   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14): ISO-IR-199   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
+@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian glyph   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14): ISO-IR-199   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2654,7 +2681,7 @@ Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-load-directory-settings ()
+@deffn {Interactive Command} emacspeak-speak-load-directory-settings (&optional DIRECTORY)
 Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
@@ -3568,6 +3595,10 @@ interactively. Optional arg `speak' specifies if the result should be
 spoken automatically.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-extract-media-streams-under-point ()
+In W3 mode buffers, extract media streams from url under point.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-extract-nested-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
 Extract nested table specified by `table-index'. Default is to
 operate on current web page when in a W3 buffer; otherwise
@@ -3582,6 +3613,14 @@ Extract specified list of tables from a WWW page.
 
 @deffn {Interactive Command} emacspeak-w3-extract-node-by-id (URL NODE-ID)
 Extract specified node from URI.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-extract-print-streams (&optional PROMPT-URL SPEAK)
+Extract links to printable  streams.
+operate on current web page when in a W3 buffer; otherwise prompt for url.
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-extract-table-by-match (MATCH &optional PROMPT-URL SPEAK)
@@ -3684,6 +3723,10 @@ Set value of `emacspeak-w3-xsl-keep-result'.
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class ()
 Display any class attributes set on corresponding anchor
 element. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-show-http-headers ()
+Show HTTP headers using lwp-request
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-speak-next-element ()
@@ -4345,7 +4388,7 @@ the display to speak.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-this-buffer-previous-display ()
-@kbd{ control e <left> }
+@kbd{ control e <aleft> }
 
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
