@@ -43,6 +43,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
+(eval-when-compile (require 'emacspeak-forms))
 (require 'emacspeak-sounds)
 ;;}}}
 ;;{{{  Introduction:
