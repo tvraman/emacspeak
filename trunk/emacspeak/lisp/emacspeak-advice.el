@@ -369,25 +369,25 @@ the words that were capitalized."
 
 (defcustom emacspeak-delete-char-speak-deleted-char t
   "*T means `delete-char' speaks char that was deleted."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (defcustom emacspeak-backward-delete-char-speak-deleted-char t
   "*T means `backward-delete-char' speaks char that was
 deleted."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (defcustom emacspeak-delete-char-speak-current-char nil
   "*T means `delete-char' speaks char that becomes current
 after deletion."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (defcustom emacspeak-backward-delete-char-speak-current-char nil
   "*T means `backward-delete-char' speaks char that becomes
 current after deletion."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (defadvice delete-backward-char (around emacspeak pre act)
@@ -615,7 +615,7 @@ current after deletion."
   "* Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (defadvice message (around  emacspeak pre act)
@@ -1091,8 +1091,19 @@ in completion buffers"
 ;;}}}
 ;;{{{  Advice comint:
 (require 'shell)
-(defvar emacspeak-comint-prompt-personality 'paul-monotone
-  "Personality used for highlighting comint prompts.")
+
+(defgroup emacspeak-comint  nil
+  "Emacspeak extensions for comint."
+  :link '(custom-group-link
+          :tag "Comint Group"
+          comint-group)
+  :prefix "emacspeak-comint-"
+  :group 'emacspeak)
+
+(defcustom emacspeak-comint-prompt-personality 'paul-monotone
+  "Personality used for highlighting comint prompts in Emacs 21. "
+  :type 'boolean
+  :group 'emacspeak-comint)
 
 (defvar shell-voice-lock-keywords
   nil
@@ -2895,8 +2906,10 @@ Variable mark-even-if-inactive is set true ."
 (defun emacspeak-window-resize (ignore)
   "Play window resize icon."
   (emacspeak-auditory-icon 'window-resize))
-(defvar emacspeak-sounds-icon-on-window-resize nil
-  "If T then window resize will produce an auditory icon.")
+(defcustom emacspeak-sounds-icon-on-window-resize nil
+  "If T then window resize will produce an auditory icon."
+  :type 'boolean
+  :group 'emacspeak)
 
 (when emacspeak-sounds-icon-on-window-resize 
   (add-hook 'window-size-change-functions
