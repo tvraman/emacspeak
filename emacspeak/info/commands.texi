@@ -3118,12 +3118,6 @@ spoken automatically.
 Extract specified list of tables from a WWW page.
 @end deffn
 
-@deffn emacspeak-w3-extract-nested-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
-Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
-nested of tables found in the page.
-@end deffn
-
 @deffn emacspeak-w3-extract-node-by-id (URL NODE-ID)
 Extract specified node from URI.
 @end deffn
@@ -3132,6 +3126,12 @@ Extract specified node from URI.
 Extract table at specified position.
  Optional arg url specifies the page to extract content from.
 Interactive prefix arg causes url to be read from the minibuffer.
+@end deffn
+
+@deffn emacspeak-w3-extract-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
+Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page.
 @end deffn
 
 @deffn emacspeak-w3-google-similar-to-this-page ()
@@ -3635,7 +3635,11 @@ personal customizations.
 Get latest cvs snapshot of emacspeak.
 @end deffn
 
-@deffn emacspeak-cvs-get-project-snapshot (PROJECT)
+@deffn emacspeak-cvs-gnu-get-project-snapshot (PROJECT)
+Grab CVS snapshot  of specified project from GNU.
+@end deffn
+
+@deffn emacspeak-cvs-sf-get-project-snapshot (PROJECT)
 Grab CVS snapshot  of specified project from Sourceforge.
 @end deffn
 
@@ -4095,6 +4099,15 @@ Start Xml-Shell on contents of system-id.
 Display current node.
 @end deffn
 
+@deffn emacspeak-xml-shell-browse-result (XPATH)
+Display XPath  and display its result using W3.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+@end deffn
+
 @deffn emacspeak-xml-shell-goto-children ()
 Navigate down to the children of current node.
 @end deffn
@@ -4125,6 +4138,7 @@ C-c		Prefix Command
 <left>		emacspeak-xml-shell-goto-previous-child
 
 C-c v		emacspeak-xml-shell-browse-current
+C-c C-v		emacspeak-xml-shell-browse-result
 
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
