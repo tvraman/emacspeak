@@ -81,6 +81,9 @@
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
+  (when (and (not  emacspeak-aumix-multichannel-capable-p)
+             emacspeak-use-auditory-icons)
+    (emacspeak-toggle-auditory-icons))
 (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
 
 (declaim (special emacspeak-m-player-mode-map))
@@ -95,9 +98,12 @@
 :type 'string
 :group 'emacspeak-m-player)
 
-(defcustom emacspeak-m-player-options "-slave -quiet"
+(defcustom emacspeak-m-player-options 
+(list "-slave" "-quiet"
+      "-nortc")
   "Options passed to mplayer."
-:type 'string
+:type  '(repeat
+         (string :tag "option"))
 :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player (resource)
@@ -106,7 +112,7 @@ Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (read-file-name "Media  Resource: ")))
+    (read-from-minibuffer "Media  Resource: ")))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
@@ -116,15 +122,17 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (kill-buffer (process-buffer emacspeak-m-player-process))
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
-        (playlist-p (string-match ".m3u$"  resource)))
+        (playlist-p (string-match ".m3u$"  resource))
+        (options (copy-sequence emacspeak-m-player-options)))
+    (when playlist-p
+      (push "-playlist" options))
+    (setq options
+          (nconc options
+                 (list resource)))
     (setq emacspeak-m-player-process
           (apply 'start-process
                  "m-player" "m-player" emacspeak-m-player-program
-                 (if playlist-p
-                     (concat "-playlist " emacspeak-m-player-options)
-                   emacspeak-m-player-options)
-                 (list
-                  (expand-file-name resource))))
+                 options))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)))
 
@@ -201,7 +209,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (define-key emacspeak-m-player-mode-map "P"
   'emacspeak-m-player-play-tree-up)
 
-(define-key emacspeak-m-player-mode-map "a" 'emacspeak-m-player-alt-src-step)
+(define-key emacspeak-m-player-mode-map "a"
+  'emacspeak-m-player-alt-src-step)
+(define-key emacspeak-m-player-mode-map " " 'emacspeak-m-player-pause)
+(define-key emacspeak-m-player-mode-map "q" 'emacspeak-m-player-quit)
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
