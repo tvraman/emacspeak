@@ -1335,32 +1335,6 @@ Light for: ")))
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ RedHat (via google)
-
-(emacspeak-websearch-set-searcher 'redhat
-                                  'emacspeak-websearch-redhat)
-(emacspeak-websearch-set-key ?r 'redhat)
-
-(defvar emacspeak-websearch-redhat-uri
-  "http://redhat.google.com/redhat?q="
-  "*URI for RedHat Site search")
-
-(defun emacspeak-websearch-redhat (query)
-  "Search RedHat site."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search RedHat Site for: ")))
-  (declare (special emacspeak-websearch-redhat-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-redhat-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "matches"
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ RPMFind
 
 (emacspeak-websearch-set-searcher 'rpm-find
@@ -1393,7 +1367,7 @@ Light for: ")))
 (emacspeak-websearch-set-searcher 'recorded-books
                                   'emacspeak-websearch-recorded-books-search)
 
-(emacspeak-websearch-set-key ?R 'recorded-books)
+(emacspeak-websearch-set-key ?r 'recorded-books)
 
 (defvar emacspeak-websearch-recorded-books-advanced-form
   (expand-file-name "xml-forms/recorded-books-advanced.xml"
