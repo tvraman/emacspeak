@@ -65,7 +65,7 @@ key bindings, you can use W3 to visit the sample HTML file supplied as
 part of the Emacspeak distribution, and, after having moved point onto
 the first row of the table, issue the command @kbd{C-h m}
 @code{describe-mode} to create a help buffer containing an explanation
-of the commands offered by W3 mode.
+of the features offered by W3 mode.
 
 Emacspeak supplements the online help facilities available within
 Emacs by defining several commands of its own, as follows:
