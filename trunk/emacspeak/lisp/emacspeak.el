@@ -95,8 +95,10 @@
                (match-end 0)))
   "Version number for Emacspeak.")
 
-(defvar emacspeak-startup-hook nil
-  "Hook to run after starting emacspeak." )
+(defcustom emacspeak-startup-hook nil
+  "Hook to run after starting emacspeak."
+  :type 'sexp
+  :group 'emacspeak)
 
 ;;}}}
 ;;{{{ Emacspeak:
@@ -237,8 +239,11 @@
 Precomputing this saves time at start-up.")
 
 ;;}}}
-(defvar emacspeak-play-emacspeak-startup-icon t
-  "If set to T, emacspeak plays its icon as it launches.")
+(defcustom emacspeak-play-emacspeak-startup-icon t
+  "If set to T, emacspeak plays its icon as it launches."
+  :type 'boolean
+  :group 'emacspeak)
+
 (defvar emacspeak-unibyte t
   "Emacspeak will force emacs to unibyte unless this
 variable is set to nil.
