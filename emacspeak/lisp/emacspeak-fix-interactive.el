@@ -73,11 +73,7 @@
 (defvar emacspeak-last-command-needs-minibuffer-spoken nil 
   "Used to signal to minibuffer that the contents need to be spoken.")
 
-(defvar emacspeak-commands-that-are-fixed 
-  nil
-  "Functions that have been auto-advised.
-These functions have been  adviced  to make their
-interactive prompts speak. ")
+
 
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
@@ -104,7 +100,6 @@ interactive prompts speak. ")
   "Auto-advice interactive command to speak its prompt.  Fix
 the function definition of sym to make its interactive form
 speak its prompts. "
-  (declare (special emacspeak-commands-that-are-fixed))
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
@@ -157,7 +152,6 @@ speak its prompts. "
   "Auto-advice interactive command to speak its prompt.  
 Fix the function definition of sym to make its interactive form
 speak its prompts. "
-  (declare (special emacspeak-commands-that-are-fixed))
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
@@ -180,8 +174,8 @@ speak its prompts. "
          interactive-list )
       (eval
        (`
-        (defadvice (, sym) (before  emacspeak-auto activate
-                                    protect compile)
+        (defadvice (, sym)
+          (before  emacspeak-auto activate protect compile)
           "Automatically defined advice to speak interactive prompts. "
           (interactive
            (nconc  
@@ -189,30 +183,22 @@ speak its prompts. "
              (mapcar
               #'(lambda (prompt)
                   (when (> (length prompt) 0)
-                  (` (let
-                         ((dtk-stop-immediately nil)
-                          (emacspeak-last-command-needs-minibuffer-spoken t)
-                          (emacspeak-speak-messages nil))
-                        (when (or 
-                                  (= ?c (aref  (, prompt) 0))
-                                  (= ?K (aref  (, prompt) 0))
-                                  (= ?k (aref  (, prompt) 0)))
-                          (emacspeak-auditory-icon 'open-object)
- 			 (tts-with-punctuations "all"
- 						(dtk-speak
- 						 (,
- 						  (format " %s "
- 							  (or
- 							   (if (= ?* (aref  prompt 0))
- 							       (substring prompt 2 )
- 							     (substring prompt 1 ))
- 							   ""))))))
+                    (`
+                     (let ((dtk-stop-immediately nil)
+                           (emacspeak-last-command-needs-minibuffer-spoken t)
+                           (emacspeak-speak-messages nil))
+                       (when  (string-match"^[ckK]" (, prompt))
+                         (emacspeak-auditory-icon 'open-object)
+                         (tts-with-punctuations
+                          "all"
+                          (dtk-speak
+                           (format " %s "
+                                   (or (substring (, prompt) 1 ) "")))))
                        (call-interactively
                         #'(lambda (&rest args)
                             (interactive (, prompt))
                             args) nil)))))
-              interactive-list)))))))
-      (push sym  emacspeak-commands-that-are-fixed )))
+              interactive-list)))))))))
   t)
 
 ;;; inline function for use from other modules:
