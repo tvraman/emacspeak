@@ -1550,6 +1550,14 @@ Find switches whose args need quoting.
 Widget to get find switch.
 @end defvar
 
+@defvar {User Option} emacspeak-wizards-links-program
+Name of links executable.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-lynx-program
+Lynx executable.
+@end defvar
+
 @defvar {User Option} emacspeak-wizards-ppthtml-program
 Program for converting PPT  to HTML.
 Set this to nil if you do not want to use the PPTHTML wizard.
@@ -1562,6 +1570,13 @@ this requires Perl module Finance::YahooQuote.
 
 @defvar {User Option} emacspeak-wizards-spot-words-extension
 Default file extension  used when spotting words.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-tramp-locations
+Tramp locations used by Emacspeak tramp wizard.
+Locations added here via custom can be opened using command
+emacspeak-wizards-tramp-open-location
+bound to M-x emacspeak-wizards-tramp-open-location.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
