@@ -69,7 +69,8 @@ There are
   </xsl:template>
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      Summary: <xsl:value-of select="@summary"/></xsl:element>
+      Table <xsl:value-of select="position()"/>
+ <xsl:value-of select="@summary"/></xsl:element>
   </xsl:template>
   <xsl:template match="//table//table" mode="second-pass">
     <xsl:element name="a">
