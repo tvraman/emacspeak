@@ -308,8 +308,7 @@ HTML head if none found."
   (interactive "sXPath:")
   (declare (special emacspeak-xml-shell-display-buffer))
   (emacspeak-xml-shell-process-node xpath 
-                                    'emacspeak-xml-shell-display-as-html)
-  (switch-to-buffer emacspeak-xml-shell-display-buffer))
+                                    'emacspeak-xml-shell-display-as-html))
 
 ;;}}}
 ;;{{{ keybindings
