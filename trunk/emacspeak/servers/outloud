@@ -43,6 +43,7 @@ source $wd/tts-lib.tcl
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
+    service
     return ""
 }
 
@@ -50,7 +51,8 @@ proc tts_set_speech_rate {rate} {
     global tts
     set factor $tts(char_factor) 
     set tts(speech_rate) $rate
-    synth "`vs$rate "
+    say "`vs$rate "
+    service
     return ""
 }
 
@@ -59,35 +61,39 @@ proc tts_set_character_scale {factor} {
     set tts(say_rate) [round \
                                        [expr $tts(speech_rate) * $factor ]]
     set tts(char_factor) $factor
+    service
     return ""
 }
 
 proc tts_say {text} {
     global    tts
-    s
+    service 
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     regsub -all {\[\*\]} $text { `p1 } text 
     synth " $prefix $text"
+        service
     return ""
 }
 
 #formerly called tts_letter
 
 proc l {text} {
-    global tts 
+    global tts
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
     set tts(not_stopped) 1
-    synth "$prefix  `ts2 $text`ts0"
-        return ""
+    synth "$prefix  `ts2 $text `ts0"
+    service
+    return ""
 }
 
 #formerly called tts_speak
 proc d {} {
+    service
     speech_task
 }
 
@@ -95,7 +101,6 @@ proc tts_resume  {} {
         resume
     return ""
 }
-
 proc tts_pause {} {
     pause
     return ""
@@ -105,13 +110,13 @@ proc tts_pause {} {
 
 proc s {} {
     global tts
-    if {$tts(not_stopped)==1} {
+    if {$tts(not_stopped) == 1} {
         set tts(not_stopped) 0
-    stop 
+    stop
     queue_clear
     } else {
         puts stderr StopNoOp
-    }
+}
 }
 
 #formerly called tts_tone
@@ -126,12 +131,15 @@ proc t  {{pitch 440} {duration 50}} {
         n $inst $note $len
         return ""
     }
+    service
 }
+
 proc sh  {{duration 50}} {
     global tts queue 
     set silence "`p$duration "
     set queue($tts(q_tail)) [list t $silence]
     incr tts(q_tail)
+    service
     return ""
 }
 
@@ -139,18 +147,21 @@ proc sh  {{duration 50}} {
 proc tts_split_caps {flag} {
     global tts 
     set tts(split_caps) $flag
+    service
     return ""
 }
 
 proc tts_capitalize {flag} {
     global tts 
     set tts(capitalize) $flag
+    service
     return ""
 }
 
 proc tts_allcaps_beep {flag} {
     global tts 
     set tts(allcaps_beep) $flag
+    service
     return ""
 }
 
@@ -168,6 +179,11 @@ proc r {rate} {
     return ""
 }
 
+proc useStereoOutput {} {
+    global tts
+        setOutput buffer
+}
+
 # }}}
 # {{{ speech task 
 
@@ -176,9 +192,25 @@ proc trackIndex {index} {
     set tts(last_index) $index
 }
 
+proc service {} {
+    global tts
+    set talking [speakingP]
+    while {$talking == 1} {
+        set status   [lsearch [select [list  stdin]  {} {} 0.020] stdin]
+        if { $status >= 0} {
+            set tts(talking?) 0
+            set talking 0
+            break
+        } else {
+            set talking [speakingP]
+        }
+    }
+    return $talking
+}
+
 proc speech_task {} {
-    global queue tts 
-    set tts(last_index) 0
+    global queue tts
+    set tts(talking?) 1
     set tts(not_stopped) 1
     set r $tts(speech_rate)
     set length [queue_length]
@@ -189,7 +221,12 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                say  " $prefix $text"
+                synth "$prefix $text"
+                set retval [service]
+            }
+            a {
+                set sound [lindex $event 1]
+                playWave $sound
             }
             n {
                 if {$tts(midi)} {
@@ -198,8 +235,10 @@ proc speech_task {} {
                 }
             }
         }
+        if {$tts(talking?) == 0} {break;} 
     }
-    synth " "
+    set tts(talking?) 0
+    service
     return ""
 }
 
@@ -277,6 +316,10 @@ signal ignore {sigint}
 tts_initialize
 set tts(speech_rate)  75
 notes_initialize
+set tts(input) file0
+        if {[info exists server_p]} {
+            set tts(input) sock0
+        }
 set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 #set ECIINI unless already set
@@ -284,9 +327,11 @@ if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
 set env(ECIINI) $tclTTS/eci.ini
 }
 load $tclTTS/tcleci.so
-synth {`v1 Via  IBM  Via Voice,
-    `vb55 `vh55 `ar this `p20,  is   Eamakspeak! 
-}
+set tts(stereo) 1
+useStereoOutput
+synth {`v1 Via Voice.}
+service
+
 #Start the main command loop:
 
 commandloop 
