@@ -59,7 +59,6 @@
     ("dtk-interp" . nil)
 ("dtk-speak" . nil)
 ("voice-setup" . nil)
-    ("dtk-tcl" . nil)
     ("dtk-voices" . nil)
     ("emacspeak-actions". nil )
     ("emacspeak-advice" . nil)

@@ -947,7 +947,6 @@ source-level documentation.
 * Menu:
 
 * dtk-speak::
-* dtk-tcl::
 * emacspeak::
 * emacspeak-arc::
 * emacspeak-aumix::
@@ -981,7 +980,6 @@ source-level documentation.
 * emacspeak-info::
 * emacspeak-keymap::
 * emacspeak-kotl::
-* emacspeak-m-player::
 * emacspeak-man::
 * emacspeak-mpg123::
 * emacspeak-ocr::
@@ -1015,55 +1013,4 @@ source-level documentation.
 * emacspeak-wizards::
 * emacspeak-xml-shell::
 * voice-setup::
-
-
-File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands
-
-dtk-speak
-=========
-
-   Commentary: Defines the TTS interface.
-
-   Automatically generated documentation for commands defined in module
-dtk-speak.
-
- - dtk-select-server: (PROGRAM)
-     ` control e d d '
-
-     Select a speech server interactively.  Argument PROGRAM specifies
-     the speech server program.  When called  interactively, The
-     selected server is started immediately.
-
- - dtk-set-chunk-separator-syntax: (S)
-     ` control e d RETURN '
-
-     Interactively set how text is split in chunks.  See the Emacs
-     documentation on syntax tables for details on how characters are
-     classified into various syntactic classes.  Argument S specifies
-     the syntax class.
-
- - dtk-toggle-debug: (&optional FLAG)
-     ` control e d b '
-
-     Toggle state of the debug FLAG.  When debugging is on, you can
-     switch to the buffer *speaker* to examine the output from the
-     process that talks to the speech device by using command C-e d
-     C-M-b.  Note: *speaker* is a hidden buffer, ie it has a leading
-     space in its name.
-
- - dtk-toggle-splitting-on-white-space: ()
-     ` control e d SPACE '
-
-     Toggle splitting of speech on white space.  This affects the
-     internal state of emacspeak that decides if we split text purely
-     by clause boundaries, or also include whitespace.  By default,
-     emacspeak sends a clause at a time to the speech device.  This
-     produces fluent speech for normal use.  However in modes such as
-     `shell-mode' and some programming language modes, clause markers
-     appear infrequently, and this can result in large amounts of text
-     being sent to the speech device at once, making the system
-     unresponsive when asked to stop talking.  Splitting on white space
-     makes emacspeak's stop command responsive.  However, when
-     splitting on white space, the speech sounds choppy since the
-     synthesizer is getting a word at a time.
 
