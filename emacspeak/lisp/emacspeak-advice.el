@@ -683,6 +683,12 @@ Also produces an auditory icon if possible."
   (tts-with-punctuations "all"
                          (dtk-speak (ad-get-arg 0))))
 
+(defadvice read-passwd (before emacspeak pre act comp)
+  "Speak the prompt."
+  (emacspeak-auditory-icon 'open-object)
+  (dtk-speak (ad-get-arg 0)))
+
+
 (defadvice read-from-minibuffer (around emacspeak pre act)
   "Prompt using speech as well."
   (let((prompt (ad-get-arg 0))
