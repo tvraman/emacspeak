@@ -15,7 +15,7 @@ Param class specifies the class to extract.
   <xsl:include href="identity.xsl"/>
 <!-- { html body  -->
 <!--add base uri if available. -->
-  <xsl:template match="/html">
+  <xsl:template match="/html/head">
     <head>
       <xsl:element name="base">
         <xsl:attribute name="href">
