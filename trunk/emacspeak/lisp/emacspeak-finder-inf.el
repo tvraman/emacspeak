@@ -32,6 +32,9 @@
     ("emacspeak-advice.el"
         "Advice all core Emacs functionality to speak intelligently"
         (emacspeak  speech  advice  spoken  output))
+    ("emacspeak-alsaplayer.el"
+        "Control alsaplayer from Emacs"
+        (emacspeak  alsaplayer))
     ("emacspeak-amphetadesk.el"
         "Emacspeak News Portal Interface"
         (emacspeak   audio desktop rss))
@@ -323,6 +326,9 @@
     ("emacspeak-personality.el"
         nil
         (emacspeak   spoken output  audio formatting))
+    ("emacspeak-php-mode.el"
+        "Speech-Enable php-mode "
+        (emacspeak  php))
     ("emacspeak-preamble.el"
         "standard  include for Emacspeak modules"
         (emacspeak  audio interface to emacs auctex))
