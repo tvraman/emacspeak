@@ -52,7 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'lisp-mnt)
-(eval-when-compile (require 'dired))
+(require 'dired)
 (require 'derived)
 (require 'eldoc)
 (require 'find-dired)
@@ -61,7 +61,7 @@
 (require 'shell)
 (require 'texinfo)
 (require 'term)
-(eval-when-compile (require 'cus-edit))
+(require 'cus-edit)
 (require 'emacspeak-xslt)
 (eval-when-compile (require 'emacspeak-w3))
 ;;}}}

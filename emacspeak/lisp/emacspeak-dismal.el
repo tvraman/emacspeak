@@ -44,7 +44,7 @@
 
 ;;}}}
 ;;{{{  requires 
-
+(require 'cl)
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ custom

@@ -61,7 +61,7 @@
 ;;; Code:
 ;;{{{ required packages
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'wid-edit)
