@@ -15,17 +15,16 @@ shown in the output.
   <xsl:param name="path"/>
   <xsl:param name="base"/>
   <xsl:template match="*|@*" mode="copy" >
-<xsl:variable name="i" select="$locator"/>
-    <xsl:if test="set:intersection(ancestor::*, $i)">
+    <xsl:variable name="i" select="$locator"/>
     <xsl:copy>
-       <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()" mode="copy"/>
-    </xsl:copy>
-    </xsl:if>
+    </xsl:copy>      
+    
   </xsl:template>
-<!-- { html   -->
-<!--add base uri if available. -->
-
+  <!-- { html   -->
+  <!--add base uri if available. -->
+  
   <xsl:template match="/html/head">
     <xsl:element name="head">
       <xsl:element name="base">
@@ -38,21 +37,21 @@ shown in the output.
   </xsl:template>
   <xsl:template match="/html/body">
     <body>
-<!-- note that this will give us duplicates -->
-<xsl:apply-templates select="$locator" mode="copy"/>
-
+      <!-- note that this will give us duplicates -->
+      <xsl:apply-templates select="$locator" mode="copy"/>
+      
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
-      elements
-in  
-<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-document </xsl:element>.</p>
+        elements
+        in  
+        <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
+      document </xsl:element>.</p>
     </body>
   </xsl:template>
-<xsl:include href="identity.xsl"/>
-<!-- nuke these -->
+  <xsl:include href="identity.xsl"/>
+  <!-- nuke these -->
   <xsl:template match="//script|//meta//style"/>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:
