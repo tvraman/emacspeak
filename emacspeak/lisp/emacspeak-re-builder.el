@@ -48,6 +48,7 @@
 ;;}}}
 
 ;;{{{ required modules
+;;; Code:
 
 (require 'emacspeak-preamble)
 
