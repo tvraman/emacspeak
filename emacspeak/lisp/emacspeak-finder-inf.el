@@ -95,6 +95,9 @@
     ("emacspeak-custom.el"
         "Speech enable interactive Emacs customization "
         (emacspeak  speak  spoken output  custom))
+    ("emacspeak-daisy.el"
+        "daisy Front-end for emacspeak desktop"
+        (emacspeak  daisy digital talking books))
     ("emacspeak-dictation.el"
         "Speech enable dictation -- Dictation Interface"
         (emacspeak  speak  spoken output  dictation))
@@ -368,6 +371,9 @@
     ("emacspeak-w3.el"
         "Speech enable W3 WWW browser -- includes ACSS Support"
         (emacspeak  w3  www))
+    ("emacspeak-w3m.el"
+        nil
+        (emacspeak  w3m))
     ("emacspeak-websearch.el"
         "search utilities"
         (emacspeak  www interaction))
@@ -434,6 +440,9 @@
     ("voice-setup.el"
         "Setup voices for voice-lock"
         nil)
+    ("xml-parse.el"
+        "code to efficiently read/write XML data with Elisp"
+        (convenience languages lisp xml parse data))
 ))
 
 (loop for l  in (reverse emacspeak-finder-package-info) do
