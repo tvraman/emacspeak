@@ -318,28 +318,25 @@ static int xrun_recovery(snd_pcm_t *handle, int err) {
 static int write_loop(snd_pcm_t *handle,
                       signed short *samples,
                       snd_pcm_channel_area_t *areas) {
-        signed short *ptr;
-        int err, cptr;
-
-        while (samples) {
-                ptr = samples;
-                cptr = period_size;
-                while (cptr > 0) {
-                        err = snd_pcm_writei(handle, ptr, cptr);
-                        if (err == -EAGAIN)
-                                continue;
-                        if (err < 0) {
-                                if (xrun_recovery(handle, err) < 0) {
-                                        printf("Write error: %s\n", snd_strerror(err));
-                                        exit(EXIT_FAILURE);
-                                }
-                                break;  /* skip one period */
-                        }
-                        ptr += err ;/* channels=1*/
-                        cptr -= err;
-                }
-        }
-        return TCL_OK;
+  signed short *ptr;
+  int err, cptr;
+  ptr = samples;
+  cptr = period_size;
+  while (cptr > 0) {
+    err = snd_pcm_writei(handle, ptr, cptr);
+    if (err == -EAGAIN)
+      continue;
+    if (err < 0) {
+      if (xrun_recovery(handle, err) < 0) {
+        printf("Write error: %s\n", snd_strerror(err));
+        exit(EXIT_FAILURE);
+      }
+      break;  /* skip one period */
+    }
+    ptr += err ;/* channels=1*/
+    cptr -= err;
+  }
+  return TCL_OK;
 }
 
 //>
