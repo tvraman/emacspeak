@@ -225,7 +225,7 @@ spoken.")
      (when (not (= start (point)))
        (setq start (point))
        (search-forward " ")
-       (buffer-substring start (point)))))))
+       (buffer-substring start (1- (point))))))))
      
 
 (defun emacspeak-erc-add-name-to-monitor (name)
