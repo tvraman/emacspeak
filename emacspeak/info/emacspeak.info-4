@@ -8,12 +8,134 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-psgml,  Up: Emacspeak Commands
+
+emacspeak-realaudio
+===================
+
+   Commentary: Assuming you have a correctly configured RealAudio
+player, this package provides single click access to starting and
+stopping a RealAudio stream from anywhere on the Emacspeak desktop.
+Before using this package, make sure that your realaudio player works
+outside Emacs. Then set variable Emacspeak-realaudio-player to point to
+the program you use to play RealAudio streams.
+
+   Automatically generated documentation for commands defined in module
+emacspeak-realaudio.
+
+emacspeak-realaudio-play-url-at-point
+=====================================
+
+   No global keybinding
+
+   Play url under point as realaudio
+
+emacspeak-realaudio-play
+========================
+
+   No global keybinding
+
+   Play a realaudio stream.  Uses files from your Realaudio shortcuts
+directory for completion.  See documentation for user configurable
+variable emacspeak-realaudio-shortcuts-directory.
+
+emacspeak-realaudio-select-realaudio-buffer
+===========================================
+
+   No global keybinding
+
+   Switch to realaudio buffer.
+
+emacspeak-realaudio-browse
+==========================
+
+   Control  cap E  :
+
+   Browse RAM file before playing the selected component.
+
+emacspeak-realaudio-mode
+========================
+
+   No global keybinding
+
+   Major mode for streaming audio.
+
+   key             binding --             ------
+
+   right           emacspeak-aumix-wave-increase left
+emacspeak-aumix-wave-decrease }
+emacspeak-realaudio-trplayer-call-command {
+emacspeak-realaudio-trplayer-call-command ]
+emacspeak-realaudio-trplayer-call-command [
+emacspeak-realaudio-trplayer-call-command 9
+emacspeak-realaudio-trplayer-call-command 0
+emacspeak-realaudio-trplayer-call-command ,
+emacspeak-realaudio-trplayer-call-command .
+emacspeak-realaudio-trplayer-call-command >
+emacspeak-realaudio-trplayer-call-command <
+emacspeak-realaudio-trplayer-call-command i
+emacspeak-realaudio-trplayer-call-command l
+emacspeak-realaudio-trplayer-call-command e
+emacspeak-realaudio-trplayer-call-command s
+emacspeak-realaudio-trplayer-call-command t
+emacspeak-realaudio-trplayer-call-command p
+emacspeak-realaudio-trplayer-call-command
+
+emacspeak-realaudio-stop
+========================
+
+   No global keybinding
+
+   Stop playing realaudio
+
+emacspeak-realaudio-trplayer-call-command
+=========================================
+
+   No global keybinding
+
+   Call appropriate TRPlayer command.
+
+emacspeak-realaudio
+===================
+
+   Control  cap E  ;
+
+   Start or control streaming audio including MP3 and realaudio.  If
+using `TRPlayer' as the player, accepts trplayer control commands if a
+stream is already playing.  Otherwise, the playing stream is simply
+stopped.  If no stream is playing, this command prompts for a realaudio
+resource.  Realaudio resources can be specified either as a Realaudio
+URL, the location of a local Realaudio file, or as the name of a local
+Realaudio metafile. Realaudio resources you have played in this session
+are available in the minibuffer history.  The default is to play the
+resource you played most recently. Emacspeak uses the contents of the
+directory specified by variable emacspeak-realaudio-shortcuts-directory
+to offer a set of completions. Hit space to use this completion list.
+
+   If using TRPlayer, you can either give one-shot commands using
+command emacspeak-realaudio available from anywhere on the audio
+desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if you
+wish to issue many nvigation commands.  Note that buffer *realaudio*
+uses a special major mode that provides the various navigation commands
+via single keystrokes.
+
+emacspeak-realaudio-trplayer-command
+====================================
+
+   No global keybinding
+
+   Execute TRPlayer command.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+
 File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-remote,  Prev: emacspeak-realaudio,  Up: Emacspeak Commands
 
 emacspeak-redefine
 ==================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-redefine.
@@ -82,8 +204,6 @@ File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rmail,  Prev: em
 emacspeak-remote
 ================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-remote.
 
@@ -112,8 +232,6 @@ File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev:
 emacspeak-rmail
 ===============
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-rmail.
 
@@ -136,8 +254,6 @@ File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev
 
 emacspeak-solitaire
 ===================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-solitaire.
@@ -169,7 +285,25 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 emacspeak-sounds
 ================
 
-   nil
+   Commentary: This module provides the interface for generating
+auditory icons in emacspeak.  Design goal: 1) Auditory icons should be
+used to provide additional feedback, not as a gimmick.  2) The
+interface should be usable at all times without the icons: e.g. when on
+a machine without a sound card.  3) General principle for when to use
+an icon: Convey information about events taking place in parallel.  For
+instance, if making a selection automatically moves the current focus
+to the next choice, We speak the next choice, while indicating the fact
+that something was selected with a sound cue.   This interface will
+assume the availability of a shell command "play" that can take one or
+more sound files and play them.  This module will also provide a
+mapping between names in the elisp world and actual sound files.
+Modules that wish to use auditory icons should use these names, instead
+of actual file names.  As of Emacspeak 13.0, this module defines a
+themes architecture for  auditory icons.  Sound files corresponding to
+a given theme are found in appropriate subdirectories of
+emacspeak-sounds-directory
+
+   }}} {{{ required modules
 
    Automatically generated documentation for commands defined in module
 emacspeak-sounds.
@@ -203,7 +337,7 @@ emacspeak-midi-icon for midi device.
 emacspeak-sounds-select-theme
 =============================
 
-   control e )
+   Control  cap E  )
 
    Select theme for auditory icons.
 
@@ -223,7 +357,10 @@ File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: 
 emacspeak-speak
 ===============
 
-   nil
+   Commentary: This module defines the core speech services used by
+emacspeak.  It depends on the speech server interface modules It
+protects other parts of emacspeak from becoming dependent on the speech
+server modules
 
    Automatically generated documentation for commands defined in module
 emacspeak-speak.
@@ -238,7 +375,7 @@ emacspeak-kill-buffer-quietly
 emacspeak-speak-line-set-column-filter
 ======================================
 
-   control e |
+   Control  cap E  |
 
    Set up filter for selectively ignoring portions of lines.  The
 filter is specified as a list of pairs.  For example, to filter out
@@ -251,7 +388,7 @@ a set of filters for specific files like /var/adm/messages and
 emacspeak-speak-current-percentage
 ==================================
 
-   control e %
+   Control  cap E  %
 
    Announce the percentage into the current buffer.
 
@@ -270,7 +407,7 @@ speak interactive prompts.
 emacspeak-speak-char
 ====================
 
-   control e c
+   Control  cap E  c
 
    Speak character under point.  Pronounces character phonetically
 unless  called with a PREFIX arg.
@@ -278,7 +415,7 @@ unless  called with a PREFIX arg.
 emacspeak-speak-rest-of-buffer
 ==============================
 
-   control e n
+   Control  cap E  n
 
    Speak remainder of the buffer starting at point
 
@@ -1004,7 +1141,12 @@ File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-table-ui,  Pre
 emacspeak-speedbar
 ==================
 
-   nil
+   Commentary: This module advises speedbar.el for use with Emacs.  The
+latest speedbar can be obtained from ftp://ftp.ultranet.com/pub/zappo/
+This module ensures that speedbar works smoothly outside a windowing
+system in addition to speech enabling all interactive commands.
+Emacspeak also adds an Emacspeak environment specific entry point to
+speedbar -emacspeak-speedbar-goto-speedbar- and binds this
 
    Automatically generated documentation for commands defined in module
 emacspeak-speedbar.
@@ -1028,8 +1170,6 @@ File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Pre
 
 emacspeak-table-ui
 ==================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-table-ui.
@@ -1303,8 +1443,6 @@ File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Pre
 emacspeak-tabulate
 ==================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-tabulate.
 
@@ -1323,8 +1461,6 @@ File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-url-template, 
 emacspeak-tapestry
 ==================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-tapestry.
 
@@ -1340,8 +1476,6 @@ File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Pre
 
 emacspeak-url-template
 ======================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-url-template.
@@ -1373,8 +1507,6 @@ File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspe
 emacspeak-view
 ==============
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-view.
 
@@ -1390,8 +1522,6 @@ File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak
 
 emacspeak-vm
 ============
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-vm.
@@ -1431,7 +1561,9 @@ File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-websearch,  Prev: em
 emacspeak-w3
 ============
 
-   nil
+   Commentary: Ensure that speech support for W3 gets installed and
+loaded correctly.  The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
 
    Automatically generated documentation for commands defined in module
 emacspeak-w3.
@@ -1525,398 +1657,4 @@ emacspeak-w3-previous-doc-element
 
    Move back  to the previous document element.  Optional interactive
 prefix argument COUNT specifies by how many eleemnts to move.
-
-
-File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
-
-emacspeak-websearch
-===================
-
-   nil
-
-   Automatically generated documentation for commands defined in module
-emacspeak-websearch.
-
-emacspeak-websearch-inference-search
-====================================
-
-   No global keybinding
-
-   Perform an Inference search.
-
-emacspeak-websearch-rfb-search
-==============================
-
-   No global keybinding
-
-   Search RFB&D catalog.
-
-emacspeak-websearch-freshmeat-search
-====================================
-
-   No global keybinding
-
-   Search Freshmeat  Site.
-
-emacspeak-websearch-britannica-search
-=====================================
-
-   No global keybinding
-
-   Search Encyclopedia Britannica.
-
-emacspeak-websearch-dispatch
-============================
-
-   control e ?
-
-   Launches specific websearch queries.  Search engine is selected by
-keystrokes listed below.  Once selected, the selected searcher prompts
-for additional information as appropriate.
-
-   Key     Engine              Search a       AltaVista
- AltaVista Simple Search Cap A     AllTheWeb                   All The
-Web b       BBC                         BBC Archives C-b     Biblio
-                Computer Science Bibliography c       CNN
-          CNN Interactive Cap C   Company News                Lookup
-Company News By Ticker C-c     CiteSeer                    Computer
-Science Citation  Index d       dejanews                    Usenet
-Archives At Dejanews Cap D   Dictionary                  Hypertext
-Websters Dictionary e   Encyclopedia                    Encyclopedia
-Britannica f       CNN-FN                      CNN  Financial Network
-cap F   FolDoc                      Free Online Dictionary Of Computing
-g       Google                      The Google WWW Index Cap G
-Gutenberg Locate Gutenberg Etexts h       HotBot
-HotBot WWW Index i       Inference                   Inference WWW
-Search j       jeeves                      Ask Jeeves k       kerbango
-                 Kerbango Radio Tuner m       Map
-  Driving directions from Yahoo Cap M   Dictionary
-Merriam Webster Dictionary n       news-yahoo                  News
-Wire at Yahoo Cap N   NLight                      Northern Light Search
-o       open-directory              Open Directory Search p
-People                      People Search (Yahoo) r       RedHat
-             Search RedHat Via Google Cap R   RFBD
-  RFB&D Catalog search C-r RPMFind                         Find RPM
-packages s       Software                  Search for software t
-translate                 Machine translation u       usenet-altavista
-         Usenet Index At AltaVista w       Weather
-Weather Channel  By Zip Code cap W   W3C                         Search
-W3C Site v   Vickers                         Vickers Insider Trades Cap
-VVectorVestVectorVest Stock Reports y       yahoo
-Master Yahoo Index
-
-   When using W3,  this interface attempts to speak the most relevant
-information on the result page.
-
-emacspeak-websearch-google
-==========================
-
-   No global keybinding
-
-   Perform an Google search
-
-emacspeak-websearch-emacspeak-archive
-=====================================
-
-   control h e
-
-   Search Emacspeak mail archives.  For example to find messages about
-Redhat at the Emacspeak archives, type +redhat
-
-emacspeak-websearch-w3c-search
-==============================
-
-   No global keybinding
-
-   Search the W3C Site.
-
-emacspeak-websearch-citeseer-search
-===================================
-
-   No global keybinding
-
-   Perform a CiteSeer search.
-
-emacspeak-websearch-alltheweb-search
-====================================
-
-   No global keybinding
-
-   Perform an AllTheWeb  search.  Optional prefix arg prompts for type
-of search: -use `all' `phrase' or  `any' to specify the type of search.
-
-emacspeak-websearch-gutenberg
-=============================
-
-   No global keybinding
-
-   Perform an Gutenberg search
-
-emacspeak-dejanews-browse-group
-===============================
-
-   control e  cap U
-
-   Prompt and browse a newsgroup on Dejanews.
-
-emacspeak-websearch-kerbango-search
-===================================
-
-   No global keybinding
-
-   Search Kerbango radio tuner.
-
-emacspeak-websearch-cnn-search
-==============================
-
-   No global keybinding
-
-   Perform an CNN search.  Optional interactive prefix arg prompts for
-additional search parameters.  The default is to sort by date and show
-summaries.  To sort by relevance specify additional parameter &rf=0.
-To hide summaries, specify additional parameter &lk=2.  You can
-customize the defaults by setting variable
-emacspeak-websearch-cnn-options to an appropriate string.
-
-emacspeak-websearch-quotes-yahoo-search
-=======================================
-
-   No global keybinding
-
-   Perform a Quotes Yahoo .  Default tickers to look up is taken from
-variable emacspeak-websearch-personal-portfolio.  Default is to present
-the data in emacspeak's table browsing mode -optional interactive
-prefix arg causes data to be displayed y W3 as a WWW page.  You can
-customize the defaults by setting variable
-emacspeak-websearch-quotes-yahoo-options to an appropriate string.
-
-emacspeak-websearch-software-search
-===================================
-
-   No global keybinding
-
-   Search SourceForge, Freshmeat and other sites.
-
-emacspeak-websearch-usenet-altavista-search
-===========================================
-
-   No global keybinding
-
-   Perform a Usenet  Altavista search
-
-emacspeak-websearch-weather
-===========================
-
-   No global keybinding
-
-   Get weather forecast for specified zip code.
-
-emacspeak-websearch-altavista-search
-====================================
-
-   No global keybinding
-
-   Perform an Altavista search
-
-emacspeak-websearch-foldoc-search
-=================================
-
-   No global keybinding
-
-   Perform a FolDoc search.
-
-emacspeak-websearch-news-yahoo
-==============================
-
-   No global keybinding
-
-   Perform an Yahoo News search
-
-emacspeak-websearch-map-directions-search
-=========================================
-
-   No global keybinding
-
-   Get driving directions from Yahoo.  With optional interactive prefix
-arg MAP shows the location map instead.
-
-emacspeak-websearch-rpm-find
-============================
-
-   No global keybinding
-
-   Search RPM  catalog  site.
-
-emacspeak-websearch-bbc-search
-==============================
-
-   No global keybinding
-
-   Search BBC archives.
-
-emacspeak-websearch-yahoo-historical-chart
-==========================================
-
-   No global keybinding
-
-   Look up historical stock data.  Optional second arg data processes
-the results as data rather than HTML.
-
-emacspeak-websearch-dejanews-search
-===================================
-
-   No global keybinding
-
-   Perform a Dejanews search
-
-emacspeak-websearch-vickers-search
-==================================
-
-   No global keybinding
-
-   Search Vickers insider trading.
-
-emacspeak-websearch-biblio-search
-=================================
-
-   No global keybinding
-
-   Search Computer Science Bibliographies.
-
-emacspeak-websearch-ask-jeeves
-==============================
-
-   No global keybinding
-
-   Ask Jeeves for the answer.
-
-emacspeak-websearch-fn-cnn-search
-=================================
-
-   No global keybinding
-
-   Perform an CNN FNsearch.  Optional interactive prefix arg prompts
-for additional search parameters.  The default is to sort by date and
-show summaries.  To sort by relevance specify additional parameter
-&rf=0.  To hide summaries, specify additional parameter &lk=2.  You can
-customize the defaults by setting variable
-emacspeak-websearch-fn-cnn-options to an appropriate string.
-
-emacspeak-websearch-cpan-search
-===============================
-
-   No global keybinding
-
-   Search CPAN  Comprehensive Perl Archive Network   Site.
-
-emacspeak-websearch-packages-linux
-==================================
-
-   No global keybinding
-
-   Search for Linux packages.
-
-emacspeak-websearch-open-directory-search
-=========================================
-
-   No global keybinding
-
-   Perform an Open Directory search
-
-emacspeak-websearch-appwatch-search
-===================================
-
-   No global keybinding
-
-   Search AppWatch  Site.
-
-emacspeak-websearch-redhat
-==========================
-
-   No global keybinding
-
-   Search RedHat site.
-
-emacspeak-websearch-sourceforge-search
-======================================
-
-   No global keybinding
-
-   Search SourceForge Site.
-
-emacspeak-websearch-vector-vest-search
-======================================
-
-   No global keybinding
-
-   Look up VectorVest reports .
-
-emacspeak-websearch-people-yahoo
-================================
-
-   No global keybinding
-
-   Perform an Yahoo  people search
-
-emacspeak-websearch-hotbot-search
-=================================
-
-   No global keybinding
-
-   Perform a Hotbot  search.  Optional interactive prefix arg prompts
-for additional search parameters.  The default is to sort by date and
-show summaries.  To sort by relevance specify additional parameter
-&rf=0.  To hide summaries, specify additional parameter &lk=2.  You can
-customize the defaults by setting variable
-emacspeak-websearch-hotbot-options to an appropriate string.
-
-emacspeak-websearch-yahoo
-=========================
-
-   No global keybinding
-
-   Perform an Yahoo  search
-
-emacspeak-websearch-dictionary-hypertext-webster-search
-=======================================================
-
-   No global keybinding
-
-   Search the Webster Dictionary.
-
-emacspeak-websearch-machine-translate
-=====================================
-
-   No global keybinding
-
-   Perform a machine translation request
-
-emacspeak-websearch-merriam-webster-search
-==========================================
-
-   No global keybinding
-
-   Search the Merriam Webster Dictionary.
-
-emacspeak-websearch-northern-light
-==================================
-
-   No global keybinding
-
-   Perform a Northern Light  search
-
-emacspeak-websearch-ctan-search
-===============================
-
-   No global keybinding
-
-   Search CTAN Comprehensive TeX Archive Network   Site.
-
-emacspeak-websearch-company-news
-================================
-
-   No global keybinding
-
-   Perform an company news lookup.  Retrieves company news, research,
-profile, insider trades,  or upgrades/downgrades.
 

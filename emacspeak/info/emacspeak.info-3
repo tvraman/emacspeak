@@ -13,7 +13,7 @@ File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-aumix,  Prev: dtk-speak, 
 dtk-tcl
 =======
 
-   nil
+   Commentary: Interface to speech server.
 
    Automatically generated documentation for commands defined in module
 dtk-tcl.
@@ -216,7 +216,8 @@ File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: dtk-tc
 emacspeak-aumix
 ===============
 
-   nil
+   Commentary: Provides an AUI to setting up the auditory display via
+AUMIX This module is presently Linux specific
 
    Automatically generated documentation for commands defined in module
 emacspeak-aumix.
@@ -281,7 +282,8 @@ File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: em
 emacspeak-bs
 ============
 
-   nil
+   Commentary: speech-enable bs.el this is an alternative to
+list-buffers
 
    Automatically generated documentation for commands defined in module
 emacspeak-bs.
@@ -298,8 +300,6 @@ File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: ema
 
 emacspeak-buff-menu
 ===================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-buff-menu.
@@ -338,8 +338,6 @@ File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calendar,  Prev: emac
 emacspeak-c
 ===========
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-c.
 
@@ -355,8 +353,6 @@ File: emacspeak.info,  Node: emacspeak-calendar,  Next: emacspeak-compile,  Prev
 
 emacspeak-calendar
 ==================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-calendar.
@@ -381,7 +377,9 @@ File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-custom,  Prev: 
 emacspeak-compile
 =================
 
-   nil
+   Commentary: This module makes compiling code from inside Emacs
+speech friendly.  It is an example of how a little amount of code can
+make Emacspeak even better.
 
    Automatically generated documentation for commands defined in module
 emacspeak-compile.
@@ -398,8 +396,6 @@ File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dired,  Prev: em
 
 emacspeak-custom
 ================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-custom.
@@ -424,7 +420,12 @@ File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-ediff,  Prev: ema
 emacspeak-dired
 ===============
 
-   nil
+   Commentary: This module speech enables dired.  It reduces the amount
+of speech you hear: Typically you hear the file names as you move
+through the dired buffer Voicification is used to indicate directories,
+marked files etc.
+
+   }}} {{{  required packages
 
    Automatically generated documentation for commands defined in module
 emacspeak-dired.
@@ -493,8 +494,6 @@ File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: 
 emacspeak-ediff
 ===============
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-ediff.
 
@@ -511,8 +510,6 @@ File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Pr
 emacspeak-enriched
 ==================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-enriched.
 
@@ -528,8 +525,6 @@ File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-eterm,  Prev:
 
 emacspeak-entertain
 ===================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-entertain.
@@ -554,7 +549,14 @@ File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-filtertext,  Prev
 emacspeak-eterm
 ===============
 
-   nil
+   Commentary: {{{  Introduction: This module makes eterm talk.  Eterm
+is the new terminal emulator for Emacs.  Use of emacspeak with eterm
+really needs an info page.  At present, the only documentation is the
+source level documentation.  This module uses Control-t as an
+additional prefix key to allow the user To move around the terminal and
+have different parts spoken.
+
+   }}}
 
    Automatically generated documentation for commands defined in module
 emacspeak-eterm.
@@ -872,8 +874,6 @@ File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interact
 emacspeak-filtertext
 ====================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-filtertext.
 
@@ -899,7 +899,7 @@ emacspeak-filtertext-revert
 emacspeak-filtertext
 ====================
 
-   control e \
+   Control  cap E  \
 
    Copy over text in region to special filtertext buffer in preparation
 for interactively filtering text.
@@ -909,8 +909,6 @@ File: emacspeak.info,  Node: emacspeak-fix-interactive,  Next: emacspeak-forms, 
 
 emacspeak-fix-interactive
 =========================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-fix-interactive.
@@ -936,8 +934,6 @@ File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-freeamp,  Prev: e
 
 emacspeak-forms
 ===============
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-forms.
@@ -990,8 +986,6 @@ File: emacspeak.info,  Node: emacspeak-freeamp,  Next: emacspeak-gomoku,  Prev: 
 
 emacspeak-freeamp
 =================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-freeamp.
@@ -1051,8 +1045,6 @@ File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-gridtext,  Prev:
 
 emacspeak-gomoku
 ================
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-gomoku.
@@ -1126,8 +1118,6 @@ File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-hide,  Prev: e
 emacspeak-gridtext
 ==================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-gridtext.
 
@@ -1158,7 +1148,17 @@ File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-ibuffer,  Prev: em
 emacspeak-hide
 ==============
 
-   nil
+   Commentary:
+
+   {{{  Introduction
+
+   Flexible hide and show for emacspeak.  This module allows one to
+easily hide or expose blocks of lines starting with a common prefix.
+It is motivated by the need to flexibly hide quoted text in email but
+is designed to be more general.  the prefix parsing is inspired by
+filladapt.el
+
+   }}}
 
    Automatically generated documentation for commands defined in module
 emacspeak-hide.
@@ -1197,7 +1197,8 @@ File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-imenu,  Prev: e
 emacspeak-ibuffer
 =================
 
-   nil
+   Commentary: speech-enable ibuffer.el this is an alternative to
+buffer-menu
 
    Automatically generated documentation for commands defined in module
 emacspeak-ibuffer.
@@ -1214,8 +1215,6 @@ File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-keymap,  Prev: em
 
 emacspeak-imenu
 ===============
-
-   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-imenu.
@@ -1247,8 +1246,6 @@ File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kotl,  Prev: ema
 emacspeak-keymap
 ================
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-keymap.
 
@@ -1275,8 +1272,6 @@ File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-mpg123,  Prev: ema
 emacspeak-kotl
 ==============
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-kotl.
 
@@ -1301,7 +1296,8 @@ File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-ocr,  Prev: emac
 emacspeak-mpg123
 ================
 
-   nil
+   Commentary: This module speech-enables  MPG123 MPG123 is an MP3
+player.
 
    Automatically generated documentation for commands defined in module
 emacspeak-mpg123.
@@ -1317,7 +1313,7 @@ shuffle  the list.  Use command C-x  h n to skip to the next track.
 emacspeak-mp3-playlist-skip
 ===========================
 
-   control x  h n
+   Control  cap X   h n
 
    Skip currently playing track.
 
@@ -1376,7 +1372,15 @@ File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-outline,  Prev: ema
 emacspeak-ocr
 =============
 
-   nil
+   Commentary: This module defines Emacspeak front-end to OCR.  This
+module assumes that sane is installed and working for image acquisition,
+and that there is an OCR engine that can take acquired images and
+produce text.  Prerequisites: Sane installed and working.  scanimage to
+generate tiff files from scanner.  tiffcp to compress the tiff file.
+working ocr executable by default this module assumes that the OCR
+executable is named "ocr"
+
+   }}} {{{ required modules
 
    Automatically generated documentation for commands defined in module
 emacspeak-ocr.
@@ -1515,7 +1519,7 @@ named file.
 emacspeak-ocr
 =============
 
-   control e control o
+   Control  cap E  Control  cap O
 
    An OCR front-end for the Emacspeak desktop.
 
@@ -1590,7 +1594,7 @@ File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-pronounce,  Pre
 emacspeak-outline
 =================
 
-   nil
+   Commentary: Provide additional advice to outline-mode
 
    Automatically generated documentation for commands defined in module
 emacspeak-outline.
@@ -1598,7 +1602,7 @@ emacspeak-outline.
 emacspeak-outline-speak-previous-heading
 ========================================
 
-   control l p
+   Control  cap L  p
 
    Analogous to outline-previous-visible-heading, except that the
 outline section is optionally spoken
@@ -1606,14 +1610,14 @@ outline section is optionally spoken
 emacspeak-outline-speak-this-heading
 ====================================
 
-   control l SPACE
+   Control  cap L  SPACE
 
    Speak current outline section starting from point
 
 emacspeak-outline-speak-backward-heading
 ========================================
 
-   control l b
+   Control  cap L  b
 
    Analogous to outline-backward-same-level except that the outline
 section is optionally spoken
@@ -1621,7 +1625,7 @@ section is optionally spoken
 emacspeak-outline-speak-next-heading
 ====================================
 
-   control l n
+   Control  cap L  n
 
    Analogous to outline-next-visible-heading, except that the outline
 section is optionally spoken
@@ -1629,7 +1633,7 @@ section is optionally spoken
 emacspeak-outline-speak-forward-heading
 =======================================
 
-   control l f
+   Control  cap L  f
 
    Analogous to outline-forward-same-level, except that the outline
 section is optionally spoken
@@ -1640,7 +1644,23 @@ File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-psgml,  Prev:
 emacspeak-pronounce
 ===================
 
-   nil
+   Commentary: {{{  Introduction
+
+   This module implements user customizable pronunciation dictionaries
+for emacspeak. Custom pronunciations can be defined per file, per
+directory and/or per major mode. Emacspeak maintains a persistent user
+dictionary upon request and loads these in new emacspeak sessions. This
+module implements the user interface to the custom dictionary as well
+as providing the internal API used by the rest of emacspeak in using
+the dictionary.  Algorithm:
+
+   The persistent dictionary is a hash table where the hash keys are
+filenames, directory names, or major-mode names. The hash values are
+association lists defining the dictionary. Users of this module can
+retrieve a dictionary made up of all applicable association lists for a
+given file.
+
+   }}}
 
    Automatically generated documentation for commands defined in module
 emacspeak-pronounce.
@@ -1728,8 +1748,6 @@ File: emacspeak.info,  Node: emacspeak-psgml,  Next: emacspeak-realaudio,  Prev:
 emacspeak-psgml
 ===============
 
-   nil
-
    Automatically generated documentation for commands defined in module
 emacspeak-psgml.
 
@@ -1764,123 +1782,4 @@ emacspeak-psgml-speak-current-element
    No global keybinding
 
    Speak contents of current element.
-
-
-File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-psgml,  Up: Emacspeak Commands
-
-emacspeak-realaudio
-===================
-
-   nil
-
-   Automatically generated documentation for commands defined in module
-emacspeak-realaudio.
-
-emacspeak-realaudio-play-url-at-point
-=====================================
-
-   No global keybinding
-
-   Play url under point as realaudio
-
-emacspeak-realaudio-play
-========================
-
-   No global keybinding
-
-   Play a realaudio stream.  Uses files from your Realaudio shortcuts
-directory for completion.  See documentation for user configurable
-variable emacspeak-realaudio-shortcuts-directory.
-
-emacspeak-realaudio-select-realaudio-buffer
-===========================================
-
-   No global keybinding
-
-   Switch to realaudio buffer.
-
-emacspeak-realaudio-browse
-==========================
-
-   control e :
-
-   Browse RAM file before playing the selected component.
-
-emacspeak-realaudio-mode
-========================
-
-   No global keybinding
-
-   Major mode for streaming audio.
-
-   key             binding --             ------
-
-   right           emacspeak-aumix-wave-increase left
-emacspeak-aumix-wave-decrease }
-emacspeak-realaudio-trplayer-call-command {
-emacspeak-realaudio-trplayer-call-command ]
-emacspeak-realaudio-trplayer-call-command [
-emacspeak-realaudio-trplayer-call-command 9
-emacspeak-realaudio-trplayer-call-command 0
-emacspeak-realaudio-trplayer-call-command ,
-emacspeak-realaudio-trplayer-call-command .
-emacspeak-realaudio-trplayer-call-command >
-emacspeak-realaudio-trplayer-call-command <
-emacspeak-realaudio-trplayer-call-command i
-emacspeak-realaudio-trplayer-call-command l
-emacspeak-realaudio-trplayer-call-command e
-emacspeak-realaudio-trplayer-call-command s
-emacspeak-realaudio-trplayer-call-command t
-emacspeak-realaudio-trplayer-call-command p
-emacspeak-realaudio-trplayer-call-command
-
-emacspeak-realaudio-stop
-========================
-
-   No global keybinding
-
-   Stop playing realaudio
-
-emacspeak-realaudio-trplayer-call-command
-=========================================
-
-   No global keybinding
-
-   Call appropriate TRPlayer command.
-
-emacspeak-realaudio
-===================
-
-   control e ;
-
-   Start or control streaming audio including MP3 and realaudio.  If
-using `TRPlayer' as the player, accepts trplayer control commands if a
-stream is already playing.  Otherwise, the playing stream is simply
-stopped.  If no stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a Realaudio
-URL, the location of a local Realaudio file, or as the name of a local
-Realaudio metafile. Realaudio resources you have played in this session
-are available in the minibuffer history.  The default is to play the
-resource you played most recently. Emacspeak uses the contents of the
-directory specified by variable emacspeak-realaudio-shortcuts-directory
-to offer a set of completions. Hit space to use this completion list.
-
-   If using TRPlayer, you can either give one-shot commands using
-command emacspeak-realaudio available from anywhere on the audio
-desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if you
-wish to issue many nvigation commands.  Note that buffer *realaudio*
-uses a special major mode that provides the various navigation commands
-via single keystrokes.
-
-emacspeak-realaudio-trplayer-command
-====================================
-
-   No global keybinding
-
-   Execute TRPlayer command.
-
-   This function is advised.
-
-   Before-advice `emacspeak-auto': Automatically defined advice to
-speak interactive prompts.
 
