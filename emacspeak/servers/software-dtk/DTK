@@ -29,7 +29,7 @@ normal way.  See the Emacspeak Makefile for instructions.
 
 ** Compiling Software Dectalk  Support For Emacspeak:
 
-Change to the linux-software-dtk subdirectory 
+Change to the software-dtk subdirectory 
 of the Emacspeak source distribution.
    make 
 This should compile the Emacspeak Dectalk  TCL library to
@@ -61,6 +61,9 @@ Alternatively,  you can switch to the dtk-soft while
 emacspeak is running by 
 invoking command dtk-select-server --type
 C-e d d ret dtk-soft ret 
+
+
+Alternatively start emacspeak with the "-d" option.
 
 
 * Using dtk-soft as the default synthesizer:
