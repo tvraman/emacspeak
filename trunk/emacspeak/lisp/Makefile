@@ -392,7 +392,7 @@ emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
 emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc
 emacspeak.elc: emacspeak.el
-
+loaddefs: emacspeak-loaddefs.elc
 # }}}
 # {{{Development  target: indent 
 indent:

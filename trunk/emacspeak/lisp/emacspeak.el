@@ -339,10 +339,10 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
               (unless (file-newer-than-file-p
                        (expand-file-name
                         "emacspeak-finder-inf.el" 
-                               emacspeak-lisp-directory)
+			emacspeak-lisp-directory)
                        (expand-file-name
                         emacspeak-lisp-directory
-                         "emacspeak.el"))
+			"emacspeak.el"))
                 (emacspeak-finder-compile-keywords))
               (load-library "emacspeak-finder-inf")
               (push

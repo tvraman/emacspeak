@@ -53,8 +53,6 @@
 (require 'browse-url)
 (when (locate-library "url-vars")
   (load-library "url-vars"))
-(when (locate-library "w3")
-  (require 'w3))
 ;;}}}
 ;;{{{  Introduction:
 

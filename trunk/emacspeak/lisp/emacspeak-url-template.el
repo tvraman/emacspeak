@@ -645,6 +645,7 @@ name of the list.")
  nil
  "Pick out NFL broadcast links."
  #'(lambda (url)
+     (declare (special w3-mode-map))
      (define-key w3-mode-map "N" 'emacspeak-url-template-nfl-play-broadcast)
      (emacspeak-w3-extract-nested-table 9 url)
      "Displays the table giving the NFL broadcast links for this

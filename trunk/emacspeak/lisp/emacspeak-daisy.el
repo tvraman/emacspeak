@@ -57,7 +57,6 @@
 (require 'derived)
 (require 'xml-parse)
 (eval-when-compile (require 'emacspeak-keymap))
-
 ;;}}}
 ;;{{{  Customization variables
 ;;;###autoload

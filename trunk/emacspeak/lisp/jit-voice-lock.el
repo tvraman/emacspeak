@@ -32,7 +32,6 @@
 
 (eval-when-compile (require 'cl))
 (require 'voice-lock)
-
 (eval-when-compile
   (defmacro with-buffer-unmodified (&rest body)
     "Eval BODY, preserving the current buffer's modified state."
@@ -130,9 +129,9 @@ The value of this variable is used when JIT Lock mode is turned on."
 
 ;;; Variables that are not customizable.
 
-(defvar jit-lock-mode nil
+(defvar jit-voice-lock-mode nil
   "Non-nil means Just-in-time Lock mode is active.")
-(make-variable-buffer-local 'jit-lock-mode)
+(make-variable-buffer-local 'jit-voice-lock-mode)
 
 (defvar jit-lock-first-unvoiceify-pos nil
   "Consider text after this position as unvoiceified.")
@@ -177,19 +176,19 @@ If the system load rises above `jit-lock-stealth-load' percent, stealth
 voiceification is suspended.  Stealth voiceification intensity is controlled via
 the variable `jit-lock-stealth-nice' and `jit-lock-stealth-lines'."
   (interactive "P")
-  (setq jit-lock-mode (if arg
-			  (> (prefix-numeric-value arg) 0)
-			(not jit-lock-mode)))
-  (cond ((and jit-lock-mode
+  (setq jit-voice-lock-mode (if arg
+				(> (prefix-numeric-value arg) 0)
+			      (not jit-voice-lock-mode)))
+  (cond ((and jit-voice-lock-mode
 	      (or (not (boundp 'voice-lock-mode))
 		  (not voice-lock-mode)))
 	 ;; If voice-lock is not on, turn it on, with Just-in-time
 	 ;; Lock mode as support mode; voice-lock will call us again.
-	 (let ((voice-lock-support-mode 'jit-lock-mode))
+	 (let ((voice-lock-support-mode 'jit-voice-lock-mode))
 	   (voice-lock-mode t)))
 
 	;; Turn Just-in-time Lock mode on.
-	(jit-lock-mode
+	(jit-voice-lock-mode
 	 ;; Setting `voice-lock-voiceified' makes voice-lock believe the
 	 ;; buffer is already voiceified, so that it won't highlight
 	 ;; the whole buffer.
@@ -229,22 +228,22 @@ the variable `jit-lock-stealth-nice' and `jit-lock-stealth-lines'."
 ;;;###autoload
 (defun turn-on-jit-lock ()
   "Unconditionally turn on Just-in-time Lock mode."
-  (jit-lock-mode 1))
+  (jit-voice-lock-mode 1))
 
 
 ;;; On demand voiceification.
 
 (defun jit-lock-function (start)
   "Fontify current buffer starting at position START.
-This function is added to `voiceification-functions' when `jit-lock-mode'
+This function is added to `voiceification-functions' when `jit-voice-lock-mode'
 is active."
-  (when jit-lock-mode
+  (when jit-voice-lock-mode
     (jit-lock-function-1 start)))
      
   
 (defun jit-lock-function-1 (start)
   "Fontify current buffer starting at position START.
-This function is added to `voiceification-functions' when `jit-lock-mode'
+This function is added to `voiceification-functions' when `jit-voice-lock-mode'
 is active."
   (declare (special voice-lock-syntactic-keywords))
   (with-buffer-prepared-for-voice-lock
@@ -363,7 +362,7 @@ This functions is called after Emacs has been idle for
 	  (setq buffers (cdr buffers))
 	  
 	  (with-current-buffer buffer
-	    (when jit-lock-mode
+	    (when jit-voice-lock-mode
 	      ;; This is funny.  Calling sit-for with 3rd arg non-nil
 	      ;; so that it doesn't redisplay, internally calls
 	      ;; wait_reading_process_input also with a parameter
@@ -428,7 +427,7 @@ will take place when text is voiceified stealthily."
   ;; Don't do much here---removing text properties is too slow for
   ;; fast typers, giving them the impression of Emacs not being
   ;; very responsive.
-  (when jit-lock-mode
+  (when jit-voice-lock-mode
     (setq jit-lock-first-unvoiceify-pos
 	  (if jit-lock-first-unvoiceify-pos
 	      (min jit-lock-first-unvoiceify-pos start)
