@@ -291,7 +291,7 @@ Argument MODE  specifies the current pronunciation mode."
     (while (re-search-forward dtk-bracket-regexp   nil t )
       (replace-match " " nil t )))))
 
-(defvar dtk-speak-nonprinting-chars t
+(defvar dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
@@ -304,8 +304,8 @@ it seems some accented characters in certain contexts.")
   (if
       (and (boundp 'default-enable-multibyte-characters)
            default-enable-multibyte-characters)
-      "[\000-\010\013-\037\177-\377]"
-    "[\000-\010\013-\037]")
+      "[\000-\010\013\014\016-\037\177-\377]"
+    "[\000-\010\013\014\016-\037]")
   "Regular expression matching control chars.
 Set this once per emacspeak session for efficiency.")
 

@@ -217,7 +217,7 @@ Useful to do this before you listen to an entire buffer."
     (save-excursion
       (goto-char (point-min))
       (let ((start nil)
-            (blank-line "\n[ \t\n]*\n"))
+            (blank-line "\n\\|\r[ \t\n]*\n"))
         (ems-modify-buffer-safely
          (while (re-search-forward blank-line nil t)
            (skip-syntax-forward " ")
@@ -765,7 +765,7 @@ the sense of the filter. "
 ;;}}}
 
 (defcustom emacspeak-speak-space-regexp
-  "^[ \t]+$"
+  "^[ \t\r]+$"
   "Pattern that matches white space."
   :type 'string
   :group 'emacspeak)
