@@ -56,7 +56,7 @@
 ;;{{{ define a derived mode for madplay interaction 
 (defvar emacspeak-madplay-process nil
   "Process handle to madplay." )
-
+(make-variable-buffer-local 'emacspeak-madplay-process)
 
 ;;;###autoload
 
