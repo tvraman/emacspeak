@@ -1484,12 +1484,11 @@ semantic to do the work."
 (defun emacspeak-speak-mode-line ()
   "Speak the mode-line."
   (interactive)
-  (declare (special  mode-name major-mode
+  (declare (special  mode-name 
                      emacspeak-which-function-mode
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
-  (emacspeak-dtk-sync)
   (force-mode-line-update)
   (let ((dtk-stop-immediately nil )
         (frame-info nil))
@@ -1497,37 +1496,39 @@ semantic to do the work."
                 (fboundp 'which-function)
                 (which-function))
       (emacspeak-speak-which-function))
-    (cond
-     ((> (length (frame-list)) 1)
-      (setq frame-info
-            (or (frame-parameter (selected-frame) 'emacspeak-label)
-                (format "Frame %s " (frame-parameter (selected-frame) 'name))))
-      (put-text-property 0 (length frame-info)
-                         'personality 'annotation-voice frame-info))
-     (t (setq frame-info "")))
-    (when (buffer-modified-p ) (dtk-tone 700 70))
-    (when buffer-read-only (dtk-tone 250 50))
     (when  (and emacspeak-mail-alert (emacspeak-mail-alert-user))
       (dtk-tone 450 75))
     (cond
-     ((stringp mode-line-format) (dtk-speak mode-line-format ))
-     (t
+     ((stringp mode-line-format)
+      (emacspeak-dtk-sync)
+      (dtk-speak mode-line-format ))
+     (t                                 ;process modeline
+      (cond
+       ((> (length (frame-list)) 1)
+        (setq frame-info
+              (or (frame-parameter (selected-frame) 'emacspeak-label)
+                  (format "Frame %s " (frame-parameter (selected-frame) 'name))))
+        (put-text-property 0 (length frame-info)
+                           'personality 'annotation-voice frame-info))
+       (t (setq frame-info "")))
+      (when (buffer-modified-p ) (dtk-tone 700 70))
+      (when buffer-read-only (dtk-tone 250 50))
       (tts-with-punctuations "all"
                              (dtk-speak
-                              (concat frame-info
-                                      (format  "%s %s %s
-%s %s "
-                                               (buffer-name)
-                                               (emacspeak-get-current-percentage-into-buffer)
-                                               (if line-number-mode
-                                                   (format "line %d"
-                                                           (emacspeak-get-current-line-number))
-                                                 "")
-                                               (if column-number-mode
-                                                   (format "Column %d"
-                                                           (current-column))
-                                                 "")
-                                               (if  major-mode major-mode "")))))))))
+                              (concat 
+                               (format  "%s %s %s %s %s "
+                                        (buffer-name)
+                                        (emacspeak-get-current-percentage-into-buffer)
+                                        (if line-number-mode
+                                            (format "line %d"
+                                                    (emacspeak-get-current-line-number))
+                                          "")
+                                        (if column-number-mode
+                                            (format "Column %d"
+                                                    (current-column))
+                                          "")
+                                        mode-name)
+                               frame-info)))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
