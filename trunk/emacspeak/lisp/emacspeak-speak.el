@@ -441,31 +441,30 @@ current local  value to the result."
 		      ;; Avoid overflow from multiplying by 100!
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
+    percent))
+
+(defsubst emacspeak-get-current-percentage-verbously ()
+  "Return percentage of position into current buffer as a string."
+  (let ((percent (emacspeak-get-current-percentage-into-buffer)))
     (cond
      ((= 0 percent) " top ")
-((= 100 percent) " bottom ")
-(t (format " %d%% " percent)))))
+     ((= 100 percent) " bottom ")
+     (t (format " %d%% " percent)))))
 
 
 ;;}}}
 ;;;percentage getter with personality
-; (defsubst emacspeak-get-current-percentage-into-buffer ()
-;   "Return percentage of position into current buffer."
-;   (let* ((pos (point))
-; 	 (total (buffer-size))
-; 	 (percent (if (> total 50000)
-; 		      ;; Avoid overflow from multiplying by 100!
-; 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
-; 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max
-;                                                          total 1))))
-;          (message nil))
+; (defsubst emacspeak-get-current-percentage-verbously ()
+;   "Return percentage of position into current buffer as a string."
+;   (let ((percent (emacspeak-get-current-percentage-into-buffer))
+; 	(message nil))
 ;     (setq message
-;           (cond
-;            ((= 0 percent) " top")
-;            ((= 100 percent) " bottom ")
-;            (t (format " %d percent " percent))))
+; 	  (cond
+; 	   ((= 0 percent) " top")
+; 	   ((= 100 percent) " bottom ")
+; 	   (t (format " %d percent " percent))))
 ;     (put-text-property 0 (length message)
-;                        'property 'harry message)
+; 		       'property 'harry message)
 ;     message))
 
 ;;}}}
@@ -1535,7 +1534,7 @@ semantic to do the work."
                                                     (current-column))
                                           "")
                                         mode-name
-                                        (emacspeak-get-current-percentage-into-buffer))
+                                        (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info)))))))
 
@@ -2154,7 +2153,7 @@ Will be improved if it proves useful."
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
   (interactive)
-  (message "Point is  %s into  the current buffer"
+  (message "Point is  %d%% into  the current buffer"
            (emacspeak-get-current-percentage-into-buffer )))
 
 ;;}}}
