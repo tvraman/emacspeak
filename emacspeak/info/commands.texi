@@ -2396,7 +2396,7 @@ Optional interactive prefix arg
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
-if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set..
+if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.
 @end deffn
 
 @deffn emacspeak-speak-message-at-time (TIME MESSAGE)
@@ -3862,8 +3862,19 @@ Automatically defined advice to speak interactive prompts.
 
 @deffn emacspeak-generate-texinfo-command-documentation (FILENAME)
 Generate texinfo documentation  for all emacspeak
-commands into file commands.texi.
+commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+@end deffn
+
+@deffn emacspeak-generate-texinfo-option-documentation (FILENAME)
+Generate texinfo documentation  for all emacspeak
+options  into file options.texi.
+Warning! Contents of file options.texi will be overwritten.
 
 This function is advised.
 
