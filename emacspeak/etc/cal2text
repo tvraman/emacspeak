@@ -32,6 +32,6 @@ print "\nAttendees\n\n";
 foreach (@lines) {
   my ($f, $v) =split (':',$_,2);
   next unless ($f =~ m/ATTENDEE/);
-$f =~ s/^ATTENDEE;//g;
-  print $v,"\n"; # "\t", join("\t", split(';', $f)),"\n";
+  $f =~ s/^ATTENDEE;//g;
+  print $v,"\n";         # "\t", join("\t", split(';', $f)),"\n";
 }
