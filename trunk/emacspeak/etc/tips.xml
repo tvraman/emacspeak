@@ -56,7 +56,10 @@
         <inlinegraphic
                        fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"
                        />
-        --- SourceForge project.
+        --- SourceForge project and on the 
+        <ulink
+        url="http://emacspeak.sf.net/tips.html">Emacspeak
+        WWW site</ulink>.
       </para>
     </abstract>
   </articleinfo>
