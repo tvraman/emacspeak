@@ -44,6 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'emacspeak-speak)
+(require 'emacspeak-pronounce)
 (require 'voice-lock)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
@@ -65,7 +66,11 @@
   "Provide additional auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-    
+    (emacspeak-pronounce-augment-pronunciations 'tnt-im-mode
+                                                emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations 'tnt-chat-mode
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
+
 (defadvice tnt-open (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

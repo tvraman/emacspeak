@@ -46,6 +46,7 @@
 (require 'advice)
 (require 'thingatpt)
 (require 'emacspeak-speak)
+(require 'emacspeak-pronounce)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
 
@@ -147,9 +148,13 @@
 
 ;;}}}
 ;;{{{ advice interactive commands
+(emacspeak-pronounce-augment-pronunciations 'erc-mode
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
+
 (defadvice erc-mode (after emacspeak pre act comp)
   "Turn on voice lock mode."
   (declare (special voice-lock-mode))
+  (emacspeak-pronounce-refresh-pronunciations)
   (setq voice-lock-mode t))
 
 (defadvice erc-select (after emacspeak pre act comp)
