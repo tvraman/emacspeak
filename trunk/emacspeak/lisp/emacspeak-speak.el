@@ -1783,11 +1783,12 @@ See the documentation for function
   "Display current date and time  for specified zone."
   (interactive
    (list
+    (let ((completion-ignore-case t))
     (substring
      (read-file-name
       "Timezone: "
       emacspeak-speak-zoneinfo-directory)
-     (length emacspeak-speak-zoneinfo-directory))))
+     (length emacspeak-speak-zoneinfo-directory)))))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
   (shell-command
