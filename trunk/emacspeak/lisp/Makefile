@@ -147,6 +147,7 @@ emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jde.elc \
+emacspeak-kmacro.elc 
 emacspeak-kotl.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
@@ -323,7 +324,8 @@ emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc 
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
-emacspeak-keymap.elc: emacspeak-keymap.el 
+emacspeak-keymap.elc: emacspeak-keymap.el
+emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
