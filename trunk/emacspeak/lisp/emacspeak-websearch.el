@@ -222,10 +222,10 @@ When using W3,  this interface attempts to speak the most relevant information o
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (declare (special emacspeak-websearch-post-process-hook))
+  (declare (special emacspeak-w3-post-process-hook))
   (when (or   (eq browse-url-browser-function 'w3-fetch)
 	      (eq browse-url-browser-function 'browse-url-w3))
-    (setq emacspeak-websearch-post-process-hook
+    (setq emacspeak-w3-post-process-hook
           (`
            (lambda nil
              (cond
@@ -235,19 +235,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                       (, speaker))
                      (, args)))
               (t (message "Your search appears to have ffailed."))))))))
-
-;;; w3 under Emacs 21:
-
-(defvar emacspeak-websearch-post-process-hook nil
-  "Set locally to a  websearch specific post processor.")
-
-(defadvice w3-notify-when-ready (after emacspeak pre act comp)
-  "Call websearch post-processor hook if set."
-  (when (and emacspeak-websearch-post-process-hook
-             (functionp emacspeak-websearch-post-process-hook))
-    (funcall emacspeak-websearch-post-process-hook)
-    (setq emacspeak-websearch-post-process-hook nil)))
-
 
 ;;}}}
 

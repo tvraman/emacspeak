@@ -879,6 +879,18 @@ filename)
       (error (message "caught an error")))))
 
 ;;}}}
+;;{{{ enable post processor functionality 
+(defvar emacspeak-w3-post-process-hook nil
+  "Set locally to a  site specific post processor.")
+
+(defadvice w3-notify-when-ready (after emacspeak pre act comp)
+  "Call w3 post-processor hook if set."
+  (when (and emacspeak-w3-post-process-hook
+             (functionp emacspeak-w3-post-process-hook))
+    (funcall emacspeak-w3-post-process-hook)
+    (setq emacspeak-w3-post-process-hook nil)))
+
+;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 

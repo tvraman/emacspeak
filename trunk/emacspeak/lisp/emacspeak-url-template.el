@@ -44,8 +44,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when-compile (require 'webjump))
 (require 'emacspeak-websearch)
+(eval-when-compile (require 'webjump))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -784,13 +784,13 @@ Set up URL rewrite rule to get print page."
 
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special  emacspeak-websearch-post-process-hook))
+  (declare (special  emacspeak-w3-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut)
                      'browse-url)))
     (when (and (emacspeak-url-template-post-action ut)
                (or   (eq browse-url-browser-function 'w3-fetch)
                      (eq browse-url-browser-function 'browse-url-w3)))
-      (setq emacspeak-websearch-post-process-hook
+      (setq emacspeak-w3-post-process-hook
             (emacspeak-url-template-post-action ut)))
     (funcall fetcher   (emacspeak-url-template-url ut))))
 
