@@ -1115,6 +1115,12 @@ in completion buffers"
   :group 'emacspeak
 :group 'comint)
 
+(defcustom emacspeak-comint-input-personality 'paul-animated
+  "Personality used for highlighting comint input --emacs 21."
+  :type  'symbol
+  :group 'emacspeak
+:group 'comint)
+
 (defvar shell-voice-lock-keywords
   nil
   "Additional expressions to highlight in Shell mode.")
@@ -1147,6 +1153,14 @@ in completion buffers"
          (emacspeak-speak-char t)))
    (t ad-do-it))
   ad-return-value)
+
+(defadvice comint-send-input (before emacspeak pre act comp)
+  "Aurally highlight input."
+  (let ((start (line-beginning-position))
+        (end (line-end-position)))
+    (put-text-property start end 'personality
+                       emacspeak-comint-input-personality)
+    (message "%s %s " start end)))
 
 (defadvice comint-send-eof (before emacspeak pre act comp)
   "Announce what we are doing."
@@ -1243,12 +1257,13 @@ in completion buffers"
       ad-do-it
       (when (and (boundp 'comint-last-prompt-overlay)
                  comint-last-prompt-overlay)
-        (put-text-property (overlay-start
-                            comint-last-prompt-overlay)
-                           (overlay-end
-                            comint-last-prompt-overlay)
-                           'personality
-                           emacspeak-comint-prompt-personality ))
+        (add-text-properties
+         (overlay-start comint-last-prompt-overlay)
+         (overlay-end comint-last-prompt-overlay)
+         (list 
+         'personality
+         emacspeak-comint-prompt-personality
+         'rear-sticky nil)))
       (when (and  emacspeak-comint-autospeak
                   (or monitor 
                       (eq (selected-window)
