@@ -373,6 +373,9 @@ emacspeak-daisy.
      SPC		emacspeak-daisy-play-audio-under-point
      q		bury-buffer s		emacspeak-daisy-stop-audio ?		describe-mode
 
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-daisy-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-daisy-stop-audio:
      Stop audio.
@@ -788,6 +791,9 @@ emacspeak-filtertext.
 
      r		emacspeak-filtertext-revert ^		flush-lines =		keep-lines
 
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-filtertext-mode-hook', as
+     the final step during initialization.
 
  - emacspeak-filtertext-revert:
      Revert to original text.
@@ -875,6 +881,8 @@ emacspeak-freeamp.
      +		emacspeak-freeamp-freeamp-call-command
      p		emacspeak-freeamp-freeamp-call-command o		emacspeak-freeamp
 
+     This mode runs the hook `emacspeak-freeamp-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-freeamp-freeamp-command:
      Execute FreeAmp command.
@@ -915,6 +923,9 @@ emacspeak-gomoku.
 
  - emacspeak-gomoku-speak-emacs-previous-move:
      Speak emacs' previous move
+
+ - emacspeak-gomoku-goto-x-y:
+     Prompt for and go to that square.
 
  - emacspeak-gomoku-speak-number-of-moves:
      Speak number of moves so far
@@ -1030,6 +1041,9 @@ emacspeak-imcom.
 
      C-c v		emacspeak-imcom-view-chat-session
 
+     In addition to any hooks its parent mode `comint-mode' might have
+     run, this mode runs the hook `emacspeak-imcom-mode-hook', as the
+     final step during initialization.
 
 
 File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-info,  Prev: emacspeak-imcom,  Up: Emacspeak Commands
@@ -1254,6 +1268,9 @@ emacspeak-ocr.
      w		emacspeak-ocr-write-document q		bury-buffer c		emacspeak-ocr-customize
      ?		describe-mode
 
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-ocr-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-ocr-save-current-page:
      Writes out recognized text from current page to an appropriately
@@ -1403,6 +1420,9 @@ emacspeak-psgml.
      Uses keymap "emacspeak-xml-browse-mode", which is not currently
      defined.
 
+     In addition to any hooks its parent mode `xml-mode' might have run,
+     this mode runs the hook `emacspeak-xml-browse-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-psgml-toggle-interactive-voice-locking:
      Toggles variable sgml-set-face.  When turned on, the  buffer is
@@ -1430,91 +1450,4 @@ emacspeak-python.
 
  - emacspeak-py-next-block:
      Move forward to the beginning of the next block.
-
-
-File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-python,  Up: Emacspeak Commands
-
-emacspeak-realaudio
-===================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-realaudio.
-
- - emacspeak-realaudio-play-url-at-point:
-     Play url under point as realaudio
-
- - emacspeak-realaudio-play:
-     Play a realaudio stream.  Uses files from your Realaudio shortcuts
-     directory for completion.  See documentation for user configurable
-     variable emacspeak-realaudio-shortcuts-directory.
-
- - emacspeak-realaudio-select-realaudio-buffer:
-     Switch to realaudio buffer.
-
- - emacspeak-realaudio-browse:
-     ` control e : '
-
-     Browse RAM file before playing the selected component.
-
- - emacspeak-realaudio-mode:
-     Major mode for streaming audio.
-
-     key             binding --             ------
-
-     <right>		emacspeak-aumix-wave-increase
-     <left>		emacspeak-aumix-wave-decrease
-     }		emacspeak-realaudio-trplayer-call-command
-     {		emacspeak-realaudio-trplayer-call-command
-     ]		emacspeak-realaudio-trplayer-call-command
-     [		emacspeak-realaudio-trplayer-call-command
-     9		emacspeak-realaudio-trplayer-call-command
-     0		emacspeak-realaudio-trplayer-call-command
-     ,		emacspeak-realaudio-trplayer-call-command
-     .		emacspeak-realaudio-trplayer-call-command
-     >		emacspeak-realaudio-trplayer-call-command
-     <		emacspeak-realaudio-trplayer-call-command
-     i		emacspeak-realaudio-trplayer-call-command
-     l		emacspeak-realaudio-trplayer-call-command
-     e		emacspeak-realaudio-trplayer-call-command
-     s		emacspeak-realaudio-trplayer-call-command
-     t		emacspeak-realaudio-trplayer-call-command
-     p		emacspeak-realaudio-trplayer-call-command
-
-
- - emacspeak-realaudio-stop:
-     Stop playing realaudio
-
- - emacspeak-realaudio-trplayer-call-command:
-     Call appropriate TRPlayer command.
-
- - emacspeak-realaudio:
-     ` control e ; '
-
-     Start or control streaming audio including MP3 and realaudio.  If
-     using `TRPlayer' as the player, accepts trplayer control commands
-     if a stream is already playing.  Otherwise, the playing stream is
-     simply stopped.  If no stream is playing, this command prompts for
-     a realaudio resource.  Realaudio resources can be specified either
-     as a Realaudio URL, the location of a local Realaudio file, or as
-     the name of a local Realaudio metafile. Realaudio resources you
-     have played in this session are available in the minibuffer
-     history.  The default is to play the resource you played most
-     recently. Emacspeak uses the contents of the directory specified
-     by variable emacspeak-realaudio-shortcuts-directory to offer a set
-     of completions. Hit space to use this completion list.
-
-     If using TRPlayer, you can either give one-shot commands using
-     command emacspeak-realaudio available from anywhere on the audio
-     desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if
-     you wish to issue many nvigation commands.  Note that buffer
-     *realaudio* uses a special major mode that provides the various
-     navigation commands via single keystrokes.
-
- - emacspeak-realaudio-trplayer-command:
-     Execute TRPlayer command.
-
-     This function is advised.
-
-     Before-advice `emacspeak-auto': Automatically defined advice to
-     speak interactive prompts.
 

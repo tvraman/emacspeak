@@ -688,6 +688,10 @@ s		emacspeak-daisy-stop-audio
 ?		describe-mode
 
 
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -1364,6 +1368,10 @@ r		emacspeak-filtertext-revert
 =		keep-lines
 
 
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -1497,6 +1505,9 @@ p		emacspeak-freeamp-freeamp-call-command
 o		emacspeak-freeamp
 
 
+
+This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -1550,6 +1561,12 @@ for commands defined in module  emacspeak-gomoku.
 
 @deffn emacspeak-gomoku-speak-emacs-previous-move
 Speak emacs' previous move
+@end deffn
+
+
+
+@deffn emacspeak-gomoku-goto-x-y
+Prompt for and go to that square.
 @end deffn
 
 
@@ -1731,6 +1748,10 @@ C-c		Prefix Command
 C-c v		emacspeak-imcom-view-chat-session
 
 
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
+during initialization.
 @end deffn
 
 @node emacspeak-imenu
@@ -2069,6 +2090,10 @@ c		emacspeak-ocr-customize
 ?		describe-mode
 
 
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -2303,6 +2328,10 @@ Mode for browsing XML documents.
 
 Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
+
+In addition to any hooks its parent mode `xml-mode' might have run,
+this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -2418,6 +2447,9 @@ t		emacspeak-realaudio-trplayer-call-command
 p		emacspeak-realaudio-trplayer-call-command
 
 
+
+This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -3982,6 +4014,7 @@ Use Emacs completion to obtain a list of available
 resources.
 Resources typically prompt for the relevant information
 before completing the request.
+Optional interactive prefix arg displays documentation for specified resource.
 @end deffn
 
 
@@ -4787,6 +4820,15 @@ Major mode for browsing XL spreadsheets.
 
 
 XL Sheets are converted to HTML and previewed using W3.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-xl-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 @end deffn
 
 
@@ -4994,6 +5036,14 @@ also copied to the kill ring for convenient yanking.
 Emacspeak Finder
 
 
+
+This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 @end deffn
 
 
@@ -5063,6 +5113,15 @@ Major mode for browsing XL spreadsheets.
 
 
 XL Sheets are converted to HTML and previewed using W3.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 @end deffn
 
 
@@ -5318,6 +5377,10 @@ C-c		Prefix Command
 C-c v		emacspeak-xml-shell-browse-current
 
 
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
