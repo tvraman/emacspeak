@@ -306,7 +306,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     
     
     (load-library-if-available "jde-prepare")
-    ;(load-library-if-available "ecb-prepare")
+    (load-library-if-available "ecb-prepare")
+    (load-library-if-available "pmd-emacs-prepare")
     ;;}}}    
 ;;{{{ bind  ido 
 (global-set-key '[insert] 'ido-switch-buffer)
