@@ -200,8 +200,8 @@ will be placed."
                     emacspeak-ocr-current-page-number))
   (format "%s-%s%s"
           emacspeak-ocr-document-name
-          (1+ emacspeak-ocr-current-page-number))
-  emacspeak-ocr-image-extension)
+          (1+ emacspeak-ocr-current-page-number)
+  emacspeak-ocr-image-extension))
 
 (defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
