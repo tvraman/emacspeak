@@ -642,8 +642,8 @@ Typically %s is replaced by project name.")
   "~/sourceforge/cvs-%s"
   "Pattern from which name of local download directory is build.
  %s is replaced by the project name."
-:type 'string
-:group 'emacspeak-wizards)
+  :type 'string
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-cvs-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from Sourceforge."
@@ -769,22 +769,22 @@ end:\n\n")
 (defsubst ems-cleanup-commentary (commentary )
   "Cleanup commentary."
   (save-excursion
-                        (set-buffer
-                         (get-buffer-create " *doc-temp*"))
-                        (erase-buffer)
-                        (insert commentary)
-                        (goto-char (point-min))
-                        (flush-lines "{{{")
-                        (goto-char (point-min))
-                        (flush-lines "}}}")
-                        (goto-char (point-min))
-                        (delete-blank-lines)
-                        (goto-char (point-max))
-                        (delete-blank-lines)
-                        (goto-char (point-min))
-                        (while (re-search-forward "^;+ ?" nil t)
-                          (replace-match "" nil nil))
-                        (buffer-string)))
+    (set-buffer
+     (get-buffer-create " *doc-temp*"))
+    (erase-buffer)
+    (insert commentary)
+    (goto-char (point-min))
+    (flush-lines "{{{")
+    (goto-char (point-min))
+    (flush-lines "}}}")
+    (goto-char (point-min))
+    (delete-blank-lines)
+    (goto-char (point-max))
+    (delete-blank-lines)
+    (goto-char (point-min))
+    (while (re-search-forward "^;+ ?" nil t)
+      (replace-match "" nil nil))
+    (buffer-string)))
 
 (defsubst ems-texinfo-escape (string)
   "Escape texinfo special chars"
@@ -795,7 +795,7 @@ end:\n\n")
     (goto-char (point-min))
     (while (re-search-forward "[{}@]" nil t)
       (replace-match "@\\&"))
-(buffer-string)))
+    (buffer-string)))
 
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
@@ -839,10 +839,10 @@ documentation.\n\n")
                   (setq module this-module)
                 (setq module nil))
               (when module 
-              (insert
-               (format
-                "@node %s\n@section %s\n\n\n"
-                module module )))
+                (insert
+                 (format
+                  "@node %s\n@section %s\n\n\n"
+                  module module )))
               (insert
                (format "\n\n%s\n\n" 
                        (or commentary "")))
@@ -1369,14 +1369,14 @@ Extracted content is placed as a csv file in task.csv."
   (declare (special
             emacspeak-wizard-table-content-extractor))
   (let ((output (format "/tmp/%s.csv" task)))
-  (shell-command
-   (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
-            emacspeak-wizard-table-content-extractor
-            task
-            url
-depth count ))
-  (emacspeak-table-find-csv-file output)
-  (delete-file output)))
+    (shell-command
+     (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
+              emacspeak-wizard-table-content-extractor
+              task
+              url
+              depth count ))
+    (emacspeak-table-find-csv-file output)
+    (delete-file output)))
 
 (defun emacspeak-wizard-get-table-content-from-file (task file depth count )
   "Extract table specified by depth and count from HTML
@@ -1454,22 +1454,22 @@ annotation is inserted into the working buffer when complete."
              (null emacspeak-annotate-working-buffer))
     (setq emacspeak-annotate-working-buffer
           (get-buffer-create
-          (read-buffer "Annotation working buffer: "
-                       (cadr
-                        (emacspeak-annotate-make-buffer-list))))))
+           (read-buffer "Annotation working buffer: "
+                        (cadr
+                         (emacspeak-annotate-make-buffer-list))))))
   (let ((annotation nil)
         (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
     (message "Adding annotation to %s"
              emacspeak-annotate-working-buffer)
     (save-window-excursion
-    (save-excursion
-      (setq annotation
-            (emacspeak-annotate-get-annotation))
-      (set-buffer work-buffer)
-      (insert annotation)
-      (insert "\n"))
-    (switch-to-buffer parent-buffer))
+      (save-excursion
+        (setq annotation
+              (emacspeak-annotate-get-annotation))
+        (set-buffer work-buffer)
+        (insert annotation)
+        (insert "\n"))
+      (switch-to-buffer parent-buffer))
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
@@ -1492,7 +1492,7 @@ annotation is inserted into the working buffer when complete."
       (goto-char (point-max))
       (insert (format "pushd %s" dir))
       (comint-send-input)
-    (shell-process-cd dir))
+      (shell-process-cd dir))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -1532,6 +1532,22 @@ part of the libxslt package."
                              'replace
                              "*xslt errors*")))
 
+;;}}}
+;;{{{  run rpm -qi on current dired entry
+(defun emacspeak-wizards-rpm-query-in-dired ()
+  "Run rpm -qi on current dired entry."
+  (interactive)
+  (declare (special major-mode))
+  (unless (eq major-mode 'dired-mode)
+    (error "This command should be used in dired mode."))
+  (shell-command
+   (format "rpm -qi %s"
+           (dired-get-filename 'no-location)))
+  (message "Displayed RPM information in other window."))
+
+(declaim (special dired-mode-map))
+(when (boundp 'dired-mode-map)
+  (define-key dired-mode-map "r" 'emacspeak-wizards-rpm-query-in-dired))
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
