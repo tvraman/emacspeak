@@ -464,13 +464,17 @@ even if one is already defined."
 (define-prefix-command 'emacspeak-w3-xsl-map )
 (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)  
 
-(defvar emacspeak-w3-xsl-p nil
+(defcustom emacspeak-w3-xsl-p nil
   "T means we apply XSL transformation before displaying
-HTML.")
+HTML."
+  :type 'boolean
+  :group 'emacspeak-w3)
 
-(defvar emacspeak-w3-xsl-transform nil
+(defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
-Nil means no transform is used. ")
+Nil means no transform is used. "
+  :type 'file
+  :group 'emacspeak-w3)
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
