@@ -219,6 +219,14 @@ preserved."
 					 personality))))))))
 
 ;;}}}
+;;{{{ helper: face-p
+
+(defsubst emacspeak-personality-plist-face-p (plist)
+  "Check if plist contains a face setting."
+  (or (member 'face plist)
+      (member 'font-lock-face plist)))
+
+;;}}}
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
@@ -256,7 +264,7 @@ displayed in the messages area."
         (object (ad-get-arg 4))
         (voice nil))
     (when (and  emacspeak-personality-voiceify-faces
-		(eq prop 'face))
+                (or (eq prop 'face) (eq prop 'font-lock-face)))
       (condition-case nil
           (progn
             (cond
@@ -279,8 +287,7 @@ displayed in the messages area."
                 (mapcar #'(lambda (v)
                             (puthash  v t emacspeak-personality-unmapped-faces))
                         value))
-               (t (puthash  value t emacspeak-personality-unmapped-faces))))
-            )
+               (t (puthash  value t emacspeak-personality-unmapped-faces)))))
         (error nil)))))
 
 (defadvice add-text-properties (after emacspeak-personality  pre act) 
@@ -292,7 +299,7 @@ displayed in the messages area."
         (facep nil)
         (voice nil)
         (value nil))
-    (setq facep (member 'face properties ))
+    (setq facep (emacspeak-personality-plist-face-p properties))
     (when (and  emacspeak-personality-voiceify-faces
 		facep)
       (setq value (second facep))
@@ -320,7 +327,8 @@ displayed in the messages area."
                         value))
                (t (puthash  value t emacspeak-personality-unmapped-faces))))
             )
-        (error nil)))))
+        (error nil))
+      )))
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
@@ -330,11 +338,10 @@ displayed in the messages area."
          (object (ad-get-arg 3))
          (voice nil)
          (face nil))
-    (when (member 'face props) ;;; simple minded for now
+    (when (emacspeak-personality-plist-face-p props) ;;; simple minded for now
       (put-text-property start end
 			 'personality nil object))))
 
-          
 ;;}}}
 ;;{{{ advice overlay-put 
 

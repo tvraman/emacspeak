@@ -2229,12 +2229,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
       (how-many pattern)))))
 ;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (prefix)
-  "If you define a file local variable 
-called `emacspeak-occur-pattern' that holds a regular expression 
-that matches header lines, you can use this command to conveniently
-run `occur' 
-to find matching header lines. With prefix arg, prompts for and sets
-value of the file local pattern."
+  "If you define a file local variable called
+`emacspeak-occur-pattern' that holds a regular expression that
+matches header lines, you can use this command to conveniently
+run `occur' to find matching header lines. With prefix arg,
+prompts for and sets value of the file local pattern."
   (interactive "P")
   (declare (special emacspeak-occur-pattern))
   (cond
