@@ -2913,6 +2913,33 @@ typed. If no such group exists, then we dont move. "
 
 
 ;;}}}
+;;{{{ speaking an extent of text delimited by specified char 
+
+(defun emacspeak-speak-and-skip-extent-upto-char (char)
+  "Search forward from point until we hit char.
+Speak text between point and the char we hit."
+  (interactive "c")
+  (let ((start (point))
+        (goal nil))
+    (save-excursion
+      (cond
+       ((search-forward (format "%c" char)
+                       (point-max)
+                       'no-error)
+        (setq goal (point))
+       (emacspeak-speak-region start goal)
+       (emacspeak-auditory-icon 'select-object))
+       (t (error "Could not find %c" char))))
+    (when goal (goto-char goal))))
+
+(defun emacspeak-speak-and-skip-extent-upto-this-char ()
+  "Speak extent delimited by point and last character typed."
+  (interactive)
+  (declare (special last-input-char))
+  (emacspeak-speak-and-skip-extent-upto-char last-input-char))
+
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
