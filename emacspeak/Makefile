@@ -236,12 +236,14 @@ install:
 	  $(INSTALL) -d $(libdir) 
 	touch $(libdir)/.nosearch
 	  $(INSTALL) -d $(libdir)/lisp
+	$(INSTALL) -d $(libdir)/lisp/xml-forms
 	  $(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
 	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/user-guide
 	$(INSTALL) -d $(libdir)/install-guide
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
+	$(INSTALL) -m 0644  lisp/xml-forms/*.xml   $(libdir)/lisp/xml-forms
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -m 0644  ${UGUIDE}   $(libdir)/user-guide
