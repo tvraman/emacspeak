@@ -25,6 +25,13 @@ Updated websearch templates.
 
 Additional smart URL templates.
 
+** emacspeak-daisy.el:
+
+Updated to handle the bookshare variant of Daisy3 files.
+
+** flite-voices.el:
+
+Place-holder for eventual FLite support.
 
 
 Local variables:
