@@ -617,6 +617,7 @@ default-directory after switching."
   "Return vpn status."
   (zerop (shell-command emacspeak-wizards-vpn-status-command)))
 
+;;;###autoload
 (defun emacspeak-wizards-vpn-toggle ()
   "Bring up or bring down vpn."
   (interactive)
