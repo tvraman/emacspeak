@@ -16,7 +16,6 @@ GetOptions (\%options,
 "file=s",
            "depth=i",
 "count=i");
-print STDERR $options{url},"\n";
 $options{task} ||= "extract-table";
 my $input;
 if (defined ($options{file})) {
