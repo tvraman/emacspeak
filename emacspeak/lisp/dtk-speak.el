@@ -525,6 +525,7 @@ Arguments START and END specify region to speak."
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon
      (get-text-property start 'auditory-icon)))
+  (dtk-interp-queue (format "%s\n" tts-voice-reset-code))
   (cond
    (voice-lock-mode
     (let ((last  nil)
