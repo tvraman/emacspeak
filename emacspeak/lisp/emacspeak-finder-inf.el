@@ -16,7 +16,7 @@
         (emacspeak  audio interface to emacs css))
     ("dtk-interp.el"
         "Language specific (e.g. TCL) interface to speech server"
-        (dectalk  speech server))
+        (tts  dectalk  speech server))
     ("dtk-speak.el"
         "Provides Emacs Lisp interface to speech server"
         (dectalk emacs elisp))
@@ -32,6 +32,9 @@
     ("emacspeak-advice.el"
         "Advice all core Emacs functionality to speak intelligently"
         (emacspeak  speech  advice  spoken  output))
+    ("emacspeak-ansi-color.el"
+        "Voiceify ansi-color "
+        (emacspeak  ansi-color))
     ("emacspeak-arc.el"
         "Speech enable archive-mode -- a  Emacs interface to zip and friends"
         (emacspeak  speak  spoken output  archive))
@@ -53,6 +56,9 @@
     ("emacspeak-bookmark.el"
         "Speech enable Emacs' builtin bookmarks"
         (emacspeak  speak  spoken output  bookmark))
+    ("emacspeak-browse-kill-ring.el"
+        "browse-kill-ring  for emacspeak desktop"
+        (emacspeak  browse-kill-ring))
     ("emacspeak-bs.el"
         "speech-enable bs buffer selection"
         (emacspeak  audio desktop))
@@ -377,6 +383,9 @@
     ("emacspeak-xslide.el"
         "Speech enable  XSL authoring "
         (emacspeak  audio desktop))
+    ("emacspeak-xslt-process.el"
+        "speech-enable xslt-process "
+        (emacspeak  xslt-process))
     ("emacspeak.el"
         "Emacspeak -- The Complete Audio Desktop"
         (emacspeak  speech  dectalk ))
