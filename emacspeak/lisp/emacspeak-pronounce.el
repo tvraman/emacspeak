@@ -532,7 +532,10 @@ Activates pronunciation dictionaries if not already active."
 (">;->" . " lews smile ")
   (";-)" . " wink "))
   "Pronunciation dictionary used in all instant messenger and IRC chat
-modes."
+modes.
+See http://oz.uc.edu/~solkode/smileys.html for a full list."
+:link '(url-link :tag "Smileys Dictionary "
+"http://oz.uc.edu/~solkode/smileys.html")
   :type '(repeat
 	  (cons :tag "Dictionary Entry"
 		(string :tag "String")
