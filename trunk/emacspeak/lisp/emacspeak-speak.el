@@ -336,26 +336,11 @@ command `emacspeak-toggle-show-point' bound to
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-show-point (&optional prefix)
-  "Toggle state of  Emacspeak-show-point.
+(ems-generate-switcher ' emacspeak-toggle-show-point
+                           'emacspeak-show-point
+                           "Toggle state of  Emacspeak-show-point.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-show-point ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-show-point
-                   (not  (default-value 'emacspeak-show-point )))
-    (setq emacspeak-show-point (default-value 'emacspeak-show-point )))
-   (t (make-local-variable 'emacspeak-show-point)
-      (setq emacspeak-show-point
-	    (not emacspeak-show-point ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-show-point 'on 'off))
-    (message "Turned %s show point %s "
-             (if emacspeak-show-point "on" "off" )
-             (if prefix "" " locally"))))
+current local  value to the result.")
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
@@ -436,35 +421,15 @@ any buffer where it is set."
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)
 
-(defun emacspeak-toggle-audio-indentation (&optional prefix)
-  "Toggle state of  Emacspeak  audio indentation.
+(ems-generate-switcher ' emacspeak-toggle-audio-indentation
+                           'emacspeak-audio-indentation
+                           "Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Specifying the method of indentation as `tones'
 results in the Dectalk producing a tone whose length is a function of the
 line's indentation.  Specifying `speak'
-results in the number of initial spaces being spoken."
-  (interactive  "P")
-  (declare  (special  emacspeak-audio-indentation
-                      emacspeak-audio-indentation-methods ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-audio-indentation
-                   (not  (default-value 'emacspeak-audio-indentation )))
-    (setq emacspeak-audio-indentation (default-value 'emacspeak-audio-indentation )))
-   (t (setq emacspeak-audio-indentation
-	    (not emacspeak-audio-indentation ))))
-  (when emacspeak-audio-indentation
-    (setq emacspeak-audio-indentation emacspeak-audio-indentation-method)
-    (and prefix
-         (setq-default emacspeak-audio-indentation
-                       emacspeak-audio-indentation )))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-audio-indentation 'on 'off))
-    (message "Turned %s audio indentation %s "
-             (if emacspeak-audio-indentation "on" "off" )
-             (if prefix "" "locally"))))
+results in the number of initial spaces being spoken.")
 
 ;;}}}
 ;;{{{ Core speech functions:
@@ -559,26 +524,12 @@ command emacspeak-speak-line-set-column-filter."
 
 (make-variable-buffer-local 'emacspeak-speak-line-invert-filter)
 
-(defun emacspeak-toggle-speak-line-invert-filter (&optional prefix)
-  "Toggle state of   how column filter is interpreted.
+(ems-generate-switcher '
+ emacspeak-toggle-speak-line-invert-filter
+   'emacspeak-speak-line-invert-filter
+   "Toggle state of   how column filter is interpreted.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-speak-line-invert-filter ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-speak-line-invert-filter
-                   (not  (default-value 'emacspeak-speak-line-invert-filter )))
-    (setq emacspeak-speak-line-invert-filter (default-value 'emacspeak-speak-line-invert-filter )))
-   (t (make-local-variable 'emacspeak-speak-line-invert-filter)
-      (setq emacspeak-speak-line-invert-filter
-	    (not emacspeak-speak-line-invert-filter ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-speak-line-invert-filter 'on 'off))
-    (message "Turned %s invert filter %s "
-             (if emacspeak-speak-line-invert-filter "on" "off" )
-             (if prefix "" " locally"))))
+current local  value to the result.")
 
 (defsubst emacspeak-speak-line-apply-column-filter (line &optional invert-filter)
   (declare (special emacspeak-speak-line-column-filter))
@@ -750,7 +701,7 @@ are indicated with auditory icon ellipses."
           (beginning-of-line 1)
 	  (skip-syntax-forward " " limit)
 	  (setq indent  (current-column )))
-        (when (string= emacspeak-audio-indentation "tone")
+        (when (string= emacspeak-audio-indentation-method "tone")
           (emacspeak-indent indent )))
       (setq line 
             (if emacspeak-show-point
@@ -814,7 +765,7 @@ are indicated with auditory icon ellipses."
               (setq line
                     (emacspeak-speak-line-apply-column-filter line
                                                               emacspeak-speak-line-invert-filter)))
-            (if (and (string= "speak" emacspeak-audio-indentation )
+            (if (and (string= "speak" emacspeak-audio-indentation-method )
                      (null arg )
                      indent
                      (> indent 0))
@@ -1372,28 +1323,13 @@ You can use command
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-mail-alert (&optional prefix)
-  "Toggle state of  Emacspeak  mail alert.
+(ems-generate-switcher ' emacspeak-toggle-mail-alert
+                           'emacspeak-mail-alert
+                           "Toggle state of  Emacspeak  mail alert.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Turning on this option results in Emacspeak producing an auditory icon
-indicating the arrival  of new mail when displaying the mode line."
-  (interactive  "P")
-  (declare  (special  emacspeak-mail-alert))
-  (cond
-   (prefix
-    (setq-default  emacspeak-mail-alert
-                   (not  (default-value 'emacspeak-mail-alert )))
-    (setq emacspeak-mail-alert (default-value 'emacspeak-mail-alert )))
-   (t (make-local-variable'emacspeak-mail-alert)
-      (setq emacspeak-mail-alert
-	    (not emacspeak-mail-alert ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-mail-alert 'on 'off))
-    (message "Turned %s mail alert  %s "
-             (if emacspeak-mail-alert "on" "off" )
-             (if prefix "" "locally"))))
+indicating the arrival  of new mail when displaying the mode line.")
 
 ;;}}}
 ;;{{{  Speak mode line information
@@ -1422,31 +1358,11 @@ indicating the arrival  of new mail when displaying the mode line."
 
 (make-variable-buffer-local 'emacspeak-which-function-mode)
 
-(defun emacspeak-toggle-which-function (&optional prefix)
-  "Toggle state of  Emacspeak  which function mode.
+(ems-generate-switcher ' emacspeak-toggle-which-function
+                           'emacspeak-which-function-mode
+                           "Toggle state of  Emacspeak  which function mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-which-function-mode
-                      semantic-toplevel-bovine-cache ))
-  (require 'which-func)
-  (cond
-   (prefix
-    (setq-default  emacspeak-which-function-mode
-                   (not  (default-value 'emacspeak-which-function-mode )))
-    (setq emacspeak-which-function-mode (default-value 'emacspeak-which-function-mode )))
-   (t
-    (setq emacspeak-which-function-mode
-          (not emacspeak-which-function-mode ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-which-function-mode 'on 'off ))
-    (message "Turned %s which function mode%s %s"
-             (if emacspeak-which-function-mode "on" "off" )
-             (if prefix "" " locally")
-             (if semantic-toplevel-bovine-cache
-                 ""
-               "Rebuild imenu index to  hear function name in mode line." ))))
+current local  value to the result.")
 
 (defsubst emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
@@ -2032,35 +1948,13 @@ setting."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-comint-autospeak (&optional prefix)
-  "Toggle state of Emacspeak comint autospeak.
+(ems-generate-switcher ' emacspeak-toggle-comint-autospeak
+                           'emacspeak-comint-autospeak
+                           "Toggle state of Emacspeak comint autospeak.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
-
-  (interactive  "P")
-  (declare  (special  emacspeak-comint-autospeak
-                      voice-annotate
-                      voice-animate
-                      emacspeak-comint-split-speech-on-newline ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-comint-autospeak
-                   (not  (default-value 'emacspeak-comint-autospeak )))
-    (setq emacspeak-comint-autospeak (default-value 'emacspeak-comint-autospeak )))
-   (t (make-local-variable 'emacspeak-comint-autospeak)
-      (setq emacspeak-comint-autospeak
-	    (not emacspeak-comint-autospeak ))))
-  (and emacspeak-comint-autospeak
-       emacspeak-comint-split-speech-on-newline
-       (modify-syntax-entry 10 ">"))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-comint-autospeak 'on 'off))
-    (message "Turned %s comint autospeak %s "
-             (if emacspeak-comint-autospeak "on" "off" )
-             (if prefix "" "locally"))))
+set the current local value to the result.")
 
 (defvar emacspeak-comint-output-monitor nil
   "Switch to monitor comint output.
@@ -2070,28 +1964,13 @@ buffer is not current or its window live.")
 (make-variable-buffer-local
  'emacspeak-comint-output-monitor)
 ;;;###autoload
-(defun emacspeak-toggle-comint-output-monitor (&optional prefix)
-  "Toggle state of Emacspeak comint monitor.
+(ems-generate-switcher ' emacspeak-toggle-comint-output-monitor
+                           'emacspeak-comint-output-monitor
+                           "Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-comint-output-monitor ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-comint-output-monitor
-                   (not  (default-value 'emacspeak-comint-output-monitor )))
-    (setq emacspeak-comint-output-monitor (default-value 'emacspeak-comint-output-monitor )))
-   (t (make-local-variable 'emacspeak-comint-output-monitor)
-      (setq emacspeak-comint-output-monitor
-	    (not emacspeak-comint-output-monitor ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-comint-output-monitor 'on 'off))
-    (message "Turned %s comint monitor %s "
-             (if emacspeak-comint-output-monitor "on" "off" )
-             (if prefix "" "locally"))))
+set the current local value to the result.")
 
 (defcustom emacspeak-comint-split-speech-on-newline  nil
   "*Option to have comint split speech on newlines.
@@ -2123,21 +2002,9 @@ message area.  You can use command
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-speak-messages ()
-  "Toggle the state of whether emacspeak echoes messages."
-  (interactive)
-  (declare (special emacspeak-speak-messages ))
-  (and (y-or-n-p
-        (format "This will %s  Emacs speaking messages.  Are you sure? "
-                (if emacspeak-speak-messages " stop " " start ")))
-       (setq  emacspeak-speak-messages
-              (not emacspeak-speak-messages))
-       (when (interactive-p)
-         (emacspeak-auditory-icon
-          (if emacspeak-speak-messages  'on 'off))
-         (dtk-speak
-          (format "Turned  speaking of emacs messages %s"
-                  (if emacspeak-speak-messages  " on" " off"))))))
+(ems-generate-switcher 'emacspeak-toggle-speak-messages
+                       'emacspeak-speak-messages
+                       "Toggle the state of whether emacspeak echoes messages.")
 
 ;;}}}
 ;;{{{  Moving across fields:
