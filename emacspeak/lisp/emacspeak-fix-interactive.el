@@ -91,8 +91,8 @@ interactive prompts speak. ")
   (declare (special emacspeak-commands-that-are-fixed 
                     emacspeak-commands-dont-fix-regexp))
   (and (commandp sym)
-       (stringp (second (ad-interactive-form (symbol-function sym))))
        (not (memq  sym emacspeak-commands-that-are-fixed))
+       (stringp (second (ad-interactive-form (symbol-function sym))))
        (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
 (defun emacspeak-fix-commands-that-use-interactive ()
