@@ -222,7 +222,16 @@ generators  ; list of param generator
  (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
+;;{{{ technet cast from DDJ
+
+(emacspeak-url-template-define "TechNetCast Stream ID" 
+                               "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
+                               (list
+                                (lambda nil 
+(read-from-minibuffer "Stream Id"))))
+
 ;;{{{ sourceforge
+
 (emacspeak-url-template-define "sourceforge project" 
                                "http://sourceforge.net/projects/%s"
                                (list
@@ -234,12 +243,15 @@ generators  ; list of param generator
                                (list
                                 (lambda nil 
 (read-from-minibuffer "Project name"))))
+
 ;;}}}
 ;;{{{ India Today 
 
 (emacspeak-url-template-define "India Today "
                                "http://www.india-today.com/itoday/%s/index.shtml"
                                (list  'emacspeak-url-template-date-YearMonthDate))
+
+;;}}}
 
 ;;}}}
 ;;}}}
