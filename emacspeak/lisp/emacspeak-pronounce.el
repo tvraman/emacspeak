@@ -252,7 +252,7 @@ Argument CHILD  specifies the mode whose supers are being requested."
 This is the personality used when speaking  things that have a pronunciation
 applied."
   :group 'emacspeak-pronounce
-  :type 'symbol)
+  :type (voice-setup-custom-menu))
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
