@@ -48,12 +48,15 @@
 
 ;;}}}
 ;; 
+;;{{{  required modules 
+
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
+;;}}}
 ;;{{{  Define actions for emacs lisp mode
 
 (defun emacspeak-lisp-blink-matching-paren-when-on-right-paren ()
