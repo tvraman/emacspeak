@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 655 commands.
+This chapter documents a total of 656 commands.
 
 @menu
 * cd-tool::                     
@@ -4031,6 +4031,10 @@ Search the W3C Site.
 
 @deffn {Interactive Command} emacspeak-websearch-weather (QUERY)
 Get weather forecast for specified zip code.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-wikipedia-search (QUERY)
+Search Wikipedia
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo (QUERY)
