@@ -2035,6 +2035,7 @@ emacspeak-websearch-personal-portfolio."
           emacspeak-wizards-quote-row-filter)
     (rename-buffer "Portfolio")
     (goto-char (point-min))
+    (call-interactively 'emacspeak-table-next-row)
     (delete-file temp-file)))
 
 ;;}}}
