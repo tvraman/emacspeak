@@ -266,7 +266,7 @@ field in the customization buffer.  You can use the notation
   'emacspeak-remote-connect-to-server)
 (define-key emacspeak-keymap "\M-d"
   'emacspeak-pronounce-dispatch)
-(define-key emacspeak-keymap "\M-b" 'emacspeak-pronounce-define-local-pronunciation)
+(define-key emacspeak-keymap "\M-b" 'emacspeak-speak-other-buffer)
 (define-key emacspeak-keymap "\M-a" 'emacspeak-set-auditory-icon-player)
 (define-key emacspeak-keymap "\M-m" 'emacspeak-toggle-mail-alert)
 (define-key emacspeak-keymap "\M-v"
