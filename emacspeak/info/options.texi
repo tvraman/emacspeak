@@ -46,7 +46,6 @@ documentation.
 * emacspeak-remote Options::    
 * emacspeak-replace Options::   
 * emacspeak-rss Options::       
-* emacspeak-setup Options::     
 * emacspeak-sigbegone Options::  
 * emacspeak-sounds Options::    
 * emacspeak-speak Options::     
@@ -1210,17 +1209,6 @@ These options are customizable via Emacs' Custom interface.
 Table of RSS feeds.
 @end defvar
 
-@node emacspeak-setup Options
-@section emacspeak-setup Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-setup.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} dtk-default-speech-rate
-*Default speech rate at which TTS is started. 
-@end defvar
-
 @node emacspeak-sigbegone Options
 @section emacspeak-sigbegone Options
 
@@ -1595,6 +1583,10 @@ Emacspeak and ACSS
 Automatically generated documentation
 for options defined in module  emacspeak-w3.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-w3-charent-alist
+Entities to unescape when treating badly escaped XML.
+@end defvar
 
 @defvar {User Option} emacspeak-w3-lynx-program
 Name of lynx executable

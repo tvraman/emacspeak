@@ -1914,14 +1914,6 @@ Speak the current column.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-current-field	Key Sequence: control e . 
-
-Speak current field.
-A field is
-defined  by Emacs 21.
-
-------------------------------------------------------------
-
 ** emacspeak-speak-current-kill	Key Sequence: control e k 
 
 Speak the current kill entry.
@@ -3765,6 +3757,16 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-move-and-speakSpeaks a chunk of text bounded by point and a target position.
+Target position is specified using a navigation command and a
+count that specifies how many times to execute that command
+first.
+Point is left at the target position.
+Interactively, command is specified by pressing the key that
+;;invokes the command.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-occur-header-linesIf you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
 matches header lines, you can use this command to conveniently
@@ -3828,6 +3830,10 @@ Switch to the shell buffer and cd to
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-speak-iso-datetimeMake ISO date-time speech friendly.
 
 ------------------------------------------------------------
 
@@ -3957,6 +3963,14 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-speak-current-field	Key Sequence: control e . 
+
+Speak current field.
+A field is
+defined  by Emacs 21.
 
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"

@@ -2420,14 +2420,6 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 Speak the current column.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-current-field ()
-@kbd{ control e . }
-
-Speak current field.
-A field is
-defined  by Emacs 21.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-speak-current-kill (COUNT)
 @kbd{ control e k }
 
@@ -4394,6 +4386,16 @@ run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-move-and-speak (COMMAND COUNT)
+Speaks a chunk of text bounded by point and a target position.
+Target position is specified using a navigation command and a
+count that specifies how many times to execute that command
+first.
+Point is left at the target position.
+Interactively, command is specified by pressing the key that
+;;invokes the command.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-occur-header-lines (PREFIX)
 If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
@@ -4456,6 +4458,10 @@ Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-speak-iso-datetime (ISO)
+Make ISO date-time speech friendly.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-spot-words (EXT WORD)
@@ -4583,5 +4589,16 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
+@end deffn
+
+Automatically generated documentation
+for commands defined in module  nil.
+
+@deffn {Interactive Command} emacspeak-speak-current-field ()
+@kbd{ control e . }
+
+Speak current field.
+A field is
+defined  by Emacs 21.
 @end deffn
 
