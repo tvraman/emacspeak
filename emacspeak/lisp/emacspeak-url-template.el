@@ -825,7 +825,9 @@ Optional interactive prefix arg displays documentation for specified resource."
                         (format "%s" key)
                         (format "%s" key)))))
     (setq name (completing-read "Resource: "
-                                table))
+                                table
+                                nil
+                                'must-match))
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t 
