@@ -37,8 +37,7 @@ type="text/xsl"?>
       Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
     </p>
 
-    <applications
-                  caption="Speech-enabled applications  on the Emacspeak audio desktop.">
+    <applications caption="Speech-enabled applications  on the Emacspeak audio desktop.">
       <category name="Multimedia">
         <application name="aumix">
           Emacspeak front-end for configuring  the 
@@ -342,6 +341,12 @@ type="text/xsl"?>
           Java Development Environment with interactive debugging  
           support using the Java Platform Debug Architecture
           (JPDA). Provides a speech-enabled inspector and wizards.
+        </application>
+<application name="ecb">
+          Emacs Class Browser with support for Java, C++, C
+          and other popular languages.
+Provides navigable table of contents as well as a browsable method and
+          function index  for the file being editted.
         </application>
         <application name="gud">
           Unified debugger front-end.
