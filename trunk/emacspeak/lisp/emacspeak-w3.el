@@ -97,19 +97,22 @@
 ;;}}}
 ;;{{{ setup
 
-(defcustom emacspeak-w3-punctuation-mode 'all
+(defcustom emacspeak-w3-punctuation-mode nil
   "Pronunciation mode to use for W3 buffers."
   :type '(choice
+          (choice nil :tag "Ignore")
           (const  :tag "some" 'some)
           (const  :tag "all" 'all))
   :group 'emacspeak-w3)
+
 
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
-  (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode)
+  (when emacspeak-w3-punctuation-mode
+  (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
   (unless emacspeak-w3-post-process-hook
     (emacspeak-speak-mode-line)))
