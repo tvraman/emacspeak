@@ -100,6 +100,10 @@
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+    (define-key w3-mode-map "P"
+ 'emacspeak-speak-previous-personality-chunk)
+(define-key w3-mode-map "N"
+'emacspeak-speak-next-personality-chunk)
     (define-key w3-mode-map "\M-r" 'emacspeak-w3-realaudio-play-url-at-point)
     (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
     (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
