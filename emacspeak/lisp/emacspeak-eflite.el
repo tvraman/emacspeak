@@ -57,7 +57,8 @@
   "Use eflite TTS server."
   (interactive)
   (let ((dtk-tcl "eflite"))
-    (tts-restart)))
+    (tts-restart)
+    (message "This is Emacspeak! ")))
 
 (provide 'emacspeak-eflite)
 ;;{{{ end of file
