@@ -125,6 +125,7 @@ server."
 
 ;;}}}
 ;;{{{ advice interactive commands
+(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'erc-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 

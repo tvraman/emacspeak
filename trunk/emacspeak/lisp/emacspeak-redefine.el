@@ -199,9 +199,10 @@ They have to be redefined and rebound to make them talk. " )
 
 ;;}}}
 ;;{{{  fix ding 
-
+;;;###autoload
 (when (subrp (symbol-function 'ding))
   (fset 'orig-ding (symbol-function 'ding))
+
   (defun ding ( &optional arg)
     "Beep, or flash the screen.
 Also, unless an argument is given,
