@@ -1,3 +1,4 @@
+#!/usr/bin/tcl
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL. 
 # Keywords: Emacspeak, Dectalk, TCL
