@@ -656,7 +656,7 @@ Default is to use pipes.")
       (run-hooks 'dtk-startup-hook ))
      (t 
       (message "The speech server is not running.")))))
-
+;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
   (interactive)

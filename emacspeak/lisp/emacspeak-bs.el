@@ -41,6 +41,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(require 'bs)
 ;;}}}
 ;;{{{  Introduction:
 

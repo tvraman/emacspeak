@@ -41,6 +41,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(require 'webjump)
 ;;}}}
 ;;{{{  Introduction:
 
@@ -90,7 +91,7 @@
   "Add  specified template to key. "
   (declare (special emacspeak-url-template-table))
   (setf (gethash key emacspeak-url-template-table ) ut))
-
+;;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
   (declare (special emacspeak-url-template-table))
@@ -917,7 +918,7 @@ Set up URL rewrite rule to get print page."
 
 ;;}}}
 ;;{{{ Interactive commands 
-
+;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
   (declare (special  emacspeak-w3-post-process-hook))
