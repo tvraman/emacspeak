@@ -826,7 +826,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16360 58803))
+;;;;;;  (16365 53206))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -1174,7 +1174,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
 ;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16361 54087))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16361 56158))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1858,8 +1858,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16361
-;;;;;;  55328 948783))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16368
+;;;;;;  44928 136601))
 
 ;;;***
 

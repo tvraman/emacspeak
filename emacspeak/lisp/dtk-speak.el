@@ -476,7 +476,9 @@ Argument COMPLEMENT  is the complement of separator."
 (defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
   (declare (special tts-voice-reset-code))
-  (unless (eq 'inaudible voice )
+  (unless (or (eq 'inaudible voice )
+              (and (listp voice)
+                   (member 'inaudible voice)))
     (dtk-interp-queue
      (format "%s%s %s \n"
              (tts-get-voice-command voice )
