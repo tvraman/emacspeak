@@ -2,8 +2,8 @@
 3.75    September 1995  
 4.0     May 1996        Egypt
 5.0     November 1996   Tennessee
-6.0     May 1997        
-7.0     November 1997   
+6.0     May 1997 emacspeak-97++
+7.0     November 1997   emacspeak-98
 8.0     May 1998        BlackDog
 9.0     November 1998   BlackLab
 10.0    May 1999        WonderDog

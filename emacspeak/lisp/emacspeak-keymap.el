@@ -392,7 +392,6 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-dtk-submap "R" 'dtk-reset-state)
 (define-key emacspeak-dtk-submap "q" 'dtk-toggle-quiet )
 (define-key emacspeak-dtk-submap "p" 'dtk-set-punctuations)
-(define-key emacspeak-dtk-submap "m" 'dtk-set-pronunciation-mode)
 (define-key emacspeak-dtk-submap "l" 'emacspeak-toggle-line-echo)
 (define-key emacspeak-dtk-submap "k" 'emacspeak-toggle-character-echo)
 (define-key emacspeak-dtk-submap "i"

@@ -157,12 +157,6 @@ split caps Do not set this variable by hand, use command
     ("all" . "all")
     ("none" . "none"))
   "Alist of valid punctuation modes.")
-(defconst dtk-pronunciation-mode-alist
-  '(("math" . "math")
-    ("europe" . "europe")
-    ("spell" . "spell")
-    ("name" . "name"))
-  "Alist of valid pronunciation  modes.")
 
 (defvar dtk-last-output nil
   "Variable holding last output.")
@@ -833,23 +827,7 @@ Interactive PREFIX arg makes the new setting global."
              dtk-punctuation-mode
              (if prefix "" "locally"))))
 
-(defun dtk-set-pronunciation-mode  (mode state  )
-  "Set pronunciation MODE.
-This command is valid only for newer
-Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
-europe, spell', all of which can be turned on or off.
-Argument STATE specifies new state."
 
-  (interactive
-   (list
-    (completing-read  "Enter pronunciation  mode: "
-                      dtk-pronunciation-mode-alist nil t)
-    (y-or-n-p "Turn it on? ")))
-  (declare (special dtk-pronunciation-mode-alist))
-  (dtk-dispatch
-   (format "[:mode %s %s]"
-           mode
-           (if state "on" "off"))))
 
 (defun dtk-reset-state ()
   "Restore sanity to the Dectalk.
