@@ -154,6 +154,7 @@ emacspeak-iswitchb.elc \
 emacspeak-jde.elc \
 emacspeak-kmacro.elc  \
 emacspeak-kotl.elc \
+emacspeak-madplay.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
@@ -343,6 +344,7 @@ emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
+emacspeak-madplay.elc: emacspeak-madplay.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc voice-setup.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
