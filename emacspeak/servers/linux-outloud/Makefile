@@ -8,7 +8,7 @@ TTS=tcleci.so eci.ini NOTES
 
 all: tcleci.so 
 
-CPPFLAGS=  -DUNIX
+CPPFLAGS=  -DUNIX -fpic 
 
 tcleci.so: tcleci.o
 	$(CC) $(CFLAGS) -o $@ tcleci.o  -ltcl  -libmeci50 -shared
