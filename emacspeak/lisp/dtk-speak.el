@@ -611,11 +611,15 @@ This is setup on a per engine basis.")
     (require 'outloud-voices)
     (require 'outloud-css-speech)
     (fset 'tts-get-voice-command 'outloud-get-voice-command)
+(fset 'tts-define-voice-from-speech-style
+          'outloud-define-voice-from-speech-style)
     (fset 'tts-personality-from-speech-style
           'outloud-personality-from-speech-style)
     (setq tts-default-speech-rate outloud-default-speech-rate))
    (t (require 'dtk-voices)
       (fset 'tts-get-voice-command 'dtk-get-voice-command)
+(fset 'tts-define-voice-from-speech-style
+          'dtk-define-voice-from-speech-style)
       (fset 'tts-personality-from-speech-style
             'dectalk-personality-from-speech-style)
       (setq tts-default-speech-rate dtk-default-speech-rate)))
