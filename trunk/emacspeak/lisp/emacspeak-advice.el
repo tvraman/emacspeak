@@ -1890,11 +1890,6 @@ Otherwise cue user to the line just created."
                            (dtk-speak
                             (format "%s" ad-return-value )))))
 
-(defadvice shell (around emacspeak pre act comp)
-  "Make sure we always use a tty"
-  (let ((process-connection-type t))
-    ad-do-it))
-
 (defadvice shell (after emacspeak pre act )
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
