@@ -76,7 +76,6 @@
 ;;; Special form def-voice-font sets up the personality name to be
 ;;; available via custom.
 
-
 ;;; new voices can be defined using CSS style specifications 
 ;;; see special form defvoice
 ;;; Voices defined via defvoice can be customized via custom 
@@ -106,12 +105,12 @@
 
 (defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
-(let ((v (tts-list-voices)))
-  (setq v
-        (cons 
-(list 'symbol :tag "Other")
-v))
-  (cons 'choice v)))
+  (let ((v (tts-list-voices)))
+    (setq v
+          (cons 
+           (list 'symbol :tag "Other")
+           v))
+    (cons 'choice v)))
 
 ;;}}}
 ;;{{{ map faces to voices 
@@ -127,7 +126,7 @@ v))
 (defsubst voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
-    (symbol-value (gethash face voice-setup-face-voice-table)))
+  (symbol-value (gethash face voice-setup-face-voice-table)))
     
 
 ;;; voiceifies faces not already voiceified as specified in
@@ -262,31 +261,73 @@ command \\[customize-variable] on <personality>-settings."
   (list nil nil 0 0 nil)
   "Turns current voice into a monotone.")
 
+(defvoice  voice-monotone-medium
+  (list nil nil 2 2  nil)
+  "Turns current voice into a medium monotone.")
+
 (defvoice voice-animate
   (list nil 7 7 6)
   "Animates current voice.")
 
+(defvoice voice-animate-medium
+  (list nil 6 6  5)
+  "Adds medium animation  current voice.")
+
+(defvoice voice-animate-extra
+  (list nil 8 8 7 )
+  "Adds extra animation  current voice.")
 
 (defvoice voice-smoothen 
-(list nil nil nil 3 4)
-"Smoothen current voice.")
+  (list nil nil nil 3 4)
+  "Smoothen current voice.")
+
+(defvoice voice-smoothen-extra
+  (list nil nil nil 3 2)
+  "Extra smoothen current voice.")
+
+(defvoice voice-smoothen-medium
+  (list nil nil nil 3 3)
+  "Extra smoothen current voice.")
+
+(defvoice voice-brighten-medium 
+  (list nil nil nil 5 6)
+  "Brighten current voice.")
 
 (defvoice voice-brighten 
-(list nil nil nil 6 7)
-"Brighten current voice.")
+  (list nil nil nil 6 7)
+  "Brighten current voice.")
 
+(defvoice voice-brighten-extra
+  (list nil nil nil 7 8 )
+  "Extra brighten current voice.")
 
 (defvoice voice-bolden 
-(list nil 1 6 6  nil)
-"Bolden current voice.")
+  (list nil 1 6 6  nil)
+  "Bolden current voice.")
+
+(defvoice voice-bolden-extra
+  (list nil 0 6 7 8 )
+  "Extra bolden current voice.")
+
+(defvoice voice-bolden-medium
+  (list nil 3 6 6  nil)
+  "Add medium bolden current voice.")
 
 (defvoice voice-lighten
-(list nil 8 8 1  nil)
-"Lighten current voice.")
+  (list nil 7 7  1  nil)
+  "Lighten current voice.")
+
+(defvoice voice-lighten-medium
+  (list nil 6 6 3  nil)
+  "Add medium lighten current voice.")
+
+(defvoice voice-lighten-extra
+  (list nil 8 8 0   nil)
+  "Add extra lighten current voice.")
 
 (defvoice voice-bolden-and-animate
-(list nil 8 8 8 8 )
-"Bolden and animate  current voice.")
+  (list nil 8 8 8 8 )
+  "Bolden and animate  current voice.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
@@ -299,7 +340,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-comment-face
   "Personality to use for comments.")
           
-(def-voice-font voice-lock-underline-personality voice-brighten
+(def-voice-font voice-lock-underline-personality voice-brighten-medium
   'underline
   "Personality to use for underline text.")
   
@@ -318,7 +359,7 @@ command \\[customize-variable] on <personality>-settings."
   "Personality to use for bold  text.")
   
 (def-voice-font voice-lock-doc-string-personality
-  voice-smoothen
+  voice-smoothen-extra
   'font-lock-doc-string-face
   "Personality to use for documentation strings.")
   
@@ -330,11 +371,11 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-string-face
   "Personality to use for string constants.")
 
-(def-voice-font voice-lock-function-name-personality voice-bolden
+(def-voice-font voice-lock-function-name-personality voice-bolden-medium
   'font-lock-function-name-face
   "Personality to use for function names.")
   
-(def-voice-font voice-lock-warning-personality 'rita
+(def-voice-font voice-lock-warning-personality voice-bolden-and-animate
   'font-lock-warning-face
   "Personality to use for warnings.")
 
@@ -354,7 +395,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-type-face
   "Personality to use for data types.")
   
-(def-voice-font voice-lock-reference-personality voice-animate
+(def-voice-font voice-lock-reference-personality voice-animate-medium
   'font-lock-reference-face
   "Personality to use for references.")
 
