@@ -37,7 +37,7 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
+ (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-voices)
@@ -635,6 +635,17 @@ text using wvText."
   :group 'emacspeak-vm)
 
 
+(defsubst emacspeak-vm-add-mime-convertor (convertor)
+  "Helper to add a convertor specification."
+  (declare (special vm-mime-type-converter-alist))
+  (unless
+      (find-if
+       #'(lambda  (i)
+           (string-equal (car i) (car convertor)))
+       vm-mime-type-converter-alist)
+    (push   convertor 
+            vm-mime-type-converter-alist)))
+
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
   (declare (special 
@@ -646,10 +657,21 @@ text using wvText."
             vm-mime-base64-encoder-program
             vm-mime-base64-decoder-program
             vm-mime-attachment-auto-type-alist
-            vm-mime-attachment-auto-type-alist
             vm-mime-type-converter-alist
             emacspeak-vm-pdf2text
+            emacspeak-vm-ppt2html
+            emacspeak-vm-xls2html
             emacspeak-vm-doc2text))
+  (emacspeak-vm-add-mime-convertor
+   (list "application/pdf" "text/plain"
+         emacspeak-vm-pdf2text))
+  (emacspeak-vm-add-mime-convertor
+   (list "application/vnd.ms-excel" "text/html"
+         emacspeak-vm-xls2html))
+  (emacspeak-vm-add-mime-convertor
+   (list "application/vnd.ms-powerpoint" "text/html" emacspeak-vm-ppt2html))
+  (emacspeak-vm-add-mime-convertor
+   (list "application/msword" "text/plain" emacspeak-vm-doc2text))
   (setq
    vm-infer-mime-types t
    vm-mime-decode-for-preview nil
@@ -657,15 +679,8 @@ text using wvText."
    vm-auto-displayed-mime-content-type-exceptions '("text/html")
    vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
    vm-mime-base64-encoder-program "base64-encode"
-   vm-mime-base64-decoder-program "base64-decode"
-   vm-mime-attachment-auto-type-alist
-   (append vm-mime-attachment-auto-type-alist
-           '(("\.pdf" . "Application/pdf")))
-   vm-mime-type-converter-alist
-   (list
-     (list "application/pdf" "text/plain" emacspeak-vm-pdf2text)
-     (list "application/msword" "text/plain" emacspeak-vm-doc2text))))
-         
+   vm-mime-base64-decoder-program "base64-decode"))
+   
 
 (when emacspeak-vm-customize-mime-settings
   (emacspeak-vm-customize-mime-settings))
