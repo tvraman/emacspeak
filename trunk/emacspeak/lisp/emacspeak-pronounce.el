@@ -245,24 +245,24 @@ Argument CHILD  specifies the mode whose supers are being requested."
 This is the personality used when speaking  things that have a pronunciation
 applied."
   :group 'emacspeak
-:type 'symbol)
+  :type 'symbol)
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
-      (loop for  key  being the hash-keys  of pronunciation-table
-            do
-            (let ((word (symbol-name key))
-                  (pronunciation (cl-gethash  key pronunciation-table )))
-              (goto-char (point-min))
-              (while (search-forward  word nil t)
-                (replace-match  pronunciation t t  )
-                (and emacspeak-pronounce-pronunciation-personality
-                     (put-text-property
-                      (match-beginning 0)
-                      (+ (match-beginning 0) (length pronunciation))
-                      'personality
-                      emacspeak-pronounce-pronunciation-personality))))))
+  (loop for  key  being the hash-keys  of pronunciation-table
+        do
+        (let ((word (symbol-name key))
+              (pronunciation (cl-gethash  key pronunciation-table )))
+          (goto-char (point-min))
+          (while (search-forward  word nil t)
+            (replace-match  pronunciation t t  )
+            (and emacspeak-pronounce-pronunciation-personality
+                 (put-text-property
+                  (match-beginning 0)
+                  (+ (match-beginning 0) (length pronunciation))
+                  'personality
+                  emacspeak-pronounce-pronunciation-personality))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
@@ -270,7 +270,7 @@ Modifies text and point in buffer."
 (defcustom emacspeak-pronounce-dictionaries-file  nil
   "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
-               :group 'emacspeak)
+  :group 'emacspeak)
 
 (declaim (special emacspeak-resource-directory))
 (setq emacspeak-pronounce-dictionaries-file
@@ -506,31 +506,8 @@ Activates pronunciation dictionaries if not already active."
     (emacspeak-auditory-icon 'on))))
 
 ;;}}}
-;;{{{ top level dispatch routine
-
-(defvar emacspeak-pronounce-help
-  "Dictionary:  Clear Define Load Refresh Save Toggle"
-  "Help message listing emacspeak commands.")
-
-(defun emacspeak-pronounce-dispatch ()
-  "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
-  (interactive)
-  (declare (special emacspeak-pronounce-help))
-  (message emacspeak-pronounce-help)
-  (let ((event (read-char)))
-    (case event
-      (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
-      (?d (call-interactively
-           'emacspeak-pronounce-define-pronunciation t))
-      (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
-      (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
-      (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
-      (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
-      (otherwise (message emacspeak-pronounce-help)))
-    (emacspeak-auditory-icon 'close-object)))
-
-;;}}}
 ;;{{{  dictionary editor 
+
 (require 'widget)
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
@@ -578,8 +555,54 @@ pronunciation dictionary for the specified key."
          emacspeak-pronounce-dictionaries)
         value)))))
 
+(defun emacspeak-pronounce-edit-pronunciations (key)
+  "Prompt for and launch a pronunciation editor on the
+specified pronunciation dictionary key."
+  (interactive
+   (list
+    (let ((keys
+           (loop for k being the hash-keys of
+                 emacspeak-pronounce-dictionaries
+                 collect
+                 (symbol-name k))))
+      (read-from-minibuffer "Dictionary to edit: "
+                            (car keys)  ;initial
+                            nil         ;read
+                            nil         ;keymap
+                            'keys
+                            (car keys)))))
+  (declare (special emacspeak-pronounce-dictionaries))
+  (emacspeak-pronounce-edit-generate-pronunciation-editor
+   (intern key)))
 
 ;;}}}
+;;{{{ top level dispatch routine
+
+(defvar emacspeak-pronounce-help
+  "Dictionary:  Clear Define Edit Load Refresh Save Toggle"
+  "Help message listing emacspeak commands.")
+
+(defun emacspeak-pronounce-dispatch ()
+  "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
+  (interactive)
+  (declare (special emacspeak-pronounce-help))
+  (message emacspeak-pronounce-help)
+  (let ((event (read-char)))
+    (case event
+      (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
+      (?d (call-interactively
+           'emacspeak-pronounce-define-pronunciation t))
+      (?e (call-interactively
+           'emacspeak-pronounce-edit-pronunciations t))
+      (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
+      (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
+      (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
+      (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
+      (otherwise (message emacspeak-pronounce-help)))
+    (emacspeak-auditory-icon 'close-object)))
+
+;;}}}
+
 (provide  'emacspeak-pronounce)
 ;;{{{  emacs local variables
 
