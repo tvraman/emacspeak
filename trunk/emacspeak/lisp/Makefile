@@ -72,10 +72,9 @@ CORE_OBJECTS =  \
 	emacspeak-advice.elc\
 	emacspeak-keymap.elc\
 	emacspeak-fix-interactive.elc\
-emacspeak-freeamp.elc \
+emacspeak-re-builder.elc \
 	emacspeak-redefine.elc\
 	emacspeak-replace.elc \
-emacspeak-rss.elc \
         emacspeak-table.elc \
         emacspeak-table-ui.elc \
 	emacspeak-tabulate.elc 
@@ -132,6 +131,7 @@ emacspeak-finder.elc \
 emacspeak-flyspell.elc \
 emacspeak-folding.elc \
 emacspeak-forms.elc \
+emacspeak-freeamp.elc \
 emacspeak-generic.elc \
 emacspeak-gnuplot.elc \
 emacspeak-gnus.elc\
@@ -169,12 +169,14 @@ emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
 emacspeak-psgml.elc \
 emacspeak-python.elc \
+emacspeak-re-builder.elc \
 emacspeak-realaudio.elc \
 emacspeak-reftex.elc \
 emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
 emacspeak-rmail.elc \
 emacspeak-rpm.elc  \
+emacspeak-rss.elc \
 emacspeak-sawfish.elc \
 emacspeak-ses.elc \
 emacspeak-setup.el \
@@ -354,6 +356,7 @@ emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-personality.elc: emacspeak-personality.el
 emacspeak-psgml.elc: emacspeak-psgml.el dtk-speak.elc voice-setup.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
+emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
 emacspeak-realaudio.elc: emacspeak-realaudio.el dtk-speak.elc voice-setup.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
