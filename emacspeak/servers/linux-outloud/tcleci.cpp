@@ -178,7 +178,7 @@ int Tcleci_Init(Tcl_Interp *interp) {
   }
   if (   (_eciSetParam(eciHandle, eciInputType, 1) == -1) 
          || (_eciSetParam(eciHandle, eciSynthMode, 1) == -1)
-         || (_eciSetParam(eciHandle, eciSampleRate, 0) == -1)
+         || (_eciSetParam(eciHandle, eciSampleRate, 1) == -1)
          //|| (_eciSetParam(eciHandle,8/*eciRealWorldUnits*/, 1) == -1)
          ) {
     Tcl_AppendResult(interp, "Could not initialized tts", NULL);
