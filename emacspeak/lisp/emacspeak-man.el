@@ -85,7 +85,6 @@
        ;; Regexp matching a references in SEE ALSO 
 					;(cons Man-reference-regexp    'voice-lock-bold-personality)
        ))
-(voice-lock-set-major-mode-keywords 'Man-mode    'Man-voice-lock-keywords)
 ;;}}}
 ;;{{{  advice interactive commands 
 

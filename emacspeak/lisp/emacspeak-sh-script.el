@@ -94,9 +94,7 @@ See `sh-feature'.")
 	("\\`#!.*/\\([^ 	\n]+\\)"
 	 (1 voice-lock-keyword-personality t))))
 
-(voice-lock-set-major-mode-keywords
- 'sh-mode
- 'emacspeak-sh-voice-lock-keywords )
+
 
 ;;}}}
 ;;{{{  advice interactive commands

@@ -144,7 +144,7 @@ is a Tcl expression, and the last argument is Tcl commands.")
        )
       )
 
-(voice-lock-set-major-mode-keywords 'tcl-mode 	    'tcl-voice-lock-keywords)
+
 
 ;;}}}
 ;;{{{  Advice electric insertion to talk:

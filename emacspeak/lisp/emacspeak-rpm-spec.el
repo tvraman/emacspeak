@@ -200,9 +200,6 @@
     )
   "Additional expressions to highlight in RPM Spec mode.")
 
-(voice-lock-set-major-mode-keywords 'rpm-spec-mode
-                                    'rpm-spec-voice-lock-keywords)
-
 ;;}}}
 (provide 'emacspeak-rpm-spec)
 ;;{{{ end of file 

@@ -93,8 +93,7 @@
 ;;}}}
 ;;{{{ simple voice locking 
 
-(voice-lock-set-major-mode-keywords 'sgml-mode
-				    'sgml-voice-lock-keywords)
+
 
 (defconst sgml-voice-lock-keywords-1
   '(("<\\([!?][a-z][-.a-z0-9]*\\)" 1 voice-lock-keyword-personality)
