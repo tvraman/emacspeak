@@ -1,7 +1,7 @@
 #$Id$
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 14.4995
+Version: 14.49990
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -59,8 +59,12 @@ from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
 %files 
  /usr/share/emacs/site-lisp/emacspeak/
 %doc servers/linux-outloud/NOTES
-%doc etc/NEWS*
-%doc etc/PREREQUISITES
+%doc etc/NEWS
+%doc etc/NEWS-12.0
+%doc etc/NEWS-11.0
+%doc etc/NEWS-10.0
+%doc etc/NEWS-9.0
+%doc etc/NEWS-8.0
 %doc etc/FAQ
 /usr/bin/emacspeak
 /usr/info/emacspeak.info
