@@ -229,7 +229,7 @@ documentation   Documents this template resource.
  "http://amazon.com/o/dt/upda-1.0-i/tg/aa/upda/item/-/%s"
  (list "ASIN Or ISBN: ")
  nil
- "Retrieve produce details from Amazon by either ISBN or ASIN.")
+ "Retrieve product details from Amazon by either ISBN or ASIN.")
 ;;}}}
 ;;{{{ bookshare
 (defcustom emacspeak-bookshare-user-id nil
@@ -699,7 +699,7 @@ from English to German.")
  nil
  "Retrieve and speak directions from MapQuest."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "DIRECTIONS"
+     (emacspeak-w3-extract-table-by-match "Maneuvers"
                                           url 'speak)))
 
 ;;}}}
