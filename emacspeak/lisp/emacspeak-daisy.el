@@ -103,7 +103,7 @@ Used to resolve relative URIs.")
 (defsubst emacspeak-daisy-get-tag (element)
   "Return tag name for parsed XML element."
   (cond
-   ((symbolp (car element)) (car element))
+   ((stringp (car element)) (car element))
     ((listp (car element)) (caar element))
     (t (error "Malformed element"))))
 
@@ -148,7 +148,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;}}}
 ;;{{{  table of handlers 
 
-(defvar emacspeak-daisy-handler-table (make-hash-table)
+(defvar emacspeak-daisy-handler-table (make-hash-table :test #'string-equal)
   "Table that maps elements to handlers.")
 
 (defsubst emacspeak-daisy-get-handler (element )
@@ -165,17 +165,17 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;{{{ Install handlers 
 ;;; elements
 (defvar emacspeak-daisy-xml-elements 
-'(
-ncx 
-head 
-title
-doctitle
-text
-audio
-content
-navStruct
-navObject)
-"Daisy XML elements.")
+  (list
+   "ncx "
+   "head "
+   "title"
+   "doctitle"
+   "text"
+   "audio"
+   "content"
+   "navStruct"
+   "navObject")
+  "Daisy XML elements.")
 
 (loop for e in emacspeak-daisy-xml-elements
       do
@@ -186,27 +186,38 @@ navObject)
 ;;}}}
 ;;{{{ Define handlers 
 
+
+(defsubst emacspeak-daisy-apply-handler (element)
+  "Lookup and apply installed handler."
+  (let* ((tag (emacspeak-daisy-get-tag element))
+         (handler  (emacspeak-daisy-get-handler tag)))
+    (cond
+     (handler (funcall handler element))
+     (t
+      (insert
+       (format "Handler for %s not implemented yet.\n" tag))))))
+
 (defun  emacspeak-daisy-ncx-handler (ncx)
   "Process top-level NCX element."
-  (let ((buffer (get-buffer-create "*daisy*"))
-        (children (cdr ncx))
-        (current nil)
-        (tag nil)
-        (handler nil))
+  (let ((buffer (get-buffer-create "*daisy*")))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
-      (while children
-        (setq current (pop children))
-        (setq tag (emacspeak-daisy-get-tag current))
-        (setq handler (emacspeak-daisy-get-handler tag))
-        (cond
-         (handler (funcall handler current))
-          (t
-           (insert (format "Handler for %s not implemented yet.\n"
-                           tag)))))
+      (mapc 'emacspeak-daisy-apply-handler (cdr ncx))
       (emacspeak-daisy-mode))
 (switch-to-buffer buffer)))
+
+(defun emacspeak-daisy-text-handler (element)
+  "Handle element <text>...</text>."
+  (mapc #'insert (cdr element)
+        (insert "\n")))
+   
+
+(defun emacspeak-daisy-doctitle-handler (element)
+  "Handle <doctitle>...</doctitle>"
+  (mapc 'emacspeak-daisy-apply-handler
+        (cdr element )))
+
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
