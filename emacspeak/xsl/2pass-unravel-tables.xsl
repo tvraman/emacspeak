@@ -15,19 +15,13 @@ Tables are matched by rule match = //tables//table
 which creates the required anchor element, deferring the
 copying out of the table to the second-pass.
 
+
+Finally we invoke mode second-pass which provides a rule 
+for copying out the table.
+
 During the second pass, nested tables get recursively
 processed by calling apply-templates which by default
 applies rules from the first pass.
-
-
-We then perform a second-pass using a for-each iterator over
-nodeset //table//table.
-Compare this with 2pass-unravel-tables.xsl which uses a
-named mode 'second-pass'
-instead of a for-each iterator.
-Using for-each allows this style to correctly number the
-nested tables during the second-pass; this numbering can be
-used as the table-index for extract-tables.xsl.
 
 -->
 <!-- } -->
@@ -59,19 +53,7 @@ nested tables</a>
 There are 
 <xsl:value-of select="count(//table//table)"/>
  nested tables in this page.</p>
-      <xsl:for-each select="//table//table">
-        <xsl:element name="a">
-          <xsl:attribute name="name">
-            <xsl:value-of select="generate-id(.)"/>
-          </xsl:attribute>
-          <em>Table <xsl:value-of select="position()"/></em>
-        </xsl:element>
-        <br/>
-        <xsl:element name="table">
-          <xsl:apply-templates select="@*"/>
-          <xsl:apply-templates/>
-        </xsl:element>
-      </xsl:for-each>
+      <xsl:apply-templates select="//table//table" mode="second-pass"/>
       <h2>
         <a name="__about_unravel_tables">About This Style</a>
       </h2>
