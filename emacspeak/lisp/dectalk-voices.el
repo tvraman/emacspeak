@@ -54,9 +54,6 @@
 ;;}}}
 ;;{{{  voice table
 
-(defvar tts-default-voice 'paul 
-  "Default voice used. ")
-
 (defvar dectalk-default-voice-string ""
   "Dectalk string for  default voice --set to be a no-op.")
 
