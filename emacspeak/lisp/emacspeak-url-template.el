@@ -432,7 +432,7 @@ to play a BBC Radio4 program on demand."
  nil
  "Retrieve and speak directions from MapQuest."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "1:"
+     (emacspeak-w3-extract-table-by-match "DIRECTIONS"
                                           url 'speak)))
 
 ;;}}}
