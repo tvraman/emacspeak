@@ -49,7 +49,7 @@ variable should be set to nil *before*
 emacspeak is compiled or started.")
 
 (defvar emacspeak-directory
-  (expand-file-name  "/home/tvraman/emacs/lisp/emacspeak")
+  (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
 
 (defvar emacspeak-lisp-directory
