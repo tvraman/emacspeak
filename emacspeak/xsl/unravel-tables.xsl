@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <!--Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) 2001  All Rights Reserved.
 
@@ -23,41 +23,43 @@ processed by calling apply-templates which by default
 applies rules from the first pass.
 
 -->
-
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" indent="yes"/>
   <xsl:include href="identity.xsl"/>
-  <!-- { html body  --> 
-
-  <!-- nuke these -->
+<!-- { html body  -->
+<!-- nuke these -->
   <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
         <caption>Tables Unravelled</caption>
-<tr>
-<td><a href="#__about_unravel_tables">About This
-              Style</a></td>
-<td><a href="#__nested_tables">nested tables</a></td>
-        </tr></table>
-      <xsl:apply-templates />
-      <h2><a name="__nested_tables"
-             id="__nested_tables"> Nested Tables </a> </h2>
-<p>
+        <tr>
+          <td>
+            <a href="#__about_unravel_tables">About This Style</a>
+          </td>
+          <td>
+            <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
+nested tables</a>
+          </td>
+        </tr>
+      </table>
+      <xsl:apply-templates/>
+      <h2>
+        <a name="__nested_tables" id="__nested_tables"> Nested Tables </a>
+      </h2>
+      <p>
 There are 
 <xsl:value-of select="count(//table//table)"/>
  nested tables in this page.</p>
       <xsl:apply-templates select="//table//table" mode="second-pass"/>
     </xsl:element>
-
-<h2><a name="__about_unravel_tables">About This Style</a> </h2>
-
-      <p>
+    <h2>
+      <a name="__about_unravel_tables">About This Style</a>
+    </h2>
+    <p>
         Note that nested tables have been moved to the end of this
-        document under section <a
-                                  href="#__nested_tables">nested tables</a>.
+        document under section <a href="#__nested_tables">nested tables</a>.
         The table cell that contained the nested table has been
         replaced with a hyperlink that navigates to the actual
         table. If the author has provided a summary and or
@@ -65,19 +67,11 @@ There are
         as the hyperlink text.
       </p>
   </xsl:template>
-  
-  <xsl:template match="//table//table"  >
-    <xsl:element name="a">
-      <xsl:attribute name="href">
-        <xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/>
-      </xsl:attribute>
-      <xsl:value-of select="caption"/>
-      Summary: <xsl:value-of select="@summary"/>
-    </xsl:element>
+  <xsl:template match="//table//table">
+    <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
+      Summary: <xsl:value-of select="@summary"/></xsl:element>
   </xsl:template>
-
-  <xsl:template   match="//table//table"
-                mode="second-pass">
+  <xsl:template match="//table//table" mode="second-pass">
     <xsl:element name="a">
       <xsl:attribute name="name">
         <xsl:value-of select="generate-id(.)"/>
@@ -88,10 +82,8 @@ There are
       </xsl:element>
     </xsl:element>
   </xsl:template>
-
-  <!-- } -->
+<!-- } -->
 </xsl:stylesheet>
-
 <!--
 Local Variables:
 mode: xae
@@ -101,4 +93,4 @@ sgml-set-face: nil
 sgml-insert-missing-element-comment: nil
 folded-file: t
 End:
---> 
+-->
