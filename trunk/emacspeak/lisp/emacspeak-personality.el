@@ -272,7 +272,7 @@ displayed in the messages area."
              ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
-                     (delete nil 
+                     (delq nil 
                              (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
@@ -308,7 +308,7 @@ displayed in the messages area."
 	     ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
-                     (delete nil 
+                     (delq nil 
                              (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
@@ -344,7 +344,7 @@ displayed in the messages area."
              ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
-                     (delete nil 
+                     (delq nil 
                              (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
@@ -384,7 +384,7 @@ displayed in the messages area."
 	     ;; 	      nil)
              ( (listp value)
                (setq voice
-                     (delete nil 
+                     (delq nil 
                              (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
@@ -452,7 +452,7 @@ Append means place corresponding personality at the end."
         (setq voice (voice-setup-get-voice-for-face   value)))
        ((listp value)
         (setq voice
-              (delete nil
+              (delq nil
                       (mapcar
                        #'voice-setup-get-voice-for-face value))))
        (t (message "Got %s" value)))

@@ -1626,7 +1626,7 @@ current coding system, then we return an empty string."
                  (eval (cadr form)))
                 (t form)))
            info))
-    (setq info (delete nil info))
+    (setq info (delq nil info))
     (setq info (delete "" info))
     (tts-with-punctuations "some"
                            (dtk-speak
