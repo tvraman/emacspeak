@@ -80,6 +80,7 @@
 
 ;;}}}
 ;;{{{ inhibit-point-motion-hooks
+
 (defsubst ems-inhibit-point-motion-hooks ()
   (declare (special inhibit-point-motion-hooks))
   (if (boundp 'inhibit-point-motion-hooks)
@@ -1936,6 +1937,7 @@ achieved by a change in voice personality."
 
 ;;}}}
 ;;{{{ speaking personality chunks
+
 (defun emacspeak-speak-this-personality-chunk ()
   "Speak chunk of text around point that has current
 personality."
@@ -2006,8 +2008,6 @@ Speak that chunk after moving."
       (backward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
-      
-  
 
 ;;}}}
 ;;{{{  Execute command repeatedly, browse
