@@ -82,8 +82,7 @@
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
-   (expand-file-name "rss.xsl"
-                     emacspeak-xslt-directory)
+   (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
    'unescape-charent))
 
