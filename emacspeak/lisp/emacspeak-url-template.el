@@ -102,7 +102,7 @@
 (defvar emacspeak-url-template-name-alist nil
   "Alist of url template names --used by completing-read when
 prompting for a template.")
-
+;;;###autoload
 (defun emacspeak-url-template-define (name template
                                            &optional generators
                                            post-action
@@ -165,6 +165,30 @@ prompting for a template.")
 ;;}}}
 ;;{{{  template resources 
 
+;;{{{ bookshare
+(defcustom emacspeak-bookshare-user-id nil
+  "Bookshare user Id."
+  :type '(choice :tag "Bookshare User id"
+                 (const :tag "None" nil)
+                 (string :tag "Email"))
+  :group 'emacspeak-url-template)
+
+(emacspeak-url-template-define
+ "BookShare"
+ "http://www.bookshare.org/web/VolunteerHome.html?email=%s&password=%s"
+ (list
+  #'(lambda nil
+  (read-from-minibuffer
+   "Bookshare UserId: "
+   emacspeak-bookshare-user-id))
+  #'(lambda nil
+  (read-from-minibuffer  "Password: ")))
+ nil
+ "Bookshare Login"
+ #'(lambda (url)
+     (emacspeak-lynx url)))
+
+;;}}}
 ;;{{{ shoutcast 
 (defvar emacspeak-url-template-shoutcast-history nil
   "History to track shoutcast searchses.")
@@ -1106,6 +1130,7 @@ Set up URL rewrite rule to get print page."
  "Display flight arrival and departure information.")
       
 ;;}}}
+
 ;;}}}
 ;;{{{ Interactive commands 
 ;;;###autoload
