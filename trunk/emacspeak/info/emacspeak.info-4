@@ -83,10 +83,10 @@ emacspeak-realaudio.
 
      If using TRPlayer, you can either give one-shot commands using
      command emacspeak-realaudio available from anywhere on the audio
-     desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if
-     you wish to issue many nvigation commands.  Note that buffer
-     *realaudio* uses a special major mode that provides the various
-     navigation commands via single keystrokes.
+     desktop as `C-e ;'.  Alternatively, switch to buffer *realaudo*
+     using `C-e ;;' if you wish to issue many navigation commands.
+     Note that buffer *realaudio* uses a special major mode that
+     provides the various navigation commands via single keystrokes.
 
  - emacspeak-realaudio-trplayer-command:
      Execute TRPlayer command.
@@ -344,6 +344,9 @@ emacspeak-speak.
      Sets up buffer specific speech display table that controls how
      special characters are spoken. Interactive prefix argument causes
      setting to be global.
+
+ - emacspeak-speak-and-skip-extent-upto-this-char:
+     Speak extent delimited by point and last character typed.
 
  - emacspeak-owindow-speak-line:
      ` ESCAPE <select> '
@@ -622,6 +625,15 @@ emacspeak-speak.
      split the screen into more than two or three.  Argument ARG
      determines the 'other' window to speak.  Semantics  of `other' is
      the same as for the builtin Emacs command `other-window'.
+
+ - emacspeak-speak-and-skip-extent-upto-char:
+     Search forward from point until we hit char.  Speak text between
+     point and the char we hit.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
 
  - emacspeak-toggle-line-echo:
      ` control e d l '
@@ -1170,6 +1182,9 @@ emacspeak-vm.
  - emacspeak-vm-mode-line:
      VM mode line information.
 
+ - emacspeak-vm-catch-up-all-messages:
+     Mark all messages in folder to be deleted. Use with caution.
+
  - emacspeak-vm-browse-message:
      Browse an email message -read it paragraph at a time.
 
@@ -1279,6 +1294,9 @@ emacspeak-w3.
 
  - emacspeak-w3-xslt-apply:
      Apply specified transformation to current page.
+
+ - emacspeak-w3-browse-link-with-style:
+     Browse link with specified XSL style.
 
 
 File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-websearch,  Prev: emacspeak-w3,  Up: Emacspeak Commands

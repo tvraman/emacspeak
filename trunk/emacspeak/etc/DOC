@@ -122,11 +122,6 @@ Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** dtk-set-punctuations-to-allSet punctuation  mode to all.
@@ -1489,11 +1484,12 @@ completions. Hit space to use this completion list.
 
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
-the audio desktop as C-e ;.
-Alternatively,  switch to buffer *realaudo* if you
-wish to issue many nvigation commands.  Note that buffer
-*realaudio* uses a special major mode that provides the
-various navigation commands via single keystrokes.
+the audio desktop as `C-e ;'.
+Alternatively, switch to buffer *realaudo* using
+`C-e ;;' if you wish to issue many
+navigation commands.  Note that buffer *realaudio* uses a
+special major mode that provides the various navigation
+commands via single keystrokes.
 
 ------------------------------------------------------------
 
@@ -1684,6 +1680,10 @@ Argument START  and END specify region to speak.
 ** emacspeak-speak-set-display-tableSets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
+
+------------------------------------------------------------
+
+** emacspeak-speak-and-skip-extent-upto-this-charSpeak extent delimited by point and last character typed.
 
 ------------------------------------------------------------
 
@@ -2026,6 +2026,16 @@ two or three.
 Argument ARG determines the 'other' window to speak.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'.
+
+------------------------------------------------------------
+
+** emacspeak-speak-and-skip-extent-upto-charSearch forward from point until we hit char.
+Speak text between point and the char we hit.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -2581,6 +2591,10 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-catch-up-all-messagesMark all messages in folder to be deleted. Use with caution.
+
+------------------------------------------------------------
+
 ** emacspeak-vm-browse-messageBrowse an email message --read it paragraph at a time. 
 
 ------------------------------------------------------------
@@ -2712,6 +2726,10 @@ specifies by how many eleemnts to move.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xslt-applyApply specified transformation to current page.
+
+------------------------------------------------------------
+
+** emacspeak-w3-browse-link-with-styleBrowse link with specified XSL style.
 
 ------------------------------------------------------------
 
@@ -3075,6 +3093,11 @@ key             binding
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-google-hitsFilter Google results after performing search to show just the
+hits.
+
+------------------------------------------------------------
+
 ** emacspeak-view-emacspeak-faq	Key Sequence: control e  cap F  
 
 Browse the Emacspeak FAQ.
@@ -3144,6 +3167,10 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-show-environment-vvariableDisplay value of specified environment variable.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-get-table-content-from-fileExtract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
@@ -3174,6 +3201,10 @@ Signals beginning  of buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-squeeze-blanksSqueeze multiple blank lines in current buffer.
+
+------------------------------------------------------------
+
 ** emacspeak-learn-mode	Key Sequence: control e control h 
 
 Helps you learn the keys.  You can press keys and hear what they do.
@@ -3199,6 +3230,15 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-occur-header-linesIf you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches header lines, you can use this command to conveniently
+run `occur' 
+to find matching header lines. With prefix arg, prompts for and sets
+value of the file local pattern.
 
 ------------------------------------------------------------
 
@@ -3254,6 +3294,14 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-how-many-matchesIf you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches  lines of interest, you can use this command to conveniently
+run `how-many'to count  matching header lines.
+With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
 
@@ -3433,6 +3481,10 @@ With prefix arg, opens the phone book for editting.
 ** emacspeak-view-emacspeak-news	Key Sequence: control e  cap N  
 
 Display info on recent change to Emacspeak.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-count-slides-in-regionCount slides starting from point.
 
 ------------------------------------------------------------
 
