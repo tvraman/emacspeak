@@ -1908,6 +1908,41 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{ comint
 
+(require 'comint)
+
+;;; convenience to launch a root shell.
+
+(defun emacspeak-root ()
+  "Start a root shell or switch to one that already exists."
+  (interactive)
+  (cond
+   ((comint-check-proc "*root*")
+    (pop-to-buffer "*root*")
+    (when (featurep 'emacspeak)
+      (emacspeak-speak-mode-line)))
+   (t
+    (let* ((prog (or explicit-shell-file-name
+                     (getenv "ESHELL")
+                     (getenv "SHELL")
+                     "/bin/sh"))		     
+           (name (file-name-nondirectory prog))
+           (startfile (concat "~/.emacs_" name))
+           (xargs-name (intern-soft (concat "explicit-" name "-args")))
+           shell-buffer)
+      (save-excursion
+        (set-buffer (apply 'make-comint "root" prog
+                           (if (file-exists-p startfile) startfile)
+                           (if (and xargs-name (boundp xargs-name))
+                               (symbol-value xargs-name)
+                             '("-i"))))
+        (setq shell-buffer (current-buffer))
+        (shell-mode)
+        (switch-to-buffer shell-buffer)
+        (process-send-string
+         (get-buffer-process shell-buffer)
+         "su -l\n")))
+    (when (featurep 'emacspeak)
+      (dtk-speak "Enter root password: ")))))
 (defcustom emacspeak-comint-autospeak t
   "Says if comint output is automatically spoken.
 You can use 
