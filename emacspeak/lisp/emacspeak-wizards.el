@@ -1573,7 +1573,7 @@ part of the libxslt package."
                              "*xslt errors*")
     (setq modification-flag nil)))
 
-(defun emacspeak-xslt-url (xsl url &optional params )
+(defun emacspeak-xslt-url (xsl url &optional params)
   "Apply XSLT transformation to url
 and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
