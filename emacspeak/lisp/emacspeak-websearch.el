@@ -270,9 +270,9 @@ ARGS specifies additional arguments to SPEAKER if any."
       (setq emacspeak-w3-post-process-hook
             #'(lambda ()
                 (goto-char (point-min))
-      (widget-forward 1)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-widget-summarize (widget-at (point)))))
+		(widget-forward 1)
+		(emacspeak-auditory-icon 'open-object)
+		(emacspeak-widget-summarize (widget-at (point)))))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer buffer))))
 
@@ -1862,7 +1862,7 @@ Optional interactive prefix arg results in prompting for a search term."
      (if prefix
          "Sorted " 
        "Threads" )
-    'emacspeak-speak-line)))
+     'emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-websearch)

@@ -510,10 +510,10 @@ Nil means no transform is used. ")
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
-      (emacspeak-xslt-region
-       emacspeak-w3-xsl-transform
-       (point-min)
-       (point-max))))
+    (emacspeak-xslt-region
+     emacspeak-w3-xsl-transform
+     (point-min)
+     (point-max))))
 
 (declaim (special emacspeak-xslt-directory))
 
@@ -706,7 +706,6 @@ of tables found in the page."
   "Caches class attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
-
 
         
 (defun emacspeak-w3-css-class-cache ()
