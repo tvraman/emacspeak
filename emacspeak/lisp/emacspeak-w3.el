@@ -844,7 +844,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
      "Tables matching: ")
     current-prefix-arg))
   (emacspeak-w3-xslt-filter
-   (format "/descendant::table[contains(.//td, \"%s\")]"
+   (format "/descendant::table[contains(., \"%s\")]"
            match)
    prompt-url
    (or (interactive-p)
@@ -863,7 +863,7 @@ Tables are specified by containing  match pattern
     (setq filter
           (mapconcat
            #'(lambda  (i)
-               (format "(/descendant::table[contains(.//td,\"%s\")])" i))
+               (format "(/descendant::table[contains(.,\"%s\")])" i))
            match-list
            " | "))
     (emacspeak-w3-xslt-filter
