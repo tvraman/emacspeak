@@ -59,7 +59,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps.
 ;;;***
 
 ;;;### (autoloads (emacspeak-amphetadesk) "emacspeak-amphetadesk"
-;;;;;;  "emacspeak-amphetadesk.el" (16319 45989))
+;;;;;;  "emacspeak-amphetadesk.el" (16333 60162))
 ;;; Generated autoloads from emacspeak-amphetadesk.el
 
 (autoload (quote emacspeak-amphetadesk) "emacspeak-amphetadesk" "\
@@ -1167,7 +1167,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16319 45997))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16325 32690))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1859,8 +1859,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16319
-;;;;;;  57282 931109))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16333
+;;;;;;  60489 155339))
 
 ;;;***
 
