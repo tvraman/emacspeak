@@ -2176,7 +2176,7 @@ Provide an auditory icon if possible."
     (ems-set-personality-temporarily
      (max (point-min) (1- (point)))
      (min (point-max) (1+ (point)))
-     'harry
+     voice-bolden
      (emacspeak-speak-line ))
     (if (buffer-modified-p)
         (emacspeak-auditory-icon 'modified-object)
@@ -2278,7 +2278,7 @@ Also produce an auditory icon if possible."
     (dtk-speak "Search forward for   ")
     ad-do-it
     (ems-set-personality-temporarily
-     (match-beginning 0) (match-end 0) 'harry
+     (match-beginning 0) (match-end 0) voice-bolden
      (emacspeak-speak-line))
     (if ad-return-value
         (emacspeak-auditory-icon 'search-hit)
@@ -2293,7 +2293,7 @@ Also produce an auditory icon if possible."
     (dtk-speak "Search backward  for ")
     ad-do-it
     (ems-set-personality-temporarily
-     (match-beginning 0) (match-end 0) 'harry
+     (match-beginning 0) (match-end 0) voice-bolden
      (emacspeak-speak-line))
     (if ad-return-value
         (emacspeak-auditory-icon 'search-hit)
@@ -2373,7 +2373,7 @@ Produce auditory icons if possible."
      (if  isearch-forward
          (- (point) (length isearch-string ))
        (+ (point) (length isearch-string )))
-     'harry
+     voice-bolden
      (emacspeak-speak-line nil ))))
 
 (defadvice isearch-delete-char (after emacspeak pre act)
@@ -2387,7 +2387,7 @@ Produce auditory icons if possible."
      (if  isearch-forward
          (- (point) (length isearch-string ))
        (+ (point) (length isearch-string )))
-     'harry
+     voice-bolden
      (emacspeak-speak-line nil ))))
 
 (defadvice isearch-done (around emacspeak pre act comp)
