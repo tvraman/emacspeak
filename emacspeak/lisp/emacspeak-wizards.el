@@ -2660,7 +2660,7 @@ Location is specified by name."
                           (word-at-point))))
   (let ((emacspeak-speak-messages nil)
         (time (emacspeak-speak-decode-iso-datetime iso)))
-    (tts-with-punctuations "some"
+    (tts-with-punctuations 'some
                            (dtk-speak time))
     (message time)))
 

@@ -333,7 +333,7 @@ Emacs 20.3"
 sets punctuation mode to all, activates the dictionary and turns on split caps."
   (declare (special dtk-split-caps
                     emacspeak-audio-indentation))
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (or dtk-split-caps
       (dtk-toggle-split-caps))
   (emacspeak-pronounce-refresh-pronunciations)
@@ -449,7 +449,7 @@ functions for details.   "
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-setup-programming-modes)
 					;(require 'emacspeak-wizards)
-  (tts-with-punctuations "some"
+  (tts-with-punctuations 'some
 			 (dtk-speak
 			  (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
@@ -462,7 +462,7 @@ functions for details.   "
   (interactive)
   (describe-function 'emacspeak)
   (switch-to-buffer "*Help*")
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (emacspeak-speak-buffer))
 
 ;;}}}

@@ -250,9 +250,9 @@ command \\[customize-variable] on <personality>-settings."
                       (integer :tag "Number"))
               (choice :tag "Punctuation Mode "
                       (const :tag "Unspecified" nil)
-                      (const :tag "All punctuations" "all")
-                      (const :tag "Some punctuations" "some")
-                      (const :tag "No punctuations" "none")))
+                      (const :tag "All punctuations" 'all)
+                      (const :tag "Some punctuations" 'some)
+                      (const :tag "No punctuations" 'none)))
      :group 'voice-fonts
      :set
      '(lambda  (sym val)
@@ -262,18 +262,18 @@ command \\[customize-variable] on <personality>-settings."
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 
-;;}}}					; ; ; ;	; ;
+;;}}}					
 ;;{{{ voices defined using ACSS.	; ; ; ;	; ;
 
 ;;; these voices are device independent. ; ; ; ; ; ;
 
 (defvoice  voice-punctuations-all
-  (list nil nil nil nil  nil "all")
+  (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
 punctuations.")
 
 (defvoice  voice-punctuations-some
-  (list nil nil nil nil  nil "some")
+  (list nil nil nil nil  nil 'some)
   "Turns current voice into one that  speaks some
 punctuations.")  
 
@@ -281,7 +281,7 @@ punctuations.")
   (list nil nil nil nil  nil "none")
   "Turns current voice into one that  speaks no punctuations.")
 
-(defvoice  voice-monotone (list nil nil 0 0 nil "all")
+(defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
 (defvoice  voice-monotone-medium

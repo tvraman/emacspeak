@@ -67,14 +67,14 @@
      (let    ((save-punctuation-mode dtk-punctuation-mode))
        (unwind-protect
            (progn
-             (unless (string-equal (, setting) save-punctuation-mode)
+             (unless (eq (, setting) save-punctuation-mode)
                (process-send-string dtk-speaker-process
                                     (format "tts_set_punctuations %s  \n "
                                             (, setting)))
                (setq dtk-punctuation-mode (, setting)))
              (,@ body)
              (dtk-force))
-         (unless (string-equal  (, setting)  save-punctuation-mode)
+         (unless (eq  (, setting)  save-punctuation-mode)
            (setq dtk-punctuation-mode save-punctuation-mode)
            (process-send-string dtk-speaker-process
                                 (format "tts_set_punctuations %s  \n "

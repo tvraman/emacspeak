@@ -95,7 +95,7 @@
           (emacspeak-speak-messages nil)m)
       ad-do-it
       (when (> (point) prior)
-        (tts-with-punctuations "all"
+        (tts-with-punctuations 'all
                                (dtk-speak
                                 (buffer-substring prior
                                                   (point)))))

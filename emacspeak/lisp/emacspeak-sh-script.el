@@ -56,7 +56,7 @@
 (defadvice sh-mode (after emacspeak pre act comp)
   "Speech-enable sh-script editting."
   (voice-lock-mode 1)
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (unless emacspeak-audio-indentation
     (emacspeak-toggle-audio-indentation))
   (emacspeak-speak-mode-line))

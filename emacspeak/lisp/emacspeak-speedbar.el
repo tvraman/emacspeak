@@ -246,7 +246,7 @@ An automatically updating speedbar consumes resources.")
   "Actions taken when we enter the Speedbar"
   (declare (special speedbar-key-map
                     speedbar-hide-button-brackets-flag))
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (setq speedbar-hide-button-brackets-flag t)
   (define-key speedbar-key-map "f"
     'emacspeak-speedbar-click)

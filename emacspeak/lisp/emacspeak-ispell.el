@@ -118,7 +118,7 @@ many available corrections."
                                            (thing-at-point 'line)))
     (save-excursion
       (set-buffer scratch-buffer)
-      (dtk-set-punctuations "all")
+      (dtk-set-punctuations 'all)
       (erase-buffer)
       (insert line)
       (cond
