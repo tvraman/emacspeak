@@ -99,20 +99,21 @@
   "Speak completion at the head of the list."
   (when (interactive-p)
     (dtk-speak (car ido-matches))))
+
 (loop for f in
       '(ido-find-file ido-find-file-other-frame
                       ido-find-file-other-window
                       ido-find-alternate-file
                       ido-find-file-read-only
                       ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
-do
-(eval
- (`
-(defadvice   (, f)(after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+      do
+      (eval
+       (`
+        (defadvice   (, f)(after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-speak-mode-line))))))
 
 (loop for f in
       '(ido-switch-buffer ido-switch-buffer-other-window
