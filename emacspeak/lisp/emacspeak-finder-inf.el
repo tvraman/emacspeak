@@ -372,7 +372,7 @@
         "speech-enable todo-mode"
         (emacspeak  todo-mode ))
     ("emacspeak-url-template.el"
-        nil
+        "Create library of URI templates"
         (emacspeak  audio desktop))
     ("emacspeak-view-process.el"
         "Speech enable View Processes -- A powerful task manager"
