@@ -114,6 +114,18 @@
       found))))
         
 ;;}}}
+;;{{{ return matching children 
+(defun xml-children-by-name  (tag name)
+  "Return list of children  matching NAME, of an xml-parse'd XML TAG."
+    (let ((children (xml-tag-children tag))
+          (result nil))
+      (while children
+	(when (string= name (xml-tag-name (car children)))
+	    (nconc result (car children)))
+	(setq children (cdr children)))
+      result))
+
+;;}}}
 ;;{{{  play audio clip 
 
 (defvar emacspeak-daisy-mpg123-player "mpg123"
@@ -254,19 +266,20 @@ after fetching it  if necessary."
 
 ;;}}}
 ;;{{{ Install handlers 
+
 ;;; elements
 (defvar emacspeak-daisy-xml-elements 
   (list
    "ncx"
    "head"
    "title"
-   "doctitle"
    "docTitle"
    "text"
    "audio"
    "content"
-   "navStruct"
-   "navObject"
+   "navStruct" ;;; old ncx 
+   "navObject";;; old ncx
+   "navLabel"
    "navLisp"
    "navMap"
    "navTarget")
@@ -278,6 +291,7 @@ after fetching it  if necessary."
                                    (intern
                                     (format
                                      "emacspeak-daisy-%s-handler" e))))
+
 ;;}}}
 ;;{{{ Define handlers 
 
@@ -329,8 +343,30 @@ after fetching it  if necessary."
                          'audio audio))
     (put-text-property start (point)
                        'content content)))
+(defun emacspeak-daisy-navLabel-handler (element)
+  "Handle navLabel element."
+  (mapc #'emacspeak-daisy-apply-handler
+        (xml-tag-children element )))
+
+(defun emacspeak-daisy-navMap-handler (element)
+  "Handle navMap element."
+  (mapc #'emacspeak-daisy-apply-handler
+        (xml-tag-children element )))
+
+(defun emacspeak-daisy-navPoint-handler (element)
+  "Handle navPoint element."
+  (let ((label (xml-tag-child element "navLabel"))
+        (content (xml-tag-child element "content"))
+        (nav-points (xml-children-by-name element "navPoint"))
+        (start (point)))
+    (when label (emacspeak-daisy-navLabel-handler label))
+    (when content 
+    (put-text-property start (point)
+                       'content content))
+    (mapc #'emacspeak-daisy-apply-handler nav-points)))
+
     
-(defun emacspeak-daisy-doctitle-handler (element)
+(defun emacspeak-daisy-docTitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
         (audio (xml-tag-child element "audio"))
@@ -338,12 +374,9 @@ after fetching it  if necessary."
     (emacspeak-daisy-text-handler   text)
     (put-text-property start (point)
                        'audio audio)))
-;;; register by hand 
-(emacspeak-daisy-set-handler "docTitle"
-                             'emacspeak-daisy-doctitle-handler)
-
-;;; Ignore navMap for now 
-(emacspeak-daisy-set-handler "navMap" 'ignore)
+                             
+;;; Ignore navList for now 
+(emacspeak-daisy-set-handler "navList" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 
