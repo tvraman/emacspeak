@@ -132,6 +132,7 @@ pronunciations only once.")
       (emacspeak-speak-mode-line))))
 (defun emacspeak-dired-initialize ()
   "Set up emacspeak dired."
+  (font-lock-mode 1)
   (emacspeak-dired-label-fields)
   (emacspeak-auditory-icon 'open-object )
   (emacspeak-speak-mode-line))
