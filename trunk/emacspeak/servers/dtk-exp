@@ -181,7 +181,6 @@ proc s {} {
         queue_clear
         #allow dtk to recover 
         select {} {} {} 0.085
-        puts -nonewline  $tts(write)  "\[:sync ]"
     }
 }
 
