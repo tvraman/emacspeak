@@ -22,7 +22,7 @@ encoding="iso8859-15"/>
         </strong></p>
       <xsl:apply-templates 
                            select =
-        "//div|//h1|//h2|//h3|//p|//pre|//ul|//ol|//dl"/>
+        "//div|//h1|//h2|//h3|//h4|//h5|//h6|//td/strong|//td/em|//td/li|//td/font|//td/span|//p|//pre|//ul|//ol|//dl"/>
 <h2><a name="__about_this_style">About This Style</a></h2>
 <p>
 This style extracts content from a layout-rich WWW page.
