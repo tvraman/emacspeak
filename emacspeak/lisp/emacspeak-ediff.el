@@ -92,7 +92,7 @@
 ;;}}}
 ;;{{{  Mapping faces to personalities:
 
-(defcustom emacspeak-ediff-A-personality voice-smooth
+(defcustom emacspeak-ediff-A-personality voice-smoothen
   "Personality used to voiceify difference chunk A"
   :type 'symbol
   :group 'emacspeak-ediff)
