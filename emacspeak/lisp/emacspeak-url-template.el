@@ -158,13 +158,60 @@ post-action ;action to perform after opening
 ;;}}}
 ;;{{{  template resources 
 ;;{{{ yahoo daily news 
+
+(emacspeak-url-template-define "Yahoo Sports"
+                               "http://dailynews.yahoo.com/htx/sp/ap/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
+
+(emacspeak-url-template-define "Yahoo Business"
+                               "http://dailynews.yahoo.com/htx/bs/nm/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 3)
+                                   (emacspeak-speak-rest-of-buffer)))
+
+(emacspeak-url-template-define "Yahoo Science"
+                               "http://dailynews.yahoo.com/htx/sc/nm/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
+
+
+(emacspeak-url-template-define "Yahoo Local"
+                               "http://dailynews.yahoo.com/htx/lo/me/%s/"
+                               (list
+                                #'(lambda nil
+                                    (read-from-minibuffer
+                                     "Two-letter Area Code")))
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 3)
+                                   (emacspeak-speak-rest-of-buffer)))
+
 (emacspeak-url-template-define "Yahoo Daily News"
                                "http://dailynews.yahoo.com/htx/ts/nm/?u"
-                               nil)
+                               nil
+                               #'(lambda nil
+                                   (search-forward
+                                    "Sources:" nil t)
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
 
 (emacspeak-url-template-define "Yahoo Technology  News"
                                "http://dailynews.yahoo.com/htx/tc/nm/?u"
-                               nil)
+                               nil
+                               #'(lambda nil
+                                   (search-forward
+                                    "Sources:" nil t)
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
