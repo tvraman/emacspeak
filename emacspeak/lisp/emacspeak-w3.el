@@ -1309,7 +1309,7 @@ used as well."
         (while (search-forward "&gt;" nil t)
           (replace-match ">"))
         (goto-char (point-min))
-        (while (search-forward "&quot;" nil t)
+        (while (search-forward "&apos;" nil t)
           (replace-match "\""))
         (goto-char (point-min))
         (while (search-forward "&quot;" nil t)
