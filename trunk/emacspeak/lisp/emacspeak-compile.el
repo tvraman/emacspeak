@@ -60,44 +60,27 @@
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{  advice 
-
-(defadvice next-error (after  emacspeak pre act )
+;;{{{  advice  interactive commands
+(loop for f in 
+'(
+  next-error previous-error
+             compilation-next-file compilation-previous-file
+compile-goto-error compile-mouse-goto-error
+)
+do
+(eval
+(`
+(defadvice (, f) (after  emacspeak pre act )
   "Speak the line containing the error. "
   (when (interactive-p)
-    (emacspeak-compilation-speak-error)))
-  
-
-(defadvice previous-error (after emacspeak pre act )
-  "Speak the line containing the error. "
-  (when (interactive-p)
-    (emacspeak-compilation-speak-error)))
-  
-
-(defadvice compile-goto-error (after emacspeak pre act)
-  "Speak the compilation error. "
-  (when (interactive-p)
-    (emacspeak-compilation-speak-error)))
-
-(defadvice compilation-next-file (after emacspeak pre act)
-  "Speak the error line. "
-  (when (interactive-p) (emacspeak-compilation-speak-error ))
-  )
-
-(defadvice compilation-previous-file (after emacspeak pre act)
-  "Speak the error line. "
-  (when (interactive-p) (emacspeak-compilation-speak-error ))
-  )
-
-;;}}}
-;;{{{ advise process filter and sentinels
+    (emacspeak-compilation-speak-error))))))
 
 (loop for f in 
-      (list 
-       'compilation-next-error
-       'compilation-previous-error
-       'next-error-no-select
-       'previous-error-no-select)
+      '(
+       compilation-next-error
+       compilation-previous-error
+       next-error-no-select
+       previous-error-no-select)
       do
       (eval
        (`
@@ -106,6 +89,8 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
+;;}}}
+;;{{{ advise process filter and sentinels
 
 (defadvice compile (after emacspeak pre act )
   "provide auditory confirmation"
