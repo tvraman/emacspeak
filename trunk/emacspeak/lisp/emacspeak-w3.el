@@ -1285,6 +1285,7 @@ current page."
                   filename)
     (w3-open-local filename)
     (delete-file filename)))
+
 ;;;###autoload
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this region."

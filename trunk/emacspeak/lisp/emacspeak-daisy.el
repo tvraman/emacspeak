@@ -212,7 +212,9 @@ after fetching it  if necessary."
         (gethash src (emacspeak-daisy-book-content book))))))
 
 (defun emacspeak-daisy-play-smil (clip)
-  "Play a SMIL clip."
+  "Play a SMIL clip.
+Return buffer containing text content that results from playing
+the clip."
   (let ((audio (xml-tag-child clip "audio"))
         (text (xml-tag-child clip "text"))
         (seq (xml-tag-child  clip "seq")))
@@ -225,7 +227,8 @@ after fetching it  if necessary."
       (emacspeak-daisy-play-text text))))
 
 (defun emacspeak-daisy-play-content (content)
-  "Play SMIL content specified by content."
+  "Play SMIL content specified by content.
+Return buffer that holds the result of playing the content."
   (declare (special emacspeak-daisy-base-uri
                     emacspeak-daisy-this-book))
   (unless (eq major-mode 'emacspeak-daisy-mode)
@@ -470,9 +473,16 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (defun emacspeak-daisy-play-content-under-point ()
   "Play SMIL content  under point."
   (interactive)
-  (let ((content (get-text-property (point) 'content)))
+  (let ((content (get-text-property (point) 'content))
+        (viewer nil))
     (cond
-     (content (emacspeak-daisy-play-content  content))
+     ((get-text-property (point) 'viewer)
+      (switch-to-buffer (get-text-property (point) 'viewer)))
+     (content
+      (setq viewer (emacspeak-daisy-play-content  content))
+      (put-text-property (line-beginning-position)
+                         (line-end-position)
+                         'viewer viewer))
      (t (error "No content under point.")))))
 
 (defun emacspeak-daisy-play-audio-under-point ()
