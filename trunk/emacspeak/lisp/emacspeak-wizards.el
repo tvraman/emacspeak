@@ -2650,15 +2650,15 @@ dates.")
   "Toggle pronunciation of mm-dd-yyyy dates."
   (interactive)
   (declare (special emacspeak-wizards-mm-dd-yyyy-date-pronounce
-                    emacspeak-pronounce-date-mm-dd-yy-pattern))
+                    emacspeak-pronounce-date-mm-dd-yyyy-pattern))
   (cond
    (emacspeak-wizards-mm-dd-yyyy-date-pronounce
     (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
-  emacspeak-pronounce-date-mm-dd-yy-pattern))
+  emacspeak-pronounce-date-mm-dd-yyyy-pattern))
    (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
-  emacspeak-pronounce-date-mm-dd-yy-pattern
+  emacspeak-pronounce-date-mm-dd-yyyy-pattern
   (cons 're-search-forward
   'emacspeak-pronounce-mm-dd-yyyy-date))))
   (message "Will %s pronounce mm-dd-yyyy date strings in
