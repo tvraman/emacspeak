@@ -294,7 +294,8 @@ displayed in the messages area."
       (cond
        ((symbolp value)
         (setq voice (voice-setup-get-voice-for-face   value)))
-       ((listp value)
+       ((and (listp value)
+             (not (eq 'cons (type-of value))))
         (setq voice
               (delete nil 
                       (mapcar   #'voice-setup-get-voice-for-face value))))
