@@ -227,7 +227,6 @@ tar:
 	${SOUNDS}   
 
 dist: $(DISTFILES)
-	(cd servers/software-dtk; make -k clean)
 	$(MAKE) tar
 
 # }}}
