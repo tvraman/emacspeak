@@ -183,6 +183,7 @@ emacspeak-tempo.elc \
 emacspeak-tetris.elc \
 emacspeak-texinfo.elc \
 emacspeak-tnt.elc \
+emacspeak-todo-mode.elc \
 emacspeak-url-template.elc \
 emacspeak-view-process.elc \
 emacspeak-view.elc \
@@ -366,6 +367,7 @@ emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc
 emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc
 emacspeak-tnt.elc: emacspeak-tnt.el dtk-speak.elc
+emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc
 emacspeak-url-template.elc: emacspeak-url-template.el dtk-speak.elc
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc
