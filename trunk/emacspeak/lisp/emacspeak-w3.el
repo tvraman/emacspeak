@@ -739,6 +739,58 @@ prefix arg causes url to be read from the minibuffer."
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
 (define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
+(define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
+
+
+;;; Extracting node specified by id
+(defvar emacspeak-w3-extract-node-by-id-xsl
+  (expand-file-name "extract-node-by-id.xsl"
+                    emacspeak-xslt-directory)
+  "XSL transform to extract a node.")
+
+(defun emacspeak-w3-extract-node-by-id (node-id   &optional prompt)
+  "Extract node from HTML.  Extracts specified node from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract node from.
+Interactive prefix arg causes url to be read from the
+minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Node Id: ")
+    current-prefix-arg))
+  (declare (special emacspeak-xslt-program
+                    emacspeak-w3-extract-node-by-id-xsl))
+  (unless (or prompt
+              (eq major-mode 'w3-mode))
+    (error "Not in a W3 buffer."))
+  (let ((w3-url (when (eq major-mode 'w3-mode)
+                  (url-view-url t)))
+        (source-url
+         (cond
+          ((and (interactive-p)
+                prompt)
+           (read-from-minibuffer "URL: "
+                                 "http://www."))
+          (t  prompt))))
+    (save-excursion
+      (cond
+       (source-url
+        (set-buffer (cdr (url-retrieve source-url))))
+       (t (w3-source-document nil)))
+      (let ((src-buffer (current-buffer))
+            (emacspeak-w3-xsl-p nil))
+        (emacspeak-xslt-region
+         emacspeak-w3-extract-node-by-id-xsl
+         (point-min)
+         (point-max)
+         (list
+          (cons "node-id" node-id)
+          (cons "base"
+                (format "\"'%s'\""
+                        (or source-url
+                            w3-url)))))
+        (w3-preview-this-buffer)
+        (kill-buffer src-buffer)))))
 
 ;;}}}
 ;;{{{  google tool
