@@ -45,6 +45,7 @@
 (eval-when-compile (require 'dtk-speak)
 		   (require 'emacspeak-speak)
 		   (require 'emacspeak-personality)
+                   (require 'voice-setup)
 		   (require 'emacspeak-keymap)
 		   (require 'emacspeak-sounds)
 		   (require 'widget)
@@ -183,6 +184,12 @@
            (lambda nil
              (voice-lock-mode 1)
              (emacspeak-pronounce-refresh-pronunciations))))
+
+;;}}}
+;;{{{ define voices
+(def-voice-font emacspeak-custom-state-face voice-smoothen
+  'custom-state-face
+  "Personality used for showing custom state.")
 
 ;;}}}
 ;;{{{  custom navigation
