@@ -91,17 +91,17 @@
 (defcustom emacspeak-aumix-multichannel-capable-p nil
   "*Set to T if the sound card is capable of mixing multiple channels of audio."
   :group 'emacspeak-aumix
-  :type 'string)
+  :type 'boolean)
 
 (defcustom emacspeak-aumix-full-duplex-p nil
   "*Set to T if the sound card is truly full duplex."
   :group 'emacspeak-aumix
-  :type 'string)
+  :type 'boolean)
 
 (defcustom emacspeak-aumix-midi-available-p t
   "*Set to T if   midi is available."
   :group 'emacspeak-aumix
-  :type 'string)
+  :type 'boolean)
 
 ;;}}}
 ;;{{{ emacspeak-aumix
