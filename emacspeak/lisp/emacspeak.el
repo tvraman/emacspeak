@@ -66,22 +66,18 @@
 
 ;;}}}
 ;;{{{  Customize groups 
-
+(declaim (special emacspeak-etc-directory))
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
+  :link '(url-link :tag "SourceForge" "http://emacspeak.sf.net")
+  :link '(url-link :tag "Cornell" "http://www.cs.cornell.edu/home/raman/emacspeak")
+  :link '(url-link :tag "Papers" "http://emacspeak.sf.net/publications")
+  :link '(url-link :tag "Mail" "http://www.cs.vassar.edu/~priestdo/emacspeak/")
+  :link '(url-link :tag "Applications" "http://emacspeak.sf.net/applications.html")
+  :link '(url-link :tag "Tips" "http://emacspeak.sf.net/tips.html")
+  :link   (list 'file-link :tag "FAQ" (expand-file-name "FAQ" emacspeak-etc-directory))
   :link '(custom-manual "(emacspeak)Top")
-  :link '(url-link :tag "SourceForge" 
-		   "http://emacspeak.sf.net")
-  :link '(url-link :tag "Cornell" 
-		   "http://www.cs.cornell.edu/home/raman/emacspeak")
-  :link '(url-link :tag "Applications" 
-		   "http://emacspeak.sf.net/applications.html")
-:link '(url-link :tag "Tips" 
-		   "http://emacspeak.sf.net/tips.html")
-  :link '(url-link :tag "Discussion" 
-                   "http://www.cs.vassar.edu/~priestdo/emacspeak/")
-  :link '(url-link :tag "Papers" 
-                   "http://emacspeak.sf.net/publications")
+;;; end links 
   :prefix "emacspeak-"
   :group 'applications
   :group 'accessibility
