@@ -351,7 +351,7 @@ sourceforge:
 	  echo cd incoming;				\
 	  echo put ${TARBALL};			\
 	  echo put ${RPM};		\
-	  echo quit ) | ftp upload.sourceforge.net
+	  echo quit ) | /usr/bin/ftp upload.sourceforge.net
 	scp ${RPM} ${TARBALL} ${SF_HOME}
 
 # }}}
