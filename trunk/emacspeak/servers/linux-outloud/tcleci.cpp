@@ -31,16 +31,16 @@
    to use Emacspeak with the ViaVoice TTS engine.
 */
 /* TCL usage
-	package require tts
+        package require tts
 
-	proc index x {
-		puts "I just played index $x"
-	}
+        proc index x {
+                puts "I just played index $x"
+        }
 
-	synth "Hello world"
-	synth -index 0 "This is some" -index 1 "really wierd"
-	say -index 2 "text"
-	say -reset
+        synth "Hello world"
+        synth -index 0 "This is some" -index 1 "really wierd"
+        say -index 2 "text"
+        say -reset
 
 The only difference bewtween say and synth is that synth calls
 eciSynthesize and say doesn't.  You can put as many text blocks as
@@ -129,8 +129,8 @@ static int (*_eciSetVoiceParam) (void *, int, int, int);
 static int (*_eciSetOutputBuffer) (void *, int, short *);
 static int (*_eciSetOutputDevice) (void *, int);
 static void (*_eciRegisterCallback) (void *,
-				     int (*)(void *, int, long, void *),
-				     void *);
+                                     int (*)(void *, int, long, void *),
+                                     void *);
 static int openDSP ();
 extern "C" EXPORT int Tcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -167,9 +167,11 @@ Tcleci_Init (Tcl_Interp * interp)
   if (eciLib == NULL)
     {
       Tcl_AppendResult (interp, "Could not load ",
-			ECILIBRARYNAME,
-			"\nPlease install the IBM ViaVoice Outloud RTK",
-			NULL);
+                        ECILIBRARYNAME,
+                        "Error was: ",
+                        dlerror (),
+                        "\nPlease install the IBM ViaVoice Outloud RTK",
+                        NULL);
       return TCL_ERROR;
     }
 
@@ -191,8 +193,8 @@ Tcleci_Init (Tcl_Interp * interp)
   _eciSetVoiceParam = (int (*)(void *, int, int, int))
     dlsym (eciLib, "eciSetVoiceParam");
   _eciRegisterCallback = (void
-			  (*)(void *, int (*)(void *, int, long, void *),
-			      void *)) dlsym (eciLib, "eciRegisterCallback");
+                          (*)(void *, int (*)(void *, int, long, void *),
+                              void *)) dlsym (eciLib, "eciRegisterCallback");
   _eciSetOutputBuffer =
     (int (*)(void *, int, short *)) dlsym (eciLib, "eciSetOutputBuffer");
   _eciSetOutputDevice =
@@ -280,8 +282,7 @@ Tcleci_Init (Tcl_Interp * interp)
   if (!_eciSetOutputBuffer)
     {
       okay = 0;
-      Tcl_AppendResult (interp,
-                        "eciSetOutputBuffer undef\n", NULL);
+      Tcl_AppendResult (interp, "eciSetOutputBuffer undef\n", NULL);
     }
   if (!_eciSetOutputDevice)
     {
@@ -291,7 +292,7 @@ Tcleci_Init (Tcl_Interp * interp)
   if (!okay)
     {
       Tcl_AppendResult (interp, "Missing symbols from ", ECILIBRARYNAME,
-			NULL);
+                        NULL);
       return TCL_ERROR;
     }
 
@@ -327,63 +328,56 @@ Tcleci_Init (Tcl_Interp * interp)
   //<register tcl commands 
 
   Tcl_CreateObjCommand (interp, "setRate", SetRate,
-			(ClientData) eciHandle, TclEciFree);
+                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "getRate", GetRate, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   Tcl_CreateObjCommand (interp, "ttsVersion", getTTSVersion,
-			(ClientData) eciHandle, TclEciFree);
+                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "say", Say, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   Tcl_CreateObjCommand (interp, "synth", Say, (ClientData) eciHandle, NULL);
   Tcl_CreateObjCommand (interp, "synchronize", Synchronize,
-			(ClientData) eciHandle, TclEciFree);
+                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "stop", Stop, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   Tcl_CreateObjCommand (interp, "speakingP", SpeakingP,
-			(ClientData) eciHandle, TclEciFree);
+                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "pause", Pause, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   Tcl_CreateObjCommand (interp, "resume", Resume, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
-			(ClientData) eciHandle, TclEciFree);
+                        (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand (interp, "playWave", playWaveFile, (ClientData) NULL,
-			NULL);
+                        NULL);
   Tcl_CreateObjCommand (interp, "closeDSP", closeDSP, (ClientData) eciHandle,
-			TclEciFree);
+                        TclEciFree);
   //>
   rc = Tcl_Eval (interp, "proc index x {global tts; \
 set tts(last_index) $x}");
   return TCL_OK;
 }
 
-/* will play wave files 16 bit stereo and sample rate 11025k */
+
 int
 playWaveFile (ClientData unused, Tcl_Interp * interp, int objc,
-	      Tcl_Obj * CONST objv[])
+              Tcl_Obj * CONST objv[])
 {
-  size_t count;
   int length;
+  char *cmd;
   char *filename;
-  FILE *fp;
-  short samples[2 * BUFSIZE];
-  if (objc != 2)
+  char command[256];
+  if (objc != 3)
     {
-      Tcl_AppendResult (interp, "Usage: playWave filename", NULL);
+      Tcl_AppendResult (interp, "Usage: playWave cmd filename", NULL);
       return TCL_ERROR;
     }
-  filename = Tcl_GetStringFromObj (objv[1], &length);
-  fp = fopen (filename, "r");
-  if (fp == NULL)
-    {
-      Tcl_AppendResult (interp, "Error opening wave file.", NULL);
-      return TCL_ERROR;
-    }
-  while ((count = fread (samples, 2, 2 * BUFSIZE, fp)) > 0)
-    {
-      write (dsp, samples, count);
-    }
-  fclose (fp);
+  cmd = Tcl_GetStringFromObj (objv[1], &length);
+  filename = Tcl_GetStringFromObj (objv[2], &length);
+  sprintf (command, "%s %s", cmd, filename);
+  close (dsp);
+  dsp = -1;
+  system (command);
   fprintf (stderr, "Played %s\n", filename);
   return TCL_OK;
 }
@@ -416,7 +410,7 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
       sprintf (buffer, "index %d", lparam);
       rc = Tcl_Eval (interp, buffer);
       if (rc != TCL_OK)
-	Tcl_BackgroundError (interp);
+        Tcl_BackgroundError (interp);
     }
   else if ((msg == eciWaveformBuffer) && (lparam > 0))
     {
@@ -427,7 +421,7 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
 
 int
 GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
+         Tcl_Obj * CONST objv[])
 {
   int rc, rate, voice;
   if (objc != 2)
@@ -445,13 +439,13 @@ GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int
 SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
+         Tcl_Obj * CONST objv[])
 {
   int rc, rate, voice;
   if (objc != 3)
     {
       Tcl_AppendResult (interp, "Usage: setRate voiceCode speechRate ",
-			TCL_STATIC);
+                        TCL_STATIC);
       return TCL_ERROR;
     }
   rc = Tcl_GetIntFromObj (interp, objv[1], &voice);
@@ -469,7 +463,7 @@ SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
   //fprintf(stderr, "setRate returned %d\n", rc);
   rate = _eciGetVoiceParam (eciHandle, voice, 6 /*eciSpeed */ );
   fprintf (stderr, "eciGetVoiceParam returned %d for voice %d \n",
-	   rate, voice);
+           rate, voice);
   return TCL_OK;
 }
 
@@ -484,60 +478,60 @@ Say (ClientData eciHandle, Tcl_Interp * interp, int objc,
       // if string begins with -, assume it is an index value
       char *txt = Tcl_GetStringFromObj (objv[i], &length);
       if (Tcl_StringMatch (txt, "-reset"))
-	{
-	  _eciReset (eciHandle);
-	  if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
-	      || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1))
-	    {
-	      Tcl_AppendResult (interp, "Could not initialized tts", NULL);
-	      return TCL_ERROR;
-	    }
-	}
+        {
+          _eciReset (eciHandle);
+          if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
+              || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1))
+            {
+              Tcl_AppendResult (interp, "Could not initialized tts", NULL);
+              return TCL_ERROR;
+            }
+        }
       else if (Tcl_StringMatch (txt, "-index"))
-	{
-	  i++;
-	  if (i == objc)
-	    {
-	      Tcl_AppendResult (interp, "missing index parameter",
-				TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	  rc = Tcl_GetIntFromObj (interp, objv[i], &index);
-	  if (rc != TCL_OK)
-	    return rc;
-	  rc = _eciInsertIndex (eciHandle, index);
-	  if (!rc)
-	    {
-	      Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	}
+        {
+          i++;
+          if (i == objc)
+            {
+              Tcl_AppendResult (interp, "missing index parameter",
+                                TCL_STATIC);
+              return TCL_ERROR;
+            }
+          rc = Tcl_GetIntFromObj (interp, objv[i], &index);
+          if (rc != TCL_OK)
+            return rc;
+          rc = _eciInsertIndex (eciHandle, index);
+          if (!rc)
+            {
+              Tcl_AppendResult (interp, "Could not insert index", TCL_STATIC);
+              return TCL_ERROR;
+            }
+        }
       else
-	{
-	  // assume objv[i] is text to synthesize...
-	  rc = _eciAddText (eciHandle, Tcl_GetStringFromObj (objv[i], NULL));
-	  if (!rc)
-	    {
-	      Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
-	      return TCL_ERROR;
-	    }
-	}
+        {
+          // assume objv[i] is text to synthesize...
+          rc = _eciAddText (eciHandle, Tcl_GetStringFromObj (objv[i], NULL));
+          if (!rc)
+            {
+              Tcl_SetResult (interp, "Internal tts error", TCL_STATIC);
+              return TCL_ERROR;
+            }
+        }
     }
   if (Tcl_StringMatch (Tcl_GetStringFromObj (objv[0], NULL), "synth"))
     {
       rc = _eciSynthesize (eciHandle);
       if (!rc)
-	{
-	  Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
-	  return TCL_ERROR;
-	}
+        {
+          Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
+          return TCL_ERROR;
+        }
     }
   return TCL_OK;
 }
 
 int
 Synchronize (ClientData eciHandle, Tcl_Interp * interp,
-	     int objc, Tcl_Obj * CONST objv[])
+             int objc, Tcl_Obj * CONST objv[])
 {
   int rc = _eciSynchronize (eciHandle);
   if (!rc)
@@ -560,10 +554,10 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
   if (_eciStop (eciHandle))
     {
       if (dsp != -1)
-	{
-	  close (dsp);
-	  dsp = -1;
-	}
+        {
+          close (dsp);
+          dsp = -1;
+        }
       return TCL_OK;
     }
   Tcl_SetResult (interp, "Could not stop synthesis", TCL_STATIC);
@@ -572,7 +566,7 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int
 SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int
-	   objc, Tcl_Obj * CONST objv[])
+           objc, Tcl_Obj * CONST objv[])
 {
   if (_eciSpeaking (eciHandle))
     {
@@ -597,7 +591,7 @@ Pause (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int
 Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	Tcl_Obj * CONST objv[])
+        Tcl_Obj * CONST objv[])
 {
   if (_eciPause (eciHandle, 0))
     return TCL_OK;
@@ -629,7 +623,7 @@ openDSP ()
 
 int
 closeDSP (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	  Tcl_Obj * CONST objv[])
+          Tcl_Obj * CONST objv[])
 {
   close (dsp);
   dsp = -1;
@@ -638,14 +632,14 @@ closeDSP (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int
 setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	   Tcl_Obj * CONST objv[])
+           Tcl_Obj * CONST objv[])
 {
   int rc, length, tmp;
   char *output;
   if (objc != 2)
     {
       Tcl_AppendResult (interp, "Usage: setOutput [buffer | default] ",
-			TCL_STATIC);
+                        TCL_STATIC);
       return TCL_ERROR;
     }
   output = Tcl_GetStringFromObj (objv[1], &length);
@@ -655,23 +649,23 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
       //<set output wave buffer 
       rc = _eciSynchronize (eciHandle);
       if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
-	  return TCL_ERROR;
-	}
+        {
+          Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
+          return TCL_ERROR;
+        }
       rc = _eciSetOutputBuffer (eciHandle, BUFSIZE, waveBuffer);
       if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
-	  return TCL_ERROR;
-	}
+        {
+          Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
+          return TCL_ERROR;
+        }
       openDSP ();
       if (dsp == -1)
-	{
-	  Tcl_AppendResult (interp, "Could not open output device ",
-			    DSP, NULL);
-	  return (TCL_ERROR);
-	}
+        {
+          Tcl_AppendResult (interp, "Could not open output device ",
+                            DSP, NULL);
+          return (TCL_ERROR);
+        }
       //>
     }
   else if (Tcl_StringMatch (output, "default"))
@@ -680,24 +674,24 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
       fprintf (stderr, "switching to default device.\n");
       rc = _eciSetOutputDevice (eciHandle, -1);
       if (!rc)
-	{
-	  Tcl_AppendResult (interp,
-			    "Failed to set output to default device. \n",
-			    NULL);
-	  return TCL_ERROR;
-	}
+        {
+          Tcl_AppendResult (interp,
+                            "Failed to set output to default device. \n",
+                            NULL);
+          return TCL_ERROR;
+        }
       rc = _eciSetOutputBuffer (eciHandle, 0, NULL);
       if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error unsetting output buffer.\n", NULL);
-	  return TCL_OK;
-	}
+        {
+          Tcl_AppendResult (interp, "Error unsetting output buffer.\n", NULL);
+          return TCL_OK;
+        }
       close (dsp);
     }
   else
     {
       Tcl_AppendResult (interp, "Usage: setOutput [buffer | default] ",
-			TCL_STATIC);
+                        TCL_STATIC);
       return TCL_ERROR;
     }
   fprintf (stderr, "Set output to %s\n", output);
@@ -706,7 +700,7 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 
 int
 getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	       Tcl_Obj * CONST objv[])
+               Tcl_Obj * CONST objv[])
 {
   char *version = (char *) malloc (16);
   if (objc != 1)
