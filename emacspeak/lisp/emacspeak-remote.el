@@ -61,11 +61,17 @@
 
 ;;}}}
 ;;{{{  User customizations
+(defgroup emacspeak-remote nil
+  "Emacspeak remote group."
+:group 'emacspeak-remote)
 
-(defvar emacspeak-remote-hooks nil
+(defcustom emacspeak-remote-hooks nil
   "List of hook functions that are run after
 emacspeak is set to run as a remote application.
-Use this to add actions you typically perform after you enter remote mode.")
+Use this to add actions you typically perform after you enter remote
+mode."
+  :type 'hook
+  :group 'emacspeak-remote)
 
 ;;; Here is what I currently use:
 ;;; It switches to using C-r as the emacspeak prefix key

@@ -96,8 +96,10 @@
 (defvar emacspeak-imcom-process nil
   "Handle to running IMCom process.")
 
-(defvar emacspeak-imcom-hooks nil
-  "Start up hooks run after IMCom process is started.")
+(defcustom emacspeak-imcom-hooks nil
+  "Start up hooks run after IMCom process is started."
+  :type 'hook
+  :group 'emacspeak-imcom)
 
 (defun emacspeak-imcom-start-process ()
   "Launch IMCom process."

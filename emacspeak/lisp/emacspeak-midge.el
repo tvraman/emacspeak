@@ -47,6 +47,7 @@
 (require 'thingatpt)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
+(require 'custom)
 
 ;;}}}
 ;;{{{  Introduction:
@@ -183,9 +184,15 @@
 
 ;;}}}
 ;;{{{ midge-mode-hook
+(defgroup emacspeak-midge nil
+"Midge group for Emacspeak."
+:group 'emacspeak
 
-(defvar midge-mode-hook nil
-  "set in emacspeak-setup")
+(defcustom midge-mode-hook nil
+  "set in emacspeak-setup"
+:type 'hook
+:group 'emacspeak-midge)
+
 (defadvice midge-mode (after emacspeak pre act comp)
   "Run midge-mode-hook"
   (run-hooks 'midge-mode-hook))
