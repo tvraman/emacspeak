@@ -2682,7 +2682,12 @@ dates.")
   "Rivo script used by emacspeak.")
 
 (defun emacspeak-wizards-rivo (when channel length output directory)
-  "Rivo wizard."
+  "Rivo wizard.
+Prompts for relevant information and schedules a rivo job using
+  UNIX AT scheduling facility.
+RIVO is implemented by rivo.pl ---
+ a Perl script  that can be used to launch realaudio and record
+   streaming media for  a specified duration."
   (interactive
    (list
     (read-from-minibuffer "At Time:")
