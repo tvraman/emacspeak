@@ -244,7 +244,7 @@ field in the customization buffer.  You can use the notation
 
 ;;}}}
 ;;{{{  The actual bindings.
-(define-key help-map "e"
+(define-key help-map "E"
   'emacspeak-websearch-emacspeak-archive)
 (define-key help-map "V" 'customize-variable)
 (define-key help-map " " 'customize-group)
