@@ -151,7 +151,7 @@
 
 (defun emacspeak-widget-help-editable-field (widget)
   "Summarize an editable field"
-  (let ((value (widget-value widget))
+  (let ((value (format " %s " (widget-value widget)))
         (help-echo (widget-get  widget :help-echo))
         (tag (widget-get widget :tag))
         (type (widget-type widget)))
