@@ -423,7 +423,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     (global-font-lock-mode t)
     (load-library-if-available "color-theme")
-    (color-theme-emacs-21)
+    (color-theme-blue-sea)
 
     ;;}}}
     ;;{{{ newsticker
