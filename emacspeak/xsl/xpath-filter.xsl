@@ -7,6 +7,7 @@ Extract content as specified by param locator.
 Param locator is an XPath expression.
 Param path is the same expression, but quoted so it can be
 shown in the output.
+Filters out nodes matching param deletor if specified.
 
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -16,10 +17,12 @@ shown in the output.
 -->
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
+<xsl:param name="deletor"/>
   <xsl:param name="base"/>
   <xsl:include href="identity.xsl"/>
 <!-- { html   -->
 <!--add base uri if available. -->
+
   <xsl:template match="/html/head">
     <xsl:element name="head">
       <xsl:element name="base">
@@ -30,16 +33,10 @@ shown in the output.
       <xsl:apply-templates select="title"/>
     </xsl:element>
   </xsl:template>
+<!-- Nuke nodes matching deletor -->
   <xsl:template match="/html/body">
     <xsl:element name="body">
-      <xsl:apply-templates select="@*"/>
-      <xsl:for-each select="$locator">
-        <xsl:element name="{name()}">
-          <xsl:apply-templates select="@*"/>
-          <xsl:apply-templates/>
-        </xsl:element>
-        <br/>
-      </xsl:for-each>
+<xsl:apply-templates select="$locator"/>
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
       elements
