@@ -291,12 +291,14 @@ Argument MODE  specifies the current pronunciation mode."
     (while (re-search-forward dtk-bracket-regexp   nil t )
       (replace-match " " nil t )))))
 
-(defvar dtk-speak-nonprinting-chars t
+(defcustom dtk-speak-nonprinting-chars t
   "*Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
 Set this to t to avoid a dectalk bug that makes the speech box die if
-it seems some accented characters in certain contexts.")
+it seems some accented characters in certain contexts."
+  :group 'dtk
+  :type 'boolean)
 
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
 
