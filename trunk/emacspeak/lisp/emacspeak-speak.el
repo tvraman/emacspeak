@@ -1784,20 +1784,20 @@ See the documentation for function
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (substring
-     (read-file-name
-      "Timezone: "
-      emacspeak-speak-zoneinfo-directory)
-     (length emacspeak-speak-zoneinfo-directory)))))
+      (substring
+       (read-file-name
+	"Timezone: "
+	emacspeak-speak-zoneinfo-directory)
+       (length emacspeak-speak-zoneinfo-directory)))))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
   (shell-command
    (format "export TZ=%s; date +\"%s\""
-            zone  
+	   zone  
            (concat emacspeak-speak-time-format-string
                    (format 
-                   " in %s, %%Z, %%z "
-                   zone)))))
+		    " in %s, %%Z, %%z "
+		    zone)))))
 
 ;;}}}
 (defun emacspeak-speak-time (&optional world)
