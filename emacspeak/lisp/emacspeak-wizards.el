@@ -1952,9 +1952,9 @@ hits."
 
 ;;}}}
 ;;{{{  count slides in region: (LaTeX specific.
-(defun emacspeak-wizards-count-slides-in-region (start end)
-  "Count slides in current region."
-  (interactive "r")
+(defun emacspeak-wizards-count-slides-in-region ()
+  "Count slides starting from point."
+  (interactive )
   (how-many "begin\\({slide}\\|{part}\\)"))
   
 
@@ -1964,7 +1964,23 @@ hits."
 (defvar emacspeak-occur-pattern nil
   "Regexp pattern used to identify header lines by command 
 emacspeak-wizards-occur-header-lines.")
- (make-variable-buffer-local 'emacspeak-occur-pattern)
+(make-variable-buffer-local 'emacspeak-occur-pattern)
+
+(defun emacspeak-wizards-how-many-matches ()
+  "If you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches  lines of interest, you can use this command to conveniently
+run `how-many' bound to \\[how-many]
+to count  matching header lines."
+  (interactive)
+  (declare (special emacspeak-occur-pattern))
+  (cond
+   ((and (boundp 'emacspeak-occur-pattern)
+         emacspeak-occur-pattern)
+    (how-many  emacspeak-occur-pattern))
+   (t
+    (how-many
+     (read-from-minibuffer "Regular expression: ")))))
 
 (defun emacspeak-wizards-occur-header-lines ()
   "If you define a file local variable 
