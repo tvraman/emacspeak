@@ -59,6 +59,18 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
+(defadvice jde-complete-at-point (around emacspeak pre act)
+  "Say what you completed."
+  (let ((emacspeak-speak-messages nil)
+        (prior (point ))
+        (dtk-stop-immediately dtk-stop-immediately))
+    (when dtk-stop-immediately (dtk-stop))
+    ad-do-it
+    (when (> (point) prior)
+      (setq dtk-stop-immediately nil)
+      (tts-with-punctuations "all"
+                             (dtk-speak (buffer-substring prior (point )))))
+    ad-return-value))
 
 (defadvice jde-compile (after emacspeak pre act comp)
 "Provide auditory feedback"
