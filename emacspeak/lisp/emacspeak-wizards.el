@@ -1107,7 +1107,8 @@ Signals end of buffer."
            ((eobp)
             (message "At end of buffer"))
            (t
-            (setq newlines (1-  (count-lines start (point))))
+            (beginning-of-line)
+            (setq newlines (1-   (count-lines start (point))))
             (when (>  newlines 0)
               (setq skipped
                     (format "skip %d " newlines))
@@ -1142,6 +1143,7 @@ Signals beginning  of buffer."
            ((bobp )
             (message "At start  of buffer"))
            (t
+            (beginning-of-line)
             (setq newlines (1- (count-lines start (point))))
             (when (> newlines 0)
               (setq skipped  (format "skip %d " newlines))
