@@ -115,7 +115,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                       emacspeak-realaudio-shortcuts-directory))))
   (declare (special comint-output-filter-functions
                     emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
-   emacspeak-m-player-process
+		    emacspeak-m-player-process
                     emacspeak-m-player-program
                     emacspeak-m-player-options))
   (unless (string-match "^http:"  resource)

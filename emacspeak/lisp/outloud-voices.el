@@ -350,7 +350,7 @@ and TABLE gives the values along that dimension."
        (aset table (first setting)
 	     (format " `vr%s  "
 		     (second setting))))
-    ;;; stress markers not used for now.
+;;; stress markers not used for now.
    '(
      (0 0 "`00")
      (1 5 "`00")

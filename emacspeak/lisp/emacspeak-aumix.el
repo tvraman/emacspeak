@@ -143,7 +143,7 @@ display."
            emacspeak-aumix-program
            emacspeak-aumix-reset-options))
   (when (interactive-p)
-  (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object)))
 (eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 

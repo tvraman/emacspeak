@@ -152,9 +152,9 @@ functions for details.   "
                     emacspeak-unibyte
                     emacspeak-play-program
                     emacspeak-sounds-directory))
-  ;;; fixes transient mark mode in emacspeak 
+;;; fixes transient mark mode in emacspeak 
   (setq mark-even-if-inactive t)
-  ;;; force unibyte
+;;; force unibyte
   (when emacspeak-unibyte
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)

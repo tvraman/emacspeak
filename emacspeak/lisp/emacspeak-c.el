@@ -231,7 +231,7 @@
   (emacspeak-auditory-icon 'large-movement)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax )))
-         ;;; skip across a comment
+;;; skip across a comment
     (cond
      ((or (assq 'c semantics )
           (assq 'comment-intro semantics ))
@@ -263,7 +263,7 @@ this level")
   (emacspeak-auditory-icon 'large-movement)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax )))
-         ;;; skip across a comment
+;;; skip across a comment
     (cond
      ((or (assq 'c semantics )
           (assq 'comment-intro semantics ))
