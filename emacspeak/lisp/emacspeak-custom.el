@@ -133,7 +133,6 @@ customize-apropos-options)
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (voice-lock-mode 1)
-      (search-forward (custom-unlispify-tag-name symbol))
       (beginning-of-line)
       (emacspeak-speak-line))))
 
