@@ -179,7 +179,7 @@ will be placed."
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-last-page-number))
-  (format "%s-%s%s"
+  (format "%s-p%s%s"
           emacspeak-ocr-document-name
           (1+ emacspeak-ocr-last-page-number)
 	  extension))
@@ -188,7 +188,7 @@ will be placed."
   "Return name of current page."
   (declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-current-page-number))
-  (format "%s-%s.txt"
+  (format "%s-p%s.txt"
           emacspeak-ocr-document-name
           emacspeak-ocr-current-page-number))
 
@@ -323,7 +323,7 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
 
 (defun emacspeak-ocr-default-name ()
   "Return a default name for OCR document."
-  (format-time-string "%B-%d-%y"))
+  (format-time-string "%m-%d-%y"))
 
 ;;;###autoload
 (defun emacspeak-ocr ()
