@@ -1927,6 +1927,24 @@ directory to where find is to be launched."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-custom-goto-group))
 ;;}}}
+;;{{{  browse url using specified style
+(defun emacspeak-wizards-browse-url-with-style (style url)
+  "Browse URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+   (declare (special emacspeak-xslt-directory
+                     emacspeak-w3-xsl-p
+                     emacspeak-w3-xsl-transform))
+   (let ((emacspeak-w3-xsl-p t)
+         (emacspeak-w3-xsl-transform style))
+   (browse-url url)
+   (emacspeak-speak-mode-line)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
