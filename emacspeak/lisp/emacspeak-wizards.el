@@ -310,43 +310,6 @@ command `emacspeak-table-display-table-in-region' normally bound to
            (switch-to-buffer buffer-name)))))))
 
 ;;}}}
-;;{{{ Directory specific settings
-(defcustom  emacspeak-speak-load-directory-settings-quietly t
-  "*User option that affects loading of directory specific settings.
-If set to T,Emacspeak will not prompt before loading
-directory specific settings."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
-(defcustom emacspeak-speak-directory-settings
-  ".espeak.el"
-  "*Name of file that holds directory specific settings."
-  :group 'emacspeak-speak
-  :type 'string)
-
-(defsubst emacspeak-speak-get-directory-settings ()
-  "Return directory specific settings file."
-  (declare (special emacspeak-speak-directory-settings))
-  (concat default-directory
-          emacspeak-speak-directory-settings))
-;;;###autoload
-(defun emacspeak-speak-load-directory-settings ()
-  "Load a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory."
-  (interactive)
-  (let ((settings (emacspeak-speak-get-directory-settings)))
-    (when (and (file-exists-p  settings)
-               (or emacspeak-speak-load-directory-settings-quietly
-                   (y-or-n-p "Load directory settings? ")
-                   "Load  directory specific Emacspeak
-settings? "))
-      (condition-case nil
-          (load-file settings)
-        (error (message "Error loading settings %s" settings))))))
-
-;;}}}
 ;;{{{ linux howtos
 ;;;###autoload
 (defun emacspeak-speak-browse-linux-howto (howto)
