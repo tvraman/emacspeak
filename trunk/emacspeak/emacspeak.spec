@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 15.90000
+Version: 16.0
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -39,8 +39,8 @@ echo "Emacspeak is now installed on your system.
 Note that this has installed the  Emacspeak speech server for
 ViaVoice Outloud  --a software speech synthesis engine.
 However, you need to obtain and install the ViaVoice Outloud
-RPMs  before you can use software TTS with Emacspeak.
-See  file  docs/VIAVOICE for details.
+RPMs  before you can use software TTS with Emacspeak 
+--See  file  docs/VIAVOICE for details.
 
 NEWS file for a  summary of new features        --control e cap n in Emacs
 FAQ for Frequently Asked Questions              -- control e cap F in Emacs
