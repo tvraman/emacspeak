@@ -784,7 +784,7 @@ the broadcast. You must have mplayer installed."
 
 (emacspeak-url-template-define
  "sourceforge download for North America" 
- "http://osdn.dl.sourceforge.net/sourceforge/%s/?m=A"
+ "http://osdn.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
  (list
   (lambda nil 
     (read-from-minibuffer "Project name")))
