@@ -194,6 +194,11 @@
 ;;}}}
 ;;{{{  rate
 
+(defsubst dtk-interp-say-version ()
+  "Speak version."
+  (declare (special dtk-speaker-process))
+  (process-send-string dtk-speaker-process "version\n"))
+
 (defsubst dtk-interp-set-rate (rate)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
