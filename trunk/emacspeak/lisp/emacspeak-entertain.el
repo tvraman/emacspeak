@@ -63,15 +63,11 @@
 ;;}}}
 ;;{{{ mpuz
 
-(declaim (special mpuz-silent ))
-(setq mpuz-silent t )
-(defadvice mpuz-correct-guess (after emacspeak pre act )
-  "Provide an auditory icon"
-  (emacspeak-auditory-icon 'search-hit ))
-
-(defadvice mpuz-congratulate (after emacspeak pre act )
-  "Produce auditory icon"
-  (emacspeak-auditory-icon 'alarm ))
+(def-voice-font emacspeak-mpuz-trivial-personality voice-monotone  'mpuz-trivial-face "")
+(def-voice-font emacspeak-mpuz-unsolved-personality voice-bolden  'mpuz-unsolved-face "")
+(def-voice-font emacspeak-mpuz-unsolved-personality voice-lighten  'mpuz-unsolved-face "")
+(def-voice-font emacspeak-mpuz-solved-personality voice-animate
+  'mpuz-solved-face "")
 
 ;;}}}
 ;;{{{ dunnet 
