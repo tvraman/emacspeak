@@ -648,7 +648,8 @@ text using wvText."
 
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
-  (declare (special 
+  (declare (special
+            vm-preview-lines
             vm-infer-mime-types
             vm-mime-decode-for-preview
             vm-auto-decode-mime-messages
@@ -672,14 +673,14 @@ text using wvText."
    (list "application/vnd.ms-powerpoint" "text/html" emacspeak-vm-ppt2html))
   (emacspeak-vm-add-mime-convertor
    (list "application/msword" "text/plain" emacspeak-vm-doc2text))
-  (setq
-   vm-infer-mime-types t
-   vm-mime-decode-for-preview nil
-   vm-auto-decode-mime-messages t
-   vm-auto-displayed-mime-content-type-exceptions '("text/html")
-   vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
-   vm-mime-base64-encoder-program "base64-encode"
-   vm-mime-base64-decoder-program "base64-decode")
+  (setq vm-preview-lines nil
+        vm-infer-mime-types t
+        vm-mime-decode-for-preview nil
+        vm-auto-decode-mime-messages t
+        vm-auto-displayed-mime-content-type-exceptions '("text/html")
+        vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
+        vm-mime-base64-encoder-program "base64-encode"
+        vm-mime-base64-decoder-program "base64-decode")
   t)
    
 
