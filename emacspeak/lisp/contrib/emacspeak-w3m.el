@@ -35,6 +35,7 @@
 (require 'advice)
 (require 'w3m nil t)
 (require 'w3m-form nil t)
+(require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
@@ -207,7 +208,6 @@
    ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
-  (emacspeak-w3m-voiceify-faces (point-min) (point-max))
   (emacspeak-auditory-icon 'open-object)
   (when (stringp w3m-current-title)
     (message "%s" w3m-current-title)))
@@ -415,21 +415,37 @@ libxslt package."
 ;;{{{ tvr: mapping font faces to personalities 
 (defvar emacspeak-w3m-font-faces-to-voiceify
   (list 'bold 'italic   'bold-italic 'underline
-        'w3m-anchor-face  'w3m-arrived-anchor)
+        'w3m-anchor-face  'w3m-arrived-anchor-face 'w3m-bold-face 'w3m-underline-face)
   "List of font faces we voiceify")
 
 
+(dtk-define-voice-alias 'w3m-arrived-anchor-face 'betty)
+(dtk-define-voice-alias 'w3m-anchor-face 'harry)
+(dtk-define-voice-alias 'w3m-bold-face 'bold)
+(dtk-define-voice-alias 'w3m-underline-face 'underlined)
+(dtk-define-voice-alias 'w3m-header-line-location-title-face
+                        'harry)
+(dtk-define-voice-alias 'w3m-header-line-location-content-face
+                        'paul-animated)
+(dtk-define-voice-alias 'w3m-form-button-face
+                        'paul-smooth)
+(dtk-define-voice-alias 'w3m-form-button-pressed-face
+'paul-animated)
+(dtk-define-voice-alias 'w3m-tab-unselected-face
+'paul-monotone)
+(dtk-define-voice-alias 'w3m-tab-selected-face 'paul-animated)
 
-(defun emacspeak-w3m-voiceify-faces (start end)
+(defun emacspeak-w3m-voiceify-faces-in-buffer ()
   "Map base fonts to voices."
-  (interactive "r")
-  (declare (special
-            emacspeak-w3m-font-faces-to-voiceify))
+  (interactive )
+  (declare (special emacspeak-w3m-font-faces-to-voiceify))
   (set (make-local-variable 'voice-lock-mode) t)
   (ems-modify-buffer-safely
    (save-excursion
-     (goto-char start)
-     (let ((face nil )
+     (goto-char (point-min))
+     (let* ((face nil )
+           (start (point-min))
+           (end (point-max))
            (orig start)
            (pos nil))
        (while (and  (not (eobp))
@@ -440,20 +456,12 @@ libxslt package."
            (next-single-property-change (point) 'face
                                         (current-buffer) end)
            end))
-         (cond
-          ((eq face  'w3m-anchor-face)
-           (put-text-property start  (point)
-                              'personality 'harry))
-          ((eq face 'w3m-arrived-anchor-face)
-           (put-text-property start  (point)
-                              'personality 'betty))
-          (t 
            (put-text-property start  (point)
                               'personality
                               (if (listp face)
                                   (loop for f in emacspeak-w3m-font-faces-to-voiceify
                                         thereis (find f face))
-                                face ))))
+                                face ))
          (setq start (point)))))
   (message "voicified faces")))
 
@@ -462,10 +470,9 @@ libxslt package."
   (declare (special dtk-punctuation-mode))
   (setq dtk-punctuation-mode "some"))
 
-(defadvice w3m-reload-this-page (after emacspeak pre act comp)
-  "Voiceify buffer."
-  (declare (special dtk-punctuation-mode))
-  (emacspeak-w3m-voiceify-faces (point-min) (point-max)))
+(add-hook 'w3m-fontify-after-hook 'emacspeak-w3m-voiceify-faces-in-buffer)
+
+
 
 ;;}}}
 (provide 'emacspeak-w3m)
