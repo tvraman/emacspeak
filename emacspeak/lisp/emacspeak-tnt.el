@@ -43,6 +43,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-personality)
@@ -248,7 +249,10 @@ automatically."
 ;;}}}
 ;;{{{ set up face to voice mapping
 
-(voice-setup-set-voice-for-face 'tnt-my-name-face 'paul-smooth)
+(def-voice-font tnt-my-name-personality
+ 'paul-smooth
+ 'tnt-my-name-face
+ "tnt-my-name-face")
 
 ;;}}}
 ;;{{{  Activate pronunciations 

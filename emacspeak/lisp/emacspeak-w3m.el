@@ -36,6 +36,7 @@
 (require 'w3m nil t)
 (require 'w3m-form nil t)
 (require 'dtk-speak)
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-personality)
 (require 'emacspeak-sounds)
@@ -382,38 +383,62 @@
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 
 
-   
-        
-  
+(def-voice-font  w3m-arrived-anchor-personality
+  'betty
+  'w3m-arrived-anchor-face
+  "w3m-arrived-anchor-face")
 
-(voice-setup-set-voice-for-face 'w3m-arrived-anchor-face 'betty)
-(voice-setup-set-voice-for-face 'w3m-anchor-face 'harry)
-(voice-setup-set-voice-for-face 'w3m-bold-face 'bold)
-(voice-setup-set-voice-for-face 'w3m-underline-face 'underlined)
-(voice-setup-set-voice-for-face 'w3m-header-line-location-title-face
-                                'harry)
-(voice-setup-set-voice-for-face 'w3m-header-line-location-content-face
-                                'paul-animated)
-(voice-setup-set-voice-for-face 'w3m-form-button-face
-                                'paul-smooth)
-(voice-setup-set-voice-for-face 'w3m-form-button-pressed-face
-                                'paul-animated)
-(voice-setup-set-voice-for-face 'w3m-tab-unselected-face
-                                'paul-monotone)
-(voice-setup-set-voice-for-face 'w3m-tab-selected-face 'paul-animated)
+(def-voice-font  w3m-anchor-personality
+'harry
+'w3m-anchor-face
+"w3m-anchor-face")
 
-(defun emacspeak-w3m-voiceify-faces-in-buffer ()
-  "Map base fonts to voices."
-  (interactive )
-  (declare (special voice-lock-mode))
-  (setq voice-lock-mode t))
+(def-voice-font w3m-bold-personality
+'bold
+'w3m-bold-face
+"w3m-bold-face")
+
+(def-voice-font  w3m-underline-personality
+'underlined
+'w3m-underline-face
+"w3m-underline-face")
+
+(def-voice-font  w3m-header-line-location-title-personality
+'harry
+                                'w3m-header-line-location-title-face
+                                "w3m-header-line-location-title-face")
+
+(def-voice-font  personality
+'paul-animated
+                                'w3m-header-line-location-content-face
+                                "w3m-header-line-location-content-face")
+
+(def-voice-font  w3m-form-button-personality
+'paul-smooth
+                                'w3m-form-button-face
+                                "w3m-form-button-face")
+
+(def-voice-font  w3m-form-button-pressed-personality
+'paul-animated
+                                'w3m-form-button-pressed-face
+                                "w3m-form-button-pressed-face")
+
+(def-voice-font  w3m-tab-unselected-personality
+'paul-monotone
+                                'w3m-tab-unselected-face
+                                "w3m-tab-unselected-face")
+
+(def-voice-font  w3m-tab-selected-personality
+'paul-animated
+'w3m-tab-selected-face
+"w3m-tab-selected-face")
 
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
   (declare (special dtk-punctuation-mode))
   (setq dtk-punctuation-mode "some"))
 
-(add-hook 'w3m-fontify-after-hook 'emacspeak-w3m-voiceify-faces-in-buffer)
+
 
 ;;}}}
 (provide 'emacspeak-w3m)
