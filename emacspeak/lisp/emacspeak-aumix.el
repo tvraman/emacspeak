@@ -42,6 +42,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'emacspeak-speak)
 (eval-when-compile (require 'emacspeak-forms))
 (require 'emacspeak-sounds)
@@ -88,6 +89,12 @@
 (emacspeak-aumix-set-channel ?3 "3")
 (emacspeak-aumix-set-channel ?o "output gain")
 (emacspeak-aumix-set-channel ?v "volume")
+
+(defgroup emacspeak-aumix nil
+  "Provide AUMIX access for the Emacspeak desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-aumix-")
+
 (defcustom emacspeak-aumix-multichannel-capable-p nil
   "*Set to T if the sound card is capable of mixing multiple channels of audio."
   :group 'emacspeak-aumix
@@ -115,8 +122,8 @@
                                        emacspeak-resource-directory))
     (expand-file-name ".aumixrc" emacspeak-resource-directory))
   "*Name of file containing personal aumix settings."
-  :group 'emacspeak
-  :type 'string)
+  :group 'emacspeak-aumix
+  :type '(file :tag "Aumix settings file"))
 
 ;;;###autoload
 (defcustom emacspeak-aumix-reset-options
@@ -124,7 +131,7 @@
    "-f %s -L 2>&1 >/dev/null"
    emacspeak-aumix-settings-file)
   "*Option to pass to aumix for resetting to default values."
-  :group 'emacspeak
+  :group 'emacspeak-aumix
   :type 'string)
 
 
