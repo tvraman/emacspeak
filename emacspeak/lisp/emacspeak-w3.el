@@ -742,7 +742,8 @@ interactively. Optional arg `speak' specifies if the result should be
 spoken automatically."
   (interactive
    (list current-prefix-arg))
-  (unless (eq major-mode 'w3-mode)
+  (when (or prompt-url
+            (not  (eq major-mode 'w3-mode)))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))
