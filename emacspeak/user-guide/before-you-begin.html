@@ -1,0 +1,662 @@
+<HTML
+><HEAD
+><TITLE
+>Before you begin</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Using Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="introduction.html"><LINK
+REL="NEXT"
+TITLE="System Administration"
+HREF="system-administration.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Using Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="introduction.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="system-administration.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="BEFORE-YOU-BEGIN"
+>2. Before you begin</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="GETTING-STARTED"
+>2.1. Getting started with Emacs and Emacspeak</A
+></H2
+><P
+>	Before you get started with Emacs and Emacspeak, you must
+	install both. Most distributions come with Emacs, or you can
+	download it from the Emacs home page at <A
+HREF="http://www.gnu.org/software/emacs/emacs.html"
+TARGET="_top"
+>http://www.gnu.org/software/emacs/emacs.html</A
+>.
+	If you have not already installed Emacspeak, you can download
+	it from <A
+HREF="http://emacspeak.sourceforge.net/"
+TARGET="_top"
+>http://emacspeak.sourceforge.net/</A
+>. For Emacspeak installation
+	information, please refer to the
+	Emacspeak Installation HOWTO available at the Emacspeak home
+	page, <A
+HREF="http://emacspeak.sourceforge.net"
+TARGET="_top"
+>http://emacspeak.sourceforge.net</A
+>. 
+	</P
+><P
+>	If you've never used Emacs or Emacspeak before, you'll probably want to
+	try some of the following tutorials:</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+> 
+			"A gentle introduction to Emacspeak," by Gary
+			Lawrence Murphy,<A
+HREF="http://emacspeak-guide.sourceforge.net/tutorial.html/"
+TARGET="_top"
+>http://emacspeak-guide.sourceforge.net/tutorial.html/</A
+>.
+			Gary provides a lighthearted but thorough introduction to
+			Emacs and Emacspeak, focusing on users who are
+			not familiar with either application.  This
+			introduction is
+			recommend as a starting point, even before you
+			do the Emacs tutorial (see next item).
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			"The (Official) Emacs Tutorial," by the Free
+			Software Foundation. I call this the
+			"official" tutorial because it is included
+			with Emacs. To access this tutorial, start Emacs, then type <B
+CLASS="COMMAND"
+>C-h
+			t</B
+> (Control h t).  This tutorial discusses the
+			basic Emacs commands, including navigation,
+			using Emacs as a text editor, and a bit about
+			how Emacs works "under the hood." For
+			new users this tutorial is strongly recommended, and
+			even those users who are familiar with Emacs might find
+			something they didn't already know.
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			"Emacspeak Tutorial," by Nita Van Zandt,
+			available at <A
+HREF="http://www.mv.com/ipusers/vanzandt/emacspeak-tutorial-1.0.tar.gz"
+TARGET="_top"
+>http://www.mv.com/ipusers/vanzandt/emacspeak-tutorial-1.0.tar.gz</A
+>.
+			This tutorial helps new Emacspeak users get up
+			and running and includes plenty of examples
+			and step-by-step instructions.  Once you've
+			gotten a grasp of Emacs, this tutorial
+			is a must.
+			</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>			"The Emacs Beginner's HOWTO," by Jeremy
+			D. Zawodny. It is available at <A
+HREF="http://www.linuxdoc.org/HOWTO/Emacs-Beginner-HOWTO.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/Emacs-Beginner-HOWTO.html</A
+>
+			and is also bundled into some of the newer
+			Linux distributions. The Beginner's HOWTO
+			discusses many of the topics discussed in the
+			Emacs tutorial, and also includes overviews of some
+			of the more popular Emacs packages, including
+			VM, Gnus, BBDB, and AucTeX (some of which are
+			discussed in this HOWTO).
+			</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EMACS-CONVENTIONS"
+>2.2. Emacs Command Conventions</A
+></H2
+><P
+>	Emacs commands are denoted by holding down either the
+	<B
+CLASS="COMMAND"
+>Control</B
+> key or the <B
+CLASS="COMMAND"
+>Meta</B
+> key, then pressing one or
+	more alphanumeric keys. On today's keyboards, the
+	<B
+CLASS="COMMAND"
+>Alt</B
+> key provides the same functionality as
+	the old <B
+CLASS="COMMAND"
+>Meta</B
+> key, or alternatively you can
+	press the <B
+CLASS="COMMAND"
+>Esc</B
+> key followed by the
+	alphanumeric keys (you don't have to hold down the
+	<B
+CLASS="COMMAND"
+>Esc</B
+> key). Because different documents
+	sometimes use different notation to denote these sequences, this section
+	explains the notation used in this HOWTO.  For consistency,
+	this HOWTO uses the same notation as is used in the Emacs menus. 
+	</P
+><P
+>	There are a few different types of key sequences you may
+	see. The first is commonly written in the form <B
+CLASS="COMMAND"
+>C-x
+	C-s</B
+>.  The letter "C," followed by a hypen, literally
+	means "hold down the Control key" (the letter "M" would denote
+	the Meta (Alt or Esc) key), and the additional letters denote
+	specific commands.  This example, which saves the current
+	file, should be interpreted as, "Hold down the Control key,
+	press the letter x followed by the letter s, then release the Control key."
+	</P
+><P
+>	Another common  sequence is written in the form <B
+CLASS="COMMAND"
+>C-x
+	d</B
+>. Again, the letter "C" followed by a hyphen
+	denotes holding down the Control key.  However, because the
+	second letter of the sequence does not have a "C-" in front of
+	it, you do not hold down the Control key while pressing the
+	second letter. Thus, this command should be interpreted as,
+	"Hold down the Control key and type x, then release the Control key and type d."
+	Sometimes you may see commands with more than one letter after
+	them, such as <B
+CLASS="COMMAND"
+>C-e d w</B
+>. The same rules
+	apply: you should hold down the Control key, press "e,"
+	release the Control key, then press "d" and "w". 
+	</P
+><P
+>	Finally, you may see commands that use actual words, such as
+	<B
+CLASS="COMMAND"
+>M-x
+	emacspeak-toggle-word-echo</B
+>. Fortunately, most of
+	these longer commands have a shorthand command (in this case,
+	<B
+CLASS="COMMAND"
+>C-e d w</B
+>.  However, should you opt to type
+	the entire command, you would hold down the Meta or Alt key,
+	type x, release the Meta key, then type
+	emacspeak-toggle-word-echo. 
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="GETTING-HELP.SGML"
+>2.3. Getting Help</A
+></H2
+><P
+>	There are several different types of help you can get from
+	within Emacs. If you are unfamiliar with Emacs or Emacspeak,
+	refer to Getting Started with Emacs and Emacspeak in <A
+HREF="before-you-begin.html#GETTING-STARTED"
+>Section 2.1</A
+> for
+	information on several tutorials that can help get you up and
+	running.  If you've completed those tutorials and are looking
+	for more in-depth help on specific topics, consider the
+	following sources.
+	</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN76"
+>2.3.1. Getting help in Emacs</A
+></H3
+><P
+>	The most comprehensive source for Emacs is the GNU Emacs
+	Manual, available at <A
+HREF="http://www.delorie.com/gnu/docs/emacs/emacs_toc.html"
+TARGET="_top"
+>http://www.delorie.com/gnu/docs/emacs/emacs_toc.html</A
+>.
+	Not only does this document contain information on using Emacs
+	as a text editor, but it also contains information on how to use
+	many of the Emacs applications. 
+	</P
+><P
+>	In addition, there are many help options within Emacs, all of
+	which can be accessed using <B
+CLASS="COMMAND"
+>C-h</B
+>. Some of
+	these options, and the types of help they provide, are listed below.
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>C-h i</B
+></DT
+><DD
+><P
+>					Invokes the
+					online hypertext help system,
+					also called "info." Not only
+					does info contain
+					Emacs-specific help, it also
+					contains the man page help
+					(refer to <A
+HREF="before-you-begin.html#MAN-PAGES"
+>Section 2.3.3</A
+>, Viewing
+					the Linux online man pages,
+					for more information). When in
+					info, you can type
+					<B
+CLASS="COMMAND"
+>h</B
+> to open a
+					primer for first-time
+					users. Type
+					<B
+CLASS="COMMAND"
+>q</B
+> to quit.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h a</B
+></DT
+><DD
+><P
+>					Runs "apropos"
+					and asks for a word to search
+					on. It then gives you a list
+					of all commands that contain that word.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h C-f</B
+></DT
+><DD
+><P
+>					When you enter a
+					command name, info jumps to
+					the documentation for that
+					command.</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h c</B
+></DT
+><DD
+><P
+>					When you press
+					any key or key sequence, info
+					provides the name of the
+					function that key invokes.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h k</B
+></DT
+><DD
+><P
+>					Similar to the <B
+CLASS="COMMAND"
+>C-h c</B
+>
+					command but provides more
+					detailed information about the
+					function or action that occurs
+					when you press a key or sequence of keys.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h w</B
+></DT
+><DD
+><P
+>					Similar to the
+					<B
+CLASS="COMMAND"
+>C-h c</B
+> and
+					<B
+CLASS="COMMAND"
+>C-h k</B
+> commands,
+					except that when you type in
+					the name of a command, it
+					returns the key sequence
+					needed to invoke that command.
+					For example, if you type
+					<B
+CLASS="COMMAND"
+>C-h w</B
+>, then
+					finder-by-keyword, it will
+					return <B
+CLASS="COMMAND"
+>C-h
+					p</B
+>.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h p</B
+></DT
+><DD
+><P
+>					Lists all the
+					packages available in Emacs.
+					Packages are defined by the
+					applications they contain, for
+					example hypermedia, games,
+					tools (for programming), etc.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h n</B
+></DT
+><DD
+><P
+>					Opens a history
+					of user-visible changes to
+					Emacs.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-h F</B
+></DT
+><DD
+><P
+>					Displays the
+					Emacs frequently asked
+					questions. Should you have
+					questions about or problems
+					with Emacs, you are urged to
+					review the FAQ in an effort to
+					cut down on noise in the
+					Emacs-related newsgroups.
+					Note that this FAQ is only for
+					Emacs, and not Emacspeak.
+					</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN136"
+>2.3.2. Getting help on Emacspeak commands</A
+></H3
+><P
+>	When you install Emacspeak,
+	additional Emacspeak-specific help is also installed.  In general,
+	Emacspeak commands begin with <B
+CLASS="COMMAND"
+>C-e</B
+>. The more
+	commonly used help commands are listed below:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>C-h C-e</B
+></DT
+><DD
+><P
+>					Lists the
+					Emacspeak commands that are available.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-e F</B
+></DT
+><DD
+><P
+>					Opens the
+					Emacspeak FAQ.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>C-e C-h</B
+></DT
+><DD
+><P
+>					Enters a special
+					mode where every key stroke
+					you type is spoken but nothing
+					actually happens.  You can use
+					this mode if you're new to
+					Emacspeak and want to test out
+					a few keystrokes. When you're
+					finished, you can exit this
+					mode using
+					<B
+CLASS="COMMAND"
+>C-g</B
+>.
+					</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MAN-PAGES"
+>2.3.3. Viewing the Linux online man pages</A
+></H3
+><P
+>	Linux comes with an extensive manual, better known as the
+	"man" pages. These pages cover just about every Linux command.  The only
+	drawback to using the man pages is that you must know the name of the command you
+	want information about.  To read a man entry:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			From inside Emacs, type <B
+CLASS="COMMAND"
+>M-x
+			man</B
+>. You will be prompted for the manual
+			entry you want to view.
+			</P
+></LI
+><LI
+><P
+>			Type the manual entry name (for example,
+			<B
+CLASS="COMMAND"
+>mount</B
+>). The entry for that
+			option will open in Emacs.
+			</P
+></LI
+></OL
+><P
+>	For more information on man pages themselves, you can type
+	<B
+CLASS="COMMAND"
+>man</B
+> when prompted for the manual entry name.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="introduction.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="system-administration.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>System Administration</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
