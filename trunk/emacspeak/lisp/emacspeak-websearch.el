@@ -134,7 +134,7 @@ Cap N   Northern Light Search
 o       Open Directory Search 
 p       People Search (Yahoo)
 r       RedHat Search Via Google
-Cap r   RFBD Catalog search
+Cap r   Recorded Books  Catalog search
 C-r     Find RPM packages
 s       Software  Search
 t       Machine translation 
@@ -1760,33 +1760,367 @@ Light for: ")))
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{  RFB
+;;{{{  Recorded books
 
-(emacspeak-websearch-set-searcher 'rfb
-                                  'emacspeak-websearch-rfb-search)
-(emacspeak-websearch-set-key ?R 'rfb)
+(emacspeak-websearch-set-searcher 'recorded-books
+                                  'emacspeak-websearch-recorded-books-search)
 
-(defvar emacspeak-websearch-rfb-uri
-  "http://www.rfbd.org/search_process.asp"
-  "URI for searching RFB catalogues.")
+(emacspeak-websearch-set-key ?R 'recorded-books)
 
-(defun emacspeak-websearch-rfb-search (author title)
-  "Search RFB&D catalog."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Author:")
-    (emacspeak-websearch-read-query "Title:")))
-  (declare (special emacspeak-websearch-rfb-uri))
-  (let ((url-be-asynchronous nil))
-    (emacspeak-websearch-do-post "POST"
-                                 emacspeak-websearch-rfb-uri
-                                 (concat "author="
-                                         (webjump-url-encode author)
-                                         "&title="
-                                         (webjump-url-encode title))))
-  (emacspeak-websearch-post-process
-   "Number"
-   'emacspeak-speak-line))
+(defvar emacspeak-websearch-recorded-books-advanced-form
+"
+<h1>Search For Recorded Books </h1>
+<form action=\"http://lcweb2.loc.gov/cgi-bin/query\" method=\"post\">
+  <input type=\"hidden\" name=\"directory\"  value=\"bphp\">
+  <input type=\"hidden\" name=\"page\" value=\"advanced\">
+<fieldset>  
+    <p> 
+      <label for=\"authinput\" > Author: </label>
+<input type =\"text\" id=\"authinput\" name=\"authinput\" size=\"30\" >
+      <input name=\"screentitle\" type=\"hidden\" value=\"Personal Author Search For:\">
+      <input name=\"searchtype2\" type=\"hidden\" value=\"author\">
+      <input name=\"directory2\" type=\"hidden\" value=\"bphp\">
+      <input name=\"querybphp\" type=\"hidden\">
+    </p>
+    <p> 
+      <label for=\"titleinput\" > Title: </label> 
+        <input type=\"text\" id=\"titleinput\" name=\"titleinput\" size=\"30\" >
+      <input name=\"searchtype3\" type=\"hidden\" value=\"title\">
+    </p>
+    <p> 
+      <label for=\"subjinput\"> Subject: 
+      </label>   
+        <input type=\"text\" id=\"subjinput\" name=\"subjinput\" size=\"30\" >
+      <input name=\"searchtype4\" type=\"hidden\" value=\"subject\">
+    </p>
+    <p> 
+      <label for=\"bookinput\" > Book Number: 
+      </label>   
+        <input type=\"text\" id=\"bookinput\" name=\"bookinput\" size=\"30\" >
+      <input name=\"searchtype\" type=\"hidden\" value=\"numbers\">
+    </p>
+    <p> 
+      <label for=\"annotinput\" > Annotation, Notes, Contents: 
+      </label>   
+        <input type=\"text\" id=\"annotinput\" name=\"annotinput\" size=\"30\" >
+      <input name=\"searchtype\" type=\"hidden\" value=\"annot\">
+    </p>
+  </fieldset>  
+  <h2> Global search: </h2>
+  <fieldset> 
+    <p> Searches author, title, subject, annotation, contents and notes. This search 
+      ignores terms in preceding boxes. Use alone or with limits below. 
+    </p>
+    <p> 
+      <label for=\"globalinput\" > Keyword: 
+      </label>
+      <input name=\"searchtype\" type=\"hidden\" value=\"global\">
+      <input name=\"searchtype5\" type=\"hidden\" value=\"basic\">
+      <input name=\"dsplformat\" type=\"hidden\" value=\"edit\">
+      <input type=\"text\" id=\"globalinput\" name=\"globalinput\" size=\"30\" tabindex=\"15\">
+    </p>
+  </fieldset> 
+  <h3> 
+    <a name=\"limits\">
+    </a>Search limits: 
+  </h3>
+  <fieldset> 
+    <p>
+      <label for=\"format\"  > Format 
+      </label>
+      
+        <select id=\"format\" name=\"format\" >
+          <option selected value=\"\"> All Formats 
+          </option>
+          <option value=\"ss\"> Audio Cassette Book 
+          </option>
+          <option value=\"fb\"> Braille 
+          </option>
+          <option value=\"sd\"> Audio Disc Book 
+          </option>
+          <option value=\"aj\"> Map 
+          </option>
+          <option value=\"cr\"> Computer File 
+          </option>
+          <option value=\"st\"> Audio Magnetic Tape Book 
+          </option>
+          <option value=\"tb\"> Large Print 
+          </option>
+        </select>
+    </p>
+    <label for=\"lang\" >Language 
+    </label>
+    
+      <select id=\"lang\" name=\"lang\" >
+        <option selected value=\"\"> All Languages
+        </option>
+        <option value=\"eng\"> English
+        </option>
+        <option value=\"afr\"> Afrikans
+        </option>
+        <option 	value=\"alb\"> Albanian
+        </option>
+        <option value=\"amh\"> Amharic
+        </option>
+        <option value=\"ara\"> Arabic
+        </option>
+        <option 	value=\"arm\"> Armenian
+        </option>
+        <option value=\"ben\"> Bengali
+        </option>
+        <option value=\"bul\"> Bulgarian
+        </option>
+        <option 	value=\"cam\"> Cambodian
+        </option>
+        <option value=\"cat\"> Catalan
+        </option>
+        <option value=\"chi\"> Chinese
+        </option>
+        <option 	value=\"cze> Czech
+                </option>
+                <option value=\"dan\"> Danish
+        </option>
+        <option value=\"dut\"> Dutch
+        </option>
+        <option 	value=\"enm\"> English, Middle
+        </option>
+        <option value=\"ang\"> English, Old
+        </option>
+        <option 	value=\"esp\"> Esperanto
+        </option>
+        <option value=\"est\"> Estonian
+        </option>
+        <option value=\"fin\"> Finnish
+        </option>
+        <option 	value=\"fre\"> French
+        </option>
+        <option value=\"frm\"> French, Middle
+        </option>
+        <option value=\"fro\"> French, Old
+        </option>
+        <option value=\"ger\"> German
+        </option>
+        <option value=\"gmh\"> German, Middle, High
+        </option>
+        <option 	value=\"goh\"> German, Old, High
+        </option>
+        <option value=\"grc\"> Greek, Ancient
+        </option>
+        <option 	value=\"gre\"> Greek, Modern
+        </option>
+        <option value=\"guj\"> Gujarati
+        </option>
+        <option 	value=\"rom\"> Gypsy
+        </option>
+        <option value=\"heb\"> Hebrew
+        </option>
+        <option value=\"hin\"> Hindi
+        </option>
+        <option 	value=\"hun\"> Hungarian
+        </option>
+        <option value=\"ice\"> Icelandic
+        </option>
+        <option 	value=\"ind\"> Indonesian
+        </option>
+        <option value=\"iri\"> Irish
+        </option>
+        <option value=\"ita\"> Italian
+        </option>
+        <option 	value=\"jpn\"> Japanese
+        </option>
+        <option value=\"kor\"> Korean
+        </option>
+        <option value=\"lao\"> Lao
+        </option>
+        <option 	value=\"lat\"> Latin
+        </option>
+        <option value=\"lav\"> Latvian
+        </option>
+        <option value=\"lit\"> Lithuanian
+        </option>
+        <option 	value=\"nor\"> Norwegian
+        </option>
+        <option value=\"oji\"> Ojibwa
+        </option>
+        <option value=\"per\"> Persian
+        </option>
+        <option 	value=\"pol\"> Polish
+        </option>
+        <option value=\"por\"> Portuguese
+        </option>
+        <option value=\"pan\"> Punjabi
+        </option>
+        <option 	value=\"rum\"> Romanian
+        </option>
+        <option value=\"rus\"> Russian
+        </option>
+        <option value=\"san\"> Sanskrit
+        </option>
+        <option 	value=\"scr\"> Serbo-Croatian
+        </option>
+        <option value=\"spa\"> Spanish
+        </option>
+        <option 	value=\"swe\"> Swedish
+        </option>
+        <option value=\"tag\"> Tagalog
+        </option>
+        <option value=\"tur\"> Turkish
+        </option>
+        <option 	value=\"ukr\"> Ukrainian
+        </option>
+        <option value=\"vie\"> Vietnamese
+        </option>
+        <option 	value=\"yid\"> Yiddish 
+        </option>
+      </select>
+      <p>
+        <label for=\"addl\" >Additional characteristics 
+        </label>
+        
+          <select id=\"addl\" name=charac >
+            <option selected value=\"\"> All Characteristics
+            </option>
+            <option 	value=\"Contains descriptions of sex.\"> Descriptions of sex
+            </option>
+            <option 	value=\"Contains strong language.\"> Strong language
+            </option>
+            <option value=\"Contains descriptions of violence.\"> Violence
+            </option>
+            <option value=\"For preschool-grade 2.\"> For preschool-grade 2
+            </option>
+            <option value=\"For grades K-3.\"> For grades K-3
+            </option>
+            <option value=\"For grades 2-4.\"> For grades 2-4
+            </option>
+            <option value=\"For grades 3-6.\"> For grades 3-6
+            </option>
+            <option 	value=\"For grades 4-7.\"> For grades 4-7
+            </option>
+            <option value=\"For grades 5-8.\"> For grades 5-8
+            </option>
+            <option value=\"For grades 6-9.\"> For grades 6-9
+            </option>
+            <option value=\"For junior and senior high.\"> For junior and senior high
+            </option>
+            <option value=\"For high school and adult.\"> For high school and adult
+            </option>
+            <option value=\"Caldecott Medal winner.\"> Caldecott Medal winner
+            </option>
+            <option value=\"Newbery Medal winner.\"> Newbery Medal winner
+            </option>
+            <option value=\"Pulitzer Prize winner.\"> Pulitzer Prize winner
+            </option>
+            <option value=Bestseller.> Bestseller
+            </option>
+            <option value=\"Award winner.\"> Award winner
+            </option>
+            <option value=\"Female narrator.\"> Female narrator
+            </option>
+            <option value=\"Male narrator.\"> Male narrator 
+            </option>
+          </select>
+      </p>
+      <p> 
+        <label for=\"not\" >Characteristics 
+          <em>not
+          </em> present
+        </label> 
+        
+          <select id=\"not\" name=\"not charac\" tabindex=\"18\">
+            <option selected value=\"\"> None
+            </option>
+            <option value=\"Contains descriptions of sex.\"> Descriptions of sex
+            </option>
+            <option value=\"Contains strong language.\"> Strong language
+            </option>
+            <option value=\"Contains descriptions of violence.\"> Violence 
+            </option>
+          </select>
+          <p> 
+            <label for=\"hold\" >Holding code 
+            </label>
+            
+              <select id=\"hold\" name=holding tabindex=\"19\">
+                <option value=\"\" selected>All Holding Agencies
+                </option>
+                <option value=\"NLSBPH\">NLS Only
+                </option>
+                <option value=\"NLSNET\">NLS and Network books
+                </option>
+                <option value=\"OTHUS\">Other U.S. agencies
+                </option>
+                <option value=\"CANADA\">Canadian agencies
+                </option>
+                <option value=\"EUROPE\">European agencies
+                </option>
+                <option value=\"AUSNZ\">New Zealand
+                </option>
+              </select>
+          </p>
+          <p> 
+            <label for=\"ilv\" >Intellectual level 
+            </label>
+            
+              <select id=\"ilv\" name=ilv tabindex=\"20\">
+                <option selected value=\"\"> Juvenile and adult
+                </option>
+                <option value=\"ilv e j\"> Juvenile literature
+                </option>
+                <option value=\"not juv.\"> Non-juvenile
+                </option>
+              </select>
+          </p>
+          <p> 
+            <label for \"fic\" >Fiction 
+            </label>
+            
+              <select id=\"fic\" name=\"fic\" tabindex=\"21\">
+                <option selected value=\"\"> Fiction and Nonfiction
+                </option>
+                <option value=\"fic e x.\"> Fiction
+                </option>
+                <option value=\"not fict.\"> Nonfiction
+                </option>
+              </select>
+          </p>
+          <p> 
+            <label for=\"mus\" >Music 
+            </label>
+            
+              <select id=\"mus\" name=\"mus\" tabindex=\"22\">
+                <option selected value=\"\"> Music and non-music
+                </option>
+                <option value=\"u\"> Music
+                </option>
+                <option value=\"not music\">Non-music
+                </option>
+              </select>
+          </p>
+          <input name=\"directory\" type=\"hidden\" value=\"bphp\">
+          <hr />
+          <p> 
+            <input type=\"submit\" value=\"Submit Search\" name=\"submit\" >
+            
+              <input type=\"reset\" value=\"Clear Form\" name=\"reset\" tabindex=\"24\">
+          </p>
+</form>
+"
+"Search form for finding recorded books.")
+
+(defun emacspeak-websearch-recorded-books-search ()
+  "Present advanced search form for recorded books."
+  (interactive)
+  (declare (special emacspeak-websearch-recorded-books-advanced-form))
+  (let ((buffer (get-buffer-create " *recorded-books-advanced*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert emacspeak-websearch-recorded-books-advanced-form)
+      (w3-preview-this-buffer)
+      (widget-forward 1)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-line)
+      (kill-buffer buffer))))
 
 ;;}}}
 ;;{{{ Merriam Webster
