@@ -73,6 +73,7 @@
 
 (defcustom emacspeak-xml-shell-options
   (list "--shell"
+        "--html"
         "--format"
         "--noent")
   "Command-line options for XML browse command."
@@ -258,13 +259,27 @@ region of text to process."
   :group 'emacspeak-xml-shell)
 
 
+(defsubst emacspeak-xml-shell-setup-html-base (base)
+  "Locate HTML head in current buffer and add document base.  Creates
+HTML head if none found."
+  (goto-char (point-min))
+   (let ((head   (search-forward "<head>" nil t)))
+     (or head
+         (insert "<head>\n"))
+     (insert
+      (format "<base href=\"%s\">\n" base))
+     (or head (insert "</head>\n"))))
+      
+   
+
 (defun emacspeak-xml-shell-display-as-html (start end)
   "Suitable for use in displaying current node as HTML."
   (declare (special emacspeak-xml-shell-xslt))
   (when emacspeak-xml-shell-xslt
-  (emacspeak-xslt-region
-   emacspeak-xml-shell-xslt
-   start end))
+    (emacspeak-xslt-region
+     emacspeak-xml-shell-xslt
+     start end))
+  (emacspeak-xml-shell-setup-html-base emacspeak-xml-shell-document)
   (w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 
