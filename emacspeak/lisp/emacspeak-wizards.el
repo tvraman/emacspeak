@@ -976,7 +976,7 @@ documentation.\n\n")
                 "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                 module)))
-            (insert (format "\n\n@deffn {interactive command} %s %s\n"
+            (insert (format "\n\n@deffn {Interactive Command} %s %s\n"
                             f
                             (eldoc-function-argstring f)))
             (if key
@@ -1061,7 +1061,7 @@ documentation.\n\n")
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
                 module)))
-            (insert (format "\n\n@defvar {customizations} %s\n"
+            (insert (format "\n\n@defvar {Customization} %s\n"
                             o))
             (insert
              (or
