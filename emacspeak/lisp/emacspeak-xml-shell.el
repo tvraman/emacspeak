@@ -83,8 +83,9 @@
 ;;{{{ xml browse mode
 
 (define-derived-mode emacspeak-xml-shell-mode comint-mode 
-  "Browsing XML documents.
-  XML Browse\n\n
+  "XML Shell "
+  "XML Shell\n\n
+Interactive XML browser.
 \\{emacspeak-xml-shell-mode-map}")
 
 ;;}}}
@@ -118,9 +119,11 @@
   "Start Xml-Shell on contents of system-id."
   (interactive
    (list
-    (read-from-minibuffer
+    (read-file-name
      "Browse XML: ")))
   (declare (special emacspeak-xml-shell-process))
+  (unless (string-match "^http:" system-id)
+    (setq system-id (expand-file-name system-id)))
   (unless
       (and (processp emacspeak-xml-shell-process)
       (eq 'run 
@@ -130,6 +133,78 @@
   (switch-to-buffer (process-buffer
                      emacspeak-xml-shell-process))
   (emacspeak-speak-mode-line))
+
+;;}}}
+;;{{{ Navigate the tree
+
+(defun emacspeak-xml-shell-navigate (xpath)
+  "Navigate to the node specified by xpath."
+  (declare (special emacspeak-xml-shell-process))
+  (save-excursion
+    (set-buffer (process-buffer emacspeak-xml-shell-process))
+    (goto-char (point-max))
+    (insert
+   (format "cd %s"
+           xpath))
+    (comint-send-input))
+  (when (eq (current-buffer)
+             (process-buffer emacspeak-xml-shell-process))
+    (goto-char (process-mark emacspeak-xml-shell-process))))
+
+(defun emacspeak-xml-shell-goto-children()
+  "Navigate down to the children of current node."
+  (interactive)
+  (emacspeak-xml-shell-navigate "./*[1]"))
+
+(defun emacspeak-xml-shell-goto-parent()
+  "Navigate up to the parent of current node."
+  (interactive)
+  (emacspeak-xml-shell-navigate ".."))
+
+(defun emacspeak-xml-shell-goto-next-child()
+  "Navigate forward  to the next child  of current node."
+  (interactive)
+  (emacspeak-xml-shell-navigate "(following-sibling::*)[1]"))
+(defun emacspeak-xml-shell-goto-previous-child()
+  "Navigate backward  to the previous child  of current node."
+  (interactive)
+  (emacspeak-xml-shell-navigate "(preceding-sibling::*)[1]"))
+
+;;}}}
+;;{{{ showing nodes
+
+(defun emacspeak-xml-shell-show-node ( xpath)
+  "Displays selected node specified by xpath."
+  (interactive
+   (list
+    (read-from-minibuffer "XPath:")))
+  (declare (special emacspeak-xml-shell-process))
+  (save-excursion
+    (set-buffer (process-buffer emacspeak-xml-shell-process))
+    (goto-char (point-max))
+    (insert
+     (format "cat %s"
+             xpath))
+    (comint-send-input)
+    (accept-process-output)
+    (copy-to-register ?a
+                      (marker-position comint-last-input-end)
+                      (marker-position (process-mark emacspeak-xml-shell-process))
+                      'delete)
+    (message "Copied output to register.")))
+
+;;}}}
+;;{{{ keybindings
+
+(declaim (special emacspeak-xml-shell-mode-map))
+(define-key emacspeak-xml-shell-mode-map [left] 
+'emacspeak-xml-shell-goto-previous-child)
+(define-key emacspeak-xml-shell-mode-map [right] 
+'emacspeak-xml-shell-goto-next-child)
+(define-key emacspeak-xml-shell-mode-map [up] 
+'emacspeak-xml-shell-goto-parent)
+(define-key emacspeak-xml-shell-mode-map [down] 
+'emacspeak-xml-shell-goto-children)
 
 ;;}}}
 (provide 'emacspeak-xml-shell)
