@@ -118,13 +118,13 @@
 ;;{{{ return matching children 
 (defun xml-children-by-name  (tag name)
   "Return list of children  matching NAME, of an xml-parse'd XML TAG."
-    (let ((children (xml-tag-children tag))
-          (result nil))
-      (while children
-	(when (string= name (xml-tag-name (car children)))
-	    (nconc result (car children)))
-	(setq children (cdr children)))
-      result))
+  (let ((children (xml-tag-children tag))
+	(result nil))
+    (while children
+      (when (string= name (xml-tag-name (car children)))
+	(nconc result (car children)))
+      (setq children (cdr children)))
+    result))
 
 ;;}}}
 ;;{{{  play audio clip 
@@ -186,28 +186,27 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
                (concat
                 (emacspeak-daisy-book-basename emacspeak-daisy-this-book)
                 ".xml")
-                                            emacspeak-daisy-this-book))
+	       emacspeak-daisy-this-book))
         (result nil))
     (setq result
           (emacspeak-xslt-xml-url
-    (expand-file-name "dtb-page-range.xsl"
-                      emacspeak-xslt-directory)
-    path
-    (list
-     (cons "start"
-           (format "'%s'"
-                   start ))
-(cons "end"
-           (format "'%s'"
-                   end ))
-(cons "base"
-           (format "'%s'"
-                   path)))))
-(save-excursion
-  (set-buffer result)
-  (emacspeak-w3-preview-this-buffer))
-(kill-buffer result)))
-
+	   (expand-file-name "dtb-page-range.xsl"
+			     emacspeak-xslt-directory)
+	   path
+	   (list
+	    (cons "start"
+		  (format "'%s'"
+			  start ))
+	    (cons "end"
+		  (format "'%s'"
+			  end ))
+	    (cons "base"
+		  (format "'%s'"
+			  path)))))
+    (save-excursion
+      (set-buffer result)
+      (emacspeak-w3-preview-this-buffer))
+    (kill-buffer result)))
 
 (defun emacspeak-daisy-stop-audio ()
   "Stop audio."
@@ -518,9 +517,9 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
     (cond
      ((and viewer
            (buffer-live-p viewer))
-(switch-to-buffer viewer)
-             (emacspeak-auditory-icon 'select-object)
-             (emacspeak-speak-mode-line))
+      (switch-to-buffer viewer)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-mode-line))
      (content
       (emacspeak-daisy-configure-w3-to-record-viewer
        (current-buffer) start end )
@@ -547,11 +546,11 @@ that asks W3 to record the viewer in the navigation center when done."
   (setq emacspeak-w3-post-process-hook
         (`
          (lambda  nil
-             (let ((buffer (current-buffer)))
-               (save-excursion
-             (set-buffer (, nav-center))
-             (put-text-property (, start) (, end)
-                                'viewer  buffer)))))))
+	   (let ((buffer (current-buffer)))
+	     (save-excursion
+	       (set-buffer (, nav-center))
+	       (put-text-property (, start) (, end)
+				  'viewer  buffer)))))))
 
 ;;}}}
 

@@ -2321,8 +2321,8 @@ Also produce an auditory icon if possible."
 ;;{{{  customize isearch:
 ;;{{{ fix isearch keys:
 (declaim (special isearch-mode-map 
-minibuffer-local-isearch-map
-emacspeak-prefix))
+		  minibuffer-local-isearch-map
+		  emacspeak-prefix))
 
 (define-key minibuffer-local-isearch-map emacspeak-prefix
   'emacspeak-prefix-command)
@@ -2501,26 +2501,25 @@ Produce auditory icons if possible."
    (if isearch-regexp "Regexp search" "text search")))
 ;;{{{ advice non-incremental searchers 
 (defadvice search-forward (after emacspeak pre act comp)
-"Speak line we land on."
-(when (interactive-p)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object)))
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 (defadvice search-backward (after emacspeak pre act comp)
-"Speak line we land on."
-(when (interactive-p)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object)))
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice word-search-forward (after emacspeak pre act comp)
-"Speak line we land on."
-(when (interactive-p)
-(emacspeak-speak-line)this is last ))
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)this is last ))
 
 (defadvice word-search-backward (after emacspeak pre act comp)
-"Speak line we land on."
-(when (interactive-p)
-(emacspeak-speak-line)this is last ))
-
+  "Speak line we land on."
+  (when (interactive-p)
+    (emacspeak-speak-line)this is last ))
 
  
 ;;}}}

@@ -73,9 +73,8 @@
 (defcustom emacspeak-xslt-nuke-null-char t
   "If T null chars in the region will be nuked.
 This is useful when handling bad HTML."
-:type 'boolean
-:group 'emacspeak-xslt)
-
+  :type 'boolean
+  :group 'emacspeak-xslt)
 
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params )
@@ -97,9 +96,9 @@ part of the libxslt package."
     (when emacspeak-xslt-nuke-null-char
       (goto-char start)
       (while (search-forward
-            ( format "%c" 0)
-end t)
-      (replace-match " ")))
+	      ( format "%c" 0)
+	      end t)
+	(replace-match " ")))
     (shell-command-on-region start end
                              (format
                               "%s %s  --html --nonet --novalid %s - %s"

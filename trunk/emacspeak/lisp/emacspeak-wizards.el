@@ -2384,7 +2384,6 @@ hits."
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
 
-
 ;;}}}
 ;;{{{ longest line in region 
 ;;;###autoload
@@ -2540,8 +2539,8 @@ emacspeak-wizards-tramp-open-location
 bound to \\[emacspeak-wizards-tramp-open-location]."
   :type '(repeat
           (cons :tag "Tramp"
-           (string :tag "Name")
-           (string :tag "Location")))
+		(string :tag "Name")
+		(string :tag "Location")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
@@ -2557,8 +2556,7 @@ Location is specified by name."
   (declare (special emacspeak-wizards-tramp-locations))
   (let ((location (cdr (assoc name
                               emacspeak-wizards-tramp-locations))))
-  (find-file location)))
-
+    (find-file location)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
