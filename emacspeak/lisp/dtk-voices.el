@@ -50,13 +50,16 @@
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (eval-when-compile (load-library "cl-extra"))
 ;;{{{  voice table
 
 
 
-(defvar tts-default-voice 'paul 
-  "Default voice used. ")
+(defcustom tts-default-voice 'paul 
+  "Default voice used. "
+:type 'symbol
+:group 'tts)
 
 
 (defvar dtk-default-voice-string "[:np]"
