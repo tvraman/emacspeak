@@ -137,16 +137,17 @@ Summarize the form to welcome the user. "
   "Send email to the address given by the current record. "
   (interactive)
   (unless (eq major-mode  'eudc-mode)
-    (error "This command should be called in EUDC
-buffers. "))
+    (error "This command should be called in EUDC buffers. "))
   (let ((record
          (overlay-get (car (overlays-at (point))) 'eudc-record))
         (mail nil))
     (unless record (error "Not on a record. "))
-    (setq mail (cdr (assq 'Mail record )))
+    (setq mail
+          (cdr (assq 'mail record)))
     (if mail
         (sendmail-user-agent-compose mail)
-      (error "Cannot determine email address"  ))))
+      (error "Cannot determine email address from record %s"
+             (cdr (assq 'mail record))))))
 
 ;;}}}
 ;;{{{ bind additional commands 
