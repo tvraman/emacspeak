@@ -137,6 +137,7 @@ r       RedHat Search Via Google
 Cap r   Recorded Books  Catalog search
 C-r     Find RPM packages
 s       Software  Search
+C-s     Streaming Audio
 t       Machine translation 
 u       Usenet Index from Google
 w       Weather Channel  By Zip Code
@@ -167,6 +168,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ;;}}}
 ;;{{{ helpers 
+
 (defun emacspeak-websearch-do-post (the-method the-url query
                                                &optional
                                                enctype)
@@ -2328,6 +2330,33 @@ Light for: ")))
   (emacspeak-websearch-post-process
    "Web Pages"
    'emacspeak-speak-line))
+
+;;}}}
+;;{{{ streaming audio 
+
+(emacspeak-websearch-set-searcher 'streaming-audio
+                                  'emacspeak-websearch-streaming-audio-search)
+
+(emacspeak-websearch-set-key 19'streaming-audio)
+
+(defvar emacspeak-websearch-streaming-audio-search-uri 
+  "http://www.billsparks.org/links/search.cgi?query="
+  "URI for searching for streaming audio.")
+
+(defun emacspeak-websearch-streaming-audio-search (query)
+  "Search for streaming audio. "
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Audio Search: ")))
+  (declare (special emacspeak-websearch-streaming-audio-search-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url
+                                 (concat
+                                  emacspeak-websearch-streaming-audio-search-uri
+                                  (webjump-url-encode query)))
+  (emacspeak-websearch-post-process
+   query
+   'emacspeak-speak-line)))
 
 ;;}}}
 ;;; Load site-specific searchers 
