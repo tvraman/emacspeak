@@ -3433,7 +3433,8 @@ documentation.
 <H2><A NAME="SEC55" HREF="emacspeak.html#TOC55">dtk-speak</A></H2>
 
 <P>
-nil
+Commentary:
+Defines the TTS interface.
 
 
 <P>
@@ -3545,7 +3546,8 @@ Select TTS debugging buffer.
 <H2><A NAME="SEC62" HREF="emacspeak.html#TOC62">dtk-tcl</A></H2>
 
 <P>
-nil
+Commentary:
+Interface to speech server.
 
 
 <P>
@@ -3877,7 +3879,9 @@ Shutdown midi system.
 <H2><A NAME="SEC82" HREF="emacspeak.html#TOC82">emacspeak-aumix</A></H2>
 
 <P>
-nil
+Commentary:
+Provides an AUI to setting up the auditory display via AUMIX
+This module is presently Linux specific
 
 
 <P>
@@ -3985,7 +3989,9 @@ after saving the settings to have them take effect.
 <H2><A NAME="SEC90" HREF="emacspeak.html#TOC90">emacspeak-bs</A></H2>
 
 <P>
-nil
+Commentary:
+speech-enable bs.el
+this is an alternative to list-buffers
 
 
 <P>
@@ -4008,10 +4014,6 @@ Speak information about this buffer
 
 
 <H2><A NAME="SEC92" HREF="emacspeak.html#TOC92">emacspeak-buff-menu</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -4071,10 +4073,6 @@ Speak the name of the buffer on this line
 <H2><A NAME="SEC97" HREF="emacspeak.html#TOC97">emacspeak-c</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-c.
 
@@ -4094,10 +4092,6 @@ Speak the C semantics of this line.
 
 
 <H2><A NAME="SEC99" HREF="emacspeak.html#TOC99">emacspeak-calendar</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -4134,7 +4128,9 @@ Speaks the most recently displayed appointment message if any.
 <H2><A NAME="SEC102" HREF="emacspeak.html#TOC102">emacspeak-compile</A></H2>
 
 <P>
-nil
+Commentary:
+This module makes compiling code from inside Emacs speech friendly.
+It is an example of how a little amount of code can make Emacspeak even better.
 
 
 <P>
@@ -4157,10 +4153,6 @@ Speech feedback about the compilation error.
 
 
 <H2><A NAME="SEC104" HREF="emacspeak.html#TOC104">emacspeak-custom</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -4196,7 +4188,16 @@ Jump to custom group when in a customization buffer.
 <H2><A NAME="SEC107" HREF="emacspeak.html#TOC107">emacspeak-dired</A></H2>
 
 <P>
-nil
+Commentary:
+This module speech enables dired.
+It reduces the amount of speech you hear:
+Typically you hear the file names as you move through the dired buffer
+Voicification is used to indicate directories, marked files etc.
+
+
+<P>
+}}}
+{{{  required packages 
 
 
 <P>
@@ -4308,10 +4309,6 @@ Speak modification time  of the current file.
 <H2><A NAME="SEC116" HREF="emacspeak.html#TOC116">emacspeak-ediff</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-ediff.
 
@@ -4331,10 +4328,6 @@ Speak the current difference
 
 
 <H2><A NAME="SEC118" HREF="emacspeak.html#TOC118">emacspeak-enriched</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -4357,10 +4350,6 @@ Useful in voicifying rich text.
 
 
 <H2><A NAME="SEC120" HREF="emacspeak.html#TOC120">emacspeak-entertain</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -4396,7 +4385,18 @@ Speak statistics.
 <H2><A NAME="SEC123" HREF="emacspeak.html#TOC123">emacspeak-eterm</A></H2>
 
 <P>
-nil
+Commentary:
+{{{  Introduction:
+This module makes eterm talk.
+Eterm is the new terminal emulator for Emacs.
+Use of emacspeak with eterm really needs an info page.
+At present, the only documentation is the source level documentation.
+This module uses Control-t as an additional prefix key to allow the user
+To move around the terminal and have different parts spoken. 
+
+
+<P>
+}}}
 
 
 <P>
@@ -4915,10 +4915,6 @@ emacspeak eterm pointer.
 <H2><A NAME="SEC162" HREF="emacspeak.html#TOC162">emacspeak-filtertext</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-filtertext.
 
@@ -4964,7 +4960,7 @@ Revert to original text.
 <P>
 <A NAME="IDX215"></A>
 <A NAME="IDX216"></A>
- control e \ 
+ Control  cap E  \ 
 
 
 <P>
@@ -4975,10 +4971,6 @@ preparation for interactively filtering text.
 
 
 <H2><A NAME="SEC166" HREF="emacspeak.html#TOC166">emacspeak-fix-interactive</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -5014,10 +5006,6 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
 
 
 <H2><A NAME="SEC169" HREF="emacspeak.html#TOC169">emacspeak-forms</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -5100,10 +5088,6 @@ Summarize current position in list of records
 
 
 <H2><A NAME="SEC176" HREF="emacspeak.html#TOC176">emacspeak-freeamp</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -5193,10 +5177,6 @@ Call appropriate freeamp command.
 
 
 <H2><A NAME="SEC181" HREF="emacspeak.html#TOC181">emacspeak-gomoku</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -5316,10 +5296,6 @@ Speak coordinates and state of square at point
 <H2><A NAME="SEC191" HREF="emacspeak.html#TOC191">emacspeak-gridtext</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-gridtext.
 
@@ -5368,7 +5344,24 @@ Load saved grid settings.
 <H2><A NAME="SEC195" HREF="emacspeak.html#TOC195">emacspeak-hide</A></H2>
 
 <P>
-nil
+Commentary:
+
+
+<P>
+{{{  Introduction
+
+
+<P>
+Flexible hide and show for emacspeak.
+This module allows one to easily hide or expose
+blocks of lines starting with a common prefix.
+It is motivated by the need to flexibly hide quoted text in email
+but is designed to be more general.
+the prefix parsing is inspired by filladapt.el
+
+
+<P>
+}}}
 
 
 <P>
@@ -5428,7 +5421,9 @@ blocks in current buffer to be hidden or exposed.
 <H2><A NAME="SEC199" HREF="emacspeak.html#TOC199">emacspeak-ibuffer</A></H2>
 
 <P>
-nil
+Commentary:
+speech-enable ibuffer.el
+this is an alternative to buffer-menu
 
 
 <P>
@@ -5451,10 +5446,6 @@ Speak information about this buffer
 
 
 <H2><A NAME="SEC201" HREF="emacspeak.html#TOC201">emacspeak-imenu</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -5502,10 +5493,6 @@ Goto the next index position in current buffer
 <H2><A NAME="SEC205" HREF="emacspeak.html#TOC205">emacspeak-keymap</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-keymap.
 
@@ -5542,10 +5529,6 @@ Automatically defined advice to speak interactive prompts.
 <H2><A NAME="SEC207" HREF="emacspeak.html#TOC207">emacspeak-kotl</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-kotl.
 
@@ -5580,7 +5563,9 @@ Setup additional keybindings
 <H2><A NAME="SEC210" HREF="emacspeak.html#TOC210">emacspeak-mpg123</A></H2>
 
 <P>
-nil
+Commentary:
+This module speech-enables  MPG123
+MPG123 is an MP3 player.
 
 
 <P>
@@ -5609,7 +5594,7 @@ to skip to the next track.
 <P>
 <A NAME="IDX259"></A>
 <A NAME="IDX260"></A>
- control x  h n 
+ Control  cap X   h n 
 
 
 <P>
@@ -5705,7 +5690,24 @@ Move back by specified number of minutes.
 <H2><A NAME="SEC220" HREF="emacspeak.html#TOC220">emacspeak-ocr</A></H2>
 
 <P>
-nil
+Commentary:
+This module defines Emacspeak front-end to OCR.
+This module assumes that sane is installed and working
+for image acquisition,
+and that there is an OCR engine that can take acquired
+images and produce text.
+Prerequisites:
+Sane installed and working.
+scanimage to generate tiff files from scanner.
+tiffcp to compress the tiff file.
+working ocr executable 
+by default this module assumes that the OCR executable
+is named "ocr"
+
+
+<P>
+}}}
+{{{ required modules
 
 
 <P>
@@ -5936,7 +5938,7 @@ to an appropriately named file.
 <P>
 <A NAME="IDX277"></A>
 <A NAME="IDX278"></A>
- control e control o 
+ Control  cap E  Control  cap O  
 
 
 <P>
@@ -6055,7 +6057,8 @@ Move to specified page.
 <H2><A NAME="SEC238" HREF="emacspeak.html#TOC238">emacspeak-outline</A></H2>
 
 <P>
-nil
+Commentary:
+Provide additional advice to outline-mode
 
 
 <P>
@@ -6069,7 +6072,7 @@ for commands defined in module  emacspeak-outline.
 <P>
 <A NAME="IDX286"></A>
 <A NAME="IDX287"></A>
- control l p 
+ Control  cap L  p 
 
 
 <P>
@@ -6083,7 +6086,7 @@ except that the outline section is optionally spoken
 <P>
 <A NAME="IDX288"></A>
 <A NAME="IDX289"></A>
- control l SPACE 
+ Control  cap L  SPACE 
 
 
 <P>
@@ -6096,7 +6099,7 @@ Speak current outline section starting from point
 <P>
 <A NAME="IDX290"></A>
 <A NAME="IDX291"></A>
- control l b 
+ Control  cap L  b 
 
 
 <P>
@@ -6110,7 +6113,7 @@ except that the outline section is optionally spoken
 <P>
 <A NAME="IDX292"></A>
 <A NAME="IDX293"></A>
- control l n 
+ Control  cap L  n 
 
 
 <P>
@@ -6124,7 +6127,7 @@ except that the outline section is optionally spoken
 <P>
 <A NAME="IDX294"></A>
 <A NAME="IDX295"></A>
- control l f 
+ Control  cap L  f 
 
 
 <P>
@@ -6137,7 +6140,31 @@ except that the outline section is optionally spoken
 <H2><A NAME="SEC244" HREF="emacspeak.html#TOC244">emacspeak-pronounce</A></H2>
 
 <P>
-nil
+Commentary:
+{{{  Introduction
+
+
+<P>
+This module implements user customizable pronunciation dictionaries
+for emacspeak. Custom pronunciations can be defined per file, per
+directory and/or per major mode. Emacspeak maintains a persistent
+user dictionary upon request and loads these in new emacspeak
+sessions. This module implements the user interface to the custom
+dictionary as well as providing the internal API used by the rest
+of emacspeak in using the dictionary.
+Algorithm:
+
+
+<P>
+The persistent dictionary is a hash table where the hash keys are
+filenames, directory names, or major-mode names. The hash values
+are association lists defining the dictionary. Users of this module
+can retrieve a dictionary made up of all applicable association
+lists for a given file.
+
+
+<P>
+}}}
 
 
 <P>
@@ -6275,10 +6302,6 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 <H2><A NAME="SEC254" HREF="emacspeak.html#TOC254">emacspeak-psgml</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-psgml.
 
@@ -6342,7 +6365,14 @@ Speak contents of current element.
 <H2><A NAME="SEC259" HREF="emacspeak.html#TOC259">emacspeak-realaudio</A></H2>
 
 <P>
-nil
+Commentary:
+Assuming you have a correctly configured RealAudio
+player, this package provides single click access to
+starting and stopping a RealAudio stream from anywhere
+on the Emacspeak desktop.  Before using this package,
+make sure that your realaudio player works outside
+Emacs. Then set variable Emacspeak-realaudio-player to
+point to the program you use to play RealAudio streams.
 
 
 <P>
@@ -6395,7 +6425,7 @@ Switch to realaudio buffer.
 <P>
 <A NAME="IDX314"></A>
 <A NAME="IDX315"></A>
- control e : 
+ Control  cap E  : 
 
 
 <P>
@@ -6470,7 +6500,7 @@ Call appropriate TRPlayer command.
 <P>
 <A NAME="IDX319"></A>
 <A NAME="IDX320"></A>
- control e ; 
+ Control  cap E  ; 
 
 
 <P>
@@ -6526,10 +6556,6 @@ Automatically defined advice to speak interactive prompts.
 <H2><A NAME="SEC269" HREF="emacspeak.html#TOC269">emacspeak-redefine</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
@@ -6583,10 +6609,6 @@ Forward-char redefined to speak char moved to.
 <H2><A NAME="SEC273" HREF="emacspeak.html#TOC273">emacspeak-remote</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-remote.
 
@@ -6627,10 +6649,6 @@ Use this once you are sure the guesses are usually correct.
 <H2><A NAME="SEC276" HREF="emacspeak.html#TOC276">emacspeak-rmail</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-rmail.
 
@@ -6662,10 +6680,6 @@ Speak labels of current message
 
 
 <H2><A NAME="SEC279" HREF="emacspeak.html#TOC279">emacspeak-solitaire</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -6713,7 +6727,31 @@ Display current row auditorallly
 <H2><A NAME="SEC283" HREF="emacspeak.html#TOC283">emacspeak-sounds</A></H2>
 
 <P>
-nil
+Commentary:
+This module provides the interface for generating auditory icons in emacspeak.
+Design goal:
+1) Auditory icons should be used to provide additional feedback,
+not as a gimmick.
+2) The interface should be usable at all times without the icons:
+e.g. when on a machine without a sound card.
+3) General principle for when to use an icon:
+Convey information about events taking place in parallel.
+For instance, if making a selection automatically moves the current focus
+to the next choice,
+We speak the next choice, while indicating the fact that something was selected with a sound cue.
+ This interface will assume the availability of a shell command "play"
+that can take one or more sound files and play them.
+This module will also provide a mapping between names in the elisp world and actual sound files.
+Modules that wish to use auditory icons should use these names, instead of actual file names.
+As of Emacspeak 13.0, this module defines a themes
+architecture for  auditory icons.
+Sound files corresponding to a given theme are found in
+appropriate subdirectories of emacspeak-sounds-directory
+
+
+<P>
+}}}
+{{{ required modules
 
 
 <P>
@@ -6772,7 +6810,7 @@ emacspeak-midi-icon for midi device.
 <P>
 <A NAME="IDX341"></A>
 <A NAME="IDX342"></A>
- control e ) 
+ Control  cap E  ) 
 
 
 <P>
@@ -6800,7 +6838,11 @@ audio player.
 <H2><A NAME="SEC289" HREF="emacspeak.html#TOC289">emacspeak-speak</A></H2>
 
 <P>
-nil
+Commentary:
+This module defines the core speech services used by emacspeak.
+It depends on the speech server interface modules
+It protects other parts of emacspeak
+from becoming dependent on the speech server modules
 
 
 <P>
@@ -6827,7 +6869,7 @@ Kill current buffer without asking for confirmation.
 <P>
 <A NAME="IDX346"></A>
 <A NAME="IDX347"></A>
- control e | 
+ Control  cap E  | 
 
 
 <P>
@@ -6849,7 +6891,7 @@ files like /var/adm/messages and /var/adm/maillog over time.
 <P>
 <A NAME="IDX348"></A>
 <A NAME="IDX349"></A>
- control e % 
+ Control  cap E  % 
 
 
 <P>
@@ -6883,7 +6925,7 @@ Automatically defined advice to speak interactive prompts.
 <P>
 <A NAME="IDX351"></A>
 <A NAME="IDX352"></A>
- control e c 
+ Control  cap E  c 
 
 
 <P>
@@ -6897,7 +6939,7 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 <P>
 <A NAME="IDX353"></A>
 <A NAME="IDX354"></A>
- control e n 
+ Control  cap E  n 
 
 
 <P>
@@ -8144,7 +8186,15 @@ Default is to read the next word.
 <H2><A NAME="SEC379" HREF="emacspeak.html#TOC379">emacspeak-speedbar</A></H2>
 
 <P>
-nil
+Commentary:
+This module advises speedbar.el for use with Emacs.  The
+latest speedbar can be obtained from
+ftp://ftp.ultranet.com/pub/zappo/ This module ensures
+that speedbar works smoothly outside a windowing system
+in addition to speech enabling all interactive
+commands. Emacspeak also adds an Emacspeak environment
+specific entry point to speedbar
+--emacspeak-speedbar-goto-speedbar-- and binds this
 
 
 <P>
@@ -8180,10 +8230,6 @@ Switch to the speedbar
 
 
 <H2><A NAME="SEC382" HREF="emacspeak.html#TOC382">emacspeak-table-ui</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -8633,10 +8679,6 @@ Optional prefix arg prompts for a new filter.
 <H2><A NAME="SEC414" HREF="emacspeak.html#TOC414">emacspeak-tabulate</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-tabulate.
 
@@ -8661,10 +8703,6 @@ in the white-space.
 <H2><A NAME="SEC416" HREF="emacspeak.html#TOC416">emacspeak-tapestry</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-tapestry.
 
@@ -8685,10 +8723,6 @@ Describe the current layout of visible buffers in current frame.
 
 
 <H2><A NAME="SEC418" HREF="emacspeak.html#TOC418">emacspeak-url-template</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -8737,10 +8771,6 @@ Load URL template resources from specified location.
 <H2><A NAME="SEC422" HREF="emacspeak.html#TOC422">emacspeak-view</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-view.
 
@@ -8760,10 +8790,6 @@ Moves current line to top of window
 
 
 <H2><A NAME="SEC424" HREF="emacspeak.html#TOC424">emacspeak-vm</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -8825,7 +8851,11 @@ that has been forwarded multiple times.
 <H2><A NAME="SEC429" HREF="emacspeak.html#TOC429">emacspeak-w3</A></H2>
 
 <P>
-nil
+Commentary:
+Ensure that speech support for W3 gets installed and
+loaded correctly.
+The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
 
 
 <P>
@@ -8988,7 +9018,8 @@ specifies by how many eleemnts to move.
 <H2><A NAME="SEC441" HREF="emacspeak.html#TOC441">emacspeak-websearch</A></H2>
 
 <P>
-nil
+Commentary:
+This module provides utility functions for searching the WWW
 
 
 <P>
@@ -9637,7 +9668,14 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 <H2><A NAME="SEC488" HREF="emacspeak.html#TOC488">emacspeak-widget</A></H2>
 
 <P>
-nil
+Commentary:
+This module implements the necessary extensions to provide talking
+widgets.
+
+
+<P>
+}}}
+{{{ required modules 
 
 
 <P>
@@ -9715,7 +9753,8 @@ widget before summarizing.
 <H2><A NAME="SEC494" HREF="emacspeak.html#TOC494">emacspeak</A></H2>
 
 <P>
-nil
+Commentary:
+The complete audio desktop.
 
 
 <P>
@@ -9754,10 +9793,6 @@ Give a brief overview of emacspeak.
 <H2><A NAME="SEC497" HREF="emacspeak.html#TOC497">dis-quote</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  dis-quote.
 
@@ -9777,10 +9812,6 @@ Set up variable emacspeak-websearch-personal-portfolio.
 
 
 <H2><A NAME="SEC499" HREF="emacspeak.html#TOC499">emacspeak-arc</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -9838,10 +9869,6 @@ Speak the size of the file on current line
 
 
 <H2><A NAME="SEC504" HREF="emacspeak.html#TOC504">emacspeak-dismal</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -10030,10 +10057,6 @@ Display the expression in the message area
 <H2><A NAME="SEC519" HREF="emacspeak.html#TOC519">emacspeak-eudc</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-eudc.
 
@@ -10053,10 +10076,6 @@ Send email to the address given by the current record.
 
 
 <H2><A NAME="SEC521" HREF="emacspeak.html#TOC521">emacspeak-man</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -10092,10 +10111,6 @@ Speak current section
 <H2><A NAME="SEC524" HREF="emacspeak.html#TOC524">emacspeak-python</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-python.
 
@@ -10128,10 +10143,6 @@ Move forward to the beginning of the next block.
 
 
 <H2><A NAME="SEC527" HREF="emacspeak.html#TOC527">emacspeak-tar</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -10177,10 +10188,6 @@ Speak size of file current entry
 
 
 <H2><A NAME="SEC531" HREF="emacspeak.html#TOC531">emacspeak-tetris</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -10324,10 +10331,6 @@ Speak next shape
 <H2><A NAME="SEC543" HREF="emacspeak.html#TOC543">emacspeak-view-process</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-view-process.
 
@@ -10361,10 +10364,6 @@ Set point to the current field in the next line.
 <H2><A NAME="SEC546" HREF="emacspeak.html#TOC546">emacspeak-w3search</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  emacspeak-w3search.
 
@@ -10384,10 +10383,6 @@ Search IBM Blue Pages
 
 
 <H2><A NAME="SEC548" HREF="emacspeak.html#TOC548">emacspeak-wizards</A></H2>
-
-<P>
-nil
-
 
 <P>
 Automatically generated documentation
@@ -11095,10 +11090,6 @@ If no property is set, show a message and exit.
 <H2><A NAME="SEC593" HREF="emacspeak.html#TOC593">ANONYMOUS</A></H2>
 
 <P>
-nil
-
-
-<P>
 Automatically generated documentation
 for commands defined in module  ANONYMOUS.
 
@@ -11209,6 +11200,21 @@ Jump to:
 <LI><A HREF="emacspeak.html#IDX75">C-c k</A>
 <LI><A HREF="emacspeak.html#IDX72">C-c o</A>
 <LI><A HREF="emacspeak.html#IDX325">Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A       &#62;   &#60;   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $</A>
+<LI><A HREF="emacspeak.html#IDX349">Control  cap E  %</A>
+<LI><A HREF="emacspeak.html#IDX342">Control  cap E  )</A>
+<LI><A HREF="emacspeak.html#IDX315">Control  cap E  :</A>
+<LI><A HREF="emacspeak.html#IDX320">Control  cap E  ;</A>
+<LI><A HREF="emacspeak.html#IDX216">Control  cap E  \</A>
+<LI><A HREF="emacspeak.html#IDX352">Control  cap E  c</A>
+<LI><A HREF="emacspeak.html#IDX278">Control  cap E  Control  cap O</A>
+<LI><A HREF="emacspeak.html#IDX354">Control  cap E  n</A>
+<LI><A HREF="emacspeak.html#IDX347">Control  cap E  |</A>
+<LI><A HREF="emacspeak.html#IDX291">Control  cap L  b</A>
+<LI><A HREF="emacspeak.html#IDX295">Control  cap L  f</A>
+<LI><A HREF="emacspeak.html#IDX293">Control  cap L  n</A>
+<LI><A HREF="emacspeak.html#IDX287">Control  cap L  p</A>
+<LI><A HREF="emacspeak.html#IDX289">Control  cap L  SPACE</A>
+<LI><A HREF="emacspeak.html#IDX260">Control  cap X   h n</A>
 <LI><A HREF="emacspeak.html#IDX323">control b   left</A>
 <LI><A HREF="emacspeak.html#IDX366">control down</A>
 <LI><A HREF="emacspeak.html#IDX158">control e  cap A</A>
@@ -11232,26 +11238,20 @@ Jump to:
 <LI><A HREF="emacspeak.html#IDX241">control e # a</A>
 <LI><A HREF="emacspeak.html#IDX245">control e # l</A>
 <LI><A HREF="emacspeak.html#IDX243">control e # s</A>
-<LI><A HREF="emacspeak.html#IDX349">control e %</A>
 <LI><A HREF="emacspeak.html#IDX432">control e '</A>
 <LI><A HREF="emacspeak.html#IDX143">control e (</A>
-<LI><A HREF="emacspeak.html#IDX342">control e )</A>
 <LI><A HREF="emacspeak.html#IDX376">control e ,</A>
 <LI><A HREF="emacspeak.html#IDX735">control e .</A>
 <LI><A HREF="emacspeak.html#IDX709">control e /</A>
 <LI><A HREF="emacspeak.html#IDX439">control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0</A>
-<LI><A HREF="emacspeak.html#IDX315">control e :</A>
-<LI><A HREF="emacspeak.html#IDX320">control e ;</A>
 <LI><A HREF="emacspeak.html#IDX446">control e &#60;</A>
 <LI><A HREF="emacspeak.html#IDX437">control e =</A>
 <LI><A HREF="emacspeak.html#IDX466">control e &#62;</A>
 <LI><A HREF="emacspeak.html#IDX562">control e ?</A>
 <LI><A HREF="emacspeak.html#IDX374">control e [</A>
-<LI><A HREF="emacspeak.html#IDX216">control e \</A>
 <LI><A HREF="emacspeak.html#IDX370">control e ]</A>
 <LI><A HREF="emacspeak.html#IDX378">control e a</A>
 <LI><A HREF="emacspeak.html#IDX483">control e b</A>
-<LI><A HREF="emacspeak.html#IDX352">control e c</A>
 <LI><A HREF="emacspeak.html#IDX454">control e control</A>
 <LI><A HREF="emacspeak.html#IDX337">control e control a</A>
 <LI><A HREF="emacspeak.html#IDX615">control e control b</A>
@@ -11267,7 +11267,6 @@ Jump to:
 <LI><A HREF="emacspeak.html#IDX468">control e control l</A>
 <LI><A HREF="emacspeak.html#IDX682">control e control left</A>
 <LI><A HREF="emacspeak.html#IDX412">control e control n</A>
-<LI><A HREF="emacspeak.html#IDX278">control e control o</A>
 <LI><A HREF="emacspeak.html#IDX414">control e control p</A>
 <LI><A HREF="emacspeak.html#IDX424">control e control q</A>
 <LI><A HREF="emacspeak.html#IDX716">control e control r</A>
@@ -11325,7 +11324,6 @@ Jump to:
 <LI><A HREF="emacspeak.html#IDX536">control e meta t</A>
 <LI><A HREF="emacspeak.html#IDX719">control e meta v</A>
 <LI><A HREF="emacspeak.html#IDX402">control e meta w</A>
-<LI><A HREF="emacspeak.html#IDX354">control e n</A>
 <LI><A HREF="emacspeak.html#IDX356">control e o</A>
 <LI><A HREF="emacspeak.html#IDX120">control e p</A>
 <LI><A HREF="emacspeak.html#IDX384">control e q</A>
@@ -11341,20 +11339,13 @@ Jump to:
 <LI><A HREF="emacspeak.html#IDX382">control e w</A>
 <LI><A HREF="emacspeak.html#IDX668">control e x s</A>
 <LI><A HREF="emacspeak.html#IDX372">control e {</A>
-<LI><A HREF="emacspeak.html#IDX347">control e |</A>
 <LI><A HREF="emacspeak.html#IDX327">control f   right</A>
 <LI><A HREF="emacspeak.html#IDX670">control h  cap M</A>
 <LI><A HREF="emacspeak.html#IDX617">control h control e</A>
 <LI><A HREF="emacspeak.html#IDX565">control h e</A>
-<LI><A HREF="emacspeak.html#IDX291">control l b</A>
-<LI><A HREF="emacspeak.html#IDX295">control l f</A>
-<LI><A HREF="emacspeak.html#IDX293">control l n</A>
-<LI><A HREF="emacspeak.html#IDX287">control l p</A>
-<LI><A HREF="emacspeak.html#IDX289">control l SPACE</A>
 <LI><A HREF="emacspeak.html#IDX723">control left</A>
 <LI><A HREF="emacspeak.html#IDX662">control right</A>
 <LI><A HREF="emacspeak.html#IDX426">control up</A>
-<LI><A HREF="emacspeak.html#IDX260">control x  h n</A>
 </DIR>
 <H2><A NAME="kindex_d">d</A></H2>
 <DIR>
