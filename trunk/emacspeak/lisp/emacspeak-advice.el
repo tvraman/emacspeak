@@ -1677,11 +1677,13 @@ Produce an auditory icon if possible."
   "Speech-enabled by emacspeak."
   (cond
    ((interactive-p)
-    (setq emacspeak-last-command-needs-minibuffer-spoken t)
+    (dtk-speak
+     (format "Kill Buffer: %s"
+             (buffer-name)))
     ad-do-it
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line))
-    (t ad-do-it))
+   (t ad-do-it))
   ad-return-value)
     
 (defadvice quit-window (after emacspeak pre act)
