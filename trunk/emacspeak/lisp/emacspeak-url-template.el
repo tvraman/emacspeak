@@ -309,7 +309,10 @@ Francisco ny for New york etc.")
  "http://dailynews.yahoo.com/h/tc/?u"
  nil
  #'(lambda nil
-     (let ((emacspeak-w3-xsl-p nil))
+     (declare (special emacspeak-w3-xsl-p
+                       emacspeak-w3-xsl-transform))
+     (let ((emacspeak-w3-xsl-p nil)
+           (emacspeak-w3-xsl-transform nil))
        (search-forward "News Stories")
        (emacspeak-w3-next-doc-element)
        (w3-table-move-to-table-start)
@@ -443,7 +446,19 @@ Computing News at CNN.")
 (emacspeak-url-template-define
  "CNN Markets New York"
  "http://money.cnn.com/%s/markets/markets_newyork/"
- (list 'emacspeak-url-template-date-year/month/date))
+ (list 'emacspeak-url-template-date-year/month/date)
+ #'(lambda nil
+     (declare (special emacspeak-w3-xsl-p
+                       emacspeak-w3-xsl-transform))
+     (let ((emacspeak-w3-xsl-p t)
+           (emacspeak-w3-xsl-transform (expand-file-name
+                                        "sort-tables.xsl"
+                                        emacspeak-xslt-directory)))
+     (goto-char (point-min))
+     (search-forward (format-time-string "%B"))
+     (w3-table-speak-this-cell)))
+ "Speak CNN Market Update.")
+
 
 ;;}}}
 ;;{{{ technet cast from DDJ
