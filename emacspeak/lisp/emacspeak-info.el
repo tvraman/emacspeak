@@ -246,6 +246,16 @@ Info-header-line))
         (emacspeak-speak-line))))))
 
 ;;}}}
+;;{{{  Emacs 21 
+;;; There is a bug in Emacs 21 that causes info-extract-pointer to be
+;;; called erroneously.
+
+(defadvice Info-extract-pointer  (around emacspeak pre act comp)
+  "Silence emacspeak during call."
+  (let ((emacspeak-speak-messages nil)
+        (emacspeak-use-auditory-icons nil))
+    ad-do-it))
+;;}}}
 ;;{{{ keymaps
 (declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
