@@ -86,14 +86,16 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (voice-lock-mode 1)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-custom-goto-group)
+    (emacspeak-speak-line)))
 
 (defadvice customize-group (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-custom-goto-group)
     (voice-lock-mode 1)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-line)))
 
 (defadvice customize-browse (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -105,17 +107,22 @@
 (defadvice customize-option (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (voice-lock-mode 1)
-    (emacspeak-speak-mode-line)))
+    (let ((symbol (ad-get-arg 0)))
+      (emacspeak-auditory-icon 'open-object)
+      (search-forward (custom-unlispify-tag-name symbol))
+      (beginning-of-line)
+      (voice-lock-mode 1)
+      (emacspeak-speak-line))))
 
 (defadvice customize-variable (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (voice-lock-mode 1)
-    (emacspeak-speak-mode-line)))
-
+    (let ((symbol (ad-get-arg 0)))
+      (emacspeak-auditory-icon 'open-object)
+      (voice-lock-mode 1)
+      (search-forward (custom-unlispify-tag-name symbol))
+      (beginning-of-line)
+      (emacspeak-speak-line))))
 
 (defadvice Custom-goto-parent (after emacspeak pre act comp)
   "Provide auditory feedback"
