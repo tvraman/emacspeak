@@ -61,10 +61,17 @@
 ;;{{{  setup various EShell hooks
 
 ;;; Play an auditory icon as you display the prompt 
+(defun emacspeak-eshell-prompt-function ()
+  "Play auditory icon for prompt."
+  (cond
+   ((= 0 eshell-last-command-status)
+             (emacspeak-serve-auditory-icon 'item))
+   (t (emacspeak-auditory-icon 'warn-user))))
+
 (add-hook 'eshell-after-prompt-hook
-          (function
-           (lambda nil
-             (emacspeak-serve-auditory-icon 'item))))
+          'emacspeak-eshell-prompt-function)
+
+
 ;;; Speak command output 
 (add-hook 'eshell-post-command-hook
           (function 
