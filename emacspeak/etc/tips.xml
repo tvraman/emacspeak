@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE tips
+PUBLIC " tips // t. v. raman 1.0"
+ "tips.dtd">
+<?xml-stylesheet
+href="file:////home/raman/emacs/lisp/emacspeak/etc/tips.xsl"
+type="text/xsl"?>
+
+<tips id="01">
+  <tip id="dired_files" title="Managing Files And Folders">
+Files and folders are best managed using Emacs' dired mode
+    invoked by  
+<command> dired</command>.
+Files and folders matching a specific selection 
+criterion can be  located using either  <command>
+    find-dired</command>
+and friends, or more efficiently via 
+    <command>locate</command> and
+    <command>locate-with-filter</command>.
+All of these commands present a directory listing of the
+    selected files and folders with the same browsing
+    interface; see the Emacs online info pages for
+    <topic>dired</topic>.
+</tip>
+  <postamble></postamble>
+</tips>
+<!--
+
+local variables:
+sgml-set-face: nil
+end:
+
+-->
