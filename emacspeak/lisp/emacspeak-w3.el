@@ -879,7 +879,8 @@ prefix arg causes url to be read from the minibuffer."
        (source-url
         (set-buffer  (url-retrieve-synchronously source-url)))
        (t (w3-source-document nil)))
-      (let ((src-buffer (current-buffer)))
+      (let ((src-buffer (current-buffer))
+            (emacspeak-w3-xsl-p nil))
         (emacspeak-xslt-region
          emacspeak-w3-xsl-filter
          (point-min)
