@@ -182,7 +182,6 @@
   (require 'dtk-speak))
 (require 'voice-setup)
 (require 'lazy-voice-lock)
-(require 'fast-voice-lock)
 (require 'regexp-opt)
 ;;}}}
 ;; User variables.
@@ -502,7 +501,7 @@ This is normally set via `voice-lock-defaults'.")
 
 (defvar voice-lock-inhibit-thing-lock nil
   "List of Voice Lock mode related modes that should not be turned on.
-Currently, valid mode names as `fast-voice-lock-mode' and `lazy-voice-lock-mode'.
+Currently, valid mode names as  `lazy-voice-lock-mode'.
 This is normally set via `voice-lock-defaults'.")
 
 (defvar voice-lock-mode nil)		; For the modeline.
@@ -757,7 +756,7 @@ If nil, means support for Voice Lock mode is never performed.
 If a symbol, use that support mode.
 If a list, each element should be of the form (MAJOR-MODE . SUPPORT-MODE),
 where MAJOR-MODE is a symbol or t (meaning the default).  For example:
- ((c-mode . fast-voice-lock-mode) (c++-mode . fast-voice-lock-mode) (t . lazy-voice-lock-mode))
+ ((c-mode . lazy-voice-lock-mode) (c++-mode . lazy-voice-lock-mode) (t . lazy-voice-lock-mode))
 means that Fast Lock mode is used to support Voice Lock mode for buffers in C or
 C++ modes, and Lazy Lock mode is used to support Voice Lock mode otherwise.
 
@@ -767,29 +766,25 @@ The value of this variable is used when Voice Lock mode is turned on."
 
 (defun voice-lock-turn-on-thing-lock ()
   (let ((thing-mode (voice-lock-value-in-major-mode voice-lock-support-mode)))
-    (cond ((eq thing-mode 'fast-voice-lock-mode)
-	   (fast-voice-lock-mode t))
+    (cond 
 	  ((eq thing-mode 'lazy-voice-lock-mode)
 	   (lazy-voice-lock-mode t)))))
 
-(defvar fast-voice-lock-mode nil)
+
 (defvar lazy-voice-lock-mode nil)
 
 (defun voice-lock-turn-off-thing-lock ()
-  (cond (fast-voice-lock-mode
-	 (fast-voice-lock-mode nil))
+  (cond 
 	(lazy-voice-lock-mode
 	 (lazy-voice-lock-mode nil))))
 
 (defun voice-lock-after-voiceify-buffer ()
-  (cond (fast-voice-lock-mode
-	 (fast-voice-lock-after-voiceify-buffer))
+  (cond 
 	(lazy-voice-lock-mode
 	 (lazy-voice-lock-after-voiceify-buffer))))
 
 (defun voice-lock-after-unvoiceify-buffer ()
-  (cond (fast-voice-lock-mode
-	 (fast-voice-lock-after-unvoiceify-buffer))
+  (cond 
 	(lazy-voice-lock-mode
 	 (lazy-voice-lock-after-unvoiceify-buffer))))
 
