@@ -83,12 +83,12 @@ pronunciation dictionaries are stored. ")
   :group 'tts
   :type 'integer)
 
-(defcustom dtk-default-speech-rate 225
+(defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
   :group 'tts
   :type 'integer)
 
-(defvar tts-default-speech-rate dtk-default-speech-rate
+(defvar tts-default-speech-rate dectalk-default-speech-rate
   "Setup on a per engine basis.")
 
 (unless (featurep 'emacspeak)
