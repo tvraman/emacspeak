@@ -51,6 +51,7 @@
 
 ;;}}}
 ;;{{{ voice personalities
+
 (def-voice-font  emacspeak-buffer-menu-buffer-face
   voice-bolden
   'Buffer-menu-buffer-face
@@ -59,7 +60,6 @@
 ;;}}}
 ;;{{{  list buffers 
 
-;;; This fold probably deserves a file of its own.
 (defun emacspeak-list-buffers-speak-buffer-name ()
   "Speak the name of the buffer on this line"
   (interactive)
