@@ -819,23 +819,20 @@ Produce an auditory icon as well."
     ad-return-value))
 (unless emacspeak-xemacs-p
                                         ; we need to advice these only for FSF Emacs
-  (defadvice completing-read (around emacspeak pre act )
-    "Prompt using speech."
-    (let ((dtk-stop-immediately t )
-          (prompt (ad-get-arg 0))
-          (initial (ad-get-arg 4 ))
-          (default (ad-get-arg 6)))
-      (dtk-speak
-       (format "%s %s%s"
-               (or prompt " ")
-               (or initial " ")
-               (if default
-                   (format "Default: %s" default)
-                 "")))
-      ad-do-it
-      (tts-with-punctuations "all"
-                             (dtk-speak (format "%s" ad-return-value )))
-      ad-return-value ))
+(defadvice completing-read (around emacspeak pre act )
+  "Prompt using speech."
+  (let ((dtk-stop-immediately t )
+        (prompt (ad-get-arg 0))
+        (initial (ad-get-arg 4 ))
+        (default (ad-get-arg 6)))
+    (dtk-speak
+     (format "%s %s"
+             (or prompt " ")
+             (or initial default " ")))
+    ad-do-it
+    (tts-with-punctuations "all"
+                           (dtk-speak (format "%s" ad-return-value )))
+    ad-return-value ))
 
   (defadvice read-buffer(around emacspeak pre act )
     "Prompt using speech as well. "
