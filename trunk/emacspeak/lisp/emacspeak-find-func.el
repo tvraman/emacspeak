@@ -66,9 +66,10 @@
         (defadvice (, f)  (after emacspeak pre act comp)
           "Speak current line"
           (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
             (emacspeak-dtk-sync)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'open-object))))))
+            (dtk-speak
+             (format "Found %s" (ad-get-arg 0))))))))
 
 ;;}}}
 
