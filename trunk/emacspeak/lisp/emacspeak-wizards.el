@@ -559,7 +559,7 @@ default-directory after switching."
      (t (save-excursion
           (set-buffer buffer)
           (message (buffer-string)))))))
-
+;;;###autoload
 (defun emacspeak-wizards-tpctl-display-status ()
   "Show display status on thinkpads using tpctl."
   (interactive)
