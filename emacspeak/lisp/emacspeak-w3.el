@@ -53,6 +53,11 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(when (locate-library "w3-speak") (require 'w3-speak))
+(when (and (locate-library "w3-speak-table")
+           (not (featurep 'w3-speak-table)))
+  (load-library "w3-speak-table")
+  (provide 'w3-speak-table))
 ;;}}}
 ;;{{{  custom
 
@@ -77,7 +82,7 @@
                   url-show-status
                   w3-mode-map))
 
-(when (locate-library "w3-speak") (require 'w3-speak))
+
 
 (defcustom emacspeak-w3-punctuation-mode "some"
   "Pronunciation mode to use for W3 buffers."
@@ -102,10 +107,7 @@
 (setq w3-echo-link
       (list 'text 'title 'name 'url))
 
-(when (and (locate-library "w3-speak-table")
-           (not (featurep 'w3-speak-table)))
-  (load-library "w3-speak-table")
-  (provide 'w3-speak-table))
+
 (setq url-show-status nil)
   
 
