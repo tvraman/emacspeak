@@ -59,7 +59,32 @@
 ;;; which speech-enables the widget libraries.
 
 ;;}}}
-;;{{{advice
+
+;;{{{ advice
+
+(defadvice Custom-reset-current (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'item)
+    (dtk-speak "Reset current")))
+
+(defadvice Custom-reset-saved(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'unmodified-object)
+    (dtk-speak "Reset to saved")))
+
+(defadvice Custom-set (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (dtk-speak "Set for current session")))
+
+(defadvice Custom-save (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (dtk-speak "Set and saved")))
 
 (defadvice Custom-buffer-done (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -194,6 +219,11 @@
 ;;{{{  bind emacspeak commands 
 
 (declaim (special custom-mode-map))
+(define-key custom-mode-map "r" 'Custom-reset-current)
+(define-key custom-mode-map "R" 'Custom-reset-saved)
+(define-key custom-mode-map "s" 'Custom-set)
+(define-key  custom-mode-map "S" 'Custom-save)
+
 (define-key custom-mode-map "," 'backward-paragraph)
 (define-key custom-mode-map "." 'forward-paragraph)
 (define-key custom-mode-map  "\M-t" 'emacspeak-custom-goto-toolbar)
