@@ -601,7 +601,7 @@ This is setup on a per engine basis.")
       (setq tts-default-speech-rate dtk-default-speech-rate)))
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
-(defun dtk-select-server (program &optional local)
+(defun dtk-select-server (program)
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
 The selected server is started immediately."
@@ -611,22 +611,14 @@ The selected server is started immediately."
                           t  )
          current-prefix-arg))
   (declare (special  dtk-tcl dtk-program dtk-servers-alist))
-  (cond
-   (local 
-    (setq dtk-program program)
-    (make-variable-buffer-local 'dtk-program)
-    (make-variable-buffer-local 'dtk-speaker-process)
-    (make-variable-buffer-local 'dtk-speaker-process))
-   (t (setq-default dtk-program program)))
+  (setq dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
     (and (string= "outloud" dtk-program)
          emacspeak-use-auditory-icons
          (not emacspeak-use-midi-icons)
          (emacspeak-toggle-midi-icons))
-    (dtk-initialize)
-    (unless local
-      (kill-local-variable 'dtk-speaker-process))))
+    (dtk-initialize)))
 
 ;;}}}
 ;;{{{  initialize the speech process

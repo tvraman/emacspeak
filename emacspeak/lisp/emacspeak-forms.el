@@ -122,7 +122,7 @@
   "Provide auditory feedback."
   (cond
    ((interactive-p)
-      ad-do-it
+    ad-do-it
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-forms-speak-field))
    (t ad-do-it))
@@ -153,7 +153,7 @@
 ;;{{{ Helper functions
 (defvar emacspeak-forms-current-record-summarizer
   'emacspeak-forms-speak-field
-"Summarizer function for summarizing a record. Default is to
+  "Summarizer function for summarizing a record. Default is to
 speak the first field")
 (make-variable-buffer-local
  emacspeak-forms-current-record-summarizer)
@@ -174,10 +174,10 @@ speak the first field")
            forms--current-record forms--total-records forms-file)))
 
 (defvar emacspeak-forms-rw-voice 'paul
-"Personality for read-write fields. ")
+  "Personality for read-write fields. ")
 
 (defvar emacspeak-forms-ro-voice 'annotation-voice
-"Personality for read-only fields. ")
+  "Personality for read-only fields. ")
 
 
 (defun emacspeak-forms-speak-field ()
@@ -205,7 +205,7 @@ Assumes that point is at the front of a field value."
                        'personality emacspeak-forms-rw-voice value)
     (dtk-speak (concat name " " value ))))
 
-      ;;}}}
+;;}}}
 ;;{{{ smart filters
 
 (defun emacspeak-forms-flush-unwanted-records ()
@@ -258,23 +258,20 @@ Assumes that point is at the front of a field value."
 ;;{{{ bind smart filters
 (declaim (special forms-mode-map forms-mode-ro-map
                   forms-mode-edit-map))
-(add-hook 'forms-mode-hook
-(function
-(lambda nil 
-(mapcar 
- (function
-  (lambda (map)
-    (define-key map "\C-m" 'emacspeak-forms-rerun-filter)))
- (list forms-mode-ro-map 
-   forms-mode-map 
-   forms-mode-edit-map ))
-(mapcar 
- (function
-  (lambda (map)
-    (define-key map "." 'emacspeak-forms-summarize-current-position)))
- (list forms-mode-ro-map 
-       forms-mode-map 
-       forms-mode-edit-map )))))
+(add-hook 'forms-mode-hooks
+          (function
+           (lambda nil 
+             (mapcar 
+              (function
+               (lambda (map)
+                 (define-key map "\C-m" 'emacspeak-forms-rerun-filter)
+                 (define-key map "."
+                   'emacspeak-forms-summarize-current-position)
+                 (define-key map "," 'emacspeak-forms-summarize-current-record)))
+              (list forms-mode-ro-map 
+                    forms-mode-map))
+;;; move to first field
+             (forms-next-field 1))))
   
 
 ;;}}}
