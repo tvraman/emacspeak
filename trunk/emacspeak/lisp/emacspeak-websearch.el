@@ -150,7 +150,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ;;}}}
 ;;{{{ helpers 
-
+;;;###autoload
 (defun emacspeak-websearch-do-post (the-method the-url query
                                                &optional
                                                enctype)
