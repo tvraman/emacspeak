@@ -308,6 +308,27 @@ display. String is the original message."
             (tts-with-punctuations dtk-punctuation-mode
             (dtk-speak  msg))))))))
 
+(defadvice erc-display-line-1  (after emacspeak pre act
+                                           comp)
+  "Speech-enable ERC."
+  (declare (special emacspeak-erc-room-monitor
+                    emacspeak-erc-monitor-my-messages
+                    emacspeak-erc-my-nick))
+  (let ( (buffer (ad-get-arg 1))
+         (case-fold-search t))
+    (save-excursion
+      (set-buffer buffer)
+      (when (or emacspeak-erc-room-monitor
+                emacspeak-erc-monitor-my-messages)
+        (let ((emacspeak-speak-messages nil)
+              (msg (emacspeak-erc-compute-message (ad-get-arg 0)
+                                                  buffer)))
+          (when msg
+            (emacspeak-auditory-icon 'progress)
+            (message msg)
+            (tts-with-punctuations dtk-punctuation-mode
+            (dtk-speak  msg))))))))
+
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
   "Toggle state of ERC room monitor.
 Interactive 
