@@ -88,12 +88,3 @@ applies rules from the first pass.
 
   <!-- } -->
 </xsl:stylesheet>
-<!-- {end of file 
-
-<!--  --> 
-local variables:
-folded-file: t
-end:
--->
-
- <!-- } -->
