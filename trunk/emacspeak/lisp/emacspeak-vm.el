@@ -482,6 +482,13 @@ ad-return-value)
 
 
 ;;}}}
+;;{{{  misc 
+
+(defadvice vm-count-messages-in-file (around emacspeak-fix pre act comp)
+(ad-set-arg 1 'quiet)
+ad-do-it)
+
+;;}}}
 (provide 'emacspeak-vm)
 ;;{{{  local variables
 
