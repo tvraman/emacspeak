@@ -1041,7 +1041,7 @@ used as well."
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
-(defun emacspeak-w3-browse-xml-url-with-style (style url)
+(defun emacspeak-w3-browse-xml-url-with-style (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
   (interactive
    (list
@@ -1064,6 +1064,22 @@ used as well."
                   (emacspeak-auditory-icon 'open-object)))
     (save-excursion
       (set-buffer src-buffer)
+      (when unescape-charent
+        (goto-char (point-min))
+        (while (search-forward "&lt;" nil t)
+          (replace-match "<"))
+        (goto-char (point-min))
+        (while (search-forward "&gt;" nil t)
+          (replace-match ">"))
+        (goto-char (point-min))
+        (while (search-forward "&quot;" nil t)
+          (replace-match "\""))
+        (goto-char (point-min))
+        (while (search-forward "&quot;" nil t)
+          (replace-match "'")))
+(goto-char (point-min))
+        (while (search-forward "&amp;" nil t)
+          (replace-match "&"))
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
