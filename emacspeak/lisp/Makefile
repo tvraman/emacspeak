@@ -99,6 +99,7 @@ emacspeak-c.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
+emacspeak-cedet.elc \
 emacspeak-checkdoc.elc \
 emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
@@ -282,6 +283,7 @@ emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
 emacspeak-calc.elc: emacspeak-calc.el 
 emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc voice-setup.elc
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
+emacspeak-cedet.elc: emacspeak-cedet.el dtk-speak.elc voice-setup.elc
 emacspeak-checkdoc.elc: emacspeak-checkdoc.el dtk-speak.elc voice-setup.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
