@@ -223,7 +223,9 @@
   'emacspeak-view-emacspeak-news)
 (define-key emacspeak-keymap "F"
   'emacspeak-view-emacspeak-faq)
-(define-key emacspeak-keymap "D" 'emacspeak-view-emacspeak-doc)
+(define-key emacspeak-keymap "D"
+  'emacspeak-view-emacspeak-doc)
+(define-key emacspeak-keymap '[f1] 'emacspeak-customize-current-major-mode)
 ;;; submap for setting dtk:
 (define-key emacspeak-dtk-submap "z" 'emacspeak-zap-tts)
 (define-key emacspeak-dtk-submap "t" 'emacspeak-dial-dtk)
