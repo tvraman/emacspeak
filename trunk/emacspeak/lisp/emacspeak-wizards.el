@@ -1643,6 +1643,7 @@ Signals beginning  of buffer."
                                    (cons 0 1)
                                    (cons 79 20)
                                    'right-stretch 'left-stretch)
+  (emacspeak-eterm-set-filter-window 1)
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 

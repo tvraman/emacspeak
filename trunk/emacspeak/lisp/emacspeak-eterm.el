@@ -1106,8 +1106,8 @@ Use command emacspeak-eterm-toggle-pointer-mode bound to
 Also keep track of terminal highlighting etc.
 Feedback is limited to current window 
 If a `current window`
-is set (see command emacspeak-eterm-set-focus-window
-bound to \\[emacspeak-eterm-set-focus-window].
+is set (see command emacspeak-eterm-set-filter-window
+bound to \\[emacspeak-eterm-set-filter-window].
 How output is spoken  depends on whether the terminal is in
 character or line mode.
 When in character mode, output is spoken like off a real terminal.
@@ -1119,7 +1119,8 @@ See command emacspeak-toggle-eterm-autospeak bound to
 \\[emacspeak-toggle-eterm-autospeak]"
   (declare (special emacspeak-eterm-row emacspeak-eterm-column
                     eterm-line-mode eterm-char-mode
-                    emacspeak-eterm-focus-window emacspeak-eterm-pointer-mode
+                    focus
+                    emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
                     emacspeak-eterm-autospeak 
                     term-current-row term-current-column))
   (let ((emacspeak-eterm-row (term-current-row ))
@@ -1144,8 +1145,22 @@ See command emacspeak-toggle-eterm-autospeak bound to
                            emacspeak-eterm-focus-window )
                           (emacspeak-eterm-coordinate-within-window-p
                            (cons (term-current-column) (term-current-row))
-                           emacspeak-eterm-focus-window ))))
+                           emacspeak-eterm-focus-window ))
+                     (and (emacspeak-eterm-coordinate-within-window-p
+                           (cons new-column new-row )
+                           emacspeak-eterm-filter-window )
+                          (emacspeak-eterm-coordinate-within-window-p
+                           (cons (term-current-column) (term-current-row))
+                           emacspeak-eterm-filter-window ))))
       (cond
+       ((and eterm-char-mode
+             emacspeak-eterm-filter-window
+             (not (and (emacspeak-eterm-coordinate-within-window-p
+                        (cons new-column new-row )
+                        emacspeak-eterm-filter-window )
+                       (emacspeak-eterm-coordinate-within-window-p
+                        (cons (term-current-column) (term-current-row))
+                        emacspeak-eterm-filter-window )))) nil)
        ((and  eterm-line-mode
               emacspeak-eterm-autospeak)
         (setq dtk-stop-immediately nil)
