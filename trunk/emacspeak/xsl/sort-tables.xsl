@@ -63,6 +63,7 @@ There are
  nested tables in this page. 
 </p>
       <xsl:for-each select="//table//table">
+        <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
         <xsl:sort select="count(.//text()|.//p)" order="descending"/>
         <xsl:sort select="@width" order="descending"/>
 <!--
