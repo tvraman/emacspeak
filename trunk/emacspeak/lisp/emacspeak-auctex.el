@@ -60,7 +60,7 @@
 
   :group 'emacspeak-auctex)
 
-(def-voice-font emacspeak-latex-sedate-personality 'voice-smoothen
+(def-voice-font emacspeak-latex-sedate-personality voice-smoothen
   'font-latex-sedate-face                                          
   "Personality used  on macro names."                              
   :group 'emacspeak-auctex)                                        

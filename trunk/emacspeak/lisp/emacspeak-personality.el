@@ -141,7 +141,21 @@ font-lock.  Voicification is effective only if font lock is on."
 
 
 ;;}}}
+;;{{{ attach voice lock to global font lock
+
+(defadvice global-font-lock-mode (after emacspeak pre act comp)
+  "Attach voice lock to font lock."
+  (when global-font-lock-mode
+    (setq-default voice-lock-mode t)))
+
+;;}}}
 ;;{{{ cumulative personalities 
+
+(defun emacspeak-personality-put (start end personality object)
+  "Apply personality to specified region, over-writing any current
+personality settings."
+  (ems-modify-buffer-safely
+  (put-text-property start end 'personality personality object)))
 
 (defun emacspeak-personality-append  (start end personality
                                             &optional object )
@@ -240,27 +254,21 @@ preserved."
                                                   personality)))))))
 
 ;;}}}
-;;{{{ attach voice lock to global font lock
-
-(defadvice global-font-lock-mode (after emacspeak pre act comp)
-  "Attach voice lock to font lock."
-  (when global-font-lock-mode
-    (setq-default voice-lock-mode t)))
-
-;;}}}
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-append
+  'emacspeak-personality-put
   "Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
 Prepend means that the corresponding personality is prepended to the
 existing personalities on the text.
 
-Append means place corresponding personality at the end."
+Append means place corresponding personality at the end.
+Simple means that voiceification is not cumulative --this is the default."
   :type '(choice :tag "Face Voiceification"
                  (const :tag "None" nil)
+                 (const :tag "Simple" emacspeak-personality-put)
                  (const :tag "Prepend" emacspeak-personality-prepend)
                  (const :tag "Append" emacspeak-personality-append))
   :group 'emacspeak-personality)
