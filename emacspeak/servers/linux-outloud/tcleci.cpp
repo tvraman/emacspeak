@@ -70,6 +70,7 @@ you like after a command.
 /* ugly ugly */
 #define DSP "/dev/dsp"
 int  dsp;
+//1 second using 11025k samples.
 #define BUFSIZE 11025
 short waveBuffer[BUFSIZE];
 
@@ -307,8 +308,6 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
   if (rc != TCL_OK) return rc;
   rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
   if (rc != TCL_OK) return rc;
-  //fprintf(stderr, "Setting rate to %d for voice %d\n",
-          rate, voice);
   rc = _eciSetVoiceParam (eciHandle, voice,  6/*eciSpeed*/, rate);
   if (rc == -1) {
     Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
