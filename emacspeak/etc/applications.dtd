@@ -8,7 +8,7 @@
                         category                                   -->
 <!ELEMENT  category     (application)+                               >
 <!--         name       Name of this category. Pick a descriptive
-                        name with multiple words, with the first word
+                        name with a single word 
                         capitalized.                               -->
 <!ATTLIST  category
              name       CDATA                              #REQUIRED >
