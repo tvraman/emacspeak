@@ -26,7 +26,6 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="start" select="1"/>
   <xsl:param name="end" select="1"/>
   <xsl:param name="base" />
-  <xsl:param name="uniquify" select="1"/>
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:key name="pageKey" match="pagenum" use="text()"/>
@@ -57,27 +56,13 @@ and the final intersection is computed using set:intersection.
             select="key('pageKey', $start)"/>
             <xsl:variable name="last"
             select="key('pageKey', $end+1)"/>
+            <!-- use dummy loops  to set context node -->
             <xsl:for-each select="$first">
-              <xsl:variable  name="after" select="following::*"/>
+              <xsl:variable  name="after" select="following::p"/>
               <xsl:for-each select="$last">
-                <xsl:variable name="before" select="preceding::*"/>
-                <xsl:for-each
-                  select="set:intersection($before, $after)">
-                  <xsl:choose>
-                    <xsl:when test="$uniquify">
-                      <!-- the following test is needed to avoid duplicates 
-                      but it is linear in size and a very slow solution -->
-                      <xsl:if test="not(set:intersection(ancestor::*, $after))">
-                        <xsl:copy-of select="."/>
-                      </xsl:if>
-                      <!-- Still looking for a better solution for the
-                      test above -->
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <!-- this will produce duplicates -->
-                      <xsl:copy-of select="."/>
-                    </xsl:otherwise>
-                  </xsl:choose>
+                <xsl:variable name="before" select="preceding::p"/>
+                <xsl:for-each select="set:intersection($before, $after)">
+                  <xsl:copy-of select="."/>
                 </xsl:for-each>
               </xsl:for-each>
             </xsl:for-each>
