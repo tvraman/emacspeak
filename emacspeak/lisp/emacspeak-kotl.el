@@ -42,7 +42,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
 ;;{{{  Introduction:
 
 ;;; Provide Emacspeak  advice to
@@ -288,14 +287,6 @@
 
 ;;}}}
 ;;{{{  fix interactive prompts of redefined functions:
-
-(mapcar
- (function (lambda (f)
-             (ad-set-advice-info   f nil)
-             (emacspeak-fix-interactive-command-if-necessary f )))
- '(kotl-mode:insert-file
-   kotl-mode:copy-to-register
-   kotl-mode:insert-register ))
 
 (defadvice kotl-mode:copy-to-register (before emacspeak pre act)
   "Acknowledge the copy"

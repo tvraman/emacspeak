@@ -47,9 +47,6 @@
 (require 'emacspeak-sounds)
 (require 'voice-lock)
 
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-
 ;;}}}
 ;;{{{  Introduction
 
@@ -92,33 +89,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
-
-;;}}}
-;;{{{  fix interactive prompts
-
-(loop for command in 
-      (list
-       'jde-db-set-app-args
-       'jde-db-set-args
-       'jde-db-set-debugger
-       'jde-db-set-source-paths
-       'jde-gen-class-buffer
-       'jde-gen-console-buffer
-       'jde-menu
-       'jde-run-applet
-       'jde-run-set-app
-       'jde-run-set-app-args
-       'jde-run-set-applet-doc
-       'jde-run-set-applet-viewer
-       'jde-run-set-args
-       'jde-run-set-vm
-       'jde-run-set-vm-w
-       'jde-set-classpath
-       'jde-set-compile-options
-       'jde-set-compiler
-       'jde-set-global-classpath)
-      do
-      (emacspeak-fix-interactive-command-if-necessary command))
 
 ;;}}}
 ;;{{{ voice lock 
@@ -223,30 +193,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-;;{{{ fix interactive commands 
-(loop for f in 
-      '(jde-bug-display-object
-        jde-gen-jfc-app-buffer
-        jde-bug-show-object-monitors
-        jde-bug-set-target-process
-        jde-find-class-source
-        jde-menu1
-        jde-bug-evaluate-expression
-        jde-bug-suspend-thread
-        jde-bug-resume-thread
-        jde-bug-interrupt-thread
-        jde-bug-display-array
-        jde-bug-display-string
-        jde-bug-attach-via-shared-memory
-        jde-bug-stop-thread
-        jde-bug-menu1
-        jde-bug-attach-local-host
-        jde-bug-attach-remote-host)
-      do
-      (emacspeak-fix-interactive-command-if-necessary f))
-
-
-;;}}}
 ;;}}}
 (provide 'emacspeak-jde )
 ;;{{{ end of file 

@@ -45,7 +45,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'voice-lock)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -125,9 +124,6 @@ mpg123 defines this as a macro which causes compile trouble."
   "Speak line moveed to."
   (when (interactive-p)
     (emacspeak-mpg123-speak-line)))
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-        '(mpg123
-          mpg123-open-new))
 
 (defadvice  mpg123-yank-line (after emacspeak pre act comp)
   "Speak track we yanked."

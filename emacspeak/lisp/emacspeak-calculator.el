@@ -43,7 +43,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 
@@ -230,16 +229,6 @@
                                             act comp)
   "Speak the updated  display. "
   (emacspeak-speak-line))
-
-;;}}}
-;;{{{ fix interactive commands 
-
-(loop for c in 
-      (list
-       'calculator-set-register
-'calculator-get-register)
-do
-(emacspeak-fix-interactive-command-if-necessary c))
 
 ;;}}}
 ;;{{{  keys 

@@ -49,8 +49,7 @@
   (require 'emacspeak-sounds)
   (require 'widget)
   (require 'wid-edit)
-  (require 'emacspeak-widget)
-  (require 'emacspeak-fix-interactive))
+  (require 'emacspeak-widget))
 
 ;;}}}
 ;;{{{  Introduction
@@ -58,19 +57,6 @@
 ;;;Advise custom to speak.
 ;;; most of the work is actually done by emacspeak-widget.el
 ;;; which speech-enables the widget libraries.
-
-;;}}}
-;;{{{ auto-fix interactive prompts
-
-(loop for f in
-      '(customize-apropos
-customize-changed-options
-customize-apropos-faces
-customize-apropos-groups
-customize-apropos-options)
-      do
-(emacspeak-fix-interactive-command-if-necessary f))
-
 
 ;;}}}
 ;;{{{ Advice

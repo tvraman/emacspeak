@@ -46,8 +46,9 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'calendar)
-(eval-when (compile) (require 'calendar )
-           (require 'emacspeak-fix-interactive))
+(eval-when-compile
+  (require 'calendar )
+           )
 
 ;;{{{  Introduction:
 
@@ -367,13 +368,6 @@
 
 ;;}}}
 ;;{{{  Appointments:
-
-(progn 
-(load-library "appt")
-    (emacspeak-fix-interactive-command-if-necessary 'appt-add)
-    (emacspeak-fix-interactive-command-if-necessary
-     'appt-delete))
-
 
 ;;{{{ to be junked 
 
