@@ -1969,11 +1969,9 @@ paragraph-separate. "
   (interactive "P")
   (when define-paragraph
     (setq paragraph-start
-          (read-from-minibuffer "Paragraph Start pattern:
-"))
+          (read-from-minibuffer "Paragraph Start pattern: "))
     (setq paragraph-separate
-          (read-from-minibuffer "Paragraph separate pattern: "
-                                paragraph-start)))
+          (read-from-minibuffer "Paragraph separate pattern: " paragraph-start)))
   (emacspeak-execute-repeatedly 'forward-paragraph))
 
 (defvar emacspeak-read-line-by-line-quotient 10
