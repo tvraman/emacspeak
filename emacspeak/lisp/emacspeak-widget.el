@@ -463,6 +463,7 @@ widget before summarizing."
 
 ;;}}}
 ;;{{{ work around widget problems
+
 (defadvice widget-convert-text (around emacspeak pre act comp)
   "Protect value of personality if set originally"
   (let ((start (ad-get-arg 1))
@@ -474,6 +475,21 @@ widget before summarizing."
          (put-text-property start end 
                             'personality orig ))))
 
+;;}}}
+;;{{{ update widget related keymaps so we dont loose the
+;;emacspeak prefix 
+
+
+(defadvice widget-setup (after emacspeak pre act comp)
+  "Fix widget keymaps so we dont loose the emacspeak
+prefix."
+  (declare (special emacspeak-prefix))
+  (define-key widget-field-keymap  emacspeak-prefix 'emacspeak-prefix-command)
+  (define-key widget-field-keymap  "\C-ee"
+    'widget-end-of-line)
+  (define-key widget-text-keymap  emacspeak-prefix 'emacspeak-prefix-command)
+  (define-key widget-text-keymap  "\C-ee" 'widget-end-of-line)
+  )
 ;;}}}
 (provide  'emacspeak-widget)
 ;;{{{  emacs local variables 
