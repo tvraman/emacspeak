@@ -68,6 +68,7 @@ Emacspeak is a speech interface that allows visually
 <!-- {turn anchors into items --> 
 
 <xsl:template match="a">
+    <xsl:if test="@href">
 <item>
 <link>
 <xsl:value-of select="@href"/>
@@ -78,6 +79,7 @@ Emacspeak is a speech interface that allows visually
 <xsl:apply-templates/>
       </description>
     </item>
+      </xsl:if>
   </xsl:template>
 
 <!-- } -->
