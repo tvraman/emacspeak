@@ -26,25 +26,25 @@ type="text/xsl"?>
       Emacs' online hypertext documentation system.
       Emacspeak uses audio formatting to highlight menus and hyperlinks.
     </application>
-    <application name="man">
-      UNIX online manual browser with full aural highlighting and
-    structured browsing.</application>
     <application name="help">
       Speech-enabled online help across the audio
     desktop.</application>
+    <application name="man">
+      UNIX online manual browser with full aural highlighting and
+    structured browsing.</application>
     <application name="howto">
     Emacspeak wizard for browsing Linux HOWTO documents.</application>  
   </category>
   <category name="desktop">
-    <application name="iswitchb">
-      Quickly switch to buffers on the audio desktop.
-    </application>
     <application name="ido">
       Efficiently find buffers and files on the audio desktop
       --- the IDo way.
     </application>
     <application name="ibuffer">
       Tool for locating open buffers on the audio desktop.
+    </application>
+    <application name="iswitchb">
+      Quickly switch to buffers on the audio desktop.
     </application>
     <application name="bs">
       Tool for locating open buffers on the audio desktop.
@@ -70,12 +70,18 @@ type="text/xsl"?>
     <application name="dired">
       Browse and operate on files and folders.
     </application>
+    <application name="ffap">
+      Find file or url at point.
+    </application>
+    <application name="locate">
+      File browser interface for finding files.
+    </application>
     <application name="find-dired">
       Seamless integration between the file browser and 
       finder.
     </application>
-    <application name="locate">
-      File browser interface for finding files.
+    <application name="find-grep">
+      Using grep with find. also, se igrep.
     </application>
     <application name="efs">
       Front-end to remote file access using an FTP
@@ -85,7 +91,9 @@ type="text/xsl"?>
     <application name="finder">
       Package browser for locating  installed  applications.
     </application>
-  </category>
+    <application name="rpm">
+      Client for browsing installed RPM packages.
+  </application></category>
   <category name="web">
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
@@ -106,12 +114,19 @@ type="text/xsl"?>
       In addition, see the Web wizards in <a
       href="#wizards">Emacspeak Wizards</a>.
     </application>
+    <application name="xslt">
+      Ability to apply XSL transforms to Web content before it is
+      displayed.
+    </application>
     <application name="lynx">
       Single key interface for invoking lynx in an appropriately
       customized terminal buffer.
     </application>
     <application name="net-utils">
       Front-end to networking tools.
+    </application>
+    <application name="babel">
+      Access Internet  translation services.
     </application>
   </category>
   <category name="Messaging">
@@ -137,10 +152,6 @@ type="text/xsl"?>
     </application>
     <application name="rss">
       Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
-    </application>
-    <application name="xslt">
-      Ability to apply XSL transforms to Web content before it is
-      displayed.
     </application>
     <application name="message">
       Email composition   from
@@ -294,6 +305,51 @@ type="text/xsl"?>
       Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
     </application>
   </category>
+  <category name="Reading">
+    <application name="ocr">
+      Emacs front-end  to OCR engines.
+      This module provides speech-enabled access to image
+      aquisition and  document recognition tools
+      available on the underlying platform.
+    </application>
+    <application name="emacspeak-daisy">
+      Implements a digital talking book reader for DAISY3  talking
+    books.</application>
+    <application name="view">
+      File browser for reading etexts.
+    </application>
+    <application name="bookmark">
+      Create bookmarks that persist across Emacs sessions.
+    </application>
+    <application name="outline">
+      Context-sensitive outline support for browsing documents.
+    </application>
+    <application name="folding">
+      Application for structuring and later obtaining
+      structured views of files.
+    </application>
+    <application name="hide">
+      Emacspeak client for hiding and exposing blocks of text.
+      Blocks are automatically recognized by lines having a common
+      prefix.
+      This is used to advantage in imposing dialog structure on
+      email conversations, skipping blocks of commented code etc.
+    </application>
+    <application name="table-ui">
+      Emacspeak's rich table browsing interface.
+      See Auditory User Interfaces (AUI) at
+      http://www.cs.cornell.edu/home/raman/aui/aui.html
+      for the theoretical underpinnings of this interface.
+    </application>
+    <application name="filtertext">
+      Emacspeak client for progressively filtering text.
+    </application>
+    <application name="gridtext">
+      Emacspeak client for overlaying grids on text.
+      Useful in browsing log files and other text output that has
+      columnar structure.
+    </application>
+  </category>
   <category name="Productivity">
     <application name="search-and-replace">
       Speech-enabled incremental search
@@ -305,6 +361,11 @@ type="text/xsl"?>
       Speech-enabled browsable kill ring.
       Allows easy browsing of Emacs' builtin clipboard faclity.
     </application>
+    <application name="calculator">
+    Simple but powerful desktop calculator.</application>
+    <application name="dismal">
+      Spread-sheet application with suport for customizing
+    spoken feedback on a per-sheet basis.</application>
     <application name="calc">
       Calculator  with  financial and
     scientific functions.</application>
@@ -312,8 +373,8 @@ type="text/xsl"?>
       Front-end to Gnuplot  for plotting graphs; integrates with
       the symbolic calculator.
     </application>
-    <application name="calculator">
-    Simple but powerful desktop calculator.</application>
+    <application name="eperiodic">
+    Periodic table of elements.</application>
     <application name="custom">
       Intuitive interface to customize Emacs' extensive set of
       customization options.
@@ -328,44 +389,16 @@ type="text/xsl"?>
     <application name="dictionary">
       Access dictionary servers.
     </application>
-    <application name="babel">
-      Access Internet  translation services.
-    </application>
-    <application name="rpm">
-      Client for browsing installed RPM packages.
-    </application>
     <application name="ediff">
       Interface for browsing diff output;
       enables easy merging of different file versions, applying
       patches etc.
       Voice locking is used to advantage in 
     aurally highlighting the differences.</application>
-    <application name="outline">
-      Context-sensitive outline support for browsing documents.
-    </application>
-    <application name="folding">
-      Application for structuring and later obtaining
-      structured views of files.
-    </application>
     <application name="forms">
       Forms-based interface for manipulating structured data.
       Useful for system administration tasks  such as managing
       password databases and browsing log files.
-    </application>
-    <application name="filtertext">
-      Emacspeak client for progressively filtering text.
-    </application>
-    <application name="gridtext">
-      Emacspeak client for overlaying grids on text.
-      Useful in browsing log files and other text output that has
-      columnar structure.
-    </application>
-    <application name="hide">
-      Emacspeak client for hiding and exposing blocks of text.
-      Blocks are automatically recognized by lines having a common
-      prefix.
-      This is used to advantage in imposing dialog structure on
-      email conversations, skipping blocks of commented code etc.
     </application>
     <application name="hyperbole">
       Information management system.
@@ -380,12 +413,6 @@ type="text/xsl"?>
     <application name="flyspell">
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
-    </application>
-    <application name="ocr">
-      Emacs front-end  to OCR engines.
-      This module provides speech-enabled access to image
-      aquisition and  document recognition tools
-      available on the underlying platform.
     </application>
     <application name="vc">
     Front-end to version control systems like CVS and RCS.</application>
@@ -404,17 +431,6 @@ type="text/xsl"?>
       session running on a remote machine to send speech
       output to a server running on the local machine.
     </application>
-    <application name="dismal">
-      Spread-sheet application with suport for customizing
-    spoken feedback on a per-sheet basis.</application>
-    <application name="emacspeak-daisy">
-    Implements a digital talking book reader for DAISY3  talking books.</application>
-    <application name="table-ui">
-      Emacspeak's rich table browsing interface.
-      See Auditory User Interfaces (AUI) at
-      http://www.cs.cornell.edu/home/raman/aui/aui.html
-      for the theoretical underpinnings of this interface.
-    </application>
     <application name="tar">
       Front-end for browsing  tar,
       jar and zip archives.
@@ -422,20 +438,17 @@ type="text/xsl"?>
     <application name="arc">
       Browse various compressed archives.
     </application>
-    <application name="view">
-      File browser for reading etexts.
-    </application>
-    <application name="bookmark">
-      Create bookmarks that persist across Emacs sessions.
-    </application>
     <application name="wizards">
       Emacspeak wizards for performing common tasks.
     </application>
     <application name="clipboard">
       Emacspeak clipboard for cut and paste among different
-    emacspeak sessions, possibly running on different hosts.</application>
-    <application name="eperiodic">
-    Periodic table of elements.</application>
+      emacspeak sessions, possibly running on different
+    hosts.</application>
+    <application name="units">
+      Simple wizard for accessing Units tool
+      --- a powerful unts convertor.
+    </application>
   </category>
   <category name=" programming">
     <application name="jde">
@@ -532,7 +545,6 @@ type="text/xsl"?>
       --- <a
       href="http://emacspeak.sf.net/raman/publications/assets-98/">online
       paper</a>.
-      
     </application>
   </category>
   <postamble>
