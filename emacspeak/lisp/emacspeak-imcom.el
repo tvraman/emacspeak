@@ -55,6 +55,7 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'comint)
+(require 'derived)
 (eval-when-compile (require 'emacspeak-w3))
 
 ;;}}}
@@ -75,10 +76,32 @@
   :group 'emacspeak-imcom)
 
 ;;}}}
-;;{{{ Create and launch IMCom process
+;;{{{  define IMCom mode
+
+(define-derived-mode emacspeak-imcom-mode comint-mode 
+  "Jabber interaction using IMCom. "
+  "Major mode for Jabber interaction using IMCom.\n\n
+\\{emacspeak-imcom-mode-map}")
 
 ;;}}}
-;;{{{  define IMCom mode
+;;{{{ Create and launch IMCom process
+
+(defvar emacspeak-imcom-process nil
+  "Handle to running IMCom process.")
+
+
+
+(defun emacspeak-imcom-start-process ()
+  "Launch IMCom process."
+  (declare (special emacspeak-imcom-process
+                    emacspeak-imcom-client))
+  (let ((buffer (make-comint "IMCom"
+                             emacspeak-imcom-client)))
+    (save-excursion
+      (set-buffer buffer)
+      (emacspeak-imcom-mode)
+    (setq emacspeak-imcom-process
+          (get-buffer-process buffer)))))
 
 ;;}}}
 ;;{{{  Define commands
