@@ -61,7 +61,7 @@
      
     <form action="http://translate.google.com/translate">
       <p>Translate a web page:<br />
-       <input type="text" name="u" value="http://"
+       <input type="text" name="u" 
       size="55" /><br />
        from<select name="langpair">
         <option value="en|de">
