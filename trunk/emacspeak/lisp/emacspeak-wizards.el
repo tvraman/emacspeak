@@ -835,8 +835,7 @@ documentation.\n\n")
 for commands defined in module  %s.\n\n"
                 module)))
             (insert (format "\n\n@deffn %s\n" f))
-            (insert 
-             (format "@findex %s\n" f))
+            
             (if key
                 (condition-case nil
                     (progn
@@ -846,8 +845,7 @@ for commands defined in module  %s.\n\n"
                               'key-description
                               key " ")))
                       (insert
-                       (format "@kindex %s\n@kbd{%s}\n\n"
-                               key-description
+                       (format "@kbd{%s}\n\n"
                                key-description)))
                   (error nil))
               (insert " No global keybinding\n\n"))
