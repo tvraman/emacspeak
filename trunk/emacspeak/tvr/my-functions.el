@@ -86,3 +86,17 @@
          'Man-bgproc-sentinel)))))
 
 (provide 'my-functions)
+(defun complete-isearch (regexp)
+  "Search in the completions.  If a prefix is given, use REGEXP isearch."
+  (interactive "P")
+  (unless (and (memq last-command '(minibuffer-complete
+        minibuffer-completion-help))
+        (window-live-p minibuffer-scroll-window))
+    (minibuffer-completion-help))
+  (with-current-buffer (window-buffer minibuffer-scroll-window)
+    (save-window-excursion
+      (select-window minibuffer-scroll-window)
+      (if (isearch-forward regexp nil)
+   (choose-completion)))))
+(define-key minibuffer-local-must-match-map "\C-s" 'complete-isearch)
+(define-key minibuffer-local-map "\C-s" 'complete-isearch)
