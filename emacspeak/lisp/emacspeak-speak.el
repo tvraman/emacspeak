@@ -710,7 +710,6 @@ are indicated with auditory icon ellipses."
                     emacspeak-speak-line-invert-filter
                     dtk-punctuation-mode
                     emacspeak-speak-space-regexp
-                    outline-minor-mode folding-mode
                     emacspeak-speak-maximum-line-length
                     emacspeak-show-point
                     emacspeak-decoration-rule
@@ -749,7 +748,9 @@ are indicated with auditory icon ellipses."
                  voice-animate
                  (buffer-substring  start end ))
               (buffer-substring start end )))
-      (when (get-text-property  start 'emacspeak-hidden-block)
+      (when(or  (get-text-property  start
+  'emacspeak-hidden-block)
+                (text-invisible-p end))
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string= ""  line)              ;blank line
