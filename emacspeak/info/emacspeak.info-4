@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.1 from
+This is emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -1223,6 +1223,15 @@ emacspeak-w3.
      interactive prefix arg. If there is a known rewrite url rule, that
      is used as well.
 
+ - emacspeak-w3-count-matches: (PROMPT-URL LOCATOR)
+     Count matches for locator  in HTML.
+
+ - emacspeak-w3-count-nested-tables: (PROMPT-URL)
+     Count nested tables in HTML.
+
+ - emacspeak-w3-count-tables: (PROMPT-URL)
+     Count  tables in HTML.
+
  - emacspeak-w3-do-onclick: ()
      Do  onclick action.
 
@@ -1231,8 +1240,7 @@ emacspeak-w3.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer. Optional arg url specifies the page to
      extract content from.  Interactive use provides list of class
-     values as completion.  Interactive prefix arg causes url to be
-     read from the minibuffer.
+     values as completion.
 
  - emacspeak-w3-extract-by-class-list: (CLASSES &optional PROMPT-URL
           SPEAK)
@@ -1240,32 +1248,34 @@ emacspeak-w3.
      HTML.  Extracts specified elements from current WWW page and
      displays it in a separate buffer. Optional arg url specifies the
      page to extract content from. Interactive use provides list of
-     class values as completion. Interactive prefix arg causes url to
-     be read from the minibuffer.
+     class values as completion.
+
+ - emacspeak-w3-extract-nested-table: (TABLE-INDEX &optional PROMPT-URL
+          SPEAK)
+     Extract nested table specified by `table-index'. Default is to
+     operate on current web page when in a W3 buffer; otherwise
+     `prompt-url' is the URL to process. Prompts for URL when called
+     interactively. Optional arg `speak' specifies if the result should
+     be spoken automatically.
+
+ - emacspeak-w3-extract-nested-table-list: (TABLES &optional PROMPT-URL
+          SPEAK)
+     Extract specified list of tables from a WWW page.
 
  - emacspeak-w3-extract-node-by-id: (URL NODE-ID)
      Extract specified node from URI.
 
- - emacspeak-w3-extract-table: (TABLE-INDEX &optional PROMPT-URL SPEAK)
-     Extract tables from HTML.  Extracts specified table from current
-     WWW page and displays it in a separate buffer.  Optional arg url
-     specifies the page to extract table from.
-
  - emacspeak-w3-extract-table-by-position: (POSITION &optional
           PROMPT-URL SPEAK)
      Extract table at specified position.   Optional arg url specifies
-     the page to extract content from.  Interactive use provides list
-     of class values as completion.  Interactive prefix arg causes url
-     to be read from the minibuffer.
-
- - emacspeak-w3-extract-table-list: (TABLES &optional PROMPT-URL SPEAK)
-     Extract specified list of tables from a WWW page.
+     the page to extract content from.  Interactive prefix arg causes
+     url to be read from the minibuffer.
 
  - emacspeak-w3-extract-tables-by-position-list: (POSITIONS &optional
           PROMPT-URL SPEAK)
-     Extract specified list of tables from a WWW page.  Tables are
-     specified by their position in the list of tables found in the
-     page.
+     Extract specified list of nested tables from a WWW page.  Tables
+     are specified by their position in the list nested of tables found
+     in the page.
 
  - emacspeak-w3-google-similar-to-this-page: ()
      Ask Google to find documents similar to this one.
@@ -1334,8 +1344,8 @@ emacspeak-w3.
      is used as well.
 
  - emacspeak-w3-xsl-toggle: ()
-     Toggle  XSL transformations before displaying HTML.  This uses
-     XSLT Processor xsltproc available as part of the libxslt package.
+     Toggle  application of XSL transformations.  This uses XSLT
+     Processor xsltproc available as part of the libxslt package.
 
  - emacspeak-w3-xslt-apply: (XSL)
      Apply specified transformation to current page.
@@ -1344,11 +1354,11 @@ emacspeak-w3.
      Extract elements matching specified XPath path locator from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Optional arg url specifies the page to
-     extract table from.  Interactive prefix arg causes url to be read
-     from the minibuffer.
+     extract table from.
 
  - emacspeak-w3-xslt-select: (XSL)
-     Select transformation to apply.
+     Select XSL transformation applied to WWW pages before they are
+     displayed .
 
 
 File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-websearch,  Prev: emacspeak-w3,  Up: Emacspeak Commands

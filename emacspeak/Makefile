@@ -261,6 +261,7 @@ install:
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL) -d $(libdir)/servers/software-dtk
 	$(INSTALL)  ${DTKTTS}  $(libdir)/servers/software-dtk
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
@@ -270,7 +271,7 @@ install:
 	$(CP) -r $(REALAUDIO) $(libdir)
 	chmod -R go+rX  $(libdir)/realaudio
 	$(CP) -r $(SHOUTCAST) $(libdir)
-	chmod -R go+rX  $(libdir)/SHOUTCAST
+	chmod -R go+rX  $(libdir)/shoutcast
 	$(INSTALL) -d $(libdir)/etc/forms
 	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
 	$(INSTALL) -d $(libdir)/etc/tables
