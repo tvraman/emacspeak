@@ -172,15 +172,14 @@ proc tts_pause {} {
 
 proc s {} {
     global tts
-    set mode  $tts(punctuations) 
     if {$tts(not_stopped)} {
         puts -nonewline  $tts(write)  "\003"
         set tts(not_stopped) 0
-        read  $tts(read) 1
         set tts(talking?) 0
         queue_clear
-        #allow dtk to recover 
-        select {} {} {} 0.05
+        #allow dtk to recover
+        read $tts(read) 1
+        select {} {} {} 0.06
     }
 }
 
@@ -298,7 +297,7 @@ proc speech_task {} {
     set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "\[_]\[:sa c]\[:np]\[:ra $r]\[:pu $mode]"
+    set prefix "\[:sa c :np]\[:ra $r]\[:pu $mode]"
     tts_gobble_acknowledgements
     puts -nonewline $tts(write) $prefix
     loop index 0 $length {
