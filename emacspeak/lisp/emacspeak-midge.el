@@ -186,7 +186,7 @@
 ;;{{{ midge-mode-hook
 (defgroup emacspeak-midge nil
 "Midge group for Emacspeak."
-:group 'emacspeak
+:group 'emacspeak)
 
 (defcustom midge-mode-hook nil
   "set in emacspeak-setup"
