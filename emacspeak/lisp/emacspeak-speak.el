@@ -1735,6 +1735,7 @@ eeeeeeeeeeeeeeeeuram
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Optional interactive prefix arg invokes world clock.
+Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
