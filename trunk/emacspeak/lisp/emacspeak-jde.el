@@ -232,6 +232,59 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ speech enable jdb interaction 
+
+(loop for command in
+      '(
+        jde-debug-step-into
+        jde-debug-step-out
+jde-debug-step-over
+jde-debug-up
+jde-debug-down)
+      do
+      (eval
+       (`
+        (defadvice (, command) (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'select-object))))))
+
+
+(defadvice jde-db-run (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+(defadvice jde-debug-cont (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (message "Continuing execution.")))
+(defadvice jde-debug-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Quit debugger.")))
+(defadvice jde-debug-set-breakpoint (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice jde-debug-toggle-breakpoint (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'button)))
+(defadvice jde-debug-clear-breakpoints (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Cleared all break points.")))
+
+    
+;;}}}
 (provide 'emacspeak-jde )
 ;;{{{ end of file 
 
