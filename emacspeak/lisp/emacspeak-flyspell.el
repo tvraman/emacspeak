@@ -40,6 +40,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
@@ -55,8 +56,16 @@
 ;;}}}
 ;;{{{  define personalities
 
-(defvar flyspell-highlight-personality 'harry
-  "Voice used to highlight spelling errors. ")
+(defgroup emacspeak-flyspell nil
+  "Emacspeak support for on the fly spell checking."
+  :group 'emacspeak
+  :group 'flyspell
+  :prefix "emacspeak-flyspell-")
+
+(defcustom emacspeak-flyspell-highlight-personality 'harry
+  "Voice used to highlight spelling errors. "
+  :type 'symbol
+:group 'emacspeak-flyspell)
 
 ;;}}}
 ;;{{{ advice
@@ -88,11 +97,11 @@
 
 (defun emacspeak-flyspell-highlight-incorrect-word (beg end)
   "Put property personality with value
-`flyspell-highlight-personality' from beg to end"
-  (declare (special flyspell-highlight-personality))
+`emacspeak-flyspell-highlight-personality' from beg to end"
+  (declare (special emacspeak-flyspell-highlight-personality))
   (ems-modify-buffer-safely
    (put-text-property beg end 'personality
-                      flyspell-highlight-personality))
+                      emacspeak-flyspell-highlight-personality))
   (emacspeak-speak-region beg end))
 
 (add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)

@@ -42,6 +42,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'advice)
 (require 'thingatpt)
 (require 'emacspeak-speak)
@@ -67,49 +68,79 @@
 ;;}}}
 ;;{{{ personalities 
 
-(defvar emacspeak-erc-default-personality 'paul
-  "Default personality for erc.")
+(defgroup emacspeak-erc nil
+  "Emacspeak extension for IRC client ERC."
+  :group 'emacspeak
+  :prefix "emacspeak-erc-")
 
-(defvar emacspeak-erc-direct-msg-personality
+(defcustom emacspeak-erc-default-personality 'paul
+  "Default personality for erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
+
+(defcustom emacspeak-erc-direct-msg-personality
   'paul-animated
-  "Personality for direct messages.")
+  "Personality for direct messages."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-input-personality 
+(defcustom emacspeak-erc-input-personality 
   'paul-smooth
-  "Personality for input.")
+  "Personality for input."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-bold-personality
+(defcustom emacspeak-erc-bold-personality
   'paul-bold
-  "Personality for bold in erc.")
+  "Personality for bold in erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-inverse-personality
+(defcustom emacspeak-erc-inverse-personality
   'betty
-  "Inverse personality in ERC.")
+  "Inverse personality in ERC."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-underline-personality  'ursula
-  "Persnality for underlining in erc.")
+(defcustom emacspeak-erc-underline-personality  'ursula
+  "Persnality for underlining in erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-prompt-personality  'harry
-  "Personality for prompting in erc.")
-(defvar emacspeak-erc-notice-personality 
+(defcustom emacspeak-erc-prompt-personality  'harry
+  "Personality for prompting in erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
+
+(defcustom emacspeak-erc-notice-personality 
   'paul-italic
-  "Personality for notices in Erc.")
+  "Personality for notices in Erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-action-personality 
+(defcustom emacspeak-erc-action-personality 
   'paul-monotone
-  "Personality for actions in erc.")
+  "Personality for actions in erc."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-error-personality 
+(defcustom emacspeak-erc-error-personality 
   'kid
-  "Personality for errors n ERC.")
+  "Personality for errors n ERC."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-host-danger-personality 
+(defcustom emacspeak-erc-host-danger-personality 
   'paul-surprized
-  "Personality for marking dangerous hosts.")
+  "Personality for marking dangerous hosts."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
-(defvar emacspeak-erc-pal-personality
+(defcustom emacspeak-erc-pal-personality
   'paul-animated
-  "Personality for marking pals.")
+  "Personality for marking pals."
+  :type 'symbol
+  :group 'emacspeak-erc)
 
 ;;}}}
 ;;{{{  helpers
@@ -132,7 +163,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice erc-send-paragraph (after emacspeak pre act
-                                        comp)
+                                     comp)
   "Provide auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
@@ -145,8 +176,8 @@
                                       comp)
   "Apply aural highlighting as well."
   (put-text-property 0 (length ad-return-value)
-'personality emacspeak-erc-error-personality
-ad-return-value)
+                     'personality emacspeak-erc-error-personality
+                     ad-return-value)
   ad-return-value)
 
 (defadvice erc-highlight-notice (after emacspeak pre act
@@ -167,7 +198,7 @@ user is notified about activity in the room.")
 
 
 (defvar emacspeak-erc-people-to-monitor nil
-"List of strings specifying people to monitor in a given room.")
+  "List of strings specifying people to monitor in a given room.")
 
 (make-variable-buffer-local
  'emacspeak-erc-people-to-monitor)
@@ -223,12 +254,12 @@ display. String is the original message."
   (let ((who-from (car (split-string string ))))
     (cond
      ((and
-(not (string-match "^\\*\\*\\*" who-from))
- emacspeak-erc-people-to-monitor
-           (find
-            who-from
-                  emacspeak-erc-people-to-monitor
-                  :test #'string-equal))
+       (not (string-match "^\\*\\*\\*" who-from))
+       emacspeak-erc-people-to-monitor
+       (find
+        who-from
+        emacspeak-erc-people-to-monitor
+        :test #'string-equal))
       string)
      (t nil))))
 
