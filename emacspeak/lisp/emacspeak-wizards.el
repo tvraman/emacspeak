@@ -1283,13 +1283,15 @@ Extracted content is placed as a csv file in task.csv."
 (defun emacspeak-annotate-get-annotation ()
   "Pop up a temporary buffer and collect the annotation."
   (declare (special emacspeak-annotate-edit-buffer))
-  (pop-to-buffer
-   (get-buffer-create emacspeak-annotate-edit-buffer))
-  (erase-buffer)
-  (message "Exit recursive edit when done.")
-  (recursive-edit)
-  (bury-buffer)
-  (buffer-string))
+  (let ((annotation nil))
+    (pop-to-buffer
+     (get-buffer-create emacspeak-annotate-edit-buffer))
+    (erase-buffer)
+    (message "Exit recursive edit when done.")
+    (recursive-edit)
+    (setq annotation (buffer-string))
+    (bury-buffer)
+    annotation))
 
 (defun emacspeak-annotate-add-annotation ()
   "Add annotation to the annotation working buffer.
@@ -1302,11 +1304,15 @@ annotation is inserted into the working buffer when complete."
     (setq emacspeak-annotate-working-buffer
           (read-buffer "Annotation working buffer: "
                        (car (buffer-list)))))
-  (save-excursion
-    (set-buffer emacspeak-annotate-working-buffer)
-    (insert   (emacspeak-annotate-get-annotation))
-    (insert "\n"))
-  (emacspeak-auditory-icon 'mark-object))
+  (let ((annotation nil)
+        (parent-buffer (current-buffer)))
+    (save-excursion
+      (set-buffer emacspeak-annotate-working-buffer)
+      (setq annotation    (emacspeak-annotate-get-annotation))
+      (insert annotation)
+      (insert "\n"))
+    (pop-to-buffer parent-buffer)
+    (emacspeak-auditory-icon 'mark-object)))
 
 
 ;;}}}
