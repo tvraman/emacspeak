@@ -49,6 +49,62 @@
 ;;; Provide additional advice to forms-mode 
 
 ;;}}}
+;;{{{ Helper functions
+(defvar emacspeak-forms-current-record-summarizer
+  'emacspeak-forms-speak-field
+  "Summarizer function for summarizing a record. Default is to
+speak the first field")
+(make-variable-buffer-local
+ emacspeak-forms-current-record-summarizer)
+
+(defun emacspeak-forms-summarize-current-record ()
+  "Summarize current record"
+  (interactive)
+  (declare (special emacspeak-forms-current-record-summarizer))
+  (funcall emacspeak-forms-current-record-summarizer))
+
+(defun emacspeak-forms-summarize-current-position ()
+  "Summarize current position in list of records"
+  (interactive)
+  (declare (special forms--current-record forms--total-records
+                    forms-file))
+  (dtk-speak
+   (format "Record %s of %s from %s"
+           forms--current-record forms--total-records forms-file)))
+
+(defvar emacspeak-forms-rw-voice 'paul
+  "Personality for read-write fields. ")
+
+(defvar emacspeak-forms-ro-voice 'annotation-voice
+  "Personality for read-only fields. ")
+
+
+(defun emacspeak-forms-speak-field ()
+  "Speak current form field name and value.
+Assumes that point is at the front of a field value."
+  (interactive)
+  (let ((voice-lock-mode t)
+        (name nil)
+        (value nil)
+        (n-start nil))
+    (save-excursion
+      (backward-char 1)
+      (setq n-start (point)))
+    (setq name (buffer-substring n-start (point)))
+    (setq value
+          (buffer-substring
+           (point)
+           (or
+            (next-single-property-change (point) 'read-only)
+            (point))))
+    (put-text-property 0 (length name)
+                       'personality
+                       emacspeak-forms-ro-voice name)
+    (put-text-property 0 (length value )
+                       'personality emacspeak-forms-rw-voice value)
+    (dtk-speak (concat name " " value ))))
+
+;;}}}
 ;;{{{ Advise interactive  commands
 
 (defadvice forms-next-record (after emacspeak pre act comp)
@@ -148,62 +204,6 @@
 
 (eval-when (load)
   (emacspeak-fix-interactive-command-if-necessary 'forms-find-file))
-
-;;}}}
-;;{{{ Helper functions
-(defvar emacspeak-forms-current-record-summarizer
-  'emacspeak-forms-speak-field
-  "Summarizer function for summarizing a record. Default is to
-speak the first field")
-(make-variable-buffer-local
- emacspeak-forms-current-record-summarizer)
-
-(defun emacspeak-forms-summarize-current-record ()
-  "Summarize current record"
-  (interactive)
-  (declare (special emacspeak-forms-current-record-summarizer))
-  (funcall emacspeak-forms-current-record-summarizer))
-
-(defun emacspeak-forms-summarize-current-position ()
-  "Summarize current position in list of records"
-  (interactive)
-  (declare (special forms--current-record forms--total-records
-                    forms-file))
-  (dtk-speak
-   (format "Record %s of %s from %s"
-           forms--current-record forms--total-records forms-file)))
-
-(defvar emacspeak-forms-rw-voice 'paul
-  "Personality for read-write fields. ")
-
-(defvar emacspeak-forms-ro-voice 'annotation-voice
-  "Personality for read-only fields. ")
-
-
-(defun emacspeak-forms-speak-field ()
-  "Speak current form field name and value.
-Assumes that point is at the front of a field value."
-  (interactive)
-  (let ((voice-lock-mode t)
-        (name nil)
-        (value nil)
-        (n-start nil))
-    (save-excursion
-      (backward-char 1)
-      (setq n-start (point)))
-    (setq name (buffer-substring n-start (point)))
-    (setq value
-          (buffer-substring
-           (point)
-           (or
-            (next-single-property-change (point) 'read-only)
-            (point))))
-    (put-text-property 0 (length name)
-                       'personality
-                       emacspeak-forms-ro-voice name)
-    (put-text-property 0 (length value )
-                       'personality emacspeak-forms-rw-voice value)
-    (dtk-speak (concat name " " value ))))
 
 ;;}}}
 ;;{{{ smart filters
