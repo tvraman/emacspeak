@@ -317,6 +317,7 @@ Modifies text and point in buffer."
     (setq buffer (find-file-noselect filename))
     (save-excursion
       (set-buffer buffer)
+      (auto-fill-mode nil)
       (erase-buffer)
       (loop for key being the hash-keys  of emacspeak-pronounce-dictionaries
             do
@@ -324,10 +325,8 @@ Modifies text and point in buffer."
              (format "(emacspeak-pronounce-set-dictionary '%S\n '%S )\n"
                      key
                      (emacspeak-pronounce-get-dictionary key ))))
-      (goto-char (point-min))
-      (while (search-forward ")" nil t)
-        (replace-match ")\n" nil t))
       (save-buffer))))
+
 ;;;###autoload
 (defvar emacspeak-pronounce-dictionaries-loaded nil
   "Indicates if dictionaries already loaded.")
