@@ -1,7 +1,7 @@
 ;;;Auto generated
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart ems-generate-switcher)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16502 56212))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16502 58402))
 ;;; Generated autoloads from dtk-speak.el
 
 (autoload (quote ems-generate-switcher) "dtk-speak" "\
@@ -1863,7 +1863,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16502 57076 856441))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16502 62236 553315))
 
 ;;;***
 
