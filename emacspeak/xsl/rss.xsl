@@ -5,11 +5,45 @@ Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 View an RSS feed as clean HTML
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:rss="http://purl.org/rss/1.0/" version="1.0">
   <xsl:param name="base"/>
   <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
+<!-- {rss 1.0 -->
+  <xsl:template match="rdf:RDF">
+    <html>
+      <head>
+        <title>
+          <xsl:apply-templates select="rss:channel/rss:title"/>
+        </title>
+      </head>
+      <body>
+        <ul>
+          <xsl:apply-templates select="rss:item"/>
+        </ul>
+        <p>
+          <xsl:apply-templates select="rss:description"/>
+        </p>
+      </body>
+    </html>
+  </xsl:template>
+  <xsl:template match="rss:item">
+    <li>
+      <xsl:element name="a">
+        <xsl:attribute name="href">
+          <xsl:apply-templates select="rss:link"/>
+        </xsl:attribute>
+        <xsl:apply-templates select="rss:title"/>
+      </xsl:element>
+      <xsl:apply-templates select="rss:description"/>
+    </li>
+  </xsl:template>
+  <xsl:template match="rss:title|rss:description">
+    <xsl:apply-templates/>
+  </xsl:template>
+<!-- } -->
+<!-- {rss 0.9 -naked namespaces -->
   <xsl:template match="/">
-    <xsl:apply-templates select="//channel"/>
+    <xsl:apply-templates select="//channel|//rdf:RDF"/>
   </xsl:template>
   <xsl:template match="channel">
     <html>
@@ -42,6 +76,7 @@ View an RSS feed as clean HTML
   <xsl:template match="title|description">
     <xsl:apply-templates/>
   </xsl:template>
+<!-- } -->
 <!-- {identity default  -->
   <xsl:template match="*|@*">
     <xsl:copy>
