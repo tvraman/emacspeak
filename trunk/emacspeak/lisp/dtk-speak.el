@@ -187,21 +187,21 @@ Do not modify this variable directly; use command  `dtk-set-rate'
   buffer-invisibility-spec))
 (t (get-text-property  position 'invisible))))
 
-;;; the following functions need to be updated to reflect buffer-invisibility-spec
-
-
 (defsubst skip-invisible-forward  ()
-  (and (text-invisible-p (point))
-       (goto-char
-        (next-single-property-change (point) 'invisible
-                                     (current-buffer) (point-max)))))
-;;; Delete invisible text from current buffer:
+  (while (and(not (eobp))
+                  (text-invisible-p (point)))
+             (goto-char
+              (next-single-property-change (point) 'invisible
+                                           (current-buffer) (point-max)))))
+
+
 (defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
-  (and (text-invisible-p (point))
-       (goto-char
-        (previous-single-property-change (point) 'invisible
-                                         (current-buffer) (point-min)))))
+  (while (and(not (bobp))
+             (text-invisible-p (point)))
+    (goto-char
+     (previous-single-property-change (point) 'invisible
+                                      (current-buffer) (point-min)))))
 
 (defsubst delete-invisible-text ()
   "Delete invisible text."
