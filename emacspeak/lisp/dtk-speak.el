@@ -177,18 +177,18 @@ available TTS servers.")
        (unwind-protect
            (progn
              (unless (string= (, setting) save-punctuation-mode)
-             (process-send-string dtk-speaker-process
-                                  (format "tts_set_punctuations %s  \n "
-                                          (, setting))
-                                  (setq dtk-punctuation-mode (, setting))))
+               (process-send-string dtk-speaker-process
+                                    (format "tts_set_punctuations %s  \n "
+                                            (, setting)))
+               (setq dtk-punctuation-mode (, setting)))
              (,@ body)
              (dtk-force))
          (unless (string=  (, setting)  save-punctuation-mode)
-         (setq dtk-punctuation-mode save-punctuation-mode)
-         (process-send-string dtk-speaker-process
-                              (format "tts_set_punctuations %s  \n "
-                                      dtk-punctuation-mode ))
-         (dtk-force)))))))
+           (setq dtk-punctuation-mode save-punctuation-mode)
+           (process-send-string dtk-speaker-process
+                                (format "tts_set_punctuations %s  \n "
+                                        dtk-punctuation-mode ))
+           (dtk-force)))))))
 
 ;;}}}
 ;;{{{  Mapping characters to speech:
