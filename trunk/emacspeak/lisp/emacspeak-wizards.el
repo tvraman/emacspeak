@@ -1563,6 +1563,14 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
+(message 
+                             (format "%s %s  --html --nonet --novalid %s -"
+                                     emacspeak-xslt-program
+                                     (or parameters "")
+                                     xsl )
+                             (current-buffer)
+                             'replace
+                             "*xslt errors*")
     (shell-command-on-region start end
                              (format "%s %s  --html --nonet --novalid %s -"
                                      emacspeak-xslt-program
