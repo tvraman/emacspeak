@@ -522,7 +522,7 @@ Activates pronunciation dictionaries if not already active."
   '((":-)" . " smile ")
     (":)" . " grin ")
     (":-(" . " sigh ") 
-(":(" . " frown "))
+    (":(" . " frown "))
   "Pronunciation dictionary used in all instant messenger and IRC chat modes."
   :type '(repeat
 	  (cons :tag "Dictionary Entry"
@@ -541,8 +541,6 @@ for the specified mode."
           do
           (push e mode-alist))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
-
-
 
 ;;}}}
 ;;{{{  dictionary editor 

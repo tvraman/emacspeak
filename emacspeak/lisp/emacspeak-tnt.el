@@ -66,8 +66,8 @@
   "Provide additional auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-    (emacspeak-pronounce-augment-pronunciations 'tnt-im-mode
-                                                emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations 'tnt-im-mode
+					    emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'tnt-chat-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 

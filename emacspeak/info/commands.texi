@@ -3068,11 +3068,7 @@ Speak a message's labels
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
-@deffn emacspeak-w3-browse-link-with-style (STYLE)
-Browse link with specified XSL style.
-@end deffn
-
-@deffn emacspeak-w3-class-filter-and-follow (&optional PROMPT)
+@deffn emacspeak-w3-class-filter-and-follow (&optional PROMPT-CLASS)
 Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -3083,18 +3079,15 @@ used as well.
 Do  onclick action.
 @end deffn
 
-@deffn emacspeak-w3-extract-by-class (CLASS &optional PROMPT SPEAK)
-Extract elements having specified class attribute  from
-HTML.  
-Extracts specified elements from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract content  from.
+@deffn emacspeak-w3-extract-by-class (CLASS &optional PROMPT-URL SPEAK)
+Extract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
 Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the
-minibuffer.
+Interactive prefix arg causes url to be read from the minibuffer.
 @end deffn
 
-@deffn emacspeak-w3-extract-by-class-list (CLASSES &optional PROMPT SPEAK)
+@deffn emacspeak-w3-extract-by-class-list (CLASSES &optional PROMPT-URL SPEAK)
 Extract elements having class specified in list `classes' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Optional arg url specifies the page to extract
@@ -3107,10 +3100,27 @@ minibuffer.
 Extract specified node from URI.
 @end deffn
 
-@deffn emacspeak-w3-extract-table (TABLE-INDEX &optional PROMPT)
+@deffn emacspeak-w3-extract-table (TABLE-INDEX &optional PROMPT-URL SPEAK)
 Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. 
+@end deffn
+
+@deffn emacspeak-w3-extract-table-by-position (POSITION &optional PROMPT-URL SPEAK)
+Extract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion.
+Interactive prefix arg causes url to be read from the minibuffer.
+@end deffn
+
+@deffn emacspeak-w3-extract-table-list (TABLES &optional PROMPT-URL SPEAK)
+Extract specified list of tables from a WWW page.
+@end deffn
+
+@deffn emacspeak-w3-extract-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
+Extract specified list of tables from a WWW page.
+Tables are specified by their position in the list 
+of tables found in the page.
 @end deffn
 
 @deffn emacspeak-w3-google-similar-to-this-page ()
@@ -3209,7 +3219,7 @@ libxslt package.
 Apply specified transformation to current page.
 @end deffn
 
-@deffn emacspeak-w3-xslt-filter (PATH &optional PROMPT SPEAK-RESULT)
+@deffn emacspeak-w3-xslt-filter (PATH &optional PROMPT-URL SPEAK-RESULT)
 Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
