@@ -709,7 +709,7 @@ sets punctuation mode to all, and turns on split caps."
             (start-process "cvs" "*cvs-emacspeak*" "cvs"
                            (format "-d%s"
                                    emacspeak-cvs-anonymous-cvsroot)
-                           "-z3"
+                           "-z3 -q"
                            "update"
                            "-d")))
      (t
