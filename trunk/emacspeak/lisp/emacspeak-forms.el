@@ -185,18 +185,19 @@ speak the first field")
 Assumes that point is at the front of a field value."
   (interactive)
   (let ((voice-lock-mode t)
-        (name
-         (buffer-substring
-          (point)
-          (or
-           (previous-single-property-change (point) 'read-only)
-           (point))))
-        (value
-         (buffer-substring
-          (point)
-          (or
-           (next-single-property-change (point) 'read-only)
-           (point)))  ))
+        (name nil)
+        (value nil)
+        (n-start nil))
+    (save-excursion
+      (backward-char 1)
+      (setq n-start (point)))
+    (setq name (buffer-substring n-start (point)))
+    (setq value
+          (buffer-substring
+           (point)
+           (or
+            (next-single-property-change (point) 'read-only)
+            (point))))
     (put-text-property 0 (length name)
                        'personality
                        emacspeak-forms-ro-voice name)
