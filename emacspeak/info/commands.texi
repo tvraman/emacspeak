@@ -2294,17 +2294,16 @@ any other key to speak entire help.
 @deffn emacspeak-speak-line (&optional ARG)
 @kbd{ control e l }
 
-Speaks current line.  With prefix ARG, speaks the rest of
-the line from point.  Negative prefix optional arg speaks
-from start of line to point.  Voicifies if option
-`voice-lock-mode' is on.  Indicates indentation with a tone
-if audio indentation is in use.  Indicates position of point
-with an aural highlight if option `emacspeak-show-point' is
-turned on --see command `emacspeak-show-point' bound to
-M-x emacspeak-show-point.  Lines that start hidden blocks of
-text, e.g.  outline header lines, or header lines of blocks
-created by command `emacspeak-hide-or-expose-block' are
-indicated with auditory icon ellipses.
+Speaks current line.  With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line to
+point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+indentation with a tone if audio indentation is in use.  Indicates
+position of point with an aural highlight if option
+`emacspeak-show-point' is turned on --see command
+`emacspeak-show-point' bound to M-x emacspeak-show-point.  Lines that
+start hidden blocks of text, e.g.  outline header lines, or header
+lines of blocks created by command `emacspeak-hide-or-expose-block'
+are indicated with auditory icon ellipses.
 @end deffn
 
 @deffn emacspeak-speak-line-interactively ()
@@ -4293,5 +4292,9 @@ defined  by Emacs 21.
 
 @deffn emacspeak-w3-google-on-this-site ()
 Perform a google search restricted to the current WWW site.
+@end deffn
+
+@deffn tts-eflite ()
+Use eflite TTS server.
 @end deffn
 

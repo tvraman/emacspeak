@@ -100,7 +100,6 @@
 voicified."
   :type 'boolean
   :group 'emacspeak)
-text-property-default-nonsticky)
 
 ;;;###autoload
 (defun voice-lock-mode (&optional arg)
