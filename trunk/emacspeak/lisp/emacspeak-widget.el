@@ -155,12 +155,7 @@ Returns a string with appropriate personality."
          (value
           (cond
            ((null v) nil)
-           ((symbolp v) (format " %s " v))
-           ((listp v)
-            (mapconcat
-             #'(lambda (s)
-                 (format "%s" s))
-             v " ")))))
+           (t (prin1-to-string v 'no-escape)))))
     (when  value
       (put-text-property 0 (length value)
                          'personality 'paul-animated value))
@@ -168,6 +163,7 @@ Returns a string with appropriate personality."
      help-echo
      value)))
      
+           
 
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
