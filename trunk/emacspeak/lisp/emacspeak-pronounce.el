@@ -758,24 +758,20 @@ specified pronunciation dictionary key."
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
   (save-match-data
-(let ((result nil)
-      (fields (mapcar
-#'read 
-(split-string string "-"))))
-(setq result
-      (calendar-date-string
-(list (second fields)
-(first fields)
-(cond
-((< (third fields) 50)
- (+ 2000 (third fields)))
- ((< (third fields) 100)
-  (+ 1900 (third fields)))
-(t (third fields))))))
-(put-text-property 0 (1- (length result))
-                         'personality voice-punctuations-some
-                         result)
-                   result)))
+    (let ((fields (mapcar #'read (split-string string "-"))))
+      (propertize
+       (calendar-date-string
+        (list (second fields)
+              (first fields)
+              (cond
+               ((< (third fields) 50)
+                (+ 2000 (third fields)))
+               ((< (third fields) 100)
+                (+ 1900 (third fields)))
+               (t (third fields)))))
+        'personality voice-punctuations-some))))
+                         
+                   
 
 ;;}}}
 ;;{{{ phone numbers
@@ -788,8 +784,7 @@ specified pronunciation dictionary key."
   "Return pronunciation for US phone number."
   (when (= 14 (length phone))
     (setq phone (substring phone 2)))
-  (let ((result nil)
-        (area-code (substring  phone 0 3))
+  (let ((area-code (substring  phone 0 3))
         (prefix-code  (substring  phone 4 7))
         (suffix-code  (substring  phone 8 12)))
     (unless (string-equal "800" area-code)
@@ -802,13 +797,10 @@ specified pronunciation dictionary key."
     (setq suffix-code
           (replace-regexp-in-string
            "[0-9]\\{2\\}" " \\&"  suffix-code))
-    (setq result
-          (format "(%s) %s, %s. "
-                  area-code prefix-code suffix-code))
-    (put-text-property 0 (1- (length result))
-                       'personality voice-punctuations-some
-                       result)
-    result))
+    (propertize 
+     (format "(%s) %s, %s. "
+             area-code prefix-code suffix-code)
+      'personality voice-punctuations-some)))
 
 ;;}}}
 
