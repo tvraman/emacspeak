@@ -310,18 +310,20 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice jde-xref-next-caller(around emacspeak pre act comp)
-  "Speak line we jumped to."
+(defadvice jde-xref-next-caller(after emacspeak pre act comp)
+  "Speak line we jumped to.
+If we are on the last call, do nothing."
   (cond
-   ((interactive-p)
-    (cond
-  ((listp (car jde-xref-stack))
-      ad-do-it
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line))
-  (t (message "No more calls."))))
+   ( (and (interactive-p)
+          (car jde-xref-stack))
+     ad-do-it
+     (emacspeak-auditory-icon 'large-movement)
+     (emacspeak-speak-line))
    (t ad-do-it))
   ad-return-value)
+  
+   
+  
 
 ;;}}}
 (provide 'emacspeak-jde )
