@@ -68,8 +68,8 @@
 (define-prefix-command  'emacspeak-dtk-submap-command
   'emacspeak-dtk-submap )
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
-;;; put it on hypre as well --use the windows key for hyper
-(global-set-key "\C-x@h" 'emacspeak-prefix-command)
+
+
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 
 ;;; fix what we just broke:-
@@ -131,6 +131,7 @@ field in the customization buffer.  You can use the notation
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
 
+;;; I use the right windows menu key for super
 ;;on
 ;;; Adding keys using custom:
 (defvar  emacspeak-super-keymap nil
@@ -184,6 +185,7 @@ field in the customization buffer.  You can use the notation
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
 
+;;; I use the windows key for hyper
 ;;on
 ;;; Adding keys using custom:
 (defvar  emacspeak-hyper-keymap nil
