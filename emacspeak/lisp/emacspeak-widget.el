@@ -730,12 +730,12 @@ widget before summarizing."
   "Individual voice in a voice selector.")
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
-  (declare (special dtk-voice-table))
+  (declare (special dectalk-voice-table))
   (let ((w
          (widget-create 'voice
                         :tag "voices")))
     (widget-put w :args 
-                (loop for key being the hash-keys of dtk-voice-table 
+                (loop for key being the hash-keys of dectalk-voice-table 
                       collect
                       (list 'personality :value key )))
     w))

@@ -51,7 +51,7 @@
 ;;; produce the desired effect.
 ;;; This module forms a bridge between User Agents e.g. Emacs-w3 that
 ;;; wish to implement a speech style sheet
-;;; and Emacspeak's dtk-voices module.
+;;; and Emacspeak's dectalk-voices module.
 ;;; Emacspeak produces voice change effects by examining the value of
 ;;; text-property 'personality.
 
@@ -70,9 +70,9 @@
 ;;; (2) Examines emacspeak's internal voice table to see if this
 ;;; speech style has a voice already defined.
 ;;; If so it returns immediately.
-;;; Otherwise, it does the additional work of defining a dtk-voice for
+;;; Otherwise, it does the additional work of defining a dectalk-voice for
 ;;; future use.
-;;; See module dtk-voices.el to see how voices are defined.
+;;; See module dectalk-voices.el to see how voices are defined.
 
 ;;}}}
 ;;{{{  Required modules
@@ -99,7 +99,7 @@
 
 ;;; may be redefined at runtime when alternative tts engine is
 ;;; configured.
-(defalias 'tts-voice-defined-p 'dtk-voice-defined-p)
+(defalias 'tts-voice-defined-p 'dectalk-voice-defined-p)
 (defalias 'tts-define-voice-from-speech-style
   'dtk-define-voice-from-speech-style)
 

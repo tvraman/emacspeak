@@ -68,7 +68,7 @@
 
 (defcustom emacspeak-imcom-default-jabber-server nil
   "Name of jabber server that is used by default."
-  :type 'choice(
+  :type '(choice
                 (const :tag "None" nil)
                 (string :tag "Server"))
   :group 'emacspeak-imcom)

@@ -60,7 +60,7 @@
     ("dtk-interp" . nil)
     ("dtk-speak" . nil)
     ("voice-setup" . nil)
-    ("dtk-voices" . nil)
+    ("dectalk-voices" . nil)
     ("emacspeak-actions". nil )
     ("emacspeak-advice" . nil)
     ("emacspeak-ansi-color" . nil)
