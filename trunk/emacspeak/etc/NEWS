@@ -22,11 +22,11 @@ Additional wizrds.
 
 ** emacspeak-websearch.el
 
-** Additional search tools.
+ Additional search tools.
 
 ** emacspeak-url-template.el
 
-** New URL templates.
+ New URL templates.
 
 ** emacspeak-w3.el:
 
@@ -47,12 +47,23 @@ MPlayer output is handled using comint features.
 
 ** emacspeak-daisy.el:
 
-Adding outline and bookmark support.
+Added outline and bookmark support.
 
 ** emacspeak-gud.el:
 
 Speech-enables the new full screen GDB interface under Emacs
 (emacs 21.3.50)
+
+** Console keymaps:
+
+The CVS repository has been updated with keymap files
+that configure ALT Super and Hyper modifier  keys.
+
+** emacspeak-keymap.el:
+
+Custom settings for binding commands to the ALT Hyper and Super
+keymaps.
+
 
 
 Local variables:
