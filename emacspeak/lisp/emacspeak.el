@@ -66,7 +66,7 @@
 
 ;;}}}
 ;;{{{  Customize groups 
-(declaim (special emacspeak-etc-directory))
+
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
   :link '(url-link :tag "SourceForge" "http://emacspeak.sf.net")
@@ -75,7 +75,7 @@
   :link '(url-link :tag "Mail" "http://www.cs.vassar.edu/~priestdo/emacspeak/")
   :link '(url-link :tag "Applications" "http://emacspeak.sf.net/applications.html")
   :link '(url-link :tag "Tips" "http://emacspeak.sf.net/tips.html")
-  :link   (list 'file-link :tag "FAQ" (expand-file-name "FAQ" emacspeak-etc-directory))
+  :link   (list 'file-link :tag "FAQ" (expand-file-name "etc/FAQ" emacspeak-directory))
   :link '(custom-manual "(emacspeak)Top")
 ;;; end links 
   :prefix "emacspeak-"
