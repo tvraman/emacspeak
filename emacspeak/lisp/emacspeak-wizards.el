@@ -283,7 +283,6 @@ produce tabulated output that works with Emacspeak's table recognizer.
 Verify this first by running the command in a shell and executing
 command `emacspeak-table-display-table-in-region' normally bound to
 \\[emacspeak-table-display-table-in-region]."
-
   (interactive
    (list
     (read-from-minibuffer "Shell command: "
@@ -292,7 +291,7 @@ command `emacspeak-table-display-table-in-region' normally bound to
                           nil           ;read
                           'emacspeak-speak-run-shell-command-history)
 current-prefix-arg))
-  (declare (special emacspeak-wizards-root-buffer
+  (declare (special emacspeak-wizards-root-buffer))
   (let ((buffer-name (format "*%s-output*" command))
         (start nil)
         (end nil))
@@ -1710,6 +1709,7 @@ emacspeak-websearch-personal-portfolio."
 
 ;;}}}
 ;;{{{ find wizard 
+
 (define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode 
   "Emacspeak Finder"
   "Emacspeak Finder\n\n"
@@ -1863,7 +1863,6 @@ directory to where find is to be launched."
     (find-dired directory   find-args)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
 
 ;;}}}
 (provide 'emacspeak-wizards)
