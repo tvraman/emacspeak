@@ -3426,6 +3426,10 @@ howto document.")))
 
 ;;}}}
 ;;{{{ Show active network interfaces
+(defun emacspeak-speak-hostname ()
+  "Speak host name."
+  (interactive)
+  (message (system-name)))
 
 (defvar emacspeak-speak-show-active-network-interfaces-command
 "echo `ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
