@@ -612,9 +612,11 @@ specifies the page to extract table from.  "
            (t  (or prompt-url
                    base-url))))
          (src-buffer nil)
-         (emacspeak-w3-xsl-p nil))
+         (emacspeak-w3-xsl-p nil)
+         (keep-result emacspeak-w3-xsl-keep-result))
     (save-excursion
       (set-buffer  (url-retrieve-synchronously source-url))
+      (setq emacspeak-w3-xsl-keep-result keep-result)
       (setq src-buffer (current-buffer))
       (goto-char (point-min))
       (search-forward "\n\n" nil t)
