@@ -341,40 +341,49 @@ window")))
   (lambda ()
     (declare (special sgml-mode-map))
     (emacspeak-setup-programming-mode)
+    (lazy-voice-lock-mode nil)
     (define-key sgml-mode-map "\C-c\C-b"
       'emacspeak-xml-browse-mode))))
                                     
            
              
 ;;}}}
-;;{{{ simple voice locking 
+;;{{{ psgml based voice locking 
 
+(defvar emacspeak-sgml-markup-voices
+  '((start-tag 	. harry)
+			    (end-tag 	. harry)
+			    (comment 	. paul-monotone)
+			    (pi 	. paul-animated)
+			    (sgml 	. paul-animated)
+			    (doctype 	. paul-italic)
+			    (entity 	. paul-italic)
+			    (shortref   . harry))
+  "*List of markup to personality mappings.
+Element are of the form (MARKUP-TYPE . personality).
+Possible values for MARKUP-TYPE is:
+comment	- comment declaration
+doctype	- doctype declaration
+end-tag 
+ignored	- ignored marked section
+ms-end	- marked section start, if not ignored 
+ms-start- marked section end, if not ignored
+pi	- processing instruction
+sgml	- SGML declaration
+start-tag
+entity  - general entity reference
+shortref- short reference")
 
-(voice-lock-set-major-mode-keywords 'xml-mode
-                                                      'xml-voice-lock-keywords)
-
-(voice-lock-set-major-mode-keywords 'sgml-mode
-                                                      'sgml-voice-lock-keywords)
-
-(defconst sgml-voice-lock-keywords-1
-  '(("<\\([!?][a-z][-.a-z0-9]*\\)" 1 voice-lock-keyword-personality)
-    ("<\\(/?[a-z][-.a-z0-9]*\\)" 1 voice-lock-function-name-personality)
-    ("[&%][a-z][-.a-z0-9]*;?" . voice-lock-variable-name-personality)
-    ("<! *--.*-- *>" . voice-lock-comment-personality)))
-
-
-
-;; for voice-lock, but must be defvar'ed after
-;; sgml-voice-lock-keywords-1  above
-(defvar sgml-voice-lock-keywords sgml-voice-lock-keywords-1
-  "*Rules for highlighting SGML code.  ")
-
-(defvar xml-voice-lock-keywords nil
-  "Voice lock keywords for XML mode.")
-
-(setq xml-voice-lock-keywords sgml-voice-lock-keywords)
-
-
+(defadvice sgml-set-face-for (after emacspeak pre act comp)
+  "Apply voice locking as well."
+  (let* ((start (ad-get-arg 0))
+                (end (ad-get-arg 1))
+                     (type (ad-get-arg 2))
+         (voice (cdr (assq type
+                           emacspeak-sgml-markup-voices))))
+    (ems-modify-buffer-safely
+     (put-text-property start end
+                        'personality voice ))))
 
 ;;}}}
 ;;{{{ additional interactive commands 
