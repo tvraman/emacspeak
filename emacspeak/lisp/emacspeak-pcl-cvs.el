@@ -83,7 +83,11 @@
 ;;}}}
 
 ;;{{{  speech enable interactive commands 
-
+(defadvice cvs-mode-add (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+(emacspeak-speak-line)))
 (defadvice cvs-mode-kill-buffers (after emacspeak pre act
                                         comp)
   "Produce an auditory icon."
