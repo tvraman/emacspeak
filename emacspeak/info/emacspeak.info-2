@@ -446,7 +446,7 @@ Maintaining Structured Data
 
    Consider the following entry from file ` /etc/passwd' on my laptop.
 
-   `aster:KlZVoUxwQQBT2:501:100:Aster Labrador:/home/aster:/bin/bash'
+   `aster:KoUxwQ2:501:100:Aster Labrador:/home/aster:/bin/bash'
 
    File ` /etc/passwd' is a simple instance of a text file that stores
 structured data records as a series of fields delimited by a special
