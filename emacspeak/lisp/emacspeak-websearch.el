@@ -103,53 +103,41 @@
 
 ;;}}}
 ;;{{{ top-level dispatch 
+(defun emacspeak-websearch-help ()
+  "Displays key mapping used by Emacspeak Websearch."
+  (interactive)
+  (let ((map (loop for key being the hash-keys of 
+                   emacspeak-websearch-keytable
+                   collect
+                   (cons key (gethash key emacspeak-websearch-keytable)))))
+    (setq map (sort map
+                    #'(lambda (a b)
+                        (< (car a)
+                           (car b)))))
+    (with-output-to-temp-buffer "*Help*"
+      (princ "Websearch Keys:\n\n")
+      (loop for m in map 
+            do 
+            (princ (key-description (list (car m))))
+            (princ "\t")
+            (princ (cdr m))
+            (princ "\n"))
+      (help-setup-xref
+        #'emacspeak-websearch-show-keys
+                       (interactive-p)))
+    (pop-to-buffer "*Help*")
+    (goto-char (point-min))
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'help)))
+(emacspeak-websearch-set-searcher  'help
+'emacspeak-websearch-help)
+
+(emacspeak-websearch-set-key ?? 'help)
 
 (defun emacspeak-websearch-dispatch  (&optional prefix)
   "Launches specific websearch queries.
-Search engine is selected by keystrokes listed below.
 Once selected, the selected searcher prompts for additional information as appropriate.
-
-Key     Search
-a       AltaVista  Search
-Cap     AAll Web
-C-a     Amazon Shopping Search
-b       BBC Archives
-C-b     Computer Science Bibliography
-c       CNN Interactive
-Cap C   Company News By Ticker
-C-c     Computer Science Citation  Index
-d       Usenet Archives (formerly Dejanews)
-Cap D   Hypertext Websters Dictionary
-e       Encyclopedia Britannica
-C-e     Ebay Search
-f       CNN  Financial Network
-cap F   Free Online Dictionary Of Computing
-C-f     Display specified search form
-g       The Google Search
-.       Advanced Google Search
-Cap G   Locate Gutenberg Etexts
-h       HotBot WWW Index
-j       Ask Jeeves
-m       Maps from Yahoo
-Cap M   Merriam Webster Dictionary
-n       -yahoo                  News Wire at Yahoo
-Cap N   Northern Light Search
-o       Open Directory Search 
-p       People Search (Yahoo)
-r       RedHat Search Via Google
-Cap r   Recorded Books  Catalog search
-C-r     Find RPM packages
-s       Software  Search
-Cap S   Shoutcast Search
-C-s     Streaming Audio
-t       Machine translation 
-u       Usenet Index from Google
-v       Vickers Insider Trades
-Cap V   VectorVest Stock Reports
-w       Weather Channel  By Zip Code
-cap W   Search W3C Site
-x       Exchange rate 
-y       Master Yahoo Index
+Press `?' to list available search engines.
 
 When using W3,  this interface attempts to speak the most relevant information on the result page."
   (interactive "P")
