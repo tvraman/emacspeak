@@ -575,7 +575,15 @@ name of the list.")
      (declare (special emacspeak-w3-class-filter))
      (setq emacspeak-w3-class-filter "cnnStoryContent"))
  "CNN Technology news."
- )
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class-list
+      (list
+       "cnnSectT2s"
+       "cnnSectT2head"
+       "cnnSectBoxHeadW"
+       "cnnSectBox")
+      url 'speak)))
+     
 
 (emacspeak-url-template-define
  "CNN HotStocks "
