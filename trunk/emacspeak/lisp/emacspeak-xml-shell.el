@@ -73,7 +73,6 @@
 
 (defcustom emacspeak-xml-shell-options
   (list "--shell"
-        "--html"
         "--format"
         "--noent")
   "Command-line options for XML browse command."
@@ -108,6 +107,9 @@ Interactive XML browser.
                        emacspeak-xml-shell-command
                        nil
                        (append emacspeak-xml-shell-options
+(if (string-match ".html?$" system-id)
+    (list "--html")
+ nil )
                                (list system-id)))))
     (save-excursion
       (set-buffer buffer)
