@@ -609,7 +609,6 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (require 'outloud-voices)
-    (require 'outloud-css-speech)
     (fset 'tts-get-voice-command 'outloud-get-voice-command)
 (fset 'tts-define-voice-from-speech-style
           'outloud-define-voice-from-speech-style)

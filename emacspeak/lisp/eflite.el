@@ -44,7 +44,7 @@
 ;;; http://sf.net/projects/eflite
 ;;; as the tts server.
 ;;; When and if eflite becomes capable of voice locking,
-;;; this file should provide code similar to outloud-css-speech.el and outloud-voices.el
+;;; this file should provide code similar to  outloud-voices.el
 
 ;;}}}
 ;;{{{  Required modules
