@@ -852,7 +852,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    'emacspeak-speak-line))
 
 (defvar emacspeak-websearch-software-sites
-  "f FreshMeat l Linux p Perl s SourceForge t TEX "
+  "f FreshMeat p Perl s SourceForge t TEX "
   "Sites searched for open source software. ")
 
 ;;; top level dispatcher for searching source locations 
@@ -863,37 +863,13 @@ Optional second arg as-html processes the results as HTML rather than data."
   (let ((site
          (read-char emacspeak-websearch-software-sites)))
     (case site
-      (?a (call-interactively 'emacspeak-websearch-appwatch-search))
-      (?f (call-interactively
-           'emacspeak-websearch-freshmeat-search))
-      (?l (call-interactively 'emacspeak-websearch-packages-linux))
+      (?f (call-interactively 'emacspeak-websearch-freshmeat-search))
       (?p (call-interactively 'emacspeak-websearch-cpan-search))
       (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
       (?t (call-interactively 'emacspeak-websearch-ctan-search))
       (otherwise (message emacspeak-websearch-software-sites )))))
 
-;;{{{ Linux Package Index
 
-(defvar emacspeak-websearch-packages-linux-uri
-  "http://www.firstlinux.com/cgi-bin/package/search.cgi?query="
-  "*URI for Linux Package  Site search")
-
-(defun emacspeak-websearch-packages-linux (query)
-  "Search for Linux packages."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search Linux packagesfor: ")))
-  (declare (special emacspeak-websearch-packages-linux-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-packages-linux-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "returned"
-   'emacspeak-speak-line))
-
-;;}}}
 
 ;;}}}
 ;;{{{  Encyclopeadia Britannica 
@@ -1391,35 +1367,6 @@ Light for: ")))
   (emacspeak-websearch-post-process
    "Main Entry"
    'emacspeak-speak-line))
-
-;;}}}
-;;{{{  IBM Machine Translation  
-
-(emacspeak-websearch-set-searcher 'machine-translate
-                                  'emacspeak-websearch-machine-translate)
-
-(emacspeak-websearch-set-key ?t 'machine-translate)
-
-(defvar emacspeak-websearch-machine-translate-uri
-  "http://demo.alphaworks.ibm.com/cgi-bin/mtconnect"
-  "*URI for launching a machine translation from IBM Alphaworks")
-
-(defun emacspeak-websearch-machine-translate (lang query)
-  "Perform a machine translation request"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Target language: ")
-    (emacspeak-websearch-read-query "Translate:")))
-  (declare (special emacspeak-websearch-machine-translate-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-machine-translate-uri
-             (format "?lang=%s" lang)
-             "&text="
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process ""
-                                    'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Weather
