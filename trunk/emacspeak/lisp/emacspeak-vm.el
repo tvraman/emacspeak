@@ -182,26 +182,20 @@ Note that some badly formed mime messages  cause trouble."
    (vm-message-pointer
     (dtk-stop)
     (let*  ((message (car vm-message-pointer ))
-            (from(or (vm-su-full-name message)
-                     (vm-su-from message )))
+            (from (vm-su-from message ))
             (subject (vm-so-sortable-subject message ))
-            (to(or (vm-su-to-names message)
-                   (vm-su-to message )))
+            (to (vm-su-to message ))
             (header nil))
+      (while (not header)
       (setq header 
       (case
           (read-char "f From s Subject t To")
         (?s subject)
         (?f from)
-        (?t to)
-      (otherwise
-       (error "f From t To s Subject"))))
+        (?t to))))
       (kill-new header)
       (message header)))
    (t (error "No current message." ))))
-
-
-
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
@@ -337,6 +331,7 @@ Then speak the screenful. "
 
 (declaim (special vm-mode-map))
 (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
+(define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
 (define-key vm-mode-map "\M-\t"
   'emacspeak-vm-next-button)
 (define-key vm-mode-map  "j"
@@ -537,14 +532,12 @@ Leave point at front of decoded attachment."
 (emacspeak-pronounce-augment-pronunciations 'vm-presentation-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 
-
 (add-hook 'mail-mode-hook
           'emacspeak-pronounce-refresh-pronunciations)
           
 
 (emacspeak-pronounce-augment-pronunciations 'mail-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
-
 
 ;;}}}
 ;;{{{ advice button motion 
