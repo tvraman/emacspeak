@@ -196,9 +196,52 @@
   "Turn on outline minor mode to enable navigation. "
   (outline-minor-mode 1)
   (setq outline-regexp "^[0-9a-zA-Z]+: ")
+  (define-key tnt-im-mode-map
+    (concat emacspeak-prefix "\C-q")
+    'emacspeak-tnt-toggle-autospeak)
   (define-key tnt-im-mode-map "\M-p"
     'emacspeak-outline-speak-previous-heading)
   (define-key tnt-im-mode-map "\M-n" 'emacspeak-outline-speak-next-heading))
+
+;;}}}
+;;{{{  autospeak messages
+(defcustom emacspeak-tnt-autospeak nil
+  "True means messages in this chat session will be spoken
+automatically."
+  :type 'boolean
+  :group 'emacspeak-tnt)
+
+(make-variable-buffer-local 'emacspeak-tnt-autospeak)
+
+(defun emacspeak-tnt-toggle-autospeak (&optional prefix)
+  "Toggle TNT autospeak for this chat session."
+  (interactive  "P")
+  (declare  (special  emacspeak-tnt-autospeak ))
+  (cond
+   (prefix
+    (setq-default  emacspeak-tnt-autospeak
+                   (not  (default-value 'emacspeak-tnt-autospeak )))
+    (setq emacspeak-tnt-autospeak (default-value 'emacspeak-tnt-autospeak )))
+   (t (make-local-variable 'emacspeak-tnt-autospeak)
+      (setq emacspeak-tnt-autospeak
+	    (not emacspeak-tnt-autospeak ))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-tnt-autospeak 'on 'off))
+    (message "Turned %s TNT autospeak  %s "
+             (if emacspeak-tnt-autospeak "on" "off" )
+             (if prefix "" " locally"))))
+
+(defadvice tnt-append-message-and-adjust-window (after emacspeak pre
+                                                       act comp)
+  "Speak messages if autospeak is on, and the conversation buffer is
+selected."
+  (let ((buffer  (ad-get-arg 0))
+        (message (ad-get-arg 1)))
+    (when (and emacspeak-tnt-autospeak
+               (eq (current-buffer)
+                   buffer))
+      (dtk-speak message))))
 
 ;;}}}
 (provide 'emacspeak-tnt)
