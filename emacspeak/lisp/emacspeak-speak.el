@@ -1042,8 +1042,7 @@ char is assumed to be one of a--z."
   "Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive "P")
-  (let ((dtk-stop-immediately t )
-        (char  (following-char )))
+  (let ((char  (following-char )))
     (when char
       (emacspeak-handle-action-at-point)
       (cond
@@ -1056,13 +1055,12 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
-  (let ((dtk-stop-immediately t ))
     (when char
       (emacspeak-handle-action-at-point)
       (cond
        ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
        (t (dtk-dispatch
-           (dtk-char-to-speech char )))))))
+           (dtk-char-to-speech char ))))))
 
 ;;{{{ emacspeak-speak-display-char
 
