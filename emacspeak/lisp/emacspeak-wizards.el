@@ -2253,6 +2253,36 @@ Moves to the longest line when called interactively."
                    personality
 (emacspeak-speak-line))
 
+(defun emacspeak-wizards-generate-voice-sampler  (step)
+  "Generate a buffer that shows a sample line in all the ACSS settings
+for the current voice family."
+  (interactive "nStep:")
+  (interactive)
+  (let ((buffer (get-buffer-create "*Voice Sampler*"))
+        (voice nil))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+    (loop for  s from 0 to 9 by step do 
+          (loop for p from 0 to 9 by step do
+                (loop for a from 0 to 9 by step do 
+                      (loop for r from 0 to 9 by step do 
+(setq voice (voice-setup-personality-from-style
+      (list nil a p s r )))
+(insert
+ (format
+  " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
+  a p s r ))
+(put-text-property (line-beginning-position)
+                   (line-end-position)
+                   'personality voice)
+(end-of-line)
+(insert "\n"))))))
+(switch-to-buffer  buffer)
+(voice-lock-mode 1)
+(goto-char (point-min))))
+
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
