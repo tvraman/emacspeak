@@ -45,7 +45,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
-
+(require 'emacspeak-load-path)
 (require 'dtk-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
@@ -64,6 +64,7 @@
 ;;; It loads the various parts of the system.
 
 ;;}}}
+ 
 ;;{{{  Customize groups 
 
 (defgroup emacspeak nil

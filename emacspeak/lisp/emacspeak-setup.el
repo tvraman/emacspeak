@@ -47,43 +47,33 @@ variable is set to nil.
 To use emacspeak with emacs running in multibyte mode, this
 variable should be set to nil *before* 
 emacspeak is compiled or started.")
-
+;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
-
+;;;###autoload
 (defvar emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Directory where emacspeak lisp files are  installed. ")
-
+;;;###autoload
 (defvar emacspeak-sounds-directory
   (expand-file-name  "sounds/" emacspeak-directory)
   "Directory containing auditory icons for Emacspeak.")
-
+;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for
   Emacspeak.")
-
+;;;###autoload
 (defvar emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
   "Directory containing speech servers  for
   Emacspeak.")
-
+;;;###autoload
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Directory containing  Emacspeak info files.")
-(defcustom emacspeak-play-program
-  (cond
-   ((getenv "EMACSPEAK_PLAY_PROGRAM"))
-   ((file-exists-p "/usr/bin/play") "/usr/bin/play")
-   ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
-   ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
-   (t (expand-file-name emacspeak-etc-directory "play")))
-  "Name of executable that plays sound files. "
-  :group 'emacspeak
-  :type 'string)
-
+;;;###autoload
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
   "Directory where Emacspeak resource files such as
 pronunciation dictionaries are stored. ")

@@ -254,13 +254,46 @@ Browse specified RSS feed." t nil)
 
 ;;;***
 
+;;;### (autoloads nil "emacspeak-setup" "emacspeak-setup.el" (15896
+;;;;;;  29858))
+;;; Generated autoloads from emacspeak-setup.el
+
+(defvar emacspeak-directory (expand-file-name "../" (file-name-directory load-file-name)) "\
+Directory where emacspeak is installed. ")
+
+(defvar emacspeak-lisp-directory (expand-file-name "lisp/" emacspeak-directory) "\
+Directory where emacspeak lisp files are  installed. ")
+
+(defvar emacspeak-sounds-directory (expand-file-name "sounds/" emacspeak-directory) "\
+Directory containing auditory icons for Emacspeak.")
+
+(defvar emacspeak-etc-directory (expand-file-name "etc/" emacspeak-directory) "\
+Directory containing miscellaneous files  for
+  Emacspeak.")
+
+(defvar emacspeak-servers-directory (expand-file-name "servers/" emacspeak-directory) "\
+Directory containing speech servers  for
+  Emacspeak.")
+
+(defvar emacspeak-info-directory (expand-file-name "info/" emacspeak-directory) "\
+Directory containing  Emacspeak info files.")
+
+(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/") "\
+Directory where Emacspeak resource files such as
+pronunciation dictionaries are stored. ")
+
+;;;***
+
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
-;;;;;;  emacspeak-sounds-select-theme emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15896 27384))
+;;;;;;  emacspeak-sounds-select-theme emacspeak-play-program emacspeak-sounds-default-theme)
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15896 29006))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
 Default theme for auditory icons. ")
+
+(defvar emacspeak-play-program (cond ((getenv "EMACSPEAK_PLAY_PROGRAM")) ((file-exists-p "/usr/bin/play") "/usr/bin/play") ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay") ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play") (t (expand-file-name emacspeak-etc-directory "play"))) "\
+Name of executable that plays sound files. ")
 
 (autoload (quote emacspeak-sounds-select-theme) "emacspeak-sounds" "\
 Select theme for auditory icons." t nil)
@@ -279,7 +312,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15896 27384))
+;;;;;;  "emacspeak-speak.el" (15896 29726))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
