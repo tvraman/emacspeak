@@ -310,9 +310,9 @@ archives, type +redhat"
     (emacspeak-websearch-read-query "Search for messages matching: ")))
   (declare (special emacspeak-websearch-emacspeak-archive-uri))
   (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-emacspeak-archive-uri
-             "&keywords="
+    (emacspeak-websearch-do-post "POST"
+      emacspeak-websearch-emacspeak-archive-uri
+             (format "query=%s"
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Here is"
@@ -830,7 +830,7 @@ Optional second arg data processes the results as data rather than HTML."
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
   (let ((url-be-asynchronous nil))
-    (emacspeak-websearch-do-post "post"
+    (emacspeak-websearch-do-post "POST"
                                  emacspeak-websearch-sourceforge-search-uri
                                  (concat 
                                   "type_of_search=soft"
@@ -1392,7 +1392,8 @@ Light for: ")))
     (emacspeak-websearch-read-query "Title:")))
   (declare (special emacspeak-websearch-rfb-uri))
   (let ((url-be-asynchronous nil))
-    (emacspeak-websearch-do-post "POST" emacspeak-websearch-rfb-uri
+    (emacspeak-websearch-do-post "POST"
+                                 emacspeak-websearch-rfb-uri
                                  (concat "author="
                                          (webjump-url-encode author)
                                          "&title="
