@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 375 user customizable
+This chapter documents a total of 377 user customizable
   options.
 
 @menu
@@ -43,6 +43,7 @@ This chapter documents a total of 375 user customizable
 * emacspeak-keymap Options::    
 * emacspeak-loaddefs Options::  
 * emacspeak-m-player Options::  
+* emacspeak-madplay Options::   
 * emacspeak-ocr Options::       
 * emacspeak-outline Options::   
 * emacspeak-pcl-cvs Options::   
@@ -1606,6 +1607,29 @@ Options passed to mplayer.
 
 @defvar {User Option} emacspeak-m-player-program
 Media player program.
+@end defvar
+
+@node emacspeak-madplay Options
+@section emacspeak-madplay Options
+
+Commentary:
+Defines a simple derived mode for interacting with
+madplay.
+madplay navigation commands  work via single keystrokes.
+
+Automatically generated documentation
+for options defined in module  emacspeak-madplay.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-madplay-media-directory
+Directory to look for media files.
+@end defvar
+
+@defvar {User Option} emacspeak-madplay-program
+Script to invoke madplay.
+Emacspeak comes with a sample amadplay script in etc/amadplay
+  that 
+sets up madplay to pipe output to alsa.
 @end defvar
 
 @node emacspeak-ocr Options
