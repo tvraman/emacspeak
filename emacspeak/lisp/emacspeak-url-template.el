@@ -188,7 +188,7 @@ prompting for a template.")
                                     emacspeak-url-template-shoutcast-history)
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
-        (pushnew query emacspeak-url-template-shoutcast-history)
+        (pushnew query emacspeak-url-template-shoutcast-history :test #'string-equal)
         (webjump-url-encode  query))))
  nil
  "Locate and display Shoutcast streams."
