@@ -347,8 +347,6 @@ The complete audio desktop.
 
 Emacspeak extends Emacs to be a fully functional audio desktop.
 This is the main emacspeak module.
-It actually does very little:
-It loads the various parts of the system.
 
 Automatically generated documentation
 for commands defined in module  emacspeak.
@@ -677,9 +675,6 @@ Stop audio.
 
 Commentary:
 This module speech enables dired.
-It reduces the amount of speech you hear:
-Typically you hear the file names as you move through the dired buffer
-Voicification is used to indicate directories, marked files etc.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
@@ -902,8 +897,10 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 Automatically generated documentation
 for commands defined in module  emacspeak-erc.
 
-@deffn {Interactive Command} emacspeak-erc-add-name-to-monitor (NAME)
-Add people to monitor in this room.
+@deffn {Interactive Command} emacspeak-erc-add-name-to-monitor (NAME &optional QUITEN-PRONUNCIATION)
+Add people to moniter in this room.
+Optional interactive prefix  arg defines a pronunciation that
+  silences speaking of this perso's name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-delete-name-from-monitor (NAME)
@@ -953,11 +950,6 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window (ID)
@@ -1279,14 +1271,6 @@ freeamp navigation commands then work via single keystrokes.
 Automatically generated documentation
 for commands defined in module  emacspeak-freeamp.
 
-@deffn {Interactive Command} emacspeak-freeamp (RESOURCE)
-@kbd{ control e control f o }
-
-Play specified resource using freeamp.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-freeamp-mode.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-freeamp-freeamp-call-command ()
 @kbd{ control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p }
 
@@ -1295,11 +1279,6 @@ Call appropriate freeamp command.
 
 @deffn {Interactive Command} emacspeak-freeamp-freeamp-command (CHAR)
 Execute FreeAmp command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-freeamp-mode ()
@@ -1556,11 +1535,6 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @node emacspeak-kotl
@@ -1744,13 +1718,6 @@ This module assumes that sane is installed and working
 for image acquisition,
 and that there is an OCR engine that can take acquired
 images and produce text.
-Prerequisites:
-Sane installed and working.
-scanimage to generate tiff files from scanner.
-tiffcp to compress the tiff file.
-working ocr executable 
-by default this module assumes that the OCR executable
-is named "ocr"
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ocr.
@@ -2116,34 +2083,6 @@ point to the program you use to play RealAudio streams.
 Automatically generated documentation
 for commands defined in module  emacspeak-realaudio.
 
-@deffn {Interactive Command} emacspeak-realaudio (&optional IGNORED)
-@kbd{ control e ; }
-
-Start or control streaming audio including MP3 and
-realaudio.  If using `TRPlayer' as the player, accepts
-trplayer control commands if a stream is already playing.
-Otherwise, the playing stream is simply stopped.  If no
-stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a
-Realaudio URL, the location of a local Realaudio file, or as
-the name of a local Realaudio metafile. Realaudio resources
-you have played in this session are available in the
-minibuffer history.  The default is to play the resource you
-played most recently. Emacspeak uses the contents of the
-directory specified by variable
-emacspeak-realaudio-shortcuts-directory to offer a set of
-completions. Hit space to use this completion list.
-
-If using TRPlayer, you can either give one-shot commands
-using command emacspeak-realaudio available from anywhere on
-the audio desktop as `C-e ;'.
-Alternatively, switch to buffer *realaudio* using
-`C-e ;;' if you wish to issue many
-navigation commands.  Note that buffer *realaudio* uses a
-special major mode that provides the various navigation
-commands via single keystrokes.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-realaudio-browse (RAMFILE &optional START-TIME)
 Browse RAM file before playing the selected component.
 @end deffn
@@ -2312,27 +2251,13 @@ Speak coordinates of current position
 
 Commentary:
 This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
 
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
+
+@deffn {Interactive Command} emacspeak-aumix-reload-sound ()
+Reload sound drivers.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-play-all-icons ()
 Plays all defined icons and speaks their names.
@@ -2345,6 +2270,7 @@ Select  player used for producing auditory icons.
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
+emacspeak-queue-auditory-icon when using software TTS.
 emacspeak-play-midi-icon for midi device. 
 @end deffn
 
@@ -2354,6 +2280,10 @@ This lets me have Emacspeak switch to using audioplay on
 solaris after I've used it for a while from a remote session
 where it would use the more primitive speech-server based
 audio player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sounds-reset-sound ()
+Reload sound drivers.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sounds-select-theme (THEME)
@@ -2402,11 +2332,6 @@ Prompt for and dial a phone NUMBER with the Dectalk.
 
 @deffn {Interactive Command} emacspeak-execute-repeatedly (COMMAND)
 Execute COMMAND repeatedly.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mark-backward-mark ()
@@ -2482,11 +2407,6 @@ Default is to read the previous word.
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-char (CHAR)
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-this-char ()
@@ -3126,11 +3046,6 @@ for commands defined in module  emacspeak-table-ui.
 
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-register (REGISTER)
 Speak current table element
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-copy-to-clipboard ()
@@ -3513,6 +3428,42 @@ Emacspeak and ACSS
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
 
+@deffn {Interactive Command} emacspeak-freeamp (RESOURCE)
+@kbd{ control e control f o }
+
+Play specified resource using freeamp.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-freeamp-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-realaudio (&optional IGNORED)
+@kbd{ control e ; }
+
+Start or control streaming audio including MP3 and
+realaudio.  If using `TRPlayer' as the player, accepts
+trplayer control commands if a stream is already playing.
+Otherwise, the playing stream is simply stopped.  If no
+stream is playing, this command prompts for a realaudio
+resource.  Realaudio resources can be specified either as a
+Realaudio URL, the location of a local Realaudio file, or as
+the name of a local Realaudio metafile. Realaudio resources
+you have played in this session are available in the
+minibuffer history.  The default is to play the resource you
+played most recently. Emacspeak uses the contents of the
+directory specified by variable
+emacspeak-realaudio-shortcuts-directory to offer a set of
+completions. Hit space to use this completion list.
+
+If using TRPlayer, you can either give one-shot commands
+using command emacspeak-realaudio available from anywhere on
+the audio desktop as `C-e ;'.
+Alternatively, switch to buffer *realaudio* using
+`C-e ;;' if you wish to issue many
+navigation commands.  Note that buffer *realaudio* uses a
+special major mode that provides the various navigation
+commands via single keystrokes.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-browse-rss-at-point ()
 Browses RSS url under point.
 @end deffn
@@ -3743,6 +3694,10 @@ Speak document element under point.
 
 @deffn {Interactive Command} emacspeak-w3-toggle-table-borders ()
 Toggle drawing of W3 table borders
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-url-expand-and-execute ()
+Applies buffer-specific URL expander/executor function.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-url-rewrite-and-follow (&optional PROMPT)
@@ -4447,6 +4402,26 @@ Browse  Emacspeak productivity tips.
 Count slides starting from point.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-dvi-display ()
+Called to set up preview of an DVI file.
+Assumes we are in a buffer visiting a .DVI file.
+Previews those contents as text and nukes the buffer
+visiting the DVI file.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-dvi-mode ()
+Major mode for browsing DVI files.
+
+DVI files  are converted to text and previewed using text mode.
+
+This mode runs the hook `emacspeak-wizards-dvi-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-edit-file-as-root (FILENAME)
 Edit file as root using sudo vi.
 See /etc/sudoers for how to set up sudo.
@@ -4593,6 +4568,10 @@ Run rpm -qi on current dired entry.
 
 Switch to the shell buffer and cd to 
  the directory of the current buffer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-show-commentary (&optional FILE)
+Display commentary. Default is to display commentary from current buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-show-environment-variable (V)
