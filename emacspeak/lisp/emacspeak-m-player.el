@@ -111,7 +111,16 @@ Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (read-from-minibuffer "Media  Resource: ")))
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (minibuffer-history emacspeak-realaudio-history))
+      (emacspeak-pronounce-define-local-pronunciation
+       emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
+      (expand-file-name
+       (read-file-name "Media resource: "
+                       emacspeak-realaudio-shortcuts-directory
+                       emacspeak-realaudio-last-url)))
+    current-prefix-arg))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
