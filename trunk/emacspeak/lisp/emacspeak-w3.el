@@ -171,7 +171,7 @@ that is no longer supported by Emacspeak.")))
        (goto-char (point-min))
        (view-mode)
        (setq view-exit-action 'kill-buffer)
-       (emacspeak-skip-blank-lines-forward)
+       (skip-syntax-forward " ")
        (emacspeak-speak-line)))
 
 (defun emacspeak-w3-lynx-url-under-point ()
