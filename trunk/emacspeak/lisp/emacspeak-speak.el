@@ -1057,12 +1057,12 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 
 (defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
-    (when char
-      (emacspeak-handle-action-at-point)
-      (cond
-       ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
-       (t (dtk-dispatch
-           (dtk-char-to-speech char ))))))
+  (when char
+    (emacspeak-handle-action-at-point)
+    (cond
+     ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
+     (t (dtk-dispatch
+	 (dtk-char-to-speech char ))))))
 
 ;;{{{ emacspeak-speak-display-char
 
@@ -2117,12 +2117,12 @@ Non-nil means we split speech on newlines in comint buffer."
 
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
-             (declare (special
-                       emacspeak-comint-split-speech-on-newline ))
-             (dtk-set-punctuations "all")
-             (when emacspeak-comint-split-speech-on-newline
-               (modify-syntax-entry 10 ">"))
-             (emacspeak-pronounce-refresh-pronunciations))
+  (declare (special
+	    emacspeak-comint-split-speech-on-newline ))
+  (dtk-set-punctuations "all")
+  (when emacspeak-comint-split-speech-on-newline
+    (modify-syntax-entry 10 ">"))
+  (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 

@@ -531,16 +531,16 @@ name of the list.")
 ;;{{{ cnn 
 (emacspeak-url-template-define
  "CNN Search"
-"http://search.cnn.com/cnn/search?%s"
-(list
- #'(lambda ()
-     (let ((q (read-from-minibuffer "CNN Search: ")))
-       (format "query=%s&qt=%s"
-               q q ))))
-nil
-"Search CNN"
-#'(lambda (url)
-    (emacspeak-w3-extract-nested-table 10 url 'speak)))
+ "http://search.cnn.com/cnn/search?%s"
+ (list
+  #'(lambda ()
+      (let ((q (read-from-minibuffer "CNN Search: ")))
+	(format "query=%s&qt=%s"
+		q q ))))
+ nil
+ "Search CNN"
+ #'(lambda (url)
+     (emacspeak-w3-extract-nested-table 10 url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Weather "
@@ -662,12 +662,12 @@ the broadcast. You must have mplayer installed."
      (url
       (setq fields (split-string url "file="))
       (setq stream (first
-        (split-string (second fields)
-                      "'")))
+		    (split-string (second fields)
+				  "'")))
       (if (string-match "launch_rw" stream)
           (emacspeak-realaudio-play stream)
-      (emacspeak-m-player
-       stream)))
+	(emacspeak-m-player
+	 stream)))
      (t "No url under point."))))
 
 ;;}}}
