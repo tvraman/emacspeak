@@ -2154,7 +2154,9 @@ hits."
 
 ;;}}}
  
-longest line in region 
+
+;;{{{ longest line in region 
+
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
   "Find longest line in region.
 Moves to the longest line when called interactively."
@@ -2172,12 +2174,15 @@ Moves to the longest line when called interactively."
           (setq max (- (line-end-position)
                        (line-beginning-position)))
           (setq where (line-beginning-position)))
-        (forward-line 1))
-      (message "Longest line is %s columns"
-               max))
+        (forward-line 1)))
     (when (interactive-p)
+      (message "Longest line is %s columns"
+               max)
       (goto-char where))
-    max))(provide 'emacspeak-wizards)
+    max))
+
+;;}}}
+(provide 'emacspeak-wizards)
 ;;{{{ end of file
 
 ;;; local variables:
