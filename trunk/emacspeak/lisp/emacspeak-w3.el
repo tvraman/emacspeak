@@ -505,6 +505,7 @@ HTML."
     (error "Not in a W3 buffer."))
   (let ((url (url-view-url t)))
     (emacspeak-w3-browse-url-with-style xsl url)))
+
 ;;;###autoload
 (defun emacspeak-w3-xslt-select (xsl)
   "Select XSL transformation applied to WWW pages before they are displayed ."
@@ -1171,8 +1172,13 @@ used as well."
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
-  (declare (special emacspeak-w3-post-process-hook))
-  (let ((src-buffer
+  (declare (special emacspeak-w3-post-process-hook
+                    emacspeak-w3-xsl-p
+emacspeak-w3-xsl-transform))
+  (let ((emacspeak-w3-xsl-p t)
+        (emacspeak-w3-xsl-transform style)
+                            
+        (src-buffer
          (emacspeak-xslt-url
           style
           url
@@ -1188,6 +1194,7 @@ used as well."
       (set-buffer src-buffer)
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
+
 ;;;###autoload
 (defun emacspeak-w3-browse-xml-url-with-style (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
