@@ -813,7 +813,7 @@ specified pronunciation dictionary key."
           (replace-regexp-in-string
            "[0-9]\\{2\\}" " \\&"  suffix-code))
     (propertize 
-     (format "(%s) %s, %s. "
+     (format "%s %s, %s. "
              area-code prefix-code suffix-code)
      'personality voice-punctuations-some)))
 
