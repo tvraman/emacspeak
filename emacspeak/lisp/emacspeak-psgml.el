@@ -339,9 +339,10 @@ window")))
  'sgml-mode-hook
  (function
   (lambda ()
-    (declare (special sgml-mode-map))
+    (declare (special sgml-mode-map
+                      sgml-set-face))
+    (setq sgml-set-face t)
     (emacspeak-setup-programming-mode)
-    (lazy-voice-lock-mode nil)
     (define-key sgml-mode-map "\C-c\C-b"
       'emacspeak-xml-browse-mode))))
                                     
