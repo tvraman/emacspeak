@@ -708,7 +708,11 @@ To leave, press \\[keyboard-quit]."
                      (string-match "tts" (symbol-name f))))
           (push f commands)))))
     (setq commands
-          (sort commands 'string-lessp))
+          (sort commands
+                #'(lambda (a b )
+                    (string-lessp
+                     (symbol-file a)
+                     (symbol-file b)))))
     commands))
 
 (defun emacspeak-generate-documentation (filename)
