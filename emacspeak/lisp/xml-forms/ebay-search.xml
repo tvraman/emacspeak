@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--$Id$-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>EBay Smart Search</title>
+  </head>
+  <body>
+    <form action="http://search.ebay.com/search/search.dll" method="GET" name="search_form">
+      <input type="hidden" name="MfcISAPICommand" value="GetResult"/>
+      <input type="hidden" name="ht" value="1"/>
+      <input type="hidden" name="ebaytag1" value="ebayreg"/>
+      <table>
+        <tr>
+          <td>
+            <input maxlength="100" name="query" size="20" id="query"/>
+            <label for="query">Find</label>
+          </td>
+          <td>
+            <input name="srchdesc" type="checkbox" value="y" id="srchdesc"/>
+            <label for="srchdesc">Search in
+descriptions</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="category0">Categories</label>
+            <select name="category0" size="1" id="category0">
+              <option selected="selected" value="">All Categories</option>
+              <option value="353">Antiques &amp; Art</option>
+              <option value="6000&amp;siteID=100">Automotive-eBay Motors</option>
+              <option value="267">Books</option>
+              <option value="12576">Business, Office &amp; Industrial</option>
+              <option value="11450">Clothing &amp; Accessories</option>
+              <option value="11116">Coins</option>
+              <option value="1">Collectibles</option>
+              <option value="160">Computers, Networking &amp; I.T.</option>
+              <option value="293">Consumer Electronics</option>
+              <option value="237">Dolls &amp; Bears</option>
+              <option value="2038">eBay Premier</option>
+              <option value="11700">Home &amp; Garden</option>
+              <option value="281">Jewelry, Gemstones</option>
+              <option value="11232">Movies</option>
+              <option value="11233">Music</option>
+              <option value="625">Photo</option>
+              <option value="870">Pottery &amp; Glass</option>
+              <option value="10542">Real Estate</option>
+              <option value="888">Sports</option>
+              <option value="260">Stamps</option>
+              <option value="11730">Tickets &amp; Travel</option>
+              <option value="220">Toys &amp; Hobbies</option>
+              <option value="99">Everything Else</option>
+            </select>
+          </td>
+          <td><label>Price</label> Between $ <input maxlength="12" name="minPrice" size="5"/> and $ <input maxlength="12" name="maxPrice" size="5"/></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="itemLocation">Item location</label>
+            <select name="ebaytag1code" size="1" id="itemLocation">
+              <option selected="selected" value="0">All of eBay - include all
+regions</option>
+              <option value="39">AZ--Phoenix</option>
+              <option value="1">CA--Los Angeles</option>
+              <option value="57">CA--Oakland</option>
+              <option value="58">CA--Orange County</option>
+              <option value="45">CA--Sacramento</option>
+              <option value="48">CA--San Diego</option>
+              <option value="49">CA--San Francisco</option>
+              <option value="60">CA--San Jose</option>
+              <option value="16">CO--Denver</option>
+              <option value="20">CT--Hartford</option>
+              <option value="4">DC--Washington</option>
+              <option value="24">FL--Jacksonville</option>
+              <option value="29">FL--Miami</option>
+              <option value="37">FL--Orlando</option>
+              <option value="52">FL--Tampa-St. Petersburg</option>
+              <option value="53">FL--West Palm Beach</option>
+              <option value="2">GA--Atlanta</option>
+              <option value="21">HI--Honolulu</option>
+              <option value="5">ID--Billings-Boise</option>
+              <option value="10">IL--Chicago</option>
+              <option value="23">IN--Indianapolis</option>
+              <option value="25">KS--Kansas City</option>
+              <option value="27">KY--Louisville</option>
+              <option value="33">LA--New Orleans</option>
+              <option value="7">MA--Boston</option>
+              <option value="56">MD--Baltimore</option>
+              <option value="17">MI--Detroit</option>
+              <option value="18">MI--Grand Rapids</option>
+              <option value="31">MN--Minneapolis-St. Paul</option>
+              <option value="25">MO--Kansas City</option>
+              <option value="51">MO--St. Louis</option>
+              <option value="5">MT--Billings-Boise</option>
+              <option value="9">NC--Charlotte</option>
+              <option value="19">NC--Greensboro</option>
+              <option value="43">NC--Raleigh-Durham</option>
+              <option value="6">ND--Bismarck-Pierre</option>
+              <option value="55">NM--Albuquerque-Santa Fe</option>
+              <option value="26">NV--Las Vegas</option>
+              <option value="54">NY--Albany</option>
+              <option value="8">NY--Buffalo</option>
+              <option value="34">NY--New York</option>
+              <option value="44">NY--Rochester</option>
+              <option value="11">OH--Cincinnati</option>
+              <option value="12">OH--Cleveland</option>
+              <option value="13">OH--Columbus</option>
+              <option value="15">OH--Dayton-Springfield</option>
+              <option value="36">OK--Oklahoma City</option>
+              <option value="41">OR--Portland</option>
+              <option value="38">PA--Philadelphia</option>
+              <option value="40">PA--Pittsburgh</option>
+              <option value="42">RI--Providence</option>
+              <option value="6">SD--Bismarck-Pierre</option>
+              <option value="28">TN--Memphis</option>
+              <option value="32">TN--Nashville</option>
+              <option value="3">TX--Austin</option>
+              <option value="14">TX--Dallas-Fort Worth</option>
+              <option value="22">TX--Houston</option>
+              <option value="47">TX--San Antonio</option>
+              <option value="46">UT--Salt Lake City</option>
+              <option value="35">VA--Norfolk-VA Beach</option>
+              <option value="59">VA--Richmond</option>
+              <option value="50">WA--Seattle-Tacoma</option>
+              <option value="30">WI--Milwaukee</option>
+            </select>
+          </td>
+          <td>
+            <label for="st">View Results</label>
+            <select name="st" id="st">
+              <option name="st" value="">All items</option>
+              <option name="st" value="4">All items with item number</option>
+              <option name="st" value="1">Gallery items only</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="SortProperty">Sort by</label>
+            <select name="SortProperty" size="1" id="SortProperty">
+              <option value="MetaEndSort" selected="selected">Items ending
+first</option>
+              <option value="MetaNewSort">Newly-listed items first</option>
+              <option value="MetaLowestPriceSort">Lowest prices first</option>
+              <option value="MetaHighestPriceSort">Highest prices first</option>
+            </select>
+          </td>
+          <td>
+            <label for="pt">eBay Payments</label>
+            <input type="Checkbox" name="pt" value="1" id="pt"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value=" Search "/>
+          </td>
+          <td>
+            <a href="http://pages.ebay.com/help/buyerguide/search.html">Help</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
