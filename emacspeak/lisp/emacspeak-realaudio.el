@@ -312,7 +312,7 @@ qmp3cut."))
   (let ((command
          (format "%s -B %ss -E %ss -o %s %s &"
                  emacspeak-realaudio-mp3-clipper
-                 start end   filename 
+                 start end   file
                  emacspeak-realaudio-this-resource)))
     (shell-command command)
     (message "Executing %s asynchronously."
