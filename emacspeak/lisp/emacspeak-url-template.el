@@ -427,7 +427,8 @@ Computing News at CNN.")
  "http://sourceforge.net/project/stats?group_id=%s"
  (list
   (lambda nil 
-    (read-from-minibuffer "Project Id")))
+    (read-from-minibuffer "Project Id"
+                          "2238")))
  nil
  "Display project usage statistics."
  #'(lambda (url)

@@ -16,6 +16,9 @@ Description: Show  jabber messages.
 <head>
 <style type="text/css">
 @media speech {
+span.<xsl:value-of
+          select="substring(message[1]/@from, 1, 3)"/> {
+          font-style: italic}
           span.<xsl:value-of
           select="substring(message[1]/@from, 1, 3)"/> {
           voice-family: paul;
