@@ -68,7 +68,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
         (message-log-max 1024))
     (when (file-exists-p  emacs-private-library-directory)
       (augment-load-path emacs-private-library-directory ))
-    (augment-load-path emacs-personal-library-directory)       
+    (augment-load-path emacs-personal-library-directory)
     ;;{{{ Load and customize emacspeak 
 
     (unless (featurep 'emacspeak)
@@ -77,7 +77,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
       (emacspeak-toggle-auditory-icons t)
       (when (emacspeak-sounds-theme-p "chimes-mono/")
         (emacspeak-sounds-select-theme "chimes-mono/"))
-      (tts-configure-synthesis-setup))
+      (tts-configure-synthesis-setup)
+      (dtk-set-rate dtk-default-speech-rate 'global))
 
     ;;}}}
     ;;{{{  handle terminal weirdnesses and function keys
@@ -431,7 +432,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (color-theme-emacs-21)
     ;;}}}
     ))                                  ; end defun 
-
 ;;{{{  start it up 
 
 ;;; So actually start it up:
@@ -439,6 +439,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 (add-hook 'after-init-hook
           #'(lambda ()
              (emacspeak-aumix-reset)
+             (shell)
+             (dtk-set-rate dtk-default-speech-rate 'global)
              (calendar)
              (message "Successfully initialized Emacs")
              (shell-command "play ~/cues/highbells.au")))

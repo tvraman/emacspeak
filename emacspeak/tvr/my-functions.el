@@ -85,4 +85,40 @@
                         (format (cperl-pod2man-build-command) pod2man-args))
          'Man-bgproc-sentinel)))))
 
+;;{{{ amphetadesk
+(defgroup amphetadesk nil
+  "AmphetaDesk"
+  :group 'aplications)
+
+(defcustom amphetadesk-program "amp"
+  "Script that launches amphetadesk."
+  :type 'file
+  :group 'amphetadesk)
+
+(defcustom amphetadesk-port 8888
+  "Port where AmphetaDesk listens."
+  :type 'integer
+  :group 'amphetadesk)
+
+(defsubst amphetadesk-ensure-live ()
+  "Ensure AmphetaDesk is alive, and start it if necessary."
+  (declare (special amphetadesk-program
+                    amphetadesk-port))
+  (if (=  1
+          (shell-command
+           (format "netstat -nat | grep %s"
+amphetadesk-port)))
+      (shell-command
+       (format "%s &"
+               amphetadesk-program)
+       "*AmphetaDesk*")))
+
+(defun amphetadesk ()
+  "Open amphetadesk"
+  (interactive)
+  (amphetadesk-ensure-live)
+  (w3-fetch "http://127.0.0.1:8888/"))
+
+;;}}}
+
 (provide 'my-functions)
