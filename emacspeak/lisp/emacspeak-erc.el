@@ -271,10 +271,10 @@ display. String is the original message."
     (save-excursion
       (set-buffer buffer)
       (when emacspeak-erc-room-monitor
-        (emacspeak-auditory-icon 'progress)
         (let ((msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
-          (when msg 
+          (when msg
+            (emacspeak-auditory-icon 'progress)
             (message  msg)))))))
 
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
