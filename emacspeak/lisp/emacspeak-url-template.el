@@ -756,10 +756,10 @@ name of the list.")
  "http://www.pbs.org/cringely/pulpit/pulpit%s.html"
  (list
   #'(lambda nil
-      (read-from-minibuffer "Date:"
+      (read-from-minibuffer "Date: (most recent Thursday)"
                             (format-time-string "%Y%m%d"))))
  nil
- "Read pulpit from PBS."
+ "Read pulpit from PBS. Published on the Thursday of the week."
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
       "//p" url 'speak)))
