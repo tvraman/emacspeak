@@ -202,7 +202,14 @@ documentation   Documents this template resource.
 
 ;;}}}
 ;;{{{  template resources 
-
+;;{{{ amazon
+ (emacspeak-url-template-define
+  "Amazon Product Details By ASIN"
+  "http://amazon.com/o/dt/upda-1.0-i/tg/aa/upda/item/-/%s"
+  (list "ASIN Or ISBN: ")
+  nil
+  "Retrieve produce details from Amazon by either ISBN or ASIN.")
+;;}}}
 ;;{{{ bookshare
 (defcustom emacspeak-bookshare-user-id nil
   "Bookshare user Id."
