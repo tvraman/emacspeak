@@ -263,8 +263,10 @@ prompting for a template.")
   (declare (special emacspeak-w3-post-process-hook))
   (setq emacspeak-w3-post-process-hook
         #'(lambda nil
-            (declare (special  emacspeak-w3-url-rewrite-rule))
-            (setq emacspeak-w3-url-rewrite-rule
+            (declare (special  emacspeak-w3-url-rewrite-rule
+                               emacspeak-w3-class-filter))
+            (setq emacspeak-w3-class-filter "article"
+             emacspeak-w3-url-rewrite-rule
                   '("$" "&printer=1"))
             (emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
