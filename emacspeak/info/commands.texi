@@ -2276,12 +2276,6 @@ Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-dtk-speak-version ()
-@kbd{ control e d  cap V  }
-
-Use this to find out which version of the Dectalk firmware you are running.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-execute-repeatedly (COMMAND)
 Execute COMMAND repeatedly.
 
@@ -3756,7 +3750,7 @@ Ebay search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-emacspeak-archive (QUERY)
-@kbd{ control h e }
+@kbd{ control h  cap E  }
 
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -4573,6 +4567,10 @@ Refresh view of VC we're viewing.
 
 @deffn {Interactive Command} emacspeak-wizards-voice-sampler (PERSONALITY)
 Read a personality  and apply it to the current line.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-vpn-toggle ()
+Bring up or bring down vpn.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-xl-display ()
