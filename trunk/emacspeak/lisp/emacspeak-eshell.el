@@ -183,7 +183,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-special-personality 'ppaul-smooth 
+(defcustom emacspeak-eshell-ls-special-personality 'paul-smooth 
   "Personality for special files."
   :type 'symbol
   :group 'emacspeak-eshell)
