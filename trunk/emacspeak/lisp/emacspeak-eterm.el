@@ -123,9 +123,13 @@
   (define-key emacspeak-eterm-keymap "\C-p"
     'emacspeak-eterm-toggle-pointer-mode)
   (define-key emacspeak-eterm-keymap "\C-w" 'emacspeak-eterm-define-window)
-  (define-key emacspeak-eterm-keymap "\C-y" 'emacspeak-eterm-yank-window)
+  (define-key emacspeak-eterm-keymap "\C-y"
+    'emacspeak-eterm-yank-window)
+  (define-key emacspeak-eterm-keymap "f"
+    'emacspeak-eterm-set-filter-window)
   (define-key emacspeak-eterm-keymap "\C-f"
     'emacspeak-eterm-set-focus-window)
+(define-key emacspeak-eterm-keymap "A" 'emacspeak-eterm-toggle-filter-window)
   (define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
   (define-key emacspeak-eterm-keymap "\C-m" 'emacspeak-eterm-speak-window)
@@ -911,6 +915,8 @@ and bottom right at %s %s"
 
 (defvar emacspeak-eterm-focus-window nil
   "Current window that emacspeak eterm focuses on")
+(make-variable-buffer-local 'emacspeak-eterm-filter-window)
+
 
 (defun emacspeak-eterm-set-focus-window (flag)
   "Prompt for the id of a predefined window,
@@ -938,7 +944,42 @@ non-negative integer ")
         (setq emacspeak-eterm-focus-window nil))
        (t 
         (setq emacspeak-eterm-focus-window window-id )
-        (message "Set emacspeak eterm focus window  to %d " window-id )))))))
+        (message "Set emacspeak eterm focus window  to %d "
+                 window-id )))))))
+
+(defvar emacspeak-eterm-filter-window nil
+  "Window id used to filter screen activity.")
+
+(make-variable-buffer-local 'emacspeak-eterm-filter-window)
+(defun emacspeak-eterm-set-filter-window (flag)
+  "Prompt for the id of a predefined window,
+and set the `filter' window to it.
+Non-nil interactive prefix arg `unsets' the filter window;
+this is equivalent to having the entire terminal as the filter window (this is
+what eterm starts up with).
+Setting the filter window results in emacspeak  only monitoring screen
+activity within the filter window."
+  (interactive "P")
+  (declare (special emacspeak-eterm-filter-window ))
+  (let  ((window-id nil))
+    (cond
+     ( flag (setq emacspeak-eterm-filter-window nil)
+            (message "Emacspeak eterm filter set to entire screen "))
+     (t
+      (setq window-id
+            (read-minibuffer  "Specify eterm window to focus on "))
+      (assert (numberp window-id) t
+              "Please specify a valid window id, a non-negative integer ")
+      (cond
+       ((= 0 window-id)
+        (message "Unset filter window.")
+        (setq emacspeak-eterm-filter-window nil))
+       (t 
+        (setq emacspeak-eterm-filter-window window-id )
+        (message "Set emacspeak eterm filter window  to %d " window-id )))))))
+
+
+
 
 (defun emacspeak-eterm-toggle-focus-window ()
   "Toggle active state of focus window."
@@ -951,6 +992,19 @@ non-negative integer ")
   (emacspeak-auditory-icon
    (if emacspeak-eterm-focus-window
        'on 'off)))
+
+(defun emacspeak-eterm-toggle-filter-window ()
+  "Toggle active state of filter window."
+  (interactive)
+  (declare (special emacspeak-eterm-filter-window))
+  (if emacspeak-eterm-filter-window
+      (setq emacspeak-eterm-filter-window nil)
+    (setq emacspeak-eterm-filter-window 1))
+  (dtk-stop)
+  (emacspeak-auditory-icon
+   (if emacspeak-eterm-filter-window
+       'on 'off)))
+
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
