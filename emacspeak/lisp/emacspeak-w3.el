@@ -355,6 +355,7 @@ implemented. ")))
         (end nil))
     (unless onclick
       (error "This link has no onclick attribute"))
+    (message onclick)
     (when (setq start
                 (string-match "http" onclick))
       (setq url (substring  onclick start ))
