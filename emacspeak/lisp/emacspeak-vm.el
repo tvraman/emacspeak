@@ -1,4 +1,4 @@
-;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
+indent;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enhance vm
@@ -39,6 +39,7 @@
 ;;}}}
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'dtk-voices)
 (require 'voice-lock)
 (require 'emacspeak-keymap)
@@ -52,11 +53,18 @@
 ;;}}}
 ;;{{{ voice locking:
 
-(defvar emacspeak-vm-voice-lock-messages nil
-"Set this to T if you want messages automatically voice
-locked.
-Note that some badly formed mime messages can cause
-trouble.")
+(defgroup  emacspeak-vm nil
+  "VM mail reader on the Emacspeak Desktop."
+  :group 'emacspeak
+  :group 'vm
+  :prefix "emacspeak-vm-")
+
+
+(defcustom emacspeak-vm-voice-lock-messages nil
+  "Set this to T if you want messages automatically voice locked.
+Note that some badly formed mime messages  cause trouble."
+  :type 'boolean
+  :group 'emacspeak-vm)
 
 (defvar vm-voice-lock-keywords nil
   "Keywords to highlight in vm")
@@ -94,16 +102,24 @@ trouble.")
 ;;}}}
 ;;{{{  vm voices:
 
-(defvar emacspeak-vm-from-voice  'harry
-"Personality for From field. ")
+(defcustom emacspeak-vm-from-voice  'harry
+  "Personality for From field. "
+  :type 'symbol
+  :group 'emacspeak-vm)
 
-(defvar emacspeak-vm-to-voice  'paul-animated
-"Personality for To field. ")
-(defvar emacspeak-vm-subject-voice  'paul-smooth 
-"Personality for Subject field. ")
+(defcustom emacspeak-vm-to-voice  'paul-animated
+  "Personality for To field. "
+  :type 'symbol
+  :group 'emacspeak-vm)
+(defcustom emacspeak-vm-subject-voice  'paul-smooth 
+  "Personality for Subject field. "
+  :type 'symbol
+  :group 'emacspeak-vm)
 
-(defvar emacspeak-vm-cite-voice  'paul-smooth
-"Personality for citation lines. ")
+(defcustom emacspeak-vm-cite-voice  'paul-smooth
+  "Personality for citation lines. "
+  :type 'symbol
+  :group 'emacspeak-vm)
 
 ;;}}}
 ;;{{{ inline helpers
@@ -120,14 +136,14 @@ trouble.")
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
-    (if (> (point) prior)
-      (dtk-speak (buffer-substring prior (point )))
-    (when (and completions-buffer
-           (window-live-p (get-buffer-window completions-buffer )))
-      (save-excursion
-        (set-buffer completions-buffer )
-        (emacspeak-prepare-completions-buffer)
-        (dtk-speak (buffer-string ))))))
+      (if (> (point) prior)
+          (dtk-speak (buffer-substring prior (point )))
+        (when (and completions-buffer
+                   (window-live-p (get-buffer-window completions-buffer )))
+          (save-excursion
+            (set-buffer completions-buffer )
+            (emacspeak-prepare-completions-buffer)
+            (dtk-speak (buffer-string ))))))
     ad-return-value))
 
 (defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act)
@@ -137,14 +153,14 @@ trouble.")
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
-    (if (> (point) prior)
-      (dtk-speak (buffer-substring prior (point )))
-    (when (and completions-buffer
-           (window-live-p (get-buffer-window completions-buffer )))
-      (save-excursion
-        (set-buffer completions-buffer )
-        (emacspeak-prepare-completions-buffer)
-        (dtk-speak (buffer-string ))))))
+      (if (> (point) prior)
+          (dtk-speak (buffer-substring prior (point )))
+        (when (and completions-buffer
+                   (window-live-p (get-buffer-window completions-buffer )))
+          (save-excursion
+            (set-buffer completions-buffer )
+            (emacspeak-prepare-completions-buffer)
+            (dtk-speak (buffer-string ))))))
     ad-return-value))
 
 ;;}}}
@@ -153,7 +169,7 @@ trouble.")
   "Full name of user using this session")
 
 (defvar emacspeak-vm-user-login-name  (user-login-name)
-"Login name of this user")
+  "Login name of this user")
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
@@ -195,8 +211,8 @@ trouble.")
   (interactive)
   (declare (special vm-message-pointer))
   (when vm-message-pointer
-  (message "Labels: %s"
-           (vm-su-labels (car vm-message-pointer )))))
+    (message "Labels: %s"
+             (vm-su-labels (car vm-message-pointer )))))
 
 (defun emacspeak-vm-mode-line ()
   "VM mode line information. "
@@ -241,8 +257,8 @@ trouble.")
 ;;{{{  Moving between messages
 
 (add-hook 'vm-select-message-hook
- (function (lambda nil 
-(emacspeak-vm-summarize-message))))
+          (function (lambda nil 
+                      (emacspeak-vm-summarize-message))))
 
 ;;}}}
 ;;{{{  Scrolling messages:
@@ -261,10 +277,10 @@ Then speak the screenful. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
-        (let ((start  (point ))
-              (window (get-buffer-window (current-buffer ))))
-          (forward-line (window-height window))
-          (emacspeak-speak-region start (point ))))))
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (forward-line (window-height window))
+        (emacspeak-speak-region start (point ))))))
 
 (defadvice vm-scroll-backward (after emacspeak pre act)
   "Produce auditory feedback.
@@ -272,10 +288,10 @@ Then speak the screenful. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
-        (let ((start  (point ))
-              (window (get-buffer-window (current-buffer ))))
-          (forward-line(-  (window-height window)))
-          (emacspeak-speak-region start (point ))))))
+      (let ((start  (point ))
+            (window (get-buffer-window (current-buffer ))))
+        (forward-line(-  (window-height window)))
+        (emacspeak-speak-region start (point ))))))
 (defun emacspeak-vm-browse-message ()
   "Browse an email message --read it paragraph at a time. "
   (interactive)
@@ -321,11 +337,11 @@ Then speak the screenful. "
 (defadvice vm-forward-message (around emacspeak pre act)
   "Provide aural feedback."
   (if (interactive-p)
-    (let ((dtk-stop-immediately nil))
-      (message "Forwarding message")
-      (emacspeak-vm-summarize-message)
-      ad-do-it
-      (emacspeak-speak-line ))
+      (let ((dtk-stop-immediately nil))
+        (message "Forwarding message")
+        (emacspeak-vm-summarize-message)
+        ad-do-it
+        (emacspeak-speak-line ))
     ad-do-it)
   ad-return-value )
 
@@ -365,8 +381,8 @@ Then speak the screenful. "
   "Provide aural feedback."
   (when (interactive-p)
     (let ((dtk-stop-immediately nil))
-    (message "Composing a message")
-    (emacspeak-speak-line ))))
+      (message "Composing a message")
+      (emacspeak-speak-line ))))
 
 ;;}}}
 ;;{{{ quitting
@@ -387,7 +403,7 @@ Then speak the screenful. "
 (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
 (define-key vm-mode-map
   (concat emacspeak-prefix "m")
- 'emacspeak-vm-mode-line)
+  'emacspeak-vm-mode-line)
 ;;}}}
 ;;{{{ advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
@@ -425,25 +441,25 @@ Then speak the screenful. "
 ;;{{{  silence mime parsing in vm 6.0 and above
 
 (defadvice vm-mime-parse-entity (around emacspeak pre act comp)
-(let ((emacspeak-speak-messages nil))
-ad-do-it))
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 (defadvice vm-decode-mime-message (around emacspeak pre act comp)
-(let ((emacspeak-speak-messages nil))
-ad-do-it))
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 (defadvice vm-mime-run-display-function-at-point (around emacspeak pre act comp)
-"Provide auditory feedback.
+  "Provide auditory feedback.
 Leave point at front of decoded attachment."
-(cond
-((interactive-p)
-(let ((orig (point )))
-ad-do-it
-(emacspeak-auditory-icon 'task-done)
-(goto-char orig)
-(message "Decoded attachment")))
-(t ad-do-it))
-ad-return-value)
+  (cond
+   ((interactive-p)
+    (let ((orig (point )))
+      ad-do-it
+      (emacspeak-auditory-icon 'task-done)
+      (goto-char orig)
+      (message "Decoded attachment")))
+   (t ad-do-it))
+  ad-return-value)
 
 ;;}}}
 ;;{{{ silence unnecessary chatter
@@ -477,16 +493,16 @@ ad-return-value)
 (defadvice vm-next-button (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-      (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-speak-text-range  'w3-hyperlink-info)))
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-text-range  'w3-hyperlink-info)))
 
 
 ;;}}}
 ;;{{{  misc 
 
 (defadvice vm-count-messages-in-file (around emacspeak-fix pre act comp)
-(ad-set-arg 1 'quiet)
-ad-do-it)
+  (ad-set-arg 1 'quiet)
+  ad-do-it)
 
 ;;}}}
 (provide 'emacspeak-vm)

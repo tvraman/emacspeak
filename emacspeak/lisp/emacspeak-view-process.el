@@ -39,6 +39,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'voice-lock)
@@ -54,9 +55,9 @@
            (lambda ()
              (declare (special View-process-mode-map))
              (define-key View-process-mode-map ";" 'emacspeak-view-process-speak-current-field)
-                      (define-key View-process-mode-map "\C-m"
-                        'emacspeak-view-process-goto-current-field-next-line)
-                      )))
+             (define-key View-process-mode-map "\C-m"
+               'emacspeak-view-process-goto-current-field-next-line)
+             )))
 
 ;;}}}
 ;;{{{ helper
@@ -100,9 +101,9 @@
 (defadvice View-process-mode (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-         (voice-lock-mode t)
-         (emacspeak-auditory-icon 'select-object)
-         (emacspeak-speak-mode-line)))
+    (voice-lock-mode t)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
 (defadvice View-process-goto-first-field-next-line (after emacspeak pre act
                                                           comp)
@@ -192,7 +193,7 @@
       ad-do-it
       (emacspeak-auditory-icon 'deselect-object)
       (message "Unmarked %s  processes"
-                count)))
+               count)))
    (t ad-do-it))
   ad-return-value)
 
@@ -201,45 +202,63 @@
   "Provide auditory icon"
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
-(View-process-show-pid-and-command)))
+    (View-process-show-pid-and-command)))
 (defadvice View-process-mark-current-line(after emacspeak
-                                                  pre act comp)
+                                                pre act comp)
   "Provide auditory icon"
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-(View-process-show-pid-and-command)))
+    (View-process-show-pid-and-command)))
 
 ;;}}}
 ;;{{{ voice locking
-	 (defvar View-process-child-line-personality 'kid
-           "personality for child process ")
+
+(defgroup emacspeak-view-process nil
+  "Task manager for the Emacspeak Desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-view-process-")
+  
+(defcustom View-process-child-line-personality 'kid
+  "personality for child process "
+  :type 'symbol
+:group 'emacspeak-view-process)
 
 
-	 (defvar View-process-parent-line-personality 'harry
-           "Personality for parent ")
+(defvar View-process-parent-line-personality 'harry
+  "Personality for parent "
+  :type 'symbol
+:group 'emacspeak-view-process)
 
-	 (defvar View-process-single-line-personality 'parul-monotone
-           "Personality for voice lock in view process mode")
+(defvar View-process-single-line-personality 'parul-monotone
+  "Personality for voice lock in view process mode"
+  :type 'symbol
+:group 'emacspeak-view-process)
 
 
 (defvar View-process-signal-line-personality 'paul-disgusted
-  "Indicate a signal")
+  "Indicate a signal"
+  :type 'symbol
+:group 'emacspeak-view-process)
 
-	 (defvar View-process-signaled-line-personality 'paul-animated
-           "Personality for indicating a signalled process")
+(defvar View-process-signaled-line-personality 'paul-animated
+  "Personality for indicating a signalled process"
+  :type 'symbol
+:group 'emacspeak-view-process)
 
 	 
-	 (defvar View-process-renice-line-personality 'paul-smooth
-           "Indicate a reniced process")
+(defvar View-process-renice-line-personality 'paul-smooth
+  "Indicate a reniced process"
+  :type 'symbol
+:group 'emacspeak-view-process)
 
 
 
 (declaim (special View-process-child-line-mark
-View-process-parent-line-mark
-View-process-single-line-mark
-View-process-signaled-line-mark
-View-process-signal-line-mark
-View-process-renice-line-mark))
+                  View-process-parent-line-mark
+                  View-process-single-line-mark
+                  View-process-signaled-line-mark
+                  View-process-signal-line-mark
+                  View-process-renice-line-mark))
 
 (defvar View-process-voice-lock-keywords
   (list

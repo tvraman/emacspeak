@@ -298,16 +298,13 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  setup play function
 
-(defcustom emacspeak-auditory-icon-function
-  'emacspeak-serve-auditory-icon
+(defcustom emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
   "*Function that plays auditory icons."
   :group 'emacspeak
-  :type'(radio-button-choice
-	    :format "%t %v"
-	    :tag "Auditory Icon Player:"
-   (const emacspeak-play-auditory-icon)
-             (const emacspeak-queue-auditory-icon)
-             (const emacspeak-serve-auditory-icon)))
+  :type '(choice
+          (const emacspeak-play-auditory-icon)
+          (const emacspeak-queue-auditory-icon)
+          (const emacspeak-serve-auditory-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
