@@ -108,9 +108,9 @@
 (defun emacspeak-ecb-tree-clear ()
   "Clear search pattern during incremental search in tree buffers."
   (interactive)
-(declare (special tree-buffer-incr-searchpattern))  
+  (declare (special tree-buffer-incr-searchpattern))  
   (setq tree-buffer-incr-searchpattern "")
-(dtk-speak "Cleared search pattern."))
+  (dtk-speak "Cleared search pattern."))
 
 (defun emacspeak-ecb-tree-expand-common-prefix ()
   "Expand to longest common prefix in tree buffer."
@@ -127,7 +127,7 @@
         (setq tree-buffer-incr-searchpattern
               common-prefix))
     (end-of-line)
-(emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 
               
              

@@ -698,9 +698,9 @@ No-op if content under point is not currently displayed."
   "Move to previous line."
   (interactive)
   (forward-line -1)
-(beginning-of-line)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object))
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-daisy-define-outline-pattern (regexp)
   "Define persistent outline regexp for this book."
@@ -726,16 +726,15 @@ No-op if content under point is not currently displayed."
   "Move to next line."
   (interactive)
   (forward-line 1)
-(beginning-of-line)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object))
-
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object))
 
 ;;}}}
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
 (defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title outline 
-                                                      start  end bookmark)
+								 start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks W3 to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it
@@ -756,7 +755,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
               (bookmark
                (goto-char bookmark)
                (emacspeak-speak-line))
-(t (emacspeak-speak-mode-line))))))))
+	      (t (emacspeak-speak-mode-line))))))))
 
 ;;}}}
 
