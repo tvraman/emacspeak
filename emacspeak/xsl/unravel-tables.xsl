@@ -65,7 +65,6 @@ used as the table-index for extract-tables.xsl.
       </h2>
       <xsl:variable name="i" select="//table//table"/>
       <xsl:for-each select="$i">
-        <xsl:if test="not(set:intersection(ancestor::*, $i))">
         <xsl:element name="a">
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
@@ -77,7 +76,6 @@ used as the table-index for extract-tables.xsl.
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
         </xsl:element>
-        </xsl:if>
       </xsl:for-each>
       <h2>
         <a name="__about_unravel_tables">About This Style</a>
