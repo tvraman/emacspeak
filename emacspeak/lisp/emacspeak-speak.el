@@ -216,7 +216,7 @@ Useful to do this before you listen to an entire buffer."
     (save-excursion
       (goto-char (point-min))
       (let ((start nil)
-            (blank-line "\n\\|\r[ \t\n]*\n"))
+            (blank-line "\n[ \t\n\r]*\n"))
         (ems-modify-buffer-safely
          (while (re-search-forward blank-line nil t)
            (skip-syntax-forward " ")
