@@ -2046,20 +2046,27 @@ value of the file local pattern."
 
 ;;}}}
 ;;{{{ 
+(defcustom emacspeak-wizards-spot-words-extension ".tex"
+  "Default file extension  used when spotting words."
+  :type 'string
+  :group 'emacspeak-wizards)
+
 (defun emacspeak-wizards-spot-words (ext word)
   "Searches recursively in all files with extension `ext'
 for `word' and siplays hits in a compilation buffer."
   (interactive
    (list
     (read-from-minibuffer "Extension: "
-                          ".tex")
+                          emacspeak-wizards-spot-words-extension)
     (read-from-minibuffer "Word: "
                           (thing-at-point 'word))))
+  (declare (special emacspeak-wizards-spot-words-extension))
   (compile 
    (format
     "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
     ext word))
   (emacspeak-auditory-icon 'task-done)) 
+
 ;;}}}
 
 (provide 'emacspeak-wizards)
