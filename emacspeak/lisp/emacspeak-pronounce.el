@@ -116,7 +116,14 @@ Argument KEY specifies a dictionary key e.g. directory, mode etc."
      (t (emacspeak-pronounce-set-dictionary key
                                             (list (cons string
                                                         pronunciation)))))))
+(defun emacspeak-pronounce-remove-buffer-local-dictionary-entry (string)
+  "Remove pronunciation entry."
+  (when (and (boundp 'emacspeak-pronounce-pronunciation-table)
+             emacspeak-pronounce-pronunciation-table)
+    (remhash    string
+                emacspeak-pronounce-pronunciation-table)))
 
+  )
 (defun emacspeak-pronounce-add-buffer-local-dictionary-entry  (string pronunciation)
   "Add specified pronunciation for current buffer.
 Arguments STRING and PRONUNCIATION specify what is being defined."

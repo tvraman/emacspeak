@@ -2641,6 +2641,32 @@ Location is specified by name."
     (message time)))
 
 ;;}}}
+;;{{{ date pronouncer wizard
+(defvar emacspeak-wizards-mm-dd-yyyy-date-pronounce nil
+  "Toggled by wizard to record how we are pronouncing mm-dd-yyyy
+dates.")
+
+(defun emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer ()
+  "Toggle pronunciation of mm-dd-yyyy dates."
+  (interactive)
+  (declare (special emacspeak-wizards-mm-dd-yyyy-date-pronounce
+                    emacspeak-pronounce-date-mm-dd-yy-pattern))
+  (cond
+   (emacspeak-wizards-mm-dd-yyyy-date-pronounce
+    (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
+    (emacspeak-pronounce-remove-buffer-local-dictionary-entry
+  emacspeak-pronounce-date-mm-dd-yy-pattern))
+   (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+  emacspeak-pronounce-date-mm-dd-yy-pattern
+  (cons 're-search-forward
+  'emacspeak-pronounce-mm-dd-yyyy-date))))
+  (message "Will %s pronounce mm-dd-yyyy date strings in
+  English."
+           (if emacspeak-wizards-mm-dd-yyyy-date-pronounce "" "
+  not ")))
+    
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
