@@ -648,7 +648,8 @@ before the message is spoken."
           emacspeak-speak-messages-should-pause-ongoing-speech
         (dtk-pause))
       (tts-with-punctuations "all"
-                             (dtk-speak ad-return-value)))))
+                             (dtk-speak ad-return-value)))
+  ad-return-value))
 
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
