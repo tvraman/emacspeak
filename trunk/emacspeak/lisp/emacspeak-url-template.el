@@ -404,6 +404,38 @@ to play a BBC Radio4 program on demand."
  "Search Google news.")
 
 ;;}}}
+;;{{{ mapquest
+
+(emacspeak-url-template-define
+ "MapQuest Directions"
+ "http://www.mapquest.com/directions/main.adp?go=1&do=nw&1y=US&2y=US&ct=NA&1a=%s&1c=%s&1c=%s&1z=%s&2a=%s&2c=%s&2s=%s&2z=%s"
+ (list
+  #'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "Start
+ Address:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "City:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "State:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "Zip:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "Destination
+ Address:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "City:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "State:")))
+#'(lambda ()
+      (webjump-url-encode (read-from-minibuffer "Zip:")))
+)
+ nil
+ "Retrieve and speak directions from MapQuest."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match "1:"
+                                          url 'speak)))
+
+;;}}}
 ;;{{{ yahoo daily news 
 
 (defun emacspeak-url-template-yahoo-news-processor (url)
