@@ -812,6 +812,7 @@ for commands defined in module  %s.\n\n"
       (goto-char (point-min))
       (while (re-search-forward "[{}]" nil t)
         (replace-match "@\\&"))
+      (texinfo-all-menus-update t)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 

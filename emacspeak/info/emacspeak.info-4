@@ -8,277 +8,1940 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
+File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rmail,  Prev: emacspeak-redefine,  Up: Emacspeak Commands
 
-Acknowledgements.
-*****************
+emacspeak-remote
+================
 
-   Thanks.
+   Automatically generated documentation for commands defined in module
+emacspeak-remote.
+
+emacspeak-remote-connect-to-server
+==================================
+
+   kp-3   control e meta r
+
+   Connect to and start using remote speech server running on host host
+and listening on port port.  Host is the hostname of the remote server,
+typically the desktop machine.  Port is the tcp port that that host is
+listening on for speech requests.
+
+emacspeak-remote-quick-connect-to-server
+========================================
+
+   No global keybinding
+
+   Connect to remote server.  Does not prompt for host or port, but
+quietly uses the guesses that appear as defaults when prompting.  Use
+this once you are sure the guesses are usually correct.
 
 
-File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgements,  Up: Top
+File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev: emacspeak-remote,  Up: Emacspeak Commands
 
-Concept Index
-*************
+emacspeak-rmail
+===============
 
-* Menu:
+   Automatically generated documentation for commands defined in module
+emacspeak-rmail.
 
-* character echo:                        Controlling Echo.
-* line echo:                             Controlling Echo.
-* speech settings:                       Speech System.
-* speech system:                         Speech System.
-* tts:                                   Speech System.
-* word echo:                             Controlling Echo.
+emacspeak-rmail-summarize-current-message
+=========================================
+
+   No global keybinding
+
+   Summarize current message
+
+emacspeak-rmail-speak-current-message-labels
+============================================
+
+   No global keybinding
+
+   Speak labels of current message
 
 
-File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
+File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-rmail,  Up: Emacspeak Commands
 
-Key Index
-*********
+emacspeak-solitaire
+===================
 
-* Menu:
+   Automatically generated documentation for commands defined in module
+emacspeak-solitaire.
 
-* C-c (:                                 Running Terminal Based Applications.
-* C-c ):                                 Running Terminal Based Applications.
-* C-c 0:                                 Running Terminal Based Applications.
-* C-c 1:                                 Running Terminal Based Applications.
-* C-c C-\:                               Running Terminal Based Applications.
-* C-c C-a:                               Running Terminal Based Applications.
-* C-c C-c:                               Running Terminal Based Applications.
-* C-c C-d:                               Running Terminal Based Applications.
-* C-c C-f:                               Running Terminal Based Applications.
-* C-c C-j:                               Running Terminal Based Applications.
-* C-c C-k:                               Running Terminal Based Applications.
-* C-c C-u:                               Running Terminal Based Applications.
-* C-c C-w:                               Running Terminal Based Applications.
-* C-c C-x C-c:                           Running Terminal Based Applications.
-* C-c C-z:                               Running Terminal Based Applications.
-* C-c e:                                 Running Terminal Based Applications.
-* C-c k:                                 Running Terminal Based Applications.
-* C-c o:                                 Running Terminal Based Applications.
-* Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A       >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $: Emacspeak Commands.
-* ESCAPE down <1>:                       Emacspeak Commands.
-* ESCAPE down:                           Reading.
-* ESCAPE next <1>:                       Emacspeak Commands.
-* ESCAPE next:                           Reading.
-* ESCAPE prior <1>:                      Emacspeak Commands.
-* ESCAPE prior:                          Reading.
-* ESCAPE select:                         Emacspeak Commands.
-* ESCAPE up <1>:                         Emacspeak Commands.
-* ESCAPE up:                             Reading.
-* control b   left:                      Emacspeak Commands.
-* control down:                          Emacspeak Commands.
-* control e  cap A:                      Emacspeak Commands.
-* control e  cap B:                      Emacspeak Commands.
-* control e  cap C:                      Emacspeak Commands.
-* control e  cap D:                      Emacspeak Commands.
-* control e  cap F:                      Emacspeak Commands.
-* control e  cap H:                      Emacspeak Commands.
-* control e  cap I:                      Emacspeak Commands.
-* control e  cap L:                      Emacspeak Commands.
-* control e  cap M <1>:                  Emacspeak Commands.
-* control e  cap M:                      Status Information.
-* control e  cap N:                      Emacspeak Commands.
-* control e  cap P:                      Emacspeak Commands.
-* control e  cap R <1>:                  Emacspeak Commands.
-* control e  cap R:                      Reading.
-* control e  cap T:                      Emacspeak Commands.
-* control e  cap U:                      Emacspeak Commands.
-* control e  cap V:                      Emacspeak Commands.
-* control e  cap W:                      Emacspeak Commands.
-* control e !:                           Emacspeak Commands.
-* control e ":                           Emacspeak Commands.
-* control e # a:                         Emacspeak Commands.
-* control e # l:                         Emacspeak Commands.
-* control e # s:                         Emacspeak Commands.
-* control e % <1>:                       Emacspeak Commands.
-* control e %:                           Status Information.
-* control e ' <1>:                       Emacspeak Commands.
-* control e ':                           Reading.
-* control e (:                           Emacspeak Commands.
-* control e ):                           Emacspeak Commands.
-* control e ,:                           Emacspeak Commands.
-* control e .:                           Emacspeak Commands.
-* control e / <1>:                       Emacspeak Commands.
-* control e /:                           Reading.
-* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 <1>: Emacspeak Commands.
-* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
-* control e ::                           Emacspeak Commands.
-* control e ;:                           Emacspeak Commands.
-* control e <:                           Emacspeak Commands.
-* control e = <1>:                       Emacspeak Commands.
-* control e =:                           Status Information.
-* control e >:                           Emacspeak Commands.
-* control e ?:                           Emacspeak Commands.
-* control e RETURN:                      Emacspeak Commands.
-* control e SPACE <1>:                   Emacspeak Commands.
-* control e SPACE:                       Miscellaneous.
-* control e TAB:                         Emacspeak Commands.
-* control e [ <1>:                       Emacspeak Commands.
-* control e [:                           Reading.
-* control e \:                           Emacspeak Commands.
-* control e ]:                           Emacspeak Commands.
-* control e a <1>:                       Emacspeak Commands.
-* control e a:                           Status Information.
-* control e b <1>:                       Emacspeak Commands.
-* control e b:                           Reading.
-* control e c <1>:                       Emacspeak Commands.
-* control e c:                           Reading.
-* control e cap V:                       Status Information.
-* control e control @:                   Status Information.
-* control e control a:                   Emacspeak Commands.
-* control e control b:                   Emacspeak Commands.
-* control e control c:                   Emacspeak Commands.
-* control e control d:                   Emacspeak Commands.
-* control e control down:                Emacspeak Commands.
-* control e control f left:              Emacspeak Commands.
-* control e control f o:                 Emacspeak Commands.
-* control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p: Emacspeak Commands.
-* control e control f right:             Emacspeak Commands.
-* control e control h:                   Emacspeak Commands.
-* control e control j:                   Emacspeak Commands.
-* control e control l <1>:               Emacspeak Commands.
-* control e control l:                   Status Information.
-* control e control left:                Emacspeak Commands.
-* control e control n <1>:               Emacspeak Commands.
-* control e control n:                   Reading.
-* control e control o <1>:               Emacspeak Commands.
-* control e control o:                   Reading.
-* control e control p <1>:               Emacspeak Commands.
-* control e control p:                   Reading.
-* control e control q:                   Emacspeak Commands.
-* control e control r:                   Emacspeak Commands.
-* control e control right:               Emacspeak Commands.
-* control e control s <1>:               Emacspeak Commands.
-* control e control s:                   Miscellaneous.
-* control e control t:                   Emacspeak Commands.
-* control e control w <1>:               Emacspeak Commands.
-* control e control w:                   Status Information.
-* control e control y:                   Emacspeak Commands.
-* control e control }:                   Emacspeak Commands.
-* control e d  cap C <1>:                Emacspeak Commands.
-* control e d  cap C:                    Speech Output  Control.
-* control e d  cap I:                    Emacspeak Commands.
-* control e d  cap R:                    Emacspeak Commands.
-* control e d  cap V <1>:                Emacspeak Commands.
-* control e d  cap V:                    Miscellaneous.
-* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 <1>: Emacspeak Commands.
-* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output  Control.
-* control e d RETURN <1>:                Emacspeak Commands.
-* control e d RETURN:                    Miscellaneous.
-* control e d SPACE <1>:                 Emacspeak Commands.
-* control e d SPACE:                     Miscellaneous.
-* control e d a <1>:                     Emacspeak Commands.
-* control e d a:                         Miscellaneous.
-* control e d b:                         Emacspeak Commands.
-* control e d c <1>:                     Emacspeak Commands.
-* control e d c:                         Speech Output  Control.
-* control e d d <1>:                     Emacspeak Commands.
-* control e d d:                         Miscellaneous.
-* control e d f <1>:                     Emacspeak Commands.
-* control e d f:                         Speech Output  Control.
-* control e d i <1>:                     Emacspeak Commands.
-* control e d i:                         Speech Output  Control.
-* control e d k <1>:                     Emacspeak Commands.
-* control e d k:                         Controlling Echo.
-* control e d l <1>:                     Emacspeak Commands.
-* control e d l:                         Controlling Echo.
-* control e d m <1>:                     Emacspeak Commands.
-* control e d m:                         Speech Output  Control.
-* control e d meta control b:            Emacspeak Commands.
-* control e d p <1>:                     Emacspeak Commands.
-* control e d p:                         Speech Output  Control.
-* control e d q <1>:                     Emacspeak Commands.
-* control e d q:                         Miscellaneous.
-* control e d r <1>:                     Emacspeak Commands.
-* control e d r:                         Speech Output  Control.
-* control e d s <1>:                     Emacspeak Commands.
-* control e d s:                         Speech Output  Control.
-* control e d t <1>:                     Emacspeak Commands.
-* control e d t:                         Miscellaneous.
-* control e d w <1>:                     Emacspeak Commands.
-* control e d w:                         Controlling Echo.
-* control e d z <1>:                     Emacspeak Commands.
-* control e d z:                         Miscellaneous.
-* control e down <1>:                    Emacspeak Commands.
-* control e down:                        Reading.
-* control e f <1>:                       Emacspeak Commands.
-* control e f:                           Status Information.
-* control e f1:                          Emacspeak Commands.
-* control e h <1>:                       Emacspeak Commands.
-* control e h:                           Status Information.
-* control e i:                           Emacspeak Commands.
-* control e j:                           Emacspeak Commands.
-* control e k <1>:                       Emacspeak Commands.
-* control e k:                           Status Information.
-* control e l <1>:                       Emacspeak Commands.
-* control e l:                           Reading.
-* control e left <1>:                    Emacspeak Commands.
-* control e left:                        Reading.
-* control e m <1>:                       Emacspeak Commands.
-* control e m:                           Status Information.
-* control e meta a:                      Emacspeak Commands.
-* control e meta b:                      Emacspeak Commands.
-* control e meta c:                      Emacspeak Commands.
-* control e meta control @:              Reading.
-* control e meta control r:              Emacspeak Commands.
-* control e meta control }:              Emacspeak Commands.
-* control e meta d:                      Emacspeak Commands.
-* control e meta f:                      Emacspeak Commands.
-* control e meta h:                      Emacspeak Commands.
-* control e meta l:                      Emacspeak Commands.
-* control e meta m:                      Emacspeak Commands.
-* control e meta p:                      Emacspeak Commands.
-* control e meta s:                      Emacspeak Commands.
-* control e meta t:                      Emacspeak Commands.
-* control e meta v:                      Emacspeak Commands.
-* control e meta w:                      Emacspeak Commands.
-* control e n <1>:                       Emacspeak Commands.
-* control e n:                           Reading.
-* control e o:                           Emacspeak Commands.
-* control e p <1>:                       Emacspeak Commands.
-* control e p:                           Miscellaneous.
-* control e q:                           Emacspeak Commands.
-* control e r <1>:                       Emacspeak Commands.
-* control e r:                           Reading.
-* control e right <1>:                   Emacspeak Commands.
-* control e right:                       Reading.
-* control e t <1>:                       Emacspeak Commands.
-* control e t:                           Status Information.
-* control e u:                           Emacspeak Commands.
-* control e up <1>:                      Emacspeak Commands.
-* control e up:                          Reading.
-* control e v <1>:                       Emacspeak Commands.
-* control e v:                           Status Information.
-* control e w <1>:                       Emacspeak Commands.
-* control e w:                           Reading.
-* control e x s:                         Emacspeak Commands.
-* control e { <1>:                       Emacspeak Commands.
-* control e {:                           Reading.
-* control e |:                           Emacspeak Commands.
-* control f   right:                     Emacspeak Commands.
-* control h  cap M:                      Emacspeak Commands.
-* control h control e:                   Emacspeak Commands.
-* control h e:                           Emacspeak Commands.
-* control l SPACE:                       Emacspeak Commands.
-* control l b:                           Emacspeak Commands.
-* control l f:                           Emacspeak Commands.
-* control l n:                           Emacspeak Commands.
-* control l p:                           Emacspeak Commands.
-* control left:                          Emacspeak Commands.
-* control right:                         Emacspeak Commands.
-* control up:                            Emacspeak Commands.
-* control x  h n:                        Emacspeak Commands.
-* delete:                                Emacspeak Commands.
-* insert:                                Emacspeak Commands.
-* kp-3   control e meta r:               Emacspeak Commands.
-* kp-f4   f4:                            Emacspeak Commands.
-* l10:                                   Emacspeak Commands.
-* pause   control e s:                   Miscellaneous.
-* pause   control e s   ESCAPE [  cap P: Emacspeak Commands.
-* shift down:                            Emacspeak Commands.
-* shift up:                              Emacspeak Commands.
-* volume-down:                           Emacspeak Commands.
-* volume-up:                             Emacspeak Commands.
+emacspeak-solitaire-show-column
+===============================
 
+   No global keybinding
+
+   Display current row auditorallly
+
+emacspeak-solitaire-speak-coordinates
+=====================================
+
+   No global keybinding
+
+   Speak coordinates of current position
+
+emacspeak-solitaire-show-row
+============================
+
+   No global keybinding
+
+   Display current row auditorallly
+
+
+File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands
+
+emacspeak-sounds
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-sounds.
+
+emacspeak-toggle-auditory-icons
+===============================
+
+   control e control a
+
+   Toggle use of auditory icons.  Optional interactive PREFIX arg
+toggles global value.
+
+emacspeak-play-all-icons
+========================
+
+   No global keybinding
+
+   Plays all defined icons and speaks their names.
+
+emacspeak-set-auditory-icon-player
+==================================
+
+   control e meta a
+
+   Select  player used for producing auditory icons.  Recommended
+choices:
+
+   emacspeak-serve-auditory-icon for  the wave device.
+emacspeak-midi-icon for midi device.
+
+emacspeak-sounds-select-theme
+=============================
+
+   control e )
+
+   Select theme for auditory icons.
+
+emacspeak-sounds-reset-local-player
+===================================
+
+   No global keybinding
+
+   Ask Emacspeak to use a local audio player.  This lets me have
+Emacspeak switch to using audioplay on solaris after I've used it for a
+while from a remote session where it would use the more primitive
+speech-server based audio player.
+
+
+File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands
+
+emacspeak-speak
+===============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-speak.
+
+emacspeak-kill-buffer-quietly
+=============================
+
+   kp-f4   f4
+
+   Kill current buffer without asking for confirmation.
+
+emacspeak-speak-line-set-column-filter
+======================================
+
+   control e |
+
+   Set up filter for selectively ignoring portions of lines.  The
+filter is specified as a list of pairs.  For example, to filter out
+columns 1 - 10 and 20 - 25, specify filter as ((0 9) (20 25)). Filter
+settings are persisted across sessions.  A persisted filter is used as
+the default when prompting for a filter.  This allows one to accumulate
+a set of filters for specific files like /var/adm/messages and
+/var/adm/maillog over time.
+
+emacspeak-speak-current-percentage
+==================================
+
+   control e %
+
+   Announce the percentage into the current buffer.
+
+emacspeak-execute-repeatedly
+============================
+
+   No global keybinding
+
+   Execute COMMAND repeatedly.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-speak-char
+====================
+
+   control e c
+
+   Speak character under point.  Pronounces character phonetically
+unless  called with a PREFIX arg.
+
+emacspeak-speak-rest-of-buffer
+==============================
+
+   control e n
+
+   Speak remainder of the buffer starting at point
+
+emacspeak-toggle-comint-output-monitor
+======================================
+
+   control e o
+
+   Toggle state of Emacspeak comint monitor.  When turned on, comint
+output is automatically spoken.  Turn this on if you want your shell to
+speak its results.  Interactive PREFIX arg means toggle the global
+default value, and then set the current local value to the result.
+
+emacspeak-speak-help-interactively
+==================================
+
+   No global keybinding
+
+   Speak the start of, rest of, or the entire help.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire help.
+
+emacspeak-speak-region
+======================
+
+   control e r
+
+   Speak region.  Argument START  and END specify region to speak.
+
+emacspeak-speak-completions
+===========================
+
+   No global keybinding
+
+   Speak completions  buffer if one present.
+
+emacspeak-speak-set-display-table
+=================================
+
+   No global keybinding
+
+   Sets up buffer specific speech display table that controls how
+special characters are spoken. Interactive prefix argument causes
+setting to be global.
+
+emacspeak-owindow-speak-line
+============================
+
+   ESCAPE select
+
+   Speak the current line in the other window.
+
+emacspeak-voicify-rectangle
+===========================
+
+   No global keybinding
+
+   Voicify the current rectangle.  When calling from a
+program,arguments are START END personality Prompts for PERSONALITY
+with completion when called interactively.
+
+emacspeak-mark-forward-mark
+===========================
+
+   control down
+
+   Cycle forward through the mark ring.
+
+emacspeak-speak-spell-current-word
+==================================
+
+   control e  cap W
+
+   Spell word at  point.
+
+emacspeak-speak-page-interactively
+==================================
+
+   control e ]
+
+   Speak the start of, rest of, or the entire page.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire page.
+
+emacspeak-speak-paragraph
+=========================
+
+   control e {
+
+   Speak paragraph.  With prefix arg, speaks rest of current paragraph.
+Negative prefix arg will read from start of current paragraph to point.
+If voice-lock-mode is on, then it will use any defined personality.
+
+emacspeak-speak-page
+====================
+
+   control e [
+
+   Speak a page.  With prefix ARG, speaks rest of current page.
+Negative prefix arg will read from start of current page to point.  If
+option  `voice-lock-mode' is on, then it will use any defined
+personality.
+
+emacspeak-speak-browse-buffer
+=============================
+
+   control e ,
+
+   Browse the current buffer by reading it a paragraph at a time.
+Optional interactive prefix arg define-paragraph prompts for regexp
+that defines paragraph start and paragraph-separate.
+
+emacspeak-speak-message-again
+=============================
+
+   control e a
+
+   Speak the last message from Emacs once again.
+
+emacspeak-speak-line
+====================
+
+   control e l
+
+   Speaks current line.  With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line to
+point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+indentation with a tone if audio indentation is in use.  Indicates
+position of point with an aural highlight if option
+`emacspeak-show-point' is turned on -see command `emacspeak-show-point'
+bound to M-x emacspeak-show-point.  Lines that start hidden blocks of
+text, e.g.  outline header lines, or header lines of blocks created by
+command `emacspeak-hide-or-expose-block' are indicated with auditory
+icon ellipses.
+
+emacspeak-speak-word
+====================
+
+   control e w
+
+   Speak current word.  With prefix ARG, speaks the rest of the word
+from point.  Negative prefix arg speaks from start of word to point.
+If executed  on the same buffer position a second time, the word is
+spelt instead of being spoken.
+
+emacspeak-toggle-speak-messages
+===============================
+
+   control e q
+
+   Toggle the state of whether emacspeak echoes messages.
+
+emacspeak-owindow-scroll-up
+===========================
+
+   ESCAPE next
+
+   Scroll up the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+emacspeak-use-customized-blink-paren
+====================================
+
+   No global keybinding
+
+   A customized blink-paren to speak  matching opening paren.  We need
+to call this in case Emacs is anal and loads its own builtin
+blink-paren function which does not talk.
+
+emacspeak-view-register
+=======================
+
+   control e v
+
+   Display the contents of a register, and then speak it.
+
+emacspeak-speak-minibuffer
+==========================
+
+   No global keybinding
+
+   Speak the minibuffer contents  With prefix arg, speaks the rest of
+the buffer from point.  Negative prefix arg speaks from start of buffer
+to point.
+
+emacspeak-speak-sexp-interactively
+==================================
+
+   control e "
+
+   Speak the start of, rest of, or the entire sexp.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire sexp.
+
+emacspeak-speak-minor-mode-line
+===============================
+
+   control e  cap M
+
+   Speak the minor mode-information.
+
+emacspeak-speak-skim-paragraph
+==============================
+
+   No global keybinding
+
+   Skim paragraph.  Skimming a paragraph results in the speech speeding
+up after the first clause.  Speech is scaled by the value of
+dtk-speak-skim-scale
+
+emacspeak-speak-buffer-filename
+===============================
+
+   control e f
+
+   Speak name of file being visited in current buffer.  Speak default
+directory if invoked in a dired buffer, or when the buffer is not
+visiting any file.
+
+emacspeak-audio-annotate-paragraphs
+===================================
+
+   No global keybinding
+
+   Set property auditory-icon at front of all paragraphs.  Interactive
+PREFIX arg prompts for sound cue to use
+
+emacspeak-speak-current-kill
+============================
+
+   control e k
+
+   Speak the current kill entry.  This is the text that will be yanked
+in by the next C-y.  Prefix numeric arg, COUNT, specifies that the text
+that will be yanked as a result of a C-y  followed by count-1 M-y be
+spoken.   The kill number that is spoken says what numeric prefix arg
+to give to command yank.
+
+emacspeak-toggle-which-function
+===============================
+
+   control e meta w
+
+   Toggle state of  Emacspeak  which function mode.  Interactive PREFIX
+arg means toggle  the global default value, and then set the current
+local  value to the result.
+
+emacspeak-speak-buffer-interactively
+====================================
+
+   control e  cap B
+
+   Speak the start of, rest of, or the entire buffer.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire buffer.
+
+emacspeak-speak-spaces-at-point
+===============================
+
+   control e meta control
+
+   Speak the white space at point.
+
+emacspeak-speak-mode-line
+=========================
+
+   control e m
+
+   Speak the mode-line.
+
+emacspeak-speak-paragraph-interactively
+=======================================
+
+   control e  cap P
+
+   Speak the start of, rest of, or the entire paragraph.  's' to speak
+the start.  'r' to speak the rest.  any other key to speak entire
+paragraph.
+
+emacspeak-speak-next-window
+===========================
+
+   control e control n
+
+   Speak the next window.
+
+emacspeak-speak-previous-window
+===============================
+
+   control e control p
+
+   Speak the previous window.
+
+emacspeak-switch-to-previous-buffer
+===================================
+
+   l10
+
+   Switch to most recently used interesting buffer.
+
+emacspeak-speak-skim-buffer
+===========================
+
+   No global keybinding
+
+   Skim the current buffer  a paragraph at a time.
+
+emacspeak-blink-matching-open
+=============================
+
+   No global keybinding
+
+   Display matching delimiter in the minibuffer.
+
+emacspeak-toggle-mail-alert
+===========================
+
+   control e meta m
+
+   Toggle state of  Emacspeak  mail alert.  Interactive PREFIX arg
+means toggle  the global default value, and then set the current local
+value to the result.  Turning on this option results in Emacspeak
+producing an auditory icon indicating the arrival  of new mail when
+displaying the mode line.
+
+emacspeak-speak-display-char
+============================
+
+   No global keybinding
+
+   Display char under point using current speech display table.
+Behavior is the same as command `emacspeak-speak-char' bound to C-e c
+for characters in the range 0-127.  Optional argument PREFIX  specifies
+that the character should be spoken phonetically.
+
+emacspeak-speak-voice-annotate-paragraphs
+=========================================
+
+   No global keybinding
+
+   Locate paragraphs and voice annotate the first word.  Here,
+paragraph is taken to mean a chunk of text preceeded by a blank line.
+Useful to do this before you listen to an entire buffer.
+
+emacspeak-toggle-comint-autospeak
+=================================
+
+   control e control q
+
+   Toggle state of Emacspeak comint autospeak.  When turned on, comint
+output is automatically spoken.  Turn this on if you want your shell to
+speak its results.  Interactive PREFIX arg means toggle the global
+default value, and then set the current local value to the result.
+
+emacspeak-mark-backward-mark
+============================
+
+   control up
+
+   Cycle backward through the mark ring.
+
+emacspeak-zap-tts
+=================
+
+   control e d z
+
+   Send this command to the TTS directly.
+
+emacspeak-speak-continuously
+============================
+
+   control e RETURN
+
+   Speak a buffer continuously.  First prompts using the minibuffer for
+the kind of action to perform after speaking each chunk.  E.G.  speak a
+line at a time etc.  Speaking commences at current buffer position.
+Pressing  C-g breaks out, leaving point on last chunk that was spoken.
+Any other key continues to speak the buffer.
+
+emacspeak-speak-sexp
+====================
+
+   control e '
+
+   Speak current sexp.  With prefix ARG, speaks the rest of the sexp
+from point.  Negative prefix arg speaks from start of sexp to point.
+If option  `voice-lock-mode' is on, then uses the personality.
+
+emacspeak-voicify-region
+========================
+
+   No global keybinding
+
+   Voicify the current region.  When calling from a program,arguments
+are START END personality.  Prompts for PERSONALITY  with completion
+when called interactively.
+
+emacspeak-dial-dtk
+==================
+
+   control e d t
+
+   Prompt for and dial a phone NUMBER with the Dectalk.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-speak-current-column
+==============================
+
+   control e =
+
+   Speak the current column.
+
+emacspeak-speak-predefined-window
+=================================
+
+   control e 9   control e 8   control e 7   control e 6   control e 5
+control e 4   control e 3   control e 2   control e 1   control e 0
+
+   Speak one of the first 10 windows on the screen.  Speaks entire
+window irrespective of point.  In general, you'll never have Emacs
+split the screen into more than two or three.  Argument ARG determines
+the 'other' window to speak.  Semantics  of `other' is the same as for
+the builtin Emacs command `other-window'.
+
+emacspeak-toggle-line-echo
+==========================
+
+   control e d l
+
+   Toggle state of  Emacspeak  line echo.  Interactive PREFIX arg means
+toggle  the global default value, and then set the current local  value
+to the result.
+
+emacspeak-speak-front-of-buffer
+===============================
+
+   No global keybinding
+
+   Speak   the buffer from start to   point
+
+emacspeak-toggle-action-mode
+============================
+
+   No global keybinding
+
+   Toggle state of  Emacspeak  action mode.  Interactive PREFIX arg
+means toggle  the global default value, and then set the current local
+value to the result.
+
+emacspeak-speak-sentence
+========================
+
+   No global keybinding
+
+   Speak current sentence.  With prefix ARG, speaks the rest of the
+sentence  from point.  Negative prefix arg speaks from start of
+sentence to point.
+
+emacspeak-speak-previous-field
+==============================
+
+   control e <
+
+   Skip backwards across and speak  contiguous sequence of non-blank
+characters.  Useful in moving across fields.  Will be improved if it
+proves useful.
+
+emacspeak-toggle-word-echo
+==========================
+
+   control e d w
+
+   Toggle state of  Emacspeak  word echo.  Interactive PREFIX arg means
+toggle  the global default value, and then set the current local  value
+to the result.
+
+emacspeak-toggle-show-point
+===========================
+
+   control e control d
+
+   Toggle state of  Emacspeak-show-point.  Interactive PREFIX arg means
+toggle  the global default value, and then set the current local  value
+to the result.
+
+emacspeak-speak-help
+====================
+
+   control e h
+
+   Speak help buffer if one present.  With prefix arg, speaks the rest
+of the buffer from point.  Negative prefix arg speaks from start of
+buffer to point.
+
+emacspeak-speak-current-mark
+============================
+
+   control e control
+
+   Speak the line containing the mark.  With no argument, speaks the
+line containing the mark-this is where `exchange-point-and-mark' C-x
+C-x would jump.  Numeric prefix arg 'COUNT' speaks line containing mark
+'n' where 'n' is one less than the number of times one has to jump
+using `set-mark-command' to get to this marked position.  The location
+of the mark is indicated by an aural highlight achieved by a change in
+voice personality.
+
+emacspeak-speak-skim-next-paragraph
+===================================
+
+   No global keybinding
+
+   Skim next paragraph.
+
+emacspeak-speak-line-interactively
+==================================
+
+   control e  cap L
+
+   Speak the start of, rest of, or the entire line.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire line.
+
+emacspeak-owindow-previous-line
+===============================
+
+   ESCAPE up
+
+   Move to the next line in the other window and speak it.  Numeric
+prefix arg COUNT specifies number of lines to move.
+
+emacspeak-customize
+===================
+
+   control e  cap C
+
+   Customize Emacspeak.
+
+emacspeak-switch-to-completions-window
+======================================
+
+   No global keybinding
+
+   Jump to the *Completions* buffer if it is active.  We make the
+current minibuffer contents (which is obviously the prefix for each
+entry in the completions buffer) inaudible to reduce chatter.
+
+emacspeak-dtk-speak-version
+===========================
+
+   control e d  cap V
+
+   Use this to find out which version of the Dectalk firmware you are
+running.
+
+emacspeak-speak-next-field
+==========================
+
+   control e >
+
+   Skip across and speak the next contiguous sequence of non-blank
+characters.  Useful in moving across fields.  Will be improved if it
+proves useful.
+
+emacspeak-speak-line-number
+===========================
+
+   control e control l
+
+   Speak the line number of the current line.
+
+emacspeak-read-previous-line
+============================
+
+   control e up
+
+   Read previous line, specified by an offset, without moving.  Default
+is to read the previous line.
+
+emacspeak-read-previous-word
+============================
+
+   No global keybinding
+
+   Read previous word, specified as a prefix arg, without moving.
+Default is to read the previous word.
+
+emacspeak-owindow-scroll-down
+=============================
+
+   ESCAPE prior
+
+   Scroll down  the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+emacspeak-speak-time
+====================
+
+   control e t
+
+   Speak the time.
+
+emacspeak-completions-move-to-completion-group
+==============================================
+
+   No global keybinding
+
+   Move to group of choices beginning with character last typed. If no
+such group exists, then we dont move.
+
+emacspeak-speak-word-interactively
+==================================
+
+   No global keybinding
+
+   Speak the start of, rest of, or the entire word.  's' to speak the
+start.  'r' to speak the rest.  any other key to speak entire word.
+
+emacspeak-toggle-character-echo
+===============================
+
+   control e d k
+
+   Toggle state of  Emacspeak  character echo.  Interactive PREFIX arg
+means toggle  the global default value, and then set the current local
+value to the result.
+
+emacspeak-speak-rectangle
+=========================
+
+   control e  cap R
+
+   Speak a rectangle of text.  Rectangle is delimited by point and mark.
+When call from a program, arguments specify the START and END of the
+rectangle.
+
+emacspeak-speak-buffer
+======================
+
+   control e b
+
+   Speak current buffer  contents.  With prefix ARG, speaks the rest of
+the buffer from point.  Negative prefix arg speaks from start of buffer
+to point.   If voice lock mode is on, the paragraphs in the buffer are
+voice annotated first,  see command
+`emacspeak-speak-voice-annotate-paragraphs'.
+
+emacspeak-speak-current-window
+==============================
+
+   No global keybinding
+
+   Speak contents of current window.  Speaks entire window irrespective
+of point.
+
+emacspeak-speak-version
+=======================
+
+   control e  cap V
+
+   Announce version information for running emacspeak.
+
+emacspeak-speak-window-information
+==================================
+
+   control e control w
+
+   Speaks information about current window.
+
+emacspeak-toggle-audio-indentation
+==================================
+
+   control e d i
+
+   Toggle state of  Emacspeak  audio indentation.  Interactive PREFIX
+arg means toggle  the global default value, and then set the current
+local  value to the result.  Specifying the method of indentation as
+`tones' results in the Dectalk producing a tone whose length is a
+function of the line's indentation.  Specifying `speak' results in the
+number of initial spaces being spoken.
+
+emacspeak-owindow-next-line
+===========================
+
+   ESCAPE down
+
+   Move to the next line in the other window and speak it.  Numeric
+prefix arg COUNT can specify number of lines to move.
+
+emacspeak-speak-other-window
+============================
+
+   No global keybinding
+
+   Speak contents of `other' window.  Speaks entire window irrespective
+of point.  Semantics  of `other' is the same as for the builtin Emacs
+command `other-window'.  Optional argument ARG  specifies `other'
+window to speak.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-read-next-line
+========================
+
+   control e down
+
+   Read next line, specified by an offset, without moving.  Default is
+to read the next line.
+
+emacspeak-read-next-word
+========================
+
+   No global keybinding
+
+   Read next word, specified as a numeric  arg, without moving.
+Default is to read the next word.
+
+
+File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-table-ui,  Prev: emacspeak-speak,  Up: Emacspeak Commands
+
+emacspeak-speedbar
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-speedbar.
+
+emacspeak-speedbar-click
+========================
+
+   No global keybinding
+
+   Does the equivalent of the mouse click from the keyboard
+
+emacspeak-speedbar-goto-speedbar
+================================
+
+   insert
+
+   Switch to the speedbar
+
+
+File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands
+
+emacspeak-table-ui
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-table-ui.
+
+emacspeak-table-get-entry-with-headers
+======================================
+
+   No global keybinding
+
+   Return   both row and column header and table element
+
+emacspeak-table-speak-dimensions
+================================
+
+   No global keybinding
+
+   Speak current table dimensions.
+
+emacspeak-table-speak-coordinates
+=================================
+
+   No global keybinding
+
+   Speak current table coordinates.
+
+emacspeak-table-previous-column
+===============================
+
+   No global keybinding
+
+   Move to the previous column  if possible
+
+emacspeak-table-search-headers
+==============================
+
+   No global keybinding
+
+   Search the table row or column headers.  Interactively prompts for
+row or column to search and pattern to look for.  If there is a match,
+makes the matching row or column current.
+
+emacspeak-table-speak-column-filtered
+=====================================
+
+   No global keybinding
+
+   Speaks a table column after applying a specified column filter.
+Optional prefix arg prompts for a new filter.
+
+emacspeak-table-find-file
+=========================
+
+   control e control t
+
+   Open a file containing table data and display it in table mode.
+emacspeak table mode is designed to let you browse tabular data using
+all the power of the two-dimensional spatial layout while giving you
+sufficient contextual information.  The etc/tables subdirectory of the
+emacspeak distribution contains some sample tables -these are the
+CalTrain schedules.  Execute command `describe-mode' bound to C-c ? in
+a buffer that is in emacspeak table mode to read the documentation on
+the table browser.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-table-copy-current-element-to-register
+================================================
+
+   No global keybinding
+
+   Speak current table element
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-table-goto-right
+==========================
+
+   No global keybinding
+
+   Goes to the right of the current row.
+
+emacspeak-table-paste-from-clipboard
+====================================
+
+   No global keybinding
+
+   Paste the emacspeak table clipboard into the current buffer.  Use
+the major  mode of this buffer to  decide what kind of table markup to
+use.
+
+emacspeak-table-search
+======================
+
+   No global keybinding
+
+   Search the table for matching elements.  Interactively prompts for
+row or column to search and pattern to look for.    If there is a
+match, makes the matching cell current.
+
+emacspeak-table-speak-column-header-and-element
+===============================================
+
+   No global keybinding
+
+   Speak  column header and table element
+
+emacspeak-table-ui-filter-save
+==============================
+
+   No global keybinding
+
+   Save out filter settings.
+
+emacspeak-table-goto
+====================
+
+   No global keybinding
+
+   Prompt for a table cell coordinates and jump to it.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-table-select-automatic-speaking-method
+================================================
+
+   No global keybinding
+
+   Interactively select the kind of automatic speech to produce when
+browsing table elements
+
+emacspeak-table-copy-to-clipboard
+=================================
+
+   No global keybinding
+
+   Copy table in current buffer to the table clipboard.  Current buffer
+must be in emacspeak-table mode.
+
+emacspeak-table-speak-row-header-and-element
+============================================
+
+   No global keybinding
+
+   Speak  row header and table element
+
+emacspeak-table-goto-left
+=========================
+
+   No global keybinding
+
+   Goes to the left of the current row.
+
+emacspeak-table-next-column
+===========================
+
+   No global keybinding
+
+   Move to the next column if possible
+
+emacspeak-table-speak-both-headers-and-element
+==============================================
+
+   No global keybinding
+
+   Speak  both row and column header and table element
+
+emacspeak-table-goto-bottom
+===========================
+
+   No global keybinding
+
+   Goes to the bottom of the current column.
+
+emacspeak-table-ui-filter-load
+==============================
+
+   No global keybinding
+
+   Load saved filter settings.
+
+emacspeak-table-next-row
+========================
+
+   No global keybinding
+
+   Move to the next row if possible
+
+emacspeak-table-speak-current-element
+=====================================
+
+   No global keybinding
+
+   Speak current table element
+
+emacspeak-table-display-table-in-region
+=======================================
+
+   control e TAB
+
+   Recognize tabular data in current region and display it in table
+browsing mode in a a separate buffer.  emacspeak table mode is designed
+to let you browse tabular data using all the power of the
+two-dimensional spatial layout while giving you sufficient contextual
+information.  The tables subdirectory of the emacspeak distribution
+contains some sample tables -these are the CalTrain schedules.  Execute
+command `describe-mode' bound to C-c ? in a buffer that is in emacspeak
+table mode to read the documentation on the table browser.
+
+emacspeak-table-sort-on-current-column
+======================================
+
+   No global keybinding
+
+   Sort table on current column.
+
+emacspeak-table-previous-row
+============================
+
+   No global keybinding
+
+   Move to the previous row if possible
+
+emacspeak-table-goto-top
+========================
+
+   No global keybinding
+
+   Goes to the top of the current column.
+
+emacspeak-table-view-csv-buffer
+===============================
+
+   No global keybinding
+
+   Process a csv (comma separated values) data.  The processed  data
+and presented using emacspeak table navigation.
+
+emacspeak-table-find-csv-file
+=============================
+
+   No global keybinding
+
+   Process a csv (comma separated values) file.  The processed  data
+and presented using emacspeak table navigation.
+
+   This function is advised.
+
+   Before-advice `emacspeak-auto': Automatically defined advice to
+speak interactive prompts.
+
+emacspeak-table-speak-row-filtered
+==================================
+
+   No global keybinding
+
+   Speaks a table row after applying a specified row filter.  Optional
+prefix arg prompts for a new filter.
+
+
+File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Prev: emacspeak-table-ui,  Up: Emacspeak Commands
+
+emacspeak-tabulate
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tabulate.
+
+emacspeak-tabulate-region
+=========================
+
+   control e i
+
+   Voicifies the white-space of a table if one found.  Optional
+interactive prefix arg mark-fields specifies if the header row
+information is used to mark fields in the white-space.
+
+
+File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-url-template,  Prev: emacspeak-tabulate,  Up: Emacspeak Commands
+
+emacspeak-tapestry
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tapestry.
+
+emacspeak-tapestry-describe-tapestry
+====================================
+
+   control e meta t
+
+   Describe the current layout of visible buffers in current frame.
+
+
+File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tapestry,  Up: Emacspeak Commands
+
+emacspeak-url-template
+======================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-url-template.
+
+emacspeak-url-template-save
+===========================
+
+   No global keybinding
+
+   Save out url templates.
+
+emacspeak-url-template-fetch
+============================
+
+   control e u
+
+   Prompt for  URL template and fetch specified resource.
+
+emacspeak-url-template-load
+===========================
+
+   No global keybinding
+
+   Load URL template resources from specified location.
+
+
+File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+
+emacspeak-view
+==============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-view.
+
+emacspeak-view-line-to-top
+==========================
+
+   No global keybinding
+
+   Moves current line to top of window
+
+
+File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view,  Up: Emacspeak Commands
+
+emacspeak-vm
+============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-vm.
+
+emacspeak-vm-speak-labels
+=========================
+
+   No global keybinding
+
+   Speak a message's labels
+
+emacspeak-vm-mode-line
+======================
+
+   No global keybinding
+
+   VM mode line information.
+
+emacspeak-vm-browse-message
+===========================
+
+   No global keybinding
+
+   Browse an email message -read it paragraph at a time.
+
+emacspeak-vm-locate-subject-line
+================================
+
+   No global keybinding
+
+   Locates the subject line in a message being read.  Useful when
+you're reading a message that has been forwarded multiple times.
+
+
+File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-websearch,  Prev: emacspeak-vm,  Up: Emacspeak Commands
+
+emacspeak-w3
+============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3.
+
+emacspeak-w3-next-doc-element
+=============================
+
+   No global keybinding
+
+   Move forward  to the next document element.  Optional interactive
+prefix argument COUNT specifies by how many eleemnts to move.
+
+emacspeak-w3-speak-this-element
+===============================
+
+   No global keybinding
+
+   Speak document element under point.
+
+emacspeak-w3-toggle-table-borders
+=================================
+
+   No global keybinding
+
+   Toggle drawing of W3 table borders
+
+emacspeak-w3-url-rewrite-and-follow
+===================================
+
+   No global keybinding
+
+   Apply a url rewrite rule as specified in the current buffer before
+following link under point.  If no rewrite rule is defined, first
+prompt for one.  Rewrite rules are of the form `(from to)' where from
+and to are strings.  Typically, the rewrite rule is automatically set
+up by Emacspeak tools like websearch where a rewrite rule is known.
+Rewrite rules are useful in jumping directly to the printer friendly
+version of an article for example.  Optional interactive prefix arg
+prompts for a rewrite rule even if one is already defined.
+
+emacspeak-w3-speak-next-element
+===============================
+
+   No global keybinding
+
+   Speak next document element.
+
+emacspeak-w3-lynx-url-under-point
+=================================
+
+   No global keybinding
+
+   Display contents of URL under point using LYNX.  The document is
+displayed in a separate buffer. Note that the hyperlinks in that
+display are not active- this facility is present only to help me iron
+out the remaining problems with the table structure extraction code in
+W3.
+
+emacspeak-w3-show-anchor-class
+==============================
+
+   No global keybinding
+
+   Display any class attributes set on corresponding anchor element.
+
+emacspeak-w3-jump-to-title-in-content
+=====================================
+
+   No global keybinding
+
+   Jumps to the occurrence of document title in page body.
+
+emacspeak-w3-javascript-follow-link
+===================================
+
+   No global keybinding
+
+   Follow URL hidden inside a javascript link
+
+emacspeak-w3-do-onclick
+=======================
+
+   No global keybinding
+
+   Do  onclick action.
+
+emacspeak-w3-previous-doc-element
+=================================
+
+   No global keybinding
+
+   Move back  to the previous document element.  Optional interactive
+prefix argument COUNT specifies by how many eleemnts to move.
+
+
+File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
+
+emacspeak-websearch
+===================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-websearch.
+
+emacspeak-websearch-inference-search
+====================================
+
+   No global keybinding
+
+   Perform an Inference search.
+
+emacspeak-websearch-rfb-search
+==============================
+
+   No global keybinding
+
+   Search RFB&D catalog.
+
+emacspeak-websearch-freshmeat-search
+====================================
+
+   No global keybinding
+
+   Search Freshmeat  Site.
+
+emacspeak-websearch-britannica-search
+=====================================
+
+   No global keybinding
+
+   Search Encyclopedia Britannica.
+
+emacspeak-websearch-dispatch
+============================
+
+   control e ?
+
+   Launches specific websearch queries.  Search engine is selected by
+keystrokes listed below.  Once selected, the selected searcher prompts
+for additional information as appropriate.
+
+   Key     Engine              Search a       AltaVista
+ AltaVista Simple Search Cap A     AllTheWeb                   All The
+Web b       BBC                         BBC Archives C-b     Biblio
+                Computer Science Bibliography c       CNN
+          CNN Interactive Cap C   Company News                Lookup
+Company News By Ticker C-c     CiteSeer                    Computer
+Science Citation  Index d       dejanews                    Usenet
+Archives At Dejanews Cap D   Dictionary                  Hypertext
+Websters Dictionary e   Encyclopedia                    Encyclopedia
+Britannica f       CNN-FN                      CNN  Financial Network
+cap F   FolDoc                      Free Online Dictionary Of Computing
+g       Google                      The Google WWW Index Cap G
+Gutenberg Locate Gutenberg Etexts h       HotBot
+HotBot WWW Index i       Inference                   Inference WWW
+Search j       jeeves                      Ask Jeeves k       kerbango
+                 Kerbango Radio Tuner m       Map
+  Driving directions from Yahoo Cap M   Dictionary
+Merriam Webster Dictionary n       news-yahoo                  News
+Wire at Yahoo Cap N   NLight                      Northern Light Search
+o       open-directory              Open Directory Search p
+People                      People Search (Yahoo) r       RedHat
+             Search RedHat Via Google Cap R   RFBD
+  RFB&D Catalog search C-r RPMFind                         Find RPM
+packages s       Software                  Search for software t
+translate                 Machine translation u       usenet-altavista
+         Usenet Index At AltaVista w       Weather
+Weather Channel  By Zip Code cap W   W3C                         Search
+W3C Site v   Vickers                         Vickers Insider Trades Cap
+VVectorVestVectorVest Stock Reports y       yahoo
+Master Yahoo Index
+
+   When using W3,  this interface attempts to speak the most relevant
+information on the result page.
+
+emacspeak-websearch-google
+==========================
+
+   No global keybinding
+
+   Perform an Google search
+
+emacspeak-websearch-emacspeak-archive
+=====================================
+
+   control h e
+
+   Search Emacspeak mail archives.  For example to find messages about
+Redhat at the Emacspeak archives, type +redhat
+
+emacspeak-websearch-w3c-search
+==============================
+
+   No global keybinding
+
+   Search the W3C Site.
+
+emacspeak-websearch-citeseer-search
+===================================
+
+   No global keybinding
+
+   Perform a CiteSeer search.
+
+emacspeak-websearch-alltheweb-search
+====================================
+
+   No global keybinding
+
+   Perform an AllTheWeb  search.  Optional prefix arg prompts for type
+of search: -use `all' `phrase' or  `any' to specify the type of search.
+
+emacspeak-websearch-gutenberg
+=============================
+
+   No global keybinding
+
+   Perform an Gutenberg search
+
+emacspeak-dejanews-browse-group
+===============================
+
+   control e  cap U
+
+   Prompt and browse a newsgroup on Dejanews.
+
+emacspeak-websearch-kerbango-search
+===================================
+
+   No global keybinding
+
+   Search Kerbango radio tuner.
+
+emacspeak-websearch-cnn-search
+==============================
+
+   No global keybinding
+
+   Perform an CNN search.  Optional interactive prefix arg prompts for
+additional search parameters.  The default is to sort by date and show
+summaries.  To sort by relevance specify additional parameter &rf=0.
+To hide summaries, specify additional parameter &lk=2.  You can
+customize the defaults by setting variable
+emacspeak-websearch-cnn-options to an appropriate string.
+
+emacspeak-websearch-quotes-yahoo-search
+=======================================
+
+   No global keybinding
+
+   Perform a Quotes Yahoo .  Default tickers to look up is taken from
+variable emacspeak-websearch-personal-portfolio.  Default is to present
+the data in emacspeak's table browsing mode -optional interactive
+prefix arg causes data to be displayed y W3 as a WWW page.  You can
+customize the defaults by setting variable
+emacspeak-websearch-quotes-yahoo-options to an appropriate string.
+
+emacspeak-websearch-software-search
+===================================
+
+   No global keybinding
+
+   Search SourceForge, Freshmeat and other sites.
+
+emacspeak-websearch-usenet-altavista-search
+===========================================
+
+   No global keybinding
+
+   Perform a Usenet  Altavista search
+
+emacspeak-websearch-weather
+===========================
+
+   No global keybinding
+
+   Get weather forecast for specified zip code.
+
+emacspeak-websearch-altavista-search
+====================================
+
+   No global keybinding
+
+   Perform an Altavista search
+
+emacspeak-websearch-foldoc-search
+=================================
+
+   No global keybinding
+
+   Perform a FolDoc search.
+
+emacspeak-websearch-news-yahoo
+==============================
+
+   No global keybinding
+
+   Perform an Yahoo News search
+
+emacspeak-websearch-map-directions-search
+=========================================
+
+   No global keybinding
+
+   Get driving directions from Yahoo.  With optional interactive prefix
+arg MAP shows the location map instead.
+
+emacspeak-websearch-rpm-find
+============================
+
+   No global keybinding
+
+   Search RPM  catalog  site.
+
+emacspeak-websearch-bbc-search
+==============================
+
+   No global keybinding
+
+   Search BBC archives.
+
+emacspeak-websearch-yahoo-historical-chart
+==========================================
+
+   No global keybinding
+
+   Look up historical stock data.  Optional second arg data processes
+the results as data rather than HTML.
+
+emacspeak-websearch-dejanews-search
+===================================
+
+   No global keybinding
+
+   Perform a Dejanews search
+
+emacspeak-websearch-vickers-search
+==================================
+
+   No global keybinding
+
+   Search Vickers insider trading.
+
+emacspeak-websearch-biblio-search
+=================================
+
+   No global keybinding
+
+   Search Computer Science Bibliographies.
+
+emacspeak-websearch-ask-jeeves
+==============================
+
+   No global keybinding
+
+   Ask Jeeves for the answer.
+
+emacspeak-websearch-fn-cnn-search
+=================================
+
+   No global keybinding
+
+   Perform an CNN FNsearch.  Optional interactive prefix arg prompts
+for additional search parameters.  The default is to sort by date and
+show summaries.  To sort by relevance specify additional parameter
+&rf=0.  To hide summaries, specify additional parameter &lk=2.  You can
+customize the defaults by setting variable
+emacspeak-websearch-fn-cnn-options to an appropriate string.
+
+emacspeak-websearch-cpan-search
+===============================
+
+   No global keybinding
+
+   Search CPAN  Comprehensive Perl Archive Network   Site.
+
+emacspeak-websearch-packages-linux
+==================================
+
+   No global keybinding
+
+   Search for Linux packages.
+
+emacspeak-websearch-open-directory-search
+=========================================
+
+   No global keybinding
+
+   Perform an Open Directory search
+
+emacspeak-websearch-appwatch-search
+===================================
+
+   No global keybinding
+
+   Search AppWatch  Site.
+
+emacspeak-websearch-redhat
+==========================
+
+   No global keybinding
+
+   Search RedHat site.
+
+emacspeak-websearch-sourceforge-search
+======================================
+
+   No global keybinding
+
+   Search SourceForge Site.
+
+emacspeak-websearch-vector-vest-search
+======================================
+
+   No global keybinding
+
+   Look up VectorVest reports .
+
+emacspeak-websearch-people-yahoo
+================================
+
+   No global keybinding
+
+   Perform an Yahoo  people search
+
+emacspeak-websearch-hotbot-search
+=================================
+
+   No global keybinding
+
+   Perform a Hotbot  search.  Optional interactive prefix arg prompts
+for additional search parameters.  The default is to sort by date and
+show summaries.  To sort by relevance specify additional parameter
+&rf=0.  To hide summaries, specify additional parameter &lk=2.  You can
+customize the defaults by setting variable
+emacspeak-websearch-hotbot-options to an appropriate string.
+
+emacspeak-websearch-yahoo
+=========================
+
+   No global keybinding
+
+   Perform an Yahoo  search
+
+emacspeak-websearch-dictionary-hypertext-webster-search
+=======================================================
+
+   No global keybinding
+
+   Search the Webster Dictionary.
+
+emacspeak-websearch-machine-translate
+=====================================
+
+   No global keybinding
+
+   Perform a machine translation request
+
+emacspeak-websearch-merriam-webster-search
+==========================================
+
+   No global keybinding
+
+   Search the Merriam Webster Dictionary.
+
+emacspeak-websearch-northern-light
+==================================
+
+   No global keybinding
+
+   Perform a Northern Light  search
+
+emacspeak-websearch-ctan-search
+===============================
+
+   No global keybinding
+
+   Search CTAN Comprehensive TeX Archive Network   Site.
+
+emacspeak-websearch-company-news
+================================
+
+   No global keybinding
+
+   Perform an company news lookup.  Retrieves company news, research,
+profile, insider trades,  or upgrades/downgrades.
+
+
+File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
+
+emacspeak-widget
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-widget.
+
+emacspeak-widget-help
+=====================
+
+   meta h
+
+   Speak help for widget under point.
+
+emacspeak-widget-summarize-parent
+=================================
+
+   meta p
+
+   Summarize parent of widget at point.
+
+emacspeak-widget-browse-widget-interactively
+============================================
+
+   No global keybinding
+
+   Allows you to browse a widget
+
+emacspeak-widget-update-from-minibuffer
+=======================================
+
+   META RETURN
+
+   Sets widget at point by invoking its prompter.
+
+emacspeak-widget-summarize-widget-under-point
+=============================================
+
+   No global keybinding
+
+   Summarize a widget if any under point.  Optional interactive prefix
+specifies how many levels to go up from current widget before
+summarizing.
+
+
+File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-widget,  Up: Emacspeak Commands
+
+emacspeak
+=========
+
+   Automatically generated documentation for commands defined in module
+emacspeak.
+
+emacspeak-submit-bug
+====================
+
+   control e control b
+
+   Function to submit a bug to the programs maintainer.
+
+emacspeak-describe-emacspeak
+============================
+
+   control h control e
+
+   Give a brief overview of emacspeak.
+
+
+File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-arc,  Prev: emacspeak,  Up: Emacspeak Commands
+
+dis-quote
+=========
+
+   Automatically generated documentation for commands defined in module
+dis-quote.
+
+quotes-setup-emacspeak-portfolio
+================================
+
+   No global keybinding
+
+   Set up variable emacspeak-websearch-personal-portfolio.
+
+
+File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-dismal,  Prev: dis-quote,  Up: Emacspeak Commands
+
+emacspeak-arc
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-arc.
+
+emacspeak-arc-speak-file-permissions
+====================================
+
+   No global keybinding
+
+   Speak permissions of file current entry
+
+emacspeak-arc-speak-file-modification-time
+==========================================
+
+   No global keybinding
+
+   Speak modification time of the file on current line
+
+emacspeak-arc-speak-file-name
+=============================
+
+   No global keybinding
+
+   Speak the name of the file on current line
+
+emacspeak-arc-speak-file-size
+=============================
+
+   No global keybinding
+
+   Speak the size of the file on current line
 
