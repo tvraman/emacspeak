@@ -145,7 +145,7 @@
         (defadvice   (, f)(after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
-            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-mode-line))))))
 
 (loop for f in
