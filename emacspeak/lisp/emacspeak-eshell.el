@@ -222,7 +222,15 @@ personalities."
      'eshell-ls-clutter-face
   "Personality for transients."
   :group 'emacspeak-eshell)
-
+(def-voice-font   emacspeak-eshell-special-personality
+  voice-smoothen-extra
+     'eshell-ls-special-face
+  "Personality for specials."
+  :group 'emacspeak-eshell)
+(def-voice-font  emacspeak-eshell-prompt-personality voice-monotone-medium
+  'eshell-prompt-face
+  "Personality used for highlighting eshell prompts --emacs 21."
+  :group 'emacspeak-eshell)
 ;;}}}
 ;;{{{ Advice em-prompt
 (loop for f in 
