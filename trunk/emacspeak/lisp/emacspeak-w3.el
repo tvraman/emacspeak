@@ -85,21 +85,19 @@
                   url-show-status
                   w3-mode-map))
 
-(condition-case nil
-    (progn (require 'w3-speak)
-           (add-hook 'w3-mode-hook 'w3-speak-mode-hook)
-           (add-hook 'w3-mode-hook 'emacspeak-pronounce-toggle-use-of-dictionaries)
-           (setq w3-echo-link
-                 (list 'text 'title 'name 'url))
-           (if (locate-library "w3-speak-table")
-               (load-library "w3-speak-table")
-             (message
-              "Please upgrade to W3 4.0.18 for spoken table support"))
-           (setq url-show-status nil))
-  (error (emacspeak-auditory-icon 'warn-user)
-         (message
-          "You appear to be using an old version of W3
-that is no longer supported by Emacspeak.")))
+(when (locate-library "w3-speak")
+  (require 'w3-speak)
+  (add-hook 'w3-mode-hook 'w3-speak-mode-hook)
+  (add-hook 'w3-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
+  (setq w3-echo-link
+        (list 'text 'title 'name 'url))
+  (when
+      (and (locate-library "w3-speak-table")
+           (not (featurep 'w3-speak-table)))
+    (load-library "w3-speak-table")
+    (provide 'w3-speak-table))
+  (setq url-show-status nil))
+  
 
 (eval-when (load)
   (require 'emacspeak-keymap)
@@ -1067,14 +1065,6 @@ used as well."
       (set-buffer src-buffer)
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
-
-(defun emacspeak-wizards-google-hits ()
-  "Filter Google results after performing search to show just the
-hits."
-  (interactive)
-  (let ((name   "Google Hits"))
-    (emacspeak-url-template-open
-     (emacspeak-url-template-get name))))
 
 ;;}}}
 ;;{{{  google tool
