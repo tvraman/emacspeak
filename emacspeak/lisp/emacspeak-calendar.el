@@ -132,12 +132,20 @@
            (put-text-property  (1-(point)) (1+ (point))
                               'personality   emacspeak-calendar-mark-personality ))))))
 
+(defvar emacspeak-calendar-mode-line-format 
+'("Calendar"  (calendar-date-string (calendar-current-date) t))
+"Mode line format for calendar to use when Emacspeak is
+active.")
+  
 (defadvice calendar (after emacspeak pre act )
   "Announce yourself."
   (when (interactive-p)
     (let ((emacspeak-lazy-message-time 0))
       (emacspeak-auditory-icon 'open-object)
-    (message "Welcome to the calendar"))))
+      (setq mode-line-format
+            (mapconcat 'eval emacspeak-calendar-mode-line-format
+                       " "))
+      (message "Welcome to the calendar"))))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
   "Speak the date. "
