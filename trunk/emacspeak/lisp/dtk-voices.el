@@ -554,6 +554,15 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
+;;{{{  punctuations
+
+(defsubst dtk-get-punctuations-code (value)
+  "Return string needed to set specified punctuations mode."
+  (declare (special dtk-punctuation-mode))
+  (format "[:punc %s]"
+          (or value dtk-punctuation-mode)))
+
+;;}}}
 
 ;;}}}
 ;;{{{  dtk-define-voice-from-speech-style
@@ -564,6 +573,7 @@ and TABLE gives the values along that dimension."
 	 (command
 	  (concat "["
 		  (dtk-get-family-code family)
+                  (dtk-get-punctuations-code (acss-punctuations style))
 		  " :dv "
 		  (dtk-get-average-pitch-code (acss-average-pitch style) family)
 		  (dtk-get-pitch-range-code (acss-pitch-range style) family)
