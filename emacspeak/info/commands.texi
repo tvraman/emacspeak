@@ -44,6 +44,7 @@ documentation.
 * emacspeak-info::              
 * emacspeak-keymap::            
 * emacspeak-kotl::              
+* emacspeak-loaddefs::          
 * emacspeak-m-player::          
 * emacspeak-man::               
 * emacspeak-mpg123::            
@@ -195,11 +196,6 @@ Speech rate is scaled by this factor
 when speaking characters.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} dtk-set-chunk-separator-syntax (S)
@@ -283,7 +279,7 @@ short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 @end deffn
 
-@deffn {Interactive Command} dtk-toggle-debug (&optional FLAG)
+@deffn {Interactive Command} dtk-toggle-debug (&optional PREFIX)
 @kbd{ control e d b }
 
 Toggle state of the debug FLAG.
@@ -301,10 +297,9 @@ Interactive PREFIX arg makes the new setting global.
 @deffn {Interactive Command} dtk-toggle-quiet (&optional PREFIX)
 @kbd{ control e d q }
 
-Toggle state of the speech device between being quiet and talkative.
-Useful if you want to continue using an Emacs session that has
-emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
+Toggles state of  dtk-quiet.
+Turning on this switch silences speech.
+Optional interactive prefix arg causes this setting to become global.
 @end deffn
 
 @deffn {Interactive Command} dtk-toggle-speak-nonprinting-chars (&optional PREFIX)
@@ -349,8 +344,8 @@ since the synthesizer is getting a word at a time.
 
 Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
-type.
-Optional argument PREFIX specifies if the setting applies to all buffers.
+type.  Optional argument PREFIX specifies if the setting applies
+to all buffers.
 @end deffn
 
 @node emacspeak
@@ -857,6 +852,13 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-erc-toggle-speak-all-participants (&optional PREFIX)
+Toggle state of ERC speak all participants..
+Interactive 
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end deffn
+
 @node emacspeak-eterm
 @section emacspeak-eterm
 
@@ -889,30 +891,15 @@ The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-describe-window (ID)
 Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-goto-line (LINE)
 Move emacspeak eterm pointer to a specified LINE.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-kill-ring-save-region ()
@@ -932,11 +919,6 @@ in a non eterm buffer if executed via C-e C-e
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word (COUNT)
@@ -1077,11 +1059,6 @@ the Emacspeak pointer to be spoken.
 @deffn {Interactive Command} emacspeak-eterm-speak-window (ID)
 Speak an eterm window.
 Argument ID specifies the window.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-filter-window ()
@@ -1092,7 +1069,7 @@ Toggle active state of filter window.
 Toggle active state of focus window.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-eterm-toggle-pointer-mode (FLAG)
+@deffn {Interactive Command} emacspeak-eterm-toggle-pointer-mode (&optional PREFIX)
 Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
@@ -1108,11 +1085,6 @@ without sending input to the terminal itself.
 
 @deffn {Interactive Command} emacspeak-eterm-yank-window (ID)
 Yank contents of  an eterm window at point.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-toggle-eterm-autospeak (&optional PREFIX)
@@ -1460,6 +1432,15 @@ for commands defined in module  emacspeak-info.
 Speak info header line.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-info-wizard (NODE-SPEC)
+@kbd{ control h TAB }
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+@end deffn
+
 @node emacspeak-keymap
 @section emacspeak-keymap
 
@@ -1494,6 +1475,22 @@ Setup additional keybindings
 @deffn {Interactive Command} emacspeak-kotl-speak-cell (ARG)
 Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+@end deffn
+
+@node emacspeak-loaddefs
+@section emacspeak-loaddefs
+
+Automatically generated documentation
+for commands defined in module  emacspeak-loaddefs.
+
+@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
+@kbd{ control e o }
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
 @end deffn
 
 @node emacspeak-m-player
@@ -1799,10 +1796,6 @@ Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-ocr-toggle-read-only ()
-Toggle read-only state of OCR buffer.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-ocr-write-document ()
 Writes out recognized text from all pages in current document.
 @end deffn
@@ -2075,25 +2068,19 @@ Automatically defined advice to speak interactive prompts.
 Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
-@deffn {Interactive Command} emacspeak-backward-char (ARG)
+@deffn {Interactive Command} emacspeak-backward-char (&optional ARG)
 @kbd{ control b   <left> }
 
 Backward-char redefined to speak char moved to. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-forward-char (ARG)
+@deffn {Interactive Command} emacspeak-forward-char (&optional ARG)
 @kbd{ control f   <right> }
 
 Forward-char redefined to speak char moved to. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-kill-buffer (BUFFER)
-@kbd{ control x k }
-
-Speech-enabled version of kill-buffer for Emacs 21.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-self-insert-command (ARG)
+@deffn {Interactive Command} emacspeak-self-insert-command (&optional ARG)
 @kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
 
 Insert a character.
@@ -2269,11 +2256,6 @@ typed. If no such group exists, then we dont move.
 @kbd{ control e d t }
 
 Prompt for and dial a phone NUMBER with the Dectalk.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-execute-repeatedly (COMMAND)
@@ -2436,6 +2418,14 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 @kbd{ control e = }
 
 Speak the current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-current-field ()
+@kbd{ control e . }
+
+Speak current field.
+A field is
+defined  by Emacs 21.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-current-kill (COUNT)
@@ -2615,11 +2605,6 @@ Speaks entire window irrespective of point.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'.
 Optional argument ARG  specifies `other' window to speak.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-page (&optional ARG)
@@ -2758,8 +2743,6 @@ Speak the white space at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-spell-current-word ()
-@kbd{ control e  cap W  }
-
 Spell word at  point.
 @end deffn
 
@@ -2852,16 +2835,6 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
-@kbd{ control e o }
-
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-toggle-line-echo (&optional PREFIX)
 @kbd{ control e d l }
 
@@ -2896,7 +2869,7 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-toggle-speak-messages ()
+@deffn {Interactive Command} emacspeak-toggle-speak-messages (&optional PREFIX)
 @kbd{ control e q }
 
 Toggle the state of whether emacspeak echoes messages.
@@ -3012,11 +2985,6 @@ the documentation on the table browser.
 @deffn {Interactive Command} emacspeak-table-find-csv-file (FILENAME)
 Process a csv (comma separated values) file. 
 The processed  data and presented using emacspeak table navigation. 
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-find-file (FILENAME)
@@ -3030,11 +2998,6 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command `describe-mode' bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-get-entry-with-headers (ROW COLUMN &optional ROW-HEAD-P COL-HEAD-P)
@@ -3043,11 +3006,6 @@ Return   both row and column header and table element
 
 @deffn {Interactive Command} emacspeak-table-goto (ROW COLUMN)
 Prompt for a table cell coordinates and jump to it.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-goto-bottom ()
@@ -3183,6 +3141,15 @@ for commands defined in module  emacspeak-tapestry.
 Describe the current layout of visible buffers in current frame.
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-tapestry-select-window-by-name (BUFFER-NAME)
+@kbd{ control e  cap W  }
+
+Select window by the name of the buffer it displays.
+This is useful when using modes like ECB or the new GDB UI where
+  you want to preserve the window layout 
+but quickly switch to a window by name.
 @end deffn
 
 @node emacspeak-tar
@@ -3567,11 +3534,6 @@ Play url under point as realaudio
 
 @deffn {Interactive Command} emacspeak-w3-set-xsl-keep-result (VALUE)
 Set value of `emacspeak-w3-xsl-keep-result'.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class ()
@@ -4081,33 +4043,18 @@ Read a frame label with completion.
 Generate docs for all emacspeak commands.
 Prompts for FILENAME in which to save the documentation.
 Warning! Contents of file filename will be overwritten.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-generate-texinfo-command-documentation (FILENAME)
 Generate texinfo documentation  for all emacspeak
 commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-generate-texinfo-option-documentation (FILENAME)
 Generate texinfo documentation  for all emacspeak
 options  into file options.texi.
 Warning! Contents of file options.texi will be overwritten.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-kill-buffer-quietly ()
@@ -4420,11 +4367,6 @@ Generate a widget-enabled finder wizard.
 @deffn {Interactive Command} emacspeak-wizards-generate-voice-sampler (STEP)
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-get-table-content-from-file (TASK FILE DEPTH COUNT)
@@ -4453,12 +4395,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-occur-header-lines (PREFIX)
-If you define a file local variable 
-called `emacspeak-occur-pattern' that holds a regular expression 
-that matches header lines, you can use this command to conveniently
-run `occur' 
-to find matching header lines. With prefix arg, prompts for and sets
-value of the file local pattern.
+If you define a file local variable called
+`emacspeak-occur-pattern' that holds a regular expression that
+matches header lines, you can use this command to conveniently
+run `occur' to find matching header lines. With prefix arg,
+prompts for and sets value of the file local pattern.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-portfolio-quotes ()
@@ -4515,11 +4456,6 @@ Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-spot-words (EXT WORD)
@@ -4610,11 +4546,6 @@ Display current node.
 
 @deffn {Interactive Command} emacspeak-xml-shell-browse-result (XPATH)
 Display XPath  and display its result using W3.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-xml-shell-goto-children ()
@@ -4652,16 +4583,5 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
-@end deffn
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-speak-current-field ()
-@kbd{ control e . }
-
-Speak current field.
-A field is
-defined  by Emacs 21.
 @end deffn
 
