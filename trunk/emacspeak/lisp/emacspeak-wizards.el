@@ -562,7 +562,8 @@ default-directory after switching."
                             (expand-file-name
                              default-directory))
         (goto-char (point-max))
-        (insert (format "cd %s" dir))
+        (insert (format "cd %s"
+                        (expand-file-name dir)))
         (comint-send-input)
         (shell-process-cd dir)))
     (emacspeak-speak-mode-line)
