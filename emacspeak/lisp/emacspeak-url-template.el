@@ -524,9 +524,19 @@ Computing News at CNN.")
  nil
  "Open specified project page at SourceForge.")
 
+
 (emacspeak-url-template-define
- "sourceforge download" 
- "http://prdownloads.sourceforge.net/%s"
+ "sourceforge browse download" 
+"http://prdownloads.sourceforge.net/%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Project name")))
+ nil
+ "Retrieve download page at Sourceforge for specified project.")
+
+(emacspeak-url-template-define
+ "sourceforge download for North America" 
+ "http://unc.dl.sourceforge.net/sourceforge/%s"
  (list
   (lambda nil 
     (read-from-minibuffer "Project name")))
