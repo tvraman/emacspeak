@@ -84,6 +84,17 @@ Emacspeak  now works with transient mark mode.
 All Emacspeak convenience commands have been moved to module
 emacspeak-wizards.
 
+*** Annotation Tool:
+
+emacspeak-annotate is a tool that lets you comments in a
+designated annotation buffer as you work through a document.
+I typically use this to collect comments into an email draft
+while reading long documents --see command
+emacspeak-annotate-add-annotation for details.
+
+
+
+
 *** Simple phone book:
 
 See command  emacspeak-speak-telephone-directory for a
