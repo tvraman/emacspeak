@@ -294,9 +294,10 @@ Prompts for start and end times as well as file  to save the clippi"
   (interactive
    (list
     (read-from-minibuffer "Start time in seconds:"
-                          emacspeak-realaudio-start-time-mark)
+                          (format "%s"
+                                  emacspeak-realaudio-start-time-mark))
     (read-from-minibuffer "End time in seconds: "
-                          emacspeak-realaudio-end-time-mark)
+                          (format "%s" emacspeak-realaudio-end-time-mark))
     (read-file-name "File to save clip to")))
   (declare (special emacspeak-realaudio-end-time-mark
                     emacspeak-realaudio-start-time-mark
