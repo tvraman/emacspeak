@@ -702,6 +702,22 @@ spoken automatically."
      prompt-url
      (or (interactive-p)
 	 speak))))
+
+(defun emacspeak-w3-extract-matching-urls (pattern  &optional prompt-url speak)
+  "Extracts links whose URL matches pattern."
+  (interactive
+   (list
+    (read-from-minibuffer "URL Pattern: ")
+    current-prefix-arg))
+  (let ((filter
+         (format 
+          "//a[contains(@href,'%s')]")))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p)
+	 speak))))
+
   ;;;###autoload
 (defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
   "Extract nested table specified by `table-index'. Default is to
@@ -986,7 +1002,9 @@ loaded.
   'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "\C-p"
   'emacspeak-w3-xpath-junk-and-follow)
-(define-key emacspeak-w3-xsl-map "r" 'emacspeak-w3-extract-media-streams)
+(define-key emacspeak-w3-xsl-map "r"
+  'emacspeak-w3-extract-media-streams)
+(define-key emacspeak-w3-xsl-map "u" 'emacspeak-w3-extract-matching-urls)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-extract-table-by-position)
