@@ -166,9 +166,9 @@ user is notified about activity in the room.")
 
 
 
-defvar emacspeak-erc-people-to-monitor nil
-"List of strings specifying people to monitor in a given
-room.")
+(defvar emacspeak-erc-people-to-monitor nil
+"List of strings specifying people to monitor in a given room.")
+
 (make-variable-buffer-local
  'emacspeak-erc-people-to-monitor)
 
@@ -202,7 +202,16 @@ room.")
 (defun emacspeak-erc-compute-message (string buffer)
   "Uses environment of buffer to decide what message to
 display. String is the original message."
-string)
+  (declare (special emacspeak-erc-people-to-monitor))
+  (let
+      ((who-from (car (split-string string ))))
+    (cond
+     ((and emacspeak-erc-people-to-monitor
+           (find  who-from
+                  emacspeak-erc-people-to-monitor
+                  :test #'string-equal))
+      string)
+     (t ""))))
 
 
 
