@@ -827,7 +827,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    'emacspeak-speak-line))
 
 (defvar emacspeak-websearch-ctan-search-uri 
-  "http://theory.uwinnipeg.ca/mod_perl/ctan-search.pl?topic="
+  "http://www.ctan.org/tools/filesearch?action=/search/&filename=%s"
   "URI for searching CTAN archives for tex and latex utilities. ")
 
 (defun emacspeak-websearch-ctan-search (query)
