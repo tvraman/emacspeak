@@ -146,6 +146,7 @@ font-lock.  Voicification is effective only if font lock is on."
 (defun emacspeak-personality-append-personality  (start end personality)
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (ems-modify-buffer-safely
   (let ((orig (get-text-property start 'personality))
         (new nil)
         (extent
@@ -168,11 +169,12 @@ Existing personality properties on the text range are preserved."
                          'personality new)
       (when (< extent end)
         (emacspeak-personality-append-personality extent end
-                                               personality))))))
+                                               personality)))))))
 
 (defun emacspeak-personality-prepend-personality  (start end personality)
   "Prepend specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (ems-modify-buffer-safely
   (let ((orig (get-text-property start 'personality))
         (new nil)
         (extent
@@ -198,11 +200,13 @@ Existing personality properties on the text range are preserved."
                          'personality new)
       (when (< extent end)
         (emacspeak-personality-prepend-personality extent end
-                                                   personality))))))
+                                                   personality)))))))
 
 (defun emacspeak-personality-remove-personality  (start end personality)
   "Remove specified personality from text bounded by start and end.
-Other existing personality properties on the text range are preserved."
+Other existing personality properties on the text range are
+preserved."
+  (ems-modify-buffer-safely
   (let ((orig (get-text-property start 'personality))
         (new nil)
         (extent
@@ -226,7 +230,7 @@ Other existing personality properties on the text range are preserved."
                                 (list 'personality )))
       (when (< extent end)
         (emacspeak-personality-remove-personality extent end
-                                                  personality))))))
+                                                  personality)))))))
 
 
 ;;}}}
@@ -346,8 +350,6 @@ Append means place corresponding personality at the end."
        voice)
       (funcall emacspeak-personality-voiceify-overlays
                beg end voice))))
-    
-
 
 ;;}}}
 (provide 'emacspeak-personality )
