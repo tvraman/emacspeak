@@ -1,0 +1,179 @@
+\input texinfo   @c -*-texinfo-*-
+@comment %**start of header
+@raggedright
+@setfilename ./new-emacspeak-test.info
+@settitle Emacspeak User's Manual --2nd Edition.
+@smallbook
+@finalout
+@comment %**end of header
+
+@ignore
+
+This is the TEST version of this file, called new-emacspeak-test.texi
+
+2003 May  5
+
+This file provides for typeset output as well as Info output.  It
+includes the copyright and menu that are in the preamble.texi and
+copyright.texi files.  As a consequence, those files are not included
+in this version of the manual using the @@include command.
+
+To turn this file into the regular emacspeak.texi file, you need to
+substute "emacspeak" for "new-emacspeak-test" using the query-replace command.
+Change the Info file name from new-emacspeak-test.info and change the input and
+output file names listed in the "Summary of shell commands" below.
+
+Here are the two words for the query-replace command.  All instances
+of "new-emacspeak-test" can be replaced by "emacspeak".
+
+    emacspeak
+    new-emacspeak-test
+
+@end ignore
+
+
+@ignore
+ ## Summary of shell commands to create various output formats:
+
+  ## Update the CVS repository to include the following:
+
+    ## Info output
+    makeinfo --force --fill-column=70 --no-split --paragraph-indent=0 \
+    --verbose new-emacspeak-test.texi
+
+    ## HTML output
+    makeinfo --no-split --html --verbose new-emacspeak-test.texi
+
+    ## Plain text output
+    makeinfo --fill-column=70 --no-split --paragraph-indent=0 \
+    --verbose --no-headers --output=new-emacspeak-test.txt \
+    new-emacspeak-test.texi
+
+    ## DVI output
+    texi2dvi new-emacspeak-test.texi
+
+    ## Create PostScript from DVI
+    dvi2ps new-emacspeak-test.dvi > new-emacspeak-test.ps
+
+    ## DocBook output
+    makeinfo --docbook --no-split --paragraph-indent=0 --verbose \
+    new-emacspeak-test.texi
+
+    ## XML output using the XML Texinfo DTD
+    makeinfo --xml --no-split --paragraph-indent=0 --verbose \
+    new-emacspeak-test.texi
+
+    ## To view on a high resolution display
+
+       xdvi new-emacspeak-test.dvi &
+       gv new-emacspeak-test.ps &
+       galeon new-emacspeak-test.html &
+
+    ## To listen in Emacspeak
+
+       Start Emacspeak, visit the emacspeak/info directory that holds
+       the Info file, and type Control-u Control-h i
+       and then the name of the file.
+
+       After Emacspeak has been fully intalled, you can listen to it
+       by starting Info with the usual Control-h i command and then
+       typing emacspeak.
+
+@end ignore
+
+@copying
+Copyright @copyright{} 1994 -- 2003 T.@: V.@: Raman
+
+This manual documents Emacspeak, a speech interface to GNU Emacs.
+
+@quotation
+Permission is granted to make and distribute verbatim copies
+of this entire document without royalty provided the
+copyright notice and this permission notice are preserved on
+all copies.
+
+@c    The remainder of this paragraph applies to and should
+@c    appear in the Texinfo source.
+@c Permission is granted to process this file through TeX or
+@c other converter and publish the results, provided the
+@c published document carries a copying permission notice
+@c identical to this one except for the removal of this
+@c paragraph (this paragraph not being relevant to the
+@c published document).
+@end quotation
+@end copying
+
+@dircategory Accessibility
+@dircategory Emacs
+     @direntry
+ * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+@end direntry
+
+@titlepage
+@sp 6
+@center @titlefont{Emacspeak}
+@sp 2
+@center T.@: V.@: Raman
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@ifnottex
+@node Top, Announce, (dir), (dir)
+@top Emacspeak
+@insertcopying
+
+This manual is divided into the following chapters:
+@end ifnottex
+
+@iftex
+@summarycontents
+@contents
+@end iftex
+@ifplaintext
+@summarycontents
+@contents
+@end ifplaintext
+
+@menu
+* Announce: Announce.
+* Introduction: Introduction.
+* Installation: Installation.
+* Basic Usage: Basic Usage.
+* Audio Desktop: Audio Desktop.
+* Using Online Help: Using Online Help.
+* Emacs Packages:  Emacs Packages.
+* Running Terminal Based Applications: Running Terminal Based Applications
+* Emacspeak Commands:  Emacspeak Commands.
+* Emacspeak Customizations:  Emacspeak Customizations.
+* Acknowledgements: Acknowledgements.
+
+Indices:
+
+* Concept Index: Concept Index.
+* Key Index: Key Index.
+@end menu
+
+@include announce.texi     
+@include introduction.texi
+@include install.texi
+@include using.texi
+@include audio-desktop.texi
+@include online-help.texi
+@include packages.texi
+@include eterm.texi
+@include commands.texi
+@include options.texi
+@include acknowledge.texi
+@c trailer
+     
+@node Concept Index, Key Index, Acknowledgements, Top
+@chapter Concept Index
+@printindex cp
+
+@node Key Index, , Concept Index, Top
+@chapter Key Index
+@printindex ky
+     
+@bye
