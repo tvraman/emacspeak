@@ -47,7 +47,7 @@ Say these WORDS.
 ;;;***
 
 ;;;### (autoloads (emacspeak-setup-programming-mode) "emacspeak"
-;;;;;;  "emacspeak.el" (16438 15473))
+;;;;;;  "emacspeak.el" (16494 6195))
 ;;; Generated autoloads from emacspeak.el
 
 (autoload (quote emacspeak-setup-programming-mode) "emacspeak" "\
@@ -59,7 +59,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps.
 ;;;***
 
 ;;;### (autoloads (emacspeak-amphetadesk) "emacspeak-amphetadesk"
-;;;;;;  "emacspeak-amphetadesk.el" (16438 15455))
+;;;;;;  "emacspeak-amphetadesk.el" (16499 19409))
 ;;; Generated autoloads from emacspeak-amphetadesk.el
 
 (autoload (quote emacspeak-amphetadesk) "emacspeak-amphetadesk" "\
@@ -326,7 +326,7 @@ node-spec.
 
 ;;;### (autoloads (emacspeak-keymap-remove-emacspeak-edit-commands
 ;;;;;;  emacspeak-keymap-choose-new-emacspeak-prefix) "emacspeak-keymap"
-;;;;;;  "emacspeak-keymap.el" (16439 39075))
+;;;;;;  "emacspeak-keymap.el" (16500 15539))
 ;;; Generated autoloads from emacspeak-keymap.el
 
 (defvar emacspeak-keymap nil "\
@@ -416,7 +416,7 @@ Existing personality properties on the text range are preserved.
 ;;;;;;  emacspeak-pronounce-toggle-use-of-dictionaries emacspeak-pronounce-clear-dictionaries
 ;;;;;;  emacspeak-pronounce-load-dictionaries emacspeak-pronounce-save-dictionaries
 ;;;;;;  emacspeak-pronounce-add-super emacspeak-pronounce-add-dictionary-entry)
-;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16463 26962))
+;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16463 27487))
 ;;; Generated autoloads from emacspeak-pronounce.el
 
 (autoload (quote emacspeak-pronounce-add-dictionary-entry) "emacspeak-pronounce" "\
@@ -825,7 +825,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16442 54788))
+;;;;;;  (16477 5439))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -1075,7 +1075,7 @@ Play url under point as realaudio
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google-search-in-date-range
 ;;;;;;  emacspeak-websearch-google emacspeak-websearch-usenet-search
 ;;;;;;  emacspeak-websearch-do-post emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16451 22987))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16488 54590))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -1838,27 +1838,27 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-finder.el" "emacspeak-flyspell.el" "emacspeak-folding.el"
 ;;;;;;  "emacspeak-generic.el" "emacspeak-gnuplot.el" "emacspeak-gnus.el"
 ;;;;;;  "emacspeak-gomoku.el" "emacspeak-gud.el" "emacspeak-hideshow.el"
-;;;;;;  "emacspeak-hyperbole.el" "emacspeak-ibuffer.el" "emacspeak-imenu.el"
-;;;;;;  "emacspeak-ispell.el" "emacspeak-jde.el" "emacspeak-kmacro.el"
-;;;;;;  "emacspeak-kotl.el" "emacspeak-load-path.el" "emacspeak-make-mode.el"
-;;;;;;  "emacspeak-man.el" "emacspeak-message.el" "emacspeak-metapost.el"
-;;;;;;  "emacspeak-midge.el" "emacspeak-mpg123.el" "emacspeak-mspools.el"
-;;;;;;  "emacspeak-net-utils.el" "emacspeak-newsticker.el" "emacspeak-nxml.el"
-;;;;;;  "emacspeak-oo-browser.el" "emacspeak-outline.el" "emacspeak-pcl-cvs.el"
-;;;;;;  "emacspeak-perl.el" "emacspeak-preamble.el" "emacspeak-psgml.el"
-;;;;;;  "emacspeak-python.el" "emacspeak-reftex.el" "emacspeak-replace.el"
-;;;;;;  "emacspeak-rmail.el" "emacspeak-rpm-spec.el" "emacspeak-rpm.el"
-;;;;;;  "emacspeak-sawfish.el" "emacspeak-ses.el" "emacspeak-sgml-mode.el"
-;;;;;;  "emacspeak-sh-script.el" "emacspeak-sigbegone.el" "emacspeak-solitaire.el"
-;;;;;;  "emacspeak-speedbar.el" "emacspeak-sql.el" "emacspeak-supercite.el"
-;;;;;;  "emacspeak-swbuff.el" "emacspeak-tar.el" "emacspeak-tcl.el"
-;;;;;;  "emacspeak-tdtd.el" "emacspeak-tempo.el" "emacspeak-tetris.el"
-;;;;;;  "emacspeak-texinfo.el" "emacspeak-tnt.el" "emacspeak-todo-mode.el"
-;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
-;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
-;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16463
-;;;;;;  26996 264057))
+;;;;;;  "emacspeak-hyperbole.el" "emacspeak-ibuffer.el" "emacspeak-ido.el"
+;;;;;;  "emacspeak-imenu.el" "emacspeak-ispell.el" "emacspeak-iswitchb.el"
+;;;;;;  "emacspeak-jde.el" "emacspeak-kmacro.el" "emacspeak-kotl.el"
+;;;;;;  "emacspeak-load-path.el" "emacspeak-make-mode.el" "emacspeak-man.el"
+;;;;;;  "emacspeak-message.el" "emacspeak-metapost.el" "emacspeak-midge.el"
+;;;;;;  "emacspeak-mpg123.el" "emacspeak-mspools.el" "emacspeak-net-utils.el"
+;;;;;;  "emacspeak-newsticker.el" "emacspeak-nxml.el" "emacspeak-oo-browser.el"
+;;;;;;  "emacspeak-outline.el" "emacspeak-pcl-cvs.el" "emacspeak-perl.el"
+;;;;;;  "emacspeak-preamble.el" "emacspeak-psgml.el" "emacspeak-python.el"
+;;;;;;  "emacspeak-reftex.el" "emacspeak-replace.el" "emacspeak-rmail.el"
+;;;;;;  "emacspeak-rpm-spec.el" "emacspeak-rpm.el" "emacspeak-sawfish.el"
+;;;;;;  "emacspeak-ses.el" "emacspeak-sgml-mode.el" "emacspeak-sh-script.el"
+;;;;;;  "emacspeak-sigbegone.el" "emacspeak-solitaire.el" "emacspeak-speedbar.el"
+;;;;;;  "emacspeak-sql.el" "emacspeak-supercite.el" "emacspeak-swbuff.el"
+;;;;;;  "emacspeak-tar.el" "emacspeak-tcl.el" "emacspeak-tdtd.el"
+;;;;;;  "emacspeak-tempo.el" "emacspeak-tetris.el" "emacspeak-texinfo.el"
+;;;;;;  "emacspeak-tnt.el" "emacspeak-todo-mode.el" "emacspeak-view-process.el"
+;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
+;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
+;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
+;;;;;;  "outloud-voices.el" "tapestry.el") (16500 16372 659088))
 
 ;;;***
 
