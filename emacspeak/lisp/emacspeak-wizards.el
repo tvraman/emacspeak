@@ -1628,6 +1628,7 @@ part of the libxslt package."
                              (current-buffer)
                              'replace
                              "*xslt errors*")
+    (bury-buffer "*xslt errors*")
     (setq modification-flag nil)))
 
 (defun emacspeak-xslt-url (xsl url &optional params)
@@ -1656,6 +1657,7 @@ part of the libxslt package."
                xsl url )
        (current-buffer)
        "*xslt errors*")
+      (bury-buffer "*xslt errors*")
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
