@@ -1651,14 +1651,26 @@ See the documentation for function
                               (format-time-string
                                emacspeak-speak-time-format-string))))
                              
+(defconst emacspeak-codename
+  "GoldenDog"
+  "Code name of present release.")
+
 
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
   (interactive)
-  (declare (special emacspeak-version))
-  (dtk-speak
-   (format "You are using emacspeak %s "
-           emacspeak-version )))
+  (declare (special emacspeak-version
+                    emacspeak-codename))
+  (let ((signature "You are using Emacspeak "))
+    (put-text-property 0 (length emacspeak-version)
+                       'personality 'paul-animated emacspeak-version)
+    (put-text-property 0 (length emacspeak-codename)
+                       'personality 'harry emacspeak-codename)
+    (tts-with-punctuations "some"
+                           (dtk-speak
+                            (concat signature
+                                    emacspeak-version
+                                    emacspeak-codename)))))
 
 (defun emacspeak-speak-current-kill (count)
   "Speak the current kill entry.
