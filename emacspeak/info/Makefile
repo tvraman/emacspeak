@@ -21,7 +21,7 @@ commands.texi:
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 	rm -f *.info* emacspeak.html
 	make
-	make emacspeak.html
+	make htm
 
 options.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
@@ -65,12 +65,14 @@ emacspeak.pdf:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-html/index.html: emacspeak.texi 
+.phony: html
+
+htm: emacspeak.texi 
 	makeinfo -o html  --html  emacspeak.texi
 	perl add-css.pl html/*.html
-	@for f in $(HTML_FILES) ;\
+	for f in $(HTML_FILES) ; \
 		do \
-		tidy -mic -asxml  $$f \
+		tidy -mic -asxml  $$f || echo tidy; \
 		done
 
 

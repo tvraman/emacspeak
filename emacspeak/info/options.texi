@@ -2066,6 +2066,10 @@ Custom pronunciation for base URIs in w3 buffers.
 Entities to unescape when treating badly escaped XML.
 @end defvar
 
+@defvar {User Option} emacspeak-w3-cleanup-bogus-quotes
+Clean up bogus Unicode chars for magic quotes.
+@end defvar
+
 @defvar {User Option} emacspeak-w3-lynx-program
 Name of lynx executable
 @end defvar
