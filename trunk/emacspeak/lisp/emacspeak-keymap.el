@@ -63,14 +63,26 @@
 ;;}}}
 ;;{{{   Binding keymap and submap
 
-(define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap)
-(define-prefix-command  'emacspeak-dtk-submap-command 'emacspeak-dtk-submap )
+(define-prefix-command 'emacspeak-prefix-command
+  'emacspeak-keymap
+"emacspeak")
+(define-prefix-command  'emacspeak-dtk-submap-command
+  'emacspeak-dtk-submap
+  "tts")
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 
 ;;; fix what we just broke:-
 (define-key emacspeak-keymap "e" 'end-of-line)
 (define-key emacspeak-keymap "\C-e" 'end-of-line)
+
+;;}}}
+;;{{{ Create a keymap that users can put personal commands
+;;on
+  (define-prefix-command 'emacspeak-personal-keymap  )
+
+(define-key  emacspeak-keymap "x"
+  'emacspeak-personal-keymap)
 
 ;;}}}
 ;;{{{  The actual bindings.
@@ -103,13 +115,13 @@
   'emacspeak-read-next-line)
 (define-key emacspeak-keymap '[(control down)] 'emacspeak-cvs-get-anonymous)
 (define-key emacspeak-keymap '[up]  'emacspeak-read-previous-line)
-(define-key emacspeak-keymap "x" 'emacspeak-view-register)
+(define-key emacspeak-keymap "v" 'emacspeak-view-register)
 (define-key emacspeak-keymap "w" 'emacspeak-speak-word)
 (define-key emacspeak-keymap "W"
   'emacspeak-speak-spell-current-word)
 (define-key emacspeak-keymap "u" 'emacspeak-url-template-fetch)
 (define-key emacspeak-keymap "U" 'emacspeak-dejanews-browse-group)
-(define-key emacspeak-keymap "v" 'emacspeak-speak-version)
+(define-key emacspeak-keymap "V" 'emacspeak-speak-version)
 (define-key emacspeak-keymap "\C-v" 'view-mode)
 (define-key emacspeak-keymap "t" 'emacspeak-speak-time )
 (define-key emacspeak-keymap "T" 'emacspeak-speak-telephone-directory )
