@@ -7,7 +7,7 @@ View an RSS feed as clean HTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:rss="http://purl.org/rss/1.0/" xmlns:nsrss="http://my.netscape.com/rdf/simple/0.9/" version="1.0">
   <xsl:param name="base"/>
-  <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
+  <xsl:output encoding="iso8859-15" method="xml" indent="yes"/>
 <!-- {rss 1.0 -->
   <xsl:template match="rdf:RDF">
     <html>
