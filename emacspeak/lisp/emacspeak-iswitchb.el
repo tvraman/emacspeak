@@ -69,6 +69,7 @@
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
+
 (defadvice iswitchb-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
   (when (interactive-p)
