@@ -241,6 +241,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;}}}
 ;;{{{ websearch utilities
+
 ;;{{{ display form 
 
 (emacspeak-websearch-set-searcher 'display-form
@@ -1765,6 +1766,29 @@ Light for: ")))
   (emacspeak-websearch-display-form emacspeak-websearch-exchange-rate-form))
 
 ;;}}}
+;;{{{ my rss
+
+(emacspeak-websearch-set-searcher 'my-rss-search
+                                  'emacspeak-websearch-my-rss-search)
+
+(emacspeak-websearch-set-key 13 'my-rss-search)
+
+(defvar emacspeak-websearch-my-rss-search-uri
+  "http://myrss.com/cgi-bin/search.cgi?__mod=search&__act=&search=Search+Channels&s="
+  "URI for My RSS search.")
+
+(defun emacspeak-websearch-my-rss-search (query)
+  "My RSS search."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "My RSS: ")))
+  (declare (special emacspeak-websearch-my-rss-search-uri))
+  (browse-url
+   (format "%s%s"
+           emacspeak-websearch-my-rss-search-uri
+           query)))
+
+;;}}}
 ;;{{{ Shopping at Amazon
 
 (emacspeak-websearch-set-searcher 'amazon-search
@@ -1816,13 +1840,12 @@ Light for: ")))
   "Form for Shoutcast  search.")
 
 (defun emacspeak-websearch-shoutcast-search ()
-  "Ebay search."
+  "Shoutcast search."
   (interactive)
   (declare (special emacspeak-websearch-shoutcast-search-form))
   (emacspeak-websearch-display-form emacspeak-websearch-shoutcast-search-form))
 
 ;;}}}
-
 ;;{{{  site-specific search tools
 
 ;;; Load site-specific searchers 
