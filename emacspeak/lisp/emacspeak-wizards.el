@@ -1593,13 +1593,14 @@ part of the libxslt package."
       (set-buffer result)
       (erase-buffer)
       (shell-command
-       (format "%s %s  --html  --novalid %s %s"
+       (format "%s %s  --html  --novalid %s '%s'"
                emacspeak-xslt-program
                (or parameters "")
                xsl url )
        (current-buffer)
        "*xslt errors*")
       (setq modification-flag nil)
+      (goto-char (point-min))
       result)))
 
 ;;}}}
