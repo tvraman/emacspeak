@@ -1674,6 +1674,28 @@ Any errors or corrections should be made to the source-level
 documentation.
 This section documents a total of %d URL Templates.\n\n"
     (hash-table-count emacspeak-url-template-table)))
+  (insert
+   (format
+    "All of these URL templates can be invoked via command
+  @kbd{M-x emacspeak-url-template-fetch} normally bound to
+  @kbd{%s}.
+This command prompts for the name of the template, and completion
+  is available via Emacs' minibuffer completion.
+Each URL template carries out the following steps:
+@itemize @bullet
+@item Prompt for the relevant information.
+@item Fetch the resulting URL using an appropriate fetcher.
+@item Set up the resulting resource with appropriate
+  customizations.
+@end itemize
+
+As an example, the URL templates that enable access to NPR media
+streams prompt for a program id and date, and automatically
+launch the realmedia player after fetching the resource.\n\n"
+                             (mapconcat #'key-description
+                              (where-is-internal
+                               'emacspeak-url-template-fetch)
+                              " ")))
   (let ((keys
          (sort 
   (loop for key being the hash-keys of emacspeak-url-template-table
