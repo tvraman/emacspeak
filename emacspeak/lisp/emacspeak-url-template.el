@@ -153,6 +153,30 @@ generators  ; list of param generator
 
 ;;}}}
 ;;{{{  template resources 
+
+;;{{{ cnn 
+;;{{{ w3c 
+(emacspeak-url-template-define "w3c Lists"
+                               "http://lists.w3.org/Archives/Member/w3c-%s-wg/%s/"
+                               (list
+                                'emacspeak-url-template-get-w3c-group 
+                                'emacspeak-url-template-get-w3c-year/month))
+
+(defun emacspeak-url-template-get-w3c-group ()
+  "Get name of W3C group "
+  (read-from-minibuffer "W3C group: e.g., voice "))
+
+(defun emacspeak-url-template-get-w3c-year/month ()
+  "Get year/month"
+  (read-from-minibuffer "Year/Month e.g.: 2001jan "
+                        (downcase 
+                         (format-time-string "%Y%h"
+                                             (current-time)))))
+
+
+  
+  
+;;}}}
 (defun emacspeak-url-template-date-year/month/date ()
   "Return today as yyyy/mm/dd"
   (read-from-minibuffer "Date:"
@@ -175,9 +199,12 @@ generators  ; list of param generator
  (list 
 'emacspeak-url-template-date-year/month/date))
 
+
 (emacspeak-url-template-define "CNN Markets New York"
                                 "http://cgi.cnnfn.com/output/pfv/%s/markets/markets_newyork"
  (list 'emacspeak-url-template-date-year/month/date))
+
+;;}}}
 
 ;;}}}
 ;;{{{ Interactive commands 
