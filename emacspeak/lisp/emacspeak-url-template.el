@@ -409,6 +409,14 @@ content."
  )
 
 (emacspeak-url-template-define
+ "BBC Channel On Demand"
+ "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
+ (list "BBC Channel: ")
+ nil
+ "Display BBC Channel on demand."
+ )
+
+(emacspeak-url-template-define
  "BBC Programs On Demand"
  "http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
  (list "BBC Program: ")
