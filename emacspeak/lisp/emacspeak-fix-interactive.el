@@ -241,7 +241,7 @@ speak its prompts. "
   (when (interactive-p)
     (message "Fixed interactive commands defined in module %s" module)))
 
-(defvar emacspeak-load-history-pointer load-history
+(defvar emacspeak-load-history-pointer nil
   "Internal variable used by command 
 emacspeak-fix-all-recent-commands to track load-history.")
 
