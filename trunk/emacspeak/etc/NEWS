@@ -16,6 +16,12 @@ front-end for document scanning.
 Uses SANE for image acquisition and can be configured to use
 any available OCR engine.
 
+** Productivity Tips:
+
+Command emacspeak-view-emacspeak-tips bound to C-e cap T
+brings up a productivity tips document.
+
+
 ** Speedch-enabled ECB:
 
 ECB --Emacs Class Browser-- provides a powerful class
@@ -36,7 +42,8 @@ Module browse-kill-ring is speech-enabled.
 ** Easy Customization:
 
 Most of Emacspeak user options are now available through
-Emacs' customization interface.
+Emacs' customization interface --see command 
+emacspeak-customize bound to C-e cap C
 
 ** Enhanced widget support:
 
@@ -73,6 +80,10 @@ drawings.
 All Emacspeak convenience commands have been moved to module
 emacspeak-wizards.
 
+*** Simple phone book:
+
+See command  emacspeak-speak-telephone-directory for a
+simple phone book.
 
 *** W3 url rewrite wizard:
 
@@ -82,10 +93,6 @@ rewrite rule to the link under point before opening it.
 This is most useful in jumping directly to printer friendly
 versions of articles at popular sites like Yahoo and CNN.
 
-
-
-** Key Bindings:
-
 *** Midi Icons:
 
 Command emacspeak-toggle-midi-icons has been nuked.
@@ -93,6 +100,7 @@ In its place, key C-e M-a runs command
 emacspeak-set-auditory-icon-player which can be used to
 interactively select the kind of auditory icons used.
 
+** Key Bindings:
 
 *** Personal keys:
 
@@ -102,6 +110,9 @@ prefix key C-e x
 To bind a command you would write 
 (define-key emacspeak-personal-keymap "a"
 'emacspeak-speak-other-window)
+Alternatively, use the customize interface and customize
+variable
+emacspeak-personal-keys.
 
 To accomodate this change, command emacspeak-view-register
 is moved to C-e v
