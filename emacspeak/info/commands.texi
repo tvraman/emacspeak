@@ -3062,6 +3062,10 @@ If N is negative, move backward instead.
 Speak a message's labels
 @end deffn
 
+@deffn emacspeak-vm-yank-header ()
+Yank specified header into kill ring.
+@end deffn
+
 @node emacspeak-w3
 @section emacspeak-w3
 

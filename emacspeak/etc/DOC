@@ -2648,6 +2648,10 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
+** emacspeak-vm-yank-headerYank specified header into kill ring.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-class-filter-and-followFollow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is

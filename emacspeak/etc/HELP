@@ -1,5 +1,5 @@
 #$Id$
-emacspeak is an interactive Lisp function in `/home/raman/emacs/lisp/emacspeak/lisp/emacspeak.el'.
+emacspeak is an interactive compiled Lisp function in `emacspeak'.
 (emacspeak)
 
 Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -28,8 +28,10 @@ term package that comes with emacs-19.29 and later.
 key             binding
 ---             -------
 
-insert          emacspeak-emergency-tts-
-f1              emacspeak-customize-personal-settings
+C-k             browse-kill-ring
+<insert>        emacspeak-emergency-tts-
+<f11>           emacspeak-wizards-shell-toggle
+<f1>            emacspeak-customize-personal-settings
 F               emacspeak-view-emacspeak-faq
 N               emacspeak-view-emacspeak-news
 D               emacspeak-view-emacspeak-doc
@@ -61,11 +63,12 @@ C-n             emacspeak-speak-next-window
 C-p             emacspeak-speak-previous-window
 C-y             emacspeak-clipboard-paste
 #               emacspeak-gridtext
+@               emacspeak-speak-message-at-time
 !               emacspeak-speak-run-shell-command
 C-c             emacspeak-clipboard-copy
 C-o             emacspeak-ocr
 C               emacspeak-customize
-:               emacspeak-realaudio-browse
+:               emacspeak-m-player
 ;               emacspeak-realaudio
 ,               emacspeak-speak-browse-buffer
 ?               emacspeak-websearch-dispatch
@@ -79,7 +82,7 @@ P               emacspeak-speak-paragraph-interactively
 ]               emacspeak-speak-page-interactively
 p               dtk-pause
 "               emacspeak-speak-sexp-interactively
-C-b             emacspeak-submit-bug
+C-b             emacspeak-daisy-open-book
 H               emacspeak-speak-browse-linux-howto
 C-h             emacspeak-learn-mode
 TAB             emacspeak-table-display-table-in-region
@@ -102,7 +105,8 @@ ESC             Prefix Command
 C-@             emacspeak-speak-current-mark
 k               emacspeak-speak-current-kill
 l               emacspeak-speak-line
-\               emacspeak-filtertext
+\               emacspeak-toggle-speak-line-invert-filter
+^               emacspeak-filtertext
 |               emacspeak-speak-line-set-column-filter
 C-l             emacspeak-speak-line-number
 m               emacspeak-speak-mode-line
@@ -115,30 +119,26 @@ T               emacspeak-view-emacspeak-tips
 t               emacspeak-speak-time
 C-v             view-mode
 V               emacspeak-speak-version
-U               emacspeak-dejanews-browse-group
+U               emacspeak-websearch-usenet
 u               emacspeak-url-template-fetch
 W               emacspeak-speak-spell-current-word
 w               emacspeak-speak-word
 v               emacspeak-view-register
-up              emacspeak-read-previous-line
-C-down          emacspeak-cvs-get-anonymous
-down            emacspeak-read-next-line
+<up>            emacspeak-read-previous-line
+<C-down>        emacspeak-cvs-get-anonymous
+<down>          emacspeak-read-next-line
 /               emacspeak-speak-this-buffer-other-window-display
-C-right         emacspeak-select-this-buffer-next-display
-C-left          emacspeak-select-this-buffer-previous-display
-right           emacspeak-speak-this-buffer-next-display
-left            emacspeak-speak-this-buffer-previous-display
+<C-right>       emacspeak-select-this-buffer-next-display
+<C-left>        emacspeak-select-this-buffer-previous-display
+<right>         emacspeak-speak-this-buffer-next-display
+<left>          emacspeak-speak-this-buffer-previous-display
 x               emacspeak-personal-keymap
-C-e             end-of-line
-e               end-of-line
+C-e             emacspeak-eterm-maybe-send-raw
+e               widget-end-of-line
 d               emacspeak-dtk-submap-command
 
-# s             emacspeak-gridtext-save
-# l             emacspeak-gridtext-load
-# a             emacspeak-gridtext-apply
-
-C-f right       emacspeak-aumix-wave-increase
-C-f left        emacspeak-aumix-wave-decrease
+C-f <right>     emacspeak-aumix-wave-increase
+C-f <left>      emacspeak-aumix-wave-decrease
 C-f q           emacspeak-freeamp-freeamp-call-command
 C-f =           emacspeak-freeamp-freeamp-call-command
 C-f s           emacspeak-freeamp-freeamp-call-command
@@ -149,8 +149,11 @@ C-f +           emacspeak-freeamp-freeamp-call-command
 C-f p           emacspeak-freeamp-freeamp-call-command
 C-f o           emacspeak-freeamp
 
+ESC SPC         emacspeak-imenu-speak-this-section
+ESC n           emacspeak-imenu-goto-next-index-position
+ESC i           imenu
 ESC t           emacspeak-tapestry-describe-tapestry
-ESC p           emacspeak-show-property-at-point
+ESC p           emacspeak-imenu-goto-previous-index-position
 ESC v           emacspeak-show-personality-at-point
 ESC m           emacspeak-toggle-mail-alert
 ESC a           emacspeak-set-auditory-icon-player
@@ -163,12 +166,40 @@ ESC s           emacspeak-symlink-current-file
 ESC l           emacspeak-link-current-file
 ESC c           emacspeak-copy-current-file
 ESC h           emacspeak-speak-hostname
+ESC C-b         emacspeak-submit-bug
 ESC f           emacspeak-frame-label-or-switch-to-labelled-frame
 ESC C-k         kill-emacs
 ESC C-@         emacspeak-speak-spaces-at-point
 
-x s             emacspeak-emergency-tts-restart
+x #             emacspeak-sudo
+x h             emacspeak-wizards-how-many-matches
+x SPC           sametime-buddies
+x g             emacspeak-wizards-google-hits
+x b             battery
+x 3             emacspeak-wizards-use-w3-or-w3m
+x w             w3m-goto-url
+x q             emacspeak-wizards-portfolio-quotes
+x a             emacspeak-annotate-add-annotation
+x j             emacspeak-imcom
+x c             emacspeak-customize-personal-settings
+x l             emacspeak-lynx
 x m             mspools-show
+x s             emacspeak-emergency-tts-restart
+x t             emacspeak-speak-telephone-directory
+x v             emacspeak-show-list-variable
+x C             toggle-case-fold-search
+x e             emacspeak-w3-xsl-map
+x x             emacspeak-xml-shell
+x f             emacspeak-wizards-generate-finder
+x RET           emacspeak-wizards-browse-url-with-style
+x d             cvs-examine
+x !             emacspeak-wizards-show-environment-vvariable
+x |             emacspeak-wizards-squeeze-blanks
+x o             emacspeak-wizards-occur-header-lines
+x r             sametime-chat-session-reply
+x L             emacspeak-links
+x 4             emacspeak-wizards-spot-words
+x D             dictionary
 
 d 9             dtk-set-predefined-speech-rate
 d 8             dtk-set-predefined-speech-rate
@@ -199,18 +230,33 @@ d SPC           dtk-toggle-splitting-on-white-space
 d RET           dtk-set-chunk-separator-syntax
 d r             dtk-set-rate
 d s             dtk-toggle-split-caps
+d n             dtk-toggle-speak-nonprinting-chars
 d v             voice-lock-mode
 d V             emacspeak-dtk-speak-version
 d w             emacspeak-toggle-word-echo
 d t             emacspeak-dial-dtk
 d z             emacspeak-zap-tts
 
+x e i           emacspeak-w3-extract-node-by-id
+x e X           emacspeak-w3-extract-nested-table-list
+x e C-x         emacspeak-w3-count-nested-tables
+x e C-f         emacspeak-w3-count-matches
+x e x           emacspeak-w3-extract-nested-table
+x e y           emacspeak-w3-class-filter-and-follow
+x e C           emacspeak-w3-extract-by-class-list
+x e c           emacspeak-w3-extract-by-class
+x e o           emacspeak-w3-xsl-toggle
+x e T           emacspeak-w3-extract-tables-by-position-list
+x e C-t         emacspeak-w3-count-tables
+x e t           emacspeak-w3-extract-table-by-position
+x e s           emacspeak-w3-xslt-select
+x e p           emacspeak-w3-xpath-filter-and-follow
+x e f           emacspeak-w3-xslt-filter
+x e a           emacspeak-w3-xslt-apply
+
 d ESC C-b       tts-show-debug-buffer
 
 
 
 See the online documentation for individual commands and
-functions for details. There is an info manual for
-Emacspeak, but it is still preliminary. The source code
-documentation available through the various C-h commands 
-is up-to-date, please use it.  
+functions for details.   
