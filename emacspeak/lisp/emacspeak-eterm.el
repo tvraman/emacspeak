@@ -58,6 +58,7 @@
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
                    (require 'dtk-voices )
+                   (require 'voice-setup)
                    (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
@@ -192,7 +193,7 @@ Useful when eterm is in review mode.")
   :type 'symbol
   :group 'emacspeak-eterm)
 
-(defcustom emacspeak-eterm-bold-personality 'paul-bold
+(defcustom emacspeak-eterm-bold-personality voice-bolden
   "Persnality to indicate terminal bold."
   :type 'symbol
   :group 'emacspeak-eterm)

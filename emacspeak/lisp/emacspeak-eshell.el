@@ -175,7 +175,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-executable-personality 'paul-animated
+(defcustom emacspeak-eshell-ls-executable-personality voice-animate-extra
   "Personality for executables."
   :type 'symbol
   :group 'emacspeak-eshell)
@@ -190,17 +190,17 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-special-personality 'paul-smooth 
+(defcustom emacspeak-eshell-ls-special-personality voice-smoothen
   "Personality for special files."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-missing-personality 'paul-italic
+(defcustom emacspeak-eshell-ls-missing-personality voice-brighten
   "Personality for missing file."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-archive-personality 'paul-animated
+(defcustom emacspeak-eshell-ls-archive-personality voice-lighten-extra
   "Personality for archive files."
   :type 'symbol
   :group 'emacspeak-eshell)
@@ -210,7 +210,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-product-personality 'paul-bold
+(defcustom emacspeak-eshell-ls-product-personality voice-bolden
   "Personality for files that can be recreated."
   :type 'symbol
   :group 'emacspeak-eshell)

@@ -59,6 +59,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-personality)
 (require 'emacspeak-keymap)
@@ -277,7 +278,7 @@ An automatically updating speedbar consumes resources.")
   :type 'symbol
   :group 'emacspeak-speedbar)
 
-(defcustom emacspeak-speedbar-selected-personality  'paul-animated
+(defcustom emacspeak-speedbar-selected-personality  voice-aniamte
   "Personality used to indicate speedbar selection"
   :type 'symbol
   :group 'emacspeak-speedbar)
@@ -292,12 +293,12 @@ An automatically updating speedbar consumes resources.")
   :type 'symbol
   :group 'emacspeak-speedbar)
 
-(defcustom emacspeak-speedbar-highlight-personality 'paul-animated
+(defcustom emacspeak-speedbar-highlight-personality voice-animate
   "Personality used for for speedbar highlight."
   :type 'symbol
   :group 'emacspeak-speedbar)
 
-(defcustom emacspeak-speedbar-tag-personality 'paul-monotonoe
+(defcustom emacspeak-speedbar-tag-personality voice-monotone
   "Personality used for speedbar tags"
   :type 'symbol
   :group 'emacspeak-speedbar)

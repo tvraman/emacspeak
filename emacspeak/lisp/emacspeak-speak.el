@@ -44,6 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'custom)
+(require 'voice-setup)
 (require 'thingatpt)
 (eval-when-compile
   (provide 'emacspeak-speak)            ;avoid recursive include
@@ -178,7 +179,7 @@ Argument BODY specifies forms to execute."
                              (+ 2    (point ))
                              'auditory-icon sound-cue ))))))
 
-(defcustom  emacspeak-speak-paragraph-personality 'paul-animated
+(defcustom  emacspeak-speak-paragraph-personality voice-animate
   "*Personality used to mark start of paragraph."
   :group 'emacspeak-speak
   :type 'symbol)
@@ -767,7 +768,7 @@ start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
-  (declare (special voice-lock-mode
+  (declare (special voice-lock-mode voice-animate
                     dtk-stop-immediately
                     inhibit-field-text-motion
                     emacspeak-speak-line-invert-filter
@@ -809,7 +810,7 @@ are indicated with auditory icon ellipses."
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
                  orig (1+ orig)
-                 'paul-animated
+                 voice-animate
                  (buffer-substring  start end ))
               (buffer-substring start end )))
       (when (get-text-property  start 'emacspeak-hidden-block)
@@ -886,7 +887,8 @@ rather than speak it.")
 (make-variable-buffer-local 'emacspeak-speak-last-spoken-word-position)
 (defsubst emacspeak-speak-spell-word (word)
   "Spell WORD."
-  (declare (special voice-lock-mode))
+  (declare (special voice-lock-mode
+                    voice-animate))
   (let ((result "")
         (char-string ""))
     (loop for char across word
@@ -896,7 +898,7 @@ rather than speak it.")
                      (<= char ?Z))
             (if voice-lock-mode
                 (put-text-property 0 1
-                                   'personality 'paul-animated
+                                   'personality voice-animate
                                    char-string)
               (setq char-string (format "cap %s " char-string))))
           (setq result
@@ -1783,13 +1785,14 @@ See the documentation for function
   "Announce version information for running emacspeak."
   (interactive)
   (declare (special emacspeak-version
+                    voice-animate
                     emacspeak-sounds-directory
                     emacspeak-play-emacspeak-startup-icon
                     emacspeak-codename))
   (let ((signature "You are using  ")
         (version (format "Emacspeak %s" emacspeak-version)))
     (put-text-property 0 (length version)
-                       'personality 'paul-animated version)
+                       'personality voice-animate version)
     (put-text-property 0 (length emacspeak-codename)
                        'personality 'harry
                        emacspeak-codename)
@@ -1920,7 +1923,7 @@ achieved by a change in voice personality."
     (save-excursion
       (goto-char position)
       (ems-set-personality-temporarily
-       position (1+ position) 'paul-animated
+       position (1+ position) voice-animate
        (setq line
              (thing-at-point  'line ))))
     (dtk-speak
@@ -2064,6 +2067,7 @@ set the current local value to the result."
 
   (interactive  "P")
   (declare  (special  emacspeak-comint-autospeak
+                      voice-animate
                       emacspeak-comint-split-speech-on-newline ))
   (cond
    (prefix
@@ -2834,9 +2838,10 @@ typed. If no such group exists, then we dont move. "
 ;;{{{ mark convenience commands
 
 (defsubst emacspeak-mark-speak-mark-line()
+  (declare (special voice-animate))
   (emacspeak-auditory-icon 'mark-object )
   (ems-set-personality-temporarily (point) (1+ (point))
-                                   'paul-animated
+                                   voice-animate
                                    (emacspeak-speak-line)))
 
 (defun emacspeak-mark-forward-mark ()
