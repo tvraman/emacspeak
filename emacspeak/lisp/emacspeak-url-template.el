@@ -301,25 +301,6 @@ documentation   Documents this template resource.
 ;;{{{ bbc
 
 (emacspeak-url-template-define
- "BBC World Service Programs"
- "http://www.bbc.co.uk/radio/aod/domworldservice.shtml"
- nil
- nil
- "Use this to play a BBC stream by its directory/stream-name locator."
- #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "LISTEN"
-                                          url 'speak)))
-
-(emacspeak-url-template-define
- "BBC Streams on demand"
- "rtsp://rmv8.bbc.net.uk/radio4/%s"
- (list "Stream: (directory/stream.ra): ")
- nil
- "Use this to play a BBC stream by its directory/stream-name locator."
- #'(lambda (url)
-     (emacspeak-realaudio-play url)))
-
-(emacspeak-url-template-define
  "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
  (list
@@ -335,7 +316,7 @@ documentation   Documents this template resource.
 
 (emacspeak-url-template-define
  "BBC Radio4 On Demand"
- "rtsp://rmv8.bbc.net.uk/radio4/%s.ra"
+ "http://www.bbc.co.uk/radio/aod/shows/rpms/radio4/%s.rpm"
  (list "WeekdayTime: ")
  nil
  "Specify a week day (three letters -- lower case -- and a time spec
@@ -425,7 +406,7 @@ content."
 
 (emacspeak-url-template-define
  "BBC Programs On Demand"
- "http://www.bbc.co.uk/radio/aod/%s.rpm"
+ "http://www.bbc.co.uk/radio/aod/shows/rpms%s.rpm"
  (list "BBC Program: ")
  nil
  "Play BBC programs on demand."
