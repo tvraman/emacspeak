@@ -51,6 +51,31 @@
 ;;; speech servers.
 
 ;;}}}
+;;{{{ macros
+
+(defmacro tts-with-punctuations (setting &rest body)
+  "Safely set punctuation mode for duration of body form."
+  (`
+   (progn
+     (declare (special dtk-punctuation-mode))
+     (let    ((save-punctuation-mode dtk-punctuation-mode))
+       (unwind-protect
+           (progn
+             (unless (string= (, setting) save-punctuation-mode)
+               (process-send-string dtk-speaker-process
+                                    (format "tts_set_punctuations %s  \n "
+                                            (, setting)))
+               (setq dtk-punctuation-mode (, setting)))
+             (,@ body)
+             (dtk-force))
+         (unless (string=  (, setting)  save-punctuation-mode)
+           (setq dtk-punctuation-mode save-punctuation-mode)
+           (process-send-string dtk-speaker-process
+                                (format "tts_set_punctuations %s  \n "
+                                        dtk-punctuation-mode ))
+           (dtk-force)))))))
+
+;;}}}
 ;;{{{ silence
 
 (defsubst dtk-interp-silence (duration force)
