@@ -47,7 +47,7 @@
     ("emacspeak-aumix.el"
         "Setting Audio Mixer"
         (emacspeak  audio desktop))
-    ("emacspeak-auto.el"
+    ("emacspeak-autoload.el"
         "Emacspeak Autoload Generator"
         (emacspeak   audio desktop rss))
     ("emacspeak-babel.el"
