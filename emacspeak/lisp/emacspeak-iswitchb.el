@@ -60,22 +60,18 @@
 ;;}}}
 ;;{{{ speech-enable feedback routines
 
-(defadvice iswitchb-kill-buffer (after emacspeak pre act comp)
-  "Provide auditory icon."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
-
-
 (defadvice iswitchb-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
   (dtk-speak
    (format
-    "%s (%d matches)"
+    "%s %d Choices: %s"
     (car iswitchb-matches)
-    (length iswitchb-matches))))
+    (length iswitchb-matches)
+    (or iswitchb-text ""))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
+
 (defadvice iswitchb-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -132,6 +128,10 @@
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (car (last iswitchb-matches)))))
+(defadvice iswitchb-kill-buffer (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
 (provide 'emacspeak-iswitchb)
