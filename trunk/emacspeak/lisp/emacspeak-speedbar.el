@@ -57,7 +57,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
-(require 'speedbar)
+(require 'speedbar nil t)
 ;;}}}
 ;;{{{ custom
 
