@@ -28,8 +28,15 @@ cap C   Save clip to disk
 ;;;***
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16006 14092))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16007 9983))
 ;;; Generated autoloads from dtk-speak.el
+
+(defvar dtk-punctuation-mode "some" "\
+Current setting of punctuation state.
+Possible values are some, all or none.
+You should not modify this variable;
+Use command  `dtk-set-punctuations' bound to
+\\[dtk-set-punctuations].  .")
 
 (autoload (quote tts-restart) "dtk-speak" "\
 Use this to nuke the currently running TTS server and restart it." t nil)

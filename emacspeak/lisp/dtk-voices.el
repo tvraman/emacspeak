@@ -559,7 +559,7 @@ and TABLE gives the values along that dimension."
 (defsubst dtk-get-punctuations-code (value)
   "Return string needed to set specified punctuations mode."
   (declare (special dtk-punctuation-mode))
-  (format "[:punc %s]"
+  (format " [:punc %s] "
           (or value dtk-punctuation-mode)))
 
 ;;}}}
