@@ -524,9 +524,15 @@ Activates pronunciation dictionaries if not already active."
 (defcustom emacspeak-pronounce-internet-smileys-pronunciations 
   '((":-)" . " smile ")
     (":)" . " grin ")
-    (":-(" . " sigh ") 
-    (":(" . " frown "))
-  "Pronunciation dictionary used in all instant messenger and IRC chat modes."
+    (":-(" . " frown ") 
+    (":(" . " sigh ")
+  (":-I" .  " shrug ")
+(":->" . " sarcastic smile ")
+(">:->" . " devillish smile ")
+(">;->" . " lews smile ")
+  (";-)" . " wink "))
+  "Pronunciation dictionary used in all instant messenger and IRC chat
+modes."
   :type '(repeat
 	  (cons :tag "Dictionary Entry"
 		(string :tag "String")
