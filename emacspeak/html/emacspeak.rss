@@ -131,12 +131,19 @@ Emacspeak is a speech interface that allows visually
       <title>Google</title>
       <description>Google</description>
     </item>
+    <item>
+      <link> http://emacspeak.sf.net/release-20.0.html</link>
+      <title>Announcing Emacspeak 20.0
+      (LeapDog)</title>
+      <description>Announcing Emacspeak 20.0
+      (LeapDog)</description>
+    </item>
 <item>
       <link> http://emacspeak.sf.net/release-19.0.html</link>
       <title>Announcing Emacspeak 19.0
       (WorkDog)</title>
       <description>Announcing Emacspeak 19.0
-      (GoodDog)</description>
+      (WorkDog)</description>
     </item>
     <item>
       <link> http://emacspeak.sf.net/release-18.0.html</link>
