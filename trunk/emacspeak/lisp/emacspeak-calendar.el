@@ -105,7 +105,10 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-calendar-date)))
 
+(declaim (special diary-display-hook))
 
+(unless (member 'fancy-diary-display diary-display-hook)
+(add-hook 'diary-display-hook 'fancy-diary-display))
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
