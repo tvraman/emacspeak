@@ -288,10 +288,10 @@ e.g. for repeat lists."
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
 ;;}}}
-;;{{{  toggle button 
+;;{{{  toggle  
 
 (defun emacspeak-widget-help-toggle (widget)
-  "Summarize a toggle..
+  "Summarize a toggle.
 Is smart about summarizing the parent where it makes sense."
   (let* ((type (widget-type widget))
          (value (widget-value widget))
@@ -304,6 +304,7 @@ Is smart about summarizing the parent where it makes sense."
      (format " %s " type))
      (or value " ")
      (or parent-help " "))))
+;;; shared for checkbox 
 
 (widget-put (get 'toggle 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-toggle)
