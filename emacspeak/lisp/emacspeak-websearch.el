@@ -1512,6 +1512,31 @@ Light for: ")))
    'emacspeak-speak-line))
 
 ;;}}}
+;;{{{ wikipedia
+
+(emacspeak-websearch-set-searcher 'wikipedia
+                                  'emacspeak-websearch-wikipedia-search)
+
+(emacspeak-websearch-set-key 23 'wikipedia)
+
+(defvar emacspeak-websearch-wikipedia-search-uri 
+  "http://en.wikipedia.org/wiki/Special:Search?go=Go"
+  "URI for searching WikiPedia")
+
+(defun emacspeak-websearch-wikipedia-search (query)
+  "Search Wikipedia"
+  (interactive
+   (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
+  (declare (special emacspeak-websearch-wikipedia-search-uri))
+    (browse-url 
+     (concat emacspeak-websearch-wikipedia-search-uri
+             "&search="
+             (webjump-url-encode query)))
+  (emacspeak-websearch-post-process
+   query
+   'emacspeak-speak-rest-of-buffer))
+
+;;}}}
 ;;{{{ People from yahoo
 
 (emacspeak-websearch-set-searcher 'people-yahoo
