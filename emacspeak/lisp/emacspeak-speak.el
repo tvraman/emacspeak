@@ -1493,8 +1493,10 @@ semantic to do the work."
            (dtk-tone 450 75)))
     (cond
      ((stringp mode-line-format)
-      (dtk-speak mode-line-format ))
-     (t 
+      (tts-with-punctuations "all"
+      (dtk-speak mode-line-format )))
+     (t
+      (tts-with-punctuations "all"
       (dtk-speak
        (concat frame-info
                (format  "%s %s %s  %d%%  %s"
@@ -1508,7 +1510,7 @@ semantic to do the work."
                           "")
                         (buffer-name)
                         (emacspeak-get-current-percentage-into-buffer)
-                        (if  major-mode major-mode ""))))))))
+                        (if  major-mode major-mode "")))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
@@ -1538,30 +1540,39 @@ current coding system, then we return an empty string."
                          value)
       value))
    (t "")))
+(defvar emacspeak-minor-mode-prefix
+  "Active minor modes "
+  "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
+
+(put-text-property 0 (length emacspeak-minor-mode-prefix)
+                   'personality 'annotation-voice emacspeak-minor-mode-prefix)
+
 
 (defun emacspeak-speak-minor-mode-line ()
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist
+                    emacspeak-minor-mode-prefix 
                     voice-lock-mode))
   (force-mode-line-update)
-  (let ((info (format "Active minor modes:  %s"
-            (mapconcat
-             (function (lambda(item)
-                         (let ((var (car item))
-                               (value (cadr item )))
-                           (cond
-                            ((and (boundp var) (eval var ))
-                             (if (symbolp value)
-                                 (eval value)
-                               value))
-                            (t "")))))
-             minor-mode-alist " ")))
-        (voice-lock-mode t))
-  (dtk-speak
-   (concat 
-    info
-    (emacspeak-speak-buffer-coding-system-info)))))
+  (let ((voice-lock-mode t)
+        (info
+         (mapcar
+          #'(lambda(item)
+              (let ((var (car item))
+                    (value (cadr item )))
+                (cond
+                 ((and (boundp var) (eval var ))
+                  (if (symbolp value) (eval value) value))
+                 (t nil))))
+          minor-mode-alist)))
+    (setq info (delete nil info))
+    (tts-with-punctuations "some"
+                           (dtk-speak
+                            (concat
+                             emacspeak-minor-mode-prefix
+                             (mapconcat #'identity info ", ")
+                             (emacspeak-speak-buffer-coding-system-info))))))
   
 
 (defun emacspeak-speak-line-number ()
