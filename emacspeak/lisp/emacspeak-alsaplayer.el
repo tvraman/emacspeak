@@ -41,7 +41,7 @@
 ;;{{{ Introduction:
 
 ;;; Commentary:
-;;; This is work in progress:
+
 ;;; Defines a simple derived mode for interacting with
 ;;; alsaplayer.
 ;;; alsaplayer navigation commands  work via single keystrokes.
@@ -135,7 +135,10 @@ Alsaplayer session."
     (rename-buffer
      (format "%s-%s"
              emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
-     'unique)))
+     'unique))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{  Invoke commands:
