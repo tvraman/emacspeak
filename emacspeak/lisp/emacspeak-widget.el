@@ -728,6 +728,12 @@ widget before summarizing."
   "Widget for selecting a voice.")
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
+;;; We rely on dectalk-voice-table as our default voice table.
+;;; Names defined in this --- and other voice tables --- are
+;;; generic --and  not device specific.
+;;;
+
+
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
   (declare (special dectalk-voice-table))
