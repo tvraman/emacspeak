@@ -38,7 +38,6 @@
 ;;}}}
 
 
-
 ;;; Commentary:
 ;;{{{  Introduction:
 
@@ -47,7 +46,6 @@
 ;;; emacspeak-<mode-name>-actions-hook
 
 ;;}}}
-;; 
 ;;{{{  required modules 
 
 ;;; Code:
@@ -59,7 +57,7 @@
 ;;}}}
 ;;{{{  Define actions for emacs lisp mode
 
-(defun emacspeak-lisp-blink-matching-paren-when-on-right-paren ()
+(defun emacspeak-activate-match-blinker ()
   "Setup action on right parens.
 The defined   emacspeak action   causes
 emacspeak to show the matching paren when the cursor moves across a right paren."
@@ -70,12 +68,8 @@ emacspeak to show the matching paren when the cursor moves across a right paren.
             (put-text-property  (point) (1+ (point))
                                 'emacspeak-action
                                 'emacspeak-blink-matching-open )))))
-        
-        
-
 (add-hook 'emacspeak-emacs-lisp-mode-actions-hook
-          'emacspeak-lisp-blink-matching-paren-when-on-right-paren )
-
+          'emacspeak-activate-match-blinker )
 ;;}}}
 ;;{{{  Define actions for c and c++ modes
 
@@ -91,8 +85,6 @@ emacspeak to speak the semantics of the line
        (put-text-property  (point) (1+ (point))
                            'emacspeak-action
                            'emacspeak-c-speak-semantics )))))
-        
-
 (add-hook 'emacspeak-c-mode-actions-hook
             'emacspeak-c-speak-semantics-when-on-closing-brace)
 
