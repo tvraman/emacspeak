@@ -52,9 +52,11 @@
 ;;}}}
 ;; 
 ;;; Code:
-(require 'advice)
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'advice)
+(require 'custom)
 
 (require 'dtk-voices )
 (require 'voice-lock)
@@ -71,7 +73,16 @@
     (error nil )))
 
 ;;}}}
+;;{{{ cutom
 
+(defgroup emacspeak-eterm nil
+  "Terminal emulator for the Emacspeak Desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-eterm-")
+
+
+
+;;}}}
 ;;{{{  keybindings:
 
 (defvar emacspeak-eterm-keymap (make-keymap)
@@ -175,17 +186,25 @@ Useful when eterm is in review mode.")
 ;;}}}
 ;;{{{  voice definitions  for eterm  highlight, underline etc
 
-(defvar emacspeak-eterm-highlight-personality 'harry
-  "Personality to show terminal highlighting.")
+(defcustom emacspeak-eterm-highlight-personality 'harry
+  "Personality to show terminal highlighting."
+  :type 'symbol
+  :group 'emacspeak-eterm)
 
-(defvar emacspeak-eterm-bold-personality 'paul-bold
-  "Persnality to indicate terminal bold.")
+(defcustom emacspeak-eterm-bold-personality 'paul-bold
+  "Persnality to indicate terminal bold."
+  :type 'symbol
+  :group 'emacspeak-eterm)
 
-(defvar emacspeak-eterm-underline-personality 'ursula
-  "Personality to indicate terminal underlining.")
+(defcustom emacspeak-eterm-underline-personality 'ursula
+  "Personality to indicate terminal underlining."
+  :group 'emacspeak-eterm
+  :type 'symbol)
 
-(defvar emacspeak-eterm-default-personality 'paul
-  "Default personality for terminal.")
+(defcustom emacspeak-eterm-default-personality 'paul
+  "Default personality for terminal."
+  :type 'symbol
+  :group 'emacspeak-eterm)
 
 
 ;;}}}
@@ -1307,9 +1326,11 @@ host. Hosts are added whenever a new hostname is encountered, and the
 list of known hostnames is persisted in file named by
 emacspeak-eterm-remote-hostnames")
 (declaim (special emacspeak-resource-directory))
-(defvar emacspeak-eterm-remote-hosts-cache
-  (concat emacspeak-resource-directory "/" ".hosts")
-  "File where list of known remote hosts is cached")
+(defcustom emacspeak-eterm-remote-hosts-cache
+  (expand-file-name ".hosts" emacspeak-resource-directory)
+  "File where list of known remote hosts is cached"
+  :type 'file
+  :group 'emacspeak-eterm)
 
 (defun emacspeak-eterm-load-remote-hosts-cache ()
   "Load cached remote hostnames"
