@@ -63,7 +63,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -78,10 +78,10 @@
          (mapcar
           (function
            (lambda (g)
-	      (cond
-	       ((stringp g)
-		(webjump-url-encode (read-from-minibuffer g)))
-	       (t (funcall g)))))
+             (cond
+              ((stringp g)
+               (webjump-url-encode (read-from-minibuffer g)))
+              (t (funcall g)))))
           (emacspeak-url-template-generators ut))))
 
 ;;}}}
@@ -179,6 +179,7 @@ documentation   Documents this template resource.
 
 ;;}}}
 ;;{{{  template resources 
+
 
 ;;{{{ bookshare
 (defcustom emacspeak-bookshare-user-id nil
@@ -1090,7 +1091,7 @@ plays entire program."
  "Show arrival/departure information from Travelocity."
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match
-"Schedule" url 'speak)))
+      "Schedule" url 'speak)))
 
 ;;}}}
 ;;{{{  viewtrip --travel reports
@@ -1141,13 +1142,67 @@ Set up URL rewrite rule to get print page."
 
 ;;}}}
 ;;{{{ meerkat 
+(defvar emacspeak-url-template-meerkat-profiles (make-hash-table
+                                                 :test #'equal)
+  "Map Meerkat profile names to profile codes.
+Meerkat realy needs an xml-rpc method for getting this.")
+
+(loop for e in
+      (list
+       '(1 "DEFAULT")
+       '(10586 ".NET")
+       '(1064 "Perl")
+       '(1065 "Macintosh")
+       '(13886 "WebServices.XML.com")
+       '(1398 "O'ReillyNetForums")
+       '(1665 "BSD")
+       '(17 "Python")
+       '(1746 "PHP")
+       '(19 "Software")
+       '(2281 "XML")
+       '(27 "Web")
+       '(4 "Apache")
+       '(441 "Mozilla")
+       '(4862 "P2P")
+       '(4999 "O'Reilly")
+       '(5 "Linux")
+       '(563 "O'ReillyNetwork")
+       '(6304 "XML.com")
+       '(760 "Weblogs")
+       '(9 "Wireless"))
+      do
+      (puthash (second e)  (first e)
+               emacspeak-url-template-meerkat-profiles))
+
+(defsubst emacspeak-url-template-meerkat-profile-names ()
+  "Return alist of Meerkat profile names."
+  (declare (special emacspeak-url-template-meerkat-profiles))
+  (loop for k being the hash-keys of 
+        emacspeak-url-template-meerkat-profiles
+        collect (cons k k )))
 
 (emacspeak-url-template-define
- "Meerkat"
+ "Meerkat Profile"
+ "http://meerkat.oreillynet.com/?_fl=rss10&p=%s"
+ (list
+  #'(lambda nil
+      (let((completion-ignore-case t)
+           (profile 
+            (completing-read "Meerkat Profile:"
+                             (emacspeak-url-template-meerkat-profile-names)
+                             nil t)))
+        (gethash profile emacspeak-url-template-meerkat-profiles))))
+ nil
+ "Meerkat Profile"
+ #'(lambda (url)
+     (emacspeak-rss-display url 'speak))) 
+
+(emacspeak-url-template-define
+ "Meerkat Recipe"
  "http://meerkat.oreillynet.com/?_fl=rss10&%s"
  (list
   #'(lambda nil
-  (read-from-minibuffer "Meerkat recipe: ")))
+      (read-from-minibuffer "Meerkat recipe: ")))
  nil
  "Meerkat tool"
  #'(lambda (url)
