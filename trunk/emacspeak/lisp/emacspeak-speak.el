@@ -1513,25 +1513,22 @@ semantic to do the work."
      ((stringp mode-line-format)
       (tts-with-punctuations "all" (dtk-speak mode-line-format )))
      (t
-      (let  ((buffer-name (buffer-name))
-             (percentage (emacspeak-get-current-percentage-into-buffer)))
-        (put-text-property 0 (length buffer-name)
-                           'personality 'paul-animated buffer-name)
-        (tts-with-punctuations "all"
-                               (dtk-speak
-                                (concat frame-info
-                                        buffer-name
-                                        percentage
-                                        (format  "%s %s %s "
-                                                 (if line-number-mode
-                                                     (format "line %d"
-                                                             (emacspeak-get-current-line-number))
-                                                   "")
-                                                 (if column-number-mode
-                                                     (format "Column %d"
-                                                             (current-column))
-                                                   "")
-                                                 (if  major-mode major-mode ""))))))))))
+      (tts-with-punctuations "all"
+                             (dtk-speak
+                              (concat frame-info
+                                      (format  "%s %s %s
+%s %s "
+                                               (buffer-name)
+                                               (emacspeak-get-current-percentage-into-buffer)
+                                               (if line-number-mode
+                                                   (format "line %d"
+                                                           (emacspeak-get-current-line-number))
+                                                 "")
+                                               (if column-number-mode
+                                                   (format "Column %d"
+                                                           (current-column))
+                                                 "")
+                                               (if  major-mode major-mode "")))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
