@@ -76,7 +76,11 @@ COMMAND-STRING to the TTS engine."
 (defsubst outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
   (declare (special outloud-voice-table))
-  (or  (gethash name outloud-voice-table) outloud-default-voice-string))
+  (cond
+   ((listp name)
+    (mapconcat #'outloud-get-voice-command name " "))
+   (t (or  (gethash name outloud-voice-table)
+           outloud-default-voice-string))))
 
 (defsubst outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
