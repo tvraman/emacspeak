@@ -193,6 +193,7 @@ ${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile
 # {{{  User level targets emacspeak info print 
 
 emacspeak:
+	ls lisp/emacspeak-loaddefs.el || make config 
 	cd lisp; $(MAKE)  SRC=$(SRC)
 	touch   $(ID)
 	chmod 644 $(ID)
