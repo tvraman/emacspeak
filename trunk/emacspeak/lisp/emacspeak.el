@@ -202,11 +202,13 @@
     prepend-to-register
     read-abbrev-file
     recover-file
+    rename-buffer
     run-at-time
     run-at-time
     run-at-time
     run-with-timer
     run-with-timer
+    search-backward
     set-buffer-file-coding-system
     set-buffer-file-coding-system
     set-buffer-process-coding-system
@@ -219,6 +221,7 @@
     set-left-margin
     set-right-margin
     set-right-margin
+    set-selection-coding-system
     set-visited-file-name
     sort-regexp-fields
     string-rectangle
@@ -234,6 +237,7 @@
     view-register
     window-configuration-to-register
     zap-to-char
+search-forward
     )
   "Precomputed list of interactive functions that have to be fixed.
 Precomputing this saves time at start-up.")
