@@ -940,7 +940,12 @@ Interactive PREFIX arg makes the new setting global."
    ((string= "all" dtk-punctuation-mode)
     (dtk-set-punctuations-to-some prefix ))
    ((string= "some" dtk-punctuation-mode )
-    (dtk-set-punctuations-to-all prefix ))))
+    (dtk-set-punctuations-to-all prefix )))
+  (when (interactive-p)
+    (message "set punctuation mode to %s %s"
+             dtk-punctuation-mode
+             (if prefix "" "locally"))))
+
 
 (defun dtk-set-pronunciation-mode  (mode state  )
   "Set pronunciation MODE.

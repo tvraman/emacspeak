@@ -70,8 +70,9 @@ you like after a command.
 /* ugly ugly */
 #define DSP "/dev/dsp"
 int  dsp;
+static int _flushSpeech = 0;
 //1 second using 11025k samples.
-#define BUFSIZE 11025
+#define BUFSIZE 1024
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
@@ -80,6 +81,9 @@ short waveBuffer[BUFSIZE];
 ViaVoice SDK installed.
 */
 
+typedef enum {
+	eciDataNotProcessed, eciDataProcessed
+} ECICallbackReturn;
 
 typedef enum {
   eciWaveformBuffer, eciPhonemeBuffer, eciIndexReply, eciPhonemeIndexReply
@@ -285,15 +289,17 @@ int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONS
 int playTTS (int samples) {
   int i;
   short stereo[2*samples];
-  //fprintf(stderr, "In play callback.\n");
+  // stop processing  if we are asked to stop talking.
+  if (_flushSpeech == 1) {
+    return eciDataProcessed;
+  }
   /* mono to stereo */
   for (i=0; i<samples; i++) {
     stereo[2*i] =waveBuffer[i];
     stereo[2*i+1] = waveBuffer[i];
   }
   write (dsp, stereo,  4*samples);
-  //fprintf(stderr, "Wrote %d samples\n", samples);
-  return 1;
+  return eciDataProcessed;
 }
 
 
@@ -352,6 +358,7 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
 
 int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   int i, rc, index, length;
+  _flushSpeech=0;
   for (i=1; i<objc; i++) {
     // if string begins with -, assume it is an index value
     char *txt = Tcl_GetStringFromObj(objv[i], &length);
@@ -404,7 +411,9 @@ int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
   return TCL_OK;
 }
 
-int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
+         Tcl_Obj *CONST objv[]) {
+  _flushSpeech = 1;
   if (_eciStop(eciHandle)) return TCL_OK;
   Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
   return TCL_ERROR;
