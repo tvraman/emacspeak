@@ -11,17 +11,17 @@ Param attr  specifies the attribute to list.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="text" indent="yes" encoding="iso8859-1"/>
   <xsl:param name="attr"
-    select="'class'"/>
+  select="'class'"/>
   <xsl:param name="selector">//@<xsl:value-of select="$attr"/></xsl:param>
-    
-<!-- { html body  -->
+  <!-- nuke these -->
+  <xsl:template match="//script|//meta"/>
+  <!-- { html body  -->
   <xsl:template match="/html/body">
-
-      <xsl:for-each select="//@class">
-<xsl:value-of select="."/><xsl:text>
-</xsl:text></xsl:for-each>
+    <xsl:for-each select="//@class">
+      <xsl:value-of select="."/><xsl:text>
+    </xsl:text></xsl:for-each>
   </xsl:template>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:

@@ -114,6 +114,7 @@ relevant tables bubble to the top.
       </xsl:if>
     </xsl:element>
   </xsl:template>
+
   <xsl:template match="//table//table">
     <xsl:variable name="rows" select="count(./tr)"/>
     <xsl:variable name="cols" select="count(./tr/td)"/>
