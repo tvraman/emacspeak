@@ -280,8 +280,8 @@ Tcleci_Init (Tcl_Interp * interp)
   if (!_eciSetOutputBuffer)
     {
       okay = 0;
-      Tcl_AppendResult (interp, "eciSetOutputBuffer
- undef\n", NULL);
+      Tcl_AppendResult (interp,
+                        "eciSetOutputBuffer undef\n", NULL);
     }
   if (!_eciSetOutputDevice)
     {
@@ -352,7 +352,7 @@ Tcleci_Init (Tcl_Interp * interp)
   Tcl_CreateObjCommand (interp, "closeDSP", closeDSP, (ClientData) eciHandle,
 			TclEciFree);
   //>
-  rc = Tcl_Eval (interp, "proc index x {global tts; 
+  rc = Tcl_Eval (interp, "proc index x {global tts; \
 set tts(last_index) $x}");
   return TCL_OK;
 }
