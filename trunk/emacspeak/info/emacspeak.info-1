@@ -169,8 +169,8 @@ File: emacspeak.info,  Node: Installation,  Next: Basic Usage,  Prev: Introducti
 Installation Instructions
 *************************
 
-   This chapter gives brief and detailed installation instructions.
-for configuring, installing and starting Emacspeak.
+   This chapter gives brief and detailed installation instructions for
+configuring, installing and starting Emacspeak.
 
 * Menu:
 
@@ -187,7 +187,10 @@ Obtaining Emacspeak
 
    Emacspeak is available on the Internet at:
 WWW
-     http://cs.cornell.edu/home/raman/emacspeak/
+     http://emacspeak.sf.net
+
+WWW
+     http://www.cs.cornell.edu/home/raman/emacspeak/
 
 FTP
      ftp://ftp.cs.cornell.edu/pub/raman/emacspeak
@@ -211,24 +214,27 @@ Quick Installation
    Here are the quick installation instructions.  See the next section
 for detailed installation instructions.
 
-   *  Look over the Makefile and edit site-specific variables.
+   Prepackaged RPM files are available on the Emacspeak site.  Packages
+for other Linux distributions such as Debian typically become available
+on the WWW a few days after a new version is released.  The
+instructions below are for building and installing Emacspeak from the
+source distribution.
 
    *  Type `make config' to configure the sources for your site.
 
-   *  Type `make emacspeak' to compile the files.
+   *  Type `make' to compile the files.
+
+   * Install the system by typing `make install'
 
    *  Run it by doing one of:
-        *   Start Emacs as follows:
-               emacs -l <emacspeak-dir>/emacspeak-setup.el -l ~/.emacs
+        * `emacspeak'
 
         * Add the line
-               (load-file "<emacspeak-dir>/emacspeak-setup.el")
+               (load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
           to the top of your .emacs file.
 
-        *  Run the shell script emacspeak.sh found in the directory
-          <emacspeak-dir>
-     In the above, `<emacspeak-dir>' refers to the directory where you
-     unpacked the sources.
+        *  In the above, `<emacspeak-dir>' refers to the directory
+     where you unpacked the sources.
 
 
 File: emacspeak.info,  Node: Configuring and Installing Emacspeak,  Prev: Quick Installation,  Up: Installation
@@ -288,7 +294,7 @@ emacspeak beginning to talk and then immediately fall silent.)
           stty -a < serial_port
 
 
-   Quit this TCL session by typing control-D.
+   Quit this TCL session by typing `C-D'.
 
    Next, compile the elisp files by typing
      make emacspeak
