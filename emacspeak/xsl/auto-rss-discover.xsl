@@ -8,8 +8,9 @@ License: GPL
 Description: Display all RSS links
 -->
 <xsl:stylesheet  xmlns:h="http://www.w3.org/1999/xhtml"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:param name="amphetadesk" value="http://127.0.0.1:8888/ny_channels.html"/>
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="1.0">
+    
     <xsl:output method="xml" indent="yes" encoding="iso8859-1"/>
 <xsl:template name="generate-rss">
   <xsl:if test="count(//link[@type='application/rss+xml'])">
@@ -19,6 +20,7 @@ Description: Display all RSS links
 </xsl:template>
 
     <xsl:template match="h:link|link" mode="rss">
+      <xsl:variable name="amphetadesk">http://127.0.0.1:8888/my_channels.html</xsl:variable>
         <xsl:if test="@type='application/rss+xml'">
 <table>
 <tr>
@@ -31,11 +33,12 @@ Description: Display all RSS links
                 </a>
 </td>
 <td>
-  <form action="{$amphetadesk}" method="POST" style="margin:0">
-<label for="uri">URI</label>
-<input id="uri" type="text" name="add_url" value="{@href}" size="35" />
-      <input type="submit" name="submit" value="Add This Channel" />
-   </form>
+<a>
+  <xsl:attribute name="href">
+ <xsl:value-of select="$amphetadesk"/>?add_url=<xsl:value-of select="@href"/>
+  </xsl:attribute>
+Subscribe RSS Feed
+</a>
 </td>
 </tr>
 </table>
