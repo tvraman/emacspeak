@@ -179,12 +179,13 @@ functions for details.   "
   (emacspeak-dtk-sync)
   (emacspeak-setup-programming-modes)
   (require 'emacspeak-wizards)
-  (message
+  (tts-with-punctuations "some"
+  (dtk-speak
    (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
            (substitute-command-keys
             "\\[emacspeak-describe-emacspeak]" )
-           emacspeak-version)))
+           emacspeak-version))))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
