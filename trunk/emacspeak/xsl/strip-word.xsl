@@ -11,7 +11,7 @@ Identity transform used in all style sheets.
   <xsl:output encoding="iso8859-15"
               method="html"  indent="yes"/>
   <!-- {identity default  -->   
-<xsl:template match="//s | //a">
+<xsl:template match="//s | //a[@href='#author1'] | //a[@href='#author0']">
 <xsl:text> </xsl:text>
   </xsl:template>
   <xsl:template match="*|@*" >
