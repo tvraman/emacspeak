@@ -216,8 +216,7 @@
   (cond
    ((interactive-p)
     (let ((emacspeak-speak-messages nil))
-      ad-do-it)
-    (when (interactive-p)
+      ad-do-it
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-w3m-speak-this-anchor)))
    (t ad-do-it))
@@ -228,8 +227,7 @@
   (cond
    ((interactive-p)
     (let ((emacspeak-speak-messages nil))
-      ad-do-it)
-    (when (interactive-p)
+      ad-do-it
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-w3m-speak-this-anchor)))
    (t ad-do-it))
