@@ -251,6 +251,10 @@ Function to submit a bug to the programs maintainer.
 
 ------------------------------------------------------------
 
+** emacspeak-amphetadesk-quick-addQuick add URL to Amphetadesk by prompting for URL.
+
+------------------------------------------------------------
+
 ** emacspeak-analog-backward-field-or-charMove back to next field if field specification is available.
 Otherwise move to previous char.
 Speak field or char moved to.
@@ -1467,27 +1471,37 @@ Setting persists for current Emacs session.
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-backward-headingAnalogous to outline-backward-same-level
+** emacspeak-outline-speak-backward-heading	Key Sequence: control c b 
+
+Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-forward-headingAnalogous to outline-forward-same-level,
+** emacspeak-outline-speak-forward-heading	Key Sequence: control c f 
+
+Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-next-headingAnalogous to outline-next-visible-heading,
+** emacspeak-outline-speak-next-heading	Key Sequence: control c n 
+
+Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-previous-headingAnalogous to outline-previous-visible-heading,
+** emacspeak-outline-speak-previous-heading	Key Sequence: control c p 
+
+Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-this-headingSpeak current outline section starting from point
+** emacspeak-outline-speak-this-heading	Key Sequence: control c SPACE 
+
+Speak current outline section starting from point
 
 ------------------------------------------------------------
 
@@ -1623,6 +1637,10 @@ commands via single keystrokes.
 
 ------------------------------------------------------------
 
+** emacspeak-realaudio-get-current-time-in-secondsReturn current time in seconds.
+
+------------------------------------------------------------
+
 ** emacspeak-realaudio-modeMajor mode for streaming audio. 
 
 
@@ -1638,12 +1656,21 @@ during initialization.
 
 ** emacspeak-realaudio-playPlay a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
-user configurable variable
-emacspeak-realaudio-shortcuts-directory. 
+user configurable variable emacspeak-realaudio-shortcuts-directory. 
 
 ------------------------------------------------------------
 
 ** emacspeak-realaudio-select-realaudio-bufferSwitch to realaudio buffer.
+
+------------------------------------------------------------
+
+** emacspeak-realaudio-set-end-markSet end mark. Default is to set marker to current play time.
+Mark is specified in seconds.
+
+------------------------------------------------------------
+
+** emacspeak-realaudio-set-start-markSet start mark. Default is to set marker to current play time.
+Mark is specified in seconds.
 
 ------------------------------------------------------------
 
@@ -1664,6 +1691,11 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
+** emacspeak-realaudio-write-mp3-clipWrites specified clip from current mp3 stream.
+Prompts for start and end times as well as file  to save the clippi
+
+------------------------------------------------------------
+
 ** emacspeak-backward-char	Key Sequence: control b   <left> 
 
 Backward-char redefined to speak char moved to. 
@@ -1676,7 +1708,7 @@ Forward-char redefined to speak char moved to.
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian glyph   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14): ISO-IR-199   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
+** emacspeak-self-insert-command	Key Sequence: Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian glyph   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14): ISO-IR-199   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2887,6 +2919,10 @@ spoken automatically.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-extract-media-streams-under-pointIn W3 mode buffers, extract media streams from url under point.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-extract-nested-tableExtract nested table specified by `table-index'. Default is to
 operate on current web page when in a W3 buffer; otherwise
 `prompt-url' is the URL to process. Prompts for URL when called
@@ -2900,6 +2936,14 @@ spoken automatically.
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-node-by-idExtract specified node from URI.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-print-streamsExtract links to printable  streams.
+operate on current web page when in a W3 buffer; otherwise prompt for url.
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
 
 ------------------------------------------------------------
 
@@ -3002,6 +3046,10 @@ specifies by how many eleemnts to move.
 
 ** emacspeak-w3-show-anchor-classDisplay any class attributes set on corresponding anchor
 element. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-show-http-headersShow HTTP headers using lwp-request
 
 ------------------------------------------------------------
 
@@ -3604,7 +3652,7 @@ the display to speak.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-this-buffer-previous-display	Key Sequence: control e <left> 
+** emacspeak-speak-this-buffer-previous-display	Key Sequence: control e <aleft> 
 
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -3974,7 +4022,9 @@ In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
 
- 
-Local variables: mode: outline paragraph-separate: "[ ]*$"
+  Local variables:
+
+ mode: outline
+paragraph-separate: "[ ]*$"
 end:
 
