@@ -3,7 +3,6 @@
 <!--$Id$-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta name="generator" content="HTML Tidy, see www.w3.org"/>
     <title>Locate Shoutcast Streams</title>
   </head>
   <body>
@@ -12,8 +11,8 @@
       <table>
         <tr>
           <td>
-            <label for="find">Find </label>
             <input name="s" id="find"/>
+            <label for="find">Find </label>
           </td>
           <td>
             <label for="genre">Genre</label>
