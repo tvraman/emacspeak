@@ -17,6 +17,11 @@ Speech-enables James Clark's nxml-mode --- a powerful  XML editing mode.
 etc/ocr-client.pl implements the Emacspeak OCR interface 
 for OCRXTR from Vividata.
 
+** emacspeak-eperiodic.el
+
+Extended to speech-enable new functionality in eperiodic.
+
+
 ** emacspeak-wizards.el:
 
 New productivity wizards.
