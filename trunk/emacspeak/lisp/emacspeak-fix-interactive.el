@@ -107,8 +107,8 @@ speak its prompts. This function needs to do very little work as
         (some
          (function
           (lambda (prompt)
-            (string-match  "^\\*?[ckK]" prompt ))))
-      interactive-list )
+            (string-match  "^\\*?[ckK]" prompt )))
+         interactive-list ))
     (eval
      (`
       (defadvice (, sym)
