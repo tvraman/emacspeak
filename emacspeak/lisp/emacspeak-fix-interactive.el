@@ -71,21 +71,19 @@ interactive prompts speak. ")
 
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
-  (declare (special emacspeak-xemacs-p
-                    emacspeak-interactive-functions-that-are-fixed 
+  (declare (special emacspeak-interactive-functions-that-are-fixed 
                     emacspeak-fix-interactive-dont-fix-regexp))
-  (unless emacspeak-xemacs-p
-      ; we dont need to fix interactive commands for xemacs.
     (save-match-data 
       (and (fboundp  sym)
            (commandp sym)
+           (not (memq  sym
+                       emacspeak-interactive-functions-that-are-fixed))
            (not
-            (memq  sym emacspeak-interactive-functions-that-are-fixed))
-           (not (string-match 
-                 emacspeak-fix-interactive-dont-fix-regexp
-                 (symbol-name sym )))
+            (string-match 
+             emacspeak-fix-interactive-dont-fix-regexp
+             (symbol-name sym )))
            (stringp
-            (second (ad-interactive-form (symbol-function sym ))))))))
+            (second (ad-interactive-form (symbol-function sym )))))))
 
 (defun emacspeak-split-interactive-string-on-newline(string)
   "Helper function used to split the interactive string. "
@@ -169,21 +167,25 @@ function definition of sym to make its interactive form speak its prompts. "
 ;;}}}
 
 (defun emacspeak-fix-interactive (sym)
-  "Fix the function definition of sym to make its interactive form speak its prompts. "
+  "Fix the function definition of sym to make its
+interactive form speak its prompts. "
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
-                                        ; advice if necessary
+                                       ; advice if necessary
     (when
         (some
          (function
           (lambda (prompt)
-            (not
-             (or
-              (save-match-data 
-                (string-match  "^\\*?[pPr]" prompt ))
-              (string= "*" prompt )))))
+            (declare (special emacspeak-xemacs-p))
+            (save-match-data 
+              (not
+               (or
+                (string-match  "^\\*?[pPr]" prompt )
+                (string= "*" prompt )
+                (and emacspeak-xemacs-p
+                     (not (string-match  "^\\*?[ck]" prompt ))))))))
          interactive-list )
       (eval
        (`
