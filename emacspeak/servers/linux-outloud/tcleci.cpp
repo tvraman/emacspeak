@@ -224,6 +224,7 @@ int Tcleci_Init(Tcl_Interp *interp) {
     return TCL_ERROR;
   }
   _eciRegisterCallback( eciHandle, eciCallback, interp );
+
   //>
   //<register tcl commands 
 
@@ -363,7 +364,8 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
       Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
       return TCL_ERROR;
     }
-    //_eciSpeaking(eciHandle); // should this be here!?
+    //_eciSynchronize(eciHandle); //causes tcl to hang
+    _eciSpeaking(eciHandle); // should this be here!?
   }
   return TCL_OK;
 }
@@ -414,9 +416,19 @@ int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST
   }
   output = Tcl_GetStringFromObj( objv[1], &length);
   if (Tcl_StringMatch(output, "buffer")) {
+    fprintf(stderr, "setting output to buffer\n");
     //<set output wave buffer 
-  
-    _eciSetOutputBuffer(eciHandle, BUFSIZE, waveBuffer);
+    rc = _eciSynchronize(eciHandle);
+    if (!rc) {
+      Tcl_AppendResult(interp,
+                       "Error  resetting TTS engine.\n", NULL);
+      return TCL_ERROR;
+    }
+    rc = _eciSetOutputBuffer(eciHandle, BUFSIZE, waveBuffer);
+    if (!rc) {
+      Tcl_AppendResult(interp, "Error setting output buffer.\n", NULL);
+      return TCL_ERROR;
+    }
     dsp = open(DSP, O_WRONLY);
     if (dsp == -1) {
       Tcl_AppendResult(interp, "Could not open output device %s\n",
@@ -436,8 +448,19 @@ int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST
     //>
   } else if (Tcl_StringMatch(output, "default")) {
     //stop using wave buffers
-    _eciSetOutputDevice(eciHandle, -1);
-    _eciSetOutputBuffer(eciHandle, 0, NULL);
+    fprintf(stderr, "switching to default device.\n");
+    rc = _eciSetOutputDevice(eciHandle, -1);
+    if (!rc) {
+      Tcl_AppendResult(interp,
+                       "Failed to set output to default device. \n", NULL);
+      return TCL_ERROR;
+    }
+    rc =_eciSetOutputBuffer(eciHandle, 0, NULL);
+    if (!rc) {
+      Tcl_AppendResult(interp, "Error unsetting output buffer.\n",
+                       NULL);
+      return TCL_OK;
+    }
     close(dsp);
   } else {
     Tcl_AppendResult(interp, "Usage: setOutput [buffer | default] ",
