@@ -82,6 +82,11 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
+;;{{{ tts common vars 
+(defvar tts-default-voice 'paul 
+  "Default voice used. ")
+
+;;}}}
 ;;{{{  A speech style structure
 
 (defstruct  acss
