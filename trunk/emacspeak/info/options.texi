@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 374 user customizable
+This chapter documents a total of 375 user customizable
   options.
 
 @menu
@@ -2801,6 +2801,10 @@ Personality to use for preprocessor directives.
 
 @defvar {User Option} voice-lock-reference-personality
 Personality to use for references.
+@end defvar
+
+@defvar {User Option} voice-lock-region-personality
+Personality used for highlighting region.
 @end defvar
 
 @defvar {User Option} voice-lock-string-personality
