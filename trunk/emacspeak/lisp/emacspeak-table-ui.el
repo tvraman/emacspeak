@@ -510,10 +510,8 @@ The processed  data and presented using emacspeak table navigation. "
         (replace-match "\"]")
         (forward-line 1))
       (goto-char (point-min))
-      (goto-char (point-min))
       (when (search-forward "[\"\"]" nil t)
         (replace-match ""))
-       
       (goto-char (point-max))
       (insert "]\n")
       (goto-char (point-min))
