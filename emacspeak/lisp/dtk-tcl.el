@@ -451,23 +451,23 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; to be queued.
 
 
-(defsubst tts-overlay-personality-at-point ()
-  "Return personality at the front of the overlay list at point."
+(defsubst tts-get-overlay-personality (position)
+  "Return personality at the front of the overlay list at position."
   (car
    (remove nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'personality))
-                 (overlays-at (point))))))
+                 (overlays-at position)))))
 
-(defsubst tts-overlay-auditory-icon-at-point ()
-  "Return auditory icon  at the front of the overlay list at point."
+(defsubst tts-get-overlay-auditory-icon (position)
+  "Return auditory icon  at the front of the overlay list at position."
   (car
    (remove nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))
-                 (overlays-at (point))))))
+                 (overlays-at position)))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
@@ -481,7 +481,7 @@ Arguments START and END specify region to speak."
    (voice-lock-mode
     (let ((last  nil)
           (personality
-           (or (tts-overlay-personality-at-point)
+           (or (tts-get-overlay-personality start)
            (get-text-property start 'personality ))))
       (while (and (< start end )
                   (setq last
@@ -495,7 +495,7 @@ Arguments START and END specify region to speak."
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
               personality
-              (or (tts-overlay-personality-at-point)
+              (or (tts-get-overlay-personality  last)
                   (get-text-property last  'personality)))) ; end while
       ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
