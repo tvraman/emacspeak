@@ -131,7 +131,7 @@ Jump to custom toolbar when in a customization buffer.
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (16342 27108))
+;;;;;;  (16349 9581))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -826,7 +826,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16341 4356))
+;;;;;;  (16360 58803))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -1174,7 +1174,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
 ;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16342 27109))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16361 54087))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1858,8 +1858,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16342
-;;;;;;  27132 387218))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16361
+;;;;;;  55328 948783))
 
 ;;;***
 
