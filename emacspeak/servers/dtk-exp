@@ -190,10 +190,10 @@ proc t  {{pitch 440} {duration 50}} {
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
     if {$tts(midi)} {
-        set inst 9
-        set len .1
-        set note [expr $pitch / 10]
-        n $inst $note $len
+            set inst 9
+            set len .1
+            set note [expr $pitch / 10]
+            n $inst $note $len
     }
     return ""
 }
@@ -320,7 +320,7 @@ proc speech_task {} {
             n {
                 if {$tts(midi)} {
                     lvarpop event 
-                    eval note $event
+                    catch {eval note $event} err 
                 }
             }
         }

@@ -71,6 +71,12 @@ proc q {{element ""}} {
     if {[string length element]} {
         set queue($tts(q_tail)) [list s $element]
         incr tts(q_tail)
+        if {$tts(midi) == 1} {
+            set mod [expr ($tts(q_tail) - $tts(q_head)) % 50]
+            if {$mod == 0}   {
+                note 1 60 .5
+            }
+        }
         return ""
     }
 }
@@ -207,16 +213,25 @@ proc notes_initialize {} {
     global tts
     if {[info exists tts(midi)]
         && $tts(midi) == 1}  {
-return 1
+        puts stderr "Notes already initialized "
+        return 1
     }
     set tts(midi) 0
-    if {![file executable /usr/bin/stdiosynth]} return
-    catch {set tts(notes) [open "|stdiosynth " w]} err
+    if {![file executable /usr/bin/stdiosynth]} {
+        puts stderr "stdiosynth executable not found "
+        return
+    }
+    set result [catch {set tts(notes) [open "|stdiosynth " w]} err]
+    if {$result != 0}  {
+        puts stderr "$err: Notes not initialized --unable to start stdiosynth"
+        return
+    }
     fcntl $tts(notes) nobuf 1 
-    catch {note 1 60 .1 } err
-    if {$err == 0} {
+    set result [catch {note 1 60 .1 } err]
+    if {$result == 0} {
         set tts(midi) 1
     } else {
+        puts stderr "Error playing test note "
         set tts(midi) 0
     }
 }
