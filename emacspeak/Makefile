@@ -352,7 +352,7 @@ list_dist:
 # }}}
 # {{{create Changelog in working copy 
 changelog:
-	perl utils/cvs2cl.pl --distributed --prune
+	perl utils/cvs2cl.pl --distributed --prune --fsf
 
 # }}}
 
