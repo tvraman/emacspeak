@@ -780,11 +780,9 @@ or header lines of blocks created by command
                  (null arg ))
         (save-excursion
           (back-to-indentation )
-          (setq indent  (current-column ))))
-      (when (and emacspeak-audio-indentation
-                 (null arg )
-                 (string= emacspeak-audio-indentation "tone"))
-        (emacspeak-indent indent ))
+          (setq indent  (current-column )))
+      (when (string= emacspeak-audio-indentation "tone")
+        (emacspeak-indent indent )))
       (if emacspeak-show-point
           (ems-set-personality-temporarily
            (point) (1+ (point))
@@ -795,12 +793,12 @@ or header lines of blocks created by command
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string= ""  (buffer-substring start end)) ;blank line
-        (if dtk-stop-immediately (dtk-stop))
+        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'empty-line)))
        ((string-match  emacspeak-speak-space-regexp  (buffer-substring start end )) ;only white space
-        (if dtk-stop-immediately (dtk-stop))
+        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 300   120 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'blank-line)))
@@ -808,7 +806,7 @@ or header lines of blocks created by command
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-horizontal-rule
                         (buffer-substring start end))) ;horizontal rule
-        (if dtk-stop-immediately (dtk-stop))
+        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'horizontal-rule)))
@@ -816,7 +814,7 @@ or header lines of blocks created by command
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-decoration-rule
                         (buffer-substring start end)) ) ;decorative rule
-        (if dtk-stop-immediately (dtk-stop))
+        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'decorative-rule)))
@@ -824,7 +822,7 @@ or header lines of blocks created by command
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-unspeakable-rule
                         (buffer-substring start end)) ) ;unspeakable rule
-        (if dtk-stop-immediately (dtk-stop))
+        (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 550   100 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'unspeakable-rule)))
