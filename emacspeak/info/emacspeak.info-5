@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.5 from
+This is ./emacspeak.info, produced by makeinfo version 4.5 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -590,9 +590,19 @@ emacspeak-wizards.
      speak interactive prompts.
 
  - emacspeak-generate-texinfo-command-documentation: (FILENAME)
-     Generate texinfo documentation  for all emacspeak commands into
+     Generate texinfo documentation  for all emacspeak commands  into
      file commands.texi.  Warning! Contents of file commands.texi will
      be overwritten.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-generate-texinfo-option-documentation: (FILENAME)
+     Generate texinfo documentation  for all emacspeak options  into
+     file options.texi.  Warning! Contents of file options.texi will be
+     overwritten.
 
      This function is advised.
 
@@ -1052,115 +1062,327 @@ nil.
      Speak current field.  A field is defined  by Emacs 21.
 
 
-File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
+File: emacspeak.info,  Node: Emacspeak Customizations
 
-Acknowledgements.
-*****************
+Emacspeak Customizations
+************************
 
-   Thanks.
-
-
-File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgements,  Up: Top
-
-Concept Index
-*************
+   This chapter is generated automatically from the source-level
+documentation.  Any errors or corrections should be made to the
+source-level documentation.
 
 * Menu:
 
-* character echo:                        Controlling Echo.
-* line echo:                             Controlling Echo.
-* speech settings:                       Speech System.
-* speech system:                         Speech System.
-* tts:                                   Speech System.
-* word echo:                             Controlling Echo.
+* dtk-speak Options::
+* emacspeak Options::
+* emacspeak-advice Options::
+* emacspeak-auctex Options::
+* emacspeak-aumix Options::
+* emacspeak-calendar Options::
+* emacspeak-custom Options::
+* emacspeak-dismal Options::
+* emacspeak-ediff Options::
+* emacspeak-erc Options::
+* emacspeak-eshell Options::
+* emacspeak-eterm Options::
+* emacspeak-eudc Options::
+* emacspeak-flyspell Options::
+* emacspeak-forms Options::
+* emacspeak-hide Options::
+* emacspeak-imcom Options::
+* emacspeak-info Options::
+* emacspeak-ispell Options::
+* emacspeak-jde Options::
+* emacspeak-keymap Options::
+* emacspeak-loaddefs Options::
+* emacspeak-ocr Options::
+* emacspeak-outline Options::
+* emacspeak-personality Options::
+* emacspeak-pronounce Options::
+* emacspeak-realaudio Options::
+* emacspeak-remote Options::
+* emacspeak-replace Options::
+* emacspeak-rss Options::
+* emacspeak-setup Options::
+* emacspeak-sounds Options::
+* emacspeak-speak Options::
+* emacspeak-speedbar Options::
+* emacspeak-table-ui Options::
+* emacspeak-tnt Options::
+* emacspeak-vm Options::
+* emacspeak-w3 Options::
+* emacspeak-websearch Options::
+* emacspeak-widget Options::
+* emacspeak-wizards Options::
+* emacspeak-xml-shell Options::
+* emacspeak-xslt Options::
+* voice-setup Options::
 
 
-File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
+File: emacspeak.info,  Node: dtk-speak Options,  Next: emacspeak Options,  Up: Emacspeak Customizations
 
-Key Index
-*********
+dtk-speak Options
+=================
 
-* Menu:
+   Commentary: Defines the TTS interface.
 
-* C-c (:                                 Running Terminal Based Applications.
-* C-c ):                                 Running Terminal Based Applications.
-* C-c 0:                                 Running Terminal Based Applications.
-* C-c 1:                                 Running Terminal Based Applications.
-* C-c C-\:                               Running Terminal Based Applications.
-* C-c C-a:                               Running Terminal Based Applications.
-* C-c C-c:                               Running Terminal Based Applications.
-* C-c C-d:                               Running Terminal Based Applications.
-* C-c C-f:                               Running Terminal Based Applications.
-* C-c C-j:                               Running Terminal Based Applications.
-* C-c C-k:                               Running Terminal Based Applications.
-* C-c C-u:                               Running Terminal Based Applications.
-* C-c C-w:                               Running Terminal Based Applications.
-* C-c C-x C-c:                           Running Terminal Based Applications.
-* C-c C-z:                               Running Terminal Based Applications.
-* C-c e:                                 Running Terminal Based Applications.
-* C-c k:                                 Running Terminal Based Applications.
-* C-c o:                                 Running Terminal Based Applications.
-* control e  cap M:                      Status Information.
-* control e  cap R:                      Reading.
-* control e %:                           Status Information.
-* control e ':                           Reading.
-* control e /:                           Reading.
-* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
-* control e =:                           Status Information.
-* control e [:                           Reading.
-* control e a:                           Status Information.
-* control e b:                           Reading.
-* control e c:                           Reading.
-* control e cap V:                       Status Information.
-* control e control @:                   Status Information.
-* control e control l:                   Status Information.
-* control e control n:                   Reading.
-* control e control o:                   Reading.
-* control e control p:                   Reading.
-* control e control s:                   Miscellaneous.
-* control e control w:                   Status Information.
-* control e d  cap C:                    Speech Output Control.
-* control e d  cap V:                    Miscellaneous.
-* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output Control.
-* control e d a:                         Miscellaneous.
-* control e d c:                         Speech Output Control.
-* control e d d:                         Miscellaneous.
-* control e d f:                         Speech Output Control.
-* control e d i:                         Speech Output Control.
-* control e d k:                         Controlling Echo.
-* control e d l:                         Controlling Echo.
-* control e d m:                         Speech Output Control.
-* control e d p:                         Speech Output Control.
-* control e d q:                         Miscellaneous.
-* control e d r:                         Speech Output Control.
-* control e d RETURN:                    Miscellaneous.
-* control e d s:                         Speech Output Control.
-* control e d SPACE:                     Miscellaneous.
-* control e d t:                         Miscellaneous.
-* control e d w:                         Controlling Echo.
-* control e d z:                         Miscellaneous.
-* control e down:                        Reading.
-* control e f:                           Status Information.
-* control e h:                           Status Information.
-* control e k:                           Status Information.
-* control e l:                           Reading.
-* control e left:                        Reading.
-* control e m:                           Status Information.
-* control e meta control @:              Reading.
-* control e n:                           Reading.
-* control e p:                           Miscellaneous.
-* control e r:                           Reading.
-* control e right:                       Reading.
-* control e SPACE:                       Miscellaneous.
-* control e t:                           Status Information.
-* control e up:                          Reading.
-* control e v:                           Status Information.
-* control e w:                           Reading.
-* control e {:                           Reading.
-* ESCAPE down:                           Reading.
-* ESCAPE next:                           Reading.
-* ESCAPE prior:                          Reading.
-* ESCAPE up:                             Reading.
-* pause   control e s:                   Miscellaneous.
+   Automatically generated documentation for options defined in module
+dtk-speak.  These options are customizable via Emacs' Custom interface.
 
+ - Variable: dtk-cleanup-patterns
+     List of repeating patterns to clean up.  You can use  command
+     `dtk-add-cleanup-pattern'  bound to C-e d a  to add more patterns.
+     Specify patterns that people use to decorate their ASCII files,
+     and cause untold pain to the speech synthesizer.
+
+     If more than 3 consecutive occurrences of a specified pattern is
+     found, the TTS engine replaces it with a repeat count.
+
+ - Variable: dtk-resume-should-toggle
+     *T means `dtk-resume' acts as a toggle.
+
+ - Variable: dtk-speak-nonprinting-chars
+     *Option that specifies handling of non-printing chars.  Non nil
+     value means non printing characters  should be spoken as their
+     octal value.  Set this to t to avoid a dectalk bug that makes the
+     speech box die if it seems some accented characters in certain
+     contexts.
+
+ - Variable: dtk-speech-rate-base
+     *Value of lowest tolerable speech rate.
+
+ - Variable: dtk-speech-rate-step
+     *Value of speech rate increment.  This determines step size used
+     when setting speech rate via command
+     `dtk-set-predefined-speech-rate'.  Formula used is
+     dtk-speech-rate-base  +  dtk-speech-rate-step*level.
+
+ - Variable: dtk-startup-hook
+     List of hooks to be run after starting up the speech server.  Set
+     things like speech rate, punctuation mode etc in this hook.
+
+ - Variable: dtk-stop-immediately-while-typing
+     *Set it to nil if you dont want speech to flush as you type.  You
+     can use command `dtk-toggle-stop-immediately-while-typing' bound to
+     C-e d I to toggle this setting.
+
+
+File: emacspeak.info,  Node: emacspeak Options,  Next: emacspeak-advice Options,  Prev: dtk-speak Options,  Up: Emacspeak Customizations
+
+emacspeak Options
+=================
+
+   Commentary: The complete audio desktop.
+
+   Automatically generated documentation for options defined in module
+emacspeak.  These options are customizable via Emacs' Custom interface.
+
+ - Variable: emacspeak-play-emacspeak-startup-icon
+     If set to T, emacspeak plays its icon as it launches.
+
+ - Variable: emacspeak-startup-hook
+     Hook to run after starting emacspeak.
+
+
+File: emacspeak.info,  Node: emacspeak-advice Options,  Next: emacspeak-auctex Options,  Prev: emacspeak Options,  Up: Emacspeak Customizations
+
+emacspeak-advice Options
+========================
+
+   Commentary: Commentary:
+
+   This module defines the advice forms for making the core of Emacs
+speak Advice forms that are specific to Emacs subsystems do not belong
+here!  I violate this at present by advicing completion comint and
+shell here.
+
+   Automatically generated documentation for options defined in module
+emacspeak-advice.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-backward-delete-char-speak-current-char
+     *T means `backward-delete-char' speaks char that becomes current
+     after deletion.
+
+ - Variable: emacspeak-comint-input-personality
+     Personality used for highlighting comint input -emacs 21.
+
+ - Variable: emacspeak-comint-prompt-personality
+     Personality used for highlighting comint prompts -emacs 21.
+
+ - Variable: emacspeak-delete-char-speak-deleted-char
+     *T means `delete-char' speaks char that was deleted.
+
+ - Variable: emacspeak-speak-messages-should-pause-ongoing-speech
+     * Option to make messages pause speech.  If t then all messages
+     will pause ongoing speech if any before the message is spoken.
+
+
+File: emacspeak.info,  Node: emacspeak-auctex Options,  Next: emacspeak-aumix Options,  Prev: emacspeak-advice Options,  Up: Emacspeak Customizations
+
+emacspeak-auctex Options
+========================
+
+   Automatically generated documentation for options defined in module
+emacspeak-auctex.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-latex-bold-face
+     Face used for bold.
+
+ - Variable: emacspeak-latex-italic-face
+     Face used for italics.
+
+ - Variable: emacspeak-latex-sedate-personality
+     Personality used  on macro names.
+
+
+File: emacspeak.info,  Node: emacspeak-aumix Options,  Next: emacspeak-calendar Options,  Prev: emacspeak-auctex Options,  Up: Emacspeak Customizations
+
+emacspeak-aumix Options
+=======================
+
+   Commentary: Provides an AUI to setting up the auditory display via
+AUMIX This module is presently Linux specific
+
+   Automatically generated documentation for options defined in module
+emacspeak-aumix.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-aumix-full-duplex-p
+     *Set to T if the sound card is truly full duplex.
+
+ - Variable: emacspeak-aumix-midi-available-p
+     *Set to T if   midi is available.
+
+ - Variable: emacspeak-aumix-multichannel-capable-p
+     *Set to T if the sound card is capable of mixing multiple channels
+     of audio.
+
+ - Variable: emacspeak-aumix-reset-options
+     *Option to pass to aumix for resetting to default values.
+
+ - Variable: emacspeak-aumix-settings-file
+     *Name of file containing personal aumix settings.
+
+
+File: emacspeak.info,  Node: emacspeak-calendar Options,  Next: emacspeak-custom Options,  Prev: emacspeak-aumix Options,  Up: Emacspeak Customizations
+
+emacspeak-calendar Options
+==========================
+
+   Automatically generated documentation for options defined in module
+emacspeak-calendar.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-calendar-mark-personality
+     Personality to use when showing marked calendar entries.
+
+
+File: emacspeak.info,  Node: emacspeak-custom Options,  Next: emacspeak-dismal Options,  Prev: emacspeak-calendar Options,  Up: Emacspeak Customizations
+
+emacspeak-custom Options
+========================
+
+   Automatically generated documentation for options defined in module
+emacspeak-custom.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-custom-group-regexp
+     Pattern identifying start of custom group.
+
+ - Variable: emacspeak-custom-state-face
+     Personality used for showing custom state.
+
+ - Variable: emacspeak-custom-toolbar-regexp
+     Pattern that identifies toolbar section.
+
+
+File: emacspeak.info,  Node: emacspeak-dismal Options,  Next: emacspeak-ediff Options,  Prev: emacspeak-custom Options,  Up: Emacspeak Customizations
+
+emacspeak-dismal Options
+========================
+
+   Automatically generated documentation for options defined in module
+emacspeak-dismal.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-dismal-value-personality
+     Personality used for speaking cell values in summaries.
+
+
+File: emacspeak.info,  Node: emacspeak-ediff Options,  Next: emacspeak-erc Options,  Prev: emacspeak-dismal Options,  Up: Emacspeak Customizations
+
+emacspeak-ediff Options
+=======================
+
+   Automatically generated documentation for options defined in module
+emacspeak-ediff.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-ediff-A-personality
+     Personality used to voiceify difference chunk A
+
+ - Variable: emacspeak-ediff-B-personality
+     Personality used to voiceify difference chunk B
+
+ - Variable: emacspeak-ediff-always-autorefine-diffs
+     Says if emacspeak should try computing fine differences each time.
+     Set this to nil if things get too slow.
+
+ - Variable: emacspeak-ediff-fine-A-personality
+     Personality used to voiceify difference chunk A
+
+ - Variable: emacspeak-ediff-fine-B-personality
+     Personality used to voiceify difference chunk B
+
+
+File: emacspeak.info,  Node: emacspeak-erc Options,  Next: emacspeak-eshell Options,  Prev: emacspeak-ediff Options,  Up: Emacspeak Customizations
+
+emacspeak-erc Options
+=====================
+
+   Automatically generated documentation for options defined in module
+emacspeak-erc.  These options are customizable via Emacs' Custom
+interface.
+
+ - Variable: emacspeak-erc-action-personality
+     Personality for actions.
+
+ - Variable: emacspeak-erc-bold-personality
+     Bold personality for ERC.
+
+ - Variable: emacspeak-erc-dangerous-host-personality
+     Personality for dangerous hosts.
+
+ - Variable: emacspeak-erc-direct-msg-personality
+     Personality for direct messages.
+
+ - Variable: emacspeak-erc-error-face
+     Error personality for ERC.
+
+ - Variable: emacspeak-erc-ignore-notices
+     Set to T if you dont want to see notifcation messages from the
+     server.
+
+ - Variable: emacspeak-erc-input-personality
+     personality for input.
+
+ - Variable: emacspeak-erc-inverse-personality
+     Inverse highlight in ERC.
+
+ - Variable: emacspeak-erc-keyword-personality
+     Personality for keywords.
+
+ - Variable: emacspeak-erc-my-nick
+     My IRC nick.
+
+ - Variable: emacspeak-erc-notice-personality
+     Personality for notices.
+
+ - Variable: emacspeak-erc-pal-personality
+     Personality for pals.
+
+ - Variable: emacspeak-erc-prompt-personality
+     Personality for prompts.
 
