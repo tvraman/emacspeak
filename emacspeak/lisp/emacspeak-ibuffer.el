@@ -63,10 +63,57 @@
   (emacspeak-speak-line))
 
 ;;}}}
+;;{{{ summarizers
+
+(defun emacspeak-ibuffer-summarize-line ()
+  "Summarize current line."
+  (emacspeak-speak-line))
+
+;;}}}
 ;;{{{ speech enable interactive commands 
 
-(defadvice ibuffer-visit-buffer (after emacspeak pre act
-                                       comp)
+(defadvice ibuffer-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+(defadvice ibuffer-backward-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice ibuffer-forward-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+
+(defadvice ibuffer-backward-filter-group (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+
+(defadvice ibuffer-forward-filter-group (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+
+
+
+(defadvice ibuffer-backwards-next-marked (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice ibuffer-forward-next-marked (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-ibuffer-summarize-line)
+    (emacspeak-auditory-icon 'select-object)))
+
+(defadvice ibuffer-visit-buffer (after emacspeak pre act comp)
   "Provide spoken status information."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
