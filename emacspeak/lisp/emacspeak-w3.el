@@ -635,8 +635,7 @@ Optional arg COMPLEMENT inverts the filter.  "
                      (url-view-url t)))
          (source-url
           (cond
-           ((and (interactive-p)
-                 prompt-url)
+           ((and (interactive-p) prompt-url)
             (read-from-minibuffer "URL: "
                                   "http://www."))
            (t  (or prompt-url
@@ -644,19 +643,12 @@ Optional arg COMPLEMENT inverts the filter.  "
          (src-buffer nil)
          (emacspeak-w3-xsl-p nil)
          (keep-result emacspeak-w3-xsl-keep-result))
-    (save-excursion
-      (set-buffer  (url-retrieve-synchronously source-url))
-      (setq emacspeak-w3-xsl-keep-result keep-result)
-      (setq src-buffer (current-buffer))
-      (goto-char (point-min))
-      (search-forward "\n\n" nil t)
-      (delete-region (point-min) (point))
-      (emacspeak-xslt-region
+    (setq src-buffer
+          (emacspeak-xslt-url
        (if complement
            emacspeak-w3-xsl-junk
          emacspeak-w3-xsl-filter)
-       (point-min)
-       (point-max)
+       prompt-url
        (list
         (cons "path"
               (format "\"'%s'\""
@@ -667,7 +659,10 @@ Optional arg COMPLEMENT inverts the filter.  "
         (cons "base"
               (format "\"'%s'\""
                       (or source-url
-                          prompt-url)))))
+                          prompt-url))))))
+    (save-excursion
+      (set-buffer src-buffer)
+      (setq emacspeak-w3-xsl-keep-result keep-result)
       (when  (or (interactive-p)
                  speak-result)
         (add-hook 'emacspeak-w3-post-process-hook
