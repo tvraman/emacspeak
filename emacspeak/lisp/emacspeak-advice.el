@@ -69,7 +69,7 @@
 (defadvice previous-line (before emacspeak pre act com)
   "Produce auditory icon  if we cant move."
   (when (and (interactive-p)
-             (= (point-min) (point)))
+             (bobp))
     (emacspeak-auditory-icon 'warn-user)))
 
 (defadvice next-line (before emacspeak pre act com)
