@@ -90,18 +90,18 @@ part of the libxslt package."
     (shell-command-on-region start end
                              (format
                               "%s %s  --html --nonet --novalid %s - %s"
-                                     emacspeak-xslt-program
-                                     (or parameters "")
-                                     xsl
-                                     (if emacspeak-xslt-keep-errors
-                                         ""
-                                       " 2>/dev/null "))
+			      emacspeak-xslt-program
+			      (or parameters "")
+			      xsl
+			      (if emacspeak-xslt-keep-errors
+				  ""
+				" 2>/dev/null "))
                              (current-buffer)
                              'replace
                              (when emacspeak-xslt-keep-errors
-                             "*xslt errors*"))
+			       "*xslt errors*"))
     (when (get-buffer  "*xslt errors*")
-    (bury-buffer "*xslt errors*"))
+      (bury-buffer "*xslt errors*"))
     (setq modification-flag nil)))
 
 (defun emacspeak-xslt-url (xsl url &optional params)
@@ -127,12 +127,12 @@ part of the libxslt package."
       (shell-command
        (format
         "%s %s    --html --novalid %s '%s' %s"
-               emacspeak-xslt-program
-               (or parameters "")
-               xsl url
-               (if emacspeak-xslt-keep-errors
-                   ""
-                 " 2>/dev/null "))
+	emacspeak-xslt-program
+	(or parameters "")
+	xsl url
+	(if emacspeak-xslt-keep-errors
+	    ""
+	  " 2>/dev/null "))
        (current-buffer)
        (when emacspeak-xslt-keep-errors
          "*xslt errors*"))
@@ -165,12 +165,12 @@ part of the libxslt package."
       (shell-command
        (format
         "%s %s    --novalid %s '%s' %s"
-               emacspeak-xslt-program
-               (or parameters "")
-               xsl url
-               (if emacspeak-xslt-keep-errors
-                   ""
-                 " 2>/dev/null "))
+	emacspeak-xslt-program
+	(or parameters "")
+	xsl url
+	(if emacspeak-xslt-keep-errors
+	    ""
+	  " 2>/dev/null "))
        (current-buffer)
        (when emacspeak-xslt-keep-errors
          "*xslt errors*"))

@@ -423,8 +423,8 @@ even if one is already defined."
     (browse-url
      (or redirect url))
     (when (interactive-p)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-speak-mode-line)
+      (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
 ;;{{{  jump to title in document
@@ -577,8 +577,8 @@ libxslt package."
 source to be preserved.
 Value of this variable if non-empty will be used as a name for the
 source buffer."
-:type 'string
-:group 'emacspeak-w3)
+  :type 'string
+  :group 'emacspeak-w3)
 
 (make-variable-buffer-local 'emacspeak-w3-xsl-keep-result)
 (defun emacspeak-w3-set-xsl-keep-result (value)
@@ -676,17 +676,17 @@ spoken automatically."
   (declare (special emacspeak-w3-media-stream-suffixes))
   (let ((filter "//a[%s]")
         (predicate 
-    (mapconcat
-     #'(lambda (suffix)
-         (format "contains(@href,\"%s\")"
-                 suffix))
-         emacspeak-w3-media-stream-suffixes
-         " or ")))
-  (emacspeak-w3-xslt-filter
-   (format filter predicate )
-   prompt-url
-   (or (interactive-p)
-   speak))))
+	 (mapconcat
+	  #'(lambda (suffix)
+	      (format "contains(@href,\"%s\")"
+		      suffix))
+	  emacspeak-w3-media-stream-suffixes
+	  " or ")))
+    (emacspeak-w3-xslt-filter
+     (format filter predicate )
+     prompt-url
+     (or (interactive-p)
+	 speak))))
   
 (defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
   "Extract nested table specified by `table-index'. Default is to
