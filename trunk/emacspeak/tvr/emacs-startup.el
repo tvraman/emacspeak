@@ -136,7 +136,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     (load-library-if-available "w3-prepare")
     (load-library-if-available "w3m-prepare")
-
+    (load-library-if-available "wget-prepare")
     ;;}}}
     ;;{{{  vm setup
 
