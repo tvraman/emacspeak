@@ -1,6 +1,9 @@
+<?xml version="1.0"?>
+
+<!--$Id$-->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
-  
   <xsl:output method="html" media-type="text/html"/>
   <xsl:strip-space elements="*"/>
   
@@ -12,11 +15,7 @@
       <xsl:apply-templates select="preamble"/>
       <body>
         <xsl:apply-templates select="introduction"/>
-        <p>
-          As of the last update, there are a total of
-          <em><xsl:value-of select="count(//application)"/></em>
-          speech-enabled applications on the Emacspeak audio desktop.
-        </p>
+        <xsl:call-template  name="toc"/>
         <table>
           <caption>
             <xsl:value-of select="@caption"/>
@@ -49,10 +48,20 @@
 
   <xsl:template match="category">
     <tr>
-      <td colspan="3">
-        <xsl:value-of select="@name"/>
-        (<xsl:value-of select="count(./application)"/>)
-    </td></tr>
+      
+      <a>
+        <xsl:attribute name="name">
+          <xsl:value-of select="@name"/>
+        </xsl:attribute>
+        <xsl:attribute name="id">
+          <xsl:value-of select="@name"/>
+        </xsl:attribute>
+        <td colspan="3">
+          <xsl:value-of select="@name"/>
+          (<xsl:value-of select="count(./application)"/>)
+        </td>
+      </a>    
+    </tr>
     <xsl:apply-templates />
   </xsl:template>
   
@@ -68,5 +77,26 @@
       <xsl:apply-templates select="@*"/>
       <xsl:apply-templates/>
     </xsl:copy>
+  </xsl:template>
+  <xsl:template name="toc">
+    <h2>Table Of Cntents</h2>
+    <p>
+      As of the last update, there are a total of
+      <em><xsl:value-of select="count(//application)"/></em>
+      speech-enabled applications on the Emacspeak audio desktop.
+    </p>
+    <ol>
+      <xsl:for-each select="//category">
+        <li>
+          <a>
+            <xsl:attribute name="href">
+              #<xsl:value-of select="@name"/>
+            </xsl:attribute>
+            <xsl:value-of select="@name"/> 
+            (<xsl:value-of select="count(./application)"/>)
+          </a>
+        </li>
+      </xsl:for-each>
+    </ol>
   </xsl:template>
 </xsl:stylesheet>
