@@ -221,7 +221,9 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "s" 'emacspeak-ocr-save-current-page)
 (define-key emacspeak-ocr-mode-map " "
   'emacspeak-ocr-read-current-page)
-
+(define-key emacspeak-ocr-mode-map "I"
+  'emacspeak-ocr-set-scan-image-options)
+(define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
 (loop for i from 1 to 9
       do
       (define-key emacspeak-ocr-mode-map
@@ -511,6 +513,32 @@ corectly by themselves."
              emacspeak-ocr-current-page-number)
        (aref emacspeak-ocr-page-positions
              (1+ emacspeak-ocr-current-page-number))))))
+
+(defun emacspeak-ocr-set-scan-image-options  (setting)
+  "Interactively update scan image options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Scan image settings:"
+     emacspeak-ocr-scan-image-options)))
+  (declare (special emacspeak-ocr-scan-image-options))
+  (setq emacspeak-ocr-scan-image-options setting))
+
+(defun emacspeak-ocr-set-compress-image-options  (setting)
+  "Interactively update  image compression options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Image compression settings: "
+     emacspeak-ocr-compress-image-options)))
+  (declare (special emacspeak-ocr-compress-image-options))
+  (setq emacspeak-ocr-compress-image-options setting))
+
+
 
 ;;}}}
 (provide 'emacspeak-ocr)
