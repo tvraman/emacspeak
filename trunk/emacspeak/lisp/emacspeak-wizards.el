@@ -2030,6 +2030,24 @@ value of the file local pattern."
       (occur pattern)))))
 
 ;;}}}
+;;{{{   Switching buffers, killing buffers etc
+
+(defun emacspeak-switch-to-previous-buffer  ()
+  "Switch to most recently used interesting buffer."
+  (interactive)
+  (switch-to-buffer (other-buffer))
+  (emacspeak-speak-mode-line )
+  (emacspeak-auditory-icon 'select-object ))
+
+(defun emacspeak-kill-buffer-quietly   ()
+  "Kill current buffer without asking for confirmation."
+  (interactive)
+  (kill-buffer nil )
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line )))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
