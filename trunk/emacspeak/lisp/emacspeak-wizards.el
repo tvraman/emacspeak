@@ -885,7 +885,10 @@ To leave, press \\[keyboard-quit]."
 
 ;;}}}
 ;;{{{  Generate documentation:
-
+(defsubst ems-variable-symbol-file (o)
+  "Locate file that defines a variable."
+  (or (symbol-fileo)
+      (symbol-file (cons 'defvar o))))
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
   (let ((options nil ))
@@ -905,8 +908,8 @@ To leave, press \\[keyboard-quit]."
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-		       (symbol-file  a)
-		       (symbol-file  b))
+		       (ems-variable-symbol-file  a)
+		       (ems-variable-symbol-file  b))
                       t)
                      ((string-equal (symbol-file  a) (symbol-file  b))
                       (string-lessp
@@ -1119,7 +1122,7 @@ Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
         #'(lambda (o)
-            (let ((this-module (symbol-file  o))
+            (let ((this-module (ems-variable-symbol-file  o))
                   (commentary nil)
                   (source-file nil))
               (when this-module
