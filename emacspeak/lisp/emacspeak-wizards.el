@@ -2082,6 +2082,7 @@ for `word' and siplays hits in a compilation buffer."
    (format
     "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
     ext word))
+  (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done)) 
 
 ;;}}}
