@@ -49,18 +49,8 @@
 ;;{{{  required packages 
 
 ;;; Code:
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'emacspeak-personality)
-(eval-when-compile
-  (require 'dired)
-  (require 'emacspeak-keymap))
-(require 'dtk-speak)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-pronounce)
-
+(require 'emacspeak-preamble)
+(require 'dired)
 ;;}}}
 ;;{{{  configure dired
 

@@ -45,12 +45,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'advice)
-(require 'emacspeak-speak)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  desktop 
 

@@ -60,7 +60,6 @@
                    (require 'dtk-voices )
                    (require 'voice-setup)
                    (require 'emacspeak-ansi-color)
-                   (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
                    (require 'emacspeak-keymap)

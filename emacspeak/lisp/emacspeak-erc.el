@@ -48,7 +48,6 @@
 (require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-pronounce)
-(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 
 ;;}}}

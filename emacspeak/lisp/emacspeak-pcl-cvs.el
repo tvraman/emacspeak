@@ -45,8 +45,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'emacspeak-personality)
-
 ;;}}}
 ;;{{{  Introduction:
 

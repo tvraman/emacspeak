@@ -52,7 +52,6 @@
 (eval-when-compile (require 'dtk-speak)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
-                   (require 'emacspeak-personality)
                    (require 'emacspeak-keymap)
                    (require 'man))
 
