@@ -82,7 +82,8 @@ icons once a realaudio stream is done playing."
     (list "-l" "-i" "-b" "-c" )
   "*Options for realplayer."
   :group 'emacspeak-realaudio
-  :type 'list)
+  :type '(repeat :tag "RealAudio Options"
+                 (string :tag "Option")))
 
 (defvar emacspeak-realaudio-process nil
   "Process handle to running player")

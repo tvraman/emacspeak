@@ -109,7 +109,7 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat
+  :type '(repeat :tag "Emacspeak Personal Keymap"
 	  (cons  :tag "Key Binding"
 		(string :tag "Key")
 		(symbol :tag "Command")))
@@ -166,7 +166,7 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat
+  :type '(repeat :tag "Emacspeak Super Keymap"
 	  (cons  :tag "Key Binding"
 		(string :tag "Key")
 		(symbol :tag "Command")))
@@ -224,7 +224,7 @@ desired modified keystroke. For example, to enter C-s
 field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
-  :type '(repeat
+  :type '(repeat :tag "Emacspeak Hyper Keys"
 	  (cons  :tag "Key Binding"
 		(string :tag "Key")
 		(symbol :tag "Command")))

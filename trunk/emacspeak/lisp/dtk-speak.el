@@ -641,7 +641,8 @@ Argument OUTPUT is the newly arrived output."
 	(setq-default  ,switch
 		       (not  (default-value  ',switch)))
 	(setq ,switch (default-value ',switch )))
-       (t (setq ,switch (not ,switch ))))
+       (t  (make-local-variable ',switch)
+(setq ,switch (not ,switch ))))
       (when (interactive-p)
 	(emacspeak-auditory-icon (if ,switch 'on 'off))
 	(message "Turned %s %s  %s."
