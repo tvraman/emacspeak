@@ -439,6 +439,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "color-theme")
     (color-theme-emacs-21)
     ;;}}}
+;;{{{ bib-find
+    (load-library-if-available "bibfind")
+    ;;}}}
     ))                                  ; end defun 
 ;;{{{  start it up 
 
