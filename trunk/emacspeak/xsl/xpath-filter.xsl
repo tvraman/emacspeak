@@ -19,7 +19,12 @@ Filters out nodes matching param deletor if specified.
   <xsl:param name="path"/>
 <xsl:param name="deletor"/>
   <xsl:param name="base"/>
-  <xsl:include href="identity.xsl"/>
+  <xsl:template match="*|@*" mode="copy" >
+    <xsl:copy>
+       <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="node()" mode="copy"/>
+    </xsl:copy>
+  </xsl:template>
 <!-- { html   -->
 <!--add base uri if available. -->
 
@@ -30,12 +35,12 @@ Filters out nodes matching param deletor if specified.
           <xsl:value-of select="$base"/>
         </xsl:attribute>
       </xsl:element>
-      <xsl:apply-templates select="title"/>
+      <xsl:apply-templates select="title" mode="copy"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="/html/body">
     <xsl:element name="body">
-<xsl:apply-templates select="$locator"/>
+<xsl:apply-templates select="$locator" mode="copy"/>
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
       elements
@@ -44,6 +49,7 @@ in
 document </xsl:element>.</p>
     </xsl:element>
   </xsl:template>
+<xsl:include href="identity.xsl"/>
 <!-- nuke these -->
   <xsl:template match="//script|//meta//style"/>
 <!-- } -->
