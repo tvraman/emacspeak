@@ -41,7 +41,7 @@
 
 (defvar emacspeak-lisp-directory
   (expand-file-name "lisp/" emacspeak-directory)
-  "Directory containing lisp files for  Emacspeak.. ")  
+  "Directory containing lisp files for  Emacspeak.")  
 
 (or (member emacspeak-lisp-directory load-path )
     (setq load-path
@@ -50,5 +50,8 @@
 
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
+
+(setq byte-compile-warnings
+      '(redefine callargs free-vars unresolved obsolete))
 
 (provide 'emacspeak-load-path)

@@ -67,6 +67,7 @@
 ;;{{{  functions: 
 (defun emacspeak-calendar-sort-diary-entries ()
   "Sort entries in diary entries list."
+  (declare (special diary-entries-list))
   (when(and  (boundp 'diary-entries-list)
 	     diary-entries-list)
     (setq diary-entries-list
