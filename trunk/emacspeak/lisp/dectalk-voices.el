@@ -165,7 +165,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ volume
 
 ;;; Note:volume settings not implemented for Dectalks.
-(defvar Dectalk-gain-table (make-vector  10 "")
+(defvar dectalk-gain-table (make-vector  10 "")
   "Maps CSS volume settings to actual synthesizer codes.")
 
 ;;}}}
@@ -585,7 +585,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ list voices 
 
-(defun Dectalk-list-voices ()
+(defun dectalk-list-voices ()
   "List defined voices."
   (declare (special dectalk-voice-table))
   (loop for k being the hash-keys of dectalk-voice-table 
@@ -594,11 +594,11 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ configurater 
 
-(defun Dectalk-configure-tts ()
+(defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (declare (special  dectalk-default-speech-rate
                      tts-default-speech-rate))
-  (fset 'tts-list-voices 'Dectalk-list-voices)
+  (fset 'tts-list-voices 'dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
