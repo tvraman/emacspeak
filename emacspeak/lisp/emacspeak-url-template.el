@@ -473,16 +473,28 @@ content."
 
 (emacspeak-url-template-define
   "Google Maps Give Me XML"
-  "http://maps.google.com/maps?q=%s&what=%s&where=%s&near=%s&start=%s&end=%s&btnG=Search"
+  "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
   (list
-   "Search For:"
-   "What:"
-   "Where: "
-   "Near: "
-   "Start: "
-   "End: ")
+   "Query: ")
   nil
-  "Get me XML from Google Maps."
+  "Get me XML from Google Maps.
+Specify the query using English and  addresses as complete as
+  possible.
+
+Here are some examples:
+
+0) To find a location by address specify:
+
+650 Harry Road San Jose CA 95120
+
+1) To get directions, specify:
+
+<source address> to <destination address>
+
+2) To find businesses etc., near a location, specify:
+
+<what> near <location address>
+"
   'emacspeak-url-template-google-maps-xml)
       
 ;;}}}
