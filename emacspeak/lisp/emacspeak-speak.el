@@ -1529,6 +1529,9 @@ semantic to do the work."
          (null (car spec)))
     (ems-process-mode-line-format (cdr spec)))
    ((and (listp spec)
+         (eq :eval  (car spec)))
+    (eval (cadr spec)))
+   ((and (listp spec)
          (symbolp (car spec)))
     (concat
      (ems-process-mode-line-format (symbol-value (car spec)))
