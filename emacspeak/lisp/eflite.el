@@ -1,4 +1,4 @@
-;;; emacspeak-eflite.el --- Emacspeak EFLITE 
+;;; tts-eflite.el --- Emacspeak EFLITE 
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  EFLITE Wizard for the emacspeak desktop
@@ -40,9 +40,11 @@
 
 ;;{{{  introduction
 
-;;; defines interactive command emacspeak-eflite that launches eflite 
+;;; defines interactive command tts-eflite that launches eflite 
 ;;; http://sf.net/projects/eflite
 ;;; as the tts server.
+;;; When and if eflite becomes capable of voice locking,
+;;; this file should provide code similar to outloud-css-speech.el and outloud-voices.el
 
 ;;}}}
 ;;{{{  Required modules
@@ -53,14 +55,18 @@
 
 ;;}}}
 ;;;###autoload
-(defun emacspeak-eflite ()
+;;{{{  launch eflite 
+
+(defun tts-eflite ()
   "Use eflite TTS server."
   (interactive)
   (let ((dtk-tcl "eflite"))
     (tts-restart)
     (message "This is Emacspeak! ")))
 
-(provide 'emacspeak-eflite)
+;;}}}
+
+(provide 'tts-eflite)
 ;;{{{ end of file
 
 ;;; local variables:
