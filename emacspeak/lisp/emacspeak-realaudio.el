@@ -323,6 +323,16 @@ commands via single keystrokes."
   "Major mode for streaming audio. \n\n
 \\{emacspeak-realaudio-mode-map}")
 
+(defun emacspeak-realaudio-setup-keys ()
+  "Define key bindings for emacspeak-realaudio."
+  (loop for c in emacspeak-realaudio-trplayer-keys
+        do
+        (define-key emacspeak-realaudio-mode-map
+          (format "%c" c)
+          'emacspeak-realaudio-trplayer-call-command)))
+
+(emacspeak-realaudio-setup-keys)
+
 (declaim (special emacspeak-realaudio-mode-map))
 (defvar emacspeak-realaudio-trplayer-keys
   (list ?p ?t ?s ?e ?l ?i
@@ -334,12 +344,18 @@ commands via single keystrokes."
   "Call appropriate TRPlayer command."
   (interactive)
   (emacspeak-realaudio-trplayer-command last-input-char))
-
-(loop for c in emacspeak-realaudio-trplayer-keys
-      do
-      (define-key emacspeak-realaudio-mode-map
-        (format "%c" c)
-        'emacspeak-realaudio-trplayer-call-command))
+(defun emacspeak-realaudio-setup-keys ()
+  "Define key bindings for emacspeak-realaudio."
+  (declare (special emacspeak-realaudio-mode-map
+                    emacspeak-realaudio-trplayer-keys))
+  (define-key emacspeak-realaudio-mode-map " " 'dtk-stop)
+  (define-key emacspeak-realaudio-mode-map [left] 'emacspeak-aumix-wave-decrease)
+  (define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
+  (loop for c in emacspeak-realaudio-trplayer-keys
+        do
+        (define-key emacspeak-realaudio-mode-map
+          (format "%c" c)
+          'emacspeak-realaudio-trplayer-call-command)))
 
 (defun emacspeak-realaudio-select-realaudio-buffer ()
   "Switch to realaudio buffer."
@@ -347,9 +363,6 @@ commands via single keystrokes."
   (pop-to-buffer "*realaudio*")
   (emacspeak-speak-mode-line))
 
-(define-key emacspeak-realaudio-mode-map [left]
-  'emacspeak-aumix-wave-decrease)
-(define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
 ;;}}}
 (provide 'emacspeak-realaudio)
 ;;{{{ end of file 
