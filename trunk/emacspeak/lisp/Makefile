@@ -215,7 +215,7 @@ all: $(OBJECTS)
 # }}}
 # {{{build time target --loaddefs
 
-emacspeak-loaddefs.el: emacspeak-auto.el
+emacspeak-loaddefs.el: emacspeak.el
 	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el  \
 	-l $(SRC)/lisp/emacspeak-auto.el  \
 -f emacspeak-auto-generate-autoloads

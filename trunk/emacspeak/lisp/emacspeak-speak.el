@@ -228,6 +228,13 @@ Useful to do this before you listen to an entire buffer."
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
+;;{{{  sync emacspeak and TTS:
+
+(defsubst   emacspeak-dtk-sync ()
+  "Bring emacspeak and dtk in sync."
+  (dtk-interp-sync))
+
+;;}}}
 ;;{{{ helper function --prepare completions buffer
 
 (defsubst emacspeak-prepare-completions-buffer()
@@ -536,13 +543,6 @@ results in the number of initial spaces being spoken."
     (message "Turned %s audio indentation %s "
              (if emacspeak-audio-indentation "on" "off" )
              (if prefix "" "locally"))))
-
-;;}}}
-;;{{{  sync emacspeak and TTS:
-
-(defsubst   emacspeak-dtk-sync ()
-  "Bring emacspeak and dtk in sync."
-  (dtk-interp-sync))
 
 ;;}}}
 ;;{{{ Core speech functions:
