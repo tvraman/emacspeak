@@ -91,22 +91,6 @@
     (dtk-speak  "Toggled display of tags")))
 
 ;;}}}
-;;{{{ simple voice locking 
-
-
-
-(defconst sgml-voice-lock-keywords-1
-  '(("<\\([!?][a-z][-.a-z0-9]*\\)" 1 voice-lock-keyword-personality)
-    ("<\\(/?[a-z][-.a-z0-9]*\\)" 1 voice-lock-function-name-personality)
-    ("[&%][a-z][-.a-z0-9]*;?" . voice-lock-variable-name-personality)
-    ("<! *--.*-- *>" . voice-lock-comment-personality)))
-
-;; for voice-lock, but must be defvar'ed after
-;; sgml-voice-lock-keywords-1  above
-(defvar sgml-voice-lock-keywords sgml-voice-lock-keywords-1
-  "*Rules for highlighting SGML code.  ")
-
-;;}}}
 (provide  'emacspeak-sgml-mode)
 ;;{{{  emacs local variables 
 

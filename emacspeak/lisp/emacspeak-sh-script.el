@@ -58,45 +58,6 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ voice locking 
-(defvar executable-voice-lock-keywords
-  '(("\\`#!.*/\\([^ \t\n]+\\)" 1 voice-lock-keyword-personality t))
-  "*Rules for highlighting executable scripts' magic number.
-This can be included in `voice-lock-keywords' by modes that call `executable'.")
-
-(defvar emacspeak-sh-voice-lock-keywords
-  nil
-  "Default expressions to highlight in Shell Script modes.
-See `sh-feature'.")
-
-(setq emacspeak-sh-voice-lock-keywords
-      '(t
-	("\\<\\([a-zA-Z0-9_]+\\)="
-	 (1 voice-lock-variable-name-personality))
-	("\\([;(){}`|&]\\|^\\)[ 	]*\\(\\(\\(do\\|elif\\|else\\|if\\|then\\|trap\\|type\\|until\\|while\\)[ 	]+\\)?\\(do\\|elif\\|else\\|if\\|then\\|trap\\|type\\|until\\|while\\|done\\|esac\\|fi\\|for\\|in\\|return\\|break\\|case\\|continue\\|exec\\|exit\\)[ 	]+\\)?\\(hash\\|test\\|type\\|eval\\|export\\|getopts\\|newgrp\\|pwd\\|read\\|readonly\\|times\\|ulimit\\|cd\\|echo\\|eval\\|set\\|shift\\|umask\\|unset\\|wait\\)\\>"
-	 (2 voice-lock-keyword-personality nil t)
-	 (6 voice-lock-builtin-personality))
-	("\\([;(){}`|&]\\|^\\)[ 	]*\\(\\(\\(do\\|elif\\|else\\|if\\|then\\|trap\\|type\\|until\\|while\\)[ 	]+\\)?\\(do\\|elif\\|else\\|if\\|then\\|trap\\|type\\|until\\|while\\|done\\|esac\\|fi\\|for\\|in\\|return\\|break\\|case\\|continue\\|exec\\|exit\\)\\)\\>"
-	 (2 voice-lock-keyword-personality))
-	("[ 	]in\\>"
-	 (0 voice-lock-keyword-personality))
-	("\\$\\({#?\\)?\\([A-Za-z_][A-Za-z0-9_]*\\|[-#?@!]\\)"
-	 (2 voice-lock-variable-name-personality))
-	("^\\(\\sw+\\)[ 	]*("
-	 (1 voice-lock-function-name-personality))
-	("\\<\\(function\\)\\>[ 	]*\\(\\sw+\\)?"
-	 (1 voice-lock-keyword-personality)
-	 (2 voice-lock-function-name-personality nil t))
-	("\\\\[^A-Za-z0-9]"
-	 (0 voice-lock-string-personality))
-	("\\${?\\([A-Za-z_][A-Za-z0-9_]*\\|[0-9]+\\|[$*_]\\)"
-	 (1 voice-lock-variable-name-personality))
-	("\\`#!.*/\\([^ 	\n]+\\)"
-	 (1 voice-lock-keyword-personality t))))
-
-
-
-;;}}}
 ;;{{{  advice interactive commands
 
 (defadvice sh-mode (after emacspeak pre act comp)

@@ -164,19 +164,6 @@
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
-;;{{{ voice lock
-
-
-
-(defvar midge-voice-lock-keywords nil
-  "Voice lock keywords for midge mode.")
-
-(setq midge-voice-lock-keywords
-      '(("^#[ \t].*$"  . voice-lock-comment-personality)
-	("[%@]\\([-+a-zA-Z0-9_*]+\\)" . voice-lock-function-name-personality)
-	("\\$[a-zA-Z0-9]+"  . voice-lock-variable-name-personality)))
-
-;;}}}
 ;;{{{ midge-mode-hook
 (defgroup emacspeak-midge nil
   "Midge group for Emacspeak."

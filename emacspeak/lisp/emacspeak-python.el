@@ -287,40 +287,6 @@ If already at the beginning then move to previous block."
           'emacspeak-python-mode-hook)
 
 ;;}}}
-;;{{{  voice locking 
-
-(defvar python-voice-lock-keywords
-  (let ((kw1 (mapconcat 'identity
-			'("and"      "assert"   "break"   "class"
-			  "continue" "def"      "del"     "elif"
-			  "else"     "except"   "exec"    "for"
-			  "from"     "global"   "if"      "import"
-			  "in"       "is"       "lambda"  "not"
-			  "or"       "pass"     "print"   "raise"
-			  "return"   "while"
-			  )
-			"\\|"))
-	(kw2 (mapconcat 'identity
-			'("else:" "except:" "finally:" "try:")
-			"\\|"))
-	)
-    (list
-     ;; keywords
-     (cons (concat "\\b\\(" kw1 "\\)\\b[ \n\t(]") 1)
-     ;; block introducing keywords with immediately following colons.
-     ;; Yes "except" is in both lists.
-     (cons (concat "\\b\\(" kw2 "\\)[ \n\t(]") 1)
-     ;; classes
-     '("\\bclass[ \t]+\\([a-zA-Z_]+[a-zA-Z0-9_]*\\)"
-       1 voice-lock-type-personality)
-     ;; functions
-     '("\\bdef[ \t]+\\([a-zA-Z_]+[a-zA-Z0-9_]*\\)"
-       1 voice-lock-function-name-personality)
-     ))
-  "Additional expressions to voiceify in Python mode.")
-
-
-;;}}}
 ;;{{{ keybindings
 
 (progn

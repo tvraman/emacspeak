@@ -114,93 +114,16 @@
 (require 'emacspeak-personality)
 (declaim (special html-helper-mode-syntax-table))
 ;; Code for greater flexibility, especially for XEmacs compatibility.
-;; Note that Emacs evaluates the personality entries in `voice-lock-keywords',
+
 ;; while XEmacs doesn't.
 
 ;; The following personality variable is introduced in Emacs 19.29's voice-lock.el.
 ;; For Emacs <19.29 we fall back to the doc string personality (obsoleted by
 ;;19.29).
-(declaim (special voice-lock-variable-name-personality))
-(or (boundp 'voice-lock-variable-name-personality)
-    (setq voice-lock-variable-name-personality 'voice-lock-doc-string-personality))
+
+
 
 ;; Let's reset syntax to make it possible for voice-lock to colour strings.
-;; They usually appear inside anchors; thus these may become two-coloured.
-(modify-syntax-entry ?\" "\"   " html-helper-mode-syntax-table)
-
-(defvar html-voice-lock-keywords
-  (let ((tword "\\(h1\\|title\\)")	; Titles, like function defs
-	(bword "\\(b\\|h[2-4]\\|strong\\)") ; Names of tags to boldify
-	(iword "\\(address\\|cite\\|em\\|i\\|var\\)") ; ... to italify
-	;; Regexp to match shortest sequence that surely isn't a bold end.
-	;; We simplify a bit by extending "</strong>" to "</str.*".
-	;; Do similarly for non-italic and non-title ends.
-	(not-bend (concat "\\([^<]\\|<\\([^/]\\|/\\([^bhs]\\|"
-			  "b[^>]\\|"
-			  "h\\([^2-4]\\|[2-4][^>]\\)\\|"
-			  "s\\([^t]\\|t[^r]\\)\\)\\)\\)"))
-	(not-iend (concat "\\([^<]\\|<\\([^/]\\|/\\([^aceiv]\\|"
-			  "a\\([^d]\\|d[^d]\\)\\|"
-			  "c\\([^i]\\|i[^t]\\)\\|"
-			  "e\\([^m]\\|m[^>]\\)\\|"
-			  "i[^>]\\|"
-			  "v\\([^a]\\|a[^r]\\)\\)\\)\\)"))
-	(not-tend (concat "\\([^<]\\|<\\([^/]\\|/\\([^ht]\\|"
-			  "h[^1]\\|t\\([^i]\\|i[^t]\\)\\)\\)\\)")))
-    (list
-     ;; Comments: <!-- ... -->. They traditionally override string colouring.
-     ;; It's complicated 'cause we won't allow "-->" inside a comment, and
-     ;; voice-lock colours the *longest* possible match of the regexp.
-     '("\\(<!--\\([^-]\\|-[^-]\\|--[^>]\\)*-->\\)" 1 voice-lock-comment-personality t)
-     ;; SGML things like <!DOCTYPE ...> with possible <!ENTITY...> inside.
-     '("\\(<![a-z]+\\>[^<>]*\\(<[^>]*>[^<>]*\\)*>\\)"
-       1 voice-lock-comment-personality keep)
-     ;; Anchors, images & forms (again keep possible string colouring inside).
-     '("\\(<a\\b[^>]*>\\)" 1 voice-lock-keyword-personality keep)
-     "</a>"
-     '("\\(<\\(form\\|i\\(mg\\|nput\\)\\)\\>[^>]*>\\)"
-       1 voice-lock-variable-name-personality keep)
-     ;; HTML special characters
-     '("&[^;\n]*;" . voice-lock-string-personality)
-     ;; Underline is rarely used. Only handle it when no tags inside.
-     '("<u>\\([^<]*\\)</u>" 1 voice-lock-underline-personality keep)
-     ;; '("<u>\\([^<]*\\)<" 1 ..underl..) '("\\(>[^<]*\\)</u>" 1 ..underl..)
-     ;; Titles and level 1 headings (anchors do sometimes appear in h1's)
-     (list (concat "<" tword ">\\(" not-tend "*\\)</\\1>")
-	   2 'voice-lock-function-name-personality 'keep)
-     ;; Large-scale structure keywords (like "program" in Fortran).
-     ;;   "<html>" "</html>" "<body>" "</body>" "<head>" "</head>" "</form>"
-     '("</?\\(body\\|form\\|h\\(ead\\|tml\\)\\)>"
-       . voice-lock-variable-name-personality)
-     ;; Any tag, general rule, just before bold/italic stuff.
-     '("\\(<[^>]*>\\)" 1 voice-lock-type-personality keep)
-     ;; More tag pairs (<b>...</b> etc.).
-     ;; Cunning repeated voiceification to handle common cases of overlap.
-     ;; Bold simple --- first voiceify bold regions with no tags inside.
-     (list (concat "<" bword ">\\("  "[^<]"  "*\\)</\\1>")
-	   2 'voice-lock-bold-personality 'keep)
-     ;; Italic complex --- possibly with arbitrary non-italic kept inside.
-     (list (concat "<" iword ">\\(" not-iend "*\\)</\\1>")
-	   2 'voice-lock-italic-personality 'keep)
-     ;; Bold complex --- possibly with arbitrary other non-bold stuff inside.
-     (list (concat "<" bword ">\\(" not-bend "*\\)</\\1>")
-	   2 'voice-lock-bold-personality 'keep)))
-  "Additional expressions to highlight in HTML helper mode.")
-
-;; It shouldn't matter whether this hook is executed before or after voice-lock.
-;; Fortunately, voice-lock.el is very friendly in this respect.
-;; We must be equally friendly and make sure we don't make global defaults.
-;; It can be done much more elegantly in Emacs 19.29+, but we'll keep it this
-;; way to retain compatibility with older Emacsen.
-(add-hook 'html-helper-mode-hook
-	  '(lambda ()
-	     (make-local-variable 'voice-lock-keywords-case-fold-search)
-	     (make-local-variable 'voice-lock-keywords)
-	     ;;  (make-local-variable 'voice-lock-no-comments)
-	     ;; Regard the patterns in html-voice-lock-keywords as case-insensitive
-	     (setq voice-lock-keywords-case-fold-search t)
-	     (setq voice-lock-keywords html-voice-lock-keywords)))
-;;  (setq voice-lock-no-comments t)))
 
 (provide 'html-voice)
 

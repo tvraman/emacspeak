@@ -49,19 +49,6 @@
 ;;}}}
 ;;{{{ voice locking:
 
-(defvar tex-voice-lock-keywords
-  (list
-   '("\\(\\\\\\([a-zA-Z@]+\\|.\\)\\)" 1 voice-lock-keyword-personality t)
-   '("{\\\\em\\([^}]+\\)}" 1 voice-lock-italic-personality t)
-   '("{\\\\bf\\([^}]+\\)}" 1 voice-lock-bold-personality t)
-   '("^[ \t\n]*\\\\def[\\\\@]\\(\\w+\\)" 1 voice-lock-function-name-personality t)
-   '("\\\\\\(begin\\|end\\){\\([a-zA-Z0-9\\*]+\\)}"
-     2 voice-lock-function-name-personality t)
-   '("[^\\\\]\\$\\([^$]*\\)\\$" 1 voice-lock-string-personality t)
-					;   '("\\$\\([^$]*\\)\\$" 1 voice-lock-string-personality t)
-   )
-  "Additional expressions to highlight in TeX mode.")
-
 ;;}}}
 ;;{{{  Marking structured objects:
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)

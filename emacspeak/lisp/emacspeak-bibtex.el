@@ -217,30 +217,6 @@
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ set up voice lock mode
-
-(defvar bibtex-voice-lock-keywords
-  (list
-   ;; entry type and reference key
-   (list bibtex-entry-maybe-empty-head
-         (list bibtex-type-in-head 'voice-lock-function-name-personality)
-         (list bibtex-key-in-head 'voice-lock-constant-personality nil t))
-   ;; comments
-   (list
-    (concat "^\\([ \t]*" bibtex-comment-start ".*\\)$")
-    1 'voice-lock-comment-personality)
-   ;; optional field names (treated as comments)
-   (list
-    (concat "^[ \t]*\\(OPT" bibtex-field-name "\\)[ \t]*=")
-    1 'voice-lock-comment-personality)
-   ;; field names
-   (list (concat "^[ \t]*\\(" bibtex-field-name "\\)[ \t]*=")
-         1 'voice-lock-variable-name-personality)
-   "*Default expressions to highlight in BibTeX mode."))
-
-
-
-;;}}}
 (provide  'emacspeak-bibtex)
 ;;{{{  emacs local variables 
 

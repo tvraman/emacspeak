@@ -208,7 +208,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 ;;;***
 
 ;;;### (autoloads (voice-lock-mode) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (15946 40017))
+;;;;;;  (15946 45094))
 ;;; Generated autoloads from emacspeak-personality.el
 
 (autoload (quote voice-lock-mode) "emacspeak-personality" "\
@@ -216,51 +216,7 @@ Toggle Voice Lock mode.
 With arg, turn Voice Lock mode on if and only if arg is positive.
 
 This light-weight voice lock engine leverages work already done by
-font-lock.  Voicification is effective only if font lock is on.
-
-When Voice Lock mode is enabled, text is voiceified as you type it:
-
- - Comments are displayed in `voice-lock-comment-personality';
- - Strings are displayed in `voice-lock-string-personality';
- - Certain other expressions are displayed in other personalities according to the
-   value of the variable `voice-lock-keywords'.
-
-You can enable Voice Lock mode in any major mode automatically by turning on in
-the major mode's hook.  For example, put in your ~/.emacs:
-
- (add-hook 'c-mode-hook 'turn-on-voice-lock)
-
-Alternatively, you can use Global Voice Lock mode to automagically turn on Voice
-Lock mode in buffers whose major mode supports it and whose major mode is one
-of `voice-lock-global-modes'.  For example, put in your ~/.emacs:
-
- (global-voice-lock-mode t)
-
-There are a number of support modes that may be used to speed up Voice Lock mode
-in various ways, specified via the variable `voice-lock-support-mode'.  Where
-major modes support different levels of voiceification, you can use the variable
-`voice-lock-maximum-decoration' to specify which level you generally prefer.
-When you turn Voice Lock mode on/off the buffer is voiceified/devoiceified, though
-voiceification occurs only if the buffer is less than `voice-lock-maximum-size'.
-
-For example, to specify that Voice Lock mode use use Lazy Lock mode as a support
-mode and use maximum levels of voiceification, put in your ~/.emacs:
-
- (setq voice-lock-support-mode 'lazy-voice-lock-mode)
- (setq voice-lock-maximum-decoration t)
-
-To voiceify a buffer, without turning on Voice Lock mode and regardless of buffer
-size, you can use \\[voice-lock-voiceify-buffer].
-
-To voiceify a block (the function or paragraph containing point, or a number of
-lines around point), perhaps because modification on the current line caused
-syntactic change on other lines, you can use \\[voice-lock-voiceify-block].
-
-The default Voice Lock mode personalities and their attributes are defined in the
-variable `voice-lock-personality-attributes', and Voice Lock mode default settings in
-the variable `voice-lock-defaults-alist'.  You can set your own default settings
-for some mode, by setting a buffer local value for `voice-lock-defaults', via
-its mode hook." t nil)
+font-lock.  Voicification is effective only if font lock is on." t nil)
 
 ;;;***
 
