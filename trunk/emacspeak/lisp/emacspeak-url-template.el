@@ -514,9 +514,44 @@ Computing News at CNN.")
 
 
 ;;}}}
+;;{{{  NPR programs 
+
+(emacspeak-url-template-define
+ "Talk Of The Nation from NPR"
+ "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
+ (list
+  'emacspeak-url-template-date-YearMonthDate
+#'(lambda nil
+(read-from-minibuffer "Segment: ")))
+ nil
+ "Play NPR Talk Of The Nation segment."
+'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
+ "All Things Considered from NPR" 
+ "rtsp://audio.npr.org/atc/%s_atc_%s.rm"
+ (list
+  'emacspeak-url-template-date-YearMonthDate
+#'(lambda nil
+(read-from-minibuffer "Segment: ")))
+ nil
+ "Play All Things Considered segment."
+'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
+ "Morning Edition from NPR" 
+"rtsp://audio.npr.org/me/%s_me_%s.rm" 
+ (list
+  'emacspeak-url-template-date-YearMonthDate
+#'(lambda nil
+(read-from-minibuffer "Segment: ")))
+ nil
+ "Play Morning Edition segment."
+'emacspeak-realaudio-play)
+
+
+;;}}}
 ;;{{{ technet cast from DDJ
-
-
 
 (emacspeak-url-template-define
  "TechNetCast Save" 
