@@ -70,7 +70,7 @@ you like after a command.
 /* ugly ugly */
 #define DSP "/dev/dsp"
 int  dsp;
-#define BUFSIZE 22100
+#define BUFSIZE 11025
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
@@ -113,6 +113,7 @@ static int (*_eciSetParam)(void *, int, int);
 static int (*_eciGetVoiceParam)(void *, int, int); 
 static int (*_eciSetVoiceParam)(void *, int, int, int); 
 static int (*_eciSetOutputBuffer)(void *, int, short *);
+static int (*_eciSetOutputDevice)(void *, int);
 static void (*_eciRegisterCallback)(void*,int(*)(void*,int,long,void*),void*);
 
 extern "C" EXPORT int Tcleci_Init(Tcl_Interp *interp);
@@ -168,6 +169,8 @@ int Tcleci_Init(Tcl_Interp *interp) {
     dlsym(eciLib, "eciRegisterCallback");
   _eciSetOutputBuffer = (int (*)(void*,int, short *)) 
     dlsym(eciLib, "eciSetOutputBuffer");
+  _eciSetOutputDevice = (int (*)(void*,int)) 
+    dlsym(eciLib, "eciSetOutputDevice");
 
   //>
   //< check for needed symbols 
@@ -188,7 +191,10 @@ int Tcleci_Init(Tcl_Interp *interp) {
   if(!_eciSetVoiceParam){okay=0;Tcl_AppendResult(interp, "eciSetVoiceParam undef\n", NULL);}
   if(!_eciRegisterCallback){okay=0;Tcl_AppendResult(interp,
                                                     "eciRegisterCallback undef\n", NULL);}
-  if(!_eciSetOutputBuffer){okay=0;Tcl_AppendResult(interp, "eciSetOutputBuffer undef\n", NULL);}
+  if(!_eciSetOutputBuffer){okay=0;Tcl_AppendResult(interp,
+                                                   "eciSetOutputBuffer
+ undef\n", NULL);}
+  if(!_eciSetOutputDevice){okay=0;Tcl_AppendResult(interp, "eciSetOutputDevice undef\n", NULL);}
   if (!okay) {
     Tcl_AppendResult(interp, "Missing symbols from ", ECILIBRARYNAME, NULL);
     return TCL_ERROR;
@@ -217,28 +223,7 @@ int Tcleci_Init(Tcl_Interp *interp) {
     _eciDelete(eciHandle); 
     return TCL_ERROR;
   }
-
-  //>
-
-  //<set output wave buffer 
   _eciRegisterCallback( eciHandle, eciCallback, interp );
-  _eciSetOutputBuffer(eciHandle, BUFSIZE, waveBuffer);
-  dsp = open(DSP, O_WRONLY);
-  if (dsp == -1) {
-    Tcl_AppendResult(interp, "Could not open output device %s\n",
-                     DSP, NULL);
-    return (TCL_ERROR);
-  }
-  ioctl(dsp, SNDCTL_DSP_RESET, 0);
-  tmp=11025;
-  ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
-  tmp=1;
-  ioctl(dsp, SNDCTL_DSP_STEREO, &tmp);
-  tmp=16;
-  ioctl(dsp, SNDCTL_DSP_SAMPLESIZE, &tmp);
-  tmp=11025;
-  ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
-
   //>
   //<register tcl commands 
 
@@ -256,7 +241,7 @@ int Tcleci_Init(Tcl_Interp *interp) {
                        eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "resume", Resume, (ClientData)
                        eciHandle, TclEciFree);
-Tcl_CreateObjCommand(interp, "setOutput", setOutput, (ClientData)
+  Tcl_CreateObjCommand(interp, "setOutput", setOutput, (ClientData)
                        eciHandle, TclEciFree);
 
   //>
@@ -275,7 +260,7 @@ int playTTS (int samples) {
     stereo[2*i] =waveBuffer[i];
     stereo[2*i+1] = waveBuffer[i];
   }
-  write (dsp, stereo,  4*BUFSIZE);
+  write (dsp, stereo,  4*samples);
   fprintf(stderr, "Wrote %d samples\n", samples);
   return 1;
 }
@@ -285,12 +270,13 @@ int playTTS (int samples) {
 int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
+  fprintf(stderr, "in my callback message=%d.\n", msg);
   if (msg == eciIndexReply /* eciIndexReply */) {
     char buffer[128];
     sprintf(buffer, "index %d", lparam);
     rc = Tcl_Eval(interp, buffer);
     if (rc != TCL_OK) Tcl_BackgroundError(interp);
-  } else if (msg == eciWaveformBuffer
+  } else if ((msg == eciWaveformBuffer)
              && (lparam > 0)) {
     playTTS(lparam);
     _eciSynthesize(eciHandle);
@@ -377,7 +363,7 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
       Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
       return TCL_ERROR;
     }
-    _eciSpeaking(eciHandle); // should this be here!?
+    //_eciSpeaking(eciHandle); // should this be here!?
   }
   return TCL_OK;
 }
@@ -418,28 +404,51 @@ int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST ob
   Tcl_SetResult(interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
+
 int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  int  rc, output;
+  int  rc, length, tmp;
+  char* output;
   if (objc!=2) {
-    Tcl_AppendResult(interp, "Usage: setRate  speechRate ", TCL_STATIC);
+    Tcl_AppendResult(interp, "Usage: setOutput [buffer | default] ", TCL_STATIC);
     return TCL_ERROR;
   }
-  rc = Tcl_GetIntFromObj(interp, objv[1], &output);
-  if (rc != TCL_OK) return rc;
-  rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
-  if (rc != TCL_OK) return rc;
-  fprintf(stderr, "Setting rate to %d for voice %d\n",
-          rate, voice);
-  rc = _eciSetVoiceParam (eciHandle, voice,  6/*eciSpeed*/, rate);
-  if (rc == -1) {
-    Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
+  output = Tcl_GetStringFromObj( objv[1], &length);
+  if (Tcl_StringMatch(output, "buffer")) {
+    //<set output wave buffer 
+  
+    _eciSetOutputBuffer(eciHandle, BUFSIZE, waveBuffer);
+    dsp = open(DSP, O_WRONLY);
+    if (dsp == -1) {
+      Tcl_AppendResult(interp, "Could not open output device %s\n",
+                       DSP, NULL);
+      return (TCL_ERROR);
+    }
+    ioctl(dsp, SNDCTL_DSP_RESET, 0);
+    tmp=11025;
+    ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
+    tmp=1;
+    ioctl(dsp, SNDCTL_DSP_STEREO, &tmp);
+    tmp=16;
+    ioctl(dsp, SNDCTL_DSP_SAMPLESIZE, &tmp);
+    tmp=11025;
+    ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
+
+    //>
+  } else if (Tcl_StringMatch(output, "default")) {
+    //stop using wave buffers
+    _eciSetOutputDevice(eciHandle, -1);
+    _eciSetOutputBuffer(eciHandle, 0, NULL);
+    close(dsp);
+  } else {
+    Tcl_AppendResult(interp, "Usage: setOutput [buffer | default] ",
+                     TCL_STATIC);
     return TCL_ERROR;
-  }
-  fprintf(stderr, "setRate returned %d\n", rc);
-  rate = _eciGetVoiceParam(eciHandle, voice, 6/*eciSpeed*/);
-  fprintf(stderr, "eciGetVoiceParam returned %d for voice %d \n",
-          rate, voice );
+  }        
+  fprintf(stderr, "Set output to %s\n", output);
   return TCL_OK;
 }
-  
-
+//<end of file 
+//local variables:
+//folded-file: t
+//end:
+//>
