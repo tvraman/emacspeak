@@ -1728,7 +1728,7 @@ Indicate change of selection with an auditory icon
 
 (defadvice execute-extended-command (before emacspeak pre act)
   "Prompt using speech."
-  (dtk-say "Command "))
+  (dtk-speak "Command "))
 
 (defadvice rename-buffer  (around emacspeak pre act)
   "Provide spoken feedback."
