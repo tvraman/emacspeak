@@ -50,7 +50,7 @@
 (defcustom cd-tool-start-command "cdstart"
   "*Name of cdstart command; most likely either \"cdstart\" or \"cdplay\"."
   :options '("cdstart" "cdplay")
-  :group 'emacspeak-cd-tool
+  :group 'cd-tool
   :type 'string)
 
 (defvar cd-tool-message
@@ -83,19 +83,19 @@ cap C   Save clip to disk
     (while (null command)
       (setq command
             (case (read-char "CD Action? ")
-              (?+ (concat emacspeak-cd-tool-start-command " +"))
-              (?> (concat emacspeak-cd-tool-start-command " +"))
-              (?. (concat emacspeak-cd-tool-start-command " +"))
-              (?- (concat emacspeak-cd-tool-start-command " -"))
-              (?< (concat emacspeak-cd-tool-start-command " -"))
-              (?, (concat emacspeak-cd-tool-start-command " -"))
-              (?t (format (concat emacspeak-cd-tool-start-command " %s")
+              (?+ (concat cd-tool-start-command " +"))
+              (?> (concat cd-tool-start-command " +"))
+              (?. (concat cd-tool-start-command " +"))
+              (?- (concat cd-tool-start-command " -"))
+              (?< (concat cd-tool-start-command " -"))
+              (?, (concat cd-tool-start-command " -"))
+              (?t (format (concat cd-tool-start-command " %s")
                           (read-from-minibuffer "Enter track number: ")))
-              (?p emacspeak-cd-tool-start-command)
+              (?p cd-tool-start-command)
               (?s "cdstop")
               (?= "cdshuffle")
               (?\ "cdpause")
-              (?r emacspeak-cd-tool-start-command)
+              (?r cd-tool-start-command)
               (?i "cdir ")
               (?e "cdeject")
               (?c (cd-tool-get-clip-command))
