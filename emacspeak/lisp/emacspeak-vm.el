@@ -174,6 +174,34 @@ Note that some badly formed mime messages  cause trouble."
 
 (defvar emacspeak-vm-user-login-name  (user-login-name)
   "Login name of this user")
+(defun emacspeak-vm-yank-header ()
+  "Yank specified header into kill ring."
+  (interactive)
+  (declare (special vm-message-pointer))
+  (cond
+   (vm-message-pointer
+    (dtk-stop)
+    (let*  ((message (car vm-message-pointer ))
+            (from(or (vm-su-full-name message)
+                     (vm-su-from message )))
+            (subject (vm-so-sortable-subject message ))
+            (to(or (vm-su-to-names message)
+                   (vm-su-to message )))
+            (header nil))
+      (setq header 
+      (case
+          (read-char "f From s Subject t To")
+        (?s subject)
+        (?f from)
+        (?t to)
+      (otherwise
+       (error "f From t To s Subject"))))
+      (kill-new header)
+      (message header)))
+   (t (error "No current message." ))))
+
+
+
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
