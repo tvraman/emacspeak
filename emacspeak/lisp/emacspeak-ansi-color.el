@@ -63,6 +63,42 @@
 ;;}}}
 ;;{{{ color to voice
 
+(defun emacspeak-ansi-color-to-voice (face-spec)
+  "Return a voice corresponding to specified face-spec."
+  (declare (special ansi-color-names-vector
+                    ansi-color-faces-vector))
+  (let* ((voice-name nil)
+         (style (cadr face-spec))
+         (style-index (position style ansi-color-faces-vector))
+         (color (cdr (assq 'foreground-color  face-spec)))
+         (color-index
+          (when color
+            (position  color ansi-color-names-vector
+                       :test #'string-equal)))
+         (style nil)
+         (color-parameter nil)
+         (style-parameter nil))
+    (setq voice-name
+          (intern (format "emacspeak-ansi-color-%s-%s"
+                          (if color color "default")
+                          (if style style "default"))))
+    (unless (tts-voice-defined-p voice-name)
+      (setq style (make-acss ))
+      (setq style-parameter
+            (if style-index
+                (+ 1 style-index)
+              1))
+      (setq color-parameter
+            (if color-index
+                (+ 1 color-index)
+              1))
+      (setf (acss-average-pitch style) color-parameter)
+      (setf (acss-pitch-range style) style-parameter)
+      (setf (acss-richness style) color-parameter)
+      (setf (acss-stress style) style-parameter)
+      (tts-define-voice-from-speech-style voice-name style))
+    voice-name))
+
 (defadvice ansi-color-set-extent-face (after emacspeak pre act comp)
   "Apply aural properties."
   (let* ((extent (ad-get-arg 0))
@@ -70,7 +106,7 @@
          (start (overlay-start extent))
          (end (overlay-end extent))
          (voice (when (listp face)
-		  (voice-setup-ansi-color-to-voice face))))
+		  (emacspeak-ansi-color-to-voice face))))
     (when voice
       (ems-modify-buffer-safely
        (put-text-property start end
