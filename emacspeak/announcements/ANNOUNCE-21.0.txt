@@ -4,92 +4,88 @@
 For Immediate Release:
 
 San Jose, Calif., (Nov 26, 2004)
-    Emacspeak-2004: Empowering Experienced Users
+    Emacspeak-2004: Liberating Experienced Users
     --Zero cost of ownership makes priceless software affordable!
 
-Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
-announces the immediate world-wide availability of Emacspeak 21.0
---a powerful audio desktop for leveraging today's evolving
-service-oriented semantic WWW.
+Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net-- announces
+the immediate world-wide availability of Emacspeak 21.0 --a powerful
+audio desktop for leveraging today's evolving service-oriented
+semantic Web.
 
 Investors Note:
 ---------------
 
-With several prominent analysts expanding coverage, NASDOG: ESPK
-is now trading over the net at levels close to that once
-attained by  DogCom high-fliers.
+With several prominent analysts expanding coverage, NASDOG: ESPK is
+now trading over the net at levels close to that once attained by
+DogCom high-fliers.
 
 What Is It?
 -----------
 
-Emacspeak is a fully functional audio desktop that provides
-complete eyes-free access to all major 32 and 64 bit operating
+Emacspeak is a fully functional audio desktop that provides complete
+eyes-free access to all major 32 and 64 bit operating
 environments. By seamlessly blending all aspects of the Internet
-such as Web Services, Web-surfing and electronic messaging into
-the audio desktop, Emacspeak enables speech access to local and
-remote information with a consistent and well-integrated user
-interface.  A rich suite of task-oriented tools provides
-efficient speech-enabled access to the evolving service-oriented
-semantic WWW.
+such as Web Services, Web-surfing and electronic messaging into the
+audio desktop, Emacspeak enables speech access to local and remote
+information with a consistent and well-integrated user interface.  A
+rich suite of task-oriented tools provides efficient speech-enabled
+access to the evolving service-oriented semantic Web.
 
 Major Enhancements:
 -------------------
 
 0)      New WebSearch wizards.
 1)      New smart URLs.
-2)      Speech-enables EMMS --- a unified interface to
-multimedia.
+2)      Speech-enables EMMS --- a unified interface to multimedia.
 3)      Speech-enables CEDET-1.0 --- an integrated Emacs IDE.
 4)      Speech-enables NXML outline support.
 5)      Speech-enables Emacs 21.3.50.
 
 See the NEWS file for additional details. 
 
-Establishing Freedom:
+Establishing Liberty, Equality And Freedom:
 ---------------------
 
-  Never a toy system, Emacspeak is now voluntarily bundled with
-all major Linux distributions. Though designed to be modular,
+  Never a toy system, Emacspeak is now voluntarily bundled with all
+major Linux distributions. Though designed to be modular,
 distributors have freely chosen to bundle the fully integrated
-system without any undue pressure --- a documented success for
-the integrated innovation embodied by the system. The integrity
-of the Emacspeak codebase is ensured by the reliable and secure
-Linux platform used to develop the software.
+system without any undue pressure --- a documented success for the
+integrated innovation embodied by the system. The integrity of the
+Emacspeak codebase is ensured by the reliable and secure Linux
+platform used to develop and distribute the software.
 
 Extensive studies have shown that thanks to these features, users
 consider Emacspeak to be absolutely priceless. Thanks to this
-wide-spread user demand, the present version is being made
-available at the same zero-cost as earlier releases.
+wide-spread user demand, the present version is being made available
+at the same zero-cost as earlier releases.
 
 At the same time, Emacspeak-2004 continues to innovate in the
 area of speech and multimodal interaction and carries forward the
 well-established Open Source tradition of introducing user
 interface features that eventually show up in luser environments.
 
-On this theme, when once challenged by a proponent of a
-crash-prone but well-marketed windowing system with the assertion
-"Emacs is a system from the 70's", the creator of Emacspeak
-evinced surprise at the unusual candor manifest in the assertion
-that it would take popular idiot-proven interfaces until the year
-2070 to catch up to where the Emacspeak audio desktop is
-today. Industry experts welcomed this refreshing breath of
-Courage Certainty and Clarity (CCC) at a time when users are
-reeling from the Fear Uncertainty and Doubt (FUD) unleashed by
-complex software systems backed by even more convoluted press
-releases.
+On this theme, when once challenged by a proponent of a crash-prone
+but well-marketed windowing system with the assertion "Emacs is a
+system from the 70's", the creator of Emacspeak evinced surprise at
+the unusual candor manifest in the assertion that it would take
+popular idiot-proven interfaces until the year 2070 to catch up to
+where the Emacspeak audio desktop is today. Industry experts
+welcomed this refreshing breath of Courage Certainty and Clarity
+(CCC) at a time when users are reeling from the Fear Uncertainty and
+Doubt (FUD) unleashed by complex software systems backed by even
+more convoluted press releases.
 
 Independent Test Results:
 -------------------------
 
 Independent test results have proven that unlike some modern (and
-not so modern) software, Emacspeak can be safely uninstalled
-without adversely affecting the continued performance of the
-computer. These same tests also revealed that once uninstalled,
-the user stopped functioning altogether. Speaking with Aster
-Labrador, the creator of Emacspeak once pointed out that these
-results re-emphasize the user-centric design of Emacspeak; "It is
-the user --and not the computer-- that stops functioning when
-Emacspeak is uninstalled!".
+not so modern) software, Emacspeak can be safely uninstalled without
+adversely affecting the continued performance of the computer. These
+same tests also revealed that once uninstalled, the user stopped
+functioning altogether. Speaking with Aster Labrador, the creator of
+Emacspeak once pointed out that these results re-emphasize the
+user-centric design of Emacspeak; "It is the user --and not the
+computer-- that stops functioning when Emacspeak is uninstalled!".
 
 Note from Aster and Bubbles:
 ----------------------------
@@ -102,11 +98,11 @@ Obtaining Emacspeak:
 
 Emacspeak can be downloaded from sourceforge --see
 http://prdownloads.sourceforge.net/emacspeak/ You can visit
-Emacspeak on the WWW at http://emacspeak.sf.net.  You can
-subscribe to the emacspeak mailing list emacspeak@cs.vassar.edu
-by sending mail to the list request address
-emacspeak-request@cs.vassar.edu.  The latest development snapshot
-of Emacspeak is available via anonymous CVS from sourceforge.
+Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
+to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
+mail to the list request address emacspeak-request@cs.vassar.edu.
+The latest development snapshot of Emacspeak is available via
+anonymous CVS from sourceforge.
 
 History:
  --------
@@ -186,5 +182,6 @@ http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm for details on
 the ill-effects of Forced Fenestration.
 
 CopyWrite )C( Aster and Hubbell Labrador. All Writes Reserved.
-GoldenDog (DM),  BlackDog (DM) etc., are Registered Dogmarks of Aster and Hubbell Labrador.
+GoldenDog (DM),  BlackDog (DM) etc.,
+are Registered Dogmarks of Aster and Hubbell Labrador.
 All other dogs belong to their respective owners.
