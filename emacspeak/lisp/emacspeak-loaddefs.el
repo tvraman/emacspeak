@@ -279,7 +279,7 @@ undefined" nil nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (16006 26926))
+;;;;;;  (16006 27591))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")

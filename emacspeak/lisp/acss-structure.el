@@ -91,6 +91,7 @@
   pitch-range
   stress
   richness
+  punctuations
   )
 
 ;;}}}
@@ -116,10 +117,11 @@ Finally return the symbol"
           (p (acss-pitch-range style))
           (s (acss-stress style))
           (r (acss-richness style))
+          (m (acss-punctuations style))
           (name nil))
       (setq name 
             (intern
-             (format "acss%s%s%s%s%s"
+             (format "acss%s%s%s%s%s%s"
                      (if f
                          (format "-%s" f)
                        "")
@@ -134,6 +136,9 @@ Finally return the symbol"
                        "")
                      (if r
                          (format "-r%s" r)
+                       "")
+                     (if m
+                         (format "-m%s" m)
                        ""))))
       (unless (tts-voice-defined-p name)
         (tts-define-voice-from-speech-style name style))
