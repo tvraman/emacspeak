@@ -105,6 +105,7 @@
 
 (defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
+  "Return a choice widget used in selecting voices."
   (let ((v (tts-list-voices)))
     (setq v
           (cons 

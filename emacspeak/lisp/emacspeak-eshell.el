@@ -180,7 +180,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-readonly-personality 'paul-monotone
+(defcustom emacspeak-eshell-ls-readonly-personality voice-monotone
   "Personality for read only files."
   :type 'symbol
   :group 'emacspeak-eshell)
@@ -205,7 +205,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-backup-personality 'paul-monotone 
+(defcustom emacspeak-eshell-ls-backup-personality voice-monotone-medium
   "Personality for backup files. "
   :type 'symbol
   :group 'emacspeak-eshell)
@@ -215,7 +215,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom  emacspeak-eshell-ls-clutter-personality 'paul-monotone
+(defcustom  emacspeak-eshell-ls-clutter-personality 'voice-lighten-extra
   "Personality for transients."
   :type 'symbol
   :group 'emacspeak-eshell)

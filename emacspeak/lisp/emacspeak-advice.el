@@ -1092,7 +1092,7 @@ in completion buffers"
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 
-(def-voice-font  emacspeak-comint-prompt-personality 'paul-monotone
+(def-voice-font  emacspeak-comint-prompt-personality voice-monotone
 'comint-highlight-prompt
   "Personality used for highlighting comint prompts --emacs 21."
   :group 'comint)
