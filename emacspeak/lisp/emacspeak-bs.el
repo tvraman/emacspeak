@@ -44,6 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
+(require 'voice-setup)
 (require 'emacspeak-fix-interactive)
 
 ;;}}}
@@ -81,10 +82,10 @@
             this-buffer-directory
             (dtk-stop-immediately nil))
         (put-text-property 0 (length document)
-                           'personality 'paul-smooth
+                           'personality voice-smoothen
                            document)
         (put-text-property 0 (length with)
-                           'personality 'paul-smooth with)
+                           'personality voice-smoothen  with)
         (save-excursion
           (set-buffer buffer)
           (setq this-buffer-read-only buffer-read-only)
@@ -101,7 +102,7 @@
         (when this-buffer-modified-p (dtk-tone 700 70))
         (when this-buffer-read-only (dtk-tone 250 50))
         (put-text-property 0 (length this-buffer-mode-name)
-			   'personality 'paul-smooth
+			   'personality voice-smoothen
 			   this-buffer-mode-name)
         (dtk-speak
          (concat 
