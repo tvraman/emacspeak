@@ -617,7 +617,10 @@ minibuffer."
                                  "http://www."))
           (t  prompt))))
     (save-excursion
-      (w3-source-document source-url)
+      (cond
+       (source-url
+        (set-buffer (cdr (url-retrieve source-url))))
+       (t (w3-source-document source-url)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
         (emacspeak-w3-xslt-region
@@ -625,11 +628,12 @@ minibuffer."
          (point-min)
          (point-max)
          (list
-          (cons "table-index"
-                table-index)))
+          (cons "table-index" table-index)
+          ;;(cons "base" source-url) ;xsltproc has a bug
+          ))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
-    
+
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
