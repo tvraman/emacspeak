@@ -1,7 +1,7 @@
 ;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server
 ;;;$Id$
 ;;; $Author$
-;;; Description:  Emacs interface to the dectalk
+;;; Description:  Emacs interface to TTS
 ;;; Keywords: Dectalk Emacs Elisp
 ;;{{{  LCD Archive entry:
 
