@@ -884,7 +884,7 @@ To leave, press \\[keyboard-quit]."
 ;;{{{  Generate documentation:
 (defsubst ems-variable-symbol-file (o)
   "Locate file that defines a variable."
-  (or (symbol-fileo)
+  (or (symbol-file o)
       (symbol-file (cons 'defvar o))))
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
