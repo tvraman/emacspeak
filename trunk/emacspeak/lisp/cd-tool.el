@@ -39,7 +39,7 @@
 ;;}}}
 ;;{{{ required packages
 
-(require 'cl)
+(eval-when-compile (require 'cl))
 
 ;;}}}
 ;;{{{ top level 
