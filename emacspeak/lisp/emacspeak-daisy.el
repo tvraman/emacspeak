@@ -168,6 +168,37 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;}}}
 ;;{{{ play smil content 
 
+(defun emacspeak-daisy-book-add-content (book src)
+  "Parse SMIL content in src and store it as book contents.
+Contents are indexed by src."
+(let ((smil (find-file-noselect (emacspeak-daisy-resolve-uri src))))
+  (save-excursion
+    (set-buffer smil)
+    (goto-char (point-min))
+    (search-forward"<smil")
+    (beginning-of-line)
+    (setf
+     (gethash src (emacspeak-daisy-book-content book))
+          (read-xml))
+    (kill-buffer smil))))
+    
+(defun emacspeak-daisy-fetch-content (book src)
+  "Return content particle from book,
+after fetching it  if necessary."
+  (let ((content
+         (gethash src (emacspeak-daisy-book-content book))))
+    (cond
+     (content content)
+     (t (emacspeak-daisy-book-add-content book src)
+        (gethash src (emacspeak-daisy-book-content book))))))
+
+(defun emacspeak-daisy-play-smil (clip)
+  "Play a SMIL clip."
+  (let ((audio (xml-tag-child clip "audio")))
+    (when audio
+      (emacspeak-daisy-play-audio audio)
+      (message "playing audio"))))
+
 (defun emacspeak-daisy-play-content (content)
   "Play SMIL content specified by content."
   (declare (special emacspeak-daisy-base-uri
@@ -181,13 +212,14 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
          (split (split-string src "#"))
          (relative (first split))
          (fragment (second split))
+         (smil nil)
+         (clip nil)
          (path (emacspeak-daisy-resolve-uri relative)))
-;;; first see if have seen this SMIL document
-    (unless
-        (gethash src (emacspeak-daisy-book-content book))
-      (emacspeak-daisy-book-add-content book src))
-    ))
-))
+    (setq smil (emacspeak-daisy-fetch-content emacspeak-daisy-this-book path))
+    (setq clip
+          (xml-find-tag-by-id smil fragment))
+    (emacspeak-daisy-play-smil clip)))
+
 
 ;;}}}
 ;;{{{  table of handlers 
@@ -326,6 +358,8 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map " "
   'emacspeak-daisy-play-audio-under-point)
+(define-key emacspeak-daisy-mode-map "\C-m"
+  'emacspeak-daisy-play-content-under-point)
 (define-key emacspeak-daisy-mode-map "n" 'next-line)
 (define-key emacspeak-daisy-mode-map "p" 'previous-line)
 
@@ -357,9 +391,9 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
     (kill-buffer ncx)
     (set-buffer buffer)
     (erase-buffer)
+    (emacspeak-daisy-mode)
     (setq emacspeak-daisy-this-book book)
-    (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book))
-    (emacspeak-daisy-mode))
+    (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book)))
   (switch-to-buffer buffer)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'open-object)
