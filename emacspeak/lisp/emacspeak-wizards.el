@@ -1657,7 +1657,7 @@ visiting the xls file."
                  emacspeak-wizards-xlhtml-program filename)
          'replace
          (current-buffer))
-        (w3-preview-this-buffer)
+        (emacspeak-w3-preview-this-buffer)
         (setq emacspeak-wizards-xl-preview-buffer (current-buffer)))
       (kill-buffer buffer)
       (kill-buffer xl-buffer)
@@ -1710,7 +1710,7 @@ visiting the ppt file."
                  emacspeak-wizards-ppthtml-program filename)
          'replace
          (current-buffer))
-        (w3-preview-this-buffer)
+        (emacspeak-w3-preview-this-buffer)
         (setq emacspeak-wizards-ppt-preview-buffer (current-buffer)))
       (kill-buffer buffer)
       (kill-buffer ppt-buffer)
