@@ -411,6 +411,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (require 'ediary)
     (require 'calendar)
     (global-set-key "\M-\C-c" 'calendar)
+(load-library-if-available "icalendar")
     ;;}}}
     ;;{{{ dirvars
     (load-library-if-available "dirvars")
