@@ -169,7 +169,7 @@ servers/dtk-exp \
 servers/dtk-mv \
 servers/dtk-soft \
 servers/outloud \
-servers/stereo-outloud \
+servers/dsp-outloud \
 servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server
