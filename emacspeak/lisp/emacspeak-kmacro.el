@@ -48,8 +48,32 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ bind keys 
 
+(global-set-key [f13] 'kmacro-start-macro-or-insert-counter)
+(global-set-key [f14] 'kmacro-end-or-call-macro)
+
+;;}}}
 ;;{{{ Advice interactive commands
+(defadvice kmacro-start-macro-or-insert-counter (before
+                                                 emacspeak pre
+                                                 act comp)
+  "Provide auditory icon if new macro is being defined."
+  (when (and (interactive-p)
+             (not  defining-kbd-macro )
+             (not executing-kbd-macro))
+    (emacspeak-auditory-icon 'select-object)
+    (message "Defining new kbd macro.")))
+
+(defadvice kmacro-end-or-call-macro (before emacspeak pre act
+                                            comp)
+  "Provide auditory feedback about we are about to do."
+  (cond
+   ((and (interactive-p)
+             defining-kbd-macro)
+    (message "Finished defining kbd macro."))
+   (t(emacspeak-auditory-icon 'select-object)
+    (message "Calling macro."))))
 
 ;;}}}
 (provide 'emacspeak-kmacro)
