@@ -652,7 +652,7 @@ browsing table elements"
   (interactive)
   (declare (special emacspeak-table-speak-element))
   (message emacspeak-table-select-automatic-speaking-method-prompt)
-  (let ((key (read-event)))
+  (let ((key (read-char)))
     (setq emacspeak-table-speak-element 
           (case  key
             (?b 'emacspeak-table-speak-both-headers-and-element)
@@ -804,7 +804,7 @@ the matching cell current."
          (column (emacspeak-table-current-column emacspeak-table))
          (found nil)
          (slice 
-          (case (read-event)
+          (case (read-char)
             (?r 'row)
             (?c 'column)
             (otherwise (error "Can only search in either row or column"))))
@@ -843,7 +843,7 @@ match, makes the matching row or column current."
          (column (emacspeak-table-current-column emacspeak-table))
          (found nil)
          (slice 
-          (case (read-event)
+          (case (read-char)
             (?r 'row)
             (?c 'column)
             (otherwise (error "Can only search in either row or column"))))

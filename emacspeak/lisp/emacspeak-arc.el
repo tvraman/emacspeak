@@ -47,7 +47,7 @@
 (require 'emacspeak-keymap)
 (eval-when (compile)
   (and (locate-library "arc-mode")
-       (require 'arc-mode))
+       (load-library "arc-mode"))
   (require 'emacspeak-fix-interactive))
 
 ;;}}}

@@ -392,7 +392,7 @@ widget before summarizing."
         (continue t))
     (emacspeak-widget-summarize-widget-under-point)
     (while  continue
-      (setq key (read-event))
+      (setq key (read-char))
       (cond
        ((= key ?q) (setq continue nil)
         (message "exitting widget browser"))
