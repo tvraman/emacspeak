@@ -1108,6 +1108,45 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
     (emacspeak-websearch-google query)))
 
 ;;}}}
+;;{{{ teoma
+
+(emacspeak-websearch-set-searcher 'teoma
+                                  'emacspeak-websearch-teoma)
+(emacspeak-websearch-set-key ?T 'teoma)
+
+(defvar emacspeak-websearch-teoma-uri
+  "http://s.teoma.com/search?qcat=1&qsrc=1&q="
+  "*URI for Teoma  search")
+
+
+
+(defun emacspeak-websearch-teoma (query )
+  "Perform an Teoma  search."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query 
+     (format "Teoma Search: "))
+    ))
+  (declare (special emacspeak-websearch-teoma-uri))
+    (browse-url 
+     (concat emacspeak-websearch-teoma-uri
+             (webjump-url-encode query))))
+
+(emacspeak-websearch-set-searcher 'google-lucky
+                                  'emacspeak-websearch-google-feeling-lucky)
+
+(emacspeak-websearch-set-key ?\  'google-lucky)
+
+(defun emacspeak-websearch-google-feeling-lucky (query)
+  "Do a I'm Feeling Lucky Google search."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query 
+     "Google Lucky Search: ")))
+  (let ((emacspeak-websearch-google-feeling-lucky t))
+    (emacspeak-websearch-google query)))
+
+;;}}}
 ;;{{{ google advanced search 
 
 (emacspeak-websearch-set-searcher 'google-advanced
