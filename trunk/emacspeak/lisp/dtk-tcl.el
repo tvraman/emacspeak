@@ -982,7 +982,8 @@ Optional PREFIX arg flushes any previously paused speech."
          prefix
          dtk-paused)
     (dtk-interp-pause)
-    (dtk-speak "Flushed previously paused speech "))
+    (dtk-speak "Flushed previously paused speech ")
+    (setq dtk-paused nil))
    ((and dtk-paused
          (interactive-p))
     (emacspeak-auditory-icon 'warn-user))))
