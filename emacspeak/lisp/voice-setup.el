@@ -191,6 +191,17 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{  special form defvoice 
+(defcustom voice-setup-acss-dimensions
+  (list :family
+        :average-pitch
+        :pitch-range
+        :stress
+        :richness
+        :gain )
+  "Dimensions implemented from ACSS."
+  :type '(repeat
+  (symbol :tag "Keyword"))
+  :group 'tts)
 
 (defmacro defvoice (personality settings doc)
   "Define voice personality using specified CSS settings."
@@ -199,9 +210,11 @@ This function forces voice-lock mode on."
      (, settings)
      (, doc)
      :type  '(repeat
-              (cons :tag "Setting"
+              (list :tag "Setting"
                     (symbol :tag "Key")
-                    (sexp :tag "Value")))
+                    (choice :tag "Value"
+                            (integer :tag "Number")
+                            (symbol :tag "Name"))))
      :group 'tts
      :set '(lambda  (sym val)
              (let ((voice-name (dtk-personality-from-speech-style
