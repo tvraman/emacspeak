@@ -591,7 +591,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special dtk-voice-table))
   (loop for k being the hash-keys of dtk-voice-table 
-collect (list 'const  k)))
+collect   k))
 
 ;;}}}
 ;;{{{ configurater 

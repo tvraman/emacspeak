@@ -599,16 +599,14 @@ This is setup on a per engine basis.")
   
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
-  (declare (special dtk-default-speech-rate
-                    tts-default-speech-rate
-                    outloud-default-speech-rate
-                    emacspeak-aumix-multichannel-capable-p emacspeak-aumix-midi-available-p emacspeak-use-auditory-icons
-                    dtk-program))
+  (declare (special dtk-program
+                    tts-voice-reset-code))
   (unless tts-name (setq tts-name dtk-program))
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
    (t (dtk-configure-tts)))
+  (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
 ;;; forward declaration.

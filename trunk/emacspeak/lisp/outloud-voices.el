@@ -453,7 +453,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special outloud-voice-table))
   (loop for k being the hash-keys of outloud-voice-table 
-collect (list 'const  k)))
+collect   k))
 
 ;;}}}
 ;;{{{ Configurater 
