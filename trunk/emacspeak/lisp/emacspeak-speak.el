@@ -2606,48 +2606,6 @@ Signals beginning  of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
 
 ;;}}}
-;;{{{  Display properties conveniently
-
-;;; Useful for developping emacspeak:
-;;; Display selected properties of interest
-
-
-(defun emacspeak-show-personality-at-point ()
-  "Show value of property personality at point."
-  (interactive )
-  (emacspeak-show-property-at-point 'personality))
-
-(defvar emacspeak-property-table
-  '(("personality"  . "personality")
-    ("auditory-icon" . "auditory-icon")
-    ("action" . "action"))
-  "Properties emacspeak is interested in.")
-
-(defun emacspeak-show-property-at-point (&optional property )
-  "Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
-If no property is set, show a message and exit."
-  (interactive
-   (let
-       ((properties (text-properties-at  (point))))
-     (cond
-      ((and properties
-            (= 2 (length properties )))
-       (list (car properties )))
-      (properties
-       (list
-        (intern
-         (completing-read  "Display property: "
-                           emacspeak-property-table ))))
-      (t (message "No property set at point ")
-         nil))))
-  (declare (special emacspeak-property-table))
-  (if property
-      (message"%s"
-              (get-text-property (point) property ))))
-
-;;}}}
 ;;{{{ Speaking spaces
 
 (defun emacspeak-speak-spaces-at-point ()
