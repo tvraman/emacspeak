@@ -577,6 +577,12 @@ source buffer."
 :type 'string
 :group 'emacspeak-w3)
 
+(defun emacspeak-w3-set-xsl-keep-result (value)
+  "Set value of `emacspeak-w3-xsl-keep-result'."
+  (interactive  "sEnter name of result buffer: ")
+  (declare (special emacspeak-w3-xsl-keep-result))
+  (setq emacspeak-w3-xsl-keep-result value))
+
 (defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result )
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
@@ -863,6 +869,8 @@ completion. "
 XPath locator.")
 
 (declaim (special emacspeak-w3-xsl-map))
+(define-key emacspeak-w3-xsl-map "k"
+  'emacspeak-w3-set-xsl-keep-result)
 (define-key emacspeak-w3-xsl-map "a"
   'emacspeak-w3-xslt-apply)
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
