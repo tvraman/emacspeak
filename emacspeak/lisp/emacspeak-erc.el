@@ -172,6 +172,33 @@ room.")
 (make-variable-buffer-local
  'emacspeak-erc-people-to-monitor)
 
+(defun emacspeak-erc-add-name-to-monitor (name)
+  "Add people to monitor in this room."
+  (interactive
+   (list
+    (read-from-minibuffer "Who should I monitor? ")))
+(declare (special emacspeak-erc-people-to-monitor))
+(unless (eq major-mode 'erc-mode)
+  (error "Not in an ERC buffer."))
+(pushnew name emacspeak-erc-people-to-monitor
+         :test #'string-equal))
+
+(defun emacspeak-erc-delete-name-from-monitor (name)
+  "Remove name to monitor in this room."
+  (interactive
+   (list
+    (read-from-minibuffer "Who should I stop monitoring? ")))
+  (declare (special emacspeak-erc-people-to-monitor))
+  (unless (eq major-mode 'erc-mode)
+    (error "Not in an ERC buffer."))
+  (setq emacspeak-erc-people-to-monitor
+        (remove-if
+         (function
+          (lambda (x)
+            (string-equal x name)))
+         emacspeak-erc-people-to-monitor)))
+
+
 (defun emacspeak-erc-compute-message (string buffer)
   "Uses environment of buffer to decide what message to
 display. String is the original message."
@@ -216,8 +243,13 @@ set the current local value to the result."
 	   (if prefix "" "locally")))
 
 ;;}}}
-;;{{{ define emacspeak keys 
-(define-key erc-mode-map "\C-c\C-m" 'emacspeak-erc-toggle-room-monitor)
+;;{{{ define emacspeak keys
+(declaim (special erc-mode-map))
+(define-key erc-mode-map "\C-c\C-m"
+  'emacspeak-erc-toggle-room-monitor)
+(define-key erc-mode-map "\C-c\C-a"
+  'emacspeak-erc-add-name-to-monitor)
+(define-key erc-mode-map "\C-c\C-d" 'emacspeak-erc-delete-name-from-monitor)
 ;;}}}
 ;;{{{ end of file
 
