@@ -169,6 +169,7 @@ prompting for a template.")
 
 ;;}}}
 ;;{{{  template resources 
+
 ;;{{{  Linksys IP
 
 (emacspeak-url-template-define
@@ -190,7 +191,6 @@ prompting for a template.")
       (read-from-minibuffer "Site to analyze: ")))
  nil
  "Analyze WWW site using Netcraft.")
- 
 ;;}}}
 ;;{{{ bbc 
 (emacspeak-url-template-define
@@ -691,6 +691,21 @@ the broadcast. You must have mplayer installed."
  "Play Technetcast stream from DDJ.")
 
 ;;}}}
+;;{{{  linux today 
+
+(emacspeak-url-template-define
+ "Linux Today News"
+ "http://www.linuxtoday.com/"
+ nil
+ nil
+ "Get news column from Linux Today."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "(//table)[2]/tr/td[2]"
+      url
+      'speak)))
+
+;;}}}
 ;;{{{ sourceforge
 (emacspeak-url-template-define
  "sourceforge Stats" 
@@ -805,7 +820,6 @@ the broadcast. You must have mplayer installed."
 					    pnr name)))))
 
 ;;}}}
-
 ;;{{{  times of india 
 
 ;;; create url rewrite url to get print page 
