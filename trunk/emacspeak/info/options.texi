@@ -1445,7 +1445,7 @@ I'm Feeling Lucky button by default.
 @end defvar
 
 @defvar {User Option} emacspeak-websearch-google-number-of-results
-Number of results to return from Goggle search.
+Number of results to return from google search.
 @end defvar
 
 @node emacspeak-widget Options
