@@ -234,7 +234,6 @@ proc speech_task {} {
     }
     set tts(talking?) 0
     synchronize
-    closeDSP
     return ""
 }
 
@@ -323,7 +322,7 @@ load $tclTTS/tcleci.so
 set tts(stereo) 1
 useStereoOutput
 synth {`v1 Using in memory synthesis.}
-synchronize
+service
 
 #Start the main command loop:
 
