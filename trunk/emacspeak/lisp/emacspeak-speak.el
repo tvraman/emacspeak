@@ -2822,6 +2822,15 @@ typed. If no such group exists, then we dont move. "
      (t (message "No previous mark to move to")))))
 
 ;;}}}
+;;{{{ customize emacspeak
+(defun emacspeak-customize ()
+  "Customize Emacspeak."
+  (interactive)
+  (customize-group 'emacspeak)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-custom-goto-group))
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 

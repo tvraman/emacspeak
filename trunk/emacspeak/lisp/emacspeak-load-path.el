@@ -36,7 +36,7 @@
 
 ;;}}}
 (defvar emacspeak-directory
-  (expand-file-name "..")
+  (expand-file-name "/home/tvraman/emacs/lisp/emacspeak")
   "Directory where emacspeak is installed. ")
 
 
