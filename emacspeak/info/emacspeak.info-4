@@ -49,7 +49,7 @@ emacspeak-realaudio-select-realaudio-buffer
 emacspeak-realaudio-browse
 ==========================
 
-   Control  cap E  :
+   ` Control  cap E  : '
 
    Browse RAM file before playing the selected component.
 
@@ -98,7 +98,7 @@ emacspeak-realaudio-trplayer-call-command
 emacspeak-realaudio
 ===================
 
-   Control  cap E  ;
+   ` Control  cap E  ; '
 
    Start or control streaming audio including MP3 and realaudio.  If
 using `TRPlayer' as the player, accepts trplayer control commands if a
@@ -143,14 +143,14 @@ emacspeak-redefine.
 emacspeak-backward-char
 =======================
 
-   control b   left
+   ` Control  cap B    left '
 
    Backward-char redefined to speak char moved to.
 
 emacspeak-self-insert-command
 =============================
 
-   Character set Tibetan 2 column   Character set Indian 2 Column
+   ` Character set Tibetan 2 column   Character set Indian 2 Column
 Character set CNS11643-7 (Chinese traditional)   Character set
 CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese
 traditional)   Character set CNS11643-4 (Chinese traditional)
@@ -183,7 +183,7 @@ _   \    cap Z     cap Y     cap X     cap W     cap V     cap U
 cap T     cap S     cap R     cap Q     cap P     cap O     cap N
 cap M     cap L     cap K     cap J     cap I     cap H     cap G
 cap F     cap E     cap D     cap C     cap B     cap A       >   <   9
- 8   7   6   5   4   3   2   1   0   /   -   +   *   $
+ 8   7   6   5   4   3   2   1   0   /   -   +   *   $ '
 
    Insert a character.  Speaks the character if
 emacspeak-character-echo is true.  See  command
@@ -194,7 +194,7 @@ you type.
 emacspeak-forward-char
 ======================
 
-   control f   right
+   ` Control  cap F    right '
 
    Forward-char redefined to speak char moved to.
 
@@ -210,7 +210,7 @@ emacspeak-remote.
 emacspeak-remote-connect-to-server
 ==================================
 
-   kp-3   control e meta r
+   ` kp-3   Control  cap E  Meta  cap R  '
 
    Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote server,
@@ -303,15 +303,13 @@ themes architecture for  auditory icons.  Sound files corresponding to
 a given theme are found in appropriate subdirectories of
 emacspeak-sounds-directory
 
-   }}} {{{ required modules
-
    Automatically generated documentation for commands defined in module
 emacspeak-sounds.
 
 emacspeak-toggle-auditory-icons
 ===============================
 
-   control e control a
+   ` control e control a '
 
    Toggle use of auditory icons.  Optional interactive PREFIX arg
 toggles global value.
@@ -326,7 +324,7 @@ emacspeak-play-all-icons
 emacspeak-set-auditory-icon-player
 ==================================
 
-   control e meta a
+   ` control e meta a '
 
    Select  player used for producing auditory icons.  Recommended
 choices:
@@ -337,7 +335,7 @@ emacspeak-midi-icon for midi device.
 emacspeak-sounds-select-theme
 =============================
 
-   Control  cap E  )
+   ` control e ) '
 
    Select theme for auditory icons.
 
@@ -368,14 +366,14 @@ emacspeak-speak.
 emacspeak-kill-buffer-quietly
 =============================
 
-   kp-f4   f4
+   ` kp-f4   f4 '
 
    Kill current buffer without asking for confirmation.
 
 emacspeak-speak-line-set-column-filter
 ======================================
 
-   Control  cap E  |
+   ` control e | '
 
    Set up filter for selectively ignoring portions of lines.  The
 filter is specified as a list of pairs.  For example, to filter out
@@ -388,7 +386,7 @@ a set of filters for specific files like /var/adm/messages and
 emacspeak-speak-current-percentage
 ==================================
 
-   Control  cap E  %
+   ` control e % '
 
    Announce the percentage into the current buffer.
 
@@ -407,7 +405,7 @@ speak interactive prompts.
 emacspeak-speak-char
 ====================
 
-   Control  cap E  c
+   ` control e c '
 
    Speak character under point.  Pronounces character phonetically
 unless  called with a PREFIX arg.
@@ -415,14 +413,14 @@ unless  called with a PREFIX arg.
 emacspeak-speak-rest-of-buffer
 ==============================
 
-   Control  cap E  n
+   ` control e n '
 
    Speak remainder of the buffer starting at point
 
 emacspeak-toggle-comint-output-monitor
 ======================================
 
-   control e o
+   ` control e o '
 
    Toggle state of Emacspeak comint monitor.  When turned on, comint
 output is automatically spoken.  Turn this on if you want your shell to
@@ -440,7 +438,7 @@ start.  'r' to speak the rest.  any other key to speak entire help.
 emacspeak-speak-region
 ======================
 
-   control e r
+   ` control e r '
 
    Speak region.  Argument START  and END specify region to speak.
 
@@ -463,7 +461,7 @@ setting to be global.
 emacspeak-owindow-speak-line
 ============================
 
-   ESCAPE select
+   ` ESCAPE select '
 
    Speak the current line in the other window.
 
@@ -479,21 +477,21 @@ with completion when called interactively.
 emacspeak-mark-forward-mark
 ===========================
 
-   control down
+   ` control down '
 
    Cycle forward through the mark ring.
 
 emacspeak-speak-spell-current-word
 ==================================
 
-   control e  cap W
+   ` control e  cap W  '
 
    Spell word at  point.
 
 emacspeak-speak-page-interactively
 ==================================
 
-   control e ]
+   ` control e ] '
 
    Speak the start of, rest of, or the entire page.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire page.
@@ -501,7 +499,7 @@ start.  'r' to speak the rest.  any other key to speak entire page.
 emacspeak-speak-paragraph
 =========================
 
-   control e {
+   ` control e{ '
 
    Speak paragraph.  With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
@@ -510,7 +508,7 @@ If voice-lock-mode is on, then it will use any defined personality.
 emacspeak-speak-page
 ====================
 
-   control e [
+   ` control e [ '
 
    Speak a page.  With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.  If
@@ -520,7 +518,7 @@ personality.
 emacspeak-speak-browse-buffer
 =============================
 
-   control e ,
+   ` control e , '
 
    Browse the current buffer by reading it a paragraph at a time.
 Optional interactive prefix arg define-paragraph prompts for regexp
@@ -529,14 +527,14 @@ that defines paragraph start and paragraph-separate.
 emacspeak-speak-message-again
 =============================
 
-   control e a
+   ` control e a '
 
    Speak the last message from Emacs once again.
 
 emacspeak-speak-line
 ====================
 
-   control e l
+   ` control e l '
 
    Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
@@ -552,7 +550,7 @@ icon ellipses.
 emacspeak-speak-word
 ====================
 
-   control e w
+   ` control e w '
 
    Speak current word.  With prefix ARG, speaks the rest of the word
 from point.  Negative prefix arg speaks from start of word to point.
@@ -562,14 +560,14 @@ spelt instead of being spoken.
 emacspeak-toggle-speak-messages
 ===============================
 
-   control e q
+   ` control e q '
 
    Toggle the state of whether emacspeak echoes messages.
 
 emacspeak-owindow-scroll-up
 ===========================
 
-   ESCAPE next
+   ` ESCAPE next '
 
    Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling.
@@ -586,7 +584,7 @@ blink-paren function which does not talk.
 emacspeak-view-register
 =======================
 
-   control e v
+   ` control e v '
 
    Display the contents of a register, and then speak it.
 
@@ -602,7 +600,7 @@ to point.
 emacspeak-speak-sexp-interactively
 ==================================
 
-   control e "
+   ` control e " '
 
    Speak the start of, rest of, or the entire sexp.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire sexp.
@@ -610,7 +608,7 @@ start.  'r' to speak the rest.  any other key to speak entire sexp.
 emacspeak-speak-minor-mode-line
 ===============================
 
-   control e  cap M
+   ` control e  cap M  '
 
    Speak the minor mode-information.
 
@@ -626,7 +624,7 @@ dtk-speak-skim-scale
 emacspeak-speak-buffer-filename
 ===============================
 
-   control e f
+   ` control e f '
 
    Speak name of file being visited in current buffer.  Speak default
 directory if invoked in a dired buffer, or when the buffer is not
@@ -643,7 +641,7 @@ PREFIX arg prompts for sound cue to use
 emacspeak-speak-current-kill
 ============================
 
-   control e k
+   ` control e k '
 
    Speak the current kill entry.  This is the text that will be yanked
 in by the next C-y.  Prefix numeric arg, COUNT, specifies that the text
@@ -654,7 +652,7 @@ to give to command yank.
 emacspeak-toggle-which-function
 ===============================
 
-   control e meta w
+   ` control e meta w '
 
    Toggle state of  Emacspeak  which function mode.  Interactive PREFIX
 arg means toggle  the global default value, and then set the current
@@ -663,7 +661,7 @@ local  value to the result.
 emacspeak-speak-buffer-interactively
 ====================================
 
-   control e  cap B
+   ` control e  cap B  '
 
    Speak the start of, rest of, or the entire buffer.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire buffer.
@@ -671,21 +669,21 @@ start.  'r' to speak the rest.  any other key to speak entire buffer.
 emacspeak-speak-spaces-at-point
 ===============================
 
-   control e meta control
+   ` control e meta control  '
 
    Speak the white space at point.
 
 emacspeak-speak-mode-line
 =========================
 
-   control e m
+   ` control e m '
 
    Speak the mode-line.
 
 emacspeak-speak-paragraph-interactively
 =======================================
 
-   control e  cap P
+   ` control e  cap P  '
 
    Speak the start of, rest of, or the entire paragraph.  's' to speak
 the start.  'r' to speak the rest.  any other key to speak entire
@@ -694,21 +692,21 @@ paragraph.
 emacspeak-speak-next-window
 ===========================
 
-   control e control n
+   ` control e control n '
 
    Speak the next window.
 
 emacspeak-speak-previous-window
 ===============================
 
-   control e control p
+   ` control e control p '
 
    Speak the previous window.
 
 emacspeak-switch-to-previous-buffer
 ===================================
 
-   l10
+   ` l10 '
 
    Switch to most recently used interesting buffer.
 
@@ -729,7 +727,7 @@ emacspeak-blink-matching-open
 emacspeak-toggle-mail-alert
 ===========================
 
-   control e meta m
+   ` control e meta m '
 
    Toggle state of  Emacspeak  mail alert.  Interactive PREFIX arg
 means toggle  the global default value, and then set the current local
@@ -759,7 +757,7 @@ Useful to do this before you listen to an entire buffer.
 emacspeak-toggle-comint-autospeak
 =================================
 
-   control e control q
+   ` control e control q '
 
    Toggle state of Emacspeak comint autospeak.  When turned on, comint
 output is automatically spoken.  Turn this on if you want your shell to
@@ -769,21 +767,21 @@ default value, and then set the current local value to the result.
 emacspeak-mark-backward-mark
 ============================
 
-   control up
+   ` control up '
 
    Cycle backward through the mark ring.
 
 emacspeak-zap-tts
 =================
 
-   control e d z
+   ` control e d z '
 
    Send this command to the TTS directly.
 
 emacspeak-speak-continuously
 ============================
 
-   control e RETURN
+   ` control e RETURN '
 
    Speak a buffer continuously.  First prompts using the minibuffer for
 the kind of action to perform after speaking each chunk.  E.G.  speak a
@@ -794,7 +792,7 @@ Any other key continues to speak the buffer.
 emacspeak-speak-sexp
 ====================
 
-   control e '
+   ` control e ' '
 
    Speak current sexp.  With prefix ARG, speaks the rest of the sexp
 from point.  Negative prefix arg speaks from start of sexp to point.
@@ -812,7 +810,7 @@ when called interactively.
 emacspeak-dial-dtk
 ==================
 
-   control e d t
+   ` control e d t '
 
    Prompt for and dial a phone NUMBER with the Dectalk.
 
@@ -824,15 +822,16 @@ speak interactive prompts.
 emacspeak-speak-current-column
 ==============================
 
-   control e =
+   ` control e = '
 
    Speak the current column.
 
 emacspeak-speak-predefined-window
 =================================
 
-   control e 9   control e 8   control e 7   control e 6   control e 5
-control e 4   control e 3   control e 2   control e 1   control e 0
+   ` control e 9   control e 8   control e 7   control e 6   control e
+5   control e 4   control e 3   control e 2   control e 1   control e 0
+'
 
    Speak one of the first 10 windows on the screen.  Speaks entire
 window irrespective of point.  In general, you'll never have Emacs
@@ -843,7 +842,7 @@ the builtin Emacs command `other-window'.
 emacspeak-toggle-line-echo
 ==========================
 
-   control e d l
+   ` control e d l '
 
    Toggle state of  Emacspeak  line echo.  Interactive PREFIX arg means
 toggle  the global default value, and then set the current local  value
@@ -877,7 +876,7 @@ sentence to point.
 emacspeak-speak-previous-field
 ==============================
 
-   control e <
+   ` control e < '
 
    Skip backwards across and speak  contiguous sequence of non-blank
 characters.  Useful in moving across fields.  Will be improved if it
@@ -886,7 +885,7 @@ proves useful.
 emacspeak-toggle-word-echo
 ==========================
 
-   control e d w
+   ` control e d w '
 
    Toggle state of  Emacspeak  word echo.  Interactive PREFIX arg means
 toggle  the global default value, and then set the current local  value
@@ -895,7 +894,7 @@ to the result.
 emacspeak-toggle-show-point
 ===========================
 
-   control e control d
+   ` control e control d '
 
    Toggle state of  Emacspeak-show-point.  Interactive PREFIX arg means
 toggle  the global default value, and then set the current local  value
@@ -904,7 +903,7 @@ to the result.
 emacspeak-speak-help
 ====================
 
-   control e h
+   ` control e h '
 
    Speak help buffer if one present.  With prefix arg, speaks the rest
 of the buffer from point.  Negative prefix arg speaks from start of
@@ -913,7 +912,7 @@ buffer to point.
 emacspeak-speak-current-mark
 ============================
 
-   control e control
+   ` control e control  '
 
    Speak the line containing the mark.  With no argument, speaks the
 line containing the mark-this is where `exchange-point-and-mark' C-x
@@ -933,7 +932,7 @@ emacspeak-speak-skim-next-paragraph
 emacspeak-speak-line-interactively
 ==================================
 
-   control e  cap L
+   ` control e  cap L  '
 
    Speak the start of, rest of, or the entire line.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire line.
@@ -941,7 +940,7 @@ start.  'r' to speak the rest.  any other key to speak entire line.
 emacspeak-owindow-previous-line
 ===============================
 
-   ESCAPE up
+   ` ESCAPE up '
 
    Move to the next line in the other window and speak it.  Numeric
 prefix arg COUNT specifies number of lines to move.
@@ -949,7 +948,7 @@ prefix arg COUNT specifies number of lines to move.
 emacspeak-customize
 ===================
 
-   control e  cap C
+   ` control e  cap C  '
 
    Customize Emacspeak.
 
@@ -965,7 +964,7 @@ entry in the completions buffer) inaudible to reduce chatter.
 emacspeak-dtk-speak-version
 ===========================
 
-   control e d  cap V
+   ` control e d  cap V  '
 
    Use this to find out which version of the Dectalk firmware you are
 running.
@@ -973,7 +972,7 @@ running.
 emacspeak-speak-next-field
 ==========================
 
-   control e >
+   ` control e > '
 
    Skip across and speak the next contiguous sequence of non-blank
 characters.  Useful in moving across fields.  Will be improved if it
@@ -982,14 +981,14 @@ proves useful.
 emacspeak-speak-line-number
 ===========================
 
-   control e control l
+   ` control e control l '
 
    Speak the line number of the current line.
 
 emacspeak-read-previous-line
 ============================
 
-   control e up
+   ` control e up '
 
    Read previous line, specified by an offset, without moving.  Default
 is to read the previous line.
@@ -1005,7 +1004,7 @@ Default is to read the previous word.
 emacspeak-owindow-scroll-down
 =============================
 
-   ESCAPE prior
+   ` ESCAPE prior '
 
    Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling.
@@ -1013,7 +1012,7 @@ Speak the window contents after scrolling.
 emacspeak-speak-time
 ====================
 
-   control e t
+   ` control e t '
 
    Speak the time.
 
@@ -1036,7 +1035,7 @@ start.  'r' to speak the rest.  any other key to speak entire word.
 emacspeak-toggle-character-echo
 ===============================
 
-   control e d k
+   ` control e d k '
 
    Toggle state of  Emacspeak  character echo.  Interactive PREFIX arg
 means toggle  the global default value, and then set the current local
@@ -1045,7 +1044,7 @@ value to the result.
 emacspeak-speak-rectangle
 =========================
 
-   control e  cap R
+   ` control e  cap R  '
 
    Speak a rectangle of text.  Rectangle is delimited by point and mark.
 When call from a program, arguments specify the START and END of the
@@ -1054,7 +1053,7 @@ rectangle.
 emacspeak-speak-buffer
 ======================
 
-   control e b
+   ` control e b '
 
    Speak current buffer  contents.  With prefix ARG, speaks the rest of
 the buffer from point.  Negative prefix arg speaks from start of buffer
@@ -1073,21 +1072,21 @@ of point.
 emacspeak-speak-version
 =======================
 
-   control e  cap V
+   ` control e  cap V  '
 
    Announce version information for running emacspeak.
 
 emacspeak-speak-window-information
 ==================================
 
-   control e control w
+   ` control e control w '
 
    Speaks information about current window.
 
 emacspeak-toggle-audio-indentation
 ==================================
 
-   control e d i
+   ` control e d i '
 
    Toggle state of  Emacspeak  audio indentation.  Interactive PREFIX
 arg means toggle  the global default value, and then set the current
@@ -1099,7 +1098,7 @@ number of initial spaces being spoken.
 emacspeak-owindow-next-line
 ===========================
 
-   ESCAPE down
+   ` ESCAPE down '
 
    Move to the next line in the other window and speak it.  Numeric
 prefix arg COUNT can specify number of lines to move.
@@ -1122,7 +1121,7 @@ speak interactive prompts.
 emacspeak-read-next-line
 ========================
 
-   control e down
+   ` control e down '
 
    Read next line, specified by an offset, without moving.  Default is
 to read the next line.
@@ -1161,7 +1160,7 @@ emacspeak-speedbar-click
 emacspeak-speedbar-goto-speedbar
 ================================
 
-   insert
+   ` insert '
 
    Switch to the speedbar
 
@@ -1222,7 +1221,7 @@ Optional prefix arg prompts for a new filter.
 emacspeak-table-find-file
 =========================
 
-   control e control t
+   ` control e control t '
 
    Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -1376,7 +1375,7 @@ emacspeak-table-speak-current-element
 emacspeak-table-display-table-in-region
 =======================================
 
-   control e TAB
+   ` control e TAB '
 
    Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.  emacspeak table mode is designed
@@ -1449,7 +1448,7 @@ emacspeak-tabulate.
 emacspeak-tabulate-region
 =========================
 
-   control e i
+   ` control e i '
 
    Voicifies the white-space of a table if one found.  Optional
 interactive prefix arg mark-fields specifies if the header row
@@ -1467,7 +1466,7 @@ emacspeak-tapestry.
 emacspeak-tapestry-describe-tapestry
 ====================================
 
-   control e meta t
+   ` control e meta t '
 
    Describe the current layout of visible buffers in current frame.
 
@@ -1490,7 +1489,7 @@ emacspeak-url-template-save
 emacspeak-url-template-fetch
 ============================
 
-   control e u
+   ` control e u '
 
    Prompt for  URL template and fetch specified resource.
 

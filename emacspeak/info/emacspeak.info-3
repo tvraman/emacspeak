@@ -21,9 +21,9 @@ dtk-tcl.
 dtk-set-predefined-speech-rate
 ==============================
 
-   control e d 9   control e d 8   control e d 7   control e d 6
+   ` control e d 9   control e d 8   control e d 7   control e d 6
 control e d 5   control e d 4   control e d 3   control e d 2   control
-e d 1   control e d 0
+e d 1   control e d 0 '
 
    Set speech rate to one of nine predefined levels.  Interactive
 PREFIX arg says to set the rate globally.
@@ -31,7 +31,7 @@ PREFIX arg says to set the rate globally.
 dtk-reset-state
 ===============
 
-   control e d  cap R
+   ` control e d  cap R  '
 
    Restore sanity to the Dectalk.  Typically used after the Dectalk has
 been power   cycled.
@@ -39,7 +39,7 @@ been power   cycled.
 dtk-resume
 ==========
 
-   control e SPACE
+   ` control e SPACE '
 
    Resume paused speech.  This command resumes  speech that has been
 suspended by executing command `dtk-pause' bound to C-e p.  If speech
@@ -57,7 +57,7 @@ punctuation mode globally.
 dtk-toggle-split-caps
 =====================
 
-   control e d s
+   ` control e d s '
 
    Toggle split caps mode.  Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
@@ -67,7 +67,7 @@ value to the result.
 dtk-add-cleanup-pattern
 =======================
 
-   control e d a
+   ` control e d a '
 
    Add this pattern to the list of repeating patterns that are cleaned
 up.  Optional interactive prefix arg deletes this pattern if previously
@@ -81,7 +81,7 @@ fifteen dot" when speaking the string "..............." instead of
 dtk-set-rate
 ============
 
-   control e d r
+   ` control e d r '
 
    Set speaking RATE for the tts.  Interactive PREFIX arg means set
 the global default value, and then set the current local  value to the
@@ -103,7 +103,7 @@ punctuation mode globally.
 dtk-set-punctuations
 ====================
 
-   control e d p
+   ` control e d p '
 
    Set punctuation mode to MODE.  Possible values are `some', `all', or
 `none'.  Interactive PREFIX arg means set   the global default value,
@@ -112,7 +112,7 @@ and then set the current local  value to the result.
 dtk-pause
 =========
 
-   control e p
+   ` control e p '
 
    Pause ongoing speech.  The speech can be resumed with command
 `dtk-resume' normally bound to C-e SPC.  Pausing speech is useful when
@@ -125,7 +125,7 @@ arg flushes any previously paused speech.
 dtk-set-pronunciation-mode
 ==========================
 
-   control e d m
+   ` control e d m '
 
    Set pronunciation MODE.  This command is valid only for newer
 Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
@@ -135,7 +135,7 @@ specifies new state.
 dtk-toggle-quiet
 ================
 
-   control e d q
+   ` control e d q '
 
    Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
@@ -146,7 +146,7 @@ buffer o rin all buffers.
 dtk-toggle-stop-immediately-while-typing
 ========================================
 
-   control e d  cap I
+   ` control e d  cap I  '
 
    Toggle state of variable `dtk-stop-immediately-while-typing'.  As
 the name implies, if T then speech flushes immediately as you type.
@@ -156,7 +156,7 @@ buffers.
 dtk-toggle-capitalization
 =========================
 
-   control e d c
+   ` control e d c '
 
    Toggle capitalization.  when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
@@ -165,14 +165,14 @@ value, and then set the current local value to the result.
 dtk-stop
 ========
 
-   pause   control e s   ESCAPE [  cap P
+   ` pause   control e s   ESCAPE [  cap P  '
 
    Stop speech now.
 
 dtk-set-character-scale
 =======================
 
-   control e d f
+   ` control e d f '
 
    Set scale FACTOR for   speech rate.  Speech rate is scaled by this
 factor when speaking characters.  Interactive PREFIX arg means set
@@ -187,7 +187,7 @@ speak interactive prompts.
 dtk-toggle-allcaps-beep
 =======================
 
-   control e d  cap C
+   ` control e d  cap C  '
 
    Toggle allcaps-beep.  when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
@@ -198,7 +198,7 @@ irritating to have it on when reading documents.
 dtk-toggle-punctuation-mode
 ===========================
 
-   delete
+   ` delete '
 
    Toggle punctuation mode between "some" and "all".  Interactive
 PREFIX arg makes the new setting global.
@@ -225,21 +225,21 @@ emacspeak-aumix.
 emacspeak-aumix-volume-decrease
 ===============================
 
-   volume-down
+   ` volume-down '
 
    Decrease overall volume.
 
 emacspeak-aumix-volume-increase
 ===============================
 
-   volume-up
+   ` volume-up '
 
    Increase overall volume.
 
 emacspeak-aumix
 ===============
 
-   control e (
+   ` control e ( '
 
    Setup output parameters of the auditory display.  Luanch this tool
 while you have auditory output on multiple channels playing so you can
@@ -256,14 +256,14 @@ emacspeak-aumix-reset
 emacspeak-aumix-wave-decrease
 =============================
 
-   control e control f left
+   ` control e control f left '
 
    Decrease volume of wave output.
 
 emacspeak-aumix-wave-increase
 =============================
 
-   control e control f right
+   ` control e control f right '
 
    Increase volume of wave output.
 
@@ -367,7 +367,7 @@ emacspeak-speak-calendar-date
 emacspeak-appt-repeat-announcement
 ==================================
 
-   control e  cap A
+   ` control e  cap A  '
 
    Speaks the most recently displayed appointment message if any.
 
@@ -424,8 +424,6 @@ emacspeak-dired
 of speech you hear: Typically you hear the file names as you move
 through the dired buffer Voicification is used to indicate directories,
 marked files etc.
-
-   }}} {{{  required packages
 
    Automatically generated documentation for commands defined in module
 emacspeak-dired.
@@ -549,14 +547,12 @@ File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-filtertext,  Prev
 emacspeak-eterm
 ===============
 
-   Commentary: {{{  Introduction: This module makes eterm talk.  Eterm
-is the new terminal emulator for Emacs.  Use of emacspeak with eterm
-really needs an info page.  At present, the only documentation is the
-source level documentation.  This module uses Control-t as an
-additional prefix key to allow the user To move around the terminal and
-have different parts spoken.
-
-   }}}
+   Commentary: This module makes eterm talk.  Eterm is the new terminal
+emulator for Emacs.  Use of emacspeak with eterm really needs an info
+page.  At present, the only documentation is the source level
+documentation.  This module uses Control-t as an additional prefix key
+to allow the user To move around the terminal and have different parts
+spoken.
 
    Automatically generated documentation for commands defined in module
 emacspeak-eterm.
@@ -830,7 +826,7 @@ emacspeak-eterm-pointer-to-left-edge
 emacspeak-eterm-remote-term
 ===========================
 
-   control e meta control r
+   ` control e meta control r '
 
    Start a terminal-emulator in a new buffer.
 
@@ -899,7 +895,7 @@ emacspeak-filtertext-revert
 emacspeak-filtertext
 ====================
 
-   Control  cap E  \
+   ` control e \ '
 
    Copy over text in region to special filtertext buffer in preparation
 for interactively filtering text.
@@ -993,7 +989,7 @@ emacspeak-freeamp.
 emacspeak-freeamp
 =================
 
-   control e control f o
+   ` control e control f o '
 
    Play specified resource using freeamp.  Resource is an  MP3 file or
 m3u playlist.  The player is placed in a buffer in
@@ -1034,9 +1030,9 @@ speak interactive prompts.
 emacspeak-freeamp-freeamp-call-command
 ======================================
 
-   control e control f q   control e control f =   control e control f
-s   control e control f b   control e control f f   control e control f
--   control e control f +   control e control f p
+   ` control e control f q   control e control f =   control e control
+f s   control e control f b   control e control f f   control e control
+f -   control e control f +   control e control f p '
 
    Call appropriate freeamp command.
 
@@ -1124,21 +1120,21 @@ emacspeak-gridtext.
 emacspeak-gridtext-apply
 ========================
 
-   control e # a
+   ` control e # a '
 
    Apply grid to region.
 
 emacspeak-gridtext-save
 =======================
 
-   control e # s
+   ` control e # s '
 
    Save out grid settings.
 
 emacspeak-gridtext-load
 =======================
 
-   control e # l
+   ` control e # l '
 
    Load saved grid settings.
 
@@ -1150,15 +1146,11 @@ emacspeak-hide
 
    Commentary:
 
-   {{{  Introduction
-
    Flexible hide and show for emacspeak.  This module allows one to
 easily hide or expose blocks of lines starting with a common prefix.
 It is motivated by the need to flexibly hide quoted text in email but
 is designed to be more general.  the prefix parsing is inspired by
 filladapt.el
-
-   }}}
 
    Automatically generated documentation for commands defined in module
 emacspeak-hide.
@@ -1166,7 +1158,7 @@ emacspeak-hide.
 emacspeak-hide-speak-block-sans-prefix
 ======================================
 
-   control e control j
+   ` control e control j '
 
    Speaks current block after stripping its prefix.  If the current
 block is not hidden, it first hides it.  This is useful because as you
@@ -1183,7 +1175,7 @@ emacspeak-hide-or-expose-all-blocks
 emacspeak-hide-or-expose-block
 ==============================
 
-   control e j
+   ` control e j '
 
    Hide or expose a block of text.  This command either hides or
 exposes a block of text starting on the current line.  A block of text
@@ -1313,7 +1305,7 @@ shuffle  the list.  Use command C-x  h n to skip to the next track.
 emacspeak-mp3-playlist-skip
 ===========================
 
-   Control  cap X   h n
+   ` control x  h n '
 
    Skip currently playing track.
 
@@ -1379,8 +1371,6 @@ produce text.  Prerequisites: Sane installed and working.  scanimage to
 generate tiff files from scanner.  tiffcp to compress the tiff file.
 working ocr executable by default this module assumes that the OCR
 executable is named "ocr"
-
-   }}} {{{ required modules
 
    Automatically generated documentation for commands defined in module
 emacspeak-ocr.
@@ -1519,7 +1509,7 @@ named file.
 emacspeak-ocr
 =============
 
-   Control  cap E  Control  cap O
+   ` control e control o '
 
    An OCR front-end for the Emacspeak desktop.
 
@@ -1602,7 +1592,7 @@ emacspeak-outline.
 emacspeak-outline-speak-previous-heading
 ========================================
 
-   Control  cap L  p
+   ` Control  cap L  p '
 
    Analogous to outline-previous-visible-heading, except that the
 outline section is optionally spoken
@@ -1610,14 +1600,14 @@ outline section is optionally spoken
 emacspeak-outline-speak-this-heading
 ====================================
 
-   Control  cap L  SPACE
+   ` Control  cap L  SPACE '
 
    Speak current outline section starting from point
 
 emacspeak-outline-speak-backward-heading
 ========================================
 
-   Control  cap L  b
+   ` Control  cap L  b '
 
    Analogous to outline-backward-same-level except that the outline
 section is optionally spoken
@@ -1625,7 +1615,7 @@ section is optionally spoken
 emacspeak-outline-speak-next-heading
 ====================================
 
-   Control  cap L  n
+   ` Control  cap L  n '
 
    Analogous to outline-next-visible-heading, except that the outline
 section is optionally spoken
@@ -1633,7 +1623,7 @@ section is optionally spoken
 emacspeak-outline-speak-forward-heading
 =======================================
 
-   Control  cap L  f
+   ` Control  cap L  f '
 
    Analogous to outline-forward-same-level, except that the outline
 section is optionally spoken
@@ -1644,23 +1634,19 @@ File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-psgml,  Prev:
 emacspeak-pronounce
 ===================
 
-   Commentary: {{{  Introduction
-
-   This module implements user customizable pronunciation dictionaries
-for emacspeak. Custom pronunciations can be defined per file, per
-directory and/or per major mode. Emacspeak maintains a persistent user
-dictionary upon request and loads these in new emacspeak sessions. This
-module implements the user interface to the custom dictionary as well
-as providing the internal API used by the rest of emacspeak in using
-the dictionary.  Algorithm:
+   Commentary: This module implements user customizable pronunciation
+dictionaries for emacspeak. Custom pronunciations can be defined per
+file, per directory and/or per major mode. Emacspeak maintains a
+persistent user dictionary upon request and loads these in new emacspeak
+sessions. This module implements the user interface to the custom
+dictionary as well as providing the internal API used by the rest of
+emacspeak in using the dictionary.  Algorithm:
 
    The persistent dictionary is a hash table where the hash keys are
 filenames, directory names, or major-mode names. The hash values are
 association lists defining the dictionary. Users of this module can
 retrieve a dictionary made up of all applicable association lists for a
 given file.
-
-   }}}
 
    Automatically generated documentation for commands defined in module
 emacspeak-pronounce.
@@ -1699,7 +1685,7 @@ persistent dictionaries if not already loaded.
 emacspeak-pronounce-dispatch
 ============================
 
-   control e meta d
+   ` Control  cap E  Meta  cap D  '
 
    Provides the user interface front-end to Emacspeak's pronunciation
 dictionaries.
@@ -1737,7 +1723,7 @@ pronunciation dictionaries if not already active.
 emacspeak-pronounce-define-local-pronunciation
 ==============================================
 
-   control e meta b
+   ` control e meta b '
 
    Define buffer local pronounciation.  Argument WORD specifies the
 word which should be pronounced as specified by PRONUNCIATION.
