@@ -1,9 +1,10 @@
-RCS
-semantic.cache
 .dmacros.dm
+ChangeLog.cvs2cl10677.tmp
+RCS
+emacspeak-cus-load.el
 emacspeak-load-path.el
+emacspeak-loaddefs.el
 emacspeak-setup.el
 semantic.cache
+semantic.cache
 update
-emacspeak-loaddefs.el
-emacspeak-cus-load.el
