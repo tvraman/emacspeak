@@ -95,7 +95,7 @@ server."
   "Personality for prompts.")
 
 (def-voice-font emacspeak-erc-notice-personality
-  'inaudible
+  voice-monotone
   'erc-notice-face
   "Personality for notices.")
 
