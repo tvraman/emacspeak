@@ -81,6 +81,7 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+(emacspeak-pronounce-add-super 'sgml-mode 'html-helper-mode)
 
 (provide 'emacspeak-tempo)
 
