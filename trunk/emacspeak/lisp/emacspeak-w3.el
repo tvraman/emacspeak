@@ -905,12 +905,16 @@ Tables are specified by containing  match pattern
              (emacspeak-xslt-url
               (expand-file-name "class-values.xsl"
                                 emacspeak-xslt-directory)
-              (url-view-url 'no-show))))
+              (url-view-url 'no-show)
+              (list
+               (cons "base"
+                     (url-view-url 'no-show)))
+ 'no-comment)))
         (setq values 
               (save-excursion
                 (set-buffer buffer)
                 (shell-command-on-region (point-min) (point-max)
-                                         "sort | uniq "
+                                         "sort  -u"
                                          (current-buffer))
                 (split-string (buffer-string))))
         (setq emacspeak-w3-buffer-css-class-cache

@@ -123,7 +123,7 @@ part of the libxslt package."
     (setq modification-flag nil)))
 
 ;;;###autoload
-(defun emacspeak-xslt-url (xsl url &optional params)
+(defun emacspeak-xslt-url (xsl url &optional params dont-add-command-as-comment)
   "Apply XSLT transformation to url
 and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
@@ -163,10 +163,11 @@ part of the libxslt package."
 	  (replace-match " ")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
+      (unless  dont-add-command-as-comment
       (goto-char (point-max))
       (insert
        (format "<!--\n %s \n-->\n"
-               command))
+               command)))
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))

@@ -16,10 +16,10 @@ Param attr  specifies the attribute to list.
   
   <!-- { html body  -->
   <xsl:template match="//script|//head"/>
-<xsl:template match="/">
+  <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
-<xsl:template match="head">
+  <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
