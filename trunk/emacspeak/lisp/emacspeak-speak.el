@@ -441,7 +441,11 @@ current local  value to the result."
 		      ;; Avoid overflow from multiplying by 100!
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
 		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
-    (format "%d%%" percent)))
+    (cond
+     ((= 0 percent) " top ")
+((= 100 percent) " bottom ")
+(t (format " %d%% " percent)))))
+
 
 ;;}}}
 ;;;percentage getter with personality
@@ -1517,7 +1521,6 @@ semantic to do the work."
                               (concat 
                                (format  "%s %s %s %s %s "
                                         (buffer-name)
-                                        (emacspeak-get-current-percentage-into-buffer)
                                         (if line-number-mode
                                             (format "line %d"
                                                     (emacspeak-get-current-line-number))
@@ -1526,7 +1529,8 @@ semantic to do the work."
                                             (format "Column %d"
                                                     (current-column))
                                           "")
-                                        mode-name)
+                                        mode-name
+                                        (emacspeak-get-current-percentage-into-buffer))
                                frame-info)))))))
 
 ;;}}}
