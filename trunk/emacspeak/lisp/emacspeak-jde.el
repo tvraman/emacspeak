@@ -57,29 +57,29 @@
 
 ;;}}}
 ;;{{{ voice lock 
-(def-voice-font  emacspeak-jde-number-personality 'emacspeak-constant-personality
+(def-voice-font  emacspeak-jde-number-personality 'voice-lock-constant-personality
   'jde-java-font-lock-number-face
   "Personality used for numbers."
   :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-operator-personality 'paul-animated
+(def-voice-font emacspeak-jde-operator-personality 'voice-animate
   'jde-java-font-lock-operator-face
   "Personality used for java operators."
   :group 'emacspeak-jde)
 
 (def-voice-font emacspeak-jde-constant-personality
-  'emacspeak-constant-personality
+  'voice-lock-constant-personality
   'jde-java-font-lock-constant-face
   "Personality used for constants."
   :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-api-personality 'paul-animated
+(def-voice-font emacspeak-jde-api-personality voice-animate
   'jde-java-font-lock-api-face
   "Personality used for user defined API names."
   :group 'emacspeak-jde)
 
 (def-voice-font emacspeak-jde-package-personality
-  'paul-monotone
+  voice-monotone
   'jde-java-font-lock-package-face
   "Personality used for package names.")
 
@@ -87,6 +87,7 @@
   'jde-java-font-lock-italic-face
   "Personality used for italics."
   :group 'emacspeak-jde)
+
 (def-voice-font emacspeak-jde-underline-personality 'underline
   'jde-java-font-lock-underline-face
   "Underline personality."

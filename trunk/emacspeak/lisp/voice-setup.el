@@ -95,7 +95,15 @@
 (require 'dtk-voices)
 
 ;;}}}
+;;{{{ customization group 
+(defgroup voice-fonts nil
+  "Customization group for setting voices."
+  :group 'emacspeak)
+
+;;}}}
+
 ;;{{{  helper for voice custom items:
+
 (defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
 (let ((v (tts-list-voices)))
@@ -106,7 +114,6 @@ v))
   (cons 'choice v)))
 
 ;;}}}
-
 ;;{{{ map faces to voices 
 
 (defvar voice-setup-face-voice-table (make-hash-table)
@@ -186,7 +193,7 @@ This function forces voice-lock mode on."
      (, voice)
      (, doc)
      :type (voice-setup-custom-menu)
-     :group 'tts
+     :group 'voice-fonts
      :set '(lambda  (sym val)
              (voice-setup-set-voice-for-face (, face) '(, personality))
              (set-default sym val))
@@ -237,7 +244,7 @@ command \\[customize-variable] on <personality>-settings."
               (choice :tag "Richness"
                (const :tag "Unspecified" nil)
                (integer :tag "Number")))
-     :group 'tts
+     :group 'voice-fonts
      :set
      '(lambda  (sym val)
         (let ((voice-name
@@ -261,7 +268,7 @@ command \\[customize-variable] on <personality>-settings."
 
 
 (defvoice voice-smoothen 
-(list nil nil nil 3 0)
+(list nil nil nil 3 3)
 "Smoothen current voice.")
 
 (defvoice voice-brighten 
