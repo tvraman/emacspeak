@@ -846,6 +846,31 @@ current page."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ previewing buffers and regions 
+
+(defun emacspeak-w3-preview-this-buffer ()
+  "Preview this buffer."
+  (interactive)
+  (let ((filename
+         (format "/tmp/%s.html"
+                 (make-temp-name "w3"))))
+    (write-region (point-min) 
+(point-max)
+filename)
+(w3-open-local filename)))
+
+(defun emacspeak-w3-preview-this-region (start end)
+  "Preview this buffer."
+  (interactive "r")
+  (let ((filename
+         (format "/tmp/%s.html"
+                 (make-temp-name "w3"))))
+    (write-region (point-min) 
+(point-max)
+filename)
+(w3-open-local filename)))
+
+;;}}}
 (provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 

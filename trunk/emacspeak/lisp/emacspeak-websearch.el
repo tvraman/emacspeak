@@ -260,7 +260,7 @@ ARGS specifies additional arguments to SPEAKER if any."
       (set-buffer buffer)
       (erase-buffer)
       (insert-file  form-markup)
-      (w3-preview-this-buffer)
+      (emacspeak-w3-preview-this-buffer)
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-widget-summarize (widget-at (point)))
