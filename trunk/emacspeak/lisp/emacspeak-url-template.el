@@ -537,7 +537,8 @@ name of the list.")
  nil
  "CNN Hot Stocks"
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 9 url)))
+     (emacspeak-w3-extract-nested-table 9 url 'speak)))
+
 (emacspeak-url-template-define
  "CNN Content "
  "http://www.cnn.com/"
@@ -559,8 +560,7 @@ name of the list.")
  nil
  "Speak CNN Market Update."
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 8 url)
-     ))
+     (emacspeak-w3-extract-nested-table 8 url 'speak)))
 
 ;;}}}
 ;;{{{ nfl 
