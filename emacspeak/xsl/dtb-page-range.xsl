@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--$Id: dtb-page-range.xsl,v 18.7 2003/06/26 23:33:27 raman Exp -->
-<!--$
+<!--$Id$-->
 
 Description: Extract nodes in a specified page range from a
 Daisy3 XML file.  Page range is specified via params start and
@@ -28,44 +27,50 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="base" />
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
-  <xsl:key name="pageKey" match="pagenum" use="number(text())"/>
+  <xsl:key name="pageKey" match="pagenum" use="text()"/>
   <xsl:template match="/">
     <html>
-      <head>
-        <link>
-          <xsl:attribute name="type"> text/css</xsl:attribute>
-          <xsl:attribute name="href" >
-            <xsl:value-of select="$css"/>
-        </xsl:attribute></link>
-        <xsl:element name="base">
-          <xsl:attribute name="href">
-            <xsl:value-of select="$base"/>
-          </xsl:attribute>
-        </xsl:element>
-        <title>
-          Pages
-          <xsl:value-of select="$start"/>--<xsl:value-of select="$end"/>
-          from  <xsl:value-of select="/dtbook3/head/title"/>
-        </title>
-      </head>
-      <body>
-        <xsl:variable name="pages" select="//pagenum"/>
-        <xsl:choose>
-          <xsl:when test="count($pages)  &gt; 0">
-            <xsl:variable name="first"
-            select="key('pageKey', $start)"/>
-            <xsl:variable name="last"
-            select="key('pageKey', $end+1)"/>
-            <!-- use dummy loops  to set context node -->
-            <xsl:for-each select="$first">
-              <xsl:variable  name="after" select="following::p"/>
-              <xsl:for-each select="$last">
-                <xsl:variable name="before" select="preceding::p"/>
+       <head>
+         <link>
+           <xsl:attribute name="type"> text/css</xsl:attribute>
+           <xsl:attribute name="href" >
+             <xsl:value-of select="$css"/>
+         </xsl:attribute></link>
+         <xsl:element name="base">
+           <xsl:attribute name="href">
+             <xsl:value-of select="$base"/>
+           </xsl:attribute>
+         </xsl:element>
+         <title>
+           Pages
+           <xsl:value-of select="$start"/>--<xsl:value-of select="$end"/>
+           from  <xsl:value-of select="/dtbook3/head/title"/>
+         </title>
+       </head>
+       <body>
+         <xsl:variable name="pages" select="//pagenum"/>
+         <xsl:choose>
+           <xsl:when test="count($pages)  &gt; 0">
+             <xsl:variable name="first"
+             select="key('pageKey', $start)"/>
+             <xsl:variable name="last"
+             select="key('pageKey', $end+1)"/>
+
+             <xsl:variable  name="after" select="$first[1]/following::p"/>
+             <xsl:variable name="before"
+             select="$last[1]/preceding::p"/>
+Before:
+             <xsl:value-of select="count($before)"/>
+nodes precede <xsl:value-of select="$last/@id"/>
+             <xsl:text>
+            </xsl:text>
+After: <xsl:value-of select="count($after)"/>
+nodes follow <xsl:value-of select="$first/@id"/>
+<xsl:text>
+            </xsl:text>
                 <xsl:for-each select="set:intersection($before, $after)">
                   <xsl:copy-of select="."/>
                 </xsl:for-each>
-              </xsl:for-each>
-            </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
             <strong>This book has no page boundary markers.</strong>
