@@ -695,8 +695,7 @@ Default is to use pipes.")
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
       (tts-configure-synthesis-setup dtk-program)
-      (run-hooks 'dtk-startup-hook )
-      (dtk-interp-sync))
+      (run-hooks 'dtk-startup-hook ))
      (t 
       (message "The speech server is not running.")))))
 
