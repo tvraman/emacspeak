@@ -1401,7 +1401,7 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
-   (t (dtk-configure-tts)))
+   (t (dectalk-configure-tts)))
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
