@@ -32,37 +32,40 @@ used as the table-index for extract-tables.xsl.
 
 -->
 <!-- } -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:set="http://exslt.org/sets"
+  version="1.0">
   <xsl:output method="html" indent="yes"
-              encoding="iso8859-15"/>
+  encoding="iso8859-15"/>
   <xsl:include href="identity.xsl"/>
-<!-- { html body  -->
-<!-- nuke these -->
+  <!-- { html body  -->
+  <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:if test="count(//table//table)  &gt; 0">
-      <table>
-        <caption>
-          <a href="#__about_unravel_tables">Tables Unravelled</a>
-        </caption>
-        <tr>
-          <td>
-            <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
-nested tables</a>
-          </td>
-        </tr>
-      </table>
+        <table>
+          <caption>
+            <a href="#__about_unravel_tables">Tables Unravelled</a>
+          </caption>
+          <tr>
+            <td>
+              <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
+              nested tables</a>
+            </td>
+          </tr>
+        </table>
       </xsl:if>
       <xsl:apply-templates/>
       <h2>
         <a name="__nested_tables" id="__nested_tables"> 
-<xsl:value-of select="count(//table//table)"/>
-Nested Tables </a>
+          <xsl:value-of select="count(//table//table)"/>
+        Nested Tables </a>
       </h2>
-      
-      <xsl:for-each select="//table//table">
+      <xsl:variable name="i" select="//table//table"/>
+      <xsl:for-each select="$i">
+        <xsl:if test="not(set:intersection(ancestor::*, $i))">
         <xsl:element name="a">
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
@@ -74,6 +77,7 @@ Nested Tables </a>
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
         </xsl:element>
+        </xsl:if>
       </xsl:for-each>
       <h2>
         <a name="__about_unravel_tables">About This Style</a>
@@ -85,16 +89,16 @@ Nested Tables </a>
         table. If the author has provided a summary and or
         caption for the nested table, those will be displayed
         as the hyperlink text.
-The caption appearing above each table gives a table-index
+        The caption appearing above each table gives a table-index
         that can be used when extracting a table with extract-table.xsl.
       </p>
     </xsl:element>
   </xsl:template>
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      [Table <xsl:value-of select="@summary"/>]</xsl:element>
+    [Table <xsl:value-of select="@summary"/>]</xsl:element>
   </xsl:template>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:
