@@ -132,8 +132,7 @@
 
 (defvar emacspeak-daisy-mpg123-player "mpg123"
   "MPG123 executable for playing mp3 files.")
-(defvar emacspeak-daisy-audio-play-process nil
-  "Handle to  audio process.")
+
 
 (defun emacspeak-daisy-play-audio (clip)
   "Play clip specified by clip.
@@ -141,8 +140,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   (declare (special emacspeak-daisy-mpg123-player
                     emacspeak-daisy-this-book))
   (unless
-      (and (listp clip)
-           (string-equal "audio" (caar clip)))
+      (string-equal "audio" (xml-tag-name clip))
     (error "Invalid audio clip."))
   (let ((src (xml-tag-attr  clip "src"))
         (begin (xml-tag-attr  clip "clipBegin"))
@@ -154,19 +152,52 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
                                             emacspeak-daisy-this-book))
     (setq first (emacspeak-daisy-time-string-to-frame begin))
     (setq last (emacspeak-daisy-time-string-to-frame end))
-    (setq emacspeak-daisy-audio-play-process
-    (start-process "mpg123"  nil 
-                   emacspeak-daisy-mpg123-player
-                   "-k"
-                   (format "%s"  (1- first))
-                   "-n"
-                   (format "%s"  (- last first ))
-                   path))))
+    (setf (emacspeak-daisy-book-audio-process emacspeak-daisy-this-book)
+          (start-process "mpg123"  nil 
+                         emacspeak-daisy-mpg123-player
+                         "-k"
+                         (format "%s"  (1- first))
+                         "-n"
+                         (format "%s"  (- last first ))
+                         path))))
+
+(defun emacspeak-daisy-play-text (clip)
+  "Play text clip specified by clip.
+Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
+  (declare (special 
+            emacspeak-daisy-this-book))
+  (unless
+      (string-equal "text" (xml-tag-name clip))
+    (error "Invalid audio clip."))
+  (let* ((src (xml-tag-attr  clip "src"))
+         (split (split-string src "#"))
+         (relative (first split))
+         (fragment (second split))
+         (path (emacspeak-daisy-resolve-uri relative
+                                            emacspeak-daisy-this-book)))
+    (emacspeak-w3-extract-node-by-id path fragment)))
+        
+(path nil))
+(setq path (emacspeak-daisy-resolve-uri src
+                                        emacspeak-daisy-this-book))
+(setq first (emacspeak-daisy-time-string-to-frame begin))
+(setq last (emacspeak-daisy-time-string-to-frame end))
+(setf (emacspeak-daisy-book-audio-process emacspeak-daisy-this-book)
+(start-process "mpg123"  nil 
+               emacspeak-daisy-mpg123-player
+               "-k"
+               (format "%s"  (1- first))
+               "-n"
+               (format "%s"  (- last first ))
+               path))))
+
 
 (defun emacspeak-daisy-stop-audio ()
   "Stop audio."
   (interactive)
-  (delete-process emacspeak-daisy-audio-play-process)
+  (declare (special emacspeak-daisy-this-book))
+  (delete-process
+   (emacspeak-daisy-book-audio-process emacspeak-daisy-this-book))
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
@@ -175,17 +206,17 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 (defun emacspeak-daisy-book-add-content (book src)
   "Parse SMIL content in src and store it as book contents.
 Contents are indexed by src."
-(let ((smil
-       (find-file-noselect
-        (emacspeak-daisy-resolve-uri src book))))
-  (save-excursion
+  (let ((smil
+         (find-file-noselect
+          (emacspeak-daisy-resolve-uri src book))))
+    (save-excursion
     (set-buffer smil)
     (goto-char (point-min))
     (search-forward"<smil")
     (beginning-of-line)
     (setf
      (gethash src (emacspeak-daisy-book-content book))
-          (read-xml))
+     (read-xml))
     (kill-buffer smil))))
     
 (defun emacspeak-daisy-fetch-content (book src)
@@ -194,37 +225,40 @@ after fetching it  if necessary."
   (let ((content
          (gethash src (emacspeak-daisy-book-content book))))
     (cond
-     (content content)
-     (t (emacspeak-daisy-book-add-content book src)
-        (gethash src (emacspeak-daisy-book-content book))))))
+    (content content)
+    (t (emacspeak-daisy-book-add-content book src)
+       (gethash src (emacspeak-daisy-book-content book))))))
 
 (defun emacspeak-daisy-play-smil (clip)
   "Play a SMIL clip."
-  (let ((audio (xml-tag-child clip "audio")))
+  (let ((audio (xml-tag-child clip "audio"))
+  (text (xml-tag-child clip "text")))
     (when audio
-      (emacspeak-daisy-play-audio audio)
-      (message "playing audio"))))
+    (emacspeak-daisy-play-audio audio)
+    (message "playing audio"))
+    (when text
+    (emacspeak-daisy-play-text text))))
 
 (defun emacspeak-daisy-play-content (content)
   "Play SMIL content specified by content."
   (declare (special emacspeak-daisy-base-uri
-                    emacspeak-daisy-this-book))
+  emacspeak-daisy-this-book))
   (unless (eq major-mode 'emacspeak-daisy-mode)
     (error "Not in a digital audio book."))
   (unless
       (string-equal "content" (xml-tag-name content))
     (error "Invalid content."))
   (let* ((src (xml-tag-attr  content "src"))
-         (split (split-string src "#"))
-         (relative (first split))
-         (fragment (second split))
-         (path (emacspeak-daisy-resolve-uri relative
-                                            emacspeak-daisy-this-book))
-         (smil nil)
-         (clip nil))
+  (split (split-string src "#"))
+  (relative (first split))
+  (fragment (second split))
+  (path (emacspeak-daisy-resolve-uri relative
+                                     emacspeak-daisy-this-book))
+  (smil nil)
+  (clip nil))
     (setq smil (emacspeak-daisy-fetch-content emacspeak-daisy-this-book path))
     (setq clip
-          (xml-find-tag-by-id smil fragment))
+    (xml-find-tag-by-id smil fragment))
     (emacspeak-daisy-play-smil clip)))
 
 
@@ -249,36 +283,36 @@ after fetching it  if necessary."
 ;;; elements
 (defvar emacspeak-daisy-xml-elements 
   (list
-  "ncx"
-  "head"
-  "title"
-  "doctitle"
-  "text"
-  "audio"
-  "content"
-  "navStruct"
-  "navObject")
+   "ncx"
+   "head"
+   "title"
+   "doctitle"
+   "text"
+   "audio"
+   "content"
+   "navStruct"
+   "navObject")
   "Daisy XML elements.")
 
 (loop for e in emacspeak-daisy-xml-elements
       do
       (emacspeak-daisy-set-handler e
-      (intern
-       (format
-        "emacspeak-daisy-%s-handler" e))))
+                                   (intern
+                                   (format
+                                    "emacspeak-daisy-%s-handler" e))))
 ;;}}}
 ;;{{{ Define handlers 
 
 (defsubst emacspeak-daisy-apply-handler (element)
   "Lookup and apply installed handler."
   (let* ((tag (xml-tag-name element))
-         (handler  (emacspeak-daisy-get-handler tag)))
-  (cond
-   ((and handler
-         (fboundp handler))(funcall handler element))
-   (t
-    (insert
-     (format "Handler for %s not implemented yet.\n" tag))))))
+  (handler  (emacspeak-daisy-get-handler tag)))
+    (cond
+    ((and handler
+          (fboundp handler))(funcall handler element))
+    (t
+     (insert
+      (format "Handler for %s not implemented yet.\n" tag))))))
 
 (defun  emacspeak-daisy-ncx-handler (ncx)
   "Process top-level NCX element."
@@ -293,40 +327,39 @@ after fetching it  if necessary."
   "Handle head element."
   (declare (special emacspeak-daisy-this-book))
   (let ((title  (xml-tag-child element "title")))
-  (when title
+    (when title
     (setf (emacspeak-daisy-book-title emacspeak-daisy-this-book)
-          (apply #'concat (xml-tag-children title)))
-    (force-mode-line-update))))
+          (apply #'concat (xml-tag-children title))))))
 
 (defun emacspeak-daisy-navStruct-handler (element)
   "Handle navstruct element."
   (mapc #'emacspeak-daisy-apply-handler
-  (xml-tag-children element )))
+        (xml-tag-children element )))
 
 
 (defun emacspeak-daisy-navObject-handler (element)
   "Handle navObject element."
   (let ((text (xml-tag-child element "text"))
-        (audio (xml-tag-child element "audio"))
-        (content (xml-tag-child element "content"))
-        (start (point)))
-  (if text
-      (emacspeak-daisy-text-handler text)
+  (audio (xml-tag-child element "audio"))
+  (content (xml-tag-child element "content"))
+  (start (point)))
+    (if text
+    (emacspeak-daisy-text-handler text)
     (insert "  \n"))
-  (when audio
+    (when audio
     (put-text-property start (point)
                        'audio audio))
-  (put-text-property start (point)
-                     'content content)))
+    (put-text-property start (point)
+    'content content)))
     
 (defun emacspeak-daisy-doctitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
-        (audio (xml-tag-child element "audio"))
-        (start (point)))
-  (emacspeak-daisy-text-handler   text)
-  (put-text-property start (point)
-                     'audio audio)))
+  (audio (xml-tag-child element "audio"))
+  (start (point)))
+    (emacspeak-daisy-text-handler   text)
+    (put-text-property start (point)
+    'audio audio)))
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
@@ -335,7 +368,7 @@ after fetching it  if necessary."
 
 
 (define-derived-mode emacspeak-daisy-mode text-mode 
-  "Major mode for Daisy Digital Talking Books.\n"
+  "Digital Talking Book\n"
   " An DAISY front-end for the Emacspeak desktop.
 
 Pre-requisites:
@@ -360,10 +393,11 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn
-  (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
+    (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map "s" 'emacspeak-daisy-stop-audio)
+(define-key emacspeak-daisy-mode-map "q" 'bury-buffer)
 (define-key emacspeak-daisy-mode-map " "
   'emacspeak-daisy-play-audio-under-point)
 (define-key emacspeak-daisy-mode-map "\C-m"
@@ -381,16 +415,16 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename."
   (interactive
-  (list
+   (list
    (read-file-name "Book Navigation File: ")))
   (declare (special emacspeak-daisy-this-book))
   (let ((buffer (get-buffer-create "*daisy*"))
-        (ncx (find-file-noselect filename))
-        (book (make-emacspeak-daisy-book
-               :base (file-name-directory filename))))
-  (setf (emacspeak-daisy-book-content book)
-        (make-hash-table))
-  (save-excursion
+  (ncx (find-file-noselect filename))
+  (book (make-emacspeak-daisy-book
+         :base (file-name-directory filename))))
+    (setf (emacspeak-daisy-book-content book)
+    (make-hash-table))
+    (save-excursion
     (set-buffer ncx)
     (goto-char (point-min))
     (search-forward"<ncx")
@@ -403,10 +437,13 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
     (emacspeak-daisy-mode)
     (setq emacspeak-daisy-this-book book)
     (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book)))
-  (switch-to-buffer buffer)
-  (goto-char (point-min))
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line)))
+    (switch-to-buffer buffer)
+    (goto-char (point-min))
+    (rename-buffer
+    (format "*Daisy: %s"
+            (emacspeak-daisy-book-title book)))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ interactive commands
@@ -415,18 +452,18 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   "Play SMIL content  under point."
   (interactive)
   (let ((content (get-text-property (point) 'content)))
-  (cond
-   (content (emacspeak-daisy-play-content  content))
-   (t (error "No content under point.")))))
+    (cond
+    (content (emacspeak-daisy-play-content  content))
+    (t (error "No content under point.")))))
 
 (defun emacspeak-daisy-play-audio-under-point ()
   "Play audio clip under point."
   (interactive)
   (let ((clip (get-text-property (point) 'audio)))
-  (cond
-   (clip
-    (emacspeak-daisy-play-audio clip))
-   (t (error "No audio clip under point.")))))
+    (cond
+    (clip
+     (emacspeak-daisy-play-audio clip))
+    (t (error "No audio clip under point.")))))
 
 ;;}}}
 
