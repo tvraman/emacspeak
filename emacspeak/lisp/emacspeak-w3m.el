@@ -83,9 +83,18 @@
 ;;}}}
 ;;{{{ personalities
 
-(defvar emacspeak-w3m-form-personality 'paul-animated)
-(defvar emacspeak-w3m-button-personality 'harry)
-(defvar emacspeak-w3m-disabled-personality 'harry)
+(defcustom emacspeak-w3m-form-personality 'paul-animated
+  "personality used for forms."
+  :type 'symbol
+  :group 'emacspeak-w3m)
+(defcustom emacspeak-w3m-button-personality 'harry
+  "Button personality in W3M."
+  :type 'symbol
+  :group 'emacspeak-w3m)
+(defcustom emacspeak-w3m-disabled-personality 'harry
+  "Personality for disabled fields in W3M."
+:type 'symbol
+  :group 'emacspeak-w3m)
 
 ;;}}}
 ;;{{{ anchors

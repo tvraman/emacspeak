@@ -53,8 +53,10 @@
 
 ;;}}}
 ;;{{{  personalities
-(defvar emacspeak-calendar-mark-personality 'ursula
-  "Personality to use when showing marked calendar entries.")
+(defcustom emacspeak-calendar-mark-personality 'ursula
+  "Personality to use when showing marked calendar entries."
+  :type 'symbol
+  :group 'emacspeak-calendar)
 
 ;;}}}
 ;;{{{  functions: 

@@ -58,8 +58,10 @@
 ;;}}}
 ;;{{{  define personalities
 
-(defvar ispell-highlight-personality 'harry
-  "Voice used to highlight spelling errors. ")
+(defcustom ispell-highlight-personality 'harry
+  "Voice used to highlight spelling errors. "
+  :type 'symbol
+  :group 'emacspeak-ispell)
 
 ;;}}}
 ;;{{{  first set up voice  highlighting in 2.30:
