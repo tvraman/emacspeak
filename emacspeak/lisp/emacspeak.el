@@ -296,6 +296,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "mspools" 'emacspeak-mspools)
 (emacspeak-do-package-setup "net-utils" 'emacspeak-net-utils)
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
+(emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
 (emacspeak-do-package-setup "oobr" 'emacspeak-oo-browser)
 (emacspeak-do-package-setup "outline" 'emacspeak-outline)
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
@@ -479,6 +480,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'sql-mode-hook
          'sgml-mode-hook
          'xml-mode-hook
+'nxml-mode-hook
          'xsl-mode-hook
          'makefile-mode-hook
          'TeX-mode-hook
