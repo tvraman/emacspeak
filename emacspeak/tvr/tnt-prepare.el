@@ -1,7 +1,6 @@
 (augment-load-path "tnt")
 (load-library "tnt")
-(setq tnt-default-username "TVRaman"
-      tnt-default-password "retsabub")
+
 (setq tnt-use-timestamps t)
 ;;; aim server 
 ;;; tvraman login.oscar.aol.com 5190
