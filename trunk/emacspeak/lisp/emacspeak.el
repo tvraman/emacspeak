@@ -69,12 +69,12 @@
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
-:link '(custom-manual "(emacspeak)Top")
+  :link '(custom-manual "(emacspeak)Top")
   :link '(url-link :tag "SourceForge" 
 		   "http://emacspeak.sf.net")
   :link '(url-link :tag "Cornell" 
 		   "http://www.cs.cornell.edu/home/raman/emacspeak")
-:link '(url-link :tag "Applications" 
+  :link '(url-link :tag "Applications" 
 		   "http://emacspeak.sf.net/applications.html")
   :link '(url-link :tag "Discussion" 
                    "http://www.cs.vassar.edu/~priestdo/emacspeak/")
@@ -714,7 +714,11 @@ sets punctuation mode to all, and turns on split caps."
          'dired-mode-hook)))
 
 ;;}}}
+;;{{{ set up after-init-hook to fix interactive functions 
+(add-hook 'after-init-hook
+          'emacspeak-fix-all-recent-commands)
 
+;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
 
