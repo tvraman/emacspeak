@@ -1,0 +1,14 @@
+;;;Sample .sawfishrc 
+(setq load-path
+      (cons "/home/raman/emacs/lisp/emacspeak/sawfish" load-path))
+(load "tts")
+(load "tools")
+(bind-keys global-keymap
+           "M-e" 'emacs
+           "M-t" 'tts-say-current-window)
+(tts-open)
+(tts-say-window-on-focus t)
+(emacs)
+
+
+
