@@ -33,14 +33,15 @@ shown in the output.
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-<h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/> matching elements.</p>
+
       <xsl:for-each select="$locator">
         <xsl:element name="{name()}">
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
         </xsl:element><br/>
       </xsl:for-each>
+<h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
+      <p>Found <xsl:value-of select="count($locator)"/> matching elements.</p>
     </xsl:element>
   </xsl:template>
 <!-- } -->
