@@ -141,6 +141,65 @@ font-lock.  Voicification is effective only if font lock is on."
 
 
 ;;}}}
+;;{{{ cumulative personalities 
+
+(defun emacspeak-personality-append-personality  (start end personality)
+  "Append specified personality to text bounded by start and end.
+Existing personality properties on the text range are preserved."
+  (let ((orig (get-text-property start 'personality))
+        (new nil)
+        (extent
+         (next-single-property-change
+          start 'personality (current-buffer) end)))
+    (cond
+     ((null orig)                       ;simple case
+      (put-text-property start extent
+                         'personality personality)
+      (when (< extent end)
+        (emacspeak-personality-append-personality extent end personality)))
+     (t                                ;accumulate the new personality
+      (setq new
+            (if (listp orig) orig (list orig)))
+      (setq new (append new
+                        (if (listp personality)
+                            personality
+                        (list personality))))
+      (put-text-property start extent
+                         'personality new)
+      (when (< extent end)
+        (emacspeak-personality-append-personality extent end
+                                               personality))))))
+
+(defun emacspeak-personality-prepend-personality  (start end personality)
+  "Prepend specified personality to text bounded by start and end.
+Existing personality properties on the text range are preserved."
+  (let ((orig (get-text-property start 'personality))
+        (new nil)
+        (extent
+         (next-single-property-change
+          start 'personality (current-buffer) end)))
+    (cond
+     ((null orig)                       ;simple case
+      (put-text-property start extent 'personality personality)
+      (when (< extent end)
+        (emacspeak-personality-prepend-personality extent end personality)))
+     (t                                ;accumulate the new personality
+      (setq new
+            (if (listp orig) orig (list orig)))
+      (setq new
+            (append
+             (if (listp personality)
+                 personality
+               (list personality))
+             (if (listp orig)
+                 orig
+               (list orig))))
+      (put-text-property start extent
+                         'personality new)
+      (when (< extent end)
+        (emacspeak-personality-prepend-personality extent end personality))))))
+
+;;}}}
 ;;{{{ attach voice lock to global font lock
 
 (defadvice global-font-lock-mode (after emacspeak pre act comp)
@@ -149,7 +208,6 @@ font-lock.  Voicification is effective only if font lock is on."
     (setq-default voice-lock-mode t)))
 
 ;;}}}
-
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-show-unmapped-faces nil
@@ -213,6 +271,10 @@ displayed in the messages area."
                        #'voice-setup-get-voice-for-face value))))
        (t (message "Got %s" value)))
       (when voice
+        (emacspeak-personality-append-personality
+         (overlay-start overlay)
+         (overlay-end overlay)
+         voice)
         (overlay-put overlay 'personality voice))
       (when (and emacspeak-personality-show-unmapped-faces
                  (not voice))
