@@ -100,6 +100,13 @@ Used to resolve relative URIs.")
 (declare (special emacspeak-daisy-base-uri))
 (expand-file-name relative emacspeak-daisy-base-uri))
 
+(defsubst emacspeak-daisy-get-tag (element)
+  "Return tag name for parsed XML element."
+  (cond
+   ((symbolp (car element)) (car element))
+    ((listp (car element)) (caar element))
+    (t (error "Malformed element"))))
+
 (defsubst emacspeak-daisy-get-attribute (element attribute)
   "Returns value of attribute from element.
 Element is the result of parsing an XML element structure."
@@ -121,9 +128,9 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
       (and (listp clip)
  (eq 'audio (caar clip)))
     (error "Invalid audio clip."))
-  (let ((src (emacspeak-daisy-get-attribute clip 'src))
-        (begin (emacspeak-daisy-get-attribute clip 'clipBegin))
-        (end (emacspeak-daisy-get-attribute clip 'clipEnd))
+  (let ((src (emacspeak-daisy-get-attribute (car clip) 'src))
+        (begin (emacspeak-daisy-get-attribute (car clip) 'clipBegin))
+        (end (emacspeak-daisy-get-attribute (car clip) 'clipEnd))
         (first nil)
         (last nil)
         (path nil))
@@ -137,6 +144,69 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
                    "-n"
                    (format "%s"  (- last first ))
                    path)))
+
+;;}}}
+;;{{{  table of handlers 
+
+(defvar emacspeak-daisy-handler-table (make-hash-table)
+  "Table that maps elements to handlers.")
+
+(defsubst emacspeak-daisy-get-handler (element )
+  "Get handler for element."
+  (declare (special emacspeak-daisy-handler-table))
+  (gethash element emacspeak-daisy-handler-table))
+
+(defsubst emacspeak-daisy-set-handler (element handler)
+  "Set handler for element."
+  (declare (special emacspeak-daisy-handler-table))
+  (setf (gethash element emacspeak-daisy-handler-table) handler))
+
+;;}}}
+;;{{{ Install handlers 
+;;; elements
+(defvar emacspeak-daisy-xml-elements 
+'(
+ncx 
+head 
+title
+doctitle
+text
+audio
+content
+navStruct
+navObject)
+"Daisy XML elements.")
+
+(loop for e in emacspeak-daisy-xml-elements
+      do
+      (emacspeak-daisy-set-handler e
+                                   (intern
+                                    (format
+                                     "emacspeak-daisy-%s-handler" e))))
+;;}}}
+;;{{{ Define handlers 
+
+(defun  emacspeak-daisy-ncx-handler (ncx)
+  "Process top-level NCX element."
+  (let ((buffer (get-buffer-create "*daisy*"))
+        (children (cdr ncx))
+        (current nil)
+        (tag nil)
+        (handler nil))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (while children
+        (setq current (pop children))
+        (setq tag (emacspeak-daisy-get-tag current))
+        (setq handler (emacspeak-daisy-get-handler tag))
+        (cond
+         (handler (funcall handler current))
+          (t
+           (insert (format "Handler for %s not implemented yet.\n"
+                           tag)))))
+      (emacspeak-daisy-mode))
+(switch-to-buffer buffer)))
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
