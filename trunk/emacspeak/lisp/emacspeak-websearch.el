@@ -1469,18 +1469,18 @@ Light for: ")))
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-  "http://www.weather.com/weather/tendayprint/"
+  "http://www.srh.noaa.gov/zipcity.php?inputstring="
   "*URI for getting weather forecast.")
 
-(defun emacspeak-websearch-weather (zip)
+(defun emacspeak-websearch-weather (query)
   "Get weather forecast for specified zip code."
   (interactive
-   (list (emacspeak-websearch-read-query "Zip Code: ")))
+   (list (emacspeak-websearch-read-query "City,State or Zip: ")))
   (declare (special emacspeak-websearch-weather-uri))
-  (emacspeak-w3-extract-nested-table-list
-   (list 4 5)
+  (emacspeak-w3-extract-tables-by-position-list
+   (list 5 6 7 8 9 )
    (concat emacspeak-websearch-weather-uri
-	   zip)
+	   (webjump-url-encode query))
    'speak))
   
 
