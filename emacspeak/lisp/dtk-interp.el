@@ -113,7 +113,7 @@
                                       &optional target step force)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                       (format "n %s %s %s %s %s%s\n"
+                       (format "n %s %s %s %s %s %s\n"
                                instrument pitch duration
                                (or target 0)
                                (or step 5)

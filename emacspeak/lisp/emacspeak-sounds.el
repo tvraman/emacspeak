@@ -353,7 +353,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   "Association between symbols and midi notes.
 When producing midi icons, other modules should use names defined here.")
 
-(defvar emacspeak-default-midi-note nil
+(defvar emacspeak-default-midi-note '(100 100 .1)
   "Default note to play if requested icon not found.")
 
 (defun emacspeak-define-midi (midi-name midi-note)
