@@ -55,7 +55,6 @@ documentation.
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak::                   
-* dis-quote::                   
 * emacspeak-arc::               
 * emacspeak-dismal::            
 * emacspeak-eudc::              
@@ -64,7 +63,6 @@ documentation.
 * emacspeak-tar::               
 * emacspeak-tetris::            
 * emacspeak-view-process::      
-* emacspeak-w3search::          
 * emacspeak-wizards::           
 * ANONYMOUS::                   
 @end menu
@@ -5153,26 +5151,6 @@ Function to submit a bug to the programs maintainer.
 Give a brief overview of emacspeak.
 @end deffn
 
-@node dis-quote
-@section dis-quote
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  dis-quote.
-
-
-
-@deffn quotes-setup-emacspeak-portfolio
-@findex quotes-setup-emacspeak-portfolio
- No global keybinding
-
-Set up variable emacspeak-websearch-personal-portfolio. 
-@end deffn
-
 @node emacspeak-arc
 @section emacspeak-arc
 
@@ -5620,26 +5598,6 @@ Speak current field
  No global keybinding
 
 Set point to the current field in the next line.
-@end deffn
-
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-
-
-@deffn emacspeak-websearch-blue-pages
-@findex emacspeak-websearch-blue-pages
- No global keybinding
-
-Search IBM Blue Pages
 @end deffn
 
 @node emacspeak-wizards
