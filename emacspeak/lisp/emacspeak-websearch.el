@@ -1066,7 +1066,7 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
     (if lucky-flag
         (emacspeak-speak-line)
       (emacspeak-websearch-post-process
-       "Results"
+       query
        'emacspeak-speak-line))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
