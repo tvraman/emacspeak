@@ -4728,37 +4728,45 @@ Any errors or corrections should be made to the source-level
 documentation.
 This section documents a total of 89 URL Templates.
 
-@kbd{fedex packages}
+@kbd{All Things Considered Stream from NPR}
 
-Display package tracking information from Fedex.
+Play NPR All Things Considered stream.
 
-@kbd{UPS Packages}
+@kbd{All Things Considered from NPR}
 
-Display package tracking information from UPS.
+Play All Things Considered segment.
 
 @kbd{Amazon Product Details By ASIN}
 
 Retrieve product details from Amazon by either ISBN or ASIN.
 
-@kbd{BookShare}
+@kbd{American Life On Demand.}
 
-Bookshare Login
-
-@kbd{Shoutcast Search}
-
-Locate and display Shoutcast streams.
-
-@kbd{Old Time Radio}
-
-This months Old Time Radio Programing
-
-@kbd{Netcraft Web Analysis}
-
-Analyze WWW site using Netcraft.
+Play This American Life  shows on demand.
 
 @kbd{BBC 7 Schedule}
 
 Retrieve BBC7 schedule for specified day.
+
+@kbd{BBC Channel On Demand}
+
+Display BBC Channel on demand.
+
+@kbd{BBC Genres On Demand}
+
+Display BBC Channel on demand.
+
+@kbd{BBC Listen Again}
+
+BBC Listen Again Listings
+
+@kbd{BBC News}
+
+BBC News text version.
+
+@kbd{BBC Programs On Demand}
+
+Play BBC programs on demand.
 
 @kbd{BBC Radio4 On Demand}
 
@@ -4772,49 +4780,73 @@ Specify a week day (three letters -- lower case -- and a time spec
 -- e.g. 1230 --
 to play a BBC Radio7 program on demand.
 
-@kbd{BBC Listen Again}
-
-BBC Listen Again Listings
-
-@kbd{BBC Channel On Demand}
-
-Display BBC Channel on demand.
-
-@kbd{BBC Genres On Demand}
-
-Display BBC Channel on demand.
-
-@kbd{BBC Programs On Demand}
-
-Play BBC programs on demand.
-
-@kbd{BBC News}
-
-BBC News text version.
-
 @kbd{BBC Sports}
 
 BBC News text version.
 
-@kbd{Google Maps Give Me XML}
+@kbd{Baseball Game Index}
 
-Get me XML from Google Maps.
-Specify the query using English and  addresses as complete as
-  possible.
+Display baseball Play By Play.
 
-Here are some examples:
+@kbd{Baseball Play By Play}
 
-0) To find a location by address specify:
+Display baseball Play By Play.
 
-650 Harry Road San Jose CA 95120
+@kbd{Baseball Results}
 
-1) To get directions, specify:
+Baseball results for a given date.
 
-<source address> to <destination address>
+@kbd{Baseball scores}
 
-2) To find businesses etc., near a location, specify:
+Display baseball scores.
 
-<what> near <location address>
+@kbd{Baseball standings}
+
+Display MLB standings.
+
+@kbd{Baseball summary}
+
+Display baseball team summary.
+
+@kbd{BookShare}
+
+Bookshare Login
+
+@kbd{CNN Content }
+
+CNN Content
+
+@kbd{CNN Market Data }
+
+CNN Money
+
+@kbd{CNN Market News }
+
+CNN Money
+
+@kbd{CNN Tecnology }
+
+CNN Technology news.
+
+@kbd{CNN headlines }
+
+Retrieve and speak headline news from CNN.
+
+@kbd{CNNFn Content}
+
+Extract content links from CNN FN.
+
+@kbd{Cartoon You Said It By Laxman}
+
+Retrieve Cartoon Times Of India.
+
+@kbd{DDJ TechNetCast Play}
+
+Play Technetcast stream from DDJ.
+
+@kbd{DDJ TechNetCast Save}
+
+Browse to a specified DDJ Technetcast stream and save  it.
 
 @kbd{EmapSpeak Via Google}
 
@@ -4837,167 +4869,101 @@ Here are some examples:
 
 <what> near <location address>
 
-@kbd{Google Scholar}
+@kbd{Flight Tracker}
 
-Google Scholar Search
+Display flight arrival and departure information.
 
-@kbd{Translation Via Google}
+@kbd{Geek Linux Daily}
 
-Translate a Web page using google. Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German.
-
-@kbd{Google WebQuotes}
-
-Google WebQuotes.
+Play specified edition of Geek  Linux DailyShow
 
 @kbd{Google Glossary}
 
 Google Glossary lookup.
 
+@kbd{Google Headline News}
+
+Retrieve and speak Google News Overview.
+
 @kbd{Google Hits}
 
 Only show Google hits.
 
-@kbd{Google Text  News}
+@kbd{Google Maps Give Me XML}
 
-Retrieve and speak Google News Overview.
+Get me XML from Google Maps.
+Specify the query using English and  addresses as complete as
+  possible.
 
-@kbd{Google Headline News}
+Here are some examples:
 
-Retrieve and speak Google News Overview.
+0) To find a location by address specify:
+
+650 Harry Road San Jose CA 95120
+
+1) To get directions, specify:
+
+<source address> to <destination address>
+
+2) To find businesses etc., near a location, specify:
+
+<what> near <location address>
 
 @kbd{Google News Search}
 
 Search Google news.
 
-@kbd{Tech News From CNet}
+@kbd{Google Scholar}
 
-Display tech news from CNET
+Google Scholar Search
+
+@kbd{Google Text  News}
+
+Retrieve and speak Google News Overview.
+
+@kbd{Google WebQuotes}
+
+Google WebQuotes.
 
 @kbd{InfoWorld RSS Feeds}
 
 Produce  a set of RSS links published by InfoWorld.
 
+@kbd{Linux Today News}
+
+Get news column from Linux Today.
+
+@kbd{MLB Alerts}
+
+Show MLB Scorecard.
+
+@kbd{MLB Scorecard}
+
+Show MLB Scorecard.
+
 @kbd{MapQuest Directions}
 
 Retrieve and speak directions from MapQuest.
 
-@kbd{Yahoo RSS Feeds}
+@kbd{Meerkat Profile}
 
-List Yahoo RSS Feeds.
+Meerkat Profile
 
-@kbd{Yahoo DailyNews}
+@kbd{Meerkat Recipe}
 
-Retrieve and speak DailyNewspage from  Yahoo Daily News.
+Meerkat tool
 
-@kbd{Yahoo Politics}
+@kbd{Morning Edition Stream from NPR}
 
-Retrieve and speak Politics section from Yahoo Daily News.
+Play NPR Morning Edition  stream.
 
-@kbd{Yahoo Entertainment}
+@kbd{Morning Edition from NPR}
 
-Retrieve and speak Entertainment section from Yahoo Daily News.
+Play Morning Edition segment.
 
-@kbd{Yahoo Sports}
+@kbd{Motley Fool Radio from NPR}
 
-Entertainment news from Yahoo.
-
-@kbd{Yahoo Business News}
-
-Retrieve and speak business  section from Yahoo Daily News.
-
-@kbd{Yahoo Science}
-
-Retrieve and speak Science section from Yahoo Daily News.
-
-@kbd{Yahoo SF Local}
-
-Retrieve and speak Local section from Yahoo Daily News.
-
-@kbd{Yahoo Content By Content ID}
-
-Retrieve and speak news section from Yahoo Daily News.
-
-@kbd{Yahoo Top Stories}
-
-Retrieve and speak Top Stories  section from Yahoo Daily News.
-
-@kbd{Yahoo Health}
-
-Retrieve and speak Health section from Yahoo Daily News.
-
-@kbd{Yahoo Oddly}
-
-Retrieve and speak Oddity section from Yahoo Daily News.
-
-@kbd{Yahoo Technology  News}
-
-Yahoo Technology News.
-
-@kbd{Yahoo Lifestyle}
-
-Yahoo Lifestyle News.
-
-@kbd{Yahoo World News}
-
-Yahoo World News.
-
-@kbd{pdf2txt}
-
-Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.
-
-@kbd{pdf2html}
-
-Use access.adobe.com to  convert a remote PDF document to plain
- text.
-The PDF document needs to be available on the public Internet.
-
-@kbd{w3c IRC Logs}
-
-Use this to pull up the
-archived  logs from the W3C IRC. You need to know the exact
-name of the channel.
-
-@kbd{w3c Lists}
-
-Use this to pull up the
-archived  mail from the W3C list. You need to know the exact
-name of the list.
-
-@kbd{CNNFn Content}
-
-Extract content links from CNN FN.
-
-@kbd{CNN headlines }
-
-Retrieve and speak headline news from CNN.
-
-@kbd{CNN Tecnology }
-
-CNN Technology news.
-
-@kbd{CNN Market News }
-
-CNN Money
-
-@kbd{CNN Market Data }
-
-CNN Money
-
-@kbd{CNN Content }
-
-CNN Content
-
-@kbd{Pulpit --- I Cringely}
-
-Read pulpit from PBS. Published on the Thursday of the week.
-
-@kbd{American Life On Demand.}
-
-Play This American Life  shows on demand.
+Play NPR Motley Fool   stream.
 
 @kbd{NPR On Demand}
 
@@ -5010,61 +4976,144 @@ ATC All Things Considered
 Segment is specified as a two digit number --specifying a blank value
 plays entire program.
 
-@kbd{All Things Considered Stream from NPR}
+@kbd{Netcraft Web Analysis}
 
-Play NPR All Things Considered stream.
+Analyze WWW site using Netcraft.
 
-@kbd{Talk Of The Nation  Stream from NPR}
+@kbd{Old Time Radio}
 
-Play NPR Talk Of The Nation  stream.
+This months Old Time Radio Programing
 
-@kbd{Morning Edition Stream from NPR}
+@kbd{Pulpit --- I Cringely}
 
-Play NPR Morning Edition  stream.
-
-@kbd{Motley Fool Radio from NPR}
-
-Play NPR Motley Fool   stream.
-
-@kbd{Talk Of The Nation from NPR}
-
-Play NPR Talk Of The Nation segment.
-
-@kbd{All Things Considered from NPR}
-
-Play All Things Considered segment.
-
-@kbd{Morning Edition from NPR}
-
-Play Morning Edition segment.
-
-@kbd{Geek Linux Daily}
-
-Play specified edition of Geek  Linux DailyShow
+Read pulpit from PBS. Published on the Thursday of the week.
 
 @kbd{Redhat Linux Show}
 
 Play specified edition of Redhat Linux Show
 
-@kbd{DDJ TechNetCast Save}
+@kbd{Shoutcast Search}
 
-Browse to a specified DDJ Technetcast stream and save  it.
+Locate and display Shoutcast streams.
 
-@kbd{DDJ TechNetCast Play}
+@kbd{Talk Of The Nation  Stream from NPR}
 
-Play Technetcast stream from DDJ.
+Play NPR Talk Of The Nation  stream.
 
-@kbd{Linux Today News}
+@kbd{Talk Of The Nation from NPR}
 
-Get news column from Linux Today.
+Play NPR Talk Of The Nation segment.
+
+@kbd{Tech News From CNet}
+
+Display tech news from CNET
+
+@kbd{Times Of India}
+
+Retrieve Times Of India.
+Set up URL rewrite rule to get print page.
+
+@kbd{Translation Via Google}
+
+Translate a Web page using google. Source and target languages
+are specified as two-letter language codes, e.g. en|de translates
+from English to German.
+
+@kbd{Travel itenerary from ViewTrip.com}
+
+Display Trip Details
+
+@kbd{Travelocity Lookup}
+
+Show arrival/departure information from Travelocity.
+
+@kbd{UPS Packages}
+
+Display package tracking information from UPS.
+
+@kbd{Weather forecast from Weather Underground}
+
+Weather forecast from weather underground mobile.
+
+@kbd{Yahoo Business News}
+
+Retrieve and speak business  section from Yahoo Daily News.
+
+@kbd{Yahoo Content By Content ID}
+
+Retrieve and speak news section from Yahoo Daily News.
+
+@kbd{Yahoo DailyNews}
+
+Retrieve and speak DailyNewspage from  Yahoo Daily News.
+
+@kbd{Yahoo Entertainment}
+
+Retrieve and speak Entertainment section from Yahoo Daily News.
+
+@kbd{Yahoo Health}
+
+Retrieve and speak Health section from Yahoo Daily News.
+
+@kbd{Yahoo Lifestyle}
+
+Yahoo Lifestyle News.
+
+@kbd{Yahoo Oddly}
+
+Retrieve and speak Oddity section from Yahoo Daily News.
+
+@kbd{Yahoo Politics}
+
+Retrieve and speak Politics section from Yahoo Daily News.
+
+@kbd{Yahoo RSS Feeds}
+
+List Yahoo RSS Feeds.
+
+@kbd{Yahoo SF Local}
+
+Retrieve and speak Local section from Yahoo Daily News.
+
+@kbd{Yahoo Science}
+
+Retrieve and speak Science section from Yahoo Daily News.
+
+@kbd{Yahoo Sports}
+
+Entertainment news from Yahoo.
+
+@kbd{Yahoo Technology  News}
+
+Yahoo Technology News.
+
+@kbd{Yahoo Top Stories}
+
+Retrieve and speak Top Stories  section from Yahoo Daily News.
+
+@kbd{Yahoo World News}
+
+Yahoo World News.
+
+@kbd{fedex packages}
+
+Display package tracking information from Fedex.
+
+@kbd{pdf2html}
+
+Use access.adobe.com to  convert a remote PDF document to plain
+ text.
+The PDF document needs to be available on the public Internet.
+
+@kbd{pdf2txt}
+
+Use access.adobe.com to  convert a remote PDF document to plain
+ text.
+The PDF document needs to be available on the public Internet.
 
 @kbd{sourceforge Stats}
 
 Display project usage statistics.
-
-@kbd{sourceforge project}
-
-Open specified project page at SourceForge.
 
 @kbd{sourceforge browse download}
 
@@ -5074,68 +5123,19 @@ Retrieve download page at Sourceforge for specified project.
 
 Retrieve download table  at Sourceforge for specified project.
 
-@kbd{MLB Alerts}
+@kbd{sourceforge project}
 
-Show MLB Scorecard.
+Open specified project page at SourceForge.
 
-@kbd{MLB Scorecard}
+@kbd{w3c IRC Logs}
 
-Show MLB Scorecard.
+Use this to pull up the
+archived  logs from the W3C IRC. You need to know the exact
+name of the channel.
 
-@kbd{Baseball summary}
+@kbd{w3c Lists}
 
-Display baseball team summary.
-
-@kbd{Baseball standings}
-
-Display MLB standings.
-
-@kbd{Baseball Game Index}
-
-Display baseball Play By Play.
-
-@kbd{Baseball Play By Play}
-
-Display baseball Play By Play.
-
-@kbd{Baseball scores}
-
-Display baseball scores.
-
-@kbd{Baseball Results}
-
-Baseball results for a given date.
-
-@kbd{Travelocity Lookup}
-
-Show arrival/departure information from Travelocity.
-
-@kbd{Travel itenerary from ViewTrip.com}
-
-Display Trip Details
-
-@kbd{Times Of India}
-
-Retrieve Times Of India.
-Set up URL rewrite rule to get print page.
-
-@kbd{Cartoon You Said It By Laxman}
-
-Retrieve Cartoon Times Of India.
-
-@kbd{Meerkat Profile}
-
-Meerkat Profile
-
-@kbd{Meerkat Recipe}
-
-Meerkat tool
-
-@kbd{Flight Tracker}
-
-Display flight arrival and departure information.
-
-@kbd{Weather forecast from Weather Underground}
-
-Weather forecast from weather underground mobile.
+Use this to pull up the
+archived  mail from the W3C list. You need to know the exact
+name of the list.
 
