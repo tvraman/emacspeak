@@ -169,7 +169,22 @@ prompting for a template.")
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{ shoutcast 
 
+(emacspeak-url-template-define
+ "Shoutcast Search"
+ "http://yp.shoutcast.com/directory?s=%s&l=25"
+ (list
+ #'(lambda ()
+     (webjump-url-encode
+      (read-from-minibuffer "Shoutcast search: "))))
+ nil
+ "Locate and display Shoutcast streams."
+ #'(lambda (url)
+     (emacspeak-w3-extract-nested-table
+      8 url)))
+
+;;}}}
 ;;{{{  Linksys IP
 
 (emacspeak-url-template-define
