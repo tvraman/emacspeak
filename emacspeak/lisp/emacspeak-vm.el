@@ -40,6 +40,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'voice-setup)
 (require 'dtk-voices)
 (require 'emacspeak-personality)
 (require 'emacspeak-keymap)
@@ -90,16 +91,16 @@ Note that some badly formed mime messages  cause trouble."
   :type 'symbol
   :group 'emacspeak-vm)
 
-(defcustom emacspeak-vm-to-voice  'paul-animated
+(defcustom emacspeak-vm-to-voice  voice-aniamte
   "Personality for To field. "
   :type 'symbol
   :group 'emacspeak-vm)
-(defcustom emacspeak-vm-subject-voice  'paul-smooth 
+(defcustom emacspeak-vm-subject-voice  voice-brighten 
   "Personality for Subject field. "
   :type 'symbol
   :group 'emacspeak-vm)
 
-(defcustom emacspeak-vm-cite-voice  'paul-smooth
+(defcustom emacspeak-vm-cite-voice  voice-smoothen
   "Personality for citation lines. "
   :type 'symbol
   :group 'emacspeak-vm)
