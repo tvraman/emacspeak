@@ -584,7 +584,7 @@ Emacspeak."
         vm-inhibit-startup-message t
         vm-visible-headers '("From:" "To:" "Subject:" "Date:" "Cc:")
         vm-delete-after-saving t
-        vm-url-browser 'w3-fetch
+        vm-url-browser 'browse-url
         vm-confirm-new-folders t
         vm-move-after-deleting nil
         emacspeak-vm-voice-lock-messages nil)

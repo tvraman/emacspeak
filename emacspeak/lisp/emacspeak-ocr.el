@@ -67,8 +67,7 @@
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
-(require 'emacspeak-table)
-(require 'emacspeak-table-ui)
+
 (require 'derived)
 (eval-when-compile (require 'emacspeak-keymap))
 ;;}}}
