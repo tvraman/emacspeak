@@ -19,12 +19,12 @@ View an RSS feed as clean HTML
         </title>
       </head>
       <body>
-        <p>
-          <xsl:apply-templates select="description"/>
-        </p>
         <ul>
           <xsl:apply-templates select="item"/>
         </ul>
+        <p>
+          <xsl:apply-templates select="description"/>
+        </p>
       </body>
     </html>
   </xsl:template>
@@ -34,6 +34,7 @@ View an RSS feed as clean HTML
         <xsl:attribute name="href">
           <xsl:apply-templates select="link"/>
         </xsl:attribute>
+        <xsl:apply-templates select="title"/>
         <xsl:apply-templates select="description"/>
       </xsl:element>
     </li>
