@@ -1080,7 +1080,6 @@ These options are customizable via Emacs' Custom interface.\n\n"
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
-
 ;;}}}
 ;;{{{ labelled frames
 ;;;###autoload
