@@ -11,9 +11,9 @@ END-INFO-DIR-ENTRY
 Indirect:
 emacspeak.info-1: 232
 emacspeak.info-2: 47461
-emacspeak.info-3: 93412
-emacspeak.info-4: 142174
-emacspeak.info-5: 188156
+emacspeak.info-3: 93398
+emacspeak.info-4: 141809
+emacspeak.info-5: 191402
 
 Tag Table:
 (Indirect)
@@ -63,69 +63,68 @@ Node: Personal Information Management74834
 Node: Desktop Applications75177
 Node: Running Terminal Based Applications81650
 Node: Emacspeak Commands89639
-Node: dtk-speak91237
-Node: dtk-tcl93412
-Node: emacspeak-arc99138
-Node: emacspeak-aumix99832
-Node: emacspeak-bs101152
-Node: emacspeak-buff-menu101567
-Node: emacspeak-c102274
-Node: emacspeak-calendar102610
-Node: emacspeak-compile103124
-Node: emacspeak-custom103661
-Node: emacspeak-dired104151
-Node: emacspeak-dismal105732
-Node: emacspeak-ediff108056
-Node: emacspeak-enriched108411
-Node: emacspeak-entertain108801
-Node: emacspeak-erc109249
-Node: emacspeak-eterm109939
-Node: emacspeak-eudc117499
-Node: emacspeak-filtertext118016
-Node: emacspeak-fix-interactive118974
-Node: emacspeak-forms119654
-Node: emacspeak-freeamp120627
-Node: emacspeak-gomoku122225
-Node: emacspeak-gridtext123498
-Node: emacspeak-hide124001
-Node: emacspeak-ibuffer125429
-Node: emacspeak-imenu125868
-Node: emacspeak-keymap126482
-Node: emacspeak-kotl127378
-Node: emacspeak-man127872
-Node: emacspeak-mpg123128318
-Node: emacspeak-ocr129670
-Node: emacspeak-outline136400
-Node: emacspeak-pronounce137526
-Node: emacspeak-psgml140569
-Node: emacspeak-python141631
-Node: emacspeak-realaudio142174
-Node: emacspeak-redefine146251
-Node: emacspeak-remote149560
-Node: emacspeak-rmail150408
-Node: emacspeak-solitaire150876
-Node: emacspeak-sounds151451
-Node: emacspeak-speak153760
-Node: emacspeak-speedbar173351
-Node: emacspeak-table-ui174227
-Node: emacspeak-tabulate180263
-Node: emacspeak-tapestry180772
-Node: emacspeak-tar181168
-Node: emacspeak-tetris181722
-Node: emacspeak-url-template183072
-Node: emacspeak-view-process183987
-Node: emacspeak-view184503
-Node: emacspeak-vm184847
-Node: emacspeak-w3185571
-Node: emacspeak-websearch188156
-Node: emacspeak-widget197747
-Node: emacspeak-wizards198742
-Node: emacspeak210719
-Node: dis-quote211198
-Node: emacspeak-w3search211541
-Node: ANONYMOUS212052
-Node: Acknowledgements212450
-Node: Concept Index212607
-Node: Key Index213090
+Node: dtk-speak91223
+Node: dtk-tcl93398
+Node: emacspeak-arc99043
+Node: emacspeak-aumix99629
+Node: emacspeak-bs100841
+Node: emacspeak-buff-menu101229
+Node: emacspeak-c101828
+Node: emacspeak-calendar102137
+Node: emacspeak-compile102624
+Node: emacspeak-custom103134
+Node: emacspeak-dired103570
+Node: emacspeak-dismal104935
+Node: emacspeak-ediff106881
+Node: emacspeak-enriched107209
+Node: emacspeak-entertain107572
+Node: emacspeak-erc107966
+Node: emacspeak-eterm108575
+Node: emacspeak-eudc115136
+Node: emacspeak-filtertext115626
+Node: emacspeak-fix-interactive116530
+Node: emacspeak-forms117156
+Node: emacspeak-freeamp117967
+Node: emacspeak-gomoku119511
+Node: emacspeak-gridtext120541
+Node: emacspeak-hide121044
+Node: emacspeak-ibuffer122445
+Node: emacspeak-imenu122857
+Node: emacspeak-keymap123390
+Node: emacspeak-kotl124259
+Node: emacspeak-man124699
+Node: emacspeak-mpg123125091
+Node: emacspeak-ocr126200
+Node: emacspeak-outline132498
+Node: emacspeak-pronounce133624
+Node: emacspeak-psgml136478
+Node: emacspeak-python137432
+Node: emacspeak-realaudio137921
+Node: emacspeak-redefine141809
+Node: emacspeak-remote145118
+Node: emacspeak-rmail145966
+Node: emacspeak-solitaire146380
+Node: emacspeak-sounds146874
+Node: emacspeak-speak149129
+Node: emacspeak-speedbar168018
+Node: emacspeak-table-ui168840
+Node: emacspeak-tabulate174093
+Node: emacspeak-tapestry174602
+Node: emacspeak-tar174998
+Node: emacspeak-tetris175471
+Node: emacspeak-url-template176524
+Node: emacspeak-view-process177358
+Node: emacspeak-view177820
+Node: emacspeak-vm178137
+Node: emacspeak-w3178753
+Node: emacspeak-websearch180807
+Node: emacspeak-widget189237
+Node: emacspeak190170
+Node: dis-quote190648
+Node: emacspeak-w3search190964
+Node: emacspeak-wizards191402
+Node: Acknowledgements203405
+Node: Concept Index203562
+Node: Key Index204045
 
 End Tag Table
