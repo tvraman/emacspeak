@@ -190,9 +190,6 @@
   "Provide auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-(defadvice ido-dired (after emacspeak pre act comp)
-  "Run dired mode hook."
-  (run-hooks 'dired-mode-hook))
 
 ;;}}}
 ;;{{{ define personalities 
