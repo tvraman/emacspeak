@@ -179,7 +179,7 @@ proc s {} {
         queue_clear
         #allow dtk to recover
         read $tts(read) 1
-        select {} {} {} 0.06
+        select {} {} {} 0.01
     }
 }
 
