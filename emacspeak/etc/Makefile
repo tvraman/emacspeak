@@ -50,6 +50,7 @@ config:
 	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
 		emacspeak.sh.def > emacspeak.sh
 	@chmod 755   emacspeak.sh
+	@chmod 755   *.pl
 
 # }}}
 # {{{maintainer target 
