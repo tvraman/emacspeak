@@ -59,14 +59,14 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-current-buffer-name)))
 
 (defadvice swbuff-switch-to-next-buffer (after emacspeak pre act
                                                    comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-speak-current-buffer-name)))
 
 ;;}}}
 (provide 'emacspeak-swbuff)

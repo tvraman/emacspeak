@@ -1598,6 +1598,13 @@ semantic to do the work."
                                recursion-info
                                global-info)))))))
 
+
+(defun emacspeak-speak-current-buffer-name ()
+  "Speak name of current buffer."
+  (tts-with-punctuations "all"
+  (dtk-speak
+   (buffer-name))))
+
 ;;}}}
 ;;;Helper --return string describing coding system info if
 ;;;relevant
