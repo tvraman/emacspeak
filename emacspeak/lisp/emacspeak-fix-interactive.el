@@ -80,7 +80,7 @@
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-dont-fix-regexp))
   (and (commandp sym)
-       (not (get  sym 'emacspeak-fixed))
+       (not (get  sym 'emacspeak-checked-interactive))
        (stringp (second (ad-interactive-form (symbol-function sym))))
        (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
@@ -89,6 +89,11 @@
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
 
 ;;}}}
+
+(defsubst ems-prompt-without-minibuffer-p (prompt)
+  "Check if this interactive prompt uses the minibuffer."
+             (string-match  "^[ckK]" prompt ))
+
 ;;;###autoload
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  
@@ -96,22 +101,18 @@ Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
-  (let ((interactive-list
+  (let ((prompts
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
                                         ;memoize call
-    (put sym 'emacspeak-fixed t)
+    (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
-    (when
-        (some
-         #'(lambda (prompt)
-             (string-match  "^[ckK]" prompt ))
-         interactive-list )
+    (when (some 'ems-prompt-without-minibuffer-p  prompts )
       (eval
        (`
         (defadvice (, sym)
-          (before  emacspeak-auto activate protect compile)
+          (before  emacspeak-auto pre act  protect compile)
           "Automatically defined advice to speak interactive prompts. "
           (interactive
            (nconc  
@@ -121,7 +122,7 @@ use the minibuffer."
                   (`
                    (let ((dtk-stop-immediately nil)
                          (emacspeak-speak-messages nil))
-                     (when (string-match"^[ckK]" (, prompt))
+                     (when (ems-prompt-without-minibuffer-p (, prompt))
                        (emacspeak-auditory-icon 'open-object)
                        (tts-with-punctuations "all"
                                               (dtk-speak
@@ -131,7 +132,7 @@ use the minibuffer."
                       #'(lambda (&rest args)
                           (interactive (, prompt))
                           args) nil))))
-              interactive-list)))))))))
+              prompts)))))))))
   t)
 
 ;;; inline function for use from other modules:
