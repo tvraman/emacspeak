@@ -1976,7 +1976,8 @@ to find matching header lines."
   (interactive)
   (declare (special emacspeak-occur-pattern))
   (cond
-   ((boundp 'emacspeak-occur-pattern)
+   ((and (boundp 'emacspeak-occur-pattern)
+         emacspeak-occur-pattern)
     (occur emacspeak-occur-pattern)
     (message "Displayed header lines in other window.")
     (emacspeak-auditory-icon 'open-object))
