@@ -118,6 +118,7 @@ emacspeak-ediary.elc \
 emacspeak-ediff.elc \
 flite-voices.elc \
 emacspeak-enriched.elc \
+emacspeak-emms.elc \
 emacspeak-entertain.elc \
 emacspeak-eperiodic.elc \
 emacspeak-erc.elc \
@@ -300,6 +301,7 @@ emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
 flite-voices.elc: flite-voices.el
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
+emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc 
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
