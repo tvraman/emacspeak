@@ -191,6 +191,33 @@ displayed in the messages area."
          (puthash  value t emacspeak-personality-unmapped-faces)))))
 
 ;;}}}
+;;{{{ advice overlay-put 
+(defadvice overlay-put (after emacspeak-personality  pre act) 
+  "Used by emacspeak to augment font lock."
+  (let ((overlay (ad-get-arg 0))
+         (prop (ad-get-arg 1))
+         (value (ad-get-arg 2))
+         (voice nil)
+         (voices nil))
+     (when (eq prop 'face)
+       (cond
+        ((symbolp value)
+       (setq voice (voice-setup-get-voice-for-face   value)))
+        ((listp value)
+        (setq voices
+              (remove nil 
+              (mapcar #'voice-setup-get-voice-for-face value)))
+                           (setq voice (car (last voices))))
+                      (t (message "Got %s" value)))
+       (when voice
+            (put-text-property (overlay-start overlay)
+                               (overlay-end overlay)
+                               'personality voice))
+       (when (and emacspeak-personality-show-unmapped-faces
+                  (not voice))
+         (puthash  value t emacspeak-personality-unmapped-faces)))))
+
+;;}}}
 (provide 'emacspeak-personality )
 ;;{{{ end of file
 
