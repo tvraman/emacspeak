@@ -629,7 +629,7 @@ Optional arg COMPLEMENT inverts the filter.  "
       (emacspeak-xslt-region
        (if complement
            emacspeak-w3-xsl-junk
-           emacspeak-w3-xsl-filter)
+         emacspeak-w3-xsl-filter)
        (point-min)
        (point-max)
        (list
@@ -839,9 +839,6 @@ Interactive use provides list of class values as completion."
    (or (interactive-p)
        speak)))
 
-
-
-
 (defsubst  emacspeak-w3-css-get-class-list ()
   "Collect a list of classes by prompting repeatedly in the
 minibuffer.
@@ -905,7 +902,6 @@ completion. "
      (or (interactive-p) speak)
      'complement)))
 
-
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
                     emacspeak-xslt-directory)
@@ -917,6 +913,35 @@ XPath locator.")
   "XSL transform to junk  elements matching a specified
 XPath locator.")
 
+;;; Extracting node specified by id
+(defvar emacspeak-w3-extract-node-by-id-xsl
+  (expand-file-name "extract-node-by-id.xsl"
+                    emacspeak-xslt-directory)
+  "XSL transform to extract a node.")
+;;;###autoload
+(defun emacspeak-w3-extract-node-by-id (url node-id   )
+  "Extract specified node from URI."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: ")
+    (read-from-minibuffer "Node Id: ")))
+  (declare (special emacspeak-xslt-program
+                    emacspeak-w3-extract-node-by-id-xsl))
+  (let ((result
+         (emacspeak-xslt-url
+          emacspeak-w3-extract-node-by-id-xsl
+          url
+          (list
+           (cons "node-id" 
+                 (format "\"'%s'\"" node-id))
+           (cons "base"
+                 (format "\"'%s'\"" url))))))
+    (save-excursion
+      (set-buffer  result)
+      (emacspeak-w3-preview-this-buffer))))
+
+;;}}}
+;;{{{  xsl keymap
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "k"
@@ -950,33 +975,6 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "\C-x" 'emacspeak-w3-count-nested-tables)
 (define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-nested-table-list)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
-
-;;; Extracting node specified by id
-(defvar emacspeak-w3-extract-node-by-id-xsl
-  (expand-file-name "extract-node-by-id.xsl"
-                    emacspeak-xslt-directory)
-  "XSL transform to extract a node.")
-;;;###autoload
-(defun emacspeak-w3-extract-node-by-id (url node-id   )
-  "Extract specified node from URI."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: ")
-    (read-from-minibuffer "Node Id: ")))
-  (declare (special emacspeak-xslt-program
-                    emacspeak-w3-extract-node-by-id-xsl))
-  (let ((result
-         (emacspeak-xslt-url
-          emacspeak-w3-extract-node-by-id-xsl
-          url
-          (list
-           (cons "node-id" 
-                 (format "\"'%s'\"" node-id))
-           (cons "base"
-                 (format "\"'%s'\"" url))))))
-    (save-excursion
-      (set-buffer  result)
-      (emacspeak-w3-preview-this-buffer))))
 
 ;;}}}
 ;;{{{ class filter 
@@ -1064,16 +1062,14 @@ used as well."
 			      'speak)
     (emacspeak-auditory-icon 'open-object)))
 
-
 (defvar emacspeak-w3-xpath-junk nil
   "Records XPath pattern used to junk elements.")
 
 (make-variable-buffer-local 'emacspeak-w3-xpath-junk)
 
-
 (defvar emacspeak-w3-most-recent-xpath-junk
-                      nil 
-"Caches last XPath used to junk elements.")
+  nil 
+  "Caches last XPath used to junk elements.")
 
 (defun emacspeak-w3-xpath-junk-and-follow (&optional prompt)
   "Follow url and point, and filter the result by junking
@@ -1111,7 +1107,6 @@ used as well."
 			      'speak
                               'complement)
     (emacspeak-auditory-icon 'open-object)))
-
 
 ;;}}}
 ;;{{{  browse url using specified style
@@ -1381,10 +1376,12 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 
 ;;}}}
 ;;{{{ backward compatibility 
+
 ;;; this will go away 
 (defalias 'make-dtk-speech-style 'make-acss)
 (defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
 (provide 'dtk-css-speech)
+
 ;;}}}
 ;;{{{  emacs local variables 
 
