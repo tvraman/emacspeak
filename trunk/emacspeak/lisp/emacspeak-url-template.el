@@ -483,7 +483,10 @@ Computing News at CNN.")
  "http://money.cnn.com/%s/markets/hotstox/"
  (list 
   'emacspeak-url-template-date-year/month/date)
- "CNN Hot Stocks")
+ nil
+ "CNN Hot Stocks"
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 6 url)))
 
 (emacspeak-url-template-define
  "CNN Markets New York"
