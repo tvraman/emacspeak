@@ -517,6 +517,14 @@ Computing News at CNN.")
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define
+ "Weekend All Things Considered Stream from NPR"
+"http://www.npr.org/ramfiles/watc/%s.watc.ram"
+ (list 'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Play NPR Weekend All Things Considered stream."
+'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
  "All Things Considered Stream from NPR"
 "http://www.npr.org/ramfiles/atc/%s.atc.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
@@ -548,6 +556,18 @@ Computing News at CNN.")
 (read-from-minibuffer "Segment: ")))
  nil
  "Play NPR Talk Of The Nation segment."
+'emacspeak-realaudio-play)
+
+
+
+(emacspeak-url-template-define
+ "Weekend All Things Considered  from NPR"
+"http://www.npr.org/ramfiles/watc/%s.watc.%s.ram"
+ (list 'emacspeak-url-template-date-YearMonthDate
+#'(lambda nil
+    (read-from-minibuffer "Segment: ")))
+ nil
+ "Play NPR Weekend All Things Considered segment."
 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define

@@ -236,6 +236,7 @@ urls have a .ram or .rm extension.")
 a realaudio sream is done playing."
 :group 'emacspeak
 :type 'boolean)
+
 (defun emacspeak-realaudio  (&optional ignored)
   "Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -254,11 +255,12 @@ completions. Hit space to use this completion list.
 
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
-the audio desktop as \\[emacspeak-realaudio].
-Alternatively,  switch to buffer *realaudo* if you
-wish to issue many nvigation commands.  Note that buffer
-*realaudio* uses a special major mode that provides the
-various navigation commands via single keystrokes."
+the audio desktop as `\\[emacspeak-realaudio]'.
+Alternatively, switch to buffer *realaudo* using
+`\\[emacspeak-realaudio];' if you wish to issue many
+navigation commands.  Note that buffer *realaudio* uses a
+special major mode that provides the various navigation
+commands via single keystrokes."
 
   (interactive "P")
   (declare (special emacspeak-realaudio-process))
