@@ -28,7 +28,7 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="base" />
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
-  <xsl:key name="pageKey" match="pagenum" use="text()"/>
+  <xsl:key name="pageKey" match="pagenum" use="number(text())"/>
   <xsl:template match="/">
     <html>
       <head>
