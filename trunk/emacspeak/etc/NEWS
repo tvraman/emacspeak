@@ -105,6 +105,14 @@ custom and JDE.
 
 New URL templates for Sourceforge, DDJ TechNetCast etc.
 
+** Websearch:
+
+*** Single click access to speech-enabled Google advanced search.
+
+*** Browsing Usenet archives from Google --command C-e cap U
+
+*** Speech-enabled Usenet search from Google.
+
 ** Speech-enables ERC:
 
 Enhanced with room monitors and the ability to hear things
@@ -130,16 +138,15 @@ Emacspeak  now works with transient mark mode.
 ** W3 and XSLT:
 
 Emacspeak-w3 now provides the ability to apply an XSLT
-transformation to HTML content before it is displayed.
-You can use this to simplify ugly HTML and leverage W3's
-ability to render standard HTML.
-This feature is also useful in working with pages that use
-deeply nested tables.
-See directory emacspeak/xsl for some ideas on what XSLT can
-do.
+transformation to HTML content before it is displayed.  You
+can use this to simplify ugly HTML and leverage W3's ability
+to render standard HTML.  This feature is also useful in
+working with pages that use deeply nested tables.  See
+directory emacspeak/xsl for some ideas on what XSLT can do.
+
 See commands emacspeak-w3-xsl-toggle and
-emacspeak-w3-xslt-select
-for details on how to use this feature.
+emacspeak-w3-xslt-select for details on how to use this
+feature.
 
 ** Convenience Commands:
 
