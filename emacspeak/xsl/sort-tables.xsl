@@ -35,22 +35,23 @@ relevant tables bubble to the top.
 -->
 <!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:set="http://exslt.org/sets"
   version="1.0">
-<xsl:param name="base"/>
+  <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:include href="identity.xsl"/>
-<!-- { html body  -->
-<!-- nuke these -->
+  <!-- { html body  -->
+  <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
-<xsl:template match="/html/head">
-<head>
-<xsl:apply-templates select="title"/>
+  <xsl:template match="/html/head">
+    <head>
+      <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
-<xsl:element name="base">
-<xsl:attribute name="href">
-<xsl:value-of select="$base"/>
-        </xsl:attribute>
-      </xsl:element>
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
       </xsl:if>
     </head>
   </xsl:template>
@@ -65,9 +66,9 @@ relevant tables bubble to the top.
           <tr>
             <td>
               <a href="#__nested_tables"><xsl:value-of select="count(//table)"/> 
-tables of which 
-<xsl:value-of select="count(//table//table)"/>
-are nested</a>
+                tables of which 
+                <xsl:value-of select="count(//table//table)"/>
+              are nested</a>
             </td>
           </tr>
         </table>
@@ -76,44 +77,41 @@ are nested</a>
       <xsl:if test="count(//table//table)  &gt; 0">
         <h2>
           <a name="__nested_tables" id="__nested_tables"><xsl:value-of select="count(//table//table)"/>
-Nested Tables </a>
+          Nested Tables </a>
         </h2>
-        <xsl:for-each select="//table//table">
+        <xsl:variable name="i" select="//table//table"/>
+        <xsl:for-each select="$i">
           <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
-          <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
-<!--<xsl:sort select="@width" order="descending"/>-->
-<!--
-<p> sorting keys:
-Text <xsl:value-of select="count(.//text() | .//p)"/>
-table width: <xsl:value-of select="@width"/>
-        </p>
--->
-          <h2><xsl:element name="a"><xsl:attribute name="href">
-            #src-<xsl:value-of select="generate-id(.)"/>
-          </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
- And <xsl:value-of select="count(./tr/td)"/> Cells
-        </h2>
-          <xsl:element name="table">
-            <xsl:apply-templates select="@*"/>
-            <xsl:apply-templates/>
-          </xsl:element>
+          <xsl:sort select="count(.//table)" data-type="number"
+          order="ascending"/>
+          <xsl:if test="not(set:intersection(ancestor::*,$i))">
+            <h2><xsl:element name="a"><xsl:attribute name="href">
+                  #src-<xsl:value-of select="generate-id(.)"/>
+              </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
+              And <xsl:value-of select="count(./tr/td)"/> Cells
+            </h2>
+            <xsl:element name="table">
+              <xsl:apply-templates select="@*"/>
+              <xsl:apply-templates/>
+            </xsl:element>
+          </xsl:if>
         </xsl:for-each>
         <h2>
           <a name="__about_sorted_tables">About This Style</a>
         </h2>
         <p>
-        Note that nested tables have been moved to  section <a href="#__nested_tables">nested tables</a>.
-        The table cell that contained the nested table has been
-        replaced with a hyperlink that navigates to the actual
-        table. If the author has provided a summary and or
-        caption for the nested table, those will be displayed
-        as the hyperlink text.
-Lacking a summary attribute, I have generated hyperlinks of
-        the form row-count,cell-count.
-I have sorted them  so the most
-      relevant tables occur first.
-Sort keys were number of text nodes in a table and the width
-        of the table (where specified).
+          Note that nested tables have been moved to  section <a href="#__nested_tables">nested tables</a>.
+          The table cell that contained the nested table has been
+          replaced with a hyperlink that navigates to the actual
+          table. If the author has provided a summary and or
+          caption for the nested table, those will be displayed
+          as the hyperlink text.
+          Lacking a summary attribute, I have generated hyperlinks of
+          the form row-count,cell-count.
+          I have sorted them  so the most
+          relevant tables occur first.
+          Sort keys were number of text nodes in a table and the width
+          of the table (where specified).
         </p>
       </xsl:if>
     </xsl:element>
@@ -138,13 +136,13 @@ Sort keys were number of text nodes in a table and the width
           <xsl:apply-templates select="./tr/td/*"/>
         </xsl:when>
         <xsl:otherwise>
-[<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
+          [<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text> </xsl:text>
     </xsl:element>
   </xsl:template>
-<!-- } -->
+  <!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:
