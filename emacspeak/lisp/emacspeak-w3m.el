@@ -433,6 +433,11 @@
   'w3m-tab-selected-face
   "w3m-tab-selected-face")
 
+(def-voice-font emacspeak-w3m-image-personality
+  voice-brighten
+  'w3m-image-face
+  "Image personality.")
+
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
   (declare (special dtk-punctuation-mode))
