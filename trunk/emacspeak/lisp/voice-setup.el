@@ -127,9 +127,10 @@
                      (format "%s" v)
                      (format "%s" v)))
                 (tts-list-voices))))
+    (read
     (completing-read
      (or prompt "Personality: ")
-                     table)))
+                     table))))
 
 ;;}}}
 ;;{{{ map faces to voices 
