@@ -167,6 +167,14 @@ window")))
       (emacspeak-auditory-icon 'delete-object)
       (emacspeak-speak-line))))
 
+(defadvice sgml-up-element (after emacspeak pre act
+                                       comp)
+  "Speak line we moved to"
+  (when (interactive-p)
+    (let ((emacspeak-show-point t))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-line))))
+
 (defadvice sgml-next-data-field (after emacspeak pre act
                                        comp)
   "Speak line we moved to"
