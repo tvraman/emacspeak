@@ -360,7 +360,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15953 24520))
+;;;;;;  "emacspeak-speak.el" (15953 25362))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
