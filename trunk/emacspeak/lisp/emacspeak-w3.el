@@ -105,7 +105,6 @@
           (const  :tag "all" all))
   :group 'emacspeak-w3)
 
-
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
   (declare (special emacspeak-w3-post-process-hook
@@ -461,6 +460,29 @@ even if one is already defined."
     (when (interactive-p)
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
+
+;;}}}
+;;{{{ url expand and execute
+
+(defvar emacspeak-w3-url-executor nil
+  "URL expand/execute function  to use in current buffer.")
+
+(make-variable-buffer-local 'emacspeak-w3-url-executor)
+
+(defun emacspeak-w3-url-expand-and-execute ()
+  "Applies buffer-specific URL expander/executor function."
+  (interactive)
+  (declare (special emacspeak-w3-url-executor))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command is only useful in W3 buffers."))
+  (let ((url (w3-view-this-url t)))
+    (unless url
+      (error "Not on a link."))
+    (cond
+     ((and (boundp 'emacspeak-w3-url-executor)
+      (fboundp emacspeak-w3-url-executor))
+      (funcall emacspeak-w3-url-executor url))
+     (t (error "No expander defined.")))))
 
 ;;}}}
 ;;{{{  jump to title in document
@@ -1217,7 +1239,9 @@ loaded. "
   'emacspeak-w3-extract-nested-table)
 (define-key emacspeak-w3-xsl-map "\C-f" 'emacspeak-w3-count-matches)
 (define-key emacspeak-w3-xsl-map "\C-x" 'emacspeak-w3-count-nested-tables)
-(define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-nested-table-list)
+(define-key emacspeak-w3-xsl-map "X"
+  'emacspeak-w3-extract-nested-table-list)
+(define-key emacspeak-w3-xsl-map "e" 'emacspeak-w3-url-expand-and-execute)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
 
 ;;}}}
