@@ -162,7 +162,7 @@
 (define-key emacspeak-keymap ";" 'emacspeak-realaudio )
 (define-key emacspeak-keymap ":" 'emacspeak-realaudio-browse )
 (define-key emacspeak-keymap "C" 'emacspeak-speak-display-char)
-(define-key emacspeak-keymap "\C-o" 'emacspeak-speak-other-window )
+(define-key emacspeak-keymap "\C-o" 'emacspeak-ocr )
 (define-key emacspeak-keymap "\C-c"
   'emacspeak-clipboard-copy)
 (define-key emacspeak-keymap "\M-c"
