@@ -1264,6 +1264,7 @@ in completion buffers"
                            'personality
                            emacspeak-comint-prompt-personality )
         (unless emacspeak-comint-autospeak
+          (emacspeak-auditory-icon 'progress)
           (emacspeak-speak-region
            (overlay-start comint-last-prompt-overlay)
            (overlay-end comint-last-prompt-overlay))))
