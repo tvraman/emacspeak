@@ -147,7 +147,7 @@ no line --with no white space."
     (setq dtk-servers-alist result)))
 
 (defvar dtk-servers-alist
-  (tts-setup-servers-alist)
+  nil
   "Used by `completing-read' when prompting for the dtk server to use.")
 
 
@@ -607,7 +607,11 @@ Argument PROGRAM specifies the speech server program.
 The selected server is started immediately."
   (interactive
    (list (completing-read "Select speech server:"
-                          dtk-servers-alist  nil
+                          (or dtk-servers-alist
+                              (progn
+                                (tts-setup-servers-alist)
+                                dtk-servers-alist))
+                          nil
                           t  )
          current-prefix-arg))
   (declare (special  dtk-tcl dtk-program dtk-servers-alist))
