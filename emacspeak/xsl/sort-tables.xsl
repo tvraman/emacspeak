@@ -35,8 +35,7 @@ relevant tables bubble to the top.
 -->
 <!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes"
-              encoding="iso8859-15"/>
+  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:include href="identity.xsl"/>
 <!-- { html body  -->
 <!-- nuke these -->
@@ -57,32 +56,22 @@ nested tables</a>
       </table>
       <xsl:apply-templates/>
       <h2>
-        <a name="__nested_tables" id="__nested_tables"> 
-<xsl:value-of select="count(//table//table)"/>
+        <a name="__nested_tables" id="__nested_tables"><xsl:value-of select="count(//table//table)"/>
 Nested Tables </a>
       </h2>
-      
       <xsl:for-each select="//table//table">
         <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
         <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
-        <!--<xsl:sort select="@width" order="descending"/>-->
+<!--<xsl:sort select="@width" order="descending"/>-->
 <!--
 <p> sorting keys:
 Text <xsl:value-of select="count(.//text() | .//p)"/>
 table width: <xsl:value-of select="@width"/>
         </p>
 -->
-<h2>
-        <xsl:element name="a">
-            <xsl:attribute name="href">
+        <h2><xsl:element name="a"><xsl:attribute name="href">
             #src-<xsl:value-of select="generate-id(.)"/>
-          </xsl:attribute>
-          <xsl:attribute name="name">
-            <xsl:value-of select="generate-id(.)"/>
-          </xsl:attribute>
-          <em>Table <xsl:value-of select="position()"/> </em><br/>
-        </xsl:element>
- <xsl:value-of select="count(./tr)"/> Rows 
+          </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
  And <xsl:value-of select="count(./tr/td)"/> Cells
         </h2>
         <xsl:element name="table">
@@ -110,20 +99,30 @@ Sort keys were number of text nodes in a table and the width
     </xsl:element>
   </xsl:template>
   <xsl:template match="//table//table">
+    <xsl:variable name="rows" select="count(./tr)"/>
+    <xsl:variable name="cols" select="count(./tr/td)"/>
     <xsl:element name="a">
-      <xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute>
-      <xsl:attribute name="name"><xsl:text>src-</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute>
-<xsl:value-of select="caption"/>
-<xsl:choose>
-<xsl:when test="@summary">
- <xsl:value-of select="@summary"/>
+      <xsl:attribute name="href">
+        <xsl:text>#</xsl:text>
+        <xsl:value-of select="generate-id(.)"/>
+      </xsl:attribute>
+      <xsl:attribute name="name">
+        <xsl:text>src-</xsl:text>
+        <xsl:value-of select="generate-id(.)"/>
+      </xsl:attribute>
+      <xsl:choose>
+        <xsl:when test="@summary">
+          <xsl:value-of select="@summary"/>
         </xsl:when>
-<xsl:otherwise>
-[<xsl:value-of select="count(./tr)"/>,<xsl:value-of select="count(./tr/td)"/>]
+        <xsl:when test="$rows = 1 and $cols = 1">
+          <xsl:apply-templates select="./tr/td"/>
+        </xsl:when>
+        <xsl:otherwise>
+[<xsl:value-of select="$rows"/>,<xsl:value-of select="$cols"/>]
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text> </xsl:text>
-</xsl:element>
+    </xsl:element>
   </xsl:template>
 <!-- } -->
 </xsl:stylesheet>
