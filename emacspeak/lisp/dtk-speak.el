@@ -181,11 +181,12 @@ available TTS servers.")
                                           (, setting)) )
              (,@ body)
              (dtk-force))
+         (unless (string=  (, setting)  save-punctuation-mode)
          (setq dtk-punctuation-mode save-punctuation-mode)
          (process-send-string dtk-speaker-process
                               (format "tts_set_punctuations %s  \n "
                                       dtk-punctuation-mode ))
-         (dtk-force))))))
+         (dtk-force)))))))
 
 ;;}}}
 ;;{{{  Mapping characters to speech:

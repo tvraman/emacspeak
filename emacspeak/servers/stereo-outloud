@@ -193,6 +193,7 @@ proc service {} {
     while {$talking == 1} {
         set status   [lsearch [select [list  stdin]  {} {} 0.01] stdin]
         if { $status >= 0} {
+            stop
             set tts(talking?) 0
             set talking 0
             break
@@ -211,7 +212,6 @@ proc speech_task {} {
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "`v1 `vs$r "
-    stop
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
