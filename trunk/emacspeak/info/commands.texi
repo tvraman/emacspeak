@@ -4440,12 +4440,19 @@ for commands defined in module  dis-quote.
 Set up variable emacspeak-websearch-personal-portfolio. 
 @end deffn
 
+
+
 @node emacspeak-w3
 @section emacspeak-w3
 
 
 
 
+Commentary:
+Ensure that speech support for W3 gets installed and
+loaded correctly.
+The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
 
 
 Automatically generated documentation
@@ -4469,6 +4476,16 @@ Speak document element under point.
 
 @deffn emacspeak-w3-toggle-table-borders
 Toggle drawing of W3 table borders
+@end deffn
+
+
+
+@deffn emacspeak-w3-xslt-filter
+Extract elements matching specified XPath path locator
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract table from.  Interactive
+prefix arg causes url to be read from the minibuffer.
 @end deffn
 
 
@@ -4500,12 +4517,36 @@ Jump to next available submit button.
 
 
 
+@deffn emacspeak-w3-xsl-toggle
+Toggle  XSL transformations before displaying HTML.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package.
+@end deffn
+
+
+
 @deffn emacspeak-w3-lynx-url-under-point
 Display contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
 hyperlinks in that display are not active-- this facility is
 present only to help me iron out the remaining problems with
 the table structure extraction code in W3.
+@end deffn
+
+
+
+@deffn emacspeak-w3-extract-table
+Extract tables from HTML.  Extracts specified table from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
+@end deffn
+
+
+
+@deffn emacspeak-w3-xslt-select
+Select transformation to apply.
 @end deffn
 
 
@@ -4519,6 +4560,18 @@ element.
 
 @deffn emacspeak-w3-jump-to-title-in-content
 Jumps to the occurrence of document title in page body.
+@end deffn
+
+
+
+@deffn emacspeak-w3-extract-by-class
+Extract elements having specified class attribute  from
+HTML.  
+Extracts specified elements from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
 @end deffn
 
 
@@ -4540,6 +4593,13 @@ Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
 @end deffn
+
+
+
+@deffn emacspeak-w3-xslt-apply
+Apply specified transformation to current page.
+@end deffn
+
 
 @node emacspeak-w3search
 @section emacspeak-w3search
