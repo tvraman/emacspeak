@@ -1,0 +1,234 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Tips And Tricks For The Emacspeak Audio Desktop
+         
+      </title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.18">
+   </head>
+   <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+      <div id="c36b1" class="article">
+         <div class="titlepage">
+            <h1 class="title"><a name="c36b1">Tips And Tricks For The Emacspeak Audio Desktop
+                  </a></h1>
+            <h3 class="author">T. V. Raman</h3>
+            <div class="abstract">
+               <p><a name="c36b1ab5"></a><b>Abstract</b></p>
+               <p>
+                  This document is a collection of productivity tips for using the
+                  Emacspeak audio desktop.
+                  
+               </p>
+            </div>
+            <hr>
+         </div>
+         <div class="qandaset">
+            <dl>
+               <dt>1. <a href="#c36b1b1a">Online Help</a></dt>
+               <dd>
+                  <dl>
+                     <dt>1.1. <a href="#c36b1b1ab1">
+                           Getting help.</a></dt>
+                     <dt>1.2. <a href="#c36b1b1ab2"> Online hypertext help.</a></dt>
+                     <dt>1.3. <a href="#c36b1b1ab3">
+                           Opening info page that documents  a given key.</a></dt>
+                     <dt>1.4. <a href="#c36b1b1ab4">
+                           Opening info page that documents a given command.
+                           </a></dt>
+                     <dt>1.5. <a href="#c36b1b1ab5">
+                           Picking from available choices.</a></dt>
+                     <dt>1.6. <a href="#c36b1b1ab6">
+                           Minibuffer prompting and completion.</a></dt>
+                  </dl>
+               </dd>
+               <dt>2. <a href="#c36b1b1b1">Files And Folders</a></dt>
+               <dd>
+                  <dl>
+                     <dt>2.1. <a href="#c36b1b1b1b1">
+                           Working on files and folders.</a></dt>
+                     <dt>2.2. <a href="#c36b1b1b1b2">Locating files.</a></dt>
+                     <dt>2.3. <a href="#c36b1b1b1b3">
+                           Using UNIX find from within Emacs.</a></dt>
+                  </dl>
+               </dd>
+            </dl>
+            <div class="qandadiv">
+               <h3 class="title"><a name="c36b1b1a">1. Online Help</a></h3>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab1"><b>1.1. </b>
+                           Getting help.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Online documentation is accessed using commands available on key
+                        <b>C-h</b>. The
+                        type of help obtained is determined by the
+                        keypress following <b>C-h</b>.
+                        
+                        <table class="simplelist" border="0">
+                           <tr>
+                              <td>
+                                 <b>c</b>
+                                 to lookup command run by a given key.
+                                 
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <b>k</b>
+                                 to  look up documentation for a given key.
+                                 
+                              </td>
+                           </tr>
+                        </table>
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab2"><b>1.2. </b> Online hypertext help.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Invoke the online hypertext help system
+                        (<b>info</b>) by pressing
+                        <b>C-h i</b>.
+                        Press <b>h</b> when
+                        using the Info to
+                        obtain a primer for first time users.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab3"><b>1.3. </b>
+                           Opening info page that documents  a given key.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Press <b> C-h C-k </b>followed
+                        by the key whose documentation you wish to
+                        locate.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab4"><b>1.4. </b>
+                           Opening info page that documents a given command.
+                           </a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Press <b>C-h
+                           C-f</b>
+                        and specify the command name when prompted.
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab5"><b>1.5. </b>
+                           Picking from available choices.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Hitting the <b>tab</b>
+                        causes Emacs to complete the currently typed input as far as
+                        possible.
+                        If there is more than one choice available, Emacspeak plays
+                        auditory icon <i>help</i>
+                        and speaks the available choices.  At this point, you can
+                        input more characters to unambiguously specify the
+                        choice. Alternative, you can browse the
+                        completion list which is typically displayed in
+                        another window in a buffer called 
+                        <tt>*Completions*</tt>.
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1ab6"><b>1.6. </b>
+                           Minibuffer prompting and completion.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Emacs uses the <i>minibuffer</i> when
+                        obtaining user input for a given command.
+                        While using completion in the minibuffer by
+                        hitting <b>tab</b>
+                        you can switch to the 
+                        <tt>*Completions*</tt>
+                        buffer by pressing command <b>C-o</b>.
+                        
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="qandadiv">
+               <h3 class="title"><a name="c36b1b1b1">2. Files And Folders</a></h3>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1b1b1"><b>2.1. </b>
+                           Working on files and folders.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Use command <b>
+                           dired</b>
+                        (directory editor) normally bound to
+                        <b>
+                           C-x d              </b>
+                        to operate on files and folders.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1b1b2"><b>2.2. </b>Locating files.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Use <b>locate</b>
+                        and <b>
+                           locate-with-filter</b> to
+                        find files and folders on your hard drive.
+                        Matching files and folders are displayed using
+                        the same interface as provided by command
+                        <b>dired</b>.  These
+                        commands use the 
+                        locate database that
+                        is typically rebuilt nightly on standard Linux
+                        systems.
+                        
+                     </p>
+                  </div>
+               </div>
+               <div class="qandaentry">
+                  <div class="question">
+                     <p><a name="c36b1b1b1b3"><b>2.3. </b>
+                           Using UNIX <b>find</b> from within Emacs.</a></p>
+                  </div>
+                  <div class="answer">
+                     <p><b> </b>
+                        Use commands <b>
+                           find-name-dired</b>, <b>find-grep-dired</b> and
+                        <b>find-dired</b> to use UNIX
+                        find to locate files
+                        and folders on your hard drive.
+                        
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
