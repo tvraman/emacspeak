@@ -1002,6 +1002,17 @@ emacspeak-emergency-tts-server."
   (dtk-initialize))
 
 ;;}}}
+;;{{{ customization wizard
+(defun emacspeak-customize-current-major-mode ()
+  "Attempts to pop up a customization buffer for current
+major mode."
+  (interactive)
+  (declare (special major-mode))
+  (customize-group major-mode)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
