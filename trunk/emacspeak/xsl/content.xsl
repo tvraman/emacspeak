@@ -13,11 +13,9 @@
   <xsl:template match="//script|meta|link"/>
   <xsl:template match="html/body">
     <xsl:element name="body">
-<table>
-<caption>Contents Revealed</caption>
-<tr>
-<td><a href="#__about_this_style">About This Style</a>
-        </td></tr></table>
+<p><strong>
+<a href="#__about_this_style">Contents Revealed</a>
+        </strong></p>
       <xsl:apply-templates 
                            select =
         "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
