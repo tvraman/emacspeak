@@ -185,7 +185,7 @@ host is listening on for speech requests."
   (interactive
    (list
     (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table ;completion table
+                     emacspeak-eterm-remote-hosts-table	;completion table
                      nil                ;predicate
                      nil                ;must-match
                      (emacspeak-remote-get-current-remote-hostname) ;initial input

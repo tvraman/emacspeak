@@ -736,8 +736,8 @@ To leave, press \\[keyboard-quit]."
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-                     (symbol-file a)
-                     (symbol-file b))
+		       (symbol-file a)
+		       (symbol-file b))
                       t)
                      ((string-equal (symbol-file a)
                                     (symbol-file b))
@@ -890,9 +890,9 @@ for commands defined in module  %s.\n\n"
        (emacspeak-list-emacspeak-commands))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)
-                           "cat -s"
-                           (current-buffer)
-                           'replace)
+			       "cat -s"
+			       (current-buffer)
+			       'replace)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
@@ -2088,13 +2088,12 @@ for `word' and siplays hits in a compilation buffer."
 ;;}}}
 ;;{{{ fix text that has gotten read-only accidentally 
 
-
 (defun emacspeak-wizards-fix-read-only-text (start end)
   "Nuke read-only property on text range."
   (interactive "r")
-(let ((inhibit-read-only t))
-  (put-text-property start end 
-                     'read-only nil)))
+  (let ((inhibit-read-only t))
+    (put-text-property start end 
+		       'read-only nil)))
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file

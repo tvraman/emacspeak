@@ -61,11 +61,11 @@
 
 (defvar emacspeak-todo-mode-navigation-commands
   '(todo-forward-item
-   todo-backward-item
-   todo-forward-category
-   todo-backward-category
-   todo-jump-to-category
-   )
+    todo-backward-item
+    todo-forward-category
+    todo-backward-category
+    todo-jump-to-category
+    )
   "Todo mode navigation commands to speech enable.")
 
 (loop for f in emacspeak-todo-mode-navigation-commands
@@ -88,7 +88,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
-
 
 ;;}}}
 (provide 'emacspeak-todo-mode)

@@ -473,8 +473,8 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
   (declare (special emacspeak-w3-class-filter
-emacspeak-w3-url-rewrite-rule))
-(unless (fboundp 'string-replace-match)
+		    emacspeak-w3-url-rewrite-rule))
+  (unless (fboundp 'string-replace-match)
     (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
@@ -484,10 +484,10 @@ emacspeak-w3-url-rewrite-rule))
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                url
-                                (second
-                                 emacspeak-w3-url-rewrite-rule))))
+	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+				  url
+				  (second
+				   emacspeak-w3-url-rewrite-rule))))
     (when (or prompt 
               (null emacspeak-w3-class-filter))
       (setq emacspeak-w3-class-filter 
@@ -513,8 +513,8 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
   (declare (special emacspeak-w3-xpath-filter
-emacspeak-w3-url-rewrite-rule))
-(unless (fboundp 'string-replace-match)
+		    emacspeak-w3-url-rewrite-rule))
+  (unless (fboundp 'string-replace-match)
     (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
@@ -524,17 +524,17 @@ emacspeak-w3-url-rewrite-rule))
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                url
-                                (second
-                                 emacspeak-w3-url-rewrite-rule))))
+	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+				  url
+				  (second
+				   emacspeak-w3-url-rewrite-rule))))
     (when (or prompt 
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter 
             (read-from-minibuffer  "Specify xpath: ")))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
-                                   (or redirect url)
-                                   'speak)
+			      (or redirect url)
+			      'speak)
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
@@ -782,7 +782,7 @@ minibuffer."
                         (or source-url
                             w3-url)))))
         (when (or speak
-            (interactive-p))
+		  (interactive-p))
           (setq emacspeak-w3-post-process-hook 'emacspeak-speak-buffer))
         (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))

@@ -1125,9 +1125,9 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
      (format "Teoma Search: "))
     ))
   (declare (special emacspeak-websearch-teoma-uri))
-    (browse-url 
-     (concat emacspeak-websearch-teoma-uri
-             (webjump-url-encode query))))
+  (browse-url 
+   (concat emacspeak-websearch-teoma-uri
+	   (webjump-url-encode query))))
 
 ;;}}}
 ;;{{{ google advanced search 
@@ -1319,13 +1319,13 @@ With optional interactive prefix arg MAP shows the location map instead."
                     emacspeak-websearch-map-maps-uri))
   (cond
    (map
-      (browse-url 
-   (concat
-        emacspeak-websearch-map-maps-uri
-    query))
-      (emacspeak-websearch-post-process
-       "Nearby"
-       'emacspeak-speak-line))
+    (browse-url 
+     (concat
+      emacspeak-websearch-map-maps-uri
+      query))
+    (emacspeak-websearch-post-process
+     "Nearby"
+     'emacspeak-speak-line))
    (t 
     (emacspeak-w3-xslt-filter "//center[4]"
                               (concat
@@ -1349,7 +1349,7 @@ With optional interactive prefix arg MAP shows the location map instead."
   (declare (special emacspeak-websearch-news-yahoo-uri
                     emacspeak-w3-url-rewrite-rule))
   (emacspeak-w3-xslt-filter
-"/html/body/table[6]//p"
+   "/html/body/table[6]//p"
    (concat emacspeak-websearch-news-yahoo-uri
            (format "p=%s&n=20&c=news"
                    (webjump-url-encode query)))
