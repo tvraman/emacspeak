@@ -41,8 +41,8 @@
 (eval-when (compile) (require 'gnus)
            (require 'gnus-sum)
            (require 'voice-lock)
-           (require 'emacspeak-keymap)
            (require 'emacspeak-fix-interactive))
+(require 'emacspeak-keymap)
 (require 'emacspeak-speak)
 
 (require 'emacspeak-sounds)
