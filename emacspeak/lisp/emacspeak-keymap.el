@@ -361,6 +361,7 @@ field in the customization buffer.  You can use the notation
 
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
+;;;###autoload
 (defun emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
   "Interactively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command

@@ -50,6 +50,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'comint)
 ;;}}}
 ;;{{{ Customizations
 ;;;###autoload

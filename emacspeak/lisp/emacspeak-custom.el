@@ -188,7 +188,7 @@
   "Pattern identifying start of custom group."
   :type 'regexp
   :group 'emacspeak-custom)
-
+;;;###autoload
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
   (interactive)
@@ -205,7 +205,7 @@
   "Pattern that identifies toolbar section."
   :type 'regexp
   :group 'emacspeak-custom)
-
+;;;###autoload
 (defun emacspeak-custom-goto-toolbar ()
   "Jump to custom toolbar when in a customization buffer."
   (interactive)

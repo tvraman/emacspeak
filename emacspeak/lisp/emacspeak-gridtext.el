@@ -41,6 +41,8 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(require 'emacspeak-table)
+(require 'emacspeak-table-ui)
 ;;}}}
 ;;{{{  Introduction:
 
