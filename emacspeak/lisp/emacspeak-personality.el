@@ -256,7 +256,7 @@ preserved."
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-append
+  'emacspeak-personality-put
   "Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
