@@ -1215,6 +1215,31 @@ Signals beginning  of buffer."
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
+;;{{{ table wizard
+
+(defvar emacspeak-wizard-table-content-extractor
+  (expand-file-name "extract-table.pl"
+                    emacspeak-etc-directory)
+  "Program that extracts table content.")
+
+(defun emacspeak-wizard-get-table-content (task url depth count )
+  "Extract table specified by depth and count from HTML
+content at URL.
+Extracted content is placed as a csv file in task.csv."
+  (interactive
+   (list
+    (read-from-minibuffer "Task:")
+    (read-from-minibuffer "URL: ")
+    (read-from-minibuffer "Depth: ")
+    (read-from-minibuffer "Count: ")))
+  (declare (special emacspeak-wizard-table-content-extractor))
+  (shell-command
+   (format  "%s --task=%s --url=%s --depth=%s --count=%s"
+            emacspeak-wizard-table-content-extractor
+            task url depth count ))
+  (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
