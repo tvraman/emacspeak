@@ -1310,7 +1310,9 @@ arrived mail."
   nil
   "Mail spool file examined  to alert you about newly
 arrived voicemail."
-  :type '(file :tag "VoiceMail drop location")
+  :type '(choice
+          (const :tag "None" nil)
+          (file :tag "VoiceMail drop location"))
   :group 'emacspeak-speak)
 
 
