@@ -77,8 +77,7 @@
 
 ;;}}}
 ;;{{{ emacspeak-alsaplayer
-(defvar emacspeak-alsaplayer-session-count 0
-  "Track how many sessions we are running.")
+
 
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
@@ -94,6 +93,13 @@
 
 (defvar emacspeak-alsaplayer-buffer-name "alsaplayer"
   "Name of alsaplayer buffer.")
+(defsubst emacspeak-alsaplayer-get-session-id ()
+  "Return session id from alsaplayer output."
+  (substring
+  (second
+   (split-string
+    (buffer-string)))
+  1 -1))
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-launch ()
@@ -102,29 +108,28 @@ user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
   (declare (special emacspeak-alsaplayer-buffer-name
-                    emacspeak-alsaplayer-session-count
                     emacspeak-alsaplayer-session))
-  (let ((process-connection-type nil)
+  (let ((process-connection-type t)
         (process nil)
         (buffer (get-buffer-create emacspeak-alsaplayer-buffer-name)))
     (save-excursion
       (set-buffer buffer)
-      (setq emacspeak-alsaplayer-session
-            (format "alsaplayer-%s"
-                                           emacspeak-alsaplayer-session-count))
-      (incf emacspeak-alsaplayer-session-count)
+      (emacspeak-alsaplayer-mode)
       (setq process
-            (start-process "alsaplayer"
-                                   emacspeak-alsaplayer-buffer-name
-                                   emacspeak-alsaplayer-program
-                                   "-i" "daemon"
-                                   "--session"
-                                   emacspeak-alsaplayer-session)))
-    (switch-to-buffer buffer)
-    (rename-buffer emacspeak-alsaplayer-session 'unique)
-    (emacspeak-alsaplayer-mode)))
+      (start-process
+       "alsaplayer"
+       emacspeak-alsaplayer-buffer-name
+       emacspeak-alsaplayer-program
+       "-i" "daemon"))
+      (accept-process-output process)
+      (setq emacspeak-alsaplayer-session
+            (emacspeak-alsaplayer-get-session-id))
+      (erase-buffer)
+      )
+    (switch-to-buffer emacspeak-alsaplayer-buffer-name)
+    (rename-buffer emacspeak-alsaplayer-session 'unique)))
 
-;;}}} 
+;;}}}
 
 Process alsaplayer segmentation fault
 (provide 'emacspeak-alsaplayer)
