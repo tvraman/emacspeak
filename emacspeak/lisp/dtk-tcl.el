@@ -485,14 +485,18 @@ Arguments START and END specify region to speak."
            (get-text-property start 'personality ))))
       (while (and (< start end )
                   (setq last
+                        (min
+                         (next-overlay-change  start)
                         (next-single-property-change  start 'personality
-                                                      (current-buffer) end)))
+                                                      (current-buffer) end))))
         (if personality
             (dtk-speak-using-voice personality
                                    (buffer-substring start last ))
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
-              personality (get-text-property last  'personality))) ; end while
+              personality
+              (or (tts-overlay-personality-at-point)
+                  (get-text-property last  'personality)))) ; end while
       ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
