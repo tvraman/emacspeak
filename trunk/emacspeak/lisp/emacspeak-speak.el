@@ -548,6 +548,13 @@ Argument START  and END specify region to speak."
   (emacspeak-handle-action-at-point)
   (dtk-speak (buffer-substring start end )))
 
+
+(defsubst emacspeak-speak-string (string personality)
+  "Apply personality to string and speak it."
+  (put-text-property 0 (length string)
+                     'personality personality string)
+  (dtk-speak string))
+
              
 (defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "*Regular expression to match horizontal rules in ascii

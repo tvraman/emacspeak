@@ -2369,7 +2369,7 @@ Pause ongoing speech first."
 (defadvice isearch-search (after emacspeak pre act)
   "Speak the search hit.
 Produce auditory icons if possible."
-  (dtk-speak isearch-string)
+  (emacspeak-speak-string isearch-string voice-bolden)
   (when  (sit-for 0.5)
     (ems-set-personality-temporarily
      (point)
@@ -2382,7 +2382,7 @@ Produce auditory icons if possible."
 (defadvice isearch-delete-char (after emacspeak pre act)
   "Speak the search hit.
 Produce auditory icons if possible."
-  (dtk-speak isearch-string)
+  (emacspeak-speak-string isearch-string voice-bolden)
   (when (sit-for 0.5)
     (emacspeak-auditory-icon 'search-hit)
     (ems-set-personality-temporarily
@@ -2414,44 +2414,44 @@ Produce auditory icons if possible."
 (defadvice isearch-yank-word (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (dtk-speak isearch-string)
+    (emacspeak-speak-string isearch-string voice-bolden)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-yank-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (dtk-speak isearch-string)
+    (emacspeak-speak-string isearch-string voice-bolden)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-yank-line (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (dtk-speak isearch-string)
+    (emacspeak-speak-string isearch-string voice-bolden)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-ring-advance (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (dtk-speak isearch-string)
+    (emacspeak-speak-string isearch-string voice-bolden)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice isearch-ring-retreat (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (dtk-speak isearch-string)))
+    (emacspeak-speak-string isearch-string voice-bolden)))
 
 (defadvice isearch-ring-advance-edit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (dtk-speak isearch-string)))
+    (emacspeak-speak-string isearch-string voice-bolden)))
 
 (defadvice isearch-ring-retreat-edit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (dtk-speak isearch-string)))
+    (emacspeak-speak-string isearch-string voice-bolden)))
 
 ;;; Note the advice on the next two toggle commands 
 ;;; checks the variable being toggled.
