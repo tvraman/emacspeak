@@ -136,7 +136,7 @@ Existing personality properties on the text range are preserved."
 	(t			       ;accumulate the new personality
 	 (unless (or (equal  personality orig)
 		     (and (listp orig)
-			  (member personality orig)))
+			  (memq personality orig)))
 	   (setq new
 		 (remove-duplicates
 		  (append
@@ -171,7 +171,7 @@ Existing personality properties on the text range are preserved."
 	(t			       ;accumulate the new personality
 	 (unless (or (equal personality orig)
 		     (and (listp orig)
-			  (member personality orig))) 
+			  (memq personality orig))) 
 	   (setq new
 		 (remove-duplicates
 		  (append
@@ -223,8 +223,8 @@ preserved."
 
 (defsubst emacspeak-personality-plist-face-p (plist)
   "Check if plist contains a face setting."
-  (or (member 'face plist)
-      (member 'font-lock-face plist)))
+  (or (memq 'face plist)
+      (memq 'font-lock-face plist)))
 
 ;;}}}
 ;;{{{ advice put-text-personality
@@ -325,10 +325,8 @@ displayed in the messages area."
                 (mapcar #'(lambda (v)
                             (puthash  v t emacspeak-personality-unmapped-faces))
                         value))
-               (t (puthash  value t emacspeak-personality-unmapped-faces))))
-            )
-        (error nil))
-      )))
+               (t (puthash  value t emacspeak-personality-unmapped-faces)))))
+        (error nil)))))
 
 (defadvice set-text-properties (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
