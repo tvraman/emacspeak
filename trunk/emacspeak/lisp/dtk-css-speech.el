@@ -555,7 +555,7 @@ and TABLE gives the values along that dimension."
     (dtk-define-voice name command)))
 
 ;;}}}
-;;{{{  dtk-personality-from-speech-style
+;;{{{  dectalk-personality-from-speech-style
 
 (defun dectalk-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
