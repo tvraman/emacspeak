@@ -19,6 +19,7 @@ manual is divided into the following chapters.
 * Running Terminal Based Applications: Running Terminal Based Applications.
 * Emacspeak Commands:  Emacspeak Commands.
 * Emacspeak Customizations:  Emacspeak Customizations.
+* TTS Servers:  TTS Servers.
 * Acknowledgements: Acknowledgements.
 
 Indices:
