@@ -76,19 +76,28 @@
 (declaim (special w3-echo-link
                   url-show-status
                   w3-mode-map))
+(when (locate-library "w3-speak") (require 'w3-speak))
+(defun emacspeak-w3-speak-mode-hook ()
+  "Updated emacspeak hook for W3 mode."
+  (declare (special emacspeak-w3-post-process-hook))
+  (set (make-local-variable 'voice-lock-mode) t)
+  (setq dtk-punctuation-mode "some")
+  (emacspeak-auditory-icon 'open-object)
+  (unless emacspeak-w3-post-process-hook
+  (emacspeak-speak-mode-line)))
 
-(when (locate-library "w3-speak")
-  (require 'w3-speak)
-  (add-hook 'w3-mode-hook 'w3-speak-mode-hook)
-  (add-hook 'w3-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
-  (setq w3-echo-link
+(add-hook 'w3-mode-hook 'emacspeak-w3-speak-mode-hook)
+(add-hook 'w3-mode-hook
+          'emacspeak-pronounce-refresh-pronunciations)
+(setq w3-echo-link
         (list 'text 'title 'name 'url))
-  (when
-      (and (locate-library "w3-speak-table")
+
+
+(when (and (locate-library "w3-speak-table")
            (not (featurep 'w3-speak-table)))
     (load-library "w3-speak-table")
     (provide 'w3-speak-table))
-  (setq url-show-status nil))
+(setq url-show-status nil)
   
 
 (eval-when (load)
@@ -1469,7 +1478,8 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (when    emacspeak-w3-post-process-hook
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
-      (setq emacspeak-w3-post-process-hook nil))))
+      (setq emacspeak-w3-post-process-hook nil))
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ silence url history save
@@ -1490,6 +1500,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
+
 (defadvice url-http-content-length-after-change-function
   (around emacspeak pre act comp)
   "silence spoken messages."
