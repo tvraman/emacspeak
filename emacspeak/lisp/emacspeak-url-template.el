@@ -482,25 +482,17 @@ Computing News at CNN.")
  "CNN HotStocks "
  "http://money.cnn.com/%s/markets/hotstox/"
  (list 
-  'emacspeak-url-template-date-year/month/date))
-
+  'emacspeak-url-template-date-year/month/date)
+ "CNN Hot Stocks")
 
 (emacspeak-url-template-define
  "CNN Markets New York"
  "http://money.cnn.com/%s/markets/markets_newyork/"
  (list 'emacspeak-url-template-date-year/month/date)
- #'(lambda nil
-     (declare (special emacspeak-w3-xsl-p
-                       emacspeak-xslt-directory
-                       emacspeak-w3-xsl-transform))
-     (let ((emacspeak-w3-xsl-p t)
-           (emacspeak-w3-xsl-transform (expand-file-name
-                                        "sort-tables.xsl"
-                                        emacspeak-xslt-directory)))
-       (goto-char (point-min))
-       (search-forward (format-time-string "%B"))
-       (w3-table-speak-this-cell)))
- "Speak CNN Market Update.")
+ nil
+ "Speak CNN Market Update."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 5 url)))
 
 
 ;;}}}
