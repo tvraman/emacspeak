@@ -675,6 +675,61 @@ sets punctuation mode to all, and turns on split caps."
          'dired-mode-hook)))
 
 ;;}}}
+;;{{{ setup CVS access to sourceforge 
+
+(defvar emacspeak-cvs-local-directory
+  (expand-file-name "~/cvs-emacspeak")
+  "Directory where we get the snapshot.")
+
+(defvar emacspeak-cvs-anonymous-cvsroot
+  ":pserver:anonymous@cvs.emacspeak.sourceforge.net:/cvsroot/emacspeak"
+  "CVSROOT for emacspeak CVS repository at sourceforge.")
+
+(defun emacspeak-cvs-get-anonymous  ()
+  "Get latest cvs snapshot of emacspeak."
+  (interactive)
+  (declare (special emacspeak-cvs-local-directory
+                    emacspeak-cvs-anonymous-cvsroot))
+  (unless (file-exists-p emacspeak-cvs-local-directory)
+    (make-directory emacspeak-cvs-local-directory))
+  (cd emacspeak-cvs-local-directory)
+  (let ((cvs-process nil))
+    (setq cvs-process
+          (start-process "cvs" "cvs" "cvs"
+                         (format "-d%s"
+                                 emacspeak-cvs-anonymous-cvsroot)
+                         "login"))
+    (process-send-string cvs-process "\n\n\n")
+    (cond
+     ((file-exists-p
+       (expand-file-name "emacspeak/CVS"
+                         emacspeak-cvs-local-directory))
+      (cd (expand-file-name "emacspeak"
+                            emacspeak-cvs-local-directory))
+    (setq cvs-process
+          (start-process "cvs" "cvs" "cvs"
+                         (format "-d%s"
+                                 emacspeak-cvs-anonymous-cvsroot)
+                         "-z3"
+                         "update"
+                         "-d")))
+    (t (setq cvs-process
+          (start-process "cvs" "cvs" "cvs"
+                         (format "-d%s"
+                                 emacspeak-cvs-anonymous-cvsroot)
+                         "-z3"
+                         "co"
+                         "emacspeak"))))
+    (set-process-sentinel cvs-process
+                          'emacspeak-cvs-done-alert)))
+
+(defun emacspeak-cvs-done-alert (process state)
+  "Alert user of cvs status."
+  (message "Done getting emacspeak snapshot from
+sourceforge.")
+  (emacspeak-auditory-icon 'task-done))
+
+;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
 
