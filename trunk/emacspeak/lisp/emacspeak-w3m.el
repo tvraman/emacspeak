@@ -206,22 +206,22 @@
   "Speech-enable W3M."
   (cond
    ((interactive-p)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
-  (emacspeak-auditory-icon 'open-object)
-  (when (stringp w3m-current-title)
-    (message "%s" w3m-current-title)))
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it)
+    (emacspeak-auditory-icon 'open-object)
+    (when (stringp w3m-current-title)
+      (message "%s" w3m-current-title)))
    (t ad-do-it))ad-return-value)
 
 (defadvice w3m-next-anchor (around emacspeak pre act)
   "Speech-enable W3M."
   (cond
    ((interactive-p)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-w3m-speak-this-anchor)))
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it)
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-w3m-speak-this-anchor)))
    (t ad-do-it))
   ad-return-value)
 
@@ -229,11 +229,11 @@
   "Speech-enable link navigation."
   (cond
    ((interactive-p)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-w3m-speak-this-anchor)))
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it)
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-w3m-speak-this-anchor)))
    (t ad-do-it))
   ad-return-value)
 
@@ -241,41 +241,41 @@
   "Speech-enable form navigation."
   (cond
    ((interactive-p)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-w3m-speak-this-anchor)))
-(t ad-do-it))
-ad-return-value)
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it)
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-w3m-speak-this-anchor)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice w3m-previous-form (around emacspeak pre act comp)
   "Speech enable form navigation."
   (cond
    ((interactive-p)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
-  (when (interactive-p)
-    (emacspeak-w3m-speak-this-anchor)
-    (emacspeak-auditory-icon 'large-movement)))
-(t ad-do-it)))
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it)
+    (when (interactive-p)
+      (emacspeak-w3m-speak-this-anchor)
+      (emacspeak-auditory-icon 'large-movement)))
+   (t ad-do-it)))
 
 (defadvice w3m-view-this-url (around emacspeak pre act comp)
   "Speech-enable W3M."
   (cond
    ((interactive-p)
-  (let ((url (emacspeak-w3m-anchor))
-	(act (emacspeak-w3m-action)))
-    ad-do-it
-    (when (and (interactive-p)
-	       (not url)
-	       (consp act)
-	       (memq (car act)
-		     '(w3m-form-input
-		       w3m-form-input-radio
-		       w3m-form-input-password)))
-      (emacspeak-w3m-speak-this-anchor))
-    (emacspeak-auditory-icon 'select-object)))
+    (let ((url (emacspeak-w3m-anchor))
+          (act (emacspeak-w3m-action)))
+      ad-do-it
+      (when (and (interactive-p)
+                 (not url)
+                 (consp act)
+                 (memq (car act)
+                       '(w3m-form-input
+                         w3m-form-input-radio
+                         w3m-form-input-password)))
+        (emacspeak-w3m-speak-this-anchor))
+      (emacspeak-auditory-icon 'select-object)))
    (t ad-do-it))
   ad-return-value)
 
@@ -283,11 +283,11 @@ ad-return-value)
   "Speech-enable scrolling."
   (cond
    ((interactive-p)
-  (let ((opoint (save-excursion
-		  (beginning-of-line)
-		  (point))))
-    ;; hide opoint from advised function
-    (let (opoint) ad-do-it)
+    (let ((opoint (save-excursion
+                    (beginning-of-line)
+                    (point))))
+      ;; hide opoint from advised function
+      (let (opoint) ad-do-it)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
 			      (save-excursion (end-of-line)
@@ -300,11 +300,11 @@ ad-return-value)
   "Speech-enable scrolling."
   (cond
    ((interactive-p)
-  (let ((opoint (save-excursion
-		  (end-of-line)
-		  (point))))
-    ;; hide opoint from advised function
-    (let (opoint) ad-do-it)
+    (let ((opoint (save-excursion
+                    (end-of-line)
+                    (point))))
+      ;; hide opoint from advised function
+      (let (opoint) ad-do-it)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
 			      (save-excursion (beginning-of-line)
@@ -418,57 +418,34 @@ libxslt package."
            (if emacspeak-w3m-xsl-p 'on 'off)))
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 
-(defvar emacspeak-w3m-font-faces-to-voiceify
-  (list 'bold 'italic   'bold-italic 'underline
-        'w3m-anchor-face  'w3m-arrived-anchor-face 'w3m-bold-face 'w3m-underline-face)
-  "List of font faces we voiceify")
+
+   
+        
+  
 
 
-(dtk-define-voice-alias 'w3m-arrived-anchor-face 'betty)
-(dtk-define-voice-alias 'w3m-anchor-face 'harry)
-(dtk-define-voice-alias 'w3m-bold-face 'bold)
-(dtk-define-voice-alias 'w3m-underline-face 'underlined)
-(dtk-define-voice-alias 'w3m-header-line-location-title-face
-                        'harry)
-(dtk-define-voice-alias 'w3m-header-line-location-content-face
-                        'paul-animated)
-(dtk-define-voice-alias 'w3m-form-button-face
-                        'paul-smooth)
-(dtk-define-voice-alias 'w3m-form-button-pressed-face
-'paul-animated)
-(dtk-define-voice-alias 'w3m-tab-unselected-face
-'paul-monotone)
-(dtk-define-voice-alias 'w3m-tab-selected-face 'paul-animated)
+(voice-setup-set-voice-for-face 'w3m-arrived-anchor-face 'betty)
+(voice-setup-set-voice-for-face 'w3m-anchor-face 'harry)
+(voice-setup-set-voice-for-face 'w3m-bold-face 'bold)
+(voice-setup-set-voice-for-face 'w3m-underline-face 'underlined)
+(voice-setup-set-voice-for-face 'w3m-header-line-location-title-face
+                                'harry)
+(voice-setup-set-voice-for-face 'w3m-header-line-location-content-face
+                                'paul-animated)
+(voice-setup-set-voice-for-face 'w3m-form-button-face
+                                'paul-smooth)
+(voice-setup-set-voice-for-face 'w3m-form-button-pressed-face
+                                'paul-animated)
+(voice-setup-set-voice-for-face 'w3m-tab-unselected-face
+                                'paul-monotone)
+(voice-setup-set-voice-for-face 'w3m-tab-selected-face 'paul-animated)
 
 (defun emacspeak-w3m-voiceify-faces-in-buffer ()
   "Map base fonts to voices."
   (interactive )
-  (declare (special emacspeak-w3m-font-faces-to-voiceify))
-  (set (make-local-variable 'voice-lock-mode) t)
-  (ems-modify-buffer-safely
-   (save-excursion
-     (goto-char (point-min))
-     (let* ((face nil )
-           (start (point-min))
-           (end (point-max))
-           (orig start)
-           (pos nil))
-       (while (and  (not (eobp))
-                    (< start end))
-         (setq face (get-text-property (point) 'face ))
-         (goto-char
-          (or
-           (next-single-property-change (point) 'face
-                                        (current-buffer) end)
-           end))
-           (put-text-property start  (point)
-                              'personality
-                              (if (listp face)
-                                  (loop for f in emacspeak-w3m-font-faces-to-voiceify
-                                        thereis (find f face))
-                                face ))
-         (setq start (point)))))
-  (message "voicified faces")))
+  (declare (special voice-lock-mode))
+  (setq voice-lock-mode t)
+  (voice-setup-face-to-voice (point-min) (point-max)))
 
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."

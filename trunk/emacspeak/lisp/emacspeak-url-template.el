@@ -192,6 +192,7 @@
  nil
  "Apply content.xsl to my.yahoo.com and speak the relevant contents."
  #'(lambda (url)
+     (declare (special emacspeak-xslt-directory))
      (emacspeak-wizards-browse-url-with-style
       (expand-file-name "content.xsl"
                         emacspeak-xslt-directory)
@@ -562,6 +563,22 @@ Set up URL rewrite rule to get print page."
     (when (emacspeak-url-template-post-action ut)
       (funcall (emacspeak-url-template-post-action ut)))))
 
+(defsubst emacspeak-url-template-help-internal (name)
+  "Display and speak help."
+  (with-output-to-temp-buffer "*Help*"
+    (princ name)
+    (princ "\n\n")
+    (princ
+     (emacspeak-url-template-documentation
+      (emacspeak-url-template-get name)))
+    (save-excursion
+      (set-buffer standard-output)
+      (fill-region (point-min)
+                   (point-max)))
+    (print-help-return-message))
+  (emacspeak-speak-help)
+  (emacspeak-auditory-icon 'help))
+
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
 Use Emacs completion to obtain a list of available
@@ -591,22 +608,6 @@ Optional interactive prefix arg displays documentation for specified resource."
        (emacspeak-url-template-get
         name))
       (emacspeak-auditory-icon 'open-object)))))
-
-(defsubst emacspeak-url-template-help-internal (name)
-  "Display and speak help."
-  (with-output-to-temp-buffer "*Help*"
-    (princ name)
-    (princ "\n\n")
-    (princ
-     (emacspeak-url-template-documentation
-      (emacspeak-url-template-get name)))
-    (save-excursion
-      (set-buffer standard-output)
-      (fill-region (point-min)
-                   (point-max)))
-    (print-help-return-message))
-  (emacspeak-speak-help)
-  (emacspeak-auditory-icon 'help))
 
 (defun emacspeak-url-template-help ()
   "Display documentation for  a URL template.

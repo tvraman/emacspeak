@@ -123,19 +123,19 @@
 (defun voice-lock-set-personality (start end personality)
   "Set personality on region"
   (unwind-protect 
-       (let    ((save-read-only buffer-read-only)
-                (buffer-read-only nil )
-                (inhibit-read-only t)
-                (inhibit-point-motion-hooks t)
-                (modification-flag (buffer-modified-p)))
-         (unwind-protect
-             (put-text-property start end
-                                'personality personality)
-           (setq buffer-read-only save-read-only
-                 inhibit-read-only nil
-                 inhibit-point-motion-hooks nil)
-           (set-buffer-modified-p modification-flag )))
-     (setq inhibit-read-only nil)))
+      (let    ((save-read-only buffer-read-only)
+               (buffer-read-only nil )
+               (inhibit-read-only t)
+               (inhibit-point-motion-hooks t)
+               (modification-flag (buffer-modified-p)))
+        (unwind-protect
+            (put-text-property start end
+                               'personality personality)
+          (setq buffer-read-only save-read-only
+                inhibit-read-only nil
+                inhibit-point-motion-hooks nil)
+          (set-buffer-modified-p modification-flag )))
+    (setq inhibit-read-only nil)))
 
 ;;}}}
 ;;{{{ map faces to voices 
@@ -166,45 +166,53 @@ This function forces voice-lock mode on."
                     voice-lock-mode))
   (setq voice-lock-mode t)
   ;;; this is ems-modify-buffer-safely inlined 
-    (unwind-protect
-        (let    ((save-read-only buffer-read-only)
-                 (buffer-read-only nil )
-                 (save-inhibit-read-only inhibit-read-only)
-                 (inhibit-read-only t)
-                 (save-inhibit-point-motion-hooks (if (boundp 'inhibit-point-motion-hooks)
-      inhibit-point-motion-hooks
-    nil))
-                 (inhibit-point-motion-hooks t)
-                 (modification-flag (buffer-modified-p)))
-          (unwind-protect
+  (unwind-protect
+      (let    ((save-read-only buffer-read-only)
+               (buffer-read-only nil )
+               (save-inhibit-read-only inhibit-read-only)
+               (inhibit-read-only t)
+               (save-inhibit-point-motion-hooks (if (boundp 'inhibit-point-motion-hooks)
+                                                    inhibit-point-motion-hooks
+                                                  nil))
+               (inhibit-point-motion-hooks t)
+               (modification-flag (buffer-modified-p)))
+        (unwind-protect
                ;;; body
-              (save-excursion
+            (save-excursion
+              (goto-char start)
+              (let ((face nil )
+                    (voice nil))
                 (goto-char start)
-                (let ((face nil )
-                      (voice nil))
-                  (goto-char start)
-                  (while (and  (not (eobp))
-                               (< start end))
-                    (setq face (get-text-property (point) 'face ))
-                    (goto-char
-                     (or
-                      (next-single-property-change (point) 'face
-                                                   (current-buffer) end)
-                      end))
-                    (when(and face
-                              (symbolp face)
-                              (setq voice
-                                    (voice-setup-get-voice-for-face face))
-                              (not (get-text-property (point) 'personality)))
-                        (put-text-property start  (point)
-                                           'personality voice))
-                      (setq start (point)))
-            (setq buffer-read-only save-read-only
-                  inhibit-read-only save-inhibit-read-only
-                  inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-            (set-buffer-modified-p modification-flag )))))))
+                (while (and  (not (eobp))
+                             (< start end))
+                  (setq face (get-text-property (point) 'face ))
+                  (goto-char
+                   (or
+                    (next-single-property-change (point) 'face
+                                                 (current-buffer) end)
+                    end))
+                  (when(and face
+                            (symbolp face)
+                            (setq voice
+                                  (voice-setup-get-voice-for-face face))
+                            (not (get-text-property (point) 'personality)))
+                    (put-text-property start  (point)
+                                       'personality voice))
+                  (setq start (point)))
+                (setq buffer-read-only save-read-only
+                      inhibit-read-only save-inhibit-read-only
+                      inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
+                (set-buffer-modified-p modification-flag )))))))
 
             
+
+;;}}}
+;;{{{ setup standard mappings
+(voice-setup-set-voice-for-face 'bold 'bold)
+(voice-setup-set-voice-for-face 'italic 'italic)
+(voice-setup-set-voice-for-face 'underline 'underline)
+(voice-setup-set-voice-for-face 'underlined 'underline)
+(voice-setup-set-voice-for-face 'bold-italic 'bold-italic)
 
 ;;}}}
 (provide 'voice-setup)
