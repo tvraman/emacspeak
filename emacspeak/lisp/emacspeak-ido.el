@@ -73,7 +73,8 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-    (emacspeak-auditory-icon 'select-object)
+  (when ido-matches
+    (emacspeak-auditory-icon 'select-object))
     (dtk-speak
      (concat 
       (car ido-matches)
