@@ -32,6 +32,9 @@
     ("emacspeak-advice.el"
         "Advice all core Emacs functionality to speak intelligently"
         (emacspeak  speech  advice  spoken  output))
+    ("emacspeak-analog.el"
+        "Speech-enable"
+        (emacspeak  analog ))
     ("emacspeak-ansi-color.el"
         "Voiceify ansi-color "
         (emacspeak  ansi-color))
@@ -125,6 +128,9 @@
     ("emacspeak-entertain.el"
         "Speech enable misc games"
         (emacspeak  speak  spoken output  games))
+    ("emacspeak-eperiodic.el"
+        "Speech-enable Periodic Table"
+        (emacspeak  periodic  table))
     ("emacspeak-erc.el"
         "speech-enable erc irc client"
         (emacspeak  erc))
