@@ -1944,6 +1944,13 @@ directory to where find is to be launched."
          (emacspeak-w3-xsl-transform style))
    (browse-url url)
    (emacspeak-speak-mode-line)))
+(defun emacspeak-wizards-google-hits ()
+  "Filter Google results after performing search to show just the
+hits."
+  (interactive)
+  (let ((name   "Google Hits"))
+  (emacspeak-url-template-open
+       (emacspeak-url-template-get name))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
