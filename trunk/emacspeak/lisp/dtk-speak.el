@@ -54,6 +54,7 @@
 (require 'backquote)
 (require 'custom)
 (require 'dtk-tcl)
+(require 'emacspeak-sounds)
 ;;}}}
 ;;{{{  user customizations:
 
@@ -623,11 +624,6 @@ This is setup on a per engine basis.")
     (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
 
 ;;; forward declaration.
-(or (boundp 'emacspeak-aumix-multichannel-capable-p)
-    (defvar emacspeak-aumix-multichannel-capable-p nil))
-(or (boundp 'emacspeak-aumix-midi-available-p)
-    (defvar emacspeak-aumix-midi-available-p nil))
-
 (defun dtk-select-server (program )
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
