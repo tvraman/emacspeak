@@ -263,16 +263,16 @@ command \\[customize-variable] on <personality>-settings."
   "Turns current voice into a monotone.")
 
 (defvoice voice-animate
-  (list nil 7 7 nil)
+  (list nil 7 7 6)
   "Animates current voice.")
 
 
 (defvoice voice-smoothen 
-(list nil nil nil 3 3)
+(list nil nil nil 3 4)
 "Smoothen current voice.")
 
 (defvoice voice-brighten 
-(list nil nil nil 3 9)
+(list nil nil nil 6 7)
 "Brighten current voice.")
 
 
