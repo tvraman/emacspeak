@@ -71,12 +71,12 @@ COMMAND-STRING to the Dectalk."
   (declare (special dectalk-voice-table ))
   (puthash  name command-string  dectalk-voice-table))
 
-(defsubst dtk-get-voice-command (name)
+(defsubst dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dectalk-voice-table ))
   (cond
    ((listp name)
-    (mapconcat #'dtk-get-voice-command name " "))
+    (mapconcat #'dectalk-get-voice-command name " "))
    (t (or  (gethash name dectalk-voice-table)
            dectalk-default-voice-string))))
 
@@ -121,7 +121,7 @@ COMMAND-STRING to the Dectalk."
         (cons (list name code )
               dtk-family-table)))
 
-(defsubst dtk-get-family-code (name)
+(defsubst dectalk-get-family-code (name)
   "Get control code for voice family NAME."
   (declare (special dtk-family-table ))
   (when (stringp name)
@@ -258,7 +258,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst dtk-get-average-pitch-code (value family)
+(defsubst dectalk-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value 
@@ -353,7 +353,7 @@ and TABLE gives the values along that dimension."
   (dtk-css-set-code-table 'betty 'pitch-range table ))
 
 ;;}}}
-(defsubst dtk-get-pitch-range-code (value family)
+(defsubst dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value 
@@ -457,7 +457,7 @@ and TABLE gives the values along that dimension."
   (dtk-css-set-code-table 'betty 'stress table))
 
 ;;}}}
-(defsubst dtk-get-stress-code (value family)
+(defsubst dectalk-get-stress-code (value family)
   (or family (setq family 'paul ))
   (if value 
       (aref (dtk-css-get-code-table family 'stress)
@@ -546,7 +546,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst dtk-get-richness-code (value family)
+(defsubst dectalk-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
       (aref (dtk-css-get-code-table family 'richness)
@@ -556,7 +556,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst dtk-get-punctuations-code (value)
+(defsubst dectalk-get-punctuations-code (value)
   "Return string needed to set specified punctuations mode."
   (if value 
       (format " :pu %s " value)
@@ -572,13 +572,13 @@ and TABLE gives the values along that dimension."
   (let* ((family(acss-family style))
 	 (command
 	  (concat "["
-		  (dtk-get-family-code family)
-                  (dtk-get-punctuations-code (acss-punctuations style))
+		  (dectalk-get-family-code family)
+                  (dectalk-get-punctuations-code (acss-punctuations style))
 		  " :dv "
-		  (dtk-get-average-pitch-code (acss-average-pitch style) family)
-		  (dtk-get-pitch-range-code (acss-pitch-range style) family)
-		  (dtk-get-stress-code (acss-stress style ) family)
-		  (dtk-get-richness-code (acss-richness style) family)
+		  (dectalk-get-average-pitch-code (acss-average-pitch style) family)
+		  (dectalk-get-pitch-range-code (acss-pitch-range style) family)
+		  (dectalk-get-stress-code (acss-stress style ) family)
+		  (dectalk-get-richness-code (acss-richness style) family)
 		  "]")))
     (dectalk-define-voice name command)))
 
@@ -600,7 +600,7 @@ and TABLE gives the values along that dimension."
                      tts-default-speech-rate))
   (fset 'tts-list-voices 'dtk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
-  (fset 'tts-get-voice-command 'dtk-get-voice-command)
+  (fset 'tts-get-voice-command 'dectalk-get-voice-command)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
   (setq tts-default-speech-rate dtk-default-speech-rate))
