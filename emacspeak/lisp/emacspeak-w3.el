@@ -37,13 +37,6 @@
 
 ;;}}}
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-keymap)
-(require 'emacspeak-fix-interactive)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'wid-edit)
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -55,6 +48,29 @@
 
 ;;; Code:
 
+
+;;}}}
+;;{{{ requires
+
+;;; Code:
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
+(require 'emacspeak-keymap)
+(require 'emacspeak-fix-interactive)
+(require 'emacspeak-sounds)
+(require 'emacspeak-speak)
+(require 'wid-edit)
+
+;;}}}
+;;{{{  custom
+
+(defgroup emacspeak-w3 nil
+  "WWW browser for the Emacspeak Desktop."
+  :group 'emacspeak
+  :group 'w3
+  :prefix "emacspeak-w3-")
 
 ;;}}}
 ;;{{{  additional advice
@@ -141,8 +157,10 @@ that is no longer supported by Emacspeak.")))
 ;;}}}
 ;;{{{  dump using lynx 
 
-(defvar emacspeak-w3-lynx-program "lynx"
-  "Name of lynx executable")
+(defcustom emacspeak-w3-lynx-program "lynx"
+  "Name of lynx executable"
+  :type 'file
+  :group 'emacspeak-w3)
 
 (defun emacspeak-w3-lynx-done-alert (process state)
   "Alert user when lynx is done dumping the document"
@@ -221,9 +239,11 @@ the table structure extraction code in W3."
 ;;; In the meantime, here is a toggle that allows you to
 ;;; turn borders on and off:
 
-(defvar emacspeak-w3-table-draw-border
-t
-"Reflects whether we allow W3 to draw table borders. ")
+(defcustom emacspeak-w3-table-draw-border
+nil
+"Reflects whether we allow W3 to draw table borders. "
+:group 'emacspeak-w3
+:type 'boolean)
 
 (defvar emacspeak-w3-table-silent-border (make-vector 16 32)
   "Used to draw empty W3 table borders. ")

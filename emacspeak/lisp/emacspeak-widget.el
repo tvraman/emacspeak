@@ -51,6 +51,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (eval-when (compile)
   (condition-case nil
       (progn (require 'widget)
@@ -65,6 +66,39 @@
 
 ;;}}}
 ;;{{{  Customize global behavior
+
+(defgroup emacspeak-widget nil
+  "Widgets on the Emacspeak Desktop."
+  :group 'emacspeak
+  :group 'widgets
+  :prefix "emacspeak-widget-")
+(defcustom emacspeak-widget-edit-personality  'paul-smooth
+  "Personality for edit fields"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+(defcustom emacspeak-widget-value-personality 'paul-smooth
+  "Personality for values"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+(defcustom emacspeak-widget-button-personality 'harry
+  "Personality for buttons"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+(defcustom emacspeak-widget-documentation-personality 'paul-monotone
+  "Personality for documentation"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+(defcustom emacspeak-widget-inactive-personality  'betty
+  "Personality for inactive fields"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+
+
 
 (declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
@@ -82,7 +116,7 @@ Returns a string with appropriate personality."
         (tag (widget-get w :tag)))
     (unless tag (setq tag (format " %s " type)))
     (put-text-property 0 (length tag)
-                       'personality 'harry tag)
+                       'personality emacspeak-widget-button-personality tag)
     tag))
 
 (defsubst emacspeak-widget-help-echo (w)
@@ -135,14 +169,14 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-summarize(widget)
   "Summarize specified widget."
-    (let ((emacspeak-help (widget-get widget :emacspeak-help))
-          (emacspeak-speak-messages nil)
-          (voice-lock-mode t))
-      (cond
-       ((and emacspeak-help
-             (fboundp emacspeak-help))
-        (dtk-speak  (funcall emacspeak-help widget)))
-       (t (dtk-speak (current-message))))))
+  (let ((emacspeak-help (widget-get widget :emacspeak-help))
+        (emacspeak-speak-messages nil)
+        (voice-lock-mode t))
+    (cond
+     ((and emacspeak-help
+           (fboundp emacspeak-help))
+      (dtk-speak  (funcall emacspeak-help widget)))
+     (t (dtk-speak (current-message))))))
 
 ;;}}}
 ;;{{{ advice activators 
@@ -162,10 +196,10 @@ Returns a string with appropriate personality."
            (t (prin1-to-string v 'no-escape)))))
     (when  value
       (put-text-property 0 (length value)
-                         'personality 'paul-animated value))
+                         'personality emacspeak-widget-value-personality value))
     (concat label
-     help-echo
-     value)))
+            help-echo
+            value)))
      
            
 
@@ -181,10 +215,10 @@ Returns a string with appropriate personality."
          (value (when v
                   (format " %s " v)))
          (help-echo (emacspeak-widget-help-echo widget))
-(label (emacspeak-widget-label widget)))
+         (label (emacspeak-widget-label widget)))
     (concat label
-                    help-echo
-                    value)))
+            help-echo
+            value)))
 
 (widget-put (get 'editable-field 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-field)
@@ -235,9 +269,9 @@ Returns a string with appropriate personality."
           (when  context-widget
             (widget-apply context-widget
                           :emacspeak-help))))
-      (concat label
-              help-echo
-       context )))
+    (concat label
+            help-echo
+            context )))
        
 
 (widget-put (get 'push-button 'widget-type)
@@ -348,10 +382,10 @@ Returns a string with appropriate personality."
          (value (format " %s " (widget-get widget :value)))
          (child (car (widget-get widget :children))))
     (concat label
-     " is "
-     (if child
-         (widget-apply child :emacspeak-help)
-       value))))
+            " is "
+            (if child
+                (widget-apply child :emacspeak-help)
+              value))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
@@ -367,8 +401,8 @@ Returns a string with appropriate personality."
          (value (widget-value widget)))
     (concat label
             help-echo
-     (if value " is on "
-       " is off "))))
+            (if value " is on "
+              " is off "))))
 
 
 
@@ -386,11 +420,11 @@ Returns a string with appropriate personality."
                       (value (prin1-to-string value))
                       (t " no items  "))))
     (put-text-property 0  (length selections)
-                       'personality 'paul-animated selections)
+                       'personality emacspeak-widget-value-personality selections)
     (concat label
-     " has "
-     selections 
-     " checked ")))
+            " has "
+            selections 
+            " checked ")))
      
       
 
@@ -424,10 +458,8 @@ Returns a string with appropriate personality."
                                         ;sibling has the lable
          (sibling (widget-get-sibling widget))
          (label (if sibling
-              (widget-get sibling :tag)
-            (emacspeak-widget-label widget))))
-    (put-text-property 0 (length label)
-                       'personality 'paul-animated label)
+                    (emacspeak-widget-label sibling)
+                  (emacspeak-widget-label widget))))
     (concat 
      label 
      (if value "checked" "unchecked"))))
@@ -446,10 +478,10 @@ Returns a string with appropriate personality."
                     (widget-get sibling :tag)
                   (emacspeak-widget-label widget))))
     (concat label
-     " is "
-     (if value
-         " pressed "
-       " not pressed "))))
+            " is "
+            (if value
+                " pressed "
+              " not pressed "))))
 
 (widget-put (get 'radio-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button)
@@ -468,10 +500,10 @@ Returns a string with appropriate personality."
            (t (or value
                   " no item ")))))
     (put-text-property 0  (length selected)
-                       'personality 'paul-animated selected)
+                       'personality emacspeak-widget-value-personality selected)
     (concat label
-     " is "
-     selected)))
+            " is "
+            selected)))
 
 (widget-put (get 'radio-button-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
@@ -486,10 +518,10 @@ Returns a string with appropriate personality."
         (help-echo (emacspeak-widget-help-echo widget)))
     (when value
       (put-text-property 0 (length value)
-                         'personality 'paul-smooth value))
+                         'personality emacspeak-widget-value-personality value))
     (concat label
             help-echo
-     (or value ""))))
+            (or value ""))))
 
 (widget-put (get 'editable-list 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-list)
@@ -578,22 +610,12 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{ voice lock widget buffers:
 
-(defvar emacspeak-widget-field-personality  'paul-animated
-  "Personality for edit fields")
-
-(defvar emacspeak-widget-button-personality 'harry
-  "Personality for buttons")
-
-(defvar emacspeak-widget-documentation-personality 'paul-monotone
-  "Personality for documentation")
-(defvar emacspeak-widget-inactive-personality  'betty
-  "Personality for inactive fields")
 
 (defadvice widget-specify-field-update (after emacspeak pre act comp)
   "Voiceify the field"
   (put-text-property (ad-get-arg 1) (ad-get-arg 2)
                      'personality
-                     emacspeak-widget-field-personality))
+                     emacspeak-widget-edit-personality))
 
 (defadvice  widget-specify-inactive(after emacspeak pre act comp)
   "Voiceify the field"
