@@ -259,21 +259,26 @@ Modifies text and point in buffer."
     (loop for key in words 
           do
           (let ((word  key)
-                (pronunciation (gethash  key pronunciation-table ))
+                (pronunciation (gethash  key pronunciation-table))
+                (pp nil)
                 (personality nil))
             (goto-char (point-min))
             (cond
              ((stringp pronunciation)
               (while (search-forward  word nil t)
-                (setq personality
-                      (get-text-property (point) 'personality))
+                (setq personality (get-text-property (point) 'personality))
                 (replace-match  pronunciation t t  )
                 (put-text-property
                  (match-beginning 0)
                  (+ (match-beginning 0) (length pronunciation))
                  'personality
-                 (or emacspeak-pronounce-pronunciation-personality
-                     personality))))
+                 (apply
+                  'append
+                  (mapcar
+                   #'(lambda (p)
+                       (when p
+                         (if (atom p) (list p) p)))
+                   (list emacspeak-pronounce-pronunciation-personality personality))))))
              ((consp pronunciation )
               (let ((matcher (car pronunciation))
                     (pronouncer (cdr pronunciation))
@@ -288,12 +293,21 @@ Modifies text and point in buffer."
                                   (match-beginning 0)
                                   (match-end 0)))))
                   (replace-match pronunciation t t  )
+                 ;; get personality if any from pronunciation
+                  (setq pp
+                        (get-text-property (match-beginning 0) 'personality))
                   (put-text-property
                    (match-beginning 0)
                    (+ (match-beginning 0) (length pronunciation))
                    'personality
-                   (or emacspeak-pronounce-pronunciation-personality
-                       personality)))))
+                   (apply 'append
+                          (mapcar
+                           #'(lambda (p)
+                               (when p
+                                 (if (atom p) (list p) p)))
+                           (list
+                            emacspeak-pronounce-pronunciation-personality
+                            pp personality)))))))
              (t nil))))))
 
 ;;}}}
@@ -770,15 +784,12 @@ specified pronunciation dictionary key."
                 (+ 1900 (third fields)))
                (t (third fields)))))
         'personality voice-punctuations-some))))
-                         
                    
-
 ;;}}}
 ;;{{{ phone numbers
 
 (defvar emacspeak-pronounce-us-phone-number-pattern "1?[0-9]\\{3\\}-[0-9]\\{3}-[0-9]\\{4\\}"
-  "Pattern that matches US phone numbers."
-  )
+  "Pattern that matches US phone numbers.")
 
 (defun emacspeak-pronounce-us-phone-number (phone)
   "Return pronunciation for US phone number."
@@ -805,6 +816,7 @@ specified pronunciation dictionary key."
 ;;}}}
 
 ;;}}}
+
 (provide  'emacspeak-pronounce)
 ;;{{{  emacs local variables
 
