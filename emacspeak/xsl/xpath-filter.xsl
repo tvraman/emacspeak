@@ -31,13 +31,6 @@ shown in the output.
     </xsl:element>
   </xsl:template>
   <xsl:template match="/html/body">
-<xsl:element name="head">
-      <xsl:element name="base">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
-      </xsl:element>
-    </xsl:element>
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="$locator">
