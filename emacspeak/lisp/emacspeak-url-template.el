@@ -507,10 +507,10 @@ Here are some examples:
 "
   'emacspeak-url-template-google-maps-xml)
 
-(defun emacspeak-url-template-google-maps-speak (url &optional near)
+(defun emacspeak-url-template-google-maps-speak (url &optional
+  near speak)
   "Audio format map information from Google Maps.
-Optional arg `near' specifies reference location for generating
-  direction links."
+Optional arg `near' specifies reference location for generating direction links."
   (let ((buffer (emacspeak-url-template-google-maps-get-xml url))
         (emacspeak-xslt-options "")
         (params
@@ -531,8 +531,11 @@ Optional arg `near' specifies reference location for generating
                     (setq emacspeak-w3-url-executor
                           'emacspeak-url-template-google-maps-speak)
                     (emacspeak-speak-buffer)))
-      (emacspeak-w3-preview-this-buffer)
-      )))
+      (when speak
+        (add-hook 'emacspeak-w3-post-process-hook
+                  'emacspeak-speak-buffer
+                  'at-end))
+      (emacspeak-w3-preview-this-buffer))))
 
 (emacspeak-url-template-define
   "EmapSpeak Via Google"
