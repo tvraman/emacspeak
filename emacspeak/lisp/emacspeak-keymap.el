@@ -150,7 +150,7 @@
 (define-key emacspeak-keymap "P" 'emacspeak-speak-paragraph-interactively)
 (define-key emacspeak-keymap "M" 'emacspeak-speak-minor-mode-line)
 (define-key emacspeak-keymap "L" 'emacspeak-speak-line-interactively)
-(define-key emacspeak-keymap "H" 'emacspeak-speak-help-interactively)
+(define-key emacspeak-keymap "H" 'emacspeak-speak-hostname)
 (define-key emacspeak-keymap "B" 'emacspeak-speak-buffer-interactively)
 (define-key emacspeak-keymap "A" 'emacspeak-appt-repeat-announcement)
 (define-key emacspeak-keymap "?"
