@@ -1,5 +1,6 @@
-*.info*
 *.html
+*.info*
+ChangeLog
 emacspeak.aux
 emacspeak.cp
 emacspeak.dvi
