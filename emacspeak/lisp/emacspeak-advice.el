@@ -1903,10 +1903,10 @@ Provide an auditory icon if possible."
     (emacspeak-dtk-sync)
     (emacspeak-speak-line)))
 
-(defadvice save-buffers-kill-emacs (after emacspeak pre act)
+(defadvice save-buffers-kill-emacs (before emacspeak pre act)
   "Play an auditory icon."
   (when (interactive-p )
-    (emacspeak-auditory-icon 'shutdown)))
+    (emacspeak-play-auditory-icon 'shutdown)))
 
 ;;{{{  composing mail
 
