@@ -210,10 +210,11 @@ emacspeak-erc-people-to-monitor " ")))
   "Uses environment of buffer to decide what message to
 display. String is the original message."
   (declare (special emacspeak-erc-people-to-monitor))
-  (let
-      ((who-from (car (split-string string ))))
+  (let ((who-from (car (split-string string ))))
     (cond
-     ((and emacspeak-erc-people-to-monitor
+     ((and
+(not (string-match "^\\*\\*\\*" who-from))
+ emacspeak-erc-people-to-monitor
            (find
             who-from
                   emacspeak-erc-people-to-monitor
