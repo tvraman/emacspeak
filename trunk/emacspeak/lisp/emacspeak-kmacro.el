@@ -59,13 +59,11 @@
 (defadvice kmacro-start-macro (before emacspeak pre act comp)
   "Provide auditory icon."
   (when  (interactive-p)
-             
     (emacspeak-auditory-icon 'select-object)
     (message "Defining new kbd macro.")))
 
 (defadvice kmacro-start-macro-or-insert-counter (before
-                                                 emacspeak pre
-                                                 act comp)
+                                                 emacspeak pre act comp)
   "Provide auditory icon if new macro is being defined."
   (when (and (interactive-p)
              (not  defining-kbd-macro )
@@ -73,8 +71,7 @@
     (emacspeak-auditory-icon 'select-object)
     (message "Defining new kbd macro.")))
 
-(defadvice kmacro-end-or-call-macro (before emacspeak pre act
-                                            comp)
+(defadvice kmacro-end-or-call-macro (before emacspeak pre act comp)
   "Provide auditory feedback about we are about to do."
   (cond
    ((and (interactive-p)
@@ -103,6 +100,7 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (message "Calling  second macro from ring.")))
+
 ;;}}}
 (provide 'emacspeak-kmacro)
 ;;{{{ end of file
