@@ -118,7 +118,6 @@ specifies the actual location of the realaudio stream
 
 (make-variable-buffer-local 'emacspeak-realaudio-end-time-mark)
 
-
 ;;;###autoload
 (defun emacspeak-realaudio-play (resource &optional prompt-time)
   "Play a realaudio stream.  Uses files from your Realaudio
@@ -214,18 +213,18 @@ urls have a .ram or .rm extension.")
 Echo output and return it as a string."
   (declare (special emacspeak-realaudio-process))
   (let*  ((buffer (process-buffer emacspeak-realaudio-process))
-	    (mark (save-excursion
-		    (set-buffer buffer)
-		    (point-max))))
-      (process-send-string
-       emacspeak-realaudio-process
-       (format "%c" char))
-      (accept-process-output  emacspeak-realaudio-process 1)
-      (message "%s"
-	       (save-excursion
-		 (set-buffer buffer)
-		 (buffer-substring mark (process-mark
-					 emacspeak-realaudio-process))))))
+          (mark (save-excursion
+                  (set-buffer buffer)
+                  (point-max))))
+    (process-send-string
+     emacspeak-realaudio-process
+     (format "%c" char))
+    (accept-process-output  emacspeak-realaudio-process 1)
+    (message "%s"
+             (save-excursion
+               (set-buffer buffer)
+               (buffer-substring mark (process-mark
+                                       emacspeak-realaudio-process))))))
 
 ;;;###autoload
 (defun emacspeak-realaudio-get-current-time-in-seconds ()
@@ -244,7 +243,7 @@ Echo output and return it as a string."
            (* 60 (second fields))
            (third fields)))
     (when (interactive-p)
-(dtk-speak (format "%d" seconds)))
+      (dtk-speak (format "%d" seconds)))
     seconds))
 
 ;;;###autoload
@@ -254,12 +253,12 @@ Mark is specified in seconds."
   (interactive "p")
   (declare (special emacspeak-realaudio-start-time-mark))
   (setq emacspeak-realaudio-start-time-mark
-         (cond
-          ((and (interactive-p) mark-time)
-           (read-minibuffer "Mark in seconds:"))
-          ((interactive-p)
-           (emacspeak-realaudio-get-current-time-in-seconds))
-          (t (or mark-time 0)))))
+        (cond
+         ((and (interactive-p) mark-time)
+          (read-minibuffer "Mark in seconds:"))
+         ((interactive-p)
+          (emacspeak-realaudio-get-current-time-in-seconds))
+         (t (or mark-time 0)))))
 ;;;###autoload
 (defun emacspeak-realaudio-set-end-mark (&optional mark-time)
   "Set end mark. Default is to set marker to current play time.
@@ -267,17 +266,16 @@ Mark is specified in seconds."
   (interactive "p")
   (declare (special emacspeak-realaudio-start-time-mark))
   (setq emacspeak-realaudio-end-time-mark
-         (cond
-          ((and (interactive-p) mark-time)
-           (read-minibuffer "Mark in seconds:"))
-          ((interactive-p)
-           (emacspeak-realaudio-get-current-time-in-seconds))
-          (t (or mark-time 0)))))
+        (cond
+         ((and (interactive-p) mark-time)
+          (read-minibuffer "Mark in seconds:"))
+         ((interactive-p)
+          (emacspeak-realaudio-get-current-time-in-seconds))
+         (t (or mark-time 0)))))
 
     
                  
   
-
 
 (defun emacspeak-realaudio-trplayer-command (char)e
   "Execute TRPlayer command."
@@ -397,7 +395,12 @@ commands via single keystrokes."
   (declare (special emacspeak-realaudio-mode-map
                     emacspeak-realaudio-trplayer-keys))
   (define-key emacspeak-realaudio-mode-map " " 'dtk-stop)
-  (define-key emacspeak-realaudio-mode-map "C"  'emacspeak-realaudio-get-current-time-in-seconds)
+  (define-key emacspeak-realaudio-mode-map "C"
+    'emacspeak-realaudio-get-current-time-in-seconds)
+  (define-key emacspeak-realaudio-mode-map "m"
+    'emacspeak-realaudio-set-start-mark)
+  (define-key emacspeak-realaudio-mode-map "M"
+    'emacspeak-realaudio-set-end-mark)
   (define-key emacspeak-realaudio-mode-map [left] 'emacspeak-aumix-wave-decrease)
   (define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
   (loop for c in emacspeak-realaudio-trplayer-keys
