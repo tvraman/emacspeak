@@ -1,4 +1,3 @@
-
 ;;; emacspeak-realaudio.el --- Play realaudio from Emacs
 ;;; $Id$
 ;;; $Author$
@@ -240,7 +239,7 @@ Echo output and return it as a string."
           (mapcar #'string-to-number fields))
     (setq seconds 
           (+
-           (* 60 (first fields))
+           (* 3600 (first fields))
            (* 60 (second fields))
            (third fields)))
     (when (interactive-p)
