@@ -40,16 +40,7 @@
 
 ;;{{{ required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-websearch)
-(eval-when-compile (require 'webjump))
-(require 'emacspeak-xslt)
-(require 'emacspeak-w3)
-(require 'emacspeak-realaudio)
-(require 'emacspeak-m-player)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
 

@@ -109,9 +109,14 @@ preparation for interactively filtering text. " t nil)
 
 ;;;***
 
-;;;### (autoloads nil "emacspeak-fix-interactive" "emacspeak-fix-interactive.el"
-;;;;;;  (16004 38311))
+;;;### (autoloads (emacspeak-fix-interactive) "emacspeak-fix-interactive"
+;;;;;;  "emacspeak-fix-interactive.el" (16004 41893))
 ;;; Generated autoloads from emacspeak-fix-interactive.el
+
+(autoload (quote emacspeak-fix-interactive) "emacspeak-fix-interactive" "\
+Auto-advice interactive command to speak its prompt.  
+Fix the function definition of sym to make its interactive form
+speak its prompts. " nil nil)
 
 (defsubst emacspeak-fix-interactive-command-if-necessary (command) "\
 Fix command if necessary." (and (emacspeak-should-i-fix-interactive-p command) (emacspeak-fix-interactive command)))
@@ -308,7 +313,7 @@ Browse RAM file before playing the selected component." t nil)
 
 ;;;### (autoloads (emacspeak-remote-connect-to-server emacspeak-remote-ssh-to-server
 ;;;;;;  emacspeak-remote-quick-connect-to-server) "emacspeak-remote"
-;;;;;;  "emacspeak-remote.el" (15978 38315))
+;;;;;;  "emacspeak-remote.el" (16004 38538))
 ;;; Generated autoloads from emacspeak-remote.el
 
 (defgroup emacspeak-remote nil "Emacspeak remote group." :group (quote emacspeak-remote))

@@ -45,12 +45,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'emacspeak-speak)
-(require 'emacspeak-xslt)
-(require 'emacspeak-w3)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ RSS feed cache
 ;;;###autoload

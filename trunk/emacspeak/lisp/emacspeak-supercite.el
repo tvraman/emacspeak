@@ -38,13 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'emacspeak-speak)
-(require 'emacspeak-personality)
-(require 'emacspeak-fix-interactive)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -52,6 +45,10 @@
 ;;; Speech-enable supercite.
 
 ;;; Code:
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ Advice

@@ -37,19 +37,14 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'voice-setup)
-(require 'dtk-voices)
-(require 'emacspeak-personality)
-(require 'emacspeak-keymap)
-(require 'dtk-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
+
 ;;{{{  Introduction:
 ;;; This module extends the mail reader vm.
 ;;; Uses voice locking for message headers and cited messages
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ voice locking:
