@@ -144,6 +144,28 @@ speech flush as you type."
    (t (ding)
       (message "Beginning of buffer"))))
 
+
+
+;;{{{  kill buffer for emacs 21
+
+
+;;;There is a timing bug in Emacs 21 that causes the advice t fire
+;;;*after*
+;;;the function is done.
+
+(defun emacspeak-kill-buffer (buffer)
+  "Speech-enabled version of kill-buffer for Emacs 21."
+  (interactive
+   (list 
+    (read-buffer "Kill buffer: "
+                 (current-buffer))))
+  (kill-buffer buffer)
+  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-speak-mode-line))
+
+
+;;}}}
+
 ;;}}}
 ;;{{{  Rebinding functions to keys:
 
@@ -163,7 +185,12 @@ speech flush as you type."
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
+;;; for emacs 21 add kill-buffer to the above list:
+(declaim (special emacs-version))
 
+(when (string-match "^21" emacs-version)
+  (push 'kill-buffer 
+emacspeak-functions-that-bypass-function-cell))
 (mapcar 
  (function
   (lambda (f)
@@ -173,6 +200,7 @@ They have to be redefined and rebound to make them talk. " )
 
 ;;}}}
 ;;{{{  fix ding 
+
 (when (subrp (symbol-function 'ding))
   (fset 'orig-ding (symbol-function 'ding))
   (defun ding ( &optional arg)
