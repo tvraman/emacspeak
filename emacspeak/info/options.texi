@@ -27,6 +27,7 @@ documentation.
 * emacspeak-forms Options::     
 * emacspeak-hide Options::      
 * emacspeak-imcom Options::     
+* emacspeak-imenu Options::     
 * emacspeak-info Options::      
 * emacspeak-ispell Options::    
 * emacspeak-jde Options::       
@@ -577,6 +578,17 @@ Start up hooks run after IMCom process is started.
 
 @defvar {User Option} emacspeak-imcom-personal-directory
 Directory where IMCom stores personalization files.
+@end defvar
+
+@node emacspeak-imenu Options
+@section emacspeak-imenu Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-imenu.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-imenu-autospeak
+Speak contents of sections automatically if set.
 @end defvar
 
 @node emacspeak-info Options
@@ -1627,6 +1639,11 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-xslt-keep-errors
 If non-nil, xslt errors will be preserved in an errors buffer.
+@end defvar
+
+@defvar {User Option} emacspeak-xslt-nuke-null-char
+If T null chars in the region will be nuked.
+This is useful when handling bad HTML.
 @end defvar
 
 @defvar {User Option} emacspeak-xslt-program
