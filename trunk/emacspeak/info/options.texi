@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 376 user customizable
+This chapter documents a total of 378 user customizable
   options.
 
 @menu
@@ -14,6 +14,7 @@ This chapter documents a total of 376 user customizable
 * emacspeak Options::           
 * emacspeak-add-log Options::   
 * emacspeak-advice Options::    
+* emacspeak-alsaplayer Options::  
 * emacspeak-amphetadesk Options::  
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
@@ -323,6 +324,27 @@ Specifies if error messages are cued.
 * Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken.
+@end defvar
+
+@node emacspeak-alsaplayer Options
+@section emacspeak-alsaplayer Options
+
+Commentary:
+This is work in progress:
+Defines a simple derived mode for interacting with
+alsaplayer.
+alsaplayer navigation commands  work via single keystrokes.
+
+Automatically generated documentation
+for options defined in module  emacspeak-alsaplayer.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-alsaplayer-media-directory
+Directory to look for media files.
+@end defvar
+
+@defvar {User Option} emacspeak-alsaplayer-program
+Alsaplayer executable.
 @end defvar
 
 @node emacspeak-amphetadesk Options
