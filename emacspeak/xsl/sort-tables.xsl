@@ -81,9 +81,9 @@ relevant tables bubble to the top.
         </h2>
         <xsl:variable name="i" select="//table//table"/>
         <xsl:for-each select="$i">
-          <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
           <xsl:sort select="count(.//table)" data-type="number"
           order="ascending"/>
+          <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
           <h2><xsl:element name="a"><xsl:attribute name="href">
                 #src-<xsl:value-of select="generate-id(.)"/>
             </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
