@@ -320,6 +320,17 @@ name of the list.")
 ;;{{{ cnn 
 
 (emacspeak-url-template-define
+ "CNN Weather "
+ "http://weather.cnnaudience.com/cgi-bin/weather/redirect?zip=%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer "US Zip Code: ")))
+ nil
+ "Weather Forecast from CNN"
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 5  url)))
+
+(emacspeak-url-template-define
  "CNN headlines "
  "http://www.cnn.com/QUICKNEWS/print.html"
  nil
