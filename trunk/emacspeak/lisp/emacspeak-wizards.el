@@ -1216,10 +1216,10 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ table wizard
+(declaim (special emacspeak-etc-directory))
 
 (defvar emacspeak-wizard-table-content-extractor
-  (expand-file-name "extract-table.pl"
-                    emacspeak-etc-directory)
+  (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
 
 (defun emacspeak-wizard-get-table-content-from-url (task url depth count )
@@ -1262,6 +1262,51 @@ Extracted content is placed as a csv file in task.csv."
             emacspeak-wizard-table-content-extractor
             task file depth count ))
   (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
+
+
+;;}}}
+;;{{{ annotation wizard
+
+;;; I use this to collect my annotations into a buffer
+;;; e.g. an email message to be sent out--
+;;; while reading and commenting on large documents.
+
+(defvar emacspeak-annotate-working-buffer nil
+  "Buffer that annotations go to.")
+
+(make-variable-buffer-local 'emacspeak-annotate-working-buffer)
+
+(defvar emacspeak-annotate-edit-buffer
+  "*emacspeak-annotation*"
+  "Name of temporary buffer used to edit the annotation.")
+
+(defun emacspeak-annotate-get-annotation ()
+  "Pop up a temporary buffer and collect the annotation."
+  (declare (special emacspeak-annotate-edit-buffer))
+  (pop-to-buffer
+   (get-buffer-create emacspeak-annotate-edit-buffer))
+  (erase-buffer)
+  (message "Exit recursive edit when done.")
+  (recursive-edit)
+  (bury-buffer)
+  (buffer-string))
+
+(defun emacspeak-annotate-add-annotation ()
+  "Add annotation to the annotation working buffer.
+Prompt for annotation buffer if not already set.
+Annotation is entered in a temporary buffer and the
+annotation is inserted into the working buffer when complete."
+  (interactive)
+  (declare (special emacspeak-annotate-working-buffer))
+  (unless emacspeak-annotate-working-buffer
+    (setq emacspeak-annotate-working-buffer
+          (read-buffer "Annotation working buffer: "
+                       (car (buffer-list)))))
+  (save-excursion
+    (set-buffer emacspeak-annotate-working-buffer)
+    (insert   (emacspeak-annotate-get-annotation))
+    (insert "\n"))
+  (emacspeak-auditory-icon 'mark-object))
 
 
 ;;}}}
