@@ -20,9 +20,8 @@ type="text/xsl"?>
       the Emacs Lisp Library</a>.
     </p>
     <h2>Speech-Enabled Applications</h2>
-    
   </introduction>
-  <category name="help">
+  <category name="documentation">
     <application name="info">
       Emacs' online hypertext documentation system.
       Emacspeak uses audio formatting to highlight menus and hyperlinks.
@@ -58,6 +57,14 @@ type="text/xsl"?>
     <application name="yasg">
       Pattern-based selection of open buffers.
     </application>
+    <application name="speedbar">
+      Context-sensitive browsing tool.
+      Provides seamless browsing of the entire file system or a
+      single file with the same consistent interface.
+    </application>
+    <application name="sawfish">
+      Speech-enables the Sawfish window-manager.
+    </application>
   </category>
   <category name="finders">
     <application name="dired">
@@ -77,6 +84,106 @@ type="text/xsl"?>
     Front-end to remote file access using SSH backend.</application>
     <application name="finder">
       Package browser for locating  installed  applications.
+    </application>
+  </category>
+  <category name="web">
+    <application name="w3">
+      Standards-compliant WWW browser with Aural CSS
+    support.</application>
+    <application name="w3m">
+      Light-weight WWW browser.
+    Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
+    <application name="url-template">
+      Emacspeak client  that provides programmable  URL templates.
+      Pre-defined templates offer easy access to W3C mailing
+      lists, CNN sites etc.
+    </application>
+    <application name="websearch">
+      Emacspeak websearch client with single click access to
+      popular search engines.
+      Once selected,  the searcher prompts for the relevant input,
+      performs the search, and speaks the  result.
+      In addition, see the Web wizards in <a
+      href="#wizards">Emacspeak Wizards</a>.
+    </application>
+    <application name="lynx">
+      Single key interface for invoking lynx in an appropriately
+      customized terminal buffer.
+    </application>
+    <application name="net-utils">
+      Front-end to networking tools.
+    </application>
+  </category>
+  <category name="Messaging">
+    <application name="vm">
+      Mail reader featuring full mime support.
+    </application>
+    <application name="bbdb">
+      Manages email addresses and other contact information by
+      seamlessly integrating with messaging applications.
+    </application>
+    <application name="eudc">
+      Universal Directory Client including LDAP support and
+    seamless integration with messaging applications.</application>
+    <application name="gnus">
+      Usenet news and email client
+      with support for exotic information backends such as
+    Slashdot etc.</application>
+    <application name="newsticker">
+      Speech-enabled NewsTicker, a native Emacs RSS reader.
+    </application>
+    <application name="amphetadesk">
+      Emacs front-end to AmphetaDesk
+    </application>
+    <application name="rss">
+      Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
+    </application>
+    <application name="xslt">
+      Ability to apply XSL transforms to Web content before it is
+      displayed.
+    </application>
+    <application name="message">
+      Email composition   from
+    within other applications.</application>
+    <application name="supercite">
+    Enables flexible citations when composing  email.</application>
+    <application name="tnt">
+      Instant Messenger (AIM) client,
+      with support for multiple parallel chat
+    sessions.</application>
+    <application name="erc">
+      Internet Relay Chat (IRC) client
+    with  voice locking support and parallel chat sessions.</application>
+    <application name="imcom">
+      IMCom is a Python-based jabber client.
+      Module emacspeak-imcom speech-enables IMCom with full audio
+      formatting support.
+      Chat sessions can be viewed within W3  with full ACSS support.
+    </application>
+    <application name="gnuyahoo">
+      GNUYahoo is a Yahoo messenger client.
+    </application>
+    <application name="mspools">
+      Interface for working with multiple mail spools;
+      allows easy browsing of automatically archived mail.
+    </application>
+    <application name="mh-e">
+    Interface to the MH suite of email tools.</application>
+    <application name="rmail">
+    Email client.</application>
+  </category>
+  <category name="calendaring">
+    <application name="calendar">
+      Desktop calendar with an integrated appointment book.
+    </application>
+    <application name="diary">
+      Speech-enabled diary via EDiary.
+    </application>
+    <application name="appointments">
+      Speech-enabled appointments via the Emacs calendar.
+    </application>
+    <application name="todo">
+      Speech-enabled ToDo Lists.
     </application>
   </category>
   <category name="shell">
@@ -100,7 +207,20 @@ type="text/xsl"?>
     </application>
     <application name="comint">
       Support for running generic command interpreters.
+    </application>
+    <application name="xml-shell">
+      Interactive shell for browsing XML structures via libxml and
+      XMLLint.
     </application>  
+  </category>
+  <category name="taskbar">
+    <application name="view-process">
+      Front-end for monitoring and controlling  processes.
+    </application>
+    <application name="analog">
+      Analog.el provides a log analyzer that can be customized to
+      display system log files with a few convenient
+    keystrokes.</application>  
   </category>
   <category name="Multimedia">
     <application name="aumix">
@@ -132,7 +252,7 @@ type="text/xsl"?>
       Emacs Multimedia Front-End
     </application>
   </category>
-  <category name="Document Authoring">
+  <category name="Authoring">
     <application name="nxml">
       XML authoring environment by James Clark.
     Provides on the fly validation and voice locking.</application>
@@ -170,73 +290,11 @@ type="text/xsl"?>
     <application name="enriched">
       Rich-text authoring to provide a simple word
     processor.</application>
-  </category>
-  <category name="Messaging">
-    <application name="vm">
-      Mail reader featuring full mime support.
-    </application>
-    <application name="bbdb">
-      Manages email addresses and other contact information by
-      seamlessly integrating with messaging applications.
-    </application>
-    <application name="eudc">
-      Universal Directory Client including LDAP support and
-    seamless integration with messaging applications.</application>
-    <application name="gnus">
-      Usenet news and email client
-      with support for exotic information backends such as
-    Slashdot etc.</application>
-    <application name="newsticker">
-      Speech-enabled NewsTicker, a native Emacs RSS reader.
-    </application>
-    <application name="amphetadesk">
-      Emacs front-end to AmphetaDesk
-    </application>
-    <application name="rss">
-      Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
-    </application>
     <application name="rdf-edit">
       Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
     </application>
-    <application name="xslt">
-      Ability to apply XSL transforms to Web content before it is
-      displayed.
-    </application>
-    <application name="xml-shell">
-      Interactive shell for browsing XML structures via libxml and
-      XMLLint.
-    </application>
-    <application name="message">
-      Email composition   from
-    within other applications.</application>
-    <application name="supercite">
-    Enables flexible citations when composing  email.</application>
-    <application name="tnt">
-      Instant Messenger (AIM) client,
-      with support for multiple parallel chat
-    sessions.</application>
-    <application name="erc">
-      Internet Relay Chat (IRC) client
-    with  voice locking support and parallel chat sessions.</application>
-    <application name="imcom">
-      IMCom is a Python-based jabber client.
-      Module emacspeak-imcom speech-enables IMCom with full audio
-      formatting support.
-      Chat sessions can be viewed within W3  with full ACSS support.
-    </application>
-    <application name="gnuyahoo">
-      GNUYahoo is a Yahoo messenger client.
-    </application>
-    <application name="mspools">
-      Interface for working with multiple mail spools;
-      allows easy browsing of automatically archived mail.
-    </application>
-    <application name="mh-e">
-    Interface to the MH suite of email tools.</application>
-    <application name="rmail">
-    Email client.</application>
   </category>
-  <category name="General Productivity Applications">
+  <category name="Productivity">
     <application name="search-and-replace">
       Speech-enabled incremental search
       is available throughout the audio desktop.
@@ -256,18 +314,6 @@ type="text/xsl"?>
     </application>
     <application name="calculator">
     Simple but powerful desktop calculator.</application>
-    <application name="calendar">
-      Desktop calendar with an integrated appointment book.
-    </application>
-    <application name="diary">
-      Speech-enabled diary via EDiary.
-    </application>
-    <application name="appointments">
-      Speech-enabled appointments via the Emacs calendar.
-    </application>
-    <application name="todo">
-      Speech-enabled ToDo Lists.
-    </application>
     <application name="custom">
       Intuitive interface to customize Emacs' extensive set of
       customization options.
@@ -335,12 +381,6 @@ type="text/xsl"?>
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
     </application>
-    <application name="net-utils">
-      Front-end to networking tools.
-    </application>
-    <application name="oo-browser">
-      Tool for browsing  object oriented software codebases.
-    </application>
     <application name="ocr">
       Emacs front-end  to OCR engines.
       This module provides speech-enabled access to image
@@ -364,21 +404,9 @@ type="text/xsl"?>
       session running on a remote machine to send speech
       output to a server running on the local machine.
     </application>
-    <application name="sawfish">
-      Speech-enables the Sawfish window-manager.
-    </application>
-    <application name="speedbar">
-      Context-sensitive browsing tool.
-      Provides seamless browsing of the entire file system or a
-      single file with the same consistent interface.
-    </application>
     <application name="dismal">
       Spread-sheet application with suport for customizing
     spoken feedback on a per-sheet basis.</application>
-    <application name="analog">
-      Analog.el provides a log analyzer that can be customized to
-      display system log files with a few convenient
-    keystrokes.</application>
     <application name="emacspeak-daisy">
     Implements a digital talking book reader for DAISY3  talking books.</application>
     <application name="table-ui">
@@ -400,26 +428,6 @@ type="text/xsl"?>
     <application name="bookmark">
       Create bookmarks that persist across Emacs sessions.
     </application>
-    <application name="view-process">
-      Front-end for monitoring and controlling  processes.
-    </application>
-    <application name="w3">
-      Standards-compliant WWW browser with Aural CSS
-    support.</application>
-    <application name="w3m">
-      Light-weight WWW browser.
-    Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
-    <application name="url-template">
-      Emacspeak client  that provides programmable  URL templates.
-      Pre-defined templates offer easy access to W3C mailing
-      lists, CNN sites etc.
-    </application>
-    <application name="websearch">
-      Emacspeak websearch client with single click access to
-      popular search engines.
-      Once selected,  the searcher prompts for the relevant input,
-      performs the search, and speaks the  result.
-    </application>
     <application name="wizards">
       Emacspeak wizards for performing common tasks.
     </application>
@@ -429,7 +437,7 @@ type="text/xsl"?>
     <application name="eperiodic">
     Periodic table of elements.</application>
   </category>
-  <category name=" Software Development ">
+  <category name=" programming">
     <application name="jde">
       Java Development Environment with interactive debugging  
       support using the Java Platform Debug Architecture
@@ -498,12 +506,33 @@ type="text/xsl"?>
     <application name="dmacro">
       Dynamic macro package for template-based editting.
     </application>
+    <application name="oo-browser">
+      Tool for browsing  object oriented software codebases
+      --- this is largely obsoleted by ECB..
+    </application>
   </category>
   <category name="Distractions">
     <application name="entertain">
-      Speech-enabled access to numerous games including Dungeon,
-      gomoku, solitaire,tetris,
-      and Hangman.
+      Speech-enabled access to numerous games including
+      adventure, a multiplication puzzle and 
+      Hangman.
+    </application>
+    <application name="gomoku">
+      Speech-enabled version of the traditional board game.
+    </application>
+    <application name="solitaire">
+      Speech-enabled version of the traditional board game.
+    </application>
+    <application name="tetris">
+      Speech-enabled version of Tetris with auditory icons and the
+      needed UI enhancements to play eyes-free Tetris.
+      See  the paper entitled 
+      <em></em> Conversational Gestures On The Audio Desktop (Assets 98)
+      for the underpinnings of this enhanced UI 
+      --- <a
+      href="http://emacspeak.sf.net/raman/publications/assets-98/">online
+      paper</a>.
+      
     </application>
   </category>
   <postamble>
