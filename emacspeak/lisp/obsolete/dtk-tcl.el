@@ -38,23 +38,25 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;{{{ introduction
 
 ;;; Commentary:
 
 ;;; Interface to speech server.
+
+;;}}}
+;;{{{  required modules
+
 ;;; Code:
-;;{{{  required modules 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-interp)
 (require 'dtk-voices)
-(eval-when-compile
-  (require 'emacspeak-sounds))
 (require 'emacspeak-pronounce)
-(eval-when (compile)
-  (provide 'dtk-tcl) ;;keep byte compiler from recursing
-  (require 'dtk-speak))
+;; (eval-when (compile)                                            ;;
+;;   (provide 'dtk-tcl) ;;keep byte compiler from recursing        ;;
+;;   (require 'dtk-speak))                                         ;;
 
 ;;}}}
 ;;{{{  Introduction:
@@ -551,7 +553,7 @@ will say ``aw fifteen dot'' when speaking the string
              dtk-cleanup-patterns )))))
 
 ;;}}}
-;;{{{  producing output via tcl
+;;{{{  producing output 
 
 ;;; Filter function to record last output from tcl
 
@@ -569,141 +571,6 @@ Argument OUTPUT is the newly arrived output."
 
 (defvar dtk-speak-skim-scale 1.2
   "*Scale factor applied to speech rate when skimming.")
-
-(defun dtk-speak (text &optional ignore-skim)
-  "Speak the TEXT string on the  tts.
-This is achieved by sending the text to the speech server.
-No-op if variable `dtk-quiet' is set to nil.
-If option `outline-minor-mode' is on and selective display is in effect,
-only speak upto the first ctrl-m."
-  (declare (special dtk-speaker-process dtk-stop-immediately
-                    dtk-speech-rate
-                    dtk-speak-nonprinting-chars
-                    dtk-speak-treat-embedded-punctuations-specially
-                    dtk-quiet  dtk-chunk-separator-syntax
-                    voice-lock-mode   dtk-punctuation-mode
-                    dtk-split-caps 
-                    emacspeak-pronounce-pronunciation-table
-                    selective-display ))
-                                        ; ensure  the process  is live
-  (unless (or (eq 'run (process-status dtk-speaker-process ))
-              (eq 'open (process-status dtk-speaker-process )))
-    (dtk-initialize))
-                                        ; If you dont want me to talk,
-                                        ;or my server is not
-                                        ;running, I will remain silent.
-  (unless  
-      (or dtk-quiet
-          (not dtk-speak-server-initialized))
-                                        ; flush previous speech if asked to
-    (when dtk-stop-immediately (dtk-stop ))
-    (dtk-interp-sync)
-    (or (stringp text) (setq text (format "%s" text )))
-    (when selective-display
-      (let ((ctrl-m (string-match "\015" text )))
-        (and ctrl-m
-             (setq text (substring  text 0 ctrl-m ))
-             (emacspeak-auditory-icon 'ellipses))))
-    (let ((syntax-table (syntax-table ))
-          (inherit-speaker-process dtk-speaker-process)
-          (pronunciation-table emacspeak-pronounce-pronunciation-table)
-          (use-auditory-icons emacspeak-use-auditory-icons)
-          (inherit-chunk-separator-syntax dtk-chunk-separator-syntax )
-          (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
-          (complement-separator(dtk-complement-chunk-separator-syntax ))
-          (speech-rate dtk-speech-rate)
-          (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-          (start 1)
-          (end nil )
-          (mode dtk-punctuation-mode)
-          (split-caps dtk-split-caps)
-          (voice-lock voice-lock-mode ))
-      (save-excursion
-        (set-buffer dtk-scratch-buffer )
-        (let ((inhibit-read-only t))
-          (erase-buffer)
-                                        ; inherit environment
-          (setq dtk-chunk-separator-syntax inherit-chunk-separator-syntax
-                dtk-speaker-process inherit-speaker-process
-                dtk-speech-rate speech-rate
-                emacspeak-use-auditory-icons use-auditory-icons
-                dtk-punctuation-mode mode
-                dtk-split-caps split-caps
-                dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
-                voice-lock-mode voice-lock)
-          (set-syntax-table syntax-table )
-          (insert  text)
-          (delete-invisible-text)
-          (when pronunciation-table
-            (emacspeak-pronounce-apply-pronunciations pronunciation-table))
-          (dtk-quote mode))
-        (goto-char (point-min))
-        (skip-syntax-forward inherit-chunk-separator-syntax)
-        (while (and (not (eobp))
-                    (dtk-move-across-a-chunk
-                     inherit-chunk-separator-syntax
-                     complement-separator))
-                                        ;if we matched a punctuation,
-                                        ;treat this as a chunk only if the punctuation is followed
-                                        ;by white space
-					;dtk-speak-treat-embedded-punctuations-specially
-					;has been T for a long time
-          (unless
-              (and (char-after  (point))
-                   (= (char-syntax (preceding-char )) ?.)
-                   (not (= 32 (char-syntax (following-char )))))
-            (setq end (point ))
-            (dtk-format-text-and-speak  start end )
-            (setq start  end)))         ; end while
-                                        ; process trailing text
-        (or  (= start (point-max))
-             (dtk-format-text-and-speak start (point-max)))))
-    (dtk-force)))
-
-(defun dtk-speak-list (text )
-  "Speak a  list of strings.
-Argument TEXT  is the list of strings to speak."
-  (declare (special dtk-speaker-process dtk-stop-immediately))
-  (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (contents nil)
-        (inhibit-read-only t))
-    (save-excursion
-      (set-buffer dtk-scratch-buffer )
-      (erase-buffer)
-      (loop  for element in text
-             do
-             (insert
-	      (if (stringp element)
-		  element 
-		(format "%s" element)))
-             (insert "\n"))
-      (setq contents (buffer-string)))
-    (dtk-speak contents)))
-
-      
-(defsubst dtk-letter (letter)
-  "Speak a LETTER."
-  (declare (special dtk-speaker-process
-                    dtk-speak-server-initialized
-                    dtk-quiet ))
-  (unless dtk-quiet
-    (when dtk-speak-server-initialized
-      (dtk-interp-letter  letter ))))
-
-                                        ;Say these words, ie speak each of them as a word.
-                                        ; Text is sent via the appropriate TCLSH.
-(defun dtk-say (words)
-  "Say these WORDS."
-  (declare (special dtk-speaker-process dtk-stop-immediately
-                    dtk-speak-server-initialized dtk-quiet))
-  ;; I wont talk if you dont want me to
-  (unless dtk-quiet
-    (or (eq 'run (process-status dtk-speaker-process ))
-        (eq 'open (process-status dtk-speaker-process ))
-        (dtk-initialize))
-    (when dtk-speak-server-initialized
-      (and dtk-stop-immediately (dtk-stop ))
-      (dtk-interp-say words))))
 
 ;;}}}
 ;;{{{  sending commands

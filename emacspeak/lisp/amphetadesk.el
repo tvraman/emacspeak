@@ -55,7 +55,6 @@
 (require 'browse-url)
 
 ;;}}}
-
 ;;{{{ amphetadesk
 
 (defgroup amphetadesk nil

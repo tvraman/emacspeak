@@ -56,7 +56,7 @@ COMPILE =  -f batch-byte-compile
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dtk-voices.elc\
 outloud-voices.elc  \
-dtk-interp.elc		dtk-tcl.elc
+dtk-interp.elc		
 
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
@@ -238,15 +238,11 @@ cus-load.el:
 # rules differently. grumble grumble...
 #dtk module:
 #dtk-interp contains the interface to the interpreter
-#these are inline functions that dtk-tcl.el needs.
-#dtk-tcl contains inline functions.
-#Compile dtk-tcl first, and make dtk-speak depend on it
 #Modules using functions from the dtk module should depend on dtk-speak
 
 dtk-interp.elc: dtk-interp.el
-dtk-speak.elc: dtk-speak.el dtk-tcl.el dtk-interp.elc
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc
 acss-structure.elc: acss-structure.el
-dtk-tcl.elc: dtk-tcl.el dtk-interp.elc dtk-voices.elc
 dtk-voices.elc: dtk-voices.el
 outloud-voices.elc: outloud-voices.el
 voice-setup.elc: voice-setup.el acss-structure.elc
