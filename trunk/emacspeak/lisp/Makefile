@@ -200,16 +200,17 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 all: $(OBJECTS)
 
 # }}}
-# {{{ User level target--  config 
-
-config:
-	@rm -f emacspeak-setup.el emacspeak-load-path.el  
-	@sed "s@<emacspeak-dir>@$(SRC)@g" \
-		emacspeak-load-path.def > emacspeak-load-path.el
-	@sed "s@<emacspeak-dir>@$(SRC)@g" \
-		emacspeak-setup.def  > emacspeak-setup.el
-	@chmod 444 emacspeak-setup.el emacspeak-load-path.el
-	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
+# {{{ User level target--  config  junked
+#This ugliness not needed anymore --Thanks to 
+# Koichi INOUE <inoue@argv.org>
+#config:
+#	@rm -f emacspeak-setup.el emacspeak-load-path.el  
+#	#@sed "s@<emacspeak-dir>@$(SRC)@g" \
+#		emacspeak-load-path.def > emacspeak-load-path.el
+#	@sed "s@<emacspeak-dir>@$(SRC)@g" \
+#		emacspeak-setup.def  > emacspeak-setup.el
+#	@chmod 444 emacspeak-setup.el emacspeak-load-path.el
+#	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
 # {{{  Make rules for the various modules

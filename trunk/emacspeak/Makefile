@@ -120,6 +120,7 @@
 # {{{  Site Configuration
 
 ##### Site  Configuration #####
+MAKE=make
 prefix = /usr
 # where executables go
 bindir = ${prefix}/bin
@@ -183,7 +184,7 @@ ${INFO} ${GUIDE} ${NEWS} ${MISC} Makefile
 # {{{  User level targets emacspeak info print 
 
 emacspeak:
-	cd lisp; make  SRC=$(SRC)
+	cd lisp; $(MAKE)  SRC=$(SRC)
 	touch $(ID)
 	chmod 644 $(ID)
 	@echo "Compiled on $(SNAPSHOT) by `whoami` on `hostname`" >> $(ID)
@@ -196,7 +197,7 @@ emacspeak:
 	@echo "Make sure you read the Emacs info pages" 
 
 info:
-	cd info; make -k 
+	cd info; $(MAKE) -k 
 
 print:
 	@echo "Please change to the info directory and type make print"
@@ -218,21 +219,20 @@ tar:
 	${SOUNDS}   
 
 dist: $(DISTFILES)
-	make tar
+	$(MAKE) tar
 
 # }}}
 # {{{ User level target--  config 
 
 config:
-	cd lisp; make config  SRC=$(SRC)
-	cd etc; make config  SRC=$(SRC)
+	cd etc; $(MAKE) config  SRC=$(SRC)
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
 # {{{  user level target-- install uninstall
 
 install:
-	make config SRC=$(libdir)
+	$(MAKE) config SRC=$(libdir)
 	  $(INSTALL)  -d $(libparentdir) 
 	  $(INSTALL) -d $(libdir) 
 	touch $(libdir)/.nosearch
@@ -263,7 +263,7 @@ install:
 	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
 	$(INSTALL) -d $(infodir)
 	cd info; \
-	make install infodir=$(infodir)
+	$(MAKE) install infodir=$(infodir)
 
 uninstall:
 	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak
@@ -282,7 +282,7 @@ all: emacspeak
 
 clean:
 	rm -f lisp/*.elc 
-		cd info; make clean
+		cd info; $(MAKE) clean
 
 # }}}
 # {{{ labeling releases 
@@ -295,8 +295,8 @@ label: $(DISTFILES)
 	cvs commit -r ${LABEL} -m ${MSG}  $(DISTFILES)
 
 release: #supply LABEL=NN.NN
-	make label LABEL=$(LABEL)
-	make dist 
+	$(MAKE) label LABEL=$(LABEL)
+	$(MAKE) dist 
 	mkdir release; \
 	mv emacspeak.tar release; \
 	cd release; \
