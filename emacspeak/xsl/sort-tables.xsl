@@ -29,6 +29,8 @@ Using for-each allows this style to correctly number the
 nested tables during the second-pass; this numbering can be
 used as the table-index for extract-tables.xsl.
 
+We sort the nested tables before they are output so the most
+relevant tables bubble to the top.
 -->
 <!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
@@ -42,7 +44,7 @@ used as the table-index for extract-tables.xsl.
       <xsl:apply-templates select="@*"/>
       <table>
         <caption>
-          <a href="#__about_unravel_tables">Tables Unravelled</a>
+          <a href="#__about_sorted_tables">Tables Sorted</a>
         </caption>
         <tr>
           <td>
@@ -61,6 +63,14 @@ There are
  nested tables in this page. 
 </p>
       <xsl:for-each select="//table//table">
+        <xsl:sort select="count(.//text()|.//p)" order="descending"/>
+        <xsl:sort select="@width" order="descending"/>
+<!--
+<p> sorting keys:
+Text <xsl:value-of select="count(.//text() | .//p)"/>
+table width: <xsl:value-of select="@width"/>
+        </p>
+-->
         <xsl:element name="a">
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
@@ -74,7 +84,7 @@ There are
         </xsl:element>
       </xsl:for-each>
       <h2>
-        <a name="__about_unravel_tables">About This Style</a>
+        <a name="__about_sorted_tables">About This Style</a>
       </h2>
       <p>
         Note that nested tables have been moved to  section <a href="#__nested_tables">nested tables</a>.
@@ -83,8 +93,10 @@ There are
         table. If the author has provided a summary and or
         caption for the nested table, those will be displayed
         as the hyperlink text.
-The caption appearing above each table gives a table-index
-        that can be used when extracting a table with extract-table.xsl.
+I have sorted them  so the most
+      relevant tables occur first.
+Sort keys were number of text nodes in a table and the width
+        of the table (where specified).
       </p>
     </xsl:element>
   </xsl:template>
