@@ -635,8 +635,8 @@ minibuffer."
    (list
     (read-from-minibuffer "Class: ")
     current-prefix-arg))
-  (declare (special emacspeak-w3-post-process-hook))
-  (declare (special emacspeak-xslt-program
+  (declare (special emacspeak-w3-post-process-hook
+   emacspeak-xslt-program
                     emacspeak-w3-extract-by-class-xsl))
   (unless (or prompt
               (eq major-mode 'w3-mode))
@@ -680,7 +680,7 @@ minibuffer."
   "XSL transform to extract  elements matching a specified
 XPath locator.")
 
-(defun emacspeak-w3-xslt-filter (path   &optional prompt)
+(defun emacspeak-w3-xslt-filter (path   &optional prompt speak-result)
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -727,7 +727,8 @@ prefix arg causes url to be read from the minibuffer."
                 (format "\"'%s'\""
                         (or source-url
                             w3-url)))))
-        (when (interactive-p)
+        (when  (or (interactive-p)
+                   speak-result)
           (setq emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
         (emacspeak-w3-preview-this-buffer)

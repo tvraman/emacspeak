@@ -1571,6 +1571,10 @@ Use this once you are sure the guesses are usually correct.
 
 ------------------------------------------------------------
 
+** emacspeak-remote-ssh-to-serverOpen ssh session to where we came from.
+
+------------------------------------------------------------
+
 ** emacspeak-rmail-speak-current-message-labelsSpeak labels of current message
 
 ------------------------------------------------------------
@@ -2597,6 +2601,10 @@ resources.
 
 ------------------------------------------------------------
 
+** emacspeak-url-template-nfl-play-broadcastPlay NFL url under point.
+
+------------------------------------------------------------
+
 ** emacspeak-url-template-saveSave out url templates.
 
 ------------------------------------------------------------
@@ -2707,7 +2715,7 @@ specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-preview-this-regionPreview this buffer.
+** emacspeak-w3-preview-this-regionPreview this region.
 
 ------------------------------------------------------------
 
@@ -2899,7 +2907,7 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 ** emacspeak-websearch-googlePerform an Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
 I'm Feeling Lucky button on Google.
-Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p.
 
 ------------------------------------------------------------
 
@@ -3011,6 +3019,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-streaming-audio-searchSearch for streaming audio. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-teomaPerform an Teoma  search.
 
 ------------------------------------------------------------
 
@@ -3452,6 +3464,10 @@ key             binding
 ---             -------
 
 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-fix-read-only-textNuke read-only property on text range.
 
 ------------------------------------------------------------
 
