@@ -307,7 +307,7 @@ Prompts for start and end times as well as file  to save the clippi"
     (error  "Can only clip MP3  files."))
   (unless (file-executable-p emacspeak-realaudio-mp3-clipper)
     (error
-     "I cannot find an MP3 clipper. Install package quelcome to obtain
+     "I cannot find an MP3 clipper. Install package quelcom to obtain
 qmp3cut."))
   (let ((command
          (format "%s -B %ss -E %ss -o %s %s &"
