@@ -318,7 +318,7 @@ of the current page.
 
 I often use the @kbd{Control-u Control-e left-angle-bracket} command.
 
-@item Control-h s
+@item Control-e s
 Stop speech.
 
 @item Control-h i

@@ -7,6 +7,9 @@ TEXI2HTML=texi2html
 infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 EMACS=emacs
+
+all: emacspeak.info 
+
 info: *.texi
 	$(MAKEINFO) emacspeak.texi
 .PHONY: commands.texi 
@@ -17,14 +20,17 @@ install: emacspeak.info
 	if test  -x /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
-	$(INSTALL)  -m 644 emacspeak.info* $(infodir)
+	$(INSTALL)  -m 644 *.info* $(infodir)
 
 uninstall:
 	if test  -e /sbin/install-info ; then \
-		install-info --delete $(infodir)/emacspeak.info /etc/info-dir; \
+		install-info --delete $(infodir)/*.info /etc/info-dir; \
 	fi
-	rm -f $(infodir)/emacspeak.info*
+	rm -f $(infodir)/*.info*
 emacspeak.info: emacspeak.texi
+
+introducing-emacspeak.info: introducing-emacspeak.texi
+	makeinfo $@
 
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
@@ -47,11 +53,15 @@ emacspeak.pdf:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-emacspeak.html: *.texi
-	texi2html -monolithic emacspeak.texi
+emacspeak.html: emacspeak.texi
+	makeinfo --no-split --html --verbose emacspeak.texi
 	perl add-css.pl emacspeak.html
 
-pub:  emacspeak.html
-	scp emacspeak.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
+introducing-emacspeak.html: introducing-emacspeak.texi
+	makeinfo --no-split --html --verbose introducing-emacspeak.texi
+	perl add-css.pl introducing-emacspeak.html
+
+pub:  emacspeak.html introducing-emacspeak.html
+	scp *.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
 
 clean: 
