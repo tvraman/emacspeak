@@ -1920,11 +1920,13 @@ Argument STRING specifies the alphanumeric phone number."
                           (emacspeak-speak-string-to-phone-number number)))
     (sit-for 4)))
 
-(defun emacspeak-dtk-speak-version ()
+(defun emacspeak-tts-speak-version ()
   "Use this to find out which version of the Dectalk firmware you are running."
   (interactive)
-  (dtk-dispatch
-   "this is [:version speak]  "))
+  (let ((dtk-stop-immediately nil))
+    (dtk-stop)
+  (tts-say-version)))
+  
 
 ;;}}}
 ;;{{{ speaking marks
