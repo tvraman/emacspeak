@@ -324,6 +324,7 @@ signal ignore {sigint}
 tts_initialize
 set tts(speech_rate)  75
 notes_initialize
+beep_initialize
 set tts(input) file0
         if {[info exists server_p]} {
             set tts(input) sock0
