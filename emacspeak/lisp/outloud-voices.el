@@ -464,6 +464,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
   (setq tts-default-speech-rate outloud-default-speech-rate)
+  (set-default 'tts-default-speech-rate outloud-default-speech-rate)
   (when (and emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p))
