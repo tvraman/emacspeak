@@ -177,7 +177,16 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{ special form def-voice-map 
-
+(defmacro  def-voice-map (personality voice face doc)
+  (`
+   (defcustom (, personality)
+     (, voice)
+     (,doc)
+     :type 'symbol
+     :group 'tts
+     :set '(lambda  (sym val)
+             (voice-setup-set-voice-for-face (, face) (, voice))
+(set-default sym val)))))
 ;;}}}
 ;;{{{  Define some voice personalities:
 
