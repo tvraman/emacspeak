@@ -21,20 +21,6 @@ asks that nodes be processed only once -use with care.
 <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
-  <xsl:template match="*|@*" mode="copy" >
-    <xsl:choose>
-      <xsl:when test="$uniquify=1">
-        <xsl:variable name="i" select="$locator"/>
-        <xsl:if test="not(set:intersection(ancestor::*, $i))">
-          <xsl:copy-of select="."/><br/>
-        </xsl:if>
-      </xsl:when>      
-      <xsl:otherwise>
-        <xsl:copy-of select="."/><br/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
   <!-- { html   -->
   <!--add base uri if available. -->
   
@@ -64,6 +50,19 @@ asks that nodes be processed only once -use with care.
         <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
       document </xsl:element>.</p>
     </body>
+  </xsl:template>
+  <xsl:template match="*|@*" mode="copy" >
+    <xsl:choose>
+      <xsl:when test="$uniquify=1">
+        <xsl:variable name="i" select="$locator"/>
+        <xsl:if test="not(set:intersection(ancestor::*, $i))">
+          <xsl:copy-of select="."/><br/>
+        </xsl:if>
+      </xsl:when>      
+      <xsl:otherwise>
+        <xsl:copy-of select="."/><br/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>

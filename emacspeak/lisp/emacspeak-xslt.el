@@ -85,7 +85,8 @@ part of the libxslt package."
                     emacspeak-xslt-nuke-null-char
                     emacspeak-xslt-keep-errors
                     modification-flag ))
-  (let ((parameters (when params 
+  (let ((command nil)
+        (parameters (when params 
                       (mapconcat 
                        #'(lambda (pair)
                            (format "--param %s %s "
@@ -93,6 +94,14 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
+    (setq command (format
+                              "%s %s  --html --nonet --novalid %s - %s"
+			      emacspeak-xslt-program
+			      (or parameters "")
+			      xsl
+			      (if emacspeak-xslt-keep-errors
+				  ""
+				" 2>/dev/null ")))
     (when emacspeak-xslt-nuke-null-char
       (goto-char start)
       (while (search-forward
@@ -100,20 +109,17 @@ part of the libxslt package."
 	      end t)
 	(replace-match " ")))
     (shell-command-on-region start end
-                             (format
-                              "%s %s  --html --nonet --novalid %s - %s"
-			      emacspeak-xslt-program
-			      (or parameters "")
-			      xsl
-			      (if emacspeak-xslt-keep-errors
-				  ""
-				" 2>/dev/null "))
+                             command 
                              (current-buffer)
                              'replace
                              (when emacspeak-xslt-keep-errors
 			       "*xslt errors*"))
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
+    (goto-char (point-min))
+      (insert
+       (format "<!-- %s -->\n"
+               command))
     (setq modification-flag nil)))
 
 ;;;###autoload
@@ -126,6 +132,7 @@ part of the libxslt package."
                     modification-flag
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
+        (command nil)
         (parameters (when params 
                       (mapconcat 
                        #'(lambda (pair)
@@ -134,23 +141,26 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
-    (save-excursion
-      (set-buffer result)
-      (erase-buffer)
-      (shell-command
-       (format
+    (setq command (format
         "%s %s    --html --novalid %s '%s' %s"
 	emacspeak-xslt-program
 	(or parameters "")
 	xsl url
 	(if emacspeak-xslt-keep-errors
 	    ""
-	  " 2>/dev/null "))
-       (current-buffer)
+	  " 2>/dev/null ")))
+    (save-excursion
+      (set-buffer result)
+      (erase-buffer)
+      (shell-command command (current-buffer)
        (when emacspeak-xslt-keep-errors
          "*xslt errors*"))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
+      (goto-char (point-min))
+      (insert
+       (format "<!-- %s -->\n"
+               command))
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
@@ -165,6 +175,7 @@ part of the libxslt package."
                     modification-flag
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
+        (command nil)
         (parameters (when params 
                       (mapconcat 
                        #'(lambda (pair)
@@ -173,23 +184,27 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
-    (save-excursion
-      (set-buffer result)
-      (erase-buffer)
-      (shell-command
-       (format
+    (setq command (format
         "%s %s    --novalid %s '%s' %s"
 	emacspeak-xslt-program
 	(or parameters "")
 	xsl url
 	(if emacspeak-xslt-keep-errors
 	    ""
-	  " 2>/dev/null "))
+	  " 2>/dev/null ")))
+    (save-excursion
+      (set-buffer result)
+      (erase-buffer)
+      (shell-command command
        (current-buffer)
        (when emacspeak-xslt-keep-errors
          "*xslt errors*"))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
+      (goto-char (point-min))
+      (insert
+       (format "<!-- %s -->\n"
+               command))
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
