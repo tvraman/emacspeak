@@ -57,9 +57,9 @@
 ;;{{{  Voices 
 
 (defvar Info-title-personality-alist
-  '((?* bold)
-    (?= bold-italic)
-    (?-  underline))
+  `((?* ,voice-lock-bold-personality)
+    (?= ,voice-lock-bold-italic-personality)
+    (?-  ,voice-lock-underline-personality))
   "*Alist of personality or list of personalities to use for pseudo-underlined titles.
 The alist key is the character the title is underlined with (?*, ?= or ?-).")
   
