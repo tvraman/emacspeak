@@ -181,13 +181,20 @@ user is notified about activity in the room.")
 (unless (eq major-mode 'erc-mode)
   (error "Not in an ERC buffer."))
 (pushnew name emacspeak-erc-people-to-monitor
-         :test #'string-equal))
+         :test #'string-equal)
+(message "monitoring %s"
+         (mapconcat #'identity 
+emacspeak-erc-people-to-monitor " ")))
 
 (defun emacspeak-erc-delete-name-from-monitor (name)
   "Remove name to monitor in this room."
   (interactive
    (list
-    (read-from-minibuffer "Who should I stop monitoring? ")))
+    (read-from-minibuffer
+     (format 
+      "Currently monitoring %s"
+      (mapconcat #'identity 
+                 emacspeak-erc-people-to-monitor " ")))))
   (declare (special emacspeak-erc-people-to-monitor))
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
@@ -207,7 +214,9 @@ display. String is the original message."
       ((who-from (car (split-string string ))))
     (cond
      ((and emacspeak-erc-people-to-monitor
-           (find  who-from
+           (find
+            (format "<%s>"
+            who-from)
                   emacspeak-erc-people-to-monitor
                   :test #'string-equal))
       string)
