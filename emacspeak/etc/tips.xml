@@ -170,6 +170,35 @@
           </para>
         </answer>
       </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Browsing UNIX Man Pages</para>
+        </question>
+        <answer>
+          <para>
+Use Emacs  command <command>man</command>
+to view UNIX manual pages using a speech-enabled
+            interface. This interface provides structured
+            browsing which is something missing when viewing
+          UNIX man pages inside a traditional pager program.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Browsing Linux HOWTO Documentation.</para>
+        </question>
+        <answer>
+          <para>
+            Use command
+            <command>emacspeak-speak-browse-linux-howto</command>
+            to browse Linux HOWTO documentation installed on your
+            system.
+            The command opens the specified HOWTO file and
+            sets things up so you can use Emacs' outline facilities to
+            browse the document.
+          </para>
+        </answer>
+      </qandaentry>
     </qandadiv>
     <qandadiv id="folders">
       <title>Files And Folders</title>
@@ -470,22 +499,6 @@
             ---in order for this to take effect,
             <command>voice-lock</command> needs to be active
             in the current buffer.
-          </para>
-        </answer>
-      </qandaentry>
-      <qandaentry>
-        <question>
-          <para>Browsing Linux HOWTO Documentation.</para>
-        </question>
-        <answer>
-          <para>
-            Use command
-            <command>emacspeak-speak-browse-linux-howto</command>
-            to browse Linux HOWTO documentation installed on your
-            system.
-            The command opens the specified HOWTO file and
-            sets things up so you can use Emacs' outline facilities to
-            browse the document.
           </para>
         </answer>
       </qandaentry>
