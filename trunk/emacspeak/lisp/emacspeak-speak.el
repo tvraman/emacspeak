@@ -38,6 +38,18 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;{{{  Introduction:
+
+;;; Commentary:
+
+;;; This module defines the core speech services used by emacspeak.
+;;; It depends on the speech server interface modules
+;;; It protects other parts of emacspeak
+;;; from becoming dependent on the speech server modules
+
+;;; Code:
+
+;;}}}
 ;;{{{  Required modules
 
 (require 'cl)
@@ -53,17 +65,6 @@
   (require 'which-func nil)
   
   (require 'emacspeak-sounds))
-
-;;}}}
-;;{{{  Introduction:
-
-;;; Commentary:
-
-;;; This module defines the core speech services used by emacspeak.
-;;; It depends on the speech server interface modules
-;;; It protects other parts of emacspeak
-;;; from becoming dependent on the speech server modules
-;;; Code:
 
 ;;}}}
 ;;{{{  custom group 

@@ -38,10 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{ Introduction:
 
 ;;; Commentary:
@@ -53,6 +49,12 @@
 ;;; put the buffer containing freeamp in freeamp-mode.
 ;;; freeamp navigation commands then work via single keystrokes.
 
+;;; Code:
+
+;;}}}
+;;{{{  Required modules
+
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ define a derived mode for freeamp interaction 
 (defvar emacspeak-freeamp-process nil
