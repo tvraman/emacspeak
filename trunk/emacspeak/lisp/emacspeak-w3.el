@@ -597,12 +597,13 @@ Optional arg url specifies the page to extract table from. "
                      (url-view-url t)))
          (source-url
           (cond
-           (base-url base-url)
            ((and (interactive-p)
                  prompt-url)
             (read-from-minibuffer "URL: "
                                   "http://www."))
-           (t  prompt-url)))
+           (t
+            (or prompt-url
+                 base-url))))
          (src-buffer (current-buffer))
          (emacspeak-w3-xsl-p nil))
     (save-excursion
@@ -735,12 +736,12 @@ prefix arg causes url to be read from the minibuffer."
                      (url-view-url t)))
          (source-url
           (cond
-           (base-url base-url)
            ((and (interactive-p)
                  prompt-url)
             (read-from-minibuffer "URL: "
                                   "http://www."))
-           (t  prompt-url)))
+           (t  (or prompt-url
+                    base-url))))
          (src-buffer nil)
          (emacspeak-w3-xsl-p nil))
     (save-excursion
@@ -844,7 +845,8 @@ used as well."
               (null emacspeak-w3-class-filter))
       (setq emacspeak-w3-class-filter 
             (read-from-minibuffer  "Specify class: ")))
-    (emacspeak-w3-extract-by-class emacspeak-w3-class-filter
+    (emacspeak-w3-xslt-filter
+      emacspeak-w3-class-filter
                                    (or redirect url)
                                    'speak)
     (emacspeak-auditory-icon 'open-object)))
