@@ -96,7 +96,8 @@ speech flush as you type."
   (when buffer-read-only
     (signal 'buffer-read-only
             (list (current-buffer))))
-  (unless (car buffer-undo-list)
+  (when (and (listp buffer-undo-list)
+             (null (car buffer-undo-list)))
     (pop buffer-undo-list ))
   (self-insert-command  arg )
   (cond
