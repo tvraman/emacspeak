@@ -259,23 +259,30 @@ applied."
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
-  (declare (special emacspeak-pronounce-pronunciation-personality))
-  (loop for  key  being the hash-keys  of pronunciation-table
-        do
-        (let ((word (symbol-name key))
-              (pronunciation (gethash  key pronunciation-table ))
-              (personality nil))
-          (goto-char (point-min))
-          (while (search-forward  word nil t)
-            (setq personality
-                  (get-text-property (point) 'personality))
-            (replace-match  pronunciation t t  )
-	    (put-text-property
-	     (match-beginning 0)
-	     (+ (match-beginning 0) (length pronunciation))
-	     'personality
-	     (or
-	      emacspeak-pronounce-pronunciation-personality personality))))))
+  (declare (special
+  emacspeak-pronounce-pronunciation-personality))
+  (let ((words
+         (sort 
+          (loop for  key  being the hash-keys  of pronunciation-table collect key)
+          #'(lambda (a b ) 
+              (> (length (symbol-name a))
+                 (length (symbol-name b)))))))
+    (loop for key in words 
+          do
+          (let ((word (symbol-name key))
+                (pronunciation (gethash  key pronunciation-table ))
+                (personality nil))
+            (goto-char (point-min))
+            (while (search-forward  word nil t)
+              (setq personality
+                    (get-text-property (point) 'personality))
+              (replace-match  pronunciation t t  )
+              (put-text-property
+               (match-beginning 0)
+               (+ (match-beginning 0) (length pronunciation))
+               'personality
+               (or
+                emacspeak-pronounce-pronunciation-personality personality)))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
