@@ -740,6 +740,27 @@ the broadcast. You must have mplayer installed."
 
 ;;}}}
 ;;{{{  NPR programs 
+(emacspeak-url-template-define
+ "NPR On Demand"
+ "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
+ (list
+#'(lambda ()
+  (read-from-minibuffer "Program code:"))
+  #'(lambda ()
+      (read-from-minibuffer "Date:"
+                            (format-time-string "%d-%b-%Y")))
+#'(lambda ()
+(read-from-minibuffer "Segment:")))
+ nil
+ "Play NPR shows on demand.
+Program is specified as a program code:
+
+ME Morning Edition
+ATC All Things Considered
+
+Segment is specified as a two digit number --specifying a blank value
+plays entire program."
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "Weekend All Things Considered Stream from NPR"
