@@ -146,9 +146,7 @@
   (emacspeak-auditory-icon 'select-object))
 
 (defadvice calendar-goto-today (after emacspeak pre act)
-
   "Speak the date. "
-
   (when (interactive-p )
     (emacspeak-speak-calendar-date ))
 
