@@ -1013,8 +1013,13 @@ Optional second arg as-html processes the results as HTML rather than data."
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?g 'google)
 
+(defcustom emacspeak-websearch-google-number-of-results 25
+  "Number of results to return from Goggle search."
+  :type 'number
+  :group 'emacspeak-websearch)
+
 (defvar emacspeak-websearch-google-uri
-  "http://www.google.com/search?num=30&q="
+   "http://www.google.com/search?q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-feeling-lucky-p nil
@@ -1039,7 +1044,8 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                  "feeling lucky"
                "query ")))
     current-prefix-arg))
-  (declare (special emacspeak-websearch-google-uri))
+  (declare (special emacspeak-websearch-google-uri
+                    emacspeak-websearch-google-feeling-lucky-p emacspeak-websearch-google-number-of-results))
   (let ((lucky-flag (if emacspeak-websearch-google-feeling-lucky-p
                         (not lucky)
                       lucky))
@@ -1047,6 +1053,8 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
     (browse-url 
      (concat emacspeak-websearch-google-uri
              (webjump-url-encode query)
+             (format "&num=%s"
+                     emacspeak-websearch-google-number-of-results)
              (when lucky-flag
                (concat 
                 "&btnI="
