@@ -2619,6 +2619,7 @@ Signals end of buffer."
     (unwind-protect
         (progn
           (modify-syntax-entry   10 " ")
+          (end-of-line)
           (setq skip (skip-syntax-forward " "))
           (cond
            ((zerop skip)
@@ -2639,6 +2640,7 @@ Signals beginning  of buffer."
     (unwind-protect
         (progn
           (modify-syntax-entry   10 " ")
+          (beginning-of-line)
           (setq skip (skip-syntax-backward " "))
           (cond
            ((zerop skip)
