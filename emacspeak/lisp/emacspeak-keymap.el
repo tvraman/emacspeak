@@ -167,6 +167,55 @@ field in the customization buffer.  You can use the notation
 		'emacspeak-super-keymap)
 
 ;;}}}
+;;{{{ Create a alt keymap that users can put personal commands
+
+;;; I use the "pause" key to produce C-x@a -- which gives alt-
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-alt-keymap nil
+  "Emacspeak alt keymap")
+
+(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
+
+(defcustom emacspeak-alt-keys nil
+  "*Specifies alt key bindings for the audio desktop.
+You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
+on Linux by having it emit the sequence `C-x@a'.
+
+Bindings specified here are available on prefix key `alt'
+(not to be confused with alt==meta)
+for example, if you bind 
+`s' to command emacspeak-emergency-tts-restart 
+then that command will be available on key `ALT  s'
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat :tag "Emacspeak Alt Keymap"
+	  (cons  :tag "Key Binding"
+		(string :tag "Key")
+		(symbol :tag "Command")))
+  :set '(lambda (sym val)
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-alt-keymap key command)))
+           val)
+	  (set-default sym val)))
+
+(global-set-key "\C-x@a"
+		'emacspeak-alt-keymap)
+
+;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
 
 ;;; I use the windows key for hyper
