@@ -111,6 +111,7 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+(define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
     (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
     (define-key w3-mode-map ";"
@@ -767,6 +768,26 @@ current page."
             (url-generic-parse-url (url-view-url 'no-show))
             3)
            (read-from-minibuffer "Search this site for: ")))))
+
+(defvar emacspeak-w3-google-related-uri
+  "http://www.google.com/search?hl=en&num=10&q=related:")
+
+(defun emacspeak-w3-google-similar-to-this-page ()
+  "Ask Google to find documents similar to this one."
+  (interactive)
+  (declare (special emacspeak-w3-google-related-uri
+                    major-mode))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command cannot be used outside W3 buffers."))
+  (let ((url (url-view-url 'no-show)))
+    (browse-url
+     (format 
+      "%s%s"
+      emacspeak-w3-google-related-uri 
+      url))
+    (search-forward "Similar")
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'emacspeak-w3)
