@@ -2698,12 +2698,6 @@ spoken automatically.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-nested-tables-by-position-listExtract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
-nested of tables found in the page.
-
-------------------------------------------------------------
-
 ** emacspeak-w3-extract-node-by-idExtract specified node from URI.
 
 ------------------------------------------------------------
@@ -2711,6 +2705,12 @@ nested of tables found in the page.
 ** emacspeak-w3-extract-table-by-positionExtract table at specified position.
  Optional arg url specifies the page to extract content from.
 Interactive prefix arg causes url to be read from the minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-tables-by-position-listExtract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page.
 
 ------------------------------------------------------------
 
@@ -3191,7 +3191,11 @@ Get latest cvs snapshot of emacspeak.
 
 ------------------------------------------------------------
 
-** emacspeak-cvs-get-project-snapshotGrab CVS snapshot  of specified project from Sourceforge.
+** emacspeak-cvs-gnu-get-project-snapshotGrab CVS snapshot  of specified project from GNU.
+
+------------------------------------------------------------
+
+** emacspeak-cvs-sf-get-project-snapshotGrab CVS snapshot  of specified project from Sourceforge.
 
 ------------------------------------------------------------
 
@@ -3652,6 +3656,15 @@ key             binding
 
 ------------------------------------------------------------
 
+** emacspeak-xml-shell-browse-resultDisplay XPath  and display its result using W3.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
+------------------------------------------------------------
+
 ** emacspeak-xml-shell-goto-childrenNavigate down to the children of current node.
 
 ------------------------------------------------------------
@@ -3682,6 +3695,7 @@ C-c		Prefix Command
 <left>		emacspeak-xml-shell-goto-previous-child
 
 C-c v		emacspeak-xml-shell-browse-current
+C-c C-v		emacspeak-xml-shell-browse-result
 
 
 

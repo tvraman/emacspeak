@@ -1,6 +1,6 @@
 <HTML>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- Created on November, 9  2002 by texi2html 1.64 -->
+<!-- Created on November, 15  2002 by texi2html 1.64 -->
 <!-- 
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -8930,26 +8930,26 @@ spoken automatically.
 
 <A NAME="IDX503"></A>
 <DL>
-<DT><U>emacspeak-w3-extract-nested-tables-by-position-list:</U> <B>(POSITIONS</B> <I>&#38;optional PROMPT-URL SPEAK)</I>
-<DD>Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
-nested of tables found in the page.
-</DL>
-</P><P>
-
-<A NAME="IDX504"></A>
-<DL>
 <DT><U>emacspeak-w3-extract-node-by-id:</U> <B>(URL</B> <I>NODE-ID)</I>
 <DD>Extract specified node from URI.
 </DL>
 </P><P>
 
-<A NAME="IDX505"></A>
+<A NAME="IDX504"></A>
 <DL>
 <DT><U>emacspeak-w3-extract-table-by-position:</U> <B>(POSITION</B> <I>&#38;optional PROMPT-URL SPEAK)</I>
 <DD>Extract table at specified position.
  Optional arg url specifies the page to extract content from.
 Interactive prefix arg causes url to be read from the minibuffer.
+</DL>
+</P><P>
+
+<A NAME="IDX505"></A>
+<DL>
+<DT><U>emacspeak-w3-extract-tables-by-position-list:</U> <B>(POSITIONS</B> <I>&#38;optional PROMPT-URL SPEAK)</I>
+<DD>Extract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page.
 </DL>
 </P><P>
 
@@ -9799,12 +9799,19 @@ Get latest cvs snapshot of emacspeak.
 
 <A NAME="IDX596"></A>
 <DL>
-<DT><U>emacspeak-cvs-get-project-snapshot:</U> <B>(PROJECT)</B>
-<DD>Grab CVS snapshot  of specified project from Sourceforge.
+<DT><U>emacspeak-cvs-gnu-get-project-snapshot:</U> <B>(PROJECT)</B>
+<DD>Grab CVS snapshot  of specified project from GNU.
 </DL>
 </P><P>
 
 <A NAME="IDX597"></A>
+<DL>
+<DT><U>emacspeak-cvs-sf-get-project-snapshot:</U> <B>(PROJECT)</B>
+<DD>Grab CVS snapshot  of specified project from Sourceforge.
+</DL>
+</P><P>
+
+<A NAME="IDX598"></A>
 <DL>
 <DT><U>emacspeak-emergency-tts-restart:</U> <B>()</B>
 <DD>For use in an emergency.
@@ -9813,7 +9820,7 @@ emacspeak-emergency-tts-server.
 </DL>
 </P><P>
 
-<A NAME="IDX598"></A>
+<A NAME="IDX599"></A>
 <DL>
 <DT><U>emacspeak-frame-label-or-switch-to-labelled-frame:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e meta f </KBD>
@@ -9824,14 +9831,14 @@ With optional PREFIX argument, label current frame.
 </DL>
 </P><P>
 
-<A NAME="IDX599"></A>
+<A NAME="IDX600"></A>
 <DL>
 <DT><U>emacspeak-frame-read-frame-label:</U> <B>()</B>
 <DD>Read a frame label with completion.
 </DL>
 </P><P>
 
-<A NAME="IDX600"></A>
+<A NAME="IDX601"></A>
 <DL>
 <DT><U>emacspeak-generate-documentation:</U> <B>(FILENAME)</B>
 <DD>Generate docs for all emacspeak commands.
@@ -9847,7 +9854,7 @@ Automatically defined advice to speak interactive prompts.
 </DL>
 </P><P>
 
-<A NAME="IDX601"></A>
+<A NAME="IDX602"></A>
 <DL>
 <DT><U>emacspeak-generate-texinfo-command-documentation:</U> <B>(FILENAME)</B>
 <DD>Generate texinfo documentation  for all emacspeak
@@ -9863,14 +9870,14 @@ Automatically defined advice to speak interactive prompts.
 </DL>
 </P><P>
 
-<A NAME="IDX602"></A>
+<A NAME="IDX603"></A>
 <DL>
 <DT><U>emacspeak-kill-buffer-quietly:</U> <B>()</B>
 <DD>Kill current buffer without asking for confirmation.
 </DL>
 </P><P>
 
-<A NAME="IDX603"></A>
+<A NAME="IDX604"></A>
 <DL>
 <DT><U>emacspeak-learn-mode:</U> <B>()</B>
 <DD><KBD> control e control h </KBD>
@@ -9881,7 +9888,7 @@ To leave, press C-g.
 </DL>
 </P><P>
 
-<A NAME="IDX604"></A>
+<A NAME="IDX605"></A>
 <DL>
 <DT><U>emacspeak-link-current-file:</U> <B>()</B>
 <DD><KBD> control e meta l </KBD>
@@ -9896,21 +9903,21 @@ Prompts for the new location and preserves modification time
 </DL>
 </P><P>
 
-<A NAME="IDX605"></A>
+<A NAME="IDX606"></A>
 <DL>
 <DT><U>emacspeak-links:</U> <B>(URL)</B>
 <DD>Launch links on  specified URL in a new terminal.
 </DL>
 </P><P>
 
-<A NAME="IDX606"></A>
+<A NAME="IDX607"></A>
 <DL>
 <DT><U>emacspeak-lynx:</U> <B>(URL)</B>
 <DD>Launch lynx on  specified URL in a new terminal.
 </DL>
 </P><P>
 
-<A NAME="IDX607"></A>
+<A NAME="IDX608"></A>
 <DL>
 <DT><U>emacspeak-next-frame:</U> <B>()</B>
 <DD><KBD> &#60;control right&#62; </KBD>
@@ -9920,7 +9927,7 @@ Move to next frame.
 </DL>
 </P><P>
 
-<A NAME="IDX608"></A>
+<A NAME="IDX609"></A>
 <DL>
 <DT><U>emacspeak-previous-frame:</U> <B>()</B>
 <DD><KBD> &#60;control left&#62; </KBD>
@@ -9930,7 +9937,7 @@ Move to next frame.
 </DL>
 </P><P>
 
-<A NAME="IDX609"></A>
+<A NAME="IDX610"></A>
 <DL>
 <DT><U>emacspeak-root:</U> <B>(&#38;optional</B> <I>CD)</I>
 <DD><KBD> control e control r </KBD>
@@ -9942,7 +9949,7 @@ default-directory after switching.
 </DL>
 </P><P>
 
-<A NAME="IDX610"></A>
+<A NAME="IDX611"></A>
 <DL>
 <DT><U>emacspeak-select-this-buffer-next-display:</U> <B>()</B>
 <DD><KBD> control e &#60;control right&#62; </KBD>
@@ -9955,7 +9962,7 @@ meaning of `next'.
 </DL>
 </P><P>
 
-<A NAME="IDX611"></A>
+<A NAME="IDX612"></A>
 <DL>
 <DT><U>emacspeak-select-this-buffer-other-window-display:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Switch  to this buffer as displayed in a different frame.  Emacs
@@ -9972,7 +9979,7 @@ the display to select.
 </DL>
 </P><P>
 
-<A NAME="IDX612"></A>
+<A NAME="IDX613"></A>
 <DL>
 <DT><U>emacspeak-select-this-buffer-previous-display:</U> <B>()</B>
 <DD><KBD> control e &#60;control left&#62; </KBD>
@@ -9985,7 +9992,7 @@ meaning of `previous'.
 </DL>
 </P><P>
 
-<A NAME="IDX613"></A>
+<A NAME="IDX614"></A>
 <DL>
 <DT><U>emacspeak-show-personality-at-point:</U> <B>()</B>
 <DD><KBD> control e meta v </KBD>
@@ -9995,7 +10002,7 @@ Show value of property personality at point.
 </DL>
 </P><P>
 
-<A NAME="IDX614"></A>
+<A NAME="IDX615"></A>
 <DL>
 <DT><U>emacspeak-show-property-at-point:</U> <B>(&#38;optional</B> <I>PROPERTY)</I>
 <DD><KBD> control e meta p </KBD>
@@ -10008,7 +10015,7 @@ If no property is set, show a message and exit.
 </DL>
 </P><P>
 
-<A NAME="IDX615"></A>
+<A NAME="IDX616"></A>
 <DL>
 <DT><U>emacspeak-skip-blank-lines-backward:</U> <B>()</B>
 <DD><KBD> &#60;shift up&#62; </KBD>
@@ -10020,7 +10027,7 @@ Signals beginning  of buffer.
 </DL>
 </P><P>
 
-<A NAME="IDX616"></A>
+<A NAME="IDX617"></A>
 <DL>
 <DT><U>emacspeak-skip-blank-lines-forward:</U> <B>()</B>
 <DD><KBD> &#60;shift down&#62; </KBD>
@@ -10032,7 +10039,7 @@ Signals end of buffer.
 </DL>
 </P><P>
 
-<A NAME="IDX617"></A>
+<A NAME="IDX618"></A>
 <DL>
 <DT><U>emacspeak-speak-browse-linux-howto:</U> <B>(HOWTO)</B>
 <DD><KBD> control e  cap H  </KBD>
@@ -10043,7 +10050,7 @@ We cleanup underlining, and set up outline mode correctly.
 </DL>
 </P><P>
 
-<A NAME="IDX618"></A>
+<A NAME="IDX619"></A>
 <DL>
 <DT><U>emacspeak-speak-hostname:</U> <B>()</B>
 <DD><KBD> control e meta h </KBD>
@@ -10053,7 +10060,7 @@ Speak host name.
 </DL>
 </P><P>
 
-<A NAME="IDX619"></A>
+<A NAME="IDX620"></A>
 <DL>
 <DT><U>emacspeak-speak-load-directory-settings:</U> <B>()</B>
 <DD>Load a directory specific Emacspeak settings file.
@@ -10063,7 +10070,7 @@ directory.
 </DL>
 </P><P>
 
-<A NAME="IDX620"></A>
+<A NAME="IDX621"></A>
 <DL>
 <DT><U>emacspeak-speak-popup-messages:</U> <B>()</B>
 <DD><KBD> control h  cap M  </KBD>
@@ -10075,7 +10082,7 @@ previous window configuration.
 </DL>
 </P><P>
 
-<A NAME="IDX621"></A>
+<A NAME="IDX622"></A>
 <DL>
 <DT><U>emacspeak-speak-run-shell-command:</U> <B>(COMMAND</B> <I>&#38;optional AS-ROOT)</I>
 <DD><KBD> control e ! </KBD>
@@ -10093,7 +10100,7 @@ C-e TAB.
 </DL>
 </P><P>
 
-<A NAME="IDX622"></A>
+<A NAME="IDX623"></A>
 <DL>
 <DT><U>emacspeak-speak-show-active-network-interfaces:</U> <B>(&#38;optional</B> <I>ADDRESS)</I>
 <DD><KBD> control e  cap I  </KBD>
@@ -10106,14 +10113,14 @@ also copied to the kill ring for convenient yanking.
 </DL>
 </P><P>
 
-<A NAME="IDX623"></A>
+<A NAME="IDX624"></A>
 <DL>
 <DT><U>emacspeak-speak-show-memory-used:</U> <B>()</B>
 <DD>Convenience command to view state of memory used in this session so far.
 </DL>
 </P><P>
 
-<A NAME="IDX624"></A>
+<A NAME="IDX625"></A>
 <DL>
 <DT><U>emacspeak-speak-telephone-directory:</U> <B>(&#38;optional</B> <I>EDIT)</I>
 <DD>Lookup and display a phone number.
@@ -10121,7 +10128,7 @@ With prefix arg, opens the phone book for editting.
 </DL>
 </P><P>
 
-<A NAME="IDX625"></A>
+<A NAME="IDX626"></A>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-next-display:</U> <B>()</B>
 <DD><KBD> control e &#60;right&#62; </KBD>
@@ -10134,7 +10141,7 @@ meaning of `next'.
 </DL>
 </P><P>
 
-<A NAME="IDX626"></A>
+<A NAME="IDX627"></A>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-other-window-display:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e / </KBD>
@@ -10154,7 +10161,7 @@ the display to speak.
 </DL>
 </P><P>
 
-<A NAME="IDX627"></A>
+<A NAME="IDX628"></A>
 <DL>
 <DT><U>emacspeak-speak-this-buffer-previous-display:</U> <B>()</B>
 <DD><KBD> control e &#60;left&#62; </KBD>
@@ -10167,21 +10174,21 @@ meaning of `previous'.
 </DL>
 </P><P>
 
-<A NAME="IDX628"></A>
+<A NAME="IDX629"></A>
 <DL>
 <DT><U>emacspeak-sudo:</U> <B>(COMMAND)</B>
 <DD>SUDo command --run command as super user.
 </DL>
 </P><P>
 
-<A NAME="IDX629"></A>
+<A NAME="IDX630"></A>
 <DL>
 <DT><U>emacspeak-switch-to-previous-buffer:</U> <B>()</B>
 <DD>Switch to most recently used interesting buffer.
 </DL>
 </P><P>
 
-<A NAME="IDX630"></A>
+<A NAME="IDX631"></A>
 <DL>
 <DT><U>emacspeak-symlink-current-file:</U> <B>()</B>
 <DD><KBD> control e meta s </KBD>
@@ -10196,7 +10203,7 @@ Prompts for the new location and preserves modification time
 </DL>
 </P><P>
 
-<A NAME="IDX631"></A>
+<A NAME="IDX632"></A>
 <DL>
 <DT><U>emacspeak-view-emacspeak-doc:</U> <B>()</B>
 <DD><KBD> control e  cap D  </KBD>
@@ -10206,7 +10213,7 @@ Display a summary of all Emacspeak commands.
 </DL>
 </P><P>
 
-<A NAME="IDX632"></A>
+<A NAME="IDX633"></A>
 <DL>
 <DT><U>emacspeak-view-emacspeak-faq:</U> <B>()</B>
 <DD><KBD> control e  cap F  </KBD>
@@ -10216,7 +10223,7 @@ Browse the Emacspeak FAQ.
 </DL>
 </P><P>
 
-<A NAME="IDX633"></A>
+<A NAME="IDX634"></A>
 <DL>
 <DT><U>emacspeak-view-emacspeak-news:</U> <B>()</B>
 <DD><KBD> control e  cap N  </KBD>
@@ -10226,7 +10233,7 @@ Display info on recent change to Emacspeak.
 </DL>
 </P><P>
 
-<A NAME="IDX634"></A>
+<A NAME="IDX635"></A>
 <DL>
 <DT><U>emacspeak-view-emacspeak-tips:</U> <B>()</B>
 <DD><KBD> control e  cap T  </KBD>
@@ -10236,21 +10243,21 @@ Browse  Emacspeak productivity tips.
 </DL>
 </P><P>
 
-<A NAME="IDX635"></A>
+<A NAME="IDX636"></A>
 <DL>
 <DT><U>emacspeak-wizards-browse-url-with-style:</U> <B>(STYLE</B> <I>URL)</I>
 <DD>Browse URL with specified XSL style.
 </DL>
 </P><P>
 
-<A NAME="IDX636"></A>
+<A NAME="IDX637"></A>
 <DL>
 <DT><U>emacspeak-wizards-count-slides-in-region:</U> <B>()</B>
 <DD>Count slides starting from point.
 </DL>
 </P><P>
 
-<A NAME="IDX637"></A>
+<A NAME="IDX638"></A>
 <DL>
 <DT><U>emacspeak-wizards-finder-find:</U> <B>(DIRECTORY)</B>
 <DD>Run find-dired on specified switches after prompting for the
@@ -10258,7 +10265,7 @@ directory to where find is to be launched.
 </DL>
 </P><P>
 
-<A NAME="IDX638"></A>
+<A NAME="IDX639"></A>
 <DL>
 <DT><U>emacspeak-wizards-finder-mode:</U> <B>()</B>
 <DD>Emacspeak Finder
@@ -10275,21 +10282,21 @@ key             binding
 </DL>
 </P><P>
 
-<A NAME="IDX639"></A>
+<A NAME="IDX640"></A>
 <DL>
 <DT><U>emacspeak-wizards-fix-read-only-text:</U> <B>(START</B> <I>END)</I>
 <DD>Nuke read-only property on text range.
 </DL>
 </P><P>
 
-<A NAME="IDX640"></A>
+<A NAME="IDX641"></A>
 <DL>
 <DT><U>emacspeak-wizards-generate-finder:</U> <B>()</B>
 <DD>Generate a widget-enabled finder wizard.
 </DL>
 </P><P>
 
-<A NAME="IDX641"></A>
+<A NAME="IDX642"></A>
 <DL>
 <DT><U>emacspeak-wizards-get-table-content-from-file:</U> <B>(TASK</B> <I>FILE DEPTH COUNT)</I>
 <DD>Extract table specified by depth and count from HTML
@@ -10298,7 +10305,7 @@ Extracted content is placed as a csv file in task.csv.
 </DL>
 </P><P>
 
-<A NAME="IDX642"></A>
+<A NAME="IDX643"></A>
 <DL>
 <DT><U>emacspeak-wizards-get-table-content-from-url:</U> <B>(TASK</B> <I>URL DEPTH COUNT)</I>
 <DD>Extract table specified by depth and count from HTML
@@ -10307,7 +10314,7 @@ Extracted content is placed as a csv file in task.csv.
 </DL>
 </P><P>
 
-<A NAME="IDX643"></A>
+<A NAME="IDX644"></A>
 <DL>
 <DT><U>emacspeak-wizards-google-hits:</U> <B>()</B>
 <DD>Filter Google results after performing search to show just the
@@ -10315,7 +10322,7 @@ hits.
 </DL>
 </P><P>
 
-<A NAME="IDX644"></A>
+<A NAME="IDX645"></A>
 <DL>
 <DT><U>emacspeak-wizards-how-many-matches:</U> <B>(PREFIX)</B>
 <DD>If you define a file local variable 
@@ -10326,7 +10333,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 </DL>
 </P><P>
 
-<A NAME="IDX645"></A>
+<A NAME="IDX646"></A>
 <DL>
 <DT><U>emacspeak-wizards-occur-header-lines:</U> <B>(PREFIX)</B>
 <DD>If you define a file local variable 
@@ -10338,7 +10345,7 @@ value of the file local pattern.
 </DL>
 </P><P>
 
-<A NAME="IDX646"></A>
+<A NAME="IDX647"></A>
 <DL>
 <DT><U>emacspeak-wizards-portfolio-quotes:</U> <B>()</B>
 <DD>Bring up detailed stock quotes for portfolio specified by 
@@ -10346,7 +10353,7 @@ emacspeak-websearch-personal-portfolio.
 </DL>
 </P><P>
 
-<A NAME="IDX647"></A>
+<A NAME="IDX648"></A>
 <DL>
 <DT><U>emacspeak-wizards-ppt-display:</U> <B>()</B>
 <DD>Called to set up preview of an PPT file.
@@ -10356,7 +10363,7 @@ visiting the ppt file.
 </DL>
 </P><P>
 
-<A NAME="IDX648"></A>
+<A NAME="IDX649"></A>
 <DL>
 <DT><U>emacspeak-wizards-ppt-mode:</U> <B>()</B>
 <DD>Major mode for browsing PPT slides.
@@ -10377,14 +10384,14 @@ key             binding
 </DL>
 </P><P>
 
-<A NAME="IDX649"></A>
+<A NAME="IDX650"></A>
 <DL>
 <DT><U>emacspeak-wizards-rpm-query-in-dired:</U> <B>()</B>
 <DD>Run rpm -qi on current dired entry.
 </DL>
 </P><P>
 
-<A NAME="IDX650"></A>
+<A NAME="IDX651"></A>
 <DL>
 <DT><U>emacspeak-wizards-shell-toggle:</U> <B>()</B>
 <DD><KBD> control e &#60;f11&#62; </KBD>
@@ -10395,14 +10402,14 @@ Switch to the shell buffer and cd to
 </DL>
 </P><P>
 
-<A NAME="IDX651"></A>
+<A NAME="IDX652"></A>
 <DL>
 <DT><U>emacspeak-wizards-show-environment-vvariable:</U> <B>(V)</B>
 <DD>Display value of specified environment variable.
 </DL>
 </P><P>
 
-<A NAME="IDX652"></A>
+<A NAME="IDX653"></A>
 <DL>
 <DT><U>emacspeak-wizards-show-list-variable:</U> <B>(VAR)</B>
 <DD>Convenience command to view Emacs variables that are long lists.
@@ -10419,7 +10426,7 @@ Automatically defined advice to speak interactive prompts.
 </DL>
 </P><P>
 
-<A NAME="IDX653"></A>
+<A NAME="IDX654"></A>
 <DL>
 <DT><U>emacspeak-wizards-spot-words:</U> <B>(EXT</B> <I>WORD)</I>
 <DD>Searches recursively in all files with extension `ext'
@@ -10427,21 +10434,21 @@ for `word' and displays hits in a compilation buffer.
 </DL>
 </P><P>
 
-<A NAME="IDX654"></A>
+<A NAME="IDX655"></A>
 <DL>
 <DT><U>emacspeak-wizards-squeeze-blanks:</U> <B>(START</B> <I>END)</I>
 <DD>Squeeze multiple blank lines in current buffer.
 </DL>
 </P><P>
 
-<A NAME="IDX655"></A>
+<A NAME="IDX656"></A>
 <DL>
 <DT><U>emacspeak-wizards-use-w3-or-w3m:</U> <B>()</B>
 <DD>Alternates between using W3 and W3M for browse-url.
 </DL>
 </P><P>
 
-<A NAME="IDX656"></A>
+<A NAME="IDX657"></A>
 <DL>
 <DT><U>emacspeak-wizards-xl-display:</U> <B>()</B>
 <DD>Called to set up preview of an XL file.
@@ -10451,7 +10458,7 @@ visiting the xls file.
 </DL>
 </P><P>
 
-<A NAME="IDX657"></A>
+<A NAME="IDX658"></A>
 <DL>
 <DT><U>emacspeak-wizards-xl-mode:</U> <B>()</B>
 <DD>Major mode for browsing XL spreadsheets.
@@ -10494,49 +10501,63 @@ Automatically generated documentation
 for commands defined in module  emacspeak-xml-shell.
 </P><P>
 
-<A NAME="IDX658"></A>
+<A NAME="IDX659"></A>
 <DL>
 <DT><U>emacspeak-xml-shell:</U> <B>(SYSTEM-ID)</B>
 <DD>Start Xml-Shell on contents of system-id.
 </DL>
 </P><P>
 
-<A NAME="IDX659"></A>
+<A NAME="IDX660"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-browse-current:</U> <B>()</B>
 <DD>Display current node.
 </DL>
 </P><P>
 
-<A NAME="IDX660"></A>
+<A NAME="IDX661"></A>
+<DL>
+<DT><U>emacspeak-xml-shell-browse-result:</U> <B>(XPATH)</B>
+<DD>Display XPath  and display its result using W3.
+</P><P>
+
+This function is advised.
+</P><P>
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+</DL>
+</P><P>
+
+<A NAME="IDX662"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-goto-children:</U> <B>()</B>
 <DD>Navigate down to the children of current node.
 </DL>
 </P><P>
 
-<A NAME="IDX661"></A>
+<A NAME="IDX663"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-goto-next-child:</U> <B>()</B>
 <DD>Navigate forward  to the next child  of current node.
 </DL>
 </P><P>
 
-<A NAME="IDX662"></A>
+<A NAME="IDX664"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-goto-parent:</U> <B>()</B>
 <DD>Navigate up to the parent of current node.
 </DL>
 </P><P>
 
-<A NAME="IDX663"></A>
+<A NAME="IDX665"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-goto-previous-child:</U> <B>()</B>
 <DD>Navigate backward  to the previous child  of current node.
 </DL>
 </P><P>
 
-<A NAME="IDX664"></A>
+<A NAME="IDX666"></A>
 <DL>
 <DT><U>emacspeak-xml-shell-mode:</U> <B>()</B>
 <DD>XML Shell
@@ -10555,6 +10576,7 @@ C-c		Prefix Command
 </P><P>
 
 C-c v		emacspeak-xml-shell-browse-current
+C-c C-v		emacspeak-xml-shell-browse-result
 </P><P>
 
 In addition to any hooks its parent mode `comint-mode' might have run,
@@ -10567,7 +10589,7 @@ Automatically generated documentation
 for commands defined in module  nil.
 </P><P>
 
-<A NAME="IDX665"></A>
+<A NAME="IDX667"></A>
 <DL>
 <DT><U>emacspeak-m-player:</U> <B>()</B>
 <DD><KBD> control e : </KBD>
@@ -10577,7 +10599,7 @@ Emacspeak media player access.
 </DL>
 </P><P>
 
-<A NAME="IDX666"></A>
+<A NAME="IDX668"></A>
 <DL>
 <DT><U>emacspeak-speak-current-field:</U> <B>()</B>
 <DD><KBD> control e . </KBD>
@@ -10589,7 +10611,7 @@ defined  by Emacs 21.
 </DL>
 </P><P>
 
-<A NAME="IDX667"></A>
+<A NAME="IDX669"></A>
 <DL>
 <DT><U>emacspeak-w3-google-on-this-site:</U> <B>()</B>
 <DD>Perform a google search restricted to the current WWW site.
@@ -11073,7 +11095,7 @@ under Linux as the only source of speech feedback since 1994.
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="emacspeak.html#SEC_About"> ? </A>]</TD>
 </TR></TABLE>
 <H1>About this document</H1>
-This document was generated by <I>T. V. Raman</I> on <I>November, 9  2002</I>
+This document was generated by <I>T. V. Raman</I> on <I>November, 15  2002</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 <P></P>  
@@ -11235,7 +11257,7 @@ the following structure:
 <BR>  
 <FONT SIZE="-1">
 This document was generated
-by <I>T. V. Raman</I> on <I>November, 9  2002</I>
+by <I>T. V. Raman</I> on <I>November, 15  2002</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 
