@@ -65,7 +65,7 @@ you like after a command.
 #define EXPORT
 #endif
 
-#define ECILIBRARYNAME "/usr/lib/libibmeci50.so"
+#define ECILIBRARYNAME "libibmeci.so"
 
 /* ugly ugly */
 #define DSP "/dev/dsp"
