@@ -409,18 +409,10 @@ set tts(speech_rate)  225
 set tts(say_rate) [round \
                            [expr $tts(speech_rate) * $tts(char_factor)]]
 notes_initialize
-#working around tcl 7.5
     set tts(input) file0
-    if {[string match [info tclversion] 7.5]
-        || [string match 8.0 [info tclversion]] } {
         if {[info exists server_p]} {
             set tts(input) sock0
-        } else {
-            set tts(input) file0
         }
-    }
-
-
 #do not die if you see a control-c
 signal ignore {sigint}
 # gobble up garbage that is returned on powerup 

@@ -45,14 +45,6 @@ puts "Started speech server ..."
 # and wait for a connection
 set server_p 1
 puts "Waiting for a connection on port $port ..."
-#play program
-if {[info exists env(EMACSPEAK_PLAY_PROGRAM)] } {
-set play  $env(EMACSPEAK_PLAY_PROGRAM)
-} else {
-    set play "play"
-}
-set sound "train.au"
-catch "exec $play $sound >& /dev/null &" errCode
 # No longer support TCL older than 7.5
     set handles [server_accept -nobuf  $server]
     #Now, connect the read and write handles to stdin and stdout
@@ -63,7 +55,6 @@ catch "exec $play $sound >& /dev/null &" errCode
 #no more connections
 close $server
 #cue incoming connection
-catch "exec $play $sound >& /dev/null &" errCode
 #launch speech synthesizer code
 source [lindex $argv 1]
 # }}}
