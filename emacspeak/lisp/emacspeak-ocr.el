@@ -150,7 +150,7 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
 (define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
 (define-key emacspeak-ocr-mode-map "a" 'emacspeak-ocr-append-page)
-(define-key emacspeak-ocr-mode-map "d" 'dired)
+(define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
 (define-key emacspeak-ocr-mode-map "[" 'backward-page)
 (define-key emacspeak-ocr-mode-map "]"'forward-page)
 
@@ -272,6 +272,17 @@ corectly by themselves."
         (not buffer-read-only))
   (emacspeak-auditory-icon 'button)
   (emacspeak-speak-mode-line))
+
+(defun emacspeak-ocr-open-working-directory ()
+  "Launch dired on OCR workng directory."
+  (interactive)
+  (declare (special emacspeak-ocr-working-directory))
+  (switch-to-buffer
+   (dired-noselect emacspeak-ocr-working-directory))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
+
 
 ;;}}}
 (provide 'emacspeak-ocr)
