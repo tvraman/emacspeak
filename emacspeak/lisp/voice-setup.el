@@ -86,26 +86,6 @@
 (require 'acss-structure)
 
 ;;}}}
-;;{{{  additional convenience functions:
-
-(defun voice-lock-set-personality (start end personality)
-  "Set personality on region"
-  (unwind-protect 
-      (let    ((save-read-only buffer-read-only)
-               (buffer-read-only nil )
-               (inhibit-read-only t)
-               (inhibit-point-motion-hooks t)
-               (modification-flag (buffer-modified-p)))
-        (unwind-protect
-            (put-text-property start end
-                               'personality personality)
-          (setq buffer-read-only save-read-only
-                inhibit-read-only nil
-                inhibit-point-motion-hooks nil)
-          (set-buffer-modified-p modification-flag )))
-    (setq inhibit-read-only nil)))
-
-;;}}}
 ;;{{{ map faces to voices 
 
 (defvar voice-setup-face-voice-table (make-hash-table)
@@ -130,6 +110,7 @@
 Face to voice mapping is specified in
 voice-setup-face-voice-table.
 This function forces voice-lock mode on."
+  (interactive "r")
   (declare (special buffer-read-only
                     inhibit-read-only
                     inhibit-point-motion-hooks
