@@ -173,7 +173,7 @@
 (defcustom emacspeak-outline-dont-query-before-speaking t
   "*Option to control prompts when speaking  outline
 sections."
-  :group 'emacspeak
+  :group 'emacspeak-outline
   :type 'boolean)
 
 (defun emacspeak-outline-speak-heading (what direction)

@@ -544,7 +544,7 @@ If N is negative, move backward instead."
 (defcustom emacspeak-vm-use-raman-settings t
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
-  :group 'emacspeak)
+  :group 'emacspeak-vm)
 
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
