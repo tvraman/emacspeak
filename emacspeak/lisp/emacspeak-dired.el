@@ -73,7 +73,8 @@ pronunciations only once.")
                     emacspeak-pronounce-pronunciation-table emacspeak-pronounce-dictionaries-loaded))
   (unless emacspeak-dired-pronunciations-defined
     (setq emacspeak-dired-pronunciations-defined t)
-    (emacspeak-pronounce-add-dictionary-entry 'dired-mode "dired" " Directory Sorted "))
+    (emacspeak-pronounce-add-dictionary-entry 'dired-mode "dired"
+  " dir ed  "))
   (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
             (not emacspeak-pronounce-pronunciation-table))
     (emacspeak-pronounce-toggle-use-of-dictionaries)))
