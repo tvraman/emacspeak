@@ -65,17 +65,17 @@
             <input id="limit" type="radio" name="price" value="under" checked="checked"/>
           </td>
           <td><label for="price0">Less than</label>
-          $
+            $
           <input id="price0" size="6" value="" name="price0"/></td>
         </tr>
         <tr>
           <td>Price Range 
-          <input type="radio" name="price" value="between"/>
+            <input type="radio" name="price" value="between"/>
           </td>
           <td>$
-          <input id="price1" size="6" value="" name="price1"/>
-          and $ 
-          <input size="6" value="" name="price2"/>
+            <input id="price1" size="6" value="" name="price1"/>
+            and $ 
+            <input size="6" value="" name="price2"/>
           </td>
         </tr>
         <tr>

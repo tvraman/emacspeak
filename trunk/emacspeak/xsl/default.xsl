@@ -7,18 +7,18 @@ Description: default transformation applied by Bubbles.
 -->
 
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
   
   <xsl:output method="html" indent="yes"
-              encoding="iso8859-15"/>
+  encoding="iso8859-15"/>
   
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
-
-<xsl:template match="script|meta|link"/>
-
-<!-- } -->
+  
+  <xsl:template match="script|meta|link"/>
+  
+  <!-- } -->
 </xsl:stylesheet>
 
 <!--

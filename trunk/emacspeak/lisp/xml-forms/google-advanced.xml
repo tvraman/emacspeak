@@ -97,7 +97,7 @@
           <td>
             <select id="7" name="as_occt">
               <option value="any" selected="selected">anywhere in the
-page</option>
+              page</option>
               <option value="title">in the title of the page</option>
               <option value="body">in the text of the page</option>
               <option value="url">in the url of the page</option>

@@ -8,8 +8,8 @@
   <body>
     <p/>
     <form method="get" action="http://HPSearch.uni-trier.de/hp/cgi/hps.cgi">First- and
-Lastname: <input type="text" name="query" value="" size="25"/><input type="submit" value="Search"/><small>(Case
-Sensitive)</small><br/>
-<input type="submit" name="dbSearchLike" value="Search Like"/><input type="submit" name="Jump" value="Jump to best Page"/><input type="submit" name="feedback" value="Feedback"/><input type="reset" value="Reset"/></form>
+      Lastname: <input type="text" name="query" value="" size="25"/><input type="submit" value="Search"/><small>(Case
+      Sensitive)</small><br/>
+    <input type="submit" name="dbSearchLike" value="Search Like"/><input type="submit" name="Jump" value="Jump to best Page"/><input type="submit" name="feedback" value="Feedback"/><input type="reset" value="Reset"/></form>
   </body>
 </html>

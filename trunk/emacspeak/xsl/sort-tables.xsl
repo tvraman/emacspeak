@@ -84,15 +84,15 @@ relevant tables bubble to the top.
           <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
           <xsl:sort select="count(.//table)" data-type="number"
           order="ascending"/>
-            <h2><xsl:element name="a"><xsl:attribute name="href">
-                  #src-<xsl:value-of select="generate-id(.)"/>
-              </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
-              And <xsl:value-of select="count(./tr/td)"/> Cells
-            </h2>
-            <xsl:element name="table">
-              <xsl:apply-templates select="@*"/>
-              <xsl:apply-templates/>
-            </xsl:element>
+          <h2><xsl:element name="a"><xsl:attribute name="href">
+                #src-<xsl:value-of select="generate-id(.)"/>
+            </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
+            And <xsl:value-of select="count(./tr/td)"/> Cells
+          </h2>
+          <xsl:element name="table">
+            <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates/>
+          </xsl:element>
         </xsl:for-each>
         <h2>
           <a name="__about_sorted_tables">About This Style</a>
@@ -114,7 +114,7 @@ relevant tables bubble to the top.
       </xsl:if>
     </xsl:element>
   </xsl:template>
-
+  
   <xsl:template match="//table//table">
     <xsl:variable name="rows" select="count(./tr)"/>
     <xsl:variable name="cols" select="count(./tr/td)"/>
