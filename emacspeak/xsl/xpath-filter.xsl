@@ -37,6 +37,7 @@ shown in the output.
 <p>
 <em>
 <xsl:value-of select="name()"/> 
+<xsl:text> </xsl:text>
 <xsl:value-of select="position()"/> 
           </em>
         </p>
