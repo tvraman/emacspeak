@@ -107,31 +107,31 @@ use the minibuffer."
         (some
          #'(lambda (prompt)
              (string-match  "^[ckK]" prompt ))
-         interactive-list ))
-    (eval
-     (`
-      (defadvice (, sym)
-        (before  emacspeak-auto activate protect compile)
-        "Automatically defined advice to speak interactive prompts. "
-        (interactive
-         (nconc  
-          (,@
-           (mapcar
-            #'(lambda (prompt)
-                (`
-                 (let ((dtk-stop-immediately nil)
-                       (emacspeak-speak-messages nil))
-                   (when (string-match"^[ckK]" (, prompt))
-                     (emacspeak-auditory-icon 'open-object)
-                     (tts-with-punctuations "all"
-                                            (dtk-speak
-                                             (format " %s "
-                                                     (or (substring (, prompt) 1 ) "")))))
-                   (call-interactively
-                    #'(lambda (&rest args)
-                        (interactive (, prompt))
-                        args) nil))))
-            interactive-list))))))))
+         interactive-list )
+      (eval
+       (`
+        (defadvice (, sym)
+          (before  emacspeak-auto activate protect compile)
+          "Automatically defined advice to speak interactive prompts. "
+          (interactive
+           (nconc  
+            (,@
+             (mapcar
+              #'(lambda (prompt)
+                  (`
+                   (let ((dtk-stop-immediately nil)
+                         (emacspeak-speak-messages nil))
+                     (when (string-match"^[ckK]" (, prompt))
+                       (emacspeak-auditory-icon 'open-object)
+                       (tts-with-punctuations "all"
+                                              (dtk-speak
+                                               (format " %s "
+                                                       (or (substring (, prompt) 1 ) "")))))
+                     (call-interactively
+                      #'(lambda (&rest args)
+                          (interactive (, prompt))
+                          args) nil))))
+              interactive-list)))))))))
   t)
 
 ;;; inline function for use from other modules:
