@@ -533,11 +533,12 @@ Prompts for image file if file corresponding to the expected
                     emacspeak-ocr-engine-options
                     emacspeak-ocr-process
                     emacspeak-ocr-last-page-number
-                    emacspeak-ocr-page-positions))
+                    emacspeak-ocr-page-positions
+                    emacspeak-ocr-image-extension))
   (let ((inhibit-read-only t)
         (image-name
-         (if (file-exists-p (emacspeak-ocr-get-image-name))
-             (emacspeak-ocr-get-image-name)
+         (if (file-exists-p (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
+             (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension)
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
