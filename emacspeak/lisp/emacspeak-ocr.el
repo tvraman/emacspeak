@@ -540,14 +540,7 @@ correctly by themselves."
   (interactive)
   (emacspeak-ocr-scan-image)
   (emacspeak-ocr-recognize-image))
-(defun emacspeak-ocr-toggle-read-only ()
-  "Toggle read-only state of OCR buffer."
-  (interactive)
-  (declare (special buffer-read-only))
-  (setq buffer-read-only
-        (not buffer-read-only))
-  (emacspeak-auditory-icon 'button)
-  (emacspeak-speak-mode-line))
+
 (defun emacspeak-ocr-open-working-directory ()
   "Launch dired on OCR working directory."
   (interactive)
