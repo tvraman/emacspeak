@@ -49,7 +49,7 @@ variable should be set to nil *before*
 emacspeak is compiled or started.")
 
 (defvar emacspeak-directory
-  (expand-file-name  "/home/raman/emacs/lisp/emacspeak")
+  (expand-file-name  "..")
   "Directory where emacspeak is installed. ")
 
 (defvar emacspeak-lisp-directory
@@ -90,11 +90,15 @@ pronunciation dictionaries are stored. ")
 
 
 
-(defvar outloud-default-speech-rate 50
-  "Default speech rate for outloud.")
+(defcustom outloud-default-speech-rate 50
+  "Default speech rate for outloud."
+  :group 'tts
+:type 'integer)
 
-(defvar dtk-default-speech-rate 225
-  "*Default speech rate at which TTS is started. ")
+(defcustom dtk-default-speech-rate 225
+  "*Default speech rate at which TTS is started. "
+  :group 'tts
+  :type 'integer)
 
 (defvar tts-default-speech-rate dtk-default-speech-rate
   "Setup on a per engine basis.")
