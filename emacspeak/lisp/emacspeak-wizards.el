@@ -771,7 +771,7 @@ the display to speak."
                       nil 'visible)))
     (or (numberp window)
         (setq window
-              (read-minibuffer "Window    to speak")))
+              (read-minibuffer "Display    to speak")))
     (setq win
           (nth (% window (length window-list ))
                window-list))
