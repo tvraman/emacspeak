@@ -58,6 +58,8 @@ View an RSS feed as clean HTML
         </ul>
         <p>
           <xsl:apply-templates select="description"/>
+<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
+RSS </xsl:element>
         </p>
       </body>
     </html>
