@@ -233,8 +233,7 @@ proc speech_task {} {
         if {$tts(talking?) == 0} {break;} 
     }
     set tts(talking?) 0
-    service
-    closeDSP
+    synchronize
     return ""
 }
 
