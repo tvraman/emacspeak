@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 14.75000
+Version: 15.0
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -43,12 +43,11 @@ However, you need to obtain and install the ViaVoice Outloud
 RPMs  before you can use software TTS with Emacspeak.
 See  file  docs/VIAVOICE for details.
 
-See the NEWS file for a  summary of new features --control e cap n in Emacs
-See the FAQ for Frequently Asked Questions -- control e cap F in Emacs
-See Emacspeak Customizations for customizations -- control e
-cap C in Emacs
-See Emacspeak Tips for productivity tips -- control e cap T in Emacs
-Use C-h p in Emacs for a package overview
+NEWS file for a  summary of new features        --control e cap n in Emacs
+FAQ for Frequently Asked Questions              -- control e cap F in Emacs
+Emacspeakcustom for customizations              -- control e cap C in Emacs
+Emacspeak Tips for productivity tips            -- control e cap T in Emacs
+
 Make sure you read the Emacs info pages
 "
 
