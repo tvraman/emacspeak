@@ -317,7 +317,10 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--quit"))
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (when (eq major-mode 'emacspeak-alsaplayer-mode)
+      (kill-buffer (current-buffer)))
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ bind keys
@@ -331,6 +334,7 @@ Alsaplayer session."
   'emacspeak-alsaplayer-clear)
 (define-key emacspeak-alsaplayer-mode-map "g"
   'emacspeak-alsaplayer-seek)
+(define-key emacspeak-alsaplayer-mode-map "j" 'emacspeak-alsaplayer-jump)
 (define-key emacspeak-alsaplayer-mode-map "l"
   'emacspeak-alsaplayer-launch)
 (define-key emacspeak-alsaplayer-mode-map " "
