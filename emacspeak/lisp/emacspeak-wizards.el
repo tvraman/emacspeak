@@ -2604,6 +2604,28 @@ Location is specified by name."
     (find-file location)))
 
 ;;}}}
+;;{{{ ISO dates 
+(defun emacspeak-wizards-speak-iso-datetime (dt)
+  "Speak ISO date-time format values."
+  (interactive
+   (list
+    (read-from-minibuffer "ISO Date: "
+                          (word-at-point))))
+  (let ((fields (split-string "20030826T193000Z" "T"))
+        (date nil)
+        (time nil)
+        (year nil)
+        (month nil)
+        (day nil))
+    (setq date  (first fields)
+          time  (read (substring (second fields) 0 -3))
+          year (read (substring date 0 4))
+          month (read (substring date 4 6))
+          day (read (substring date 6 8)))
+    (message 
+    "%s  on %s/%s %s"
+time month day year)))
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
