@@ -101,6 +101,7 @@ COMMAND-STRING to the Dectalk."
 
 ;;}}}
 ;;{{{  the inaudible voice
+;;; no special code needed --handled by Emacspeak engine.
 
 (dectalk-define-voice 'inaudible "")
 
