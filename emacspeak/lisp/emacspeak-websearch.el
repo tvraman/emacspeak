@@ -1350,7 +1350,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?R 'rfb)
 
 (defvar emacspeak-websearch-rfb-uri
-  "http://www.rfbd.org/catalog/search_process.asp"
+  "http://www.rfbd.org/search_process.asp"
   "URI for searching RFB catalogues.")
 
 (defun emacspeak-websearch-rfb-search (author title)
