@@ -45,6 +45,10 @@ applies rules from the first pass.
       <xsl:apply-templates />
       <h2><a name="__nested_tables"
              id="__nested_tables"> Nested Tables </a> </h2>
+<p>
+There are 
+<xsl:value-of select="count(//table//table)"/>
+ nested tables in this page.</p>
       <xsl:apply-templates select="//table//table" mode="second-pass"/>
     </xsl:element>
 
