@@ -28,6 +28,11 @@ languages including Java and Emacs Lisp.
 Uses knowledge computed by the semantic package in better
 speech-enabling JDE.
 
+** Speech-enabled browse-kill-ring
+
+Module browse-kill-ring is speech-enabled.
+
+
 ** Easy Customization:
 
 Most of Emacspeak user options are now available through

@@ -83,6 +83,7 @@
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
+
 (defadvice browse-kill-ring-previous (after
                                                emacspeak pre
                                                act comp)
@@ -92,7 +93,7 @@
     (emacspeak-auditory-icon 'select-object)))
 
 
-(defadvice browse-kill-ring-quit-other-window (after
+(defadvice browse-kill-ring-quit (after
                                                emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
