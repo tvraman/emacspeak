@@ -273,24 +273,26 @@ Prompts for the new location and preserves modification time
 (defvar emacspeak-speak-run-shell-command-history nil
   "Records history of commands used so far.")
 
-(defun emacspeak-speak-run-shell-command (command)
-  "Invoke shell COMMAND and display its output as a table.
-The results are placed in a buffer in Emacspeak's table
-  browsing mode.
-  Use this for running shell commands that produce tabulated
-  output.  This command should be used for shell commands that
-  produce tabulated output that works with Emacspeak's table
-  recognizer.
-  Verify this first by running the command in a shell and
-  executing command `emacspeak-table-display-table-in-region'
-  normally bound to \\[emacspeak-table-display-table-in-region]."
+(defun emacspeak-speak-run-shell-command (command &optional as-root)
+  "Invoke shell COMMAND and display its output as a table.  The results
+are placed in a buffer in Emacspeak's table browsing mode.  Optional
+interactive prefix arg as-root runs the command as root (not yet
+implemented).  Use this for running shell commands that produce
+tabulated output.  This command should be used for shell commands that
+produce tabulated output that works with Emacspeak's table recognizer.
+Verify this first by running the command in a shell and executing
+command `emacspeak-table-display-table-in-region' normally bound to
+\\[emacspeak-table-display-table-in-region]."
+
   (interactive
    (list
     (read-from-minibuffer "Shell command: "
                           nil           ;initial input
                           nil           ; keymap
                           nil           ;read
-                          'emacspeak-speak-run-shell-command-history)))
+                          'emacspeak-speak-run-shell-command-history)
+current-prefix-arg))
+  (declare (special emacspeak-wizards-root-buffer
   (let ((buffer-name (format "*%s-output*" command))
         (start nil)
         (end nil))
@@ -524,17 +526,23 @@ With prefix arg, opens the phone book for editting."
 
 ;;; convenience to launch a root shell.
 
+(defvar emacspeak-wizards-root-buffer 
+"*root*"
+"Name of buffer where we run as root.")
+
+
 (defun emacspeak-root (&optional cd)
   "Start a root shell or switch to one that already exists.
 Optional interactive prefix arg `cd' executes cd
 default-directory after switching."
   (interactive "P")
   (declare (special explicit-shell-file-name
+emacspeak-wizards-root-buffer
                     default-directory))
   (let ((dir (expand-file-name default-directory)))
     (cond
-     ((comint-check-proc "*root*")
-      (pop-to-buffer "*root*"))
+     ((comint-check-proc emacspeak-wizards-root-buffer)
+      (pop-to-buffer emacspeak-wizards-root-buffer))
      (t
       (let* ((prog (or explicit-shell-file-name
                        (getenv "ESHELL")
