@@ -51,7 +51,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'backquote)
-(eval-when-compile)
+(eval-when-compile
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds))
 
