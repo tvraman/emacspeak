@@ -348,6 +348,65 @@ Speaks the most recently displayed appointment message if any.
 
 ------------------------------------------------------------
 
+** emacspeak-daisy-mode An DAISY front-end for the Emacspeak desktop.
+
+Pre-requisites:
+
+0) mpg123 for playing mp3 files
+1) libxml and libxslt packages 
+2) xml-parse.el for parsing XML in Emacs Lisp.
+
+
+The Emacspeak DAISY front-end is launched by command
+emacspeak-daisy bound to M-x emacspeak-daisy.  
+
+This command switches to a special buffer that has DAISY
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+emacspeak-daisy-mode provides the necessary functionality to
+navigate and listen to Daisy talking books. 
+
+Here is a list of all emacspeak DAISY commands along with their key-bindings:
+
+key             binding
+---             -------
+
+p		previous-line
+n		next-line
+RET		emacspeak-daisy-play-content-under-point
+SPC		emacspeak-daisy-play-audio-under-point
+q		bury-buffer
+s		emacspeak-daisy-stop-audio
+?		describe-mode
+
+
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-stop-audioStop audio.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-play-content-under-pointPlay SMIL content  under point.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-play-audio-under-pointPlay audio clip under point.
+
+------------------------------------------------------------
+
+** emacspeak-daisy-open-book	Key Sequence: control e control b 
+
+Open Digital Talking Book specified by navigation file filename.
+
+------------------------------------------------------------
+
 ** emacspeak-dired-speak-file-permissionsSpeak the permissions of the current file.
 
 ------------------------------------------------------------
@@ -3433,12 +3492,6 @@ C-c v		emacspeak-xml-shell-browse-current
 Speak current field.
 A field is
 defined  by Emacs 21.
-
-------------------------------------------------------------
-
-** emacspeak-daisy-open-book	Key Sequence: control e control b 
-
-Digital Talking Books on the Emacspeak Desktop.
 
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"
