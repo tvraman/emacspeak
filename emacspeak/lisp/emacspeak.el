@@ -582,6 +582,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "vm" 'emacspeak-vm)
 (emacspeak-do-package-setup "w3" 'emacspeak-w3)
 (emacspeak-do-package-setup "wid-edit" 'emacspeak-widget)
+(emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
 (emacspeak-do-package-setup "wrolo" 'emacspeak-wrolo)
                                                                                           
