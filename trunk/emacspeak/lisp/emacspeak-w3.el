@@ -1586,16 +1586,19 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 (defcustom emacspeak-w3-base-uri-pronunciation
   " base "
   "Custom pronunciation for base URIs in w3 buffers."
-  :type 'string
+  :type '(choice
+          (string :tag "None" :value nil)
+          (string :tag "Custom pronunciation" :value " base "))
   :group 'emacspeak-w3)
 
 (defun emacspeak-w3-customize-base-uri-pronunciation ()
   "Defines custom buffer local pronunciation for base URI."
   (interactive)
   (declare (special emacspeak-w3-base-uri-pronunciation))
+  (when emacspeak-w3-base-uri-pronunciation
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
 (url-view-url 'no-show)
-   emacspeak-w3-base-uri-pronunciation ))
+   emacspeak-w3-base-uri-pronunciation )))
 
 ;;}}}
 ;;{{{  emacs local variables 
