@@ -84,102 +84,103 @@ emacspeak-freeamp.elc \
 	emacspeak-tabulate.elc 
 
 AUX_OBJECTS =  cd-tool.elc \
-emacspeak-calendar.elc \
+emacspeak-arc.elc \
+emacspeak-auctex.elc \
+emacspeak-aumix.elc \
+emacspeak-babel.elc \
+emacspeak-bbdb.elc \
+emacspeak-bibtex.elc \
+emacspeak-bookmark.elc \
+emacspeak-bs.elc \
+emacspeak-buff-menu.elc \
+emacspeak-buff-sel.elc \
+emacspeak-c.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
-emacspeak-c.elc \
-emacspeak-jde.elc \
-emacspeak-sh-script.elc \
-emacspeak-speedbar.elc \
-emacspeak-sawfish.elc \
-emacspeak-realaudio.elc \
-emacspeak-finder.elc \
-emacspeak-python.elc \
+emacspeak-calendar.elc \
+emacspeak-checkdoc.elc \
 emacspeak-compile.elc \
-emacspeak-auctex.elc \
-emacspeak-reftex.elc \
-emacspeak-aumix.elc \
-emacspeak-bibtex.elc \
-emacspeak-dired.elc \
-emacspeak-info.elc\
-emacspeak-folding.elc \
-emacspeak-outline.elc \
-emacspeak-hyperbole.elc \
-emacspeak-kotl.elc \
-emacspeak-bbdb.elc \
-emacspeak-dmacro.elc \
-emacspeak-wrolo.elc \
-emacspeak-oo-browser.elc \
-emacspeak-tempo.elc \
-emacspeak-tnt.elc \
-emacspeak-url-template.elc \
-emacspeak-pcl-cvs.elc \
-emacspeak-tcl.elc \
-emacspeak-perl.elc \
 emacspeak-cperl.elc \
-emacspeak-gud.elc \
-emacspeak-man.elc \
-emacspeak-mpg123.elc \
-emacspeak-midge.elc \
-emacspeak-forms.elc \
-emacspeak-view.elc \
-emacspeak-message.elc \
-emacspeak-dismal.elc \
+emacspeak-custom.elc \
 emacspeak-dictation.elc \
 emacspeak-dictionary.elc \
-emacspeak-buff-sel.elc \
-emacspeak-view-process.elc \
-emacspeak-vm.elc \
-emacspeak-mspools.elc \
-emacspeak-rmail.elc \
-emacspeak-solitaire.elc \
-emacspeak-tetris.elc \
-emacspeak-texinfo.elc \
-emacspeak-entertain.elc \
-emacspeak-bookmark.elc \
-emacspeak-buff-menu.elc \
-emacspeak-bs.elc \
-emacspeak-tar.elc \
-emacspeak-tdtd.elc \
-emacspeak-xslide.elc  \
-emacspeak-arc.elc \
-emacspeak-gomoku.elc \
-emacspeak-imenu.elc \
-emacspeak-ibuffer.elc \
-emacspeak-remote.elc \
-emacspeak-sgml-mode.elc \
-emacspeak-sql.elc \
-emacspeak-babel.elc \
-emacspeak-checkdoc.elc \
-emacspeak-websearch.elc \
-emacspeak-supercite.elc \
-emacspeak-psgml.elc \
-emacspeak-tapestry.elc \
-emacspeak-winring.elc \
-emacspeak-enriched.elc \
-emacspeak-facemenu.elc \
-emacspeak-hide.elc \
-emacspeak-filtertext.elc \
-emacspeak-gridtext.elc \
-emacspeak-hideshow.elc \
-emacspeak-widget.elc \
-emacspeak-custom.elc \
-emacspeak-w3.elc \
-emacspeak-ispell.elc \
-emacspeak-flyspell.elc \
-emacspeak-find-func.elc \
-emacspeak-find-dired.elc \
-emacspeak-net-utils.elc \
-emacspeak-make-mode.elc \
-emacspeak-eterm.elc \
-emacspeak-eudc.elc \
+emacspeak-dired.elc \
+emacspeak-dismal.elc \
+emacspeak-dmacro.elc \
 emacspeak-ediff.elc \
+emacspeak-enriched.elc \
+emacspeak-entertain.elc \
 emacspeak-erc.elc \
 emacspeak-eshell.elc \
+emacspeak-eterm.elc \
+emacspeak-eudc.elc \
+emacspeak-facemenu.elc \
+emacspeak-filtertext.elc \
+emacspeak-find-dired.elc \
+emacspeak-find-func.elc \
+emacspeak-finder.elc \
+emacspeak-flyspell.elc \
+emacspeak-folding.elc \
+emacspeak-forms.elc \
 emacspeak-generic.elc \
-emacspeak-gnus.elc\
 emacspeak-gnuplot.elc \
-emacspeak-setup.el
+emacspeak-gnus.elc\
+emacspeak-gomoku.elc \
+emacspeak-gridtext.elc \
+emacspeak-gud.elc \
+emacspeak-hide.elc \
+emacspeak-hideshow.elc \
+emacspeak-hyperbole.elc \
+emacspeak-ibuffer.elc \
+emacspeak-imenu.elc \
+emacspeak-info.elc\
+emacspeak-ispell.elc \
+emacspeak-jde.elc \
+emacspeak-kotl.elc \
+emacspeak-make-mode.elc \
+emacspeak-man.elc \
+emacspeak-message.elc \
+emacspeak-midge.elc \
+emacspeak-mpg123.elc \
+emacspeak-mspools.elc \
+emacspeak-net-utils.elc \
+emacspeak-ocr.elc \
+emacspeak-oo-browser.elc \
+emacspeak-outline.elc \
+emacspeak-pcl-cvs.elc \
+emacspeak-perl.elc \
+emacspeak-psgml.elc \
+emacspeak-python.elc \
+emacspeak-realaudio.elc \
+emacspeak-reftex.elc \
+emacspeak-remote.elc \
+emacspeak-rmail.elc \
+emacspeak-sawfish.elc \
+emacspeak-setup.el \
+emacspeak-sgml-mode.elc \
+emacspeak-sh-script.elc \
+emacspeak-solitaire.elc \
+emacspeak-speedbar.elc \
+emacspeak-sql.elc \
+emacspeak-supercite.elc \
+emacspeak-tapestry.elc \
+emacspeak-tar.elc \
+emacspeak-tcl.elc \
+emacspeak-tdtd.elc \
+emacspeak-tempo.elc \
+emacspeak-tetris.elc \
+emacspeak-texinfo.elc \
+emacspeak-tnt.elc \
+emacspeak-url-template.elc \
+emacspeak-view-process.elc \
+emacspeak-view.elc \
+emacspeak-vm.elc \
+emacspeak-w3.elc \
+emacspeak-websearch.elc \
+emacspeak-widget.elc \
+emacspeak-winring.elc \
+emacspeak-wrolo.elc \
+emacspeak-xslide.elc  
 
 ADDON_OBJECTS= tapestry.elc  
 
@@ -302,6 +303,7 @@ emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc
 emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc 
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc
+emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el

@@ -302,6 +302,10 @@ documentation is up-to-date, please use it.  "
 
 ;;}}}
 ;;{{{ autoloads
+(autoload 'emacspeak-ocr "emacspeak-ocr"
+  "OCR front-end for Emacspeak desktop"
+  t)
+
 (autoload 'emacspeak-gridtext "emacspeak-gridtext"
   "Utilities for gridtext " t)
 
