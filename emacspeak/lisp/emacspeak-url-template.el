@@ -170,12 +170,13 @@
  nil
  #'(lambda nil
      (search-forward
-      (format-time-string "%A, %d %B, %Y"
-                          (current-time)))
+      (format-time-string
+       "%A, %e %B, %Y"
+                          (current-time)
+                          'universal))
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-rest-of-buffer))
- "BBC News text version."
- )
+ "BBC News text version.")
 
 (emacspeak-url-template-define
  "BBC Sports"
