@@ -449,7 +449,7 @@ archives, type +redhat"
 (emacspeak-websearch-set-key ?b 'bbc)
 
 (defvar emacspeak-websearch-bbc-uri
-  "http://search.bbc.co.uk/search/search.shtml?DB=all&TOPDOC=0&DB=all&P="
+  "http://www.bbc.co.uk/cgi-bin/search/results.pl?q="
   "URI to search the BBC archives.")
 
 (defun emacspeak-websearch-bbc-search (query)
@@ -458,14 +458,11 @@ archives, type +redhat"
    (list
     (emacspeak-websearch-read-query "Search BBC for: ")))
   (declare (special emacspeak-websearch-bbc-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-bbc-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "match"
-   'w3-table-focus-on-this-cell))
+  (emacspeak-w3-extract-nested-table-list
+   (list  4 5 6 7 8 9 10 11 12)
+   (concat emacspeak-websearch-bbc-uri
+           (webjump-url-encode query))
+   'speak))
 
 ;;}}}
 ;;{{{ CNN
