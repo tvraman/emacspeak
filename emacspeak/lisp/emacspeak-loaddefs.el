@@ -189,8 +189,11 @@ preparation for interactively filtering text.
 ;;;***
 
 ;;;### (autoloads (emacspeak-fix-interactive) "emacspeak-fix-interactive"
-;;;;;;  "emacspeak-fix-interactive.el" (16507 20642))
+;;;;;;  "emacspeak-fix-interactive.el" (16507 64209))
 ;;; Generated autoloads from emacspeak-fix-interactive.el
+
+(defvar emacspeak-commands-dont-fix-regexp (concat "^ad-Orig\\|^mouse\\|^scroll-bar" "\\|^face\\|^frame\\|^font" "\\|^color\\|^timer") "\
+Regular expression matching function names whose interactive spec should not be fixed.")
 
 (defsubst emacspeak-should-i-fix-interactive-p (sym) "\
 Predicate to test if this function should be fixed. " (declare (special emacspeak-commands-dont-fix-regexp)) (and (commandp sym) (not (get sym (quote emacspeak-checked-interactive))) (stringp (second (ad-interactive-form (symbol-function sym)))) (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
@@ -695,7 +698,7 @@ emacspeak-play-midi-icon for midi device.
 ;;;***
 
 ;;;### (autoloads (emacspeak-speak-load-directory-settings emacspeak-speak-world-clock)
-;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16507 20642))
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16507 20577))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
@@ -886,7 +889,7 @@ Optional interactive prefix arg displays documentation for specified resource.
 ;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
 ;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
 ;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
-;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16507 20643))
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16507 64915))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
@@ -1863,7 +1866,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16507 21028 465025))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16507 64964 920341))
 
 ;;;***
 

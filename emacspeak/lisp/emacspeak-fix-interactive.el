@@ -68,7 +68,8 @@
 ;;; The Search for emacspeak-xemacs-p to see the test used.
 
 ;;}}}
-;;{{{  functions that are  fixed. 
+;;{{{  functions that are  fixed.
+;;;###autoload
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
    "^ad-Orig\\|^mouse\\|^scroll-bar"
