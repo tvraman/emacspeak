@@ -89,7 +89,7 @@ emacspeak-ansi-color.elc \
 emacspeak-arc.elc \
 emacspeak-auctex.elc \
 emacspeak-aumix.elc \
-emacspeak-auto.elc \
+emacspeak-autoload.elc \
 emacspeak-babel.elc \
 emacspeak-bbdb.elc \
 emacspeak-bibtex.elc \
@@ -147,6 +147,7 @@ emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jde.elc \
 emacspeak-kotl.elc \
+emacspeak-loaddefs.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
@@ -222,7 +223,7 @@ emacspeak-loaddefs.el:
 	rm -f emacspeak-loaddefs.el
 	echo ";;;Auto generated" > emacspeak-loaddefs.el
 	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el  \
-	-l $(SRC)/lisp/emacspeak-auto.el  \
+	-l $(SRC)/lisp/emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
 # }}}
@@ -264,7 +265,7 @@ emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc
 emacspeak-aumix.elc: emacspeak-aumix.el dtk-speak.elc
-emacspeak-auto.elc: emacspeak-auto.el
+emacspeak-autoload.elc: emacspeak-autoload.el
 emacspeak-babel.elc: emacspeak-babel.el dtk-speak.elc
 emacspeak-bbdb.elc: emacspeak-bbdb.el dtk-speak.elc
 emacspeak-bibtex.elc: emacspeak-bibtex.el dtk-speak.elc
@@ -324,6 +325,7 @@ emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc
 emacspeak-keymap.elc: emacspeak-keymap.el 
 emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc
+emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc
