@@ -191,7 +191,7 @@ is nil if SYM is not a symbol that names a cell."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}
