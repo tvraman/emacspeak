@@ -1060,12 +1060,12 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                (concat 
                 "&btnI="
                 (webjump-url-encode
-                 "I'm Feeling Lucky")))))
+                 "I'm Feeling Lucky"))))))
     (if lucky-flag
         (emacspeak-speak-line)
       (emacspeak-websearch-post-process
        "results"
-       'emacspeak-speak-line)))))
+       'emacspeak-speak-line))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
@@ -1087,18 +1087,16 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
   (interactive)
   (declare (special calendar-mark-ring))
   (let ((query (emacspeak-websearch-read-query "Google for: "))
-        (from (calendar-astro-date-string
-               (calendar-cursor-to-date t)))
-        (to
-         (calendar-astro-date-string
-	  (or (car calendar-mark-ring)
-	      (error "No mark set in this buffer")))))
+        (from (read (calendar-astro-date-string (calendar-cursor-to-date t))))
+        (to (read (calendar-astro-date-string (or (car calendar-mark-ring)
+                                                  (error "No mark set in this buffer"))))))
     (emacspeak-websearch-google
-     (webjump-url-encode 
-      (concat query 
-	      (format " daterange:%s-%s"
-		      from
-		      to))))))
+     
+     (concat
+      (webjump-url-encode query )
+      (format " daterange:%s-%s"
+              (min from to)
+              (max from to))))))
 
 (when (featurep 'calendar)
   (declaim (special calendar-mode-map))
