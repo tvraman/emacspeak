@@ -1288,7 +1288,8 @@ in completion buffers"
   (cond
    ((interactive-p)
     (emacspeak-kill-buffer-carefully "*Completions*")
-    (let ((prior (point )))
+    (let ((prior (point ))
+          (emacspeak-speak-messages nil))
       ad-do-it
       (if (> (point) prior)
           (tts-with-punctuations "all"
