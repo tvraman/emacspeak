@@ -353,6 +353,7 @@ Alsaplayer session."
   'emacspeak-alsaplayer-start)
 (define-key emacspeak-alsaplayer-mode-map "S"
   'emacspeak-alsaplayer-stop)
+(define-key emacspeak-alsaplayer-mode-map "/" 'emacspeak-alsaplayer-speed)
 (define-key emacspeak-alsaplayer-mode-map "?"
   'emacspeak-alsaplayer-status)
 (define-key emacspeak-alsaplayer-mode-map "v" 'emacspeak-alsaplayer-volume)
