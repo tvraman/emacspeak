@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 16.7650
+Version: 16.7655
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -54,57 +54,15 @@ Make sure you read the Emacs info pages
 
 %files 
  /usr/share/emacs/site-lisp/emacspeak/
-
-%doc servers/linux-outloud/VIAVOICE \
- servers/software-dtk/DTK \
- etc/NEWS \
- etc/NEWS-16.0 \
- etc/NEWS-15.0 \
- etc/NEWS-14.0 \
- etc/NEWS-13.0 \
- etc/NEWS-12.0 \
- etc/NEWS-11.0 \
- etc/NEWS-10.0 \
- etc/NEWS-9.0 \
- etc/NEWS-8.0 \
- etc/FAQ \
- etc/HELP \
- etc/COPYRIGHT \
- etc/tips.html \
- etc/applications.html \
- info/acknowledge.texi \
- info/announce.texi \
- info/audio-desktop.texi \
- info/copyright.texi \
- info/documents.texi \
- info/emacspeak.texi \
- info/eterm.texi \
- info/install.texi \
- info/introduction.texi \
- info/online-help.texi \
- info/packages.texi \
- info/preamble.texi \
- info/structure.texi \
- info/tts.texi \
- info/using.texi \
- info/commands.texi \
- user-guide/acknowledgments.html \
- user-guide/before-you-begin.html \
- user-guide/entertainment.html \
- user-guide/index.html \
- user-guide/introduction.html \
- user-guide/productivity.html \
- user-guide/system-administration.html \
- user-guide/working-online.html \
- user-guide/working-with-files.html \
- user-guide/espk-article.sgml
 /usr/bin/emacspeak
-emacspeak.info/usr/share/info/
+/usr/share/info/emacspeak.info
 /usr/share/info/emacspeak.info-1
 /usr/share/info/emacspeak.info-2
 /usr/share/info/emacspeak.info-3
 /usr/share/info/emacspeak.info-4
 /usr/share/info/emacspeak.info-5
+%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/*
+ info/* user-guide/* install-guide/*
 
 # local variables:
 # mode: rpm-spec
