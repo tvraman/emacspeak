@@ -1,0 +1,10 @@
+#!/bin/sh
+#for use in vm
+cd /tmp
+wmf=/tmp/mswordfile*.wmf
+wordfile=mswordviewfile$$.doc
+txtfile=mswordviewfile$$.txt
+cat > $wordfile
+wvText $wordfile $txtfile
+cat   $txtfile 
+/bin/rm $txtfile  $wmf
