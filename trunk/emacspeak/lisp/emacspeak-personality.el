@@ -229,6 +229,11 @@ preserved."
   "Check if plist contains a face setting."
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
+(defsubst ems-plain-cons-p (value)
+"Help identify (a . b)."
+ (and (consp value)	
+                    (equal value (last value))
+(cdr value)))
 
 ;;}}}
 ;;{{{ advice put-text-personality
@@ -275,10 +280,7 @@ displayed in the messages area."
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face
                            value)));; the following test for
-             ;; consp is not good enough
-             ;; ((and (consp value)	;check for plain cons and pass
-;;                    (equal value (last value)))
-;; 	      nil)
+             (ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -314,9 +316,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ;; ((and (consp value)	;check for plain cons and pass
-;;                    (equal value (last value)))
-;; 	      nil)
+(ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -352,9 +352,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ;; ((and (consp value)	;check for plain cons and pass
-;;                    (equal value (last value)))
-;; 	      nil)
+             (ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
