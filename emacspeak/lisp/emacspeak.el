@@ -472,6 +472,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'makefile-mode-hook
          'TeX-mode-hook
          'LaTeX-mode-hook
+         'bibtex-mode-hook
          'tcl-mode-hook
          'html-helper-mode-hook
          'scheme-mode-hook
