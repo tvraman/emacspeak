@@ -3720,6 +3720,18 @@ Send this command to the TTS directly.
 
 Set up variable emacspeak-websearch-personal-portfolio. 
 
+------------------------------------------------------------
+
+** tts-restart	Key Sequence: control e control s 
+
+Use this to nuke the currently running TTS server and restart it.
+
+------------------------------------------------------------
+
+** tts-show-debug-buffer	Key Sequence: control e d meta control b 
+
+Select TTS debugging buffer.
+
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"
 end:
