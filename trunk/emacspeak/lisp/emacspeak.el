@@ -101,7 +101,7 @@
 
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
-  :type 'sexp
+  :type 'hook
   :group 'emacspeak)
 
 ;;}}}
@@ -348,6 +348,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 
 ;;}}}
 ;;{{{ Setup package extensions
+
 (emacspeak-do-package-setup "analog" 'emacspeak-analog)
 (emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)                            
 (emacspeak-do-package-setup "arc-mode" 'emacspeak-arc)
@@ -358,7 +359,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
 (emacspeak-do-package-setup "buff-sel" 'emacspeak-buff-sel)
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
-(emacspeak-do-package-setup "c-mode" 'emacspeak-c)
+(emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "calc" 'emacspeak-calc)
 (emacspeak-do-package-setup "calculator" 'emacspeak-calculator)
 (emacspeak-do-package-setup "calendar" 'emacspeak-calendar)
@@ -372,8 +373,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "desktop" 'emacspeak-desktop )
 (emacspeak-do-package-setup "dired" 'emacspeak-dired )
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)
-(emacspeak-do-package-setup "dictation"
-                            'emacspeak-dictation)
+(emacspeak-do-package-setup "dictation" 'emacspeak-dictation)
 (emacspeak-do-package-setup "dictionary" 'emacspeak-dictionary)
 (emacspeak-do-package-setup "dmacro" 'emacspeak-dmacro)
 (emacspeak-do-package-setup "doctor" 'emacspeak-entertain)
@@ -423,8 +423,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rmail" 'emacspeak-rmail)
 (emacspeak-do-package-setup "rpm-spec-mode" 'emacspeak-rpm-spec)
-(emacspeak-do-package-setup "sgml-mode"
-                            'emacspeak-sgml-mode)
+(emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
@@ -455,7 +454,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
 (emacspeak-do-package-setup "wrolo" 'emacspeak-wrolo)
-                                                                                          
+
 ;;}}}
 ;;{{{ finder
 
@@ -466,9 +465,12 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
             (progn
               (load-library "emacspeak-finder")
               (unless (file-newer-than-file-p
-                       (concat emacspeak-lisp-directory "/"
-                               "emacspeak-finder-inf.el")
-                       (concat emacspeak-lisp-directory "/" "emacspeak.el"))
+                       (expand-file-name
+                        "emacspeak-finder-inf.el" 
+                               emacspeak-lisp-directory)
+                       (expand-file-name
+                        emacspeak-lisp-directory
+                         "emacspeak.el"))
                 (emacspeak-finder-compile-keywords))
               (load-library "emacspeak-finder-inf")
               (push
