@@ -393,17 +393,17 @@
 'w3m-anchor-face
 "w3m-anchor-face")
 
-(def-voice-font w3m-bold-personality
+(def-voice-font emacspeak-w3m-bold-personality
 'bold
 'w3m-bold-face
 "w3m-bold-face")
 
-(def-voice-font  w3m-underline-personality
+(def-voice-font  emacspeak-w3m-underline-personality
 'underlined
 'w3m-underline-face
 "w3m-underline-face")
 
-(def-voice-font  w3m-header-line-location-title-personality
+(def-voice-font  emacspeak-w3m-header-line-location-title-personality
 'harry
                                 'w3m-header-line-location-title-face
                                 "w3m-header-line-location-title-face")
@@ -413,22 +413,22 @@
                                 'w3m-header-line-location-content-face
                                 "w3m-header-line-location-content-face")
 
-(def-voice-font  w3m-form-button-personality
+(def-voice-font  emacspeak-w3m-form-button-personality
 'paul-smooth
                                 'w3m-form-button-face
                                 "w3m-form-button-face")
 
-(def-voice-font  w3m-form-button-pressed-personality
+(def-voice-font  emacspeak-w3m-form-button-pressed-personality
 'paul-animated
                                 'w3m-form-button-pressed-face
                                 "w3m-form-button-pressed-face")
 
-(def-voice-font  w3m-tab-unselected-personality
+(def-voice-font  emacspeak-w3m-tab-unselected-personality
 'paul-monotone
                                 'w3m-tab-unselected-face
                                 "w3m-tab-unselected-face")
 
-(def-voice-font  w3m-tab-selected-personality
+(def-voice-font  emacspeak-w3m-tab-selected-personality
 'paul-animated
 'w3m-tab-selected-face
 "w3m-tab-selected-face")
