@@ -439,6 +439,9 @@ Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined."
   (interactive "P")
   (declare (special emacspeak-w3-url-rewrite-rule))
+  (unless (fboundp 'string-replace-match)
+    (error "Install and load the elib package to use this feature."))
+    
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -446,7 +449,7 @@ even if one is already defined."
     (unless url
       (error "Not on a link."))
     (when (or prompt 
-        (null emacspeak-w3-url-rewrite-rule))
+              (null emacspeak-w3-url-rewrite-rule))
       (setq emacspeak-w3-url-rewrite-rule 
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
