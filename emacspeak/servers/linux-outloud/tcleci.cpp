@@ -271,7 +271,6 @@ int playTTS (int samples) {
 int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
-  fprintf(stderr, "in my callback message=%d.\n", msg);
   if (msg == eciIndexReply /* eciIndexReply */) {
     char buffer[128];
     sprintf(buffer, "index %d", lparam);
@@ -280,6 +279,7 @@ int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   } else if ((msg == eciWaveformBuffer)
              && (lparam > 0)) {
     playTTS(lparam);
+    Tcl_ServiceAll();
     rc = Tcl_DoOneEvent(TCL_DONT_WAIT);
     if (rc == 0) {
       fprintf(stderr, "did not process any pending events.\n");
