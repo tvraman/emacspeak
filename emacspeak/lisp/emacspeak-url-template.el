@@ -160,7 +160,7 @@
 
 ;;}}}
 ;;{{{  template resources 
- 
+
 ;;{{{ bbc 
 (emacspeak-url-template-define
  "BBC News"
@@ -256,44 +256,50 @@
            '("$" "&print=1"))
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer)))
+
 (emacspeak-url-template-define
  "Yahoo Daily News"
  "http://dailynews.yahoo.com/"
  nil
  nil
  "Retrieve articles from   Yahoo Daily News."
-#'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       ))
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Politics"
- "http://dailynews.yahoo.com/htx/pl/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=703"
  nil
  nil
  "Retrieve and speak Politics section from Yahoo Daily News."
-#'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       ))
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Entertainment"
- "http://dailynews.yahoo.com/htx/en/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=762"
  nil
  nil
+ "Retrieve and speak Entertainment section from Yahoo Daily News."
  #'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       )
- "Retrieve and speak Entertainment section from Yahoo Daily News.")
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Sports"
- "http://dailynews.yahoo.com/htx/sp/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=755"
  nil
-nil
-"Entertainment news from Yahoo."
+ nil
+ "Entertainment news from Yahoo."
  #'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)))
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Business News"
@@ -302,77 +308,97 @@ nil
  nil
  "Retrieve and speak business  section from Yahoo Daily News."
  #'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       ))
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Science"
- "http://dailynews.yahoo.com/htx/sc/nm/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=753"
  nil
- #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Science section from Yahoo Daily News.")
+ nil
+ "Retrieve and speak Science section from Yahoo Daily News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
- "Yahoo Local"
- "http://dailynews.yahoo.com/htx/lo/me/%s/"
- (list
-  #'(lambda nil
-      (read-from-minibuffer
-       "Two-letter Area Code")))
- #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 3)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Local
-section from Yahoo Daily News.
-Area is specified as a two-letter code --sf for San
-Francisco ny for New york etc.")
+ "Yahoo SF Local"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=390"
+ nil
+ nil
+ "Retrieve and speak Local section from Yahoo Daily News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Top Stories"
- "http://dailynews.yahoo.com/htx/ts/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=716"
  nil
- #'(lambda nil
-     (search-forward
-      "Sources:" nil t)
-     (forward-line 3)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Top Stories  section from Yahoo Daily News.")
+ nil
+ "Retrieve and speak Top Stories  section from Yahoo Daily News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Health"
- "http://dailynews.yahoo.com/htx/hl/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=751"
  nil
- #'(lambda nil
-     (search-forward
-      "Sources:" nil t)
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Health section from Yahoo Daily News.")
+ nil
+ "Retrieve and speak Health section from Yahoo Daily News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Oddly"
- "http://dailynews.yahoo.com/htx/od//?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=757"
  nil
- #'(lambda nil
-     (search-forward
-      "Sources:" nil t)
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Oddity section from Yahoo Daily News.")
+ nil
+ "Retrieve and speak Oddity section from Yahoo Daily News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 (emacspeak-url-template-define
  "Yahoo Technology  News"
- "http://dailynews.yahoo.com/h/tc/?u"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=738"
  nil
  nil
  "Yahoo Technology News."
  #'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       ))
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
+
+(emacspeak-url-template-define
+ "Yahoo Lifestyle"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=811"
+ nil
+ nil
+ "Yahoo Lifestyle News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
+
+(emacspeak-url-template-define
+ "Yahoo World News"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=959"
+ nil
+ nil
+ "Yahoo World News."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//*[@class=\"article\"]//td[position()=1]"
+      url)))
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
