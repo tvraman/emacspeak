@@ -361,7 +361,7 @@ set the current local value to the result."
    ((not emacspeak-erc-ignore-notices )
     ad-do-it
     ad-return-value)
-   (t ado-do-it
+   (t ad-do-it
       " ")))
 
 ;;}}}
