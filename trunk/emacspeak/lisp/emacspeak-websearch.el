@@ -969,7 +969,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                "query ")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
-                    emacspeak-w3-xsl-p
                     emacspeak-websearch-google-feeling-lucky-p emacspeak-websearch-google-number-of-results))
   (let ((lucky-flag (if emacspeak-websearch-google-feeling-lucky-p
                         (not lucky)
@@ -1044,7 +1043,7 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
    (list
     (emacspeak-websearch-read-query "Froogle Search: ")))
   (declare (special emacspeak-websearch-froogle-uri))
-  (let ((emacspeak-w3-xsl-p nil))
+  (emacspeak-w3-without-xsl
     (browse-url 
      (format emacspeak-websearch-froogle-uri
              (webjump-url-encode query)))
