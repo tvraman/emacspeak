@@ -251,7 +251,7 @@ description, which includes a summary of all emacspeak
 keybindings.
 
 All emacspeak commands use \\[emacspeak-prefix-command] as a
-prefix key.  You can also set the state of the Dectalk by
+prefix key.  You can also set the state of the TTS engine  by
 using \\[emacspeak-dtk-submap-command] as a prefix.  Here is
 a summary of all emacspeak commands along with their
 bindings.  You need to precede the keystrokes listed below
@@ -259,14 +259,15 @@ with \\[emacspeak-prefix-command].
 
 Emacspeak also provides a fluent speech extension to the
 emacs terminal emulator (eterm).  Note: You need to use the
-term package that comes with emacs-19.29.
+term package that comes with emacs-19.29 and later.
 
 \\{emacspeak-keymap}
 
 See the online documentation for individual commands and
 functions for details. There is an info manual for
 Emacspeak, but it is still preliminary. The source code
-documentation is up-to-date, please use it.  "
+documentation available through the various C-h commands 
+is up-to-date, please use it.  "
   (interactive)
   (declare (special mark-even-if-inactive
                     default-enable-multibyte-characters
@@ -276,6 +277,9 @@ documentation is up-to-date, please use it.  "
                     emacspeak-emacs-commands-to-fix))
   ;;; fixes transient mark mode in emacspeak 
   (setq mark-even-if-inactive t)
+  ;;; force unibyte
+  (when emacspeak-unibyte
+    (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
   (require 'dtk-speak)
   (dtk-initialize)
@@ -296,9 +300,6 @@ documentation is up-to-date, please use it.  "
           emacspeak-emacs-commands-to-fix)
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-dtk-sync)
-    ;;; force unibyte
-  (when emacspeak-unibyte
-    (setq default-enable-multibyte-characters nil))
   (emacspeak-setup-programming-modes)
   (require 'emacspeak-wizards)
   (message
