@@ -40,6 +40,11 @@ source $wd/tts-lib.tcl
 # }}}
 # {{{ procedures  
 
+proc version {} {
+    q "This is [ttsVersion]"
+    d
+}
+
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
