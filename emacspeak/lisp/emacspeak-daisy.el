@@ -737,8 +737,7 @@ No-op if content under point is not currently displayed."
 (defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title outline 
                                                       start  end bookmark)
   "Attaches an automatically generated post processor function
-that asks W3 to record the viewer in the navigation center when
-                                                      done.
+that asks W3 to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it
                                                       the right title."
   (declare (special emacspeak-w3-post-process-hook))
@@ -747,7 +746,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
          (lambda  nil
 	   (let ((buffer (current-buffer)))
              (outline-minor-mode 1)
-             (setq outline-regexp outline)
+             (setq outline-regexp (, outline))
              (rename-buffer title 'uniquely)
 	     (save-excursion
 	       (set-buffer (, nav-center))
