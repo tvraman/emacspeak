@@ -449,6 +449,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
      emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
+(define-key emacspeak-daisy-mode-map "m" 'emacspeak-daisy-mark-position-in-content-under-point)
 (define-key emacspeak-daisy-mode-map "s" 'emacspeak-daisy-stop-audio)
 (define-key emacspeak-daisy-mode-map "q" 'bury-buffer)
 (define-key emacspeak-daisy-mode-map " "
@@ -544,6 +545,21 @@ navigation buffer that can be used to browse and read the book."
 
 ;;}}}
 ;;{{{ interactive commands
+
+(defun emacspeak-daisy-mark-position-in-content-under-point ()
+  "Mark current position in displayed content.
+No-op if content under point is not currently displayed."
+  (interactive)
+  (cond
+   ((get-text-property (point) 'viewer)
+    (ems-modify-buffer-safely
+       (put-text-property (line-beginning-position) (line-end-position)
+                          'bookmark
+                          (save-excursion
+       (set-buffer (get-text-property (point) 'viewer))
+       (point))))
+    (message "Marked position."))
+   (t (message "Content not currently displayed."))))
 
 (defun emacspeak-daisy-play-content-under-point ()
   "Play SMIL content  under point."
