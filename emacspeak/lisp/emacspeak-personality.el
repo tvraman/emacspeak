@@ -210,9 +210,7 @@ displayed in the messages area."
                            (setq voice (car (last voices))))
                       (t (message "Got %s" value)))
        (when voice
-            (put-text-property (overlay-start overlay)
-                               (overlay-end overlay)
-                               'personality voice))
+            (overlay-put overlay 'personality voice))
        (when (and emacspeak-personality-show-unmapped-faces
                   (not voice))
          (puthash  value t emacspeak-personality-unmapped-faces)))))
