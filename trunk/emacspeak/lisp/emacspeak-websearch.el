@@ -75,7 +75,9 @@
 
 ;;}}}
 ;;{{{ searcher table
-
+(defgroup emacspeak-websearch nil
+  "Websearch tools for the Emacspeak desktop."
+  :group 'emacspeak)
 (defvar emacspeak-websearch-table (make-hash-table)
   "Table holding mapping from search engine names to appropriate searcher functions.")
 
@@ -1042,29 +1044,47 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.google.com/search?q="
   "*URI for Google search")
 
+(defcustom emacspeak-websearch-google-feeling-lucky nil
+  "If non-nil, then Google search will use the 
+I'm Feeling Lucky button by default."
+  :type 'boolean 
+  :group 'emacspeak-websearch)
+
+
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform an Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
-I'm Feeling Lucky button on Google."
+I'm Feeling Lucky button on Google.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky."
   (interactive
    (list
     (emacspeak-websearch-read-query 
      (format "Google %s: "
-             (if current-prefix-arg "feeling lucky" "query ")))
+             (if
+                 (if emacspeak-websearch-google-feeling-lucky
+                     (not current-prefix-arg)
+                   current-prefix-arg)
+                 "feeling lucky"
+               "query ")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri))
-  (let ((url-be-asynchronous nil))
+  (let ((url-be-asynchronous nil)
+        (lucky-flag (if emacspeak-websearch-google-feeling-lucky
+                        (not lucky)
+                      lucky)))
     (browse-url 
      (concat emacspeak-websearch-google-uri
              (webjump-url-encode query)
-             (when lucky
+             (when lucky-flag
                (concat 
                 "&btnI="
                 (webjump-url-encode
                  "I'm Feeling Lucky")))))
-    (emacspeak-websearch-post-process
-     "Results"
-     'emacspeak-speak-line)))
+    (if lucky-flag
+        (emacspeak-speak-mode-line)
+      (emacspeak-websearch-post-process
+       "Results"
+       'emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ google advanced search 
