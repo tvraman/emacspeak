@@ -1343,32 +1343,32 @@ Alert the user only if mail has arrived since this time in the
   :type 'integer
   :group 'emacspeak-speak)
 (unless (fboundp 'time-add )
-(defun time-add (t1 t2) ;;; for pre emacs 21.4
-  "Add two time values.  One should represent a time difference."
-  (let ((high (car t1))
-	(low (if (consp (cdr t1)) (nth 1 t1) (cdr t1)))
-	(micro (if (numberp (car-safe (cdr-safe (cdr t1))))
-		   (nth 2 t1)
-		 0))
-	(high2 (car t2))
-	(low2 (if (consp (cdr t2)) (nth 1 t2) (cdr t2)))
-	(micro2 (if (numberp (car-safe (cdr-safe (cdr t2))))
-		    (nth 2 t2)
-		  0)))
-    ;; Add
-    (setq micro (+ micro micro2))
-    (setq low (+ low low2))
-    (setq high (+ high high2))
+  (defun time-add (t1 t2) ;;; for pre emacs 21.4
+    "Add two time values.  One should represent a time difference."
+    (let ((high (car t1))
+	  (low (if (consp (cdr t1)) (nth 1 t1) (cdr t1)))
+	  (micro (if (numberp (car-safe (cdr-safe (cdr t1))))
+		     (nth 2 t1)
+		   0))
+	  (high2 (car t2))
+	  (low2 (if (consp (cdr t2)) (nth 1 t2) (cdr t2)))
+	  (micro2 (if (numberp (car-safe (cdr-safe (cdr t2))))
+		      (nth 2 t2)
+		    0)))
+      ;; Add
+      (setq micro (+ micro micro2))
+      (setq low (+ low low2))
+      (setq high (+ high high2))
 
-    ;; Normalize
-    ;; `/' rounds towards zero while `mod' returns a positive number,
-    ;; so we can't rely on (= a (+ (* 100 (/ a 100)) (mod a 100))).
-    (setq low (+ low (/ micro 1000000) (if (< micro 0) -1 0)))
-    (setq micro (mod micro 1000000))
-    (setq high (+ high (/ low 65536) (if (< low 0) -1 0)))
-    (setq low (logand low 65535))
+      ;; Normalize
+      ;; `/' rounds towards zero while `mod' returns a positive number,
+      ;; so we can't rely on (= a (+ (* 100 (/ a 100)) (mod a 100))).
+      (setq low (+ low (/ micro 1000000) (if (< micro 0) -1 0)))
+      (setq micro (mod micro 1000000))
+      (setq high (+ high (/ low 65536) (if (< low 0) -1 0)))
+      (setq low (logand low 65535))
 
-    (list high low micro))))
+      (list high low micro))))
 (defsubst  emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the specified spool."
   (declare (special emacspeak-mail-last-alerted-time
@@ -1376,12 +1376,12 @@ Alert the user only if mail has arrived since this time in the
   (let* ((mod-time (emacspeak-mail-get-last-mail-arrival-time f))
          (size (emacspeak-get-file-size f))
          (result (and (> size 0)
-                  (or
-                   (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
-                      (time-less-p ;unattended mail
-                       (time-add emacspeak-mail-last-alerted-time
-                                 (list 0 emacspeak-mail-alert-interval))
-                       (current-time))))))
+		      (or
+		       (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
+		       (time-less-p	;unattended mail
+			(time-add emacspeak-mail-last-alerted-time
+				  (list 0 emacspeak-mail-alert-interval))
+			(current-time))))))
     (when result 
       (setq emacspeak-mail-last-alerted-time  (current-time)))
     result))
@@ -1928,10 +1928,10 @@ personality."
   (interactive)
   (let ((personality (get-text-property (point) 'personality))
         (start (previous-single-property-change (point) 'personality))
-(end (next-single-property-change  (point) 'personality)))
-(emacspeak-speak-region
- (or start (point-min))
- (or end (point-max)))))
+	(end (next-single-property-change  (point) 'personality)))
+    (emacspeak-speak-region
+     (or start (point-min))
+     (or end (point-max)))))
 
 (defun emacspeak-speak-next-personality-chunk ()
   "Moves to the front of next chunk having current personality.
@@ -1939,13 +1939,13 @@ Speak that chunk after moving."
   (interactive)
   (let ((personality (get-text-property (point) 'personality))
         (this-end (next-single-property-change (point)
-  'personality))
+					       'personality))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
            (setq next-start 
-           (text-property-any  this-end (point-max)
-                               'personality personality)))
+		 (text-property-any  this-end (point-max)
+				     'personality personality)))
       (goto-char next-start)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No more chunks with current personality.")))))
@@ -1959,20 +1959,20 @@ Speak that chunk after moving."
                                                setting.
 Return buffer position or nil on failure."
   (let ((result nil)
-(start nil)
-(continue t))
+	(start nil)
+	(continue t))
     (save-excursion
       (while (and continue
                   (not (bobp)))
         (backward-char 1)
-(setq start (previous-single-property-change  (point) property))
-(if (null start)
-(setq continue nil)
-(setq continue
-      (not (eq  value 
-      (get-text-property start property)))))
-(or continue 
-(setq result start)))
+	(setq start (previous-single-property-change  (point) property))
+	(if (null start)
+	    (setq continue nil)
+	  (setq continue
+		(not (eq  value 
+			  (get-text-property start property)))))
+	(or continue 
+	    (setq result start)))
       result)))
 
 (defun emacspeak-speak-previous-personality-chunk ()
@@ -1985,8 +1985,8 @@ Speak that chunk after moving."
     (cond
      ((and (> this-start (point-min))
            (setq next-end
-           (ems-backwards-text-property-any  (1- this-start) (point-min)
-                               'personality personality)))
+		 (ems-backwards-text-property-any  (1- this-start) (point-min)
+						   'personality personality)))
       (goto-char next-end)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
@@ -2040,9 +2040,9 @@ Interactive prefix arg `browse'  repeatedly browses  through
   (interactive "P")
   (cond
    (browse
-     (emacspeak-execute-repeatedly
-  'emacspeak-speak-next-personality-chunk))
-    (t (emacspeak-speak-this-personality-chunk))))
+    (emacspeak-execute-repeatedly
+     'emacspeak-speak-next-personality-chunk))
+   (t (emacspeak-speak-this-personality-chunk))))
 
 (defvar emacspeak-read-line-by-line-quotient 10
   "Determines behavior of emacspeak-read-line-by-line.")

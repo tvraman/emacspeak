@@ -1121,48 +1121,48 @@ Warning! Contents of file filename will be overwritten."
 Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
-        #'(lambda (o)
-            (let ((this-module (ems-variable-symbol-file  o))
-                  (commentary nil)
-                  (source-file nil))
-              (when this-module
-                (setq source-file (locate-library this-module ))
-                (if (char-equal (aref source-file (1- (length source-file))) ?c)
-                    (setq source-file (substring  source-file 0 -1)))
-                (setq commentary (lm-commentary source-file))
-                (setq this-module
-                      (file-name-sans-extension this-module))
-                (when commentary
-                  (setq commentary 
-                        (ems-cleanup-commentary commentary)))
-                (setq this-module
-                      (file-name-nondirectory this-module)))
-              (unless (string-equal module this-module)
-                (if this-module 
-                    (setq module this-module)
-                  (setq module nil))
-                (when module 
-                  (insert
-                   (format
-                    "@node %s Options\n@section %s Options\n\n\n"
-                    module module )))
-                (insert
-                 (format "\n\n%s\n\n" 
-                         (or commentary "")))
-                (insert
-                 (format
-                  "Automatically generated documentation
+       #'(lambda (o)
+	   (let ((this-module (ems-variable-symbol-file  o))
+		 (commentary nil)
+		 (source-file nil))
+	     (when this-module
+	       (setq source-file (locate-library this-module ))
+	       (if (char-equal (aref source-file (1- (length source-file))) ?c)
+		   (setq source-file (substring  source-file 0 -1)))
+	       (setq commentary (lm-commentary source-file))
+	       (setq this-module
+		     (file-name-sans-extension this-module))
+	       (when commentary
+		 (setq commentary 
+		       (ems-cleanup-commentary commentary)))
+	       (setq this-module
+		     (file-name-nondirectory this-module)))
+	     (unless (string-equal module this-module)
+	       (if this-module 
+		   (setq module this-module)
+		 (setq module nil))
+	       (when module 
+		 (insert
+		  (format
+		   "@node %s Options\n@section %s Options\n\n\n"
+		   module module )))
+	       (insert
+		(format "\n\n%s\n\n" 
+			(or commentary "")))
+	       (insert
+		(format
+		 "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-                  module)))
-              (insert (format "\n\n@defvar {User Option} %s\n"
-                              o))
-              (insert
-               (or
-                (ems-texinfo-escape
-                 (documentation-property  o 'variable-documentation))                        
-                ""))
-              (insert "\n@end defvar\n\n")))
+		 module)))
+	     (insert (format "\n\n@defvar {User Option} %s\n"
+			     o))
+	     (insert
+	      (or
+	       (ems-texinfo-escape
+		(documentation-property  o 'variable-documentation))                        
+	       ""))
+	     (insert "\n@end defvar\n\n")))
        (emacspeak-list-emacspeak-options))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)
@@ -2655,12 +2655,12 @@ dates.")
    (emacspeak-wizards-mm-dd-yyyy-date-pronounce
     (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
     (emacspeak-pronounce-remove-buffer-local-dictionary-entry
-  emacspeak-pronounce-date-mm-dd-yyyy-pattern))
+     emacspeak-pronounce-date-mm-dd-yyyy-pattern))
    (t (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce t)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
-  emacspeak-pronounce-date-mm-dd-yyyy-pattern
-  (cons 're-search-forward
-  'emacspeak-pronounce-mm-dd-yyyy-date))))
+       emacspeak-pronounce-date-mm-dd-yyyy-pattern
+       (cons 're-search-forward
+	     'emacspeak-pronounce-mm-dd-yyyy-date))))
   (message "Will %s pronounce mm-dd-yyyy date strings in
   English."
            (if emacspeak-wizards-mm-dd-yyyy-date-pronounce "" "

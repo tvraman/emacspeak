@@ -54,75 +54,74 @@
 ;;{{{ faces and voices 
 
 (def-voice-font emacspeak-eperiodic-header-personality voice-bolden
-'eperiodic-header-face
+  'eperiodic-header-face
   "Personality used for the header."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-group-number-personality  voice-lighten
- 'eperiodic-group-number-face
+  'eperiodic-group-number-face
   "Personality used for group numbers."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-period-number-personality  voice-lighten
-' eperiodic-period-number-face
+  ' eperiodic-period-number-face
   "Personality used for group numbers."
   :group 'eperiodic)
 
-
 (def-voice-font emacspeak-eperiodic-s-block-personality voice-smoothen
-'eperiodic-s-block-face
+  'eperiodic-s-block-face
   "Eperiodic face for s-block elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-p-block-personality voice-monotone
-' eperiodic-p-block-face
+  ' eperiodic-p-block-face
   "Eperiodic face for p-block elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-d-block-personality voice-bolden-medium
-' eperiodic-d-block-face
+  ' eperiodic-d-block-face
   "Eperiodic face for d-block elements."
   :group 'eperiodic)
 
 (def-voice-font  emacspeak-eperiodic-f-block-personality  voice-lighten-extra
-'eperiodic-f-block-face
+  'eperiodic-f-block-face
   "Eperiodic face for f-block elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-solid-personality  voice-bolden
-' eperiodic-solid-face
+  ' eperiodic-solid-face
   "Eperiodic face for solid elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-liquid-personality  voice-smoothen
-' eperiodic-liquid-face
+  ' eperiodic-liquid-face
   "Eperiodic face for liquid elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-gas-personality  voice-lighten-extra
-' eperiodic-gas-face
+  ' eperiodic-gas-face
   "Eperiodic face for gaseous elements."
   :group 'eperiodic)
 
 (def-voice-font
   emacspeak-eperiodic-discovered-before-personality  voice-bolden
-' eperiodic-discovered-before-face
+  ' eperiodic-discovered-before-face
   "Eperiodic face for discovered before elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-discovered-after-personality  voice-smoothen
-' eperiodic-discovered-after-face
+  ' eperiodic-discovered-after-face
   "Eperiodic face for discovered after elements."
   :group 'eperiodic)
 
 (def-voice-font emacspeak-eperiodic-discovered-in-personality  voice-lighten
-' eperiodic-discovered-in-face
+  ' eperiodic-discovered-in-face
   
   "Eperiodic face for discovered in elements."
   :group 'eperiodic)
 
 (def-voice-font  emacspeak-eperiodic-unknown-personality  voice-monotone-medium
-'eperiodic-unknown-face
+  'eperiodic-unknown-face
   "Eperiodic face for unknown elements."
   :group 'eperiodic)
 
@@ -141,8 +140,8 @@
         (personality (get-text-property (point) 'personality)))
     (add-text-properties  0 (length name)
                           (list 'face face 'personality
-  personality )
-name)
+				personality )
+			  name)
     name))
 
 ;;}}}
@@ -151,15 +150,15 @@ name)
   "Move to next row and speak element."
   (interactive)
   (previous-line)
-(emacspeak-eperiodic-speak-current-element)
-(emacspeak-auditory-icon 'select-object))
+  (emacspeak-eperiodic-speak-current-element)
+  (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-eperiodic-next-line ()
   "Move to next row and speak element."
   (interactive)
   (next-line)
-(emacspeak-eperiodic-speak-current-element)
-(emacspeak-auditory-icon 'select-object))
+  (emacspeak-eperiodic-speak-current-element)
+  (emacspeak-auditory-icon 'select-object))
 (defun emacspeak-eperiodic-speak-current-element ()
   "Speak element at point."
   (interactive)
@@ -168,7 +167,7 @@ name)
 (defun emacspeak-eperiodic-goto-property-section ()
   "Mark position and jump to properties section."
   (interactive)
-   (push-mark (point))
+  (push-mark (point))
   (goto-char
    (text-property-any (point) (point-max)
                       'face 'eperiodic-header-face))
@@ -196,7 +195,6 @@ name)
   (when (interactive-p)
     (dtk-speak (emacspeak-eperiodic-name-element-at-point))
     (emacspeak-auditory-icon 'large-movement)))
-
 
 (defadvice eperiodic-next-element (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -233,9 +231,8 @@ name)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-(message "View %s"
-         eperiodic-colour-element-function)))
-
+    (message "View %s"
+	     eperiodic-colour-element-function)))
 
 ;;}}}
 (provide 'emacspeak-eperiodic)

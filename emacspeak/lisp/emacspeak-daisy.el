@@ -487,15 +487,15 @@ navigation file for a book. Include all extensions except `.ncx'
          (= 7 (length
                (car (append
                      (symbol-function 'read-file-name) nil))))))
-  (if read-file-name-takes-predicate       
-  (read-file-name "Book Navigation File: "
-                  emacspeak-daisy-books-directory
-                  nil t  nil 
-                  #'(lambda (f)
-                      (string-match "\\.ncx$" f)))
-(read-file-name "Book Navigation File: "
-                  emacspeak-daisy-books-directory
-                  nil t  nil))))
+    (if read-file-name-takes-predicate       
+	(read-file-name "Book Navigation File: "
+			emacspeak-daisy-books-directory
+			nil t  nil 
+			#'(lambda (f)
+			    (string-match "\\.ncx$" f)))
+      (read-file-name "Book Navigation File: "
+		      emacspeak-daisy-books-directory
+		      nil t  nil))))
 
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)

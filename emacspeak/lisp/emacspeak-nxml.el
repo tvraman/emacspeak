@@ -273,7 +273,6 @@
 ;;}}}
 ;;{{{ Advice interactive commands
 
-
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
   "Provide spoken feedback."
   (cond
@@ -305,12 +304,12 @@
       '(nxml-backward-up-element
         nxml-forward-balanced-item
         nxml-up-element
-nxml-forward-paragraph
-nxml-backward-paragraph
-nxml-backward-single-paragraph
-nxml-backward-single-balanced-item
-nxml-forward-element
-nxml-backward-element)
+	nxml-forward-paragraph
+	nxml-backward-paragraph
+	nxml-backward-single-paragraph
+	nxml-backward-single-balanced-item
+	nxml-forward-element
+	nxml-backward-element)
       do
       (eval
        (`

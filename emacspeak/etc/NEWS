@@ -60,6 +60,22 @@ chunks rather than by paragraphs.
 The older functionality of browsing by paragraphs is still
 accessible through emacspeak-speak-continuously 
 
+**emacspeak-sigbegone.el
+
+Speech-enables sigbegone --- a package for  recognizing email
+signatures.
+
+
+** emacspeak-ediary.el:
+
+Speech-enables ediary --- a special mode for working with the
+.diary file.
+
+
+** emacspeak-damlite.el:
+Speech-enables damlite-mode --- a special mode for creating and
+maintaining  DAML ontologies using RDF.
+
 ** emacspeak-pronounce:
 
 User defined pronunciations have been augmented.
