@@ -9,20 +9,20 @@ use HTML::TableExtract;
 use IO::File;
 use Getopt::Long;
 use vars qw (%options);
-my ($url, $file, $task, $depth, $count);
-my @headers =();
+my ($url, $file, $task, $depth, $count, $cols);
+
 my %options = (task => \$task,
            url => \$url,
 file => \$file,
            depth => \$depth,
 count => \$count,
-headers => \@headers);
+headers => \$cols);
 GetOptions (\%options,
-            'file',
-            'url',
-            'task',
-            'depth',
-            'count',
+            'file=s',
+            'url=s',
+            'task=s',
+            'depth=i',
+            'count=i',
             'headers=s');
 $task ||= "extract-table";
 my $input;
@@ -30,22 +30,25 @@ if (defined ($file)) {
   $input = $file;
 } else {
   $input="/tmp/$options{task}.html";
-  RetrieveURLToFile($options{url}, $input);
+  RetrieveURLToFile($url, $input);
 }
 
 my $te;
-if ( defined ($options{headers})) {
+if ( defined ($cols)) {
+  my @headers = split(',', $cols);
   $te = new HTML::TableExtract(headers=>\@headers);
 } else {
  $te = new HTML::TableExtract( depth => $depth, count=>$count); 
 }
 $te->parse_file($input);
 my $output = new FileHandle (">  /tmp/$task.csv");
+my ($ts,$row);
+foreach $ts ($te->table_states) {
+          foreach $row ($ts->rows) {
+             $output->print ( join(',', @$row), "\n");
+          }
+        }
 
-my $row;
-foreach $row ($te->rows) {
-  $output->print(  join(',', @$row),"\n");
-}
 $output->close();
 
 if (defined ($url)) {
