@@ -100,7 +100,7 @@
 (defcustom emacspeak-w3-punctuation-mode nil
   "Pronunciation mode to use for W3 buffers."
   :type '(choice
-          (choice nil :tag "Ignore")
+          (const nil :tag "Ignore")
           (const  :tag "some" 'some)
           (const  :tag "all" 'all))
   :group 'emacspeak-w3)
