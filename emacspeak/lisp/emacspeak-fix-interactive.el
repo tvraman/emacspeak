@@ -95,14 +95,8 @@ interactive prompts speak. ")
        (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
 (defun emacspeak-fix-commands-that-use-interactive ()
-  "Auto advices interactive commands to speak prompts.
-Updates and returns the list of commands that have been so fixed."
-  (mapatoms
-   (function
-    (lambda (sym)
-      (when
-          (and (emacspeak-should-i-fix-interactive-p sym)
-               (emacspeak-fix-interactive sym)))))))
+  "Auto advices interactive commands to speak prompts."
+  (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
 
 ;;{{{  Understanding aid 
 
@@ -218,7 +212,9 @@ speak its prompts. "
 ;;; inline function for use from other modules:
 
 
-(defsubst  emacspeak-fix-interactive-command-if-necessary (command)
+(defsubst  emacspeak-fix-interactive-command-if-necessary
+  (command)
+  "Fix command if necessary."
   (and (emacspeak-should-i-fix-interactive-p command)
        (emacspeak-fix-interactive command)))
 
