@@ -495,7 +495,6 @@ Leave point at front of decoded attachment."
                                                 (cons 're-search-forward
                                                       'emacspeak-speak-decode-iso-datetime)))          
 
-
 ;;}}}
 ;;{{{ advice button motion 
 (defadvice vm-next-button (after emacspeak pre act comp)

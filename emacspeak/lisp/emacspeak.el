@@ -480,7 +480,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'sql-mode-hook
          'sgml-mode-hook
          'xml-mode-hook
-'nxml-mode-hook
+	 'nxml-mode-hook
          'xsl-mode-hook
          'makefile-mode-hook
          'TeX-mode-hook

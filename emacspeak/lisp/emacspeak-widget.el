@@ -733,7 +733,6 @@ widget before summarizing."
 ;;; generic --and  not device specific.
 ;;;
 
-
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
   (declare (special dectalk-voice-table))

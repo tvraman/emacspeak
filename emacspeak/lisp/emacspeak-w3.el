@@ -907,7 +907,7 @@ Tables are specified by containing  match pattern
                                 emacspeak-xslt-directory)
               (url-view-url 'no-show)
               nil
- 'no-comment)))
+	      'no-comment)))
         (setq values 
               (save-excursion
                 (set-buffer buffer)
@@ -1281,16 +1281,16 @@ used as well."
 
 (defcustom emacspeak-w3-charent-alist
   '(("&lt;" . "<")
-("&gt;" . ">")
-("&quot;" . "\"")
-("&apos;" . "'")
-("&amp;" . "&"))
-"Entities to unescape when treating badly escaped XML."
-:type '(repeat  :tag "Char Entity"
-(cons :tag "Entry"
-      (string :tag "CharEnt")
-      (string :tag "Replacement")))
-:group 'emacspeak-w3)
+    ("&gt;" . ">")
+    ("&quot;" . "\"")
+    ("&apos;" . "'")
+    ("&amp;" . "&"))
+  "Entities to unescape when treating badly escaped XML."
+  :type '(repeat  :tag "Char Entity"
+		  (cons :tag "Entry"
+			(string :tag "CharEnt")
+			(string :tag "Replacement")))
+  :group 'emacspeak-w3)
 
 (defsubst emacspeak-w3-unescape-charent ()
   "Clean up bad XML usage."
@@ -1416,10 +1416,10 @@ current page."
                   filename)
     (cond
      ((interactive-p)
-    (w3-open-local filename))
-(t
- (emacspeak-w3-without-xsl
-    (w3-open-local filename))))
+      (w3-open-local filename))
+     (t
+      (emacspeak-w3-without-xsl
+       (w3-open-local filename))))
     (delete-file filename)))
 
 ;;;###autoload
@@ -1434,10 +1434,10 @@ current page."
                   filename)
     (cond
      ((interactive-p)
-    (w3-open-local filename))
-(t
- (emacspeak-w3-without-xsl
-    (w3-open-local filename))))
+      (w3-open-local filename))
+     (t
+      (emacspeak-w3-without-xsl
+       (w3-open-local filename))))
     (delete-file filename)))
 
 ;;}}}

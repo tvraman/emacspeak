@@ -688,7 +688,6 @@ Also produces an auditory icon if possible."
   (emacspeak-auditory-icon 'open-object)
   (dtk-speak (ad-get-arg 0)))
 
-
 (defadvice read-from-minibuffer (around emacspeak pre act)
   "Prompt using speech as well."
   (let((prompt (ad-get-arg 0))
