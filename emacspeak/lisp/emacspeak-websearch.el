@@ -123,6 +123,7 @@ e   Encyclopedia                    Encyclopedia Britannica
 f       CNN-FN                      CNN  Financial Network
 cap F   FolDoc                      Free Online Dictionary Of Computing
 g       Google                      The Google WWW Index
+.       Advanced Google                      Advanced Google WWW Index
 Cap G   Gutenberg Locate Gutenberg Etexts
 h       HotBot                      HotBot WWW Index
 i       Inference                   Inference WWW Search 
@@ -1047,6 +1048,142 @@ Optional second arg data processes the results as data rather than HTML."
   (emacspeak-websearch-post-process
    "Results"
    'emacspeak-speak-line))
+
+;;}}}
+;;{{{ google advanced search 
+(emacspeak-websearch-set-searcher 'google-advanced
+                                  'emacspeak-websearch-google-advanced)
+
+(emacspeak-websearch-set-key ?. 'google-advanced)
+
+
+(defvar emacspeak-websearch-google-advanced-form
+  "
+<form method=GET  action=\"http://www.google.com/search\">
+  <table>
+    <tr>
+      <td>all   words </td>
+      <td> <input type=text  name=as_q > </td>
+    </tr>
+    <tr>
+      <td > exact </td>
+      <td> <input type=text   name=as_epq> </td>
+    </tr>
+    <tr>
+      <td > any </td>
+      <td> <input type=text   name=as_oq> </td>
+    </tr>
+    <tr>
+      <td > without </td>
+      <td> <input type=text   name=as_eq> </td>
+    </tr>
+    <tr>
+      <td > Language </td>
+      <td>
+        <select name=lr >
+          <option >any language
+            <option value=\"lang_ar\">Arabic
+              <option value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)
+                <option value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)
+                  <option value=\"lang_cs\">Czech
+                    <option value=\"lang_da\">Danish
+                      <option value=\"lang_nl\">Dutch
+                        <option value=\"lang_en\">English
+                          <option value=\"lang_et\">Estonian
+                            <option value=\"lang_fi\">Finnish
+                              <option value=\"lang_fr\">French
+                                <option value=\"lang_de\">German
+                                  <option value=\"lang_el\">Greek
+                                    <option value=\"lang_iw\">Hebrew
+                                      <option value=\"lang_hu\">Hungarian
+                                        <option value=\"lang_is\">Icelandic
+                                          <option value=\"lang_it\">Italian
+                                            <option value=\"lang_ja\">Japanese
+                                              <option value=\"lang_ko\">Korean
+                                                <option value=\"lang_lv\">Latvian
+                                                  <option value=\"lang_lt\">Lithuanian
+                                                    <option value=\"lang_no\">Norwegian
+                                                      <option value=\"lang_pl\">Polish
+                                                        <option value=\"lang_pt\">Portuguese
+                                                          <option value=\"lang_ro\">Romanian
+                                                            <option value=\"lang_ru\">Russian
+                                                              <option value=\"lang_es\">Spanish
+                                                                <option value=\"lang_sv\">Swedish
+                                                                  <option value=\"lang_tr\">Turkish
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td > Newer than </td>
+      <td>
+        <select name=as_qdr>
+          <option value=all> anytime 
+            <option value=m3 >past 3 months
+              <option value=m6 > past  6 months
+                <option value=y1 > past  year
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td> Match in</td>
+      <td>
+        <select name=as_occt>
+          <option value=any selected>anywhere in the page
+            <option value=title >in the title of the page
+              <option value=body >in the text of the page
+                <option value=url >in the url of the page
+                  <option value=links >in links to the page
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td >
+        <select name=as_dt>
+          <option value=i>Only
+            <option value=e >Don't
+        </select>look in   domain
+      </td>
+      <td>
+        <input   name=as_sitesearch>
+      </td>
+    </tr>
+    <tr >
+      <td>Filters</td>
+      <td>
+        <input type=radio checked value=off name=safe> No filtering
+          <input type=radio  value=active name=safe> 
+      </td>
+    </tr>
+    <tr>
+      <td  >
+        <select name=num>
+          <option value=\"10\" selected>10 results
+            <option value=\"20\">20 results
+              <option value=\"30\">30 results
+                <option value=\"50\">50 results
+                  <option value=\"100\">100 results
+        </select> 
+        <input type=submit name=btnG value=\"Google Search\">
+      </td>
+    </tr>
+  </table>
+</form>
+"
+"Markup for Google advanced search form.")
+
+(defun emacspeak-websearch-google-advanced ()
+  "Present Google advanced search form simplified for speech interaction."
+  (interactive)
+  (declare (special emacspeak-websearch-google-advanced-form))
+  (let ((buffer (get-buffer-create " *google-advanced*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert emacspeak-websearch-google-advanced-form)
+      (w3-preview-this-buffer)
+      (widget-forward 1)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ hotbot
