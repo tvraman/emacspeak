@@ -628,12 +628,14 @@ specifies the page to extract table from.  "
 
 
 (defcustom emacspeak-w3-media-stream-suffixes
-  (list ".ram"
-        ".rm"
-        ".ra"
-        ".pls"
-        ".asx"
-        ".m3u")
+  (list
+   ".ram"
+   ".rm"
+   ".ra"
+   ".pls"
+   ".asx"
+   ".mp3"
+   ".m3u")
   "Suffixes to look for in detecting URLs that point to media
 streams."
   :type  '(repeat
