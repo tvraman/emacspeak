@@ -33,10 +33,14 @@ list mechanism.
 
 Allows text to be progressively refined.
 
+
 ** Overlaying Grids On Tabulated Information
 
 Grid overlays allow one to quickly skim selected portions of
 every line in the buffer or given region of text.
+The result of overlaying the grid is presented in
+emacspeak's table browsing mode.
+This is useful in working with log files.
 
 ** Speech-enables EShell
 
@@ -69,6 +73,26 @@ ERC is a relatively modern Emacs IRC client.
 This version of emacspeak speech-enables most of this
 package.
 
+** Convenience Commands:
+
+
+*** Convenience Command emacspeak-cvs-get-anonymous 
+
+Command emacspeak-cvs-get-anonymous bound to c-e c-down 
+can be used to retrieve a snapshot of the latest Emacspeak
+sources from Sourceforge.
+This will retrieve the source code into the users home
+directory 
+under ~/cvs-emacspeak.
+
+*** Convenience command emacspeak-root
+
+Convenience command emacspeak-root bound to C-e C-r
+launches a root shell or switches to one if it already
+exists.
+Command emacspeak-eterm-remote-term bound to C-e C-r in
+earlier versions is now on 
+C-e M-C-r
 
 
 Local variables:
