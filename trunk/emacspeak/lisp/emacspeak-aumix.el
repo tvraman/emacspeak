@@ -98,12 +98,14 @@
   :group 'emacspeak-aumix
   :type 'boolean)
 
-(defcustom emacspeak-aumix-midi-available-p
-  (file-exists-p "/usr/bin/stdiosynth")
+(defcustom emacspeak-aumix-midi-available-p nil 
   "*Set to T if   midi is available."
   :group 'emacspeak-aumix
   :type 'boolean)
 
+
+(setq emacspeak-aumix-midi-available-p
+      (file-exists-p "/usr/bin/stdiosynth"))
 ;;}}}
 ;;{{{ emacspeak-aumix
 ;;;###autoload
