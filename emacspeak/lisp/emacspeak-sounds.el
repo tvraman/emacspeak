@@ -152,15 +152,10 @@ If we add new icons we should declare them here. ")
 (defvar emacspeak-default-sound ""
   "Default sound to play if requested icon not found.")
 
-;;; forward declaration. Actual value is in emacspeak-setup.el
-(defvar emacspeak-sounds-directory 
-  (expand-file-name  "sounds/" emacspeak-directory)
-  "Location of auditory icons.")
-
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
   "Maps valid sound themes to the file name extension used by that theme.")
-
+;;;###autoload
 (defun emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
   (declare (special emacspeak-sounds-themes-table))
@@ -170,7 +165,7 @@ If we add new icons we should declare them here. ")
 
 (defgroup emacspeak-sounds nil
   "Emacspeak auditory icons.")
-;;;###autoload
+
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
   (expand-file-name "default-8k/"
@@ -242,7 +237,7 @@ Do not set this by hand;
 
                
                       
-
+;;;###autoload
 (defsubst emacspeak-get-sound-filename (sound-name)
   "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
   (declare (special emacspeak-sounds-themes-table
@@ -258,11 +253,8 @@ Do not set this by hand;
       emacspeak-default-sound)))  
 
 ;;}}}
-;;{{{  define themes 
-
-;;}}}
 ;;{{{  queue an auditory icon
-
+;;;###autoload
 (defsubst emacspeak-queue-auditory-icon (sound-name)
   "Queue auditory icon SOUND-NAME."
   (declare (special dtk-speaker-process))
@@ -273,6 +265,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  native player (emacs 21)
 
+;;;###autoload
 (defsubst emacspeak-native-auditory-icon (sound-name)
   "Play auditory icon using native Emacs player."
   (play-sound
@@ -283,6 +276,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  serve an auditory icon
 
+;;;###autoload
 (defsubst emacspeak-serve-auditory-icon (sound-name)
   "Serve auditory icon SOUND-NAME.
 Sound is served only if `emacspeak-use-auditory-icons' is true.
@@ -328,7 +322,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
          (emacspeak-get-midi-note midi-name)))
 
 (defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
-
+;;;###autoload
 (defsubst emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
   (apply 'dtk-force-note

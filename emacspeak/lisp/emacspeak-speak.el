@@ -47,9 +47,8 @@
 (require 'voice-setup)
 (require 'thingatpt)
 (eval-when-compile
-  (provide 'emacspeak-speak)            ;avoid recursive include
   (require 'dtk-speak )
-  (require 'emacspeak-sounds)
+  (require 'dtk-interp)
   (require 'shell)
   (require 'which-func nil)
   )
