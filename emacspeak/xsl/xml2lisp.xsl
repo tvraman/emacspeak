@@ -15,10 +15,11 @@ Shortcomings: Quotes in  PCDATA will be lost
   <xsl:template match="text()">
     <xsl:variable name="text" select="normalize-space()"/>
     <xsl:if test="$text">
-    "<xsl:copy-of select="translate($text, '&quot;', '')"/>"
+      "<xsl:copy-of select="translate($text, '&quot;', '')"/>"
     </xsl:if>
   </xsl:template>
-  <xsl:template match="node()">
+
+  <xsl:template match="*">
     (<xsl:choose>
       <xsl:when test="@*">
         ("<xsl:value-of select="name()"/>"
@@ -28,7 +29,7 @@ Shortcomings: Quotes in  PCDATA will be lost
         "<xsl:value-of select="name()"/>"
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:apply-templates select="node()"/>)
+    <xsl:apply-templates/>)
   </xsl:template>
   
   <xsl:template match="@*">
