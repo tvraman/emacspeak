@@ -6,6 +6,7 @@ Copyright:GPL
 Description:Convert XML to a Lisp S-expression.
 Goal: Replace Emacs' xml-parse.el with equivalent functionality
 Shortcomings: Quotes in  PCDATA will be lost
+Still very slow --- possibly write a native  libxml2 app?
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -13,9 +14,9 @@ Shortcomings: Quotes in  PCDATA will be lost
   
   <xsl:output method="text"/>
   <xsl:template match="text()">
-    <xsl:variable name="text" select="normalize-space()"/>
     <xsl:if test="$text">
-      "<xsl:copy-of select="translate($text, '&quot;', '')"/>" </xsl:if>
+      "<xsl:copy-of select="translate($text, '&quot;', '')"/>"
+      </xsl:if>
   </xsl:template>
   
   <xsl:template match="*">

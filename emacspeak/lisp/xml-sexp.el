@@ -57,6 +57,9 @@
 ;;; however it's inefficient to to construct this structure with
 ;;; a pure Emacs Lisp parser.
 
+;;; This is still too slow --- possibly rewrite as a native
+;;; libxml2 app.
+
 
 ;;; This module implements an alternative approach --- it uses a
 ;;; simple XSLT transform to convert XML into an S-Expression
@@ -90,7 +93,7 @@
   :group 'xml-sexp)
 (declaim (special emacspeak-xslt-directory))
 (defcustom xml-sexp-transform
-  (expand-file-name "xml2lisp.xsl"
+  (expand-file-name "xml2sexp.xsl"
                     emacspeak-xslt-directory)
   "XSL transform that converts XML structures to Lisp
 S-Expressions."
@@ -99,6 +102,7 @@ S-Expressions."
 
 ;;}}}
 ;;{{{ Commands
+;;;###autoload
 (defun xml-sexp-read-file (filename)
   "Return S-Expression  from parsing XML file."
   (declare (special xml-sexp-xslt-program xml-sexp-transform))
@@ -115,6 +119,7 @@ S-Expressions."
       (goto-char (point-min))
       (read (current-buffer)))))
 
+;;;###autoload
 (defun xml-sexp-read-region (start end)
   "Return S-Expression from parsing region of XML."
   (declare (special xml-sexp-xslt-program xml-sexp-transform))
