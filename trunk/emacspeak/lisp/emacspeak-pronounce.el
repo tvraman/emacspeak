@@ -760,7 +760,7 @@ specified pronunciation dictionary key."
 ;;}}}
 ;;{{{ Helpers: pronouncers
 
-(defvar emacspeak-pronounce-date-mm-dd-yy-pattern
+(defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
 
