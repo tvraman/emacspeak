@@ -226,7 +226,7 @@ personalities."
              ((not (cdr file)) emacspeak-eshell-ls-missing-personality)
              ((stringp (cadr file)) emacspeak-eshell-ls-symlink-personality)
              ((eq (cadr file) t) emacspeak-eshell-ls-directory-personality)
-             ((not (eshell-ls-filetype-p (cdr file) ?-))emacspeak- eshell-ls-special-personality)
+             ((not (eshell-ls-filetype-p (cdr file) ?-))emacspeak-eshell-ls-special-personality)
              ((and (/= (user-uid) 0)    ; root can execute anything
                    (eshell-ls-applicable (cdr file) 3
                                          'file-executable-p (car file)))
