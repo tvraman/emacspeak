@@ -1014,7 +1014,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
         (to (read (calendar-astro-date-string (or (car calendar-mark-ring)
                                                   (error "No mark set in this buffer"))))))
     (emacspeak-websearch-google
-     
      (concat
       (webjump-url-encode query )
       (format " daterange:%s-%s"
