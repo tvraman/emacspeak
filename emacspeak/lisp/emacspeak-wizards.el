@@ -693,6 +693,113 @@ end:\n\n")
   -  (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
+;;{{{ labelled frames
+
+
+(defsubst emacspeak-frame-read-frame-label ()
+  "Read a frame label with completion."
+  (interactive)
+  (completing-read  "Frame label: "
+(loop for f in (frame-list)
+                        collect
+ (cons (frame-parameter f 'emacspeak-label)
+        (frame-parameter f 'emacspeak-label)))))
+ 
+                        
+(defun emacspeak-frame-label-or-switch-to-labelled-frame (label
+                                                          &optional prefix)
+  "Switch to labelled frame.
+With optional PREFIX argument, label current frame."
+  (interactive
+   (list
+    (emacspeak-frame-read-frame-label)
+    current-prefix-arg))
+  (cond
+   (prefix
+    (modify-frame-parameters (selected-frame)
+                             (list (cons 'emacspeak-label label))))
+   (t(let ((frame (loop for f in (frame-list)
+                        if (string= label (frame-parameter f 'emacspeak-label))
+                        return f)))
+       (cond
+        ( frame
+          (select-frame frame)
+          (emacspeak-auditory-icon 'select-object)
+          (emacspeak-speak-mode-line))
+        (t
+         (message "No frame labelled %s" label)))))))
+
+
+(defun emacspeak-next-frame ()
+  "Move to next frame."
+  (interactive)
+  (other-frame 1)
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-mode-line))
+
+(defun emacspeak-previous-frame ()
+  "Move to next frame."
+  (interactive)
+  (other-frame -1)
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-mode-line))
+
+;;}}}
+;;{{{  readng different displays of same buffer
+
+(defun emacspeak-speak-this-buffer-other-window-display (&optional arg)
+  "Speak this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple
+windows or frames.
+These different windows can
+display different portions of the buffer.
+This is equivalent to leaving a book open at places at once.
+This command allows you to listen to the places where you
+have left the book open.  The number used to invoke this
+command
+specifies which of the displays you wish to speak.  Typically
+you will have two or at most three such displays open.
+The current display is 0, the next is 1, and so on.
+Optional argument ARG specifies the display to speak."
+  (interactive "P")
+  (let ((window (or arg
+                    (condition-case nil
+                        (read (format "%c" last-input-event ))
+                      (error nil ))))
+        (win nil)
+        (window-list (get-buffer-window-list
+                      (current-buffer)
+                      nil 'visible)))
+    (or (numberp window)
+        (setq window
+              (read-minibuffer "Window    to speak")))
+    (setq win
+          (nth (% window (length window-list ))
+               window-list))
+    (emacspeak-speak-region
+     (window-start win)
+     (window-end win))))
+
+(defun emacspeak-speak-this-buffer-previous-display ()
+  "Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'."
+  (interactive)
+  (let ((count (length (get-buffer-window-list
+                        (current-buffer)
+                        nil 'visible))))
+    (emacspeak-speak-this-buffer-other-window-display (1-  count))))
+
+(defun emacspeak-speak-this-buffer-next-display ()
+  "Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'."
+  (interactive)
+  (emacspeak-speak-this-buffer-other-window-display  1))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
