@@ -1156,7 +1156,9 @@ loaded. "
    (list
     (read-file-name "XML File: ")
     current-prefix-arg))
-  (let ((buffer  (get-buffer-create " *xml work * ")))
+  (declare (special emacspeak-xslt-options))
+  (let ((buffer  (get-buffer-create " *xml work * "))
+        (emacspeak-xslt-options ""))
     (save-excursion
       (set-buffer buffer)
       (insert-file-contents location)
