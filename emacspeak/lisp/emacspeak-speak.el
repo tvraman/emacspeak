@@ -1772,14 +1772,17 @@ See the documentation for function
   :group 'emacspeak-speak
   :type 'string)
 
-(defun emacspeak-speak-time ()
-  "Speak the time."
-  (interactive)
+(defun emacspeak-speak-time (&optional world)
+  "Speak the time.
+Optional interactive prefix invokes world clock."
+  (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
-  (tts-with-punctuations "some"
-                         (dtk-speak
-                          (format-time-string
-                           emacspeak-speak-time-format-string))))
+  (if world
+      (call-interactively 'emacspeak-wizards-world-clock)
+    (tts-with-punctuations "some"
+                           (dtk-speak
+                            (format-time-string
+                             emacspeak-speak-time-format-string)))))
                              
 (defconst emacspeak-codename
   "GoodDog"

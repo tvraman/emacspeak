@@ -574,7 +574,7 @@ emacspeak-play-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (16008 47607))
+;;;;;;  "emacspeak-speak.el" (16024 53928))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -869,21 +869,26 @@ Fall back summarizer for all widgets" nil nil)
 
 ;;;***
 
-;;;### (autoloads (emacspeak-wizards-generate-voice-sampler emacspeak-wizards-find-longest-line-in-region
-;;;;;;  emacspeak-wizards-vc-viewer-refresh emacspeak-wizards-vc-viewer
-;;;;;;  emacspeak-wizards-fix-read-only-text emacspeak-wizards-fix-typo
-;;;;;;  emacspeak-wizards-spot-words emacspeak-kill-buffer-quietly
+;;;### (autoloads (emacspeak-wizards-world-clock emacspeak-wizards-generate-voice-sampler
+;;;;;;  emacspeak-wizards-voice-sampler emacspeak-wizards-show-face
+;;;;;;  emacspeak-wizards-find-longest-paragraph-in-region emacspeak-wizards-find-longest-line-in-region
+;;;;;;  emacspeak-wizards-google-hits emacspeak-wizards-vc-viewer-refresh
+;;;;;;  emacspeak-wizards-vc-viewer emacspeak-wizards-fix-read-only-text
+;;;;;;  emacspeak-wizards-fix-typo emacspeak-wizards-spot-words emacspeak-kill-buffer-quietly
 ;;;;;;  emacspeak-switch-to-previous-buffer emacspeak-wizards-occur-header-lines
-;;;;;;  emacspeak-wizards-how-many-matches emacspeak-wizards-squeeze-blanks
-;;;;;;  emacspeak-wizards-finder-find emacspeak-wizards-generate-finder
-;;;;;;  emacspeak-wizards-portfolio-quotes emacspeak-wizards-ppt-display
-;;;;;;  emacspeak-wizards-xl-display emacspeak-annotate-add-annotation
-;;;;;;  emacspeak-wizards-get-table-content-from-file emacspeak-wizards-get-table-content-from-url
-;;;;;;  emacspeak-lynx emacspeak-skip-blank-lines-backward emacspeak-skip-blank-lines-forward
+;;;;;;  emacspeak-wizards-how-many-matches emacspeak-wizards-count-slides-in-region
+;;;;;;  emacspeak-wizards-squeeze-blanks emacspeak-wizards-show-environment-vvariable
+;;;;;;  emacspeak-customize emacspeak-wizards-use-w3-or-w3m emacspeak-wizards-finder-find
+;;;;;;  emacspeak-wizards-generate-finder emacspeak-wizards-portfolio-quotes
+;;;;;;  emacspeak-wizards-ppt-display emacspeak-wizards-xl-display
+;;;;;;  emacspeak-wizards-rpm-query-in-dired emacspeak-wizards-shell-toggle
+;;;;;;  emacspeak-annotate-add-annotation emacspeak-wizards-get-table-content-from-file
+;;;;;;  emacspeak-wizards-get-table-content-from-url emacspeak-lynx
+;;;;;;  emacspeak-links emacspeak-skip-blank-lines-backward emacspeak-skip-blank-lines-forward
 ;;;;;;  emacspeak-show-property-at-point emacspeak-show-personality-at-point
-;;;;;;  emacspeak-emergency-tts-restart emacspeak-speak-show-memory-used
-;;;;;;  emacspeak-wizards-show-list-variable emacspeak-clipboard-paste
-;;;;;;  emacspeak-clipboard-copy emacspeak-select-this-buffer-next-display
+;;;;;;  emacspeak-customize-personal-settings emacspeak-emergency-tts-restart
+;;;;;;  emacspeak-speak-show-memory-used emacspeak-wizards-show-list-variable
+;;;;;;  emacspeak-clipboard-paste emacspeak-clipboard-copy emacspeak-select-this-buffer-next-display
 ;;;;;;  emacspeak-select-this-buffer-previous-display emacspeak-select-this-buffer-other-window-display
 ;;;;;;  emacspeak-speak-this-buffer-next-display emacspeak-speak-this-buffer-previous-display
 ;;;;;;  emacspeak-speak-this-buffer-other-window-display emacspeak-previous-frame-or-buffer
@@ -891,12 +896,13 @@ Fall back summarizer for all widgets" nil nil)
 ;;;;;;  emacspeak-generate-documentation emacspeak-learn-mode emacspeak-cvs-gnu-get-project-snapshot
 ;;;;;;  emacspeak-cvs-sf-get-project-snapshot emacspeak-cvs-get-anonymous
 ;;;;;;  emacspeak-sudo emacspeak-root emacspeak-speak-telephone-directory
-;;;;;;  emacspeak-speak-show-active-network-interfaces emacspeak-speak-popup-messages
+;;;;;;  emacspeak-speak-show-active-network-interfaces emacspeak-speak-hostname
+;;;;;;  emacspeak-speak-popup-messages emacspeak-speak-browse-linux-howto
 ;;;;;;  emacspeak-speak-load-directory-settings emacspeak-speak-run-shell-command
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16008 47609))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16024 54502))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -949,13 +955,18 @@ Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory." t nil)
-;;{{{ linux howtos
+
+(autoload (quote emacspeak-speak-browse-linux-howto) "emacspeak-wizards" "\
+Browse a Linux Howto file.
+We cleanup underlining, and set up outline mode correctly." t nil)
 
 (autoload (quote emacspeak-speak-popup-messages) "emacspeak-wizards" "\
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
 previous window configuration." t nil)
-;;{{{ Show active network interfaces
+
+(autoload (quote emacspeak-speak-hostname) "emacspeak-wizards" "\
+Speak host name." t nil)
 
 (autoload (quote emacspeak-speak-show-active-network-interfaces) "emacspeak-wizards" "\
 Shows all active network interfaces in the echo area.
@@ -1093,7 +1104,10 @@ Convenience command to view state of memory used in this session so far." t nil)
 For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server." t nil)
-;;{{{ customization wizard
+
+(autoload (quote emacspeak-customize-personal-settings) "emacspeak-wizards" "\
+Create a customization buffer for browsing and updating
+personal customizations." t nil)
 
 (autoload (quote emacspeak-show-personality-at-point) "emacspeak-wizards" "\
 Show value of property personality (and possibly face)
@@ -1114,7 +1128,9 @@ Signals end of buffer." t nil)
 Move backward  across blank lines.
 The line under point is   then spoken.
 Signals beginning  of buffer." t nil)
-;;{{{  launch lynx 
+
+(autoload (quote emacspeak-links) "emacspeak-wizards" "\
+Launch links on  specified URL in a new terminal." t nil)
 
 (autoload (quote emacspeak-lynx) "emacspeak-wizards" "\
 Launch lynx on  specified URL in a new terminal." t nil)
@@ -1136,8 +1152,13 @@ Interactive prefix arg `reset' prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete." t nil)
-;;; buffer.
-;;{{{  run rpm -qi on current dired entry
+
+(autoload (quote emacspeak-wizards-shell-toggle) "emacspeak-wizards" "\
+Switch to the shell buffer and cd to 
+ the directory of the current buffer." t nil)
+
+(autoload (quote emacspeak-wizards-rpm-query-in-dired) "emacspeak-wizards" "\
+Run rpm -qi on current dired entry." t nil)
 
 (autoload (quote emacspeak-wizards-xl-display) "emacspeak-wizards" "\
 Called to set up preview of an XL file.
@@ -1161,13 +1182,21 @@ Generate a widget-enabled finder wizard." t nil)
 (autoload (quote emacspeak-wizards-finder-find) "emacspeak-wizards" "\
 Run find-dired on specified switches after prompting for the
 directory to where find is to be launched." t nil)
-;;{{{ alternate between w3 and w3m
-;;{{{ customize emacspeak
-;;{{{ display environment variable
+
+(autoload (quote emacspeak-wizards-use-w3-or-w3m) "emacspeak-wizards" "\
+Alternates between using W3 and W3M for browse-url." t nil)
+
+(autoload (quote emacspeak-customize) "emacspeak-wizards" "\
+Customize Emacspeak." t nil)
+
+(autoload (quote emacspeak-wizards-show-environment-vvariable) "emacspeak-wizards" "\
+Display value of specified environment variable." t nil)
 
 (autoload (quote emacspeak-wizards-squeeze-blanks) "emacspeak-wizards" "\
 Squeeze multiple blank lines in current buffer." t nil)
-;;{{{  count slides in region: (LaTeX specific.
+
+(autoload (quote emacspeak-wizards-count-slides-in-region) "emacspeak-wizards" "\
+Count slides starting from point." t nil)
 
 (autoload (quote emacspeak-wizards-how-many-matches) "emacspeak-wizards" "\
 If you define a file local variable 
@@ -1207,18 +1236,31 @@ View contents of specified virtual console." t nil)
 
 (autoload (quote emacspeak-wizards-vc-viewer-refresh) "emacspeak-wizards" "\
 Refresh view of VC we're viewing." t nil)
-;;{{{ google hits 
+
+(autoload (quote emacspeak-wizards-google-hits) "emacspeak-wizards" "\
+Filter Google results after performing search to show just the
+hits." t nil)
 
 (autoload (quote emacspeak-wizards-find-longest-line-in-region) "emacspeak-wizards" "\
 Find longest line in region.
 Moves to the longest line when called interactively." t nil)
-;;{{{ longest para in region 
-;;{{{ face wizard
-;;{{{ voice sample
+
+(autoload (quote emacspeak-wizards-find-longest-paragraph-in-region) "emacspeak-wizards" "\
+Find longest paragraph in region.
+Moves to the longest paragraph when called interactively." t nil)
+
+(autoload (quote emacspeak-wizards-show-face) "emacspeak-wizards" "\
+Show salient properties of specified face." t nil)
+
+(autoload (quote emacspeak-wizards-voice-sampler) "emacspeak-wizards" "\
+Read a personality  and apply it to the current line." t nil)
 
 (autoload (quote emacspeak-wizards-generate-voice-sampler) "emacspeak-wizards" "\
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family." t nil)
+
+(autoload (quote emacspeak-wizards-world-clock) "emacspeak-wizards" "\
+Display current date and time  for specified zone." t nil)
 
 ;;;***
 

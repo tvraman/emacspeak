@@ -112,6 +112,7 @@
 (setq xml-mode-extensions
       (list "\\.glade$" 
             "\\.wml$"  
+            "\\.html$"
             "\\.xml$"  
             "\\.jsp$"
             "\\.tld$"
