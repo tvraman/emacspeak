@@ -243,6 +243,14 @@
      (point-min)
      (point-max))))
 
+(defadvice  w3m-w3m-dump-head-source (after emacspeak pre act comp)
+  "Apply requested transform if any after grabbing the HTML. "
+  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+    (emacspeak-xslt-region
+     emacspeak-w3-xsl-transform
+     (point-min)
+     (point-max))))
+
 ;;}}}
 (provide 'emacspeak-w3m)
 ;;; emacspeak-w3m.el ends here
