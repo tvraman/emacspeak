@@ -20,7 +20,7 @@ shown in the output.
 <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
 <!--add base uri if available. -->
-  <xsl:template match="/html">
+  <xsl:template match="/html/head">
     <head>
       <xsl:element name="base">
         <xsl:attribute name="href">
