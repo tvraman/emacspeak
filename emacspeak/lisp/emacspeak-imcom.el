@@ -153,6 +153,7 @@ sessions.")
                      nil t))))
   (declare (special emacspeak-imcom-personal-directory
                     emacspeak-imcom-xsl-jabber))
+  (require 'w3)
   (let ((buffer  (get-buffer-create " *view-chat*")))
     (save-excursion
       (set-buffer buffer)
