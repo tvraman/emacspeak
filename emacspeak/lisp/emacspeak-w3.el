@@ -786,7 +786,6 @@ spoken automatically."
      (or (interactive-p)
 	 speak))))
 
-
 ;;;###autoload
 (defun emacspeak-w3-extract-print-streams ( &optional prompt-url speak)
   "Extract links to printable  streams.
