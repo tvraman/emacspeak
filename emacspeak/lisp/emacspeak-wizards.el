@@ -2669,6 +2669,21 @@ dates.")
   not ")))
     
 ;;}}}
+;;{{{ units wizard
+
+(defun emacspeak-wizards-units ()
+  "Run units in a comint sub-process."
+  (interactive)
+  (make-comint "units" "units"
+               nil "--verbose")
+  (switch-to-buffer "*units*")
+  (emacspeak-auditory-icon 'select-object)
+  (goto-char (point-max))
+  (unless emacspeak-comint-autospeak
+    (emacspeak-toggle-comint-autospeak))
+  (emacspeak-speak-mode-line))
+      
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
