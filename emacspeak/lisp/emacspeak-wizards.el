@@ -747,6 +747,42 @@ end:\n\n")
       (save-buffer)))
     (emacspeak-auditory-icon 'task-done))
 
+(defun emacspeak-generate-texinfo-command-documentation (filename)
+  "Generate texinfo documentation  for all emacspeak
+commands into file commands.texi.
+Warning! Contents of file commands.texi will be overwritten."
+  (interactive "FEnter filename to save DOC in: ")
+  (let ((buffer (find-file-noselect filename)))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert"@c $Id$\n")
+      (insert "@node Emacspeak Commands\n@chapter Emacspeak Commands\n")
+      (mapcar
+       (function
+        (lambda (f)
+          (let ((key (where-is-internal f)))
+            (insert (format "\n\n@unnumberedsec %s" f))
+            (if key
+                (condition-case nil
+                    (insert (format "\tKey Sequence:%s\n\n"
+                                    (mapconcat
+                                     'key-description
+                                     key " ")))
+                  (error nil))
+              (insert " No global keybinding\n\n"))
+            (insert
+             (or (documentation f)
+                 ""))
+            (insert "\n\n"))))
+       (emacspeak-list-emacspeak-commands))
+      (goto-char (point-min))
+      (while (re-search-forward "[{}]" nil t)
+        (replace-match "@\\&"))
+      (save-buffer)))
+  (emacspeak-auditory-icon 'task-done))
+
+
 ;;}}}
 ;;{{{ labelled frames
 
