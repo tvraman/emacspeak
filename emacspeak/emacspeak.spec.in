@@ -23,6 +23,8 @@ support for the freely downloadable IBM ViaVoice Outloud speech synthesis
 engine, Emacspeak now turns Linux into the first zero-cost Internet access
 solution for blind and visually impaired users.
 
+Prereqs: emacs, tcl, tclx
+
 %prep
 %setup
 
