@@ -785,7 +785,7 @@ minibuffer."
          (point-max)
          (list
           (cons "node-id" 
-(format "\"'%s'\"" node-id))
+                (format "\"'%s'\"" node-id))
           (cons "base"
                 (format "\"'%s'\""
                         (or source-url
