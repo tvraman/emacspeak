@@ -60,6 +60,16 @@
 ;;}}}
 ;;{{{ advice electric deletion
 
+(defadvice c-electric-delete-forward (around emacspeak pre act)
+  "Speak character you're deleting."
+  (cond
+   ((interactive-p )
+      (dtk-tone 500 30 'force)
+           (emacspeak-speak-this-char (following-char ))
+      ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
 (defadvice c-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (declare (special
