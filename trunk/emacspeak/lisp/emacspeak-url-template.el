@@ -153,7 +153,20 @@ generators  ; list of param generator
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{ Adobe pdf conversion 
+
+(emacspeak-url-template-define
+ "pdf2html"
+ "http://access.adobe.com/perl/convertPDF.pl?url=%s"
+ (list
+  (lambda ()
+    (webjump-url-encode
+     (read-from-minibuffer
+      "PDF URL: ")))))
+
+;;}}}
 ;;{{{ w3c 
+
 (emacspeak-url-template-define "w3c Lists"
                                "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
                                (list
@@ -171,9 +184,6 @@ generators  ; list of param generator
                          (format-time-string "%Y%h"
                                              (current-time)))))
 
-
-  
-  
 ;;}}}
 ;;{{{ cnn 
 
