@@ -163,6 +163,7 @@
 ;;}}}
 ;;{{{  template resources 
 
+
 ;;{{{ bbc 
 (emacspeak-url-template-define
  "BBC News"
@@ -172,8 +173,8 @@
      (search-forward
       (format-time-string
        "%A, %e %B, %Y"
-                          (current-time)
-                          'universal))
+       (current-time)
+       'universal))
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-rest-of-buffer))
  "BBC News text version.")
@@ -240,6 +241,19 @@
 ;;}}}
 ;;{{{ yahoo daily news 
 
+(defun emacspeak-url-template-yahoo-news-processor (url)
+  "Process and speak Yahoo news."
+  (declare (special emacspeak-w3-post-process-hook))
+  (setq emacspeak-w3-post-process-hook
+        #'(lambda nil
+            (declare (special  emacspeak-w3-url-rewrite-rule))
+            (setq emacspeak-w3-url-rewrite-rule
+                  '("$" "&printer=1"))
+            (emacspeak-speak-buffer)))
+  (emacspeak-w3-xslt-filter
+   "//*[@class=\"article\"]//td[position()=1]"
+   url))
+
 (emacspeak-url-template-define
  "My Yahoo "
  "http://my.yahoo.com"
@@ -266,10 +280,7 @@
  nil
  nil
  "Retrieve articles from   Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Politics"
@@ -277,10 +288,7 @@
  nil
  nil
  "Retrieve and speak Politics section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Entertainment"
@@ -288,10 +296,7 @@
  nil
  nil
  "Retrieve and speak Entertainment section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Sports"
@@ -299,10 +304,7 @@
  nil
  nil
  "Entertainment news from Yahoo."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Business News"
@@ -310,10 +312,7 @@
  nil
  nil
  "Retrieve and speak business  section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Science"
@@ -321,10 +320,7 @@
  nil
  nil
  "Retrieve and speak Science section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo SF Local"
@@ -332,10 +328,18 @@
  nil
  nil
  "Retrieve and speak Local section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
+
+(emacspeak-url-template-define
+ "Yahoo Content By Content ID"
+ "http://dailynews.yahoo.com/news?tmpl=index2&cid=%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer
+       "Content ID: ")))
+ nil
+ "Retrieve and speak news section from Yahoo Daily News."
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Top Stories"
@@ -343,10 +347,7 @@
  nil
  nil
  "Retrieve and speak Top Stories  section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Health"
@@ -354,10 +355,7 @@
  nil
  nil
  "Retrieve and speak Health section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Oddly"
@@ -365,10 +363,7 @@
  nil
  nil
  "Retrieve and speak Oddity section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Technology  News"
@@ -376,10 +371,7 @@
  nil
  nil
  "Yahoo Technology News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Lifestyle"
@@ -387,10 +379,7 @@
  nil
  nil
  "Yahoo Lifestyle News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo World News"
@@ -398,10 +387,7 @@
  nil
  nil
  "Yahoo World News."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//*[@class=\"article\"]//td[position()=1]"
-      url)))
+ 'emacspeak-url-template-yahoo-news-processor)
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
@@ -813,18 +799,15 @@ Set up URL rewrite rule to get print page."
 
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
-Use Emacs completion to obtain a list of available
-resources.
+Use Emacs completion to obtain a list of available resources.
 Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (declare (special emacspeak-url-template-table
-                    url-be-asynchronous emacspeak-speak-messages))
+                     emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
-        (url-be-asynchronous nil)
-	(url-http-asynchronous-p nil)
         (name nil)
         (table
          (loop for key being the hash-keys of
