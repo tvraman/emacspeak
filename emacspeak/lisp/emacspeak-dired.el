@@ -130,14 +130,11 @@ pronunciations only once.")
       (emacspeak-dired-label-fields)
       (emacspeak-auditory-icon 'open-object )
       (emacspeak-speak-mode-line))))
-(defadvice dired (after emacspeak pre act)
-  "Produce an auditory icon."
-  (when (interactive-p)
-    (let ((emacspeak-speak-messages nil))
-      (voice-lock-mode 1)
-      (emacspeak-dired-label-fields)
-      (emacspeak-auditory-icon 'open-object )
-      (emacspeak-speak-mode-line))))
+(defun emacspeak-dired-initialize ()
+  "Set up emacspeak dired."
+  (emacspeak-dired-label-fields)
+  (emacspeak-auditory-icon 'open-object )
+  (emacspeak-speak-mode-line))
 
 (defadvice dired-find-file  (around  emacspeak pre act)
   "Produce an auditory icon."
@@ -403,7 +400,7 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key dired-mode-map "\C-t" 'emacspeak-dired-speak-symlink-target)
   (define-key dired-mode-map "\C-i" 'emacspeak-speak-next-field)
   (define-key dired-mode-map  "," 'emacspeak-speak-previous-field))
-
+(add-hook 'dired-mode-hook 'emacspeak-dired-initialize 'append)
 (add-hook 'dired-mode-hook 'emacspeak-dired-setup-keys)
 (add-hook 'dired-mode-hook 'emacspeak-dired-define-pronunciations)
 ;;}}}

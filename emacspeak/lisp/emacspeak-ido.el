@@ -99,18 +99,35 @@
   "Speak completion at the head of the list."
   (when (interactive-p)
     (dtk-speak (car ido-matches))))
-(defadvice  ido-find-file (after emacspeak pre act comp)
+(loop for f in
+      '(ido-find-file ido-find-file-other-frame
+                      ido-find-file-other-window
+                      ido-find-alternate-file
+                      ido-find-file-read-only
+                      ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
+do
+(eval
+ (`
+(defadvice   (, f)(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+(loop for f in
+      '(ido-switch-buffer ido-switch-buffer-other-window
+                          ido-switch-buffer-other-frame
+                          ido-display-buffer)
+      do
+      (eval
+       (`
+        (defadvice   (, f)(after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-mode-line))))))
 
-(defadvice  ido-switch-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+
 
 ;;; note that though these are after advice fragments,
 ;;; ido-matches does not reflect the change at the time we
