@@ -162,6 +162,16 @@
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{  KLIV news 
+
+(emacspeak-url-template-define
+ "KLIV News" 
+ "http://newsclicker.com/wire/?200102170000023087&501"
+ nil
+ nil
+ "Display headline news from KLIV 1590 San Jose")
+
+;;}}}
 ;;{{{ yahoo daily news 
 
 (emacspeak-url-template-define
