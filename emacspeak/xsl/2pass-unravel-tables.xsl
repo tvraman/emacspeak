@@ -36,12 +36,15 @@ applies rules from the first pass.
       <xsl:apply-templates select="@*"/>
       <table>
         <caption>
-          <a href="##__about_unravel_tables">Tables Unravelled</a>
+          <a href="#__about_unravel_tables">Tables Unraveled</a>
         </caption>
         <tr>
           <td>
-            <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
-nested tables</a>
+            <a href="#__nested_tables">
+<xsl:value-of select="count(//table)"/> 
+tables of which 
+<xsl:value-of select="count(//table//table)"/>
+are nested</a>
           </td>
         </tr>
       </table>
@@ -67,6 +70,7 @@ There are
       </p>
     </xsl:element>
   </xsl:template>
+<!-- rule that defers rendering of nested tables -->
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
       Table <xsl:value-of select="position()"/><xsl:value-of select="@summary"/></xsl:element>
