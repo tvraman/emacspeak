@@ -94,58 +94,6 @@
   "Auto advices interactive commands to speak prompts."
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
 
-;;{{{  Understanding aid 
-
-(defun emacspeak-show-interactive (sym)
-  "Auto-advice interactive command to speak its prompt.  Fix
-the function definition of sym to make its interactive form
-speak its prompts. "
-  (let ((interactive-list
-         (split-string
-          (second (ad-interactive-form (symbol-function sym )))
-          "\n")))
-                                        ; advice if necessary
-    (when
-        (some
-         (function
-          (lambda (prompt)
-            (declare (special emacspeak-xemacs-p))
-            (not
-             (or
-              (string-match  "^[@*]?[depPr]" prompt )
-              (string= "*" prompt )
-              (and emacspeak-xemacs-p
-                   (not (string-match  "^\\*?[ck]" prompt )))))))
-         interactive-list )
-      (progn
-        (`
-         (defadvice (, sym) (before  emacspeak-auto activate  )
-           "Automatically defined advice to speak interactive prompts. "
-           (interactive
-            (nconc  
-             (,@
-              (mapcar
-               (function 
-                (lambda (prompt)
-                  (` (let
-                         ((dtk-stop-immediately nil)
-                          (emacspeak-last-command-needs-minibuffer-spoken t)
-                          (emacspeak-speak-messages nil))
-                       (tts-with-punctuations "all"
-                                              (dtk-speak
-                                               (,
-                                                (format " %s "
-                                                        (or
-                                                         (if (= ?* (aref  prompt 0))
-                                                             (substring prompt 2 )
-                                                           (substring prompt 1 ))
-                                                         "")))))
-                       (call-interactively
-                        '(lambda (&rest args)
-                           (interactive (, prompt))
-                           args) nil)))))
-               interactive-list))))))))))
-
 ;;}}}
 ;;;###autoload
 (defun emacspeak-fix-interactive (sym)
@@ -182,22 +130,21 @@ speak its prompts. "
             (,@
              (mapcar
               #'(lambda (prompt)
-                  (when (> (length prompt) 0)
-                    (`
-                     (let ((dtk-stop-immediately nil)
-                           (emacspeak-last-command-needs-minibuffer-spoken t)
-                           (emacspeak-speak-messages nil))
-                       (when  (string-match"^[ckK]" (, prompt))
-                         (emacspeak-auditory-icon 'open-object)
-                         (tts-with-punctuations
-                          "all"
-                          (dtk-speak
-                           (format " %s "
-                                   (or (substring (, prompt) 1 ) "")))))
-                       (call-interactively
-                        #'(lambda (&rest args)
-                            (interactive (, prompt))
-                            args) nil)))))
+                  (`
+                   (let ((dtk-stop-immediately nil)
+                         (emacspeak-last-command-needs-minibuffer-spoken t)
+                         (emacspeak-speak-messages nil))
+                     (when  (string-match"^[ckK]" (, prompt))
+                       (emacspeak-auditory-icon 'open-object)
+                       (tts-with-punctuations
+                        "all"
+                        (dtk-speak
+                         (format " %s "
+                                 (or (substring (, prompt) 1 ) "")))))
+                     (call-interactively
+                      #'(lambda (&rest args)
+                          (interactive (, prompt))
+                          args) nil))))
               interactive-list)))))))))
   t)
 
