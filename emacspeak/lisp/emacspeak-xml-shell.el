@@ -286,7 +286,12 @@ HTML head if none found."
     (emacspeak-xslt-region
      emacspeak-xml-shell-xslt
      start end))
-  (emacspeak-xml-shell-setup-html-base emacspeak-xml-shell-document)
+  (emacspeak-xml-shell-setup-html-base
+   emacspeak-xml-shell-document)
+  (save-excursion
+    (goto-char (point-min))
+(while (search-forward "-------" nil t)
+  (replace-match "<br>")))
   (emacspeak-w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 
