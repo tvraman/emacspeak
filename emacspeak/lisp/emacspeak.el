@@ -658,6 +658,17 @@ Emacs 20.3"
   )
 
 ;;}}}
+;;{{{  personal keymaps 
+
+(defun emacspeak-personal-keybindings ()
+  "Load user's personal keybindings for the audio desktop."
+  (interactive)
+  (when (locate-library "emacspeak-personal")
+    (load-library "emacspeak-personal")))
+
+(add-hook 'emacspeak-startup-hook 'emacspeak-personal-keybindings)
+
+;;}}}
 ;;{{{ setup programming modes 
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
@@ -703,6 +714,7 @@ sets punctuation mode to all, and turns on split caps."
 
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions 
+
 (add-hook 'after-init-hook
           'emacspeak-fix-commands-that-use-interactive)
 
