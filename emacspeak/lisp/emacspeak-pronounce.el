@@ -260,16 +260,23 @@ Modifies text and point in buffer."
   (loop for  key  being the hash-keys  of pronunciation-table
         do
         (let ((word (symbol-name key))
-              (pronunciation (gethash  key pronunciation-table )))
+              (pronunciation (gethash  key pronunciation-table ))
+              (personality nil))
           (goto-char (point-min))
           (while (search-forward  word nil t)
+            (setq personality
+                  (get-text-property (point) 'personality))
             (replace-match  pronunciation t t  )
-            (and emacspeak-pronounce-pronunciation-personality
-                 (put-text-property
-                  (match-beginning 0)
-                  (+ (match-beginning 0) (length pronunciation))
-                  'personality
-                  emacspeak-pronounce-pronunciation-personality))))))
+            (if emacspeak-pronounce-pronunciation-personality
+                (put-text-property
+                 (match-beginning 0)
+                 (+ (match-beginning 0) (length pronunciation))
+                 'personality
+                 emacspeak-pronounce-pronunciation-personality)
+              (put-text-property
+               (match-beginning 0)
+               (+ (match-beginning 0) (length pronunciation))
+               'personality personality))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
