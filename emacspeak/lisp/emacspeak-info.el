@@ -140,7 +140,7 @@ node -- speak the entire node."
   :type '(menu-choice
 	  (const screenful)
 	  (const node))
-  :group 'emacspeak)
+  :group 'emacspeak-info)
 
 (defsubst emacspeak-info-speak-current-window ()
   "Speak current window in info buffer."

@@ -159,104 +159,69 @@ personalities."
   :type 'boolean
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-directory-personality 'ursula
+(def-voice-font  emacspeak-eshell-ls-directory-personality
+  'ursula
+  'eshell-ls-directory-face
   "Personality for directory names."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-symlink-personality voice-bolden
+(def-voice-font  emacspeak-eshell-ls-symlink-personality
+  voice-bolden
+    'eshell-ls-symlink-face
   "Personality for symlinks."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-executable-personality voice-animate-extra
+(def-voice-font  emacspeak-eshell-ls-executable-personality
+  voice-animate-extra
+    'eshell-ls-executable-face
   "Personality for executables."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-readonly-personality voice-monotone
+(def-voice-font  emacspeak-eshell-ls-readonly-personality
+  voice-monotone
+    'eshell-ls-readonly-face
   "Personality for read only files."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-unreadable-personality 'kid 
+(def-voice-font  emacspeak-eshell-ls-unreadable-personality 'kid
+    'eshell-ls-unreadable-face
   "Personality for files that are not readable."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
 (defcustom emacspeak-eshell-ls-special-personality voice-smoothen
   "Personality for special files."
-  :type 'symbol
-  :group 'emacspeak-eshell)
+:group 'emacspeak-eshell)
+  
 
-(defcustom emacspeak-eshell-ls-missing-personality voice-brighten
+(def-voice-font  emacspeak-eshell-ls-missing-personality
+  voice-brighten
+    'eshell-ls-missing-face
   "Personality for missing file."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-archive-personality voice-lighten-extra
+(def-voice-font  emacspeak-eshell-ls-archive-personality
+  voice-lighten-extra
+    'eshell-ls-archive-face
   "Personality for archive files."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-backup-personality voice-monotone-medium
+(def-voice-font  emacspeak-eshell-ls-backup-personality
+  voice-monotone-medium
+    'eshell-ls-backup-face
   "Personality for backup files. "
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-product-personality voice-bolden
+(def-voice-font  emacspeak-eshell-ls-product-personality
+  voice-bolden
+    'eshell-ls-product-face
   "Personality for files that can be recreated."
-  :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom  emacspeak-eshell-ls-clutter-personality voice-lighten-extra
+(def-voice-font   emacspeak-eshell-ls-clutter-personality
+  voice-lighten-extra
+     'eshell-ls-clutter-face
   "Personality for transients."
-  :type 'symbol
   :group 'emacspeak-eshell)
-
-(defadvice  eshell-ls-decorated-name (around emacspeak pre act comp)
-  "Voiceify the name if requested."
-  (cond
-   (emacspeak-eshell-ls-use-personalities
-    ad-do-it
-    (let ((result ad-return-value)
-          (file (ad-get-arg 0))
-          (personality nil))
-      (setq personality
-            (cond
-             ((not (cdr file)) emacspeak-eshell-ls-missing-personality)
-             ((stringp (cadr file)) emacspeak-eshell-ls-symlink-personality)
-             ((eq (cadr file) t) emacspeak-eshell-ls-directory-personality)
-             ((not (eshell-ls-filetype-p (cdr file) ?-))emacspeak-eshell-ls-special-personality)
-             ((and (/= (user-uid) 0)    ; root can execute anything
-                   (eshell-ls-applicable (cdr file) 3
-                                         'file-executable-p (car file)))
-              emacspeak-eshell-ls-executable-personality)
-             ((not (eshell-ls-applicable (cdr file) 1
-                                         'file-readable-p (car file)))
-              emacspeak-eshell-ls-unreadable-personality)
-
-             ((string-match eshell-ls-archive-regexp (car file))
-              emacspeak-eshell-ls-archive-personality)
-
-             ((string-match eshell-ls-backup-regexp (car file))
-              emacspeak-eshell-ls-backup-personality)
-
-             ((string-match eshell-ls-product-regexp (car file))
-              emacspeak-eshell-ls-product-personality)
-
-             ((string-match eshell-ls-clutter-regexp (car file))
-              emacspeak-eshell-ls-clutter-personality)
-
-             ((not (eshell-ls-applicable (cdr file) 2
-                                         'file-writable-p (car file)))
-              emacspeak-eshell-ls-readonly-personality)))
-      (if personality
-          (add-text-properties 0 (length result)
-                               (list 'personality personality)
-                               result)))
-    result)
-   (t ad-return-value)))
 
 ;;}}}
 ;;{{{ Advice em-prompt

@@ -58,7 +58,7 @@
 (defcustom emacspeak-imcom-client "imcom"
   "Name of IMCom command-line client."
   :type 'string
-  :group 'emacspeak)
+  :group 'emacspeak-imcom)
 
 (defcustom emacspeak-imcom-personal-directory
   (expand-file-name "~/.imcom/")
