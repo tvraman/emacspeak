@@ -99,10 +99,10 @@ relevant tables bubble to the top.
                   </em><br/></xsl:element>
             <xsl:value-of select="count(./tr)"/> Rows And <xsl:value-of select="count(./tr/td)"/> Cells
                     </h2>
-                    <xsl:element name="table">
+                    <table>
                         <xsl:apply-templates select="@*"/>
                         <xsl:apply-templates/>
-                    </xsl:element>
+                    </table>
                 </xsl:for-each>
                 <h2>
                     <a name="__about_sorted_tables">About This Style</a>
