@@ -46,22 +46,22 @@ applies rules from the first pass.
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-<h2>Readers Note </h2>
+      <h2>Readers Note </h2>
 
-<p>
-Note that nested tables have been moved to the end of this
-      document under section <a
-      href="#__nested_tables">nested tables</a>.
-The table cell that contained the nested table has been
-      replaced with a hyperlink that navigates to the actual
-      table. If the author has provided a summary and or
-      caption for the nested table, those will be displayed
-      as the hyperlink text.
-</p>
+      <p>
+        Note that nested tables have been moved to the end of this
+        document under section <a
+                                  href="#__nested_tables">nested tables</a>.
+        The table cell that contained the nested table has been
+        replaced with a hyperlink that navigates to the actual
+        table. If the author has provided a summary and or
+        caption for the nested table, those will be displayed
+        as the hyperlink text.
+      </p>
       <xsl:apply-templates />
       <h2><a name="__nested_tables"
-      id="__nested_tables">
-Embedded Tables </a> </h2>
+             id="__nested_tables">
+          Embedded Tables </a> </h2>
       <xsl:apply-templates select="//table//table" mode="second-pass"/>
     </xsl:element>
   </xsl:template>
@@ -71,7 +71,7 @@ Embedded Tables </a> </h2>
       <xsl:attribute name="href">
         <xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/>
       </xsl:attribute>
-      Table <xsl:value-of select="caption"/>
+      <xsl:value-of select="caption"/>
       Summary: <xsl:value-of select="@summary"/>
     </xsl:element>
   </xsl:template>
