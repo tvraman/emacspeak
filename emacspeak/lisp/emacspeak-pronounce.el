@@ -334,10 +334,10 @@ Modifies text and point in buffer."
   (declare (special emacspeak-pronounce-dictionaries ))
   (let* ((ido-mode nil)
          (filename (read-file-name
-                   "Save pronunciation dictionaries to file: "
-                   emacspeak-resource-directory
-                   emacspeak-pronounce-dictionaries-file ))
-        (buffer nil ))
+		    "Save pronunciation dictionaries to file: "
+		    emacspeak-resource-directory
+		    emacspeak-pronounce-dictionaries-file ))
+	 (buffer nil ))
     (setq buffer (find-file-noselect filename))
     (save-excursion
       (set-buffer buffer)
