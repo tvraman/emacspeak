@@ -1,4 +1,4 @@
-;;; amphetadesk.el --- Emacspeak News Portal Interface
+;;; emacspeak-amphetadesk.el --- Emacspeak News Portal Interface
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  RSS Wizard for the emacspeak desktop
@@ -57,43 +57,43 @@
 ;;}}}
 ;;{{{ amphetadesk
 
-(defgroup amphetadesk nil
+(defgroup emacspeak-amphetadesk nil
   "AmphetaDesk"
   :group 'aplications)
 
-(defcustom amphetadesk-program
+(defcustom emacspeak-amphetadesk-program
   "/usr/local/share/amphetadesk-src-v0.93.1/AmphetaDesk.pl "
   "Script that launches amphetadesk."
   :type 'file
-  :group 'amphetadesk)
+  :group 'emacspeak-amphetadesk)
 
-(defcustom amphetadesk-port 8888
+(defcustom emacspeak-amphetadesk-port 8888
   "Port where AmphetaDesk listens."
   :type 'integer
-  :group 'amphetadesk)
+  :group 'emacspeak-amphetadesk)
 
-(defsubst amphetadesk-ensure-live ()
+(defsubst emacspeak-amphetadesk-ensure-live ()
   "Ensure AmphetaDesk is alive, and start it if necessary."
-  (declare (special amphetadesk-program
-                    amphetadesk-port))
+  (declare (special emacspeak-amphetadesk-program
+                    emacspeak-amphetadesk-port))
   (if (=  1
           (shell-command
            (format "netstat -nat | grep %s"
-		   amphetadesk-port)))
+		   emacspeak-amphetadesk-port)))
       (shell-command
        (format "%s &"
-               amphetadesk-program)
+               emacspeak-amphetadesk-program)
        "*AmphetaDesk*")))
 
 ;;;###autoload
-(defun amphetadesk ()
+(defun emacspeak-amphetadesk ()
   "Open amphetadesk."
   (interactive)
-  (amphetadesk-ensure-live)
+  (emacspeak-amphetadesk-ensure-live)
   (browse-url "http://127.0.0.1:8888/"))
 
 ;;}}}
-(provide 'amphetadesk)
+(provide 'emacspeak-amphetadesk)
 ;;{{{ end of file
 
 ;;; local variables:
