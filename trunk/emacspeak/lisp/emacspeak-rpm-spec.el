@@ -162,51 +162,35 @@
 ;;}}}
 ;;{{{ voice locking 
 
-(defcustom rpm-spec-macro-personality  'harry
+(def-voice-map rpm-spec-macro-personality  'harry
+  'rpm-spec-macro-face
   "*Personality for macros"
-  :type 'symbol
   :group 'emacspeak-rpm)
-(voice-setup-set-voice-for-face 'rpm-spec-macro-face
-                                'rpm-spec-macro-face)
 
-(defcustom rpm-spec-tag-personality 'paul-smooth
+(def-voice-map rpm-spec-tag-personality 'paul-smooth
+  'rpm-spec-tag-face
   "*Personality for tags"
-  :type 'symbol
   :group 'emacspeak-rpm)
 
-(voice-setup-set-voice-for-face 'rpm-spec-tag-face rpm-spec-tag-personality)
-
-(defcustom rpm-spec-package-personality 'paul-animated
+(def-voice-map rpm-spec-package-personality 'paul-animated
+  'rpm-spec-package-face
   "*Personality for package tag"
-  :type 'symbol
   :group 'emacspeak-rpm)
 
-(voice-setup-set-voice-for-face 'rpm-spec-tag-face
-rpm-spec-tag-personality)
-
-
-(defcustom rpm-spec-dir-personality 'betty
+(def-voice-map rpm-spec-dir-personality 'betty
+  'rpm-spec-dir-face
   "*Personality for directory entries"
-  :type 'symbol
   :group 'emacspeak-rpm)
 
-(voice-setup-set-voice-for-face 'rpm-spec-tag-face
-                                rpm-spec-tag-personality)
-
-(defcustom rpm-spec-doc-personality 'paul-monotone
+(def-voice-map rpm-spec-doc-personality 'paul-monotone
+  'rpm-spec-doc-face
   "*Personality for documentation entries"
-  :type 'symbol
   :group 'emacspeak-rpm)
 
-(voice-setup-set-voice-for-face 'rpm-spec-doc-face  rpm-spec-doc-personality)
-(defcustom rpm-spec-ghost-personality 'annotation-voice
+(def-voice-map rpm-spec-ghost-personality 'annotation-voice
+  'rpm-spec-ghost-face
   "*Personality for %ghost files"
-  :type 'symbol
   :group 'emacspeak-rpm)
-(voice-setup-set-voice-for-face  'rpm-spec-ghost-face
-rpm-spec-ghost-personality)
-
-
 
 ;;}}}
 (provide 'emacspeak-rpm-spec)
