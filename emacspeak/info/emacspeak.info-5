@@ -8,10 +8,46 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
+
+emacspeak-vm
+============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-vm.
+
+ - emacspeak-vm-browse-message: ()
+     Browse an email message -read it paragraph at a time.
+
+ - emacspeak-vm-catch-up-all-messages: ()
+     Mark all messages in folder to be deleted. Use with caution.
+
+ - emacspeak-vm-locate-subject-line: ()
+     Locates the subject line in a message being read.  Useful when
+     you're reading a message that has been forwarded multiple times.
+
+ - emacspeak-vm-mode-line: ()
+     VM mode line information.
+
+ - emacspeak-vm-next-button: (N)
+     Move point to N buttons forward.  If N is negative, move backward
+     instead.
+
+ - emacspeak-vm-speak-labels: ()
+     Speak a message's labels
+
+ - emacspeak-vm-yank-header: ()
+     Yank specified header into kill ring.
+
+
 File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: emacspeak-vm,  Up: Emacspeak Commands
 
 emacspeak-w3
 ============
+
+   Commentary: Ensure that speech support for W3 gets installed and
+loaded correctly.  The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
 
    Automatically generated documentation for commands defined in module
 emacspeak-w3.
@@ -209,6 +245,9 @@ File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev
 
 emacspeak-websearch
 ===================
+
+   Commentary: This module provides utility functions for searching the
+WWW
 
    Automatically generated documentation for commands defined in module
 emacspeak-websearch.
@@ -428,6 +467,9 @@ File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-wizards,  Prev: 
 emacspeak-widget
 ================
 
+   Commentary: This module implements the necessary extensions to
+provide talking widgets.
+
    Automatically generated documentation for commands defined in module
 emacspeak-widget.
 
@@ -453,6 +495,8 @@ File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak-xml-shell,  Pre
 
 emacspeak-wizards
 =================
+
+   Commentary: Contains various wizards for the Emacspeak desktop.
 
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
