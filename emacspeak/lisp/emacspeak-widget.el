@@ -141,15 +141,9 @@
 (defun emacspeak-widget-help-item (widget)
   "Summarize a  item"
   (let* ((value (widget-value widget))
-         (tag (widget-get widget :tag))
-         (parent-summary
-          (widget-apply
-           (widget-get widget :parent)                         
-           :emacspeak-echo )))
+         (tag (widget-get widget :tag)))
     (concat
-     (or tag value)
-            " for  "
-            parent-summary )))
+     (or tag value))))
 
 (widget-put (get 'item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-item)
@@ -162,14 +156,13 @@
 Is smart about summarizing the parent where it makes sense,
 e.g. for repeat lists."
   (let* ((type (widget-type widget))
-         (value (widget-value widget))
          (tag (widget-get widget :tag))
          (parent (widget-get widget :parent))
          (parent-help(when parent
                        (widget-apply parent :emacspeak-help))))
     (concat
-     (format " %s " type)
-     (or tag value "")
+      (format " %s " type) 
+     tag
      (or parent-help " "))))
 
 (widget-put (get 'push-button 'widget-type)
@@ -278,19 +271,42 @@ e.g. for repeat lists."
   "Summarize a pull down list"
   (let* ((tag (widget-get widget :tag))
          (value (widget-get widget :value))
+         (child (car (widget-get widget :children)))
          (type (widget-type widget ))
          (emacspeak-speak-messages nil))
     (put-text-property 0 (length tag)
                        'personality 'harry tag)
     (concat
-     (or tag 
-     (format " %s " type))
+     (or tag (format " %s " type))
      " is "
-(format " %s " value))))
+     (if child
+         (widget-apply child :emacspeak-help)
+(format " %s " value)))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
+
+;;}}}
+;;{{{  toggle button 
+
+(defun emacspeak-widget-help-toggle (widget)
+  "Summarize a toggle..
+Is smart about summarizing the parent where it makes sense."
+  (let* ((type (widget-type widget))
+         (value (widget-value widget))
+         (tag (widget-get widget :tag))
+         (parent (widget-get widget :parent))
+         (parent-help(when parent
+                       (widget-apply parent :emacspeak-help))))
+    (concat
+     (or tag 
+     (format " %s " type))
+     (or value " ")
+     (or parent-help " "))))
+
+(widget-put (get 'toggle 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-toggle)
 
 ;;}}}
 ;;{{{ choice-item
