@@ -671,7 +671,7 @@ the broadcast. You must have mplayer installed."
  "Play NPR Talk Of The Nation  stream."
  'emacspeak-realaudio-play)
 (emacspeak-url-template-define
- "Morning Edition  Stream from NPR"
+ "Morning Edition Stream from NPR"
  "http://www.npr.org/ramfiles/me/%s.me.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
