@@ -31,6 +31,16 @@ emacspeak.dvi:		emacspeak.texi
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
 
+
+emacspeak.pdf:		emacspeak.texi
+	pdftex emacspeak.texi
+	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
+	pdftex emacspeak.texi
+	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
+		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
+		emacspeak.log emacspeak.toc emacspeak.aux
+
+
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 

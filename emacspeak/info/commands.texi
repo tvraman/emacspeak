@@ -60,11 +60,11 @@ documentation.
 * emacspeak-view-process::      
 * emacspeak-view::              
 * emacspeak-vm::                
-* emacspeak-w3::                
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak::                   
 * dis-quote::                   
+* emacspeak-w3::                
 * emacspeak-w3search::          
 * emacspeak-wizards::           
 @end menu
@@ -3937,105 +3937,6 @@ Useful when you're reading a message
 that has been forwarded multiple times.
 @end deffn
 
-@node emacspeak-w3
-@section emacspeak-w3
-
-
-
-
-Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3.
-
-
-
-@deffn emacspeak-w3-next-doc-element
-t 'byte-optimizer 'byte-compile-inline-expand)
-#@@129 Move forward  to the next document element.
-Optional interactive prefix argument COUNT 
-specifies by how many eleemnts to move.
-@end deffn
-
-
-
-@deffn emacspeak-w3-speak-this-element
-s-element])
-@end deffn
-
-
-
-@deffn emacspeak-w3-toggle-table-borders
--silent-border (make-vector 16 32) (#$ . 5433))
-#@@36 Toggle drawing of W3 table borders
-@end deffn
-
-
-
-@deffn emacspeak-w3-url-rewrite-and-follow
-e-buffer-local 'emacspeak-w3-url-rewrite-rule)
-#@@539 Apply a url rewrite rule as specified in the current buffer
-before following link under point.  If no rewrite rule is
-defined, first prompt for one.  Rewrite rules are of the
-form `(from to)' where from and to are strings.  Typically,
-the rewrite rule is automatically set up by Emacspeak tools
-like websearch where a rewrite rule is known.  Rewrite rules
-are useful in jumping directly to the printer friendly
-version of an article for example.
-Optional interactive prefix arg  prompts for a rewrite rule
-even if one is already defined.
-@end deffn
-
-
-
-@deffn emacspeak-w3-speak-next-element
--function])
-@end deffn
-
-
-
-@deffn emacspeak-w3-lynx-url-under-point
-k-speak-line])
-@end deffn
-
-
-
-@deffn emacspeak-w3-show-anchor-class
-k "t" emacspeak-w3-jump-to-title-in-content] 4)
-#@@68 Display any class attributes set on corresponding anchor
-element. 
-@end deffn
-
-
-
-@deffn emacspeak-w3-jump-to-title-in-content
-unction])
-@end deffn
-
-
-
-@deffn emacspeak-w3-javascript-follow-link
-3-fetch])
-@end deffn
-
-
-
-@deffn emacspeak-w3-do-onclick
-up-buffer " *javascript-cleanup*" (#$ . 10213))
-#@@21 Do  onclick action.
-@end deffn
-
-
-
-@deffn emacspeak-w3-previous-doc-element
--element])
-@end deffn
-
 @node emacspeak-websearch
 @section emacspeak-websearch
 
@@ -4506,6 +4407,107 @@ for commands defined in module  dis-quote.
 
 @deffn quotes-setup-emacspeak-portfolio
 Set up variable emacspeak-websearch-personal-portfolio. 
+@end deffn
+
+@node emacspeak-w3
+@section emacspeak-w3
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3.
+
+
+
+@deffn emacspeak-w3-next-doc-element
+Move forward  to the next document element.
+Optional interactive prefix argument COUNT 
+specifies by how many eleemnts to move.
+@end deffn
+
+
+
+@deffn emacspeak-w3-speak-this-element
+Speak document element under point.
+@end deffn
+
+
+
+@deffn emacspeak-w3-toggle-table-borders
+Toggle drawing of W3 table borders
+@end deffn
+
+
+
+@deffn emacspeak-w3-url-rewrite-and-follow
+Apply a url rewrite rule as specified in the current buffer
+before following link under point.  If no rewrite rule is
+defined, first prompt for one.  Rewrite rules are of the
+form `(from to)' where from and to are strings.  Typically,
+the rewrite rule is automatically set up by Emacspeak tools
+like websearch where a rewrite rule is known.  Rewrite rules
+are useful in jumping directly to the printer friendly
+version of an article for example.
+Optional interactive prefix arg  prompts for a rewrite rule
+even if one is already defined.
+@end deffn
+
+
+
+@deffn emacspeak-w3-speak-next-element
+Speak next document element.
+@end deffn
+
+
+
+@deffn emacspeak-w3-jump-to-submit
+Jump to next available submit button.
+@end deffn
+
+
+
+@deffn emacspeak-w3-lynx-url-under-point
+Display contents of URL under point using LYNX.  The
+document is displayed in a separate buffer. Note that the
+hyperlinks in that display are not active-- this facility is
+present only to help me iron out the remaining problems with
+the table structure extraction code in W3.
+@end deffn
+
+
+
+@deffn emacspeak-w3-show-anchor-class
+Display any class attributes set on corresponding anchor
+element. 
+@end deffn
+
+
+
+@deffn emacspeak-w3-jump-to-title-in-content
+Jumps to the occurrence of document title in page body.
+@end deffn
+
+
+
+@deffn emacspeak-w3-javascript-follow-link
+Follow URL hidden inside a javascript link
+@end deffn
+
+
+
+@deffn emacspeak-w3-do-onclick
+Do  onclick action.
+@end deffn
+
+
+
+@deffn emacspeak-w3-previous-doc-element
+Move back  to the previous document element.
+Optional interactive prefix argument COUNT 
+specifies by how many eleemnts to move.
 @end deffn
 
 @node emacspeak-w3search
@@ -5013,12 +5015,6 @@ If no property is set, show a message and exit.
 
 Automatically generated documentation
 for commands defined in module  nil.
-
-
-
-@deffn emacspeak-w3-jump-to-submit
-Jump to next available submit button.
-@end deffn
 
 
 
