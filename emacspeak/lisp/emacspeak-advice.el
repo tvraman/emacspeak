@@ -1159,8 +1159,7 @@ in completion buffers"
   (let ((start (line-beginning-position))
         (end (line-end-position)))
     (put-text-property start end 'personality
-                       emacspeak-comint-input-personality)
-    (message "%s %s " start end)))
+                       emacspeak-comint-input-personality)))
 
 (defadvice comint-send-eof (before emacspeak pre act comp)
   "Announce what we are doing."
