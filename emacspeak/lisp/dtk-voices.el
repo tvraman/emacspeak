@@ -115,16 +115,6 @@ COMMAND-STRING to the Dectalk."
 					;(dtk-define-voice 'paul-italic "[:np :dv ap 140 hs 99 pr 200  hr 10 sr 20]")
 
 ;;}}}
-;;{{{  Associate faces to standard voices:
-
-(dtk-define-voice-alias 'bold 'paul-smooth)
-(dtk-define-voice-alias 'bold-italic 'betty)
-(dtk-define-voice-alias 'underline 'ursula)
-(dtk-define-voice-alias 'fixed 'paul-monotone)
-(dtk-define-voice-alias 'italic 'paul-animated)
-(dtk-define-voice-alias 'excerpt 'annotation-voice )
-
-;;}}}
 ;;{{{  Settings from Janet Cahn's thesis.
 
 ;;; the  following are taken from Janet Cahn's Masters thesis.
@@ -154,6 +144,16 @@ COMMAND-STRING to the Dectalk."
                   "[:np   :dv as 60 ap 120 bf 9 hr 5 pr 220 sr 66 br 0 la 0 lx 0   qu 70 ri 49 sm 54 gh 70 gf 70 gv 64 b4 260 b5 331 ]")
 
 ;;}}}
+;;{{{  Associate faces to standard voices:
+
+(dtk-define-voice-alias 'bold 'paul-smooth)
+(dtk-define-voice-alias 'bold-italic 'betty)
+(dtk-define-voice-alias 'underline 'ursula)
+(dtk-define-voice-alias 'fixed 'paul-monotone)
+(dtk-define-voice-alias 'italic 'paul-animated)
+(dtk-define-voice-alias 'excerpt 'annotation-voice )
+
+;;}}}
 ;;{{{  the inaudible voice
 
 (dtk-define-voice 'inaudible "")
@@ -161,11 +161,12 @@ COMMAND-STRING to the Dectalk."
 ;;}}}
 ;;{{{  return list of all defined voices
 
-(defun voice-personality-list ()
+(defun dtk-voice-personality-list ()
   "Return list of all defined voices."
   (declare (special dtk-voice-table))
   (loop for key being the hash-keys of dtk-voice-table
 	collect key ))
+
 ;;}}}
 ;;{{{ standard symbols as voices:
 
