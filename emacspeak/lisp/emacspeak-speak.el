@@ -1776,7 +1776,7 @@ Second interactive prefix sets clock to new timezone."
                             
  
 (defconst emacspeak-codename
-  "PlayDog"
+  "LeapDog"
   "Code name of present release.")
 
 (defun emacspeak-speak-version ()
