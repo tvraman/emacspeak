@@ -62,7 +62,6 @@ documentation.
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
 * emacspeak-speak::             
-* emacspeak-speedbar::          
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -347,6 +346,8 @@ The complete audio desktop.
 
 Emacspeak extends Emacs to be a fully functional audio desktop.
 This is the main emacspeak module.
+It actually does very little:
+It loads the various parts of the system.
 
 Automatically generated documentation
 for commands defined in module  emacspeak.
@@ -675,6 +676,9 @@ Stop audio.
 
 Commentary:
 This module speech enables dired.
+It reduces the amount of speech you hear:
+Typically you hear the file names as you move through the dired buffer
+Voicification is used to indicate directories, marked files etc.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
@@ -1718,6 +1722,13 @@ This module assumes that sane is installed and working
 for image acquisition,
 and that there is an OCR engine that can take acquired
 images and produce text.
+Prerequisites:
+Sane installed and working.
+scanimage to generate tiff files from scanner.
+tiffcp to compress the tiff file.
+working ocr executable 
+by default this module assumes that the OCR executable
+is named "ocr"
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ocr.
@@ -2251,6 +2262,24 @@ Speak coordinates of current position
 
 Commentary:
 This module provides the interface for generating auditory icons in emacspeak.
+Design goal:
+1) Auditory icons should be used to provide additional feedback,
+not as a gimmick.
+2) The interface should be usable at all times without the icons:
+e.g. when on a machine without a sound card.
+3) General principle for when to use an icon:
+Convey information about events taking place in parallel.
+For instance, if making a selection automatically moves the current focus
+to the next choice,
+We speak the next choice, while indicating the fact that something was selected with a sound cue.
+ This interface will assume the availability of a shell command "play"
+that can take one or more sound files and play them.
+This module will also provide a mapping between names in the elisp world and actual sound files.
+Modules that wish to use auditory icons should use these names, instead of actual file names.
+As of Emacspeak 13.0, this module defines a themes
+architecture for  auditory icons.
+Sound files corresponding to a given theme are found in
+appropriate subdirectories of emacspeak-sounds-directory
 
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
@@ -3012,30 +3041,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 @kbd{ control e d z }
 
 Send this command to the TTS directly.
-@end deffn
-
-@node emacspeak-speedbar
-@section emacspeak-speedbar
-
-Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
---emacspeak-speedbar-goto-speedbar-- and binds this
-
-Automatically generated documentation
-for commands defined in module  emacspeak-speedbar.
-
-@deffn {Interactive Command} emacspeak-speedbar-click ()
-Does the equivalent of the mouse click from the keyboard
-@end deffn
-
-@deffn {Interactive Command} emacspeak-speedbar-goto-speedbar ()
-Switch to the speedbar
 @end deffn
 
 @node emacspeak-table-ui
