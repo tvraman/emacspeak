@@ -121,7 +121,7 @@ display."
                                        emacspeak-resource-directory))
     (expand-file-name ".aumixrc" emacspeak-resource-directory))
   "*Name of file containing personal aumix settings."
-  :group 'emacspeak
+  :group 'emacspeak-aumix
   :type 'string)
 
 ;;;###autoload
@@ -130,7 +130,7 @@ display."
    "-f %s -L 2>&1 >/dev/null"
    emacspeak-aumix-settings-file)
   "*Option to pass to aumix for resetting to default values."
-  :group 'emacspeak
+  :group 'emacspeak-aumix
   :type 'string)
 
 
