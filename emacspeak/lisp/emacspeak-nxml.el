@@ -337,7 +337,37 @@
 	    (dtk-speak
 	     (format "Closed %s"
 		     (xmltok-start-tag-qname))))))))
+;;{{{ speech enable outliner 
 
+(loop for f in
+      '(nxml-hide-all-text-content 
+        nxml-hide-direct-text-content 
+        nxml-hide-other 
+        nxml-hide-subheadings 
+        nxml-hide-text-content )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory icon."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-line)))))
+
+(loop for f in
+      '(nxml-show 
+        nxml-show-all 
+        nxml-show-direct-subheadings 
+        nxml-show-direct-text-content 
+        nxml-show-subheadings )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory icon."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-speak-line)))))
+ 
+;;}}}
 ;;}}}
 (provide 'emacspeak-nxml)
 ;;{{{ end of file 
