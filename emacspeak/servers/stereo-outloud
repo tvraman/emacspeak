@@ -69,9 +69,7 @@ proc tts_say {text} {
     set prefix "`v1 `vs$r "
     regsub -all {\[\*\]} $text { `p1 } text 
     synth " $prefix $text"
-    if {$tts(stereo)} {
         service
-    }
     return ""
 }
 
@@ -200,11 +198,12 @@ proc trackIndex {index} {
 }
 
 proc service {} {
+    global tts
     set talking [speakingP]
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.9] stdin]
+        set status   [lsearch [select [list  stdin]  {} {} 0.1] stdin]
         if { $status >= 0} {
-            s
+            set tts(talking?) 0
             set talking 0
             break
         } else {
