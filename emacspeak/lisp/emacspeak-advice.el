@@ -2065,9 +2065,12 @@ Provide an auditory icon if possible."
   "Provide spoken feedback."
   (cond
    ((interactive-p)
-    (message "Started executing keyboard macro")
-    ad-do-it
-    (message "Done "))
+    (let ((dtk-quiet t)
+          (emacspeak-speak-messages nil)
+          (emacspeak-use-auditory-icons nil))
+      ad-do-it)
+    (message "Executed macro. ")
+    (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))
   ad-return-value )
 
