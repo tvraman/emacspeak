@@ -322,7 +322,7 @@ load $tclTTS/tcleci.so
 set tts(stereo) 1
 useStereoOutput
 synth {`v1 Using in memory synthesis.}
-service
+synchronize 
 
 #Start the main command loop:
 
