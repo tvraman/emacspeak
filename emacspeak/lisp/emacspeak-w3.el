@@ -732,6 +732,7 @@ Optional arg url specifies the page to extract table from. "
       
         
 
+
 (defun emacspeak-w3-extract-by-class (class   &optional prompt speak)
   "Extract elements having specified class attribute  from
 HTML.  
@@ -743,7 +744,6 @@ Interactive prefix arg causes url to be read from the
 minibuffer."
   (interactive
    (list
-      
     (completing-read "Class: "
                      (emacspeak-w3-css-class-cache))
     current-prefix-arg))
@@ -786,6 +786,62 @@ minibuffer."
           (setq emacspeak-w3-post-process-hook 'emacspeak-speak-buffer))
         (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
+
+    
+
+(defsubst  emacspeak-w3-css-get-class-list ()
+  "Collect a list of classes by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((classes (emacspeak-w3-css-class-cache))
+        (result nil)
+        (d nil)
+        (done nil))
+    (while (not done)
+      (setq c
+            (completing-read "Class: "
+                             classes
+                             nil 'must-match))
+      (if (> (length c) 0)
+          (push c result)
+        (setq done t)))
+    result))
+
+(defun emacspeak-w3-extract-by-class-list(classes   &optional prompt speak)
+  "Extract elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. Interactive prefix arg causes url to be read from the
+minibuffer."
+  (interactive
+   (list
+    (emacspeak-w3-css-get-class-list)
+    current-prefix-arg))
+  (declare (special emacspeak-w3-post-process-hook))
+  (unless (or prompt
+              (eq major-mode 'w3-mode))
+    (error "Not in a W3 buffer."))
+  (let ((w3-url (when (eq major-mode 'w3-mode)
+                  (url-view-url t)))
+        (filter nil)
+        (source-url
+         (cond
+          ((and (interactive-p)
+                prompt)
+           (read-from-minibuffer "URL: "
+                                 "http://www."))
+          (t  prompt))))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(@class=\"%s\")" c))
+           classes
+           " or "))
+    (emacspeak-w3-xslt-filter
+     (format "//*[%s]" filter)
+     source-url
+     'speak)))
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
@@ -856,6 +912,7 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
+(define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
