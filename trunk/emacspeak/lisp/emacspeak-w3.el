@@ -1124,6 +1124,27 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
     ad-do-it))(provide 'emacspeak-w3)
 
 ;;}}}
+;;{{{ silence  url package 
+
+(defadvice url-http-content-length-after-change-function
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+(defadvice url-http-chunked-encoding-after-change-function
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+(defadvice url-http-wait-for-headers-change-function
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
 ;;{{{ pull RSS feed
 
 (defun emacspeak-w3-browse-rss-at-point ()
