@@ -432,7 +432,9 @@
   voice-animate-extra
   'w3m-tab-selected-face
   "w3m-tab-selected-face")
-
+(def-voice-font emacspeak-w3m-form-personality voice-brighten
+  'w3m-form-face
+"Personality for forms.")
 (def-voice-font emacspeak-w3m-image-personality
   voice-brighten
   'w3m-image-face
