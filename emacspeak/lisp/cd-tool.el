@@ -47,6 +47,12 @@
 
 ;;; Code:
 
+(defcustom cd-tool-cdstart-command "cdstart"
+  "*Name of cdstart command; most likely either \"cdstart\" or \"cdplay\"."
+  :options '("cdstart" "cdplay")
+  :group 'emacspeak-cd-tool
+  :type 'string)
+
 (defvar cd-tool-message
   " +Next  - Previous  p play s stop = shuffle i info e eject t track"
   "Short message to display if user hits invalid key.")              
@@ -77,20 +83,19 @@ cap C   Save clip to disk
     (while (null command)
       (setq command
             (case (read-char "CD Action? ")
-              (?+ "cdstart +")
-              (?> "cdstart +")
-              (?. "cdstart +")
-              (?- "cdstart -")
-              (?< "cdstart -")
-              (?, "cdstart -")
-              (?t (format "cdstart %s"
-                          (read-from-minibuffer "Enter track
-number: ")))
-              (?p "cdstart")
+              (?+ (concat emacspeak-cd-tool-cdstart-command " +"))
+              (?> (concat emacspeak-cd-tool-cdstart-command " +"))
+              (?. (concat emacspeak-cd-tool-cdstart-command " +"))
+              (?- (concat emacspeak-cd-tool-cdstart-command " -"))
+              (?< (concat emacspeak-cd-tool-cdstart-command " -"))
+              (?, (concat emacspeak-cd-tool-cdstart-command " -"))
+              (?t (format (concat emacspeak-cd-tool-cdstart-command " %s")
+                          (read-from-minibuffer "Enter track number: ")))
+              (?p emacspeak-cd-tool-cdstart-command)
               (?s "cdstop")
               (?= "cdshuffle")
               (?\ "cdpause")
-              (?r "cdstart")
+              (?r emacspeak-cd-tool-cdstart-command)
               (?i "cdir ")
               (?e "cdeject")
               (?c (cd-tool-get-clip-command))
