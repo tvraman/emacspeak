@@ -235,6 +235,8 @@ Useful to do this before you listen to an entire buffer."
    (goto-char (point-min))
    (forward-line 3)
    (delete-region (point-min) (point))
+   (dtk-set-punctuations "all")
+   (emacspeak-dtk-sync)
    (emacspeak-auditory-icon 'help)))
 
 ;;}}}
