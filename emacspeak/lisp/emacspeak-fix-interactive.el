@@ -262,7 +262,7 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
       (dolist (item (rest (first lh)))
 	(and (symbolp item)
 	     (commandp item)
-                                        ; so fix it if possible
+                                        ; so fix it if necessary
 	     (emacspeak-fix-interactive-command-if-necessary item)))
       (when (interactive-p)
 	(message "Fixed commands in %s" (first (first lh))))
