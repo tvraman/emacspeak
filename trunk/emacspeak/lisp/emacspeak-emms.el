@@ -54,7 +54,46 @@
 ;;}}}
 
 ;;{{{ Advice interactive commands:
+;;{{{ module emms
 
+(defun emacspeak-emms-speak-current-track ()
+  "Speak current track."
+  (interactive)
+  (dtk-speak
+   (cdr (assoc 'name (emms-playlist-current-track)))))
+
+(loop for f in
+      '(emms-next emms-next-noerror
+        emms-previous)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Speak track name."
+          (when (interactive-p)
+            (emacspeak-emms-speak-current-track)))))
+
+
+(defadvice emms-start (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (dtk-speak "Started playing.")))
+
+(defadvice emms-stop (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (dtk-speak "Stopped playing.")))
+
+
+(defadvice emms-shuffle (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (dtk-speak "Shuffled playlist.")))
+(defadvice emms-sort (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (dtk-speak "Sorted playlist.")))
+
+;;}}}
 ;;}}}
 (provide 'emacspeak-emms)
 ;;{{{ end of file
