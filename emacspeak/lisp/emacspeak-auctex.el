@@ -49,18 +49,18 @@
 ;;}}}
 ;;{{{ voice locking:
 ;;; faces from AUCTeX 11
-(def-voice-font voice-latex-italic-face 'italic
+(def-voice-font emacspeak-latex-italic-face 'italic
   'font-latex-italic-face
   "Face used for italics."
   :group 'emacspeak-auctex)
 
-(def-voice-font voice-latex-bold-face 'bold
+(def-voice-font emacspeak-latex-bold-face 'bold
   'font-latex-bold-face
   "Face used for bold."
 
   :group 'emacspeak-auctex)
 
-;; (def-voice-font voice-latex-sedate-personality 'paul-smooth        ;;
+;; (def-voice-font emacspeak-latex-sedate-personality 'paul-smooth        ;;
 ;;   'font-latex-sedate-face                                          ;;
 ;;   "Personality used  on macro names."                              ;;
 ;;   :group 'emacspeak-auctex)                                        ;;
