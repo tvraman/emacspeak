@@ -2,72 +2,21 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@cs.cornell.edu>
 
-* Emacspeak 17.0 Additions And Changes:
+* Emacspeak 18.0 Additions And Changes:
 
-Emacspeak 17.0 provides the following user level enhancements:
+Emacspeak 18.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
 
-** Enhanced Emacs 21 support:
+** emacspeak-rss.el --Browsing RSS feeds.
 
-I have now switched to Emacs 21 on all my machines.
+Command emacspeak-rss-browse allows you to browse RSS feeds of your
+choice.
 
-** emacspeak-w3.el:
+** emacspeak-desktop.el
 
-Magic Lens: XSLT Based magic lens for selectively browsing content.
+Speech-enables the desktop package.
 
-
-** emacspeak-websearch.el: 
-
-Websearch now handles asynchronous searches.
-
-** emacspeak-url-template.el:
-
-Additional productivity web templates.
-
-** emacspeak-wizards.el:
-
-New productivity wizards.
-
-** Software Dectalk:
-
-There is a new speech server for the Software Dectalk TTS engine.
-Software Dectalk TTS is sold commercially by Fonix Inc.
-
-
-
-** emacspeak-rpm-spec.el: 
-
-Speech-enable rpm spec editor.
-
-
-** emacspeak-m-player.el:
-
-New module  for easy access to media player mplayer.
-
-
-** emacspeak-reftex.el:
-
-Enhanced reftex support.
-
-** emacspeak-pronounce.el:
-
-Added customizable dictionary
-emacspeak-pronounce-internet-smileys-pronunciations
-for holding Internet smileys.
-This dictionary is used by all  messaging tools including mail and
-instant messaging tools.
-
-
-Added custom dictionary
-emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-that can be customized to hold common XML namespace URIs along with
-their pronunciation.
-This is used in XML and HTML modes.
-
-** emacspeak-ecb.el:
-
-Enhanced ECB support.
 
 
 Local variables:
