@@ -330,7 +330,6 @@ commands via single keystrokes."
         (define-key emacspeak-realaudio-mode-map
           (format "%c" c)
           'emacspeak-realaudio-trplayer-call-command)))
-
 (emacspeak-realaudio-setup-keys)
 ;;;###autoload
 (defvar emacspeak-realaudio-trplayer-keys
