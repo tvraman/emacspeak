@@ -28,6 +28,18 @@ languages including Java and Emacs Lisp.
 Uses knowledge computed by the semantic package in better
 speech-enabling JDE.
 
+** Easy Customization:
+
+Most of Emacspeak user options are now available through
+Emacs' customization interface.
+
+** Enhanced widget support:
+
+The speech-enabler for Emacs widgets has been completely
+overhauled.
+This results in better speech-enabling of packages like
+custom and JDE.
+
 ** URL Templates 
 
 
