@@ -61,13 +61,13 @@
 ;;{{{  structures 
 
 (defstruct (emacspeak-url-template
-            (:constructor
-             emacspeak-url-template-constructor))
-  name ;Human-readable name
-  template  ;template URL string 
-generators  ; list of param generator
-post-action ;action to perform after opening
-)
+            (:constructor emacspeak-url-template-constructor))
+  name                                  ;Human-readable name
+  template                              ;template URL string 
+  generators                            ; list of param generator
+  post-action                           ;action to perform after opening
+  documentation                         ;documentation for this resource
+  )
 
   ;;}}}
 ;;{{{ Helpers
@@ -104,16 +104,17 @@ post-action ;action to perform after opening
 ;;{{{  define resources 
 
 (defun emacspeak-url-template-define (name template
-                                           &optional generators post-action)
+                                           &optional generators
+                                           post-action documentation)
   "Define a URL template."
   (declare (special emacspeak-url-template-table))
   (emacspeak-url-template-set
    name
    (emacspeak-url-template-constructor :name name
                                        :template template
-                                       :generators
-                                       generators
-:post-action post-action)))
+                                       :generators generators
+:post-action post-action
+:documentation documentation)))
                                
 
 (defun emacspeak-url-template-load (file)
@@ -381,7 +382,11 @@ post-action ;action to perform after opening
     (funcall (emacspeak-url-template-post-action ut))))
 
 (defun emacspeak-url-template-fetch ()
-  "Prompt for  URL template and fetch specified resource."
+  "Fetch a pre-defined resource.
+Use Emacs completion to obtain a list of available
+resources.
+Resources typically prompt for the relevant information
+before completing the request."
   (interactive)
   (declare (special emacspeak-url-template-table))
   (let ((completion-ignore-case t)
