@@ -72,6 +72,27 @@
     ad-do-it))
 
 ;;}}}
+;;{{{  show http headers
+(defcustom emacspeak-w3-lwp-request "lwp-request"
+  "LWP Request command from perl LWP."
+  :type 'string
+  :group 'emacspeak-w3)
+
+(defun emacspeak-w3-show-http-headers ()
+  "Show HTTP headers using lwp-request"
+  (interactive)
+  (declare (special emacspeak-w3-lwp-request))
+  (let ((url (if (eq major-mode 'w3-mode)
+                 (or (w3-view-this-url 'no-show)
+                     (url-view-url 'no-show))
+               (read-from-minibuffer "URL: "))))
+    (shell-command
+     (format "%s -de %s"
+             emacspeak-w3-lwp-request url))
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-other-window 1)))
+  
+;;}}}
 ;;{{{ setup
 
 (defcustom emacspeak-w3-punctuation-mode "some"
@@ -100,6 +121,7 @@
  #'(lambda ()
      (declare (special w3-mode-map))
      (modify-syntax-entry 10 " ")
+     (define-key w3-mode-map "hh" 'emacspeak-w3-show-http-headers)
      (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
      (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
      (define-key w3-mode-map "\M-j"
