@@ -860,11 +860,11 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
 (define-key emacspeak-w3-xsl-map "p" 'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
-(define-key emacspeak-w3-xsl-map "T"
-  'emacspeak-w3-extract-table-by-position)
-(define-key emacspeak-w3-xsl-map "\C-t"
-  'emacspeak-w3-extract-tables-by-position-list)
 (define-key emacspeak-w3-xsl-map "t"
+  'emacspeak-w3-extract-table-by-position)
+(define-key emacspeak-w3-xsl-map "T"
+  'emacspeak-w3-extract-tables-by-position-list)
+(define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
 (define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)

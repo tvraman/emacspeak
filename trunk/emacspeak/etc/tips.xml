@@ -702,6 +702,19 @@ Thus, one can organize electronic texts by placing  files for a given
       </qandaentry>
       <qandaentry>
         <question>
+          <para>Playing MS Windows Media Files</para>
+        </question>
+        <answer>
+          <para>
+To play Windows media files, first install the media player
+            <command>mplayer</command> for Linux.
+Once this player is installed and working, emacspeak command
+            <command>emacspeak-m-player</command>
+can be used to conveniently play Windows Media streams.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
           <para>Streaming media presets</para>
         </question>
         <answer>
@@ -738,6 +751,79 @@ Thus, one can organize electronic texts by placing  files for a given
         of the online Emacspeak manual on 
         <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
           electronic messaging.</ulink></para>
+    </qandadiv>
+    <qandadiv>
+      <title>Web Browsing</title>
+      <qandaentry>
+        <question>
+
+          <para>What Web Browsers Can I Use?</para>
+        </question>
+        <answer>
+          <para>
+There are a number of available options, none of which are completely
+            satisfactory.
+Here is a summary of what is available.</para>
+          <orderedlist>
+            <listitem>
+              <para>
+<command>W3</command>.
+This is still my web browser of choice though it has sadly fallen by
+                the way-side in the last few years.
+W3 lacks the features you need to interact with many commerce sites,
+                but is a very flexsible and powerful solution for
+                efficiently browsing content.
+ Emacspeak's web-specific wizards 
+make up for many of the short-comings encountered when navigating
+                complex web sites and these wizards work best with
+                the W3 browser.
+Emacs command: <command>w3</command>.
+  </para>
+            </listitem>
+            <listitem>
+              <para>
+<command>Emacs W3M</command>
+This is a light-weight browser compared to W3 and provides an Emacs
+                interface to  the  underlying
+W3M browser.
+It is a good solution for browsing content --especially on slow
+                machines.
+Emacs command: <command>w3m</command>.</para>
+            </listitem>
+            <listitem>
+              <para>
+<command>Lynx</command>.
+The oldest terminal based browser of them all.
+It's still a good solution for some interactive sites, but its lack of
+              support for tables can make some sites very confusing.
+              Emacspeak command: <command>emacspeak-lynx</command>.</para>
+            </listitem>
+            <listitem>
+              <para><command>Links</command>.
+This is <emphasis>Links</emphasis> with an <emphasis>i</emphasis> and
+                not to be confused with the older Lynx browser.
+It has rudimentary Javascript support and is under active development.
+              Emacspeak command: <command>emacspeak-links</command>.</para>
+            </listitem>
+            <listitem>
+<para>
+<command>IBM HPR</command>
+IBM Home Page Reader is a speech extension for Internet Explorer that
+                can be run under VMWare.
+I use this as a last resort solution if I must interact with
+                Javascript heavy sites.</para>
+            <para>For this, you need to have VMWare installed and
+                configured.
+I run Emacspeak under the Sawfish window manager on Linux, and bring
+                up Win98 by typing <command>win98</command>
+inside an Emacs shell buffer. </para>
+              <epigraph>
+<para>
+Moral: Get out of my way or I will turn you into a shell script.             </para> </epigraph>
+</listitem>
+          </orderedlist>
+        </answer>
+      </qandaentry>
     </qandadiv>
     <qandadiv>
       <title>System Management And System
