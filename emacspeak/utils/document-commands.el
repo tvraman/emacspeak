@@ -193,6 +193,7 @@
     ("regexp-opt"  . nil )
     ("tapestry"  . nil )
     ("voice-setup"  . nil )
+    ("emacspeak-add-log" nil)
 ("emacspeak-analog" "analog-prepare")
 ("emacspeak-desktop" . nil)
 ("emacspeak-ediary" . nil)
