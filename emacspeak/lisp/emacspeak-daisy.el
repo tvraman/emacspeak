@@ -474,15 +474,18 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   "Play SMIL content  under point."
   (interactive)
   (let ((content (get-text-property (point) 'content))
-        (viewer nil))
+        (viewer (get-text-property (point) 'viewer))
+        (start (line-beginning-position))
+        (end (line-end-position)))
     (cond
-     ((get-text-property (point) 'viewer)
-      (switch-to-buffer (get-text-property (point) 'viewer)))
+     (viewer (switch-to-buffer viewer)
+             (emacspeak-auditory-icon 'select-object)
+             (emacspeak-speak-mode-line))
      (content
-      (setq viewer (emacspeak-daisy-play-content  content))
-      (put-text-property (line-beginning-position)
-                         (line-end-position)
-                         'viewer viewer))
+      (emacspeak-daisy-configure-w3-to-record-viewer
+       (current-buffer) start end )
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-daisy-play-content  content))
      (t (error "No content under point.")))))
 
 (defun emacspeak-daisy-play-audio-under-point ()
@@ -493,6 +496,22 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
      (clip
       (emacspeak-daisy-play-audio clip))
      (t (error "No audio clip under point.")))))
+
+;;}}}
+;;{{{ Configure w3 post processor hook to record viewer buffer:
+
+(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center start  end)
+  "Attaches an automatically generated post processor function
+that asks W3 to record the viewer in the navigation center when done."
+  (declare (special emacspeak-w3-post-process-hook))
+  (setq emacspeak-w3-post-process-hook
+        (`
+         (lambda  nil
+             (let ((buffer (current-buffer)))
+               (save-excursion
+             (set-buffer (, nav-center))
+             (put-text-property (, start) (, end)
+                                'viewer  buffer)))))))
 
 ;;}}}
 
