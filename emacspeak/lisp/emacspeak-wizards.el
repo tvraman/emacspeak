@@ -1515,8 +1515,18 @@ personal customizations."
 at point."
   (interactive )
   (let ((p (get-text-property (point) 'personality))
-        (f (get-text-property (point) 'face)))
-    (message "Personality %s Face %s" p f )))
+        (f (get-text-property (point) 'face))
+        (o
+         (delete nil
+                   (mapcar
+            #'(lambda (overlay)
+(overlay-get overlay 'face))
+(overlays-at (point))))))
+    (message "Personality %s Face %s %s" p f
+(if o
+    o
+" "))))
+
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )
   "Show value of PROPERTY at point.
