@@ -1,6 +1,6 @@
 #$Id$
 # {{{ LCD Entry: 
-
+#x
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
@@ -10,7 +10,9 @@
 #
 
 # }}}
-# {{{ Copyright:  
+# {{{ Copyright:
+
+#x
 #Copyright (C) 1995 -- 2003, T. V. Raman 
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -31,6 +33,7 @@
 # You should have received a copy of the GNU General Public License
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+#
 
 # }}}
 # {{{ sync state 
@@ -41,7 +44,7 @@ proc tts_sync_state {punct capitalize allcaps splitcaps rate} {
     tts_split_caps   $splitcaps
     tts_set_speech_rate  $rate
 } 
-
+# }}}
 # {{{ queue:
 
 #currently we use an inlined version of this test in speech_task
@@ -99,7 +102,6 @@ proc n {instrument note length {target 0} {step 5}} {
     return ""
 }
 
-
 #queue a sound event
 
 proc a {sound} {
@@ -109,7 +111,6 @@ proc a {sound} {
     return ""
 }
 
-
 proc queue_rewind {} {
     global tts queue 
     if {$tts(q_head) == 0} {return ""}
@@ -117,7 +118,6 @@ proc queue_rewind {} {
     set element  $queue($tts(q_head))
     return $element
 }
-
 
 proc queue_retreat {{step 1}} {
     global tts queue 
@@ -135,8 +135,6 @@ proc queue_advance {{step 1}} {
     set element  $queue($tts(q_head))
     return $element
 }
-
-
 
 proc queue_remove {} {
     global tts queue 
@@ -186,7 +184,7 @@ proc p {sound} {
     speech_task
 }
 
-    # }}}
+# }}}
 # {{{notes: 
 
 #Simple notes player
@@ -390,8 +388,6 @@ proc tts_initialize {} {
     #flag to avoid multiple consecutive stops
     set tts(not_stopped) 1
 }
-
-# }}}
 
 # }}}
 # {{{ Emacs local variables  
