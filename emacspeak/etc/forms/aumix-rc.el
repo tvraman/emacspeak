@@ -38,14 +38,16 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  setup forms
-
+(require 'cl)
 (setq forms-read-only nil)
+(declaim (special  emacspeak-aumix-settings-file))
 (setq forms-file
+      (or emacspeak-aumix-settings-file 
       (read-file-name  "AumixRC: "
                        (expand-file-name ".aumixrc"
                                          emacspeak-resource-directory)
                        (expand-file-name ".aumixrc"
-                                         emacspeak-resource-directory)))
+                                         emacspeak-resource-directory))))
 
 (setq forms-field-sep ":")
 (setq forms-number-of-fields
@@ -67,8 +69,4 @@
 ;;; end:
 
 ;;}}}
-;;{{{ end of file 
-;;; local variables:
-;;; folded-file: t
-;;; end:
- ;;}}}
+

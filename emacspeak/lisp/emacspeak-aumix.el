@@ -44,7 +44,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-
 ;;}}}
 ;;{{{  Introduction:
 
@@ -92,12 +91,20 @@
 ;;}}}
 ;;{{{ emacspeak-aumix
 ;;;###autoload
+(defcustom emacspeak-aumix-settings-file
+  (when
+      (file-exists-p (expand-file-name ".aumixrc"
+                                       emacspeak-resource-directory))
+    (expand-file-name ".aumixrc" emacspeak-resource-directory))
+  "*Name of file containing personal aumix settings."
+  :group 'emacspeak
+  :type 'string)
+
+;;;###autoload
 (defcustom emacspeak-aumix-reset-options
   (format 
    "-f %s -L 2>&1 >/dev/null"
-   (if (file-exists-p (expand-file-name ".aumixrc" emacspeak-resource-directory))
-       (expand-file-name ".aumixrc" emacspeak-resource-directory)
-     "/etc/.aumixrc"))
+   emacspeak-aumix-settings-file)
   "*Option to pass to aumix for resetting to default values."
   :group 'emacspeak
   :type 'string)
@@ -113,14 +120,19 @@
            emacspeak-aumix-program
            emacspeak-aumix-reset-options))
   (emacspeak-auditory-icon 'close-object))
-
+(eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 
 Run command \\[emacspeak-aumix-reset]
 after saving the settings to have them take effect."
   (interactive)
+  (declare (special emacspeak-etc-directory))
+  (let ((emacspeak-speak-messages nil)
+        (dtk-stop-immediately nil))
   (emacspeak-forms-find-file
-   (expand-file-name "forms/aumix-rc.el" emacspeak-etc-directory)))
+   (expand-file-name "forms/aumix-rc.el" emacspeak-etc-directory))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-forms-speak-field)))
 
 (defun emacspeak-aumix ()
   "Setup output parameters of the auditory display.
