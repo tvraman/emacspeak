@@ -188,7 +188,6 @@ Hiding results in only the first line of the block being visible.
 Returns t if a block was found and hidden."
   (let ((begin nil)
         (start nil)
-        (end nil)
         (continue t)
         (count 1))
     (save-excursion
