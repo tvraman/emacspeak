@@ -73,7 +73,7 @@
 \\{emacspeak-alsaplayer-mode-map}"
   )
 
-(declaim (special emacspeak-alsaplayer-mode-map))
+
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
@@ -155,7 +155,9 @@ Alsaplayer session."
              "alsaplayer" emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-program
              "-n"
              (format "%s" emacspeak-alsaplayer-session)
-             "--status")))))
+             "--status"))
+      (goto-char (point-min))
+      (emacspeak-speak-line))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -281,6 +283,36 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--quit")))
+
+;;}}}
+;;{{{ bind keys
+
+(declaim (special emacspeak-alsaplayer-mode-map))
+(define-key emacspeak-alsaplayer-mode-map "a"
+  'emacspeak-alsaplayer-add-to-queue)
+(define-key emacspeak-alsaplayer-mode-map "A"
+  'emacspeak-alsaplayer-replace-queue)
+(define-key emacspeak-alsaplayer-mode-map "c"
+  'emacspeak-alsaplayer-clear)
+(define-key emacspeak-alsaplayer-mode-map "g"
+  'emacspeak-alsaplayer-seek)
+(define-key emacspeak-alsaplayer-mode-map "l"
+  'emacspeak-alsaplayer-launch)
+(define-key emacspeak-alsaplayer-mode-map " "
+  'emacspeak-alsaplayer-pause)
+(define-key emacspeak-alsaplayer-mode-map "n"
+  'emacspeak-alsaplayer-next)
+(define-key emacspeak-alsaplayer-mode-map "p"
+  'emacspeak-alsaplayer-previous)
+(define-key emacspeak-alsaplayer-mode-map "q"
+  'emacspeak-alsaplayer-quit)
+(define-key emacspeak-alsaplayer-mode-map "r" 'emacspeak-alsaplayer-relative)
+(define-key emacspeak-alsaplayer-mode-map "s"
+  'emacspeak-alsaplayer-start)
+(define-key emacspeak-alsaplayer-mode-map "S"
+  'emacspeak-alsaplayer-stop)
+(define-key emacspeak-alsaplayer-mode-map "v"
+  'emacspeak-alsaplayer-status)
 
 ;;}}}
 (provide 'emacspeak-alsaplayer)
