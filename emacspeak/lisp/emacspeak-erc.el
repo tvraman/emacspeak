@@ -191,17 +191,23 @@ spoken.")
 	 (search-forward " ")
 	 (buffer-substring start (1- (point))))))))
      
-
-(defun emacspeak-erc-add-name-to-monitor (name)
-  "Add people to monitor in this room."
+(defun emacspeak-erc-add-name-to-monitor (name &optional
+  quiten-pronunciation)
+  "Add people to moniter in this room.
+Optional interactive prefix  arg defines a pronunciation that
+  silences speaking of this perso's name."
   (interactive
    (list
-    (emacspeak-erc-read-person "Add ")))
+    (emacspeak-erc-read-person "Add ")
+    current-prefix-arg))
   (declare (special emacspeak-erc-people-to-monitor))
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
   (pushnew name emacspeak-erc-people-to-monitor
            :test #'string-equal)
+  (when quiten-pronunciation
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry
+  emacspeak-erc-people-to-monitor ""))
   (emacspeak-auditory-icon 'select-object)
   (message "monitoring %s"
            (mapconcat #'identity 
