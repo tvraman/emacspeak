@@ -614,8 +614,9 @@ Argument OUTPUT is the newly arrived output."
 
 ;;}}}
 ;;{{{  sending commands
-(defun tts-say-version ()
+(defun tts-speak-version ()
   "Speak version."
+  (interactive)
   (dtk-interp-say-version))
 (defun dtk-set-rate (rate    &optional prefix)
   "Set speaking RATE for the tts.
