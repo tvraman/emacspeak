@@ -499,24 +499,18 @@ Activates pronunciation dictionaries if not already active."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'on)
-      (message
-       "Refreshed pronunciations for this buffer")))
+    )
    ( emacspeak-pronounce-pronunciation-table ;already on --refresh it
      (setq emacspeak-pronounce-pronunciation-table
            (emacspeak-pronounce-compose-pronunciation-table))
-     (when (interactive-p)
-       (emacspeak-auditory-icon 'on)
-       (message
-        "Refreshed pronunciation for this buffer")))
+     )
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
-          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (interactive-p)
-      (message
-       "Refreshed pronunciations for this buffer")
-      (emacspeak-auditory-icon 'on)))))
+          (emacspeak-pronounce-compose-pronunciation-table))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'on)
+    (message
+     "Refreshed pronunciations for this buffer")))
 
 ;;}}}
 ;;{{{ common dictionary containing smileys and friends
