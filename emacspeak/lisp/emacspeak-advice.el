@@ -1262,12 +1262,7 @@ in completion buffers"
                            (overlay-end
                             comint-last-prompt-overlay)
                            'personality
-                           emacspeak-comint-prompt-personality )
-        (unless emacspeak-comint-autospeak
-          (emacspeak-auditory-icon 'progress)
-          (emacspeak-speak-region
-           (overlay-start comint-last-prompt-overlay)
-           (overlay-end comint-last-prompt-overlay))))
+                           emacspeak-comint-prompt-personality ))
       (when (and  emacspeak-comint-autospeak
                   (or monitor 
                       (eq (selected-window)
