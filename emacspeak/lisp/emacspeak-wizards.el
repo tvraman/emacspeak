@@ -898,11 +898,12 @@ documentation.\n\n")
                 (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
+              (message "mod is %s" this-module)
               (setq commentary
                     (lm-commentary
-                     (expand-file-name
-                      this-module
-                      emacspeak-lisp-directory)))
+                     (substring
+                     (locate-library this-module)
+                     0 -1)))
               (setq this-module
                     (file-name-sans-extension this-module))
               (when commentary

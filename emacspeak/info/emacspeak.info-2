@@ -993,6 +993,7 @@ source-level documentation.
 * emacspeak-redefine::
 * emacspeak-remote::
 * emacspeak-rmail::
+* emacspeak-rss::
 * emacspeak-solitaire::
 * emacspeak-sounds::
 * emacspeak-speak::
@@ -1013,6 +1014,7 @@ source-level documentation.
 * emacspeak-widget::
 * emacspeak-wizards::
 * emacspeak-xml-shell::
+* voice-setup::
 
 
 File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands
@@ -1064,14 +1066,4 @@ dtk-speak.
      makes emacspeak's stop command responsive.  However, when
      splitting on white space, the speech sounds choppy since the
      synthesizer is getting a word at a time.
-
- - tts-restart: ()
-     ` control e control s '
-
-     Use this to nuke the currently running TTS server and restart it.
-
- - tts-show-debug-buffer: ()
-     ` control e d CONTROL meta b '
-
-     Select TTS debugging buffer.
 

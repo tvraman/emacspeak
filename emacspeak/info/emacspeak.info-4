@@ -322,7 +322,7 @@ emacspeak-remote.
      Open ssh session to where we came from.
 
 
-File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev: emacspeak-remote,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-rss,  Prev: emacspeak-remote,  Up: Emacspeak Commands
 
 emacspeak-rmail
 ===============
@@ -337,7 +337,24 @@ emacspeak-rmail.
      Summarize current message
 
 
-File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-rmail,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-rss,  Next: emacspeak-solitaire,  Prev: emacspeak-rmail,  Up: Emacspeak Commands
+
+emacspeak-rss
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-rss.
+
+ - emacspeak-rss-browse: (FEED)
+     ` control e control u '
+
+     Browse specified RSS feed.
+
+ - emacspeak-rss-display: (RSS-URL &optional SPEAK)
+     Retrieve and display RSS news feed.
+
+
+File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-rss,  Up: Emacspeak Commands
 
 emacspeak-solitaire
 ===================

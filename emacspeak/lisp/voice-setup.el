@@ -76,9 +76,16 @@
 ;;; Special form def-voice-font sets up the personality name to be
 ;;; available via custom.
 
+
+;;; new voices can be defined using CSS style specifications 
+;;; see special form defvoice
+;;; Voices defined via defvoice can be customized via custom 
+;;; see the documentation for defvoice.
+
 ;;}}}
 ;;{{{ Required modules
 
+;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
