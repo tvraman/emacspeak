@@ -56,7 +56,7 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ Advice interactive commands:
+
 
 ;;{{{ module emms:
 
@@ -122,9 +122,27 @@
 
 
 ;;}}}
-;;{{{ Module emms-stream:
+;;{{{ Module emms-streaming:
 
-;;}}}
+(loop for f in
+      '(emms-streams emms-stream-quit
+                     emms-stream-popup emms-stream-popup-revert
+)
+
+(loop for f in
+      '(emms-stream-next-line emms-stream-previous-line)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)))))
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-mode-line)))))
 
 ;;}}}
 (provide 'emacspeak-emms)
