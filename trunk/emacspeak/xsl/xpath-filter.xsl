@@ -33,7 +33,6 @@ Filters out nodes matching param deletor if specified.
       <xsl:apply-templates select="title"/>
     </xsl:element>
   </xsl:template>
-<!-- Nuke nodes matching deletor -->
   <xsl:template match="/html/body">
     <xsl:element name="body">
 <xsl:apply-templates select="$locator"/>
