@@ -1674,14 +1674,19 @@ Any errors or corrections should be made to the source-level
 documentation.
 This section documents a total of %d URL Templates.\n\n"
     (hash-table-count emacspeak-url-template-table)))
+  (let ((keys
+         (sort 
   (loop for key being the hash-keys of emacspeak-url-template-table
-        do
+        collect key)
+  'string-lessp)))
+    (loop for key in keys
+          do
         (insert
          (format "@kbd{%s}\n\n" key))
         (insert
          (emacspeak-url-template-documentation
           (emacspeak-url-template-get key)))
-        (insert "\n\n")))
+        (insert "\n\n"))))
 
 ;;}}}
 (provide 'emacspeak-url-template)
