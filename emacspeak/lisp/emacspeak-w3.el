@@ -583,7 +583,7 @@ libxslt package."
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
-
+(declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t" 'emacspeak-w3-xsl-toggle)
 ;;}}}
