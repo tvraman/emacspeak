@@ -79,6 +79,12 @@
   :type 'symbol
   :group 'emacspeak-erc)
 
+(defcustom emacspeak-erc-ignore-notices nil
+  "Set to T if you dont want to see notifcation messages from the
+server."
+  :type 'boolean
+  :group 'eamcspeak-erc)
+
 (defcustom emacspeak-erc-direct-msg-personality
   'paul-animated
   "Personality for direct messages."
@@ -419,12 +425,22 @@ set the current local value to the result."
 
 ;;}}}
 ;;{{{ silence server messages 
+
 (defadvice erc-parse-line-from-server (around emacspeak pre
                                               act comp)
   "Silence server messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     ad-return-value))
+
+(defadvice erc-make-notice (around emacspeak  pre act comp)
+  "Ignore notices from server is emacspeak-erc-ignore-notices it set."
+  (cond
+   ((not emacspeak-erc-ignore-notices )
+    ad-do-it
+    ad-return-value)
+   (t "")))
+
 ;;}}}
 ;;{{{ define emacspeak keys
 (declaim (special erc-mode-map))
