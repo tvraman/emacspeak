@@ -93,7 +93,9 @@
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  
 Fix the function definition of sym to make its interactive form
-speak its prompts. "
+speak its prompts. This function needs to do very little work as
+;;of Emacs 21 since all interactive forms except `c' and `k' now
+;;use the minibuffer."
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
@@ -105,40 +107,32 @@ speak its prompts. "
         (some
          (function
           (lambda (prompt)
-            (declare (special emacspeak-xemacs-p
-                              emacs-version))
-            (not
-             (or
-              (string-match  "^[@*]?[depPr]" prompt )
-              (string= "*" prompt )
-              (and emacspeak-xemacs-p
-                   (not (string-match  "^\\*?[ck]" prompt )))))))
-         interactive-list )
-      (eval
-       (`
-        (defadvice (, sym)
-          (before  emacspeak-auto activate protect compile)
-          "Automatically defined advice to speak interactive prompts. "
-          (interactive
-           (nconc  
-            (,@
-             (mapcar
-              #'(lambda (prompt)
-                  (`
-                   (let ((dtk-stop-immediately nil)
-                         (emacspeak-speak-messages nil))
-                     (when  (string-match"^[ckK]" (, prompt))
-                       (emacspeak-auditory-icon 'open-object)
-                       (tts-with-punctuations
-                        "all"
-                        (dtk-speak
-                         (format " %s "
-                                 (or (substring (, prompt) 1 ) "")))))
-                     (call-interactively
-                      #'(lambda (&rest args)
-                          (interactive (, prompt))
-                          args) nil))))
-              interactive-list)))))))))
+            (string-match  "^\\*?[ckK]" prompt ))))
+      interactive-list )
+    (eval
+     (`
+      (defadvice (, sym)
+        (before  emacspeak-auto activate protect compile)
+        "Automatically defined advice to speak interactive prompts. "
+        (interactive
+         (nconc  
+          (,@
+           (mapcar
+            #'(lambda (prompt)
+                (`
+                 (let ((dtk-stop-immediately nil)
+                       (emacspeak-speak-messages nil))
+                   (when (string-match"^\\*?[ckK]" (, prompt))
+                     (emacspeak-auditory-icon 'open-object)
+                     (tts-with-punctuations "all"
+                                            (dtk-speak
+                                             (format " %s "
+                                                     (or (substring (, prompt) 1 ) "")))))
+                   (call-interactively
+                    #'(lambda (&rest args)
+                        (interactive (, prompt))
+                        args) nil))))
+            interactive-list))))))))
   t)
 
 ;;; inline function for use from other modules:
