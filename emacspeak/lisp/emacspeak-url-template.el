@@ -480,7 +480,9 @@ from English to German.")
  "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&btnG=Google+Search"
  (list "Search news for: ")
  #'(lambda nil
-     (search-forward "Sorted by")
+     (or 
+     (search-forward "Sorted by" (point-max) 'no-error)
+     (search-forward "Top Stories" (point-max) 'no-error))
      (forward-line 4)
      (emacspeak-speak-line))
  "Search Google news."
