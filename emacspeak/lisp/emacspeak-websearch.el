@@ -2239,7 +2239,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-"http://www.weather.com/weather/local/"
+"http://www.weather.com/weather/tendayprint/"
   "*URI for getting weather forecast.")
 
 (defun emacspeak-websearch-weather (zip)
@@ -2253,7 +2253,7 @@ Light for: ")))
              zip)))
   (emacspeak-websearch-post-process
    zip
-   'w3-table-focus-on-this-cell))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ W3C
