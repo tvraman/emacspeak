@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by Makeinfo version 3.12f from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -9,117 +9,120 @@ END-INFO-DIR-ENTRY
 
 
 Indirect:
-emacspeak.info-1: 234
-emacspeak.info-2: 47467
-emacspeak.info-3: 93366
-emacspeak.info-4: 140369
-emacspeak.info-5: 190263
+emacspeak.info-1: 232
+emacspeak.info-2: 47461
+emacspeak.info-3: 93357
+emacspeak.info-4: 140360
+emacspeak.info-5: 190254
 
 Tag Table:
 (Indirect)
-Node: Top234
-Node: Copyright911
-Node: Announce1323
-Node: Contributing1821
-Node: Authoring Guidelines2439
-Node: Credits3322
-Node: Introduction3681
-Node: Installation6282
-Node: Obtaining Emacspeak6825
-Node: Quick Installation7409
-Node: Configuring and Installing Emacspeak8449
-Node: Basic Usage11472
-Node: Overview12752
-Node: Working15103
-Node: Reading17413
-Node: Speech System24172
-Node: Controlling Echo24631
-Node: Speech Output  Control26064
-Node: Miscellaneous30156
-Node: Voice-lock34535
-Node: Status Information36331
-Node: Audio Desktop38857
-Node: Desktop Objects40840
-Node: Object Oriented Desktop41686
-Node: Context-Sensitive Interaction42424
-Node: Using Online Help47467
-Node: Emacs Packages51682
-Node: Document Authoring52859
-Node: Creating Well-formatted Documents53544
-Node: Search replace and spell check57436
-Node: Structured Editing62647
-Node: Outline Editing64653
-Node: Template-based Authoring68369
-Node: Maintaining Structured Data69997
-Node: Browsing Structure71455
-Node: Messaging71902
-Node: Editting Program Source72500
-Node: Development Environment73506
-Node: Desktop Management74078
-Node: Personal Information Management74843
-Node: Desktop Applications75186
-Node: Running Terminal Based Applications81659
-Node: Emacspeak Commands89648
-Node: dtk-speak91191
-Node: dtk-tcl93366
-Node: emacspeak-aumix99113
-Node: emacspeak-bs100415
-Node: emacspeak-buff-menu100830
-Node: emacspeak-c101537
-Node: emacspeak-calendar101873
-Node: emacspeak-compile102387
-Node: emacspeak-custom102924
-Node: emacspeak-dired103414
-Node: emacspeak-ediff104994
-Node: emacspeak-enriched105348
-Node: emacspeak-entertain105738
-Node: emacspeak-eterm106188
-Node: emacspeak-filtertext113760
-Node: emacspeak-fix-interactive114536
-Node: emacspeak-forms115216
-Node: emacspeak-freeamp116189
-Node: emacspeak-gomoku117815
-Node: emacspeak-gridtext119088
-Node: emacspeak-hide119591
-Node: emacspeak-ibuffer121019
-Node: emacspeak-imenu121458
-Node: emacspeak-keymap122072
-Node: emacspeak-kotl122968
-Node: emacspeak-mpg123123465
-Node: emacspeak-ocr124795
-Node: emacspeak-outline131349
-Node: emacspeak-pronounce132475
-Node: emacspeak-psgml135518
-Node: emacspeak-realaudio136401
-Node: emacspeak-redefine140369
-Node: emacspeak-remote143634
-Node: emacspeak-rmail144503
-Node: emacspeak-solitaire144971
-Node: emacspeak-sounds145546
-Node: emacspeak-speak147855
-Node: emacspeak-speedbar167433
-Node: emacspeak-table-ui168299
-Node: emacspeak-tabulate174335
-Node: emacspeak-tapestry174844
-Node: emacspeak-url-template175249
-Node: emacspeak-view175846
-Node: emacspeak-vm176190
-Node: emacspeak-w3176914
-Node: emacspeak-websearch179499
-Node: emacspeak-widget188794
-Node: emacspeak189781
-Node: emacspeak-arc190263
-Node: emacspeak-dismal190960
-Node: emacspeak-eudc193281
-Node: emacspeak-man193637
-Node: emacspeak-python194083
-Node: emacspeak-tar194618
-Node: emacspeak-tetris195170
-Node: emacspeak-view-process196520
-Node: emacspeak-wizards197033
-Node: ANONYMOUS208944
-Node: Acknowledgements209341
-Node: Concept Index209498
-Node: Key Index209981
+Node: Top232
+Node: Copyright909
+Node: Announce1321
+Node: Contributing1819
+Node: Authoring Guidelines2437
+Node: Credits3320
+Node: Introduction3679
+Ref: Introduction-Footnote-16177
+Node: Installation6280
+Node: Obtaining Emacspeak6823
+Node: Quick Installation7407
+Node: Configuring and Installing Emacspeak8447
+Node: Basic Usage11470
+Node: Overview12750
+Node: Working15100
+Ref: Working-Footnote-117329
+Ref: Working-Footnote-217375
+Node: Reading17410
+Node: Speech System24169
+Node: Controlling Echo24628
+Node: Speech Output Control26060
+Node: Miscellaneous30151
+Node: Voice-lock34529
+Node: Status Information36325
+Node: Audio Desktop38851
+Node: Desktop Objects40834
+Node: Object Oriented Desktop41680
+Node: Context-Sensitive Interaction42418
+Node: Using Online Help47461
+Node: Emacs Packages51675
+Node: Document Authoring52852
+Node: Creating Well-formatted Documents53537
+Node: Search replace and spell check57429
+Node: Structured Editing62640
+Node: Outline Editing64645
+Node: Template-based Authoring68361
+Node: Maintaining Structured Data69988
+Node: Browsing Structure71446
+Node: Messaging71893
+Node: Editting Program Source72491
+Node: Development Environment73497
+Node: Desktop Management74069
+Node: Personal Information Management74834
+Node: Desktop Applications75177
+Node: Running Terminal Based Applications81650
+Node: Emacspeak Commands89639
+Node: dtk-speak91182
+Node: dtk-tcl93357
+Node: emacspeak-aumix99104
+Node: emacspeak-bs100406
+Node: emacspeak-buff-menu100821
+Node: emacspeak-c101528
+Node: emacspeak-calendar101864
+Node: emacspeak-compile102378
+Node: emacspeak-custom102915
+Node: emacspeak-dired103405
+Node: emacspeak-ediff104985
+Node: emacspeak-enriched105339
+Node: emacspeak-entertain105729
+Node: emacspeak-eterm106179
+Node: emacspeak-filtertext113751
+Node: emacspeak-fix-interactive114527
+Node: emacspeak-forms115207
+Node: emacspeak-freeamp116180
+Node: emacspeak-gomoku117806
+Node: emacspeak-gridtext119079
+Node: emacspeak-hide119582
+Node: emacspeak-ibuffer121010
+Node: emacspeak-imenu121449
+Node: emacspeak-keymap122063
+Node: emacspeak-kotl122959
+Node: emacspeak-mpg123123456
+Node: emacspeak-ocr124786
+Node: emacspeak-outline131340
+Node: emacspeak-pronounce132466
+Node: emacspeak-psgml135509
+Node: emacspeak-realaudio136392
+Node: emacspeak-redefine140360
+Node: emacspeak-remote143625
+Node: emacspeak-rmail144494
+Node: emacspeak-solitaire144962
+Node: emacspeak-sounds145537
+Node: emacspeak-speak147846
+Node: emacspeak-speedbar167424
+Node: emacspeak-table-ui168290
+Node: emacspeak-tabulate174326
+Node: emacspeak-tapestry174835
+Node: emacspeak-url-template175240
+Node: emacspeak-view175837
+Node: emacspeak-vm176181
+Node: emacspeak-w3176905
+Node: emacspeak-websearch179490
+Node: emacspeak-widget188785
+Node: emacspeak189772
+Node: emacspeak-arc190254
+Node: emacspeak-dismal190951
+Node: emacspeak-eudc193272
+Node: emacspeak-man193628
+Node: emacspeak-python194074
+Node: emacspeak-tar194609
+Node: emacspeak-tetris195161
+Node: emacspeak-view-process196511
+Node: emacspeak-wizards197024
+Node: ANONYMOUS208935
+Node: Acknowledgements209332
+Node: Concept Index209489
+Node: Key Index209972
 
 End Tag Table

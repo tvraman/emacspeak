@@ -279,7 +279,7 @@ display. String is the original message."
           (when msg
             (emacspeak-auditory-icon 'progress)
             (message msg)
-            (tts-with-punctuations "some"
+            (tts-with-punctuations dtk-punctuation-mode
             (dtk-speak  msg))))))))
 
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
