@@ -80,8 +80,10 @@
 ;;{{{ Create a keymap that users can put personal commands
 ;;on
 ;;; Adding keys using custom:
+(defvar  emacspeak-personal-keymap nil
+  "Emacspeak personal keymap")
 
-(define-prefix-command 'emacspeak-personal-keymap  )
+(define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
 
 (defcustom emacspeak-personal-keys
   (when emacspeak-personal-keymap

@@ -178,6 +178,17 @@ If we add new icons we should declare them here. ")
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
   :group 'emacspeak-sounds)
+;;;###autoload
+(defcustom emacspeak-play-program
+  (cond
+   ((getenv "EMACSPEAK_PLAY_PROGRAM"))
+   ((file-exists-p "/usr/bin/play") "/usr/bin/play")
+   ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
+   ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
+   (t (expand-file-name emacspeak-etc-directory "play")))
+  "Name of executable that plays sound files. "
+  :group 'emacspeak-sounds
+  :type 'string)
 
 (defvar emacspeak-sounds-current-theme 
   emacspeak-sounds-default-theme

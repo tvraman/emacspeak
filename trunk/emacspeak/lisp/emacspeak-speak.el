@@ -165,29 +165,13 @@ Argument BODY specifies forms to execute."
 
 ;;; prompt for auditory icon with completion
 
-(defsubst ems-ask-for-auditory-icon ()
-  "Prompt for an auditory icon."
-  (declare (special emacspeak-sounds-table))
-  (intern
-   (completing-read  "Select sound:"
-                     (mapcar
-                      (lambda (xx)
-                        (let ((x (car xx)))
-                          (list
-                           (format "%s" x)
-                           (format "%s" x ))))
-                      emacspeak-sounds-table))))
-
-(defun emacspeak-audio-annotate-paragraphs (&optional prefix)
-  "Set property auditory-icon at front of all paragraphs.
-Interactive PREFIX arg prompts for sound cue to use"
-  (interactive "P")
+(defun emacspeak-audio-annotate-paragraphs ()
+  "Set property auditory-icon at front of all paragraphs."
+  (interactive )
   (save-excursion
     (goto-char (point-max))
     (ems-modify-buffer-safely
-     (let ((sound-cue  (if prefix
-                           (ems-ask-for-auditory-icon)
-                         'paragraph)))
+     (let ((sound-cue 'paragraph))
        (while (not (bobp))
          (backward-paragraph)
          (put-text-property  (1+ (point))
