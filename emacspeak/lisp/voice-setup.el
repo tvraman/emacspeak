@@ -132,9 +132,6 @@
      (or prompt "Personality: ")
                      table)))
 
-  )
-    
-    (cons 'choice v))
 ;;}}}
 ;;{{{ map faces to voices 
 
