@@ -43,6 +43,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
+(require 'voice-setup)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -121,12 +122,12 @@
 ;;{{{ voice locking 
 
 (defvar xsl-xsl-alternate-personality
-  (tts-get-voice-command 'paul-animated)
+  voice-animate
   "Personality used in xsl highlighting.")
-(defvar xsl-fo-alternate-personality 'paul-monotone 
+(defcustom xsl-fo-alternate-personality voice-monotone 
   "Personality used in XSL highlighting.")
 
-(defvar xsl-other-element-personality 'paul-animated
+(defcustom xsl-other-element-personality voice-animate
   "Personality used in XSL highlighting.")
 
 (defvar xsl-xsl-main-personality 'harry 
