@@ -1,4 +1,3 @@
-
 ;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el
 ;;; This file is not part of Emacspeak, but the same terms and
 ;;; conditions apply.
@@ -244,10 +243,42 @@
 		       w3m-form-input-password)))
       (emacspeak-w3m-speak-this-anchor))))
 
-;;}}}
-;;{{{ advice forms 
+(defadvice w3m-scroll-up-or-next-url (around emacspeak pre act comp)
+  (let ((opoint (save-excursion
+		  (beginning-of-line)
+		  (point))))
+    ;; hide opoint from advised function
+    (let (opoint) ad-do-it)
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-speak-region opoint
+			      (save-excursion (end-of-line)
+					      (point))))))
 
-;;; w3m-form-input-select-mode
+(defadvice w3m-scroll-down-or-previous-url (around emacspeak pre act comp)
+  (let ((opoint (save-excursion
+		  (end-of-line)
+		  (point))))
+    ;; hide opoint from advised function
+    (let (opoint) ad-do-it)
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'scroll)
+      (emacspeak-speak-region opoint
+			      (save-excursion (beginning-of-line)
+					      (point))))))
+
+(defadvice w3m-close-window (after emacspeak pre act comp)
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice w3m-quit (after emacspeak pre act comp)
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
+;;{{{ input select mode
 
 (add-hook 'w3m-form-input-select-mode-hook
 	  (lambda ()
@@ -262,7 +293,8 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-;;; w3m-form-input-textarea-mode
+;;}}}
+;;{{{ input textarea mode
 
 (add-hook 'w3m-form-input-textarea-mode-hook
 	  (lambda ()
@@ -311,7 +343,8 @@ Nil means no transform is used.")
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
   (declare (special emacspeak-w3m-xsl-transform))
-  (setq emacspeak-w3m-xsl-transform xsl)
+  (setq emacspeak-w3m-xsl-transform xsl
+	emacspeak-w3m-xsl-p	    t)
   (message "Will apply %s before displaying HTML pages."
            (file-name-sans-extension
             (file-name-nondirectory
