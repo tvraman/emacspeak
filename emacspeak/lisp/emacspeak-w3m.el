@@ -47,8 +47,8 @@
 (require 'emacspeak-xslt)
 ;;}}}
 ;;{{{ keybindings 
-(declaim (special w3m-mode-map))
-(define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+(declaim (special w3m-mode-map
+                  emacspeak-prefix))(define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
@@ -125,7 +125,10 @@
 ;;}}}
 ;;{{{  forms 
 
-(defun emacspeak-w3m-speak-form-input (form name type width maxlength value)
+(defun emacspeak-w3m-speak-form-input (form name type width maxlength
+                                            value)
+  "Speak form input"
+  (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "%s input %s  %s"
 	   type
@@ -136,6 +139,7 @@
 
 (defun emacspeak-w3m-speak-form-input-password (form name)
   "Speech-enable password form element."
+  (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "password input %s  %s"
 	   name
@@ -144,6 +148,8 @@
 	    emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-submit (form &optional name value)
+  "Speak submit button."
+  (declare (special emacspeak-w3m-button-personality))
   (dtk-speak
    (if (equal value "")
        "submit button"
@@ -153,11 +159,12 @@
 	      emacspeak-w3m-button-personality)))))
 
 (defun emacspeak-w3m-speak-form-input-radio (form name value)
+  "speech enable radio buttons."
+  (declare (special emacspeak-w3m-form-personality))
   (and dtk-stop-immediately (dtk-stop))
   (let* ((active (equal value (emacspeak-w3m-form-get form name)))
 	 (personality (if active
-			  emacspeak-w3m-form-personality
-			emacspeak-w3m-disabled-personality))
+			  emacspeak-w3m-form-personality))
 	 (dtk-stop-immediately nil))
     (emacspeak-auditory-icon (if active 'on 'off))
     (dtk-speak
@@ -172,6 +179,8 @@
 	       name)))))
 
 (defun emacspeak-w3m-speak-form-input-select (form name)
+  "speech enable select control."
+  (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "select %s  %s"
 	   name
@@ -180,6 +189,8 @@
 	    emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-input-textarea (form hseq)
+  "speech enable text area."
+  (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "text area %s  %s"
 	   (or (get-text-property (point) 'w3m-form-name) "")
@@ -188,6 +199,8 @@
 	    emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-reset (form)
+  "Reset button."
+  (declare (special emacspeak-w3m-button-personality))
   (dtk-speak
    (format "button %s"
 	   (emacspeak-w3m-personalize-string
