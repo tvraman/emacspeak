@@ -574,14 +574,15 @@ Optional arg url specifies the page to extract table from. "
    prompt-url
    speak))
 
-(defun emacspeak-w3-count-nested-tables (prompt-url)
-  "Count nested tables in HTML.
-Optional arg url specifies the page to extract table from. "
+
+(defun emacspeak-w3-count-matches (prompt-url locator)
+  "Count matches for locator  in HTML."
   (interactive
    (list
     (if (eq major-mode 'w3-mode)
         (url-view-url 'no-show)
-      (read-from-minibuffer "URL: "))))
+      (read-from-minibuffer "URL: "))
+    (read-from-minibuffer "XPath locator: ")))
   (read
   (emacspeak-xslt-url
    (expand-file-name "count-matches.xsl"
@@ -589,24 +590,30 @@ Optional arg url specifies the page to extract table from. "
    prompt-url
    (list
     (cons "locator"
-   "'//table//table'" )))))
+   (format "'%s'"
+           locator ))))))
+
+(defun emacspeak-w3-count-nested-tables (prompt-url)
+  "Count nested tables in HTML."
+  (interactive
+   (list
+    (if (eq major-mode 'w3-mode)
+        (url-view-url 'no-show)
+      (read-from-minibuffer "URL: "))))
+  (emacspeak-w3-count-matches
+   prompt-url
+   "'//table//table'" ))
 
 (defun emacspeak-w3-count-tables (prompt-url)
-  "Count  tables in HTML.
-Optional arg url specifies the page to extract table from. "
+  "Count  tables in HTML."
   (interactive
    (list
     (if (eq major-mode 'w3-mode)
         (url-view-url 'no-show)
       (read-from-minibuffer "URL: "))))
-  (read
-  (emacspeak-xslt-url
-   (expand-file-name "count-matches.xsl"
-                     emacspeak-xslt-directory)
+  (emacspeak-w3-count-matches
    prompt-url
-   (list
-    (cons "locator"
-   "//table")))))
+ "//table"))
 
 
 
@@ -857,6 +864,7 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x"
   'emacspeak-w3-extract-nested-table)
+(define-key emacspeak-w3-xsl-map "\C-f" 'emacspeak-w3-count-matches)
 (define-key emacspeak-w3-xsl-map "\C-x" 'emacspeak-w3-count-nested-tables)
 (define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-nested-table-list)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
