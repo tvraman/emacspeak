@@ -701,11 +701,12 @@ widget before summarizing."
 (defadvice widget-setup (after emacspeak pre act comp)
   "Update widget keymaps."
   (declare (special emacspeak-prefix
-                    widget-keymap widget-field-keymap ))
+                    widget-keymap widget-field-keymap widget-text-keymap))
   (loop for map in
         (list widget-keymap
               widget-field-keymap
-              widget-text-keymap)
+              ;widget-text-keymap
+              )
         do
         (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
         (define-key map  "\C-ee" 'widget-end-of-line)
