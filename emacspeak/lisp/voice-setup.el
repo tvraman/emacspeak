@@ -198,7 +198,7 @@ Keys are personality names.")
   "Define a personality given a list of speech style settings."
   (declare (special voice-setup-personality-table))
   (let ((voice
-         (tts-personality-from-speech-style
+         (acss-personality-from-speech-style
           (make-acss
            :family (first style-list)
            :average-pitch (second style-list)
