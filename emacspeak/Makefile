@@ -310,6 +310,7 @@ LABEL=
 MSG="Releasing ${LABEL}" 
 
 label: $(DISTFILES)
+	rm -f lisp/emacspeak-loaddefs.el lisp/emacspeak-cus-load.el
 	cvs commit -r ${LABEL} -m ${MSG}  $(DISTFILES)
 
 release: #supply LABEL=NN.NN
