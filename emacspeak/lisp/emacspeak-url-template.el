@@ -1095,6 +1095,21 @@ plays entire program."
 ;;  )
 
 ;;}}}
+;;{{{ flights from travelocity
+
+(emacspeak-url-template-define
+ "Travelocity Lookup"
+ "http://dps1.travelocity.com/dparflifo.ctl?Service=TRAVELOCITY&GUEST=Y&last_pgd_page=ushpdeparr.pgd&aln_name=%s&flt_num=%s"
+ (list
+  "Airline:"
+  "Flight Number:")
+ nil
+ "Show arrival/departure information from Travelocity."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match
+"Schedule" url 'speak)))
+
+;;}}}
 ;;{{{  viewtrip --travel reports
 (emacspeak-url-template-define
  "Travel itenerary from ViewTrip.com" 
