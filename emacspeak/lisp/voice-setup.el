@@ -157,18 +157,19 @@
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
   (`
-   (defcustom (, personality)
-     (, voice)
-     (, doc)
-     :type (voice-setup-custom-menu)
-     :group 'voice-fonts
-     :set '(lambda  (sym val)
-             ;record  personality as an observer of  voice
-             (put  '(, voice)
-                          '(, personality) t)
-             (voice-setup-set-voice-for-face (, face) '(, personality))
-             (set-default sym val))
-     (,@ args))))
+   (progn
+     (defcustom (, personality)
+       (, voice)
+       (, doc)
+       :type (voice-setup-custom-menu)
+       :group 'voice-fonts
+       :set '(lambda  (sym val)
+               (set-default sym val))
+       (,@ args))
+     (voice-setup-set-voice-for-face (, face) '(, personality))
+                                        ;record  personality as an observer of  voice
+     (put  '(, voice)
+           '(, personality) t))))
 
 ;;}}}
 ;;{{{  special form defvoice 
