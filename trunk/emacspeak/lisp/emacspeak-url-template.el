@@ -166,7 +166,7 @@
 ;;{{{ bbc 
 (emacspeak-url-template-define
  "BBC News"
- "http://news.bbc.co.uk/text_only.stm"
+ "http://news.bbc.co.uk/2/low.html"
  nil
  #'(lambda nil
      (search-forward "BBC News Online:")
