@@ -50,9 +50,9 @@
 (require 'voice-lock)
 (eval-when (compile)
   (require 'dtk-speak)
-  (require 'emacspeak-fix-interactive)
   (require 'emacspeak-speak)
   (require 'emacspeak-keymap))
+(require 'emacspeak-fix-interactive)
 (require 'custom)
 ;;}}}
 ;;{{{  Introduction:

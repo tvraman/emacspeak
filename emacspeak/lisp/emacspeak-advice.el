@@ -2907,7 +2907,7 @@ Variable mark-even-if-inactive is set true ."
 
 (defadvice load (after emacspeak pre act comp)
   "Fix interactive commands just defined."
-  (emacspeak-fix-all-recent-commands
+  (emacspeak-fix-commands-loaded-from 
    (file-name-sans-extension
     (ad-get-arg 0))))
 ;;}}}
