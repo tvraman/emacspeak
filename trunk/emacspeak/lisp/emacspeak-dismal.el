@@ -269,7 +269,8 @@ emacspeak-dismal-sheet-summarizer-list"
   (declare (special emacspeak-dismal-row-summarizer-list))
   (when emacspeak-dismal-sheet-summarizer-list
     (let ((emacspeak-speak-messages nil))
-      (dis-recalculate-matrix))
+      ;(dis-recalculate-matrix)
+      )
     (message 
      (mapconcat
       (function
