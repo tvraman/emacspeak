@@ -911,6 +911,21 @@ Set up URL rewrite rule to get print page."
  "Retrieve India Today. Published every Monday --specified appropriate date.")
 
 ;;}}}
+;;{{{ meerkat 
+
+(emacspeak-url-template-define
+  "Meerkat"
+  "http://meerkat.oreillynet.com/?_fl=rss10&%s"
+  (list
+   #'(lambda nil
+   (read-from-minibuffer
+    "Meerkat recipe: ")))
+  nil
+  "Meerkat tool"
+  #'(lambda (url)
+      (emacspeak-rss-display url 'speak)))
+
+;;}}}
 
 ;;}}}
 ;;{{{ Interactive commands 
