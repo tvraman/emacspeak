@@ -406,8 +406,7 @@
   "Map base fonts to voices."
   (interactive )
   (declare (special voice-lock-mode))
-  (setq voice-lock-mode t)
-  (voice-setup-face-to-voice (point-min) (point-max)))
+  (setq voice-lock-mode t))
 
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
