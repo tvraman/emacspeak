@@ -41,7 +41,11 @@ used as the table-index for extract-tables.xsl.
   <!-- { html body  -->
   <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
-  <xsl:template match="/html/head">
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
