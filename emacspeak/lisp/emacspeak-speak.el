@@ -1338,7 +1338,7 @@ Alert the user only if mail has arrived since this time in the future.")
                                      
 
 
-(defsubst  emacspeak-mail-alert-user-p (spool)
+(defsubst  emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the
 specified spool."
   (declare (special emacspeak-mail-last-alerted-time))
