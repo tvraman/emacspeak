@@ -288,7 +288,6 @@ command `emacspeak-table-display-table-in-region' normally bound to
                           nil           ;read
                           'emacspeak-speak-run-shell-command-history)
     current-prefix-arg))
-  (declare (special emacspeak-wizards-root-buffer))
   (let ((buffer-name (format "*%s-output*" command))
         (start nil)
         (end nil))
@@ -298,6 +297,7 @@ command `emacspeak-table-display-table-in-region' normally bound to
                :test 'string-equal)
     (save-excursion
       (set-buffer buffer-name)
+      (untabify (point-min) (point-max))
       (setq start (point-min)
             end (1- (point-max)))
       (condition-case nil
