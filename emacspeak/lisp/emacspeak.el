@@ -80,7 +80,7 @@
 		   "http://emacspeak.sf.net/tips.html")
   :link '(url-link :tag "Discussion" 
                    "http://www.cs.vassar.edu/~priestdo/emacspeak/")
-  :link '(url-link :tag "Publications" 
+  :link '(url-link :tag "Papers" 
                    "http://emacspeak.sf.net/publications")
   :prefix "emacspeak-"
   :group 'applications
