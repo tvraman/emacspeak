@@ -628,11 +628,87 @@ Optional arg url specifies the page to extract table from. "
    speak))
   
 
+(defsubst  emacspeak-w3-get-table-list (&optional bound)
+  "Collect a list of numbers less than bound 
+ by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((result nil)
+        (i nil)
+        (done nil))
+    (while (not done)
+      (setq i
+            (read-from-minibuffer
+             (format "Index%s"
+                     (if bound
+                         (format " less than  %s" bound)
+                       ":"))))
+      (if (> (length i) 0)
+          (push i result)
+        (setq done t)))
+    result))
+
+(defun emacspeak-w3-extract-table-list (tables   &optional prompt-url speak)
+  "Extract specified list of tables from a WWW page."
+  (interactive
+   (list
+    (emacspeak-w3-get-table-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (i)
+               (format "((//table//table)[%s])" i))
+           tables
+           " or "))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
+  "Extract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion.
+Interactive prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Table: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "/descendant::table[%s]"
+           position)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+(defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
+  "Extract specified list of tables from a WWW page.
+Tables are specified by their position in the list 
+of tables found in the page."
+  (interactive
+   (list
+    (emacspeak-w3-get-table-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (i)
+               (format "(/descendant::table[%s])" i))
+           positions 
+           " or "))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p) speak))))
+
 (defvar emacspeak-w3-buffer-css-class-cache nil
   "Caches class attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
 
+
+        
 (defun emacspeak-w3-css-class-cache ()
   "Build CSS class cache for buffer if needed."
   (unless (eq major-mode 'w3-mode)
@@ -656,7 +732,7 @@ Optional arg url specifies the page to extract table from. "
                #'(lambda (v)
                    (cons v v ))
                values)))))
-        
+
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
   "Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -671,22 +747,6 @@ Interactive prefix arg causes url to be read from the minibuffer."
   (emacspeak-w3-xslt-filter
    (format "//*[@class=\"%s\"]"
            class)
-   prompt-url
-   (or (interactive-p)
-       speak)))
-
-(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
-  "Extract table at specified position.
- Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the minibuffer."
-  (interactive
-   (list
-    (read-from-minibuffer "Table: ")
-    current-prefix-arg))
-  (emacspeak-w3-xslt-filter
-   (format "/descendant::table[%s]"
-           position)
    prompt-url
    (or (interactive-p)
        speak)))
@@ -802,12 +862,15 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "T"
   'emacspeak-w3-extract-table-by-position)
+(define-key emacspeak-w3-xsl-map "\C-t"
+  'emacspeak-w3-extract-tables-by-position-list)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
 (define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
+(define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-table-list)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
 
 ;;; Extracting node specified by id
