@@ -1992,6 +1992,54 @@ visiting the ppt file."
  'emacspeak-wizards-ppt-mode)
 
 ;;}}}
+;;{{{ DVI wizard
+
+(define-derived-mode emacspeak-wizards-dvi-mode fundamental-mode
+  "Browsing DVI Files."
+  "Major mode for browsing DVI files.\n\n
+DVI files  are converted to text and previewed using text mode."
+  (emacspeak-wizards-dvi-display))
+
+(defcustom emacspeak-wizards-dvi2txt-program
+  (expand-file-name "dvi2txt"
+                    emacspeak-etc-directory)
+  "Program for converting dvi  to txt.
+Set this to nil if you do not want to use the DVI wizard."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(defvar emacspeak-wizards-dvi-preview-buffer nil
+  "Records buffer displaying dvi preview.")
+
+;;;###autoload
+(defun emacspeak-wizards-dvi-display ()
+  "Called to set up preview of an DVI file.
+Assumes we are in a buffer visiting a .DVI file.
+Previews those contents as text and nukes the buffer
+visiting the DVI file."
+  (interactive)
+  (declare (special emacspeak-wizards-dvi2txt-program
+                    emacspeak-wizards-dvi-preview-buffer))
+   (cond
+    ((null emacspeak-wizards-dvi2txt-program)
+     (message "Not using Emacspeak DVI wizard."))
+    (t 
+     (let ((filename (buffer-file-name))
+	   (dvi-buffer (current-buffer))
+	   (buffer (get-buffer-create " *dvi preview*")))
+	 (shell-command
+	  (format "%s  %s &"
+		  emacspeak-wizards-dvi2txt-program filename)
+          buffer)
+       (kill-buffer dvi-buffer)
+       (switch-to-buffer buffer)))))
+
+
+(emacspeak-wizards-augment-auto-mode-alist
+ "\\.dvi$"
+ 'emacspeak-wizards-dvi-mode)
+
+;;}}}
 ;;{{{ detailed quotes 
 (defcustom emacspeak-wizards-quote-command 
   (expand-file-name "quotes.pl"
