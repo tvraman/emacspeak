@@ -74,6 +74,10 @@ This is also available through the
     <application name="dired">
       Browse and operate on files and folders.
     </application>
+    <application name="wdired">
+      Edit filenames within dired as a means of moving and
+      renaming files.
+    </application>
     <application name="ffap">
       Find file or url at point.
     </application>
