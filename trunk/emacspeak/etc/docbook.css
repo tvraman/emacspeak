@@ -1,0 +1,20 @@
+.book .title          { text-align: center }
+.book .subtitle       { text-align: center }
+.book .corpauthor     { text-align: center }
+.book .author         { text-align: center }
+.book .affiliation    { text-align: center }
+.book .editedby       { text-align: center }
+.book .editor         { text-align: center }
+.book .graphic        { text-align: center }
+
+.article .title          { text-align: center }
+.article .subtitle       { text-align: center }
+.article .corpauthor     { text-align: center }
+.article .author         { text-align: center }
+.article .affiliation    { text-align: center }
+.article .editedby       { text-align: center }
+.article .editor         { text-align: center }
+.article .graphic        { text-align: center }
+.article .abstract       { margin-left: 0.5in;
+                           margin-right: 0.5in;
+                           font-style: italic }
