@@ -1762,7 +1762,7 @@ emacspeak-websearch-personal-portfolio."
 
 (defcustom emacspeak-wizards-find-switches-widget
   '(cons :tag "Find Expression"
-         (menu-choice :tag "Find Test"
+         (menu-choice :tag "Find"
                       (string :tag "Test")
                       (const "-name" )
                       (const "-iname")
