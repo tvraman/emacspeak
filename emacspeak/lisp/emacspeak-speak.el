@@ -1634,7 +1634,7 @@ See the documentation for function
 (defcustom emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
-  :type 'filename
+  :type 'directory
   :group 'emacspeak-speak)
 ;;;###autoload
 (defun emacspeak-speak-world-clock (zone)

@@ -172,7 +172,7 @@ spoken.")
 
 (make-variable-buffer-local 'emacspeak-erc-monitor-my-messages)
 
-(defcustom emacspeak-erc-my-nick nil
+(defcustom emacspeak-erc-my-nick ""
   "My IRC nick."
   :type 'string
   :group 'emacspeak-erc)
