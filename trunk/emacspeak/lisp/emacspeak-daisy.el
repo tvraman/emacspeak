@@ -657,11 +657,13 @@ No-op if content under point is not currently displayed."
 (defun emacspeak-daisy-play-content-under-point ()
   "Play SMIL content  under point."
   (interactive)
-  (let ((bookmark (get-text-property (point) 'bookmark))
+  (let ((title nil)
+        (bookmark (get-text-property (point) 'bookmark))
         (content (get-text-property (point) 'content))
         (viewer (get-text-property (point) 'viewer))
         (start (line-beginning-position))
         (end (line-end-position)))
+    (setq title (buffer-substring start end))
     (cond
      ((and viewer
            (buffer-live-p viewer))
@@ -671,7 +673,7 @@ No-op if content under point is not currently displayed."
       (emacspeak-speak-mode-line))
      (content
       (emacspeak-daisy-configure-w3-to-record-viewer
-       (current-buffer) start end bookmark)
+       (current-buffer) title start end bookmark)
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-daisy-play-content  content))
      (t (error "No content under point.")))))
@@ -688,18 +690,20 @@ No-op if content under point is not currently displayed."
 ;;}}}
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
-(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center
+(defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title
                                                       start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks W3 to record the viewer in the navigation center when
                                                       done.
-Also puts the displayed buffer in outline-minor-mode."
+Also puts the displayed buffer in outline-minor-mode and gives it
+                                                      the right title."
   (declare (special emacspeak-w3-post-process-hook))
   (setq emacspeak-w3-post-process-hook
         (`
          (lambda  nil
 	   (let ((buffer (current-buffer)))
              (outline-minor-mode 1)
+             (rename-buffer title 'uniquely)
 	     (save-excursion
 	       (set-buffer (, nav-center))
 	       (put-text-property (, start) (, end)
