@@ -67,7 +67,7 @@ CLASS="SECT1"
 CLASS="SECT1"
 ><A
 NAME="TROUBLESHOOTING"
->5. Frequently Asked Questions (FAQs)</A
+>6. Frequently Asked Questions (FAQs)</A
 ></H1
 ><P
 >	This sections covers some of the more common problems
@@ -205,35 +205,11 @@ TARGET="_top"
 					</P
 ><DIV
 CLASS="NOTE"
-><P
-></P
-><TABLE
+><BLOCKQUOTE
 CLASS="NOTE"
-WIDTH="90%"
-BORDER="0"
-><TR
-><TD
-WIDTH="25"
-ALIGN="CENTER"
-VALIGN="TOP"
-><IMG
-SRC="../images/note.gif"
-HSPACE="5"
-ALT="Note"></TD
-><TH
-ALIGN="LEFT"
-VALIGN="CENTER"
-><B
->Note</B
-></TH
-></TR
-><TR
-><TD
->&nbsp;</TD
-><TD
-ALIGN="LEFT"
-VALIGN="TOP"
 ><P
+><B
+>Note: </B
 >						Some users have
 						reported
 						compatibility problems with
@@ -248,9 +224,7 @@ VALIGN="TOP"
 						this issue,
 						please let me know. 
 						</P
-></TD
-></TR
-></TABLE
+></BLOCKQUOTE
 ></DIV
 ></DD
 ><DT
@@ -262,56 +236,69 @@ CLASS="COMMAND"
 ></DT
 ><DD
 ><P
->					According to the ViaVoice
-					mailing archive, this problem
-					occurs most often with Red Hat
-					7.1.  The main ViaVoice TTS engine
-					does not seem to
-					require the file
+>					The file
+					<TT
+CLASS="FILENAME"
+>libXm.so.1</TT
+>
+					is part of the
+					<TT
+CLASS="FILENAME"
+>lesstif</TT
+>
+					distribution, and it is also a
+					shared library. This error
+					message indicates that either
+					<TT
+CLASS="FILENAME"
+>lesstif</TT
+>
+					is not installed, or that the
+					system is unable to locate the
+					file. Often shared libraries
+					are referenced by a
+					symbolic link to the real
+					shared library file, which may
+					be named something like
+					<TT
+CLASS="FILENAME"
+>libXm.so.1.0.17</TT
+>.
+					When the name of the symbolic
+					link to the shared library and the
+					name of the real shared
+					library file differ,
+					the system may not be able to
+					find the shared library, even
+					if it exists. If another
+					program depends on a shared
+					library that cannot be found,
+					an error message like the one
+					above results. In the case of
 					<TT
 CLASS="FILENAME"
 >libXm.so.1</TT
 >,
-					so you can install the
+					lesstif is only needed for
+					graphical demonstration
+					programs.  Thus, if you do not
+					plan to use the graphical
+					mode, it is safe to install the
 					ViaVoice RTK rpm using the option
 					<B
 CLASS="COMMAND"
 >--nodeps</B
->.
-					This option tells ViaVoice to ignore any
+>,
+					which tells ViaVoice to ignore any
 					missing dependencies. 
 					</P
 ><DIV
 CLASS="NOTE"
-><P
-></P
-><TABLE
+><BLOCKQUOTE
 CLASS="NOTE"
-WIDTH="90%"
-BORDER="0"
-><TR
-><TD
-WIDTH="25"
-ALIGN="CENTER"
-VALIGN="TOP"
-><IMG
-SRC="../images/note.gif"
-HSPACE="5"
-ALT="Note"></TD
-><TH
-ALIGN="LEFT"
-VALIGN="CENTER"
-><B
->Note</B
-></TH
-></TR
-><TR
-><TD
->&nbsp;</TD
-><TD
-ALIGN="LEFT"
-VALIGN="TOP"
 ><P
+><B
+>Note: </B
 >					Note that this is only a
 					workaround, not a "fix," and
 					that it only works for 
@@ -321,9 +308,7 @@ VALIGN="TOP"
 					ViaVoice voice recognition
 					software.
 					</P
-></TD
-></TR
-></TABLE
+></BLOCKQUOTE
 ></DIV
 ></DD
 ><DT
@@ -388,18 +373,14 @@ CLASS="COMMAND"
 ></DT
 ><DD
 ><P
->					If you're getting this error
-					message, it's because
-					Emacspeak cannot find the
-					script that drives your sound
-					server.  The script you use
-					depends on which type of
-					server you have.
+>					If you are getting this error
+					message, there are several
+					possible causes. This section
+					steps though finding and
+					correcting this problem.
 					</P
 ><P
->					There are a couple of things
-					to check if you get this error
-					message. The first step is to
+>					The first step is to
 					make sure that you have tcl
 					correctly installed, as
 					explained in the following instructions.
@@ -765,6 +746,136 @@ CLASS="FILENAME"
 					it works, restart Emacspeak.
 					Emacspeak should work correctly.
 					</P
+><P
+>					If you have a hardware
+					synthesizer and are still not
+					getting any speech, you probably do
+					not have the necessary
+					permissions to use the serial
+					port for your
+					synthesizer. There are a
+					number of solutions to this
+					problem, and the best solution
+					depends on your operating
+					environment. For example, if you
+					are in a multi-user
+					environment, controlling the
+					access permissions to the
+					serial device may be a
+					concern. The options are as follows: 
+					</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Change the
+							ownership of
+							the serail
+							device to the
+							user running
+							Emacspeak. To
+							do this, type
+							<B
+CLASS="COMMAND"
+>chown
+							<TT
+CLASS="REPLACEABLE"
+><I
+>username</I
+></TT
+>
+							/dev/ttyS0</B
+>
+							at the command
+							prompt,
+							then type
+							<B
+CLASS="COMMAND"
+>chmode
+							u+rw
+							/dev/ttyS0</B
+>.
+							</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Add the user
+							to the group
+							associated
+							with the
+							serial
+							device. On Red
+							Hat systems
+							this is
+							usually the
+							group
+							<B
+CLASS="COMMAND"
+>tty</B
+>.
+							To do this,
+							edit the
+							<TT
+CLASS="FILENAME"
+>/etc/group</TT
+>
+							file and find
+							the line
+							starting with
+							<B
+CLASS="COMMAND"
+>tty:</B
+>.
+							At the end of
+							that line, add
+							",<TT
+CLASS="REPLACEABLE"
+><I
+>username</I
+></TT
+>"
+							where username
+							is your
+							username.
+							</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>							Give
+							read/write
+							access to the
+							serial device
+							for all
+							users. This is
+							the least
+							secure
+							solution, but
+							if you are the
+							only user on
+							the system, it
+							will not
+							matter. To
+							give
+							read/write
+							access, make
+							sure you are
+							the root user
+							and at the
+							command prompt
+							type
+							<B
+CLASS="COMMAND"
+>chmod
+							o+rw
+							/dev/ttyS0</B
+>.
+							</P
+></LI
+></UL
 ></DD
 ></DL
 ></DIV

@@ -6,7 +6,7 @@
 NAME="GENERATOR"
 CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
 REL="HOME"
-TITLE="Using Emacspeak HOWTO"
+TITLE="Emacspeak User's Guide"
 HREF="index.html"><LINK
 REL="PREVIOUS"
 TITLE="Working online"
@@ -32,7 +32,7 @@ CELLSPACING="0"
 ><TH
 COLSPAN="3"
 ALIGN="center"
->Using Emacspeak HOWTO</TH
+>Emacspeak User's Guide</TH
 ></TR
 ><TR
 ><TD
@@ -67,7 +67,7 @@ CLASS="SECT1"
 CLASS="SECT1"
 ><A
 NAME="PRODUCTIVITY"
->6. Productivity</A
+>7. Productivity</A
 ></H1
 ><P
 >	Emacs provides many applications that can help you get your
@@ -81,14 +81,18 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="WRITING-CODE"
->6.1. Coding in Emacs</A
+>7.1. Coding in Emacs</A
 ></H2
 ><P
 >	Emacs has "major modes" (essentially editors) for Lisp,
-	Scheme, Awk, C, C++, Fortran, Icon, Java, Objective-C, Pascal,
-	Perl, and Tcl. You can invoke a major mode by creating a file
-	with the appropriate extension - for example, to invoke the
-	c++ major mode, create a file with a .cpp extension. You can
+	Scheme, Awk, C, C++, FORTRAN, Icon, Java, Objective-C, Pascal,
+	Perl, and Tcl. You can invoke a major mode by creating and/or opening a file
+	with the appropriate extension. For example, to invoke the
+	c++ major mode, create a file with a <TT
+CLASS="FILENAME"
+>.cpp</TT
+>
+	extension and then open that file. You can
 	also download additional major modes, such as SGML.
 	</P
 ><P
@@ -108,7 +112,7 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="CUSTOMIZATION"
->6.2. Customizing Emacspeak</A
+>7.2. Customizing Emacspeak</A
 ></H2
 ><P
 >	Emacspeak contains many options for customization.  The
@@ -122,7 +126,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="CHANGING-THE-SPEECH-RATE"
->6.2.1. Changing the speech rate</A
+>7.2.1. Changing the speech rate</A
 ></H3
 ><P
 >	The default Emacspeak speech rate may be too slow or fast for
@@ -165,7 +169,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="AUDITORY-ICONS"
->6.2.2. Auditory Icons for Emacspeak</A
+>7.2.2. Auditory Icons for Emacspeak</A
 ></H3
 ><P
 >	Ann Parsons wrote a great explanation of the Emacspeak desktop
@@ -179,6 +183,81 @@ TARGET="_top"
 	feedback when you change buffers, quit a program, enter the
 	buffers list, edit C code, etc.
 	</P
+><P
+>	If you want to use auditory icons and ViaVoice is your speech
+	synthesizer, check to see whether or not you have a
+	multi-channel sound card (try playing a CD and a .au file at
+	the same time - if it works, you have a multi-channel
+	card). If your card is not multi-channel, you must install the
+	application <SPAN
+CLASS="APPLICATION"
+>stdiom</SPAN
+> as follows:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Download the application
+			<SPAN
+CLASS="APPLICATION"
+>stdiosynth</SPAN
+> from
+			<A
+HREF="http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz"
+TARGET="_top"
+>http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz</A
+>.  
+			</P
+></LI
+><LI
+><P
+>			Log in to your machine as root, then change to
+					the directory where you placed the
+					downloaded file
+					<TT
+CLASS="FILENAME"
+>stdiom.tar.gz</TT
+>.
+			</P
+></LI
+><LI
+><P
+>			Unzip the file using the command
+			<B
+CLASS="COMMAND"
+>gunzip stdiom.tar.gz</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Untar the resulting file using the command
+			<B
+CLASS="COMMAND"
+>tar -xvf stdiom.tar</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Change directories to the resulting
+					<TT
+CLASS="FILENAME"
+>stdio_musician1.0</TT
+>
+					directory and type
+					<B
+CLASS="COMMAND"
+>make</B
+>. You
+					should get a message that says,
+					"stdiosynth is up to date."
+			</P
+></LI
+></OL
 ><P
 >	Currently there are two auditory icon themes that you can
 	download from the Emacspeak website, called Chimes and
@@ -202,7 +281,7 @@ TARGET="_top"
 	installation. You can then select themes you have already
 	installed by using the Emacspeak command <B
 CLASS="COMMAND"
->C-e
+>M-x
 	emacspeak-sounds-select-theme</B
 >. Alternatively, you
 	can add the following lines to your
@@ -221,7 +300,7 @@ WIDTH="100%"
 COLOR="#000000"
 ><PRE
 CLASS="PROGRAMLISTING"
->	(emacspeak-toggle-auditory-icons t)
+>	(setq emacspeak-toggle-auditory-icons t)
 	(when (emacspeak-sounds-theme-p "chimes-mono")
    		(emacspeak-sounds-select-theme "chimes-mono/" ))
 	</PRE
@@ -230,7 +309,7 @@ CLASS="PROGRAMLISTING"
 ></TR
 ></TABLE
 ><P
->	Some people use soundcards that can play multiple channels to
+>	Some people use sound cards that can play multiple channels to
 	produce their auditory icons.  For this option, set
 	<B
 CLASS="COMMAND"
@@ -254,7 +333,7 @@ WIDTH="100%"
 COLOR="#000000"
 ><PRE
 CLASS="PROGRAMLISTING"
->	(emacspeak-aumix-multichannel-capable-p t) 
+>	(setq emacspeak-aumix-multichannel-capable-p t) 
 	</PRE
 ></FONT
 ></TD
@@ -268,11 +347,11 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="READING-ADOBE-ACROBAT-FILES"
->6.3. Reading Adobe Acrobat files</A
+>7.3. Reading Adobe Acrobat files</A
 ></H2
 ><P
 >	There are two ways to view an Adobe Acrobat PDF file with
-	Emacspeak. The first option is to generate a text verison of
+	Emacspeak. The first option is to generate a text version of
 	the PDF using <SPAN
 CLASS="APPLICATION"
 >Xpdf</SPAN
@@ -285,7 +364,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="USING-XPDF"
->6.3.1. Using Xpdf</A
+>7.3.1. Using Xpdf</A
 ></H3
 ><P
 >	To generate a text version of the PDF, you'll need to download
@@ -432,7 +511,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="USING-ADOBES-CONVERTER"
->6.3.2. Using Adobe's converter</A
+>7.3.2. Using Adobe's converter</A
 ></H3
 ><P
 >	As an alternative to <SPAN
@@ -486,7 +565,7 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="CALENDAR-AND-APPOINTMENTS"
->6.4. Scheduling appointments and calendar events</A
+>7.4. Scheduling appointments and calendar events</A
 ></H2
 ><P
 >	Emacs has a built-in desk calendar that includes a diary for
@@ -628,7 +707,7 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="WRITING-TEXT"
->6.5. Writing text in Emacs</A
+>7.5. Writing text in Emacs</A
 ></H2
 ><P
 >	Emacs provides for many modes of text editing, and the tools
@@ -640,7 +719,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="WRITING-PRINT-PDF-POSTSCRIPT"
->6.5.1. Writing for print, PDF, or postscript</A
+>7.5.1. Writing for print, PDF, or postscript</A
 ></H3
 ><P
 >	If you want to output your writing in print, postscript, or
@@ -660,23 +739,35 @@ CLASS="APPLICATION"
 	scientific documentation, and in addition to allowing for
 	detailed formatting, it also provides support for mathematical
 	functions, automatic generation of bibliographies and indexes,
-	graphics support, and much more.  If you know anyone who wrote
-	a Ph.D. dissertation, chances are they used
+	graphics support, and much more. You can find out more about
 	<SPAN
 CLASS="APPLICATION"
 >LaTeX</SPAN
-> to do it.
-	</P
-><P
->	<SPAN
+> from <A
+HREF="http://www.latex-project.org"
+TARGET="_top"
+>http://www.latex-project.org</A
+>. In the
+	documentation section at the <SPAN
 CLASS="APPLICATION"
 >LaTeX</SPAN
-> was not written specifically
-	for Emacs, but a variant of it, called <SPAN
+>
+	site, you will find an introduction to
+	<SPAN
 CLASS="APPLICATION"
->AUC
-	Tex</SPAN
->, was developed for Emacs.  The <SPAN
+>LaTeX</SPAN
+>, as well as a complete
+	reference manual.
+	</P
+><P
+> 	<SPAN
+CLASS="APPLICATION"
+>AUC Tex</SPAN
+> is the Emacs editing mode
+	for <SPAN
+CLASS="APPLICATION"
+>LaTeX</SPAN
+>. The <SPAN
 CLASS="APPLICATION"
 >AUC
 	Tex</SPAN
@@ -706,7 +797,7 @@ TYPE="1"
 >			Open an Emacs command shell as root, using the
 			command <B
 CLASS="COMMAND"
->C-e emacspeak-root</B
+>M-x emacspeak-root</B
 >.
 			</P
 ></LI
@@ -825,6 +916,19 @@ CLASS="FILENAME"
 > file.
 			</P
 ></LI
+><LI
+><P
+>			To invoke the <SPAN
+CLASS="APPLICATION"
+>AUC
+		Tex</SPAN
+> editing mode, create a new file with
+		a <TT
+CLASS="FILENAME"
+>.tex</TT
+> extension.
+			</P
+></LI
 ></OL
 ><P
 >	You'll probably also want to install the online
@@ -885,7 +989,7 @@ TARGET="_top"
 >	Since <SPAN
 CLASS="APPLICATION"
 >AUC TeX</SPAN
-> is an extension of
+> is a part of
 	<SPAN
 CLASS="APPLICATION"
 >LaTeX</SPAN
@@ -912,7 +1016,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="WRITING-FOR-ONLINE"
->6.5.2. Writing for online viewing</A
+>7.5.2. Writing for online viewing</A
 ></H3
 ><P
 >	If you're writing a document that will be read online, you have several

@@ -6,7 +6,7 @@
 NAME="GENERATOR"
 CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
 REL="HOME"
-TITLE="Using Emacspeak HOWTO"
+TITLE="Emacspeak User's Guide"
 HREF="index.html"><LINK
 REL="PREVIOUS"
 TITLE="Before you begin"
@@ -32,7 +32,7 @@ CELLSPACING="0"
 ><TH
 COLSPAN="3"
 ALIGN="center"
->Using Emacspeak HOWTO</TH
+>Emacspeak User's Guide</TH
 ></TR
 ><TR
 ><TD
@@ -67,7 +67,7 @@ CLASS="SECT1"
 CLASS="SECT1"
 ><A
 NAME="SYSTEM-ADMINISTRATION"
->3. System Administration</A
+>4. System Administration</A
 ></H1
 ><P
 >	This section contains information on common system
@@ -88,7 +88,7 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="CHANGING-YOUR-PASSWORD"
->3.1. Changing your password</A
+>4.1. Changing your password</A
 ></H2
 ><P
 >	Every time you log onto a Linux system, you must provide a
@@ -97,36 +97,17 @@ NAME="CHANGING-YOUR-PASSWORD"
 	for added security.
 	</P
 ><P
->	Changing your password is done in the Emacs shell.  By
-	default, not only is
-	your password visible on the screen, but it will also be
-	spoken aloud. However, you can customize Emacs by adding the
-	following line to your
+>	Changing your password is done in the Emacs shell. Normally,
+	changing your password in the Emacs shell displays it on the
+	screen and also speaks it aloud. However, Emacspeak adds a line to your
 	<TT
 CLASS="FILENAME"
 >.emacs</TT
-> file to keep Emacs from echoing
-	your password either visually or orally:
-	</P
-><TABLE
-BORDER="0"
-BGCOLOR="#E0E0E0"
-WIDTH="100%"
-><TR
-><TD
-><FONT
-COLOR="#000000"
-><PRE
-CLASS="PROGRAMLISTING"
->	(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
-	</PRE
-></FONT
-></TD
-></TR
-></TABLE
-><P
-> It's always a good idea to change your password in a
-	secure area where no-one is likely to watch you type it in. To change your password: 
+> file that keeps Emacs from echoing
+	your password either visually or orally. Of course, it's still
+	a good idea to change your password in a secure area where
+	no-one is likely to watch you type it in. To change your
+	password: 
 	</P
 ><P
 ></P
@@ -166,7 +147,7 @@ CLASS="SECT2"
 CLASS="SECT2"
 ><A
 NAME="INSTALLING-APPLICATIONS"
->3.2. Installing applications</A
+>4.2. Installing applications</A
 ></H2
 ><DIV
 CLASS="SECT3"
@@ -174,7 +155,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="ABOUT-EMACS-APPLICATIONS"
->3.2.1. About Emacs applications</A
+>4.2.1. About Emacs applications</A
 ></H3
 ><P
 >	As an Emacs user, you can
@@ -273,7 +254,7 @@ CLASS="FILENAME"
 				file for the application, if you want
 				to run it directly from Emacs and have
 				it Emacspeak-enabled. Check
-				in the /Emacspeak/site-lisp directory
+				in the /emacspeak/lisp directory
 				to see if one exists for your
 				application.
 				</P
@@ -295,7 +276,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="DOWNLOADING-APPLICATIONS"
->3.2.2. Downloading your application</A
+>4.2.2. Downloading your application</A
 ></H3
 ><P
 >	Once you've chosen a new application to install, you'll need
@@ -319,7 +300,7 @@ CLASS="APPLICATION"
 >wget</SPAN
 > applications, refer to <A
 HREF="working-with-files.html#DOWNLOADING-FILES"
->Section 4.1</A
+>Section 5.1</A
 >, Downloading files, for information
 	on how to use these applications to get your files.
 	</P
@@ -328,11 +309,11 @@ HREF="working-with-files.html#DOWNLOADING-FILES"
 	or "period" in the file name) that denotes what type of file it
 	is. If your file has a .gz or .tar extension, refer to <A
 HREF="system-administration.html#UNCOMPRESSING-FILES"
->Section 3.2.3</A
+>Section 4.2.3</A
 > on uncompressing files.  If your file has a .rpm
 	extension, refer to <A
 HREF="system-administration.html#INSTALLING-RPMS"
->Section 3.2.4</A
+>Section 4.2.4</A
 > on
 	installing RPMs.
 	</P
@@ -343,7 +324,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="UNCOMPRESSING-FILES"
->3.2.3. Uncompressing files</A
+>4.2.3. Uncompressing files</A
 ></H3
 ><P
 >	Most files are compressed in at least one (and
@@ -461,7 +442,7 @@ CLASS="FILENAME"
 	extension, such as .el. If it has a .rpm extension, refer to
 	<A
 HREF="system-administration.html#INSTALLING-RPMS"
->Section 3.2.4</A
+>Section 4.2.4</A
 > on installing RPMs. If the file has
 	some other extension, refer to the website where you
 	downloaded it for more information.
@@ -473,7 +454,7 @@ CLASS="SECT3"
 CLASS="SECT3"
 ><A
 NAME="INSTALLING-RPMS"
->3.2.4. Installing RPMs</A
+>4.2.4. Installing RPMs</A
 ></H3
 ><P
 >	If you downloaded or uncompressed a file that has a .rpm
