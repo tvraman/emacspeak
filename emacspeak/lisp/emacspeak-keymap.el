@@ -295,7 +295,7 @@ field in the customization buffer.  You can use the notation
 (define-key help-map "\M-v" 'find-variable)
 (define-key help-map "\M-V" 'find-variable-at-point)
 
-(define-key emacspeak-keymap '[left]
+(define-key emacspeak-keymap '[aleft]
   'emacspeak-speak-this-buffer-previous-display)
 (define-key emacspeak-keymap '[right]
   'emacspeak-speak-this-buffer-next-display)
