@@ -484,10 +484,11 @@ even if one is already defined."
       (funcall emacspeak-w3-url-executor url))
      (t
       (setq emacspeak-w3-url-executor
-            (completing-read 
+            (intern
+             (completing-read 
              "Executor function: "
              obarray 'fboundp t
-             "emacspeak-" nil ))
+             "emacspeak-" nil )))
       (if (and (boundp 'emacspeak-w3-url-executor)
                (fboundp emacspeak-w3-url-executor))
           (funcall emacspeak-w3-url-executor url)
