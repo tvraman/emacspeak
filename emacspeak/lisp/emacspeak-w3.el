@@ -634,7 +634,7 @@ Optional arg url specifies the page to extract table from. "
       (let ((values nil)
             (buffer
              (emacspeak-xslt-url
-              (expand-file-name "list-attribute-values.xsl"
+              (expand-file-name "class-values.xsl"
                                 emacspeak-xslt-directory)
               (url-view-url 'no-show))))
         (setq values 
