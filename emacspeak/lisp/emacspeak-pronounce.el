@@ -599,7 +599,11 @@ pronunciation dictionary for the specified key."
                      :notify notify
                      '(cons :tag "Dictionary Entry"
                             (string :tag "Phrase")
-                            (string :tag "Pronounce as")))
+                            (choice  :tag "Pronunciation"
+(string :tag "Pronounce as")
+(cons :tag "Pronouncer"
+(function :tag "Matcher")
+(function :tag "Pronouncer")))))
       (widget-insert "\n")
       (widget-create 'push-button
                      :tag "Save Dictionary"
