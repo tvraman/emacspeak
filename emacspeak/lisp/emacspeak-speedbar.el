@@ -50,7 +50,7 @@
 ;;; commands. Emacspeak also adds an Emacspeak environment
 ;;; specific entry point to speedbar
 ;;; --emacspeak-speedbar-goto-speedbar-- and binds this
-;;; entry point to the insert key.
+
 
 ;;; Code:
 
@@ -342,7 +342,7 @@ An automatically updating speedbar consumes resources.")
 ;;{{{ keys 
 (declaim (special emacspeak-keymap))
 
-(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
+;(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
 
 ;;}}}
 (provide 'emacspeak-speedbar)
