@@ -982,7 +982,8 @@ in completion buffers"
           (save-excursion
             (set-buffer completions-buffer )
             (emacspeak-prepare-completions-buffer)
-            (dtk-speak (buffer-string ))))))
+            (tts-with-punctuations "all"
+            (dtk-speak (buffer-string )))))))
     ad-return-value))
 
 (defadvice lisp-complete-symbol (around emacspeak pre act)

@@ -577,6 +577,7 @@ only speak upto the first ctrl-m."
           (not dtk-speak-server-initialized))
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
+    (dtk-interp-sync)
     (or (stringp text) (setq text (format "%s" text )))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text )))
