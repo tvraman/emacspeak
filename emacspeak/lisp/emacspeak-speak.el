@@ -2761,8 +2761,9 @@ Argument O specifies overlay."
   "Kill current buffer without asking for confirmation."
   (interactive)
   (kill-buffer nil )
-  (emacspeak-auditory-icon 'close-object)
-  (emacspeak-speak-mode-line ))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line )))
 
 ;;}}}
 ;;{{{  translate faces to voices

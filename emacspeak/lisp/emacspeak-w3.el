@@ -748,50 +748,26 @@ prefix arg causes url to be read from the minibuffer."
                     emacspeak-xslt-directory)
   "XSL transform to extract a node.")
 
-(defun emacspeak-w3-extract-node-by-id (node-id   &optional prompt)
-  "Extract node from HTML.  Extracts specified node from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract node from.
-Interactive prefix arg causes url to be read from the
-minibuffer."
+(defun emacspeak-w3-extract-node-by-id (url node-id   )
+  "Extract specified node from URI."
   (interactive
    (list
-    (read-from-minibuffer "Node Id: ")
-    current-prefix-arg))
+    (read-from-minibuffer "URL: ")
+    (read-from-minibuffer "Node Id: ")))
   (declare (special emacspeak-xslt-program
                     emacspeak-w3-extract-node-by-id-xsl))
-  (unless (or prompt
-              (eq major-mode 'w3-mode))
-    (error "Not in a W3 buffer."))
-  (let ((w3-url (when (eq major-mode 'w3-mode)
-                  (url-view-url t)))
-        (source-url
-         (cond
-          ((and (interactive-p)
-                prompt)
-           (read-from-minibuffer "URL: "
-                                 "http://www."))
-          (t  prompt))))
+  (let ((result
+         (emacspeak-xslt-url
+          emacspeak-w3-extract-node-by-id-xsl
+          url
+          (list
+           (cons "node-id" 
+                 (format "\"'%s'\"" node-id))
+           (cons "base"
+                 (format "\"'%s'\"" url))))))
     (save-excursion
-      (cond
-       (source-url
-        (set-buffer (cdr (url-retrieve source-url))))
-       (t (w3-source-document nil)))
-      (let ((src-buffer (current-buffer))
-            (emacspeak-w3-xsl-p nil))
-        (emacspeak-xslt-region
-         emacspeak-w3-extract-node-by-id-xsl
-         (point-min)
-         (point-max)
-         (list
-          (cons "node-id" 
-                (format "\"'%s'\"" node-id))
-          (cons "base"
-                (format "\"'%s'\""
-                        (or source-url
-                            w3-url)))))
-        (w3-preview-this-buffer)
-        (kill-buffer src-buffer)))))
+      (set-buffer  result)
+      (w3-preview-this-buffer))))
 
 ;;}}}
 ;;{{{  google tool

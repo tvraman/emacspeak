@@ -1548,6 +1548,36 @@ part of the libxslt package."
                              "*xslt errors*")
     (setq modification-flag nil)))
 
+(defun emacspeak-xslt-url (xsl url &optional params )
+  "Apply XSLT transformation to url
+and return the results in a newly created buffer.
+  This uses XSLT processor xsltproc available as
+part of the libxslt package."
+  (declare (special emacspeak-xslt-program
+                    modification-flag))
+  (let ((result (get-buffer-create " *xslt result*"))
+        (parameters (when params 
+                      (mapconcat 
+                       #'(lambda (pair)
+                           (format "--param %s %s "
+                                   (car pair)
+                                   (cdr pair)))
+                       params
+                       " "))))
+    (save-excursion
+      (set-buffer result)
+      (erase-buffer)
+      (shell-command
+       (format "%s %s  --html  --novalid %s %s"
+               emacspeak-xslt-program
+               (or parameters "")
+               xsl url )
+       (current-buffer)
+       "*xslt errors*")
+      (setq modification-flag nil)
+      result)))
+
+
 ;;}}}
 ;;{{{  run rpm -qi on current dired entry
 (defun emacspeak-wizards-rpm-query-in-dired ()
