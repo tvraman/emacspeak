@@ -479,12 +479,17 @@ This function  adds the appropriate form to
 package.
 Argument MODULE specifies the emacspeak module that implements the speech-enabling extensions."
   (declare (special load-history))
-  (if (assoc package load-history)
-      (require module)
+  (cond
+   ((assoc package load-history)
+    (require module)
+    (emacspeak-fix-commands-loaded-from package))
+   (t
     (add-hook 'after-load-alist
               (`
                ((, package)
-                (require (quote (, module ))))))))
+                (progn
+                  (require (quote (, module )))
+                  (emacspeak-fix-commands-loaded-from (,package)))))))))
 
 ;;}}}
 ;;{{{ Setup package extensions
