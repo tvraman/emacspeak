@@ -370,9 +370,11 @@ element. "
 (require 'emacspeak-freeamp)
 (defun emacspeak-w3-freeamp ()
   "View the current buffer using emacspeak's freeamp interface"
-  (let ((tmpname (mailcap-generate-unique-filename)))
+  (let ((tmpname (format "/tmp/mm-%s" (gensym))))
     (write-region (point-min) (point-max) tmpname)
-    (emacspeak-freeamp tmpname)))
+    (emacspeak-freeamp tmpname)
+    (delete-file tmpname)))
+
 (when (and (locate-library "mailcap")
            (or  (file-exists-p "/usr/bin/freeamp")
                 (file-exists-p "/usr/local/bin/freeamp")))
