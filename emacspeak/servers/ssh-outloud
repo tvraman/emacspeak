@@ -7,8 +7,12 @@
 # Running TTS server remotely.
 # }}}
 set host [exec hostname]
-puts stderr "running on host <$host>"
-set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
+#puts stderr "running on host <$host>"
+set remote [exec cat
+# $env(HOME)/.emacspeak/.current-remote-hostname]
+            if {[string length $remote] == 0} {
+set remote localhost
+            }
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $remote  $tcl $tts>"
