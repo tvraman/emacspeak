@@ -30,9 +30,11 @@ Param class specifies the class to extract.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
+<!--
         <p>
           <xsl:value-of select="name(.)"/>
         </p>
+-->
         <xsl:apply-templates/>
         <br/>
       </xsl:for-each>

@@ -652,7 +652,7 @@ Optional arg url specifies the page to extract table from. "
       
         
 
-(defun emacspeak-w3-extract-by-class (class   &optional prompt)
+(defun emacspeak-w3-extract-by-class (class   &optional prompt speak)
   "Extract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
@@ -701,7 +701,8 @@ minibuffer."
                 (format "\"'%s'\""
                         (or source-url
                             w3-url)))))
-        (when (interactive-p)
+        (when (or speak
+            (interactive-p))
           (setq emacspeak-w3-post-process-hook 'emacspeak-speak-buffer))
         (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))

@@ -473,7 +473,7 @@ name of the list.")
  nil
  "Weather Forecast from CNN"
  #'(lambda (url)
-     (emacspeak-w3-extract-table 5  url)))
+     (emacspeak-w3-extract-by-class "cnnBodyText" url 'speak)))
 
 (emacspeak-url-template-define
  "CNN headlines "
