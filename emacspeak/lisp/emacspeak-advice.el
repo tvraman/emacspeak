@@ -661,12 +661,16 @@ before the message is spoken."
      (format "%s %s"
              (or (get (ad-get-arg 0) 'error-message)
                  "Peculiar error ")
-             (cond
- ((sequencep  (ad-get-arg 1))
-               (mapconcat 'identity
-                          (ad-get-arg 1)
-               " "))
- (t (ad-get-arg 1)))))))
+             
+ 
+             (mapconcat
+              (function 
+               (lambda (x)
+                 (format "%s" x)))
+              (ad-get-arg 1)
+              " ")))))
+
+ 
 
 
 (defadvice error (after emacspeak pre act)
