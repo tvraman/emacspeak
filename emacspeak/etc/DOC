@@ -447,6 +447,10 @@ Open Digital Talking Book specified by navigation file filename.
 
 ------------------------------------------------------------
 
+** emacspeak-daisy-play-page-rangePlay pages in specified page range.
+
+------------------------------------------------------------
+
 ** emacspeak-daisy-stop-audioStop audio.
 
 ------------------------------------------------------------
@@ -3157,6 +3161,10 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google-feeling-luckyDo a I'm Feeling Lucky Google search.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-google-search-in-date-rangeUse this from inside the calendar to do Google date-range searches.
 
 ------------------------------------------------------------
 

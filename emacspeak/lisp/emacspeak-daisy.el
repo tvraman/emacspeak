@@ -459,6 +459,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   'emacspeak-daisy-play-content-under-point)
 (define-key emacspeak-daisy-mode-map "n" 'next-line)
 (define-key emacspeak-daisy-mode-map "p" 'previous-line)
+(define-key emacspeak-daisy-mode-map "P" 'emacspeak-daisy-play-page-range)
 
 ;;}}}
 ;;{{{  open a book (entry point)
@@ -515,7 +516,9 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
         (start (line-beginning-position))
         (end (line-end-position)))
     (cond
-     (viewer (switch-to-buffer viewer)
+     ((and viewer
+           (buffer-live-p viewer))
+(switch-to-buffer viewer)
              (emacspeak-auditory-icon 'select-object)
              (emacspeak-speak-mode-line))
      (content
