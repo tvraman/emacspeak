@@ -272,11 +272,12 @@ nil
 
 (emacspeak-url-template-define
  "Google Hits"
- "http://www.google.com/search?q=%s"
+  "http://www.google.com/search?q=%s&num=%s"
  (list
   #'(lambda ()
       (webjump-url-encode
-       (read-from-minibuffer "Google search:"))))
+       (read-from-minibuffer "Google search:")))
+  emacspeak-websearch-google-number-of-results)
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
