@@ -1,4 +1,4 @@
-;;; emacspeak-setup.el --- Setup Emacspeak environment  --loaded to start Emacspeak
+;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  File for setting up and starting Emacspeak
@@ -37,70 +37,83 @@
 ;;}}}
 
 (require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (eval-when (compile)
-(require 'emacspeak-speak))
+  (require 'emacspeak-speak))
 (defvar emacspeak-directory
-  (expand-file-name  "/user/raman/emacs/lisp/emacspeak")
+  (expand-file-name  "/home/raman/emacs/lisp/emacspeak")
   "Directory where emacspeak is installed. ")
 
-  (defvar emacspeak-sounds-directory
-(concat emacspeak-dir
-          "/sounds/")
+(defvar emacspeak-lisp-directory
+  (expand-file-name  "lisp/" emacspeak-directory)
+  "Directory where emacspeak lisp files are  installed. ")
 
-            "Directory containing auditory icons for Emacspeak.")
+(defvar emacspeak-sounds-directory
+  (expand-file-name  "sounds/" emacspeak-directory)
+  "Directory containing auditory icons for Emacspeak.")
 
-(defvar emacspeak-play-program
-  (or (getenv "EMACSPEAK_PLAY_PROGRAM")
-(concat emacspeak-dir "/play"))
-"Name of executable that plays sound files. ")
+(defvar emacspeak-etc-directory
+  (expand-file-name  "etc/" emacspeak-directory)
+  "Directory containing miscellaneous files  for
+  Emacspeak.")
 
-(unless (featurep 'emacspeak)
-(setq load-path
-      (cons emacspeak-dir 
-                              load-path )))
+(defvar emacspeak-servers-directory
+  (expand-file-name  "servers/" emacspeak-directory)
+  "Directory containing speech servers  for
+  Emacspeak.")
 
-(load-library "emacspeak")
-;;; The next 3    lines are to suppress warnings from the byte-compiler
-  (eval-when (compile)
-    (require 'dtk-speak)
-(require 'voice-lock)
-(require 'emacspeak)
-)
+(defvar emacspeak-info-directory
+  (expand-file-name  "info/" emacspeak-directory)
+  "Directory containing  Emacspeak info files.")
+(defcustom emacspeak-play-program
+  (cond
+   ((getenv "EMACSPEAK_PLAY_PROGRAM"))
+   ((file-exists-p "/usr/bin/play") "/usr/bin/play")
+   ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
+   ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
+   (t (expand-file-name emacspeak-etc-directory "play")))
+  "Name of executable that plays sound files. "
+  :group 'emacspeak
+  :type 'string)
+
+(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
+  "Directory where Emacspeak resource files such as
+pronunciation dictionaries are stored. ")
+
+
+
+(defvar outloud-default-speech-rate 50
+  "Default speech rate for outloud.")
 
 (defvar dtk-default-speech-rate 225
-"*Default speech rate at which Dectalk is started. ")
+  "*Default speech rate at which TTS is started. ")
+
+(defvar tts-default-speech-rate dtk-default-speech-rate
+  "Setup on a per engine basis.")
+
+(unless (featurep 'emacspeak)
+  (setq load-path
+        (cons emacspeak-lisp-directory 
+              load-path )))
+
+(load-library "emacspeak")
+(defvar dtk-startup-hook nil)
 
 (add-hook 'dtk-startup-hook 
-(function (lambda () 
-(dtk-set-rate dtk-default-speech-rate  t))))
+          (function (lambda () 
+                      (dtk-set-rate tts-default-speech-rate  t))))
+(defvar emacspeak-startup-hook nil)
 
-(setq emacspeak-startup-hook nil )
 ;;; Use (add-hook 'emacspeak-startup-hook ...)
 ;;; to add your personal settings. 
-(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
-  "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
-(emacspeak)
 
-                  ;;; turn on automatic voice locking , split caps and punctuations
-;;; for programming modes
- (mapcar
-  (function (lambda (hook)
-              (add-hook hook
-                        (function (lambda ()
-                                    (voice-lock-mode 1)
-                                    (dtk-set-punctuations "all")
-                                    (or dtk-split-caps
-                                        (dtk-toggle-split-caps))
-                                    (or emacspeak-audio-indentation
-                                        (emacspeak-toggle-audio-indentation))
-                                    (emacspeak-dtk-sync))))))
-  (list 'c-mode-common-hook
-        'py-mode-hook
-        'lisp-mode-hook
-        'emacs-lisp-mode-hook
-        'lisp-interaction-mode-hook
-        'perl-mode-hook
-        'tex-mode-hook
-        'tcl-mode-hook
-        'html-helper-mode-hook
-        'dired-mode-hook))
+(emacspeak)
+;;{{{  emacs local variables 
+
+;;; local variables:
+;;; major-mode: emacs-lisp-mode
+;;; folded-file: t
+;;; end: 
+
+;;}}}
