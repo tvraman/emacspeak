@@ -47,7 +47,7 @@
 (require 'backquote)
 (require 'emacspeak-load-path)
 (require 'dtk-speak)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)

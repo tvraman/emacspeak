@@ -111,7 +111,7 @@
   (condition-case nil 
       (require 'html-helper-mode) ; When we like to modify the syntax table
     (error (message "Looks like you dont have html-helper-mode installed."))))
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (declaim (special html-helper-mode-syntax-table))
 ;; Code for greater flexibility, especially for XEmacs compatibility.
 ;; Note that Emacs evaluates the personality entries in `voice-lock-keywords',

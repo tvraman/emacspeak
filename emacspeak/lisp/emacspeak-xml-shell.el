@@ -54,7 +54,7 @@
 (require 'custom)
 (require 'custom)
 (require 'comint)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-wizards)

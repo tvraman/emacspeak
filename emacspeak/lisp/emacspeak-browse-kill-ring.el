@@ -53,7 +53,7 @@
 (require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 
 ;;}}}

@@ -46,7 +46,7 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-table-ui)
 (require 'thingatpt)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 (require 'webjump)

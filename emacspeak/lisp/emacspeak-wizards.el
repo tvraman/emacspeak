@@ -59,7 +59,7 @@
 (require 'custom)
 (require 'thingatpt)
 (eval-when-compile (require 'dtk-speak)
-                   (require 'voice-lock)
+                   (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds))
 (require 'emacspeak-table-ui)

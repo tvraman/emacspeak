@@ -51,7 +51,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'thingatpt)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-speak)
 ;(require 'emacspeak-wizards)
 (require 'emacspeak-sounds)

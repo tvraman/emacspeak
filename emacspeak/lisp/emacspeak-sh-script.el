@@ -45,7 +45,7 @@
 (eval-when-compile (require 'dtk-speak)
                    (require 'emacspeak-speak)
                    (require 'sh-script)
-                   (require 'voice-lock)
+                   (require 'emacspeak-personality)
                    (require 'emacspeak-sounds))
 
 ;;}}}
