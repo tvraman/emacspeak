@@ -4,13 +4,13 @@
 if which wvText > /dev/null
 then
     cd /tmp
-    wmf=/tmp/mswordfile*.wmf
+    #wmf=/tmp/mswordfile*.wmf
     wordfile=mswordviewfile$$.doc
     txtfile=mswordviewfile$$.txt
     cat > $wordfile
     wvText $wordfile $txtfile
     cat   $txtfile 
-    /bin/rm $txtfile  $wmf
+    /bin/rm $txtfile  #$wmf
 else
     echo "wvText not found --install package wv."
 fi
