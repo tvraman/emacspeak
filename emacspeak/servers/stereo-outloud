@@ -219,6 +219,10 @@ proc speech_task {} {
                 synth "$prefix $text"
                 set retval [service]
             }
+            a {
+                set sound [lindex $event 1]
+                catch "exec $tts(play) $sound >& /dev/null &" errCode
+            }
             n {
                 if {$tts(midi)} {
                     lvarpop event 
