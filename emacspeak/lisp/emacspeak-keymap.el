@@ -93,6 +93,7 @@
 (define-key emacspeak-keymap "/" 'emacspeak-speak-this-buffer-other-window-display)
 (define-key emacspeak-keymap '[down]
   'emacspeak-read-next-line)
+(define-key emacspeak-keymap '[(control down)] 'emacspeak-cvs-get-anonymous)
 (define-key emacspeak-keymap '[up]  'emacspeak-read-previous-line)
 (define-key emacspeak-keymap "x" 'emacspeak-view-register)
 (define-key emacspeak-keymap "w" 'emacspeak-speak-word)
@@ -251,7 +252,7 @@
 (global-set-key '[(control left)] 'emacspeak-previous-frame)
 (global-set-key '[(control right)] 'emacspeak-next-frame)
 (global-set-key '[pause] 'dtk-stop)
-       (global-set-key '[(control down)] 'emacspeak-mark-forward-mark)
+(global-set-key '[(control down)] 'emacspeak-mark-forward-mark)
 (global-set-key '[(control up)] 'emacspeak-mark-backward-mark)
 (global-set-key '[(shift up)] 'emacspeak-skip-blank-lines-backward)
 (global-set-key '[(shift down)] 'emacspeak-skip-blank-lines-forward)
@@ -309,11 +310,11 @@ relief."
   (keymap)
   "We define keys that invoke editting commands to be
 undefined"
-(loop for k in
-      (where-is-internal 'emacspeak-self-insert-command
-                         keymap)
-      do
-(define-key keymap k 'undefined )))
+  (loop for k in
+        (where-is-internal 'emacspeak-self-insert-command
+                           keymap)
+        do
+        (define-key keymap k 'undefined )))
 ;;}}}
 (provide 'emacspeak-keymap)
 
