@@ -527,7 +527,7 @@ Computing News at CNN.")
  nil
  "Display project usage statistics."
  #'(lambda (url)
-     (emacspeak-w3-extract-table 9 url)))
+     (emacspeak-w3-extract-table 5 url)))
 
 (emacspeak-url-template-define
  "sourceforge project" 
