@@ -334,7 +334,7 @@ Existing personality properties on the text range are preserved." nil nil)
 ;;;;;;  emacspeak-pronounce-toggle-use-of-dictionaries emacspeak-pronounce-clear-dictionaries
 ;;;;;;  emacspeak-pronounce-load-dictionaries emacspeak-pronounce-save-dictionaries
 ;;;;;;  emacspeak-pronounce-add-super emacspeak-pronounce-add-dictionary-entry)
-;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16005 61969))
+;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16005 62467))
 ;;; Generated autoloads from emacspeak-pronounce.el
 
 (autoload (quote emacspeak-pronounce-add-dictionary-entry) "emacspeak-pronounce" "\
@@ -359,6 +359,10 @@ Optional argument FILENAME specifies the dictionary file." t nil)
 
 (autoload (quote emacspeak-pronounce-clear-dictionaries) "emacspeak-pronounce" "\
 Clear all current pronunciation dictionaries." t nil)
+
+(defvar emacspeak-pronounce-pronunciation-table nil "\
+Variable holding association list of pronunciations for a buffer.
+Becomes automatically buffer local.")
 
 (autoload (quote emacspeak-pronounce-toggle-use-of-dictionaries) "emacspeak-pronounce" "\
 Toggle use of pronunciation dictionaries in current buffer.
