@@ -142,6 +142,7 @@ CP=cp
 # source files to distribute
 ID = README
 SAWFISH=sawfish/*.jl sawfish/sawfishrc
+GUIDE=user-guide/*.html user-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
@@ -172,7 +173,8 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) \
-${NEWS} ${MISC} Makefile 
+${SAWFISH} ${OUTLOUD} \
+${INFO} ${GUIDE} ${NEWS} ${MISC} Makefile 
 
 # }}}
 # {{{  define make variables and file groupings
@@ -212,11 +214,10 @@ tar:
 	@echo "To configure the source files. Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-	$(OUTLOUD) \
-	${SAWFISH} ${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
-	${SOUNDS}   $(INFO)
+	 		${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
+	${SOUNDS}   
 
-dist: $(DISTFILES) $(INFO)
+dist: $(DISTFILES)
 	make tar
 
 # }}}
