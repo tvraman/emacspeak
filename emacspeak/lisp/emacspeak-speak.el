@@ -2345,6 +2345,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
         (setq window
               (read-minibuffer "Window   between 1 and 9 to
 speak")))
+    (setq window (1- window))
     (save-excursion
       (save-window-excursion
         (other-window window )
