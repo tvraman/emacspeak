@@ -40,7 +40,7 @@
 (require 'voice-lock)
 (require 'emacspeak-sounds)
 (require 'emacspeak-wizards)
-
+(require 'emacspeak-xslt)
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map))
