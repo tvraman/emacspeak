@@ -331,10 +331,10 @@ proc tts_setserial {} {
         }
         solaris -
         Solaris {
-            exec /usr/bin/stty sane 9600 raw  > $port 
-            exec /usr/bin/stty -echo >  $port 
-            exec /usr/bin/stty ignpar >  $port 
-            exec   /usr/bin/stty ixon ixoff > $port 
+            exec /usr/bin/stty sane 9600 raw  < $port 
+            exec /usr/bin/stty -echo <  $port 
+            exec /usr/bin/stty ignpar <  $port 
+            exec   /usr/bin/stty ixon ixoff < $port 
         }
         SunOS   {
             exec stty sane 9600 raw  -echo -echoe -echoke echoctl  > $port 

@@ -6,7 +6,7 @@
     . /etc/emacspeak.conf
 fi
 
-if [ -e $HOME/.emacs ]
+if [ -f $HOME/.emacs ]
 then
 	INITSTR="-l $HOME/.emacs"
 fi
