@@ -1625,10 +1625,11 @@ Optional interactive prefix arg results in prompting for a search term."
 	    (format "%s%s/threads?gvc=2&num=%s"
 		    emacspeak-usenet-uri
 		    group group))))
+    (emacspeak-w3-without-xsl
     (browse-url  url)
     (emacspeak-websearch-post-process
      "Sort by"
-     'emacspeak-speak-line)))
+     'emacspeak-speak-line))))
 
 ;;}}}
 
