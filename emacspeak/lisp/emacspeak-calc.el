@@ -52,6 +52,10 @@
 
 ;;}}}
 ;;{{{  advice calc interaction 
+(defadvice calc-dispatch (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice calc-quit (after emacspeak pre act )
   "Announce the buffer that becomes current when calc is quit."
