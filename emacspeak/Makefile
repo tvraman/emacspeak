@@ -300,7 +300,7 @@ all: emacspeak
 # {{{  user level target-- clean
 
 clean:
-	rm -f lisp/*.elc 
+	cd lisp; $(MAKE) clean
 		cd info; $(MAKE) clean
 
 # }}}
