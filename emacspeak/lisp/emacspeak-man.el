@@ -50,11 +50,12 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'voice-lock)
-(require 'emacspeak-keymap)
-(eval-when-compile (require 'man))
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (require 'voice-lock)
+                   (require 'emacspeak-keymap)
+                   (require 'man))
 
 ;;}}}
 ;;{{{  Configure man

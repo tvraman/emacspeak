@@ -57,9 +57,10 @@
 (require 'find-dired)
 (require 'custom)
 (require 'thingatpt)
+(eval-when-compile (require 'dtk-speak)
 (require 'voice-lock)
 (require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+(require 'emacspeak-sounds))
 (require 'emacspeak-table-ui)
 (require 'shell)
 (eval-when-compile (require 'cus-edit))
@@ -1917,6 +1918,14 @@ directory to where find is to be launched."
 (t (setq browse-url-browser-function 'w3-fetch)
 (message "Restoring sanity by switching to W3."))))
 
+;;}}}
+;;{{{ customize emacspeak
+(defun emacspeak-customize ()
+  "Customize Emacspeak."
+  (interactive)
+  (customize-group 'emacspeak)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-custom-goto-group))
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file

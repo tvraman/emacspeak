@@ -44,9 +44,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'voice-lock)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (require 'voice-lock))
 
 ;;}}};;{{{  Introduction:
 
@@ -75,6 +76,7 @@
 (defun emacspeak-texinfo-mode-hook ()
   "Setup Emacspeak extensions"
   (declare (special texinfo-voice-lock-keywords
+                    dtk-split-caps
                     voice-lock-defaults))
   (make-local-variable 'voice-lock-defaults)
   (setq voice-lock-defaults '(texinfo-voice-lock-keywords t))

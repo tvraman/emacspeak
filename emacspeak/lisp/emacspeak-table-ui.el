@@ -42,8 +42,9 @@
 (require 'custom)
 (require 'emacspeak-table)
 (require 'emacspeak-tabulate)
+(eval-when-compile (require 'dtk-speak)
 (require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+(require 'emacspeak-sounds))
 (require 'thingatpt)
 ;;{{{  Introduction
 
