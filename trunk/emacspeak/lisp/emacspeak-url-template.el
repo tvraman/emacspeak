@@ -187,7 +187,17 @@ prompting for a template.")
  'speak)))
 
 ;;}}}
-;;{{{  Linksys IP
+ 
+ old time radio 
+(emacspeak-url-template-define
+ "Old Time Radio"
+"http://www.oldtimeradioprograms.com"
+nil
+nil
+"This months Old Time Radio Programing"
+#'(lambda (url)
+    (emacspeak-w3-extract-nested-table 2 url)));;{{{  Linksys IP
+
 
 (emacspeak-url-template-define
  "Linksys IP"
