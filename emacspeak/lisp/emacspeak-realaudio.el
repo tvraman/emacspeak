@@ -123,6 +123,8 @@ emacspeak-realaudio-shortcuts-directory. "
    (list
     (let ((completion-ignore-case t)
           (minibuffer-history emacspeak-realaudio-history))
+      (emacspeak-pronounce-define-local-pronunciation
+       emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
       (expand-file-name
        (read-file-name "RealAudio resource: "
                        emacspeak-realaudio-shortcuts-directory
