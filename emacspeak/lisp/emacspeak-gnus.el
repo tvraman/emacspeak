@@ -82,7 +82,7 @@
   (define-key gnus-group-mode-map '[right]
     'gnus-group-read-group))
 
-(add-hook 'gnus-load-hook 'emacspeak-gnus-setup-keys)
+(add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
 
 ;;}}}
 ;;{{{  Hiding headers
