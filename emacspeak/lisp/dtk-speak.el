@@ -827,8 +827,6 @@ Interactive PREFIX arg makes the new setting global."
              dtk-punctuation-mode
              (if prefix "" "locally"))))
 
-
-
 (defun dtk-reset-state ()
   "Restore sanity to the Dectalk.
 Typically used after the Dectalk has been power   cycled."

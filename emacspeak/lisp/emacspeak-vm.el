@@ -632,7 +632,6 @@ text using wvText."
   :type 'string
   :group 'emacspeak-vm)
 
-
 (defcustom emacspeak-vm-xls2html
   (expand-file-name "xls2html" emacspeak-etc-directory)
   "Executable that converts MSXL documents on standard input to HTML
@@ -661,20 +660,20 @@ text using wvText."
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
   (declare (special vm-preview-lines
-            vm-infer-mime-types
-            vm-mime-decode-for-preview
-            vm-auto-decode-mime-messages
-            vm-auto-displayed-mime-content-type-exceptions
-            vm-mime-attachment-save-directory
-            vm-mime-base64-encoder-program
-            vm-mime-base64-decoder-program
-            vm-mime-attachment-auto-type-alist
-            vm-mime-type-converter-alist
-            emacspeak-vm-pdf2text
-            emacspeak-vm-ppt2html
-            emacspeak-vm-xls2html
-            emacspeak-vm-doc2text
-            emacspeak-vm-cal2text))
+		    vm-infer-mime-types
+		    vm-mime-decode-for-preview
+		    vm-auto-decode-mime-messages
+		    vm-auto-displayed-mime-content-type-exceptions
+		    vm-mime-attachment-save-directory
+		    vm-mime-base64-encoder-program
+		    vm-mime-base64-decoder-program
+		    vm-mime-attachment-auto-type-alist
+		    vm-mime-type-converter-alist
+		    emacspeak-vm-pdf2text
+		    emacspeak-vm-ppt2html
+		    emacspeak-vm-xls2html
+		    emacspeak-vm-doc2text
+		    emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-convertor
    (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-convertor
