@@ -1,4 +1,4 @@
-*.html
+html
 *.info*
 ChangeLog
 emacspeak.aux
