@@ -98,6 +98,19 @@
   (interactive)
   (delete-window-safely (car (managed-windows))))
 
+(defun launch  (program)
+  "Launch specified program or switch to it if it is already running."
+  (interactive "sRun program:")
+  (let ((w (car
+            (delete-if-not
+             (lambda (x)
+               (string= (window-class x) program))
+             (managed-windows)))))
+    (if w
+	(display-window w)
+      (system program))
+    (and (tts-running-p) (tts-say-current-window))))
+
 ;;{{{ end of file
 
 ;;; local variables:
@@ -106,3 +119,4 @@
 ;;; end:
 
 ;;}}}
+
