@@ -3,7 +3,9 @@
 Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
-Description: List tables  by turning each row into a list.
+Description: Linearize tables.
+Note that this loses structural information by turning each table cell
+into a paragraph.
 -->
 
 <xsl:stylesheet version="1.0"
@@ -24,21 +26,18 @@ Description: List tables  by turning each row into a list.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
-        <caption>Tables As Lists</caption>
+        <caption>Tables Linearized</caption>
 <tr>
-<td><a href="#__about_listify_tables">About This
+<td><a href="#__about_linearize_tables">About This
               Style</a></td>
         </tr></table>
       <xsl:apply-templates />
     </xsl:element>
 
-<h2><a name="__about_listify_tables">About This Style</a> </h2>
+<h2><a name="__about_linearize_tables">About This Style</a> </h2>
 
       <p>
-Tables are turned into lists.
-Each table row is a separate list,
-with each table cell an item in that list.
-Nested tables produce nested lists.
+Table contents are turned into a sequence of paragraphs, one per cell.
   </p>
   </xsl:template>
 
@@ -49,14 +48,13 @@ Nested tables produce nested lists.
 </xsl:template>
 
 <xsl:template match="tr">
-<ol>
+<hr/>
 <xsl:apply-templates/>
-  </ol>
 </xsl:template>
 <xsl:template match="td">
-<li>
+<p>
 <xsl:apply-templates/>
-  </li>
+  </p>
 </xsl:template>
 <!-- } -->
 </xsl:stylesheet>
