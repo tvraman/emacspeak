@@ -627,7 +627,7 @@ emacspeak-wizards.
  - emacspeak-show-personality-at-point: ()
      ` control e meta v '
 
-     Show value of property personality at point.
+     Show value of property personality (and possibly face) at point.
 
  - emacspeak-show-property-at-point: (&optional PROPERTY)
      ` control e meta p '
@@ -853,6 +853,9 @@ emacspeak-wizards.
 
  - emacspeak-wizards-show-environment-vvariable: (V)
      Display value of specified environment variable.
+
+ - emacspeak-wizards-show-face: (FACE)
+     Show salient properties of specified face.
 
  - emacspeak-wizards-show-list-variable: (VAR)
      Convenience command to view Emacs variables that are long lists.

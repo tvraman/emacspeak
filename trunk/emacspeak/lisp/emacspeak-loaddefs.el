@@ -27,7 +27,7 @@ cap C   Save clip to disk
 
 ;;;***
 
-;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15953 24519))
+;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15953 27617))
 ;;; Generated autoloads from eflite.el
 
 (autoload (quote tts-eflite) "eflite" "\
