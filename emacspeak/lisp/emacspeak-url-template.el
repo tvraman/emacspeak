@@ -449,6 +449,7 @@ Computing News at CNN.")
  nil
  "Play Technetcast stream from DDJ.")
 
+;;}}}
 ;;{{{ sourceforge
 (emacspeak-url-template-define
  "sourceforge Stats" 
@@ -481,6 +482,20 @@ Computing News at CNN.")
  "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
+;;{{{  Virtually There --Sabre Trip Reports 
+(emacspeak-url-template-define
+ "Sabre Travel From Virtually There" 
+ "https://www.virtuallythere.com/cgi-bin/nph-itinerary?pnr=%s&name=%s&language=0&host=1W&clocktype=12"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Record Locator: "))
+(lambda nil 
+    (read-from-minibuffer "User Name")))
+ nil
+ "Display Trip Details")
+
+;;}}}
+
 ;;{{{  times of india 
 
 ;;; create url rewrite url to get print page 
@@ -510,7 +525,6 @@ nil
 
 ;;}}}
 
-;;}}}
 ;;}}}
 ;;{{{ Interactive commands 
 
