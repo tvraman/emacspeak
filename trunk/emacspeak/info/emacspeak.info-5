@@ -13,8 +13,6 @@ File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak-xml-shell,  Pre
 emacspeak-wizards
 =================
 
-   Commentary: Contains various wizards for the Emacspeak desktop.
-
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
 
@@ -57,8 +55,6 @@ emacspeak-wizards.
      Browse the Emacspeak FAQ.
 
  - emacspeak-emergency-tts-restart:
-     ` control e x s '
-
      For use in an emergency.  Will start TTS engine specified by
      emacspeak-emergency-tts-server.
 
@@ -85,8 +81,6 @@ emacspeak-wizards.
      an error if target already exists.
 
  - emacspeak-lynx:
-     ` control e x l '
-
      Launch lynx on  specified URL in a new terminal.
 
  - emacspeak-select-this-buffer-next-display:
@@ -150,8 +144,6 @@ emacspeak-wizards.
      used.  Signals an error if target already exists.
 
  - emacspeak-show-list-variable:
-     ` control e x v '
-
      Convenience command to view Emacs variables that are long lists.
      Prompts for a variable name and displays its value in a separate
      buffer.  Lists are displayed one element per line.  Argument VAR
@@ -248,8 +240,6 @@ emacspeak-wizards.
      current frame.
 
  - emacspeak-annotate-add-annotation:
-     ` control e x a '
-
      Add annotation to the annotation working buffer.  Prompt for
      annotation buffer if not already set.  Interactive prefix arg
      `reset' prompts for the annotation buffer even if one is already
@@ -327,14 +317,12 @@ emacspeak-wizards.
      Move to next frame.
 
  - emacspeak-customize-personal-settings:
-     ` control e f1   control e x c '
+     ` control e f1 '
 
      Create a customization buffer for browsing and updating personal
      customizations.
 
  - emacspeak-speak-telephone-directory:
-     ` control e x t '
-
      Lookup and display a phone number.  With prefix arg, opens the
      phone book for editting.
 
@@ -379,7 +367,7 @@ emacspeak-wizards.
      buffer.
 
 
-File: emacspeak.info,  Node: emacspeak-xml-shell,  Next: emacspeak,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-xml-shell,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
 
 emacspeak-xml-shell
 ===================
@@ -394,8 +382,6 @@ emacspeak-xml-shell.
      Navigate down to the children of current node.
 
  - emacspeak-xml-shell:
-     ` control e x x '
-
      Start Xml-Shell on contents of system-id.
 
  - emacspeak-xml-shell-mode:
@@ -404,13 +390,12 @@ emacspeak-xml-shell.
      Interactive XML browser.  key             binding --
      ------
 
-     C-c             Prefix Command down
-     emacspeak-xml-shell-goto-children up
-     emacspeak-xml-shell-goto-parent right
-     emacspeak-xml-shell-goto-next-child left
-     emacspeak-xml-shell-goto-previous-child
+     C-c		Prefix Command down		emacspeak-xml-shell-goto-children
+     up		emacspeak-xml-shell-goto-parent
+     right		emacspeak-xml-shell-goto-next-child
+     left		emacspeak-xml-shell-goto-previous-child
 
-     C-c v           emacspeak-xml-shell-browse-current
+     C-c v		emacspeak-xml-shell-browse-current
 
      In addition to any hooks its parent mode `comint-mode' might have
      run, this mode runs the hook `emacspeak-xml-shell-mode-hook', as
@@ -424,162 +409,6 @@ emacspeak-xml-shell.
 
  - emacspeak-xml-shell-goto-next-child:
      Navigate forward  to the next child  of current node.
-
-
-File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-xml-shell,  Up: Emacspeak Commands
-
-emacspeak
-=========
-
-   Commentary: The complete audio desktop.
-
-   Automatically generated documentation for commands defined in module
-emacspeak.
-
- - emacspeak-submit-bug:
-     ` control e control b '
-
-     Function to submit a bug to the programs maintainer.
-
- - emacspeak-describe-emacspeak:
-     ` control h control e '
-
-     Give a brief overview of emacspeak.
-
-
-File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-arc,  Prev: emacspeak,  Up: Emacspeak Commands
-
-dis-quote
-=========
-
-   Automatically generated documentation for commands defined in module
-dis-quote.
-
- - quotes-setup-emacspeak-portfolio:
-     Set up variable emacspeak-websearch-personal-portfolio.
-
-
-File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-dismal,  Prev: dis-quote,  Up: Emacspeak Commands
-
-emacspeak-arc
-=============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-arc.
-
- - emacspeak-arc-speak-file-permissions:
-     Speak permissions of file current entry
-
- - emacspeak-arc-speak-file-modification-time:
-     Speak modification time of the file on current line
-
- - emacspeak-arc-speak-file-name:
-     Speak the name of the file on current line
-
- - emacspeak-arc-speak-file-size:
-     Speak the size of the file on current line
-
-
-File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-info,  Prev: emacspeak-arc,  Up: Emacspeak Commands
-
-emacspeak-dismal
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-dismal.
-
- - emacspeak-dismal-forward-col-and-summarize:
-     Move forward by arg columns  (the next column by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-value:
-     Display the cell value in the message area
-
- - emacspeak-dismal-sheet-summarize:
-     Summarizes a sheet using the specification in list
-     emacspeak-dismal-sheet-summarizer-list
-
- - emacspeak-dismal-set-row-summarizer-list:
-     Specify or reset row summarizer list.
-
- - emacspeak-dismal-display-cell-with-col-header:
-     Display current cell along with its column header.  The `column
-     header' is the entry in row 0.
-
- - emacspeak-dismal-display-cell-with-row-header:
-     Displays current cell along with its row header.  The `row header'
-     is the entry in column 0.
-
- - emacspeak-dismal-forward-row-and-summarize:
-     Move forward by arg rows  (the next row by default)and summarize
-     it.
-
- - emacspeak-dismal-set-sheet-summarizer-list:
-     Specify or reset sheet summarizer list.
-
- - emacspeak-dismal-row-summarize:
-     Summarizes a row using the specification in list
-     emacspeak-dismal-row-summarizer-list
-
- - emacspeak-dismal-col-summarize:
-     Summarizes a col using the specification in list
-     emacspeak-dismal-col-summarizer-list
-
- - emacspeak-dismal-set-col-summarizer-list:
-     Specify or reset col summarizer list.
-
- - emacspeak-dismal-backward-col-and-summarize:
-     Move backward by arg columns  (the previous column by default)and
-     summarize it.
-
- - emacspeak-dismal-backward-row-and-summarize:
-     Move backward by arg rows  (the previous row by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-expression:
-     Display the expression in the message area
-
-
-File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-personal,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
-
-emacspeak-info
-==============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-info.
-
- - emacspeak-info-speak-header:
-     Speak info header line.
-
-
-File: emacspeak.info,  Node: emacspeak-personal,  Next: emacspeak-w3search,  Prev: emacspeak-info,  Up: Emacspeak Commands
-
-emacspeak-personal
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-personal.
-
- - emacspeak-sf-stats:
-     Show emacspeak sf statistics.
-
-
-File: emacspeak.info,  Node: emacspeak-w3search,  Prev: emacspeak-personal,  Up: Emacspeak Commands
-
-emacspeak-w3search
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-w3search.
-
- - emacspeak-websearch-blue-pages:
-     Search IBM Blue Pages
-
- - emacspeak-websearch-ibm-internal:
-     Search IBM My News
-
- - emacspeak-websearch-ibm-my-news:
-     Search IBM My News
 
    Automatically generated documentation for commands defined in module
 nil.

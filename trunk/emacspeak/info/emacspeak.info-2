@@ -948,6 +948,8 @@ source-level documentation.
 
 * dtk-speak::
 * dtk-tcl::
+* emacspeak::
+* emacspeak-arc::
 * emacspeak-aumix::
 * emacspeak-bs::
 * emacspeak-buff-menu::
@@ -956,6 +958,7 @@ source-level documentation.
 * emacspeak-compile::
 * emacspeak-custom::
 * emacspeak-dired::
+* emacspeak-dismal::
 * emacspeak-ediff::
 * emacspeak-enriched::
 * emacspeak-entertain::
@@ -973,6 +976,7 @@ source-level documentation.
 * emacspeak-ibuffer::
 * emacspeak-imcom::
 * emacspeak-imenu::
+* emacspeak-info::
 * emacspeak-keymap::
 * emacspeak-kotl::
 * emacspeak-man::
@@ -996,29 +1000,21 @@ source-level documentation.
 * emacspeak-tar::
 * emacspeak-tetris::
 * emacspeak-url-template::
-* emacspeak-view-process::
 * emacspeak-view::
+* emacspeak-view-process::
 * emacspeak-vm::
 * emacspeak-w3::
+* emacspeak-w3search::
 * emacspeak-websearch::
 * emacspeak-widget::
 * emacspeak-wizards::
 * emacspeak-xml-shell::
-* emacspeak::
-* dis-quote::
-* emacspeak-arc::
-* emacspeak-dismal::
-* emacspeak-info::
-* emacspeak-personal::
-* emacspeak-w3search::
 
 
 File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands
 
 dtk-speak
 =========
-
-   Commentary: Defines the TTS interface.
 
    Automatically generated documentation for commands defined in module
 dtk-speak.
