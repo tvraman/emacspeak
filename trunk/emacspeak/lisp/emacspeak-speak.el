@@ -2607,52 +2607,6 @@ Argument O specifies overlay."
      (overlay-end o ))))
 
 ;;}}}
-;;{{{  moving across blank lines
-
-(defun emacspeak-skip-blank-lines-forward ()
-  "Move forward across blank lines.
-The line under point is then spoken.
-Signals end of buffer."
-  (interactive)
-  (let ((save-syntax (char-syntax 10))
-        (skip 0))
-    (unwind-protect
-        (progn
-          (modify-syntax-entry   10 " ")
-          (end-of-line)
-          (setq skip (skip-syntax-forward " "))
-          (cond
-           ((zerop skip)
-            (message "Did not move "))
-           ((eobp)
-            (message "At end of buffer"))
-           (t(emacspeak-auditory-icon 'large-movement )
-             (emacspeak-speak-line ))))
-      (modify-syntax-entry 10 (format "%c" save-syntax )))))
-
-(defun emacspeak-skip-blank-lines-backward ()
-  "Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer."
-  (interactive)
-  (let ((save-syntax (char-syntax 10))
-        (skip 0))
-    (unwind-protect
-        (progn
-          (modify-syntax-entry   10 " ")
-          (beginning-of-line)
-          (setq skip (skip-syntax-backward " "))
-          (cond
-           ((zerop skip)
-            (message "Did not move "))
-           ((bobp )
-            (message "At start  of buffer"))
-           (t (beginning-of-line)
-              (emacspeak-auditory-icon 'large-movement )
-              (emacspeak-speak-line ))))
-      (modify-syntax-entry 10 (format "%c" save-syntax )))))
-
-;;}}}
 ;;{{{ Speaking spaces
 
 (defun emacspeak-speak-spaces-at-point ()
