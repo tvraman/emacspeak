@@ -66,6 +66,19 @@
 (require 'emacspeak-sounds)
 ;;{{{  advice cursor movement commands to speak
 
+(defadvice previous-line (before emacspeak pre act com)
+  "Produce auditory icon  if we cant move."
+  (when (and (interactive-p)
+             (= (point-min) (point)))
+    (emacspeak-auditory-icon 'warn-user)))
+
+(defadvice next-line (before emacspeak pre act com)
+  "Produce auditory icon  if we cant move."
+  (when (and (interactive-p)
+             (eobp))
+    (emacspeak-auditory-icon 'warn-user)))
+
+
 (defadvice next-line (after emacspeak pre act)
   "Speak line that you just moved to."
   (when (interactive-p)
