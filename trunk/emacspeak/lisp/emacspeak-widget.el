@@ -382,11 +382,7 @@ Returns a string with appropriate personality."
   (let* ((label (emacspeak-widget-label widget))
          (value (widget-value widget))
          (selections (cond
-                      (value 
-                       (mapconcat
-                        #'(lambda (s)
-                            (format " %s " s))
-                        value " "))
+                      (value (prin1-to-string value))
                       (t " no items  "))))
     (put-text-property 0  (length selections)
                        'personality 'paul-animated selections)
@@ -484,12 +480,7 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-editable-list (widget)
   "Summarize a editable list"
-  (let ((value
-         (mapconcat 
-          (function
-           (lambda (x)
-             (format "%s" x)))
-          (widget-value widget) " "))
+  (let ((value (prin1-to-string (widget-value widget)))
         (label (emacspeak-widget-label widget))
         (help-echo (emacspeak-widget-help-echo widget)))
     (when value
