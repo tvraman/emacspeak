@@ -107,7 +107,7 @@
     (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
     (define-key w3-mode-map "l"
       'emacspeak-w3-google-who-links-to-this-page)
-(define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
+    (define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
     (define-key w3-mode-map ";"
       'emacspeak-w3-speak-this-element)
@@ -963,14 +963,14 @@ XML files is quite usable:
 1) You get a navigable buffer using imenu if you have w3-imenu
 loaded.
 "
-(interactive
- (list
-  (read-file-name "XML File: ")))
-(let ((buffer (find-file-noselect location)))
-  (save-excursion
-    (set-buffer buffer)
-    (emacspeak-w3-preview-this-buffer)
-    (emacspeak-auditory-icon 'open-object))))
+  (interactive
+   (list
+    (read-file-name "XML File: ")))
+  (let ((buffer (find-file-noselect location)))
+    (save-excursion
+      (set-buffer buffer)
+      (emacspeak-w3-preview-this-buffer)
+      (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
 ;;{{{  xsl keymap
@@ -1329,13 +1329,9 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
   (when    emacspeak-w3-post-process-hook
-    (save-excursion
-      (set-buffer (ad-get-arg 0))
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
-      (setq emacspeak-w3-post-process-hook nil)))))
-
-
+      (setq emacspeak-w3-post-process-hook nil))))
 
 ;;}}}
 ;;{{{ silence url history save

@@ -519,11 +519,11 @@ Prompts for image file if file corresponding to the expected
              emacspeak-ocr-last-page-number))
     (setq emacspeak-ocr-process
           (apply 'start-process 
-           "ocr"
-           (current-buffer)
-           emacspeak-ocr-engine
-           image-name
-           emacspeak-ocr-engine-options))
+		 "ocr"
+		 (current-buffer)
+		 emacspeak-ocr-engine
+		 image-name
+		 emacspeak-ocr-engine-options))
     (set-process-sentinel emacspeak-ocr-process
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
