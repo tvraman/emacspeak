@@ -360,7 +360,7 @@ after fetching it  if necessary."
 
 (define-derived-mode emacspeak-daisy-mode text-mode 
   "Digital Talking Book\n"
-  " An DAISY front-end for the Emacspeak desktop.
+  "A DAISY front-end for the Emacspeak desktop.
 
 Pre-requisites:
 
