@@ -14,7 +14,8 @@ Param attr  specifies the attribute to list.
 <!-- { html body  -->
 
 
-  
+  <xsl:template match="//script|//head"/>
+
   <xsl:template match="/html/body">
       <xsl:for-each select="//@class">
         <xsl:value-of select="."/>
