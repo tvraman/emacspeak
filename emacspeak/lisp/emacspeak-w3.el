@@ -716,7 +716,7 @@ minibuffer."
   "XSL transform to extract  elements matching a specified
 XPath locator.")
 
-(defun emacspeak-w3-xslt-filter (path   &optional prompt speak-result)
+(defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result)
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -729,47 +729,45 @@ prefix arg causes url to be read from the minibuffer."
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-xslt-program
                     emacspeak-w3-xsl-filter))
-  (unless (or prompt
+  (unless (or prompt-url
               (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
-  (let ((w3-url (when (eq major-mode 'w3-mode)
-                  (url-view-url t)))
-        (source-url
-         (cond
-          ((and (interactive-p)
-                prompt)
-           (read-from-minibuffer "URL: "
-                                 "http://www."))
-          (t  prompt))))
+  (let* ((base-url (when (eq major-mode 'w3-mode)
+                     (url-view-url t)))
+         (source-url
+          (cond
+           (base-url base-url)
+           ((and (interactive-p)
+                 prompt-url)
+            (read-from-minibuffer "URL: "
+                                  "http://www."))
+           (t  prompt-url)))
+         (src-buffer nil)
+         (emacspeak-w3-xsl-p nil))
     (save-excursion
-      (cond
-       (source-url
-        (set-buffer  (url-retrieve-synchronously source-url)))
-       (t (w3-source-document nil)))
-      (let ((src-buffer (current-buffer))
-            (emacspeak-w3-xsl-p nil))
-        (emacspeak-xslt-region
-         emacspeak-w3-xsl-filter
-         (point-min)
-         (point-max)
-         (list
-          (cons "path"
-                (format "\"'%s'\""
-                        path))
-          (cons "locator"
-                (format "'%s'"
-                        path))
-          (cons "base"
-                (format "\"'%s'\""
-                        (or source-url
-                            prompt
-                            w3-url)))))
-        (when  (or (interactive-p)
-                   speak-result)
-          (setq emacspeak-w3-post-process-hook
-                'emacspeak-speak-buffer))
-        (emacspeak-w3-preview-this-buffer)
-        (kill-buffer src-buffer)))))
+      (set-buffer  (url-retrieve-synchronously source-url))
+    (setq src-buffer (current-buffer))
+          (emacspeak-xslt-region
+           emacspeak-w3-xsl-filter
+           (point-min)
+           (point-max)
+           (list
+            (cons "path"
+                  (format "\"'%s'\""
+                          path))
+            (cons "locator"
+                  (format "'%s'"
+                          path))
+            (cons "base"
+                  (format "\"'%s'\""
+                          (or source-url
+                              prompt-url)))))
+          (when  (or (interactive-p)
+                     speak-result)
+            (setq emacspeak-w3-post-process-hook
+                  'emacspeak-speak-buffer))
+          (emacspeak-w3-preview-this-buffer)
+          (kill-buffer src-buffer))))
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "a"
