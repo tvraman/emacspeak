@@ -1412,11 +1412,55 @@ indicating the arrival  of new mail when displaying the mode line."
 (make-variable-buffer-local 'column-number-mode)
 (setq-default column-number-mode nil)
 ;;{{{ tone based  mode line speaker
+(defvar emacspeak-which-function-mode  nil
+  "*If T, speaking mode line speaks the name of function containing point.")
+
+(make-variable-buffer-local 'emacspeak-which-function-mode)
+
+(defun emacspeak-toggle-which-function (&optional prefix)
+  "Toggle state of  Emacspeak  which function mode.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result."
+  (interactive  "P")
+  (declare  (special  emacspeak-which-function-mode
+semantic-toplevel-bovine-cache ))
+  (require 'which-func)
+  (cond
+   (prefix
+    (setq-default  emacspeak-which-function-mode
+                   (not  (default-value 'emacspeak-which-function-mode )))
+    (setq emacspeak-which-function-mode (default-value 'emacspeak-which-function-mode )))
+   (t
+    (setq emacspeak-which-function-mode
+          (not emacspeak-which-function-mode ))))
+  (emacspeak-auditory-icon
+   (if emacspeak-which-function-mode 'on 'off ))
+  (message "Turned %s which function mode%s %s"
+           (if emacspeak-which-function-mode "on" "off" )
+	   (if prefix "" " locally")
+           (if semantic-toplevel-bovine-cache
+               ""
+             "Rebuild imenu index to  hear function name in mode line." )))
+
+(defsubst emacspeak-speak-which-function ()
+  "Speak which function we are on.  Uses which-function from
+which-func without turning that mode on.  We actually use
+semantic to do the work."
+  (declare (special semantic-toplevel-bovine-cache))
+  (require 'which-func)
+  (when  (and (featurep 'semantic)
+              semantic-toplevel-bovine-cache)
+    (message  (or 
+               (which-function)
+               "Not inside a function."))))
+
+
 
 (defun emacspeak-speak-mode-line ()
   "Speak the mode-line."
   (interactive)
   (declare (special  mode-name major-mode
+                     emacspeak-which-function-mode
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
@@ -1424,6 +1468,10 @@ indicating the arrival  of new mail when displaying the mode line."
   (force-mode-line-update)
   (let ((dtk-stop-immediately nil )
         (frame-info nil))
+    (when (and  emacspeak-which-function-mode
+                (fboundp 'which-function)
+                (which-function))
+      (emacspeak-speak-which-function))
     (cond
      ((> (length (frame-list)) 1)
       (setq frame-info
@@ -1459,65 +1507,12 @@ indicating the arrival  of new mail when displaying the mode line."
                         (if  major-mode major-mode ""))))))))
 
 ;;}}}
-;;{{{  personality based mode line speaker
-
-                                        ; (defun emacspeak-speak-mode-line ()
-                                        ;   "Speak the mode-line. "
-                                        ;   (interactive)
-                                        ;   (declare (special  mode-name major-mode
-                                        ;                      column-number-mode line-number-mode
-                                        ;                      emacspeak-mail-alert))
-                                        ;                                         ;(dtk-stop)
-                                        ;   (emacspeak-dtk-sync)
-                                        ;                                         ;(force-mode-line-update)
-                                        ;   (let ((status nil)
-                                        ;         (buffer-name (buffer-name))
-                                        ;         (voice-lock-mode t)
-                                        ;                                         ;(dtk-stop-immediately nil )
-                                        ;         (frame-info nil))
-                                        ;     (cond
-                                        ;      ((> (length (frame-list)) 1)
-                                        ;       (setq frame-info
-                                        ;             (or (frame-parameter (selected-frame) 'emacspeak-label)
-                                        ;                 (format "Frame %s " (frame-parameter (selected-frame) 'name))))
-                                        ;       (put-text-property 0 (length frame-info)
-                                        ;                          'personality 'annotation-voice frame-info))
-                                        ;      (t (setq frame-info "")))
-                                        ;     (when  emacspeak-mail-alert (emacspeak-mail-alert-user))
-                                        ;     (put-text-property 0   (length buffer-name)
-                                        ;                        'personality
-                                        ;                        (cond
-                                        ;                         ((and (buffer-modified-p) buffer-read-only)
-                                        ;                          'harry)
-                                        ;                         ( (buffer-modified-p ) 'paul-smooth)
-                                        ;                         (buffer-read-only 'paul-monotone)
-                                        ;                         (t 'paul))
-                                        ;                        buffer-name)
-                                        ;     (setq status
-                                        ;           (concat frame-info
-                                        ;                   (format  "%s %s "
-                                        ;                            (if line-number-mode
-                                        ;                                (format "line %d"
-                                        ;                                        (emacspeak-get-current-line-number))
-                                        ;                              "")
-                                        ;                            (if column-number-mode
-                                        ;                                (format "Column %d"
-                                        ;                                        (current-column))
-                                        ;                              ""))
-                                        ;                            buffer-name
-                                        ;                            (format " %d%%  %s"
-                                        ;                            (emacspeak-get-current-percentage-into-buffer)
-                                        ;                            (if  major-mode major-mode ""))))
-                                        ;     (dtk-speak status)))
-
-;;}}}
-
 ;;;Helper --return string describing coding system info if
 ;;;relevant
 
 (defvar emacspeak-speak-default-os-coding-system
   'raw-text-unix
-"Default coding system used for text files.
+  "Default coding system used for text files.
 This should eventually be initialized based on the OS we are
 running under.")
 
