@@ -57,10 +57,7 @@
 ;; updated with every insertion or deletion.
 ;;
 
-
 ;;
-
-
 
 ;;; How faces map to voices:
 ;;; TTS engine specific modules e.g., dtk-voices.el and
@@ -192,6 +189,7 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{  Define some voice personalities:
+
 (def-voice-font voice-lock-highlight-personality 'paul-animated
   'highlight
   "Personality used for highlighting text.")
@@ -290,7 +288,6 @@ This function forces voice-lock mode on."
 ;; (voice-setup-set-voice-for-face'font-lock-variable-name-face 'voice-lock-variable-name-personality)
 ;; (voice-setup-set-voice-for-face'font-lock-type-face   'voice-lock-type-personality)
 ;; (voice-setup-set-voice-for-face'font-lock-reference-face   'voice-lock-reference-personality)
-
 
 ;;}}}
 (provide 'voice-setup)
