@@ -111,16 +111,6 @@ COMMAND-STRING to the Dectalk."
 (dtk-define-voice 'paul-monotone "[:np  :dv pr 0 hr 1 sr 2 as 0 ]")
 
 ;;}}}
-;;{{{  Associate faces to standard voices:
-
-(dtk-define-voice-alias 'bold 'harry)
-(dtk-define-voice-alias 'bold-italic 'betty)
-(dtk-define-voice-alias 'underline 'ursula)
-(dtk-define-voice-alias 'fixed 'paul-monotone)
-(dtk-define-voice-alias 'italic 'paul-animated)
-(dtk-define-voice-alias 'excerpt 'annotation-voice )
-
-;;}}}
 ;;{{{  the inaudible voice
 
 (dtk-define-voice 'inaudible "")

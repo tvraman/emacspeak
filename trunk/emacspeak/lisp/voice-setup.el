@@ -239,74 +239,67 @@ command \\[customize-variable] on <personality>-settings."
   'highlight
   "Personality used for highlighting text.")
 
-(def-voice-font voice-lock-comment-personality
-  'paul-monotone
+(def-voice-font voice-lock-comment-personality 'paul-monotone
   'font-lock-comment-face
   "Personality to use for comments.")
           
-(def-voice-font voice-lock-underline-personality 
-  'paul-animated
+(def-voice-font voice-lock-underline-personality 'paul-animated
   'underline
   "Personality to use for underline text.")
   
-(def-voice-font voice-lock-bold-personality 
-  'harry
+(def-voice-font voice-lock-bold-personality 'harry
   'bold
   "Personality to use for bold  text.")
   
 
 (def-voice-font voice-lock-italic-personality 
   'paul-italic
-  'bold-italic
+  'italic
   "Personality to use for italic  text.")
+
+(def-voice-font voice-lock-bold-italic-personality 
+  'paul-animated
+  'bold-italic
+  "Personality to use for bold  text.")
   
 (def-voice-font voice-lock-doc-string-personality
   'dennis
   'font-lock-doc-string-face
   "Personality to use for documentation strings.")
   
-(def-voice-font voice-lock-constant-personality
-  'paul-smooth
+(def-voice-font voice-lock-constant-personality 'paul-smooth
   'font-lock-constant-face
   "Personality to use for  constants.")
   
-(def-voice-font voice-lock-string-personality
-  'betty
+(def-voice-font voice-lock-string-personality 'betty
   'font-lock-string-face
   "Personality to use for string constants.")
 
-(def-voice-font voice-lock-function-name-personality
-  'harry
+(def-voice-font voice-lock-function-name-personality 'harry
   'font-lock-function-name-face
   "Personality to use for function names.")
   
-(def-voice-font voice-lock-warning-personality
-  'rita
+(def-voice-font voice-lock-warning-personality 'rita
   'font-lock-warning-face
   "Personality to use for warnings.")
 
-(def-voice-font voice-lock-keyword-personality
-  'ursula
+(def-voice-font voice-lock-keyword-personality 'ursula
   'font-lock-keyword-face
   "Personality to use for keywords.")
   
-(def-voice-font voice-lock-builtin-personality
-  'harry
+(def-voice-font voice-lock-builtin-personality 'harry
   'font-lock-builtin-face
   "Personality to use for built-in keywords.")
 
-(def-voice-font voice-lock-variable-name-personality
-  'paul-animated
+(def-voice-font voice-lock-variable-name-personality 'paul-animated
   'font-lock-variable-name-face
   "Personality to use for variables.")
   
-(def-voice-font voice-lock-type-personality
-  'paul-smooth
+(def-voice-font voice-lock-type-personality 'paul-smooth
   'font-lock-type-face
   "Personality to use for data types.")
   
-(def-voice-font voice-lock-reference-personality
-  'paul-animated
+(def-voice-font voice-lock-reference-personality 'paul-animated
   'font-lock-reference-face
   "Personality to use for references.")
 
