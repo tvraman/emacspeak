@@ -2079,6 +2079,26 @@ for `word' and displays hits in a compilation buffer."
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done)) 
 
+(defun emacspeak-wizards-fix-typo (ext word correction)
+  "Search and replace  recursively in all files with extension `ext'
+for `word' and replace it with correction.
+Use with caution."
+  (interactive
+   (list
+    (read-from-minibuffer "Extension: "
+                          emacspeak-wizards-spot-words-extension)
+    (read-from-minibuffer "Word: "
+                          (thing-at-point 'word))
+    (read-from-minibuffer "Correction: "
+                          (thing-at-point 'word))))
+  (declare (special emacspeak-wizards-spot-words-extension))
+  (compile 
+   (format
+    "find . -name \"*%s\" | xargs perl -pi -e    \'s/%s/%s/g' "
+    ext word correction))
+  (setq emacspeak-wizards-spot-words-extension ext)
+  (emacspeak-auditory-icon 'task-done))
+
 ;;}}}
 ;;{{{ fix text that has gotten read-only accidentally 
 
