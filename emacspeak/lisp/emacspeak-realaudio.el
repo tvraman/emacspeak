@@ -238,6 +238,7 @@ Echo output and return it as a string."
 (defun emacspeak-realaudio-get-current-time-in-seconds ()
   "Return current time in seconds."
   (interactive)
+  (declare (special kill-ring))
   (let* ((emacspeak-speak-messages nil)
          (seconds 0)
          (timespec (emacspeak-realaudio-dispatch ?t))
@@ -251,6 +252,8 @@ Echo output and return it as a string."
            (* 60 (second fields))
            (third fields)))
     (when (interactive-p)
+      (push (format "%ds" second)
+kill-ring)
       (dtk-speak (format "%d" seconds)))
     seconds))
 
