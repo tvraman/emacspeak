@@ -100,6 +100,8 @@
   (when (char-equal last-input-char ?q)
     (emacspeak-aumix-reset)
     (emacspeak-auditory-icon 'close-object)
+    (when (equal emacspeak-madplay-buffer-name (buffer-name))
+      (bury-buffer))
     (emacspeak-speak-mode-line)))
 
 (define-key emacspeak-madplay-mode-map  "o" 'emacspeak-madplay)
