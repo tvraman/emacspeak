@@ -391,7 +391,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-keyword-face
   "Personality to use for keywords.")
   
-(def-voice-font voice-lock-builtin-personality 'harry
+(def-voice-font voice-lock-builtin-personality voice-bolden
   'font-lock-builtin-face
   "Personality to use for built-in keywords.")
 
