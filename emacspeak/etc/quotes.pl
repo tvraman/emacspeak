@@ -5,27 +5,27 @@ my @symbols = <>;
 chomp (@symbols);
 my @labels=qw(
               Symbol
-              Company_Name
-              Last_Price
-              Last_Trade_Date
-              Last_Trade_Time
+              Company-Name
+              Last-Price
+              Last-Trade-Date
+              Last-Trade-Time
               Change
-              Percent_Change
+              Percent-Change
               Volume
-              Average_Daily_Vol
+              Average-Daily-Vol
               Bid
               Ask
-               Previous_Close
+               Previous-Close
               Open
-              Day_Range
-              52-Week_Range
-              Earnings_per_Share
+              Day-Range
+              52-Week-Range
+              Earnings-per-Share
               P/E
-              Dividend_Pay_Date
-              Dividend_per_Share
-              Dividend_Yield
-              Market_Capitalization
-              Stock_Exchange
+              Dividend-Pay-Date
+              Dividend-per-Share
+              Dividend-Yield
+              Market-Capitalization
+              Stock-Exchange
              );
 
 
