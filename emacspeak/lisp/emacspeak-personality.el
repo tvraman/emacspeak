@@ -197,7 +197,37 @@ Existing personality properties on the text range are preserved."
       (put-text-property start extent
                          'personality new)
       (when (< extent end)
-        (emacspeak-personality-prepend-personality extent end personality))))))
+        (emacspeak-personality-prepend-personality extent end
+                                                   personality))))))
+
+(defun emacspeak-personality-remove-personality  (start end personality)
+  "Remove specified personality from text bounded by start and end.
+Other existing personality properties on the text range are preserved."
+  (let ((orig (get-text-property start 'personality))
+        (new nil)
+        (extent
+         (next-single-property-change
+          start 'personality (current-buffer) end)))
+    (cond
+     ((null orig)                       ;simple case
+      (when (< extent end)
+        (emacspeak-personality-remove-personality extent end personality)))
+     (t                                 ;remove the new personality
+      (setq new
+            (cond
+             ((eq orig personality) nil)
+             ((listp orig)
+              (remove personality orig))
+             (t nil)))
+      (if new 
+          (put-text-property start extent
+                             'personality new)
+        (remove-text-properties start extent
+                                (list 'personality )))
+      (when (< extent end)
+        (emacspeak-personality-remove-personality extent end
+                                                  personality))))))
+
 
 ;;}}}
 ;;{{{ attach voice lock to global font lock
@@ -253,6 +283,7 @@ displayed in the messages area."
 
 ;;}}}
 ;;{{{ advice overlay-put 
+
 (defcustom emacspeak-personality-voiceify-overlays
   'emacspeak-personality-prepend-personality
   "Determines how and if we voiceify overlays.
@@ -300,6 +331,23 @@ Append means place corresponding personality at the end."
                          value))
          (t (puthash  value t
                       emacspeak-personality-unmapped-faces)))))))
+(defadvice move-overlay (before emacspeak-personality  pre act) 
+  "Used by emacspeak to augment font lock."
+  (let ((overlay (ad-get-arg 0))
+        (beg (ad-get-arg 1))
+        (end (ad-get-arg 2))
+        (voice nil))
+    (setq voice (overlay-get  overlay 'personality))
+    (when (and voice
+               emacspeak-personality-voiceify-overlays)
+      (emacspeak-personality-remove-personality
+       (overlay-start overlay)
+       (overlay-end overlay)
+       voice)
+      (funcall emacspeak-personality-voiceify-overlays
+               beg end voice))))
+    
+
 
 ;;}}}
 (provide 'emacspeak-personality )
