@@ -170,8 +170,10 @@
        (,@ args))
      ;;; other actions performed at define time 
      (voice-setup-set-voice-for-face (, face) '(, personality))
-                                        ;record  personality as an observer of  voice
-     (put  '(, voice) '(, personality) t))))
+                                        ;record  personality as an
+                                        ;observer of  voice
+     (when (symbolp '(, voice))
+       (put  '(, voice) '(, personality) t)))))
 
 ;;}}}
 ;;{{{  special form defvoice 
