@@ -37,7 +37,6 @@
 (put 'emacspeak-eterm 'custom-loads '("emacspeak-eterm"))
 (put 'widgets 'custom-loads '("emacspeak-widget"))
 (put 'emacspeak-ispell 'custom-loads '("emacspeak-ispell"))
-(put 'jit-lock 'custom-loads '("jit-voice-lock"))
 (put 'eamcspeak-erc 'custom-loads '("emacspeak-erc"))
 (put 'emacspeak-erc 'custom-loads '("emacspeak-erc"))
 (put 'emacspeak-vm 'custom-loads '("emacspeak-vm"))
