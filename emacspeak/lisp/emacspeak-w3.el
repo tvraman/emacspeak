@@ -560,61 +560,7 @@ libxslt package."
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
 
-;;{{{ junked 
-
-;; (defvar emacspeak-w3-extract-table-xsl
-;;   (expand-file-name "extract-table.xsl"
-;;                     emacspeak-xslt-directory)
-;;   "XSL transform to extract a table.")
-
-;; (defun emacspeak-w3-depricated-extract-table (table-index   &optional prompt-url)
-;;   "Extract tables from HTML.  Extracts specified table from
-;; current WWW page and displays it in a separate buffer.
-;; Optional arg url specifies the page to extract table from. "
-;;   (interactive
-;;    (list
-;;     (read-from-minibuffer "Table index: ")
-;;     current-prefix-arg))
-;;   (declare (special emacspeak-xslt-program
-;;                     emacspeak-w3-extract-table-xsl))
-;;   (unless (or prompt-url
-;;               (eq major-mode 'w3-mode))
-;;     (error "Not in a W3 buffer."))
-;;   (let* ((base-url (when (eq major-mode 'w3-mode)
-;;                      (url-view-url t)))
-;;          (source-url
-;;           (cond
-;;            ((and (interactive-p)
-;;                  prompt-url)
-;;             (read-from-minibuffer "URL: "
-;;                                   "http://www."))
-;;            (t
-;;             (or prompt-url
-;;                 base-url))))
-;;          (src-buffer (current-buffer))
-;;          (emacspeak-w3-xsl-p nil))
-;;     (save-excursion
-;;       (set-buffer (url-retrieve-synchronously source-url))
-;;       (setq src-buffer (current-buffer))
-;;       (goto-char (point-min))
-;;       (search-forward "\n\n" nil t)
-;;       (delete-region (point-min) (point))
-;;       (emacspeak-xslt-region
-;;        emacspeak-w3-extract-table-xsl
-;;        (point-min)
-;;        (point-max)
-;;        (list
-;;         (cons "table-index" table-index)
-;;         (cons "base"
-;;               (format "\"'%s'\""
-;;                       (or source-url
-;;                           prompt-url)))))
-;;       (emacspeak-w3-preview-this-buffer)
-;;       (kill-buffer src-buffer))))
-
-;;}}}
-
-(defun emacspeak-w3-extract-table (table-index   &optional prompt-url speak)
+(defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
   "Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. "
@@ -648,7 +594,7 @@ Empty value finishes the list."
         (setq done t)))
     result))
 
-(defun emacspeak-w3-extract-table-list (tables   &optional prompt-url speak)
+(defun emacspeak-w3-extract-nested-table-list (tables   &optional prompt-url speak)
   "Extract specified list of tables from a WWW page."
   (interactive
    (list
@@ -666,7 +612,7 @@ Empty value finishes the list."
      prompt-url
      (or (interactive-p) speak))))
 
-(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
+(defun emacspeak-w3-extract-nested-table-by-position (position   &optional prompt-url speak)
   "Extract table at specified position.
  Optional arg url specifies the page to extract content from.
 Interactive use provides list of class values as completion.
@@ -682,7 +628,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
    (or (interactive-p)
        speak)))
 
-(defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
+(defun emacspeak-w3-extract-nested-tables-by-position-list (positions   &optional prompt-url speak)
   "Extract specified list of tables from a WWW page.
 Tables are specified by their position in the list 
 of tables found in the page."
@@ -860,16 +806,16 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "p" 'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
-  'emacspeak-w3-extract-table-by-position)
+  'emacspeak-w3-extract-nested-table-by-position)
 (define-key emacspeak-w3-xsl-map "T"
-  'emacspeak-w3-extract-tables-by-position-list)
+  'emacspeak-w3-extract-nested-tables-by-position-list)
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
 (define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
-(define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
-(define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-table-list)
+(define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-nested-table)
+(define-key emacspeak-w3-xsl-map "X" 'emacspeak-w3-extract-nested-table-list)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
 
 ;;; Extracting node specified by id

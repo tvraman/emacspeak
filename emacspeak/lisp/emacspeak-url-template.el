@@ -1,4 +1,3 @@
-
 ;;; emacspeak-url-template.el --- Create library of URI templates
 ;;; $Id$
 ;;; $Author$
@@ -179,7 +178,7 @@ prompting for a template.")
  nil
  "Linksys Router"
  #'(lambda (url)
-     (emacspeak-w3-extract-table 3 url)))
+     (emacspeak-w3-extract-nested-table 3 url)))
  
 ;;}}}
 ;;{{{ Netcraft surveys 
@@ -538,7 +537,7 @@ name of the list.")
  nil
  "CNN Hot Stocks"
  #'(lambda (url)
-     (emacspeak-w3-extract-table 9 url)))
+     (emacspeak-w3-extract-nested-table 9 url)))
 (emacspeak-url-template-define
  "CNN Content "
  "http://www.cnn.com/"
@@ -560,7 +559,7 @@ name of the list.")
  nil
  "Speak CNN Market Update."
  #'(lambda (url)
-     (emacspeak-w3-extract-table 8 url)
+     (emacspeak-w3-extract-nested-table 8 url)
      ))
 
 ;;}}}
@@ -573,7 +572,7 @@ name of the list.")
  "Pick out NFL broadcast links."
  #'(lambda (url)
      (define-key w3-mode-map "N" 'emacspeak-url-template-nfl-play-broadcast)
-     (emacspeak-w3-extract-table 9 url)
+     (emacspeak-w3-extract-nested-table 9 url)
      "Displays the table giving the NFL broadcast links for this
 week. Use command emacspeak-url-template-nfl-play-broadcast to play
 the broadcast. You must have mplayer installed."
@@ -703,7 +702,7 @@ the broadcast. You must have mplayer installed."
  nil
  "Display project usage statistics."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-list
+     (emacspeak-w3-extract-nested-table-list
       (list 5 6)
       url)))
 
