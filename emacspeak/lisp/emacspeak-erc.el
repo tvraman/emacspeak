@@ -273,11 +273,14 @@ display. String is the original message."
     (save-excursion
       (set-buffer buffer)
       (when emacspeak-erc-room-monitor
-        (let ((msg (emacspeak-erc-compute-message (ad-get-arg 0)
+        (let ((emacspeak-speak-messages nil)
+              (msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
           (when msg
             (emacspeak-auditory-icon 'progress)
-            (message  msg)))))))
+            (message msg)
+            (tts-with-punctuations "some"
+            (dtk-speak  msg))))))))
 
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
   "Toggle state of ERC room monitor.
