@@ -574,14 +574,13 @@ name of the list.")
      
 
 (emacspeak-url-template-define
- "CNN HotStocks "
- "http://money.cnn.com/%s/markets/hotstox/"
- (list 
-  'emacspeak-url-template-date-year/month/date)
+ "CNN Markets "
+ "http://money.cnn.com/markets"
  nil
- "CNN Hot Stocks"
+ nil
+ "CNN Money"
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 9 url 'speak)))
+     (emacspeak-w3-extract-table-by-position 11 url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Content "
@@ -601,14 +600,7 @@ name of the list.")
       url
       'speak)))
 
-(emacspeak-url-template-define
- "CNN Markets New York"
- "http://money.cnn.com/%s/markets/markets_newyork/"
- (list 'emacspeak-url-template-date-year/month/date)
- nil
- "Speak CNN Market Update."
- #'(lambda (url)
-     (emacspeak-w3-extract-table-by-position 11 url 'speak)))
+
 
 ;;}}}
 ;;{{{ nfl 
