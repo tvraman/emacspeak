@@ -1496,7 +1496,9 @@ semantic to do the work."
   (force-mode-line-update)
   (emacspeak-dtk-sync)
   (let ((dtk-stop-immediately nil )
-        (frame-info nil))
+        (frame-info nil)
+        (recursion-depth (recursion-depth))
+        (recursion-info nil))
     (when (and  emacspeak-which-function-mode
                 (fboundp 'which-function)
                 (which-function))
@@ -1509,10 +1511,17 @@ semantic to do the work."
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
-                  (format " %s " (frame-parameter (selected-frame) 'name)))
+              (format " %s " (frame-parameter (selected-frame) 'name)))
         (put-text-property 0 (length frame-info)
                            'personality 'annotation-voice frame-info))
        (t (setq frame-info "")))
+      (when (> recursion-depth 0)
+        (setq  recursion-info
+               (format " Recursive Edit %d "
+                       recursion-depth))
+        (put-text-property 0 (length recursion-info)
+                           'personality 'annotation-voice
+                           recursion-info))
       (when (buffer-modified-p ) (dtk-tone 700 70))
       (when buffer-read-only (dtk-tone 250 50))
       (tts-with-punctuations "all"
@@ -1530,7 +1539,8 @@ semantic to do the work."
                                           "")
                                         mode-name
                                         (emacspeak-get-current-percentage-into-buffer))
-                               frame-info)))))))
+                               frame-info
+                               recursion-info)))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
