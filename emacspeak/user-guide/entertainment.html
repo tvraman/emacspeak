@@ -1,0 +1,683 @@
+<HTML
+><HEAD
+><TITLE
+>Entertainment</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Using Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Productivity"
+HREF="productivity.html"><LINK
+REL="NEXT"
+TITLE="Acknowledgments"
+HREF="acknowledgments.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Using Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="productivity.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="acknowledgments.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="ENTERTAINMENT"
+>7. Entertainment</A
+></H1
+><P
+>	While Emacs provides lots of applications and functionality to
+	help get work done, it also provides a medium to play
+	games, listen to music, and do other fun activities.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BURNING-A-CD"
+>7.1. Burning a CD</A
+></H2
+><P
+>	It's become almost necessary to have a CD burner these days,
+	especially if you want to download iso images to install new
+	versions of Linux. The <SPAN
+CLASS="APPLICATION"
+>cdrecord</SPAN
+>
+	application is the
+	recommended tool for burning both audio and data CDs, and it
+	is included in many distributions. However, if you'd like to
+	get the latest version, go to <A
+HREF="http://www.fokus.gmd.de/research/cc/glone/employees/joerg.schilling/private/cdrecord.html"
+TARGET="_top"
+>http://www.fokus.gmd.de/research/cc/glone/employees/joerg.schilling/private/cdrecord.html</A
+>.
+	</P
+><P
+>	<SPAN
+CLASS="APPLICATION"
+>cdrecord</SPAN
+> is a command-line
+	application, so you'll need to open an Emacs command shell
+	(<B
+CLASS="COMMAND"
+>M-x shell</B
+>) to use it.
+	</P
+><P
+>	The complete directions on how to use
+	<SPAN
+CLASS="APPLICATION"
+>cdrecord</SPAN
+> burn a CD are beyond the
+	scope of this document; however Winfried Trümper wrote an
+	excellent HOWTO on making both data and audio CDs, which is
+	available at <A
+HREF="http://www.linuxdoc.org/HOWTO/CD-Writing-HOWTO.html"
+TARGET="_top"
+>http://www.linuxdoc.org/HOWTO/CD-Writing-HOWTO.html</A
+>. If
+	you are new to burning CDs in Linux, this document is
+	indispensable. 
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PLAYING-CDS"
+>7.2. Playing CDs</A
+></H2
+><P
+>	The best tool for playing CDs in Emacs is
+	<SPAN
+CLASS="APPLICATION"
+>cd-tool</SPAN
+>. An Emacspeak-enabled
+	version is included with your Emacspeak
+	distribution. 
+	</P
+><P
+>	All of the commands that control
+	<SPAN
+CLASS="APPLICATION"
+>cd-tool</SPAN
+> must be prefaced by the
+	command <B
+CLASS="COMMAND"
+>M-x cd-tool</B
+>. After you type this, you will be
+	prompted to enter the command to execute.  For example, if you
+	wanted to start playing a CD, you would type <B
+CLASS="COMMAND"
+>M-x
+	cd-tool</B
+>, then at the prompt type
+	<B
+CLASS="COMMAND"
+>p</B
+> (for 'play'). The CD will then start
+	playing.
+	</P
+><P
+>	The commands for <SPAN
+CLASS="APPLICATION"
+>cd-tool</SPAN
+> are listed
+	below:
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>p</B
+></DT
+><DD
+><P
+>					Play the CD.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>=</B
+></DT
+><DD
+><P
+>					Play the CD in random order (shuffle).
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>+</B
+></DT
+><DD
+><P
+>					Skip to the next track.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>-</B
+></DT
+><DD
+><P
+>					Return to the previous track.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>SPC</B
+></DT
+><DD
+><P
+>					Pause or resume play.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>i</B
+></DT
+><DD
+><P
+>					Show the CD info.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>s</B
+></DT
+><DD
+><P
+>					Stop playing the CD.
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>e</B
+></DT
+><DD
+><P
+>					Eject the CD (must be stopped).
+					</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MP3S"
+>7.3. Playing mp3s</A
+></H2
+><P
+>	To play an mp3 music file, you'll need the application
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>.  Although the application is included in a number of
+	distributions, the standard version is not Emacs-native, so
+	you'll need to download an install the Emacs-enabled
+	version. You can download the file
+	<TT
+CLASS="FILENAME"
+>mpg123-el-1.24-1.tar.gz</TT
+> (the latest
+	Emacs-enabled version) from Debian at <A
+HREF="http://http.us.debian.org/debian/pool/main/m/mpg123-el/mpg123-el_1.24-1.tar.gz"
+TARGET="_top"
+>http://http.us.debian.org/debian/pool/main/m/mpg123-el/mpg123-el_1.24-1.tar.gz</A
+>.  
+	</P
+><P
+>	Once you've downloaded the file, you'll need to install it
+	using the following steps:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Open an Emacs shell using the command
+			<B
+CLASS="COMMAND"
+>M-x shell</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Change directories to the directory containing
+			the new file.
+			</P
+></LI
+><LI
+><P
+>			Unzip the file using the
+			command <B
+CLASS="COMMAND"
+>gunzip
+			mpg123-el-1.24-1.tar.gz</B
+>.
+			</P
+></LI
+><LI
+><P
+>			Untar the resulting
+			<TT
+CLASS="FILENAME"
+>mpg123-el-1.24-1.tar</TT
+>
+			file using the command <B
+CLASS="COMMAND"
+>tar -xvf
+			mpg123-el-1.24-1.tar</B
+>. 
+			</P
+></LI
+><LI
+><P
+>			Change directories into the resulting
+			<TT
+CLASS="FILENAME"
+>mpg123-el-1.24-1.tar</TT
+>
+			directory. In this directory, you'll see the
+			<TT
+CLASS="FILENAME"
+>mpg123.el</TT
+> file. Copy this
+			file into the
+			<TT
+CLASS="FILENAME"
+>/usr/shar/emacs/site-lisp</TT
+> directory.
+			</P
+></LI
+><LI
+><P
+>			Open your <TT
+CLASS="FILENAME"
+>.emacs</TT
+> file and
+			add the following line:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			(autoload 'mpg123 "mpg123" "A Front-end to
+			mpg123" t)
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></LI
+><LI
+><P
+>			Save and close your
+			<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file. Then restart
+			Emacs so that the changes will take effect.
+			</P
+></LI
+></OL
+><P
+>	To start playing mp3s, use the command <B
+CLASS="COMMAND"
+>M-x
+	mpg123</B
+>.  You'll be asked for a filename to play.
+	Type in the name of the mp3 to play, then press Return. It
+	should start playing immediately.
+	</P
+><P
+>	There are a number of commands that can be used with
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>; a few of the more commonly
+	used ones are listed below:
+	</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><B
+CLASS="COMMAND"
+>SPC</B
+></DT
+><DD
+><P
+>					Play or pause
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>RET</B
+></DT
+><DD
+><P
+>					Play
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>V</B
+></DT
+><DD
+><P
+>					Volume up
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>v</B
+></DT
+><DD
+><P
+>					Volume down
+					</P
+></DD
+><DT
+><B
+CLASS="COMMAND"
+>q</B
+></DT
+><DD
+><P
+>					Quit
+					</P
+></DD
+></DL
+></DIV
+><P
+>	For a full list of <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+> commands,
+	you can scroll up and down within the application to have them
+	read aloud.
+	</P
+><P
+>	One note about volume in <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>: in
+	my tests, I found that often the system volume would go way
+	down when I started <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>, to the
+	point where I could barely hear it. If I exited
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>, the volume in Emacspeak would continue
+	to be extremely low, regardless of how it was set before I
+	started <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>.  However, if I
+	turned up the volume while in
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>, not only was it at an
+	acceptable level in <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>, it was
+	also loud after I quit <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>.
+	</P
+><P
+>	Another problem that I noticed when using
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+> is that sometimes when you
+	quit the application, it doesn't seem to relinquish control of
+	the sound card. You'll see evidence of this behavior if you
+	try to play a CD or restart <SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+>
+	- you'll get an error message saying that your soundcard is
+	busy or that it's not installed correctly. If you check the
+	list of open Emacs buffers, you'll see that
+	<SPAN
+CLASS="APPLICATION"
+>mpg123</SPAN
+> is still there, although
+	it's apparently in a questionable state. I have not yet
+	figured out how to remedy this problem; if anyone has any
+	suggestions, please let me know so it can be added to the
+	HOWTO. 
+	</P
+><P
+>	If you find yourself listening to a lot of MP3s, there is an
+	mp3 jukebox written by Karl Dahlke available at <A
+HREF="http://www.eklhad.net/linux/app/jukebox"
+TARGET="_top"
+>http://www.eklhad.net/linux/app/jukebox</A
+>, and a
+	sample config file for the jukebox at <A
+HREF="http://www.eklhad.net/linux/app/sample.jukerc"
+TARGET="_top"
+>http://www.eklhad.net/linux/app/sample.jukerc</A
+>.
+	At the time of writing, the jukebox was in version 1.0.
+	</P
+><P
+>	If you want to rip your own MP3s, under Linux it is a
+	two step process.  The first step is to convert the tracks on
+	an audio CD to <TT
+CLASS="FILENAME"
+>.wav</TT
+> format, then convert
+	the <TT
+CLASS="FILENAME"
+>.wav</TT
+> files to MP3s. There is a great
+	web page by Nathan Robertson on how to do this, located at
+	<A
+HREF="http://www.nathanr.net/thisout/articles/linux-mp3/"
+TARGET="_top"
+>http://www.nathanr.net/thisout/articles/linux-mp3/</A
+>.
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PLAYING-A-GAME"
+>7.4. Playing games</A
+></H2
+><P
+>	Emacs has a number of popular games built into it, including
+	Solitaire, Tetris, Dunnet (a text-based adventure game) and
+	Gomoku.  For a
+	complete listing of games:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Type <B
+CLASS="COMMAND"
+>C-h p</B
+>. A list of the
+			available Emacs packages opens in the buffer.
+			</P
+></LI
+><LI
+><P
+>			Scroll down to the games entry, then press
+			Enter. A list of all the available games is
+			displayed.
+			</P
+></LI
+></OL
+><P
+>	To start a game:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Type <B
+CLASS="COMMAND"
+>M-x</B
+>, then the name of
+			the game you want to play. For example, to
+			play Dunnet, the text-based adventure game,
+			you would type <B
+CLASS="COMMAND"
+>M-x dunnet</B
+>.
+			But only do this if you have plenty of time to
+			spare!
+			</P
+></LI
+></OL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="productivity.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="acknowledgments.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Productivity</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Acknowledgments</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
