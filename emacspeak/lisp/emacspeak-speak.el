@@ -2920,6 +2920,22 @@ Speak text between point and the char we hit."
   (emacspeak-speak-and-skip-extent-upto-char last-input-char))
 
 ;;}}}
+;;{{{  speak message at time
+(defun emacspeak-speak-message-at-time (time message)
+  "Set up rin-at-time to speak message at specified time.
+Provides simple stop watch functionality in addition to other things.
+See documentation for command run-at-time for details on time-spec."
+  (interactive
+   (list
+    (read-from-minibuffer "Time specification:  ")
+    (read-from-minibuffer "Message: ")))
+  (run-at-time time nil
+               #'(lambda (m)
+                   (message m)
+                   (emacspeak-auditory-icon 'alarm))
+               message))
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
