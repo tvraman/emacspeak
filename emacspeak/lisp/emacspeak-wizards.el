@@ -851,15 +851,18 @@ Typically %s is replaced by project name.")
 
 ;;}}}
 ;;{{{ browse chunks 
-(defun emacspeak-wizards-speak-chunk (command count)
+(defun emacspeak-wizards-move-and-speak (command count)
   "Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
 first.
-Point is left at the target position."
+Point is left at the target position.
+Interactively, command is specified by pressing the key that
+;;invokes the command."
   (interactive
    (list
-    (read-command "Navigation Command:")
+    (lookup-key global-map
+                (read-key-sequence "Key:"))
     (read-minibuffer "Count:")))
   (let ((orig (point)))
     (push-mark orig)
