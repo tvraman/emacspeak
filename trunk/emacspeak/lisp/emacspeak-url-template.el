@@ -370,8 +370,7 @@ to play a BBC Radio7 program on demand."
       (expand-file-name "linearize-tables.xsl"
                         emacspeak-xslt-directory)
       url)))
-
-
+;;{{{ bbc channel 
 
 (defvar  emacspeak-url-template-bbc-channels-content 
 "http://www.bbc.co.uk/radio/aod/shows/rpms/"
@@ -408,17 +407,25 @@ content."
  "Display BBC Channel on demand."
  )
 
+;;}}}
+;;{{{ bbc Genres 
+
 (emacspeak-url-template-define
- "BBC Channel On Demand"
- "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
- (list "BBC Channel: ")
- nil
+ "BBC Genres On Demand"
+ "http://www.bbc.co.uk/radio/aod/genres/%s/audiolist.shtml"
+ (list "BBC Genre: ")
+ #'(lambda ()
+     (declare (special emacspeak-w3-url-executor))
+     (setq emacspeak-w3-url-executor
+           'emacspeak-url-template-bbc-channel-player))
  "Display BBC Channel on demand."
  )
 
+;;}}}
+
 (emacspeak-url-template-define
  "BBC Programs On Demand"
- "http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
+ "http://www.bbc.co.uk/radio/aod/%s.rpm"
  (list "BBC Program: ")
  nil
  "Play BBC programs on demand."
