@@ -181,122 +181,110 @@ This function forces voice-lock mode on."
   (`
    (defcustom (, personality)
      (, voice)
-     (,doc)
+     (, doc)
      :type 'symbol
      :group 'tts
      :set '(lambda  (sym val)
              (voice-setup-set-voice-for-face (, face) (, voice))
 (set-default sym val)))))
+
 ;;}}}
 ;;{{{  Define some voice personalities:
 
-(defcustom voice-lock-comment-personality
-  'paul-monotone  
-  "Personality to use for comments."
-  :group 'tts
-  :type 'symbol)
+(def-voice-map voice-lock-comment-personality
+  'paul-monotone
+  'font-lock-comment-face
+  "Personality to use for comments.")
           
-(defcustom voice-lock-underline-personality 
-  'paul-animated 
-  "Personality to use for underline text."
-  :type 'symbol
-  :group 'tts)
-
-(defcustom voice-lock-bold-personality 
+(def-voice-map voice-lock-underline-personality 
+  'paul-animated
+  'underline
+  "Personality to use for underline text.")
+  
+(def-voice-map voice-lock-bold-personality 
   'harry
-  "Personality to use for bold  text."
-  :group 'tts
-  :type 'symbol)
+  'bold
+  "Personality to use for bold  text.")
+  
 
-(defcustom voice-lock-italic-personality 
-  'paul-italic 
-  "Personality to use for italic  text."
-  :group 'tts
-  :type 'symbol)
+(def-voice-map voice-lock-italic-personality 
+  'paul-italic
+  'bold-italic
+  "Personality to use for italic  text.")
+  
+(def-voice-map voice-lock-doc-string-personality
+  'dennis
+  'font-lock-doc-string-face
+  "Personality to use for documentation strings.")
+  
+(def-voice-map voice-lock-constant-personality
+  'paul-smooth
+  'font-lock-constant-face
+  "Personality to use for  constants.")
+  
+(def-voice-map voice-lock-string-personality
+  'betty
+  'font-lock-string-face
+  "Personality to use for string constants.")
 
-(defcustom voice-lock-doc-string-personality
-  'dennis  
-  "Personality to use for documentation strings."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-constant-personality
-  'paul-smooth 
-  "Personality to use for  constants."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-string-personality
-  'betty 
-  "Personality to use for string constants."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-function-name-personality
-  'harry 
-  "Personality to use for function names."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-warning-personality
+(def-voice-map voice-lock-function-name-personality
+  'harry
+  'font-lock-function-name-face
+  "Personality to use for function names.")
+  
+(def-voice-map voice-lock-warning-personality
   'paul-angry
-  "Personality to use for function names."
-  :group 'tts
-  :type 'symbol)
+  'font-lock-warning-face
+  "Personality to use for warnings.")
 
-(defcustom voice-lock-keyword-personality
-  'ursula  
-  "Personality to use for keywords."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-builtin-personality
+(def-voice-map voice-lock-keyword-personality
+  'ursula
+  'font-lock-keyword-face
+  "Personality to use for keywords.")
+  
+(def-voice-map voice-lock-builtin-personality
   'harry
-  "Personality to use for built-in keywords."
-  :group 'tts
-  :type 'symbol)
+  'font-lock-builtin-face
+  "Personality to use for built-in keywords.")
 
-(defcustom voice-lock-variable-name-personality
+(def-voice-map voice-lock-variable-name-personality
   'paul-animated
-  "Personality to use for keywords."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-type-personality
-  'paul-smooth 
-  "Personality to use for data types."
-  :group 'tts
-  :type 'symbol)
-
-(defcustom voice-lock-reference-personality
+  'font-lock-variable-name-face
+  "Personality to use for variables.")
+  
+(def-voice-map voice-lock-type-personality
+  'paul-smooth
+  'font-lock-type-face
+  "Personality to use for data types.")
+  
+(def-voice-map voice-lock-reference-personality
   'paul-animated
-  "Personality to use for comments."
-  :group 'tts
-  :type 'symbol)
+  'font-lock-reference-face
+  "Personality to use for references.")
 
 ;;}}}
 ;;{{{ setup standard mappings
 
-(voice-setup-set-voice-for-face 'bold 'bold)
-(voice-setup-set-voice-for-face 'italic 'italic)
-(voice-setup-set-voice-for-face 'underline 'underline)
-(voice-setup-set-voice-for-face 'underlined 'underline)
-(voice-setup-set-voice-for-face 'bold-italic 'bold-italic)
+;; (voice-setup-set-voice-for-face 'bold 'bold)
+;; (voice-setup-set-voice-for-face 'italic 'italic)
+;; (voice-setup-set-voice-for-face 'underline 'underline)
+;; (voice-setup-set-voice-for-face 'underlined 'underline)
+;; (voice-setup-set-voice-for-face 'bold-italic 'bold-italic)
 
-(voice-setup-set-voice-for-face  'font-lock-comment-face 'voice-lock-comment-personality)
-(voice-setup-set-voice-for-face 'font-lock-underline-face   'voice-lock-underline-personality )
-(voice-setup-set-voice-for-face 'font-lock-bold-face   'voice-lock-bold-personality )
-(voice-setup-set-voice-for-face 'font-lock-italic-face   'voice-lock-italic-personality )
-(voice-setup-set-voice-for-face 'font-lock-doc-string-personality   'voice-lock-doc-string-personality)
-(voice-setup-set-voice-for-face'font-lock-constant-face   'voice-lock-constant-personality)
-(voice-setup-set-voice-for-face'font-lock-string-face   'voice-lock-string-personality)
-(voice-setup-set-voice-for-face'font-lock-function-name-face 'voice-lock-function-name-personality)
-(voice-setup-set-voice-for-face'font-lock-warning-face   'voice-lock-warning-personality)
-(voice-setup-set-voice-for-face'font-lock-keyword-face   'voice-lock-keyword-personality)
-(voice-setup-set-voice-for-face'font-lock-builtin-face   'voice-lock-builtin-personality)
-(voice-setup-set-voice-for-face'font-lock-variable-name-face 'voice-lock-variable-name-personality)
-(voice-setup-set-voice-for-face'font-lock-type-face   'voice-lock-type-personality)
-(voice-setup-set-voice-for-face'font-lock-reference-face   'voice-lock-reference-personality)
+;; (voice-setup-set-voice-for-face  'font-lock-comment-face 'voice-lock-comment-personality)
+;; (voice-setup-set-voice-for-face 'font-lock-underline-face   'voice-lock-underline-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-bold-face   'voice-lock-bold-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-italic-face   'voice-lock-italic-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-doc-string-personality   'voice-lock-doc-string-personality)
+;; (voice-setup-set-voice-for-face'font-lock-constant-face   'voice-lock-constant-personality)
+;; (voice-setup-set-voice-for-face'font-lock-string-face   'voice-lock-string-personality)
+;; (voice-setup-set-voice-for-face'font-lock-function-name-face 'voice-lock-function-name-personality)
+;; (voice-setup-set-voice-for-face'font-lock-warning-face   'voice-lock-warning-personality)
+;; (voice-setup-set-voice-for-face'font-lock-keyword-face   'voice-lock-keyword-personality)
+;; (voice-setup-set-voice-for-face'font-lock-builtin-face   'voice-lock-builtin-personality)
+;; (voice-setup-set-voice-for-face'font-lock-variable-name-face 'voice-lock-variable-name-personality)
+;; (voice-setup-set-voice-for-face'font-lock-type-face   'voice-lock-type-personality)
+;; (voice-setup-set-voice-for-face'font-lock-reference-face   'voice-lock-reference-personality)
 
 
 ;;}}}
