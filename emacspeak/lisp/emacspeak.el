@@ -64,6 +64,12 @@
 
 ;;}}}
 ;;{{{  Customize groups 
+(defconst emacspeak-version
+  (let ((x "$Revision$"))
+    (string-match "[0-9.]+" x)
+    (substring x (match-beginning 0)
+               (match-end 0)))
+  "Version number for Emacspeak.")
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
@@ -87,12 +93,7 @@
   :group 'accessibility
   :version emacspeak-version)
 
-(defconst emacspeak-version
-  (let ((x "$Revision$"))
-    (string-match "[0-9.]+" x)
-    (substring x (match-beginning 0)
-               (match-end 0)))
-  "Version number for Emacspeak.")
+
 
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
