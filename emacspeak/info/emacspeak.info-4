@@ -277,9 +277,6 @@ emacspeak-speak
    Automatically generated documentation for commands defined in module
 emacspeak-speak.
 
- - emacspeak-kill-buffer-quietly:
-     Kill current buffer without asking for confirmation.
-
  - emacspeak-speak-line-set-column-filter:
      ` control e | '
 
@@ -532,9 +529,6 @@ emacspeak-speak.
      ` control e control p '
 
      Speak the previous window.
-
- - emacspeak-switch-to-previous-buffer:
-     Switch to most recently used interesting buffer.
 
  - emacspeak-speak-skim-buffer:
      Skim the current buffer  a paragraph at a time.
