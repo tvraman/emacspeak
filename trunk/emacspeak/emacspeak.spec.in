@@ -62,7 +62,7 @@ Make sure you read the Emacs info pages
 /usr/share/info/emacspeak.info-4
 /usr/share/info/emacspeak.info-5
 
-%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/* 
+%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/*.texi 
 
 
 # local variables:
