@@ -69,11 +69,10 @@ you like after a command.
 
 #define ECILIBRARYNAME "libibmeci.so"
 
-/* ugly ugly */
 #define DSP "/dev/dsp"
 int  dsp = -1;
-//.1 second using 11025k samples.
-//note that in the tcl server we select for 0.09 seconds so
+//.04  second using 11025k samples.
+//note that in the tcl server we select for 0.02 seconds so
 //that we dont queue up too many speech samples,
 //This is important for stopping speech immediately.
 #define BUFSIZE 512
