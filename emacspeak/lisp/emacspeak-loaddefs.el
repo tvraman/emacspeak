@@ -1,7 +1,7 @@
 ;;;Auto generated
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart ems-generate-switcher)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16463 23827))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16502 56212))
 ;;; Generated autoloads from dtk-speak.el
 
 (autoload (quote ems-generate-switcher) "dtk-speak" "\
@@ -59,7 +59,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps.
 ;;;***
 
 ;;;### (autoloads (emacspeak-amphetadesk) "emacspeak-amphetadesk"
-;;;;;;  "emacspeak-amphetadesk.el" (16499 19409))
+;;;;;;  "emacspeak-amphetadesk.el" (16500 55228))
 ;;; Generated autoloads from emacspeak-amphetadesk.el
 
 (autoload (quote emacspeak-amphetadesk) "emacspeak-amphetadesk" "\
@@ -326,7 +326,7 @@ node-spec.
 
 ;;;### (autoloads (emacspeak-keymap-remove-emacspeak-edit-commands
 ;;;;;;  emacspeak-keymap-choose-new-emacspeak-prefix) "emacspeak-keymap"
-;;;;;;  "emacspeak-keymap.el" (16500 15539))
+;;;;;;  "emacspeak-keymap.el" (16500 55228))
 ;;; Generated autoloads from emacspeak-keymap.el
 
 (defvar emacspeak-keymap nil "\
@@ -886,7 +886,7 @@ Optional interactive prefix arg displays documentation for specified resource.
 ;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
 ;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
 ;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
-;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16451 24191))
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16502 8669))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
@@ -1121,7 +1121,7 @@ Optional interactive prefix arg results in prompting for a search term.
 
 ;;;### (autoloads (emacspeak-widget-default-summarize emacspeak-widget-summarize
 ;;;;;;  emacspeak-widget-summarize-parent) "emacspeak-widget" "emacspeak-widget.el"
-;;;;;;  (16438 15472))
+;;;;;;  (16502 9349))
 ;;; Generated autoloads from emacspeak-widget.el
 
 (autoload (quote emacspeak-widget-summarize-parent) "emacspeak-widget" "\
@@ -1144,7 +1144,7 @@ Fall back summarizer for all widgets
 ;;;### (autoloads (emacspeak-wizards-tramp-open-location emacspeak-wizards-generate-voice-sampler
 ;;;;;;  emacspeak-wizards-voice-sampler emacspeak-wizards-show-face
 ;;;;;;  emacspeak-wizards-find-longest-paragraph-in-region emacspeak-wizards-find-longest-line-in-region
-;;;;;;  emacspeak-wizards-google-hits emacspeak-wizards-vc-viewer-refresh
+;;;;;;  emacspeak-wizards-google-hits emacspeak-wizards-vc-n emacspeak-wizards-vc-viewer-refresh
 ;;;;;;  emacspeak-wizards-vc-viewer emacspeak-wizards-fix-read-only-text
 ;;;;;;  emacspeak-wizards-fix-typo emacspeak-wizards-spot-words emacspeak-kill-buffer-quietly
 ;;;;;;  emacspeak-switch-to-previous-buffer emacspeak-wizards-occur-header-lines
@@ -1173,7 +1173,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
 ;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16442 22458))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16501 63347))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1635,6 +1635,11 @@ Refresh view of VC we're viewing.
 
 \(fn)" t nil)
 
+(autoload (quote emacspeak-wizards-vc-n) "emacspeak-wizards" "\
+Accelerator for VC viewer.
+
+\(fn)" t nil)
+
 (autoload (quote emacspeak-wizards-google-hits) "emacspeak-wizards" "\
 Filter Google results after performing search to show just the
 hits.
@@ -1858,7 +1863,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16500 16372 659088))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16502 57076 856441))
 
 ;;;***
 
