@@ -215,8 +215,7 @@ display. String is the original message."
     (cond
      ((and emacspeak-erc-people-to-monitor
            (find
-            (format "<%s>"
-            who-from)
+            who-from
                   emacspeak-erc-people-to-monitor
                   :test #'string-equal))
       string)
@@ -249,8 +248,8 @@ set the current local value to the result."
                    (not  (default-value 'emacspeak-erc-room-monitor )))
     (setq emacspeak-erc-room-monitor (default-value 'emacspeak-comint-autospeak )))
    (t
-      (setq emacspeak-erc-room-monitor
-	    (not emacspeak-erc-room-monitor ))))
+    (setq emacspeak-erc-room-monitor
+          (not emacspeak-erc-room-monitor ))))
   (and emacspeak-erc-room-monitor
        
        )

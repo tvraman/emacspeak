@@ -748,24 +748,23 @@ With optional PREFIX argument, label current frame."
 ;;{{{  readng different displays of same buffer
 
 (defun emacspeak-speak-this-buffer-other-window-display (&optional arg)
-  "Speak this buffer as displayed in a different frame.
-Emacs allows you to display the same buffer in multiple
-windows or frames.
-These different windows can
-display different portions of the buffer.
-This is equivalent to leaving a book open at places at once.
-This command allows you to listen to the places where you
-have left the book open.  The number used to invoke this
-command
-specifies which of the displays you wish to speak.  Typically
-you will have two or at most three such displays open.
-The current display is 0, the next is 1, and so on.
-Optional argument ARG specifies the display to speak."
+  "Speak this buffer as displayed in a different frame.  Emacs
+allows you to display the same buffer in multiple windows or
+frames.  These different windows can display different
+portions of the buffer.  This is equivalent to leaving a
+book open at places at once.  This command allows you to
+listen to the places where you have left the book open.  The
+number used to invoke this command specifies which of the
+displays you wish to speak.  Typically you will have two or
+at most three such displays open.  The current display is 0,
+the next is 1, and so on.  Optional argument ARG specifies
+the display to speak."
   (interactive "P")
-  (let ((window (or arg
-                    (condition-case nil
-                        (read (format "%c" last-input-event ))
-                      (error nil ))))
+  (let ((window
+         (or arg
+             (condition-case nil
+                 (read (format "%c" last-input-event ))
+               (error nil ))))
         (win nil)
         (window-list (get-buffer-window-list
                       (current-buffer)
@@ -776,9 +775,10 @@ Optional argument ARG specifies the display to speak."
     (setq win
           (nth (% window (length window-list ))
                window-list))
-    (emacspeak-speak-region
-     (window-start win)
-     (window-end win))))
+    (save-window-excursion
+      (emacspeak-speak-region
+       (window-start win)
+       (window-end win)))))
 
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
@@ -795,9 +795,60 @@ meaning of `previous'."
   "Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `previous'."
+meaning of `next'."
   (interactive)
   (emacspeak-speak-this-buffer-other-window-display  1))
+
+(defun emacspeak-select-this-buffer-other-window-display (&optional arg)
+  "Switch  to this buffer as displayed in a different frame.  Emacs
+allows you to display the same buffer in multiple windows or
+frames.  These different windows can display different
+portions of the buffer.  This is equivalent to leaving a
+book open at places at once.  This command allows you to
+move to the places where you have left the book open.  The
+number used to invoke this command specifies which of the
+displays you wish to select.  Typically you will have two or
+at most three such displays open.  The current display is 0,
+the next is 1, and so on.  Optional argument ARG specifies
+the display to select."
+  (interactive "P")
+  (let ((window
+         (or arg
+             (condition-case nil
+                 (read (format "%c" last-input-event ))
+               (error nil ))))
+        (win nil)
+        (window-list (get-buffer-window-list
+                      (current-buffer)
+                      nil 'visible)))
+    (or (numberp window)
+        (setq window
+              (read-minibuffer "Display to select")))
+    (setq win
+          (nth (% window (length window-list ))
+               window-list))
+    (select-frame (window-frame win))
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
+
+(defun emacspeak-select-this-buffer-previous-display ()
+  "Select this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-select-this-buffer-other-window-display' for the
+meaning of `previous'."
+  (interactive)
+  (let ((count (length (get-buffer-window-list
+                        (current-buffer)
+                        nil 'visible))))
+    (emacspeak-select-this-buffer-other-window-display (1-  count))))
+
+(defun emacspeak-select-this-buffer-next-display ()
+  "Select this buffer as displayed in a `next' frame.
+See documentation for command
+`emacspeak-select-this-buffer-other-window-display' for the
+meaning of `next'."
+  (interactive)
+  (emacspeak-select-this-buffer-other-window-display  1))
 
 ;;}}}
 (provide 'emacspeak-wizards)

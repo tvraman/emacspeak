@@ -90,6 +90,10 @@
   'emacspeak-speak-this-buffer-previous-display)
 (define-key emacspeak-keymap '[right]
   'emacspeak-speak-this-buffer-next-display)
+(define-key emacspeak-keymap '[(control left)]
+  'emacspeak-select-this-buffer-previous-display)
+(define-key emacspeak-keymap '[(control right)]
+  'emacspeak-select-this-buffer-next-display)
 (define-key emacspeak-keymap "/" 'emacspeak-speak-this-buffer-other-window-display)
 (define-key emacspeak-keymap '[down]
   'emacspeak-read-next-line)
