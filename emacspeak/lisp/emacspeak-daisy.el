@@ -470,18 +470,28 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-daisy)
-
+(defcustom emacspeak-daisy-completion-extensions-to-ignore
+  '(".xml" ".smil" ".bks"
+             ".opf" ".css")
+"These file name extensions are ignored when locating the
+navigation file for a book. Include all extensions except `.ncx'
+  for optimal performance."
+:type '(repeat :tag "Extensions"
+               (string :tag "Suffix"))
+:group 'emacspeak-daisy)
+        
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename."
   (interactive
    (list
+    (let ((completion-ignored-extensions
+           emacspeak-daisy-completion-extensions-to-ignore))
     (expand-file-name
     (read-file-name "Book Navigation File: "
                     emacspeak-daisy-books-directory
-                    nil nil nil 
+                    nil t  nil 
                     #'(lambda (f)
-                        (or (file-directory-p f)
                         (string-match "\\.ncx$" f)))))))
   (declare (special emacspeak-daisy-this-book
                     emacspeak-daisy-books-directory))
