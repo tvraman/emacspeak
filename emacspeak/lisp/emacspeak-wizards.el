@@ -1003,14 +1003,25 @@ emacspeak-emergency-tts-server."
 
 ;;}}}
 ;;{{{ customization wizard
-(defun emacspeak-customize-current-major-mode ()
-  "Attempts to pop up a customization buffer for current
-major mode."
-  (interactive)
-  (declare (special major-mode))
-  (customize-group major-mode)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+(defun emacspeak-customize-personal-settings (file)
+  "Create a customization buffer for browsing and updating
+personal customizations."
+  (interactive
+   (list
+    (read-file-name "Customization file: "
+                    nil
+                    custom-file)))
+  (declare (special custom-file))
+  (let*((buffer (find-file-noselect custom-file))
+        (settings  (cdr (read  buffer)))
+        (found nil))
+    (setq found
+          (mapcar #'(lambda (s)
+                      (list (car (second s))
+                            'custom-variable))
+                  settings))
+    (custom-buffer-create (custom-sort-items found t 'first)
+                          "*Customize Personal Options*")))
 
 ;;}}}
 (provide 'emacspeak-wizards)

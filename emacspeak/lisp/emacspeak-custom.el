@@ -130,14 +130,17 @@
 (add-hook 'custom-mode-hook
           (function
            (lambda nil
-             (voice-lock-mode 1))))
+             (voice-lock-mode 1)
+             (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}
 ;;{{{  custom navigation
 
-(defvar emacspeak-custom-group-regexp
+(defcustom emacspeak-custom-group-regexp
   "^/-"
-  "Pattern identifying start of custom group.")
+  "Pattern identifying start of custom group."
+  :type 'regexp
+  :group 'emacspeak-custom)
 
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
@@ -151,9 +154,11 @@
     (emacspeak-speak-line)))
 
 
-(defvar emacspeak-custom-toolbar-regexp
+(defcustom emacspeak-custom-toolbar-regexp
   "^Operate on everything in this buffer:"
-  "Pattern that identifies toolbar section.")
+  "Pattern that identifies toolbar section."
+  :type 'regexp
+  :group 'emacspeak-custom)
 
 (defun emacspeak-custom-goto-toolbar ()
   "Jump to custom toolbar when in a customization buffer."
