@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <!--
 Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
-Copyright: (C) 2001  All Rights Reserved.
-
 Description: Extract specified table.  Table to extract is
 specified by parametersparameter table-index whose default
 value is 1.  Result is to extract the table appearing in
