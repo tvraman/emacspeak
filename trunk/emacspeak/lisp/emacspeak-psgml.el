@@ -355,14 +355,15 @@ window")))
 ;;{{{ psgml based voice locking 
 
 (defvar emacspeak-sgml-markup-voices
-  '((start-tag 	. harry)
-    (end-tag 	. harry)
-    (comment 	. paul-monotone)
-    (pi 	. paul-animated)
-    (sgml 	. paul-animated)
-    (doctype 	. paul-italic)
-    (entity 	. paul-italic)
-    (shortref   . harry))
+  (list 
+(cons 'start-tag 	  'harry)
+    (cons 'end-tag 	  'harry)
+    (cons 'comment 	  voice-monotone)
+    (cons 'pi 	   voice-animate)
+    (cons 'sgml 	  voice-animate)
+    (cons 'doctype 	  voice-lock-italic-personality)
+    (cons 'entity 	  voice-lock-italic-personality)
+    (cons 'shortref     'harry))
   "*List of markup to personality mappings.
 Element are of the form (MARKUP-TYPE . personality).
 Possible values for MARKUP-TYPE is:
