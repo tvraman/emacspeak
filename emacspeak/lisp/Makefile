@@ -84,6 +84,7 @@ emacspeak-freeamp.elc \
 	emacspeak-tabulate.elc 
 
 AUX_OBJECTS =  cd-tool.elc \
+emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
 emacspeak-arc.elc \
 emacspeak-auctex.elc \
@@ -252,6 +253,7 @@ html-outline.elc: html-outline.el
 cd-tool.elc: cd-tool.el
 emacspeak-actions.elc: emacspeak-actions.el  voice-lock.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc
+emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc
 emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc

@@ -1,4 +1,5 @@
 RCS
+semantic.cache
 .dmacros.dm
 emacspeak-load-path.el
 emacspeak-setup.el
