@@ -149,6 +149,12 @@ reading news."
   (emacspeak-auditory-icon 'news)
   (message "Gnus is ready "))
 
+(defadvice gnus-group-suspend (after emacspeak pre act com)
+  "Provide auditory contextual feedback."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'close-object)))
+
 ;;}}}
 ;;{{{  starting up:
 
