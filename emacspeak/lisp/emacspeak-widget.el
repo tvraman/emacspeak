@@ -204,7 +204,7 @@
      (or  help-echo
           (if value " hide  " " show  ")))))
 
-(widget-put (get 'item 'widget-type)
+(widget-put (get 'visibility 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-visibility)
 
 ;;}}}
