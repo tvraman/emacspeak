@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Compare Prices Using My Simon</title>
+  </head>
+  <body>
+    <p>
+      <form name="searchform" action="http://www.mysimon.com/ksrch/kwaction.jhtml" method="GET">
+        <input type="hidden" name="pgid" value=""/>
+        <input type="hidden" name="fromURI" value="/index.jhtml"/>
+        <input type="hidden" name="oldc" value=""/>
+        <label for="kw">Search For:</label>
+        <input id="kw" type="text" name="kw" value="" size="16"/>
+        <select name="c" style="width: 150px;">
+          <option value="">Entire Site</option>
+          <option value="apparel">Apparel</option>
+          <option value="babieskids">Babies</option>
+          <option value="health">Beauty &amp; Health</option>
+          <option value="media">Books,Music,Movies</option>
+          <option value="computers">Computers</option>
+          <option value="electronics">Electronics</option>
+          <option value="flowersgifts">Flowers &amp; Gifts</option>
+          <option value="gourmet">Food &amp; Wine</option>
+          <option value="home">Home &amp; Garden</option>
+          <option value="office">Office</option>
+          <option value="petsupplies">Pets</option>
+          <option value="sportshobbies">Sports &amp;
+          Hobbies</option>
+          <option value="toyscollectibles">Toys &amp;
+          Games</option>
+          <option value="computerandvideogames">Video
+          Games</option>
+        </select>
+        <input type="submit" name="Search" value="Search"/>
+      </form>
+    </p>
+  </body>
+</html>
