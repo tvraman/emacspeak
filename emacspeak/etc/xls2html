@@ -8,6 +8,9 @@ then
     cat > $tempfile
     xlhtml -a -te  $tempfile
     rm -f $tempfile
+    exit 0
 else
-    echo "xlhtml not found --install package xlhtml from http://www.xlhtml.org."
+    echo "xlhtml not found --install package xlhtml from
+#http://www.xlhtml.org."
+    exit 1
 fi

@@ -1,0 +1,16 @@
+#!/bin/sh
+#for use in vm
+#Description: Install  package wv to obtain wvHtml
+if which wvHtml > /dev/null
+then
+    cd /tmp
+    wmf=/tmp/mswordfile*.wmf
+    wordfile=mswordviewfile$$.doc
+    htmlfile=mswordviewfile$$.htmltxt
+    cat > $wordfile
+    wvHtml $wordfile $htmlfile
+    cat   $htmlfile 
+    /bin/rm $htmlfile  $wmf
+else
+    echo "wvHtml not found --install package wv."
+fi

@@ -8,6 +8,9 @@ then
     cat > $tempfile
     ppthtml   $tempfile
     rm -f $tempfile
+    exit 0
 else
-    echo "ppthtml not found --install package xlhtml from http://www.xlhtml.org."
+    echo "ppthtml not found --install package xlhtml from
+#http://www.xlhtml.org."
+    exit 1
 fi
