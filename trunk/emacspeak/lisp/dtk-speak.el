@@ -95,10 +95,7 @@ Set things like speech rate, punctuation mode etc in this
 hook."
   :type 'hook)
 
-(defvar dtk-tcl (or (getenv "DTK_TCL" )
-                    "tcl")
-  "Interpreter  used to run the speech server.
-Extended tcl --tcl-- for all of the currently available servers.")
+
 
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
