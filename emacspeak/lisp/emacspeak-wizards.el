@@ -1121,9 +1121,7 @@ Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
         #'(lambda (o)
-            ;;; note that the use of symbol-file is incorrect
-            ;;; --that only works for functions. find right call.
-            (let ((this-module (symbol-file o))
+            (let ((this-module (car (find-variable-noselect o)))
                   (commentary nil)
                   (source-file nil))
               (when this-module
