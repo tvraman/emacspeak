@@ -38,7 +38,7 @@ are extracted. All other nodes are ignored.
         <xsl:variable name="pages" select="//pagenum"/>
         <xsl:choose>
 <xsl:when test="count($pages)  &gt; 0">
-Book has pages
+  <xsl:apply-templates mode="copy"/>
           </xsl:when>
 <xsl:otherwise>
 <strong>This book has no page boundary markers.</strong>
@@ -47,5 +47,24 @@ Book has pages
       </body>
     </html>
   </xsl:template>
-  
+  <xsl:template match="pagenum" mode="copy">
+    <xsl:variable name="page-number" select="number(text())"/>
+    <xsl:choose>
+<xsl:when test="$start &lt;= $page-number and $page-number &lt;= $end">
+    page number is <xsl:value-of select="$page-number"/>
+<xsl:variable name="include" select="1"/>
+    </xsl:when>
+<xsl:otherwise>
+<xsl:variable name="include" select="0"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+<xsl:template match="*|@*" mode="copy">
+    <xsl:if test="$include = 1">
+      <xsl:copy>
+        <xsl:apply-templates select="@*"/>
+        <xsl:apply-templates select="node()" mode="copy"/>
+      </xsl:copy>
+    </xsl:if>
+  </xsl:template>
 </xsl:stylesheet>
