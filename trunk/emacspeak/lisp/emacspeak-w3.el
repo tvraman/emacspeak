@@ -555,9 +555,6 @@ libxslt package."
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
-    ; (goto-char (point-min))
-;     (while (search-forward "&nbsp;" nil t)
-;       (replace-match " "))
     (emacspeak-w3-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
