@@ -216,6 +216,19 @@ Echo output and return it as a string."
 					 emacspeak-realaudio-process))))))
 
 
+(defun emacspeak-realaudio-get-current-time-in-seconds ()
+  "Return current time in seconds."
+  (let* ((emacspeak-speak-messages nil)
+         (timespec (emacspeak-realaudio-dispatch ?t))
+        (fields (split-string  timespec ":")))
+    (pop fields) ;discard "time"
+    (setq fields 
+(mapcar #'string-to-number fields))
+(+
+(* 60 (first fields))
+(* 60 (second fields))
+(third fields))))
+
 (defun emacspeak-realaudio-trplayer-command (char)e
   "Execute TRPlayer command."
   (interactive "cTRPlayer Command:")
