@@ -684,7 +684,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ; ;	; ; ; ;
+;;}}}					; ; ; ;	; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -1580,7 +1580,7 @@ semantic to do the work."
 This should eventually be initialized based on the OS we are
 running under.")
 
-(defsubst emacspeak-speak-buffer-coding-system-info ()
+(defsubst ems-get-buffer-coding-system ()
   "Return buffer coding system info if releant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
@@ -1642,7 +1642,7 @@ current coding system, then we return an empty string."
                              emacspeak-minor-mode-prefix
                              vc-mode
                              (mapconcat #'identity info " ")
-                             (emacspeak-speak-buffer-coding-system-info))))))
+                             (ems-get-buffer-coding-system))))))
   
 ;;; obseleted by what-line in simple.el
 
