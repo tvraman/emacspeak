@@ -15,7 +15,7 @@
 # }}}
 # {{{ Copyright:  
 
-#Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved. 
@@ -41,9 +41,9 @@
 
 config:
 	@rm -f   play emacspeak.sh
-	@sed "s@<emacspeak-dir>@$(ROOT)/lisp@g" \
+	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
 		emacspeak.sh.def > emacspeak.sh
-		@sed "s@<emacspeak-dir>@$(ROOT)/@g" \
+		@sed "s@<emacspeak-dir>@$(SRC)/@g" \
 		play.def > play
 	@chmod 755 play  emacspeak.sh
 
