@@ -77,7 +77,7 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
   "Personality to indicate  cross-references.")
 
 (defvar emacspeak-info-menu-5
-  'betty
+  voice-lighten-extra
   "Personality for menu items.")
 
 ;;}}}
