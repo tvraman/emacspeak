@@ -1263,7 +1263,7 @@ With optional interactive prefix arg MAP shows the location map instead."
 (webjump-url-encode query)))))
   (emacspeak-websearch-post-process
    "Matches"
-   'emacspeak-speak-line))
+   'w3-table-focus-on-this-cell))
 
 ;;}}}
 ;;{{{  Northern Lights Search

@@ -53,29 +53,50 @@
 ;;}}}
 ;;{{{  Interactive defun 
 
-(defun emacspeak-tapestry-describe-tapestry (&optional name)
+(defun emacspeak-tapestry-describe-tapestry ()
   "Describe the current layout of visible buffers in current frame."
   (interactive)
   (let* ((buffer-map (tapestry-buffer-map ))
          (count (length buffer-map))
          (window-list  (tapestry-window-list))
+         (windows nil)
          (description
-          (format "%s displays %s buffer%s  "
-                  (or name "Current frame ")
+          (format "Frame displays %s buffer%s "
                   count 
-                  (if (> count 1) "s" " "))))
+                  (if (> count 1) "s" ""))))
     (put-text-property 0 (length description)
-                       'personality  'annotation-voice description)
-    (loop for buffer in buffer-map
-          and window in window-list
-          do
-          (setq description
-                (concat description
-                        (format "%s
-with window coordinates %s"
-                                (second buffer)
-                                (window-edges window)))))
-    (dtk-speak description)))
+                       'personality  'annotation-voice
+                       description)
+    (setq windows 
+          (loop for buffer in buffer-map
+                and window in window-list
+                collect
+                (let ((w (format "%s "  (second buffer)))
+                      (corners  (window-edges window))
+                      (tl nil )
+                      (br nil))
+                  (put-text-property 0 (length w)
+                                     'personality
+                                     'paul-animated w)
+                  (setq tl
+                        (format  " %d %d "
+                                 (first corners) (second corners))
+                        br  (format " %d %d "
+                                    (third corners) (fourth corners)))
+                  (put-text-property 0 (length tl)
+                                     'personality 'harry tl)
+                  (put-text-property 0 (length br)
+                                     'personality 'harry br)
+                        (concat w
+                                " with top left "
+                                tl
+                                " and bottom right "
+                                br))))
+    (tts-with-punctuations "some"
+                           (dtk-speak
+                            (concat description
+                                    (apply 'concat windows ))))))
+
 
 ;;}}}
 (provide  'emacspeak-tapestry)
