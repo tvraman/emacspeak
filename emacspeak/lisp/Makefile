@@ -211,7 +211,7 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all  
 
 all: $(OBJECTS)  
-
+config: emacspeak-loaddefs.el
 # }}}
 # {{{build time target --loaddefs
 

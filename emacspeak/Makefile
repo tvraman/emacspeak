@@ -234,6 +234,7 @@ dist: $(DISTFILES)
 
 config:
 	cd etc; $(MAKE) config  SRC=$(SRC)
+	cd lisp; $(MAKE) config 
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
