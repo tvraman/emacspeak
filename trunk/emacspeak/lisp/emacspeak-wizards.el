@@ -1039,13 +1039,13 @@ documentation.\n\n")
           (let ((key (where-is-internal f))
                 (key-description nil)
                 (commentary nil)
-                (this-module (symbol-file f)))
+                (this-module (symbol-file f))
+                (source-file nil))
             (when this-module
-              (setq commentary
-                    (lm-commentary
-                     (substring 
-		      (locate-library this-module )
-                      0 -1)))
+              (setq source-file (locate-library this-module ))
+                    (if (char-equal (aref source-file (1- (length source-file))) ?c)
+                        (setq source-file (substring  source-file 0 -1)))
+              (setq commentary (lm-commentary source-file))
               (setq this-module
                     (file-name-sans-extension this-module))
               (when commentary
