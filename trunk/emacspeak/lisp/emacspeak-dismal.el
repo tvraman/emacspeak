@@ -198,8 +198,10 @@ emacspeak-dismal-row-summarizer-list"
                 (cond
                  ((stringp token) token)
                  ((numberp token)
-                  (setq value (emacspeak-dismal-cell-value
-                               dismal-current-row token))
+                  (setq value
+                        (format "%s"
+                        (emacspeak-dismal-cell-value
+                               dismal-current-row token)))
                   (put-text-property  0   (length value)
                                       'personality  emacspeak-dismal-value-personality 
                                       value )
@@ -207,9 +209,11 @@ emacspeak-dismal-row-summarizer-list"
                  ((and (listp token)
                        (numberp (first token))
                        (numberp (second token )))
-                  (setq value (emacspeak-dismal-cell-value
+                  (setq value
+                        (format "%s"
+                        (emacspeak-dismal-cell-value
                                (first token)
-                               (second token)))
+                               (second token))))
                   (put-text-property 0   (length value )
                                      'personality emacspeak-dismal-value-personality 
                                      value)
@@ -269,8 +273,7 @@ emacspeak-dismal-sheet-summarizer-list"
   (declare (special emacspeak-dismal-row-summarizer-list))
   (when emacspeak-dismal-sheet-summarizer-list
     (let ((emacspeak-speak-messages nil))
-      ;(dis-recalculate-matrix)
-      )
+      (dis-recalculate-matrix))
     (message 
      (mapconcat
       (function
