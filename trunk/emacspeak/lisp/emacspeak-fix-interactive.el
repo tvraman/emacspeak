@@ -175,7 +175,7 @@ speak its prompts. "
             (declare (special emacspeak-xemacs-p))
             (not
              (or
-              (string-match  "^\\*?[dpPr]" prompt )
+              (string-match  "^[@*]?[depPr]" prompt )
               (string= "*" prompt )
               (and emacspeak-xemacs-p
                    (not (string-match  "^\\*?[ck]" prompt )))))))
@@ -250,25 +250,26 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   (interactive)
   (declare (special load-history
                     emacspeak-load-history-pointer))
-  (let ((lh load-history)
-        (emacspeak-speak-messages nil))
+  (unless (eq emacspeak-load-history-pointer load-history)
+    (let ((lh load-history)
+          (emacspeak-speak-messages nil))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
-    (while (and lh
-                (not (eq lh
-                         emacspeak-load-history-pointer)))
+      (while (and lh
+                  (not (eq lh
+                           emacspeak-load-history-pointer)))
       ;;; fix commands in this module
-      (dolist (item (rest (first lh)))
-	(and (symbolp item)
-	     (commandp item)
+        (dolist (item (rest (first lh)))
+          (and (symbolp item)
+               (commandp item)
                                         ; so fix it if necessary
-	     (emacspeak-fix-interactive-command-if-necessary item)))
-      (when (interactive-p)
-	(message "Fixed commands in %s" (first (first lh))))
-      (setq lh (rest lh)))
+               (emacspeak-fix-interactive-command-if-necessary item)))
+        (when (interactive-p)
+          (message "Fixed commands in %s" (first (first lh))))
+        (setq lh (rest lh)))
 ;;;memoize for future call
-    (setq emacspeak-load-history-pointer load-history))
-  (when (interactive-p)
-    (message "Fixed recently defined  interactive commands"))
+      (setq emacspeak-load-history-pointer load-history))
+    (when (interactive-p)
+      (message "Fixed recently defined  interactive commands")))
   t)
 
 ;;}}}
