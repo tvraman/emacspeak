@@ -266,31 +266,7 @@ Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode )))
   
 
-(defun emacspeak-toggle-action-mode  (&optional prefix)
-  "Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-action-mode))
-  (cond
-   (prefix
-    (setq-default  emacspeak-action-mode
-                   (not  (default-value 'emacspeak-action-mode )))
-    (setq emacspeak-action-mode (default-value 'emacspeak-action-mode )))
-   (t (make-local-variable'emacspeak-action-mode)
-      (setq emacspeak-action-mode
-	    (not emacspeak-action-mode ))))
-  (when emacspeak-action-mode
-    (require 'emacspeak-actions)
-    (let ((action-hook (emacspeak-action-get-action-hook  major-mode
-                                                          )))
-      (and (boundp action-hook)
-           (run-hooks action-hook ))))
-  (emacspeak-auditory-icon
-   (if emacspeak-action-mode 'on 'off))
-  (message "Turned %s Emacspeak Action Mode  %s "
-           (if emacspeak-action-mode "on" "off" )
-	   (if prefix "" "locally")))
+(ems-generate-switcher 
 
 ;;; Execute action at point
 (defsubst emacspeak-handle-action-at-point ()
@@ -301,7 +277,11 @@ current local  value to the result."
       (condition-case nil
           (funcall  action-spec )
         (error (message "Invalid actionat %s" (point )))))))
-
+(ems-generate-switcher 'emacspeak-toggle-action-mode
+                       'emacspeak-action-mode
+                        "Toggle state of  Emacspeak  action mode.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.")
 ;;}}}
 ;;{{{  line, Word and Character echo
 
@@ -312,26 +292,11 @@ option."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-line-echo (&optional prefix)
-  "Toggle state of  Emacspeak  line echo.
+(ems-generate-switcher 'emacspeak-toggle-line-echo
+                       'emacspeak-line-echo
+                       "Toggle state of  Emacspeak  line echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-line-echo ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-line-echo
-                   (not  (default-value 'emacspeak-line-echo )))
-    (setq emacspeak-line-echo (default-value 'emacspeak-line-echo )))
-   (t (make-local-variable 'emacspeak-line-echo)
-      (setq emacspeak-line-echo
-	    (not emacspeak-line-echo ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-line-echo 'on 'off))
-    (message "Turned %s line echo%s "
-             (if emacspeak-line-echo "on" "off" )
-             (if prefix "" " locally"))))
+current local  value to the result.")
 
 (defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
@@ -340,26 +305,11 @@ option."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-word-echo (&optional prefix)
-  "Toggle state of  Emacspeak  word echo.
+(ems-generate-switcher ' emacspeak-toggle-word-echo
+                           'emacspeak-word-echo
+                           "Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-word-echo ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-word-echo
-                   (not  (default-value 'emacspeak-word-echo )))
-    (setq emacspeak-word-echo (default-value 'emacspeak-word-echo )))
-   (t (make-local-variable 'emacspeak-word-echo )
-      (setq emacspeak-word-echo
-	    (not emacspeak-word-echo ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-word-echo 'on 'off ))
-    (message "Turned %s word echo%s "
-             (if emacspeak-word-echo "on" "off" )
-             (if prefix "" " locally"))))
+current local  value to the result.")
 
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
@@ -369,26 +319,11 @@ setting."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-toggle-character-echo (&optional prefix)
-  "Toggle state of  Emacspeak  character echo.
+(ems-generate-switcher ' emacspeak-toggle-character-echo
+                           'emacspeak-character-echo
+                           "Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-character-echo ))
-  (cond
-   (prefix
-    (setq-default  emacspeak-character-echo
-                   (not  (default-value 'emacspeak-character-echo )))
-    (setq emacspeak-character-echo (default-value 'emacspeak-character-echo )))
-   (t (make-local-variable 'emacspeak-character-echo)
-      (setq emacspeak-character-echo
-	    (not emacspeak-character-echo ))))
-  (when (interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-character-echo 'on 'off))
-    (message "Turned %s character echo%s "
-             (if emacspeak-character-echo "on" "off" )
-             (if prefix "" " locally"))))
+current local  value to the result.")
 
 ;;}}}
 ;;{{{ Showing the point:
@@ -1923,7 +1858,6 @@ Argument STRING specifies the alphanumeric phone number."
     (dtk-dispatch (format "[:dial %s]"
                           (emacspeak-speak-string-to-phone-number number)))
     (sit-for 4)))
-
 
   
 
