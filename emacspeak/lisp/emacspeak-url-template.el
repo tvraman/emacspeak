@@ -178,7 +178,8 @@
  "http://www.google.com/search?q=%s"
  (list
   #'(lambda ()
-      (read-from-minibuffer "Google search:")))
+      (webjump-url-encode
+      (read-from-minibuffer "Google search:"))))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
