@@ -115,6 +115,12 @@ pronunciation dictionaries are stored. ")
 (when (and (boundp 'transient-mark-mode)
            transient-mark-mode)
   (setq transient-mark-mode nil)
+  (message "Turning off transient mark mode before starting
+;;; emacspeak."))
+
+(when (and (boundp 'zmacs-regions)
+           zmacs-regions)
+  (setq zmacs-regions nil)
   (message "Turning off transient mark mode before starting emacspeak."))
 
 ;;}}}
