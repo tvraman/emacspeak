@@ -579,9 +579,22 @@ default-directory after switching."
     (shell-command
      (format "sudo %s" command)
      buffer)
-    (pop-to-buffer buffer)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line)))
+    (cond
+     ((> 1
+         (save-excursion
+           (set-buffer buffer)
+           (count-lines (point-min) (point-max))))
+      (pop-to-buffer buffer)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'open-object))
+     (t (save-excursion
+          (set-buffer buffer)
+          (message (buffer-string)))))))
+
+(defun emacspeak-wizards-tpctl-display-status ()
+  "Show display status on thinkpads using tpctl."
+  (interactive)
+  (emacspeak-sudo "tpctl --dull --sdi"))
 
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
