@@ -206,8 +206,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (pushnew name emacspeak-erc-people-to-monitor
            :test #'string-equal)
   (when quiten-pronunciation
-    (emacspeak-pronounce-add-buffer-local-dictionary-entry
-  emacspeak-erc-people-to-monitor ""))
+     (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
   (emacspeak-auditory-icon 'select-object)
   (message "monitoring %s"
            (mapconcat #'identity 
