@@ -37,15 +37,29 @@
 
 ;;}}}
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'emacspeak-keymap)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to the dismal spreadsheet. 
 ;;; Dismal can be found at ftp://cs.nyu.edu/pub/local/fox/dismal
+
+;;}}}
+;;{{{  requires 
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
+(require 'emacspeak-sounds)
+(require 'emacspeak-speak)
+(require 'emacspeak-keymap)
+
+;;}}}
+;;{{{ custom
+
+(defgroup emacspeak-dismal nil
+  "Spread-sheet for the Emacspeak Desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-dismal-")
+
 
 ;;}}}
 ;;{{{  helper functions:
@@ -164,8 +178,10 @@ The `column header' is the entry in row 0."
 (setq-default emacspeak-dismal-row-summarizer-list nil)
 (setq-default emacspeak-dismal-col-summarizer-list nil)
 (setq-default emacspeak-dismal-sheet-summarizer-list nil)
-(defvar emacspeak-dismal-value-personality 'paul-animated
-"Personality used for speaking cell values in summaries.")
+(defcustom emacspeak-dismal-value-personality 'paul-animated
+  "Personality used for speaking cell values in summaries."
+  :group 'emacspeak-dismal
+  :type 'symbol)
 
 (defun emacspeak-dismal-row-summarize  ()
   "Summarizes a row using the specification in list

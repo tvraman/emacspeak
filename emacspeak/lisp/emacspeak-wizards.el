@@ -51,6 +51,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 
 (require 'custom)
 (require 'thingatpt)
@@ -60,6 +61,14 @@
 (require 'emacspeak-table-ui)
 (require 'shell)
 (eval-when-compile (require 'cus-edit))
+;;}}}
+;;{{{ custom
+
+(defgroup emacspeak-wizards nil
+  "Wizards for the Emacspeak desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-wizards-")
+
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
 
@@ -388,13 +397,18 @@ howto document.")))
   (interactive)
   (message (system-name)))
 
-(defvar emacspeak-speak-show-active-network-interfaces-command
+(defcustom emacspeak-speak-show-active-network-interfaces-command
 "echo `/sbin/ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
-"Command that displays names of active network interfaces.")
+"Command that displays names of active network interfaces."
+:type 'string
+:group 'emacspeak-wizards)
 
-(defvar emacspeak-speak-show-active-network-interfaces-addresses
-"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed 's/addr://'`"
-"Command that displays addressesof a specific interface.")
+(defcustom emacspeak-speak-show-active-network-interfaces-addresses
+  "echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed 's/addr://'`"
+"Command that displays address of  a specific interface."
+:type 'string
+:group 'emacspeak-wizards
+)
 
 (defvar emacspeak-speak-network-interfaces-list
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
@@ -509,18 +523,22 @@ With prefix arg, opens the phone book for editting."
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
 
-(defvar emacspeak-cvs-local-directory
+(defcustom emacspeak-cvs-local-directory
   (expand-file-name "~/cvs-emacspeak")
-  "Directory where we get the snapshot.")
+  "Directory where we download the snapshot."
+  :type 'directory
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-cvs-done-alert (process state)
   "Alert user of cvs status."
   (message "Done getting CVS snapshot from sourceforge.")
   (emacspeak-auditory-icon 'task-done))
 
-(defvar emacspeak-cvs-anonymous-cvsroot
+(defcustom emacspeak-cvs-anonymous-cvsroot
   ":pserver:anonymous@cvs.emacspeak.sourceforge.net:/cvsroot/emacspeak"
-  "CVSROOT for emacspeak CVS repository at sourceforge.")
+  "CVSROOT for emacspeak CVS repository at sourceforge."
+  :type 'string
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-cvs-get-anonymous  ()
   "Get latest cvs snapshot of emacspeak."
@@ -1022,6 +1040,47 @@ personal customizations."
                   settings))
     (custom-buffer-create (custom-sort-items found t 'first)
                           "*Customize Personal Options*")))
+
+;;}}}
+;;{{{  Display properties conveniently
+
+;;; Useful for developping emacspeak:
+;;; Display selected properties of interest
+
+(defvar emacspeak-property-table
+  '(("personality"  . "personality")
+    ("auditory-icon" . "auditory-icon")
+    ("action" . "action"))
+  "Properties emacspeak is interested in.")
+
+(defun emacspeak-show-personality-at-point ()
+  "Show value of property personality at point."
+  (interactive )
+  (emacspeak-show-property-at-point 'personality))
+
+(defun emacspeak-show-property-at-point (&optional property )
+  "Show value of PROPERTY at point.
+If optional arg property is not supplied, read it interactively.
+Provides completion based on properties that are of interest.
+If no property is set, show a message and exit."
+  (interactive
+   (let
+       ((properties (text-properties-at  (point))))
+     (cond
+      ((and properties
+            (= 2 (length properties )))
+       (list (car properties )))
+      (properties
+       (list
+        (intern
+         (completing-read  "Display property: "
+                           emacspeak-property-table ))))
+      (t (message "No property set at point ")
+         nil))))
+  (declare (special emacspeak-property-table))
+  (if property
+      (message"%s"
+              (get-text-property (point) property ))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
