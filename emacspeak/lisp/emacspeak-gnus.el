@@ -38,8 +38,10 @@
 ;;}}}
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile) (require 'gnus)
-           (require 'gnus-sum))
+(eval-when (compile)
+  (when (locate-library "gnus")
+  (require 'gnus)
+           (require 'gnus-sum)))
 (require 'voice-lock)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-keymap)
