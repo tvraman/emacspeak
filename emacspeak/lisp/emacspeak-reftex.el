@@ -96,9 +96,13 @@
   "Speech enable  by speaking toc entry."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (if outline-minor-mode
-        (emacspeak-outline-speak-this-heading)
-      (emacspeak-speak-line))))
+    (recenter 0)
+    (cond
+     (outline-minor-mode
+      (emacspeak-outline-speak-this-heading))
+     (t
+      (emacspeak-speak-predefined-window 1)))))
+      
 
 (defadvice reftex-toc-goto-line-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
@@ -112,7 +116,10 @@
   "Speech enable  by speaking toc entry."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-predefined-window 1)))
+      (other-window 1)
+    (recenter 0)
+    (other-window 1)
+    (emacspeak-speak-predefined-window 2)))
 
 (defadvice reftex-select-previous (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
