@@ -347,7 +347,6 @@ it seems some accented characters in certain contexts."
   :group 'dtk)
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
-
 (defvar dtk-octal-chars 
   (if
       (and (boundp 'default-enable-multibyte-characters)

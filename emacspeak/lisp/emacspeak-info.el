@@ -105,14 +105,14 @@
 ;;}}}
 ;;{{{ advice
 
-(defcustom  emacspeak-info-select-node-speak-chunk 'screenfull 
+(defcustom  emacspeak-info-select-node-speak-chunk 'screenfull
   "*Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node."
   :type '(menu-choice
-	  (const screenful)
-	  (const node))
+	  (const :tag "First screenfull" 'screenfull)
+	  (const :tag "Entire node" 'node))
   :group 'emacspeak-info)
 
 (defsubst emacspeak-info-speak-current-window ()
