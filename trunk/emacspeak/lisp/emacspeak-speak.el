@@ -2286,21 +2286,35 @@ Will be improved if it proves useful."
 ;;}}}
 ;;{{{  Speak the last message again:
 
+(defcustom emacspeak-speak-message-again-should-copy-to-kill-ring t
+  "If set, asking for last message will copy it to the kill ring."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
 (defun emacspeak-speak-message-again (&optional from-message-cache)
   "Speak the last message from Emacs once again.
 Optional interactive prefix arg 
 `from-message-cache' speaks message cached from the most
-recent call to function `message'."
+recent call to function `message'.
+The message is also placed in the kill ring for convenient yanking
+if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.."
   (interactive "P")
-  (declare (special emacspeak-last-message ))
+  (declare (special emacspeak-last-message
+                    emacspeak-speak-message-again-should-copy-to-kill-ring))
   (cond
    (from-message-cache
-    (dtk-speak   emacspeak-last-message ))
+    (dtk-speak   emacspeak-last-message )
+    (when emacspeak-speak-message-again-should-copy-to-kill-ring
+      (kill-new emacspeak-last-message)))
    (t (save-excursion
         (set-buffer "*Messages*")
         (goto-char (point-max))
         (skip-syntax-backward " ")
-        (emacspeak-speak-line)))))
+        (emacspeak-speak-line)
+        (when emacspeak-speak-message-again-should-copy-to-kill-ring
+          (kill-new
+           (buffer-substring (line-beginning-position)
+                             (line-end-position))))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
