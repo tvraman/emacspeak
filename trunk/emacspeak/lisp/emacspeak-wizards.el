@@ -820,11 +820,12 @@ documentation.\n\n")
             (unless (string-equal module this-module)
               (if this-module 
                   (setq module this-module)
-                (setq module "ANONYMOUS"))
+                (setq module nil))
+              (when module 
               (insert
                (format
                 "@node %s\n@section %s\n\n\n"
-                module module ))
+                module module )))
               (insert
                (format "\n\n%s\n\n" 
                        (or commentary "")))

@@ -8,361 +8,10 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
-
-emacspeak-websearch
-===================
-
-   Commentary: This module provides utility functions for searching the
-WWW
-
-   Automatically generated documentation for commands defined in module
-emacspeak-websearch.
-
- - emacspeak-websearch-inference-search:
-     No global keybinding
-
-     Perform an Inference search.
-
- - emacspeak-websearch-google-usenet-advanced:
-     No global keybinding
-
-     Present Google Usenet advanced search form simplified for speech
-     interaction.
-
- - emacspeak-websearch-rfb-search:
-     No global keybinding
-
-     Search RFB&D catalog.
-
- - emacspeak-websearch-freshmeat-search:
-     No global keybinding
-
-     Search Freshmeat  Site.
-
- - emacspeak-websearch-britannica-search:
-     No global keybinding
-
-     Search Encyclopedia Britannica.
-
- - emacspeak-websearch-dispatch:
-     ` control e ? '
-
-     Launches specific websearch queries.  Search engine is selected by
-     keystrokes listed below.  Once selected, the selected searcher
-     prompts for additional information as appropriate.
-
-     Key     Engine              Search a       AltaVista
-        AltaVista Simple Search Cap A     AllTheWeb
-     All The Web b       BBC                         BBC Archives C-b
-      Biblio                      Computer Science Bibliography c
-     CNN                         CNN Interactive Cap C   Company News
-                  Lookup Company News By Ticker C-c     CiteSeer
-                 Computer Science Citation  Index d       usenet
-                 Usenet Archives (formerly Dejanews) Cap D
-     Dictionary                  Hypertext Websters Dictionary e
-     Encyclopedia                    Encyclopedia Britannica f
-     CNN-FN                      CNN  Financial Network cap F   FolDoc
-                        Free Online Dictionary Of Computing g
-     Google                      The Google WWW Index .       Advanced
-     Google                      Advanced Google WWW Index Cap G
-     Gutenberg Locate Gutenberg Etexts h       HotBot
-       HotBot WWW Index i       Inference                   Inference
-     WWW Search j       jeeves                      Ask Jeeves k
-     kerbango                    Kerbango Radio Tuner m       Map
-                      Driving directions from Yahoo Cap M   Dictionary
-                     Merriam Webster Dictionary n       news-yahoo
-                 News Wire at Yahoo Cap N   NLight
-     Northern Light Search o       open-directory              Open
-     Directory Search p       People                      People Search
-     (Yahoo) r       RedHat                      Search RedHat Via
-     Google Cap R   RFBD                        RFB&D Catalog search
-     C-r RPMFind                         Find RPM packages s
-     Software                  Search for software t       translate
-                 Machine translation u       usenet            Usenet
-     Index from Google w       Weather                     Weather
-     Channel  By Zip Code cap W   W3C                         Search
-     W3C Site v   Vickers                         Vickers Insider Trades
-     Cap VVectorVestVectorVest Stock Reports y       yahoo
-             Master Yahoo Index
-
-     When using W3,  this interface attempts to speak the most relevant
-     information on the result page.
-
- - emacspeak-websearch-google:
-     No global keybinding
-
-     Perform an Google search
-
- - emacspeak-websearch-emacspeak-archive:
-     ` control h e '
-
-     Search Emacspeak mail archives.  For example to find messages
-     about Redhat at the Emacspeak archives, type +redhat
-
- - emacspeak-websearch-w3c-search:
-     No global keybinding
-
-     Search the W3C Site.
-
- - emacspeak-websearch-citeseer-search:
-     No global keybinding
-
-     Perform a CiteSeer search.
-
- - emacspeak-websearch-alltheweb-search:
-     No global keybinding
-
-     Perform an AllTheWeb  search.  Optional prefix arg prompts for
-     type of search: -use `all' `phrase' or  `any' to specify the type
-     of search.
-
- - emacspeak-websearch-gutenberg:
-     No global keybinding
-
-     Perform an Gutenberg search
-
- - emacspeak-websearch-kerbango-search:
-     No global keybinding
-
-     Search Kerbango radio tuner.
-
- - emacspeak-websearch-cnn-search:
-     No global keybinding
-
-     Perform an CNN search.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-cnn-options to an appropriate string.
-
- - emacspeak-websearch-quotes-yahoo-search:
-     No global keybinding
-
-     Perform a Quotes Yahoo .  Default tickers to look up is taken from
-     variable emacspeak-websearch-personal-portfolio.  Default is to
-     present the data in emacspeak's table browsing mode -optional
-     interactive prefix arg causes data to be displayed y W3 as a WWW
-     page.  You can customize the defaults by setting variable
-     emacspeak-websearch-quotes-yahoo-options to an appropriate string.
-
- - emacspeak-websearch-software-search:
-     No global keybinding
-
-     Search SourceForge, Freshmeat and other sites.
-
- - emacspeak-websearch-weather:
-     No global keybinding
-
-     Get weather forecast for specified zip code.
-
- - emacspeak-websearch-altavista-search:
-     No global keybinding
-
-     Perform an Altavista search
-
- - emacspeak-websearch-foldoc-search:
-     No global keybinding
-
-     Perform a FolDoc search.
-
- - emacspeak-websearch-news-yahoo:
-     No global keybinding
-
-     Perform an Yahoo News search
-
- - emacspeak-websearch-map-directions-search:
-     No global keybinding
-
-     Get driving directions from Yahoo.  With optional interactive
-     prefix arg MAP shows the location map instead.
-
- - emacspeak-websearch-rpm-find:
-     No global keybinding
-
-     Search RPM  catalog  site.
-
- - emacspeak-websearch-bbc-search:
-     No global keybinding
-
-     Search BBC archives.
-
- - emacspeak-websearch-yahoo-historical-chart:
-     No global keybinding
-
-     Look up historical stock data.  Optional second arg data processes
-     the results as data rather than HTML.
-
- - emacspeak-websearch-usenet:
-     ` control e  cap U  '
-
-     Prompt and browse a Usenet newsgroup.  Optional interactive prefix
-     arg results in prompting for a search term.
-
- - emacspeak-websearch-vickers-search:
-     No global keybinding
-
-     Search Vickers insider trading.
-
- - emacspeak-websearch-biblio-search:
-     No global keybinding
-
-     Search Computer Science Bibliographies.
-
- - emacspeak-websearch-ask-jeeves:
-     No global keybinding
-
-     Ask Jeeves for the answer.
-
- - emacspeak-websearch-fn-cnn-search:
-     No global keybinding
-
-     Perform an CNN FNsearch.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-fn-cnn-options to an appropriate string.
-
- - emacspeak-websearch-cpan-search:
-     No global keybinding
-
-     Search CPAN  Comprehensive Perl Archive Network   Site.
-
- - emacspeak-websearch-packages-linux:
-     No global keybinding
-
-     Search for Linux packages.
-
- - emacspeak-websearch-open-directory-search:
-     No global keybinding
-
-     Perform an Open Directory search
-
- - emacspeak-websearch-appwatch-search:
-     No global keybinding
-
-     Search AppWatch  Site.
-
- - emacspeak-websearch-redhat:
-     No global keybinding
-
-     Search RedHat site.
-
- - emacspeak-websearch-sourceforge-search:
-     No global keybinding
-
-     Search SourceForge Site.
-
- - emacspeak-websearch-vector-vest-search:
-     No global keybinding
-
-     Look up VectorVest reports .
-
- - emacspeak-websearch-people-yahoo:
-     No global keybinding
-
-     Perform an Yahoo  people search
-
- - emacspeak-websearch-hotbot-search:
-     No global keybinding
-
-     Perform a Hotbot  search.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-hotbot-options to an appropriate string.
-
- - emacspeak-websearch-yahoo:
-     No global keybinding
-
-     Perform an Yahoo  search
-
- - emacspeak-websearch-dictionary-hypertext-webster-search:
-     No global keybinding
-
-     Search the Webster Dictionary.
-
- - emacspeak-websearch-machine-translate:
-     No global keybinding
-
-     Perform a machine translation request
-
- - emacspeak-websearch-merriam-webster-search:
-     No global keybinding
-
-     Search the Merriam Webster Dictionary.
-
- - emacspeak-websearch-northern-light:
-     No global keybinding
-
-     Perform a Northern Light  search
-
- - emacspeak-websearch-google-advanced:
-     No global keybinding
-
-     Present Google advanced search form simplified for speech
-     interaction.
-
- - emacspeak-websearch-ctan-search:
-     No global keybinding
-
-     Search CTAN Comprehensive TeX Archive Network   Site.
-
- - emacspeak-websearch-company-news:
-     No global keybinding
-
-     Perform an company news lookup.  Retrieves company news, research,
-     profile, insider trades,  or upgrades/downgrades.
-
-
-File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-wizards,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
-
-emacspeak-widget
-================
-
-   Commentary: This module implements the necessary extensions to
-provide talking widgets.
-
-   Automatically generated documentation for commands defined in module
-emacspeak-widget.
-
- - emacspeak-widget-help:
-     ` meta h '
-
-     Speak help for widget under point.
-
- - emacspeak-widget-summarize-parent:
-     ` meta p '
-
-     Summarize parent of widget at point.
-
- - emacspeak-widget-browse-widget-interactively:
-     No global keybinding
-
-     Allows you to browse a widget
-
- - emacspeak-widget-update-from-minibuffer:
-     ` META RETURN '
-
-     Sets widget at point by invoking its prompter.
-
- - emacspeak-widget-summarize-widget-under-point:
-     No global keybinding
-
-     Summarize a widget if any under point.  Optional interactive
-     prefix specifies how many levels to go up from current widget
-     before summarizing.
-
-
-File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak,  Prev: emacspeak-widget,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-wizards,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
 
 emacspeak-wizards
 =================
-
-   Commentary: Contains various wizards for the Emacspeak desktop.
 
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
@@ -437,8 +86,6 @@ emacspeak-wizards.
      Browse  Emacspeak productivity tips.
 
  - emacspeak-wizard-get-table-content-from-file:
-     No global keybinding
-
      Extract table specified by depth and count from HTML content at
      file.  Extracted content is placed as a csv file in task.csv.
 
@@ -468,8 +115,6 @@ emacspeak-wizards.
      Speak host name.
 
  - emacspeak-cvs-get-project-snapshot:
-     No global keybinding
-
      Grab CVS snapshot  of specified project from Sourceforge.
 
  - emacspeak-symlink-current-file:
@@ -516,8 +161,6 @@ emacspeak-wizards.
      kill ring for convenient yanking.
 
  - emacspeak-generate-documentation:
-     No global keybinding
-
      Generate docs for all emacspeak commands.  Prompts for FILENAME in
      which to save the documentation.  Warning! Contents of file
      filename will be overwritten.
@@ -528,13 +171,9 @@ emacspeak-wizards.
      speak interactive prompts.
 
  - emacspeak-frame-read-frame-label:
-     No global keybinding
-
      Read a frame label with completion.
 
  - emacspeak-select-this-buffer-other-window-display:
-     No global keybinding
-
      Switch  to this buffer as displayed in a different frame.  Emacs
      allows you to display the same buffer in multiple windows or
      frames.  These different windows can display different portions of
@@ -560,8 +199,6 @@ emacspeak-wizards.
      Get latest cvs snapshot of emacspeak.
 
  - emacspeak-speak-show-memory-used:
-     No global keybinding
-
      Convenience command to view state of memory used in this session
      so far.
 
@@ -595,8 +232,6 @@ emacspeak-wizards.
      specifies the display to speak.
 
  - emacspeak-speak-load-directory-settings:
-     No global keybinding
-
      Load a directory specific Emacspeak settings file.  This is
      typically used to load up settings that are specific to an
      electronic book consisting of many files in the same directory.
@@ -631,8 +266,6 @@ emacspeak-wizards.
      Start a root shell or switch to one that already exists.
 
  - emacspeak-wizard-get-table-content-from-url:
-     No global keybinding
-
      Extract table specified by depth and count from HTML content at
      URL.  Extracted content is placed as a csv file in task.csv.
 
@@ -670,8 +303,6 @@ emacspeak-wizards.
      Display info on recent change to Emacspeak.
 
  - emacspeak-generate-texinfo-command-documentation:
-     No global keybinding
-
      Generate texinfo documentation  for all emacspeak commands into
      file commands.texi.  Warning! Contents of file commands.texi will
      be overwritten.
@@ -700,73 +331,11 @@ emacspeak-wizards.
      properties that are of interest.  If no property is set, show a
      message and exit.
 
-
-File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
-
-emacspeak
-=========
-
-   Commentary: The complete audio desktop.
-
    Automatically generated documentation for commands defined in module
-emacspeak.
+nil.
 
- - emacspeak-submit-bug:
-     ` control e control b '
-
-     Function to submit a bug to the programs maintainer.
-
- - emacspeak-describe-emacspeak:
-     ` control h control e '
-
-     Give a brief overview of emacspeak.
-
-
-File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-w3search,  Prev: emacspeak,  Up: Emacspeak Commands
-
-dis-quote
-=========
-
-   Automatically generated documentation for commands defined in module
-dis-quote.
-
- - quotes-setup-emacspeak-portfolio:
-     No global keybinding
-
-     Set up variable emacspeak-websearch-personal-portfolio.
-
-
-File: emacspeak.info,  Node: emacspeak-w3search,  Next: ANONYMOUS,  Prev: dis-quote,  Up: Emacspeak Commands
-
-emacspeak-w3search
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-w3search.
-
- - emacspeak-websearch-blue-pages:
-     No global keybinding
-
-     Search IBM Blue Pages
-
- - emacspeak-websearch-ibm-internal:
-     No global keybinding
-
-     Search IBM My News
-
- - emacspeak-websearch-ibm-my-news:
-     No global keybinding
-
-     Search IBM My News
-
-
-File: emacspeak.info,  Node: ANONYMOUS,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
-
-ANONYMOUS
-=========
-
-   Automatically generated documentation for commands defined in module
-ANONYMOUS.
+ - emacspeak-w3-jump-to-submit:
+     Jump to next available submit button.
 
  - emacspeak-speak-current-field:
      ` control e . '
