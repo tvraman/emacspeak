@@ -125,7 +125,7 @@ prefix = /usr
 # where executables go
 bindir = ${prefix}/bin
 # where info files should go
-infodir = ${prefix}/info
+infodir = ${prefix}/share/info
 # where the emacspeak library directory should go
 #for older emacsuns use /usr/lib
 libparentdir = ${prefix}/share/emacs/site-lisp
