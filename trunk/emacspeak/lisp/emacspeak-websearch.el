@@ -121,14 +121,20 @@
             (princ (key-description (list (car m))))
             (princ "\t")
             (princ (cdr m))
+(princ "\t")
+(princ "`")
+(princ (emacspeak-websearch-get-searcher (cdr m)))
+(princ "'")
             (princ "\n"))
       (help-setup-xref
-        #'emacspeak-websearch-show-keys
+        (list #'emacspeak-websearch-show-keys)
                        (interactive-p)))
     (pop-to-buffer "*Help*")
+(help-mode)
     (goto-char (point-min))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'help)))
+
 (emacspeak-websearch-set-searcher  'help
 'emacspeak-websearch-help)
 
