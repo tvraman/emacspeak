@@ -683,7 +683,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ;
+;;}}}					; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -795,7 +795,7 @@ are indicated with auditory icon ellipses."
                          (format "Speak  this  %s long line? "
                                  l))))
             (when confirm
-              ;update threshold
+                                        ;update threshold
               (setq emacspeak-speak-maximum-line-length (1+ l))
               (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
               ;; record the y answer
@@ -2968,19 +2968,40 @@ directory specific settings."
   :group 'emacspeak-speak
   :type 'string)
 
-(defsubst emacspeak-speak-get-directory-settings ()
-  "Return directory specific settings file."
-  (declare (special emacspeak-speak-directory-settings))
-  (concat default-directory
-          emacspeak-speak-directory-settings))
+(defsubst emacspeak-speak-root-dir-p (dir)
+  "Check if we are at the root of the filesystem."
+  (let ((parent (expand-file-name  "../" dir)))
+    (or (or (not (file-readable-p dir))
+            (not (file-readable-p parent)))
+        (and 
+         (string= (file-truename dir) "/")
+         (string= (file-truename parent) "/")))))
+
+(defun emacspeak-speak-get-directory-settings (dir)
+  "Finds the next directory settings  file upwards in the directory tree
+from DIR. Returns nil if it cannot find a settings file in DIR
+or an ascendant directory."
+  (declare (special emacspeak-speak-directory-settings
+                    default-directory))
+  (let ((file (find emacspeak-speak-directory-settings
+		     (directory-files dir)
+                     :test 'string=)))
+    (cond
+     (file (expand-file-name file dir))
+      ((not (emacspeak-speak-root-dir-p dir))
+	  (emacspeak-speak-get-directory-settings (expand-file-name ".." dir)))
+      (t nil))))
+
 ;;;###autoload
-(defun emacspeak-speak-load-directory-settings ()
+(defun emacspeak-speak-load-directory-settings (&optional directory)
   "Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory."
-  (interactive)
-  (let ((settings (emacspeak-speak-get-directory-settings)))
+  (interactive "%DDirectory:")
+  (or directory
+      (setq directory default-directory))
+  (let ((settings (emacspeak-speak-get-directory-settings directory)))
     (when (and (file-exists-p  settings)
                (or emacspeak-speak-load-directory-settings-quietly
                    (y-or-n-p "Load directory settings? ")
