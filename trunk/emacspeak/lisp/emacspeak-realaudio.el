@@ -247,7 +247,7 @@ completions. Hit space to use this completion list.
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
 the audio desktop as `\\[emacspeak-realaudio]'.
-Alternatively, switch to buffer *realaudo* using
+Alternatively, switch to buffer *realaudio* using
 `\\[emacspeak-realaudio];' if you wish to issue many
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation

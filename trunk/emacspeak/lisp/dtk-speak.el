@@ -695,7 +695,7 @@ current local  value to the result."
   "Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
 emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer o rin all buffers."
+Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers."
   (interactive "P")
   (declare (special dtk-speaker-process dtk-quiet ))
   (and (not dtk-quiet)

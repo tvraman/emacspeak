@@ -613,7 +613,7 @@ sitting.
 Info manual that introduces programming in Emacs Lisp:
 
 @smallexample
-(info "(eintr)On Reading this Text")
+(info "(entr)On Reading this Text")
 @end smallexample
 
 I wrote that text "as an elementary introduction for people who are

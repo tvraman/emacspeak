@@ -399,7 +399,7 @@ Optional argument FILENAME specifies the dictionary file."
        now-map))))
 
 (defun emacspeak-pronounce-define-local-pronunciation (word  pronunciation )
-  "Define buffer local pronounciation.
+  "Define buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION."
   (interactive
    (list
@@ -466,7 +466,7 @@ Becomes automatically buffer local.")
 ;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be dfined on a per file, per directory and/or per
+Pronunciations can be defined on a per file, per directory and/or per
 mode basis.
 Pronunciations are activated on a per buffer basis.
 Turning on the use of pronunciation dictionaries results in emacspeak

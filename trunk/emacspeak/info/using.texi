@@ -160,7 +160,7 @@ emacspeak-speak-word
 With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
-spelt instead of being spoken.
+spelled instead of being spoken.
 
 
 @findex  emacspeak-speak-line

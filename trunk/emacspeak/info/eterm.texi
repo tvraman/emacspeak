@@ -6,7 +6,7 @@
 You can use the terminal emulator mode to run arbitrary terminal-based
 programs from within Emacs.  You open a terminal emulator buffer using
 M-x term, with an extra carriage return to accept the default shell
-(such as bash).  (Incidently, don't confuse this command with M-x
+(such as bash).  (Incidentally, don't confuse this command with M-x
 terminal-emulator, which starts an older terminal emulator mode not
 supported by Emacspeak.)
 
