@@ -137,7 +137,6 @@ INSTALL = install
 CP=cp
 # }}}
 ############## no user servicable parts beyond this point ###################
-SNAPSHOT = `date "+%h-%d-%y-%H-%M"`
 # {{{ setup distribution 
 
 # source files to distribute
@@ -198,14 +197,14 @@ print:
 	@echo "Please change to the info directory and type make print"
 
 # }}}
-# {{{  Maintainance targets tar snapshot dist 
+# {{{  Maintainance targets tar  dist 
 
 EXCLUDES=--exclude='*/CVS' --exclude='*/RCS'
 tar:
 	rm -f $(ID)
-	@echo "This is Emacspeak from  $(SNAPSHOT)" > $(ID)
+	@echo "This is Emacspeak from  `date`" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
-	@echo "Place  the files from this distribution in a directory" >> $(ID)
+	@echo "Unpack the  distribution " >> $(ID)
 	@echo "And type make config " >> $(ID)
 	@echo "To configure the source files. Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
@@ -214,13 +213,8 @@ tar:
 	${SAWFISH} ${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
 	${SOUNDS}   $(INFO)
 
-snapshot: $(DISTFILES)
-	#rcs -n$(SNAPSHOT):$$ $(DISTFILES)
-
 dist: $(DISTFILES) $(INFO)
 	make tar
-	make -k snapshot 
-	@echo "emacspeak $(SNAPSHOT)  prepared for distribution in emacspeak.tar"
 
 # }}}
 # {{{ User level target--  config 
@@ -289,19 +283,10 @@ clean:
 
 #label  releases when ready
 LABEL=
+MSG="Releasing ${LABEL}" 
+
 label: $(DISTFILES)
-	co -l $(DISTFILES)
-	ci -f -u${LABEL} -m"Releasing ${LABEL}" \
-        -n$(SNAPSHOT) $(DISTFILES)
-
-
-unlock: 
-	ci -f -u -m"Unlocking distfiles " $(DISTFILES)
-
-lock: 
-	co -l  $(DISTFILES)
-
-
+	cvs commit -r ${LABEL} -m ${MSG}  $(DISTFILES)
 
 release: #supply LABEL=NN.NN
 	make label LABEL=$(LABEL)
@@ -327,11 +312,11 @@ sed "s@<version>@$(LABEL)@g" \
 
 # }}}
 # {{{ rpm 
+
 rpm: emacspeak.spec
 	@cp emacspeak.tar.gz /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
 	rpm  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
-
 
 # }}}
 # {{{list distfiles to stdout
