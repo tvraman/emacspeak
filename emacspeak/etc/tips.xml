@@ -814,16 +814,15 @@
         </question>
         <answer>
           <para>
-            This is most useful when working with log files.
-            Command <command>
-              emacspeak-speak-line-set-column-filter</command>
-            enables you to filter out uninteresting columns
-            of each line as it is spoken.
-            Note that columns are filtered out by making
-            them <emphasis>inaudible</emphasis>
-            ---in order for this to take effect,
-            <command>voice-lock</command> needs to be active
-            in the current buffer.
+            This is most useful when working with log files.  Command
+            <command> emacspeak-speak-line-set-column-filter</command>
+            enables you to filter out uninteresting columns of each
+            line as it is spoken.  Note that columns are filtered out
+            by making them <emphasis>inaudible</emphasis> ---in order
+            for this to take effect, <command>voice-lock</command>
+            needs to be active in the current buffer.  You can invert
+            the sense of the filter by invoking command <command>
+            emacspeak-toggle-speak-line-invert-filter</command>.
           </para>
         </answer>
       </qandaentry>
