@@ -653,7 +653,7 @@ minibuffer."
     (save-excursion
       (cond
        (source-url
-        (set-buffer (cdr (url-retrieve source-url))))
+        (set-buffer  (url-retrieve-synchronously source-url)))
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
@@ -705,7 +705,7 @@ prefix arg causes url to be read from the minibuffer."
     (save-excursion
       (cond
        (source-url
-        (set-buffer (cdr (url-retrieve source-url))))
+        (set-buffer  (url-retrieve-synchronously source-url)))
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
