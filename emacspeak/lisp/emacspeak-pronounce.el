@@ -274,11 +274,12 @@ Modifies text and point in buffer."
                 (while (funcall matcher   word nil t)
                   (setq personality
                         (get-text-property (point) 'personality))
-                  (setq pronunciation 
+                  (setq pronunciation
+                        (save-match-data 
                         (funcall pronouncer
                                  (buffer-substring 
                                   (match-beginning 0)
-                                  (match-end 0))))
+                                  (match-end 0)))))
                   (replace-match pronunciation t t  )
                   (put-text-property
                    (match-beginning 0)
@@ -699,6 +700,30 @@ specified pronunciation dictionary key."
       (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
       (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-auditory-icon 'close-object)))
+
+;;}}}
+;;{{{ Helpers: pronouncers
+
+(defvar emacspeak-pronounce-date-mm-dd-yy-pattern
+  "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
+  "Pattern that matches dates of the form mm-dd-[cc]yy.")
+
+
+(defun emacspeak-pronounce-mm-dd-yyyy-date (string)
+  "Return pronunciation for mm-dd-yyyy dates."
+  (save-match-data
+(let ((fields (mapcar
+#'read 
+(split-string string "-"))))
+(calendar-date-string
+(list (second fields)
+(first fields)
+(cond
+((< (third fields) 50)
+ (+ 2000 (third fields)))
+ ((< (third fields) 100)
+  (+ 1900 (third fields)))
+(t (third fields))))))))
 
 ;;}}}
 (provide  'emacspeak-pronounce)
