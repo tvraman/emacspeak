@@ -255,6 +255,10 @@ Optional arguments target and step let you play chords."
   "Play a note immediately."
   (dtk-interp-note  instrument pitch duration
                     target step 'force))
+(defcustom dtk-use-tones t
+  "Allow tones to be turned off."
+  :type 'boolean
+  :group 'tts)
 
 (defsubst dtk-tone (pitch duration &optional force)
   "Produce a tone.
@@ -262,9 +266,11 @@ Argument PITCH   is specified in hertz.
 Argument DURATION  is specified in milliseconds.
 Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-quiet dtk-speaker-process
+                    dtk-use-tones
                     dtk-speak-server-initialized))
   (unless dtk-quiet
-    (when dtk-speak-server-initialized
+    (when (and dtk-use-tones
+               dtk-speak-server-initialized)
       (dtk-interp-tone pitch duration force))))
 
 ;;; helper function:
