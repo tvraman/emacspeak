@@ -18,6 +18,7 @@ manual is divided into the following chapters.
 * Emacs Packages:  Emacs Packages.
 * Running Terminal Based Applications: Running Terminal Based Applications
 * Emacspeak Commands:  Emacspeak Commands.
+* Emacspeak Customizations:  Emacspeak Customizations.
 * Acknowledgements: Acknowledgements.
 
 Indices:
