@@ -307,7 +307,8 @@ unless `dired-listing-switches' contains -al"
 
 ;;}}}
 ;;{{{ Additional status speaking commands
-
+(if (fboundp 'dired-show-file-type)
+    (defalias 'emacspeak-dired-show-file-type 'dired-show-file-type)
 (defun emacspeak-dired-show-file-type ()
   "Displays type of current file by running command file."
   (interactive)
@@ -316,7 +317,7 @@ unless `dired-listing-switches' contains -al"
         (shell-command 
          (format "file %s"
                  filename))
-      (message "No file on this line"))))
+      (message "No file on this line")))))
 
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
