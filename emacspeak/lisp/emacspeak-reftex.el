@@ -49,8 +49,6 @@
 (require 'voice-lock)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
-(require 'webjump)
-(require 'browse-url)
 
 ;;}}}
 ;;{{{  Introduction:
@@ -79,7 +77,6 @@
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
-
 
 (defadvice reftex-toc-previous (after emacspeak pre act
                                       comp)
@@ -111,7 +108,11 @@
         (emacspeak-outline-speak-this-heading)
       (emacspeak-speak-line))))
 
-
+(defadvice reftex-toc-view-line (after emacspeak pre act comp)
+  "Speech enable  by speaking toc entry."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-predefined-window 1)))
 
 (defadvice reftex-select-previous (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
