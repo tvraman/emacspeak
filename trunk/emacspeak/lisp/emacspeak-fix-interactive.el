@@ -196,6 +196,7 @@ speak its prompts. "
                                   (= ?c (aref  (, prompt) 0))
                                   (= ?K (aref  (, prompt) 0))
                                   (= ?k (aref  (, prompt) 0)))
+                          (emacspeak-auditory-icon 'open-object)
  			 (tts-with-punctuations "all"
  						(dtk-speak
  						 (,
