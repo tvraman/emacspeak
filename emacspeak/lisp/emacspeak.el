@@ -42,7 +42,7 @@
 ;;;The complete audio desktop.
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'emacspeak-load-path)

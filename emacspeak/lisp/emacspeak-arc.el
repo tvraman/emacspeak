@@ -40,8 +40,7 @@
 
 ;;{{{  Required modules
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (require 'arc-mode))
+(require 'arc-mode)
 ;;}}}
 ;;{{{  Introduction 
 
