@@ -95,8 +95,8 @@
          (total (+  (* 3600 h)
                     (* m 60)
                     s)))
-       (round
-        (/ total   emacspeak-daisy-frame-seconds)))))
+      (round
+       (/ total   emacspeak-daisy-frame-seconds)))))
 
 
 
@@ -109,26 +109,44 @@ Used to resolve relative URIs.")
 
 (defsubst emacspeak-daisy-resolve-uri (relative)
   "Resolve relative URI with respect to emacspeak-daisy-base-uri."
-(declare (special emacspeak-daisy-base-uri))
-(expand-file-name relative emacspeak-daisy-base-uri))
+  (declare (special emacspeak-daisy-base-uri))
+  (expand-file-name relative emacspeak-daisy-base-uri))
 
 
 
 
 
 ;;}}}
-;;{{{  play a clip 
+;;{{{ find element by id 
+(defun xml-find-tag-by-id (tree id)
+  "Walk tree and return node matching id."
+  (let ((children (xml-tag-children tree))
+        (current nil)
+        (found nil))
+    (cond
+     ((and (xml-tag-with-attributes-p tree)
+           (string-equal (xml-tag-attr tree "id") id) tree))
+     (t
+      (while  (and children
+                   (not found))
+        (setq current (pop children))
+        (unless (stringp current)
+          (setq found (xml-find-tag-by-id current id))))
+      found))))
+        
+;;}}}
+;;{{{  play audio clip 
 
 (defvar emacspeak-daisy-mpg123-player "mpg123"
   "MPG123 executable for playing mp3 files.")
 
-(defun emacspeak-daisy-play-audio-clip (clip)
+(defun emacspeak-daisy-play-audio (clip)
   "Play clip specified by clip.
 Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   (declare (special emacspeak-daisy-mpg123-player))
   (unless
       (and (listp clip)
- (string-equal "audio" (caar clip)))
+           (string-equal "audio" (caar clip)))
     (error "Invalid audio clip."))
   (let ((src (xml-tag-attr  clip "src"))
         (begin (xml-tag-attr  clip "clipBegin"))
@@ -146,6 +164,30 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
                    "-n"
                    (format "%s"  (- last first ))
                    path)))
+
+;;}}}
+;;{{{ play smil content 
+
+(defun emacspeak-daisy-play-content (content)
+  "Play SMIL content specified by content."
+  (declare (special emacspeak-daisy-base-uri
+                    emacspeak-daisy-this-book))
+  (unless (eq major-mode 'emacspeak-daisy-mode)
+    (error "Not in a digital audio book."))
+  (unless
+      (string-equal "content" (xml-tag-name content))
+    (error "Invalid content."))
+  (let* ((src (xml-tag-attr  content "src"))
+         (split (split-string src "#"))
+         (relative (first split))
+         (fragment (second split))
+         (path (emacspeak-daisy-resolve-uri relative)))
+;;; first see if have seen this SMIL document
+    (unless
+        (gethash src (emacspeak-daisy-book-content book))
+      (emacspeak-daisy-book-add-content book src))
+    ))
+))
 
 ;;}}}
 ;;{{{  table of handlers 
@@ -168,23 +210,23 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;; elements
 (defvar emacspeak-daisy-xml-elements 
   (list
-   "ncx"
-   "head"
-   "title"
-   "doctitle"
-   "text"
-   "audio"
-   "content"
-   "navStruct"
-   "navObject")
+  "ncx"
+  "head"
+  "title"
+  "doctitle"
+  "text"
+  "audio"
+  "content"
+  "navStruct"
+  "navObject")
   "Daisy XML elements.")
 
 (loop for e in emacspeak-daisy-xml-elements
       do
       (emacspeak-daisy-set-handler e
-                                   (intern
-                                    (format
-                                     "emacspeak-daisy-%s-handler" e))))
+      (intern
+       (format
+        "emacspeak-daisy-%s-handler" e))))
 ;;}}}
 ;;{{{ Define handlers 
 
@@ -192,16 +234,16 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   "Lookup and apply installed handler."
   (let* ((tag (xml-tag-name element))
          (handler  (emacspeak-daisy-get-handler tag)))
-    (cond
-     ((and handler
-           (fboundp handler))(funcall handler element))
-     (t
-      (insert
-       (format "Handler for %s not implemented yet.\n" tag))))))
+  (cond
+   ((and handler
+         (fboundp handler))(funcall handler element))
+   (t
+    (insert
+     (format "Handler for %s not implemented yet.\n" tag))))))
 
 (defun  emacspeak-daisy-ncx-handler (ncx)
   "Process top-level NCX element."
-      (mapc 'emacspeak-daisy-apply-handler (xml-tag-children ncx)))
+  (mapc 'emacspeak-daisy-apply-handler (xml-tag-children ncx)))
 
 (defun emacspeak-daisy-text-handler (element)
   "Handle element <text>...</text>."
@@ -212,15 +254,15 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   "Handle head element."
   (declare (special emacspeak-daisy-this-book))
   (let ((title  (xml-tag-child element "title")))
-    (when title
-      (setf (emacspeak-daisy-book-title emacspeak-daisy-this-book)
-            (apply #'concat (xml-tag-children title)))
-      (force-mode-line-update))))
+  (when title
+    (setf (emacspeak-daisy-book-title emacspeak-daisy-this-book)
+          (apply #'concat (xml-tag-children title)))
+    (force-mode-line-update))))
 
 (defun emacspeak-daisy-navStruct-handler (element)
   "Handle navstruct element."
   (mapc #'emacspeak-daisy-apply-handler
-        (xml-tag-children element )))
+  (xml-tag-children element )))
 
 
 (defun emacspeak-daisy-navObject-handler (element)
@@ -229,23 +271,23 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
         (audio (xml-tag-child element "audio"))
         (content (xml-tag-child element "content"))
         (start (point)))
-    (if text
+  (if text
       (emacspeak-daisy-text-handler text)
-      (insert "  \n"))
-    (when audio
-      (put-text-property start (point)
-                         'audio audio))
+    (insert "  \n"))
+  (when audio
     (put-text-property start (point)
-                       'content content)))
+                       'audio audio))
+  (put-text-property start (point)
+                     'content content)))
     
 (defun emacspeak-daisy-doctitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
         (audio (xml-tag-child element "audio"))
         (start (point)))
-    (emacspeak-daisy-text-handler   text)
-    (put-text-property start (point)
-                       'audio audio)))
+  (emacspeak-daisy-text-handler   text)
+  (put-text-property start (point)
+                     'audio audio)))
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
@@ -279,23 +321,13 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn
-    (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
+  (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
-
-(define-key emacspeak-daisy-mode-map "\C-m" 'emacspeak-daisy-play-audio-clip-under-point)
-
-;;}}}
-;;{{{ interactive commands
-
-(defun emacspeak-daisy-play-audio-clip-under-point ()
-  "Play audio clip under point."
-  (interactive)
-  (let ((clip (get-text-property (point) 'audio)))
-    (cond
-     (clip
-  (emacspeak-daisy-play-audio-clip clip))
-     (t (error "No audio clip under point.")))))
+(define-key emacspeak-daisy-mode-map " "
+  'emacspeak-daisy-play-audio-under-point)
+(define-key emacspeak-daisy-mode-map "n" 'next-line)
+(define-key emacspeak-daisy-mode-map "p" 'previous-line)
 
 ;;}}}
 ;;{{{  open a book (entry point)
@@ -307,31 +339,54 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename."
   (interactive
-   (list
-    (read-file-name "Book Navigation File: ")))
+  (list
+   (read-file-name "Book Navigation File: ")))
   (declare (special emacspeak-daisy-this-book))
   (let ((buffer (get-buffer-create "*daisy*"))
         (ncx (find-file-noselect filename))
         (book (emacspeak-daisy-book-constructor)))
-    (save-excursion
-      (set-buffer ncx)
-      (goto-char (point-min))
-      (search-forward"<ncx")
-      (beginning-of-line)
-      (setf (emacspeak-daisy-book-nav-center book)
-            (read-xml))
-      (kill-buffer ncx)
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq emacspeak-daisy-this-book book)
-      (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book))
-      (emacspeak-daisy-mode))
-    (switch-to-buffer buffer)
+  (setf (emacspeak-daisy-book-content book)
+        (make-hash-table))
+  (save-excursion
+    (set-buffer ncx)
     (goto-char (point-min))
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+    (search-forward"<ncx")
+    (beginning-of-line)
+    (setf (emacspeak-daisy-book-nav-center book)
+          (read-xml))
+    (kill-buffer ncx)
+    (set-buffer buffer)
+    (erase-buffer)
+    (setq emacspeak-daisy-this-book book)
+    (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book))
+    (emacspeak-daisy-mode))
+  (switch-to-buffer buffer)
+  (goto-char (point-min))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ interactive commands
+
+(defun emacspeak-daisy-play-content-under-point ()
+  "Play SMIL content  under point."
+  (interactive)
+  (let ((content (get-text-property (point) 'content)))
+  (cond
+   (content (emacspeak-daisy-play-content  content))
+   (t (error "No content under point.")))))
+
+(defun emacspeak-daisy-play-audio-under-point ()
+  "Play audio clip under point."
+  (interactive)
+  (let ((clip (get-text-property (point) 'audio)))
+  (cond
+   (clip
+    (emacspeak-daisy-play-audio clip))
+   (t (error "No audio clip under point.")))))
+
+;;}}}
+
 (provide 'emacspeak-daisy)
 ;;{{{ end of file
 
