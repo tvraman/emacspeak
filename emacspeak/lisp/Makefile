@@ -145,6 +145,7 @@ emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jde.elc \
 emacspeak-kotl.elc \
+emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
 emacspeak-message.elc \
@@ -318,6 +319,7 @@ emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc
 emacspeak-keymap.elc: emacspeak-keymap.el 
 emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc
 emacspeak-load-path.elc: emacspeak-load-path.elc
+emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc
