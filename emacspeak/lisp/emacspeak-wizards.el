@@ -54,6 +54,7 @@
 (require 'custom)
 (eval-when-compile (require 'dired))
 (require 'derived)
+(require 'find-dired)
 (require 'custom)
 (require 'thingatpt)
 (require 'voice-lock)
