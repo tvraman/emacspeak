@@ -948,6 +948,7 @@ source-level documentation.
 
 * dtk-speak::
 * dtk-tcl::
+* emacspeak-arc::
 * emacspeak-aumix::
 * emacspeak-bs::
 * emacspeak-buff-menu::
@@ -956,10 +957,13 @@ source-level documentation.
 * emacspeak-compile::
 * emacspeak-custom::
 * emacspeak-dired::
+* emacspeak-dismal::
 * emacspeak-ediff::
 * emacspeak-enriched::
 * emacspeak-entertain::
+* emacspeak-erc::
 * emacspeak-eterm::
+* emacspeak-eudc::
 * emacspeak-filtertext::
 * emacspeak-fix-interactive::
 * emacspeak-forms::
@@ -971,11 +975,13 @@ source-level documentation.
 * emacspeak-imenu::
 * emacspeak-keymap::
 * emacspeak-kotl::
+* emacspeak-man::
 * emacspeak-mpg123::
 * emacspeak-ocr::
 * emacspeak-outline::
 * emacspeak-pronounce::
 * emacspeak-psgml::
+* emacspeak-python::
 * emacspeak-realaudio::
 * emacspeak-redefine::
 * emacspeak-remote::
@@ -987,22 +993,19 @@ source-level documentation.
 * emacspeak-table-ui::
 * emacspeak-tabulate::
 * emacspeak-tapestry::
+* emacspeak-tar::
+* emacspeak-tetris::
 * emacspeak-url-template::
+* emacspeak-view-process::
 * emacspeak-view::
 * emacspeak-vm::
 * emacspeak-w3::
 * emacspeak-websearch::
 * emacspeak-widget::
-* emacspeak::
-* emacspeak-arc::
-* emacspeak-dismal::
-* emacspeak-eudc::
-* emacspeak-man::
-* emacspeak-python::
-* emacspeak-tar::
-* emacspeak-tetris::
-* emacspeak-view-process::
 * emacspeak-wizards::
+* emacspeak::
+* dis-quote::
+* emacspeak-w3search::
 * ANONYMOUS::
 
 
