@@ -608,6 +608,21 @@ before the message is spoken."
   :group 'emacspeak-speak
   :type 'boolean)
 
+(defadvice momentary-string-display (around emacspeak pre act
+                                            comp)
+  "Provide spoken feedback."
+  (let ((emacspeak-speak-messages nil)
+        (msg (ad-get-arg 0))
+        (exit (ad-get-arg 2)))
+    (dtk-speak
+     (format "%s %s"
+             msg
+             (format "Press %s to exit "
+                     (if exit
+                         (format "%c" exit)
+                       "space"))))
+    ad-do-it))
+
 (defadvice message (around  emacspeak pre act)
   "Speak the message."
   (declare (special emacspeak-last-message
