@@ -750,7 +750,25 @@ Local variables: mode: outline paragraph-separate: \"[ ]*$\"
 end:\n\n")
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
-
+(defsubst ems-cleanup-commentary (commentary )
+  "Cleanup commentary."
+  (save-excursion
+                        (set-buffer
+                         (get-buffer-create " *doc-temp*"))
+                        (erase-buffer)
+                        (insert commentary)
+                        (goto-char (point-min))
+                        (flush-lines "{{{")
+                        (goto-char (point-min))
+                        (flush-lines "}}}")
+                        (goto-char (point-min))
+                        (delete-blank-lines)
+                        (goto-char (point-max))
+                        (delete-blank-lines)
+                        (goto-char (point-min))
+                        (while (re-search-forward "^;+ ?" nil t)
+                          (replace-match "" nil nil))
+                        (buffer-string)))
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
@@ -782,23 +800,7 @@ documentation.\n\n")
                      (concat this-module ".el")))
               (when commentary
                 (setq commentary 
-                      (save-excursion
-                        (set-buffer
-                         (get-buffer-create " *doc-temp*"))
-                        (erase-buffer)
-                        (insert commentary)
-                        (goto-char (point-min))
-                        (flush-lines "{{{")
-                        (goto-char (point-min))
-                        (flush-lines "}}}")
-                        (goto-char (point-min))
-                        (delete-blank-lines)
-                        (goto-char (point-max))
-                        (delete-blank-lines)
-                        (goto-char (point-min))
-                        (while (re-search-forward "^;+ ?" nil t)
-                          (replace-match "" nil nil))
-                        (buffer-string))))
+                      (ems-cleanup-commentary commentary)))
               (setq this-module
                     (file-name-nondirectory this-module)))
             (unless (string-equal module this-module)
@@ -822,7 +824,7 @@ for commands defined in module  %s.\n\n"
              (format "@findex %s\n" f))
             (if key
                 (condition-case nil
-                    (insert (format "@kindex %s\n%s\n\n"
+                    (insert (format "@kindex %s\n@kbd{%s}\n\n"
                                     (mapconcat
                                      'key-description
                                      key " ")
@@ -836,9 +838,6 @@ for commands defined in module  %s.\n\n"
                  ""))
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
-      (goto-char (point-min))
-      (while (re-search-forward "[{}]" nil t)
-        (replace-match "@\\&"))
       (texinfo-all-menus-update t)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
