@@ -4,7 +4,7 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 Description: Display all values of a specified attribute.
-Hard-wired to display attribute class for now.
+Hard-wired to display attribute class by default.
 Param attr  specifies the attribute to list.
 
 -->
@@ -12,16 +12,15 @@ Param attr  specifies the attribute to list.
   <xsl:output method="text" indent="yes" encoding="iso8859-1"/>
   <xsl:param name="attr"
     select="'class'"/>
+  <xsl:param name="selector">//@<xsl:value-of select="$attr"/></xsl:param>
+    
 <!-- { html body  -->
-
-
   <xsl:template match="//script|//head"/>
-
   <xsl:template match="/html/body">
+
       <xsl:for-each select="//@class">
-        <xsl:value-of select="."/>
-<xsl:text>&#10;</xsl:text>
-      </xsl:for-each>
+<xsl:value-of select="."/><xsl:text>
+</xsl:text></xsl:for-each>
   </xsl:template>
 <!-- } -->
 </xsl:stylesheet>
