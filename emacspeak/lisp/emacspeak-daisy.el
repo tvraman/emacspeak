@@ -341,10 +341,12 @@ after fetching it  if necessary."
     (when audio
       (put-text-property start (point)
                          'audio audio))
+    
     (put-text-property start (point)
                        'content content)))
 (defun emacspeak-daisy-navLabel-handler (element)
   "Handle navLabel element."
+  (declare (special voice-bolden))
   (mapc #'emacspeak-daisy-apply-handler
         (xml-tag-children element )))
 
@@ -360,9 +362,9 @@ after fetching it  if necessary."
         (nav-points (xml-children-by-name element "navPoint"))
         (start (point)))
     (when label (emacspeak-daisy-navLabel-handler label))
-    (when content 
-    (put-text-property start (point)
-                       'content content))
+    (when content
+      (put-text-property start (point)
+                         'content content))
     (mapc #'emacspeak-daisy-apply-handler nav-points)))
 
     
@@ -407,7 +409,8 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn
-    (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
+    (emacspeak-keymap-remove-emacspeak-edit-commands
+     emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
 (define-key emacspeak-daisy-mode-map "s" 'emacspeak-daisy-stop-audio)
@@ -450,7 +453,9 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
       (erase-buffer)
       (emacspeak-daisy-mode)
       (setq emacspeak-daisy-this-book book)
-      (emacspeak-daisy-ncx-handler (emacspeak-daisy-book-nav-center book)))
+      (font-lock-mode 1)
+      (emacspeak-daisy-ncx-handler
+       (emacspeak-daisy-book-nav-center book)))
     (switch-to-buffer buffer)
     (goto-char (point-min))
     (rename-buffer
