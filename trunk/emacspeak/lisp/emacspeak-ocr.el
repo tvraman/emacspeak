@@ -63,6 +63,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'emacspeak-speak)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
@@ -73,10 +74,15 @@
 ;;}}}
 ;;{{{  Customization variables
 
-(defgroup emacspeak-ocr  nil
-  "OCR front-end for emacspeak desktop."
+(defgroup emacspeak-ocr nil
+  "Emacspeak front end for scanning and OCR.
+Pre-requisites:
+SANE for image acquisition.
+OCR engine for optical character recognition."
   :group 'emacspeak
-  :prefix 'emacspeak-ocr)
+  :prefix "emacspeak-ocr-")
+
+
 
 (defcustom emacspeak-ocr-scan-image "scanimage"
   "Name of image acquisition program."
@@ -262,6 +268,7 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
      emacspeak-ocr-mode-map)))
 
 (define-key emacspeak-ocr-mode-map "?" 'describe-mode)
+(define-key emacspeak-ocr-mode-map "c" 'emacspeak-ocr-customize)
 (define-key emacspeak-ocr-mode-map "q" 'bury-buffer)
 (define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)
 (define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
@@ -286,6 +293,13 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
 
 ;;}}}
 ;;{{{ interactive commands
+
+(defun emacspeak-ocr-customize ()
+  "Customize OCR settings."
+  (interactive)
+  (customize-group 'emacspeak-ocr)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
 
 (defun emacspeak-ocr ()
   "An OCR front-end for the Emacspeak desktop.  

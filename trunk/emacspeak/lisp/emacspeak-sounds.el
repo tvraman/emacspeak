@@ -65,24 +65,31 @@
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (eval-when (compile)
 (require 'dtk-speak)
 (require 'emacspeak-load-path))
 ;;{{{  state of auditory icons
 
-(defvar emacspeak-use-auditory-icons nil
+(defcustom emacspeak-use-auditory-icons nil
 "Tells if emacspeak should use auditory icons.
 Do not set this variable by hand,
-use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-auditory-icons].")
+use `emacspeak-toggle-auditory-icons' bound to
+\\[emacspeak-toggle-auditory-icons]."
+:type 'boolean
+:group 'emacspeak)
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
 ;;{{{ Use midi if requested
 
-(defvar emacspeak-use-midi-icons nil
+(defcustom emacspeak-use-midi-icons nil
   "*T  tells Emacspeak to use midi.
 Do not set this by hand --
-use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-midi-icons].")
+use `emacspeak-toggle-auditory-icons' bound to
+\\[emacspeak-toggle-midi-icons]."
+  :type 'boolean
+:group 'emacspeak)
 
 ;;}}}
 ;;{{{  Setup sound themes 
@@ -160,10 +167,12 @@ If we add new icons we should declare them here. ")
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext ))
 
-(defvar emacspeak-sounds-default-theme
+(defcustom emacspeak-sounds-default-theme
   (expand-file-name "default-8k/"
                     emacspeak-sounds-directory)
-  "Default theme for auditory icons. ")
+  "Default theme for auditory icons. "
+  :type '(directory :tag "Sound Theme Directory")
+  :group 'emacspeak)
 
 (defvar emacspeak-sounds-current-theme 
   emacspeak-sounds-default-theme
@@ -289,9 +298,10 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  setup play function
 
-(defvar emacspeak-auditory-icon-function
+(defcustom emacspeak-auditory-icon-function
   'emacspeak-serve-auditory-icon
-  "*Function that plays auditory icons.")
+  "*Function that plays auditory icons."
+  :type 'function)
 
 
 (defsubst emacspeak-auditory-icon (icon)
