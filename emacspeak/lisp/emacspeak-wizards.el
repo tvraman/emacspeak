@@ -63,7 +63,11 @@
 (require 'term)
 (require 'cus-edit)
 (require 'emacspeak-xslt)
-(eval-when-compile (require 'emacspeak-w3))
+(eval-when-compile
+  (condition-case nil
+      (require 'emacspeak-w3)
+    (error nil)))
+
 ;;}}}
 ;;{{{ custom
 
