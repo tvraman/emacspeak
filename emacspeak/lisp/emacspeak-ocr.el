@@ -284,11 +284,13 @@ Pick a short but meaningful name."
   (declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-current-page-number))
-  (goto-char (point-max))
   (setq emacspeak-ocr-current-page-number
         emacspeak-ocr-last-page-number)
   (emacspeak-auditory-icon 'task-done)
-  (goto-char (aref emacspeak-ocr-page-positions emacspeak-ocr-current-page-number)))
+  (goto-char (aref emacspeak-ocr-page-positions
+                   emacspeak-ocr-current-page-number))
+  (emacspeak-ocr-update-mode-line)
+  (emacspeak-speak-line))
 
 
 (defun emacspeak-ocr-recognize-image ()
@@ -359,6 +361,9 @@ corectly by themselves."
     (message "No pages in current document."))
    ((= emacspeak-ocr-last-page-number
        emacspeak-ocr-current-page-number)
+    (goto-char
+     (point-max))
+    (emacspeak-auditory-icon 'select-object)
     (message "This is the last page."))
    (t (setq emacspeak-ocr-current-page-number
             (1+ emacspeak-ocr-current-page-number))
@@ -378,6 +383,10 @@ corectly by themselves."
     (message "No pages in current document."))
    ((= 1
        emacspeak-ocr-current-page-number)
+    (goto-char
+     (aref emacspeak-ocr-page-positions
+           emacspeak-ocr-current-page-number))
+    (emacspeak-auditory-icon 'select-object)
     (message "This is the first page."))
    (t (setq emacspeak-ocr-current-page-number
             (1- emacspeak-ocr-current-page-number))
