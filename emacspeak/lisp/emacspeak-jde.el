@@ -83,7 +83,7 @@
   "Underline personality."
   :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-bold-personality 'bold
+(def-voice-font emacspeak-jde-bold-personality voice-bolden
   'jde-java-font-lock-bold-face
   "Personality used for bold."
   :group 'emacspeak-jde)
