@@ -503,44 +503,6 @@ Start Xml-Shell on contents of system-id." t nil)
 
 ;;;***
 
-;;;### (autoloads (turn-on-fast-voice-lock fast-voice-lock-mode)
-;;;;;;  "fast-voice-lock" "fast-voice-lock.el" (15896 27083))
-;;; Generated autoloads from fast-voice-lock.el
-
-(autoload (quote fast-voice-lock-mode) "fast-voice-lock" "\
-Toggle Fast Lock mode.
-With arg, turn Fast Lock mode on if and only if arg is positive and the buffer
-is associated with a file.  Enable it automatically in your `~/.emacs' by:
-
- (setq voice-lock-support-mode 'fast-voice-lock-mode)
-
-If Fast Lock mode is enabled, and the current buffer does not contain any text
-properties, any associated Voice Lock cache is used if its timestamp matches the
-buffer's file, and its `voice-lock-keywords' match those that you are using.
-
-Voice Lock caches may be saved:
- - When you save the file's buffer.
- - When you kill an unmodified file's buffer.
- - When you exit Emacs, for all unmodified or saved buffers.
-Depending on the value of `fast-voice-lock-save-events'.
-See also the commands `fast-voice-lock-read-cache' and `fast-voice-lock-save-cache'.
-
-Use \\[voice-lock-voiceify-buffer] to voiceify the buffer if the cache is bad.
-
-Various methods of control are provided for the Voice Lock cache.  In general,
-see variable `fast-voice-lock-cache-directories' and function `fast-voice-lock-cache-name'.
-For saving, see variables `fast-voice-lock-minimum-size', `fast-voice-lock-save-events',
-`fast-voice-lock-save-others' and `fast-voice-lock-save-personalities'.
-
-Use \\[fast-voice-lock-submit-bug-report] to send bug reports or feedback." t nil)
-
-(autoload (quote turn-on-fast-voice-lock) "fast-voice-lock" "\
-Unconditionally turn on Fast Lock mode." nil nil)
-
-(unless (assq (quote fast-voice-lock-mode) minor-mode-alist) (setq minor-mode-alist (append minor-mode-alist (quote ((fast-voice-lock-mode nil))))))
-
-;;;***
-
 ;;;### (autoloads (regexp-opt-depth regexp-opt) "regexp-opt" "regexp-opt.el"
 ;;;;;;  (15896 27084))
 ;;; Generated autoloads from regexp-opt.el

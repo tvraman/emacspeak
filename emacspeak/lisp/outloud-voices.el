@@ -139,36 +139,6 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice-alias 'excerpt 'annotation-voice )
 
 ;;}}}
-;;{{{  Settings from Janet Cahn's thesis.
-
-;;; the  following are taken from Janet Cahn's Masters thesis.
-;;; I originally  modified them for the Dectalk Express.
-;;; and later cloned them for Outloud.
-;;; lo is g5 on express.
-;;; Also get rid of absolute changes in speech rate.
-
-(outloud-define-voice 'paul-angry
-		      " `v1 `vv100 `vb55 `vf250 `vr30 `vy25 ")
-
-(outloud-define-voice
- 'paul-disgusted
- " `v1 `vf0 `vv80 `vb40 `vr10 ")
-
-(outloud-define-voice
- 'paul-glad
- " `v1 `vf100 `vb60 `vv100 `vh40 `vr20 ")
-
-(outloud-define-voice
- 'paul-sad
- " `v1 `vf0 `vr0 `vv75 `vh55 `vb48 ")
-
-(outloud-define-voice 'paul-scared
-		      " `v1 `vf100 `vv100 `vb60 `vh40 `vy70 ")
-
-(outloud-define-voice 'paul-surprised
-		      " `v1 `vf100 `vv100 `vh30 `vb70 ")
-
-;;}}}
 ;;{{{  the inaudible voice
 
 (outloud-define-voice 'inaudible " `vv0 ")

@@ -194,7 +194,7 @@ server."
     (erc-error-face kid)
     (erc-dangerous-host-face paul-surprized)
     (erc-pal-face paul-animated)
-    (erc-fool-face paul-angry)
+    (erc-fool-face 'harry)
     (erc-keyword-face paul-animated))
   "Maps faces used in erc to speaker personalities in emacspeak."
   :group 'emacspeak-erc
