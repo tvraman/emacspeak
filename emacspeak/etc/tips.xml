@@ -28,8 +28,8 @@
     <abstract>
       <para>
         <inlinegraphic
-                       fileref="http://emacspeak.sf.net/emacspeak.jpg"
-                       align="center" role="Logo"/>
+        fileref="http://emacspeak.sf.net/emacspeak.jpg"
+        width="150" align="center" role="Logo"/>
       </para>
       <para>
         This document is a collection of productivity tips
