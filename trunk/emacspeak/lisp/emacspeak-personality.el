@@ -100,9 +100,6 @@
 voicified."
   :type 'boolean
   :group 'emacspeak)
-
-(declaim (special text-property-default-nonsticky))
-(push (cons 'personality t)
 text-property-default-nonsticky)
 
 ;;;###autoload
