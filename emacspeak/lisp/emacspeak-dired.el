@@ -286,6 +286,7 @@ unless `dired-listing-switches' contains -al"
 On a directory line, run du -s on the directory to speak its size."
   (interactive)
   (let ((filename (dired-get-filename nil t))
+        (size 0)
         (dtk-stop-immediately nil))
     (cond
      ((and filename
@@ -293,9 +294,15 @@ On a directory line, run du -s on the directory to speak its size."
       (emacspeak-auditory-icon 'progress)
       (shell-command (format "du -s %s" filename )))
      (filename
+      (setq size (nth 7 (file-attributes filename )))
+                                        ; check for ange-ftp
+      (when (= size -1)
+        (setq size
+              (nth  4
+                    (split-string (thing-at-point 'line)))))
       (emacspeak-auditory-icon 'select-object)
       (message "File size %s"
-               (nth 7 (file-attributes filename ))))
+               size))
      (t (message "No file on current line")))))
 
 (defun emacspeak-dired-speak-file-modification-time ()
