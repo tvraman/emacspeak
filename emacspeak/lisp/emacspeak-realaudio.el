@@ -141,6 +141,10 @@ emacspeak-realaudio-shortcuts-directory. "
   (when (get-buffer "*realaudio*")
     (kill-buffer emacspeak-realaudio-buffer))
   (let ((process-connection-type nil)
+        (default-directory
+          (if (string-match "^http" resource )
+              default-directory
+            (file-name-directory resource)))
         (options (copy-list emacspeak-realaudio-player-options)))
     (when prompt-time
       (push (read-from-minibuffer "Time spec: ")
@@ -258,7 +262,6 @@ Alternatively, switch to buffer *realaudo* using
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation
 commands via single keystrokes."
-
   (interactive "P")
   (declare (special emacspeak-realaudio-process))
   (cond
