@@ -213,7 +213,7 @@ print:
 # }}}
 # {{{  Maintainance targets tar  dist 
 
-EXCLUDES=--exclude='*/CVS' --exclude='*/RCS'
+EXCLUDES=--exclude='*/CVS' --exclude='*.o' --exclude='*.so'
 tar:
 	rm -f $(ID)
 	@echo "This is Emacspeak from  `date`" > $(ID)
