@@ -1550,6 +1550,123 @@ part of the libxslt package."
 (when (boundp 'dired-mode-map)
   (define-key dired-mode-map "r" 'emacspeak-wizards-rpm-query-in-dired))
 ;;}}}
+;;{{{ auto mode alist utility
+
+(defsubst emacspeak-wizards-augment-auto-mode-alist (ext mode)
+  "Add to auto-mode-alist."
+  (declare (special auto-mode-alist))
+  (setq auto-mode-alist
+        (cons
+         (cons ext mode)
+         auto-mode-alist)))
+
+;;}}}
+;;{{{ xl wizard
+
+;;;
+
+(require 'derived)
+(define-derived-mode emacspeak-wizards-xl-mode text-mode
+  "Browsing XL Files."
+  "Major mode for browsing XL spreadsheets.\n\n
+XL Sheets are converted to HTML and previewed using W3."
+  (emacspeak-wizards-xl-display))
+
+(defcustom emacspeak-wizards-xlhtml-program "xlhtml"
+  "Program for converting XL to HTML.
+Set this to nil if you do not want to use the XLHTML wizard."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(defvar emacspeak-wizards-xl-preview-buffer nil
+  "Records buffer displaying XL preview.")
+
+(defun emacspeak-wizards-xl-display ()
+  "Called to set up preview of an XL file.
+Assumes we are in a buffer visiting a .xls file.
+Previews those contents as HTML and nukes the buffer
+visiting the xls file."
+  (interactive)
+  (declare (special emacspeak-wizards-xlhtml-program
+                    emacspeak-wizards-xl-preview-buffer))
+  (cond
+   ((null emacspeak-wizards-xlhtml-program)
+    (message "Not using Emacspeak XLHTML wizard."))
+   (t 
+    (let ((filename (buffer-file-name))
+          (xl-buffer (current-buffer))
+          (buffer (get-buffer-create " *xl scratch*")))
+      (save-excursion
+        (set-buffer buffer)
+        (shell-command
+         (format "%s -a -te %s"
+                 emacspeak-wizards-xlhtml-program filename)
+         'replace
+         (current-buffer))
+        (w3-preview-this-buffer)
+        (setq emacspeak-wizards-xl-preview-buffer (current-buffer)))
+      (kill-buffer buffer)
+      (kill-buffer xl-buffer)
+      (switch-to-buffer emacspeak-wizards-xl-preview-buffer)))))
+
+(emacspeak-wizards-augment-auto-mode-alist
+"\\.xls$"
+ 'emacspeak-wizards-xl-mode)
+
+;;}}}
+;;{{{ ppt wizard
+
+;;;
+
+(require 'derived)
+(define-derived-mode emacspeak-wizards-ppt-mode text-mode
+  "Browsing XL Files."
+  "Major mode for browsing XL spreadsheets.\n\n
+XL Sheets are converted to HTML and previewed using W3."
+  (emacspeak-wizards-ppt-display))
+
+(defcustom emacspeak-wizards-ppthtml-program "ppthtml"
+  "Program for converting XL to HTML.
+Set this to nil if you do not want to use the XLHTML wizard."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(defvar emacspeak-wizards-ppt-preview-buffer nil
+  "Records buffer displaying PPT preview.")
+
+(defun emacspeak-wizards-ppt-display ()
+  "Called to set up preview of an XL file.
+Assumes we are in a buffer visiting a .ppts file.
+Previews those contents as HTML and nukes the buffer
+visiting the ppts file."
+  (interactive)
+  (declare (special emacspeak-wizards-ppthtml-program
+                    emacspeak-wizards-ppt-preview-buffer))
+  (cond
+   ((null emacspeak-wizards-ppthtml-program)
+    (message "Not using Emacspeak XLHTML wizard."))
+   (t 
+    (let ((filename (buffer-file-name))
+          (ppt-buffer (current-buffer))
+          (buffer (get-buffer-create " *ppt scratch*")))
+      (save-excursion
+        (set-buffer buffer)
+        (shell-command
+         (format "%s  %s"
+                 emacspeak-wizards-ppthtml-program filename)
+         'replace
+         (current-buffer))
+        (w3-preview-this-buffer)
+        (setq emacspeak-wizards-ppt-preview-buffer (current-buffer)))
+      (kill-buffer buffer)
+      (kill-buffer ppt-buffer)
+      (switch-to-buffer emacspeak-wizards-ppt-preview-buffer)))))
+
+(emacspeak-wizards-augment-auto-mode-alist
+ "\\.ppt$"
+ 'emacspeak-wizards-ppt-mode)
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
