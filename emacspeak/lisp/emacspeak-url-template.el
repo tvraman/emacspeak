@@ -648,10 +648,13 @@ archived  mail from the OASIS list. You need to know the exact name of the list.
  "http://www.w3.org/%s-%s-irc "
  (list
   #'(lambda nil
-   (emacspeak-url-template-collect-date "Date: "
+      (emacspeak-url-template-collect-date "Date: "
                                            "%Y/%m/%d"))
-"Channel Name: ")
- nil
+  "Channel Name: ")
+ #'(lambda ()
+     (let ((inhibit-read-only t))
+       (flush-lines "has joined #" (point-min) (point-max))
+       (flush-lines "has left #" (point-min) (point-max))))
  "Use this to pull up the
 archived  logs from the W3C IRC. You need to know the exact
 name of the channel.")
