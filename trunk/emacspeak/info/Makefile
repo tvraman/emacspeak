@@ -9,7 +9,7 @@ INSTALL = install
 EMACS=emacs
 info: *.texi
 	$(MAKEINFO) emacspeak.texi
-.SECONDARY: commands.texi 
+.PHONY: commands.texi 
 commands.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 

@@ -2652,6 +2652,10 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-browse-rss-at-pointBrowses RSS url under point.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-class-filter-and-followFollow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -2687,6 +2691,14 @@ Extracts specified elements from current WWW page and displays it in a
 separate buffer. Optional arg url specifies the page to extract
 content from. Interactive use provides list of class values as
 completion. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-media-streamsExtract links to media streams.
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
 
 ------------------------------------------------------------
 
@@ -2764,6 +2776,15 @@ specifies by how many eleemnts to move.
 ** emacspeak-w3-previous-doc-elementMove back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
+
+------------------------------------------------------------
+
+** emacspeak-w3-set-xsl-keep-resultSet value of `emacspeak-w3-xsl-keep-result'.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -2877,13 +2898,6 @@ to specify the type of search.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-cnn-searchPerform an CNN search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-cnn-options to an appropriate string.
 
 ------------------------------------------------------------
 
@@ -2949,6 +2963,10 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-freshmeat-searchSearch Freshmeat  Site. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-frooglePerform a Froogle search.
 
 ------------------------------------------------------------
 
@@ -3182,9 +3200,7 @@ Customize Emacspeak.
 
 ------------------------------------------------------------
 
-** emacspeak-customize-personal-settings	Key Sequence: control e <f1> 
-
-Create a customization buffer for browsing and updating
+** emacspeak-customize-personal-settingsCreate a customization buffer for browsing and updating
 personal customizations.
 
 ------------------------------------------------------------
@@ -3496,6 +3512,10 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-browse-xml-url-with-styleBrowse XML URL with specified XSL style.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-count-slides-in-regionCount slides starting from point.
 
 ------------------------------------------------------------
@@ -3629,6 +3649,30 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-vc-viewerView contents of specified virtual console.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-vc-viewer-modeMajor mode for interactively viewing virtual console contents.
+
+
+key             binding
+---             -------
+
+C-l		emacspeak-wizards-vc-viewer-refresh
+
+
+
+In addition to any hooks its parent mode `view-mode' might have run,
+this mode runs the hook `emacspeak-wizards-vc-viewer-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-vc-viewer-refreshRefresh view of VC we're viewing.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-xl-displayCalled to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
 Previews those contents as HTML and nukes the buffer
@@ -3711,7 +3755,19 @@ during initialization.
 
 ** emacspeak-m-player	Key Sequence: control e : 
 
-Emacspeak media player access.
+Play specified resource using m-player.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-m-player-mode.
+
+------------------------------------------------------------
+
+** emacspeak-rss-browse	Key Sequence: control e control u 
+
+Browse specified RSS feed.
+
+------------------------------------------------------------
+
+** emacspeak-rss-displayRetrieve and display RSS news feed.
 
 ------------------------------------------------------------
 
