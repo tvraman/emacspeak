@@ -117,11 +117,13 @@ navigate this document."
   "Browse  Emacspeak productivity tips."
   (interactive)
   (declare (special emacspeak-etc-directory))
+  (emacspeak-w3-without-xsl
   (browse-url
    (format "file:///%stips.html"
-           emacspeak-etc-directory))
+           emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
+
 ;;;###autoload
 (defun emacspeak-view-emacspeak-faq ()
   "Browse the Emacspeak FAQ."
