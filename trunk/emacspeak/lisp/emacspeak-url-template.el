@@ -294,7 +294,7 @@ prompting for a template.")
 ;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define
- "Google News Overview"
+ "Google Headline News"
  "http://www.google.com/news/newsheadlines.html"
  nil
  #'(lambda nil
