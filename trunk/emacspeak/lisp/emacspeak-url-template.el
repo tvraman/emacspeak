@@ -674,6 +674,32 @@ Computing News at CNN.")
  "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
+;;{{{  MLB scores
+(emacspeak-url-template-define
+ "Baseball scores" 
+ "http://www.mlb.com/components/game/year_%s/month_%s/day_%s/gid_%s_%s_%s_%smlb_%smlb_1/boxscore.html"
+ (list
+  #'(lambda nil 
+    (format-time-string "%Y"))
+#'(lambda nil 
+    (format-time-string "%m"))
+#'(lambda nil 
+    (format-time-string "%d"))
+#'(lambda nil 
+    (format-time-string "%Y"))
+#'(lambda nil 
+    (format-time-string "%m"))
+#'(lambda nil 
+    (format-time-string "%d"))
+  #'(lambda nil 
+    (read-from-minibuffer "Team: "))
+  #'(lambda nil
+      (read-from-minibuffer "Team: ")))
+nil
+ "Display baseball scores for one of today's games."
+ )
+
+;;}}}
 ;;{{{  Virtually There --Sabre Trip Reports 
 (emacspeak-url-template-define
  "Sabre Travel From Virtually There" 
