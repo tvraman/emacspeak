@@ -47,7 +47,7 @@
     (error (message
 	    "Error loading %s"
 	    lib))))
-
+(require 'parse-time)
 (defvar emacspeak-modules-dependency-alist
   '(
     ("emacspeak-load-path.el"  . nil )
@@ -209,6 +209,7 @@ This helps pull in all emacspeak modules cleanly.")
   "Generate commands.texi and DOC ."
   (declare (special emacspeak-modules-dependency-alist))
   (let ((emacspeak-speak-messages nil)
+(debug-on-error t)
         (dtk-quiet t))
     (mapcar
      #'(lambda (pair)

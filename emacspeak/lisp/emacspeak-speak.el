@@ -1382,7 +1382,7 @@ displaying the mode line.
 You can use command 
 `emacspeak-toggle-mail-alert' bound to
 \\[emacspeak-toggle-mail-alert] to set this option.
-If you have online access to a voicemail dorp, you can have a
+If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
   voice-mail drop via custom option 
 emacspeak-voicemail-spool-file."
