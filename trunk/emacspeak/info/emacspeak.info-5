@@ -263,6 +263,9 @@ emacspeak-wizards.
      `emacspeak-speak-this-buffer-other-window-display' for the meaning
      of `previous'.
 
+ - emacspeak-kill-buffer-quietly:
+     Kill current buffer without asking for confirmation.
+
  - emacspeak-wizards-rpm-query-in-dired:
      Run rpm -qi on current dired entry.
 
@@ -420,6 +423,9 @@ emacspeak-wizards.
      names   a file in an existing directory, the specified name is
      used.  Signals an error if target already exists.
 
+ - emacspeak-switch-to-previous-buffer:
+     Switch to most recently used interesting buffer.
+
  - emacspeak-wizards-occur-header-lines:
      If you define a file local variable called
      `emacspeak-occur-pattern' that holds a regular expression that
@@ -516,7 +522,7 @@ emacspeak-wizards.
  - emacspeak-wizards-ppt-mode:
      Major mode for browsing PPT slides.
 
-     XL Sheets are converted to HTML and previewed using W3.
+     PPT files  are converted to HTML and previewed using W3.
 
      In addition to any hooks its parent mode `text-mode' might have
      run, this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as
@@ -621,6 +627,10 @@ emacspeak-wizards.
 
      Create a customization buffer for browsing and updating personal
      customizations.
+
+ - emacspeak-wizards-spot-words:
+     Searches recursively in all files with extension `ext' for `word'
+     and siplays hits in a compilation buffer.
 
  - emacspeak-speak-telephone-directory:
      Lookup and display a phone number.  With prefix arg, opens the
