@@ -37,17 +37,17 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module speech enables dired.
 ;;; It reduces the amount of speech you hear:
 ;;; Typically you hear the file names as you move through the dired buffer
 ;;; Voicification is used to indicate directories, marked files etc.
 
 ;;}}}
-;; 
+;;{{{  required packages 
+
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -59,14 +59,37 @@
 (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
+(require 'emacspeak-pronounce)
+
+;;}}}
 ;;{{{  configure dired
 
 (declaim (special dired-listing-switches ))
-(if dired-listing-switches
-(setq dired-listing-switches
-      (concat "-alg"
-              (substring dired-listing-switches 1)))
-(setq dired-listing-switches "-alg"))
+;;; ensure we have -al in the listing switches 
+(if (and  dired-listing-switches
+          (not (string-match "^-al" dired-listing-switches)))
+    (setq dired-listing-switches
+          (concat "-al"
+                  (substring dired-listing-switches 1)))
+  (setq dired-listing-switches "-al"))
+
+(defvar emacspeak-dired-pronunciations-defined nil
+  "Internal variable used to ensure we define dired
+pronunciations only once.")
+
+(defun emacspeak-dired-define-pronunciations ()
+  "Define pronunciations specific to Dired buffers."
+  (declare (special emacspeak-dired-pronunciations-defined
+                    emacspeak-pronounce-dictionaries-loaded))
+  (require 'emacspeak-pronounce)
+  (unless emacspeak-dired-pronunciations-defined
+    (setq emacspeak-dired-pronunciations-defined t)
+    (emacspeak-pronounce-set-dictionary
+     'dired-mode
+     '(("Dired" . " Directory Sorted "))))
+  (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
+            (not emacspeak-pronounce-pronunciation-table))
+    (emacspeak-pronounce-toggle-use-of-dictionaries)))
 
 ;;}}}
 ;;{{{  functions:
@@ -359,30 +382,21 @@ On a directory line, run du -s on the directory to speak its size."
 (eval-when (load)
   (emacspeak-keymap-remove-emacspeak-edit-commands dired-mode-map))
 
-(add-hook 'dired-mode-hook
-          (function
-           (lambda ()
-             (declare (special dired-mode-map ))
-             (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
-             (define-key  dired-mode-map "/"
-               'emacspeak-dired-speak-file-permissions)
-             (define-key  dired-mode-map ";"
-               'emacspeak-dired-speak-header-line)
-             (define-key  dired-mode-map ":" 'emacspeak-dired-speak-file-size)
-             (define-key  dired-mode-map "a"
-               'emacspeak-dired-speak-file-access-time)
-             (define-key dired-mode-map "c"
-               'emacspeak-dired-speak-file-modification-time)
-             (define-key dired-mode-map "z"
-               'emacspeak-dired-speak-file-size)
-             (define-key dired-mode-map "t"
-               'emacspeak-dired-speak-symlink-target)
-             (define-key dired-mode-map "\C-i"
-               'emacspeak-speak-next-field)
-             (define-key dired-mode-map  "," 'emacspeak-speak-previous-field)
-             (define-key dired-mode-map '[up] 'dired-previous-line)
-             (define-key dired-mode-map '[down] 'dired-next-line))))
+(defun emacspeak-dired-setup-keys ()
+  "Add emacspeak keys to dired."
+  (declare (special dired-mode-map ))
+  (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
+  (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
+  (define-key  dired-mode-map ";" 'emacspeak-dired-speak-header-line)
+  (define-key  dired-mode-map "a" 'emacspeak-dired-speak-file-access-time)
+  (define-key dired-mode-map "c" 'emacspeak-dired-speak-file-modification-time)
+  (define-key dired-mode-map "z" 'emacspeak-dired-speak-file-size)
+  (define-key dired-mode-map "t" 'emacspeak-dired-speak-symlink-target)
+  (define-key dired-mode-map "\C-i" 'emacspeak-speak-next-field)
+  (define-key dired-mode-map  "," 'emacspeak-speak-previous-field))
 
+(add-hook 'dired-mode-hook 'emacspeak-dired-setup-keys)
+(add-hook 'dired-mode-hook 'emacspeak-dired-define-pronunciations)
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
