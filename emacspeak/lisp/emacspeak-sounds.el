@@ -504,7 +504,7 @@ Optional interactive PREFIX arg toggles global value."
     (message "Turned %s midi icons "
              (if emacspeak-use-midi-icons  "on" "off" )))
    (t
-    (error "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
+    (message "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
 
 ;;}}}
 ;;{{{ Show all icons
