@@ -1234,7 +1234,9 @@ With optional interactive prefix arg MAP shows the location map instead."
       (emacspeak-websearch-map-directions-get-locations))
     current-prefix-arg))
   (declare (special emacspeak-websearch-map-directions-uri
+                    emacspeak-xslt-use-wget-to-download
                     emacspeak-websearch-map-maps-uri))
+  (let ((emacspeak-xslt-use-wget-to-download t))
   (cond
    (map
     (browse-url 
@@ -1249,7 +1251,7 @@ With optional interactive prefix arg MAP shows the location map instead."
                                          (concat
                                           emacspeak-websearch-map-directions-uri
                                           query)
-                                         'speak))))
+                                         'speak)))))
          
 ;;}}}
 ;;{{{  news yahoo
