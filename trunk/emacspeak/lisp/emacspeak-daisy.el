@@ -156,8 +156,8 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;; elements
 (defvar emacspeak-daisy-xml-elements 
   (list
-   "ncx "
-   "head "
+   "ncx"
+   "head"
    "title"
    "doctitle"
    "text"
@@ -203,7 +203,36 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   (mapc #'insert (xml-tag-children element))
   (insert "\n"))
    
+(defun emacspeak-daisy-head-handler (element)
+  "Handle head element."
+  (declare (special emacspeak-daisy-book-title))
+  (let ((title  (xml-tag-child element "title")))
+    (when title
+      (setq emacspeak-daisy-book-title
+            (apply #'concat (xml-tag-children title)))
+      (force-mode-line-update))))
 
+(defun emacspeak-daisy-navStruct-handler (element)
+  "Handle navstruct element."
+  (mapc #'emacspeak-daisy-apply-handler
+        (xml-tag-children element )))
+
+
+(defun emacspeak-daisy-navObject-handler (element)
+  "Handle navObject element."
+  (let ((text (xml-tag-child element "text"))
+        (audio (xml-tag-child element "audio"))
+        (content (xml-tag-child element "content"))
+        (start (point)))
+    (if text
+      (emacspeak-daisy-text-handler text)
+      (insert "  \n"))
+    (when audio
+      (put-text-property start (point)
+                         'audio audio))
+    (put-text-property start (point)
+                       'content content)))
+    
 (defun emacspeak-daisy-doctitle-handler (element)
   "Handle <doctitle>...</doctitle>"
   (let ((text (xml-tag-child  element "text"))
@@ -219,7 +248,9 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 ;;{{{  emacspeak-daisy mode
 
 (declaim (special emacspeak-daisy-mode-map))
-
+(defvar emacspeak-daisy-book-title nil
+  "Title used in mode line.")
+(make-variable-buffer-local 'emacspeak-daisy-book-title)
 (define-derived-mode emacspeak-daisy-mode text-mode 
   "Major mode for Daisy Digital Talking Books.\n"
   " An DAISY front-end for the Emacspeak desktop.
@@ -246,6 +277,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 \\{emacspeak-daisy-mode-map}"
   (progn
+    (setq mode-line-format emacspeak-daisy-book-title)
     (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-daisy-mode-map)))
 
 (define-key emacspeak-daisy-mode-map "?" 'describe-mode)
