@@ -56,67 +56,229 @@ Key Index
 * C-c e:                                 Running Terminal Based Applications.
 * C-c k:                                 Running Terminal Based Applications.
 * C-c o:                                 Running Terminal Based Applications.
+* Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A       >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $: Emacspeak Commands.
+* ESCAPE down <1>:                       Emacspeak Commands.
 * ESCAPE down:                           Reading.
+* ESCAPE next <1>:                       Emacspeak Commands.
 * ESCAPE next:                           Reading.
+* ESCAPE prior <1>:                      Emacspeak Commands.
 * ESCAPE prior:                          Reading.
+* ESCAPE select:                         Emacspeak Commands.
+* ESCAPE up <1>:                         Emacspeak Commands.
 * ESCAPE up:                             Reading.
+* control b   left:                      Emacspeak Commands.
+* control down:                          Emacspeak Commands.
+* control e  cap A:                      Emacspeak Commands.
+* control e  cap B:                      Emacspeak Commands.
+* control e  cap C:                      Emacspeak Commands.
+* control e  cap D:                      Emacspeak Commands.
+* control e  cap F:                      Emacspeak Commands.
+* control e  cap H:                      Emacspeak Commands.
+* control e  cap I:                      Emacspeak Commands.
+* control e  cap L:                      Emacspeak Commands.
+* control e  cap M <1>:                  Emacspeak Commands.
 * control e  cap M:                      Status Information.
+* control e  cap N:                      Emacspeak Commands.
+* control e  cap P:                      Emacspeak Commands.
+* control e  cap R <1>:                  Emacspeak Commands.
 * control e  cap R:                      Reading.
+* control e  cap T:                      Emacspeak Commands.
+* control e  cap U:                      Emacspeak Commands.
+* control e  cap V:                      Emacspeak Commands.
+* control e  cap W:                      Emacspeak Commands.
+* control e !:                           Emacspeak Commands.
+* control e ":                           Emacspeak Commands.
+* control e # a:                         Emacspeak Commands.
+* control e # l:                         Emacspeak Commands.
+* control e # s:                         Emacspeak Commands.
+* control e % <1>:                       Emacspeak Commands.
 * control e %:                           Status Information.
+* control e ' <1>:                       Emacspeak Commands.
 * control e ':                           Reading.
+* control e (:                           Emacspeak Commands.
+* control e ):                           Emacspeak Commands.
+* control e ,:                           Emacspeak Commands.
+* control e .:                           Emacspeak Commands.
+* control e / <1>:                       Emacspeak Commands.
 * control e /:                           Reading.
+* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 <1>: Emacspeak Commands.
 * control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
+* control e ::                           Emacspeak Commands.
+* control e ;:                           Emacspeak Commands.
+* control e <:                           Emacspeak Commands.
+* control e = <1>:                       Emacspeak Commands.
 * control e =:                           Status Information.
+* control e >:                           Emacspeak Commands.
+* control e ?:                           Emacspeak Commands.
+* control e RETURN:                      Emacspeak Commands.
+* control e SPACE <1>:                   Emacspeak Commands.
 * control e SPACE:                       Miscellaneous.
+* control e TAB:                         Emacspeak Commands.
+* control e [ <1>:                       Emacspeak Commands.
 * control e [:                           Reading.
+* control e \:                           Emacspeak Commands.
+* control e ]:                           Emacspeak Commands.
+* control e a <1>:                       Emacspeak Commands.
 * control e a:                           Status Information.
+* control e b <1>:                       Emacspeak Commands.
 * control e b:                           Reading.
+* control e c <1>:                       Emacspeak Commands.
 * control e c:                           Reading.
 * control e cap V:                       Status Information.
 * control e control @:                   Status Information.
+* control e control a:                   Emacspeak Commands.
+* control e control b:                   Emacspeak Commands.
+* control e control c:                   Emacspeak Commands.
+* control e control d:                   Emacspeak Commands.
+* control e control down:                Emacspeak Commands.
+* control e control f left:              Emacspeak Commands.
+* control e control f o:                 Emacspeak Commands.
+* control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p: Emacspeak Commands.
+* control e control f right:             Emacspeak Commands.
+* control e control h:                   Emacspeak Commands.
+* control e control j:                   Emacspeak Commands.
+* control e control l <1>:               Emacspeak Commands.
 * control e control l:                   Status Information.
+* control e control left:                Emacspeak Commands.
+* control e control n <1>:               Emacspeak Commands.
 * control e control n:                   Reading.
+* control e control o <1>:               Emacspeak Commands.
 * control e control o:                   Reading.
+* control e control p <1>:               Emacspeak Commands.
 * control e control p:                   Reading.
+* control e control q:                   Emacspeak Commands.
+* control e control r:                   Emacspeak Commands.
+* control e control right:               Emacspeak Commands.
+* control e control s <1>:               Emacspeak Commands.
 * control e control s:                   Miscellaneous.
+* control e control t:                   Emacspeak Commands.
+* control e control w <1>:               Emacspeak Commands.
 * control e control w:                   Status Information.
+* control e control y:                   Emacspeak Commands.
+* control e control }:                   Emacspeak Commands.
+* control e d  cap C <1>:                Emacspeak Commands.
 * control e d  cap C:                    Speech Output  Control.
+* control e d  cap I:                    Emacspeak Commands.
+* control e d  cap R:                    Emacspeak Commands.
+* control e d  cap V <1>:                Emacspeak Commands.
 * control e d  cap V:                    Miscellaneous.
+* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 <1>: Emacspeak Commands.
 * control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output  Control.
+* control e d RETURN <1>:                Emacspeak Commands.
 * control e d RETURN:                    Miscellaneous.
+* control e d SPACE <1>:                 Emacspeak Commands.
 * control e d SPACE:                     Miscellaneous.
+* control e d a <1>:                     Emacspeak Commands.
 * control e d a:                         Miscellaneous.
+* control e d b:                         Emacspeak Commands.
+* control e d c <1>:                     Emacspeak Commands.
 * control e d c:                         Speech Output  Control.
+* control e d d <1>:                     Emacspeak Commands.
 * control e d d:                         Miscellaneous.
+* control e d f <1>:                     Emacspeak Commands.
 * control e d f:                         Speech Output  Control.
+* control e d i <1>:                     Emacspeak Commands.
 * control e d i:                         Speech Output  Control.
+* control e d k <1>:                     Emacspeak Commands.
 * control e d k:                         Controlling Echo.
+* control e d l <1>:                     Emacspeak Commands.
 * control e d l:                         Controlling Echo.
+* control e d m <1>:                     Emacspeak Commands.
 * control e d m:                         Speech Output  Control.
+* control e d meta control b:            Emacspeak Commands.
+* control e d p <1>:                     Emacspeak Commands.
 * control e d p:                         Speech Output  Control.
+* control e d q <1>:                     Emacspeak Commands.
 * control e d q:                         Miscellaneous.
+* control e d r <1>:                     Emacspeak Commands.
 * control e d r:                         Speech Output  Control.
+* control e d s <1>:                     Emacspeak Commands.
 * control e d s:                         Speech Output  Control.
+* control e d t <1>:                     Emacspeak Commands.
 * control e d t:                         Miscellaneous.
+* control e d w <1>:                     Emacspeak Commands.
 * control e d w:                         Controlling Echo.
+* control e d z <1>:                     Emacspeak Commands.
 * control e d z:                         Miscellaneous.
+* control e down <1>:                    Emacspeak Commands.
 * control e down:                        Reading.
+* control e f <1>:                       Emacspeak Commands.
 * control e f:                           Status Information.
+* control e f1:                          Emacspeak Commands.
+* control e h <1>:                       Emacspeak Commands.
 * control e h:                           Status Information.
+* control e i:                           Emacspeak Commands.
+* control e j:                           Emacspeak Commands.
+* control e k <1>:                       Emacspeak Commands.
 * control e k:                           Status Information.
+* control e l <1>:                       Emacspeak Commands.
 * control e l:                           Reading.
+* control e left <1>:                    Emacspeak Commands.
 * control e left:                        Reading.
+* control e m <1>:                       Emacspeak Commands.
 * control e m:                           Status Information.
+* control e meta a:                      Emacspeak Commands.
+* control e meta b:                      Emacspeak Commands.
+* control e meta c:                      Emacspeak Commands.
 * control e meta control @:              Reading.
+* control e meta control r:              Emacspeak Commands.
+* control e meta control }:              Emacspeak Commands.
+* control e meta d:                      Emacspeak Commands.
+* control e meta f:                      Emacspeak Commands.
+* control e meta h:                      Emacspeak Commands.
+* control e meta l:                      Emacspeak Commands.
+* control e meta m:                      Emacspeak Commands.
+* control e meta p:                      Emacspeak Commands.
+* control e meta s:                      Emacspeak Commands.
+* control e meta t:                      Emacspeak Commands.
+* control e meta v:                      Emacspeak Commands.
+* control e meta w:                      Emacspeak Commands.
+* control e n <1>:                       Emacspeak Commands.
 * control e n:                           Reading.
+* control e o:                           Emacspeak Commands.
+* control e p <1>:                       Emacspeak Commands.
 * control e p:                           Miscellaneous.
+* control e q:                           Emacspeak Commands.
+* control e r <1>:                       Emacspeak Commands.
 * control e r:                           Reading.
+* control e right <1>:                   Emacspeak Commands.
 * control e right:                       Reading.
+* control e t <1>:                       Emacspeak Commands.
 * control e t:                           Status Information.
+* control e u:                           Emacspeak Commands.
+* control e up <1>:                      Emacspeak Commands.
 * control e up:                          Reading.
+* control e v <1>:                       Emacspeak Commands.
 * control e v:                           Status Information.
+* control e w <1>:                       Emacspeak Commands.
 * control e w:                           Reading.
+* control e x s:                         Emacspeak Commands.
+* control e { <1>:                       Emacspeak Commands.
 * control e {:                           Reading.
+* control e |:                           Emacspeak Commands.
+* control f   right:                     Emacspeak Commands.
+* control h  cap M:                      Emacspeak Commands.
+* control h control e:                   Emacspeak Commands.
+* control h e:                           Emacspeak Commands.
+* control l SPACE:                       Emacspeak Commands.
+* control l b:                           Emacspeak Commands.
+* control l f:                           Emacspeak Commands.
+* control l n:                           Emacspeak Commands.
+* control l p:                           Emacspeak Commands.
+* control left:                          Emacspeak Commands.
+* control right:                         Emacspeak Commands.
+* control up:                            Emacspeak Commands.
+* control x  h n:                        Emacspeak Commands.
+* delete:                                Emacspeak Commands.
+* insert:                                Emacspeak Commands.
+* kp-3   control e meta r:               Emacspeak Commands.
+* kp-f4   f4:                            Emacspeak Commands.
+* l10:                                   Emacspeak Commands.
 * pause   control e s:                   Miscellaneous.
+* pause   control e s   ESCAPE [  cap P: Emacspeak Commands.
+* shift down:                            Emacspeak Commands.
+* shift up:                              Emacspeak Commands.
+* volume-down:                           Emacspeak Commands.
+* volume-up:                             Emacspeak Commands.
 
 

@@ -13,198 +13,187 @@ File: emacspeak.info,  Node: Emacspeak Commands,  Next: Acknowledgements,  Prev:
 Emacspeak Commands
 ******************
 
-dtk-add-cleanup-pattern	Key Sequence: control e d a
-===================================================
+dtk-add-cleanup-pattern======================
 
-   Add this pattern to the list of repeating patterns that are cleaned
-up.  Optional interactive prefix arg deletes this pattern if previously
-added.  Cleaning up repeated patterns results in emacspeak speaking the
-pattern followed by a repeat count instead of speaking all the
-characters making up the pattern.  Thus, by adding the repeating
-pattern `.' (this is already added by default) emacspeak will say "aw
-fifteen dot" when speaking the string "..............." instead of
-"period period period period "
+   control e d a Add this pattern to the list of repeating patterns that
+are cleaned up.  Optional interactive prefix arg deletes this pattern
+if previously added.  Cleaning up repeated patterns results in
+emacspeak speaking the pattern followed by a repeat count instead of
+speaking all the characters making up the pattern.  Thus, by adding the
+repeating pattern `.' (this is already added by default) emacspeak will
+say "aw fifteen dot" when speaking the string "..............." instead
+of "period period period period "
 
-dtk-notes-shutdown No global keybinding
-=======================================
+dtk-notes-shutdown=================
+
+   No global keybinding
 
    Shutdown midi system.
 
-dtk-pause	Key Sequence: control e p
-===================================
+dtk-pause========
 
-   Pause ongoing speech.  The speech can be resumed with command
-`dtk-resume' normally bound to C-e SPC.  Pausing speech is useful when
-one needs to perform a few actions before continuing to read a large
-document.  Emacspeak gives you speech feedback as usual once speech has
-been paused.  `dtk-resume' continues the interrupted speech
-irrespective of the buffer in which it is executed.  Optional PREFIX
-arg flushes any previously paused speech.
+   control e p Pause ongoing speech.  The speech can be resumed with
+command `dtk-resume' normally bound to C-e SPC.  Pausing speech is
+useful when one needs to perform a few actions before continuing to
+read a large document.  Emacspeak gives you speech feedback as usual
+once speech has been paused.  `dtk-resume' continues the interrupted
+speech irrespective of the buffer in which it is executed.  Optional
+PREFIX arg flushes any previously paused speech.
 
-dtk-reset-state	Key Sequence: control e d  cap R
-================================================
+dtk-reset-state==============
 
-   Restore sanity to the Dectalk.  Typically used after the Dectalk has
-been power   cycled.
+   control e d  cap R Restore sanity to the Dectalk.  Typically used
+after the Dectalk has been power   cycled.
 
-dtk-resume	Key Sequence: control e SPACE
-========================================
+dtk-resume=========
 
-   Resume paused speech.  This command resumes  speech that has been
-suspended by executing command `dtk-pause' bound to C-e p.  If speech
-has not been paused, and variable `dtk-resume-should-toggle' is t  then
-this command will pause ongoing speech.
+   control e SPACE Resume paused speech.  This command resumes  speech
+that has been suspended by executing command `dtk-pause' bound to C-e p.
+If speech has not been paused, and variable `dtk-resume-should-toggle'
+is t  then this command will pause ongoing speech.
 
-dtk-select-server	Key Sequence: control e d d
-=============================================
+dtk-select-server================
 
-   Select a speech server interactively.  Argument PROGRAM specifies
-the speech server program.  When called  interactively, The selected
-server is started immediately.
+   control e d d Select a speech server interactively.  Argument
+PROGRAM specifies the speech server program.  When called
+interactively, The selected server is started immediately.
 
-dtk-set-character-scale	Key Sequence: control e d f
-===================================================
+dtk-set-character-scale======================
 
-   Set scale FACTOR for   speech rate.  Speech rate is scaled by this
-factor when speaking characters.  Interactive PREFIX arg means set
-the global default value, and then set the current local  value to the
-result.
+   control e d f Set scale FACTOR for   speech rate.  Speech rate is
+scaled by this factor when speaking characters.  Interactive PREFIX arg
+means set   the global default value, and then set the current local
+value to the result.
 
    This function is advised.
 
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-dtk-set-chunk-separator-syntax	Key Sequence: control e d RETURN
-===============================================================
+dtk-set-chunk-separator-syntax=============================
 
-   Interactively set how text is split in chunks.  See the Emacs
-documentation on syntax tables for details on how characters are
-classified into various syntactic classes.  Argument S specifies the
-syntax class.
+   control e d RETURN Interactively set how text is split in chunks.
+See the Emacs documentation on syntax tables for details on how
+characters are classified into various syntactic classes.  Argument S
+specifies the syntax class.
 
-dtk-set-predefined-speech-rate	Key Sequence: control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0
-==========================================================================================================================================================================================================
+dtk-set-predefined-speech-rate=============================
 
-   Set speech rate to one of nine predefined levels.  Interactive
-PREFIX arg says to set the rate globally.
+   control e d 9   control e d 8   control e d 7   control e d 6
+control e d 5   control e d 4   control e d 3   control e d 2   control
+e d 1   control e d 0 Set speech rate to one of nine predefined levels.
+Interactive PREFIX arg says to set the rate globally.
 
-dtk-set-pronunciation-mode	Key Sequence: control e d m
-======================================================
+dtk-set-pronunciation-mode=========================
 
-   Set pronunciation MODE.  This command is valid only for newer
-Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
-europe, spell', all of which can be turned on or off.  Argument STATE
-specifies new state.
+   control e d m Set pronunciation MODE.  This command is valid only
+for newer Dectalks, e.g.  the Dectalk Express.  Possible values are
+`math, name, europe, spell', all of which can be turned on or off.
+Argument STATE specifies new state.
 
-dtk-set-punctuations	Key Sequence: control e d p
-================================================
+dtk-set-punctuations===================
 
-   Set punctuation mode to MODE.  Possible values are `some', `all', or
-`none'.  Interactive PREFIX arg means set   the global default value,
-and then set the current local  value to the result.
+   control e d p Set punctuation mode to MODE.  Possible values are
+`some', `all', or `none'.  Interactive PREFIX arg means set   the
+global default value, and then set the current local  value to the
+result.
 
-dtk-set-punctuations-to-all No global keybinding
-================================================
+dtk-set-punctuations-to-all==========================
+
+   No global keybinding
 
    Set punctuation  mode to all.  Interactive PREFIX arg sets
 punctuation mode globally.
 
-dtk-set-punctuations-to-some No global keybinding
-=================================================
+dtk-set-punctuations-to-some===========================
+
+   No global keybinding
 
    Set punctuation  mode to some.  Interactive PREFIX arg sets
 punctuation mode globally.
 
-dtk-set-rate	Key Sequence: control e d r
-========================================
+dtk-set-rate===========
 
-   Set speaking RATE for the tts.  Interactive PREFIX arg means set
-the global default value, and then set the current local  value to the
-result.
+   control e d r Set speaking RATE for the tts.  Interactive PREFIX arg
+means set   the global default value, and then set the current local
+value to the result.
 
    This function is advised.
 
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-dtk-stop	Key Sequence: pause   control e s   ESCAPE [  cap P
-============================================================
+dtk-stop=======
 
-   Stop speech now.
+   pause   control e s   ESCAPE [  cap P Stop speech now.
 
-dtk-toggle-allcaps-beep	Key Sequence: control e d  cap C
-========================================================
+dtk-toggle-allcaps-beep======================
 
-   Toggle allcaps-beep.  when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.  Note that
-allcaps-beep is a very useful thing when programming.  However it is
-irritating to have it on when reading documents.
+   control e d  cap C Toggle allcaps-beep.  when set, allcaps words
+are  indicated by a short beep.  Interactive PREFIX arg means toggle
+the global default value, and then set the current local value to the
+result.  Note that allcaps-beep is a very useful thing when programming.
+However it is irritating to have it on when reading documents.
 
-dtk-toggle-capitalization	Key Sequence: control e d c
-=====================================================
+dtk-toggle-capitalization========================
 
-   Toggle capitalization.  when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
+   control e d c Toggle capitalization.  when set, capitalization is
+indicated by a short beep.  Interactive PREFIX arg means toggle the
+global default value, and then set the current local value to the
+result.
 
-dtk-toggle-debug	Key Sequence: control e d b
-============================================
+dtk-toggle-debug===============
 
-   Toggle state of the debug FLAG.  When debugging is on, you can
-switch to the buffer *speaker* to examine the output from the process
-that talks to the speech device by using command C-e d M-C-b.  Note:
-*speaker* is a hidden buffer, ie it has a leading space in its name.
+   control e d b Toggle state of the debug FLAG.  When debugging is on,
+you can switch to the buffer *speaker* to examine the output from the
+process that talks to the speech device by using command C-e d M-C-b.
+Note: *speaker* is a hidden buffer, ie it has a leading space in its
+name.
 
-dtk-toggle-punctuation-mode	Key Sequence: delete
-================================================
+dtk-toggle-punctuation-mode==========================
 
-   Toggle punctuation mode between "some" and "all".  Interactive
-PREFIX arg makes the new setting global.
+   delete Toggle punctuation mode between "some" and "all".
+Interactive PREFIX arg makes the new setting global.
 
-dtk-toggle-quiet	Key Sequence: control e d q
-============================================
+dtk-toggle-quiet===============
 
-   Toggle state of the speech device between being quiet and talkative.
-Useful if you want to continue using an Emacs session that has
-emacspeak loaded but wish to make the speech shut up.  Optional
-argument PREFIX specifies whether speech is turned off in the current
-buffer o rin all buffers.
+   control e d q Toggle state of the speech device between being quiet
+and talkative.  Useful if you want to continue using an Emacs session
+that has emacspeak loaded but wish to make the speech shut up.
+Optional argument PREFIX specifies whether speech is turned off in the
+current buffer o rin all buffers.
 
-dtk-toggle-split-caps	Key Sequence: control e d s
-=================================================
+dtk-toggle-split-caps====================
 
-   Toggle split caps mode.  Split caps mode is useful when reading
-Hungarian notation in program source code.  Interactive PREFIX arg
-means toggle the global default value, and then set the current local
-value to the result.
+   control e d s Toggle split caps mode.  Split caps mode is useful
+when reading Hungarian notation in program source code.  Interactive
+PREFIX arg means toggle the global default value, and then set the
+current local value to the result.
 
-dtk-toggle-splitting-on-white-space	Key Sequence: control e d SPACE
-===================================================================
+dtk-toggle-splitting-on-white-space==================================
 
-   Toggle splitting of speech on white space.  This affects the
-internal state of emacspeak that decides if we split text purely by
-clause boundaries, or also include whitespace.  By default, emacspeak
-sends a clause at a time to the speech device.  This produces fluent
-speech for normal use.  However in modes such as `shell-mode' and some
-programming language modes, clause markers appear infrequently, and
-this can result in large amounts of text being sent to the speech
-device at once, making the system unresponsive when asked to stop
-talking.  Splitting on white space makes emacspeak's stop command
-responsive.  However, when splitting on white space, the speech sounds
-choppy since the synthesizer is getting a word at a time.
+   control e d SPACE Toggle splitting of speech on white space.  This
+affects the internal state of emacspeak that decides if we split text
+purely by clause boundaries, or also include whitespace.  By default,
+emacspeak sends a clause at a time to the speech device.  This produces
+fluent speech for normal use.  However in modes such as `shell-mode'
+and some programming language modes, clause markers appear
+infrequently, and this can result in large amounts of text being sent
+to the speech device at once, making the system unresponsive when asked
+to stop talking.  Splitting on white space makes emacspeak's stop
+command responsive.  However, when splitting on white space, the speech
+sounds choppy since the synthesizer is getting a word at a time.
 
-dtk-toggle-stop-immediately-while-typing	Key Sequence: control e d  cap I
-=========================================================================
+dtk-toggle-stop-immediately-while-typing=======================================
 
-   Toggle state of variable `dtk-stop-immediately-while-typing'.  As
-the name implies, if T then speech flushes immediately as you type.
-Optional argument PREFIX specifies if the setting applies to all
-buffers.
+   control e d  cap I Toggle state of variable
+`dtk-stop-immediately-while-typing'.  As the name implies, if T then
+speech flushes immediately as you type.  Optional argument PREFIX
+specifies if the setting applies to all buffers.
 
-emacspeak-annotate-add-annotation No global keybinding
-======================================================
+emacspeak-annotate-add-annotation================================
+
+   No global keybinding
 
    Add annotation to the annotation working buffer.  Prompt for
 annotation buffer if not already set.  Interactive prefix arg `reset'
@@ -212,476 +201,521 @@ prompts for the annotation buffer even if one is already set.
 Annotation is entered in a temporary buffer and the annotation is
 inserted into the working buffer when complete.
 
-emacspeak-appt-repeat-announcement	Key Sequence: control e  cap A
-=================================================================
+emacspeak-appt-repeat-announcement=================================
 
-   Speaks the most recently displayed appointment message if any.
+   control e  cap A Speaks the most recently displayed appointment
+message if any.
 
-emacspeak-arc-speak-file-modification-time No global keybinding
-===============================================================
+emacspeak-arc-speak-file-modification-time=========================================
+
+   No global keybinding
 
    Speak modification time of the file on current line
 
-emacspeak-arc-speak-file-name No global keybinding
-==================================================
+emacspeak-arc-speak-file-name============================
+
+   No global keybinding
 
    Speak the name of the file on current line
 
-emacspeak-arc-speak-file-permissions No global keybinding
-=========================================================
+emacspeak-arc-speak-file-permissions===================================
+
+   No global keybinding
 
    Speak permissions of file current entry
 
-emacspeak-arc-speak-file-size No global keybinding
-==================================================
+emacspeak-arc-speak-file-size============================
+
+   No global keybinding
 
    Speak the size of the file on current line
 
-emacspeak-audio-annotate-paragraphs No global keybinding
-========================================================
+emacspeak-audio-annotate-paragraphs==================================
+
+   No global keybinding
 
    Set property auditory-icon at front of all paragraphs.  Interactive
 PREFIX arg prompts for sound cue to use
 
-emacspeak-aumix	Key Sequence: control e (
-=========================================
+emacspeak-aumix==============
 
-   Setup output parameters of the auditory display.  Luanch this tool
-while you have auditory output on multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when you are
-done.
+   control e ( Setup output parameters of the auditory display.  Luanch
+this tool while you have auditory output on multiple channels playing
+so you can adjust the settings to your preference.  Hit q to quit when
+you are done.
 
-emacspeak-aumix-edit No global keybinding
-=========================================
+emacspeak-aumix-edit===================
+
+   No global keybinding
 
    Edit aumix settings interactively.  Run command M-x
 emacspeak-aumix-reset after saving the settings to have them take
 effect.
 
-emacspeak-aumix-reset No global keybinding
-==========================================
+emacspeak-aumix-reset====================
+
+   No global keybinding
 
    Reset to default audio settings.
 
-emacspeak-aumix-volume-decrease	Key Sequence: volume-down
-=========================================================
+emacspeak-aumix-volume-decrease==============================
 
-   Decrease overall volume.
+   volume-down Decrease overall volume.
 
-emacspeak-aumix-volume-increase	Key Sequence: volume-up
-=======================================================
+emacspeak-aumix-volume-increase==============================
 
-   Increase overall volume.
+   volume-up Increase overall volume.
 
-emacspeak-aumix-wave-decrease	Key Sequence: control e control f left
-====================================================================
+emacspeak-aumix-wave-decrease============================
 
-   Decrease volume of wave output.
+   control e control f left Decrease volume of wave output.
 
-emacspeak-aumix-wave-increase	Key Sequence: control e control f right
-=====================================================================
+emacspeak-aumix-wave-increase============================
 
-   Increase volume of wave output.
+   control e control f right Increase volume of wave output.
 
-emacspeak-backward-char	Key Sequence: control b   left
-======================================================
+emacspeak-backward-char======================
 
-   Backward-char redefined to speak char moved to.
+   control b   left Backward-char redefined to speak char moved to.
 
-emacspeak-blink-matching-open No global keybinding
-==================================================
+emacspeak-blink-matching-open============================
+
+   No global keybinding
 
    Display matching delimiter in the minibuffer.
 
-emacspeak-bs-speak-buffer-line No global keybinding
-===================================================
+emacspeak-bs-speak-buffer-line=============================
+
+   No global keybinding
 
    Speak information about this buffer
 
-emacspeak-c-speak-semantics No global keybinding
-================================================
+emacspeak-c-speak-semantics==========================
+
+   No global keybinding
 
    Speak the C semantics of this line.
 
-emacspeak-clipboard-copy	Key Sequence: control e control c
-==========================================================
+emacspeak-clipboard-copy=======================
 
-   Copy contents of the region to the emacspeak clipboard.  Previous
-contents of the clipboard will be overwritten.  The Emacspeak clipboard
-is a convenient way of sharing information between independent
-Emacspeak sessions running on the same or different machines.  Do not
-use this for sharing information within an Emacs session -Emacs'
-register commands are far more efficient and light-weight.  Optional
-interactive prefix arg results in Emacspeak prompting for the clipboard
-file to use.  Argument START and END specifies  region.  Optional
-argument PROMPT  specifies whether we prompt for the name of a
-clipboard file.
-
-emacspeak-clipboard-paste	Key Sequence: control e control y
-===========================================================
-
-   Yank contents of the Emacspeak clipboard at point.  The Emacspeak
-clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
+   control e control c Copy contents of the region to the emacspeak
+clipboard.  Previous contents of the clipboard will be overwritten.
+The Emacspeak clipboard is a convenient way of sharing information
+between independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
 session -Emacs' register commands are far more efficient and
+light-weight.  Optional interactive prefix arg results in Emacspeak
+prompting for the clipboard file to use.  Argument START and END
+specifies  region.  Optional argument PROMPT  specifies whether we
+prompt for the name of a clipboard file.
+
+emacspeak-clipboard-paste========================
+
+   control e control y Yank contents of the Emacspeak clipboard at
+point.  The Emacspeak clipboard is a convenient way of sharing
+information between independent Emacspeak sessions running on the same
+or different machines.  Do not use this for sharing information within
+an Emacs session -Emacs' register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from the
 emacspeak table clipboard instead.
 
-emacspeak-compilation-speak-error No global keybinding
-======================================================
+emacspeak-compilation-speak-error================================
+
+   No global keybinding
 
    Speech feedback about the compilation error.
 
-emacspeak-completions-move-to-completion-group No global keybinding
-===================================================================
+emacspeak-completions-move-to-completion-group=============================================
+
+   No global keybinding
 
    Move to group of choices beginning with character last typed. If no
 such group exists, then we dont move.
 
-emacspeak-copy-current-file	Key Sequence: control e meta c
-==========================================================
+emacspeak-copy-current-file==========================
 
-   Copy file visited in current buffer to new location.  Prompts for
-the new location and preserves modification time   when copying.  If
-location is a directory, the file is copied   to that directory under
-its current name ; if location names   a file in an existing directory,
-the specified name is   used.  Asks for confirmation if the copy will
-result in an   existing file being overwritten.
+   control e meta c Copy file visited in current buffer to new location.
+Prompts for the new location and preserves modification time   when
+copying.  If location is a directory, the file is copied   to that
+directory under its current name ; if location names   a file in an
+existing directory, the specified name is   used.  Asks for
+confirmation if the copy will result in an   existing file being
+overwritten.
 
-emacspeak-custom-goto-group No global keybinding
-================================================
+emacspeak-custom-goto-group==========================
+
+   No global keybinding
 
    Jump to custom group when in a customization buffer.
 
-emacspeak-custom-goto-toolbar No global keybinding
-==================================================
+emacspeak-custom-goto-toolbar============================
+
+   No global keybinding
 
    Jump to custom toolbar when in a customization buffer.
 
-emacspeak-customize	Key Sequence: control e  cap C
-==================================================
+emacspeak-customize==================
 
-   Customize Emacspeak.
+   control e  cap C Customize Emacspeak.
 
-emacspeak-customize-personal-settings	Key Sequence: control e f1
-================================================================
+emacspeak-customize-personal-settings====================================
 
-   Create a customization buffer for browsing and updating personal
-customizations.
+   control e f1 Create a customization buffer for browsing and updating
+personal customizations.
 
-emacspeak-cvs-get-anonymous	Key Sequence: control e control down
-================================================================
+emacspeak-cvs-get-anonymous==========================
 
-   Get latest cvs snapshot of emacspeak.
+   control e control down Get latest cvs snapshot of emacspeak.
 
-emacspeak-cvs-get-project-snapshot No global keybinding
-=======================================================
+emacspeak-cvs-get-project-snapshot=================================
+
+   No global keybinding
 
    Grab CVS snapshot  of specified project from Sourceforge.
 
-emacspeak-dejanews-browse-group	Key Sequence: control e  cap U
-==============================================================
+emacspeak-dejanews-browse-group==============================
 
-   Prompt and browse a newsgroup on Dejanews.
+   control e  cap U Prompt and browse a newsgroup on Dejanews.
 
-emacspeak-describe-emacspeak	Key Sequence: control h control e
-==============================================================
+emacspeak-describe-emacspeak===========================
 
-   Give a brief overview of emacspeak.
+   control h control e Give a brief overview of emacspeak.
 
-emacspeak-dial-dtk	Key Sequence: control e d t
-==============================================
+emacspeak-dial-dtk=================
 
-   Prompt for and dial a phone NUMBER with the Dectalk.
+   control e d t Prompt for and dial a phone NUMBER with the Dectalk.
 
    This function is advised.
 
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-dired-label-fields No global keybinding
-=================================================
+emacspeak-dired-label-fields===========================
+
+   No global keybinding
 
    Labels the fields of the listing in the dired buffer.  Currently is
 a no-op  unless unless `dired-listing-switches' contains -al
 
-emacspeak-dired-show-file-type No global keybinding
-===================================================
+emacspeak-dired-show-file-type=============================
+
+   No global keybinding
 
    Displays type of current file by running command file.
 
-emacspeak-dired-speak-file-access-time No global keybinding
-===========================================================
+emacspeak-dired-speak-file-access-time=====================================
+
+   No global keybinding
 
    Speak access time  of the current file.
 
-emacspeak-dired-speak-file-modification-time No global keybinding
-=================================================================
+emacspeak-dired-speak-file-modification-time===========================================
+
+   No global keybinding
 
    Speak modification time  of the current file.
 
-emacspeak-dired-speak-file-permissions No global keybinding
-===========================================================
+emacspeak-dired-speak-file-permissions=====================================
+
+   No global keybinding
 
    Speak the permissions of the current file.
 
-emacspeak-dired-speak-file-size No global keybinding
-====================================================
+emacspeak-dired-speak-file-size==============================
+
+   No global keybinding
 
    Speak the size of the current file.  On a directory line, run du -s
 on the directory to speak its size.
 
-emacspeak-dired-speak-header-line No global keybinding
-======================================================
+emacspeak-dired-speak-header-line================================
+
+   No global keybinding
 
    Speak the header line of the dired buffer.
 
-emacspeak-dired-speak-symlink-target No global keybinding
-=========================================================
+emacspeak-dired-speak-symlink-target===================================
+
+   No global keybinding
 
    Speaks the target of the symlink on the current line.
 
-emacspeak-dismal-backward-col-and-summarize No global keybinding
-================================================================
+emacspeak-dismal-backward-col-and-summarize==========================================
+
+   No global keybinding
 
    Move backward by arg columns  (the previous column by default)and
 summarize it.
 
-emacspeak-dismal-backward-row-and-summarize No global keybinding
-================================================================
+emacspeak-dismal-backward-row-and-summarize==========================================
+
+   No global keybinding
 
    Move backward by arg rows  (the previous row by default)and
 summarize it.
 
-emacspeak-dismal-col-summarize No global keybinding
-===================================================
+emacspeak-dismal-col-summarize=============================
+
+   No global keybinding
 
    Summarizes a col using the specification in list
 emacspeak-dismal-col-summarizer-list
 
-emacspeak-dismal-display-cell-expression No global keybinding
-=============================================================
+emacspeak-dismal-display-cell-expression=======================================
+
+   No global keybinding
 
    Display the expression in the message area
 
-emacspeak-dismal-display-cell-value No global keybinding
-========================================================
+emacspeak-dismal-display-cell-value==================================
+
+   No global keybinding
 
    Display the cell value in the message area
 
-emacspeak-dismal-display-cell-with-col-header No global keybinding
-==================================================================
+emacspeak-dismal-display-cell-with-col-header============================================
+
+   No global keybinding
 
    Display current cell along with its column header.  The `column
 header' is the entry in row 0.
 
-emacspeak-dismal-display-cell-with-row-header No global keybinding
-==================================================================
+emacspeak-dismal-display-cell-with-row-header============================================
+
+   No global keybinding
 
    Displays current cell along with its row header.  The `row header'
 is the entry in column 0.
 
-emacspeak-dismal-forward-col-and-summarize No global keybinding
-===============================================================
+emacspeak-dismal-forward-col-and-summarize=========================================
+
+   No global keybinding
 
    Move forward by arg columns  (the next column by default)and
 summarize it.
 
-emacspeak-dismal-forward-row-and-summarize No global keybinding
-===============================================================
+emacspeak-dismal-forward-row-and-summarize=========================================
+
+   No global keybinding
 
    Move forward by arg rows  (the next row by default)and summarize it.
 
-emacspeak-dismal-row-summarize No global keybinding
-===================================================
+emacspeak-dismal-row-summarize=============================
+
+   No global keybinding
 
    Summarizes a row using the specification in list
 emacspeak-dismal-row-summarizer-list
 
-emacspeak-dismal-set-col-summarizer-list No global keybinding
-=============================================================
+emacspeak-dismal-set-col-summarizer-list=======================================
+
+   No global keybinding
 
    Specify or reset col summarizer list.
 
-emacspeak-dismal-set-row-summarizer-list No global keybinding
-=============================================================
+emacspeak-dismal-set-row-summarizer-list=======================================
+
+   No global keybinding
 
    Specify or reset row summarizer list.
 
-emacspeak-dismal-set-sheet-summarizer-list No global keybinding
-===============================================================
+emacspeak-dismal-set-sheet-summarizer-list=========================================
+
+   No global keybinding
 
    Specify or reset sheet summarizer list.
 
-emacspeak-dismal-sheet-summarize No global keybinding
-=====================================================
+emacspeak-dismal-sheet-summarize===============================
+
+   No global keybinding
 
    Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 
-emacspeak-dtk-speak-version	Key Sequence: control e d  cap V
-============================================================
+emacspeak-dtk-speak-version==========================
 
-   Use this to find out which version of the Dectalk firmware you are
-running.
+   control e d  cap V Use this to find out which version of the Dectalk
+firmware you are running.
 
-emacspeak-ediff-speak-current-difference No global keybinding
-=============================================================
+emacspeak-ediff-speak-current-difference=======================================
+
+   No global keybinding
 
    Speak the current difference
 
-emacspeak-emergency-tts-restart	Key Sequence: control e x s
-===========================================================
+emacspeak-emergency-tts-restart==============================
 
-   For use in an emergency.  Will start TTS engine specified by
-emacspeak-emergency-tts-server.
+   control e x s For use in an emergency.  Will start TTS engine
+specified by emacspeak-emergency-tts-server.
 
-emacspeak-enriched-voiceify-faces No global keybinding
-======================================================
+emacspeak-enriched-voiceify-faces================================
+
+   No global keybinding
 
    Map base fonts to voices.  Useful in voicifying rich text.
 
-emacspeak-eterm-copy-region-to-register No global keybinding
-============================================================
+emacspeak-eterm-copy-region-to-register======================================
+
+   No global keybinding
 
    Copy text from terminal to an Emacs REGISTER.  This copies  region
 delimited by the emacspeak eterm marker set by command M-x
 emacspeak-eterm-set-marker and the emacspeak eterm pointer to a
 register.
 
-emacspeak-eterm-define-window No global keybinding
-==================================================
+emacspeak-eterm-define-window============================
+
+   No global keybinding
 
    Prompt for a window ID.  The window is then define to be the
 rectangle delimited by point and eterm mark.  This is to be used when
 emacspeak is set to review mode inside an eterm.
 
-emacspeak-eterm-describe-window No global keybinding
-====================================================
+emacspeak-eterm-describe-window==============================
+
+   No global keybinding
 
    Describe an eterm  window.  Description indicates eterm window
 coordinates and whether it is stretchable
 
-emacspeak-eterm-goto-line No global keybinding
-==============================================
+emacspeak-eterm-goto-line========================
+
+   No global keybinding
 
    Move emacspeak eterm pointer to a specified LINE.
 
-emacspeak-eterm-kill-ring-save-region No global keybinding
-==========================================================
+emacspeak-eterm-kill-ring-save-region====================================
+
+   No global keybinding
 
    Copy text from terminal to kill ring.  This copies  region delimited
 by the emacspeak eterm marker set by command M-x
 emacspeak-eterm-set-marker and the emacspeak eterm pointer.
 
-emacspeak-eterm-maybe-send-raw No global keybinding
-===================================================
+emacspeak-eterm-maybe-send-raw=============================
+
+   No global keybinding
 
    Send a raw character through if in the terminal buffer.  Execute end
 of line if in a non eterm buffer if executed via C-e C-e
 
-emacspeak-eterm-paste-register No global keybinding
-===================================================
+emacspeak-eterm-paste-register=============================
+
+   No global keybinding
 
    Paste contents of REGISTER at current location.  If the specified
 register contains text, then that text is sent to the terminal as if it
 were typed by the user.
 
-emacspeak-eterm-pointer-backward-word No global keybinding
-==========================================================
+emacspeak-eterm-pointer-backward-word====================================
+
+   No global keybinding
 
    Move the pointer backward  by words.  Interactive numeric prefix arg
 specifies number of words to move.  Argument COUNT specifies number of
 words by which to move.
 
-emacspeak-eterm-pointer-down No global keybinding
-=================================================
+emacspeak-eterm-pointer-down===========================
+
+   No global keybinding
 
    Move the pointer down a line.  Argument COUNT specifies number of
 lines by which to move.
 
-emacspeak-eterm-pointer-forward-word No global keybinding
-=========================================================
+emacspeak-eterm-pointer-forward-word===================================
+
+   No global keybinding
 
    Move the pointer forward by words.  Interactive numeric prefix arg
 specifies number of words to move.  Argument COUNT specifies number of
 words by which to move.
 
-emacspeak-eterm-pointer-left No global keybinding
-=================================================
+emacspeak-eterm-pointer-left===========================
+
+   No global keybinding
 
    Move the pointer left.  Argument COUNT specifies number of columns
 by which to move.
 
-emacspeak-eterm-pointer-right No global keybinding
-==================================================
+emacspeak-eterm-pointer-right============================
+
+   No global keybinding
 
    Move the pointer right.  Argument COUNT specifies number of columns
 by which to move.
 
-emacspeak-eterm-pointer-to-bottom No global keybinding
-======================================================
+emacspeak-eterm-pointer-to-bottom================================
+
+   No global keybinding
 
    Move the pointer to the bottom  of the screen.
 
-emacspeak-eterm-pointer-to-cursor No global keybinding
-======================================================
+emacspeak-eterm-pointer-to-cursor================================
+
+   No global keybinding
 
    Move the pointer to the cursor.
 
-emacspeak-eterm-pointer-to-left-edge No global keybinding
-=========================================================
+emacspeak-eterm-pointer-to-left-edge===================================
+
+   No global keybinding
 
    Move the pointer to the right edge.
 
-emacspeak-eterm-pointer-to-next-color-change No global keybinding
-=================================================================
+emacspeak-eterm-pointer-to-next-color-change===========================================
+
+   No global keybinding
 
    Move the eterm pointer to the next color change.  This allows you to
 move between highlighted regions of the screen.  Optional argument
 COUNT specifies how many changes to skip.
 
-emacspeak-eterm-pointer-to-previous-color-change No global keybinding
-=====================================================================
+emacspeak-eterm-pointer-to-previous-color-change===============================================
+
+   No global keybinding
 
    Move the eterm pointer to the next color change.  This allows you to
 move between highlighted regions of the screen.  Optional argument
 COUNT specifies how many changes to skip.
 
-emacspeak-eterm-pointer-to-right-edge No global keybinding
-==========================================================
+emacspeak-eterm-pointer-to-right-edge====================================
+
+   No global keybinding
 
    Move the pointer to the right edge.
 
-emacspeak-eterm-pointer-to-top No global keybinding
-===================================================
+emacspeak-eterm-pointer-to-top=============================
+
+   No global keybinding
 
    Move the pointer to the top of the screen.
 
-emacspeak-eterm-pointer-up No global keybinding
-===============================================
+emacspeak-eterm-pointer-up=========================
+
+   No global keybinding
 
    Move the pointer up a line.  Argument COUNT .specifies number of
 lines by which to move.
 
-emacspeak-eterm-remote-term	Key Sequence: control e meta control r
-==================================================================
+emacspeak-eterm-remote-term==========================
 
-   Start a terminal-emulator in a new buffer.
+   control e meta control r Start a terminal-emulator in a new buffer.
 
-emacspeak-eterm-search-backward No global keybinding
-====================================================
+emacspeak-eterm-search-backward==============================
+
+   No global keybinding
 
    Search backward on the terminal.
 
-emacspeak-eterm-search-forward No global keybinding
-===================================================
+emacspeak-eterm-search-forward=============================
+
+   No global keybinding
 
    Search forward on the terminal.
 
-emacspeak-eterm-set-focus-window No global keybinding
-=====================================================
+emacspeak-eterm-set-focus-window===============================
+
+   No global keybinding
 
    Prompt for the id of a predefined window, and set the `focus' window
 to it.  Non-nil interactive prefix arg `unsets' the focus window; this
@@ -690,87 +724,102 @@ what eterm starts up with).  Setting the focus window results in
 emacspeak  monitoring screen and speaking that window upon seeing
 screen activity.
 
-emacspeak-eterm-set-marker No global keybinding
-===============================================
+emacspeak-eterm-set-marker=========================
+
+   No global keybinding
 
    Set Emacspeak eterm marker.  This sets  the emacspeak eterm marker
 to the position pointed to by the emacspeak eterm pointer.
 
-emacspeak-eterm-speak-cursor No global keybinding
-=================================================
+emacspeak-eterm-speak-cursor===========================
+
+   No global keybinding
 
    Speak cursor position.
 
-emacspeak-eterm-speak-pointer No global keybinding
-==================================================
+emacspeak-eterm-speak-pointer============================
+
+   No global keybinding
 
    Speak current pointer position.
 
-emacspeak-eterm-speak-pointer-char No global keybinding
-=======================================================
+emacspeak-eterm-speak-pointer-char=================================
+
+   No global keybinding
 
    Speak char under eterm pointer.  Pronounces character phonetically
 unless  called with a PREFIX arg.
 
-emacspeak-eterm-speak-pointer-line No global keybinding
-=======================================================
+emacspeak-eterm-speak-pointer-line=================================
+
+   No global keybinding
 
    Speak the line the pointer is on.
 
-emacspeak-eterm-speak-pointer-word No global keybinding
-=======================================================
+emacspeak-eterm-speak-pointer-word=================================
+
+   No global keybinding
 
    Speak the word  the pointer is on.
 
-emacspeak-eterm-speak-predefined-window No global keybinding
-============================================================
+emacspeak-eterm-speak-predefined-window======================================
+
+   No global keybinding
 
    Speak a predefined eterm window between 1 and 10.
 
-emacspeak-eterm-speak-screen No global keybinding
-=================================================
+emacspeak-eterm-speak-screen===========================
+
+   No global keybinding
 
    Speak the screen.  Default is to speak from the emacspeak pointer
 to point.  Optional prefix arg FLAG causes region above the Emacspeak
 pointer to be spoken.
 
-emacspeak-eterm-speak-window No global keybinding
-=================================================
+emacspeak-eterm-speak-window===========================
+
+   No global keybinding
 
    Speak an eterm window.  Argument ID specifies the window.
 
-emacspeak-eterm-toggle-focus-window No global keybinding
-========================================================
+emacspeak-eterm-toggle-focus-window==================================
+
+   No global keybinding
 
    Toggle active state of focus window.
 
-emacspeak-eterm-toggle-pointer-mode No global keybinding
-========================================================
+emacspeak-eterm-toggle-pointer-mode==================================
+
+   No global keybinding
 
    Toggle emacspeak eterm pointer mode.  With optional interactive
 prefix  arg, turn it on.  When emacspeak eterm is in pointer mode, the
 eterm read pointer stays where it is rather than automatically moving
 to the terminal cursor when there is terminal activity.
 
-emacspeak-eterm-toggle-review No global keybinding
-==================================================
+emacspeak-eterm-toggle-review============================
+
+   No global keybinding
 
    Toggle state of eterm review.  In review mode, you can move around
 the terminal and listen to the contnets without sending input to the
 terminal itself.
 
-emacspeak-eterm-yank-window No global keybinding
-================================================
+emacspeak-eterm-yank-window==========================
+
+   No global keybinding
 
    Yank contents of  an eterm window at point.
 
-emacspeak-eudc-send-mail No global keybinding
-=============================================
+emacspeak-eudc-send-mail=======================
+
+   No global keybinding
 
    Send email to the address given by the current record.
 
-emacspeak-execute-repeatedly No global keybinding
-=================================================
+emacspeak-execute-repeatedly===========================
+
+   No global keybinding
 
    Execute COMMAND repeatedly.
 
@@ -779,14 +828,14 @@ emacspeak-execute-repeatedly No global keybinding
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-filtertext	Key Sequence: control e \
-==============================================
+emacspeak-filtertext===================
 
-   Copy over text in region to special filtertext buffer in preparation
-for interactively filtering text.
+   control e \ Copy over text in region to special filtertext buffer in
+preparation for interactively filtering text.
 
-emacspeak-filtertext-mode No global keybinding
-==============================================
+emacspeak-filtertext-mode========================
+
+   No global keybinding
 
    Major mode for FilterText interaction.
 
@@ -795,84 +844,94 @@ emacspeak-filtertext-mode No global keybinding
    r               emacspeak-filtertext-revert ^
 flush-lines =               keep-lines
 
-emacspeak-filtertext-revert No global keybinding
-================================================
+emacspeak-filtertext-revert==========================
+
+   No global keybinding
 
    Revert to original text.
 
-emacspeak-fix-all-recent-commands No global keybinding
-======================================================
+emacspeak-fix-all-recent-commands================================
+
+   No global keybinding
 
    Fix recently loaded interactive commands.  This command looks
 through `load-history' and fixes commands if necessary.  Memoizes call
 in emacspeak-load-history-pointer to memoize this call.
 
-emacspeak-fix-commands-loaded-from No global keybinding
-=======================================================
+emacspeak-fix-commands-loaded-from=================================
+
+   No global keybinding
 
    Fix all commands loaded from a specified module.
 
-emacspeak-forms-find-file No global keybinding
-==============================================
+emacspeak-forms-find-file========================
+
+   No global keybinding
 
    Visit a forms file
 
-emacspeak-forms-flush-unwanted-records No global keybinding
-===========================================================
+emacspeak-forms-flush-unwanted-records=====================================
+
+   No global keybinding
 
    Prompt for pattern and flush matching lines
 
-emacspeak-forms-rerun-filter No global keybinding
-=================================================
+emacspeak-forms-rerun-filter===========================
+
+   No global keybinding
 
    Rerun  filter -allows us to nuke more matching records
 
-emacspeak-forms-speak-field No global keybinding
-================================================
+emacspeak-forms-speak-field==========================
+
+   No global keybinding
 
    Speak current form field name and value.  Assumes that point is at
 the front of a field value.
 
-emacspeak-forms-summarize-current-position No global keybinding
-===============================================================
+emacspeak-forms-summarize-current-position=========================================
+
+   No global keybinding
 
    Summarize current position in list of records
 
-emacspeak-forms-summarize-current-record No global keybinding
-=============================================================
+emacspeak-forms-summarize-current-record=======================================
+
+   No global keybinding
 
    Summarize current record
 
-emacspeak-forward-char	Key Sequence: control f   right
-======================================================
+emacspeak-forward-char=====================
 
-   Forward-char redefined to speak char moved to.
+   control f   right Forward-char redefined to speak char moved to.
 
-emacspeak-frame-label-or-switch-to-labelled-frame	Key Sequence: control e meta f
-================================================================================
+emacspeak-frame-label-or-switch-to-labelled-frame================================================
 
-   Switch to labelled frame.  With optional PREFIX argument, label
-current frame.
+   control e meta f Switch to labelled frame.  With optional PREFIX
+argument, label current frame.
 
-emacspeak-frame-read-frame-label No global keybinding
-=====================================================
+emacspeak-frame-read-frame-label===============================
+
+   No global keybinding
 
    Read a frame label with completion.
 
-emacspeak-freeamp	Key Sequence: control e control f o
-=====================================================
+emacspeak-freeamp================
 
-   Play specified resource using freeamp.  Resource is an  MP3 file or
-m3u playlist.  The player is placed in a buffer in
-emacspeak-freeamp-mode.
+   control e control f o Play specified resource using freeamp.
+Resource is an  MP3 file or m3u playlist.  The player is placed in a
+buffer in emacspeak-freeamp-mode.
 
-emacspeak-freeamp-freeamp-call-command	Key Sequence: control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p
-==================================================================================================================================================================================================================================================
+emacspeak-freeamp-freeamp-call-command=====================================
 
-   Call appropriate freeamp command.
+   control e control f q   control e control f =   control e control f
+s   control e control f b   control e control f f   control e control f
+-   control e control f +   control e control f p Call appropriate
+freeamp command.
 
-emacspeak-freeamp-freeamp-command No global keybinding
-======================================================
+emacspeak-freeamp-freeamp-command================================
+
+   No global keybinding
 
    Execute FreeAmp command.
 
@@ -881,8 +940,9 @@ emacspeak-freeamp-freeamp-command No global keybinding
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-freeamp-mode No global keybinding
-===========================================
+emacspeak-freeamp-mode=====================
+
+   No global keybinding
 
    Major mode for freeamp interaction.
 
@@ -899,8 +959,9 @@ emacspeak-freeamp-freeamp-call-command +
 emacspeak-freeamp-freeamp-call-command p
 emacspeak-freeamp-freeamp-call-command o               emacspeak-freeamp
 
-emacspeak-generate-documentation No global keybinding
-=====================================================
+emacspeak-generate-documentation===============================
+
+   No global keybinding
 
    Generate docs for all emacspeak commands.  Prompts for FILENAME in
 which to save the documentation.  Warning! Contents of file filename
@@ -911,8 +972,9 @@ will be overwritten.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-generate-texinfo-command-documentation No global keybinding
-=====================================================================
+emacspeak-generate-texinfo-command-documentation===============================================
+
+   No global keybinding
 
    Generate texinfo documentation  for all emacspeak commands into file
 commands.texi.  Warning! Contents of file commands.texi will be
@@ -923,120 +985,133 @@ overwritten.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-gomoku-display-statistics No global keybinding
-========================================================
+emacspeak-gomoku-display-statistics==================================
+
+   No global keybinding
 
    Display statistics from previous games
 
-emacspeak-gomoku-show-current-column No global keybinding
-=========================================================
+emacspeak-gomoku-show-current-column===================================
+
+   No global keybinding
 
    Aurally display current column
 
-emacspeak-gomoku-show-current-negative-diagonal No global keybinding
-====================================================================
+emacspeak-gomoku-show-current-negative-diagonal==============================================
+
+   No global keybinding
 
    Aurally display current negative sloped diagonal
 
-emacspeak-gomoku-show-current-positive-diagonal No global keybinding
-====================================================================
+emacspeak-gomoku-show-current-positive-diagonal==============================================
+
+   No global keybinding
 
    Aurally display current positively sloped diagonal
 
-emacspeak-gomoku-show-current-row No global keybinding
-======================================================
+emacspeak-gomoku-show-current-row================================
+
+   No global keybinding
 
    Aurally display current row
 
-emacspeak-gomoku-speak-emacs-previous-move No global keybinding
-===============================================================
+emacspeak-gomoku-speak-emacs-previous-move=========================================
+
+   No global keybinding
 
    Speak emacs' previous move
 
-emacspeak-gomoku-speak-humans-previous-move No global keybinding
-================================================================
+emacspeak-gomoku-speak-humans-previous-move==========================================
+
+   No global keybinding
 
    Speak human' previous move
 
-emacspeak-gomoku-speak-number-of-moves No global keybinding
-===========================================================
+emacspeak-gomoku-speak-number-of-moves=====================================
+
+   No global keybinding
 
    Speak number of moves so far
 
-emacspeak-gomoku-speak-square No global keybinding
-==================================================
+emacspeak-gomoku-speak-square============================
+
+   No global keybinding
 
    Speak coordinates and state of square at point
 
-emacspeak-gridtext-apply	Key Sequence: control e # a
-====================================================
+emacspeak-gridtext-apply=======================
 
-   Apply grid to region.
+   control e # a Apply grid to region.
 
-emacspeak-gridtext-load	Key Sequence: control e # l
-===================================================
+emacspeak-gridtext-load======================
 
-   Load saved grid settings.
+   control e # l Load saved grid settings.
 
-emacspeak-gridtext-save	Key Sequence: control e # s
-===================================================
+emacspeak-gridtext-save======================
 
-   Save out grid settings.
+   control e # s Save out grid settings.
 
-emacspeak-hangman-speak-guess No global keybinding
-==================================================
+emacspeak-hangman-speak-guess============================
+
+   No global keybinding
 
    Speak current guessed string.
 
-emacspeak-hangman-speak-statistics No global keybinding
-=======================================================
+emacspeak-hangman-speak-statistics=================================
+
+   No global keybinding
 
    Speak statistics.
 
-emacspeak-hide-or-expose-all-blocks No global keybinding
-========================================================
+emacspeak-hide-or-expose-all-blocks==================================
+
+   No global keybinding
 
    Hide or expose all blocks in buffer.
 
-emacspeak-hide-or-expose-block	Key Sequence: control e j
-========================================================
+emacspeak-hide-or-expose-block=============================
 
-   Hide or expose a block of text.  This command either hides or
-exposes a block of text starting on the current line.  A block of text
-is defined as a portion of the buffer in which all lines start with a
-common PREFIX.  Optional interactive prefix arg causes all blocks in
-current buffer to be hidden or exposed.
+   control e j Hide or expose a block of text.  This command either
+hides or exposes a block of text starting on the current line.  A block
+of text is defined as a portion of the buffer in which all lines start
+with a common PREFIX.  Optional interactive prefix arg causes all
+blocks in current buffer to be hidden or exposed.
 
-emacspeak-hide-speak-block-sans-prefix	Key Sequence: control e control j
-========================================================================
+emacspeak-hide-speak-block-sans-prefix=====================================
 
-   Speaks current block after stripping its prefix.  If the current
-block is not hidden, it first hides it.  This is useful because as you
-locate blocks, you can invoke this command to listen to the block, and
-when you have heard enough navigate easily  to move past the block.
+   control e control j Speaks current block after stripping its prefix.
+If the current block is not hidden, it first hides it.  This is useful
+because as you locate blocks, you can invoke this command to listen to
+the block, and when you have heard enough navigate easily  to move past
+the block.
 
-emacspeak-ibuffer-speak-buffer-line No global keybinding
-========================================================
+emacspeak-ibuffer-speak-buffer-line==================================
+
+   No global keybinding
 
    Speak information about this buffer
 
-emacspeak-imenu-goto-next-index-position No global keybinding
-=============================================================
+emacspeak-imenu-goto-next-index-position=======================================
+
+   No global keybinding
 
    Goto the next index position in current buffer
 
-emacspeak-imenu-goto-previous-index-position No global keybinding
-=================================================================
+emacspeak-imenu-goto-previous-index-position===========================================
+
+   No global keybinding
 
    Goto the previous index position in current buffer
 
-emacspeak-imenu-speak-this-section No global keybinding
-=======================================================
+emacspeak-imenu-speak-this-section=================================
+
+   No global keybinding
 
    Speak upto start of next index entry
 
-emacspeak-keymap-choose-new-emacspeak-prefix No global keybinding
-=================================================================
+emacspeak-keymap-choose-new-emacspeak-prefix===========================================
+
+   No global keybinding
 
    Interactively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command lets you switch
@@ -1050,138 +1125,147 @@ use a different control key to give your fingers some relief.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-kill-buffer-quietly	Key Sequence: kp-f4   f4
-======================================================
+emacspeak-kill-buffer-quietly============================
 
-   Kill current buffer without asking for confirmation.
+   kp-f4   f4 Kill current buffer without asking for confirmation.
 
-emacspeak-kotl-setup-keys No global keybinding
-==============================================
+emacspeak-kotl-setup-keys========================
+
+   No global keybinding
 
    Setup additional keybindings
 
-emacspeak-kotl-speak-cell No global keybinding
-==============================================
+emacspeak-kotl-speak-cell========================
+
+   No global keybinding
 
    Speak cell contents from point to end of cell.    With prefix arg,
 speaks entire cell contents
 
-emacspeak-learn-mode	Key Sequence: control e control h
-======================================================
+emacspeak-learn-mode===================
 
-   Helps you learn the keys.  You can press keys and hear what they do.
-To leave, press C-g.
+   control e control h Helps you learn the keys.  You can press keys
+and hear what they do.  To leave, press C-g.
 
-emacspeak-link-current-file	Key Sequence: control e meta l
-==========================================================
+emacspeak-link-current-file==========================
 
-   Link (hard link) file visited in current buffer to new location.
-Prompts for the new location and preserves modification time   when
-linking.  If location is a directory, the file is copied   to that
-directory under its current name ; if location names   a file in an
-existing directory, the specified name is   used.  Signals an error if
-target already exists.
+   control e meta l Link (hard link) file visited in current buffer to
+new location.  Prompts for the new location and preserves modification
+time   when linking.  If location is a directory, the file is copied
+to that directory under its current name ; if location names   a file
+in an existing directory, the specified name is   used.  Signals an
+error if target already exists.
 
-emacspeak-list-buffers-next-line No global keybinding
-=====================================================
+emacspeak-list-buffers-next-line===============================
 
-   Speech enabled buffer menu navigation
-
-emacspeak-list-buffers-previous-line No global keybinding
-=========================================================
+   No global keybinding
 
    Speech enabled buffer menu navigation
 
-emacspeak-list-buffers-speak-buffer-line No global keybinding
-=============================================================
+emacspeak-list-buffers-previous-line===================================
+
+   No global keybinding
+
+   Speech enabled buffer menu navigation
+
+emacspeak-list-buffers-speak-buffer-line=======================================
+
+   No global keybinding
 
    Speak information about this buffer
 
-emacspeak-list-buffers-speak-buffer-name No global keybinding
-=============================================================
+emacspeak-list-buffers-speak-buffer-name=======================================
+
+   No global keybinding
 
    Speak the name of the buffer on this line
 
-emacspeak-lynx No global keybinding
-===================================
+emacspeak-lynx=============
+
+   No global keybinding
 
    Launch lynx on  specified URL in a new terminal.
 
-emacspeak-man-browse-man-page No global keybinding
-==================================================
+emacspeak-man-browse-man-page============================
+
+   No global keybinding
 
    Browse the man page -read it a paragraph at a time
 
-emacspeak-man-speak-this-section No global keybinding
-=====================================================
+emacspeak-man-speak-this-section===============================
+
+   No global keybinding
 
    Speak current section
 
-emacspeak-mark-backward-mark	Key Sequence: control up
-=====================================================
+emacspeak-mark-backward-mark===========================
 
-   Cycle backward through the mark ring.
+   control up Cycle backward through the mark ring.
 
-emacspeak-mark-forward-mark	Key Sequence: control down
-======================================================
+emacspeak-mark-forward-mark==========================
 
-   Cycle forward through the mark ring.
+   control down Cycle forward through the mark ring.
 
-emacspeak-mp3-playlist-play No global keybinding
-================================================
+emacspeak-mp3-playlist-play==========================
+
+   No global keybinding
 
    Play a playlist.  Optional interactive prefix arg says not to
 shuffle  the list.  Use command C-x  h n to skip to the next track.
 
-emacspeak-mp3-playlist-skip	Key Sequence: control x  h n
-========================================================
+emacspeak-mp3-playlist-skip==========================
 
-   Skip currently playing track.
+   control x  h n Skip currently playing track.
 
-emacspeak-mp3-playlist-stop No global keybinding
-================================================
+emacspeak-mp3-playlist-stop==========================
+
+   No global keybinding
 
    Kill currently playing playlist.
 
-emacspeak-mpg123-backward-minute No global keybinding
-=====================================================
+emacspeak-mpg123-backward-minute===============================
+
+   No global keybinding
 
    Move back by specified number of minutes.
 
-emacspeak-mpg123-forward-minute No global keybinding
-====================================================
+emacspeak-mpg123-forward-minute==============================
+
+   No global keybinding
 
    Forw by ARG minutes.
 
-emacspeak-mpg123-speak-current-time No global keybinding
-========================================================
+emacspeak-mpg123-speak-current-time==================================
+
+   No global keybinding
 
    Speak time in current track.
 
-emacspeak-mpg123-speak-filename No global keybinding
-====================================================
+emacspeak-mpg123-speak-filename==============================
+
+   No global keybinding
 
    Speak filename of the current song.
 
-emacspeak-mpg123-speak-length No global keybinding
-==================================================
+emacspeak-mpg123-speak-length============================
+
+   No global keybinding
 
    Speak duration of the current song.
 
-emacspeak-mpg123-speak-title No global keybinding
-=================================================
+emacspeak-mpg123-speak-title===========================
+
+   No global keybinding
 
    Speak title of the current song.
 
-emacspeak-next-frame	Key Sequence: control right
-================================================
+emacspeak-next-frame===================
 
-   Move to next frame.
+   control right Move to next frame.
 
-emacspeak-ocr	Key Sequence: control e control o
-===============================================
+emacspeak-ocr============
 
-   An OCR front-end for the Emacspeak desktop.
+   control e control o An OCR front-end for the Emacspeak desktop.
 
    Page image is acquired using tools from the SANE package.  The
 acquired image is run through the OCR engine if one is available, and
@@ -1192,23 +1276,27 @@ results.
 launch emacspeak-ocr-mode, and press `?' to display mode-specific help
 for emacspeak-ocr-mode.
 
-emacspeak-ocr-backward-page No global keybinding
-================================================
+emacspeak-ocr-backward-page==========================
+
+   No global keybinding
 
    Like backward page, but tracks page number of current document.
 
-emacspeak-ocr-customize No global keybinding
-============================================
+emacspeak-ocr-customize======================
+
+   No global keybinding
 
    Customize OCR settings.
 
-emacspeak-ocr-forward-page No global keybinding
-===============================================
+emacspeak-ocr-forward-page=========================
+
+   No global keybinding
 
    Like forward page, but tracks page number of current document.
 
-emacspeak-ocr-mode No global keybinding
-=======================================
+emacspeak-ocr-mode=================
+
+   No global keybinding
 
    An OCR front-end for the Emacspeak desktop.
 
@@ -1279,185 +1367,192 @@ RET             emacspeak-ocr-scan-and-recognize w
 emacspeak-ocr-write-document q               bury-buffer c
 emacspeak-ocr-customize ?               describe-mode
 
-emacspeak-ocr-name-document No global keybinding
-================================================
+emacspeak-ocr-name-document==========================
+
+   No global keybinding
 
    Name document being scanned in the current OCR buffer.  Pick a short
 but meaningful name.
 
-emacspeak-ocr-open-working-directory No global keybinding
-=========================================================
+emacspeak-ocr-open-working-directory===================================
+
+   No global keybinding
 
    Launch dired on OCR workng directory.
 
-emacspeak-ocr-page No global keybinding
-=======================================
+emacspeak-ocr-page=================
+
+   No global keybinding
 
    Move to specified page.
 
-emacspeak-ocr-read-current-page No global keybinding
-====================================================
+emacspeak-ocr-read-current-page==============================
+
+   No global keybinding
 
    Speaks current page.
 
-emacspeak-ocr-recognize-image No global keybinding
-==================================================
+emacspeak-ocr-recognize-image============================
+
+   No global keybinding
 
    Run OCR engine on current image.  Prompts for image file if file
 corresponding to the expected `current page' is not found.
 
-emacspeak-ocr-save-current-page No global keybinding
-====================================================
+emacspeak-ocr-save-current-page==============================
+
+   No global keybinding
 
    Writes out recognized text from current page to an appropriately
 named file.
 
-emacspeak-ocr-scan-and-recognize No global keybinding
-=====================================================
+emacspeak-ocr-scan-and-recognize===============================
+
+   No global keybinding
 
    Scan in a page and run OCR engine on it.  Use this command once
 you've verified that the separate steps of acquiring an image and
 running the OCR engine work corectly by themselves.
 
-emacspeak-ocr-scan-image No global keybinding
-=============================================
+emacspeak-ocr-scan-image=======================
+
+   No global keybinding
 
    Acquire page image.
 
-emacspeak-ocr-set-compress-image-options No global keybinding
-=============================================================
+emacspeak-ocr-set-compress-image-options=======================================
+
+   No global keybinding
 
    Interactively update  image compression options.  Prompts with
 current setting in the minibuffer.  Setting persists for current Emacs
 session.
 
-emacspeak-ocr-set-scan-image-options No global keybinding
-=========================================================
+emacspeak-ocr-set-scan-image-options===================================
+
+   No global keybinding
 
    Interactively update scan image options.  Prompts with current
 setting in the minibuffer.  Setting persists for current Emacs session.
 
-emacspeak-ocr-toggle-read-only No global keybinding
-===================================================
+emacspeak-ocr-toggle-read-only=============================
+
+   No global keybinding
 
    Toggle read-only state of OCR buffer.
 
-emacspeak-ocr-write-document No global keybinding
-=================================================
+emacspeak-ocr-write-document===========================
+
+   No global keybinding
 
    Writes out recognized text from all pages in current document.
 
-emacspeak-outline-speak-backward-heading	Key Sequence: control l b
-==================================================================
+emacspeak-outline-speak-backward-heading=======================================
 
-   Analogous to outline-backward-same-level except that the outline
-section is optionally spoken
-
-emacspeak-outline-speak-forward-heading	Key Sequence: control l f
-=================================================================
-
-   Analogous to outline-forward-same-level, except that the outline
-section is optionally spoken
-
-emacspeak-outline-speak-next-heading	Key Sequence: control l n
-==============================================================
-
-   Analogous to outline-next-visible-heading, except that the outline
-section is optionally spoken
-
-emacspeak-outline-speak-previous-heading	Key Sequence: control l p
-==================================================================
-
-   Analogous to outline-previous-visible-heading, except that the
+   control l b Analogous to outline-backward-same-level except that the
 outline section is optionally spoken
 
-emacspeak-outline-speak-this-heading	Key Sequence: control l SPACE
-==================================================================
+emacspeak-outline-speak-forward-heading======================================
 
-   Speak current outline section starting from point
+   control l f Analogous to outline-forward-same-level, except that the
+outline section is optionally spoken
 
-emacspeak-owindow-next-line	Key Sequence: ESCAPE down
-=====================================================
+emacspeak-outline-speak-next-heading===================================
 
-   Move to the next line in the other window and speak it.  Numeric
-prefix arg COUNT can specify number of lines to move.
+   control l n Analogous to outline-next-visible-heading, except that
+the outline section is optionally spoken
 
-emacspeak-owindow-previous-line	Key Sequence: ESCAPE up
-=======================================================
+emacspeak-outline-speak-previous-heading=======================================
 
-   Move to the next line in the other window and speak it.  Numeric
-prefix arg COUNT specifies number of lines to move.
+   control l p Analogous to outline-previous-visible-heading, except
+that the outline section is optionally spoken
 
-emacspeak-owindow-scroll-down	Key Sequence: ESCAPE prior
-========================================================
+emacspeak-outline-speak-this-heading===================================
 
-   Scroll down  the window that command `other-window' would move to.
-Speak the window contents after scrolling.
+   control l SPACE Speak current outline section starting from point
 
-emacspeak-owindow-scroll-up	Key Sequence: ESCAPE next
-=====================================================
+emacspeak-owindow-next-line==========================
 
-   Scroll up the window that command `other-window' would move to.
-Speak the window contents after scrolling.
+   ESCAPE down Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT can specify number of lines to move.
 
-emacspeak-owindow-speak-line	Key Sequence: ESCAPE select
-========================================================
+emacspeak-owindow-previous-line==============================
 
-   Speak the current line in the other window.
+   ESCAPE up Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT specifies number of lines to move.
 
-emacspeak-play-all-icons No global keybinding
-=============================================
+emacspeak-owindow-scroll-down============================
+
+   ESCAPE prior Scroll down  the window that command `other-window'
+would move to.  Speak the window contents after scrolling.
+
+emacspeak-owindow-scroll-up==========================
+
+   ESCAPE next Scroll up the window that command `other-window' would
+move to.  Speak the window contents after scrolling.
+
+emacspeak-owindow-speak-line===========================
+
+   ESCAPE select Speak the current line in the other window.
+
+emacspeak-play-all-icons=======================
+
+   No global keybinding
 
    Plays all defined icons and speaks their names.
 
-emacspeak-previous-frame	Key Sequence: control left
-===================================================
+emacspeak-previous-frame=======================
 
-   Move to next frame.
+   control left Move to next frame.
 
-emacspeak-pronounce-clear-dictionaries No global keybinding
-===========================================================
+emacspeak-pronounce-clear-dictionaries=====================================
+
+   No global keybinding
 
    Clear all current pronunciation dictionaries.
 
-emacspeak-pronounce-define-local-pronunciation	Key Sequence: control e meta b
-=============================================================================
+emacspeak-pronounce-define-local-pronunciation=============================================
 
-   Define buffer local pronounciation.  Argument WORD specifies the
-word which should be pronounced as specified by PRONUNCIATION.
+   control e meta b Define buffer local pronounciation.  Argument WORD
+specifies the word which should be pronounced as specified by
+PRONUNCIATION.
 
-emacspeak-pronounce-define-pronunciation No global keybinding
-=============================================================
+emacspeak-pronounce-define-pronunciation=======================================
+
+   No global keybinding
 
    Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.  First loads any
 persistent dictionaries if not already loaded.
 
-emacspeak-pronounce-dispatch	Key Sequence: control e meta d
-===========================================================
+emacspeak-pronounce-dispatch===========================
 
-   Provides the user interface front-end to Emacspeak's pronunciation
-dictionaries.
+   control e meta d Provides the user interface front-end to
+Emacspeak's pronunciation dictionaries.
 
-emacspeak-pronounce-load-dictionaries No global keybinding
-==========================================================
+emacspeak-pronounce-load-dictionaries====================================
+
+   No global keybinding
 
    Load pronunciation dictionaries.  Optional argument FILENAME
 specifies the dictionary file.
 
-emacspeak-pronounce-refresh-pronunciations No global keybinding
-===============================================================
+emacspeak-pronounce-refresh-pronunciations=========================================
+
+   No global keybinding
 
    Refresh pronunciation table for current buffer.  Activates
 pronunciation dictionaries if not already active.
 
-emacspeak-pronounce-save-dictionaries No global keybinding
-==========================================================
+emacspeak-pronounce-save-dictionaries====================================
+
+   No global keybinding
 
    Writes out the persistent emacspeak pronunciation dictionaries.
 
-emacspeak-pronounce-toggle-use-of-dictionaries No global keybinding
-===================================================================
+emacspeak-pronounce-toggle-use-of-dictionaries=============================================
+
+   No global keybinding
 
    Toggle use of pronunciation dictionaries in current buffer.
 Pronunciations can be dfined on a per file, per directory and/or per
@@ -1469,76 +1564,82 @@ applied whenever text in the buffer is spoken.  Optional argument state
 can be used from Lisp programs to explicitly turn pronunciations on or
 off.
 
-emacspeak-pronounce-yank-word No global keybinding
-==================================================
+emacspeak-pronounce-yank-word============================
+
+   No global keybinding
 
    Yank word at point into minibuffer.
 
-emacspeak-psgml-speak-current-element No global keybinding
-==========================================================
+emacspeak-psgml-speak-current-element====================================
+
+   No global keybinding
 
    Speak contents of current element.
 
-emacspeak-psgml-summarize-element No global keybinding
-======================================================
+emacspeak-psgml-summarize-element================================
+
+   No global keybinding
 
    Context-sensitive element summarizer.
 
-emacspeak-psgml-toggle-interactive-voice-locking No global keybinding
-=====================================================================
+emacspeak-psgml-toggle-interactive-voice-locking===============================================
+
+   No global keybinding
 
    Toggles variable sgml-set-face.  When turned on, the  buffer is
 voice locked interactively.  Leave this off in general while editting.
 
-emacspeak-py-next-block No global keybinding
-============================================
+emacspeak-py-next-block======================
+
+   No global keybinding
 
    Move forward to the beginning of the next block.
 
-emacspeak-py-previous-block No global keybinding
-================================================
+emacspeak-py-previous-block==========================
+
+   No global keybinding
 
    Move backward to the beginning of the current block.  If already at
 the beginning then move to previous block.
 
-emacspeak-read-next-line	Key Sequence: control e down
-=====================================================
+emacspeak-read-next-line=======================
 
-   Read next line, specified by an offset, without moving.  Default is
-to read the next line.
+   control e down Read next line, specified by an offset, without
+moving.  Default is to read the next line.
 
-emacspeak-read-next-word No global keybinding
-=============================================
+emacspeak-read-next-word=======================
+
+   No global keybinding
 
    Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word.
 
-emacspeak-read-previous-line	Key Sequence: control e up
-=======================================================
+emacspeak-read-previous-line===========================
 
-   Read previous line, specified by an offset, without moving.  Default
-is to read the previous line.
+   control e up Read previous line, specified by an offset, without
+moving.  Default is to read the previous line.
 
-emacspeak-read-previous-word No global keybinding
-=================================================
+emacspeak-read-previous-word===========================
+
+   No global keybinding
 
    Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word.
 
-emacspeak-realaudio	Key Sequence: control e ;
-=============================================
+emacspeak-realaudio==================
 
-   Start or control streaming audio including MP3 and realaudio.  If
-using `TRPlayer' as the player, accepts trplayer control commands if a
-stream is already playing.  Otherwise, the playing stream is simply
-stopped.  If no stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a Realaudio
-URL, the location of a local Realaudio file, or as the name of a local
-Realaudio metafile. Realaudio resources you have played in this session
-are available in the minibuffer history.  The default is to play the
-resource you played most recently. Emacspeak uses the contents of the
-directory specified by variable emacspeak-realaudio-shortcuts-directory
-to offer a set of completions. Hit space to use this completion list.
+   control e ; Start or control streaming audio including MP3 and
+realaudio.  If using `TRPlayer' as the player, accepts trplayer control
+commands if a stream is already playing.  Otherwise, the playing stream
+is simply stopped.  If no stream is playing, this command prompts for a
+realaudio resource.  Realaudio resources can be specified either as a
+Realaudio URL, the location of a local Realaudio file, or as the name
+of a local Realaudio metafile. Realaudio resources you have played in
+this session are available in the minibuffer history.  The default is
+to play the resource you played most recently. Emacspeak uses the
+contents of the directory specified by variable
+emacspeak-realaudio-shortcuts-directory to offer a set of completions.
+Hit space to use this completion list.
 
    If using TRPlayer, you can either give one-shot commands using
 command emacspeak-realaudio available from anywhere on the audio
@@ -1547,13 +1648,13 @@ wish to issue many nvigation commands.  Note that buffer *realaudio*
 uses a special major mode that provides the various navigation commands
 via single keystrokes.
 
-emacspeak-realaudio-browse	Key Sequence: control e :
-====================================================
+emacspeak-realaudio-browse=========================
 
-   Browse RAM file before playing the selected component.
+   control e : Browse RAM file before playing the selected component.
 
-emacspeak-realaudio-mode No global keybinding
-=============================================
+emacspeak-realaudio-mode=======================
+
+   No global keybinding
 
    Major mode for streaming audio.
 
@@ -1578,35 +1679,41 @@ emacspeak-realaudio-trplayer-call-command t
 emacspeak-realaudio-trplayer-call-command p
 emacspeak-realaudio-trplayer-call-command
 
-emacspeak-realaudio-play No global keybinding
-=============================================
+emacspeak-realaudio-play=======================
+
+   No global keybinding
 
    Play a realaudio stream.  Uses files from your Realaudio shortcuts
 directory for completion.  See documentation for user configurable
 variable emacspeak-realaudio-shortcuts-directory.
 
-emacspeak-realaudio-play-url-at-point No global keybinding
-==========================================================
+emacspeak-realaudio-play-url-at-point====================================
+
+   No global keybinding
 
    Play url under point as realaudio
 
-emacspeak-realaudio-select-realaudio-buffer No global keybinding
-================================================================
+emacspeak-realaudio-select-realaudio-buffer==========================================
+
+   No global keybinding
 
    Switch to realaudio buffer.
 
-emacspeak-realaudio-stop No global keybinding
-=============================================
+emacspeak-realaudio-stop=======================
+
+   No global keybinding
 
    Stop playing realaudio
 
-emacspeak-realaudio-trplayer-call-command No global keybinding
-==============================================================
+emacspeak-realaudio-trplayer-call-command========================================
+
+   No global keybinding
 
    Call appropriate TRPlayer command.
 
-emacspeak-realaudio-trplayer-command No global keybinding
-=========================================================
+emacspeak-realaudio-trplayer-command===================================
+
+   No global keybinding
 
    Execute TRPlayer command.
 
@@ -1615,46 +1722,48 @@ emacspeak-realaudio-trplayer-command No global keybinding
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-remote-connect-to-server	Key Sequence: kp-3   control e meta r
-========================================================================
+emacspeak-remote-connect-to-server=================================
 
-   Connect to and start using remote speech server running on host host
-and listening on port port.  Host is the hostname of the remote server,
-typically the desktop machine.  Port is the tcp port that that host is
-listening on for speech requests.
+   kp-3   control e meta r Connect to and start using remote speech
+server running on host host and listening on port port.  Host is the
+hostname of the remote server, typically the desktop machine.  Port is
+the tcp port that that host is listening on for speech requests.
 
-emacspeak-remote-quick-connect-to-server No global keybinding
-=============================================================
+emacspeak-remote-quick-connect-to-server=======================================
+
+   No global keybinding
 
    Connect to remote server.  Does not prompt for host or port, but
 quietly uses the guesses that appear as defaults when prompting.  Use
 this once you are sure the guesses are usually correct.
 
-emacspeak-rmail-speak-current-message-labels No global keybinding
-=================================================================
+emacspeak-rmail-speak-current-message-labels===========================================
+
+   No global keybinding
 
    Speak labels of current message
 
-emacspeak-rmail-summarize-current-message No global keybinding
-==============================================================
+emacspeak-rmail-summarize-current-message========================================
+
+   No global keybinding
 
    Summarize current message
 
-emacspeak-root	Key Sequence: control e control r
-================================================
+emacspeak-root=============
 
-   Start a root shell or switch to one that already exists.
+   control e control r Start a root shell or switch to one that already
+exists.
 
-emacspeak-select-this-buffer-next-display	Key Sequence: control e control right
-===============================================================================
+emacspeak-select-this-buffer-next-display========================================
 
-   Select this buffer as displayed in a `next' frame.  See
-documentation for command
+   control e control right Select this buffer as displayed in a `next'
+frame.  See documentation for command
 `emacspeak-select-this-buffer-other-window-display' for the meaning of
 `next'.
 
-emacspeak-select-this-buffer-other-window-display No global keybinding
-======================================================================
+emacspeak-select-this-buffer-other-window-display================================================
+
+   No global keybinding
 
    Switch  to this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or frames.
@@ -1666,34 +1775,65 @@ displays you wish to select.  Typically you will have two or at most
 three such displays open.  The current display is 0, the next is 1, and
 so on.  Optional argument ARG specifies the display to select.
 
-emacspeak-select-this-buffer-previous-display	Key Sequence: control e control left
-==================================================================================
+emacspeak-select-this-buffer-previous-display============================================
 
-   Select this buffer as displayed in a `previous' window.  See
-documentation for command
+   control e control left Select this buffer as displayed in a
+`previous' window.  See documentation for command
 `emacspeak-select-this-buffer-other-window-display' for the meaning of
 `previous'.
 
-emacspeak-self-insert-command	Key Sequence: Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A       >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $
-======================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+emacspeak-self-insert-command============================
 
-   Insert a character.  Speaks the character if
-emacspeak-character-echo is true.  See  command
-emacspeak-toggle-word-echo bound to C-e d w.  Toggle variable
-dtk-stop-immediately-while-typing if you want to have speech flush as
-you type.
+   Character set Tibetan 2 column   Character set Indian 2 Column
+Character set CNS11643-7 (Chinese traditional)   Character set
+CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese
+traditional)   Character set CNS11643-4 (Chinese traditional)
+Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic
+characters   Character set Tibetan 1 column   Character set Indian 1
+Column   Character set Indian IS 13194   Character set Arabic 2-column
+Character set Lao   Character set ASCII with right-to-left direction
+Character set Arabic 1-column   Character set Arabic digit   Character
+set VISCII upper-case   Character set VISCII lower-case   Character set
+IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5
+(Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2
+(Chinese traditional)   Character set CNS11643-1 (Chinese traditional)
+Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)
+Character set JISX0208.1983/1990 (Japanese)   Character set GB2312
+Character set JISX0208.1978 (Japanese)   Character set ISO8859-9
+(Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set
+JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese
+Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6
+(Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620
+(Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3
+(Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1
+(Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ
+ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß
+Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í
+Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »
+º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©
+¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s
+r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a
+_   \    cap Z     cap Y     cap X     cap W     cap V     cap U
+cap T     cap S     cap R     cap Q     cap P     cap O     cap N
+cap M     cap L     cap K     cap J     cap I     cap H     cap G
+cap F     cap E     cap D     cap C     cap B     cap A       >   <   9
+ 8   7   6   5   4   3   2   1   0   /   -   +   *   $ Insert a
+character.  Speaks the character if emacspeak-character-echo is true.
+See  command emacspeak-toggle-word-echo bound to C-e d w.  Toggle
+variable dtk-stop-immediately-while-typing if you want to have speech
+flush as you type.
 
-emacspeak-set-auditory-icon-player	Key Sequence: control e meta a
-=================================================================
+emacspeak-set-auditory-icon-player=================================
 
-   Select  player used for producing auditory icons.  Recommended
-choices:
+   control e meta a Select  player used for producing auditory icons.
+Recommended choices:
 
    emacspeak-serve-auditory-icon for  the wave device.
 emacspeak-midi-icon for midi device.
 
-emacspeak-show-list-variable No global keybinding
-=================================================
+emacspeak-show-list-variable===========================
+
+   No global keybinding
 
    Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
@@ -1705,197 +1845,191 @@ variable whose value is to be displayed.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-show-personality-at-point	Key Sequence: control e meta v
-==================================================================
+emacspeak-show-personality-at-point==================================
 
-   Show value of property personality at point.
+   control e meta v Show value of property personality at point.
 
-emacspeak-show-property-at-point	Key Sequence: control e meta p
-===============================================================
+emacspeak-show-property-at-point===============================
 
-   Show value of PROPERTY at point.  If optional arg property is not
-supplied, read it interactively.  Provides completion based on
-properties that are of interest.  If no property is set, show a message
-and exit.
+   control e meta p Show value of PROPERTY at point.  If optional arg
+property is not supplied, read it interactively.  Provides completion
+based on properties that are of interest.  If no property is set, show
+a message and exit.
 
-emacspeak-skip-blank-lines-backward	Key Sequence: shift up
-==========================================================
+emacspeak-skip-blank-lines-backward==================================
 
-   Move backward  across blank lines.  The line under point is   then
-spoken.  Signals beginning  of buffer.
+   shift up Move backward  across blank lines.  The line under point is
+ then spoken.  Signals beginning  of buffer.
 
-emacspeak-skip-blank-lines-forward	Key Sequence: shift down
-===========================================================
+emacspeak-skip-blank-lines-forward=================================
 
-   Move forward across blank lines.  The line under point is then
-spoken.  Signals end of buffer.
+   shift down Move forward across blank lines.  The line under point is
+then spoken.  Signals end of buffer.
 
-emacspeak-solitaire-show-column No global keybinding
-====================================================
+emacspeak-solitaire-show-column==============================
+
+   No global keybinding
 
    Display current row auditorallly
 
-emacspeak-solitaire-show-row No global keybinding
-=================================================
+emacspeak-solitaire-show-row===========================
+
+   No global keybinding
 
    Display current row auditorallly
 
-emacspeak-solitaire-speak-coordinates No global keybinding
-==========================================================
+emacspeak-solitaire-speak-coordinates====================================
+
+   No global keybinding
 
    Speak coordinates of current position
 
-emacspeak-sounds-reset-local-player No global keybinding
-========================================================
+emacspeak-sounds-reset-local-player==================================
+
+   No global keybinding
 
    Ask Emacspeak to use a local audio player.  This lets me have
 Emacspeak switch to using audioplay on solaris after I've used it for a
 while from a remote session where it would use the more primitive
 speech-server based audio player.
 
-emacspeak-sounds-select-theme	Key Sequence: control e )
-=======================================================
+emacspeak-sounds-select-theme============================
 
-   Select theme for auditory icons.
+   control e ) Select theme for auditory icons.
 
-emacspeak-speak-browse-buffer	Key Sequence: control e ,
-=======================================================
+emacspeak-speak-browse-buffer============================
 
-   Browse the current buffer by reading it a paragraph at a time.
-Optional interactive prefix arg define-paragraph prompts for regexp
-that defines paragraph start and paragraph-separate.
+   control e , Browse the current buffer by reading it a paragraph at a
+time.  Optional interactive prefix arg define-paragraph prompts for
+regexp that defines paragraph start and paragraph-separate.
 
-emacspeak-speak-browse-linux-howto	Key Sequence: control e  cap H
-=================================================================
+emacspeak-speak-browse-linux-howto=================================
 
-   Browse a Linux Howto file.  We cleanup underlining, and set up
-outline mode correctly.
+   control e  cap H Browse a Linux Howto file.  We cleanup underlining,
+and set up outline mode correctly.
 
-emacspeak-speak-buffer	Key Sequence: control e b
-================================================
+emacspeak-speak-buffer=====================
 
-   Speak current buffer  contents.  With prefix ARG, speaks the rest of
-the buffer from point.  Negative prefix arg speaks from start of buffer
-to point.   If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command
+   control e b Speak current buffer  contents.  With prefix ARG, speaks
+the rest of the buffer from point.  Negative prefix arg speaks from
+start of buffer to point.   If voice lock mode is on, the paragraphs in
+the buffer are voice annotated first,  see command
 `emacspeak-speak-voice-annotate-paragraphs'.
 
-emacspeak-speak-buffer-filename	Key Sequence: control e f
-=========================================================
+emacspeak-speak-buffer-filename==============================
 
-   Speak name of file being visited in current buffer.  Speak default
-directory if invoked in a dired buffer, or when the buffer is not
-visiting any file.
+   control e f Speak name of file being visited in current buffer.
+Speak default directory if invoked in a dired buffer, or when the
+buffer is not visiting any file.
 
-emacspeak-speak-buffer-interactively	Key Sequence: control e  cap B
-===================================================================
+emacspeak-speak-buffer-interactively===================================
 
-   Speak the start of, rest of, or the entire buffer.  's' to speak the
-start.  'r' to speak the rest.  any other key to speak entire buffer.
+   control e  cap B Speak the start of, rest of, or the entire buffer.
+'s' to speak the start.  'r' to speak the rest.  any other key to speak
+entire buffer.
 
-emacspeak-speak-calendar-date No global keybinding
-==================================================
+emacspeak-speak-calendar-date============================
+
+   No global keybinding
 
    Speak the date under point when called in Calendar Mode.
 
-emacspeak-speak-char	Key Sequence: control e c
-==============================================
+emacspeak-speak-char===================
 
-   Speak character under point.  Pronounces character phonetically
-unless  called with a PREFIX arg.
+   control e c Speak character under point.  Pronounces character
+phonetically unless  called with a PREFIX arg.
 
-emacspeak-speak-completions No global keybinding
-================================================
+emacspeak-speak-completions==========================
+
+   No global keybinding
 
    Speak completions  buffer if one present.
 
-emacspeak-speak-continuously	Key Sequence: control e RETURN
-===========================================================
+emacspeak-speak-continuously===========================
 
-   Speak a buffer continuously.  First prompts using the minibuffer for
-the kind of action to perform after speaking each chunk.  E.G.  speak a
-line at a time etc.  Speaking commences at current buffer position.
-Pressing  C-g breaks out, leaving point on last chunk that was spoken.
-Any other key continues to speak the buffer.
+   control e RETURN Speak a buffer continuously.  First prompts using
+the minibuffer for the kind of action to perform after speaking each
+chunk.  E.G.  speak a line at a time etc.  Speaking commences at
+current buffer position.  Pressing  C-g breaks out, leaving point on
+last chunk that was spoken.   Any other key continues to speak the
+buffer.
 
-emacspeak-speak-current-column	Key Sequence: control e =
-========================================================
+emacspeak-speak-current-column=============================
 
-   Speak the current column.
+   control e = Speak the current column.
 
-emacspeak-speak-current-field	Key Sequence: control e .
-=======================================================
+emacspeak-speak-current-field============================
 
-   Speak current field.  A field is defined currently as a sequence of
-non-white space characters.  may be made   mode specific later.
+   control e .  Speak current field.  A field is defined currently as a
+sequence of non-white space characters.  may be made   mode specific
+later.
 
-emacspeak-speak-current-kill	Key Sequence: control e k
-======================================================
+emacspeak-speak-current-kill===========================
 
-   Speak the current kill entry.  This is the text that will be yanked
-in by the next C-y.  Prefix numeric arg, COUNT, specifies that the text
-that will be yanked as a result of a C-y  followed by count-1 M-y be
-spoken.   The kill number that is spoken says what numeric prefix arg
-to give to command yank.
+   control e k Speak the current kill entry.  This is the text that
+will be yanked in by the next C-y.  Prefix numeric arg, COUNT,
+specifies that the text that will be yanked as a result of a C-y
+followed by count-1 M-y be spoken.   The kill number that is spoken
+says what numeric prefix arg to give to command yank.
 
-emacspeak-speak-current-mark	Key Sequence: control e control  =============================================================
+emacspeak-speak-current-mark===========================
 
-   Speak the line containing the mark.  With no argument, speaks the
-line containing the mark-this is where `exchange-point-and-mark' C-x
-C-x would jump.  Numeric prefix arg 'COUNT' speaks line containing mark
-'n' where 'n' is one less than the number of times one has to jump
-using `set-mark-command' to get to this marked position.  The location
-of the mark is indicated by an aural highlight achieved by a change in
-voice personality.
+   control e control   Speak the line containing the mark.  With no
+argument, speaks the line containing the mark-this is where
+`exchange-point-and-mark' C-x C-x would jump.  Numeric prefix arg
+'COUNT' speaks line containing mark 'n' where 'n' is one less than the
+number of times one has to jump using `set-mark-command' to get to this
+marked position.  The location of the mark is indicated by an aural
+highlight achieved by a change in voice personality.
 
-emacspeak-speak-current-percentage	Key Sequence: control e %
-============================================================
+emacspeak-speak-current-percentage=================================
 
-   Announce the percentage into the current buffer.
+   control e % Announce the percentage into the current buffer.
 
-emacspeak-speak-current-window No global keybinding
-===================================================
+emacspeak-speak-current-window=============================
+
+   No global keybinding
 
    Speak contents of current window.  Speaks entire window irrespective
 of point.
 
-emacspeak-speak-display-char No global keybinding
-=================================================
+emacspeak-speak-display-char===========================
+
+   No global keybinding
 
    Display char under point using current speech display table.
 Behavior is the same as command `emacspeak-speak-char' bound to C-e c
 for characters in the range 0-127.  Optional argument PREFIX  specifies
 that the character should be spoken phonetically.
 
-emacspeak-speak-front-of-buffer No global keybinding
-====================================================
+emacspeak-speak-front-of-buffer==============================
+
+   No global keybinding
 
    Speak   the buffer from start to   point
 
-emacspeak-speak-help	Key Sequence: control e h
-==============================================
+emacspeak-speak-help===================
 
-   Speak help buffer if one present.  With prefix arg, speaks the rest
-of the buffer from point.  Negative prefix arg speaks from start of
-buffer to point.
+   control e h Speak help buffer if one present.  With prefix arg,
+speaks the rest of the buffer from point.  Negative prefix arg speaks
+from start of buffer to point.
 
-emacspeak-speak-help-interactively No global keybinding
-=======================================================
+emacspeak-speak-help-interactively=================================
+
+   No global keybinding
 
    Speak the start of, rest of, or the entire help.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire help.
 
-emacspeak-speak-hostname	Key Sequence: control e meta h
-=======================================================
+emacspeak-speak-hostname=======================
 
-   Speak host name.
+   control e meta h Speak host name.
 
-emacspeak-speak-line	Key Sequence: control e l
-==============================================
+emacspeak-speak-line===================
 
-   Speaks current line.  With prefix ARG, speaks the rest of the line
-from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+   control e l Speaks current line.  With prefix ARG, speaks the rest of
+the line from point.  Negative prefix optional arg speaks from start of
+line to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
 indentation with a tone if audio indentation is in use.  Indicates
 position of point with an aural highlight if option
 `emacspeak-show-point' is turned on -see command `emacspeak-show-point'
@@ -1904,71 +2038,67 @@ text, e.g.  outline header lines, or header lines of blocks created by
 command `emacspeak-hide-or-expose-block' are indicated with auditory
 icon ellipses.
 
-emacspeak-speak-line-interactively	Key Sequence: control e  cap L
-=================================================================
+emacspeak-speak-line-interactively=================================
 
-   Speak the start of, rest of, or the entire line.  's' to speak the
-start.  'r' to speak the rest.  any other key to speak entire line.
+   control e  cap L Speak the start of, rest of, or the entire line.
+'s' to speak the start.  'r' to speak the rest.  any other key to speak
+entire line.
 
-emacspeak-speak-line-number	Key Sequence: control e control l
-=============================================================
+emacspeak-speak-line-number==========================
 
-   Speak the line number of the current line.
+   control e control l Speak the line number of the current line.
 
-emacspeak-speak-line-set-column-filter	Key Sequence: control e |
-================================================================
+emacspeak-speak-line-set-column-filter=====================================
 
-   Set up filter for selectively ignoring portions of lines.  The
-filter is specified as a list of pairs.  For example, to filter out
+   control e | Set up filter for selectively ignoring portions of lines.
+The filter is specified as a list of pairs.  For example, to filter out
 columns 1 - 10 and 20 - 25, specify filter as ((0 9) (20 25)). Filter
 settings are persisted across sessions.  A persisted filter is used as
 the default when prompting for a filter.  This allows one to accumulate
 a set of filters for specific files like /var/adm/messages and
 /var/adm/maillog over time.
 
-emacspeak-speak-load-directory-settings No global keybinding
-============================================================
+emacspeak-speak-load-directory-settings======================================
+
+   No global keybinding
 
    Load a directory specific Emacspeak settings file.  This is
 typically used to load up settings that are specific to an electronic
 book consisting of many files in the same directory.
 
-emacspeak-speak-message-again	Key Sequence: control e a
-=======================================================
+emacspeak-speak-message-again============================
 
-   Speak the last message from Emacs once again.
+   control e a Speak the last message from Emacs once again.
 
-emacspeak-speak-minibuffer No global keybinding
-===============================================
+emacspeak-speak-minibuffer=========================
+
+   No global keybinding
 
    Speak the minibuffer contents  With prefix arg, speaks the rest of
 the buffer from point.  Negative prefix arg speaks from start of buffer
 to point.
 
-emacspeak-speak-minor-mode-line	Key Sequence: control e  cap M
-==============================================================
+emacspeak-speak-minor-mode-line==============================
 
-   Speak the minor mode-information.
+   control e  cap M Speak the minor mode-information.
 
-emacspeak-speak-mode-line	Key Sequence: control e m
-===================================================
+emacspeak-speak-mode-line========================
 
-   Speak the mode-line.
+   control e m Speak the mode-line.
 
-emacspeak-speak-next-field	Key Sequence: control e >
-====================================================
+emacspeak-speak-next-field=========================
 
-   Skip across and speak the next contiguous sequence of non-blank
-characters.  Useful in moving across fields.  Will be improved if it
-proves useful.
+   control e > Skip across and speak the next contiguous sequence of
+non-blank characters.  Useful in moving across fields.  Will be
+improved if it proves useful.
 
-emacspeak-speak-next-window	Key Sequence: control e control n
-=============================================================
+emacspeak-speak-next-window==========================
 
-   Speak the next window.
+   control e control n Speak the next window.
 
-emacspeak-speak-other-window No global keybinding
-=================================================
+emacspeak-speak-other-window===========================
+
+   No global keybinding
 
    Speak contents of `other' window.  Speaks entire window irrespective
 of point.  Semantics  of `other' is the same as for the builtin Emacs
@@ -1980,266 +2110,258 @@ window to speak.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-speak-page	Key Sequence: control e [
-==============================================
+emacspeak-speak-page===================
 
-   Speak a page.  With prefix ARG, speaks rest of current page.
-Negative prefix arg will read from start of current page to point.  If
-option  `voice-lock-mode' is on, then it will use any defined
-personality.
+   control e [ Speak a page.  With prefix ARG, speaks rest of current
+page.  Negative prefix arg will read from start of current page to
+point.  If option  `voice-lock-mode' is on, then it will use any
+defined personality.
 
-emacspeak-speak-page-interactively	Key Sequence: control e ]
-============================================================
+emacspeak-speak-page-interactively=================================
 
-   Speak the start of, rest of, or the entire page.  's' to speak the
-start.  'r' to speak the rest.  any other key to speak entire page.
+   control e ] Speak the start of, rest of, or the entire page.  's' to
+speak the start.  'r' to speak the rest.  any other key to speak entire
+page.
 
-emacspeak-speak-paragraph	Key Sequence: control e {
-===================================================
+emacspeak-speak-paragraph========================
 
-   Speak paragraph.  With prefix arg, speaks rest of current paragraph.
-Negative prefix arg will read from start of current paragraph to point.
-If voice-lock-mode is on, then it will use any defined personality.
+   control e { Speak paragraph.  With prefix arg, speaks rest of
+current paragraph.  Negative prefix arg will read from start of current
+paragraph to point.  If voice-lock-mode is on, then it will use any
+defined personality.
 
-emacspeak-speak-paragraph-interactively	Key Sequence: control e  cap P
-======================================================================
+emacspeak-speak-paragraph-interactively======================================
 
-   Speak the start of, rest of, or the entire paragraph.  's' to speak
-the start.  'r' to speak the rest.  any other key to speak entire
-paragraph.
+   control e  cap P Speak the start of, rest of, or the entire
+paragraph.  's' to speak the start.  'r' to speak the rest.  any other
+key to speak entire paragraph.
 
-emacspeak-speak-popup-messages	Key Sequence: control h  cap M
-=============================================================
+emacspeak-speak-popup-messages=============================
 
-   Pop up messages buffer.  If it is already selected then hide it and
-try to restore previous window configuration.
+   control h  cap M Pop up messages buffer.  If it is already selected
+then hide it and try to restore previous window configuration.
 
-emacspeak-speak-predefined-window	Key Sequence: control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0
-=========================================================================================================================================================================================
+emacspeak-speak-predefined-window================================
 
-   Speak one of the first 10 windows on the screen.  Speaks entire
-window irrespective of point.  In general, you'll never have Emacs
-split the screen into more than two or three.  Argument ARG determines
-the 'other' window to speak.  Semantics  of `other' is the same as for
-the builtin Emacs command `other-window'.
+   control e 9   control e 8   control e 7   control e 6   control e 5
+control e 4   control e 3   control e 2   control e 1   control e 0
+Speak one of the first 10 windows on the screen.  Speaks entire window
+irrespective of point.  In general, you'll never have Emacs split the
+screen into more than two or three.  Argument ARG determines the
+'other' window to speak.  Semantics  of `other' is the same as for the
+builtin Emacs command `other-window'.
 
-emacspeak-speak-previous-field	Key Sequence: control e <
-========================================================
+emacspeak-speak-previous-field=============================
 
-   Skip backwards across and speak  contiguous sequence of non-blank
-characters.  Useful in moving across fields.  Will be improved if it
-proves useful.
+   control e < Skip backwards across and speak  contiguous sequence of
+non-blank characters.  Useful in moving across fields.  Will be
+improved if it proves useful.
 
-emacspeak-speak-previous-window	Key Sequence: control e control p
-=================================================================
+emacspeak-speak-previous-window==============================
 
-   Speak the previous window.
+   control e control p Speak the previous window.
 
-emacspeak-speak-rectangle	Key Sequence: control e  cap R
-========================================================
+emacspeak-speak-rectangle========================
 
-   Speak a rectangle of text.  Rectangle is delimited by point and mark.
-When call from a program, arguments specify the START and END of the
-rectangle.
+   control e  cap R Speak a rectangle of text.  Rectangle is delimited
+by point and mark.  When call from a program, arguments specify the
+START and END of the rectangle.
 
-emacspeak-speak-region	Key Sequence: control e r
-================================================
+emacspeak-speak-region=====================
 
-   Speak region.  Argument START  and END specify region to speak.
+   control e r Speak region.  Argument START  and END specify region to
+speak.
 
-emacspeak-speak-rest-of-buffer	Key Sequence: control e n
-========================================================
+emacspeak-speak-rest-of-buffer=============================
 
-   Speak remainder of the buffer starting at point
+   control e n Speak remainder of the buffer starting at point
 
-emacspeak-speak-run-shell-command	Key Sequence: control e !
-===========================================================
+emacspeak-speak-run-shell-command================================
 
-   Invoke shell COMMAND and display its output as a table.  The results
-are placed in a buffer in Emacspeak's table   browsing mode.    Use
-this for running shell commands that produce tabulated   output.  This
-command should be used for shell commands that   produce tabulated
+   control e !  Invoke shell COMMAND and display its output as a table.
+The results are placed in a buffer in Emacspeak's table   browsing mode.
+ Use this for running shell commands that produce tabulated   output.
+This command should be used for shell commands that   produce tabulated
 output that works with Emacspeak's table   recognizer.    Verify this
 first by running the command in a shell and   executing command
 `emacspeak-table-display-table-in-region'   normally bound to C-e TAB.
 
-emacspeak-speak-sentence No global keybinding
-=============================================
+emacspeak-speak-sentence=======================
+
+   No global keybinding
 
    Speak current sentence.  With prefix ARG, speaks the rest of the
 sentence  from point.  Negative prefix arg speaks from start of
 sentence to point.
 
-emacspeak-speak-set-display-table No global keybinding
-======================================================
+emacspeak-speak-set-display-table================================
+
+   No global keybinding
 
    Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
 
-emacspeak-speak-sexp	Key Sequence: control e '
-==============================================
+emacspeak-speak-sexp===================
 
-   Speak current sexp.  With prefix ARG, speaks the rest of the sexp
-from point.  Negative prefix arg speaks from start of sexp to point.
-If option  `voice-lock-mode' is on, then uses the personality.
+   control e ' Speak current sexp.  With prefix ARG, speaks the rest of
+the sexp  from point.  Negative prefix arg speaks from start of sexp to
+point.  If option  `voice-lock-mode' is on, then uses the personality.
 
-emacspeak-speak-sexp-interactively	Key Sequence: control e "
-============================================================
+emacspeak-speak-sexp-interactively=================================
 
-   Speak the start of, rest of, or the entire sexp.  's' to speak the
-start.  'r' to speak the rest.  any other key to speak entire sexp.
+   control e " Speak the start of, rest of, or the entire sexp.  's' to
+speak the start.  'r' to speak the rest.  any other key to speak entire
+sexp.
 
-emacspeak-speak-show-active-network-interfaces	Key Sequence: control e  cap I
-=============================================================================
+emacspeak-speak-show-active-network-interfaces=============================================
 
-   Shows all active network interfaces in the echo area.  With
-interactive prefix argument ADDRESS it prompts for a specific interface
-and shows its address. The address is also copied to the kill ring for
-convenient yanking.
+   control e  cap I Shows all active network interfaces in the echo
+area.  With interactive prefix argument ADDRESS it prompts for a
+specific interface and shows its address. The address is also copied to
+the kill ring for convenient yanking.
 
-emacspeak-speak-show-memory-used No global keybinding
-=====================================================
+emacspeak-speak-show-memory-used===============================
+
+   No global keybinding
 
    Convenience command to view state of memory used in this session so
 far.
 
-emacspeak-speak-skim-buffer No global keybinding
-================================================
+emacspeak-speak-skim-buffer==========================
+
+   No global keybinding
 
    Skim the current buffer  a paragraph at a time.
 
-emacspeak-speak-skim-next-paragraph No global keybinding
-========================================================
+emacspeak-speak-skim-next-paragraph==================================
+
+   No global keybinding
 
    Skim next paragraph.
 
-emacspeak-speak-skim-paragraph No global keybinding
-===================================================
+emacspeak-speak-skim-paragraph=============================
+
+   No global keybinding
 
    Skim paragraph.  Skimming a paragraph results in the speech speeding
 up after the first clause.  Speech is scaled by the value of
 dtk-speak-skim-scale
 
-emacspeak-speak-spaces-at-point	Key Sequence: control e meta control  =====================================================================
+emacspeak-speak-spaces-at-point==============================
 
-   Speak the white space at point.
+   control e meta control   Speak the white space at point.
 
-emacspeak-speak-spell-current-word	Key Sequence: control e  cap W
-=================================================================
+emacspeak-speak-spell-current-word=================================
 
-   Spell word at  point.
+   control e  cap W Spell word at  point.
 
-emacspeak-speak-telephone-directory No global keybinding
-========================================================
+emacspeak-speak-telephone-directory==================================
+
+   No global keybinding
 
    Lookup and display a phone number.  With prefix arg, opens the phone
 book for editting.
 
-emacspeak-speak-this-buffer-next-display	Key Sequence: control e right
-======================================================================
+emacspeak-speak-this-buffer-next-display=======================================
 
-   Speak this buffer as displayed in a `previous' window.  See
-documentation for command
+   control e right Speak this buffer as displayed in a `previous'
+window.  See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the meaning of
 `next'.
 
-emacspeak-speak-this-buffer-other-window-display	Key Sequence: control e /
-==========================================================================
+emacspeak-speak-this-buffer-other-window-display===============================================
 
-   Speak this buffer as displayed in a different frame.  Emacs allows
-you to display the same buffer in multiple windows or frames.  These
-different windows can display different portions of the buffer.  This
-is equivalent to leaving a book open at places at once.  This command
-allows you to listen to the places where you have left the book open.
-The number used to invoke this command specifies which of the displays
-you wish to speak.  Typically you will have two or at most three such
-displays open.  The current display is 0, the next is 1, and so on.
-Optional argument ARG specifies the display to speak.
+   control e / Speak this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple windows or
+frames.  These different windows can display different portions of the
+buffer.  This is equivalent to leaving a book open at places at once.
+This command allows you to listen to the places where you have left the
+book open.  The number used to invoke this command specifies which of
+the displays you wish to speak.  Typically you will have two or at most
+three such displays open.  The current display is 0, the next is 1, and
+so on.  Optional argument ARG specifies the display to speak.
 
-emacspeak-speak-this-buffer-previous-display	Key Sequence: control e left
-=========================================================================
+emacspeak-speak-this-buffer-previous-display===========================================
 
-   Speak this buffer as displayed in a `previous' window.  See
-documentation for command
+   control e left Speak this buffer as displayed in a `previous' window.
+See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the meaning of
 `previous'.
 
-emacspeak-speak-time	Key Sequence: control e t
-==============================================
+emacspeak-speak-time===================
 
-   Speak the time.
+   control e t Speak the time.
 
-emacspeak-speak-version	Key Sequence: control e  cap V
-======================================================
+emacspeak-speak-version======================
 
-   Announce version information for running emacspeak.
+   control e  cap V Announce version information for running emacspeak.
 
-emacspeak-speak-voice-annotate-paragraphs No global keybinding
-==============================================================
+emacspeak-speak-voice-annotate-paragraphs========================================
+
+   No global keybinding
 
    Locate paragraphs and voice annotate the first word.  Here,
 paragraph is taken to mean a chunk of text preceeded by a blank line.
 Useful to do this before you listen to an entire buffer.
 
-emacspeak-speak-window-information	Key Sequence: control e control w
-====================================================================
+emacspeak-speak-window-information=================================
 
-   Speaks information about current window.
+   control e control w Speaks information about current window.
 
-emacspeak-speak-word	Key Sequence: control e w
-==============================================
+emacspeak-speak-word===================
 
-   Speak current word.  With prefix ARG, speaks the rest of the word
-from point.  Negative prefix arg speaks from start of word to point.
-If executed  on the same buffer position a second time, the word is
-spelt instead of being spoken.
+   control e w Speak current word.  With prefix ARG, speaks the rest of
+the word from point.  Negative prefix arg speaks from start of word to
+point.  If executed  on the same buffer position a second time, the
+word is spelt instead of being spoken.
 
-emacspeak-speak-word-interactively No global keybinding
-=======================================================
+emacspeak-speak-word-interactively=================================
+
+   No global keybinding
 
    Speak the start of, rest of, or the entire word.  's' to speak the
 start.  'r' to speak the rest.  any other key to speak entire word.
 
-emacspeak-speedbar-click No global keybinding
-=============================================
+emacspeak-speedbar-click=======================
+
+   No global keybinding
 
    Does the equivalent of the mouse click from the keyboard
 
-emacspeak-speedbar-goto-speedbar	Key Sequence: insert
-=====================================================
+emacspeak-speedbar-goto-speedbar===============================
 
-   Switch to the speedbar
+   insert Switch to the speedbar
 
-emacspeak-submit-bug	Key Sequence: control e control b
-======================================================
+emacspeak-submit-bug===================
 
-   Function to submit a bug to the programs maintainer.
+   control e control b Function to submit a bug to the programs
+maintainer.
 
-emacspeak-switch-to-completions-window No global keybinding
-===========================================================
+emacspeak-switch-to-completions-window=====================================
+
+   No global keybinding
 
    Jump to the *Completions* buffer if it is active.  We make the
 current minibuffer contents (which is obviously the prefix for each
 entry in the completions buffer) inaudible to reduce chatter.
 
-emacspeak-switch-to-previous-buffer	Key Sequence: l10
-=====================================================
+emacspeak-switch-to-previous-buffer==================================
 
-   Switch to most recently used interesting buffer.
+   l10 Switch to most recently used interesting buffer.
 
-emacspeak-symlink-current-file	Key Sequence: control e meta s
-=============================================================
+emacspeak-symlink-current-file=============================
 
-   Link (symbolic link) file visited in current buffer to new location.
-Prompts for the new location and preserves modification time   when
-linking.  If location is a directory, the file is copied   to that
-directory under its current name ; if location names   a file in an
-existing directory, the specified name is   used.  Signals an error if
-target already exists.
+   control e meta s Link (symbolic link) file visited in current buffer
+to new location.  Prompts for the new location and preserves
+modification time   when linking.  If location is a directory, the file
+is copied   to that directory under its current name ; if location names
+ a file in an existing directory, the specified name is   used.
+Signals an error if target already exists.
 
-emacspeak-table-copy-current-element-to-register No global keybinding
-=====================================================================
+emacspeak-table-copy-current-element-to-register===============================================
+
+   No global keybinding
 
    Speak current table element
 
@@ -2248,26 +2370,27 @@ emacspeak-table-copy-current-element-to-register No global keybinding
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-table-copy-to-clipboard No global keybinding
-======================================================
+emacspeak-table-copy-to-clipboard================================
+
+   No global keybinding
 
    Copy table in current buffer to the table clipboard.  Current buffer
 must be in emacspeak-table mode.
 
-emacspeak-table-display-table-in-region	Key Sequence: control e TAB
-===================================================================
+emacspeak-table-display-table-in-region======================================
 
-   Recognize tabular data in current region and display it in table
-browsing mode in a a separate buffer.  emacspeak table mode is designed
-to let you browse tabular data using all the power of the
+   control e TAB Recognize tabular data in current region and display
+it in table browsing mode in a a separate buffer.  emacspeak table mode
+is designed to let you browse tabular data using all the power of the
 two-dimensional spatial layout while giving you sufficient contextual
 information.  The tables subdirectory of the emacspeak distribution
 contains some sample tables -these are the CalTrain schedules.  Execute
 command `describe-mode' bound to C-c ? in a buffer that is in emacspeak
 table mode to read the documentation on the table browser.
 
-emacspeak-table-find-csv-file No global keybinding
-==================================================
+emacspeak-table-find-csv-file============================
+
+   No global keybinding
 
    Process a csv (comma separated values) file.  The processed  data
 and presented using emacspeak table navigation.
@@ -2277,30 +2400,31 @@ and presented using emacspeak table navigation.
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-table-find-file	Key Sequence: control e control t
-===========================================================
+emacspeak-table-find-file========================
 
-   Open a file containing table data and display it in table mode.
-emacspeak table mode is designed to let you browse tabular data using
-all the power of the two-dimensional spatial layout while giving you
-sufficient contextual information.  The etc/tables subdirectory of the
-emacspeak distribution contains some sample tables -these are the
-CalTrain schedules.  Execute command `describe-mode' bound to C-c ? in
-a buffer that is in emacspeak table mode to read the documentation on
-the table browser.
+   control e control t Open a file containing table data and display it
+in table mode.  emacspeak table mode is designed to let you browse
+tabular data using all the power of the two-dimensional spatial layout
+while giving you sufficient contextual information.  The etc/tables
+subdirectory of the emacspeak distribution contains some sample tables
+-these are the CalTrain schedules.  Execute command `describe-mode'
+bound to C-c ? in a buffer that is in emacspeak table mode to read the
+documentation on the table browser.
 
    This function is advised.
 
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-table-get-entry-with-headers No global keybinding
-===========================================================
+emacspeak-table-get-entry-with-headers=====================================
+
+   No global keybinding
 
    Return   both row and column header and table element
 
-emacspeak-table-goto No global keybinding
-=========================================
+emacspeak-table-goto===================
+
+   No global keybinding
 
    Prompt for a table cell coordinates and jump to it.
 
@@ -2309,266 +2433,302 @@ emacspeak-table-goto No global keybinding
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
 
-emacspeak-table-goto-bottom No global keybinding
-================================================
+emacspeak-table-goto-bottom==========================
+
+   No global keybinding
 
    Goes to the bottom of the current column.
 
-emacspeak-table-goto-left No global keybinding
-==============================================
+emacspeak-table-goto-left========================
+
+   No global keybinding
 
    Goes to the left of the current row.
 
-emacspeak-table-goto-right No global keybinding
-===============================================
+emacspeak-table-goto-right=========================
+
+   No global keybinding
 
    Goes to the right of the current row.
 
-emacspeak-table-goto-top No global keybinding
-=============================================
+emacspeak-table-goto-top=======================
+
+   No global keybinding
 
    Goes to the top of the current column.
 
-emacspeak-table-next-column No global keybinding
-================================================
+emacspeak-table-next-column==========================
+
+   No global keybinding
 
    Move to the next column if possible
 
-emacspeak-table-next-row No global keybinding
-=============================================
+emacspeak-table-next-row=======================
+
+   No global keybinding
 
    Move to the next row if possible
 
-emacspeak-table-paste-from-clipboard No global keybinding
-=========================================================
+emacspeak-table-paste-from-clipboard===================================
+
+   No global keybinding
 
    Paste the emacspeak table clipboard into the current buffer.  Use
 the major  mode of this buffer to  decide what kind of table markup to
 use.
 
-emacspeak-table-previous-column No global keybinding
-====================================================
+emacspeak-table-previous-column==============================
+
+   No global keybinding
 
    Move to the previous column  if possible
 
-emacspeak-table-previous-row No global keybinding
-=================================================
+emacspeak-table-previous-row===========================
+
+   No global keybinding
 
    Move to the previous row if possible
 
-emacspeak-table-search No global keybinding
-===========================================
+emacspeak-table-search=====================
+
+   No global keybinding
 
    Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a
 match, makes the matching cell current.
 
-emacspeak-table-search-headers No global keybinding
-===================================================
+emacspeak-table-search-headers=============================
+
+   No global keybinding
 
    Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a match,
 makes the matching row or column current.
 
-emacspeak-table-select-automatic-speaking-method No global keybinding
-=====================================================================
+emacspeak-table-select-automatic-speaking-method===============================================
+
+   No global keybinding
 
    Interactively select the kind of automatic speech to produce when
 browsing table elements
 
-emacspeak-table-sort-on-current-column No global keybinding
-===========================================================
+emacspeak-table-sort-on-current-column=====================================
+
+   No global keybinding
 
    Sort table on current column.
 
-emacspeak-table-speak-both-headers-and-element No global keybinding
-===================================================================
+emacspeak-table-speak-both-headers-and-element=============================================
+
+   No global keybinding
 
    Speak  both row and column header and table element
 
-emacspeak-table-speak-column-filtered No global keybinding
-==========================================================
+emacspeak-table-speak-column-filtered====================================
+
+   No global keybinding
 
    Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
 
-emacspeak-table-speak-column-header-and-element No global keybinding
-====================================================================
+emacspeak-table-speak-column-header-and-element==============================================
+
+   No global keybinding
 
    Speak  column header and table element
 
-emacspeak-table-speak-coordinates No global keybinding
-======================================================
+emacspeak-table-speak-coordinates================================
+
+   No global keybinding
 
    Speak current table coordinates.
 
-emacspeak-table-speak-current-element No global keybinding
-==========================================================
+emacspeak-table-speak-current-element====================================
+
+   No global keybinding
 
    Speak current table element
 
-emacspeak-table-speak-dimensions No global keybinding
-=====================================================
+emacspeak-table-speak-dimensions===============================
+
+   No global keybinding
 
    Speak current table dimensions.
 
-emacspeak-table-speak-row-filtered No global keybinding
-=======================================================
+emacspeak-table-speak-row-filtered=================================
+
+   No global keybinding
 
    Speaks a table row after applying a specified row filter.  Optional
 prefix arg prompts for a new filter.
 
-emacspeak-table-speak-row-header-and-element No global keybinding
-=================================================================
+emacspeak-table-speak-row-header-and-element===========================================
+
+   No global keybinding
 
    Speak  row header and table element
 
-emacspeak-table-ui-filter-load No global keybinding
-===================================================
+emacspeak-table-ui-filter-load=============================
+
+   No global keybinding
 
    Load saved filter settings.
 
-emacspeak-table-ui-filter-save No global keybinding
-===================================================
+emacspeak-table-ui-filter-save=============================
+
+   No global keybinding
 
    Save out filter settings.
 
-emacspeak-table-view-csv-buffer No global keybinding
-====================================================
+emacspeak-table-view-csv-buffer==============================
+
+   No global keybinding
 
    Process a csv (comma separated values) data.  The processed  data
 and presented using emacspeak table navigation.
 
-emacspeak-tabulate-region	Key Sequence: control e i
-===================================================
+emacspeak-tabulate-region========================
 
-   Voicifies the white-space of a table if one found.  Optional
-interactive prefix arg mark-fields specifies if the header row
+   control e i Voicifies the white-space of a table if one found.
+Optional interactive prefix arg mark-fields specifies if the header row
 information is used to mark fields in the white-space.
 
-emacspeak-tapestry-describe-tapestry	Key Sequence: control e meta t
-===================================================================
+emacspeak-tapestry-describe-tapestry===================================
 
-   Describe the current layout of visible buffers in current frame.
+   control e meta t Describe the current layout of visible buffers in
+current frame.
 
-emacspeak-tar-speak-file-date No global keybinding
-==================================================
+emacspeak-tar-speak-file-date============================
+
+   No global keybinding
 
    Speak date of file current entry
 
-emacspeak-tar-speak-file-permissions No global keybinding
-=========================================================
+emacspeak-tar-speak-file-permissions===================================
+
+   No global keybinding
 
    Speak permissions of file current entry
 
-emacspeak-tar-speak-file-size No global keybinding
-==================================================
+emacspeak-tar-speak-file-size============================
+
+   No global keybinding
 
    Speak size of file current entry
 
-emacspeak-tetris-goto-bottom-row No global keybinding
-=====================================================
+emacspeak-tetris-goto-bottom-row===============================
+
+   No global keybinding
 
    Move to and speak bottom row
 
-emacspeak-tetris-goto-top-row No global keybinding
-==================================================
+emacspeak-tetris-goto-top-row============================
+
+   No global keybinding
 
    Move to and speak the top row
 
-emacspeak-tetris-speak-column No global keybinding
-==================================================
+emacspeak-tetris-speak-column============================
+
+   No global keybinding
 
    Speak  column -default is to speak current column
 
-emacspeak-tetris-speak-coordinates No global keybinding
-=======================================================
+emacspeak-tetris-speak-coordinates=================================
+
+   No global keybinding
 
    Speak current position
 
-emacspeak-tetris-speak-current-shape No global keybinding
-=========================================================
+emacspeak-tetris-speak-current-shape===================================
+
+   No global keybinding
 
    Speak current shape
 
-emacspeak-tetris-speak-current-shape-and-coordinates No global keybinding
-=========================================================================
+emacspeak-tetris-speak-current-shape-and-coordinates===================================================
+
+   No global keybinding
 
    Speak shape orientation and coordinates
 
-emacspeak-tetris-speak-next-shape No global keybinding
-======================================================
+emacspeak-tetris-speak-next-shape================================
+
+   No global keybinding
 
    Speak next shape
 
-emacspeak-tetris-speak-row No global keybinding
-===============================================
+emacspeak-tetris-speak-row=========================
+
+   No global keybinding
 
    Speak current tetris row
 
-emacspeak-tetris-speak-row-number No global keybinding
-======================================================
+emacspeak-tetris-speak-row-number================================
+
+   No global keybinding
 
    Speak where on the tetris board we are
 
-emacspeak-tetris-speak-score No global keybinding
-=================================================
+emacspeak-tetris-speak-score===========================
+
+   No global keybinding
 
    Speak the score
 
-emacspeak-tetris-speak-x-coordinate No global keybinding
-========================================================
+emacspeak-tetris-speak-x-coordinate==================================
+
+   No global keybinding
 
    Speak current position
 
-emacspeak-toggle-action-mode No global keybinding
-=================================================
+emacspeak-toggle-action-mode===========================
+
+   No global keybinding
 
    Toggle state of  Emacspeak  action mode.  Interactive PREFIX arg
 means toggle  the global default value, and then set the current local
 value to the result.
 
-emacspeak-toggle-audio-indentation	Key Sequence: control e d i
-==============================================================
+emacspeak-toggle-audio-indentation=================================
 
-   Toggle state of  Emacspeak  audio indentation.  Interactive PREFIX
-arg means toggle  the global default value, and then set the current
-local  value to the result.  Specifying the method of indentation as
-`tones' results in the Dectalk producing a tone whose length is a
-function of the line's indentation.  Specifying `speak' results in the
-number of initial spaces being spoken.
+   control e d i Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then
+set the current local  value to the result.  Specifying the method of
+indentation as `tones' results in the Dectalk producing a tone whose
+length is a function of the line's indentation.  Specifying `speak'
+results in the number of initial spaces being spoken.
 
-emacspeak-toggle-auditory-icons	Key Sequence: control e control a
-=================================================================
+emacspeak-toggle-auditory-icons==============================
 
-   Toggle use of auditory icons.  Optional interactive PREFIX arg
-toggles global value.
+   control e control a Toggle use of auditory icons.  Optional
+interactive PREFIX arg toggles global value.
 
-emacspeak-toggle-character-echo	Key Sequence: control e d k
-===========================================================
+emacspeak-toggle-character-echo==============================
 
-   Toggle state of  Emacspeak  character echo.  Interactive PREFIX arg
-means toggle  the global default value, and then set the current local
-value to the result.
+   control e d k Toggle state of  Emacspeak  character echo.
+Interactive PREFIX arg means toggle  the global default value, and then
+set the current local  value to the result.
 
-emacspeak-toggle-comint-autospeak	Key Sequence: control e control q
-===================================================================
+emacspeak-toggle-comint-autospeak================================
 
-   Toggle state of Emacspeak comint autospeak.  When turned on, comint
-output is automatically spoken.  Turn this on if you want your shell to
-speak its results.  Interactive PREFIX arg means toggle the global
-default value, and then set the current local value to the result.
+   control e control q Toggle state of Emacspeak comint autospeak.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive PREFIX arg means
+toggle the global default value, and then set the current local value
+to the result.
 
-emacspeak-toggle-comint-output-monitor	Key Sequence: control e o
-================================================================
+emacspeak-toggle-comint-output-monitor=====================================
 
-   Toggle state of Emacspeak comint monitor.  When turned on, comint
-output is automatically spoken.  Turn this on if you want your shell to
-speak its results.  Interactive PREFIX arg means toggle the global
-default value, and then set the current local value to the result.
+   control e o Toggle state of Emacspeak comint monitor.  When turned
+on, comint output is automatically spoken.  Turn this on if you want
+your shell to speak its results.  Interactive PREFIX arg means toggle
+the global default value, and then set the current local value to the
+result.
 
-emacspeak-toggle-eterm-autospeak No global keybinding
-=====================================================
+emacspeak-toggle-eterm-autospeak===============================
+
+   No global keybinding
 
    Toggle state of eterm autospeak.  When eterm autospeak is turned on
 and the terminal is in line mode, all output to the terminal is
@@ -2576,162 +2736,166 @@ automatically spoken.    Interactive prefix arg means toggle  the
 global default value, and then set the   current local  value to the
 result.
 
-emacspeak-toggle-line-echo	Key Sequence: control e d l
-======================================================
+emacspeak-toggle-line-echo=========================
 
-   Toggle state of  Emacspeak  line echo.  Interactive PREFIX arg means
-toggle  the global default value, and then set the current local  value
-to the result.
+   control e d l Toggle state of  Emacspeak  line echo.  Interactive
+PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
 
-emacspeak-toggle-mail-alert	Key Sequence: control e meta m
-==========================================================
+emacspeak-toggle-mail-alert==========================
 
-   Toggle state of  Emacspeak  mail alert.  Interactive PREFIX arg
-means toggle  the global default value, and then set the current local
-value to the result.  Turning on this option results in Emacspeak
-producing an auditory icon indicating the arrival  of new mail when
-displaying the mode line.
+   control e meta m Toggle state of  Emacspeak  mail alert.
+Interactive PREFIX arg means toggle  the global default value, and then
+set the current local  value to the result.  Turning on this option
+results in Emacspeak producing an auditory icon indicating the arrival
+of new mail when displaying the mode line.
 
-emacspeak-toggle-show-point	Key Sequence: control e control d
-=============================================================
+emacspeak-toggle-show-point==========================
 
-   Toggle state of  Emacspeak-show-point.  Interactive PREFIX arg means
-toggle  the global default value, and then set the current local  value
-to the result.
+   control e control d Toggle state of  Emacspeak-show-point.
+Interactive PREFIX arg means toggle  the global default value, and then
+set the current local  value to the result.
 
-emacspeak-toggle-speak-messages	Key Sequence: control e q
-=========================================================
+emacspeak-toggle-speak-messages==============================
 
-   Toggle the state of whether emacspeak echoes messages.
+   control e q Toggle the state of whether emacspeak echoes messages.
 
-emacspeak-toggle-which-function	Key Sequence: control e meta w
-==============================================================
+emacspeak-toggle-which-function==============================
 
-   Toggle state of  Emacspeak  which function mode.  Interactive PREFIX
-arg means toggle  the global default value, and then set the current
-local  value to the result.
+   control e meta w Toggle state of  Emacspeak  which function mode.
+Interactive PREFIX arg means toggle  the global default value, and then
+set the current local  value to the result.
 
-emacspeak-toggle-word-echo	Key Sequence: control e d w
-======================================================
+emacspeak-toggle-word-echo=========================
 
-   Toggle state of  Emacspeak  word echo.  Interactive PREFIX arg means
-toggle  the global default value, and then set the current local  value
-to the result.
+   control e d w Toggle state of  Emacspeak  word echo.  Interactive
+PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
 
-emacspeak-url-template-fetch	Key Sequence: control e u
-======================================================
+emacspeak-url-template-fetch===========================
 
-   Prompt for  URL template and fetch specified resource.
+   control e u Prompt for  URL template and fetch specified resource.
 
-emacspeak-url-template-load No global keybinding
-================================================
+emacspeak-url-template-load==========================
+
+   No global keybinding
 
    Load URL template resources from specified location.
 
-emacspeak-url-template-save No global keybinding
-================================================
+emacspeak-url-template-save==========================
+
+   No global keybinding
 
    Save out url templates.
 
-emacspeak-use-customized-blink-paren No global keybinding
-=========================================================
+emacspeak-use-customized-blink-paren===================================
+
+   No global keybinding
 
    A customized blink-paren to speak  matching opening paren.  We need
 to call this in case Emacs is anal and loads its own builtin
 blink-paren function which does not talk.
 
-emacspeak-view-emacspeak-doc	Key Sequence: control e  cap D
-===========================================================
+emacspeak-view-emacspeak-doc===========================
 
-   Display a summary of all Emacspeak commands.
+   control e  cap D Display a summary of all Emacspeak commands.
 
-emacspeak-view-emacspeak-faq	Key Sequence: control e  cap F
-===========================================================
+emacspeak-view-emacspeak-faq===========================
 
-   Browse the Emacspeak FAQ.
+   control e  cap F Browse the Emacspeak FAQ.
 
-emacspeak-view-emacspeak-news	Key Sequence: control e  cap N
-============================================================
+emacspeak-view-emacspeak-news============================
 
-   Display info on recent change to Emacspeak.
+   control e  cap N Display info on recent change to Emacspeak.
 
-emacspeak-view-emacspeak-tips	Key Sequence: control e  cap T
-============================================================
+emacspeak-view-emacspeak-tips============================
 
-   Browse  Emacspeak productivity tips.
+   control e  cap T Browse  Emacspeak productivity tips.
 
-emacspeak-view-line-to-top No global keybinding
-===============================================
+emacspeak-view-line-to-top=========================
+
+   No global keybinding
 
    Moves current line to top of window
 
-emacspeak-view-process-goto-current-field-next-line No global keybinding
-========================================================================
+emacspeak-view-process-goto-current-field-next-line==================================================
+
+   No global keybinding
 
    Set point to the current field in the next line.
 
-emacspeak-view-process-speak-current-field No global keybinding
-===============================================================
+emacspeak-view-process-speak-current-field=========================================
+
+   No global keybinding
 
    Speak current field
 
-emacspeak-view-register	Key Sequence: control e v
-=================================================
+emacspeak-view-register======================
 
-   Display the contents of a register, and then speak it.
+   control e v Display the contents of a register, and then speak it.
 
-emacspeak-vm-browse-message No global keybinding
-================================================
+emacspeak-vm-browse-message==========================
+
+   No global keybinding
 
    Browse an email message -read it paragraph at a time.
 
-emacspeak-vm-locate-subject-line No global keybinding
-=====================================================
+emacspeak-vm-locate-subject-line===============================
+
+   No global keybinding
 
    Locates the subject line in a message being read.  Useful when
 you're reading a message that has been forwarded multiple times.
 
-emacspeak-vm-mode-line No global keybinding
-===========================================
+emacspeak-vm-mode-line=====================
+
+   No global keybinding
 
    VM mode line information.
 
-emacspeak-vm-speak-labels No global keybinding
-==============================================
+emacspeak-vm-speak-labels========================
+
+   No global keybinding
 
    Speak a message's labels
 
-emacspeak-voicify-rectangle No global keybinding
-================================================
+emacspeak-voicify-rectangle==========================
+
+   No global keybinding
 
    Voicify the current rectangle.  When calling from a
 program,arguments are START END personality Prompts for PERSONALITY
 with completion when called interactively.
 
-emacspeak-voicify-region No global keybinding
-=============================================
+emacspeak-voicify-region=======================
+
+   No global keybinding
 
    Voicify the current region.  When calling from a program,arguments
 are START END personality.  Prompts for PERSONALITY  with completion
 when called interactively.
 
-emacspeak-w3-do-onclick No global keybinding
-============================================
+emacspeak-w3-do-onclick======================
+
+   No global keybinding
 
    Do  onclick action.
 
-emacspeak-w3-javascript-follow-link No global keybinding
-========================================================
+emacspeak-w3-javascript-follow-link==================================
+
+   No global keybinding
 
    Follow URL hidden inside a javascript link
 
-emacspeak-w3-jump-to-title-in-content No global keybinding
-==========================================================
+emacspeak-w3-jump-to-title-in-content====================================
+
+   No global keybinding
 
    Jumps to the occurrence of document title in page body.
 
-emacspeak-w3-lynx-url-under-point No global keybinding
-======================================================
+emacspeak-w3-lynx-url-under-point================================
+
+   No global keybinding
 
    Display contents of URL under point using LYNX.  The document is
 displayed in a separate buffer. Note that the hyperlinks in that
@@ -2739,40 +2903,47 @@ display are not active- this facility is present only to help me iron
 out the remaining problems with the table structure extraction code in
 W3.
 
-emacspeak-w3-next-doc-element No global keybinding
-==================================================
+emacspeak-w3-next-doc-element============================
+
+   No global keybinding
 
    Move forward  to the next document element.  Optional interactive
 prefix argument COUNT specifies by how many eleemnts to move.
 
-emacspeak-w3-previous-doc-element No global keybinding
-======================================================
+emacspeak-w3-previous-doc-element================================
+
+   No global keybinding
 
    Move back  to the previous document element.  Optional interactive
 prefix argument COUNT specifies by how many eleemnts to move.
 
-emacspeak-w3-show-anchor-class No global keybinding
-===================================================
+emacspeak-w3-show-anchor-class=============================
+
+   No global keybinding
 
    Display any class attributes set on corresponding anchor element.
 
-emacspeak-w3-speak-next-element No global keybinding
-====================================================
+emacspeak-w3-speak-next-element==============================
+
+   No global keybinding
 
    Speak next document element.
 
-emacspeak-w3-speak-this-element No global keybinding
-====================================================
+emacspeak-w3-speak-this-element==============================
+
+   No global keybinding
 
    Speak document element under point.
 
-emacspeak-w3-toggle-table-borders No global keybinding
-======================================================
+emacspeak-w3-toggle-table-borders================================
+
+   No global keybinding
 
    Toggle drawing of W3 table borders
 
-emacspeak-w3-url-rewrite-and-follow No global keybinding
-========================================================
+emacspeak-w3-url-rewrite-and-follow==================================
+
+   No global keybinding
 
    Apply a url rewrite rule as specified in the current buffer before
 following link under point.  If no rewrite rule is defined, first
@@ -2783,54 +2954,64 @@ Rewrite rules are useful in jumping directly to the printer friendly
 version of an article for example.  Optional interactive prefix arg
 prompts for a rewrite rule even if one is already defined.
 
-emacspeak-websearch-alltheweb-search No global keybinding
-=========================================================
+emacspeak-websearch-alltheweb-search===================================
+
+   No global keybinding
 
    Perform an AllTheWeb  search.  Optional prefix arg prompts for type
 of search: -use `all' `phrase' or  `any' to specify the type of search.
 
-emacspeak-websearch-altavista-search No global keybinding
-=========================================================
+emacspeak-websearch-altavista-search===================================
+
+   No global keybinding
 
    Perform an Altavista search
 
-emacspeak-websearch-appwatch-search No global keybinding
-========================================================
+emacspeak-websearch-appwatch-search==================================
+
+   No global keybinding
 
    Search AppWatch  Site.
 
-emacspeak-websearch-ask-jeeves No global keybinding
-===================================================
+emacspeak-websearch-ask-jeeves=============================
+
+   No global keybinding
 
    Ask Jeeves for the answer.
 
-emacspeak-websearch-bbc-search No global keybinding
-===================================================
+emacspeak-websearch-bbc-search=============================
+
+   No global keybinding
 
    Search BBC archives.
 
-emacspeak-websearch-biblio-search No global keybinding
-======================================================
+emacspeak-websearch-biblio-search================================
+
+   No global keybinding
 
    Search Computer Science Bibliographies.
 
-emacspeak-websearch-blue-pages No global keybinding
-===================================================
+emacspeak-websearch-blue-pages=============================
+
+   No global keybinding
 
    Search IBM Blue Pages
 
-emacspeak-websearch-britannica-search No global keybinding
-==========================================================
+emacspeak-websearch-britannica-search====================================
+
+   No global keybinding
 
    Search Encyclopedia Britannica.
 
-emacspeak-websearch-citeseer-search No global keybinding
-========================================================
+emacspeak-websearch-citeseer-search==================================
+
+   No global keybinding
 
    Perform a CiteSeer search.
 
-emacspeak-websearch-cnn-search No global keybinding
-===================================================
+emacspeak-websearch-cnn-search=============================
+
+   No global keybinding
 
    Perform an CNN search.  Optional interactive prefix arg prompts for
 additional search parameters.  The default is to sort by date and show
@@ -2839,38 +3020,42 @@ To hide summaries, specify additional parameter &lk=2.  You can
 customize the defaults by setting variable
 emacspeak-websearch-cnn-options to an appropriate string.
 
-emacspeak-websearch-company-news No global keybinding
-=====================================================
+emacspeak-websearch-company-news===============================
+
+   No global keybinding
 
    Perform an company news lookup.  Retrieves company news, research,
 profile, insider trades,  or upgrades/downgrades.
 
-emacspeak-websearch-cpan-search No global keybinding
-====================================================
+emacspeak-websearch-cpan-search==============================
+
+   No global keybinding
 
    Search CPAN  Comprehensive Perl Archive Network   Site.
 
-emacspeak-websearch-ctan-search No global keybinding
-====================================================
+emacspeak-websearch-ctan-search==============================
+
+   No global keybinding
 
    Search CTAN Comprehensive TeX Archive Network   Site.
 
-emacspeak-websearch-dejanews-search No global keybinding
-========================================================
+emacspeak-websearch-dejanews-search==================================
+
+   No global keybinding
 
    Perform a Dejanews search
 
-emacspeak-websearch-dictionary-hypertext-webster-search No global keybinding
-============================================================================
+emacspeak-websearch-dictionary-hypertext-webster-search======================================================
+
+   No global keybinding
 
    Search the Webster Dictionary.
 
-emacspeak-websearch-dispatch	Key Sequence: control e ?
-======================================================
+emacspeak-websearch-dispatch===========================
 
-   Launches specific websearch queries.  Search engine is selected by
-keystrokes listed below.  Once selected, the selected searcher prompts
-for additional information as appropriate.
+   control e ?  Launches specific websearch queries.  Search engine is
+selected by keystrokes listed below.  Once selected, the selected
+searcher prompts for additional information as appropriate.
 
    Key     Engine              Search a       AltaVista
  AltaVista Simple Search Cap A     AllTheWeb                   All The
@@ -2906,14 +3091,14 @@ Master Yahoo Index
    When using W3,  this interface attempts to speak the most relevant
 information on the result page.
 
-emacspeak-websearch-emacspeak-archive	Key Sequence: control h e
-===============================================================
+emacspeak-websearch-emacspeak-archive====================================
 
-   Search Emacspeak mail archives.  For example to find messages about
-Redhat at the Emacspeak archives, type +redhat
+   control h e Search Emacspeak mail archives.  For example to find
+messages about Redhat at the Emacspeak archives, type +redhat
 
-emacspeak-websearch-fn-cnn-search No global keybinding
-======================================================
+emacspeak-websearch-fn-cnn-search================================
+
+   No global keybinding
 
    Perform an CNN FNsearch.  Optional interactive prefix arg prompts
 for additional search parameters.  The default is to sort by date and
@@ -2922,28 +3107,33 @@ show summaries.  To sort by relevance specify additional parameter
 customize the defaults by setting variable
 emacspeak-websearch-fn-cnn-options to an appropriate string.
 
-emacspeak-websearch-foldoc-search No global keybinding
-======================================================
+emacspeak-websearch-foldoc-search================================
+
+   No global keybinding
 
    Perform a FolDoc search.
 
-emacspeak-websearch-freshmeat-search No global keybinding
-=========================================================
+emacspeak-websearch-freshmeat-search===================================
+
+   No global keybinding
 
    Search Freshmeat  Site.
 
-emacspeak-websearch-google No global keybinding
-===============================================
+emacspeak-websearch-google=========================
+
+   No global keybinding
 
    Perform an Google search
 
-emacspeak-websearch-gutenberg No global keybinding
-==================================================
+emacspeak-websearch-gutenberg============================
+
+   No global keybinding
 
    Perform an Gutenberg search
 
-emacspeak-websearch-hotbot-search No global keybinding
-======================================================
+emacspeak-websearch-hotbot-search================================
+
+   No global keybinding
 
    Perform a Hotbot  search.  Optional interactive prefix arg prompts
 for additional search parameters.  The default is to sort by date and
@@ -2952,59 +3142,70 @@ show summaries.  To sort by relevance specify additional parameter
 customize the defaults by setting variable
 emacspeak-websearch-hotbot-options to an appropriate string.
 
-emacspeak-websearch-inference-search No global keybinding
-=========================================================
+emacspeak-websearch-inference-search===================================
+
+   No global keybinding
 
    Perform an Inference search.
 
-emacspeak-websearch-kerbango-search No global keybinding
-========================================================
+emacspeak-websearch-kerbango-search==================================
+
+   No global keybinding
 
    Search Kerbango radio tuner.
 
-emacspeak-websearch-machine-translate No global keybinding
-==========================================================
+emacspeak-websearch-machine-translate====================================
+
+   No global keybinding
 
    Perform a machine translation request
 
-emacspeak-websearch-map-directions-search No global keybinding
-==============================================================
+emacspeak-websearch-map-directions-search========================================
+
+   No global keybinding
 
    Get driving directions from Yahoo.  With optional interactive prefix
 arg MAP shows the location map instead.
 
-emacspeak-websearch-merriam-webster-search No global keybinding
-===============================================================
+emacspeak-websearch-merriam-webster-search=========================================
+
+   No global keybinding
 
    Search the Merriam Webster Dictionary.
 
-emacspeak-websearch-news-yahoo No global keybinding
-===================================================
+emacspeak-websearch-news-yahoo=============================
+
+   No global keybinding
 
    Perform an Yahoo News search
 
-emacspeak-websearch-northern-light No global keybinding
-=======================================================
+emacspeak-websearch-northern-light=================================
+
+   No global keybinding
 
    Perform a Northern Light  search
 
-emacspeak-websearch-open-directory-search No global keybinding
-==============================================================
+emacspeak-websearch-open-directory-search========================================
+
+   No global keybinding
 
    Perform an Open Directory search
 
-emacspeak-websearch-packages-linux No global keybinding
-=======================================================
+emacspeak-websearch-packages-linux=================================
+
+   No global keybinding
 
    Search for Linux packages.
 
-emacspeak-websearch-people-yahoo No global keybinding
-=====================================================
+emacspeak-websearch-people-yahoo===============================
+
+   No global keybinding
 
    Perform an Yahoo  people search
 
-emacspeak-websearch-quotes-yahoo-search No global keybinding
-============================================================
+emacspeak-websearch-quotes-yahoo-search======================================
+
+   No global keybinding
 
    Perform a Quotes Yahoo .  Default tickers to look up is taken from
 variable emacspeak-websearch-personal-portfolio.  Default is to present
@@ -3013,131 +3214,150 @@ prefix arg causes data to be displayed y W3 as a WWW page.  You can
 customize the defaults by setting variable
 emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
-emacspeak-websearch-redhat No global keybinding
-===============================================
+emacspeak-websearch-redhat=========================
+
+   No global keybinding
 
    Search RedHat site.
 
-emacspeak-websearch-rfb-search No global keybinding
-===================================================
+emacspeak-websearch-rfb-search=============================
+
+   No global keybinding
 
    Search RFB&D catalog.
 
-emacspeak-websearch-rpm-find No global keybinding
-=================================================
+emacspeak-websearch-rpm-find===========================
+
+   No global keybinding
 
    Search RPM  catalog  site.
 
-emacspeak-websearch-software-search No global keybinding
-========================================================
+emacspeak-websearch-software-search==================================
+
+   No global keybinding
 
    Search SourceForge, Freshmeat and other sites.
 
-emacspeak-websearch-sourceforge-search No global keybinding
-===========================================================
+emacspeak-websearch-sourceforge-search=====================================
+
+   No global keybinding
 
    Search SourceForge Site.
 
-emacspeak-websearch-usenet-altavista-search No global keybinding
-================================================================
+emacspeak-websearch-usenet-altavista-search==========================================
+
+   No global keybinding
 
    Perform a Usenet  Altavista search
 
-emacspeak-websearch-vector-vest-search No global keybinding
-===========================================================
+emacspeak-websearch-vector-vest-search=====================================
+
+   No global keybinding
 
    Look up VectorVest reports .
 
-emacspeak-websearch-vickers-search No global keybinding
-=======================================================
+emacspeak-websearch-vickers-search=================================
+
+   No global keybinding
 
    Search Vickers insider trading.
 
-emacspeak-websearch-w3c-search No global keybinding
-===================================================
+emacspeak-websearch-w3c-search=============================
+
+   No global keybinding
 
    Search the W3C Site.
 
-emacspeak-websearch-weather No global keybinding
-================================================
+emacspeak-websearch-weather==========================
+
+   No global keybinding
 
    Get weather forecast for specified zip code.
 
-emacspeak-websearch-yahoo No global keybinding
-==============================================
+emacspeak-websearch-yahoo========================
+
+   No global keybinding
 
    Perform an Yahoo  search
 
-emacspeak-websearch-yahoo-historical-chart No global keybinding
-===============================================================
+emacspeak-websearch-yahoo-historical-chart=========================================
+
+   No global keybinding
 
    Look up historical stock data.  Optional second arg data processes
 the results as data rather than HTML.
 
-emacspeak-widget-browse-widget-interactively No global keybinding
-=================================================================
+emacspeak-widget-browse-widget-interactively===========================================
+
+   No global keybinding
 
    Allows you to browse a widget
 
-emacspeak-widget-help No global keybinding
-==========================================
+emacspeak-widget-help====================
+
+   No global keybinding
 
    Speak help for widget under point.
 
-emacspeak-widget-summarize-parent No global keybinding
-======================================================
+emacspeak-widget-summarize-parent================================
+
+   No global keybinding
 
    Summarize parent of widget at point.
 
-emacspeak-widget-summarize-widget-under-point No global keybinding
-==================================================================
+emacspeak-widget-summarize-widget-under-point============================================
+
+   No global keybinding
 
    Summarize a widget if any under point.  Optional interactive prefix
 specifies how many levels to go up from current widget before
 summarizing.
 
-emacspeak-widget-update-from-minibuffer No global keybinding
-============================================================
+emacspeak-widget-update-from-minibuffer======================================
+
+   No global keybinding
 
    Sets widget at point by invoking its prompter.
 
-emacspeak-wizard-get-table-content-from-file No global keybinding
-=================================================================
+emacspeak-wizard-get-table-content-from-file===========================================
+
+   No global keybinding
 
    Extract table specified by depth and count from HTML content at file.
 Extracted content is placed as a csv file in task.csv.
 
-emacspeak-wizard-get-table-content-from-url No global keybinding
-================================================================
+emacspeak-wizard-get-table-content-from-url==========================================
+
+   No global keybinding
 
    Extract table specified by depth and count from HTML content at URL.
 Extracted content is placed as a csv file in task.csv.
 
-emacspeak-xml-browse-mode No global keybinding
-==============================================
+emacspeak-xml-browse-mode========================
+
+   No global keybinding
 
    Mode for browsing XML documents.
 
    Uses keymap "emacspeak-xml-browse-mode", which is not currently
 defined.
 
-emacspeak-zap-tts	Key Sequence: control e d z
-=============================================
+emacspeak-zap-tts================
 
-   Send this command to the TTS directly.
+   control e d z Send this command to the TTS directly.
 
-quotes-setup-emacspeak-portfolio No global keybinding
-=====================================================
+quotes-setup-emacspeak-portfolio===============================
+
+   No global keybinding
 
    Set up variable emacspeak-websearch-personal-portfolio.
 
-tts-restart	Key Sequence: control e control s
-=============================================
+tts-restart==========
 
-   Use this to nuke the currently running TTS server and restart it.
+   control e control s Use this to nuke the currently running TTS
+server and restart it.
 
-tts-show-debug-buffer	Key Sequence: control e d meta control b
-==============================================================
+tts-show-debug-buffer====================
 
-   Select TTS debugging buffer.
+   control e d meta control b Select TTS debugging buffer.
 
