@@ -193,10 +193,10 @@ the table structure extraction code in W3."
 15 is a bit aggressive, 5 pixels would be safer")
 
 (defvar w3-dummy-img-re
-  "\\(bullet\\|\\b\\(boule\\|dot\\|pebble[0-9]*[a-z]?[0-9]*\\|pixel\\)\\b\\)"
+  "\\(bullet\\|\\b\\(boule\\|dot\\|pebble[0-9]*[a-z]?[0-9]*\\|pixel\\)\\|\\(clear\\)\\b\\)"
   "Image name regexp for which the alt string is replaced by `w3-dummy-img-alt-repl'.")
 
-(defvar w3-dummy-img-alt-repl "@"
+(defvar w3-dummy-img-alt-repl " "
   "*Dummy img alt replacement")
 
 (declare (special  w3-auto-image-alt))
