@@ -13,8 +13,10 @@
     <title>Tips And Tricks For The Emacspeak Audio Desktop
     </title>
     <abstract>
-      This document is a collection of tips for using the
-      Emacspeak audio desktop.
+      <para>
+        This document is a collection of tips for using the
+        Emacspeak audio desktop.
+      </para>
     </abstract>
   </articleinfo>
   
@@ -24,89 +26,87 @@
       <title>Online Help</title>
       <qandaentry>
         <question>
-          Learning online hypertext help system.
+          <para>
+            Learning online hypertext help system.</para>
         </question>
         <answer>
           <para>
             Invoke the online hypertext help system by pressing 
-            <emphasis><keycombo moreinfo="none"> C-h i
-              </keycombo> </emphasis>.
+            <emphasis><keycap> C-h i
+              </keycap> </emphasis>.
             Press <emphasis><keycap
-                                    moreinfo="none">h</keycap></emphasis>
+                                    >h</keycap></emphasis>
             when using the <application
-                                        moreinfo="none">Info System</application> 
+                                        >Info System</application> 
             to obtain a primer for first time users.
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
-Opening info page that documents command invoked by a given key.
+          <para>
+            Opening info page that documents command invoked by a given key.</para>
         </question>
         <answer>
           <para>
-            Press <emphasis><keycombo moreinfo="none"> C-h
-            C-k              </keycombo> </emphasis>
-followed by the key whose documentation you wish to locate.
-</para>
+            Press <emphasis><keycap> C-h
+                C-k              </keycap> </emphasis>
+            followed by the key whose documentation you wish to locate.
+          </para>
         </answer>
       </qandaentry>
     </qandadiv>
-
     <qandadiv>
       <title>Files And Folders</title>
       <qandaentry>
         <question>
-Working on files and folders.
+          <para>
+            Working on files and folders.</para>
         </question>
         <answer>
           <para>
             Use command <command
-            moreinfo="none">dired</command>
+                                 >dired</command>
             (directory editor) normally bound to
-            <emphasis><keycombo moreinfo="none">
-C-x d              </keycombo>
-</emphasis> to operate on files and folders.
-</para>
+            <emphasis><keycap>
+                C-x d              </keycap>
+            </emphasis> to operate on files and folders.
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
-          Locating files.
+          <para>Locating files.</para>
         </question>
         <answer>
           <para>
-            Use <command moreinfo="none">locate</command>
+            Use <command>locate</command>
             and <command
-            moreinfo="none">locate-with-filter</command> to
+                         >locate-with-filter</command> to
             find files and folders on your hard drive.
             Matching files and folders are displayed using
             the same interface as provided by command
-            <command moreinfo="none">dired</command>.  These
+            <command>dired</command>.  These
             commands use the <database
-            moreinfo="none">locate database</database> that
+                                       >locate database</database> that
             is typically rebuilt nightly on standard Linux
             systems.
-</para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
-          Using UNIX find from within Emacs.
+          <para>
+            Using UNIX find from within Emacs.</para>
         </question>
         <answer>
           <para>
-            Use commands
-             <command
-             moreinfo="none">find-name-dired</command>,
-            <command
-             moreinfo="none">find-grep-dired</command>
-            and <command
-             moreinfo="none">find-dired</command>
-            to use UNIX <application
-             moreinfo="none">find</application>
-to locate files and folders on your hard drive.
-</para>
+            Use commands <command
+                                  >find-name-dired</command>, <command>find-grep-dired</command> and
+            <command>find-dired</command> to use UNIX
+            <application>find</application> to locate files
+            and folders on your hard drive.
+          </para>
         </answer>
       </qandaentry>
     </qandadiv>
