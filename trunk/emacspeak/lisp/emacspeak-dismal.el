@@ -245,8 +245,10 @@ emacspeak-dismal-col-summarizer-list"
                 (cond
                  ((stringp token) token)
                  ((numberp token)
-                  (setq value (emacspeak-dismal-cell-value token
-                                                           dismal-current-col))
+                  (setq value
+                        (format "%s"
+                                (emacspeak-dismal-cell-value token
+                                                           dismal-current-col)))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
@@ -254,9 +256,11 @@ emacspeak-dismal-col-summarizer-list"
                  ((and (listp token)
                        (numberp (first token))
                        (numberp (second token )))
-                  (setq value (emacspeak-dismal-cell-value
+                  (setq value
+                        (format "%s"
+                                (emacspeak-dismal-cell-value
                                (first token)
-                               (second token)))
+                               (second token))))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
