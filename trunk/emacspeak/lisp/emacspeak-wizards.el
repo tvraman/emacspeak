@@ -105,7 +105,7 @@
 navigate this document."
              emacspeak-version
              (or keys "outline mode features")))))
-
+;;;###autoload
 (defun emacspeak-view-emacspeak-doc ()
   "Display a summary of all Emacspeak commands."
   (interactive)
@@ -116,7 +116,7 @@ navigate this document."
   (view-mode t)
   (dtk-speak
    (format "Welcome to a summary of Emacspeak commands")))
-
+;;;###autoload
 (defun emacspeak-view-emacspeak-tips ()
   "Browse  Emacspeak productivity tips."
   (interactive)
@@ -126,7 +126,7 @@ navigate this document."
            emacspeak-etc-directory))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
-
+;;;###autoload
 (defun emacspeak-view-emacspeak-faq ()
   "Browse the Emacspeak FAQ."
   (interactive)
@@ -163,7 +163,7 @@ navigate this document."
 
 (make-variable-buffer-local
  'emacspeak-copy-associated-location)
-
+;;;###autoload
 (defun emacspeak-copy-current-file ()
   "Copy file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -201,7 +201,7 @@ Prompts for the new location and preserves modification time
      )
     (emacspeak-auditory-icon 'select-object)
     (message "Copied current document to %s" location)))
-
+;;;###autoload
 (defun emacspeak-link-current-file ()
   "Link (hard link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -234,7 +234,7 @@ Prompts for the new location and preserves modification time
      file location)
     (emacspeak-auditory-icon 'select-object)
     (message "Linked current document to %s" location)))
-
+;;;###autoload
 (defun emacspeak-symlink-current-file ()
   "Link (symbolic link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -273,7 +273,7 @@ Prompts for the new location and preserves modification time
 
 (defvar emacspeak-speak-run-shell-command-history nil
   "Records history of commands used so far.")
-
+;;;###autoload
 (defun emacspeak-speak-run-shell-command (command &optional as-root)
   "Invoke shell COMMAND and display its output as a table.  The results
 are placed in a buffer in Emacspeak's table browsing mode.  Optional
@@ -331,7 +331,7 @@ directory specific settings."
   (declare (special emacspeak-speak-directory-settings))
   (concat default-directory
           emacspeak-speak-directory-settings))
-
+;;;###autoload
 (defun emacspeak-speak-load-directory-settings ()
   "Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
@@ -349,7 +349,7 @@ settings? "))
         (error (message "Error loading settings %s" settings))))))
 
 ;;}}}
-;;{{{ linux howtos
+;;;###autoload;;{{{ linux howtos
 (defun emacspeak-speak-browse-linux-howto (howto)
   "Browse a Linux Howto file.
 We cleanup underlining, and set up outline mode correctly."
@@ -398,7 +398,7 @@ howto document.")))
 
 (defvar emacspeak-popup-messages-config-0 nil
   "Memoizes window configuration.")
-
+;;;###autoload
 (defun emacspeak-speak-popup-messages ()
   "Pop up messages buffer.
 If it is already selected then hide it and try to restore
@@ -428,7 +428,7 @@ previous window configuration."
     (emacspeak-speak-line))))
 
 ;;}}}
-;;{{{ Show active network interfaces
+;;;###autoload;;{{{ Show active network interfaces
 (defun emacspeak-speak-hostname ()
   "Speak host name."
   (interactive)
@@ -452,7 +452,7 @@ previous window configuration."
 (defvar emacspeak-speak-network-interfaces-list
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
   "Used whne prompting for an interface to query.")
-
+;;;###autoload
 (defun emacspeak-speak-show-active-network-interfaces
   (&optional address)
   "Shows all active network interfaces in the echo area.
@@ -494,7 +494,7 @@ This is just a text file, and we use grep to search it."
 directory."
   :group 'emacspeak-speak
   :type 'string)
-
+;;;###autoload
 (defun emacspeak-speak-telephone-directory (&optional edit)
   "Lookup and display a phone number.
 With prefix arg, opens the phone book for editting."
@@ -523,7 +523,7 @@ With prefix arg, opens the phone book for editting."
 (defvar emacspeak-wizards-root-buffer 
   "*root*"
   "Name of buffer where we run as root.")
-
+;;;###autoload
 (defun emacspeak-root (&optional cd)
   "Start a root shell or switch to one that already exists.
 Optional interactive prefix arg `cd' executes cd
@@ -568,7 +568,7 @@ default-directory after switching."
         (insert (format "pushd %s" dir))
         (comint-send-input)
         (shell-process-cd dir)))))
-
+;;;###autoload
 (defun emacspeak-sudo (command)
   "SUDo command --run command as super user."
   (interactive
@@ -602,7 +602,7 @@ default-directory after switching."
   "CVSROOT for emacspeak CVS repository at sourceforge."
   :type 'string
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-cvs-get-anonymous  ()
   "Get latest cvs snapshot of emacspeak."
   (interactive)
@@ -660,7 +660,7 @@ Typically %s is replaced by project name.")
  %s is replaced by the project name."
   :type 'string
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-cvs-sf-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from Sourceforge."
   (interactive
@@ -709,7 +709,7 @@ Typically %s is replaced by project name.")
                              project))))
       (set-process-sentinel cvs-process
                             'emacspeak-cvs-done-alert))))
-
+;;;###autoload
 (defun emacspeak-cvs-gnu-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from GNU."
   (interactive
@@ -761,7 +761,7 @@ Typically %s is replaced by project name.")
 
 ;;}}}
 ;;{{{  Learn mode
-
+;;;###autoload
 (defun emacspeak-learn-mode ()
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
@@ -807,7 +807,7 @@ To leave, press \\[keyboard-quit]."
                        (symbol-name b)))
                      (t nil)))))
     commands))
-
+;;;###autoload
 (defun emacspeak-generate-documentation (filename)
   "Generate docs for all emacspeak commands.
 Prompts for FILENAME in which to save the documentation.
@@ -870,7 +870,7 @@ end:\n\n")
     (while (re-search-forward "[{}@]" nil t)
       (replace-match "@\\&"))
     (buffer-string)))
-
+;;;###autoload
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
@@ -960,7 +960,7 @@ for commands defined in module  %s.\n\n"
 
 ;;}}}
 ;;{{{ labelled frames
-
+;;;###autoload
 (defsubst emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
   (interactive)
@@ -971,7 +971,7 @@ for commands defined in module  %s.\n\n"
                  frame-names-alist nil t nil 'frame-name-history)))
     (if (= (length input) 0)
         default
-      input)))
+;;;###autoload      input)))
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
   "Switch to labelled frame.
 With optional PREFIX argument, label current frame."
@@ -984,7 +984,7 @@ With optional PREFIX argument, label current frame."
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
-
+;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
   "Move to next buffer.
 With optional interactive prefix arg `frame', move to next frame instead."
@@ -998,7 +998,7 @@ With optional interactive prefix arg `frame', move to next frame instead."
     (bury-buffer)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-current-buffer-name))))
-
+;;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
   "Move to previous buffer.
 With optional interactive prefix arg `frame', move to previous frame instead."
@@ -1023,7 +1023,7 @@ With optional interactive prefix arg `frame', move to previous frame instead."
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
-
+;;;###autoload
 (defun emacspeak-speak-this-buffer-other-window-display (&optional arg)
   "Speak this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
@@ -1057,7 +1057,7 @@ the display to speak."
         (emacspeak-speak-region
          (window-point win)
          (window-end win))))))
-
+;;;###autoload
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -1068,7 +1068,7 @@ meaning of `previous'."
                         (current-buffer)
                         nil 'visible))))
     (emacspeak-speak-this-buffer-other-window-display (1-  count))))
-
+;;;###autoload
 (defun emacspeak-speak-this-buffer-next-display ()
   "Speak this buffer as displayed in a `previous' window.
 See documentation for command
@@ -1076,7 +1076,7 @@ See documentation for command
 meaning of `next'."
   (interactive)
   (emacspeak-speak-this-buffer-other-window-display  1))
-
+;;;###autoload
 (defun emacspeak-select-this-buffer-other-window-display (&optional arg)
   "Switch  to this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
@@ -1108,7 +1108,7 @@ the display to select."
     (select-frame (window-frame win))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
-
+;;;###autoload
 (defun emacspeak-select-this-buffer-previous-display ()
   "Select this buffer as displayed in a `previous' window.
 See documentation for command
@@ -1119,7 +1119,7 @@ meaning of `previous'."
                         (current-buffer)
                         nil 'visible))))
     (emacspeak-select-this-buffer-other-window-display (1-  count))))
-
+;;;###autoload
 (defun emacspeak-select-this-buffer-next-display ()
   "Select this buffer as displayed in a `next' frame.
 See documentation for command
@@ -1145,7 +1145,7 @@ The emacspeak clipboard provides a convenient mechnaism for exchanging
 information between different Emacs sessions."
   :group 'emacspeak-speak
   :type 'string)
-
+;;;###autoload
 (defun emacspeak-clipboard-copy (start end &optional prompt)
   "Copy contents of the region to the emacspeak clipboard.
 Previous contents of the clipboard will be overwritten.  The Emacspeak
@@ -1177,7 +1177,7 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
-
+;;;###autoload
 (defun emacspeak-clipboard-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
@@ -1201,7 +1201,7 @@ the emacspeak table clipboard instead."
 
 ;;}}}
 ;;{{{ utilities
-
+;;;###autoload
 (defun emacspeak-wizards-show-list-variable (var)
   "Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
@@ -1229,7 +1229,7 @@ Argument VAR specifies variable whose value is to be displayed."
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
+;;;###autoload
 (defun emacspeak-speak-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
@@ -1269,7 +1269,7 @@ to get speech back using the reliable TTS server.
 It's useful to bind the above command to a convenient key."
   :type 'string
   :group 'emacspeak)
-
+;;;###autoload
 (defun emacspeak-emergency-tts-restart ()
   "For use in an emergency.
 Will start TTS engine specified by 
@@ -1280,7 +1280,7 @@ emacspeak-emergency-tts-server."
   (dtk-initialize))
 
 ;;}}}
-;;{{{ customization wizard
+;;;###autoload;;{{{ customization wizard
 (defun emacspeak-customize-personal-settings (file)
   "Create a customization buffer for browsing and updating
 personal customizations."
@@ -1316,7 +1316,7 @@ personal customizations."
     ("auditory-icon" . "auditory-icon")
     ("action" . "action"))
   "Properties emacspeak is interested in.")
-
+;;;###autoload
 (defun emacspeak-show-personality-at-point ()
   "Show value of property personality (and possibly face)
 at point."
@@ -1324,7 +1324,7 @@ at point."
   (let ((p (get-text-property (point) 'personality))
         (f (get-text-property (point) 'face)))
     (message "Personality %s Face %s"
-             p f )))
+;;;###autoload             p f )))
 (defun emacspeak-show-property-at-point (&optional property )
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
@@ -1351,7 +1351,7 @@ If no property is set, show a message and exit."
 
 ;;}}}
 ;;{{{  moving across blank lines
-
+;;;###autoload
 (defun emacspeak-skip-blank-lines-forward ()
   "Move forward across blank lines.
 The line under point is then spoken.
@@ -1387,7 +1387,7 @@ Signals end of buffer."
              (concat skipped
                      (thing-at-point 'line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
-
+;;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
   "Move backward  across blank lines.
 The line under point is   then spoken.
@@ -1424,7 +1424,7 @@ Signals beginning  of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
 
 ;;}}}
-;;{{{  launch lynx 
+;;;###autoload;;{{{  launch lynx 
 (defun emacspeak-links (url)
   "Launch links on  specified URL in a new terminal."
   (interactive
@@ -1446,7 +1446,7 @@ Signals beginning  of buffer."
                                    'right-stretch 'left-stretch)
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
-
+;;;###autoload
 (defun emacspeak-lynx (url)
   "Launch lynx on  specified URL in a new terminal."
   (interactive
@@ -1480,7 +1480,7 @@ Signals beginning  of buffer."
 (defvar emacspeak-wizards-table-content-extractor
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
-
+;;;###autoload
 (defun emacspeak-wizards-get-table-content-from-url (task url depth count )
   "Extract table specified by depth and count from HTML
 content at URL.
@@ -1503,7 +1503,7 @@ Extracted content is placed as a csv file in task.csv."
               depth count ))
     (emacspeak-table-find-csv-file output)
     (delete-file output)))
-
+;;;###autoload
 (defun emacspeak-wizards-get-table-content-from-file (task file depth count )
   "Extract table specified by depth and count from HTML
 content at file.
@@ -1565,7 +1565,7 @@ Extracted content is placed as a csv file in task.csv."
     (setq annotation (buffer-string))
     (bury-buffer)
     annotation))
-
+;;;###autoload
 (defun emacspeak-annotate-add-annotation (&optional reset)
   "Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
@@ -1603,7 +1603,7 @@ annotation is inserted into the working buffer when complete."
 ;;; inspired by eshell-toggle 
 ;;; switch to the shell buffer, and cd to the directory 
 ;;; that is the default-directory for the previously current
-;;; buffer.
+;;;###autoload;;; buffer.
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to 
  the directory of the current buffer."
@@ -1622,7 +1622,7 @@ annotation is inserted into the working buffer when complete."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{  run rpm -qi on current dired entry
+;;;###autoload;;{{{  run rpm -qi on current dired entry
 (defun emacspeak-wizards-rpm-query-in-dired ()
   "Run rpm -qi on current dired entry."
   (interactive)
@@ -1669,7 +1669,7 @@ Set this to nil if you do not want to use the XLHTML wizard."
 
 (defvar emacspeak-wizards-xl-preview-buffer nil
   "Records buffer displaying XL preview.")
-
+;;;###autoload
 (defun emacspeak-wizards-xl-display ()
   "Called to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
@@ -1720,7 +1720,7 @@ Set this to nil if you do not want to use the PPTHTML wizard."
 
 (defvar emacspeak-wizards-ppt-preview-buffer nil
   "Records buffer displaying PPT preview.")
-
+;;;###autoload
 (defun emacspeak-wizards-ppt-display ()
   "Called to set up preview of an PPT file.
 Assumes we are in a buffer visiting a .ppt file.
@@ -1760,7 +1760,7 @@ visiting the ppt file."
 this requires Perl module Finance::YahooQuote."
   :type 'file
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
   "Bring up detailed stock quotes for portfolio specified by 
 emacspeak-websearch-personal-portfolio."
@@ -1856,7 +1856,7 @@ emacspeak-websearch-personal-portfolio."
   (if (member switch emacspeak-wizards-find-switches-that-need-quoting)
       (format "'%s'" arg)
     arg))
-
+;;;###autoload
 (defun emacspeak-wizards-generate-finder   ()
   "Generate a widget-enabled finder wizard."
   (interactive)
@@ -1909,7 +1909,7 @@ emacspeak-websearch-personal-portfolio."
      (declare (special emacspeak-wizards-finder-args))
      (let ((value (widget-value widget)))
        (setq emacspeak-wizards-finder-args value)))))
-
+;;;###autoload
 (defun emacspeak-wizards-finder-find (directory)
   "Run find-dired on specified switches after prompting for the
 directory to where find is to be launched."
@@ -1934,7 +1934,7 @@ directory to where find is to be launched."
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ alternate between w3 and w3m
+;;;###autoload;;{{{ alternate between w3 and w3m
 (defun emacspeak-wizards-use-w3-or-w3m ()
   "Alternates between using W3 and W3M for browse-url."
   (interactive)
@@ -1952,7 +1952,7 @@ directory to where find is to be launched."
       (message "Restoring sanity by switching to W3."))))
 
 ;;}}}
-;;{{{ customize emacspeak
+;;;###autoload;;{{{ customize emacspeak
 (defun emacspeak-customize ()
   "Customize Emacspeak."
   (interactive)
@@ -1960,7 +1960,7 @@ directory to where find is to be launched."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-custom-goto-group))
 ;;}}}
-;;{{{ display environment variable
+;;;###autoload;;{{{ display environment variable
 (defun emacspeak-wizards-show-environment-vvariable (v)
   "Display value of specified environment variable."
   (interactive
@@ -1972,7 +1972,7 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{ squeeze blank lines in current buffer:
-
+;;;###autoload
 (defun emacspeak-wizards-squeeze-blanks (start end)
   "Squeeze multiple blank lines in current buffer."
   (interactive "r")
@@ -1982,7 +1982,7 @@ directory to where find is to be launched."
                            'replace))
 
 ;;}}}
-;;{{{  count slides in region: (LaTeX specific.
+;;;###autoload;;{{{  count slides in region: (LaTeX specific.
 (defun emacspeak-wizards-count-slides-in-region ()
   "Count slides starting from point."
   (interactive )
@@ -1995,7 +1995,7 @@ directory to where find is to be launched."
   "Regexp pattern used to identify header lines by command 
 emacspeak-wizards-occur-header-lines.")
 (make-variable-buffer-local 'emacspeak-occur-pattern)
-
+;;;###autoload
 (defun emacspeak-wizards-how-many-matches (prefix)
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
@@ -2013,7 +2013,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
     (let ((pattern  (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
       (how-many pattern)))))
-
+;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (prefix)
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
@@ -2037,7 +2037,7 @@ value of the file local pattern."
 
 ;;}}}
 ;;{{{   Switching buffers, killing buffers etc
-
+;;;###autoload
 (defun emacspeak-switch-to-previous-buffer  ()
   "Switch to most recently used interesting buffer."
   (interactive)
@@ -2045,7 +2045,7 @@ value of the file local pattern."
                      (current-buffer) 'visible-ok))
   (emacspeak-speak-mode-line )
   (emacspeak-auditory-icon 'select-object ))
-
+;;;###autoload
 (defun emacspeak-kill-buffer-quietly   ()
   "Kill current buffer without asking for confirmation."
   (interactive)
@@ -2061,7 +2061,7 @@ value of the file local pattern."
   "Default file extension  used when spotting words."
   :type 'string
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-wizards-spot-words (ext word)
   "Searches recursively in all files with extension `ext'
 for `word' and displays hits in a compilation buffer."
@@ -2078,7 +2078,7 @@ for `word' and displays hits in a compilation buffer."
     ext word))
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done)) 
-
+;;;###autoload
 (defun emacspeak-wizards-fix-typo (ext word correction)
   "Search and replace  recursively in all files with extension `ext'
 for `word' and replace it with correction.
@@ -2101,7 +2101,7 @@ Use with caution."
 
 ;;}}}
 ;;{{{ fix text that has gotten read-only accidentally 
-
+;;;###autoload
 (defun emacspeak-wizards-fix-read-only-text (start end)
   "Nuke read-only property on text range."
   (interactive "r")
@@ -2125,7 +2125,7 @@ Use with caution."
   "Buffer local value specifying console we are viewing.")
 
 (make-variable-buffer-local 'emacspeak-wizards-vc-console)
-
+;;;###autoload
 (defun emacspeak-wizards-vc-viewer (console)
   "View contents of specified virtual console."
   (interactive
@@ -2154,7 +2154,7 @@ Use with caution."
     (goto-char (point-min))
     (when (interactive-p)
       (emacspeak-speak-line))))
-
+;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
   "Refresh view of VC we're viewing."
   (interactive)
@@ -2191,7 +2191,7 @@ Use with caution."
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
-;;{{{ google hits 
+;;;###autoload;;{{{ google hits 
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
@@ -2202,7 +2202,7 @@ hits."
 
 ;;}}}
 ;;{{{ longest line in region 
-
+;;;###autoload
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
   "Find longest line in region.
 Moves to the longest line when called interactively."
@@ -2228,7 +2228,7 @@ Moves to the longest line when called interactively."
     max))
 
 ;;}}}
-;;{{{ longest para in region 
+;;;###autoload;;{{{ longest para in region 
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
   "Find longest paragraph in region.
 Moves to the longest paragraph when called interactively."
@@ -2253,7 +2253,7 @@ Moves to the longest paragraph when called interactively."
     max))
 
 ;;}}}
-;;{{{ face wizard
+;;;###autoload;;{{{ face wizard
 (defun emacspeak-wizards-show-face (face)
   "Show salient properties of specified face."
   (interactive
@@ -2286,7 +2286,7 @@ Moves to the longest paragraph when called interactively."
    
 
 ;;}}}
-;;{{{ voice sample
+;;;###autoload;;{{{ voice sample
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
   (interactive
@@ -2297,7 +2297,7 @@ Moves to the longest paragraph when called interactively."
 		     'personality
 		     personality
 		     (emacspeak-speak-line)))
-
+;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler  (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family."
