@@ -47,17 +47,17 @@
 be used in that mode.")
 
 (defun voice-lock-set-major-mode-keywords (mode keywords)
-                                    "Set voice lock keywords for major mode."
-                                    (declare (special
-                                              voice-lock-mode-specific-keywords-table))
-                                    (setf (gethash mode voice-lock-mode-specific-keywords-table )
-              keywords))
+  "Set voice lock keywords for major mode."
+  (declare (special
+            voice-lock-mode-specific-keywords-table))
+  (setf (gethash mode voice-lock-mode-specific-keywords-table )
+        keywords))
 
 (defun voice-lock-get-major-mode-keywords (mode)
   "Retrieve variable holding voice lock keywords for this mode.
 Return nil if not set."
   (declare (special voice-lock-mode-specific-keywords-table))
-  (or  (cl-gethash mode voice-lock-mode-specific-keywords-table)
+  (or  (gethash mode voice-lock-mode-specific-keywords-table)
        nil))
 
 ;;}}}
@@ -65,9 +65,9 @@ Return nil if not set."
 
 (defvar texi-voice-lock-keywords
   (list
-   "@\\(@\\|[^}\t \n{]+\\)"					;commands
-   '("^\\(@c\\|@comment\\)[ \t].*$" . voice-lock-comment-personality)	;comments
-   '("^\\(*.*\\)[\t ]*$" 1 voice-lock-function-name-personality t)	;menu items
+   "@\\(@\\|[^}\t \n{]+\\)"             ;commands
+   '("^\\(@c\\|@comment\\)[ \t].*$" . voice-lock-comment-personality) ;comments
+   '("^\\(*.*\\)[\t ]*$" 1 voice-lock-function-name-personality t) ;menu items
    '("@\\(emph\\|strong\\|b\\|i\\){\\([^}]+\\)" 2 voice-lock-comment-personality t)
    '("@\\(file\\|kbd\\|key\\){\\([^}]+\\)" 2 voice-lock-string-personality t)
    '("@\\(samp\\|code\\|var\\){\\([^}]+\\)" 2 voice-lock-function-name-personality t)
@@ -78,10 +78,8 @@ Return nil if not set."
    )
   "Additional expressions to highlight in TeXinfo mode.")
 
-
-
 (defvar dired-voice-lock-keywords
-  '(;; Put directory headers in italics.
+  '( ;; Put directory headers in italics.
     ("^  \\(/.+\\)$" 1 voice-lock-type-personality)
     ;; Put symlinks in bold italics.
     ("\\([^ ]+\\) -> [^ ]+$" . voice-lock-function-name-personality)
@@ -92,7 +90,7 @@ Return nil if not set."
   "Additional expressions to highlight in Dired mode.")
 
 (defvar rmail-voice-lock-keywords
-  '(;; Put From field in bold.
+  '( ;; Put From field in bold.
     ("^From: \\(.*\\)$" 1 voice-lock-keyword-personality)
     ;; Put subject in bold italics
     ("^Subject: \\(.*\\)$" 1 voice-lock-function-name-personality))
@@ -107,33 +105,32 @@ Return nil if not set."
   '(("^\\([^\n:]*:\\([0-9]+:\\)+\\)\\(.*\\)$" 1 voice-lock-function-name-personality))
   "Additional expressions to highlight in Compilation mode.")
 
-
 (defvar help-voice-lock-keywords nil
   "Voice lock keywords for help mode.")
 (setq help-voice-lock-keywords
-'(("\\`\\([-+a-zA-Z0-9_*]+\\)\\(\\(:\\)\\|\\('\\)\\)" (1 (if
-                                                             (match-beginning 3) voice-lock-function-name-personality voice-lock-variable-name-personality))) ("`\\([-+a-zA-Z0-9_:*][-+a-zA-Z0-9_:*]+\\)'" 1 voice-lock-reference-personality t) ("\\<:[-+a-zA-Z0-9_:*]+\\>" 0 voice-lock-reference-personality t)))
+      '(("\\`\\([-+a-zA-Z0-9_*]+\\)\\(\\(:\\)\\|\\('\\)\\)" (1 (if
+                                                                   (match-beginning 3) voice-lock-function-name-personality voice-lock-variable-name-personality))) ("`\\([-+a-zA-Z0-9_:*][-+a-zA-Z0-9_:*]+\\)'" 1 voice-lock-reference-personality t) ("\\<:[-+a-zA-Z0-9_:*]+\\>" 0 voice-lock-reference-personality t)))
 
 ;;{{{ scheme mode 
 (defvar emacspeak-scheme-voice-lock-keywords 
-'(t
- ("(\\(define\\*?\\(\\(\\|-public\\|-method\\|-generic\\(-procedure\\)?\\)\\|\\(-syntax\\)\\|-class\\|-module\\)\\)\\>[ 	]*(?\\(\\sw+\\)?"
-  (1 voice-lock-keyword-personality)
-  (6
-   (cond
-    ((match-beginning 3)
-     voice-lock-function-name-personality)
-    ((match-beginning 5)
-     voice-lock-variable-name-personality)
-    (t voice-lock-type-personality))
-   nil t))
- ("(\\(and\\|begin\\|c\\(a\\(ll\\(-with-\\(current-continuation\\|input-file\\|output-file\\)\\|/cc\\)\\|se\\)\\|ond\\)\\|d\\(elay\\|o\\)\\|else\\|for-each\\|if\\|l\\(ambda\\|et\\(\\*\\|-syntax\\|rec\\(-syntax\\)?\\)?\\)\\|map\\|or\\|syntax\\(-rules\\)?\\)\\>"
-  (1 voice-lock-keyword-personality))
- ("\\<<\\sw+>\\>"
-  (0 voice-lock-type-personality))
- ("\\<:\\sw+\\>"
-  (0 voice-lock-builtin-personality)))
-"keywords for voice locking scheme code.")
+  '(t
+    ("(\\(define\\*?\\(\\(\\|-public\\|-method\\|-generic\\(-procedure\\)?\\)\\|\\(-syntax\\)\\|-class\\|-module\\)\\)\\>[ 	]*(?\\(\\sw+\\)?"
+     (1 voice-lock-keyword-personality)
+     (6
+      (cond
+       ((match-beginning 3)
+        voice-lock-function-name-personality)
+       ((match-beginning 5)
+        voice-lock-variable-name-personality)
+       (t voice-lock-type-personality))
+      nil t))
+    ("(\\(and\\|begin\\|c\\(a\\(ll\\(-with-\\(current-continuation\\|input-file\\|output-file\\)\\|/cc\\)\\|se\\)\\|ond\\)\\|d\\(elay\\|o\\)\\|else\\|for-each\\|if\\|l\\(ambda\\|et\\(\\*\\|-syntax\\|rec\\(-syntax\\)?\\)?\\)\\|map\\|or\\|syntax\\(-rules\\)?\\)\\>"
+     (1 voice-lock-keyword-personality))
+    ("\\<<\\sw+>\\>"
+     (0 voice-lock-type-personality))
+    ("\\<:\\sw+\\>"
+     (0 voice-lock-builtin-personality)))
+  "keywords for voice locking scheme code.")
 
 ;;}}}
 ;;}}}
@@ -141,22 +138,22 @@ Return nil if not set."
 
 ;;; Note: later these may move to their appropriate extension modules.
 (voice-lock-set-major-mode-keywords 'scheme-mode
-                                                      'emacspeak-scheme-voice-lock-keywords)
+                                    'emacspeak-scheme-voice-lock-keywords)
 (voice-lock-set-major-mode-keywords 'help-mode
-                                                      'help-voice-lock-keywords)
-                  (voice-lock-set-major-mode-keywords 'texinfo-mode
-                                                      'texi-voice-lock-keywords)
-		  (voice-lock-set-major-mode-keywords 'shell-mode
-                                                      'shell-voice-lock-keywords)
-		  (voice-lock-set-major-mode-keywords 'dired-mode
-                                                      'dired-voice-lock-keywords)
-		  (voice-lock-set-major-mode-keywords 'rmail-mode
-                                                      'rmail-voice-lock-keywords)
+                                    'help-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'texinfo-mode
+                                    'texi-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'shell-mode
+                                    'shell-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'dired-mode
+                                    'dired-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'rmail-mode
+                                    'rmail-voice-lock-keywords)
 
-		  (voice-lock-set-major-mode-keywords 'rmail-summary-mode
-		   'rmail-summary-voice-lock-keywords)
-		  (voice-lock-set-major-mode-keywords 'compilation-mode
-		   'compilation-mode-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'rmail-summary-mode
+                                    'rmail-summary-voice-lock-keywords)
+(voice-lock-set-major-mode-keywords 'compilation-mode
+                                    'compilation-mode-voice-lock-keywords)
 
 ;;}}}
 ;;{{{  use gaudy settings
