@@ -95,7 +95,11 @@ This function is sensitive to calendar mode when prompting."
                                         ;get smart default from calendar
       (let ((date (calendar-cursor-to-nearest-date)))
         (setq default (format-time-string time-format-string
-                                          (apply 'encode-time 0 0 0 date)))))
+                                          (apply 'encode-time 0 0
+  0
+  (second date)
+  (first date)
+  (list (third date )))))))
     (read-from-minibuffer prompt
                           default
                           nil nil nil
