@@ -488,6 +488,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "doctor" 'emacspeak-entertain)
 (emacspeak-do-package-setup "dunnet" 'emacspeak-entertain)
 (emacspeak-do-package-setup "ediff" 'emacspeak-ediff)
+(emacspeak-do-package-setup "erc" 'emacspeak-erc)
 (emacspeak-do-package-setup "eshell" 'emacspeak-eshell)
 (emacspeak-do-package-setup "enriched" 'emacspeak-enriched)
 (emacspeak-do-package-setup "facemenu" 'emacspeak-facemenu)
