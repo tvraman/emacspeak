@@ -479,7 +479,24 @@ navigation file for a book. Include all extensions except `.ncx'
   :type '(repeat :tag "Extensions"
 		 (string :tag "Suffix"))
   :group 'emacspeak-daisy)
-        
+
+(defsubst emacspeak-daisy-read-file-name()
+  "Read file name."
+  ;;; we do this based on signature of read-file-name
+  (let ((read-file-name-takes-predicate ;;; emacs 21.4
+         (= 7 (length
+               (car (append
+                     (symbol-function 'read-file-name) nil))))))
+  (if read-file-name-takes-predicate       
+  (read-file-name "Book Navigation File: "
+                  emacspeak-daisy-books-directory
+                  nil t  nil 
+                  #'(lambda (f)
+                      (string-match "\\.ncx$" f)))
+(read-file-name "Book Navigation File: "
+                  emacspeak-daisy-books-directory
+                  nil t  nil))))
+
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename.
@@ -489,14 +506,9 @@ Opening a Daisy navigation file (.ncx file) results in a
 navigation buffer that can be used to browse and read the book."
   (interactive
    (list
-    (let ((completion-ignored-extensions
-           emacspeak-daisy-completion-extensions-to-ignore))
+    (let ((completion-ignored-extensions emacspeak-daisy-completion-extensions-to-ignore))
       (expand-file-name
-       (read-file-name "Book Navigation File: "
-		       emacspeak-daisy-books-directory
-		       nil t  nil 
-		       #'(lambda (f)
-			   (string-match "\\.ncx$" f)))))))
+       (emacspeak-daisy-read-file-name)))))
   (declare (special emacspeak-daisy-this-book
                     emacspeak-daisy-books-directory))
   (let ((buffer (get-buffer-create "*daisy*"))
