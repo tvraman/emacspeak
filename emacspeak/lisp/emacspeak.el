@@ -69,8 +69,19 @@
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
+:link '(custom-manual "(emacspeak)Top")
+  :link '(url-link :tag "SourceForge" 
+		   "http://emacspeak.sf.net")
+  :link '(url-link :tag "Cornell" 
+		   "http://www.cs.cornell.edu/home/raman/emacspeak")
+:link '(url-link :tag "Applications" 
+		   "http://emacspeak.sf.net/applications.html")
+  :link '(url-link :tag "Discussion" 
+                   "http://www.cs.vassar.edu/~priestdo/emacspeak/")
+  :prefix "emacspeak-"
   :group 'applications
-  :prefix "emacspeak-")
+  :group 'accessibility
+  )
 
 
 

@@ -69,7 +69,7 @@
 ;;}}}
 ;;{{{  define summarizer
 
-(defsubst emacspeak-widget-summarize(widget)
+(defun emacspeak-widget-summarize(widget)
   (when widget
     (let ((emacspeak-help (widget-get widget ':emacspeak-help))
           (emacspeak-speak-messages nil)
@@ -94,11 +94,13 @@
       (when value 
         (put-text-property 0 (length value)
                            'personality 'paul-smooth value))
+      (cond
+       ((or tag value)
       (message
        (concat
         (or tag " ")
-        (or value " ")))
-      (dtk-speak (current-message)))))
+        (or value " "))))
+(t (dtk-speak (current-message)))))))
 
 ;;}}}
 ;;{{{  widget-voice --as per Per's suggestion
@@ -140,32 +142,33 @@
 
 (defun emacspeak-widget-help-choice-item (widget)
   "Summarize a choice item"
-  (let ((value (format "%s"(widget-value widget)))
+  (let ((value (widget-value widget))
         (tag (format "%s"  (widget-get widget ':tag)))
         (parent-type   (emacspeak-widget-type
                         (widget-get widget ':parent)))
         (parent-name nil))
     (setq parent-name
           (cond
-           ((eq parent-type 'radio-button) "radio button ")
+           ((eq parent-type 'radio-button-choice) "radio button ")
            ((eq parent-type 'menu-choice) "menu choice ")
            ((eq parent-type 'checkbox) " check box ")
            (t 
             (format "%s" parent-type))))
     (concat 
-parent-name
+     parent-name
      (or tag  "")
      " is "
      (cond
       ((eq parent-type 'checkbox)
        (if value "checked" "unchecked"))
-      ((eq parent-type 'radio-button)
+      ((eq parent-type 'radio-button-choice)
        (if value " pressed " "not pressed "))
       (t (if value " on " " off "))))))
 
 (widget-put (get 'choice-item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-choice-item)
-
+(widget-put (get 'radio-button 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-choice-item)
 ;;}}}
 ;;{{{ checkbox
 
@@ -296,7 +299,7 @@ e.g. for repeat lists."
         (type (emacspeak-widget-type  widget)))
     (format "%s %s   is %s"
             (if (eq type 'radio-button-choice )
-                "radio button choice "
+                "radio button"
               (or type ""))
             (or tag  "")
             (or value ""))))
