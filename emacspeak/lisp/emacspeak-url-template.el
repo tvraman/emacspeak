@@ -336,14 +336,14 @@ to play a BBC Radio4 program on demand."
 ;;{{{ google translation service
 (emacspeak-url-template-define
  "Translation Via Google"
- "http://translate.google.com/translate_c?hl=en&langpair=%s%%7C%s&u=%s"
+ "http://translate.google.com/translate_c?hl=en&langpair=%s&u=%s"
  (list
-  "Translate from"
-  "Translate to"
+  "Translate from|To:"
   "URI")
  nil
  "Translate a Web page using google. Source and target languages
-are specified as two-letter language codes.")
+are specified as two-letter language codes, e.g. en|de translates
+from English to German.")
 
 ;;}}}
 ;;{{{  google filters 
