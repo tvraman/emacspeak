@@ -1263,11 +1263,13 @@ in completion buffers"
 	  'personality
 	  emacspeak-comint-prompt-personality
 	  'rear-sticky nil)))
-      (when (and  emacspeak-comint-autospeak
+      (when (and
+             (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
                   (or monitor 
                       (eq (selected-window)
                           (get-buffer-window
-                           (process-buffer (ad-get-arg 0))))))        
+                           (process-buffer (ad-get-arg 0))))))
+        (setq emacspeak-speak-comint-output nil)
 	(when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
         (condition-case nil
             (emacspeak-speak-region prior (point ))
