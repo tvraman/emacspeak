@@ -2901,7 +2901,12 @@ changed."
 (defadvice transient-mark-mode (after emacspeak pre act comp)
   "Transient mark mode is customized by emacspeak.
 Variable mark-even-if-inactive is set true ."
-  (setq mark-even-if-inactive t))
+  (setq mark-even-if-inactive t)
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if transient-mark-mode 'on 'off))
+    (message "Turned %s transient mark mode."
+             (if transient-mark-mode "on" "off"))))
 
 
 ;;}}}

@@ -75,6 +75,10 @@ provide audio formatted output.
 metapost mode helps authoring and maintaining metapost
 drawings.
 
+** Transient mark mode:
+
+Emacspeak  now works with transient mark mode.
+
 ** Convenience Commands:
 
 All Emacspeak convenience commands have been moved to module
