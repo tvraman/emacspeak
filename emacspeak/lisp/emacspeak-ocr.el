@@ -78,17 +78,17 @@
   :type '(repeat (string :tag "scanner options"))
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-image-compress "tiffcp"
+(defcustom emacspeak-ocr-compress-image "tiffcp"
   "Command used to compress the scanned tiff file."
   :type 'string
   :group 'emacspeak-ocr)
-(defcustom emacspeak-ocr-image-compress-options  
+(defcustom emacspeak-ocr-compress-image-options   
   "-c -g3 "
   "Options used for compressing tiff image."
   :type 'string
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-engine nil
+(defcustom emacspeak-ocr-engine "ocr"
   "OCR engine to process acquired image."
   :type 'string
   :group 'emacspeak-ocr)
@@ -128,9 +128,9 @@ will be placed."
   "Major mode for document scanning and  OCR."
   "Major mode for document scanning and OCR\n]\n
 \\{emacspeak-ocr-mode-map}")
-
-(define-key emacspeak-ocr-mode-map "i"
-  'emacspeak-ocr-scan-image)
+(define-key emacspeak-ocr-mode-map "\C-x\C-q" 'emacspeak-ocr-toggle-read-only)
+(define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-image)
+(define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
 (define-key emacspeak-ocr-mode-map "n"
   'emacspeak-ocr-name-document)
@@ -159,6 +159,7 @@ the results."
         (cd emacspeak-ocr-working-directory))
       (switch-to-buffer buffer)
       (setq buffer-read-only t)
+      (emacspeak-ocr-name-document "untitled")
       (emacspeak-auditory-icon 'open-object)
       (message "Hit return to start scanning."))))
 
@@ -208,6 +209,13 @@ Pick a short but meaningful name."
       (format "rm -f temp.tiff")))
     (message "Acquired  image to file %s"
              image-name)))
+(defvar emacspeak-ocr-process nil
+  "Handle to OCR process.")
+
+(defun emacspeak-ocr-process-sentinel  (process state)
+  "Alert user when OCR is complete."
+  (emacspeak-auditory-icon 'task-done))
+
 
 (defun emacspeak-ocr-recognize-image ()
   "Run OCR engine on current image."
@@ -215,19 +223,30 @@ Pick a short but meaningful name."
   (declare (special emacspeak-ocr-engine
                     emacspeak-ocr-engine-options
                     emacspeak-ocr-process))
+  (let ((inhibit-read-only t))
+  (goto-char (point-max))
+  (insert
+   (format "\n%c\n" 12))
   (setq emacspeak-ocr-process
         (start-process 
          "ocr"
          (current-buffer)
          emacspeak-ocr-engine
-         emacspeak-ocr-engine-options
          (emacspeak-ocr-get-image-name)))
   (set-process-sentinel emacspeak-ocr-process
                         'emacspeak-ocr-process-sentinel)
-  (message "Launched OCR engine."))
+  (message "Launched OCR engine.")))
          
 ;;}}}
 ;;{{{  keymaps 
+(defun emacspeak-ocr-toggle-read-only ()
+  "Toggle read only state of OCR buffer."
+  (interactive)
+  (declare (special buffer-read-only))
+  (setq buffer-read-only (not buffer-read-only))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'button))
+   
 
 ;;}}}
 (provide 'emacspeak-ocr)
