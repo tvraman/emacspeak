@@ -1514,8 +1514,9 @@ semantic to do the work."
     (cond
      ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t                                 ;process modeline
+      (when dir-info
       (put-text-property 0 (length dir-info)
-                         'personality voice-annotate dir-info) 
+                         'personality voice-annotate dir-info) )
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
@@ -1550,8 +1551,10 @@ semantic to do the work."
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info
-                               global-info)))))))
-
+                               global-info
+                               (when (buffer-modified-p)
+  "Modified ")
+                               (when buffer-read-only "ReadOnly "))))))))
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
