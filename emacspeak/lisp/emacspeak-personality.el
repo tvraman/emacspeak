@@ -251,7 +251,7 @@ preserved."
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-prepend
+  'emacspeak-personality-append
   "Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
@@ -259,7 +259,7 @@ Prepend means that the corresponding personality is prepended to the
 existing personalities on the text.
 
 Append means place corresponding personality at the end."
-  :type '(choice :tag "Overlay Voiceification"
+  :type '(choice :tag "Face Voiceification"
                  (const :tag "None" nil)
                  (const :tag "Prepend" emacspeak-personality-prepend)
                  (const :tag "Append" emacspeak-personality-append))
