@@ -1121,7 +1121,7 @@ Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
         #'(lambda (o)
-            (let ((this-module (car (find-variable-noselect o)))
+            (let ((this-module (symbol-file (cons 'defvar o)))
                   (commentary nil)
                   (source-file nil))
               (when this-module
