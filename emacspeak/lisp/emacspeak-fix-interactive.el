@@ -105,9 +105,8 @@ use the minibuffer."
                                         ; advice if necessary
     (when
         (some
-         (function
-          (lambda (prompt)
-            (string-match  "^\\*?[ckK]" prompt )))
+         #'(lambda (prompt)
+             (string-match  "^\\*?[ckK]" prompt ))
          interactive-list ))
     (eval
      (`
