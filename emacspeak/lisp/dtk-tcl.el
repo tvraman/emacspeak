@@ -557,12 +557,10 @@ Argument OUTPUT is the newly arrived output."
 (defvar dtk-speak-skim-scale 1.2
   "*Scale factor applied to speech rate when skimming.")
 
-(defun dtk-speak (text &optional skim)
+(defun dtk-speak (text &optional ignore-skim)
   "Speak the TEXT string on the  tts.
 This is achieved by sending the text to the speech server.
 No-op if variable `dtk-quiet' is set to nil.
-If optional arg SKIM is T then we skim i.e.  speed up speech
-as we go along.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
@@ -571,7 +569,7 @@ only speak upto the first ctrl-m."
                     dtk-speak-treat-embedded-punctuations-specially
                     dtk-quiet  dtk-chunk-separator-syntax
                     voice-lock-mode   dtk-punctuation-mode
-                    dtk-split-caps dtk-program
+                    dtk-split-caps 
                     emacspeak-pronounce-pronunciation-table
                     selective-display ))
                                         ; ensure  the process  is live
@@ -587,14 +585,12 @@ only speak upto the first ctrl-m."
                                         ; flush previous speech if asked to
   (when dtk-stop-immediately (dtk-stop ))
   (or (stringp text) (setq text (format "%s" text )))
-    
   (when selective-display
   (let ((ctrl-m (string-match "\015" text )))
   (and ctrl-m
   (setq text (substring  text 0 ctrl-m ))
   (emacspeak-auditory-icon 'ellipses))))
   (let ((syntax-table (syntax-table ))
-  (inherit-dtk-program dtk-program)
   (inherit-speaker-process dtk-speaker-process)
   (pronunciation-table emacspeak-pronounce-pronunciation-table)
   (use-auditory-icons emacspeak-use-auditory-icons)
@@ -614,16 +610,14 @@ only speak upto the first ctrl-m."
   (erase-buffer)
                                         ; inherit environment
   (setq dtk-chunk-separator-syntax inherit-chunk-separator-syntax
-  dtk-program inherit-dtk-program
   dtk-speaker-process inherit-speaker-process
   dtk-speech-rate speech-rate
   emacspeak-use-auditory-icons use-auditory-icons
   dtk-punctuation-mode mode
   dtk-split-caps split-caps
-  dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars)
-                                        ;(tts-configure-synthesis-setup dtk-program)
+  dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+  voice-lock-mode voice-lock)
   (set-syntax-table syntax-table )
-  (setq voice-lock-mode voice-lock)
   (insert  text)
   (delete-invisible-text)
   (when pronunciation-table
@@ -644,11 +638,6 @@ only speak upto the first ctrl-m."
   (not (= 32 (char-syntax (following-char )))))
   (setq end (point ))
   (dtk-format-text-and-speak  start end )
-  (when skim
-  (dtk-interp-queue-set-rate
-  (round  (* dtk-speech-rate
-  dtk-speak-skim-scale)))
-  (setq skim nil))
   (setq start  end)))                   ; end while
                                         ; process trailing text
   (or  (= start (point-max))
