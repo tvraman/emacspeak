@@ -1125,7 +1125,11 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
     ad-do-it))(provide 'emacspeak-w3)
 
 ;;}}}
-;;{{{ silence  url package 
+;;{{{ silence  url package
+
+(declaim (special url-http-version))
+(setq url-http-version "1.0")
+
 (defadvice w3-fetch-callback
   (around emacspeak pre act comp)
   "silence spoken messages."
