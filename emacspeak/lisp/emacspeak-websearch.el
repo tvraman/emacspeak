@@ -1610,15 +1610,16 @@ Optional interactive prefix arg results in prompting for a search term."
      (prefix                            ;search
       (setq url
 	    (format
-	     "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group"
+	     "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group&num=%s"
 	     emacspeak-usenet-uri
 	     group group 
 	     (webjump-url-encode
 	      (read-from-minibuffer
-	       (format "Search %s for:" group))))))
+	       (format "Search %s for:" group)))
+             emacspeak-websearch-google-number-of-results)))
      (t                                 ;browse
       (setq url 
-	    (format "%s%s/threads?gvc=2"
+	    (format "%s%s/threads?gvc=2&num=%s"
 		    emacspeak-usenet-uri
 		    group group))))
     (browse-url  url)
@@ -1638,3 +1639,5 @@ Optional interactive prefix arg results in prompting for a search term."
 ;;; end:
 
 ;;}}}
+
+emacspeak-websearch-google-number-of-results
