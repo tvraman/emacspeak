@@ -215,16 +215,19 @@ will be placed."
     (buffer-name)
     " "
     "page-"
-    emacspeak-ocr-current-page-number)
+    emacspeak-ocr-current-page-number
+    "/"
+    emacspeak-ocr-last-page-number)
   "Mode line format for OCR buffer.")
 
 (defsubst emacspeak-ocr-get-mode-line-format ()
   "Return string suitable for use as the mode line."
   (declare (special major-mode
                     emacspeak-ocr-current-page-number))
-  (format "%s Page-%s %s"
+  (format "%s Page-%s/%s %s"
           (buffer-name)
           emacspeak-ocr-current-page-number
+          emacspeak-ocr-last-page-number
           major-mode))
 
 
