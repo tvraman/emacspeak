@@ -87,6 +87,7 @@
 (emacspeak-aumix-set-channel ?3 "3")
 (emacspeak-aumix-set-channel ?o "output gain")
 (emacspeak-aumix-set-channel ?v "volume")
+;;;###autoload
 
 (defgroup emacspeak-aumix nil
   "Customization group for setting the Emacspeak auditory
