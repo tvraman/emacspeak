@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!ELEMENT  applications  (category)+                              >
+<!ELEMENT  applications  (preamble, introduction,(category)+, postamble)>
 <!--         caption    Descriptive caption                        -->
 <!ATTLIST  applications
              caption    CDATA                              #REQUIRED >
@@ -19,3 +19,14 @@
                         case.                                      -->
 <!ATTLIST  application
              name       CDATA                              #REQUIRED >
+<!--                    holds doc preamble info                    -->
+<!ELEMENT  preamble     EMPTY                                        >
+<!--         title      Title                                      -->
+<!ATTLIST  preamble
+             title      CDATA                              #REQUIRED >
+
+<!--                    Contains introductory prose                -->
+<!ELEMENT  introduction ANY                                          >
+
+<!--                    Contains concluding text                   -->
+<!ELEMENT  postamble    ANY                                          >
