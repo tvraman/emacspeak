@@ -88,6 +88,7 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
 
 ;;; Cloned from info.el Info-fontify-node 
 (defun Info-voiceify-node ()
+  "Voiceify node."
   (declare (special Info-title-personality-alist Info-current-node))
   (save-excursion
     (let ((buffer-read-only nil))
@@ -106,13 +107,7 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
                                 nil t)
 	(put-text-property (match-beginning 1) (match-end 1)
 			   'personality
-			   (cdr (assq (preceding-char) Info-title-personality-alist)))
-	;; This is a serious problem for trying to handle multiple
-	;; frame types at once.  We want this text to be invisible
-	;; on frames that can display the voice above.
-	(if (memq (framep (selected-frame)) '(x pc w32))
-	    (put-text-property (match-end 1) (match-end 2)
-			       'invisible t)))
+			   (cdr (assq (preceding-char) Info-title-personality-alist))))
       (goto-char (point-min))
       (while (re-search-forward "\\*Note[ \n\t]+\\([^:]*\\):" nil t)
 	(if (= (char-after (1- (match-beginning 0))) ?\") ; hack
@@ -121,6 +116,7 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
 			     'personality emacspeak-info-xref)))
       (goto-char (point-min))
       (if (and (search-forward "\n* Menu:" nil t)
+               Info-current-node
 	       (not (string-match "\\<Index\\>" Info-current-node))
 	       ;; Don't take time to annotate huge menus
 	       (< (- (point-max) (point)) Info-voiceify-maximum-menu-size))
