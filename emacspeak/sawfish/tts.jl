@@ -162,6 +162,7 @@
     (remove-hook 'focus-in-hook tts-say-window)))
 
 (provide 'tts)
+(message "Loaded tts.jl")
 
 ;;; tts.jl ends here
 ;;{{{ end of file
