@@ -94,6 +94,12 @@
     (dtk-speak "Sorted playlist.")))
 
 ;;}}}
+;;{{{ Module emms-pbi:
+
+;;}}}
+;;{{{ Module emms-stream:
+
+;;}}}
 ;;}}}
 (provide 'emacspeak-emms)
 ;;{{{ end of file
