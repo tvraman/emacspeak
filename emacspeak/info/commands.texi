@@ -69,7 +69,7 @@ documentation.
 * ANONYMOUS::                   
 @end menu
 
-@node dtk-speak, dtk-tcl, Emacspeak Commands, Emacspeak Commands
+@node dtk-speak
 @section dtk-speak
 
 
@@ -157,7 +157,7 @@ Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 
 Select TTS debugging buffer.
 
-@node dtk-tcl, emacspeak-aumix, dtk-speak, Emacspeak Commands
+@node dtk-tcl
 @section dtk-tcl
 
 
@@ -405,7 +405,7 @@ Interactive PREFIX arg makes the new setting global.
 
 Shutdown midi system.
 
-@node emacspeak-aumix, emacspeak-bs, dtk-tcl, Emacspeak Commands
+@node emacspeak-aumix
 @section emacspeak-aumix
 
 
@@ -462,8 +462,8 @@ Reset to default audio settings.
 
 @unnumberedsec emacspeak-aumix-wave-decrease
 @findex emacspeak-aumix-wave-decrease
-@kindex  Control  cap E  Control  cap F  left 
-@kbd{ Control  cap E  Control  cap F  left }
+@kindex  control e control f left 
+@kbd{ control e control f left }
 
 Decrease volume of wave output. 
 
@@ -471,8 +471,8 @@ Decrease volume of wave output.
 
 @unnumberedsec emacspeak-aumix-wave-increase
 @findex emacspeak-aumix-wave-increase
-@kindex  Control  cap E  Control  cap F  right 
-@kbd{ Control  cap E  Control  cap F  right }
+@kindex  control e control f right 
+@kbd{ control e control f right }
 
 Increase volume of wave output. 
 
@@ -486,7 +486,7 @@ Edit aumix settings interactively.
 Run command M-x emacspeak-aumix-reset
 after saving the settings to have them take effect.
 
-@node emacspeak-bs, emacspeak-buff-menu, emacspeak-aumix, Emacspeak Commands
+@node emacspeak-bs
 @section emacspeak-bs
 
 
@@ -508,7 +508,7 @@ for commands defined in module  emacspeak-bs.
 
 Speak information about this buffer
 
-@node emacspeak-buff-menu, emacspeak-c, emacspeak-bs, Emacspeak Commands
+@node emacspeak-buff-menu
 @section emacspeak-buff-menu
 
 
@@ -551,7 +551,7 @@ Speech enabled buffer menu navigation
 
 Speak the name of the buffer on this line
 
-@node emacspeak-c, emacspeak-calendar, emacspeak-buff-menu, Emacspeak Commands
+@node emacspeak-c
 @section emacspeak-c
 
 
@@ -570,7 +570,7 @@ for commands defined in module  emacspeak-c.
 
 Speak the C semantics of this line. 
 
-@node emacspeak-calendar, emacspeak-compile, emacspeak-c, Emacspeak Commands
+@node emacspeak-calendar
 @section emacspeak-calendar
 
 
@@ -598,7 +598,7 @@ Speak the date under point when called in Calendar Mode.
 
 Speaks the most recently displayed appointment message if any.
 
-@node emacspeak-compile, emacspeak-custom, emacspeak-calendar, Emacspeak Commands
+@node emacspeak-compile
 @section emacspeak-compile
 
 
@@ -620,7 +620,7 @@ for commands defined in module  emacspeak-compile.
 
 Speech feedback about the compilation error. 
 
-@node emacspeak-custom, emacspeak-dired, emacspeak-compile, Emacspeak Commands
+@node emacspeak-custom
 @section emacspeak-custom
 
 
@@ -647,7 +647,7 @@ Jump to custom toolbar when in a customization buffer.
 
 Jump to custom group when in a customization buffer.
 
-@node emacspeak-dired, emacspeak-ediff, emacspeak-custom, Emacspeak Commands
+@node emacspeak-dired
 @section emacspeak-dired
 
 
@@ -730,7 +730,7 @@ unless `dired-listing-switches' contains -al
 
 Speak modification time  of the current file.
 
-@node emacspeak-ediff, emacspeak-enriched, emacspeak-dired, Emacspeak Commands
+@node emacspeak-ediff
 @section emacspeak-ediff
 
 
@@ -749,7 +749,7 @@ for commands defined in module  emacspeak-ediff.
 
 Speak the current difference
 
-@node emacspeak-enriched, emacspeak-entertain, emacspeak-ediff, Emacspeak Commands
+@node emacspeak-enriched
 @section emacspeak-enriched
 
 
@@ -769,7 +769,7 @@ for commands defined in module  emacspeak-enriched.
 Map base fonts to voices.
 Useful in voicifying rich text.
 
-@node emacspeak-entertain, emacspeak-eterm, emacspeak-enriched, Emacspeak Commands
+@node emacspeak-entertain
 @section emacspeak-entertain
 
 
@@ -796,7 +796,7 @@ Speak current guessed string.
 
 Speak statistics.
 
-@node emacspeak-eterm, emacspeak-filtertext, emacspeak-entertain, Emacspeak Commands
+@node emacspeak-eterm
 @section emacspeak-eterm
 
 
@@ -1170,7 +1170,7 @@ This copies  region delimited by the emacspeak eterm marker
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer.
 
-@node emacspeak-filtertext, emacspeak-fix-interactive, emacspeak-eterm, Emacspeak Commands
+@node emacspeak-filtertext
 @section emacspeak-filtertext
 
 
@@ -1217,7 +1217,7 @@ Revert to original text.
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. 
 
-@node emacspeak-fix-interactive, emacspeak-forms, emacspeak-filtertext, Emacspeak Commands
+@node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
 
 
@@ -1246,7 +1246,7 @@ Fix recently loaded interactive commands.
 This command looks through `load-history' and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. 
 
-@node emacspeak-forms, emacspeak-freeamp, emacspeak-fix-interactive, Emacspeak Commands
+@node emacspeak-forms
 @section emacspeak-forms
 
 
@@ -1306,7 +1306,7 @@ Rerun  filter --allows us to nuke more matching records
 
 Summarize current position in list of records
 
-@node emacspeak-freeamp, emacspeak-gomoku, emacspeak-forms, Emacspeak Commands
+@node emacspeak-freeamp
 @section emacspeak-freeamp
 
 
@@ -1376,7 +1376,7 @@ Automatically defined advice to speak interactive prompts.
 
 Call appropriate freeamp command.
 
-@node emacspeak-gomoku, emacspeak-gridtext, emacspeak-freeamp, Emacspeak Commands
+@node emacspeak-gomoku
 @section emacspeak-gomoku
 
 
@@ -1459,7 +1459,7 @@ Aurally display current positively sloped diagonal
 
 Speak coordinates and state of square at point
 
-@node emacspeak-gridtext, emacspeak-hide, emacspeak-gomoku, Emacspeak Commands
+@node emacspeak-gridtext
 @section emacspeak-gridtext
 
 
@@ -1497,7 +1497,7 @@ Save out grid settings.
 
 Load saved grid settings.
 
-@node emacspeak-hide, emacspeak-ibuffer, emacspeak-gridtext, Emacspeak Commands
+@node emacspeak-hide
 @section emacspeak-hide
 
 
@@ -1542,8 +1542,8 @@ Hide or expose all blocks in buffer.
 
 @unnumberedsec emacspeak-hide-or-expose-block
 @findex emacspeak-hide-or-expose-block
-@kindex  control e j 
-@kbd{ control e j }
+@kindex  Control  cap E  j 
+@kbd{ Control  cap E  j }
 
 Hide or expose a block of text.
 This command either hides or exposes a block of text
@@ -1552,7 +1552,7 @@ a portion of the buffer in which all lines start with a
 common PREFIX.  Optional interactive prefix arg causes all
 blocks in current buffer to be hidden or exposed.
 
-@node emacspeak-ibuffer, emacspeak-imenu, emacspeak-hide, Emacspeak Commands
+@node emacspeak-ibuffer
 @section emacspeak-ibuffer
 
 
@@ -1574,7 +1574,7 @@ for commands defined in module  emacspeak-ibuffer.
 
 Speak information about this buffer
 
-@node emacspeak-imenu, emacspeak-keymap, emacspeak-ibuffer, Emacspeak Commands
+@node emacspeak-imenu
 @section emacspeak-imenu
 
 
@@ -1609,7 +1609,7 @@ Goto the previous index position in current buffer
 
 Goto the next index position in current buffer
 
-@node emacspeak-keymap, emacspeak-kotl, emacspeak-imenu, Emacspeak Commands
+@node emacspeak-keymap
 @section emacspeak-keymap
 
 
@@ -1639,7 +1639,7 @@ This function is advised.
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 
-@node emacspeak-kotl, emacspeak-mpg123, emacspeak-keymap, Emacspeak Commands
+@node emacspeak-kotl
 @section emacspeak-kotl
 
 
@@ -1667,7 +1667,7 @@ Speak cell contents from point to end of cell.
 
 Setup additional keybindings
 
-@node emacspeak-mpg123, emacspeak-ocr, emacspeak-kotl, Emacspeak Commands
+@node emacspeak-mpg123
 @section emacspeak-mpg123
 
 
@@ -1696,8 +1696,8 @@ to skip to the next track.
 
 @unnumberedsec emacspeak-mp3-playlist-skip
 @findex emacspeak-mp3-playlist-skip
-@kindex  Control  cap X  @@ h n 
-@kbd{ Control  cap X  @@ h n }
+@kindex  control x @@ h n 
+@kbd{ control x @@ h n }
 
 Skip currently playing track. 
 
@@ -1757,7 +1757,7 @@ Forw by ARG minutes.
 
 Move back by specified number of minutes.
 
-@node emacspeak-ocr, emacspeak-outline, emacspeak-mpg123, Emacspeak Commands
+@node emacspeak-ocr
 @section emacspeak-ocr
 
 
@@ -1941,8 +1941,8 @@ to an appropriately named file.
 
 @unnumberedsec emacspeak-ocr
 @findex emacspeak-ocr
-@kindex  control e control o 
-@kbd{ control e control o }
+@kindex  Control  cap E  Control  cap O  
+@kbd{ Control  cap E  Control  cap O  }
 
 An OCR front-end for the Emacspeak desktop.  
 
@@ -2021,7 +2021,7 @@ Pick a short but meaningful name.
 
 Move to specified page.
 
-@node emacspeak-outline, emacspeak-pronounce, emacspeak-ocr, Emacspeak Commands
+@node emacspeak-outline
 @section emacspeak-outline
 
 
@@ -2038,8 +2038,8 @@ for commands defined in module  emacspeak-outline.
 
 @unnumberedsec emacspeak-outline-speak-previous-heading
 @findex emacspeak-outline-speak-previous-heading
-@kindex  Control  cap L  p 
-@kbd{ Control  cap L  p }
+@kindex  control l p 
+@kbd{ control l p }
 
 Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
@@ -2083,7 +2083,7 @@ except that the outline section is optionally spoken
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 
-@node emacspeak-pronounce, emacspeak-psgml, emacspeak-outline, Emacspeak Commands
+@node emacspeak-pronounce
 @section emacspeak-pronounce
 
 
@@ -2151,8 +2151,8 @@ First loads any persistent dictionaries if not already loaded.
 
 @unnumberedsec emacspeak-pronounce-dispatch
 @findex emacspeak-pronounce-dispatch
-@kindex  control e meta d 
-@kbd{ control e meta d }
+@kindex  Control  cap E  Meta  cap D  
+@kbd{ Control  cap E  Meta  cap D  }
 
 Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 
@@ -2200,7 +2200,7 @@ Activates pronunciation dictionaries if not already active.
 Define buffer local pronounciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 
-@node emacspeak-psgml, emacspeak-realaudio, emacspeak-pronounce, Emacspeak Commands
+@node emacspeak-psgml
 @section emacspeak-psgml
 
 
@@ -2250,7 +2250,7 @@ Context-sensitive element summarizer.
 
 Speak contents of current element. 
 
-@node emacspeak-realaudio, emacspeak-redefine, emacspeak-psgml, Emacspeak Commands
+@node emacspeak-realaudio
 @section emacspeak-realaudio
 
 
@@ -2397,7 +2397,7 @@ This function is advised.
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 
-@node emacspeak-redefine, emacspeak-remote, emacspeak-realaudio, Emacspeak Commands
+@node emacspeak-redefine
 @section emacspeak-redefine
 
 
@@ -2440,7 +2440,7 @@ speech flush as you type.
 
 Forward-char redefined to speak char moved to. 
 
-@node emacspeak-remote, emacspeak-rmail, emacspeak-redefine, Emacspeak Commands
+@node emacspeak-remote
 @section emacspeak-remote
 
 
@@ -2474,7 +2474,7 @@ Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct.
 
-@node emacspeak-rmail, emacspeak-solitaire, emacspeak-remote, Emacspeak Commands
+@node emacspeak-rmail
 @section emacspeak-rmail
 
 
@@ -2501,7 +2501,7 @@ Summarize current message
 
 Speak labels of current message
 
-@node emacspeak-solitaire, emacspeak-sounds, emacspeak-rmail, Emacspeak Commands
+@node emacspeak-solitaire
 @section emacspeak-solitaire
 
 
@@ -2536,7 +2536,7 @@ Speak coordinates of current position
 
 Display current row auditorallly
 
-@node emacspeak-sounds, emacspeak-speak, emacspeak-solitaire, Emacspeak Commands
+@node emacspeak-sounds
 @section emacspeak-sounds
 
 
@@ -2619,7 +2619,7 @@ solaris after I've used it for a while from a remote session
 where it would use the more primitive speech-server based
 audio player.
 
-@node emacspeak-speak, emacspeak-speedbar, emacspeak-sounds, Emacspeak Commands
+@node emacspeak-speak
 @section emacspeak-speak
 
 
@@ -3598,7 +3598,7 @@ Default is to read the next line.
 Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. 
 
-@node emacspeak-speedbar, emacspeak-table-ui, emacspeak-speak, Emacspeak Commands
+@node emacspeak-speedbar
 @section emacspeak-speedbar
 
 
@@ -3635,7 +3635,7 @@ Does the equivalent of the mouse click from the keyboard
 
 Switch to the speedbar
 
-@node emacspeak-table-ui, emacspeak-tabulate, emacspeak-speedbar, Emacspeak Commands
+@node emacspeak-table-ui
 @section emacspeak-table-ui
 
 
@@ -3701,8 +3701,8 @@ Optional prefix arg prompts for a new filter.
 
 @unnumberedsec emacspeak-table-find-file
 @findex emacspeak-table-find-file
-@kindex  Control  cap E  Control  cap T  
-@kbd{ Control  cap E  Control  cap T  }
+@kindex  control e control t 
+@kbd{ control e control t }
 
 Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -3944,7 +3944,7 @@ Automatically defined advice to speak interactive prompts.
 Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
 
-@node emacspeak-tabulate, emacspeak-tapestry, emacspeak-table-ui, Emacspeak Commands
+@node emacspeak-tabulate
 @section emacspeak-tabulate
 
 
@@ -3966,7 +3966,7 @@ Voicifies the white-space of a table if one found.  Optional interactive prefix
 arg mark-fields specifies if the header row information is used to mark fields
 in the white-space.
 
-@node emacspeak-tapestry, emacspeak-url-template, emacspeak-tabulate, Emacspeak Commands
+@node emacspeak-tapestry
 @section emacspeak-tapestry
 
 
@@ -3981,12 +3981,12 @@ for commands defined in module  emacspeak-tapestry.
 
 @unnumberedsec emacspeak-tapestry-describe-tapestry
 @findex emacspeak-tapestry-describe-tapestry
-@kindex  Control  cap E  Meta  cap T  
-@kbd{ Control  cap E  Meta  cap T  }
+@kindex  control e meta t 
+@kbd{ control e meta t }
 
 Describe the current layout of visible buffers in current frame.
 
-@node emacspeak-url-template, emacspeak-view, emacspeak-tapestry, Emacspeak Commands
+@node emacspeak-url-template
 @section emacspeak-url-template
 
 
@@ -4009,8 +4009,8 @@ Save out url templates.
 
 @unnumberedsec emacspeak-url-template-fetch
 @findex emacspeak-url-template-fetch
-@kindex  Control  cap E  u 
-@kbd{ Control  cap E  u }
+@kindex  control e u 
+@kbd{ control e u }
 
 Prompt for  URL template and fetch specified resource.
 
@@ -4022,7 +4022,7 @@ Prompt for  URL template and fetch specified resource.
 
 Load URL template resources from specified location.
 
-@node emacspeak-view, emacspeak-vm, emacspeak-url-template, Emacspeak Commands
+@node emacspeak-view
 @section emacspeak-view
 
 
@@ -4041,7 +4041,7 @@ for commands defined in module  emacspeak-view.
 
 Moves current line to top of window
 
-@node emacspeak-vm, emacspeak-w3, emacspeak-view, Emacspeak Commands
+@node emacspeak-vm
 @section emacspeak-vm
 
 
@@ -4086,7 +4086,7 @@ Locates the subject line in a message being read.
 Useful when you're reading a message
 that has been forwarded multiple times.
 
-@node emacspeak-w3, emacspeak-websearch, emacspeak-vm, Emacspeak Commands
+@node emacspeak-w3
 @section emacspeak-w3
 
 
@@ -4208,7 +4208,7 @@ Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
 
-@node emacspeak-websearch, emacspeak-widget, emacspeak-w3, Emacspeak Commands
+@node emacspeak-websearch
 @section emacspeak-websearch
 
 
@@ -4257,8 +4257,8 @@ Search Encyclopedia Britannica.
 
 @unnumberedsec emacspeak-websearch-dispatch
 @findex emacspeak-websearch-dispatch
-@kindex  control e ? 
-@kbd{ control e ? }
+@kindex  Control  cap E  ? 
+@kbd{ Control  cap E  ? }
 
 Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
@@ -4669,7 +4669,7 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
 
-@node emacspeak-widget, emacspeak, emacspeak-websearch, Emacspeak Commands
+@node emacspeak-widget
 @section emacspeak-widget
 
 
@@ -4696,8 +4696,8 @@ Speak help for widget under point.
 
 @unnumberedsec emacspeak-widget-summarize-parent
 @findex emacspeak-widget-summarize-parent
-@kindex  Meta  cap P  
-@kbd{ Meta  cap P  }
+@kindex  meta p 
+@kbd{ meta p }
 
 Summarize parent of widget at point.
 
@@ -4728,7 +4728,7 @@ Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
 
-@node emacspeak, dis-quote, emacspeak-widget, Emacspeak Commands
+@node emacspeak
 @section emacspeak
 
 
@@ -4759,7 +4759,7 @@ Function to submit a bug to the programs maintainer.
 
 Give a brief overview of emacspeak.
 
-@node dis-quote, emacspeak-arc, emacspeak, Emacspeak Commands
+@node dis-quote
 @section dis-quote
 
 
@@ -4778,7 +4778,7 @@ for commands defined in module  dis-quote.
 
 Set up variable emacspeak-websearch-personal-portfolio. 
 
-@node emacspeak-arc, emacspeak-dismal, dis-quote, Emacspeak Commands
+@node emacspeak-arc
 @section emacspeak-arc
 
 
@@ -4821,7 +4821,7 @@ Speak the name of the file on current line
 
 Speak the size of the file on current line
 
-@node emacspeak-dismal, emacspeak-eudc, emacspeak-arc, Emacspeak Commands
+@node emacspeak-dismal
 @section emacspeak-dismal
 
 
@@ -4953,7 +4953,7 @@ Move backward by arg rows
 
 Display the expression in the message area
 
-@node emacspeak-eudc, emacspeak-man, emacspeak-dismal, Emacspeak Commands
+@node emacspeak-eudc
 @section emacspeak-eudc
 
 
@@ -4972,7 +4972,7 @@ for commands defined in module  emacspeak-eudc.
 
 Send email to the address given by the current record. 
 
-@node emacspeak-man, emacspeak-python, emacspeak-eudc, Emacspeak Commands
+@node emacspeak-man
 @section emacspeak-man
 
 
@@ -4999,7 +4999,7 @@ Browse the man page --read it a paragraph at a time
 
 Speak current section
 
-@node emacspeak-python, emacspeak-tar, emacspeak-man, Emacspeak Commands
+@node emacspeak-python
 @section emacspeak-python
 
 
@@ -5027,7 +5027,7 @@ If already at the beginning then move to previous block.
 
 Move forward to the beginning of the next block.
 
-@node emacspeak-tar, emacspeak-tetris, emacspeak-python, Emacspeak Commands
+@node emacspeak-tar
 @section emacspeak-tar
 
 
@@ -5062,7 +5062,7 @@ Speak date of file current entry
 
 Speak size of file current entry 
 
-@node emacspeak-tetris, emacspeak-view-process, emacspeak-tar, Emacspeak Commands
+@node emacspeak-tetris
 @section emacspeak-tetris
 
 
@@ -5161,7 +5161,7 @@ Speak current tetris row
 
 Speak next shape
 
-@node emacspeak-view-process, emacspeak-w3search, emacspeak-tetris, Emacspeak Commands
+@node emacspeak-view-process
 @section emacspeak-view-process
 
 
@@ -5188,7 +5188,7 @@ Speak current field
 
 Set point to the current field in the next line.
 
-@node emacspeak-w3search, emacspeak-wizards, emacspeak-view-process, Emacspeak Commands
+@node emacspeak-w3search
 @section emacspeak-w3search
 
 
@@ -5207,7 +5207,7 @@ for commands defined in module  emacspeak-w3search.
 
 Search IBM Blue Pages
 
-@node emacspeak-wizards, ANONYMOUS, emacspeak-w3search, Emacspeak Commands
+@node emacspeak-wizards
 @section emacspeak-wizards
 
 
@@ -5726,7 +5726,7 @@ If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
 If no property is set, show a message and exit.
 
-@node ANONYMOUS,  , emacspeak-wizards, Emacspeak Commands
+@node ANONYMOUS
 @section ANONYMOUS
 
 

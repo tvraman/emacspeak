@@ -1221,7 +1221,7 @@ Optional prefix arg prompts for a new filter.
 emacspeak-table-find-file
 =========================
 
-   ` Control  cap E  Control  cap T  '
+   ` control e control t '
 
    Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -1466,7 +1466,7 @@ emacspeak-tapestry.
 emacspeak-tapestry-describe-tapestry
 ====================================
 
-   ` Control  cap E  Meta  cap T  '
+   ` control e meta t '
 
    Describe the current layout of visible buffers in current frame.
 
@@ -1489,7 +1489,7 @@ emacspeak-url-template-save
 emacspeak-url-template-fetch
 ============================
 
-   ` Control  cap E  u '
+   ` control e u '
 
    Prompt for  URL template and fetch specified resource.
 
