@@ -222,6 +222,13 @@ generators  ; list of param generator
  (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
+;;{{{ sourceforge
+(emacspeak-url-template-define "sourceforge downloads" 
+                               "http://prdownloads.sourceforge.net/%s"
+                               (list
+                                (lambda nil 
+(read-from-minibuffer "Project name"))))
+;;}}}
 ;;{{{ India Today 
 
 (emacspeak-url-template-define "India Today "
