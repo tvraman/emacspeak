@@ -245,9 +245,7 @@ applied."
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
-Modifies text in buffer."
-  (save-match-data
-    (save-excursion
+Modifies text and point in buffer."
       (loop for  key  being the hash-keys  of pronunciation-table
             do
             (let ((word (symbol-name key))
@@ -260,7 +258,7 @@ Modifies text in buffer."
                       (match-beginning 0)
                       (+ (match-beginning 0) (length pronunciation))
                       'personality
-                      emacspeak-pronounce-pronunciation-personality))))))))
+                      emacspeak-pronounce-pronunciation-personality))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
