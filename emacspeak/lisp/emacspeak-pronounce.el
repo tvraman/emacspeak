@@ -388,6 +388,14 @@ Optional argument FILENAME specifies the dictionary file."
     (insert string)
     (dtk-speak string)))
 
+(defsubst emacspeak-pronounce-read-pattern (key)
+  (declare (special emacspeak-pronounce-yank-word-point
+                    emacspeak-pronounce-current-buffer))
+  (read-minibuffer "Pattern"))
+        
+    
+    
+
 (defsubst emacspeak-pronounce-read-term (key)
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
@@ -416,6 +424,55 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
      (format "Pronounce  as: " ))))
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
    word pronunciation))
+
+(defun emacspeak-pronounce-define-template-pronunciation ()
+  "Interactively define template entries in the pronunciation dictionaries.
+Default term to define is delimited by region.
+First loads any persistent dictionaries if not already loaded."
+  (interactive)
+  (declare (special emacspeak-pronounce-dictionaries-loaded))
+  (let ((key nil)
+        (word nil)
+        (pronunciation nil)
+        (key-type (completing-read  "Define pronunciation that is specific to: "
+                                    emacspeak-pronounce-pronunciation-keys nil t )))
+    (cond
+     ((string= key-type "buffer")
+      (setq key (buffer-name )))        ;handled differently
+     ((string= key-type "file")
+      (setq key (buffer-file-name))
+      (or key
+          (error "Current buffer is not associated with a file"))
+      (setq key (intern key)))
+     ((string= key-type "directory")
+      (setq key
+            (or
+             (condition-case nil
+                 (file-name-directory (buffer-file-name ))
+               (error nil ))
+             default-directory))
+      (or key (error "No directory associated with current buffer"))
+      (setq key (intern key)))
+     ((string= key-type "mode")
+      (setq key
+            major-mode)
+      (or key (error "No major mode found for current buffer")))
+     (t (error "Cannot define pronunciations with key type %s" key-type)))
+    (setq word (emacspeak-pronounce-read-pattern key))
+    (setq pronunciation
+          (cons 
+          (read-minibuffer
+           (format "Matcher for  %s: " word))
+          (read-minibuffer
+           (format "Pronouncer for  %s: " word))))
+    (when (and (not emacspeak-pronounce-dictionaries-loaded)
+               (y-or-n-p "Load pre existing  pronunciation dictionaries first? "))
+      (emacspeak-pronounce-load-dictionaries))
+    (unless  (string= key-type  "buffer")
+      (emacspeak-pronounce-add-dictionary-entry key word pronunciation)
+      (emacspeak-pronounce-refresh-pronunciations))
+    (when (string= key-type  "buffer")
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry  word pronunciation))))
 
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
@@ -692,6 +749,7 @@ specified pronunciation dictionary key."
       (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
       (?d (call-interactively
            'emacspeak-pronounce-define-pronunciation t))
+(?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
       (?e (call-interactively
            'emacspeak-pronounce-edit-pronunciations t))
       (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
