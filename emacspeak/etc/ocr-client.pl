@@ -2,11 +2,14 @@
 #$Id$
 #Description: Invoke ocrxtr client. Pipe result to stdout
 use strict;
+use File::Basename;
+
 my $OCR = 'ocrxtr';
 my $image =shift;
 die "No image specified" unless defined ($image);
 my $host =shift;
-my $input = "/tmp/$$-$image";
+my ($name,$path,$suffix) = fileparse($image,"\.tiff");
+my $input = "/tmp/$$-$name.tiff";
 my $output = "/tmp/ocr-output-$$.txt";
 $host ='localhost' unless defined ($host);
 if ( $host =~ m/localhost/) {
