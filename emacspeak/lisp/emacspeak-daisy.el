@@ -68,6 +68,73 @@
 
 ;;}}}
 ;;{{{  helpers
+(defvar emacspeak-daisy-frame-seconds 0.02612219949104336
+  "Number of seconds in a frame.")
+
+(defsubst emacspeak-daisy-time-string-to-frame (timestr)
+  "Convert time string (hh:mm:ss.SS) to frame number.(0.026s/f)"
+  (declare (special emacspeak-daisy-frame-seconds))
+  (save-match-data
+    (string-match "\\(..\\):\\(..\\):\\(...**\\)" timestr)
+    (let*
+        ((h (string-to-number (substring timestr (match-beginning 1) (match-end 1))))
+         (m (string-to-number (substring timestr (match-beginning 2) (match-end 2))))
+         (s (string-to-number (substring timestr (match-beginning 3) (match-end 3))))
+         (total (+  (* 3600 h)
+                    (* m 60)
+                    s)))
+       (round
+        (/ total   emacspeak-daisy-frame-seconds)))))
+
+
+
+
+
+(defvar emacspeak-daisy-base-uri nil
+  "Base URI of current book.
+Used to resolve relative URIs.")
+
+
+(defsubst emacspeak-daisy-resolve-uri (relative)
+  "Resolve relative URI with respect to emacspeak-daisy-base-uri."
+(declare (special emacspeak-daisy-base-uri))
+(expand-file-name relative emacspeak-daisy-base-uri))
+
+(defsubst emacspeak-daisy-get-attribute (element attribute)
+  "Returns value of attribute from element.
+Element is the result of parsing an XML element structure."
+  (format "%s"
+  (cdr
+   (assoc attribute (cdr element )))))
+
+;;}}}
+;;{{{  play a clip 
+
+(defvar emacspeak-daisy-mpg123-player "mpg123"
+  "MPG123 executable for playing mp3 files.")
+
+(defun emacspeak-daisy-play-audio-clip (clip)
+  "Play clip specified by clip.
+Clip is the result of parsing element <audio .../> as defined by Daisy 3."
+  (declare (special emacspeak-daisy-mpg123-player))
+  (unless (eq 'audio (car clip))
+    (error "Invalid audio clip."))
+  (let ((src (emacspeak-daisy-get-attribute clip 'src))
+        (begin (emacspeak-daisy-get-attribute clip 'clipBegin))
+        (end (emacspeak-daisy-get-attribute clip 'clipEnd))
+        (first nil)
+        (last nil)
+        (path nil))
+    (setq path (emacspeak-daisy-resolve-uri src))
+    (setq first (emacspeak-daisy-time-string-to-frame begin))
+    (setq last (emacspeak-daisy-time-string-to-frame end))
+    (start-process "mpg123"  nil 
+                   emacspeak-daisy-mpg123-player
+                   "-k"
+                   (format "%s"  (1- first))
+                   "-n"
+                   (format "%s"  (- last first ))
+                   path)))
 
 ;;}}}
 ;;{{{  emacspeak-daisy mode
