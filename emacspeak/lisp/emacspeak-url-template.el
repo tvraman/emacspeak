@@ -293,9 +293,7 @@
 nil
 "Entertainment news from Yahoo."
  #'(lambda (url)
-       (emacspeak-w3-extract-by-class "article" url)
-       )
- "Retrieve and speak Sports section from Yahoo Daily News.")
+       (emacspeak-w3-extract-by-class "article" url)))
 
 (emacspeak-url-template-define
  "Yahoo Business News"
