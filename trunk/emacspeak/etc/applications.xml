@@ -1,4 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+
+
 <!DOCTYPE applications PUBLIC " applications // t. v. raman 1.0" "applications.dtd">
 <?xml-stylesheet href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
 type="text/xsl"?>
@@ -51,6 +53,9 @@ type="text/xsl"?>
       Compose and play MIDI files.</application>
   </category>
   <category name="Document Authoring">
+    <application name="nxml">
+      XML authoring environment by James Clark.
+      Provides on the fly validation and voice locking.</application>
     <application name="xae">
       XML authoring environment based on PSGML and XSL.
       Enables structured document authoring and interactive preview.</application>
@@ -61,7 +66,10 @@ type="text/xsl"?>
       context-sensitive help  based on current DTD.</application>
     <application name="tdtd">Author and maintain XML and
       SGML DTD files.</application>
-    <application name="auctex">
+
+      <application name="xslt-process">
+Interactive environment for working with XSLT.
+      </application><application name="auctex">
       Authoring environment for TeX
       and LaTeX documents;
       template based authoring, voice locking support and structured browsing.
@@ -365,7 +373,10 @@ Does not support table navigation, CSS or Aural CSS, but can be fast and light-w
       Emacspeak clipboard for cut and paste among different
       emacspeak sessions, possibly running on different hosts.</application>
     <application name="help">
-      Speech-enabled online help across the audio desktop.</application>
+      Speech-enabled online help across the audio
+      desktop.</application>
+<application name="eperiodic">
+Periodic table of elements.</application>
   </category>
   <category name=" Software Development ">
     <application name="jde">
