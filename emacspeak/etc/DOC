@@ -1081,6 +1081,65 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player	Key Sequence: control e : 
+
+Play specified resource using m-player.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-m-player-mode.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-alt-src-stepMove within an ASF playlist.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-modeMajor mode for m-player interaction. 
+
+
+key             binding
+---             -------
+
+q		emacspeak-m-player-quit
+SPC		emacspeak-m-player-pause
+a		emacspeak-m-player-alt-src-step
+P		emacspeak-m-player-play-tree-up
+p		emacspeak-m-player-play-tree-step
+S		emacspeak-m-player-seek-absolute
+s		emacspeak-m-player-seek-relative
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
+
+
+
+This mode runs the hook `emacspeak-m-player-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-pausePause or unpause media player.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-play-tree-stepMove within the play tree.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-play-tree-upMove within the play tree.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-quitQuit media player.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-seek-absoluteSeek  to absolute specified position.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-seek-relativeSeek  by offset into stream from current position.
+
+------------------------------------------------------------
+
 ** emacspeak-man-browse-man-pageBrowse the man page --read it a paragraph at a time
 
 ------------------------------------------------------------
@@ -1338,9 +1397,7 @@ except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-pronounce-define-local-pronunciation	Key Sequence: control e meta b 
-
-Define buffer local pronounciation.
+** emacspeak-pronounce-define-local-pronunciationDefine buffer local pronounciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 
 ------------------------------------------------------------
@@ -1501,10 +1558,6 @@ emacspeak-realaudio-shortcuts-directory.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio-play-url-at-pointPlay url under point as realaudio
-
-------------------------------------------------------------
-
 ** emacspeak-realaudio-select-realaudio-bufferSwitch to realaudio buffer.
 
 ------------------------------------------------------------
@@ -1544,7 +1597,7 @@ Speech-enabled version of kill-buffer for Emacs 21.
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence: Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
+** emacspeak-self-insert-command	Key Sequence: Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -1631,7 +1684,6 @@ Optional interactive PREFIX arg toggles global value.
 ------------------------------------------------------------
 
 ** emacspeak-audio-annotate-paragraphsSet property auditory-icon at front of all paragraphs.
-Interactive PREFIX arg prompts for sound cue to use
 
 ------------------------------------------------------------
 
@@ -1983,6 +2035,13 @@ Will be improved if it proves useful.
 ** emacspeak-speak-next-window	Key Sequence: control e control n 
 
 Speak the next window.
+
+------------------------------------------------------------
+
+** emacspeak-speak-other-buffer	Key Sequence: control e meta b 
+
+Speak specified buffer.
+Useful to listen to a buffer while in a different context.
 
 ------------------------------------------------------------
 
@@ -2518,6 +2577,8 @@ in the white-space.
 ** emacspeak-tapestry-describe-tapestry	Key Sequence: control e meta t 
 
 Describe the current layout of visible buffers in current frame.
+Use interactive prefix arg to get coordinate positions of the
+displayed buffers.
 
 ------------------------------------------------------------
 
@@ -2656,6 +2717,14 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-browse-url-with-styleBrowse URL with specified XSL style.
+
+------------------------------------------------------------
+
+** emacspeak-w3-browse-xml-url-with-styleBrowse XML URL with specified XSL style.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-class-filter-and-followFollow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -2776,6 +2845,10 @@ specifies by how many eleemnts to move.
 ** emacspeak-w3-previous-doc-elementMove back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
+
+------------------------------------------------------------
+
+** emacspeak-w3-realaudio-play-url-at-pointPlay url under point as realaudio
 
 ------------------------------------------------------------
 
@@ -3025,6 +3098,10 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-my-rss-searchMy RSS search.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-news-yahooPerform an Yahoo News search
 
 ------------------------------------------------------------
@@ -3072,7 +3149,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-shoutcast-searchEbay search.
+** emacspeak-websearch-shoutcast-searchShoutcast search.
 
 ------------------------------------------------------------
 
@@ -3508,15 +3585,12 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-browse-url-with-styleBrowse URL with specified XSL style.
-
-------------------------------------------------------------
-
-** emacspeak-wizards-browse-xml-url-with-styleBrowse XML URL with specified XSL style.
-
-------------------------------------------------------------
-
 ** emacspeak-wizards-count-slides-in-regionCount slides starting from point.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-find-longest-line-in-regionFind longest line in region.
+Moves to the longest line when called interactively.
 
 ------------------------------------------------------------
 
@@ -3750,14 +3824,6 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
-
-------------------------------------------------------------
-
-** emacspeak-m-player	Key Sequence: control e : 
-
-Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-m-player-mode.
 
 ------------------------------------------------------------
 
