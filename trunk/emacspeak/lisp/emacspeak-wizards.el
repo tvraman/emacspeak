@@ -811,10 +811,11 @@ the display to speak."
     (setq win
           (nth (% window (length window-list ))
                window-list))
+    (save-excursion
     (save-window-excursion
       (emacspeak-speak-region
        (window-point win)
-       (window-end win)))))
+       (window-end win))))))
 
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
