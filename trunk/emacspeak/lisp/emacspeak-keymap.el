@@ -276,7 +276,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "v" 'emacspeak-view-register)
 (define-key emacspeak-keymap "w" 'emacspeak-speak-word)
 (define-key emacspeak-keymap "W"
-  'emacspeak-speak-spell-current-word)
+  'emacspeak-tapestry-select-window-by-name)
 (define-key emacspeak-keymap "u" 'emacspeak-url-template-fetch)
 (define-key emacspeak-keymap "\C-u" 'emacspeak-rss-browse)
 (define-key emacspeak-keymap "U" 'emacspeak-websearch-usenet)
