@@ -1595,7 +1595,7 @@ part of the libxslt package."
   (unless (eq major-mode 'dired-mode)
     (error "This command should be used in dired mode."))
   (shell-command
-   (format "rpm -qi %s"
+   (format "rpm -qi ` rpm -qf %s`"
            (dired-get-filename 'no-location)))
   (other-window 1)
   (search-forward "Summary" nil t)
