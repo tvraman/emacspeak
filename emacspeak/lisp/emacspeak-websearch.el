@@ -1628,9 +1628,21 @@ Light for: ")))
 ;;{{{ streaming audio 
 
 (emacspeak-websearch-set-searcher 'streaming-audio
-                                  'emacspeak-websearch-streaming-audio-search)
+                                  'emacspeak-websearch-real-tuner)
 
 (emacspeak-websearch-set-key 19'streaming-audio)
+
+(defvar emacspeak-websearch-real-tuner-form
+  (expand-file-name "xml-forms/real-radio-tuner.xml"
+                    emacspeak-lisp-directory)
+"Real tuner from Real Networks.")
+
+(defun emacspeak-websearch-real-tuner ()
+  "Search using Real Tuner from Real Networks."
+  (interactive)
+  (declare (special emacspeak-websearch-real-tuner-form))
+  (emacspeak-websearch-display-form
+   emacspeak-websearch-real-tuner-form))
 
 (defvar emacspeak-websearch-streaming-audio-search-uri 
   "http://www.billsparks.org/links/search.cgi?query="
