@@ -42,12 +42,13 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'backquote)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-fix-interactive)
 (eval-when (load)
-(require 'esh-arg))
+  (require 'esh-arg))
 ;;}}}
 ;;{{{  Introduction:
 
@@ -71,10 +72,10 @@
            (lambda nil
              (declare (special eshell-last-input-end
                                eshell-last-output-end
-eshell-last-output-start))
+                               eshell-last-output-start))
              (emacspeak-speak-region eshell-last-input-end
                                      eshell-last-output-end)))
-t)
+          t)
 
 ;;}}}
 ;;{{{  Advice PComplete --may be factored out later:
@@ -94,10 +95,10 @@ t)
           (emacspeak-speak-messages nil)m)
       ad-do-it
       (when (> (point) prior)
-          (tts-with-punctuations "all"
-                                 (dtk-speak
-                                  (buffer-substring prior
-                                                    (point)))))
+        (tts-with-punctuations "all"
+                               (dtk-speak
+                                (buffer-substring prior
+                                                  (point)))))
       (let ((completions-buffer (get-buffer "*Completions*")))
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
@@ -107,8 +108,8 @@ t)
   ad-return-value)
 
 (defadvice pcomplete-show-completions (around emacspeak pre act comp)
-(let ((emacspeak-speak-messages nil))
-ad-do-it))
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 ;;}}}
 ;;{{{  Advice top-level EShell 
@@ -128,60 +129,93 @@ Provide an auditory icon if possible."
 ;;{{{ advice em-hist 
 
 (loop for f in 
-'(eshell-next-input eshell-previous-input
-                    eshell-next-matching-input
-                    eshell-previous-matching-input
-                    eshell-next-matching-input-from-input
-                    eshell-previous-matching-input-from-input)
-do
-(eval
- (`
-(defadvice (, f) (after  emacspeak pre act comp)
-  "Speak selected command."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (save-excursion
-      (beginning-of-line)
-      (eshell-skip-prompt)
-    (emacspeak-speak-line 1)))))))
+      '(eshell-next-input eshell-previous-input
+                          eshell-next-matching-input
+                          eshell-previous-matching-input
+                          eshell-next-matching-input-from-input
+                          eshell-previous-matching-input-from-input)
+      do
+      (eval
+       (`
+        (defadvice (, f) (after  emacspeak pre act comp)
+          "Speak selected command."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (save-excursion
+              (beginning-of-line)
+              (eshell-skip-prompt)
+              (emacspeak-speak-line 1)))))))
 
 ;;}}}
 ;;{{{  advice em-ls
 
-(defvar emacspeak-eshell-ls-use-personalities t
-  
-  "Indicates if ls in eshell uses different voice personalities.")
-(defvar eshell-ls-directory-personality 'ursula
-  "Personality for directory names.")
+(defgroup emacspeak-eshell nil
+  "Emacspeak extension for EShell."
+  :group 'emacspeak
+  :group 'eshell
+  :prefix "emacspeak-eshell")
 
-(defvar eshell-ls-symlink-personality 'harry
-  "Personality for symlinks.")
 
-(defvar eshell-ls-executable-personality 'paul-animated
-"Personality for executables.")
+(defcustom emacspeak-eshell-ls-use-personalities t
+  "Indicates if ls in eshell uses different voice
+personalities."
+  :type 'boolean
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-readonly-personality 'paul-monotone
-"Personality for read only files.")
+(defcustom emacspeak-eshell-ls-directory-personality 'ursula
+  "Personality for directory names."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-unreadable-personality 'kid 
-"Personality for files that are not readable.")
+(defcustom emacspeak-eshell-ls-symlink-personality 'harry
+  "Personality for symlinks."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-special-personality 'paul-smooth
-"Personality for special files.")
+(defcustom emacspeak-eshell-ls-executable-personality 'paul-animated
+  "Personality for executables."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-missing-personality 'paul-italic
-"Personality for missing file.")
-(defvar eshell-ls-archive-personality 'paul-surprized
-"Personality for archive files.")
+(defcustom emacspeak-eshell-ls-readonly-personality 'paul-monotone
+  "Personality for read only files."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-backup-personality 'paul-monotone 
-"Personality for backup files. ")
+(defcustom emacspeak-eshell-ls-unreadable-personality 'kid 
+  "Personality for files that are not readable."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-product-personality 'paul-bold
-"Personality for files that can be recreated.")
+(defcustom emacspeak- eshell-ls-special-personality 'paul-smooth
+  "Personality for special files."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
-(defvar eshell-ls-clutter-personality 'paul-monotone
-"Personality for transients.")
+(defcustom emacspeak-eshell-ls-missing-personality 'paul-italic
+  "Personality for missing file."
+  :type 'symbol
+  :group 'emacspeak-eshell)
+
+(defcustom emacspeak-eshell-ls-archive-personality 'paul-surprized
+  "Personality for archive files."
+  :type 'symbol
+  :group 'emacspeak-eshell)
+
+(defcustom emacspeak-eshell-ls-backup-personality 'paul-monotone 
+  "Personality for backup files. "
+  :type 'symbol
+  :group 'emacspeak-eshell)
+
+(defcustom emacspeak-eshell-ls-product-personality 'paul-bold
+  "Personality for files that can be recreated."
+  :type 'symbol
+  :group 'emacspeak-eshell)
+
+(defcustom  emacspeak-eshell-ls-clutter-personality 'paul-monotone
+  "Personality for transients."
+  :type 'symbol
+  :group 'emacspeak-eshell)
 
 
 (defadvice  eshell-ls-decorated-name (around emacspeak pre act comp)
@@ -189,66 +223,66 @@ do
   (cond
    (emacspeak-eshell-ls-use-personalities
     ad-do-it
-      (let ((result ad-return-value)
-(file (ad-get-arg 0))
-(personality nil))
-            (setq personality
-	     (cond
-	      ((not (cdr file)) eshell-ls-missing-personality)
-	      ((stringp (cadr file)) eshell-ls-symlink-personality)
-	      ((eq (cadr file) t) eshell-ls-directory-personality)
-	      ((not (eshell-ls-filetype-p (cdr file) ?-)) eshell-ls-special-personality)
-	      ((and (/= (user-uid) 0) ; root can execute anything
-		    (eshell-ls-applicable (cdr file) 3
-					  'file-executable-p (car file)))
-	       eshell-ls-executable-personality)
-	      ((not (eshell-ls-applicable (cdr file) 1
-					  'file-readable-p (car file)))
-	       eshell-ls-unreadable-personality)
+    (let ((result ad-return-value)
+          (file (ad-get-arg 0))
+          (personality nil))
+      (setq personality
+            (cond
+             ((not (cdr file)) emacspeak-eshell-ls-missing-personality)
+             ((stringp (cadr file)) emacspeak-eshell-ls-symlink-personality)
+             ((eq (cadr file) t) emacspeak-eshell-ls-directory-personality)
+             ((not (eshell-ls-filetype-p (cdr file) ?-))emacspeak- eshell-ls-special-personality)
+             ((and (/= (user-uid) 0)    ; root can execute anything
+                   (eshell-ls-applicable (cdr file) 3
+                                         'file-executable-p (car file)))
+              emacspeak-eshell-ls-executable-personality)
+             ((not (eshell-ls-applicable (cdr file) 1
+                                         'file-readable-p (car file)))
+              emacspeak-eshell-ls-unreadable-personality)
 
-	      ((string-match eshell-ls-archive-regexp (car file))
-	       eshell-ls-archive-personality)
+             ((string-match eshell-ls-archive-regexp (car file))
+              emacspeak-eshell-ls-archive-personality)
 
-	      ((string-match eshell-ls-backup-regexp (car file))
-	       eshell-ls-backup-personality)
+             ((string-match eshell-ls-backup-regexp (car file))
+              emacspeak-eshell-ls-backup-personality)
 
-	      ((string-match eshell-ls-product-regexp (car file))
-	       eshell-ls-product-personality)
+             ((string-match eshell-ls-product-regexp (car file))
+              emacspeak-eshell-ls-product-personality)
 
-	      ((string-match eshell-ls-clutter-regexp (car file))
-	       eshell-ls-clutter-personality)
+             ((string-match eshell-ls-clutter-regexp (car file))
+              emacspeak-eshell-ls-clutter-personality)
 
-	      ((not (eshell-ls-applicable (cdr file) 2
-					  'file-writable-p (car file)))
-	       eshell-ls-readonly-personality)))
-	(if personality
-	    (add-text-properties 0 (length result)
-				 (list 'personality personality)
-				 result)))
-result)
-(t ad-return-value)))
+             ((not (eshell-ls-applicable (cdr file) 2
+                                         'file-writable-p (car file)))
+              emacspeak-eshell-ls-readonly-personality)))
+      (if personality
+          (add-text-properties 0 (length result)
+                               (list 'personality personality)
+                               result)))
+    result)
+   (t ad-return-value)))
 
 ;;}}}
 ;;{{{ Advice em-prompt
 (loop for f in 
-'(eshell-next-prompt eshell-previous-prompt
-                     eshell-forward-matching-input  eshell-backward-matching-input)
-do
-(eval
- (`
-(defadvice (, f) (after  emacspeak pre act comp)
-  "Speak selected command."
-  (when (interactive-p)
-    (let ((emacspeak-speak-messages nil))
-    (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-line 1)))))))
+      '(eshell-next-prompt eshell-previous-prompt
+                           eshell-forward-matching-input  eshell-backward-matching-input)
+      do
+      (eval
+       (`
+        (defadvice (, f) (after  emacspeak pre act comp)
+          "Speak selected command."
+          (when (interactive-p)
+            (let ((emacspeak-speak-messages nil))
+              (emacspeak-auditory-icon 'select-object)
+              (emacspeak-speak-line 1)))))))
 
 ;;}}}
 ;;{{{  advice esh-arg
 
 (mapc 'emacspeak-fix-interactive-command-if-necessary 
-(list 'eshell-insert-buffer-name
-'eshell-insert-process))
+      (list 'eshell-insert-buffer-name
+            'eshell-insert-process))
 
 (loop for f in 
       '(eshell-insert-buffer-name
@@ -264,7 +298,7 @@ do
             (emacspeak-speak-line))))))
 
 (defadvice eshell-insert-process (after emacspeak pre
-                                            act comp)
+                                        act comp)
   "Speak output."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -317,14 +351,14 @@ do
 (defadvice eshell-kill-output (after emacspeak pre act comp)
   "Produce auditory feedback."
   (when (interactive-p)
-      (emacspeak-auditory-icon 'delete-object)
-      (message "Flushed output")))
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Flushed output")))
 
 (defadvice eshell-kill-input (before emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
-        (emacspeak-auditory-icon 'delete-object )
-        (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'delete-object )
+    (emacspeak-speak-line)))
 
 (defadvice eshell-toggle (after emacspeak pre act comp)
   "Provide spoken context feedback."
@@ -337,12 +371,12 @@ do
     (emacspeak-auditory-icon 'select-object)))
 (defadvice eshell-toggle-cd (after emacspeak pre act comp)
   "Provide spoken context feedback."
-(when (interactive-p)
-  (cond
-   ((eq major-mode 'eshell-mode)
-  (emacspeak-speak-line))
-(t (emacspeak-speak-mode-line)))
-  (emacspeak-auditory-icon 'select-object)))
+  (when (interactive-p)
+    (cond
+     ((eq major-mode 'eshell-mode)
+      (emacspeak-speak-line))
+     (t (emacspeak-speak-mode-line)))
+    (emacspeak-auditory-icon 'select-object)))
 
 
 ;;}}}

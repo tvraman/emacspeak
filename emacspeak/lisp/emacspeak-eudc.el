@@ -42,17 +42,18 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (eval-when (compile)
-(condition-case nil
-    (progn (require 'widget)
-           (require 'wid-edit)
-           (message "Compiling against widget libraries %s %s"
-                    (locate-library "widget")
-                    (locate-library "wid-edit")))
-  (error
-   (message  "Widget libraries not found, widget support may not work correctly."))))
+  (condition-case nil
+      (progn (require 'widget)
+             (require 'wid-edit)
+             (message "Compiling against widget libraries %s %s"
+                      (locate-library "widget")
+                      (locate-library "wid-edit")))
+    (error
+     (message  "Widget libraries not found, widget support may not work correctly."))))
 (require 'emacspeak-widget)
 
 ;;}}}
@@ -77,7 +78,7 @@
     (emacspeak-speak-line)))
 
 (defadvice eudc-move-to-previous-record (after emacspeak pre act
-                                           comp)
+                                               comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -104,31 +105,31 @@
     (while  (not (eobp))
       (goto-char (next-overlay-change (point)))
       (when (widget-at (point))
-                   (widget-put (widget-at (point))
-                               :emacspeak-help 
-                               'emacspeak-eudc-widget-help)
-                   (forward-line 1)))))
+        (widget-put (widget-at (point))
+                    :emacspeak-help 
+                    'emacspeak-eudc-widget-help)
+        (forward-line 1)))))
 
 (defadvice eudc-query-form (after emacspeak pre act comp )
   "Attach emacspeak help to all EUDC widgets.
 Summarize the form to welcome the user. "
-    (emacspeak-eudc-widgets-add-emacspeak-help)
-    (emacspeak-auditory-icon 'open-object)
-    (let((server "Server ")
-         (host eudc-server))
-      (put-text-property 0  (length host)
-                         'personality 'paul-animated
-                         host)
-      (put-text-property 0  (length server)
-                         'personality 'annotation-voice
-                         server)
-      (dtk-speak 
-       (concat server 
-               " " 
-               host 
-               " " 
-               (when (widget-at (point))
-                 (emacspeak-eudc-widget-help (widget-at (point))))))))
+  (emacspeak-eudc-widgets-add-emacspeak-help)
+  (emacspeak-auditory-icon 'open-object)
+  (let((server "Server ")
+       (host eudc-server))
+    (put-text-property 0  (length host)
+                       'personality 'paul-animated
+                       host)
+    (put-text-property 0  (length server)
+                       'personality 'annotation-voice
+                       server)
+    (dtk-speak 
+     (concat server 
+             " " 
+             host 
+             " " 
+             (when (widget-at (point))
+               (emacspeak-eudc-widget-help (widget-at (point))))))))
 
 ;;}}}
 ;;{{{ additional interactive commands 
@@ -160,11 +161,18 @@ Summarize the form to welcome the user. "
 (defadvice eudc-mode (before emacspeak pre act comp)
   "Setup for voiceification"
   (setq lazy-voice-lock-mode nil)
-(voice-lock-mode 1))
+  (voice-lock-mode 1))
+(defgroup emacspeak-eudc nil
+  "Emacspeak add-on to the Emacs Universal Directory Client."
+  :group 'emacspeak
+  :group 'eudc
+  :prefix "emacspeak-eudc-")
 
-(defvar emacspeak-eudc-attribute-value-personality
+(defcustom emacspeak-eudc-attribute-value-personality
   'paul-animated
-"Personality t use for voiceifying attribute values. ")
+  "Personality t use for voiceifying attribute values. "
+  :type 'symbol
+  :group 'emacspeak-eudc)
 
 
 (defadvice eudc-print-attribute-value (around emacspeak pre
@@ -176,9 +184,9 @@ Summarize the form to welcome the user. "
    (t (let ((start (point)))
         ad-do-it
         (ems-modify-buffer-safely
-        (put-text-property start (point)
-                           'personality
-                           emacspeak-eudc-attribute-value-personality)))))
+         (put-text-property start (point)
+                            'personality
+                            emacspeak-eudc-attribute-value-personality)))))
   ad-return-value)
 
 ;;}}}
