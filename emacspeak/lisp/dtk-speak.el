@@ -286,6 +286,7 @@ Optional argument FORCE  flushes the command to the speech server."
   "Quote any delimiters that need special treatment.
 Argument MODE  specifies the current pronunciation mode."
   (declare  (special dtk-bracket-regexp ))
+  (let ((inhibit-read-only t))
   (goto-char (point-min))
   (cond
    ((string=  "all"  mode )
@@ -322,7 +323,7 @@ Argument MODE  specifies the current pronunciation mode."
                              'personality personality)))))
    (t
     (while (re-search-forward dtk-bracket-regexp   nil t )
-      (replace-match " " nil t )))))
+      (replace-match " " nil t ))))))
 
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
@@ -367,7 +368,8 @@ Set this once per emacspeak session for efficiency.")
   "Replace repeating patterns.
 Argument STRING  specifies the repeating string to replace.
 Argument MODE  specifies the current pronunciation mode."
-  (let* ((len (length string))
+  (let* ((inhibit-read-only t)
+         (len (length string))
          (pattern (regexp-quote string))
          (reg (concat
                pattern pattern
