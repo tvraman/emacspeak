@@ -1,8 +1,8 @@
-;;; tts-eflite.el --- Emacspeak EFLITE 
+;;; flite.el --- Emacspeak FLite
 ;;; $Id$
 ;;; $Author$
-;;; Description:  EFLITE Wizard for the emacspeak desktop
-;;; Keywords: Emacspeak,  Audio Desktop EFLITE
+;;; Description:  FLite interface 
+;;; Keywords: Emacspeak,  Audio Desktop FLite
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -40,7 +40,8 @@
 
 ;;{{{  introduction
 
-;;; defines interactive command tts-eflite that launches eflite 
+;;; defines interactive command tts-flite that launches eflite 
+;;; this will be updated to use the FLite TCL server when that is complete.
 ;;; http://sf.net/projects/eflite
 ;;; as the tts server.
 ;;; When and if eflite becomes capable of voice locking,
@@ -56,7 +57,7 @@
 ;;}}}
 ;;;###autoload
 ;;{{{  launch eflite 
-
+;;;###autoload
 (defun tts-eflite ()
   "Use eflite TTS server."
   (interactive)
@@ -66,7 +67,7 @@
 
 ;;}}}
 
-(provide 'tts-eflite)
+(provide 'flite-voices)
 ;;{{{ end of file
 
 ;;; local variables:
