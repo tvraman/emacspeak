@@ -1045,10 +1045,19 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                "query ")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
+                    emacspeak-w3-xsl-p
                     emacspeak-websearch-google-feeling-lucky-p emacspeak-websearch-google-number-of-results))
   (let ((lucky-flag (if emacspeak-websearch-google-feeling-lucky-p
                         (not lucky)
-                      lucky)))
+                      lucky))
+        (restore-xsl-p emacspeak-w3-xsl-p))
+    (when emacspeak-w3-xsl-p
+      (setq restore-xsl-p t
+            emacspeak-w3-xsl-p nil)
+      (add-hook 'emacspeak-w3-post-process-hook
+                #'(lambda ()
+                    (declare (special emacspeak-w3-xsl-p))
+                    (setq emacspeak-w3-xsl-p t))))
     (browse-url 
      (concat emacspeak-websearch-google-uri
              (webjump-url-encode query)
