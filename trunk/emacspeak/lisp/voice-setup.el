@@ -204,7 +204,20 @@ This function forces voice-lock mode on."
   :group 'tts)
 
 (defmacro defvoice (personality settings doc)
-  "Define voice personality using specified CSS settings."
+  "Define voice personality using specified CSS settings.
+CSS setting is a list of the form 
+
+((:family paul)
+(:average-pitch 5)
+(:pitch-range 5)
+(:stress 5)
+(:richness 5))
+
+which correspons  to a standard male voice.
+
+Once defined, the voice settings can be customized using
+\\[customize-variable]
+on variable <personality>-setting. "
   (`
    (defcustom  (, (intern (format "%s-settings"  personality)))
      (, settings)
@@ -217,12 +230,19 @@ This function forces voice-lock mode on."
                             (symbol :tag "Name"))))
      :group 'tts
      :set '(lambda  (sym val)
-             (let ((voice-name (dtk-personality-from-speech-style
-                                (apply 'make-dtk-speech-style
-                                       (apply 'append val)))))
+             (let ((message "Applied new settings to personality %s")
+                   (voice-name
+                    (dtk-personality-from-speech-style
+                     (apply 'make-dtk-speech-style
+                            (apply 'append val)))))
                (setq (, personality) voice-name)
                (dtk-define-voice-alias '(, personality) voice-name)
-               (set-default sym val))))))
+               (set-default sym val)
+               (setq message
+                     (format message (, personality)))
+               (put-text-property 0 (length message)
+                                  'personality voice-name)
+               (dtk-speak message))))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
