@@ -1960,7 +1960,31 @@ hits."
    "grep 'begin{slide}' | wc -l"))
 
 ;;}}}
+;;{{{  file specific  headers via occur 
 
+(defvar emacspeak-occur-pattern nil
+  "Regexp pattern used to identify header lines by command 
+emacspeak-wizards-occur-header-lines.")
+ (make-variable-buffer-local 'emacspeak-occur-pattern)
+
+(defun emacspeak-wizards-occur-header-lines ()
+  "If you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches header lines, you can use this command to conveniently
+run `occur' bound to \\[occur]
+to find matching header lines."
+  (interactive)
+  (declare (special emacspeak-occur-pattern))
+  (cond
+   ((boundp 'emacspeak-occur-pattern)
+    (occur emacspeak-occur-pattern)
+    (message "Displayed header lines in other window.")
+    (emacspeak-auditory-icon 'open-object))
+   (t
+    (occur
+     (read-from-minibuffer "Regular expression: ")))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
