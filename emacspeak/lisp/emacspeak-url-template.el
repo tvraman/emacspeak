@@ -530,7 +530,7 @@ Computing News at CNN.")
  nil
  "CNN Hot Stocks"
  #'(lambda (url)
-     (emacspeak-w3-extract-table 6 url)))
+     (emacspeak-w3-extract-table 9 url)))
 
 (emacspeak-url-template-define
  "CNN Markets New York"
