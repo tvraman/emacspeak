@@ -1,6 +1,6 @@
 ;;;$Id$
 ;;; Description: Generate commands.texi
-;;; Load all emacspeak modules and write commands.texi to /tmp
+;;; Load all emacspeak modules and write commands.texi 
 
 ;;; Code:
 (require 'cl)
@@ -201,7 +201,7 @@ This helps pull in all emacspeak modules cleanly.")
 (augment-load-path emacs-personal-library-directory)
 
 (defun emacspeak-utils-generate-commands-documentation ()
-  "Generate commands.texi and DOC in /tmp."
+  "Generate commands.texi and DOC ."
   (declare (special emacspeak-modules-dependency-alist))
   (let ((emacspeak-speak-messages nil))
   (mapcar
@@ -211,8 +211,8 @@ This helps pull in all emacspeak modules cleanly.")
 (message "%s\n" (car pair)))
 emacspeak-modules-dependency-alist)
 (emacspeak-generate-texinfo-command-documentation
- "/tmp/commands.texi")
+ "commands.texi")
 (emacspeak-generate-documentation
- "/tmp/DOC")))
+ "../etc/DOC")))
 
 (emacspeak-utils-generate-commands-documentation)

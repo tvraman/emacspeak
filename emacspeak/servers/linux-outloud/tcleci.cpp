@@ -2,33 +2,33 @@
 /* Tcl ViaVoiceOutloud Interface program
    (c) Copyright 1999 by Paige Phault
 
-The author hereby grants permission to use, copy, modify, distribute, and 
-license this software for any purpose, provided that existing copyright notices
-are retained in all copies and that this notice is included verbatim in any 
-distributions. No written agreement, license, or royalty fee is required for 
-any of the authorized uses.  Modifications to this software may be copyrighted 
-by their authors and need not follow the licensing terms described here, 
-provided that the new terms are clearly indicated on the first page of each 
-file where they apply.
+   The author hereby grants permission to use, copy, modify, distribute, and 
+   license this software for any purpose, provided that existing copyright notices
+   are retained in all copies and that this notice is included verbatim in any 
+   distributions. No written agreement, license, or royalty fee is required for 
+   any of the authorized uses.  Modifications to this software may be copyrighted 
+   by their authors and need not follow the licensing terms described here, 
+   provided that the new terms are clearly indicated on the first page of each 
+   file where they apply.
 
-IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY FOR 
-DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT 
-OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY DERIVATIVES THEREOF, 
-EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY FOR 
+   DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT 
+   OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY DERIVATIVES THEREOF, 
+   EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING, 
-BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN 
-"AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE 
-MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING, 
+   BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+   PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN 
+   "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE 
+   MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
-dynamic loading of eci library contributed by Jeffrey Sorensen
---this allows a compiled version  of this 
-speech server to be distributed without violating the IBM
-Viavoice license.
-This means that end-users only need install the Viavoice RTK
-(Runtime toolkit)
-to use Emacspeak with the ViaVoice TTS engine.
+   dynamic loading of eci library contributed by Jeffrey Sorensen
+   --this allows a compiled version  of this 
+   speech server to be distributed without violating the IBM
+   Viavoice license.
+   This means that end-users only need install the Viavoice RTK
+   (Runtime toolkit)
+   to use Emacspeak with the ViaVoice TTS engine.
 */
 /* TCL usage
 	package require tts
@@ -46,8 +46,13 @@ The only difference bewtween say and synth is that synth calls
 eciSynthesize and say doesn't.  You can put as many text blocks as
 you like after a command.
 */
-#include <sox/st.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
+#include <linux/soundcard.h>
+#include <sys/ioctl.h>
 #include <tcl.h>
 #include <dlfcn.h>
 
@@ -62,23 +67,36 @@ you like after a command.
 
 #define ECILIBRARYNAME "/usr/lib/libibmeci50.so"
 
+/* ugly ugly */
+#define DSP "/dev/dsp"
+int  dsp;
+#define BUFSIZE 22100
+short waveBuffer[BUFSIZE];
+
 /* The following declarations are derived from the publically available
    documentation for ViaVoice TTS outloud.  
 --they are placed here to obviate the need for having the
 ViaVoice SDK installed.
 */
+
+
 typedef enum {
-	eciSynthMode,
-	eciInputType,
-	eciTextMode,
-	eciDictionary,
-	eciSampleRate = 5,
-    eciWantPhonemeIndices = 7,
-	eciRealWorldUnits,
-	eciLanguageDialect,
-    eciNumberMode,
-	eciPhrasePrediction,
-	eciNumParams
+  eciWaveformBuffer, eciPhonemeBuffer, eciIndexReply, eciPhonemeIndexReply
+} ECIMessage;
+
+
+typedef enum {
+  eciSynthMode,
+  eciInputType,
+  eciTextMode,
+  eciDictionary,
+  eciSampleRate = 5,
+  eciWantPhonemeIndices = 7,
+  eciRealWorldUnits,
+  eciLanguageDialect,
+  eciNumberMode,
+  eciPhrasePrediction,
+  eciNumParams
 } ECIParam;
 
 static void *(*_eciNew)();
@@ -94,6 +112,7 @@ static int (*_eciInsertIndex)(void *,int);
 static int (*_eciSetParam)(void *, int, int);
 static int (*_eciGetVoiceParam)(void *, int, int); 
 static int (*_eciSetVoiceParam)(void *, int, int, int); 
+static int (*_eciSetOutputBuffer)(void *, int, short *);
 static void (*_eciRegisterCallback)(void*,int(*)(void*,int,long,void*),void*);
 
 extern "C" EXPORT int Tcleci_Init(Tcl_Interp *interp);
@@ -105,6 +124,7 @@ int SpeakingP(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
+int setOutput(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int eciCallback(void *, int, long, void *);
 
 
@@ -115,15 +135,16 @@ void TclEciFree(ClientData eciHandle) {
 }
 
 int Tcleci_Init(Tcl_Interp *interp) {
-  int rc;
+  int rc, tmp;
   void *eciHandle;
   void *eciLib;
+  //< configure shared library symbols
 
   eciLib = dlopen(ECILIBRARYNAME, RTLD_LAZY);  
   if (eciLib == NULL) {
     Tcl_AppendResult(interp, "Could not load ",
-	ECILIBRARYNAME, "\nPlease install the IBM ViaVoice Outloud RTK",
-	NULL);
+                     ECILIBRARYNAME, "\nPlease install the IBM ViaVoice Outloud RTK",
+                     NULL);
     return TCL_ERROR;
   }
 		
@@ -139,11 +160,17 @@ int Tcleci_Init(Tcl_Interp *interp) {
   _eciAddText = (int (*)(void*,char *)) dlsym(eciLib, "eciAddText");
   _eciSetParam = (int (*)(void*,int,int)) dlsym(eciLib, "eciSetParam");
   _eciGetVoiceParam = (int (*)(void*,int,int)) 
-	dlsym(eciLib, "eciGetVoiceParam");
+    dlsym(eciLib, "eciGetVoiceParam");
   _eciSetVoiceParam = (int (*)(void*,int, int, int)) 
-	dlsym(eciLib, "eciSetVoiceParam");
-  _eciRegisterCallback = (void (*)(void*,int(*)(void*,int,long,void*),void*)) 
-	dlsym(eciLib, "eciRegisterCallback");
+    dlsym(eciLib, "eciSetVoiceParam");
+  _eciRegisterCallback = (void
+                          (*)(void*,int(*)(void*,int,long,void*),void*)) 
+    dlsym(eciLib, "eciRegisterCallback");
+  _eciSetOutputBuffer = (int (*)(void*,int, short *)) 
+    dlsym(eciLib, "eciSetOutputBuffer");
+
+  //>
+  //< check for needed symbols 
 
   int okay = 1;
   if(!_eciNew){okay=0; Tcl_AppendResult(interp, "eciNew undef\n", NULL);}
@@ -159,12 +186,15 @@ int Tcleci_Init(Tcl_Interp *interp) {
   if(!_eciSetParam){okay=0;Tcl_AppendResult(interp, "eciSetParam undef\n", NULL);}
   if(!_eciGetVoiceParam){okay=0;Tcl_AppendResult(interp, "eciGetVoiceParam undef\n", NULL);}
   if(!_eciSetVoiceParam){okay=0;Tcl_AppendResult(interp, "eciSetVoiceParam undef\n", NULL);}
-  if(!_eciRegisterCallback){okay=0;Tcl_AppendResult(interp, "eciRegisterCallback undef\n", NULL);}
-
+  if(!_eciRegisterCallback){okay=0;Tcl_AppendResult(interp,
+                                                    "eciRegisterCallback undef\n", NULL);}
+  if(!_eciSetOutputBuffer){okay=0;Tcl_AppendResult(interp, "eciSetOutputBuffer undef\n", NULL);}
   if (!okay) {
     Tcl_AppendResult(interp, "Missing symbols from ", ECILIBRARYNAME, NULL);
     return TCL_ERROR;
   }
+
+  //>
 
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
@@ -176,6 +206,8 @@ int Tcleci_Init(Tcl_Interp *interp) {
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
     return TCL_ERROR;
   }
+  //<initialize TTS 
+
   if (   (_eciSetParam(eciHandle, eciInputType, 1) == -1) 
          || (_eciSetParam(eciHandle, eciSynthMode, 1) == -1)
          || (_eciSetParam(eciHandle, eciSampleRate, 1) == -1)
@@ -185,6 +217,30 @@ int Tcleci_Init(Tcl_Interp *interp) {
     _eciDelete(eciHandle); 
     return TCL_ERROR;
   }
+
+  //>
+
+  //<set output wave buffer 
+  _eciRegisterCallback( eciHandle, eciCallback, interp );
+  _eciSetOutputBuffer(eciHandle, BUFSIZE, waveBuffer);
+  dsp = open(DSP, O_WRONLY);
+  if (dsp == -1) {
+    Tcl_AppendResult(interp, "Could not open output device %s\n",
+                     DSP, NULL);
+    return (TCL_ERROR);
+  }
+  ioctl(dsp, SNDCTL_DSP_RESET, 0);
+  tmp=11025;
+  ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
+  tmp=1;
+  ioctl(dsp, SNDCTL_DSP_STEREO, &tmp);
+  tmp=16;
+  ioctl(dsp, SNDCTL_DSP_SAMPLESIZE, &tmp);
+  tmp=11025;
+  ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
+
+  //>
+  //<register tcl commands 
 
   Tcl_CreateObjCommand(interp, "setRate", SetRate,
                        (ClientData) eciHandle, TclEciFree);
@@ -198,22 +254,46 @@ int Tcleci_Init(Tcl_Interp *interp) {
   Tcl_CreateObjCommand(interp, "speakingP", SpeakingP, (ClientData) eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "pause", Pause, (ClientData)
                        eciHandle, TclEciFree);
-  Tcl_CreateObjCommand(interp, "resume", Resume, (ClientData) eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "resume", Resume, (ClientData)
+                       eciHandle, TclEciFree);
+Tcl_CreateObjCommand(interp, "setOutput", setOutput, (ClientData)
+                       eciHandle, TclEciFree);
+
+  //>
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; 
 set tts(last_index) $x}");
-  _eciRegisterCallback( eciHandle, eciCallback, interp );
   return TCL_OK;
 }
+
+int playTTS (int samples) {
+  int i;
+  short stereo[2*samples];
+  fprintf(stderr, "In play callback.\n");
+  /* mono to stereo */
+  for (i=0; i<samples; i++) {
+    stereo[2*i] =waveBuffer[i];
+    stereo[2*i+1] = waveBuffer[i];
+  }
+  write (dsp, stereo,  4*BUFSIZE);
+  fprintf(stderr, "Wrote %d samples\n", samples);
+  return 1;
+}
+
+
 
 int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
-  if (msg == 2 /* eciIndexReply */) {
+  if (msg == eciIndexReply /* eciIndexReply */) {
     char buffer[128];
     sprintf(buffer, "index %d", lparam);
     rc = Tcl_Eval(interp, buffer);
     if (rc != TCL_OK) Tcl_BackgroundError(interp);
+  } else if (msg == eciWaveformBuffer
+             && (lparam > 0)) {
+    playTTS(lparam);
+    _eciSynthesize(eciHandle);
   }
   return 1;
 }
@@ -264,11 +344,11 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
     char *txt = Tcl_GetStringFromObj(objv[i], &length);
     if (Tcl_StringMatch(txt, "-reset")) {
       _eciReset(eciHandle);
-    if (   (_eciSetParam(eciHandle, 1/*eciInputType*/, 1) == -1) 
-         || (_eciSetParam(eciHandle, 0/*eciSynthMode*/, 1) == -1)) {
-    Tcl_AppendResult(interp, "Could not initialized tts", NULL);
-    return TCL_ERROR;
-  }
+      if (   (_eciSetParam(eciHandle, 1/*eciInputType*/, 1) == -1) 
+             || (_eciSetParam(eciHandle, 0/*eciSynthMode*/, 1) == -1)) {
+        Tcl_AppendResult(interp, "Could not initialized tts", NULL);
+        return TCL_ERROR;
+      }
     } else if (Tcl_StringMatch(txt, "-index")) {
       i++;
       if (i==objc) {
@@ -338,3 +418,28 @@ int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST ob
   Tcl_SetResult(interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
+int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+  int  rc, output;
+  if (objc!=2) {
+    Tcl_AppendResult(interp, "Usage: setRate  speechRate ", TCL_STATIC);
+    return TCL_ERROR;
+  }
+  rc = Tcl_GetIntFromObj(interp, objv[1], &output);
+  if (rc != TCL_OK) return rc;
+  rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
+  if (rc != TCL_OK) return rc;
+  fprintf(stderr, "Setting rate to %d for voice %d\n",
+          rate, voice);
+  rc = _eciSetVoiceParam (eciHandle, voice,  6/*eciSpeed*/, rate);
+  if (rc == -1) {
+    Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
+    return TCL_ERROR;
+  }
+  fprintf(stderr, "setRate returned %d\n", rc);
+  rate = _eciGetVoiceParam(eciHandle, voice, 6/*eciSpeed*/);
+  fprintf(stderr, "eciGetVoiceParam returned %d for voice %d \n",
+          rate, voice );
+  return TCL_OK;
+}
+  
+
