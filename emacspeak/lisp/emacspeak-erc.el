@@ -352,13 +352,13 @@ set the current local value to the result.")
  
 ;;{{{ cricket rules 
 (defvar emacspeak-erc-cricket-bowling-figures-pattern
-  "[0-9]+-[0-9]+-[0-9]+-[0-9]"
+  " [0-9]+-[0-9]+-[0-9]+-[0-9] "
   "Pattern for matching bowling figures.")
 
 (defun emacspeak-erc-cricket-convert-bowling-figures (pattern)
   "Pronounce bowling figures in cricket."
   (let ((fields (split-string pattern "-")))
-    (format "%s for %s off %s overs with %s maidens "
+    (format " %s for %s off %s overs with %s maidens "
             (cond
              ((string-equal "0" (fourth fields)) 
               "none")
