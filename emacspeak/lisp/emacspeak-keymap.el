@@ -236,6 +236,7 @@ field in the customization buffer.  You can use the notation
   'emacspeak-symlink-current-file)
 (define-key emacspeak-keymap "!"
   'emacspeak-speak-run-shell-command)
+(define-key emacspeak-keymap "@" 'run-at-time)
 (define-key emacspeak-keymap "#" 'emacspeak-gridtext)
 (define-key emacspeak-keymap "\C-y" 'emacspeak-clipboard-paste)
 (define-key emacspeak-keymap "\C-p" 'emacspeak-speak-previous-window)

@@ -70,6 +70,7 @@
 (defadvice tnt-open (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (timer-activate tnt-idle-timer)
     (emacspeak-pronounce-refresh-pronunciations)
     (emacspeak-auditory-icon 'open-object)))
 
