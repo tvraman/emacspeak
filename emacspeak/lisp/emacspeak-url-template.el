@@ -682,7 +682,7 @@ the broadcast. You must have mplayer installed."
  nil
  "Display project usage statistics."
  #'(lambda (url)
-     (emacspeak-w3-extract-table 5 url)))
+     (emacspeak-w3-extract-table 6 url)))
 
 (emacspeak-url-template-define
  "sourceforge project" 
