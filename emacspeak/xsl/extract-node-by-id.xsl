@@ -22,11 +22,11 @@ Parameter base specifies base URL of source document.
   <!--add base uri if available. -->
   <xsl:template match="/">
     <html>
-<head>
+      <head>
         <xsl:copy-of select="//head/title[1]"/>
       </head>
-<body>
-    <xsl:apply-templates select="//*[@id=$node-id]"/>
+      <body>
+        <xsl:apply-templates select="//*[@id=$node-id]"/>
       </body>
     </html>
   </xsl:template>

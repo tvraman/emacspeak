@@ -321,7 +321,24 @@ to play a BBC Radio4 program on demand."
 
 ;;}}}
 ;;{{{  google filters 
-
+(emacspeak-url-template-define
+ "Google WebQuotes"
+ "http://labs.google.com/cgi-bin/webquotes?num_quotes=3&q=%s&btnG=Google+WebQuotes+Search&show_titles=1&bold_links=1&snippet_threshold=3"
+ (list
+  #'(lambda nil
+      (webjump-url-encode
+       (read-from-minibuffer "Query: "))))
+ nil
+ "Google WebQuotes.")
+(emacspeak-url-template-define
+ "Google Glossary"
+"http://labs.google.com/glossary?q=%s"
+ (list
+  #'(lambda nil
+      (webjump-url-encode
+       (read-from-minibuffer "Term: "))))
+ nil
+ "Google Glossary lookup.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"

@@ -18,7 +18,7 @@ asks that nodes be processed only once -use with care.
   <xsl:param name="path"/>
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
-<xsl:template match="/">
+  <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
   <!-- { html   -->
