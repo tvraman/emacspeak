@@ -1168,7 +1168,8 @@ Optional second arg data processes the results as data rather than HTML."
       (w3-preview-this-buffer)
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line))))
+      (emacspeak-speak-line)
+      (kill-buffer buffer))))
 
 ;;}}}
 ;;{{{  advanced usenet search 
@@ -1437,7 +1438,8 @@ and <label for=\"maxy\">Year</label>
       (w3-preview-this-buffer)
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line))))
+      (emacspeak-speak-line)
+      (kill-buffer buffer))))
 
 ;;}}}
 ;;{{{ hotbot
