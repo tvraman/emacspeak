@@ -157,18 +157,18 @@ generators  ; list of param generator
 ;;{{{ cnn 
 ;;{{{ w3c 
 (emacspeak-url-template-define "w3c Lists"
-                               "http://lists.w3.org/Archives/Member/w3c-%s-wg/%s/"
+                               "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
                                (list
                                 'emacspeak-url-template-get-w3c-group 
                                 'emacspeak-url-template-get-w3c-year/month))
 
 (defun emacspeak-url-template-get-w3c-group ()
   "Get name of W3C group "
-  (read-from-minibuffer "W3C group: e.g., voice "))
+  (read-from-minibuffer "W3C group: "))
 
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
-  (read-from-minibuffer "Year/Month e.g.: 2001jan "
+  (read-from-minibuffer "Date range: "
                         (downcase 
                          (format-time-string "%Y%h"
                                              (current-time)))))
