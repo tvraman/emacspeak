@@ -2461,6 +2461,10 @@ Describe the current layout of visible buffers in current frame.
 
 ------------------------------------------------------------
 
+** emacspeak-tnt-toggle-autospeakToggle TNT autospeak for this chat session.
+
+------------------------------------------------------------
+
 ** emacspeak-url-template-saveSave out url templates.
 
 ------------------------------------------------------------
@@ -2520,10 +2524,6 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
-** emacspeak-vm-mime-save-attachment-under-pointSave attachment under point
-
-------------------------------------------------------------
-
 ** emacspeak-w3-next-doc-elementMove forward  to the next document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
@@ -2543,6 +2543,10 @@ from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
 specifies the page to extract table from.  Interactive
 prefix arg causes url to be read from the minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-google-similar-to-this-pageAsk Google to find documents similar to this one.
 
 ------------------------------------------------------------
 
@@ -2570,6 +2574,11 @@ even if one is already defined.
 ** emacspeak-w3-xsl-toggleToggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
+
+------------------------------------------------------------
+
+** emacspeak-w3-google-who-links-to-this-pagePerform a google search to locate documents that link to the
+current page.
 
 ------------------------------------------------------------
 
@@ -2667,7 +2676,10 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-googlePerform an Google search
+** emacspeak-websearch-googlePerform an Google search.
+Optional interactive prefix arg `lucky' is equivalent to hitting the 
+I'm Feeling Lucky button on Google.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky.
 
 ------------------------------------------------------------
 
@@ -2782,6 +2794,10 @@ Optional interactive prefix arg results in prompting for a search term.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-vickers-searchSearch Vickers insider trading.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-google-feeling-luckyDo a I'm Feeling Lucky Google search.
 
 ------------------------------------------------------------
 
@@ -2991,6 +3007,12 @@ Signals end of buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-get-table-content-from-urlExtract table specified by depth and count from HTML
+content at URL.
+Extracted content is placed as a csv file in task.csv.
+
+------------------------------------------------------------
+
 ** emacspeak-link-current-file	Key Sequence: control e meta l 
 
 Link (hard link) file visited in current buffer to new location.
@@ -2999,6 +3021,11 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-portfolio-quotesBring up detailed stock quotes for portfolio specified by 
+emacspeak-websearch-personal-portfolio.
 
 ------------------------------------------------------------
 
@@ -3021,7 +3048,7 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
-** emacspeak-wizard-get-table-content-from-fileExtract table specified by depth and count from HTML
+** emacspeak-wizards-get-table-content-from-fileExtract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
 
@@ -3100,16 +3127,15 @@ visiting the ppts file.
 
 ** emacspeak-speak-run-shell-command	Key Sequence: control e ! 
 
-Invoke shell COMMAND and display its output as a table.
-The results are placed in a buffer in Emacspeak's table
-  browsing mode.
-  Use this for running shell commands that produce tabulated
-  output.  This command should be used for shell commands that
-  produce tabulated output that works with Emacspeak's table
-  recognizer.
-  Verify this first by running the command in a shell and
-  executing command `emacspeak-table-display-table-in-region'
-  normally bound to C-e TAB.
+Invoke shell COMMAND and display its output as a table.  The results
+are placed in a buffer in Emacspeak's table browsing mode.  Optional
+interactive prefix arg as-root runs the command as root (not yet
+implemented).  Use this for running shell commands that produce
+tabulated output.  This command should be used for shell commands that
+produce tabulated output that works with Emacspeak's table recognizer.
+Verify this first by running the command in a shell and executing
+command `emacspeak-table-display-table-in-region' normally bound to
+C-e TAB.
 
 ------------------------------------------------------------
 
@@ -3119,6 +3145,20 @@ Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-finder-modeEmacspeak Finder
+
+
+
+This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 
 ------------------------------------------------------------
 
@@ -3218,6 +3258,10 @@ the display to speak.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-generate-finderGenerate a widget-enabled finder wizard.
+
+------------------------------------------------------------
+
 ** emacspeak-speak-load-directory-settingsLoad a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
@@ -3260,12 +3304,6 @@ default-directory after switching.
 
 ------------------------------------------------------------
 
-** emacspeak-wizard-get-table-content-from-urlExtract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv.
-
-------------------------------------------------------------
-
 ** emacspeak-show-personality-at-point	Key Sequence: control e meta v 
 
 Show value of property personality at point.
@@ -3282,6 +3320,11 @@ We cleanup underlining, and set up outline mode correctly.
 ** emacspeak-previous-frame	Key Sequence: control left 
 
 Move to next frame.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-finder-findRun find-dired on specified switches after prompting for the
+directory to where find is to be launched.
 
 ------------------------------------------------------------
 
@@ -3386,6 +3429,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-xml-shell-goto-next-childNavigate forward  to the next child  of current node.
+
+------------------------------------------------------------
+
+** emacspeak-w3-google-on-this-sitePerform a google search restricted to the current WWW site.
 
 ------------------------------------------------------------
 
