@@ -1219,6 +1219,19 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
      (t (setq start (point-min)
               end (point))))
     (dtk-speak (buffer-substring start end ))))
+
+
+(defun emacspeak-speak-other-buffer (buffer)
+  "Speak specified buffer.
+Useful to listen to a buffer while in a different context."
+  (interactive
+   (list
+    (read-buffer "Speak buffer: "
+                 nil t)))
+  (save-excursion
+    (set-buffer buffer)
+    (emacspeak-speak-buffer)))
+
 (defun emacspeak-speak-front-of-buffer()
   "Speak   the buffer from start to   point"
   (interactive)
@@ -2306,43 +2319,20 @@ Optional argument ARG  specifies `other' window to speak."
   "Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
-  (let ((error nil))
-    (condition-case nil
-        (scroll-other-window  nil)
-      (error (setq error t)))
-    (if error
-        (message "There is no other window ")
-      (progn
-        (force-mode-line-update 'all)
-        (emacspeak-auditory-icon 'scroll)
-        (emacspeak-speak-other-window 1)))))
-          
+  (let ((window (selected-window)))
+  (other-window 1)
+  (call-interactively 'scroll-up)
+  (select-window window)))
 
 (defun  emacspeak-owindow-scroll-down ()
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
-  (save-excursion
-    (let ((error nil)
-          (start
-           (save-window-excursion
-             (other-window 1)
-             (window-start )))
-          (height (save-window-excursion
-                    (other-window 1)
-                    (window-height))))
-      (condition-case nil
-          (scroll-other-window  (- height ))
-        (error (setq error t )))
-      (if error
-          (message "There is no other window ")
-        (save-window-excursion
-          (other-window 1)
-          (cond
-           ((= start (window-start) )
-            (message "At top of other window "))
-           (t (emacspeak-auditory-icon 'scroll)
-              (emacspeak-speak-region (window-start) (window-end )))))))))
+  (let ((window (selected-window)))
+  (other-window 1)
+  (call-interactively 'scroll-down)
+  (select-window window)))
+
 
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.
