@@ -76,7 +76,7 @@ COMMAND-STRING to the TTS engine."
 (defsubst outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
   (declare (special outloud-voice-table))
-  (or  (cl-gethash name outloud-voice-table) outloud-default-voice-string))
+  (or  (gethash name outloud-voice-table) outloud-default-voice-string))
 
 (defsubst outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
@@ -88,7 +88,7 @@ COMMAND-STRING to the TTS engine."
 (defsubst outloud-voice-defined-p (name)
 "Check if there is a voice named NAME defined."
   (declare (special outloud-voice-table ))
-  (cl-gethash name outloud-voice-table ))
+  (gethash name outloud-voice-table ))
 
 (defsubst outloud-define-voice-alias (alias voice )
   "Alias  ALIAS to be same as voice VOICE."
