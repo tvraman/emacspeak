@@ -756,17 +756,16 @@ the sense of the filter. "
   :group 'emacspeak)
 
 (defun emacspeak-speak-line (&optional arg)
-  "Speaks current line.  With prefix ARG, speaks the rest of
-the line from point.  Negative prefix optional arg speaks
-from start of line to point.  Voicifies if option
-`voice-lock-mode' is on.  Indicates indentation with a tone
-if audio indentation is in use.  Indicates position of point
-with an aural highlight if option `emacspeak-show-point' is
-turned on --see command `emacspeak-show-point' bound to
-\\[emacspeak-show-point].  Lines that start hidden blocks of
-text, e.g.  outline header lines, or header lines of blocks
-created by command `emacspeak-hide-or-expose-block' are
-indicated with auditory icon ellipses."
+  "Speaks current line.  With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line to
+point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+indentation with a tone if audio indentation is in use.  Indicates
+position of point with an aural highlight if option
+`emacspeak-show-point' is turned on --see command
+`emacspeak-show-point' bound to \\[emacspeak-show-point].  Lines that
+start hidden blocks of text, e.g.  outline header lines, or header
+lines of blocks created by command `emacspeak-hide-or-expose-block'
+are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode
                     dtk-stop-immediately
@@ -800,9 +799,11 @@ indicated with auditory icon ellipses."
        (t (setq end orig)))
       (when (and emacspeak-audio-indentation
                  (null arg ))
- (beginning-of-line)
-        (skip-syntax-forward " ")
-        (setq indent  (current-column ))
+ 
+        (let ((limit (line-end-position)))
+          (beginning-of-line 1)
+    (skip-syntax-forward " " limit)
+        (setq indent  (current-column )))
         (when (string= emacspeak-audio-indentation "tone")
           (emacspeak-indent indent )))
       (setq line 
