@@ -33,6 +33,9 @@ Updated to handle the bookshare variant of Daisy3 files.
 
 Place-holder for eventual FLite support.
 
+** emacspeak-kmacro.el:
+
+Speech-enables kmacro --- a new keyboard macro package.
 ** TTS Support:
 
 TTS specific code is now restricted in modules of the form
