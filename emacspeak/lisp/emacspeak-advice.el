@@ -58,7 +58,7 @@
 ;;{{{ Required modules
 
 (require 'advice)
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)

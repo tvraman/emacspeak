@@ -7,7 +7,7 @@
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 ;;{{{  outline help
 
 ;;; Inspired by out-xtra.el (part of auctex)
