@@ -79,10 +79,11 @@
          (mapcar
           (function
            (lambda (g)
+             (webjump-url-encode
              (cond
               ((stringp g)
                (read-from-minibuffer g))
-              (t (funcall g)))))
+              (t (funcall g))))))
           (emacspeak-url-template-generators ut))))
 
 ;;}}}
@@ -207,8 +208,9 @@ prompting for a template.")
                                     emacspeak-url-template-shoutcast-history)
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
-        (pushnew query emacspeak-url-template-shoutcast-history :test #'string-equal)
-        (webjump-url-encode  query))))
+        (pushnew query emacspeak-url-template-shoutcast-history
+ :test #'string-equal)
+        query)))
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
@@ -316,8 +318,7 @@ to play a BBC Radio4 program on demand."
  "http://labs.google.com/cgi-bin/webquotes?num_quotes=3&q=%s&btnG=Google+WebQuotes+Search&show_titles=1&bold_links=1&snippet_threshold=3"
  (list
   #'(lambda nil
-      (webjump-url-encode
-       (read-from-minibuffer "Query: "))))
+       (read-from-minibuffer "Query: ")))
  nil
  "Google WebQuotes.")
 (emacspeak-url-template-define
@@ -325,8 +326,7 @@ to play a BBC Radio4 program on demand."
  "http://labs.google.com/glossary?q=%s"
  (list
   #'(lambda nil
-      (webjump-url-encode
-       (read-from-minibuffer "Term: "))))
+       (read-from-minibuffer "Term: ")))
  nil
  "Google Glossary lookup.")
 (emacspeak-url-template-define
@@ -334,8 +334,7 @@ to play a BBC Radio4 program on demand."
  "http://www.google.com/search?q=%s&num=%s"
  (list
   #'(lambda ()
-      (webjump-url-encode
-       (read-from-minibuffer "Google search:")))
+       (read-from-minibuffer "Google search:"))
   #'(lambda nil
       (declare (special  emacspeak-websearch-google-number-of-results))
       emacspeak-websearch-google-number-of-results))
@@ -394,9 +393,8 @@ to play a BBC Radio4 program on demand."
  "http://news.google.com/news?hl=en&q=%s&scoring=d&btnG=Google+Search"
  (list
   #'(lambda ()
-      (webjump-url-encode
        (read-from-minibuffer
-	"Search news for: "))))
+	"Search news for: ")))
  #'(lambda nil
      (search-forward "Sorted by")
      (forward-line 4)
@@ -409,26 +407,8 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "MapQuest Directions"
  "http://www.mapquest.com/directions/main.adp?go=1&do=nw&1y=US&2y=US&ct=NA&1a=%s&1c=%s&1c=%s&1z=%s&2a=%s&2c=%s&2s=%s&2z=%s"
- (list
-  #'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "Start
- Address:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "City:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "State:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "Zip:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "Destination
- Address:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "City:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "State:")))
-#'(lambda ()
-      (webjump-url-encode (read-from-minibuffer "Zip:")))
-)
+ (list "Start Address:" "City:" "State:" "Zip:"
+       "Destination Address:" "City:" "State:" "Zip:")
  nil
  "Retrieve and speak directions from MapQuest."
  #'(lambda (url)
@@ -576,8 +556,7 @@ to play a BBC Radio4 program on demand."
  "http://access.adobe.com/perl/convertPDF.pl?url=%s"
  (list
   #'(lambda ()
-      (webjump-url-encode
-       (read-from-minibuffer "PDF URL: "))))
+       (read-from-minibuffer "PDF URL: ")))
  nil
  "Use access.adobe.com to  convert a remote PDF document to
 HTML.
