@@ -1,0 +1,176 @@
+#	$Id$
+;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  Adobe
+Systems Incorporated
+
+                             emacspeak is an interactive compiled Lisp function in `emacspeak'.
+(emacspeak)
+
+Starts the Emacspeak speech subsystem.  Use emacs as you
+normally would, emacspeak will provide you spoken feedback
+as you work.  Emacspeak also provides commands for having
+parts of the current buffer, the mode-line etc to be spoken.
+
+If you are hearing this description as a result of pressing
+C-h C-e you may want to press
+C-e s to stop speech, and then use the arrow keys to
+move around in the Help buffer to read the rest of this
+description, which includes a summary of all emacspeak
+keybindings.
+
+All emacspeak commands use C-e as a
+prefix key.  You can also set the state of the Dectalk by
+using C-e d as a prefix.  Here is
+a summary of all emacspeak commands along with their
+bindings.  You need to precede the keystrokes listed below
+with C-e.
+
+Emacspeak also provides a fluent speech extension to the
+emacs terminal emulator (eterm).  Note: You need to use the
+term package that comes with emacs-19.29.
+
+key             binding
+---             -------
+
+D               emacspeak-view-emacspeak-doc
+F               emacspeak-view-emacspeak-faq
+N               emacspeak-view-emacspeak-news
+9               emacspeak-speak-predefined-window
+8               emacspeak-speak-predefined-window
+7               emacspeak-speak-predefined-window
+6               emacspeak-speak-predefined-window
+5               emacspeak-speak-predefined-window
+4               emacspeak-speak-predefined-window
+3               emacspeak-speak-predefined-window
+2               emacspeak-speak-predefined-window
+1               emacspeak-speak-predefined-window
+0               emacspeak-speak-predefined-window
+C-d             emacspeak-toggle-show-point
+C-r             emacspeak-eterm-remote-term
+C-a             emacspeak-toggle-auditory-icons
+C-w             emacspeak-speak-window-information
+SPC             dtk-resume
+>               emacspeak-speak-next-field
+<               emacspeak-speak-previous-field
+%               emacspeak-speak-current-percentage
+=               emacspeak-speak-current-column
+'               emacspeak-speak-sexp
+)               emacspeak-use-customized-blink-paren
+C-n             emacspeak-speak-next-window
+C-p             emacspeak-speak-previous-window
+C-y             emacspeak-clipboard-paste
+C-c             emacspeak-clipboard-copy
+C-o             emacspeak-speak-other-window
+C               emacspeak-speak-display-char
+;               emacspeak-realaudio
+.               emacspeak-speak-browse-buffer
+?               search-backward
+A               emacspeak-appt-repeat-announcement
+B               emacspeak-speak-buffer-interactively
+H               emacspeak-speak-help-interactively
+L               emacspeak-speak-line-interactively
+M               emacspeak-speak-minor-mode-line
+P               emacspeak-speak-paragraph-interactively
+[               emacspeak-speak-paragraph
+]               emacspeak-speak-page-interactively
+"               emacspeak-speak-sexp-interactively
+C-b             emacspeak-submit-bug
+C-h             emacspeak-learn-mode
+TAB             emacspeak-table-display-table-in-region
+RET             emacspeak-speak-continuously
+C-q             emacspeak-toggle-comint-autospeak
+C-s             dtk-emergency-restart
+a               emacspeak-speak-message-again
+b               emacspeak-speak-buffer
+c               emacspeak-speak-char
+C-f             emacspeak-frame-label-or-switch-to-labelled-frame
+f               emacspeak-speak-buffer-filename
+C-j             emacspeak-hide-speak-block-sans-prefix
+j               emacspeak-hide-or-expose-block
+h               emacspeak-speak-help
+C-t             emacspeak-table-find-file
+i               emacspeak-tabulate-region
+ESC             Prefix Command
+C-@             emacspeak-speak-current-mark
+k               emacspeak-speak-current-kill
+l               emacspeak-speak-line
+C-l             emacspeak-speak-line-number
+m               emacspeak-speak-mode-line
+n               emacspeak-speak-rest-of-buffer
+o               emacspeak-voicify-region
+p               dtk-pause
+q               emacspeak-toggle-speak-messages
+R               emacspeak-speak-rectangle
+r               emacspeak-speak-region
+s               dtk-stop
+t               emacspeak-speak-time
+C-v             view-mode
+v               emacspeak-speak-version
+W               emacspeak-speak-spell-current-word
+w               emacspeak-speak-word
+x               emacspeak-view-register
+up              emacspeak-read-previous-line
+down            emacspeak-read-next-line
+/               emacspeak-speak-this-buffer-other-window-display
+right           emacspeak-speak-this-buffer-next-display
+left            emacspeak-speak-this-buffer-previous-display
+C-e             emacspeak-eterm-maybe-send-raw
+e               end-of-line
+d               emacspeak-dtk-submap-command
+
+ESC SPC         emacspeak-imenu-speak-this-section
+ESC n           emacspeak-imenu-goto-next-index-position
+ESC i           imenu
+ESC t           emacspeak-tapestry-describe-tapestry
+ESC p           emacspeak-imenu-goto-previous-index-position
+ESC v           emacspeak-show-personality-at-point
+ESC m           emacspeak-toggle-mail-alert
+ESC a           emacspeak-toggle-action-mode
+ESC b           emacspeak-pronounce-define-local-pronunciation
+ESC d           emacspeak-pronounce-dispatch
+ESC r           emacspeak-remote-connect-to-server
+ESC s           emacspeak-symlink-current-file
+ESC l           emacspeak-link-current-file
+ESC c           emacspeak-copy-current-file
+ESC C-k         kill-emacs
+ESC C-@         emacspeak-speak-spaces-at-point
+
+d 9             dtk-set-predefined-speech-rate
+d 8             dtk-set-predefined-speech-rate
+d 7             dtk-set-predefined-speech-rate
+d 6             dtk-set-predefined-speech-rate
+d 5             dtk-set-predefined-speech-rate
+d 4             dtk-set-predefined-speech-rate
+d 3             dtk-set-predefined-speech-rate
+d 2             dtk-set-predefined-speech-rate
+d 1             dtk-set-predefined-speech-rate
+d 0             dtk-set-predefined-speech-rate
+d a             dtk-add-cleanup-pattern
+d b             dtk-toggle-debug
+d C             dtk-toggle-allcaps-beep
+d c             dtk-toggle-capitalization
+d d             dtk-select-server
+d f             dtk-set-character-scale
+d I             dtk-toggle-stop-immediately-while-typing
+d i             emacspeak-toggle-audio-indentation
+d k             emacspeak-toggle-character-echo
+d l             emacspeak-toggle-line-echo
+d m             dtk-set-pronunciation-mode
+d p             dtk-set-punctuations
+d q             dtk-toggle-quiet
+d R             dtk-reset-state
+d SPC           dtk-toggle-splitting-on-white-space
+d RET           dtk-set-chunk-separator-syntax
+d r             dtk-set-rate
+d s             dtk-toggle-split-caps
+d v             voice-lock-mode
+d V             emacspeak-dtk-speak-version
+d w             emacspeak-toggle-word-echo
+d t             emacspeak-dial-dtk
+d z             emacspeak-zap-dtk
+
+
+
+See the online documentation for individual commands and
+functions for details. There is an info manual for
+Emacspeak, but it is still preliminary. The source code
+documentation is up-to-date, please use it.  
