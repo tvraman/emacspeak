@@ -120,7 +120,9 @@ Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-freeamp-mode."
   (interactive
    (list
-    (read-file-name "MP3 Resource: ")))
+    (read-file-name "MP3 Resource: "
+                    (when (eq major-mode 'dired-mode)
+                          (dired-get-filename)))))
   (declare (special emacspeak-freeamp-process))
   (when (and emacspeak-freeamp-process
              (eq 'run (process-status
