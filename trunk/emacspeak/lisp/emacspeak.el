@@ -695,7 +695,7 @@ sets punctuation mode to all, and turns on split caps."
   (cd emacspeak-cvs-local-directory)
   (let ((cvs-process nil))
     (setq cvs-process
-          (start-process "cvs" "cvs" "cvs"
+          (start-process "cvs" "*cvs-emacspeak*" "cvs"
                          (format "-d%s"
                                  emacspeak-cvs-anonymous-cvsroot)
                          "login"))
@@ -706,20 +706,21 @@ sets punctuation mode to all, and turns on split caps."
                          emacspeak-cvs-local-directory))
       (cd (expand-file-name "emacspeak"
                             emacspeak-cvs-local-directory))
-    (setq cvs-process
-          (start-process "cvs" "cvs" "cvs"
-                         (format "-d%s"
-                                 emacspeak-cvs-anonymous-cvsroot)
-                         "-z3"
-                         "update"
-                         "-d")))
-    (t (setq cvs-process
-          (start-process "cvs" "cvs" "cvs"
-                         (format "-d%s"
-                                 emacspeak-cvs-anonymous-cvsroot)
-                         "-z3"
-                         "co"
-                         "emacspeak"))))
+      (setq cvs-process
+            (start-process "cvs" "*cvs-emacspeak*" "cvs"
+                           (format "-d%s"
+                                   emacspeak-cvs-anonymous-cvsroot)
+                           "-z3"
+                           "update"
+                           "-d")))
+     (t
+      (setq cvs-process
+            (start-process "cvs" "*cvs-emacspeak*" "cvs"
+                           (format "-d%s"
+                                   emacspeak-cvs-anonymous-cvsroot)
+                           "-z3"
+                           "co"
+                           "emacspeak"))))
     (set-process-sentinel cvs-process
                           'emacspeak-cvs-done-alert)))
 
