@@ -223,7 +223,13 @@ generators  ; list of param generator
 
 ;;}}}
 ;;{{{ sourceforge
-(emacspeak-url-template-define "sourceforge downloads" 
+(emacspeak-url-template-define "sourceforge project" 
+                               "http://sourceforge.net/projects/%s"
+                               (list
+                                (lambda nil 
+(read-from-minibuffer "Project name"))))
+
+(emacspeak-url-template-define "sourceforge download" 
                                "http://prdownloads.sourceforge.net/%s"
                                (list
                                 (lambda nil 
