@@ -132,7 +132,7 @@ display."
   "*Option to pass to aumix for resetting to default values."
   :group 'emacspeak-aumix
   :type 'string)
-
+;;;###autoload
 (defun emacspeak-aumix-reset ()
   "Reset to default audio settings."
   (interactive)

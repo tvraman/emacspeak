@@ -37,13 +37,6 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'thingatpt)
-(eval-when (compile)
-  (require 'outline))
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -51,6 +44,11 @@
 ;;; Provide additional advice to outline-mode
 
 ;;; Code:
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
+(require 'outline)
 
 ;;}}}
 ;;{{{  Navigating through an outline:
@@ -247,6 +245,7 @@ except that the outline section is optionally spoken"
 
 (defun emacspeak-outline-setup-keys ()
   "Bind keys in outline minor mode map"
+  (declare (special outline-mode-prefix-map))
   (define-key outline-mode-prefix-map "p"
     'emacspeak-outline-speak-previous-heading)
   (define-key outline-mode-prefix-map "n"

@@ -36,10 +36,20 @@ Use eflite TTS server." t nil)
 
 ;;;***
 
+;;;### (autoloads (emacspeak-setup-programming-mode) "emacspeak"
+;;;;;;  "emacspeak.el" (16004 38313))
+;;; Generated autoloads from emacspeak.el
+
+(autoload (quote emacspeak-setup-programming-mode) "emacspeak" "\
+Setup programming mode. Turns on audio indentation and
+sets punctuation mode to all, activates the dictionary and turns on split caps." nil nil)
+
+;;;***
+
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
-;;;;;;  emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
-;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15978 38310))
+;;;;;;  emacspeak-aumix-reset emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
+;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (16004 38310))
 ;;; Generated autoloads from emacspeak-aumix.el
 
 (defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
@@ -49,6 +59,9 @@ Use eflite TTS server." t nil)
 
 (defvar emacspeak-aumix-reset-options (format "-f %s -L 2>&1 >/dev/null" emacspeak-aumix-settings-file) "\
 *Option to pass to aumix for resetting to default values.")
+
+(autoload (quote emacspeak-aumix-reset) "emacspeak-aumix" "\
+Reset to default audio settings." t nil)
 
 (autoload (quote emacspeak-aumix-wave-increase) "emacspeak-aumix" "\
 Increase volume of wave output. " t nil)
@@ -93,6 +106,15 @@ Start a terminal-emulator in a new buffer." t nil)
 (autoload (quote emacspeak-filtertext) "emacspeak-filtertext" "\
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. " t nil)
+
+;;;***
+
+;;;### (autoloads nil "emacspeak-fix-interactive" "emacspeak-fix-interactive.el"
+;;;;;;  (16004 38311))
+;;; Generated autoloads from emacspeak-fix-interactive.el
+
+(defsubst emacspeak-fix-interactive-command-if-necessary (command) "\
+Fix command if necessary." (and (emacspeak-should-i-fix-interactive-p command) (emacspeak-fix-interactive command)))
 
 ;;;***
 
@@ -189,7 +211,7 @@ undefined" nil nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (15978 38314))
+;;;;;;  (16004 38013))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")
@@ -202,7 +224,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (16001 44246))
+;;;;;;  (16004 38016))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -242,7 +264,7 @@ Existing personality properties on the text range are preserved." nil nil)
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-process-sentinel emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15978 38315))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (16004 38312))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\

@@ -38,14 +38,6 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
-(eval-when-compile
-  (require 'emacspeak))
-(require 'derived)
-(require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
 ;;{{{  Introduction
 
 ;;; Commentary:
@@ -53,6 +45,10 @@
 ;;; Speech-enable psgml --a powerful SGML support package.
 ;;; psgml can be found at 
 ;;;
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  helpers 
