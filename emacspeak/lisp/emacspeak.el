@@ -1,5 +1,6 @@
 ;;; emacspeak.el --- Emacspeak -- The Complete Audio Desktop
 ;;; $Id$
+;;;$Name$
 ;;; $Author$
 ;;; Description:  Emacspeak: A speech interface to Emacs
 ;;; Keywords: Emacspeak, Speech, Dectalk,
