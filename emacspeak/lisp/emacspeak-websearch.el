@@ -1858,10 +1858,11 @@ Optional interactive prefix arg results in prompting for a search term."
                     (format "as_ugroup=%s" group)
                     ))))
     (browse-url  url)
-    (if prefix
-        (search-forward "Sorted " nil t)
-      (search-forward "Threads" nil t))
-    (emacspeak-speak-line)))
+    (emacspeak-websearch-post-process
+     (if prefix
+         "Sorted " 
+       "Threads" )
+    'emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-websearch)
