@@ -148,13 +148,13 @@ is nil if SYM is not a symbol that names a cell."
 (defun emacspeak-ses-forward-row-and-summarize ()
   "Move to next row and summarize."
   (interactive)
-  (forward-line)
+  (next-line)
   (emacspeak-ses-summarize-current-cell))
 
 (defun emacspeak-ses-backward-row-and-summarize ()
   "Move to previous row  and summarize."
   (interactive)
-  (forward-line -1)
+  (previous-line)
   (emacspeak-ses-summarize-current-cell))
 
 ;;}}}
@@ -185,6 +185,7 @@ is nil if SYM is not a symbol that names a cell."
     (emacspeak-ses-summarize-current-cell)))
 
 ;;}}}
+(emacspeak-ses-setup)
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 
