@@ -54,21 +54,21 @@
 (defun emacs  ()
   "Switch to a running emacs or start one if necessary."
   (interactive)
-  (let ((w
-         (car
-          (delete-if-not
-           (lambda (x)
-             (string= (window-class x) "Emacs"))
-           (managed-windows)))))
+  (let ((w (car
+            (delete-if-not
+             (lambda (x)
+               (string= (window-class x) "Emacs"))
+             (managed-windows)))))
     (if w
 	(display-window w)
       (system emacs-program))
-    (message "Launched emacs")))
+    (and (tts-running-p) (tts-say-current-window))))
 
 (defun switch-to-emacs  ()
   "Switch to a running emacs "
   (interactive)
-  (let ((w (car (delete-if-not
+  (let ((w (car
+            (delete-if-not
              (lambda (x)
                (string= (window-class x) "Emacs"))
              (managed-windows)))))
