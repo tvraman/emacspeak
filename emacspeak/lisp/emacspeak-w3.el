@@ -526,10 +526,25 @@ Nil means no transform is used. "
            (file :tag "XSL")
            (const :tag "none" nil))
   :group 'emacspeak-w3)
+(defcustom emacspeak-w3-cleanup-bogus-quotes t
+  "Clean up bogus Unicode chars for magic quotes."
+  :type 'boolean
+  :group 'emacspeak-w3)
+
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested XSL transform if any before displaying the
 HTML."
+  (when emacspeak-w3-cleanup-bogus-quotes
+    (goto-char (point-min))
+    (while (search-forward "&#147;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&#148;" nil t)
+      (replace-match "\""))
+    (goto-char (point-min))
+    (while (search-forward "&#180;" nil t)
+      (replace-match "\'")))
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
