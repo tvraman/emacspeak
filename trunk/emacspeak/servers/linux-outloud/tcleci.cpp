@@ -74,7 +74,7 @@ int  dsp = -1;
 //note that in the tcl server we select for 0.09 seconds so
 //that we dont queue up too many speech samples,
 //This is important for stopping speech immediately.
-#define BUFSIZE 1100
+#define BUFSIZE 1024
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
@@ -296,7 +296,6 @@ int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONS
 int playTTS (int samples) {
   int i;
   short stereo[2*samples];
-  // dont play samples   if we are asked to stop talking.
   /* mono to stereo */
   for (i=0; i<samples; i++) {
     stereo[2*i] =waveBuffer[i];
