@@ -64,6 +64,12 @@
   "Name of XSLT transformation engine."
   :type 'string
   :group 'emacspeak-xslt)
+;;;###autoload
+(defcustom emacspeak-xslt-options
+  "--html --nonet --novalid"
+  "Options passed to xsltproc."
+  :type 'string
+  :group 'emacspeak-xslt)
 
 (defcustom emacspeak-xslt-keep-errors  nil
   "If non-nil, xslt errors will be preserved in an errors buffer."
@@ -81,7 +87,7 @@ This is useful when handling bad HTML."
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
-  (declare (special emacspeak-xslt-program
+  (declare (special emacspeak-xslt-program emacspeak-xslt-options
                     emacspeak-xslt-nuke-null-char
                     emacspeak-xslt-keep-errors
                     modification-flag ))
@@ -95,8 +101,9 @@ part of the libxslt package."
                        params
                        " "))))
     (setq command (format
-		   "%s %s  --html --nonet --novalid %s - %s"
+		   "%s %s  %s  %s - %s"
 		   emacspeak-xslt-program
+                   emacspeak-xslt-options
 		   (or parameters "")
 		   xsl
 		   (if emacspeak-xslt-keep-errors
