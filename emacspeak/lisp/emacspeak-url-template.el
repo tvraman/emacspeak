@@ -255,7 +255,7 @@ documentation   Documents this template resource.
 ;;}}}
 ;;{{{ bbc 
 (emacspeak-url-template-define
- "BBC7 Schedule"
+ "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
  (list
   #'(lambda nil
