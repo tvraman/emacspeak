@@ -409,17 +409,17 @@
     </qandadiv>
     <qandadiv id="status">
       <title>State Of The Emacspeak Audio Desktop</title>
-<para>This section contains tips on querying and updating
-the status of the Emacspeak audio desktop.</para>
+      <para>This section contains tips on querying and updating
+        the status of the Emacspeak audio desktop.</para>
       <qandaentry>
         <question> <para>Hearing The Current Context
-        </para></question>
+          </para></question>
         <answer>
           <para>
-<emphasis>Emacs buffers</emphasis> are the building bloks of the
+            <emphasis>Emacs buffers</emphasis> are the building bloks of the
             Emacspeak audio desktop.  Current context is
             thus determined by the <emphasis>current
-            buffer</emphasis> ---i.e., the buffer with which the
+              buffer</emphasis> ---i.e., the buffer with which the
             user is presently interacting.  The state of the
             <emphasis>current buffer</emphasis> is continuously
             updated visually by Emacs on the
@@ -429,19 +429,19 @@ the status of the Emacspeak audio desktop.</para>
             there is a context change. You can explicitly
             request this context information using command
             <command>emacspeak-speak-mode-line</command>;
-additional details are provided by command
+            additional details are provided by command
             <command>emacspeak-speak-minor-mode-line</command>.
-</para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
-          <para>Status Information From
-          <command>emacspeak-speak-mode-line</command></para>
+          <para>Information conveyed by 
+            command <command>emacspeak-speak-mode-line</command></para>
         </question>
         <answer>
           <para>
-Command <command>emacspeak-speak-mode-line</command> is
+            Command <command>emacspeak-speak-mode-line</command> is
             optimized to convey the most relevant
             information first. Different user options
             control additional status information that may
@@ -452,72 +452,91 @@ Command <command>emacspeak-speak-mode-line</command> is
             information conveyed by command
             <command>emacspeak-speak-mode-line</command>.
             <simplelist type="vert">
-<member>
-which-function
-When <command>which-function-mode</command> is activated
+              <member>
+                which-function
+                When <command>which-function-mode</command> is activated
                 using command <command>emacspeak-toggle-which-function</command>,
-the name of the function containing the cursor is
+                the name of the function containing the cursor is
                 spoken. This is useful in programming modes.
               </member>
-<member>
-mail-alert  
-Produces an auditory icon indicating newly arrived mail  and
+              <member>
+                mail-alert  
+                Produces an auditory icon indicating newly arrived mail  and
                 is controlled via command
                 <command>emacspeak-toggle-mail-alert</command></member>
-<member>
-buffer-modified
-An auditory tone indicates if the contents of the  <emphasis>current</emphasis>
+              <member>
+                buffer-modified
+                An auditory tone indicates if the contents of the  <emphasis>current</emphasis>
                 buffer has been modified  since it was last
                 saved.
               </member>
-<member>
-buffer-read-only
-An auditory tone  if the <emphasis>current</emphasis>
+              <member>
+                buffer-read-only
+                An auditory tone  if the <emphasis>current</emphasis>
                 buffer is <emphasis>read-only</emphasis>.</member>
-<member>
-buffer-name
-The <emphasis>name</emphasis> of the current buffer.</member>
-<member>
-line-number
-Current <emphasis>line number</emphasis> if  <command>line-number-mode</command>
+              <member>
+                buffer-name
+                The <emphasis>name</emphasis> of the current buffer.</member>
+              <member>
+                line-number
+                Current <emphasis>line number</emphasis> if  <command>line-number-mode</command>
                 is active.</member>
-<member>
-column-number                                          
-Current  <emphasis>column number</emphasis> if
+              <member>
+                column-number                                          
+                Current  <emphasis>column number</emphasis> if
                 <command>column-number-mode</command> is
                 active.
               </member>
-<member>
-mode-name
-Name of the  buffer's <emphasis>major mode</emphasis> ---this is
+              <member>
+                mode-name
+                Name of the  buffer's <emphasis>major mode</emphasis> ---this is
                 what determines <emphasis>specialized
                   behavior</emphasis>
-within Emacs buffers.</member>
-<member>
-percentage 
-<emphasis>Percentage</emphasis> of point into the current
+                within Emacs buffers.</member>
+              <member>
+                percentage 
+                <emphasis>Percentage</emphasis> of point into the current
                 buffer.</member>
-<member>
-frame-info
-If more than one <emphasis>Emacs frame</emphasis> is active, then
+              <member>
+                frame-info
+                If more than one <emphasis>Emacs frame</emphasis> is active, then
                 the title of the current frame is
                 spoken.</member>
-<member>
-recursion-info
-Current recursion level when <emphasis>recursive  edit</emphasis> is
+              <member>
+                recursion-info
+                Current recursion level when <emphasis>recursive  edit</emphasis> is
                 in progress; note that you enter
                 <emphasis>recursive edit</emphasis> in Emacs in very
                 few specialized cases.</member>
             </simplelist>
-Finally, note that the feedback is designed using  the
+            Finally, note that the feedback is designed using  the
             principle <emphasis>no news is good news</emphasis>,
-thus, in many cases the absence of a cue is itself a cue.
-As an example, Emacspeak produces an auditory tone only if a
+            thus, in many cases the absence of a cue is itself a cue.
+            As an example, Emacspeak produces an auditory tone only if a
             buffer is <emphasis>read-only</emphasis>
---the absence of the tone indicates the buffer can be
+            --the absence of the tone indicates the buffer can be
             editted which is usually the case.
-Similarly, no tone is produced when a buffer does not need saving.
-</para>
+            Similarly, no tone is produced when a buffer does not need saving.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Information conveyed by command <command>emacspeak-speak-minor-mode-line</command></para>
+        </question>
+        <answer>
+          <para>
+            Command
+            <command>emacspeak-speak-minor-mode-line</command>
+            typically conveys additional information
+            including:
+            <simplelist type="vert">
+              <member>Minor modes that are active e.g.,
+                <emphasis>voice-lock</emphasis></member>
+              <member>Version number of files under revision control.</member>
+          <member>Current encoding system in use.</member>
+            </simplelist>
+          </para>
         </answer>
       </qandaentry>
     </qandadiv>
