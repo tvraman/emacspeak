@@ -149,9 +149,13 @@ speech flush as you type."
 ;;{{{  kill buffer for emacs 21
 
 
-;;;There is a timing bug in Emacs 21 that causes the advice t fire
-;;;*after*
-;;;the function is done.
+;;;There is a bug in emacs 21
+;;; that causes the normal emacspeak advice  to fire too late
+;;; Interestingly enough  if you just bind the key again 
+;;; the emacspeak advice works, which indicates that perhaps 
+;;; the bug stems from how it gets bound in commands.c
+;;; also, note that emacspeak-fix-interactive gets fooled by emacs 21
+;;; into auto-advising kill-buffer
 
 (defun emacspeak-kill-buffer (buffer)
   "Speech-enabled version of kill-buffer for Emacs 21."
