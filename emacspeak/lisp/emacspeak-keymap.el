@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -54,10 +54,10 @@
 (defvar emacspeak-prefix "\C-e"
   "Default prefix key used for emacspeak. ")
 
-(defvar emacspeak-keymap (make-sparse-keymap )
+(defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
 
-(defvar emacspeak-dtk-submap (make-sparse-keymap)
+(defvar emacspeak-dtk-submap nil
   "Submap used for DTK commands. ")
 
 ;;}}}
@@ -98,7 +98,8 @@
 (define-key emacspeak-keymap "w" 'emacspeak-speak-word)
 (define-key emacspeak-keymap "W"
   'emacspeak-speak-spell-current-word)
-(define-key emacspeak-keymap "u" 'emacspeak-dejanews-browse-group)
+(define-key emacspeak-keymap "u" 'emacspeak-url-template-fetch)
+(define-key emacspeak-keymap "U" 'emacspeak-dejanews-browse-group)
 (define-key emacspeak-keymap "v" 'emacspeak-speak-version)
 (define-key emacspeak-keymap "\C-v" 'view-mode)
 (define-key emacspeak-keymap "t" 'emacspeak-speak-time )
@@ -110,7 +111,9 @@
 (define-key emacspeak-keymap "m" 'emacspeak-speak-mode-line)
 (define-key emacspeak-keymap "\C-l"
   'emacspeak-speak-line-number)
-(define-key emacspeak-keymap "|" 'emacspeak-speak-line-set-column-filter)
+(define-key emacspeak-keymap "|"
+  'emacspeak-speak-line-set-column-filter)
+(define-key emacspeak-keymap "\\" 'emacspeak-filtertext)
 (define-key emacspeak-keymap "l" 'emacspeak-speak-line)
 (define-key emacspeak-keymap "k" 'emacspeak-speak-current-kill )
 (define-key emacspeak-keymap "\C-@" 'emacspeak-speak-current-mark )
@@ -126,7 +129,7 @@
   'emacspeak-speak-buffer-filename )
 (define-key emacspeak-keymap  "\M-f"
   'emacspeak-frame-label-or-switch-to-labelled-frame )
-(define-key emacspeak-keymap  "\C-f" 'emacspeak-forms-find-file )
+(define-key emacspeak-keymap  "\C-f" 'emacspeak-freeamp-prefix-command )
 (define-key emacspeak-keymap "c" 'emacspeak-speak-char)
 (define-key emacspeak-keymap "b" 'emacspeak-speak-buffer)
 (define-key emacspeak-keymap "a" 'emacspeak-speak-message-again )
@@ -171,6 +174,8 @@
 (define-key emacspeak-keymap "\C-p" 'emacspeak-speak-previous-window)
 (define-key emacspeak-keymap "\C-n" 'emacspeak-speak-next-window )
 (define-key emacspeak-keymap "(" 'emacspeak-aumix)
+(define-key emacspeak-keymap ")" 'emacspeak-sounds-select-theme)
+(define-key emacspeak-keymap ")" 'emacspeak-sounds-select-theme)
 (define-key emacspeak-keymap "\177" 'cd-tool)
 (define-key emacspeak-keymap "'" 'emacspeak-speak-sexp)
 (define-key emacspeak-keymap "=" 'emacspeak-speak-current-column)

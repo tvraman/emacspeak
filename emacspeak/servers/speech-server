@@ -15,8 +15,7 @@
 
 # }}}
 # {{{ Copyright:  
-
-# Copyright (c) 1995, 1996, 1997, 1998, 1999  T. V. Raman, Adobe Systems
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 # Incorporated.
 #All Rights Reserved
 #
@@ -54,25 +53,12 @@ set play  $env(EMACSPEAK_PLAY_PROGRAM)
 }
 set sound "train.au"
 catch "exec $play $sound >& /dev/null &" errCode
-set v [info tclversion]
-if {[string match {7.5} $v]
-    || [string match 7.6 $v]
-    || [string match 7.7 $v]
-    || [string match 7.8 $v]
-    || [string match 7.9 $v]
-    || [string match 8.0 $v]} {
+# No longer support TCL older than 7.5
     set handles [server_accept -nobuf  $server]
     #Now, connect the read and write handles to stdin and stdout
     dup $handles  stdout
     dup $handles stderr
     dup $handles stdin
-} else {
-    set handles [server_accept -twoids  $server]
-    #Now, connect the read and write handles to stdin and stdout
-    dup [lindex $handles 1] stdout
-    dup [lindex $handles 1] stderr
-    dup [lindex $handles 0] stdin
-}
 
 #no more connections
 close $server

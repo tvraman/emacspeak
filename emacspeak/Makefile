@@ -131,18 +131,18 @@ libparentdir = ${prefix}/share/emacs/site-lisp
 # where  all emacspeak  files should go
 libdir =$(libparentdir)/emacspeak
 #directory where we are building
-SRC = `pwd`
+SRC = $(shell pwd)
 # How to install files
 INSTALL = install
 CP=cp
 # }}}
-
 ############## no user servicable parts beyond this point ###################
 SNAPSHOT = `date "+%h-%d-%y-%H-%M"`
 # {{{ setup distribution 
 
 # source files to distribute
 ID = README
+SAWFISH=sawfish/*.jl sawfish/sawfishrc
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
@@ -153,7 +153,7 @@ ${ECI}/NOTES \
 ${ECI}/Makefile 
 
 NEWS = etc/NEWS*  etc/FAQ etc/HELP etc/COPYRIGHT 
-SOUNDS=sounds/*.au
+SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 
 TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp \
@@ -167,10 +167,11 @@ ELISP = lisp/*.el lisp/*.def lisp/Makefile
 
 TEMPLATES = etc/emacspeak.sh.def \
 etc/play.def etc/Makefile 
+MISC=etc/last-log.pl etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) \
-${NEWS} Makefile 
+${NEWS} ${MISC} Makefile 
 
 # }}}
 # {{{  define make variables and file groupings
@@ -179,7 +180,7 @@ ${NEWS} Makefile
 # {{{  User level targets emacspeak info print 
 
 emacspeak:
-	cd lisp; make  SRC=..
+	cd lisp; make  SRC=$(SRC)
 	touch $(ID)
 	chmod 644 $(ID)
 	@echo "Compiled on $(SNAPSHOT) by `whoami` on `hostname`" >> $(ID)
@@ -198,6 +199,7 @@ print:
 
 # }}}
 # {{{  Maintainance targets tar snapshot dist 
+
 EXCLUDES=--exclude='*/CVS' --exclude='*/RCS'
 tar:
 	rm -f $(ID)
@@ -209,11 +211,11 @@ tar:
 	@echo "See the Makefile for details. " >> $(ID)
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
 	$(OUTLOUD) \
-	${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
+	${SAWFISH} ${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
 	${SOUNDS}   $(INFO)
 
 snapshot: $(DISTFILES)
-	rcs -n$(SNAPSHOT):$$ $(DISTFILES)
+	#rcs -n$(SNAPSHOT):$$ $(DISTFILES)
 
 dist: $(DISTFILES) $(INFO)
 	make tar
@@ -235,26 +237,30 @@ install:
 	make config SRC=$(libdir)
 	  $(INSTALL)  -d $(libparentdir) 
 	  $(INSTALL) -d $(libdir) 
+	touch $(libdir)/.nosearch
 	  $(INSTALL) -d $(libdir)/lisp
 	  $(INSTALL) -d $(libdir)/etc
-	  chmod 755 $(libdir)
+	$(INSTALL) -d $(libdir)/sawfish
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
+	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
+	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
-	$(INSTALL)  etc/play   $(libdir)/etc 
-	$(INSTALL)  ${NEWS}   $(libdir)/etc  
-	chmod 755   $(libdir)/etc/play
-	$(INSTALL) -d $(libdir)/sounds
-	$(CP) -r $(REALAUDIO) $(libdir) 
-	$(INSTALL)  -m 0644 $(SOUNDS) $(libdir)/sounds
+	$(INSTALL) -m 0755   etc/play   $(libdir)/etc
+	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
+	$(INSTALL) -m 0644  ${MISC}   $(libdir)/etc
+	$(CP) -r $(SOUNDS) $(libdir)/sounds
+	chmod -R go+rX  $(libdir)/sounds
+	$(CP) -r $(REALAUDIO) $(libdir)
+	chmod -R go+rX  $(libdir)/realaudio
 	$(INSTALL) -d $(libdir)/etc/forms
 	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
 	$(INSTALL) -d $(libdir)/etc/tables
 	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
 	$(INSTALL) -d $(bindir)
-	$(INSTALL) etc/emacspeak.sh $(bindir)/emacspeak
+	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
 	$(INSTALL) -d $(infodir)
 	cd info; \
 	make install infodir=$(infodir)
@@ -311,10 +317,21 @@ release: #supply LABEL=NN.NN
 	rm -f emacspeak.tar ; \
 	tar cvf emacspeak.tar emacspeak-$(LABEL); \
 	gzip -9 emacspeak.tar; \
-	mv  emacspeak.tar.gz ../ems.tgz; \
+	mv  emacspeak.tar.gz ../emacspeak.tar.gz; \
 	cd .. ; \
-	/bin/rm -rf release 
-	@echo "Prepared Emacspeak-$(LABEL) in ems.tgz"
+	/bin/rm -rf release ; \
+	rm -f emacspeak.spec ; \
+sed "s@<version>@$(LABEL)@g" \
+	emacspeak.spec.in > emacspeak.spec
+	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.gz"
+
+# }}}
+# {{{ rpm 
+rpm: emacspeak.spec
+	@cp emacspeak.tar.gz /usr/src/redhat/SOURCES/
+	@cp emacspeak.spec /usr/src/redhat/SPECS/
+	rpm -ba --sign  --target noarch  /usr/src/redhat/SPECS/emacspeak.spec
+
 
 # }}}
 # {{{list distfiles to stdout

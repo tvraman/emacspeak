@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -68,10 +68,10 @@ trouble.")
 
 (setq vm-voice-lock-keywords
       (append vm-voice-lock-keywords
-              '(("^From: \\(.*\\)$" 1  'emacspeak-vm-from-voice )
-                ("^To: \\(.*\\)$" 1 'emacspeak-vm-to-voice)
-                ("^Subject: \\(.*\\)$" 1 'emacspeak-vm-subject-voice)
-                ("^|?[a-zA-Z]*>+\\(.*\\)$" 1 'emacspeak-vm-cite-voice )
+              '(("^From: \\(.*\\)$" 1  emacspeak-vm-from-voice )
+                ("^To: \\(.*\\)$" 1 emacspeak-vm-to-voice)
+                ("^Subject: \\(.*\\)$" 1 emacspeak-vm-subject-voice)
+                ("^|?[a-zA-Z]*>+\\(.*\\)$" 1 emacspeak-vm-cite-voice )
                 )))
 
 (voice-lock-set-major-mode-keywords 'vm-mode      'vm-voice-lock-keywords)
@@ -94,10 +94,16 @@ trouble.")
 ;;}}}
 ;;{{{  vm voices:
 
-(dtk-define-voice-alias 'emacspeak-vm-from-voice  'harry)
-(dtk-define-voice-alias 'emacspeak-vm-to-voice  'paul-animated)
-(dtk-define-voice-alias 'emacspeak-vm-subject-voice  'paul-smooth )
-(dtk-define-voice-alias 'emacspeak-vm-cite-voice  'paul-smooth)
+(defvar emacspeak-vm-from-voice  'harry
+"Personality for From field. ")
+
+(defvar emacspeak-vm-to-voice  'paul-animated
+"Personality for To field. ")
+(defvar emacspeak-vm-subject-voice  'paul-smooth 
+"Personality for Subject field. ")
+
+(defvar emacspeak-vm-cite-voice  'paul-smooth
+"Personality for citation lines. ")
 
 ;;}}}
 ;;{{{ inline helpers

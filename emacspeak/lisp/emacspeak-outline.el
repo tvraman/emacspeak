@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -213,8 +213,11 @@
 ;;}}}
 ;;{{{  Interactive speaking of sections
 
-(defvar emacspeak-outline-dont-query-before-speaking t
-"*Option to control prompts when speaking  outline sections.")
+(defcustom emacspeak-outline-dont-query-before-speaking t
+"*Option to control prompts when speaking  outline
+sections."
+:group 'emacspeak
+:type 'boolean)
 
 
 (defun emacspeak-outline-speak-heading (what direction)

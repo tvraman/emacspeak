@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -198,11 +198,31 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice-alias 'voice-lock-string-personality 'betty)
 (outloud-define-voice-alias 'voice-lock-function-name-personality 'harry)
 (outloud-define-voice-alias 'voice-lock-warning-personality 'paul-angry)
-(outloud-define-voice-alias 'voice-lock-keyword-personality 'ursula)
+(outloud-define-voice-alias 'voice-lock-keyword-personality
+                            'ursula)
+(outloud-define-voice-alias 'voice-lock-builtin-personality
+                        'harry)
 (outloud-define-voice-alias 'voice-lock-variable-name-personality 'paul-italic)
 (outloud-define-voice-alias 'voice-lock-type-personality 'paul-smooth)
 (outloud-define-voice-alias 'voice-lock-reference-personality 'paul-italic)
 
+;;}}}
+;;{{{  font to voice 
+
+;;; let's define the standard symbols used as fonts as
+;;; personalities here.
+
+
+(outloud-define-voice-alias 'font-lock-variable-name-face 'voice-lock-variable-name-personality)
+(outloud-define-voice-alias 'font-lock-reference-face 'voice-lock-reference-personality)
+(outloud-define-voice-alias'font-lock-comment-face  'voice-lock-comment-personality)
+(outloud-define-voice-alias'font-lock-string-face  'voice-lock-string-personality)
+(outloud-define-voice-alias 'font-lock-keyword-face  'voice-lock-keyword-personality)
+(outloud-define-voice-alias 'font-lock-builtin-face  'voice-lock-builtin-personality)
+(outloud-define-voice-alias 'font-lock-function-name-face 'voice-lock-function-name-personality)
+(outloud-define-voice-alias 'font-lock-type-face  'voice-lock-type-personality)
+(outloud-define-voice-alias 'font-lock-constant-face  'voice-lock-constant-personality)
+(outloud-define-voice-alias 'font-lock-warning-face  'voice-lock-warning-personality)
 ;;}}}
 (provide 'outloud-voices)
 ;;{{{  emacs local variables

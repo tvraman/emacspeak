@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -43,9 +43,12 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
+(require 'custom)
 (require 'thingatpt)
 (require 'dtk-speak)
-(eval-when (compile) (require 'voice-lock)
+(eval-when (compile)
+  (require 'voice-lock)
+           (require 'emacspeak-table-ui)
            (require 'emacspeak-sounds))
 
 ;;}}}
@@ -60,6 +63,14 @@
 ;;; Code:
 
 ;;}}}
+;;{{{  custom group 
+
+(defgroup emacspeak-speak nil
+"Basic speech output commands."
+:group 'emacspeak)
+
+;;}}}
+
 ;;{{{ inhibit-point-motion-hooks
 (defsubst ems-inhibit-point-motion-hooks ()
   (if (boundp 'inhibit-point-motion-hooks)
@@ -185,8 +196,10 @@ Interactive PREFIX arg prompts for sound cue to use"
                              (+ 2    (point ))
                              'auditory-icon sound-cue ))))))
 
-(defvar  emacspeak-speak-paragraph-personality 'paul-animated
-  "*Personality for using to mark start of paragraph.")
+(defcustom  emacspeak-speak-paragraph-personality 'paul-animated
+  "*Personality used to mark start of paragraph."
+  :group 'emacspeak-speak
+:type 'symbol)
 
 (defvar emacspeak-speak-voice-annotated-paragraphs nil
   "Records if paragraphs in this buffer have been voice annotated.")
@@ -299,10 +312,12 @@ current local  value to the result."
 ;;}}}
 ;;{{{  line, Word and Character echo
 
-(defvar emacspeak-line-echo nil
+(defcustom emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
-Do not set this variable by hand;
-Use \\[emacspeak-toggle-line-echo]")
+You can use \\[emacspeak-toggle-line-echo] to set this
+option."
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-line-echo (&optional prefix)
   "Toggle state of  Emacspeak  line echo.
@@ -324,10 +339,12 @@ current local  value to the result."
            (if emacspeak-line-echo "on" "off" )
 	   (if prefix "" " locally")))
 
-(defvar emacspeak-word-echo t
+(defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
-Do not set this variable by hand;
-Use \\[emacspeak-toggle-word-echo]")
+You can use \\[emacspeak-toggle-word-echo] to toggle this
+option."
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-word-echo (&optional prefix)
   "Toggle state of  Emacspeak  word echo.
@@ -348,10 +365,14 @@ current local  value to the result."
   (message "Turned %s word echo%s "
            (if emacspeak-word-echo "on" "off" )
 	   (if prefix "" " locally")))
-(defvar emacspeak-character-echo t
+
+(defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
-Do not set this variable by hand;
-Use \\[emacspeak-toggle-character-echo]")
+You can 
+use \\[emacspeak-toggle-character-echo] to toggle this
+setting."
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-character-echo (&optional prefix)
   "Toggle state of  Emacspeak  character echo.
@@ -376,12 +397,13 @@ current local  value to the result."
 ;;}}}
 ;;{{{ Showing the point:
 
-(defvar emacspeak-show-point nil
-  "Switch indicating if cursor position is cued.
-If T, then command  `emacspeak-speak-line' indicates position of point by an
-aural highlight.  Do not set this variable by hand; Use
-command `emacspeak-toggle-show-point' bound to \\[emacspeak-toggle-show-point]"
-  )
+(defcustom emacspeak-show-point nil
+  " If T, then command  `emacspeak-speak-line' indicates position of point by an
+aural highlight.  You can use 
+command `emacspeak-toggle-show-point' bound to
+\\[emacspeak-toggle-show-point] to toggle this setting."
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-show-point (&optional prefix)
   "Toggle state of  Emacspeak-show-point.
@@ -419,11 +441,14 @@ current local  value to the result."
 ;;}}}
 ;;{{{  indentation:
 
-(defvar emacspeak-audio-indentation nil
+(defcustom emacspeak-audio-indentation nil
   "Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.  Do not
-set this by hand, use command `emacspeak-toggle-audio-indentation' bound
-to \\[emacspeak-toggle-audio-indentation].")
+If non-nil , then speaking a line indicates its indentation.  
+You can use  command `emacspeak-toggle-audio-indentation' bound
+to \\[emacspeak-toggle-audio-indentation] to toggle this
+setting.."
+:group 'emacspeak-speak
+  :type 'boolean)
 
 (make-variable-buffer-local 'emacspeak-audio-indentation)
 
@@ -440,11 +465,16 @@ to \\[emacspeak-toggle-audio-indentation].")
   '(("speak" . "speak")
     ("tone" . "tone"))
   "Possible methods of indicating indentation.")
-(defvar emacspeak-audio-indentation-method "speak"
-  "*Current technique used to cue indentation.
-See variable `emacspeak-audio-indentation-methods' for
-possible values.
-Automatically becomes local in any buffer where it is set.")
+
+(defcustom emacspeak-audio-indentation-method "speak"
+  "*Current technique used to cue indentation.  Default is
+`speak'.  You can specify `tone' for producing a beep
+indicating the indentation.  Automatically becomes local in
+any buffer where it is set."
+:group 'emacspeak-speak
+:type '(choice
+        (const "speak")
+        (const "tone")))
 
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)
@@ -503,48 +533,59 @@ Argument START  and END specify region to speak."
   (emacspeak-handle-action-at-point)
   (dtk-speak (buffer-substring start end )))
 
-(defvar emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
-  "*Regular expression to match horizontal rules in ascii text.")
+(defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
+  "*Regular expression to match horizontal rules in ascii
+text."
+  :group 'emacspeak-speak
+:type 'string)
 
 (put 'emacspeak-horizontal-rule 'variable-interactive
      "sEnterregular expression to match horizontal rule: ")
 
 
-(defvar emacspeak-decoration-rule
+(defcustom emacspeak-decoration-rule
   "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
-  "*Regular expressions to match lines that are purely decorative ascii.")
+  "*Regular expressions to match lines that are purely
+decorative ascii."
+  :group 'emacspeak-speak
+:type 'string)
 
 (put 'emacspeak-decoration-rule 'variable-interactive
      "sEnterregular expression to match lines that are decorative ASCII: ")
 
-(defvar emacspeak-unspeakable-rule
+(defcustom emacspeak-unspeakable-rule
   "^[^0-9a-zA-Z]+$"
   "*Pattern to match lines of special chars.
 This is a regular expression that matches lines containing only
 non-alphanumeric characters.  emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some."
-  )
+  :group 'emacspeak-speak
+:type 'string)
 
 (put 'emacspeak-unspeakable-rule 'variable-interactive
      "sEnterregular expression to match unspeakable lines: ")
-(defvar emacspeak-speak-maximum-line-length  512
+(defcustom emacspeak-speak-maximum-line-length  512
   "*Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
-with a long string of gibberish.")
+with a long string of gibberish."
+  :group 'emacspeak-speak
+:type 'number)
 
 
 
 ;;{{{ filtering columns 
 
-(defvar emacspeak-speak-line-column-filter nil
+(defcustom emacspeak-speak-line-column-filter nil
   "*List that specifies columns to be filtered.
 The list when set holds pairs of start-col.end-col pairs 
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
-by cut -c on UNIX.")
+by cut -c on UNIX."
+  :group 'emacspeak-speak
+:type 'list)
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
@@ -637,7 +678,9 @@ files like /var/adm/messages and /var/adm/maillog over time."
    (list 
     (read-minibuffer "Specify filter list: "
                      (format "%s"
-                             (emacspeak-speak-lookup-persistent-filter (buffer-file-name))))))
+(if  (buffer-file-name )
+                             (emacspeak-speak-lookup-persistent-filter (buffer-file-name))
+  "")))))
   (cond
    ((and (listp filter)
          (every 
@@ -717,7 +760,7 @@ or header lines of blocks created by command
       (cond
        ((string= ""  (buffer-substring start end)) ;blank line
         (if dtk-stop-immediately (dtk-stop))
-        (dtk-tone 200   100 'force)
+        (dtk-tone 250   120 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'empty-line)))
        ((string-match  "^[ \t]+$" (buffer-substring start end )) ;only white space
@@ -1310,13 +1353,16 @@ Alert the user only if mail has arrived since this time in the future.")
      (t(setq emacspeak-mail-last-alerted-time mod-time )
        nil))))
 
-(defvar emacspeak-mail-alert t
+(defcustom emacspeak-mail-alert t
   "*Option to indicate cueing of new mail.
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
-Do not set this variable by hand --use command
-`emacspeak-toggle-mail-alert' bound to \\[emacspeak-toggle-mail-alert].")
+You can use command 
+`emacspeak-toggle-mail-alert' bound to
+\\[emacspeak-toggle-mail-alert] to set this option."
+  :group 'emacspeak-speak
+:type 'boolean)
 
 (defun emacspeak-toggle-mail-alert (&optional prefix)
   "Toggle state of  Emacspeak  mail alert.
@@ -1582,24 +1628,23 @@ Default is to read the next word. "
 ;;}}}
 ;;{{{  Speak misc information e.g. time, version, current-kill  etc
 
-(defvar emacspeak-speak-time-format-string
-  "%_I %M %p on %A, %B %_e, %Y"
+(defcustom emacspeak-speak-time-format-string
+  "%_I %M %p on %A, %B %_e, %Y "
   "*Format string that specifies how the time should be spoken.
 See the documentation for function
-`format-time-string'")
+`format-time-string'"
+  :group 'emacspeak-speak
+:type 'string)
 
 (defun emacspeak-speak-time ()
   "Speak the time."
   (interactive)
-  (declare (special emacspeak-speak-time-format-string
-                    emacspeak-speak-messages))
-  (save-excursion
-    (set-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-    (let ((emacspeak-speak-messages nil))
-      (unless (eq  dtk-punctuation-mode "some")
-        (dtk-set-punctuations "some"))
-      (dtk-speak (format-time-string emacspeak-speak-time-format-string)))))
-
+  (declare (special emacspeak-speak-time-format-string))
+      (tts-with-punctuations "some"
+                             (dtk-speak
+                              (format-time-string
+                               emacspeak-speak-time-format-string))))
+                             
 
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
@@ -1771,9 +1816,20 @@ Pressing  \\[keyboard-quit] breaks out, leaving point on last chunk that was spo
       (error "You specified an invalid key sequence.  " ))
     (emacspeak-execute-repeatedly command)))
 
-(defun emacspeak-speak-browse-buffer ()
-  "Browse the current buffer by reading it a paragraph at a time."
-  (interactive)
+(defun emacspeak-speak-browse-buffer (&optional define-paragraph)
+  "Browse the current buffer by reading it a paragraph at a
+time.
+Optional interactive prefix arg define-paragraph 
+prompts for regexp that defines paragraph start and
+paragraph-separate. "
+  (interactive "P")
+  (when define-paragraph
+    (setq paragraph-start
+          (read-from-minibuffer "Paragraph Start pattern:
+"))
+    (setq paragraph-separate
+          (read-from-minibuffer "Paragraph separate pattern: "
+                                paragraph-start)))
   (emacspeak-execute-repeatedly 'forward-paragraph))
 
 (defvar emacspeak-read-line-by-line-quotient 10
@@ -1854,11 +1910,14 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{ comint
 
-(defvar emacspeak-comint-autospeak t
+(defcustom emacspeak-comint-autospeak t
   "Says if comint output is automatically spoken.
-Do not set this by hand, use command
+You can use 
   `emacspeak-toggle-comint-autospeak` bound to
-  \\[emacspeak-toggle-comint-autospeak]")
+  \\[emacspeak-toggle-comint-autospeak] to toggle this
+setting."
+:group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-comint-autospeak (&optional prefix)
   "Toggle state of Emacspeak comint autospeak.
@@ -1868,7 +1927,8 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result."
 
   (interactive  "P")
-  (declare  (special  emacspeak-comint-autospeak ))
+  (declare  (special  emacspeak-comint-autospeak
+emacspeak-comint-split-speech-on-newline ))
   (cond
    (prefix
     (setq-default  emacspeak-comint-autospeak
@@ -1877,6 +1937,9 @@ set the current local value to the result."
    (t (make-local-variable 'emacspeak-comint-autospeak)
       (setq emacspeak-comint-autospeak
 	    (not emacspeak-comint-autospeak ))))
+  (and emacspeak-comint-autospeak
+       emacspeak-comint-split-speech-on-newline
+       (modify-syntax-entry 10 ">"))
   (emacspeak-auditory-icon
    (if emacspeak-comint-autospeak 'on 'off))
   (message "Turned %s comint autospeak %s "
@@ -1914,37 +1977,42 @@ set the current local value to the result."
            (if emacspeak-comint-output-monitor "on" "off" )
 	   (if prefix "" "locally")))
 
-(defvar emacspeak-comint-split-speech-on-newline  t
+(defcustom emacspeak-comint-split-speech-on-newline  t
   "*Option to have comint split speech on newlines.
-Non-nil means we split speech on newlines in comint buffer.
-Note that we do this by hacking the syntax entry for
-newline;
-turn this off if it causes trouble.")
+Non-nil means we split speech on newlines in comint buffer."
+  :group 'emacspeak-speak
+:type 'boolean)
 
 (add-hook 'shell-mode-hook
           (function
            (lambda nil
-             (declare (special emacspeak-comint-split-speech-on-newline ))
+             (declare (special
+                       emacspeak-comint-split-speech-on-newline ))
+             (dtk-set-punctuations "all")
              (when emacspeak-comint-split-speech-on-newline
                (modify-syntax-entry 10 ">")))))
 
 (add-hook 'comint-mode-hook
           (function
            (lambda nil
-             (declare (special emacspeak-comint-split-speech-on-newline ))
+             (declare (special
+                       emacspeak-comint-split-speech-on-newline ))
+             (dtk-set-punctuations "all")
              (when emacspeak-comint-split-speech-on-newline
                (modify-syntax-entry 10 ">")))))
 
 ;;}}}
 ;;{{{   quiten messages
 
-(defvar emacspeak-speak-messages t
-  "*Option indicating if messages are spoken.
-If nil, emacspeak will not speak messages as they are echoed to the message
-area.
-Do not set this variable by hand.
-Use command `emacspeak-toggle-speak-messages' bound to
-\\[emacspeak-toggle-speak-messages].")
+(defcustom emacspeak-speak-messages t
+  "*Option indicating if messages are spoken.  If nil,
+emacspeak will not speak messages as they are echoed to the
+message area.  You can use command
+`emacspeak-toggle-speak-messages' bound to
+\\[emacspeak-toggle-speak-messages]."
+
+:group 'emacspeak-speak
+:type 'boolean)
 
 (defun emacspeak-toggle-speak-messages ()
   "Toggle the state of whether emacspeak echoes messages."
@@ -1979,19 +2047,31 @@ Use command `emacspeak-toggle-speak-messages' bound to
       " "
       (buffer-substring  start end)))))
 
-
-(defun emacspeak-speak-current-field ()
-  "Speak current field.
+(cond 
+ ;; emacs 21 defines fields 
+ ((fboundp 'field-beginning)
+  (defun emacspeak-speak-current-field ()
+    "Speak current field.
 A field is
-defined currently as a sequence of non-white space characters.  may be made
+defined  by Emacs 21."
+    (interactive)
+    (emacspeak-speak-region (field-beginning)
+                            (field-end))))
+ (t 
+  (defun emacspeak-speak-current-field ()
+    "Speak current field.
+A field is defined currently as a sequence of non-white space characters.  may be made
   mode specific later."
-  (interactive)
-  (let ((start nil ))
-    (save-excursion
-      (skip-syntax-backward "^ ")
-      (setq start (point ))
-      (skip-syntax-forward "^ ")
-      (emacspeak-speak-field start (point )))))
+    (interactive)
+    (cond
+     ((window-minibuffer-p (selected-window))
+      (emacspeak-speak-line))
+     (t (let ((start nil ))
+          (save-excursion
+            (skip-syntax-backward "^ ")
+            (setq start (point ))
+            (skip-syntax-forward "^ ")
+            (emacspeak-speak-field start (point )))))))))
 
 (defun emacspeak-speak-next-field ()
   "Skip across and speak the next contiguous sequence of non-blank characters.
@@ -2694,12 +2774,6 @@ end:\n\n")
                                  face ))
             (setq start (point)))
         (setq inhibit-read-only nil)))))
-;;; associate voices to standard faces:
-(dtk-define-voice-alias 'bold 'paul-smooth)
-(dtk-define-voice-alias 'underline 'ursula)
-(dtk-define-voice-alias 'fixed 'paul-monotone)
-(dtk-define-voice-alias 'italic 'paul-animated)
-(dtk-define-voice-alias 'excerpt 'annotation-voice )
 
 ;;}}}
 ;;{{{  completion helpers
@@ -2794,11 +2868,13 @@ typed. If no such group exists, then we dont move. "
     (error (message "Make sure you have an Emacspeak resource directory %s"
                     emacspeak-resource-directory))))
 
-(defvar emacspeak-clipboard-file
+(defcustom emacspeak-clipboard-file
   (concat emacspeak-resource-directory "/" "clipboard")
   "File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechnaism for exchanging
-information between different Emacs sessions.")
+information between different Emacs sessions."
+:group 'emacspeak-speak
+  :type 'string)
 
 (defun emacspeak-clipboard-copy (start end &optional prompt)
   "Copy contents of the region to the emacspeak clipboard.
@@ -2834,35 +2910,25 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 
 
 
-(defun emacspeak-clipboard-paste (&optional prompt)
+(defun emacspeak-clipboard-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
 session --Emacs' register commands are far more efficient and
-light-weight.  Optional interactive prefix arg PROMPT  results in Emacspeak
-prompting for the clipboard file to use."
+light-weight.  Optional interactive prefix arg pastes from
+the emacspeak table clipboard instead."
   (interactive "P")
   (declare (special emacspeak-resource-directory emacspeak-clipboard-file))
-  (let ((clip nil)
-        (start (point))
-        (clipboard-file
-         (if prompt
-             (read-file-name "Yank from  clipboard file: "
-                             emacspeak-resource-directory
-                             emacspeak-clipboard-file)
-           emacspeak-clipboard-file))
-        (clipboard nil))
-    (setq clipboard (find-file-noselect  clipboard-file))
-    (setq clip
-          (let ((emacspeak-speak-messages nil))
-            (save-excursion
-              (set-buffer clipboard)
-              (buffer-string))))
-    (insert clip)
+  (let ((start (point))
+        (clipboard-file emacspeak-clipboard-file))
+    (cond
+     (paste-table  (emacspeak-table-paste-from-clipboard))
+     (t(insert-file-contents clipboard-file)))
     (message "Yanked %s lines from  Emacspeak clipboard %s"
              (count-lines start (point))
-             clipboard-file)))
+             (if paste-table "table clipboard"
+               clipboard-file))))
 
 ;;}}}
 ;;{{{ utilities
@@ -3276,14 +3342,19 @@ The results are placed in a buffer in Emacspeak's table
 
 ;;}}}
 ;;{{{ Directory specific settings
-(defvar  emacspeak-speak-load-directory-settings-quietly t
+(defcustom  emacspeak-speak-load-directory-settings-quietly t
   "*User option that affects loading of directory specific settings.
-If set to T,Emacspeak will not prompt before loading directory specific settings.")
+If set to T,Emacspeak will not prompt before loading
+directory specific settings."
+  :group 'emacspeak-speak
+:type 'boolean)
   
 
-(defvar emacspeak-speak-directory-settings
+(defcustom emacspeak-speak-directory-settings
   ".espeak.el"
-"*Name of file that holds directory specific settings.")
+"*Name of file that holds directory specific settings."
+:group 'emacspeak-speak
+:type 'string)
 
 (defsubst emacspeak-speak-get-directory-settings ()
   "Return directory specific settings file."
@@ -3300,7 +3371,7 @@ directory."
   (let ((settings (emacspeak-speak-get-directory-settings)))
     (when (and (file-exists-p  settings)
                (or emacspeak-speak-load-directory-settings-quietly
-                (y-or-n-p)
+                (y-or-n-p "Load directory settings? ")
                 "Load  directory specific Emacspeak
 settings? "))
       (condition-case nil
@@ -3356,8 +3427,7 @@ howto document.")))
 ;;}}}
 ;;{{{ Show active network interfaces
 
-(defvar
-  emacspeak-speak-show-active-network-interfaces-command
+(defvar emacspeak-speak-show-active-network-interfaces-command
 "echo `ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
 "Command that displays names of active network interfaces.")
 

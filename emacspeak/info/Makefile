@@ -5,6 +5,7 @@ infodir =/usr/info#normally supplied by caller
 INSTALL = install
 
 info: emacspeak.texi
+	chmod 644 *info*
 	makeinfo emacspeak.texi
 
 install: emacspeak.info

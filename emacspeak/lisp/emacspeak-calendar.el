@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -97,6 +97,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-calendar-date)))
+
 (defadvice calendar-set-mark (after emacspeak
                                                    pre act
                                                    comp)
@@ -143,8 +144,7 @@
   "Speak the date. "
   (when (interactive-p )
     (emacspeak-speak-calendar-date ))
-
-  )
+  (emacspeak-auditory-icon 'select-object))
 
 (defadvice calendar-goto-today (after emacspeak pre act)
 
@@ -153,7 +153,7 @@
   (when (interactive-p )
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'select-object))
 
 
 (defadvice calendar-backward-day (after emacspeak pre act)
@@ -163,7 +163,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'select-object))
 
 
 (defadvice calendar-forward-day (after emacspeak pre act)
@@ -173,7 +173,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'select-object))
 
 
 (defadvice calendar-backward-week (after emacspeak pre act)
@@ -193,7 +193,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 (defadvice calendar-backward-month (after emacspeak pre act)
@@ -203,7 +203,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 (defadvice calendar-forward-month (after emacspeak pre act)
@@ -213,7 +213,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 (defadvice calendar-backward-year (after emacspeak pre act)
@@ -223,7 +223,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
 
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 (defadvice calendar-forward-year (after emacspeak pre act)
@@ -232,7 +232,7 @@
 
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 
@@ -242,43 +242,45 @@
 
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 (defadvice calendar-beginning-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 (defadvice calendar-beginning-of-year (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 
 (defadvice calendar-end-of-week (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'large-movement))
 
 (defadvice calendar-end-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+(emacspeak-auditory-icon 'select-object)  )
 
 (defadvice calendar-end-of-year (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
     (emacspeak-speak-calendar-date ))
-  )
+  (emacspeak-auditory-icon 'select-object))
 
 (defadvice exit-calendar (after emacspeak pre act)
   "Speak modeline. "
   (when (interactive-p )
+    (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
+
 (defadvice insert-block-diary-entry (before emacspeak pre act)
   "Speak the line. "
   (when (interactive-p)
@@ -298,6 +300,7 @@
       (message "Block diary entry from  %s to %s" 
                (calendar-date-string start nil t)
                (calendar-date-string end nil t)))))
+
 (defvar emacspeak-calendar-user-input nil
   "Records last user input to calendar")
 

@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1995 by T. V. Raman  
 ;;; All Rights Reserved. 
 ;;;
@@ -43,6 +43,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'emacspeak-fix-interactive)
+(require 'voice-lock)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to sgml mode
@@ -88,6 +89,25 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)
     (dtk-speak  "Toggled display of tags")))
+
+;;}}}
+;;{{{ simple voice locking 
+
+(voice-lock-set-major-mode-keywords 'sgml-mode
+                                                      'sgml-voice-lock-keywords)
+
+(defconst sgml-voice-lock-keywords-1
+  '(("<\\([!?][a-z][-.a-z0-9]*\\)" 1 voice-lock-keyword-personality)
+    ("<\\(/?[a-z][-.a-z0-9]*\\)" 1 voice-lock-function-name-personality)
+    ("[&%][a-z][-.a-z0-9]*;?" . voice-lock-variable-name-personality)
+    ("<! *--.*-- *>" . voice-lock-comment-personality)))
+
+
+
+;; for voice-lock, but must be defvar'ed after
+;; sgml-voice-lock-keywords-1  above
+(defvar sgml-voice-lock-keywords sgml-voice-lock-keywords-1
+  "*Rules for highlighting SGML code.  ")
 
 ;;}}}
 (provide  'emacspeak-sgml-mode)

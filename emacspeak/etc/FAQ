@@ -120,8 +120,7 @@ Latex,  compiling programs etc.
 If you program or do other intensive computing tasks on
 remote machines,   you are better off running Emacspeak on
 the remote machine
-and having the speech output on your local desktop --see
-file remote.txt in the Emacspeak distribution for details.
+and having the speech output on your local desktop.
 
 For doing small amounts of work on remote machines, use the
 terminal you get with M-x term; alternatively,
@@ -387,13 +386,54 @@ sub-optimal find dialog.
 
 * Does Emacspeak Support Synthesizer XXX?
 
+** Software TTS Engines:
+
+Software  Text To Speech (TTS) lets you produce synthetic
+speech using a generic sound card.
+
+
+*** IBM ViaVoice TTS (Outloud):
+
+Emacspeak  supports IBM ViaVoice TTS.
+
+*** Festival:
+
+There is an open source project hosted at SourceForge that
+is attempting to  build support for the Festival engine.
+
+*** MBrola: 
+
+
+Bart Bunting is working on a speech
+server using the MBROLA software speech synthesizer.
+
+** Hardware Synthesizers:
+
 The Emacspeak distribution comes with speech servers for the
 Dectalk family of synthesizers.  Speech servers for other
 synthesizers are available from
 <http://www.mv.com/ipusers/vanzandt/> Jim Van Zandt's home
-page --thanks Jim!  Bart Bunting is working on a speech
-server using the MBROLA software speech synthesizer.
+page --thanks Jim!  
 
+
+* Emacspeak Logo:
+
+Emacspeak now has a visual and auditory logo.
+
+** Visual: A 
+
+picture of Hubbell --Yellow Labrador-- with a bubble coming
+out of her mouth saying "Complete Audio Desktop" and the
+caption "EMACSPEAK" under her picture; thanks to Hans
+Zoebelein for the visual design.  This logo is used on the
+Emacspeak WWW site, and is available as an XPM file in the
+emacspeak/etc directory for use on graphical desktops.
+
+** Auditory Logo:
+
+Emacspeak.mp3 is a 4 second MP3 file containing the first
+few bars of Bach's Toccata And fugue.  The auditory logo is
+played as Emacspeak starts up.
 
 * What Is Fenestration?
 
@@ -408,6 +448,8 @@ From the American Heritage Dictionary:
     to the labyrinth of the internal ear to restore normal hearing. 
 
 
-Local variables: mode: outline paragraph-separate: "[ ]*$"
+Local variables: 
+mode: outline 
+paragraph-separate: "[ ]*$"
 end:
 

@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -1082,10 +1082,10 @@ See command emacspeak-toggle-eterm-autospeak bound to
         (dtk-stop-immediately (not eterm-line-mode)))
     (save-match-data 
       (ad-enable-advice  'put-text-property 'after 'eterm )
-      (ad-activate-on 'put-text-property) 
+      (ad-activate 'put-text-property) 
       ad-do-it
       (ad-disable-advice  'put-text-property 'after 'eterm )
-      (ad-activate-off 'put-text-property))
+      (ad-deactivate 'put-text-property))
     (setq new-row (term-current-row )
           new-column (term-current-column )
           new-end (point-max))
