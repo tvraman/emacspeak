@@ -52,6 +52,61 @@
 (require 'emacspeak-preamble)
 (require 'dired)
 ;;}}}
+;;{{{ Define personalities 
+
+(def-voice-font emacspeak-dired-header-personality
+
+  voice-lock-type-personality
+  'dired-header
+  "Personality for dired header line."
+  :group 'emacspeak-dired)
+
+(def-voice-font emacspeak-dired-mark-personality
+  voice-lock-constant-personality
+  'dired-mark
+  "Personality for dired mark."
+  :group 'emacspeak-dired)
+
+(def-voice-font emacspeak-dired-marked-personality
+  voice-lock-warning-personality
+  'dired-marked
+  "Personality for marked files in dired."
+  :group 'emacspeak-dired)
+
+(def-voice-font emacspeak-dired-flag-personality
+  voice-lock-warning-personality
+  'dired-flag
+  "Personality for flag in dired."
+  :group 'emacspeak-dired)
+
+(def-voice-font emacspeak-dired-warning-personality
+  voice-lock-comment-personality
+  'dired-warning
+  "Personality for dired warnings."
+  :group 'emacspeak-dired)
+(def-voice-font emacspeak-dired-directory-personality
+  voice-lock-function-name-personality
+  'dired-directory
+  "Personality for directories in dired."
+  :group 'emacspeak-dired)
+
+(def-voice-font emacspeak-dired-symlink-personality
+  voice-lock-keyword-personality
+  'dired-symlink
+  "Personality for symlinks."
+  :group 'emacspeak-group)
+
+
+(def-voice-font emacspeak-dired-ignored-personality
+  voice-lock-string-personality
+  'dired-ignored
+  "Personality for ignored lines in dired."
+  :group 'emacspeak-dired)
+
+
+
+
+;;}}}
 ;;{{{  configure dired
 
 (declaim (special dired-listing-switches ))
