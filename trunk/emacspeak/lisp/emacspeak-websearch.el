@@ -1088,20 +1088,17 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 
 (emacspeak-websearch-set-searcher 'froogle
                                   'emacspeak-websearch-froogle)
-(emacspeak-websearch-set-key 6 'google)
+(emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
    "http://froogle.google.com/froogle?q=%s&btnG=Froogle+Searchs/"
   "*URI for Froogle search")
 
-
-
 (defun emacspeak-websearch-froogle (query )
   "Perform a Froogle search."
   (interactive
    (list
-    (emacspeak-websearch-read-query 
-     (format "Froogle %s: "))))
+    (emacspeak-websearch-read-query "Froogle Search: ")))
   (declare (special emacspeak-websearch-froogle-uri))
   (let ((emacspeak-w3-xsl-p nil))
     (browse-url 
