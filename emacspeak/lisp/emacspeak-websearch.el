@@ -1786,7 +1786,9 @@ Light for: ")))
   (browse-url
    (format "%s%s"
            emacspeak-websearch-my-rss-search-uri
-           query)))
+           query))
+  (emacspeak-websearch-post-process query
+                                    'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Shopping at Amazon
