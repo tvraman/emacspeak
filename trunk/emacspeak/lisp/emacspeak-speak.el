@@ -2170,11 +2170,21 @@ Will be improved if it proves useful."
 ;;}}}
 ;;{{{  Speak the last message again:
 
-(defun emacspeak-speak-message-again ()
-  "Speak the last message from Emacs once again."
-  (interactive)
+(defun emacspeak-speak-message-again (&optional from-message-cache)
+  "Speak the last message from Emacs once again.
+Optional interactive prefix arg 
+`from-message-cache' speaks message cached from the most
+recent call to function `message'."
+  (interactive "P")
   (declare (special emacspeak-last-message ))
-  (dtk-speak   emacspeak-last-message ))
+  (cond
+   (from-message-cache
+    (dtk-speak   emacspeak-last-message ))
+   (t (save-excursion
+        (set-buffer "*Messages*")
+        (goto-char (point-max))
+        (skip-syntax-backward " ")
+        (emacspeak-speak-line)))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
