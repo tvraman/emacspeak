@@ -934,21 +934,27 @@ and set the `focus' window to it.
 Non-nil interactive prefix arg `unsets' the focus window;
 this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
-Setting the focus window results in emacspeak only monitoring screen
-activity in that area of the screen."
+Setting the focus window results in emacspeak  monitoring screen
+and speaking that window upon seeing screen activity."
   (interactive "P")
   (declare (special emacspeak-eterm-focus-window ))
   (let  ((window-id nil))
     (cond
-     (flag (setq emacspeak-eterm-focus-window nil)
-           (message "Emacspeak eterm focus set to entire screen "))
+     ( flag (setq emacspeak-eterm-focus-window nil)
+            (message "Emacspeak eterm focus set to entire screen "))
      (t
       (setq window-id
             (read-minibuffer  "Specify eterm window to focus on "))
       (assert (numberp window-id) t
-              "Please specify a valid window id, a non-negative integer ")
-      (setq emacspeak-eterm-focus-window window-id )
-      (message "Set emacspeak eterm focus window  to %d " window-id )))))
+              "Please specify a valid window id, a
+non-negative integer ")
+      (cond
+       ((= 0 window-id)
+        (message "Unset focus window.")
+        (setq emacspeak-eterm-focus-window nil))
+       (t 
+        (setq emacspeak-eterm-focus-window window-id )
+        (message "Set emacspeak eterm focus window  to %d " window-id )))))))
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
@@ -1105,6 +1111,8 @@ See command emacspeak-toggle-eterm-autospeak bound to
              (1- old-point)
              (1- (point )))
           (error nil )))
+       (emacspeak-eterm-focus-window
+        (emacspeak-eterm-speak-window emacspeak-eterm-focus-window))
        ((and (= last-input-event 127)
              (= new-row emacspeak-eterm-row )
              (= -1 (- new-column emacspeak-eterm-column ))
