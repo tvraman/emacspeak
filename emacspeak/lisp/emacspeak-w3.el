@@ -757,6 +757,22 @@ Empty value finishes the list."
           (push i result)
         (setq done t)))
     result))
+
+(defsubst  emacspeak-w3-get-table-match-list ()
+  "Collect a list of matches by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((result nil)
+        (i nil)
+        (done nil))
+    (while (not done)
+      (setq i
+            (read-from-minibuffer "Match: "))
+      (if (> (length i) 0)
+          (push i result)
+        (setq done t)))
+    result))
+
 ;;;###autoload
 (defun emacspeak-w3-extract-nested-table-list (tables   &optional prompt-url speak)
   "Extract specified list of tables from a WWW page."
@@ -791,6 +807,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
    prompt-url
    (or (interactive-p)
        speak)))
+
 ;;;###autoload
 (defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
   "Extract specified list of nested tables from a WWW page.
@@ -806,6 +823,44 @@ nested of tables found in the page."
            #'(lambda  (i)
                (format "(/descendant::table[%s])" i))
            positions 
+           " | "))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p) speak))))
+
+;;;###autoload
+(defun emacspeak-w3-extract-table-by-match (match   &optional prompt-url speak)
+  "Extract table containing  specified match.
+ Optional arg url specifies the page to extract content from.
+Interactive prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Tables matching: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "/descendant::table[contains(.//td, \"%s\")]"
+           match)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+;;;###autoload
+(defun emacspeak-w3-extract-tables-by-match-list (match-list   &optional prompt-url speak)
+  "Extract specified  tables from a WWW page.
+Tables are specified by containing  match pattern 
+ found in the match list."
+  (interactive
+   (list
+    (emacspeak-w3-get-table-match-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (i)
+               (format "(/descendant::table[contains(.//td,\"%s\")])" i))
+           match-list
            " | "))
     (emacspeak-w3-xslt-filter
      filter
@@ -1008,12 +1063,16 @@ loaded.
   'emacspeak-w3-extract-media-streams)
 (define-key emacspeak-w3-xsl-map "u" 'emacspeak-w3-extract-matching-urls)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
-(define-key emacspeak-w3-xsl-map "t"
-  'emacspeak-w3-extract-table-by-position)
 (define-key emacspeak-w3-xsl-map "\C-t"
   'emacspeak-w3-count-tables)
+(define-key emacspeak-w3-xsl-map "t"
+  'emacspeak-w3-extract-table-by-position)
 (define-key emacspeak-w3-xsl-map "T"
   'emacspeak-w3-extract-tables-by-position-list)
+(define-key emacspeak-w3-xsl-map "m"
+  'emacspeak-w3-extract-table-by-match)
+(define-key emacspeak-w3-xsl-map "M"
+  'emacspeak-w3-extract-tables-by-match-list)
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
