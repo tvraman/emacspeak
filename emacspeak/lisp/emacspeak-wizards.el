@@ -102,7 +102,6 @@ navigate this document."
              emacspeak-version
              (or keys "outline mode features")))))
 
-  
 (defun emacspeak-view-emacspeak-doc ()
   "Display a summary of all Emacspeak commands."
   (interactive)
@@ -316,7 +315,6 @@ If set to T,Emacspeak will not prompt before loading
 directory specific settings."
   :group 'emacspeak-speak
   :type 'boolean)
-  
 
 (defcustom emacspeak-speak-directory-settings
   ".espeak.el"
@@ -509,9 +507,6 @@ With prefix arg, opens the phone book for editting."
    (t (error "First create your phone directory in %s"
              emacspeak-speak-telephone-directory))))
 
-                                 
-   
-
 ;;}}}
 ;;{{{  launch a root shell 
 
@@ -575,17 +570,12 @@ default-directory after switching."
     (read-from-minibuffer "SUDO Command: ")))
   (let* ((name  (car (split-string command)))
          (buffer (format "*sudo-%s*" name)))
-  (shell-command
-   (format "sudo %s" command)
-   buffer)
-  (pop-to-buffer buffer)
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-line)))
-  
-  
-    
-    
-      
+    (shell-command
+     (format "sudo %s" command)
+     buffer)
+    (pop-to-buffer buffer)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ setup CVS access to sourceforge 
@@ -866,7 +856,6 @@ documentation.\n\n")
 for commands defined in module  %s.\n\n"
                 module)))
             (insert (format "\n\n@deffn %s\n" f))
-            
             (if key
                 (condition-case nil
                     (progn
@@ -903,8 +892,6 @@ for commands defined in module  %s.\n\n"
     (if (= (length input) 0)
         default
       input)))
- 
-                        
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
   "Switch to labelled frame.
 With optional PREFIX argument, label current frame."
@@ -1588,8 +1575,8 @@ part of the libxslt package."
    (format "rpm -qi %s"
            (dired-get-filename 'no-location)))
   (other-window 1)
-(search-forward "Summary" nil t)
-(emacspeak-speak-line))
+  (search-forward "Summary" nil t)
+  (emacspeak-speak-line))
 
 (declaim (special dired-mode-map))
 (when (boundp 'dired-mode-map)
@@ -1794,7 +1781,6 @@ emacspeak-websearch-personal-portfolio."
   "Widget to get find switch."
   :type 'sexp
   :group 'emacspeak-wizards)
-                            
 
 (defvar emacspeak-wizards-finder-args nil
   "List of switches to use as test arguments to find.")
@@ -1972,7 +1958,6 @@ hits."
   "Count slides starting from point."
   (interactive )
   (how-many "begin\\({slide}\\|{part}\\)"))
-  
 
 ;;}}}
 ;;{{{  file specific  headers via occur 
@@ -1992,13 +1977,13 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
   (declare (special emacspeak-occur-pattern))
   (cond
    ((and (not prefix)
-     (boundp 'emacspeak-occur-pattern)
+         (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
     (how-many  emacspeak-occur-pattern))
    (t
     (let ((pattern  (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
-    (how-many pattern)))))
+      (how-many pattern)))))
 
 (defun emacspeak-wizards-occur-header-lines (prefix)
   "If you define a file local variable 
