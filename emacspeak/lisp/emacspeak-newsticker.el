@@ -50,6 +50,7 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'backquote)
 ;;}}}
 ;;{{{ advice functions
 
@@ -68,37 +69,30 @@
 ;;}}}
 ;;{{{ advice interactive commands
 
-(defadvice newsticker-previous-new-item (after emacspeak pre act
-                                           comp)
-  "Provide spoken feedback."
-  (when (interactive-p)
+(defun emacspeak-newsticker-summarize-item ()
+  "Summarize current item."
+  (emacspeak-speak-line))
+
+
+
+
+
+
+
+
+
+(loop for f in
+      '(newsticker-next-item newsticker-previous-item
+                             newsticker-next-new-item
+      newsticker-previous-new-item)
+      do
+      (eval
+       (`
+        (defadvice (, f) (after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-(defadvice newsticker-next-new-item (after emacspeak pre act
-                                           comp)
-  "Provide spoken feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-
-
-(defadvice newsticker-previous-item (after emacspeak pre act
-                                           comp)
-  "Provide spoken feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-(defadvice newsticker-next-item (after emacspeak pre act
-                                           comp)
-  "Provide spoken feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
-
-
-
+    (emacspeak-newsticker-summarize-item))))))
 
 ;;}}}
 (provide 'emacspeak-newsticker)
