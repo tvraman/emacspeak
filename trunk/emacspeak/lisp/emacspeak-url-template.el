@@ -228,6 +228,19 @@ prompting for a template.")
 ;;}}}
 ;;{{{ bbc 
 (emacspeak-url-template-define
+ "BBC Radio4 On Demand"
+ "rtsp://rmv8.bbc.net.uk/radio4/%s.ra"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "WeekdayTime: ")))
+ nil
+ "Specify a week day (three letters -- lower case -- and a time spec
+-- e.g. 1230 --
+to play a BBC Radio4 program on demand."
+ #'(lambda (url)
+     (emacspeak-realaudio-play url)))
+
+(emacspeak-url-template-define
  "BBC Listen Again"
  "http://www.bbc.co.uk/radio4/progs/listenagain.shtml"
  nil
