@@ -24,22 +24,31 @@ Eventually try produce only one instance of each link.
   <!-- {html body  --> 
 
   <xsl:template match="/html/body">
-<p>Multimedia links</p>
+<body>
+<p>Multimedia links. </p>
     <ul>
-      <xsl:apply-templates select="//a|//object|//embed"/>
+      <xsl:apply-templates select="//a"/>
     </ul>
+    </body>
   </xsl:template>
 
-  <xsl:template match="//a">
-    <li>
+  <xsl:template match="a">
+<xsl:variable name="url"
+        select="@href"/>
+<xsl:if test="contains($url,'.ra')">
+      <li>
       <xsl:copy>
       <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
-    </li>
+</li>
+      </xsl:if>
   </xsl:template>
 
-  <xsl:template match="object|embed">
+  <xsl:template match="objector embed">
+<xsl:variable name="url"
+        select="@src"/>
+      <xsl:if test="contains($url,'.ra')">
     <li>
       <xsl:element name="a">
         <xsl:attribute name="href">
@@ -48,6 +57,7 @@ Eventually try produce only one instance of each link.
         <xsl:value-of select="name()"/>
       </xsl:element>
 </li>
+    </xsl:if>
 </xsl:template>
 
   <!-- } -->
