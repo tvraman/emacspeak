@@ -482,7 +482,11 @@ navigation file for a book. Include all extensions except `.ncx'
         
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
-  "Open Digital Talking Book specified by navigation file filename."
+  "Open Digital Talking Book specified by navigation file filename.
+
+This is the main entry point to the  Emacspeak Daisy reader.
+Opening a Daisy navigation file (.ncx file) results in a
+navigation buffer that can be used to browse and read the book."
   (interactive
    (list
     (let ((completion-ignored-extensions
