@@ -1571,12 +1571,21 @@ Signals beginning  of buffer."
                                    'right-stretch 'left-stretch)
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
+
+(defcustom emacspeak-wizards-lynx-program
+  "lynx"
+  "Lynx executable."
+  :type 'filename
+  :group 'emacspeak-wizards)
+
+
 ;;;###autoload
 (defun emacspeak-lynx (url)
   "Launch lynx on  specified URL in a new terminal."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
+  (declare (special emacspeak-wizards-lynx-program))
   (require 'term)
   (delete-other-windows)
   (switch-to-buffer
@@ -1584,7 +1593,7 @@ Signals beginning  of buffer."
     (generate-new-buffer-name
      (format "lynx-%s"
              (substring url 7)))
-    "/usr/bin/lynx"
+    emacspeak-wizards-lynx-program
     nil
     "-show-cursor=yes"
     url))
