@@ -71,7 +71,7 @@ you like after a command.
 #define DSP "/dev/dsp"
 int  dsp;
 //1 second using 11025k samples.
-#define BUFSIZE 5000
+#define BUFSIZE 11025
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
