@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="iso8859-15"?>
-<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" 
+"rss-0.91.dtd">
 <rss version="0.91">
   <channel>
     <title>Emacspeak --The Complete Audio Desktop</title>
     <description>
 Emacspeak is a speech interface that allows visually
     impaired users to interact independently and efficiently with
-    the computer. Audio formatting --a technique pioneered by  <a href="http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html">
-    AsTeR</a>-- and full support for <a href="http://www.w3.org/Press/1998/CSS2-REC">W3C's Aural CSS
-    (ACSS)</a> allows Emacspeak to produce rich aural presentations
+    the computer. Audio formatting --a technique pioneered by  
+    Audio System For Technical readings 
+(AsTeR)
+-- and full support for W3C Aural CSS
+    (ACSS) allows Emacspeak to produce rich aural presentations
     of electronic information. By seamlessly blending all aspects
     of the Internet such as Web-surfing and messaging, Emacspeak
     speech-enables local and remote information via a consistent
@@ -16,8 +19,8 @@ Emacspeak is a speech interface that allows visually
     the Internet, Emacspeak has dramatically changed how the author
     and hundreds of blind and visually impaired users around the
     world interact with the personal computer and the Internet. A
-    rich suite of <a href="applications.html">task-oriented
-    tools</a> provides efficient speech-enabled access to the audio
+    rich suite of task-oriented
+    tools provides efficient speech-enabled access to the audio
     desktop and evolving semantic WWW. When combined with Linux
     running on low-cost PC hardware, Emacspeak/Linux provides a
     reliable, stable speech-friendly solution that opens up the
@@ -26,7 +29,11 @@ Emacspeak is a speech interface that allows visually
     <language>en-us</language>
     <link>http://emacspeak.sf.net/</link>
     <copyright>Copyright 2003, Emacspeak Inc</copyright>
-    <author>(raman@cs.cornell.edu) T. V. Raman</author>
+    <managingEditor>raman@cs.cornell.edu T. V. Raman</managingEditor>
+    <pubDate>Wed Jan  1 10:15:04 PST 2003
+</pubDate>
+    <lastBuildDate>Wed Jan  1 12:39:25 PST 2003
+</lastBuildDate>
     <image>
       <link>http://emacspeak.sf.net/</link>
       <url>http://emacspeak.sf.net/emacspeak.jpg</url>
@@ -77,10 +84,10 @@ Emacspeak is a speech interface that allows visually
     <item>
       <link>http://sourceforge.net/projects/emacspeak</link>
       <title>
-    <img src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge"/>
+    Emacspeak  at SourceForge
   </title>
       <description>
-    <img src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge"/>
+    Emacspeak at SourceForge
   </description>
     </item>
     <item>
