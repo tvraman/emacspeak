@@ -137,11 +137,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 		     (list "-playlist" resource)
 		   (list resource))))
     (setq emacspeak-m-player-process
-          (apply 'start-process
-                 "m-player" "m-player" emacspeak-m-player-program
-                 options))
+          (get-buffer-process
+           (apply 'make-comint
+                  "m-player" emacspeak-m-player-program
+                  nil options)))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
+    (setq comint-output-filter-functions (list 'comint-carriage-motion))
     (ansi-color-for-comint-mode-on)))
 
 ;;}}}
