@@ -29,6 +29,9 @@
     ("dtk-voices.el"
         "Define various device independent voices in terms of Dectalk codes."
         (voice  personality  dectalk))
+    ("eflite.el"
+        "Emacspeak EFLITE "
+        (emacspeak   audio desktop eflite))
     ("emacspeak-actions.el"
         "Emacspeak actions -- callbacks that can be associated with portions of a buffer"
         (emacspeak  audio interface to emacs actions))
@@ -287,6 +290,9 @@
     ("emacspeak-perl.el"
         "Speech enable Perl Mode "
         (emacspeak  audio interface to emacs perl))
+    ("emacspeak-personality.el"
+        nil
+        (emacspeak   spoken output))
     ("emacspeak-pronounce.el"
         "Implements Emacspeak pronunciation dictionaries"
         (emacspeak  audio interface to emacs customized pronunciation))
@@ -452,9 +458,6 @@
     ("html-voice.el"
         "Voice locking for html-helper-mode"
         (voice lock  html-helper-mode  emacspeak  speech ))
-    ("jit-voice-lock.el"
-        "just-in-time voiceification."
-        (personality files))
     ("lazy-voice-lock.el"
         "Support mode for voice locking  parts of a buffer"
         nil)
