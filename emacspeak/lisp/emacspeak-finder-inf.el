@@ -269,6 +269,9 @@
     ("emacspeak-m-player.el"
         "Control mplayer from Emacs"
         (emacspeak  m-player streaming media ))
+    ("emacspeak-madplay.el"
+        "Control madplay from Emacs"
+        (emacspeak  madplay))
     ("emacspeak-make-mode.el"
         "Speech enable make-mode"
         (emacspeak  make))
@@ -290,6 +293,9 @@
     ("emacspeak-mspools.el"
         "Speech enable MSpools -- Monitor multiple mail drops"
         (emacspeak  speak  spoken output  mspools))
+    ("emacspeak-nero.el"
+        "Speech-Enable nero (interface to lynx)"
+        (emacspeak  nero))
     ("emacspeak-net-utils.el"
         "Speech enable net-utils"
         (emacspeak  network utilities ))
