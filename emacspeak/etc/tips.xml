@@ -536,11 +536,69 @@
               <member>Minor modes that are active e.g.,
                 <emphasis>voice-lock</emphasis></member>
               <member>Version number of files under revision control.</member>
-          <member>Current encoding system in use.</member>
+              <member>Current encoding system in use.</member>
             </simplelist>
           </para>
         </answer>
       </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Setting State Of The Auditory Display</para>
+        </question>
+        <answer>
+          <para>
+            The state of the auditory display can be set and
+            updated using command
+            <command>emacspeak-aumix</command>.  The
+            available settings depend on the sound card in
+            use. Note that command
+            <command>emacspeak-aumix</command> is a
+            convenient means to using the underlying
+            <command>aumix</command> utility.  To set and
+            save the auditory display settings, invoke
+            command <command>emacspeak-aumix-edit</command>
+            by pressing
+            <command><keycap>e</keycap></command> after
+            invoking command
+            <command>emacspeak-aumix</command>.
+          </para>
+        </answer>
+      </qandaentry>
+    </qandadiv>
+    <qandadiv>
+      <title>Multimedia On The Emacspeak Audio
+      Desktop</title>
+      <para>
+        This section contains tips on using the various
+        multimedia features of the Emacspeak audio desktop.</para>
+    </qandadiv>
+    <qandadiv>
+      <title>Authoring Tools</title>
+      <para>This section contains tips on authoring
+      structured documents for online and print
+      publishing.  See the relevant section of the online
+      Emacspeak manual
+for further details on 
+        <ulink
+               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31">
+document authoring on the Emacspeak desktop.</ulink>
+</para>
+    </qandadiv>
+    <qandadiv>
+      <title>Electronic Messaging</title>
+      <para>
+This section contains tips about electronic messaging  on
+        the Emacspeak desktop.
+For further details, see the relevant section 
+from the online Emacspeak manual on 
+        <ulink
+               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
+ electronic messaging.</ulink></para>
+    </qandadiv>
+    <qandadiv>
+      <title>System Management And System
+      Administration</title>
+      <para>This section contains tips on managing your system.</para>
     </qandadiv>
     <qandadiv>
       <title>Emacspeak Utilities</title>
