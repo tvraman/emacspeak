@@ -190,7 +190,7 @@
       url)))
 
 ;;}}}
-;;{{{ google news overview 
+;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define
  "Google News Overview"
@@ -203,7 +203,7 @@
 
 
 (emacspeak-url-template-define
- "Google News search"
+ "Google News Search"
  "http://news.google.com/news?hl=en&q=%s&btnG=Google+Search"
  (list
   #'(lambda ()
