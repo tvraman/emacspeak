@@ -7,93 +7,682 @@ Any errors or corrections should be made to the source-level
 documentation.
 
 @menu
-* cd-tool Options::             
-* dtk-speak Options::           
-* emacspeak Options::           
-* emacspeak-advice Options::    
-* emacspeak-amphetadesk Options::  
-* emacspeak-analog Options::    
-* emacspeak-auctex Options::    
-* emacspeak-aumix Options::     
-* emacspeak-buff-menu Options::  
-* emacspeak-calendar Options::  
-* emacspeak-custom Options::    
-* emacspeak-daisy Options::     
-* emacspeak-dismal Options::    
-* emacspeak-ediff Options::     
-* emacspeak-entertain Options::  
-* emacspeak-erc Options::       
-* emacspeak-eshell Options::    
-* emacspeak-eterm Options::     
-* emacspeak-eudc Options::      
-* emacspeak-flyspell Options::  
-* emacspeak-forms Options::     
-* emacspeak-hide Options::      
-* emacspeak-imcom Options::     
-* emacspeak-imenu Options::     
-* emacspeak-info Options::      
-* emacspeak-ispell Options::    
-* emacspeak-jde Options::       
-* emacspeak-keymap Options::    
-* emacspeak-loaddefs Options::  
-* emacspeak-m-player Options::  
 * emacspeak-ocr Options::       
-* emacspeak-outline Options::   
-* emacspeak-pcl-cvs Options::   
-* emacspeak-personality Options::  
-* emacspeak-pronounce Options::  
-* emacspeak-realaudio Options::  
-* emacspeak-remote Options::    
-* emacspeak-replace Options::   
-* emacspeak-rss Options::       
-* emacspeak-sigbegone Options::  
-* emacspeak-sounds Options::    
-* emacspeak-speak Options::     
-* emacspeak-speedbar Options::  
-* emacspeak-table-ui Options::  
-* emacspeak-tnt Options::       
-* emacspeak-url-template Options::  
 * emacspeak-vm Options::        
-* emacspeak-w3 Options::        
-* emacspeak-w3m Options::       
-* emacspeak-websearch Options::  
-* emacspeak-widget Options::    
 * emacspeak-wizards Options::   
-* emacspeak-xml-shell Options::  
-* emacspeak-xslt Options::      
 * voice-setup Options::         
 @end menu
 
-@node cd-tool Options
-@section cd-tool Options
+@node emacspeak-ocr Options
+@section emacspeak-ocr Options
 
 Commentary:
-Provide an emacs front-end to cdtool.
-cdtool can be obtained as an rpm
-check using rpmfind
-or from its home site at 
-  sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-This module also provides the ability to play or save 
-clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav convertor.
+This module defines Emacspeak front-end to OCR.
+This module assumes that sane is installed and working
+for image acquisition,
+and that there is an OCR engine that can take acquired
+images and produce text.
+Prerequisites:
+Sane installed and working.
+scanimage to generate tiff files from scanner.
+tiffcp to compress the tiff file.
+working ocr executable 
+by default this module assumes that the OCR executable
+is named "ocr"
+
+(require 'emacspeak-preamble)
+###autoload
+(defgroup emacspeak-ocr nil
+  "Emacspeak front end for scanning and OCR.
+Pre-requisites:
+SANE for image acquisition.
+OCR engine for optical character recognition."
+  :group 'emacspeak
+  :prefix "emacspeak-ocr-")
+
+(defcustom emacspeak-ocr-scan-image "scanimage"
+  "Name of image acquisition program."
+  :type 'string 
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-scan-image-options 
+  "--format tiff --resolution 400"
+  "Command line options to pass to image acquisition program."
+  :type 'string 
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-compress-image "tiffcp"
+  "Command used to compress the scanned tiff file."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-image-extension ".tiff"
+  "Filename extension used for acquired image."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-compress-image-options   
+  "-c g3 "
+  "Options used for compressing tiff image."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-engine "ocr"
+  "OCR engine to process acquired image."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-engine-options nil
+  "Command line options to pass to OCR engine."
+  :type'(repeat
+         (string :tag "Option"))
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-working-directory
+  (expand-file-name "ocr/"
+                    emacspeak-resource-directory)
+  "Directory where images and OCR results
+will be placed."
+  :group 'emacspeak-ocr
+  :type 'string)
+
+(defcustom emacspeak-ocr-scan-photo-options 
+  "--mode color --format=pnm"
+  "Options  used when scanning in photographs."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-photo-compress "cjpeg"
+  "Program to create JPEG compressed images."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-compress-photo-options
+  "-optimize -progressive"
+  "Options used when created JPEG from  scanned photographs."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-keep-uncompressed-image nil
+  "If set to T, uncompressed image is not removed."
+  :type 'boolean
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-jpeg-metadata-writer "wrjpgcom"
+  "Program to add metadata to JPEG files."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defvar emacspeak-ocr-current-page-number  nil
+  "Number of current page in document.")
+
+(make-variable-buffer-local
+ 'emacspeak-ocr-current-page-number)
+
+(defvar emacspeak-ocr-last-page-number nil
+  "Number of last page in document.")
+
+(make-variable-buffer-local 'emacspeak-ocr-last-page-number)
+
+(defvar emacspeak-ocr-page-positions nil
+  "Vector holding page start positions.")
+
+(make-variable-buffer-local 'emacspeak-ocr-page-positions)
+
+(defvar emacspeak-ocr-buffer-name "*ocr*"
+  "Name of OCR working buffer.")
+
+(defsubst emacspeak-ocr-get-buffer ()
+  "Return OCR working buffer."
+  (get-buffer-create
+   (format  "*%s-ocr*"
+	    (emacspeak-ocr-default-name))))
+
+(defsubst emacspeak-ocr-get-text-name ()
+  "Return name of current text document."
+  (declare (special emacspeak-ocr-document-name))
+  (format "%s.text" emacspeak-ocr-document-name))
+
+(defsubst emacspeak-ocr-get-image-name (extension)
+  "Return name of current image."
+  (declare (special emacspeak-ocr-document-name
+                    emacspeak-ocr-last-page-number))
+  (format "%s-p%s%s"
+          emacspeak-ocr-document-name
+          (1+ emacspeak-ocr-last-page-number)
+	  extension))
+
+(defsubst emacspeak-ocr-get-page-name ()
+  "Return name of current page."
+  (declare (special emacspeak-ocr-document-name
+                    emacspeak-ocr-current-page-number))
+  (format "%s-p%s.txt"
+          emacspeak-ocr-document-name
+          emacspeak-ocr-current-page-number))
+
+(defvar emacspeak-ocr-mode-line-format
+  '(
+    (buffer-name)
+    " "
+    "page-"
+    emacspeak-ocr-current-page-number
+    "/"
+    emacspeak-ocr-last-page-number)
+  "Mode line format for OCR buffer.")
+
+(defsubst emacspeak-ocr-get-mode-line-format ()
+  "Return string suitable for use as the mode line."
+  (declare (special major-mode
+                    emacspeak-ocr-current-page-number))
+  (format "%s Page-%s/%s %s"
+          (buffer-name)
+          emacspeak-ocr-current-page-number
+          emacspeak-ocr-last-page-number
+          major-mode))
+
+(defsubst emacspeak-ocr-update-mode-line()
+  "Update mode line for OCR mode."
+  (declare (special mode-line-format))
+  (setq mode-line-format
+        (emacspeak-ocr-get-mode-line-format)))
+
+(declaim (special emacspeak-ocr-mode-map))
+
+(define-derived-mode emacspeak-ocr-mode text-mode 
+  "Major mode for document scanning and  OCR.\n"
+  " An OCR front-end for the Emacspeak desktop.
+
+Pre-requisites:
+
+1) A working scanner back-end like SANE on Linux.
+
+2) An OCR engine.
+
+1: Make sure your scanner back-end works, and that you have
+the utilities to scan a document and acquire an image as a
+tiff file.  Then set variable
+emacspeak-ocr-scan-image-program to point at this utility.
+By default, this is set to `scanimage' which is the image
+scanning utility provided by SANE.
+
+By default, this front-end attempts to compress the acquired
+tiff image; make sure you have a utility like tiffcp.
+Variable emacspeak-ocr-compress-image is set to `tiffcp' by
+default; if you use something else, you should customize
+this variable.
+
+2: Next, make sure you have an OCR engine installed and
+working.  By default this front-end assumes that OCR is
+available as /usr/bin/ocr.
+
+Once you have ensured that acquiring an image and applying
+OCR to it work independently of Emacs, you can use this
+Emacspeak front-end to enable easy OCR access from within
+Emacspeak.
+
+The Emacspeak OCR front-end is launched by command
+emacspeak-ocr bound to \\[emacspeak-ocr].  
+
+This command switches to a special buffer that has OCR
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+emacspeak-ocr-mode provides the necessary functionality to
+scan, OCR, read and save documents.  By default, scanned
+images and the resulting text are saved under directory
+~/ocr; see variable emacspeak-ocr-working-directory.
+Invoking command emacspeak-ocr-open-working-directory bound
+to \\[emacspeak-ocr-open-working-directory] will open this directory.
+
+By default, the document being scanned is named `untitled'.
+You can name the document by using command
+emacspeak-ocr-name-document bound to
+\\[emacspeak-ocr-name-document].  The document name is used
+in constructing the name of the image and text files."
+  (progn
+    (setq emacspeak-ocr-current-page-number 0
+          emacspeak-ocr-last-page-number 0
+          emacspeak-ocr-page-positions
+          (make-vector 25 nil))
+    (emacspeak-ocr-update-mode-line)
+    (emacspeak-keymap-remove-emacspeak-edit-commands
+     emacspeak-ocr-mode-map)))
+
+(define-key emacspeak-ocr-mode-map "?" 'describe-mode)
+(define-key emacspeak-ocr-mode-map "c" 'emacspeak-ocr-customize)
+(define-key emacspeak-ocr-mode-map "q" 'bury-buffer)
+(define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)
+(define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
+(define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
+(define-key emacspeak-ocr-mode-map "j" 'emacspeak-ocr-scan-photo)
+(define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
+(define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
+(define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
+(define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
+(define-key emacspeak-ocr-mode-map "]"'emacspeak-ocr-forward-page)
+(define-key emacspeak-ocr-mode-map "p" 'emacspeak-ocr-page)
+(define-key emacspeak-ocr-mode-map "s" 'emacspeak-ocr-save-current-page)
+(define-key emacspeak-ocr-mode-map " "
+  'emacspeak-ocr-read-current-page)
+(define-key emacspeak-ocr-mode-map "I"
+  'emacspeak-ocr-set-scan-image-options)
+(define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
+(loop for i from 1 to 9
+      do
+      (define-key emacspeak-ocr-mode-map
+        (format "%s" i)
+        'emacspeak-ocr-page))
+
+(defun emacspeak-ocr-customize ()
+  "Customize OCR settings."
+  (interactive)
+  (customize-group 'emacspeak-ocr)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
+(defun emacspeak-ocr-default-name ()
+  "Return a default name for OCR document."
+  (format-time-string "%m-%d-%y"))
+
+###autoload
+(defun emacspeak-ocr ()
+  "An OCR front-end for the Emacspeak desktop.  
+
+Page image is acquired using tools from the SANE package.
+The acquired image is run through the OCR engine if one is
+available, and the results placed in a buffer that is
+suitable for browsing the results.
+
+For detailed help, invoke command emacspeak-ocr bound to
+\\[emacspeak-ocr] to launch emacspeak-ocr-mode, and press
+`?' to display mode-specific help for emacspeak-ocr-mode."
+  (interactive)
+  (declare (special emacspeak-ocr-working-directory
+                    emacspeak-ocr-document-name
+                    buffer-read-only))
+  (let  ((buffer (emacspeak-ocr-get-buffer )))
+    (save-excursion
+      (set-buffer buffer)
+      (emacspeak-ocr-mode)
+      (when (file-exists-p emacspeak-ocr-working-directory)
+        (cd emacspeak-ocr-working-directory))
+      (switch-to-buffer buffer)
+      (setq buffer-read-only t)
+      (emacspeak-auditory-icon 'open-object)
+      (setq emacspeak-ocr-document-name (emacspeak-ocr-default-name))
+      (emacspeak-speak-mode-line))))
+
+(defvar emacspeak-ocr-document-name nil
+  "Names document being scanned.
+This name will be used as the prefix for naming image and
+text files produced in this scan.")
+
+(make-variable-buffer-local 'emacspeak-ocr-document-name)
+(defun emacspeak-ocr-name-document (name)
+  "Name document being scanned in the current OCR buffer.
+Pick a short but meaningful name."
+  (interactive
+   (list
+    (read-from-minibuffer "Document name: ")))
+  (declare (special emacspeak-ocr-document-name
+                    mode-line-format))
+  (setq emacspeak-ocr-document-name name)
+  (rename-buffer
+   (format "*%s-ocr*" name)
+   'unique)
+  (emacspeak-ocr-update-mode-line)
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-mode-line))
+(defun emacspeak-ocr-scan-image ()
+  "Acquire page image."
+  (interactive)
+  (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-image-extension
+                    emacspeak-ocr-keep-uncompressed-image
+                    emacspeak-ocr-scan-image
+                    emacspeak-ocr-scan-image-options
+                    emacspeak-ocr-compress-image
+                    emacspeak-ocr-compress-image-options
+                    emacspeak-ocr-document-name))
+  (let ((image-name (emacspeak-ocr-get-image-name
+                     emacspeak-ocr-image-extension)))
+    (let ((emacspeak-speak-messages nil))
+      (shell-command
+       (concat
+        (format "%s %s > temp%s;\n"
+                emacspeak-ocr-scan-image
+                emacspeak-ocr-scan-image-options 
+                emacspeak-ocr-image-extension)
+        (format "%s %s  temp%s %s ;\n"
+                emacspeak-ocr-compress-image
+                emacspeak-ocr-compress-image-options
+                emacspeak-ocr-image-extension
+                image-name)
+        (if emacspeak-ocr-keep-uncompressed-image
+            (format "echo \'Uncompressed image not removed.'")
+          (format "rm -f temp%s"
+                  emacspeak-ocr-image-extension)))))
+    (when (interactive-p)
+      (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number)))
+    (message "Acquired  image to file %s"
+             image-name)))
+
+(defun emacspeak-ocr-scan-photo (&optional metadata)
+  "Scan in a photograph.
+The scanned image is converted to JPEG."
+  (interactive "P")
+  (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-jpeg-metadata-writer
+                    emacspeak-ocr-photo-compress-options
+                    emacspeak-ocr-scan-photo-options
+                    emacspeak-ocr-keep-uncompressed-image
+                    emacspeak-ocr-scan-image
+                    emacspeak-ocr-compress-photo
+                    emacspeak-ocr-image-extension
+                    emacspeak-ocr-document-name))
+  (let (
+        (jpg (emacspeak-ocr-get-image-name ".jpg"))
+        (pnm (emacspeak-ocr-get-image-name ".pnm")))
+    (shell-command
+     (concat
+      (format "%s %s > temp.pnm;\n"
+              emacspeak-ocr-scan-image
+              emacspeak-ocr-scan-photo-options)
+      (format "%s %s  temp.pnm > %s ;\n"
+              emacspeak-ocr-compress-photo
+              emacspeak-ocr-compress-photo-options
+              jpg)
+      (if emacspeak-ocr-keep-uncompressed-image
+          (format "mv temp.pnm %s"
+                  pnm)
+        (format "rm -f temp.pnm"))))
+    (when (and metadata
+               (interactive-p))
+      (setq metadata
+            (read-from-minibuffer "Enter picture description: "))
+      (let ((tempfile (format "temp%s.jpg" (gensym))))
+        (shell-command
+         (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
+                  jpg  tempfile
+                  emacspeak-ocr-jpeg-metadata-writer metadata 
+                  tempfile jpg
+                  tempfile))))
+    (message "Acquired  image to file %s" jpg)
+    (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number))))
+
+(defvar emacspeak-ocr-process nil
+  "Handle to OCR process.")
+(defun emacspeak-ocr-write-document ()
+  "Writes out recognized text from all pages in current document."
+  (interactive)
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+   (t (write-region
+       (point-min)
+       (point-max)
+       (emacspeak-ocr-get-text-name))
+      (emacspeak-auditory-icon 'save-object))))
+(defun emacspeak-ocr-save-current-page ()
+  "Writes out recognized text from current page
+to an appropriately named file."
+  (interactive)
+  (declare (special emacspeak-ocr-current-page-number
+                    emacspeak-ocr-page-positions))
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+   (t (write-region
+       (aref emacspeak-ocr-page-positions
+             emacspeak-ocr-current-page-number)
+       (if (= emacspeak-ocr-current-page-number
+              emacspeak-ocr-last-page-number)
+           (point-max)
+         (aref emacspeak-ocr-page-positions (1+
+                                             emacspeak-ocr-current-page-number)))
+       (emacspeak-ocr-get-page-name))
+      (emacspeak-auditory-icon 'save-object))))
+
+(defun emacspeak-ocr-process-sentinel  (process state)
+  "Alert user when OCR is complete."
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-current-page-number))
+  (setq emacspeak-ocr-current-page-number
+        emacspeak-ocr-last-page-number)
+  (emacspeak-auditory-icon 'task-done)
+  (goto-char (aref emacspeak-ocr-page-positions
+                   emacspeak-ocr-current-page-number))
+  (emacspeak-ocr-save-current-page)
+  (emacspeak-ocr-update-mode-line)
+  (emacspeak-speak-line))
+(defun emacspeak-ocr-recognize-image ()
+  "Run OCR engine on current image.
+Prompts for image file if file corresponding to the expected
+`current page' is not found."
+  (interactive)
+  (declare (special emacspeak-ocr-engine
+                    emacspeak-ocr-engine-options
+                    emacspeak-ocr-process
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-page-positions
+                    emacspeak-ocr-image-extension))
+  (let ((inhibit-read-only t)
+        (image-name
+         (if (file-exists-p (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension))
+             (emacspeak-ocr-get-image-name emacspeak-ocr-image-extension)
+           (expand-file-name 
+            (read-file-name "Image file to recognize: ")))))
+    (goto-char (point-max))
+    (emacspeak-auditory-icon 'select-object)
+    (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number))
+    (aset emacspeak-ocr-page-positions
+          emacspeak-ocr-last-page-number
+          (+ 3 (point)))
+    (insert
+     (format "\n%c\nPage %s\n" 12
+             emacspeak-ocr-last-page-number))
+    (setq emacspeak-ocr-process
+          (apply 'start-process 
+		 "ocr"
+		 (current-buffer)
+		 emacspeak-ocr-engine
+		 image-name
+		 emacspeak-ocr-engine-options))
+    (set-process-sentinel emacspeak-ocr-process
+                          'emacspeak-ocr-process-sentinel)
+    (message "Launched OCR engine.")))
+
+(defun emacspeak-ocr-scan-and-recognize ()
+  "Scan in a page and run OCR engine on it.
+Use this command once you've verified that the separate
+steps of acquiring an image and running the OCR engine work
+correctly by themselves."
+  (interactive)
+  (emacspeak-ocr-scan-image)
+  (emacspeak-ocr-recognize-image))
+
+(defun emacspeak-ocr-open-working-directory ()
+  "Launch dired on OCR working directory."
+  (interactive)
+  (declare (special emacspeak-ocr-working-directory))
+  (switch-to-buffer
+   (dired-noselect emacspeak-ocr-working-directory))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+(defun emacspeak-ocr-forward-page (&optional count-ignored)
+  "Like forward page, but tracks page number of current document."
+  (interactive "p")
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-current-page-number))
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+   ((= emacspeak-ocr-last-page-number
+       emacspeak-ocr-current-page-number)
+    (goto-char
+     (point-max))
+    (emacspeak-auditory-icon 'select-object)
+    (message "This is the last page."))
+   (t (setq emacspeak-ocr-current-page-number
+            (1+ emacspeak-ocr-current-page-number))
+      (goto-char (aref emacspeak-ocr-page-positions
+                       emacspeak-ocr-current-page-number))
+      (emacspeak-ocr-update-mode-line)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+(defun emacspeak-ocr-backward-page (&optional count-ignored)
+  "Like backward page, but tracks page number of current document."
+  (interactive "p")
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-current-page-number))
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+   ((= 1
+       emacspeak-ocr-current-page-number)
+    (goto-char
+     (aref emacspeak-ocr-page-positions
+           emacspeak-ocr-current-page-number))
+    (emacspeak-auditory-icon 'select-object)
+    (message "This is the first page."))
+   (t (setq emacspeak-ocr-current-page-number
+            (1- emacspeak-ocr-current-page-number))
+      (emacspeak-ocr-update-mode-line)
+      (goto-char (aref emacspeak-ocr-page-positions
+                       emacspeak-ocr-current-page-number))
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defsubst emacspeak-ocr-goto-page (page)
+  "Move to specified page."
+  (declare (special emacspeak-ocr-page-positions))
+  (goto-char
+   (aref emacspeak-ocr-page-positions page))
+  (emacspeak-ocr-update-mode-line)
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line)
+  )
+(defun emacspeak-ocr-page ()
+  "Move to specified page."
+  (interactive )
+  (when (= 0 emacspeak-ocr-last-page-number)
+    (error "No pages in current document."))
+  (let ((page
+         (condition-case nil
+             (read (format "%c" last-input-event ))
+           (error nil ))))
+    (or (numberp page)
+        (setq page
+              (read-minibuffer
+               (format "Page number between 1 and %s: "
+                       emacspeak-ocr-last-page-number))))
+    (cond
+     ((> page emacspeak-ocr-last-page-number)
+      (message "Not that many pages in document."))
+     (t 
+      (emacspeak-ocr-goto-page page)))))
+(defun emacspeak-ocr-read-current-page ()
+  "Speaks current page."
+  (interactive)
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-current-page-number
+                    emacspeak-ocr-last-page-number))
+  (cond
+   ((= emacspeak-ocr-current-page-number
+       emacspeak-ocr-last-page-number)
+    (emacspeak-speak-region
+     (aref emacspeak-ocr-page-positions
+           emacspeak-ocr-current-page-number)
+     (point-max)))
+   (t (emacspeak-speak-region
+       (aref emacspeak-ocr-page-positions
+             emacspeak-ocr-current-page-number)
+       (aref emacspeak-ocr-page-positions
+             (1+ emacspeak-ocr-current-page-number))))))
+
+(defun emacspeak-ocr-set-scan-image-options  (setting)
+  "Interactively update scan image options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Scan image settings:"
+     emacspeak-ocr-scan-image-options)))
+  (declare (special emacspeak-ocr-scan-image-options))
+  (setq emacspeak-ocr-scan-image-options setting))
+
+(defun emacspeak-ocr-set-compress-image-options  (setting)
+  "Interactively update  image compression options.
+Prompts with current setting in the minibuffer.
+Setting persists for current Emacs session."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Image compression settings: "
+     emacspeak-ocr-compress-image-options)))
+  (declare (special emacspeak-ocr-compress-image-options))
+  (setq emacspeak-ocr-compress-image-options setting))
+
+(provide 'emacspeak-ocr)
+
+local variables:
+folded-file: t
+byte-compile-dynamic: t
 
 Automatically generated documentation
-for options defined in module  cd-tool.
+for options defined in module  emacspeak-ocr.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-ocr-scan-image
+Name of image acquisition program.
+@end defvar
+
+@node emacspeak-vm Options
+@section emacspeak-vm Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-vm.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-vm-customize-mime-settings
+Non-nil will cause Emacspeak to configure VM mime
+settings to match what the author of Emacspeak uses.
+@end defvar
+
+@defvar {User Option} emacspeak-vm-use-raman-settings
+Should VM  use the customizations used by the author of Emacspeak.
+@end defvar
+
+@node emacspeak-wizards Options
+@section emacspeak-wizards Options
+
+Commentary:
+Contains various wizards for the Emacspeak desktop.
+
+Automatically generated documentation
+for options defined in module  emacspeak-wizards.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-speak-telephone-directory
+File holding telephone directory.
+This is just a text file, and we use grep to search it.
+@end defvar
+
+Automatically generated documentation
+for options defined in module  nil.
 These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} cd-tool-start-command
 *Name of cdstart command; most likely either "cdstart" or "cdplay".
 @end defvar
-
-@node dtk-speak Options
-@section dtk-speak Options
-
-Commentary:
-Defines the TTS interface.
-
-Automatically generated documentation
-for options defined in module  dtk-speak.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} dtk-cleanup-patterns
 List of repeating patterns to clean up.
@@ -147,73 +736,6 @@ C-e d I to toggle this setting.
 Allow tones to be turned off.
 @end defvar
 
-@node emacspeak Options
-@section emacspeak Options
-
-Commentary:
-The complete audio desktop.
-
-Automatically generated documentation
-for options defined in module  emacspeak.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-play-emacspeak-startup-icon
-If set to T, emacspeak plays its icon as it launches.
-@end defvar
-
-@defvar {User Option} emacspeak-startup-hook
-Hook to run after starting emacspeak.
-@end defvar
-
-@node emacspeak-advice Options
-@section emacspeak-advice Options
-
-Commentary:
-Commentary:
-
-This module defines the advice forms for making the core of Emacs speak
-Advice forms that are specific to Emacs subsystems do not belong here!
-I violate this at present by advicing completion comint and
-shell here.  
-
-Automatically generated documentation
-for options defined in module  emacspeak-advice.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-backward-delete-char-speak-current-char
-*T means `backward-delete-char' speaks char that becomes
-current after deletion.
-@end defvar
-
-@defvar {User Option} emacspeak-comint-input-personality
-Personality used for highlighting comint inputs --emacs 21.
-@end defvar
-
-@defvar {User Option} emacspeak-comint-prompt-personality
-Personality used for highlighting comint prompts --emacs 21.
-@end defvar
-
-@defvar {User Option} emacspeak-delete-char-speak-deleted-char
-*T means `delete-char' speaks char that was deleted.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-cue-errors
-Specifies if error messages are cued.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-messages-should-pause-ongoing-speech
-* Option to make messages pause speech.
-If t then all messages will pause ongoing speech if any
-before the message is spoken.
-@end defvar
-
-@node emacspeak-amphetadesk Options
-@section emacspeak-amphetadesk Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-amphetadesk.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-amphetadesk-port
 Port where AmphetaDesk listens.
 @end defvar
@@ -222,49 +744,28 @@ Port where AmphetaDesk listens.
 Script that launches amphetadesk.
 @end defvar
 
-@node emacspeak-analog Options
-@section emacspeak-analog Options
-
-Commentary:
-Speech-enables package analog --convenient log analyzer 
-
-Automatically generated documentation
-for options defined in module  emacspeak-analog.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-analog-entry-header-personality
 Personality used for header lines.
 @end defvar
 
-@node emacspeak-auctex Options
-@section emacspeak-auctex Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-auctex.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-latex-bold-face
-Face used for bold.
+@defvar {User Option} emacspeak-audio-indentation
+Option indicating if line indentation is cued.
+If non-nil , then speaking a line indicates its indentation.  
+You can use  command `emacspeak-toggle-audio-indentation' bound
+to C-e d i to toggle this
+setting..
 @end defvar
 
-@defvar {User Option} emacspeak-latex-italic-face
-Face used for italics.
+@defvar {User Option} emacspeak-audio-indentation-method
+*Current technique used to cue indentation.  Default is
+`speak'.  You can specify `tone' for producing a beep
+indicating the indentation.  Automatically becomes local in
+any buffer where it is set.
 @end defvar
 
-@defvar {User Option} emacspeak-latex-sedate-personality
-Personality used  on macro names.
+@defvar {User Option} emacspeak-auditory-icon-function
+*Function that plays auditory icons.
 @end defvar
-
-@node emacspeak-aumix Options
-@section emacspeak-aumix Options
-
-Commentary:
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
-
-Automatically generated documentation
-for options defined in module  emacspeak-aumix.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-aumix-full-duplex-p
 *Set to T if the sound card is truly full duplex.
@@ -286,42 +787,56 @@ These options are customizable via Emacs' Custom interface.
 *Name of file containing personal aumix settings.
 @end defvar
 
-@node emacspeak-buff-menu Options
-@section emacspeak-buff-menu Options
+@defvar {User Option} emacspeak-backward-delete-char-speak-current-char
+*T means `backward-delete-char' speaks char that becomes
+current after deletion.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-buff-menu.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-bookshare-user-id
+Bookshare user Id.
+@end defvar
 
 @defvar {User Option} emacspeak-buffer-menu-buffer-face
 Personality for highlighting buffer name in buffer-menu.
 @end defvar
 
-@node emacspeak-calendar Options
-@section emacspeak-calendar Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-calendar.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-calendar-mark-personality
 Personality to use when showing marked calendar entries.
 @end defvar
 
-@defvar {User Option} emacspeak-diary-personality
-Personality for header line in diary.
+@defvar {User Option} emacspeak-character-echo
+If t, then emacspeak echoes characters  as you type.
+You can 
+use C-e d k to toggle this
+setting.
 @end defvar
 
-@defvar {User Option} emacspeak-holiday-personality
-holiday personality for calendar.
+@defvar {User Option} emacspeak-clipboard-file
+File used to save Emacspeak clipboard.
+The emacspeak clipboard provides a convenient mechanism for exchanging
+information between different Emacs sessions.
 @end defvar
 
-@node emacspeak-custom Options
-@section emacspeak-custom Options
+@defvar {User Option} emacspeak-comint-autospeak
+Says if comint output is automatically spoken.
+You can use 
+  `emacspeak-toggle-comint-autospeak` bound to
+  C-e C-q to toggle this
+setting.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-custom.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-comint-input-personality
+Personality used for highlighting comint inputs --emacs 21.
+@end defvar
+
+@defvar {User Option} emacspeak-comint-prompt-personality
+Personality used for highlighting comint prompts --emacs 21.
+@end defvar
+
+@defvar {User Option} emacspeak-comint-split-speech-on-newline
+*Option to have comint split speech on newlines.
+Non-nil means we split speech on newlines in comint buffer.
+@end defvar
 
 @defvar {User Option} emacspeak-custom-button-personality
 Personality for custom-button-face
@@ -391,15 +906,18 @@ Personality for custom-variable-button-face
 Personality for custom-variable-tag-face
 @end defvar
 
-@node emacspeak-daisy Options
-@section emacspeak-daisy Options
+@defvar {User Option} emacspeak-cvs-anonymous-cvsroot
+CVSROOT for emacspeak CVS repository at sourceforge.
+@end defvar
 
-Commentary:
-Daisy Digital Talking Book Reader
+@defvar {User Option} emacspeak-cvs-local-directory
+Directory where we download the snapshot.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-daisy.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-cvs-local-directory-pattern
+Pattern from which name of local download directory is build.
+ %s is replaced by the project name.
+@end defvar
 
 @defvar {User Option} emacspeak-daisy-books-directory
 Customize this to the root of where books are organized.
@@ -411,23 +929,22 @@ navigation file for a book. Include all extensions except `.ncx'
   for optimal performance.
 @end defvar
 
-@node emacspeak-dismal Options
-@section emacspeak-dismal Options
+@defvar {User Option} emacspeak-decoration-rule
+*Regular expressions to match lines that are purely
+decorative ascii.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-dismal.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-delete-char-speak-deleted-char
+*T means `delete-char' speaks char that was deleted.
+@end defvar
+
+@defvar {User Option} emacspeak-diary-personality
+Personality for header line in diary.
+@end defvar
 
 @defvar {User Option} emacspeak-dismal-value-personality
 Personality used for speaking cell values in summaries.
 @end defvar
-
-@node emacspeak-ediff Options
-@section emacspeak-ediff Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-ediff.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-ediff-A-personality
 Personality used to voiceify difference chunk A
@@ -450,31 +967,15 @@ Personality used to voiceify difference chunk A
 Personality used to voiceify difference chunk B
 @end defvar
 
-@node emacspeak-entertain Options
-@section emacspeak-entertain Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-entertain.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-mpuz-solved-personality
-
+@defvar {User Option} emacspeak-emergency-tts-server
+TTS server to use in an emergency.
+Set this to a TTS server that is known to work at all times.
+If you are debugging another speech server and that server
+gets wedged for some reason,
+you can use command emacspeak-emergency-tts-restart
+to get speech back using the reliable TTS server.
+It's useful to bind the above command to a convenient key.
 @end defvar
-
-@defvar {User Option} emacspeak-mpuz-trivial-personality
-
-@end defvar
-
-@defvar {User Option} emacspeak-mpuz-unsolved-personality
-
-@end defvar
-
-@node emacspeak-erc Options
-@section emacspeak-erc Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-erc.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-erc-action-personality
 Personality for actions.
@@ -533,13 +1034,6 @@ Personality for prompts.
 Speak all things said if t.
 @end defvar
 
-@node emacspeak-eshell Options
-@section emacspeak-eshell Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-eshell.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-eshell-ls-archive-personality
 Personality for archive files.
 @end defvar
@@ -593,21 +1087,6 @@ Personality used for highlighting eshell prompts --emacs 21.
 Personality for specials.
 @end defvar
 
-@node emacspeak-eterm Options
-@section emacspeak-eterm Options
-
-Commentary:
-This module makes eterm talk.
-Eterm is the new terminal emulator for Emacs.
-Use of emacspeak with eterm really needs an info page.
-At present, the only documentation is the source level documentation.
-This module uses Control-t as an additional prefix key to allow the user
-To move around the terminal and have different parts spoken. 
-
-Automatically generated documentation
-for options defined in module  emacspeak-eterm.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-eterm-bold-personality
 Personality to indicate terminal bold.
 @end defvar
@@ -628,40 +1107,13 @@ File where list of known remote hosts is cached
 Underline personality for eterm.
 @end defvar
 
-@node emacspeak-eudc Options
-@section emacspeak-eudc Options
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for options defined in module  emacspeak-eudc.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-eudc-attribute-value-personality
 Personality t use for voiceifying attribute values. 
 @end defvar
 
-@node emacspeak-flyspell Options
-@section emacspeak-flyspell Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-flyspell.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-flyspell-highlight-personality
 Voice used to highlight spelling errors. 
 @end defvar
-
-@node emacspeak-forms Options
-@section emacspeak-forms Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-forms.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-forms-ro-voice
 Personality for read-only fields. 
@@ -671,32 +1123,39 @@ Personality for read-only fields.
 Personality for read-write fields. 
 @end defvar
 
-@node emacspeak-hide Options
-@section emacspeak-hide Options
-
-Commentary:
-
-Flexible hide and show for emacspeak.
-This module allows one to easily hide or expose
-blocks of lines starting with a common prefix.
-It is motivated by the need to flexibly hide quoted text in email
-but is designed to be more general.
-the prefix parsing is inspired by filladapt.el
-
-Automatically generated documentation
-for options defined in module  emacspeak-hide.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-hidden-header-line-personality
 Personality used to identify header lines of blocks.
 @end defvar
 
-@node emacspeak-imcom Options
-@section emacspeak-imcom Options
+@defvar {User Option} emacspeak-holiday-personality
+holiday personality for calendar.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-imcom.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-horizontal-rule
+*Regular expression to match horizontal rules in ascii
+text.
+@end defvar
+
+@defvar {User Option} emacspeak-hyper-keys
+*Specifies hyper key bindings for the audio desktop.
+Emacs can use the `hyper' key as a modifier key.
+You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
+on Linux by having it emit the sequence `C-x@@h'.
+
+Bindings specified here are available on prefix key  `hyper'
+for example, if you bind 
+`b' to command `bbdb '
+then that command will be available on key `hyper b'.
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. 
+@end defvar
 
 @defvar {User Option} emacspeak-imcom-client
 Name of IMCom command-line client.
@@ -714,23 +1173,9 @@ Start up hooks run after IMCom process is started.
 Directory where IMCom stores personalization files.
 @end defvar
 
-@node emacspeak-imenu Options
-@section emacspeak-imenu Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-imenu.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-imenu-autospeak
 Speak contents of sections automatically if set.
 @end defvar
-
-@node emacspeak-info Options
-@section emacspeak-info Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-info.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-info-header-node
 Personality used for info-header-node.
@@ -779,24 +1224,10 @@ Personality used for Info-title-4-face.
 Personality used for info-xref.
 @end defvar
 
-@node emacspeak-ispell Options
-@section emacspeak-ispell Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-ispell.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-ispell-max-choices
 Emacspeak will not speak the choices if there are more than this
 many available corrections.
 @end defvar
-
-@node emacspeak-jde Options
-@section emacspeak-jde Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-jde.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-jde-api-personality
 Personality used for user defined API names.
@@ -830,92 +1261,23 @@ Personality used for package names.
 Underline personality.
 @end defvar
 
-@node emacspeak-keymap Options
-@section emacspeak-keymap Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-keymap.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-hyper-keys
-*Specifies hyper key bindings for the audio desktop.
-Emacs can use the `hyper' key as a modifier key.
-You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key
-on Linux by having it emit the sequence `C-x@@h'.
-
-Bindings specified here are available on prefix key  `hyper'
-for example, if you bind 
-`b' to command `bbdb '
-then that command will be available on key `hyper b'.
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. 
+@defvar {User Option} emacspeak-latex-bold-face
+Face used for bold.
 @end defvar
 
-@defvar {User Option} emacspeak-personal-keys
-*Specifies personal key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
-then that command will be available on key C-e x s
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. 
+@defvar {User Option} emacspeak-latex-italic-face
+Face used for italics.
 @end defvar
 
-@defvar {User Option} emacspeak-super-keys
-*Specifies super key bindings for the audio desktop.
-You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
-on Linux by having it emit the sequence `C-x@@s'.
-
-Bindings specified here are available on prefix key `super'
-for example, if you bind 
-`s' to command emacspeak-emergency-tts-restart 
-then that command will be available on key `super  s'
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. 
+@defvar {User Option} emacspeak-latex-sedate-personality
+Personality used  on macro names.
 @end defvar
 
-@node emacspeak-loaddefs Options
-@section emacspeak-loaddefs Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-loaddefs.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-play-program
-Name of executable that plays sound files. 
+@defvar {User Option} emacspeak-line-echo
+If t, then emacspeak echoes lines as you type.
+You can use C-e d l to set this
+option.
 @end defvar
-
-@defvar {User Option} emacspeak-sounds-default-theme
-Default theme for auditory icons. 
-@end defvar
-
-@node emacspeak-m-player Options
-@section emacspeak-m-player Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-m-player.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-m-player-options
 Options passed to mplayer.
@@ -925,12 +1287,41 @@ Options passed to mplayer.
 Media player program.
 @end defvar
 
-@node emacspeak-ocr Options
-@section emacspeak-ocr Options
+@defvar {User Option} emacspeak-mail-alert
+*Option to indicate cueing of new mail.
+If t, emacspeak will alert you about newly arrived mail
+with an auditory icon when
+displaying the mode line.
+You can use command 
+`emacspeak-toggle-mail-alert' bound to
+C-e M-m to set this option.
+If you have online access to a voicemail dorp, you can have a
+  voice-mail alert set up by specifying the location of the
+  voice-mail drop via custom option 
+emacspeak-voicemail-spool-file.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-ocr.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-mail-alert-interval
+Interval in seconds between mail alerts for the same pending
+  message.
+@end defvar
+
+@defvar {User Option} emacspeak-mail-spool-file
+Mail spool file examined  to alert you about newly
+arrived mail.
+@end defvar
+
+@defvar {User Option} emacspeak-mpuz-solved-personality
+
+@end defvar
+
+@defvar {User Option} emacspeak-mpuz-trivial-personality
+
+@end defvar
+
+@defvar {User Option} emacspeak-mpuz-unsolved-personality
+
+@end defvar
 
 @defvar {User Option} emacspeak-ocr-compress-image
 Command used to compress the scanned tiff file.
@@ -968,10 +1359,6 @@ If set to T, uncompressed image is not removed.
 Program to create JPEG compressed images.
 @end defvar
 
-@defvar {User Option} emacspeak-ocr-scan-image
-Name of image acquisition program.
-@end defvar
-
 @defvar {User Option} emacspeak-ocr-scan-image-options
 Command line options to pass to image acquisition program.
 @end defvar
@@ -984,16 +1371,6 @@ Options  used when scanning in photographs.
 Directory where images and OCR results
 will be placed.
 @end defvar
-
-@node emacspeak-outline Options
-@section emacspeak-outline Options
-
-Commentary:
-Provide additional advice to outline-mode
-
-Automatically generated documentation
-for options defined in module  emacspeak-outline.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-outline-1
 Level 1outline headings.
@@ -1024,16 +1401,6 @@ Level 6 outline headings.
 sections.
 @end defvar
 
-@node emacspeak-pcl-cvs Options
-@section emacspeak-pcl-cvs Options
-
-Commentary:
-Speech-enabled CVS access via package pcl-cvs.el
-
-Automatically generated documentation
-for options defined in module  emacspeak-pcl-cvs.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-pcl-cvs-filename-face
 Personality used for file names in CVS buffers.
 @end defvar
@@ -1058,12 +1425,22 @@ Personality for CVS messages.
 Personality for CVS lines needing an action.
 @end defvar
 
-@node emacspeak-personality Options
-@section emacspeak-personality Options
+@defvar {User Option} emacspeak-personal-keys
+*Specifies personal key bindings for the audio desktop.
+Bindings specified here are available on prefix key C-e x
+for example, if you bind 
+`s' to command emacspeak-emergency-tts-restart 
+then that command will be available on key C-e x s
 
-Automatically generated documentation
-for options defined in module  emacspeak-personality.
-These options are customizable via Emacs' Custom interface.
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. 
+@end defvar
 
 @defvar {User Option} emacspeak-personality-show-unmapped-faces
 If set, faces that dont have a corresponding personality are
@@ -1091,28 +1468,21 @@ existing personalities on the text under overlay.
 Append means place corresponding personality at the end.
 @end defvar
 
-@node emacspeak-pronounce Options
-@section emacspeak-pronounce Options
+@defvar {User Option} emacspeak-play-args
+Set this to -i  if using the play program that ships on sunos/solaris.
+Note: on sparc20's there is a sunos bug that causes the machine to crash if
+you attempt to play sound when /dev/audio is busy.
+It's imperative that you use the -i flag to play on
+sparc20's.
+@end defvar
 
-Commentary:
-This module implements user customizable pronunciation dictionaries
-for emacspeak. Custom pronunciations can be defined per file, per
-directory and/or per major mode. Emacspeak maintains a persistent
-user dictionary upon request and loads these in new emacspeak
-sessions. This module implements the user interface to the custom
-dictionary as well as providing the internal API used by the rest
-of emacspeak in using the dictionary.
-Algorithm:
+@defvar {User Option} emacspeak-play-emacspeak-startup-icon
+If set to T, emacspeak plays its icon as it launches.
+@end defvar
 
-The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names. The hash values
-are association lists defining the dictionary. Users of this module
-can retrieve a dictionary made up of all applicable association
-lists for a given file.
-
-Automatically generated documentation
-for options defined in module  emacspeak-pronounce.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-play-program
+Name of executable that plays sound files. 
+@end defvar
 
 @defvar {User Option} emacspeak-pronounce-common-xml-namespace-uri-pronunciations
 Pronunciations for well known namespace URIs.
@@ -1138,22 +1508,6 @@ This is the personality used when speaking  things that have a pronunciation
 applied.
 @end defvar
 
-@node emacspeak-realaudio Options
-@section emacspeak-realaudio Options
-
-Commentary:
-Assuming you have a correctly configured RealAudio
-player, this package provides single click access to
-starting and stopping a RealAudio stream from anywhere
-on the Emacspeak desktop.  Before using this package,
-make sure that your realaudio player works outside
-Emacs. Then set variable Emacspeak-realaudio-player to
-point to the program you use to play RealAudio streams.
-
-Automatically generated documentation
-for options defined in module  emacspeak-realaudio.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-realaudio-player
 *Executable that plays realaudio
 @end defvar
@@ -1172,13 +1526,6 @@ Set this to T if you want to switch back from using midi
 icons once a realaudio stream is done playing.
 @end defvar
 
-@node emacspeak-remote Options
-@section emacspeak-remote Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-remote.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-remote-hooks
 List of hook functions that are run after
 emacspeak is set to run as a remote application.
@@ -1186,160 +1533,13 @@ Use this to add actions you typically perform after you enter remote
 mode.
 @end defvar
 
-@node emacspeak-replace Options
-@section emacspeak-replace Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-replace.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-replace-personality
 Personality used in search and replace to indicate word
 that is being replaced.
 @end defvar
 
-@node emacspeak-rss Options
-@section emacspeak-rss Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-rss.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-rss-feeds
 Table of RSS feeds.
-@end defvar
-
-@node emacspeak-sigbegone Options
-@section emacspeak-sigbegone Options
-
-Commentary:
-Speech-enables package sigbegone --voiceify sigs in email and news
-
-Automatically generated documentation
-for options defined in module  emacspeak-sigbegone.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-sigbegone-exorcized-personality
-Personality for signatures.
-@end defvar
-
-@node emacspeak-sounds Options
-@section emacspeak-sounds Options
-
-Commentary:
-This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
-
-Automatically generated documentation
-for options defined in module  emacspeak-sounds.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-auditory-icon-function
-*Function that plays auditory icons.
-@end defvar
-
-@defvar {User Option} emacspeak-play-args
-Set this to -i  if using the play program that ships on sunos/solaris.
-Note: on sparc20's there is a sunos bug that causes the machine to crash if
-you attempt to play sound when /dev/audio is busy.
-It's imperative that you use the -i flag to play on
-sparc20's.
-@end defvar
-
-@node emacspeak-speak Options
-@section emacspeak-speak Options
-
-Commentary:
-This module defines the core speech services used by emacspeak.
-It depends on the speech server interface modules
-It protects other parts of emacspeak
-from becoming dependent on the speech server modules
-
-Automatically generated documentation
-for options defined in module  emacspeak-speak.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-audio-indentation
-Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.  
-You can use  command `emacspeak-toggle-audio-indentation' bound
-to C-e d i to toggle this
-setting..
-@end defvar
-
-@defvar {User Option} emacspeak-audio-indentation-method
-*Current technique used to cue indentation.  Default is
-`speak'.  You can specify `tone' for producing a beep
-indicating the indentation.  Automatically becomes local in
-any buffer where it is set.
-@end defvar
-
-@defvar {User Option} emacspeak-character-echo
-If t, then emacspeak echoes characters  as you type.
-You can 
-use C-e d k to toggle this
-setting.
-@end defvar
-
-@defvar {User Option} emacspeak-comint-autospeak
-Says if comint output is automatically spoken.
-You can use 
-  `emacspeak-toggle-comint-autospeak` bound to
-  C-e C-q to toggle this
-setting.
-@end defvar
-
-@defvar {User Option} emacspeak-comint-split-speech-on-newline
-*Option to have comint split speech on newlines.
-Non-nil means we split speech on newlines in comint buffer.
-@end defvar
-
-@defvar {User Option} emacspeak-decoration-rule
-*Regular expressions to match lines that are purely
-decorative ascii.
-@end defvar
-
-@defvar {User Option} emacspeak-horizontal-rule
-*Regular expression to match horizontal rules in ascii
-text.
-@end defvar
-
-@defvar {User Option} emacspeak-line-echo
-If t, then emacspeak echoes lines as you type.
-You can use C-e d l to set this
-option.
-@end defvar
-
-@defvar {User Option} emacspeak-mail-alert
-*Option to indicate cueing of new mail.
-If t, emacspeak will alert you about newly arrived mail
-with an auditory icon when
-displaying the mode line.
-You can use command 
-`emacspeak-toggle-mail-alert' bound to
-C-e M-m to set this option.
-@end defvar
-
-@defvar {User Option} emacspeak-mail-spool-file
-Mail spool file examined  to alert you about newly
-arrived mail.
 @end defvar
 
 @defvar {User Option} emacspeak-show-point
@@ -1347,6 +1547,22 @@ arrived mail.
 aural highlight.  You can use 
 command `emacspeak-toggle-show-point' bound to
 C-e C-d to toggle this setting.
+@end defvar
+
+@defvar {User Option} emacspeak-sigbegone-exorcized-personality
+Personality for signatures.
+@end defvar
+
+@defvar {User Option} emacspeak-sounds-default-theme
+Default theme for auditory icons. 
+@end defvar
+
+@defvar {User Option} emacspeak-speak-cue-errors
+Specifies if error messages are cued.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-directory-settings
+*Name of file that holds directory specific settings.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-filter-persistent-store
@@ -1365,6 +1581,12 @@ by cut -c on UNIX.
 Non-nil means the sense of `filter' is inverted when filtering
 columns in a line --see 
 command emacspeak-speak-line-set-column-filter.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-load-directory-settings-quietly
+*User option that affects loading of directory specific settings.
+If set to T,Emacspeak will not prompt before loading
+directory specific settings.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-maximum-line-length
@@ -1387,12 +1609,31 @@ message area.  You can use command
 C-e q.
 @end defvar
 
+@defvar {User Option} emacspeak-speak-messages-should-pause-ongoing-speech
+* Option to make messages pause speech.
+If t then all messages will pause ongoing speech if any
+before the message is spoken.
+@end defvar
+
 @defvar {User Option} emacspeak-speak-paragraph-personality
 *Personality used to mark start of paragraph.
 @end defvar
 
+@defvar {User Option} emacspeak-speak-show-active-network-interfaces-addresses
+Command that displays address of  a specific interface.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-show-active-network-interfaces-command
+Command that displays names of active network interfaces.
+@end defvar
+
 @defvar {User Option} emacspeak-speak-space-regexp
 Pattern that matches white space.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-telephone-directory-command
+Command used to look up names in the telephone
+directory.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-time-format-string
@@ -1404,37 +1645,6 @@ See the documentation for function
 @defvar {User Option} emacspeak-speak-zoneinfo-directory
 Directory containing timezone data.
 @end defvar
-
-@defvar {User Option} emacspeak-unspeakable-rule
-*Pattern to match lines of special chars.
-This is a regular expression that matches lines containing only
-non-alphanumeric characters.  emacspeak will generate a tone
-instead of speaking such lines when punctuation mode is set
-to some.
-@end defvar
-
-@defvar {User Option} emacspeak-word-echo
-If t, then emacspeak echoes words as you type.
-You can use C-e d w to toggle this
-option.
-@end defvar
-
-@node emacspeak-speedbar Options
-@section emacspeak-speedbar Options
-
-Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
---emacspeak-speedbar-goto-speedbar-- and binds this
-
-Automatically generated documentation
-for options defined in module  emacspeak-speedbar.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-speedbar-button-personality
 personality used for speedbar buttons
@@ -1464,12 +1674,29 @@ Personality used to indicate speedbar selection
 Personality used for speedbar tags
 @end defvar
 
-@node emacspeak-table-ui Options
-@section emacspeak-table-ui Options
+@defvar {User Option} emacspeak-startup-hook
+Hook to run after starting emacspeak.
+@end defvar
 
-Automatically generated documentation
-for options defined in module  emacspeak-table-ui.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-super-keys
+*Specifies super key bindings for the audio desktop.
+You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
+on Linux by having it emit the sequence `C-x@@s'.
+
+Bindings specified here are available on prefix key `super'
+for example, if you bind 
+`s' to command emacspeak-emergency-tts-restart 
+then that command will be available on key `super  s'
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. 
+@end defvar
 
 @defvar {User Option} emacspeak-table-column-header-personality
 personality for speaking column headers.
@@ -1478,17 +1705,6 @@ personality for speaking column headers.
 @defvar {User Option} emacspeak-table-row-header-personality
 Personality for speaking row headers
 @end defvar
-
-@node emacspeak-tnt Options
-@section emacspeak-tnt Options
-
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
-Automatically generated documentation
-for options defined in module  emacspeak-tnt.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-tnt-autospeak
 True means messages in this chat session will be spoken
@@ -1519,27 +1735,12 @@ Personality for pounce buddies.
 tnt-my-name-face
 @end defvar
 
-@node emacspeak-url-template Options
-@section emacspeak-url-template Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-url-template.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-bookshare-user-id
-Bookshare user Id.
-@end defvar
-
-@node emacspeak-vm Options
-@section emacspeak-vm Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-vm.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-vm-customize-mime-settings
-Non-nil will cause Emacspeak to configure VM mime
-settings to match what the author of Emacspeak uses.
+@defvar {User Option} emacspeak-unspeakable-rule
+*Pattern to match lines of special chars.
+This is a regular expression that matches lines containing only
+non-alphanumeric characters.  emacspeak will generate a tone
+instead of speaking such lines when punctuation mode is set
+to some.
 @end defvar
 
 @defvar {User Option} emacspeak-vm-doc2text
@@ -1557,10 +1758,6 @@ Executable that converts MSPPT documents on standard input to HTML
  using xlhtml.
 @end defvar
 
-@defvar {User Option} emacspeak-vm-use-raman-settings
-Should VM  use the customizations used by the author of Emacspeak.
-@end defvar
-
 @defvar {User Option} emacspeak-vm-voice-lock-messages
 Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble.
@@ -1571,18 +1768,10 @@ Executable that converts MSXL documents on standard input to HTML
  using xlhtml.
 @end defvar
 
-@node emacspeak-w3 Options
-@section emacspeak-w3 Options
-
-Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-
-Automatically generated documentation
-for options defined in module  emacspeak-w3.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-voicemail-spool-file
+Mail spool file examined  to alert you about newly
+arrived voicemail.
+@end defvar
 
 @defvar {User Option} emacspeak-w3-charent-alist
 Entities to unescape when treating badly escaped XML.
@@ -1613,17 +1802,6 @@ HTML.
 Specifies transform to use before displaying a page.
 Nil means no transform is used. 
 @end defvar
-
-@node emacspeak-w3m Options
-@section emacspeak-w3m Options
-
-Commentary:
-
-
-
-Automatically generated documentation
-for options defined in module  emacspeak-w3m.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-w3m-bold-personality
 w3m-bold-face
@@ -1661,16 +1839,6 @@ w3m-tab-unselected-face
 w3m-underline-face
 @end defvar
 
-@node emacspeak-websearch Options
-@section emacspeak-websearch Options
-
-Commentary:
-This module provides utility functions for searching the WWW
-
-Automatically generated documentation
-for options defined in module  emacspeak-websearch.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-websearch-google-feeling-lucky-p
 If non-nil, then Google search will use the 
 I'm Feeling Lucky button by default.
@@ -1679,17 +1847,6 @@ I'm Feeling Lucky button by default.
 @defvar {User Option} emacspeak-websearch-google-number-of-results
 Number of results to return from google search.
 @end defvar
-
-@node emacspeak-widget Options
-@section emacspeak-widget Options
-
-Commentary:
-This module implements the necessary extensions to provide talking
-widgets.
-
-Automatically generated documentation
-for options defined in module  emacspeak-widget.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-widget-button-personality
 Personality for buttons
@@ -1709,73 +1866,6 @@ Personality for inactive fields
 
 @defvar {User Option} emacspeak-widget-single-line-field-personality
 Personality for edit fields
-@end defvar
-
-@node emacspeak-wizards Options
-@section emacspeak-wizards Options
-
-Commentary:
-Contains various wizards for the Emacspeak desktop.
-
-Automatically generated documentation
-for options defined in module  emacspeak-wizards.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-clipboard-file
-File used to save Emacspeak clipboard.
-The emacspeak clipboard provides a convenient mechanism for exchanging
-information between different Emacs sessions.
-@end defvar
-
-@defvar {User Option} emacspeak-cvs-anonymous-cvsroot
-CVSROOT for emacspeak CVS repository at sourceforge.
-@end defvar
-
-@defvar {User Option} emacspeak-cvs-local-directory
-Directory where we download the snapshot.
-@end defvar
-
-@defvar {User Option} emacspeak-cvs-local-directory-pattern
-Pattern from which name of local download directory is build.
- %s is replaced by the project name.
-@end defvar
-
-@defvar {User Option} emacspeak-emergency-tts-server
-TTS server to use in an emergency.
-Set this to a TTS server that is known to work at all times.
-If you are debugging another speech server and that server
-gets wedged for some reason,
-you can use command emacspeak-emergency-tts-restart
-to get speech back using the reliable TTS server.
-It's useful to bind the above command to a convenient key.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-directory-settings
-*Name of file that holds directory specific settings.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-load-directory-settings-quietly
-*User option that affects loading of directory specific settings.
-If set to T,Emacspeak will not prompt before loading
-directory specific settings.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-show-active-network-interfaces-addresses
-Command that displays address of  a specific interface.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-show-active-network-interfaces-command
-Command that displays names of active network interfaces.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-telephone-directory
-File holding telephone directory.
-This is just a text file, and we use grep to search it.
-@end defvar
-
-@defvar {User Option} emacspeak-speak-telephone-directory-command
-Command used to look up names in the telephone
-directory.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-find-switches-that-need-quoting
@@ -1832,12 +1922,11 @@ Program for converting XL to HTML.
 Set this to nil if you do not want to use the XLHTML wizard.
 @end defvar
 
-@node emacspeak-xml-shell Options
-@section emacspeak-xml-shell Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-xml-shell.
-These options are customizable via Emacs' Custom interface.
+@defvar {User Option} emacspeak-word-echo
+If t, then emacspeak echoes words as you type.
+You can use C-e d w to toggle this
+option.
+@end defvar
 
 @defvar {User Option} emacspeak-xml-shell-command
 Executable that provides the XML browser shell.
@@ -1858,13 +1947,6 @@ Command-line options for XML browse command.
 XSL transform to apply when displaying current node.
 @end defvar
 
-@node emacspeak-xslt Options
-@section emacspeak-xslt Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-xslt.
-These options are customizable via Emacs' Custom interface.
-
 @defvar {User Option} emacspeak-xslt-keep-errors
 If non-nil, xslt errors will be preserved in an errors buffer.
 @end defvar
@@ -1877,54 +1959,6 @@ This is useful when handling bad HTML.
 @defvar {User Option} emacspeak-xslt-program
 Name of XSLT transformation engine.
 @end defvar
-
-@node voice-setup Options
-@section voice-setup Options
-
-Commentary:
-A voice is to audio as a font is to a visual display.
-A personality is to audio as a face is to a visual display. 
-
-Voice-lock-mode is a minor mode that causes your comments to be 
-spoken in one personality, strings in another, reserved words in another,
-documentation strings in another, and so on.
-
-Comments will be spoken in `voice-lock-comment-personality'.
-Strings will be spoken in `voice-lock-string-personality'.
-Doc strings will be spoken in `voice-lock-doc-string-personality'.
-Function and variable names (in their defining forms) will be
- spoken in `voice-lock-function-name-personality'.
-Reserved words will be spoken in `voice-lock-keyword-personality'.
-
-To make the text you type be voiceified, use M-x voice-lock-mode.
-When this minor mode is on, the voices of the current line are
-updated with every insertion or deletion.
-
-How faces map to voices:
-TTS engine specific modules e.g., dectalk-voices.el and
-outloud-voices.el 
-define a standard set of voice names.
-This module maps standard "personality" names to these pre-defined
-voices.
-It  does this via special form def-voice-font 
-which takes a personality name, a voice name and a face name to
-set up the mapping between face and personality, and personality
-and voice.
-See many instances of this usage in this module.
-This special form is available for use from other emacspeak
-modules.
-
-Special form def-voice-font sets up the personality name to be
-available via custom.
-
-new voices can be defined using CSS style specifications 
-see special form defvoice
-Voices defined via defvoice can be customized via custom 
-see the documentation for defvoice.
-
-Automatically generated documentation
-for options defined in module  voice-setup.
-These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} voice-animate-extra-settings
 Adds extra animation  current voice.
@@ -2046,11 +2080,6 @@ Personality to use for italic  text.
 Personality to use for keywords.
 @end defvar
 
-@defvar {User Option} voice-lock-mode
-Determines  if property personality results in text being
-voicified.
-@end defvar
-
 @defvar {User Option} voice-lock-preprocessor-personality
 Personality to use for preprocessor directives.
 @end defvar
@@ -2097,5 +2126,58 @@ Extra smoothen current voice.
 
 @defvar {User Option} voice-smoothen-settings
 Smoothen current voice.
+@end defvar
+
+@node voice-setup Options
+@section voice-setup Options
+
+Commentary:
+A voice is to audio as a font is to a visual display.
+A personality is to audio as a face is to a visual display. 
+
+Voice-lock-mode is a minor mode that causes your comments to be 
+spoken in one personality, strings in another, reserved words in another,
+documentation strings in another, and so on.
+
+Comments will be spoken in `voice-lock-comment-personality'.
+Strings will be spoken in `voice-lock-string-personality'.
+Doc strings will be spoken in `voice-lock-doc-string-personality'.
+Function and variable names (in their defining forms) will be
+ spoken in `voice-lock-function-name-personality'.
+Reserved words will be spoken in `voice-lock-keyword-personality'.
+
+To make the text you type be voiceified, use M-x voice-lock-mode.
+When this minor mode is on, the voices of the current line are
+updated with every insertion or deletion.
+
+How faces map to voices:
+TTS engine specific modules e.g., dectalk-voices.el and
+outloud-voices.el 
+define a standard set of voice names.
+This module maps standard "personality" names to these pre-defined
+voices.
+It  does this via special form def-voice-font 
+which takes a personality name, a voice name and a face name to
+set up the mapping between face and personality, and personality
+and voice.
+See many instances of this usage in this module.
+This special form is available for use from other emacspeak
+modules.
+
+Special form def-voice-font sets up the personality name to be
+available via custom.
+
+new voices can be defined using CSS style specifications 
+see special form defvoice
+Voices defined via defvoice can be customized via custom 
+see the documentation for defvoice.
+
+Automatically generated documentation
+for options defined in module  voice-setup.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} voice-lock-mode
+Determines  if property personality results in text being
+voicified.
 @end defvar
 

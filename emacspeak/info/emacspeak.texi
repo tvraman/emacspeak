@@ -20,8 +20,8 @@
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
-@include options.texi
 @include commands.texi
+@include options.texi
 @include acknowledge.texi
 @c trailer
      
