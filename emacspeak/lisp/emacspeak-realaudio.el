@@ -185,19 +185,6 @@ emacspeak-realaudio-shortcuts-directory. "
   "*Set to nil if you want emacspeak to insist that realaudio
 urls have a .ram or .rm extension.")
 ;;;###autoload
-(defun emacspeak-realaudio-play-url-at-point (&optional prompt-time)
-  "Play url under point as realaudio"
-  (interactive "P")
-  (declare (special emacspeak-realaudio-dont-insist-on-ram-url))
-  (let ((url (w3-view-this-url 'no-show)))
-    (cond
-     ((or emacspeak-realaudio-dont-insist-on-ram-url
-	  (string-match ".rm?$" url)
-	  (string-match ".ram?$" url))
-      (message "Playing Realaudio URL under point")
-      (emacspeak-realaudio-play url prompt-time))
-     (t (message "%s does not look like realaudio"
-		 url)))))
 
 (defun emacspeak-realaudio-process-sentinel  (process state)
   "Cleanup after realaudio is done. "
@@ -333,16 +320,6 @@ commands via single keystrokes."
             (concat component option )))
     (emacspeak-realaudio-play  component)))
      
-
-;;}}}
-;;{{{ W3 hook
-
-(add-hook 'w3-mode-hook
-          (function
-           (lambda nil
-             (declare (special w3-mode-map))
-             (define-key w3-mode-map "\M-r" 'emacspeak-realaudio-play-url-at-point)
-             (define-key w3-mode-map "\M-d" 'emacspeak-realaudio-stop))))
 
 ;;}}}
 ;;{{{ define a derived mode for realaudio interaction 
