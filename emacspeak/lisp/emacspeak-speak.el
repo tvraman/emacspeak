@@ -726,6 +726,13 @@ files like /var/adm/messages and /var/adm/maillog over time."
     (setq emacspeak-speak-line-column-filter nil))))
 
 ;;}}}
+
+(defcustom emacspeak-speak-space-regexp
+"^[ \t]+$"
+"Pattern that matches white space."
+:type 'string
+:group 'emacspeak)
+
 (defun emacspeak-speak-line (&optional arg)
   "Speaks current line.
 With prefix ARG, speaks the rest of the line
@@ -741,6 +748,7 @@ or header lines of blocks created by command
 `emacspeak-hide-or-expose-block' are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode
+emacspeak-speak-space-regexp
                     outline-minor-mode folding-mode
                     emacspeak-speak-maximum-line-length
                     emacspeak-use-midi
@@ -793,7 +801,7 @@ or header lines of blocks created by command
         (dtk-tone 250   120 'force)
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'empty-line)))
-       ((string-match  "^[ \t]+$" (buffer-substring start end )) ;only white space
+       ((string-match  emacspeak-speak-space-regexp  (buffer-substring start end )) ;only white space
         (if dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   100 'force)
         (when emacspeak-use-midi-icons
