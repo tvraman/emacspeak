@@ -107,8 +107,10 @@ total of
 <xsl:value-of select="@meters"/> meters (approximately
 <xsl:value-of
     select="substring-before(@distance, 'mi')"/> miles)
-and is expected to take <xsl:value-of select="@seconds"/>
-(approximately <xsl:value-of select="@time"/>).
+and is expected to take <xsl:value-of select="@seconds"/> seconds 
+(approximately
+<xsl:value-of
+    select="substring-before(@time, 'min')"/> minutes).
 </p>
 <table summary="directions">
 <xsl:apply-templates select="segment"/>
