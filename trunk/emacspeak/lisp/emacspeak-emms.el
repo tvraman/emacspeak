@@ -142,13 +142,7 @@ do
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)))))
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (interactive-p)
-            (emacspeak-speak-mode-line)))))
-
+      
 ;;}}}
 (provide 'emacspeak-emms)
 ;;{{{ end of file
