@@ -803,9 +803,8 @@ Produce an auditory icon as well."
 
 (defadvice read-char (before emacspeak pre act comp)
   "Speak the prompt"
-  (let ((prompt  (ad-get-arg 0)))
-    (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+  (tts-with-punctuations "all"
+                         (let ((prompt  (ad-get-arg 0)))
                            (and prompt (dtk-speak prompt)))))
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
