@@ -56,7 +56,19 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
-(defadvice jde-show-class-source (after emacspeak pre act comp)
+(defadvice jde-open-class-source (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
+
+(defadvice jde-open-source-for-symbol (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
+
+(defadvice jde-open-base-class-source (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-speak-line)
