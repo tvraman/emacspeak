@@ -22,7 +22,6 @@
 Path is resolved relative to `whence' which defaults to emacs-personal-library-directory."
   (interactive "Denter directory name: ")
   (declare (special emacs-personal-library-directory))
-  
   (unless (and library
                (locate-library library))
     (add-to-list 'load-path
@@ -32,7 +31,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
                                              'emacs-personal-library-directory)
                                             emacs-personal-library-directory)))
                  at-end))
-  (locate-library library))
+  (when library (locate-library library)))
   
 
 (defsubst augment-auto-mode-alist (ext mode)
@@ -67,7 +66,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
   (let ((gc-cons-threshold 8000000)
         (message-log-max 1024))
     (when (file-exists-p  emacs-private-library-directory)
-      (augment-load-path emacs-private-library-directory ))
+      (augment-load-path emacs-private-library-directory "my-functions"))
     (when (file-exists-p  emacs-personal-library-directory)
       (augment-load-path emacs-personal-library-directory))
     ;;{{{ Load and customize emacspeak 
@@ -76,8 +75,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      (when (emacspeak-sounds-theme-p "chimes-mono/")
-        (emacspeak-sounds-select-theme "chimes-mono/"))
+      ;(when (emacspeak-sounds-theme-p "chimes-mono/")
+        ;(emacspeak-sounds-select-theme "chimes-mono/"))
       (tts-configure-synthesis-setup)
       (dtk-set-rate tts-default-speech-rate 'global))
 
@@ -430,10 +429,21 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "color-theme")
     (color-theme-emacs-21)
     ;;}}}
+;;{{{ newsticker
+(load-library-if-available "newsticker")
+;;}}}
     ;;{{{ bib-find
     (load-library-if-available "bibfind")
     ;;}}}
     ))                                  ; end defun 
+;;{{{ customize custom
+
+(declare (special custom-file))
+(setq custom-file (expand-file-name "~/.customize-emacs"))
+(when (file-exists-p custom-file)
+  (load-file custom-file))
+
+;;}}}
 ;;{{{  start it up 
 
 ;;; So actually start it up:
@@ -448,14 +458,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
              (shell-command "play ~/cues/highbells.au")))
 
 (provide 'emacs-startup)
-
-;;}}}
-;;{{{ customize custom
-
-(declare (special custom-file))
-(setq custom-file (expand-file-name "~/.customize-emacs"))
-(when (file-exists-p custom-file)
-  (load-file custom-file))
 
 ;;}}}
 ;;{{{  emacs local variables
