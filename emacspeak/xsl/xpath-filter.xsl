@@ -10,48 +10,43 @@ shown in the output.
 
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output method="html" indent="yes"
-              encoding="iso8859-15"/>
+  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:param name="locator"/>
-<xsl:param name="path"/>
+  <xsl:param name="path"/>
   <xsl:param name="base"/>
   <xsl:include href="identity.xsl"/>
-<!-- { html body  -->
+<!-- { html   -->
 <!--add base uri if available. -->
   <xsl:template match="/html/head">
-    <head>
+    <xsl:element name="head">
       <xsl:element name="base">
         <xsl:attribute name="href">
           <xsl:value-of select="$base"/>
         </xsl:attribute>
       </xsl:element>
       <xsl:apply-templates/>
-    </head>
+    </xsl:element>
   </xsl:template>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-
       <xsl:for-each select="$locator">
         <xsl:element name="{name()}">
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
-        </xsl:element><br/>
+        </xsl:element>
+        <br/>
       </xsl:for-each>
-<h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
+      <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
       elements
 in  
-<xsl:element name="a">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
+<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
 document </xsl:element>.</p>
     </xsl:element>
   </xsl:template>
 <!-- nuke these -->
   <xsl:template match="//script|//meta//style"/>
-
 <!-- } -->
 </xsl:stylesheet>
 <!--

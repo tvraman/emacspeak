@@ -691,8 +691,8 @@ prefix arg causes url to be read from the minibuffer."
    (list
     (read-from-minibuffer "XPath: ")
     current-prefix-arg))
-  (declare (special emacspeak-w3-post-process-hook))
-  (declare (special emacspeak-xslt-program
+  (declare (special emacspeak-w3-post-process-hook
+   emacspeak-xslt-program
                     emacspeak-w3-xsl-filter))
   (unless (or prompt
               (eq major-mode 'w3-mode))
@@ -863,7 +863,8 @@ current page."
                   (point-max)
                   filename)
     (w3-open-local filename)
-    (delete-file filename)))
+    (delete-file filename)
+    ))
 
 
 (defun emacspeak-w3-preview-this-region (start end)
