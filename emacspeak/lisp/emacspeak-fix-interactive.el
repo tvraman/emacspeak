@@ -211,7 +211,6 @@ speak its prompts. "
                             (interactive (, prompt))
                             args) nil))))
               interactive-list)))))))))
-  (push sym emacspeak-commands-that-are-fixed )
   t)
 
 ;;; inline function for use from other modules:
