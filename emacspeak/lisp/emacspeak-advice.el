@@ -639,6 +639,9 @@ before the message is spoken."
   (let ((dtk-stop-immediately t ))
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
+    (put-text-property 0 (length emacspeak-last-message)
+                       'personality 'paul-animated
+                       emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value        ;we really do have a message
                  (/= emacspeak-lazy-message-time;; previous message not recent
