@@ -48,6 +48,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(load-library "cus-dep")
 (require 'autoload)
 (require 'emacspeak-load-path)
 ;;}}}
@@ -66,6 +67,7 @@
 ;;}}}
 ;;{{{ generate autoloads for all custom groups in current directory
 
+;;; not used --use cus-dep instead
 (defun emacspeak-auto-generate-custom-loads ()
   "Generates buffer containing the needed statements to set up
 autoloading  for all defgroup declarations found in emacspeak lisp
@@ -127,8 +129,9 @@ directory."
   (let ((dtk-quiet t)
         (source-directory emacspeak-directory)
         (generated-autoload-file emacspeak-auto-autoloads-file))
-    (update-autoloads-from-directories emacspeak-lisp-directory)
-    (emacspeak-auto-generate-custom-loads)))
+    (update-autoloads-from-directories emacspeak-lisp-directory)))
+
+
 
 ;;}}}
 (provide 'emacspeak-autoload)

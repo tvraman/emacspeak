@@ -197,6 +197,7 @@ functions for details.   "
 ;;}}}
 ;;{{{ autoloads
 (load-library "emacspeak-loaddefs")
+(load-library "emacspeak-cus-load")
 ;;}}}
 ;;{{{ Package Setup Helper
 
