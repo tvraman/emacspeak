@@ -78,14 +78,13 @@ char *device = "default";                    /* playback device */
 //that we dont queue up too many speech samples,
 //This is important for stopping speech immediately.
 #define BUFSIZE 512
-short waveBuffer[BUFSIZE];
+short *waveBuffer;
 //< alsa: define  format and rate defaults
 
 snd_pcm_format_t format = SND_PCM_FORMAT_S16;   /* sample format */
 unsigned int rate = 11025;                      /* stream rate */
 unsigned int channels = 1;                      /* count of channels */
-unsigned int buffer_time = 500000;              /* ring buffer
-                                                   in us */
+unsigned int buffer_time = 500000;              /* ring buffer in us */
 unsigned int period_time = 100000;		/* period time in us */
 
 snd_pcm_uframes_t buffer_size;
@@ -773,10 +772,52 @@ Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
 }
 /* initialize and open alsa device */
 int
-alsa_init ()
-{
-  
-  return 0;
+alsa_init () {
+  int err;
+  int channels = 1;
+  int rate = 11025; /*hard-wired to match ECI*/
+  snd_pcm_hw_params_t *hwparams;
+  snd_pcm_sw_params_t *swparams;
+  snd_pcm_channel_area_t *areas;
+  snd_pcm_hw_params_alloca(&hwparams);
+  snd_pcm_sw_params_alloca(&swparams);
+  err = snd_output_stdio_attach(&output, stdout, 0);
+  if (err < 0) {
+    fprintf(stderr,
+            "Output failed: %s\n",
+            snd_strerror(err));
+    return TCL_ERROR;
+  }
+  if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+    fprintf(stderr,
+            "Playback open error: %s\n",
+            snd_strerror(err));
+    return TCL_ERROR;
+  }
+  if ((err = set_swparams(AHandle, swparams)) < 0) {
+    fprintf(stderr,
+            "Setting of swparams failed: %s\n",
+            snd_strerror(err));
+    return TCL_ERROR;
+  }
+
+  waveBuffer= (short *)malloc((period_size * channels * snd_pcm_format_width(format)) / 8);
+  if (waveBuffer == NULL) {
+    fprintf(stderr,
+            "Not enough memory\n");
+    return TCL_ERROR;
+  }
+  areas = (snd_pcm_channel_area_t*)calloc(channels, sizeof(snd_pcm_channel_area_t));
+  if (areas == NULL) {
+    fprintf(stderr,
+            "Not enough memory\n" );
+    return TCL_ERROR;
+  }
+  /*set up area -- simplified for single channel */
+  areas[0].addr = waveBuffer;
+  areas[0].first = 16;
+  areas[0].step =  16;
+  return TCL_OK;
 }
 
 int
@@ -784,7 +825,9 @@ alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
 	  Tcl_Obj * CONST objv[])
 {
   
-  //shut down alsa 
+  //shut down alsa
+  snd_pcm_close(AHandle);
+  free(waveBuffer);
   return TCL_OK;
 }
 
