@@ -1080,6 +1080,25 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
   (let ((emacspeak-websearch-google-feeling-lucky-p t))
     (emacspeak-websearch-google query)))
 
+
+;;;###autoload
+(defun emacspeak-websearch-google-search-in-date-range ()
+  "Use this from inside the calendar to do Google date-range searches."
+  (interactive)
+  (let ((query (emacspeak-websearch-read-query "Google for: "))
+        (from (calendar-astro-date-string
+               (calendar-cursor-to-date t)))
+        (to
+         (calendar-astro-date-string
+         (or (car calendar-mark-ring)
+                       (error "No mark set in this buffer")))))
+    (emacspeak-websearch-google
+             (webjump-url-encode 
+(concat query 
+             (format " daterange:%s-%s"
+from
+to))))))
+
 ;;}}}
 ;;{{{ froogle
 
@@ -1851,6 +1870,9 @@ Light for: ")))
   (load-library "emacspeak-w3search"))
 
 ;;}}}
+
+
+
 
 ;;}}}
 ;;{{{ Browse usenet using Dejanews
