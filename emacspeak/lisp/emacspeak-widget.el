@@ -91,7 +91,6 @@
 ;;}}}
 ;;{{{  widget specific summarizers  --as per Per's suggestion
 
-
 ;;{{{  default
 
 (defun emacspeak-widget-default-summarize (widget)
@@ -177,7 +176,123 @@ e.g. for repeat lists."
             :emacspeak-help 'emacspeak-widget-help-push-button)
 
 ;;}}}
+;;{{{  link 
 
+(defun emacspeak-widget-help-link (widget)
+  "Summarize a link"
+  (let ((value (widget-get widget :value)))
+    (format "link to %s"
+            (or value ""))))
+
+(widget-put (get 'link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-link)
+
+;;}}}
+;;{{{  info-link 
+
+(defun emacspeak-widget-help-info-link (widget)
+  "Summarize an info  link"
+  (let ((value (widget-get widget :value)))
+    (format "Online help  %s"
+            (or value ""))))
+
+(widget-put (get 'info-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-info-link)
+
+;;}}}
+;;{{{  url-link 
+
+(defun emacspeak-widget-help-url-link (widget)
+  "Summarize a WWW    link"
+  (let ((value (widget-get widget :value)))
+    (format "WWW link   %s"
+            (or value ""))))
+
+(widget-put (get 'url-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-url-link)
+
+;;}}}
+;;{{{  variable-link 
+
+(defun emacspeak-widget-help-variable-link (widget)
+  "Summarize a     link to a variable."
+  (let ((value (widget-get widget :value)))
+    (format "WWW link   %s"
+            (or value ""))))
+
+(widget-put (get 'variable-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-variable-link)
+
+;;}}}
+;;{{{  function-link 
+
+(defun emacspeak-widget-help-function-link (widget)
+  "Summarize a     link to a function."
+  (let ((value (widget-get widget :value)))
+    (format "Link to function    %s"
+            (or value ""))))
+
+(widget-put (get 'function-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-function-link)
+
+;;}}}
+;;{{{  file-link 
+
+(defun emacspeak-widget-help-file-link (widget)
+  "Summarize a     link to a file."
+  (let ((value (widget-get widget :value)))
+    (format "WWW link   %s"
+            (or value ""))))
+
+(widget-put (get 'file-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-file-link)
+
+;;}}}
+;;{{{  emacs-library-link 
+
+(defun emacspeak-widget-help-emacs-library-link (widget)
+  "Summarize a     link to an Emacs Library.."
+  (let ((value (widget-get widget :value)))
+    (format "WWW link   %s"
+            (or value ""))))
+
+(widget-put (get 'emacs-library-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
+
+;;}}}
+;;{{{  emacs-commentary-link 
+
+(defun emacspeak-widget-help-emacs-commentary-link (widget)
+  "Summarize a     link to a emacs commentary section.."
+  (let ((value (widget-get widget :value)))
+    (format "WWW link   %s"
+            (or value ""))))
+
+(widget-put (get 'emacs-commentary-link 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
+
+;;}}}
+;;{{{  menu choice 
+
+(defun emacspeak-widget-help-menu-choice  (widget)
+  "Summarize a pull down list"
+  (let* ((tag (widget-get widget :tag))
+         (value (widget-get widget :value))
+         (type (widget-type widget ))
+         (emacspeak-speak-messages nil))
+    (put-text-property 0 (length tag)
+                       'personality 'harry tag)
+    (concat
+     (or tag 
+     (format " %s " type))
+     " is "
+(format " %s " value))))
+      
+
+(widget-put (get 'menu-choice 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-menu-choice)
+
+;;}}}
 ;;{{{ choice-item
 
 (defun emacspeak-widget-help-choice-item (widget)
@@ -223,47 +338,6 @@ e.g. for repeat lists."
             (if value "checked" "unchecked"))))
 (widget-put (get 'checkbox 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checkbox)
-
-;;}}}
-;;{{{  menu choice 
-
-(defun emacspeak-widget-help-menu-choice  (widget)
-  "Summarize a pull down list"
-  (let* ((tag (widget-get widget :tag))
-         (value (widget-get widget :value))
-         (type (widget-type widget ))
-         (type-name nil)
-         (emacspeak-speak-messages nil))
-    (setq type-name 
-          (if (eq type 'menu-choice)
-              "menu choice"
-            (format "%s" type)))
-    (put-text-property 0 (length type-name)
-                       'personality 'harry type-name)
-    (concat 
-     type-name        
-     (or tag "")
-     " is "
-     (cond
-      ((stringp value) value)
-      ((numberp value) value)
-      (t  (if value "on" "off" ))))))
-      
-
-(widget-put (get 'menu-choice 'widget-type)
-            :emacspeak-help 'emacspeak-widget-help-menu-choice)
-
-;;}}}
-;;{{{  link 
-
-(defun emacspeak-widget-help-link (widget)
-  "Summarize a link"
-  (let ((value (widget-get widget :value)))
-    (format "link to %s"
-            (or value ""))))
-
-(widget-put (get 'link 'widget-type)
-            :emacspeak-help 'emacspeak-widget-help-link)
 
 ;;}}}
 ;;{{{ radio-button-choice
