@@ -150,7 +150,7 @@ See variable `Info-voiceify`"
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node."
-:type '(choice
+:type '(menu-choice
 (const screenful)
 (const node))
 :group 'emacspeak)
