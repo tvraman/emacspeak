@@ -3,13 +3,15 @@
 Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
-Extract content as specified by param locator.
+Junk  content that matches  by param locator.
 Param locator is an XPath expression.
 Param path is the same expression, but quoted so it can be
 shown in the output.
+This is a good XSLT/XPath puzzle for now.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   version="1.0">
+
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
@@ -35,8 +37,8 @@ shown in the output.
   <xsl:template match="/html/body">
     <body>
 <xsl:apply-templates select="$locator" mode="copy"/>
-      <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/> matching
+      <h2> Nodes Not Matching   <xsl:value-of select="$path"/></h2>
+      <p>Found <xsl:value-of select="count($locator)"/> not matching
       elements
 in  
 <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
