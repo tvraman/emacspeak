@@ -27,7 +27,7 @@ shown in the output.
           <xsl:value-of select="$base"/>
         </xsl:attribute>
       </xsl:element>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="title"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="/html/body">

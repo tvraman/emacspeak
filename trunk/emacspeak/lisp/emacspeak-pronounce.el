@@ -74,6 +74,13 @@
   (require 'emacspeak-sounds))
 
 ;;}}}
+;;{{{ customizations 
+
+(defgroup emacspeak-pronounce nil
+  "Pronunciation dictionaries."
+  :group 'emacspeak)
+
+;;}}}
 ;;{{{  Dictionary structure:
 
 (defvar emacspeak-pronounce-dictionaries (make-hash-table )
@@ -153,9 +160,8 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
     orig))
 
 (defun emacspeak-pronounce-compose-pronunciation-table  (&optional buffer)
-  "Composes a pronunciation table for BUFFER.
-The default  is current
-buffer.  Handles inheritance of pronunciation dictionaries between
+  "Composes a pronunciation table for BUFFER. The default is current
+buffer. Handles inheritance of pronunciation dictionaries between
 modes."
   (setq buffer (or buffer (current-buffer )))
   (let* ((table (make-hash-table))
@@ -181,7 +187,7 @@ modes."
                 (setf (gethash
                        (intern (car element))
                        table)
-                      (cdr element )))      )
+                      (cdr element ))))
     (loop for element in mode-alist
           do
           (setf (gethash
@@ -240,11 +246,12 @@ Argument CHILD  specifies the mode whose supers are being requested."
   (get child 'emacspeak-pronounce-supers))
 
 ;;}}}
+
 (defcustom emacspeak-pronounce-pronunciation-personality nil
   "*Pronunciation personality.
 This is the personality used when speaking  things that have a pronunciation
 applied."
-  :group 'emacspeak
+  :group 'emacspeak-pronounce
   :type 'symbol)
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
@@ -274,7 +281,7 @@ Modifies text and point in buffer."
                      emacspeak-resource-directory)
   "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
-  :group 'emacspeak)
+  :group 'emacspeak-pronounce)
 
 (defcustom emacspeak-pronounce-load-pronunciations-on-startup  t
   "Says if user dictionaries loaded on  emacspeak startup."
@@ -509,6 +516,35 @@ Activates pronunciation dictionaries if not already active."
     (emacspeak-auditory-icon 'on))))
 
 ;;}}}
+;;{{{ common dictionary containing smileys and friends
+
+(defcustom emacspeak-pronounce-internet-smileys-pronunciations 
+  '((":-)" . " smile ")
+    (":)" . " grin ")
+    (":-(" . " sigh ") 
+(":(" . " frown "))
+  "Pronunciation dictionary used in all instant messenger and IRC chat modes."
+  :type '(repeat
+	  (cons :tag "Dictionary Entry"
+		(string :tag "String")
+		(string :tag "Pronunciation")))
+  :group 'emacspeak-pronounce )
+
+;;}}}
+;;{{{ adding predefined dictionaries to a mode:
+
+(defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
+  "Pushes pronunciations in specified dictionary on to the dictionary
+for the specified mode."
+  (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
+    (loop for e in dictionary
+          do
+          (push e mode-alist))
+    (emacspeak-pronounce-set-dictionary mode mode-alist)))
+
+
+
+;;}}}
 ;;{{{  dictionary editor 
 
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
@@ -613,7 +649,6 @@ specified pronunciation dictionary key."
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
-
 (provide  'emacspeak-pronounce)
 ;;{{{  emacs local variables
 
