@@ -382,6 +382,10 @@ int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
     Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
     return TCL_ERROR;
   }
+  if (dsp != -1) {
+    close (dsp);
+    dsp = -1;
+  }
   return TCL_OK;
 }
 
