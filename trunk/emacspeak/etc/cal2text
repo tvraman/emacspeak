@@ -14,17 +14,15 @@ my @lines;
 my $i=0;
 while (<>) {
   chomp;
-  if (/^\s/) {
+  if (/^\s/) {                  #continuation line
     s/^\s+//g;
     $lines[$i-1] .= $_;
   } else {
-    $lines[$i]=$_;
-    $i++;
+    $lines[$i++]=$_;
   }
 }
-my $j;
-for ($j=0; $j<$i; $j++) {
-  $_ = $lines[$j];
+#Process lines 
+foreach (@lines) {
   chomp;
   my ($f, $v) =split(/[:;]/);
   my $key=$fields{$f};
