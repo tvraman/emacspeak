@@ -1348,17 +1348,12 @@ With optional interactive prefix arg MAP shows the location map instead."
    (list (emacspeak-websearch-read-query "Yahoo News Query: ")))
   (declare (special emacspeak-websearch-news-yahoo-uri
                     emacspeak-w3-url-rewrite-rule))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-news-yahoo-uri
-             (format "p=%s&n=20&c=news"
-                     (webjump-url-encode query)))))
-  (emacspeak-websearch-post-process
-   query
-   'emacspeak-speak-line)
-  (setq emacspeak-w3-url-rewrite-rule
-        '("$" "&printer=1")))
+  (emacspeak-w3-xslt-filter
+"/html/body/table[6]//p"
+   (concat emacspeak-websearch-news-yahoo-uri
+           (format "p=%s&n=20&c=news"
+                   (webjump-url-encode query)))
+   'speak-result))
 
 ;;}}}
 ;;{{{  Northern Lights Search
