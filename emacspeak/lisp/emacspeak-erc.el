@@ -251,7 +251,8 @@ user is notified about activity in the room.")
   "Uses environment of buffer to decide what message to
 display. String is the original message."
   (declare (special emacspeak-erc-people-to-monitor))
-  (let ((who-from (car (split-string string ))))
+  (let ((who-from (car (split-string string )))
+        (case-fold-search t))
     (cond
      ((and
        (not (string-match "^\\*\\*\\*" who-from))
