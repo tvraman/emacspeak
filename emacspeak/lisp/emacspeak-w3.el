@@ -1125,7 +1125,11 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 
 ;;}}}
 ;;{{{ silence  url package 
-
+(defadvice w3-fetch-callback
+  (around emacspeak pre act comp)
+  "silence spoken messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 (defadvice url-http-content-length-after-change-function
   (around emacspeak pre act comp)
   "silence spoken messages."
