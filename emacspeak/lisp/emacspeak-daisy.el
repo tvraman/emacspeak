@@ -60,7 +60,7 @@
 
 ;;}}}
 ;;{{{  Customization variables
-
+;;;###autoload
 (defgroup emacspeak-daisy nil
   "Daisy Digital Talking Books  for the Emacspeak desktop."
   :group 'emacspeak)
@@ -390,7 +390,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 (defvar emacspeak-daisy-this-book nil
   "Holds pointer to book structure.")
 (make-variable-buffer-local 'emacspeak-daisy-this-book)
-
+;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
   "Open Digital Talking Book specified by navigation file filename."
   (interactive

@@ -49,7 +49,7 @@
 (defvar cd-tool-message
   " +Next  - Previous  p play s stop = shuffle i info e eject t track"
   "Short message to display if user hits invalid key.")              
-
+;;;###autoload
 (defun cd-tool ()
   "Front-end to CDTool.
 Bind this function to a convenient key-

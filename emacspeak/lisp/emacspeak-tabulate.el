@@ -157,7 +157,7 @@ Fields are assumed to be delimited by whitespace. "
 ;;; Invariants: (= (- tl tr) (- bl br))
 ;;; tl = start for first column
 ;;; br = end for last column
-
+;;;###autoload
 (defun emacspeak-tabulate-region (start end  &optional mark-fields)
   "Voicifies the white-space of a table if one found.  Optional interactive prefix
 arg mark-fields specifies if the header row information is used to mark fields

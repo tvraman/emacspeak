@@ -61,6 +61,7 @@
 
 ;;}}}
 ;;{{{  User customizations
+;;;###autoload
 (defgroup emacspeak-remote nil
   "Emacspeak remote group."
   :group 'emacspeak-remote)
@@ -151,6 +152,7 @@ the host we just logged in from."
   "*If set to t, then use a telnet subprocess
 to connect to the remote host that is running the speech
 server. Default is to use Emacs' built-in open-network-stream.")
+;;;###autoload
 (defun emacspeak-remote-quick-connect-to-server()
   "Connect to remote server.
 Does not prompt for host or port, but quietly uses the
@@ -160,7 +162,7 @@ Use this once you are sure the guesses are usually correct."
   (emacspeak-remote-connect-to-server
    (emacspeak-remote-get-current-remote-hostname)
    (string-to-number  emacspeak-remote-default-port-to-connect)))
-
+;;;###autoload
 (defun emacspeak-remote-ssh-to-server(login)
   "Open ssh session to where we came from."
   (interactive
@@ -176,7 +178,7 @@ Use this once you are sure the guesses are usually correct."
    "remote-ssh"))
            
    
-
+;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)
   "Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
@@ -223,11 +225,6 @@ host is listening on for speech requests."
                host port )))))
 
 (emacspeak-fix-interactive-command-if-necessary 'emacspeak-remote-connect-to-server)
-
-;;}}}
-;;{{{ start up local server
-
-  
 
 ;;}}}
 (provide 'emacspeak-remote )

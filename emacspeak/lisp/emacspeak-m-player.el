@@ -91,7 +91,7 @@
 
 ;;}}}
 ;;{{{ emacspeak-m-player
-
+;;;###autoload
 (defgroup emacspeak-m-player nil
   "Emacspeak media player settings.")
 (defcustom emacspeak-m-player-program "mplayer"
@@ -160,7 +160,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    emacspeak-m-player-process
    (format "%s\n" command)))
 
-;;;###autoload
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
   (interactive
@@ -168,7 +167,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "pt_step %d" step)))
-;;;###autoload
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
   (interactive
@@ -176,7 +174,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "pt_up %d" step)))
-;;;###autoload
 (defun emacspeak-m-player-alt-src-step (step)
   "Move within an ASF playlist."
   (interactive
@@ -184,7 +181,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "alt_src_step %d" step)))
-;;;###autoload
 (defun emacspeak-m-player-seek-relative (offset)
   "Seek  by offset into stream from current position."
   (interactive
@@ -192,7 +188,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Offset: ")))
   (emacspeak-m-player-dispatch
    (format "seek %d" offset)))
-;;;###autoload
 (defun emacspeak-m-player-seek-absolute (position)
   "Seek  to absolute specified position."
   (interactive
@@ -200,13 +195,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
    (format "seek %d 1" position )))
-;;;###autoload
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
   (emacspeak-m-player-dispatch
    "pause"))
-;;;###autoload
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)

@@ -72,7 +72,7 @@
 (eval-when-compile (require 'emacspeak-keymap))
 ;;}}}
 ;;{{{  Customization variables
-
+ ;;;###autoload
 (defgroup emacspeak-ocr nil
   "Emacspeak front end for scanning and OCR.
 Pre-requisites:
@@ -330,6 +330,7 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
   (customize-group 'emacspeak-ocr)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
+;;;###autoload
 (defun emacspeak-ocr ()
   "An OCR front-end for the Emacspeak desktop.  
 

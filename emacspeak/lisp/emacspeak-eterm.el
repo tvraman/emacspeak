@@ -71,7 +71,7 @@
 
 ;;}}}
 ;;{{{ custom
-
+;;;###autoload
 (defgroup emacspeak-eterm nil
   "Terminal emulator for the Emacspeak Desktop."
   :group 'emacspeak
@@ -1353,7 +1353,7 @@ emacspeak-eterm-remote-hostnames")
       (insert (format "%s\n" host))
       (save-buffer))
     (intern host emacspeak-eterm-remote-hosts-table)))
-
+;;;###autoload
 (defun emacspeak-eterm-remote-term (host )
   "Start a terminal-emulator in a new buffer."
   (interactive

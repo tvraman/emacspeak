@@ -323,6 +323,7 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+
 (autoload 'emacspeak-rss-display  "emacspeak-rss"
   "Browse RSS  feeds." t)
 (autoload 'emacspeak-rss-browse  "emacspeak-rss"
@@ -336,7 +337,7 @@ functions for details.   "
 (autoload 'emacspeak-ocr "emacspeak-ocr"
   "OCR front-end for Emacspeak desktop"
   t)
-(autoload 'emacspeak-gridtext "emacspeak-gridtext"
+(autoload 'emacspeak-gridtext-apply  "emacspeak-gridtext"
   "Utilities for gridtext " t)
 (autoload 'emacspeak-gridtext-load "emacspeak-gridtext"
   "Utilities for gridtext " t)
@@ -451,6 +452,7 @@ the block. Use in conjunction with emacspeak-hide-or-expose-block"
   "Single click interface to RealAudio" t)
 (autoload 'emacspeak-realaudio-stop "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
+
 ;;}}}
 ;;{{{ autoload  custom groups 
 (put 'voice-lock 'custom-loads '("voice-lock"))
