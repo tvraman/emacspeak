@@ -68,13 +68,22 @@
 (defcustom emacspeak-xslt-keep-errors  nil
   "If non-nil, xslt errors will be preserved in an errors buffer."
   :type 'boolean
-  :group 'emacspeak-wizards)
+  :group 'emacspeak-xslt)
+
+(defcustom emacspeak-xslt-nuke-null-char t
+  "If T null chars in the region will be nuked.
+This is useful when handling bad HTML."
+:type 'boolean
+:group 'emacspeak-xslt)
+
+
 ;;;###autoload
 (defun emacspeak-xslt-region (xsl start end &optional params )
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
+                    emacspeak-xslt-nuke-null-char
                     emacspeak-xslt-keep-errors
                     modification-flag ))
   (let ((parameters (when params 
@@ -85,6 +94,12 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
+    (when emacspeak-xslt-nuke-null-char
+      (goto-char start)
+      (while (search-forward
+            ( format "%c" 0)
+end t)
+      (replace-match " ")))
     (shell-command-on-region start end
                              (format
                               "%s %s  --html --nonet --novalid %s - %s"
@@ -101,6 +116,7 @@ part of the libxslt package."
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
     (setq modification-flag nil)))
+
 ;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params)
   "Apply XSLT transformation to url
