@@ -1255,15 +1255,18 @@ With optional interactive prefix arg MAP shows the location map instead."
   "Perform an Yahoo News search"
   (interactive
    (list (emacspeak-websearch-read-query "Yahoo News Query: ")))
-  (declare (special emacspeak-websearch-news-yahoo-uri))
+  (declare (special emacspeak-websearch-news-yahoo-uri
+                    emacspeak-w3-url-rewrite-rule))
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-news-yahoo-uri
              (format "p=%s&n=20&c=news"
-(webjump-url-encode query)))))
+                     (webjump-url-encode query)))))
   (emacspeak-websearch-post-process
    "Matches"
-   'w3-table-focus-on-this-cell))
+   'w3-table-focus-on-this-cell)
+  (setq emacspeak-w3-url-rewrite-rule
+        '("/h/" "/htx/")))
 
 ;;}}}
 ;;{{{  Northern Lights Search

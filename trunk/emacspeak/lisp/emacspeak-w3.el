@@ -425,35 +425,34 @@ element. "
 (make-variable-buffer-local 'emacspeak-w3-url-rewrite-rule)
 
 (defun emacspeak-w3-url-rewrite-and-follow ()
-  "Apply a url rewrite rule as specified in the current
-buffer before following link under  point.
-If no rewrite  rule is defined, first prompt for one.
-Rewrite rules are of the form 
-`(from to)'
-where from and to are strings.
-Typically, the rewrite rule is automatically set up by
-Emacspeak tools like websearch where a rewrite rule is
-known.
-Rewrite rules are useful in jumping directly to the printer
-friendly version of an article for example."
+  "Apply a url rewrite rule as specified in the current buffer
+before following link under point.  If no rewrite rule is
+defined, first prompt for one.  Rewrite rules are of the
+form `(from to)' where from and to are strings.  Typically,
+the rewrite rule is automatically set up by Emacspeak tools
+like websearch where a rewrite rule is known.  Rewrite rules
+are useful in jumping directly to the printer friendly
+version of an article for example."
   (interactive)
   (declare (special emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
-  (when (null emacspeak-w3-url-rewrite-rule)
-    (setq emacspeak-w3-url-rewrite-rule 
-          (read-minibuffer  "Specify rewrite rule: " "("))
-    (let ((url (w3-view-this-url t))
-          (redirect nil))
-      (unless url
-        (error "Not on a link."))
-      (setq rewrite
-            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-                                  url
-                                  (second emacspeak-w3-url-rewrite-rule)))
-      (browse-url rewrite)
-      (emacspeak-speak-mode-line)
-      (emacspeak-auditory-icon 'open-object))))
+  (let ((url (w3-view-this-url t))
+        (redirect nil))
+    (unless url
+      (error "Not on a link."))
+    (when (null emacspeak-w3-url-rewrite-rule)
+      (setq emacspeak-w3-url-rewrite-rule 
+            (read-minibuffer  "Specify rewrite rule: " "(")))
+    (setq redirect
+          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                url
+                                (second
+                                 emacspeak-w3-url-rewrite-rule)))
+    (emacspeak-auditory-icon 'select-object)
+    (browse-url redirect)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'emacspeak-w3)
