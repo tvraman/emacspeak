@@ -160,7 +160,7 @@ information management such as maintaining a daily calendar.
 @section Desktop Applications 
 
 
-@unnumbered subsection Spread Sheets
+@subsection Spread Sheets
 
 Spreadsheet applications present a two dimensional view of structured data
 where the field values are (possibly) mutually dependent.  On the Emacspeak
@@ -187,7 +187,7 @@ the net gain or loss.
 The Emacs spread-sheet package @code{dismal} can be retrieved from
  @code{ftp://cs.nyu.edu/pub/local/fox/dismal}.
 
-@unnumbered subsection Forms Mode
+@subsection Forms Mode
 
 
 @emph{ Forms} mode  an Emacs mode designed to edit structured data
@@ -201,24 +201,22 @@ For details on it use, see the forms-mode section of the online Emacs
 info documentation.
 
 
-@unnumbered subsection OCR --Reading Print Documents
-Module @emph{emacspeak-ocr}
-implements 
-an OCR front-end for the Emacspeak desktop.  
+@subsection OCR --Reading Print Documents
+Module @code{emacspeak-ocr} implements an OCR front-end for the
+Emacspeak desktop.
 
-Page image is acquired using tools from package @emph{SANE} (Scanner
+Page image is acquired using tools from package @code{SANE} (Scanner
 Access Now Easy).  The acquired image is run through the OCR engine if
 one is available, and the results placed in a buffer that is suitable
 for browsing the results. This buffer is placed in mode
-@emph{emacspeak-ocr-mode}
-a specialized mode for reading and scanning documents.
+@code{emacspeak-ocr-mode} a specialized mode for reading and scanning
+documents.
 
 
 @subsubsection  Emacspeak OCR Mode
 
-Emacspeak OCR mode is a special major  mode for document scanning and  OCR.
- 
- 
+Emacspeak OCR mode is a special major  mode for document scanning and
+OCR.
 
 Pre-requisites:
 
@@ -249,7 +247,7 @@ OCR to it work independently of Emacs, you can use this
 Emacspeak front-end to enable easy OCR access from within
 Emacspeak.
 
-The Emacspeak OCR front-end is launched by command emacspeak-ocr bound
+The Emacspeak OCR front-end is launched by command @dfn{emacspeak-ocr} bound
 to @kbd{C-e C-o}.
 
 This command switches to a special buffer that has OCR
@@ -257,24 +255,22 @@ commands bounds to single keystrokes-- see the ke-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 
-emacspeak-ocr-mode provides the necessary functionality to
+Mode @dfn{emacspeak-ocr-mode} provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned
 images and the resulting text are saved under directory
-@code{~/ocr}; see variable @var{emacspeak-ocr-working-directory}.
-Invoking command emacspeak-ocr-open-working-directory bound
+@code{@~/ocr}; see variable @var{emacspeak-ocr-working-directory}.
+Invoking command @dfn{emacspeak-ocr-open-working-directory} bound
 to @kbd{d} will open this directory.
 
 By default, the document being scanned is named `untitled'.
 You can name the document by using command
-emacspeak-ocr-name-document bound to
+@dfn{emacspeak-ocr-name-document} bound to
 @kbd{n}.  The document name is used
 in constructing the name of the image and text files.
 
 Here is a list of all emacspeak OCR commands along with their
 key-bindings and a brief description:
 @table @kbd
-
-
 @item @kbd{digit}
                @dfn{emacspeak-ocr-page}
 Jumps to specified page in the OCR output.
