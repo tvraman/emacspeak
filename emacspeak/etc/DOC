@@ -3754,6 +3754,8 @@ A field is defined currently as a sequence of non-white space characters.  may b
   mode specific later.
 
  
-Local variables: mode: outline paragraph-separate: "[ ]*$"
+Local variables:
+mode: outline
+paragraph-separate: "[ ]*$"
 end:
 
