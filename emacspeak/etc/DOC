@@ -1629,8 +1629,6 @@ commands via single keystrokes.
 key             binding
 ---             -------
 
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
 }		emacspeak-realaudio-trplayer-call-command
 {		emacspeak-realaudio-trplayer-call-command
 ]		emacspeak-realaudio-trplayer-call-command
