@@ -167,8 +167,9 @@ will be placed."
 
 (defsubst emacspeak-ocr-get-buffer ()
   "Return OCR working buffer."
-  (declare (special emacspeak-ocr-buffer-name))
-(get-buffer-create emacspeak-ocr-buffer-name))
+(get-buffer-create
+ (format  "*%s-ocr*"
+ (emacspeak-ocr-default-name))))
 
 (defsubst emacspeak-ocr-get-text-name ()
   "Return name of current text document."
@@ -348,7 +349,6 @@ For detailed help, invoke command emacspeak-ocr bound to
         (cd emacspeak-ocr-working-directory))
       (switch-to-buffer buffer)
       (setq buffer-read-only t)
-      (emacspeak-ocr-name-document (emacspeak-ocr-default-name))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))))
 
