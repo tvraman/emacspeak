@@ -1171,7 +1171,6 @@ loaded. "
       (emacspeak-auditory-icon 'open-object))))
           
 
-
 ;;}}}
 ;;{{{  xsl keymap
 
@@ -1710,7 +1709,6 @@ If a rewrite rule is defined in the current buffer, we change
                                   (second
                                    emacspeak-w3-url-rewrite-rule)))
       (push redirect minibuffer-history))))
-
 
 ;;}}}
 ;;{{{  emacs local variables 

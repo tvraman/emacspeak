@@ -683,7 +683,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ; ;	; ;
+;;}}}					; ; ; ;	; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -1779,7 +1779,7 @@ Second interactive prefix sets clock to new timezone."
                             
  
 (defconst emacspeak-codename
-  "LeapDog"
+  "PlayDog"
   "Code name of present release.")
 
 (defun emacspeak-speak-version ()
