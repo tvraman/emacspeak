@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -8,121 +8,12 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: dis-quote,  Up: Emacspeak Commands
-
-emacspeak-w3
-============
-
-   Commentary: Ensure that speech support for W3 gets installed and
-loaded correctly.  The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-
-   Automatically generated documentation for commands defined in module
-emacspeak-w3.
-
- - emacspeak-w3-next-doc-element:
-     Move forward  to the next document element.  Optional interactive
-     prefix argument COUNT specifies by how many eleemnts to move.
-
- - emacspeak-w3-speak-this-element:
-     Speak document element under point.
-
- - emacspeak-w3-toggle-table-borders:
-     Toggle drawing of W3 table borders
-
- - emacspeak-w3-xslt-filter:
-     Extract elements matching specified XPath path locator from HTML.
-     Extracts specified elements from current WWW page and displays it
-     in a separate buffer.  Optional arg url specifies the page to
-     extract table from.  Interactive prefix arg causes url to be read
-     from the minibuffer.
-
- - emacspeak-w3-url-rewrite-and-follow:
-     Apply a url rewrite rule as specified in the current buffer before
-     following link under point.  If no rewrite rule is defined, first
-     prompt for one.  Rewrite rules are of the form `(from to)' where
-     from and to are strings.  Typically, the rewrite rule is
-     automatically set up by Emacspeak tools like websearch where a
-     rewrite rule is known.  Rewrite rules are useful in jumping
-     directly to the printer friendly version of an article for example.
-     Optional interactive prefix arg  prompts for a rewrite rule even
-     if one is already defined.
-
- - emacspeak-w3-speak-next-element:
-     Speak next document element.
-
- - emacspeak-w3-jump-to-submit:
-     Jump to next available submit button.
-
- - emacspeak-w3-xsl-toggle:
-     Toggle  XSL transformations before displaying HTML.  This uses
-     XSLT Processor xsltproc available as part of the libxslt package.
-
- - emacspeak-w3-lynx-url-under-point:
-     Display contents of URL under point using LYNX.  The document is
-     displayed in a separate buffer. Note that the hyperlinks in that
-     display are not active- this facility is present only to help me
-     iron out the remaining problems with the table structure
-     extraction code in W3.
-
- - emacspeak-w3-extract-table:
-     Extract tables from HTML.  Extracts specified table from current
-     WWW page and displays it in a separate buffer.  Optional arg url
-     specifies the page to extract table from.  Interactive prefix arg
-     causes url to be read from the minibuffer.
-
- - emacspeak-w3-xslt-select:
-     Select transformation to apply.
-
- - emacspeak-w3-show-anchor-class:
-     Display any class attributes set on corresponding anchor element.
-
- - emacspeak-w3-jump-to-title-in-content:
-     Jumps to the occurrence of document title in page body.
-
- - emacspeak-w3-extract-by-class:
-     Extract elements having specified class attribute  from HTML.
-     Extracts specified elements from current WWW page and displays it
-     in a separate buffer.  Optional arg url specifies the page to
-     extract table from.  Interactive prefix arg causes url to be read
-     from the minibuffer.
-
- - emacspeak-w3-javascript-follow-link:
-     Follow URL hidden inside a javascript link
-
- - emacspeak-w3-do-onclick:
-     Do  onclick action.
-
- - emacspeak-w3-previous-doc-element:
-     Move back  to the previous document element.  Optional interactive
-     prefix argument COUNT specifies by how many eleemnts to move.
-
- - emacspeak-w3-xslt-apply:
-     Apply specified transformation to current page.
-
-
-File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-wizards,  Prev: emacspeak-w3,  Up: Emacspeak Commands
-
-emacspeak-w3search
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-w3search.
-
- - emacspeak-websearch-blue-pages:
-     Search IBM Blue Pages
-
- - emacspeak-websearch-ibm-internal:
-     Search IBM My News
-
- - emacspeak-websearch-ibm-my-news:
-     Search IBM My News
-
-
-File: emacspeak.info,  Node: emacspeak-wizards,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak-xml-shell,  Prev: emacspeak-widget,  Up: Emacspeak Commands
 
 emacspeak-wizards
 =================
+
+   Commentary: Contains various wizards for the Emacspeak desktop.
 
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
@@ -135,6 +26,9 @@ emacspeak-wizards.
      `emacspeak-speak-this-buffer-other-window-display' for the meaning
      of `previous'.
 
+ - emacspeak-wizards-rpm-query-in-dired:
+     Run rpm -qi on current dired entry.
+
  - emacspeak-next-frame:
      ` control right '
 
@@ -144,6 +38,18 @@ emacspeak-wizards.
      ` control e  cap D  '
 
      Display a summary of all Emacspeak commands.
+
+ - emacspeak-wizards-xl-mode:
+     Major mode for browsing XL spreadsheets.
+
+     XL Sheets are converted to HTML and previewed using W3.
+
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-wizards-xl-mode-hook', as
+     the final step during initialization.
+
+     key             binding --             ------
+
 
  - emacspeak-view-emacspeak-faq:
      ` control e  cap F  '
@@ -200,6 +106,11 @@ emacspeak-wizards.
      Extract table specified by depth and count from HTML content at
      file.  Extracted content is placed as a csv file in task.csv.
 
+ - emacspeak-wizards-xl-display:
+     Called to set up preview of an XL file.  Assumes we are in a
+     buffer visiting a .xls file.  Previews those contents as HTML and
+     nukes the buffer visiting the xls file.
+
  - emacspeak-select-this-buffer-previous-display:
      ` control e control left '
 
@@ -250,6 +161,11 @@ emacspeak-wizards.
 
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
+
+ - emacspeak-wizards-ppt-display:
+     Called to set up preview of an XL file.  Assumes we are in a
+     buffer visiting a .ppts file.  Previews those contents as HTML and
+     nukes the buffer visiting the ppts file.
 
  - emacspeak-speak-run-shell-command:
      ` control e ! '
@@ -313,6 +229,18 @@ emacspeak-wizards.
      Convenience command to view state of memory used in this session
      so far.
 
+ - emacspeak-wizards-ppt-mode:
+     Major mode for browsing XL spreadsheets.
+
+     XL Sheets are converted to HTML and previewed using W3.
+
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as
+     the final step during initialization.
+
+     key             binding --             ------
+
+
  - emacspeak-frame-label-or-switch-to-labelled-frame:
      ` control e meta f '
 
@@ -374,7 +302,9 @@ emacspeak-wizards.
  - emacspeak-root:
      ` control e control r '
 
-     Start a root shell or switch to one that already exists.
+     Start a root shell or switch to one that already exists.  Optional
+     interactive prefix arg `cd' executes cd default-directory after
+     switching.
 
  - emacspeak-wizard-get-table-content-from-url:
      Extract table specified by depth and count from HTML content at
@@ -441,6 +371,215 @@ emacspeak-wizards.
      supplied, read it interactively.  Provides completion based on
      properties that are of interest.  If no property is set, show a
      message and exit.
+
+ - emacspeak-wizards-shell-toggle:
+     ` control e f11 '
+
+     Switch to the shell buffer and cd to  the directory of the current
+     buffer.
+
+
+File: emacspeak.info,  Node: emacspeak-xml-shell,  Next: emacspeak,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
+
+emacspeak-xml-shell
+===================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-xml-shell.
+
+ - emacspeak-xml-shell-goto-parent:
+     Navigate up to the parent of current node.
+
+ - emacspeak-xml-shell-goto-children:
+     Navigate down to the children of current node.
+
+ - emacspeak-xml-shell:
+     ` control e x x '
+
+     Start Xml-Shell on contents of system-id.
+
+ - emacspeak-xml-shell-mode:
+     XML Shell
+
+     Interactive XML browser.  key             binding --
+     ------
+
+     C-c             Prefix Command down
+     emacspeak-xml-shell-goto-children up
+     emacspeak-xml-shell-goto-parent right
+     emacspeak-xml-shell-goto-next-child left
+     emacspeak-xml-shell-goto-previous-child
+
+     C-c v           emacspeak-xml-shell-browse-current
+
+     In addition to any hooks its parent mode `comint-mode' might have
+     run, this mode runs the hook `emacspeak-xml-shell-mode-hook', as
+     the final step during initialization.
+
+ - emacspeak-xml-shell-goto-previous-child:
+     Navigate backward  to the previous child  of current node.
+
+ - emacspeak-xml-shell-browse-current:
+     Display current node.
+
+ - emacspeak-xml-shell-goto-next-child:
+     Navigate forward  to the next child  of current node.
+
+
+File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-xml-shell,  Up: Emacspeak Commands
+
+emacspeak
+=========
+
+   Commentary: The complete audio desktop.
+
+   Automatically generated documentation for commands defined in module
+emacspeak.
+
+ - emacspeak-submit-bug:
+     ` control e control b '
+
+     Function to submit a bug to the programs maintainer.
+
+ - emacspeak-describe-emacspeak:
+     ` control h control e '
+
+     Give a brief overview of emacspeak.
+
+
+File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-arc,  Prev: emacspeak,  Up: Emacspeak Commands
+
+dis-quote
+=========
+
+   Automatically generated documentation for commands defined in module
+dis-quote.
+
+ - quotes-setup-emacspeak-portfolio:
+     Set up variable emacspeak-websearch-personal-portfolio.
+
+
+File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-dismal,  Prev: dis-quote,  Up: Emacspeak Commands
+
+emacspeak-arc
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-arc.
+
+ - emacspeak-arc-speak-file-permissions:
+     Speak permissions of file current entry
+
+ - emacspeak-arc-speak-file-modification-time:
+     Speak modification time of the file on current line
+
+ - emacspeak-arc-speak-file-name:
+     Speak the name of the file on current line
+
+ - emacspeak-arc-speak-file-size:
+     Speak the size of the file on current line
+
+
+File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-info,  Prev: emacspeak-arc,  Up: Emacspeak Commands
+
+emacspeak-dismal
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-dismal.
+
+ - emacspeak-dismal-forward-col-and-summarize:
+     Move forward by arg columns  (the next column by default)and
+     summarize it.
+
+ - emacspeak-dismal-display-cell-value:
+     Display the cell value in the message area
+
+ - emacspeak-dismal-sheet-summarize:
+     Summarizes a sheet using the specification in list
+     emacspeak-dismal-sheet-summarizer-list
+
+ - emacspeak-dismal-set-row-summarizer-list:
+     Specify or reset row summarizer list.
+
+ - emacspeak-dismal-display-cell-with-col-header:
+     Display current cell along with its column header.  The `column
+     header' is the entry in row 0.
+
+ - emacspeak-dismal-display-cell-with-row-header:
+     Displays current cell along with its row header.  The `row header'
+     is the entry in column 0.
+
+ - emacspeak-dismal-forward-row-and-summarize:
+     Move forward by arg rows  (the next row by default)and summarize
+     it.
+
+ - emacspeak-dismal-set-sheet-summarizer-list:
+     Specify or reset sheet summarizer list.
+
+ - emacspeak-dismal-row-summarize:
+     Summarizes a row using the specification in list
+     emacspeak-dismal-row-summarizer-list
+
+ - emacspeak-dismal-col-summarize:
+     Summarizes a col using the specification in list
+     emacspeak-dismal-col-summarizer-list
+
+ - emacspeak-dismal-set-col-summarizer-list:
+     Specify or reset col summarizer list.
+
+ - emacspeak-dismal-backward-col-and-summarize:
+     Move backward by arg columns  (the previous column by default)and
+     summarize it.
+
+ - emacspeak-dismal-backward-row-and-summarize:
+     Move backward by arg rows  (the previous row by default)and
+     summarize it.
+
+ - emacspeak-dismal-display-cell-expression:
+     Display the expression in the message area
+
+
+File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-personal,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
+
+emacspeak-info
+==============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-info.
+
+ - emacspeak-info-speak-header:
+     Speak info header line.
+
+
+File: emacspeak.info,  Node: emacspeak-personal,  Next: emacspeak-w3search,  Prev: emacspeak-info,  Up: Emacspeak Commands
+
+emacspeak-personal
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-personal.
+
+ - emacspeak-sf-stats:
+     Show emacspeak sf statistics.
+
+
+File: emacspeak.info,  Node: emacspeak-w3search,  Prev: emacspeak-personal,  Up: Emacspeak Commands
+
+emacspeak-w3search
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3search.
+
+ - emacspeak-websearch-blue-pages:
+     Search IBM Blue Pages
+
+ - emacspeak-websearch-ibm-internal:
+     Search IBM My News
+
+ - emacspeak-websearch-ibm-my-news:
+     Search IBM My News
 
    Automatically generated documentation for commands defined in module
 nil.
