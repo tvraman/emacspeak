@@ -237,16 +237,15 @@ Speak field or char moved to."
   "We define keys that invoke editting commands to invoke
 emacspeak-wizards-speak-and-skip-extent-upto-char "
   (declare (special analog-mode-map))
+  (mapcar 
+#'(lambda (cmd)
   (loop for k in
-        (where-is-internal 'emacspeak-self-insert-command)
+        (where-is-internal cmd)
         do
         (define-key analog-mode-map k
-          'emacspeak-wizards-speak-and-skip-extent-upto-char ))
-(loop for k in
-        (where-is-internal 'completion-separator-self-insert-command)
-        do
-        (define-key analog-mode-map k
-          'emacspeak-wizards-speak-and-skip-extent-upto-char )))
+          'emacspeak-wizards-speak-and-skip-extent-upto-this-char )))
+(list 'emacspeak-self-insert-command
+      'completion-separator-self-insert-command)))
 
 ;;}}}
 (provide 'emacspeak-analog)
