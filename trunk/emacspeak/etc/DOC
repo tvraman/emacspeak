@@ -474,9 +474,9 @@ unless `dired-listing-switches' contains -al
 
 ------------------------------------------------------------
 
-** emacspeak-dired-show-file-typePrint the type of FILE, according to the `file' command.
-If FILE is a symbolic link and the optional argument DEREF-SYMLINKS is
-true then the type of the file linked to by FILE is printed instead.
+** emacspeak-dired-show-file-typeDisplays type of current file by running command file.
+Like Emacs' built-in dired-show-file-type but allows user to customize
+options passed to command `file'.
 
 ------------------------------------------------------------
 
@@ -1628,23 +1628,6 @@ commands via single keystrokes.
 
 key             binding
 ---             -------
-
-}		emacspeak-realaudio-trplayer-call-command
-{		emacspeak-realaudio-trplayer-call-command
-]		emacspeak-realaudio-trplayer-call-command
-[		emacspeak-realaudio-trplayer-call-command
-9		emacspeak-realaudio-trplayer-call-command
-0		emacspeak-realaudio-trplayer-call-command
-,		emacspeak-realaudio-trplayer-call-command
-.		emacspeak-realaudio-trplayer-call-command
->		emacspeak-realaudio-trplayer-call-command
-<		emacspeak-realaudio-trplayer-call-command
-i		emacspeak-realaudio-trplayer-call-command
-l		emacspeak-realaudio-trplayer-call-command
-e		emacspeak-realaudio-trplayer-call-command
-s		emacspeak-realaudio-trplayer-call-command
-t		emacspeak-realaudio-trplayer-call-command
-p		emacspeak-realaudio-trplayer-call-command
 
 
 
@@ -3527,7 +3510,7 @@ If no property is set, show a message and exit.
 
 ------------------------------------------------------------
 
-** emacspeak-skip-blank-lines-backward	Key Sequence: <shift up> 
+** emacspeak-skip-blank-lines-backward	Key Sequence: <shift> <up> 
 
 Move backward  across blank lines.
 The line under point is   then spoken.
@@ -3535,7 +3518,7 @@ Signals beginning  of buffer.
 
 ------------------------------------------------------------
 
-** emacspeak-skip-blank-lines-forward	Key Sequence: <shift down> 
+** emacspeak-skip-blank-lines-forward	Key Sequence: <shift> <down> 
 
 Move forward across blank lines.
 The line under point is then spoken.
