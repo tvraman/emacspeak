@@ -220,7 +220,7 @@ Speech can be stopped using command @code{dtk-stop}
 the action of moving the cursor will stop ongoing speech. Speech can
 also be paused and resumed.
 The speech server can be stopped and restarted for cases where the user
-wants to switch to a different server --or in teh rare case to nuke a
+wants to switch to a different server --or in the rare case to nuke a
 runaway speech server.
 
 
@@ -298,7 +298,7 @@ keymap @kbd{C-e d}.
 @item @kbd{ control e d a }
 dtk-add-cleanup-pattern
  Add this pattern to the list of repeating patterns that are cleaned up.
-Optional interactive prefix arg DELETEs this pattern if
+Optional interactive prefix arg deletes  this pattern if
 previously added.  Cleaning up repeated patterns results in emacspeak
 speaking the pattern followed by a repeat count instead of speaking
 all the characters making up the pattern.  Thus, by adding the

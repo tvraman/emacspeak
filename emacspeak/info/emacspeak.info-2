@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by Makeinfo version 3.12f from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -49,7 +49,7 @@ and key bindings which enhance the functionality of the spoken feedback
 provided by the application. This manual does not purport to document
 all such commands. It is important, therefore, when learning to use the
 various Emacs extensions which comprise the `audio desktop' (*note
-Audio Desktop::) that you take advantage of online help to obtain
+Audio Desktop::.) that you take advantage of online help to obtain
 details of any context-specific features provided by Emacspeak.  The
 following two commands are of particular importance in this regard:
 
@@ -125,10 +125,10 @@ Document Authoring
 
    The Emacspeak environment provides a rich collection of structured
 document authoring tools.  These are well-suited for working in an
-eyes-free environment -you clearly dont want to use a What You See Is
+eyes-free environment -you clearly do not want to use a What You See Is
 What You Get (WYSIWYG) authoring tool if you cannot see what you're
-getting.   Structure-based authoring tools  allow you to focus on the
-act of  content creation, leaving the minutii of visual layout to the
+getting.  Structure-based authoring tools allow you to focus on the act
+of content creation, leaving the minutiae of visual layout to the
 computer.
 
 * Menu:
@@ -314,7 +314,7 @@ Structured Editing And Templates
 electronic encoding can be very efficient when using spoken
 interaction.  We described mode _ auctex_ -- a specialized interface to
 authoring LaTeX documents as a special instance of such structured
-editing in *note Document Authoring::.
+editing in *note Document Authoring::..
 
    The Emacspeak desktop allows the user to efficiently author and
 maintain an electronic document based either on the structure present
@@ -436,7 +436,7 @@ partial input is spoken, accompanied by auditory icon _ help_.
 tempo_ This mode is designed to  be used in creating template-based
 editing tools for specific markup languages; a good example is mode _
 html-helper_, a  mode for creating and updating HTML documents for
-publishing on the WWW (see *note Document Authoring::).
+publishing on the WWW (see *note Document Authoring::.).
 
 
 File: emacspeak.info,  Node: Maintaining Structured Data,  Prev: Template-based Authoring,  Up: Structured Editing
@@ -983,6 +983,10 @@ Key Index
 * C-c e:                                 Running Terminal Based Applications.
 * C-c k:                                 Running Terminal Based Applications.
 * C-c o:                                 Running Terminal Based Applications.
+* ESCAPE down:                           Reading.
+* ESCAPE next:                           Reading.
+* ESCAPE prior:                          Reading.
+* ESCAPE up:                             Reading.
 * control e  cap M:                      Status Information.
 * control e  cap R:                      Reading.
 * control e %:                           Status Information.
@@ -990,6 +994,7 @@ Key Index
 * control e /:                           Reading.
 * control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
 * control e =:                           Status Information.
+* control e SPACE:                       Miscellaneous.
 * control e [:                           Reading.
 * control e a:                           Status Information.
 * control e b:                           Reading.
@@ -1002,23 +1007,23 @@ Key Index
 * control e control p:                   Reading.
 * control e control s:                   Miscellaneous.
 * control e control w:                   Status Information.
-* control e d  cap C:                    Speech Output Control.
+* control e d  cap C:                    Speech Output  Control.
 * control e d  cap V:                    Miscellaneous.
-* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output Control.
+* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output  Control.
+* control e d RETURN:                    Miscellaneous.
+* control e d SPACE:                     Miscellaneous.
 * control e d a:                         Miscellaneous.
-* control e d c:                         Speech Output Control.
+* control e d c:                         Speech Output  Control.
 * control e d d:                         Miscellaneous.
-* control e d f:                         Speech Output Control.
-* control e d i:                         Speech Output Control.
+* control e d f:                         Speech Output  Control.
+* control e d i:                         Speech Output  Control.
 * control e d k:                         Controlling Echo.
 * control e d l:                         Controlling Echo.
-* control e d m:                         Speech Output Control.
-* control e d p:                         Speech Output Control.
+* control e d m:                         Speech Output  Control.
+* control e d p:                         Speech Output  Control.
 * control e d q:                         Miscellaneous.
-* control e d r:                         Speech Output Control.
-* control e d RETURN:                    Miscellaneous.
-* control e d s:                         Speech Output Control.
-* control e d SPACE:                     Miscellaneous.
+* control e d r:                         Speech Output  Control.
+* control e d s:                         Speech Output  Control.
 * control e d t:                         Miscellaneous.
 * control e d w:                         Controlling Echo.
 * control e d z:                         Miscellaneous.
@@ -1034,16 +1039,11 @@ Key Index
 * control e p:                           Miscellaneous.
 * control e r:                           Reading.
 * control e right:                       Reading.
-* control e SPACE:                       Miscellaneous.
 * control e t:                           Status Information.
 * control e up:                          Reading.
 * control e v:                           Status Information.
 * control e w:                           Reading.
 * control e {:                           Reading.
-* ESCAPE down:                           Reading.
-* ESCAPE next:                           Reading.
-* ESCAPE prior:                          Reading.
-* ESCAPE up:                             Reading.
 * pause   control e s:                   Miscellaneous.
 
 

@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by Makeinfo version 3.12f from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -9,58 +9,55 @@ END-INFO-DIR-ENTRY
 
 
 Indirect:
-emacspeak.info-1: 232
-emacspeak.info-2: 47416
+emacspeak.info-1: 234
+emacspeak.info-2: 47424
 
 Tag Table:
 (Indirect)
-Node: Top232
-Node: Copyright866
-Node: Announce1278
-Node: Contributing1776
-Node: Authoring Guidelines2394
-Node: Credits3277
-Node: Introduction3636
-Ref: Introduction-Footnote-16134
-Node: Installation6237
-Node: Obtaining Emacspeak6780
-Node: Quick Installation7364
-Node: Configuring and Installing Emacspeak8404
-Node: Basic Usage11426
-Node: Overview12706
-Node: Working15056
-Ref: Working-Footnote-117285
-Ref: Working-Footnote-217331
-Node: Reading17366
-Node: Speech System24125
-Node: Controlling Echo24584
-Node: Speech Output Control26016
-Node: Miscellaneous30107
-Node: Voice-lock34484
-Node: Status Information36280
-Node: Audio Desktop38806
-Node: Desktop Objects40789
-Node: Object Oriented Desktop41635
-Node: Context-Sensitive Interaction42373
-Node: Using Online Help47416
-Node: Emacs Packages51630
-Node: Document Authoring52807
-Node: Creating Well-formatted Documents53492
-Node: Search replace and spell check57384
-Node: Structured Editing62595
-Node: Outline Editing64600
-Node: Template-based Authoring68316
-Node: Maintaining Structured Data69943
-Node: Browsing Structure71401
-Node: Messaging71848
-Node: Editting Program Source72446
-Node: Development Environment73452
-Node: Desktop Management74024
-Node: Personal Information Management74789
-Node: Desktop Applications75132
-Node: Running Terminal Based Applications81605
-Node: Acknowledgements89592
-Node: Concept Index89766
-Node: Key Index90249
+Node: Top234
+Node: Copyright868
+Node: Announce1280
+Node: Contributing1778
+Node: Authoring Guidelines2396
+Node: Credits3279
+Node: Introduction3638
+Node: Installation6239
+Node: Obtaining Emacspeak6782
+Node: Quick Installation7366
+Node: Configuring and Installing Emacspeak8406
+Node: Basic Usage11429
+Node: Overview12709
+Node: Working15060
+Node: Reading17370
+Node: Speech System24129
+Node: Controlling Echo24588
+Node: Speech Output  Control26021
+Node: Miscellaneous30113
+Node: Voice-lock34492
+Node: Status Information36288
+Node: Audio Desktop38814
+Node: Desktop Objects40797
+Node: Object Oriented Desktop41643
+Node: Context-Sensitive Interaction42381
+Node: Using Online Help47424
+Node: Emacs Packages51639
+Node: Document Authoring52816
+Node: Creating Well-formatted Documents53501
+Node: Search replace and spell check57393
+Node: Structured Editing62604
+Node: Outline Editing64610
+Node: Template-based Authoring68326
+Node: Maintaining Structured Data69954
+Node: Browsing Structure71412
+Node: Messaging71859
+Node: Editting Program Source72457
+Node: Development Environment73463
+Node: Desktop Management74035
+Node: Personal Information Management74800
+Node: Desktop Applications75143
+Node: Running Terminal Based Applications81616
+Node: Acknowledgements89603
+Node: Concept Index89777
+Node: Key Index90260
 
 End Tag Table
