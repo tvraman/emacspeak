@@ -75,8 +75,8 @@ COMMAND-STRING to the Dectalk."
   "Retrieve command string for  voice NAME."
   (declare (special dtk-voice-table ))
   (cond
-   ((listp voice)
-    (mapconcat #'dtk-get-voice-command voice " "))
+   ((listp name)
+    (mapconcat #'dtk-get-voice-command name " "))
    (t (or  (gethash name dtk-voice-table)
            dtk-default-voice-string))))
 

@@ -44,7 +44,7 @@
 ;;; Interface to speech server.
 ;;; Code:
 ;;{{{  required modules 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-interp)
