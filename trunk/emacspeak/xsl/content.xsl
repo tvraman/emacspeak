@@ -4,7 +4,6 @@
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
   
   <xsl:output method="html" indent="yes"/>
   
@@ -24,10 +23,9 @@
   <xsl:template match="html/body">
     <xsl:element name="body">
 <xsl:apply-templates 
-select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//blockquote"/>
+select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//span|//blockquote"/>
     </xsl:element>
   </xsl:template>
   
   <!-- } -->
-  
 </xsl:stylesheet>
