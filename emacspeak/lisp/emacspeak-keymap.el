@@ -76,6 +76,10 @@
 ;;{{{  The actual bindings.
 (define-key help-map "e"
   'emacspeak-websearch-emacspeak-archive)
+(define-key help-map "V" 'customize-variable)
+(define-key help-map " " 'customize-group)
+(define-key help-map "B" 'customize-browse)
+(define-key help-map "G" 'customize-group)
 (define-key help-map "M" 'emacspeak-speak-popup-messages)
 (define-key help-map emacspeak-prefix
   'emacspeak-describe-emacspeak)
