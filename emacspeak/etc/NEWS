@@ -33,6 +33,10 @@ Module emacspeak-xml-shell implements an XML Shell for walking
 Speech-enables package analog --a convenient means for viewing
 multiple log files.
 
+** eperiodic: Periodic Table Of Eleements 
+
+Speech-enables a simple periodic table of elements.
+
 
 ** Pronunciation Dictionaries
 
