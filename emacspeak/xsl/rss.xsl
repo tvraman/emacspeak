@@ -14,11 +14,6 @@ View an RSS feed as clean HTML
   <xsl:template match="channel">
     <html>
       <head>
-        <xsl:element name="base">
-          <xsl:attribute name="href">
-            <xsl:value-of select="$base"/>
-          </xsl:attribute>
-        </xsl:element>
         <title>
           <xsl:apply-templates select="title"/>
         </title>
