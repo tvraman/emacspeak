@@ -332,13 +332,13 @@ commands via single keystrokes."
           'emacspeak-realaudio-trplayer-call-command)))
 
 (emacspeak-realaudio-setup-keys)
-
-(declaim (special emacspeak-realaudio-mode-map))
+;;;###autoload
 (defvar emacspeak-realaudio-trplayer-keys
   (list ?p ?t ?s ?e ?l ?i
         ?< ?> ?. ?, ?0 ?9
         ?[ ?] ?{ ?})
   "Keys accepted by TRPlayer.")
+
 
 (defun emacspeak-realaudio-trplayer-call-command ()
   "Call appropriate TRPlayer command."
