@@ -58,7 +58,6 @@
   "Personality for field name."
   :group 'emacspeak-bbdb)
 
-
 (def-voice-font emacspeak-bbdb-field-value-personality
   voice-animate
   'bbdb-field-value

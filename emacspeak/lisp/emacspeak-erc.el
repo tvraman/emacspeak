@@ -192,7 +192,7 @@ spoken.")
 	 (buffer-substring start (1- (point))))))))
      
 (defun emacspeak-erc-add-name-to-monitor (name &optional
-  quiten-pronunciation)
+					       quiten-pronunciation)
   "Add people to moniter in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name."
@@ -206,7 +206,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (pushnew name emacspeak-erc-people-to-monitor
            :test #'string-equal)
   (when quiten-pronunciation
-     (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
+    (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
   (emacspeak-auditory-icon 'select-object)
   (message "monitoring %s"
            (mapconcat #'identity 

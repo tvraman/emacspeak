@@ -52,7 +52,6 @@
 ;;}}}
 ;;{{{ Advice interactive commands.
 
-
 (loop for c in
       '(wdired-next-line wdired-previous-line)
       do
@@ -100,7 +99,6 @@
     (tts-with-punctuations 'some
                            (dtk-speak "Committed changes. "))))
 
-
 (defadvice wdired-change-to-wdired-mode (after emacspeak pre act
                                                comp)
   "Provide auditory feedback."
@@ -110,8 +108,6 @@
                            (dtk-speak "Entering writeable dir ed mode. "))))
 
 ;;}}}
-
-
 
 (provide 'emacspeak-wdired)
 ;;{{{ end of file

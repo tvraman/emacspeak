@@ -457,8 +457,8 @@ Returns a pair of the form (key-type . key)."
           (completing-read
            "Define pronunciation that is specific to: "
            emacspeak-pronounce-pronunciation-keys nil t ) )))
-    (when (interactive-p) ;cleanup minibuffer history
-           (pop minibuffer-history))
+    (when (interactive-p)		;cleanup minibuffer history
+      (pop minibuffer-history))
     (cond
      ((eq key-type 'buffer)
       (setq key (buffer-name )))        ;handled differently

@@ -355,26 +355,26 @@ to play a BBC Radio7 program on demand."
 ;;{{{ bbc channel 
 
 (defvar  emacspeak-url-template-bbc-channels-content 
-"http://www.bbc.co.uk/radio/aod/shows/rpms/"
-"Location of BBC audio content.")
+  "http://www.bbc.co.uk/radio/aod/shows/rpms/"
+  "Location of BBC audio content.")
 
 (defun emacspeak-url-template-bbc-channel-player (url)
   "Extract program name, construct realplayer URL and play that
 content."
   (declare (special  emacspeak-url-template-bbc-channels-content))
-(let ((content (second
-                (split-string url "?")))
-      (uri nil))
-  (cond
-   ((null content)
-    (error "Cannot locate content particle in %s" url))
-   (t
-    (setq uri
-          (concat emacspeak-url-template-bbc-channels-content
-               content
-               ".rpm"))
-    (kill-new uri)
- (emacspeak-realaudio-play uri)
+  (let ((content (second
+		  (split-string url "?")))
+	(uri nil))
+    (cond
+     ((null content)
+      (error "Cannot locate content particle in %s" url))
+     (t
+      (setq uri
+	    (concat emacspeak-url-template-bbc-channels-content
+		    content
+		    ".rpm"))
+      (kill-new uri)
+      (emacspeak-realaudio-play uri)
       (message "Playing content under point.")))))
 
 (emacspeak-url-template-define
@@ -482,11 +482,11 @@ content."
       buffer)))
   
 (emacspeak-url-template-define
-  "Google Maps Give Me XML"
-  "http://maps.google.com/maps?q=%s&btng=Search&output=js"
-  (list "Query: ")
-  nil
-  "Get me XML from Google Maps.
+ "Google Maps Give Me XML"
+ "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+ (list "Query: ")
+ nil
+ "Get me XML from Google Maps.
 Specify the query using English and  addresses as complete as
   possible.
 
@@ -504,10 +504,10 @@ Here are some examples:
 
 <what> near <location address>
 "
-  'emacspeak-url-template-google-maps-xml)
+ 'emacspeak-url-template-google-maps-xml)
 
 (defun emacspeak-url-template-google-maps-speak (url &optional
-  near speak)
+						     near speak)
   "Audio format map information from Google Maps.
 Optional arg `near' specifies reference location for generating direction links."
   (let ((buffer (emacspeak-url-template-google-maps-get-xml url))
@@ -537,11 +537,11 @@ Optional arg `near' specifies reference location for generating direction links.
       (emacspeak-w3-preview-this-buffer))))
 
 (emacspeak-url-template-define
-  "EmapSpeak Via Google"
-  "http://maps.google.com/maps?q=%s&btng=Search&output=js"
-  (list "Query: ")
-  nil
-  "EmapSpeak Via Google.
+ "EmapSpeak Via Google"
+ "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+ (list "Query: ")
+ nil
+ "EmapSpeak Via Google.
 
 Specify the query using English and  addresses as complete as
   possible.
@@ -560,7 +560,7 @@ Here are some examples:
 
 <what> near <location address>
 "
-  'emacspeak-url-template-google-maps-speak)
+ 'emacspeak-url-template-google-maps-speak)
       
 ;;}}}
 ;;{{{ google scholar 
@@ -1022,7 +1022,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "American Life On Demand."
- ;"http://www.wbez.org/ta/%s.rm"
+					;"http://www.wbez.org/ta/%s.rm"
  "http://www.thislife.org/ra/%s.ram"
  (list "Episode: ")
  nil
@@ -1696,23 +1696,23 @@ Each URL template carries out the following steps:
 As an example, the URL templates that enable access to NPR media
 streams prompt for a program id and date, and automatically
 launch the realmedia player after fetching the resource.\n\n"
-                             (mapconcat #'key-description
-                              (where-is-internal
-                               'emacspeak-url-template-fetch)
-                              " ")))
+    (mapconcat #'key-description
+	       (where-is-internal
+		'emacspeak-url-template-fetch)
+	       " ")))
   (let ((keys
          (sort 
-  (loop for key being the hash-keys of emacspeak-url-template-table
-        collect key)
-  'string-lessp)))
+	  (loop for key being the hash-keys of emacspeak-url-template-table
+		collect key)
+	  'string-lessp)))
     (loop for key in keys
           do
-        (insert
-         (format "@kbd{%s}\n\n" key))
-        (insert
-         (emacspeak-url-template-documentation
-          (emacspeak-url-template-get key)))
-        (insert "\n\n"))))
+	  (insert
+	   (format "@kbd{%s}\n\n" key))
+	  (insert
+	   (emacspeak-url-template-documentation
+	    (emacspeak-url-template-get key)))
+	  (insert "\n\n"))))
 
 ;;}}}
 (provide 'emacspeak-url-template)

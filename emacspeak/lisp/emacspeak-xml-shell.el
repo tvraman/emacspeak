@@ -290,8 +290,8 @@ HTML head if none found."
    emacspeak-xml-shell-document)
   (save-excursion
     (goto-char (point-min))
-(while (search-forward "-------" nil t)
-  (replace-match "<br>")))
+    (while (search-forward "-------" nil t)
+      (replace-match "<br>")))
   (emacspeak-w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 

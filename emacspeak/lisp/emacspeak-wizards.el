@@ -318,19 +318,19 @@ command `emacspeak-table-display-table-in-region' normally bound to
 
 (defcustom emacspeak-wizards-linux-howto-directory
   (cond
-                     ((file-exists-p "/usr/doc/HOWTO/" )
-                      "/usr/doc/HOWTO/")
-                     ((file-exists-p "/usr/doc/howto/" )
-                      "/usr/doc/howto/")
-                     ((file-exists-p
-                       "/usr/share/doc/howto/")
-                      "/usr/share/doc/howto/")
-                     (t nil))
-"Root  of Linux Howtos."
-:type '(choice :tag "Howto Root"
-        (const nil :tag "None")
-        (directory :tag "Directory"))
-:group 'emacspeak-wizards)
+   ((file-exists-p "/usr/doc/HOWTO/" )
+    "/usr/doc/HOWTO/")
+   ((file-exists-p "/usr/doc/howto/" )
+    "/usr/doc/howto/")
+   ((file-exists-p
+     "/usr/share/doc/howto/")
+    "/usr/share/doc/howto/")
+   (t nil))
+  "Root  of Linux Howtos."
+  :type '(choice :tag "Howto Root"
+		 (const nil :tag "None")
+		 (directory :tag "Directory"))
+  :group 'emacspeak-wizards)
 
 ;;;###autoload
 (defun emacspeak-speak-browse-linux-howto (howto)
@@ -1039,11 +1039,11 @@ Warning! Contents of file commands.texi will be overwritten."
        "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
        (format 
-       "This chapter is generated automatically from the source-level documentation.
+	"This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d commands.\n\n"
-       (length (emacspeak-list-emacspeak-commands))))
+	(length (emacspeak-list-emacspeak-commands))))
       (mapcar
        (function
         (lambda (f)
@@ -1129,12 +1129,12 @@ Warning! Contents of file filename will be overwritten."
        "@node Emacspeak Customizations\n@chapter Emacspeak Customizations \n\n")
       (insert
        (format 
-       "This chapter is generated automatically from the source-level documentation.
+	"This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d user customizable
   options.\n\n"
-       (length (emacspeak-list-emacspeak-options))))
+	(length (emacspeak-list-emacspeak-options))))
       (mapcar
        #'(lambda (o)
 	   (let ((this-module (ems-variable-symbol-file  o))
@@ -1555,10 +1555,10 @@ at point."
         (f (get-text-property (point) 'face))
         (o
          (delq nil
-		 (mapcar
-		  #'(lambda (overlay)
-		      (overlay-get overlay 'face))
-		  (overlays-at (point))))))
+	       (mapcar
+		#'(lambda (overlay)
+		    (overlay-get overlay 'face))
+		(overlays-at (point))))))
     (message "Personality %s Face %s %s" p f
 	     (if o
 		 o
@@ -2039,20 +2039,19 @@ visiting the DVI file."
   (interactive)
   (declare (special emacspeak-wizards-dvi2txt-program
                     emacspeak-wizards-dvi-preview-buffer))
-   (cond
-    ((null emacspeak-wizards-dvi2txt-program)
-     (message "Not using Emacspeak DVI wizard."))
-    (t 
-     (let ((filename (buffer-file-name))
-	   (dvi-buffer (current-buffer))
-	   (buffer (get-buffer-create " *dvi preview*")))
-	 (shell-command
-	  (format "%s  %s &"
-		  emacspeak-wizards-dvi2txt-program filename)
-          buffer)
-       (kill-buffer dvi-buffer)
-       (switch-to-buffer buffer)))))
-
+  (cond
+   ((null emacspeak-wizards-dvi2txt-program)
+    (message "Not using Emacspeak DVI wizard."))
+   (t 
+    (let ((filename (buffer-file-name))
+	  (dvi-buffer (current-buffer))
+	  (buffer (get-buffer-create " *dvi preview*")))
+      (shell-command
+       (format "%s  %s &"
+	       emacspeak-wizards-dvi2txt-program filename)
+       buffer)
+      (kill-buffer dvi-buffer)
+      (switch-to-buffer buffer)))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.dvi$"
@@ -2829,8 +2828,8 @@ RIVO is implemented by rivo.pl ---
     (with-output-to-temp-buffer "*Commentary*"
       (set-buffer standard-output)
       (insert
-        (ems-cleanup-commentary
-         (lm-commentary filename))))))
+       (ems-cleanup-commentary
+	(lm-commentary filename))))))
 
 ;;}}}
 (provide 'emacspeak-wizards)

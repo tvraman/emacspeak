@@ -69,20 +69,17 @@
   "Personality used for documentation in doctex files."
   :group 'emacspeak-auctex)
 
-
 (def-voice-font  emacspeak-latex-doctex-preprocessor-personality
   voice-brighten-medium
   'font-latex-doctex-preprocessor-face
   "Personality used for preprocessor lines in   doctex files."
   :group 'emacspeak-auctex)
 
-
 (def-voice-font  emacspeak-latex-math-personality
   voice-brighten-extra
   'font-latex-math-face
   "Personality used for math mode."
   :group 'emacspeak-auctex)
-
 
 (def-voice-font  emacspeak-latex-string-personality
   voice-lighten-extra
@@ -101,7 +98,6 @@
   'font-latex-superscript-face
   "Personality used for superscript."
   :group 'emacspeak-auctex)
-
 
 (def-voice-font  emacspeak-latex-title-1-personality
   voice-bolden-extra
@@ -130,7 +126,6 @@
   "Personality used for titl11."
   :group 'emacspeak-auctex)
 
-
 (def-voice-font  emacspeak-latex-dwarningverbatim-personality
   voice-animate
   'font-latex-warning-face
@@ -142,8 +137,6 @@
   'font-latex-verbatim-face
   "Personality used for verbatim."
   :group 'emacspeak-auctex)
-
-
 
 ;;}}}
 ;;{{{  Marking structured objects:
