@@ -1599,7 +1599,6 @@ semantic to do the work."
                            recursion-info))
       (when (buffer-modified-p ) (dtk-tone 700 70))
       (when buffer-read-only (dtk-tone 250 50))
-      (tts-with-punctuations "all"
                              (dtk-speak
                               (concat
                                (or dir-info " ")
@@ -1617,7 +1616,7 @@ semantic to do the work."
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info
-                               global-info)))))))
+                               global-info))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
