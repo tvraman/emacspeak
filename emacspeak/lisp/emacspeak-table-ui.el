@@ -74,7 +74,7 @@
   (define-key emacspeak-table-keymap "x" 'emacspeak-table-copy-current-element-to-register)
   (define-key emacspeak-table-keymap "\t"
     'emacspeak-table-next-column)
-  ;(define-key emacspeak-table-keymap  '[S-tab] 'emacspeak-table-previous-column)
+  (define-key emacspeak-table-keymap  '[<shift> tab] 'emacspeak-table-previous-column)
 (define-key emacspeak-table-keymap "j" 'emacspeak-table-goto)
 (define-key emacspeak-table-keymap '[up] 'emacspeak-table-previous-row)
 (define-key emacspeak-table-keymap '[down] 'emacspeak-table-next-row)
