@@ -2726,7 +2726,8 @@ emacspeak running."
   (cond
    ((interactive-p)
     ad-do-it
-    (dtk-speak ad-return-value))
+    (let ((dtk-stop-immediately nil))
+    (dtk-speak ad-return-value)))
    (t ad-do-it))
   ad-return-value)
 
@@ -2735,7 +2736,7 @@ emacspeak running."
   (cond
    ((interactive-p)
     ad-do-it
-    (dtk-speak ad-return-value))
+    (emacspeak-speak-message-again))
    (t ad-do-it))
   ad-return-value)
   
