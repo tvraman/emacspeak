@@ -61,7 +61,6 @@ SPEAK_OBJECTS =   \
         emacspeak-actions.elc \
 	voice-lock.elc \
 	lazy-voice-lock.elc \
-	jit-voice-lock.elc \
 	fast-voice-lock.elc \
 	voice-setup.elc \
 	voice-settings.elc \
@@ -260,7 +259,6 @@ voice-setup.elc: voice-setup.el
 #voice lock helpers 
 
 fast-voice-lock.elc: fast-voice-lock.el voice-lock.elc
-jit-voice-lock.elc: jit-voice-lock.el voice-lock.elc
 lazy-voice-lock.elc: lazy-voice-lock.el voice-lock.elc
 
 html-voice.elc: html-voice.el voice-lock.elc

@@ -166,11 +166,6 @@ Return nil if not set."
 (setq voice-lock-maximum-decoration t)
 
 ;;}}}
-;;{{{ autoload fast voice lock 
-(autoload 'fast-voice-lock-mode
-  "fast-voice-lock"
-  "fast lock support for voice locking ")
-;;}}}
 ;;{{{ turn on lazy lock
 (autoload 'lazy-voice-lock-mode
   "lazy-voice-lock"
