@@ -1190,8 +1190,7 @@ With optional PREFIX argument, label current frame."
   (cond
    (prefix
     (call-interactively 'set-frame-name))
-   (t (select-frame-by-name
-       (emacspeak-frame-read-frame-label))))
+   (t (call-interactively 'select-frame-by-name)))
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
