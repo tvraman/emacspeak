@@ -573,8 +573,14 @@ default-directory after switching."
   (interactive
    (list
     (read-from-minibuffer "SUDO Command: ")))
+  (let* ((name  (car (split-string command)))
+         (buffer (format "*sudo--%s*" name)))
   (shell-command
-   (format "sudo %s" command)))
+   (format "sudo %s" command)
+   buffer)
+  (pop-to-buffer buffer)
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-line)))
   
   
     
