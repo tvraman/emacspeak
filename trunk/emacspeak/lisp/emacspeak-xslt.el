@@ -118,7 +118,7 @@ part of the libxslt package."
       (bury-buffer "*xslt errors*"))
     (goto-char (point-max))
       (insert
-       (format "<!-- %s -->\n"
+       (format "<!--\n %s \n-->\n"
                command))
     (setq modification-flag nil)))
 
@@ -165,7 +165,7 @@ part of the libxslt package."
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))
       (insert
-       (format "<!-- %s -->\n"
+       (format "<!--\n %s \n-->\n"
                command))
       (setq modification-flag nil)
       (goto-char (point-min))
@@ -209,7 +209,7 @@ part of the libxslt package."
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))
       (insert
-       (format "<!-- %s -->\n"
+       (format "<!--\n %s \n-->\n"
                command))
       (setq modification-flag nil)
       (goto-char (point-min))
