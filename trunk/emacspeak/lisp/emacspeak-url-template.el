@@ -693,7 +693,9 @@ from English to German.")
  (list "PDF URL: ")
  nil
  "Use access.adobe.com to  convert a remote PDF document to HTML.
-The PDF document needs to be available on the public Internet.")
+The PDF document needs to be available on the public Internet."
+ #'(lambda (url)
+(w3m url)))
 
 
 ;;}}}
