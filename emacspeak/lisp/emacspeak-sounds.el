@@ -149,7 +149,10 @@ If we add new icons we should declare them here. ")
   (declare (special emacspeak-sounds-icon-list))
   emacspeak-sounds-icon-list)
 
-(defvar emacspeak-default-sound ""
+(defvar emacspeak-default-sound
+  (expand-file-name
+   "default-8k/button.au"
+   emacspeak-sounds-directory)
   "Default sound to play if requested icon not found.")
 
 (defvar emacspeak-sounds-themes-table
