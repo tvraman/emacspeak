@@ -49,8 +49,11 @@ relevant tables bubble to the top.
         </caption>
         <tr>
           <td>
-            <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
-nested tables</a>
+            <a href="#__nested_tables">
+<xsl:value-of select="count(//table)"/> 
+tables of which 
+<xsl:value-of select="count(//table//table)"/>
+are nested</a>
           </td>
         </tr>
       </table>
