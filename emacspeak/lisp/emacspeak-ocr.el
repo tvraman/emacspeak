@@ -333,7 +333,6 @@ suitable for browsing the results.
 For detailed help, invoke command emacspeak-ocr bound to
 \\[emacspeak-ocr] to launch emacspeak-ocr-mode, and press
 `?' to display mode-specific help for emacspeak-ocr-mode."
-
   (interactive)
   (declare (special emacspeak-ocr-working-directory
                     buffer-read-only))
@@ -509,6 +508,7 @@ Prompts for image file if file corresponding to the expected
            (expand-file-name 
             (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
+    (emacspeak-auditory-icon 'select-object)
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))
     (aset emacspeak-ocr-page-positions
