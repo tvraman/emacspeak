@@ -13,6 +13,8 @@ File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak,  Prev: dtk-speak,  Up: E
 dtk-tcl
 =======
 
+   Commentary: Interface to speech server.
+
    Automatically generated documentation for commands defined in module
 dtk-tcl.
 
@@ -174,6 +176,8 @@ File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-arc,  Prev: dtk-tcl,  U
 emacspeak
 =========
 
+   Commentary: The complete audio desktop.
+
    Automatically generated documentation for commands defined in module
 emacspeak.
 
@@ -213,6 +217,9 @@ File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: emacsp
 
 emacspeak-aumix
 ===============
+
+   Commentary: Provides an AUI to setting up the auditory display via
+AUMIX This module is presently Linux specific
 
    Automatically generated documentation for commands defined in module
 emacspeak-aumix.
@@ -254,6 +261,9 @@ File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: em
 
 emacspeak-bs
 ============
+
+   Commentary: speech-enable bs.el this is an alternative to
+list-buffers
 
    Automatically generated documentation for commands defined in module
 emacspeak-bs.
@@ -317,6 +327,10 @@ File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-custom,  Prev: 
 emacspeak-compile
 =================
 
+   Commentary: This module makes compiling code from inside Emacs
+speech friendly.  It is an example of how a little amount of code can
+make Emacspeak even better.
+
    Automatically generated documentation for commands defined in module
 emacspeak-compile.
 
@@ -343,6 +357,8 @@ File: emacspeak.info,  Node: emacspeak-daisy,  Next: emacspeak-dired,  Prev: ema
 
 emacspeak-daisy
 ===============
+
+   Commentary: Daisy Digital Talking Book Reader
 
    Automatically generated documentation for commands defined in module
 emacspeak-daisy.
@@ -399,6 +415,11 @@ File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: em
 
 emacspeak-dired
 ===============
+
+   Commentary: This module speech enables dired.  It reduces the amount
+of speech you hear: Typically you hear the file names as you move
+through the dired buffer Voicification is used to indicate directories,
+marked files etc.
 
    Automatically generated documentation for commands defined in module
 emacspeak-dired.
@@ -585,6 +606,13 @@ File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-eudc,  Prev: emac
 
 emacspeak-eterm
 ===============
+
+   Commentary: This module makes eterm talk.  Eterm is the new terminal
+emulator for Emacs.  Use of emacspeak with eterm really needs an info
+page.  At present, the only documentation is the source level
+documentation.  This module uses Control-t as an additional prefix key
+to allow the user To move around the terminal and have different parts
+spoken.
 
    Automatically generated documentation for commands defined in module
 emacspeak-eterm.
@@ -786,6 +814,10 @@ File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-filtertext,  Prev:
 
 emacspeak-eudc
 ==============
+
+   Commentary: EUDC -Emacs Universal Directory Client provides a
+unified interface to directory servers e.g. ldap servers this module
+speech enables eudc
 
    Automatically generated documentation for commands defined in module
 emacspeak-eudc.
@@ -999,6 +1031,14 @@ File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-ibuffer,  Prev: em
 emacspeak-hide
 ==============
 
+   Commentary:
+
+   Flexible hide and show for emacspeak.  This module allows one to
+easily hide or expose blocks of lines starting with a common prefix.
+It is motivated by the need to flexibly hide quoted text in email but
+is designed to be more general.  the prefix parsing is inspired by
+filladapt.el
+
    Automatically generated documentation for commands defined in module
 emacspeak-hide.
 
@@ -1028,6 +1068,9 @@ File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-imcom,  Prev: e
 
 emacspeak-ibuffer
 =================
+
+   Commentary: speech-enable ibuffer.el this is an alternative to
+buffer-menu
 
    Automatically generated documentation for commands defined in module
 emacspeak-ibuffer.
@@ -1206,6 +1249,9 @@ File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-ocr,  Prev: emac
 emacspeak-mpg123
 ================
 
+   Commentary: This module speech-enables  MPG123 MPG123 is an MP3
+player.
+
    Automatically generated documentation for commands defined in module
 emacspeak-mpg123.
 
@@ -1243,6 +1289,14 @@ File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-outline,  Prev: ema
 
 emacspeak-ocr
 =============
+
+   Commentary: This module defines Emacspeak front-end to OCR.  This
+module assumes that sane is installed and working for image acquisition,
+and that there is an OCR engine that can take acquired images and
+produce text.  Prerequisites: Sane installed and working.  scanimage to
+generate tiff files from scanner.  tiffcp to compress the tiff file.
+working ocr executable by default this module assumes that the OCR
+executable is named "ocr"
 
    Automatically generated documentation for commands defined in module
 emacspeak-ocr.
@@ -1396,6 +1450,8 @@ File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-pronounce,  Pre
 emacspeak-outline
 =================
 
+   Commentary: Provide additional advice to outline-mode
+
    Automatically generated documentation for commands defined in module
 emacspeak-outline.
 
@@ -1417,60 +1473,4 @@ emacspeak-outline.
 
  - emacspeak-outline-speak-this-heading: ()
      Speak current outline section starting from point
-
-
-File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-psgml,  Prev: emacspeak-outline,  Up: Emacspeak Commands
-
-emacspeak-pronounce
-===================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-pronounce.
-
- - emacspeak-pronounce-clear-dictionaries: ()
-     Clear all current pronunciation dictionaries.
-
- - emacspeak-pronounce-define-local-pronunciation: (WORD PRONUNCIATION)
-     Define buffer local pronounciation.  Argument WORD specifies the
-     word which should be pronounced as specified by PRONUNCIATION.
-
- - emacspeak-pronounce-define-pronunciation: ()
-     Interactively define entries in the pronunciation dictionaries.
-     Default term to define is delimited by region.  First loads any
-     persistent dictionaries if not already loaded.
-
- - emacspeak-pronounce-dispatch: ()
-     ` control e meta d '
-
-     Provides the user interface front-end to Emacspeak's pronunciation
-     dictionaries.
-
- - emacspeak-pronounce-edit-pronunciations: (KEY)
-     Prompt for and launch a pronunciation editor on the specified
-     pronunciation dictionary key.
-
- - emacspeak-pronounce-load-dictionaries: (&optional FILENAME)
-     Load pronunciation dictionaries.  Optional argument FILENAME
-     specifies the dictionary file.
-
- - emacspeak-pronounce-refresh-pronunciations: ()
-     Refresh pronunciation table for current buffer.  Activates
-     pronunciation dictionaries if not already active.
-
- - emacspeak-pronounce-save-dictionaries: ()
-     Writes out the persistent emacspeak pronunciation dictionaries.
-
- - emacspeak-pronounce-toggle-use-of-dictionaries: (&optional STATE)
-     Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be dfined on a per file, per directory and/or
-     per mode basis.  Pronunciations are activated on a per buffer
-     basis.  Turning on the use of pronunciation dictionaries results
-     in emacspeak composing a pronunciation table based on the
-     currently defined pronunciation dictionaries.  After this, the
-     pronunciations will be applied whenever text in the buffer is
-     spoken.  Optional argument state can be used from Lisp programs to
-     explicitly turn pronunciations on or off.
-
- - emacspeak-pronounce-yank-word: ()
-     Yank word at point into minibuffer.
 
