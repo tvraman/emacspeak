@@ -48,7 +48,7 @@
 
   <xsl:template match="category">
     <tr>
-      
+      <td colspan="3">
       <a>
         <xsl:attribute name="name">
           <xsl:value-of select="@name"/>
@@ -56,19 +56,25 @@
         <xsl:attribute name="id">
           <xsl:value-of select="@name"/>
         </xsl:attribute>
-        <td colspan="3">
-          <xsl:value-of select="@name"/>
+          <xsl:value-of select="translate(@name,
+                                'abcdefghijklmnopqrstuvwxyz',
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+          <xsl:text>     </xsl:text>
           (<xsl:value-of select="count(./application)"/>)
-        </td>
-      </a>    
+      </a></td>
     </tr>
     <xsl:apply-templates />
   </xsl:template>
-  
   <xsl:template match="application">
     <tr>
       <td><xsl:value-of select="position()"/></td>
-      <td><xsl:value-of select="@name"/></td>
+      <td>
+        <a>
+          <xsl:attribute name="id">
+            <xsl:value-of select="@name"/>
+          </xsl:attribute>
+          <xsl:value-of select="@name"/>
+      </a></td>
       <td> <xsl:apply-templates/></td>
     </tr>
   </xsl:template>
@@ -85,7 +91,6 @@
       <em><xsl:value-of select="count(//application)"/></em>
       speech-enabled applications 
       in <em><xsl:value-of select="count(//category)"/></em> categories
-
       on the Emacspeak audio desktop.
     </p>
     <ol>
@@ -95,7 +100,8 @@
             <xsl:attribute name="href">
               #<xsl:value-of select="@name"/>
             </xsl:attribute>
-            <xsl:value-of select="@name"/> 
+            <xsl:value-of select="translate(@name,
+                                  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/> 
             (<xsl:value-of select="count(./application)"/>)
           </a>
         </li>
