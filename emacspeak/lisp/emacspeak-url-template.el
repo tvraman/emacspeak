@@ -159,8 +159,24 @@ post-action ;action to perform after opening
 ;;{{{  template resources 
 ;;{{{ yahoo daily news 
 
+(emacspeak-url-template-define "Yahoo Politics"
+                               "http://dailynews.yahoo.com/htx/pl/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
+
+(emacspeak-url-template-define "Yahoo Entertainment"
+                               "http://dailynews.yahoo.com/htx/en/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward "Sources:")
+                                   (forward-line 3)
+                                   (emacspeak-speak-rest-of-buffer)))
+
 (emacspeak-url-template-define "Yahoo Sports"
-                               "http://dailynews.yahoo.com/htx/sp/ap/?u"
+                               "http://dailynews.yahoo.com/htx/sp/?u"
                                nil
                                #'(lambda nil
                                    (search-forward "Sources:")
@@ -168,7 +184,7 @@ post-action ;action to perform after opening
                                    (emacspeak-speak-rest-of-buffer)))
 
 (emacspeak-url-template-define "Yahoo Business"
-                               "http://dailynews.yahoo.com/htx/bs/nm/?u"
+                               "http://dailynews.yahoo.com/htx/bs/?u"
                                nil
                                #'(lambda nil
                                    (search-forward "Sources:")
@@ -195,14 +211,33 @@ post-action ;action to perform after opening
                                    (forward-line 3)
                                    (emacspeak-speak-rest-of-buffer)))
 
-(emacspeak-url-template-define "Yahoo Daily News"
-                               "http://dailynews.yahoo.com/htx/ts/nm/?u"
+(emacspeak-url-template-define "Yahoo Top Stories"
+                               "http://dailynews.yahoo.com/htx/ts/?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward
+                                    "Sources:" nil t)
+                                   (forward-line 1)
+                                   (emacspeak-speak-rest-of-buffer)))
+
+(emacspeak-url-template-define "Yahoo Health"
+                               "http://dailynews.yahoo.com/htx/hl/?u"
                                nil
                                #'(lambda nil
                                    (search-forward
                                     "Sources:" nil t)
                                    (forward-line 2)
                                    (emacspeak-speak-rest-of-buffer)))
+
+(emacspeak-url-template-define "Yahoo Oddly"
+                               "http://dailynews.yahoo.com/htx/od//?u"
+                               nil
+                               #'(lambda nil
+                                   (search-forward
+                                    "Sources:" nil t)
+                                   (forward-line 2)
+                                   (emacspeak-speak-rest-of-buffer)))
+
 
 (emacspeak-url-template-define "Yahoo Technology  News"
                                "http://dailynews.yahoo.com/htx/tc/nm/?u"
