@@ -898,6 +898,37 @@ the broadcast. You must have mplayer installed."
       '(7 8    31 46)
       url 'speak)))
 
+
+(emacspeak-url-template-define
+ "Baseball Play By Play" 
+"http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/playbyplay.html"
+ (list
+  #'(lambda nil
+      (let ((date 
+             (read-from-minibuffer
+              "Date: "
+              (format-time-string "%Y-%m-%d")))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result 
+              (format 
+               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+               (first fields)
+               (second fields)
+               (third fields)
+               (first fields)
+               (second fields)
+               (third fields)))
+        result))
+  #'(lambda nil 
+      (read-from-minibuffer "Visiting Team: "))
+  #'(lambda nil
+      (read-from-minibuffer "Home Team: ")))
+ nil
+ "Display baseball Play By Play."
+ )
+
 (emacspeak-url-template-define
  "Baseball scores" 
  "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"

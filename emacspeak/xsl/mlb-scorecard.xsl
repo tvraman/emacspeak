@@ -101,9 +101,9 @@
     <strong><xsl:value-of select="@name"/></strong>
     <xsl:if test="@code=../game/@home_code"> at home </xsl:if>
     with 
-    <em><xsl:value-of select="gameteam/@R"/></em> runs on 
-    <em><xsl:value-of select="gameteam/@H"/></em> hits and  
-    <em><xsl:value-of select="gameteam/@E"/></em> errors
+    <xsl:value-of select="gameteam/@R"/> runs on 
+    <xsl:value-of select="gameteam/@H"/> hits and  
+    <xsl:value-of select="gameteam/@E"/> errors
   </xsl:template>
   <xsl:template match="w_pitcher">
     The winning pitcher  was 
