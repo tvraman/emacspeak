@@ -320,6 +320,9 @@
     ("emacspeak-python.el"
         "Speech enable Python development environment"
         (emacspeak  speak  spoken output  python))
+    ("emacspeak-re-builder.el"
+        "speech-enable re-builder"
+        (emacspeak  audio desktop))
     ("emacspeak-realaudio.el"
         "Play realaudio from Emacs"
         (emacspeak  realaudio))
