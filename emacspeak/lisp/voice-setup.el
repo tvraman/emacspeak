@@ -155,7 +155,7 @@
 ;;{{{ special form def-voice-font 
 ;;; note that when defined, personalities are registered as observers
 ;;; with the  voice they use
-;;; still need to add code to perform the corresponding unregister 
+;;; this gets unregistered when the mapping is changed via custom.
 ;;; when  the personality is modified via the customize interface.
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
