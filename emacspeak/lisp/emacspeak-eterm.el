@@ -52,24 +52,7 @@
 ;; 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'custom)
-(eval-when-compile (require 'dtk-speak)
-                   (require 'dtk-voices )
-                   (require 'voice-setup)
-                   (require 'emacspeak-ansi-color)
-                   (require 'emacspeak-speak)
-                   (require 'emacspeak-sounds)
-                   (require 'emacspeak-keymap)
-                   (condition-case nil
-                       (progn
-                         (require 'term)
-                                        ;(require 'tshell)
-                         )
-                     (error nil )))
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ custom
 ;;;###autoload

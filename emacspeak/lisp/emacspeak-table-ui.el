@@ -444,7 +444,7 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 ;;{{{  opening a file of table data
-
+;;;###autoload 
 (defsubst emacspeak-table-prepare-table-buffer (table buffer
                                                       &optional filename)
   "Prepare tabular data."

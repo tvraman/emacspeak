@@ -40,16 +40,7 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-
-(eval-when (compile)
-  (require 'imenu))
-(require 'voice-setup)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-keymap)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
 
@@ -70,7 +61,8 @@
   ;; If optional CONCAT-NAMES is non-nil, then a nested index has its
   ;; name and a space concatenated to the names of the children.
   ;; Third argument PREFIX is for internal use only.
-  (mapcan
+
+  (declare (special imenu-level-separator))(mapcan
    (function
     (lambda (item)
       (let* ((name (car item))

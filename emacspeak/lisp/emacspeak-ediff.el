@@ -39,18 +39,7 @@
 
 ;;{{{  required 
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'backquote)
-(require 'custom)
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-keymap)
-		   (require 'emacspeak-sounds)
-		   (require 'ediff)
-		   (require 'ediff-init))
-    
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
 

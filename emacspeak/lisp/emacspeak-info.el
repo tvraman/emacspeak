@@ -36,18 +36,13 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile)
-  (require 'info)
-  (require 'dtk-speak))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'dtk-voices)
-(require 'emacspeak-keymap)
 ;;{{{ Introduction:
 
 ;;; This module extends and customizes the Emacs info reader.
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Variables:

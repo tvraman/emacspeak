@@ -36,22 +36,16 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile)
-  (when (locate-library "gnus")
-    (require 'gnus)
-    (require 'gnus-sum)))
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-keymap)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+
 ;;{{{  Introduction:
 
 ;;; This module advices gnus to speak. 
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
+(require 'gnus)
+(require 'gnus-sum)
 
 ;;}}}
 ;;{{{  Customizations:

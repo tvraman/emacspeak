@@ -39,8 +39,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;Inspired by finder.el
-(eval-when-compile (require 'cl))
+;;{{{ requires 
+
+(require 'emacspeak-preamble)
 (require 'lisp-mnt)
+
+;;}}}
 
 (defvar emacspeak-finder-inf-file
   (concat emacspeak-lisp-directory "/" "emacspeak-finder-inf.el")
