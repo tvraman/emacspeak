@@ -122,6 +122,14 @@ part of the libxslt package."
 	     command))
     (setq modification-flag nil)))
 ;;; uses wget in a pipeline to avoid libxml2 bug:
+;;;###autoload
+(defcustom  emacspeak-xslt-use-wget-to-download nil
+  "Set to T if you want to avoid URL downloader bugs in libxml2.
+There is a bug that bites when using Yahoo Maps that wget can
+work around."
+  :group 'emacspeak-xslt
+  :type 'boolean)
+
 
 ;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params dont-add-command-as-comment)
@@ -130,6 +138,7 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
+                    emacspeak-xslt-use-wget-to-download
                     modification-flag
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
@@ -142,6 +151,7 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
+    (if emacspeak-xslt-use-wget-to-download
     (setq command (format
 		   "wget -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
                    url
@@ -151,6 +161,14 @@ part of the libxslt package."
 		   (if emacspeak-xslt-keep-errors
 		       ""
 		     " 2>/dev/null ")))
+    (setq command (format
+		   "%s %s    --html --novalid %s '%s' %s"
+		   emacspeak-xslt-program
+		   (or parameters "")
+		   xsl url
+		   (if emacspeak-xslt-keep-errors
+		       ""
+		     " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (erase-buffer)

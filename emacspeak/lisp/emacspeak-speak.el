@@ -1949,6 +1949,7 @@ Speak that chunk after moving."
 		 (text-property-any  this-end (point-max)
 				     'personality personality)))
       (goto-char next-start)
+      (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No more chunks with current personality.")))))
 
@@ -1990,6 +1991,7 @@ Speak that chunk after moving."
 		 (ems-backwards-text-property-any  (1- this-start) (point-min)
 						   'personality personality)))
       (goto-char next-end)
+      (backward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No previous  chunks with current personality.")))))
       
