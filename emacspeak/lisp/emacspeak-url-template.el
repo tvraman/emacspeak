@@ -879,14 +879,17 @@ Set up URL rewrite rule to get print page."
  )
 
 (emacspeak-url-template-define
- "You Said It By Laxman"
+ "Cartoon You Said It By Laxman"
  "http://www1.indiatimes.com/cartoon/%scart%s.htm"
  (list
   (lambda ()
-    (read-from-minibuffer "Month: "))
+    (read-from-minibuffer "Month: "
+                          (downcase
+                           (format-time-string "%h"))))
   (lambda ()
-    (read-from-minibuffer "Date: ")))
- nil
+    (read-from-minibuffer "Date: "
+                          (format-time-string "%d"))))
+ 'emacspeak-speak-buffer
  "Retrieve Cartoon Times Of India."
  )
 
