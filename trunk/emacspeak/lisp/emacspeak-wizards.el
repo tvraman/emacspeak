@@ -1709,7 +1709,6 @@ emacspeak-websearch-personal-portfolio."
 \\{emacspeak-wizards-finder-mode-map")
 
 (defvar emacspeak-wizards-find-switches-widget
-"Widget to get find switch."
 '(cons :tag "Find Expression"
                             (menu-choice :tag "Find Test"
                              (string :tag "Test")
@@ -1728,7 +1727,8 @@ emacspeak-websearch-personal-portfolio."
                              (const "-cmin")
                              (const "-size")
                              (const "-type"))
-                            (string :tag "Value")))
+                            (string :tag "Value"))
+"Widget to get find switch.")
                             
 
 (defvar emacspeak-wizards-finder-args nil
