@@ -30,12 +30,24 @@ applies rules from the first pass.
   <xsl:include href="identity.xsl"/>
   <!-- { html body  --> 
 
-<!-- nuke these -->
-<xsl:template match="//script|//meta"/>
+  <!-- nuke these -->
+  <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-      <h2>Readers Note </h2>
+      <table>
+<tr>
+<td><a href="#__about_unravel_tables">About This
+              Style</a></td>
+<td><a href="#__nested_tables">nested tables</a></td>
+        </tr></table>
+      <xsl:apply-templates />
+      <h2><a name="__nested_tables"
+             id="__nested_tables"> Nested Tables </a> </h2>
+      <xsl:apply-templates select="//table//table" mode="second-pass"/>
+    </xsl:element>
+
+<h2><a name="__about_unravel_tables">About This Style</a> </h2>
 
       <p>
         Note that nested tables have been moved to the end of this
@@ -47,12 +59,6 @@ applies rules from the first pass.
         caption for the nested table, those will be displayed
         as the hyperlink text.
       </p>
-      <xsl:apply-templates />
-      <h2><a name="__nested_tables"
-             id="__nested_tables">
-          Embedded Tables </a> </h2>
-      <xsl:apply-templates select="//table//table" mode="second-pass"/>
-    </xsl:element>
   </xsl:template>
   
   <xsl:template match="//table//table"  >
