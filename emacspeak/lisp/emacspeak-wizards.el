@@ -1083,6 +1083,70 @@ If no property is set, show a message and exit."
               (get-text-property (point) property ))))
 
 ;;}}}
+;;{{{  moving across blank lines
+
+(defun emacspeak-skip-blank-lines-forward ()
+  "Move forward across blank lines.
+The line under point is then spoken.
+Signals end of buffer."
+  (interactive)
+  (let ((save-syntax (char-syntax 10))
+                     (voice-lock-mode t)
+                     (skipped nil)
+        (skip 0))
+    (unwind-protect
+        (progn
+          (modify-syntax-entry   10 " ")
+          (end-of-line)
+          (setq skip (skip-syntax-forward " "))
+          (cond
+           ((zerop skip)
+            (message "Did not move "))
+           ((eobp)
+            (message "At end of buffer"))
+           (t
+            (setq skipped  (format "skip %d " skip))
+            (put-text-property  0 (length skipped)
+                                'personality
+                                'annotation-voice skipped)
+(emacspeak-auditory-icon 'select-object)
+             (dtk-speak
+              (concat skipped
+                      (thing-at-point 'line))))))
+      (modify-syntax-entry 10 (format "%c" save-syntax )))))
+
+(defun emacspeak-skip-blank-lines-backward ()
+  "Move backward  across blank lines.
+The line under point is   then spoken.
+Signals beginning  of buffer."
+  (interactive)
+  (let ((save-syntax (char-syntax 10))
+        (voice-lock-mode t)
+        (skipped nil)
+        (skip 0))
+    (unwind-protect
+        (progn
+          (modify-syntax-entry   10 " ")
+          (beginning-of-line)
+          (setq skip (skip-syntax-backward " "))
+          (cond
+           ((zerop skip)
+            (message "Did not move "))
+           ((bobp )
+            (message "At start  of buffer"))
+           (t
+            (setq skipped  (format "skip %d "
+                                   (abs skip)))
+            (put-text-property  0 (length skipped)
+                                'personality
+                                'annotation-voice skipped)
+            (emacspeak-auditory-icon 'select-object)
+            (dtk-speak
+             (concat skipped
+                     (thing-at-point 'line))))))
+      (modify-syntax-entry 10 (format "%c" save-syntax )))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
