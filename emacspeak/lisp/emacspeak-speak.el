@@ -2115,14 +2115,16 @@ Non-nil means we split speech on newlines in comint buffer."
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defun emacspeak-comint-split-speech-setup ()
+(defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
-             (declare (special emacspeak-comint-split-speech-on-newline ))
+             (declare (special
+                       emacspeak-comint-split-speech-on-newline ))
+             (dtk-set-punctuations "all")
              (when emacspeak-comint-split-speech-on-newline
                (modify-syntax-entry 10 ">")))
 
-(add-hook 'shell-mode-hook 'emacspeak-comint-split-speech-setup)
-(add-hook 'comint-mode-hook 'emacspeak-comint-split-speech-setup)
+
+(add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
 ;;}}}
 ;;{{{   quiten messages
