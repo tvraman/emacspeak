@@ -1,4 +1,5 @@
 \input texinfo
+@raggedright
 @c$Id$
 @setfilename./emacspeak.info 
 @settitle Emacspeak User's Manual --2nd Edition.
