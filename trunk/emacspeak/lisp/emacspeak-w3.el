@@ -536,12 +536,11 @@ HTML."
                      emacspeak-xslt-directory))))
   (declare (special major-mode
                     emacspeak-xslt-directory))
-  (let
-      ((emacspeak-w3-xsl-transform xsl)
+  (let ((url (url-view-url t))
        (emacspeak-w3-xsl-p t))
     (unless (eq major-mode 'w3-mode)
       (error "Not in a W3 buffer."))
-    (w3-reload-document)
+    (emacspeak-wizards-browse-url-with-style url xsl)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-w3-xslt-select (xsl)

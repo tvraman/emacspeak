@@ -9,8 +9,11 @@ Param path is the same expression, but quoted so it can be
 shown in the output.
 
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  version="1.0">
+<!--
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+-->
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
