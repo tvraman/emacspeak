@@ -622,12 +622,16 @@ default-directory after switching."
 
 (defcustom emacspeak-wizards-vpn-start-command nil
   "Command that brings up a VPN connection."
-  :type 'string
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Command"))
   :group 'emacspeak-wizards)
 
 (defcustom emacspeak-wizards-vpn-end-command nil
   "Command that brings down a   VPN connection."
-  :type 'string
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Command"))
   :group 'emacspeak-wizards)
 
 (defun emacspeak-wizards-vpn-status ()
