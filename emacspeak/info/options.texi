@@ -180,7 +180,6 @@ Hook to run after starting emacspeak.
 
 Commentary:
 speech-enables change-log-mode 
-
 Code:
 
 (require 'cl)
