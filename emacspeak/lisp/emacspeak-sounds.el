@@ -493,8 +493,8 @@ Optional interactive PREFIX arg toggles global value."
    (emacspeak-use-midi-icons
     (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon)
     (dtk-notes-initialize))
-   (t (setq emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon)
-    (dtk-notes-shutdown)))
+   (t (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)
+      (dtk-notes-shutdown)))
   (message "Turned %s midi icons "
            (if emacspeak-use-midi-icons  "on" "off" ))
   (when emacspeak-use-midi-icons
