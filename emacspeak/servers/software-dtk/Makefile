@@ -2,7 +2,7 @@
 #
 LABEL=1.0
 DIST=software-dtk-$(LABEL)
-CFLAGS=-g -fpic  -pedantic -ansi
+CFLAGS=-g -fpic  -pedantic -ansi -Wall
 INSTALL=install
 CC=gcc
 LIBS=-ltts -ltts_us -ltcl
