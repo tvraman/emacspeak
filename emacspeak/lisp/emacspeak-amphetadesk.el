@@ -91,7 +91,7 @@
 	     (format "netstat -nat | grep %s"
 		     emacspeak-amphetadesk-port)))
 	(shell-command
-	 (format "%s &"
+	 (format "nohup %s &"
 		 emacspeak-amphetadesk-program)
 	 "*AmphetaDesk*"))))
 
