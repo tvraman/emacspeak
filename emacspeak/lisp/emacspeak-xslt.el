@@ -130,7 +130,6 @@ work around."
   :group 'emacspeak-xslt
   :type 'boolean)
 
-
 ;;;###autoload
 (defun emacspeak-xslt-url (xsl url &optional params dont-add-command-as-comment)
   "Apply XSLT transformation to url
@@ -152,23 +151,23 @@ part of the libxslt package."
                        params
                        " "))))
     (if emacspeak-xslt-use-wget-to-download
-    (setq command (format
-		   "wget -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
-                   url
-		   emacspeak-xslt-program
-		   (or parameters "")
-		   xsl "-"
-		   (if emacspeak-xslt-keep-errors
-		       ""
-		     " 2>/dev/null ")))
-    (setq command (format
-		   "%s %s    --html --novalid %s '%s' %s"
-		   emacspeak-xslt-program
-		   (or parameters "")
-		   xsl url
-		   (if emacspeak-xslt-keep-errors
-		       ""
-		     " 2>/dev/null "))))
+	(setq command (format
+		       "wget -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
+		       url
+		       emacspeak-xslt-program
+		       (or parameters "")
+		       xsl "-"
+		       (if emacspeak-xslt-keep-errors
+			   ""
+			 " 2>/dev/null ")))
+      (setq command (format
+		     "%s %s    --html --novalid %s '%s' %s"
+		     emacspeak-xslt-program
+		     (or parameters "")
+		     xsl url
+		     (if emacspeak-xslt-keep-errors
+			 ""
+		       " 2>/dev/null "))))
     (save-excursion
       (set-buffer result)
       (erase-buffer)

@@ -80,10 +80,10 @@
           (function
            (lambda (g)
              (webjump-url-encode
-             (cond
-              ((stringp g)
-               (read-from-minibuffer g))
-              (t (funcall g))))))
+	      (cond
+	       ((stringp g)
+		(read-from-minibuffer g))
+	       (t (funcall g))))))
           (emacspeak-url-template-generators ut))))
 
 ;;}}}
@@ -222,7 +222,7 @@ documentation   Documents this template resource.
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
- :test #'string-equal)
+		 :test #'string-equal)
         query)))
  nil
  "Locate and display Shoutcast streams."
@@ -563,11 +563,11 @@ The PDF document needs to be available on the public Internet.")
  "OASIS  Lists"
  "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
  (list "OASIS Group: "
-  #'(lambda ()
-      (read-from-minibuffer  "YearMonth: "
-                             (format-time-string "%Y%m")
-                             nil nil
-                             (format-time-string "%Y%m"))))
+       #'(lambda ()
+	   (read-from-minibuffer  "YearMonth: "
+				  (format-time-string "%Y%m")
+				  nil nil
+				  (format-time-string "%Y%m"))))
  "Use this to pull up the
 archived  mail from the OASIS list. You need to know the exact name of the list.")
 
@@ -757,7 +757,7 @@ the broadcast. You must have mplayer installed."
   #'(lambda ()
       (read-from-minibuffer "Date:"
                             (format-time-string "%d-%b-%Y")))
-       "Segment:")
+  "Segment:")
  nil
  "Play NPR shows on demand.
 Program is specified as a program code:
@@ -815,7 +815,7 @@ plays entire program."
  "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
  (list
   'emacspeak-url-template-date-YearMonthDate
-       "Segment: ")
+  "Segment: ")
  nil
  "Play NPR Talk Of The Nation segment."
  'emacspeak-realaudio-play)
@@ -908,7 +908,7 @@ plays entire program."
  "sourceforge download for North America" 
  "http://osdn.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
  (list "Project name")
-nil
+ nil
  "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
@@ -1004,8 +1004,8 @@ nil
                (second fields)
                (third fields)))
         result))
-       "Visiting Team: "
-       "Home Team: ")
+  "Visiting Team: "
+  "Home Team: ")
  nil
  "Display baseball scores."
  )

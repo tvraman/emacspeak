@@ -82,9 +82,8 @@
   `(unless (get ,symbol ,propname)
      (put ,symbol ,propname ,value)))
 
-
 (defvar custom-versions-load-alist nil
- "For internal use by custom.")
+  "For internal use by custom.")
 
 (provide 'cus-load)
 

@@ -4,7 +4,7 @@
 (require 'cl)
 
 (defun batch-indent-files ()
-  "Batch indent  elisp files in directory.."
+  "Batch indent  elisp files in directory."
   (let ((file-list (directory-files default-directory
                                     nil
                                     "\\.el\\'")))
