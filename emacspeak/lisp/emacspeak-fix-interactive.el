@@ -124,8 +124,7 @@ function definition of sym to make its interactive form speak its prompts. "
           (lambda (prompt)
             (not
              (or
-              (save-match-data 
-                (string-match  "^\\*?[pPr]" prompt ))
+                (string-match  "^\\*?[dpPr]" prompt )
               (string= "*" prompt )))))
          interactive-list )
       (progn
@@ -168,19 +167,18 @@ speak its prompts. "
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
-                                       ; advice if necessary
+                                        ; advice if necessary
     (when
         (some
          (function
           (lambda (prompt)
             (declare (special emacspeak-xemacs-p))
-            (save-match-data 
-              (not
-               (or
-                (string-match  "^\\*?[pPr]" prompt )
-                (string= "*" prompt )
-                (and emacspeak-xemacs-p
-                     (not (string-match  "^\\*?[ck]" prompt ))))))))
+            (not
+             (or
+              (string-match  "^\\*?[dpPr]" prompt )
+              (string= "*" prompt )
+              (and emacspeak-xemacs-p
+                   (not (string-match  "^\\*?[ck]" prompt )))))))
          interactive-list )
       (eval
        (`
