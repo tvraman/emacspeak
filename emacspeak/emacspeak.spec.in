@@ -20,12 +20,7 @@ the personal computer and the Internet. A rich suite of task-oriented
 speech-enabled tools provides efficient speech-enabled access to the evolving
 semantic WWW. When combined with Linux running on low-cost PC hardware,
 Emacspeak/Linux provides a reliable, stable speech-friendly solution that
-opens up the Internet to visually impaired users around the world. With
-support for the freely downloadable IBM ViaVoice Outloud speech synthesis
-engine, Emacspeak now turns Linux into the first zero-cost Internet access
-solution for blind and visually impaired users.
-
-
+opens up the Internet to visually impaired users around the world. 
 
 %prep
 %setup
@@ -49,8 +44,8 @@ See  file  docs/VIAVOICE for details.
 
 NEWS file for a  summary of new features        --control e cap n in Emacs
 FAQ for Frequently Asked Questions              -- control e cap F in Emacs
-Emacspeakcustom for customizations              -- control e cap C in Emacs
-Emacspeak Tips for productivity tips            -- control e cap T in Emacs
+Custom for customizations              -- control e cap C in Emacs
+Tips Tips for productivity tips            -- control e cap T in Emacs
 
 Make sure you read the Emacs info pages
 "
