@@ -323,6 +323,9 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+(autoload 'emacspeak-m-player "emacspeak-m-player"
+  "Emacspeak media player access."
+  t)
 (autoload 'emacspeak-daisy-open-book "emacspeak-daisy"
   "Digital Talking Books on the Emacspeak Desktop."
   t)
