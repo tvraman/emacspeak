@@ -529,7 +529,7 @@ Here are some examples:
   "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
   (list
    "Query: ")
-  nil
+  'emacspeak-speak-buffer
   "EmapSpeak Via Google.
 
 Specify the query using English and  addresses as complete as
