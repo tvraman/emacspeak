@@ -95,18 +95,6 @@ proc tts_resume  {} {
     return ""
 }
 
-proc tts_repeat  {} {
-    global tts 
-    queue_rewind
-    if {[queue_empty?]} {
-        synth  {No speech to repeat.}
-        set tts(not_stopped) 1
-    } else {
-        speech_task
-    }
-    return ""
-}
-
 proc tts_pause {} {
     pause
     return ""
@@ -115,8 +103,14 @@ proc tts_pause {} {
 #formerly called tts_stop 
 
 proc s {} {
+    global tts
+    if {$tts(not_stopped)==1} {
+        set tts(not_stopped) 0
     stop 
     queue_clear
+    } else {
+        puts stderr StopNoOp
+    }
 }
 
 #formerly called tts_tone
@@ -184,6 +178,7 @@ proc trackIndex {index} {
 proc speech_task {} {
     global queue tts 
     set tts(last_index) 0
+    set tts(not_stopped) 1
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "`v1 `vs$r "
