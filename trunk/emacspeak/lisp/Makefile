@@ -116,6 +116,7 @@ emacspeak-ecb.elc \
 emacspeak-ediff.elc \
 emacspeak-enriched.elc \
 emacspeak-entertain.elc \
+emacspeak-eperiodic.elc \
 emacspeak-erc.elc \
 emacspeak-eshell.elc \
 emacspeak-eterm.elc \
@@ -284,6 +285,7 @@ emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc
+emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc
