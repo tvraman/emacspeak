@@ -8,287 +8,361 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-dismal,  Prev: emacspeak,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
 
-emacspeak-arc
-=============
+emacspeak-websearch
+===================
+
+   Commentary: This module provides utility functions for searching the
+WWW
 
    Automatically generated documentation for commands defined in module
-emacspeak-arc.
+emacspeak-websearch.
 
- - emacspeak-arc-speak-file-permissions:
+ - emacspeak-websearch-inference-search:
      No global keybinding
 
-     Speak permissions of file current entry
+     Perform an Inference search.
 
- - emacspeak-arc-speak-file-modification-time:
+ - emacspeak-websearch-google-usenet-advanced:
      No global keybinding
 
-     Speak modification time of the file on current line
+     Present Google Usenet advanced search form simplified for speech
+     interaction.
 
- - emacspeak-arc-speak-file-name:
+ - emacspeak-websearch-rfb-search:
      No global keybinding
 
-     Speak the name of the file on current line
+     Search RFB&D catalog.
 
- - emacspeak-arc-speak-file-size:
+ - emacspeak-websearch-freshmeat-search:
      No global keybinding
 
-     Speak the size of the file on current line
+     Search Freshmeat  Site.
+
+ - emacspeak-websearch-britannica-search:
+     No global keybinding
+
+     Search Encyclopedia Britannica.
+
+ - emacspeak-websearch-dispatch:
+     ` control e ? '
+
+     Launches specific websearch queries.  Search engine is selected by
+     keystrokes listed below.  Once selected, the selected searcher
+     prompts for additional information as appropriate.
+
+     Key     Engine              Search a       AltaVista
+        AltaVista Simple Search Cap A     AllTheWeb
+     All The Web b       BBC                         BBC Archives C-b
+      Biblio                      Computer Science Bibliography c
+     CNN                         CNN Interactive Cap C   Company News
+                  Lookup Company News By Ticker C-c     CiteSeer
+                 Computer Science Citation  Index d       usenet
+                 Usenet Archives (formerly Dejanews) Cap D
+     Dictionary                  Hypertext Websters Dictionary e
+     Encyclopedia                    Encyclopedia Britannica f
+     CNN-FN                      CNN  Financial Network cap F   FolDoc
+                        Free Online Dictionary Of Computing g
+     Google                      The Google WWW Index .       Advanced
+     Google                      Advanced Google WWW Index Cap G
+     Gutenberg Locate Gutenberg Etexts h       HotBot
+       HotBot WWW Index i       Inference                   Inference
+     WWW Search j       jeeves                      Ask Jeeves k
+     kerbango                    Kerbango Radio Tuner m       Map
+                      Driving directions from Yahoo Cap M   Dictionary
+                     Merriam Webster Dictionary n       news-yahoo
+                 News Wire at Yahoo Cap N   NLight
+     Northern Light Search o       open-directory              Open
+     Directory Search p       People                      People Search
+     (Yahoo) r       RedHat                      Search RedHat Via
+     Google Cap R   RFBD                        RFB&D Catalog search
+     C-r RPMFind                         Find RPM packages s
+     Software                  Search for software t       translate
+                 Machine translation u       usenet            Usenet
+     Index from Google w       Weather                     Weather
+     Channel  By Zip Code cap W   W3C                         Search
+     W3C Site v   Vickers                         Vickers Insider Trades
+     Cap VVectorVestVectorVest Stock Reports y       yahoo
+             Master Yahoo Index
+
+     When using W3,  this interface attempts to speak the most relevant
+     information on the result page.
+
+ - emacspeak-websearch-google:
+     No global keybinding
+
+     Perform an Google search
+
+ - emacspeak-websearch-emacspeak-archive:
+     ` control h e '
+
+     Search Emacspeak mail archives.  For example to find messages
+     about Redhat at the Emacspeak archives, type +redhat
+
+ - emacspeak-websearch-w3c-search:
+     No global keybinding
+
+     Search the W3C Site.
+
+ - emacspeak-websearch-citeseer-search:
+     No global keybinding
+
+     Perform a CiteSeer search.
+
+ - emacspeak-websearch-alltheweb-search:
+     No global keybinding
+
+     Perform an AllTheWeb  search.  Optional prefix arg prompts for
+     type of search: -use `all' `phrase' or  `any' to specify the type
+     of search.
+
+ - emacspeak-websearch-gutenberg:
+     No global keybinding
+
+     Perform an Gutenberg search
+
+ - emacspeak-websearch-kerbango-search:
+     No global keybinding
+
+     Search Kerbango radio tuner.
+
+ - emacspeak-websearch-cnn-search:
+     No global keybinding
+
+     Perform an CNN search.  Optional interactive prefix arg prompts
+     for additional search parameters.  The default is to sort by date
+     and show summaries.  To sort by relevance specify additional
+     parameter &rf=0.  To hide summaries, specify additional parameter
+     &lk=2.  You can customize the defaults by setting variable
+     emacspeak-websearch-cnn-options to an appropriate string.
+
+ - emacspeak-websearch-quotes-yahoo-search:
+     No global keybinding
+
+     Perform a Quotes Yahoo .  Default tickers to look up is taken from
+     variable emacspeak-websearch-personal-portfolio.  Default is to
+     present the data in emacspeak's table browsing mode -optional
+     interactive prefix arg causes data to be displayed y W3 as a WWW
+     page.  You can customize the defaults by setting variable
+     emacspeak-websearch-quotes-yahoo-options to an appropriate string.
+
+ - emacspeak-websearch-software-search:
+     No global keybinding
+
+     Search SourceForge, Freshmeat and other sites.
+
+ - emacspeak-websearch-weather:
+     No global keybinding
+
+     Get weather forecast for specified zip code.
+
+ - emacspeak-websearch-altavista-search:
+     No global keybinding
+
+     Perform an Altavista search
+
+ - emacspeak-websearch-foldoc-search:
+     No global keybinding
+
+     Perform a FolDoc search.
+
+ - emacspeak-websearch-news-yahoo:
+     No global keybinding
+
+     Perform an Yahoo News search
+
+ - emacspeak-websearch-map-directions-search:
+     No global keybinding
+
+     Get driving directions from Yahoo.  With optional interactive
+     prefix arg MAP shows the location map instead.
+
+ - emacspeak-websearch-rpm-find:
+     No global keybinding
+
+     Search RPM  catalog  site.
+
+ - emacspeak-websearch-bbc-search:
+     No global keybinding
+
+     Search BBC archives.
+
+ - emacspeak-websearch-yahoo-historical-chart:
+     No global keybinding
+
+     Look up historical stock data.  Optional second arg data processes
+     the results as data rather than HTML.
+
+ - emacspeak-websearch-usenet:
+     ` control e  cap U  '
+
+     Prompt and browse a Usenet newsgroup.  Optional interactive prefix
+     arg results in prompting for a search term.
+
+ - emacspeak-websearch-vickers-search:
+     No global keybinding
+
+     Search Vickers insider trading.
+
+ - emacspeak-websearch-biblio-search:
+     No global keybinding
+
+     Search Computer Science Bibliographies.
+
+ - emacspeak-websearch-ask-jeeves:
+     No global keybinding
+
+     Ask Jeeves for the answer.
+
+ - emacspeak-websearch-fn-cnn-search:
+     No global keybinding
+
+     Perform an CNN FNsearch.  Optional interactive prefix arg prompts
+     for additional search parameters.  The default is to sort by date
+     and show summaries.  To sort by relevance specify additional
+     parameter &rf=0.  To hide summaries, specify additional parameter
+     &lk=2.  You can customize the defaults by setting variable
+     emacspeak-websearch-fn-cnn-options to an appropriate string.
+
+ - emacspeak-websearch-cpan-search:
+     No global keybinding
+
+     Search CPAN  Comprehensive Perl Archive Network   Site.
+
+ - emacspeak-websearch-packages-linux:
+     No global keybinding
+
+     Search for Linux packages.
+
+ - emacspeak-websearch-open-directory-search:
+     No global keybinding
+
+     Perform an Open Directory search
+
+ - emacspeak-websearch-appwatch-search:
+     No global keybinding
+
+     Search AppWatch  Site.
+
+ - emacspeak-websearch-redhat:
+     No global keybinding
+
+     Search RedHat site.
+
+ - emacspeak-websearch-sourceforge-search:
+     No global keybinding
+
+     Search SourceForge Site.
+
+ - emacspeak-websearch-vector-vest-search:
+     No global keybinding
+
+     Look up VectorVest reports .
+
+ - emacspeak-websearch-people-yahoo:
+     No global keybinding
+
+     Perform an Yahoo  people search
+
+ - emacspeak-websearch-hotbot-search:
+     No global keybinding
+
+     Perform a Hotbot  search.  Optional interactive prefix arg prompts
+     for additional search parameters.  The default is to sort by date
+     and show summaries.  To sort by relevance specify additional
+     parameter &rf=0.  To hide summaries, specify additional parameter
+     &lk=2.  You can customize the defaults by setting variable
+     emacspeak-websearch-hotbot-options to an appropriate string.
+
+ - emacspeak-websearch-yahoo:
+     No global keybinding
+
+     Perform an Yahoo  search
+
+ - emacspeak-websearch-dictionary-hypertext-webster-search:
+     No global keybinding
+
+     Search the Webster Dictionary.
+
+ - emacspeak-websearch-machine-translate:
+     No global keybinding
+
+     Perform a machine translation request
+
+ - emacspeak-websearch-merriam-webster-search:
+     No global keybinding
+
+     Search the Merriam Webster Dictionary.
+
+ - emacspeak-websearch-northern-light:
+     No global keybinding
+
+     Perform a Northern Light  search
+
+ - emacspeak-websearch-google-advanced:
+     No global keybinding
+
+     Present Google advanced search form simplified for speech
+     interaction.
+
+ - emacspeak-websearch-ctan-search:
+     No global keybinding
+
+     Search CTAN Comprehensive TeX Archive Network   Site.
+
+ - emacspeak-websearch-company-news:
+     No global keybinding
+
+     Perform an company news lookup.  Retrieves company news, research,
+     profile, insider trades,  or upgrades/downgrades.
 
 
-File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-eudc,  Prev: emacspeak-arc,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-wizards,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
 
-emacspeak-dismal
+emacspeak-widget
 ================
 
-   Automatically generated documentation for commands defined in module
-emacspeak-dismal.
-
- - emacspeak-dismal-forward-col-and-summarize:
-     No global keybinding
-
-     Move forward by arg columns  (the next column by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-value:
-     No global keybinding
-
-     Display the cell value in the message area
-
- - emacspeak-dismal-sheet-summarize:
-     No global keybinding
-
-     Summarizes a sheet using the specification in list
-     emacspeak-dismal-sheet-summarizer-list
-
- - emacspeak-dismal-set-row-summarizer-list:
-     No global keybinding
-
-     Specify or reset row summarizer list.
-
- - emacspeak-dismal-display-cell-with-col-header:
-     No global keybinding
-
-     Display current cell along with its column header.  The `column
-     header' is the entry in row 0.
-
- - emacspeak-dismal-display-cell-with-row-header:
-     No global keybinding
-
-     Displays current cell along with its row header.  The `row header'
-     is the entry in column 0.
-
- - emacspeak-dismal-forward-row-and-summarize:
-     No global keybinding
-
-     Move forward by arg rows  (the next row by default)and summarize
-     it.
-
- - emacspeak-dismal-set-sheet-summarizer-list:
-     No global keybinding
-
-     Specify or reset sheet summarizer list.
-
- - emacspeak-dismal-row-summarize:
-     No global keybinding
-
-     Summarizes a row using the specification in list
-     emacspeak-dismal-row-summarizer-list
-
- - emacspeak-dismal-col-summarize:
-     No global keybinding
-
-     Summarizes a col using the specification in list
-     emacspeak-dismal-col-summarizer-list
-
- - emacspeak-dismal-set-col-summarizer-list:
-     No global keybinding
-
-     Specify or reset col summarizer list.
-
- - emacspeak-dismal-backward-col-and-summarize:
-     No global keybinding
-
-     Move backward by arg columns  (the previous column by default)and
-     summarize it.
-
- - emacspeak-dismal-backward-row-and-summarize:
-     No global keybinding
-
-     Move backward by arg rows  (the previous row by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-expression:
-     No global keybinding
-
-     Display the expression in the message area
-
-
-File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-man,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
-
-emacspeak-eudc
-==============
+   Commentary: This module implements the necessary extensions to
+provide talking widgets.
 
    Automatically generated documentation for commands defined in module
-emacspeak-eudc.
+emacspeak-widget.
 
- - emacspeak-eudc-send-mail:
+ - emacspeak-widget-help:
+     ` meta h '
+
+     Speak help for widget under point.
+
+ - emacspeak-widget-summarize-parent:
+     ` meta p '
+
+     Summarize parent of widget at point.
+
+ - emacspeak-widget-browse-widget-interactively:
      No global keybinding
 
-     Send email to the address given by the current record.
+     Allows you to browse a widget
+
+ - emacspeak-widget-update-from-minibuffer:
+     ` META RETURN '
+
+     Sets widget at point by invoking its prompter.
+
+ - emacspeak-widget-summarize-widget-under-point:
+     No global keybinding
+
+     Summarize a widget if any under point.  Optional interactive
+     prefix specifies how many levels to go up from current widget
+     before summarizing.
 
 
-File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-python,  Prev: emacspeak-eudc,  Up: Emacspeak Commands
-
-emacspeak-man
-=============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-man.
-
- - emacspeak-man-browse-man-page:
-     No global keybinding
-
-     Browse the man page -read it a paragraph at a time
-
- - emacspeak-man-speak-this-section:
-     No global keybinding
-
-     Speak current section
-
-
-File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-tar,  Prev: emacspeak-man,  Up: Emacspeak Commands
-
-emacspeak-python
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-python.
-
- - emacspeak-py-previous-block:
-     No global keybinding
-
-     Move backward to the beginning of the current block.  If already
-     at the beginning then move to previous block.
-
- - emacspeak-py-next-block:
-     No global keybinding
-
-     Move forward to the beginning of the next block.
-
-
-File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tetris,  Prev: emacspeak-python,  Up: Emacspeak Commands
-
-emacspeak-tar
-=============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-tar.
-
- - emacspeak-tar-speak-file-permissions:
-     No global keybinding
-
-     Speak permissions of file current entry
-
- - emacspeak-tar-speak-file-date:
-     No global keybinding
-
-     Speak date of file current entry
-
- - emacspeak-tar-speak-file-size:
-     No global keybinding
-
-     Speak size of file current entry
-
-
-File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-view-process,  Prev: emacspeak-tar,  Up: Emacspeak Commands
-
-emacspeak-tetris
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-tetris.
-
- - emacspeak-tetris-speak-current-shape-and-coordinates:
-     No global keybinding
-
-     Speak shape orientation and coordinates
-
- - emacspeak-tetris-speak-column:
-     No global keybinding
-
-     Speak  column -default is to speak current column
-
- - emacspeak-tetris-speak-coordinates:
-     No global keybinding
-
-     Speak current position
-
- - emacspeak-tetris-goto-top-row:
-     No global keybinding
-
-     Move to and speak the top row
-
- - emacspeak-tetris-goto-bottom-row:
-     No global keybinding
-
-     Move to and speak bottom row
-
- - emacspeak-tetris-speak-score:
-     No global keybinding
-
-     Speak the score
-
- - emacspeak-tetris-speak-row-number:
-     No global keybinding
-
-     Speak where on the tetris board we are
-
- - emacspeak-tetris-speak-x-coordinate:
-     No global keybinding
-
-     Speak current position
-
- - emacspeak-tetris-speak-current-shape:
-     No global keybinding
-
-     Speak current shape
-
- - emacspeak-tetris-speak-row:
-     No global keybinding
-
-     Speak current tetris row
-
- - emacspeak-tetris-speak-next-shape:
-     No global keybinding
-
-     Speak next shape
-
-
-File: emacspeak.info,  Node: emacspeak-view-process,  Next: emacspeak-wizards,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
-
-emacspeak-view-process
-======================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-view-process.
-
- - emacspeak-view-process-speak-current-field:
-     No global keybinding
-
-     Speak current field
-
- - emacspeak-view-process-goto-current-field-next-line:
-     No global keybinding
-
-     Set point to the current field in the next line.
-
-
-File: emacspeak.info,  Node: emacspeak-wizards,  Next: ANONYMOUS,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak,  Prev: emacspeak-widget,  Up: Emacspeak Commands
 
 emacspeak-wizards
 =================
+
+   Commentary: Contains various wizards for the Emacspeak desktop.
 
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
@@ -345,7 +419,7 @@ emacspeak-wizards.
      an error if target already exists.
 
  - emacspeak-lynx:
-     No global keybinding
+     ` control e x l '
 
      Launch lynx on  specified URL in a new terminal.
 
@@ -409,7 +483,7 @@ emacspeak-wizards.
      used.  Signals an error if target already exists.
 
  - emacspeak-show-list-variable:
-     No global keybinding
+     ` control e x v '
 
      Convenience command to view Emacs variables that are long lists.
      Prompts for a variable name and displays its value in a separate
@@ -498,7 +572,7 @@ emacspeak-wizards.
      current frame.
 
  - emacspeak-annotate-add-annotation:
-     No global keybinding
+     ` control e x a '
 
      Add annotation to the annotation working buffer.  Prompt for
      annotation buffer if not already set.  Interactive prefix arg
@@ -579,13 +653,13 @@ emacspeak-wizards.
      Move to next frame.
 
  - emacspeak-customize-personal-settings:
-     ` control e f1 '
+     ` control e f1   control e x c '
 
      Create a customization buffer for browsing and updating personal
      customizations.
 
  - emacspeak-speak-telephone-directory:
-     No global keybinding
+     ` control e x t '
 
      Lookup and display a phone number.  With prefix arg, opens the
      phone book for editting.
@@ -627,7 +701,66 @@ emacspeak-wizards.
      message and exit.
 
 
-File: emacspeak.info,  Node: ANONYMOUS,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-wizards,  Up: Emacspeak Commands
+
+emacspeak
+=========
+
+   Commentary: The complete audio desktop.
+
+   Automatically generated documentation for commands defined in module
+emacspeak.
+
+ - emacspeak-submit-bug:
+     ` control e control b '
+
+     Function to submit a bug to the programs maintainer.
+
+ - emacspeak-describe-emacspeak:
+     ` control h control e '
+
+     Give a brief overview of emacspeak.
+
+
+File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-w3search,  Prev: emacspeak,  Up: Emacspeak Commands
+
+dis-quote
+=========
+
+   Automatically generated documentation for commands defined in module
+dis-quote.
+
+ - quotes-setup-emacspeak-portfolio:
+     No global keybinding
+
+     Set up variable emacspeak-websearch-personal-portfolio.
+
+
+File: emacspeak.info,  Node: emacspeak-w3search,  Next: ANONYMOUS,  Prev: dis-quote,  Up: Emacspeak Commands
+
+emacspeak-w3search
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3search.
+
+ - emacspeak-websearch-blue-pages:
+     No global keybinding
+
+     Search IBM Blue Pages
+
+ - emacspeak-websearch-ibm-internal:
+     No global keybinding
+
+     Search IBM My News
+
+ - emacspeak-websearch-ibm-my-news:
+     No global keybinding
+
+     Search IBM My News
+
+
+File: emacspeak.info,  Node: ANONYMOUS,  Prev: emacspeak-w3search,  Up: Emacspeak Commands
 
 ANONYMOUS
 =========
@@ -690,232 +823,67 @@ Key Index
 * C-c e:                                 Running Terminal Based Applications.
 * C-c k:                                 Running Terminal Based Applications.
 * C-c o:                                 Running Terminal Based Applications.
-* Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $: emacspeak-redefine.
-* control b   left:                      emacspeak-redefine.
-* control down:                          emacspeak-speak.
-* control e  cap A:                      emacspeak-calendar.
-* control e  cap B:                      emacspeak-speak.
-* control e  cap C:                      emacspeak-speak.
-* control e  cap D:                      emacspeak-wizards.
-* control e  cap F:                      emacspeak-wizards.
-* control e  cap H:                      emacspeak-wizards.
-* control e  cap I:                      emacspeak-wizards.
-* control e  cap L:                      emacspeak-speak.
-* control e  cap M <1>:                  emacspeak-speak.
 * control e  cap M:                      Status Information.
-* control e  cap N:                      emacspeak-wizards.
-* control e  cap P:                      emacspeak-speak.
-* control e  cap R <1>:                  emacspeak-speak.
 * control e  cap R:                      Reading.
-* control e  cap T:                      emacspeak-wizards.
-* control e  cap U:                      emacspeak-websearch.
-* control e  cap V:                      emacspeak-speak.
-* control e  cap W:                      emacspeak-speak.
-* control e !:                           emacspeak-wizards.
-* control e ":                           emacspeak-speak.
-* control e # a:                         emacspeak-gridtext.
-* control e # l:                         emacspeak-gridtext.
-* control e # s:                         emacspeak-gridtext.
-* control e % <1>:                       emacspeak-speak.
 * control e %:                           Status Information.
-* control e ' <1>:                       emacspeak-speak.
 * control e ':                           Reading.
-* control e (:                           emacspeak-aumix.
-* control e ):                           emacspeak-sounds.
-* control e ,:                           emacspeak-speak.
-* control e .:                           ANONYMOUS.
-* control e / <1>:                       emacspeak-wizards.
 * control e /:                           Reading.
-* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 <1>: emacspeak-speak.
 * control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
-* control e ::                           emacspeak-realaudio.
-* control e ;:                           emacspeak-realaudio.
-* control e <:                           emacspeak-speak.
-* control e = <1>:                       emacspeak-speak.
 * control e =:                           Status Information.
-* control e >:                           emacspeak-speak.
-* control e ?:                           emacspeak-websearch.
-* control e [ <1>:                       emacspeak-speak.
 * control e [:                           Reading.
-* control e \:                           emacspeak-filtertext.
-* control e ]:                           emacspeak-speak.
-* control e a <1>:                       emacspeak-speak.
 * control e a:                           Status Information.
-* control e b <1>:                       emacspeak-speak.
 * control e b:                           Reading.
-* control e c <1>:                       emacspeak-speak.
 * control e c:                           Reading.
 * control e cap V:                       Status Information.
-* control e control @ <1>:               emacspeak-speak.
 * control e control @:                   Status Information.
-* control e control a:                   emacspeak-sounds.
-* control e control b:                   emacspeak.
-* control e control c:                   emacspeak-wizards.
-* control e control d:                   emacspeak-speak.
-* control e control down:                emacspeak-wizards.
-* control e control f left:              emacspeak-aumix.
-* control e control f o:                 emacspeak-freeamp.
-* control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p: emacspeak-freeamp.
-* control e control f right:             emacspeak-aumix.
-* control e control h:                   emacspeak-wizards.
-* control e control j:                   emacspeak-hide.
-* control e control l <1>:               emacspeak-speak.
 * control e control l:                   Status Information.
-* control e control left:                emacspeak-wizards.
-* control e control n <1>:               emacspeak-speak.
 * control e control n:                   Reading.
-* control e control o <1>:               emacspeak-ocr.
 * control e control o:                   Reading.
-* control e control p <1>:               emacspeak-speak.
 * control e control p:                   Reading.
-* control e control q:                   emacspeak-speak.
-* control e control r:                   emacspeak-wizards.
-* control e control right:               emacspeak-wizards.
-* control e control s <1>:               dtk-speak.
 * control e control s:                   Miscellaneous.
-* control e control t:                   emacspeak-table-ui.
-* control e control w <1>:               emacspeak-speak.
 * control e control w:                   Status Information.
-* control e control y:                   emacspeak-wizards.
-* control e d  cap C <1>:                dtk-tcl.
 * control e d  cap C:                    Speech Output Control.
-* control e d  cap I:                    dtk-tcl.
-* control e d  cap R:                    dtk-tcl.
-* control e d  cap V <1>:                emacspeak-speak.
 * control e d  cap V:                    Miscellaneous.
-* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 <1>: dtk-tcl.
 * control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output Control.
-* control e d a <1>:                     dtk-tcl.
 * control e d a:                         Miscellaneous.
-* control e d b:                         dtk-speak.
-* control e d c <1>:                     dtk-tcl.
 * control e d c:                         Speech Output Control.
-* control e d d <1>:                     dtk-speak.
 * control e d d:                         Miscellaneous.
-* control e d f <1>:                     dtk-tcl.
 * control e d f:                         Speech Output Control.
-* control e d i <1>:                     emacspeak-speak.
 * control e d i:                         Speech Output Control.
-* control e d k <1>:                     emacspeak-speak.
 * control e d k:                         Controlling Echo.
-* control e d l <1>:                     emacspeak-speak.
 * control e d l:                         Controlling Echo.
-* control e d m <1>:                     dtk-tcl.
 * control e d m:                         Speech Output Control.
-* control e d meta control b:            dtk-speak.
-* control e d p <1>:                     dtk-tcl.
 * control e d p:                         Speech Output Control.
-* control e d q <1>:                     dtk-tcl.
 * control e d q:                         Miscellaneous.
-* control e d r <1>:                     dtk-tcl.
 * control e d r:                         Speech Output Control.
-* control e d RETURN <1>:                dtk-speak.
 * control e d RETURN:                    Miscellaneous.
-* control e d s <1>:                     dtk-tcl.
 * control e d s:                         Speech Output Control.
-* control e d SPACE <1>:                 dtk-speak.
 * control e d SPACE:                     Miscellaneous.
-* control e d t <1>:                     emacspeak-speak.
 * control e d t:                         Miscellaneous.
-* control e d w <1>:                     emacspeak-speak.
 * control e d w:                         Controlling Echo.
-* control e d z <1>:                     emacspeak-speak.
 * control e d z:                         Miscellaneous.
-* control e down <1>:                    emacspeak-speak.
 * control e down:                        Reading.
-* control e f <1>:                       emacspeak-speak.
 * control e f:                           Status Information.
-* control e f1:                          emacspeak-wizards.
-* control e h <1>:                       emacspeak-speak.
 * control e h:                           Status Information.
-* control e i:                           emacspeak-tabulate.
-* control e j:                           emacspeak-hide.
-* control e k <1>:                       emacspeak-speak.
 * control e k:                           Status Information.
-* control e l <1>:                       emacspeak-speak.
 * control e l:                           Reading.
-* control e left <1>:                    emacspeak-wizards.
 * control e left:                        Reading.
-* control e m <1>:                       emacspeak-speak.
 * control e m:                           Status Information.
-* control e meta a:                      emacspeak-sounds.
-* control e meta b:                      emacspeak-pronounce.
-* control e meta c:                      emacspeak-wizards.
-* control e meta control @ <1>:          emacspeak-speak.
 * control e meta control @:              Reading.
-* control e meta control r:              emacspeak-eterm.
-* control e meta d:                      emacspeak-pronounce.
-* control e meta f:                      emacspeak-wizards.
-* control e meta h:                      emacspeak-wizards.
-* control e meta l:                      emacspeak-wizards.
-* control e meta m:                      emacspeak-speak.
-* control e meta p:                      emacspeak-wizards.
-* control e meta s:                      emacspeak-wizards.
-* control e meta t:                      emacspeak-tapestry.
-* control e meta v:                      emacspeak-wizards.
-* control e meta w:                      emacspeak-speak.
-* control e n <1>:                       emacspeak-speak.
 * control e n:                           Reading.
-* control e o:                           emacspeak-speak.
-* control e p <1>:                       dtk-tcl.
 * control e p:                           Miscellaneous.
-* control e q:                           emacspeak-speak.
-* control e r <1>:                       emacspeak-speak.
 * control e r:                           Reading.
-* control e RETURN:                      emacspeak-speak.
-* control e right <1>:                   emacspeak-wizards.
 * control e right:                       Reading.
-* control e SPACE <1>:                   dtk-tcl.
 * control e SPACE:                       Miscellaneous.
-* control e t <1>:                       emacspeak-speak.
 * control e t:                           Status Information.
-* control e TAB:                         emacspeak-table-ui.
-* control e u:                           emacspeak-url-template.
-* control e up <1>:                      emacspeak-speak.
 * control e up:                          Reading.
-* control e v <1>:                       emacspeak-speak.
 * control e v:                           Status Information.
-* control e w <1>:                       emacspeak-speak.
 * control e w:                           Reading.
-* control e x s:                         emacspeak-wizards.
-* control e { <1>:                       emacspeak-speak.
 * control e {:                           Reading.
-* control e |:                           emacspeak-speak.
-* control f   right:                     emacspeak-redefine.
-* control h  cap M:                      emacspeak-wizards.
-* control h control e:                   emacspeak.
-* control h e:                           emacspeak-websearch.
-* control l b:                           emacspeak-outline.
-* control l f:                           emacspeak-outline.
-* control l n:                           emacspeak-outline.
-* control l p:                           emacspeak-outline.
-* control l SPACE:                       emacspeak-outline.
-* control left:                          emacspeak-wizards.
-* control right:                         emacspeak-wizards.
-* control up:                            emacspeak-speak.
-* control x @ h n:                       emacspeak-mpg123.
-* delete:                                dtk-tcl.
-* ESCAPE down <1>:                       emacspeak-speak.
 * ESCAPE down:                           Reading.
-* ESCAPE next <1>:                       emacspeak-speak.
 * ESCAPE next:                           Reading.
-* ESCAPE prior <1>:                      emacspeak-speak.
 * ESCAPE prior:                          Reading.
-* ESCAPE select:                         emacspeak-speak.
-* ESCAPE up <1>:                         emacspeak-speak.
 * ESCAPE up:                             Reading.
-* insert:                                emacspeak-speedbar.
-* kp-3   control e meta r:               emacspeak-remote.
-* kp-f4   f4:                            emacspeak-speak.
-* l10:                                   emacspeak-speak.
-* meta h:                                emacspeak-widget.
-* meta p:                                emacspeak-widget.
-* META RETURN:                           emacspeak-widget.
 * pause   control e s:                   Miscellaneous.
-* pause   control e s   ESCAPE [  cap P: dtk-tcl.
-* shift down:                            emacspeak-wizards.
-* shift up:                              emacspeak-wizards.
-* volume-down:                           emacspeak-aumix.
-* volume-up:                             emacspeak-aumix.
 
 

@@ -8,7 +8,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-aumix,  Prev: dtk-speak,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-arc,  Prev: dtk-speak,  Up: Emacspeak Commands
 
 dtk-tcl
 =======
@@ -137,7 +137,7 @@ dtk-tcl.
      value, and then set the current local value to the result.
 
  - dtk-stop:
-     ` pause   control e s   ESCAPE [  cap P  '
+     ` pause   control e s '
 
      Stop speech now.
 
@@ -175,7 +175,36 @@ dtk-tcl.
      Shutdown midi system.
 
 
-File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: dtk-tcl,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-aumix,  Prev: dtk-tcl,  Up: Emacspeak Commands
+
+emacspeak-arc
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-arc.
+
+ - emacspeak-arc-speak-file-permissions:
+     No global keybinding
+
+     Speak permissions of file current entry
+
+ - emacspeak-arc-speak-file-modification-time:
+     No global keybinding
+
+     Speak modification time of the file on current line
+
+ - emacspeak-arc-speak-file-name:
+     No global keybinding
+
+     Speak the name of the file on current line
+
+ - emacspeak-arc-speak-file-size:
+     No global keybinding
+
+     Speak the size of the file on current line
+
+
+File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: emacspeak-arc,  Up: Emacspeak Commands
 
 emacspeak-aumix
 ===============
@@ -187,12 +216,12 @@ AUMIX This module is presently Linux specific
 emacspeak-aumix.
 
  - emacspeak-aumix-volume-decrease:
-     ` volume-down '
+     No global keybinding
 
      Decrease overall volume.
 
  - emacspeak-aumix-volume-increase:
-     ` volume-up '
+     No global keybinding
 
      Increase overall volume.
 
@@ -343,7 +372,7 @@ emacspeak-custom.
      Jump to custom group when in a customization buffer.
 
 
-File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-ediff,  Prev: emacspeak-custom,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-custom,  Up: Emacspeak Commands
 
 emacspeak-dired
 ===============
@@ -399,7 +428,95 @@ emacspeak-dired.
      Speak modification time  of the current file.
 
 
-File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-dired,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-ediff,  Prev: emacspeak-dired,  Up: Emacspeak Commands
+
+emacspeak-dismal
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-dismal.
+
+ - emacspeak-dismal-forward-col-and-summarize:
+     No global keybinding
+
+     Move forward by arg columns  (the next column by default)and
+     summarize it.
+
+ - emacspeak-dismal-display-cell-value:
+     No global keybinding
+
+     Display the cell value in the message area
+
+ - emacspeak-dismal-sheet-summarize:
+     No global keybinding
+
+     Summarizes a sheet using the specification in list
+     emacspeak-dismal-sheet-summarizer-list
+
+ - emacspeak-dismal-set-row-summarizer-list:
+     No global keybinding
+
+     Specify or reset row summarizer list.
+
+ - emacspeak-dismal-display-cell-with-col-header:
+     No global keybinding
+
+     Display current cell along with its column header.  The `column
+     header' is the entry in row 0.
+
+ - emacspeak-dismal-display-cell-with-row-header:
+     No global keybinding
+
+     Displays current cell along with its row header.  The `row header'
+     is the entry in column 0.
+
+ - emacspeak-dismal-forward-row-and-summarize:
+     No global keybinding
+
+     Move forward by arg rows  (the next row by default)and summarize
+     it.
+
+ - emacspeak-dismal-set-sheet-summarizer-list:
+     No global keybinding
+
+     Specify or reset sheet summarizer list.
+
+ - emacspeak-dismal-row-summarize:
+     No global keybinding
+
+     Summarizes a row using the specification in list
+     emacspeak-dismal-row-summarizer-list
+
+ - emacspeak-dismal-col-summarize:
+     No global keybinding
+
+     Summarizes a col using the specification in list
+     emacspeak-dismal-col-summarizer-list
+
+ - emacspeak-dismal-set-col-summarizer-list:
+     No global keybinding
+
+     Specify or reset col summarizer list.
+
+ - emacspeak-dismal-backward-col-and-summarize:
+     No global keybinding
+
+     Move backward by arg columns  (the previous column by default)and
+     summarize it.
+
+ - emacspeak-dismal-backward-row-and-summarize:
+     No global keybinding
+
+     Move backward by arg rows  (the previous row by default)and
+     summarize it.
+
+ - emacspeak-dismal-display-cell-expression:
+     No global keybinding
+
+     Display the expression in the message area
+
+
+File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
 
 emacspeak-ediff
 ===============
@@ -427,7 +544,7 @@ emacspeak-enriched.
      Map base fonts to voices.  Useful in voicifying rich text.
 
 
-File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-eterm,  Prev: emacspeak-enriched,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-erc,  Prev: emacspeak-enriched,  Up: Emacspeak Commands
 
 emacspeak-entertain
 ===================
@@ -446,7 +563,33 @@ emacspeak-entertain.
      Speak statistics.
 
 
-File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-filtertext,  Prev: emacspeak-entertain,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-erc,  Next: emacspeak-eterm,  Prev: emacspeak-entertain,  Up: Emacspeak Commands
+
+emacspeak-erc
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-erc.
+
+ - emacspeak-erc-delete-name-from-monitor:
+     No global keybinding
+
+     Remove name to monitor in this room.
+
+ - emacspeak-erc-toggle-room-monitor:
+     No global keybinding
+
+     Toggle state of ERC room monitor.  Interactive PREFIX arg means
+     toggle the global default value, and then set the current local
+     value to the result.
+
+ - emacspeak-erc-add-name-to-monitor:
+     No global keybinding
+
+     Add people to monitor in this room.
+
+
+File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-eudc,  Prev: emacspeak-erc,  Up: Emacspeak Commands
 
 emacspeak-eterm
 ===============
@@ -693,7 +836,25 @@ emacspeak-eterm.
      emacspeak-eterm-set-marker and the emacspeak eterm pointer.
 
 
-File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interactive,  Prev: emacspeak-eterm,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-filtertext,  Prev: emacspeak-eterm,  Up: Emacspeak Commands
+
+emacspeak-eudc
+==============
+
+   Commentary: EUDC -Emacs Universal Directory Client provides a
+unified interface to directory servers e.g. ldap servers this module
+speech enables eudc
+
+   Automatically generated documentation for commands defined in module
+emacspeak-eudc.
+
+ - emacspeak-eudc-send-mail:
+     No global keybinding
+
+     Send email to the address given by the current record.
+
+
+File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interactive,  Prev: emacspeak-eudc,  Up: Emacspeak Commands
 
 emacspeak-filtertext
 ====================
@@ -711,6 +872,9 @@ emacspeak-filtertext.
      r               emacspeak-filtertext-revert ^
      flush-lines =               keep-lines
 
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-filtertext-mode-hook', as
+     the final step during initialization.
 
  - emacspeak-filtertext-revert:
      No global keybinding
@@ -819,16 +983,13 @@ emacspeak-freeamp.
      emacspeak-freeamp-freeamp-call-command o
      emacspeak-freeamp
 
+     This mode runs the hook `emacspeak-freeamp-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-freeamp-freeamp-command:
      No global keybinding
 
      Execute FreeAmp command.
-
-     This function is advised.
-
-     Before-advice `emacspeak-auto': Automatically defined advice to
-     speak interactive prompts.
 
  - emacspeak-freeamp-freeamp-call-command:
      ` control e control f q   control e control f =   control e
@@ -1023,7 +1184,7 @@ emacspeak-keymap.
      speak interactive prompts.
 
 
-File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-mpg123,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-man,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
 
 emacspeak-kotl
 ==============
@@ -1043,7 +1204,26 @@ emacspeak-kotl.
      Setup additional keybindings
 
 
-File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-ocr,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-mpg123,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
+
+emacspeak-man
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-man.
+
+ - emacspeak-man-browse-man-page:
+     No global keybinding
+
+     Browse the man page -read it a paragraph at a time
+
+ - emacspeak-man-speak-this-section:
+     No global keybinding
+
+     Speak current section
+
+
+File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-ocr,  Prev: emacspeak-man,  Up: Emacspeak Commands
 
 emacspeak-mpg123
 ================
@@ -1058,11 +1238,11 @@ emacspeak-mpg123.
      No global keybinding
 
      Play a playlist.  Optional interactive prefix arg says not to
-     shuffle  the list.  Use command C-x @ h n to skip to the next
-     track.
+     shuffle  the list.  Use command M-x emacspeak-mp3-playlist-skip to
+     skip to the next track.
 
  - emacspeak-mp3-playlist-skip:
-     ` control x @ h n '
+     No global keybinding
 
      Skip currently playing track.
 
@@ -1227,6 +1407,9 @@ emacspeak-ocr.
      emacspeak-ocr-write-document q               bury-buffer c
           emacspeak-ocr-customize ?               describe-mode
 
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-ocr-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-ocr-save-current-page:
      No global keybinding
@@ -1414,7 +1597,7 @@ emacspeak-pronounce.
      word which should be pronounced as specified by PRONUNCIATION.
 
 
-File: emacspeak.info,  Node: emacspeak-psgml,  Next: emacspeak-realaudio,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-psgml,  Next: emacspeak-python,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands
 
 emacspeak-psgml
 ===============
@@ -1430,6 +1613,9 @@ emacspeak-psgml.
      Uses keymap "emacspeak-xml-browse-mode", which is not currently
      defined.
 
+     In addition to any hooks its parent mode `xml-mode' might have run,
+     this mode runs the hook `emacspeak-xml-browse-mode-hook', as the
+     final step during initialization.
 
  - emacspeak-psgml-toggle-interactive-voice-locking:
      No global keybinding
@@ -1449,110 +1635,22 @@ emacspeak-psgml.
      Speak contents of current element.
 
 
-File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-psgml,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-realaudio,  Prev: emacspeak-psgml,  Up: Emacspeak Commands
 
-emacspeak-realaudio
-===================
-
-   Commentary: Assuming you have a correctly configured RealAudio
-player, this package provides single click access to starting and
-stopping a RealAudio stream from anywhere on the Emacspeak desktop.
-Before using this package, make sure that your realaudio player works
-outside Emacs. Then set variable Emacspeak-realaudio-player to point to
-the program you use to play RealAudio streams.
+emacspeak-python
+================
 
    Automatically generated documentation for commands defined in module
-emacspeak-realaudio.
+emacspeak-python.
 
- - emacspeak-realaudio-play-url-at-point:
+ - emacspeak-py-previous-block:
      No global keybinding
 
-     Play url under point as realaudio
+     Move backward to the beginning of the current block.  If already
+     at the beginning then move to previous block.
 
- - emacspeak-realaudio-play:
+ - emacspeak-py-next-block:
      No global keybinding
 
-     Play a realaudio stream.  Uses files from your Realaudio shortcuts
-     directory for completion.  See documentation for user configurable
-     variable emacspeak-realaudio-shortcuts-directory.
-
- - emacspeak-realaudio-select-realaudio-buffer:
-     No global keybinding
-
-     Switch to realaudio buffer.
-
- - emacspeak-realaudio-browse:
-     ` control e : '
-
-     Browse RAM file before playing the selected component.
-
- - emacspeak-realaudio-mode:
-     No global keybinding
-
-     Major mode for streaming audio.
-
-     key             binding --             ------
-
-     right           emacspeak-aumix-wave-increase left
-     emacspeak-aumix-wave-decrease }
-     emacspeak-realaudio-trplayer-call-command {
-     emacspeak-realaudio-trplayer-call-command ]
-     emacspeak-realaudio-trplayer-call-command [
-     emacspeak-realaudio-trplayer-call-command 9
-     emacspeak-realaudio-trplayer-call-command 0
-     emacspeak-realaudio-trplayer-call-command ,
-     emacspeak-realaudio-trplayer-call-command .
-     emacspeak-realaudio-trplayer-call-command >
-     emacspeak-realaudio-trplayer-call-command <
-     emacspeak-realaudio-trplayer-call-command i
-     emacspeak-realaudio-trplayer-call-command l
-     emacspeak-realaudio-trplayer-call-command e
-     emacspeak-realaudio-trplayer-call-command s
-     emacspeak-realaudio-trplayer-call-command t
-     emacspeak-realaudio-trplayer-call-command p
-     emacspeak-realaudio-trplayer-call-command
-
-
- - emacspeak-realaudio-stop:
-     No global keybinding
-
-     Stop playing realaudio
-
- - emacspeak-realaudio-trplayer-call-command:
-     No global keybinding
-
-     Call appropriate TRPlayer command.
-
- - emacspeak-realaudio:
-     ` control e ; '
-
-     Start or control streaming audio including MP3 and realaudio.  If
-     using `TRPlayer' as the player, accepts trplayer control commands
-     if a stream is already playing.  Otherwise, the playing stream is
-     simply stopped.  If no stream is playing, this command prompts for
-     a realaudio resource.  Realaudio resources can be specified either
-     as a Realaudio URL, the location of a local Realaudio file, or as
-     the name of a local Realaudio metafile. Realaudio resources you
-     have played in this session are available in the minibuffer
-     history.  The default is to play the resource you played most
-     recently. Emacspeak uses the contents of the directory specified
-     by variable emacspeak-realaudio-shortcuts-directory to offer a set
-     of completions. Hit space to use this completion list.
-
-     If using TRPlayer, you can either give one-shot commands using
-     command emacspeak-realaudio available from anywhere on the audio
-     desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if
-     you wish to issue many nvigation commands.  Note that buffer
-     *realaudio* uses a special major mode that provides the various
-     navigation commands via single keystrokes.
-
- - emacspeak-realaudio-trplayer-command:
-     No global keybinding
-
-     Execute TRPlayer command.
-
-     This function is advised.
-
-     Before-advice `emacspeak-auto': Automatically defined advice to
-     speak interactive prompts.
+     Move forward to the beginning of the next block.
 
