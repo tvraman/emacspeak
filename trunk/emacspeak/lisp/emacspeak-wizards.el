@@ -1352,11 +1352,11 @@ Signals beginning  of buffer."
   "Directory containing miscellaneous files  for Emacspeak.")
 
 (declaim (special emacspeak-etc-directory))
-(defvar emacspeak-wizard-table-content-extractor
+(defvar emacspeak-wizards-table-content-extractor
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
 
-(defun emacspeak-wizard-get-table-content-from-url (task url depth count )
+(defun emacspeak-wizards-get-table-content-from-url (task url depth count )
   "Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv."
@@ -1368,18 +1368,18 @@ Extracted content is placed as a csv file in task.csv."
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
   (declare (special
-            emacspeak-wizard-table-content-extractor))
+            emacspeak-wizards-table-content-extractor))
   (let ((output (format "/tmp/%s.csv" task)))
     (shell-command
      (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
-              emacspeak-wizard-table-content-extractor
+              emacspeak-wizards-table-content-extractor
               task
               url
               depth count ))
     (emacspeak-table-find-csv-file output)
     (delete-file output)))
 
-(defun emacspeak-wizard-get-table-content-from-file (task file depth count )
+(defun emacspeak-wizards-get-table-content-from-file (task file depth count )
   "Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv."
@@ -1390,10 +1390,10 @@ Extracted content is placed as a csv file in task.csv."
     (read-file-name "File: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
-  (declare (special emacspeak-wizard-table-content-extractor))
+  (declare (special emacspeak-wizards-table-content-extractor))
   (shell-command
    (format  "%s --task=%s --file=%s --depth=%s --count=%s"
-            emacspeak-wizard-table-content-extractor
+            emacspeak-wizards-table-content-extractor
             task file depth count ))
   (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
 
@@ -1665,6 +1665,36 @@ visiting the ppts file."
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
  'emacspeak-wizards-ppt-mode)
+
+;;}}}
+;;{{{ detailed quotes 
+(defcustom emacspeak-wizards-quote-command 
+(expand-file-name "quotes.pl"
+emacspeak-etc-directory)
+"Command for pulling up detailed stock quotes.
+this requires Perl module Finance::YahooQuote."
+:type 'file
+:group 'emacspeak-wizards)
+
+
+(defun emacspeak-wizards-portfolio-quotes ()
+  "Bring up detailed stock quotes for portfolio specified by 
+emacspeak-websearch-personal-portfolio."
+  (interactive)
+  (declare (special emacspeak-websearch-personal-portfolio
+                    emacspeak-wizards-quote-command))
+  (let ((temp-file
+         (format "/tmp/%s.csv"
+                 (gensym "quotes"))))
+    (shell-command 
+     (format 
+      "echo '%s' | perl %s > %s"
+      emacspeak-websearch-personal-portfolio
+      emacspeak-wizards-quote-command
+      temp-file))
+    (emacspeak-table-find-csv-file temp-file)
+    (rename-buffer "Portfolio")
+    (delete-file temp-file)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
