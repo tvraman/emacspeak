@@ -1704,31 +1704,57 @@ emacspeak-websearch-personal-portfolio."
 ;;{{{ find wizard 
 (define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode 
   "Emacspeak Finder"
-  "Emacspeak Finder\n\n
+  "Emacspeak Finder\n\n"
+  )
 
-\\{emacspeak-wizards-finder-mode-map")
 
-(defvar emacspeak-wizards-find-switches-widget
-'(cons :tag "Find Expression"
-                            (menu-choice :tag "Find Test"
-                             (string :tag "Test")
-                             (const "-name" )
-                             (const "-iname")
-                             (const "-path")
-                             (const "-ipath")
-                             (const "-regexp")
-                             (const "-iregexp")
-                             (const "-exec")
-                             (const "-atime")
-                             (const "-ctime")
-                             (const "-mtime")
-                             (const "-amin")
-                             (const "-mmin")
-                             (const "-cmin")
-                             (const "-size")
-                             (const "-type"))
-                            (string :tag "Value"))
-"Widget to get find switch.")
+(defcustom emacspeak-wizards-find-switches-widget
+  '(cons :tag "Find Expression"
+         (menu-choice :tag "Find Test"
+                      (string :tag "Test")
+                      (const "-name" )
+                      (const "-iname")
+                      (const "-path")
+                      (const "-ipath")
+                      (const "-regexp")
+                      (const "-iregexp")
+                      (const "-exec")
+                      (const "-ok")
+                      (const "-newer")
+                      (const "-anewer")
+                      (const "-mnewer")
+                      (const "-cnewer")
+                      (const "-used")
+                      (const "-user")
+                      (const "-uid")
+                      (const "-nouser")
+                      (const "-nogroup")
+                      (const "-perm")
+                      (const "-fstype")
+                      (const "-lname")
+                      (const "-ilname")
+                      (const "-empty")
+                      (const "-prune")
+                      (const "-or")
+                      (const "-not")
+                      (const "-inum")
+                      (const "-atime")
+                      (const "-ctime")
+                      (const "-mtime")
+                      (const "-amin")
+                      (const "-mmin")
+                      (const "-cmin")
+                      (const "-size")
+                      (const "-type")
+                      (const "-maxdepth")
+                      (const "-mindepth")
+                      (const "-mount")
+                      (const "-noleaf")
+                      (const "-xdev"))
+         (string :tag "Value"))
+  "Widget to get find switch."
+  :type 'sexp
+  :group 'emacspeak-wizards)
                             
 
 (defvar emacspeak-wizards-finder-args nil
@@ -1747,7 +1773,7 @@ emacspeak-websearch-personal-portfolio."
 
 
 (defsubst emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
-"Quote find arg if necessary."
+  "Quote find arg if necessary."
   (declare (special emacspeak-wizards-find-switches-that-need-quoting))
   (if (member switch emacspeak-wizards-find-switches-that-need-quoting)
       (format "'%s'" arg)
@@ -1784,14 +1810,15 @@ emacspeak-websearch-personal-portfolio."
                      #'(lambda (&rest ignore)
                          (call-interactively
                           'emacspeak-wizards-finder-find)))
-(widget-create 'info-link 
-		 :tag "Help"
-		 :help-echo "Read the online help."
-		 "(find)Finding Files")
+      (widget-create 'info-link 
+                     :tag "Help"
+                     :help-echo "Read the online help."
+                     "(find)Finding Files")
       (widget-insert "\n\n")
       (emacspeak-wizards-finder-mode)
       (use-local-map widget-keymap)
       (widget-setup)
+      (local-set-key "\M-s" 'emacspeak-wizards-finder-find)
       (goto-char (point-min)))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
@@ -1818,9 +1845,11 @@ directory to where find is to be launched."
           #'(lambda (pair)
               (format "%s %s"
                       (car pair)
-                      (emacspeak-wizards-find-quote-arg-if-necessary
-                       (car pair)
-                       (cdr pair))))
+                      (if (cdr pair)
+                          (emacspeak-wizards-find-quote-arg-if-necessary
+                           (car pair)
+                           (cdr pair))
+                        "")))
           emacspeak-wizards-finder-args
           " ")))
     (find-dired directory   find-args)
