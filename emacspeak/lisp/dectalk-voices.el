@@ -57,7 +57,7 @@
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
-(defvar dtk-default-voice-string ""
+(defvar dectalk-default-voice-string ""
   "dtk string for  default voice --set to be a no-op.")
 
 (defvar dectalk-voice-table (make-hash-table)
@@ -78,7 +78,7 @@ COMMAND-STRING to the Dectalk."
    ((listp name)
     (mapconcat #'dtk-get-voice-command name " "))
    (t (or  (gethash name dectalk-voice-table)
-           dtk-default-voice-string))))
+           dectalk-default-voice-string))))
 
 (defsubst dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
