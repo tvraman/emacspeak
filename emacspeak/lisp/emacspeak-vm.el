@@ -560,54 +560,44 @@ If N is negative, move backward instead."
   :group 'emacspeak)
 
 (defun emacspeak-vm-use-tvr-settings ()
-  "Customization settings for VM used by the author of Emacspeak."
-(declare (special 
-          vm-mime-decode-for-preview emacspeak-vm-voice-lock-messages
-          vm-infer-mime-types
-          vm-group-by vm-move-after-deleting  vm-confirm-new-folders
-          vm-circular-folders vm-url-browser vm-delete-after-saving 
-          vm-group-by vm-visible-headers vm-preview-lines 
-          vm-inhibit-startup-message vm-mail-window-percentage
-          vm-startup-with-summary
-          vm-forwarding-subject-format vm-folder-directory
-          vm-keep-sent-messages 
-          vm-primary-inbox vm-index-file-suffix 
-          ))
-  (setq vm-index-file-suffix ".idx")
-  (setq vm-primary-inbox "~/mbox");; Default UNIX location.
-  (setq vm-keep-sent-messages t)
-  (setq vm-folder-directory "~/Mail/");; Default location
-  (setq vm-forwarding-subject-format
-        "[%s]")
-  (setq vm-startup-with-summary nil);; do not Show headers by default.
-  (setq vm-mail-window-percentage 50);; Split 50/50.
-  (setq vm-inhibit-startup-message t);; No junk, please.
-  (setq vm-preview-lines nil);; Show everything.
-  (setq vm-visible-headers 
-        '("From:" "To:" "Subject:" "Date:" "Cc:"
-          ))
-  (setq vm-group-by 'sort)
-  (setq vm-delete-after-saving t)
-  (setq vm-url-browser 'w3-fetch)
-  (setq vm-circular-folders nil)
-  (setq vm-confirm-new-folders t)
-  (setq vm-move-after-deleting nil)
-  (setq vm-group-by "subject")
-  (setq vm-infer-mime-types t)
-  (setq emacspeak-vm-voice-lock-messages nil)
-  (setq vm-mime-decode-for-preview nil)
+  "Customization settings for VM used by the author of
+Emacspeak."
+  (declare (special 
+            vm-index-file-suffix
+            vm-primary-inbox
+            vm-keep-sent-messages
+            vm-folder-directory
+            vm-forwarding-subject-format
+            vm-startup-with-summary
+            vm-inhibit-startup-message
+            vm-visible-headers
+            vm-delete-after-saving
+            vm-url-browser
+            vm-confirm-new-folders
+            vm-move-after-deleting
+            emacspeak-vm-voice-lock-messages))
+  (setq vm-index-file-suffix ".idx"
+        vm-primary-inbox "~/mbox"
+        vm-keep-sent-messages t
+        vm-folder-directory "~/Mail/"
+        vm-forwarding-subject-format "[%s]"
+        vm-startup-with-summary nil
+        vm-inhibit-startup-message t
+        vm-visible-headers '("From:" "To:" "Subject:" "Date:" "Cc:")
+        vm-delete-after-saving t
+        vm-url-browser 'w3-fetch
+        vm-confirm-new-folders t
+        vm-move-after-deleting t
+        emacspeak-vm-voice-lock-messages nil)
   (add-hook 'vm-mode-hook
             (function
              (lambda nil
-               )
-             (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
-             (define-key vm-mode-map "\M-\t"
-               'emacspeak-vm-next-button))))
-
+               (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
+               (define-key vm-mode-map "\M-\t"
+                 'emacspeak-vm-next-button)))))
   
 (when emacspeak-vm-use-tvr-settings
 (emacspeak-vm-use-tvr-settings))
-
 
 (defcustom emacspeak-vm-customize-mime-settings nil
   "Non-nil will cause Emacspeak to configure VM mime
@@ -615,31 +605,70 @@ settings to match what the author of Emacspeak uses."
   :type 'boolean
   :group 'emacspeak-vm)
 
+(defcustom emacspeak-vm-pdf2text
+  (expand-file-name "pdf2txt" emacspeak-etc-directory)
+  "Executable that converts PDF on standard input to plain
+text using pdftotext."
+  :type 'string
+  :group 'emacspeak-vm)
+
+(defcustom emacspeak-vm-doc2text
+  (expand-file-name "doc2text" emacspeak-etc-directory)
+  "Executable that converts MSWord documents on standard input to plain
+text using wvText."
+  :type 'string
+  :group 'emacspeak-vm)
+
+
+(defcustom emacspeak-vm-xls2text
+  (expand-file-name "xls2text" emacspeak-etc-directory)
+  "Executable that converts MSXL documents on standard input to HTML
+ using xlhtml."
+  :type 'string
+  :group 'emacspeak-vm)
+
+(defcustom emacspeak-vm-ppt2text
+  (expand-file-name "ppt2text" emacspeak-etc-directory)
+  "Executable that converts MSPPT documents on standard input to HTML
+ using xlhtml."
+  :type 'string
+  :group 'emacspeak-vm)
+
+
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
-  (setq vm-auto-decode-mime-messages t)
-  (setq vm-auto-displayed-mime-content-type-exceptions
-        '("text/html"))
-  (setq vm-mime-type-converter-alist
-        '(
-          ("application/pdf"
-           "text/plain"
-           emacspeak-vm-pdf2text)
-          ("application/msword"
-           "text/plain"	
-           emacspeak-vm-word2txt)))
-  (setq  vm-mime-attachment-save-directory
-         (expand-file-name "~/Mail/attachments/"))
-
-  (setq vm-mime-base64-encoder-program "base64-encode")
-  (setq vm-mime-base64-decoder-program "base64-decode")
-
-  (setq vm-mime-attachment-auto-type-alist
-        (append vm-mime-attachment-auto-type-alist
-                '(("\.pdf"
-                   . "Application/pdf"))))
-
-  )
+  (declare (special 
+            vm-infer-mime-types
+            vm-mime-decode-for-preview
+            vm-auto-decode-mime-messages
+            vm-auto-displayed-mime-content-type-exceptions
+            vm-mime-attachment-save-directory
+            vm-mime-base64-encoder-program
+            vm-mime-base64-decoder-program
+            vm-mime-attachment-auto-type-alist
+            vm-mime-attachment-auto-type-alist
+            vm-mime-type-converter-alist
+            emacspeak-vm-pdf2text
+            emacspeak-vm-doc2text
+          
+            ))
+  (setq
+   vm-infer-mime-types t
+   vm-mime-decode-for-preview nil
+   vm-auto-decode-mime-messages t
+   vm-auto-displayed-mime-content-type-exceptions '("text/html")
+   vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
+   vm-mime-base64-encoder-program "base64-encode"
+   vm-mime-base64-decoder-program "base64-decode"
+   vm-mime-attachment-auto-type-alist
+   (append vm-mime-attachment-auto-type-alist
+           '(("\.pdf" . "Application/pdf")))
+   vm-mime-type-converter-alist
+   '(
+     ("application/pdf" "text/plain" emacspeak-vm-pdf2text)
+     ("application/msword" "text/plain" emacspeak-vm-doc2text))
+   ))
+         
 
 (when emacspeak-vm-customize-mime-settings
   (emacspeak-vm-customize-mime-settings))
