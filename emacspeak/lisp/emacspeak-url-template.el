@@ -45,6 +45,8 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (eval-when-compile (require 'webjump))
+(require 'emacspeak-websearch)
+
 ;;}}}
 ;;{{{  Introduction:
 
@@ -114,7 +116,7 @@
    (emacspeak-url-template-constructor :name name
                                        :template template
                                        :generators generators
-                                       :post-action post-action
+                                       :post-action  post-action
                                        :documentation
                                        documentation
                                        :fetcher fetcher)))
@@ -781,12 +783,15 @@ Set up URL rewrite rule to get print page."
 
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (let
-      ((fetcher (or (emacspeak-url-template-fetcher ut)
+  (declare (special  emacspeak-websearch-post-process-hook))
+  (let ((fetcher (or (emacspeak-url-template-fetcher ut)
                     'browse-url)))
     (funcall fetcher   (emacspeak-url-template-url ut))
-    (when (emacspeak-url-template-post-action ut)
-      (funcall (emacspeak-url-template-post-action ut)))))
+    (when (and
+           (emacspeak-url-template-post-action ut)
+       (or   (eq browse-url-browser-function 'w3-fetch)
+	      (eq browse-url-browser-function 'browse-url-w3)))
+      (setq emacspeak-websearch-post-process-hook ut))))
 
 (defsubst emacspeak-url-template-help-internal (name)
   "Display and speak help."
