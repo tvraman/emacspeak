@@ -479,13 +479,23 @@ Leave point at front of decoded attachment."
            (lambda nil
              (emacspeak-pronounce-refresh-pronunciations))))
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(emacspeak-pronounce-augment-pronunciations 'vm-presentation-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
-(add-hook 'mail-mode-hook
-          'emacspeak-pronounce-refresh-pronunciations)
-          
-(emacspeak-pronounce-augment-pronunciations 'mail-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
+(loop for hook in 
+      (list 'mail-mode-hook
+            'vm-presentation-mode-hook)
+      do 
+      (add-hook hook 'emacspeak-pronounce-refresh-pronunciations))
+
+(loop for mode in 
+      '(vm-presentation-mode 
+        mail-mode)
+      do 
+      (emacspeak-pronounce-augment-pronunciations mode
+                                                  emacspeak-pronounce-internet-smileys-pronunciations)
+      (emacspeak-pronounce-add-dictionary-entry mode
+                                                emacspeak-speak-iso-datetime-pattern
+                                                (cons 're-search-forward
+                                                      'emacspeak-speak-decode-iso-datetime)))          
+
 
 ;;}}}
 ;;{{{ advice button motion 
