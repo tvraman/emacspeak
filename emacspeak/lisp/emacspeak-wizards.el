@@ -982,19 +982,36 @@ With optional PREFIX argument, label current frame."
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defun emacspeak-next-frame ()
-  "Move to next frame."
+(defun emacspeak-next-frame-or-buffer ()
+  "Move to next frame.
+If there is only frame, then move to the next buffer."
   (interactive)
-  (other-frame 1)
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-mode-line))
+  
+  
+  (cond
+   ((> (length (frame-list)) 1)
+    (other-frame 1)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line))
+   (t
+    (switch-to-buffer (other-buffer (current-buffer)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-current-buffer-name))))
 
-(defun emacspeak-previous-frame ()
-  "Move to next frame."
+(defun emacspeak-previous-frame-or-buffer ()
+  "Move to next frame.
+If there is only one frame, then move to the previous buffer."
   (interactive)
-  (other-frame -1)
-  (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-mode-line))
+  (cond
+   ((> (length (frame-list)) 1)
+    (other-frame -1)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line))
+   (t
+    (switch-to-buffer (nth (1- (length (buffer-list)))
+                           (buffer-list)))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-current-buffer-name))))
 
 ;;}}}
 ;;{{{  readng different displays of same buffer

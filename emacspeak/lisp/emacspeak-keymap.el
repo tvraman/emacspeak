@@ -324,8 +324,8 @@ field in the customization buffer.  You can use the notation
     (format "%s" i )
     'dtk-set-predefined-speech-rate ))
 ;;; Put these in the global map:
-(global-set-key '[(control left)] 'emacspeak-previous-frame)
-(global-set-key '[(control right)] 'emacspeak-next-frame)
+(global-set-key '[(control left)] 'emacspeak-previous-frame-or-buffer)
+(global-set-key '[(control right)] 'emacspeak-next-frame-or-buffer)
 (global-set-key '[pause] 'dtk-stop)
 (global-set-key '[(control down)] 'emacspeak-mark-forward-mark)
 (global-set-key '[(control up)] 'emacspeak-mark-backward-mark)
