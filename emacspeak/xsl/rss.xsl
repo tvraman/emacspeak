@@ -7,8 +7,8 @@ View an RSS feed as clean HTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
-<xsl:template match="/">
-<xsl:apply-templates select="//channel"/>
+  <xsl:template match="/">
+    <xsl:apply-templates select="//channel"/>
   </xsl:template>
   <xsl:template match="channel">
     <html>
@@ -33,8 +33,8 @@ View an RSS feed as clean HTML
         <xsl:attribute name="href">
           <xsl:apply-templates select="link"/>
         </xsl:attribute>
+        <xsl:apply-templates select="description"/>
       </xsl:element>
-      <xsl:apply-templates select="description"/>
     </li>
   </xsl:template>
   <xsl:template match="title|description">
