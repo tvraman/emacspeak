@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--$Id$
-Description: Extract nodes in a specified page range from a Daisy3 XML file.
-Page range is specified via params start and end.
-All nodes appearing between 
-<pagenum>start</pagenum>
-and <pagenum>end+1</pagenum>
-are extracted. All other nodes are ignored.
--->
+<!--$Id: dtb-page-range.xsl,v 18.7 2003/06/26 23:33:27 raman Exp -->
+<!--$
+
+Description: Extract nodes in a specified page range from a
+Daisy3 XML file.  Page range is specified via params start and
+end.  All nodes appearing between <pagenum>start</pagenum> and
+<pagenum>end+1</pagenum> are extracted. All other nodes are
+ignored. 
+
+The nodes we want to output are located by computing the 
+intersection of two sets A and B:
+
+A: The set of nodes that follow the start page marker
+B:The set of nodes that precede the end page marker
+
+Leading and trailing nodes are computed using set:leading and -->
+<!--set:trailing
+and the final intersection is computed using set:intersection.
+ -->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:set="http://exslt.org/sets"
   version="1.0">

@@ -105,7 +105,9 @@
     (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
     (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
     (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
-    (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
+    (define-key w3-mode-map "l"
+      'emacspeak-w3-google-who-links-to-this-page)
+(define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
     (define-key w3-mode-map ";"
       'emacspeak-w3-speak-this-element)
@@ -1223,6 +1225,15 @@ current page."
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
    (format "+link:%s"
+           (url-view-url 'no-show))))
+(defun emacspeak-w3-google-extract-from-cache ()
+  "Extract current  page from the Google cache."
+  (interactive)
+  (declare (special major-mode))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command cannot be used outside W3 buffers."))
+  (emacspeak-websearch-google
+   (format "+cache:%s"
            (url-view-url 'no-show))))
 
   
