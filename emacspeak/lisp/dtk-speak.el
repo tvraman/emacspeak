@@ -1420,7 +1420,7 @@ When called  interactively, The selected server is started immediately. "
            dtk-servers-alist))
      nil
      t  )))
-  (declare (special  dtk-tcl dtk-program dtk-servers-alist))
+  (declare (special   dtk-program dtk-servers-alist))
   (setq dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
@@ -1446,21 +1446,18 @@ Default is to use pipes.")
 
 (defun  dtk-initialize ()
   "Initialize speech system."
-  (declare (special dtk-program dtk-tcl
-                    tts-debug-buffer dtk-speak-process-connection-type
+  (declare (special dtk-program tts-debug-buffer dtk-speak-process-connection-type
                     dtk-speaker-process  dtk-debug
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
         (process-connection-type  dtk-speak-process-connection-type))
     (setq new-process
-          (apply 'start-process
-                 "speaker"
-                 (and dtk-debug tts-debug-buffer)
-                 dtk-tcl
-                 (list
-                  (expand-file-name dtk-program
-                                    emacspeak-servers-directory))))
+          (start-process
+           "speaker"
+           (and dtk-debug tts-debug-buffer)
+           (expand-file-name dtk-program
+                             emacspeak-servers-directory)))
     (process-kill-without-query new-process)
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
