@@ -89,7 +89,6 @@
 #define DEFAULT_SPEED 		11025
 
 /* globals */
-static snd_pcm_stream_t stream = SND_PCM_STREAM_PLAYBACK;
 char *device = "default";
 
 static snd_pcm_t *AHandle = NULL;
@@ -331,7 +330,7 @@ static void xrun(void) {
     snd_pcm_status_get_trigger_tstamp(status, &tstamp);
     timersub(&now, &tstamp, &diff);
     fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
-            stream == SND_PCM_STREAM_PLAYBACK ? "underrun" : "overrun",
+            "underrun",
             diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
     if ((res = snd_pcm_prepare(AHandle))<0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
