@@ -8,6 +8,116 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-python,  Up: Emacspeak Commands
+
+emacspeak-realaudio
+===================
+
+   Commentary: Assuming you have a correctly configured RealAudio
+player, this package provides single click access to starting and
+stopping a RealAudio stream from anywhere on the Emacspeak desktop.
+Before using this package, make sure that your realaudio player works
+outside Emacs. Then set variable Emacspeak-realaudio-player to point to
+the program you use to play RealAudio streams.
+
+   Automatically generated documentation for commands defined in module
+emacspeak-realaudio.
+
+ - emacspeak-realaudio-play-url-at-point:
+     No global keybinding
+
+     Play url under point as realaudio
+
+ - emacspeak-realaudio-play:
+     No global keybinding
+
+     Play a realaudio stream.  Uses files from your Realaudio shortcuts
+     directory for completion.  See documentation for user configurable
+     variable emacspeak-realaudio-shortcuts-directory.
+
+ - emacspeak-realaudio-select-realaudio-buffer:
+     No global keybinding
+
+     Switch to realaudio buffer.
+
+ - emacspeak-realaudio-browse:
+     ` control e : '
+
+     Browse RAM file before playing the selected component.
+
+ - emacspeak-realaudio-mode:
+     No global keybinding
+
+     Major mode for streaming audio.
+
+     key             binding --             ------
+
+     right           emacspeak-aumix-wave-increase left
+     emacspeak-aumix-wave-decrease }
+     emacspeak-realaudio-trplayer-call-command {
+     emacspeak-realaudio-trplayer-call-command ]
+     emacspeak-realaudio-trplayer-call-command [
+     emacspeak-realaudio-trplayer-call-command 9
+     emacspeak-realaudio-trplayer-call-command 0
+     emacspeak-realaudio-trplayer-call-command ,
+     emacspeak-realaudio-trplayer-call-command .
+     emacspeak-realaudio-trplayer-call-command >
+     emacspeak-realaudio-trplayer-call-command <
+     emacspeak-realaudio-trplayer-call-command i
+     emacspeak-realaudio-trplayer-call-command l
+     emacspeak-realaudio-trplayer-call-command e
+     emacspeak-realaudio-trplayer-call-command s
+     emacspeak-realaudio-trplayer-call-command t
+     emacspeak-realaudio-trplayer-call-command p
+     emacspeak-realaudio-trplayer-call-command
+
+     This mode runs the hook `emacspeak-realaudio-mode-hook', as the
+     final step during initialization.
+
+ - emacspeak-realaudio-stop:
+     No global keybinding
+
+     Stop playing realaudio
+
+ - emacspeak-realaudio-trplayer-call-command:
+     No global keybinding
+
+     Call appropriate TRPlayer command.
+
+ - emacspeak-realaudio:
+     ` control e ; '
+
+     Start or control streaming audio including MP3 and realaudio.  If
+     using `TRPlayer' as the player, accepts trplayer control commands
+     if a stream is already playing.  Otherwise, the playing stream is
+     simply stopped.  If no stream is playing, this command prompts for
+     a realaudio resource.  Realaudio resources can be specified either
+     as a Realaudio URL, the location of a local Realaudio file, or as
+     the name of a local Realaudio metafile. Realaudio resources you
+     have played in this session are available in the minibuffer
+     history.  The default is to play the resource you played most
+     recently. Emacspeak uses the contents of the directory specified
+     by variable emacspeak-realaudio-shortcuts-directory to offer a set
+     of completions. Hit space to use this completion list.
+
+     If using TRPlayer, you can either give one-shot commands using
+     command emacspeak-realaudio available from anywhere on the audio
+     desktop as C-e ;.  Alternatively,  switch to buffer *realaudo* if
+     you wish to issue many nvigation commands.  Note that buffer
+     *realaudio* uses a special major mode that provides the various
+     navigation commands via single keystrokes.
+
+ - emacspeak-realaudio-trplayer-command:
+     No global keybinding
+
+     Execute TRPlayer command.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+
 File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-remote,  Prev: emacspeak-realaudio,  Up: Emacspeak Commands
 
 emacspeak-redefine
@@ -29,36 +139,36 @@ emacspeak-redefine.
      traditional)   Character set CNS11643-3 (Chinese traditional)
      Character set Ethiopic characters   Character set Tibetan 1 column
       Character set Indian 1 Column   Character set Indian IS 13194
-     Character set Arabic 2-column   Character set Lao   Character set
-     ASCII with right-to-left direction   Character set Arabic 1-column
-      Character set Arabic digit   Character set VISCII upper-case
-     Character set VISCII lower-case   Character set IPA   Character
-     set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)
-     Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese
-     traditional)   Character set CNS11643-1 (Chinese traditional)
-     Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)
-      Character set JISX0208.1983/1990 (Japanese)   Character set
-     GB2312   Character set JISX0208.1978 (Japanese)   Character set
-     ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)
-     Character set JISX0201.1976 (Japanese Roman)   Character set
-     JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)
-     Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)
-      Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)
-     Character set ISO8859-3 (Latin-3)   Character set ISO8859-2
-     (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û
-     ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê
-      é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú
-     Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É
-     È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸
-      ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨
-     §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s
-     r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b
-      a   _   \    cap Z     cap Y     cap X     cap W     cap V
-     cap U     cap T     cap S     cap R     cap Q     cap P     cap O
-       cap N     cap M     cap L     cap K     cap J     cap I     cap
-     H     cap G     cap F     cap E     cap D     cap C     cap B
-     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -
-      +   *   $ '
+     Character set Arabic 2-column   Character set emacs/w3-dingbats
+     Character set Lao   Character set ASCII with right-to-left
+     direction   Character set Arabic 1-column   Character set Arabic
+     digit   Character set VISCII upper-case   Character set VISCII
+     lower-case   Character set IPA   Character set SiSheng
+     (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set
+     Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)
+     Character set CNS11643-1 (Chinese traditional)   Character set
+     JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character
+     set JISX0208.1983/1990 (Japanese)   Character set GB2312
+     Character set JISX0208.1978 (Japanese)   Character set ISO8859-9
+     (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set
+     JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976
+     (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set
+     ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character
+     set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character
+     set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)
+     Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø
+     ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç
+      æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×
+     Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ
+     Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ
+      ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥
+     ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p
+     o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \
+       cap Z     cap Y     cap X     cap W     cap V     cap U     cap
+     T     cap S     cap R     cap Q     cap P     cap O     cap N
+     cap M     cap L     cap K     cap J     cap I     cap H     cap G
+       cap F     cap E     cap D     cap C     cap B     cap A    @
+     >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ '
 
      Insert a character.  Speaks the character if
      emacspeak-character-echo is true.  See  command
@@ -81,7 +191,7 @@ emacspeak-remote
 emacspeak-remote.
 
  - emacspeak-remote-connect-to-server:
-     ` kp-3   control e meta r '
+     ` control e meta r '
 
      Connect to and start using remote speech server running on host
      host and listening on port port.  Host is the hostname of the
@@ -89,7 +199,7 @@ emacspeak-remote.
      port that that host is listening on for speech requests.
 
  - emacspeak-remote-quick-connect-to-server:
-     No global keybinding
+     ` f8 '
 
      Connect to remote server.  Does not prompt for host or port, but
      quietly uses the guesses that appear as defaults when prompting.
@@ -477,7 +587,7 @@ emacspeak-speak.
      Speak the previous window.
 
  - emacspeak-switch-to-previous-buffer:
-     ` l10 '
+     No global keybinding
 
      Switch to most recently used interesting buffer.
 
@@ -833,7 +943,7 @@ emacspeak-speedbar.
      Does the equivalent of the mouse click from the keyboard
 
  - emacspeak-speedbar-goto-speedbar:
-     ` insert '
+     No global keybinding
 
      Switch to the speedbar
 
@@ -1065,7 +1175,7 @@ emacspeak-tabulate.
      information is used to mark fields in the white-space.
 
 
-File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-url-template,  Prev: emacspeak-tabulate,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-tar,  Prev: emacspeak-tabulate,  Up: Emacspeak Commands
 
 emacspeak-tapestry
 ==================
@@ -1079,7 +1189,95 @@ emacspeak-tapestry.
      Describe the current layout of visible buffers in current frame.
 
 
-File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tapestry,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tetris,  Prev: emacspeak-tapestry,  Up: Emacspeak Commands
+
+emacspeak-tar
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tar.
+
+ - emacspeak-tar-speak-file-permissions:
+     No global keybinding
+
+     Speak permissions of file current entry
+
+ - emacspeak-tar-speak-file-date:
+     No global keybinding
+
+     Speak date of file current entry
+
+ - emacspeak-tar-speak-file-size:
+     No global keybinding
+
+     Speak size of file current entry
+
+
+File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-url-template,  Prev: emacspeak-tar,  Up: Emacspeak Commands
+
+emacspeak-tetris
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tetris.
+
+ - emacspeak-tetris-speak-current-shape-and-coordinates:
+     No global keybinding
+
+     Speak shape orientation and coordinates
+
+ - emacspeak-tetris-speak-column:
+     No global keybinding
+
+     Speak  column -default is to speak current column
+
+ - emacspeak-tetris-speak-coordinates:
+     No global keybinding
+
+     Speak current position
+
+ - emacspeak-tetris-goto-top-row:
+     No global keybinding
+
+     Move to and speak the top row
+
+ - emacspeak-tetris-goto-bottom-row:
+     No global keybinding
+
+     Move to and speak bottom row
+
+ - emacspeak-tetris-speak-score:
+     No global keybinding
+
+     Speak the score
+
+ - emacspeak-tetris-speak-row-number:
+     No global keybinding
+
+     Speak where on the tetris board we are
+
+ - emacspeak-tetris-speak-x-coordinate:
+     No global keybinding
+
+     Speak current position
+
+ - emacspeak-tetris-speak-current-shape:
+     No global keybinding
+
+     Speak current shape
+
+ - emacspeak-tetris-speak-row:
+     No global keybinding
+
+     Speak current tetris row
+
+ - emacspeak-tetris-speak-next-shape:
+     No global keybinding
+
+     Speak next shape
+
+
+File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view-process,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
 
 emacspeak-url-template
 ======================
@@ -1095,15 +1293,42 @@ emacspeak-url-template.
  - emacspeak-url-template-fetch:
      ` control e u '
 
-     Prompt for  URL template and fetch specified resource.
+     Fetch a pre-defined resource.  Use Emacs completion to obtain a
+     list of available resources.  Resources typically prompt for the
+     relevant information before completing the request.
 
  - emacspeak-url-template-load:
      No global keybinding
 
      Load URL template resources from specified location.
 
+ - emacspeak-url-template-help:
+     No global keybinding
+
+     Display documentation for  a URL template.  Use Emacs completion
+     to obtain a list of available resources.
+
 
-File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-view-process,  Next: emacspeak-view,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+
+emacspeak-view-process
+======================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-view-process.
+
+ - emacspeak-view-process-speak-current-field:
+     No global keybinding
+
+     Speak current field
+
+ - emacspeak-view-process-goto-current-field-next-line:
+     No global keybinding
+
+     Set point to the current field in the next line.
+
+
+File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
 
 emacspeak-view
 ==============
@@ -1227,370 +1452,4 @@ emacspeak-w3.
 
      Move back  to the previous document element.  Optional interactive
      prefix argument COUNT specifies by how many eleemnts to move.
-
-
-File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
-
-emacspeak-websearch
-===================
-
-   Commentary: This module provides utility functions for searching the
-WWW
-
-   Automatically generated documentation for commands defined in module
-emacspeak-websearch.
-
- - emacspeak-websearch-inference-search:
-     No global keybinding
-
-     Perform an Inference search.
-
- - emacspeak-websearch-rfb-search:
-     No global keybinding
-
-     Search RFB&D catalog.
-
- - emacspeak-websearch-freshmeat-search:
-     No global keybinding
-
-     Search Freshmeat  Site.
-
- - emacspeak-websearch-britannica-search:
-     No global keybinding
-
-     Search Encyclopedia Britannica.
-
- - emacspeak-websearch-dispatch:
-     ` control e ? '
-
-     Launches specific websearch queries.  Search engine is selected by
-     keystrokes listed below.  Once selected, the selected searcher
-     prompts for additional information as appropriate.
-
-     Key     Engine              Search a       AltaVista
-        AltaVista Simple Search Cap A     AllTheWeb
-     All The Web b       BBC                         BBC Archives C-b
-      Biblio                      Computer Science Bibliography c
-     CNN                         CNN Interactive Cap C   Company News
-                  Lookup Company News By Ticker C-c     CiteSeer
-                 Computer Science Citation  Index d       dejanews
-                   Usenet Archives At Dejanews Cap D   Dictionary
-                Hypertext Websters Dictionary e   Encyclopedia
-               Encyclopedia Britannica f       CNN-FN
-        CNN  Financial Network cap F   FolDoc
-     Free Online Dictionary Of Computing g       Google
-         The Google WWW Index Cap G   Gutenberg Locate Gutenberg Etexts
-     h       HotBot                      HotBot WWW Index i
-     Inference                   Inference WWW Search j       jeeves
-                      Ask Jeeves k       kerbango
-     Kerbango Radio Tuner m       Map                         Driving
-     directions from Yahoo Cap M   Dictionary                  Merriam
-     Webster Dictionary n       news-yahoo                  News Wire
-     at Yahoo Cap N   NLight                      Northern Light Search
-     o       open-directory              Open Directory Search p
-     People                      People Search (Yahoo) r       RedHat
-                       Search RedHat Via Google Cap R   RFBD
-                 RFB&D Catalog search C-r RPMFind
-       Find RPM packages s       Software                  Search for
-     software t       translate                 Machine translation u
-        usenet-altavista            Usenet Index At AltaVista w
-     Weather                     Weather Channel  By Zip Code cap W
-     W3C                         Search W3C Site v   Vickers
-                 Vickers Insider Trades Cap VVectorVestVectorVest
-     Stock Reports y       yahoo                       Master Yahoo
-     Index
-
-     When using W3,  this interface attempts to speak the most relevant
-     information on the result page.
-
- - emacspeak-websearch-google:
-     No global keybinding
-
-     Perform an Google search
-
- - emacspeak-websearch-emacspeak-archive:
-     ` control h e '
-
-     Search Emacspeak mail archives.  For example to find messages
-     about Redhat at the Emacspeak archives, type +redhat
-
- - emacspeak-websearch-w3c-search:
-     No global keybinding
-
-     Search the W3C Site.
-
- - emacspeak-websearch-citeseer-search:
-     No global keybinding
-
-     Perform a CiteSeer search.
-
- - emacspeak-websearch-alltheweb-search:
-     No global keybinding
-
-     Perform an AllTheWeb  search.  Optional prefix arg prompts for
-     type of search: -use `all' `phrase' or  `any' to specify the type
-     of search.
-
- - emacspeak-websearch-gutenberg:
-     No global keybinding
-
-     Perform an Gutenberg search
-
- - emacspeak-dejanews-browse-group:
-     ` control e  cap U  '
-
-     Prompt and browse a newsgroup on Dejanews.
-
- - emacspeak-websearch-kerbango-search:
-     No global keybinding
-
-     Search Kerbango radio tuner.
-
- - emacspeak-websearch-cnn-search:
-     No global keybinding
-
-     Perform an CNN search.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-cnn-options to an appropriate string.
-
- - emacspeak-websearch-quotes-yahoo-search:
-     No global keybinding
-
-     Perform a Quotes Yahoo .  Default tickers to look up is taken from
-     variable emacspeak-websearch-personal-portfolio.  Default is to
-     present the data in emacspeak's table browsing mode -optional
-     interactive prefix arg causes data to be displayed y W3 as a WWW
-     page.  You can customize the defaults by setting variable
-     emacspeak-websearch-quotes-yahoo-options to an appropriate string.
-
- - emacspeak-websearch-software-search:
-     No global keybinding
-
-     Search SourceForge, Freshmeat and other sites.
-
- - emacspeak-websearch-usenet-altavista-search:
-     No global keybinding
-
-     Perform a Usenet  Altavista search
-
- - emacspeak-websearch-weather:
-     No global keybinding
-
-     Get weather forecast for specified zip code.
-
- - emacspeak-websearch-altavista-search:
-     No global keybinding
-
-     Perform an Altavista search
-
- - emacspeak-websearch-foldoc-search:
-     No global keybinding
-
-     Perform a FolDoc search.
-
- - emacspeak-websearch-news-yahoo:
-     No global keybinding
-
-     Perform an Yahoo News search
-
- - emacspeak-websearch-map-directions-search:
-     No global keybinding
-
-     Get driving directions from Yahoo.  With optional interactive
-     prefix arg MAP shows the location map instead.
-
- - emacspeak-websearch-rpm-find:
-     No global keybinding
-
-     Search RPM  catalog  site.
-
- - emacspeak-websearch-bbc-search:
-     No global keybinding
-
-     Search BBC archives.
-
- - emacspeak-websearch-yahoo-historical-chart:
-     No global keybinding
-
-     Look up historical stock data.  Optional second arg data processes
-     the results as data rather than HTML.
-
- - emacspeak-websearch-dejanews-search:
-     No global keybinding
-
-     Perform a Dejanews search
-
- - emacspeak-websearch-vickers-search:
-     No global keybinding
-
-     Search Vickers insider trading.
-
- - emacspeak-websearch-biblio-search:
-     No global keybinding
-
-     Search Computer Science Bibliographies.
-
- - emacspeak-websearch-ask-jeeves:
-     No global keybinding
-
-     Ask Jeeves for the answer.
-
- - emacspeak-websearch-fn-cnn-search:
-     No global keybinding
-
-     Perform an CNN FNsearch.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-fn-cnn-options to an appropriate string.
-
- - emacspeak-websearch-cpan-search:
-     No global keybinding
-
-     Search CPAN  Comprehensive Perl Archive Network   Site.
-
- - emacspeak-websearch-packages-linux:
-     No global keybinding
-
-     Search for Linux packages.
-
- - emacspeak-websearch-open-directory-search:
-     No global keybinding
-
-     Perform an Open Directory search
-
- - emacspeak-websearch-appwatch-search:
-     No global keybinding
-
-     Search AppWatch  Site.
-
- - emacspeak-websearch-redhat:
-     No global keybinding
-
-     Search RedHat site.
-
- - emacspeak-websearch-sourceforge-search:
-     No global keybinding
-
-     Search SourceForge Site.
-
- - emacspeak-websearch-vector-vest-search:
-     No global keybinding
-
-     Look up VectorVest reports .
-
- - emacspeak-websearch-people-yahoo:
-     No global keybinding
-
-     Perform an Yahoo  people search
-
- - emacspeak-websearch-hotbot-search:
-     No global keybinding
-
-     Perform a Hotbot  search.  Optional interactive prefix arg prompts
-     for additional search parameters.  The default is to sort by date
-     and show summaries.  To sort by relevance specify additional
-     parameter &rf=0.  To hide summaries, specify additional parameter
-     &lk=2.  You can customize the defaults by setting variable
-     emacspeak-websearch-hotbot-options to an appropriate string.
-
- - emacspeak-websearch-yahoo:
-     No global keybinding
-
-     Perform an Yahoo  search
-
- - emacspeak-websearch-dictionary-hypertext-webster-search:
-     No global keybinding
-
-     Search the Webster Dictionary.
-
- - emacspeak-websearch-machine-translate:
-     No global keybinding
-
-     Perform a machine translation request
-
- - emacspeak-websearch-merriam-webster-search:
-     No global keybinding
-
-     Search the Merriam Webster Dictionary.
-
- - emacspeak-websearch-northern-light:
-     No global keybinding
-
-     Perform a Northern Light  search
-
- - emacspeak-websearch-ctan-search:
-     No global keybinding
-
-     Search CTAN Comprehensive TeX Archive Network   Site.
-
- - emacspeak-websearch-company-news:
-     No global keybinding
-
-     Perform an company news lookup.  Retrieves company news, research,
-     profile, insider trades,  or upgrades/downgrades.
-
-
-File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
-
-emacspeak-widget
-================
-
-   Commentary: This module implements the necessary extensions to
-provide talking widgets.
-
-   Automatically generated documentation for commands defined in module
-emacspeak-widget.
-
- - emacspeak-widget-help:
-     ` meta h '
-
-     Speak help for widget under point.
-
- - emacspeak-widget-summarize-parent:
-     ` meta p '
-
-     Summarize parent of widget at point.
-
- - emacspeak-widget-browse-widget-interactively:
-     No global keybinding
-
-     Allows you to browse a widget
-
- - emacspeak-widget-update-from-minibuffer:
-     ` META RETURN '
-
-     Sets widget at point by invoking its prompter.
-
- - emacspeak-widget-summarize-widget-under-point:
-     No global keybinding
-
-     Summarize a widget if any under point.  Optional interactive
-     prefix specifies how many levels to go up from current widget
-     before summarizing.
-
-
-File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-arc,  Prev: emacspeak-widget,  Up: Emacspeak Commands
-
-emacspeak
-=========
-
-   Commentary: The complete audio desktop.
-
-   Automatically generated documentation for commands defined in module
-emacspeak.
-
- - emacspeak-submit-bug:
-     ` control e control b '
-
-     Function to submit a bug to the programs maintainer.
-
- - emacspeak-describe-emacspeak:
-     ` control h control e '
-
-     Give a brief overview of emacspeak.
 

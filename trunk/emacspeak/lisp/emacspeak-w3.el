@@ -111,7 +111,9 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
-    (define-key w3-mode-map ";" 'emacspeak-w3-speak-this-element)
+    (define-key w3-mode-map ";"
+      'emacspeak-w3-speak-this-element)
+    (define-key w3-mode-map "\M-s" 'emacspeak-w3-jump-to-submit)
     (define-key w3-mode-map "y" 'emacspeak-w3-url-rewrite-and-follow)
     (define-key w3-mode-map "n"
       'emacspeak-w3-next-doc-element)
@@ -475,6 +477,28 @@ even if one is already defined."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))
     (error "Title not found in body.")))
+
+;;}}}
+;;{{{ jump to submit button
+
+(defun emacspeak-w3-jump-to-submit ()
+  "Jump to next available submit button."
+  (interactive)
+  (let ((start (point))
+        (found nil))
+    (forward-char 1)
+    (while (and (not found)
+                (< start (point)))
+      (condition-case nil
+          (widget-forward 1)
+        (error "No buttons found."))
+      (when
+          (eq (aref (widget-get (widget-at (point)) :w3-form-data) 0)
+              'submit)
+        (w3-speak-summarize-form-field)
+        (emacspeak-auditory-icon 'large-movement)
+        (setq found t)))
+    (message "Could not find submit button.")))
 
 ;;}}}
 (provide 'emacspeak-w3)
