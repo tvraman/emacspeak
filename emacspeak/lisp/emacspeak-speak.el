@@ -1533,8 +1533,10 @@ semantic to do the work."
       (tts-with-punctuations "all"
                              (dtk-speak
                               (concat 
-                               (format  "%s %s %s %s  %s %s "
+                               (format  "%s %s %s %s  %s %s
+"
                                         (buffer-name)
+                                        (or dir-info " ")
                                         (if line-number-mode
                                             (format "line %d"
                                                     (emacspeak-get-current-line-number))
@@ -1544,7 +1546,6 @@ semantic to do the work."
                                                     (current-column))
                                           "")
                                         mode-name
-                                        (or dir-info " ")
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info)))))))
