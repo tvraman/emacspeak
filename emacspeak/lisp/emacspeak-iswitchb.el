@@ -61,14 +61,11 @@
 ;;{{{ speech-enable feedback routines
 (defadvice iswitchb-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-  (let ((dtk-stop-immediately nil))
-    (dtk-speak
-     (format
-      "%s (%d matches)"
-      (car iswitchb-matches)
-      (length iswitchb-matches)))
-    (and (sit-for 1)
-         (dtk-speak-list iswitchb-matches))))
+  (dtk-speak
+   (format
+    "%s (%d matches)"
+    (car iswitchb-matches)
+    (length iswitchb-matches))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
