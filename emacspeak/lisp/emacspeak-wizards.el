@@ -850,6 +850,23 @@ Typically %s is replaced by project name.")
                             'emacspeak-cvs-done-alert))))
 
 ;;}}}
+;;{{{ browse chunks 
+(defun emacspeak-wizards-speak-chunk (command count)
+  "Speaks a chunk of text bounded by point and a target position.
+Target position is specified using a navigation command and a
+count that specifies how many times to execute that command
+first.
+Point is left at the target position."
+  (interactive
+   (list
+    (read-command "Navigation Command:")
+    (read-minibuffer "Count:")))
+  (let ((orig (point)))
+    (push-mark orig)
+    (funcall command count)
+    (emacspeak-speak-region orig (point))))
+
+;;}}}
 ;;{{{  Learn mode
 ;;;###autoload
 (defun emacspeak-learn-mode ()
