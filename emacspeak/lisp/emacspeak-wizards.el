@@ -1043,7 +1043,9 @@ documentation.\n\n")
             (when this-module
               (setq commentary
                     (lm-commentary
-		      (locate-library this-module )))
+                     (substring 
+		      (locate-library this-module )
+                      0 -1)))
               (setq this-module
                     (file-name-sans-extension this-module))
               (when commentary
