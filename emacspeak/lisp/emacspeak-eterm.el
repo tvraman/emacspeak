@@ -141,7 +141,9 @@
     'emacspeak-eterm-toggle-pointer-mode)
   (define-key emacspeak-eterm-keymap "\C-w" 'emacspeak-eterm-define-window)
   (define-key emacspeak-eterm-keymap "\C-y" 'emacspeak-eterm-yank-window)
-  (define-key emacspeak-eterm-keymap "\C-f" 'emacspeak-eterm-set-focus-window)
+  (define-key emacspeak-eterm-keymap "\C-f"
+    'emacspeak-eterm-set-focus-window)
+(define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
   (define-key emacspeak-eterm-keymap "\C-m" 'emacspeak-eterm-speak-window)
   (define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-toggle-review)
@@ -955,6 +957,18 @@ non-negative integer ")
        (t 
         (setq emacspeak-eterm-focus-window window-id )
         (message "Set emacspeak eterm focus window  to %d " window-id )))))))
+
+
+(defun emacspeak-eterm-toggle-focus-window ()
+  "Toggle active state of focus window."
+  (interactive)
+  (declare (special emacspeak-eterm-focus-window))
+  (if emacspeak-eterm-focus-window
+      (setq emacspeak-eterm-focus-window nil)
+    (setq emacspeak-eterm-focus-window 1)
+    (emacspeak-auditory-icon
+     (if emacspeak-eterm-focus-window
+         'on 'off))))
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
