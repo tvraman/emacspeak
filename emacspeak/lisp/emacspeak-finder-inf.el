@@ -353,6 +353,9 @@
     ("emacspeak-supercite.el"
         "Speech enable supercite"
         (emacspeak  supercite  mail))
+    ("emacspeak-swbuff.el"
+        "speech-enable swbuff mode"
+        (emacspeak  swbuff))
     ("emacspeak-table-ui.el"
         "Emacspeak's current notion of an ideal table UI"
         (emacspeak  audio interface to emacs tables are structured))
