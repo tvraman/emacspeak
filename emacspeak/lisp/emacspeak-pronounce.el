@@ -320,6 +320,7 @@ Modifies text and point in buffer."
       (while (search-forward ")" nil t)
         (replace-match ")\n" nil t))
       (save-buffer))))
+;;;###autoload
 (defvar emacspeak-pronounce-dictionaries-loaded nil
   "Indicates if dictionaries already loaded.")
 ;;;###autoload
