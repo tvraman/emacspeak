@@ -620,14 +620,14 @@ text using wvText."
   :group 'emacspeak-vm)
 
 
-(defcustom emacspeak-vm-xls2text
+(defcustom emacspeak-vm-xls2html
   (expand-file-name "xls2text" emacspeak-etc-directory)
   "Executable that converts MSXL documents on standard input to HTML
  using xlhtml."
   :type 'string
   :group 'emacspeak-vm)
 
-(defcustom emacspeak-vm-ppt2text
+(defcustom emacspeak-vm-ppt2html
   (expand-file-name "ppt2text" emacspeak-etc-directory)
   "Executable that converts MSPPT documents on standard input to HTML
  using xlhtml."
@@ -679,7 +679,8 @@ text using wvText."
    vm-auto-displayed-mime-content-type-exceptions '("text/html")
    vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
    vm-mime-base64-encoder-program "base64-encode"
-   vm-mime-base64-decoder-program "base64-decode"))
+   vm-mime-base64-decoder-program "base64-decode")
+  t)
    
 
 (when emacspeak-vm-customize-mime-settings
