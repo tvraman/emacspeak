@@ -2675,6 +2675,39 @@ dates.")
   (emacspeak-speak-mode-line))
       
 ;;}}}
+;;{{{ rivo
+
+(defvar emacspeak-wizards-rivo-program
+  (expand-file-name "rivo.pl" emacspeak-etc-directory)
+  "Rivo script used by emacspeak.")
+
+(defun emacspeak-wizards-rivo (when channel length output directory)
+  "Rivo wizard."
+  (interactive
+   (list
+    (read-from-minibuffer "At Time:")
+    (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
+          (minibuffer-history emacspeak-realaudio-history))
+      (emacspeak-pronounce-define-local-pronunciation
+       emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
+      (read-file-name "RealAudio resource: "
+                      emacspeak-realaudio-shortcuts-directory
+                      (if (eq major-mode 'dired-mode)
+                          (dired-get-filename)
+                        emacspeak-realaudio-last-url)))
+    (read-minibuffer "Length:" "00:30:00")
+    (read-minibuffer "Output Name:")
+    (read-directory-name "Output Directory:")))
+  (let ((command
+         (format "%s -c %s -l %s -o %s -d %s\n"
+                 emacspeak-wizards-rivo-program
+                 channel length output directory)))
+    (shell-command
+     (format "echo '%s' | at %s"
+             command when ))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

@@ -352,7 +352,7 @@ undefined
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (16319 45994))
+;;;;;;  (16376 58961))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")
@@ -1858,8 +1858,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16369
-;;;;;;  41328 890476))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16378
+;;;;;;  13097 208623))
 
 ;;;***
 
