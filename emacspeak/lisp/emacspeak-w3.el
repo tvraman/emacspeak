@@ -562,6 +562,23 @@ HTML."
 
 
 
+(defun emacspeak-w3-xslt-apply (xsl)
+  "Apply specified transformation to current page."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-w3-xsl-directory))))
+  (declare (special major-mode))
+   (let
+       ((emacspeak-w3-xsl-transform xsl)
+                    (emacspeak-w3-xsl-p t))
+     (unless (eq major-mode 'w3-mode)
+       (error "Not in a W3 buffer."))
+     (w3-reload-document)
+  (emacspeak-auditory-icon 'select-object)))
+
+
 (defun emacspeak-w3-xslt-select (xsl)
   "Select transformation to apply."
   (interactive
@@ -640,6 +657,7 @@ minibuffer."
 
 
 (declaim (special emacspeak-w3-xsl-map))
+(define-key emacspeak-w3-xsl-map "a" 'emacspeak-w3-xslt-apply)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
