@@ -1,4 +1,4 @@
-               Emacspeak-20.0 (PlayDog) Unleashed!
+               Emacspeak-20.0 (LeapDog) Unleashed!
                ----------------------------------
 
 For Immediate Release:
@@ -100,7 +100,7 @@ by sending mail to the list request address
 emacspeak-request@cs.vassar.edu.  The latest development snapshot
 of Emacspeak is available via anonymous CVS from sourceforge.
 
-History: -------- Emacspeak-20.0 -- AKA PlayDog -- continues the
+History: -------- Emacspeak-20.0 -- AKA LeapDog -- continues the
 long established GNU/Emacs tradition of integrated innovation to
 create a pleasurable computing environment for eyes-free
 interaction.  emacspeak-19.0 --AKA WorkDog-- is designed to
@@ -166,10 +166,6 @@ before) in the interest of all dogs.
 
 About This Release:
 ------------------
-
-According to Hubbell Labrador, this release does not a toy
-environment.  Emacspeak Inc. promises to introduce PlayDog Toys soon
-based on customer demand.
 
 Windows-Free (WF) is a favorite battle-cry of The League Against
 Forced Fenestration (LAFF).  --see
