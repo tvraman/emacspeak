@@ -356,8 +356,8 @@ Optional prefix arg prompts for a new filter."
                                         (emacspeak-table-ui-generate-key))
                                        "("))))
     (emacspeak-table-ui-filter-set
-     (emacspeak-table-ui-generate-key
-      )emacspeak-table-speak-row-filter))
+     (emacspeak-table-ui-generate-key)
+     emacspeak-table-speak-row-filter))
   (let ((voice-lock-mode t))
     (dtk-speak
      (mapconcat
@@ -1063,11 +1063,13 @@ markup to use."
 (defun emacspeak-table-sort-on-current-column ()
   "Sort table on current column. "
   (interactive )
-  (declare (special major-mode
-                    emacspeak-table))
+  (declare (special major-mode emacspeak-table
+                    emacspeak-table-speak-row-filter))
   (unless (eq major-mode  'emacspeak-table-mode )
     (error "This command should be used in emacspeak table mode."))
-  (let* ((column  (emacspeak-table-current-column emacspeak-table))
+  (let* ((column  (emacspeak-table-current-column
+  emacspeak-table))
+         (row-filter emacspeak-table-speak-row-filter)
          (elements
           (loop for e across (emacspeak-table-elements emacspeak-table)
                 collect e))
@@ -1097,6 +1099,9 @@ markup to use."
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table  sorted-table)
      buffer)
+    (save-excursion
+      (set-buffer buffer)
+      (setq emacspeak-table-speak-row-filter row-filter))
     (emacspeak-speak-mode-line)))
 
 ;;}}}
