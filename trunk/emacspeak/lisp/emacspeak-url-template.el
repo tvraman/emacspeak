@@ -740,6 +740,18 @@ the broadcast. You must have mplayer installed."
 
 ;;}}}
 ;;{{{  NPR programs 
+
+
+(emacspeak-url-template-define
+ "American Life On Demand."
+ "http://www.wbez.org/ta/%s.rm"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "Episode: ")))
+ nil
+ "Play This American Life  shows on demand."
+ 'emacspeak-realaudio-play)
+
 (emacspeak-url-template-define
  "NPR On Demand"
  "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
