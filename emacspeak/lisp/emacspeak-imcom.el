@@ -57,7 +57,7 @@
 (require 'emacspeak-sounds)
 (require 'comint)
 (require 'derived)
-;(require 'emacspeak-w3)
+(require 'emacspeak-w3)
 ;;}}}
 ;;{{{ Custom
 ;;;###autoload
