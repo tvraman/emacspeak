@@ -60,10 +60,9 @@
   (let ((voice-lock-mode t)
         (emacspeak-use-auditory-icons nil))
     (dtk-speak
-     (format
-      "%s %d Choices: %s %s"
+     (concat 
       (car ido-matches)
-      (length ido-matches)
+      (format " %d choices: " (length ido-matches))
       (minibuffer-contents)
       (if(or (null ido-current-directory)
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
