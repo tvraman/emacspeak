@@ -1,3 +1,4 @@
+
 ;;; emacspeak-realaudio.el --- Play realaudio from Emacs
 ;;; $Id$
 ;;; $Author$
@@ -250,7 +251,7 @@ Echo output and return it as a string."
 (defun emacspeak-realaudio-set-start-mark (&optional mark-time)
   "Set start mark. Default is to set marker to current play time.
 Mark is specified in seconds."
-  (interactive "p")
+  (interactive "P")
   (declare (special emacspeak-realaudio-start-time-mark))
   (setq emacspeak-realaudio-start-time-mark
         (cond
@@ -258,12 +259,16 @@ Mark is specified in seconds."
           (read-minibuffer "Mark in seconds:"))
          ((interactive-p)
           (emacspeak-realaudio-get-current-time-in-seconds))
-         (t (or mark-time 0)))))
+         (t (or mark-time 0))))
+  (when (interactive-p)
+    (message "Set start mark to %s"
+             emacspeak-realaudio-start-time-mark)))
+
 ;;;###autoload
 (defun emacspeak-realaudio-set-end-mark (&optional mark-time)
   "Set end mark. Default is to set marker to current play time.
 Mark is specified in seconds."
-  (interactive "p")
+  (interactive "P")
   (declare (special emacspeak-realaudio-start-time-mark))
   (setq emacspeak-realaudio-end-time-mark
         (cond
@@ -271,7 +276,10 @@ Mark is specified in seconds."
           (read-minibuffer "Mark in seconds:"))
          ((interactive-p)
           (emacspeak-realaudio-get-current-time-in-seconds))
-         (t (or mark-time 0)))))
+         (t (or mark-time 0))))
+  (when (interactive-p)
+    (message "Set end mark to %s"
+             emacspeak-realaudio-end-time-mark)))
 
     
                  
