@@ -609,7 +609,9 @@ minibuffer."
   (unless (or prompt
               (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
-  (let ((source-url
+  (let ((w3-url (when (eq major-mode 'w3-mode)
+                  (url-view-url t)))
+        (source-url
          (cond
           ((and (interactive-p)
                 prompt)
@@ -620,7 +622,7 @@ minibuffer."
       (cond
        (source-url
         (set-buffer (cdr (url-retrieve source-url))))
-       (t (w3-source-document source-url)))
+       (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
         (emacspeak-w3-xslt-region
@@ -628,12 +630,11 @@ minibuffer."
          (point-min)
          (point-max)
          (list
-          ;(cons "table-x" table-x)
-          ;(cons "table-y" table-y)
-(cons "table-index" table-index)
+          (cons "table-index" table-index)
           (cons "base"
                 (format "\"'%s'\""
-                        source-url))))
+                        (or source-url
+                            w3-url)))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
