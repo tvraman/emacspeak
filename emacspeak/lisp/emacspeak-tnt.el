@@ -80,6 +80,7 @@
 
 (defadvice tnt-im (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (emacspeak-pronounce-refresh-pronunciations)
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -92,6 +93,7 @@
 
 (defadvice tnt-join-chat (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (emacspeak-pronounce-refresh-pronunciations)
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
