@@ -716,7 +716,7 @@ No-op if content under point is not currently displayed."
       (insert
        (format
         "(setq outline-regexp \"%s\")"
-        outline-regexp))
+        regexp))
       (basic-save-buffer)
       (kill-buffer buffer)
       (emacspeak-auditory-icon 'save-object)
