@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Yahoo News --Advanced Search</h1>
-    <form method="get" action="http://dailynews.yahoo.com/search/news">
+    <form method="get" action="http://search.news.yahoo.com/search/news">
       <input name="adv" type="hidden" value="1"/>
       <input type="hidden" name="ei" value="UTF-8"/>
       
