@@ -1536,34 +1536,6 @@ emacspeak-websearch-hotbot-options to an appropriate string."
      'emacspeak-speak-line)))
 
 ;;}}}
-;;{{{  kerbango radio tuner 
-
-(emacspeak-websearch-set-searcher 'kerbango
-                                  'emacspeak-websearch-kerbango-search)
-(emacspeak-websearch-set-key ?k 'kerbango)
-
-
-(defvar emacspeak-websearch-kerbango-uri
-  "http://www.kerbango.com/tuner/index.html"
-  "URI for searching Kerbango radio tuner.")
-
-(defun emacspeak-websearch-kerbango-search (keywords)
-  "Search Kerbango radio tuner."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Keywords:")))
-  (declare (special emacspeak-websearch-kerbango-uri))
-  (let ((url-be-asynchronous nil))
-    (emacspeak-websearch-do-post "POST" emacspeak-websearch-kerbango-uri
-                                 (concat "keywords="
-                                         (webjump-url-encode keywords)
-                                         "&bwc="
-                                         (webjump-url-encode ""))))
-  (emacspeak-websearch-post-process
-   "Your search "
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ Driving directions from Yahoo
 
 (emacspeak-websearch-set-searcher 'map-directions
