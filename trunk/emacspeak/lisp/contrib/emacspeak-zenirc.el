@@ -1,5 +1,4 @@
 ;;; emacspeak-zenirc.el --- Speech-enabling extension for the Emacs IRC Client Zenirc.
-
 ;;{{{ Copyright
 
 ;;; Copyright (C) 2000 Ben van Poppel
@@ -20,7 +19,7 @@
 ;; General Public License for more details.
 
 ;;}}}
-;;{{{ INtroduction
+;;{{{ Introduction
 
 ;;; Commentary:
 
