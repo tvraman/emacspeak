@@ -57,19 +57,18 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'custom)
-
-(require 'dtk-voices )
-(require 'voice-lock)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-keymap)
-(eval-when (compile)
-  (condition-case nil
-      (progn
-        (require 'term)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'dtk-voices )
+                   (require 'voice-lock)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (require 'emacspeak-keymap)
+                   (condition-case nil
+                       (progn
+                         (require 'term)
                                         ;(require 'tshell)
-        )
-    (error nil )))
+                         )
+                     (error nil )))
 
 ;;}}}
 ;;{{{ custom

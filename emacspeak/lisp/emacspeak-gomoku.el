@@ -43,9 +43,9 @@
 (eval-when-compile (require 'cl))
 (require 'backquote)
 (declaim  (optimize  (safety 0) (speed 3)))
+(eval-when-compile (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (compile)
   (when (locate-library "gomoku")
   (require 'gomoku)))
 

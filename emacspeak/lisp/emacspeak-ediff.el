@@ -43,17 +43,14 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'custom)
+(eval-when-compile (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
 (require 'voice-lock)
-(eval-when (compile)
-  (condition-case nil 
-      (progn 
         (require 'ediff)
         (require 'ediff-init))
-    (error (message "Looks like you use an older version of
-ediff ..."))))
+    
 
 ;;}}}
 ;;{{{  Introduction:

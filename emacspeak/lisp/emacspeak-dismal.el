@@ -48,9 +48,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'emacspeak-keymap)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-sounds)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-keymap))
 
 ;;}}}
 ;;{{{ custom

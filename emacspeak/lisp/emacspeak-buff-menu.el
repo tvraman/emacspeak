@@ -42,9 +42,10 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
+(eval-when-compile
+  (require 'dtk-speak)
+  (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (compile)
   (load-library "buff-menu"))
 
 ;;}}}

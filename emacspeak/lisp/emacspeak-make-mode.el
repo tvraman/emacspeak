@@ -43,9 +43,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-(require 'emacspeak-speak)
-(require 'voice-lock)
-(require 'emacspeak-sounds)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'voice-lock)
+                   (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -155,6 +156,7 @@ ad-do-it
 
 (add-hook 'makefile-mode-hook
           (function (lambda ()
+                      (declare (special dtk-split-caps))
                       (voice-lock-mode 1)
                       (dtk-set-punctuations "all")
                       (or dtk-split-caps
