@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<links>
+  <a href="http://prdownloads.sourceforge.net/emacspeak/">Downloads</a>
+  <a href="info/emacspeak.html">Reference</a>
+  <a href="install-guide/">Installation</a>
+  <a href="user-guide/">Usage</a>
+  <a href="tips.html">Tips</a>
+  <a href="applications.html">Tools</a>
+  <a href="http://www.cs.vassar.edu/~priestdo/emacspeak/">Support</a>
+  <a href="http://www.cs.cornell.edu/home/raman">About the
+        author</a>
+  <a href="http://sourceforge.net/projects/emacspeak">
+    <img src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge"/>
+  </a>
+  <a href="http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html">
+    AsTeR</a>
+  <a href="http://www.w3.org/Press/1998/CSS2-REC">W3C's Aural CSS
+    (ACSS)</a>
+  <a href="applications.html">task-oriented
+    tools</a>
+  <a href="info/emacspeak.html">online manual</a>
+  <a href="tips.html">productivity tips</a>
+  <a href="applications.html">speech-enabled applications list</a>
+  <a href="http://www.google.com/search?q=emacspeak">Google</a>
+  <a id="toc" name="toc">Contents</a>
+  <a href="#releases">Press Releases And
+      Announcements</a>
+  <a href="#benefits">Benefits</a>
+  <a href="#publications">Publications And Talks</a>
+  <a href="#innovators">Innovative Internet projects that
+      use Emacspeak</a>
+  <a href="#mailingList">Emacspeak Mailing List</a>
+  <a href="#support">Support And Documentation</a>
+  <a href="#synths">Synthesizer Support</a>
+  <a href="#themes">Auditory Icon Themes</a>
+  <a id="releases" name="releases">Press Releases And
+    Announcements</a>
+  <a href="release-17.0.html">Announcing Emacspeak 17.0
+      (HappyDog)</a>
+  <a href="http://www.fonix.com/products/dectalk/rt_linux/">Emacspeak 17.0 adds support for Fonix Software Dectalk.</a>
+  <a href="release-16.0.html">Announcing Emacspeak 16.0
+      (CleverDog)</a>
+  <a href="release-15.0.html">Announcing Emacspeak 15.0
+      (SmartDog)</a>
+  <a href="applications.html" shape="rect">Speech-enabled
+      Applications Catalog</a>
+  <a href="release-14.0.html">Announcing Emacspeak 14.0
+      (TopDog)</a>
+  <a href="publications/colored-paper.html">Welcome To
+      Fancy Colored Paper Universe</a>
+  <a href="publications/colored-paper.pdf">PDF version</a>
+  <a href="publications/semantic-www.html">Speech-enabling
+      the Semantic WWW</a>
+  <a href="publications/semantic-www.pdf">PDF version</a>
+  <a href="release-13.0.html">Announcing Emacspeak 13.0
+      (YellowLab)</a>
+  <a href="http://www.eet.com/story/OEG20001004S0036">EE
+      Times On Emacspeak And Open Source</a>
+  <a href="release-12.0.html">Announcing Emacspeak 12.0
+      (GoldenDog)</a>
+  <a href="april-2000.txt">If Emacspeak Were To Go
+      Commercial ... April 2000</a>
+  <a href="talks/bazaar-99/slides.html">Emacspeak at Bazaar
+      1999 (slides as a single file)</a>
+  <a href="talks/bazaar-99/title.html">for the presentation
+      version</a>
+  <a href="release-11.0.html">Announcing Emacspeak-11.0
+      (Aster)</a>
+  <a href="release-10.0.html">Announcing Emacspeak-10.0
+      (WonderDog)</a>
+  <a href="smithsonian/study.html">Emacspeak enters
+      Smithsonian's permanent Research Collection</a>
+  <a href="OsgoodFile.html">CBS Radio --The Osgood File On
+      Emacspeak</a>
+  <a href="manual-announce.html">Announcing Emacspeak User
+      Manual 2nd Edition As An Open Source Project.</a>
+  <a href="release-9.0.html">Announcing Emacspeak-9.0
+      (BlackLab)</a>
+  <a href="release-8.0.html">Announcing Emacspeak-8.0
+      (BlackDog)</a>
+  <a href="release-7.0.html">Announcing Emacspeak-7.0
+      (Labrador)</a>
+  <a id="benefits" name="benefits">Benefits</a>
+  <a href="smithsonian/study.html">case study</a>
+  <a id="publications" name="publications">Publications And
+    Talks</a>
+  <a href="publications/semantic-www.html">Speech-enabling
+      the Semantic WWW</a>
+  <a href="publications/semantic-www.pdf">PDF version</a>
+  <a href="talks/chi96.pdf">CHI 96 Presentation</a>
+  <a href="talks/chi96.txt">text version</a>
+  <a href="publications/">in the publications directory.</a>
+  <a id="innovators" name="innovators">Innovative Internet
+    Projects Known To Be Using Emacspeak</a>
+  <a href="http://www.etc-edu.com">ETC</a>
+  <a id="mailingList" name="mailingList">Emacspeak Mailing
+    List</a>
+  <a href="mailto:emacspeak-request@cs.vassar.edu">the list request
+    address (maintained by) greg e. priest-dorman</a>
+  <a href="release.html">the news page</a>
+  <a id="support" name="support">Support And
+    Documentation</a>
+  <a href="./release.html">release notes</a>
+  <a href="http://www.cs.vassar.edu/~priestdo/emacspeak/">Vassar</a>
+  <a href="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How To
+    Ask Questions The Smart Way</a>
+  <a href="COPYRIGHT">Copyright</a>
+  <a href="mailto:emacspeak-request@cs.vassar.edu">emacspeak-request@cs.vassar.edu</a>
+  <a id="synths" name="synths">Synthesizer Support</a>
+  <a href="http://www.fonix.com/products/dectalk/rt_linux/">Fonix Software Dectalk</a>
+  <a href="http://www.mv.com/ipusers/vanzandt/">Jim Van Zandt's home
+    page</a>
+  <a id="themes" name="themes">Auditory Icon Themes</a>
+  <a href="themes.html">themes</a>
+  <a href="http://www.cs.cornell.edu/Info/People/raman/raman.html">T.
+  </a>
+</links>
