@@ -236,9 +236,7 @@ prompting for a template.")
 (emacspeak-url-template-define
  "Netcraft Web Analysis"
  "http://uptime.netcraft.com/up/graph/?mode_u=off&mode_w=on&site=%s&submit=Examine "
- (list
-  #'(lambda nil
-      (read-from-minibuffer "Site to analyze: ")))
+ (list "Site to analyze: ")
  nil
  "Analyze WWW site using Netcraft.")
 ;;}}}
@@ -246,9 +244,7 @@ prompting for a template.")
 (emacspeak-url-template-define
  "BBC Radio4 On Demand"
  "rtsp://rmv8.bbc.net.uk/radio4/%s.ra"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "WeekdayTime: ")))
+ (list "WeekdayTime: ")
  nil
  "Specify a week day (three letters -- lower case -- and a time spec
 -- e.g. 1230 --
@@ -275,9 +271,7 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "BBC Programs On Demand"
  "http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "BBC Program: ")))
+ (list "BBC Program: ")
  nil
  "Play BBC programs on demand."
  'emacspeak-realaudio-play)
@@ -316,25 +310,19 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "Google WebQuotes"
  "http://labs.google.com/cgi-bin/webquotes?num_quotes=3&q=%s&btnG=Google+WebQuotes+Search&show_titles=1&bold_links=1&snippet_threshold=3"
- (list
-  #'(lambda nil
-       (read-from-minibuffer "Query: ")))
+ (list "Query: ")
  nil
  "Google WebQuotes.")
 (emacspeak-url-template-define
  "Google Glossary"
  "http://labs.google.com/glossary?q=%s"
- (list
-  #'(lambda nil
-       (read-from-minibuffer "Term: ")))
+ (list "Term: ")
  nil
  "Google Glossary lookup.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list
-  #'(lambda ()
-       (read-from-minibuffer "Google search:"))
+ (list "Google search:")
   #'(lambda nil
       (declare (special  emacspeak-websearch-google-number-of-results))
       emacspeak-websearch-google-number-of-results))
@@ -391,10 +379,7 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "Google News Search"
  "http://news.google.com/news?hl=en&q=%s&scoring=d&btnG=Google+Search"
- (list
-  #'(lambda ()
-       (read-from-minibuffer
-	"Search news for: ")))
+ (list "Search news for: ")
  #'(lambda nil
      (search-forward "Sorted by")
      (forward-line 4)
@@ -492,10 +477,7 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "Yahoo Content By Content ID"
  "http://dailynews.yahoo.com/news?tmpl=index2&cid=%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer
-       "Content ID: ")))
+ (list "Content ID: ")
  nil
  "Retrieve and speak news section from Yahoo Daily News."
  'emacspeak-url-template-yahoo-news-processor)
@@ -554,9 +536,7 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "pdf2html"
  "http://access.adobe.com/perl/convertPDF.pl?url=%s"
- (list
-  #'(lambda ()
-       (read-from-minibuffer "PDF URL: ")))
+ (list "PDF URL: ")
  nil
  "Use access.adobe.com to  convert a remote PDF document to
 HTML.
@@ -567,9 +547,7 @@ The PDF document needs to be available on the public Internet.")
 (emacspeak-url-template-define
  "OASIS  Lists"
  "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "OASIS Group: "))
+ (list "OASIS Group: ")
   #'(lambda ()
       (read-from-minibuffer  "YearMonth: "
                              (format-time-string "%Y%m")
@@ -621,9 +599,7 @@ name of the list.")
 (emacspeak-url-template-define
  "CNN Weather "
  "http://weather.cnn.com/weather/forecast.jsp?locCode=%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "City Code: ")))
+ (list "City Code: ")
  nil
  "Weather Forecast from CNN"
  #'(lambda (url)
@@ -753,9 +729,7 @@ the broadcast. You must have mplayer installed."
 (emacspeak-url-template-define
  "American Life On Demand."
  "http://www.wbez.org/ta/%s.rm"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "Episode: ")))
+ (list "Episode: ")
  nil
  "Play This American Life  shows on demand."
  'emacspeak-realaudio-play)
@@ -769,8 +743,7 @@ the broadcast. You must have mplayer installed."
   #'(lambda ()
       (read-from-minibuffer "Date:"
                             (format-time-string "%d-%b-%Y")))
-  #'(lambda ()
-      (read-from-minibuffer "Segment:")))
+       "Segment:")
  nil
  "Play NPR shows on demand.
 Program is specified as a program code:
@@ -828,8 +801,7 @@ plays entire program."
  "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
  (list
   'emacspeak-url-template-date-YearMonthDate
-  #'(lambda nil
-      (read-from-minibuffer "Segment: ")))
+       "Segment: ")
  nil
  "Play NPR Talk Of The Nation segment."
  'emacspeak-realaudio-play)
@@ -839,8 +811,7 @@ plays entire program."
  "rtsp://audio.npr.org/atc/%s_atc_%s.rm"
  (list
   'emacspeak-url-template-date-YearMonthDate
-  #'(lambda nil
-      (read-from-minibuffer "Segment: ")))
+  "Segment: ")
  nil
  "Play All Things Considered segment."
  'emacspeak-realaudio-play)
@@ -850,8 +821,6 @@ plays entire program."
  "rtsp://audio.npr.org/me/%s_me_%s.rm" 
  (list
   'emacspeak-url-template-date-YearMonthDate
-  #'(lambda nil
-      (read-from-minibuffer "Segment: ")))
  nil
  "Play Morning Edition segment."
  'emacspeak-realaudio-play)
@@ -862,18 +831,14 @@ plays entire program."
 (emacspeak-url-template-define
  "DDJ TechNetCast Save" 
  "http://technetcast.ddj.com/tnc_save_mp3.html?stream_id=%s"
- (list
-  (lambda nil 
-    (read-from-minibuffer "Download Stream ")))
+ (list "Download Stream ")
  nil
  "Browse to a specified DDJ Technetcast stream and save  it.")
 
 (emacspeak-url-template-define
  "DDJ TechNetCast Play" 
  "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
- (list
-  (lambda nil 
-    (read-from-minibuffer "Stream Id")))
+ (list "Stream Id")
  nil
  "Play Technetcast stream from DDJ."
  #'(lambda (url)
@@ -913,28 +878,22 @@ plays entire program."
 (emacspeak-url-template-define
  "sourceforge project" 
  "http://sourceforge.net/projects/%s"
- (list
-  (lambda nil 
-    (read-from-minibuffer "Project name")))
+ (list "Project name")
  nil
  "Open specified project page at SourceForge.")
 
 (emacspeak-url-template-define
  "sourceforge browse download" 
  "http://prdownloads.sourceforge.net/%s"
- (list
-  (lambda nil 
-    (read-from-minibuffer "Project name")))
+ (list "Project name")
  nil
  "Retrieve download page at Sourceforge for specified project.")
 
 (emacspeak-url-template-define
  "sourceforge download for North America" 
  "http://osdn.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
- (list
-  (lambda nil 
-    (read-from-minibuffer "Project name")))
- nil
+ (list "Project name")
+nil
  "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
@@ -1002,10 +961,8 @@ plays entire program."
                (second fields)
                (third fields)))
         result))
-  #'(lambda nil 
-      (read-from-minibuffer "Visiting Team: "))
-  #'(lambda nil
-      (read-from-minibuffer "Home Team: ")))
+  "Visiting Team: "
+  "Home Team: ")
  nil
  "Display baseball Play By Play."
  )
@@ -1032,10 +989,8 @@ plays entire program."
                (second fields)
                (third fields)))
         result))
-  #'(lambda nil 
-      (read-from-minibuffer "Visiting Team: "))
-  #'(lambda nil
-      (read-from-minibuffer "Home Team: ")))
+       "Visiting Team: "
+       "Home Team: ")
  nil
  "Display baseball scores."
  )
@@ -1150,10 +1105,7 @@ Set up URL rewrite rule to get print page."
 (emacspeak-url-template-define
  "Meerkat"
  "http://meerkat.oreillynet.com/?_fl=rss10&%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer
-       "Meerkat recipe: ")))
+ (list "Meerkat recipe: ")
  nil
  "Meerkat tool"
  #'(lambda (url)
@@ -1164,11 +1116,7 @@ Set up URL rewrite rule to get print page."
 (emacspeak-url-template-define
  "Flight Tracker"
  "http://tracker.flightview.com/fvAirwise/fvCPL.exe?qtype=htm&AL=%s&acid=%s&FIND1=Find+flight"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "Airline: "))
-  #'(lambda nil
-      (read-from-minibuffer "Flight number: ")))
+ (list "Airline: " "Flight number: ")
  #'(lambda nil
      (search-forward "Airline: " nil t)
      (emacspeak-speak-line))
