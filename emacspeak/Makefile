@@ -149,6 +149,7 @@ IGUIDE=install-guide/*.html install-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
+SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
@@ -222,7 +223,7 @@ tar:
 	@echo "To configure the source files. Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-	 		${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
+	 		${TABLE_SAMPLES} ${REALAUDIO} ${SHOUTCAST} ${FORMS} \
 	${SOUNDS}   
 
 dist: $(DISTFILES)
@@ -268,6 +269,8 @@ install:
 	chmod -R go+rX  $(libdir)/sounds
 	$(CP) -r $(REALAUDIO) $(libdir)
 	chmod -R go+rX  $(libdir)/realaudio
+	$(CP) -r $(SHOUTCAST) $(libdir)
+	chmod -R go+rX  $(libdir)/SHOUTCAST
 	$(INSTALL) -d $(libdir)/etc/forms
 	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
 	$(INSTALL) -d $(libdir)/etc/tables

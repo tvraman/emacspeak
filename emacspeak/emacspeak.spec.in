@@ -54,51 +54,52 @@ Make sure you read the Emacs info pages
 
 %files 
  /usr/share/emacs/site-lisp/emacspeak/
-%doc servers/linux-outloud/VIAVOICE
-%doc servers/software-dtk/DTK
-%doc etc/NEWS
-%doc etc/NEWS-16.0
-%doc etc/NEWS-15.0
-%doc etc/NEWS-14.0
-%doc etc/NEWS-13.0
-%doc etc/NEWS-12.0
-%doc etc/NEWS-11.0
-%doc etc/NEWS-10.0
-%doc etc/NEWS-9.0
-%doc etc/NEWS-8.0
-%doc etc/FAQ
-%doc etc/HELP
-%doc etc/COPYRIGHT
-%doc etc/tips.html
-%doc etc/applications.html
-%doc info/acknowledge.texi
-%doc info/announce.texi
-%doc info/audio-desktop.texi
-%doc info/copyright.texi
-%doc info/documents.texi
-%doc info/emacspeak.texi
-%doc info/eterm.texi
-%doc info/install.texi
-%doc info/introduction.texi
-%doc info/online-help.texi
-%doc info/packages.texi
-%doc info/preamble.texi
-%doc info/structure.texi
-%doc info/tts.texi
-%doc info/using.texi
-%doc info/commands.texi
-%doc user-guide/acknowledgments.html
-%doc user-guide/before-you-begin.html
-%doc user-guide/entertainment.html
-%doc user-guide/index.html
-%doc user-guide/introduction.html
-%doc user-guide/productivity.html
-%doc user-guide/system-administration.html
-%doc user-guide/working-online.html
-%doc user-guide/working-with-files.html
-%doc user-guide/espk-article.sgml
+
+%doc servers/linux-outloud/VIAVOICE \
+ servers/software-dtk/DTK \
+ etc/NEWS \
+ etc/NEWS-16.0 \
+ etc/NEWS-15.0 \
+ etc/NEWS-14.0 \
+ etc/NEWS-13.0 \
+ etc/NEWS-12.0 \
+ etc/NEWS-11.0 \
+ etc/NEWS-10.0 \
+ etc/NEWS-9.0 \
+ etc/NEWS-8.0 \
+ etc/FAQ \
+ etc/HELP \
+ etc/COPYRIGHT \
+ etc/tips.html \
+ etc/applications.html \
+ info/acknowledge.texi \
+ info/announce.texi \
+ info/audio-desktop.texi \
+ info/copyright.texi \
+ info/documents.texi \
+ info/emacspeak.texi \
+ info/eterm.texi \
+ info/install.texi \
+ info/introduction.texi \
+ info/online-help.texi \
+ info/packages.texi \
+ info/preamble.texi \
+ info/structure.texi \
+ info/tts.texi \
+ info/using.texi \
+ info/commands.texi \
+ user-guide/acknowledgments.html \
+ user-guide/before-you-begin.html \
+ user-guide/entertainment.html \
+ user-guide/index.html \
+ user-guide/introduction.html \
+ user-guide/productivity.html \
+ user-guide/system-administration.html \
+ user-guide/working-online.html \
+ user-guide/working-with-files.html \
+ user-guide/espk-article.sgml
 /usr/bin/emacspeak
-/usr/share/info/emacspeak.info
+emacspeak.info/usr/share/info/
 /usr/share/info/emacspeak.info-1
 /usr/share/info/emacspeak.info-2
 /usr/share/info/emacspeak.info-3
