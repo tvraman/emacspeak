@@ -79,7 +79,7 @@
 (defvar emacspeak-freeamp-freeamp-keys
   (list ?p ?+ ?-  ?f ?b ?s ?= ?q)
   "Keys accepted by freeamp.")
-
+;;;###autoload
 (defun emacspeak-freeamp-freeamp-command (char)
   "Execute FreeAmp command."
   (interactive "cFreeamp Command:")
@@ -95,11 +95,12 @@
       (accept-process-output emacspeak-freeamp-process 1)
       (message "%s"
 	       (buffer-substring mark (point-max))))))
-
+;;;###autoload
 (defun emacspeak-freeamp-freeamp-call-command ()
   "Call appropriate freeamp command."
   (interactive)
   (emacspeak-freeamp-freeamp-command last-input-char))
+
 (define-key emacspeak-freeamp-mode-map  "o" 'emacspeak-freeamp)
 (loop for c in emacspeak-freeamp-freeamp-keys
       do
@@ -112,7 +113,7 @@
 
 ;;}}}
 ;;{{{ emacspeak-freeamp
-
+;;;###autoload
 (defun emacspeak-freeamp (resource)
   "Play specified resource using freeamp.
 Resource is an  MP3 file or m3u playlist.
