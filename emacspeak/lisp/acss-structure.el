@@ -94,6 +94,35 @@
   )
 
 ;;}}}
+;;{{{  define from style
+
+;;; may be redefined at runtime when alternative tts engine is
+;;; configured.
+(fset 'tts-voice-defined-p 'dtk-voice-defined-p)
+(fset 'tts-define-voice-from-speech-style
+      'dtk-define-voice-from-speech-style)
+
+(defun acss-personality-from-speech-style (style)
+  "First compute a symbol that will be name for this STYLE.
+Then see if a voice defined for it.
+Finally return the symbol"
+  (cond
+   ((and (acss-gain style)
+     (= 0 (acss-gain style)))
+    'inaudible)
+   (t
+    (let ((name (intern
+                 (format "%s-a%s-p%s-s%s-r%s"
+                         (acss-family style)
+                         (acss-average-pitch style)
+                         (acss-pitch-range style)
+                         (acss-stress style)
+                         (acss-richness style)))))
+      (unless (tts-voice-defined-p name)
+        (tts-define-voice-from-speech-style name style))
+      name))))
+
+;;}}}
 (provide  'acss-structure)
 ;;{{{  emacs local variables
 
