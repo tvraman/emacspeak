@@ -73,6 +73,7 @@
 	(defadvice (, f) (after  emacspeak pre act )
 	  "Speak the line containing the error. "
 	  (when (interactive-p)
+            (dtk-stop)
 	    (emacspeak-compilation-speak-error))))))
 
 (loop for f in 
