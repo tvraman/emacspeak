@@ -229,7 +229,8 @@ See documentation for command `Info-goto-node' for details on
 node-spec."
   (interactive
    (list
-    (read-from-minibuffer "Node: ")))
+    (read-from-minibuffer "Node: "
+"(")))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
