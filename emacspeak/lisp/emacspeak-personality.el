@@ -165,55 +165,62 @@ displayed in the messages area."
 (defadvice put-text-property (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((start (ad-get-arg 0))
-         (end (ad-get-arg 1 ))
-         (prop (ad-get-arg 2))
-         (value (ad-get-arg 3 ))
-         (object (ad-get-arg 4))
-         (voice nil)
-         (voices nil))
-     (when (eq prop 'face)
-       (cond
-        ((symbolp value)
-       (setq voice (voice-setup-get-voice-for-face   value)))
-        ((listp value)
-        (setq voices
-              (remove nil 
-              (mapcar #'voice-setup-get-voice-for-face value)))
-        
-                           (setq voice (car (last voices))))
-                      (t (message "Got %s" value)))
-       (when voice
-            (put-text-property start end
-                               'personality voice
-                               object))
-       (when (and emacspeak-personality-show-unmapped-faces
-                  (not voice))
-         (puthash  value t emacspeak-personality-unmapped-faces)))))
+        (end (ad-get-arg 1 ))
+        (prop (ad-get-arg 2))
+        (value (ad-get-arg 3 ))
+        (object (ad-get-arg 4))
+        (voice nil))
+    (when (eq prop 'face)
+      (cond
+       ((symbolp value)
+        (setq voice (voice-setup-get-voice-for-face   value)))
+       ((listp value)
+        (setq voice
+              (delete nil 
+                      (mapcar   #'voice-setup-get-voice-for-face value))))
+       (t (message "Got %s" value)))
+      (when voice
+        (put-text-property start end
+                           'personality voice
+                           object))
+      (when (and emacspeak-personality-show-unmapped-faces
+                 (not voice))
+        (cond
+         ((listp value)
+                 (mapcar #'(lambda (v)
+                             (puthash  v t emacspeak-personality-unmapped-faces))
+                         value))
+         (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
 
 ;;}}}
 ;;{{{ advice overlay-put 
+
 (defadvice overlay-put (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((overlay (ad-get-arg 0))
-         (prop (ad-get-arg 1))
-         (value (ad-get-arg 2))
-         (voice nil)
-         (voices nil))
-     (when (eq prop 'face)
-       (cond
-        ((symbolp value)
-       (setq voice (voice-setup-get-voice-for-face   value)))
-        ((listp value)
-        (setq voices
-              (remove nil 
-              (mapcar #'voice-setup-get-voice-for-face value)))
-                           (setq voice (car (last voices))))
-                      (t (message "Got %s" value)))
-       (when voice
-            (overlay-put overlay 'personality voice))
-       (when (and emacspeak-personality-show-unmapped-faces
-                  (not voice))
-         (puthash  value t emacspeak-personality-unmapped-faces)))))
+        (prop (ad-get-arg 1))
+        (value (ad-get-arg 2))
+        (voice nil))
+    (when (eq prop 'face)
+      (cond
+       ((symbolp value)
+        (setq voice (voice-setup-get-voice-for-face   value)))
+       ((listp value)
+        (setq voice
+              (delete nil
+                      (mapcar
+                       #'voice-setup-get-voice-for-face value))))
+       (t (message "Got %s" value)))
+      (when voice
+        (overlay-put overlay 'personality voice))
+      (when (and emacspeak-personality-show-unmapped-faces
+                 (not voice))
+        (cond
+         ((listp value)
+                 (mapcar #'(lambda (v)
+                             (puthash  v t emacspeak-personality-unmapped-faces))
+                         value))
+         (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
 
 ;;}}}
 (provide 'emacspeak-personality )
