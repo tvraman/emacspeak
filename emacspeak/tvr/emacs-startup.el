@@ -84,6 +84,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  handle terminal weirdnesses and function keys
 
     (load-library-if-available "console")
+    (load-library-if-available "screen")
     (load-library-if-available "function-keys")
 
     ;;}}}
@@ -316,6 +317,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "yasb-prepare")
 
     ;;}}}
+    ;;{{{ swbuffer
+    (load-library-if-available "swbuff")
+    (global-set-key  [S right] 'swbuff-switch-to-next-buffer)
+    (global-set-key  [S left] 'swbuff-switch-to-previous-buffer)
+    ;;}}}
     ;;{{{ buffer selection 
     (load-library-if-available"buff-sel")
     ;;}}}
@@ -422,10 +428,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{ dirvars
     (load-library-if-available "dirvars")
     ;;}}}
-;;{{{ sys-apropos
-(load-library-if-available  "sys-apropos")
+    ;;{{{ sys-apropos
+    (load-library-if-available  "sys-apropos")
 
-;;}}}
+    ;;}}}
     ;;{{{ color
     (global-font-lock-mode t)
     (load-library-if-available "color-theme")

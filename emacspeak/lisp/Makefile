@@ -178,6 +178,7 @@ emacspeak-solitaire.elc \
 emacspeak-speedbar.elc \
 emacspeak-sql.elc \
 emacspeak-supercite.elc \
+emacspeak-swbuff.elc \
 emacspeak-tapestry.elc \
 emacspeak-tar.elc \
 emacspeak-tcl.elc \
@@ -368,6 +369,7 @@ emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-lock.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc
+emacspeak-swbuff.elc: emacspeak-swbuff.el dtk-speak.elc
 emacspeak-table-ui.elc: emacspeak-table-ui.el emacspeak-tabulate.elc  \
 emacspeak-table.elc
 emacspeak-table.elc: emacspeak-table.el
