@@ -905,10 +905,15 @@ To leave, press \\[keyboard-quit]."
           (sort
            options
            #'(lambda (a b )
-               (or
-                (string-lessp a b)
-                (string-lessp (ems-variable-symbol-file  a)
-                              (ems-variable-symbol-file  b))))))
+               (cond
+                     ((string-lessp
+		       (ems-variable-symbol-file a)
+		       (ems-variable-symbol-file b))
+                      t)
+                     ((string-equal (ems-variable-symbol-file a)
+                                    (ems-variable-symbol-file b))
+                      (string-lessp a b))
+                     (t nil)))))
     options))
            
 
@@ -939,9 +944,7 @@ To leave, press \\[keyboard-quit]."
                       t)
                      ((string-equal (symbol-file a)
                                     (symbol-file b))
-                      (string-lessp
-                       (symbol-name a)
-                       (symbol-name b)))
+                      (string-lessp a b))
                      (t nil)))))
     commands))
 ;;;###autoload
