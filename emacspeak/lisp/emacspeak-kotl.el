@@ -37,11 +37,6 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; Provide Emacspeak  advice to
@@ -54,6 +49,10 @@
 ;;; the new functions before advising them.
 ;;; Then we advice the  new functions that are specific to kotl, e.g. moving
 ;;; cells etc.
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Advice the various redefined functions
