@@ -119,6 +119,26 @@ page</option>
           </td>
         </tr>
         <tr>
+          <td>
+            <select id="as_ft" name="as_ft">
+              <option value="i" selected="selected">Only</option>
+              <option value="e">Don't</option>
+            </select>
+            <label for="as_ft">return results of the file format</label>
+          </td>
+          <td>
+            <select name="as_filetype">
+              <option value="" selected="selected">any format</option>
+              <option value="pdf">Adobe Acrobat PDF (.pdf)</option>
+              <option value="ps">Adobe Postscript (.ps)</option>
+              <option value="doc">Microsoft Word (.doc)</option>
+              <option value="xls">Microsoft Excel (.xls)</option>
+              <option value="ppt">Microsoft Powerpoint (.ppt)</option>
+              <option value="rtf">Rich Text Format (.rtf)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
           <td>Filters</td>
           <td>
             <input id="9" type="radio" checked="checked" value="off" name="safe"/>
