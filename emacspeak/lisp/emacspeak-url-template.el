@@ -172,6 +172,18 @@
  "Display headline news from KLIV 1590 San Jose")
 
 ;;}}}
+;;{{{ google news overview 
+
+(emacspeak-url-template-define
+ "Google News Overview"
+ "http://www.google.com/news/newsheadlines.html"
+ nil
+ #'(lambda nil
+     (search-forward "Top Headlines")
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Google News Overview.")
+
+;;}}}
 ;;{{{ yahoo daily news 
 
 (emacspeak-url-template-define
