@@ -719,10 +719,11 @@ current local  value to the result."
   "Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally."
   (interactive "P")
-  (declare (special dtk-speech-rate-step ))
+  (declare (special dtk-speech-rate-step
+                    last-input-char))
   (let ((level
          (condition-case nil
-             (read (format "%c" last-input-event ))
+             (read (format "%c" last-input-char ))
            (error nil ))))
     (or (numberp level)
         (setq level
