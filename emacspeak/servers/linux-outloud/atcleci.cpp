@@ -633,7 +633,6 @@ set tts(last_index) $x}");
 //<playTTS 
 
 int playTTS (int count) {
-  fprintf(stderr,"playing %d samples\n",count);
   pcm_write(waveBuffer, count);
   return eciDataProcessed;
 }
