@@ -26,10 +26,7 @@ applies rules from the first pass.
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-  
   <xsl:output method="html" indent="yes"/>
-  
   <!-- {identity default  -->   
   <xsl:template match="*|@*" >
     <xsl:copy>
@@ -76,8 +73,6 @@ applies rules from the first pass.
     </xsl:element>
   </xsl:template>
 
-
-
   <xsl:template   match="//table//table"
                 mode="second-pass">
     <xsl:element name="a">
@@ -92,5 +87,13 @@ applies rules from the first pass.
   </xsl:template>
 
   <!-- } -->
-  
 </xsl:stylesheet>
+<!-- {end of file 
+
+<!--  --> 
+local variables:
+folded-file: t
+end:
+-->
+
+ <!-- } -->
