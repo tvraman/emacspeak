@@ -438,8 +438,6 @@
   (declare (special dtk-punctuation-mode))
   (setq dtk-punctuation-mode "some"))
 
-
-
 ;;}}}
 (provide 'emacspeak-w3m)
 ;;{{{ end of file 
