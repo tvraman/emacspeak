@@ -19,6 +19,13 @@ emacspeak-w3.
  - emacspeak-w3-browse-rss-at-point: ()
      Browses RSS url under point.
 
+ - emacspeak-w3-browse-url-with-style: (STYLE URL)
+     Browse URL with specified XSL style.
+
+ - emacspeak-w3-browse-xml-url-with-style: (STYLE URL &optional
+          UNESCAPE-CHARENT)
+     Browse XML URL with specified XSL style.
+
  - emacspeak-w3-class-filter-and-follow: (&optional PROMPT-CLASS)
      Follow url and point, and filter the result by specified class.
      Class can be set locally for a buffer, and overridden with an
@@ -121,6 +128,9 @@ emacspeak-w3.
  - emacspeak-w3-previous-doc-element: (&optional COUNT)
      Move back  to the previous document element.  Optional interactive
      prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-realaudio-play-url-at-point: (&optional PROMPT-TIME)
+     Play url under point as realaudio
 
  - emacspeak-w3-set-xsl-keep-result: (VALUE)
      Set value of `emacspeak-w3-xsl-keep-result'.
@@ -333,6 +343,9 @@ emacspeak-websearch.
  - emacspeak-websearch-merriam-webster-search: (QUERY)
      Search the Merriam Webster Dictionary.
 
+ - emacspeak-websearch-my-rss-search: (QUERY)
+     My RSS search.
+
  - emacspeak-websearch-news-yahoo: (QUERY)
      Perform an Yahoo News search
 
@@ -369,7 +382,7 @@ emacspeak-websearch.
      Search RPM  catalog  site.
 
  - emacspeak-websearch-shoutcast-search: ()
-     Ebay search.
+     Shoutcast search.
 
  - emacspeak-websearch-software-search: ()
      Search SourceForge, Freshmeat and other sites.
@@ -752,14 +765,12 @@ emacspeak-wizards.
 
      Browse  Emacspeak productivity tips.
 
- - emacspeak-wizards-browse-url-with-style: (STYLE URL)
-     Browse URL with specified XSL style.
-
- - emacspeak-wizards-browse-xml-url-with-style: (STYLE URL)
-     Browse XML URL with specified XSL style.
-
  - emacspeak-wizards-count-slides-in-region: ()
      Count slides starting from point.
+
+ - emacspeak-wizards-find-longest-line-in-region: (START END)
+     Find longest line in region.  Moves to the longest line when
+     called interactively.
 
  - emacspeak-wizards-finder-find: (DIRECTORY)
      Run find-dired on specified switches after prompting for the
@@ -952,13 +963,6 @@ emacspeak-xml-shell.
 
    Automatically generated documentation for commands defined in module
 nil.
-
- - emacspeak-m-player: ()
-     ` control e : '
-
-     Play specified resource using m-player.  Resource is an  MP3 file
-     or m3u playlist.  The player is placed in a buffer in
-     emacspeak-m-player-mode.
 
  - emacspeak-rss-browse: ()
      ` control e control u '

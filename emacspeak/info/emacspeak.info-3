@@ -1117,7 +1117,7 @@ emacspeak-keymap.
      speak interactive prompts.
 
 
-File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-man,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-m-player,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
 
 emacspeak-kotl
 ==============
@@ -1133,7 +1133,60 @@ emacspeak-kotl.
      speaks entire cell contents
 
 
-File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-mpg123,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-m-player,  Next: emacspeak-man,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
+
+emacspeak-m-player
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-m-player.
+
+ - emacspeak-m-player: (RESOURCE)
+     ` control e : '
+
+     Play specified resource using m-player.  Resource is an  MP3 file
+     or m3u playlist.  The player is placed in a buffer in
+     emacspeak-m-player-mode.
+
+ - emacspeak-m-player-alt-src-step: (STEP)
+     Move within an ASF playlist.
+
+ - emacspeak-m-player-mode: ()
+     Major mode for m-player interaction.
+
+     key             binding --             ------
+
+     q		emacspeak-m-player-quit SPC		emacspeak-m-player-pause
+     a		emacspeak-m-player-alt-src-step P		emacspeak-m-player-play-tree-up
+     p		emacspeak-m-player-play-tree-step
+     S		emacspeak-m-player-seek-absolute
+     s		emacspeak-m-player-seek-relative
+     <right>		emacspeak-aumix-wave-increase
+     <left>		emacspeak-aumix-wave-decrease
+
+     This mode runs the hook `emacspeak-m-player-mode-hook', as the
+     final step during initialization.
+
+ - emacspeak-m-player-pause: ()
+     Pause or unpause media player.
+
+ - emacspeak-m-player-play-tree-step: (STEP)
+     Move within the play tree.
+
+ - emacspeak-m-player-play-tree-up: (STEP)
+     Move within the play tree.
+
+ - emacspeak-m-player-quit: ()
+     Quit media player.
+
+ - emacspeak-m-player-seek-absolute: (POSITION)
+     Seek  to absolute specified position.
+
+ - emacspeak-m-player-seek-relative: (OFFSET)
+     Seek  by offset into stream from current position.
+
+
+File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-mpg123,  Prev: emacspeak-m-player,  Up: Emacspeak Commands
 
 emacspeak-man
 =============
@@ -1378,8 +1431,6 @@ emacspeak-pronounce.
      Clear all current pronunciation dictionaries.
 
  - emacspeak-pronounce-define-local-pronunciation: (WORD PRONUNCIATION)
-     ` control e meta b '
-
      Define buffer local pronounciation.  Argument WORD specifies the
      word which should be pronounced as specified by PRONUNCIATION.
 
@@ -1422,50 +1473,4 @@ emacspeak-pronounce.
 
  - emacspeak-pronounce-yank-word: ()
      Yank word at point into minibuffer.
-
-
-File: emacspeak.info,  Node: emacspeak-psgml,  Next: emacspeak-python,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands
-
-emacspeak-psgml
-===============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-psgml.
-
- - emacspeak-psgml-speak-current-element: ()
-     Speak contents of current element.
-
- - emacspeak-psgml-summarize-element: ()
-     Context-sensitive element summarizer.
-
- - emacspeak-psgml-toggle-interactive-voice-locking: ()
-     Toggles variable sgml-set-face.  When turned on, the  buffer is
-     voice locked interactively.  Leave this off in general while
-     editting.
-
- - emacspeak-xml-browse-mode: ()
-     Mode for browsing XML documents.
-
-     Uses keymap "emacspeak-xml-browse-mode", which is not currently
-     defined.
-
-     In addition to any hooks its parent mode `xml-mode' might have run,
-     this mode runs the hook `emacspeak-xml-browse-mode-hook', as the
-     final step during initialization.
-
-
-File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-realaudio,  Prev: emacspeak-psgml,  Up: Emacspeak Commands
-
-emacspeak-python
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-python.
-
- - emacspeak-py-next-block: ()
-     Move forward to the beginning of the next block.
-
- - emacspeak-py-previous-block: ()
-     Move backward to the beginning of the current block.  If already
-     at the beginning then move to previous block.
 
