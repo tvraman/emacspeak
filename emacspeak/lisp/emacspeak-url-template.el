@@ -465,6 +465,11 @@ content."
       (search-forward "</page>" nil t)
       (delete-region (point) (point-max))
       (nxml-mode)
+      (goto-char (point-min))
+      (delete-region (line-beginning-position) (line-end-position))
+      (insert 
+"<?xml version=\"1.0\"
+encoding=\"iso-8859-14\"?>")
       (indent-region (point-min) (point-max))
       )
     (switch-to-buffer buffer)
