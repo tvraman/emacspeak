@@ -1283,7 +1283,7 @@ With optional interactive prefix arg MAP shows the location map instead."
                      (webjump-url-encode query)))))
   (emacspeak-websearch-post-process
    "Matches"
-   'w3-table-focus-on-this-cell)
+   'emacspeak-speak-line)
   (setq emacspeak-w3-url-rewrite-rule
         '("/h/" "/htx/")))
 
