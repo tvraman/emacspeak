@@ -566,7 +566,8 @@ current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. "
   (interactive
    (list
-    (read-from-minibuffer "Table index: ")
+    (read-from-minibuffer
+     "Table index: ")
     current-prefix-arg))
   (emacspeak-w3-xslt-filter
    (format "(//table//table)[%s]" table-index)
@@ -656,7 +657,8 @@ Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the minibuffer."
   (interactive
    (list
-    (read-from-minibuffer "Table: ")
+    (read-from-minibuffer
+     "Table position: ")
     current-prefix-arg))
   (emacspeak-w3-xslt-filter
    (format "/descendant::table[%s]"
