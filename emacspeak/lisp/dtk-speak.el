@@ -976,7 +976,7 @@ important to be interrupted.")
 (defvar dtk-speaker-process nil
   "Speaker process handle.")
 ;;;###autoload
-(defvar dtk-punctuation-mode  "some"
+(defvar dtk-punctuation-mode  "all"
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
