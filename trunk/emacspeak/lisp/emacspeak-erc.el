@@ -116,6 +116,10 @@
 
 ;;}}}
 ;;{{{ advice interactive commands
+(defadvice erc-mode (after emacspeak pre act comp)
+  "Turn on voice lock mode."
+  (declare (special voice-lock-mode))
+  (setq voice-lock-mode t))
 
 (defadvice erc-select (after emacspeak pre act comp)
   "Provide auditory feedback."
