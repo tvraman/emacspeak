@@ -200,33 +200,20 @@ proc trackIndex {index} {
 }
 
 proc service {} {
-    set talking [speakingP]
-    while {$talking == 1} {
+    global tts
+    set tts(talking?) [speakingP]
+    while {$tts(talking?) == 1} {
         set status   [lsearch [select [list  stdin]  {} {} 0.9] stdin]
         if { $status >= 0} {
             s
+            set tts(talking?) 0
             break
         } else {
-            set talking [speakingP]
+            set tts(talking?) [speakingP]
         }
     }
-    return
+    return $tts(talking?)
 }
-
-proc tts_get_acknowledgement {} {
-    global tts
-    set input $tts(input)
-    set status [select [list    $input ] {} {} 0]
-    set code ""
-    if {[lsearch $status $input]   >=0} {
-        set tts(talking?) 0
-    } else {
-        set ack [speakingP]    
-    }
-    return $ack
-}
-
-
 
 proc speech_task {} {
     global queue tts
@@ -243,7 +230,7 @@ proc speech_task {} {
             s {
                 set text [clean [lindex $event 1]]
                 synth "$prefix $text"
-                set retval [tts_get_acknowledgement]
+                set retval [service]
             }
             n {
                 if {$tts(midi)} {
