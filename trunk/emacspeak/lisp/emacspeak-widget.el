@@ -114,7 +114,7 @@
            (lambda (x)
              (format "%s" x)))
           (widget-value widget)
-          ""))
+          " "))
         (tag (widget-get widget ':tag))
         (type(format "%s"
                      (emacspeak-widget-type  widget))))
