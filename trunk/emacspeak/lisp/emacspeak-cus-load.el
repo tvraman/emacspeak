@@ -23,6 +23,7 @@
 (put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
 (put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-advice" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-pronounce" "emacspeak-replace" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak" "voice-lock"))
 (put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))
+(put 'amphetadesk 'custom-loads '("amphetadesk"))
 (put 'comint 'custom-loads '("emacspeak-advice"))
 (put 'isearch 'custom-loads '("emacspeak-replace"))
 (put 'emacspeak-eudc 'custom-loads '("emacspeak-eudc"))
@@ -48,6 +49,7 @@
 (put 'emacspeak-m-player 'custom-loads '("emacspeak-m-player"))
 (put 'emacspeak-view-process 'custom-loads '("emacspeak-view-process"))
 (put 'emacspeak-dismal 'custom-loads '("emacspeak-dismal"))
+(put 'aplications 'custom-loads '("amphetadesk"))
 (put 'emacspeak-ediff 'custom-loads '("emacspeak-ediff"))
 (put 'emacspeak-remote 'custom-loads '("emacspeak-remote"))
 ;;; These are for handling :version.  We need to have a minimum of

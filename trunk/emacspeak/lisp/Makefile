@@ -261,7 +261,7 @@ lazy-voice-lock.elc: lazy-voice-lock.el voice-lock.elc
 
 html-voice.elc: html-voice.el voice-lock.elc
 html-outline.elc: html-outline.el
-
+amphetadesk.elc: amphetadesk.el
 cd-tool.elc: cd-tool.el
 emacspeak-actions.elc: emacspeak-actions.el  voice-lock.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc
