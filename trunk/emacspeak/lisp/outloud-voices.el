@@ -411,7 +411,14 @@ and TABLE gives the values along that dimension."
     ""))
 
 ;;}}}
+;;{{{  punctuations
 
+(defsubst outloud-get-punctuations-code (value)
+  "Return string needed to set specified punctuations mode."
+  (declare (special dtk-punctuation-mode))
+          "")
+
+;;}}}
 ;;}}}
 ;;{{{  outloud-define-voice-from-speech-style
 
@@ -421,6 +428,7 @@ and TABLE gives the values along that dimension."
 	 (command
 	  (concat 
 	   (outloud-get-family-code family)
+           (outloud-get-punctuations-code (acss-punctuations style))
 	   (outloud-get-average-pitch-code (acss-average-pitch style) family)
 	   (outloud-get-pitch-range-code (acss-pitch-range style) family)
 	   (outloud-get-stress-code (acss-stress style ) family)
