@@ -2,6 +2,7 @@
 
    <p><strong>The newest items from your [$ count_my_channels $] channels</p>
  [$ # display each channel that has been successfully downloaded.
+use HTTP::Date;
     my @channels = get_my_sorted_channels("date_downloaded", "reversed_data");
     
     # for each channel, parse and display.
@@ -19,7 +20,8 @@ to_browser(qq{<a href="$channel->{htmlurl}">$channel->{title}</a>});
        # this is so we don't get confused with channel
        # query_strings being interpreted as part of our own.
        my $encoded_xmlurl = encode_to_dec($channel->{xmlurl});
-       to_browser(qq{               <a href="$channel->{xmlurl}" >$channel->{date_downloaded}</a>\n});
+my $download_time=time2str(str2time($channel->{date_downloaded}));
+       to_browser(qq{               <a href="$channel->{xmlurl}" >$download_time</a>\n});
        to_browser(qq{<a href="index.html?del_url=$encoded_xmlurl&amp;go=1">Remove</a></h2>\n});
        # if there are no channel items, say so.
        if ( not defined($data->{item}) or scalar @{$data->{item}} <= 0) {
