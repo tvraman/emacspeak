@@ -133,6 +133,13 @@ Queues text to be spoken. No spoken output is produced until a
 @emph{d}.
 
 @example
+a filename
+@end example
+
+Cues the audio file identified by filename for playing.
+
+
+@example
 t freq length
 @end example
 
