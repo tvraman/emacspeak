@@ -458,6 +458,7 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-radio-button-choice  (widget)
   "Summarize a radio group "
   (let* ((value (widget-value widget))
+         (label (emacspeak-widget-label widget))
          (choice (widget-get widget :choice))
          (selected
           (cond
