@@ -102,12 +102,12 @@
 
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
-  (if (get-text-property (point) 'w3m-cursor-anchor)
+  (if (get-text-property (point) 'w3m-anchor-sequence)
       (buffer-substring
        (previous-single-property-change
-	(1+ (point)) 'w3m-cursor-anchor nil (point-min))
+	(1+ (point)) 'w3m-anchor-sequence nil (point-min))
        (next-single-property-change
-	(point) 'w3m-cursor-anchor nil (point-max)))
+	(point) 'w3m-anchor-sequence nil (point-max)))
     (or default "")))
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
