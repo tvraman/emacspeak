@@ -1,6 +1,6 @@
 @c $Id$
-@node  Emacspeak Customizations
-@chapter Emacspeak Customizations
+@node Emacspeak Customizations
+@chapter Emacspeak Customizations 
 
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
@@ -63,7 +63,7 @@ Automatically generated documentation
 for options defined in module  dtk-speak.
 These options are customizable via Emacs' Custom interface.
 
-@defvar dtk-cleanup-patterns
+@defvar {User Option} dtk-cleanup-patterns
 List of repeating patterns to clean up.
 You can use  command  `dtk-add-cleanup-pattern'
  bound to C-e d a  to add more patterns.
@@ -75,11 +75,11 @@ of a specified pattern is found, the TTS engine replaces it
 with a repeat count. 
 @end defvar
 
-@defvar dtk-resume-should-toggle
+@defvar {User Option} dtk-resume-should-toggle
 *T means `dtk-resume' acts as a toggle.
 @end defvar
 
-@defvar dtk-speak-nonprinting-chars
+@defvar {User Option} dtk-speak-nonprinting-chars
 *Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
@@ -87,24 +87,24 @@ Set this to t to avoid a dectalk bug that makes the speech box die if
 it seems some accented characters in certain contexts.
 @end defvar
 
-@defvar dtk-speech-rate-base
+@defvar {User Option} dtk-speech-rate-base
 *Value of lowest tolerable speech rate.
 @end defvar
 
-@defvar dtk-speech-rate-step
+@defvar {User Option} dtk-speech-rate-step
 *Value of speech rate increment.
 This determines step size used when setting speech rate via command
 `dtk-set-predefined-speech-rate'.  Formula used is
 dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 @end defvar
 
-@defvar dtk-startup-hook
+@defvar {User Option} dtk-startup-hook
 List of hooks to be run after starting up the speech server.  
 Set things like speech rate, punctuation mode etc in this
 hook.
 @end defvar
 
-@defvar dtk-stop-immediately-while-typing
+@defvar {User Option} dtk-stop-immediately-while-typing
 *Set it to nil if you dont want speech to flush as you
 type.  You can use command
 `dtk-toggle-stop-immediately-while-typing' bound to
@@ -121,11 +121,11 @@ Automatically generated documentation
 for options defined in module  emacspeak.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-play-emacspeak-startup-icon
+@defvar {User Option} emacspeak-play-emacspeak-startup-icon
 If set to T, emacspeak plays its icon as it launches.
 @end defvar
 
-@defvar emacspeak-startup-hook
+@defvar {User Option} emacspeak-startup-hook
 Hook to run after starting emacspeak.
 @end defvar
 
@@ -144,24 +144,24 @@ Automatically generated documentation
 for options defined in module  emacspeak-advice.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-backward-delete-char-speak-current-char
+@defvar {User Option} emacspeak-backward-delete-char-speak-current-char
 *T means `backward-delete-char' speaks char that becomes
 current after deletion.
 @end defvar
 
-@defvar emacspeak-comint-input-personality
+@defvar {User Option} emacspeak-comint-input-personality
 Personality used for highlighting comint input --emacs 21.
 @end defvar
 
-@defvar emacspeak-comint-prompt-personality
+@defvar {User Option} emacspeak-comint-prompt-personality
 Personality used for highlighting comint prompts --emacs 21.
 @end defvar
 
-@defvar emacspeak-delete-char-speak-deleted-char
+@defvar {User Option} emacspeak-delete-char-speak-deleted-char
 *T means `delete-char' speaks char that was deleted.
 @end defvar
 
-@defvar emacspeak-speak-messages-should-pause-ongoing-speech
+@defvar {User Option} emacspeak-speak-messages-should-pause-ongoing-speech
 * Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken.
@@ -174,15 +174,15 @@ Automatically generated documentation
 for options defined in module  emacspeak-auctex.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-latex-bold-face
+@defvar {User Option} emacspeak-latex-bold-face
 Face used for bold.
 @end defvar
 
-@defvar emacspeak-latex-italic-face
+@defvar {User Option} emacspeak-latex-italic-face
 Face used for italics.
 @end defvar
 
-@defvar emacspeak-latex-sedate-personality
+@defvar {User Option} emacspeak-latex-sedate-personality
 Personality used  on macro names.
 @end defvar
 
@@ -197,23 +197,23 @@ Automatically generated documentation
 for options defined in module  emacspeak-aumix.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-aumix-full-duplex-p
+@defvar {User Option} emacspeak-aumix-full-duplex-p
 *Set to T if the sound card is truly full duplex.
 @end defvar
 
-@defvar emacspeak-aumix-midi-available-p
+@defvar {User Option} emacspeak-aumix-midi-available-p
 *Set to T if   midi is available.
 @end defvar
 
-@defvar emacspeak-aumix-multichannel-capable-p
+@defvar {User Option} emacspeak-aumix-multichannel-capable-p
 *Set to T if the sound card is capable of mixing multiple channels of audio.
 @end defvar
 
-@defvar emacspeak-aumix-reset-options
+@defvar {User Option} emacspeak-aumix-reset-options
 *Option to pass to aumix for resetting to default values.
 @end defvar
 
-@defvar emacspeak-aumix-settings-file
+@defvar {User Option} emacspeak-aumix-settings-file
 *Name of file containing personal aumix settings.
 @end defvar
 
@@ -224,7 +224,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-calendar.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-calendar-mark-personality
+@defvar {User Option} emacspeak-calendar-mark-personality
 Personality to use when showing marked calendar entries.
 @end defvar
 
@@ -235,15 +235,15 @@ Automatically generated documentation
 for options defined in module  emacspeak-custom.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-custom-group-regexp
+@defvar {User Option} emacspeak-custom-group-regexp
 Pattern identifying start of custom group.
 @end defvar
 
-@defvar emacspeak-custom-state-face
+@defvar {User Option} emacspeak-custom-state-face
 Personality used for showing custom state.
 @end defvar
 
-@defvar emacspeak-custom-toolbar-regexp
+@defvar {User Option} emacspeak-custom-toolbar-regexp
 Pattern that identifies toolbar section.
 @end defvar
 
@@ -254,7 +254,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-dismal.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-dismal-value-personality
+@defvar {User Option} emacspeak-dismal-value-personality
 Personality used for speaking cell values in summaries.
 @end defvar
 
@@ -265,24 +265,24 @@ Automatically generated documentation
 for options defined in module  emacspeak-ediff.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-ediff-A-personality
+@defvar {User Option} emacspeak-ediff-A-personality
 Personality used to voiceify difference chunk A
 @end defvar
 
-@defvar emacspeak-ediff-B-personality
+@defvar {User Option} emacspeak-ediff-B-personality
 Personality used to voiceify difference chunk B
 @end defvar
 
-@defvar emacspeak-ediff-always-autorefine-diffs
+@defvar {User Option} emacspeak-ediff-always-autorefine-diffs
 Says if emacspeak should try computing fine differences each time.
 Set this to nil if things get too slow.
 @end defvar
 
-@defvar emacspeak-ediff-fine-A-personality
+@defvar {User Option} emacspeak-ediff-fine-A-personality
 Personality used to voiceify difference chunk A
 @end defvar
 
-@defvar emacspeak-ediff-fine-B-personality
+@defvar {User Option} emacspeak-ediff-fine-B-personality
 Personality used to voiceify difference chunk B
 @end defvar
 
@@ -293,56 +293,56 @@ Automatically generated documentation
 for options defined in module  emacspeak-erc.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-erc-action-personality
+@defvar {User Option} emacspeak-erc-action-personality
 Personality for actions.
 @end defvar
 
-@defvar emacspeak-erc-bold-personality
+@defvar {User Option} emacspeak-erc-bold-personality
 Bold personality for ERC.
 @end defvar
 
-@defvar emacspeak-erc-dangerous-host-personality
+@defvar {User Option} emacspeak-erc-dangerous-host-personality
 Personality for dangerous hosts.
 @end defvar
 
-@defvar emacspeak-erc-direct-msg-personality
+@defvar {User Option} emacspeak-erc-direct-msg-personality
 Personality for direct messages.
 @end defvar
 
-@defvar emacspeak-erc-error-face
+@defvar {User Option} emacspeak-erc-error-face
 Error personality for ERC.
 @end defvar
 
-@defvar emacspeak-erc-ignore-notices
+@defvar {User Option} emacspeak-erc-ignore-notices
 Set to T if you dont want to see notifcation messages from the
 server.
 @end defvar
 
-@defvar emacspeak-erc-input-personality
+@defvar {User Option} emacspeak-erc-input-personality
 personality for input.
 @end defvar
 
-@defvar emacspeak-erc-inverse-personality
+@defvar {User Option} emacspeak-erc-inverse-personality
 Inverse highlight in ERC.
 @end defvar
 
-@defvar emacspeak-erc-keyword-personality
+@defvar {User Option} emacspeak-erc-keyword-personality
 Personality for keywords.
 @end defvar
 
-@defvar emacspeak-erc-my-nick
+@defvar {User Option} emacspeak-erc-my-nick
 My IRC nick.
 @end defvar
 
-@defvar emacspeak-erc-notice-personality
+@defvar {User Option} emacspeak-erc-notice-personality
 Personality for notices.
 @end defvar
 
-@defvar emacspeak-erc-pal-personality
+@defvar {User Option} emacspeak-erc-pal-personality
 Personality for pals.
 @end defvar
 
-@defvar emacspeak-erc-prompt-personality
+@defvar {User Option} emacspeak-erc-prompt-personality
 Personality for prompts.
 @end defvar
 
@@ -353,51 +353,51 @@ Automatically generated documentation
 for options defined in module  emacspeak-eshell.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-eshell-ls-archive-personality
+@defvar {User Option} emacspeak-eshell-ls-archive-personality
 Personality for archive files.
 @end defvar
 
-@defvar emacspeak-eshell-ls-backup-personality
+@defvar {User Option} emacspeak-eshell-ls-backup-personality
 Personality for backup files. 
 @end defvar
 
-@defvar emacspeak-eshell-ls-clutter-personality
+@defvar {User Option} emacspeak-eshell-ls-clutter-personality
 Personality for transients.
 @end defvar
 
-@defvar emacspeak-eshell-ls-directory-personality
+@defvar {User Option} emacspeak-eshell-ls-directory-personality
 Personality for directory names.
 @end defvar
 
-@defvar emacspeak-eshell-ls-executable-personality
+@defvar {User Option} emacspeak-eshell-ls-executable-personality
 Personality for executables.
 @end defvar
 
-@defvar emacspeak-eshell-ls-missing-personality
+@defvar {User Option} emacspeak-eshell-ls-missing-personality
 Personality for missing file.
 @end defvar
 
-@defvar emacspeak-eshell-ls-product-personality
+@defvar {User Option} emacspeak-eshell-ls-product-personality
 Personality for files that can be recreated.
 @end defvar
 
-@defvar emacspeak-eshell-ls-readonly-personality
+@defvar {User Option} emacspeak-eshell-ls-readonly-personality
 Personality for read only files.
 @end defvar
 
-@defvar emacspeak-eshell-ls-special-personality
+@defvar {User Option} emacspeak-eshell-ls-special-personality
 Personality for special files.
 @end defvar
 
-@defvar emacspeak-eshell-ls-symlink-personality
+@defvar {User Option} emacspeak-eshell-ls-symlink-personality
 Personality for symlinks.
 @end defvar
 
-@defvar emacspeak-eshell-ls-unreadable-personality
+@defvar {User Option} emacspeak-eshell-ls-unreadable-personality
 Personality for files that are not readable.
 @end defvar
 
-@defvar emacspeak-eshell-ls-use-personalities
+@defvar {User Option} emacspeak-eshell-ls-use-personalities
 Indicates if ls in eshell uses different voice
 personalities.
 @end defvar
@@ -417,23 +417,23 @@ Automatically generated documentation
 for options defined in module  emacspeak-eterm.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-eterm-bold-personality
+@defvar {User Option} emacspeak-eterm-bold-personality
 Persnality to indicate terminal bold.
 @end defvar
 
-@defvar emacspeak-eterm-default-personality
+@defvar {User Option} emacspeak-eterm-default-personality
 Default personality for terminal.
 @end defvar
 
-@defvar emacspeak-eterm-highlight-personality
+@defvar {User Option} emacspeak-eterm-highlight-personality
 Personality to show terminal highlighting.
 @end defvar
 
-@defvar emacspeak-eterm-remote-hosts-cache
+@defvar {User Option} emacspeak-eterm-remote-hosts-cache
 File where list of known remote hosts is cached
 @end defvar
 
-@defvar emacspeak-eterm-underline-personality
+@defvar {User Option} emacspeak-eterm-underline-personality
 Underline personality for eterm.
 @end defvar
 
@@ -450,7 +450,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-eudc.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-eudc-attribute-value-personality
+@defvar {User Option} emacspeak-eudc-attribute-value-personality
 Personality t use for voiceifying attribute values. 
 @end defvar
 
@@ -461,7 +461,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-flyspell.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-flyspell-highlight-personality
+@defvar {User Option} emacspeak-flyspell-highlight-personality
 Voice used to highlight spelling errors. 
 @end defvar
 
@@ -472,11 +472,11 @@ Automatically generated documentation
 for options defined in module  emacspeak-forms.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-forms-ro-voice
+@defvar {User Option} emacspeak-forms-ro-voice
 Personality for read-only fields. 
 @end defvar
 
-@defvar emacspeak-forms-rw-voice
+@defvar {User Option} emacspeak-forms-rw-voice
 Personality for read-write fields. 
 @end defvar
 
@@ -496,7 +496,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-hide.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-hidden-header-line-personality
+@defvar {User Option} emacspeak-hidden-header-line-personality
 Personality used to identify header lines of blocks.
 @end defvar
 
@@ -507,19 +507,19 @@ Automatically generated documentation
 for options defined in module  emacspeak-imcom.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-imcom-client
+@defvar {User Option} emacspeak-imcom-client
 Name of IMCom command-line client.
 @end defvar
 
-@defvar emacspeak-imcom-default-jabber-server
+@defvar {User Option} emacspeak-imcom-default-jabber-server
 Name of jabber server that is used by default.
 @end defvar
 
-@defvar emacspeak-imcom-hooks
+@defvar {User Option} emacspeak-imcom-hooks
 Start up hooks run after IMCom process is started.
 @end defvar
 
-@defvar emacspeak-imcom-personal-directory
+@defvar {User Option} emacspeak-imcom-personal-directory
 Directory where IMCom stores personalization files.
 @end defvar
 
@@ -530,7 +530,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-info.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-info-select-node-speak-chunk
+@defvar {User Option} emacspeak-info-select-node-speak-chunk
 *Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
@@ -544,7 +544,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-ispell.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-ispell-max-choices
+@defvar {User Option} emacspeak-ispell-max-choices
 Emacspeak will not speak the choices if there are more than this
 many available corrections.
 @end defvar
@@ -556,35 +556,35 @@ Automatically generated documentation
 for options defined in module  emacspeak-jde.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-jde-api-personality
+@defvar {User Option} emacspeak-jde-api-personality
 Personality used for user defined API names.
 @end defvar
 
-@defvar emacspeak-jde-bold-personality
+@defvar {User Option} emacspeak-jde-bold-personality
 Personality used for bold.
 @end defvar
 
-@defvar emacspeak-jde-constant-personality
+@defvar {User Option} emacspeak-jde-constant-personality
 Personality used for constants.
 @end defvar
 
-@defvar emacspeak-jde-italic-personality
+@defvar {User Option} emacspeak-jde-italic-personality
 Personality used for italics.
 @end defvar
 
-@defvar emacspeak-jde-number-personality
+@defvar {User Option} emacspeak-jde-number-personality
 Personality used for numbers.
 @end defvar
 
-@defvar emacspeak-jde-operator-personality
+@defvar {User Option} emacspeak-jde-operator-personality
 Personality used for java operators.
 @end defvar
 
-@defvar emacspeak-jde-package-personality
+@defvar {User Option} emacspeak-jde-package-personality
 Personality used for package names.
 @end defvar
 
-@defvar emacspeak-jde-underline-personality
+@defvar {User Option} emacspeak-jde-underline-personality
 Underline personality.
 @end defvar
 
@@ -595,7 +595,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-keymap.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-personal-keys
+@defvar {User Option} emacspeak-personal-keys
 *Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind 
@@ -619,11 +619,11 @@ Automatically generated documentation
 for options defined in module  emacspeak-loaddefs.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-play-program
+@defvar {User Option} emacspeak-play-program
 Name of executable that plays sound files. 
 @end defvar
 
-@defvar emacspeak-sounds-default-theme
+@defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
 @end defvar
 
@@ -634,55 +634,55 @@ Automatically generated documentation
 for options defined in module  emacspeak-ocr.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-ocr-compress-image
+@defvar {User Option} emacspeak-ocr-compress-image
 Command used to compress the scanned tiff file.
 @end defvar
 
-@defvar emacspeak-ocr-compress-image-options
+@defvar {User Option} emacspeak-ocr-compress-image-options
 Options used for compressing tiff image.
 @end defvar
 
-@defvar emacspeak-ocr-compress-photo-options
+@defvar {User Option} emacspeak-ocr-compress-photo-options
 Options used when created JPEG from  scanned photographs.
 @end defvar
 
-@defvar emacspeak-ocr-engine
+@defvar {User Option} emacspeak-ocr-engine
 OCR engine to process acquired image.
 @end defvar
 
-@defvar emacspeak-ocr-engine-options
+@defvar {User Option} emacspeak-ocr-engine-options
 Command line options to pass to OCR engine.
 @end defvar
 
-@defvar emacspeak-ocr-image-extension
+@defvar {User Option} emacspeak-ocr-image-extension
 Filename extension used for acquired image.
 @end defvar
 
-@defvar emacspeak-ocr-jpeg-metadata-writer
+@defvar {User Option} emacspeak-ocr-jpeg-metadata-writer
 Program to add metadata to JPEG files.
 @end defvar
 
-@defvar emacspeak-ocr-keep-uncompressed-image
+@defvar {User Option} emacspeak-ocr-keep-uncompressed-image
 If set to T, uncompressed image is not removed.
 @end defvar
 
-@defvar emacspeak-ocr-photo-compress
+@defvar {User Option} emacspeak-ocr-photo-compress
 Program to create JPEG compressed images.
 @end defvar
 
-@defvar emacspeak-ocr-scan-image
+@defvar {User Option} emacspeak-ocr-scan-image
 Name of image acquisition program.
 @end defvar
 
-@defvar emacspeak-ocr-scan-image-options
+@defvar {User Option} emacspeak-ocr-scan-image-options
 Command line options to pass to image acquisition program.
 @end defvar
 
-@defvar emacspeak-ocr-scan-photo-options
+@defvar {User Option} emacspeak-ocr-scan-photo-options
 Options  used when scanning in photographs.
 @end defvar
 
-@defvar emacspeak-ocr-working-directory
+@defvar {User Option} emacspeak-ocr-working-directory
 Directory where images and OCR results
 will be placed.
 @end defvar
@@ -697,7 +697,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-outline.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-outline-dont-query-before-speaking
+@defvar {User Option} emacspeak-outline-dont-query-before-speaking
 *Option to control prompts when speaking  outline
 sections.
 @end defvar
@@ -709,12 +709,12 @@ Automatically generated documentation
 for options defined in module  emacspeak-personality.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-personality-show-unmapped-faces
+@defvar {User Option} emacspeak-personality-show-unmapped-faces
 If set, faces that dont have a corresponding personality are
 displayed in the messages area.
 @end defvar
 
-@defvar emacspeak-personality-voiceify-faces
+@defvar {User Option} emacspeak-personality-voiceify-faces
 Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
@@ -725,7 +725,7 @@ Append means place corresponding personality at the end.
 Simple means that voiceification is not cumulative --this is the default.
 @end defvar
 
-@defvar emacspeak-personality-voiceify-overlays
+@defvar {User Option} emacspeak-personality-voiceify-overlays
 Determines how and if we voiceify overlays.
 
 None means that overlay faces are not mapped to voices.
@@ -758,25 +758,25 @@ Automatically generated documentation
 for options defined in module  emacspeak-pronounce.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+@defvar {User Option} emacspeak-pronounce-common-xml-namespace-uri-pronunciations
 Pronunciations for well known namespace URIs.
 @end defvar
 
-@defvar emacspeak-pronounce-dictionaries-file
+@defvar {User Option} emacspeak-pronounce-dictionaries-file
 File that holds the persistent emacspeak pronunciation dictionaries.
 @end defvar
 
-@defvar emacspeak-pronounce-internet-smileys-pronunciations
+@defvar {User Option} emacspeak-pronounce-internet-smileys-pronunciations
 Pronunciation dictionary used in all instant messenger and IRC chat
 modes.
 See http://oz.uc.edu/~solkode/smileys.html for a full list.
 @end defvar
 
-@defvar emacspeak-pronounce-load-pronunciations-on-startup
+@defvar {User Option} emacspeak-pronounce-load-pronunciations-on-startup
 Says if user dictionaries loaded on  emacspeak startup.
 @end defvar
 
-@defvar emacspeak-pronounce-pronunciation-personality
+@defvar {User Option} emacspeak-pronounce-pronunciation-personality
 *Pronunciation personality.
 This is the personality used when speaking  things that have a pronunciation
 applied.
@@ -798,20 +798,20 @@ Automatically generated documentation
 for options defined in module  emacspeak-realaudio.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-realaudio-player
+@defvar {User Option} emacspeak-realaudio-player
 *Executable that plays realaudio
 @end defvar
 
-@defvar emacspeak-realaudio-player-options
+@defvar {User Option} emacspeak-realaudio-player-options
 *Options for realplayer.
 @end defvar
 
-@defvar emacspeak-realaudio-reset-auditory-display
+@defvar {User Option} emacspeak-realaudio-reset-auditory-display
 Set this to T if you want the audio settings reset after
 a realaudio sream is done playing.
 @end defvar
 
-@defvar emacspeak-realaudio-revert-to-auditory-icons
+@defvar {User Option} emacspeak-realaudio-revert-to-auditory-icons
 Set this to T if you want to switch back from using midi
 icons once a realaudio stream is done playing.
 @end defvar
@@ -823,7 +823,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-remote.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-remote-hooks
+@defvar {User Option} emacspeak-remote-hooks
 List of hook functions that are run after
 emacspeak is set to run as a remote application.
 Use this to add actions you typically perform after you enter remote
@@ -837,7 +837,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-replace.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-replace-personality
+@defvar {User Option} emacspeak-replace-personality
 Personality used in search and replace to indicate word
 that is being replaced.
 @end defvar
@@ -849,7 +849,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-rss.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-rss-feeds
+@defvar {User Option} emacspeak-rss-feeds
 Table of RSS feeds.
 @end defvar
 
@@ -860,7 +860,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-setup.
 These options are customizable via Emacs' Custom interface.
 
-@defvar dtk-default-speech-rate
+@defvar {User Option} dtk-default-speech-rate
 *Default speech rate at which TTS is started. 
 @end defvar
 
@@ -892,11 +892,11 @@ Automatically generated documentation
 for options defined in module  emacspeak-sounds.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-auditory-icon-function
+@defvar {User Option} emacspeak-auditory-icon-function
 *Function that plays auditory icons.
 @end defvar
 
-@defvar emacspeak-play-args
+@defvar {User Option} emacspeak-play-args
 Set this to -i  if using the play program that ships on sunos/solaris.
 Note: on sparc20's there is a sunos bug that causes the machine to crash if
 you attempt to play sound when /dev/audio is busy.
@@ -917,7 +917,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-speak.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-audio-indentation
+@defvar {User Option} emacspeak-audio-indentation
 Option indicating if line indentation is cued.
 If non-nil , then speaking a line indicates its indentation.  
 You can use  command `emacspeak-toggle-audio-indentation' bound
@@ -925,21 +925,21 @@ to C-e d i to toggle this
 setting..
 @end defvar
 
-@defvar emacspeak-audio-indentation-method
+@defvar {User Option} emacspeak-audio-indentation-method
 *Current technique used to cue indentation.  Default is
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
 @end defvar
 
-@defvar emacspeak-character-echo
+@defvar {User Option} emacspeak-character-echo
 If t, then emacspeak echoes characters  as you type.
 You can 
 use C-e d k to toggle this
 setting.
 @end defvar
 
-@defvar emacspeak-comint-autospeak
+@defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
 You can use 
   `emacspeak-toggle-comint-autospeak` bound to
@@ -947,28 +947,28 @@ You can use
 setting.
 @end defvar
 
-@defvar emacspeak-comint-split-speech-on-newline
+@defvar {User Option} emacspeak-comint-split-speech-on-newline
 *Option to have comint split speech on newlines.
 Non-nil means we split speech on newlines in comint buffer.
 @end defvar
 
-@defvar emacspeak-decoration-rule
+@defvar {User Option} emacspeak-decoration-rule
 *Regular expressions to match lines that are purely
 decorative ascii.
 @end defvar
 
-@defvar emacspeak-horizontal-rule
+@defvar {User Option} emacspeak-horizontal-rule
 *Regular expression to match horizontal rules in ascii
 text.
 @end defvar
 
-@defvar emacspeak-line-echo
+@defvar {User Option} emacspeak-line-echo
 If t, then emacspeak echoes lines as you type.
 You can use C-e d l to set this
 option.
 @end defvar
 
-@defvar emacspeak-mail-alert
+@defvar {User Option} emacspeak-mail-alert
 *Option to indicate cueing of new mail.
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
@@ -978,23 +978,23 @@ You can use command
 C-e M-m to set this option.
 @end defvar
 
-@defvar emacspeak-mail-spool-file
+@defvar {User Option} emacspeak-mail-spool-file
 Mail spool file examined  to alert you about newly
 arrived mail.
 @end defvar
 
-@defvar emacspeak-show-point
+@defvar {User Option} emacspeak-show-point
  If T, then command  `emacspeak-speak-line' indicates position of point by an
 aural highlight.  You can use 
 command `emacspeak-toggle-show-point' bound to
 C-e C-d to toggle this setting.
 @end defvar
 
-@defvar emacspeak-speak-filter-persistent-store
+@defvar {User Option} emacspeak-speak-filter-persistent-store
 File where emacspeak filters are persisted.
 @end defvar
 
-@defvar emacspeak-speak-line-column-filter
+@defvar {User Option} emacspeak-speak-line-column-filter
 *List that specifies columns to be filtered.
 The list when set holds pairs of start-col.end-col pairs 
 that specifies the columns that should not be spoken.
@@ -1002,13 +1002,13 @@ Each column contains a single character --this is inspired
 by cut -c on UNIX.
 @end defvar
 
-@defvar emacspeak-speak-line-invert-filter
+@defvar {User Option} emacspeak-speak-line-invert-filter
 Non-nil means the sense of `filter' is inverted when filtering
 columns in a line --see 
 command emacspeak-speak-line-set-column-filter.
 @end defvar
 
-@defvar emacspeak-speak-maximum-line-length
+@defvar {User Option} emacspeak-speak-maximum-line-length
 *Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
@@ -1016,11 +1016,11 @@ opening a binary file and torturing the speech synthesizer
 with a long string of gibberish.
 @end defvar
 
-@defvar emacspeak-speak-message-again-should-copy-to-kill-ring
+@defvar {User Option} emacspeak-speak-message-again-should-copy-to-kill-ring
 If set, asking for last message will copy it to the kill ring.
 @end defvar
 
-@defvar emacspeak-speak-messages
+@defvar {User Option} emacspeak-speak-messages
 *Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
@@ -1028,25 +1028,25 @@ message area.  You can use command
 C-e q.
 @end defvar
 
-@defvar emacspeak-speak-paragraph-personality
+@defvar {User Option} emacspeak-speak-paragraph-personality
 *Personality used to mark start of paragraph.
 @end defvar
 
-@defvar emacspeak-speak-space-regexp
+@defvar {User Option} emacspeak-speak-space-regexp
 Pattern that matches white space.
 @end defvar
 
-@defvar emacspeak-speak-time-format-string
+@defvar {User Option} emacspeak-speak-time-format-string
 *Format string that specifies how the time should be spoken.
 See the documentation for function
 `format-time-string'
 @end defvar
 
-@defvar emacspeak-speak-zoneinfo-directory
+@defvar {User Option} emacspeak-speak-zoneinfo-directory
 Directory containing timezone data.
 @end defvar
 
-@defvar emacspeak-unspeakable-rule
+@defvar {User Option} emacspeak-unspeakable-rule
 *Pattern to match lines of special chars.
 This is a regular expression that matches lines containing only
 non-alphanumeric characters.  emacspeak will generate a tone
@@ -1054,7 +1054,7 @@ instead of speaking such lines when punctuation mode is set
 to some.
 @end defvar
 
-@defvar emacspeak-word-echo
+@defvar {User Option} emacspeak-word-echo
 If t, then emacspeak echoes words as you type.
 You can use C-e d w to toggle this
 option.
@@ -1077,31 +1077,31 @@ Automatically generated documentation
 for options defined in module  emacspeak-speedbar.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-speedbar-button-personality
+@defvar {User Option} emacspeak-speedbar-button-personality
 personality used for speedbar buttons
 @end defvar
 
-@defvar emacspeak-speedbar-default-personality
+@defvar {User Option} emacspeak-speedbar-default-personality
 Default personality used in speedbar buffers
 @end defvar
 
-@defvar emacspeak-speedbar-directory-personality
+@defvar {User Option} emacspeak-speedbar-directory-personality
 Speedbar personality for directory buttons
 @end defvar
 
-@defvar emacspeak-speedbar-file-personality
+@defvar {User Option} emacspeak-speedbar-file-personality
 Personality used for file buttons
 @end defvar
 
-@defvar emacspeak-speedbar-highlight-personality
+@defvar {User Option} emacspeak-speedbar-highlight-personality
 Personality used for for speedbar highlight.
 @end defvar
 
-@defvar emacspeak-speedbar-selected-personality
+@defvar {User Option} emacspeak-speedbar-selected-personality
 Personality used to indicate speedbar selection
 @end defvar
 
-@defvar emacspeak-speedbar-tag-personality
+@defvar {User Option} emacspeak-speedbar-tag-personality
 Personality used for speedbar tags
 @end defvar
 
@@ -1112,11 +1112,11 @@ Automatically generated documentation
 for options defined in module  emacspeak-table-ui.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-table-column-header-personality
+@defvar {User Option} emacspeak-table-column-header-personality
 personality for speaking column headers.
 @end defvar
 
-@defvar emacspeak-table-row-header-personality
+@defvar {User Option} emacspeak-table-row-header-personality
 Personality for speaking row headers
 @end defvar
 
@@ -1131,32 +1131,32 @@ Automatically generated documentation
 for options defined in module  emacspeak-tnt.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-tnt-autospeak
+@defvar {User Option} emacspeak-tnt-autospeak
 True means messages in this chat session will be spoken
 automatically.
 @end defvar
 
-@defvar emacspeak-tnt-buddy-list-active-face
+@defvar {User Option} emacspeak-tnt-buddy-list-active-face
 Personality for active buddies.
 @end defvar
 
-@defvar emacspeak-tnt-buddy-list-away-face
+@defvar {User Option} emacspeak-tnt-buddy-list-away-face
 Personality for away buddies.
 @end defvar
 
-@defvar emacspeak-tnt-buddy-list-idle-face
+@defvar {User Option} emacspeak-tnt-buddy-list-idle-face
 Personality for idle buddies.
 @end defvar
 
-@defvar emacspeak-tnt-buddy-list-inactive-face
+@defvar {User Option} emacspeak-tnt-buddy-list-inactive-face
 Personality for inactive buddies.
 @end defvar
 
-@defvar emacspeak-tnt-buddy-list-pounce-face
+@defvar {User Option} emacspeak-tnt-buddy-list-pounce-face
 Personality for pounce buddies.
 @end defvar
 
-@defvar emacspeak-tnt-my-name-personality
+@defvar {User Option} emacspeak-tnt-my-name-personality
 tnt-my-name-face
 @end defvar
 
@@ -1167,52 +1167,52 @@ Automatically generated documentation
 for options defined in module  emacspeak-vm.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-vm-cite-voice
+@defvar {User Option} emacspeak-vm-cite-voice
 Personality for citation lines. 
 @end defvar
 
-@defvar emacspeak-vm-customize-mime-settings
+@defvar {User Option} emacspeak-vm-customize-mime-settings
 Non-nil will cause Emacspeak to configure VM mime
 settings to match what the author of Emacspeak uses.
 @end defvar
 
-@defvar emacspeak-vm-doc2text
+@defvar {User Option} emacspeak-vm-doc2text
 Executable that converts MSWord documents on standard input to plain
 text using wvText.
 @end defvar
 
-@defvar emacspeak-vm-from-voice
+@defvar {User Option} emacspeak-vm-from-voice
 Personality for From field. 
 @end defvar
 
-@defvar emacspeak-vm-pdf2text
+@defvar {User Option} emacspeak-vm-pdf2text
 Executable that converts PDF on standard input to plain
 text using pdftotext.
 @end defvar
 
-@defvar emacspeak-vm-ppt2html
+@defvar {User Option} emacspeak-vm-ppt2html
 Executable that converts MSPPT documents on standard input to HTML
  using xlhtml.
 @end defvar
 
-@defvar emacspeak-vm-subject-voice
+@defvar {User Option} emacspeak-vm-subject-voice
 Personality for Subject field. 
 @end defvar
 
-@defvar emacspeak-vm-to-voice
+@defvar {User Option} emacspeak-vm-to-voice
 Personality for To field. 
 @end defvar
 
-@defvar emacspeak-vm-use-raman-settings
+@defvar {User Option} emacspeak-vm-use-raman-settings
 Should VM  use the customizations used by the author of Emacspeak.
 @end defvar
 
-@defvar emacspeak-vm-voice-lock-messages
+@defvar {User Option} emacspeak-vm-voice-lock-messages
 Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble.
 @end defvar
 
-@defvar emacspeak-vm-xls2html
+@defvar {User Option} emacspeak-vm-xls2html
 Executable that converts MSXL documents on standard input to HTML
  using xlhtml.
 @end defvar
@@ -1230,28 +1230,28 @@ Automatically generated documentation
 for options defined in module  emacspeak-w3.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-w3-lynx-program
+@defvar {User Option} emacspeak-w3-lynx-program
 Name of lynx executable
 @end defvar
 
-@defvar emacspeak-w3-media-stream-suffixes
+@defvar {User Option} emacspeak-w3-media-stream-suffixes
 Suffixes to look for in detecting URLs that point to media
 streams.
 @end defvar
 
-@defvar emacspeak-w3-xsl-keep-result
+@defvar {User Option} emacspeak-w3-xsl-keep-result
 Set to a non-empty string  if you want the buffer containing the transformed HTML
 source to be preserved.
 Value of this variable if non-empty will be used as a name for the
 source buffer.
 @end defvar
 
-@defvar emacspeak-w3-xsl-p
+@defvar {User Option} emacspeak-w3-xsl-p
 T means we apply XSL transformation before displaying
 HTML.
 @end defvar
 
-@defvar emacspeak-w3-xsl-transform
+@defvar {User Option} emacspeak-w3-xsl-transform
 Specifies transform to use before displaying a page.
 Nil means no transform is used. 
 @end defvar
@@ -1266,7 +1266,7 @@ Automatically generated documentation
 for options defined in module  emacspeak-websearch.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-websearch-google-feeling-lucky-p
+@defvar {User Option} emacspeak-websearch-google-feeling-lucky-p
 If non-nil, then Google search will use the 
 I'm Feeling Lucky button by default.
 @end defvar
@@ -1282,23 +1282,23 @@ Automatically generated documentation
 for options defined in module  emacspeak-widget.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-widget-button-personality
+@defvar {User Option} emacspeak-widget-button-personality
 Personality for buttons
 @end defvar
 
-@defvar emacspeak-widget-documentation-personality
+@defvar {User Option} emacspeak-widget-documentation-personality
 Personality for documentation
 @end defvar
 
-@defvar emacspeak-widget-field-personality
+@defvar {User Option} emacspeak-widget-field-personality
 Personality for edit fields
 @end defvar
 
-@defvar emacspeak-widget-inactive-personality
+@defvar {User Option} emacspeak-widget-inactive-personality
 Personality for inactive fields
 @end defvar
 
-@defvar emacspeak-widget-single-line-field-personality
+@defvar {User Option} emacspeak-widget-single-line-field-personality
 Personality for edit fields
 @end defvar
 
@@ -1312,26 +1312,26 @@ Automatically generated documentation
 for options defined in module  emacspeak-wizards.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-clipboard-file
+@defvar {User Option} emacspeak-clipboard-file
 File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechnaism for exchanging
 information between different Emacs sessions.
 @end defvar
 
-@defvar emacspeak-cvs-anonymous-cvsroot
+@defvar {User Option} emacspeak-cvs-anonymous-cvsroot
 CVSROOT for emacspeak CVS repository at sourceforge.
 @end defvar
 
-@defvar emacspeak-cvs-local-directory
+@defvar {User Option} emacspeak-cvs-local-directory
 Directory where we download the snapshot.
 @end defvar
 
-@defvar emacspeak-cvs-local-directory-pattern
+@defvar {User Option} emacspeak-cvs-local-directory-pattern
 Pattern from which name of local download directory is build.
  %s is replaced by the project name.
 @end defvar
 
-@defvar emacspeak-emergency-tts-server
+@defvar {User Option} emacspeak-emergency-tts-server
 TTS server to use in an emergency.
 Set this to a TTS server that is known to work at all times.
 If you are debugging another speech servre and that server
@@ -1341,61 +1341,61 @@ to get speech back using the reliable TTS server.
 It's useful to bind the above command to a convenient key.
 @end defvar
 
-@defvar emacspeak-speak-directory-settings
+@defvar {User Option} emacspeak-speak-directory-settings
 *Name of file that holds directory specific settings.
 @end defvar
 
-@defvar emacspeak-speak-load-directory-settings-quietly
+@defvar {User Option} emacspeak-speak-load-directory-settings-quietly
 *User option that affects loading of directory specific settings.
 If set to T,Emacspeak will not prompt before loading
 directory specific settings.
 @end defvar
 
-@defvar emacspeak-speak-show-active-network-interfaces-addresses
+@defvar {User Option} emacspeak-speak-show-active-network-interfaces-addresses
 Command that displays address of  a specific interface.
 @end defvar
 
-@defvar emacspeak-speak-show-active-network-interfaces-command
+@defvar {User Option} emacspeak-speak-show-active-network-interfaces-command
 Command that displays names of active network interfaces.
 @end defvar
 
-@defvar emacspeak-speak-telephone-directory
+@defvar {User Option} emacspeak-speak-telephone-directory
 File holding telephone directory.
 This is just a text file, and we use grep to search it.
 @end defvar
 
-@defvar emacspeak-speak-telephone-directory-command
+@defvar {User Option} emacspeak-speak-telephone-directory-command
 Command used to look up names in the telephone
 directory.
 @end defvar
 
-@defvar emacspeak-wizards-find-switches-that-need-quoting
+@defvar {User Option} emacspeak-wizards-find-switches-that-need-quoting
 Find switches whose args need quoting.
 @end defvar
 
-@defvar emacspeak-wizards-find-switches-widget
+@defvar {User Option} emacspeak-wizards-find-switches-widget
 Widget to get find switch.
 @end defvar
 
-@defvar emacspeak-wizards-ppthtml-program
+@defvar {User Option} emacspeak-wizards-ppthtml-program
 Program for converting PPT  to HTML.
 Set this to nil if you do not want to use the PPTHTML wizard.
 @end defvar
 
-@defvar emacspeak-wizards-quote-command
+@defvar {User Option} emacspeak-wizards-quote-command
 Command for pulling up detailed stock quotes.
 this requires Perl module Finance::YahooQuote.
 @end defvar
 
-@defvar emacspeak-wizards-spot-words-extension
+@defvar {User Option} emacspeak-wizards-spot-words-extension
 Default file extension  used when spotting words.
 @end defvar
 
-@defvar emacspeak-wizards-vc-viewer-command
+@defvar {User Option} emacspeak-wizards-vc-viewer-command
 Command line for dumping out virtual console.
 @end defvar
 
-@defvar emacspeak-wizards-xlhtml-program
+@defvar {User Option} emacspeak-wizards-xlhtml-program
 Program for converting XL to HTML.
 Set this to nil if you do not want to use the XLHTML wizard.
 @end defvar
@@ -1407,22 +1407,22 @@ Automatically generated documentation
 for options defined in module  emacspeak-xml-shell.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-xml-shell-command
+@defvar {User Option} emacspeak-xml-shell-command
 Executable that provides the XML browser shell.
 Default is xmllint.
 If you want an XML Shell on steroids get XSH and use emacs custom to
 customize the default to be xsh.
 @end defvar
 
-@defvar emacspeak-xml-shell-hooks
+@defvar {User Option} emacspeak-xml-shell-hooks
 Start up hooks run after XML browser  process is started.
 @end defvar
 
-@defvar emacspeak-xml-shell-options
+@defvar {User Option} emacspeak-xml-shell-options
 Command-line options for XML browse command.
 @end defvar
 
-@defvar emacspeak-xml-shell-xslt
+@defvar {User Option} emacspeak-xml-shell-xslt
 XSL transform to apply when displaying current node.
 @end defvar
 
@@ -1433,11 +1433,11 @@ Automatically generated documentation
 for options defined in module  emacspeak-xslt.
 These options are customizable via Emacs' Custom interface.
 
-@defvar emacspeak-xslt-keep-errors
+@defvar {User Option} emacspeak-xslt-keep-errors
 If non-nil, xslt errors will be preserved in an errors buffer.
 @end defvar
 
-@defvar emacspeak-xslt-program
+@defvar {User Option} emacspeak-xslt-program
 Name of XSLT transformation engine.
 @end defvar
 
@@ -1489,152 +1489,152 @@ Automatically generated documentation
 for options defined in module  voice-setup.
 These options are customizable via Emacs' Custom interface.
 
-@defvar voice-animate-extra-settings
+@defvar {User Option} voice-animate-extra-settings
 Adds extra animation  current voice.
 @end defvar
 
-@defvar voice-animate-medium-settings
+@defvar {User Option} voice-animate-medium-settings
 Adds medium animation  current voice.
 @end defvar
 
-@defvar voice-animate-settings
+@defvar {User Option} voice-animate-settings
 Animates current voice.
 @end defvar
 
-@defvar voice-annotate-settings
+@defvar {User Option} voice-annotate-settings
 Indicate annotation.
 @end defvar
 
-@defvar voice-bolden-and-animate-settings
+@defvar {User Option} voice-bolden-and-animate-settings
 Bolden and animate  current voice.
 @end defvar
 
-@defvar voice-bolden-extra-settings
+@defvar {User Option} voice-bolden-extra-settings
 Extra bolden current voice.
 @end defvar
 
-@defvar voice-bolden-medium-settings
+@defvar {User Option} voice-bolden-medium-settings
 Add medium bolden current voice.
 @end defvar
 
-@defvar voice-bolden-settings
+@defvar {User Option} voice-bolden-settings
 Bolden current voice.
 @end defvar
 
-@defvar voice-brighten-extra-settings
+@defvar {User Option} voice-brighten-extra-settings
 Extra brighten current voice.
 @end defvar
 
-@defvar voice-brighten-medium-settings
+@defvar {User Option} voice-brighten-medium-settings
 Brighten current voice.
 @end defvar
 
-@defvar voice-brighten-settings
+@defvar {User Option} voice-brighten-settings
 Brighten current voice.
 @end defvar
 
-@defvar voice-indent-settings
+@defvar {User Option} voice-indent-settings
 Indicate indentation .
 @end defvar
 
-@defvar voice-lighten-extra-settings
+@defvar {User Option} voice-lighten-extra-settings
 Add extra lighten current voice.
 @end defvar
 
-@defvar voice-lighten-medium-settings
+@defvar {User Option} voice-lighten-medium-settings
 Add medium lighten current voice.
 @end defvar
 
-@defvar voice-lighten-settings
+@defvar {User Option} voice-lighten-settings
 Lighten current voice.
 @end defvar
 
-@defvar voice-lock-bold-italic-personality
+@defvar {User Option} voice-lock-bold-italic-personality
 Personality to use for bold  text.
 @end defvar
 
-@defvar voice-lock-bold-personality
+@defvar {User Option} voice-lock-bold-personality
 Personality to use for bold  text.
 @end defvar
 
-@defvar voice-lock-builtin-personality
+@defvar {User Option} voice-lock-builtin-personality
 Personality to use for built-in keywords.
 @end defvar
 
-@defvar voice-lock-comment-personality
+@defvar {User Option} voice-lock-comment-personality
 Personality to use for comments.
 @end defvar
 
-@defvar voice-lock-constant-personality
+@defvar {User Option} voice-lock-constant-personality
 Personality to use for  constants.
 @end defvar
 
-@defvar voice-lock-doc-string-personality
+@defvar {User Option} voice-lock-doc-string-personality
 Personality to use for documentation strings.
 @end defvar
 
-@defvar voice-lock-function-name-personality
+@defvar {User Option} voice-lock-function-name-personality
 Personality to use for function names.
 @end defvar
 
-@defvar voice-lock-highlight-personality
+@defvar {User Option} voice-lock-highlight-personality
 Personality used for highlighting text.
 @end defvar
 
-@defvar voice-lock-italic-personality
+@defvar {User Option} voice-lock-italic-personality
 Personality to use for italic  text.
 @end defvar
 
-@defvar voice-lock-keyword-personality
+@defvar {User Option} voice-lock-keyword-personality
 Personality to use for keywords.
 @end defvar
 
-@defvar voice-lock-mode
+@defvar {User Option} voice-lock-mode
 Determines  if property personality results in text being
 voicified.
 @end defvar
 
-@defvar voice-lock-reference-personality
+@defvar {User Option} voice-lock-reference-personality
 Personality to use for references.
 @end defvar
 
-@defvar voice-lock-string-personality
+@defvar {User Option} voice-lock-string-personality
 Personality to use for string constants.
 @end defvar
 
-@defvar voice-lock-type-personality
+@defvar {User Option} voice-lock-type-personality
 Personality to use for data types.
 @end defvar
 
-@defvar voice-lock-underline-personality
+@defvar {User Option} voice-lock-underline-personality
 Personality to use for underline text.
 @end defvar
 
-@defvar voice-lock-variable-name-personality
+@defvar {User Option} voice-lock-variable-name-personality
 Personality to use for variables.
 @end defvar
 
-@defvar voice-lock-warning-personality
+@defvar {User Option} voice-lock-warning-personality
 Personality to use for warnings.
 @end defvar
 
-@defvar voice-monotone-medium-settings
+@defvar {User Option} voice-monotone-medium-settings
 Turns current voice into a medium monotone.
 @end defvar
 
-@defvar voice-monotone-settings
+@defvar {User Option} voice-monotone-settings
 Turns current voice into a monotone and speaks all punctuations.
 @end defvar
 
-@defvar voice-smoothen-extra-settings
+@defvar {User Option} voice-smoothen-extra-settings
 Extra smoothen current voice.
 @end defvar
 
-@defvar voice-smoothen-medium-settings
+@defvar {User Option} voice-smoothen-medium-settings
 Extra smoothen current voice.
 @end defvar
 
-@defvar voice-smoothen-settings
+@defvar {User Option} voice-smoothen-settings
 Smoothen current voice.
 @end defvar
 
