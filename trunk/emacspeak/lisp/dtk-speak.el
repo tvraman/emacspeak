@@ -56,9 +56,9 @@
 
 ;;{{{  user customizations:
 (defgroup tts nil
-  "Text To Speech (TTS) customizations for the Emacspeak
-audio desktop."
+  "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
   :group 'emacspeak)
+
 (defcustom dtk-stop-immediately-while-typing t
   "*Set it to nil if you dont want speech to flush as you type.
 You can use  command
@@ -72,18 +72,22 @@ to toggle this setting."
   "*Value of speech rate increment.
 This determines step size used when setting speech rate via command
 `dtk-set-predefined-speech-rate'.  Formula used is
-180 +  dtk-speech-rate-step*level"
+180 +  dtk-speech-rate-step*level for the Dectalk. Needs
+updating for ViaVoice Outloud."
   :type 'integer
   :group 'tts)
-(defvar dtk-startup-hook nil
-  "List of hooks to be run after starting up the speech server.  .
-Set things like speech rate, punctuation mode etc in this hook.")
+
+(defcustom dtk-startup-hook nil
+  "List of hooks to be run after starting up the speech server.  
+Set things like speech rate, punctuation mode etc in this
+hook."
+  :type 'hook)
 
 (defvar dtk-tcl (or (getenv "DTK_TCL" )
                     "tcl")
   "Interpreter  used to run the speech server.
-Extended tcl --tcl-- for hardware Dectalks.
-dtk-tclsh for the software Dectalk.")
+Extended tcl --tcl-- for all of the currently available servers.")
+
 
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
@@ -91,8 +95,6 @@ dtk-tclsh for the software Dectalk.")
 Possible choices at present:
 dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
-dtk-soft    (never released)  for the software Dectalk.
-dtk-sapi    (never released)  for the software Dectalk on NT.
 outloud     For IBM ViaVoice Outloud
 The default is dtk-exp.")
 
@@ -114,9 +116,10 @@ You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
 ;;; forward declaration 
-(defvar emacspeak-servers-directory (expand-file-name
-                                     "servers/"
-                                     emacspeak-directory))
+(defvar emacspeak-servers-directory
+  (expand-file-name
+   "servers/"
+   emacspeak-directory))
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers. 
 File .servers is expected to contain name of one server per
@@ -149,7 +152,10 @@ no line --with no white space."
 
 (defvar dtk-servers-alist
   nil
-  "Used by `completing-read' when prompting for the dtk server to use.")
+  "Used by `completing-read' when prompting for the dtk
+server to use.
+This variable is automatically setup to reflect the
+available TTS servers.")
 
 
 
