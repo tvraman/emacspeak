@@ -441,8 +441,20 @@ current local  value to the result."
 	 (percent (if (> total 50000)
 		      ;; Avoid overflow from multiplying by 100!
 		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
-		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
-    (format "%d%%" percent)))
+		    (/ (+ (/ total 2) (* 100 (1- pos))) (max
+                                                         total 1))))
+         (message nil))
+    (cond
+     ((= 0 percent)
+      (setq message " top "))
+     ((= 100 percent)
+      (setq message " bottom "))
+(t (setq message
+         (format "%d%%" percent))))
+(put-text-property 0 (length message)
+                   'personality 'harry message)
+message))
+
 
 ;;}}}
 ;;{{{  indentation:
