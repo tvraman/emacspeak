@@ -1536,6 +1536,20 @@ semantic to do the work."
 
 
 
+(defsubst ems-process-mode-line-format (spec)
+  "Process mode line format spec."
+  (cond
+   ((symbolp spec) (eval spec))
+   ((stringp spec) spec)
+   ((and (listp spec)
+         (stringp (car spec)))
+    (concat (car spec)
+            (ems-process-mode-line-format (cdr spec))))
+   ((and (listp spec)
+         (symbolp (car spec)))
+    (concat (ems-process-mode-line-format (car spec))
+            (ems-process-mode-line-format (cadr spec))))))
+
 (defun emacspeak-speak-mode-line ()
   "Speak the mode-line."
   (interactive)
@@ -1548,13 +1562,12 @@ semantic to do the work."
   (force-mode-line-update)
   (emacspeak-dtk-sync)
   (let ((dtk-stop-immediately nil )
-        (global-info (mapcar 'eval global-mode-string))
+        (global-info (ems-process-mode-line-format global-mode-string))
         (frame-info nil)
         (recursion-depth (recursion-depth))
         (recursion-info nil)
         (dir-info (when (eq major-mode 'shell-mode)
                     default-directory)))
-(setq global-info (delete nil global-info))
     (when (and  emacspeak-which-function-mode
                 (fboundp 'which-function)
                 (which-function))
@@ -1600,8 +1613,7 @@ semantic to do the work."
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info
-                               (mapconcat #'identity
-                                          global-info " "))))))))
+                               global-info)))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
