@@ -365,7 +365,7 @@
 ;;}}}
 ;;{{{  Appointments:
 
-;;{{{ to be junked 
+;;{{{ take over and speak the appointment 
 
 ;;; For the present, we just take over and speak the appointment.
 (eval-when (compile)
@@ -382,9 +382,6 @@
              minutes-left message )
     (appt-disp-window minutes-left new-time  message)))
 
-;(declaim (special appt-disp-window-function))
-; (setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
-
 (defun emacspeak-appt-delete-display ()
   "Function to delete appointment message"
   (and (get-buffer appt-buffer-name)
@@ -392,8 +389,8 @@
          (set-buffer appt-buffer-name)
          (erase-buffer))))
 
-;(declaim (special appt-delete-window-function))
-;(setq appt-delete-window-function 'emacspeak-appt-delete-display)
+
+
 
 (defun emacspeak-appt-repeat-announcement ()
   "Speaks the most recently displayed appointment message if any."
@@ -413,14 +410,14 @@
 
 ;;}}}
 
-(defadvice appt-disp-window (before emacspeak activate compile)
-  "Speak the appointment." 
-  (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
-    (dtk-pause t)
-    (emacspeak-auditory-icon 'alarm)
-    (message "You have an appointment in %s minutes, %s"
-             (ad-get-arg 0)
-             (ad-get-arg 2))))
+; (defadvice appt-disp-window (before emacspeak activate compile)
+;   "Speak the appointment." 
+;   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+;     (dtk-pause t)
+;     (emacspeak-auditory-icon 'alarm)
+;     (message "You have an appointment in %s minutes, %s"
+;              (ad-get-arg 0)
+;              (ad-get-arg 2))))
 
 (defadvice appt-add (after emacspeak pre act )
   "Confirm that the alarm got set."
