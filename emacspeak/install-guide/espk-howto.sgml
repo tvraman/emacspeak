@@ -2,6 +2,8 @@
 <article>
 	<articleinfo>
 		<title>Installing Emacspeak HOWTO</title>
+		
+		<authorgroup>
 		<author>
 			<firstname>Jennifer</firstname>
 			<surname>Jobst</surname>
@@ -9,6 +11,16 @@
 				<address><email>jobst@us.ibm.com</email></address>
 			</affiliation>
 		</author>
+
+		<author>
+			<firstname>James</firstname>
+			<surname>Van Zandt</surname>
+			<affiliation>
+				<address><email>jrv@vanzandt.mv.com</email></address>
+			</affiliation>
+		</author>
+		</authorgroup>
+
 		<abstract>
 			<para>
 			This document contains the installation
@@ -16,29 +28,48 @@
 			application for Linux.
 			</para>
 		</abstract>
-		<pubdate>November 9, 2001</pubdate>
-		<legalnotice>
-			<para>
-			This document may be reproduced or distributed
-			in any form without prior permission provided
-			the copyright notice is retained on all
-			copies.  Modified versions of this document
-			may be freely distributed, provided that they
-			are clearly identified as such, and this
-			copyright is included intact.  This document
-			is provided "AS IS," with no express or
-			implied warranties.  Use the information in
-			this document at your own risk.
-			</para>
-		</legalnotice>
+		<pubdate>December 4, 2001</pubdate>
 		<revhistory>
+
 			<revision>
 				<revnumber>1.0</revnumber>
+				<date>December 4, 2001</date>
+				<authorinitials>JEJ</authorinitials>
+				<revremark>First release</revremark>
+			</revision>
+
+			<revision>
+				<revnumber>1.0 DRAFT</revnumber>
 				<date>November 9, 2001</date>
 				<authorinitials>JEJ</authorinitials>
+				<revremark>DRAFT</revremark>
 			</revision>
+
+			<revision>
+				<revnumber>Emacspeak HOWTO</revnumber>
+				<date>1996-2001</date>
+				<authorinitials>JVZ</authorinitials>
+				<revremark>Previously, this document was
+				known as the Emacspeak HOWTO, and was
+				written and maintained by Mr. James
+				Van Zandt.</revremark>
+			</revision> 
+				
 		</revhistory>
 	</articleinfo>
+
+<sect1 id="legal-notice">
+<title>Legal Notice</title>
+
+	<para>
+	This document is Copyright &copy 2001 IBM. Permission is
+	granted to copy, distribute and/or modify this document under
+	the terms of the GNU Free Documentation License, Version 1.1
+	or any later version published by the Free Software Foundation with no Invariant Sections, no
+	Front-Cover Texts, and no Back-Cover Texts. A copy of the
+	license can be found at <ulink url="http://www.gnu.org/license/fdl.txt"></ulink>.
+	</para>
+</sect1>
 
 <sect1 id="introduction">
 <title>Introduction</title>
@@ -751,17 +782,42 @@
 			the error "libXm.so.1 is missing."  What's wrong?</command></term>
 				<listitem>
 					<para>
-					According to the ViaVoice
-					mailing archive, this problem
-					occurs most often with Red Hat
-					7.1.  The main ViaVoice TTS engine
-					does not seem to
-					require the file
+					The file
+					<filename>libXm.so.1</filename>
+					is part of the
+					<filename>lesstif</filename>
+					distribution, and it is also a
+					shared library. This error
+					message indicates that either
+					<filename>lesstif</filename>
+					is not installed, or that the
+					system is unable to locate the
+					file. Often shared libraries
+					are referenced by a
+					symbolic link to the real
+					shared library file, which may
+					be named something like
+					<filename>libXm.so.1.0.17</filename>.
+					When the name of the symbolic
+					link to the shared library and the
+					name of the real shared
+					library file differ,
+					the system may not be able to
+					find the shared library, even
+					if it exists. If another
+					program depends on a shared
+					library that cannot be found,
+					an error message like the one
+					above results. In the case of
 					<filename>libXm.so.1</filename>,
-					so you can install the
+					lesstif is only needed for
+					graphical demonstration
+					programs.  Thus, if you do not
+					plan to use the graphical
+					mode, it is safe to install the
 					ViaVoice RTK rpm using the option
-					<command>--nodeps</command>.
-					This option tells ViaVoice to ignore any
+					<command>--nodeps</command>,
+					which tells ViaVoice to ignore any
 					missing dependencies. 
 					</para>
 
@@ -818,19 +874,15 @@
 			What's wrong?</command></term>
 				<listitem>
 					<para>
-					If you're getting this error
-					message, it's because
-					Emacspeak cannot find the
-					script that drives your sound
-					server.  The script you use
-					depends on which type of
-					server you have.
+					If you are getting this error
+					message, there are several
+					possible causes. This section
+					steps though finding and
+					correcting this problem.
 					</para>
 					
 					<para>
-					There are a couple of things
-					to check if you get this error
-					message. The first step is to
+					The first step is to
 					make sure that you have tcl
 					correctly installed, as
 					explained in the following instructions.
@@ -1065,6 +1117,107 @@
 					it works, restart Emacspeak.
 					Emacspeak should work correctly.
 					</para>
+
+					<para>
+					If you have a hardware
+					synthesizer and are still not
+					getting any speech, you probably do
+					not have the necessary
+					permissions to use the serial
+					port for your
+					synthesizer. There are a
+					number of solutions to this
+					problem, and the best solution
+					depends on your operating
+					environment. For example, if you
+					are in a multi-user
+					environment, controlling the
+					access permissions to the
+					serial device may be a
+					concern. The options are as follows: 
+					</para>
+	
+					<itemizedlist mark=bullet>
+						<listitem>
+							<para>
+							Change the
+							ownership of
+							the serail
+							device to the
+							user running
+							Emacspeak. To
+							do this, type
+							<command>chown
+							<replaceable>username</replaceable>
+							/dev/ttyS0</command>
+							at the command
+							prompt,
+							then type
+							<command>chmode
+							u+rw
+							/dev/ttyS0</command>.
+							</para>
+						</listitem>
+
+						<listitem>
+							<para>
+							Add the user
+							to the group
+							associated
+							with the
+							serial
+							device. On Red
+							Hat systems
+							this is
+							usually the
+							group
+							<command>tty</command>.
+							To do this,
+							edit the
+							<filename>/etc/group</filename>
+							file and find
+							the line
+							starting with
+							<command>tty:</command>.
+							At the end of
+							that line, add
+							",<replaceable>username</replaceable>"
+							where username
+							is your
+							username.
+							</para>
+						</listitem>
+
+						<listitem>
+							<para>
+							Give
+							read/write
+							access to the
+							serial device
+							for all
+							users. This is
+							the least
+							secure
+							solution, but
+							if you are the
+							only user on
+							the system, it
+							will not
+							matter. To
+							give
+							read/write
+							access, make
+							sure you are
+							the root user
+							and at the
+							command prompt
+							type
+							<command>chmod
+							o+rw
+							/dev/ttyS0</command>.
+							</para>
+						</listitem>
+					</itemizedlist> 
 				</listitem>
 		</varlistentry>
 	</variablelist>
@@ -1525,9 +1678,14 @@ returned to the command prompt.
 	Marty Moore, who provided a list of instructions for
 	installing Emacspeak and ViaVoice under Mandrake. Many of Marty's
 	instructions were used to make this document more complete.
+	</para>
+	
+	<para>
 	Tim Cross also deserves recognition, as he clarified several
 	points in Marty's instructions, and some of Tim's comments are
-	also used in this document.
+	also used in this document. Tim also provided excellent
+	explanations for the libXm.so.1 error message, as well as the
+	"process speaker not running" error message.
 	</para>
 
 	<para>
@@ -1544,5 +1702,4 @@ returned to the command prompt.
 	credit!
 	</para>
 </sect1>
-
 </article>

@@ -443,7 +443,6 @@ even if one is already defined."
   (declare (special emacspeak-w3-url-rewrite-rule))
   (unless (fboundp 'string-replace-match)
     (error "Install and load the elib package to use this feature."))
-    
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
