@@ -148,6 +148,7 @@
     ("emacspeak-psgml"  . ("psgml-prepare"))
     ("emacspeak-python"  . ("python-mode"))
     ("emacspeak-realaudio"  . nil )
+    ("emacspeak-re-builder"  . nil )
     ("emacspeak-redefine"  . nil )
     ("emacspeak-reftex"  . nil )
     ("emacspeak-remote"  . nil )

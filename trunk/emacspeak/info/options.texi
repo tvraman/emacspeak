@@ -45,6 +45,7 @@ documentation.
 * emacspeak-pcl-cvs Options::   
 * emacspeak-personality Options::  
 * emacspeak-pronounce Options::  
+* emacspeak-re-builder Options::  
 * emacspeak-realaudio Options::  
 * emacspeak-remote Options::    
 * emacspeak-replace Options::   
@@ -1146,6 +1147,17 @@ Personality used to identify header lines of blocks.
 @node emacspeak-ido Options
 @section emacspeak-ido Options
 
+Commentary:
+speech-enable ido.el
+This is an interesting task since most of the value-add
+provided by package ido.el  is visual feedback.
+Speech UI Challenge: What  is the most efficient means of
+conveying a dynamically updating set of choices?
+current strategy is to walk the list using c-s and c-r as
+provided by ido
+Set number matches shown to 3 using Custom so you dont hear
+the entire list.
+
 Automatically generated documentation
 for options defined in module  emacspeak-ido.
 These options are customizable via Emacs' Custom interface.
@@ -1665,6 +1677,103 @@ Says if user dictionaries loaded on  emacspeak startup.
 *Pronunciation personality.
 This is the personality used when speaking  things that have a pronunciation
 applied.
+@end defvar
+
+@node emacspeak-re-builder Options
+@section emacspeak-re-builder Options
+
+Commentary: 
+Speech-enable re-builder.
+Will be used to advantage in efficiently setting up outline
+regexp wizards
+
+
+
+(require 'emacspeak-preamble)
+
+(def-voice-font emacspeak-re-builder-0-personality
+  voice-lock-overlay-0
+  'reb-match-0
+  "Personality used for match 0. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-1-personality
+  voice-lock-overlay-1
+  'reb-match-1
+  "Personality used for match 1. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-2-personality
+  voice-lock-overlay-2
+  'reb-match-2
+  "Personality used for match 2. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-3-personality
+  voice-lock-overlay-3
+  'reb-match-3
+  "Personality used for match 3. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(defadvice  re-builder (after emacspeak pre act comp)
+  "Speak status information."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+(defadvice reb-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+
+(defadvice reb-next-match (after emacspeak pre act comp)
+  "Speak matched line."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defadvice reb-prev-match (after emacspeak pre act comp)
+  "Speak matched line."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defadvice reb-toggle-case (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+    (emacspeak-auditory-icon
+     (if case-fold-search 'on 'off)))))
+    
+
+(provide 'emacspeak-re-builder)
+
+local variables:
+folded-file: t
+byte-compile-dynamic: t
+
+Automatically generated documentation
+for options defined in module  emacspeak-re-builder.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-re-builder-0-personality
+Personality used for match 0. Set this to one of the overlay voices.
+@end defvar
+
+@defvar {User Option} emacspeak-re-builder-1-personality
+Personality used for match 1. Set this to one of the overlay voices.
+@end defvar
+
+@defvar {User Option} emacspeak-re-builder-2-personality
+Personality used for match 2. Set this to one of the overlay voices.
+@end defvar
+
+@defvar {User Option} emacspeak-re-builder-3-personality
+Personality used for match 3. Set this to one of the overlay voices.
 @end defvar
 
 @node emacspeak-realaudio Options
@@ -2622,6 +2731,22 @@ Personality to use for keywords.
 @defvar {User Option} voice-lock-mode
 Determines  if property personality results in text being
 voicified.
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-0-settings
+Overlay voice that sets dimension 0 of ACSS structure to 8.
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-1-settings
+Overlay voice that sets dimension 1 of ACSS structure to 8.
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-2-settings
+Overlay voice that sets dimension 2 of ACSS structure to 8.
+@end defvar
+
+@defvar {User Option} voice-lock-overlay-3-settings
+Overlay voice that sets dimension 3 of ACSS structure to 8.
 @end defvar
 
 @defvar {User Option} voice-lock-preprocessor-personality
