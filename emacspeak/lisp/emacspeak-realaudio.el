@@ -79,9 +79,7 @@ icons once a realaudio stream is done playing."
   :type 'string)
 
 (defcustom emacspeak-realaudio-player-options 
-  (when (string= emacspeak-realaudio-player
-		 "/usr/bin/trplayer")
-    (list "-l" "-i" "-b" "-c" ))
+    (list "-l" "-i" "-b" "-c" )
   "*Options for realplayer."
   :group 'emacspeak-realaudio
   :type 'string)

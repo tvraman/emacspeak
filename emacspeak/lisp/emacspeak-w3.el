@@ -500,7 +500,9 @@ HTML."
 (defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. "
-  :type 'file
+  :type  '(choice 
+           (file :tag "XSL")
+           (const :tag "none" nil))
   :group 'emacspeak-w3)
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
