@@ -1,5 +1,5 @@
 @c $Id$
-@c @section Speech System Commands
+ @section Speech System Commands
 
 @cindex tts
 @cindex speech system
