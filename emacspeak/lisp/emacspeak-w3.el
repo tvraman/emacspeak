@@ -900,7 +900,12 @@ current page."
     (setq emacspeak-w3-post-process-hook nil)))
 
 ;;}}}
-(provide 'emacspeak-w3)
+ 
+silence url history save
+(defadvice url-history-save-history (around emacspeak pre act comp)
+  "Silence spoken messages while url history is being saved."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))(provide 'emacspeak-w3)
 ;;{{{  emacs local variables 
 
 ;;; local variables:
