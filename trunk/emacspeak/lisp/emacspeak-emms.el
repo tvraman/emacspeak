@@ -128,7 +128,12 @@
       '(emms-streams emms-stream-quit
                      emms-stream-popup emms-stream-popup-revert
 )
-
+do
+(eval
+ `(defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (interactive-p)
+      (emacspeak-speak-mode-line)))))
 (loop for f in
       '(emms-stream-next-line emms-stream-previous-line)
       do
