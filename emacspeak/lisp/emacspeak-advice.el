@@ -1741,17 +1741,6 @@ Indicate change of selection with an auditory icon
    (t ad-do-it ))
   ad-return-value)
 
-
-(defadvice switch-to-buffer (before existing-buffers-only pre act)
-  "Customize interactive behavior of `switch-to-buffer'.
-When called interactively switch to existing buffers only, unless
-when called with a prefix argument."
-  (interactive
-   (list
-    (let ((dtk-stop-immediately t))
-      (read-buffer "Switch to buffer: " (other-buffer)
-                   (null current-prefix-arg))))))
-
 (defadvice switch-to-buffer  (after emacspeak pre act)
   "Speak the modeline.
 Indicate change of selection with
