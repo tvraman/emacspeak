@@ -1186,31 +1186,35 @@ Optional second arg data processes the results as data rather than HTML."
   <table >
     <tr >
       <td > <label for=\"1\">All Words</label> </td>
-      <td> <input id=\"1\" type=\"text\" value=\"\" name=as_q size=25></input> </td>
+      <td> <input id=\"1\" type=\"text\" value=\"\" name=as_q
+      size=25> </td>
+<td>
+        <input type=submit  value=\"Google Search\">
+      </td>
     </tr>
     <tr>
       <td > <label for=\"2\">Exact Match</label> </td>
-      <td> <input id=\"2\" type=\"text\" size=25 value=\"\" name=as_epq></input> </td>
+      <td> <input id=\"2\" type=\"text\" size=25 value=\"\" name=as_epq> </td>
     </tr>
     <tr>
       <td><label for=\"3\">Partial Match</label></td>
-      <td> <input id=\"3\" type=\"text\" size=25 value=\"\" name=as_oq></input> </td>
+      <td> <input id=\"3\" type=\"text\" size=25 value=\"\" name=as_oq> </td>
     </tr>
     <tr>
       <td><label for=\"4\">Not containing</label></td>
-      <td> <input id=\"4\" type=\"text\" size=25 value=\"\" name=as_eq></input> </td>
+      <td> <input id=\"4\" type=\"text\" size=25 value=\"\" name=as_eq> </td>
     </tr>
     <tr>
       <td > <label for=\"group\">Group search</label> </td>
-      <td> <input id=\"group\" size=30 value=\"\" name=as_ugroup></input> </td>
+      <td> <input id=\"group\" size=30 value=\"\" name=as_ugroup> </td>
     </tr>
     <tr>
       <td > <label for=\"subject\">Subject Search</label> </td>
-      <td> <input id=\"subject\" size=30 value=\"\" name=as_usubject> </input> </td>
+      <td> <input id=\"subject\" size=30 value=\"\" name=as_usubject>  </td>
     </tr>
     <tr>
       <td > <label for=\"author\">Author Search</label> </td>
-      <td> <input id=\"author\" size=30 value=\"\" name=as_uauthors> </input> </td>
+      <td> <input id=\"author\" size=30 value=\"\" name=as_uauthors>  </td>
     </tr>
     <tr>
       <td > <label for=\"msgid\">Message ID</label> </td>
@@ -1220,205 +1224,200 @@ Optional second arg data processes the results as data rather than HTML."
       <td> <label for=\"lang\">Language</label> </td>
       <td >
         <select id=\"lang\" name=lr>
-          <option  value=\"\">any language</option>
-          <option  value=\"lang_ar\">Arabic</option>
-          <option  value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)</option>
-          <option  value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)</option>
-          <option  value=\"lang_cs\">Czech</option>
-          <option  value=\"lang_da\">Danish</option>
-          <option  value=\"lang_nl\">Dutch</option>
-          <option  value=\"lang_en\">English</option>
-          <option  value=\"lang_et\">Estonian</option>
-          <option  value=\"lang_fi\">Finnish</option>
-          <option  value=\"lang_fr\">French</option>
-          <option  value=\"lang_de\">German</option>
-          <option  value=\"lang_el\">Greek</option>
-          <option  value=\"lang_iw\">Hebrew</option>
-          <option  value=\"lang_hu\">Hungarian</option>
-          <option  value=\"lang_is\">Icelandic</option>
-          <option  value=\"lang_it\">Italian</option>
-          <option  value=\"lang_ja\">Japanese</option>
-          <option  value=\"lang_ko\">Korean</option>
-          <option  value=\"lang_lv\">Latvian</option>
-          <option  value=\"lang_lt\">Lithuanian</option>
-          <option  value=\"lang_no\">Norwegian</option>
-          <option  value=\"lang_pl\">Polish</option>
-          <option  value=\"lang_pt\">Portuguese</option>
-          <option  value=\"lang_ro\">Romanian</option>
-          <option  value=\"lang_ru\">Russian</option>
-          <option  value=\"lang_es\">Spanish</option>
-          <option  value=\"lang_sv\">Swedish</option>
+          <option  value=\"\">any language
+          <option  value=\"lang_ar\">Arabic
+          <option  value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)
+          <option  value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)
+          <option  value=\"lang_cs\">Czech
+          <option  value=\"lang_da\">Danish
+          <option  value=\"lang_nl\">Dutch
+          <option  value=\"lang_en\">English
+          <option  value=\"lang_et\">Estonian
+          <option  value=\"lang_fi\">Finnish
+          <option  value=\"lang_fr\">French
+          <option  value=\"lang_de\">German
+          <option  value=\"lang_el\">Greek
+          <option  value=\"lang_iw\">Hebrew
+          <option  value=\"lang_hu\">Hungarian
+          <option  value=\"lang_is\">Icelandic
+          <option  value=\"lang_it\">Italian
+          <option  value=\"lang_ja\">Japanese
+          <option  value=\"lang_ko\">Korean
+          <option  value=\"lang_lv\">Latvian
+          <option  value=\"lang_lt\">Lithuanian
+          <option  value=\"lang_no\">Norwegian
+          <option  value=\"lang_pl\">Polish
+          <option  value=\"lang_pt\">Portuguese
+          <option  value=\"lang_ro\">Romanian
+          <option  value=\"lang_ru\">Russian
+          <option  value=\"lang_es\">Spanish
+          <option  value=\"lang_sv\">Swedish
           <option  value=\"lang_tr\">Turkish
         </select>
       </td>
     </tr>
     <tr >
-      <td > <label for=\"dates\">Since</label> </td>
-      <td >
+      <td > <label for=\"dates\">Since</label> 
         <input id=\"dates\" name=as_drrb type=radio value=q checked>
+        </input></td>
+<td>
           <label for=\"since\"> messages posted </label>
           <select id=\"since\" name=as_qdr>
-            <option  value=\"\" selected>anytime</option>
-            <option  value=\"d\">in the last 24 hours</option>
-            <option  value=\"w\">in the last week</option>
-            <option  value=\"m\">in the last month</option>
+            <option  value=\"\" selected>anytime
+            <option  value=\"d\">in the last 24 hours
+            <option  value=\"w\">in the last week
+            <option  value=\"m\">in the last month
             <option  value=\"y\">in the last year
           </select>
       </td>
     </tr>
     <tr>
       <td><label for=\"daterange\">Date Range</label></td>
-      <td > <input id=\"daterange\" name=as_drrb type=radio
-      value=b></input> </td>
-    </tr>
-    <tr>
-      <td>
-        <label for=\"miny\">Start Year</label>
-        <select id=\"miny\" name=as_miny>
-          <option  value=\"1995\" selected>1995</option>
-          <option  value=\"1996\">1996</option>
-          <option  value=\"1997\">1997</option>
-          <option  value=\"1998\">1998</option>
-          <option  value=\"1999\">1999</option>
-          <option  value=\"2000\">2000</option>
-          <option  value=\"2001\">2001
-        </select>
-        <label for=\"minm\">Start Month</label>
-        <select id=\"minm\"   name=as_minm<>
-          <option  value=\"1\">Jan</option>
-          <option  value=\"2\">Feb</option>
-          <option  value=\"3\" >Mar</option>
-          <option  value=\"4\">Apr</option>
-          <option  value=\"5\">May</option>
-          <option  value=\"6\">Jun</option>
-          <option  value=\"7\">Jul</option>
-          <option  value=\"8\">Aug</option>
-          <option  value=\"9\">Sep</option>
-          <option  value=\"10\">Oct</option>
-          <option  value=\"11\">Nov</option>
-          <option  value=\"12\">Dec</option>
-          </select>
-          <label for=\"mind\">Start Day</label>
-          <select id=\"mind\" name=as_mind>
-            <option  value=\"1\">1</option>
-            <option  value=\"2\">2</option>
-            <option  value=\"3\">3</option>
-            <option  value=\"4\">4</option>
-            <option  value=\"5\">5</option>
-            <option  value=\"6\">6</option>
-            <option  value=\"7\">7</option>
-            <option  value=\"8\">8</option>
-            <option  value=\"9\">9</option>
-            <option  value=\"10\">10</option>
-            <option  value=\"11\">11</option>
-            <option  value=\"12\">12</option>
-            <option  value=\"13\">13</option>
-            <option  value=\"14\">14</option>
-            <option  value=\"15\">15</option>
-            <option  value=\"16\">16</option>
-            <option  value=\"17\">17</option>
-            <option  value=\"18\">18</option>
-            <option  value=\"19\">19</option>
-            <option  value=\"20\">20</option>
-            <option  value=\"21\">21</option>
-            <option  value=\"22\">22</option>
-            <option  value=\"23\">23</option>
-            <option  value=\"24\">24</option>
-            <option  value=\"25\">25</option>
-            <option  value=\"26\">26</option>
-            <option  value=\"27\">27</option>
-            <option  value=\"28\">28</option>
-            <option  value=\"29\" selected>29</option>
-            <option  value=\"30\">30</option>
-            <option  value=\"31\">31</option>
-          </select>  
-      </td>
-</tr>
-<tr>
-      <td>
-        <label for=\"maxy\">End Year</label>
-        <select id=\"maxy\" name=as_maxy>
-          <option  value=\"1995\">1995</option>
-          <option  value=\"1996\">1996</option>
-          <option  value=\"1997\">1997</option>
-          <option  value=\"1998\">1998</option>
-          <option  value=\"1999\">1999</option>
-          <option  value=\"2000\">2000</option>
-          <option  value=\"2001\" selected>2001</option>
-        </select>
-        <label for=\"maxm\"> End Month</label>
-        <select id=\"maxm\" name=as_maxm>
-          <option  value=\"1\">Jan</option>
-          <option  value=\"2\">Feb</option>
-          <option  value=\"3\">Mar</option>
-          <option  value=\"4\">Apr</option>
-          <option  value=\"5\">May</option>
-          <option  value=\"6\">Jun</option>
-          <option  value=\"7\">Jul</option>
-          <option  value=\"8\">Aug</option>
-          <option  value=\"9\">Sep</option>
-          <option  value=\"10\" selected>Oct</option>
-          <option  value=\"11\">Nov</option>
-          <option  value=\"12\">Dec
-        </select>
-        <label for=\"maxd\">End Day</label>
-        <select id=\"maxd\" name=as_maxd>
-          <option  value=\"1\">1</option>
-          <option  value=\"2\">2</option>
-          <option  value=\"3\">3</option>
-          <option  value=\"4\">4</option>
-          <option  value=\"5\">5</option>
-          <option  value=\"6\">6</option>
-          <option  value=\"7\">7</option>
-          <option  value=\"8\">8</option>
-          <option  value=\"9\">9</option>
-          <option  value=\"10\">10</option>
-          <option  value=\"11\">11</option>
-          <option  value=\"12\">12</option>
-          <option  value=\"13\">13</option>
-          <option  value=\"14\">14</option>
-          <option  value=\"15\">15</option>
-          <option  value=\"16\">16</option>
-          <option  value=\"17\">17</option>
-          <option  value=\"18\">18</option>
-          <option  value=\"19\" selected>19</option>
-          <option  value=\"20\">20</option>
-          <option  value=\"21\">21</option>
-          <option  value=\"22\">22</option>
-          <option  value=\"23\">23</option>
-          <option  value=\"24\">24</option>
-          <option  value=\"25\">25</option>
-          <option  value=\"26\">26</option>
-          <option  value=\"27\">27</option>
-          <option  value=\"28\">28</option>
-          <option  value=\"29\">29</option>
-          <option  value=\"30\">30</option>
-          <option  value=\"31\">31
-        </select>
-      </td>
+      <td > <input id=\"daterange\" name=as_drrb
+                   type=radio value=b> </td>
     </tr>
   </table>
+<p> Articles posted between 
+<label for=\"miny\">Year</label>
+<select id=\"miny\" name=as_miny >
+<option value=\"1995\" selected>1995
+<option value=\"1996\">1996
+<option value=\"1997\">1997
+<option value=\"1998\">1998
+<option value=\"1999\">1999
+<option value=\"2000\">2000
+<option value=\"2001\">2001
+</select>
+<label for=\"minm\">Month </label>
+<select id=\"minm\" name=as_minm >
+<option value=\"1\">Jan
+<option value=\"2\">Feb
+<option value=\"3\" selected>Mar
+<option value=\"4\">Apr
+<option value=\"5\">May
+<option value=\"6\">Jun
+<option value=\"7\">Jul
+<option value=\"8\">Aug
+<option value=\"9\">Sep
+<option value=\"10\">Oct
+<option value=\"11\">Nov
+<option value=\"12\">Dec
+</select>
+<label for=\"mind\">Day</label>
+<select id=\"mind\" name=as_mind >
+<option value=\"1\">1
+<option value=\"2\">2
+<option value=\"3\">3
+<option value=\"4\">4
+<option value=\"5\">5
+<option value=\"6\">6
+<option value=\"7\">7
+<option value=\"8\">8
+<option value=\"9\">9
+<option value=\"10\">10
+<option value=\"11\">11
+<option value=\"12\">12
+<option value=\"13\">13
+<option value=\"14\">14
+<option value=\"15\">15
+<option value=\"16\">16
+<option value=\"17\">17
+<option value=\"18\">18
+<option value=\"19\">19
+<option value=\"20\">20
+<option value=\"21\">21
+<option value=\"22\">22
+<option value=\"23\">23
+<option value=\"24\">24
+<option value=\"25\">25
+<option value=\"26\">26
+<option value=\"27\">27
+<option value=\"28\">28
+<option value=\"29\" selected>29
+<option value=\"30\">30
+<option value=\"31\">31
+</select> and 
+and <label for=\"maxy\">Year</label>
+<select id=\"maxy\" name=as_maxy >
+<option value=\"1995\">1995
+<option value=\"1996\">1996
+<option value=\"1997\">1997
+<option value=\"1998\">1998
+<option value=\"1999\">1999
+<option value=\"2000\">2000
+<option value=\"2001\" selected>2001
+</select>
+<label for=\"maxm\">Month</label>
+<select id=\"maxm\" name=as_maxm >
+<option value=\"1\">Jan
+<option value=\"2\">Feb
+<option value=\"3\">Mar
+<option value=\"4\">Apr
+<option value=\"5\">May
+<option value=\"6\">Jun
+<option value=\"7\">Jul
+<option value=\"8\">Aug
+<option value=\"9\">Sep
+<option value=\"10\" selected>Oct
+<option value=\"11\">Nov
+<option value=\"12\">Dec
+</select>
+<label for=\"maxd\">Day</label>
+<select id=\"maxd\" name=as_maxd >
+<option value=\"1\">1
+<option value=\"2\">2
+<option value=\"3\">3
+<option value=\"4\">4
+<option value=\"5\">5
+<option value=\"6\">6
+<option value=\"7\">7
+<option value=\"8\">8
+<option value=\"9\">9
+<option value=\"10\">10
+<option value=\"11\">11
+<option value=\"12\">12
+<option value=\"13\">13
+<option value=\"14\">14
+<option value=\"15\">15
+<option value=\"16\">16
+<option value=\"17\">17
+<option value=\"18\">18
+<option value=\"19\" selected>19
+<option value=\"20\">20
+<option value=\"21\">21
+<option value=\"22\">22
+<option value=\"23\">23
+<option value=\"24\">24
+<option value=\"25\">25
+<option value=\"26\">26
+<option value=\"27\">27
+<option value=\"28\">28
+<option value=\"29\">29
+<option value=\"30\">30
+<option value=\"31\">31
+</select>
+</p>
   <table>
     <tr>
       <td >
         <label for=\"num\">Results</label>
         <select id=\"num\"name=num>
-          <option  value=\"10\">10 messages</option>
-          <option  value=\"20\">20 messages</option>
-          <option  value=\"30\">30 messages</option>
-          <option  value=\"50\">50 messages</option>
+          <option  value=\"10\">10 messages
+          <option  value=\"20\">20 messages
+          <option  value=\"30\">30 messages
+          <option  value=\"50\">50 messages
           <option  value=\"100\">100 messages
         </select> 
       </td>
       <td>
         <label for=\"scoring\">Sort by</label>
         <select id=\"scoring\" name=as_scoring>
-          <option  value=r selected>Sort by relevance</option>
+          <option  value=r selected>Sort by relevance
           <option  value=d>Sort by date
         </select> 
       </td>
       <td>
-        <input type=submit name=btnG value=\"Google Search\">
+        <input type=submit  value=\"Google Search\">
       </td>
     </tr>
   </table>
