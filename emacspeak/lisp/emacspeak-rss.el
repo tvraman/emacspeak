@@ -50,8 +50,7 @@
 (require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-xslt)
-(require 'emacspeak-wizards)
-
+(require 'emacspeak-w3)
 ;;}}}
 ;;{{{ RSS feed cache
 ;;;###autoload
