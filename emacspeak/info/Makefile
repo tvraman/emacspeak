@@ -8,14 +8,13 @@ INSTALL = install
 info: emacspeak.texi
 	chmod 644 *info*
 	makeinfo emacspeak.texi
-	texi2html emacspeak.texi
+
 
 install: emacspeak.info
 	if test  -e /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
 	$(INSTALL)  -m 644 emacspeak.info* $(infodir)
-	$(INSTALL)  -m 644 emacspeak*.html $(infodir)
 
 uninstall:
 	if test  -e /sbin/install-info ; then \
@@ -36,6 +35,7 @@ print: emacspeak.dvi
 	dvips emacspeak.dvi
 
 pub: emacspeak.html
+	texi2html emacspeak.texi
 	scp *.html    raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
 
 clean: 
