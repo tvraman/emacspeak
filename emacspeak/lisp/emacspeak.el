@@ -562,6 +562,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
 (emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
 (emacspeak-do-package-setup "xslide" 'emacspeak-xslide)
+(emacspeak-do-package-setup "xslt-process" 'emacspeak-xslt-process)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
 (emacspeak-do-package-setup "tnt" 'emacspeak-tnt)
 (emacspeak-do-package-setup "term" 'emacspeak-eterm )

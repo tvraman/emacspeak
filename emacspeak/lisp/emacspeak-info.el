@@ -145,11 +145,15 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
 See variable `Info-voiceify`"
   (Info-voiceify-node))
 
-(defvar emacspeak-info-select-node-speak-chunk 'screenfull 
+(defcustom  emacspeak-info-select-node-speak-chunk 'screenfull 
 "*Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
-node -- speak the entire node.")
+node -- speak the entire node."
+:type '(choice
+(const screenful)
+(const node))
+:group 'emacspeak)
 
 
 (defsubst emacspeak-info-speak-current-window ()
