@@ -1076,14 +1076,13 @@ in completion buffers"
 ;;}}}
 ;;{{{  Advice comint:
 (require 'shell)
-
+(defvar emacspeak-comint-prompt-personality 'paul-monotone
+"Personality used for highlighting comint prompts.")
 
 (defvar shell-voice-lock-keywords
-  (list (cons shell-prompt-pattern 'voice-lock-keyword-personality)
-	'("[ \t]\\([+-][^ \t\n]+\\)" 1 voice-lock-comment-personality)
-	'("^[^ \t]+:.*$" . voice-lock-string-personality)
-	'("^\\[[1-9][0-9]*\\]" . voice-lock-string-personality))
+  nil
   "Additional expressions to highlight in Shell mode.")
+
 (defadvice shell-dirstack-message (around emacspeak pre act
                                           comp)
   "Silence messages so we dont hear stutter."
@@ -1207,13 +1206,23 @@ ad-do-it
 (defadvice comint-output-filter (around emacspeak pre act)
   "Make comint speak its output."
   (declare (special emacspeak-comint-autospeak
-                    emacspeak-comint-output-monitor))
+                    emacspeak-comint-output-monitor
+                    emacspeak-comint-prompt-personality
+                    comint-last-prompt-overlay))
   (save-excursion
     (set-buffer (process-buffer (ad-get-arg 0)))
     (let ((prior (point ))
           (monitor emacspeak-comint-output-monitor)
           (dtk-stop-immediately nil))
       ad-do-it
+      (when (and (boundp 'comint-last-prompt-overlay)
+                 comint-last-prompt-overlay)
+                 (put-text-property (overlay-start
+                                     comint-last-prompt-overlay)
+                                    (overlay-end
+                                     comint-last-prompt-overlay)
+                                    'personality
+                                    emacspeak-comint-prompt-personality ))
       (when (and  emacspeak-comint-autospeak
                   (or monitor 
                       (eq (selected-window)
