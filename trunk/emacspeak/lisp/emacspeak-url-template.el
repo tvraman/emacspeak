@@ -172,6 +172,23 @@
  "Display headline news from KLIV 1590 San Jose")
 
 ;;}}}
+;;{{{  google filters 
+(emacspeak-url-template-define
+ "Google Hits"
+ "http://www.google.com/search?q=%s"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "Google search:")))
+ #'(lambda nil
+     (emacspeak-auditory-icon 'open-object))
+ "Only show Google hits."
+ #'(lambda (url)
+(emacspeak-wizards-browse-url-with-style
+      (expand-file-name "google-hits.xsl"
+                        emacspeak-xslt-directory)
+      url)))
+
+;;}}}
 ;;{{{ google news overview 
 
 (emacspeak-url-template-define
@@ -199,6 +216,7 @@
 
 ;;}}}
 ;;{{{ yahoo daily news 
+
 (emacspeak-url-template-define
  "My Yahoo "
  "http://my.yahoo.com"
@@ -698,4 +716,3 @@ resources."
 ;;; end:
 
 ;;}}}
-
