@@ -126,7 +126,9 @@ emacspeak-realaudio-shortcuts-directory. "
       (expand-file-name
        (read-file-name "RealAudio resource: "
                        emacspeak-realaudio-shortcuts-directory
-                       emacspeak-realaudio-last-url)))
+                       (if (eq major-mode 'dired-mode)
+                           (dired-get-filename)
+                         emacspeak-realaudio-last-url))))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-player
                     emacspeak-realaudio-buffer 
