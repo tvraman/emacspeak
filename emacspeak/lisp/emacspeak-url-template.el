@@ -873,7 +873,7 @@ the broadcast. You must have mplayer installed."
 
 (emacspeak-url-template-define
  "Baseball scores" 
- "http://www.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"
+ "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"
  (list
   #'(lambda nil
       (let ((date 
