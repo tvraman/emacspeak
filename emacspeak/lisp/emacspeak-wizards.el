@@ -923,6 +923,60 @@ the emacspeak table clipboard instead."
                clipboard-file))))
 
 ;;}}}
+;;{{{ utilities
+
+(defun emacspeak-speak-show-list-variable (var)
+  "Convenience command to view Emacs variables that are long lists.
+Prompts for a variable name and displays its value in a separate buffer.
+Lists are displayed one element per line.
+Argument VAR specifies variable whose value is to be displayed."
+  (interactive
+   (list
+    (read-minibuffer "Display variable: ")))
+  (let ((buffer (get-buffer-create
+                 (format "*emacspeak-%s*"
+                         var)))
+        (symbol (symbol-value var)))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (cond
+       ((listp symbol)
+        (loop for element in symbol
+              do
+              (insert (format "%s\n"
+                              element))))
+       (t (insert (format "%s\n" symbol))))
+      (goto-char (point-min)))
+    (pop-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+(defun emacspeak-speak-show-memory-used ()
+  "Convenience command to view state of memory used in this session so far."
+  (interactive)
+  (let ((buffer (get-buffer-create "*emacspeak-memory*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert
+       (apply 'format
+              "Memory Statistics
+ cons cells:\t%d
+ floats:\t%d
+ vectors:\t%d
+ symbols:\t%d
+ strings:\t%d
+ miscellaneous:\t%d
+ integers:\t%d\n"
+              (memory-use-counts)))
+      (insert  "\nInterpretation of these statistics:\n")
+      (insert (documentation 'memory-use-counts))
+      (goto-char (point-min)))
+    (pop-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
