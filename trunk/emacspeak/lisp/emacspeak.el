@@ -47,12 +47,11 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 
-(eval-when (compile)
-  (require 'dtk-speak)
-  (require 'voice-lock)
-  (require 'emacspeak-sounds)
-  (require 'emacspeak-speak)
-  (require 'emacspeak-keymap))
+(require 'dtk-speak)
+(require 'voice-lock)
+(require 'emacspeak-sounds)
+(require 'emacspeak-speak)
+(require 'emacspeak-keymap)
 (require 'emacspeak-fix-interactive)
 (require 'custom)
 ;;}}}
