@@ -112,6 +112,7 @@ Once selected, the selected searcher prompts for additional information as appro
 Key     Search
 a       AltaVista  Search
 Cap     AAll Web
+C-a     Amazon Shopping Search
 b       BBC Archives
 C-b     Computer Science Bibliography
 c       CNN Interactive
@@ -966,8 +967,13 @@ Optional second arg as-html processes the results as HTML rather than data."
                                   'emacspeak-websearch-britannica-search)
 (emacspeak-websearch-set-key ?e 'britannica)
 
+;;; this requires a password
+;(defvar emacspeak-websearch-britannica-uri 
+  ;"http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
+  ;"URI for searching Britannica online.")
+
 (defvar emacspeak-websearch-britannica-uri 
-  "http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
+  "http://search.britannica.com/search?query="
   "URI for searching Britannica online.")
 
 (defun emacspeak-websearch-britannica-search (query)
@@ -980,10 +986,9 @@ Optional second arg as-html processes the results as HTML rather than data."
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-britannica-uri
-             "&query="
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
-   "your search"
+   query
    'emacspeak-speak-line))
 
 ;;}}}
@@ -1051,64 +1056,64 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar emacspeak-websearch-google-advanced-form
   "
 <title>Advanced Google Search</title>
-<form method=GET  action=\"http://www.google.com/search\">
+<form method=GET  action='http://www.google.com/search'>
   <table>
     <tr>
-      <td><label for=\"1\">all   words </td>
-      <td> <input id=\"1\" type=text  name=as_q > </td>
+      <td><label for='1'>all   words </td>
+      <td> <input id='1' type=text  name=as_q > </td>
     </tr>
     <tr>
-      <td > <label for=\"2\">exactSearch</label> </td>
-      <td> <input id=\"2\" type=text   name=as_epq> </td>
+      <td > <label for='2'>exactSearch</label> </td>
+      <td> <input id='2' type=text   name=as_epq> </td>
     </tr>
     <tr>
-      <td > <label for=\"3\">Partial match</label> </td>
-      <td> <input id=\"3\" type=text   name=as_oq> </td>
+      <td > <label for='3'>Partial match</label> </td>
+      <td> <input id='3' type=text   name=as_oq> </td>
     </tr>
     <tr>
-      <td > <label for=\"4\">Not containing</label> </td>
-      <td> <input id=\"4\" type=text   name=as_eq> </td>
+      <td > <label for='4'>Not containing</label> </td>
+      <td> <input id='4' type=text   name=as_eq> </td>
     </tr>
     <tr>
-      <td > <label for=\"5\">Language</label> </td>
+      <td > <label for='5'>Language</label> </td>
       <td>
-        <select id=\"5\" name=lr >
+        <select id='5' name=lr >
           <option >any language
-            <option value=\"lang_ar\">Arabic
-              <option value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)
-                <option value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)
-                  <option value=\"lang_cs\">Czech
-                    <option value=\"lang_da\">Danish
-                      <option value=\"lang_nl\">Dutch
-                        <option value=\"lang_en\">English
-                          <option value=\"lang_et\">Estonian
-                            <option value=\"lang_fi\">Finnish
-                              <option value=\"lang_fr\">French
-                                <option value=\"lang_de\">German
-                                  <option value=\"lang_el\">Greek
-                                    <option value=\"lang_iw\">Hebrew
-                                      <option value=\"lang_hu\">Hungarian
-                                        <option value=\"lang_is\">Icelandic
-                                          <option value=\"lang_it\">Italian
-                                            <option value=\"lang_ja\">Japanese
-                                              <option value=\"lang_ko\">Korean
-                                                <option value=\"lang_lv\">Latvian
-                                                  <option value=\"lang_lt\">Lithuanian
-                                                    <option value=\"lang_no\">Norwegian
-                                                      <option value=\"lang_pl\">Polish
-                                                        <option value=\"lang_pt\">Portuguese
-                                                          <option value=\"lang_ro\">Romanian
-                                                            <option value=\"lang_ru\">Russian
-                                                              <option value=\"lang_es\">Spanish
-                                                                <option value=\"lang_sv\">Swedish
-                                                                  <option value=\"lang_tr\">Turkish
+            <option value='lang_ar'>Arabic
+              <option value='lang_zh-CN'>Chinese&nbsp;(Simplified)
+                <option value='lang_zh-TW'>Chinese&nbsp;(Traditional)
+                  <option value='lang_cs'>Czech
+                    <option value='lang_da'>Danish
+                      <option value='lang_nl'>Dutch
+                        <option value='lang_en'>English
+                          <option value='lang_et'>Estonian
+                            <option value='lang_fi'>Finnish
+                              <option value='lang_fr'>French
+                                <option value='lang_de'>German
+                                  <option value='lang_el'>Greek
+                                    <option value='lang_iw'>Hebrew
+                                      <option value='lang_hu'>Hungarian
+                                        <option value='lang_is'>Icelandic
+                                          <option value='lang_it'>Italian
+                                            <option value='lang_ja'>Japanese
+                                              <option value='lang_ko'>Korean
+                                                <option value='lang_lv'>Latvian
+                                                  <option value='lang_lt'>Lithuanian
+                                                    <option value='lang_no'>Norwegian
+                                                      <option value='lang_pl'>Polish
+                                                        <option value='lang_pt'>Portuguese
+                                                          <option value='lang_ro'>Romanian
+                                                            <option value='lang_ru'>Russian
+                                                              <option value='lang_es'>Spanish
+                                                                <option value='lang_sv'>Swedish
+                                                                  <option value='lang_tr'>Turkish
         </select>
       </td>
     </tr>
     <tr>
-      <td > <label for=\"6\">Newer than</label> </td>
+      <td > <label for='6'>Newer than</label> </td>
       <td>
-        <select id=\"6\" name=as_qdr>
+        <select id='6' name=as_qdr>
           <option value=all> anytime 
             <option value=m3 >past 3 months
               <option value=m6 > past  6 months
@@ -1117,9 +1122,9 @@ Optional second arg as-html processes the results as HTML rather than data."
       </td>
     </tr>
     <tr>
-      <td> <label for=\"7\">Match in</label></td>
+      <td> <label for='7'>Match in</label></td>
       <td>
-        <select id=\"7\" name=as_occt>
+        <select id='7' name=as_occt>
           <option value=any selected>anywhere in the page
             <option value=title >in the title of the page
               <option value=body >in the text of the page
@@ -1130,36 +1135,36 @@ Optional second arg as-html processes the results as HTML rather than data."
     </tr>
     <tr>
       <td >
-<label for=\"site\">Site Search</label>
-        <select id=\"site\" name=as_dt>
+<label for='site'>Site Search</label>
+        <select id='site' name=as_dt>
           <option value=i>Only
             <option value=e >Don't
         </select>
-<label for=\"8\">look in   domain</label>
+<label for='8'>look in   domain</label>
       </td>
       <td>
-        <input   id=\"8\" name=as_sitesearch>
+        <input   id='8' name=as_sitesearch>
       </td>
     </tr>
     <tr >
       <td>Filters</td>
       <td>
-        <input id=\"9\" type=radio checked value=off
-          name=safe> <label for=\"9\">No filtering</label>
-          <input id=\"10\" type=radio  value=active name=safe>
-          <label for=\"10\">Safe</label>
+        <input id='9' type=radio checked value=off
+          name=safe> <label for='9'>No filtering</label>
+          <input id='10' type=radio  value=active name=safe>
+          <label for='10'>Safe</label>
       </td>
     </tr>
     <tr>
       <td  >
-        <select id=\"11\" name=num>
-          <option value=\"10\" selected>10 results
-            <option value=\"20\">20 results
-              <option value=\"30\">30 results
-                <option value=\"50\">50 results
-                  <option value=\"100\">100 results
+        <select id='11' name=num>
+          <option value='10' selected>10 results
+            <option value='20'>20 results
+              <option value='30'>30 results
+                <option value='50'>50 results
+                  <option value='100'>100 results
         </select> 
-        <input type=submit name=btnG value=\"Google Search\">
+        <input type=submit name=btnG value='Google Search'>
       </td>
     </tr>
   </table>
@@ -1185,242 +1190,242 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar emacspeak-websearch-google-usenet-advanced-form
   "
 <title>Advanced Usenet Search</title>
-<form method=GET action=\"http://groups.google.com/groups\" >
+<form method=GET action='http://groups.google.com/groups' >
   <table >
     <tr >
-      <td > <label for=\"1\">All Words</label> </td>
-      <td> <input id=\"1\" type=\"text\" value=\"\" name=as_q
+      <td > <label for='1'>All Words</label> </td>
+      <td> <input id='1' type='text' value='' name=as_q
       size=25> </td>
 <td>
-        <input type=submit  value=\"Google Search\">
+        <input type=submit  value='Google Search'>
       </td>
     </tr>
     <tr>
-      <td > <label for=\"2\">Exact Match</label> </td>
-      <td> <input id=\"2\" type=\"text\" size=25 value=\"\" name=as_epq> </td>
+      <td > <label for='2'>Exact Match</label> </td>
+      <td> <input id='2' type='text' size=25 value='' name=as_epq> </td>
     </tr>
     <tr>
-      <td><label for=\"3\">Partial Match</label></td>
-      <td> <input id=\"3\" type=\"text\" size=25 value=\"\" name=as_oq> </td>
+      <td><label for='3'>Partial Match</label></td>
+      <td> <input id='3' type='text' size=25 value='' name=as_oq> </td>
     </tr>
     <tr>
-      <td><label for=\"4\">Not containing</label></td>
-      <td> <input id=\"4\" type=\"text\" size=25 value=\"\" name=as_eq> </td>
+      <td><label for='4'>Not containing</label></td>
+      <td> <input id='4' type='text' size=25 value='' name=as_eq> </td>
     </tr>
     <tr>
-      <td > <label for=\"group\">Group search</label> </td>
-      <td> <input id=\"group\" size=30 value=\"\" name=as_ugroup> </td>
+      <td > <label for='group'>Group search</label> </td>
+      <td> <input id='group' size=30 value='' name=as_ugroup> </td>
     </tr>
     <tr>
-      <td > <label for=\"subject\">Subject Search</label> </td>
-      <td> <input id=\"subject\" size=30 value=\"\" name=as_usubject>  </td>
+      <td > <label for='subject'>Subject Search</label> </td>
+      <td> <input id='subject' size=30 value='' name=as_usubject>  </td>
     </tr>
     <tr>
-      <td > <label for=\"author\">Author Search</label> </td>
-      <td> <input id=\"author\" size=30 value=\"\" name=as_uauthors>  </td>
+      <td > <label for='author'>Author Search</label> </td>
+      <td> <input id='author' size=30 value='' name=as_uauthors>  </td>
     </tr>
     <tr>
-      <td > <label for=\"msgid\">Message ID</label> </td>
-      <td> <input id=\"msgid\" size=30 value=\"\" name=as_umsgid> </td>
+      <td > <label for='msgid'>Message ID</label> </td>
+      <td> <input id='msgid' size=30 value='' name=as_umsgid> </td>
     </tr>
     <tr >
-      <td> <label for=\"lang\">Language</label> </td>
+      <td> <label for='lang'>Language</label> </td>
       <td >
-        <select id=\"lang\" name=lr>
-          <option  value=\"\">any language
-          <option  value=\"lang_ar\">Arabic
-          <option  value=\"lang_zh-CN\">Chinese&nbsp;(Simplified)
-          <option  value=\"lang_zh-TW\">Chinese&nbsp;(Traditional)
-          <option  value=\"lang_cs\">Czech
-          <option  value=\"lang_da\">Danish
-          <option  value=\"lang_nl\">Dutch
-          <option  value=\"lang_en\">English
-          <option  value=\"lang_et\">Estonian
-          <option  value=\"lang_fi\">Finnish
-          <option  value=\"lang_fr\">French
-          <option  value=\"lang_de\">German
-          <option  value=\"lang_el\">Greek
-          <option  value=\"lang_iw\">Hebrew
-          <option  value=\"lang_hu\">Hungarian
-          <option  value=\"lang_is\">Icelandic
-          <option  value=\"lang_it\">Italian
-          <option  value=\"lang_ja\">Japanese
-          <option  value=\"lang_ko\">Korean
-          <option  value=\"lang_lv\">Latvian
-          <option  value=\"lang_lt\">Lithuanian
-          <option  value=\"lang_no\">Norwegian
-          <option  value=\"lang_pl\">Polish
-          <option  value=\"lang_pt\">Portuguese
-          <option  value=\"lang_ro\">Romanian
-          <option  value=\"lang_ru\">Russian
-          <option  value=\"lang_es\">Spanish
-          <option  value=\"lang_sv\">Swedish
-          <option  value=\"lang_tr\">Turkish
+        <select id='lang' name=lr>
+          <option  value=''>any language
+          <option  value='lang_ar'>Arabic
+          <option  value='lang_zh-CN'>Chinese&nbsp;(Simplified)
+          <option  value='lang_zh-TW'>Chinese&nbsp;(Traditional)
+          <option  value='lang_cs'>Czech
+          <option  value='lang_da'>Danish
+          <option  value='lang_nl'>Dutch
+          <option  value='lang_en'>English
+          <option  value='lang_et'>Estonian
+          <option  value='lang_fi'>Finnish
+          <option  value='lang_fr'>French
+          <option  value='lang_de'>German
+          <option  value='lang_el'>Greek
+          <option  value='lang_iw'>Hebrew
+          <option  value='lang_hu'>Hungarian
+          <option  value='lang_is'>Icelandic
+          <option  value='lang_it'>Italian
+          <option  value='lang_ja'>Japanese
+          <option  value='lang_ko'>Korean
+          <option  value='lang_lv'>Latvian
+          <option  value='lang_lt'>Lithuanian
+          <option  value='lang_no'>Norwegian
+          <option  value='lang_pl'>Polish
+          <option  value='lang_pt'>Portuguese
+          <option  value='lang_ro'>Romanian
+          <option  value='lang_ru'>Russian
+          <option  value='lang_es'>Spanish
+          <option  value='lang_sv'>Swedish
+          <option  value='lang_tr'>Turkish
         </select>
       </td>
     </tr>
     <tr >
-      <td > <label for=\"dates\">Since</label> 
-        <input id=\"dates\" name=as_drrb type=radio value=q checked>
+      <td > <label for='dates'>Since</label> 
+        <input id='dates' name=as_drrb type=radio value=q checked>
         </input></td>
 <td>
-          <label for=\"since\"> messages posted </label>
-          <select id=\"since\" name=as_qdr>
-            <option  value=\"\" selected>anytime
-            <option  value=\"d\">in the last 24 hours
-            <option  value=\"w\">in the last week
-            <option  value=\"m\">in the last month
-            <option  value=\"y\">in the last year
+          <label for='since'> messages posted </label>
+          <select id='since' name=as_qdr>
+            <option  value='' selected>anytime
+            <option  value='d'>in the last 24 hours
+            <option  value='w'>in the last week
+            <option  value='m'>in the last month
+            <option  value='y'>in the last year
           </select>
       </td>
     </tr>
     <tr>
-      <td><label for=\"daterange\">Date Range</label></td>
-      <td > <input id=\"daterange\" name=as_drrb
+      <td><label for='daterange'>Date Range</label></td>
+      <td > <input id='daterange' name=as_drrb
                    type=radio value=b> </td>
     </tr>
   </table>
 <p> Articles posted between 
-<label for=\"miny\">Year</label>
-<select id=\"miny\" name=as_miny >
-<option value=\"1995\" selected>1995
-<option value=\"1996\">1996
-<option value=\"1997\">1997
-<option value=\"1998\">1998
-<option value=\"1999\">1999
-<option value=\"2000\">2000
-<option value=\"2001\">2001
+<label for='miny'>Year</label>
+<select id='miny' name=as_miny >
+<option value='1995' selected>1995
+<option value='1996'>1996
+<option value='1997'>1997
+<option value='1998'>1998
+<option value='1999'>1999
+<option value='2000'>2000
+<option value='2001'>2001
 </select>
-<label for=\"minm\">Month </label>
-<select id=\"minm\" name=as_minm >
-<option value=\"1\">Jan
-<option value=\"2\">Feb
-<option value=\"3\" selected>Mar
-<option value=\"4\">Apr
-<option value=\"5\">May
-<option value=\"6\">Jun
-<option value=\"7\">Jul
-<option value=\"8\">Aug
-<option value=\"9\">Sep
-<option value=\"10\">Oct
-<option value=\"11\">Nov
-<option value=\"12\">Dec
+<label for='minm'>Month </label>
+<select id='minm' name=as_minm >
+<option value='1'>Jan
+<option value='2'>Feb
+<option value='3' selected>Mar
+<option value='4'>Apr
+<option value='5'>May
+<option value='6'>Jun
+<option value='7'>Jul
+<option value='8'>Aug
+<option value='9'>Sep
+<option value='10'>Oct
+<option value='11'>Nov
+<option value='12'>Dec
 </select>
-<label for=\"mind\">Day</label>
-<select id=\"mind\" name=as_mind >
-<option value=\"1\">1
-<option value=\"2\">2
-<option value=\"3\">3
-<option value=\"4\">4
-<option value=\"5\">5
-<option value=\"6\">6
-<option value=\"7\">7
-<option value=\"8\">8
-<option value=\"9\">9
-<option value=\"10\">10
-<option value=\"11\">11
-<option value=\"12\">12
-<option value=\"13\">13
-<option value=\"14\">14
-<option value=\"15\">15
-<option value=\"16\">16
-<option value=\"17\">17
-<option value=\"18\">18
-<option value=\"19\">19
-<option value=\"20\">20
-<option value=\"21\">21
-<option value=\"22\">22
-<option value=\"23\">23
-<option value=\"24\">24
-<option value=\"25\">25
-<option value=\"26\">26
-<option value=\"27\">27
-<option value=\"28\">28
-<option value=\"29\" selected>29
-<option value=\"30\">30
-<option value=\"31\">31
+<label for='mind'>Day</label>
+<select id='mind' name=as_mind >
+<option value='1'>1
+<option value='2'>2
+<option value='3'>3
+<option value='4'>4
+<option value='5'>5
+<option value='6'>6
+<option value='7'>7
+<option value='8'>8
+<option value='9'>9
+<option value='10'>10
+<option value='11'>11
+<option value='12'>12
+<option value='13'>13
+<option value='14'>14
+<option value='15'>15
+<option value='16'>16
+<option value='17'>17
+<option value='18'>18
+<option value='19'>19
+<option value='20'>20
+<option value='21'>21
+<option value='22'>22
+<option value='23'>23
+<option value='24'>24
+<option value='25'>25
+<option value='26'>26
+<option value='27'>27
+<option value='28'>28
+<option value='29' selected>29
+<option value='30'>30
+<option value='31'>31
 </select> and 
-and <label for=\"maxy\">Year</label>
-<select id=\"maxy\" name=as_maxy >
-<option value=\"1995\">1995
-<option value=\"1996\">1996
-<option value=\"1997\">1997
-<option value=\"1998\">1998
-<option value=\"1999\">1999
-<option value=\"2000\">2000
-<option value=\"2001\" selected>2001
+and <label for='maxy'>Year</label>
+<select id='maxy' name=as_maxy >
+<option value='1995'>1995
+<option value='1996'>1996
+<option value='1997'>1997
+<option value='1998'>1998
+<option value='1999'>1999
+<option value='2000'>2000
+<option value='2001' selected>2001
 </select>
-<label for=\"maxm\">Month</label>
-<select id=\"maxm\" name=as_maxm >
-<option value=\"1\">Jan
-<option value=\"2\">Feb
-<option value=\"3\">Mar
-<option value=\"4\">Apr
-<option value=\"5\">May
-<option value=\"6\">Jun
-<option value=\"7\">Jul
-<option value=\"8\">Aug
-<option value=\"9\">Sep
-<option value=\"10\" selected>Oct
-<option value=\"11\">Nov
-<option value=\"12\">Dec
+<label for='maxm'>Month</label>
+<select id='maxm' name=as_maxm >
+<option value='1'>Jan
+<option value='2'>Feb
+<option value='3'>Mar
+<option value='4'>Apr
+<option value='5'>May
+<option value='6'>Jun
+<option value='7'>Jul
+<option value='8'>Aug
+<option value='9'>Sep
+<option value='10' selected>Oct
+<option value='11'>Nov
+<option value='12'>Dec
 </select>
-<label for=\"maxd\">Day</label>
-<select id=\"maxd\" name=as_maxd >
-<option value=\"1\">1
-<option value=\"2\">2
-<option value=\"3\">3
-<option value=\"4\">4
-<option value=\"5\">5
-<option value=\"6\">6
-<option value=\"7\">7
-<option value=\"8\">8
-<option value=\"9\">9
-<option value=\"10\">10
-<option value=\"11\">11
-<option value=\"12\">12
-<option value=\"13\">13
-<option value=\"14\">14
-<option value=\"15\">15
-<option value=\"16\">16
-<option value=\"17\">17
-<option value=\"18\">18
-<option value=\"19\" selected>19
-<option value=\"20\">20
-<option value=\"21\">21
-<option value=\"22\">22
-<option value=\"23\">23
-<option value=\"24\">24
-<option value=\"25\">25
-<option value=\"26\">26
-<option value=\"27\">27
-<option value=\"28\">28
-<option value=\"29\">29
-<option value=\"30\">30
-<option value=\"31\">31
+<label for='maxd'>Day</label>
+<select id='maxd' name=as_maxd >
+<option value='1'>1
+<option value='2'>2
+<option value='3'>3
+<option value='4'>4
+<option value='5'>5
+<option value='6'>6
+<option value='7'>7
+<option value='8'>8
+<option value='9'>9
+<option value='10'>10
+<option value='11'>11
+<option value='12'>12
+<option value='13'>13
+<option value='14'>14
+<option value='15'>15
+<option value='16'>16
+<option value='17'>17
+<option value='18'>18
+<option value='19' selected>19
+<option value='20'>20
+<option value='21'>21
+<option value='22'>22
+<option value='23'>23
+<option value='24'>24
+<option value='25'>25
+<option value='26'>26
+<option value='27'>27
+<option value='28'>28
+<option value='29'>29
+<option value='30'>30
+<option value='31'>31
 </select>
 </p>
   <table>
     <tr>
       <td >
-        <label for=\"num\">Results</label>
-        <select id=\"num\"name=num>
-          <option  value=\"10\">10 messages
-          <option  value=\"20\">20 messages
-          <option  value=\"30\">30 messages
-          <option  value=\"50\">50 messages
-          <option  value=\"100\">100 messages
+        <label for='num'>Results</label>
+        <select id='num'name=num>
+          <option  value='10'>10 messages
+          <option  value='20'>20 messages
+          <option  value='30'>30 messages
+          <option  value='50'>50 messages
+          <option  value='100'>100 messages
         </select> 
       </td>
       <td>
-        <label for=\"scoring\">Sort by</label>
-        <select id=\"scoring\" name=as_scoring>
+        <label for='scoring'>Sort by</label>
+        <select id='scoring' name=as_scoring>
           <option  value=r selected>Sort by relevance
           <option  value=d>Sort by date
         </select> 
       </td>
       <td>
-        <input type=submit  value=\"Google Search\">
+        <input type=submit  value='Google Search'>
       </td>
     </tr>
   </table>
@@ -1770,40 +1775,40 @@ Light for: ")))
 (defvar emacspeak-websearch-recorded-books-advanced-form
 "
 <h1>Search For Recorded Books </h1>
-<form action=\"http://lcweb2.loc.gov/cgi-bin/query\" method=\"post\">
-  <input type=\"hidden\" name=\"directory\"  value=\"bphp\">
-  <input type=\"hidden\" name=\"page\" value=\"advanced\">
+<form action='http://lcweb2.loc.gov/cgi-bin/query' method='post'>
+  <input type='hidden' name='directory'  value='bphp'>
+  <input type='hidden' name='page' value='advanced'>
 <fieldset>  
     <p> 
-      <label for=\"authinput\" > Author </label>
-<input type =\"text\" id=\"authinput\" name=\"authinput\" size=\"30\" >
-      <input name=\"screentitle\" type=\"hidden\" value=\"Personal Author Search For:\">
-      <input name=\"searchtype2\" type=\"hidden\" value=\"author\">
-      <input name=\"directory2\" type=\"hidden\" value=\"bphp\">
-      <input name=\"querybphp\" type=\"hidden\">
+      <label for='authinput' > Author </label>
+<input type ='text' id='authinput' name='authinput' size='30' >
+      <input name='screentitle' type='hidden' value='Personal Author Search For:'>
+      <input name='searchtype2' type='hidden' value='author'>
+      <input name='directory2' type='hidden' value='bphp'>
+      <input name='querybphp' type='hidden'>
     </p>
     <p> 
-      <label for=\"titleinput\" > Title </label> 
-        <input type=\"text\" id=\"titleinput\" name=\"titleinput\" size=\"30\" >
-      <input name=\"searchtype3\" type=\"hidden\" value=\"title\">
+      <label for='titleinput' > Title </label> 
+        <input type='text' id='titleinput' name='titleinput' size='30' >
+      <input name='searchtype3' type='hidden' value='title'>
     </p>
     <p> 
-      <label for=\"subjinput\"> Subject 
+      <label for='subjinput'> Subject 
       </label>   
-        <input type=\"text\" id=\"subjinput\" name=\"subjinput\" size=\"30\" >
-      <input name=\"searchtype4\" type=\"hidden\" value=\"subject\">
+        <input type='text' id='subjinput' name='subjinput' size='30' >
+      <input name='searchtype4' type='hidden' value='subject'>
     </p>
     <p> 
-      <label for=\"bookinput\" > Book Number 
+      <label for='bookinput' > Book Number 
       </label>   
-        <input type=\"text\" id=\"bookinput\" name=\"bookinput\" size=\"30\" >
-      <input name=\"searchtype\" type=\"hidden\" value=\"numbers\">
+        <input type='text' id='bookinput' name='bookinput' size='30' >
+      <input name='searchtype' type='hidden' value='numbers'>
     </p>
     <p> 
-      <label for=\"annotinput\" > Annotation, Notes, Contents 
+      <label for='annotinput' > Annotation, Notes, Contents 
       </label>   
-        <input type=\"text\" id=\"annotinput\" name=\"annotinput\" size=\"30\" >
-      <input name=\"searchtype\" type=\"hidden\" value=\"annot\">
+        <input type='text' id='annotinput' name='annotinput' size='30' >
+      <input name='searchtype' type='hidden' value='annot'>
     </p>
   </fieldset>  
   <h2> Global search </h2>
@@ -1812,296 +1817,296 @@ Light for: ")))
       ignores terms in preceding boxes. Use alone or with limits below. 
     </p>
     <p> 
-      <label for=\"globalinput\" > Keyword 
+      <label for='globalinput' > Keyword 
       </label>
-      <input name=\"searchtype\" type=\"hidden\" value=\"global\">
-      <input name=\"searchtype5\" type=\"hidden\" value=\"basic\">
-      <input name=\"dsplformat\" type=\"hidden\" value=\"edit\">
-      <input type=\"text\" id=\"globalinput\" name=\"globalinput\" size=\"30\" tabindex=\"15\">
+      <input name='searchtype' type='hidden' value='global'>
+      <input name='searchtype5' type='hidden' value='basic'>
+      <input name='dsplformat' type='hidden' value='edit'>
+      <input type='text' id='globalinput' name='globalinput' size='30' tabindex='15'>
     </p>
   </fieldset> 
   <h3> 
-    <a name=\"limits\">
+    <a name='limits'>
     </a>Search limits: 
   </h3>
   <fieldset> 
     <p>
-      <label for=\"format\"  > Format 
+      <label for='format'  > Format 
       </label>
       
-        <select id=\"format\" name=\"format\" >
-          <option  value=\"\"> All Formats 
+        <select id='format' name='format' >
+          <option  value=''> All Formats 
           </option>
-          <option selected value=\"ss\"> Audio Cassette Book 
+          <option selected value='ss'> Audio Cassette Book 
           </option>
-          <option value=\"fb\"> Braille 
+          <option value='fb'> Braille 
           </option>
-          <option value=\"sd\"> Audio Disc Book 
+          <option value='sd'> Audio Disc Book 
           </option>
-          <option value=\"aj\"> Map 
+          <option value='aj'> Map 
           </option>
-          <option value=\"cr\"> Computer File 
+          <option value='cr'> Computer File 
           </option>
-          <option value=\"st\"> Audio Magnetic Tape Book 
+          <option value='st'> Audio Magnetic Tape Book 
           </option>
-          <option value=\"tb\"> Large Print 
+          <option value='tb'> Large Print 
           </option>
         </select>
     </p>
-    <label for=\"lang\" >Language 
+    <label for='lang' >Language 
     </label>
     
-      <select id=\"lang\" name=\"lang\" >
-        <option  value=\"\"> All Languages
+      <select id='lang' name='lang' >
+        <option  value=''> All Languages
         </option>
-        <option selected value=\"eng\"> English
+        <option selected value='eng'> English
         </option>
-        <option value=\"afr\"> Afrikans
+        <option value='afr'> Afrikans
         </option>
-        <option 	value=\"alb\"> Albanian
+        <option 	value='alb'> Albanian
         </option>
-        <option value=\"amh\"> Amharic
+        <option value='amh'> Amharic
         </option>
-        <option value=\"ara\"> Arabic
+        <option value='ara'> Arabic
         </option>
-        <option 	value=\"arm\"> Armenian
+        <option 	value='arm'> Armenian
         </option>
-        <option value=\"ben\"> Bengali
+        <option value='ben'> Bengali
         </option>
-        <option value=\"bul\"> Bulgarian
+        <option value='bul'> Bulgarian
         </option>
-        <option 	value=\"cam\"> Cambodian
+        <option 	value='cam'> Cambodian
         </option>
-        <option value=\"cat\"> Catalan
+        <option value='cat'> Catalan
         </option>
-        <option value=\"chi\"> Chinese
+        <option value='chi'> Chinese
         </option>
-        <option 	value=\"cze> Czech
+        <option 	value='cze> Czech
                 </option>
-                <option value=\"dan\"> Danish
+                <option value='dan'> Danish
         </option>
-        <option value=\"dut\"> Dutch
+        <option value='dut'> Dutch
         </option>
-        <option 	value=\"enm\"> English, Middle
+        <option 	value='enm'> English, Middle
         </option>
-        <option value=\"ang\"> English, Old
+        <option value='ang'> English, Old
         </option>
-        <option 	value=\"esp\"> Esperanto
+        <option 	value='esp'> Esperanto
         </option>
-        <option value=\"est\"> Estonian
+        <option value='est'> Estonian
         </option>
-        <option value=\"fin\"> Finnish
+        <option value='fin'> Finnish
         </option>
-        <option 	value=\"fre\"> French
+        <option 	value='fre'> French
         </option>
-        <option value=\"frm\"> French, Middle
+        <option value='frm'> French, Middle
         </option>
-        <option value=\"fro\"> French, Old
+        <option value='fro'> French, Old
         </option>
-        <option value=\"ger\"> German
+        <option value='ger'> German
         </option>
-        <option value=\"gmh\"> German, Middle, High
+        <option value='gmh'> German, Middle, High
         </option>
-        <option 	value=\"goh\"> German, Old, High
+        <option 	value='goh'> German, Old, High
         </option>
-        <option value=\"grc\"> Greek, Ancient
+        <option value='grc'> Greek, Ancient
         </option>
-        <option 	value=\"gre\"> Greek, Modern
+        <option 	value='gre'> Greek, Modern
         </option>
-        <option value=\"guj\"> Gujarati
+        <option value='guj'> Gujarati
         </option>
-        <option 	value=\"rom\"> Gypsy
+        <option 	value='rom'> Gypsy
         </option>
-        <option value=\"heb\"> Hebrew
+        <option value='heb'> Hebrew
         </option>
-        <option value=\"hin\"> Hindi
+        <option value='hin'> Hindi
         </option>
-        <option 	value=\"hun\"> Hungarian
+        <option 	value='hun'> Hungarian
         </option>
-        <option value=\"ice\"> Icelandic
+        <option value='ice'> Icelandic
         </option>
-        <option 	value=\"ind\"> Indonesian
+        <option 	value='ind'> Indonesian
         </option>
-        <option value=\"iri\"> Irish
+        <option value='iri'> Irish
         </option>
-        <option value=\"ita\"> Italian
+        <option value='ita'> Italian
         </option>
-        <option 	value=\"jpn\"> Japanese
+        <option 	value='jpn'> Japanese
         </option>
-        <option value=\"kor\"> Korean
+        <option value='kor'> Korean
         </option>
-        <option value=\"lao\"> Lao
+        <option value='lao'> Lao
         </option>
-        <option 	value=\"lat\"> Latin
+        <option 	value='lat'> Latin
         </option>
-        <option value=\"lav\"> Latvian
+        <option value='lav'> Latvian
         </option>
-        <option value=\"lit\"> Lithuanian
+        <option value='lit'> Lithuanian
         </option>
-        <option 	value=\"nor\"> Norwegian
+        <option 	value='nor'> Norwegian
         </option>
-        <option value=\"oji\"> Ojibwa
+        <option value='oji'> Ojibwa
         </option>
-        <option value=\"per\"> Persian
+        <option value='per'> Persian
         </option>
-        <option 	value=\"pol\"> Polish
+        <option 	value='pol'> Polish
         </option>
-        <option value=\"por\"> Portuguese
+        <option value='por'> Portuguese
         </option>
-        <option value=\"pan\"> Punjabi
+        <option value='pan'> Punjabi
         </option>
-        <option 	value=\"rum\"> Romanian
+        <option 	value='rum'> Romanian
         </option>
-        <option value=\"rus\"> Russian
+        <option value='rus'> Russian
         </option>
-        <option value=\"san\"> Sanskrit
+        <option value='san'> Sanskrit
         </option>
-        <option 	value=\"scr\"> Serbo-Croatian
+        <option 	value='scr'> Serbo-Croatian
         </option>
-        <option value=\"spa\"> Spanish
+        <option value='spa'> Spanish
         </option>
-        <option 	value=\"swe\"> Swedish
+        <option 	value='swe'> Swedish
         </option>
-        <option value=\"tag\"> Tagalog
+        <option value='tag'> Tagalog
         </option>
-        <option value=\"tur\"> Turkish
+        <option value='tur'> Turkish
         </option>
-        <option 	value=\"ukr\"> Ukrainian
+        <option 	value='ukr'> Ukrainian
         </option>
-        <option value=\"vie\"> Vietnamese
+        <option value='vie'> Vietnamese
         </option>
-        <option 	value=\"yid\"> Yiddish 
+        <option 	value='yid'> Yiddish 
         </option>
       </select>
       <p>
-        <label for=\"addl\" >Additional characteristics 
+        <label for='addl' >Additional characteristics 
         </label>
         
-          <select id=\"addl\" name=charac >
-            <option selected value=\"\"> All Characteristics
+          <select id='addl' name=charac >
+            <option selected value=''> All Characteristics
             </option>
-            <option 	value=\"Contains descriptions of sex.\"> Descriptions of sex
+            <option 	value='Contains descriptions of sex.'> Descriptions of sex
             </option>
-            <option 	value=\"Contains strong language.\"> Strong language
+            <option 	value='Contains strong language.'> Strong language
             </option>
-            <option value=\"Contains descriptions of violence.\"> Violence
+            <option value='Contains descriptions of violence.'> Violence
             </option>
-            <option value=\"For preschool-grade 2.\"> For preschool-grade 2
+            <option value='For preschool-grade 2.'> For preschool-grade 2
             </option>
-            <option value=\"For grades K-3.\"> For grades K-3
+            <option value='For grades K-3.'> For grades K-3
             </option>
-            <option value=\"For grades 2-4.\"> For grades 2-4
+            <option value='For grades 2-4.'> For grades 2-4
             </option>
-            <option value=\"For grades 3-6.\"> For grades 3-6
+            <option value='For grades 3-6.'> For grades 3-6
             </option>
-            <option 	value=\"For grades 4-7.\"> For grades 4-7
+            <option 	value='For grades 4-7.'> For grades 4-7
             </option>
-            <option value=\"For grades 5-8.\"> For grades 5-8
+            <option value='For grades 5-8.'> For grades 5-8
             </option>
-            <option value=\"For grades 6-9.\"> For grades 6-9
+            <option value='For grades 6-9.'> For grades 6-9
             </option>
-            <option value=\"For junior and senior high.\"> For junior and senior high
+            <option value='For junior and senior high.'> For junior and senior high
             </option>
-            <option value=\"For high school and adult.\"> For high school and adult
+            <option value='For high school and adult.'> For high school and adult
             </option>
-            <option value=\"Caldecott Medal winner.\"> Caldecott Medal winner
+            <option value='Caldecott Medal winner.'> Caldecott Medal winner
             </option>
-            <option value=\"Newbery Medal winner.\"> Newbery Medal winner
+            <option value='Newbery Medal winner.'> Newbery Medal winner
             </option>
-            <option value=\"Pulitzer Prize winner.\"> Pulitzer Prize winner
+            <option value='Pulitzer Prize winner.'> Pulitzer Prize winner
             </option>
             <option value=Bestseller.> Bestseller
             </option>
-            <option value=\"Award winner.\"> Award winner
+            <option value='Award winner.'> Award winner
             </option>
-            <option value=\"Female narrator.\"> Female narrator
+            <option value='Female narrator.'> Female narrator
             </option>
-            <option value=\"Male narrator.\"> Male narrator 
+            <option value='Male narrator.'> Male narrator 
             </option>
           </select>
       </p>
       <p> 
-        <label for=\"not\" >Characteristics 
+        <label for='not' >Characteristics 
           <em>not
           </em> present
         </label> 
         
-          <select id=\"not\" name=\"not charac\" tabindex=\"18\">
-            <option selected value=\"\"> None
+          <select id='not' name='not charac' tabindex='18'>
+            <option selected value=''> None
             </option>
-            <option value=\"Contains descriptions of sex.\"> Descriptions of sex
+            <option value='Contains descriptions of sex.'> Descriptions of sex
             </option>
-            <option value=\"Contains strong language.\"> Strong language
+            <option value='Contains strong language.'> Strong language
             </option>
-            <option value=\"Contains descriptions of violence.\"> Violence 
+            <option value='Contains descriptions of violence.'> Violence 
             </option>
           </select>
           <p> 
-            <label for=\"hold\" >Holding code 
+            <label for='hold' >Holding code 
             </label>
             
-              <select id=\"hold\" name=holding tabindex=\"19\">
-                <option value=\"\" selected>All Holding Agencies
+              <select id='hold' name=holding tabindex='19'>
+                <option value='' selected>All Holding Agencies
                 </option>
-                <option value=\"NLSBPH\">NLS Only
+                <option value='NLSBPH'>NLS Only
                 </option>
-                <option value=\"NLSNET\">NLS and Network books
+                <option value='NLSNET'>NLS and Network books
                 </option>
-                <option value=\"OTHUS\">Other U.S. agencies
+                <option value='OTHUS'>Other U.S. agencies
                 </option>
-                <option value=\"CANADA\">Canadian agencies
+                <option value='CANADA'>Canadian agencies
                 </option>
-                <option value=\"EUROPE\">European agencies
+                <option value='EUROPE'>European agencies
                 </option>
-                <option value=\"AUSNZ\">New Zealand
+                <option value='AUSNZ'>New Zealand
                 </option>
               </select>
           </p>
           <p> 
-            <label for=\"ilv\" >Intellectual level 
+            <label for='ilv' >Intellectual level 
             </label>
             
-              <select id=\"ilv\" name=ilv tabindex=\"20\">
-                <option selected value=\"\"> Juvenile and adult
+              <select id='ilv' name=ilv tabindex='20'>
+                <option selected value=''> Juvenile and adult
                 </option>
-                <option value=\"ilv e j\"> Juvenile literature
+                <option value='ilv e j'> Juvenile literature
                 </option>
-                <option value=\"not juv.\"> Non-juvenile
+                <option value='not juv.'> Non-juvenile
                 </option>
               </select>
           </p>
           <p> 
-            <label for \"fic\" >Fiction 
+            <label for 'fic' >Fiction 
             </label>
             
-              <select id=\"fic\" name=\"fic\" tabindex=\"21\">
-                <option selected value=\"\"> Fiction and Nonfiction
+              <select id='fic' name='fic' tabindex='21'>
+                <option selected value=''> Fiction and Nonfiction
                 </option>
-                <option value=\"fic e x.\"> Fiction
+                <option value='fic e x.'> Fiction
                 </option>
-                <option value=\"not fict.\"> Nonfiction
+                <option value='not fict.'> Nonfiction
                 </option>
               </select>
           </p>
           <p> 
-            <label for=\"mus\" >Music 
+            <label for='mus' >Music 
             </label>
             
-              <select id=\"mus\" name=\"mus\" tabindex=\"22\">
-                <option selected value=\"\"> Music and non-music
+              <select id='mus' name='mus' tabindex='22'>
+                <option selected value=''> Music and non-music
                 </option>
-                <option value=\"u\"> Music
+                <option value='u'> Music
                 </option>
-                <option value=\"not music\">Non-music
+                <option value='not music'>Non-music
                 </option>
               </select>
           </p>
-          <input name=\"directory\" type=\"hidden\" value=\"bphp\">
+          <input name='directory' type='hidden' value='bphp'>
           <hr />
           <p> 
-            <input type=\"submit\" value=\"Submit Search\" name=\"submit\" >
+            <input type='submit' value='Submit Search' name='submit' >
             
-              <input type=\"reset\" value=\"Clear Form\" name=\"reset\" tabindex=\"24\">
+              <input type='reset' value='Clear Form' name='reset' tabindex='24'>
           </p>
 </form>
 "
@@ -2111,16 +2116,7 @@ Light for: ")))
   "Present advanced search form for recorded books."
   (interactive)
   (declare (special emacspeak-websearch-recorded-books-advanced-form))
-  (let ((buffer (get-buffer-create " *recorded-books-advanced*")))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (insert emacspeak-websearch-recorded-books-advanced-form)
-      (w3-preview-this-buffer)
-      (widget-forward 1)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line)
-      (kill-buffer buffer))))
+  (emacspeak-websearch-display-form emacspeak-websearch-recorded-books-advanced-form))
 
 ;;}}}
 ;;{{{ Merriam Webster
@@ -2366,6 +2362,7 @@ Light for: ")))
 
 (defvar emacspeak-websearch-exchange-rate-form 
 "
+<title>Currency Convertor</title>
 <form  method='POST' action='http://www.xe.com/ucc/convert.cgi'>
 <table>
 <tr>
@@ -2573,10 +2570,77 @@ Light for: ")))
 
 
 ;;}}}
+;;{{{ Shopping at Amazon
+
+(emacspeak-websearch-set-searcher 'amazon-search
+                                  'emacspeak-websearch-amazon-search)
+
+(emacspeak-websearch-set-key 1 'amazon-search)
+
+(defvar emacspeak-websearch-amazon-search-form
+"
+<title>Shopping: Search Amazon </title>
+<form method='post' action='http://www.amazon.com/exec/obidos/search-handle-form/104-2736171-1915945'>
+  <table>
+    <tr>
+      <td>
+        <select name='index'>
+          <option value='blended' selected>All Products </option>
+          <option value='books'>Books </option>
+          <option value='music'>Popular Music
+          </option>          <option value='music-dd'>Music Downloads </option>
+          <option value='classical'>Classical Music </option>
+          <option value='dvd'>DVD </option>
+          <option value='vhs'>VHS </option>
+          <option value='theatrical'>In Theaters </option>
+          <option value='toys'>Toys </option>
+          <option value='baby'>Baby </option>
+          <option value='pc-hardware'>Computers </option>
+          <option value='videogames'>Video Games </option>
+          <option value='electronics'>Electronics </option>
+          <option value='photo'>Camera &amp; Photo </option>
+          <option value='software'>Software </option>
+          <option value='tools'>Tools &amp; Hardware </option>
+          <option value='magazines'>Magazines </option>
+          <option value='garden'>Outdoor Living </option>
+          <option value='kitchen'>Kitchen </option>
+          <option value='travel'>Travel </option>
+          <option value='wireless-phones'>Cell Phones &amp; Service </option>
+          <option value='outlet'>Outlet </option>
+          <option value='auction-redirect'>Auctions </option>
+          <option value='fixed-price-redirect'>zShops </option>
+        </select>
+      </td>
+      <td>
+        <b>  for  
+        </b>
+        <input type='text' name='field-keywords' size='15'>  
+      </td>
+      <td>
+        <input type='submit' value='Search'>
+      </td>
+    </tr>
+  </table>
+"
+"Form for Amazon store search..")
+
+(defun emacspeak-websearch-amazon-search ()
+  "Amazon search."
+  (interactive)
+  (declare (special emacspeak-websearch-amazon-search-form))
+  (emacspeak-websearch-display-form emacspeak-websearch-amazon-search-form))
+
+
+
+;;}}}
+;;{{{  site-specific search tools
+
 ;;; Load site-specific searchers 
 
 (when (locate-library "emacspeak-w3search")
   (load-library "emacspeak-w3search"))
+
+;;}}}
 
 ;;}}}
 ;;{{{ Browse usenet using Dejanews
