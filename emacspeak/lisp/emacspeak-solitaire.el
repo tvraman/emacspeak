@@ -40,14 +40,7 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds)
-		   (and (locate-library "solitaire")
-			(require 'solitaire)))
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction 
 

@@ -38,15 +38,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'emacspeak-fix-interactive)
-(require 'emacspeak-personality)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to sgml mode
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ advice interactive commands 

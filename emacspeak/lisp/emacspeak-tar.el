@@ -40,15 +40,7 @@
 
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-keymap)
-(require 'emacspeak-sounds)
-(eval-when (compile)
-  (require 'tar-mode)
-  (require 'emacspeak-fix-interactive))
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction 
 

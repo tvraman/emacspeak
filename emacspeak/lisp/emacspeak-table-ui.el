@@ -37,19 +37,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'voice-setup)
-(require 'emacspeak-table)
-(require 'emacspeak-tabulate)
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds))
-(require 'thingatpt)
 ;;{{{  Introduction
 
 ;;; User interface to tables
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ define personalities

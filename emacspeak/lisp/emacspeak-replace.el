@@ -38,17 +38,11 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'custom)
-(require 'voice-setup)
-(eval-when-compile
-  (require 'dtk-voices)
-  (require 'dtk-speak)
-  (require 'emacspeak-speak)
-  (require 'emacspeak-sounds)
-  (load-library "replace"))
+;;{{{ requires
+(require 'emacspeak-preamble)
+(load-library "replace")
+
+;;}}}
 ;;{{{  Introduction:
 
 ;;; This module causes emacs' replacement functions to use voice locking

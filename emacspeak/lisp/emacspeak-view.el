@@ -37,14 +37,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'dtk-voices)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to view-mode
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Setup view mode to work with emacspeak

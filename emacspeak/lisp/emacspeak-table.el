@@ -37,13 +37,14 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'thingatpt)
 ;;{{{  Introduction
 
 ;;; Implements a module that provides a high level interface to
 ;;; tabulated information.
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Define table data structure:

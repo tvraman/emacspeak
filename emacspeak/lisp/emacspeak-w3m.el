@@ -33,18 +33,7 @@
 ;;; Code:
 ;;{{{  required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'w3m nil t)
-(require 'w3m-form nil t)
-(require 'dtk-speak)
-(require 'voice-setup)
-(require 'emacspeak-speak)
-(require 'emacspeak-personality)
-(require 'emacspeak-sounds)
-(require 'emacspeak-wizards)
-(require 'emacspeak-xslt)
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map

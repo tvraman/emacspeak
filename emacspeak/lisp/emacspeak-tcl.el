@@ -37,14 +37,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-personality)
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to tcl-mode 
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ voice locking:

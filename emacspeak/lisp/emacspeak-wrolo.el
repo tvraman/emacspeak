@@ -37,16 +37,14 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
-(require 'dtk-voices)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; This module extends the Rolodex that ships with Hyperbole, wrolo.el to
 ;;; speak fluently with emacspeak.
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 

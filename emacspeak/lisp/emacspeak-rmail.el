@@ -37,16 +37,14 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'dtk-speak)
-		   (require 'emacspeak-sounds)
-		   (require 'emacspeak-speak))
-(require 'rmail)
-(require 'rmailsort)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to rmail
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
+(require 'rmail)
 
 ;;}}}
 ;;{{{  customizations:
