@@ -191,7 +191,7 @@ proc service {} {
     global tts
     set talking [speakingP]
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.01] stdin]
+        set status   [lsearch [select [list  stdin]  {} {} 0.09] stdin]
         if { $status >= 0} {
             stop
             set tts(talking?) 0
@@ -319,8 +319,7 @@ set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
 set tts(stereo) 1
 useStereoOutput
-synth {`v1 Using stereo output Via  IBM  Via Voice,
-    `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
+synth {`v1 Using in memory synthesis.}
 synchronize
 
 #Start the main command loop:
