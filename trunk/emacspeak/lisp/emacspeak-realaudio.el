@@ -227,7 +227,7 @@ Echo output and return it as a string."
 		 (buffer-substring mark (process-mark
 					 emacspeak-realaudio-process))))))
 
-
+;;;###autoload
 (defun emacspeak-realaudio-get-current-time-in-seconds ()
   "Return current time in seconds."
   (interactive)
@@ -246,6 +246,38 @@ Echo output and return it as a string."
     (when (interactive-p)
 (dtk-speak (format "%d" seconds)))
     seconds))
+
+;;;###autoload
+(defun emacspeak-realaudio-set-start-mark (&optional mark-time)
+  "Set start mark. Default is to set marker to current play time.
+Mark is specified in seconds."
+  (interactive "p")
+  (declare (special emacspeak-realaudio-start-time-mark))
+  (setq emacspeak-realaudio-start-time-mark
+         (cond
+          ((and (interactive-p) mark-time)
+           (read-minibuffer "Mark in seconds:"))
+          ((interactive-p)
+           (emacspeak-realaudio-get-current-time-in-seconds))
+          (t (or mark-time 0)))))
+;;;###autoload
+(defun emacspeak-realaudio-set-end-mark (&optional mark-time)
+  "Set end mark. Default is to set marker to current play time.
+Mark is specified in seconds."
+  (interactive "p")
+  (declare (special emacspeak-realaudio-start-time-mark))
+  (setq emacspeak-realaudio-end-time-mark
+         (cond
+          ((and (interactive-p) mark-time)
+           (read-minibuffer "Mark in seconds:"))
+          ((interactive-p)
+           (emacspeak-realaudio-get-current-time-in-seconds))
+          (t (or mark-time 0)))))
+
+    
+                 
+  
+
 
 (defun emacspeak-realaudio-trplayer-command (char)e
   "Execute TRPlayer command."
