@@ -189,9 +189,21 @@ Note that you will need the Viavoice TTS SDK if you plan to
 recompile the Emacspeak Viavoice Outloud server or build
 other ViaVoice TTS applications.
 
+**Emacs 21:
+
+Emacspeak 15 works cleanly with Emacs 21's new features.
+However, note that there are serious problems running W3
+both the pre-release 4.0.46 as well as the CVS version of W3
+under Emacs 21.  
+
+CVS version of W3:
+
+0) Aural CSS is broken
+1) Tables are broken
+2) There is a W3 timer bug that causes page download to take a lot longer
+
 
 Local variables:
  mode: outline
  paragraph-separate: "[ ]*$"
 end:
-
