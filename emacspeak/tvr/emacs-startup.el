@@ -333,9 +333,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     (load-library-if-available "psgml-prepare")
     (load-library-if-available "xae-prepare")
-                                        ;(load-library-if-available "xae-prepare")
     (load-library-if-available "tdtd-prepare")
-
+(load-library-if-available "xslide-prepare")
+(load-library-if-available "xslt-process-prepare")
     ;;}}}
     ;;{{{ sql
                                         ;(load-library-if-available "sql-prepare")
