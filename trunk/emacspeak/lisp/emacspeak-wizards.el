@@ -1933,6 +1933,7 @@ directory to where find is to be launched."
   (emacspeak-custom-goto-group))
 ;;}}}
 ;;{{{  browse url using specified style
+
 (defun emacspeak-wizards-browse-url-with-style (style url)
   "Browse URL with specified XSL style."
   (interactive
@@ -1942,22 +1943,49 @@ directory to where find is to be launched."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-w3-post-process-hook))
-    (let ((src-buffer
-           (emacspeak-xslt-url
-            style
-            url
-            (list
-             (cons "base"
-                   (format "\"'%s'\""
-                           url))))))
-      (add-hook 'emacspeak-w3-post-process-hook
-		#'(lambda nil
-		    (emacspeak-speak-mode-line)
-		    (emacspeak-auditory-icon 'open-object)))
-      (save-excursion
-        (set-buffer src-buffer)
+  (let ((src-buffer
+         (emacspeak-xslt-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object)))
+    (save-excursion
+      (set-buffer src-buffer)
       (emacspeak-w3-preview-this-buffer))
-      (kill-buffer src-buffer)))
+    (kill-buffer src-buffer)))
+
+(defun emacspeak-wizards-browse-xml-url-with-style (style url)
+  "Browse XML URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (declare (special emacspeak-w3-post-process-hook))
+  (let ((src-buffer
+         (emacspeak-xslt-xml-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object)))
+    (save-excursion
+      (set-buffer src-buffer)
+      (emacspeak-w3-preview-this-buffer))
+    (kill-buffer src-buffer)))
+
 
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
@@ -2227,22 +2255,6 @@ defgroup declarations found in current directory."
       
    
     
-
-;;}}}
-;;{{{ view RSS feed
-(defun emacspeak-wizards-rss-view (rss-url &optional speak)
-  "Retrieve and display RSS news feed."
-  (interactive
-   (list
-    (read-from-minibuffer "RSS Feed: ")))
-  (declare (special emacspeak-xslt-directory))
-  (when speak
-  (add-hook 'emacspeak-w3-post-process-hook
-            'emacspeak-speak-buffer))
-  (emacspeak-wizards-browse-url-with-style
-   (expand-file-name "rss.xsl"
-                     emacspeak-xslt-directory)
-   rss-url))
 
 ;;}}}
 (provide 'emacspeak-wizards)
