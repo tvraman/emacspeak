@@ -65,7 +65,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (16001 41630))
+;;;;;;  (16001 44244))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -76,7 +76,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (15998 24521))
+;;;;;;  "emacspeak-eterm.el" (16002 61673))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -125,7 +125,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (15998 24561))
+;;;;;;  (16001 44245))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -165,7 +165,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15998 24587))
+;;;;;;  (16001 44245))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -176,7 +176,7 @@ Start IMCom." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-keymap-remove-emacspeak-edit-commands)
-;;;;;;  "emacspeak-keymap" "emacspeak-keymap.el" (16001 40716))
+;;;;;;  "emacspeak-keymap" "emacspeak-keymap.el" (16001 44246))
 ;;; Generated autoloads from emacspeak-keymap.el
 
 (defvar emacspeak-keymap nil "\
@@ -202,7 +202,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (15998 24720))
+;;;;;;  (16001 44246))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -223,7 +223,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 
 ;;;### (autoloads (emacspeak-personality-prepend emacspeak-personality-append
 ;;;;;;  emacspeak-personality-put) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (16000 61830))
+;;;;;;  (16001 44246))
 ;;; Generated autoloads from emacspeak-personality.el
 
 (autoload (quote emacspeak-personality-put) "emacspeak-personality" "\
@@ -354,7 +354,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-play-program emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (16000 61454))
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (16001 44246))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defsubst emacspeak-using-midi-p nil "\
@@ -386,7 +386,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (16000 59662))
+;;;;;;  "emacspeak-speak.el" (16001 44246))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -492,7 +492,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
 ;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
 ;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
-;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16001 42246))
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16001 44247))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
@@ -636,6 +636,18 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 (autoload (quote emacspeak-websearch-usenet) "emacspeak-websearch" "\
 Prompt and browse a Usenet newsgroup.
 Optional interactive prefix arg results in prompting for a search term." t nil)
+
+;;;***
+
+;;;### (autoloads (emacspeak-widget-summarize emacspeak-widget-summarize-parent)
+;;;;;;  "emacspeak-widget" "emacspeak-widget.el" (16002 61857))
+;;; Generated autoloads from emacspeak-widget.el
+
+(autoload (quote emacspeak-widget-summarize-parent) "emacspeak-widget" "\
+Summarize parent of widget at point." t nil)
+
+(autoload (quote emacspeak-widget-summarize) "emacspeak-widget" "\
+Summarize specified widget." nil nil)
 
 ;;;***
 
@@ -1004,8 +1016,11 @@ Start Xml-Shell on contents of system-id." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xslt-xml-url emacspeak-xslt-url emacspeak-xslt-region)
-;;;;;;  "emacspeak-xslt" "emacspeak-xslt.el" (16001 42360))
+;;;;;;  "emacspeak-xslt" "emacspeak-xslt.el" (16002 61321))
 ;;; Generated autoloads from emacspeak-xslt.el
+
+(defvar emacspeak-xslt-directory (expand-file-name "xsl/" emacspeak-directory) "\
+Directory holding XSL transformations.")
 
 (autoload (quote emacspeak-xslt-region) "emacspeak-xslt" "\
 Apply XSLT transformation to region and replace it with
@@ -1027,7 +1042,7 @@ part of the libxslt package." nil nil)
 ;;;***
 
 ;;;### (autoloads (voice-lock-mode) "voice-setup" "voice-setup.el"
-;;;;;;  (15998 23365))
+;;;;;;  (16001 44247))
 ;;; Generated autoloads from voice-setup.el
 
 (autoload (quote voice-lock-mode) "voice-setup" "\

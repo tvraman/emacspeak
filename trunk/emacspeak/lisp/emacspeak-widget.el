@@ -162,7 +162,7 @@ Returns a string with appropriate personality."
                            parent-help))
      (w (message (format " %s " type)))
      (t (message " Not on a widget. ")))))
-        
+;;;###autoload        
 (defun emacspeak-widget-summarize-parent ()
   "Summarize parent of widget at point."
   (interactive)
@@ -173,7 +173,7 @@ Returns a string with appropriate personality."
      (t (message "Widget at point has no parent")))))
 
 ;;; Find summarizer for a specific widget type and dispatch.
-
+;;;###autoload
 (defun emacspeak-widget-summarize(widget)
   "Summarize specified widget."
   (let ((emacspeak-help (widget-get widget :emacspeak-help))

@@ -37,13 +37,13 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to ease debugger interaction with gud 
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  Advise key helpers:

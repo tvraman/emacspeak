@@ -37,14 +37,13 @@
 
 ;;}}}
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'voice-setup)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to voicify rich  text.
+
+;;}}}
+;;{{{ required modules
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{ voicify-faces 

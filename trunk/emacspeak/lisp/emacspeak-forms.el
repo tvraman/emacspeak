@@ -37,14 +37,11 @@
 
 ;;}}}
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(eval-when-compile (require 'dtk-speak)
-		   (require 'dtk-voices)
-		   (require 'emacspeak-speak)
-		   (require 'emacspeak-sounds))
-(require 'forms)
+;;{{{ requires
+
+(require 'forms)(require 'emacspeak-preamble)
+
+;;}}}
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to forms-mode 

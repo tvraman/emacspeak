@@ -40,15 +40,8 @@
 
 ;;{{{ required modules
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'backquote)
-(require 'voice-setup)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(eval-when (load)
-  (require 'esh-arg))
+(require 'emacspeak-preamble)
+(require 'esh-arg)
 ;;}}}
 ;;{{{  Introduction:
 

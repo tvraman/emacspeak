@@ -39,17 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
-
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'advice)
-(require 'thingatpt)
-(require 'voice-setup)
-(require 'emacspeak-speak)
-(require 'emacspeak-pronounce)
-(require 'emacspeak-sounds)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
 

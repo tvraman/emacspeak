@@ -39,24 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(eval-when-compile (require 'dtk-speak)
-                   (require 'voice-setup)
-                   (require 'emacspeak-speak)
-                   (require 'emacspeak-sounds)
-                   (condition-case nil
-                       (progn (require 'widget)
-                              (require 'wid-edit)
-                              (message "Compiling against widget libraries %s %s"
-                                       (locate-library "widget")
-                                       (locate-library "wid-edit")))
-                     (error
-                      (message  "Widget libraries not found, widget support may not work correctly.")))
-                   (require 'emacspeak-widget)
-                   )
+(require 'emacspeak-preamble)              
 ;;}}}
 ;;{{{  Introduction:
 
