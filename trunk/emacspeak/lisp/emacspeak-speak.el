@@ -800,6 +800,7 @@ indicated with auditory icon ellipses."
        (t (setq end orig)))
       (when (and emacspeak-audio-indentation
                  (null arg ))
+ (beginning-of-line)
         (skip-syntax-forward " ")
         (setq indent  (current-column ))
         (when (string= emacspeak-audio-indentation "tone")
