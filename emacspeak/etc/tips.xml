@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!DOCTYPE article PUBLIC "-//Arbortext//DTD DocBk XML V2.0//EN" "file:////home/raman/emacs/lisp/site-lisp/xae/doctypes/docbook/docbookx.dtd" []>
-
+<!DOCTYPE article PUBLIC "-//Arbortext//DTD DocBk XML V2.0//EN" "file:////home/raman/emacs/lisp/site-lisp/xae/doctypes/docbook/docbookx.dtd">
 <?xml-stylesheet href="file:////home/raman/emacs/lisp/site-lisp/xae/doctypes/docbook/styles/docbook/html/docbook.xsl" type="text/xsl"?>
-
 <article>
   <articleinfo>
     <legalnotice>
@@ -27,9 +24,7 @@
     </title>
     <abstract>
       <para>
-        <inlinegraphic
-                       fileref="http://emacspeak.sf.net/emacspeak.jpg"
-                       width="150" align="center" role="Logo"/>
+        <inlinegraphic fileref="http://emacspeak.sf.net/emacspeak.jpg" width="150" align="center" role="Logo"/>
       </para>
       <para>
         This document is a collection of productivity tips
@@ -43,8 +38,7 @@
         subsequent sections are intentionally brief since
         the interested user is expected to lookup the
         details of a command using these facilities.
-        See  <ulink
-                    url="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How
+        See  <ulink url="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How
           To Ask  Questions The Smart Way</ulink>
         for how you can improve your own productivity while
         contributing to continuously improving the tools you
@@ -53,49 +47,42 @@
       <para>
         The latest copy of this document is always available via CVS
         from the Emacspeak CVS repository ---thanks to the
-        <inlinegraphic
-                       fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"
-                       />
+        <inlinegraphic fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"/>
         --- SourceForge project and on the 
-        <ulink
-        url="http://emacspeak.sf.net/tips.html">Emacspeak
+        <ulink url="http://emacspeak.sf.net/tips.html">Emacspeak
         WWW site</ulink>.
       </para>
     </abstract>
   </articleinfo>
-  
   <qandaset>
     <qandadiv id="help">
       <title>Online Help</title>
       <para>
         Tips on using Emacs online help facilities.</para>
       <qandaentry>
-        <question> <para> Interactive help.</para> </question>
+        <question>
+          <para> Interactive help.</para>
+        </question>
         <answer>
           <para>
             Online documentation is accessed using commands available on key
             <command><keysym>C-h</keysym></command>. The
             type of help obtained is determined by the
-            keypress following <command ><keysym>C-h</keysym></command>.
-            <simplelist type="vert">
-              <member>
-                <command><keysym>c</keysym></command>
+            keypress following <command><keysym>C-h</keysym></command>.
+            <simplelist type="vert"><member><command><keysym>c</keysym></command>
                 looks up  command run by a given key.
-              </member>
-              <member>
-                <command><keysym>k</keysym></command>
+              </member><member><command><keysym>k</keysym></command>
                 looks up documentation for a given key.
-              </member>
-              <member>
-                <command><keysym>w</keysym></command>
+              </member><member><command><keysym>w</keysym></command>
                 looks up key that invokes specified command.
-              </member>
-            </simplelist>
+              </member></simplelist>
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Online hypertext help.</para> </question>
+        <question>
+          <para> Online hypertext help.</para>
+        </question>
         <answer>
           <para>
             Invoke the online hypertext help system
@@ -108,7 +95,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Opening info page that documents  a given key.</para> </question>
+        <question>
+          <para> Opening info page that documents  a given key.</para>
+        </question>
         <answer>
           <para>
             Press <command><keysym> C-h C-k </keysym></command>followed
@@ -118,7 +107,8 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Opening info page that documents a given command. </para>
+        <question>
+          <para> Opening info page that documents a given command. </para>
         </question>
         <answer>
           <para>
@@ -128,7 +118,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Picking from available choices.</para> </question>
+        <question>
+          <para> Picking from available choices.</para>
+        </question>
         <answer>
           <para>
             Hitting  <command><keysym>tab</keysym></command>
@@ -145,7 +137,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Minibuffer prompting and completion.</para> </question>
+        <question>
+          <para> Minibuffer prompting and completion.</para>
+        </question>
         <answer>
           <para>
             Emacs uses the <emphasis>minibuffer</emphasis> when
@@ -216,7 +210,9 @@
         with files and folders, both local and remote.
       </para>
       <qandaentry>
-        <question> <para> Working on files and folders.</para> </question>
+        <question>
+          <para> Working on files and folders.</para>
+        </question>
         <answer>
           <para>
             Use command <command>
@@ -229,7 +225,11 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Working with remote directories.</para> </question> <answer> <para> Built-in Emacs package
+        <question>
+          <para> Working with remote directories.</para>
+        </question>
+        <answer>
+          <para> Built-in Emacs package
             <application>ange-ftp</application>
             provides seamless access to remote files and folders by
             using UNIX <command>ftp</command>
@@ -244,7 +244,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para>Locating files.</para> </question>
+        <question>
+          <para>Locating files.</para>
+        </question>
         <answer>
           <para>
             Use <command>locate</command>
@@ -262,7 +264,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Using UNIX <command>find</command> from within Emacs.</para> </question>
+        <question>
+          <para> Using UNIX <command>find</command> from within Emacs.</para>
+        </question>
         <answer>
           <para>
             Use commands <command>
@@ -274,7 +278,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Searching all files in a directory hierarchy. </para> </question>
+        <question>
+          <para> Searching all files in a directory hierarchy. </para>
+        </question>
         <answer>
           <para>
             Install and use Emacs package
@@ -288,7 +294,9 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para> Search and replace across a collection of files. </para> </question>
+        <question>
+          <para> Search and replace across a collection of files. </para>
+        </question>
         <answer>
           <para>
             When working on a project consisting of many files, 
@@ -296,11 +304,7 @@
             <command>etags</command>
             and use it to advantage from within Emacs with commands such
             as 
-            <simplelist type="vert">
-              <member><command>find-tag</command></member>
-              <member><command>tags-search</command></member>
-              <member><command>tags-query-replace</command></member>
-            </simplelist>
+            <simplelist type="vert"><member><command>find-tag</command></member><member><command>tags-search</command></member><member><command>tags-query-replace</command></member></simplelist>
           </para>
         </answer>
       </qandaentry>
@@ -311,7 +315,9 @@
         This section contains tips for efficiently working with
         large amounts of content using speech output.</para>
       <qandaentry>
-        <question> <para> Hiding and exposing text blocks. </para> </question>
+        <question>
+          <para> Hiding and exposing text blocks. </para>
+        </question>
         <answer>
           <para>
             You can hide <emphasis>blocks of text</emphasis>
@@ -321,33 +327,27 @@
             a common prefix e.g., cited lines in an email message or blocks of
             comments in programming languages.
             See commands 
-            <simplelist type="vert">
-              <member> <command> <keysym>C-e j</keysym></command>
-                <command> emacspeak-hide-or-expose-block</command></member>
-              <member> <command><keysym>C-e C-j</keysym></command>
-                <command> emacspeak-hide-speak-block-sans-prefix</command>
-              </member>
-            </simplelist>
+            <simplelist type="vert"><member><command><keysym>C-e j</keysym></command><command> emacspeak-hide-or-expose-block</command></member><member><command><keysym>C-e C-j</keysym></command><command> emacspeak-hide-speak-block-sans-prefix</command></member></simplelist>
             to use these features.
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para>Skipping  across blank lines</para>
+        <question>
+          <para>Skipping  across blank lines</para>
         </question>
         <answer>
           <para>
             Use commands
-            <simplelist type="vert">
-              <member><command>emacspeak-skip-blank-lines-backward</command></member>
-              <member><command>emacspeak-skip-blank-lines-forward</command></member>
-            </simplelist>
+            <simplelist type="vert"><member><command>emacspeak-skip-blank-lines-backward</command></member><member><command>emacspeak-skip-blank-lines-forward</command></member></simplelist>
             to move across contiguous blank lines.</para>
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para><emphasis>Everything</emphasis> is
-            searchable.</para> </question>
+        <question>
+          <para><emphasis>Everything</emphasis> is
+            searchable.</para>
+        </question>
         <answer>
           <para>
             Everything
@@ -363,7 +363,8 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para>Saving positions in a file.</para>
+        <question>
+          <para>Saving positions in a file.</para>
         </question>
         <answer>
           <para>
@@ -378,8 +379,10 @@
         </answer>
       </qandaentry>
       <qandaentry>
-        <question> <para>Working with  different portions of
-            a file at the same time.</para> </question>
+        <question>
+          <para>Working with  different portions of
+            a file at the same time.</para>
+        </question>
         <answer>
           <para>
             Display the file in different Emacs
@@ -387,12 +390,7 @@
             or <emphasis>frames</emphasis>;
             Emacs allows you to display different portions 
             of the file in each window or frame. Use Emacspeak commands 
-            <simplelist type="vert">
-              <member><command>emacspeak-speak-predefined-window</command></member>
-              <member><command>emacspeak-speak-this-buffer-other-window-display</command></member>
-              <member><command>emacspeak-speak-this-buffer-previous-display</command></member>
-              <member><command>emacspeak-speak-this-buffer-next-display</command></member>
-            </simplelist>
+            <simplelist type="vert"><member><command>emacspeak-speak-predefined-window</command></member><member><command>emacspeak-speak-this-buffer-other-window-display</command></member><member><command>emacspeak-speak-this-buffer-previous-display</command></member><member><command>emacspeak-speak-this-buffer-next-display</command></member></simplelist>
             to listen to a given  portion of a file whilst working on a
             different portion of the same file.
           </para>
@@ -421,17 +419,17 @@
       <para>This section contains tips on querying and updating
         the status of the Emacspeak audio desktop.
         See section 
-        <ulink
-               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
+        <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
           status commands</ulink>
         in the Emacspeak online manual for additional details.
       </para>
       <qandaentry>
-        <question> <para>Hearing The Current Context
-          </para></question>
+        <question>
+          <para>Hearing The Current Context
+          </para>
+        </question>
         <answer>
-          <para>
-            <emphasis>Emacs buffers</emphasis> are the building bloks of the
+          <para><emphasis>Emacs buffers</emphasis> are the building bloks of the
             Emacspeak audio desktop.  Current context is
             thus determined by the <emphasis>current
               buffer</emphasis> ---i.e., the buffer with which the
@@ -468,72 +466,58 @@
             items of status information conveyed by command
             <command>emacspeak-speak-mode-line</command>:
             <simplelist type="vert">
-              <member>
-                which-function
-                When <command>which-function-mode</command> is activated
-                using command <command>emacspeak-toggle-which-function</command>,
-                the name of the function containing the cursor is
-                spoken. This is useful in programming modes.
-              </member>
-              <member>
-                mail-alert  
-                Produces an auditory icon indicating newly arrived mail  and
-                is controlled via command
-                <command>emacspeak-toggle-mail-alert</command>.</member>
-              <member>
-                buffer-modified
-                An auditory tone when  the contents of the  <emphasis>current</emphasis>
-                buffer has been modified  since it was last
-                saved.
-              </member>
-              <member>
-                buffer-read-only
-                An auditory tone  when the <emphasis>current</emphasis>
-                buffer is <emphasis>read-only</emphasis>.</member>
-              <member>
-                buffer-name
-                The <emphasis>name</emphasis> of the current buffer.</member>
-              <member>
-                line-number
-                Current <emphasis>line number</emphasis> when  <command>line-number-mode</command>
-                is active.</member>
-              <member>
-                column-number                                          
-                Current  <emphasis>column number</emphasis> when
-                <command>column-number-mode</command> is
-                active.
-              </member>
-              <member>
-                mode-name
-                Name of the  buffer's <emphasis>major mode</emphasis> ---this is
-                what determines <emphasis>specialized
-                  behavior</emphasis>
-                within Emacs buffers.</member>
-              <member>
-                percentage 
-                <emphasis>Percentage</emphasis> of point into the current
-                buffer.</member>
-              <member>
-                frame-info
-                If more than one <emphasis>Emacs frame</emphasis> is active, then
-                the title of the current frame is
-                spoken. Emacs typically uses multiple frames
-                when running in a graphical environment.</member>
-              <member>
-                recursion-info
-                Current recursion level when <emphasis>recursive  edit</emphasis> is
-                in progress; note that you enter
-                <emphasis>recursive edit</emphasis> in Emacs in very
-                few specialized cases.</member>
-            </simplelist>
-            Finally, note that the feedback is designed using  the
-            principle <emphasis>no news is good news</emphasis>,
-            thus, in many cases the absence of a cue is itself a cue.
-            As an example, Emacspeak produces an auditory tone only if a
-            buffer is <emphasis>read-only</emphasis>
-            --the absence of the tone indicates the buffer can be
-            editted which is usually the case.
-            Similarly, no tone is produced when a buffer does not need saving.
+              <member>Shell-mode The working directory is
+                spoken for shell-mode buffers.</member>
+<member> which-function
+            When <command>which-function-mode</command> is
+            activated using command
+            <command>emacspeak-toggle-which-function</command>,
+            the name of the function containing the cursor
+            is spoken. This is useful in programming modes.
+            </member><member> mail-alert Produces an
+            auditory icon indicating newly arrived mail and
+            is controlled via command
+            <command>emacspeak-toggle-mail-alert</command>.</member><member>
+            buffer-modified An auditory tone when the
+            contents of the <emphasis>current</emphasis>
+            buffer has been modified since it was last
+            saved.  </member><member> buffer-read-only An
+            auditory tone when the
+            <emphasis>current</emphasis> buffer is
+            <emphasis>read-only</emphasis>.</member><member>
+            buffer-name The <emphasis>name</emphasis> of the
+            current buffer.</member><member> line-number
+            Current <emphasis>line number</emphasis> when
+            <command>line-number-mode</command> is
+            active.</member><member> column-number Current
+            <emphasis>column number</emphasis> when
+            <command>column-number-mode</command> is active.
+            </member><member> mode-name Name of the buffer's
+            <emphasis>major mode</emphasis> ---this is what
+            determines <emphasis>specialized
+            behavior</emphasis> within Emacs
+            buffers.</member><member> percentage
+            <emphasis>Percentage</emphasis> of point into
+            the current buffer.</member><member> frame-info
+            If more than one <emphasis>Emacs
+            frame</emphasis> is active, then the title of
+            the current frame is spoken. Emacs typically
+            uses multiple frames when running in a graphical
+            environment.</member><member> recursion-info
+            Current recursion level when <emphasis>recursive
+            edit</emphasis> is in progress; note that you
+            enter <emphasis>recursive edit</emphasis> in
+            Emacs in very few specialized
+            cases.</member></simplelist> Finally, note that
+            the feedback is designed using the principle
+            <emphasis>no news is good news</emphasis>, thus,
+            in many cases the absence of a cue is itself a
+            cue.  As an example, Emacspeak produces an
+            auditory tone only if a buffer is
+            <emphasis>read-only</emphasis> --the absence of
+            the tone indicates the buffer can be editted
+            which is usually the case.  Similarly, no tone
+            is produced when a buffer does not need saving.
           </para>
         </answer>
       </qandaentry>
@@ -547,12 +531,8 @@
             <command>emacspeak-speak-minor-mode-line</command>
             typically conveys additional information
             including:
-            <simplelist type="vert">
-              <member>Minor modes that are active e.g.,
-                <emphasis>voice-lock</emphasis></member>
-              <member>Version number of files under revision control.</member>
-              <member>Current encoding system in use.</member>
-            </simplelist>
+            <simplelist type="vert"><member>Minor modes that are active e.g.,
+                <emphasis>voice-lock</emphasis></member><member>Version number of files under revision control.</member><member>Current encoding system in use.</member></simplelist>
           </para>
         </answer>
       </qandaentry>
@@ -655,16 +635,10 @@
             you might execute the following command from
             within a <application>shell</application>
             buffer:  
-            <blockquote>
-              <para>
-                
-                
-                <programlisting format="linespecific">
+            <blockquote><para><programlisting format="linespecific">
                   cd $HOME/music
-                  find . -name '*.mp3'  > playlist.m3u
-                </programlisting>
-              </para>
-            </blockquote>
+                  find . -name '*.mp3'  &gt; playlist.m3u
+                </programlisting></para></blockquote>
           </para>
         </answer>
       </qandaentry>
@@ -723,8 +697,7 @@
         publishing.  See the relevant section of the online
         Emacspeak manual
         for further details on 
-        <ulink
-               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31">
+        <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31">
           document authoring on the Emacspeak desktop.</ulink>
       </para>
     </qandadiv>
@@ -735,8 +708,7 @@
         the Emacspeak desktop.
         For further details, see the relevant section 
         of the online Emacspeak manual on 
-        <ulink
-               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
+        <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
           electronic messaging.</ulink></para>
     </qandadiv>
     <qandadiv>
@@ -754,15 +726,35 @@
       <qandaentry>
         <question>
           <para>
-            Launch a <command>root</command> shell.</para></question>
+            Launch a <command>root</command> shell.</para>
+        </question>
         <answer>
-          <para>
-            <emphasis>Never</emphasis> run Emacspeak as the
+          <para><emphasis>Never</emphasis> run Emacspeak as the
             <command>root</command> user.
             Instead use Emacspeak command 
             <command>emacspeak-root</command>
             to create a <command>root shell</command> after starting Emacspeak.
           </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>
+            Setting shell's working directory to buffer's
+            current directory
+</para>
+        </question>
+        <answer>
+          <para>
+          You often find yourself switching to the shell
+          buffer and then executing <command>cd</command> to
+          switch to the directory containing the file you
+          were working on.  Emacspeak wizard
+          <command>emacspeak-wizards-shell-toggle</command>
+          switches to a running shell buffer and
+          automatically executes command
+          <command>cd</command> so you are in the right
+          working directory.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -774,10 +766,7 @@
             Emacspeak provides a clipboard facility to enabling cut and
             paste across different emacspeak sessions,
             see commands
-            <simplelist type="vert">
-              <member><command>emacspeak-clipboard-copy</command></member>
-              <member><command>emacspeak-clipboard-paste</command></member>
-            </simplelist>
+            <simplelist type="vert"><member><command>emacspeak-clipboard-copy</command></member><member><command>emacspeak-clipboard-paste</command></member></simplelist>
           </para>
         </answer>
       </qandaentry>
@@ -841,7 +830,6 @@
     </qandadiv>
   </qandaset>
 </article>
-
 <!-- 
 Local Variables:
 mode: xae
@@ -850,4 +838,4 @@ sgml-indent-data: t
 sgml-set-face: nil
 sgml-insert-missing-element-comment: nil
 End:
---> 
+-->

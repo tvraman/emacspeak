@@ -1,17 +1,11 @@
 <?xml version="1.0"?>
-<!DOCTYPE applications
-PUBLIC " applications // t. v. raman 1.0"
- "applications.dtd">
-<?xml-stylesheet
-href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
+<!DOCTYPE applications PUBLIC " applications // t. v. raman 1.0" "applications.dtd">
+<?xml-stylesheet href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
 type="text/xsl"?>
-
-
 <applications caption="Speech-enabled applications  on the Emacspeak audio desktop.">
   <preamble title="Emacspeak --The Complete Audio Desktop"/>
   <introduction>
     <h1>Speech-enabled Applications On The Emacspeak Desktop </h1>
-
     <p>
       This document enumerates the speech-enabled applications available on the Emacspeak desktop.
       Note that depending on your Emacs installation,
@@ -24,9 +18,7 @@ type="text/xsl"?>
       the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html" shape="rect">
         the Emacs Lisp Library</a>.
     </p>
-
     <h2>Applications List</h2>
-
     <p>
       Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
     </p>
@@ -73,8 +65,8 @@ type="text/xsl"?>
       Maintain BIBTeX bibliographies.</application>
     <application name="reftex">
       Browse cross-references in LaTeX
-      documents.</application> <application
-                                            name="texinfo">Authoring support for creating texinfo
+      documents.</application>
+    <application name="texinfo">Authoring support for creating texinfo
       documentation.  Texinfo enables the production of both
       online hypertext and high-quality print documentation
       from a single source.</application>
@@ -108,10 +100,20 @@ type="text/xsl"?>
       Enables flexible citations when composing  email.</application>
     <application name="tnt">
       Instant Messenger (AIM) client,
-      with support for multiple parallel chat sessions.</application>
+      with support for multiple parallel chat
+      sessions.</application>
     <application name="erc">
       Internet Relay Chat (IRC) client
       with  voice locking support and parallel chat sessions.</application>
+    <application name="imcom">
+      IMCom is a Python-based jabber client.
+Module emacspeak-imcom speech-enables IMCom with full audio
+      formatting support.
+Chat sessions can be viewed within W3  with full ACSS support.
+    </application>
+    <application name="gnuyahoo">
+      GNUYahoo is a Yahoo messenger client.
+    </application>
     <application name="mspools">
       Interface for working with multiple mail spools;
       allows easy browsing of automatically archived mail.
@@ -413,7 +415,6 @@ type="text/xsl"?>
     </application>
   </category>
   <category name="Distractions">
-
     <application name="entertain">
       Speech-enabled access to numerous games including Dungeon,
       gomoku, solitaire,tetris,
@@ -435,25 +436,25 @@ type="text/xsl"?>
     </p>
     <p>
       <strong>
-        <a href= "http://sourceforge.net/projects/emacspeak">
+        <a href="http://sourceforge.net/projects/emacspeak">
           Emacspeak Home On Sourceforge 
-          <IMG src="http://sourceforge.net/sflogo.php?group_id=2238"
-               width="88" height="31" border="0" alt="SourceForge Logo"/>
-        </a> </strong></p>
+          <IMG src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge Logo"/>
+        </a>
+      </strong>
+    </p>
     <p>
-      <address><a href="mailto:raman@cs.cornell.edu">Email: T. V. Raman</a></address>
+      <address>
+        <a href="mailto:raman@cs.cornell.edu">Email: T. V. Raman</a>
+      </address>
     </p>
   </postamble>
 </applications>
-    
 <!-- 
 local variables:
 major-mode: xml-mode
 sgml-set-face: nil
 end:
 -->
-
-
 <!--
 
 local variables:
