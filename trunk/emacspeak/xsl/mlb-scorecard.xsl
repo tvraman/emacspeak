@@ -14,11 +14,7 @@
       <body>
         <h1>Major League Baseball Scores For <xsl:value-of
         select="/scoreboard/@date"/></h1>
-<xsl:if test="/scoreboard/sg_game">
-          <h2> <xsl:value-of
-              select="count(/scoreboard/sg_game)"/> Games To Be Played</h2>
-          <xsl:apply-templates select="/scoreboard/sg_game"/>
-        </xsl:if>
+
         <xsl:if test="/scoreboard/ig_game">
           <h2> <xsl:value-of select="count(/scoreboard/ig_game)"/> Games In Progress</h2>
           <xsl:apply-templates select="/scoreboard/ig_game"/>
@@ -26,6 +22,11 @@
         <xsl:if test="/scoreboard/go_game">
           <h2>  <xsl:value-of select="count(/scoreboard/go_game)"/>Completed Games</h2>
           <xsl:apply-templates select="/scoreboard/go_game"/>
+        </xsl:if>
+        <xsl:if test="/scoreboard/sg_game">
+          <h2> <xsl:value-of
+              select="count(/scoreboard/sg_game)"/> Games To Be Played</h2>
+          <xsl:apply-templates select="/scoreboard/sg_game"/>
         </xsl:if>
       </body>
     </html>
@@ -50,19 +51,16 @@
   <xsl:template match="ig_game">
     <xsl:variable name="status">
       <xsl:choose>
-        <xsl:when test="team[1]/gameteam/@R &gt;
-          ../team[2]/gameteam/@R">
+        <xsl:when test="team[1]/gameteam/@R &gt; team[2]/gameteam/@R">
         lead </xsl:when>
-        <xsl:when test="team[1]/gameteam/@R &lt;
-          ../team[2]/gameteam/@R">
+        <xsl:when test="team[1]/gameteam/@R &lt; team[2]/gameteam/@R">
         trail  </xsl:when>
-        <xsl:when test="team[1]/gameteam/@R =
-          ../team[2]/gameteam/@R">
+        <xsl:when test="team[1]/gameteam/@R = team[2]/gameteam/@R">
         tie   </xsl:when>
       </xsl:choose>
     </xsl:variable>
     <h3>The <xsl:value-of select="team[1]/@name"/> 
-      <xsl:variable name="$status"/>
+      <xsl:value-of select="$status"/>
     <xsl:value-of select="team[2]/@name"/></h3>
     <p>
       <xsl:apply-templates select="team[1]"/> 
@@ -122,7 +120,7 @@
     The
     <strong><xsl:value-of select="@name"/></strong>
     <xsl:if test="@code=../game/@home_code"> at home </xsl:if>
-    <xsl:if test="../game/@status != 'PRE_GAME' or ../game/@status != 'IMMEDIATE_PREGAME'">
+    <xsl:if test="name(..) != 'sg_game'">
     with 
     <xsl:value-of select="gameteam/@R"/> runs on 
     <xsl:value-of select="gameteam/@H"/> hits and  
