@@ -674,9 +674,9 @@ before the message is spoken."
 
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
-  (let ((dtk-stop-immediately nil)
+  (let ((dtk-stop-immediately t)
         (message  (get (ad-get-arg 0) 'error-message)))
-    (when message 
+    (when  message
       (dtk-speak message))))
 
 ;;}}}
@@ -684,10 +684,11 @@ before the message is spoken."
  
 
 
+
 (defadvice error (before emacspeak pre act)
   "Speak the error message.
 Also produces an auditory icon if possible."
-  (let ((dtk-stop-immediately t ))
+  (let ((dtk-stop-immediately nil ))
     (emacspeak-auditory-icon 'warn-user)
     (tts-with-punctuations "all"
                            (message
