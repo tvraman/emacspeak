@@ -4738,7 +4738,7 @@ Display package tracking information from UPS.
 
 @kbd{Amazon Product Details By ASIN}
 
-Retrieve produce details from Amazon by either ISBN or ASIN.
+Retrieve product details from Amazon by either ISBN or ASIN.
 
 @kbd{BookShare}
 
