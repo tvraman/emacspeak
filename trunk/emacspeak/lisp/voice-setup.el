@@ -175,7 +175,9 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{ special form def-voice-font 
+
 (defmacro  def-voice-font (personality voice face doc &rest args)
+  "Define personality and map it to specified face."
   (`
    (defcustom (, personality)
      (, voice)
@@ -186,6 +188,28 @@ This function forces voice-lock mode on."
              (voice-setup-set-voice-for-face (, face) '(, personality))
              (set-default sym val))
      (,@ args))))
+
+;;}}}
+;;{{{  special form defvoice 
+
+(defmacro defvoice (personality settings doc)
+  "Define voice personality using specified CSS settings."
+  (`
+   (defcustom  (, (intern (format "%s-settings"  personality)))
+     (, settings)
+     (, doc)
+     :type  '(repeat
+              (cons :tag "Setting"
+                    (symbol :tag "Key")
+                    (const :tag "Value")))
+     :group 'tts
+     :set '(lambda  (sym val)
+             (let ((voice-name (dtk-personality-from-speech-style
+                    (apply 'make-dtk-speech-style
+                           (apply 'append val)))))
+             (setq (, personality) voice-name)
+             (dtk-define-voice-alias (, personality) voice-name)
+             (set-default sym val))))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
