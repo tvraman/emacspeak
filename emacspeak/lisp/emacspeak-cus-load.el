@@ -2,7 +2,6 @@
 ;;
 ;;; Code:
 
-(put 'emacspeak-w3m 'custom-loads '("emacspeak-w3m"))
 (put 'dtk 'custom-loads '("dtk-tcl"))
 (put 'emacspeak-tnt 'custom-loads '("emacspeak-tnt"))
 (put 'emacspeak-forms 'custom-loads '("emacspeak-forms"))
@@ -12,7 +11,6 @@
 (put 'emacspeak-eshell 'custom-loads '("emacspeak-eshell"))
 (put 'emacspeak-speak 'custom-loads '("emacspeak-advice" "emacspeak-speak" "emacspeak-wizards"))
 (put 'flyspell 'custom-loads '("emacspeak-flyspell"))
-(put 'emacspeak-widget 'custom-loads '("emacspeak-widget"))
 (put 'eshell 'custom-loads '("emacspeak-eshell"))
 (put 'emacspeak-realaudio 'custom-loads '("emacspeak-realaudio"))
 (put 'emacspeak-imcom 'custom-loads '("emacspeak-imcom"))
@@ -27,11 +25,9 @@
 (put 'amphetadesk 'custom-loads '("amphetadesk"))
 (put 'vm 'custom-loads '("emacspeak-vm"))
 (put 'w3 'custom-loads '("emacspeak-w3"))
-(put 'emacspeak-table 'custom-loads '("emacspeak-table-ui"))
 (put 'emacspeak-wizards 'custom-loads '("emacspeak-wizards" "emacspeak-xslt"))
 (put 'emacspeak-speedbar 'custom-loads '("emacspeak-speedbar"))
 (put 'emacspeak-sounds 'custom-loads '("emacspeak-sounds"))
-(put 'emacspeak-flyspell 'custom-loads '("emacspeak-flyspell"))
 (put 'emacspeak-eterm 'custom-loads '("emacspeak-eterm"))
 (put 'widgets 'custom-loads '("emacspeak-widget"))
 (put 'emacspeak-ispell 'custom-loads '("emacspeak-ispell"))

@@ -187,7 +187,7 @@
   ".Personality for documentation entries"
   :group 'emacspeak-rpm)
 
-(def-voice-font rpm-spec-ghost-personality 'voice-smoothen-medium
+(def-voice-font rpm-spec-ghost-personality voice-smoothen-medium
   'rpm-spec-ghost-face
   ".Personality for %ghost files"
   :group 'emacspeak-rpm)
