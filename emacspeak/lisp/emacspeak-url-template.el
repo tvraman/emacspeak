@@ -162,7 +162,17 @@
 
 ;;}}}
 ;;{{{  template resources 
-
+;;{{{ Netcraft surveys 
+(emacspeak-url-template-define
+ "Netcraft Web Analysis"
+ "http://uptime.netcraft.com/up/graph/?mode_u=off&mode_w=on&site=%s&submit=Examine "
+ (list
+  #'(lambda nil
+      (read-from-minibuffer "Site to analyze: ")))
+ nil
+ "Analyze WWW site using Netcraft.")
+ 
+;;}}}
 
 ;;{{{ bbc 
 (emacspeak-url-template-define
