@@ -1235,10 +1235,6 @@ in completion buffers"
 
 (defadvice comint-output-filter (around emacspeak pre act)
   "Make comint speak its output."
-  (declare (special emacspeak-comint-autospeak
-                    emacspeak-comint-output-monitor
-                    emacspeak-comint-prompt-personality
-                    comint-last-prompt-overlay))
   (save-excursion
     (set-buffer (process-buffer (ad-get-arg 0)))
     (let ((prior (point ))
