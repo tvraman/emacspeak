@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
-<!--Author: T. V. Raman <raman@cs.cornell.edu>
+<!--
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+License: GPL
 Description: Produce a list of anchors.
 Focus specifically on extracting links to multimedia content
 that is stashed away inside object or embed tags.
