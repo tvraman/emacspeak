@@ -49,15 +49,34 @@
   "Speak first of the displayed matches."
   (let ((voice-lock-mode t)
         (emacspeak-use-auditory-icons nil))
-  (dtk-speak
-   (format
-    "%s %d Choices: %s"
-    (car ido-matches)
-    (length ido-matches)
-    (minibuffer-contents)))))
+    (dtk-speak
+     (format
+      "%s %d Choices: %s"
+      (car ido-matches)
+      (length ido-matches)
+      (minibuffer-contents)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
+(defadvice ido-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if ido-mode 'on 'off))
+    (dtk-speak
+     (format "IDo set to %s"
+             ido-mode))))
+
+(defadvice ido-everywhere (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if ido-everywhere 'on 'off))
+    (dtk-speak
+     (format "Turned %s IDo everywhere."
+             (if ido-everywhere " on " " off ")))))
+
+ 
 
 (defadvice ido-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -93,7 +112,7 @@
     (dtk-speak
      (format "Case %s"
              (if ido-process-ignore-lists
- 'on 'off)))))
+                 'on 'off)))))
 
 (defadvice ido-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
@@ -127,8 +146,6 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-mode-line))))))
-
-
 
 ;;; note that though these are after advice fragments,
 ;;; ido-matches does not reflect the change at the time we
