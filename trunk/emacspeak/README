@@ -1,7 +1,0 @@
-This is Emacspeak from  Feb-21-01-15-50
-Distribution created by raman on localhost.earthlink.net
-Place  the files from this distribution in a directory
-And type make config 
-To configure the source files. Then type make
-See the Makefile for details. 
-Compiled on Feb-21-01-19-38 by raman on localhost.earthlink.net

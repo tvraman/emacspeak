@@ -8,6 +8,9 @@
 (require 'cl)
 
 (setq emacspeak-finder-package-info '(
+    ("cd-tool.el"
+        "Play  CDs from Emacs"
+        nil)
     ("dtk-css-speech.el"
         "CSS -- Cascaded Speech Style Interface"
         (emacspeak  audio interface to emacs css))
@@ -35,6 +38,12 @@
     ("emacspeak-auctex.el"
         "Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment"
         (emacspeak  audio interface to emacs auctex))
+    ("emacspeak-aumix.el"
+        "Setting Audio Mixer"
+        (emacspeak  audio desktop))
+    ("emacspeak-babel.el"
+        "Speech-enable BabelFish"
+        (emacspeak  www interaction))
     ("emacspeak-bbdb.el"
         "Speech enable BBDB -- a powerful address manager"
         (emacspeak  audio interface to emacs bbdb ))
@@ -44,6 +53,9 @@
     ("emacspeak-bookmark.el"
         "Speech enable Emacs' builtin bookmarks"
         (emacspeak  speak  spoken output  bookmark))
+    ("emacspeak-bs.el"
+        "speech-enable bs buffer selection"
+        (emacspeak  audio desktop))
     ("emacspeak-buff-menu.el"
         "Speech enable Buffer Menu Mode -- used to manage buffers"
         (emacspeak  speak  spoken output  buff-menu))
@@ -56,6 +68,9 @@
     ("emacspeak-calc.el"
         "Speech enable the Emacs Calculator -- a powerful symbolic algebra system"
         nil)
+    ("emacspeak-calculator.el"
+        "Speech enable  desktop calculator"
+        (emacspeak  audio desktop))
     ("emacspeak-calendar.el"
         "Speech enable Emacs Calendar -- maintain a diary and appointments"
         (emacspeak  calendar  spoken output))
@@ -71,6 +86,12 @@
     ("emacspeak-custom.el"
         "Speech enable interactive Emacs customization "
         (emacspeak  speak  spoken output  custom))
+    ("emacspeak-dictation.el"
+        "Speech enable dictation -- Dictation Interface"
+        (emacspeak  speak  spoken output  dictation))
+    ("emacspeak-dictionary.el"
+        "speech-enable dictionaries "
+        (emacspeak  audio desktop))
     ("emacspeak-dired.el"
         "Speech enable Dired Mode -- A powerful File Manager"
         (emacspeak  dired  spoken output))
@@ -89,12 +110,24 @@
     ("emacspeak-entertain.el"
         "Speech enable misc games"
         (emacspeak  speak  spoken output  games))
+    ("emacspeak-eshell.el"
+        "Speech-enable EShell - Emacs Shell"
+        (emacspeak  audio desktop))
     ("emacspeak-eterm.el"
         "Speech enable eterm -- Emacs' terminal emulator  term.el"
         (emacspeak  eterm  terminal emulation  spoken output))
+    ("emacspeak-eudc.el"
+        "Speech enable  directory client "
+        (emacspeak  audio desktop))
     ("emacspeak-facemenu.el"
         "Map default Emacs faces like bold to appropriate speech personalities "
         (emacspeak  audio interface to emacs rich text))
+    ("emacspeak-filtertext.el"
+        "Utilities to filter text"
+        (emacspeak  audio desktop))
+    ("emacspeak-find-dired.el"
+        "Speech enable  find-dired"
+        (emacspeak  audio desktop))
     ("emacspeak-find-func.el"
         "Speech enable emacs' code finder"
         (emacspeak  find-func))
@@ -116,21 +149,39 @@
     ("emacspeak-forms.el"
         "Speech enable Emacs' forms mode  -- provides  a convenient database interface"
         (emacspeak  audio interface to emacs forms ))
+    ("emacspeak-freeamp.el"
+        "Control freeamp from Emacs"
+        (emacspeak  freeamp))
+    ("emacspeak-generic.el"
+        "Speech enable  generic modes"
+        (emacspeak  audio desktop))
+    ("emacspeak-gnuplot.el"
+        "speech-enable gnuplot mode"
+        (emacspeak  www interaction))
     ("emacspeak-gnus.el"
         "Speech enable GNUS -- Fluent spoken access to usenet"
         (emacspeak  gnus  advice  spoken output  news))
     ("emacspeak-gomoku.el"
         "Speech enable the game of Gomoku"
         (emacspeak  speak  spoken output  gomoku))
+    ("emacspeak-gridtext.el"
+        "gridtext"
+        (emacspeak  gridtext))
     ("emacspeak-gud.el"
         "Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB"
         (emacspeak  audio interface to emacs debuggers ))
     ("emacspeak-hide.el"
         "Provides user commands for hiding and exposing blocks of text"
         (emacspeak  speak  spoken output  hide))
+    ("emacspeak-hideshow.el"
+        "speech-enable hideshow"
+        (emacspeak  audio desktop))
     ("emacspeak-hyperbole.el"
         "Speech enable Hyperbole -- A Powerful Information Manager"
         (emacspeak  speech access  hyperbole))
+    ("emacspeak-ibuffer.el"
+        "speech-enable ibuffer buffer selection"
+        (emacspeak  audio desktop))
     ("emacspeak-imenu.el"
         "Speech enable Imenu -- produce buffer-specific table of contents"
         (emacspeak  speak  spoken output  indices))
@@ -150,7 +201,7 @@
         "Speech enable KOtl -- Hyperbole's outlining editor"
         (emacspeak  speech access  hyperbole  outliner))
     ("emacspeak-load-path.el"
-        "Setup load-path correctly for Emacspeak compilation"
+        "Setup Emacs load-path for compiling Emacspeak"
         (emacspeak  speech extension for emacs))
     ("emacspeak-make-mode.el"
         "Speech enable make-mode"
@@ -161,6 +212,12 @@
     ("emacspeak-message.el"
         "Speech enable Message -- Used to compose news postings and replies"
         (emacspeak  audio interface to emacs posting messages))
+    ("emacspeak-midge.el"
+        "Speech-enable MIDI editor"
+        (emacspeak  midi ))
+    ("emacspeak-mpg123.el"
+        "Speech enable MP3 Player"
+        (emacspeak  www interaction))
     ("emacspeak-mspools.el"
         "Speech enable MSpools -- Monitor multiple mail drops"
         (emacspeak  speak  spoken output  mspools))
@@ -173,6 +230,9 @@
     ("emacspeak-outline.el"
         "Speech enable Outline --   Browsing  Structured Documents"
         (emacspeak  audio interface to emacs outlines))
+    ("emacspeak-pcl-cvs.el"
+        "Speech enabled CVS access "
+        (emacspeak  cvs  audio desktop))
     ("emacspeak-perl.el"
         "Speech enable Perl Mode "
         (emacspeak  audio interface to emacs perl))
@@ -191,6 +251,9 @@
     ("emacspeak-redefine.el"
         "Redefines some key Emacs builtins to speak"
         (emacspeak  redefine  spoken output))
+    ("emacspeak-reftex.el"
+        "speech enable reftex"
+        (emacspeak  reftex))
     ("emacspeak-remote.el"
         "Enables running remote Emacspeak sessions"
         (emacspeak  speak  spoken output  remote server))
@@ -200,12 +263,21 @@
     ("emacspeak-rmail.el"
         "Speech enable RMail -- Emacs' default mail agent"
         (emacspeak  audio interface to emacs mail))
+    ("emacspeak-rpm.el"
+        "speech-enable RPM"
+        (emacspeak  rpm  red hat package manager))
+    ("emacspeak-sawfish.el"
+        "speech-enable sawfish mode"
+        (emacspeak  sawfish interaction ))
     ("emacspeak-setup.el"
-        "Setup Emacspeak environment  --loaded to start Emacspeak"
+        "Setup Emacspeak environment --loaded to start Emacspeak"
         (emacspeak  setup  spoken output))
     ("emacspeak-sgml-mode.el"
         "Speech enable SGML mode"
         (emacspeak  audio interface to emacs sgml ))
+    ("emacspeak-sh-script.el"
+        "Speech enable  sh-script mode"
+        (emacspeak  audio desktop))
     ("emacspeak-solitaire.el"
         "Speech enable Solitaire game"
         (emacspeak  speak  spoken output  solitaire))
@@ -242,6 +314,9 @@
     ("emacspeak-tcl.el"
         "Speech enable TCL development environment"
         (emacspeak  audio interface to emacs tcl))
+    ("emacspeak-tdtd.el"
+        "Speech enable  DTD authoring "
+        (emacspeak  audio desktop))
     ("emacspeak-tempo.el"
         "Speech enable tempo -- template library used for Java and HTML authoring"
         (emacspeak  spoken feedback  template filling  html editing))
@@ -251,6 +326,12 @@
     ("emacspeak-texinfo.el"
         "Speech enable texinfo mode"
         (emacspeak  texinfo))
+    ("emacspeak-tnt.el"
+        "Instant Messenger "
+        (emacspeak  instant messaging ))
+    ("emacspeak-url-template.el"
+        "Create library of URI templates"
+        (emacspeak  audio desktop))
     ("emacspeak-view-process.el"
         "Speech enable View Processes -- A powerful task manager"
         (emacspeak  audio interface to emacs administering processes))
@@ -275,6 +356,9 @@
     ("emacspeak-wrolo.el"
         "Speech enable hyperbole's Rolodex"
         (emacspeak  rolodex  spoken output))
+    ("emacspeak-xslide.el"
+        "Speech enable  XSL authoring "
+        (emacspeak  audio desktop))
     ("emacspeak.el"
         "Emacspeak -- The Complete Audio Desktop"
         (emacspeak  speech  dectalk ))
@@ -287,9 +371,18 @@
     ("html-voice.el"
         "Voice locking for html-helper-mode"
         (voice lock  html-helper-mode  emacspeak  speech ))
+    ("jit-voice-lock.el"
+        "just-in-time voiceification."
+        (personality files))
     ("lazy-voice-lock.el"
         "Support mode for voice locking  parts of a buffer"
         nil)
+    ("outloud-css-speech.el"
+        "CSS -- Cascaded Speech Style Interface"
+        (emacspeak  audio interface to emacs css))
+    ("outloud-voices.el"
+        "Define various device independent voices in terms of OutLoud tags"
+        (voice  personality  ibm viavoice outloud))
     ("regexp-opt.el"
         nil
         (strings  regexps))
