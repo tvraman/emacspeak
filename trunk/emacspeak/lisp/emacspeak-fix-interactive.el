@@ -16,7 +16,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -42,7 +42,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-
+(require 'dtk-speak)
 ;;{{{  Introduction:
 
 ;;; Emacs commands that use the 'interactive spec
@@ -62,17 +62,21 @@
   nil
   "Functions which have been  adviced automatically to make their
 interactive prompts speak. ")
+(defvar emacspeak-fix-interactive-dont-fix-regexp 
+  (concat 
+   "^ad-Orig\\|^mouse\\|^scroll-bar"
+   "\\|^face\\|^frame\\|^font"
+   "\\|^color\\|^timer")
+  "Regular expression matching function names whose interactive spec should not be fixed.")
 
-(defun emacspeak-should-i-fix-interactive-p (sym)
+(defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
-  (declare (special emacspeak-interactive-functions-that-are-fixed ))
+  (declare (special
+            emacspeak-interactive-functions-that-are-fixed 
+emacspeak-fix-interactive-dont-fix-regexp))
   (save-match-data 
     (let ((interactive-string nil )
-          (dont-fix-regexp
-           (concat 
-            "^ad-Orig\\|^mouse\\|^scroll-bar"
-            "\\|^face\\|^frame\\|^font"
-            "\\|^color\\|^timer")))
+          (dont-fix-regexp emacspeak-fix-interactive-dont-fix-regexp))
       (and (fboundp  sym)
            (commandp sym)
            (not
@@ -95,9 +99,7 @@ interactive prompts speak. ")
     (when (< start (length string ))
       (setq split
             (cons (substring string start ) split )))
-    (setq split (nreverse split ))
-    )
-  )
+    (setq split (nreverse split )))) 
 
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Returns a list of symbols whose function definition
@@ -114,23 +116,21 @@ after fixing them. "
   
 
 (defun emacspeak-fix-interactive (sym)
-  "Fix the function definition of sym to make its interactive form speak
-its prompts. "
-  (let
-      ((interactive-list
-        (emacspeak-split-interactive-string-on-newline
-         (second 
-          (ad-interactive-form (symbol-function sym ))))))
-                                        ; check if we really have to advice it 
+  "Fix the function definition of sym to make its interactive form speak its prompts. "
+  (let ((interactive-list
+         (split-string
+          (second (ad-interactive-form (symbol-function sym )))
+          "\n")))
+                                        ; advice if necessary
     (when
         (some
-         (function (lambda (prompt)
-                     (not
-                      (or
-                       (save-match-data 
-                         (string-match  "^\\*?[pPr]" prompt ))
-                       (string= "*" prompt ))
-                      )))
+         (function
+          (lambda (prompt)
+            (not
+             (or
+              (save-match-data 
+                (string-match  "^\\*?[pPr]" prompt ))
+              (string= "*" prompt )))))
          interactive-list )
       (eval
        (`
@@ -145,22 +145,17 @@ its prompts. "
                  (` (let
                         ((dtk-stop-immediately nil)
                          (emacspeak-speak-messages nil))
-                      (dtk-speak
-                       (,
-                        (format " %s "
-                                (or
-                                 (if (= ?* (aref  prompt 0))
-                                     (substring prompt 2 )
-                                   (substring prompt 1 ))
-                                 ""))))
-                      ;; some interactive prompts guess defaults
-                      (if (and
-                           (or (= ?F  (aref (, prompt) 0))
-                               (= ?f  (aref (, prompt) 0))
-                               (= ?D  (aref  (, prompt) 0)))
-                           default-directory)
-                          (dtk-speak 
-                           (format " %s " default-directory )))
+                      (tts-with-punctuations "all"
+                                             (dtk-speak
+                                              (,
+                                               (format " %s "
+                                                       (or
+                                                        (if (= ?* (aref  prompt 0))
+                                                            (substring prompt 2 )
+                                                          (substring prompt 1 ))
+                                                        "")))))
+                      (setq
+                       emacspeak-last-command-needs-minibuffer-spoken t)
                       (call-interactively
                        '(lambda (&rest args)
                           (interactive (, prompt))
@@ -168,6 +163,9 @@ its prompts. "
               interactive-list))))))))))
 
 ;;; inline function for use from other modules:
+(defvar emacspeak-last-command-needs-minibuffer-spoken nil 
+  "Used to signal to minibuffer that the contents need to be
+spoken.")
 
 (defsubst  emacspeak-fix-interactive-command-if-necessary (command)
 (declare (special emacspeak-interactive-functions-that-are-fixed))

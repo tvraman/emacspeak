@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1997 by T. V. Raman  
+;;; Copyright (c) 1995 -- 2000, T. V. Raman
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -80,17 +80,20 @@
 				  (concat prefix imenu-level-separator name)
 				name))))
 	(cond
-	 ((or (markerp pos) (numberp pos))
+	 ((or (markerp pos) (numberp pos)
+(overlayp pos))
 	  (list (cons new-prefix pos)))
 	 (t
-	  (emacspeak-imenu-flatten-index-alist pos new-prefix))))))
+	  (emacspeak-imenu-flatten-index-alist pos
+                                               new-prefix))))))
    index-alist))
 
 (defadvice imenu--make-index-alist (after emacspeak pre act comp)
   "Cache flattened index alist"
   (declare (special emacspeak-imenu-flattened-index-alist))
   (setq emacspeak-imenu-flattened-index-alist
-        (emacspeak-imenu-flatten-index-alist imenu--index-alist)))
+        (emacspeak-imenu-flatten-index-alist
+         imenu--index-alist t)))
 
 ;;}}}
 ;;{{{ advice 
@@ -139,13 +142,17 @@
         (target (point-max)))
     (unless emacspeak-imenu-flattened-index-alist
       (setq emacspeak-imenu-flattened-index-alist
-            (emacspeak-imenu-flatten-index-alist imenu--index-alist)))
+            (emacspeak-imenu-flatten-index-alist
+             imenu--index-alist t)))
     (loop for item  in emacspeak-imenu-flattened-index-alist
           do
           (setq guess
-                (if (markerp (cdr item))
-                    (marker-position (cdr item ))
-                  (cdr item)))
+                (cond
+                 ((overlayp (cdr item))
+                  (overlay-start (cdr item )))
+                 ((markerp (cdr item))
+                  (marker-position (cdr item )))
+                 (t (cdr item))))
           (when (< position guess)
             (if (< guess target)
                 (setq target guess))))
@@ -163,13 +170,17 @@
         (target (point-min)))
     (unless emacspeak-imenu-flattened-index-alist
       (setq emacspeak-imenu-flattened-index-alist
-            (emacspeak-imenu-flatten-index-alist imenu--index-alist)))
+            (emacspeak-imenu-flatten-index-alist
+             imenu--index-alist t)))
     (loop for item  in emacspeak-imenu-flattened-index-alist
           do
           (setq guess
-                (if (markerp (cdr item))
-                    (marker-position (cdr item ))
-                  (cdr item)))
+                (cond
+                 ((overlayp (cdr item))
+ (overlay-start (cdr item )))
+                 ((markerp (cdr item))
+                    (marker-position (cdr item )))
+                  (t (cdr item))))
           (when (> position guess)
             (if (> guess target)
                 (setq target guess))))

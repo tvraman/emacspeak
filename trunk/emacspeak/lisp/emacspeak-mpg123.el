@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1999 T. V. Raman <raman@cs.cornell.edu>
+;;; Copyright (C) 1995 -- 2000, T. V. Raman<raman@cs.cornell.edu>
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -155,7 +155,7 @@ mpg123 defines this as a macro which causes compile trouble."
   (interactive)
   (message
    (emacspeak-mpg123-get-music-info (emacspeak-mpg123-current-track)
-                          'filename)))
+                                    'filename)))
 
 (defun emacspeak-mpg123-speak-title ()
   "Speak title of the current song."
@@ -186,7 +186,11 @@ mpg123 defines this as a macro which causes compile trouble."
 ;;{{{ keys 
 (declaim (special mpg123-mode-map))
 (define-key mpg123-mode-map "t" 'emacspeak-mpg123-speak-title)
-(define-key mpg123-mode-map "l" 'emacspeak-mpg123-speak-length)
+(define-key mpg123-mode-map "l"
+  'emacspeak-mpg123-speak-length)
+(define-key mpg123-mode-map '[left]
+  'emacspeak-aumix-wave-decrease)
+(define-key mpg123-mode-map '[right] 'emacspeak-aumix-wave-increase)
 (define-key mpg123-mode-map "c"
   'emacspeak-mpg123-speak-current-time)
 (define-key mpg123-mode-map "."
@@ -195,7 +199,66 @@ mpg123 defines this as a macro which causes compile trouble."
 ;;}}}
 
 ;;}}}
+;;{{{  playlist support 
 
+;;; Commentary:
+;;; Ideally this should be part of mpg123.el 
+;;; Play an mp3 playlist  with a random shuffle.
+;;;  Allow skipping of tracks with a single keystroke.
+
+(defvar emacspeak-mp3-playlist-process  nil
+  "Process that is playing the playlist. ")
+
+(defvar emacspeak-mp3-play-program "mpg123"
+  "Program that plays mp3 files. ")
+
+(defun emacspeak-mp3-playlist-play (playlist &optional dont-shuffle)
+  "Play a playlist. 
+Optional interactive prefix arg says not to shuffle  the list. 
+Use command \\[emacspeak-mp3-playlist-skip] 
+to skip to the next track. "
+  (interactive
+   (list
+    (read-file-name "Playlist: ")
+    current-prefix-arg))
+  (declare (special emacspeak-mp3-playlist-process
+                    emacspeak-mp3-play-program))
+  (setq emacspeak-mp3-playlist-process
+        (apply 'start-process
+               "*emacspeak-mp3*" "*emacspeak-mp3*"
+               emacspeak-mp3-play-program
+               (delq nil 
+                     (list 
+                      (unless dont-shuffle "--shuffle")
+                      "-@"
+                      (expand-file-name playlist))))))
+
+(defun emacspeak-mp3-playlist-skip ()
+  "Skip currently playing track. "
+  (interactive)
+  (declare (special emacspeak-mp3-playlist-process))
+(process-send-string
+ emacspeak-mp3-playlist-process
+(format "%c" 3))
+(message "Skipped track. "))
+
+(defun emacspeak-mp3-playlist-stop ()
+  "Kill currently playing playlist. "
+  (interactive)
+  (declare (special emacspeak-mp3-playlist-process))
+  (kill-process emacspeak-mp3-playlist-process)
+  (message "Stopped playlist. "))
+
+
+(declaim (special mpg123-mode-map))
+
+(define-key  mpg123-mode-map "L"
+  'emacspeak-mp3-playlist-play)
+(define-key mpg123-mode-map "S"
+  'emacspeak-mp3-playlist-skip)
+(define-key mpg123-mode-map "K" 'emacspeak-mp3-playlist-stop)
+
+;;}}}
 (provide 'emacspeak-mpg123)
 ;;{{{ end of file
 

@@ -1,6 +1,7 @@
 #!/bin/sh
 #$Id$
-#Description: Launch a dectalk driver on a remote host.
+#Description: Launch a dectalk server on a remote host.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 # {{{  documentation
 
 # Running dectalk driver remotely.

@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1995 by T. V. Raman  
 ;;; All Rights Reserved. 
 ;;;
@@ -65,6 +65,8 @@
   "Keymap for using in table browsing mode")
 
 (progn
+  (define-key emacspeak-table-keymap "#"
+    'emacspeak-table-sort-on-current-column)
   (define-key emacspeak-table-keymap "q"
     'emacspeak-kill-buffer-quietly)
   (define-key emacspeak-table-keymap "x" 'emacspeak-table-copy-current-element-to-register)
@@ -540,23 +542,24 @@ navigation. "
       (flush-lines "^ *$")
       (insert "[\n")
       (while (re-search-forward "^" nil t)
-        (replace-match "[\""))
+        (replace-match "["))
       (goto-char (point-min))
       (while (re-search-forward "," nil t)
-        (replace-match "\" \""))
+        (replace-match " "))
       (goto-char (point-min))
       (forward-line 1)
       (while (and (not (eobp))
                   (re-search-forward "$" nil t))
-        (replace-match "\"]")
+        (replace-match "]")
         (forward-line 1))
       (goto-char (point-min))
-      (when (search-forward "[\"\"]" nil t)
+      (when (search-forward "[]" nil t)
         (replace-match ""))
       (goto-char (point-max))
       (insert "]\n")
       (goto-char (point-min))
       (setq table (make-emacspeak-table (read scratch))))
+    (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer)))
 
 (emacspeak-fix-interactive-command-if-necessary 'emacspeak-table-find-file)
@@ -893,11 +896,20 @@ table markup.")
 (defsubst emacspeak-table-markup-get-table (mode )
 (declare (special emacspeak-table-markup-table))
   (or (cl-gethash mode emacspeak-table-markup-table)
-      (cl-gethash emacspeak-table-markup-table 'text-mode)))
+      (cl-gethash 'fundamental-mode emacspeak-table-markup-table)))
 
  ;;}}}
 ;;{{{  define table markup for the various modes of interest
 
+(emacspeak-table-markup-set-table 'xml-mode
+                                  (make-emacspeak-table-markup
+                                   :table-start "<TABLE>\n"
+                                   :table-end "</TABLE>\n"
+                                   :row-start "<TR>\n"
+                                   :row-end "</TR>\n"
+                                   :col-start "<TD>\n"
+                                   :col-end "</TD>\n"
+                                   :col-separator ""))
 (emacspeak-table-markup-set-table 'html-helper-mode
                                   (make-emacspeak-table-markup
                                    :table-start "<TABLE>\n"
@@ -931,6 +943,16 @@ table markup.")
                                   (emacspeak-table-markup-get-table
                                    'latex2e-mode))
 
+(emacspeak-table-markup-set-table 'fundamental-mode
+                                  (make-emacspeak-table-markup
+                                   :table-start ""
+                                   :table-end ""
+                                   :row-start ""
+                                   :row-end "\n"
+                                   :col-start ""
+                                   :col-end ""
+                                   :col-separator ", "))
+
 (emacspeak-table-markup-set-table 'text-mode
                                   (make-emacspeak-table-markup
                                    :table-start
@@ -943,9 +965,7 @@ table markup.")
                                    :col-end ""
                                    :col-separator "\t"))
 
-(emacspeak-table-markup-set-table 'fundamental-mode
-                                  (emacspeak-table-markup-get-table
-                                   'text-mode))
+
 
 ;;}}}
 ;;{{{ copy and paste tables 
@@ -1009,6 +1029,35 @@ markup to use."
         (insert (format "%s" table-end))))))
 
  ;;}}}
+
+;;}}}
+;;{{{  table sorting:
+
+(defun emacspeak-table-sort-on-current-column ()
+  "Sort table on current column. "
+  (interactive )
+  (declare (special major-mode
+                    emacspeak-table))
+  (unless (eq major-mode  'emacspeak-table-mode )
+    (error "This command should be used in emacspeak table mode."))
+  (let* ((column  (emacspeak-table-current-column emacspeak-table))
+         (buff (format "sorted-on-%d" column )))
+    (emacspeak-table-copy-to-clipboard)
+    (save-excursion
+      (set-buffer (get-buffer-create buff))
+      (erase-buffer)
+      (fundamental-mode)
+      (emacspeak-table-paste-from-clipboard)
+      (goto-char (point-min))
+      (while (re-search-forward "^ +" nil t)
+        (replace-match ""))
+      (goto-char (point-min))
+      (while (re-search-forward " +," nil t)
+        (replace-match ","))
+      (sort-numeric-fields (+ 1  column) (point-min)
+                           (point-max)))
+    (emacspeak-table-view-csv-buffer buff)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide  'emacspeak-table-ui)

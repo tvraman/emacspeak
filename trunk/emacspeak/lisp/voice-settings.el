@@ -14,7 +14,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -78,12 +78,7 @@ Return nil if not set."
    )
   "Additional expressions to highlight in TeXinfo mode.")
 
-(defvar shell-voice-lock-keywords
-  (list (cons shell-prompt-pattern 'voice-lock-keyword-personality)
-	'("[ \t]\\([+-][^ \t\n]+\\)" 1 voice-lock-comment-personality)
-	'("^[^ \t]+:.*$" . voice-lock-string-personality)
-	'("^\\[[1-9][0-9]*\\]" . voice-lock-string-personality))
-  "Additional expressions to highlight in Shell mode.")
+
 
 (defvar dired-voice-lock-keywords
   '(;; Put directory headers in italics.
@@ -118,11 +113,35 @@ Return nil if not set."
 (setq help-voice-lock-keywords
 '(("\\`\\([-+a-zA-Z0-9_*]+\\)\\(\\(:\\)\\|\\('\\)\\)" (1 (if
                                                              (match-beginning 3) voice-lock-function-name-personality voice-lock-variable-name-personality))) ("`\\([-+a-zA-Z0-9_:*][-+a-zA-Z0-9_:*]+\\)'" 1 voice-lock-reference-personality t) ("\\<:[-+a-zA-Z0-9_:*]+\\>" 0 voice-lock-reference-personality t)))
+
+;;{{{ scheme mode 
+(defvar emacspeak-scheme-voice-lock-keywords 
+'(t
+ ("(\\(define\\*?\\(\\(\\|-public\\|-method\\|-generic\\(-procedure\\)?\\)\\|\\(-syntax\\)\\|-class\\|-module\\)\\)\\>[ 	]*(?\\(\\sw+\\)?"
+  (1 voice-lock-keyword-personality)
+  (6
+   (cond
+    ((match-beginning 3)
+     voice-lock-function-name-personality)
+    ((match-beginning 5)
+     voice-lock-variable-name-personality)
+    (t voice-lock-type-personality))
+   nil t))
+ ("(\\(and\\|begin\\|c\\(a\\(ll\\(-with-\\(current-continuation\\|input-file\\|output-file\\)\\|/cc\\)\\|se\\)\\|ond\\)\\|d\\(elay\\|o\\)\\|else\\|for-each\\|if\\|l\\(ambda\\|et\\(\\*\\|-syntax\\|rec\\(-syntax\\)?\\)?\\)\\|map\\|or\\|syntax\\(-rules\\)?\\)\\>"
+  (1 voice-lock-keyword-personality))
+ ("\\<<\\sw+>\\>"
+  (0 voice-lock-type-personality))
+ ("\\<:\\sw+\\>"
+  (0 voice-lock-builtin-personality)))
+"keywords for voice locking scheme code.")
+
+;;}}}
 ;;}}}
 ;;{{{ set voice lock keywords for various modes
 
 ;;; Note: later these may move to their appropriate extension modules.
-
+(voice-lock-set-major-mode-keywords 'scheme-mode
+                                                      'emacspeak-scheme-voice-lock-keywords)
 (voice-lock-set-major-mode-keywords 'help-mode
                                                       'help-voice-lock-keywords)
                   (voice-lock-set-major-mode-keywords 'texinfo-mode

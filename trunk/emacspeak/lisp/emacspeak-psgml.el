@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1995 by T. V. Raman  
 ;;; All Rights Reserved. 
 ;;;
@@ -41,6 +41,9 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-sounds)
+(eval-when-compile
+  (require 'emacspeak))
+(require 'derived)
 (require 'emacspeak-speak)
 (require 'emacspeak-fix-interactive)
 (require 'voice-lock)
@@ -51,6 +54,17 @@
 ;;; Speech-enable psgml --a powerful SGML support package.
 ;;; psgml can be found at 
 ;;;
+
+;;}}}
+;;{{{  helpers 
+
+(defsubst emacspeak-psgml-summarize-element ()
+  "Context-sensitive element summarizer."
+  (interactive)
+  (cond
+   ((eq major-mode 'emacspeak-xml-browse-mode)
+    (emacspeak-psgml-speak-current-element))
+   (t (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ advice interactive commands 
@@ -103,33 +117,36 @@ window")))
   "Say what you inserted"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
+
     (emacspeak-speak-line)))
 (defadvice sgml-forward-element (after emacspeak pre act
                                        comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (skip-syntax-forward " ")
+    (emacspeak-psgml-summarize-element)))
+
 (defadvice sgml-backward-element (after emacspeak pre act
                                         comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-down-element (after emacspeak pre act
                                     comp)
   "Speak line we moved to"
   (when (interactive-p)
+    (skip-syntax-forward " ")
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-psgml-summarize-element)))
 
-(defadvice sgml-backward-up-element (after emacspeak pre act
-                                           comp)
+(defadvice sgml-backward-up-element (after emacspeak pre act comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-beginning-of-element (after emacspeak pre act
                                             comp)
@@ -229,20 +246,103 @@ window")))
     (emacspeak-auditory-icon 'select-object)
     (message "Split current element")))
 
+(defadvice sgml-hide-tags (after emacspeak pre act comp)
+  "Announce what you just did."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (message "Hid all markup tags.")))
+(defadvice sgml-hide-attributes (after emacspeak pre act comp)
+  "Announce what you just did."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (message "Hid all markup attributes.")))
+
+(defadvice sgml-show-tags (after emacspeak pre act comp)
+  "Announce what you just did."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (message "Showing  all markup tags.")))
+
+(defadvice sgml-show-attributes (after emacspeak pre act comp)
+  "Announce what you just did."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (message "Showing all markup attributes.")))
+
+;;}}}
+;;{{{  editting attributes 
+
+(defadvice sgml-edit-attributes (after emacspeak pre act
+                                       comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+(defadvice sgml-edit-attrib-finish(after emacspeak pre act
+                                         comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+(defadvice sgml-edit-attrib-field-start (after emacspeak pre
+                                               act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+
+
+(defadvice sgml-edit-attrib-field-end (after emacspeak pre
+                                               act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice sgml-edit-attrib-next (after emacspeak pre
+                                               act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+
+(defadvice sgml-edit-attrib-clear (after emacspeak pre act
+                                         comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+(defadvice sgml-edit-attrib-default  (after emacspeak pre act
+                                         comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-speak-line)))
+(defadvice sgml-edit-attrib-mode (after emacspeak pre act
+                                        comp)
+  "Fix keymap"
+  (define-key sgml-edit-attrib-mode-map "\C-e"
+    'emacspeak-prefix-command)
+  (local-set-key "\C-e e" 'sgml-edit-attrib-field-end))
 
 ;;}}}
 ;;{{{ define pronunciations 
+
 (emacspeak-pronounce-add-dictionary-entry 'sgml-mode"CDATA"
                                           "C DATA")
 ;;; xml mode inherits from sgml mode
 (emacspeak-pronounce-add-super 'sgml-mode 'xml-mode)
+
 ;;}}}
 ;;{{{ setup sgml-mode-hook
-(add-hook 'sgml-mode-hook
-          (function (lambda ()
-                      (dtk-set-punctuations "all")
-                      (or dtk-split-caps
-                          (dtk-toggle-split-caps)))))
+(declaim (special sgml-mode-map))
+(add-hook
+ 'sgml-mode-hook
+ (function
+  (lambda ()
+    (declare (special sgml-mode-map))
+    (emacspeak-setup-programming-mode)
+    (define-key sgml-mode-map "\C-c\C-b"
+      'emacspeak-xml-browse-mode))))
                                     
            
              
@@ -253,16 +353,61 @@ window")))
 (voice-lock-set-major-mode-keywords 'xml-mode
                                                       'xml-voice-lock-keywords)
 
+(voice-lock-set-major-mode-keywords 'sgml-mode
+                                                      'sgml-voice-lock-keywords)
+
+(defconst sgml-voice-lock-keywords-1
+  '(("<\\([!?][a-z][-.a-z0-9]*\\)" 1 voice-lock-keyword-personality)
+    ("<\\(/?[a-z][-.a-z0-9]*\\)" 1 voice-lock-function-name-personality)
+    ("[&%][a-z][-.a-z0-9]*;?" . voice-lock-variable-name-personality)
+    ("<! *--.*-- *>" . voice-lock-comment-personality)))
+
+
+
+;; for voice-lock, but must be defvar'ed after
+;; sgml-voice-lock-keywords-1  above
+(defvar sgml-voice-lock-keywords sgml-voice-lock-keywords-1
+  "*Rules for highlighting SGML code.  ")
+
 (defvar xml-voice-lock-keywords nil
   "Voice lock keywords for XML mode.")
 
-(setq xml-voice-lock-keywords
-'(("^<!--.*$"  . voice-lock-comment-personality)
-  ("</?[a-zA-Z0-9]+>" . voice-lock-type-personality)
-  ("\"[^\"]+\""  . voice-lock-string-personality)))
+(setq xml-voice-lock-keywords sgml-voice-lock-keywords)
 
 
 
+;;}}}
+;;{{{ additional interactive commands 
+
+(defun emacspeak-psgml-speak-current-element ()
+  "Speak contents of current element. "
+  (interactive)
+  (save-excursion
+      (sgml-mark-current-element)
+(emacspeak-speak-region (mark) (point))))
+
+;;}}}
+;;{{{ sgml browsing mode 
+
+;;; convenience minor mode for browsing sgml and xml
+;;; documents.
+
+(define-derived-mode emacspeak-xml-browse-mode xml-mode 
+  "Browsing XML documents. "
+  "Mode for browsing XML documents.\n\n
+\\{emacspeak-xml-browse-mode}")
+
+(declaim (special emacspeak-xml-browse-mode-map ))
+(define-key emacspeak-xml-browse-mode-map " "
+  'emacspeak-psgml-speak-current-element)
+(define-key emacspeak-xml-browse-mode-map [up]
+  'sgml-backward-up-element)
+(define-key emacspeak-xml-browse-mode-map [down] 'sgml-down-element)
+(define-key emacspeak-xml-browse-mode-map [left] 'sgml-backward-element)
+(define-key emacspeak-xml-browse-mode-map [right] 'sgml-forward-element)
+(define-key emacspeak-xml-browse-mode-map "\C-ch"
+  'sgml-hide-tags)
+(define-key emacspeak-xml-browse-mode-map "\C-cu" 'sgml-show-tags)
 ;;}}}
 (provide  'emacspeak-psgml)
 ;;{{{  emacs local variables 

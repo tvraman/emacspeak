@@ -17,7 +17,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1999 T. V. Raman <raman@cs.cornell.edu>
+;;; Copyright (C) 1995 -- 2000, T. V. Raman<raman@cs.cornell.edu>
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -86,7 +86,7 @@
     (emacspeak-pcl-cvs-summarize-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice cvs-mode-mark (before emacspeak pre act comp)
+(defadvice cvs-mode-mark (after emacspeak  pre act comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-pcl-cvs-summarize-line)

@@ -15,7 +15,7 @@
 # }}}
 # {{{ Copyright:  
 
-#Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved. 
@@ -41,12 +41,13 @@
 
 # what emacs is called on your system
 EMACS = emacs
+SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file
 # How to compile 
 COMPILE = -eval "(setq byte-compile-dynamic t)" -f batch-byte-compile
 %.elc:  %.el
-	$(EMACS) $(BATCH)  -l $(ROOT)/lisp/emacspeak-load-path.el $(COMPILE) $(ROOT)/lisp/$<
+	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el $(COMPILE) $<
 
 # }}}
 # {{{  grouping files into dependent modules
@@ -61,11 +62,12 @@ SPEAK_OBJECTS =   \
         emacspeak-actions.elc \
 	voice-lock.elc \
 	lazy-voice-lock.elc \
+	jit-voice-lock.elc \
 	fast-voice-lock.elc \
 	voice-setup.elc \
 	voice-settings.elc \
         html-voice.elc \
-html-outline.elc \
+	html-outline.elc \
         emacspeak-pronounce.elc \
 	emacspeak-sounds.elc 
 
@@ -74,6 +76,7 @@ CORE_OBJECTS =  \
 	emacspeak-advice.elc\
 	emacspeak-keymap.elc\
 	emacspeak-fix-interactive.elc\
+emacspeak-freeamp.elc \
 	emacspeak-redefine.elc\
 	emacspeak-replace.elc \
         emacspeak-table.elc \
@@ -83,9 +86,12 @@ CORE_OBJECTS =  \
 AUX_OBJECTS =  cd-tool.elc \
 emacspeak-calendar.elc \
 emacspeak-calc.elc \
+emacspeak-calculator.elc \
 emacspeak-c.elc \
 emacspeak-jde.elc \
+emacspeak-sh-script.elc \
 emacspeak-speedbar.elc \
+emacspeak-sawfish.elc \
 emacspeak-realaudio.elc \
 emacspeak-finder.elc \
 emacspeak-python.elc \
@@ -106,6 +112,7 @@ emacspeak-wrolo.elc \
 emacspeak-oo-browser.elc \
 emacspeak-tempo.elc \
 emacspeak-tnt.elc \
+emacspeak-url-template.elc \
 emacspeak-pcl-cvs.elc \
 emacspeak-tcl.elc \
 emacspeak-perl.elc \
@@ -118,6 +125,8 @@ emacspeak-forms.elc \
 emacspeak-view.elc \
 emacspeak-message.elc \
 emacspeak-dismal.elc \
+emacspeak-dictation.elc \
+emacspeak-dictionary.elc \
 emacspeak-buff-sel.elc \
 emacspeak-view-process.elc \
 emacspeak-vm.elc \
@@ -129,10 +138,14 @@ emacspeak-texinfo.elc \
 emacspeak-entertain.elc \
 emacspeak-bookmark.elc \
 emacspeak-buff-menu.elc \
+emacspeak-bs.elc \
 emacspeak-tar.elc \
+emacspeak-tdtd.elc \
+emacspeak-xslide.elc  \
 emacspeak-arc.elc \
 emacspeak-gomoku.elc \
 emacspeak-imenu.elc \
+emacspeak-ibuffer.elc \
 emacspeak-remote.elc \
 emacspeak-sgml-mode.elc \
 emacspeak-sql.elc \
@@ -146,21 +159,27 @@ emacspeak-winring.elc \
 emacspeak-enriched.elc \
 emacspeak-facemenu.elc \
 emacspeak-hide.elc \
+emacspeak-filtertext.elc \
+emacspeak-hideshow.elc \
 emacspeak-widget.elc \
 emacspeak-custom.elc \
 emacspeak-w3.elc \
 emacspeak-ispell.elc \
 emacspeak-flyspell.elc \
 emacspeak-find-func.elc \
+emacspeak-find-dired.elc \
 emacspeak-net-utils.elc \
 emacspeak-make-mode.elc \
 emacspeak-eterm.elc \
+emacspeak-eudc.elc \
 emacspeak-ediff.elc \
+emacspeak-eshell.elc \
+emacspeak-generic.elc \
 emacspeak-gnus.elc\
 emacspeak-gnuplot.elc \
 emacspeak-setup.el
 
-ADDON_OBJECTS= tapestry.elc  regexp-opt.elc
+ADDON_OBJECTS= tapestry.elc  
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 	$(AUX_OBJECTS) $(ADDON_OBJECTS)
@@ -175,12 +194,12 @@ all: $(OBJECTS)
 
 config:
 	@rm -f emacspeak-setup.el emacspeak-load-path.el  
-	@sed "s@<emacspeak-dir>@$(ROOT)@g" \
+	@sed "s@<emacspeak-dir>@$(SRC)@g" \
 		emacspeak-load-path.def > emacspeak-load-path.el
-	@sed "s@<emacspeak-dir>@$(ROOT)@g" \
+	@sed "s@<emacspeak-dir>@$(SRC)@g" \
 		emacspeak-setup.def  > emacspeak-setup.el
 	@chmod 444 emacspeak-setup.el emacspeak-load-path.el
-	@echo "Configured emacspeak in directory $(ROOT). Now type make emacspeak"
+	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
 # {{{  Make rules for the various modules
@@ -204,6 +223,7 @@ voice-setup.elc: voice-setup.el
 voice-settings.elc: voice-settings.el
 voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
 lazy-voice-lock.elc: lazy-voice-lock.el voice-lock.elc
+jit-voice-lock.elc: jit-voice-lock.el voice-lock.elc
 fast-voice-lock.elc: fast-voice-lock.el voice-lock.elc
 html-voice.elc: html-voice.el voice-lock.elc
 html-outline.elc: html-outline.el
@@ -214,11 +234,15 @@ emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc
 cd-tool.elc: cd-tool.el
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
 emacspeak-calc.elc: emacspeak-calc.el 
+emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc
+emacspeak-sh-script.elc: emacspeak-sh-script.el dtk-speak.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc
+emacspeak-sawfish.elc: emacspeak-sawfish.el dtk-speak.elc
 emacspeak-realaudio.elc: emacspeak-realaudio.el dtk-speak.elc
 emacspeak-finder.elc: emacspeak-finder.el
+emacspeak-freeamp.elc: emacspeak-freeamp.el  dtk-speak.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc
 emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc
@@ -235,9 +259,12 @@ emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc
 emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc 
 emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc 
 emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc
+emacspeak-url-template.elc: emacspeak-url-template.el dtk-speak.elc
 emacspeak-tnt.elc: emacspeak-tnt.el dtk-speak.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc
 emacspeak-tcl.elc: emacspeak-tcl.el dtk-speak.elc
+emacspeak-tdtd.elc: emacspeak-tdtd.el dtk-speak.elc
+emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc
@@ -248,16 +275,23 @@ emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc
+emacspeak-dictation.elc: emacspeak-dictation.el dtk-speak.elc
+emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc
 emacspeak-buff-sel.elc: emacspeak-buff-sel.el dtk-speak.elc
+emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc
 emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc
+emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
+emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc
+emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc
 emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc
+emacspeak-find-dired.elc: emacspeak-find-dired.el dtk-speak.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc
 emacspeak-keymap.elc: emacspeak-keymap.el 
@@ -284,6 +318,7 @@ emacspeak-tar.elc: emacspeak-tar.el dtk-speak.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc
 emacspeak-gomoku.elc: emacspeak-gomoku.el dtk-speak.elc
 emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc
+emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc
 emacspeak-remote.elc: emacspeak-remote.el
 emacspeak-sgml-mode.elc: emacspeak-sgml-mode.el dtk-speak.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc
@@ -297,6 +332,8 @@ emacspeak-babel.elc: emacspeak-babel.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
+emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc
+emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc
 emacspeak-w3.elc: emacspeak-w3.el dtk-speak.elc
@@ -315,10 +352,14 @@ actions: emacspeak-actions.elc
 cd-tool: cd-tools.elc
 calendar: emacspeak-calendar.elc
 calc: emacspeak-calc.elc 
+calculator: emacspeak-calculator.elc
 c: emacspeak-c.elc
 jde: emacspeak-jde.elc
+sh-script: emacspeak-sh-script.elc
 speedbar: emacspeak-speedbar.elc
+sawfish: emacspeak-sawfish.elc
 realaudio: emacspeak-realaudio.elc
+freeamp: emacspeak-freeamp.elc
 python: emacspeak-python.elc
 compile: emacspeak-compile.elc
 auctex: emacspeak-auctex.elc
@@ -338,6 +379,7 @@ table: emacspeak-table.elc
 table-ui: emacspeak-table-ui.elc
 tabulate: emacspeak-tabulate.elc
 tempo: emacspeak-tempo.elc
+url-template: emacspeak-url-template.elc
 tnt: emacspeak-tnt.elc
 pcl-cvs: emacspeak-pcl-cvs.elc
 tcl: emacspeak-tcl.elc
@@ -350,7 +392,10 @@ forms: emacspeak-forms.elc
 view: emacspeak-view.elc
 message: emacspeak-message.elc
 dismal: emacspeak-dismal.elc
+dictation: emacspeak-dictation.elc
+dictionary: emacspeak-dictionary.elc
 buff-sel: emacspeak-buff-sel.elc
+bs: emacspeak-bs.elc
 view-process: emacspeak-view-process.elc
 vm: emacspeak-vm.elc
 mspools: emacspeak-mspools.elc
@@ -362,8 +407,11 @@ entertain: emacspeak-entertain.elc
 bookmark: emacspeak-bookmark.elc
 buff-menu: emacspeak-buff-menu.elc
 tar-mode: emacspeak-tar.elc
+tdtd: emacspeak-tdtd.elc 
+xslide: emacspeak-xslide.elc 
 arc: emacspeak-arc.elc
 imenu: emacspeak-imenu.elc
+ibuffer: emacspeak-ibuffer.elc
 remote: emacspeak-remote.elc
 sql: emacspeak-sql.elc
 supercite: emacspeak-supercite.elc
@@ -375,18 +423,23 @@ checkdoc: emacspeak-checkdoc.elc
 websearch: emacspeak-websearch.elc
 babel: emacspeak-babel.elc
 hide: emacspeak-hide.elc
+filtertext: emacspeak-filtertext.elc
+hideshow: emacspeak-hideshow.elc
 widget: emacspeak-widget.elc
 custom: emacspeak-custom.elc
 w3: emacspeak-w3.elc  
 ispell: emacspeak-ispell.elc
 flyspell: emacspeak-flyspell.elc  
 find-func: emacspeak-find-func.elc
+find-dired: emacspeak-find-dired.elc
 make-mode: emacspeak-make-mode.elc
 net-utils: emacspeak-net-utils.elc
 eterm: emacspeak-eterm.elc
+eudc: emacspeak-eudc.elc
 ediff: emacspeak-ediff.elc
 old-ediff: emacspeak-old-ediff.elc
 gnus: emacspeak-gnus.elc
+generic: emacspeak-generic.elc
 gnuplot: emacspeak-gnuplot.elc
 
 # }}}

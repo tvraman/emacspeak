@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -54,16 +54,20 @@
 ;;; We speak the next choice, while indicating the fact that something was selected with a sound cue.
 ;;;  This interface will assume the availability of a shell command "play"
 ;;; that can take one or more sound files and play them.
-;;; A sample shell script that I use under Linux is provided here .
 ;;; This module will also provide a mapping between names in the elisp world and actual sound files.
 ;;; Modules that wish to use auditory icons should use these names, instead of actual file names.
+;;; As of Emacspeak 13.0, this module defines a themes
+;;; architecture for  auditory icons.
+;;; Sound files corresponding to a given theme are found in
+;;; appropriate subdirectories of emacspeak-sounds-directory
 
 ;;}}}
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
-(require 'dtk-speak))
+(require 'dtk-speak)
+(require 'emacspeak-load-path))
 ;;{{{  state of auditory icons
 
 (defvar emacspeak-use-auditory-icons nil
@@ -81,88 +85,155 @@ Do not set this by hand --
 use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-midi-icons].")
 
 ;;}}}
-;;{{{  Map names to sounds
+;;{{{  Setup sound themes 
 
+(defvar emacspeak-sounds-icon-list 
+  '(
+    alarm
+    alert-user
+    ask-question
+    ask-short-question
+    button
+    center
+    close-object
+    delete-object
+    deselect-object
+    ellipses
+    fill-object
+    full
+    help
+    item
+    large-movement
+    left
+    mark-object
+    modified-object
+    n-answer
+    new-mail
+    news
+    no-answer
+    off
+    on
+    open-object
+    paragraph
+    progress
+    quit
+    right
+    save-object
+    scroll
+    search-hit
+    search-miss
+    section
+    select-object
+    task-done
+    unmodified-object
+    warn-user
+    y-answer
+    yank-object
+    yes-answer
+    )
+  "List of valid auditory icon names. 
+If we add new icons we should declare them here. ")
 
-(defvar emacspeak-sounds-table
-  (make-hash-table )
-  "Association between symbols and names of sound files.
-When producing auditory icons, other modules should use names defined here.")
+(defsubst emacspeak-sounds-icon-list ()
+  "Return the  list of auditory icons that are currently defined."
+  (declare (special emacspeak-sounds-icon-list))
+  emacspeak-sounds-icon-list)
 
-(defvar emacspeak-default-sound nil
+(defvar emacspeak-default-sound ""
 "Default sound to play if requested icon not found.")
+
 ;;; forward declaration. Actual value is in emacspeak-setup.el
-(defvar emacspeak-sounds-directory nil)
+(defvar emacspeak-sounds-directory 
+(expand-file-name  "sounds/" emacspeak-directory)
+"Location of auditory icons.")
 
-(defun emacspeak-define-sound (sound-name file-name)
-  "Define an auditory icon named SOUND-NAME.
-FILE-NAME is the name of the sound file that produces this icon."
-  (declare (special emacspeak-sounds-table
-                    emacspeak-sounds-directory))
-  (setf (gethash  sound-name emacspeak-sounds-table)
-        (concat emacspeak-sounds-directory
-                file-name )))
+(defvar emacspeak-sounds-themes-table
+  (make-hash-table)
+  "Maps valid sound themes to the file name extension used by that theme.")
 
+(defun emacspeak-sounds-define-theme (theme-name file-ext)
+  "Define a sounds theme for auditory icons. "
+  (declare (special emacspeak-sounds-themes-table))
+  (setq theme-name (intern theme-name))
+  (setf (gethash  theme-name emacspeak-sounds-themes-table)
+        file-ext ))
+
+(defvar emacspeak-sounds-default-theme
+  (expand-file-name "default-8k/"
+                    emacspeak-sounds-directory)
+  "Default theme for auditory icons. ")
+
+(defvar emacspeak-sounds-current-theme 
+  emacspeak-sounds-default-theme
+  "Name of current theme for auditory icons.
+Do not set this by hand;
+--use command \\[emacspeak-sounds-select-theme].")
+
+(defsubst emacspeak-sounds-define-theme-if-necessary (theme-name)
+  "Define selected theme if necessary."
+  (cond
+   ((emacspeak-sounds-theme-get-extension theme-name)
+    t)
+   ((file-exists-p (expand-file-name "define-theme.el"
+                                     theme-name))
+                   (load-file (expand-file-name
+                               "define-theme.el"
+                               theme-name)))
+  (t (error "Theme %s is missing its configuration file. " theme-name))))
+
+(defun emacspeak-sounds-theme-p  (theme)
+  "Predicate to test if theme is available."
+  (file-exists-p
+   (expand-file-name theme emacspeak-sounds-directory)))
+
+(defun emacspeak-sounds-select-theme  (theme)
+  "Select theme for auditory icons."
+  (interactive
+   (list
+    (expand-file-name
+    (read-file-name "Theme: "
+                    emacspeak-sounds-directory))))
+  (declare (special emacspeak-sounds-current-theme
+                    emacspeak-sounds-themes-table))
+  (setq theme (expand-file-name theme emacspeak-sounds-directory))
+  (unless (file-directory-p theme)
+    (setq theme  (file-name-directory theme)))
+  (unless (file-exists-p theme)
+    (error "Theme %s is not installed" theme))
+  (setq emacspeak-sounds-current-theme theme)
+  (emacspeak-sounds-define-theme-if-necessary theme)
+  (emacspeak-auditory-icon 'select-object))
+
+
+(defsubst emacspeak-sounds-theme-get-extension (theme-name )
+  "Retrieve filename extension for specified theme. "
+  (declare (special emacspeak-sounds-themes-table))
+  (cl-gethash
+   (intern theme-name)
+   emacspeak-sounds-themes-table))
+           
+
+               
+                      
 
 (defsubst emacspeak-get-sound-filename (sound-name)
-  "Retrieve name of sound file that produces  auditory icon SOUND-NAME.."
-  (declare (special emacspeak-sounds-table emacspeak-default-sound))
-          (or  (cl-gethash sound-name emacspeak-sounds-table)
-               emacspeak-default-sound))
-
-
-(defsubst emacspeak-list-auditory-icons ()
-  "Return the  list of auditory icons that are currently defined."
-  (declare (special emacspeak-sounds-table))
-  (loop for k being the hash-keys of emacspeak-sounds-table
-        collect k))
+  "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
+  (declare (special emacspeak-sounds-themes-table
+                    emacspeak-sounds-current-theme))
+          (let ((f
+                 (expand-file-name
+                  (format "%s%s"
+                          sound-name
+                          (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
+emacspeak-sounds-current-theme)))
+            (if  (file-exists-p f)
+                f
+                emacspeak-default-sound)))  
 
 ;;}}}
-;;{{{  Names of auditory icons
+;;{{{  define themes 
 
-(emacspeak-define-sound 'close-object "click1.au")
-(emacspeak-define-sound 'open-object "beep_17.au")
-(emacspeak-define-sound 'delete-object "beep_5.au")
-(emacspeak-define-sound 'save-object "multi_beep.au")
-(emacspeak-define-sound 'modified-object "boing8.au")
-(emacspeak-define-sound 'unmodified-object "drop_of_water_beep.au")
-(emacspeak-define-sound 'mark-object "beep_8.au")
-;;; we need better sounds for left, right and center justification
-(emacspeak-define-sound 'center "center.au")
-(emacspeak-define-sound 'right "right.au")
-(emacspeak-define-sound 'left "left.au")
-(emacspeak-define-sound 'full "drop_of_water_beep.au")
-(emacspeak-define-sound 'fill-object "spring_beep.au")
-(emacspeak-define-sound 'select-object "pure_saw_beep.au")
-(emacspeak-define-sound 'button "button.au")
-(emacspeak-define-sound 'news"news.au")
-(emacspeak-define-sound 'ellipses "ellipses.au")
-(emacspeak-define-sound 'deselect-object "robotic_beep.au")
-(emacspeak-define-sound 'quit "goodbye.au")
-(emacspeak-define-sound 'task-done "train.au")
-(emacspeak-define-sound 'scroll "return.au")
-(emacspeak-define-sound 'help "cowbell.au")
-(emacspeak-define-sound   'ask-question "arcade_beep.au")
- (emacspeak-define-sound 'yes-answer "double_sine_beep.au")
-(emacspeak-define-sound 'no-answer"casio_beep.au" )
-(emacspeak-define-sound 'ask-short-question "kind_warning_beep.au")
-(emacspeak-define-sound 'n-answer "jazz_piano_beep.au")
-(emacspeak-define-sound 'y-answer  "clink.au")
-(emacspeak-define-sound 'large-movement "better_boing.au")
-(emacspeak-define-sound 'yank-object "drip.au")
-(emacspeak-define-sound 'search-hit "fm_beep.au")
-(emacspeak-define-sound 'search-miss "beep_13.au")
-(emacspeak-define-sound 'warn-user "error.au")
-(emacspeak-define-sound 'progress "drip.au")
-(emacspeak-define-sound 'alarm "rooster.au")
-(emacspeak-define-sound 'alert-user  "boing1.au")
-;; document objects
-(emacspeak-define-sound 'paragraph "paragraph.au")
-(emacspeak-define-sound 'section "section.au")
-(emacspeak-define-sound 'item "item.au")
-(emacspeak-define-sound  'on "button.au")
-(emacspeak-define-sound 'off "click2.au")
-(emacspeak-define-sound 'new-mail "doorbell.au")
+
 
 ;;}}}
 ;;{{{  queue an auditory icon
@@ -191,11 +262,14 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  Play an icon
 
-(defvar emacspeak-play-args ""
+(defcustom emacspeak-play-args ""
   "Set this to -i  if using the play program that ships on sunos/solaris.
 Note: on sparc20's there is a sunos bug that causes the machine to crash if
 you attempt to play sound when /dev/audio is busy.
-It's imperative that you use the -i flag to play on sparc20's.")
+It's imperative that you use the -i flag to play on
+sparc20's."
+  :type 'string
+  :group 'emacspeak)
 
 (defsubst emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME.
@@ -204,16 +278,17 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   (declare (special  emacspeak-use-auditory-icons
                      emacspeak-play-args emacspeak-play-program))
   (and emacspeak-use-auditory-icons
+       (let ((process-connection-type nil))
        (start-process
         "play" nil emacspeak-play-program
         ;emacspeak-play-args ;breaks sox
-        (emacspeak-get-sound-filename sound-name ))))
+        (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
 ;;{{{  setup play function
 
 (defvar emacspeak-auditory-icon-function
-  'emacspeak-play-auditory-icon
+  'emacspeak-serve-auditory-icon
   "*Function that plays auditory icons.")
 
 
@@ -291,7 +366,7 @@ is a .1ms note on instrument 60."
 (emacspeak-define-midi 'button
                        '(117 80 .1))
 (emacspeak-define-midi 'news
-                       '(123 60 .1))
+                       '(100 60 .5))
 (emacspeak-define-midi 'ellipses
                        '(9 35 .1))
 (emacspeak-define-midi 'deselect-object
@@ -329,7 +404,7 @@ is a .1ms note on instrument 60."
 (emacspeak-define-midi 'progress
                        '(9 80 .1))
 (emacspeak-define-midi 'alarm
-                       '(123 60 .1))
+                       '(102 60 1))
 (emacspeak-define-midi 'alert-user
                        '(55 75 .1))
 ;; document objects
@@ -436,7 +511,7 @@ Optional interactive PREFIX arg toggles global value."
       (emacspeak-auditory-icon f)
       (dtk-speak (format "%s" f))
       (sleep-for 2))
-   (emacspeak-list-auditory-icons)))
+   (emacspeak-sounds-icon-list)))
 
 ;;}}}
 ;;{{{ reset local player

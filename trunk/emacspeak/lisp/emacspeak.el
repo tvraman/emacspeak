@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -44,6 +44,7 @@
 ;;; Code:
 
 (require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'backquote)
 (require 'voice-lock)
@@ -52,7 +53,7 @@
   (require 'emacspeak-fix-interactive)
   (require 'emacspeak-speak)
   (require 'emacspeak-keymap))
-
+(require 'custom)
 ;;}}}
 ;;{{{  Introduction:
 
@@ -62,6 +63,16 @@
 ;;; This is the main emacspeak module.
 ;;; It actually does very little:
 ;;; It loads the various parts of the system.
+
+;;}}}
+;;{{{  Customize groups 
+
+(defgroup emacspeak nil
+  "Emacspeak: The Complete Audio Desktop  "
+  :group 'applications
+  :prefix "emacspeak-")
+
+
 
 ;;}}}
 ;;{{{  Setting up things:
@@ -119,9 +130,6 @@
     emacspeak-frame-label-or-switch-to-labelled-frame
     emacspeak-generate-documentation
     emacspeak-keymap-choose-new-emacspeak-prefix
-    find-dired
-    find-name-dired
-    find-grep-dired
     find-file
     find-file-literally
     find-file-literally
@@ -251,30 +259,38 @@ Emacspeak, but it is still preliminary. The source code
 documentation is up-to-date, please use it.  "
   (interactive)
   (declare (special default-enable-multibyte-characters
+                    emacspeak-play-program
+                    emacspeak-sounds-directory
                     emacspeak-emacs-commands-to-fix))
   (emacspeak-export-environment)
-    (require 'dtk-speak)
-    (dtk-initialize)
-    (require 'emacspeak-speak)
-    (require 'emacspeak-redefine)
-    (require 'emacspeak-fix-interactive)
-    (require 'emacspeak-keymap)
-    (require 'emacspeak-advice)
-    (require 'emacspeak-replace)
-    (require 'emacspeak-buff-menu)
-    (mapcar 'emacspeak-fix-interactive-command-if-necessary
-            emacspeak-emacs-commands-to-fix)
-    (run-hooks 'emacspeak-startup-hook)
-    (emacspeak-dtk-sync)
+  (require 'dtk-speak)
+  (dtk-initialize)
+  (require 'emacspeak-speak)
+  (require 'emacspeak-redefine)
+  (require 'emacspeak-fix-interactive)
+  (require 'emacspeak-keymap)
+  (require 'emacspeak-advice)
+  (require 'emacspeak-replace)
+  (require 'emacspeak-buff-menu)
+  (when (file-exists-p "/usr/bin/mpg123")
+    (start-process "mp3" nil "mpg123"
+                   "-q"
+             
+                   (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
+  (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
+  (mapcar 'emacspeak-fix-interactive-command-if-necessary
+          emacspeak-emacs-commands-to-fix)
+  (run-hooks 'emacspeak-startup-hook)
+  (emacspeak-dtk-sync)
     ;;; force unibyte
-    (setq default-enable-multibyte-characters nil)
-    (emacspeak-setup-programming-modes)
-    (message  (format "  Press %s to get an   overview of emacspeak  %s \
- I am  completely operational,  and all my
-circuits are functioning perfectly! "
-                      (substitute-command-keys
-                       "\\[emacspeak-describe-emacspeak]" )
-                      emacspeak-version)))
+  (setq default-enable-multibyte-characters nil)
+  (emacspeak-setup-programming-modes)
+  (message
+   (format "  Press %s to get an   overview of emacspeak  %s \
+ I am  completely operational,  and all my circuits are functioning perfectly! "
+           (substitute-command-keys
+            "\\[emacspeak-describe-emacspeak]" )
+           emacspeak-version)))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
@@ -286,11 +302,35 @@ circuits are functioning perfectly! "
 
 ;;}}}
 ;;{{{ autoloads
-(autoload 'cd-tool "cd-tool"
+(autoload 'emacspeak-filtertext "emacspeak-filtertext"
+"Utilities for filtering text." t)
+(autoload 'emacspeak-url-template-load
+  "emacspeak-url-template"
+  "URL Template utility. " t)
+(autoload 'emacspeak-url-template-fetch
+  "emacspeak-url-template"
+  "URL Template utility. " t)
+(autoload 'emacspeak-freeamp-prefix-command "emacspeak-freeamp"
+"Emacs interface to freeamp" t)
+(autoload 'emacspeak-freeamp "emacspeak-freeamp"
+"Emacs interface to freeamp" t)
+(autoload 'emacspeak-freeamp-mode  "emacspeak-freeamp"
+"Emacs interface to freeamp" t)
+(autoload 'cd-tool "cd-tool" 
 "Play music CDs from Emacs" t)
 
-(autoload 'emacspeak-aumix "emacspeak-aumix"
-  "Setup audio device characteristics" t)
+(mapcar 
+ (function
+  (lambda (f)
+    (autoload  f  "emacspeak-aumix"
+      "Setup audio device characteristics" t)))
+ (list
+  'emacspeak-aumix
+  'emacspeak-aumix-reset
+  'emacspeak-aumix-volume-decrease
+  'emacspeak-aumix-volume-increase 
+  'emacspeak-aumix-wave-decrease 
+  'emacspeak-aumix-wave-increase ))
 (autoload 'emacspeak-websearch-dispatch
   "emacspeak-websearch"
 "Perform a  websearch" t)
@@ -413,33 +453,43 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "bibtex" 'emacspeak-bibtex)
 (emacspeak-do-package-setup "bookmark" 'emacspeak-bookmark)
 (emacspeak-do-package-setup "buff-sel" 'emacspeak-buff-sel)
+(emacspeak-do-package-setup "bs" 'emacspeak-bs)
 (emacspeak-do-package-setup "c-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "calc" 'emacspeak-calc)
+(emacspeak-do-package-setup "calculator" 'emacspeak-calculator)
 (emacspeak-do-package-setup "calendar" 'emacspeak-calendar)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
 (emacspeak-do-package-setup "compile" 'emacspeak-compile)
 (emacspeak-do-package-setup "cperl-mode" 'emacspeak-cperl)
-(emacspeak-do-package-setup "custom" 'emacspeak-custom)
+(emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
 (emacspeak-do-package-setup "dired" 'emacspeak-dired )
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)
+(emacspeak-do-package-setup "dictation"
+                            'emacspeak-dictation)
+(emacspeak-do-package-setup "dictionary" 'emacspeak-dictionary)
 (emacspeak-do-package-setup "dmacro" 'emacspeak-dmacro)
 (emacspeak-do-package-setup "doctor" 'emacspeak-entertain)
 (emacspeak-do-package-setup "dunnet" 'emacspeak-entertain)
 (emacspeak-do-package-setup "ediff" 'emacspeak-ediff)
+(emacspeak-do-package-setup "eshell" 'emacspeak-eshell)
 (emacspeak-do-package-setup "enriched" 'emacspeak-enriched)
 (emacspeak-do-package-setup "facemenu" 'emacspeak-facemenu)
+(emacspeak-do-package-setup "find-dired" 'emacspeak-find-dired)
 (emacspeak-do-package-setup "find-func" 'emacspeak-find-func)
 (emacspeak-do-package-setup "flyspell" 'emacspeak-flyspell)
 (emacspeak-do-package-setup "folding" 'emacspeak-folding)
 (emacspeak-do-package-setup "forms" 'emacspeak-forms)
+(emacspeak-do-package-setup "generic" 'emacspeak-generic)
 (emacspeak-do-package-setup "gnus" 'emacspeak-gnus)
 (emacspeak-do-package-setup "gnuplot" 'emacspeak-gnuplot)
 (emacspeak-do-package-setup "gomoku" 'emacspeak-gomoku)
 (emacspeak-do-package-setup "gud" 'emacspeak-gud)
+(emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
 (emacspeak-do-package-setup "html-helper-mode" 'html-voice )
 (emacspeak-do-package-setup "hyperbole" 'emacspeak-hyperbole)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
+(emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
 (emacspeak-do-package-setup "info" 'emacspeak-info)
 (emacspeak-do-package-setup "ispell" 'emacspeak-ispell)
 (emacspeak-do-package-setup "jde" 'emacspeak-jde)
@@ -458,18 +508,24 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "pcl-cvs" 'emacspeak-pcl-cvs)
 (emacspeak-do-package-setup "psgml" 'emacspeak-psgml)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-python)
-(emacspeak-do-package-setup "rreftex" 'emacspeak-reftex)
+(emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rmail" 'emacspeak-rmail)
-(emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
+(emacspeak-do-package-setup "sgml-mode"
+                            'emacspeak-sgml-mode)
+(emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
+(emacspeak-do-package-setup "sawfish" 'emacspeak-sawfish)
 (emacspeak-do-package-setup "sql-mode" 'emacspeak-sql)
 (emacspeak-do-package-setup "supercite" 'emacspeak-supercite)
 (emacspeak-do-package-setup "tar-mode" 'emacspeak-tar)
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
+(emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
+(emacspeak-do-package-setup "xslide" 'emacspeak-xslide)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
 (emacspeak-do-package-setup "tnt" 'emacspeak-tnt)
 (emacspeak-do-package-setup "term" 'emacspeak-eterm )
+(emacspeak-do-package-setup "eudc" 'emacspeak-eudc )
 (emacspeak-do-package-setup "tetris" 'emacspeak-tetris)
 (emacspeak-do-package-setup "tex-site" 'emacspeak-auctex)
 (emacspeak-do-package-setup "texinfo" 'emacspeak-texinfo)
@@ -562,19 +618,26 @@ Emacs 20.3"
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
 
+
+(defun emacspeak-setup-programming-mode ()
+  "Setup programming mode. Turns on audio indentation and
+sets punctuation mode to all, and turns on split caps."
+  (declare (special dtk-split-caps
+                    emacspeak-audio-indentation))
+  (voice-lock-mode 1)
+  (dtk-set-punctuations "all")
+  (or dtk-split-caps
+      (dtk-toggle-split-caps))
+  (or emacspeak-audio-indentation
+      (emacspeak-toggle-audio-indentation))
+  (emacspeak-dtk-sync))
+
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
   (mapcar
    (function (lambda (hook)
                (add-hook hook
-                         (function (lambda ()
-                                     (voice-lock-mode 1)
-                                     (dtk-set-punctuations "all")
-                                     (or dtk-split-caps
-                                         (dtk-toggle-split-caps))
-                                     (or emacspeak-audio-indentation
-                                         (emacspeak-toggle-audio-indentation))
-                                     (emacspeak-dtk-sync))))))
+                         'emacspeak-setup-programming-mode)))
    (list 'c-mode-common-hook
          'py-mode-hook
          'lisp-mode-hook
@@ -590,6 +653,7 @@ Emacs 20.3"
          'tex-mode-hook
          'tcl-mode-hook
          'html-helper-mode-hook
+         'scheme-mode-hook
          'dired-mode-hook)))
 
 ;;}}}

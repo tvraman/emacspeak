@@ -13,8 +13,8 @@
 
 # }}}
 # {{{ Copyright:  
-
-# Copyright (c) 1995, 1996, 1997, 1998, 1999  T. V. Raman, Adobe Systems
+#Copyright (C) 1995 -- 2000, T. V. Raman 
+# Copyright (c) 1995,   T. V. Raman, Adobe Systems
 # Incorporated.
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -432,7 +432,7 @@ puts -nonewline     $tts(write)  {[:timeout 0]
     [:phoneme arpabet speak on ]
     [:tsr off ]
     [:power interval 30]
-    [:power sleep 60]
+    [:power sleep 2]
     [:sync] [:np :ra 200]
     This is the Dectalk Express.
     [zhax<15> p'arl],

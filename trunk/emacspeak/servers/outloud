@@ -12,8 +12,7 @@
 
 # }}}
 # {{{ Copyright:  
-
-# Copyright (c) 1995, 1996, 1997, 1998, 1999  T. V. Raman.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 #All Rights Reserved
 #
 # This file is not part of GNU Emacs, but the same permissions apply.
@@ -75,7 +74,13 @@ proc tts_say {text} {
 #formerly called tts_letter
 
 proc l {text} {
-    synth " `ts2 $text`ts0"
+    global tts 
+    set r $tts(speech_rate)
+    set prefix "`v1 `vs$r "
+    if {[regexp  {[A-Z]} $text]} {
+        set prefix "$prefix `vb80"
+    }
+    synth "$prefix  `ts2 $text`ts0"
         return ""
 }
 
@@ -85,14 +90,7 @@ proc d {} {
 }
 
 proc tts_resume  {} {
-    global tts 
-    if {[queue_empty?]} {
-        synth {No speech to resume. }
-        set tts(not_stopped) 1
-    } else {
         resume
-        speech_task
-    }
     return ""
 }
 
@@ -109,8 +107,6 @@ proc tts_repeat  {} {
 }
 
 proc tts_pause {} {
-    global tts  
-    queue_backup
     pause
     return ""
 }
@@ -243,7 +239,7 @@ proc clean {element} {
         regsub -all -- {-}  $element { `p1   } element 
     }
     if {$tts(capitalize) } {
-        #regsub -all {[A-Z]} $element {[_ :to 440 10]&} element
+        regsub -all {[A-Z]} $element {`ar`p10   & } element
     }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {

@@ -3,7 +3,7 @@
 #$Id$
     if [ -f /etc/emacspeak.conf ]
     then
-    source /etc/emacspeak.conf
+    . /etc/emacspeak.conf
 fi
 
 if [ -e $HOME/.emacs ]

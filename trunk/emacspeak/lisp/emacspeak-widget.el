@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1995 by T. V. Raman  
 ;;; All Rights Reserved. 
 ;;;
@@ -40,14 +40,14 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
-(condition-case nil
-    (progn (require 'widget)
-           (require 'wid-edit)
-           (message "Compiling against widget libraries %s %s"
-                    (locate-library "widget")
-                    (locate-library "wid-edit")))
-  (error
-   (message  "Widget libraries not found, widget support may not work correctly."))))
+  (condition-case nil
+      (progn (require 'widget)
+             (require 'wid-edit)
+             (message "Compiling against widget libraries %s %s"
+                      (locate-library "widget")
+                      (locate-library "wid-edit")))
+    (error
+     (message  "Widget libraries not found, widget support may not work correctly."))))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 ;;{{{  Introduction
@@ -86,9 +86,9 @@
         (value (widget-value widget ))
         (emacspeak-speak-messages nil))
     (if (or tag value                                )
-       (dtk-speak (message "%s"
-               (or tag value  "")))
-(dtk-speak (current-message)))))
+        (dtk-speak (message "%s"
+                            (or tag value  "")))
+      (dtk-speak (current-message)))))
 
 ;;}}}
 ;;{{{  widget-voice --as per Per's suggestion
@@ -109,7 +109,7 @@
             (or value ""))))
 
 (widget-put (get 'editable-list 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-editable-list)
+            :emacspeak-help 'emacspeak-widget-help-editable-list)
 
 ;;}}}
 ;;{{{ choice-item
@@ -119,22 +119,22 @@
   (let ((value (widget-value widget))
         (tag (widget-get widget ':tag))
         (parent-type (emacspeak-widget-type  (widget-get widget ':parent))))
-     (format "%s %s   is %s"
-             (cond
-              ((eq parent-type 'radio-button) "radio button ")
-              ((eq parent-type 'menu-choice) "menu choice ")
-              ((eq parent-type 'checkbox) " check box ")
-              (t parent-type))
-             (or tag  "")
-             (cond
-              ((eq parent-type 'checkbox)
-               (if value "checked" "unchecked"))
-              ((eq parent-type 'radio-button)
-               (if value " pressed " "not pressed "))
-              (t (if value " on " " off "))))))
+    (format "%s %s   is %s"
+            (cond
+             ((eq parent-type 'radio-button) "radio button ")
+             ((eq parent-type 'menu-choice) "menu choice ")
+             ((eq parent-type 'checkbox) " check box ")
+             (t parent-type))
+            (or tag  "")
+            (cond
+             ((eq parent-type 'checkbox)
+              (if value "checked" "unchecked"))
+             ((eq parent-type 'radio-button)
+              (if value " pressed " "not pressed "))
+             (t (if value " on " " off "))))))
 
 (widget-put (get 'choice-item 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-choice-item)
+            :emacspeak-help 'emacspeak-widget-help-choice-item)
 
 ;;}}}
 ;;{{{ checkbox
@@ -147,7 +147,7 @@
             (or tag "")
             (if value "checked" "unchecked"))))
 (widget-put (get 'checkbox 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-checkbox)
+            :emacspeak-help 'emacspeak-widget-help-checkbox)
 
 ;;}}}
 ;;{{{  menu choice 
@@ -170,8 +170,8 @@
              (t  (if value "on" "off" ))))))
       
 
-    (widget-put (get 'menu-choice 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-menu-choice)
+(widget-put (get 'menu-choice 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
 ;;}}}
 ;;{{{ editable field
@@ -186,33 +186,33 @@
             (save-excursion
               (set-buffer scratch-buffer)
               (unwind-protect 
-               (let ((inhibit-read-only t))
-                 (erase-buffer)
-                 (insert "edit field")
-                 (insert format)
-                 (put-text-property (point-min) (point-max) 'read-only nil)
-                 (goto-char (point-min))
-                 (while (search-forward  "%v" nil t)
-                   (replace-match  value))
-                 (buffer-string ))
-               (setq inhibit-read-only nil)))))
+                  (let ((inhibit-read-only t))
+                    (erase-buffer)
+                    (insert "edit field")
+                    (insert format)
+                    (put-text-property (point-min) (point-max) 'read-only nil)
+                    (goto-char (point-min))
+                    (while (search-forward  "%v" nil t)
+                      (replace-match  value))
+                    (buffer-string ))
+                (setq inhibit-read-only nil)))))
     (format "%s"
             (or format value))))
 
 (widget-put (get 'editable-field 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-editable-field)
+            :emacspeak-help 'emacspeak-widget-help-editable-field)
 
 ;;}}}
 ;;{{{  link 
 
 (defun emacspeak-widget-help-link (widget)
   "Summarize a link"
-    (let ((value (widget-get widget ':value)))
-        (format "link to %s"
-                (or value ""))))
+  (let ((value (widget-get widget ':value)))
+    (format "link to %s"
+            (or value ""))))
 
 (widget-put (get 'link 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-link)
+            :emacspeak-help 'emacspeak-widget-help-link)
 
 ;;}}}
 ;;{{{ push button 
@@ -222,16 +222,16 @@
   (let ((type (emacspeak-widget-type widget))
         (value (widget-value widget))
         (tag (widget-get widget ':tag)))
-     (format "%s  %s"
-             (cond
-              ((eq type 'push-button) "push button")
-              ((eq type 'insert-button) " insert button ")
-              ((eq type 'delete-button) " delete button ")
-               (t (or  type "")))
-             (or tag value ""))))
+    (format "%s  %s"
+            (cond
+             ((eq type 'push-button) "push button")
+             ((eq type 'insert-button) " insert button ")
+             ((eq type 'delete-button) " delete button ")
+             (t (or  type "")))
+            (or tag value ""))))
 
 (widget-put (get 'push-button 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-push-button)
+            :emacspeak-help 'emacspeak-widget-help-push-button)
 
 ;;}}}
 ;;{{{ radio-button-choice
@@ -249,7 +249,7 @@
             (or value ""))))
 
 (widget-put (get 'radio-button-choice 'widget-type)
-		:emacspeak-help 'emacspeak-widget-help-radio-button-choice)
+            :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
 
 ;;}}}
 
@@ -258,20 +258,20 @@
 
 ;;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
-(let ((emacspeak-speak-messages nil))
-ad-do-it
-ad-return-value))
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
 (defadvice widget-beginning-of-line (after emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
    ((interactive-p)
     (let ((widget (widget-at (point ))))
       ad-do-it
-    (emacspeak-auditory-icon 'select-object)
-    (message "Moved to start of text field %s"
-             (if widget
-                 (widget-value widget)
-               ""))))
+      (emacspeak-auditory-icon 'select-object)
+      (message "Moved to start of text field %s"
+               (if widget
+                   (widget-value widget)
+                 ""))))
    (t ad-do-it))
   ad-return-value)
 
@@ -281,25 +281,25 @@ ad-return-value))
    ((interactive-p)
     (let ((widget (widget-at (point ))))
       ad-do-it
-    (emacspeak-auditory-icon 'select-object)
-    (message "Moved to end of text field %s"
-             (if widget
-                 (widget-value widget)
-               ""))))
+      (emacspeak-auditory-icon 'select-object)
+      (message "Moved to end of text field %s"
+               (if widget
+                   (widget-value widget)
+                 ""))))
    (t ad-do-it))
-    ad-return-value)
+  ad-return-value)
 
 (defadvice widget-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-  (emacspeak-auditory-icon 'large-movement)
-  (emacspeak-widget-summarize (widget-at  (point )))))
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-widget-summarize (widget-at  (point )))))
 
 (defadvice widget-backward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-(emacspeak-auditory-icon 'large-movement)
-  (emacspeak-widget-summarize (widget-at (point)))))
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-widget-summarize (widget-at (point)))))
 
 (defadvice widget-kill-line (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -338,26 +338,34 @@ ad-return-value))
 (defvar emacspeak-widget-field-personality  'paul-animated
   "Personality for edit fields")
 
-(defvar emacspeak-widget-button-personality 'paul-smooth
+(defvar emacspeak-widget-button-personality 'harry
   "Personality for buttons")
 
 (defvar emacspeak-widget-documentation-personality 'paul-monotone
   "Personality for documentation")
+(defvar emacspeak-widget-inactive-personality  'betty
+  "Personality for inactive fields")
 
 (defadvice widget-specify-field-update (after emacspeak pre act comp)
   "Voiceify the field"
-(put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                   'personality emacspeak-widget-field-personality))
+  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
+                     'personality
+                     emacspeak-widget-field-personality))
+
+(defadvice  widget-specify-inactive(after emacspeak pre act comp)
+  "Voiceify the field"
+  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
+                     'personality emacspeak-widget-inactive-personality))
 
 (defadvice widget-specify-button (after emacspeak pre act  comp)
   "Voiceify the button"
-(put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                   'personality emacspeak-widget-button-personality))  
+  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
+                     'personality emacspeak-widget-button-personality))  
 
 (defadvice widget-specify-doc (after emacspeak pre act comp)
-"Voiceify the documentation of a widget"
-(put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                   'personality emacspeak-widget-documentation-personality))
+  "Voiceify the documentation of a widget"
+  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
+                     'personality emacspeak-widget-documentation-personality))
 
 ;;}}}
 ;;{{{  Interactively summarize a widget and its parents.
@@ -370,11 +378,11 @@ widget before summarizing."
   (let ((widget (widget-at (point ))))
     (when(and widget  level)
       (loop for i from 1 to level
-             do
+            do
             (setq widget (widget-get  widget :parent))))
     (cond
      (widget (emacspeak-widget-summarize widget ))
-      (t (message "No widget under point")))))
+     (t (message "No widget under point")))))
 
 (defun emacspeak-widget-browse-widget-interactively ()
   "Allows you to browse a widget"
@@ -382,7 +390,7 @@ widget before summarizing."
   (let ((level nil )
         (key nil)
         (continue t))
-      (emacspeak-widget-summarize-widget-under-point)
+    (emacspeak-widget-summarize-widget-under-point)
     (while  continue
       (setq key (read-event))
       (cond
