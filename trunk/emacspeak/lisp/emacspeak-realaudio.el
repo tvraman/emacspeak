@@ -144,12 +144,13 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
     current-prefix-arg))
   (declare (special emacspeak-realaudio-player emacspeak-realaudio-this-resource
                     emacspeak-realaudio-buffer 
-                    emacspeak-realaudio-player-options
+                    emacspeak-realaudio-player-options ido-mode
                     emacspeak-aumix-multichannel-capable-p
                     emacspeak-realaudio-process
                     emacspeak-realaudio-shortcuts-directory
                     emacspeak-realaudio-history
                     emacspeak-use-auditory-icons))
+  (let ((ido-mode nil))
   (unless (or
            (string-match "^rtsp:" resource)
            (string-match "^http:"  resource))
@@ -191,7 +192,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p)))
       (emacspeak-set-auditory-icon-player
-       'emacspeak-play-midi-icon))))
+       'emacspeak-play-midi-icon)))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
@@ -370,6 +371,7 @@ special major mode that provides the various navigation
 commands via single keystrokes."
   (interactive "P")
   (declare (special emacspeak-realaudio-process))
+  (let ((ido-mode nil))
   (cond
    ((and emacspeak-realaudio-process
          (eq 'run (process-status emacspeak-realaudio-process)))
@@ -377,7 +379,7 @@ commands via single keystrokes."
                        emacspeak-realaudio-player)
         (call-interactively 'emacspeak-realaudio-trplayer-command)
       (emacspeak-realaudio-stop)))
-   (t  (call-interactively 'emacspeak-realaudio-play))))
+   (t  (call-interactively 'emacspeak-realaudio-play)))))
 
 ;;}}}
 ;;{{{ browsing ramfiles
