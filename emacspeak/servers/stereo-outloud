@@ -213,10 +213,26 @@ proc service {} {
     return
 }
 
+proc tts_get_acknowledgement {} {
+    global tts
+    set input $tts(input)
+    set status [select [list    $input ] {} {} 0]
+    set code ""
+    if {[lsearch $status $input]   >=0} {
+        set tts(talking?) 0
+    } else {
+        set ack [speakingP]    
+    }
+    return $ack
+}
+
+
 
 proc speech_task {} {
-    global queue tts 
-    set tts(last_index) 0
+    global queue tts
+    set tts(talking?) 1
+    set tts(not_stopped) 1
+    set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "`v1 `vs$r "
@@ -226,7 +242,8 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                say  " $prefix $text"
+                say "$prefix $text"
+                set retval [tts_get_acknowledgement]
             }
             n {
                 if {$tts(midi)} {
@@ -235,8 +252,9 @@ proc speech_task {} {
                 }
             }
         }
+        if {$tts(talking?) == 0} {break;} 
     }
-    synth " "
+    set tts(talking?) 0
     return ""
 }
 
