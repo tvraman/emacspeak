@@ -780,6 +780,17 @@ the broadcast. You must have mplayer installed."
  'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
+ "Motley Fool Radio from NPR"
+ "http://www.npr.org/dmg/dmg.php?prgCode=FOOL&showDate=%s&segNum=&mediaPref=RM"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "Date:"
+                            (format-time-string "%d-%b-%Y"))))
+ nil
+ "Play NPR Motley Fool   stream."
+ 'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
  "Talk Of The Nation from NPR"
  "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
  (list
