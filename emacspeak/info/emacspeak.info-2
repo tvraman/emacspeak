@@ -1018,63 +1018,53 @@ dtk-speak
    Automatically generated documentation for commands defined in module
 dtk-speak.
 
-dtk-toggle-splitting-on-white-space
-===================================
+ - dtk-toggle-splitting-on-white-space:
+     ` control e d SPACE '
 
-   ` control e d SPACE '
+     Toggle splitting of speech on white space.  This affects the
+     internal state of emacspeak that decides if we split text purely
+     by clause boundaries, or also include whitespace.  By default,
+     emacspeak sends a clause at a time to the speech device.  This
+     produces fluent speech for normal use.  However in modes such as
+     `shell-mode' and some programming language modes, clause markers
+     appear infrequently, and this can result in large amounts of text
+     being sent to the speech device at once, making the system
+     unresponsive when asked to stop talking.  Splitting on white space
+     makes emacspeak's stop command responsive.  However, when
+     splitting on white space, the speech sounds choppy since the
+     synthesizer is getting a word at a time.
 
-   Toggle splitting of speech on white space.  This affects the
-internal state of emacspeak that decides if we split text purely by
-clause boundaries, or also include whitespace.  By default, emacspeak
-sends a clause at a time to the speech device.  This produces fluent
-speech for normal use.  However in modes such as `shell-mode' and some
-programming language modes, clause markers appear infrequently, and
-this can result in large amounts of text being sent to the speech
-device at once, making the system unresponsive when asked to stop
-talking.  Splitting on white space makes emacspeak's stop command
-responsive.  However, when splitting on white space, the speech sounds
-choppy since the synthesizer is getting a word at a time.
+ - dtk-set-chunk-separator-syntax:
+     ` control e d RETURN '
 
-dtk-set-chunk-separator-syntax
-==============================
+     Interactively set how text is split in chunks.  See the Emacs
+     documentation on syntax tables for details on how characters are
+     classified into various syntactic classes.  Argument S specifies
+     the syntax class.
 
-   ` control e d RETURN '
+ - tts-restart:
+     ` control e control s '
 
-   Interactively set how text is split in chunks.  See the Emacs
-documentation on syntax tables for details on how characters are
-classified into various syntactic classes.  Argument S specifies the
-syntax class.
+     Use this to nuke the currently running TTS server and restart it.
 
-tts-restart
-===========
+ - dtk-select-server:
+     ` control e d d '
 
-   ` control e control s '
+     Select a speech server interactively.  Argument PROGRAM specifies
+     the speech server program.  When called  interactively, The
+     selected server is started immediately.
 
-   Use this to nuke the currently running TTS server and restart it.
+ - dtk-toggle-debug:
+     ` control e d b '
 
-dtk-select-server
-=================
+     Toggle state of the debug FLAG.  When debugging is on, you can
+     switch to the buffer *speaker* to examine the output from the
+     process that talks to the speech device by using command C-e d
+     M-C-b.  Note: *speaker* is a hidden buffer, ie it has a leading
+     space in its name.
 
-   ` control e d d '
+ - tts-show-debug-buffer:
+     ` control e d meta control b '
 
-   Select a speech server interactively.  Argument PROGRAM specifies
-the speech server program.  When called  interactively, The selected
-server is started immediately.
-
-dtk-toggle-debug
-================
-
-   ` control e d b '
-
-   Toggle state of the debug FLAG.  When debugging is on, you can
-switch to the buffer *speaker* to examine the output from the process
-that talks to the speech device by using command C-e d M-C-b.  Note:
-*speaker* is a hidden buffer, ie it has a leading space in its name.
-
-tts-show-debug-buffer
-=====================
-
-   ` control e d meta control b '
-
-   Select TTS debugging buffer.
+     Select TTS debugging buffer.
 
