@@ -83,6 +83,18 @@
 (require 'dtk-voices)
 
 ;;}}}
+;;{{{  A speech style structure
+
+(defstruct  dtk-speech-style
+  family
+  gain left-volume right-volume
+  average-pitch
+  pitch-range
+  stress
+  richness
+  )
+
+;;}}}
 ;;{{{  Mapping css parameters to dtk codes
 
 ;;{{{ voice family codes
