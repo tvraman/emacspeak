@@ -2207,6 +2207,37 @@ Moves to the longest line when called interactively."
     max))
 
 ;;}}}
+;;{{{ face wizard
+(defun emacspeak-wizards-show-face (face)
+  "Show salient properties of specified face."
+  (interactive
+   (list
+    (read-face-name "Face")))
+  (let ((output (get-buffer-create "*emacspeak-face-display*")))
+    (save-excursion
+      (set-buffer output)
+      (setq buffer-read-only nil)
+      (erase-buffer)
+      (loop for a in
+            (list
+             :width :height :weight :slant
+             :foreground :background)
+            do
+            (insert
+             (format "%s %s\n"
+                     a
+                     (face-attribute face a))))
+      (setq buffer-read-only t))
+    (when (interactive-p)
+      (switch-to-buffer output)
+      (goto-char (point-max))
+      (emacspeak-speak-mode-line)
+      (emacspeak-auditory-icon 'open-object))))
+             
+   
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
@@ -2216,4 +2247,3 @@ Moves to the longest line when called interactively."
 ;;; end:
 
 ;;}}}
-
