@@ -1167,7 +1167,7 @@ loaded. "
           (emacspeak-xslt-region xslt (point-min)
                                  (point-max))))
       (emacspeak-w3-preview-this-buffer)
-                                        ;(kill-buffer buffer)
+      (kill-buffer buffer)
       (emacspeak-auditory-icon 'open-object))))
           
 
