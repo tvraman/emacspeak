@@ -137,6 +137,15 @@ font-lock.  Voicification is effective only if font lock is on."
 
 
 ;;}}}
+;;{{{ attach voice lock to global font lock
+
+(defadvice global-font-lock-mode (after emacspeak pre act comp)
+  "Attach voice lock to font lock."
+  (when global-font-lock-mode
+    (setq-default voice-lock-mode t)))
+
+;;}}}
+
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-show-unmapped-faces nil
