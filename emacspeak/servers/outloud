@@ -256,7 +256,7 @@ proc speech_task {} {
     }
     set tts(talking?) 0
     service
-    if {$tts(talking?) == 0} {closeDSP;} 
+    if {$tts(talking?) == 0} {closeDSP} 
     return ""
 }
 
