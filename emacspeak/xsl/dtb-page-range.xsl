@@ -57,8 +57,12 @@ and the final intersection is computed using set:intersection.
             select="//pagenum[number(text()) &gt; $end]"/>
             <xsl:variable name="after" select="set:trailing($all, $first)"/>
             <xsl:variable name="before" select="set:leading($all, $last)"/>
-            <xsl:for-each select="set:intersection($before, $after)">
+            <xsl:for-each
+            select="set:intersection($before,
+            $after)">
+              <xsl:if test="not(set:intersection(ancestor::*, $after))">
               <xsl:copy-of select="."/>
+              </xsl:if>
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
