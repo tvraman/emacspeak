@@ -89,11 +89,13 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
 (defadvice tnt-send-text-as-chat-message (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Sent chat message.")))
+
 (defadvice tnt-send-text-as-chat-whisper (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -195,7 +197,7 @@
 (defadvice tnt-im-mode (after emacspeak pre act comp)
   "Turn on outline minor mode to enable navigation. "
   (outline-minor-mode 1)
-  (setq outline-regexp "^[0-9a-zA-Z]+: ")
+  (setq outline-regexp "^\\([0-9:]+ \\)?[0-9a-zA-Z]+: ")
   (define-key tnt-im-mode-map
     (concat emacspeak-prefix "\C-q")
     'emacspeak-tnt-toggle-autospeak)
@@ -205,7 +207,7 @@
 
 ;;}}}
 ;;{{{  autospeak messages
-(defcustom emacspeak-tnt-autospeak nil
+(defcustom emacspeak-tnt-autospeak t
   "True means messages in this chat session will be spoken
 automatically."
   :type 'boolean
@@ -232,10 +234,8 @@ automatically."
              (if emacspeak-tnt-autospeak "on" "off" )
              (if prefix "" " locally"))))
 
-(defadvice tnt-append-message-and-adjust-window (after emacspeak pre
-                                                       act comp)
-  "Speak messages if autospeak is on, and the conversation buffer is
-selected."
+(defadvice tnt-append-message-and-adjust-window (after emacspeak pre act comp)
+  "Speak messages if autospeak is on, and the conversation buffer is selected."
   (let ((buffer  (ad-get-arg 0))
         (message (ad-get-arg 1)))
     (when (and emacspeak-tnt-autospeak
