@@ -906,10 +906,7 @@ Tables are specified by containing  match pattern
               (expand-file-name "class-values.xsl"
                                 emacspeak-xslt-directory)
               (url-view-url 'no-show)
-              (list
-               (cons "base"
-                     (format "\"'%s'\""
-                     (url-view-url 'no-show))))
+              nil
  'no-comment)))
         (setq values 
               (save-excursion
