@@ -132,6 +132,12 @@ font-lock.  Voicification is effective only if font lock is on."
      (if voice-lock-mode
          'on 'off ))))
 
+;; Install ourselves:
+
+(unless (assq 'voice-lock-mode minor-mode-alist)
+  (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
+
+
 ;;}}}
 ;;{{{ advice put-text-personality
 
