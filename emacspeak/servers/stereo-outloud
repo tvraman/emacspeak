@@ -229,7 +229,7 @@ proc speech_task {} {
             }
             a {
                 set sound [lindex $event 1]
-                catch "exec $tts(play) $sound >& /dev/null &" errCode
+                playWave $sound
             }
             n {
                 if {$tts(midi)} {
