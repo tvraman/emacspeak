@@ -1,5 +1,4 @@
-#$Id: Makefile,v 1.1 1999/11/12 18:41:44 tvraman Exp tvraman
-#$
+#$Id$
 INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
@@ -8,10 +7,10 @@ TTS=tcleci.so eci.ini NOTES
 
 all: tcleci.so 
 
-CPPFLAGS=  -DUNIX -fpic 
+CPPFLAGS=  -DUNIX -fpic  -g
 
 tcleci.so: tcleci.o
-	$(CC) $(CFLAGS) -o $@ tcleci.o  -ltcl  -libmeci50 -shared
+	$(CC) $(CFLAGS) -g -o $@ tcleci.o -ltcl -ldl -shared
 
 clean:
 	rm -f tcleci.so tcleci.o
