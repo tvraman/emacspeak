@@ -273,28 +273,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands
 
-(defadvice nxml-backward-element (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-(emacspeak-speak-line)))
 
-(defadvice nxml-forward-element (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-(emacspeak-speak-line)))
-
-(defadvice nxml-forward-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-(emacspeak-speak-line)))
-(defadvice nxml-backward-paragraph (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-(emacspeak-speak-line)))
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
   "Provide spoken feedback."
   (cond
@@ -325,7 +304,13 @@
 (loop for f in 
       '(nxml-backward-up-element
         nxml-forward-balanced-item
-        nxml-up-element)
+        nxml-up-element
+'nxml-forward-paragraph
+'nxml-backward-paragraph
+'nxml-backward-single-paragraph
+'nxml-backward-single-balanced-item
+'nxml-forward-element
+'nxml-backward-element)
       do
       (eval
        (`
