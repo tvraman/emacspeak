@@ -52,6 +52,7 @@
 (defadvice select-buffer (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice select-buffer-other-window (after emacspeak pre act comp)
