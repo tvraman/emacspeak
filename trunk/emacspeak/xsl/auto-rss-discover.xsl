@@ -10,25 +10,35 @@ Description: Display all RSS links
 <xsl:stylesheet  xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="xml" indent="yes" encoding="iso8859-1"/>
+    <xsl:variable name="amphetadesk" value="http://127.0.0.1:8888/"/>
 <xsl:template name="generate-rss">
   <xsl:if test="count(//link[@type='application/rss+xml'])">
 <h2 id="__auto_rss"><a name="__auto_rss">RSS Links</a></h2>
-<ol>
             <xsl:apply-templates select="//link" mode="rss"/>
-            </ol>
   </xsl:if>
 </xsl:template>
 
     <xsl:template match="h:link|link" mode="rss">
         <xsl:if test="@type='application/rss+xml'">
-            <li>
+<table>
+<tr>
+<td>
                 <a>
                     <xsl:attribute name="href">
                         <xsl:value-of select="@href"/>
                     </xsl:attribute>
                     <xsl:value-of select="@title"/>
                 </a>
-            </li>
+</td>
+<td>
+  <form action="{concat($amphetadesk, 'my_channels.html')}" method="POST" style="margin:0">
+<label for="uri">URI</label>
+<input id="uri" type="text" name="add_url" value="{@href}" size="35" />
+      <input type="submit" name="submit" value="Add This Channel" />
+   </form>
+</td>
+</tr>
+</table>
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
