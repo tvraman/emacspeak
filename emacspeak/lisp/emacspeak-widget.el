@@ -73,6 +73,34 @@
   :caption)
 
 ;;}}}
+;;{{{  helpers 
+
+(defsubst emacspeak-widget-label (w)
+  "Construct a label for a widget.
+Returns a string with appropriate personality."
+  (let ((type   (widget-type w))
+        (tag (widget-get w :tag)))
+    (unless tag (setq tag (format " %s " type)))
+    (put-text-property 0 (length tag)
+                       'personality 'harry tag)
+    tag))
+
+(defsubst emacspeak-widget-help-echo (w)
+  "Return help-echo with appropriate personality."
+  (let ((h (widget-get w :help-echo))
+         (help nil))
+    (setq help
+    (cond
+     ((and h (fboundp h))
+ (widget-apply w :help-echo))
+     ((and h (stringp h)) h)
+      (t nil)))
+    (when help
+    (put-text-property 0 (length help)
+                       'personality 'paul-animated help)
+  help)))
+
+;;}}}
 ;;{{{  define summarizer
 
 (defun emacspeak-widget-help ()
@@ -117,27 +145,6 @@
 ;;}}}
 ;;{{{  widget specific summarizers  --as per Per's suggestion
 
-;;{{{  helpers 
-
-(defsubst emacspeak-widget-label (w)
-  "Construct a label for a widget.
-Returns a string with appropriate personality."
-  (let ((type   (widget-type w))
-        (tag (widget-get w :tag)))
-    (unless tag (setq tag (format " %s " type)))
-    (put-text-property 0 (length tag)
-                       'personality 'harry tag)
-    tag))
-
-(defsubst emacspeak-widget-help-echo (w)
-  "Return help-echo with appropriate personality."
-  (let ((help (widget-get w :help-echo)))
-    (when help
-      (put-text-property 0 (length help)
-                         'personality 'paul-animated help))
-      help))
-
-;;}}}
 ;;{{{  default
 
 (defun emacspeak-widget-default-summarize (widget)
