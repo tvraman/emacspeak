@@ -106,7 +106,7 @@ near: url-encoded location from where direction links are generated
           <xsl:attribute name="href">
             <xsl:value-of select="normalize-space(url)"/>
           </xsl:attribute>
-        Web Site</a>
+local.google</a>
       </td>
     </tr>
   </xsl:template>
