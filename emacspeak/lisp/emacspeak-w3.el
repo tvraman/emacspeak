@@ -374,15 +374,6 @@ element. "
     (emacspeak-freeamp tmpname)
     (delete-file tmpname)))
 
-(when (and (locate-library "mailcap")
-           (or  (file-exists-p "/usr/bin/freeamp")
-                (file-exists-p "/usr/local/bin/freeamp")))
-  (require 'mailcap)
-  (mapcar (lambda (type)
-            (mailcap-add (concat "audio/" type) 'emacspeak-w3-freeamp
-                         '(fboundp 'emacspeak-freeamp)))
-          '("x-mpegurl" "x-mpeg" "x-mp3" "scpls" "mpegurl" "mpeg" "mp3")))
-
 ;;}}}
 ;;{{{ url rewrite
 
