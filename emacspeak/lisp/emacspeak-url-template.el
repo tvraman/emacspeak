@@ -61,7 +61,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -258,13 +258,13 @@ to play a BBC Radio4 program on demand."
 
 (emacspeak-url-template-define
  "BBC Programs On Demand"
-"http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
-(list
- #'(lambda ()
-     (read-from-minibuffer "BBC Program: ")))
-nil
-"Play BBC programs on demand."
-'emacspeak-realaudio-play)
+ "http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "BBC Program: ")))
+ nil
+ "Play BBC programs on demand."
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "BBC News"
@@ -300,7 +300,7 @@ nil
 
 (emacspeak-url-template-define
  "Google Hits"
-  "http://www.google.com/search?q=%s&num=%s"
+ "http://www.google.com/search?q=%s&num=%s"
  (list
   #'(lambda ()
       (webjump-url-encode
@@ -794,7 +794,7 @@ the broadcast. You must have mplayer installed."
  nil
  "Play Technetcast stream from DDJ."
  #'(lambda (url)
-(emacspeak-realaudio-play url)))
+     (emacspeak-realaudio-play url)))
 
 ;;}}}
 ;;{{{  linux today 
@@ -900,6 +900,40 @@ the broadcast. You must have mplayer installed."
  nil
  "Display baseball scores."
  )
+
+(emacspeak-url-template-define
+ "Baseball Results"
+ "http://gd.mlb.com/components/game/%s/gameLite.txt"
+ (list
+  #'(lambda nil
+      (let ((date 
+             (read-from-minibuffer
+              "Date: "
+              (format-time-string "%Y-%m-%d")))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result 
+              (format 
+               "year_%s/month_%s/day_%s"
+               (first fields)
+               (second fields)
+               (third fields)))
+        result)))
+ #'(lambda nil
+     (ems-modify-buffer-safely
+      (save-excursion
+        (goto-char (point-min))
+        (while (search-forward "<br>" nil t)
+          (replace-match " " nil t))
+        (goto-char (point-min))
+        (while (search-forward "&" nil t)
+          (replace-match "\n"))
+        (flush-lines"|" (point-min) (point-max))
+        (flush-lines "^ *$" (point-min) (point-max))
+        (goto-char (point-min))
+        (emacspeak-speak-line))))
+ "Baseball results for a given date.")
 
 ;;}}}
 ;;{{{  Virtually There --Sabre Trip Reports 
