@@ -510,14 +510,10 @@ Nil means no transform is used. ")
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
-    (let ((case-fold-search t))
-      (goto-char (point-min))
-      (search-forward "\n\n" nil  t)
-      (beginning-of-line)
       (emacspeak-xslt-region
        emacspeak-w3-xsl-transform
-       (point)
-       (point-max)))))
+       (point-min)
+       (point-max))))
 
 (declaim (special emacspeak-xslt-directory))
 
