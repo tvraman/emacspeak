@@ -86,3 +86,27 @@
 (outloud-define-voice-alias 'excerpt 'annotation-voice )
 
 ;;}}}
+;;{{{ setup standard mappings
+
+;; (voice-setup-set-voice-for-face 'bold 'bold)
+;; (voice-setup-set-voice-for-face 'italic 'italic)
+;; (voice-setup-set-voice-for-face 'underline 'underline)
+;; (voice-setup-set-voice-for-face 'underlined 'underline)
+;; (voice-setup-set-voice-for-face 'bold-italic 'bold-italic)
+
+;; (voice-setup-set-voice-for-face  'font-lock-comment-face 'voice-lock-comment-personality)
+;; (voice-setup-set-voice-for-face 'font-lock-underline-face   'voice-lock-underline-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-bold-face   'voice-lock-bold-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-italic-face   'voice-lock-italic-personality )
+;; (voice-setup-set-voice-for-face 'font-lock-doc-string-personality   'voice-lock-doc-string-personality)
+;; (voice-setup-set-voice-for-face'font-lock-constant-face   'voice-lock-constant-personality)
+;; (voice-setup-set-voice-for-face'font-lock-string-face   'voice-lock-string-personality)
+;; (voice-setup-set-voice-for-face'font-lock-function-name-face 'voice-lock-function-name-personality)
+;; (voice-setup-set-voice-for-face'font-lock-warning-face   'voice-lock-warning-personality)
+;; (voice-setup-set-voice-for-face'font-lock-keyword-face   'voice-lock-keyword-personality)
+;; (voice-setup-set-voice-for-face'font-lock-builtin-face   'voice-lock-builtin-personality)
+;; (voice-setup-set-voice-for-face'font-lock-variable-name-face 'voice-lock-variable-name-personality)
+;; (voice-setup-set-voice-for-face'font-lock-type-face   'voice-lock-type-personality)
+;; (voice-setup-set-voice-for-face'font-lock-reference-face   'voice-lock-reference-personality)
+
+;;}}}
