@@ -451,6 +451,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key  '[27 next]  'emacspeak-owindow-scroll-up)
 (global-set-key  '[27 select]  'emacspeak-owindow-speak-line)
 (define-key help-map "\C-m" 'man)
+(define-key help-map "\C-i" 'emacspeak-info-wizard)
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
 (define-key emacspeak-keymap '[insert] 'emacspeak-emergency-tts-)
