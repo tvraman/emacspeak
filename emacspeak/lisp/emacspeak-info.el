@@ -123,10 +123,8 @@ node -- speak the entire node."
       (forward-line (window-height window))
       (emacspeak-speak-region start (point )))))
 
-(defadvice Info-select-node (after emacspeak pre act)
-  "Voiceify the Info node if requested. 
-Speak the selected node based on setting of
-emacspeak-info-select-node-speak-chunk"
+(defun emacspeak-info-visit-node()
+  "Apply requested action upon visiting a node."
   (declare (special emacspeak-info-select-node-speak-chunk))
   (let ((dtk-stop-immediately t ))
     (emacspeak-auditory-icon 'select-object)
@@ -137,6 +135,12 @@ emacspeak-info-select-node-speak-chunk"
      ((eq emacspeak-info-select-node-speak-chunk 'node)
       (emacspeak-speak-buffer ))
      (t (emacspeak-speak-line)))))
+
+(defadvice Info-select-node (after emacspeak pre act)
+  "Voiceify the Info node if requested. 
+Speak the selected node based on setting of
+emacspeak-info-select-node-speak-chunk"
+  (emacspeak-info-visit-node))
 
 (defadvice info (after emacspeak pre act)
   "Cue user that info is up."
@@ -215,6 +219,20 @@ and then cue the next selected buffer."
 (declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+;;}}}
+;;{{{ info wizard
+
+(defun emacspeak-info-wizard (node-spec )
+  "Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec."
+  (interactive
+   (list
+    (read-from-minibuffer "Node: ")))
+  (Info-goto-node node-spec)
+  (emacspeak-info-visit-node))
+
 ;;}}}
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables 
