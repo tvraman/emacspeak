@@ -933,14 +933,16 @@ Set up URL rewrite rule to get print page."
   "Fetch resource identified by URL template."
   (declare (special  emacspeak-w3-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut)
-                     'browse-url)))
+                     'browse-url))
+        (url (emacspeak-url-template-url ut)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
 		   (eq browse-url-browser-function 'w3-fetch)
 		   (eq browse-url-browser-function 'browse-url-w3)))
       (add-hook 'emacspeak-w3-post-process-hook
 		(emacspeak-url-template-post-action ut)))
-    (funcall fetcher   (emacspeak-url-template-url ut))))
+    (kill-new url)
+    (funcall fetcher   url)))
 
 (defsubst emacspeak-url-template-help-internal (name)
   "Display and speak help."
