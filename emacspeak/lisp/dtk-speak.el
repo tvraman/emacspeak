@@ -95,8 +95,6 @@ Set things like speech rate, punctuation mode etc in this
 hook."
   :type 'hook)
 
-
-
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
   "The program to use to talk to the speech engine.

@@ -48,7 +48,6 @@
 ;;; The user provides values for the parameterized portons
 ;;; of the URL e.g. the date.
 
-
 ;;; Code:
 
 ;;}}}
@@ -182,11 +181,11 @@ prompting for a template.")
  "http://www.bookshare.org/web/VolunteerHome.html?email=%s&password=%s"
  (list
   #'(lambda nil
-  (read-from-minibuffer
-   "Bookshare UserId: "
-   emacspeak-bookshare-user-id))
+      (read-from-minibuffer
+       "Bookshare UserId: "
+       emacspeak-bookshare-user-id))
   #'(lambda nil
-  (read-passwd  "Password: ")))
+      (read-passwd  "Password: ")))
  nil
  "Bookshare Login"
  #'(lambda (url)
@@ -323,7 +322,7 @@ to play a BBC Radio4 program on demand."
  "Google WebQuotes.")
 (emacspeak-url-template-define
  "Google Glossary"
-"http://labs.google.com/glossary?q=%s"
+ "http://labs.google.com/glossary?q=%s"
  (list
   #'(lambda nil
       (webjump-url-encode
@@ -353,8 +352,6 @@ to play a BBC Radio4 program on demand."
 ;;}}}
 ;;{{{  cnet news 
 
-
-
 (emacspeak-url-template-define
  "Tech News From CNet"
  "http://news.com.com/"
@@ -362,7 +359,7 @@ to play a BBC Radio4 program on demand."
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-(list "feed" "ni_print")))
+	   (list "feed" "ni_print")))
  "Display tech news from CNET"
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
@@ -745,7 +742,6 @@ the broadcast. You must have mplayer installed."
 ;;}}}
 ;;{{{  NPR programs 
 
-
 (emacspeak-url-template-define
  "American Life On Demand."
  "http://www.wbez.org/ta/%s.rm"
@@ -760,13 +756,13 @@ the broadcast. You must have mplayer installed."
  "NPR On Demand"
  "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
  (list
-#'(lambda ()
-  (upcase (read-from-minibuffer "Program code:")))
+  #'(lambda ()
+      (upcase (read-from-minibuffer "Program code:")))
   #'(lambda ()
       (read-from-minibuffer "Date:"
                             (format-time-string "%d-%b-%Y")))
-#'(lambda ()
-(read-from-minibuffer "Segment:")))
+  #'(lambda ()
+      (read-from-minibuffer "Segment:")))
  nil
  "Play NPR shows on demand.
 Program is specified as a program code:
@@ -777,8 +773,6 @@ ATC All Things Considered
 Segment is specified as a two digit number --specifying a blank value
 plays entire program."
  'emacspeak-realaudio-play)
-
-
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
@@ -831,8 +825,6 @@ plays entire program."
  nil
  "Play NPR Talk Of The Nation segment."
  'emacspeak-realaudio-play)
-
-
 
 (emacspeak-url-template-define
  "All Things Considered from NPR" 

@@ -49,8 +49,6 @@
 ;;}}}
 ;;{{{  Required modules
 
-
-
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ doctar

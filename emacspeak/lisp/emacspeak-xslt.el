@@ -164,10 +164,10 @@ part of the libxslt package."
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (unless  dont-add-command-as-comment
-      (goto-char (point-max))
-      (insert
-       (format "<!--\n %s \n-->\n"
-               command)))
+	(goto-char (point-max))
+	(insert
+	 (format "<!--\n %s \n-->\n"
+		 command)))
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
