@@ -62,7 +62,7 @@
 (define-key function-key-map "\e[K" '[C-right])
 (define-key function-key-map "\e[L" '[C-left])
 ;;; control return and shift return 
-(define-key function-key-map "\e[m" '(control return))
-(define-key function-key-map "\e[M" '(shift return))
+(define-key function-key-map "\e[m" '[C-Return])
+(define-key function-key-map "\e[M" '[S-Return])
 ;;; shift tab:
 (define-key function-key-map "\e[T" '[backtab])
