@@ -113,6 +113,7 @@ display."
       (file-exists-p "/usr/bin/stdiosynth"))
 ;;}}}
 ;;{{{ emacspeak-aumix
+
 ;;;###autoload
 (defcustom emacspeak-aumix-settings-file
   (when

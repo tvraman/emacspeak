@@ -358,7 +358,7 @@ functions for details.   "
   "Emacs interface to freeamp" t)
 (autoload 'cd-tool "cd-tool" 
   "Play music CDs from Emacs" t)
-
+(put 'emacspeak-aumix 'custom-loads '("emacspeak-aumix"))
 (mapcar 
  (function
   (lambda (f)
