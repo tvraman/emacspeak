@@ -31,7 +31,7 @@ cap C   Save clip to disk
 ;;;;;;  "dtk-speak" "dtk-speak.el" (16007 9983))
 ;;; Generated autoloads from dtk-speak.el
 
-(defvar dtk-punctuation-mode "some" "\
+(defvar dtk-punctuation-mode "all" "\
 Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
