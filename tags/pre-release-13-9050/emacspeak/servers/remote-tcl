@@ -1,0 +1,52 @@
+#!/bin/sh
+#$Id$
+#Description: Launch a dectalk server on a remote host.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
+# {{{  documentation
+
+# Running dectalk driver remotely.
+
+# This will have to be polished up, but I've beaten on it  and it appears to
+# work like a charm.
+
+# Appended below is a simple shell script that you should save as remote-tcl in
+# the emacspeak directory.
+
+# Having done so, when you launch a terminal and log in to another machine,
+# a) Make sure the other machine can rsh to your desktop machine.
+# (you may have to create a .rhosts appropriately depending on your network
+# configuration)
+
+# b) For now edit script remote-tcl and replace labrador by the name of your
+# desktop machine. (eventually we'll get this from the environment)
+# Also, make sure the pathname to tcl is correct for your environment.
+
+
+# c) set the environment variable DTK_TCL to the complete pathname of the script
+# remote-tcl.
+
+# d) Make sure remote-tcl is executable --for safety just run it by hand first.
+
+# e) If all goes well, launch emacs with emacspeak loaded on the remote machine,
+# and turn off speech locally on the local emacspeak sesion in the terminal
+# buffer by pressing C-e d q.
+
+# Now, the remote emacspeak session will talk as if it were running locally.
+# Note: when you switch buffers in the local emacspeak you'll get speech back
+# since we only turned it off in the local eterm buffer.
+
+# All of this works, but you'll have to think "local" and "remote" carefully.
+
+# Also, remember that you will have to send C-e C-e twice for the remote
+# emacspeak to see it once.
+
+# Once all this gets robust I'll provide a way for you to switch the C-e prefix
+# on a running emacspeak to something else e.g. C-r for the remote guy.
+
+# Now for the script--
+
+# }}}
+remote=labrador
+tcl=/usr/local/bin/tcl
+
+rsh $remote $tcl $1
