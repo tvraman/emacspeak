@@ -442,7 +442,7 @@ setting.."
     ("tone" . "tone"))
   "Possible methods of indicating indentation.")
 
-(defcustom emacspeak-audio-indentation-method  (quote speak)
+(defcustom emacspeak-audio-indentation-method   'speak
   "*Current technique used to cue indentation.  Default is
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
@@ -450,8 +450,8 @@ any buffer where it is set."
   :group 'emacspeak-speak
   :type '(choice
           (const :tag "Ignore" nil)
-          (const :tag "speak" 'speak)
-          (const :tag "tone" 'tone)))
+          (const :tag "speak" speak)
+          (const :tag "tone" tone)))
 
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)

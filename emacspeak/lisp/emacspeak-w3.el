@@ -97,12 +97,12 @@
 ;;}}}
 ;;{{{ setup
 
-(defcustom emacspeak-w3-punctuation-mode (quote all)
+(defcustom emacspeak-w3-punctuation-mode  'all
   "Pronunciation mode to use for W3 buffers."
   :type '(choice
-          (const nil :tag "Ignore")
-          (const  :tag "some" 'some)
-          (const  :tag "all" 'all))
+          (const  :tag "Ignore" nil)
+          (const  :tag "some" some)
+          (const  :tag "all" all))
   :group 'emacspeak-w3)
 
 
