@@ -225,9 +225,8 @@ prompting for a template.")
  #'(lambda (url)
      (emacspeak-w3-extract-nested-table-list
       (list 2 3 )
-      url))) ;;{{{  Linksys IP
-
-;;}}}
+      url)))
+ ;;{{{  Linksys IP
 ;;{{{ linksys 
 
 (emacspeak-url-template-define
@@ -237,7 +236,7 @@ prompting for a template.")
  nil
  "Linksys Router"
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table 3 url)))
+     (emacspeak-w3-extract-table-by-match "IP" url)))
 
 ;;}}}
 ;;{{{ Netcraft surveys 
