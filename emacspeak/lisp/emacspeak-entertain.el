@@ -124,7 +124,7 @@
                  (aref hm-current-guess-string (* i 2 ))))
      (message  "%s:  %s "
              (length string)
-             string)))
+             (downcase string))))
 
 (defadvice hangman (after emacseak pre act comp)
   "Speech enable hangman."
