@@ -127,6 +127,20 @@ drawings.
 
 Emacspeak  now works with transient mark mode.
 
+** W3 and XSLT:
+
+Emacspeak-w3 now provides the ability to apply an XSLT
+transformation to HTML content before it is displayed.
+You can use this to simplify ugly HTML and leverage W3's
+ability to render standard HTML.
+This feature is also useful in working with pages that use
+deeply nested tables.
+See directory emacspeak/xsl for some ideas on what XSLT can
+do.
+See commands emacspeak-w3-xsl-toggle and
+emacspeak-w3-xslt-select
+for details on how to use this feature.
+
 ** Convenience Commands:
 
 All Emacspeak convenience commands have been moved to module
