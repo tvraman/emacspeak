@@ -347,8 +347,6 @@ prompting for a template.")
    "//*[@class=\"article\"]//td[1]"
    url))
 
-
-
 (emacspeak-url-template-define
  "Yahoo Politics"
  "http://dailynews.yahoo.com/news?tmpl=index2&cid=703"
@@ -914,16 +912,16 @@ Set up URL rewrite rule to get print page."
 ;;{{{ meerkat 
 
 (emacspeak-url-template-define
-  "Meerkat"
-  "http://meerkat.oreillynet.com/?_fl=rss10&%s"
-  (list
-   #'(lambda nil
-   (read-from-minibuffer
-    "Meerkat recipe: ")))
-  nil
-  "Meerkat tool"
-  #'(lambda (url)
-      (emacspeak-rss-display url 'speak)))
+ "Meerkat"
+ "http://meerkat.oreillynet.com/?_fl=rss10&%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer
+       "Meerkat recipe: ")))
+ nil
+ "Meerkat tool"
+ #'(lambda (url)
+     (emacspeak-rss-display url 'speak)))
 
 ;;}}}
 

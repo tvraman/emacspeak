@@ -803,8 +803,8 @@ are indicated with auditory icon ellipses."
                  (null arg ))
         (let ((limit (line-end-position)))
           (beginning-of-line 1)
-    (skip-syntax-forward " " limit)
-        (setq indent  (current-column )))
+	  (skip-syntax-forward " " limit)
+	  (setq indent  (current-column )))
         (when (string= emacspeak-audio-indentation "tone")
           (emacspeak-indent indent )))
       (setq line 
@@ -1224,14 +1224,13 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
               end (point))))
     (dtk-speak (buffer-substring start end ))))
 
-
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
 Useful to listen to a buffer while in a different context."
   (interactive
    (list
     (read-buffer "Speak buffer: "
-nil t)))
+		 nil t)))
   (save-excursion
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
@@ -1603,12 +1602,11 @@ semantic to do the work."
                                recursion-info
                                global-info)))))))
 
-
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations "all"
-  (dtk-speak
-   (buffer-name))))
+			 (dtk-speak
+			  (buffer-name))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
@@ -2336,19 +2334,18 @@ Optional argument ARG  specifies `other' window to speak."
 Speak the window contents after scrolling."
   (interactive)
   (let ((window (selected-window)))
-  (other-window 1)
-  (call-interactively 'scroll-up)
-  (select-window window)))
+    (other-window 1)
+    (call-interactively 'scroll-up)
+    (select-window window)))
 
 (defun  emacspeak-owindow-scroll-down ()
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
   (let ((window (selected-window)))
-  (other-window 1)
-  (call-interactively 'scroll-down)
-  (select-window window)))
-
+    (other-window 1)
+    (call-interactively 'scroll-down)
+    (select-window window)))
 
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.

@@ -450,7 +450,6 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; causes the sound
 ;;; to be queued.
 
-
 (defsubst tts-get-overlay-personality (position)
   "Return personality at the front of the overlay list at position."
   (car
@@ -458,7 +457,7 @@ Argument COMPLEMENT  is the complement of separator."
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'personality))
-                 (overlays-at position)))))
+	    (overlays-at position)))))
 
 (defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
@@ -467,7 +466,7 @@ Argument COMPLEMENT  is the complement of separator."
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))
-                 (overlays-at position)))))
+	    (overlays-at position)))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
@@ -492,7 +491,7 @@ Arguments START and END specify region to speak."
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
               personality
-                  (get-text-property last  'personality))) ; end while
+	      (get-text-property last  'personality))) ; end while
       ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 

@@ -323,7 +323,7 @@ personalities."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-         (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)

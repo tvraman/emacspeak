@@ -118,10 +118,6 @@ This means that the \"loop\" command has three arguments.  The first
 argument is ignored (for indentation purposes).  The second argument
 is a Tcl expression, and the last argument is Tcl commands.")
 
-
-
-
-
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
 

@@ -85,8 +85,6 @@ COMMAND-STRING to the Dectalk."
   (declare (special dtk-voice-table ))
   (gethash name dtk-voice-table ))
 
-
-
 ;;}}}
 ;;{{{ voice definitions
 
@@ -100,8 +98,6 @@ COMMAND-STRING to the Dectalk."
 (dtk-define-voice 'rita "[:nr]")
 (dtk-define-voice 'wendy "[:nw]")
 (dtk-define-voice 'kit "[:nk]")
-
-
 
 ;;}}}
 ;;{{{  the inaudible voice
@@ -157,7 +153,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special dtk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-      (puthash  key table dtk-css-code-tables )))
+    (puthash  key table dtk-css-code-tables )))
 
 (defsubst dtk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -266,9 +262,9 @@ and TABLE gives the values along that dimension."
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value 
-  (aref (dtk-css-get-code-table family 'average-pitch)
-	value)
-  ""))
+      (aref (dtk-css-get-code-table family 'average-pitch)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  pitch range
@@ -361,9 +357,9 @@ and TABLE gives the values along that dimension."
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value 
-  (aref (dtk-css-get-code-table family 'pitch-range)
-	value)
-  ""))
+      (aref (dtk-css-get-code-table family 'pitch-range)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  stress
@@ -464,9 +460,9 @@ and TABLE gives the values along that dimension."
 (defsubst dtk-get-stress-code (value family)
   (or family (setq family 'paul ))
   (if value 
-  (aref (dtk-css-get-code-table family 'stress)
-        value)
-  ""))
+      (aref (dtk-css-get-code-table family 'stress)
+	    value)
+    ""))
 
 ;;}}}
 ;;{{{  richness
@@ -553,9 +549,9 @@ and TABLE gives the values along that dimension."
 (defsubst dtk-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
-  (aref (dtk-css-get-code-table family 'richness)
-        value)
-  ""))
+      (aref (dtk-css-get-code-table family 'richness)
+	    value)
+    ""))
 
 ;;}}}
 
@@ -583,7 +579,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special dtk-voice-table))
   (loop for k being the hash-keys of dtk-voice-table 
-collect   k))
+	collect   k))
 
 ;;}}}
 ;;{{{ configurater 

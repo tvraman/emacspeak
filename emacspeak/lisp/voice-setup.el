@@ -118,7 +118,6 @@
            menu))
     (cons 'choice menu)))
 
-
 (defun voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
   (let ((table (mapcar
@@ -128,9 +127,9 @@
                      (format "%s" v)))
                 (tts-list-voices))))
     (read
-    (completing-read
-     (or prompt "Personality: ")
-                     table))))
+     (completing-read
+      (or prompt "Personality: ")
+      table))))
 
 ;;}}}
 ;;{{{ map faces to voices 
@@ -204,9 +203,6 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{ color to voices 
-
-
-
 
 ;;}}}
 ;;{{{ special form def-voice-font 
@@ -366,8 +362,6 @@ command \\[customize-variable] on <personality>-settings."
   "Indicate annotation.")
 ;;}}}
 ;;{{{  Define some voice personalities:
-
-
 
 (def-voice-font voice-lock-highlight-personality voice-animate
   'highlight

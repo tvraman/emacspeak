@@ -183,12 +183,12 @@ functions for details.   "
   (emacspeak-setup-programming-modes)
   (require 'emacspeak-wizards)
   (tts-with-punctuations "some"
-  (dtk-speak
-   (format "  Press %s to get an   overview of emacspeak  %s \
+			 (dtk-speak
+			  (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
-           (substitute-command-keys
-            "\\[emacspeak-describe-emacspeak]" )
-           emacspeak-version))))
+				  (substitute-command-keys
+				   "\\[emacspeak-describe-emacspeak]" )
+				  emacspeak-version))))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
@@ -274,7 +274,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "gud" 'emacspeak-gud)
 (emacspeak-do-package-setup "hangman" 'emacspeak-entertain)
 (emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
-;(emacspeak-do-package-setup "html-helper-mode" 'html-voice )
+					;(emacspeak-do-package-setup "html-helper-mode" 'html-voice )
 (emacspeak-do-package-setup "hyperbole" 'emacspeak-hyperbole)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
