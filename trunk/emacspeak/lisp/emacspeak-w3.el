@@ -624,6 +624,44 @@ specifies the page to extract table from.  "
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer src-buffer))))
 
+
+
+
+(defcustom emacspeak-w3-media-stream-suffixes
+  (list ".ram"
+        ".rm"
+        ".ra"
+        ".pls"
+        ".asx"
+        ".m3u")
+  "Suffixes to look for in detecting URLs that point to media
+streams."
+  :type  '(repeat
+           (string :tag "Extension Suffix"))
+  :group 'emacspeak-w3)
+
+(defun emacspeak-w3-extract-media-streams ( &optional prompt-url speak)
+  "Extract links to media streams.
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically."
+  (interactive
+   (list current-prefix-arg))
+  (declare (special emacspeak-w3-media-stream-suffixes))
+  (let ((filter "//a[%s]")
+        (predicate 
+    (mapconcat
+     #'(lambda (suffix)
+         (format "contains(@href,\"%s\")"
+                 suffix))
+         emacspeak-w3-media-stream-suffixes
+         " or ")))
+  (emacspeak-w3-xslt-filter
+   (format filter predicate )
+   prompt-url
+   (or (interactive-p)
+   speak))))
   
 (defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
   "Extract nested table specified by `table-index'. Default is to
@@ -812,7 +850,9 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "a"
   'emacspeak-w3-xslt-apply)
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
-(define-key emacspeak-w3-xsl-map "p" 'emacspeak-w3-xpath-filter-and-follow)
+(define-key emacspeak-w3-xsl-map "p"
+  'emacspeak-w3-xpath-filter-and-follow)
+(define-key emacspeak-w3-xsl-map "r" 'emacspeak-w3-extract-media-streams)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-extract-table-by-position)
