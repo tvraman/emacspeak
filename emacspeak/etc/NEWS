@@ -13,6 +13,11 @@ Emacspeak 18.0 provides the following user level enhancements:
 Command emacspeak-rss-browse allows you to browse RSS feeds of your
 choice.
 
+** voice-setup.el
+
+New voice lock engine.
+
+
 ** emacspeak-desktop.el
 
 Speech-enables the desktop package.
