@@ -41,7 +41,7 @@ source $wd/tts-lib.tcl
 # {{{ procedures  
 
 proc version {} {
-    q "This is Viavoice [ttsVersion]"
+    q " ViaVoice [ttsVersion]"
 d
 }
 
