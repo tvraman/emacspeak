@@ -105,6 +105,7 @@ proc a {sound} {
     global queue tts
     set queue($tts(q_tail)) [list a $sound]
     incr tts(q_tail)
+    speech_task
     return ""
 }
 
