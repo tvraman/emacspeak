@@ -1,6 +1,5 @@
 #$Id$
-
-emacspeak is an interactive compiled Lisp function in `emacspeak'.
+emacspeak is an interactive Lisp function in `/home/raman/emacs/lisp/emacspeak/lisp/emacspeak.el'.
 (emacspeak)
 
 Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -16,7 +15,7 @@ description, which includes a summary of all emacspeak
 keybindings.
 
 All emacspeak commands use C-e as a
-prefix key.  You can also set the state of the Dectalk by
+prefix key.  You can also set the state of the TTS engine  by
 using C-e d as a prefix.  Here is
 a summary of all emacspeak commands along with their
 bindings.  You need to precede the keystrokes listed below
@@ -24,14 +23,11 @@ with C-e.
 
 Emacspeak also provides a fluent speech extension to the
 emacs terminal emulator (eterm).  Note: You need to use the
-term package that comes with emacs-19.29.
+term package that comes with emacs-19.29 and later.
 
 key             binding
 ---             -------
 
-C-k             browse-kill-ring
-+               w3-table-move-to-beginning-of-next-table-row
--               w3-table-move-to-beginning-of-previous-table-row
 insert          emacspeak-emergency-tts-
 f1              emacspeak-customize-personal-settings
 F               emacspeak-view-emacspeak-faq
@@ -52,11 +48,11 @@ C-r             emacspeak-root
 C-a             emacspeak-toggle-auditory-icons
 C-w             emacspeak-speak-window-information
 SPC             dtk-resume
->               w3-table-move-to-table-end
-.               w3-table-speak-this-cell
-<               w3-table-move-to-table-start
+>               emacspeak-speak-next-field
+.               emacspeak-speak-current-field
+<               emacspeak-speak-previous-field
 %               emacspeak-speak-current-percentage
-=               w3-table-move-to-top-of-table-column
+=               emacspeak-speak-current-column
 '               emacspeak-speak-sexp
 DEL             cd-tool
 )               emacspeak-sounds-select-theme
@@ -68,14 +64,13 @@ C-y             emacspeak-clipboard-paste
 !               emacspeak-speak-run-shell-command
 C-c             emacspeak-clipboard-copy
 C-o             emacspeak-ocr
-C               emacspeak-speak-display-char
+C               emacspeak-customize
 :               emacspeak-realaudio-browse
 ;               emacspeak-realaudio
 ,               emacspeak-speak-browse-buffer
 ?               emacspeak-websearch-dispatch
 A               emacspeak-appt-repeat-announcement
 B               emacspeak-speak-buffer-interactively
-H               emacspeak-speak-hostname
 L               emacspeak-speak-line-interactively
 M               emacspeak-speak-minor-mode-line
 P               emacspeak-speak-paragraph-interactively
@@ -85,6 +80,7 @@ P               emacspeak-speak-paragraph-interactively
 p               dtk-pause
 "               emacspeak-speak-sexp-interactively
 C-b             emacspeak-submit-bug
+H               emacspeak-speak-browse-linux-howto
 C-h             emacspeak-learn-mode
 TAB             emacspeak-table-display-table-in-region
 RET             emacspeak-speak-continuously
@@ -115,7 +111,7 @@ q               emacspeak-toggle-speak-messages
 R               emacspeak-speak-rectangle
 r               emacspeak-speak-region
 s               dtk-stop
-T               emacspeak-speak-telephone-directory
+T               emacspeak-view-emacspeak-tips
 t               emacspeak-speak-time
 C-v             view-mode
 V               emacspeak-speak-version
@@ -124,18 +120,22 @@ u               emacspeak-url-template-fetch
 W               emacspeak-speak-spell-current-word
 w               emacspeak-speak-word
 v               emacspeak-view-register
-up              w3-table-move-to-previous-table-row
+up              emacspeak-read-previous-line
 C-down          emacspeak-cvs-get-anonymous
-down            w3-table-move-to-next-table-row
+down            emacspeak-read-next-line
 /               emacspeak-speak-this-buffer-other-window-display
 C-right         emacspeak-select-this-buffer-next-display
 C-left          emacspeak-select-this-buffer-previous-display
-right           w3-table-move-to-next-table-column
-left            w3-table-move-to-previous-table-column
+right           emacspeak-speak-this-buffer-next-display
+left            emacspeak-speak-this-buffer-previous-display
 x               emacspeak-personal-keymap
-C-e             widget-end-of-line
-e               widget-end-of-line
+C-e             end-of-line
+e               end-of-line
 d               emacspeak-dtk-submap-command
+
+# s             emacspeak-gridtext-save
+# l             emacspeak-gridtext-load
+# a             emacspeak-gridtext-apply
 
 C-f right       emacspeak-aumix-wave-increase
 C-f left        emacspeak-aumix-wave-decrease
@@ -149,11 +149,8 @@ C-f +           emacspeak-freeamp-freeamp-call-command
 C-f p           emacspeak-freeamp-freeamp-call-command
 C-f o           emacspeak-freeamp
 
-ESC SPC         emacspeak-imenu-speak-this-section
-ESC n           emacspeak-imenu-goto-next-index-position
-ESC i           imenu
 ESC t           emacspeak-tapestry-describe-tapestry
-ESC p           emacspeak-imenu-goto-previous-index-position
+ESC p           emacspeak-show-property-at-point
 ESC v           emacspeak-show-personality-at-point
 ESC m           emacspeak-toggle-mail-alert
 ESC a           emacspeak-set-auditory-icon-player
@@ -165,14 +162,13 @@ ESC w           emacspeak-toggle-which-function
 ESC s           emacspeak-symlink-current-file
 ESC l           emacspeak-link-current-file
 ESC c           emacspeak-copy-current-file
-ESC h           emacspeak-speak-browse-linux-howto
+ESC h           emacspeak-speak-hostname
 ESC f           emacspeak-frame-label-or-switch-to-labelled-frame
 ESC C-k         kill-emacs
 ESC C-@         emacspeak-speak-spaces-at-point
 
-x v             emacspeak-show-list-variable
-x m             mspools-show
 x s             emacspeak-emergency-tts-restart
+x m             mspools-show
 
 d 9             dtk-set-predefined-speech-rate
 d 8             dtk-set-predefined-speech-rate
@@ -216,4 +212,5 @@ d ESC C-b       tts-show-debug-buffer
 See the online documentation for individual commands and
 functions for details. There is an info manual for
 Emacspeak, but it is still preliminary. The source code
-documentation is up-to-date, please use it.  
+documentation available through the various C-h commands 
+is up-to-date, please use it.  

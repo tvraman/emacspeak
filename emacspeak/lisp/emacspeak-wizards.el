@@ -744,7 +744,7 @@ Warning! Contents of file filename will be overwritten."
 Local variables: mode: outline paragraph-separate: \"[ ]*$\"
 end:\n\n")
       (save-buffer)))
-  -  (emacspeak-auditory-icon 'task-done))
+    (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
 ;;{{{ labelled frames
