@@ -569,6 +569,14 @@ libxslt package."
    prompt-url
    "//table"))
 
+(defcustom emacspeak-w3-xsl-keep-result ""
+  "Set to a non-empty string  if you want the buffer containing the transformed HTML
+source to be preserved.
+Value of this variable if non-empty will be used as a name for the
+source buffer."
+:type 'string
+:group 'emacspeak-w3)
+
 (defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result )
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
@@ -579,6 +587,7 @@ specifies the page to extract table from.  "
     (read-from-minibuffer "XPath: ")
     current-prefix-arg))
   (declare (special emacspeak-w3-post-process-hook
+                    emacspeak-w3-xsl-keep-result
                     emacspeak-xslt-program
                     emacspeak-w3-xsl-filter))
   (unless (or prompt-url
@@ -622,7 +631,12 @@ specifies the page to extract table from.  "
         (add-hook 'emacspeak-w3-post-process-hook
 		  'emacspeak-speak-buffer))
       (emacspeak-w3-preview-this-buffer)
-      (kill-buffer src-buffer))))
+      (cond
+       ((> (length emacspeak-w3-xsl-keep-result) 0)
+        (save-excursion
+          (set-buffer src-buffer)
+          (rename-buffer  emacspeak-w3-xsl-keep-result  'unique)))
+       (t (kill-buffer src-buffer))))))
 
 
 
