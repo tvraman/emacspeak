@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<muggle >
+<title>Company Profile And News For $ticker</title>
+  <param name="$ticker"/>
+  <mug
+      url="http://news.google.com/news?hl=en&ned=tus&q=$ticker&scoring=d&btnG=Google+Search">
+    <title>Google News Search For $ticker</title>
+    <transform uri="xpath-filter.xsl">
+      <param name="locator" value="//body"/>
+    </transform>
+  </mug>
+  <mug url="http://search.news.yahoo.com/search/news?p=$ticker&n=20&c=news">
+    <title>Yahoo News Search For $ticker</title>
+    <transform uri="xpath-filter.xsl">
+      <param name="locator"
+             value="//ol"/>
+    </transform>
+  </mug>
+</muggle>
