@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 16.7657
+Version: 16.7700
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -40,9 +40,9 @@ Note that this has installed the  Emacspeak speech server for
 ViaVoice Outloud  --a software speech synthesis engine.
 However, you need to obtain and install the ViaVoice Outloud
 RPMs  before you can use software TTS with Emacspeak 
---See  file  docs/VIAVOICE for details.
+--See  file  /usr/share/docs/emacspeak-nn/VIAVOICE for details.
 
-To use Software Dectalk for Linux, see  docs/DTK.
+To use Software Dectalk for Linux, see  /usr/share/docs/emacspeak-nn/DTK.
 
 NEWS file for a  summary of new features        --control e cap n in Emacs
 FAQ for Frequently Asked Questions              -- control e cap F in Emacs
@@ -62,7 +62,7 @@ Make sure you read the Emacs info pages
 /usr/share/info/emacspeak.info-4
 /usr/share/info/emacspeak.info-5
 
-%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/* user-guide/* install-guide/*
+%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/* 
 
 
 # local variables:
