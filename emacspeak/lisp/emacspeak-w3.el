@@ -541,8 +541,7 @@ Nil means no transform is used. ")
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the HTML."
-  (when (and emacspeak-w3-xsl-p
-      emacspeak-w3-xsl-transform)
+  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-w3-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
