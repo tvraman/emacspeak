@@ -871,9 +871,7 @@ spelt instead of being spoken."
                     emacspeak-speak-last-spoken-word-position))
   (when (listp arg) (setq arg (car arg )))
   (emacspeak-handle-action-at-point)
-  (cond
-   ((looking-at  "[ \t]+" ) (dtk-say " space "))
-   (t (save-excursion
+  (save-excursion
         (let ((orig (point))
               (inhibit-point-motion-hooks t)
               (start nil)
@@ -894,7 +892,7 @@ spelt instead of being spoken."
             (setq speaker 'emacspeak-speak-spell-word)
             (setq emacspeak-speak-last-spoken-word-position nil))
            (t (setq  emacspeak-speak-last-spoken-word-position orig)))
-          (funcall speaker  (buffer-substring  start end )))))))
+          (funcall speaker  (buffer-substring  start end )))))
 
 (defsubst emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
