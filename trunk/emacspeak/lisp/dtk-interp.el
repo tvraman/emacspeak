@@ -38,8 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
 ;;{{{ introduction
 
 ;;; All requests to the speech server are factored out into
@@ -49,6 +47,14 @@
 ;;; This preserves the same level of efficiency as before,
 ;;; but gives us the flexibility to call out to different
 ;;; speech servers.
+
+;;}}}
+;;{{{ requires
+
+;;;Code:
+
+(eval-when-compile (require 'cl))
+(declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ macros
