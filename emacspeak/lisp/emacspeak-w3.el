@@ -560,12 +560,61 @@ libxslt package."
   (message "Turned %s XSL"
            (if emacspeak-w3-xsl-p 'on 'off)))
 
-(defvar emacspeak-w3-extract-table-xsl
-  (expand-file-name "extract-table.xsl"
-                    emacspeak-xslt-directory)
-  "XSL transform to extract a table.")
+;;{{{ junked 
 
-(defun emacspeak-w3-extract-table (table-index   &optional prompt-url)
+;; (defvar emacspeak-w3-extract-table-xsl
+;;   (expand-file-name "extract-table.xsl"
+;;                     emacspeak-xslt-directory)
+;;   "XSL transform to extract a table.")
+
+;; (defun emacspeak-w3-depricated-extract-table (table-index   &optional prompt-url)
+;;   "Extract tables from HTML.  Extracts specified table from
+;; current WWW page and displays it in a separate buffer.
+;; Optional arg url specifies the page to extract table from. "
+;;   (interactive
+;;    (list
+;;     (read-from-minibuffer "Table index: ")
+;;     current-prefix-arg))
+;;   (declare (special emacspeak-xslt-program
+;;                     emacspeak-w3-extract-table-xsl))
+;;   (unless (or prompt-url
+;;               (eq major-mode 'w3-mode))
+;;     (error "Not in a W3 buffer."))
+;;   (let* ((base-url (when (eq major-mode 'w3-mode)
+;;                      (url-view-url t)))
+;;          (source-url
+;;           (cond
+;;            ((and (interactive-p)
+;;                  prompt-url)
+;;             (read-from-minibuffer "URL: "
+;;                                   "http://www."))
+;;            (t
+;;             (or prompt-url
+;;                 base-url))))
+;;          (src-buffer (current-buffer))
+;;          (emacspeak-w3-xsl-p nil))
+;;     (save-excursion
+;;       (set-buffer (url-retrieve-synchronously source-url))
+;;       (setq src-buffer (current-buffer))
+;;       (goto-char (point-min))
+;;       (search-forward "\n\n" nil t)
+;;       (delete-region (point-min) (point))
+;;       (emacspeak-xslt-region
+;;        emacspeak-w3-extract-table-xsl
+;;        (point-min)
+;;        (point-max)
+;;        (list
+;;         (cons "table-index" table-index)
+;;         (cons "base"
+;;               (format "\"'%s'\""
+;;                       (or source-url
+;;                           prompt-url)))))
+;;       (emacspeak-w3-preview-this-buffer)
+;;       (kill-buffer src-buffer))))
+
+;;}}}
+
+(defun emacspeak-w3-extract-table (table-index   &optional prompt-url speak)
   "Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. "
@@ -573,42 +622,11 @@ Optional arg url specifies the page to extract table from. "
    (list
     (read-from-minibuffer "Table index: ")
     current-prefix-arg))
-  (declare (special emacspeak-xslt-program
-                    emacspeak-w3-extract-table-xsl))
-  (unless (or prompt-url
-              (eq major-mode 'w3-mode))
-    (error "Not in a W3 buffer."))
-  (let* ((base-url (when (eq major-mode 'w3-mode)
-                     (url-view-url t)))
-         (source-url
-          (cond
-           ((and (interactive-p)
-                 prompt-url)
-            (read-from-minibuffer "URL: "
-                                  "http://www."))
-           (t
-            (or prompt-url
-                base-url))))
-         (src-buffer (current-buffer))
-         (emacspeak-w3-xsl-p nil))
-    (save-excursion
-      (set-buffer (url-retrieve-synchronously source-url))
-      (setq src-buffer (current-buffer))
-      (goto-char (point-min))
-      (search-forward "\n\n" nil t)
-      (delete-region (point-min) (point))
-      (emacspeak-xslt-region
-       emacspeak-w3-extract-table-xsl
-       (point-min)
-       (point-max)
-       (list
-        (cons "table-index" table-index)
-        (cons "base"
-              (format "\"'%s'\""
-                      (or source-url
-                          prompt-url)))))
-      (emacspeak-w3-preview-this-buffer)
-      (kill-buffer src-buffer))))
+  (emacspeak-w3-xslt-filter
+   (format "(//table//table)[%s]" table-index)
+   prompt-url
+   speak))
+  
 
 (defvar emacspeak-w3-buffer-css-class-cache nil
   "Caches class attribute values for current buffer.")
