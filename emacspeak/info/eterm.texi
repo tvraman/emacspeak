@@ -1,7 +1,7 @@
 @c $Id$
 
 @node  Running Terminal Based Applications
-@chapter Running Terminal Based Applications
+@chapter Running Terminal Based Applications.
 
 You can use the terminal emulator mode to run arbitrary terminal-based
 programs from within Emacs.  You open a terminal emulator buffer using
