@@ -73,6 +73,11 @@
   :type 'string
   :group 'emacspeak-imcom)
 
+(defcustom emacspeak-imcom-default-jabber-server nil
+  "Name of jabber server that is used by default."
+  :type 'string
+  :group 'emacspeak-imcom)
+
 ;;}}}
 ;;{{{  define IMCom mode
 
@@ -149,10 +154,14 @@ sessions.")
   (interactive
    (list
     (expand-file-name
-     (read-file-name "Chat session:"
-                     emacspeak-imcom-personal-directory
-                     nil t))))
+     (read-file-name
+      "Chat session:"
+      (expand-file-name
+       (or emacspeak-imcom-default-jabber-server "/")
+       emacspeak-imcom-personal-directory)
+      nil t))))
   (declare (special emacspeak-imcom-personal-directory
+                    emacspeak-imcom-default-jabber-server
                     emacspeak-imcom-xsl-jabber))
   (require 'w3)
   (let ((buffer  (get-buffer-create " *view-chat*")))
