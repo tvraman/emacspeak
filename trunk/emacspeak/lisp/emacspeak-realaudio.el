@@ -321,7 +321,8 @@ commands via single keystrokes."
 (define-derived-mode emacspeak-realaudio-mode fundamental-mode 
   "Realaudio Interaction"
   "Major mode for streaming audio. \n\n
-\\{emacspeak-realaudio-mode-map}")
+\\{emacspeak-realaudio-mode-map}"
+  (emacspeak-realaudio-setup-keys))
 
 (defun emacspeak-realaudio-setup-keys ()
   "Define key bindings for emacspeak-realaudio."
@@ -336,7 +337,7 @@ commands via single keystrokes."
           (format "%c" c)
           'emacspeak-realaudio-trplayer-call-command)))
 
-(eval-when '(load) (emacspeak-realaudio-setup-keys))
+
 ;;;###autoload
 (defvar emacspeak-realaudio-trplayer-keys
   (list ?p ?t ?s ?e ?l ?i
