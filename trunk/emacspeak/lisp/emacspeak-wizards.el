@@ -953,7 +953,8 @@ the emacspeak table clipboard instead."
         (clipboard-file emacspeak-clipboard-file))
     (cond
      (paste-table  (emacspeak-table-paste-from-clipboard))
-     (t(insert-file-contents clipboard-file)))
+     (t(insert-file-contents clipboard-file)
+       (exchange-point-and-mark)))
     (message "Yanked %s lines from  Emacspeak clipboard %s"
              (count-lines start (point))
              (if paste-table "table clipboard"
