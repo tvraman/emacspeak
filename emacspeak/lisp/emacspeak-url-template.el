@@ -474,8 +474,11 @@ resources.
 Resources typically prompt for the relevant information
 before completing the request."
   (interactive)
-  (declare (special emacspeak-url-template-table))
+  (declare (special emacspeak-url-template-table
+                    url-be-asynchronous emacspeak-speak-messages))
   (let ((completion-ignore-case t)
+        (emacspeak-speak-messages nil)
+        (url-be-asynchronous nil)
         (table
          (loop for key being the hash-keys of
                emacspeak-url-template-table
