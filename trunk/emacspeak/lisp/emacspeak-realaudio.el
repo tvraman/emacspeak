@@ -123,12 +123,11 @@ emacspeak-realaudio-shortcuts-directory. "
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
-      (expand-file-name
-       (read-file-name "RealAudio resource: "
-                       emacspeak-realaudio-shortcuts-directory
-                       (if (eq major-mode 'dired-mode)
-                           (dired-get-filename)
-                         emacspeak-realaudio-last-url))))
+      (read-file-name "RealAudio resource: "
+                      emacspeak-realaudio-shortcuts-directory
+                      (if (eq major-mode 'dired-mode)
+                          (dired-get-filename)
+                        emacspeak-realaudio-last-url)))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-player
                     emacspeak-realaudio-buffer 
@@ -138,6 +137,9 @@ emacspeak-realaudio-shortcuts-directory. "
                     emacspeak-realaudio-shortcuts-directory
                     emacspeak-realaudio-history
                     emacspeak-use-auditory-icons))
+  (unless (string-match "^http:"  resource)
+    (setq resource
+          (expand-file-name resource)))
   (unless (string= resource (car emacspeak-realaudio-history))
     (pushnew resource emacspeak-realaudio-history))
   (when (get-buffer "*realaudio*")
