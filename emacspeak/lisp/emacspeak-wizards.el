@@ -1955,9 +1955,8 @@ hits."
 (defun emacspeak-wizards-count-slides-in-region (start end)
   "Count slides in current region."
   (interactive "r")
-  (shell-command-on-region
-   start end
-   "grep 'begin{slide}' | wc -l"))
+  (how-many "begin\\({slide}\\|{part}\\)"))
+  
 
 ;;}}}
 ;;{{{  file specific  headers via occur 
