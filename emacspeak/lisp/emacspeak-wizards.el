@@ -1573,7 +1573,9 @@ part of the libxslt package."
   (shell-command
    (format "rpm -qi %s"
            (dired-get-filename 'no-location)))
-  (message "Displayed RPM information in other window."))
+  (other-window 1)
+(search-forward "Summary" nil t)
+(emacspeak-speak-line))
 
 (declaim (special dired-mode-map))
 (when (boundp 'dired-mode-map)
