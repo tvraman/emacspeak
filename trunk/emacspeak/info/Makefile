@@ -5,8 +5,7 @@ TEXI2HTML=texi2html
 infodir =/usr/info#normally supplied by caller
 INSTALL = install
 
-info: emacspeak.texi
-	chmod 644 *info*
+info: *.texi
 	makeinfo emacspeak.texi
 
 
@@ -44,12 +43,11 @@ emacspeak.pdf:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-emacspeak.html:
-	rm -f emacspeak.html
+emacspeak.html: *.texi
 	texi2html -monolithic emacspeak.texi
 	perl add-css.pl emacspeak.html
 
-pub: emacspeak.html
+pub:  emacspeak.html
 	scp emacspeak.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
 
 clean: 
