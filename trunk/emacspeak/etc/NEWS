@@ -20,18 +20,25 @@ dictionaries.
 
 ** Tools:
 
+*** Wizards for Viewing XL and PowerPoint Files:
+
+
+Install package xlhtml http://www.xlhtml.org --this provides
+convertors xlhtml and ppthtml that convert .xls and .ppt
+files to HTML.  If installed, Emacspeak can use this tool to
+preview .xls and .ppt files using W3 when a .xls or .ppt
+file is opened in emacs.
+
 *** emacspeak-wizards-shell-toggle:
 
 Switches to shell buffer and automatically changes directory
 to the default directory of the previously current buffer.
 
+
+
 *** Shell mode mode-line format:
 
 Speak directory as part of the mode-line.
-
-
-
-
 
 
 Local variables:
