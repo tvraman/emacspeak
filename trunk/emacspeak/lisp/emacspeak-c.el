@@ -41,7 +41,8 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (eval-when (compile)
-(require 'cc-mode ))
+  (and (locate-library "cc-mode")
+(require 'cc-mode )))
 ;;{{{ Introduction:
 
 ;;; Make some of C and C++ mode more emacspeak friendly

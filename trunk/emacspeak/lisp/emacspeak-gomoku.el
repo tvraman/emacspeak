@@ -46,7 +46,8 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (eval-when (compile)
-  (require 'gomoku))
+  (when (locate-library "gomoku")
+  (require 'gomoku)))
 
 ;;}}}
 ;;{{{  Introduction 
