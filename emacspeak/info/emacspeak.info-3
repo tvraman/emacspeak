@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -8,7 +8,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-arc,  Prev: dtk-speak,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-aumix,  Prev: dtk-speak,  Up: Emacspeak Commands
 
 dtk-tcl
 =======
@@ -24,7 +24,8 @@ dtk-tcl.
      control e d 1   control e d 0 '
 
      Set speech rate to one of nine predefined levels.  Interactive
-     PREFIX arg says to set the rate globally.
+     PREFIX arg says to set the rate globally.  Formula used is: rate =
+     dtk-speech-rate-base + dtk-speech-rate-step * level.
 
  - dtk-reset-state:
      ` control e d  cap R  '
@@ -169,28 +170,7 @@ dtk-tcl.
      Shutdown midi system.
 
 
-File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-aumix,  Prev: dtk-tcl,  Up: Emacspeak Commands
-
-emacspeak-arc
-=============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-arc.
-
- - emacspeak-arc-speak-file-permissions:
-     Speak permissions of file current entry
-
- - emacspeak-arc-speak-file-modification-time:
-     Speak modification time of the file on current line
-
- - emacspeak-arc-speak-file-name:
-     Speak the name of the file on current line
-
- - emacspeak-arc-speak-file-size:
-     Speak the size of the file on current line
-
-
-File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: emacspeak-arc,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: dtk-tcl,  Up: Emacspeak Commands
 
 emacspeak-aumix
 ===============
@@ -330,7 +310,7 @@ emacspeak-custom.
      Jump to custom group when in a customization buffer.
 
 
-File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-custom,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-ediff,  Prev: emacspeak-custom,  Up: Emacspeak Commands
 
 emacspeak-dired
 ===============
@@ -370,67 +350,7 @@ emacspeak-dired.
      Speak modification time  of the current file.
 
 
-File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-ediff,  Prev: emacspeak-dired,  Up: Emacspeak Commands
-
-emacspeak-dismal
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-dismal.
-
- - emacspeak-dismal-forward-col-and-summarize:
-     Move forward by arg columns  (the next column by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-value:
-     Display the cell value in the message area
-
- - emacspeak-dismal-sheet-summarize:
-     Summarizes a sheet using the specification in list
-     emacspeak-dismal-sheet-summarizer-list
-
- - emacspeak-dismal-set-row-summarizer-list:
-     Specify or reset row summarizer list.
-
- - emacspeak-dismal-display-cell-with-col-header:
-     Display current cell along with its column header.  The `column
-     header' is the entry in row 0.
-
- - emacspeak-dismal-display-cell-with-row-header:
-     Displays current cell along with its row header.  The `row header'
-     is the entry in column 0.
-
- - emacspeak-dismal-forward-row-and-summarize:
-     Move forward by arg rows  (the next row by default)and summarize
-     it.
-
- - emacspeak-dismal-set-sheet-summarizer-list:
-     Specify or reset sheet summarizer list.
-
- - emacspeak-dismal-row-summarize:
-     Summarizes a row using the specification in list
-     emacspeak-dismal-row-summarizer-list
-
- - emacspeak-dismal-col-summarize:
-     Summarizes a col using the specification in list
-     emacspeak-dismal-col-summarizer-list
-
- - emacspeak-dismal-set-col-summarizer-list:
-     Specify or reset col summarizer list.
-
- - emacspeak-dismal-backward-col-and-summarize:
-     Move backward by arg columns  (the previous column by default)and
-     summarize it.
-
- - emacspeak-dismal-backward-row-and-summarize:
-     Move backward by arg rows  (the previous row by default)and
-     summarize it.
-
- - emacspeak-dismal-display-cell-expression:
-     Display the expression in the message area
-
-
-File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-dired,  Up: Emacspeak Commands
 
 emacspeak-ediff
 ===============
@@ -476,6 +396,11 @@ emacspeak-erc
 
    Automatically generated documentation for commands defined in module
 emacspeak-erc.
+
+ - emacspeak-erc-toggle-my-monitor:
+     Toggle state of ERC  monitor of my messages.  Interactive PREFIX
+     arg means toggle the global default value, and then set the
+     current local value to the result.
 
  - emacspeak-erc-delete-name-from-monitor:
      Remove name to monitor in this room.
@@ -753,7 +678,7 @@ emacspeak-forms.
      Summarize current position in list of records
 
 
-File: emacspeak.info,  Node: emacspeak-freeamp,  Next: emacspeak-gomoku,  Prev: emacspeak-forms,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-freeamp,  Next: emacspeak-gnus,  Prev: emacspeak-forms,  Up: Emacspeak Commands
 
 emacspeak-freeamp
 =================
@@ -800,7 +725,19 @@ emacspeak-freeamp.
      Call appropriate freeamp command.
 
 
-File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-gridtext,  Prev: emacspeak-freeamp,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-gnus,  Next: emacspeak-gomoku,  Prev: emacspeak-freeamp,  Up: Emacspeak Commands
+
+emacspeak-gnus
+==============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-gnus.
+
+ - emacspeak-gnus-summary-catchup-quietly-and-exit:
+     Catch up on all articles in current group.
+
+
+File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-gridtext,  Prev: emacspeak-gnus,  Up: Emacspeak Commands
 
 emacspeak-gomoku
 ================
@@ -898,7 +835,7 @@ emacspeak-hide.
      causes all blocks in current buffer to be hidden or exposed.
 
 
-File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-imenu,  Prev: emacspeak-hide,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-imcom,  Prev: emacspeak-hide,  Up: Emacspeak Commands
 
 emacspeak-ibuffer
 =================
@@ -913,7 +850,59 @@ emacspeak-ibuffer.
      Speak information about this buffer
 
 
-File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-keymap,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-imcom,  Next: emacspeak-imenu,  Prev: emacspeak-ibuffer,  Up: Emacspeak Commands
+
+emacspeak-imcom
+===============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-imcom.
+
+ - emacspeak-imcom-view-chat-session:
+     Display specified chat session.
+
+ - emacspeak-imcom:
+     ` control e x j '
+
+     Start IMCom.
+
+ - emacspeak-imcom-mode:
+     Major mode for Jabber interaction using IMCom.
+
+     key             binding --             ------
+
+     C-c             Prefix Command C-d
+     comint-delchar-or-maybe-eof RET             comint-send-input
+     C-down          comint-next-input C-up
+     comint-previous-input ESC             Prefix Command
+
+     C-c v           emacspeak-imcom-view-chat-session C-c C-d
+     comint-send-eof C-c C-p         comint-previous-prompt C-c C-n
+        comint-next-prompt C-c C-l
+     comint-dynamic-list-input-ring C-c C-e
+     comint-show-maximum-output C-c C-r         comint-show-output C-c
+     C-o         comint-kill-output C-c RET
+     comint-copy-old-input C-c C-\         comint-quit-subjob C-c C-z
+          comint-stop-subjob C-c C-c         comint-interrupt-subjob
+     C-c C-w         backward-kill-word C-c C-u
+     comint-kill-input C-c C-a         comint-bol-or-process-mark C-c
+     C-x         comint-get-next-from-history C-c SPC
+     comint-accumulate C-c ESC         Prefix Command
+
+     ESC C-l         comint-show-output ESC s
+     comint-next-matching-input ESC r
+     comint-previous-matching-input ESC n           comint-next-input
+     ESC p           comint-previous-input
+
+     C-c ESC s       comint-next-matching-input-from-input C-c ESC r
+       comint-previous-matching-input-from-input
+
+     In addition to any hooks its parent mode `comint-mode' might have
+     run, this mode runs the hook `emacspeak-imcom-mode-hook', as the
+     final step during initialization.
+
+
+File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-keymap,  Prev: emacspeak-imcom,  Up: Emacspeak Commands
 
 emacspeak-imenu
 ===============
@@ -1262,6 +1251,10 @@ emacspeak-pronounce.
 
  - emacspeak-pronounce-clear-dictionaries:
      Clear all current pronunciation dictionaries.
+
+ - emacspeak-pronounce-edit-pronunciations:
+     Prompt for and launch a pronunciation editor on the specified
+     pronunciation dictionary key.
 
  - emacspeak-pronounce-define-pronunciation:
      Interactively define entries in the pronunciation dictionaries.

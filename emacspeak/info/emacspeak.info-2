@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -948,7 +948,6 @@ source-level documentation.
 
 * dtk-speak::
 * dtk-tcl::
-* emacspeak-arc::
 * emacspeak-aumix::
 * emacspeak-bs::
 * emacspeak-buff-menu::
@@ -957,7 +956,6 @@ source-level documentation.
 * emacspeak-compile::
 * emacspeak-custom::
 * emacspeak-dired::
-* emacspeak-dismal::
 * emacspeak-ediff::
 * emacspeak-enriched::
 * emacspeak-entertain::
@@ -968,10 +966,12 @@ source-level documentation.
 * emacspeak-fix-interactive::
 * emacspeak-forms::
 * emacspeak-freeamp::
+* emacspeak-gnus::
 * emacspeak-gomoku::
 * emacspeak-gridtext::
 * emacspeak-hide::
 * emacspeak-ibuffer::
+* emacspeak-imcom::
 * emacspeak-imenu::
 * emacspeak-keymap::
 * emacspeak-kotl::
@@ -999,13 +999,18 @@ source-level documentation.
 * emacspeak-view-process::
 * emacspeak-view::
 * emacspeak-vm::
+* emacspeak-w3::
 * emacspeak-websearch::
 * emacspeak-widget::
+* emacspeak-wizards::
+* emacspeak-xml-shell::
 * emacspeak::
 * dis-quote::
-* emacspeak-w3::
+* emacspeak-arc::
+* emacspeak-dismal::
+* emacspeak-info::
+* emacspeak-personal::
 * emacspeak-w3search::
-* emacspeak-wizards::
 
 
 File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands

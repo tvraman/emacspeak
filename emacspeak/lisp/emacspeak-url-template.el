@@ -386,7 +386,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Tecnology "
-                               "http://www.cnn.com/2001/TECH/science/%s/"
+                               "http://www.cnn.com/2002/TECH/science/%s/index.html"
                                (list
                                 'emacspeak-url-template-date-month/date)
                                nil
@@ -395,7 +395,7 @@ technology articles at CNN.")
 
 (emacspeak-url-template-define
  "CNN computing "
-                               "http://www.cnn.com/2001/TECH/computing/%s/"
+                               "http://www.cnn.com/2002/TECH/computing/%s/index.html"
                                (list
                                 'emacspeak-url-template-date-month/date)
                                nil
