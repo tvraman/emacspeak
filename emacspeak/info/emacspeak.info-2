@@ -1022,14 +1022,14 @@ dtk-speak
    Automatically generated documentation for commands defined in module
 dtk-speak.
 
- - dtk-select-server:
+ - dtk-select-server: (PROGRAM)
      ` control e d d '
 
      Select a speech server interactively.  Argument PROGRAM specifies
      the speech server program.  When called  interactively, The
      selected server is started immediately.
 
- - dtk-set-chunk-separator-syntax:
+ - dtk-set-chunk-separator-syntax: (S)
      ` control e d RETURN '
 
      Interactively set how text is split in chunks.  See the Emacs
@@ -1037,7 +1037,7 @@ dtk-speak.
      classified into various syntactic classes.  Argument S specifies
      the syntax class.
 
- - dtk-toggle-debug:
+ - dtk-toggle-debug: (&optional FLAG)
      ` control e d b '
 
      Toggle state of the debug FLAG.  When debugging is on, you can
@@ -1046,7 +1046,7 @@ dtk-speak.
      C-M-b.  Note: *speaker* is a hidden buffer, ie it has a leading
      space in its name.
 
- - dtk-toggle-splitting-on-white-space:
+ - dtk-toggle-splitting-on-white-space: ()
      ` control e d SPACE '
 
      Toggle splitting of speech on white space.  This affects the
@@ -1062,12 +1062,12 @@ dtk-speak.
      splitting on white space, the speech sounds choppy since the
      synthesizer is getting a word at a time.
 
- - tts-restart:
+ - tts-restart: ()
      ` control e control s '
 
      Use this to nuke the currently running TTS server and restart it.
 
- - tts-show-debug-buffer:
+ - tts-show-debug-buffer: ()
      ` control e d CONTROL meta b '
 
      Select TTS debugging buffer.

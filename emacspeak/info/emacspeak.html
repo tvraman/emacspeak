@@ -1,6 +1,6 @@
 <HTML>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- Created on September, 7  2002 by texi2html 1.64 -->
+<!-- Created on September, 8  2002 by texi2html 1.64 -->
 <!-- 
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -3498,7 +3498,7 @@ for commands defined in module  dtk-speak.
 
 <A NAME="IDX91"></A>
 <DL>
-<DT><U>dtk-select-server:</U> <B></B>
+<DT><U>dtk-select-server:</U> <B>(PROGRAM)</B>
 <DD><KBD> control e d d </KBD>
 </P><P>
 
@@ -3510,7 +3510,7 @@ When called  interactively, The selected server is started immediately.
 
 <A NAME="IDX92"></A>
 <DL>
-<DT><U>dtk-set-chunk-separator-syntax:</U> <B></B>
+<DT><U>dtk-set-chunk-separator-syntax:</U> <B>(S)</B>
 <DD><KBD> control e d RETURN </KBD>
 </P><P>
 
@@ -3523,7 +3523,7 @@ Argument S specifies the syntax class.
 
 <A NAME="IDX93"></A>
 <DL>
-<DT><U>dtk-toggle-debug:</U> <B></B>
+<DT><U>dtk-toggle-debug:</U> <B>(&#38;optional</B> <I>FLAG)</I>
 <DD><KBD> control e d b </KBD>
 </P><P>
 
@@ -3537,7 +3537,7 @@ Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 
 <A NAME="IDX94"></A>
 <DL>
-<DT><U>dtk-toggle-splitting-on-white-space:</U> <B></B>
+<DT><U>dtk-toggle-splitting-on-white-space:</U> <B>()</B>
 <DD><KBD> control e d SPACE </KBD>
 </P><P>
 
@@ -3559,7 +3559,7 @@ since the synthesizer is getting a word at a time.
 
 <A NAME="IDX95"></A>
 <DL>
-<DT><U>tts-restart:</U> <B></B>
+<DT><U>tts-restart:</U> <B>()</B>
 <DD><KBD> control e control s </KBD>
 </P><P>
 
@@ -3569,7 +3569,7 @@ Use this to nuke the currently running TTS server and restart it.
 
 <A NAME="IDX96"></A>
 <DL>
-<DT><U>tts-show-debug-buffer:</U> <B></B>
+<DT><U>tts-show-debug-buffer:</U> <B>()</B>
 <DD><KBD> control e d CONTROL meta b </KBD>
 </P><P>
 
@@ -3601,7 +3601,7 @@ for commands defined in module  dtk-tcl.
 
 <A NAME="IDX97"></A>
 <DL>
-<DT><U>dtk-add-cleanup-pattern:</U> <B></B>
+<DT><U>dtk-add-cleanup-pattern:</U> <B>(&#38;optional</B> <I>DELETE)</I>
 <DD><KBD> control e d a </KBD>
 </P><P>
 
@@ -3620,14 +3620,14 @@ will say "aw fifteen dot" when speaking the string
 
 <A NAME="IDX98"></A>
 <DL>
-<DT><U>dtk-notes-shutdown:</U> <B></B>
+<DT><U>dtk-notes-shutdown:</U> <B>()</B>
 <DD>Shutdown midi system.
 </DL>
 </P><P>
 
 <A NAME="IDX99"></A>
 <DL>
-<DT><U>dtk-pause:</U> <B></B>
+<DT><U>dtk-pause:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e p </KBD>
 </P><P>
 
@@ -3644,7 +3644,7 @@ Optional PREFIX arg flushes any previously paused speech.
 
 <A NAME="IDX100"></A>
 <DL>
-<DT><U>dtk-reset-state:</U> <B></B>
+<DT><U>dtk-reset-state:</U> <B>()</B>
 <DD><KBD> control e d  cap R  </KBD>
 </P><P>
 
@@ -3655,7 +3655,7 @@ Typically used after the Dectalk has been power   cycled.
 
 <A NAME="IDX101"></A>
 <DL>
-<DT><U>dtk-resume:</U> <B></B>
+<DT><U>dtk-resume:</U> <B>()</B>
 <DD><KBD> control e SPACE </KBD>
 </P><P>
 
@@ -3670,7 +3670,7 @@ and variable `dtk-resume-should-toggle' is t
 
 <A NAME="IDX102"></A>
 <DL>
-<DT><U>dtk-set-character-scale:</U> <B></B>
+<DT><U>dtk-set-character-scale:</U> <B>(FACTOR</B> <I>&#38;optional PREFIX)</I>
 <DD><KBD> control e d f </KBD>
 </P><P>
 
@@ -3691,7 +3691,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX103"></A>
 <DL>
-<DT><U>dtk-set-predefined-speech-rate:</U> <B></B>
+<DT><U>dtk-set-predefined-speech-rate:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 </KBD>
 </P><P>
 
@@ -3704,7 +3704,7 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 
 <A NAME="IDX104"></A>
 <DL>
-<DT><U>dtk-set-pronunciation-mode:</U> <B></B>
+<DT><U>dtk-set-pronunciation-mode:</U> <B>(MODE</B> <I>STATE)</I>
 <DD><KBD> control e d m </KBD>
 </P><P>
 
@@ -3718,7 +3718,7 @@ Argument STATE specifies new state.
 
 <A NAME="IDX105"></A>
 <DL>
-<DT><U>dtk-set-punctuations:</U> <B></B>
+<DT><U>dtk-set-punctuations:</U> <B>(MODE</B> <I>&#38;optional PREFIX)</I>
 <DD><KBD> control e d p </KBD>
 </P><P>
 
@@ -3731,7 +3731,7 @@ current local  value to the result.
 
 <A NAME="IDX106"></A>
 <DL>
-<DT><U>dtk-set-punctuations-to-all:</U> <B></B>
+<DT><U>dtk-set-punctuations-to-all:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally.
 </DL>
@@ -3739,7 +3739,7 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 <A NAME="IDX107"></A>
 <DL>
-<DT><U>dtk-set-punctuations-to-some:</U> <B></B>
+<DT><U>dtk-set-punctuations-to-some:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally.
 </DL>
@@ -3747,7 +3747,7 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 <A NAME="IDX108"></A>
 <DL>
-<DT><U>dtk-set-rate:</U> <B></B>
+<DT><U>dtk-set-rate:</U> <B>(RATE</B> <I>&#38;optional PREFIX)</I>
 <DD><KBD> control e d r </KBD>
 </P><P>
 
@@ -3759,7 +3759,7 @@ current local  value to the result.
 
 <A NAME="IDX109"></A>
 <DL>
-<DT><U>dtk-stop:</U> <B></B>
+<DT><U>dtk-stop:</U> <B>()</B>
 <DD><KBD> &#60;pause&#62;   control e s </KBD>
 </P><P>
 
@@ -3769,7 +3769,7 @@ Stop speech now.
 
 <A NAME="IDX110"></A>
 <DL>
-<DT><U>dtk-toggle-allcaps-beep:</U> <B></B>
+<DT><U>dtk-toggle-allcaps-beep:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d  cap C  </KBD>
 </P><P>
 
@@ -3784,7 +3784,7 @@ However it is irritating to have it on when reading documents.
 
 <A NAME="IDX111"></A>
 <DL>
-<DT><U>dtk-toggle-capitalization:</U> <B></B>
+<DT><U>dtk-toggle-capitalization:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d c </KBD>
 </P><P>
 
@@ -3797,7 +3797,7 @@ value, and then set the current local value to the result.
 
 <A NAME="IDX112"></A>
 <DL>
-<DT><U>dtk-toggle-punctuation-mode:</U> <B></B>
+<DT><U>dtk-toggle-punctuation-mode:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
 </DL>
@@ -3805,7 +3805,7 @@ Interactive PREFIX arg makes the new setting global.
 
 <A NAME="IDX113"></A>
 <DL>
-<DT><U>dtk-toggle-quiet:</U> <B></B>
+<DT><U>dtk-toggle-quiet:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d q </KBD>
 </P><P>
 
@@ -3818,7 +3818,7 @@ Optional argument PREFIX specifies whether speech is turned off in the current b
 
 <A NAME="IDX114"></A>
 <DL>
-<DT><U>dtk-toggle-speak-nonprinting-chars:</U> <B></B>
+<DT><U>dtk-toggle-speak-nonprinting-chars:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d n </KBD>
 </P><P>
 
@@ -3831,7 +3831,7 @@ value, and then set the current local value to the result.
 
 <A NAME="IDX115"></A>
 <DL>
-<DT><U>dtk-toggle-split-caps:</U> <B></B>
+<DT><U>dtk-toggle-split-caps:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d s </KBD>
 </P><P>
 
@@ -3845,7 +3845,7 @@ value to the result.
 
 <A NAME="IDX116"></A>
 <DL>
-<DT><U>dtk-toggle-stop-immediately-while-typing:</U> <B></B>
+<DT><U>dtk-toggle-stop-immediately-while-typing:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d  cap I  </KBD>
 </P><P>
 
@@ -3880,7 +3880,7 @@ for commands defined in module  emacspeak.
 
 <A NAME="IDX117"></A>
 <DL>
-<DT><U>emacspeak-describe-emacspeak:</U> <B></B>
+<DT><U>emacspeak-describe-emacspeak:</U> <B>()</B>
 <DD><KBD> control h control e </KBD>
 </P><P>
 
@@ -3890,7 +3890,7 @@ Give a brief overview of emacspeak.
 
 <A NAME="IDX118"></A>
 <DL>
-<DT><U>emacspeak-submit-bug:</U> <B></B>
+<DT><U>emacspeak-submit-bug:</U> <B>()</B>
 <DD><KBD> control e CONTROL meta b </KBD>
 </P><P>
 
@@ -3922,28 +3922,28 @@ for commands defined in module  emacspeak-arc.
 
 <A NAME="IDX119"></A>
 <DL>
-<DT><U>emacspeak-arc-speak-file-modification-time:</U> <B></B>
+<DT><U>emacspeak-arc-speak-file-modification-time:</U> <B>()</B>
 <DD>Speak modification time of the file on current line
 </DL>
 </P><P>
 
 <A NAME="IDX120"></A>
 <DL>
-<DT><U>emacspeak-arc-speak-file-name:</U> <B></B>
+<DT><U>emacspeak-arc-speak-file-name:</U> <B>()</B>
 <DD>Speak the name of the file on current line
 </DL>
 </P><P>
 
 <A NAME="IDX121"></A>
 <DL>
-<DT><U>emacspeak-arc-speak-file-permissions:</U> <B></B>
+<DT><U>emacspeak-arc-speak-file-permissions:</U> <B>()</B>
 <DD>Speak permissions of file current entry 
 </DL>
 </P><P>
 
 <A NAME="IDX122"></A>
 <DL>
-<DT><U>emacspeak-arc-speak-file-size:</U> <B></B>
+<DT><U>emacspeak-arc-speak-file-size:</U> <B>()</B>
 <DD>Speak the size of the file on current line
 </DL>
 </P><P>
@@ -3972,7 +3972,7 @@ for commands defined in module  emacspeak-aumix.
 
 <A NAME="IDX123"></A>
 <DL>
-<DT><U>emacspeak-aumix:</U> <B></B>
+<DT><U>emacspeak-aumix:</U> <B>()</B>
 <DD><KBD> control e ( </KBD>
 </P><P>
 
@@ -3986,7 +3986,7 @@ you are done.
 
 <A NAME="IDX124"></A>
 <DL>
-<DT><U>emacspeak-aumix-edit:</U> <B></B>
+<DT><U>emacspeak-aumix-edit:</U> <B>()</B>
 <DD>Edit aumix settings interactively. 
 Run command M-x emacspeak-aumix-reset
 after saving the settings to have them take effect.
@@ -3995,28 +3995,28 @@ after saving the settings to have them take effect.
 
 <A NAME="IDX125"></A>
 <DL>
-<DT><U>emacspeak-aumix-reset:</U> <B></B>
+<DT><U>emacspeak-aumix-reset:</U> <B>()</B>
 <DD>Reset to default audio settings.
 </DL>
 </P><P>
 
 <A NAME="IDX126"></A>
 <DL>
-<DT><U>emacspeak-aumix-volume-decrease:</U> <B></B>
+<DT><U>emacspeak-aumix-volume-decrease:</U> <B>(&#38;optional</B> <I>GAIN)</I>
 <DD>Decrease overall volume. 
 </DL>
 </P><P>
 
 <A NAME="IDX127"></A>
 <DL>
-<DT><U>emacspeak-aumix-volume-increase:</U> <B></B>
+<DT><U>emacspeak-aumix-volume-increase:</U> <B>(&#38;optional</B> <I>GAIN)</I>
 <DD>Increase overall volume. 
 </DL>
 </P><P>
 
 <A NAME="IDX128"></A>
 <DL>
-<DT><U>emacspeak-aumix-wave-decrease:</U> <B></B>
+<DT><U>emacspeak-aumix-wave-decrease:</U> <B>(&#38;optional</B> <I>GAIN)</I>
 <DD><KBD> control e control f &#60;left&#62; </KBD>
 </P><P>
 
@@ -4026,7 +4026,7 @@ Decrease volume of wave output.
 
 <A NAME="IDX129"></A>
 <DL>
-<DT><U>emacspeak-aumix-wave-increase:</U> <B></B>
+<DT><U>emacspeak-aumix-wave-increase:</U> <B>(&#38;optional</B> <I>GAIN)</I>
 <DD><KBD> control e control f &#60;right&#62; </KBD>
 </P><P>
 
@@ -4058,7 +4058,7 @@ for commands defined in module  emacspeak-bs.
 
 <A NAME="IDX130"></A>
 <DL>
-<DT><U>emacspeak-bs-speak-buffer-line:</U> <B></B>
+<DT><U>emacspeak-bs-speak-buffer-line:</U> <B>()</B>
 <DD>Speak information about this buffer
 </DL>
 </P><P>
@@ -4087,28 +4087,28 @@ for commands defined in module  emacspeak-buff-menu.
 
 <A NAME="IDX131"></A>
 <DL>
-<DT><U>emacspeak-list-buffers-next-line:</U> <B></B>
+<DT><U>emacspeak-list-buffers-next-line:</U> <B>(COUNT)</B>
 <DD>Speech enabled buffer menu navigation
 </DL>
 </P><P>
 
 <A NAME="IDX132"></A>
 <DL>
-<DT><U>emacspeak-list-buffers-previous-line:</U> <B></B>
+<DT><U>emacspeak-list-buffers-previous-line:</U> <B>(COUNT)</B>
 <DD>Speech enabled buffer menu navigation
 </DL>
 </P><P>
 
 <A NAME="IDX133"></A>
 <DL>
-<DT><U>emacspeak-list-buffers-speak-buffer-line:</U> <B></B>
+<DT><U>emacspeak-list-buffers-speak-buffer-line:</U> <B>()</B>
 <DD>Speak information about this buffer
 </DL>
 </P><P>
 
 <A NAME="IDX134"></A>
 <DL>
-<DT><U>emacspeak-list-buffers-speak-buffer-name:</U> <B></B>
+<DT><U>emacspeak-list-buffers-speak-buffer-name:</U> <B>()</B>
 <DD>Speak the name of the buffer on this line
 </DL>
 </P><P>
@@ -4137,7 +4137,7 @@ for commands defined in module  emacspeak-c.
 
 <A NAME="IDX135"></A>
 <DL>
-<DT><U>emacspeak-c-speak-semantics:</U> <B></B>
+<DT><U>emacspeak-c-speak-semantics:</U> <B>()</B>
 <DD>Speak the C semantics of this line. 
 </DL>
 </P><P>
@@ -4166,7 +4166,7 @@ for commands defined in module  emacspeak-calendar.
 
 <A NAME="IDX136"></A>
 <DL>
-<DT><U>emacspeak-appt-repeat-announcement:</U> <B></B>
+<DT><U>emacspeak-appt-repeat-announcement:</U> <B>()</B>
 <DD><KBD> control e  cap A  </KBD>
 </P><P>
 
@@ -4176,7 +4176,7 @@ Speaks the most recently displayed appointment message if any.
 
 <A NAME="IDX137"></A>
 <DL>
-<DT><U>emacspeak-speak-calendar-date:</U> <B></B>
+<DT><U>emacspeak-speak-calendar-date:</U> <B>()</B>
 <DD>Speak the date under point when called in Calendar Mode. 
 </DL>
 </P><P>
@@ -4205,7 +4205,7 @@ for commands defined in module  emacspeak-compile.
 
 <A NAME="IDX138"></A>
 <DL>
-<DT><U>emacspeak-compilation-speak-error:</U> <B></B>
+<DT><U>emacspeak-compilation-speak-error:</U> <B>()</B>
 <DD>Speech feedback about the compilation error. 
 </DL>
 </P><P>
@@ -4234,14 +4234,14 @@ for commands defined in module  emacspeak-custom.
 
 <A NAME="IDX139"></A>
 <DL>
-<DT><U>emacspeak-custom-goto-group:</U> <B></B>
+<DT><U>emacspeak-custom-goto-group:</U> <B>()</B>
 <DD>Jump to custom group when in a customization buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX140"></A>
 <DL>
-<DT><U>emacspeak-custom-goto-toolbar:</U> <B></B>
+<DT><U>emacspeak-custom-goto-toolbar:</U> <B>()</B>
 <DD>Jump to custom toolbar when in a customization buffer.
 </DL>
 </P><P>
@@ -4270,7 +4270,7 @@ for commands defined in module  emacspeak-daisy.
 
 <A NAME="IDX141"></A>
 <DL>
-<DT><U>emacspeak-daisy-mode:</U> <B></B>
+<DT><U>emacspeak-daisy-mode:</U> <B>()</B>
 <DD>A DAISY front-end for the Emacspeak desktop.
 </P><P>
 
@@ -4320,7 +4320,7 @@ during initialization.
 
 <A NAME="IDX142"></A>
 <DL>
-<DT><U>emacspeak-daisy-open-book:</U> <B></B>
+<DT><U>emacspeak-daisy-open-book:</U> <B>(FILENAME)</B>
 <DD><KBD> control e control b </KBD>
 </P><P>
 
@@ -4330,21 +4330,21 @@ Open Digital Talking Book specified by navigation file filename.
 
 <A NAME="IDX143"></A>
 <DL>
-<DT><U>emacspeak-daisy-play-audio-under-point:</U> <B></B>
+<DT><U>emacspeak-daisy-play-audio-under-point:</U> <B>()</B>
 <DD>Play audio clip under point.
 </DL>
 </P><P>
 
 <A NAME="IDX144"></A>
 <DL>
-<DT><U>emacspeak-daisy-play-content-under-point:</U> <B></B>
+<DT><U>emacspeak-daisy-play-content-under-point:</U> <B>()</B>
 <DD>Play SMIL content  under point.
 </DL>
 </P><P>
 
 <A NAME="IDX145"></A>
 <DL>
-<DT><U>emacspeak-daisy-stop-audio:</U> <B></B>
+<DT><U>emacspeak-daisy-stop-audio:</U> <B>()</B>
 <DD>Stop audio.
 </DL>
 </P><P>
@@ -4373,7 +4373,7 @@ for commands defined in module  emacspeak-dired.
 
 <A NAME="IDX146"></A>
 <DL>
-<DT><U>emacspeak-dired-label-fields:</U> <B></B>
+<DT><U>emacspeak-dired-label-fields:</U> <B>()</B>
 <DD>Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
 unless `dired-listing-switches' contains -al
@@ -4382,7 +4382,7 @@ unless `dired-listing-switches' contains -al
 
 <A NAME="IDX147"></A>
 <DL>
-<DT><U>emacspeak-dired-show-file-type:</U> <B></B>
+<DT><U>emacspeak-dired-show-file-type:</U> <B>()</B>
 <DD>Print the type of FILE, according to the `file' command.
 If FILE is a symbolic link and the optional argument DEREF-SYMLINKS is
 true then the type of the file linked to by FILE is printed instead.
@@ -4391,28 +4391,28 @@ true then the type of the file linked to by FILE is printed instead.
 
 <A NAME="IDX148"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-file-access-time:</U> <B></B>
+<DT><U>emacspeak-dired-speak-file-access-time:</U> <B>()</B>
 <DD>Speak access time  of the current file.
 </DL>
 </P><P>
 
 <A NAME="IDX149"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-file-modification-time:</U> <B></B>
+<DT><U>emacspeak-dired-speak-file-modification-time:</U> <B>()</B>
 <DD>Speak modification time  of the current file.
 </DL>
 </P><P>
 
 <A NAME="IDX150"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-file-permissions:</U> <B></B>
+<DT><U>emacspeak-dired-speak-file-permissions:</U> <B>()</B>
 <DD>Speak the permissions of the current file.
 </DL>
 </P><P>
 
 <A NAME="IDX151"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-file-size:</U> <B></B>
+<DT><U>emacspeak-dired-speak-file-size:</U> <B>()</B>
 <DD>Speak the size of the current file.
 On a directory line, run du -s on the directory to speak its size.
 </DL>
@@ -4420,14 +4420,14 @@ On a directory line, run du -s on the directory to speak its size.
 
 <A NAME="IDX152"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-header-line:</U> <B></B>
+<DT><U>emacspeak-dired-speak-header-line:</U> <B>()</B>
 <DD>Speak the header line of the dired buffer. 
 </DL>
 </P><P>
 
 <A NAME="IDX153"></A>
 <DL>
-<DT><U>emacspeak-dired-speak-symlink-target:</U> <B></B>
+<DT><U>emacspeak-dired-speak-symlink-target:</U> <B>()</B>
 <DD>Speaks the target of the symlink on the current line.
 </DL>
 </P><P>
@@ -4456,7 +4456,7 @@ for commands defined in module  emacspeak-dismal.
 
 <A NAME="IDX154"></A>
 <DL>
-<DT><U>emacspeak-dismal-backward-col-and-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-backward-col-and-summarize:</U> <B>(COLS)</B>
 <DD>Move backward by arg columns
  (the previous column by default)and summarize it.
 </DL>
@@ -4464,7 +4464,7 @@ for commands defined in module  emacspeak-dismal.
 
 <A NAME="IDX155"></A>
 <DL>
-<DT><U>emacspeak-dismal-backward-row-and-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-backward-row-and-summarize:</U> <B>(ROWS)</B>
 <DD>Move backward by arg rows
  (the previous row by default)and summarize it.
 </DL>
@@ -4472,7 +4472,7 @@ for commands defined in module  emacspeak-dismal.
 
 <A NAME="IDX156"></A>
 <DL>
-<DT><U>emacspeak-dismal-col-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-col-summarize:</U> <B>()</B>
 <DD>Summarizes a col using the specification in list
 emacspeak-dismal-col-summarizer-list
 </DL>
@@ -4480,21 +4480,21 @@ emacspeak-dismal-col-summarizer-list
 
 <A NAME="IDX157"></A>
 <DL>
-<DT><U>emacspeak-dismal-display-cell-expression:</U> <B></B>
+<DT><U>emacspeak-dismal-display-cell-expression:</U> <B>()</B>
 <DD>Display the expression in the message area
 </DL>
 </P><P>
 
 <A NAME="IDX158"></A>
 <DL>
-<DT><U>emacspeak-dismal-display-cell-value:</U> <B></B>
+<DT><U>emacspeak-dismal-display-cell-value:</U> <B>()</B>
 <DD>Display the cell value in the message area
 </DL>
 </P><P>
 
 <A NAME="IDX159"></A>
 <DL>
-<DT><U>emacspeak-dismal-display-cell-with-col-header:</U> <B></B>
+<DT><U>emacspeak-dismal-display-cell-with-col-header:</U> <B>()</B>
 <DD>Display current cell along with its column header.
 The `column header' is the entry in row 0.
 </DL>
@@ -4502,7 +4502,7 @@ The `column header' is the entry in row 0.
 
 <A NAME="IDX160"></A>
 <DL>
-<DT><U>emacspeak-dismal-display-cell-with-row-header:</U> <B></B>
+<DT><U>emacspeak-dismal-display-cell-with-row-header:</U> <B>()</B>
 <DD>Displays current cell along with its row header.
 The `row header' is the entry in column 0.
 </DL>
@@ -4510,7 +4510,7 @@ The `row header' is the entry in column 0.
 
 <A NAME="IDX161"></A>
 <DL>
-<DT><U>emacspeak-dismal-forward-col-and-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-forward-col-and-summarize:</U> <B>(COLS)</B>
 <DD>Move forward by arg columns
  (the next column by default)and summarize it.
 </DL>
@@ -4518,7 +4518,7 @@ The `row header' is the entry in column 0.
 
 <A NAME="IDX162"></A>
 <DL>
-<DT><U>emacspeak-dismal-forward-row-and-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-forward-row-and-summarize:</U> <B>(ROWS)</B>
 <DD>Move forward by arg rows
  (the next row by default)and summarize it.
 </DL>
@@ -4526,7 +4526,7 @@ The `row header' is the entry in column 0.
 
 <A NAME="IDX163"></A>
 <DL>
-<DT><U>emacspeak-dismal-row-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-row-summarize:</U> <B>()</B>
 <DD>Summarizes a row using the specification in list
 emacspeak-dismal-row-summarizer-list
 </DL>
@@ -4534,28 +4534,28 @@ emacspeak-dismal-row-summarizer-list
 
 <A NAME="IDX164"></A>
 <DL>
-<DT><U>emacspeak-dismal-set-col-summarizer-list:</U> <B></B>
+<DT><U>emacspeak-dismal-set-col-summarizer-list:</U> <B>()</B>
 <DD>Specify or reset col summarizer list.
 </DL>
 </P><P>
 
 <A NAME="IDX165"></A>
 <DL>
-<DT><U>emacspeak-dismal-set-row-summarizer-list:</U> <B></B>
+<DT><U>emacspeak-dismal-set-row-summarizer-list:</U> <B>()</B>
 <DD>Specify or reset row summarizer list.
 </DL>
 </P><P>
 
 <A NAME="IDX166"></A>
 <DL>
-<DT><U>emacspeak-dismal-set-sheet-summarizer-list:</U> <B></B>
+<DT><U>emacspeak-dismal-set-sheet-summarizer-list:</U> <B>()</B>
 <DD>Specify or reset sheet summarizer list.
 </DL>
 </P><P>
 
 <A NAME="IDX167"></A>
 <DL>
-<DT><U>emacspeak-dismal-sheet-summarize:</U> <B></B>
+<DT><U>emacspeak-dismal-sheet-summarize:</U> <B>()</B>
 <DD>Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 </DL>
@@ -4585,35 +4585,35 @@ for commands defined in module  emacspeak-ecb.
 
 <A NAME="IDX168"></A>
 <DL>
-<DT><U>emacspeak-ecb-speak-window-directories:</U> <B></B>
+<DT><U>emacspeak-ecb-speak-window-directories:</U> <B>()</B>
 <DD>Speak contents of directories window.
 </DL>
 </P><P>
 
 <A NAME="IDX169"></A>
 <DL>
-<DT><U>emacspeak-ecb-speak-window-history:</U> <B></B>
+<DT><U>emacspeak-ecb-speak-window-history:</U> <B>()</B>
 <DD>Speak contents of history window.
 </DL>
 </P><P>
 
 <A NAME="IDX170"></A>
 <DL>
-<DT><U>emacspeak-ecb-speak-window-methods:</U> <B></B>
+<DT><U>emacspeak-ecb-speak-window-methods:</U> <B>()</B>
 <DD>Speak contents of methods window.
 </DL>
 </P><P>
 
 <A NAME="IDX171"></A>
 <DL>
-<DT><U>emacspeak-ecb-speak-window-sources:</U> <B></B>
+<DT><U>emacspeak-ecb-speak-window-sources:</U> <B>()</B>
 <DD>Speak contents of sources window.
 </DL>
 </P><P>
 
 <A NAME="IDX172"></A>
 <DL>
-<DT><U>emacspeak-ecb-tree-shift-return:</U> <B></B>
+<DT><U>emacspeak-ecb-tree-shift-return:</U> <B>()</B>
 <DD>Do shift return in ECB tree browser.
 </DL>
 </P><P>
@@ -4642,7 +4642,7 @@ for commands defined in module  emacspeak-ediff.
 
 <A NAME="IDX173"></A>
 <DL>
-<DT><U>emacspeak-ediff-speak-current-difference:</U> <B></B>
+<DT><U>emacspeak-ediff-speak-current-difference:</U> <B>()</B>
 <DD>Speak the current difference
 </DL>
 </P><P>
@@ -4671,7 +4671,7 @@ for commands defined in module  emacspeak-enriched.
 
 <A NAME="IDX174"></A>
 <DL>
-<DT><U>emacspeak-enriched-voiceify-faces:</U> <B></B>
+<DT><U>emacspeak-enriched-voiceify-faces:</U> <B>(START</B> <I>END)</I>
 <DD>Map base fonts to voices.
 Useful in voicifying rich text.
 </DL>
@@ -4701,14 +4701,14 @@ for commands defined in module  emacspeak-entertain.
 
 <A NAME="IDX175"></A>
 <DL>
-<DT><U>emacspeak-hangman-speak-guess:</U> <B></B>
+<DT><U>emacspeak-hangman-speak-guess:</U> <B>()</B>
 <DD>Speak current guessed string. 
 </DL>
 </P><P>
 
 <A NAME="IDX176"></A>
 <DL>
-<DT><U>emacspeak-hangman-speak-statistics:</U> <B></B>
+<DT><U>emacspeak-hangman-speak-statistics:</U> <B>()</B>
 <DD>Speak statistics.
 </DL>
 </P><P>
@@ -4737,21 +4737,21 @@ for commands defined in module  emacspeak-erc.
 
 <A NAME="IDX177"></A>
 <DL>
-<DT><U>emacspeak-erc-add-name-to-monitor:</U> <B></B>
+<DT><U>emacspeak-erc-add-name-to-monitor:</U> <B>(NAME)</B>
 <DD>Add people to monitor in this room.
 </DL>
 </P><P>
 
 <A NAME="IDX178"></A>
 <DL>
-<DT><U>emacspeak-erc-delete-name-from-monitor:</U> <B></B>
+<DT><U>emacspeak-erc-delete-name-from-monitor:</U> <B>(NAME)</B>
 <DD>Remove name to monitor in this room.
 </DL>
 </P><P>
 
 <A NAME="IDX179"></A>
 <DL>
-<DT><U>emacspeak-erc-toggle-my-monitor:</U> <B></B>
+<DT><U>emacspeak-erc-toggle-my-monitor:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle state of ERC  monitor of my messages.
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
@@ -4760,7 +4760,7 @@ set the current local value to the result.
 
 <A NAME="IDX180"></A>
 <DL>
-<DT><U>emacspeak-erc-toggle-room-monitor:</U> <B></B>
+<DT><U>emacspeak-erc-toggle-room-monitor:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
@@ -4792,7 +4792,7 @@ for commands defined in module  emacspeak-eterm.
 
 <A NAME="IDX181"></A>
 <DL>
-<DT><U>emacspeak-eterm-copy-region-to-register:</U> <B></B>
+<DT><U>emacspeak-eterm-copy-region-to-register:</U> <B>(REGISTER)</B>
 <DD>Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
@@ -4809,7 +4809,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX182"></A>
 <DL>
-<DT><U>emacspeak-eterm-define-window:</U> <B></B>
+<DT><U>emacspeak-eterm-define-window:</U> <B>(ID)</B>
 <DD>Prompt for a window ID.
 The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
@@ -4827,7 +4827,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX183"></A>
 <DL>
-<DT><U>emacspeak-eterm-describe-window:</U> <B></B>
+<DT><U>emacspeak-eterm-describe-window:</U> <B>(ID)</B>
 <DD>Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
 </P><P>
@@ -4842,7 +4842,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX184"></A>
 <DL>
-<DT><U>emacspeak-eterm-goto-line:</U> <B></B>
+<DT><U>emacspeak-eterm-goto-line:</U> <B>(LINE)</B>
 <DD>Move emacspeak eterm pointer to a specified LINE.
 </P><P>
 
@@ -4856,7 +4856,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX185"></A>
 <DL>
-<DT><U>emacspeak-eterm-kill-ring-save-region:</U> <B></B>
+<DT><U>emacspeak-eterm-kill-ring-save-region:</U> <B>()</B>
 <DD>Copy text from terminal to kill ring.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
@@ -4866,7 +4866,7 @@ emacspeak eterm pointer.
 
 <A NAME="IDX186"></A>
 <DL>
-<DT><U>emacspeak-eterm-maybe-send-raw:</U> <B></B>
+<DT><U>emacspeak-eterm-maybe-send-raw:</U> <B>()</B>
 <DD>Send a raw character through if in the terminal buffer.
 Execute end of line if
 in a non eterm buffer if executed via C-e C-e
@@ -4875,7 +4875,7 @@ in a non eterm buffer if executed via C-e C-e
 
 <A NAME="IDX187"></A>
 <DL>
-<DT><U>emacspeak-eterm-paste-register:</U> <B></B>
+<DT><U>emacspeak-eterm-paste-register:</U> <B>(REGISTER)</B>
 <DD>Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
@@ -4891,7 +4891,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX188"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-backward-word:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-backward-word:</U> <B>(COUNT)</B>
 <DD>Move the pointer backward  by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
@@ -4900,7 +4900,7 @@ Argument COUNT specifies number of words by which to move.
 
 <A NAME="IDX189"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-down:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-down:</U> <B>(COUNT)</B>
 <DD>Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move.
 </DL>
@@ -4908,7 +4908,7 @@ Argument COUNT specifies number of lines by which to move.
 
 <A NAME="IDX190"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-forward-word:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-forward-word:</U> <B>(COUNT)</B>
 <DD>Move the pointer forward by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
@@ -4917,7 +4917,7 @@ Argument COUNT specifies number of words by which to move.
 
 <A NAME="IDX191"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-left:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-left:</U> <B>(COUNT)</B>
 <DD>Move the pointer left.
 Argument COUNT specifies number of columns by which to move.
 </DL>
@@ -4925,7 +4925,7 @@ Argument COUNT specifies number of columns by which to move.
 
 <A NAME="IDX192"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-right:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-right:</U> <B>(COUNT)</B>
 <DD>Move the pointer right.
 Argument COUNT specifies number of columns by which to move.
 </DL>
@@ -4933,28 +4933,28 @@ Argument COUNT specifies number of columns by which to move.
 
 <A NAME="IDX193"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-bottom:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-bottom:</U> <B>()</B>
 <DD>Move the pointer to the bottom  of the screen.
 </DL>
 </P><P>
 
 <A NAME="IDX194"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-cursor:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-cursor:</U> <B>()</B>
 <DD>Move the pointer to the cursor.
 </DL>
 </P><P>
 
 <A NAME="IDX195"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-left-edge:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-left-edge:</U> <B>()</B>
 <DD>Move the pointer to the right edge.
 </DL>
 </P><P>
 
 <A NAME="IDX196"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-next-color-change:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-next-color-change:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
@@ -4963,7 +4963,7 @@ Optional argument COUNT specifies how many changes to skip.
 
 <A NAME="IDX197"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-previous-color-change:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-previous-color-change:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
@@ -4972,21 +4972,21 @@ Optional argument COUNT specifies how many changes to skip.
 
 <A NAME="IDX198"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-right-edge:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-right-edge:</U> <B>()</B>
 <DD>Move the pointer to the right edge.
 </DL>
 </P><P>
 
 <A NAME="IDX199"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-to-top:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-to-top:</U> <B>()</B>
 <DD>Move the pointer to the top of the screen.
 </DL>
 </P><P>
 
 <A NAME="IDX200"></A>
 <DL>
-<DT><U>emacspeak-eterm-pointer-up:</U> <B></B>
+<DT><U>emacspeak-eterm-pointer-up:</U> <B>(COUNT)</B>
 <DD>Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move.
 </DL>
@@ -4994,7 +4994,7 @@ Argument COUNT .specifies number of lines by which to move.
 
 <A NAME="IDX201"></A>
 <DL>
-<DT><U>emacspeak-eterm-remote-term:</U> <B></B>
+<DT><U>emacspeak-eterm-remote-term:</U> <B>(HOST)</B>
 <DD><KBD> control e CONTROL meta r </KBD>
 </P><P>
 
@@ -5004,21 +5004,21 @@ Start a terminal-emulator in a new buffer.
 
 <A NAME="IDX202"></A>
 <DL>
-<DT><U>emacspeak-eterm-search-backward:</U> <B></B>
+<DT><U>emacspeak-eterm-search-backward:</U> <B>()</B>
 <DD>Search backward on the terminal.
 </DL>
 </P><P>
 
 <A NAME="IDX203"></A>
 <DL>
-<DT><U>emacspeak-eterm-search-forward:</U> <B></B>
+<DT><U>emacspeak-eterm-search-forward:</U> <B>()</B>
 <DD>Search forward on the terminal.
 </DL>
 </P><P>
 
 <A NAME="IDX204"></A>
 <DL>
-<DT><U>emacspeak-eterm-set-focus-window:</U> <B></B>
+<DT><U>emacspeak-eterm-set-focus-window:</U> <B>(FLAG)</B>
 <DD>Prompt for the id of a predefined window,
 and set the `focus' window to it.
 Non-nil interactive prefix arg `unsets' the focus window;
@@ -5031,7 +5031,7 @@ and speaking that window upon seeing screen activity.
 
 <A NAME="IDX205"></A>
 <DL>
-<DT><U>emacspeak-eterm-set-marker:</U> <B></B>
+<DT><U>emacspeak-eterm-set-marker:</U> <B>()</B>
 <DD>Set Emacspeak eterm marker.
 This sets  the emacspeak eterm marker to the position pointed 
 to by the emacspeak eterm pointer.
@@ -5040,21 +5040,21 @@ to by the emacspeak eterm pointer.
 
 <A NAME="IDX206"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-cursor:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-cursor:</U> <B>()</B>
 <DD>Speak cursor position.
 </DL>
 </P><P>
 
 <A NAME="IDX207"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-pointer:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-pointer:</U> <B>()</B>
 <DD>Speak current pointer position.
 </DL>
 </P><P>
 
 <A NAME="IDX208"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-pointer-char:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-pointer-char:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg.
 </DL>
@@ -5062,28 +5062,28 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 <A NAME="IDX209"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-pointer-line:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-pointer-line:</U> <B>()</B>
 <DD>Speak the line the pointer is on.
 </DL>
 </P><P>
 
 <A NAME="IDX210"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-pointer-word:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-pointer-word:</U> <B>()</B>
 <DD>Speak the word  the pointer is on.
 </DL>
 </P><P>
 
 <A NAME="IDX211"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-predefined-window:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-predefined-window:</U> <B>()</B>
 <DD>Speak a predefined eterm window between 1 and 10.
 </DL>
 </P><P>
 
 <A NAME="IDX212"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-screen:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-screen:</U> <B>(&#38;optional</B> <I>FLAG)</I>
 <DD>Speak the screen.  Default is to speak from the emacspeak pointer  to point.
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken.
@@ -5092,7 +5092,7 @@ the Emacspeak pointer to be spoken.
 
 <A NAME="IDX213"></A>
 <DL>
-<DT><U>emacspeak-eterm-speak-window:</U> <B></B>
+<DT><U>emacspeak-eterm-speak-window:</U> <B>(ID)</B>
 <DD>Speak an eterm window.
 Argument ID specifies the window.
 </P><P>
@@ -5107,14 +5107,14 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX214"></A>
 <DL>
-<DT><U>emacspeak-eterm-toggle-focus-window:</U> <B></B>
+<DT><U>emacspeak-eterm-toggle-focus-window:</U> <B>()</B>
 <DD>Toggle active state of focus window.
 </DL>
 </P><P>
 
 <A NAME="IDX215"></A>
 <DL>
-<DT><U>emacspeak-eterm-toggle-pointer-mode:</U> <B></B>
+<DT><U>emacspeak-eterm-toggle-pointer-mode:</U> <B>(FLAG)</B>
 <DD>Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
@@ -5125,7 +5125,7 @@ there is terminal activity.
 
 <A NAME="IDX216"></A>
 <DL>
-<DT><U>emacspeak-eterm-toggle-review:</U> <B></B>
+<DT><U>emacspeak-eterm-toggle-review:</U> <B>()</B>
 <DD>Toggle state of eterm review. 
 In review mode, you can move around the terminal and listen to the contnets 
 without sending input to the terminal itself.
@@ -5134,7 +5134,7 @@ without sending input to the terminal itself.
 
 <A NAME="IDX217"></A>
 <DL>
-<DT><U>emacspeak-eterm-yank-window:</U> <B></B>
+<DT><U>emacspeak-eterm-yank-window:</U> <B>(ID)</B>
 <DD>Yank contents of  an eterm window at point.
 </P><P>
 
@@ -5148,7 +5148,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX218"></A>
 <DL>
-<DT><U>emacspeak-toggle-eterm-autospeak:</U> <B></B>
+<DT><U>emacspeak-toggle-eterm-autospeak:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
@@ -5181,7 +5181,7 @@ for commands defined in module  emacspeak-eudc.
 
 <A NAME="IDX219"></A>
 <DL>
-<DT><U>emacspeak-eudc-send-mail:</U> <B></B>
+<DT><U>emacspeak-eudc-send-mail:</U> <B>()</B>
 <DD>Send email to the address given by the current record. 
 </DL>
 </P><P>
@@ -5210,7 +5210,7 @@ for commands defined in module  emacspeak-filtertext.
 
 <A NAME="IDX220"></A>
 <DL>
-<DT><U>emacspeak-filtertext:</U> <B></B>
+<DT><U>emacspeak-filtertext:</U> <B>(START</B> <I>END)</I>
 <DD><KBD> control e ^ </KBD>
 </P><P>
 
@@ -5221,7 +5221,7 @@ preparation for interactively filtering text.
 
 <A NAME="IDX221"></A>
 <DL>
-<DT><U>emacspeak-filtertext-mode:</U> <B></B>
+<DT><U>emacspeak-filtertext-mode:</U> <B>()</B>
 <DD>Major mode for FilterText interaction. 
 </P><P>
 
@@ -5242,7 +5242,7 @@ during initialization.
 
 <A NAME="IDX222"></A>
 <DL>
-<DT><U>emacspeak-filtertext-revert:</U> <B></B>
+<DT><U>emacspeak-filtertext-revert:</U> <B>()</B>
 <DD>Revert to original text.
 </DL>
 </P><P>
@@ -5271,7 +5271,7 @@ for commands defined in module  emacspeak-fix-interactive.
 
 <A NAME="IDX223"></A>
 <DL>
-<DT><U>emacspeak-fix-all-recent-commands:</U> <B></B>
+<DT><U>emacspeak-fix-all-recent-commands:</U> <B>()</B>
 <DD>Fix recently loaded interactive commands.
 This command looks through `load-history' and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. 
@@ -5280,7 +5280,7 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
 
 <A NAME="IDX224"></A>
 <DL>
-<DT><U>emacspeak-fix-commands-loaded-from:</U> <B></B>
+<DT><U>emacspeak-fix-commands-loaded-from:</U> <B>(MODULE)</B>
 <DD>Fix all commands loaded from a specified module.
 </DL>
 </P><P>
@@ -5309,28 +5309,28 @@ for commands defined in module  emacspeak-forms.
 
 <A NAME="IDX225"></A>
 <DL>
-<DT><U>emacspeak-forms-find-file:</U> <B></B>
+<DT><U>emacspeak-forms-find-file:</U> <B>(FILENAME)</B>
 <DD>Visit a forms file
 </DL>
 </P><P>
 
 <A NAME="IDX226"></A>
 <DL>
-<DT><U>emacspeak-forms-flush-unwanted-records:</U> <B></B>
+<DT><U>emacspeak-forms-flush-unwanted-records:</U> <B>()</B>
 <DD>Prompt for pattern and flush matching lines
 </DL>
 </P><P>
 
 <A NAME="IDX227"></A>
 <DL>
-<DT><U>emacspeak-forms-rerun-filter:</U> <B></B>
+<DT><U>emacspeak-forms-rerun-filter:</U> <B>()</B>
 <DD>Rerun  filter --allows us to nuke more matching records
 </DL>
 </P><P>
 
 <A NAME="IDX228"></A>
 <DL>
-<DT><U>emacspeak-forms-speak-field:</U> <B></B>
+<DT><U>emacspeak-forms-speak-field:</U> <B>()</B>
 <DD>Speak current form field name and value.
 Assumes that point is at the front of a field value.
 </DL>
@@ -5338,14 +5338,14 @@ Assumes that point is at the front of a field value.
 
 <A NAME="IDX229"></A>
 <DL>
-<DT><U>emacspeak-forms-summarize-current-position:</U> <B></B>
+<DT><U>emacspeak-forms-summarize-current-position:</U> <B>()</B>
 <DD>Summarize current position in list of records
 </DL>
 </P><P>
 
 <A NAME="IDX230"></A>
 <DL>
-<DT><U>emacspeak-forms-summarize-current-record:</U> <B></B>
+<DT><U>emacspeak-forms-summarize-current-record:</U> <B>()</B>
 <DD>Summarize current record
 </DL>
 </P><P>
@@ -5374,7 +5374,7 @@ for commands defined in module  emacspeak-freeamp.
 
 <A NAME="IDX231"></A>
 <DL>
-<DT><U>emacspeak-freeamp:</U> <B></B>
+<DT><U>emacspeak-freeamp:</U> <B>(RESOURCE)</B>
 <DD><KBD> control e control f o </KBD>
 </P><P>
 
@@ -5386,7 +5386,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode.
 
 <A NAME="IDX232"></A>
 <DL>
-<DT><U>emacspeak-freeamp-freeamp-call-command:</U> <B></B>
+<DT><U>emacspeak-freeamp-freeamp-call-command:</U> <B>()</B>
 <DD><KBD> control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p </KBD>
 </P><P>
 
@@ -5396,7 +5396,7 @@ Call appropriate freeamp command.
 
 <A NAME="IDX233"></A>
 <DL>
-<DT><U>emacspeak-freeamp-freeamp-command:</U> <B></B>
+<DT><U>emacspeak-freeamp-freeamp-command:</U> <B>(CHAR)</B>
 <DD>Execute FreeAmp command.
 </P><P>
 
@@ -5410,7 +5410,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX234"></A>
 <DL>
-<DT><U>emacspeak-freeamp-mode:</U> <B></B>
+<DT><U>emacspeak-freeamp-mode:</U> <B>()</B>
 <DD>Major mode for freeamp interaction. 
 </P><P>
 
@@ -5460,7 +5460,7 @@ for commands defined in module  emacspeak-gnus.
 
 <A NAME="IDX235"></A>
 <DL>
-<DT><U>emacspeak-gnus-summary-catchup-quietly-and-exit:</U> <B></B>
+<DT><U>emacspeak-gnus-summary-catchup-quietly-and-exit:</U> <B>()</B>
 <DD>Catch up on all articles in current group.
 </DL>
 </P><P>
@@ -5489,70 +5489,70 @@ for commands defined in module  emacspeak-gomoku.
 
 <A NAME="IDX236"></A>
 <DL>
-<DT><U>emacspeak-gomoku-display-statistics:</U> <B></B>
+<DT><U>emacspeak-gomoku-display-statistics:</U> <B>()</B>
 <DD>Display statistics from previous games
 </DL>
 </P><P>
 
 <A NAME="IDX237"></A>
 <DL>
-<DT><U>emacspeak-gomoku-goto-x-y:</U> <B></B>
+<DT><U>emacspeak-gomoku-goto-x-y:</U> <B>(X</B> <I>Y)</I>
 <DD>Prompt for and go to that square.
 </DL>
 </P><P>
 
 <A NAME="IDX238"></A>
 <DL>
-<DT><U>emacspeak-gomoku-show-current-column:</U> <B></B>
+<DT><U>emacspeak-gomoku-show-current-column:</U> <B>()</B>
 <DD>Aurally display current column
 </DL>
 </P><P>
 
 <A NAME="IDX239"></A>
 <DL>
-<DT><U>emacspeak-gomoku-show-current-negative-diagonal:</U> <B></B>
+<DT><U>emacspeak-gomoku-show-current-negative-diagonal:</U> <B>()</B>
 <DD>Aurally display current negative sloped diagonal 
 </DL>
 </P><P>
 
 <A NAME="IDX240"></A>
 <DL>
-<DT><U>emacspeak-gomoku-show-current-positive-diagonal:</U> <B></B>
+<DT><U>emacspeak-gomoku-show-current-positive-diagonal:</U> <B>()</B>
 <DD>Aurally display current positively sloped diagonal
 </DL>
 </P><P>
 
 <A NAME="IDX241"></A>
 <DL>
-<DT><U>emacspeak-gomoku-show-current-row:</U> <B></B>
+<DT><U>emacspeak-gomoku-show-current-row:</U> <B>()</B>
 <DD>Aurally display current row
 </DL>
 </P><P>
 
 <A NAME="IDX242"></A>
 <DL>
-<DT><U>emacspeak-gomoku-speak-emacs-previous-move:</U> <B></B>
+<DT><U>emacspeak-gomoku-speak-emacs-previous-move:</U> <B>()</B>
 <DD>Speak emacs' previous move
 </DL>
 </P><P>
 
 <A NAME="IDX243"></A>
 <DL>
-<DT><U>emacspeak-gomoku-speak-humans-previous-move:</U> <B></B>
+<DT><U>emacspeak-gomoku-speak-humans-previous-move:</U> <B>()</B>
 <DD>Speak human' previous move
 </DL>
 </P><P>
 
 <A NAME="IDX244"></A>
 <DL>
-<DT><U>emacspeak-gomoku-speak-number-of-moves:</U> <B></B>
+<DT><U>emacspeak-gomoku-speak-number-of-moves:</U> <B>()</B>
 <DD>Speak number of moves so far
 </DL>
 </P><P>
 
 <A NAME="IDX245"></A>
 <DL>
-<DT><U>emacspeak-gomoku-speak-square:</U> <B></B>
+<DT><U>emacspeak-gomoku-speak-square:</U> <B>()</B>
 <DD>Speak coordinates and state of square at point
 </DL>
 </P><P>
@@ -5581,7 +5581,7 @@ for commands defined in module  emacspeak-gridtext.
 
 <A NAME="IDX246"></A>
 <DL>
-<DT><U>emacspeak-gridtext-apply:</U> <B></B>
+<DT><U>emacspeak-gridtext-apply:</U> <B>(START</B> <I>END GRID)</I>
 <DD><KBD> control e # a </KBD>
 </P><P>
 
@@ -5591,7 +5591,7 @@ Apply grid to region.
 
 <A NAME="IDX247"></A>
 <DL>
-<DT><U>emacspeak-gridtext-load:</U> <B></B>
+<DT><U>emacspeak-gridtext-load:</U> <B>(FILE)</B>
 <DD><KBD> control e # l </KBD>
 </P><P>
 
@@ -5601,7 +5601,7 @@ Load saved grid settings.
 
 <A NAME="IDX248"></A>
 <DL>
-<DT><U>emacspeak-gridtext-save:</U> <B></B>
+<DT><U>emacspeak-gridtext-save:</U> <B>(FILE)</B>
 <DD><KBD> control e # s </KBD>
 </P><P>
 
@@ -5633,14 +5633,14 @@ for commands defined in module  emacspeak-hide.
 
 <A NAME="IDX249"></A>
 <DL>
-<DT><U>emacspeak-hide-or-expose-all-blocks:</U> <B></B>
+<DT><U>emacspeak-hide-or-expose-all-blocks:</U> <B>()</B>
 <DD>Hide or expose all blocks in buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX250"></A>
 <DL>
-<DT><U>emacspeak-hide-or-expose-block:</U> <B></B>
+<DT><U>emacspeak-hide-or-expose-block:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e j </KBD>
 </P><P>
 
@@ -5655,7 +5655,7 @@ blocks in current buffer to be hidden or exposed.
 
 <A NAME="IDX251"></A>
 <DL>
-<DT><U>emacspeak-hide-speak-block-sans-prefix:</U> <B></B>
+<DT><U>emacspeak-hide-speak-block-sans-prefix:</U> <B>()</B>
 <DD><KBD> control e control j </KBD>
 </P><P>
 
@@ -5691,7 +5691,7 @@ for commands defined in module  emacspeak-ibuffer.
 
 <A NAME="IDX252"></A>
 <DL>
-<DT><U>emacspeak-ibuffer-speak-buffer-line:</U> <B></B>
+<DT><U>emacspeak-ibuffer-speak-buffer-line:</U> <B>()</B>
 <DD>Speak information about this buffer
 </DL>
 </P><P>
@@ -5720,14 +5720,14 @@ for commands defined in module  emacspeak-imcom.
 
 <A NAME="IDX253"></A>
 <DL>
-<DT><U>emacspeak-imcom:</U> <B></B>
+<DT><U>emacspeak-imcom:</U> <B>()</B>
 <DD>Start IMCom.
 </DL>
 </P><P>
 
 <A NAME="IDX254"></A>
 <DL>
-<DT><U>emacspeak-imcom-mode:</U> <B></B>
+<DT><U>emacspeak-imcom-mode:</U> <B>()</B>
 <DD>Major mode for Jabber interaction using IMCom.
 </P><P>
 
@@ -5749,7 +5749,7 @@ during initialization.
 
 <A NAME="IDX255"></A>
 <DL>
-<DT><U>emacspeak-imcom-view-chat-session:</U> <B></B>
+<DT><U>emacspeak-imcom-view-chat-session:</U> <B>(SESSION)</B>
 <DD>Display specified chat session.
 </DL>
 </P><P>
@@ -5778,21 +5778,21 @@ for commands defined in module  emacspeak-imenu.
 
 <A NAME="IDX256"></A>
 <DL>
-<DT><U>emacspeak-imenu-goto-next-index-position:</U> <B></B>
+<DT><U>emacspeak-imenu-goto-next-index-position:</U> <B>()</B>
 <DD>Goto the next index position in current buffer
 </DL>
 </P><P>
 
 <A NAME="IDX257"></A>
 <DL>
-<DT><U>emacspeak-imenu-goto-previous-index-position:</U> <B></B>
+<DT><U>emacspeak-imenu-goto-previous-index-position:</U> <B>()</B>
 <DD>Goto the previous index position in current buffer
 </DL>
 </P><P>
 
 <A NAME="IDX258"></A>
 <DL>
-<DT><U>emacspeak-imenu-speak-this-section:</U> <B></B>
+<DT><U>emacspeak-imenu-speak-this-section:</U> <B>()</B>
 <DD>Speak upto start of next index entry
 </DL>
 </P><P>
@@ -5821,7 +5821,7 @@ for commands defined in module  emacspeak-info.
 
 <A NAME="IDX259"></A>
 <DL>
-<DT><U>emacspeak-info-speak-header:</U> <B></B>
+<DT><U>emacspeak-info-speak-header:</U> <B>()</B>
 <DD>Speak info header line.
 </DL>
 </P><P>
@@ -5850,7 +5850,7 @@ for commands defined in module  emacspeak-keymap.
 
 <A NAME="IDX260"></A>
 <DL>
-<DT><U>emacspeak-keymap-choose-new-emacspeak-prefix:</U> <B></B>
+<DT><U>emacspeak-keymap-choose-new-emacspeak-prefix:</U> <B>(PREFIX-KEY)</B>
 <DD>Interactively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command
 lets you switch the prefix to something else.  This is a useful thing
@@ -5892,14 +5892,14 @@ for commands defined in module  emacspeak-kotl.
 
 <A NAME="IDX261"></A>
 <DL>
-<DT><U>emacspeak-kotl-setup-keys:</U> <B></B>
+<DT><U>emacspeak-kotl-setup-keys:</U> <B>()</B>
 <DD>Setup additional keybindings
 </DL>
 </P><P>
 
 <A NAME="IDX262"></A>
 <DL>
-<DT><U>emacspeak-kotl-speak-cell:</U> <B></B>
+<DT><U>emacspeak-kotl-speak-cell:</U> <B>(ARG)</B>
 <DD>Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
 </DL>
@@ -5929,14 +5929,14 @@ for commands defined in module  emacspeak-man.
 
 <A NAME="IDX263"></A>
 <DL>
-<DT><U>emacspeak-man-browse-man-page:</U> <B></B>
+<DT><U>emacspeak-man-browse-man-page:</U> <B>()</B>
 <DD>Browse the man page --read it a paragraph at a time
 </DL>
 </P><P>
 
 <A NAME="IDX264"></A>
 <DL>
-<DT><U>emacspeak-man-speak-this-section:</U> <B></B>
+<DT><U>emacspeak-man-speak-this-section:</U> <B>()</B>
 <DD>Speak current section
 </DL>
 </P><P>
@@ -5965,7 +5965,7 @@ for commands defined in module  emacspeak-mpg123.
 
 <A NAME="IDX265"></A>
 <DL>
-<DT><U>emacspeak-mp3-playlist-play:</U> <B></B>
+<DT><U>emacspeak-mp3-playlist-play:</U> <B>(PLAYLIST</B> <I>&#38;optional DONT-SHUFFLE)</I>
 <DD>Play a playlist. 
 Optional interactive prefix arg says not to shuffle  the list. 
 Use command M-x emacspeak-mp3-playlist-skip 
@@ -5975,56 +5975,56 @@ to skip to the next track.
 
 <A NAME="IDX266"></A>
 <DL>
-<DT><U>emacspeak-mp3-playlist-skip:</U> <B></B>
+<DT><U>emacspeak-mp3-playlist-skip:</U> <B>()</B>
 <DD>Skip currently playing track. 
 </DL>
 </P><P>
 
 <A NAME="IDX267"></A>
 <DL>
-<DT><U>emacspeak-mp3-playlist-stop:</U> <B></B>
+<DT><U>emacspeak-mp3-playlist-stop:</U> <B>()</B>
 <DD>Kill currently playing playlist. 
 </DL>
 </P><P>
 
 <A NAME="IDX268"></A>
 <DL>
-<DT><U>emacspeak-mpg123-backward-minute:</U> <B></B>
+<DT><U>emacspeak-mpg123-backward-minute:</U> <B>(ARG)</B>
 <DD>Move back by specified number of minutes.
 </DL>
 </P><P>
 
 <A NAME="IDX269"></A>
 <DL>
-<DT><U>emacspeak-mpg123-forward-minute:</U> <B></B>
+<DT><U>emacspeak-mpg123-forward-minute:</U> <B>(ARG)</B>
 <DD>Forw by ARG minutes.
 </DL>
 </P><P>
 
 <A NAME="IDX270"></A>
 <DL>
-<DT><U>emacspeak-mpg123-speak-current-time:</U> <B></B>
+<DT><U>emacspeak-mpg123-speak-current-time:</U> <B>()</B>
 <DD>Speak time in current track.
 </DL>
 </P><P>
 
 <A NAME="IDX271"></A>
 <DL>
-<DT><U>emacspeak-mpg123-speak-filename:</U> <B></B>
+<DT><U>emacspeak-mpg123-speak-filename:</U> <B>()</B>
 <DD>Speak filename of the current song.
 </DL>
 </P><P>
 
 <A NAME="IDX272"></A>
 <DL>
-<DT><U>emacspeak-mpg123-speak-length:</U> <B></B>
+<DT><U>emacspeak-mpg123-speak-length:</U> <B>()</B>
 <DD>Speak duration of the current song.
 </DL>
 </P><P>
 
 <A NAME="IDX273"></A>
 <DL>
-<DT><U>emacspeak-mpg123-speak-title:</U> <B></B>
+<DT><U>emacspeak-mpg123-speak-title:</U> <B>()</B>
 <DD>Speak title of the current song.
 </DL>
 </P><P>
@@ -6053,7 +6053,7 @@ for commands defined in module  emacspeak-ocr.
 
 <A NAME="IDX274"></A>
 <DL>
-<DT><U>emacspeak-ocr:</U> <B></B>
+<DT><U>emacspeak-ocr:</U> <B>()</B>
 <DD><KBD> control e control o </KBD>
 </P><P>
 
@@ -6074,28 +6074,28 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 
 <A NAME="IDX275"></A>
 <DL>
-<DT><U>emacspeak-ocr-backward-page:</U> <B></B>
+<DT><U>emacspeak-ocr-backward-page:</U> <B>(&#38;optional</B> <I>COUNT-IGNORED)</I>
 <DD>Like backward page, but tracks page number of current document.
 </DL>
 </P><P>
 
 <A NAME="IDX276"></A>
 <DL>
-<DT><U>emacspeak-ocr-customize:</U> <B></B>
+<DT><U>emacspeak-ocr-customize:</U> <B>()</B>
 <DD>Customize OCR settings.
 </DL>
 </P><P>
 
 <A NAME="IDX277"></A>
 <DL>
-<DT><U>emacspeak-ocr-forward-page:</U> <B></B>
+<DT><U>emacspeak-ocr-forward-page:</U> <B>(&#38;optional</B> <I>COUNT-IGNORED)</I>
 <DD>Like forward page, but tracks page number of current document.
 </DL>
 </P><P>
 
 <A NAME="IDX278"></A>
 <DL>
-<DT><U>emacspeak-ocr-mode:</U> <B></B>
+<DT><U>emacspeak-ocr-mode:</U> <B>()</B>
 <DD> An OCR front-end for the Emacspeak desktop.
 </P><P>
 
@@ -6202,7 +6202,7 @@ during initialization.
 
 <A NAME="IDX279"></A>
 <DL>
-<DT><U>emacspeak-ocr-name-document:</U> <B></B>
+<DT><U>emacspeak-ocr-name-document:</U> <B>(NAME)</B>
 <DD>Name document being scanned in the current OCR buffer.
 Pick a short but meaningful name.
 </DL>
@@ -6210,28 +6210,28 @@ Pick a short but meaningful name.
 
 <A NAME="IDX280"></A>
 <DL>
-<DT><U>emacspeak-ocr-open-working-directory:</U> <B></B>
+<DT><U>emacspeak-ocr-open-working-directory:</U> <B>()</B>
 <DD>Launch dired on OCR workng directory.
 </DL>
 </P><P>
 
 <A NAME="IDX281"></A>
 <DL>
-<DT><U>emacspeak-ocr-page:</U> <B></B>
+<DT><U>emacspeak-ocr-page:</U> <B>()</B>
 <DD>Move to specified page.
 </DL>
 </P><P>
 
 <A NAME="IDX282"></A>
 <DL>
-<DT><U>emacspeak-ocr-read-current-page:</U> <B></B>
+<DT><U>emacspeak-ocr-read-current-page:</U> <B>()</B>
 <DD>Speaks current page.
 </DL>
 </P><P>
 
 <A NAME="IDX283"></A>
 <DL>
-<DT><U>emacspeak-ocr-recognize-image:</U> <B></B>
+<DT><U>emacspeak-ocr-recognize-image:</U> <B>()</B>
 <DD>Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
 `current page' is not found.
@@ -6240,7 +6240,7 @@ Prompts for image file if file corresponding to the expected
 
 <A NAME="IDX284"></A>
 <DL>
-<DT><U>emacspeak-ocr-save-current-page:</U> <B></B>
+<DT><U>emacspeak-ocr-save-current-page:</U> <B>()</B>
 <DD>Writes out recognized text from current page
 to an appropriately named file.
 </DL>
@@ -6248,7 +6248,7 @@ to an appropriately named file.
 
 <A NAME="IDX285"></A>
 <DL>
-<DT><U>emacspeak-ocr-scan-and-recognize:</U> <B></B>
+<DT><U>emacspeak-ocr-scan-and-recognize:</U> <B>()</B>
 <DD>Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
 steps of acquiring an image and running the OCR engine work
@@ -6258,14 +6258,14 @@ corectly by themselves.
 
 <A NAME="IDX286"></A>
 <DL>
-<DT><U>emacspeak-ocr-scan-image:</U> <B></B>
+<DT><U>emacspeak-ocr-scan-image:</U> <B>()</B>
 <DD>Acquire page image.
 </DL>
 </P><P>
 
 <A NAME="IDX287"></A>
 <DL>
-<DT><U>emacspeak-ocr-scan-photo:</U> <B></B>
+<DT><U>emacspeak-ocr-scan-photo:</U> <B>(&#38;optional</B> <I>METADATA)</I>
 <DD>Scan in a photograph.
 The scanned image is converted to JPEG.
 </DL>
@@ -6273,7 +6273,7 @@ The scanned image is converted to JPEG.
 
 <A NAME="IDX288"></A>
 <DL>
-<DT><U>emacspeak-ocr-set-compress-image-options:</U> <B></B>
+<DT><U>emacspeak-ocr-set-compress-image-options:</U> <B>(SETTING)</B>
 <DD>Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
@@ -6282,7 +6282,7 @@ Setting persists for current Emacs session.
 
 <A NAME="IDX289"></A>
 <DL>
-<DT><U>emacspeak-ocr-set-scan-image-options:</U> <B></B>
+<DT><U>emacspeak-ocr-set-scan-image-options:</U> <B>(SETTING)</B>
 <DD>Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
@@ -6291,14 +6291,14 @@ Setting persists for current Emacs session.
 
 <A NAME="IDX290"></A>
 <DL>
-<DT><U>emacspeak-ocr-toggle-read-only:</U> <B></B>
+<DT><U>emacspeak-ocr-toggle-read-only:</U> <B>()</B>
 <DD>Toggle read-only state of OCR buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX291"></A>
 <DL>
-<DT><U>emacspeak-ocr-write-document:</U> <B></B>
+<DT><U>emacspeak-ocr-write-document:</U> <B>()</B>
 <DD>Writes out recognized text from all pages in current document.
 </DL>
 </P><P>
@@ -6327,7 +6327,7 @@ for commands defined in module  emacspeak-outline.
 
 <A NAME="IDX292"></A>
 <DL>
-<DT><U>emacspeak-outline-speak-backward-heading:</U> <B></B>
+<DT><U>emacspeak-outline-speak-backward-heading:</U> <B>()</B>
 <DD>Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
 </DL>
@@ -6335,7 +6335,7 @@ except that the outline section is optionally spoken
 
 <A NAME="IDX293"></A>
 <DL>
-<DT><U>emacspeak-outline-speak-forward-heading:</U> <B></B>
+<DT><U>emacspeak-outline-speak-forward-heading:</U> <B>()</B>
 <DD>Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 </DL>
@@ -6343,7 +6343,7 @@ except that the outline section is optionally spoken
 
 <A NAME="IDX294"></A>
 <DL>
-<DT><U>emacspeak-outline-speak-next-heading:</U> <B></B>
+<DT><U>emacspeak-outline-speak-next-heading:</U> <B>()</B>
 <DD>Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 </DL>
@@ -6351,7 +6351,7 @@ except that the outline section is optionally spoken
 
 <A NAME="IDX295"></A>
 <DL>
-<DT><U>emacspeak-outline-speak-previous-heading:</U> <B></B>
+<DT><U>emacspeak-outline-speak-previous-heading:</U> <B>()</B>
 <DD>Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 </DL>
@@ -6359,7 +6359,7 @@ except that the outline section is optionally spoken
 
 <A NAME="IDX296"></A>
 <DL>
-<DT><U>emacspeak-outline-speak-this-heading:</U> <B></B>
+<DT><U>emacspeak-outline-speak-this-heading:</U> <B>()</B>
 <DD>Speak current outline section starting from point
 </DL>
 </P><P>
@@ -6388,14 +6388,14 @@ for commands defined in module  emacspeak-pronounce.
 
 <A NAME="IDX297"></A>
 <DL>
-<DT><U>emacspeak-pronounce-clear-dictionaries:</U> <B></B>
+<DT><U>emacspeak-pronounce-clear-dictionaries:</U> <B>()</B>
 <DD>Clear all current pronunciation dictionaries.
 </DL>
 </P><P>
 
 <A NAME="IDX298"></A>
 <DL>
-<DT><U>emacspeak-pronounce-define-local-pronunciation:</U> <B></B>
+<DT><U>emacspeak-pronounce-define-local-pronunciation:</U> <B>(WORD</B> <I>PRONUNCIATION)</I>
 <DD><KBD> control e meta b </KBD>
 </P><P>
 
@@ -6406,7 +6406,7 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 
 <A NAME="IDX299"></A>
 <DL>
-<DT><U>emacspeak-pronounce-define-pronunciation:</U> <B></B>
+<DT><U>emacspeak-pronounce-define-pronunciation:</U> <B>()</B>
 <DD>Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
@@ -6415,7 +6415,7 @@ First loads any persistent dictionaries if not already loaded.
 
 <A NAME="IDX300"></A>
 <DL>
-<DT><U>emacspeak-pronounce-dispatch:</U> <B></B>
+<DT><U>emacspeak-pronounce-dispatch:</U> <B>()</B>
 <DD><KBD> control e meta d </KBD>
 </P><P>
 
@@ -6425,7 +6425,7 @@ Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 
 <A NAME="IDX301"></A>
 <DL>
-<DT><U>emacspeak-pronounce-edit-pronunciations:</U> <B></B>
+<DT><U>emacspeak-pronounce-edit-pronunciations:</U> <B>(KEY)</B>
 <DD>Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key.
 </DL>
@@ -6433,7 +6433,7 @@ specified pronunciation dictionary key.
 
 <A NAME="IDX302"></A>
 <DL>
-<DT><U>emacspeak-pronounce-load-dictionaries:</U> <B></B>
+<DT><U>emacspeak-pronounce-load-dictionaries:</U> <B>(&#38;optional</B> <I>FILENAME)</I>
 <DD>Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file.
 </DL>
@@ -6441,7 +6441,7 @@ Optional argument FILENAME specifies the dictionary file.
 
 <A NAME="IDX303"></A>
 <DL>
-<DT><U>emacspeak-pronounce-refresh-pronunciations:</U> <B></B>
+<DT><U>emacspeak-pronounce-refresh-pronunciations:</U> <B>()</B>
 <DD>Refresh pronunciation table for current buffer.
 Activates pronunciation dictionaries if not already active.
 </DL>
@@ -6449,14 +6449,14 @@ Activates pronunciation dictionaries if not already active.
 
 <A NAME="IDX304"></A>
 <DL>
-<DT><U>emacspeak-pronounce-save-dictionaries:</U> <B></B>
+<DT><U>emacspeak-pronounce-save-dictionaries:</U> <B>()</B>
 <DD>Writes out the persistent emacspeak pronunciation dictionaries.
 </DL>
 </P><P>
 
 <A NAME="IDX305"></A>
 <DL>
-<DT><U>emacspeak-pronounce-toggle-use-of-dictionaries:</U> <B></B>
+<DT><U>emacspeak-pronounce-toggle-use-of-dictionaries:</U> <B>(&#38;optional</B> <I>STATE)</I>
 <DD>Toggle use of pronunciation dictionaries in current buffer.
 Pronunciations can be dfined on a per file, per directory and/or per
 mode basis.
@@ -6473,7 +6473,7 @@ explicitly turn pronunciations on or off.
 
 <A NAME="IDX306"></A>
 <DL>
-<DT><U>emacspeak-pronounce-yank-word:</U> <B></B>
+<DT><U>emacspeak-pronounce-yank-word:</U> <B>()</B>
 <DD>Yank word at point into minibuffer.
 </DL>
 </P><P>
@@ -6502,21 +6502,21 @@ for commands defined in module  emacspeak-psgml.
 
 <A NAME="IDX307"></A>
 <DL>
-<DT><U>emacspeak-psgml-speak-current-element:</U> <B></B>
+<DT><U>emacspeak-psgml-speak-current-element:</U> <B>()</B>
 <DD>Speak contents of current element. 
 </DL>
 </P><P>
 
 <A NAME="IDX308"></A>
 <DL>
-<DT><U>emacspeak-psgml-summarize-element:</U> <B></B>
+<DT><U>emacspeak-psgml-summarize-element:</U> <B>()</B>
 <DD>Context-sensitive element summarizer.
 </DL>
 </P><P>
 
 <A NAME="IDX309"></A>
 <DL>
-<DT><U>emacspeak-psgml-toggle-interactive-voice-locking:</U> <B></B>
+<DT><U>emacspeak-psgml-toggle-interactive-voice-locking:</U> <B>()</B>
 <DD>Toggles variable sgml-set-face.
 When turned on, the  buffer is voice locked interactively.
 Leave this off in general while editting.
@@ -6525,7 +6525,7 @@ Leave this off in general while editting.
 
 <A NAME="IDX310"></A>
 <DL>
-<DT><U>emacspeak-xml-browse-mode:</U> <B></B>
+<DT><U>emacspeak-xml-browse-mode:</U> <B>()</B>
 <DD>Mode for browsing XML documents.
 </P><P>
 
@@ -6562,14 +6562,14 @@ for commands defined in module  emacspeak-python.
 
 <A NAME="IDX311"></A>
 <DL>
-<DT><U>emacspeak-py-next-block:</U> <B></B>
+<DT><U>emacspeak-py-next-block:</U> <B>()</B>
 <DD>Move forward to the beginning of the next block.
 </DL>
 </P><P>
 
 <A NAME="IDX312"></A>
 <DL>
-<DT><U>emacspeak-py-previous-block:</U> <B></B>
+<DT><U>emacspeak-py-previous-block:</U> <B>()</B>
 <DD>Move backward to the beginning of the current block.
 If already at the beginning then move to previous block.
 </DL>
@@ -6599,7 +6599,7 @@ for commands defined in module  emacspeak-realaudio.
 
 <A NAME="IDX313"></A>
 <DL>
-<DT><U>emacspeak-realaudio:</U> <B></B>
+<DT><U>emacspeak-realaudio:</U> <B>(&#38;optional</B> <I>IGNORED)</I>
 <DD><KBD> control e ; </KBD>
 </P><P>
 
@@ -6632,14 +6632,14 @@ commands via single keystrokes.
 
 <A NAME="IDX314"></A>
 <DL>
-<DT><U>emacspeak-realaudio-browse:</U> <B></B>
+<DT><U>emacspeak-realaudio-browse:</U> <B>(RAMFILE</B> <I>&#38;optional START-TIME)</I>
 <DD>Browse RAM file before playing the selected component.
 </DL>
 </P><P>
 
 <A NAME="IDX315"></A>
 <DL>
-<DT><U>emacspeak-realaudio-mode:</U> <B></B>
+<DT><U>emacspeak-realaudio-mode:</U> <B>()</B>
 <DD>Major mode for streaming audio. 
 </P><P>
 
@@ -6674,7 +6674,7 @@ during initialization.
 
 <A NAME="IDX316"></A>
 <DL>
-<DT><U>emacspeak-realaudio-play:</U> <B></B>
+<DT><U>emacspeak-realaudio-play:</U> <B>(RESOURCE</B> <I>&#38;optional PROMPT-TIME)</I>
 <DD>Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
 user configurable variable
@@ -6684,35 +6684,35 @@ emacspeak-realaudio-shortcuts-directory.
 
 <A NAME="IDX317"></A>
 <DL>
-<DT><U>emacspeak-realaudio-play-url-at-point:</U> <B></B>
+<DT><U>emacspeak-realaudio-play-url-at-point:</U> <B>(&#38;optional</B> <I>PROMPT-TIME)</I>
 <DD>Play url under point as realaudio
 </DL>
 </P><P>
 
 <A NAME="IDX318"></A>
 <DL>
-<DT><U>emacspeak-realaudio-select-realaudio-buffer:</U> <B></B>
+<DT><U>emacspeak-realaudio-select-realaudio-buffer:</U> <B>()</B>
 <DD>Switch to realaudio buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX319"></A>
 <DL>
-<DT><U>emacspeak-realaudio-stop:</U> <B></B>
+<DT><U>emacspeak-realaudio-stop:</U> <B>()</B>
 <DD>Stop playing realaudio
 </DL>
 </P><P>
 
 <A NAME="IDX320"></A>
 <DL>
-<DT><U>emacspeak-realaudio-trplayer-call-command:</U> <B></B>
+<DT><U>emacspeak-realaudio-trplayer-call-command:</U> <B>()</B>
 <DD>Call appropriate TRPlayer command.
 </DL>
 </P><P>
 
 <A NAME="IDX321"></A>
 <DL>
-<DT><U>emacspeak-realaudio-trplayer-command:</U> <B></B>
+<DT><U>emacspeak-realaudio-trplayer-command:</U> <B>(CHAR)</B>
 <DD>Execute TRPlayer command.
 </P><P>
 
@@ -6748,7 +6748,7 @@ for commands defined in module  emacspeak-redefine.
 
 <A NAME="IDX322"></A>
 <DL>
-<DT><U>emacspeak-backward-char:</U> <B></B>
+<DT><U>emacspeak-backward-char:</U> <B>(ARG)</B>
 <DD><KBD> control b   &#60;left&#62; </KBD>
 </P><P>
 
@@ -6758,7 +6758,7 @@ Backward-char redefined to speak char moved to.
 
 <A NAME="IDX323"></A>
 <DL>
-<DT><U>emacspeak-forward-char:</U> <B></B>
+<DT><U>emacspeak-forward-char:</U> <B>(ARG)</B>
 <DD><KBD> control f   &#60;right&#62; </KBD>
 </P><P>
 
@@ -6768,7 +6768,7 @@ Forward-char redefined to speak char moved to.
 
 <A NAME="IDX324"></A>
 <DL>
-<DT><U>emacspeak-kill-buffer:</U> <B></B>
+<DT><U>emacspeak-kill-buffer:</U> <B>(BUFFER)</B>
 <DD><KBD> control x k </KBD>
 </P><P>
 
@@ -6778,7 +6778,7 @@ Speech-enabled version of kill-buffer for Emacs 21.
 
 <A NAME="IDX325"></A>
 <DL>
-<DT><U>emacspeak-self-insert-command:</U> <B></B>
+<DT><U>emacspeak-self-insert-command:</U> <B>(ARG)</B>
 <DD><KBD> Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   &#62;   =   &#60;   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &#38;   %   $   #   !   SPACE </KBD>
 </P><P>
 
@@ -6815,7 +6815,7 @@ for commands defined in module  emacspeak-remote.
 
 <A NAME="IDX326"></A>
 <DL>
-<DT><U>emacspeak-remote-connect-to-server:</U> <B></B>
+<DT><U>emacspeak-remote-connect-to-server:</U> <B>(HOST</B> <I>PORT)</I>
 <DD><KBD> control e meta r </KBD>
 </P><P>
 
@@ -6828,7 +6828,7 @@ host is listening on for speech requests.
 
 <A NAME="IDX327"></A>
 <DL>
-<DT><U>emacspeak-remote-quick-connect-to-server:</U> <B></B>
+<DT><U>emacspeak-remote-quick-connect-to-server:</U> <B>()</B>
 <DD>Connect to remote server.
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
@@ -6860,14 +6860,14 @@ for commands defined in module  emacspeak-rmail.
 
 <A NAME="IDX328"></A>
 <DL>
-<DT><U>emacspeak-rmail-speak-current-message-labels:</U> <B></B>
+<DT><U>emacspeak-rmail-speak-current-message-labels:</U> <B>()</B>
 <DD>Speak labels of current message
 </DL>
 </P><P>
 
 <A NAME="IDX329"></A>
 <DL>
-<DT><U>emacspeak-rmail-summarize-current-message:</U> <B></B>
+<DT><U>emacspeak-rmail-summarize-current-message:</U> <B>()</B>
 <DD>Summarize current message
 </DL>
 </P><P>
@@ -6896,21 +6896,21 @@ for commands defined in module  emacspeak-solitaire.
 
 <A NAME="IDX330"></A>
 <DL>
-<DT><U>emacspeak-solitaire-show-column:</U> <B></B>
+<DT><U>emacspeak-solitaire-show-column:</U> <B>()</B>
 <DD>Display current row auditorallly
 </DL>
 </P><P>
 
 <A NAME="IDX331"></A>
 <DL>
-<DT><U>emacspeak-solitaire-show-row:</U> <B></B>
+<DT><U>emacspeak-solitaire-show-row:</U> <B>()</B>
 <DD>Display current row auditorallly
 </DL>
 </P><P>
 
 <A NAME="IDX332"></A>
 <DL>
-<DT><U>emacspeak-solitaire-speak-coordinates:</U> <B></B>
+<DT><U>emacspeak-solitaire-speak-coordinates:</U> <B>()</B>
 <DD>Speak coordinates of current position
 </DL>
 </P><P>
@@ -6939,14 +6939,14 @@ for commands defined in module  emacspeak-sounds.
 
 <A NAME="IDX333"></A>
 <DL>
-<DT><U>emacspeak-play-all-icons:</U> <B></B>
+<DT><U>emacspeak-play-all-icons:</U> <B>()</B>
 <DD>Plays all defined icons and speaks their names.
 </DL>
 </P><P>
 
 <A NAME="IDX334"></A>
 <DL>
-<DT><U>emacspeak-set-auditory-icon-player:</U> <B></B>
+<DT><U>emacspeak-set-auditory-icon-player:</U> <B>(PLAYER)</B>
 <DD><KBD> control e meta a </KBD>
 </P><P>
 
@@ -6961,7 +6961,7 @@ emacspeak-midi-icon for midi device.
 
 <A NAME="IDX335"></A>
 <DL>
-<DT><U>emacspeak-sounds-reset-local-player:</U> <B></B>
+<DT><U>emacspeak-sounds-reset-local-player:</U> <B>()</B>
 <DD>Ask Emacspeak to use a local audio player.
 This lets me have Emacspeak switch to using audioplay on
 solaris after I've used it for a while from a remote session
@@ -6972,7 +6972,7 @@ audio player.
 
 <A NAME="IDX336"></A>
 <DL>
-<DT><U>emacspeak-sounds-select-theme:</U> <B></B>
+<DT><U>emacspeak-sounds-select-theme:</U> <B>(THEME)</B>
 <DD><KBD> control e ) </KBD>
 </P><P>
 
@@ -6982,7 +6982,7 @@ Select theme for auditory icons.
 
 <A NAME="IDX337"></A>
 <DL>
-<DT><U>emacspeak-toggle-auditory-icons:</U> <B></B>
+<DT><U>emacspeak-toggle-auditory-icons:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e control a </KBD>
 </P><P>
 
@@ -7015,7 +7015,7 @@ for commands defined in module  emacspeak-speak.
 
 <A NAME="IDX338"></A>
 <DL>
-<DT><U>emacspeak-audio-annotate-paragraphs:</U> <B></B>
+<DT><U>emacspeak-audio-annotate-paragraphs:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Set property auditory-icon at front of all paragraphs.
 Interactive PREFIX arg prompts for sound cue to use
 </DL>
@@ -7023,14 +7023,14 @@ Interactive PREFIX arg prompts for sound cue to use
 
 <A NAME="IDX339"></A>
 <DL>
-<DT><U>emacspeak-blink-matching-open:</U> <B></B>
+<DT><U>emacspeak-blink-matching-open:</U> <B>()</B>
 <DD>Display matching delimiter in the minibuffer.
 </DL>
 </P><P>
 
 <A NAME="IDX340"></A>
 <DL>
-<DT><U>emacspeak-completions-move-to-completion-group:</U> <B></B>
+<DT><U>emacspeak-completions-move-to-completion-group:</U> <B>()</B>
 <DD>Move to group of choices beginning with character last
 typed. If no such group exists, then we dont move. 
 </DL>
@@ -7038,7 +7038,7 @@ typed. If no such group exists, then we dont move.
 
 <A NAME="IDX341"></A>
 <DL>
-<DT><U>emacspeak-dial-dtk:</U> <B></B>
+<DT><U>emacspeak-dial-dtk:</U> <B>(NUMBER)</B>
 <DD><KBD> control e d t </KBD>
 </P><P>
 
@@ -7055,7 +7055,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX342"></A>
 <DL>
-<DT><U>emacspeak-dtk-speak-version:</U> <B></B>
+<DT><U>emacspeak-dtk-speak-version:</U> <B>()</B>
 <DD><KBD> control e d  cap V  </KBD>
 </P><P>
 
@@ -7065,7 +7065,7 @@ Use this to find out which version of the Dectalk firmware you are running.
 
 <A NAME="IDX343"></A>
 <DL>
-<DT><U>emacspeak-execute-repeatedly:</U> <B></B>
+<DT><U>emacspeak-execute-repeatedly:</U> <B>(COMMAND)</B>
 <DD>Execute COMMAND repeatedly.
 </P><P>
 
@@ -7079,7 +7079,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX344"></A>
 <DL>
-<DT><U>emacspeak-mark-backward-mark:</U> <B></B>
+<DT><U>emacspeak-mark-backward-mark:</U> <B>()</B>
 <DD><KBD> &#60;control up&#62; </KBD>
 </P><P>
 
@@ -7089,7 +7089,7 @@ Cycle backward through the mark ring.
 
 <A NAME="IDX345"></A>
 <DL>
-<DT><U>emacspeak-mark-forward-mark:</U> <B></B>
+<DT><U>emacspeak-mark-forward-mark:</U> <B>()</B>
 <DD><KBD> &#60;control down&#62; </KBD>
 </P><P>
 
@@ -7099,7 +7099,7 @@ Cycle forward through the mark ring.
 
 <A NAME="IDX346"></A>
 <DL>
-<DT><U>emacspeak-owindow-next-line:</U> <B></B>
+<DT><U>emacspeak-owindow-next-line:</U> <B>(COUNT)</B>
 <DD><KBD> ESCAPE &#60;down&#62; </KBD>
 </P><P>
 
@@ -7110,7 +7110,7 @@ Numeric prefix arg COUNT can specify number of lines to move.
 
 <A NAME="IDX347"></A>
 <DL>
-<DT><U>emacspeak-owindow-previous-line:</U> <B></B>
+<DT><U>emacspeak-owindow-previous-line:</U> <B>(COUNT)</B>
 <DD><KBD> ESCAPE &#60;up&#62; </KBD>
 </P><P>
 
@@ -7121,7 +7121,7 @@ Numeric prefix arg COUNT specifies number of lines to move.
 
 <A NAME="IDX348"></A>
 <DL>
-<DT><U>emacspeak-owindow-scroll-down:</U> <B></B>
+<DT><U>emacspeak-owindow-scroll-down:</U> <B>()</B>
 <DD><KBD> ESCAPE &#60;prior&#62; </KBD>
 </P><P>
 
@@ -7132,7 +7132,7 @@ Speak the window contents after scrolling.
 
 <A NAME="IDX349"></A>
 <DL>
-<DT><U>emacspeak-owindow-scroll-up:</U> <B></B>
+<DT><U>emacspeak-owindow-scroll-up:</U> <B>()</B>
 <DD><KBD> ESCAPE &#60;next&#62; </KBD>
 </P><P>
 
@@ -7143,7 +7143,7 @@ Speak the window contents after scrolling.
 
 <A NAME="IDX350"></A>
 <DL>
-<DT><U>emacspeak-owindow-speak-line:</U> <B></B>
+<DT><U>emacspeak-owindow-speak-line:</U> <B>()</B>
 <DD><KBD> ESCAPE &#60;select&#62; </KBD>
 </P><P>
 
@@ -7153,7 +7153,7 @@ Speak the current line in the other window.
 
 <A NAME="IDX351"></A>
 <DL>
-<DT><U>emacspeak-read-next-line:</U> <B></B>
+<DT><U>emacspeak-read-next-line:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e &#60;down&#62; </KBD>
 </P><P>
 
@@ -7164,7 +7164,7 @@ Default is to read the next line.
 
 <A NAME="IDX352"></A>
 <DL>
-<DT><U>emacspeak-read-next-word:</U> <B></B>
+<DT><U>emacspeak-read-next-word:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. 
 </DL>
@@ -7172,7 +7172,7 @@ Default is to read the next word.
 
 <A NAME="IDX353"></A>
 <DL>
-<DT><U>emacspeak-read-previous-line:</U> <B></B>
+<DT><U>emacspeak-read-previous-line:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e &#60;up&#62; </KBD>
 </P><P>
 
@@ -7183,7 +7183,7 @@ Default is to read the previous line.
 
 <A NAME="IDX354"></A>
 <DL>
-<DT><U>emacspeak-read-previous-word:</U> <B></B>
+<DT><U>emacspeak-read-previous-word:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
 </DL>
@@ -7191,7 +7191,7 @@ Default is to read the previous word.
 
 <A NAME="IDX355"></A>
 <DL>
-<DT><U>emacspeak-speak-and-skip-extent-upto-char:</U> <B></B>
+<DT><U>emacspeak-speak-and-skip-extent-upto-char:</U> <B>(CHAR)</B>
 <DD>Search forward from point until we hit char.
 Speak text between point and the char we hit.
 </P><P>
@@ -7206,14 +7206,14 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX356"></A>
 <DL>
-<DT><U>emacspeak-speak-and-skip-extent-upto-this-char:</U> <B></B>
+<DT><U>emacspeak-speak-and-skip-extent-upto-this-char:</U> <B>()</B>
 <DD>Speak extent delimited by point and last character typed.
 </DL>
 </P><P>
 
 <A NAME="IDX357"></A>
 <DL>
-<DT><U>emacspeak-speak-browse-buffer:</U> <B></B>
+<DT><U>emacspeak-speak-browse-buffer:</U> <B>(&#38;optional</B> <I>DEFINE-PARAGRAPH)</I>
 <DD><KBD> control e , </KBD>
 </P><P>
 
@@ -7227,7 +7227,7 @@ paragraph-separate.
 
 <A NAME="IDX358"></A>
 <DL>
-<DT><U>emacspeak-speak-buffer:</U> <B></B>
+<DT><U>emacspeak-speak-buffer:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e b </KBD>
 </P><P>
 
@@ -7241,7 +7241,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
 <A NAME="IDX359"></A>
 <DL>
-<DT><U>emacspeak-speak-buffer-filename:</U> <B></B>
+<DT><U>emacspeak-speak-buffer-filename:</U> <B>(&#38;optional</B> <I>FILENAME)</I>
 <DD><KBD> control e f </KBD>
 </P><P>
 
@@ -7256,7 +7256,7 @@ The result is put in the kill ring for convenience.
 
 <A NAME="IDX360"></A>
 <DL>
-<DT><U>emacspeak-speak-buffer-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-buffer-interactively:</U> <B>()</B>
 <DD><KBD> control e  cap B  </KBD>
 </P><P>
 
@@ -7269,7 +7269,7 @@ any other key to speak entire buffer.
 
 <A NAME="IDX361"></A>
 <DL>
-<DT><U>emacspeak-speak-char:</U> <B></B>
+<DT><U>emacspeak-speak-char:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e c </KBD>
 </P><P>
 
@@ -7280,14 +7280,14 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 <A NAME="IDX362"></A>
 <DL>
-<DT><U>emacspeak-speak-completions:</U> <B></B>
+<DT><U>emacspeak-speak-completions:</U> <B>()</B>
 <DD>Speak completions  buffer if one present.
 </DL>
 </P><P>
 
 <A NAME="IDX363"></A>
 <DL>
-<DT><U>emacspeak-speak-continuously:</U> <B></B>
+<DT><U>emacspeak-speak-continuously:</U> <B>()</B>
 <DD><KBD> control e RETURN </KBD>
 </P><P>
 
@@ -7303,7 +7303,7 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 
 <A NAME="IDX364"></A>
 <DL>
-<DT><U>emacspeak-speak-current-column:</U> <B></B>
+<DT><U>emacspeak-speak-current-column:</U> <B>()</B>
 <DD><KBD> control e = </KBD>
 </P><P>
 
@@ -7313,7 +7313,7 @@ Speak the current column.
 
 <A NAME="IDX365"></A>
 <DL>
-<DT><U>emacspeak-speak-current-kill:</U> <B></B>
+<DT><U>emacspeak-speak-current-kill:</U> <B>(COUNT)</B>
 <DD><KBD> control e k </KBD>
 </P><P>
 
@@ -7330,7 +7330,7 @@ to command yank.
 
 <A NAME="IDX366"></A>
 <DL>
-<DT><U>emacspeak-speak-current-mark:</U> <B></B>
+<DT><U>emacspeak-speak-current-mark:</U> <B>(COUNT)</B>
 <DD><KBD> control e control @ </KBD>
 </P><P>
 
@@ -7347,7 +7347,7 @@ achieved by a change in voice personality.
 
 <A NAME="IDX367"></A>
 <DL>
-<DT><U>emacspeak-speak-current-percentage:</U> <B></B>
+<DT><U>emacspeak-speak-current-percentage:</U> <B>()</B>
 <DD><KBD> control e % </KBD>
 </P><P>
 
@@ -7357,7 +7357,7 @@ Announce the percentage into the current buffer.
 
 <A NAME="IDX368"></A>
 <DL>
-<DT><U>emacspeak-speak-current-window:</U> <B></B>
+<DT><U>emacspeak-speak-current-window:</U> <B>()</B>
 <DD>Speak contents of current window.
 Speaks entire window irrespective of point.
 </DL>
@@ -7365,7 +7365,7 @@ Speaks entire window irrespective of point.
 
 <A NAME="IDX369"></A>
 <DL>
-<DT><U>emacspeak-speak-display-char:</U> <B></B>
+<DT><U>emacspeak-speak-display-char:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Display char under point using current speech display table.
 Behavior is the same as command `emacspeak-speak-char'
 bound to C-e c
@@ -7376,14 +7376,14 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
 
 <A NAME="IDX370"></A>
 <DL>
-<DT><U>emacspeak-speak-front-of-buffer:</U> <B></B>
+<DT><U>emacspeak-speak-front-of-buffer:</U> <B>()</B>
 <DD>Speak   the buffer from start to   point
 </DL>
 </P><P>
 
 <A NAME="IDX371"></A>
 <DL>
-<DT><U>emacspeak-speak-help:</U> <B></B>
+<DT><U>emacspeak-speak-help:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e h </KBD>
 </P><P>
 
@@ -7395,7 +7395,7 @@ Negative prefix arg speaks from start of buffer to point.
 
 <A NAME="IDX372"></A>
 <DL>
-<DT><U>emacspeak-speak-help-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-help-interactively:</U> <B>()</B>
 <DD>Speak the start of, rest of, or the entire help.
 's' to speak the start.
 'r' to speak the rest.
@@ -7405,7 +7405,7 @@ any other key to speak entire help.
 
 <A NAME="IDX373"></A>
 <DL>
-<DT><U>emacspeak-speak-line:</U> <B></B>
+<DT><U>emacspeak-speak-line:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e l </KBD>
 </P><P>
 
@@ -7425,7 +7425,7 @@ indicated with auditory icon ellipses.
 
 <A NAME="IDX374"></A>
 <DL>
-<DT><U>emacspeak-speak-line-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-line-interactively:</U> <B>()</B>
 <DD><KBD> control e  cap L  </KBD>
 </P><P>
 
@@ -7438,7 +7438,7 @@ any other key to speak entire line.
 
 <A NAME="IDX375"></A>
 <DL>
-<DT><U>emacspeak-speak-line-number:</U> <B></B>
+<DT><U>emacspeak-speak-line-number:</U> <B>()</B>
 <DD><KBD> control e control l </KBD>
 </P><P>
 
@@ -7448,14 +7448,14 @@ Print the current buffer line number and narrowed line number of point.
 
 <A NAME="IDX376"></A>
 <DL>
-<DT><U>emacspeak-speak-line-number-obselete:</U> <B></B>
+<DT><U>emacspeak-speak-line-number-obselete:</U> <B>()</B>
 <DD>Speak the line number of the current line.
 </DL>
 </P><P>
 
 <A NAME="IDX377"></A>
 <DL>
-<DT><U>emacspeak-speak-line-set-column-filter:</U> <B></B>
+<DT><U>emacspeak-speak-line-set-column-filter:</U> <B>(FILTER)</B>
 <DD><KBD> control e | </KBD>
 </P><P>
 
@@ -7474,7 +7474,7 @@ the sense of the filter.
 
 <A NAME="IDX378"></A>
 <DL>
-<DT><U>emacspeak-speak-message-again:</U> <B></B>
+<DT><U>emacspeak-speak-message-again:</U> <B>(&#38;optional</B> <I>FROM-MESSAGE-CACHE)</I>
 <DD><KBD> control e a </KBD>
 </P><P>
 
@@ -7487,7 +7487,7 @@ recent call to function `message'.
 
 <A NAME="IDX379"></A>
 <DL>
-<DT><U>emacspeak-speak-message-at-time:</U> <B></B>
+<DT><U>emacspeak-speak-message-at-time:</U> <B>(TIME</B> <I>MESSAGE)</I>
 <DD><KBD> control e @ </KBD>
 </P><P>
 
@@ -7499,7 +7499,7 @@ See documentation for command run-at-time for details on time-spec.
 
 <A NAME="IDX380"></A>
 <DL>
-<DT><U>emacspeak-speak-minibuffer:</U> <B></B>
+<DT><U>emacspeak-speak-minibuffer:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
@@ -7508,7 +7508,7 @@ Negative prefix arg speaks from start of buffer to point.
 
 <A NAME="IDX381"></A>
 <DL>
-<DT><U>emacspeak-speak-minor-mode-line:</U> <B></B>
+<DT><U>emacspeak-speak-minor-mode-line:</U> <B>()</B>
 <DD><KBD> control e  cap M  </KBD>
 </P><P>
 
@@ -7518,7 +7518,7 @@ Speak the minor mode-information.
 
 <A NAME="IDX382"></A>
 <DL>
-<DT><U>emacspeak-speak-mode-line:</U> <B></B>
+<DT><U>emacspeak-speak-mode-line:</U> <B>()</B>
 <DD><KBD> control e m </KBD>
 </P><P>
 
@@ -7528,7 +7528,7 @@ Speak the mode-line.
 
 <A NAME="IDX383"></A>
 <DL>
-<DT><U>emacspeak-speak-next-field:</U> <B></B>
+<DT><U>emacspeak-speak-next-field:</U> <B>()</B>
 <DD><KBD> control e &#62; </KBD>
 </P><P>
 
@@ -7540,7 +7540,7 @@ Will be improved if it proves useful.
 
 <A NAME="IDX384"></A>
 <DL>
-<DT><U>emacspeak-speak-next-window:</U> <B></B>
+<DT><U>emacspeak-speak-next-window:</U> <B>()</B>
 <DD><KBD> control e control n </KBD>
 </P><P>
 
@@ -7550,7 +7550,7 @@ Speak the next window.
 
 <A NAME="IDX385"></A>
 <DL>
-<DT><U>emacspeak-speak-other-window:</U> <B></B>
+<DT><U>emacspeak-speak-other-window:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Speak contents of `other' window.
 Speaks entire window irrespective of point.
 Semantics  of `other' is the same as for the builtin Emacs command
@@ -7568,7 +7568,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX386"></A>
 <DL>
-<DT><U>emacspeak-speak-page:</U> <B></B>
+<DT><U>emacspeak-speak-page:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e [ </KBD>
 </P><P>
 
@@ -7581,7 +7581,7 @@ If option  `voice-lock-mode' is on, then it will use any defined personality.
 
 <A NAME="IDX387"></A>
 <DL>
-<DT><U>emacspeak-speak-page-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-page-interactively:</U> <B>()</B>
 <DD><KBD> control e ] </KBD>
 </P><P>
 
@@ -7594,7 +7594,7 @@ any other key to speak entire page.
 
 <A NAME="IDX388"></A>
 <DL>
-<DT><U>emacspeak-speak-paragraph:</U> <B></B>
+<DT><U>emacspeak-speak-paragraph:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e { </KBD>
 </P><P>
 
@@ -7607,7 +7607,7 @@ If voice-lock-mode is on, then it will use any defined personality.
 
 <A NAME="IDX389"></A>
 <DL>
-<DT><U>emacspeak-speak-paragraph-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-paragraph-interactively:</U> <B>()</B>
 <DD><KBD> control e  cap P  </KBD>
 </P><P>
 
@@ -7620,7 +7620,7 @@ any other key to speak entire paragraph.
 
 <A NAME="IDX390"></A>
 <DL>
-<DT><U>emacspeak-speak-predefined-window:</U> <B></B>
+<DT><U>emacspeak-speak-predefined-window:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 </KBD>
 </P><P>
 
@@ -7636,7 +7636,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
 
 <A NAME="IDX391"></A>
 <DL>
-<DT><U>emacspeak-speak-previous-field:</U> <B></B>
+<DT><U>emacspeak-speak-previous-field:</U> <B>()</B>
 <DD><KBD> control e &#60; </KBD>
 </P><P>
 
@@ -7648,7 +7648,7 @@ Will be improved if it proves useful.
 
 <A NAME="IDX392"></A>
 <DL>
-<DT><U>emacspeak-speak-previous-window:</U> <B></B>
+<DT><U>emacspeak-speak-previous-window:</U> <B>()</B>
 <DD><KBD> control e control p </KBD>
 </P><P>
 
@@ -7658,7 +7658,7 @@ Speak the previous window.
 
 <A NAME="IDX393"></A>
 <DL>
-<DT><U>emacspeak-speak-rectangle:</U> <B></B>
+<DT><U>emacspeak-speak-rectangle:</U> <B>(START</B> <I>END)</I>
 <DD><KBD> control e  cap R  </KBD>
 </P><P>
 
@@ -7671,7 +7671,7 @@ arguments specify the START and END of the rectangle.
 
 <A NAME="IDX394"></A>
 <DL>
-<DT><U>emacspeak-speak-region:</U> <B></B>
+<DT><U>emacspeak-speak-region:</U> <B>(START</B> <I>END)</I>
 <DD><KBD> control e r </KBD>
 </P><P>
 
@@ -7682,7 +7682,7 @@ Argument START  and END specify region to speak.
 
 <A NAME="IDX395"></A>
 <DL>
-<DT><U>emacspeak-speak-rest-of-buffer:</U> <B></B>
+<DT><U>emacspeak-speak-rest-of-buffer:</U> <B>()</B>
 <DD><KBD> control e n </KBD>
 </P><P>
 
@@ -7692,7 +7692,7 @@ Speak remainder of the buffer starting at point
 
 <A NAME="IDX396"></A>
 <DL>
-<DT><U>emacspeak-speak-sentence:</U> <B></B>
+<DT><U>emacspeak-speak-sentence:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point.
@@ -7701,7 +7701,7 @@ Negative prefix arg speaks from start of sentence to point.
 
 <A NAME="IDX397"></A>
 <DL>
-<DT><U>emacspeak-speak-set-display-table:</U> <B></B>
+<DT><U>emacspeak-speak-set-display-table:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
@@ -7710,7 +7710,7 @@ setting to be global.
 
 <A NAME="IDX398"></A>
 <DL>
-<DT><U>emacspeak-speak-sexp:</U> <B></B>
+<DT><U>emacspeak-speak-sexp:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e ' </KBD>
 </P><P>
 
@@ -7723,7 +7723,7 @@ If option  `voice-lock-mode' is on, then uses the personality.
 
 <A NAME="IDX399"></A>
 <DL>
-<DT><U>emacspeak-speak-sexp-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-sexp-interactively:</U> <B>()</B>
 <DD><KBD> control e " </KBD>
 </P><P>
 
@@ -7736,21 +7736,21 @@ any other key to speak entire sexp.
 
 <A NAME="IDX400"></A>
 <DL>
-<DT><U>emacspeak-speak-skim-buffer:</U> <B></B>
+<DT><U>emacspeak-speak-skim-buffer:</U> <B>()</B>
 <DD>Skim the current buffer  a paragraph at a time.
 </DL>
 </P><P>
 
 <A NAME="IDX401"></A>
 <DL>
-<DT><U>emacspeak-speak-skim-next-paragraph:</U> <B></B>
+<DT><U>emacspeak-speak-skim-next-paragraph:</U> <B>()</B>
 <DD>Skim next paragraph.
 </DL>
 </P><P>
 
 <A NAME="IDX402"></A>
 <DL>
-<DT><U>emacspeak-speak-skim-paragraph:</U> <B></B>
+<DT><U>emacspeak-speak-skim-paragraph:</U> <B>()</B>
 <DD>Skim paragraph.
 Skimming a paragraph results in the speech speeding up after
 the first clause.
@@ -7760,7 +7760,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 <A NAME="IDX403"></A>
 <DL>
-<DT><U>emacspeak-speak-spaces-at-point:</U> <B></B>
+<DT><U>emacspeak-speak-spaces-at-point:</U> <B>()</B>
 <DD><KBD> control e CONTROL meta @ </KBD>
 </P><P>
 
@@ -7770,7 +7770,7 @@ Speak the white space at point.
 
 <A NAME="IDX404"></A>
 <DL>
-<DT><U>emacspeak-speak-spell-current-word:</U> <B></B>
+<DT><U>emacspeak-speak-spell-current-word:</U> <B>()</B>
 <DD><KBD> control e  cap W  </KBD>
 </P><P>
 
@@ -7780,7 +7780,7 @@ Spell word at  point.
 
 <A NAME="IDX405"></A>
 <DL>
-<DT><U>emacspeak-speak-time:</U> <B></B>
+<DT><U>emacspeak-speak-time:</U> <B>()</B>
 <DD><KBD> control e t </KBD>
 </P><P>
 
@@ -7790,7 +7790,7 @@ Speak the time.
 
 <A NAME="IDX406"></A>
 <DL>
-<DT><U>emacspeak-speak-version:</U> <B></B>
+<DT><U>emacspeak-speak-version:</U> <B>()</B>
 <DD><KBD> control e  cap V  </KBD>
 </P><P>
 
@@ -7800,7 +7800,7 @@ Announce version information for running emacspeak.
 
 <A NAME="IDX407"></A>
 <DL>
-<DT><U>emacspeak-speak-voice-annotate-paragraphs:</U> <B></B>
+<DT><U>emacspeak-speak-voice-annotate-paragraphs:</U> <B>()</B>
 <DD>Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceeded by a blank line.
 Useful to do this before you listen to an entire buffer.
@@ -7809,7 +7809,7 @@ Useful to do this before you listen to an entire buffer.
 
 <A NAME="IDX408"></A>
 <DL>
-<DT><U>emacspeak-speak-window-information:</U> <B></B>
+<DT><U>emacspeak-speak-window-information:</U> <B>()</B>
 <DD><KBD> control e control w </KBD>
 </P><P>
 
@@ -7819,7 +7819,7 @@ Speaks information about current window.
 
 <A NAME="IDX409"></A>
 <DL>
-<DT><U>emacspeak-speak-word:</U> <B></B>
+<DT><U>emacspeak-speak-word:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e w </KBD>
 </P><P>
 
@@ -7833,7 +7833,7 @@ spelt instead of being spoken.
 
 <A NAME="IDX410"></A>
 <DL>
-<DT><U>emacspeak-speak-word-interactively:</U> <B></B>
+<DT><U>emacspeak-speak-word-interactively:</U> <B>()</B>
 <DD>Speak the start of, rest of, or the entire word.
 's' to speak the start.
 'r' to speak the rest.
@@ -7843,7 +7843,7 @@ any other key to speak entire word.
 
 <A NAME="IDX411"></A>
 <DL>
-<DT><U>emacspeak-switch-to-completions-window:</U> <B></B>
+<DT><U>emacspeak-switch-to-completions-window:</U> <B>()</B>
 <DD>Jump to the *Completions* buffer if it is active.
 We make the current minibuffer contents (which is obviously the
 prefix for each entry in the completions buffer) inaudible
@@ -7853,7 +7853,7 @@ to reduce chatter.
 
 <A NAME="IDX412"></A>
 <DL>
-<DT><U>emacspeak-toggle-action-mode:</U> <B></B>
+<DT><U>emacspeak-toggle-action-mode:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
@@ -7862,7 +7862,7 @@ current local  value to the result.
 
 <A NAME="IDX413"></A>
 <DL>
-<DT><U>emacspeak-toggle-audio-indentation:</U> <B></B>
+<DT><U>emacspeak-toggle-audio-indentation:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d i </KBD>
 </P><P>
 
@@ -7878,7 +7878,7 @@ results in the number of initial spaces being spoken.
 
 <A NAME="IDX414"></A>
 <DL>
-<DT><U>emacspeak-toggle-character-echo:</U> <B></B>
+<DT><U>emacspeak-toggle-character-echo:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d k </KBD>
 </P><P>
 
@@ -7890,7 +7890,7 @@ current local  value to the result.
 
 <A NAME="IDX415"></A>
 <DL>
-<DT><U>emacspeak-toggle-comint-autospeak:</U> <B></B>
+<DT><U>emacspeak-toggle-comint-autospeak:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e control q </KBD>
 </P><P>
 
@@ -7904,7 +7904,7 @@ set the current local value to the result.
 
 <A NAME="IDX416"></A>
 <DL>
-<DT><U>emacspeak-toggle-comint-output-monitor:</U> <B></B>
+<DT><U>emacspeak-toggle-comint-output-monitor:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e o </KBD>
 </P><P>
 
@@ -7918,7 +7918,7 @@ set the current local value to the result.
 
 <A NAME="IDX417"></A>
 <DL>
-<DT><U>emacspeak-toggle-line-echo:</U> <B></B>
+<DT><U>emacspeak-toggle-line-echo:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d l </KBD>
 </P><P>
 
@@ -7930,7 +7930,7 @@ current local  value to the result.
 
 <A NAME="IDX418"></A>
 <DL>
-<DT><U>emacspeak-toggle-mail-alert:</U> <B></B>
+<DT><U>emacspeak-toggle-mail-alert:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e meta m </KBD>
 </P><P>
 
@@ -7944,7 +7944,7 @@ indicating the arrival  of new mail when displaying the mode line.
 
 <A NAME="IDX419"></A>
 <DL>
-<DT><U>emacspeak-toggle-show-point:</U> <B></B>
+<DT><U>emacspeak-toggle-show-point:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e control d </KBD>
 </P><P>
 
@@ -7956,7 +7956,7 @@ current local  value to the result.
 
 <A NAME="IDX420"></A>
 <DL>
-<DT><U>emacspeak-toggle-speak-line-invert-filter:</U> <B></B>
+<DT><U>emacspeak-toggle-speak-line-invert-filter:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e \ </KBD>
 </P><P>
 
@@ -7968,7 +7968,7 @@ current local  value to the result.
 
 <A NAME="IDX421"></A>
 <DL>
-<DT><U>emacspeak-toggle-speak-messages:</U> <B></B>
+<DT><U>emacspeak-toggle-speak-messages:</U> <B>()</B>
 <DD><KBD> control e q </KBD>
 </P><P>
 
@@ -7978,7 +7978,7 @@ Toggle the state of whether emacspeak echoes messages.
 
 <A NAME="IDX422"></A>
 <DL>
-<DT><U>emacspeak-toggle-which-function:</U> <B></B>
+<DT><U>emacspeak-toggle-which-function:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e meta w </KBD>
 </P><P>
 
@@ -7990,7 +7990,7 @@ current local  value to the result.
 
 <A NAME="IDX423"></A>
 <DL>
-<DT><U>emacspeak-toggle-word-echo:</U> <B></B>
+<DT><U>emacspeak-toggle-word-echo:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e d w </KBD>
 </P><P>
 
@@ -8002,7 +8002,7 @@ current local  value to the result.
 
 <A NAME="IDX424"></A>
 <DL>
-<DT><U>emacspeak-use-customized-blink-paren:</U> <B></B>
+<DT><U>emacspeak-use-customized-blink-paren:</U> <B>()</B>
 <DD>A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs
 is anal and loads its own builtin blink-paren function
@@ -8012,7 +8012,7 @@ which does not talk.
 
 <A NAME="IDX425"></A>
 <DL>
-<DT><U>emacspeak-view-register:</U> <B></B>
+<DT><U>emacspeak-view-register:</U> <B>()</B>
 <DD><KBD> control e v </KBD>
 </P><P>
 
@@ -8022,7 +8022,7 @@ Display the contents of a register, and then speak it.
 
 <A NAME="IDX426"></A>
 <DL>
-<DT><U>emacspeak-voicify-rectangle:</U> <B></B>
+<DT><U>emacspeak-voicify-rectangle:</U> <B>(START</B> <I>END &#38;optional PERSONALITY)</I>
 <DD>Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
@@ -8032,7 +8032,7 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 <A NAME="IDX427"></A>
 <DL>
-<DT><U>emacspeak-voicify-region:</U> <B></B>
+<DT><U>emacspeak-voicify-region:</U> <B>(START</B> <I>END &#38;optional PERSONALITY)</I>
 <DD>Voicify the current region.
 When calling from a program,arguments are
 START END personality.
@@ -8042,7 +8042,7 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 <A NAME="IDX428"></A>
 <DL>
-<DT><U>emacspeak-zap-tts:</U> <B></B>
+<DT><U>emacspeak-zap-tts:</U> <B>()</B>
 <DD><KBD> control e d z </KBD>
 </P><P>
 
@@ -8074,14 +8074,14 @@ for commands defined in module  emacspeak-speedbar.
 
 <A NAME="IDX429"></A>
 <DL>
-<DT><U>emacspeak-speedbar-click:</U> <B></B>
+<DT><U>emacspeak-speedbar-click:</U> <B>()</B>
 <DD>Does the equivalent of the mouse click from the keyboard
 </DL>
 </P><P>
 
 <A NAME="IDX430"></A>
 <DL>
-<DT><U>emacspeak-speedbar-goto-speedbar:</U> <B></B>
+<DT><U>emacspeak-speedbar-goto-speedbar:</U> <B>()</B>
 <DD>Switch to the speedbar
 </DL>
 </P><P>
@@ -8110,7 +8110,7 @@ for commands defined in module  emacspeak-table-ui.
 
 <A NAME="IDX431"></A>
 <DL>
-<DT><U>emacspeak-table-copy-current-element-to-register:</U> <B></B>
+<DT><U>emacspeak-table-copy-current-element-to-register:</U> <B>(REGISTER)</B>
 <DD>Speak current table element
 </P><P>
 
@@ -8124,7 +8124,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX432"></A>
 <DL>
-<DT><U>emacspeak-table-copy-to-clipboard:</U> <B></B>
+<DT><U>emacspeak-table-copy-to-clipboard:</U> <B>()</B>
 <DD>Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode.
 </DL>
@@ -8132,7 +8132,7 @@ Current buffer must be in emacspeak-table mode.
 
 <A NAME="IDX433"></A>
 <DL>
-<DT><U>emacspeak-table-display-table-in-region:</U> <B></B>
+<DT><U>emacspeak-table-display-table-in-region:</U> <B>(START</B> <I>END)</I>
 <DD><KBD> control e TAB </KBD>
 </P><P>
 
@@ -8150,7 +8150,7 @@ the documentation on the table browser.
 
 <A NAME="IDX434"></A>
 <DL>
-<DT><U>emacspeak-table-find-csv-file:</U> <B></B>
+<DT><U>emacspeak-table-find-csv-file:</U> <B>(FILENAME)</B>
 <DD>Process a csv (comma separated values) file. 
 The processed  data and presented using emacspeak table navigation. 
 </P><P>
@@ -8165,7 +8165,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX435"></A>
 <DL>
-<DT><U>emacspeak-table-find-file:</U> <B></B>
+<DT><U>emacspeak-table-find-file:</U> <B>(FILENAME)</B>
 <DD><KBD> control e control t </KBD>
 </P><P>
 
@@ -8189,14 +8189,14 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX436"></A>
 <DL>
-<DT><U>emacspeak-table-get-entry-with-headers:</U> <B></B>
+<DT><U>emacspeak-table-get-entry-with-headers:</U> <B>(ROW</B> <I>COLUMN &#38;optional ROW-HEAD-P COL-HEAD-P)</I>
 <DD>Return   both row and column header and table element
 </DL>
 </P><P>
 
 <A NAME="IDX437"></A>
 <DL>
-<DT><U>emacspeak-table-goto:</U> <B></B>
+<DT><U>emacspeak-table-goto:</U> <B>(ROW</B> <I>COLUMN)</I>
 <DD>Prompt for a table cell coordinates and jump to it.
 </P><P>
 
@@ -8210,49 +8210,49 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX438"></A>
 <DL>
-<DT><U>emacspeak-table-goto-bottom:</U> <B></B>
+<DT><U>emacspeak-table-goto-bottom:</U> <B>()</B>
 <DD>Goes to the bottom of the current column.
 </DL>
 </P><P>
 
 <A NAME="IDX439"></A>
 <DL>
-<DT><U>emacspeak-table-goto-left:</U> <B></B>
+<DT><U>emacspeak-table-goto-left:</U> <B>()</B>
 <DD>Goes to the left of the current row.
 </DL>
 </P><P>
 
 <A NAME="IDX440"></A>
 <DL>
-<DT><U>emacspeak-table-goto-right:</U> <B></B>
+<DT><U>emacspeak-table-goto-right:</U> <B>()</B>
 <DD>Goes to the right of the current row.
 </DL>
 </P><P>
 
 <A NAME="IDX441"></A>
 <DL>
-<DT><U>emacspeak-table-goto-top:</U> <B></B>
+<DT><U>emacspeak-table-goto-top:</U> <B>()</B>
 <DD>Goes to the top of the current column.
 </DL>
 </P><P>
 
 <A NAME="IDX442"></A>
 <DL>
-<DT><U>emacspeak-table-next-column:</U> <B></B>
+<DT><U>emacspeak-table-next-column:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move to the next column if possible
 </DL>
 </P><P>
 
 <A NAME="IDX443"></A>
 <DL>
-<DT><U>emacspeak-table-next-row:</U> <B></B>
+<DT><U>emacspeak-table-next-row:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move to the next row if possible
 </DL>
 </P><P>
 
 <A NAME="IDX444"></A>
 <DL>
-<DT><U>emacspeak-table-paste-from-clipboard:</U> <B></B>
+<DT><U>emacspeak-table-paste-from-clipboard:</U> <B>()</B>
 <DD>Paste the emacspeak table clipboard into the current buffer.
 Use the major  mode of this buffer to  decide what kind of table
 markup to use.
@@ -8261,21 +8261,21 @@ markup to use.
 
 <A NAME="IDX445"></A>
 <DL>
-<DT><U>emacspeak-table-previous-column:</U> <B></B>
+<DT><U>emacspeak-table-previous-column:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move to the previous column  if possible
 </DL>
 </P><P>
 
 <A NAME="IDX446"></A>
 <DL>
-<DT><U>emacspeak-table-previous-row:</U> <B></B>
+<DT><U>emacspeak-table-previous-row:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move to the previous row if possible
 </DL>
 </P><P>
 
 <A NAME="IDX447"></A>
 <DL>
-<DT><U>emacspeak-table-search:</U> <B></B>
+<DT><U>emacspeak-table-search:</U> <B>()</B>
 <DD>Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current.
@@ -8284,7 +8284,7 @@ the matching cell current.
 
 <A NAME="IDX448"></A>
 <DL>
-<DT><U>emacspeak-table-search-headers:</U> <B></B>
+<DT><U>emacspeak-table-search-headers:</U> <B>()</B>
 <DD>Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current.
@@ -8293,7 +8293,7 @@ match, makes the matching row or column current.
 
 <A NAME="IDX449"></A>
 <DL>
-<DT><U>emacspeak-table-select-automatic-speaking-method:</U> <B></B>
+<DT><U>emacspeak-table-select-automatic-speaking-method:</U> <B>()</B>
 <DD>Interactively select the kind of automatic speech to produce when
 browsing table elements
 </DL>
@@ -8301,21 +8301,21 @@ browsing table elements
 
 <A NAME="IDX450"></A>
 <DL>
-<DT><U>emacspeak-table-sort-on-current-column:</U> <B></B>
+<DT><U>emacspeak-table-sort-on-current-column:</U> <B>()</B>
 <DD>Sort table on current column. 
 </DL>
 </P><P>
 
 <A NAME="IDX451"></A>
 <DL>
-<DT><U>emacspeak-table-speak-both-headers-and-element:</U> <B></B>
+<DT><U>emacspeak-table-speak-both-headers-and-element:</U> <B>()</B>
 <DD>Speak  both row and column header and table element
 </DL>
 </P><P>
 
 <A NAME="IDX452"></A>
 <DL>
-<DT><U>emacspeak-table-speak-column-filtered:</U> <B></B>
+<DT><U>emacspeak-table-speak-column-filtered:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
 </DL>
@@ -8323,35 +8323,35 @@ Optional prefix arg prompts for a new filter.
 
 <A NAME="IDX453"></A>
 <DL>
-<DT><U>emacspeak-table-speak-column-header-and-element:</U> <B></B>
+<DT><U>emacspeak-table-speak-column-header-and-element:</U> <B>()</B>
 <DD>Speak  column header and table element
 </DL>
 </P><P>
 
 <A NAME="IDX454"></A>
 <DL>
-<DT><U>emacspeak-table-speak-coordinates:</U> <B></B>
+<DT><U>emacspeak-table-speak-coordinates:</U> <B>()</B>
 <DD>Speak current table coordinates.
 </DL>
 </P><P>
 
 <A NAME="IDX455"></A>
 <DL>
-<DT><U>emacspeak-table-speak-current-element:</U> <B></B>
+<DT><U>emacspeak-table-speak-current-element:</U> <B>()</B>
 <DD>Speak current table element
 </DL>
 </P><P>
 
 <A NAME="IDX456"></A>
 <DL>
-<DT><U>emacspeak-table-speak-dimensions:</U> <B></B>
+<DT><U>emacspeak-table-speak-dimensions:</U> <B>()</B>
 <DD>Speak current table dimensions.
 </DL>
 </P><P>
 
 <A NAME="IDX457"></A>
 <DL>
-<DT><U>emacspeak-table-speak-row-filtered:</U> <B></B>
+<DT><U>emacspeak-table-speak-row-filtered:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
 </DL>
@@ -8359,28 +8359,28 @@ Optional prefix arg prompts for a new filter.
 
 <A NAME="IDX458"></A>
 <DL>
-<DT><U>emacspeak-table-speak-row-header-and-element:</U> <B></B>
+<DT><U>emacspeak-table-speak-row-header-and-element:</U> <B>()</B>
 <DD>Speak  row header and table element
 </DL>
 </P><P>
 
 <A NAME="IDX459"></A>
 <DL>
-<DT><U>emacspeak-table-ui-filter-load:</U> <B></B>
+<DT><U>emacspeak-table-ui-filter-load:</U> <B>(FILE)</B>
 <DD>Load saved filter settings.
 </DL>
 </P><P>
 
 <A NAME="IDX460"></A>
 <DL>
-<DT><U>emacspeak-table-ui-filter-save:</U> <B></B>
+<DT><U>emacspeak-table-ui-filter-save:</U> <B>(FILE)</B>
 <DD>Save out filter settings.
 </DL>
 </P><P>
 
 <A NAME="IDX461"></A>
 <DL>
-<DT><U>emacspeak-table-view-csv-buffer:</U> <B></B>
+<DT><U>emacspeak-table-view-csv-buffer:</U> <B>(&#38;optional</B> <I>BUFFER-NAME)</I>
 <DD>Process a csv (comma separated values) data. 
 The processed  data and presented using emacspeak table
 navigation. 
@@ -8411,7 +8411,7 @@ for commands defined in module  emacspeak-tabulate.
 
 <A NAME="IDX462"></A>
 <DL>
-<DT><U>emacspeak-tabulate-region:</U> <B></B>
+<DT><U>emacspeak-tabulate-region:</U> <B>(START</B> <I>END &#38;optional MARK-FIELDS)</I>
 <DD><KBD> control e i </KBD>
 </P><P>
 
@@ -8445,7 +8445,7 @@ for commands defined in module  emacspeak-tapestry.
 
 <A NAME="IDX463"></A>
 <DL>
-<DT><U>emacspeak-tapestry-describe-tapestry:</U> <B></B>
+<DT><U>emacspeak-tapestry-describe-tapestry:</U> <B>()</B>
 <DD><KBD> control e meta t </KBD>
 </P><P>
 
@@ -8477,21 +8477,21 @@ for commands defined in module  emacspeak-tar.
 
 <A NAME="IDX464"></A>
 <DL>
-<DT><U>emacspeak-tar-speak-file-date:</U> <B></B>
+<DT><U>emacspeak-tar-speak-file-date:</U> <B>()</B>
 <DD>Speak date of file current entry 
 </DL>
 </P><P>
 
 <A NAME="IDX465"></A>
 <DL>
-<DT><U>emacspeak-tar-speak-file-permissions:</U> <B></B>
+<DT><U>emacspeak-tar-speak-file-permissions:</U> <B>()</B>
 <DD>Speak permissions of file current entry 
 </DL>
 </P><P>
 
 <A NAME="IDX466"></A>
 <DL>
-<DT><U>emacspeak-tar-speak-file-size:</U> <B></B>
+<DT><U>emacspeak-tar-speak-file-size:</U> <B>()</B>
 <DD>Speak size of file current entry 
 </DL>
 </P><P>
@@ -8520,77 +8520,77 @@ for commands defined in module  emacspeak-tetris.
 
 <A NAME="IDX467"></A>
 <DL>
-<DT><U>emacspeak-tetris-goto-bottom-row:</U> <B></B>
+<DT><U>emacspeak-tetris-goto-bottom-row:</U> <B>()</B>
 <DD>Move to and speak bottom row
 </DL>
 </P><P>
 
 <A NAME="IDX468"></A>
 <DL>
-<DT><U>emacspeak-tetris-goto-top-row:</U> <B></B>
+<DT><U>emacspeak-tetris-goto-top-row:</U> <B>()</B>
 <DD>Move to and speak the top row
 </DL>
 </P><P>
 
 <A NAME="IDX469"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-column:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-column:</U> <B>(&#38;optional</B> <I>X)</I>
 <DD>Speak  column --default is to speak current column
 </DL>
 </P><P>
 
 <A NAME="IDX470"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-coordinates:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-coordinates:</U> <B>()</B>
 <DD>Speak current position
 </DL>
 </P><P>
 
 <A NAME="IDX471"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-current-shape:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-current-shape:</U> <B>()</B>
 <DD>Speak current shape
 </DL>
 </P><P>
 
 <A NAME="IDX472"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-current-shape-and-coordinates:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-current-shape-and-coordinates:</U> <B>()</B>
 <DD>Speak shape orientation and coordinates
 </DL>
 </P><P>
 
 <A NAME="IDX473"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-next-shape:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-next-shape:</U> <B>()</B>
 <DD>Speak next shape
 </DL>
 </P><P>
 
 <A NAME="IDX474"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-row:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-row:</U> <B>()</B>
 <DD>Speak current tetris row
 </DL>
 </P><P>
 
 <A NAME="IDX475"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-row-number:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-row-number:</U> <B>()</B>
 <DD>Speak where on the tetris board we are
 </DL>
 </P><P>
 
 <A NAME="IDX476"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-score:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-score:</U> <B>()</B>
 <DD>Speak the score
 </DL>
 </P><P>
 
 <A NAME="IDX477"></A>
 <DL>
-<DT><U>emacspeak-tetris-speak-x-coordinate:</U> <B></B>
+<DT><U>emacspeak-tetris-speak-x-coordinate:</U> <B>()</B>
 <DD>Speak current position
 </DL>
 </P><P>
@@ -8619,7 +8619,7 @@ for commands defined in module  emacspeak-tnt.
 
 <A NAME="IDX478"></A>
 <DL>
-<DT><U>emacspeak-tnt-toggle-autospeak:</U> <B></B>
+<DT><U>emacspeak-tnt-toggle-autospeak:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD>Toggle TNT autospeak for this chat session.
 </DL>
 </P><P>
@@ -8648,7 +8648,7 @@ for commands defined in module  emacspeak-url-template.
 
 <A NAME="IDX479"></A>
 <DL>
-<DT><U>emacspeak-url-template-fetch:</U> <B></B>
+<DT><U>emacspeak-url-template-fetch:</U> <B>(&#38;optional</B> <I>DOCUMENTATION)</I>
 <DD><KBD> control e u </KBD>
 </P><P>
 
@@ -8662,7 +8662,7 @@ Optional interactive prefix arg displays documentation for specified resource.
 
 <A NAME="IDX480"></A>
 <DL>
-<DT><U>emacspeak-url-template-help:</U> <B></B>
+<DT><U>emacspeak-url-template-help:</U> <B>()</B>
 <DD>Display documentation for  a URL template.
 Use Emacs completion to obtain a list of available
 resources.
@@ -8671,14 +8671,14 @@ resources.
 
 <A NAME="IDX481"></A>
 <DL>
-<DT><U>emacspeak-url-template-load:</U> <B></B>
+<DT><U>emacspeak-url-template-load:</U> <B>(FILE)</B>
 <DD>Load URL template resources from specified location.
 </DL>
 </P><P>
 
 <A NAME="IDX482"></A>
 <DL>
-<DT><U>emacspeak-url-template-save:</U> <B></B>
+<DT><U>emacspeak-url-template-save:</U> <B>(FILE)</B>
 <DD>Save out url templates.
 </DL>
 </P><P>
@@ -8707,7 +8707,7 @@ for commands defined in module  emacspeak-view.
 
 <A NAME="IDX483"></A>
 <DL>
-<DT><U>emacspeak-view-line-to-top:</U> <B></B>
+<DT><U>emacspeak-view-line-to-top:</U> <B>()</B>
 <DD>Moves current line to top of window
 </DL>
 </P><P>
@@ -8736,14 +8736,14 @@ for commands defined in module  emacspeak-view-process.
 
 <A NAME="IDX484"></A>
 <DL>
-<DT><U>emacspeak-view-process-goto-current-field-next-line:</U> <B></B>
+<DT><U>emacspeak-view-process-goto-current-field-next-line:</U> <B>()</B>
 <DD>Set point to the current field in the next line.
 </DL>
 </P><P>
 
 <A NAME="IDX485"></A>
 <DL>
-<DT><U>emacspeak-view-process-speak-current-field:</U> <B></B>
+<DT><U>emacspeak-view-process-speak-current-field:</U> <B>()</B>
 <DD>Speak current field
 </DL>
 </P><P>
@@ -8772,21 +8772,21 @@ for commands defined in module  emacspeak-vm.
 
 <A NAME="IDX486"></A>
 <DL>
-<DT><U>emacspeak-vm-browse-message:</U> <B></B>
+<DT><U>emacspeak-vm-browse-message:</U> <B>()</B>
 <DD>Browse an email message --read it paragraph at a time. 
 </DL>
 </P><P>
 
 <A NAME="IDX487"></A>
 <DL>
-<DT><U>emacspeak-vm-catch-up-all-messages:</U> <B></B>
+<DT><U>emacspeak-vm-catch-up-all-messages:</U> <B>()</B>
 <DD>Mark all messages in folder to be deleted. Use with caution.
 </DL>
 </P><P>
 
 <A NAME="IDX488"></A>
 <DL>
-<DT><U>emacspeak-vm-locate-subject-line:</U> <B></B>
+<DT><U>emacspeak-vm-locate-subject-line:</U> <B>()</B>
 <DD>Locates the subject line in a message being read.
 Useful when you're reading a message
 that has been forwarded multiple times.
@@ -8795,14 +8795,14 @@ that has been forwarded multiple times.
 
 <A NAME="IDX489"></A>
 <DL>
-<DT><U>emacspeak-vm-mode-line:</U> <B></B>
+<DT><U>emacspeak-vm-mode-line:</U> <B>()</B>
 <DD>VM mode line information. 
 </DL>
 </P><P>
 
 <A NAME="IDX490"></A>
 <DL>
-<DT><U>emacspeak-vm-next-button:</U> <B></B>
+<DT><U>emacspeak-vm-next-button:</U> <B>(N)</B>
 <DD>Move point to N buttons forward.
 If N is negative, move backward instead.
 </DL>
@@ -8810,7 +8810,7 @@ If N is negative, move backward instead.
 
 <A NAME="IDX491"></A>
 <DL>
-<DT><U>emacspeak-vm-speak-labels:</U> <B></B>
+<DT><U>emacspeak-vm-speak-labels:</U> <B>()</B>
 <DD>Speak a message's labels
 </DL>
 </P><P>
@@ -8839,21 +8839,21 @@ for commands defined in module  emacspeak-w3.
 
 <A NAME="IDX492"></A>
 <DL>
-<DT><U>emacspeak-w3-browse-link-with-style:</U> <B></B>
+<DT><U>emacspeak-w3-browse-link-with-style:</U> <B>(STYLE)</B>
 <DD>Browse link with specified XSL style.
 </DL>
 </P><P>
 
 <A NAME="IDX493"></A>
 <DL>
-<DT><U>emacspeak-w3-do-onclick:</U> <B></B>
+<DT><U>emacspeak-w3-do-onclick:</U> <B>()</B>
 <DD>Do  onclick action.
 </DL>
 </P><P>
 
 <A NAME="IDX494"></A>
 <DL>
-<DT><U>emacspeak-w3-extract-by-class:</U> <B></B>
+<DT><U>emacspeak-w3-extract-by-class:</U> <B>(CLASS</B> <I>&#38;optional PROMPT)</I>
 <DD>Extract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
@@ -8866,14 +8866,14 @@ minibuffer.
 
 <A NAME="IDX495"></A>
 <DL>
-<DT><U>emacspeak-w3-extract-node-by-id:</U> <B></B>
+<DT><U>emacspeak-w3-extract-node-by-id:</U> <B>(URL</B> <I>NODE-ID)</I>
 <DD>Extract specified node from URI.
 </DL>
 </P><P>
 
 <A NAME="IDX496"></A>
 <DL>
-<DT><U>emacspeak-w3-extract-table:</U> <B></B>
+<DT><U>emacspeak-w3-extract-table:</U> <B>(TABLE-INDEX</B> <I>&#38;optional PROMPT)</I>
 <DD>Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. 
@@ -8882,14 +8882,14 @@ Optional arg url specifies the page to extract table from.
 
 <A NAME="IDX497"></A>
 <DL>
-<DT><U>emacspeak-w3-google-similar-to-this-page:</U> <B></B>
+<DT><U>emacspeak-w3-google-similar-to-this-page:</U> <B>()</B>
 <DD>Ask Google to find documents similar to this one.
 </DL>
 </P><P>
 
 <A NAME="IDX498"></A>
 <DL>
-<DT><U>emacspeak-w3-google-who-links-to-this-page:</U> <B></B>
+<DT><U>emacspeak-w3-google-who-links-to-this-page:</U> <B>()</B>
 <DD>Perform a google search to locate documents that link to the
 current page.
 </DL>
@@ -8897,28 +8897,28 @@ current page.
 
 <A NAME="IDX499"></A>
 <DL>
-<DT><U>emacspeak-w3-javascript-follow-link:</U> <B></B>
+<DT><U>emacspeak-w3-javascript-follow-link:</U> <B>()</B>
 <DD>Follow URL hidden inside a javascript link
 </DL>
 </P><P>
 
 <A NAME="IDX500"></A>
 <DL>
-<DT><U>emacspeak-w3-jump-to-submit:</U> <B></B>
+<DT><U>emacspeak-w3-jump-to-submit:</U> <B>()</B>
 <DD>Jump to next available submit button.
 </DL>
 </P><P>
 
 <A NAME="IDX501"></A>
 <DL>
-<DT><U>emacspeak-w3-jump-to-title-in-content:</U> <B></B>
+<DT><U>emacspeak-w3-jump-to-title-in-content:</U> <B>()</B>
 <DD>Jumps to the occurrence of document title in page body.
 </DL>
 </P><P>
 
 <A NAME="IDX502"></A>
 <DL>
-<DT><U>emacspeak-w3-lynx-url-under-point:</U> <B></B>
+<DT><U>emacspeak-w3-lynx-url-under-point:</U> <B>()</B>
 <DD>Display contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
 hyperlinks in that display are not active-- this facility is
@@ -8929,7 +8929,7 @@ the table structure extraction code in W3.
 
 <A NAME="IDX503"></A>
 <DL>
-<DT><U>emacspeak-w3-next-doc-element:</U> <B></B>
+<DT><U>emacspeak-w3-next-doc-element:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move forward  to the next document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
@@ -8938,21 +8938,21 @@ specifies by how many eleemnts to move.
 
 <A NAME="IDX504"></A>
 <DL>
-<DT><U>emacspeak-w3-preview-this-buffer:</U> <B></B>
+<DT><U>emacspeak-w3-preview-this-buffer:</U> <B>()</B>
 <DD>Preview this buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX505"></A>
 <DL>
-<DT><U>emacspeak-w3-preview-this-region:</U> <B></B>
+<DT><U>emacspeak-w3-preview-this-region:</U> <B>(START</B> <I>END)</I>
 <DD>Preview this buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX506"></A>
 <DL>
-<DT><U>emacspeak-w3-previous-doc-element:</U> <B></B>
+<DT><U>emacspeak-w3-previous-doc-element:</U> <B>(&#38;optional</B> <I>COUNT)</I>
 <DD>Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
@@ -8961,7 +8961,7 @@ specifies by how many eleemnts to move.
 
 <A NAME="IDX507"></A>
 <DL>
-<DT><U>emacspeak-w3-show-anchor-class:</U> <B></B>
+<DT><U>emacspeak-w3-show-anchor-class:</U> <B>()</B>
 <DD>Display any class attributes set on corresponding anchor
 element. 
 </DL>
@@ -8969,28 +8969,28 @@ element.
 
 <A NAME="IDX508"></A>
 <DL>
-<DT><U>emacspeak-w3-speak-next-element:</U> <B></B>
+<DT><U>emacspeak-w3-speak-next-element:</U> <B>()</B>
 <DD>Speak next document element.
 </DL>
 </P><P>
 
 <A NAME="IDX509"></A>
 <DL>
-<DT><U>emacspeak-w3-speak-this-element:</U> <B></B>
+<DT><U>emacspeak-w3-speak-this-element:</U> <B>()</B>
 <DD>Speak document element under point.
 </DL>
 </P><P>
 
 <A NAME="IDX510"></A>
 <DL>
-<DT><U>emacspeak-w3-toggle-table-borders:</U> <B></B>
+<DT><U>emacspeak-w3-toggle-table-borders:</U> <B>()</B>
 <DD>Toggle drawing of W3 table borders
 </DL>
 </P><P>
 
 <A NAME="IDX511"></A>
 <DL>
-<DT><U>emacspeak-w3-url-rewrite-and-follow:</U> <B></B>
+<DT><U>emacspeak-w3-url-rewrite-and-follow:</U> <B>(&#38;optional</B> <I>PROMPT)</I>
 <DD>Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -9006,7 +9006,7 @@ even if one is already defined.
 
 <A NAME="IDX512"></A>
 <DL>
-<DT><U>emacspeak-w3-xsl-toggle:</U> <B></B>
+<DT><U>emacspeak-w3-xsl-toggle:</U> <B>()</B>
 <DD>Toggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
@@ -9015,14 +9015,14 @@ libxslt package.
 
 <A NAME="IDX513"></A>
 <DL>
-<DT><U>emacspeak-w3-xslt-apply:</U> <B></B>
+<DT><U>emacspeak-w3-xslt-apply:</U> <B>(XSL)</B>
 <DD>Apply specified transformation to current page.
 </DL>
 </P><P>
 
 <A NAME="IDX514"></A>
 <DL>
-<DT><U>emacspeak-w3-xslt-filter:</U> <B></B>
+<DT><U>emacspeak-w3-xslt-filter:</U> <B>(PATH</B> <I>&#38;optional PROMPT)</I>
 <DD>Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -9033,7 +9033,7 @@ prefix arg causes url to be read from the minibuffer.
 
 <A NAME="IDX515"></A>
 <DL>
-<DT><U>emacspeak-w3-xslt-select:</U> <B></B>
+<DT><U>emacspeak-w3-xslt-select:</U> <B>(XSL)</B>
 <DD>Select transformation to apply.
 </DL>
 </P><P>
@@ -9062,21 +9062,21 @@ for commands defined in module  emacspeak-w3search.
 
 <A NAME="IDX516"></A>
 <DL>
-<DT><U>emacspeak-websearch-blue-pages:</U> <B></B>
+<DT><U>emacspeak-websearch-blue-pages:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Search IBM Blue Pages
 </DL>
 </P><P>
 
 <A NAME="IDX517"></A>
 <DL>
-<DT><U>emacspeak-websearch-ibm-internal:</U> <B></B>
+<DT><U>emacspeak-websearch-ibm-internal:</U> <B>(QUERY)</B>
 <DD>Search IBM My News
 </DL>
 </P><P>
 
 <A NAME="IDX518"></A>
 <DL>
-<DT><U>emacspeak-websearch-ibm-my-news:</U> <B></B>
+<DT><U>emacspeak-websearch-ibm-my-news:</U> <B>(QUERY)</B>
 <DD>Search IBM My News
 </DL>
 </P><P>
@@ -9105,7 +9105,7 @@ for commands defined in module  emacspeak-websearch.
 
 <A NAME="IDX519"></A>
 <DL>
-<DT><U>emacspeak-websearch-alltheweb-search:</U> <B></B>
+<DT><U>emacspeak-websearch-alltheweb-search:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform an AllTheWeb  search.
 Optional prefix arg prompts for type of search:
 --use `all' `phrase' or  `any'
@@ -9115,63 +9115,63 @@ to specify the type of search.
 
 <A NAME="IDX520"></A>
 <DL>
-<DT><U>emacspeak-websearch-altavista-search:</U> <B></B>
+<DT><U>emacspeak-websearch-altavista-search:</U> <B>(QUERY)</B>
 <DD>Perform an Altavista search
 </DL>
 </P><P>
 
 <A NAME="IDX521"></A>
 <DL>
-<DT><U>emacspeak-websearch-amazon-search:</U> <B></B>
+<DT><U>emacspeak-websearch-amazon-search:</U> <B>()</B>
 <DD>Amazon search.
 </DL>
 </P><P>
 
 <A NAME="IDX522"></A>
 <DL>
-<DT><U>emacspeak-websearch-appwatch-search:</U> <B></B>
+<DT><U>emacspeak-websearch-appwatch-search:</U> <B>(QUERY)</B>
 <DD>Search AppWatch  Site. 
 </DL>
 </P><P>
 
 <A NAME="IDX523"></A>
 <DL>
-<DT><U>emacspeak-websearch-ask-jeeves:</U> <B></B>
+<DT><U>emacspeak-websearch-ask-jeeves:</U> <B>(QUERY)</B>
 <DD>Ask Jeeves for the answer.
 </DL>
 </P><P>
 
 <A NAME="IDX524"></A>
 <DL>
-<DT><U>emacspeak-websearch-bbc-search:</U> <B></B>
+<DT><U>emacspeak-websearch-bbc-search:</U> <B>(QUERY)</B>
 <DD>Search BBC archives.
 </DL>
 </P><P>
 
 <A NAME="IDX525"></A>
 <DL>
-<DT><U>emacspeak-websearch-biblio-search:</U> <B></B>
+<DT><U>emacspeak-websearch-biblio-search:</U> <B>(QUERY)</B>
 <DD>Search Computer Science Bibliographies.
 </DL>
 </P><P>
 
 <A NAME="IDX526"></A>
 <DL>
-<DT><U>emacspeak-websearch-britannica-search:</U> <B></B>
+<DT><U>emacspeak-websearch-britannica-search:</U> <B>(QUERY)</B>
 <DD>Search Encyclopedia Britannica.
 </DL>
 </P><P>
 
 <A NAME="IDX527"></A>
 <DL>
-<DT><U>emacspeak-websearch-citeseer-search:</U> <B></B>
+<DT><U>emacspeak-websearch-citeseer-search:</U> <B>(TERM)</B>
 <DD>Perform a CiteSeer search. 
 </DL>
 </P><P>
 
 <A NAME="IDX528"></A>
 <DL>
-<DT><U>emacspeak-websearch-cnn-search:</U> <B></B>
+<DT><U>emacspeak-websearch-cnn-search:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform an CNN search.  
 Optional interactive prefix arg
 prompts for additional search parameters.  The default is to
@@ -9185,7 +9185,7 @@ emacspeak-websearch-cnn-options to an appropriate string.
 
 <A NAME="IDX529"></A>
 <DL>
-<DT><U>emacspeak-websearch-company-news:</U> <B></B>
+<DT><U>emacspeak-websearch-company-news:</U> <B>(TICKER</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
 </DL>
@@ -9193,28 +9193,28 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 <A NAME="IDX530"></A>
 <DL>
-<DT><U>emacspeak-websearch-cpan-search:</U> <B></B>
+<DT><U>emacspeak-websearch-cpan-search:</U> <B>(QUERY)</B>
 <DD>Search CPAN  Comprehensive Perl Archive Network   Site. 
 </DL>
 </P><P>
 
 <A NAME="IDX531"></A>
 <DL>
-<DT><U>emacspeak-websearch-ctan-search:</U> <B></B>
+<DT><U>emacspeak-websearch-ctan-search:</U> <B>(QUERY)</B>
 <DD>Search CTAN Comprehensive TeX Archive Network   Site. 
 </DL>
 </P><P>
 
 <A NAME="IDX532"></A>
 <DL>
-<DT><U>emacspeak-websearch-dictionary-hypertext-webster-search:</U> <B></B>
+<DT><U>emacspeak-websearch-dictionary-hypertext-webster-search:</U> <B>(QUERY)</B>
 <DD>Search the Webster Dictionary.
 </DL>
 </P><P>
 
 <A NAME="IDX533"></A>
 <DL>
-<DT><U>emacspeak-websearch-dispatch:</U> <B></B>
+<DT><U>emacspeak-websearch-dispatch:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e ? </KBD>
 </P><P>
 
@@ -9227,21 +9227,21 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 <A NAME="IDX534"></A>
 <DL>
-<DT><U>emacspeak-websearch-display-form:</U> <B></B>
+<DT><U>emacspeak-websearch-display-form:</U> <B>(FORM-MARKUP)</B>
 <DD>Display form specified by form-markup.
 </DL>
 </P><P>
 
 <A NAME="IDX535"></A>
 <DL>
-<DT><U>emacspeak-websearch-ebay-search:</U> <B></B>
+<DT><U>emacspeak-websearch-ebay-search:</U> <B>()</B>
 <DD>Ebay search.
 </DL>
 </P><P>
 
 <A NAME="IDX536"></A>
 <DL>
-<DT><U>emacspeak-websearch-emacspeak-archive:</U> <B></B>
+<DT><U>emacspeak-websearch-emacspeak-archive:</U> <B>(QUERY)</B>
 <DD><KBD> control h e </KBD>
 </P><P>
 
@@ -9253,14 +9253,14 @@ archives, type +redhat
 
 <A NAME="IDX537"></A>
 <DL>
-<DT><U>emacspeak-websearch-exchange-rate-convertor:</U> <B></B>
+<DT><U>emacspeak-websearch-exchange-rate-convertor:</U> <B>()</B>
 <DD>Currency convertor.
 </DL>
 </P><P>
 
 <A NAME="IDX538"></A>
 <DL>
-<DT><U>emacspeak-websearch-fn-cnn-search:</U> <B></B>
+<DT><U>emacspeak-websearch-fn-cnn-search:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform an CNN FNsearch.  
 Optional interactive prefix arg
 prompts for additional search parameters.  The default is to
@@ -9274,21 +9274,21 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 <A NAME="IDX539"></A>
 <DL>
-<DT><U>emacspeak-websearch-foldoc-search:</U> <B></B>
+<DT><U>emacspeak-websearch-foldoc-search:</U> <B>(QUERY)</B>
 <DD>Perform a FolDoc search. 
 </DL>
 </P><P>
 
 <A NAME="IDX540"></A>
 <DL>
-<DT><U>emacspeak-websearch-freshmeat-search:</U> <B></B>
+<DT><U>emacspeak-websearch-freshmeat-search:</U> <B>(QUERY)</B>
 <DD>Search Freshmeat  Site. 
 </DL>
 </P><P>
 
 <A NAME="IDX541"></A>
 <DL>
-<DT><U>emacspeak-websearch-google:</U> <B></B>
+<DT><U>emacspeak-websearch-google:</U> <B>(QUERY</B> <I>&#38;optional LUCKY)</I>
 <DD>Perform an Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
 I'm Feeling Lucky button on Google.
@@ -9298,42 +9298,42 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 
 <A NAME="IDX542"></A>
 <DL>
-<DT><U>emacspeak-websearch-google-advanced:</U> <B></B>
+<DT><U>emacspeak-websearch-google-advanced:</U> <B>()</B>
 <DD>Present Google advanced search form simplified for speech interaction.
 </DL>
 </P><P>
 
 <A NAME="IDX543"></A>
 <DL>
-<DT><U>emacspeak-websearch-google-feeling-lucky:</U> <B></B>
+<DT><U>emacspeak-websearch-google-feeling-lucky:</U> <B>(QUERY)</B>
 <DD>Do a I'm Feeling Lucky Google search.
 </DL>
 </P><P>
 
 <A NAME="IDX544"></A>
 <DL>
-<DT><U>emacspeak-websearch-google-usenet-advanced:</U> <B></B>
+<DT><U>emacspeak-websearch-google-usenet-advanced:</U> <B>()</B>
 <DD>Present Google Usenet advanced search form simplified for speech interaction.
 </DL>
 </P><P>
 
 <A NAME="IDX545"></A>
 <DL>
-<DT><U>emacspeak-websearch-gutenberg:</U> <B></B>
+<DT><U>emacspeak-websearch-gutenberg:</U> <B>(TYPE</B> <I>QUERY)</I>
 <DD>Perform an Gutenberg search
 </DL>
 </P><P>
 
 <A NAME="IDX546"></A>
 <DL>
-<DT><U>emacspeak-websearch-help:</U> <B></B>
+<DT><U>emacspeak-websearch-help:</U> <B>()</B>
 <DD>Displays key mapping used by Emacspeak Websearch.
 </DL>
 </P><P>
 
 <A NAME="IDX547"></A>
 <DL>
-<DT><U>emacspeak-websearch-hotbot-search:</U> <B></B>
+<DT><U>emacspeak-websearch-hotbot-search:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform a Hotbot  search.  
 Optional interactive prefix arg
 prompts for additional search parameters.  The default is to
@@ -9347,21 +9347,21 @@ emacspeak-websearch-hotbot-options to an appropriate string.
 
 <A NAME="IDX548"></A>
 <DL>
-<DT><U>emacspeak-websearch-inference-search:</U> <B></B>
+<DT><U>emacspeak-websearch-inference-search:</U> <B>(QUERY)</B>
 <DD>Perform an Inference search.
 </DL>
 </P><P>
 
 <A NAME="IDX549"></A>
 <DL>
-<DT><U>emacspeak-websearch-machine-translate:</U> <B></B>
+<DT><U>emacspeak-websearch-machine-translate:</U> <B>(LANG</B> <I>QUERY)</I>
 <DD>Perform a machine translation request
 </DL>
 </P><P>
 
 <A NAME="IDX550"></A>
 <DL>
-<DT><U>emacspeak-websearch-map-directions-search:</U> <B></B>
+<DT><U>emacspeak-websearch-map-directions-search:</U> <B>(QUERY</B> <I>&#38;optional MAP)</I>
 <DD>Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
 </DL>
@@ -9369,49 +9369,49 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 <A NAME="IDX551"></A>
 <DL>
-<DT><U>emacspeak-websearch-merriam-webster-search:</U> <B></B>
+<DT><U>emacspeak-websearch-merriam-webster-search:</U> <B>(QUERY)</B>
 <DD>Search the Merriam Webster Dictionary.
 </DL>
 </P><P>
 
 <A NAME="IDX552"></A>
 <DL>
-<DT><U>emacspeak-websearch-news-yahoo:</U> <B></B>
+<DT><U>emacspeak-websearch-news-yahoo:</U> <B>(QUERY)</B>
 <DD>Perform an Yahoo News search
 </DL>
 </P><P>
 
 <A NAME="IDX553"></A>
 <DL>
-<DT><U>emacspeak-websearch-northern-light:</U> <B></B>
+<DT><U>emacspeak-websearch-northern-light:</U> <B>(QUERY)</B>
 <DD>Perform a Northern Light  search
 </DL>
 </P><P>
 
 <A NAME="IDX554"></A>
 <DL>
-<DT><U>emacspeak-websearch-open-directory-search:</U> <B></B>
+<DT><U>emacspeak-websearch-open-directory-search:</U> <B>(QUERY)</B>
 <DD>Perform an Open Directory search
 </DL>
 </P><P>
 
 <A NAME="IDX555"></A>
 <DL>
-<DT><U>emacspeak-websearch-packages-linux:</U> <B></B>
+<DT><U>emacspeak-websearch-packages-linux:</U> <B>(QUERY)</B>
 <DD>Search for Linux packages.
 </DL>
 </P><P>
 
 <A NAME="IDX556"></A>
 <DL>
-<DT><U>emacspeak-websearch-people-yahoo:</U> <B></B>
+<DT><U>emacspeak-websearch-people-yahoo:</U> <B>()</B>
 <DD>Perform an Yahoo  people search
 </DL>
 </P><P>
 
 <A NAME="IDX557"></A>
 <DL>
-<DT><U>emacspeak-websearch-quotes-yahoo-search:</U> <B></B>
+<DT><U>emacspeak-websearch-quotes-yahoo-search:</U> <B>(QUERY</B> <I>&#38;optional PREFIX)</I>
 <DD>Perform a Quotes Yahoo .  
 Default tickers to look up is taken from variable
 emacspeak-websearch-personal-portfolio.
@@ -9425,63 +9425,63 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 <A NAME="IDX558"></A>
 <DL>
-<DT><U>emacspeak-websearch-real-tuner:</U> <B></B>
+<DT><U>emacspeak-websearch-real-tuner:</U> <B>()</B>
 <DD>Search using Real Tuner from Real Networks.
 </DL>
 </P><P>
 
 <A NAME="IDX559"></A>
 <DL>
-<DT><U>emacspeak-websearch-recorded-books-search:</U> <B></B>
+<DT><U>emacspeak-websearch-recorded-books-search:</U> <B>()</B>
 <DD>Present advanced search form for recorded books.
 </DL>
 </P><P>
 
 <A NAME="IDX560"></A>
 <DL>
-<DT><U>emacspeak-websearch-redhat:</U> <B></B>
+<DT><U>emacspeak-websearch-redhat:</U> <B>(QUERY)</B>
 <DD>Search RedHat site.
 </DL>
 </P><P>
 
 <A NAME="IDX561"></A>
 <DL>
-<DT><U>emacspeak-websearch-rpm-find:</U> <B></B>
+<DT><U>emacspeak-websearch-rpm-find:</U> <B>(QUERY)</B>
 <DD>Search RPM  catalog  site.
 </DL>
 </P><P>
 
 <A NAME="IDX562"></A>
 <DL>
-<DT><U>emacspeak-websearch-shoutcast-search:</U> <B></B>
+<DT><U>emacspeak-websearch-shoutcast-search:</U> <B>()</B>
 <DD>Ebay search.
 </DL>
 </P><P>
 
 <A NAME="IDX563"></A>
 <DL>
-<DT><U>emacspeak-websearch-software-search:</U> <B></B>
+<DT><U>emacspeak-websearch-software-search:</U> <B>()</B>
 <DD>Search SourceForge, Freshmeat and other sites. 
 </DL>
 </P><P>
 
 <A NAME="IDX564"></A>
 <DL>
-<DT><U>emacspeak-websearch-sourceforge-search:</U> <B></B>
+<DT><U>emacspeak-websearch-sourceforge-search:</U> <B>(QUERY)</B>
 <DD>Search SourceForge Site. 
 </DL>
 </P><P>
 
 <A NAME="IDX565"></A>
 <DL>
-<DT><U>emacspeak-websearch-streaming-audio-search:</U> <B></B>
+<DT><U>emacspeak-websearch-streaming-audio-search:</U> <B>(QUERY)</B>
 <DD>Search for streaming audio. 
 </DL>
 </P><P>
 
 <A NAME="IDX566"></A>
 <DL>
-<DT><U>emacspeak-websearch-usenet:</U> <B></B>
+<DT><U>emacspeak-websearch-usenet:</U> <B>(GROUP</B> <I>&#38;optional PREFIX)</I>
 <DD><KBD> control e  cap U  </KBD>
 </P><P>
 
@@ -9492,42 +9492,42 @@ Optional interactive prefix arg results in prompting for a search term.
 
 <A NAME="IDX567"></A>
 <DL>
-<DT><U>emacspeak-websearch-vector-vest-search:</U> <B></B>
+<DT><U>emacspeak-websearch-vector-vest-search:</U> <B>(QUERY)</B>
 <DD>Look up VectorVest reports .
 </DL>
 </P><P>
 
 <A NAME="IDX568"></A>
 <DL>
-<DT><U>emacspeak-websearch-vickers-search:</U> <B></B>
+<DT><U>emacspeak-websearch-vickers-search:</U> <B>(QUERY)</B>
 <DD>Search Vickers insider trading.
 </DL>
 </P><P>
 
 <A NAME="IDX569"></A>
 <DL>
-<DT><U>emacspeak-websearch-w3c-search:</U> <B></B>
+<DT><U>emacspeak-websearch-w3c-search:</U> <B>(QUERY)</B>
 <DD>Search the W3C Site.
 </DL>
 </P><P>
 
 <A NAME="IDX570"></A>
 <DL>
-<DT><U>emacspeak-websearch-weather:</U> <B></B>
+<DT><U>emacspeak-websearch-weather:</U> <B>(ZIP)</B>
 <DD>Get weather forecast for specified zip code.
 </DL>
 </P><P>
 
 <A NAME="IDX571"></A>
 <DL>
-<DT><U>emacspeak-websearch-yahoo:</U> <B></B>
+<DT><U>emacspeak-websearch-yahoo:</U> <B>(QUERY)</B>
 <DD>Perform an Yahoo  search
 </DL>
 </P><P>
 
 <A NAME="IDX572"></A>
 <DL>
-<DT><U>emacspeak-websearch-yahoo-historical-chart:</U> <B></B>
+<DT><U>emacspeak-websearch-yahoo-historical-chart:</U> <B>(TICKER</B> <I>&#38;optional AS-HTML)</I>
 <DD>Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data.
 </DL>
@@ -9557,28 +9557,28 @@ for commands defined in module  emacspeak-widget.
 
 <A NAME="IDX573"></A>
 <DL>
-<DT><U>emacspeak-widget-browse-widget-interactively:</U> <B></B>
+<DT><U>emacspeak-widget-browse-widget-interactively:</U> <B>()</B>
 <DD>Allows you to browse a widget
 </DL>
 </P><P>
 
 <A NAME="IDX574"></A>
 <DL>
-<DT><U>emacspeak-widget-help:</U> <B></B>
+<DT><U>emacspeak-widget-help:</U> <B>()</B>
 <DD>Speak help for widget under point.
 </DL>
 </P><P>
 
 <A NAME="IDX575"></A>
 <DL>
-<DT><U>emacspeak-widget-summarize-parent:</U> <B></B>
+<DT><U>emacspeak-widget-summarize-parent:</U> <B>()</B>
 <DD>Summarize parent of widget at point.
 </DL>
 </P><P>
 
 <A NAME="IDX576"></A>
 <DL>
-<DT><U>emacspeak-widget-summarize-widget-under-point:</U> <B></B>
+<DT><U>emacspeak-widget-summarize-widget-under-point:</U> <B>(&#38;optional</B> <I>LEVEL)</I>
 <DD>Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
@@ -9587,7 +9587,7 @@ widget before summarizing.
 
 <A NAME="IDX577"></A>
 <DL>
-<DT><U>emacspeak-widget-update-from-minibuffer:</U> <B></B>
+<DT><U>emacspeak-widget-update-from-minibuffer:</U> <B>(POINT)</B>
 <DD>Sets widget at point by invoking its prompter.
 </DL>
 </P><P>
@@ -9616,7 +9616,7 @@ for commands defined in module  emacspeak-wizards.
 
 <A NAME="IDX578"></A>
 <DL>
-<DT><U>emacspeak-annotate-add-annotation:</U> <B></B>
+<DT><U>emacspeak-annotate-add-annotation:</U> <B>(&#38;optional</B> <I>RESET)</I>
 <DD>Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
 Interactive prefix arg `reset' prompts for the annotation
@@ -9628,7 +9628,7 @@ annotation is inserted into the working buffer when complete.
 
 <A NAME="IDX579"></A>
 <DL>
-<DT><U>emacspeak-clipboard-copy:</U> <B></B>
+<DT><U>emacspeak-clipboard-copy:</U> <B>(START</B> <I>END &#38;optional PROMPT)</I>
 <DD><KBD> control e control c </KBD>
 </P><P>
 
@@ -9647,7 +9647,7 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 
 <A NAME="IDX580"></A>
 <DL>
-<DT><U>emacspeak-clipboard-paste:</U> <B></B>
+<DT><U>emacspeak-clipboard-paste:</U> <B>(&#38;optional</B> <I>PASTE-TABLE)</I>
 <DD><KBD> control e control y </KBD>
 </P><P>
 
@@ -9663,7 +9663,7 @@ the emacspeak table clipboard instead.
 
 <A NAME="IDX581"></A>
 <DL>
-<DT><U>emacspeak-copy-current-file:</U> <B></B>
+<DT><U>emacspeak-copy-current-file:</U> <B>()</B>
 <DD><KBD> control e meta c </KBD>
 </P><P>
 
@@ -9679,7 +9679,7 @@ Prompts for the new location and preserves modification time
 
 <A NAME="IDX582"></A>
 <DL>
-<DT><U>emacspeak-customize:</U> <B></B>
+<DT><U>emacspeak-customize:</U> <B>()</B>
 <DD><KBD> control e  cap C  </KBD>
 </P><P>
 
@@ -9689,7 +9689,7 @@ Customize Emacspeak.
 
 <A NAME="IDX583"></A>
 <DL>
-<DT><U>emacspeak-customize-personal-settings:</U> <B></B>
+<DT><U>emacspeak-customize-personal-settings:</U> <B>(FILE)</B>
 <DD><KBD> control e &#60;f1&#62; </KBD>
 </P><P>
 
@@ -9700,7 +9700,7 @@ personal customizations.
 
 <A NAME="IDX584"></A>
 <DL>
-<DT><U>emacspeak-cvs-get-anonymous:</U> <B></B>
+<DT><U>emacspeak-cvs-get-anonymous:</U> <B>()</B>
 <DD><KBD> control e &#60;control down&#62; </KBD>
 </P><P>
 
@@ -9710,14 +9710,14 @@ Get latest cvs snapshot of emacspeak.
 
 <A NAME="IDX585"></A>
 <DL>
-<DT><U>emacspeak-cvs-get-project-snapshot:</U> <B></B>
+<DT><U>emacspeak-cvs-get-project-snapshot:</U> <B>(PROJECT)</B>
 <DD>Grab CVS snapshot  of specified project from Sourceforge.
 </DL>
 </P><P>
 
 <A NAME="IDX586"></A>
 <DL>
-<DT><U>emacspeak-emergency-tts-restart:</U> <B></B>
+<DT><U>emacspeak-emergency-tts-restart:</U> <B>()</B>
 <DD>For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
@@ -9726,7 +9726,7 @@ emacspeak-emergency-tts-server.
 
 <A NAME="IDX587"></A>
 <DL>
-<DT><U>emacspeak-frame-label-or-switch-to-labelled-frame:</U> <B></B>
+<DT><U>emacspeak-frame-label-or-switch-to-labelled-frame:</U> <B>(&#38;optional</B> <I>PREFIX)</I>
 <DD><KBD> control e meta f </KBD>
 </P><P>
 
@@ -9737,14 +9737,14 @@ With optional PREFIX argument, label current frame.
 
 <A NAME="IDX588"></A>
 <DL>
-<DT><U>emacspeak-frame-read-frame-label:</U> <B></B>
+<DT><U>emacspeak-frame-read-frame-label:</U> <B>()</B>
 <DD>Read a frame label with completion.
 </DL>
 </P><P>
 
 <A NAME="IDX589"></A>
 <DL>
-<DT><U>emacspeak-generate-documentation:</U> <B></B>
+<DT><U>emacspeak-generate-documentation:</U> <B>(FILENAME)</B>
 <DD>Generate docs for all emacspeak commands.
 Prompts for FILENAME in which to save the documentation.
 Warning! Contents of file filename will be overwritten.
@@ -9760,7 +9760,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX590"></A>
 <DL>
-<DT><U>emacspeak-generate-texinfo-command-documentation:</U> <B></B>
+<DT><U>emacspeak-generate-texinfo-command-documentation:</U> <B>(FILENAME)</B>
 <DD>Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
@@ -9776,14 +9776,14 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX591"></A>
 <DL>
-<DT><U>emacspeak-kill-buffer-quietly:</U> <B></B>
+<DT><U>emacspeak-kill-buffer-quietly:</U> <B>()</B>
 <DD>Kill current buffer without asking for confirmation.
 </DL>
 </P><P>
 
 <A NAME="IDX592"></A>
 <DL>
-<DT><U>emacspeak-learn-mode:</U> <B></B>
+<DT><U>emacspeak-learn-mode:</U> <B>()</B>
 <DD><KBD> control e control h </KBD>
 </P><P>
 
@@ -9794,7 +9794,7 @@ To leave, press C-g.
 
 <A NAME="IDX593"></A>
 <DL>
-<DT><U>emacspeak-link-current-file:</U> <B></B>
+<DT><U>emacspeak-link-current-file:</U> <B>()</B>
 <DD><KBD> control e meta l </KBD>
 </P><P>
 
@@ -9809,21 +9809,21 @@ Prompts for the new location and preserves modification time
 
 <A NAME="IDX594"></A>
 <DL>
-<DT><U>emacspeak-links:</U> <B></B>
+<DT><U>emacspeak-links:</U> <B>(URL)</B>
 <DD>Launch links on  specified URL in a new terminal.
 </DL>
 </P><P>
 
 <A NAME="IDX595"></A>
 <DL>
-<DT><U>emacspeak-lynx:</U> <B></B>
+<DT><U>emacspeak-lynx:</U> <B>(URL)</B>
 <DD>Launch lynx on  specified URL in a new terminal.
 </DL>
 </P><P>
 
 <A NAME="IDX596"></A>
 <DL>
-<DT><U>emacspeak-next-frame:</U> <B></B>
+<DT><U>emacspeak-next-frame:</U> <B>()</B>
 <DD><KBD> &#60;control right&#62; </KBD>
 </P><P>
 
@@ -9833,7 +9833,7 @@ Move to next frame.
 
 <A NAME="IDX597"></A>
 <DL>
-<DT><U>emacspeak-previous-frame:</U> <B></B>
+<DT><U>emacspeak-previous-frame:</U> <B>()</B>
 <DD><KBD> &#60;control left&#62; </KBD>
 </P><P>
 
@@ -9843,7 +9843,7 @@ Move to next frame.
 
 <A NAME="IDX598"></A>
 <DL>
-<DT><U>emacspeak-root:</U> <B></B>
+<DT><U>emacspeak-root:</U> <B>(&#38;optional</B> <I>CD)</I>
 <DD><KBD> control e control r </KBD>
 </P><P>
 
@@ -9855,7 +9855,7 @@ default-directory after switching.
 
 <A NAME="IDX599"></A>
 <DL>
-<DT><U>emacspeak-select-this-buffer-next-display:</U> <B></B>
+<DT><U>emacspeak-select-this-buffer-next-display:</U> <B>()</B>
 <DD><KBD> control e &#60;control right&#62; </KBD>
 </P><P>
 
@@ -9868,7 +9868,7 @@ meaning of `next'.
 
 <A NAME="IDX600"></A>
 <DL>
-<DT><U>emacspeak-select-this-buffer-other-window-display:</U> <B></B>
+<DT><U>emacspeak-select-this-buffer-other-window-display:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD>Switch  to this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
@@ -9885,7 +9885,7 @@ the display to select.
 
 <A NAME="IDX601"></A>
 <DL>
-<DT><U>emacspeak-select-this-buffer-previous-display:</U> <B></B>
+<DT><U>emacspeak-select-this-buffer-previous-display:</U> <B>()</B>
 <DD><KBD> control e &#60;control left&#62; </KBD>
 </P><P>
 
@@ -9898,7 +9898,7 @@ meaning of `previous'.
 
 <A NAME="IDX602"></A>
 <DL>
-<DT><U>emacspeak-show-personality-at-point:</U> <B></B>
+<DT><U>emacspeak-show-personality-at-point:</U> <B>()</B>
 <DD><KBD> control e meta v </KBD>
 </P><P>
 
@@ -9908,7 +9908,7 @@ Show value of property personality at point.
 
 <A NAME="IDX603"></A>
 <DL>
-<DT><U>emacspeak-show-property-at-point:</U> <B></B>
+<DT><U>emacspeak-show-property-at-point:</U> <B>(&#38;optional</B> <I>PROPERTY)</I>
 <DD><KBD> control e meta p </KBD>
 </P><P>
 
@@ -9921,7 +9921,7 @@ If no property is set, show a message and exit.
 
 <A NAME="IDX604"></A>
 <DL>
-<DT><U>emacspeak-skip-blank-lines-backward:</U> <B></B>
+<DT><U>emacspeak-skip-blank-lines-backward:</U> <B>()</B>
 <DD><KBD> &#60;shift up&#62; </KBD>
 </P><P>
 
@@ -9933,7 +9933,7 @@ Signals beginning  of buffer.
 
 <A NAME="IDX605"></A>
 <DL>
-<DT><U>emacspeak-skip-blank-lines-forward:</U> <B></B>
+<DT><U>emacspeak-skip-blank-lines-forward:</U> <B>()</B>
 <DD><KBD> &#60;shift down&#62; </KBD>
 </P><P>
 
@@ -9945,7 +9945,7 @@ Signals end of buffer.
 
 <A NAME="IDX606"></A>
 <DL>
-<DT><U>emacspeak-speak-browse-linux-howto:</U> <B></B>
+<DT><U>emacspeak-speak-browse-linux-howto:</U> <B>(HOWTO)</B>
 <DD><KBD> control e  cap H  </KBD>
 </P><P>
 
@@ -9956,7 +9956,7 @@ We cleanup underlining, and set up outline mode correctly.
 
 <A NAME="IDX607"></A>
 <DL>
-<DT><U>emacspeak-speak-hostname:</U> <B></B>
+<DT><U>emacspeak-speak-hostname:</U> <B>()</B>
 <DD><KBD> control e meta h </KBD>
 </P><P>
 
@@ -9966,7 +9966,7 @@ Speak host name.
 
 <A NAME="IDX608"></A>
 <DL>
-<DT><U>emacspeak-speak-load-directory-settings:</U> <B></B>
+<DT><U>emacspeak-speak-load-directory-settings:</U> <B>()</B>
 <DD>Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
@@ -9976,7 +9976,7 @@ directory.
 
 <A NAME="IDX609"></A>
 <DL>
-<DT><U>emacspeak-speak-popup-messages:</U> <B></B>
+<DT><U>emacspeak-speak-popup-messages:</U> <B>()</B>
 <DD><KBD> control h  cap M  </KBD>
 </P><P>
 
@@ -9988,7 +9988,7 @@ previous window configuration.
 
 <A NAME="IDX610"></A>
 <DL>
-<DT><U>emacspeak-speak-run-shell-command:</U> <B></B>
+<DT><U>emacspeak-speak-run-shell-command:</U> <B>(COMMAND</B> <I>&#38;optional AS-ROOT)</I>
 <DD><KBD> control e ! </KBD>
 </P><P>
 
@@ -10006,7 +10006,7 @@ C-e TAB.
 
 <A NAME="IDX611"></A>
 <DL>
-<DT><U>emacspeak-speak-show-active-network-interfaces:</U> <B></B>
+<DT><U>emacspeak-speak-show-active-network-interfaces:</U> <B>(&#38;optional</B> <I>ADDRESS)</I>
 <DD><KBD> control e  cap I  </KBD>
 </P><P>
 
@@ -10019,14 +10019,14 @@ also copied to the kill ring for convenient yanking.
 
 <A NAME="IDX612"></A>
 <DL>
-<DT><U>emacspeak-speak-show-memory-used:</U> <B></B>
+<DT><U>emacspeak-speak-show-memory-used:</U> <B>()</B>
 <DD>Convenience command to view state of memory used in this session so far.
 </DL>
 </P><P>
 
 <A NAME="IDX613"></A>
 <DL>
-<DT><U>emacspeak-speak-telephone-directory:</U> <B></B>
+<DT><U>emacspeak-speak-telephone-directory:</U> <B>(&#38;optional</B> <I>EDIT)</I>
 <DD>Lookup and display a phone number.
 With prefix arg, opens the phone book for editting.
 </DL>
@@ -10034,7 +10034,7 @@ With prefix arg, opens the phone book for editting.
 
 <A NAME="IDX614"></A>
 <DL>
-<DT><U>emacspeak-speak-this-buffer-next-display:</U> <B></B>
+<DT><U>emacspeak-speak-this-buffer-next-display:</U> <B>()</B>
 <DD><KBD> control e &#60;right&#62; </KBD>
 </P><P>
 
@@ -10047,7 +10047,7 @@ meaning of `next'.
 
 <A NAME="IDX615"></A>
 <DL>
-<DT><U>emacspeak-speak-this-buffer-other-window-display:</U> <B></B>
+<DT><U>emacspeak-speak-this-buffer-other-window-display:</U> <B>(&#38;optional</B> <I>ARG)</I>
 <DD><KBD> control e / </KBD>
 </P><P>
 
@@ -10067,7 +10067,7 @@ the display to speak.
 
 <A NAME="IDX616"></A>
 <DL>
-<DT><U>emacspeak-speak-this-buffer-previous-display:</U> <B></B>
+<DT><U>emacspeak-speak-this-buffer-previous-display:</U> <B>()</B>
 <DD><KBD> control e &#60;left&#62; </KBD>
 </P><P>
 
@@ -10080,21 +10080,21 @@ meaning of `previous'.
 
 <A NAME="IDX617"></A>
 <DL>
-<DT><U>emacspeak-sudo:</U> <B></B>
+<DT><U>emacspeak-sudo:</U> <B>(COMMAND)</B>
 <DD>SUDo command --run command as super user.
 </DL>
 </P><P>
 
 <A NAME="IDX618"></A>
 <DL>
-<DT><U>emacspeak-switch-to-previous-buffer:</U> <B></B>
+<DT><U>emacspeak-switch-to-previous-buffer:</U> <B>()</B>
 <DD>Switch to most recently used interesting buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX619"></A>
 <DL>
-<DT><U>emacspeak-symlink-current-file:</U> <B></B>
+<DT><U>emacspeak-symlink-current-file:</U> <B>()</B>
 <DD><KBD> control e meta s </KBD>
 </P><P>
 
@@ -10109,7 +10109,7 @@ Prompts for the new location and preserves modification time
 
 <A NAME="IDX620"></A>
 <DL>
-<DT><U>emacspeak-view-emacspeak-doc:</U> <B></B>
+<DT><U>emacspeak-view-emacspeak-doc:</U> <B>()</B>
 <DD><KBD> control e  cap D  </KBD>
 </P><P>
 
@@ -10119,7 +10119,7 @@ Display a summary of all Emacspeak commands.
 
 <A NAME="IDX621"></A>
 <DL>
-<DT><U>emacspeak-view-emacspeak-faq:</U> <B></B>
+<DT><U>emacspeak-view-emacspeak-faq:</U> <B>()</B>
 <DD><KBD> control e  cap F  </KBD>
 </P><P>
 
@@ -10129,7 +10129,7 @@ Browse the Emacspeak FAQ.
 
 <A NAME="IDX622"></A>
 <DL>
-<DT><U>emacspeak-view-emacspeak-news:</U> <B></B>
+<DT><U>emacspeak-view-emacspeak-news:</U> <B>()</B>
 <DD><KBD> control e  cap N  </KBD>
 </P><P>
 
@@ -10139,7 +10139,7 @@ Display info on recent change to Emacspeak.
 
 <A NAME="IDX623"></A>
 <DL>
-<DT><U>emacspeak-view-emacspeak-tips:</U> <B></B>
+<DT><U>emacspeak-view-emacspeak-tips:</U> <B>()</B>
 <DD><KBD> control e  cap T  </KBD>
 </P><P>
 
@@ -10149,21 +10149,21 @@ Browse  Emacspeak productivity tips.
 
 <A NAME="IDX624"></A>
 <DL>
-<DT><U>emacspeak-wizards-browse-url-with-style:</U> <B></B>
+<DT><U>emacspeak-wizards-browse-url-with-style:</U> <B>(STYLE</B> <I>URL)</I>
 <DD>Browse URL with specified XSL style.
 </DL>
 </P><P>
 
 <A NAME="IDX625"></A>
 <DL>
-<DT><U>emacspeak-wizards-count-slides-in-region:</U> <B></B>
+<DT><U>emacspeak-wizards-count-slides-in-region:</U> <B>()</B>
 <DD>Count slides starting from point.
 </DL>
 </P><P>
 
 <A NAME="IDX626"></A>
 <DL>
-<DT><U>emacspeak-wizards-finder-find:</U> <B></B>
+<DT><U>emacspeak-wizards-finder-find:</U> <B>(DIRECTORY)</B>
 <DD>Run find-dired on specified switches after prompting for the
 directory to where find is to be launched.
 </DL>
@@ -10171,7 +10171,7 @@ directory to where find is to be launched.
 
 <A NAME="IDX627"></A>
 <DL>
-<DT><U>emacspeak-wizards-finder-mode:</U> <B></B>
+<DT><U>emacspeak-wizards-finder-mode:</U> <B>()</B>
 <DD>Emacspeak Finder
 </P><P>
 
@@ -10188,14 +10188,14 @@ key             binding
 
 <A NAME="IDX628"></A>
 <DL>
-<DT><U>emacspeak-wizards-generate-finder:</U> <B></B>
+<DT><U>emacspeak-wizards-generate-finder:</U> <B>()</B>
 <DD>Generate a widget-enabled finder wizard.
 </DL>
 </P><P>
 
 <A NAME="IDX629"></A>
 <DL>
-<DT><U>emacspeak-wizards-get-table-content-from-file:</U> <B></B>
+<DT><U>emacspeak-wizards-get-table-content-from-file:</U> <B>(TASK</B> <I>FILE DEPTH COUNT)</I>
 <DD>Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
@@ -10204,7 +10204,7 @@ Extracted content is placed as a csv file in task.csv.
 
 <A NAME="IDX630"></A>
 <DL>
-<DT><U>emacspeak-wizards-get-table-content-from-url:</U> <B></B>
+<DT><U>emacspeak-wizards-get-table-content-from-url:</U> <B>(TASK</B> <I>URL DEPTH COUNT)</I>
 <DD>Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
@@ -10213,7 +10213,7 @@ Extracted content is placed as a csv file in task.csv.
 
 <A NAME="IDX631"></A>
 <DL>
-<DT><U>emacspeak-wizards-google-hits:</U> <B></B>
+<DT><U>emacspeak-wizards-google-hits:</U> <B>()</B>
 <DD>Filter Google results after performing search to show just the
 hits.
 </DL>
@@ -10221,7 +10221,7 @@ hits.
 
 <A NAME="IDX632"></A>
 <DL>
-<DT><U>emacspeak-wizards-how-many-matches:</U> <B></B>
+<DT><U>emacspeak-wizards-how-many-matches:</U> <B>(PREFIX)</B>
 <DD>If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
@@ -10232,7 +10232,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 <A NAME="IDX633"></A>
 <DL>
-<DT><U>emacspeak-wizards-occur-header-lines:</U> <B></B>
+<DT><U>emacspeak-wizards-occur-header-lines:</U> <B>(PREFIX)</B>
 <DD>If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches header lines, you can use this command to conveniently
@@ -10244,7 +10244,7 @@ value of the file local pattern.
 
 <A NAME="IDX634"></A>
 <DL>
-<DT><U>emacspeak-wizards-portfolio-quotes:</U> <B></B>
+<DT><U>emacspeak-wizards-portfolio-quotes:</U> <B>()</B>
 <DD>Bring up detailed stock quotes for portfolio specified by 
 emacspeak-websearch-personal-portfolio.
 </DL>
@@ -10252,7 +10252,7 @@ emacspeak-websearch-personal-portfolio.
 
 <A NAME="IDX635"></A>
 <DL>
-<DT><U>emacspeak-wizards-ppt-display:</U> <B></B>
+<DT><U>emacspeak-wizards-ppt-display:</U> <B>()</B>
 <DD>Called to set up preview of an PPT file.
 Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
@@ -10262,7 +10262,7 @@ visiting the ppt file.
 
 <A NAME="IDX636"></A>
 <DL>
-<DT><U>emacspeak-wizards-ppt-mode:</U> <B></B>
+<DT><U>emacspeak-wizards-ppt-mode:</U> <B>()</B>
 <DD>Major mode for browsing PPT slides.
 </P><P>
 
@@ -10283,14 +10283,14 @@ key             binding
 
 <A NAME="IDX637"></A>
 <DL>
-<DT><U>emacspeak-wizards-rpm-query-in-dired:</U> <B></B>
+<DT><U>emacspeak-wizards-rpm-query-in-dired:</U> <B>()</B>
 <DD>Run rpm -qi on current dired entry.
 </DL>
 </P><P>
 
 <A NAME="IDX638"></A>
 <DL>
-<DT><U>emacspeak-wizards-shell-toggle:</U> <B></B>
+<DT><U>emacspeak-wizards-shell-toggle:</U> <B>()</B>
 <DD><KBD> control e &#60;f11&#62; </KBD>
 </P><P>
 
@@ -10301,14 +10301,14 @@ Switch to the shell buffer and cd to
 
 <A NAME="IDX639"></A>
 <DL>
-<DT><U>emacspeak-wizards-show-environment-vvariable:</U> <B></B>
+<DT><U>emacspeak-wizards-show-environment-vvariable:</U> <B>(V)</B>
 <DD>Display value of specified environment variable.
 </DL>
 </P><P>
 
 <A NAME="IDX640"></A>
 <DL>
-<DT><U>emacspeak-wizards-show-list-variable:</U> <B></B>
+<DT><U>emacspeak-wizards-show-list-variable:</U> <B>(VAR)</B>
 <DD>Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
@@ -10325,7 +10325,7 @@ Automatically defined advice to speak interactive prompts.
 
 <A NAME="IDX641"></A>
 <DL>
-<DT><U>emacspeak-wizards-spot-words:</U> <B></B>
+<DT><U>emacspeak-wizards-spot-words:</U> <B>(EXT</B> <I>WORD)</I>
 <DD>Searches recursively in all files with extension `ext'
 for `word' and siplays hits in a compilation buffer.
 </DL>
@@ -10333,21 +10333,21 @@ for `word' and siplays hits in a compilation buffer.
 
 <A NAME="IDX642"></A>
 <DL>
-<DT><U>emacspeak-wizards-squeeze-blanks:</U> <B></B>
+<DT><U>emacspeak-wizards-squeeze-blanks:</U> <B>(START</B> <I>END)</I>
 <DD>Squeeze multiple blank lines in current buffer.
 </DL>
 </P><P>
 
 <A NAME="IDX643"></A>
 <DL>
-<DT><U>emacspeak-wizards-use-w3-or-w3m:</U> <B></B>
+<DT><U>emacspeak-wizards-use-w3-or-w3m:</U> <B>()</B>
 <DD>Alternates between using W3 and W3M for browse-url.
 </DL>
 </P><P>
 
 <A NAME="IDX644"></A>
 <DL>
-<DT><U>emacspeak-wizards-xl-display:</U> <B></B>
+<DT><U>emacspeak-wizards-xl-display:</U> <B>()</B>
 <DD>Called to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
 Previews those contents as HTML and nukes the buffer
@@ -10357,7 +10357,7 @@ visiting the xls file.
 
 <A NAME="IDX645"></A>
 <DL>
-<DT><U>emacspeak-wizards-xl-mode:</U> <B></B>
+<DT><U>emacspeak-wizards-xl-mode:</U> <B>()</B>
 <DD>Major mode for browsing XL spreadsheets.
 </P><P>
 
@@ -10400,49 +10400,49 @@ for commands defined in module  emacspeak-xml-shell.
 
 <A NAME="IDX646"></A>
 <DL>
-<DT><U>emacspeak-xml-shell:</U> <B></B>
+<DT><U>emacspeak-xml-shell:</U> <B>(SYSTEM-ID)</B>
 <DD>Start Xml-Shell on contents of system-id.
 </DL>
 </P><P>
 
 <A NAME="IDX647"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-browse-current:</U> <B></B>
+<DT><U>emacspeak-xml-shell-browse-current:</U> <B>()</B>
 <DD>Display current node.
 </DL>
 </P><P>
 
 <A NAME="IDX648"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-goto-children:</U> <B></B>
+<DT><U>emacspeak-xml-shell-goto-children:</U> <B>()</B>
 <DD>Navigate down to the children of current node.
 </DL>
 </P><P>
 
 <A NAME="IDX649"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-goto-next-child:</U> <B></B>
+<DT><U>emacspeak-xml-shell-goto-next-child:</U> <B>()</B>
 <DD>Navigate forward  to the next child  of current node.
 </DL>
 </P><P>
 
 <A NAME="IDX650"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-goto-parent:</U> <B></B>
+<DT><U>emacspeak-xml-shell-goto-parent:</U> <B>()</B>
 <DD>Navigate up to the parent of current node.
 </DL>
 </P><P>
 
 <A NAME="IDX651"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-goto-previous-child:</U> <B></B>
+<DT><U>emacspeak-xml-shell-goto-previous-child:</U> <B>()</B>
 <DD>Navigate backward  to the previous child  of current node.
 </DL>
 </P><P>
 
 <A NAME="IDX652"></A>
 <DL>
-<DT><U>emacspeak-xml-shell-mode:</U> <B></B>
+<DT><U>emacspeak-xml-shell-mode:</U> <B>()</B>
 <DD>XML Shell
 </P><P>
 
@@ -10473,7 +10473,7 @@ for commands defined in module  nil.
 
 <A NAME="IDX653"></A>
 <DL>
-<DT><U>emacspeak-m-player:</U> <B></B>
+<DT><U>emacspeak-m-player:</U> <B>()</B>
 <DD><KBD> control e : </KBD>
 </P><P>
 
@@ -10483,7 +10483,7 @@ Emacspeak media player access.
 
 <A NAME="IDX654"></A>
 <DL>
-<DT><U>emacspeak-speak-current-field:</U> <B></B>
+<DT><U>emacspeak-speak-current-field:</U> <B>()</B>
 <DD><KBD> control e . </KBD>
 </P><P>
 
@@ -10495,7 +10495,7 @@ defined  by Emacs 21.
 
 <A NAME="IDX655"></A>
 <DL>
-<DT><U>emacspeak-w3-google-on-this-site:</U> <B></B>
+<DT><U>emacspeak-w3-google-on-this-site:</U> <B>()</B>
 <DD>Perform a google search restricted to the current WWW site.
 </DL>
 </P><P>
@@ -10977,7 +10977,7 @@ under Linux as the only source of speech feedback since 1994.
 <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="emacspeak.html#SEC_About"> ? </A>]</TD>
 </TR></TABLE>
 <H1>About this document</H1>
-This document was generated by <I>T. V. Raman</I> on <I>September, 7  2002</I>
+This document was generated by <I>T. V. Raman</I> on <I>September, 8  2002</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 <P></P>  
@@ -11139,7 +11139,7 @@ the following structure:
 <BR>  
 <FONT SIZE="-1">
 This document was generated
-by <I>T. V. Raman</I> on <I>September, 7  2002</I>
+by <I>T. V. Raman</I> on <I>September, 8  2002</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 
