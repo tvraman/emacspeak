@@ -169,7 +169,8 @@
        :group 'voice-fonts
        :set '(lambda (sym val)
                (let ((observing  (get sym 'observing)))
-                 (when (symbolp sym)
+                 (when (and (symbolp sym)
+                            (symbolp observing))
                  (remprop observing sym))
                  (set-default sym val)))
        (,@ args))
