@@ -228,8 +228,27 @@ and then cue the next selected buffer."
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ Speak header line if hidden
+
+(defun emacspeak-info-speak-header ()
+  "Speak info header line."
+  (interactive)
+  (declare (special Info-use-header-line
+Info-header-line))
+  (let ((voice-lock-mode t))
+  (cond
+   ((and (boundp 'Info-use-header-line)
+        (boundp 'Info-header-line)
+        Info-header-line)
+   (dtk-speak Info-header-line))
+   (t (save-excursion
+        (beginning-of-buffer)
+        (emacspeak-speak-line))))))
+
+;;}}}
 ;;{{{ keymaps
 (declaim (special Info-mode-map))
+(define-key Info-mode-map "T" 'emacspeak-info-speak-header)
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 ;;}}}
 (provide  'emacspeak-info)
