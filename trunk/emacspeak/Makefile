@@ -342,16 +342,19 @@ list_dist:
 
 TARBALL=emacspeak-${LABEL}.tar.gz
 RPM=/usr/src/redhat/RPMS/i386/emacspeak-${LABEL}-1.i386.rpm
-sourceforge: dist rpm
+SF_HOME='raman@emacspeak.sf.net:~/www-emacspeak/htdocs'
+sourceforge: dist
+	gzip -9 emacspeak.tar
 	mv emacspeak.tar.gz ${TARBALL}
 	#cd info ; $(MAKE) sourceforge
 	( echo 'anonymous';				\
 	  echo prompt;					\
 	  echo hash;					\
 	  echo cd incoming;				\
-	  echo put $$TARBALL;			\
-	  echo put $$RPM;		\
-	  echo quit ) | cat
+	  echo put ${TARBALL};			\
+	  echo put ${RPM};		\
+	  echo quit ) | ftp upload.sourceforge.net
+	scp ${RPM} ${TARBALL} ${SF_HOME}
 
 # }}}
 # {{{ end of file 
