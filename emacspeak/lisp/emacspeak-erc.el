@@ -136,7 +136,7 @@ server."
   :group 'emacspeak-erc)
 
 (defcustom emacspeak-erc-host-danger-personality 
-  'paul-surprized
+  'paul-smooth
   "Personality for marking dangerous hosts."
   :type 'symbol
   :group 'emacspeak-erc)
@@ -192,7 +192,7 @@ server."
     (erc-notice-face paul-italic)
     (erc-action-face paul-monotone)
     (erc-error-face kid)
-    (erc-dangerous-host-face paul-surprized)
+    (erc-dangerous-host-face paul-smooth)
     (erc-pal-face paul-animated)
     (erc-fool-face 'harry)
     (erc-keyword-face paul-animated))

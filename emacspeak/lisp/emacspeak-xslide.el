@@ -126,7 +126,7 @@
 (defvar xsl-fo-alternate-personality 'paul-monotone 
   "Personality used in XSL highlighting.")
 
-(defvar xsl-other-element-personality 'paul-surprized
+(defvar xsl-other-element-personality 'paul-animated
   "Personality used in XSL highlighting.")
 
 (defvar xsl-xsl-main-personality 'harry 
