@@ -521,7 +521,7 @@ HTML."
      emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
-
+(declaim (special emacspeak-xslt-directory))
 (defun emacspeak-w3-xslt-apply (xsl)
   "Apply specified transformation to current page."
   (interactive
@@ -529,7 +529,8 @@ HTML."
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
-  (declare (special major-mode))
+  (declare (special major-mode
+                    emacspeak-xslt-directory))
    (let
        ((emacspeak-w3-xsl-transform xsl)
                     (emacspeak-w3-xsl-p t))
@@ -669,7 +670,7 @@ minibuffer."
                             w3-url)))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
-(declaim (special emacspeak-xslt-directory))
+
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
