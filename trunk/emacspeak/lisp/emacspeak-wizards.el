@@ -1228,25 +1228,31 @@ content at URL.
 Extracted content is placed as a csv file in task.csv."
   (interactive
    (list
-    (read-from-minibuffer "Task:")
+    (read-from-minibuffer "Task:"
+                          "table")
     (read-from-minibuffer "URL: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
-  (declare (special emacspeak-wizard-table-content-extractor))
+  (declare (special
+            emacspeak-wizard-table-content-extractor))
+  (let ((output (format "/tmp/%s.csv" task)))
   (shell-command
-   (format  "%s --task=%s --url=%s --depth=%s --count=%s"
+   (format  "%s --task=%s --url='%s' --depth=%s --count=%s"
             emacspeak-wizard-table-content-extractor
-            task url depth count ))
-  (emacspeak-table-find-csv-file (format "/tmp/%s.csv"
-                                         task)))
+            task
+            url
+depth count ))
+  (emacspeak-table-find-csv-file output)
+  (delete-file output)))
 
-(defun emacspeak-wizard-get-table-content-from-file (task url depth count )
+(defun emacspeak-wizard-get-table-content-from-file (task file depth count )
   "Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv."
   (interactive
    (list
-    (read-from-minibuffer "Task:")
+    (read-from-minibuffer "Task:"
+                          "table")
     (read-file-name "File: ")
     (read-from-minibuffer "Depth: ")
     (read-from-minibuffer "Count: ")))
@@ -1254,7 +1260,7 @@ Extracted content is placed as a csv file in task.csv."
   (shell-command
    (format  "%s --task=%s --file=%s --depth=%s --count=%s"
             emacspeak-wizard-table-content-extractor
-            task url depth count ))
+            task file depth count ))
   (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
 
 
