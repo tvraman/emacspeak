@@ -80,14 +80,13 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
-    service
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
-    synth "$prefix  `ts2 $text`ts0"
-    service
+    synth "$prefix  `ts2 $text `ts0"
+    synchronize
     return ""
 }
 
