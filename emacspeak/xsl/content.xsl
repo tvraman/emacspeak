@@ -13,8 +13,18 @@
   <xsl:template match="//script|meta|link"/>
   <xsl:template match="html/body">
     <xsl:element name="body">
+<table>
+<caption>Contents Revealed</caption>
+<tr>
+<td><a href="#__about_this_style">About This Style</a>
+        </td></tr></table>
       <xsl:apply-templates 
-                           select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
+                           select =
+        "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
+<h2><a name="__about_this_style">About This Style</a></h2>
+<p>
+This style extracts content from a layout-rich WWW page.
+      </p>
     </xsl:element>
   </xsl:template>
 

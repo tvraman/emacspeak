@@ -16,6 +16,29 @@ Description: List tables  by turning each row into a list.
 
 <!-- } -->
 <!-- {listify tables --> 
+<xsl:template match="/html/body">
+    <xsl:element name="body">
+      <xsl:apply-templates select="@*"/>
+      <table>
+        <caption>Tables As Lists</caption>
+<tr>
+<td><a href="#__about_listify_tables">About This
+              Style</a></td>
+        </tr></table>
+      <xsl:apply-templates />
+      
+    </xsl:element>
+
+<h2><a name="__about_listify_tables">About This Style</a> </h2>
+
+      <p>
+Tables are turned into lists.
+Each table row is a separate list,
+with each table cell an item in that list.
+Nested tables produce nested lists..
+  </p>
+  </xsl:template>
+
 <xsl:template match="table">
 <div class="table">
 <xsl:apply-templates/>
