@@ -543,6 +543,27 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
   :group 'emacspeak-pronounce )
 
 ;;}}}
+;;{{{  xml namespace uri's
+
+(defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations 
+'(
+  ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ")
+      ("http://www.w3.org/2002/xforms/cr" . " XForms ")
+      ("http://www.w3.org/2001/xml-events" . " XEvents ")
+      ("http://www.w3.org/2001/XMLSchema-instance". " XSchema Instance ")
+      ("http://www.w3.org/2001/XMLSchema". " XSchema ")
+("http://www.w3.org/1999/xhtml" . " xhtml ")
+("http://schemas.xmlsoap.org/wsdl/"  . " WSDL ")
+("http://schemas.xmlsoap.org/wsdl/soap/"  . " SOAP ")
+)
+"Pronunciations for well known namespace URIs."
+:type '(repeat
+	  (cons :tag "Dictionary Entry"
+		(string :tag "Namespace URI")
+		(string :tag "Pronunciation")))
+  :group 'emacspeak-pronounce )
+
+;;}}}
 ;;{{{ adding predefined dictionaries to a mode:
 
 (defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
