@@ -46,7 +46,7 @@ personal productivity.
 
 
 @node Desktop Objects
- @section Objects Making Up The Emacspeak Desktop
+@section Objects Making Up The Emacspeak Desktop
 
 A "buffer" is the basic building block of the Emacs and
 hence the Emacspeak desktop.  Any information presented by
@@ -65,7 +65,7 @@ user-interaction that is optimized for
 a specific class of information.
 
 @node Object Oriented Desktop
- @section An Object-Oriented Desktop
+@section An Object-Oriented Desktop
 
 The basic "buffer object" 
 can be specialized by Emacs applications to provide optimal
@@ -82,7 +82,7 @@ programming languages, markup source e.g. HTML or LaTeX
 documents and so on.
 
 @node Context-Sensitive Interaction
- @section Emacspeak Specializes Aural Interaction
+@section Emacspeak Specializes Aural Interaction
 
 The content-specific user interaction described above is a
 very powerful feature of Emacs, and this is where Emacspeak
@@ -111,7 +111,7 @@ specialized modes; a more interesting consequence is the
 implementation of Aural Cascading Style Sheets (ACSS) in
 conjunction with the Emacs W3 browser.
 
- @subsection Structured Navigation:
+@subsection Structured Navigation:
 
 Emacspeak  also exploits content-specific knowledge to provide
 structured navigation of different types of 

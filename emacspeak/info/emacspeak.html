@@ -1,0 +1,2681 @@
+<HTML>
+<HEAD>
+<!-- Created by texi2html 1.56k from emacspeak.texi on 22 September 2001 -->
+
+<TITLE>Emacspeak User's Manual --2nd Edition.</TITLE>
+</HEAD>
+<BODY>
+<H1>Emacspeak User's Manual --2nd Edition.</H1>
+<H2>User Manual</H2>
+<ADDRESS>T. V. Raman </ADDRESS>
+<P>
+<P><HR><P>
+
+
+<H1><A NAME="SEC1" HREF="emacspeak_toc.html#TOC1">Copyright</A></H1>
+
+<P>
+This manual documents  Emacspeak, a speech extension to Emacs. 
+
+
+<P>
+Copyright (C)1994 -- 2001 T. V. Raman
+All Rights Reserved. 
+
+
+<P>
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+
+<P>
+     @title Emacspeak --The Complete Audio Desktop
+     
+     Copyright (C) 1994--2001 T. V. Raman. All Rights Reserved.
+
+
+<P>
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+
+
+
+<H1><A NAME="SEC2" HREF="emacspeak_toc.html#TOC2">Announcing Emacspeak Manual 2nd Edition As An Open Source Project</A></H1>
+
+<P>
+This is to announce the launch of a new open source project
+to create a user manual for Emacspeak --an Emacs speech extension that
+provides a complete audio desktop.
+
+
+
+
+<H2><A NAME="SEC3" HREF="emacspeak_toc.html#TOC3">How To Contribute To This Manual</A></H2>
+
+<P>
+This manual is organized as a series of chapters, with each chapter in a
+separate file.
+If you feel capable of contributing to a specific section,
+send out a message to the Emacspeak mailing list
+<CODE>emacspeak@cs.vassar.edu</CODE>.
+You can then start adding content to a local copy of the chapter to
+which you are contributing.
+When you feel you have something to submit, mail out the file to the
+emacspeak mailing list--
+I'll integrate new content as it comes in.
+
+
+
+
+<H2><A NAME="SEC4" HREF="emacspeak_toc.html#TOC4">Authoring Guidelines</A></H2>
+
+<P>
+For this manual to hang together and make sense to the new user at whom
+it is targetted, contributors need to stick to a consistent style.
+If you plan to contribute content, you should take some time to read the
+existing sections --note that many of these are skeletal and 
+the first contributions will be to flesh these sections out.
+
+
+<P>
+If you are familiar with texinfo, go ahead and mark up your content
+using texinfo.
+If you are not, simply author the documentation you create as plain
+formatted ASCII.
+If you do submit files as texinfo source, make sure to validate them at
+your end first by running the files through <CODE>makeinfo</CODE> --badly
+created or malformed texinfo source takes more time to fix than marking
+up straight text.
+
+
+
+
+<H2><A NAME="SEC5" HREF="emacspeak_toc.html#TOC5">Credits</A></H2>
+
+<P>
+This initial version draws heavily from the original Emacspeak user
+manual, and includes contributions from 
+Jim Van Zandt and Jason White.
+Authors who contribute complete sections will be acknowledged here as
+well as in the specific section they author.
+
+
+
+
+<H1><A NAME="SEC6" HREF="emacspeak_toc.html#TOC6">Introduction</A></H1>
+
+<P>
+Emacspeak provides a complete audio desktop 
+by speech-enabling all of Emacs.
+
+
+<P>
+In the past, screen reading programs have allowed visually impaired
+users to get feedback using synthesized speech. Such programs have been
+commercially available for well over a decade. Most of them run on PC's
+under DOS, and these are now moving over to the Windows environment.
+However, screen-readers for the UNIX environment have been conspicuous
+in their absence.
+
+
+<P>
+This means that most visually impaired computer users face the
+additional handicap of being OS-impaired -- a far more serious
+problem:-) 
+
+
+<P>
+Emacspeak is an emacs subsystem that provides complete speech access.
+  Emacspeak will always have the shortcoming that it will
+only work under Emacs.  This said, there is very little that cannot be
+done inside Emacs, so it's not a real shortcoming!
+
+
+<P>
+Emacspeak does have a significant advantage: since it runs inside Emacs, a
+structure-sensitive, fully customizable editor, Emacspeak  has more
+context-specific information about what it is speaking than its commercial
+counterparts.  In this sense, Emacspeak is not a "screenreader", it is a
+subsystem that produces speech output.  A traditional screen-reader speaks the
+content of the screen, leaving it to the user to interpret the visually
+laid-out information.  Emacspeak, on the other hand, treats speech as a
+first-class output modality; it speaks the information in a manner that is
+easy to comprehend when listening.   
+
+
+<P>
+The basic concepts used by Emacspeak are simple; all interactive Emacs
+commands have been adapted to provide speech feedback.  Hence, a user can just
+use Emacs as she normally would; Emacspeak works behind the scene to give
+audio feedback in addition to updating the screen.
+
+
+<P>
+Emacspeak consists of a core speech system that provides speech and
+audio services to the rest of the Emacspeak desktop;
+application-specific extensions provide context-specific spoken feedback
+
+
+<P>
+using these services.  Emacspeak currently comes with speech extensions
+for several popular Emacs subsystems and editing modes.  I would like to
+thank their respective authors for their wonderful work which makes
+Emacs more than a text editor<A NAME="DOCF1" HREF="emacspeak_foot.html#FOOT1">(1)</A>.
+
+
+<H1><A NAME="SEC7" HREF="emacspeak_toc.html#TOC7">Installation Instructions</A></H1>
+
+<P>
+This chapter gives brief and detailed installation instructions.
+for configuring, installing and starting Emacspeak.
+
+
+
+
+<H2><A NAME="SEC8" HREF="emacspeak_toc.html#TOC8">Obtaining Emacspeak</A></H2>
+
+<P>
+Emacspeak is available on the Internet at:
+<DL COMPACT>
+
+<DT><B>WWW</B>
+<DD>
+ http://cs.cornell.edu/home/raman/emacspeak/
+<DT><B>FTP</B>
+<DD>
+   ftp://ftp.cs.cornell.edu/pub/raman/emacspeak
+<DT><B>Mail List</B>
+<DD>
+emacspeak@cs.vassar.edu
+<DT><B>List Request</B>
+<DD>
+emacspeak-request@cs.vassar.edu
+</DL>
+
+<P>
+ The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If you are using Emacspeak,
+you can join the list by sending mail to
+the request address.
+
+
+
+
+<H2><A NAME="SEC9" HREF="emacspeak_toc.html#TOC9">Quick Installation</A></H2>
+
+<P>
+Here are the quick installation instructions.
+See the next section for detailed installation instructions.
+
+
+
+<UL>
+<LI>
+
+ Look over the Makefile and edit site-specific variables.
+<LI>
+
+ Type <SAMP>`make config'</SAMP> to configure the sources for your site.
+<LI>
+
+ Type <SAMP>`make emacspeak'</SAMP> to compile the files.
+<LI>
+
+ Run it by doing one of:
+
+<UL>
+<LI>
+
+  Start Emacs as follows:
+
+<PRE>
+emacs -l &#60;emacspeak-dir&#62;/emacspeak-setup.el -l ~/.emacs
+</PRE>
+
+<LI>
+
+Add the line
+
+<PRE>
+(load-file "&#60;emacspeak-dir&#62;/emacspeak-setup.el")
+</PRE>
+
+to the top of your .emacs file.
+<LI>
+
+ Run the shell script emacspeak.sh
+found in the directory &#60;emacspeak-dir&#62;
+</UL>
+
+In the above, <CODE>&#60;emacspeak-dir&#62;</CODE> refers to the directory where you unpacked
+the sources. 
+</UL>
+
+
+
+<H2><A NAME="SEC10" HREF="emacspeak_toc.html#TOC10">Configuring and Installing Emacspeak</A></H2>
+
+<P>
+Note: You need GNU Emacs 20.2
+ or later for using newer versions of Emacspeak.
+
+
+<P>
+The speech server for the Dectalk is written in TclX.  (For example, see the
+source file <TT>`dtk-exp'</TT>).  
+
+<UL>
+<LI>Decide where you want the Emacspeak elisp files.  Most Unix packages are
+
+unpacked and compiled in one directory, and then the executable,
+documentation, and data files are installed in the appropriate system
+directories.  
+
+Once you have decided on the appropriate directory, make it if necessary
+and unpack the distribution <CODE>.tar</CODE> file there. 
+
+<LI>Look through the introductory section of the Makefile to see if you need
+
+to edit it for your site.
+<LI>Check the directory prefix for installation.  The default is <TT>`/usr/local'</TT>,
+
+so <TT>`.info'</TT> files go to <TT>`/usr/local/info'</TT> and the executable
+file goes to <TT>`/usr/local/bin'</TT>.  To change this, edit the line
+defining <VAR>PREFIX</VAR>.
+</UL>
+
+<P>
+Configure the source files by typing <SAMP>`make config'</SAMP>.  At this point
+you can check that the  speech server is correctly configured by typing
+
+<PRE>
+tcl dtk-exp
+</PRE>
+
+<P>
+(assuming you are using the Dectalk Express).  You should hear the
+Dectalk speak and get a TCL prompt if everything is okay.
+
+
+<P>
+If you're feeling paranoid, you can perform a couple of additional tests
+at this point. Execute the following commands in the running tcl session
+you just started above.  (Most users will not need to do this; it is a
+sanity check and is useful in tracking problems, especially if you find
+emacspeak beginning to talk and then immediately fall silent.)
+
+
+
+<UL>
+<LI>
+
+
+<PRE>
+q "this is a test."
+d
+</PRE>
+
+ You should hear the Dectalk speak  the text.
+<LI><SAMP>`s'</SAMP>
+
+ The above command stops speech.
+ You should see a TCL prompt when you execute it.
+  If things appear to hang when you execute <SAMP>`s'</SAMP>
+  i.e. you don't see a TCL prompt
+
+<OL>
+<LI>The serial cable conecting your speech device is flaky
+
+<LI>Your serial port is flaky
+
+<LI>The stty settings on the port are incorrect for your system
+
+</OL>
+
+ 
+In the case of incorrect stty settings please report the problem.  The
+following UNIX command can be used to report the stty settings:
+
+<PRE>
+stty -a &#60; serial_port
+</PRE>
+
+</UL>
+
+<P>
+Quit this TCL
+session by typing control-D.
+
+
+<P>
+Next, compile the elisp files by typing 
+
+<PRE>
+make emacspeak
+</PRE>
+
+<P>
+Finally, install the documentation and executable files by typing 
+
+<PRE>
+make PREFIX=&#60;prefix&#62; install 
+</PRE>
+
+<P>
+The speech server program and/or output port can also be specified at run time by 
+setting the shell environment variables <VAR>DTK_PROGRAM</VAR> and <VAR>DTK_PORT</VAR>.
+Examples: If using <CODE>csh</CODE> or <CODE>tcsh</CODE> 
+
+<PRE>
+setenv DTK_PROGRAM "dtk-exp"
+</PRE>
+
+<P>
+if using <CODE>sh</CODE> or <CODE>bash</CODE>
+
+<PRE>
+DTK_PROGRAM=dtk-exp
+export DTK_PROGRAM
+</PRE>
+
+<P>
+Similarly,
+
+<PRE>
+DTK_PORT=/dev/ttyS0
+</PRE>
+
+<P>
+You can always set these variables from a running Emacs session by
+executing
+the Emacs setenv command.
+
+
+
+
+<H1><A NAME="SEC11" HREF="emacspeak_toc.html#TOC11">Basic Usage.</A></H1>
+
+<P>
+This chapter gives an overview of how to use Emacspeak.  Note: This
+documentation should be used in conjunction with the online Emacs info
+pages that extensively document Emacs itself.  These sections briefly
+describe the speech-enabling extensions.  However, they should not be
+considered a substitute for reading the Emacs manual.  How successfully
+you use Emacspeak will depend on how well you learn your Emacs.
+
+
+<P>
+All Emacs navigation and editing commands have been speech enabled. 
+Thus, moving to the next or previous word, line or paragraph results in the text
+around point being spoken.  Exactly how much text is spoken is determined by
+the amount by which you moved.
+
+
+<P>
+In addition, Emacspeak provides  basic reading functions that can be
+invoked to listen to chunks of text without moving.
+
+
+
+
+<H2><A NAME="SEC12" HREF="emacspeak_toc.html#TOC12">Overview of Emacspeak</A></H2>
+
+<P>
+Emacspeak provides a small number of core services around which the
+remainder of the audio interface is constructed.  These essential
+features of the software are briefly outlined in the following
+paragraphs; the commands by which they can be controlled will be
+described later in the manual.
+
+
+<P>
+Apart from providing a fluent spoken interface to all of Emacs' basic
+editing functions, Emacspeak also includes software modules which add
+speech feedback to a range of applications that can be run from within
+Emacs. In this sense, Emacspeak amounts to much more than a talking
+text editor; indeed, it can more aptly be characterized as a true
+"audio desktop", in which speech is treated as a first-class output modality.
+
+
+<P>
+Emacspeak implements a special minor mode, known as "voice lock
+mode" (see section <A HREF="emacspeak.html#SEC19">Voice Lock Mode</A>) which uses distinct speech characteristics
+to provide aural highlighting of specific textual constructs, such as
+comments in program code, quoted strings and reserved words. This
+facility is further extended when Emacspeak is used with the W3 World
+Wide Web browser, to enable the semantic and structural distinctions
+captured by the HTML markup to be communicated efficiently.
+
+
+<P>
+It is often desirable to exercise control over the pronunciation of a
+word (E.G. a technical term or a reserved word in a programming
+language) within specific contexts. Emacspeak maintains pronunciation
+dictionaries for this purpose, which may be customized by the
+user. Moreover, individual dictionaries can be activated selectively,
+depending for example on the current major mode or the name of the
+file which is being visited. 
+
+
+<P>
+In addition to spoken feedback, Emacspeak can generate "auditory
+icons"---short sound cues which alert the user to significant events,
+for example the opening or deletion of a file, the completion of an
+action, the arrival of an electronic mail message or the creation of a
+completion buffer. Sound cues act as a supplement to the spoken
+interface, and are especially valuable to the experienced user in
+facilitating rapid interaction. Note that in order to support auditory
+icons, the computer must be equipped with sound hardware for which the
+operating system has been correctly configured.
+
+
+<H2><A NAME="SEC13" HREF="emacspeak_toc.html#TOC13">Working In Emacs Buffers.</A></H2>
+
+<P>
+While typing in an Emacs buffer, hitting space  speaks  the recently typed
+word.  I use  completion all the time; so Emacspeak will speak the
+completion just inserted as well as the next possible completion.
+In Emacs, use <CODE>load-library ret completion ret</CODE> for loading
+the completion package.  
+
+
+<P>
+The standard Emacs prompting functions have also been speech-enabled.
+Emacs prompts with available lists of completions in response to partial
+input wherever appropriate --all forms of completion provide speech
+feedback.
+
+
+<P>
+In addition, Emacspeak provides a number of commands for reading portions of the current buffer,
+getting status information, and modifying Emacspeak's state.
+
+
+<P>
+All of the commands are documented in the subsequent sections.
+They can be classified into types:
+
+
+
+<UL>
+<LI>
+
+ Emacspeak commands for listening to chunks of information.  The names
+ of these commands all start with the common prefix
+ <CODE>emacspeak-speak-</CODE>.  All Emacspeak commands are bound to the
+ keymap <VAR>emacspeak-keymap</VAR> and are accessed with the key
+ <KBD>Control e</KBD><A NAME="DOCF2" HREF="emacspeak_foot.html#FOOT2">(2)</A>.  Thus,
+ the Emacspeak command <EM>emacspeak-speak-line</EM> is bound to <KBD>l</KBD> in
+ keymap <VAR>emacspeak-keymap</VAR> and can be accessed with the keystroke
+ <KBD>Control-e l</KBD>.  If for some reason you wish to use some key other
+ than <KBD>control-e</KBD> as the common keyboard prefix for all Emacspeak
+ commands, set the variable <VAR>emacspeak-prefix</VAR>.
+<LI>
+
+ The second category of commands provided by Emacspeak manipulate the state of the speech device.
+ The names of these commands start with the common prefix <CODE>dtk-</CODE> and are bound in keymap
+<VAR>emacspeak-dtk-submap</VAR>.
+ You can access these commands via the prefix <KBD>Control-e d</KBD><A NAME="DOCF3" HREF="emacspeak_foot.html#FOOT3">(3)</A>.
+Thus, the command <EM>dtk-set-rate</EM> is bound to <KBD>r</KBD>
+ in keymap <VAR>emacspeak-dtk-submap</VAR> and can be executed by
+pressing <KBD>Control e d r</KBD>.
+</UL>
+
+<P>
+Emacs has extensive online help; so does emacspeak. 
+ Please use it.
+
+
+<P>
+This info manual is only to get you started.
+You can get a summary of Emacspeak's features by pressing <KBD>Control-h Control-e</KBD>
+
+
+
+
+<H2><A NAME="SEC14" HREF="emacspeak_toc.html#TOC14">Reading Without Moving The Cursor.</A></H2>
+<P>
+Emacspeak speaks information as you move around within a buffer.  How
+much text is spoken depends on how you move, thus, when you move by
+words, you hear the current word; when you move by paragraphs, you hear
+the current paragraph spoken.  In addition, the following commands allow
+you to listen to information without moving point (point is emacs
+terminology for the editing cursor).
+
+
+<P>
+Reading without moving point: 
+<DL COMPACT>
+
+ @kindex  control e c 
+ 
+<DT><KBD><KBD> control e c </KBD></KBD>
+<DD>
+<A NAME="IDX1"></A>
+ 
+emacspeak-speak-char
+ Speak character under point.
+Pronounces character phonetically unless  called with a PREFIX arg.
+
+<A NAME="IDX2"></A>
+ @kindex  control e w 
+ 
+<DT><KBD><KBD> control e w </KBD></KBD>
+<DD>
+emacspeak-speak-word
+ Speak current word.
+With prefix ARG, speaks the rest of the word from point.
+Negative prefix arg speaks from start of word to point.
+If executed  on the same buffer position a second time, the word is
+spelt instead of being spoken.
+
+<A NAME="IDX3"></A>
+ @kindex  control e l 
+ 
+<DT><KBD><KBD> control e l </KBD></KBD>
+<DD>
+emacspeak-speak-line
+ Speaks current line.
+With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line
+  to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+  indentation with a tone if audio indentation is in use.  Indicates
+  position of point with an aural highlight if option
+  `emacspeak-show-point' is turned on --see command `emacspeak-show-point'
+  bound to M-x emacspeak-show-point.
+Lines that start hidden blocks of text,
+e.g.  outline header lines,
+or header lines of blocks created by command
+`emacspeak-hide-or-expose-block' are indicated with auditory icon ellipses.
+
+<A NAME="IDX4"></A>
+ @kindex  control e up 
+ 
+<DT><KBD><KBD> control e up </KBD></KBD>
+<DD>
+emacspeak-read-previous-line
+ Read previous line, specified by an offset, without moving.
+Default is to read the previous line. 
+
+<A NAME="IDX5"></A>
+ @kindex  control e down 
+ 
+<DT><KBD><KBD> control e down </KBD></KBD>
+<DD>
+emacspeak-read-next-line
+ Read next line, specified by an offset, without moving.
+Default is to read the next line. 
+
+<A NAME="IDX6"></A>
+ @kindex  control e {
+ 
+<DT><KBD><KBD> control e {</KBD></KBD>
+<DD>
+emacspeak-speak-paragraph
+ Speak paragraph.
+With prefix arg, speaks rest of current paragraph.
+Negative prefix arg will read from start of current paragraph to point.
+If voice-lock-mode is on, then it will use any defined personality. 
+
+<A NAME="IDX7"></A>
+ @kindex  control e r 
+ 
+<DT><KBD><KBD> control e r </KBD></KBD>
+<DD>
+emacspeak-speak-region
+ Speak current region delimited by <EM>point</EM> and <EM>mark</EM>.
+When called from a program, argument START  and END specify region to speak.
+
+<A NAME="IDX8"></A>
+ @kindex  control e  cap R  
+ 
+<DT><KBD><KBD> control e  cap R  </KBD></KBD>
+<DD>
+emacspeak-speak-rectangle
+ Speak a rectangle of text.
+Rectangle is delimited by point and mark.
+When call from a program,
+arguments specify the START and END of the rectangle.
+
+<A NAME="IDX9"></A>
+ @kindex  control e b 
+ 
+<DT><KBD><KBD> control e b </KBD></KBD>
+<DD>
+emacspeak-speak-buffer
+ Speak current buffer  contents.
+With prefix ARG, speaks the rest of the buffer from point.
+Negative prefix arg speaks from start of buffer to point.
+ If voice lock mode is on, the paragraphs in the buffer are
+voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
+
+<A NAME="IDX10"></A>
+ @kindex  control e n 
+ 
+<DT><KBD><KBD> control e n </KBD></KBD>
+<DD>
+emacspeak-speak-rest-of-buffer
+ Speak remainder of the buffer starting at point
+
+<A NAME="IDX11"></A>
+ @kindex  control e / 
+ 
+<DT><KBD><KBD> control e / </KBD></KBD>
+<DD>
+emacspeak-speak-this-buffer-other-window-display
+ Speak this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple
+windows or frames.
+These different windows can
+display different portions of the buffer.
+This is equivalent to leaving a book open at places at once.
+This command allows you to listen to the places where you
+have left the book open.  The number used to invoke this
+command
+specifies which of the displays you wish to speak.  Typically
+you will have two or at most three such displays open.
+The current display is 0, the next is 1, and so on.
+Optional argument ARG specifies the display to speak.
+
+<A NAME="IDX12"></A>
+ @kindex  control e left 
+ 
+<DT><KBD><KBD> control e left </KBD></KBD>
+<DD>
+emacspeak-speak-this-buffer-previous-display
+ Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'.
+
+<A NAME="IDX13"></A>
+ @kindex  control e right 
+ 
+<DT><KBD><KBD> control e right </KBD></KBD>
+<DD>
+emacspeak-speak-this-buffer-next-display
+ Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'.
+
+<A NAME="IDX14"></A>
+ @kindex  control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
+ 
+
+<A NAME="IDX15"></A>
+ @kindex  control e [ 
+ 
+<DT><KBD><KBD> control e [ </KBD></KBD>
+<DD>
+emacspeak-speak-page
+ Speak a page.
+With prefix ARG, speaks rest of current page.
+Negative prefix arg will read from start of current page to point.
+If option  `voice-lock-mode' is on, then it will use any defined personality.
+
+<DT><KBD><KBD> control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 </KBD></KBD>
+<DD>
+emacspeak-speak-predefined-window
+ Speak one of the first 10 windows on the screen.
+In general, you'll never have Emacs split the screen into more than
+two or three.
+Argument ARG determines the 'other' window to speak.
+ Speaks entire window irrespective of point.
+Semantics  of `other' is the same as for the builtin Emacs command
+`other-window'.
+
+<A NAME="IDX16"></A>
+ @kindex  control e control n 
+ 
+<DT><KBD><KBD> control e control n </KBD></KBD>
+<DD>
+emacspeak-speak-next-window
+ Speak the next window.
+
+<A NAME="IDX17"></A>
+ @kindex  control e control p 
+ 
+<DT><KBD><KBD> control e control p </KBD></KBD>
+<DD>
+emacspeak-speak-previous-window
+ Speak the previous window.
+
+<A NAME="IDX18"></A>
+ @kindex  control e control o 
+ 
+<DT><KBD><KBD> control e control o </KBD></KBD>
+<DD>
+emacspeak-speak-other-window
+ Speak contents of `other' window.
+Speaks entire window irrespective of point.
+Semantics  of `other' is the same as for the builtin Emacs command
+`other-window'.
+Optional argument ARG  specifies `other' window to speak.
+
+<A NAME="IDX19"></A>
+ @kindex  ESCAPE up 
+ 
+<DT><KBD><KBD> ESCAPE up </KBD></KBD>
+<DD>
+emacspeak-owindow-previous-line
+ Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT specifies number of lines to move.
+
+<A NAME="IDX20"></A>
+ @kindex  ESCAPE down 
+ 
+<DT><KBD><KBD> ESCAPE down </KBD></KBD>
+<DD>
+emacspeak-owindow-next-line
+ Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT can specify number of lines to move.
+
+<A NAME="IDX21"></A>
+ @kindex  ESCAPE next 
+ 
+<DT><KBD><KBD> ESCAPE next </KBD></KBD>
+<DD>
+emacspeak-owindow-scroll-up
+ Scroll up the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+<A NAME="IDX22"></A>
+ @kindex  ESCAPE prior 
+ 
+<DT><KBD><KBD> ESCAPE prior </KBD></KBD>
+<DD>
+emacspeak-owindow-scroll-down
+ Scroll down  the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+<A NAME="IDX23"></A>
+ @kindex  control e ' 
+ 
+<DT><KBD><KBD> control e ' </KBD></KBD>
+<DD>
+emacspeak-speak-sexp
+ Speak current sexp.
+With prefix ARG, speaks the rest of the sexp  from point.
+Negative prefix arg speaks from start of sexp to point.
+If option  `voice-lock-mode' is on, then uses the personality.
+
+<A NAME="IDX24"></A>
+ @kindex  control e meta control @ 
+ 
+<DT><KBD><KBD> control e meta control @ </KBD></KBD>
+<DD>
+emacspeak-speak-spaces-at-point
+ Speak the white space at point.
+
+</DL>
+
+
+<H2><A NAME="SEC15" HREF="emacspeak_toc.html#TOC15">Speech System Commands</A></H2>
+
+<P>
+<A NAME="IDX25"></A>
+<A NAME="IDX26"></A>
+<A NAME="IDX27"></A>
+
+
+<P>
+This section documents Emacspeak's  various user commands for controlling the
+text to speech (TTS) system.
+
+
+
+
+<H3><A NAME="SEC16" HREF="emacspeak_toc.html#TOC16">Character, Word And Line Echo.</A></H3>
+
+<P>
+<A NAME="IDX28"></A>
+<A NAME="IDX29"></A>
+<A NAME="IDX30"></A>
+
+
+<P>
+By default, Emacspeak speaks characters as they are typed --this is
+called character echo; Words are spoken as they are completed --this is
+called word echo.  Emacspeak can also optionally speak each line as it
+is typed --this is called line echo.
+
+
+<P>
+Character, word and line echo can be toggled --either in the current
+buffer-- or for all buffers (globally).
+To toggle the specific echo functionality for all buffers, precede the
+specific command with <KBD>C-u</KBD>.
+Note that in the documentation below, this use of <KBD>C-u</KBD> is indicated 
+using the common Emacs terminology of <EM>prefix arg</EM> or
+<EM>interactive prefix arg</EM>.
+
+
+<DL COMPACT>
+
+ @kindex  control e d k 
+<DT><KBD><KBD>control e d k </KBD></KBD>
+<DD>
+<A NAME="IDX31"></A>
+ 
+emacspeak-toggle-character-echo
+ Toggle state of  Emacspeak  character echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+
+<A NAME="IDX32"></A>
+ @kindex  control e d w 
+ 
+<DT><KBD><KBD> control e d w </KBD></KBD>
+<DD>
+emacspeak-toggle-word-echo
+ Toggle state of  Emacspeak  word echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+
+<A NAME="IDX33"></A>
+ @kindex  control e d l 
+ 
+<DT><KBD><KBD> control e d l </KBD></KBD>
+<DD>
+emacspeak-toggle-line-echo
+ Toggle state of  Emacspeak  line echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+</DL>
+
+
+
+<H3><A NAME="SEC17" HREF="emacspeak_toc.html#TOC17">Setting Various Characteristics Of Speech Output.</A></H3>
+
+<P>
+Emacspeak user commands can set different characteristics of the speech
+output such as speech rate and  punctuations mode.
+
+
+<P>
+Emacspeak provides a number of settings that affect how  attributes of
+the text such as capitalization are conveyed.
+These include settings that produce a short tone for each upper case
+letter,  as well as a smart mode for speaking mixed case words which is
+especially useful when programming.
+These settings can be made locally in a given buffer or be applied to
+all buffers by preceding these commands with <KBD>C-u</KBD>.
+
+
+<DL COMPACT>
+
+ @kindex  control e d r 
+ 
+<DT><KBD><KBD> control e d r </KBD></KBD>
+<DD>
+<A NAME="IDX34"></A>
+ 
+dtk-set-rate
+ Set speaking RATE for the tts.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+<A NAME="IDX35"></A>
+ @kindex  control e d f 
+ 
+<DT><KBD><KBD> control e d f </KBD></KBD>
+<DD>
+dtk-set-character-scale
+ Set scale FACTOR for   speech rate.
+Speech rate is scaled by this factor
+when speaking characters.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
+<A NAME="IDX36"></A>
+ @kindex  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
+ 
+<DT><KBD><KBD> control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 </KBD></KBD>
+<DD>
+dtk-set-predefined-speech-rate
+ Set speech rate to one of nine predefined levels.
+Interactive PREFIX arg says to set the rate globally.
+
+<A NAME="IDX37"></A>
+ @kindex  control e d p 
+ 
+<DT><KBD><KBD> control e d p </KBD></KBD>
+<DD>
+dtk-set-punctuations
+ Set punctuation mode to MODE.
+Possible values are `some', `all', or `none'.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+<A NAME="IDX38"></A>
+ @kindex  control e d m 
+ 
+<DT><KBD><KBD> control e d m </KBD></KBD>
+<DD>
+dtk-set-pronunciation-mode
+ Set pronunciation MODE.
+This command is valid only for newer
+Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
+europe, spell', all of which can be turned on or off.
+Argument STATE specifies new state.
+
+<A NAME="IDX39"></A>
+ @kindex  control e d s 
+
+<DT><KBD><KBD> control e d s </KBD></KBD>
+<DD>
+dtk-toggle-split-caps
+ Toggle split caps mode.
+Split caps mode is useful when reading
+Hungarian notation in program source code.  Interactive PREFIX arg
+means toggle the global default value, and then set the current local
+value to the result.
+
+<A NAME="IDX40"></A>
+ @kindex  control e d c 
+ 
+<DT><KBD><KBD> control e d c </KBD></KBD>
+<DD>
+dtk-toggle-capitalization
+ Toggle capitalization.
+when set, capitalization is indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+
+<A NAME="IDX41"></A>
+ @kindex  control e d  cap C  
+ 
+<DT><KBD><KBD> control e d  cap C  </KBD></KBD>
+<DD>
+dtk-toggle-allcaps-beep
+ Toggle allcaps-beep.
+when set, allcaps words  are  indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+Note that allcaps-beep is a very useful thing when programming.
+However it is irritating to have it on when reading documents.
+</DL>
+
+<P>
+In addition, Emacspeak can convey the indentation of lines as they are
+spoken--
+this is relevant when programming  and is the default when working with
+program source.
+
+
+<DL COMPACT>
+
+ @kindex  control e d i 
+ 
+<DT><KBD><KBD> control e d i </KBD></KBD>
+<DD>
+<A NAME="IDX42"></A>
+ 
+emacspeak-toggle-audio-indentation
+ Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+Specifying the method of indentation as `tones'
+results in the Dectalk producing a tone whose length is a function of the
+line's indentation.  Specifying `speak'
+results in the number of initial spaces being spoken.
+
+Indentation feedback style is set by option 
+emacspeak-audio-indentation-method
+<A NAME="IDX43"></A>
+
+The default value is  <CODE>"speak"</CODE>
+
+See variable `emacspeak-audio-indentation-methods' for
+possible values.
+Automatically becomes local in any buffer where it is set.
+
+</DL>
+
+
+<H3><A NAME="SEC18" HREF="emacspeak_toc.html#TOC18">Miscellaneous Speech Commands</A></H3>
+
+<P>
+Speech can be stopped using command <CODE>dtk-stop</CODE>
+--though in normal use, 
+the action of moving the cursor will stop ongoing speech. Speech can
+also be paused and resumed.
+The speech server can be stopped and restarted for cases where the user
+wants to switch to a different server --or in teh rare case to nuke a
+runaway speech server.
+
+
+<DL COMPACT>
+
+ @kindex     pause   control e s   
+ 
+<DT><KBD><KBD>Control e s</KBD></KBD>
+<DD>
+<A NAME="IDX44"></A>
+ 
+dtk-stop
+ Stop speech now.
+
+<A NAME="IDX45"></A>
+ @kindex  control e p 
+ 
+<DT><KBD><KBD> control e p </KBD></KBD>
+<DD>
+dtk-pause
+ Pause ongoing speech.
+The speech can be resumed with command `dtk-resume'
+normally bound to C-e SPC.  Pausing speech is useful when one needs to
+perform a few actions before continuing to read a large document.  Emacspeak
+gives you speech feedback as usual once speech has been paused.  `dtk-resume'
+continues the interrupted speech irrespective of the buffer
+in which it is executed.
+Optional PREFIX arg flushes any previously paused speech.
+
+<A NAME="IDX46"></A>
+ @kindex  control e SPACE 
+ 
+<DT><KBD><KBD> control e SPACE </KBD></KBD>
+<DD>
+dtk-resume
+ Resume paused speech.
+This command resumes  speech that has been suspended by executing
+command `dtk-pause' bound to C-e p.
+If speech has not been paused,
+and variable `dtk-resume-should-toggle' is t
+ then this command will pause ongoing speech.
+
+<A NAME="IDX47"></A>
+ @kindex  control e d q 
+ 
+<DT><KBD><KBD> control e d q </KBD></KBD>
+<DD>
+dtk-toggle-quiet
+ Toggle state of the speech device between being quiet and talkative.
+Useful if you want to continue using an Emacs session that has
+emacspeak loaded but wish to make the speech shut up.
+Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
+
+<A NAME="IDX48"></A>
+ @kindex  control e control s 
+ 
+<DT><KBD><KBD> control e control s </KBD></KBD>
+<DD>
+dtk-emergency-restart
+ Use this to nuke the currently running dtk server and restart it.
+Useful if you want to switch to another synthesizer while emacspeak is
+running.  Also useful for emergency stopping of speech.
+
+</DL>
+
+<P>
+Finally, here are the remaining commands available via the TTS related
+keymap <KBD>C-e d</KBD>.
+
+
+<DL COMPACT>
+
+ @kindex  control e d a 
+ 
+<DT><KBD><KBD> control e d a </KBD></KBD>
+<DD>
+<A NAME="IDX49"></A>
+ 
+dtk-add-cleanup-pattern
+ Add this pattern to the list of repeating patterns that are cleaned up.
+Optional interactive prefix arg DELETEs this pattern if
+previously added.  Cleaning up repeated patterns results in emacspeak
+speaking the pattern followed by a repeat count instead of speaking
+all the characters making up the pattern.  Thus, by adding the
+repeating pattern `.' (this is already added by default) emacspeak
+will say "aw fifteen dot" when speaking the string
+"..............." instead of "period period period period ".
+
+<A NAME="IDX50"></A>
+ @kindex  control e d d 
+ 
+<DT><KBD><KBD> control e d d </KBD></KBD>
+<DD>
+dtk-select-server
+ Select a speech server interactively.
+This will be the server that is used when you next call either
+M-x dtk-initialize or C-e C-s.
+Argument PROGRAM specifies the speech server program.
+
+<A NAME="IDX51"></A>
+ @kindex  control e d SPACE 
+ 
+<DT><KBD><KBD> control e d SPACE </KBD></KBD>
+<DD>
+dtk-toggle-splitting-on-white-space
+ Toggle splitting of speech on white space.
+This affects the internal state of emacspeak that decides if we split
+text purely by clause boundaries, or also include
+whitespace.  By default, emacspeak sends a clause at a time
+to the speech device.  This produces fluent speech for
+normal use.  However in modes such as `shell-mode' and some
+programming language modes, clause markers appear
+infrequently, and this can result in large amounts of text
+being sent to the speech device at once, making the system
+unresponsive when asked to stop talking.  Splitting on white
+space makes emacspeak's stop command responsive.  However,
+when splitting on white space, the speech sounds choppy
+since the synthesizer is getting a word at a time.
+
+<A NAME="IDX52"></A>
+ @kindex  control e d RETURN 
+ 
+<DT><KBD><KBD> control e d RETURN </KBD></KBD>
+<DD>
+dtk-set-chunk-separator-syntax
+ Interactively set how text is split in chunks.
+See the Emacs documentation on syntax tables for details on how characters are
+classified into various syntactic classes.
+Argument S specifies the syntax class.
+
+<A NAME="IDX53"></A>
+ @kindex  control e d t 
+ 
+<DT><KBD><KBD> control e d t </KBD></KBD>
+<DD>
+emacspeak-dial-dtk
+ Prompt for and dial a phone NUMBER with the Dectalk.
+
+<A NAME="IDX54"></A>
+ @kindex  control e d  cap V  
+ 
+<DT><KBD><KBD> control e d  cap V  </KBD></KBD>
+<DD>
+emacspeak-dtk-speak-version
+ Use this to find out which version of the TTS firmware you are running.
+
+<A NAME="IDX55"></A>
+ @kindex  control e d z 
+ 
+<DT><KBD><KBD> control e d z </KBD></KBD>
+<DD>
+emacspeak-zap-dtk
+ Send this command to the TTS engine  directly.
+
+</DL>
+
+
+
+<H2><A NAME="SEC19" HREF="emacspeak_toc.html#TOC19">Voice Lock Mode</A></H2>
+
+<P>
+The status of voice lock mode can be toggled on and off by issuing the
+command <KBD>C-e d v (M-x voice-lock-mode)</KBD>. With a prefix arg, this
+function applies globally; otherwise, it is local to the current
+buffer. To have voice lock mode activated automatically when Emacspeak
+starts, include the following code in your <TT>`.emacs'</TT> file:
+
+
+
+<PRE>
+(add-hook 'emacs-lisp-mode-hook
+'turn-on-voice-lock)
+</PRE>
+
+<P>
+Alternatively, Emacspeak can be set to enable voice lock automatically
+in all of the major modes that support it. To do so, insert the
+following statement into your Emacs initialization file:
+
+
+
+<PRE>
+(global-voice-lock-mode t)
+</PRE>
+
+<P>
+ Note that the list of major modes in which
+<CODE>global-voice-lock-mode</CODE> will provide automatic activation is
+specified in the variable <VAR>voice-lock-global-modes</VAR>.
+
+
+<P>
+The characteristics of the different voice personalities deployed by
+voice lock mode vary according to the capabilities of the speech
+synthesizer. The definitions applicable to the Dectalk family of
+synthesizers are contained in <TT>`dtk-voices.el'</TT>, which is supplied
+as part of the Emacspeak distribution.
+
+
+<P>
+Using voice lock mode, Emacspeak also supports many of the aural style
+properties defined in level 2 of the World Wide Web Consortium's
+Cascading Style Sheet specification (see
+<CODE>http://www.w3.org/TR/REC-CSS2/</CODE>. Thus, when Emacspeak is running
+in conjunction with a cooperating user agent, such as William Perry's
+Emacspeak/W3 web browser, the rendering of HTML documents can be
+regulated by style sheets. Examples of style rules which employ the
+CSS audio properties can be found in the default style sheet which is
+supplied in the Emacs/W3 distribution.
+
+
+
+
+<H2><A NAME="SEC20" HREF="emacspeak_toc.html#TOC20">Commands For Speaking Status Information.</A></H2>
+
+<P>
+The following commands provide miscellaneous information.
+<DL COMPACT>
+
+ @kindex  control e a 
+ 
+<DT><KBD><KBD> control e a </KBD></KBD>
+<DD>
+<A NAME="IDX56"></A>
+ 
+emacspeak-speak-message-again
+ Speak the last message from Emacs once again.
+
+<A NAME="IDX57"></A>
+ @kindex  control e m 
+ 
+<DT><KBD><KBD> control e m </KBD></KBD>
+<DD>
+emacspeak-speak-mode-line
+ Speak the mode-line.
+
+<A NAME="IDX58"></A>
+ @kindex  control e  cap M  
+ 
+<DT><KBD><KBD> control e  cap M  </KBD></KBD>
+<DD>
+emacspeak-speak-minor-mode-line
+ Speak the minor mode-information.
+
+<A NAME="IDX59"></A>
+ @kindex  control e control w 
+ 
+<DT><KBD><KBD> control e control w </KBD></KBD>
+<DD>
+emacspeak-speak-window-information
+ Speaks information about current windows.
+
+<A NAME="IDX60"></A>
+ @kindex  control e t 
+ 
+<DT><KBD><KBD> control e t </KBD></KBD>
+<DD>
+emacspeak-speak-time
+ Speak the time.
+
+<A NAME="IDX61"></A>
+ @kindex  control e v 
+ 
+<DT><KBD><KBD> control e v </KBD></KBD>
+<DD>
+emacspeak-speak-version
+ Announce version information for running emacspeak.
+
+<A NAME="IDX62"></A>
+ @kindex  control e f 
+ 
+<DT><KBD><KBD> control e f </KBD></KBD>
+<DD>
+emacspeak-speak-buffer-filename
+ Speak name of file being visited in current buffer.
+Speak default directory if invoked in a dired buffer,
+or when the buffer is not visiting any file.
+
+<A NAME="IDX63"></A>
+ @kindex  control e h 
+ 
+<DT><KBD><KBD> control e h </KBD></KBD>
+<DD>
+emacspeak-speak-help
+ Speak help buffer if one present.
+With prefix arg, speaks the rest of the buffer from point.
+Negative prefix arg speaks from start of buffer to point.
+
+<A NAME="IDX64"></A>
+ @kindex  control e k 
+ 
+<DT><KBD><KBD> control e k </KBD></KBD>
+<DD>
+emacspeak-speak-current-kill
+ Speak the current kill entry.
+This is the text that will be yanked in by the next C-y.
+Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
+result of a
+C-y  followed by count-1 M-y
+be spoken.
+ The kill number that is spoken says what numeric prefix arg to give
+to command <CODE>yank</CODE>.
+
+<A NAME="IDX65"></A>
+ @kindex  control e x 
+ 
+<DT><KBD><KBD> control e x </KBD></KBD>
+<DD>
+emacspeak-view-register
+ Display the contents of a register, and then speak it.
+
+<A NAME="IDX66"></A>
+ @kindex  control e control @ 
+ 
+<DT><KBD><KBD> control e control @ </KBD></KBD>
+<DD>
+emacspeak-speak-current-mark
+ Speak the line containing the mark.
+With no argument, speaks the
+line containing the mark--this is where `exchange-point-and-mark'
+C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks
+line containing mark 'n' where 'n' is one less than the number of
+times one has to jump using `set-mark-command' to get to this marked
+position.  The location of the mark is indicated by an aural highlight
+achieved by a change in voice personality.
+
+<A NAME="IDX67"></A>
+ @kindex  control e control l 
+ 
+<DT><KBD><KBD> control e control l </KBD></KBD>
+<DD>
+emacspeak-speak-line-number
+ Speak the line number of the current line.
+
+<A NAME="IDX68"></A>
+ @kindex  control e = 
+ 
+<DT><KBD><KBD> control e = </KBD></KBD>
+<DD>
+emacspeak-speak-current-column
+ Speak the current column.
+
+<A NAME="IDX69"></A>
+ @kindex  control e % 
+ 
+<DT><KBD><KBD> control e % </KBD></KBD>
+<DD>
+emacspeak-speak-current-percentage
+ Announce the percentage into the current buffer.
+
+</DL>
+
+
+<H1><A NAME="SEC21" HREF="emacspeak_toc.html#TOC21">The Emacspeak Audio Desktop.</A></H1>
+
+<P>
+This chapter describes the Emacspeak audio desktop and gives tips and
+tricks for making use of many of Emacs' powerful features.
+
+
+<P>
+The desktop is the work area where you organize the tools of
+your trade and the information objects relevant to your
+current activities.  In the conventional world of visual
+GUI-based computing, these tools and information objects
+manifest themselves as a collection of icons organized in a
+two-dimensional work-area --this organization is designed to
+place frequently used objects within easy reach.
+
+
+<P>
+Notice that organizing one's work area in terms of visual
+icons arranged in a two-dimensional area where such an
+organization is optimized for the available "conversational
+gestures" of pointing and clicking is an artifact of visual
+interaction.
+
+
+<P>
+In the spirit of a truly speech-enabled application,
+Emacspeak does not simply provide you spoken access to a
+particular presentation of your work environment that was
+initially designed with the "sign language" of visual
+interaction in mind. Instead, Emacspeak enables you to work
+with documents and other information objects in a manner
+that is optimized to aural, eyes-free interaction.  A
+necessary consequence of this setup is that users accustomed
+to the purely visual manifestation of today's electronic
+desktop do not immediately perceive the Emacspeak
+environment as an electronic desktop.  This section of the
+manual hopes to introduce you to a work-style that encourages a
+different perspective on how one interacts with the computer
+in performing day-to-day computing tasks.
+
+
+<P>
+The end result in my case has been a marked increase in
+personal productivity.
+
+
+
+
+<H2><A NAME="SEC22" HREF="emacspeak_toc.html#TOC22">Objects Making Up The Emacspeak Desktop</A></H2>
+
+<P>
+A "buffer" is the basic building block of the Emacs and
+hence the Emacspeak desktop.  Any information presented by
+Emacs is placed in a "buffer".  For example, when perusing
+this manual within Emacs, the "file" containing the documentation is
+presented in a "buffer".  All information objects such as
+WWW pages, email messages, output from user interaction with
+command-line shells etc., are presented by Emacs in
+individual "buffers".
+
+
+<P>
+Buffers provide a base level of user interaction;
+Emacs derives its power by allowing applications to
+specialize buffers to enable specific types of
+user-interaction that is optimized for 
+a specific class of information.
+
+
+
+
+<H2><A NAME="SEC23" HREF="emacspeak_toc.html#TOC23">An Object-Oriented Desktop</A></H2>
+
+<P>
+The basic "buffer object" 
+can be specialized by Emacs applications to provide optimal
+interaction.
+This kind of specialization makes the Emacs environment an
+object-oriented environment; thus, the basic conversational
+gesture of 
+"move to the next statement" can be assigned behavior that
+is appropriate to the content that the user is currently
+navigating.
+As an example of such specialization, Emacs provides
+"specialized  modes" for working with English text, 
+programming languages, markup source e.g. HTML or LaTeX
+documents and so on.
+
+
+
+
+<H2><A NAME="SEC24" HREF="emacspeak_toc.html#TOC24">Emacspeak Specializes Aural Interaction</A></H2>
+
+<P>
+The content-specific user interaction described above is a
+very powerful feature of Emacs, and this is where Emacspeak
+derives its power.  Traditionally, the ability to create
+buffers specialized for working with specific content-types
+has been used by the Emacs community to develop versatile
+programming environments, messaging applications such as
+mail and news readers, and authoring environments.  The
+clean design present in all of these Emacs extensions in
+terms of separating application functionality from the
+user-interface, combined with the availability of the entire
+source code making up these packages under the open-source
+model has laid the ground-work for developing Emacspeak as
+a versatile aural counterpart to the product of years of
+software engineering that has been invested by the Emacs
+community.  In short, Emacspeak would not exist in its
+present shape or form without this prior effort.
+
+
+
+
+<H3><A NAME="SEC25" HREF="emacspeak_toc.html#TOC25">Audio Formatted Output</A></H3>
+
+<P>
+Emacspeak takes advantage of the content-specific knowledge
+available within specialized buffers to produce "audio
+formatted" output designed to optimize user interaction.
+A basic consequence of the above is "voice locking" in
+specialized modes; a more interesting consequence is the
+implementation of Aural Cascading Style Sheets (ACSS) in
+conjunction with the Emacs W3 browser.
+
+
+
+
+<H3><A NAME="SEC26" HREF="emacspeak_toc.html#TOC26">Structured Navigation:</A></H3>
+
+<P>
+Emacspeak  also exploits content-specific knowledge to provide
+structured navigation of different types of 
+electronic content. In many cases, such structured
+navigation is an extension of what Emacs provides by
+default; in other cases, 
+Emacspeak implements the necessary extensions to provide the
+level of structural navigation needed to work efficiently in
+an eyes-free environment.
+
+
+<P>
+Notable among such structured navigation is Emacs' powerful outline
+feature. Notice for example, that the Emacspeak FAQ (reached via command
+<CODE>emacspeak-view-emacspeak-faq</CODE> bound to <KBD>C-e F</KBD>) takes
+advantage of Emacs' outline mode to allow you to easily move through the
+various sections.  An example of content-sensitive navigation is
+provided by the imenu package which dynamically creates a "table of
+contents" based on the content that is being displayed in a given
+buffer.
+
+
+
+
+<H3><A NAME="SEC27" HREF="emacspeak_toc.html#TOC27">Navigating The Desktop</A></H3>
+
+<P>
+In addition to navigating individual information objects,
+the Emacspeak environment provides speech-enabled navigation
+of the various buffers that are currently open on the
+Emacspeak desktop via Emacs' built-in list-buffers feature.
+Emacs' dired  --directory editor-- for browsing the file
+system, along with the new speedbar package 
+that combines features from dired and imenu round off the
+suite of navigational tools.
+
+
+
+
+<H3><A NAME="SEC28" HREF="emacspeak_toc.html#TOC28">Everything Is Searchable:</A></H3>
+
+<P>
+Emacs derives one final advantage from using buffers as the basic
+building block for the entire desktop.  Every Emacs buffer is searchable
+via a uniform and powerful search interface.  Emacs' incremental search
+works efficiently and consistently to enable you locate "objects" of
+interest either within a given document or to locate a given object from
+amongst the various objects that are currently open on the Emacspeak
+desktop.  This is <B>very powerful</B> --where a GUI user is typically
+limited to quickly locating an object from a relatively small collection
+--the size of the collection being a direct function of available
+display real-estate-- the Emacspeak user can typically work with a far
+larger collection of objects.  This is well-suited to the eyes-free
+environment, where display real-estate has no meaning; so bringing up a
+list of currently open buffers and performing an incremental search to
+locate a specific buffer is just as efficient independent of whether you
+have a few dozen or a few hundred buffers open.
+
+
+<P>
+To illustrate the above, my typical working Emacs session
+lasts between two and three weeks-- over that time I
+typically accumulate several hundred open buffers holding a
+large variety of content ranging from program source code to
+email messages and WWW pages.
+
+
+<P>
+Ubiquitous search in the eyes-free environment is critical-- as a
+comparison, when using a conventional, purely visual WWW browser, users
+have no means of easily "searching" for say the "submit" button on a WWW
+page.  This inability is a minor annoyance in visual interaction, and
+the typical mouse-enabled user <B>never</B> uses the find dialog to find a
+submit button-- it is simply more efficient to point at the submit
+button given the eye's ability to quickly scan the two-dimensional
+display.  This luxury is absent in an eyes-free environment; as a
+consequence, blind users confronted by the combination of a visual
+interface and screen-reader are typically limited to either tabbing
+through all the controls on a WWW page, or using the sub-optimal find
+dialog.
+
+
+<H1><A NAME="SEC29" HREF="emacspeak_toc.html#TOC29">Using Online Help With Emacspeak.</A></H1>
+
+<P>
+Emacs provides an extensive online help system for helping you learn 
+about various aspects of using Emacs. Emacspeak provides online help for
+its various extensions using this same help system.
+This chapter explains how to use the online help facilities in order to
+empower you in discovering powerful and versatile working techniques
+that will make you more and more productive in your day to day computing.
+
+
+<P>
+The online help options are accessed via the <KBD>C-h</KBD> prefix key,
+which must be followed by an additional letter or control character to
+designate the kind of help desired.
+ For example, <KBD>C-h t</KBD>
+<CODE>help-with-tutorial</CODE> visits the Emacs tutorial in a new buffer;
+<KBD>C-h i</KBD> <CODE>info</CODE> enters the Info documentation system, from
+which you can read Texinfo manuals that have been installed on your
+system, including the Emacs and Emacspeak documentation; and <KBD>C-h
+k</KBD> <CODE>describe-key</CODE> provides a description of the Emacs function
+which is bound to the next key that you type.
+For learning about the various  options  that are available via the
+<KBD>C-h</KBD> mechanism described above,
+view the online help for command <CODE>help-for-help</CODE> 
+bound to <KBD>C-h C-h</KBD> --using what has been described so far,
+you would achieve this by pressing <KBD>C-h k</KBD> followed by <KBD>C-h
+C-h</KBD>.
+
+
+<P>
+Emacspeak users should note that online help is typically displayed in a
+separate Emacs window. Where it makes sense to do so, Emacspeak will
+automatically speak the displayed help.
+Once you've asked for help, you can have the 
+displayed documentation as many times as you wish using Emacspeak
+command <CODE>emacspeak-speak-help</CODE> bound to <KBD>C-e h</KBD>.
+If you want to move through the displayed help a line at a time, switch
+to the buffer where the help is displayed --the buffer is called 
+<CODE>*Help*</CODE>.
+
+
+<P>
+ Often, in adding an auditory interface to an Emacs extension, such as a
+web browser or mail reader, Emacspeak defines additional commands and
+key bindings which enhance the functionality of the spoken feedback
+provided by the application. This manual does not purport to document
+all such commands. It is important, therefore, when learning to use the
+various Emacs extensions which comprise the `audio desktop'
+(see section <A HREF="emacspeak.html#SEC21">The Emacspeak Audio Desktop.</A>) that you take advantage of online help to obtain
+details of any context-specific features provided by Emacspeak.  The
+following two commands are of particular importance in this regard:
+
+
+
+<UL>
+<LI><KBD>C-h m</KBD> <CODE>describe-mode</CODE> explains which
+
+major and minor modes are currently in effect, and lists the commands
+and key bindings associated with them.
+
+<LI><KBD>C-h b</KBD>
+
+<CODE>describe-bindings</CODE> lists all of the key bindings which are
+currently defined.
+</UL>
+
+<P>
+The importance of these help functions can be illustrated by the
+Emacs/W3 web browser. When point is positioned inside a table, certain
+key bindings are established with which you can access Emacspeak
+commands that make it possible to read the rows and columns of the
+table and explore its structure efficiently. To get a description of these
+key bindings, you can use W3 to visit the sample HTML file supplied as
+part of the Emacspeak distribution, and, after having moved point onto
+the first row of the table, issue the command <KBD>C-h m</KBD>
+<CODE>describe-mode</CODE> to create a help buffer containing an explanation
+of the features offered by W3 mode.
+
+
+<P>
+Emacspeak supplements the online help facilities available within
+Emacs by defining several commands of its own, as follows:
+
+
+
+<UL>
+<LI><KBD>C-h c-e</KBD> <CODE>describe-emacspeak</CODE> presents a list of
+
+standard Emacspeak commands.
+
+<LI><KBD>C-e F</KBD> <CODE>emacspeak-view-emacspeak-faq</CODE> opens a new
+
+buffer containing the Emacspeak FAQ, a list of frequently asked
+questions about Emacspeak together with their answers.
+
+<LI><KBD>C-e C-h</KBD> <CODE>emacspeak-learn-mode</CODE> enters a mode in which
+
+the function of every key that you type is spoken; this mode can be
+terminated with the <KBD>C-g</KBD> <CODE>keyboard-quit</CODE> command.
+
+<LI><KBD>M-x emacspeak-generate-documentation</KBD> prompts for the name
+
+of a file in which it saves an automatically generated summary of all
+Emacspeak commands.
+</UL>
+
+
+
+<H1><A NAME="SEC30" HREF="emacspeak_toc.html#TOC30">Emacs Packages.</A></H1>
+
+<P>
+Emacs -- The extensible, self-documenting editor, derives its
+functionality from its powerful extension mechnaism. This extension
+mechanism is used to implement many user-level applications such as mail
+readers, WWW browsers, software development environments and so on.
+This chapter gives directions on how to locate the right Emacs package
+for addressing specific tasks.  The chapter is organized into logical
+sections that each pertain to a specific class of tasks; in dividual
+subsections within a section give a brief overview of particular Emacs
+packages that have been speech-enabled.
+
+
+
+
+<H2><A NAME="SEC31" HREF="emacspeak_toc.html#TOC31">Document Authoring</A></H2>
+
+<P>
+The Emacspeak environment provides a rich collection of structured
+document authoring tools.
+These are well-suited for working in an eyes-free environment --you
+clearly dont want to use a <B>What You See Is What You Get</B> (WYSIWYG)
+authoring tool if you cannot see what you're getting.
+ Structure-based authoring tools  allow you to focus on the act of
+ content creation, leaving the minutii of visual layout to the computer.
+
+
+
+
+<H3><A NAME="SEC32" HREF="emacspeak_toc.html#TOC32">Creating Well-formatted Documents</A></H3>
+
+<P>
+Before authoring a document, decide its primary audience 
+if the document contains relatively simple content e.g., no mathematical
+equations etc. 
+and is primarily targetted at the WWW,  you are probably better off
+using HTML.
+You can create well-structured HTML documents with the help of package 
+<CODE>html-helper-mode</CODE> available from 
+<CODE>ftp://ftp.reed.edu/pub/src/html-helper-mode.tar.gz</CODE>.
+Package <CODE>html-helper-mode</CODE> is speech-enabled by Emacspeak to
+provide auditory icons, structured navigation and outlines, as well as
+voice locking for audio formatted feedback as you work.
+
+
+<P>
+If the document being authored is more complex, you are usually better
+off creating it in LaTeX.
+Note that LaTeX documents can be converted to HTML either via package
+<CODE>tth</CODE> or package <CODE>latex2html</CODE> --both available on the WWW.
+
+
+<P>
+The TeX family of typesetting languages  is suitable for producing 
+well-formatted documents in an eyes-free environment.
+Unlike WYSIWYG environments, 
+the author  of a TeX or LaTeX document works with the content of the
+document, leaving it to the formatting system (TeX) 
+to format the document for good visual presentation.
+
+
+<P>
+The auctex package is an Emacs extension that facilitates authoring and
+maintaining structured documents in TeX and LaTeX.  Package
+<CODE>bibtex</CODE> facilitates maintainance and use of <CODE>bibtex</CODE>
+bibliography databases.  The Texinfo package allows creation of software
+documentation that is suitable for both printing as well as online
+viewing as hypertext.  Emacspeak speech-enables packages <CODE>auctex</CODE>,
+<CODE>bibtex</CODE> and <CODE>texinfo</CODE> to provide convenient spoken feedback
+as you create and compile documents. For details on using these
+packages, see their accompanying online info documentation.  
+
+
+<P>
+The most recent version of package <CODE>auctex</CODE> is always available by
+ftp at <CODE>ftp://ftp.iesd.auc.dk/pub/emacs-lisp/auctex.tar.gz</CODE>.
+Packages <CODE>bibtex</CODE> and  <CODE>texinfo</CODE> are part of the standard Emacs distribution.
+
+
+<P>
+As the document preparation system of choice, Emacspeak supports a
+fluent speech-enabled interface
+to editing and formatting LaTeX documents.
+This interface is provided
+by speech-enabling  <EM>auctex</EM> mode. 
+
+
+<P>
+Mode <EM>auctex</EM> provides efficient keyboard shortcuts for
+inserting and maintaining LaTeX markup as a document is being
+authored.
+All of these editing commands provide succinct auditory
+feedback when used with Emacspeak.
+The syntax coloring provided by this mode is extended to provide <EM>
+  voice locking</EM>
+--- consequently, Emacspeak uses different voices to speak the
+embedded markup to set it apart from the content.
+
+
+<P>
+Mode <EM>auctex</EM> can be used to create empty document templates and
+to insert document content
+at the appropriate places in the template.
+The mode also enables structured 
+navigation of the document as it is
+being edited.  Emacspeak speech-enables these template creation and
+structured navigation commands to produce auditory icons and succinct
+spoken feedback.  For example, while editing, the user can quickly
+browse through the sections of the document and have each section
+title spoken.  Document elements such as paragraphs and bulleted lists
+can be manipulated as logical units.  These features are especially
+relevant  in an eyes-free environment where the user needs to select
+logical parts of the document without having to point at portions of a
+visual display.
+
+
+<P>
+Finally, Emacs supports creating and maintaining SGML and XML documents.
+Emacs comes with a fairly simple <CODE>sgml-mode</CODE>
+--in addition, package <CODE>psgml</CODE> provides sophisticated parsing and
+validation facilities for working with SGML and XML documents.
+Package <CODE>psgml</CODE> can be downloaded from
+<CODE>http://w4.lns.cornell.edu/public/COMP/info/psgml/psgml_toc.html</CODE>.
+
+
+
+
+<H3><A NAME="SEC33" HREF="emacspeak_toc.html#TOC33">Searching, Replacing, And Spell Checking</A></H3>
+
+<P>
+Incremental search, a process by which the system prompts the user for a
+search string and moves the selection to the next available match while
+allowing the user to add more characters to the search string, is the
+search technique of choice amongst most Emacs users.  As the system
+successively finds each match and provides the user the option of
+continuing the search.  Incremental search is a more complex instance of
+traditional search interaction because in addition to either stopping or
+continuing the search, the user can modify the current search in a
+number of ways including specifying a longer (or shorter)
+search string.
+
+
+<P>
+All of the user commands available during incremental search are
+documented in the online Emacs info manual.  These are speech-enabled by
+Emacspeak to provide spoken prompts as the dialogue begins; auditory
+icons indicate a search hit or search miss as the search progresses.
+Along with auditory icons <EM>search-hit</EM> and <EM>search-miss</EM> the
+user also hears the current line spoken, and in the case of a search
+hit, the matching text is <EM>aurally</EM> highlighted by using the
+standard audio formatting technique of changing voice characteristic.
+This feedback proves extremely effective when the search pattern appears
+several times on a single line; the user is unambiguously cued to the
+current match.
+
+
+<P>
+Search and replace actions are an extension to the basic
+conversational gestures of  a search dialogue.
+In addition to specifying a search string,
+the user also specifies a replacement string.
+On the Emacspeak desktop, this functionality is provided by
+command <EM>query-replace</EM>.  The
+speech-enabled version of this interaction prompts the user for the
+search and replacement texts.  The 
+auditory feedback during the interactive search and replacement
+process parallels that described in the case of incremental search.
+Audio formatting to indicate the occurrence that is about to be
+replaced proves an effective means of avoiding erroneous modifications
+to the text being edited.  As an example, consider using command <EM>
+  query-replace</EM> to locate and replace the second occurrence of 
+  <B>foo</B> with <B>bar</B> in the text
+ 
+   <SAMP>`Do not change this fool, but change this food.'</SAMP>
+ 
+  When the search matches the first occurrence of <B>foo</B>
+ in word <EM>fool</EM>, the aural highlighting helps the user in
+ answering "no" in response to question "should this occurrence be
+ replaced".  In addition to allowing the user to supply a
+ simple "yes or no" answer for each match, command <EM>
+   query-replace</EM> also allows the user to specify a number of other
+ valid answers as described  in the online Emacs documentation.
+
+
+
+
+<H1><A NAME="SEC34" HREF="emacspeak_toc.html#TOC34">Spell Checking</A></H1>
+
+<P>
+A more complex instance of conversational gesture "search and
+replace" is exhibited by standard spell checking dialogues.  Spell
+checking differs from the search and replace dialogue described above
+in that the search and replacement text is guessed by the system based
+on an available dictionary.  Words that are not found in the
+dictionary are flagged as potential spelling errors, and the system
+offers an interactive search and replace dialogue for each of these
+possible errors.  During this dialogue, the system successively selects
+each occurrence of the possibly erroneous word and offers a set of
+possible replacements.  Unlike in the case of simple search and
+replace, more than one possible replacement string is offered, since a
+potential spelling error can be corrected by more than one word
+appearing in the dictionary.
+
+
+<P>
+In the visual interface, such spell checking dialogues are realized by
+displaying the available choices in a pop-up window
+and allowing the user to pick a correction
+Once a correction is selected, the user is offered the choice of
+interactively  replacing the erroneous word with the correction.
+
+
+<P>
+The spell checking interface on the Emacspeak desktop is speech-enabled
+to provide fluent auditory feedback.  The visual interface parallels
+that described above and is provided by package <CODE>ispell</CODE> which is
+part of the standard Emacs distribution.  Emacspeak provides a spoken 
+prompt that is composed of the line
+containing the possibly erroneous word (which is aurally highlighted to
+set it apart from the rest of the text on that line) and the available
+corrections.  Each correction is prefixed with a number that the user
+can use to select it.  Once a correction is selected, the interaction
+continues with the query and replace interaction described earlier.  The
+speech interface to the spell checker is as fluent as the visual
+interface.  Notice that Emacspeak users do not need to concern
+themselves with the details of the visual display such as "the
+corrections are displayed in a window at the top of the screen".
+
+
+<P>
+In addition to the standard spell checker described above, newer
+versions of Emacs include an "on-the-fly" spell checker that flags
+erroneous words as they are typed.
+Emacspeak speech-enables package <CODE>flyspell</CODE> so that such erroneous
+words are aurally highlighted.
+
+
+<H2><A NAME="SEC35" HREF="emacspeak_toc.html#TOC35">Structured Editing And Templates</A></H2>
+
+<P>
+Editing documents based on the inherent 
+structure present in the electronic
+encoding can be very efficient when using spoken interaction.  We described
+mode <EM> auctex</EM> -- a specialized interface to authoring LaTeX
+documents as a special instance of such structured editing
+in see section <A HREF="emacspeak.html#SEC31">Document Authoring</A>.
+
+
+<P>
+The Emacspeak desktop allows the user to efficiently author and
+maintain an electronic document based either on the 
+structure present in the
+markup (as in the case of mode auctex) or on special outlining
+constructs that allow the user to impose a desired logical structure
+on the document.  This section describes the effect of speech-enabling
+such editing tools and points out the advantages in using these in a
+speech oriented interface.
+
+
+<P>
+Template-based authoring -- a technique that allows the user to create
+a document by inserting contents into appropriate positions in a
+predefined template-- goes hand in hand with such structured editing.
+Finally, structured editing can vastly simplify the creation and
+maintenance of structured data, for example, the data present in a UNIX
+password file.  Such data files are in fact nothing more than a
+collection of database records, where each record (or line) consists of
+a set of fields delimited by a special character.  Maintaining such
+files without exploiting the underlying structure often tends to be
+error prone.  We describe editing modes that can exploit such record
+structure to provide a fluent editing interface.  Finally, we outline a
+speech-enabled interface to a spreadsheet application as a complex
+instance of such structured data editing.
+
+
+
+
+<H3><A NAME="SEC36" HREF="emacspeak_toc.html#TOC36">Outline Editing</A></H3>
+
+<P>
+All of the various outline editing interfaces on the Emacs desktop
+allow the user to <EM> hide</EM> or <EM> show</EM>
+the contents at the different levels of a possibly nested tree
+structure.
+   Components of this tree structure can be
+manipulated as a unit, e.g.,
+entire subtrees can be deleted or copied.
+Outline editing thus provides an efficient means of obtaining quick
+overviews of a document.
+
+
+<P>
+The visual interface displays such hidden content as a series of
+ellipses following the visible outline heading.  Emacspeak produces
+auditory icon <EM> ellipses</EM> when 
+speaking such outline headings.
+
+
+<P>
+The basic <EM> outline mode</EM> allows the user to specify the syntax
+and level of outline header lines as a regular expression.  This
+simple technique can be used to advantage in the structured navigation
+of large electronic texts such as those available on the Internet from
+online book projects such as project Gutenberg and the Internet
+Wiretap.  For example, when this feature is activated while reading
+the electronic text of a Shakespearean play, the different acts can be
+recognized as separate nodes in the logical structure of the document.
+The user can then hide the document body with a single keystroke,
+navigate the outline headings to find a particular act, and have that
+portion rendered either visually or aurally.  Hiding an outline level
+produces auditory icon <EM> close-object</EM>; exposing a hidden level
+produces auditory icon <EM> open-object</EM>.  
+For details on using mode <CODE>outline</CODE>, see the relevant section of
+the online Emacs info manual.
+
+
+<P>
+The basic outline facility described above is applicable to all
+content being edited or browsed on the Emacspeak desktop.  In
+addition, Emacspeak has  other specialized outline editing
+modes such as  <EM> folding mode</EM> that provide extended
+outlining facilities.  In mode
+<EM> folding</EM>, the user can create
+(possibly nested) <EM> folds</EM> -- logical containers of content
+that are delimited by a special <EM> fold mark</EM>.  The fold mark is
+typically a text string that is chosen based on the type of content
+that is being manipulated.  Thus, when <EM> folding</EM> a C~program
+source file, fold marks are created from C~comments.  The user can
+<EM> open</EM> or <EM> close</EM> any or all folds in a document, and
+these actions
+are accompanied by auditory icons <EM> open-object</EM>
+and <EM> close-object</EM>.  By entering a fold, all editing actions are
+restricted to the contents of that fold; this proves a simple yet
+convenient way of constraining editing actions such as search and
+replace to specific portions of large documents.
+Folds can be manipulated as a unit and can be deleted, copied or moved.
+
+
+<P>
+Mode <EM> folding</EM> proves especially effective in maintaining large
+software modules.  The technique can be used to advantage by creating
+folds for different sections in a module and by further placing each
+function appearing in a particular %
+section in a fold of its
+own.  Complex functions can themselves be folded into sections where
+each section reflects a different stage in the algorithm implemented
+by that function.  Thus, the technique of folding can be used as an
+effective aid in <EM> literate</EM> programming.  I typically write
+software modules by first creating an outline structure using folds
+that reflect the various components of that module. Next, I populate
+each fold with the function signatures and documentation for the
+functions in each section.  When I am satisfied with the overall
+architecture of the module, I fill in the function skeletons with
+actual program code.  This technique is used extensively in
+maintaining  the  Emacspeak code base.  
+
+
+
+
+<H3><A NAME="SEC37" HREF="emacspeak_toc.html#TOC37">Template-based Authoring</A></H3>
+
+<P>
+Emacspeak supports two powerful template-based authoring subsystems that
+enable the user to quickly create and fill in templates.  <EM> Dmacro</EM>
+(short for "dynamic macros") allows the user to define and invoke
+template-based macros that are specialized for creating different types
+of content.  For example, when programming in C, the user can invoke
+dynamic macros that insert skeletons of standard C constructs with a few
+keystrokes.  This form of editing has numerous advantages in creating
+consistently structured code when developing large software modules.
+Emacspeak speech-enables mode <EM> dmacro</EM> to provide succinct spoken
+feedback as templates are created and filled.  The user invokes <EM>
+dmacro</EM> via command <EM> insert dmacro</EM>, which is typically bound to a
+single key.  This results in a dialogue where the user is prompted to
+pick one of the dynamic macros available in the current context.  If the
+users choice can be uniquely completed, that completion is spoken;
+otherwise, the list of possible completions based on the available
+partial input is spoken, accompanied by auditory icon <EM> help</EM>.
+
+
+<P>
+An alternative template-editing facility is provided by mode  <EM> tempo</EM>
+This mode is designed to  be used in creating
+template-based editing tools for specific markup languages; a good
+example is mode <EM> html-helper</EM>,
+a  mode for creating and updating HTML documents for
+publishing on the WWW (see see section <A HREF="emacspeak.html#SEC31">Document Authoring</A>).
+
+
+
+
+<H3><A NAME="SEC38" HREF="emacspeak_toc.html#TOC38">Maintaining Structured Data</A></H3>
+
+<P>
+Consider the following entry from file <CODE> /etc/passwd</CODE>
+on my laptop.
+
+
+<P>
+<SAMP>`aster:KlZVoUxwQQBT2:501:100:Aster Labrador:/home/aster:/bin/bash'</SAMP>
+
+
+<P>
+ File <CODE> /etc/passwd</CODE> is a simple instance of a text file
+that stores structured data records as a series of fields delimited by
+a special character. Each item in the file acquires <EM>
+  meaning</EM> from the <EM> position</EM>  in which it  occurs   for
+example, the fifth field contains the <B> user name</B>, Aster Labrador.
+More generally, structured data where each field in a record has <EM>
+  meaning</EM> is found throughout the desktop in applications ranging
+from entries in a rolodex to rows in a spreadsheet.
+
+
+<P>
+Typically, users do not directly edit the stored representation of the
+data. Instead, application front-ends provide a more human-centric
+(and hopefully less error prone) user interface for modifying and
+maintaining the data.  Thus, spreadsheet applications present the
+data as a two dimensional table that is automatically updated to
+reflect changes in the underlying data.  The two dimensional table is
+perhaps the most commonly found visual front-end to structured data
+  tables with row and column headers prove a succinct
+way of implicitly displaying the <EM> meaning</EM> along with the <EM>
+  value</EM> of the fields making up each data record.
+
+
+<H2><A NAME="SEC39" HREF="emacspeak_toc.html#TOC39">Browsing Structured Information</A></H2>
+
+<P>
+This section describes packages that allow you to browse structured
+information  --these are distinct from the 
+tools described in section <A HREF="emacspeak.html#SEC35">Structured Editing And Templates</A>,
+ in that they are typically
+used for working with  content that is read-only e.g., online
+documentation.
+
+
+
+
+<H2><A NAME="SEC40" HREF="emacspeak_toc.html#TOC40">Electronic Messaging Applications</A></H2>
+
+<P>
+Working with messaging applications involves both authoring and browsing
+content.
+Emacspeak provides a rich set of speech-enabled messaging tools.
+Further, all of the tools described in the previous sections 
+integrate smoothly with the messaging applications described here; this
+means that you do not need to re-learn a new set of 
+work habits when dealing with content in your messaging application.
+
+
+
+
+<H2><A NAME="SEC41" HREF="emacspeak_toc.html#TOC41">Editting Program Source Code</A></H2>
+
+<P>
+Files containing program source code form a very specific class of
+<B>structured</B> documents.
+Unlike documents meant for human consumption that are often only loosely
+structured, program source 
+(as a concession to the computer's intolerance of lack of structure)
+are per force well-structured and adhere to a fairly stringent  syntax. 
+
+
+<P>
+The Emacs environment provides editting modes that are specific to
+creating and maintaining software written in 
+most popular programming languages. Many of these editting modes are
+speech-enabled by Emacspeak.
+Speech-enabling these modes includes providing 
+a rich set of navigational  commands that allow you to move 
+through the source efficiently. In addition, Emacspeak's core
+<B>voice-lock</B> facilities are used to produce audio formatted output 
+--this helps you spot errors quickly.
+
+
+
+
+<H2><A NAME="SEC42" HREF="emacspeak_toc.html#TOC42">Software Development Environment</A></H2>
+
+<P>
+In addition to providing specialized editting modes for creating and
+maintaining program source,
+Emacs provides a rich set of software development tools that can be
+combined to create powerful Integrated Development Environments (IDE).
+These IDEs are speech-enabled by Emacspeak to provide a versatile and
+powerful  environment for eyes-free software development.
+
+
+
+
+<H2><A NAME="SEC43" HREF="emacspeak_toc.html#TOC43">Desktop Management</A></H2>
+
+<P>
+Emacs provides an integrated environment for performing all of ones
+day-to-day computing tasks ranging from electronic messaging to software
+development.
+The environment derives its power from the fact that 
+this integration allows for content to be handled across different tasks
+in a seamless manner. 
+In order to work effectively with large Emacs sessions with many
+documents and applications open at the same time, the Emacspeak desktop
+provides 
+a powerful collection of desktop management tools designed to help the
+user easily locate objects that pertain to a given task.
+
+
+
+
+<H2><A NAME="SEC44" HREF="emacspeak_toc.html#TOC44">Personal Information Management</A></H2>
+<P>
+This section describes speech-enabled tools designed to aid in personal
+information management such as maintaining a daily calendar.
+
+
+
+
+<H2><A NAME="SEC45" HREF="emacspeak_toc.html#TOC45">Desktop Applications</A></H2>
+
+
+
+<H1><A NAME="SEC46" HREF="emacspeak_toc.html#TOC46">subsection Spread Sheets</A></H1>
+
+<P>
+Spreadsheet applications present a two dimensional view of structured data
+where the field values are (possibly) mutually dependent.  On the Emacspeak
+desktop, a speech-enabled spreadsheet application can be used to manipulate
+such data-driven documents%
+ranging from simple cheque books and expense
+reports to  complex investment portfolios.  Where the traditional visual
+interface to spreadsheets is typically independent of the semantics of the
+data stored in the spreadsheet, the speech-enabled interface is derived from
+the <EM> meaning</EM> of the various fields making up the data.   When presenting such
+information on a  visual display, implicit visual
+layout can be used to cue the user to the meaning of different data fields.
+On the other hand, in the case of an actively scrolling auditory display, the
+spoken output needs to explicitly convey both the value and interpretation of
+the different data items.  In addition, the interface needs to enable an
+active dialogue between user and application where the user is able to query
+the system about the possible meaning of a particular item of data.  Finally,
+the aural interface needs to enable <EM> multiple</EM> views of the display.
+In the visual interface, such <EM> multiple</EM> views are automatically
+enabled by the two dimensional layout combined with the eye's ability to move
+rapidly around the layout structure.  Thus, while viewing any particular row
+of a portfolio, one can immediately see the current total value as well as
+the net gain or loss.
+The Emacs spread-sheet package <CODE>dismal</CODE> can be retrieved from
+ <CODE>ftp://cs.nyu.edu/pub/local/fox/dismal</CODE>.
+
+
+
+
+<H1><A NAME="SEC47" HREF="emacspeak_toc.html#TOC47">subsection Forms Mode</A></H1>
+
+<P>
+<EM> Forms</EM> mode  an Emacs mode designed to edit structured data
+records like the line shown from file <CODE> /etc/passwd</CODE> presents a
+user-friendly visual interface that displays the field name along with the field
+value.  The user can edit the field value and save the file, at which point
+the data is written out using the underlying <CODE> :</CODE> delimited
+representation.  Mode <EM> forms</EM> provides a flexible interface to
+associating meaning to the fields of such structured data files.  
+For details on it use, see the forms-mode section of the online Emacs
+info documentation.
+
+
+
+
+<H1><A NAME="SEC48" HREF="emacspeak_toc.html#TOC48">Running Terminal Based Applications</A></H1>
+
+<P>
+You can use the terminal emulator mode to run arbitrary terminal-based
+programs from within Emacs.  You open a terminal emulator buffer using
+M-x term, with an extra carriage return to accept the default shell
+(such as bash).  (Incidently, don't confuse this command with M-x
+terminal-emulator, which starts an older terminal emulator mode not
+supported by Emacspeak.)
+
+
+<P>
+Three kinds of commands are used within the terminal emulator.
+Normal term commands use a prefix of C-c.  The emacspeak commands for
+eterm mode use a prefix of C-t.  Anything else is a normal shell command.
+
+
+<P>
+There are two sub-modes of term mode: char sub-mode and line sub-mode.
+In char sub-mode, emacspeak will only speak the final chunk of output
+--typically the last line displayed.
+Each character typed (except `term-escape-char`) is sent immediately.
+Use char sub-mode for screen oriented programs like vi or pine.  
+
+
+<P>
+In line sub-mode, program output is spoken if user option
+ <CODE>eterm-autospeak</CODE> is turned on.  When you type a return at the end
+ of the buffer, that line is sent as input, while return not at end
+ copies the rest of the line to the end and sends it.
+When using terminal line mode with option <CODE>eterm-autospeak</CODE> turned
+ on, 
+speech feedback is similar to that obtained in regular <CODE>shell-mode</CODE>
+ buffers.
+
+
+<P>
+The default is char sub-mode.  You can switch to line sub-mode with C-c
+C-j (recall that control J is a linefeed), and back to char sub-mode
+with C-c C-k (think of character spelled with a K).
+
+
+<P>
+Note:  Use char-mode with the terminal emulator for running
+screen-oriented programs like Lynx or Pine.
+For regular shell interaction just use M-x shell 
+instead of using the terminal emulator.
+
+
+
+
+<H2><A NAME="SEC49" HREF="emacspeak_toc.html#TOC49">Char Sub-mode of Term Mode</A></H2>
+
+<P>
+In char sub-mode of term, each character you type is sent directly to
+the inferior process without intervention from emacs, except for the
+escape character (usually C-c).
+
+
+<P>
+Here are some of the useful commands for the char sub-mode.  Note that
+the usual commands for killing a buffer or switching buffers do not work
+in this mode, so new key bindings are supplied.  The first five commands
+are different ways of leaving this mode.
+
+
+<DL COMPACT>
+
+<DT><SAMP>`C-c C-j'</SAMP>
+<DD>
+<A NAME="IDX70"></A>
+<DT><SAMP>`M-x term-line-mode'</SAMP>
+<DD>
+<A NAME="IDX71"></A>
+Switch to line sub-mode of term mode.  
+
+<DT><SAMP>`C-c o'</SAMP>
+<DD>
+<A NAME="IDX72"></A>
+<DT><SAMP>`M-x other-window'</SAMP>
+<DD>
+Select the next window on this frame.
+All windows on current frame are arranged in a cyclic order.
+This command selects the next window in that order.
+If there are no other windows, this command does nothing.
+
+<DT><SAMP>`C-c C-f'</SAMP>
+<DD>
+<A NAME="IDX73"></A>
+<DT><SAMP>`M-x find-file'</SAMP>
+<DD>
+Switch to a buffer visiting a file, creating one if none already exists.
+
+<DT><SAMP>`C-c 0'</SAMP>
+<DD>
+<A NAME="IDX74"></A>
+<DT><SAMP>`M-x delete-window'</SAMP>
+<DD>
+Remove current window from the display.
+
+<DT><SAMP>`C-c k'</SAMP>
+<DD>
+<A NAME="IDX75"></A>
+<DT><SAMP>`M-x kill-buffer'</SAMP>
+<DD>
+Kill the current buffer.
+
+<DT><SAMP>`C-c C-x C-c'</SAMP>
+<DD>
+<A NAME="IDX76"></A>
+<DT><SAMP>`M-x save-buffers-kill-emacs'</SAMP>
+<DD>
+Offer to save each buffer, then kill this Emacs process.
+
+<DT><SAMP>`C-c C-d'</SAMP>
+<DD>
+<A NAME="IDX77"></A>
+<DT><SAMP>`M-x list-directory'</SAMP>
+<DD>
+Display a list of files in or matching DIRNAME, a la `ls'.  DIRNAME is
+globbed by the shell if necessary.  Prefix arg (C-u) means supply -l
+switch to `ls'.  The list appears in a second window.
+
+<DT><SAMP>`C-c 1'</SAMP>
+<DD>
+<A NAME="IDX78"></A>
+<DT><SAMP>`M-x delete-other-windows'</SAMP>
+<DD>
+Delete all other windows in the frame, making the current window fill
+its frame.
+
+<DT><SAMP>`C-c C-c'</SAMP>
+<DD>
+<A NAME="IDX79"></A>
+<DT><SAMP>`M-x term-send-raw'</SAMP>
+<DD>
+Send the last character typed through the terminal-emulator
+without any interpretation.
+
+<DT><SAMP>`C-c ('</SAMP>
+<DD>
+<A NAME="IDX80"></A>
+<DT><SAMP>`M-x start-kbd-macro'</SAMP>
+<DD>
+Record subsequent keyboard input, defining a keyboard macro.
+The commands are recorded even as they are executed.
+Use C-c ) to finish recording and make the macro available.
+Use M-x name-last-kbd-macro to give it a permanent name.
+Prefix arg (C-u) means append to last macro defined;
+This begins by re-executing that macro as if you had typed it again.
+
+<DT><SAMP>`C-c )'</SAMP>
+<DD>
+<A NAME="IDX81"></A>
+<DT><SAMP>`M-x end-kbd-macro'</SAMP>
+<DD>
+Finish defining a keyboard macro.
+The definition was started by C-c (.
+The macro is now available for use via C-c e,
+or it can be given a name with M-x name-last-kbd-macro and then invoked
+under that name.
+
+<DT><SAMP>`C-c e'</SAMP>
+<DD>
+<A NAME="IDX82"></A>
+<DT><SAMP>`M-x call-last-kbd-macro'</SAMP>
+<DD>
+Call the last keyboard macro that you defined with C-c (.
+A prefix argument serves as a repeat count.  Zero means repeat until
+error.
+</DL>
+
+<P>
+You can get a list of all the key sequences with a C-c prefix by typing
+C-c C-h while in this sub-mode.  Some of those commands are only available
+in the char sub-mode, while others are generally available.
+
+
+
+
+<H2><A NAME="SEC50" HREF="emacspeak_toc.html#TOC50">Line Sub-mode of Term Mode</A></H2>
+
+<P>
+In line sub-mode of term mode, emacs editing commands work normally,
+until you type RET which sends the current line to the inferior process.
+
+
+<P>
+Here are some of the useful commands for the line sub-mode of the term
+mode.  In addition, the usual commands for handling a buffer work in
+this mode (C-x o to switch windows, C-x k to kill a buffer, C-x f to
+find a file, and so forth).
+
+
+<DL COMPACT>
+
+<DT><SAMP>`C-c C-k'</SAMP>
+<DD>
+<A NAME="IDX83"></A>
+<DT><SAMP>`M-x term-char-mode'</SAMP>
+<DD>
+Switch to char sub-mode of term mode.
+
+<DT><SAMP>`C-c C-z'</SAMP>
+<DD>
+<A NAME="IDX84"></A>
+<DT><SAMP>`M-x term-stop-subjob'</SAMP>
+<DD>
+Stop the current subjob.  Resume the subjob in the foreground with the
+ordinary command fg, or run it in the background with bg.  WARNING: if
+there is no current subjob, you can end up suspending the top-level
+process running in the buffer. If you accidentally do this, use M-x
+term-continue-subjob to resume the process. (This is not a problem with
+with most shells, including bash, since they ignore this signal.)
+
+<DT><SAMP>`C-c C-\'</SAMP>
+<DD>
+<A NAME="IDX85"></A>
+<DT><SAMP>`M-x term-quit-subjob'</SAMP>
+<DD>
+Send quit signal to the current subjob.
+
+<DT><SAMP>`C-c C-c'</SAMP>
+<DD>
+<A NAME="IDX86"></A>
+<DT><SAMP>`M-x term-interrupt-subjob'</SAMP>
+<DD>
+Interrupt the current subjob.
+
+<DT><SAMP>`C-c C-w'</SAMP>
+<DD>
+<A NAME="IDX87"></A>
+<DT><SAMP>`M-x backward-kill-word'</SAMP>
+<DD>
+Kill characters backward until encountering the end of a word.
+
+<DT><SAMP>`C-c C-u'</SAMP>
+<DD>
+<A NAME="IDX88"></A>
+<DT><SAMP>`M-x term-kill-input'</SAMP>
+<DD>
+Kill all text from last stuff output by interpreter to point.
+
+<DT><SAMP>`C-c C-a'</SAMP>
+<DD>
+<A NAME="IDX89"></A>
+<DT><SAMP>`M-x term-bol'</SAMP>
+<DD>
+Goes to the beginning of line, then skips past the prompt, if any.
+If a prefix argument is given (C-u), then no prompt skip
+-- go straight to column 0.
+
+<DT><SAMP>`C-c C-d'</SAMP>
+<DD>
+<A NAME="IDX90"></A>
+<DT><SAMP>`M-x term-send-eof'</SAMP>
+<DD>
+Send an end of file character (EOF) to the current buffer's process.
+</DL>
+
+<P>
+You can get a list of all the key sequences with a C-c prefix by typing
+C-c C-h while in this sub-mode.  Some of those commands are only available
+in the line sub-mode, while others are generally available.
+
+
+
+
+<H2><A NAME="SEC51" HREF="emacspeak_toc.html#TOC51">Eterm Mode Commands</A></H2>
+
+<P>
+The eterm mode maintains a pointer, which is not necessarily the same as
+the terminal's cursor.  It is intended to be used in eterm's char
+submode.  In char submode, C-t , (that's control-t followed by comma)
+will tell you where the eterm pointer is.  C-t C-i will tell you where
+the terminal's cursor is.  The top left corner of the window is "row 0
+column 0".
+
+
+<P>
+The eterm pointer can be moved with C-t &#60; (to the top of the screen),
+C-t &#62; (to the bottom of the screen), C-t n (to the next line), C-t p (to
+the previous line), and C-t . (to the cursor).  Each of these also
+speaks the line the pointer moves to.  You can also search forward with
+C-t s.  
+
+
+<P>
+These commands speak without moving the pointer: C-t l (current line),
+C-t w (current word), C-t c (current character), and C-t [space] (from
+eterm pointer to cursor).
+
+
+<P>
+You may enter review mode with C-t q.  In review mode, you can search
+the buffer and speak its contents, without disturbing the terminal.
+Commands for moving the pointer are similar to normal editing commands,
+but without a control key: n and p for next and previous line, f and b
+for forward and back by characters, &#60; and &#62; for the beginning or end of
+the buffer.  c, w, and l speak the current character, word, and line.  s
+searches forward (not incrementally).  A comma speaks the pointer
+location.  A period moves the pointer to the terminal cursor.  Return to
+normal term mode by typing q.
+
+
+<H1><A NAME="SEC52" HREF="emacspeak_toc.html#TOC52">Acknowledgements.</A></H1>
+
+<P>
+Thanks.
+     
+
+
+<H1><A NAME="SEC53" HREF="emacspeak_toc.html#TOC53">Concept Index</A></H1>
+<P>
+Jump to:
+<A HREF="#cindex_c">c</A>
+-
+<A HREF="#cindex_l">l</A>
+-
+<A HREF="#cindex_s">s</A>
+-
+<A HREF="#cindex_t">t</A>
+-
+<A HREF="#cindex_w">w</A>
+<P>
+<H2><A NAME="cindex_c">c</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX29">character echo</A>
+</DIR>
+<H2><A NAME="cindex_l">l</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX28">line echo</A>
+</DIR>
+<H2><A NAME="cindex_s">s</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX27">speech settings</A>
+<LI><A HREF="emacspeak.html#IDX26">speech system</A>
+</DIR>
+<H2><A NAME="cindex_t">t</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX25">tts</A>
+</DIR>
+<H2><A NAME="cindex_w">w</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX30">word echo</A>
+</DIR>
+
+
+
+
+<H1><A NAME="SEC54" HREF="emacspeak_toc.html#TOC54">Key Index</A></H1>
+<P>
+Jump to:
+<A HREF="#kindex_c">c</A>
+<P>
+<H2><A NAME="kindex_c">c</A></H2>
+<DIR>
+<LI><A HREF="emacspeak.html#IDX80">C-c (</A>
+<LI><A HREF="emacspeak.html#IDX81">C-c )</A>
+<LI><A HREF="emacspeak.html#IDX74">C-c 0</A>
+<LI><A HREF="emacspeak.html#IDX78">C-c 1</A>
+<LI><A HREF="emacspeak.html#IDX85">C-c C-\</A>
+<LI><A HREF="emacspeak.html#IDX89">C-c C-a</A>
+<LI><A HREF="emacspeak.html#IDX79">C-c C-c</A>, <A HREF="emacspeak.html#IDX86">C-c C-c</A>
+<LI><A HREF="emacspeak.html#IDX77">C-c C-d</A>, <A HREF="emacspeak.html#IDX90">C-c C-d</A>
+<LI><A HREF="emacspeak.html#IDX73">C-c C-f</A>
+<LI><A HREF="emacspeak.html#IDX70">C-c C-j</A>
+<LI><A HREF="emacspeak.html#IDX83">C-c C-k</A>
+<LI><A HREF="emacspeak.html#IDX88">C-c C-u</A>
+<LI><A HREF="emacspeak.html#IDX87">C-c C-w</A>
+<LI><A HREF="emacspeak.html#IDX76">C-c C-x C-c</A>
+<LI><A HREF="emacspeak.html#IDX84">C-c C-z</A>
+<LI><A HREF="emacspeak.html#IDX82">C-c e</A>
+<LI><A HREF="emacspeak.html#IDX75">C-c k</A>
+<LI><A HREF="emacspeak.html#IDX72">C-c o</A>
+</DIR>
+
+
+<P>
+     
+<P><HR><P>
+This document was generated on 22 September 2001 using
+<A HREF="http://wwwinfo.cern.ch/dis/texi2html/">texi2html</A>&nbsp;1.56k.
+</BODY>
+</HTML>
