@@ -2301,18 +2301,21 @@ Numeric prefix arg COUNT specifies number of lines to move."
       (set-buffer old-buffer ))))
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
+Speaks entire window irrespective of point.
 In general, you'll never have Emacs split the screen into more than
 two or three.
 Argument ARG determines the 'other' window to speak.
- Speaks entire window irrespective of point.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'."
   (interactive "P")
   (let* ((window-size-change-functions nil)
          (window
+          (cond
+           ((not (interactive-p)) arg)
+           (t 
           (condition-case nil
               (read (format "%c" last-input-event ))
-            (error nil ))))
+            (error nil ))))))
     (or (numberp window)
         (setq window
               (read-minibuffer "Window   between 1 and 9 to speak")))
