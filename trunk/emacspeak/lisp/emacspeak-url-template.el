@@ -359,9 +359,7 @@ to play a BBC Radio4 program on demand."
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-	   (list "feed" "st_util__print"))
-     (search-forward "print")
-     (emacspeak-speak-rest-of-buffer))
+	   (list "feed" "st_util__print")))
  "Display tech news from CNET"
  #'(lambda (url)
      (emacspeak-rss-display url))) 
