@@ -77,7 +77,7 @@ table width: <xsl:value-of select="@width"/>
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
           </xsl:attribute>
-          <em>Table <xsl:value-of select="position()"/></em>
+          <em>Table <xsl:value-of select="position()"/> </em><br/>
         </xsl:element>
  <xsl:value-of select="count(./tr)"/> Rows 
  And <xsl:value-of select="count(./tr/td)"/> Cells

@@ -1866,6 +1866,24 @@ directory to where find is to be launched."
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ alternate between w3 and w3m
+(defun emacspeak-wizards-use-w3-or-w3m ()
+  "Alternates between using W3 and W3M for browse-url."
+  (interactive)
+  (declare (special browse-url-browser-function))
+  (cond
+   ((eq browse-url-browser-function 'w3-fetch)
+    (setq browse-url-browser-function 'w3m-goto-url)
+    (message "Browse  URL will now use W3M")
+    (emacspeak-auditory-icon 'select-object))
+((eq browse-url-browser-function 'w3m-goto-url)
+    (setq browse-url-browser-function 'w3-fetch)
+    (message "Browse  URL will now use W3")
+    (emacspeak-auditory-icon 'select-object))
+(t (setq browse-url-browser-function 'w3-fetch)
+(message "Restoring sanity by switching to W3."))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
