@@ -751,8 +751,12 @@ the broadcast. You must have mplayer installed."
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
- "http://www.npr.org/ramfiles/atc/%s.atc.ram"
- (list 'emacspeak-url-template-date-YearMonthDate)
+ 
+ "http://www.npr.org/dmg/dmg.php?prgCode=ATC&showDate=%s&segNum=&mediaPref=RM"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "Date:"
+                            (format-time-string "%d-%b-%Y"))))
  nil
  "Play NPR All Things Considered stream."
  'emacspeak-realaudio-play)
