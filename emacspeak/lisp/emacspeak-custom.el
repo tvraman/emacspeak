@@ -225,7 +225,7 @@
 ;;{{{  bind emacspeak commands 
 
 (declaim (special custom-mode-map))
-(define-key custom-mode-map "e" 'Custom-reset-standard)
+(define-key custom-mode-map "E" 'Custom-reset-standard)
 (define-key custom-mode-map "r" 'Custom-reset-current)
 (define-key custom-mode-map "R" 'Custom-reset-saved)
 (define-key custom-mode-map "s" 'Custom-set)

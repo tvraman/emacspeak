@@ -35,8 +35,8 @@ View an RSS feed as clean HTML
           <xsl:apply-templates select="link"/>
         </xsl:attribute>
         <xsl:apply-templates select="title"/>
-        <xsl:apply-templates select="description"/>
       </xsl:element>
+      <xsl:apply-templates select="description"/>
     </li>
   </xsl:template>
   <xsl:template match="title|description">
