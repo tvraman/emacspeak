@@ -85,7 +85,6 @@
   :group 'emacspeak-widget
   :type 'symbol)
 
-
 (defcustom emacspeak-widget-value-personality voice-animate
   "Personality for values"
   :group 'emacspeak-widget)

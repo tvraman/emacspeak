@@ -251,9 +251,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value) ;check for plain cons and pass
+             ((and (consp value)	;check for plain cons and pass
                    (equal value (last value)))
-                   nil)
+	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -281,7 +281,7 @@ displayed in the messages area."
         (facep nil)
         (voice nil)
         (value nil))
-(setq facep (member 'face properties ))
+    (setq facep (member 'face properties ))
     (when (and  emacspeak-personality-voiceify-faces
 		facep)
       (setq value (second facep))
@@ -290,9 +290,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value) ;check for plain cons and pass
+             ((and (consp value)	;check for plain cons and pass
                    (equal value (last value)))
-                   nil)
+	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 

@@ -391,7 +391,7 @@ loaddefs: emacspeak-loaddefs.elc
 # }}}
 # {{{Development  target: indent 
 indent:
-	emacs -batch -q -l ../utils/indent-files.el
+	emacs -batch -q -no-site-file -l ../utils/indent-files.el
 
 # }}}
 # {{{  user level target-- clean

@@ -218,17 +218,17 @@ command \\[customize-variable] on <personality>-settings."
                (const :tag "Unspecified" nil)
                (integer :tag "Number"))
 (choice :tag "Punctuation Mode "
-               (const :tag "Unspecified" nil)
-               (const :tag "All punctuations" "all")
-(const :tag "Some punctuations" "some")
-(const :tag "No punctuations" "none")))
-     :group 'voice-fonts
-     :set
-     '(lambda  (sym val)
-        (let ((voice-name
-               (voice-setup-personality-from-style val)))
-          (setq (, personality) voice-name)
-          (set-default sym val))))))
+	(const :tag "Unspecified" nil)
+	(const :tag "All punctuations" "all")
+	(const :tag "Some punctuations" "some")
+	(const :tag "No punctuations" "none")))
+:group 'voice-fonts
+:set
+'(lambda  (sym val)
+(let ((voice-name
+       (voice-setup-personality-from-style val)))
+  (setq (, personality) voice-name)
+  (set-default sym val))))))
 
 ;;}}}
 ;;{{{ voices defined using ACSS.

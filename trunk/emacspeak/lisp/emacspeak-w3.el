@@ -1105,18 +1105,17 @@ current page."
   
 ;;;###autoload
 (defun emacspeak-w3-google-on-this-site ()
-    "Perform a google search restricted to the current WWW site."
-    (interactive)
-    (declare (special major-mode))
-    (unless (eq major-mode 'w3-mode)
-      (error "This command cannot be used outside W3 buffers."))
-    (emacspeak-websearch-google
-     (format "+site:%s %s"
-	     (aref 
-	      (url-generic-parse-url (url-view-url 'no-show))
-	      3)
-	     (read-from-minibuffer "Search this site for: "))))
-
+  "Perform a google search restricted to the current WWW site."
+  (interactive)
+  (declare (special major-mode))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command cannot be used outside W3 buffers."))
+  (emacspeak-websearch-google
+   (format "+site:%s %s"
+	   (aref 
+	    (url-generic-parse-url (url-view-url 'no-show))
+	    3)
+	   (read-from-minibuffer "Search this site for: "))))
 
 (defvar emacspeak-w3-google-related-uri
   "http://www.google.com/search?hl=en&num=10&q=related:")

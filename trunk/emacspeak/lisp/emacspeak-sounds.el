@@ -321,7 +321,6 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   (apply 'dtk-queue-note
          (emacspeak-get-midi-note midi-name)))
 
-
 ;;;###autoload
 (defsubst emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
