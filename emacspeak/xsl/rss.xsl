@@ -5,7 +5,8 @@ Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 View an RSS feed as clean HTML
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" version="1.0">
+  <xsl:param name="base"/>
   <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
   <xsl:template match="/">
     <xsl:apply-templates select="//channel"/>
@@ -13,6 +14,11 @@ View an RSS feed as clean HTML
   <xsl:template match="channel">
     <html>
       <head>
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
         <title>
           <xsl:apply-templates select="title"/>
         </title>
