@@ -16,8 +16,12 @@ type="text/xsl"?>
       Emacs applications can be located via the various Emacs Lisp
       archives or by using popular WWW search engines. For
       one such comprehensive index, see
-      the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html" shape="rect">
-      the Emacs Lisp Library</a>.
+      the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html"
+      shape="rect">
+the Emacs Lisp Library</a>.
+This is also available through the 
+<a href="http://www.emacswiki.org/cgi-bin/wiki/WikifiedEmacsLispList">Emacs Wiki</a>
+      
     </p>
     <h2>Speech-Enabled Applications</h2>
   </introduction>
