@@ -598,6 +598,18 @@ Finally return the symbol"
       name))))
 
 ;;}}}
+;;{{{ configurater 
+
+(defun dtk-configure-tts ()
+  "Configures TTS environment to use Dectalk family of synthesizers."
+  (declare (special  dtk-default-speech-rate))
+  (fset 'tts-get-voice-command 'dtk-get-voice-command)
+  (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
+  (fset 'tts-define-voice-from-speech-style 'dtk-define-voice-from-speech-style)
+  (fset 'tts-personality-from-speech-style 'dectalk-personality-from-speech-style)
+  (setq tts-default-speech-rate dtk-default-speech-rate))
+
+;;}}}
 (provide 'dtk-voices)
 ;;{{{  emacs local variables
 
