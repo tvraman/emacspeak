@@ -167,7 +167,8 @@ ELISP = lisp/*.el lisp/*.def lisp/Makefile
 
 TEMPLATES = etc/emacspeak.sh.def \
 etc/play.def etc/Makefile 
-MISC=etc/last-log.pl etc/emacspeak.xpm etc/emacspeak.jpg
+MISC=etc/extract-table.pl etc/last-log.pl \
+etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) \
