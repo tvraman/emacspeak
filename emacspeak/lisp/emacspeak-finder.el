@@ -107,7 +107,7 @@ emacspeak-finder-inf.el."
        (directory-files (or d ".")))
       (insert emacspeak-finder-postamble)
       (kill-buffer "*finder-scratch*")
-      (eval-current-buffer);; So we get the new keyword list immediately
+      (eval-buffer);; So we get the new keyword list immediately
       (basic-save-buffer)
       (kill-buffer nil))))
 

@@ -69,7 +69,7 @@
 (require 'emacspeak-table)
 (require 'emacspeak-table-ui)
 (require 'derived)
-
+(eval-when-compile (require 'emacspeak-keymap))
 ;;}}}
 ;;{{{  Customization variables
 
@@ -194,6 +194,7 @@ will be placed."
 
 ;;}}}
 ;;{{{  emacspeak-ocr mode
+(declaim (special emacspeak-ocr-mode-map))
 
 (define-derived-mode emacspeak-ocr-mode fundamental-mode 
   "Major mode for document scanning and  OCR."
@@ -206,10 +207,6 @@ will be placed."
           (make-vector 25 nil))
     (emacspeak-ocr-update-mode-line)
     (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-ocr-mode-map)))
-
-
-(declaim (special emacspeak-ocr-mode-map))
-
 
 (define-key emacspeak-ocr-mode-map "q" 'bury-buffer)
 (define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)

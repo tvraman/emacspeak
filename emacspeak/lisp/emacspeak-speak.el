@@ -73,6 +73,7 @@
 
 ;;{{{ inhibit-point-motion-hooks
 (defsubst ems-inhibit-point-motion-hooks ()
+  (declare (special inhibit-point-motion-hooks))
   (if (boundp 'inhibit-point-motion-hooks)
       inhibit-point-motion-hooks
     nil))

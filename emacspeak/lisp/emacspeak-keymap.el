@@ -269,10 +269,10 @@
 ;;}}}
 ;;{{{ Hacking minibuffer maps:
 
-                                        ;(declaim (special  minibuffer-local-must-match-map
-                                        ;   minibuffer-local-map
-                                        ;   minibuffer-local-completion-map
-                                        ;   minibuffer-local-ns-map))
+                                        (declaim (special  minibuffer-local-must-match-map
+                                           minibuffer-local-map
+                                           minibuffer-local-completion-map
+                                           minibuffer-local-ns-map))
 (or (string-match  "Xemacs" emacs-version)
     (mapcar
      (function (lambda (map)
