@@ -1957,6 +1957,9 @@ directory to where find is to be launched."
     (set-buffer (url-retrieve-synchronously url))
     (let ((src-buffer (current-buffer))
           (emacspeak-w3-xsl-p nil))
+      (goto-char (point-min))
+      (search-forward "\n\n" nil t)
+      (delete-region (point-min) (point))
       (emacspeak-xslt-region
        style
        (point-min)
