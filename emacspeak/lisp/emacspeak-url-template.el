@@ -256,6 +256,15 @@
            '("$" "&print=1"))
      (beginning-of-line)
      (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Daily News"
+ "http://dailynews.yahoo.com/"
+ nil
+ nil
+ "Retrieve articles from   Yahoo Daily News."
+#'(lambda (url)
+       (emacspeak-w3-extract-by-class "article" url)
+       ))
 
 (emacspeak-url-template-define
  "Yahoo Politics"
