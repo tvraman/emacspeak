@@ -856,6 +856,33 @@ the broadcast. You must have mplayer installed."
 
 ;;}}}
 ;;{{{  MLB scores
+(emacspeak-url-template-define
+ "MLB Scorecard"
+ "http://gd.mlb.com/components/game/year_2003/month_07/day_27/scoreboard.xml"
+ (list
+  #'(lambda nil
+      (let ((date 
+             (read-from-minibuffer
+              "Date: "
+              (format-time-string "%Y-%m-%d")))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result 
+              (format 
+               "year_%s/month_%s/day_%s"
+               (first fields)
+               (second fields)
+               (third fields)))
+        result))
+)
+'emacspeak-speak-buffer
+"Show MLB Scorecard."
+#'(lambda (url)
+(emacspeak-w3-browse-xml-url-with-style
+   (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
+   url)))
+
 
 (emacspeak-url-template-define
  "Baseball summary" 
