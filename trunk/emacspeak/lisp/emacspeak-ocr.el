@@ -146,6 +146,11 @@ will be placed."
   (declare (special emacspeak-ocr-buffer-name))
   (get-buffer-create emacspeak-ocr-buffer-name))
 
+(defsubst emacspeak-ocr-get-text-name ()
+  "Return name of current text document."
+  (declare (special emacspeak-ocr-document-name))
+  (format "%s.tiff" emacspeak-ocr-document-name))
+
 (defsubst emacspeak-ocr-get-image-name ()
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
@@ -199,13 +204,15 @@ will be placed."
           emacspeak-ocr-last-page-number 0
           emacspeak-ocr-page-positions
           (make-vector 25 nil))
-    (emacspeak-ocr-update-mode-line)))
+    (emacspeak-ocr-update-mode-line)
+    (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-ocr-mode-map)))
 
 
 (declaim (special emacspeak-ocr-mode-map))
 
 
-(define-key emacspeak-ocr-mode-map "\C-x\C-q" 'emacspeak-ocr-toggle-read-only)
+(define-key emacspeak-ocr-mode-map "q" 'bury-buffer)
+(define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)
 (define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
 (define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
@@ -297,6 +304,18 @@ Pick a short but meaningful name."
 
 (defvar emacspeak-ocr-process nil
   "Handle to OCR process.")
+
+(defun emacspeak-ocr-write-document ()
+  "Writes out recognized text from all pages in current document."
+  (interactive)
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+  (t (write-region
+      (point-min)
+          (point-max)
+     (emacspeak-ocr-get-text-name))
+(emacspeak-auditory-icon 'save-object))))
 
 (defun emacspeak-ocr-save-current-page ()
   "Writes out recognized text from current page
