@@ -277,8 +277,8 @@ command \\[customize-variable] on <personality>-settings."
 ;;; these voices are device independent.
 ;;; they will eventually replace most of the device specific voices 
 
-(defvoice  voice-monotone
-  (list nil nil 0 0 nil)
+  
+(defvoice  voice-monotone (list nil nil 0 0 nil)
   "Turns current voice into a monotone.")
 
 (defvoice  voice-monotone-medium
@@ -350,7 +350,18 @@ command \\[customize-variable] on <personality>-settings."
   "Bolden and animate  current voice.")
 
 ;;}}}
+;;{{{  indentation and annotation 
+(defvoice voice-indent
+  (list nil nil 3 1 3 )
+  "Indicate indentation .")
+
+(defvoice voice-annotate
+  (list nil nil 4 0 4)
+  "Indicate annotation.")
+;;}}}
 ;;{{{  Define some voice personalities:
+
+
 
 (def-voice-font voice-lock-highlight-personality voice-animate
   'highlight

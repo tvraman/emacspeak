@@ -250,7 +250,7 @@ automatically."
 ;;{{{ set up face to voice mapping
 
 (def-voice-font tnt-my-name-personality
- 'paul-smooth
+ voice-smoothen
  'tnt-my-name-face
  "tnt-my-name-face")
 

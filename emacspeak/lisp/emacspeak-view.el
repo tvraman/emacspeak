@@ -236,7 +236,7 @@
                    (ad-get-arg 0 )))
           (voice-lock-mode t))
       (put-text-property 0 (length line-number)
-                         'personality 'annotation-voice line-number)
+                         'personality voice-annotate line-number)
       (emacspeak-auditory-icon 'large-movement)
       (dtk-speak
        (concat line-number

@@ -1879,7 +1879,7 @@ Otherwise cue user to the line just created."
       (emacspeak-speak-line )
       ad-do-it)
      (t ad-do-it
-        (dtk-speak-using-voice 'annotation-voice
+        (dtk-speak-using-voice voice-annotate
                                (format
                                 "indent %s"
                                 (current-column)))

@@ -109,25 +109,6 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice 'kit " `v3 ")
 
 ;;; Modified voices:
-;;; Modifications for paul:
-(outloud-define-voice 'paul-bold
-                      " `v1 `vr10 `vf75 `vh60 `vb45 `vv100
-")
-
-(outloud-define-voice 'paul-italic
-		      " `v1 `vh37 `vb70 `vf100  `vv100 ")
-(outloud-define-voice 'paul-smooth
-		      " `v1 `vr0 `vh40 `vb60 `vf75  `vv88 ")
-
-(outloud-define-voice 'anotation-voice
-		      " `v1 `vr0 `vh40 `vb60 `vf75  `vv88  ")
-                      
-(outloud-define-voice 'indent-voice  " `v1 `vr0 `vv65 `vh45
-`vf35 `p2  ")
-(outloud-define-voice 'paul-animated
-		      " `v1 `vf65 `vh45 `vb70 `vv100 ")
-
-(outloud-define-voice 'paul-monotone " `v1 `vf0`vb50  `vv85 ")
 
 ;;}}}
 ;;{{{  the inaudible voice

@@ -40,6 +40,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile) (require 'tapestry))
+(require 'voice-setup)
 (condition-case nil 
     (require 'tapestry)
   (error "Could not locate tapestry.el"))
@@ -58,6 +59,7 @@
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers."
   (interactive "P")
+  (declare (special voice-animate))
   (let* ((buffer-map (tapestry-buffer-map ))
          (count (length buffer-map))
          (window-list  (tapestry-window-list))
@@ -67,7 +69,7 @@ displayed buffers."
                   count 
                   (if (> count 1) "s" ""))))
     (put-text-property 0 (length description)
-                       'personality  'annotation-voice
+                       'personality  voice-annotate
                        description)
     (setq windows 
     (cond
@@ -81,7 +83,7 @@ displayed buffers."
                       (br nil))
                   (put-text-property 0 (length w)
                                      'personality
-                                     'paul-animated w)
+                                     voice-animate w)
                   (setq tl
                         (format  " %d %d "
                                  (first corners) (second corners))

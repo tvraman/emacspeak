@@ -90,7 +90,7 @@
   (let ((field-name (View-process-translate-field-position-to-name
                      (View-process-current-field-number))))
     (put-text-property 0 (length field-name)
-                       'personality 'annotation-voice field-name)
+                       'personality voice-annotate field-name)
     (dtk-speak
      (concat
       field-name
