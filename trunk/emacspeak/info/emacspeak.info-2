@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by Makeinfo version 3.12f from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -49,7 +49,7 @@ and key bindings which enhance the functionality of the spoken feedback
 provided by the application. This manual does not purport to document
 all such commands. It is important, therefore, when learning to use the
 various Emacs extensions which comprise the `audio desktop' (*note
-Audio Desktop::.) that you take advantage of online help to obtain
+Audio Desktop::) that you take advantage of online help to obtain
 details of any context-specific features provided by Emacspeak.  The
 following two commands are of particular importance in this regard:
 
@@ -314,7 +314,7 @@ Structured Editing And Templates
 electronic encoding can be very efficient when using spoken
 interaction.  We described mode _ auctex_ -- a specialized interface to
 authoring LaTeX documents as a special instance of such structured
-editing in *note Document Authoring::..
+editing in *note Document Authoring::.
 
    The Emacspeak desktop allows the user to efficiently author and
 maintain an electronic document based either on the structure present
@@ -436,7 +436,7 @@ partial input is spoken, accompanied by auditory icon _ help_.
 tempo_ This mode is designed to  be used in creating template-based
 editing tools for specific markup languages; a good example is mode _
 html-helper_, a  mode for creating and updating HTML documents for
-publishing on the WWW (see *note Document Authoring::.).
+publishing on the WWW (see *note Document Authoring::).
 
 
 File: emacspeak.info,  Node: Maintaining Structured Data,  Prev: Template-based Authoring,  Up: Structured Editing
