@@ -1081,9 +1081,9 @@ used as well."
         (goto-char (point-min))
         (while (search-forward "&quot;" nil t)
           (replace-match "'")))
-(goto-char (point-min))
-        (while (search-forward "&amp;" nil t)
-          (replace-match "&"))
+      (goto-char (point-min))
+      (while (search-forward "&amp;" nil t)
+	(replace-match "&"))
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 

@@ -1092,7 +1092,7 @@ See command emacspeak-toggle-eterm-autospeak bound to
         (new-column nil )
         (old-point (point))
         (dtk-stop-immediately (not eterm-line-mode)))
-      ad-do-it
+    ad-do-it
     (setq new-row (term-current-row )
           new-column (term-current-column )
           new-end (point-max))
@@ -1176,7 +1176,6 @@ there is terminal activity."
   voice-lock-underline-personality
   'term-underline
   "Underline personality for eterm.")
-
 
 (defadvice term-line-mode (after emacspeak pre act)
   "Announce that you entered line mode. "

@@ -122,7 +122,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode."
    (list
     (read-file-name "MP3 Resource: "
                     (when (eq major-mode 'dired-mode)
-                          (dired-get-filename)))))
+		      (dired-get-filename)))))
   (declare (special emacspeak-freeamp-process))
   (when (and emacspeak-freeamp-process
              (eq 'run (process-status

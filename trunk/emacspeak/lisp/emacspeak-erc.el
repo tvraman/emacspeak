@@ -73,24 +73,21 @@
   :group 'emacspeak
   :prefix "emacspeak-erc-")
 
-
-
 (defcustom emacspeak-erc-ignore-notices nil
   "Set to T if you dont want to see notifcation messages from the
 server."
   :type 'boolean
   :group 'eamcspeak-erc)
 
-
 (def-voice-font emacspeak-erc-direct-msg-personality
-      voice-animate
-      'erc-direct-msg-face
-      "Personality for direct messages.")
+  voice-animate
+  'erc-direct-msg-face
+  "Personality for direct messages.")
 
 (def-voice-font  emacspeak-erc-input-personality 
-voice-smoothen
-'erc-input-face
-"personality for input.")
+  voice-smoothen
+  'erc-input-face
+  "personality for input.")
 
 (def-voice-font emacspeak-erc-bold-personality
   voice-bolden 'erc-bold-face
@@ -104,9 +101,9 @@ voice-smoothen
   'erc-underline-face
   "Underline in ERC.")
 
-    (def-voice-font emacspeak-erc-prompt-personality voice-bolden
-      'erc-prompt-face
-      "Personality for prompts.")
+(def-voice-font emacspeak-erc-prompt-personality voice-bolden
+  'erc-prompt-face
+  "Personality for prompts.")
 
 (def-voice-font emacspeak-erc-notice-personality
   voice-italic 'erc-notice-face
@@ -117,24 +114,22 @@ voice-smoothen
   'erc-action-face
   "Personality for actions.")
 
-    (def-voice-font emacspeak-erc-error-face
-      voice-bolden-and-animate 'erc-error-face
-      "Error personality for ERC.")
+(def-voice-font emacspeak-erc-error-face
+  voice-bolden-and-animate 'erc-error-face
+  "Error personality for ERC.")
 
-    (def-voice-font emacspeak-erc-dangerous-host-personality 
-      voice-brighten-extra 'erc-dangerous-host-face
-      "Personality for dangerous hosts.")
+(def-voice-font emacspeak-erc-dangerous-host-personality 
+  voice-brighten-extra 'erc-dangerous-host-face
+  "Personality for dangerous hosts.")
 
       
-    (def-voice-font emacspeak-erc-pal-personality 
-voice-animate-extra 'erc-pal-face
-"Personality for pals.")
+(def-voice-font emacspeak-erc-pal-personality 
+  voice-animate-extra 'erc-pal-face
+  "Personality for pals.")
     
-    (def-voice-font emacspeak-erc-keyword-personality 
-voice-animate 'erc-keyword-face
-"Personality for keywords.")
-
-
+(def-voice-font emacspeak-erc-keyword-personality 
+  voice-animate 'erc-keyword-face
+  "Personality for keywords.")
 
 ;;}}}
 ;;{{{  helpers
@@ -367,7 +362,7 @@ set the current local value to the result."
     ad-do-it
     ad-return-value)
    (t ado-do-it
-    " ")))
+      " ")))
 
 ;;}}}
 ;;{{{ define emacspeak keys

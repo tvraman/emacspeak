@@ -215,7 +215,7 @@ the opening line of the newly inserted environment. "
       ad-do-it
       (if (ad-get-arg 0)
           (emacspeak-speak-line)
-      (emacspeak-speak-region orig (point)))))
+	(emacspeak-speak-region orig (point)))))
    (t ad-do-it))
   ad-return-value)
 

@@ -80,7 +80,7 @@
   (if (=  1
           (shell-command
            (format "netstat -nat | grep %s"
-amphetadesk-port)))
+		   amphetadesk-port)))
       (shell-command
        (format "%s &"
                amphetadesk-program)

@@ -153,7 +153,7 @@ font-lock.  Voicification is effective only if font lock is on."
   "Apply personality to specified region, over-writing any current
 personality settings."
   (ems-modify-buffer-safely
-  (put-text-property start end 'personality personality object)))
+   (put-text-property start end 'personality personality object)))
 
 (defun emacspeak-personality-append  (start end personality
                                             &optional object )
@@ -205,52 +205,52 @@ Existing personality properties on the text range are preserved."
          (emacspeak-personality-prepend extent end
                                         personality object)))
       (t                               ;accumulate the new personality
-      (unless (or (equal personality orig)
+       (unless (or (equal personality orig)
                    (and (listp orig)
                         (member personality orig))) 
-       (setq new
+	 (setq new
                (remove-duplicates
-               (append
-                (if (listp personality) personality (list personality))
-                    (if (listp orig) orig (list orig)))))
-       (put-text-property start extent
-                          'personality new object))
+		(append
+		 (if (listp personality) personality (list personality))
+		 (if (listp orig) orig (list orig)))))
+	 (put-text-property start extent
+			    'personality new object))
        (when (< extent end)
          (emacspeak-personality-prepend extent end
                                         personality)))))))
 
 (defun emacspeak-personality-remove  (start end
-                                                        personality
-                                                        &optional object)
+					    personality
+					    &optional object)
   "Remove specified personality from text bounded by start and end.
 Other existing personality properties on the text range are
 preserved."
   (ems-modify-buffer-safely
-  (let ((orig (get-text-property start 'personality))
-        (new nil)
-        (extent
-         (next-single-property-change
-          start 'personality (current-buffer) end)))
-    (cond
-     ((null orig)                       ;simple case
-      (when (< extent end)
-        (emacspeak-personality-remove extent end personality)))
-     (t                                 ;remove the new personality
-      (setq new
-            (cond
-             ((equal orig personality) nil)
-             ((listp orig)
-              (remove personality orig))
-             (t nil)))
-      (if new 
-          (put-text-property start extent
-                             'personality new object)
-        (remove-text-properties start extent
-                                (list 'personality )
-                                object))
-      (when (< extent end)
-        (emacspeak-personality-remove extent end
-                                                  personality)))))))
+   (let ((orig (get-text-property start 'personality))
+	 (new nil)
+	 (extent
+	  (next-single-property-change
+	   start 'personality (current-buffer) end)))
+     (cond
+      ((null orig)			;simple case
+       (when (< extent end)
+	 (emacspeak-personality-remove extent end personality)))
+      (t				;remove the new personality
+       (setq new
+	     (cond
+	      ((equal orig personality) nil)
+	      ((listp orig)
+	       (remove personality orig))
+	      (t nil)))
+       (if new 
+	   (put-text-property start extent
+			      'personality new object)
+	 (remove-text-properties start extent
+				 (list 'personality )
+				 object))
+       (when (< extent end)
+	 (emacspeak-personality-remove extent end
+				       personality)))))))
 
 ;;}}}
 ;;{{{ advice put-text-personality
@@ -290,7 +290,7 @@ displayed in the messages area."
         (object (ad-get-arg 4))
         (voice nil))
     (when (and  emacspeak-personality-voiceify-faces
-(eq prop 'face))
+		(eq prop 'face))
       (cond
        ((symbolp value)
         (setq voice (voice-setup-get-voice-for-face   value)))
@@ -305,9 +305,9 @@ displayed in the messages area."
                  (not voice))
         (cond
          ((listp value)
-                 (mapcar #'(lambda (v)
-                             (puthash  v t emacspeak-personality-unmapped-faces))
-                         value))
+	  (mapcar #'(lambda (v)
+		      (puthash  v t emacspeak-personality-unmapped-faces))
+		  value))
          (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
@@ -319,8 +319,8 @@ displayed in the messages area."
          (voice nil)
          (face nil))
     (when (member 'face props) ;;; simple minded for now
-    (put-text-property start end
-                       'personality nil object))))
+      (put-text-property start end
+			 'personality nil object))))
 
           
 ;;}}}
@@ -360,17 +360,17 @@ Append means place corresponding personality at the end."
       (when voice
         (and emacspeak-personality-voiceify-overlays
              (funcall emacspeak-personality-voiceify-overlays
-         (overlay-start overlay)
-         (overlay-end overlay)
-         voice))
+		      (overlay-start overlay)
+		      (overlay-end overlay)
+		      voice))
         (overlay-put overlay 'personality voice))
       (when (and emacspeak-personality-show-unmapped-faces
                  (not voice))
         (cond
          ((listp value)
-                 (mapcar #'(lambda (v)
-                             (puthash  v t emacspeak-personality-unmapped-faces))
-                         value))
+	  (mapcar #'(lambda (v)
+		      (puthash  v t emacspeak-personality-unmapped-faces))
+		  value))
          (t (puthash  value t
                       emacspeak-personality-unmapped-faces)))))))
 (defadvice move-overlay (before emacspeak-personality  pre act) 

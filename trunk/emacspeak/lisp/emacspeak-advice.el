@@ -400,7 +400,7 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-         (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -421,7 +421,7 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-         (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -431,7 +431,7 @@ current after deletion."
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
-         (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char ))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -1095,7 +1095,7 @@ in completion buffers"
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 
 (def-voice-font  emacspeak-comint-prompt-personality voice-monotone-medium
-'comint-highlight-prompt
+  'comint-highlight-prompt
   "Personality used for highlighting comint prompts --emacs 21."
   :group 'comint)
 
@@ -2929,7 +2929,6 @@ Variable mark-even-if-inactive is set true ."
       (message "Displayed lint results in other window. ")))
    (t ad-do-it))
   ad-return-value)
-
 
 ;;}}}
 (provide 'emacspeak-advice)

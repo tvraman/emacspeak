@@ -261,7 +261,6 @@ except that the outline section is optionally spoken"
 (add-hook 'outline-mode-hook 'emacspeak-outline-setup-keys)
 (add-hook 'outline-minor-mode-hook 'emacspeak-outline-setup-keys)          
 
-
 ;;}}}
 
 ;;}}}
