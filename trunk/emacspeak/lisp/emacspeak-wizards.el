@@ -948,9 +948,7 @@ the emacspeak table clipboard instead."
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed."
-  (interactive
-   (list
-    (read-minibuffer "Display variable: ")))
+  (interactive "SDisplay variable:")
   (let ((buffer (get-buffer-create
                  (format "*emacspeak-%s*"
                          var)))
@@ -969,6 +967,8 @@ Argument VAR specifies variable whose value is to be displayed."
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
+(emacspeak-fix-interactive-command-if-necessary 'emacspeak-speak-show-list-variable)
 (defun emacspeak-speak-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
