@@ -685,7 +685,7 @@ See /etc/sudoers for how to set up sudo."
   (emacspeak-auditory-icon 'task-done))
 
 (defcustom emacspeak-cvs-anonymous-cvsroot
-  ":pserver:anonymous@cvs.emacspeak.sourceforge.net:/cvsroot/emacspeak"
+  ":pserver:anonymous@cvs.sourceforge.net:/cvsroot/emacspeak"
   "CVSROOT for emacspeak CVS repository at sourceforge."
   :type 'string
   :group 'emacspeak-wizards)
@@ -730,7 +730,7 @@ See /etc/sudoers for how to set up sudo."
                           'emacspeak-cvs-done-alert)))
 
 (defvar emacspeak-cvs-sf-anonymous-cvsroot-pattern
-  ":pserver:anonymous@cvs.%s.sourceforge.net:/cvsroot/%s"
+  ":pserver:anonymous@cvs.sourceforge.net:/cvsroot/%s"
   "CVSROOT pattern for project CVS repository at
 sourceforge.
 Typically %s is replaced by project name.")
@@ -756,8 +756,7 @@ Typically %s is replaced by project name.")
   (declare (special emacspeak-cvs-local-directory-pattern
                     emacspeak-cvs-sf-anonymous-cvsroot-pattern))
   (let ((cvsroot
-         (format emacspeak-cvs-sf-anonymous-cvsroot-pattern
-                 project project))
+         (format emacspeak-cvs-sf-anonymous-cvsroot-pattern project))
         (dir (expand-file-name
               (format emacspeak-cvs-local-directory-pattern
                       project))))
