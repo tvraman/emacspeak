@@ -478,7 +478,11 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
    (list
     (expand-file-name
     (read-file-name "Book Navigation File: "
-                    emacspeak-daisy-books-directory))))
+                    emacspeak-daisy-books-directory
+                    nil nil nil 
+                    #'(lambda (f)
+                        (or (file-directory-p f)
+                        (string-match "\\.ncx$" f)))))))
   (declare (special emacspeak-daisy-this-book
                     emacspeak-daisy-books-directory))
   (let ((buffer (get-buffer-create "*daisy*"))
