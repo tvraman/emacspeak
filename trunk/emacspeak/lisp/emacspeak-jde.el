@@ -78,7 +78,7 @@
   "Personality used for italics."
   :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-underline-personality 'underline
+(def-voice-font emacspeak-jde-underline-personality voice-brighten-medium
   'jde-java-font-lock-underline-face
   "Underline personality."
   :group 'emacspeak-jde)
