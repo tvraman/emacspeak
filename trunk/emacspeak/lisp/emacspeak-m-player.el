@@ -124,11 +124,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (let ((process-connection-type nil)
         (playlist-p (string-match ".m3u$"  resource))
         (options (copy-sequence emacspeak-m-player-options)))
-    (when playlist-p
-      (push "-playlist" options))
+    
     (setq options
           (nconc options
-                 (list resource)))
+                 (if playlist-p
+                 (list "-playlist" resource)
+                 resource)))
     (setq emacspeak-m-player-process
           (apply 'start-process
                  "m-player" "m-player" emacspeak-m-player-program
