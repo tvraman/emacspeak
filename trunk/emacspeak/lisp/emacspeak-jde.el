@@ -42,6 +42,7 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
@@ -53,6 +54,54 @@
 ;;;Speech enable Java IDE.
 ;;; The Java IDE --JDE-- can be found at 
 ;;;http://sunsite.auc.dk/jde/
+
+;;}}}
+;;{{{ voice lock 
+(def-voice-font  voice-lock-jde-number-personality 'voice-lock-constant-personality
+  'jde-java-font-lock-number-face
+  "Personality used for numbers."
+  :group 'emacspeak-jde)
+
+(def-voice-font voice-lock-jde-operator-personality 'paul-animated
+  'jde-java-font-lock-operator-face
+  "Personality used for java operators."
+  :group 'emacspeak-jde)
+
+(def-voice-font voice-lock-jde-constant-personality
+  'voice-lock-constant-personality
+  'jde-java-font-lock-constant-face
+  "Personality used for constants."
+  :group 'emacspeak-jde)
+
+(def-voice-font voice-lock-jde-api-personality 'paul-animated
+  'jde-java-font-lock-api-face
+  "Personality used for user defined API names."
+  :group 'emacspeak-jde)
+
+(def-voice-font voice-lock-jde-package-personality
+  'paul-monotone
+  'jde-java-font-lock-package-face
+  "Personality used for package names.")
+
+(def-voice-font voice-lock-jde-italic-personality 'italic
+  'jde-java-font-lock-italic-face
+  "Personality used for italics."
+  :group 'emacspeak-jde)
+(def-voice-font voice-lock-jde-underline-personality 'underline
+  'jde-java-font-lock-underline-face
+  "Underline personality."
+  :group 'emacspeak-jde)
+
+(def-voice-font voice-lock-jde-bold-personality 'bold
+  'jde-java-font-lock-bold-face
+  "Personality used for bold."
+  :group 'emacspeak-jde)
+
+                                        ;jde-java-font-lock-link-face
+                                        ;jde-java-font-lock-doc-tag-face
+                                        ;jde-java-font-lock-modifier-face
+                                        ;jde-java-font-lock-pre-face
+                                        ;jde-java-font-lock-code-face
 
 ;;}}}
 ;;{{{ Advice interactive commands:
