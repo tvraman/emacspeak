@@ -132,7 +132,6 @@ emacspeak-realaudio-shortcuts-directory. "
                     emacspeak-realaudio-buffer 
                     emacspeak-realaudio-player-options
                     emacspeak-aumix-multichannel-capable-p
-                    emacspeak-use-midi-icons
                     emacspeak-realaudio-process
                     emacspeak-realaudio-shortcuts-directory
                     emacspeak-realaudio-history
@@ -157,8 +156,7 @@ emacspeak-realaudio-shortcuts-directory. "
       (save-excursion
         (set-buffer emacspeak-realaudio-buffer)
         (emacspeak-realaudio-mode)))
-    (unless (eq 'run (process-status
-                      emacspeak-realaudio-process))
+    (unless (eq 'run (process-status emacspeak-realaudio-process))
       (error "Failed to start RealAudio"))
     (set-process-sentinel emacspeak-realaudio-process 'emacspeak-realaudio-process-sentinel)
     (message "Launched audio stream")
@@ -166,8 +164,8 @@ emacspeak-realaudio-shortcuts-directory. "
     (when
         (and emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
-       (not emacspeak-use-midi-icons))
-        (emacspeak-toggle-midi-icons))))
+             (not (emacspeak-using-midi-p)))
+      (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
@@ -189,20 +187,18 @@ urls have a .ram or .rm extension.")
 
 (defun emacspeak-realaudio-process-sentinel  (process state)
   "Cleanup after realaudio is done. "
-  (declare (special emacspeak-use-midi-icons
-                    emacspeak-realaudio-revert-to-auditory-icons
+  (declare (special emacspeak-realaudio-revert-to-auditory-icons
                     emacspeak-realaudio-reset-auditory-display))
   (when  (and emacspeak-realaudio-revert-to-auditory-icons
-              emacspeak-use-midi-icons)
-    (emacspeak-toggle-midi-icons))
+              (emacspeak-using-midi-p))
+    (emacspeak-set-auditory-icon-player 'emacspeak-serve-auditory-icon))
   (when emacspeak-realaudio-reset-auditory-display
     (emacspeak-aumix-reset)))
 
 (defun emacspeak-realaudio-stop ()
   "Stop playing realaudio"
   (interactive)
-  (declare (special emacspeak-realaudio-process
-                    emacspeak-use-midi-icons))
+  (declare (special emacspeak-realaudio-process))
   (kill-process emacspeak-realaudio-process)
   (message "Stopped RealAudio")
   (emacspeak-toggle-auditory-icons t))
