@@ -392,9 +392,6 @@ Optional argument FILENAME specifies the dictionary file."
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
   (eval (read-minibuffer "Pattern")))
-        
-    
-    
 
 (defsubst emacspeak-pronounce-read-term (key)
   (declare (special emacspeak-pronounce-yank-word-point
@@ -461,9 +458,9 @@ First loads any persistent dictionaries if not already loaded."
     (setq word (emacspeak-pronounce-read-pattern key))
     (setq pronunciation
           (cons
-          (read-minibuffer
+           (read-minibuffer
            (format "Matcher for  %s: " word))
-          (read-minibuffer
+           (read-minibuffer
            (format "Pronouncer for  %s: " word))))
     (when (and (not emacspeak-pronounce-dictionaries-loaded)
                (y-or-n-p "Load pre existing  pronunciation dictionaries first? "))
@@ -472,7 +469,8 @@ First loads any persistent dictionaries if not already loaded."
       (emacspeak-pronounce-add-dictionary-entry key word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
     (when (string= key-type  "buffer")
-      (emacspeak-pronounce-add-buffer-local-dictionary-entry  word pronunciation))))
+      (emacspeak-pronounce-add-buffer-local-dictionary-entry
+  word pronunciation))))
 
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
