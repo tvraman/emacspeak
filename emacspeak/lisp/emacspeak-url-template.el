@@ -46,7 +46,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-websearch)
 (eval-when-compile (require 'webjump))
-
+(require 'emacspeak-xslt)
 ;;}}}
 ;;{{{  Introduction:
 
