@@ -234,6 +234,7 @@ proc speech_task {} {
     }
     set tts(talking?) 0
     synchronize
+    closeDSP
     return ""
 }
 
