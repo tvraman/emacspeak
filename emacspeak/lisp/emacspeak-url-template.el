@@ -458,9 +458,8 @@ name of the list.")
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
   (read-from-minibuffer "Date range: "
-                        (downcase 
                          (format-time-string "%Y%h"
-                                             (current-time)))))
+                                             (current-time))))
 
 ;;}}}
 ;;{{{ cnn 
