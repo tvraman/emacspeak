@@ -53,8 +53,6 @@
 ;;; Code:
 
 ;;}}}
-
-;;}}}
 ;;{{{ searcher table
 ;;;###autoload
 (defgroup emacspeak-websearch nil
@@ -307,31 +305,6 @@ ARGS specifies additional arguments to SPEAKER if any."
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Results"
-   'emacspeak-speak-line))
-
-;;}}}
-;;{{{ altavista emacspeak archive
-
-(defvar emacspeak-websearch-emacspeak-archive-uri
-  "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
-  "URI to search Emacspeak mail archive at Vassar.")
-;;;###autoload
-(defun emacspeak-websearch-emacspeak-archive (query)
-  "Search Emacspeak mail archives.
-For example to find messages about Redhat at the Emacspeak
-archives, type +redhat"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search for messages matching: ")))
-  (declare (special emacspeak-websearch-emacspeak-archive-uri))
-  (let (
-	)
-    (emacspeak-websearch-do-post "POST"
-                                 emacspeak-websearch-emacspeak-archive-uri
-                                 (format "query=%s"
-                                         (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "Here is"
    'emacspeak-speak-line))
 
 ;;}}}
@@ -1176,78 +1149,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
   (emacspeak-websearch-display-form emacspeak-websearch-google-usenet-advanced-form))
 
 ;;}}}
-;;{{{ hotbot
-
-(emacspeak-websearch-set-searcher 'hotbot
-                                  'emacspeak-websearch-hotbot-search)
-(emacspeak-websearch-set-key ?h 'hotbot)
-
-(defvar emacspeak-websearch-hotbot-uri 
-  "http://www.hotbot.com/?submit=SEARCH&_v=2"
-  "URI for searching Hotbot.")
-
-(defvar emacspeak-websearch-hotbot-options 
-  "&SM=MC&DV=30&LG=english&DC=10&DE=2"
-  "*Search options for Hotbot search.
-SM -- specify phrase search, title search etc.
-DV -- specify how many days to cover
-LG -- specify language 
-DC -- Number of hits 
-DE -- full description, summary or URLs only")
-
-(defun emacspeak-websearch-hotbot-search (query &optional prefix)
-  "Perform a Hotbot  search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-hotbot-options to an appropriate string."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Hotbot Query: ")
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-hotbot-uri
-                    emacspeak-websearch-hotbot-options))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-hotbot-uri
-             "&MT="
-             (webjump-url-encode query)
-             emacspeak-websearch-hotbot-options
-             (if prefix 
-                 (read-from-minibuffer
-                  "Additional query parameters: ")
-               ""))))
-  (emacspeak-websearch-post-process
-   "Web Matches"
-   'w3-table-speak-this-cell))
-
-;;}}}
-;;{{{  Inference 
-
-(emacspeak-websearch-set-searcher 'inference
-                                  'emacspeak-websearch-inference-search)
-(emacspeak-websearch-set-key ?i 'inference)
-
-(defvar emacspeak-websearch-inference-uri 
-  "http://www.infind.com/infind/infind.exe?query="
-  "URI for Inference search")
-
-(defun emacspeak-websearch-inference-search (query)
-  "Perform an Inference search."
-  (interactive
-   (list (emacspeak-websearch-read-query "Inference Query: ")))
-  (declare (special emacspeak-websearch-inference-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-inference-uri
-             (webjump-url-encode query)))))
-
-;;}}}
 ;;{{{  Ask Jeeves  
 
 (emacspeak-websearch-set-searcher 'jeeves
@@ -1552,62 +1453,6 @@ Light for: ")))
                                     'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Vickers Insider Trading
-
-(emacspeak-websearch-set-searcher 'vickers
-                                  'emacspeak-websearch-vickers-search)
-(emacspeak-websearch-set-key ?v 'vickers)
-
-(defvar emacspeak-websearch-vickers-uri 
-  "http://www.tscn.com/Fortune/Vickers_Insider_Trading.html?Button=Get+Report&Symbol="
-  "URI for searching Vickers Insider Trading..")
-
-(defun emacspeak-websearch-vickers-search (query)
-  "Search Vickers insider trading."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     "Search Vickers  for: ")))
-  (declare (special emacspeak-websearch-vickers-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-vickers-uri
-             (webjump-url-encode
-              (upcase query)))))
-  (emacspeak-websearch-post-process
-   "SEC"
-   'emacspeak-speak-line))
-
-;;}}}
-;;{{{ VectorVest Reports
-
-(emacspeak-websearch-set-searcher 'vector-vest
-                                  'emacspeak-websearch-vector-vest-search)
-(emacspeak-websearch-set-key ?V 'vector-vest)
-
-(defvar emacspeak-websearch-vector-vest-uri 
-  "http://www.vectorvest.com/stockreport/eval.phtml?vvnumber=1068&symbol="
-  "URI for looking up VectorVest reports.")
-
-(defun emacspeak-websearch-vector-vest-search (query)
-  "Look up VectorVest reports ."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     "VectorVest Lookup Stock:")))
-  (declare (special emacspeak-websearch-vector-vest-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-vector-vest-uri
-             (webjump-url-encode
-              query))))
-  (emacspeak-websearch-post-process
-   (upcase query)
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ Weather
 
 (emacspeak-websearch-set-searcher 'weather
@@ -1708,46 +1553,6 @@ Light for: ")))
   (emacspeak-websearch-post-process
    "Web Pages"
    'emacspeak-speak-line))
-
-;;}}}
-;;{{{ streaming audio 
-
-(emacspeak-websearch-set-searcher 'streaming-audio
-                                  'emacspeak-websearch-real-tuner)
-
-(emacspeak-websearch-set-key 19'streaming-audio)
-
-(defvar emacspeak-websearch-real-tuner-form
-  (expand-file-name "xml-forms/real-radio-tuner.xml"
-                    emacspeak-lisp-directory)
-  "Real tuner from Real Networks.")
-
-(defun emacspeak-websearch-real-tuner ()
-  "Search using Real Tuner from Real Networks."
-  (interactive)
-  (declare (special emacspeak-websearch-real-tuner-form))
-  (emacspeak-websearch-display-form
-   emacspeak-websearch-real-tuner-form))
-
-(defvar emacspeak-websearch-streaming-audio-search-uri 
-  "http://www.billsparks.org/links/search.cgi?query="
-  "URI for searching for streaming audio.")
-
-(defun emacspeak-websearch-streaming-audio-search (query)
-  "Search for streaming audio. "
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Audio Search: ")))
-  (declare (special emacspeak-websearch-streaming-audio-search-uri))
-  (let (
-	)
-    (browse-url
-     (concat
-      emacspeak-websearch-streaming-audio-search-uri
-      (webjump-url-encode query)))
-    (emacspeak-websearch-post-process
-     query
-     'emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ Exchange rate convertor 
@@ -1858,9 +1663,7 @@ Light for: ")))
   (load-library "emacspeak-w3search"))
 
 ;;}}}
-
-;;}}}
-;;{{{ Browse usenet using Dejanews
+;;{{{ Browse usenet 
 
 (defvar emacspeak-dejanews-uri 
   "http://groups.google.com/groups?"
@@ -1897,6 +1700,9 @@ Optional interactive prefix arg results in prompting for a search term."
      'emacspeak-speak-line)))
 
 ;;}}}
+
+;;}}}
+
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
 
