@@ -35,6 +35,15 @@ are extracted. All other nodes are ignored.
         </title>
       </head>
       <body>
+        <xsl:variable name="pages" select="//pagenum"/>
+        <xsl:choose>
+<xsl:when test="count($pages)  &gt; 0">
+Book has pages
+          </xsl:when>
+<xsl:otherwise>
+<strong>This book has no page boundary markers.</strong>
+          </xsl:otherwise>
+        </xsl:choose>
       </body>
     </html>
   </xsl:template>
