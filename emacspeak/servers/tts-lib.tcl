@@ -102,6 +102,15 @@ proc n {instrument note length {target 0} {step 5}} {
     return ""
 }
 
+
+#queue a beep 
+proc b {{pitch 523} {length 100} {repeat 1} {duration 50}} {
+    global queue tts 
+    set queue($tts(q_tail)) [list b $pitch $length $repeat $duration]
+    incr tts(q_tail)
+    return ""
+}
+
 #queue a sound event
 
 proc a {sound} {
@@ -259,7 +268,7 @@ proc beep {{freq 523} {length 100} {repeat 1} {delay 10}} {
     global tts
     if {[info exists tts(beep)]
         && $tts(beep) == 1}  {
-        exec beep -f $freq -l $length -r $repeat -d $delay
+        exec beep -f $freq -l $length -r $repeat -d $delay &
     }
 }
 
