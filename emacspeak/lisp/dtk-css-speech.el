@@ -38,7 +38,6 @@
 
 ;;}}}
 
-
 ;;; Commentary:
 ;;{{{  Introduction:
 
@@ -55,6 +54,7 @@
 ;;; and Emacspeak's dtk-voices module.
 ;;; Emacspeak produces voice change effects by examining the value of
 ;;; text-property 'personality.
+
 ;;; Think of a buffer of formatted text along with the text-property
 ;;; 'personality appropriately set as a "aural display list".
 ;;; Applications like W3 that produce such formatted buffers  call function
@@ -75,11 +75,14 @@
 ;;; See module dtk-voices.el to see how voices are defined.
 
 ;;}}}
-;; 
+;;{{{  Required modules
+
 ;;; Code:
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-voices)
+
+;;}}}
 ;;{{{  A speech style structure
 
 (defstruct  dtk-speech-style
@@ -192,6 +195,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{  harry average pitch
+;;; Harry  has a big head --and a lower pitch for the middle setting 
 
 (let ((table (make-vector 10 "")))
   (mapcar
@@ -448,6 +452,8 @@ and TABLE gives the values along that dimension."
 ;;{{{  richness
 
 ;;; Smoothness and richness vary inversely.
+;;; a  maximally smooth voice produces a quieter effect
+;;; a rich voice is "bright" in contrast.
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
@@ -560,7 +566,7 @@ Finally return the symbol"
     'inaudible)
    (t
     (let ((name (intern
-                 (format "%s-%s%s%s%s"
+                 (format "%s-%s-%s-%s-%s"
                          (dtk-speech-style-family style)
                          (dtk-speech-style-average-pitch style)
                          (dtk-speech-style-pitch-range style)
