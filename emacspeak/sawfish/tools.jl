@@ -64,6 +64,18 @@
       (system emacs-program))
     (and (tts-running-p) (tts-say-current-window))))
 
+(defun switch-to-emacs  ()
+  "Switch to a running emacs "
+  (interactive)
+  (let ((w (car
+            (delete-if-not
+             (lambda (x)
+               (string= (window-class x) "Emacs"))
+             (managed-windows)))))
+    (if w
+	(display-window w))
+    (and (tts-running-p) (tts-say-current-window))))
+
 (defun delete-this-window-safely ()
   "Delete current window safely."
   (interactive)
