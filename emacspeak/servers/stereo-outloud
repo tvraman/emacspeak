@@ -108,7 +108,7 @@ proc tts_pause {} {
 #formerly called tts_stop 
 
 proc s {} {
-    stop 
+    stop
     queue_clear
 }
 
@@ -189,7 +189,7 @@ proc service {} {
     global tts
     set talking [speakingP]
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.1] stdin]
+        set status   [lsearch [select [list  stdin]  {} {} 0.09] stdin]
         if { $status >= 0} {
             set tts(talking?) 0
             set talking 0
