@@ -22,6 +22,13 @@ PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
 "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE 
 MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
+dynamic loading of eci library contributed by Jeffrey Sorensen
+--this allows a compiled version  of this 
+speech server to be distributed without violating the IBM
+Viavoice license.
+This means that end-users only need install the Viavoice RTK
+(Runtime toolkit)
+to use Emacspeak with the ViaVoice TTS engine.
 */
 /* TCL usage
 	package require tts
@@ -40,8 +47,8 @@ eciSynthesize and say doesn't.  You can put as many text blocks as
 you like after a command.
 */
 
-#include <eci.h>
 #include <tcl.h>
+#include <dlfcn.h>
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
@@ -52,6 +59,29 @@ you like after a command.
 #define EXPORT
 #endif
 
+#define ECILIBRARYNAME "/usr/lib/libibmeci50.so"
+
+/* The following declarations are derived from the publically available
+   documentation for ViaVoice TTS outloud.  
+--they are placed here to obviate the need for having the
+ViaVoice SDK installed.
+*/
+
+static void *(*_eciNew)();
+static void (*_eciDelete)(void *);
+static int (*_eciReset)(void *);
+static int (*_eciStop)(void *);
+static int (*_eciPause)(void *, int);
+static int (*_eciSynthesize)(void *);
+static int (*_eciSynchronize)(void *);
+static int (*_eciSpeaking)(void *);
+static int (*_eciAddText)(void *, char *);
+static int (*_eciInsertIndex)(void *,int);
+static int (*_eciSetParam)(void *, int, int);
+static int (*_eciGetVoiceParam)(void *, int, int); 
+static int (*_eciSetVoiceParam)(void *, int, int, int); 
+static void (*_eciRegisterCallback)(void*,int(*)(void*,int,long,void*),void*);
+
 extern "C" EXPORT int Tcleci_Init(Tcl_Interp *interp);
 int SetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int GetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
@@ -61,33 +91,81 @@ int SpeakingP(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-ECICallbackReturn eciCallback(ECIHand, ECIMessage, long, void *);
+int eciCallback(void *, int, long, void *);
 
 void TclEciFree(ClientData eciHandle) {
-  eciDelete(eciHandle);
+  _eciDelete(eciHandle);
 }
 
 int Tcleci_Init(Tcl_Interp *interp) {
   int rc;
-  ECIHand eciHandle;
+  void *eciHandle;
+  void *eciLib;
+
+  eciLib = dlopen(ECILIBRARYNAME, RTLD_LAZY);  
+  if (eciLib == NULL) {
+    Tcl_AppendResult(interp, "Could not load ",
+	ECILIBRARYNAME, "\nPlease install the IBM ViaVoice Outloud RTK",
+	NULL);
+    return TCL_ERROR;
+  }
+		
+  _eciNew = (void *(*)()) dlsym(eciLib, "eciNew");
+  _eciDelete = (void(*)(void*)) dlsym(eciLib, "eciDelete");
+  _eciReset = (int (*)(void*)) dlsym(eciLib, "eciReset");
+  _eciStop = (int (*)(void*)) dlsym(eciLib, "eciStop");
+  _eciPause = (int (*)(void*, int)) dlsym(eciLib, "eciPause");
+  _eciSynthesize = (int (*)(void*)) dlsym(eciLib, "eciSynthesize");
+  _eciSynchronize = (int (*)(void*)) dlsym(eciLib, "eciSynchronize");
+  _eciSpeaking = (int (*)(void*)) dlsym(eciLib, "eciSpeaking");
+  _eciInsertIndex = (int(*)(void*,int)) dlsym(eciLib, "eciInsertIndex");
+  _eciAddText = (int (*)(void*,char *)) dlsym(eciLib, "eciAddText");
+  _eciSetParam = (int (*)(void*,int,int)) dlsym(eciLib, "eciSetParam");
+  _eciGetVoiceParam = (int (*)(void*,int,int)) 
+	dlsym(eciLib, "eciGetVoiceParam");
+  _eciSetVoiceParam = (int (*)(void*,int, int, int)) 
+	dlsym(eciLib, "eciSetVoiceParam");
+  _eciRegisterCallback = (void (*)(void*,int(*)(void*,int,long,void*),void*)) 
+	dlsym(eciLib, "eciRegisterCallback");
+
+  int okay = 1;
+  if(!_eciNew){okay=0; Tcl_AppendResult(interp, "eciNew undef\n", NULL);}
+  if(!_eciDelete){okay=0;Tcl_AppendResult(interp, "eciDelete undef\n", NULL);}
+  if(!_eciReset){okay=0;Tcl_AppendResult(interp, "eciReset undef\n", NULL);}
+  if(!_eciStop){okay=0;Tcl_AppendResult(interp, "eciStop undef\n", NULL);}
+  if(!_eciPause){okay=0;Tcl_AppendResult(interp, "eciPause undef\n", NULL);}
+  if(!_eciSynthesize){okay=0;Tcl_AppendResult(interp, "eciSynthesize undef\n", NULL);}
+  if(!_eciSpeaking){okay=0;Tcl_AppendResult(interp, "eciSpeaking undef\n", NULL);}
+  if(!_eciInsertIndex){okay=0;Tcl_AppendResult(interp, "eciInsertIndex undef\n", NULL);}
+  if(!_eciAddText){okay=0;Tcl_AppendResult(interp, "eciAddText undef\n", NULL);}
+  if(!_eciSetParam){okay=0;Tcl_AppendResult(interp, "eciSetParam undef\n", NULL);}
+  if(!_eciSetParam){okay=0;Tcl_AppendResult(interp, "eciSetParam undef\n", NULL);}
+  if(!_eciGetVoiceParam){okay=0;Tcl_AppendResult(interp, "eciGetVoiceParam undef\n", NULL);}
+  if(!_eciSetVoiceParam){okay=0;Tcl_AppendResult(interp, "eciSetVoiceParam undef\n", NULL);}
+  if(!_eciRegisterCallback){okay=0;Tcl_AppendResult(interp, "eciRegisterCallback undef\n", NULL);}
+
+  if (!okay) {
+    Tcl_AppendResult(interp, "Missing symbols from ", ECILIBRARYNAME, NULL);
+    return TCL_ERROR;
+  }
 
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
 
-  eciHandle = eciNew();
-  if (eciHandle == NULL_ECI_HAND) { 
+  eciHandle = _eciNew();
+  if (eciHandle == 0) { 
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
     return TCL_ERROR;
   }
 
-  if (   (eciSetParam(eciHandle, eciInputType, 1) == -1) 
-         || (eciSetParam(eciHandle, eciSynthMode, 1) == -1)
-         //|| (eciSetParam(eciHandle,eciRealWorldUnits, 1) == -1)
+  if (   (_eciSetParam(eciHandle, 1/*eciInputType*/, 1) == -1) 
+         || (_eciSetParam(eciHandle, 0/*eciSynthMode/*, 1) == -1)
+         //|| (_eciSetParam(eciHandle,8/*eciRealWorldUnits*/, 1) == -1)
          ) {
     Tcl_AppendResult(interp, "Could not initialized tts", NULL);
-    eciDelete(eciHandle); 
+    _eciDelete(eciHandle); 
     return TCL_ERROR;
   }
 
@@ -107,20 +185,20 @@ int Tcleci_Init(Tcl_Interp *interp) {
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; 
 set tts(last_index) $x}");
-  eciRegisterCallback( eciHandle, eciCallback, interp );
+  _eciRegisterCallback( eciHandle, eciCallback, interp );
   return TCL_OK;
 }
 
-ECICallbackReturn eciCallback(ECIHand eciHandle, ECIMessage msg, long lparam, void *data) {
+int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
-  if (msg == eciIndexReply) {
+  if (msg == 2 /* eciIndexReply */) {
     char buffer[128];
     sprintf(buffer, "index %d", lparam);
     rc = Tcl_Eval(interp, buffer);
     if (rc != TCL_OK) Tcl_BackgroundError(interp);
   }
-  return eciDataProcessed;
+  return 1;
 }
 
 int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
@@ -131,8 +209,8 @@ int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
   }
   rc = Tcl_GetIntFromObj(interp, objv[1], &voice);
   if (rc != TCL_OK) return rc;
-  rate = eciGetVoiceParam(eciHandle, voice, eciSpeed);
-Tcl_SetObjResult( interp, Tcl_NewIntObj( rate ));
+  rate = _eciGetVoiceParam(eciHandle, voice, 6/*eciSpeed*/);
+  Tcl_SetObjResult( interp, Tcl_NewIntObj( rate ));
   return TCL_OK;
 }
 
@@ -149,13 +227,13 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
   if (rc != TCL_OK) return rc;
   fprintf(stderr, "Setting rate to %d for voice %d\n",
           rate, voice);
-  rc = eciSetVoiceParam (eciHandle, voice,  eciSpeed, rate);
+  rc = _eciSetVoiceParam (eciHandle, voice,  6/*eciSpeed*/, rate);
   if (rc == -1) {
     Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
     return TCL_ERROR;
   }
   fprintf(stderr, "setRate returned %d\n", rc);
-  rate = eciGetVoiceParam(eciHandle, voice, eciSpeed);
+  rate = _eciGetVoiceParam(eciHandle, voice, 6/*eciSpeed*/);
   fprintf(stderr, "eciGetVoiceParam returned %d for voice %d \n",
           rate, voice );
   return TCL_OK;
@@ -168,9 +246,9 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
     // if string begins with -, assume it is an index value
     char *txt = Tcl_GetStringFromObj(objv[i], &length);
     if (Tcl_StringMatch(txt, "-reset")) {
-      eciReset(eciHandle);
-if (   (eciSetParam(eciHandle, eciInputType, 1) == -1) 
-         || (eciSetParam(eciHandle, eciSynthMode, 1) == -1)) {
+      _eciReset(eciHandle);
+    if (   (_eciSetParam(eciHandle, 1/*eciInputType*/, 1) == -1) 
+         || (_eciSetParam(eciHandle, 0/*eciSynthMode*/, 1) == -1)) {
     Tcl_AppendResult(interp, "Could not initialized tts", NULL);
     return TCL_ERROR;
   }
@@ -182,14 +260,14 @@ if (   (eciSetParam(eciHandle, eciInputType, 1) == -1)
       }
       rc = Tcl_GetIntFromObj(interp, objv[i], &index);
       if (rc != TCL_OK) return rc;
-      rc = eciInsertIndex(eciHandle, index);
+      rc = _eciInsertIndex(eciHandle, index);
       if (!rc) {
         Tcl_AppendResult(interp, "Could not insert index", TCL_STATIC);
         return TCL_ERROR;
       }
     } else {
       // assume objv[i] is text to synthesize...
-      rc = eciAddText(eciHandle, Tcl_GetStringFromObj(objv[i],NULL));
+      rc = _eciAddText(eciHandle, Tcl_GetStringFromObj(objv[i],NULL));
       if (!rc) {
         Tcl_SetResult(interp, "Internal tts error", TCL_STATIC);
         return TCL_ERROR;
@@ -197,19 +275,19 @@ if (   (eciSetParam(eciHandle, eciInputType, 1) == -1)
     }
   }
   if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0],NULL), "synth")) {
-    rc = eciSynthesize(eciHandle);
+    rc = _eciSynthesize(eciHandle);
     if (!rc) {
       Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
       return TCL_ERROR;
     }
-    eciSpeaking(eciHandle);
+    _eciSpeaking(eciHandle); // should this be here!?
   }
   return TCL_OK;
 }
 
 int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
                 int objc, Tcl_Obj *CONST objv[]) {
-  int rc = eciSynchronize(eciHandle);
+  int rc = _eciSynchronize(eciHandle);
   if (!rc) {
     Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
     return TCL_ERROR;
@@ -218,13 +296,13 @@ int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
 }
 
 int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if (eciStop(eciHandle)) return TCL_OK;
+  if (_eciStop(eciHandle)) return TCL_OK;
   Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
 
 int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if ( eciSpeaking(eciHandle)) {
+  if ( _eciSpeaking(eciHandle)) {
     return 1;
   } else {
     return 0;
@@ -232,14 +310,14 @@ int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST
 }  
 
 int Pause(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if (eciPause(eciHandle, 1)) return TCL_OK;
+  if (_eciPause(eciHandle, 1)) return TCL_OK;
   Tcl_SetResult(interp, "Could not pause synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
 
 
 int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if (eciPause(eciHandle, 0)) return TCL_OK;
+  if (_eciPause(eciHandle, 0)) return TCL_OK;
   Tcl_SetResult(interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
