@@ -339,15 +339,11 @@ window")))
  'sgml-mode-hook
  (function
   (lambda ()
-    (declare (special sgml-mode-map
-                      sgml-set-face))
-    (setq sgml-set-face nil)
+    (declare (special sgml-mode-map))
     (emacspeak-setup-programming-mode)
     (define-key sgml-mode-map "\C-c\C-b"
       'emacspeak-xml-browse-mode))))
-                                    
            
-             
 ;;}}}
 ;;{{{ psgml based voice locking 
 
@@ -375,17 +371,6 @@ sgml	- SGML declaration
 start-tag
 entity  - general entity reference
 shortref- short reference")
-
-(defadvice sgml-set-face-for (after emacspeak pre act comp)
-  "Apply voice locking as well."
-  (let* ((start (ad-get-arg 0))
-	 (end (ad-get-arg 1))
-	 (type (ad-get-arg 2))
-         (voice (cdr (assq type
-                           emacspeak-sgml-markup-voices))))
-    (ems-modify-buffer-safely
-     (put-text-property start end
-                        'personality voice ))))
 
 ;;}}}
 ;;{{{ additional interactive commands 
