@@ -54,6 +54,7 @@
 (require 'custom)
 (eval-when-compile (require 'dired))
 (require 'derived)
+(require 'eldoc)
 (require 'find-dired)
 (require 'custom)
 (require 'thingatpt)
@@ -865,7 +866,9 @@ documentation.\n\n")
                 "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                 module)))
-            (insert (format "\n\n@deffn %s\n" f))
+            (insert (format "\n\n@deffn %s %s\n"
+                            f
+                            (eldoc-function-argstring f)))
             (if key
                 (condition-case nil
                     (progn
