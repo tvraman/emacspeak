@@ -189,7 +189,7 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string= location (car emacspeak-copy-file-location-history))
+      (unless (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -226,7 +226,7 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string= location (car emacspeak-copy-file-location-history))
+      (unless (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -259,7 +259,7 @@ Prompts for the new location and preserves modification time
                              minibuffer-history)))
     (setq emacspeak-copy-associated-location location)
     (when (file-directory-p location)
-      (unless (string= location (car emacspeak-copy-file-location-history))
+      (unless (string-equal location (car emacspeak-copy-file-location-history))
         (push location emacspeak-copy-file-location-history))
       (setq location
             (expand-file-name
@@ -1222,7 +1222,7 @@ With optional interactive prefix arg `frame', move to previous frame instead."
     (let ((l
            (remove-if
             #'(lambda (b)
-                (string= (substring
+                (string-equal (substring
                           (buffer-name b)
                           0 1) " "))
             (buffer-list))))
