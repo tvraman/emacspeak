@@ -57,8 +57,8 @@
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
-(defvar dtk-default-voice-string "[:np]"
-  "dtk string for the default voice.")
+(defvar dtk-default-voice-string ""
+  "dtk string for  default voice --set to be a no-op.")
 
 (defvar dtk-voice-table (make-hash-table)
   "Association between symbols and strings to set dtk voices.
@@ -74,7 +74,11 @@ COMMAND-STRING to the Dectalk."
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-voice-table ))
-  (or  (gethash name dtk-voice-table) dtk-default-voice-string))
+  (cond
+   ((listp voice)
+    (mapconcat #'dtk-get-voice-command voice " "))
+   (t (or  (gethash name dtk-voice-table)
+           dtk-default-voice-string))))
 
 (defsubst dtk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
