@@ -526,6 +526,7 @@ Argument COMPLEMENT  is the complement of separator."
   "Format and speak text.
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
+                    tts-voice-reset-code
                     emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
