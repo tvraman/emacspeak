@@ -182,7 +182,7 @@ prompting for a template.")
    "Bookshare UserId: "
    emacspeak-bookshare-user-id))
   #'(lambda nil
-  (read-from-minibuffer  "Password: ")))
+  (read-passwd  "Password: ")))
  nil
  "Bookshare Login"
  #'(lambda (url)
