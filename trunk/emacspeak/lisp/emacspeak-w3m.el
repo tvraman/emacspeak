@@ -34,6 +34,7 @@
 ;;{{{  required modules
 
 (require 'emacspeak-preamble)
+(require 'w3m nil)
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map
@@ -402,7 +403,7 @@
   'w3m-header-line-location-content-face
   "w3m-header-line-location-content-face")
 
-(def-voice-font  emacspeak-w3m-form-button-personality
+(def-voice-font  emacspeak-w3m-button-personality
   voice-smoothen
   'w3m-form-button-face
   "w3m-form-button-face")
