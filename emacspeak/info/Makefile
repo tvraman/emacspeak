@@ -8,7 +8,7 @@ INSTALL = install
 info: *.texi
 	makeinfo emacspeak.texi
 
-commands.texi: ../lisp/emacspeak.el
+commands.texi: ../lisp/emacspeak-setup.el
 	emacs -batch -q -l ../utils/document-commands.el
 
 
