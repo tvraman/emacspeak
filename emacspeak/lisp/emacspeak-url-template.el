@@ -73,7 +73,7 @@
 ;;{{{ Helpers
 
 (defun emacspeak-url-template-url (ut)
-  "Instnatiate URL identified by URL template."
+  "Instantiate URL identified by URL template."
   (apply 'format
          ( emacspeak-url-template-template ut)
          (mapcar
@@ -81,7 +81,7 @@
            (lambda (g)
 	      (cond
 	       ((stringp g)
-		(read-from-minibuffer g))
+		(webjump-url-encode (read-from-minibuffer g)))
 	       (t (funcall g)))))
           (emacspeak-url-template-generators ut))))
 
