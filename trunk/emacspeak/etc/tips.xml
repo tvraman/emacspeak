@@ -31,27 +31,26 @@
         </question>
         <answer>
           <para>
-            Invoke the online hypertext help system by pressing 
-            <emphasis><keycap> C-h i
-              </keycap> </emphasis>.
-            Press <emphasis><keycap
-                                    >h</keycap></emphasis>
-            when using the <application
-                                        >Info System</application> 
-            to obtain a primer for first time users.
+            Invoke the online hypertext help system by
+            pressing 
+            <emphasis><keysym>C-h i</keysym> </emphasis>.
+            Press <emphasis><keysym>h</keysym></emphasis> when using the
+            <application>Info System</application> to
+              obtain a primer for first time users.
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
           <para>
-            Opening info page that documents command invoked by a given key.</para>
+            Opening info page that documents  a given key.</para>
         </question>
         <answer>
           <para>
-            Press <emphasis><keycap> C-h
-                C-k              </keycap> </emphasis>
-            followed by the key whose documentation you wish to locate.
+            Press <emphasis><keysym> C-h</keysym>
+                <keysym>C-k </keysym> </emphasis> followed
+                by the key whose documentation you wish to
+                locate.
           </para>
         </answer>
       </qandaentry>
@@ -65,11 +64,11 @@
         </question>
         <answer>
           <para>
-            Use command <command
-                                 >dired</command>
+            Use command <command>
+                                 dired</command>
             (directory editor) normally bound to
-            <emphasis><keycap>
-                C-x d              </keycap>
+            <emphasis><keysym>
+                C-x d              </keysym>
             </emphasis> to operate on files and folders.
           </para>
         </answer>
@@ -81,14 +80,14 @@
         <answer>
           <para>
             Use <command>locate</command>
-            and <command
-                         >locate-with-filter</command> to
+            and <command>
+                         locate-with-filter</command> to
             find files and folders on your hard drive.
             Matching files and folders are displayed using
             the same interface as provided by command
             <command>dired</command>.  These
-            commands use the <database
-                                       >locate database</database> that
+            commands use the <database>
+                                       locate database</database> that
             is typically rebuilt nightly on standard Linux
             systems.
           </para>
@@ -101,8 +100,8 @@
         </question>
         <answer>
           <para>
-            Use commands <command
-                                  >find-name-dired</command>, <command>find-grep-dired</command> and
+            Use commands <command>
+                                  find-name-dired</command>, <command>find-grep-dired</command> and
             <command>find-dired</command> to use UNIX
             <application>find</application> to locate files
             and folders on your hard drive.
