@@ -136,6 +136,10 @@ pronunciations only once.")
   (emacspeak-auditory-icon 'open-object )
   (emacspeak-speak-mode-line))
 
+(defadvice dired (after emacspeak pre act comp)
+  "Hook is not reliable."
+  (emacspeak-dired-initialize))
+
 (defadvice dired-find-file  (around  emacspeak pre act)
   "Produce an auditory icon."
   (cond
