@@ -1,7 +1,7 @@
 #$Id$cho
 Summary: emacspeak -- The Complete Audio Desktop
 Name: emacspeak
-Version: 16.7655
+Version: 16.7657
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
@@ -61,8 +61,9 @@ Make sure you read the Emacs info pages
 /usr/share/info/emacspeak.info-3
 /usr/share/info/emacspeak.info-4
 /usr/share/info/emacspeak.info-5
-%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/*
- info/* user-guide/* install-guide/*
+
+%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/* user-guide/* install-guide/*
+
 
 # local variables:
 # mode: rpm-spec
