@@ -181,8 +181,10 @@ prompting for a template.")
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table
-      8 url)))
+     (emacspeak-w3-xslt-filter
+      "(//table//table)[8]//td[position()=3 or position()=5]"
+ url
+ 'speak)))
 
 ;;}}}
 ;;{{{  Linksys IP
