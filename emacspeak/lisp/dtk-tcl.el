@@ -576,9 +576,6 @@ only speak upto the first ctrl-m."
   (unless  
       (or dtk-quiet
           (not dtk-speak-server-initialized))
-                                        
-    
-
                                         ; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
     (or (stringp text) (setq text (format "%s" text )))
