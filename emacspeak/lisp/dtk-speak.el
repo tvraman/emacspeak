@@ -178,7 +178,17 @@ Do not modify this variable directly; use command  `dtk-set-rate'
   (not (get-text-property position 'invisible )))
 
 (defsubst text-invisible-p (position)
-  (get-text-property position 'invisible ))
+  "Check if text is invisible. Emacspeak helper."
+  (declare (special buffer-invisibility-spec))
+  (cond
+   ((consp buffer-invisibility-spec)
+    (memq
+  (get-text-property position 'invisible )
+  buffer-invisibility-spec))
+(t (get-text-property  position 'invisible))))
+
+;;; the following functions need to be updated to reflect buffer-invisibility-spec
+
 
 (defsubst skip-invisible-forward  ()
   (and (text-invisible-p (point))
