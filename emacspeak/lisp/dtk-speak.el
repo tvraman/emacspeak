@@ -595,8 +595,7 @@ This is setup on a per engine basis.")
   (declare (special dtk-default-speech-rate
                     tts-default-speech-rate
                     outloud-default-speech-rate
-                    emacspeak-aumix-multichannel-capable-p emacspeak-aumix-midi-available-p
-                    emacspeak-use-midi-icons emacspeak-use-auditory-icons
+                    emacspeak-aumix-multichannel-capable-p emacspeak-aumix-midi-available-p emacspeak-use-auditory-icons
                     dtk-program
                     ))
   (unless tts-name
@@ -619,9 +618,9 @@ This is setup on a per engine basis.")
   (when (and (string= "outloud" dtk-program)
              emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
-             (not emacspeak-use-midi-icons)
+             (not (emacspeak-using-midi-p))
              emacspeak-aumix-midi-available-p)
-    (emacspeak-toggle-midi-icons)))
+    (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
 
 ;;; forward declaration.
 (defvar emacspeak-aumix-multichannel-capable-p nil)

@@ -751,7 +751,6 @@ indicated with auditory icon ellipses."
                     emacspeak-speak-space-regexp
                     outline-minor-mode folding-mode
                     emacspeak-speak-maximum-line-length
-                    emacspeak-use-midi
                     emacspeak-show-point
                     emacspeak-decoration-rule
                     emacspeak-horizontal-rule
@@ -792,12 +791,12 @@ indicated with auditory icon ellipses."
        ((string= ""  (buffer-substring start end)) ;blank line
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
-        (when emacspeak-use-midi-icons
+        (when (emacspeak-using-midi-p)
           (emacspeak-midi-icon 'empty-line)))
        ((string-match  emacspeak-speak-space-regexp  (buffer-substring start end )) ;only white space
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 300   120 'force)
-        (when emacspeak-use-midi-icons
+        (when (emacspeak-using-midi-p)
           (emacspeak-midi-icon 'blank-line)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
@@ -805,7 +804,7 @@ indicated with auditory icon ellipses."
                         (buffer-substring start end))) ;horizontal rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
-        (when emacspeak-use-midi-icons
+        (when (emacspeak-using-midi-p)
           (emacspeak-midi-icon 'horizontal-rule)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
@@ -813,7 +812,7 @@ indicated with auditory icon ellipses."
                         (buffer-substring start end)) ) ;decorative rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
-        (when emacspeak-use-midi-icons
+        (when (emacspeak-using-midi-p)
           (emacspeak-midi-icon 'decorative-rule)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
@@ -821,7 +820,7 @@ indicated with auditory icon ellipses."
                         (buffer-substring start end)) ) ;unspeakable rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 550   100 'force)
-        (when emacspeak-use-midi-icons
+        (when (emacspeak-using-midi-p)
           (emacspeak-midi-icon 'unspeakable-rule)))
        (t
         (let ((l (length line))

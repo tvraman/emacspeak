@@ -219,7 +219,7 @@
 (define-key emacspeak-keymap "\M-d"
   'emacspeak-pronounce-dispatch)
 (define-key emacspeak-keymap "\M-b" 'emacspeak-pronounce-define-local-pronunciation)
-(define-key emacspeak-keymap "\M-a" 'emacspeak-toggle-midi-icons)
+(define-key emacspeak-keymap "\M-a" 'emacspeak-set-auditory-icon-player)
 (define-key emacspeak-keymap "\M-m" 'emacspeak-toggle-mail-alert)
 (define-key emacspeak-keymap "\M-v"
   'emacspeak-show-personality-at-point)
