@@ -73,6 +73,10 @@ documentation.
 @section dtk-speak
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  dtk-speak.
 
@@ -154,6 +158,10 @@ Select TTS debugging buffer.
 @node dtk-tcl, emacspeak-aumix, dtk-speak, Emacspeak Commands
 @section dtk-tcl
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  dtk-tcl.
@@ -397,6 +405,10 @@ Shutdown midi system.
 @section emacspeak-aumix
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-aumix.
 
@@ -471,6 +483,10 @@ after saving the settings to have them take effect.
 @section emacspeak-bs
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-bs.
 
@@ -485,6 +501,10 @@ Speak information about this buffer
 @node emacspeak-buff-menu, emacspeak-c, emacspeak-bs, Emacspeak Commands
 @section emacspeak-buff-menu
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-buff-menu.
@@ -525,6 +545,10 @@ Speak the name of the buffer on this line
 @section emacspeak-c
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-c.
 
@@ -539,6 +563,10 @@ Speak the C semantics of this line.
 @node emacspeak-calendar, emacspeak-compile, emacspeak-c, Emacspeak Commands
 @section emacspeak-calendar
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-calendar.
@@ -564,6 +592,10 @@ Speaks the most recently displayed appointment message if any.
 @section emacspeak-compile
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-compile.
 
@@ -578,6 +610,10 @@ Speech feedback about the compilation error.
 @node emacspeak-custom, emacspeak-dired, emacspeak-compile, Emacspeak Commands
 @section emacspeak-custom
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-custom.
@@ -601,6 +637,10 @@ Jump to custom group when in a customization buffer.
 @node emacspeak-dired, emacspeak-ediff, emacspeak-custom, Emacspeak Commands
 @section emacspeak-dired
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
@@ -676,6 +716,10 @@ Speak modification time  of the current file.
 @section emacspeak-ediff
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-ediff.
 
@@ -690,6 +734,10 @@ Speak the current difference
 @node emacspeak-enriched, emacspeak-entertain, emacspeak-ediff, Emacspeak Commands
 @section emacspeak-enriched
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-enriched.
@@ -706,6 +754,10 @@ Useful in voicifying rich text.
 @node emacspeak-entertain, emacspeak-eterm, emacspeak-enriched, Emacspeak Commands
 @section emacspeak-entertain
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-entertain.
@@ -729,6 +781,10 @@ Speak statistics.
 @node emacspeak-eterm, emacspeak-filtertext, emacspeak-entertain, Emacspeak Commands
 @section emacspeak-eterm
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-eterm.
@@ -1091,6 +1147,10 @@ emacspeak eterm pointer.
 @section emacspeak-filtertext
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-filtertext.
 
@@ -1134,6 +1194,10 @@ preparation for interactively filtering text.
 @section emacspeak-fix-interactive
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-fix-interactive.
 
@@ -1158,6 +1222,10 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
 @node emacspeak-forms, emacspeak-freeamp, emacspeak-fix-interactive, Emacspeak Commands
 @section emacspeak-forms
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-forms.
@@ -1214,6 +1282,10 @@ Summarize current position in list of records
 @node emacspeak-freeamp, emacspeak-gomoku, emacspeak-forms, Emacspeak Commands
 @section emacspeak-freeamp
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-freeamp.
@@ -1280,6 +1352,10 @@ Call appropriate freeamp command.
 @node emacspeak-gomoku, emacspeak-gridtext, emacspeak-freeamp, Emacspeak Commands
 @section emacspeak-gomoku
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-gomoku.
@@ -1360,6 +1436,10 @@ Speak coordinates and state of square at point
 @section emacspeak-gridtext
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-gridtext.
 
@@ -1393,6 +1473,10 @@ Load saved grid settings.
 @node emacspeak-hide, emacspeak-ibuffer, emacspeak-gridtext, Emacspeak Commands
 @section emacspeak-hide
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-hide.
@@ -1436,6 +1520,10 @@ blocks in current buffer to be hidden or exposed.
 @section emacspeak-ibuffer
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-ibuffer.
 
@@ -1450,6 +1538,10 @@ Speak information about this buffer
 @node emacspeak-imenu, emacspeak-keymap, emacspeak-ibuffer, Emacspeak Commands
 @section emacspeak-imenu
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-imenu.
@@ -1482,6 +1574,10 @@ Goto the next index position in current buffer
 @section emacspeak-keymap
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-keymap.
 
@@ -1508,6 +1604,10 @@ Automatically defined advice to speak interactive prompts.
 @section emacspeak-kotl
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-kotl.
 
@@ -1531,6 +1631,10 @@ Setup additional keybindings
 @node emacspeak-mpg123, emacspeak-ocr, emacspeak-kotl, Emacspeak Commands
 @section emacspeak-mpg123
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-mpg123.
@@ -1614,6 +1718,10 @@ Move back by specified number of minutes.
 @node emacspeak-ocr, emacspeak-outline, emacspeak-mpg123, Emacspeak Commands
 @section emacspeak-ocr
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ocr.
@@ -1861,6 +1969,10 @@ Move to specified page.
 @section emacspeak-outline
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-outline.
 
@@ -1916,6 +2028,10 @@ except that the outline section is optionally spoken
 @node emacspeak-pronounce, emacspeak-psgml, emacspeak-outline, Emacspeak Commands
 @section emacspeak-pronounce
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-pronounce.
@@ -2013,6 +2129,10 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 @section emacspeak-psgml
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-psgml.
 
@@ -2058,6 +2178,10 @@ Speak contents of current element.
 @node emacspeak-realaudio, emacspeak-redefine, emacspeak-psgml, Emacspeak Commands
 @section emacspeak-realaudio
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-realaudio.
@@ -2194,6 +2318,10 @@ Automatically defined advice to speak interactive prompts.
 @section emacspeak-redefine
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-redefine.
 
@@ -2233,6 +2361,10 @@ Forward-char redefined to speak char moved to.
 @section emacspeak-remote
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-remote.
 
@@ -2263,6 +2395,10 @@ Use this once you are sure the guesses are usually correct.
 @section emacspeak-rmail
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-rmail.
 
@@ -2285,6 +2421,10 @@ Speak labels of current message
 @node emacspeak-solitaire, emacspeak-sounds, emacspeak-rmail, Emacspeak Commands
 @section emacspeak-solitaire
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-solitaire.
@@ -2316,6 +2456,10 @@ Display current row auditorallly
 @node emacspeak-sounds, emacspeak-speak, emacspeak-solitaire, Emacspeak Commands
 @section emacspeak-sounds
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
@@ -2375,6 +2519,10 @@ audio player.
 @node emacspeak-speak, emacspeak-speedbar, emacspeak-sounds, Emacspeak Commands
 @section emacspeak-speak
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-speak.
@@ -3346,6 +3494,10 @@ Default is to read the next word.
 @section emacspeak-speedbar
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-speedbar.
 
@@ -3369,6 +3521,10 @@ Switch to the speedbar
 @node emacspeak-table-ui, emacspeak-tabulate, emacspeak-speedbar, Emacspeak Commands
 @section emacspeak-table-ui
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-table-ui.
@@ -3675,6 +3831,10 @@ Optional prefix arg prompts for a new filter.
 @section emacspeak-tabulate
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-tabulate.
 
@@ -3693,6 +3853,10 @@ in the white-space.
 @section emacspeak-tapestry
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-tapestry.
 
@@ -3708,6 +3872,10 @@ Describe the current layout of visible buffers in current frame.
 @node emacspeak-url-template, emacspeak-view, emacspeak-tapestry, Emacspeak Commands
 @section emacspeak-url-template
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-url-template.
@@ -3741,6 +3909,10 @@ Load URL template resources from specified location.
 @section emacspeak-view
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-view.
 
@@ -3755,6 +3927,10 @@ Moves current line to top of window
 @node emacspeak-vm, emacspeak-w3, emacspeak-view, Emacspeak Commands
 @section emacspeak-vm
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-vm.
@@ -3796,6 +3972,10 @@ that has been forwarded multiple times.
 @node emacspeak-w3, emacspeak-websearch, emacspeak-vm, Emacspeak Commands
 @section emacspeak-w3
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
@@ -3909,6 +4089,10 @@ specifies by how many eleemnts to move.
 @node emacspeak-websearch, emacspeak-widget, emacspeak-w3, Emacspeak Commands
 @section emacspeak-websearch
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-websearch.
@@ -4365,6 +4549,10 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 @section emacspeak-widget
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-widget.
 
@@ -4417,6 +4605,10 @@ widget before summarizing.
 @section emacspeak
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak.
 
@@ -4442,6 +4634,10 @@ Give a brief overview of emacspeak.
 @section dis-quote
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  dis-quote.
 
@@ -4456,6 +4652,10 @@ Set up variable emacspeak-websearch-personal-portfolio.
 @node emacspeak-arc, emacspeak-dismal, dis-quote, Emacspeak Commands
 @section emacspeak-arc
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-arc.
@@ -4495,6 +4695,10 @@ Speak the size of the file on current line
 @node emacspeak-dismal, emacspeak-eudc, emacspeak-arc, Emacspeak Commands
 @section emacspeak-dismal
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dismal.
@@ -4624,6 +4828,10 @@ Display the expression in the message area
 @section emacspeak-eudc
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-eudc.
 
@@ -4638,6 +4846,10 @@ Send email to the address given by the current record.
 @node emacspeak-man, emacspeak-python, emacspeak-eudc, Emacspeak Commands
 @section emacspeak-man
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-man.
@@ -4662,6 +4874,10 @@ Speak current section
 @section emacspeak-python
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-python.
 
@@ -4685,6 +4901,10 @@ Move forward to the beginning of the next block.
 @node emacspeak-tar, emacspeak-tetris, emacspeak-python, Emacspeak Commands
 @section emacspeak-tar
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-tar.
@@ -4716,6 +4936,10 @@ Speak size of file current entry
 @node emacspeak-tetris, emacspeak-view-process, emacspeak-tar, Emacspeak Commands
 @section emacspeak-tetris
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-tetris.
@@ -4812,6 +5036,10 @@ Speak next shape
 @section emacspeak-view-process
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-view-process.
 
@@ -4835,6 +5063,10 @@ Set point to the current field in the next line.
 @section emacspeak-w3search
 
 
+
+
+nil
+
 Automatically generated documentation
 for commands defined in module  emacspeak-w3search.
 
@@ -4849,6 +5081,10 @@ Search IBM Blue Pages
 @node emacspeak-wizards, ANONYMOUS, emacspeak-w3search, Emacspeak Commands
 @section emacspeak-wizards
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  emacspeak-wizards.
@@ -5364,6 +5600,10 @@ If no property is set, show a message and exit.
 @node ANONYMOUS,  , emacspeak-wizards, Emacspeak Commands
 @section ANONYMOUS
 
+
+
+
+nil
 
 Automatically generated documentation
 for commands defined in module  ANONYMOUS.

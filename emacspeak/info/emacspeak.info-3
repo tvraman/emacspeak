@@ -13,6 +13,8 @@ File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak-aumix,  Prev: dtk-speak, 
 dtk-tcl
 =======
 
+   nil
+
    Automatically generated documentation for commands defined in module
 dtk-tcl.
 
@@ -214,6 +216,8 @@ File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bs,  Prev: dtk-tc
 emacspeak-aumix
 ===============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-aumix.
 
@@ -277,6 +281,8 @@ File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: em
 emacspeak-bs
 ============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-bs.
 
@@ -292,6 +298,8 @@ File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: ema
 
 emacspeak-buff-menu
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-buff-menu.
@@ -330,6 +338,8 @@ File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calendar,  Prev: emac
 emacspeak-c
 ===========
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-c.
 
@@ -345,6 +355,8 @@ File: emacspeak.info,  Node: emacspeak-calendar,  Next: emacspeak-compile,  Prev
 
 emacspeak-calendar
 ==================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-calendar.
@@ -369,6 +381,8 @@ File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-custom,  Prev: 
 emacspeak-compile
 =================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-compile.
 
@@ -384,6 +398,8 @@ File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dired,  Prev: em
 
 emacspeak-custom
 ================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-custom.
@@ -407,6 +423,8 @@ File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-ediff,  Prev: ema
 
 emacspeak-dired
 ===============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-dired.
@@ -475,6 +493,8 @@ File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: 
 emacspeak-ediff
 ===============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-ediff.
 
@@ -491,6 +511,8 @@ File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Pr
 emacspeak-enriched
 ==================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-enriched.
 
@@ -506,6 +528,8 @@ File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-eterm,  Prev:
 
 emacspeak-entertain
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-entertain.
@@ -529,6 +553,8 @@ File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-filtertext,  Prev
 
 emacspeak-eterm
 ===============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-eterm.
@@ -846,6 +872,8 @@ File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interact
 emacspeak-filtertext
 ====================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-filtertext.
 
@@ -882,6 +910,8 @@ File: emacspeak.info,  Node: emacspeak-fix-interactive,  Next: emacspeak-forms, 
 emacspeak-fix-interactive
 =========================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-fix-interactive.
 
@@ -906,6 +936,8 @@ File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-freeamp,  Prev: e
 
 emacspeak-forms
 ===============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-forms.
@@ -958,6 +990,8 @@ File: emacspeak.info,  Node: emacspeak-freeamp,  Next: emacspeak-gomoku,  Prev: 
 
 emacspeak-freeamp
 =================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-freeamp.
@@ -1017,6 +1051,8 @@ File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-gridtext,  Prev:
 
 emacspeak-gomoku
 ================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-gomoku.
@@ -1090,6 +1126,8 @@ File: emacspeak.info,  Node: emacspeak-gridtext,  Next: emacspeak-hide,  Prev: e
 emacspeak-gridtext
 ==================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-gridtext.
 
@@ -1119,6 +1157,8 @@ File: emacspeak.info,  Node: emacspeak-hide,  Next: emacspeak-ibuffer,  Prev: em
 
 emacspeak-hide
 ==============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-hide.
@@ -1157,6 +1197,8 @@ File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-imenu,  Prev: e
 emacspeak-ibuffer
 =================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-ibuffer.
 
@@ -1172,6 +1214,8 @@ File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-keymap,  Prev: em
 
 emacspeak-imenu
 ===============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-imenu.
@@ -1203,6 +1247,8 @@ File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kotl,  Prev: ema
 emacspeak-keymap
 ================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-keymap.
 
@@ -1229,6 +1275,8 @@ File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-mpg123,  Prev: ema
 emacspeak-kotl
 ==============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-kotl.
 
@@ -1252,6 +1300,8 @@ File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-ocr,  Prev: emac
 
 emacspeak-mpg123
 ================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-mpg123.
@@ -1325,6 +1375,8 @@ File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-outline,  Prev: ema
 
 emacspeak-ocr
 =============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-ocr.
@@ -1538,6 +1590,8 @@ File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-pronounce,  Pre
 emacspeak-outline
 =================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-outline.
 
@@ -1585,6 +1639,8 @@ File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-psgml,  Prev:
 
 emacspeak-pronounce
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-pronounce.
@@ -1672,6 +1728,8 @@ File: emacspeak.info,  Node: emacspeak-psgml,  Next: emacspeak-realaudio,  Prev:
 emacspeak-psgml
 ===============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-psgml.
 
@@ -1712,6 +1770,8 @@ File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Pr
 
 emacspeak-realaudio
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-realaudio.
@@ -1823,71 +1883,4 @@ emacspeak-realaudio-trplayer-command
 
    Before-advice `emacspeak-auto': Automatically defined advice to
 speak interactive prompts.
-
-
-File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-remote,  Prev: emacspeak-realaudio,  Up: Emacspeak Commands
-
-emacspeak-redefine
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-redefine.
-
-emacspeak-backward-char
-=======================
-
-   control b   left
-
-   Backward-char redefined to speak char moved to.
-
-emacspeak-self-insert-command
-=============================
-
-   Character set Tibetan 2 column   Character set Indian 2 Column
-Character set CNS11643-7 (Chinese traditional)   Character set
-CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese
-traditional)   Character set CNS11643-4 (Chinese traditional)
-Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic
-characters   Character set Tibetan 1 column   Character set Indian 1
-Column   Character set Indian IS 13194   Character set Arabic 2-column
-Character set Lao   Character set ASCII with right-to-left direction
-Character set Arabic 1-column   Character set Arabic digit   Character
-set VISCII upper-case   Character set VISCII lower-case   Character set
-IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5
-(Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2
-(Chinese traditional)   Character set CNS11643-1 (Chinese traditional)
-Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)
-Character set JISX0208.1983/1990 (Japanese)   Character set GB2312
-Character set JISX0208.1978 (Japanese)   Character set ISO8859-9
-(Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set
-JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese
-Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6
-(Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620
-(Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3
-(Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1
-(Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ
-ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß
-Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í
-Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »
-º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©
-¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s
-r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a
-_   \    cap Z     cap Y     cap X     cap W     cap V     cap U
-cap T     cap S     cap R     cap Q     cap P     cap O     cap N
-cap M     cap L     cap K     cap J     cap I     cap H     cap G
-cap F     cap E     cap D     cap C     cap B     cap A       >   <   9
- 8   7   6   5   4   3   2   1   0   /   -   +   *   $
-
-   Insert a character.  Speaks the character if
-emacspeak-character-echo is true.  See  command
-emacspeak-toggle-word-echo bound to C-e d w.  Toggle variable
-dtk-stop-immediately-while-typing if you want to have speech flush as
-you type.
-
-emacspeak-forward-char
-======================
-
-   control f   right
-
-   Forward-char redefined to speak char moved to.
 
