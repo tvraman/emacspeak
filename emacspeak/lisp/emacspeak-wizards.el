@@ -2499,6 +2499,7 @@ Interactive  arguments specify filename pattern and search pattern."
 		     'personality
 		     personality
 		     (emacspeak-speak-line)))
+
 ;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler  (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
@@ -2541,20 +2542,20 @@ bound to \\[emacspeak-wizards-tramp-open-location]."
            (string :tag "Location")))
   :group 'emacspeak-wizards)
 
-(defun emacspeak-wizards-tramp-open-location (location)
+;;;###autoload
+(defun emacspeak-wizards-tramp-open-location (name)
   "Open specified tramp location.
 Location is specified by name."
   (interactive
    (list
     (let ((completion-ignore-case t))
-      (cdr
-       (assoc
       (completing-read "Location:"
-       emacspeak-wizards-tramp-locations
-       nil 'must-match)
-      emacspeak-wizards-tramp-locations)))))
+                       emacspeak-wizards-tramp-locations
+                       nil 'must-match))))
   (declare (special emacspeak-wizards-tramp-locations))
-  (find-file location))
+  (let ((location (cdr (assoc name
+                              emacspeak-wizards-tramp-locations))))
+  (find-file location)))
 
 
 ;;}}}

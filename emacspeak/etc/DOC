@@ -2881,6 +2881,14 @@ current page.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-junk-by-class-listJunk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-lynx-url-under-pointDisplay contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
 hyperlinks in that display are not active-- this facility is
@@ -2959,6 +2967,14 @@ used as well.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-xpath-junk-and-followFollow url and point, and filter the result by junking
+elements specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-xsl-toggleToggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
@@ -2972,7 +2988,12 @@ libxslt package.
 ** emacspeak-w3-xslt-filterExtract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  
+specifies the page to extract table from.
+Optional arg COMPLEMENT inverts the filter.  
+
+------------------------------------------------------------
+
+** emacspeak-w3-xslt-junkJunk elements matching specified locator.
 
 ------------------------------------------------------------
 
@@ -3664,6 +3685,11 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-edit-file-as-rootEdit file as root using sudo vi.
+See /etc/sudoers for how to set up sudo.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-find-grepRun compile using find and grep. 
 Interactive  arguments specify filename pattern and search pattern.
 
@@ -3761,6 +3787,10 @@ emacspeak-websearch-personal-portfolio.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-ppp-toggleBring up or bring down ppp.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-ppt-displayCalled to set up preview of an PPT file.
 Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
@@ -3825,6 +3855,11 @@ for `word' and displays hits in a compilation buffer.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-tpctl-display-statusShow display status on thinkpads using tpctl.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-tramp-open-locationOpen specified tramp location.
+Location is specified by name.
 
 ------------------------------------------------------------
 
