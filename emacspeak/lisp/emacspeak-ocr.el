@@ -148,8 +148,19 @@ will be placed."
 
 (defsubst emacspeak-ocr-get-image-name ()
   "Return name of current image."
-  (declare (special emacspeak-ocr-document-name))
-  (format "%s.tiff" emacspeak-ocr-document-name))
+  (declare (special emacspeak-ocr-document-name
+                    emacspeak-ocr-current-page-number))
+  (format "%s-%s.tiff"
+          emacspeak-ocr-document-name
+          (1+ emacspeak-ocr-current-page-number)))
+
+(defsubst emacspeak-ocr-get-page-name ()
+  "Return name of current page."
+  (declare (special emacspeak-ocr-document-name
+                    emacspeak-ocr-current-page-number))
+  (format "%s-%s.txt"
+          emacspeak-ocr-document-name
+          emacspeak-ocr-current-page-number))
 
 (defvar emacspeak-ocr-mode-line-format
   '(
@@ -199,11 +210,11 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
 (define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
-(define-key emacspeak-ocr-mode-map "a" 'emacspeak-ocr-append-page)
 (define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
 (define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
 (define-key emacspeak-ocr-mode-map "]"'emacspeak-ocr-forward-page)
 (define-key emacspeak-ocr-mode-map "p" 'emacspeak-ocr-page)
+(define-key emacspeak-ocr-mode-map "s" 'emacspeak-ocr-save-current-page)
 (define-key emacspeak-ocr-mode-map " "
   'emacspeak-ocr-read-current-page)
 
@@ -287,6 +298,26 @@ Pick a short but meaningful name."
 (defvar emacspeak-ocr-process nil
   "Handle to OCR process.")
 
+(defun emacspeak-ocr-save-current-page ()
+  "Writes out recognized text from current page
+to an appropriately named file."
+  (interactive)
+  (declare (special emacspeak-ocr-current-page-number
+                    emacspeak-ocr-page-positions))
+  (cond
+   ((= 0 emacspeak-ocr-current-page-number)
+    (message "No pages in current document."))
+  (t (write-region
+      (aref emacspeak-ocr-page-positions
+            emacspeak-ocr-current-page-number)
+      (if (= emacspeak-ocr-current-page-number
+             emacspeak-ocr-last-page-number)
+          (point-max)
+        (aref emacspeak-ocr-page-positions (1+
+                                            emacspeak-ocr-current-page-number)))
+     (emacspeak-ocr-get-page-name))
+(emacspeak-auditory-icon 'save-object))))
+
 (defun emacspeak-ocr-process-sentinel  (process state)
   "Alert user when OCR is complete."
   (declare (special emacspeak-ocr-page-positions
@@ -297,19 +328,27 @@ Pick a short but meaningful name."
   (emacspeak-auditory-icon 'task-done)
   (goto-char (aref emacspeak-ocr-page-positions
                    emacspeak-ocr-current-page-number))
+  (emacspeak-ocr-save-current-page)
   (emacspeak-ocr-update-mode-line)
   (emacspeak-speak-line))
 
 
 (defun emacspeak-ocr-recognize-image ()
-  "Run OCR engine on current image."
+  "Run OCR engine on current image.
+Prompts for image file if file corresponding to the expected
+`current page' is not found."
   (interactive)
   (declare (special emacspeak-ocr-engine
                     emacspeak-ocr-engine-options
                     emacspeak-ocr-process
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-page-positions))
-  (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t)
+        (image-name
+         (if (file-exists-p (emacspeak-ocr-get-image-name))
+             (emacspeak-ocr-get-image-name)
+           (expand-file-name 
+           (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))
@@ -319,12 +358,15 @@ Pick a short but meaningful name."
     (insert
      (format "\n%c\nPage %s\n" 12
              emacspeak-ocr-last-page-number))
+    (message "%s %s"
+emacspeak-ocr-engine
+           image-name)
     (setq emacspeak-ocr-process
           (start-process 
            "ocr"
            (current-buffer)
            emacspeak-ocr-engine
-           (emacspeak-ocr-get-image-name)))
+           image-name))
     (set-process-sentinel emacspeak-ocr-process
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
