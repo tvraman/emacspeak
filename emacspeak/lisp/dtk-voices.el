@@ -598,11 +598,22 @@ Finally return the symbol"
       name))))
 
 ;;}}}
+;;{{{ list voices 
+
+(defun dtk-list-voices ()
+  "List defined voices."
+  (declare (special dtk-voice-table))
+  (loop for k being the hash-keys of dtk-voice-table 
+collect (list 'const  k)))
+
+;;}}}
 ;;{{{ configurater 
 
 (defun dtk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (declare (special  dtk-default-speech-rate))
+  (fset 'tts-list-voices 'dtk-list-voices)
+  (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
   (fset 'tts-get-voice-command 'dtk-get-voice-command)
   (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'dtk-define-voice-from-speech-style)

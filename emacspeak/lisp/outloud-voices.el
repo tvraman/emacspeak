@@ -464,13 +464,25 @@ Finally return the symbol"
       name))))
 
 ;;}}}
+;;{{{ list voices 
+
+(defun outloud-list-voices ()
+  "List defined voices."
+  (declare (special outloud-voice-table))
+  (loop for k being the hash-keys of outloud-voice-table 
+collect (list 'const  k)))
+
+;;}}}
 ;;{{{ Configurater 
 
 (defun outloud-configure-tts ()
   "Configure TTS environment to use ViaVoice  family of synthesizers."
   (declare (special tts-default-speech-rate
                     outloud-default-speech-rate
-                    emacspeak-use-auditory-icons emacspeak-aumix-multichannel-capable-p))
+                    emacspeak-use-auditory-icons
+                    emacspeak-aumix-multichannel-capable-p))
+  (fset 'tts-list-voices'outloud-list-voices)
+  (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-get-voice-command 'outloud-get-voice-command)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
