@@ -48,11 +48,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'loaddefs)
+(require 'autoload)
 (require 'emacspeak-setup)
-
 ;;}}}
-;;{{{ generate autoloads
+;;{{{ generate autoloadms
 
 (defgroup emacspeak-auto nil
   "Emacspeak autoload group.")
@@ -69,7 +68,8 @@
   (declare (special emacspeak-directory
                     emacspeak-lisp-directory
                     emacspeak-auto-autoloads-file))
-  (let ((source-directory emacspeak-directory)
+  (let ((dtk-quiet nil)
+        (source-directory emacspeak-directory)
         (generated-autoload-file emacspeak-auto-autoloads-file))
 (update-autoloads-from-directories emacspeak-lisp-directory)))
 
