@@ -46,12 +46,12 @@
 (require 'custom)
 (require 'voice-setup)
 (require 'thingatpt)
+(require 'dtk-speak )
 (eval-when-compile
-  (require 'dtk-speak )
   (require 'dtk-interp)
   (require 'shell)
   (require 'which-func nil)
-  )
+  (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Introduction:
