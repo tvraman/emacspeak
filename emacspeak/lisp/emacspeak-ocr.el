@@ -196,10 +196,10 @@ will be placed."
 (defsubst emacspeak-ocr-get-image-name (extension)
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
-                    emacspeak-ocr-current-page-number))
+                    emacspeak-ocr-last-page-number))
   (format "%s-%s%s"
           emacspeak-ocr-document-name
-          (1+ emacspeak-ocr-current-page-number)
+          (1+ emacspeak-ocr-last-page-number)
   extension))
 
 (defsubst emacspeak-ocr-get-page-name ()
@@ -437,7 +437,7 @@ The scanned image is converted to JPEG."
                     emacspeak-ocr-compress-photo
                     emacspeak-ocr-image-extension
                     emacspeak-ocr-document-name))
-  (let ((emacspeak-speak-messages nil)
+  (let (
         (jpg (emacspeak-ocr-get-image-name ".jpg"))
         (pnm (emacspeak-ocr-get-image-name ".pnm")))
     (shell-command
@@ -464,7 +464,9 @@ The scanned image is converted to JPEG."
                   emacspeak-ocr-jpeg-metadata-writer metadata 
                   tempfile jpg
                   tempfile))))
-    (message "Acquired  image to file %s" jpg)))
+    (message "Acquired  image to file %s" jpg)
+    (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number))))
 
 
 
