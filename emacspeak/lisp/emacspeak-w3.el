@@ -97,11 +97,11 @@
 ;;}}}
 ;;{{{ setup
 
-(defcustom emacspeak-w3-punctuation-mode 'some
+(defcustom emacspeak-w3-punctuation-mode 'all
   "Pronunciation mode to use for W3 buffers."
   :type '(choice
-          (symbol 'some :tag "some")
-          (symbol 'all :tag "all"))
+          (const  :tag "some" 'some)
+          (const  :tag "all" 'all))
   :group 'emacspeak-w3)
 
 (defun emacspeak-w3-speak-mode-hook ()
