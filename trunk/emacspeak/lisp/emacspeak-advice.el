@@ -560,7 +560,7 @@ current after deletion."
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
   (if (ad-get-arg 0)
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (ad-get-arg 0)))))
 
 (defadvice previous-history-element (after emacspeak pre act)
@@ -568,7 +568,7 @@ current after deletion."
   (when (interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-current-field ))))
 
 (defadvice next-history-element (after emacspeak  pre act)
@@ -576,7 +576,7 @@ current after deletion."
   (when (interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-current-field ))))
 
 (defadvice previous-matching-history-element (after emacspeak pre act)
@@ -584,7 +584,7 @@ current after deletion."
   (when (interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-current-field ))))
 
 (defadvice next-matching-history-element (after emacspeak pre act)
@@ -592,7 +592,7 @@ current after deletion."
   (when (interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-current-field ))))
 
 (defvar emacspeak-last-message nil
@@ -644,7 +644,7 @@ before the message is spoken."
       (when
           emacspeak-speak-messages-should-pause-ongoing-speech
         (dtk-pause))
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak ad-return-value)))
     ad-return-value))
 
@@ -690,14 +690,14 @@ Also produces an auditory icon if possible."
   (when emacspeak-speak-cue-errors
     (let ((dtk-stop-immediately nil ))
       (emacspeak-auditory-icon 'warn-user)
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
 			     (message
 			      (apply #'format
 				     (ad-get-args  0)))))))
 
 (defadvice eval-minibuffer (before emacspeak pre act com)
   "Speak the prompt."
-  (tts-with-punctuations "all"
+  (tts-with-punctuations 'all
                          (dtk-speak (ad-get-arg 0))))
 
 (defadvice read-passwd (before emacspeak pre act comp)
@@ -710,7 +710,7 @@ Also produces an auditory icon if possible."
   (let((prompt (ad-get-arg 0))
        (initial (ad-get-arg 1 ))
        (default (ad-get-arg 5)))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (format "%s  %s%s"
                                     prompt
@@ -721,7 +721,7 @@ Also produces an auditory icon if possible."
                                         (format "Default: %s" default)
                                       ""))))
     ad-do-it
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak ad-return-value ))
     ad-return-value))
 
@@ -729,7 +729,7 @@ Also produces an auditory icon if possible."
   "Prompt using speech as well."
   (let ((prompt (ad-get-arg 0))
         (default  (ad-get-arg 1 )))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (format "%s  %s"
                                     prompt
@@ -737,7 +737,7 @@ Also produces an auditory icon if possible."
                                         (format "Default: %s" default)
                                       ""))))
     ad-do-it
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak ad-return-value ))
     ad-return-value))
 
@@ -745,7 +745,7 @@ Also produces an auditory icon if possible."
   "Prompt using speech as well."
   (let ((prompt (ad-get-arg 0))
         (default  (ad-get-arg 1 )))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (format "%s %s"
                                     prompt
@@ -753,7 +753,7 @@ Also produces an auditory icon if possible."
                                         (format "Default %s" default)
                                       " "))))
     ad-do-it
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak ad-return-value ))
     ad-return-value ))
 
@@ -763,7 +763,7 @@ Produce an auditory icon if possible."
   (emacspeak-auditory-icon 'ask-short-question )
   (when emacspeak-speak-messages-should-pause-ongoing-speech
     (dtk-pause))
-  (tts-with-punctuations "all"
+  (tts-with-punctuations 'all
                          (dtk-speak (format "%s  y or n" (ad-get-arg  0 ))))
   ad-do-it
   (cond
@@ -780,7 +780,7 @@ Produce an auditory icon as well."
   (emacspeak-auditory-icon 'ask-question)
   (when emacspeak-speak-messages-should-pause-ongoing-speech
     (dtk-pause))
-  (tts-with-punctuations "all"
+  (tts-with-punctuations 'all
                          (dtk-speak (format "%s  yes or no" (ad-get-arg  0 ))))
   ad-do-it
   (cond
@@ -797,10 +797,10 @@ Produce an auditory icon as well."
   "Prompt using speech as well. "
   (let ((prompt (ad-get-arg 0)))
     (when prompt
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak prompt)))
     ad-do-it
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
 (unless emacspeak-xemacs-p
@@ -816,7 +816,7 @@ Produce an auditory icon as well."
 	       (or prompt " ")
 	       (or initial default " ")))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
 			     (dtk-speak (format "%s" ad-return-value )))
       ad-return-value ))
 
@@ -824,19 +824,19 @@ Produce an auditory icon as well."
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0))
           (default (ad-get-arg 1 )))
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak
                               (format "%s %s"
                                       prompt
                                       (or default " "))))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak ad-return-value))
       ad-return-value))
 
   (defadvice read-char (before emacspeak pre act comp)
     "Speak the prompt"
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (let ((prompt  (ad-get-arg 0)))
                              (and prompt (dtk-speak prompt)))))
 
@@ -844,17 +844,17 @@ Produce an auditory icon as well."
     "Speak the prompt"
     (let ((prompt  (ad-get-arg 0)))
       (if  prompt
-	  (tts-with-punctuations "all"
+	  (tts-with-punctuations 'all
 				 (dtk-speak prompt)))))
 
   (defadvice read-command(around emacspeak pre act )
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0)))
       (when prompt
-        (tts-with-punctuations "all"
+        (tts-with-punctuations 'all
                                (dtk-speak prompt)))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
@@ -864,13 +864,13 @@ Produce an auditory icon as well."
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0 ))
           (default (ad-get-arg 1 )))
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak
                               (format "%s %s"
                                       prompt
                                       (or default " "))))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
@@ -878,10 +878,10 @@ Produce an auditory icon as well."
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0)))
       (when prompt
-        (tts-with-punctuations "all"
+        (tts-with-punctuations 'all
                                (dtk-speak prompt)))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
@@ -891,7 +891,7 @@ Produce an auditory icon as well."
                       (ad-get-arg 1)
                       default-directory))
           (default (ad-get-arg 2 )))
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak
                               (format "%s %s %s"
                                       (ad-get-arg 0 )
@@ -900,7 +900,7 @@ Produce an auditory icon as well."
                                           (format "Default %s" default )
                                         ""))))
       ad-do-it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak ad-return-value))
       ad-return-value))
 
@@ -917,7 +917,7 @@ in completion buffers"
 (defadvice dabbrev-expand (after emacspeak pre act)
   "Say what you completed."
   (when (interactive-p)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             dabbrev--last-expansion))))
 
@@ -930,7 +930,7 @@ in completion buffers"
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (if (> (point) prior)
-          (tts-with-punctuations "all"
+          (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring prior (point ))))
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
@@ -948,7 +948,7 @@ in completion buffers"
     ad-do-it
     (let ((completions-buffer (get-buffer "*Completions*")))
       (if (> (point) prior)
-          (tts-with-punctuations "all"
+          (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring prior (point ))))
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
@@ -967,25 +967,25 @@ in completion buffers"
     (let ((completions-buffer (get-buffer "*Completions*")))
       (cond
        ((> (point) prior)
-          (tts-with-punctuations "all"
+          (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring prior (point ))))
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
             (emacspeak-prepare-completions-buffer)
-            (tts-with-punctuations "all"
+            (tts-with-punctuations 'all
 				   (dtk-speak (buffer-string
                                                ))))))
        ((< (point) prior)
-          (tts-with-punctuations "all"
+          (tts-with-punctuations 'all
                                  (dtk-speak (buffer-string))))
        ((and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
             (set-buffer completions-buffer )
             (emacspeak-prepare-completions-buffer)
-            (tts-with-punctuations "all"
+            (tts-with-punctuations 'all
 				   (dtk-speak (buffer-string ))))))
     ad-return-value)))
 
@@ -997,7 +997,7 @@ in completion buffers"
     ad-do-it
     (when (> (point) prior)
       (setq dtk-stop-immediately nil)
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (buffer-substring prior (point )))))
     ad-return-value))
 
@@ -1018,14 +1018,14 @@ in completion buffers"
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak (emacspeak-get-current-completion-from-completions)))))
 
 (defadvice  previous-completion (after emacspeak  pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (emacspeak-get-current-completion-from-completions )))))
 
@@ -1048,7 +1048,7 @@ in completion buffers"
                      (setq emacspeak-lazy-message-time
 			   (nth 1    (current-time)))))
       ;; so we really need to speak it
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak ad-return-value)))))
 
 ;;}}}
@@ -1080,7 +1080,7 @@ in completion buffers"
     (put-text-property 0  (length tmm-mid-prompt)
                        'personality 'inaudible
                        tmm-mid-prompt)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (mapconcat
                              (function
@@ -1151,7 +1151,8 @@ in completion buffers"
     ad-do-it
     (emacspeak-auditory-icon 'help)
     (message "Displayed completions.")))
-
+(add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
+  
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
@@ -1306,7 +1307,7 @@ in completion buffers"
           (emacspeak-speak-messages nil))
       ad-do-it
       (if (> (point) prior)
-          (tts-with-punctuations "all"
+          (tts-with-punctuations 'all
                                  (dtk-speak (buffer-substring prior (point )))))
       (let ((completions-buffer (get-buffer "*Completions*")))
         (when (and completions-buffer
@@ -1318,21 +1319,21 @@ in completion buffers"
 (defadvice comint-next-input (after emacspeak pre act)
   "Speak the line."
   (when (interactive-p)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice comint-next-matching-input (after emacspeak pre act)
   "Speak the line."
   (when (interactive-p)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice comint-previous-input (after emacspeak pre act)
   "Speak the line."
   (when (interactive-p)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'select-object)))
 
@@ -1340,7 +1341,7 @@ in completion buffers"
   "Speak the line."
   (when (interactive-p)
     (comint-skip-prompt)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (emacspeak-speak-line))
     (emacspeak-auditory-icon 'select-object)))
 
@@ -1962,14 +1963,14 @@ Otherwise cue user to the line just created."
 (defadvice eval-last-sexp (after emacspeak pre act)
   "Also speaks the result of evaluation."
   (let ((dtk-chunk-separator-syntax " .<>()$\"\'"))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (format "%s" ad-return-value )))))
 
 (defadvice eval-expression (after emacspeak pre act)
   "Also speaks the result of evaluation."
   (let ((dtk-chunk-separator-syntax " .<>()$\"\'"))
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
                            (dtk-speak
                             (format "%s" ad-return-value )))))
 
@@ -2734,7 +2735,7 @@ emacspeak running."
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
     (unwind-protect
-        (tts-with-punctuations "all"
+        (tts-with-punctuations 'all
                                (emacspeak-speak-buffer)))))
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)

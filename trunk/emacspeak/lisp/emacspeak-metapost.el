@@ -62,7 +62,7 @@
     ad-do-it
     (when (> (point) prior)
       (setq dtk-stop-immediately nil)
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak (buffer-substring prior (point )))))
     ad-return-value))
 

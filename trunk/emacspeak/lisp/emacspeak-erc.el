@@ -417,7 +417,7 @@ set the current local value to the result.")
     #'(lambda (pattern)
         (format "%s wides "
                 (substring pattern 0 -1)))))
-  (dtk-set-punctuations "some"))
+  (dtk-set-punctuations 'some))
 
 ;;}}}
 ;;{{{ end of file

@@ -74,7 +74,7 @@ Also provide an auditory icon"
         '((nil "\n\\([A-Z].*\\)" 1)     ; SECTION, but not TITLE
           ("*Subsections*" "^   \\([A-Z].*\\)" 1)))
   (voice-lock-mode 1)
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (emacspeak-auditory-icon 'help))
 
 (defadvice   Man-goto-section  (after emacspeak pre act )

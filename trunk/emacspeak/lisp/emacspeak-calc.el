@@ -73,7 +73,7 @@
           (dtk-quiet t)
           (emacspeak-use-auditory-icons nil))
       ad-do-it)
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
 			   (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))
@@ -83,7 +83,7 @@
   "Speak previous line of output."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
-    (tts-with-punctuations "all"
+    (tts-with-punctuations 'all
 			   (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'select-object))
   ad-return-value)

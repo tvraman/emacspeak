@@ -231,7 +231,7 @@ Useful to do this before you listen to an entire buffer."
    (goto-char (point-min))
    (forward-line 3)
    (delete-region (point-min) (point))
-   (dtk-set-punctuations "all")
+   (dtk-set-punctuations 'all)
    (emacspeak-dtk-sync)
    (emacspeak-auditory-icon 'help)))
 
@@ -762,19 +762,19 @@ are indicated with auditory icon ellipses."
         (dtk-tone 300   120 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'blank-line)))
-       ((and (not (string-equal "all" dtk-punctuation-mode))
+       ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'horizontal-rule)))
-       ((and (not (string-equal "all" dtk-punctuation-mode))
+       ((and (not (eq 'all dtk-punctuation-mode))
              (string-match  emacspeak-decoration-rule line) ) ;decorative rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'decorative-rule)))
-       ((and (not (string-equal "all" dtk-punctuation-mode))
+       ((and (not (eq 'all  dtk-punctuation-mode))
              (string-match  emacspeak-unspeakable-rule line) ) ;unspeakable rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 550   100 'force)
@@ -1531,7 +1531,7 @@ semantic to do the work."
                            recursion-info))
       (when (buffer-modified-p ) (dtk-tone 700 70))
       (when buffer-read-only (dtk-tone 250 50))
-      (tts-with-punctuations "all"
+      (tts-with-punctuations 'all
                              (dtk-speak
                               (concat
                                (or dir-info " ")
@@ -1553,7 +1553,7 @@ semantic to do the work."
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
-  (tts-with-punctuations "all"
+  (tts-with-punctuations 'all
 			 (dtk-speak
 			  (buffer-name))))
 
@@ -1763,7 +1763,7 @@ Second interactive prefix sets clock to new timezone."
    (world
     (call-interactively 'emacspeak-speak-world-clock))
    (t
-    (tts-with-punctuations "some"
+    (tts-with-punctuations 'some
                            (dtk-speak
                             (propertize 
 			     (format-time-string
@@ -1795,7 +1795,7 @@ Second interactive prefix sets clock to new timezone."
       (start-process "mp3" nil "mpg123"
                      "-q"
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
-    (tts-with-punctuations "some"
+    (tts-with-punctuations 'some
                            (dtk-speak
                             (concat signature
                                     version
@@ -2152,7 +2152,7 @@ Non-nil means we split speech on newlines in comint buffer."
   "Set up splitting of speech into chunks in comint modes."
   (declare (special
 	    emacspeak-comint-split-speech-on-newline ))
-  (dtk-set-punctuations "all")
+  (dtk-set-punctuations 'all)
   (when emacspeak-comint-split-speech-on-newline
     (modify-syntax-entry 10 ">"))
   (emacspeak-pronounce-refresh-pronunciations))

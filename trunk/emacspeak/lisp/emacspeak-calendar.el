@@ -359,7 +359,7 @@
 (add-hook 'initial-calendar-window-hook 'emacspeak-calendar-keys t)
 (add-hook 'initial-calendar-window-hook 
 	  (function (lambda () 
-		      (dtk-set-punctuations "some")
+		      (dtk-set-punctuations 'some)
 		      (emacspeak-dtk-sync))))
 
 ;;}}}
