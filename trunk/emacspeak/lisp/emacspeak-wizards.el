@@ -2000,13 +2000,27 @@ visiting the ppt file."
 this requires Perl module Finance::YahooQuote."
   :type 'file
   :group 'emacspeak-wizards)
+(defcustom emacspeak-wizards-quote-row-filter
+  '(1 " closed at " 2
+"giving it a P/E ratio of " 16 
+" and a market cap of " 20 ". "
+"The intra-day range was " 13
+", and the 52 week range is " 14 ". ")
+  "Format used to filter rows."
+  :type '(repeat
+          (choice :tag "Entry"
+                  '(integer :tag "Column Number:")
+'(string :tag "Label: ")))
+  :group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-wizards-portfolio-quotes ()
   "Bring up detailed stock quotes for portfolio specified by 
 emacspeak-websearch-personal-portfolio."
   (interactive)
   (declare (special emacspeak-websearch-personal-portfolio
-                    emacspeak-wizards-quote-command))
+                    emacspeak-wizards-quote-command
+                    emacspeak-wizards-quote-row-filter))
   (let ((temp-file
          (format "/tmp/%s.csv"
                  (gensym "quotes"))))
@@ -2017,7 +2031,10 @@ emacspeak-websearch-personal-portfolio."
       emacspeak-wizards-quote-command
       temp-file))
     (emacspeak-table-find-csv-file temp-file)
+    (setq emacspeak-table-speak-row-filter
+          emacspeak-wizards-quote-row-filter)
     (rename-buffer "Portfolio")
+    (goto-char (point-min))
     (delete-file temp-file)))
 
 ;;}}}
