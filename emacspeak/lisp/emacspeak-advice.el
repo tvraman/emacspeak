@@ -1489,6 +1489,11 @@ ad-do-it
 
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
+(defadvice zap-to-char (after emacspeak pre act comp)
+  "Speak line that is left."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line 1)))
 
 (defadvice undefined (after emacspeak pre act comp)
   "Say that this is not defined."
