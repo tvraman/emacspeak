@@ -1491,13 +1491,15 @@ Light for: ")))
     (read-from-minibuffer
      "Currency Convertor: FROM|TO:")))
   (declare (special emacspeak-websearch-exchange-rate-convertor-uri))
-  (let ((fields (split-string conversion-spec "|")))
-    (browse-url
-     (format emacspeak-websearch-exchange-rate-convertor-uri
-             (upcase (first fields))
-             (upcase (second fields))))
-    (emacspeak-websearch-post-process " = "
-                                      'emacspeak-speak-line)))
+  (let ((fields (split-string conversion-spec "|"))
+        (url nil))
+    (setq url
+          (format emacspeak-websearch-exchange-rate-convertor-uri
+                  (upcase (first fields))
+                  (upcase (second fields))))
+    (emacspeak-w3-extract-table-by-match
+     (format "%s" (upcase  (first fields)))
+     url 'speak)))
       
 
 ;;}}}
