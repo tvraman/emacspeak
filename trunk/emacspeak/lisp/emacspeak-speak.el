@@ -1730,7 +1730,7 @@ Optional second arg `set' sets the TZ environment variable as well."
                    (format 
 		    " in %s, %%Z, %%z "
 		    zone)))))
-eeeeeeeeeeeeeeeeuram
+
 ;;}}}
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
