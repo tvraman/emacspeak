@@ -18,6 +18,13 @@ tcleci.lo: tcleci.cpp
 tcleci.so: tcleci.lo
 	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ tcleci.lo $(LIBS) -shared
 
+atcleci.lo: atcleci.cpp
+	libtool --mode=compile $(CC) $(CFLAGS) -c $<
+
+atcleci.so: atcleci.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ atcleci.lo -lasound $(LIBS)  -shared
+
+
 clean:
 	rm -f tcleci.so tcleci.o tcleci.lo
 
