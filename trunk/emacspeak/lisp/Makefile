@@ -189,6 +189,7 @@ emacspeak-windmove.elc \
 emacspeak-winring.elc \
 emacspeak-wizards.elc  \
 emacspeak-wrolo.elc \
+emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt-process.elc 
 
@@ -364,7 +365,8 @@ emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc
 emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc
 emacspeak-windmove.elc: emacspeak-windmove.el dtk-speak.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc
-emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc 
+emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc
+emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc
 emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc
 emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc
 emacspeak.elc: emacspeak.el

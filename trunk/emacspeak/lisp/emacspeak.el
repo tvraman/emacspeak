@@ -340,6 +340,8 @@ functions for details.   "
 (autoload 'emacspeak-url-template-fetch
   "emacspeak-url-template"
   "URL Template utility. " t)
+(autoload 'emacspeak-xml-shell "emacspeak-xml-shell"
+  "Emacspeak XML Browser." t)
 (autoload 'emacspeak-imcom "emacspeak-imcom"
   "Emacs interface to Jabber via IMCOM" t)
 (autoload 'emacspeak-freeamp-prefix-command "emacspeak-freeamp"
