@@ -94,8 +94,8 @@
   "Auto-advice interactive command to speak its prompt.  
 Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
-;;of Emacs 21 since all interactive forms except `c' and `k' now
-;;use the minibuffer."
+of Emacs 21 since all interactive forms except `c' and `k' now
+use the minibuffer."
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
