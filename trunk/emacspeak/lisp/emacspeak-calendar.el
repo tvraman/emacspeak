@@ -49,6 +49,15 @@
 (require 'calendar)
 ;;}}}
 ;;{{{  personalities
+
+(def-voice-font emacspeak-holiday-personality voice-brighten-extra
+  'holiday-face
+"holiday personality for calendar.")
+
+(def-voice-font emacspeak-diary-personality voice-bolden
+  'diary-face
+  "Personality for header line in diary.")
+
 (defcustom emacspeak-calendar-mark-personality 'ursula
   "Personality to use when showing marked calendar entries."
   :type 'symbol

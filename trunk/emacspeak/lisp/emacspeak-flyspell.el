@@ -57,10 +57,10 @@
   :group 'flyspell
   :prefix "emacspeak-flyspell-")
 
-(defcustom emacspeak-flyspell-highlight-personality voice-bolden
-  "Voice used to highlight spelling errors. "
-  :type 'symbol
-  :group 'emacspeak-flyspell)
+(def-voice-font  emacspeak-flyspell-highlight-personality
+  voice-bolden
+  'flyspell-incorrect-face
+  "Voice used to highlight spelling errors. ")
 
 ;;}}}
 ;;{{{ advice
@@ -78,7 +78,6 @@
   ad-return-value)
 
 (defadvice flyspell-unhighlight-at (before debug pre act comp)
-
   (let ((overlay-list (overlays-at pos))
 	(o nil))
     (while overlay-list 
