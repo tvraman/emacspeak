@@ -66,10 +66,31 @@
 ;;}}}
 ;;{{{  speak output 
 
-(defadvice  calc-do (after emacspeak pre act comp)
+(defadvice calc-call-last-kbd-macro (around emacspeak pre act)
+  "Provide spoken feedback."
+  (cond
+   ((interactive-p)
+    (let ((emacspeak-speak-messages nil)
+          (dtk-quiet t)
+          (emacspeak-use-auditory-icons nil))
+      ad-do-it)
+    (tts-with-punctuations "all"
+    (emacspeak-read-previous-line))
+    (emacspeak-auditory-icon 'task-done))
+   (t ad-do-it))
+  ad-return-value )
+
+(defadvice  calc-do (around emacspeak pre act comp)
   "Speak previous line of output."
-  (emacspeak-read-previous-line)
-  (emacspeak-auditory-icon 'select-object))
+  (cond
+   ((interactive-p)
+    (let ((emacspeak-speak-messages nil))
+    ad-do-it
+  (tts-with-punctuations "all"
+  (emacspeak-read-previous-line))
+  (emacspeak-auditory-icon 'select-object)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice  calc-trail-here (after emacspeak pre act comp)
   "Speak previous line of output."
