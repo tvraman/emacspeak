@@ -156,6 +156,12 @@
 
 ;;}}}
 ;;{{{ special form def-voice-font 
+(defsubst voice-setup-properties-from-plist  (plist)
+  "Take a plist and return  only the property names."
+  (let ((l (1- (length plist))))
+    (loop for i from 0 to l by 2
+          collect (nth i plist))))
+
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
@@ -191,6 +197,18 @@ Keys are personality names.")
     (puthash  voice style-list voice-setup-personality-table)
     voice))
 
+(defun voice-setup-update-personalities (personality)
+  "Update  personalities  that use this voice to  new setting."
+  (let ((value (symbol-value personality))
+        (users (voice-setup-properties-from-plist
+                (symbol-plist personality))))
+    (loop for u in users
+          do
+          (set u value))))
+               
+
+
+
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
 (list paul 5 5 5 5 \"all\") which defines a standard male voice
@@ -203,38 +221,38 @@ command \\[customize-variable] on <personality>-settings."
      (, doc)
      :type  '(list
               (choice :tag "Family"
-               (const :tag "Unspecified" nil)
-               (symbol :tag "Name"))
+                      (const :tag "Unspecified" nil)
+                      (symbol :tag "Name"))
               (choice :tag "Average Pitch"
-               (const :tag "Unspecified" nil)
-               (integer :tag "Number"))
+                      (const :tag "Unspecified" nil)
+                      (integer :tag "Number"))
               (choice :tag "Pitch Range"
-               (const :tag "Unspecified" nil)
-               (integer :tag "Number"))
+                      (const :tag "Unspecified" nil)
+                      (integer :tag "Number"))
               (choice :tag "Stress"
-               (const :tag "Unspecified" nil)
-               (integer :tag "Number"))
+                      (const :tag "Unspecified" nil)
+                      (integer :tag "Number"))
               (choice :tag "Richness"
-               (const :tag "Unspecified" nil)
-               (integer :tag "Number"))
-(choice :tag "Punctuation Mode "
-	(const :tag "Unspecified" nil)
-	(const :tag "All punctuations" "all")
-	(const :tag "Some punctuations" "some")
-	(const :tag "No punctuations" "none")))
-:group 'voice-fonts
-:set
-'(lambda  (sym val)
-(let ((voice-name
-       (voice-setup-personality-from-style val)))
-  (setq (, personality) voice-name)
-  (set-default sym val))))))
+                      (const :tag "Unspecified" nil)
+                      (integer :tag "Number"))
+              (choice :tag "Punctuation Mode "
+                      (const :tag "Unspecified" nil)
+                      (const :tag "All punctuations" "all")
+                      (const :tag "Some punctuations" "some")
+                      (const :tag "No punctuations" "none")))
+     :group 'voice-fonts
+     :set
+     '(lambda  (sym val)
+        (let ((voice-name
+               (voice-setup-personality-from-style val)))
+          (setq (, personality) voice-name)
+          (voice-setup-update-personalities '(, personality))
+          (set-default sym val))))))
 
 ;;}}}
 ;;{{{ voices defined using ACSS.
 
 ;;; these voices are device independent.
-;;; they will eventually replace most of the device specific voices 
 
   
 (defvoice  voice-monotone (list nil nil 0 0 nil "all")
