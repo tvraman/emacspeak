@@ -65,7 +65,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'wid-edit)
-		   (require 'voice-lock))
+		   (require 'emacspeak-personality))
 (require 'thingatpt)
 (eval-when (compile)
                                         ;avoid recursive include during compile

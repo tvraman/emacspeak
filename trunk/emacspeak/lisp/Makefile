@@ -59,7 +59,6 @@ dtk-interp.elc		dtk-tcl.elc
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
         emacspeak-actions.elc \
-	voice-lock.elc \
 	lazy-voice-lock.elc \
 	voice-setup.elc \
 	voice-settings.elc \
@@ -252,17 +251,17 @@ dtk-tcl.elc: dtk-tcl.el dtk-interp.elc dtk-voices.elc
 dtk-voices.elc: dtk-voices.el
 outloud-css-speech.elc: outloud-css-speech.el outloud-voices.elc
 outloud-voices.elc: outloud-voices.el
-voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
+#voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
 voice-settings.elc: voice-settings.el
 voice-setup.elc: voice-setup.el
 #voice lock helpers 
-lazy-voice-lock.elc: lazy-voice-lock.el voice-lock.elc
+lazy-voice-lock.elc: lazy-voice-lock.el 
 
-html-voice.elc: html-voice.el voice-lock.elc
+html-voice.elc: html-voice.el 
 html-outline.elc: html-outline.el
 amphetadesk.elc: amphetadesk.el
 cd-tool.elc: cd-tool.el
-emacspeak-actions.elc: emacspeak-actions.el  voice-lock.elc
+emacspeak-actions.elc: emacspeak-actions.el  
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc
 emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc
@@ -364,7 +363,7 @@ emacspeak-sgml-mode.elc: emacspeak-sgml-mode.el dtk-speak.elc
 emacspeak-sh-script.elc: emacspeak-sh-script.el dtk-speak.elc
 emacspeak-solitaire.elc: emacspeak-solitaire.el dtk-speak.elc
 emacspeak-sounds.elc: emacspeak-sounds.el
-emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-lock.elc
+emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc 
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc

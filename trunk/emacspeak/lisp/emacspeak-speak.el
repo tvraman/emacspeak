@@ -48,7 +48,7 @@
 (eval-when-compile
   (provide 'emacspeak-speak)            ;avoid recursive include
   (require 'dtk-speak )
-  (require 'voice-lock)
+  (require 'emacspeak-personality)
   (require 'emacspeak-sounds)
   (require 'shell)
   (require 'which-func nil)
@@ -2559,7 +2559,7 @@ Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
   (declare (special voice-lock-mode))
   (require 'rect)
-  (require 'voice-lock )
+  (require 'emacspeak-personality )
   (or voice-lock-mode (setq voice-lock-mode t ))
   (let ((personality-table (emacspeak-possible-voices )))
     (when (interactive-p)
@@ -2580,7 +2580,7 @@ START END personality.
 Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
   (declare (special voice-lock-mode))
-  (require 'voice-lock )
+  (require 'emacspeak-personality )
   (or voice-lock-mode (setq voice-lock-mode t ))
   (let ((personality-table (emacspeak-possible-voices )))
     (when (interactive-p)

@@ -46,7 +46,7 @@
 (require 'derived)
 (require 'emacspeak-speak)
 (require 'emacspeak-fix-interactive)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 ;;{{{  Introduction
 
 ;;; Commentary:

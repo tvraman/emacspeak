@@ -43,7 +43,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'emacspeak-fix-interactive)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 ;;{{{  Introduction
 
 ;;; emacspeak extensions to sgml mode

@@ -52,7 +52,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (eval-when-compile
   (require 'dired)
   (require 'emacspeak-keymap))

@@ -58,7 +58,7 @@
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
                    (require 'dtk-voices )
-                   (require 'voice-lock)
+                   (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
                    (require 'emacspeak-keymap)

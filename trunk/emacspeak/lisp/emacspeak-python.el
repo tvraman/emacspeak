@@ -44,7 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
   (require 'emacspeak-speak)
-  (require 'voice-lock)
+  (require 'emacspeak-personality)
   (require 'emacspeak-keymap)
   (require 'emacspeak-sounds))
 

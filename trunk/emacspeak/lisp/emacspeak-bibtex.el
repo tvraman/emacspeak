@@ -42,7 +42,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-sounds)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-speak)
 
 ;;}}}
