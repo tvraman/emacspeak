@@ -99,8 +99,12 @@
   (cond
    ((and (featurep 'w3)
 	 (or (eq browse-url-browser-function 'w3-fetch)
-          (eq browse-url-browser-function 'browse-url-w3)))
-    (add-hook  'emacspeak-w3-post-process-hook 'imenu--make-index-alist)
+             (eq browse-url-browser-function 'browse-url-w3)))
+    (add-hook  'emacspeak-w3-post-process-hook
+               #'(lambda ()
+                   (imenu--make-index-alist)
+                   (goto-char (point-min))
+                   (emacspeak-speak-mode-line)))
     (emacspeak-w3-without-xsl
      (browse-url "http://127.0.0.1:8888/")))
    (t
