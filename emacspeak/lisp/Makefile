@@ -147,7 +147,7 @@ emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jde.elc \
-emacspeak-kmacro.elc 
+emacspeak-kmacro.elc  \
 emacspeak-kotl.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
