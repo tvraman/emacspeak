@@ -84,7 +84,8 @@
 ;;; end links 
   :prefix "emacspeak-"
   :group 'applications
-  :group 'accessibility)
+  :group 'accessibility
+  :version emacspeak-version)
 
 (defconst emacspeak-version
   (let ((x "$Revision$"))
