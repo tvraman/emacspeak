@@ -401,11 +401,24 @@ Then speak the screenful. "
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+;;{{{ catching up on folders
+
+(defun emacspeak-vm-catch-up-all-messages ()
+  "Mark all messages in folder to be deleted. Use with caution."
+  (interactive)
+  (declare (special vm-ml-highest-message-number))
+  (vm-goto-message 1)
+  (vm-delete-message  vm-ml-highest-message-number)
+  (message "All messages have been marked as deleted.")
+  (emacspeak-auditory-icon 'delete-object))
+
+;;}}}
 ;;{{{  Keybindings:
 (declaim  (special vm-mode-map
                    global-map
                    emacspeak-prefix
                    emacspeak-keymap))
+(define-key vm-mode-map "C" 'emacspeak-vm-catch-up-all-messages)
 (define-key vm-mode-map "\M-j" 'emacspeak-vm-locate-subject-line)
 (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
 (define-key vm-mode-map
