@@ -275,10 +275,13 @@ nil
 ;;}}}
 ;;{{{  cnet news 
 (emacspeak-url-template-define
- "Tech News From CNET"
+ "Tech News From CNet"
  "http://news.com.com/"
  nil
- nil
+ #'(lambda nil
+     (declare (special emacspeak-w3-xpath-filter))
+     (setq emacspeak-w3-xpath-filter
+           "(//table)[4]//td[5]"))
  "Display tech news from CNET"
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
@@ -902,7 +905,8 @@ Set up URL rewrite rule to get print page."
   (let ((fetcher (or (emacspeak-url-template-fetcher ut)
                      'browse-url)))
     (when (and (emacspeak-url-template-post-action ut)
-               (or   (eq browse-url-browser-function 'w3-fetch)
+               (or (emacspeak-url-template-fetcher ut)
+                (eq browse-url-browser-function 'w3-fetch)
                      (eq browse-url-browser-function 'browse-url-w3)))
       (setq emacspeak-w3-post-process-hook
             (emacspeak-url-template-post-action ut)))
