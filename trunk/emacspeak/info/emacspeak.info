@@ -13,7 +13,7 @@ emacspeak.info-1: 232
 emacspeak.info-2: 47461
 emacspeak.info-3: 93398
 emacspeak.info-4: 141809
-emacspeak.info-5: 191402
+emacspeak.info-5: 191553
 
 Tag Table:
 (Indirect)
@@ -116,15 +116,15 @@ Node: emacspeak-url-template176524
 Node: emacspeak-view-process177358
 Node: emacspeak-view177820
 Node: emacspeak-vm178137
-Node: emacspeak-w3178753
-Node: emacspeak-websearch180807
-Node: emacspeak-widget189237
-Node: emacspeak190170
-Node: dis-quote190648
-Node: emacspeak-w3search190964
-Node: emacspeak-wizards191402
-Node: Acknowledgements203405
-Node: Concept Index203562
-Node: Key Index204045
+Node: emacspeak-websearch178760
+Node: emacspeak-widget187190
+Node: emacspeak188123
+Node: dis-quote188601
+Node: emacspeak-w3188911
+Node: emacspeak-w3search191112
+Node: emacspeak-wizards191553
+Node: Acknowledgements203480
+Node: Concept Index203637
+Node: Key Index204120
 
 End Tag Table
