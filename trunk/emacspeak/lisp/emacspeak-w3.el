@@ -523,7 +523,8 @@ Nil means no transform is used. ")
   :type 'string
   :group 'emacspeak-w3)
 
-(defun emacspeak-w3-xslt-region (xsl start end )
+(defun emacspeak-w3-xslt-region (xsl start end &optional
+                                     params )
   "Apply XSLT transformation to region and replace it with
 the result.
 This uses XSLT processor xsltproc available as part of the
@@ -534,13 +535,21 @@ libxslt package."
                  (random))))
     (write-region start end tempfile)
     (erase-buffer)
+(let ((parameters (when params 
+(mapconcat 
+ #'(lambda (pair)
+     (format "--param %s %s "
+             (car pair)
+             (cdr pair)))
+ params))))
     (shell-command
-     (format "%s  --html --nonet --novalid %s %s"
+     (format "%s %s  --html --nonet --novalid %s %s"
              emacspeak-xslt-program
+(or parameters "")
              xsl tempfile)
      (current-buffer)
      "*xslt errors*")
-    (delete-file tempfile)))
+    (delete-file tempfile))))
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
