@@ -697,8 +697,8 @@ by cut -c on UNIX."
   (unless emacspeak-speak-filters-loaded-p
     (load-file emacspeak-speak-filter-persistent-store)
     (setq emacspeak-speak-filters-loaded-p t)
-    (add-hook 'emacspeak-speak-persist-filter-settings
-              'kill-emacs-hook)))
+    (add-hook 'kill-emacs-hook
+              'emacspeak-speak-persist-filter-settings)))
 
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively ignoring portions of lines.

@@ -13,6 +13,11 @@ Emacspeak 16.0 provides the following user level enhancements:
 Module emacspeak-imcom provides a speech-enabled wrapper for
 Jabber client IMCom.
 
+** XML Shell:
+
+Module emacspeak-xml-shell implements an XML Shell for walking
+ XML trees interactively.
+
 ** Pronunciation Dictionaries
 
 New Command to interactively edit Emacspeak pronunciation
