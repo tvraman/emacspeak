@@ -1461,10 +1461,10 @@ current local  value to the result.")
   "Speak which function we are on.  Uses which-function from
 which-func without turning that mode on.  We actually use
 semantic to do the work."
-  (declare (special semantic-toplevel-bovine-cache))
+  (declare (special semantic--buffer-cache))
   (require 'which-func)
   (when  (and (featurep 'semantic)
-              semantic-toplevel-bovine-cache)
+              semantic--buffer-cache)
     (message  (or 
                (which-function)
                "Not inside a function."))))
