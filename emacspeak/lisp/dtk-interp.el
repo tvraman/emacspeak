@@ -153,17 +153,13 @@ cd
                     dtk-punctuation-mode dtk-speech-rate 
                     dtk-capitalize dtk-split-caps
                     dtk-allcaps-beep))
-  (let ((command (concat 
-                  (format "tts_set_punctuations %s  \n "
-                          dtk-punctuation-mode )
-                  (format "tts_capitalize %s \n "
-                          (if dtk-capitalize 1  0 ))
-                  (format "tts_allcaps_beep %s \n "
-                          (if dtk-allcaps-beep 1  0 ))
-                  (format "tts_split_caps  %s \n "
-                          (if dtk-split-caps 1 0 ))
-                  (format "tts_set_speech_rate %s \n" dtk-speech-rate))))
-    (process-send-string dtk-speaker-process command )))
+  (process-send-string dtk-speaker-process
+                       (format "tts_sync_state %s %s %s %s %s \n"
+                               dtk-punctuation-mode 
+                               (if dtk-capitalize 1  0 )
+                               (if dtk-allcaps-beep 1  0 )
+                               (if dtk-split-caps 1 0 )
+                               dtk-speech-rate)))
 
 ;;}}}
 ;;{{{  letter
