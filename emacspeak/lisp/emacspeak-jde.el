@@ -310,7 +310,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice jde-xref-next-caller(after emacspeak pre act comp)
+(defadvice jde-xref-next-caller(around emacspeak pre act comp)
   "Speak line we jumped to.
 If we are on the last call, do nothing."
   (cond
