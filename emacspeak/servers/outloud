@@ -306,7 +306,9 @@ synth {`v1 Via  IBM  Via Voice,
 synth
 
 #Start the main command loop:
-commandloop
+
+commandloop 
+
 
 # }}}
 # {{{ Emacs local variables  
@@ -318,5 +320,3 @@ commandloop
 ### End:
 
 # }}}
-
-
