@@ -532,7 +532,7 @@ name of the list.")
  "CNN headlines "
  "http://www.cnn.com"
  nil
-     nil
+ nil
  "Retrieve and speak headline news from CNN."
  #'(lambda (url)
      (emacspeak-w3-extract-by-class "cnnMainT1" url 'speak)))
