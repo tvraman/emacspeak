@@ -46,7 +46,6 @@
 ;;; Unfortunately both parsers are relatively slow --- and also
 ;;; raise errors when parsing streams of XML
 
-
 ;;; xsltproc ---  part of the libxslt2 Gnome package ---
 ;;; implements a fast XSLT processor.
 
@@ -59,7 +58,6 @@
 
 ;;; This is still too slow --- possibly rewrite as a native
 ;;; libxml2 app.
-
 
 ;;; This module implements an alternative approach --- it uses a
 ;;; simple XSLT transform to convert XML into an S-Expression
@@ -127,13 +125,13 @@ S-Expressions."
     (save-excursion
       (set-buffer buffer)
       (erase-buffer))
-      (shell-command-on-region start end 
-       (format "%s %s -"
-               xml-sexp-xslt-program
-               xml-sexp-transform)
-       buffer)
-      (save-excursion
-        (set-buffer buffer)
+    (shell-command-on-region start end 
+			     (format "%s %s -"
+				     xml-sexp-xslt-program
+				     xml-sexp-transform)
+			     buffer)
+    (save-excursion
+      (set-buffer buffer)
       (goto-char (point-min))
       (read (current-buffer)))))
 

@@ -52,7 +52,7 @@
 
 (def-voice-font emacspeak-holiday-personality voice-brighten-extra
   'holiday-face
-"holiday personality for calendar.")
+  "holiday personality for calendar.")
 
 (def-voice-font emacspeak-diary-personality voice-bolden
   'diary-face
@@ -121,7 +121,7 @@
         (save-excursion
           (set-buffer "*Fancy Diary Entries*")
           (tts-with-punctuations "some"
-          (emacspeak-speak-buffer))))
+				 (emacspeak-speak-buffer))))
        (t (dtk-speak "No diary entries."))))))
 
 (defadvice  mark-visible-calendar-date (after emacspeak pre act )

@@ -630,7 +630,6 @@ default-directory after switching."
   :type 'string
   :group 'emacspeak-wizards)
 
-
 (defun emacspeak-wizards-vpn-status ()
   "Return vpn status."
   (zerop (shell-command emacspeak-wizards-vpn-status-command)))
@@ -642,11 +641,11 @@ default-directory after switching."
                     emacspeak-wizards-vpn-end-command))
   (if (emacspeak-wizards-vpn-status)
       (shell-command
-     (format "%s &"
-             emacspeak-wizards-vpn-end-command))
+       (format "%s &"
+	       emacspeak-wizards-vpn-end-command))
     (shell-command 
-       (format  "%s&"
-                emacspeak-wizards-vpn-start-command))))
+     (format  "%s&"
+	      emacspeak-wizards-vpn-start-command))))
 
 ;;}}}
 ;;;###autoload 
@@ -1518,14 +1517,14 @@ at point."
         (f (get-text-property (point) 'face))
         (o
          (delete nil
-                   (mapcar
-            #'(lambda (overlay)
-(overlay-get overlay 'face))
-(overlays-at (point))))))
+		 (mapcar
+		  #'(lambda (overlay)
+		      (overlay-get overlay 'face))
+		  (overlays-at (point))))))
     (message "Personality %s Face %s %s" p f
-(if o
-    o
-" "))))
+	     (if o
+		 o
+	       " "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )

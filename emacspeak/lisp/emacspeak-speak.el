@@ -42,7 +42,7 @@
 
 (require 'cl)
 (eval-when-compile
-                   (require 'backquote))
+  (require 'backquote))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'voice-setup)
@@ -52,7 +52,7 @@
   (require 'shell)
   (require 'which-func nil)
   
-(require 'emacspeak-sounds))
+  (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -199,19 +199,19 @@ Useful to do this before you listen to an entire buffer."
     (save-excursion
       (goto-char (point-min))
       (condition-case nil
-      (let ((start nil)
-            (blank-line "\n[ \t\n\r]*\n")
-            (inhibit-point-motion-hooks t))
-        (ems-modify-buffer-safely
-         (while (re-search-forward blank-line nil t)
-           (skip-syntax-forward " ")
-           (setq start (point))
-           (unless (get-text-property start 'personality)
-             (skip-syntax-forward "^ ")
-             (put-text-property start (point)
-                                'personality
-                                emacspeak-speak-paragraph-personality)))))
-      (error nil))
+	  (let ((start nil)
+		(blank-line "\n[ \t\n\r]*\n")
+		(inhibit-point-motion-hooks t))
+	    (ems-modify-buffer-safely
+	     (while (re-search-forward blank-line nil t)
+	       (skip-syntax-forward " ")
+	       (setq start (point))
+	       (unless (get-text-property start 'personality)
+		 (skip-syntax-forward "^ ")
+		 (put-text-property start (point)
+				    'personality
+				    emacspeak-speak-paragraph-personality)))))
+	(error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
@@ -278,7 +278,7 @@ Argument MODE defines action mode."
 
 (ems-generate-switcher 'emacspeak-toggle-action-mode
                        'emacspeak-action-mode
-                        "Toggle state of  Emacspeak  action mode.
+		       "Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 ;;}}}
@@ -305,8 +305,8 @@ option."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-word-echo
-                           'emacspeak-word-echo
-                           "Toggle state of  Emacspeak  word echo.
+			 'emacspeak-word-echo
+			 "Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -319,8 +319,8 @@ setting."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-character-echo
-                           'emacspeak-character-echo
-                           "Toggle state of  Emacspeak  character echo.
+			 'emacspeak-character-echo
+			 "Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -336,8 +336,8 @@ command `emacspeak-toggle-show-point' bound to
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-show-point
-                           'emacspeak-show-point
-                           "Toggle state of  Emacspeak-show-point.
+			 'emacspeak-show-point
+			 "Toggle state of  Emacspeak-show-point.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -421,8 +421,8 @@ any buffer where it is set."
  'emacspeak-audio-indentation-method)
 
 (ems-generate-switcher ' emacspeak-toggle-audio-indentation
-                           'emacspeak-audio-indentation
-                           "Toggle state of  Emacspeak  audio indentation.
+			 'emacspeak-audio-indentation
+			 "Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Specifying the method of indentation as `tones'
@@ -443,13 +443,13 @@ Argument START  and END specify region to speak."
                     inhibit-point-motion-hooks
                     voice-lock-mode))
   (let ((inhibit-point-motion-hooks t))
-  (when (and voice-lock-mode
-             (not emacspeak-speak-voice-annotated-paragraphs))
-    (save-restriction
-      (narrow-to-region start end )
-      (emacspeak-speak-voice-annotate-paragraphs)))
-  (emacspeak-handle-action-at-point)
-  (dtk-speak (buffer-substring start end ))))
+    (when (and voice-lock-mode
+	       (not emacspeak-speak-voice-annotated-paragraphs))
+      (save-restriction
+	(narrow-to-region start end )
+	(emacspeak-speak-voice-annotate-paragraphs)))
+    (emacspeak-handle-action-at-point)
+    (dtk-speak (buffer-substring start end ))))
 
 (defsubst emacspeak-speak-string (string personality)
   "Apply personality to string and speak it."
@@ -525,8 +525,8 @@ command emacspeak-speak-line-set-column-filter."
 
 (ems-generate-switcher '
  emacspeak-toggle-speak-line-invert-filter
-   'emacspeak-speak-line-invert-filter
-   "Toggle state of   how column filter is interpreted.
+ 'emacspeak-speak-line-invert-filter
+ "Toggle state of   how column filter is interpreted.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -1104,22 +1104,22 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
                     inhibit-point-motion-hooks
                     voice-lock-mode))
   (let ((inhibit-point-motion-hooks t))
-  (when (and voice-lock-mode
-             (not emacspeak-speak-voice-annotated-paragraphs))
-    (emacspeak-speak-voice-annotate-paragraphs))
-  (when (listp arg) (setq arg (car arg )))
-  (let ((start nil )
-        (end nil))
-    (cond
-     ((null arg)
-      (setq start (point-min)
-            end (point-max)))
-     ((> arg 0)
-      (setq start (point)
-            end (point-max)))
-     (t (setq start (point-min)
-              end (point))))
-    (dtk-speak (buffer-substring start end )))))
+    (when (and voice-lock-mode
+	       (not emacspeak-speak-voice-annotated-paragraphs))
+      (emacspeak-speak-voice-annotate-paragraphs))
+    (when (listp arg) (setq arg (car arg )))
+    (let ((start nil )
+	  (end nil))
+      (cond
+       ((null arg)
+	(setq start (point-min)
+	      end (point-max)))
+       ((> arg 0)
+	(setq start (point)
+	      end (point-max)))
+       (t (setq start (point-min)
+		end (point))))
+      (dtk-speak (buffer-substring start end )))))
 
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
@@ -1323,8 +1323,8 @@ You can use command
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-mail-alert
-                           'emacspeak-mail-alert
-                           "Toggle state of  Emacspeak  mail alert.
+			 'emacspeak-mail-alert
+			 "Toggle state of  Emacspeak  mail alert.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Turning on this option results in Emacspeak producing an auditory icon
@@ -1358,8 +1358,8 @@ indicating the arrival  of new mail when displaying the mode line.")
 (make-variable-buffer-local 'emacspeak-which-function-mode)
 
 (ems-generate-switcher ' emacspeak-toggle-which-function
-                           'emacspeak-which-function-mode
-                           "Toggle state of  Emacspeak  which function mode.
+			 'emacspeak-which-function-mode
+			 "Toggle state of  Emacspeak  which function mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -1948,8 +1948,8 @@ setting."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-comint-autospeak
-                           'emacspeak-comint-autospeak
-                           "Toggle state of Emacspeak comint autospeak.
+			 'emacspeak-comint-autospeak
+			 "Toggle state of Emacspeak comint autospeak.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -1964,8 +1964,8 @@ buffer is not current or its window live.")
  'emacspeak-comint-output-monitor)
 ;;;###autoload
 (ems-generate-switcher ' emacspeak-toggle-comint-output-monitor
-                           'emacspeak-comint-output-monitor
-                           "Toggle state of Emacspeak comint monitor.
+			 'emacspeak-comint-output-monitor
+			 "Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then

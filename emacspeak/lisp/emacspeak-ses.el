@@ -90,7 +90,7 @@ is nil if SYM is not a symbol that names a cell."
   "Return symbol for current cell."
   (declare (special curcell))
   (or (get-text-property (point) 'intangible)
-  curcell))
+      curcell))
 
 (defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
@@ -185,7 +185,7 @@ is nil if SYM is not a symbol that names a cell."
     (emacspeak-ses-summarize-current-cell)))
 
 ;;}}}
-;(emacspeak-ses-setup)
+					;(emacspeak-ses-setup)
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 

@@ -100,8 +100,6 @@
     (emacspeak-ibuffer-summarize-line)
     (emacspeak-auditory-icon 'select-object)))
 
-
-
 (defadvice ibuffer-backwards-next-marked (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

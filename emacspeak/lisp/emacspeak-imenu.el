@@ -153,10 +153,10 @@
                 (setq target guess))))
     (goto-char target)
     (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (if emacspeak-imenu-autospeak
-        (emacspeak-imenu-speak-this-section)
-    (emacspeak-speak-line)))))
+      (emacspeak-auditory-icon 'large-movement)
+      (if emacspeak-imenu-autospeak
+	  (emacspeak-imenu-speak-this-section)
+	(emacspeak-speak-line)))))
 
 (defun emacspeak-imenu-goto-previous-index-position ()
   "Goto the previous index position in current buffer"
@@ -185,10 +185,10 @@
                 (setq target guess))))
     (goto-char target)
     (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (if emacspeak-imenu-autospeak
-        (emacspeak-imenu-speak-this-section)
-    (emacspeak-speak-line)))))
+      (emacspeak-auditory-icon 'large-movement)
+      (if emacspeak-imenu-autospeak
+	  (emacspeak-imenu-speak-this-section)
+	(emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{  speaking logical sections

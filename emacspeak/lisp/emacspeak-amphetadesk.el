@@ -90,13 +90,13 @@
 (defun emacspeak-amphetadesk ()
   "Open amphetadesk."
   (interactive)
-(declare (special browse-url-browser-function))
-(emacspeak-amphetadesk-ensure-live)
+  (declare (special browse-url-browser-function))
+  (emacspeak-amphetadesk-ensure-live)
   (cond
    ((and (featurep 'w3)
-     (eq browse-url-browser-function 'browse-url-w3))
+	 (eq browse-url-browser-function 'browse-url-w3))
     (emacspeak-w3-without-xsl
-  (browse-url "http://127.0.0.1:8888/")))
+     (browse-url "http://127.0.0.1:8888/")))
    (t
     (browse-url "http://127.0.0.1:8888/"))))
 

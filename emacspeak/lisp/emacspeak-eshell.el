@@ -167,64 +167,64 @@ personalities."
 
 (def-voice-font  emacspeak-eshell-ls-symlink-personality
   voice-bolden
-    'eshell-ls-symlink-face
+  'eshell-ls-symlink-face
   "Personality for symlinks."
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-executable-personality
   voice-animate-extra
-    'eshell-ls-executable-face
+  'eshell-ls-executable-face
   "Personality for executables."
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-readonly-personality
   voice-monotone
-    'eshell-ls-readonly-face
+  'eshell-ls-readonly-face
   "Personality for read only files."
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-unreadable-personality 'kid
-    'eshell-ls-unreadable-face
+  'eshell-ls-unreadable-face
   "Personality for files that are not readable."
   :group 'emacspeak-eshell)
 
 (defcustom emacspeak-eshell-ls-special-personality voice-smoothen
   "Personality for special files."
-:group 'emacspeak-eshell)
+  :group 'emacspeak-eshell)
   
 
 (def-voice-font  emacspeak-eshell-ls-missing-personality
   voice-brighten
-    'eshell-ls-missing-face
+  'eshell-ls-missing-face
   "Personality for missing file."
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-archive-personality
   voice-lighten-extra
-    'eshell-ls-archive-face
+  'eshell-ls-archive-face
   "Personality for archive files."
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-backup-personality
   voice-monotone-medium
-    'eshell-ls-backup-face
+  'eshell-ls-backup-face
   "Personality for backup files. "
   :group 'emacspeak-eshell)
 
 (def-voice-font  emacspeak-eshell-ls-product-personality
   voice-bolden
-    'eshell-ls-product-face
+  'eshell-ls-product-face
   "Personality for files that can be recreated."
   :group 'emacspeak-eshell)
 
 (def-voice-font   emacspeak-eshell-ls-clutter-personality
   voice-lighten-extra
-     'eshell-ls-clutter-face
+  'eshell-ls-clutter-face
   "Personality for transients."
   :group 'emacspeak-eshell)
 (def-voice-font   emacspeak-eshell-special-personality
   voice-smoothen-extra
-     'eshell-ls-special-face
+  'eshell-ls-special-face
   "Personality for specials."
   :group 'emacspeak-eshell)
 (def-voice-font  emacspeak-eshell-prompt-personality voice-monotone-medium

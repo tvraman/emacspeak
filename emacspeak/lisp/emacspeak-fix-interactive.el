@@ -73,8 +73,6 @@
 (defvar emacspeak-last-command-needs-minibuffer-spoken nil 
   "Used to signal to minibuffer that the contents need to be spoken.")
 
-
-
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
    "^ad-Orig\\|^mouse\\|^scroll-bar"
