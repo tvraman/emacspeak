@@ -58,8 +58,6 @@
 ;;; first pull in emacspeak-perl for voice lock definitions 
 (require 'emacspeak-perl)
 
-(voice-lock-set-major-mode-keywords 'cperl-mode 'perl-voice-lock-keywords)
-
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
 

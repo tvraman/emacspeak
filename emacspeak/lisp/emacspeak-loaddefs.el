@@ -75,7 +75,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (15946 39009))
+;;;;;;  "emacspeak-eterm.el" (15946 40005))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -124,7 +124,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15946 40008))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -164,7 +164,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15946 40008))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -188,7 +188,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (15946 39009))
+;;;;;;  (15946 40015))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -208,7 +208,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 ;;;***
 
 ;;;### (autoloads (voice-lock-mode) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (15946 39463))
+;;;;;;  (15946 40017))
 ;;; Generated autoloads from emacspeak-personality.el
 
 (autoload (quote voice-lock-mode) "emacspeak-personality" "\
@@ -404,7 +404,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15946 39009))
+;;;;;;  "emacspeak-speak.el" (15946 40025))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -508,7 +508,7 @@ Play url under point as realaudio" t nil)
 
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google
 ;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15946 39010))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15946 40032))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -537,60 +537,13 @@ Optional interactive prefix arg results in prompting for a search term." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xml-shell) "emacspeak-xml-shell" "emacspeak-xml-shell.el"
-;;;;;;  (15946 39010))
+;;;;;;  (15946 40038))
 ;;; Generated autoloads from emacspeak-xml-shell.el
 
 (defgroup emacspeak-xml-shell nil "XML browser for the Emacspeak desktop.")
 
 (autoload (quote emacspeak-xml-shell) "emacspeak-xml-shell" "\
 Start Xml-Shell on contents of system-id." t nil)
-
-;;;***
-
-;;;### (autoloads (turn-on-lazy-voice-lock lazy-voice-lock-mode)
-;;;;;;  "lazy-voice-lock" "lazy-voice-lock.el" (15946 39010))
-;;; Generated autoloads from lazy-voice-lock.el
-
-(autoload (quote lazy-voice-lock-mode) "lazy-voice-lock" "\
-Toggle Lazy Lock mode.
-With arg, turn Lazy Lock mode on if and only if arg is positive.  Enable it
-automatically in your `~/.emacs' by:
-
- (setq voice-lock-support-mode 'lazy-voice-lock-mode)
-
-When Lazy Lock mode is enabled, voiceification can be lazy in a number of ways:
-
- - Demand-driven buffer voiceification if `lazy-voice-lock-minimum-size' is non-nil.
-   This means initial voiceification does not occur if the buffer is greater
-   than `lazy-voice-lock-minimum-size' characters in length.  Instead, voiceification
-   occurs when necessary, such as when scrolling through the buffer would
-   otherwise reveal unvoiceified areas.  This is useful if buffer voiceification
-   is too slow for large buffers.
-
- - Defer-driven buffer voiceification if `lazy-voice-lock-defer-driven' is non-nil.
-   This means all voiceification is deferred, such as voiceification that occurs
-   when scrolling through the buffer would otherwise reveal unvoiceified areas.
-   Instead, these areas are seen momentarily unvoiceified.  This is useful if
-   demand-driven voiceification is too slow to keep up with scrolling.
-
- - Deferred on-the-fly voiceification if `lazy-voice-lock-defer-time' is non-nil.
-   This means on-the-fly voiceification does not occur as you type.  Instead,
-   voiceification is deferred until after `lazy-voice-lock-defer-time' seconds of
-   Emacs idle time, while Emacs remains idle.  This is useful if on-the-fly
-   voiceification is too slow to keep up with your typing.
-
- - Stealthy buffer voiceification if `lazy-voice-lock-stealth-time' is non-nil.
-   This means remaining unvoiceified areas of buffers are voiceified if Emacs has
-   been idle for `lazy-voice-lock-stealth-time' seconds, while Emacs remains idle.
-   This is useful if any buffer has demand- or defer-driven voiceification.
-
-See also variables `lazy-voice-lock-stealth-lines', `lazy-voice-lock-stealth-nice' and
-`lazy-voice-lock-stealth-verbose' for stealth voiceification.
-
-Use \\[lazy-voice-lock-submit-bug-report] to send bug reports or feedback." t nil)
-
-(autoload (quote turn-on-lazy-voice-lock) "lazy-voice-lock" "\
-Unconditionally turn on Lazy Lock mode." nil nil)
 
 ;;;***
 

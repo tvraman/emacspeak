@@ -66,9 +66,6 @@
 
 ;;{{{ set up voice locking 
 
-(voice-lock-set-major-mode-keywords 'gnuplot-mode
-				    'gnuplot-voice-lock-keywords)
-
 (defvar gnuplot-voice-lock-keywords nil
   "Voice lock keywords for gnuplot mode.")
 

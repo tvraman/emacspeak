@@ -59,9 +59,7 @@ dtk-interp.elc		dtk-tcl.elc
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
         emacspeak-actions.elc \
-	lazy-voice-lock.elc \
 	voice-setup.elc \
-	voice-settings.elc \
         html-voice.elc \
 	html-outline.elc \
 	emacspeak-personality.elc \
@@ -252,11 +250,8 @@ dtk-voices.elc: dtk-voices.el
 outloud-css-speech.elc: outloud-css-speech.el outloud-voices.elc
 outloud-voices.elc: outloud-voices.el
 #voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
-voice-settings.elc: voice-settings.el
 voice-setup.elc: voice-setup.el
 #voice lock helpers 
-lazy-voice-lock.elc: lazy-voice-lock.el 
-
 html-voice.elc: html-voice.el 
 html-outline.elc: html-outline.el
 amphetadesk.elc: amphetadesk.el

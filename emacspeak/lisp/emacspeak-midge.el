@@ -166,8 +166,7 @@
 ;;}}}
 ;;{{{ voice lock
 
-(voice-lock-set-major-mode-keywords 'midge-mode
-				    'midge-voice-lock-keywords)
+
 
 (defvar midge-voice-lock-keywords nil
   "Voice lock keywords for midge mode.")

@@ -350,8 +350,7 @@
                'voice-lock-comment-personality t)
 	 (list "^\\(prompt\\([ \t].*\\)?\\)$" 1 'voice-lock-comment-personality t))))
 
-(voice-lock-set-major-mode-keywords 'sql-mode
-                                    'sql-voice-lock-keywords)
+
 
 ;;}}}
 (provide 'emacspeak-sql)

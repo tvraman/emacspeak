@@ -62,16 +62,6 @@
    )
   "Additional expressions to highlight in TeX mode.")
 
-(mapcar 
- (function
-  (lambda (mode)
-    (voice-lock-set-major-mode-keywords mode 'tex-voice-lock-keywords)))
- (list 
-  'plain-tex-mode  
-  'latex-mode      
-  'slitex-mode     
-  'latex2e-mode))
-
 ;;}}}
 ;;{{{  Marking structured objects:
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
