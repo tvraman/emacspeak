@@ -261,9 +261,10 @@ region of text to process."
 (defun emacspeak-xml-shell-display-as-html (start end)
   "Suitable for use in displaying current node as HTML."
   (declare (special emacspeak-xml-shell-xslt))
+  (when emacspeak-xml-shell-xslt
   (emacspeak-xslt-region
    emacspeak-xml-shell-xslt
-   start end)
+   start end))
   (w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 
