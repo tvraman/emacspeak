@@ -49,7 +49,8 @@
 (eval-when (compile)
   (require 'voice-lock)
            (require 'emacspeak-table-ui)
-           (require 'emacspeak-sounds))
+           (require 'emacspeak-sounds)
+(require 'shell))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -64,13 +65,15 @@
 
 ;;}}}
 ;;{{{  custom group 
-
+(defconst  emacspeak-xemacs-p
+  (when (string-match "Lucid\\|XEmacs" emacs-version)
+  t)
+"T if we are running under XEmacs.")
 (defgroup emacspeak-speak nil
 "Basic speech output commands."
 :group 'emacspeak)
 
 ;;}}}
-
 ;;{{{ inhibit-point-motion-hooks
 (defsubst ems-inhibit-point-motion-hooks ()
   (declare (special inhibit-point-motion-hooks))
