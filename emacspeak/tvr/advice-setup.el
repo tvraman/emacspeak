@@ -9,11 +9,7 @@
 
 ;;}}}
 ;;{{{   save .bbdb when quitting vm
-(defadvice vm (after fix-cwd pre act comp)
-  (cd (expand-file-name "~/")))
 
-(defadvice vm-visit-folder (after fix-cwd pre act comp)
-  (cd (expand-file-name "~/")))
 (defadvice vm-quit (after save-bbdb-after-vm activate)
   "Save .bbdb when vm is quit. "
   (if (get-buffer ".bbdb")
