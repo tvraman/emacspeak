@@ -59,8 +59,8 @@
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
-(defvar outloud-default-voice-string " `v1 "
-  "Default Outloud tag for the default voice.")
+(defvar outloud-default-voice-string ""
+  "Default Outloud tag for  default voice --set to be a no-op.")
 
 (defvar outloud-voice-table (make-hash-table)
   "Association between symbols and strings to set Outloud  voices.
