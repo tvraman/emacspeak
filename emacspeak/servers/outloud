@@ -81,6 +81,7 @@ proc l {text} {
         set prefix "$prefix `vb80"
     }
     synth "$prefix  `ts2 $text`ts0"
+    service
         return ""
 }
 
@@ -173,6 +174,17 @@ proc r {rate} {
     return ""
 }
 
+proc useStereoOutput {} {
+    global stereo
+    if {$stereo} {
+        s
+        setOutput buffer
+        synth {`v1 Using stereo output Via  IBM  Via Voice,
+            `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
+        synth ""
+        service
+    }
+}
 # }}}
 # {{{ speech task 
 
@@ -183,9 +195,8 @@ proc trackIndex {index} {
 
 proc service {} {
     set talking [speakingP]
-    while $talking {
-        set status   [lsearch [select [list  stdin]  {} {} 0] stdin]
-        puts stderr $status
+    while {$talking == 1} {
+        set status   [lsearch [select [list  stdin]  {} {} 0.9] stdin]
         if { $status >= 0} {
             break
         } else {
@@ -300,7 +311,7 @@ set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
-
+set stereo 0
 synth {`v1 Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
 synth
