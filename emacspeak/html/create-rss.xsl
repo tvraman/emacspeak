@@ -9,6 +9,8 @@ Turn html links to RSS items.
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output encoding="iso8859-15"
+    doctype-public= "-//Netscape Communications//DTD RSS 0.91//EN" 
+  doctype-system="http://my.netscape.com/publish/formats/rss-0.91.dtd"
               method="xml"  indent="yes"/>
   <!-- {identity default  -->   
 
