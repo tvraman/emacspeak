@@ -163,6 +163,7 @@ TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp \
 servers/dtk-mv \
 servers/outloud \
+servers/stereo-outloud \
 servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server

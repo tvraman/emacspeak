@@ -90,7 +90,6 @@ proc l {text} {
 #formerly called tts_speak
 proc d {} {
     speech_task
-    service
 }
 
 proc tts_resume  {} {
@@ -212,6 +211,7 @@ proc speech_task {} {
     set r $tts(speech_rate)
     set length [queue_length]
     set prefix "`v1 `vs$r "
+    stop
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
@@ -231,6 +231,7 @@ proc speech_task {} {
         if {$tts(talking?) == 0} {break;} 
     }
     set tts(talking?) 0
+    synchronize
     return ""
 }
 
