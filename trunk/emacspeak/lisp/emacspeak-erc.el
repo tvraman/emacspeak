@@ -223,16 +223,24 @@ spoken.")
   (message "monitoring %s"
            (mapconcat #'identity 
                       emacspeak-erc-people-to-monitor " ")))
+(defcustom emacspeak-erc-speak-all-participants nil
+  "Speak all things said if t."
+  :type 'boolean
+  :group 'emacspeak-erc)
+
+(make-variable-buffer-local 'emacspeak-erc-speak-all-participants)
 
 (defun emacspeak-erc-compute-message (string buffer)
   "Uses environment of buffer to decide what message to
 display. String is the original message."
   (declare (special emacspeak-erc-people-to-monitor
                     emacspeak-erc-my-nick
+                    emacspeak-erc-speak-all-participants
                     emacspeak-erc-monitor-my-messages))
   (let ((who-from (car (split-string string )))
         (case-fold-search t))
     (cond
+     (emacspeak-erc-speak-all-participants string)
      ((and
        (not (string-match "^\\*\\*\\*" who-from))
        emacspeak-erc-people-to-monitor
@@ -246,6 +254,27 @@ display. String is the original message."
            (string-match emacspeak-erc-my-nick string))
       string)
      (t nil))))
+
+(defun emacspeak-erc-toggle-speak-all-participants  (&optional prefix)
+  "Toggle state of ERC speak all participants..
+Interactive 
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result."
+  (interactive  "P")
+  (declare  (special  emacspeak-erc-speak-all-participants))
+  (cond
+   (prefix
+    (setq-default  emacspeak-erc-speak-all-participants
+                   (not  (default-value 'emacspeak-erc-speak-all-participants )))
+    (setq emacspeak-erc-speak-all-participants (default-value 'emacspeak-erc-speak-all-participants )))
+   (t
+    (setq emacspeak-erc-speak-all-participants
+          (not emacspeak-erc-speak-all-participants ))))
+  (emacspeak-auditory-icon
+   (if emacspeak-erc-speak-all-participants 'on 'off))
+  (message "Turned %s speak participants  %s "
+           (if emacspeak-erc-speak-all-participants "on" "off" )
+	   (if prefix "" "locally")))
 
 (defadvice erc-display-line-buffer  (after emacspeak pre act
                                            comp)
@@ -300,7 +329,7 @@ set the current local value to the result."
    (prefix
     (setq-default  emacspeak-erc-room-monitor
                    (not  (default-value 'emacspeak-erc-room-monitor )))
-    (setq emacspeak-erc-room-monitor (default-value 'emacspeak-comint-autospeak )))
+    (setq emacspeak-erc-room-monitor (default-value 'emacspeak-erc-room-monitor )))
    (t
     (setq emacspeak-erc-room-monitor
           (not emacspeak-erc-room-monitor ))))
@@ -356,6 +385,8 @@ set the current local value to the result."
 ;;}}}
 ;;{{{ define emacspeak keys
 (declaim (special erc-mode-map))
+(define-key erc-mode-map "\C-c "
+  'emacspeak-erc-toggle-speak-all-participants)
 (define-key erc-mode-map "\C-cm"
   'emacspeak-erc-toggle-my-monitor)
 (define-key erc-mode-map "\C-c\C-m"

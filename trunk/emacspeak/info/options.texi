@@ -139,6 +139,10 @@ type.  You can use command
 C-e d I to toggle this setting.
 @end defvar
 
+@defvar {User Option} dtk-use-tones
+Allow tones to be turned off.
+@end defvar
+
 @node emacspeak Options
 @section emacspeak Options
 
@@ -187,6 +191,10 @@ Personality used for highlighting comint prompts --emacs 21.
 
 @defvar {User Option} emacspeak-delete-char-speak-deleted-char
 *T means `delete-char' speaks char that was deleted.
+@end defvar
+
+@defvar {User Option} emacspeak-speak-cue-errors
+Specifies if error messages are cued.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-messages-should-pause-ongoing-speech
@@ -820,6 +828,30 @@ Provide additional advice to outline-mode
 Automatically generated documentation
 for options defined in module  emacspeak-outline.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-outline-1
+Level 1outline headings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-2
+Level 2 outline headings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-3
+Level 3 outline headings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-4
+Level 4outline headings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-5
+Level 5 outline headings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-6
+Level 6 outline headings.
+@end defvar
 
 @defvar {User Option} emacspeak-outline-dont-query-before-speaking
 *Option to control prompts when speaking  outline
@@ -1597,6 +1629,14 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
 Command line for dumping out virtual console.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-vpn-end-command
+Command that brings down a   VPN connection.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-vpn-start-command
+Command that brings up a VPN connection.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-xlhtml-program
