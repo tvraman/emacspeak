@@ -232,7 +232,7 @@ emacspeak-loaddefs.el:
 	-f emacspeak-auto-generate-autoloads
 
 cus-load.el:
-	$(EMACS) $(BATCH) -l cus-dep.el -f custom-make-dependencies "."
+	$(EMACS) $(BATCH) -l cus-dep -f custom-make-dependencies "."
 # }}}
 # {{{  Make rules for the various modules
 
