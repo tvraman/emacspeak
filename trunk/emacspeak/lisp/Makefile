@@ -53,8 +53,8 @@ COMPILE =  -f batch-byte-compile
 
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
-dtk-css-speech.elc	dtk-speak.elc		dtk-voices.elc\
-outloud-voices.elc outloud-css-speech.elc \
+dtk-speak.elc		dtk-voices.elc\
+outloud-voices.elc  \
 dtk-interp.elc		dtk-tcl.elc
 
 SPEAK_OBJECTS =   \
@@ -242,13 +242,11 @@ cus-load.el:
 #Compile dtk-tcl first, and make dtk-speak depend on it
 #Modules using functions from the dtk module should depend on dtk-speak
 
-dtk-css-speech.elc: dtk-css-speech.el dtk-voices.elc
 dtk-interp.elc: dtk-interp.el
 dtk-speak.elc: dtk-speak.el dtk-tcl.el dtk-interp.elc
 acss-structure.elc: acss-structure.el
 dtk-tcl.elc: dtk-tcl.el dtk-interp.elc dtk-voices.elc
 dtk-voices.elc: dtk-voices.el
-outloud-css-speech.elc: outloud-css-speech.el outloud-voices.elc
 outloud-voices.elc: outloud-voices.el
 voice-setup.elc: voice-setup.el acss-structure.elc
 #voice lock helpers 

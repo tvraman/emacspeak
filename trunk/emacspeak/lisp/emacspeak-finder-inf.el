@@ -8,15 +8,15 @@
 (require 'cl)
 
 (setq emacspeak-finder-package-info '(
+    ("acss-structure.el"
+        "CSS -- Cascaded Speech Style structure"
+        (emacspeak  audio interface to emacs css))
     ("amphetadesk.el"
         "Emacspeak News Portal Interface"
         (emacspeak   audio desktop rss))
     ("cd-tool.el"
         "Play  CDs from Emacs"
         nil)
-    ("dtk-css-speech.el"
-        "CSS -- Cascaded Speech Style Interface"
-        (emacspeak  audio interface to emacs css))
     ("dtk-interp.el"
         "Language specific (e.g. TCL) interface to speech server"
         (tts  dectalk  speech server))
@@ -449,18 +449,9 @@
     ("emacspeak.el"
         "Emacspeak -- The Complete Audio Desktop"
         (emacspeak  speech  dectalk ))
-    ("fast-voice-lock.el"
-        "Support mode for voice locking"
-        nil)
     ("html-outline.el"
         "Extends html-helper-mode to provide outline and imenu support"
         nil)
-    ("html-voice.el"
-        "Voice locking for html-helper-mode"
-        (voice lock  html-helper-mode  emacspeak  speech ))
-    ("outloud-css-speech.el"
-        "CSS -- Cascaded Speech Style Interface"
-        (emacspeak  audio interface to emacs css))
     ("outloud-voices.el"
         "Define various device independent voices in terms of OutLoud tags"
         (voice  personality  ibm viavoice outloud))

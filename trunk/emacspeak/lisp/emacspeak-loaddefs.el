@@ -454,7 +454,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;***
 
 ;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
-;;;;;;  "emacspeak-w3.el" (15953 24520))
+;;;;;;  "emacspeak-w3.el" (15953 26070))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
