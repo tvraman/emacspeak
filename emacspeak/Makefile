@@ -151,7 +151,7 @@ ${ECI}/tcleci.cpp  \
 ${ECI}/NOTES \
 ${ECI}/Makefile 
 
-NEWS = etc/NEWS*  etc/FAQ etc/HELP etc/COPYRIGHT 
+NEWS = etc/NEWS*  etc/FAQ etc/HELP etc/applications.html etc/COPYRIGHT 
 SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 
 TCL_PROGRAMS = servers/.servers \
