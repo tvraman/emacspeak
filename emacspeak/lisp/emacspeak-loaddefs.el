@@ -131,7 +131,7 @@ Jump to custom toolbar when in a customization buffer.
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (16342 25975))
+;;;;;;  (16342 27108))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -696,7 +696,7 @@ emacspeak-play-midi-icon for midi device.
 ;;;***
 
 ;;;### (autoloads (emacspeak-speak-load-directory-settings emacspeak-speak-world-clock)
-;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16342 26049))
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16342 27109))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
@@ -1174,7 +1174,7 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
 ;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16342 26039))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16342 27109))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1859,7 +1859,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
 ;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16342
-;;;;;;  26068 95274))
+;;;;;;  27132 387218))
 
 ;;;***
 
