@@ -38,12 +38,12 @@ Reference Point</a></td>
     <xsl:value-of select="position()"/>:
     <xsl:apply-templates select="info/title"/></h2>
     <table summary="info">
+      <xsl:apply-templates select="info"/>
       <tr>
         <td>Location</td>
         <td>Lat: <xsl:value-of select="point/@lat"/></td>
         <td>Lng: <xsl:value-of select="point/@lng"/></td>
       </tr>
-      <xsl:apply-templates select="info"/>
     </table>
   </xsl:template>
 
@@ -116,17 +116,14 @@ and is expected to take <xsl:value-of select="@seconds"/>
   <xsl:value-of select="@seconds"/>s
 </td>
 <td>
-  Go 
-  <em>
-    <xsl:value-of select="@meters"/> meters (approximately
-  <xsl:value-of select="@distance"/>)</em>
-  <xsl:choose>
-    <xsl:when test="position() = 1"> --- </xsl:when>
-    <xsl:otherwise>then, </xsl:otherwise>
-  </xsl:choose>
+  
   <strong>
     <xsl:copy-of select="./node()"/>.
   </strong>
+  and Go 
+  <em>
+    <xsl:value-of select="@meters"/> meters (approximately
+  <xsl:value-of select="@distance"/>)</em>
 </td>
 </tr>
 </xsl:template>
