@@ -629,8 +629,9 @@ minibuffer."
          (point-max)
          (list
           (cons "table-index" table-index)
-          ;;(cons "base" source-url) ;xsltproc has a bug
-          ))
+          (cons "base"
+                (format "\"'%s'\""
+source-url))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
