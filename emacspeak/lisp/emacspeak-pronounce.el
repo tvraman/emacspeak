@@ -307,7 +307,7 @@ Modifies text and point in buffer."
                                  (if (atom p) (list p) p)))
                            (list
                             emacspeak-pronounce-pronunciation-personality
-                            pp personality)))))))
+                            personality pp)))))))
              (t nil))))))
 
 ;;}}}
