@@ -119,8 +119,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (expand-file-name
        (read-file-name "Media resource: "
                        emacspeak-realaudio-shortcuts-directory
-                       emacspeak-realaudio-last-url)))
-    current-prefix-arg))
+                       emacspeak-realaudio-last-url)))))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
