@@ -8,7 +8,6 @@ documentation.
 
 @menu
 * dtk-speak::                   
-* dtk-tcl::                     
 * emacspeak::                   
 * emacspeak-arc::               
 * emacspeak-aumix::             
@@ -42,7 +41,6 @@ documentation.
 * emacspeak-info::              
 * emacspeak-keymap::            
 * emacspeak-kotl::              
-* emacspeak-m-player::          
 * emacspeak-man::               
 * emacspeak-mpg123::            
 * emacspeak-ocr::               
@@ -86,60 +84,6 @@ Defines the TTS interface.
 
 Automatically generated documentation
 for commands defined in module  dtk-speak.
-
-@deffn dtk-select-server (PROGRAM)
-@kbd{ control e d d }
-
-Select a speech server interactively.
-Argument PROGRAM specifies the speech server program.
-When called  interactively, The selected server is started immediately. 
-@end deffn
-
-@deffn dtk-set-chunk-separator-syntax (S)
-@kbd{ control e d RETURN }
-
-Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
-Argument S specifies the syntax class.
-@end deffn
-
-@deffn dtk-toggle-debug (&optional FLAG)
-@kbd{ control e d b }
-
-Toggle state of the debug FLAG.
-When debugging is on, you can switch to the buffer
-*speaker* to examine the output from the process
-that talks to the speech device by using command C-e d C-M-b.
-Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
-@end deffn
-
-@deffn dtk-toggle-splitting-on-white-space ()
-@kbd{ control e d SPACE }
-
-Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as `shell-mode' and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak's stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time.
-@end deffn
-
-@node dtk-tcl
-@section dtk-tcl
-
-Commentary:
-Interface to speech server.
-
-Automatically generated documentation
-for commands defined in module  dtk-tcl.
 
 @deffn dtk-add-cleanup-pattern (&optional DELETE)
 @kbd{ control e d a }
@@ -191,6 +135,14 @@ and variable `dtk-resume-should-toggle' is t
  then this command will pause ongoing speech.
 @end deffn
 
+@deffn dtk-select-server (PROGRAM)
+@kbd{ control e d d }
+
+Select a speech server interactively.
+Argument PROGRAM specifies the speech server program.
+When called  interactively, The selected server is started immediately. 
+@end deffn
+
 @deffn dtk-set-character-scale (FACTOR &optional PREFIX)
 @kbd{ control e d f }
 
@@ -204,6 +156,15 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+@end deffn
+
+@deffn dtk-set-chunk-separator-syntax (S)
+@kbd{ control e d RETURN }
+
+Interactively set how text is split in chunks.
+See the Emacs documentation on syntax tables for details on how characters are
+classified into various syntactic classes.
+Argument S specifies the syntax class.
 @end deffn
 
 @deffn dtk-set-predefined-speech-rate (&optional PREFIX)
@@ -278,6 +239,16 @@ short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 @end deffn
 
+@deffn dtk-toggle-debug (&optional FLAG)
+@kbd{ control e d b }
+
+Toggle state of the debug FLAG.
+When debugging is on, you can switch to the buffer
+*speaker* to examine the output from the process
+that talks to the speech device by using command C-e d C-M-b.
+Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
+@end deffn
+
 @deffn dtk-toggle-punctuation-mode (&optional PREFIX)
 Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
@@ -309,6 +280,24 @@ Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.
+@end deffn
+
+@deffn dtk-toggle-splitting-on-white-space ()
+@kbd{ control e d SPACE }
+
+Toggle splitting of speech on white space.
+This affects the internal state of emacspeak that decides if we split
+text purely by clause boundaries, or also include
+whitespace.  By default, emacspeak sends a clause at a time
+to the speech device.  This produces fluent speech for
+normal use.  However in modes such as `shell-mode' and some
+programming language modes, clause markers appear
+infrequently, and this can result in large amounts of text
+being sent to the speech device at once, making the system
+unresponsive when asked to stop talking.  Splitting on white
+space makes emacspeak's stop command responsive.  However,
+when splitting on white space, the speech sounds choppy
+since the synthesizer is getting a word at a time.
 @end deffn
 
 @deffn dtk-toggle-stop-immediately-while-typing (&optional PREFIX)
@@ -1401,68 +1390,6 @@ Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
 @end deffn
 
-@node emacspeak-m-player
-@section emacspeak-m-player
-
-Automatically generated documentation
-for commands defined in module  emacspeak-m-player.
-
-@deffn emacspeak-m-player (RESOURCE)
-@kbd{ control e : }
-
-Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
-@deffn emacspeak-m-player-alt-src-step (STEP)
-Move within an ASF playlist.
-@end deffn
-
-@deffn emacspeak-m-player-mode ()
-Major mode for m-player interaction. 
-
-key             binding
----             -------
-
-q		emacspeak-m-player-quit
-SPC		emacspeak-m-player-pause
-a		emacspeak-m-player-alt-src-step
-P		emacspeak-m-player-play-tree-up
-p		emacspeak-m-player-play-tree-step
-S		emacspeak-m-player-seek-absolute
-s		emacspeak-m-player-seek-relative
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
-
-This mode runs the hook `emacspeak-m-player-mode-hook', as the final step
-during initialization.
-@end deffn
-
-@deffn emacspeak-m-player-pause ()
-Pause or unpause media player.
-@end deffn
-
-@deffn emacspeak-m-player-play-tree-step (STEP)
-Move within the play tree.
-@end deffn
-
-@deffn emacspeak-m-player-play-tree-up (STEP)
-Move within the play tree.
-@end deffn
-
-@deffn emacspeak-m-player-quit ()
-Quit media player.
-@end deffn
-
-@deffn emacspeak-m-player-seek-absolute (POSITION)
-Seek  to absolute specified position.
-@end deffn
-
-@deffn emacspeak-m-player-seek-relative (OFFSET)
-Seek  by offset into stream from current position.
-@end deffn
-
 @node emacspeak-man
 @section emacspeak-man
 
@@ -1528,20 +1455,6 @@ Speak title of the current song.
 
 @node emacspeak-ocr
 @section emacspeak-ocr
-
-Commentary:
-This module defines Emacspeak front-end to OCR.
-This module assumes that sane is installed and working
-for image acquisition,
-and that there is an OCR engine that can take acquired
-images and produce text.
-Prerequisites:
-Sane installed and working.
-scanimage to generate tiff files from scanner.
-tiffcp to compress the tiff file.
-working ocr executable 
-by default this module assumes that the OCR executable
-is named "ocr"
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ocr.
@@ -1853,9 +1766,9 @@ Speak contents of current element.
 Context-sensitive element summarizer.
 @end deffn
 
-@deffn emacspeak-psgml-toggle-interactive-voice-locking ()
+@deffn emacspeak-psgml-toggle-interactive-font-lock ()
 Toggles variable sgml-set-face.
-When turned on, the  buffer is voice locked interactively.
+When turned on, the  buffer is font locked interactively.
 Leave this off in general while editting.
 @end deffn
 
@@ -2013,7 +1926,7 @@ Speech-enabled version of kill-buffer for Emacs 21.
 @end deffn
 
 @deffn emacspeak-self-insert-command (ARG)
-@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
+@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2135,7 +2048,7 @@ Select  player used for producing auditory icons.
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-midi-icon for midi device. 
+emacspeak-play-midi-icon for midi device. 
 @end deffn
 
 @deffn emacspeak-sounds-reset-local-player ()
@@ -3378,6 +3291,10 @@ Tables are specified by their position in the list
 nested of tables found in the page.
 @end deffn
 
+@deffn emacspeak-w3-google-on-this-site ()
+Perform a google search restricted to the current WWW site.
+@end deffn
+
 @deffn emacspeak-w3-google-similar-to-this-page ()
 Ask Google to find documents similar to this one.
 @end deffn
@@ -4210,6 +4127,11 @@ Find longest line in region.
 Moves to the longest line when called interactively.
 @end deffn
 
+@deffn emacspeak-wizards-find-longest-paragraph-in-region (START END)
+Find longest paragraph in region.
+Moves to the longest paragraph when called interactively.
+@end deffn
+
 @deffn emacspeak-wizards-finder-find (DIRECTORY)
 Run find-dired on specified switches after prompting for the
 directory to where find is to be launched.
@@ -4230,8 +4152,24 @@ key             binding
 Nuke read-only property on text range.
 @end deffn
 
+@deffn emacspeak-wizards-fix-typo (EXT WORD CORRECTION)
+Search and replace  recursively in all files with extension `ext'
+for `word' and replace it with correction.
+Use with caution.
+@end deffn
+
 @deffn emacspeak-wizards-generate-finder ()
 Generate a widget-enabled finder wizard.
+@end deffn
+
+@deffn emacspeak-wizards-generate-voice-sampler (STEP)
+Generate a buffer that shows a sample line in all the ACSS settings
+for the current voice family.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn emacspeak-wizards-get-table-content-from-file (TASK FILE DEPTH COUNT)
@@ -4334,6 +4272,10 @@ for `word' and displays hits in a compilation buffer.
 Squeeze multiple blank lines in current buffer.
 @end deffn
 
+@deffn emacspeak-wizards-tpctl-display-status ()
+Show display status on thinkpads using tpctl.
+@end deffn
+
 @deffn emacspeak-wizards-use-w3-or-w3m ()
 Alternates between using W3 and W3M for browse-url.
 @end deffn
@@ -4357,6 +4299,10 @@ during initialization.
 
 @deffn emacspeak-wizards-vc-viewer-refresh ()
 Refresh view of VC we're viewing.
+@end deffn
+
+@deffn emacspeak-wizards-voice-sampler (PERSONALITY)
+Read a personality  and apply it to the current line.
 @end deffn
 
 @deffn emacspeak-wizards-xl-display ()
@@ -4443,16 +4389,20 @@ during initialization.
 Automatically generated documentation
 for commands defined in module  nil.
 
+@deffn emacspeak-m-player ()
+@kbd{ control e : }
+
+Play specified resource using m-player.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
 @deffn emacspeak-speak-current-field ()
 @kbd{ control e . }
 
 Speak current field.
 A field is
 defined  by Emacs 21.
-@end deffn
-
-@deffn emacspeak-w3-google-on-this-site ()
-Perform a google search restricted to the current WWW site.
 @end deffn
 
 @node voice-setup
@@ -4493,6 +4443,11 @@ modules.
 
 Special form def-voice-font sets up the personality name to be
 available via custom.
+
+new voices can be defined using CSS style specifications 
+see special form defvoice
+Voices defined via defvoice can be customized via custom 
+see the documentation for defvoice.
 
 Automatically generated documentation
 for commands defined in module  voice-setup.

@@ -912,7 +912,6 @@ documentation.\n\n")
                 (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
-              (message "mod is %s" this-module)
               (setq commentary
                     (lm-commentary
                      (substring

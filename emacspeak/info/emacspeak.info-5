@@ -128,6 +128,9 @@ emacspeak-w3.
      are specified by their position in the list nested of tables found
      in the page.
 
+ - emacspeak-w3-google-on-this-site: ()
+     Perform a google search restricted to the current WWW site.
+
  - emacspeak-w3-google-similar-to-this-page: ()
      Ask Google to find documents similar to this one.
 
@@ -818,6 +821,10 @@ emacspeak-wizards.
      Find longest line in region.  Moves to the longest line when
      called interactively.
 
+ - emacspeak-wizards-find-longest-paragraph-in-region: (START END)
+     Find longest paragraph in region.  Moves to the longest paragraph
+     when called interactively.
+
  - emacspeak-wizards-finder-find: (DIRECTORY)
      Run find-dired on specified switches after prompting for the
      directory to where find is to be launched.
@@ -834,8 +841,21 @@ emacspeak-wizards.
  - emacspeak-wizards-fix-read-only-text: (START END)
      Nuke read-only property on text range.
 
+ - emacspeak-wizards-fix-typo: (EXT WORD CORRECTION)
+     Search and replace  recursively in all files with extension `ext'
+     for `word' and replace it with correction.  Use with caution.
+
  - emacspeak-wizards-generate-finder: ()
      Generate a widget-enabled finder wizard.
+
+ - emacspeak-wizards-generate-voice-sampler: (STEP)
+     Generate a buffer that shows a sample line in all the ACSS settings
+     for the current voice family.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
 
  - emacspeak-wizards-get-table-content-from-file: (TASK FILE DEPTH
           COUNT)
@@ -919,6 +939,9 @@ emacspeak-wizards.
  - emacspeak-wizards-squeeze-blanks: (START END)
      Squeeze multiple blank lines in current buffer.
 
+ - emacspeak-wizards-tpctl-display-status: ()
+     Show display status on thinkpads using tpctl.
+
  - emacspeak-wizards-use-w3-or-w3m: ()
      Alternates between using W3 and W3M for browse-url.
 
@@ -939,6 +962,9 @@ emacspeak-wizards.
 
  - emacspeak-wizards-vc-viewer-refresh: ()
      Refresh view of VC we're viewing.
+
+ - emacspeak-wizards-voice-sampler: (PERSONALITY)
+     Read a personality  and apply it to the current line.
 
  - emacspeak-wizards-xl-display: ()
      Called to set up preview of an XL file.  Assumes we are in a
@@ -1013,13 +1039,17 @@ emacspeak-xml-shell.
    Automatically generated documentation for commands defined in module
 nil.
 
+ - emacspeak-m-player: ()
+     ` control e : '
+
+     Play specified resource using m-player.  Resource is an  MP3 file
+     or m3u playlist.  The player is placed in a buffer in
+     emacspeak-m-player-mode.
+
  - emacspeak-speak-current-field: ()
      ` control e . '
 
      Speak current field.  A field is defined  by Emacs 21.
-
- - emacspeak-w3-google-on-this-site: ()
-     Perform a google search restricted to the current WWW site.
 
 
 File: emacspeak.info,  Node: voice-setup,  Prev: emacspeak-xml-shell,  Up: Emacspeak Commands
@@ -1056,6 +1086,10 @@ available for use from other emacspeak modules.
 
    Special form def-voice-font sets up the personality name to be
 available via custom.
+
+   new voices can be defined using CSS style specifications see special
+form defvoice Voices defined via defvoice can be customized via custom
+see the documentation for defvoice.
 
    Automatically generated documentation for commands defined in module
 voice-setup.
