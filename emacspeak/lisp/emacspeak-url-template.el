@@ -104,13 +104,20 @@
 
 ;;}}}
 ;;{{{  define resources 
+(defvar emacspeak-url-template-name-alist nil
+  "Alist of url template names --used by completing-read when
+prompting for a template.")
 
 (defun emacspeak-url-template-define (name template
                                            &optional generators
                                            post-action
                                            documentation fetcher)
   "Define a URL template."
-  (declare (special emacspeak-url-template-table))
+  (declare (special emacspeak-url-template-table
+                    emacspeak-url-template-name-alist))
+  (unless (emacspeak-url-template-get  name)
+    (push (list name name )
+          emacspeak-url-template-name-alist))
   (emacspeak-url-template-set
    name
    (emacspeak-url-template-constructor :name name
@@ -813,19 +820,13 @@ Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
-  (declare (special emacspeak-url-template-table
+  (declare (special emacspeak-url-template-name-alist
 		    emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
-        (name nil)
-        (table
-         (loop for key being the hash-keys of
-               emacspeak-url-template-table
-               collect (list 
-                        (format "%s" key)
-                        (format "%s" key)))))
+        (name nil))
     (setq name (completing-read "Resource: "
-                                table
+                                emacspeak-url-template-name-alist
                                 nil
                                 'must-match))
     (cond
