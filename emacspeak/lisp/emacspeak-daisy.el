@@ -480,7 +480,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   :group 'emacspeak-daisy)
 (defcustom emacspeak-daisy-completion-extensions-to-ignore
   '(".xml" ".smil" ".bks"
-    ".opf" ".css" ".espeak.el")
+    "~" ".opf" ".css" ".espeak.el")
   "These file name extensions are ignored when locating the
 navigation file for a book. Include all extensions except `.ncx'
   for optimal performance."
