@@ -42,6 +42,11 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="mplayer">
+      Play Windows media  and mp3  streams. Includes
+      presets  for single click access to
+      favorite streams.
+    </application>
     <application name="midge">
       Compose and play MIDI files.</application>
   </category>
@@ -409,6 +414,9 @@ Does not support table navigation, CSS or Aural CSS, but can be fast and light-w
     </application>
     <application name="sh-script">
       Editting support for shell scripts.
+    </application>
+    <application name="rpm-spec">
+      Editting support for RPM spec files.
     </application>
     <application name="tempo">
       Support for creating and filling-in templates.
