@@ -306,8 +306,10 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-url-link (widget)
   "Summarize a WWW    link"
-  (let ((value (widget-get widget :value)))
-    (format "WWW link   %s"
+  (let ((value (widget-get widget :value))
+        (tag (widget-get widget :tag)))
+    (format "URL %s %s"
+            (or tag "")
             (or value ""))))
 
 (widget-put (get 'url-link 'widget-type)
@@ -341,8 +343,10 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-file-link (widget)
   "Summarize a     link to a file."
-  (let ((value (widget-get widget :value)))
-    (format "File link   %s"
+  (let ((value (widget-get widget :value))
+        (tag (widget-get widget :tag)))
+    (format "File link %s    %s"
+            (or tag "")
             value)))
 
 (widget-put (get 'file-link 'widget-type)
@@ -353,8 +357,10 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-emacs-library-link (widget)
   "Summarize a     link to an Emacs Library.."
-  (let ((value (widget-get widget :value)))
-    (format "Emacs library  link   %s"
+  (let ((value (widget-get widget :value))
+        (tag (widget-get widget :tag)))
+    (format "Emacs library  link   %s %s"
+            (or tag "")
             value)))
 
 (widget-put (get 'emacs-library-link 'widget-type)
@@ -365,8 +371,10 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-emacs-commentary-link (widget)
   "Summarize a     link to a emacs commentary section.."
-  (let ((value (widget-get widget :value)))
-    (format "Commentary  link   %s"
+  (let ((value (widget-get widget :value))
+        (tag (widget-get widget :tag)))
+    (format "Commentary  link   %s %s"
+(or tag "")
             value)))
 
 (widget-put (get 'emacs-commentary-link 'widget-type)
