@@ -595,7 +595,7 @@ libxslt package."
                     emacspeak-w3-xsl-directory)
   "XSL transform to extract a table.")
 
-(defun emacspeak-w3-extract-table (table-index &optional prompt)
+(defun emacspeak-w3-extract-table (table-index  &optional prompt)
   "Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from.
