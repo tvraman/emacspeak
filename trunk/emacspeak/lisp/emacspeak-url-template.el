@@ -757,7 +757,7 @@ the broadcast. You must have mplayer installed."
  "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
  (list
 #'(lambda ()
-  (read-from-minibuffer "Program code:"))
+  (upcase (read-from-minibuffer "Program code:")))
   #'(lambda ()
       (read-from-minibuffer "Date:"
                             (format-time-string "%d-%b-%Y")))
