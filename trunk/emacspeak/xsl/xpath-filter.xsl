@@ -18,6 +18,9 @@ asks that nodes be processed only once -use with care.
   <xsl:param name="path"/>
   <xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+<xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
   <xsl:template match="*|@*" mode="copy" >
     <xsl:choose>
       <xsl:when test="$uniquify=1">
@@ -35,9 +38,7 @@ asks that nodes be processed only once -use with care.
   <!-- { html   -->
   <!--add base uri if available. -->
   
-  <xsl:template match="/">
-    <xsl:apply-templates/>
-  </xsl:template>
+  
   <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
@@ -48,6 +49,7 @@ asks that nodes be processed only once -use with care.
           </xsl:attribute>
         </xsl:element>
       </xsl:if>
+      <xsl:apply-templates select="title"/>
     </head>
   </xsl:template>
   
