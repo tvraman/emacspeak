@@ -155,6 +155,12 @@ part of the libxslt package."
       (shell-command command (current-buffer)
        (when emacspeak-xslt-keep-errors
          "*xslt errors*"))
+      (when emacspeak-xslt-nuke-null-char
+      (goto-char (point-min))
+      (while (search-forward
+	      ( format "%c" 0)
+	      nil  t)
+	(replace-match " ")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-min))
