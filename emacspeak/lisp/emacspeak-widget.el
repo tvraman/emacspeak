@@ -145,6 +145,8 @@ Returns a string with appropriate personality."
        (t (dtk-speak (current-message))))))
 
 ;;}}}
+;;{{{ advice activators 
+
 ;;{{{  widget specific summarizers  --as per Per's suggestion
 
 ;;{{{  default
@@ -295,8 +297,7 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-function-link (widget)
   "Summarize a     link to a function."
   (let ((value (widget-get widget :value)))
-    (format "Link to function    %s"
-            (or value ""))))
+    (format "Display documentation for %s" value)))
 
 (widget-put (get 'function-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-function-link)
@@ -307,8 +308,8 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-file-link (widget)
   "Summarize a     link to a file."
   (let ((value (widget-get widget :value)))
-    (format "WWW link   %s"
-            (or value ""))))
+    (format "File link   %s"
+            value)))
 
 (widget-put (get 'file-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-file-link)
@@ -319,8 +320,8 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-emacs-library-link (widget)
   "Summarize a     link to an Emacs Library.."
   (let ((value (widget-get widget :value)))
-    (format "WWW link   %s"
-            (or value ""))))
+    (format "Emacs library  link   %s"
+            value)))
 
 (widget-put (get 'emacs-library-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-library-link)
@@ -331,8 +332,8 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-help-emacs-commentary-link (widget)
   "Summarize a     link to a emacs commentary section.."
   (let ((value (widget-get widget :value)))
-    (format "WWW link   %s"
-            (or value ""))))
+    (format "Commentary  link   %s"
+            value)))
 
 (widget-put (get 'emacs-commentary-link 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-emacs-commentary-link)
@@ -707,6 +708,8 @@ widget before summarizing."
                   widget-field-keymap
                   widget-text-keymap))
 
+
+;;}}}
 
 ;;}}}
 (provide  'emacspeak-widget)
