@@ -387,7 +387,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-warning-face
   "Personality to use for warnings.")
 
-(def-voice-font voice-lock-keyword-personality 'ursula
+(def-voice-font voice-lock-keyword-personality voice-animate-extra
   'font-lock-keyword-face
   "Personality to use for keywords.")
   
