@@ -654,11 +654,12 @@ before the message is spoken."
 
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
+  (when emacspeak-speak-cue-errors
   (let ((dtk-stop-immediately t)
         (message (and (not (eq 'error (ad-get-arg 0)))
                       (get (ad-get-arg 0) 'error-message))))
     (when  message
-      (dtk-speak message))))
+      (dtk-speak message)))))
 
 ;;}}}
 

@@ -424,7 +424,11 @@ from English to German.")
      (search-forward "Sorted by")
      (forward-line 4)
      (emacspeak-speak-line))
- "Search Google news.")
+ "Search Google news."
+ #'(lambda (url)
+(emacspeak-w3-without-xsl
+(browse-url url))))
+
 
 ;;}}}
 ;;{{{ mapquest
