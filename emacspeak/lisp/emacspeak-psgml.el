@@ -119,12 +119,10 @@ window")))
     (emacspeak-auditory-icon 'close-object)
 
     (emacspeak-speak-line)))
-(defadvice sgml-forward-element (after emacspeak pre act
-                                       comp)
+(defadvice sgml-forward-element (after emacspeak pre act comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (skip-syntax-forward " ")
     (emacspeak-psgml-summarize-element)))
 
 (defadvice sgml-backward-element (after emacspeak pre act
@@ -138,7 +136,6 @@ window")))
                                     comp)
   "Speak line we moved to"
   (when (interactive-p)
-    (skip-syntax-forward " ")
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-psgml-summarize-element)))
 
