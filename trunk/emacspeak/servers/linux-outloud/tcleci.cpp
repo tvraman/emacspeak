@@ -365,7 +365,7 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
       return TCL_ERROR;
     }
     //_eciSynchronize(eciHandle); //causes tcl to hang
-    _eciSpeaking(eciHandle); // should this be here!?
+    //_eciSpeaking(eciHandle); // should this be here!?
   }
   return TCL_OK;
 }
