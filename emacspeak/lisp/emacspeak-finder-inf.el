@@ -344,6 +344,9 @@
     ("emacspeak-sh-script.el"
         "Speech enable  sh-script mode"
         (emacspeak  audio desktop))
+    ("emacspeak-sigbegone.el"
+        "Speech-enable sigbegone"
+        (emacspeak  sigbegone ))
     ("emacspeak-solitaire.el"
         "Speech enable Solitaire game"
         (emacspeak  speak  spoken output  solitaire))
