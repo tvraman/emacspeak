@@ -367,14 +367,6 @@
 ;;}}}
 ;;{{{ TVR: applying XSL
 
-(defadvice  w3m-w3m-dump-source (after emacspeak pre act comp)
-  "Apply requested transform if any after grabbing the HTML. "
-  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
-    (emacspeak-xslt-region
-     emacspeak-w3-xsl-transform
-     (point-min)
-     (point-max))))
-
 (defadvice  w3m-w3m-dump-head-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
@@ -382,8 +374,6 @@
      emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
-
-
 
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 
