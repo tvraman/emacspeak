@@ -73,6 +73,13 @@
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak "Compiling current java project")))
 
+(defadvice bsh (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (setq emacspeak-comint-autospeak nil)
+    (emacspeak-speak-mode-line)))
+
 (defadvice jde-run (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)

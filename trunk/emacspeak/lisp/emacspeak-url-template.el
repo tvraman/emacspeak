@@ -190,8 +190,12 @@ generators  ; list of param generator
                         (format-time-string "%m/%d")))
 
 
-(emacspeak-url-template-define "CNN Tech Computing"
-"http://www.cnn.com/2000/TECH/computing/%s/"
+(emacspeak-url-template-define "CNN Tecnology "
+"http://www.cnn.com/2001/TECH/%s/"
+(list 'emacspeak-url-template-date-month/date))
+
+(emacspeak-url-template-define "CNN computing "
+"http://www.cnn.com/2001/TECH/computing/%s/"
 (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN HotStocks "
