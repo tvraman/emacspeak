@@ -175,7 +175,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 ;;{{{  Helpers to handle invisible text:
 
 (defsubst text-visible-p (position)
-  (not (get-text-property position 'invisible )))
+  (not (text-invisible-p position)))
 
 (defsubst text-invisible-p (position)
   "Check if text is invisible. Emacspeak helper."
@@ -193,7 +193,6 @@ Do not modify this variable directly; use command  `dtk-set-rate'
              (goto-char
               (next-single-property-change (point) 'invisible
                                            (current-buffer) (point-max)))))
-
 
 (defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
@@ -1552,6 +1551,7 @@ only speak upto the first ctrl-m."
              (setq text (substring  text 0 ctrl-m ))
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t)
+          (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table ))
           (inherit-speaker-process dtk-speaker-process)
           (pronunciation-table emacspeak-pronounce-pronunciation-table)
@@ -1571,7 +1571,8 @@ only speak upto the first ctrl-m."
         (let ((inhibit-read-only t))
           (erase-buffer)
                                         ; inherit environment
-          (setq dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+          (setq buffer-invisibility-spec invisibility-spec
+           dtk-chunk-separator-syntax inherit-chunk-separator-syntax
                 dtk-speaker-process inherit-speaker-process
                 dtk-speech-rate speech-rate
                 emacspeak-use-auditory-icons use-auditory-icons
