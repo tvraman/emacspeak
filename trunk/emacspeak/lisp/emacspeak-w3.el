@@ -1615,7 +1615,15 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
 base-url
     emacspeak-w3-base-uri-pronunciation ))))
-
+(defadvice url-view-url (around emacspeak pre act comp)
+(cond
+((interactive-p)
+(let ((save-pronunciations emacspeak-pronounce-pronunciation-table))
+(setq emacspeak-pronounce-pronunciation-table nil)
+ad-do-it
+(setq emacspeak-pronounce-pronunciation-table save-pronunciations)))
+(t ad-do-it))
+ad-return-value)
 ;;}}}
 ;;{{{  emacs local variables 
 
