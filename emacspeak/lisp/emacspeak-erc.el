@@ -73,10 +73,7 @@
   :group 'emacspeak
   :prefix "emacspeak-erc-")
 
-(defcustom emacspeak-erc-default-personality 'paul
-  "Default personality for erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
+
 
 (defcustom emacspeak-erc-ignore-notices nil
   "Set to T if you dont want to see notifcation messages from the
@@ -84,106 +81,7 @@ server."
   :type 'boolean
   :group 'eamcspeak-erc)
 
-(defcustom emacspeak-erc-direct-msg-personality
-  'paul-animated
-  "Personality for direct messages."
-  :type 'symbol
-  :group 'emacspeak-erc)
 
-(defcustom emacspeak-erc-input-personality 
-  'paul-smooth
-  "Personality for input."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-bold-personality
-  'paul-bold
-  "Personality for bold in erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-inverse-personality
-  'betty
-  "Inverse personality in ERC."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-underline-personality  'ursula
-  "Persnality for underlining in erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-prompt-personality  'harry
-  "Personality for prompting in erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-notice-personality 
-  'paul-italic
-  "Personality for notices in Erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-action-personality 
-  voice-monotone
-  "Personality for actions in erc."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-error-personality 
-  'kid
-  "Personality for errors n ERC."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-host-danger-personality 
-  'paul-smooth
-  "Personality for marking dangerous hosts."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-(defcustom emacspeak-erc-pal-personality
-  'paul-animated
-  "Personality for marking pals."
-  :type 'symbol
-  :group 'emacspeak-erc)
-
-;;}}}
-;;{{{  helpers
-
-;;}}}
-;;{{{ advice interactive commands
-(emacspeak-pronounce-augment-pronunciations 'erc-mode
-                                            emacspeak-pronounce-internet-smileys-pronunciations)
-
-(defadvice erc-mode (after emacspeak pre act comp)
-  "Turn on voice lock mode."
-  (declare (special voice-lock-mode))
-  (emacspeak-pronounce-refresh-pronunciations)
-  (setq voice-lock-mode t))
-
-(defadvice erc-select (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
-(defadvice erc-send-current-line (after emacspeak pre act
-                                        comp)
-  "Provide auditory icon."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
-(defadvice erc-send-paragraph (after emacspeak pre act
-                                     comp)
-  "Provide auditory icon."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'paragraph)))
-
-;;}}}
-(provide 'emacspeak-erc)
-;;{{{ advice for voicefication 
-
-
-  
 (def-voice-font emacspeak-erc-direct-msg-personality
       voice-animate
       'erc-direct-msg-face
@@ -236,7 +134,40 @@ voice-animate-extra 'erc-pal-face
 voice-animate 'erc-keyword-face
 "Personality for keywords.")
 
+
+
 ;;}}}
+;;{{{  helpers
+
+;;}}}
+;;{{{ advice interactive commands
+(emacspeak-pronounce-augment-pronunciations 'erc-mode
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
+
+(defadvice erc-mode (after emacspeak pre act comp)
+  "Turn on voice lock mode."
+  (declare (special voice-lock-mode))
+  (emacspeak-pronounce-refresh-pronunciations)
+  (setq voice-lock-mode t))
+
+(defadvice erc-select (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+(defadvice erc-send-current-line (after emacspeak pre act
+                                        comp)
+  "Provide auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice erc-send-paragraph (after emacspeak pre act
+                                     comp)
+  "Provide auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'paragraph)))
+
+;;}}}
+(provide 'emacspeak-erc)
 ;;{{{ monitoring chatrooms 
 (defvar emacspeak-erc-room-monitor nil
   "*Local to each chat room. If turned on,
