@@ -75,7 +75,10 @@
   :link '(url-link :tag "Mail"
                    "http://www.cs.vassar.edu/~priestdo/emacspeak/")
   :link '(url-link :tag "Search" "http://www.cs.vassar.edu/cgi-bin/emacspeak-search")
-  :link '(url-link :tag "Applications" "http://emacspeak.sf.net/applications.html")
+  :link '(url-link :tag "Applications"
+                   "http://emacspeak.sf.net/applications.html")
+  :link '(url-link :tag "Guide"
+                   "http://emacspeak.sf.net/user-guide")
   :link '(url-link :tag "Tips"
                    "http://emacspeak.sf.net/tips.html")
   :link   (list 'file-link :tag "NEWS" (expand-file-name "etc/NEWS" emacspeak-directory))
