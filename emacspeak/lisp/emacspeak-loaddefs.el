@@ -1,39 +1,15 @@
-;;;auto generated
-
-;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15893 49008))
-;;; Generated autoloads from cd-tool.el
-
-(autoload (quote cd-tool) "cd-tool" "\
-Front-end to CDTool.
-Bind this function to a convenient key-
-Emacspeak users automatically have 
-this bound to <DEL> in the emacspeak keymap.
-
-Key     Action
----     ------
-
-+       Next Track
--       Previous Track
-SPC     Pause or Resume
-e       Eject
-=       Shuffle
-i       CD Info
-p       Play
-s       Stop
-t       track
-c       clip
-cap C   Save clip to disk
-" t nil)
-
-;;;***
+;;;Auto generated
 
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
-;;;;;;  emacspeak-aumix-reset-options) "emacspeak-aumix" "emacspeak-aumix.el"
-;;;;;;  (15893 49008))
+;;;;;;  emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
+;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15893 49909))
 ;;; Generated autoloads from emacspeak-aumix.el
 
 (defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
+
+(defvar emacspeak-aumix-settings-file (when (file-exists-p (expand-file-name ".aumixrc" emacspeak-resource-directory)) (expand-file-name ".aumixrc" emacspeak-resource-directory)) "\
+*Name of file containing personal aumix settings.")
 
 (defvar emacspeak-aumix-reset-options (format "-f %s -L 2>&1 >/dev/null" emacspeak-aumix-settings-file) "\
 *Option to pass to aumix for resetting to default values.")
@@ -737,27 +713,29 @@ Note that this only works if the opening tag starts at column 0." t nil)
 
 ;;;***
 
-;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
-;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
-;;;;;;  emacspeak-aumix-reset-options) "emacspeak-aumix" "emacspeak-aumix.el"
-;;;;;;  (15865 16834))
-;;; Generated autoloads from emacspeak-aumix.el
+;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15893 49008))
+;;; Generated autoloads from cd-tool.el
 
-(defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
+(autoload (quote cd-tool) "cd-tool" "\
+Front-end to CDTool.
+Bind this function to a convenient key-
+Emacspeak users automatically have 
+this bound to <DEL> in the emacspeak keymap.
 
-(defvar emacspeak-aumix-reset-options (format "-f %s -L 2>&1 >/dev/null" emacspeak-aumix-settings-file) "\
-*Option to pass to aumix for resetting to default values.")
+Key     Action
+---     ------
 
-(autoload (quote emacspeak-aumix-wave-increase) "emacspeak-aumix" "\
-Increase volume of wave output. " t nil)
-
-(autoload (quote emacspeak-aumix-wave-decrease) "emacspeak-aumix" "\
-Decrease volume of wave output. " t nil)
-
-(autoload (quote emacspeak-aumix-volume-increase) "emacspeak-aumix" "\
-Increase overall volume. " t nil)
-
-(autoload (quote emacspeak-aumix-volume-decrease) "emacspeak-aumix" "\
-Decrease overall volume. " t nil)
++       Next Track
+-       Previous Track
+SPC     Pause or Resume
+e       Eject
+=       Shuffle
+i       CD Info
+p       Play
+s       Stop
+t       track
+c       clip
+cap C   Save clip to disk
+" t nil)
 
 ;;;***

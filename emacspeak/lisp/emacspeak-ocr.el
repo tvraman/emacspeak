@@ -72,7 +72,7 @@
 (eval-when-compile (require 'emacspeak-keymap))
 ;;}}}
 ;;{{{  Customization variables
- ;;;###autoload
+;;;###autoload
 (defgroup emacspeak-ocr nil
   "Emacspeak front end for scanning and OCR.
 Pre-requisites:
