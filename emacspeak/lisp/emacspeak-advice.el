@@ -2699,14 +2699,11 @@ Produce auditory icons if possible."
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with
 emacspeak running."
-  (declare (special emacspeak-last-command-needs-minibuffer-spoken))
   (let ((inhibit-field-text-motion t))
     (emacspeak-auditory-icon 'open-object)
-    (when  emacspeak-last-command-needs-minibuffer-spoken
-      (unwind-protect
-	  (tts-with-punctuations "all"
-				 (emacspeak-speak-buffer))
-	(setq emacspeak-last-command-needs-minibuffer-spoken nil)))))
+    (unwind-protect
+        (tts-with-punctuations "all"
+                               (emacspeak-speak-buffer)))))
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 

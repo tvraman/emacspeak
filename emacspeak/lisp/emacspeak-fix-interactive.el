@@ -69,10 +69,6 @@
 
 ;;}}}
 ;;{{{  functions that are  fixed. 
-
-(defvar emacspeak-last-command-needs-minibuffer-spoken nil 
-  "Used to signal to minibuffer that the contents need to be spoken.")
-
 (defvar emacspeak-commands-dont-fix-regexp 
   (concat 
    "^ad-Orig\\|^mouse\\|^scroll-bar"
@@ -130,7 +126,6 @@ speak its prompts. "
               #'(lambda (prompt)
                   (`
                    (let ((dtk-stop-immediately nil)
-                         (emacspeak-last-command-needs-minibuffer-spoken t)
                          (emacspeak-speak-messages nil))
                      (when  (string-match"^[ckK]" (, prompt))
                        (emacspeak-auditory-icon 'open-object)
