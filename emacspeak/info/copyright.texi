@@ -4,7 +4,7 @@
 
 This manual documents  Emacspeak, a speech extension to Emacs. 
 
-Copyright (C)1994 -- 1998 T. V. Raman
+Copyright (C)1994 -- 2001 T. V. Raman
 All Rights Reserved. 
 
 
@@ -21,7 +21,7 @@ notice are preserved on all copies.
      
      @page
      @vskip 0pt plus 1filll
-     Copyright @copyright{} 1994--1998 T. V. Raman. All Rights Reserved.
+     Copyright @copyright{} 1994--2001 T. V. Raman. All Rights Reserved.
 
 
 Permission is granted to make and distribute verbatim copies of this
