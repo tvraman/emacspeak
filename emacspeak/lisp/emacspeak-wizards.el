@@ -1222,7 +1222,7 @@ Signals beginning  of buffer."
                     emacspeak-etc-directory)
   "Program that extracts table content.")
 
-(defun emacspeak-wizard-get-table-content (task url depth count )
+(defun emacspeak-wizard-get-table-content-from-url (task url depth count )
   "Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv."
@@ -1237,7 +1237,26 @@ Extracted content is placed as a csv file in task.csv."
    (format  "%s --task=%s --url=%s --depth=%s --count=%s"
             emacspeak-wizard-table-content-extractor
             task url depth count ))
+  (emacspeak-table-find-csv-file (format "/tmp/%s.csv"
+                                         task)))
+
+(defun emacspeak-wizard-get-table-content-from-file (task url depth count )
+  "Extract table specified by depth and count from HTML
+content at file.
+Extracted content is placed as a csv file in task.csv."
+  (interactive
+   (list
+    (read-from-minibuffer "Task:")
+    (read-file-name "File: ")
+    (read-from-minibuffer "Depth: ")
+    (read-from-minibuffer "Count: ")))
+  (declare (special emacspeak-wizard-table-content-extractor))
+  (shell-command
+   (format  "%s --task=%s --file=%s --depth=%s --count=%s"
+            emacspeak-wizard-table-content-extractor
+            task url depth count ))
   (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
+
 
 ;;}}}
 (provide 'emacspeak-wizards)
