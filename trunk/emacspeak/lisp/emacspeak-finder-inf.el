@@ -341,6 +341,9 @@
     ("emacspeak-sawfish.el"
         "speech-enable sawfish mode"
         (emacspeak  sawfish interaction ))
+    ("emacspeak-ses.el"
+        "Speech-enable ses spread-sheet"
+        (emacspeak  ses ))
     ("emacspeak-setup.el"
         "Setup Emacspeak environment --loaded to start Emacspeak"
         (emacspeak  setup  spoken output))
@@ -476,6 +479,9 @@
     ("xml-parse.el"
         "code to efficiently read/write XML data with Elisp"
         (convenience languages lisp xml parse data))
+    ("xml-sexp.el"
+        "Convert XML to S-Expressions"
+        (emacspeak  xml ))
 ))
 
 (loop for l  in (reverse emacspeak-finder-package-info) do

@@ -972,17 +972,6 @@ Set up URL rewrite rule to get print page."
  )
 
 ;;}}}
-;;{{{ India Today 
-
-(emacspeak-url-template-define
- "India Today "
- "http://www.india-today.com/itoday/%s/index.shtml"
- (list
-  'emacspeak-url-template-date-YearMonthDate)
- nil
- "Retrieve India Today. Published every Monday --specified appropriate date.")
-
-;;}}}
 ;;{{{ meerkat 
 
 (emacspeak-url-template-define
