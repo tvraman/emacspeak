@@ -52,6 +52,10 @@
   (when (interactive-p)
     (emacspeak-speak-mode-line)))
 
+(defadvice select-buffer-other-window (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)))
 
 (defadvice buffer-select-prev (after emacspeak pre act comp)
   "Provide auditory feedback"

@@ -304,20 +304,20 @@ The results are placed in a buffer in Emacspeak's table
 If set to T,Emacspeak will not prompt before loading
 directory specific settings."
   :group 'emacspeak-speak
-:type 'boolean)
+  :type 'boolean)
   
 
 (defcustom emacspeak-speak-directory-settings
   ".espeak.el"
-"*Name of file that holds directory specific settings."
-:group 'emacspeak-speak
-:type 'string)
+  "*Name of file that holds directory specific settings."
+  :group 'emacspeak-speak
+  :type 'string)
 
 (defsubst emacspeak-speak-get-directory-settings ()
   "Return directory specific settings file."
   (declare (special emacspeak-speak-directory-settings))
   (concat default-directory
-                          emacspeak-speak-directory-settings))
+          emacspeak-speak-directory-settings))
 
 (defun emacspeak-speak-load-directory-settings ()
   "Load a directory specific Emacspeak settings file.
@@ -328,8 +328,8 @@ directory."
   (let ((settings (emacspeak-speak-get-directory-settings)))
     (when (and (file-exists-p  settings)
                (or emacspeak-speak-load-directory-settings-quietly
-                (y-or-n-p "Load directory settings? ")
-                "Load  directory specific Emacspeak
+                   (y-or-n-p "Load directory settings? ")
+                   "Load  directory specific Emacspeak
 settings? "))
       (condition-case nil
           (load-file settings)
@@ -345,7 +345,7 @@ We cleanup underlining, and set up outline mode correctly."
     (read-file-name "Howto file: "
                     (cond
                      ((file-exists-p "/usr/doc/HOWTO/" )
-"/usr/doc/HOWTO/")
+                      "/usr/doc/HOWTO/")
                      ((file-exists-p
                        "/usr/share/doc/HOWTO/")
                       "/usr/share/doc/HOWTO/")
@@ -381,7 +381,7 @@ howto document.")))
 ;;}}}
 ;;{{{ pop up messages buffer 
 
-; Internal variable to memoize window configuration
+                                        ; Internal variable to memoize window configuration
 
 (defvar emacspeak-popup-messages-config-0 nil
   "Memoizes window configuration.")
@@ -393,7 +393,7 @@ If it is already selected then hide it and try to restore
 previous window configuration."
   (interactive)
   (cond
-   ; First check if Messages buffer is already selected
+                                        ; First check if Messages buffer is already selected
    ((string-equal (buffer-name (window-buffer (selected-window)))
 		  "*Messages*")
     (when (window-configuration-p emacspeak-popup-messages-config-0)
@@ -402,14 +402,14 @@ previous window configuration."
     (bury-buffer "*Messages*")
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line))
-   ; popup Messages buffer
+                                        ; popup Messages buffer
    (t
-    ; Memoize current window configuration only if buffer isn't yet visible
+                                        ; Memoize current window configuration only if buffer isn't yet visible
     (setq emacspeak-popup-messages-config-0
 	  (and (not (get-buffer-window "*Messages*"))
 	       (current-window-configuration)))
     (pop-to-buffer "*Messages*" nil t)
-    ; position cursor on the last message
+                                        ; position cursor on the last message
     (goto-char (point-max))
     (beginning-of-line  (and (bolp) 0))
     (emacspeak-auditory-icon 'select-object)
@@ -423,21 +423,21 @@ previous window configuration."
   (message (system-name)))
 
 (defcustom emacspeak-speak-show-active-network-interfaces-command
-"echo `/sbin/ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
-"Command that displays names of active network interfaces."
-:type 'string
-:group 'emacspeak-wizards)
+  "echo `/sbin/ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
+  "Command that displays names of active network interfaces."
+  :type 'string
+  :group 'emacspeak-wizards)
 
 (defcustom emacspeak-speak-show-active-network-interfaces-addresses
   "echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed 's/addr://'`"
-"Command that displays address of  a specific interface."
-:type 'string
-:group 'emacspeak-wizards
-)
+  "Command that displays address of  a specific interface."
+  :type 'string
+  :group 'emacspeak-wizards
+  )
 
 (defvar emacspeak-speak-network-interfaces-list
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
-"Used whne prompting for an interface to query.")
+  "Used whne prompting for an interface to query.")
 
 
 (defun emacspeak-speak-show-active-network-interfaces
@@ -449,8 +449,8 @@ also copied to the kill ring for convenient yanking."
   (interactive "P")
   (declare (special emacspeak-speak-network-interfaces
                     emacspeak-last-message
-            emacspeak-speak-show-active-network-interfaces-command
-            emacspeak-speak-show-active-network-interfaces-addresses))
+                    emacspeak-speak-show-active-network-interfaces-command
+                    emacspeak-speak-show-active-network-interfaces-addresses))
   (let ((command nil))
     (cond 
      (address  (setq command
@@ -490,15 +490,15 @@ With prefix arg, opens the phone book for editting."
    (edit
     (find-file emacspeak-speak-telephone-directory)
     (emacspeak-speak-mode-line)
-(emacspeak-auditory-icon 'open-object))
+    (emacspeak-auditory-icon 'open-object))
    ((file-exists-p emacspeak-speak-telephone-directory)
-  (shell-command
-   (format "%s %s %s"
-           emacspeak-speak-telephone-directory-command
-           (read-from-minibuffer "Lookup number for: ")
-           emacspeak-speak-telephone-directory)))
-(t (error "First create your phone directory in %s"
-          emacspeak-speak-telephone-directory))))
+    (shell-command
+     (format "%s %s %s"
+             emacspeak-speak-telephone-directory-command
+             (read-from-minibuffer "Lookup number for: ")
+             emacspeak-speak-telephone-directory)))
+   (t (error "First create your phone directory in %s"
+             emacspeak-speak-telephone-directory))))
 
                                  
    
@@ -743,13 +743,13 @@ end:\n\n")
   "Read a frame label with completion."
   (interactive)
   (let* ((frame-names-alist (make-frame-names-alist))
-	   (default (car (car frame-names-alist)))
-	   (input (completing-read
-		   (format "Select Frame (default %s): " default)
-		   frame-names-alist nil t nil 'frame-name-history)))
-     (if (= (length input) 0)
-	  default
-        input)))
+         (default (car (car frame-names-alist)))
+         (input (completing-read
+                 (format "Select Frame (default %s): " default)
+                 frame-names-alist nil t nil 'frame-name-history)))
+    (if (= (length input) 0)
+        default
+      input)))
  
                         
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
@@ -812,10 +812,10 @@ the display to speak."
           (nth (% window (length window-list ))
                window-list))
     (save-excursion
-    (save-window-excursion
-      (emacspeak-speak-region
-       (window-point win)
-       (window-end win))))))
+      (save-window-excursion
+        (emacspeak-speak-region
+         (window-point win)
+         (window-end win))))))
 
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
@@ -902,7 +902,7 @@ meaning of `next'."
   "File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechnaism for exchanging
 information between different Emacs sessions."
-:group 'emacspeak-speak
+  :group 'emacspeak-speak
   :type 'string)
 
 (defun emacspeak-clipboard-copy (start end &optional prompt)
@@ -1025,8 +1025,8 @@ gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.
 It's useful to bind the above command to a convenient key."
-:type 'string
-:group 'emacspeak)
+  :type 'string
+  :group 'emacspeak)
 
 
 (defun emacspeak-emergency-tts-restart ()

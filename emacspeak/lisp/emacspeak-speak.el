@@ -48,8 +48,8 @@
 (require 'dtk-speak)
 (eval-when-compile
   (require 'voice-lock)
-           (require 'emacspeak-sounds)
-(require 'shell))
+  (require 'emacspeak-sounds)
+  (require 'shell))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -66,12 +66,12 @@
 ;;{{{  custom group 
 (defconst  emacspeak-xemacs-p
   (when (or (boundp 'running-xemacs)
-      (string-match "Lucid\\|XEmacs" emacs-version))
-  t)
-"T if we are running under XEmacs.")
+            (string-match "Lucid\\|XEmacs" emacs-version))
+    t)
+  "T if we are running under XEmacs.")
 (defgroup emacspeak-speak nil
-"Basic speech output commands."
-:group 'emacspeak)
+  "Basic speech output commands."
+  :group 'emacspeak)
 
 ;;}}}
 ;;{{{ inhibit-point-motion-hooks
@@ -91,20 +91,20 @@
   (`
    (progn
      (declare (special inhibit-point-motion-hooks))
-   (unwind-protect
-       (let    ((save-read-only buffer-read-only)
-                (buffer-read-only nil )
-                (save-inhibit-read-only inhibit-read-only)
-                (inhibit-read-only t)
-                (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
-                (inhibit-point-motion-hooks t)
-                (modification-flag (buffer-modified-p)))
-         (unwind-protect
-             (,@ body )
-           (setq buffer-read-only save-read-only
-                 inhibit-read-only save-inhibit-read-only
-                 inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-           (set-buffer-modified-p modification-flag )))))))
+     (unwind-protect
+         (let    ((save-read-only buffer-read-only)
+                  (buffer-read-only nil )
+                  (save-inhibit-read-only inhibit-read-only)
+                  (inhibit-read-only t)
+                  (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
+                  (inhibit-point-motion-hooks t)
+                  (modification-flag (buffer-modified-p)))
+           (unwind-protect
+               (,@ body )
+             (setq buffer-read-only save-read-only
+                   inhibit-read-only save-inhibit-read-only
+                   inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
+             (set-buffer-modified-p modification-flag )))))))
 
 
                                         ; Internal macro used by Emacspeak to set a personality temporarily.
@@ -203,7 +203,7 @@ Interactive PREFIX arg prompts for sound cue to use"
 (defcustom  emacspeak-speak-paragraph-personality 'paul-animated
   "*Personality used to mark start of paragraph."
   :group 'emacspeak-speak
-:type 'symbol)
+  :type 'symbol)
 
 (defvar emacspeak-speak-voice-annotated-paragraphs nil
   "Records if paragraphs in this buffer have been voice annotated.")
@@ -238,10 +238,10 @@ Useful to do this before you listen to an entire buffer."
 
 (defsubst emacspeak-prepare-completions-buffer()
   (ems-modify-buffer-safely
-  (goto-char (point-min))
-  (forward-line 3)
-  (delete-region (point-min) (point))
-  (emacspeak-auditory-icon 'help)))
+   (goto-char (point-min))
+   (forward-line 3)
+   (delete-region (point-min) (point))
+   (emacspeak-auditory-icon 'help)))
 
 ;;}}}
 ;;{{{  Actions
@@ -338,11 +338,11 @@ current local  value to the result."
       (setq emacspeak-line-echo
 	    (not emacspeak-line-echo ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-line-echo 'on 'off))
-  (message "Turned %s line echo%s "
-           (if emacspeak-line-echo "on" "off" )
-	   (if prefix "" " locally"))))
+    (emacspeak-auditory-icon
+     (if emacspeak-line-echo 'on 'off))
+    (message "Turned %s line echo%s "
+             (if emacspeak-line-echo "on" "off" )
+             (if prefix "" " locally"))))
 
 (defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
@@ -366,11 +366,11 @@ current local  value to the result."
       (setq emacspeak-word-echo
 	    (not emacspeak-word-echo ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-word-echo 'on 'off ))
-  (message "Turned %s word echo%s "
-           (if emacspeak-word-echo "on" "off" )
-	   (if prefix "" " locally"))))
+    (emacspeak-auditory-icon
+     (if emacspeak-word-echo 'on 'off ))
+    (message "Turned %s word echo%s "
+             (if emacspeak-word-echo "on" "off" )
+             (if prefix "" " locally"))))
 
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
@@ -427,11 +427,11 @@ current local  value to the result."
       (setq emacspeak-show-point
 	    (not emacspeak-show-point ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-show-point 'on 'off))
-  (message "Turned %s show point %s "
-           (if emacspeak-show-point "on" "off" )
-	   (if prefix "" " locally"))))
+    (emacspeak-auditory-icon
+     (if emacspeak-show-point 'on 'off))
+    (message "Turned %s show point %s "
+             (if emacspeak-show-point "on" "off" )
+             (if prefix "" " locally"))))
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
@@ -458,18 +458,18 @@ current local  value to the result."
 
 ;;}}}
 ;;;percentage getter with personality
-; (defsubst emacspeak-get-current-percentage-verbously ()
-;   "Return percentage of position into current buffer as a string."
-;   (let ((percent (emacspeak-get-current-percentage-into-buffer))
-; 	(message nil))
-;     (setq message
-; 	  (cond
-; 	   ((= 0 percent) " top")
-; 	   ((= 100 percent) " bottom ")
-; 	   (t (format " %d percent " percent))))
-;     (put-text-property 0 (length message)
-; 		       'property 'harry message)
-;     message))
+                                        ; (defsubst emacspeak-get-current-percentage-verbously ()
+                                        ;   "Return percentage of position into current buffer as a string."
+                                        ;   (let ((percent (emacspeak-get-current-percentage-into-buffer))
+                                        ; 	(message nil))
+                                        ;     (setq message
+                                        ; 	  (cond
+                                        ; 	   ((= 0 percent) " top")
+                                        ; 	   ((= 100 percent) " bottom ")
+                                        ; 	   (t (format " %d percent " percent))))
+                                        ;     (put-text-property 0 (length message)
+                                        ; 		       'property 'harry message)
+                                        ;     message))
 
 ;;}}}
 ;;{{{  indentation:
@@ -480,7 +480,7 @@ If non-nil , then speaking a line indicates its indentation.
 You can use  command `emacspeak-toggle-audio-indentation' bound
 to \\[emacspeak-toggle-audio-indentation] to toggle this
 setting.."
-:group 'emacspeak-speak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (make-variable-buffer-local 'emacspeak-audio-indentation)
@@ -505,10 +505,10 @@ setting.."
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set."
-:group 'emacspeak-speak
-:type '(choice
-        (const "speak")
-        (const "tone")))
+  :group 'emacspeak-speak
+  :type '(choice
+          (const "speak")
+          (const "tone")))
 
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)
@@ -572,7 +572,7 @@ Argument START  and END specify region to speak."
   "*Regular expression to match horizontal rules in ascii
 text."
   :group 'emacspeak-speak
-:type 'string)
+  :type 'string)
 
 (put 'emacspeak-horizontal-rule 'variable-interactive
      "sEnterregular expression to match horizontal rule: ")
@@ -583,7 +583,7 @@ text."
   "*Regular expressions to match lines that are purely
 decorative ascii."
   :group 'emacspeak-speak
-:type 'string)
+  :type 'string)
 
 (put 'emacspeak-decoration-rule 'variable-interactive
      "sEnterregular expression to match lines that are decorative ASCII: ")
@@ -596,7 +596,7 @@ non-alphanumeric characters.  emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some."
   :group 'emacspeak-speak
-:type 'string)
+  :type 'string)
 
 (put 'emacspeak-unspeakable-rule 'variable-interactive
      "sEnterregular expression to match unspeakable lines: ")
@@ -607,7 +607,7 @@ that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
 with a long string of gibberish."
   :group 'emacspeak-speak
-:type 'number)
+  :type 'number)
 
 
 
@@ -620,7 +620,7 @@ that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX."
   :group 'emacspeak-speak
-:type 'list)
+  :type 'list)
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
@@ -733,10 +733,10 @@ files like /var/adm/messages and /var/adm/maillog over time."
 ;;}}}
 
 (defcustom emacspeak-speak-space-regexp
-"^[ \t]+$"
-"Pattern that matches white space."
-:type 'string
-:group 'emacspeak)
+  "^[ \t]+$"
+  "Pattern that matches white space."
+  :type 'string
+  :group 'emacspeak)
 
 (defun emacspeak-speak-line (&optional arg)
   "Speaks current line.  With prefix ARG, speaks the rest of
@@ -902,27 +902,27 @@ spelt instead of being spoken."
   (when (listp arg) (setq arg (car arg )))
   (emacspeak-handle-action-at-point)
   (save-excursion
-        (let ((orig (point))
-              (inhibit-point-motion-hooks t)
-              (start nil)
-              (end nil)
-              (speaker 'dtk-speak))
-          (forward-word 1)
-          (setq end (point))
-          (backward-word 1)
-          (setq start (min orig  (point)))
-          (cond
-           ((null arg ))
-           ((> arg 0) (setq start orig))
-           ((< arg 0) (setq end orig )))
-          ;; select speak or spell
-          (cond
-           ((and (interactive-p)
-                 (eq emacspeak-speak-last-spoken-word-position orig))
-            (setq speaker 'emacspeak-speak-spell-word)
-            (setq emacspeak-speak-last-spoken-word-position nil))
-           (t (setq  emacspeak-speak-last-spoken-word-position orig)))
-          (funcall speaker  (buffer-substring  start end )))))
+    (let ((orig (point))
+          (inhibit-point-motion-hooks t)
+          (start nil)
+          (end nil)
+          (speaker 'dtk-speak))
+      (forward-word 1)
+      (setq end (point))
+      (backward-word 1)
+      (setq start (min orig  (point)))
+      (cond
+       ((null arg ))
+       ((> arg 0) (setq start orig))
+       ((< arg 0) (setq end orig )))
+      ;; select speak or spell
+      (cond
+       ((and (interactive-p)
+             (eq emacspeak-speak-last-spoken-word-position orig))
+        (setq speaker 'emacspeak-speak-spell-word)
+        (setq emacspeak-speak-last-spoken-word-position nil))
+       (t (setq  emacspeak-speak-last-spoken-word-position orig)))
+      (funcall speaker  (buffer-substring  start end )))))
 
 (defsubst emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
@@ -1247,21 +1247,21 @@ Negative prefix arg speaks from start of buffer to point."
            (window-live-p (get-buffer-window
                            completions-buffer )))
       (save-excursion
-      (save-window-excursion
-        (save-match-data
-          (select-window  (get-buffer-window completions-buffer ))
-          (goto-char (point-min))
-          (forward-line 3)
-          (while continue
-            (setq start (point)
-                  end (or  (re-search-forward "\\( +\\)\\|\n"  (point-max) t)
-                           (point-max )))
-            (dtk-speak (buffer-substring start end ) t) ;wait
-            (setq continue  (sit-for 1))
-            (if (eobp) (setq continue nil )))) ;end while
-        (discard-input)
-        (goto-char start )
-        (choose-completion ))))
+        (save-window-excursion
+          (save-match-data
+            (select-window  (get-buffer-window completions-buffer ))
+            (goto-char (point-min))
+            (forward-line 3)
+            (while continue
+              (setq start (point)
+                    end (or  (re-search-forward "\\( +\\)\\|\n"  (point-max) t)
+                             (point-max )))
+              (dtk-speak (buffer-substring start end ) t) ;wait
+              (setq continue  (sit-for 1))
+              (if (eobp) (setq continue nil )))) ;end while
+          (discard-input)
+          (goto-char start )
+          (choose-completion ))))
      (t (dtk-speak "No completions" )))))
 
 (defun emacspeak-speak-minibuffer(&optional arg)
@@ -1396,7 +1396,7 @@ You can use command
 `emacspeak-toggle-mail-alert' bound to
 \\[emacspeak-toggle-mail-alert] to set this option."
   :group 'emacspeak-speak
-:type 'boolean)
+  :type 'boolean)
 
 (defun emacspeak-toggle-mail-alert (&optional prefix)
   "Toggle state of  Emacspeak  mail alert.
@@ -1415,11 +1415,11 @@ indicating the arrival  of new mail when displaying the mode line."
       (setq emacspeak-mail-alert
 	    (not emacspeak-mail-alert ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-mail-alert 'on 'off))
-  (message "Turned %s mail alert  %s "
-           (if emacspeak-mail-alert "on" "off" )
-	   (if prefix "" "locally"))))
+    (emacspeak-auditory-icon
+     (if emacspeak-mail-alert 'on 'off))
+    (message "Turned %s mail alert  %s "
+             (if emacspeak-mail-alert "on" "off" )
+             (if prefix "" "locally"))))
 
 ;;}}}
 ;;{{{  Speak mode line information
@@ -1455,7 +1455,7 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result."
   (interactive  "P")
   (declare  (special  emacspeak-which-function-mode
-semantic-toplevel-bovine-cache ))
+                      semantic-toplevel-bovine-cache ))
   (require 'which-func)
   (cond
    (prefix
@@ -1466,14 +1466,14 @@ semantic-toplevel-bovine-cache ))
     (setq emacspeak-which-function-mode
           (not emacspeak-which-function-mode ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-which-function-mode 'on 'off ))
-  (message "Turned %s which function mode%s %s"
-           (if emacspeak-which-function-mode "on" "off" )
-	   (if prefix "" " locally")
-           (if semantic-toplevel-bovine-cache
-               ""
-             "Rebuild imenu index to  hear function name in mode line." ))))
+    (emacspeak-auditory-icon
+     (if emacspeak-which-function-mode 'on 'off ))
+    (message "Turned %s which function mode%s %s"
+             (if emacspeak-which-function-mode "on" "off" )
+             (if prefix "" " locally")
+             (if semantic-toplevel-bovine-cache
+                 ""
+               "Rebuild imenu index to  hear function name in mode line." ))))
 
 (defsubst emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
@@ -1685,16 +1685,16 @@ Default is to read the next word. "
 See the documentation for function
 `format-time-string'"
   :group 'emacspeak-speak
-:type 'string)
+  :type 'string)
 
 (defun emacspeak-speak-time ()
   "Speak the time."
   (interactive)
   (declare (special emacspeak-speak-time-format-string))
-      (tts-with-punctuations "some"
-                             (dtk-speak
-                              (format-time-string
-                               emacspeak-speak-time-format-string))))
+  (tts-with-punctuations "some"
+                         (dtk-speak
+                          (format-time-string
+                           emacspeak-speak-time-format-string))))
                              
 (defconst emacspeak-codename
   "GoldenDog"
@@ -1973,7 +1973,7 @@ You can use
   `emacspeak-toggle-comint-autospeak` bound to
   \\[emacspeak-toggle-comint-autospeak] to toggle this
 setting."
-:group 'emacspeak-speak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defun emacspeak-toggle-comint-autospeak (&optional prefix)
@@ -2005,7 +2005,7 @@ set the current local value to the result."
              (if prefix "" "locally"))))
 
 (defvar emacspeak-comint-output-monitor nil
-"Switch to monitor comint output.
+  "Switch to monitor comint output.
 When turned on,  comint output will be spoken even when the
 buffer is not current or its window live.")
 
@@ -2029,17 +2029,17 @@ set the current local value to the result."
       (setq emacspeak-comint-output-monitor
 	    (not emacspeak-comint-output-monitor ))))
   (when (interactive-p)
-  (emacspeak-auditory-icon
-   (if emacspeak-comint-output-monitor 'on 'off))
-  (message "Turned %s comint monitor %s "
-           (if emacspeak-comint-output-monitor "on" "off" )
-	   (if prefix "" "locally"))))
+    (emacspeak-auditory-icon
+     (if emacspeak-comint-output-monitor 'on 'off))
+    (message "Turned %s comint monitor %s "
+             (if emacspeak-comint-output-monitor "on" "off" )
+             (if prefix "" "locally"))))
 
 (defcustom emacspeak-comint-split-speech-on-newline  t
   "*Option to have comint split speech on newlines.
 Non-nil means we split speech on newlines in comint buffer."
   :group 'emacspeak-speak
-:type 'boolean)
+  :type 'boolean)
 
 (add-hook 'shell-mode-hook
           (function
@@ -2069,8 +2069,8 @@ message area.  You can use command
 `emacspeak-toggle-speak-messages' bound to
 \\[emacspeak-toggle-speak-messages]."
 
-:group 'emacspeak-speak
-:type 'boolean)
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defun emacspeak-toggle-speak-messages ()
   "Toggle the state of whether emacspeak echoes messages."
@@ -2082,11 +2082,11 @@ message area.  You can use command
        (setq  emacspeak-speak-messages
               (not emacspeak-speak-messages))
        (when (interactive-p)
-       (emacspeak-auditory-icon
-        (if emacspeak-speak-messages  'on 'off))
-       (dtk-speak
-        (format "Turned  speaking of emacs messages %s"
-                (if emacspeak-speak-messages  " on" " off"))))))
+         (emacspeak-auditory-icon
+          (if emacspeak-speak-messages  'on 'off))
+         (dtk-speak
+          (format "Turned  speaking of emacs messages %s"
+                  (if emacspeak-speak-messages  " on" " off"))))))
 
 ;;}}}
 ;;{{{  Moving across fields:
@@ -2255,26 +2255,26 @@ Speak the window contents after scrolling."
 Speak the window contents after scrolling."
   (interactive)
   (save-excursion
-  (let ((error nil)
-        (start
-         (save-window-excursion
-           (other-window 1)
-           (window-start )))
-        (height (save-window-excursion
-                  (other-window 1)
-                  (window-height))))
-    (condition-case nil
-        (scroll-other-window  (- height ))
-      (error (setq error t )))
-    (if error
-        (message "There is no other window ")
-      (save-window-excursion
-        (other-window 1)
-        (cond
-         ((= start (window-start) )
-          (message "At top of other window "))
-         (t (emacspeak-auditory-icon 'scroll)
-            (emacspeak-speak-region (window-start) (window-end )))))))))
+    (let ((error nil)
+          (start
+           (save-window-excursion
+             (other-window 1)
+             (window-start )))
+          (height (save-window-excursion
+                    (other-window 1)
+                    (window-height))))
+      (condition-case nil
+          (scroll-other-window  (- height ))
+        (error (setq error t )))
+      (if error
+          (message "There is no other window ")
+        (save-window-excursion
+          (other-window 1)
+          (cond
+           ((= start (window-start) )
+            (message "At top of other window "))
+           (t (emacspeak-auditory-icon 'scroll)
+              (emacspeak-speak-region (window-start) (window-end )))))))))
 
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.
@@ -2338,17 +2338,17 @@ Semantics  of `other' is the same as for the builtin Emacs command
           (cond
            ((not (interactive-p)) arg)
            (t 
-          (condition-case nil
-              (read (format "%c" last-input-event ))
-            (error nil ))))))
+            (condition-case nil
+                (read (format "%c" last-input-event ))
+              (error nil ))))))
     (or (numberp window)
         (setq window
               (read-minibuffer "Window   between 1 and 9 to
 speak")))
     (save-excursion
-    (save-window-excursion
-      (other-window window )
-      (emacspeak-speak-region (window-start) (window-end ))))))
+      (save-window-excursion
+        (other-window window )
+        (emacspeak-speak-region (window-start) (window-end ))))))
 
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
