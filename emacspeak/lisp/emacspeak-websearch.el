@@ -530,9 +530,12 @@ ARGS specifies additional arguments to SPEAKER if any."
   "&d=v1"
   "*Additional default options to pass to Yahoo.")
 
-(defvar emacspeak-websearch-personal-portfolio nil
+(defcustom emacspeak-websearch-personal-portfolio nil
   "Set this to the stock tickers you want to check by
-default.")
+default."
+  :type 'string
+  :group 'emacspeak-websearch)
+
 (defvar emacspeak-websearch-lynx-program "lynx"
   "Name of lynx executable")
 
