@@ -560,7 +560,7 @@ With prefix arg, opens the phone book for editting."
 ;;{{{ setup CVS access to sourceforge 
 
 (defcustom emacspeak-cvs-local-directory
-  (expand-file-name "~/cvs-emacspeak")
+  (expand-file-name "~/sourceforge/cvs-emacspeak")
   "Directory where we download the snapshot."
   :type 'directory
   :group 'emacspeak-wizards)
