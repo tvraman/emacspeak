@@ -148,7 +148,8 @@ emacspeak-realaudio-shortcuts-directory. "
     (kill-buffer emacspeak-realaudio-buffer))
   (let ((process-connection-type nil)
         (default-directory
-          (if (string-match "^http" resource )
+          (if (or (string-match "^rtsp:" resource)
+                  (string-match "^http" resource ))
               default-directory
             (file-name-directory resource)))
         (options (copy-list emacspeak-realaudio-player-options)))
