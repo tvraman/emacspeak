@@ -1907,10 +1907,10 @@ directory to where find is to be launched."
   (declare (special browse-url-browser-function))
   (cond
    ((eq browse-url-browser-function 'w3-fetch)
-    (setq browse-url-browser-function 'w3m-goto-url)
+    (setq browse-url-browser-function 'w3m-browse-url)
     (message "Browse  URL will now use W3M")
     (emacspeak-auditory-icon 'select-object))
-((eq browse-url-browser-function 'w3m-goto-url)
+((eq browse-url-browser-function 'w3m-browse-url)
     (setq browse-url-browser-function 'w3-fetch)
     (message "Browse  URL will now use W3")
     (emacspeak-auditory-icon 'select-object))

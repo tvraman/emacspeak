@@ -4,6 +4,7 @@
 ;; Copyright (C) 2001,2002  Dimitri V. Paduchih
 
 ;; Author: Dimitri Paduchih <paduch@imm.uran.ru>
+;;;author: T. V. Raman (integration with Emacspeak, and sections marked TVR)
 ;; Keywords: emacspeak, w3m
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -206,11 +207,11 @@
    ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
+  (emacspeak-w3m-voiceify-faces (point-min) (point-max))
+  (emacspeak-auditory-icon 'open-object)
   (when (stringp w3m-current-title)
     (message "%s" w3m-current-title)))
    (t ad-do-it))ad-return-value)
-
-  
 
 (defadvice w3m-next-anchor (around emacspeak pre act)
   "Speech-enable W3M."
@@ -411,10 +412,70 @@ libxslt package."
   (message "Turned %s XSL"
            (if emacspeak-w3m-xsl-p 'on 'off)))
 ;;}}}
+;;{{{ tvr: mapping font faces to personalities 
+(defvar emacspeak-w3m-font-faces-to-voiceify
+  (list 'bold 'italic   'bold-italic 'underline
+        'w3m-anchor-face  'w3m-arrived-anchor)
+  "List of font faces we voiceify")
+
+
+
+(defun emacspeak-w3m-voiceify-faces (start end)
+  "Map base fonts to voices."
+  (interactive "r")
+  (declare (special
+            emacspeak-w3m-font-faces-to-voiceify))
+  (set (make-local-variable 'voice-lock-mode) t)
+  (ems-modify-buffer-safely
+   (save-excursion
+     (goto-char start)
+     (let ((face nil )
+           (orig start)
+           (pos nil))
+       (while (and  (not (eobp))
+                    (< start end))
+         (setq face (get-text-property (point) 'face ))
+         (goto-char
+          (or
+           (next-single-property-change (point) 'face
+                                        (current-buffer) end)
+           end))
+         (cond
+          ((eq face  'w3m-anchor-face)
+           (put-text-property start  (point)
+                              'personality 'harry))
+          ((eq face 'w3m-arrived-anchor-face)
+           (put-text-property start  (point)
+                              'personality 'betty))
+          (t 
+           (put-text-property start  (point)
+                              'personality
+                              (if (listp face)
+                                  (loop for f in emacspeak-w3m-font-faces-to-voiceify
+                                        thereis (find f face))
+                                face ))))
+         (setq start (point)))))
+  (message "voicified faces")))
+
+(defadvice w3m-mode (after emacspeak pre act comp)
+  "Set punctuation mode."
+  (declare (special dtk-punctuation-mode))
+  (setq dtk-punctuation-mode "some"))
+
+(defadvice w3m-reload-this-page (after emacspeak pre act comp)
+  "Voiceify buffer."
+  (declare (special dtk-punctuation-mode))
+  (emacspeak-w3m-voiceify-faces (point-min) (point-max)))
+
+;;}}}
 (provide 'emacspeak-w3m)
+;;{{{ end of file 
+
 ;;; emacspeak-w3m.el ends here
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end: 
+
+;;}}}
