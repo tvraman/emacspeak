@@ -620,6 +620,29 @@ Argument OUTPUT is the newly arrived output."
   "*Scale factor applied to speech rate when skimming.")
 
 ;;}}}
+;;{{{ helper --generate state switcher:
+(defun dtk-speak-generate-state-switcher (command switch
+                                                  documentation &optional action)
+  "Generate desired command to switch the specified state."
+  (eval
+   `(defun ,command  (&optional prefix)
+  ,documentation
+  (interactive "P")
+  (declare (special dtk-speaker-process ,switch ))
+  (cond
+   (prefix
+    (setq-default  ,switch
+                   (not  (default-value  ',switch)))
+    (setq ,switch (default-value ',switch )))
+   (t (make-local-variable ',switch)
+      (setq ,switch (not ,switch ))))
+  (message "Turned %s %s  %s."
+           (if ,switch "on" "off" )
+            ',switch 
+           (if prefix "" " locally")))))
+    
+)
+;;}}}
 ;;{{{  sending commands
 (defun tts-speak-version ()
   "Speak version."
@@ -710,26 +733,23 @@ emacspeak loaded but wish to make the speech shut up.
 Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers."
   (interactive "P")
   (declare (special dtk-speaker-process dtk-quiet ))
-  (and (not dtk-quiet)
-       (message "Turning  off  speech synthesizer %s "
-                (if prefix "" " locally")))
+  (message "Turning  off  speech synthesizer %s "
+           (if prefix "" " locally"))
   (cond
    (prefix
     (setq-default  dtk-quiet
                    (not  (default-value 'dtk-quiet )))
     (setq dtk-quiet (default-value 'dtk-quiet )))
    (t (make-local-variable 'dtk-quiet)
-      (setq dtk-quiet
-            (not dtk-quiet ))))
-  (and (not dtk-quiet)
-       (message "Turned   on  speech synthesizer %s"
-                (if prefix "" " locally"))))
+      (setq dtk-quiet (not dtk-quiet ))))
+  (message "Turned   on  speech synthesizer %s"
+           (if prefix "" " locally")))
 
 (defun dtk-toggle-stop-immediately-while-typing  (&optional prefix)
   "Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
-type.
-Optional argument PREFIX specifies if the setting applies to all buffers."
+type.  Optional argument PREFIX specifies if the setting applies
+to all buffers."
   (interactive "P")
   (declare (special dtk-speaker-process dtk-stop-immediately-while-typing ))
   (cond
