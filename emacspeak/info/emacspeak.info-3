@@ -256,14 +256,14 @@ emacspeak-aumix-reset
 emacspeak-aumix-wave-decrease
 =============================
 
-   ` control e control f left '
+   ` Control  cap E  Control  cap F  left '
 
    Decrease volume of wave output.
 
 emacspeak-aumix-wave-increase
 =============================
 
-   ` control e control f right '
+   ` Control  cap E  Control  cap F  right '
 
    Increase volume of wave output.
 
@@ -367,7 +367,7 @@ emacspeak-speak-calendar-date
 emacspeak-appt-repeat-announcement
 ==================================
 
-   ` control e  cap A  '
+   ` Control  cap E   cap A  '
 
    Speaks the most recently displayed appointment message if any.
 
@@ -1300,12 +1300,12 @@ emacspeak-mp3-playlist-play
    No global keybinding
 
    Play a playlist.  Optional interactive prefix arg says not to
-shuffle  the list.  Use command C-x  h n to skip to the next track.
+shuffle  the list.  Use command C-x @ h n to skip to the next track.
 
 emacspeak-mp3-playlist-skip
 ===========================
 
-   ` control x  h n '
+   ` Control  cap X  @ h n '
 
    Skip currently playing track.
 
@@ -1600,14 +1600,14 @@ outline section is optionally spoken
 emacspeak-outline-speak-this-heading
 ====================================
 
-   ` Control  cap L  SPACE '
+   ` control l SPACE '
 
    Speak current outline section starting from point
 
 emacspeak-outline-speak-backward-heading
 ========================================
 
-   ` Control  cap L  b '
+   ` control l b '
 
    Analogous to outline-backward-same-level except that the outline
 section is optionally spoken
@@ -1615,7 +1615,7 @@ section is optionally spoken
 emacspeak-outline-speak-next-heading
 ====================================
 
-   ` Control  cap L  n '
+   ` control l n '
 
    Analogous to outline-next-visible-heading, except that the outline
 section is optionally spoken
@@ -1623,7 +1623,7 @@ section is optionally spoken
 emacspeak-outline-speak-forward-heading
 =======================================
 
-   ` Control  cap L  f '
+   ` control l f '
 
    Analogous to outline-forward-same-level, except that the outline
 section is optionally spoken
@@ -1685,7 +1685,7 @@ persistent dictionaries if not already loaded.
 emacspeak-pronounce-dispatch
 ============================
 
-   ` Control  cap E  Meta  cap D  '
+   ` control e meta d '
 
    Provides the user interface front-end to Emacspeak's pronunciation
 dictionaries.
