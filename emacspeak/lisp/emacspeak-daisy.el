@@ -133,6 +133,8 @@
 
 (defvar emacspeak-daisy-mpg123-player "mpg123"
   "MPG123 executable for playing mp3 files.")
+(defvar emacspeak-daisy-audio-play-process nil
+  "Handle to  audio process.")
 
 (defun emacspeak-daisy-play-audio (clip)
   "Play clip specified by clip.
@@ -153,13 +155,20 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
                                             emacspeak-daisy-this-book))
     (setq first (emacspeak-daisy-time-string-to-frame begin))
     (setq last (emacspeak-daisy-time-string-to-frame end))
+    (setq emacspeak-daisy-audio-play-process
     (start-process "mpg123"  nil 
                    emacspeak-daisy-mpg123-player
                    "-k"
                    (format "%s"  (1- first))
                    "-n"
                    (format "%s"  (- last first ))
-                   path)))
+                   path))))
+
+(defun emacspeak-daisy-stop-audio ()
+  "Stop audio."
+  (interactive)
+  (delete-process emacspeak-daisy-audio-play-process)
+  (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
 ;;{{{ play smil content 
