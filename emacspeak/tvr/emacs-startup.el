@@ -254,12 +254,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (server-start)
 
     ;;}}}
-    ;;{{{  Improved grep: igrep 
-
-    (autoload 'igrep "igrep"
-      "Improved grep" t)
-
-    ;;}}}
     ;;{{{  calculator: 
 
     (load-library-if-available "calc-prepare")
