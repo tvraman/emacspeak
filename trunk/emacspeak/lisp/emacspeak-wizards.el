@@ -1953,6 +1953,17 @@ hits."
        (emacspeak-url-template-get name))))
 
 ;;}}}
+;;{{{ display environment variable
+(defun emacspeak-wizards-show-environment-vvariable (v)
+  "Display value of specified environment variable."
+  (interactive
+   (list
+    (read-envvar-name "Display environment variable: " 'exact)))
+  (message "%s is %s"
+v
+  (getenv v)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
