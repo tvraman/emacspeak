@@ -41,10 +41,13 @@ relevant tables bubble to the top.
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
   <!-- { html body  -->
   <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
-  <xsl:template match="/html/head">
+  <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
@@ -56,7 +59,7 @@ relevant tables bubble to the top.
       </xsl:if>
     </head>
   </xsl:template>
-  <xsl:template match="/html/body">
+  <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:if test="count(//table//table)  &gt; 0">

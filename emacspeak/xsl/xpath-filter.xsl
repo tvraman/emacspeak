@@ -35,18 +35,23 @@ asks that nodes be processed only once -use with care.
   <!-- { html   -->
   <!--add base uri if available. -->
   
-  <xsl:template match="/html/head">
-    <xsl:element name="head">
-      <xsl:element name="base">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
-      </xsl:element>
-      <xsl:apply-templates select="title" mode="copy"/>
-    </xsl:element>
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="head">
+    <head>
+      <xsl:apply-templates select="title"/>
+      <xsl:if test="string-length($base) &gt; 0">
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
+      </xsl:if>
+    </head>
   </xsl:template>
   
-  <xsl:template match="/html/body">
+  <xsl:template match="body">
     <body>
       <xsl:apply-templates select="$locator" mode="copy"/>
       

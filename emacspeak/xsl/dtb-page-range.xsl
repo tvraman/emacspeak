@@ -55,7 +55,7 @@ and the final intersection is computed using set:intersection.
             <xsl:variable name="first"
             select="key('pageKey', $start)"/>
             <xsl:variable name="last" select="key('pageKey',
-              number($end+1))"/>
+            number($end+1))"/>
             <xsl:variable  name="after" select="$first[1]/following::p"/>
             <xsl:variable name="before" select="$last[1]/preceding::p"/>
             <xsl:for-each select="set:intersection($before, $after)">
