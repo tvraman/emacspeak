@@ -152,6 +152,13 @@ will be placed."
   :type 'boolean
   :group 'emacspeak-ocr)
 
+(defcustom emacspeak-ocr-jpeg-metadata-writer "wrjpgcom"
+  "Program to add metadata to JPEG files."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+
+
 ;;}}}
 ;;{{{  helpers
 
@@ -417,11 +424,12 @@ Pick a short but meaningful name."
     (message "Acquired  image to file %s"
              image-name)))
 
-(defun emacspeak-ocr-scan-photo ()
+(defun emacspeak-ocr-scan-photo (&optional metadata)
   "Scan in a photograph.
 The scanned image is converted to JPEG."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-jpeg-metadata-writer
                     emacspeak-ocr-photo-compress-options
                     emacspeak-ocr-scan-photo-options
                     emacspeak-ocr-keep-uncompressed-image
@@ -438,15 +446,28 @@ The scanned image is converted to JPEG."
                 emacspeak-ocr-scan-image
                 emacspeak-ocr-scan-photo-options 
                 emacspeak-ocr-image-extension)
-        (format "%s %s  temp%s %s ;\n"
-                emacspeak-ocr-compress-photo
-                emacspeak-ocr-compress-photo-options
-                emacspeak-ocr-image-extension
-                image-name)
+        (let ((emacspeak-ocr-image-extension ".jpg"))
+          (format "%s %s  temp%s > %s ;\n"
+                  emacspeak-ocr-compress-photo
+                  emacspeak-ocr-compress-photo-options
+                  image-name))
         (if emacspeak-ocr-keep-uncompressed-image
             (format "echo \'Uncompressed image not removed.'")
           (format "rm -f temp%s"
                   emacspeak-ocr-image-extension)))))
+    (when (and metadata
+               (interactive-p))
+      (setq metadata
+            (read-from-minibuffer "Enter picture description: "))
+      (let* ((emacspeak-ocr-image-extension ".jpg")
+             (image (emacspeak-ocr-get-image-name))
+             (tempfile (format "temp%s.jpg" (gensym)))))
+      (shell-command
+       (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
+                image tempfile
+                emacspeak-ocr-jpeg-metadata-writer metadata 
+                tempfile image
+                tempfile)))
     (message "Acquired  image to file %s"
              image-name)))
 
