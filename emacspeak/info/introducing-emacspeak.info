@@ -3,21 +3,22 @@ from introducing-emacspeak.texi.
 
 Copyright (C) 2003 Robert J. Chassell
 
-In this essay, I suggest how to introduce Emacspeak to someone new,
+   In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
 Emacspeak.
 
-In addition, the essay contains some comments on two software
+   In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-Last updated on: 2003 Apr 28
+   Last updated on: 2003 Apr 28
 
      This essay uses a verbatim license, since it is a statement of my
      recommendations.
      Permission is granted to make and distribute verbatim copies of
-     this entire document without royalty provided the copyright
-     notice and this permission notice are preserved on all copies.
+     this entire document without royalty provided the copyright notice
+     and this permission notice are preserved on all copies.
 
+   
 
 File: introducing-emacspeak.info,  Node: Top,  Next: This Essay,  Prev: (dir),  Up: (dir)
 
@@ -26,22 +27,23 @@ Introducing Emacspeak
 
 Copyright (C) 2003 Robert J. Chassell
 
-In this essay, I suggest how to introduce Emacspeak to someone new,
+   In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
 Emacspeak.
 
-In addition, the essay contains some comments on two software
+   In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-Last updated on: 2003 Apr 28
+   Last updated on: 2003 Apr 28
 
      This essay uses a verbatim license, since it is a statement of my
      recommendations.
      Permission is granted to make and distribute verbatim copies of
-     this entire document without royalty provided the copyright
-     notice and this permission notice are preserved on all copies.
+     this entire document without royalty provided the copyright notice
+     and this permission notice are preserved on all copies.
 
-This essay is about Emacspeak and how to introduce it to a friend.
+   
+   This essay is about Emacspeak and how to introduce it to a friend.
 It is not a substitute for the Emacspeak manual, but an addendum.
 
 * Menu:
@@ -60,20 +62,20 @@ File: introducing-emacspeak.info,  Node: This Essay,  Next: Questions,  Prev: To
 This Essay
 **********
 
-In this essay, I will recommend that you and your friend read parts of
-the Emacspeak manual together, practice commands, and practice using
+   In this essay, I will recommend that you and your friend read parts
+of the Emacspeak manual together, practice commands, and practice using
 the online help.  In addition, I shall talk about the notions behind
 GNU Emacs, which underlies Emacspeak.
 
-Your friend may be permanently blind, partially blind, or like a car
+   Your friend may be permanently blind, partially blind, or like a car
 driver, situationally blind.  Regardless of circumstance, your friend
 will find that Emacspeak is different from other user interfaces.
 
-You will notice that I keep mentioning `your friend'; of course, you
+   You will notice that I keep mentioning `your friend'; of course, you
 may be introducing yourself to Emacspeak.  This is not impossible.  It
 is just harder.  This is how I learned Emacspeak.
 
-The essay has six parts.  The first four parts are the core.  The
+   The essay has six parts.  The first four parts are the core.  The
 fifth and sixth parts are about particular software text-to-speech
 synthesizers and about one method of installation.
 
@@ -105,11 +107,10 @@ synthesizers and about one method of installation.
      This is a section on installing Emacspeak in Debian with both
      `eflite' and `espeakf'.  Even though I am now running two
      instances of Emacspeak, one using `eflite' and the other using
-     `espeakf', I am least certain about this part.  This is because
-     so much of my Emacs and other installation is from sources.  I
-     don't know what a standard Debian or standard Emacspeak
-     installation involves.  I think what I describe is correct; but
-     am not sure.
+     `espeakf', I am least certain about this part.  This is because so
+     much of my Emacs and other installation is from sources.  I don't
+     know what a standard Debian or standard Emacspeak installation
+     involves.  I think what I describe is correct; but am not sure.
 
 
 File: introducing-emacspeak.info,  Node: Questions,  Next: Introducing Emacspeak,  Prev: This Essay,  Up: Top
@@ -117,41 +118,40 @@ File: introducing-emacspeak.info,  Node: Questions,  Next: Introducing Emacspeak
 Questions to Help Orient Yourself
 *********************************
 
-My first question is whether you already know and use Emacspeak and
-are introducing someone else to an already running Emacspeak with
-which you have experience, or whether you are the new user and must
-not only learn to use Emacspeak yourself, but must also install it?
-(I know there are other alternatives, but these are critical.)
+   My first question is whether you already know and use Emacspeak and
+are introducing someone else to an already running Emacspeak with which
+you have experience, or whether you are the new user and must not only
+learn to use Emacspeak yourself, but must also install it?  (I know
+there are other alternatives, but these are critical.)
 
-My hope is that you are the first: that you, the reader, are someone
+   My hope is that you are the first: that you, the reader, are someone
 who already knows and uses Emacspeak and are introducing it to someone
 else; but my fear is that you are the second.  The second path is
 harder.
 
-I will mention installation again after introducing Emacspeak, talking
-about some of the underlying notions behind GNU Emacs, and several
-other matters.  But first, I would like to ask you what kind of
+   I will mention installation again after introducing Emacspeak,
+talking about some of the underlying notions behind GNU Emacs, and
+several other matters.  But first, I would like to ask you what kind of
 text-to-speech facility you use?
 
-Are you using an external synthesizer, an internal hardware card for
+   Are you using an external synthesizer, an internal hardware card for
 "text-to-speech" generation or do you expect to use a software
-text-to-speech package such as `eflite' or `espeakf'?  I do not have
-a hard synthesizer, but run both those two software packages.  In the
+text-to-speech package such as `eflite' or `espeakf'?  I do not have a
+hard synthesizer, but run both those two software packages.  In the
 installation section, I will talk about them.
 
-Emacspeak was originally written for an external hardware DecTalk
+   Emacspeak was originally written for an external hardware DecTalk
 synthesizer attached to a serial port.  I am told that a hardware
 synthesizer is better, whether internal or external, and that if you
 can, you should use one.  However, you can also use a software
 text-to-speech program.
 
-This means that you can run Emacspeak on any computer that has sound,
+   This means that you can run Emacspeak on any computer that has sound,
 as do most contemporary personal computers.  You can try out Emacspeak
-without first investing in special hardware.  However, it is also
-worth bearing in mind that at the time I am writing this, in
-April 2003, neither the `eflite' nor the `espeakf' software
-text-to-speech programs is mature.  Speech is not as good as it might
-be.
+without first investing in special hardware.  However, it is also worth
+bearing in mind that at the time I am writing this, in April 2003,
+neither the `eflite' nor the `espeakf' software text-to-speech programs
+is mature.  Speech is not as good as it might be.
 
 
 File: introducing-emacspeak.info,  Node: Introducing Emacspeak,  Next: Free Books,  Prev: Questions,  Up: Top
@@ -159,41 +159,40 @@ File: introducing-emacspeak.info,  Node: Introducing Emacspeak,  Next: Free Book
 Introducing Emacspeak
 *********************
 
-Let me hope that you, the reader, already know and use Emacspeak and
-are introducing it to someone else.  You may not be that person, but
-I will write this section as if you are.  You are introducing a
-friend to Emacspeak.
+   Let me hope that you, the reader, already know and use Emacspeak and
+are introducing it to someone else.  You may not be that person, but I
+will write this section as if you are.  You are introducing a friend to
+Emacspeak.
 
-First of all, in Info, please listen together with your friend to the
+   First of all, in Info, please listen together with your friend to the
 beginnings of the Emacspeak manual.  You might want to start with the
 Introduction node.  It is well written.  *Note Introduction:
 (emacspeak)Introduction.  You can use the opportunity to introduce
-various Emacspeak commands and to discuss the philosophy or
-world-view behind Emacspeak.
+various Emacspeak commands and to discuss the philosophy or world-view
+behind Emacspeak.
 
-You can also explain the meaning of some of the jargon, such as
+   You can also explain the meaning of some of the jargon, such as
 `point' to mean the place in the text where commands operate, `visit'
 to mean opening a file in a buffer, and `string' to mean a `string of
 characters'.
 
-Sighted people tend to work with the three contemporary user
+   Sighted people tend to work with the three contemporary user
 interfaces: command line, graphical, and Emacs.  Each is different.
 
-A key to Emacspeak is to understand that it provides a fourth type of
+   A key to Emacspeak is to understand that it provides a fourth type of
 user interface.
 
-Emacspeak is different from the shell command line interface that uses
-commands such as `ls'.  It is different from a graphic user interface
-such as GNOME/sawfish that uses a package such as `Mozilla'.
+   Emacspeak is different from the shell command line interface that
+uses commands such as `ls'.  It is different from a graphic user
+interface such as GNOME/sawfish that uses a package such as `Mozilla'.
 Moreover, although it is based on the virtual lisp machine interface
 that is GNU Emacs, it is different from it, too.
 
-Put another way, Emacs and Emacspeak are both integrated user
-interfaces, like a shell, plus `vi', plus `ls', plus `gdb', plus
-`gcc', and so on.  While related to each other, they are also
-different.
+   Put another way, Emacs and Emacspeak are both integrated user
+interfaces, like a shell, plus `vi', plus `ls', plus `gdb', plus `gcc',
+and so on.  While related to each other, they are also different.
 
-Emacspeak is a complete audio desktop; it is not a visual desktop.
+   Emacspeak is a complete audio desktop; it is not a visual desktop.
 T. V. Raman describes it in his Emacspeak manual.  *Note Emacspeak:
 (emacspeak)Top.
 
@@ -214,12 +213,13 @@ File: introducing-emacspeak.info,  Node: Info and Help,  Next: Movement,  Prev: 
 Info and Help
 =============
 
-Your friend will want to learn a great many keystroke commands, but if
-he is like me, he will continually forget them, too.
+   Your friend will want to learn a great many keystroke commands, but
+if he is like me, he will continually forget them, too.
 
-So you need to teach him how to use Info, which is where he can listen
-to the Emacspeak manual.  And you need to teach him how to use help.
-This way, he can always learn more, or relearn what he has forgot.
+   So you need to teach him how to use Info, which is where he can
+listen to the Emacspeak manual.  And you need to teach him how to use
+help.  This way, he can always learn more, or relearn what he has
+forgot.
 
 The first commands I learned were:
 
@@ -234,9 +234,8 @@ The first commands I learned were:
 `Control-e left-brace'
      Speak paragraph.
 
-     With a prefix arg, speak the rest of the current paragraph.
-     With a negative prefix arg, read from the start of the current
-     paragraph
+     With a prefix arg, speak the rest of the current paragraph.  With
+     a negative prefix arg, read from the start of the current paragraph
 
 `Control-e left-angle-bracket'
      Speak a page.
@@ -262,12 +261,12 @@ The first commands I learned were:
      Use as a prefix to some interactive commands, as with
      `Control-u Control-e left-angle-bracket'
 
-Your friend will also need to learn the regular movement and search
-keys.  The Emacs Tutorial is good for this.  But first teach him how
-to listen to Info and to use the online help.
+   Your friend will also need to learn the regular movement and search
+keys.  The Emacs Tutorial is good for this.  But first teach him how to
+listen to Info and to use the online help.
 
-Note that the Emacs Tutorial contains left and right angle brackets in
-two places.  To hear them in Emacspeak, you must set the punctuation
+   Note that the Emacs Tutorial contains left and right angle brackets
+in two places.  To hear them in Emacspeak, you must set the punctuation
 mode to `all', with the command:
 
      Control-e d p all RET
@@ -275,10 +274,10 @@ mode to `all', with the command:
 Otherwise, the brackets will not be spoken.  (The <RET> at the end of
 the command means to press the Return key after typing `all'.)
 
-In most Emacs documentation, a command such as Control-e left-brace
-command is written as `C-e {'.  If you are listening in Emacspeak,
-you have to set the punctuation mode to `all'; otherwise, you will
-not hear the left-brace spoken.
+   In most Emacs documentation, a command such as Control-e left-brace
+command is written as `C-e {'.  If you are listening in Emacspeak, you
+have to set the punctuation mode to `all'; otherwise, you will not hear
+the left-brace spoken.
 
 
 File: introducing-emacspeak.info,  Node: Movement,  Next: Keybindings,  Prev: Info and Help,  Up: Introducing Emacspeak
@@ -286,25 +285,25 @@ File: introducing-emacspeak.info,  Node: Movement,  Next: Keybindings,  Prev: In
 Movement
 ========
 
-As for movement:  incremental search is the most important way of
+   As for movement:  incremental search is the most important way of
 moving around documents.  This command is bound to `Control-s', which
 is usually written as `C-s'.  Often people do not think of a search
 command as a movement command, but it is.
 
-Moreover, Emacs incremental search provides the single best user
-interface for a search command that exists.  Many other search
-commands require that you figure out your search string before you
-type, which means that the search fails when you type too little.
-Incremental search is nicer to use.
+   Moreover, Emacs incremental search provides the single best user
+interface for a search command that exists.  Many other search commands
+require that you figure out your search string before you type, which
+means that the search fails when you type too little.  Incremental
+search is nicer to use.
 
-The character and word movement keys, and the character and word
-deletion keys, are reasonably easy for English speakers to learn,
-since they use English language mnemonics:  `Control-f' to move
-forward a character, `Meta-f' to move forward a word.  (Meta-f is
-usually written as `M-f'.)  p is for previous, n is for next, b is
-for backwards, and d is for delete.
+   The character and word movement keys, and the character and word
+deletion keys, are reasonably easy for English speakers to learn, since
+they use English language mnemonics:  `Control-f' to move forward a
+character, `Meta-f' to move forward a word.  (Meta-f is usually written
+as `M-f'.)  p is for previous, n is for next, b is for backward, and d
+is for delete.
 
-Control key commands are often (but not always) for character
+   Control key commands are often (but not always) for character
 movement;  Meta key commands are often (but not always) for word
 movement.
 
@@ -314,48 +313,48 @@ File: introducing-emacspeak.info,  Node: Keybindings,  Next: X Windows Keybindin
 Keybindings
 ===========
 
-You will want to explain the use of Meta.  You might tell your friend
-that on many modern keyboards, a Meta key is what is now, generally
-and erroneously, labeled Alt, spelled A L T, and usually written
-<ALT>.  (Genuine Alt keys can and do exist; but the default
-keybinding for many machines automatically makes the key labeled Alt
-be a Meta key.  Naturally, you should set up the machine so that a key
-labeled Alt takes on a Meta keybinding, for example with the
+   You will want to explain the use of Meta.  You might tell your friend
+that on many modern keyboards, a Meta key is what is now, generally and
+erroneously, labeled Alt, spelled A L T, and usually written <ALT>.
+(Genuine Alt keys can and do exist; but the default keybinding for many
+machines automatically makes the key labeled Alt be a Meta key.
+Naturally, you should set up the machine so that a key labeled Alt
+takes on a Meta keybinding, for example with the
 `install-keymap emacs2' command.)
 
-Worse, in some cases, people press the Escape key to simulate a Meta
+   Worse, in some cases, people press the Escape key to simulate a Meta
 keypress.  The Escape key is usually written <ESC>.  No one in their
 right mind uses an Escape key, unless forced by a really old keyboard.
 
-While I am speaking of keybindings, and to be complete, please be sure
-the control key is the key to the left of the A key.  This is
+   While I am speaking of keybindings, and to be complete, please be
+sure the control key is the key to the left of the A key.  This is
 something you should set up; you don't need to explain any of this.
 
-You may have to change the keybinding.  On some keyboards, the key to
+   You may have to change the keybinding.  On some keyboards, the key to
 the left of the A key is labeled Caps_Lock.  It is as if the keyboard
 manufacturers think that computers are typewriters from 1885.
-Moreover, they put the key labeled Control in an awkward spot, and
-then provide default keybindings that match the labels.  You have to
-change the keybindings.
+Moreover, they put the key labeled Control in an awkward spot, and then
+provide default keybindings that match the labels.  You have to change
+the keybindings.
 
-Generally, the proper keymap is in
+   Generally, the proper keymap is in
 
      /usr/share/keymaps/i386/qwerty/emacs2.kmap.gz
 or
      /usr/share/kbd/keymaps/i386/qwerty/emacs2.kmap.gz
 
-You can install the keymap permanently on your system for a console
+   You can install the keymap permanently on your system for a console
 with the shell command:
 
      install-keymap emacs2
 
-(This may be a Debian specific command; it copies the
-`emacs2.kmap.gz' file to the `/etc/console/boottime.kmap.gz' file,
-which is loaded into the kernel at boot-time.  The older and widely
-used command is `loadkeys'; when you run it, you have to specify the
-full path to the file.
+(This may be a Debian specific command; it copies the `emacs2.kmap.gz'
+file to the `/etc/console/boottime.kmap.gz' file, which is loaded into
+the kernel at boot-time.  The older and widely used command is
+`loadkeys'; when you run it, you have to specify the full path to the
+file.
 
-For example, to install the proper keymap, you might type
+   For example, to install the proper keymap, you might type
 
      loadkeys /usr/share/keymaps/i386/qwerty/emacs2.kmap.gz
 
@@ -365,8 +364,8 @@ available early during the boot process, it is a good idea to copy the
 `/etc/console/boottime.kmap.gz' file.  This is what the
 `install-keymap' command does.  If you don't have an `install-keymap'
 command, you can copy the file yourself and put a
-`loadkeys /etc/console/boottime.kmap.gz' command into one of your
-boot scripts.)
+`loadkeys /etc/console/boottime.kmap.gz' command into one of your boot
+scripts.)
 
 
 File: introducing-emacspeak.info,  Node: X Windows Keybindings,  Next: Speech Rate,  Prev: Keybindings,  Up: Introducing Emacspeak
@@ -374,29 +373,29 @@ File: introducing-emacspeak.info,  Node: X Windows Keybindings,  Next: Speech Ra
 X Windows Keybindings
 =====================
 
-If you are using an X Windows graphical user interface, you may need
+   If you are using an X Windows graphical user interface, you may need
 to specify the keymap that X uses in addition to specifying the keymap
 used by a console.
 
-You can put the following commands in your `~/.xsession' or
+   You can put the following commands in your `~/.xsession' or
 `~/.xinitrc' file:
 
      xmodmap -e "clear Lock"
      xmodmap -e "add Control = Caps_Lock"
 
-Some systems reverse the meaning of the Help key, `Control-h', and
-the Delete key.  The node `Keyboard Translations' in the `Emacs
-manual' describes what to do.
+   Some systems reverse the meaning of the Help key, `Control-h', and
+the Delete key.  The node `Keyboard Translations' in the `Emacs manual'
+describes what to do.
 
-You can go directly to that node in Info by evaluating the following
+   You can go directly to that node in Info by evaluating the following
 expression, that is to say, by positioning point after the final
-parenthesis and typing `Control-x Control-e', which is usually
-written as `C-x C-e':
+parenthesis and typing `Control-x Control-e', which is usually written
+as `C-x C-e':
 
      (info "(emacs)Keyboard Translations")
 
-(Please remember to note my use of the jargon word `point'; it needs
-to be explained.)
+(Please remember to note my use of the jargon word `point'; it needs to
+be explained.)
 
 
 File: introducing-emacspeak.info,  Node: Speech Rate,  Next: Basic Commands Reference,  Prev: X Windows Keybindings,  Up: Introducing Emacspeak
@@ -404,9 +403,9 @@ File: introducing-emacspeak.info,  Node: Speech Rate,  Next: Basic Commands Refe
 Setting the Speech Rate
 =======================
 
-Returning to what you might talk about early on with your friend:
+   Returning to what you might talk about early on with your friend:
 
-He may want to set the voice synthesizer speech rate.  I use both the
+   He may want to set the voice synthesizer speech rate.  I use both the
 `dtk-set-predefined-speech-rate' command:
 
      Control-e d 1
@@ -417,17 +416,17 @@ and the `dtk-set-rate' command, such as
 
      Control-e d r 230 RET
 
-Probably it is a good idea to pick one of these commands.  Two sets of
-commands may overload his memory.
+   Probably it is a good idea to pick one of these commands.  Two sets
+of commands may overload his memory.
 
-As he gains more experience, your friend will be able to understand
+   As he gains more experience, your friend will be able to understand
 text spoken faster and faster, and will want to increase its speed.
 
-Note that in both set-rate commands, an interactive prefix means to
+   Note that in both set-rate commands, an interactive prefix means to
 set the speech rate globally.  Otherwise, it is set only for the
 current buffer.
 
-Your friend may want to set rates globally, so it is worth telling
+   Your friend may want to set rates globally, so it is worth telling
 him about typing `Control-u' first.
 
 
@@ -436,8 +435,8 @@ File: introducing-emacspeak.info,  Node: Basic Commands Reference,  Next: Charac
 Basic Commands Reference
 ========================
 
-For a description of the basic commands, see the node `Reading' in the
-Info file emacspeak.info
+   For a description of the basic commands, see the node `Reading' in
+the Info file emacspeak.info
 
      (info "(emacspeak)Reading")
 
@@ -445,22 +444,22 @@ Info file emacspeak.info
 Emacs Lisp expression: position point after the final parenthesis and
 type `Control-x Control-e'.)
 
-Perhaps evaluation is too much too soon, since it means remembering a
+   Perhaps evaluation is too much too soon, since it means remembering a
 new command as well as figuring out where `point' is.  On the other
 hand, I think it is worth illustrating the action, since it opens up
 future possibilities.
 
-Incidentally, you can go directly to the Introduction node by
+   Incidentally, you can go directly to the Introduction node by
 evaluating:
 
      (info "(emacspeak)Introduction")
 
-My hope is that you will inspire your friend to experiment with many
+   My hope is that you will inspire your friend to experiment with many
 commands and learn a few of them; you will inspire him to learn how to
-use the help features, to listen to the Emacspeak Info manual, and
-then to listen to the Emacs manual.
+use the help features, to listen to the Emacspeak Info manual, and then
+to listen to the Emacs manual.
 
-After that, he can start using Emacs W3 or Emacs W3M mode to browse
+   After that, he can start using Emacs W3 or Emacs W3M mode to browse
 the Web, Emacs RMAIL mode to listen to Email, and Emacs mail mode to
 send it.  You may need to make sure his machine is properly configured
 for all this.
@@ -471,42 +470,42 @@ File: introducing-emacspeak.info,  Node: Characteristics,  Next: Emacs manual,  
 Characteristics of GNU Emacs
 ============================
 
-While listening to the Emacspeak Info manual, it is worth explaining
+   While listening to the Emacspeak Info manual, it is worth explaining
 some of the problems people have with the Emacs manual, to which he
 should listen next, or at least listen to part of it.  I do not
 recommend listening to it all at once.
 
-The Emacs manual is tightly written.  When I first read it, I found I
+   The Emacs manual is tightly written.  When I first read it, I found I
 sometimes had to spend several minutes puzzling out a concise meaning.
 The good news is that it is accurate and well written.  And after you
 understand it, the sentences make perfect sense.
 
-When I first started, I read the manual in segments over 2 years.
+   When I first started, I read the manual in segments over 2 years.
 (This was in the 1980s.)  I did not understand all that I could do at
 first.  Indeed, for the longest time, I did not switch from using `ls
 -al' in a command line to using Dired mode.
 
-Some people say that the Emacs learning curve is steep.
+   Some people say that the Emacs learning curve is steep.
 
-In my experience, this is not true.  It took me about five minutes to
+   In my experience, this is not true.  It took me about five minutes to
 start to use Emacs productively.  But I could not and did not do much
 at first, except write.
 
-However, the learning curve will be steep if you try all at once to
+   However, the learning curve will be steep if you try all at once to
 use many of the features that Emacs provides.  I have described GNU
 Emacs as
 
      ... like having a dragon's cave of treasures.
 
-You should not try to be too greedy and over-stuff yourself all one
+   You should not try to be too greedy and over-stuff yourself all one
 sitting.
 
-(That quotation is from the Info node "On Reading this Text" in the
+   (That quotation is from the Info node "On Reading this Text" in the
 Info manual that introduces programming in Emacs Lisp:
 
      (info "(eintr)On Reading this Text")
 
-I wrote that text "as an elementary introduction for people who are
+   I wrote that text "as an elementary introduction for people who are
 not programmers", but presupposed experience with Emacs.  So I doubt
 you or your friend will want to look at it early on.  But I hope that
 he will keep it in mind for the future.)
@@ -517,110 +516,106 @@ File: introducing-emacspeak.info,  Node: Emacs manual,  Prev: Characteristics,  
 Peculiarities of the Emacs manual
 =================================
 
-To listen to the Emacs manual in Emacspeak, you will need to set the
+   To listen to the Emacs manual in Emacspeak, you will need to set the
 punctuation mode to `all' with the command:
 
      Control-e d p all RET
 
-RMS, Richard M. Stallman, wrote the Emacs manual.
+   RMS, Richard M. Stallman, wrote the Emacs manual.
 
-Unfortunately, RMS thinks of editing as having a very large meaning.
+   Unfortunately, RMS thinks of editing as having a very large meaning.
 He writes as if using `ls' and `rm' in a command line is the shell
 equivalent of editing in Emacspeak.  People who use a shell do not
 think of this as editing.
 
-However, if you think about it, you will discover that the Emacspeak
-actions in Dired mode are a kind of editing.  But they are not the
-same kind of editing as people do in an editor like `vi' when they
-press the `h', `j', `k', and `l' keys to move around.  People are
-fooled by the language.
+   However, if you think about it, you will discover that the Emacspeak
+actions in Dired mode are a kind of editing.  But they are not the same
+kind of editing as people do in an editor like `vi' when they press the
+`h', `j', `k', and `l' keys to move around.  People are fooled by the
+language.
 
-The words "mode" and "library" are not confusing, but may not be
+   The words "mode" and "library" are not confusing, but may not be
 understood immediately.  The two provide the features that programs
 have in other interfaces.  Thus Dired mode provides the same features
-in Emacs that the combination of `ls', `mv', `chown', `chgrp',
-`gzip', `more', `vi', and `rm' provide in a shell.  A library provides
-a mode.
+in Emacs that the combination of `ls', `mv', `chown', `chgrp', `gzip',
+`more', `vi', and `rm' provide in a shell.  A library provides a mode.
 
-Because of the adoption of Xerox Parc style windowing systems over the
-past generation, many people are confused by Emacs' use of the words
+   Because of the adoption of Xerox Parc style windowing systems over
+the past generation, many people are confused by Emacs' use of the words
 window and frame.  Emacs provides for multiple windows within a frame,
 as it always has.
 
-You will probably not use a graphic user interface at all; but enough
+   You will probably not use a graphic user interface at all; but enough
 people do that you will hear what they say.
 
-Nowadays, sighted people often think of a window on a computer screen
+   Nowadays, sighted people often think of a window on a computer screen
 as being a contiguous, usually rectangular space, what in Emacs is
-called a frame.  That is because Emacs was designed initially to fill
-a complete display as a tiling window manager.  (A tiling window
-manager is one in which windows do not overlap, but are contiguous,
-like physical tiles.)  Parts of the display were called windows
-because they enabled a sighted person to look at all or part of a
-buffer.
+called a frame.  That is because Emacs was designed initially to fill a
+complete display as a tiling window manager.  (A tiling window manager
+is one in which windows do not overlap, but are contiguous, like
+physical tiles.)  Parts of the display were called windows because they
+enabled a sighted person to look at all or part of a buffer.
 
-Companies like Apple and Sun, and the X Consortium, copied Emacs
-jargon for their own windows, to mean a part of a screen.  (Or else
-the notion of a window was generic and commonplace.)
+   Companies like Apple and Sun, and the X Consortium, copied Emacs
+jargon for their own windows, to mean a part of a screen.  (Or else the
+notion of a window was generic and commonplace.)
 
-Thus, the term window started out and continues to mean a part of a
+   Thus, the term window started out and continues to mean a part of a
 display.
 
-But when Apple, Sun, and the X Consortium, and their followers,
-adopted the term window to mean a part of a display, they lacked a
-term to handle a part of a window.  (The word `pane' was suggested,
-but never popular, because it sounds similar to the word `pain',
-spelled p a i n, and because some people were accustomed to material
-windows that were not made up of multiple `panes of glass'.)
+   But when Apple, Sun, and the X Consortium, and their followers,
+adopted the term window to mean a part of a display, they lacked a term
+to handle a part of a window.  (The word `pane' was suggested, but
+never popular, because it sounds similar to the word `pain', spelled
+p a i n, and because some people were accustomed to material windows
+that were not made up of multiple `panes of glass'.)
 
-However, in those days, mostly the 1980s, windows seldom contained
+   However, in those days, mostly the 1980s, windows seldom contained
 parts, other than a menu or tool bar or panel that applied to a whole
 window.  Thus, one spreadsheet would appear in one window; one file
 would appear in another.
 
-Indeed, many of the non-Emacs programs I use today in a graphic user
+   Indeed, many of the non-Emacs programs I use today in a graphic user
 interface still tend to put one set of contents, with its associated
 panels and tool bars, into one window: for example, XMMS, Mozilla, or
 `gnome-apt'.
 
-With Emacs, on the other hand, you could always put a directory
+   With Emacs, on the other hand, you could always put a directory
 listing, two files, and an email message into four different parts of
 an Apple or X style window (although most people keep to one or two
 parts most of the time).  These different parts had always been
-themselves called windows, and so they remained.  Hence, the
-invention of the term frame to refer to a segment of a display as
-produced by an X or Sun user interface program.
+themselves called windows, and so they remained.  Hence, the invention
+of the term frame to refer to a segment of a display as produced by an
+X or Sun user interface program.
 
-Nowadays, you can start different frames in an instance of Emacspeak
+   Nowadays, you can start different frames in an instance of Emacspeak
 that is not running in a graphical user interface.  One frame overlies
 another.  The mode line will tell you which frame you are in.  (Type
 `Control-e m' to listen to the mode line.  That key chord calls the
 `emacspeak-speak-mode-line' command.)
 
-Emacs jargon can be brutal.  Some people are upset by the use of the
+   Emacs jargon can be brutal.  Some people are upset by the use of the
 word `kill' to mean `cut' as in `cut and paste'.  (The word `cut' also
 upsets some people, but generally less than the word `kill'.)  In
 Emacs, an entity `killed' can be resurrected, which I think of as a
 Christian form of meaning.
 
-Some years ago, at the transition from Emacs version 18 to version 19,
-I offered to convert every use in Emacs of the word `kill' to `clip'.
-There were more than 400 such uses.  You could `clip' a segment of
-text, and if it were never put back, it would be deleted.
+   Some years ago, at the transition from Emacs version 18 to version
+19, I offered to convert every use in Emacs of the word `kill' to
+`clip'.  There were more than 400 such uses.  You could `clip' a
+segment of text, and if it were never put back, it would be deleted.
 Alternatively, you could yank the segment from the `clip-ring'.  I
 picked `clip' as the replacement word since it has four letters and
-fits the older formatting and language without requiring much
-rewriting.
+fits the older formatting and language without requiring much rewriting.
 
-Moreover, had I changed the term to `cut', people would have expected
-me to replace the word `yank' with `paste', to fit the phrase `cut
-and paste'.  But I do not like the word `paste'; I no longer
-literally paste clips onto a sheet of paper as I did when I was young.
-It makes more sense to me to `yank' a segment back from the
-`clip-ring'.
+   Moreover, had I changed the term to `cut', people would have expected
+me to replace the word `yank' with `paste', to fit the phrase `cut and
+paste'.  But I do not like the word `paste'; I no longer literally
+paste clips onto a sheet of paper as I did when I was young.  It makes
+more sense to me to `yank' a segment back from the `clip-ring'.
 
-However, RMS never wanted me to make the replacement.  I think part of
-the reason is that at that time, RMS still enjoyed what I think of as
+   However, RMS never wanted me to make the replacement.  I think part
+of the reason is that at that time, RMS still enjoyed what I think of as
 a dead joke: the manual for version 18 Emacs said:
 
      ... you don't have to kill all the text in one command; you can
@@ -631,19 +626,19 @@ a dead joke: the manual for version 18 Emacs said:
 (The parenthetical remark about television was removed sometime later
 and the other wording slightly improved.)
 
-Perhaps more significantly, RMS asked many people whether they were
+   Perhaps more significantly, RMS asked many people whether they were
 bothered by the jargon use of `kill'.  They said `no'.  It turned out
 that RMS asked people he thought of as significant, namely people at
 M.I.T.  I think that was too narrow a group.  But that is what
 happened, and I still think it was a mistake.
 
-Most important of all, please emphasize and explain that Emacspeak is
+   Most important of all, please emphasize and explain that Emacspeak is
 safer than many programs.  What you write is automatically saved to
-disk.  This means you can work with unreliable power supplies, or
-learn by trying out new things and make what otherwise would be
-catastrophic mistakes.
+disk.  This means you can work with unreliable power supplies, or learn
+by trying out new things and make what otherwise would be catastrophic
+mistakes.
 
-You can experiment and learn.
+   You can experiment and learn.
 
 
 File: introducing-emacspeak.info,  Node: Free Books,  Next: An Initialization File,  Prev: Introducing Emacspeak,  Up: Top
@@ -651,18 +646,18 @@ File: introducing-emacspeak.info,  Node: Free Books,  Next: An Initialization Fi
 Free Books
 **********
 
-With Emacspeak, you can listen to your email, browse the Web, write
+   With Emacspeak, you can listen to your email, browse the Web, write
 reports, programs, novels, and poetry.
 
-You may also want to download various books, documents, and audio
+   You may also want to download various books, documents, and audio
 recordings from the Gutenberg Project archive, such as Jane Austen's
 novel `Pride and Prejudice'.
 
-You can visit the archive directory using W3 mode or W3M mode at
+   You can visit the archive directory using W3 mode or W3M mode at
 
      ftp://metalab.unc.edu/pub/docs/books/gutenberg/
 
-I just typed
+   I just typed
 
      Meta-x w3m-goto-url
 
@@ -670,36 +665,35 @@ and then the URL to reach that directory.  (Well, actually, I typed
 
      Meta-x w3m-got
 
-and then pressed return.  Emacs automatically completed the name of
-the command, so I did not have to do so much typing.  And I copied
-the long URL listed above into the minibuffer so I did not have to
-type it.  I hate typing and avoid it as much as possible.)
+and then pressed return.  Emacs automatically completed the name of the
+command, so I did not have to do so much typing.  And I copied the long
+URL listed above into the minibuffer so I did not have to type it.  I
+hate typing and avoid it as much as possible.)
 
-The index is
+   The index is
 
      GUTINDEX.ALL
 
-and you can download it using W3M mode by positioning point on the
-name and pressing the return key.  (There are other ways of
-downloading it, too; this is one of them.)
+and you can download it using W3M mode by positioning point on the name
+and pressing the return key.  (There are other ways of downloading it,
+too; this is one of them.)
 
-As I write this in April 2003, the Gutenberg Project index is 780
+   As I write this in April 2003, the Gutenberg Project index is 780
 kilobytes long and lists more than 7000 books, documents, and audio
-recordings.  I saved my copy to a file, since I dislike long
-downloads.
+recordings.  I saved my copy to a file, since I dislike long downloads.
 
-You may want to use Emacspeak to listen to `Pride and Prejudice',
+   You may want to use Emacspeak to listen to `Pride and Prejudice',
 `Alice in Wonderland', `The Federalist Papers' or other of the
 Gutenberg books, documents, and music.
 
-The text files from the Gutenberg Project that I have downloaded use
+   The text files from the Gutenberg Project that I have downloaded use
 the DOS `carriage-return linefeed' convention to mark ends of lines
-rather than the Unix `newline' convention.  This does not really
-matter since Emacspeak automatically detects the convention and
-visits the file using the DOS end-of-line coding format.
+rather than the Unix `newline' convention.  This does not really matter
+since Emacspeak automatically detects the convention and visits the
+file using the DOS end-of-line coding format.
 
-However, I prefer the Unix end-of-line format.  After visiting a file,
-I run the `set-buffer-file-coding-system' command on it:
+   However, I prefer the Unix end-of-line format.  After visiting a
+file, I run the `set-buffer-file-coding-system' command on it:
 
      Control-x RET f unix RET
 
@@ -713,19 +707,19 @@ File: introducing-emacspeak.info,  Node: An Initialization File,  Next: Software
 A `~/.emacs' initialization and customization file
 **************************************************
 
-Here is a sample `~/.emacs' file to customize Emacspeak.  As far as I
-can figure, the only person who likes Emacs in its default
+   Here is a sample `~/.emacs' file to customize Emacspeak.  As far as
+I can figure, the only person who likes Emacs in its default
 configuration is Richard Stallman, who wrote it.  All the rest of us
 change it somewhat.
 
-I will not describe my full `~/.emacs' file since it is more than 180
-kilobytes long.  Instead, I will create for you a much shorter,
+   I will not describe my full `~/.emacs' file since it is more than
+180 kilobytes long.  Instead, I will create for you a much shorter,
 sample `~/.emacs' file that works -- I tested it - and that has a few
 of the customizations that I like.
 
-The following `~/.emacs' file contains left and right angle brackets.
-To hear them in Emacspeak, you must set the punctuation mode to
-`all' with the command:
+   The following `~/.emacs' file contains left and right angle
+brackets.  To hear them in Emacspeak, you must set the punctuation mode
+to `all' with the command:
 
      Control-e d p all RET
 
@@ -735,7 +729,7 @@ write the expression as:
 
      (dtk-set-punctuations 'all t)
 
-Here is the file:
+   Here is the file:
 
      ;;; ~/.emacs                          -*- mode: emacs-lisp -*-
      
@@ -905,29 +899,29 @@ File: introducing-emacspeak.info,  Node: Software Synthesizers,  Next: Installat
 Two Software text-to-speech Synthesizers
 ****************************************
 
-At the time I write this in April 2003, I am running two instances of
+   At the time I write this in April 2003, I am running two instances of
 Emacspeak, one using the `eflite' software text-to-speech synthesizer
 and the other using the `espeakf' software text-to-speech synthesizer.
 
-The current `eflite' package reads Info files better than `espeakf'.
+   The current `eflite' package reads Info files better than `espeakf'.
 Unlike my current version of `espeakf', `eflite' does not pause
 momentarily at the ends of lines in Info.  However, `espeakf' provides
 different voices, which my current version of `eflite' lacks.
 
-Currently, I prefer `espeakf'.  But I dislike the way it pauses at the
-ends of lines in Info, so I use `eflite' when I want to listen to Info
-files.
+   Currently, I prefer `espeakf'.  But I dislike the way it pauses at
+the ends of lines in Info, so I use `eflite' when I want to listen to
+Info files.
 
-Interestingly, in Emacspeak Text Voice mode, `espeakf' reads Jane
+   Interestingly, in Emacspeak Text Voice mode, `espeakf' reads Jane
 Austen's novel, "Pride and Prejudice", without pausing at the ends of
 lines.
 
-At the moment, I am using two different Emacspeak commands, one for
+   At the moment, I am using two different Emacspeak commands, one for
 starting Emacspeak with `eflite' and the other for starting Emacspeak
-with `espeakf'.  Right now, I am running both, each as its own
-instance of Emacspeak.
+with `espeakf'.  Right now, I am running both, each as its own instance
+of Emacspeak.
 
-The two starting commands are:
+   The two starting commands are:
 
      emacspeak-eflite
      
@@ -935,11 +929,11 @@ The two starting commands are:
 
 The two commands are shell scripts in the /usr/local/bin/ directory.
 
-The regular Emacspeak command is in the /usr/bin/ directory, but since
-these two commands are experimental, I am putting them into the
+   The regular Emacspeak command is in the /usr/bin/ directory, but
+since these two commands are experimental, I am putting them into the
 /usr/local/bin/ directory, to remind me that I created them locally.
 
-(Incidentally, I am also running two other non-Emacspeak instances of
+   (Incidentally, I am also running two other non-Emacspeak instances of
 Emacs: an Emacs version 21 owned by user `bob', and an Emacs version
 20.7 owned by user `root'.  That way, I separate dangerous system
 administration task from ordinary work.  Moreover, since I tend to run
@@ -952,17 +946,17 @@ File: introducing-emacspeak.info,  Node: Installation,  Prev: Software Synthesiz
 Installation: Debian and `espeakf'
 **********************************
 
-Regarding installation:  if you have not installed Emacspeak recently,
-and plan to install the package again soon for someone else, please
-practice a reinstall first.  Perhaps, nowadays, all will go well; but
-perhaps not.
+   Regarding installation:  if you have not installed Emacspeak
+recently, and plan to install the package again soon for someone else,
+please practice a reinstall first.  Perhaps, nowadays, all will go
+well; but perhaps not.
 
-In the past, I have had troubles with Emacspeak installation, although
-recently everything has gone well (I am writing this in April 2003).
-I am sighted, and do not depend on Emacspeak, so perhaps I
-continually renew my ignorance.
+   In the past, I have had troubles with Emacspeak installation,
+although recently everything has gone well (I am writing this in
+April 2003).  I am sighted, and do not depend on Emacspeak, so perhaps
+I continually renew my ignorance.
 
-In addition to a computer with a sound system, Emacspeak requires
+   In addition to a computer with a sound system, Emacspeak requires
 three packages:
 
    * GNU Emacs,
@@ -971,74 +965,75 @@ three packages:
 
    * a text-to-speech synthesizer.
 
-A hardware text-to-speech synthesizer is best, but I do not have one.
-Instead I use two different software text-to-speech synthesizers,
+   A hardware text-to-speech synthesizer is best, but I do not have
+one.  Instead I use two different software text-to-speech synthesizers,
 both of which are immature programs that make use of the more basic
 Festival text-to-speech program.
 
-Installation is extensively described in the Emacspeak manual.  *Note
-Installation: (emacspeak)Installation.
+   Installation is extensively described in the Emacspeak manual.
+*Note Installation: (emacspeak)Installation.
 
-Also, James R. Van Zandt has written an installation HOWTO that is now
-maintained by Sharon Snider.  It is in the Emacspeak sources and on
+   Also, James R. Van Zandt has written an installation HOWTO that is
+now maintained by Sharon Snider.  It is in the Emacspeak sources and on
 the Web at `http://www.tldp.org/HOWTO/Emacspeak-HOWTO/'.
 
-Please consider building and installing your software from source.
+   Please consider building and installing your software from source.
 This process is straightforward and I have done this in the past with
 great success.
 
-However, I am going to describe only what you do to install `espeakf'
-and what you do in Debian to install `eflite'.  The process should be
-simple, but for some reason, possibly because I tend to use unstable,
-experimental software, I have not always found it so.
+   However, I am going to describe only what you do to install
+`espeakf' and what you do in Debian to install `eflite'.  The process
+should be simple, but for some reason, possibly because I tend to use
+unstable, experimental software, I have not always found it so.
 
-In Debian, as of April 2003, to install Emacspeak using the eflite
+   In Debian, as of April 2003, to install Emacspeak using the eflite
 software text-to-speech synthesizer, type the following in a shell:
 
      apt-get install emacs21 emacs21-el emacspeak eflite festival
 
-The `emacs21-el' package contains the Emacs Lisp source files that
+   The `emacs21-el' package contains the Emacs Lisp source files that
 Emacs uses.  In theory, you can run Emacs without them, but I have
 found them essential, if only for the extra documentation and
 commentary they provide.  Also, I doubt you need to install Festival
-manually, since it should be installed automatically.  But I am
-listing it just in case.
+manually, since it should be installed automatically.  But I am listing
+it just in case.
 
-After running `apt-get', you should be able to run Emacspeak by typing
+   After running `apt-get', you should be able to run Emacspeak by
+typing
 
      emacspeak
 
 in a shell.  That command is a shell script in `/usr/bin/emacspeak'.
 
-In theory, that is all there is to it.  And if you are not using the
+   In theory, that is all there is to it.  And if you are not using the
 awkward, non-standard system that I am, but instead are using a well
 configured, modern, standard system, what I just told you should work.
 
-Since I run both the `eflite' and `espeakf' text-to-speech
+   Since I run both the `eflite' and `espeakf' text-to-speech
 synthesizers, and at this stage am running them in what amounts to a
 local experiment, I copied the shell script that starts Emacspeak with
 eflite from the /usr/bin/ directory to the /usr/local/bin/ directory
 and renamed it to `/usr/local/bin/emacspeak-eflite'.
 
-I start Emacspeak with `espeakf' with a different shell script,
+   I start Emacspeak with `espeakf' with a different shell script,
 called `/usr/local/bin/emacspeak-epeakf'.  (These names are not very
 imaginative, but I can remember them.)
 
-As I write this in April 2003, `espeakf' is available only from CVS
+   As I write this in April 2003, `espeakf' is available only from CVS
 on SourceForge.  Fortunately, it is easy to download and install.
 
-First you need to decide on a directory in which you plan to keep the
+   First you need to decide on a directory in which you plan to keep the
 `espeakf' directory that you will download.  I use
 
      /usr/local/src/
 
-Make that directory if you do not have it already, then go to it.
+   Make that directory if you do not have it already, then go to it.
 
-Here are the commands, which I run as the non-privileged user `bob'
+   Here are the commands, which I run as the non-privileged user `bob'
 in a shell, such as one in Emacspeak that you can start with the
 `Meta-x term' command.
 
-This facility is described in
+   This facility is described in
 
      (info "(emacspeak)Running Terminal Based Applications")
 
@@ -1048,39 +1043,40 @@ switching buffers do not work.  I find `Control-c Control-f', the new
 keybinding for `find-file' useful, as well as `Control-c k', which
 kills the buffer.)
 
-In a shell, I first switch to the appropriate directory, and then I
+   In a shell, I first switch to the appropriate directory, and then I
 run the CVS login command:
 
      cd /usr/local/src/
      cvs -d :pserver:anonymous@cvs.espeakf.sourceforge.net:/cvsroot/espeakf login
 
-You need to login once for CVS.  The login command will ask for your
+   You need to login once for CVS.  The login command will ask for your
 password.  Just press your return key.  Then, type the following
 command:
 
      cvs -d :pserver:anonymous@cvs.espeakf.sourceforge.net:/cvsroot/espeakf co espeakf
 
-These commands will create a `/usr/local/src/espeakf/' directory
+   These commands will create a `/usr/local/src/espeakf/' directory
 below your `/usr/local/src/' directory and fill it with several files
 and other directories.  To make use of the `espeakf' text-to-speech
 synthesizer, Emacspeak runs an executable Perl script called
 `espeakf.pl'.  CVS installs that Perl script properly, so you do not
 need to do anything.
 
-However, you do need to modify your `/usr/local/bin/emacspeak-eflite'
-and `/usr/local/bin/emacspeak-espeakf' start up scripts for the two
+   However, you do need to modify your
+`/usr/local/bin/emacspeak-eflite' and
+`/usr/local/bin/emacspeak-espeakf' start up scripts for the two
 different text-to-speech synthesizers.
 
-I use a variation on the `/usr/bin/emacspeak' script that Emacspeak
+   I use a variation on the `/usr/bin/emacspeak' script that Emacspeak
 creates automatically.  That script uses information from a
 `/etc/emacspeak.conf' file.  I ignore that configuration file because
-the configuration for Emacspeak with the two synthesizers is
-different.  Instead, I put all the configuration information into the
-two `/usr/local/bin/' scripts.
+the configuration for Emacspeak with the two synthesizers is different.
+Instead, I put all the configuration information into the two
+`/usr/local/bin/' scripts.
 
-The two scripts contain sharp signs, exclamation marks, left and right
-brackets, and much else.  To listen to all the characters in them, you
-need to set Emacspeak's punctuation mode to `all'.  If you are
+   The two scripts contain sharp signs, exclamation marks, left and
+right brackets, and much else.  To listen to all the characters in
+them, you need to set Emacspeak's punctuation mode to `all'.  If you are
 listening to this in Emacspeak, you can evaluate the following
 expression by placing point after it and typing `Control-x Control-e':
 
@@ -1168,26 +1164,26 @@ Both these files need to be made executable.  I executed
 
 in a shell as user `root'.
 
-### End of document
+   ### End of document
 
 
 
 Tag Table:
-Node: Top739
-Node: This Essay1797
-Node: Questions3882
-Node: Introducing Emacspeak5859
-Node: Info and Help7873
-Node: Movement10084
-Node: Keybindings11274
-Node: X Windows Keybindings13822
-Node: Speech Rate14827
-Node: Basic Commands Reference15827
-Node: Characteristics17132
-Node: Emacs manual19000
-Node: Free Books25278
-Node: An Initialization File27327
-Node: Software Synthesizers34188
-Node: Installation36144
+Node: Top752
+Node: This Essay1826
+Node: Questions3918
+Node: Introducing Emacspeak5914
+Node: Info and Help7952
+Node: Movement10175
+Node: Keybindings11377
+Node: X Windows Keybindings13944
+Node: Speech Rate14961
+Node: Basic Commands Reference15979
+Node: Characteristics17299
+Node: Emacs manual19194
+Node: Free Books25540
+Node: An Initialization File27616
+Node: Software Synthesizers34490
+Node: Installation36470
 
 End Tag Table
