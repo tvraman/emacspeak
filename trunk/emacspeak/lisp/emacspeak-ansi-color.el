@@ -67,7 +67,7 @@
   (declare (special ansi-color-names-vector
                     ansi-color-faces-vector))
   (let* ((voice-name nil)
-         (style (cdr face-spec))
+         (style (cadr face-spec))
          (style-index (position style ansi-color-faces-vector))
          (color (cdr (assq 'foreground-color  face-spec)))
          (color-index
