@@ -412,7 +412,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ tramp
-    ;(load-library-if-available "tramp-prepare")
+    (load-library-if-available "tramp-prepare")
 
     ;;}}}
     ;;{{{  calendar
