@@ -7,8 +7,10 @@ Any errors or corrections should be made to the source-level
 documentation.
 
 @menu
+* cd-tool::                     
 * dtk-speak::                   
 * emacspeak::                   
+* emacspeak-amphetadesk::       
 * emacspeak-analog::            
 * emacspeak-arc::               
 * emacspeak-aumix::             
@@ -76,6 +78,50 @@ documentation.
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
 @end menu
+
+@node cd-tool
+@section cd-tool
+
+Commentary:
+Provide an emacs front-end to cdtool.
+cdtool can be obtained as an rpm
+check using rpmfind
+or from its home site at 
+  sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
+This module also provides the ability to play or save 
+clips from a CD if you have cdda2wav installed.
+cdda2wav is a cd to wav convertor.
+
+(eval-when-compile (require 'cl))
+(declaim  (optimize  (safety 0) (speed 3)))
+
+Automatically generated documentation
+for commands defined in module  cd-tool.
+
+@deffn {Interactive Command} cd-tool ()
+@kbd{ control e DEL }
+
+Front-end to CDTool.
+Bind this function to a convenient key-
+Emacspeak users automatically have 
+this bound to <DEL> in the emacspeak keymap.
+
+Key     Action
+---     ------
+
++       Next Track
+-       Previous Track
+SPC     Pause or Resume
+e       Eject
+=       Shuffle
+i       CD Info
+p       Play
+s       Stop
+t       track
+c       clip
+cap C   Save clip to disk
+
+@end deffn
 
 @node dtk-speak
 @section dtk-speak
@@ -329,6 +375,16 @@ Give a brief overview of emacspeak.
 @kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node emacspeak-amphetadesk
+@section emacspeak-amphetadesk
+
+Automatically generated documentation
+for commands defined in module  emacspeak-amphetadesk.
+
+@deffn {Interactive Command} emacspeak-amphetadesk ()
+Open amphetadesk.
 @end deffn
 
 @node emacspeak-analog

@@ -35,9 +35,10 @@
 ;;; clips from a CD if you have cdda2wav installed.
 ;;; cdda2wav is a cd to wav convertor.
 ;;;
-
+;;; Code:
 ;;}}}
 ;;{{{ required packages
+
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
