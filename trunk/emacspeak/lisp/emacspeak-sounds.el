@@ -258,7 +258,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  queue an auditory icon
 ;;;###autoload
-(defsubst emacspeak-queue-auditory-icon (sound-name)
+(defun emacspeak-queue-auditory-icon (sound-name)
   "Queue auditory icon SOUND-NAME."
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
@@ -269,7 +269,7 @@ Do not set this by hand;
 ;;{{{  native player (emacs 21)
 
 ;;;###autoload
-(defsubst emacspeak-native-auditory-icon (sound-name)
+(defun emacspeak-native-auditory-icon (sound-name)
   "Play auditory icon using native Emacs player."
   (play-sound
    (list 'sound :file
@@ -280,7 +280,7 @@ Do not set this by hand;
 ;;{{{  serve an auditory icon
 
 ;;;###autoload
-(defsubst emacspeak-serve-auditory-icon (sound-name)
+(defun emacspeak-serve-auditory-icon (sound-name)
   "Serve auditory icon SOUND-NAME.
 Sound is served only if `emacspeak-use-auditory-icons' is true.
 See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
@@ -303,7 +303,7 @@ sparc20's."
   :type 'string
   :group 'emacspeak-sounds)
 
-(defsubst emacspeak-play-auditory-icon (sound-name)
+(defun emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME.
 Sound is produced only if `emacspeak-use-auditory-icons' is true.
 See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-auditory-icons ]."
@@ -319,13 +319,13 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  queue a midi icon
 
-(defsubst emacspeak-queue-midi-icon (midi-name)
+(defun emacspeak-queue-midi-icon (midi-name)
   "Queue midi icon midi-NAME."
   (apply 'dtk-queue-note
          (emacspeak-get-midi-note midi-name)))
 
 ;;;###autoload
-(defsubst emacspeak-play-midi-icon (midi-name)
+(defun emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
   (apply 'dtk-force-note
          (emacspeak-get-midi-note midi-name)))
@@ -343,7 +343,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 	  (const emacspeak-queue-auditory-icon)
           (const emacspeak-play-midi-icon)))
 ;;;###autoload 
-(defsubst emacspeak-auditory-icon (icon)
+(defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (declare (special emacspeak-auditory-icon-function))
   (funcall emacspeak-auditory-icon-function icon))
@@ -529,7 +529,7 @@ Optional interactive PREFIX arg toggles global value."
     ("emacspeak-play-midi-icon" . "emacspeak-play-midi-icon"))
   "Table of auditory icon players used  when selecting a player.")
 
-(defsubst emacspeak-select-auditory-icon-player ()
+(defun emacspeak-select-auditory-icon-player ()
   "Pick a player for producing auditory icons."
   (declare (special emacspeak-sounds-auditory-icon-players))
   (read 
