@@ -53,58 +53,58 @@
 ;;}}}
 ;;{{{ define personalities 
 (def-voice-font emacspeak-daml-class-face voice-lock-type-personality
- 'daml-class-face
- "Personality used for DAML classes.")
+  'daml-class-face
+  "Personality used for DAML classes.")
 
 (def-voice-font emacspeak-daml-class-ref-face
   voice-lighten
-'daml-class-ref-face
-"Personality used for class references.")
+  'daml-class-ref-face
+  "Personality used for class references.")
 
 (def-voice-font emacspeak-daml-comment-face
-voice-lock-comment-personality
-'daml-comment-face
-"Personality used for DAML comments.")
+  voice-lock-comment-personality
+  'daml-comment-face
+  "Personality used for DAML comments.")
 
 (def-voice-font emacspeak-daml-keyword-face
-voice-lock-keyword-personality
-'daml-keyword-face
-"Personality for keywords in DAML.")
+  voice-lock-keyword-personality
+  'daml-keyword-face
+  "Personality for keywords in DAML.")
 
 (def-voice-font emacspeak-daml-normal-face
   'paul
-'daml-normal-face
-"Normal face in DAML.")
+  'daml-normal-face
+  "Normal face in DAML.")
 
 (def-voice-font emacspeak-daml-other-face
   'voice-bolden-extra
-'daml-other-face
-"Personality for other elements in DAML.")
+  'daml-other-face
+  "Personality for other elements in DAML.")
 
 (def-voice-font emacspeak-daml-property-face
   voice-animate
-'daml-property-face
-"personality for DAML properties.")
+  'daml-property-face
+  "personality for DAML properties.")
 
 (def-voice-font emacspeak-daml-property-ref-face
   voice-animate-extra
-'daml-property-ref-face
-"Personality for DAML property references.")
+  'daml-property-ref-face
+  "Personality for DAML property references.")
 
 (def-voice-font emacspeak-daml-string-face
   voice-lock-string-personality
-'daml-string-face
-"Personality for DAML strings.")
+  'daml-string-face
+  "Personality for DAML strings.")
 
 (def-voice-font emacspeak-daml-substitution-face
   voice-smoothen
-'daml-substitution-face
-"Personality for substitutions in DAML.")
+  'daml-substitution-face
+  "Personality for substitutions in DAML.")
 
 (def-voice-font emacspeak-daml-tag-face
   voice-bolden
-'daml-tag-face
-"Personality for tags in DAML.")
+  'daml-tag-face
+  "Personality for tags in DAML.")
 ;;}}}
 (provide 'emacspeak-damlite)
 ;;{{{ end of file

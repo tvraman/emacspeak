@@ -824,8 +824,8 @@ the broadcast. You must have mplayer installed."
  "Display baseball team summary."
  #'(lambda (url)
      (emacspeak-w3-extract-tables-by-position-list 
-'(7 8  22 23 39)
-url 'speak)))
+      '(7 8    31 47)
+      url 'speak)))
 
 (emacspeak-url-template-define
  "Baseball scores" 

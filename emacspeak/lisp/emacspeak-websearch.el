@@ -1019,7 +1019,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri
-   "http://www.google.com/search?q="
+  "http://www.google.com/search?q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-feeling-lucky-p nil
@@ -1080,7 +1080,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
   (let ((emacspeak-websearch-google-feeling-lucky-p t))
     (emacspeak-websearch-google query)))
 
-
 ;;;###autoload
 (defun emacspeak-websearch-google-search-in-date-range ()
   "Use this from inside the calendar to do Google date-range searches."
@@ -1090,14 +1089,14 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                (calendar-cursor-to-date t)))
         (to
          (calendar-astro-date-string
-         (or (car calendar-mark-ring)
-                       (error "No mark set in this buffer")))))
+	  (or (car calendar-mark-ring)
+	      (error "No mark set in this buffer")))))
     (emacspeak-websearch-google
-             (webjump-url-encode 
-(concat query 
-             (format " daterange:%s-%s"
-from
-to))))))
+     (webjump-url-encode 
+      (concat query 
+	      (format " daterange:%s-%s"
+		      from
+		      to))))))
 (when (featurep 'calendar)
   (declaim (special calendar-mode-map))
   (define-key calendar-mode-map "gg" 'emacspeak-websearch-google-search-in-date-range))
@@ -1873,9 +1872,6 @@ Light for: ")))
   (load-library "emacspeak-w3search"))
 
 ;;}}}
-
-
-
 
 ;;}}}
 ;;{{{ Browse usenet using Dejanews

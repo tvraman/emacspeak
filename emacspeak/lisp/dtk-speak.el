@@ -287,43 +287,43 @@ Optional argument FORCE  flushes the command to the speech server."
 Argument MODE  specifies the current pronunciation mode."
   (declare  (special dtk-bracket-regexp ))
   (let ((inhibit-read-only t))
-  (goto-char (point-min))
-  (cond
-   ((string=  "all"  mode )
-    (let ((start nil)
-          (personality nil))
-      (while (re-search-forward dtk-bracket-regexp  nil t )
-        (setq start (1- (point)))
-        (setq personality
-              (get-text-property
-               start 'personality))
-        (cond
-         ((= ?| (char-after (match-beginning 0 )))
-          (replace-match " pipe "))
-         ((= ?< (char-after (match-beginning 0 )))
-          (replace-match " less than "))
-         ((= ?> (char-after (match-beginning 0 )))
-          (replace-match " greater than "))
-         ((= ?{ (char-after (match-beginning 0 )))
-          (replace-match " left brace "))
-         ((= ?} (char-after (match-beginning 0 )))
-          (replace-match " right brace "))
-         ((=  ?\] (char-after (match-beginning 0)))
-          (replace-match " right bracket "))
-         ((= ?\[ (char-after  (match-beginning 0)))
-          (replace-match " left bracket "))
-         ((= ?\\ (char-after (match-beginning 0 )))
-          (replace-match " backslash "))
-         ((= ?# (char-after (match-beginning 0 )))
-          (replace-match " pound "))
-         ((= ?` (char-after (match-beginning 0 )))
-          (replace-match " backquote ")))
-        (when personality
-          (put-text-property start (point)
-                             'personality personality)))))
-   (t
-    (while (re-search-forward dtk-bracket-regexp   nil t )
-      (replace-match " " nil t ))))))
+    (goto-char (point-min))
+    (cond
+     ((string=  "all"  mode )
+      (let ((start nil)
+	    (personality nil))
+	(while (re-search-forward dtk-bracket-regexp  nil t )
+	  (setq start (1- (point)))
+	  (setq personality
+		(get-text-property
+		 start 'personality))
+	  (cond
+	   ((= ?| (char-after (match-beginning 0 )))
+	    (replace-match " pipe "))
+	   ((= ?< (char-after (match-beginning 0 )))
+	    (replace-match " less than "))
+	   ((= ?> (char-after (match-beginning 0 )))
+	    (replace-match " greater than "))
+	   ((= ?{ (char-after (match-beginning 0 )))
+	    (replace-match " left brace "))
+	   ((= ?} (char-after (match-beginning 0 )))
+	    (replace-match " right brace "))
+	   ((=  ?\] (char-after (match-beginning 0)))
+	    (replace-match " right bracket "))
+	   ((= ?\[ (char-after  (match-beginning 0)))
+	    (replace-match " left bracket "))
+	   ((= ?\\ (char-after (match-beginning 0 )))
+	    (replace-match " backslash "))
+	   ((= ?# (char-after (match-beginning 0 )))
+	    (replace-match " pound "))
+	   ((= ?` (char-after (match-beginning 0 )))
+	    (replace-match " backquote ")))
+	  (when personality
+	    (put-text-property start (point)
+			       'personality personality)))))
+     (t
+      (while (re-search-forward dtk-bracket-regexp   nil t )
+	(replace-match " " nil t ))))))
 
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
