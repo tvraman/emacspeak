@@ -321,6 +321,11 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
   (customize-group 'emacspeak-ocr)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
+
+(defun emacspeak-ocr-default-name ()
+  "Return a default name for OCR document."
+  (format-time-string "%B-%d-%y"))
+
 ;;;###autoload
 (defun emacspeak-ocr ()
   "An OCR front-end for the Emacspeak desktop.  
@@ -344,7 +349,7 @@ For detailed help, invoke command emacspeak-ocr bound to
         (cd emacspeak-ocr-working-directory))
       (switch-to-buffer buffer)
       (setq buffer-read-only t)
-      (emacspeak-ocr-name-document "untitled")
+      (emacspeak-ocr-name-document (emacspeak-ocr-default-name))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-mode-line))))
 
