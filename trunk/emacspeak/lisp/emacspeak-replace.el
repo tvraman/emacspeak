@@ -41,6 +41,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
+(require 'custom)
 (require 'dtk-voices)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
@@ -53,10 +54,14 @@
 ;;}}}
 ;;{{{  define personalities
 
-(defvar emacspeak-replace-personality
-                  'paul-animated
-                  "Personality to indicate word that is
-being replaced.")
+(defcustom emacspeak-replace-personality
+  'paul-animated
+  "Personality used in search and replace to indicate word
+that is being replaced."
+  :group 'isearch
+  :group 'emacspeak
+  :type 'symbol)
+
 
 ;;}}}
 ;;{{{  Advice
@@ -69,6 +74,24 @@ being replaced.")
 
 (defvar emacspeak-replace-start nil)
 (defvar emacspeak-replace-end nil)
+
+(defadvice query-replace-regexp (around emacspeak pre act compile)
+  "Stop message from chattering.
+ Turn on voice lock temporarily. "
+  (declare (special voice-lock-mode ))
+  (let ((saved-voice-lock voice-lock-mode)
+        (emacspeak-speak-messages nil))
+    (dtk-stop)
+    (unwind-protect
+        (progn
+          (setq voice-lock-mode 1)
+          (setq emacspeak-replace-start nil 
+                emacspeak-replace-end nil 
+                emacspeak-replace-highlight-on nil )
+          (save-match-data ad-do-it))
+      (emacspeak-auditory-icon 'task-done)
+      (setq voice-lock-mode saved-voice-lock
+            emacspeak-speak-messages t))))
 
 (defadvice query-replace (around emacspeak pre act compile)
   "Stop message from chattering.
@@ -124,18 +147,18 @@ being replaced.")
                     emacspeak-replace-start emacspeak-replace-end))
   (save-match-data
     (condition-case nil
-      (progn
-  (and emacspeak-replace-highlight-on
-       emacspeak-replace-start
-       emacspeak-replace-end
-       (put-text-property 
-        (max emacspeak-replace-start  (point-min))
-        (min emacspeak-replace-end (point-max ))
-        'personality   emacspeak-replace-saved-personality)
-       (setq emacspeak-replace-start nil
-             emacspeak-replace-end nil
-             emacspeak-replace-highlight-on nil)))
-    (error  nil ))))
+        (progn
+          (and emacspeak-replace-highlight-on
+               emacspeak-replace-start
+               emacspeak-replace-end
+               (put-text-property 
+                (max emacspeak-replace-start  (point-min))
+                (min emacspeak-replace-end (point-max ))
+                'personality   emacspeak-replace-saved-personality)
+               (setq emacspeak-replace-start nil
+                     emacspeak-replace-end nil
+                     emacspeak-replace-highlight-on nil)))
+      (error  nil ))))
     
 
 ;;}}}

@@ -38,19 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'voice-lock)
-(require 'emacspeak-keymap)
-(require 'emacspeak-sounds)
-(eval-when-compile (require 'speedbar))
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-
-;;}}}
 ;;{{{  Introduction
 
 ;;; Commentary:
@@ -68,14 +55,37 @@
 ;;; Code:
 
 ;;}}}
+;;{{{  Required modules
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
+(require 'emacspeak-speak)
+(require 'voice-lock)
+(require 'emacspeak-keymap)
+(require 'emacspeak-sounds)
+(eval-when-compile (require 'speedbar))
+(eval-when (compile)
+  (require 'emacspeak-fix-interactive))
+
+;;}}}
+;;{{{ custom
+
+(defgroup emacspeak-speedbar nil
+  "Speedbar on the Emacspeak audio desktop."
+  :group 'emacspeak
+  :group 'speedbar
+  :prefix "emacspeak-speedbar")
+
+;;}}}
 ;;{{{  work outside a windowing system
 
- ;(defadvice speedbar-frame-mode (around emacspeak pre act comp)
-   ;"Wrapper to force speedbar to work outside a windowing system. "
-   ;(let ((spoofing-p (not window-system)))
-     ;ad-do-it
-;     (setq voice-lock-mode t))
-;   ad-return-value)
+                                        ;(defadvice speedbar-frame-mode (around emacspeak pre act comp)
+                                        ;"Wrapper to force speedbar to work outside a windowing system. "
+                                        ;(let ((spoofing-p (not window-system)))
+                                        ;ad-do-it
+                                        ;     (setq voice-lock-mode t))
+                                        ;   ad-return-value)
 
 ;;}}}
 ;;{{{ Helper:
@@ -139,23 +149,23 @@
   (emacspeak-speedbar-speak-line))
 
 (defadvice speedbar-find-file (after emacspeak pre act comp)
-"Speak modeline of buffer we switched to"
-(emacspeak-auditory-icon 'select-object)
-(emacspeak-speak-mode-line))
+  "Speak modeline of buffer we switched to"
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-mode-line))
 
 
 (defadvice speedbar-expand-line (after emacspeak pre act
                                        comp)
-"Speak the line we just expanded"
-(when (interactive-p) 
-(emacspeak-speedbar-speak-line)
-(emacspeak-auditory-icon 'open-object)))
+  "Speak the line we just expanded"
+  (when (interactive-p) 
+    (emacspeak-speedbar-speak-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice speedbar-contract-line (after emacspeak pre act comp)
-"Speak the line we just contracted"
-(when (interactive-p) 
-(emacspeak-speedbar-speak-line)
-(emacspeak-auditory-icon 'close-object)))
+  "Speak the line we just contracted"
+  (when (interactive-p) 
+    (emacspeak-speedbar-speak-line)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice speedbar-up-directory (around emacspeak pre act comp)
   " Auditory icon and speech feedback indicate result of the
@@ -173,23 +183,23 @@ action"
 
 (defadvice speedbar-restricted-next (after emacspeak pre act
                                            comp)
-"Provide spoken feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'large-movement)
-(emacspeak-speedbar-speak-line)))
+  "Provide spoken feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speedbar-speak-line)))
 
 (defadvice speedbar-restricted-prev (after emacspeak pre act
                                            comp)
-"Provide spoken feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'large-movement)
-(emacspeak-speedbar-speak-line)))
+  "Provide spoken feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speedbar-speak-line)))
 
 ;;}}}
 ;;{{{ additional navigation
 
 (defvar emacspeak-speedbar-disable-updates t
-"Non nil means speedbar does not automatically update.
+  "Non nil means speedbar does not automatically update.
 An automatically updating speedbar consumes resources.")
 
 
@@ -253,10 +263,10 @@ An automatically updating speedbar consumes resources.")
   (setq speedbar-hide-button-brackets-flag t)
   (define-key speedbar-key-map "f"
     'emacspeak-speedbar-click)
-  ;(define-key speedbar-key-map "\M-n"
-    ;'emacspeak-speedbar-forward)
-  ;(define-key speedbar-key-map "\M-p"
-    ;'emacspeak-speedbar-backward)
+                                        ;(define-key speedbar-key-map "\M-n"
+                                        ;'emacspeak-speedbar-forward)
+                                        ;(define-key speedbar-key-map "\M-p"
+                                        ;'emacspeak-speedbar-backward)
   )
 
 (add-hook 'speedbar-mode-hook
@@ -266,24 +276,40 @@ An automatically updating speedbar consumes resources.")
 ;;{{{  voice locking 
 ;;; Map speedbar faces to voices
 ;;
-(defvar speedbar-button-personality  'harry
-"personality used for speedbar buttons")
- (defvar speedbar-selected-personality  'paul-animated
-"Personality used to indicate speedbar selection")
+(defcustom emacspeak-speedbar-button-personality  'harry
+  "personality used for speedbar buttons"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
 
+(defcustom emacspeak-speedbar-selected-personality  'paul-animated
+  "Personality used to indicate speedbar selection"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
 
-(defvar speedbar-directory-personality 'betty
-"Speedbar personality for directory buttons")
+(defcustom emacspeak-speedbar-directory-personality 'betty
+  "Speedbar personality for directory buttons"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
 
-(defvar speedbar-file-personality  'paul
-"Personality used for file buttons")
+(defcustom emacspeak-speedbar-file-personality  'paul
+  "Personality used for file buttons"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
 
-(defvar speedbar-highlight-personality 'paul-animated
-"Personality used for for speedbar highlight.")
-(defvar speedbar-tag-personality 'paul-monotonoe
-"Personality used for speedbar tags")
-(defvar emacspeak-speedbar-default-personality 'paul
-"Default personality used in speedbar buffers")
+(defcustom emacspeak-speedbar-highlight-personality 'paul-animated
+  "Personality used for for speedbar highlight."
+  :type 'symbol
+  :group 'emacspeak-speedbar)
+
+(defcustom emacspeak-speedbar-tag-personality 'paul-monotonoe
+  "Personality used for speedbar tags"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
+
+(defcustom emacspeak-speedbar-default-personality 'paul
+  "Default personality used in speedbar buffers"
+  :type 'symbol
+  :group 'emacspeak-speedbar)
 
 
 (defadvice speedbar-make-button (after emacspeak pre act comp)
@@ -295,17 +321,17 @@ An automatically updating speedbar consumes resources.")
     (setq personality
           (cond
            ((eq face 'speedbar-button-face )
-            speedbar-button-personality  )
+            emacspeak-speedbar-button-personality  )
            ((eq face 'speedbar-selected-face )
-            speedbar-selected-personality  )
+            emacspeak-speedbar-selected-personality  )
            ((eq face 'speedbar-directory-face )
-            speedbar-directory-personality )
+            emacspeak-speedbar-directory-personality )
            ((eq face 'speedbar-file-face )
-            speedbar-file-personality  )
+            emacspeak-speedbar-file-personality  )
            ((eq face 'speedbar-highlight-face )
-            speedbar-highlight-personality )
+            emacspeak-speedbar-highlight-personality )
            ((eq face 'speedbar-tag-face )
-            speedbar-tag-personality )
+            emacspeak-speedbar-tag-personality )
            (t 'emacspeak-speedbar-default-personality)))
     (put-text-property start end 'personality personality)
     (save-excursion
