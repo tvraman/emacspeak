@@ -60,7 +60,6 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'wid-edit)
-                                        ;(require 'emacspeak-wizards)
 ;;}}}
 ;;{{{  custom
 
