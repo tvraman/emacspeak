@@ -854,8 +854,6 @@ end:\n\n")
     (flush-lines "}}}")
     (goto-char (point-min))
     (delete-blank-lines)
-    (goto-char (point-max))
-    (delete-blank-lines)
     (goto-char (point-min))
     (while (re-search-forward "^;+ ?" nil t)
       (replace-match "" nil nil))
@@ -899,13 +897,13 @@ documentation.\n\n")
                 (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
-              (setq this-module
-                    (file-name-sans-extension this-module))
               (setq commentary
                     (lm-commentary
                      (expand-file-name
-                      (format "%s.el" this-module)
+                      this-module
                       emacspeak-lisp-directory)))
+              (setq this-module
+                    (file-name-sans-extension this-module))
               (when commentary
                 (setq commentary 
                       (ems-cleanup-commentary commentary)))
