@@ -306,6 +306,7 @@ nil
       (webjump-url-encode
        (read-from-minibuffer "Google search:")))
   #'(lambda nil
+      (declare (special  emacspeak-websearch-google-number-of-results))
       emacspeak-websearch-google-number-of-results))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
