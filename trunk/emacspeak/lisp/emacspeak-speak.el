@@ -1514,6 +1514,8 @@ semantic to do the work."
     (cond
      ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t                                 ;process modeline
+      (put-text-property 0 (length dir-info)
+                         'personality 'annotation-voice dir-info) 
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
@@ -1532,11 +1534,10 @@ semantic to do the work."
       (when buffer-read-only (dtk-tone 250 50))
       (tts-with-punctuations "all"
                              (dtk-speak
-                              (concat 
-                               (format  "%s %s %s %s  %s %s
-"
+                              (concat
+                               (or dir-info " ")
+                               (format  "%s %s %s %s  %s  "
                                         (buffer-name)
-                                        (or dir-info " ")
                                         (if line-number-mode
                                             (format "line %d"
                                                     (emacspeak-get-current-line-number))
