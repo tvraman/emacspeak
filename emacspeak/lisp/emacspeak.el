@@ -45,11 +45,12 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'advice)
 (require 'backquote)
-(require 'voice-lock)
+
 (eval-when (compile)
   (require 'dtk-speak)
+  (require 'voice-lock)
+  (require 'emacspeak-sounds)
   (require 'emacspeak-speak)
   (require 'emacspeak-keymap))
 (require 'emacspeak-fix-interactive)
