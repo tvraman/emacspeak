@@ -56,14 +56,12 @@ and the final intersection is computed using set:intersection.
                 select="key('pageKey', $start)"/>
               <xsl:variable name="last"
                 select="key('pageKey', $end+1)"/>
-            <xsl:variable name="all"
-            select="//*"/>
-            <xsl:variable name="after" select="set:trailing($all, $first)"/>
-            <xsl:variable name="before" select="set:leading($all, $last)"/>
+            <xsl:for-each select="$first">
+            <xsl:variable  name="after" select="following::*"/>
+            <xsl:for-each select="$last">
+<xsl:variable name="before" select="preceding::*"/>
             <xsl:for-each
-              select="set:intersection($before,
-              $after)">
-              
+              select="set:intersection($before, $after)">
               <xsl:choose>
                 <xsl:when test="$uniquify">
                   <!-- the following test is needed to avoid duplicates 
@@ -79,6 +77,8 @@ and the final intersection is computed using set:intersection.
                   <xsl:copy-of select="."/>
                 </xsl:otherwise>
               </xsl:choose>
+            </xsl:for-each>
+              </xsl:for-each>
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
