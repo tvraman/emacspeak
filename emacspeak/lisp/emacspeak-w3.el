@@ -89,11 +89,11 @@
 (condition-case nil
     (progn (require 'w3-speak)
            (add-hook 'w3-mode-hook 'w3-speak-mode-hook)
-(add-hook 'w3-mode-hook 'emacspeak-pronounce-toggle-use-of-dictionaries)
-(setq w3-echo-link
+           (add-hook 'w3-mode-hook 'emacspeak-pronounce-toggle-use-of-dictionaries)
+           (setq w3-echo-link
                  (list 'text 'title 'name 'url))
            (if (locate-library "w3-speak-table")
-             (load-library "w3-speak-table")
+               (load-library "w3-speak-table")
              (message
               "Please upgrade to W3 4.0.18 for spoken table support"))
            (setq url-show-status nil))
@@ -148,13 +148,13 @@ that is no longer supported by Emacspeak.")))
   "Alert user when lynx is done dumping the document"
   (declare (special view-exit-action))
   (when (y-or-n-p
-        "Lynx is done --switch to the results?")
-       (pop-to-buffer (process-buffer process))
-       (goto-char (point-min))
-       (view-mode)
-       (setq view-exit-action 'kill-buffer)
-       (skip-syntax-forward " ")
-       (emacspeak-speak-line)))
+         "Lynx is done --switch to the results?")
+    (pop-to-buffer (process-buffer process))
+    (goto-char (point-min))
+    (view-mode)
+    (setq view-exit-action 'kill-buffer)
+    (skip-syntax-forward " ")
+    (emacspeak-speak-line)))
 
 (defun emacspeak-w3-lynx-url-under-point ()
   "Display contents of URL under point using LYNX.  The
@@ -182,13 +182,13 @@ the table structure extraction code in W3."
 ;;}}}
 ;;{{{ fixup images
 (declaim (special w3-version))
-;;; smart image handling only works in w3 4.0
-(when
-    (string-match  "4\\.0" w3-version)
-; simple heuristic to detect silly bullets and dots
-; (by Greg Stark <gsstark@mit.edu>, enriched with regexp)
 
-(defvar w3-min-img-size 16
+
+    
+                                        ; simple heuristic to detect silly bullets and dots
+                                        ; (by Greg Stark <gsstark@mit.edu>, enriched with regexp)
+
+(defvar w3-min-img-size 32
   "*Image size under which the alt string is replaced by `w3-dummy-img-alt-repl'.
 15 is a bit aggressive, 5 pixels would be safer")
 
@@ -212,7 +212,7 @@ the table structure extraction code in W3."
                  (string-match w3-dummy-img-re s))
              w3-dummy-img-alt-repl
            (concat "[" (file-name-sans-extension s)
-                   "]"))))))
+                   "]")))))
 
 ;;}}}
 ;;{{{ toggle table borders:
@@ -222,8 +222,8 @@ the table structure extraction code in W3."
 ;;; turn borders on and off:
 
 (defvar emacspeak-w3-table-draw-border
-nil
-"Reflects whether we allow W3 to draw table borders. ")
+  nil
+  "Reflects whether we allow W3 to draw table borders. ")
 
 
 
@@ -288,17 +288,17 @@ specifies by how many eleemnts to move."
   (cond
    ((null count)
     (unless (emacspeak-w3-html-stack)
-      ;skip over null region
+                                        ;skip over null region
       (goto-char
-                  (previous-single-property-change (point)
-                                               'html-stack
-                                               (current-buffer)
-                                               (point-min))))
+       (previous-single-property-change (point)
+                                        'html-stack
+                                        (current-buffer)
+                                        (point-min))))
     (goto-char
-                  (previous-single-property-change (point)
-                                               'html-stack
-                                               (current-buffer)
-                                               (point-min))))
+     (previous-single-property-change (point)
+                                      'html-stack
+                                      (current-buffer)
+                                      (point-min))))
    (t (message "Moving by more than 1 not yet
 implemented. ")))
   (let ((emacspeak-show-point t))
@@ -379,7 +379,7 @@ implemented. ")))
     (setq end (string-match "'" url))
     (setq url (substring url 0 end))
     (when (string-match "http" url)
-    (w3-fetch url))
+      (w3-fetch url))
     (w3-relative-link url)))
 
 (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
@@ -396,7 +396,7 @@ element. "
   (when (and (eq major-mode 'w3-mode)
              (widget-at (point)))
     (message (mapconcat #'identity 
-    (widget-get (widget-at (point)) :class ) " "))))
+                        (widget-get (widget-at (point)) :class ) " "))))
 
 ;;}}}
 ;;{{{ load realaudio if available 
@@ -473,9 +473,9 @@ even if one is already defined."
   (interactive)
   (condition-case nil
       (progn
-      (search-forward (buffer-name))
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))
+        (search-forward (buffer-name))
+        (emacspeak-speak-line)
+        (emacspeak-auditory-icon 'large-movement))
     (error "Title not found in body.")))
 
 ;;}}}
@@ -519,9 +519,9 @@ HTML.")
 Nil means no transform is used. ")
 
 (defcustom emacspeak-xslt-program "xsltproc"
-"Name of XSLT transformation engine."
-:type 'string
-:group 'emacspeak-w3)
+  "Name of XSLT transformation engine."
+  :type 'string
+  :group 'emacspeak-w3)
 
 (defun emacspeak-w3-xslt-region (xsl start end )
   "Apply XSLT transformation to region and replace it with
@@ -543,15 +543,16 @@ libxslt package."
     (delete-file tempfile)))
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
-  "Apply requested transform if any before displaying the HTML."
+  "Apply requested transform if any before displaying the
+HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+    (goto-char (point-min))
+    (while (search-forward "&nbsp;" nil t)
+      (replace-match " "))
     (emacspeak-w3-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
-     (point-max))
-    (goto-char (point-min))
-    (while (search-forward "&nbsp;" nil t)
-      (replace-match " "))))
+     (point-max))))
 
 
 
@@ -581,7 +582,7 @@ libxslt package."
   (emacspeak-auditory-icon
    (if emacspeak-w3-xsl-p 'on 'off))
   (message "Turned %s XSL"
-(if emacspeak-w3-xsl-p 'on 'off)))
+           (if emacspeak-w3-xsl-p 'on 'off)))
 
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t" 'emacspeak-w3-xsl-toggle)
