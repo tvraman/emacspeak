@@ -45,16 +45,31 @@
 ;;}}}
 ;;{{{ speech-enable feedback routines
 
+(defvar emacspeak-ido-cache-current-directory nil
+  "Cached value of ido-current-directory.")
+
+(defadvice ido-set-current-directory (before emacspeak pre act
+                                             comp)
+  "Cache previous value of ido-current-directory."
+  (setq emacspeak-ido-cache-current-directory
+        ido-current-directory))
+
+
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
   (let ((voice-lock-mode t)
         (emacspeak-use-auditory-icons nil))
     (dtk-speak
      (format
-      "%s %d Choices: %s"
+      "%s %d Choices: %s %s"
       (car ido-matches)
       (length ido-matches)
-      (minibuffer-contents)))))
+      (minibuffer-contents)
+      (if(or (null ido-current-directory)
+             (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
+          " "
+        (format "In directory: %s"
+                ido-current-directory))))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
