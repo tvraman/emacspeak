@@ -78,6 +78,7 @@ proc tts_say {text} {
     regsub -all {\[\*\]} $text { `p1 } text 
     synth " $prefix $text"
         service
+    closeDSP
     return ""
 }
 
@@ -93,6 +94,7 @@ proc l {text} {
     set tts(not_stopped) 1
     synth "$prefix  `ts2 $text `ts0"
     service
+    closeDSP
     return ""
 }
 
@@ -257,17 +259,17 @@ proc clean {element} {
     global queue tts 
     if {[string match all $tts(punctuations)] } {
         regsub -all --  {\*} $element \
-            { star } element
+            { `00 star } element
         regsub -all --  {-} $element \
-            { dash } element
+            { `00 dash } element
         regsub -all --  {;} $element \
-            { semicolen } element
+            { `00 semicolen } element
         regsub -all --  {\(} $element \
-            { left paren } element
+            { `00 left `00 paren } element
             regsub -all --  {\)} $element \
-            { right paren } element
+            { `00 right `00 paren } element
         regsub -all --  {@} $element \
-            { at } element
+            { `00 at } element
         regsub -all  {[.,!?;:+=/'\"@$%&_*()]} $element  \
             { `00 \0 `p10 }   element
     } else {
