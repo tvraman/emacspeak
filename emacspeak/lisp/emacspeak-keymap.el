@@ -119,8 +119,8 @@ field in the customization buffer.  You can use the notation
              (let ((key (car binding))
                    (command (cdr binding )))
                (when (string-match "\\[.+]" key)
-                 (setq key (car (read-from-string key))))
-               (define-key emacspeak-personal-keymap key command)))
+                 (setq key  (car (read-from-string key))))
+               (define-key emacspeak-personal-keymap  key command)))
            val)
 	  (set-default sym val)))
 

@@ -110,6 +110,9 @@
     ("emacspeak-daisy.el"
         "daisy Front-end for emacspeak desktop"
         (emacspeak  daisy digital talking books))
+    ("emacspeak-damlite.el"
+        "Speech-enable damlite"
+        (emacspeak  damlite ))
     ("emacspeak-desktop.el"
         "Speech-enable Emacspeak  desktop "
         (emacspeak   audio desktop  desktop))
