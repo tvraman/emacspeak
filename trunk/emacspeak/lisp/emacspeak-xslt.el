@@ -116,7 +116,7 @@ part of the libxslt package."
 			       "*xslt errors*"))
     (when (get-buffer  "*xslt errors*")
       (bury-buffer "*xslt errors*"))
-    (goto-char (point-min))
+    (goto-char (point-max))
       (insert
        (format "<!-- %s -->\n"
                command))
@@ -163,7 +163,7 @@ part of the libxslt package."
 	(replace-match " ")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
-      (goto-char (point-min))
+      (goto-char (point-max))
       (insert
        (format "<!-- %s -->\n"
                command))
@@ -207,7 +207,7 @@ part of the libxslt package."
          "*xslt errors*"))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
-      (goto-char (point-min))
+      (goto-char (point-max))
       (insert
        (format "<!-- %s -->\n"
                command))
