@@ -137,7 +137,9 @@ emacspeak-realaudio-shortcuts-directory. "
                     emacspeak-realaudio-shortcuts-directory
                     emacspeak-realaudio-history
                     emacspeak-use-auditory-icons))
-  (unless (string-match "^http:"  resource)
+  (unless (or
+           (string-match "^rtsp:" resource)
+           (string-match "^http:"  resource))
     (setq resource
           (expand-file-name resource)))
   (unless (string= resource (car emacspeak-realaudio-history))
