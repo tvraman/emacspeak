@@ -1,7 +1,7 @@
-;;; emacspeak-ibuffer.el --- speech-enable iswitchb buffer selection
+;;; emacspeak-iswitchb.el --- speech-enable iswitchb buffer selection
 ;;; $Id$
 ;;; $Author$
-;;; Description:   extension to speech enable ibuffer
+;;; Description:   extension to speech enable iswitchb
 ;;; Keywords: Emacspeak, Audio Desktop
 ;;{{{  LCD Archive entry:
 
