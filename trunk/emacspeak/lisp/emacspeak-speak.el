@@ -683,7 +683,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ;
+;;}}}					; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -2984,13 +2984,13 @@ or an ascendant directory."
   (declare (special emacspeak-speak-directory-settings
                     default-directory))
   (let ((file (find emacspeak-speak-directory-settings
-		     (directory-files dir)
-                     :test 'string=)))
+		    (directory-files dir)
+		    :test 'string=)))
     (cond
      (file (expand-file-name file dir))
-      ((not (emacspeak-speak-root-dir-p dir))
-	  (emacspeak-speak-get-directory-settings (expand-file-name ".." dir)))
-      (t nil))))
+     ((not (emacspeak-speak-root-dir-p dir))
+      (emacspeak-speak-get-directory-settings (expand-file-name ".." dir)))
+     (t nil))))
 
 ;;;###autoload
 (defun emacspeak-speak-load-directory-settings (&optional directory)

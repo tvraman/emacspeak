@@ -767,8 +767,8 @@ spoken automatically."
   (interactive
    (list current-prefix-arg))
   (unless (and
-         (or (null prompt-url) (stringp prompt-url))
-              (eq major-mode 'w3-mode))
+	   (or (null prompt-url) (stringp prompt-url))
+	   (eq major-mode 'w3-mode))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))
@@ -791,7 +791,7 @@ spoken automatically."
   (interactive)
   (cond
    ((and (eq major-mode 'w3-mode)
-             (w3-view-this-url 'no-show))
+	 (w3-view-this-url 'no-show))
     (emacspeak-w3-extract-media-streams (w3-view-this-url 'no-show)
                                         'speak))
    (t (error "Not on a link in a W3 buffer."))))

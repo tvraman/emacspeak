@@ -116,11 +116,11 @@
         newsticker-get-news
         newsticker--cache-save)
       do
-          (eval
-`(defadvice  ,f (around emacspeak pre act comp)
-  "Silence messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))))
+      (eval
+       `(defadvice  ,f (around emacspeak pre act comp)
+	  "Silence messages."
+	  (let ((emacspeak-speak-messages nil))
+	    ad-do-it))))
 ;;}}}
 (provide 'emacspeak-newsticker)
 ;;{{{ end of file
