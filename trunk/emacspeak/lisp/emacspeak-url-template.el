@@ -1579,9 +1579,22 @@ Meerkat realy needs an xml-rpc method for getting this.")
       url 'speak)))
 
 ;;}}}
+;;{{{ airport conditions:
+(emacspeak-url-template-define
+ "Airport conditions"
+ "http://www.fly.faa.gov/flyfaa/flyfaaindex.jsp?ARPT=%s&p=0"
+ (list "Airport Code:")
+ nil
+ "Display airport conditions from the FAA."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match "Status"
+                                          url 'speak)))
+
+;;}}}
 
 ;;}}}
 ;;{{{ Interactive commands 
+
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
