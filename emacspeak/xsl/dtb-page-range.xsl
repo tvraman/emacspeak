@@ -60,9 +60,14 @@ and the final intersection is computed using set:intersection.
             <xsl:for-each
             select="set:intersection($before,
             $after)">
+              <!-- the following test is needed to avoid
+  duplicating nodes 
+but it is linear in size and a very slow solution -->
               <xsl:if test="not(set:intersection(ancestor::*, $after))">
               <xsl:copy-of select="."/>
               </xsl:if>
+              <!-- Still looking for a better solution for the
+  test above -->
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
