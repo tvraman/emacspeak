@@ -129,7 +129,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (nconc options
                  (if playlist-p
                  (list "-playlist" resource)
-                 resource)))
+                 (list resource))))
     (setq emacspeak-m-player-process
           (apply 'start-process
                  "m-player" "m-player" emacspeak-m-player-program
