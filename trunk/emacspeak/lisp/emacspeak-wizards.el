@@ -969,7 +969,7 @@ Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed."
   (interactive "SDisplay variable:")
   (let ((buffer (get-buffer-create
-                 (format "*emacspeak-%s*"
+                 (format "*emacspeak:%s*"
                          var)))
         (symbol (symbol-value var)))
     (save-excursion
@@ -982,7 +982,8 @@ Argument VAR specifies variable whose value is to be displayed."
               (insert (format "%s\n"
                               element))))
        (t (insert (format "%s\n" symbol))))
-      (goto-char (point-min)))
+      (goto-char (point-min))
+      (emacs-lisp-mode))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
