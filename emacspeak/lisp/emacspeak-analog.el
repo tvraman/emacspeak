@@ -155,11 +155,11 @@ Speak field or char moved to."
       (forward-char left)
       (setq start (point))
       (cond
-((or (null right)
-  (<= right col))
-(beginning-of-line)
-(forward-char right)
-(setq start (point))
+       ((or (null right)
+            (<= right col))
+        (beginning-of-line)
+        (forward-char right)
+        (setq start (point))
         (end-of-line)
         (setq end (point)))
        (t
@@ -203,6 +203,26 @@ Speak field or char moved to."
       (forward-char start))
      (t (forward-char prev)))))
 
+(defun emacspeak-analog-previous-line ()
+  "Move up and speak current field."
+  (interactive)
+  (let ((fields (emacspeak-analog-get-field-spec)))
+    (cond (fields
+           (emacspeak-auditory-icon 'select-object)
+           (next-line -1)
+           (emacspeak-analog-speak-field fields))
+          (t (call-interactively 'previous-line)))))
+
+(defun emacspeak-analog-next-line ()
+  "Move down and speak current field."
+  (interactive)
+  (let ((fields (emacspeak-analog-get-field-spec)))
+    (cond (fields
+           (emacspeak-auditory-icon 'select-object)
+           (next-line 1)
+           (emacspeak-analog-speak-field fields))
+          (t (call-interactively 'next-line)))))
+
 ;;}}}
 ;;{{{ key bindings
 
@@ -210,6 +230,8 @@ Speak field or char moved to."
 (define-key analog-mode-map '[left]
   'emacspeak-analog-backward-field-or-char)
 (define-key analog-mode-map '[right] 'emacspeak-analog-forward-field-or-char)
+(define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
+(define-key analog-mode-map '[down] 'emacspeak-analog-next-line)
 
 ;;}}}
 (provide 'emacspeak-analog)
