@@ -290,7 +290,8 @@ post-action ;action to perform after opening
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
   (browse-url  (emacspeak-url-template-url ut))
-  (funcall (emacspeak-url-template-post-action ut)))
+  (when (emacspeak-url-template-post-action ut)
+    (funcall (emacspeak-url-template-post-action ut))))
 
 (defun emacspeak-url-template-fetch ()
   "Prompt for  URL template and fetch specified resource."
