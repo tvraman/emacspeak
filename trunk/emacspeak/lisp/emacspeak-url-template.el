@@ -338,6 +338,20 @@ to play a BBC Radio4 program on demand."
 
  
 ;;}}}
+;;{{{ Infoworld RSS
+(emacspeak-url-template-define
+ "InfoWorld RSS Feeds"
+ "http://www.infoworld.com/rss/rss_info.html"
+ nil
+ nil
+ "Produce  a set of RSS links published by InfoWorld."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//a[contains(@href, \".rdf\") and @class]"
+      url  'speak)))
+ 
+
+;;}}}
 ;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define
