@@ -2032,25 +2032,17 @@ was spoken.  Any other key continues to speak the buffer."
       (error "You specified an invalid key sequence.  " ))
     (emacspeak-execute-repeatedly command)))
 
-(defun emacspeak-speak-browse-buffer (&optional by-personality-or-define-paragraph)
-  "Browse the current buffer by reading it a chunk at a time.
-Optional interactive prefix arg
-  by-personality-or-define-paragraph 
-determines chunk by which we speak.
-Default speaks by paragraphs.
-Single prefix arg speaks by current personality.
-Second interactive prefix arg prompts for paragraph definition."
-  (interactive "p")
+(defun emacspeak-speak-browse-buffer (&optional browse)
+  "Browse current buffer.
+Default is to speak chunk having current personality.
+Interactive prefix arg `browse'  repeatedly browses  through
+  chunks having same personality as the current text chunk."
+  (interactive "P")
   (cond
-   ((= 4 by-personality-or-define-paragraph)
-    (emacspeak-execute-repeatedly 'emacspeak-speak-next-personality-chunk))
-   ((= 16 by-personality-or-define-paragraph)
-    (let (( paragraph-start
-            (read-from-minibuffer "Paragraph Start pattern: "))
-          (paragraph-separate
-           (read-from-minibuffer "Paragraph separate pattern: " paragraph-start)))
-      (emacspeak-execute-repeatedly 'forward-paragraph)))
-   (t  (emacspeak-execute-repeatedly 'forward-paragraph))))
+   (browse
+     (emacspeak-execute-repeatedly
+  'emacspeak-speak-next-personality-chunk))
+    (t (emacspeak-speak-this-personality-chunk))))
 
 (defvar emacspeak-read-line-by-line-quotient 10
   "Determines behavior of emacspeak-read-line-by-line.")

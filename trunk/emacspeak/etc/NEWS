@@ -54,6 +54,12 @@ When called with two prefix args i.e. C-u twice, it sets the
 timezone                                 as well --- useful for
 international                                 travel.
 
+** Browsing buffers:
+Command emacspeak-speak-browse-buffer now browses by personality
+chunks rather than by paragraphs.
+The older functionality of browsing by paragraphs is still
+accessible through emacspeak-speak-continuously 
+
 ** TTS Support:
 
 TTS specific code is now restricted in modules of the form
