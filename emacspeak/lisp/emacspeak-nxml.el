@@ -368,6 +368,28 @@
             (emacspeak-speak-line)))))
  
 ;;}}}
+;;{{{ Outline summarizer:
+
+(defun emacspeak-nxml-summarize-outline ()
+  "Intelligent spoken display of current outline entry."
+  (interactive)
+  (cond
+   ((get-text-property (point) 'nxml-outline-state)
+    (let ((o-open nil)
+          (o-end nil))
+    (save-excursion
+    (setq o-open (car (overlays-at (point))))
+    (next-line 1)
+    (beginning-of-line)
+    (forward-char -2)
+    (setq o-close (car (overlays-at (point))))
+    (dtk-speak (concat 
+             (overlay-get  o-open 'display)
+ (overlay-get o-close 'display)))))
+    (emacspeak-auditory-icon 'ellipses))
+   (t (message "Not on a hidden outline"))))
+  
+;;}}}
 ;;}}}
 (provide 'emacspeak-nxml)
 ;;{{{ end of file 
