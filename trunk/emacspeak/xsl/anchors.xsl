@@ -27,9 +27,9 @@ Description: Show list of anchors.
 <tr>
 <td><a href="#__about_this_style">About This Style</a></td>
     </tr></table>
-<ul>
+<ol>
 <xsl:apply-templates select="//a"/>
-</ul>
+</ol>
 <h2><a name="__about_this_style">About This Style</a></h2>
 <p>This style produces a list of anchors found in the document.</p>
 </xsl:template>
