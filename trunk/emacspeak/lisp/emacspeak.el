@@ -36,27 +36,11 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ required modules
+;;{{{ Introduction 
 
 ;;; Commentary:
 ;;;The complete audio desktop.
-;;; Code:
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'backquote)
-(require 'emacspeak-load-path)
-(require 'dtk-speak)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'voice-setup)
-(require 'emacspeak-keymap)
-(require 'emacspeak-fix-interactive)
-(require 'custom)
-;;}}}
-;;{{{  Introduction:
-
-;;;Commentary:
 
 ;;;Emacspeak extends Emacs to be a fully functional audio desktop.
 ;;; This is the main emacspeak module.
@@ -64,7 +48,19 @@
 ;;; It loads the various parts of the system.
 
 ;;}}}
- 
+;;{{{ Required modules
+
+;;; Code:
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'backquote)
+(require 'emacspeak-load-path)
+(require 'emacspeak-preamble)
+(require 'emacspeak-fix-interactive)
+(require  'emacspeak-keymap)
+(require 'emacspeak-sounds)
+;;}}}
 ;;{{{  Customize groups 
 
 (defgroup emacspeak nil
@@ -158,12 +154,8 @@ functions for details.   "
   (when emacspeak-unibyte
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
-  (require 'dtk-speak)
+  (require 'emacspeak-preamble)
   (dtk-initialize)
-  (load-library "voice-setup")
-  (require 'emacspeak-speak)
-  (require 'emacspeak-personality)
-  (require 'emacspeak-pronounce)
   (require 'emacspeak-redefine)
   (require 'emacspeak-fix-interactive)
   (require 'emacspeak-keymap)
@@ -200,8 +192,10 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+
 (load-library "emacspeak-loaddefs")
 (load-library "emacspeak-cus-load")
+
 ;;}}}
 ;;{{{ Package Setup Helper
 
@@ -237,6 +231,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
 (emacspeak-do-package-setup "buff-sel" 'emacspeak-buff-sel)
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
+(emacspeak-do-package-setup "buff-menu" 'emacspeak-buff-menu)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "calc" 'emacspeak-calc)
 (emacspeak-do-package-setup "calculator" 'emacspeak-calculator)
