@@ -148,7 +148,6 @@ Argument BODY specifies forms to execute."
 ;;}}}
 ;;{{{ getting and speaking text ranges
 
-
 (defsubst emacspeak-speak-get-text-range (property)
   "Return text range  around  at point and having the same value as  specified by argument PROPERTY."
   (buffer-substring
@@ -561,7 +560,6 @@ Argument START  and END specify region to speak."
       (emacspeak-speak-voice-annotate-paragraphs)))
   (emacspeak-handle-action-at-point)
   (dtk-speak (buffer-substring start end )))
-
 
              
 (defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
