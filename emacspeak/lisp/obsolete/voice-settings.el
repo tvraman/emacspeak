@@ -166,6 +166,17 @@ Return nil if not set."
 (setq voice-lock-maximum-decoration t)
 
 ;;}}}
+;;{{{ aliasing voices 
+(defsubst outloud-define-voice-alias (alias voice )
+  "Alias  ALIAS to be same as voice VOICE."
+  (declare (special outloud-voice-table))
+  (outloud-define-voice alias (gethash  voice outloud-voice-table)))
+
+(defsubst dtk-define-voice-alias (alias voice )
+  "Alias  ALIAS to be same as voice VOICE."
+  (dtk-define-voice alias (dtk-get-voice-command voice )))
+;;}}}
+
 (provide 'voice-settings)
 ;;{{{ end of file 
 
