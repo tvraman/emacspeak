@@ -1102,8 +1102,8 @@ for commands defined in module  %s.\n\n"
 
 (defun emacspeak-generate-texinfo-option-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
-options  into file options.texi.
-Warning! Contents of file options.texi will be overwritten."
+options  into file filename.
+Warning! Contents of file filename will be overwritten."
   (interactive "FEnter filename to save options documentation in: ")
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
@@ -1123,13 +1123,13 @@ documentation.\n\n")
        (function
         (lambda (o)
           (let ((this-module (symbol-file o))
-                (commentary nil))
+                (commentary nil)
+                (source-file nil))
             (when this-module
-              (setq commentary
-                    (lm-commentary
-                     (substring
-		      (locate-library this-module)
-		      0 -1)))
+              (setq source-file (locate-library this-module ))
+	      (if (char-equal (aref source-file (1- (length source-file))) ?c)
+		  (setq source-file (substring  source-file 0 -1)))
+              (setq commentary (lm-commentary source-file))
               (setq this-module
                     (file-name-sans-extension this-module))
               (when commentary
