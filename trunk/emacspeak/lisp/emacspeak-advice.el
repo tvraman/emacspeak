@@ -2721,36 +2721,24 @@ emacspeak running."
 ;;; We introduce a dynamic variable emacspeak-advice-advice-princ
 ;;; that can be set whenever we want princ to speak.
 
-(defvar emacspeak-advice-advice-princ nil
-  "If T then princ is advised to speak.
-Set  dynamically by emacspeak to influence behavior.
-Do not change this unless you know what you are doing.")
-(declaim (special emacs-version))
-(when (string-lessp "19.34" emacs-version)
-  ;;; first advice princ
+(defadvice describe-key-briefly (around emacspeak pre act comp)
+  "Speak what you displayed"
+  (cond
+   ((interactive-p)
+    ad-do-it
+    (dtk-speak ad-return-value))
+   (t ad-do-it))
+  ad-return-value)
 
-  (defadvice princ (after emacspeak pre  activate comp)
-    "Speak return value from princ if appropriate"
-    (when  emacspeak-advice-advice-princ
-      (dtk-speak ad-return-value)))
-
-  (defadvice describe-key-briefly (around emacspeak pre act comp)
-    "Speak what you displayed"
-    (cond
-     ((interactive-p)
-      (let ((emacspeak-advice-advice-princ t))
-        ad-do-it))
-     (t ad-do-it)))
-
-  (defadvice where-is (around emacspeak pre act comp)
-    "Provide spoken feedback"
-    (cond
-     ((interactive-p)
-      (let ((emacspeak-advice-advice-princ t))
-        ad-do-it))
-     (t ad-do-it))
-    ad-return-value)
-  );;; end emacs 20 conditional
+(defadvice where-is (around emacspeak pre act comp)
+  "Provide spoken feedback"
+  (cond
+   ((interactive-p)
+    ad-do-it
+    (dtk-speak ad-return-value))
+   (t ad-do-it))
+  ad-return-value)
+  
 
 ;;}}}
 ;;{{{ apropos and friends
