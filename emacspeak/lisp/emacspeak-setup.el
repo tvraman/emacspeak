@@ -116,10 +116,14 @@ pronunciation dictionaries are stored. ")
 
 (load-library "emacspeak")
 (defvar dtk-startup-hook nil)
+(defun emacspeak-tts-startup-hook ()
+  "Default hook function run after TTS is started."
+                      (dtk-set-rate tts-default-speech-rate t)
+                      (dtk-interp-sync))
 
 (add-hook 'dtk-startup-hook 
-          (function (lambda () 
-                      (dtk-set-rate tts-default-speech-rate  t))))
+          'emacspeak-tts-startup-hook)
+
 (defvar emacspeak-startup-hook nil)
 
 ;;; Use (add-hook 'emacspeak-startup-hook ...)

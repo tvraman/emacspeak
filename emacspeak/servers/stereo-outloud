@@ -321,7 +321,7 @@ set tts(stereo) 1
 useStereoOutput
 synth {`v1 Using stereo output Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
-service 
+synchronize
 
 #Start the main command loop:
 
