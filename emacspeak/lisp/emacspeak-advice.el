@@ -57,10 +57,9 @@
 ;;; Code:
 
 ;;}}}
+(require 'advice)
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'advice)
 (require 'dtk-speak)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
@@ -369,25 +368,25 @@ the words that were capitalized."
 
 (defcustom emacspeak-delete-char-speak-deleted-char t
   "*T means `delete-char' speaks char that was deleted."
-  :group 'emacspeak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defcustom emacspeak-backward-delete-char-speak-deleted-char t
   "*T means `backward-delete-char' speaks char that was
 deleted."
-  :group 'emacspeak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defcustom emacspeak-delete-char-speak-current-char nil
   "*T means `delete-char' speaks char that becomes current
 after deletion."
-  :group 'emacspeak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defcustom emacspeak-backward-delete-char-speak-current-char nil
   "*T means `backward-delete-char' speaks char that becomes
 current after deletion."
-  :group 'emacspeak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defadvice delete-backward-char (around emacspeak pre act)
@@ -502,19 +501,19 @@ current after deletion."
           (setq thisblank (looking-at "[ \t]*$"))
           ;; Set singleblank if there is just one blank line here.
           (setq singleblank
-          (and thisblank
-          (not (looking-at "[ \t]*\n[ \t]*$"))
-          (or (bobp)
-          (progn (forward-line -1)
-          (not (looking-at "[ \t]*$"))))))))
+                (and thisblank
+                     (not (looking-at "[ \t]*\n[ \t]*$"))
+                     (or (bobp)
+                         (progn (forward-line -1)
+                                (not (looking-at "[ \t]*$"))))))))
       (cond
-          ((and thisblank singleblank )
-          (message "Deleting current blank line"))
-          (  thisblank (message "Deleting surrounding  blank lines"))
-          (t (message "Deleting possible subsequent blank lines"))))))
+       ((and thisblank singleblank )
+        (message "Deleting current blank line"))
+       (  thisblank (message "Deleting surrounding  blank lines"))
+       (t (message "Deleting possible subsequent blank lines"))))))
 
-          ;;}}}
-          ;;{{{  advice insertion commands to speak.
+;;}}}
+;;{{{  advice insertion commands to speak.
 
 ;;; there appears to be a bug in newer emacsuns e.g. 19.30 when using
 ;;; completion.el
@@ -609,13 +608,12 @@ current after deletion."
 
 (defvar emacspeak-lazy-message-time 0
   "Records when we last spoke a message.")
-
 (defcustom emacspeak-speak-messages-should-pause-ongoing-speech
   t
   "* Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken."
-  :group 'emacspeak
+  :group 'emacspeak-speak
   :type 'boolean)
 
 (defadvice message (around  emacspeak pre act)
@@ -629,13 +627,13 @@ before the message is spoken."
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value        ;we really do have a message
                  (/= emacspeak-lazy-message-time;; previous message not recent
-                 (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
-                 ;; so we really need to speak it
-                 (when
-                 emacspeak-speak-messages-should-pause-ongoing-speech
-                 (dtk-pause))
-                 (tts-with-punctuations "all"
-                 (dtk-speak ad-return-value)))))
+                     (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
+      ;; so we really need to speak it
+      (when
+          emacspeak-speak-messages-should-pause-ongoing-speech
+        (dtk-pause))
+      (tts-with-punctuations "all"
+                             (dtk-speak ad-return-value)))))
 
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
@@ -804,110 +802,110 @@ Produce an auditory icon as well."
 (unless emacspeak-xemacs-p
                                         ; we need to advice these only for FSF Emacs
   (defadvice completing-read (around emacspeak pre act )
-  "Prompt using speech."
-  (let ((dtk-stop-immediately t )
-  (prompt (ad-get-arg 0))
-  (initial (ad-get-arg 4 ))
-  (default (ad-get-arg 6)))
-  (dtk-speak
-  (format "%s %s%s"
-  (or prompt " ")
-  (or initial " ")
-  (if default
-  (format "Default: %s" default)
-  "")))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak (format "%s" ad-return-value )))
-  ad-return-value ))
+    "Prompt using speech."
+    (let ((dtk-stop-immediately t )
+          (prompt (ad-get-arg 0))
+          (initial (ad-get-arg 4 ))
+          (default (ad-get-arg 6)))
+      (dtk-speak
+       (format "%s %s%s"
+               (or prompt " ")
+               (or initial " ")
+               (if default
+                   (format "Default: %s" default)
+                 "")))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak (format "%s" ad-return-value )))
+      ad-return-value ))
 
   (defadvice read-buffer(around emacspeak pre act )
-  "Prompt using speech as well. "
-  (let ((prompt (ad-get-arg 0))
-  (default (ad-get-arg 1 )))
-  (tts-with-punctuations "all"
-  (dtk-speak
-  (format "%s %s"
-  prompt
-  (or default " "))))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak ad-return-value))
-  ad-return-value))
+    "Prompt using speech as well. "
+    (let ((prompt (ad-get-arg 0))
+          (default (ad-get-arg 1 )))
+      (tts-with-punctuations "all"
+                             (dtk-speak
+                              (format "%s %s"
+                                      prompt
+                                      (or default " "))))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak ad-return-value))
+      ad-return-value))
 
   (defadvice read-char (before emacspeak pre act comp)
-  "Speak the prompt"
-  (tts-with-punctuations "all"
-  (let ((prompt  (ad-get-arg 0)))
-  (and prompt (dtk-speak prompt)))))
+    "Speak the prompt"
+    (tts-with-punctuations "all"
+                           (let ((prompt  (ad-get-arg 0)))
+                             (and prompt (dtk-speak prompt)))))
 
   (defadvice read-char-exclusive (before emacspeak pre act comp)
-  "Speak the prompt"
-  (let ((prompt  (ad-get-arg 0)))
-  (when  prompt
-  (tts-with-punctuations "all"
-  (dtk-speak prompt)))))
+    "Speak the prompt"
+    (let ((prompt  (ad-get-arg 0)))
+      (when  prompt
+        (tts-with-punctuations "all"
+                               (dtk-speak prompt)))))
 
   (defadvice read-command(around emacspeak pre act )
-  "Prompt using speech as well. "
-  (let ((prompt (ad-get-arg 0)))
-  (when prompt
-  (tts-with-punctuations "all"
-  (dtk-speak prompt)))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak (format "%s" ad-return-value)))
-  ad-return-value))
+    "Prompt using speech as well. "
+    (let ((prompt (ad-get-arg 0)))
+      (when prompt
+        (tts-with-punctuations "all"
+                               (dtk-speak prompt)))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak (format "%s" ad-return-value)))
+      ad-return-value))
 
   
 
   (defadvice read-string(around emacspeak pre act )
-  "Prompt using speech as well. "
-  (let ((prompt (ad-get-arg 0 ))
-  (default (ad-get-arg 1 )))
-  (tts-with-punctuations "all"
-  (dtk-speak
-  (format "%s %s"
-  prompt
-  (or default " "))))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak (format "%s" ad-return-value)))
-  ad-return-value))
+    "Prompt using speech as well. "
+    (let ((prompt (ad-get-arg 0 ))
+          (default (ad-get-arg 1 )))
+      (tts-with-punctuations "all"
+                             (dtk-speak
+                              (format "%s %s"
+                                      prompt
+                                      (or default " "))))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak (format "%s" ad-return-value)))
+      ad-return-value))
 
   (defadvice read-variable(around emacspeak pre act )
-  "Prompt using speech as well. "
-  (let ((prompt (ad-get-arg 0)))
-  (when prompt
-  (tts-with-punctuations "all"
-  (dtk-speak prompt)))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak (format "%s" ad-return-value)))
-  ad-return-value))
+    "Prompt using speech as well. "
+    (let ((prompt (ad-get-arg 0)))
+      (when prompt
+        (tts-with-punctuations "all"
+                               (dtk-speak prompt)))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak (format "%s" ad-return-value)))
+      ad-return-value))
 
   (defadvice read-file-name (around emacspeak pre act )
-  "Prompt using speech as well."
-  (let ((directory (or
-  (ad-get-arg 1)
-  default-directory))
-  (default (ad-get-arg 2 )))
-  (tts-with-punctuations "all"
-  (dtk-speak
-  (format "%s %s %s"
-  (ad-get-arg 0 )
-  (or directory "")
-  (if default
-  (format "Default %s" default )
-  ""))))
-  ad-do-it
-  (tts-with-punctuations "all"
-  (dtk-speak ad-return-value))
-  ad-return-value))
+    "Prompt using speech as well."
+    (let ((directory (or
+                      (ad-get-arg 1)
+                      default-directory))
+          (default (ad-get-arg 2 )))
+      (tts-with-punctuations "all"
+                             (dtk-speak
+                              (format "%s %s %s"
+                                      (ad-get-arg 0 )
+                                      (or directory "")
+                                      (if default
+                                          (format "Default %s" default )
+                                        ""))))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak ad-return-value))
+      ad-return-value))
 
   )
-  ;;}}}
-  ;;{{{  advice completion functions to speak:
+;;}}}
+;;{{{  advice completion functions to speak:
 
 (defadvice completion-list-mode (after emacspeak pre act )
   "Setup completion buffer.
@@ -1033,13 +1031,13 @@ in completion buffers"
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value        ;we really do have a message
                  (/= emacspeak-lazy-message-time;; previous message not recent
-                 (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
-                 ;; so we really need to speak it
-                 (tts-with-punctuations "all"
-                 (dtk-speak ad-return-value)))))
+                     (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
+      ;; so we really need to speak it
+      (tts-with-punctuations "all"
+                             (dtk-speak ad-return-value)))))
 
-                 ;;}}}
-                 ;;{{{ tmm support
+;;}}}
+;;{{{ tmm support
 
 (defadvice tmm-goto-completions (after emacspeak pre act comp)
   "announce completions "
@@ -1091,19 +1089,8 @@ in completion buffers"
 ;;}}}
 ;;{{{  Advice comint:
 (require 'shell)
-
-(defgroup emacspeak-comint  nil
-  "Emacspeak extensions for comint."
-  :link '(custom-group-link
-          :tag "Comint Group"
-          comint-group)
-  :prefix "emacspeak-comint-"
-  :group 'emacspeak)
-
-(defcustom emacspeak-comint-prompt-personality 'paul-monotone
-  "Personality used for highlighting comint prompts in Emacs 21. "
-  :type 'boolean
-  :group 'emacspeak-comint)
+(defvar emacspeak-comint-prompt-personality 'paul-monotone
+  "Personality used for highlighting comint prompts.")
 
 (defvar shell-voice-lock-keywords
   nil
@@ -1348,16 +1335,16 @@ in completion buffers"
             (index (1- (ring-length comint-input-ring))))
         ;; We have to build up a list ourselves from the ring vector.
         (while (>= index 0)
-        (setq history (cons (ring-ref comint-input-ring index) history)
-        index (1- index)))
+          (setq history (cons (ring-ref comint-input-ring index) history)
+                index (1- index)))
         ;; Change "completion" to "history reference"
         ;; to make the display accurate.
         (with-output-to-temp-buffer history-buffer
-        (display-completion-list history)
-        (switch-to-buffer history-buffer)
-        (forward-line 3)
-        (while (search-backward "completion" nil 'move)
-        (replace-match "history reference")))
+          (display-completion-list history)
+          (switch-to-buffer history-buffer)
+          (forward-line 3)
+          (while (search-backward "completion" nil 'move)
+            (replace-match "history reference")))
         (emacspeak-auditory-icon 'help)
         (next-completion 1)
         (dtk-speak (emacspeak-get-current-completion-from-completions)))))
@@ -1478,54 +1465,54 @@ in completion buffers"
 ;;; Advice for most used vc functions:
 
   (defadvice vc-toggle-read-only (around emacspeak pre act)
-  "Provide auditory feedback."
-  (cond
-  ((interactive-p)
-  (let ((message (format  "Checking %s version %s "
-  (if buffer-read-only  "out previous " " in new  ")
-  (emacspeak-vc-get-version-id))))
-  (if buffer-read-only
-  (emacspeak-auditory-icon 'open-object )
-  (emacspeak-auditory-icon 'close-object))
-  ad-do-it
-  (message message )))
-  (t ad-do-it ))
-  ad-return-value )
+    "Provide auditory feedback."
+    (cond
+     ((interactive-p)
+      (let ((message (format  "Checking %s version %s "
+                              (if buffer-read-only  "out previous " " in new  ")
+                              (emacspeak-vc-get-version-id))))
+        (if buffer-read-only
+            (emacspeak-auditory-icon 'open-object )
+          (emacspeak-auditory-icon 'close-object))
+        ad-do-it
+        (message message )))
+     (t ad-do-it ))
+    ad-return-value )
 
   (defadvice vc-next-action (around  emacspeak pre act)
-  "Provide auditory feedback."
-  (cond
-  ((interactive-p)
-  (let ((message (format  "Checking %s version %s "
-  (if buffer-read-only  "out previous " " in new  ")
-  (emacspeak-vc-get-version-id))))
-  (if buffer-read-only
-  (emacspeak-auditory-icon 'close-object)
-  (emacspeak-auditory-icon 'open-object ))
-  ad-do-it
-  (message message)))
-  (t ad-do-it ))
-  ad-return-value )
+    "Provide auditory feedback."
+    (cond
+     ((interactive-p)
+      (let ((message (format  "Checking %s version %s "
+                              (if buffer-read-only  "out previous " " in new  ")
+                              (emacspeak-vc-get-version-id))))
+        (if buffer-read-only
+            (emacspeak-auditory-icon 'close-object)
+          (emacspeak-auditory-icon 'open-object ))
+        ad-do-it
+        (message message)))
+     (t ad-do-it ))
+    ad-return-value )
 
   (defadvice vc-revert-buffer (after emacspeak pre act)
-  "Provide auditory feedback."
-  (when (interactive-p  )
-  (emacspeak-auditory-icon 'open-object)))
+    "Provide auditory feedback."
+    (when (interactive-p  )
+      (emacspeak-auditory-icon 'open-object)))
 
   (defadvice vc-finish-logentry (after emacspeak pre act)
-  "Provide auditory feedback."
-  (when (interactive-p)
-  (emacspeak-auditory-icon  'close-object)
-  (message "Checked   in  version %s "
-  (emacspeak-vc-get-version-id))))
+    "Provide auditory feedback."
+    (when (interactive-p)
+      (emacspeak-auditory-icon  'close-object)
+      (message "Checked   in  version %s "
+               (emacspeak-vc-get-version-id))))
 
   (progn
-  (require 'vc)
-  (emacspeak-fix-interactive-command-if-necessary 'vc-create-snapshot)
-  (emacspeak-fix-interactive-command-if-necessary 'vc-retrieve-snapshot)))
+    (require 'vc)
+    (emacspeak-fix-interactive-command-if-necessary 'vc-create-snapshot)
+    (emacspeak-fix-interactive-command-if-necessary 'vc-retrieve-snapshot)))
 
-  ;;}}}
-  ;;{{{  misc functions that have to be hand fixed:
+;;}}}
+;;{{{  misc functions that have to be hand fixed:
 
 (defadvice zap-to-char (after emacspeak pre act comp)
   "Speak line that is left."
@@ -2731,30 +2718,30 @@ Do not change this unless you know what you are doing.")
   ;;; first advice princ
 
   (defadvice princ (after emacspeak pre  activate comp)
-  "Speak return value from princ if appropriate"
-  (when  emacspeak-advice-advice-princ
-  (dtk-speak ad-return-value)))
+    "Speak return value from princ if appropriate"
+    (when  emacspeak-advice-advice-princ
+      (dtk-speak ad-return-value)))
 
   (defadvice describe-key-briefly (around emacspeak pre act comp)
-  "Speak what you displayed"
-  (cond
-  ((interactive-p)
-  (let ((emacspeak-advice-advice-princ t))
-  ad-do-it))
-  (t ad-do-it)))
+    "Speak what you displayed"
+    (cond
+     ((interactive-p)
+      (let ((emacspeak-advice-advice-princ t))
+        ad-do-it))
+     (t ad-do-it)))
 
   (defadvice where-is (around emacspeak pre act comp)
-  "Provide spoken feedback"
-  (cond
-  ((interactive-p)
-  (let ((emacspeak-advice-advice-princ t))
-  ad-do-it))
-  (t ad-do-it))
-  ad-return-value)
+    "Provide spoken feedback"
+    (cond
+     ((interactive-p)
+      (let ((emacspeak-advice-advice-princ t))
+        ad-do-it))
+     (t ad-do-it))
+    ad-return-value)
   );;; end emacs 20 conditional
 
-  ;;}}}
-  ;;{{{ apropos and friends
+;;}}}
+;;{{{ apropos and friends
 (defadvice apropos-command (after emacspeak pre act com)
   "Provide an auditory icon."
   (when (interactive-p)
@@ -2906,10 +2893,8 @@ Variable mark-even-if-inactive is set true ."
 (defun emacspeak-window-resize (ignore)
   "Play window resize icon."
   (emacspeak-auditory-icon 'window-resize))
-(defcustom emacspeak-sounds-icon-on-window-resize nil
-  "If T then window resize will produce an auditory icon."
-  :type 'boolean
-  :group 'emacspeak)
+(defvar emacspeak-sounds-icon-on-window-resize nil
+  "If T then window resize will produce an auditory icon.")
 
 (when emacspeak-sounds-icon-on-window-resize 
   (add-hook 'window-size-change-functions

@@ -842,7 +842,7 @@ Optional second arg data processes the results as data rather than HTML."
    'w3-table-focus-on-this-cell))
 
 (defvar emacspeak-websearch-freshmeat-search-uri 
-  "http://www.freshmeat.net/search.php?q="
+  "http://www.freshmeat.net/search?q="
   "URI for searching Freshmeat site. ")
 
 (defun emacspeak-websearch-freshmeat-search (query)

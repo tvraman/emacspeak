@@ -140,11 +140,11 @@
   (when (interactive-p)
     (emacspeak-hangman-setup-pronunciations)
     (emacspeak-auditory-icon 'open-object)))
-
+(when (boundp 'hm-map)
 (declaim (special hm-map))
 (define-key hm-map " " 'emacspeak-hangman-speak-guess)
 (define-key hm-map "=" 'emacspeak-hangman-speak-statistics)
-
+)
 
 ;;}}}
 (provide 'emacspeak-entertain)
