@@ -83,16 +83,6 @@ documentation.
 @node cd-tool
 @section cd-tool
 
-Commentary:
-Provide an emacs front-end to cdtool.
-cdtool can be obtained as an rpm
-check using rpmfind
-or from its home site at 
-  sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-This module also provides the ability to play or save 
-clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav convertor.
-
 Automatically generated documentation
 for commands defined in module  cd-tool.
 
@@ -123,9 +113,6 @@ cap C   Save clip to disk
 
 @node dtk-speak
 @section dtk-speak
-
-Commentary:
-Defines the TTS interface.
 
 Automatically generated documentation
 for commands defined in module  dtk-speak.
@@ -351,14 +338,11 @@ to all buffers.
 @node emacspeak
 @section emacspeak
 
-Commentary:
-The complete audio desktop.
-
 Automatically generated documentation
 for commands defined in module  emacspeak.
 
 @deffn {Interactive Command} emacspeak-describe-emacspeak ()
-@kbd{ control h control e }
+@kbd{ control h control e   <f1> control e   <help> control e }
 
 Give a brief overview of emacspeak.
 @end deffn
@@ -381,9 +365,6 @@ Open amphetadesk.
 
 @node emacspeak-analog
 @section emacspeak-analog
-
-Commentary:
-Speech-enables package analog --convenient log analyzer 
 
 Automatically generated documentation
 for commands defined in module  emacspeak-analog.
@@ -437,10 +418,6 @@ Speak the size of the file on current line
 @node emacspeak-aumix
 @section emacspeak-aumix
 
-Commentary:
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
-
 Automatically generated documentation
 for commands defined in module  emacspeak-aumix.
 
@@ -486,10 +463,6 @@ Increase volume of wave output.
 
 @node emacspeak-bs
 @section emacspeak-bs
-
-Commentary:
-speech-enable bs.el
-this is an alternative to list-buffers
 
 Automatically generated documentation
 for commands defined in module  emacspeak-bs.
@@ -549,10 +522,6 @@ Speak the date under point when called in Calendar Mode.
 @node emacspeak-compile
 @section emacspeak-compile
 
-Commentary:
-This module makes compiling code from inside Emacs speech friendly.
-It is an example of how a little amount of code can make Emacspeak even better.
-
 Automatically generated documentation
 for commands defined in module  emacspeak-compile.
 
@@ -576,9 +545,6 @@ Jump to custom toolbar when in a customization buffer.
 
 @node emacspeak-daisy
 @section emacspeak-daisy
-
-Commentary:
-Daisy Digital Talking Book Reader
 
 Automatically generated documentation
 for commands defined in module  emacspeak-daisy.
@@ -626,6 +592,10 @@ during initialization.
 @kbd{ control e control b }
 
 Open Digital Talking Book specified by navigation file filename.
+
+This is the main entry point to the  Emacspeak Daisy reader.
+Opening a Daisy navigation file (.ncx file) results in a
+navigation buffer that can be used to browse and read the book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-daisy-play-audio-under-point ()
@@ -646,12 +616,6 @@ Stop audio.
 
 @node emacspeak-dired
 @section emacspeak-dired
-
-Commentary:
-This module speech enables dired.
-It reduces the amount of speech you hear:
-Typically you hear the file names as you move through the dired buffer
-Voicification is used to indicate directories, marked files etc.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
@@ -861,14 +825,6 @@ set the current local value to the result.
 
 @node emacspeak-eterm
 @section emacspeak-eterm
-
-Commentary:
-This module makes eterm talk.
-Eterm is the new terminal emulator for Emacs.
-Use of emacspeak with eterm really needs an info page.
-At present, the only documentation is the source level documentation.
-This module uses Control-t as an additional prefix key to allow the user
-To move around the terminal and have different parts spoken. 
 
 Automatically generated documentation
 for commands defined in module  emacspeak-eterm.
@@ -1098,12 +1054,6 @@ all output to the terminal is automatically spoken.
 @node emacspeak-eudc
 @section emacspeak-eudc
 
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
 Automatically generated documentation
 for commands defined in module  emacspeak-eudc.
 
@@ -1324,15 +1274,6 @@ Save out grid settings.
 @node emacspeak-hide
 @section emacspeak-hide
 
-Commentary:
-
-Flexible hide and show for emacspeak.
-This module allows one to easily hide or expose
-blocks of lines starting with a common prefix.
-It is motivated by the need to flexibly hide quoted text in email
-but is designed to be more general.
-the prefix parsing is inspired by filladapt.el
-
 Automatically generated documentation
 for commands defined in module  emacspeak-hide.
 
@@ -1363,10 +1304,6 @@ and when you have heard enough navigate easily  to move past the block.
 
 @node emacspeak-ibuffer
 @section emacspeak-ibuffer
-
-Commentary:
-speech-enable ibuffer.el
-this is an alternative to buffer-menu
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ibuffer.
@@ -1433,7 +1370,7 @@ Speak info header line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-info-wizard (NODE-SPEC)
-@kbd{ control h TAB }
+@kbd{ control h TAB   <f1> TAB   <help> TAB }
 
 Read a node spec from the minibuffer and launch
 Info-goto-node.
@@ -1572,10 +1509,6 @@ Speak current section
 @node emacspeak-mpg123
 @section emacspeak-mpg123
 
-Commentary:
-This module speech-enables  MPG123
-MPG123 is an MP3 player.
-
 Automatically generated documentation
 for commands defined in module  emacspeak-mpg123.
 
@@ -1703,38 +1636,6 @@ emacspeak-ocr-name-document bound to
 M-x emacspeak-ocr-name-document.  The document name is used
 in constructing the name of the image and text files.
 
-Here is a list of all emacspeak OCR commands along with their key-bindings:
-
-key             binding
----             -------
-
-9		emacspeak-ocr-page
-8		emacspeak-ocr-page
-7		emacspeak-ocr-page
-6		emacspeak-ocr-page
-5		emacspeak-ocr-page
-4		emacspeak-ocr-page
-3		emacspeak-ocr-page
-2		emacspeak-ocr-page
-1		emacspeak-ocr-page
-C		emacspeak-ocr-set-compress-image-options
-I		emacspeak-ocr-set-scan-image-options
-SPC		emacspeak-ocr-read-current-page
-s		emacspeak-ocr-save-current-page
-p		emacspeak-ocr-page
-]		emacspeak-ocr-forward-page
-[		emacspeak-ocr-backward-page
-d		emacspeak-ocr-open-working-directory
-n		emacspeak-ocr-name-document
-o		emacspeak-ocr-recognize-image
-j		emacspeak-ocr-scan-photo
-i		emacspeak-ocr-scan-image
-RET		emacspeak-ocr-scan-and-recognize
-w		emacspeak-ocr-write-document
-q		bury-buffer
-c		emacspeak-ocr-customize
-?		describe-mode
-
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
 during initialization.
@@ -1803,9 +1704,6 @@ Writes out recognized text from all pages in current document.
 @node emacspeak-outline
 @section emacspeak-outline
 
-Commentary:
-Provide additional advice to outline-mode
-
 Automatically generated documentation
 for commands defined in module  emacspeak-outline.
 
@@ -1835,22 +1733,6 @@ Speak current outline section starting from point
 
 @node emacspeak-pronounce
 @section emacspeak-pronounce
-
-Commentary:
-This module implements user customizable pronunciation dictionaries
-for emacspeak. Custom pronunciations can be defined per file, per
-directory and/or per major mode. Emacspeak maintains a persistent
-user dictionary upon request and loads these in new emacspeak
-sessions. This module implements the user interface to the custom
-dictionary as well as providing the internal API used by the rest
-of emacspeak in using the dictionary.
-Algorithm:
-
-The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names. The hash values
-are association lists defining the dictionary. Users of this module
-can retrieve a dictionary made up of all applicable association
-lists for a given file.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-pronounce.
@@ -1960,15 +1842,6 @@ If already at the beginning then move to previous block.
 
 @node emacspeak-realaudio
 @section emacspeak-realaudio
-
-Commentary:
-Assuming you have a correctly configured RealAudio
-player, this package provides single click access to
-starting and stopping a RealAudio stream from anywhere
-on the Emacspeak desktop.  Before using this package,
-make sure that your realaudio player works outside
-Emacs. Then set variable Emacspeak-realaudio-player to
-point to the program you use to play RealAudio streams.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-realaudio.
@@ -2081,7 +1954,7 @@ Forward-char redefined to speak char moved to.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-self-insert-command (&optional ARG)
-@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
+@kbd{ Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian glyph   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14): ISO-IR-199   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   !   SPACE }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2168,27 +2041,6 @@ Speak coordinates of current position
 @node emacspeak-sounds
 @section emacspeak-sounds
 
-Commentary:
-This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
-
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
 
@@ -2229,12 +2081,6 @@ Optional interactive PREFIX arg toggles global value.
 
 @node emacspeak-speak
 @section emacspeak-speak
-
-Commentary:
-This module defines the core speech services used by emacspeak.
-It depends on the speech server interface modules
-It protects other parts of emacspeak
-from becoming dependent on the speech server modules
 
 Automatically generated documentation
 for commands defined in module  emacspeak-speak.
@@ -2418,6 +2264,14 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 @kbd{ control e = }
 
 Speak the current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-current-field ()
+@kbd{ control e . }
+
+Speak current field.
+A field is
+defined  by Emacs 21.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-current-kill (COUNT)
@@ -2919,16 +2773,6 @@ Send this command to the TTS directly.
 @node emacspeak-speedbar
 @section emacspeak-speedbar
 
-Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
---emacspeak-speedbar-goto-speedbar-- and binds this
-
 Automatically generated documentation
 for commands defined in module  emacspeak-speedbar.
 
@@ -3215,10 +3059,6 @@ Speak current position
 @node emacspeak-tnt
 @section emacspeak-tnt
 
-Commentary:
-Speech-enables TNT -- the Emacs AOL Instant Messenger
-client 
-
 Automatically generated documentation
 for commands defined in module  emacspeak-tnt.
 
@@ -3323,12 +3163,6 @@ Yank specified header into kill ring.
 
 @node emacspeak-w3
 @section emacspeak-w3
-
-Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
 
 Automatically generated documentation
 for commands defined in module  emacspeak-w3.
@@ -3620,17 +3454,11 @@ Search IBM My News
 @node emacspeak-websearch
 @section emacspeak-websearch
 
-Commentary:
-This module provides utility functions for searching the WWW
-
 Automatically generated documentation
 for commands defined in module  emacspeak-websearch.
 
-@deffn {Interactive Command} emacspeak-websearch-alltheweb-search (QUERY &optional PREFIX)
+@deffn {Interactive Command} emacspeak-websearch-alltheweb-search (QUERY)
 Perform an AllTheWeb  search.
-Optional prefix arg prompts for type of search:
---use `all' `phrase' or  `any'
-to specify the type of search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-altavista-search (QUERY)
@@ -3704,7 +3532,7 @@ Ebay search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-emacspeak-archive (QUERY)
-@kbd{ control h  cap E  }
+@kbd{ control h  cap E    <f1>  cap E    <help>  cap E  }
 
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -3903,10 +3731,6 @@ Optional second arg as-html processes the results as HTML rather than data.
 @node emacspeak-widget
 @section emacspeak-widget
 
-Commentary:
-This module implements the necessary extensions to provide talking
-widgets.
-
 Automatically generated documentation
 for commands defined in module  emacspeak-widget.
 
@@ -3934,9 +3758,6 @@ Sets widget at point by invoking its prompter.
 
 @node emacspeak-wizards
 @section emacspeak-wizards
-
-Commentary:
-Contains various wizards for the Emacspeak desktop.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-wizards.
@@ -4186,7 +4007,7 @@ directory.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-popup-messages ()
-@kbd{ control h  cap M  }
+@kbd{ control h  cap M    <f1>  cap M    <help>  cap M  }
 
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
@@ -4589,16 +4410,5 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
-@end deffn
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-speak-current-field ()
-@kbd{ control e . }
-
-Speak current field.
-A field is
-defined  by Emacs 21.
 @end deffn
 
