@@ -41,7 +41,7 @@ Note that this has installed the  Emacspeak speech server for
 ViaVoice Outloud  --a software speech synthesis engine.
 However, you need to obtain and install the ViaVoice Outloud
 RPMs  before you can use software TTS with Emacspeak.
-See  file  docs/VIAVOICE for details.
+See  file  docs/VIAVOICE for details."
 
 %files 
  /usr/share/emacs/site-lisp/emacspeak/

@@ -262,6 +262,16 @@ Do not set this by hand;
                                (emacspeak-get-sound-filename sound-name ))))
 
 ;;}}}
+;;{{{  native player (emacs 21)
+
+(defsubst emacspeak-native-auditory-icon (sound-name)
+  "Play auditory icon using native Emacs player."
+  (play-sound
+   (list 'sound :file
+                       (format "a %s\n"
+                               (emacspeak-get-sound-filename sound-name )))))
+
+;;}}}
 ;;{{{  serve an auditory icon
 
 (defsubst emacspeak-serve-auditory-icon (sound-name)
@@ -324,6 +334,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
+          (const emacspeak-native-auditory-icon)
           (const emacspeak-midi-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
