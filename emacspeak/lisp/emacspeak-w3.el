@@ -1010,8 +1010,9 @@ current page."
   "Call w3 post-processor hook if set."
   (when (and emacspeak-w3-post-process-hook
              (functionp emacspeak-w3-post-process-hook))
+    (unwind-protect
     (funcall emacspeak-w3-post-process-hook)
-    (setq emacspeak-w3-post-process-hook nil)))
+    (setq emacspeak-w3-post-process-hook nil))))
 
 ;;}}}
  
