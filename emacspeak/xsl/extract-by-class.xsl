@@ -30,17 +30,17 @@ Param class specifies the class to extract.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
-<p><xsl:value-of select="name(.)"/></p>
+        <p>
+          <xsl:value-of select="name(.)"/>
+        </p>
         <xsl:apply-templates/>
         <br/>
       </xsl:for-each>
-<h2>About This Document</h2> <p> Found <xsl:value-of
-select="count(//*[@class=$class])"/> nodes with <code>class</code>
-<em><xsl:value-of select="$class"/> </em> in
-<xsl:element name="a">
-<xsl:attribute name="href">
-<xsl:value-of select="$base"/>
-            </xsl:attribute>
+      <h2>About This Document</h2>
+      <p> Found <xsl:value-of select="count(//*[@class=$class])"/>
+        nodes with <code>class</code> 
+<em><xsl:value-of select="$class"/></em> in
+<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
 source document</xsl:element>
     </p>
     </xsl:element>
