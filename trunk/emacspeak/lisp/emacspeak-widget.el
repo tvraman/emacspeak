@@ -475,7 +475,7 @@ Returns a string with appropriate personality."
   (let* ((value (widget-value widget))
          (sibling (widget-get-sibling widget))
          (label (if sibling
-                    (widget-get sibling :tag)
+                    (emacspeak-widget-label sibling)
                   (emacspeak-widget-label widget))))
     (concat label
             " is "
@@ -497,7 +497,8 @@ Returns a string with appropriate personality."
          (selected
           (cond
            (choice (widget-get choice :tag))
-           (t (or value
+           (t (if value 
+(prin1-to-string value)
                   " no item ")))))
     (put-text-property 0  (length selected)
                        'personality emacspeak-widget-value-personality selected)
@@ -732,6 +733,42 @@ widget before summarizing."
 
 
 ;;}}}
+
+;;}}}
+;;{{{ voice widgets 
+
+(define-widget 'voice  'radio
+  :help-echo "Voice selector"
+  "Widget for selecting a voice.")
+
+(define-widget 'personality 'item
+  "Individual voice in a voice selector.")
+
+(defun emacspeak-widget-create-voice-selector ()
+  "Create a suitable voice selector widget."
+  (widget-create 'voice
+                 :tag "voices"
+                 :args 
+(loop for key being the hash-keys of dtk-voice-table 
+collect
+ (list 'personality :tag (prin1-to-string key)
+       :value key ))))
+
+(defun emacspeak-widget-help-personality (widget)
+  "Summarize voice  button."
+  (let* ((button-help (funcall
+                       'emacspeak-widget-help-radio-button widget))
+         (this-voice (widget-radio-value-get
+                      (widget-get widget :parent)))
+         (sample (format "This is %s" this-voice)))
+    (put-text-property 0 (length sample)
+                       'personality this-voice sample)
+    (concat  button-help 
+             " "
+             sample)))
+
+(widget-put (get 'personality 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-personality)
 
 ;;}}}
 (provide  'emacspeak-widget)
