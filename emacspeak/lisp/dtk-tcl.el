@@ -741,7 +741,7 @@ speech rate:")))
           (> level  9))
       (error "Invalid level %s" level ))
      (t (dtk-set-rate
-         (+ 180
+         (+ 0
             (* dtk-speech-rate-step  level ))
          prefix )))))
 
