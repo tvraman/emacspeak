@@ -193,6 +193,7 @@ prompting for a template.")
        (current-time)
        'universal))
      (emacspeak-auditory-icon 'open-object)
+     (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
  "BBC News text version.")
 
@@ -205,6 +206,7 @@ prompting for a template.")
       (format-time-string "%A, %d %B, %Y"
                           (current-time)))
      (emacspeak-auditory-icon 'open-object)
+     (beginning-of-line)
      (emacspeak-speak-rest-of-buffer))
  "BBC News text version."
  )
@@ -507,12 +509,13 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Tecnology "
- "http://www.cnn.com/2002/TECH/science/%s/index.html"
- (list
-  'emacspeak-url-template-date-month/date)
+ "http://www.cnn.com/TECH/"
  nil
- "Browse to the plain index of
-technology articles at CNN.")
+ #'(lambda nil
+     (declare (special emacspeak-w3-class-filter))
+     (setq emacspeak-w3-class-filter "cnnStoryContent"))
+ "CNN Technology news."
+ )
 
 (emacspeak-url-template-define
  "CNN computing "
