@@ -543,7 +543,9 @@ emacspeak-wizards-root-buffer
   (let ((dir (expand-file-name default-directory)))
     (cond
      ((comint-check-proc emacspeak-wizards-root-buffer)
-      (pop-to-buffer emacspeak-wizards-root-buffer))
+      (pop-to-buffer emacspeak-wizards-root-buffer)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-mode-line))
      (t
       (let* ((prog (or explicit-shell-file-name
                        (getenv "ESHELL")
@@ -573,9 +575,7 @@ emacspeak-wizards-root-buffer
         (goto-char (point-max))
         (insert (format "pushd %s" dir))
         (comint-send-input)
-        (shell-process-cd dir)))
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+        (shell-process-cd dir)))))
   
   
     

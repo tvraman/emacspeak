@@ -255,6 +255,7 @@ set tts(last_index) $x}");
 }
 
 /* Play wave file 16bit stereo only */
+/* incomplete for now --need to integrate with libst from sox */
 
 int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   size_t  count;
