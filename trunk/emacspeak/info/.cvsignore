@@ -1,4 +1,5 @@
 *.info*
+*.html
 emacspeak.aux
 emacspeak.cp
 emacspeak.dvi
