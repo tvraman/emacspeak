@@ -44,6 +44,7 @@
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map))
+(define-key w3m-mode-map "\C-e" 'emacspeak-prefix-command)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
