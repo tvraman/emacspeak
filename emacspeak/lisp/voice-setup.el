@@ -204,7 +204,13 @@ This function forces voice-lock mode on."
   :group 'tts)
 
 (defmacro defvoice (personality settings doc)
-  "Define voice using CSS setting."
+  "Define voice using CSS setting.
+Setting is a list  of the form 
+(list paul 5 5 5 5 )
+which defines a standard male voice.
+Once defined, the newly declared personality can be customized by
+calling command 
+\\[customize-variable] on <personality>-settings."
   (`
    (defcustom  (, (intern (format "%s-settings"  personality)))
      (, settings)
