@@ -5,6 +5,8 @@ use strict;
 my  %fields =qw(
                 DTSTART  Start
                 DTEND End
+                DTSTART;TZID="Eastern" Start
+                DTEND;TZID="Eastern" End
                 DESCRIPTION Description
                 SUMMARY Summary
                 LOCATION Location
