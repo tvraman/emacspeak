@@ -38,6 +38,7 @@ documentation.
 * emacspeak-replace Options::   
 * emacspeak-rss Options::       
 * emacspeak-setup Options::     
+* emacspeak-sigbegone Options::  
 * emacspeak-sounds Options::    
 * emacspeak-speak Options::     
 * emacspeak-speedbar Options::  
@@ -903,6 +904,20 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} dtk-default-speech-rate
 *Default speech rate at which TTS is started. 
+@end defvar
+
+@node emacspeak-sigbegone Options
+@section emacspeak-sigbegone Options
+
+Commentary:
+Speech-enables package sigbegone --voiceify sigs in email and news
+
+Automatically generated documentation
+for options defined in module  emacspeak-sigbegone.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-sigbegone-exorcized-personality
+Personality for signatures.
 @end defvar
 
 @node emacspeak-sounds Options
