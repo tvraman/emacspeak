@@ -202,6 +202,15 @@ documentation   Documents this template resource.
 
 ;;}}}
 ;;{{{  template resources 
+;;{{{  fedex
+(emacspeak-url-template-define
+ "fedex packages"
+ "http://www.fedex.com/cgi-bin/tracking?link=6&pv=ja&action=track&ftc_3=null&template_type=ftc&language=english&last_action=track&ascend_header=1&cntry_code=us&initial=x&mps=y&ascend_header=1&cntry_code=us&initial=x&tracknumber_list=%s"
+ (list "Tracking Number: ")
+ nil
+ "Display package tracking information from Fedex.")
+ 
+;;}}}
 ;;{{{ amazon
 (emacspeak-url-template-define
  "Amazon Product Details By ASIN"
