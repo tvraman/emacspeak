@@ -221,7 +221,7 @@ and then cue the next selected buffer."
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 ;;}}}
 ;;{{{ info wizard
-
+;;;###autoload
 (defun emacspeak-info-wizard (node-spec )
   "Read a node spec from the minibuffer and launch
 Info-goto-node.
