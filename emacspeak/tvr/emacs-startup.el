@@ -69,7 +69,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (when (file-exists-p  emacs-private-library-directory)
       (augment-load-path emacs-private-library-directory ))
     (when (file-exists-p  emacs-personal-library-directory)
-    (augment-load-path emacs-personal-library-directory))
+      (augment-load-path emacs-personal-library-directory))
     ;;{{{ Load and customize emacspeak 
 
     (unless (featurep 'emacspeak)
@@ -167,7 +167,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{ html helper mode: 
 
     (augment-auto-mode-alist ".css$" 'c++-mode)
-    ;(load-library-if-available "html-helper-prepare")
+                                        ;(load-library-if-available "html-helper-prepare")
 
     ;;}}}
     ;;{{{ python setup
@@ -309,11 +309,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "yasb-prepare")
     ;;}}}
     ;;{{{ swbuffer
-    ;(load-library-if-available "swbuff")
-    ;(global-set-key  [S right] 'swbuff-switch-to-next-buffer)
-    ;(global-set-key  [S left] 'swbuff-switch-to-previous-buffer)
-    ;(global-set-key "\C-cn" 'swbuff-switch-to-next-buffer)
-    ;(global-set-key "\C-cp" 'swbuff-switch-to-previous-buffer)
+                                        ;(load-library-if-available "swbuff")
+                                        ;(global-set-key  [S right] 'swbuff-switch-to-next-buffer)
+                                        ;(global-set-key  [S left] 'swbuff-switch-to-previous-buffer)
+                                        ;(global-set-key "\C-cn" 'swbuff-switch-to-next-buffer)
+                                        ;(global-set-key "\C-cp" 'swbuff-switch-to-previous-buffer)
     ;;}}}
     ;;{{{ buffer selection 
     (load-library-if-available"buff-sel")
@@ -334,8 +334,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "psgml-prepare")
     (load-library-if-available "xae-prepare")
     (load-library-if-available "tdtd-prepare")
-(load-library-if-available "xslide-prepare")
-(load-library-if-available "xslt-process-prepare")
+    ;(load-library-if-available "xslide-prepare")
+    (load-library-if-available "xslt-process-prepare")
     ;;}}}
     ;;{{{ sql
                                         ;(load-library-if-available "sql-prepare")
@@ -416,6 +416,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  calendar
     (require 'ediary)
     (require 'calendar)
+    (global-set-key "\M-\C-c" 'calendar)
     ;;}}}
     ;;{{{ dirvars
     (load-library-if-available "dirvars")
@@ -429,7 +430,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "color-theme")
     (color-theme-emacs-21)
     ;;}}}
-;;{{{ bib-find
+    ;;{{{ bib-find
     (load-library-if-available "bibfind")
     ;;}}}
     ))                                  ; end defun 
