@@ -703,7 +703,9 @@ that asks W3 to record the viewer in the navigation center when done."
 	       (set-buffer (, nav-center))
 	       (put-text-property (, start) (, end)
 				  'viewer  buffer))
-             (and bookmark (goto-char bookmark)))))))
+             (when bookmark
+               (goto-char bookmark)
+               (emacspeak-speak-line)))))))
 
 ;;}}}
 

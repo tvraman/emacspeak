@@ -192,7 +192,7 @@ documentation   Documents this template resource.
 
 (emacspeak-url-template-define
  "BookShare"
- "http://www.bookshare.org/web/VolunteerHome.html?email=%s&password=%s"
+ "https://www.bookshare.org/web/MembersLogin.html?email=%s&password=%s&operation=submit"
  (list
   #'(lambda nil
       (read-from-minibuffer
