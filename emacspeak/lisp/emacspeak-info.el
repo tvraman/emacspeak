@@ -111,8 +111,8 @@ Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node."
   :type '(menu-choice
-	  (const :tag "First screenfull" 'screenfull)
-	  (const :tag "Entire node" 'node))
+	  (const :tag "First screenfull" screenfull)
+	  (const :tag "Entire node" node))
   :group 'emacspeak-info)
 
 (defsubst emacspeak-info-speak-current-window ()
