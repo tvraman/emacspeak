@@ -124,6 +124,7 @@ e       Encyclopedia Britannica
 C-e     Ebay Search
 f       CNN  Financial Network
 cap F   Free Online Dictionary Of Computing
+C-f     Display specified search form
 g       The Google Search
 .       Advanced Google Search
 Cap G   Locate Gutenberg Etexts
@@ -240,9 +241,31 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;}}}
 
+
+
+;;}}}
+;;{{{ websearch utilities
+;;{{{ display form 
+
+(emacspeak-websearch-set-searcher 'display-form
+                                  'emacspeak-websearch-display-form)
+
+(emacspeak-websearch-set-key 6 'display-form)
+
+
 (defun emacspeak-websearch-display-form (form-markup)
   "Display form specified by form-markup."
-  (declare (special emacspeak-w3-xsl-p))
+  (interactive
+   (list
+    (progn
+      (emacspeak-pronounce-define-local-pronunciation
+       (expand-file-name "xml-forms"
+                         emacspeak-lisp-directory)
+       " xml forms ")
+    (read-file-name "Display Form: "
+                    (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
+  (declare (special emacspeak-w3-xsl-p
+                    emacspeak-lisp-directory))
   (let ((buffer (get-buffer-create " *search-form*"))
         (emacspeak-w3-xsl-p nil))
     (save-excursion
@@ -256,8 +279,6 @@ ARGS specifies additional arguments to SPEAKER if any."
       (kill-buffer buffer))))
 
 ;;}}}
-;;{{{ websearch utilities
-
 ;;{{{ AllTheWeb
 
 (emacspeak-websearch-set-searcher 'alltheweb
