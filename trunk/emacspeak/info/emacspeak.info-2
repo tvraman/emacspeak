@@ -934,3 +934,145 @@ searches forward (not incrementally).  A comma speaks the pointer
 location.  A period moves the pointer to the terminal cursor.  Return to
 normal term mode by typing q.
 
+
+File: emacspeak.info,  Node: Emacspeak Commands,  Next: Acknowledgements,  Prev: Running Terminal Based Applications,  Up: Top
+
+Emacspeak Commands
+******************
+
+   This chapter is generated automatically from the source-level
+documentation.  Any errors or corrections should be made to the
+source-level documentation.
+
+* Menu:
+
+* dtk-speak::
+* dtk-tcl::
+* emacspeak-aumix::
+* emacspeak-bs::
+* emacspeak-buff-menu::
+* emacspeak-c::
+* emacspeak-calendar::
+* emacspeak-compile::
+* emacspeak-custom::
+* emacspeak-dired::
+* emacspeak-ediff::
+* emacspeak-enriched::
+* emacspeak-entertain::
+* emacspeak-eterm::
+* emacspeak-filtertext::
+* emacspeak-fix-interactive::
+* emacspeak-forms::
+* emacspeak-freeamp::
+* emacspeak-gomoku::
+* emacspeak-gridtext::
+* emacspeak-hide::
+* emacspeak-ibuffer::
+* emacspeak-imenu::
+* emacspeak-keymap::
+* emacspeak-kotl::
+* emacspeak-mpg123::
+* emacspeak-ocr::
+* emacspeak-outline::
+* emacspeak-pronounce::
+* emacspeak-psgml::
+* emacspeak-realaudio::
+* emacspeak-redefine::
+* emacspeak-remote::
+* emacspeak-rmail::
+* emacspeak-solitaire::
+* emacspeak-sounds::
+* emacspeak-speak::
+* emacspeak-speedbar::
+* emacspeak-table-ui::
+* emacspeak-tabulate::
+* emacspeak-tapestry::
+* emacspeak-url-template::
+* emacspeak-view::
+* emacspeak-vm::
+* emacspeak-w3::
+* emacspeak-websearch::
+* emacspeak-widget::
+* emacspeak::
+* dis-quote::
+* emacspeak-arc::
+* emacspeak-dismal::
+* emacspeak-eudc::
+* emacspeak-man::
+* emacspeak-python::
+* emacspeak-tar::
+* emacspeak-tetris::
+* emacspeak-view-process::
+* emacspeak-w3search::
+* emacspeak-wizards::
+* ANONYMOUS::
+
+
+File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Prev: Emacspeak Commands,  Up: Emacspeak Commands
+
+dtk-speak
+=========
+
+   Automatically generated documentation for commands defined in module
+dtk-speak.
+
+dtk-toggle-splitting-on-white-space
+===================================
+
+   control e d SPACE
+
+   Toggle splitting of speech on white space.  This affects the
+internal state of emacspeak that decides if we split text purely by
+clause boundaries, or also include whitespace.  By default, emacspeak
+sends a clause at a time to the speech device.  This produces fluent
+speech for normal use.  However in modes such as `shell-mode' and some
+programming language modes, clause markers appear infrequently, and
+this can result in large amounts of text being sent to the speech
+device at once, making the system unresponsive when asked to stop
+talking.  Splitting on white space makes emacspeak's stop command
+responsive.  However, when splitting on white space, the speech sounds
+choppy since the synthesizer is getting a word at a time.
+
+dtk-set-chunk-separator-syntax
+==============================
+
+   control e d RETURN
+
+   Interactively set how text is split in chunks.  See the Emacs
+documentation on syntax tables for details on how characters are
+classified into various syntactic classes.  Argument S specifies the
+syntax class.
+
+tts-restart
+===========
+
+   control e control s
+
+   Use this to nuke the currently running TTS server and restart it.
+
+dtk-select-server
+=================
+
+   control e d d
+
+   Select a speech server interactively.  Argument PROGRAM specifies
+the speech server program.  When called  interactively, The selected
+server is started immediately.
+
+dtk-toggle-debug
+================
+
+   control e d b
+
+   Toggle state of the debug FLAG.  When debugging is on, you can
+switch to the buffer *speaker* to examine the output from the process
+that talks to the speech device by using command C-e d M-C-b.  Note:
+*speaker* is a hidden buffer, ie it has a leading space in its name.
+
+tts-show-debug-buffer
+=====================
+
+   control e d meta control b
+
+   Select TTS debugging buffer.
+
