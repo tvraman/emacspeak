@@ -268,28 +268,19 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key ?A  'alltheweb)
 
 (defvar emacspeak-websearch-alltheweb-uri
-  "http://www.alltheweb.com/cgi-bin/search?"
+  "http://www.alltheweb.com/search?avkw=fogg&cat=web&cs=utf-8&_sb_lang=pref"
   "*URI for AllTheWeb search")
 
-(defun emacspeak-websearch-alltheweb-search (query &optional prefix)
-  "Perform an AllTheWeb  search.
-Optional prefix arg prompts for type of search:
---use `all' `phrase' or  `any'
-to specify the type of search."
+(defun emacspeak-websearch-alltheweb-search (query  )
+  "Perform an AllTheWeb  search."
   (interactive
    (list
-    (emacspeak-websearch-read-query "All The Web Query: ")
-    current-prefix-arg))
+    (emacspeak-websearch-read-query "All The Web Query: ")))
   (declare (special emacspeak-websearch-alltheweb-uri))
-  (let (
-	)
     (browse-url 
      (concat emacspeak-websearch-alltheweb-uri
-             "query="
-             (webjump-url-encode query)
-             (and prefix
-                  (format "&type=%s"
-                          (read-from-minibuffer "Search type: "))))))
+             "&q="
+             (webjump-url-encode query)))
   (emacspeak-websearch-post-process
    "documents found"
    'emacspeak-speak-line))
