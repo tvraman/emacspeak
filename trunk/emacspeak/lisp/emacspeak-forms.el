@@ -87,7 +87,7 @@ speak the first field")
   :type 'symbol
   :group 'emacspeak-forms)
 
-(defcustom emacspeak-forms-ro-voice 'annotation-voice
+(defcustom emacspeak-forms-ro-voice voice-annotate
   "Personality for read-only fields. "
   :type 'symbol
   :group 'emacspeak-forms)
