@@ -1478,6 +1478,42 @@ the directory of the current buffer."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{  xslt 
+(defgroup  emacspeak-xslt nil
+  "XSL transformation group.")
+
+(defvar emacspeak-xslt-directory
+  (expand-file-name "xsl/" emacspeak-directory)
+  "Directory holding XSL transformations.")
+
+(defcustom emacspeak-xslt-program "xsltproc"
+  "Name of XSLT transformation engine."
+  :type 'string
+  :group 'emacspeak-xslt)
+
+(defun emacspeak-xslt-region (xsl start end &optional params )
+  "Apply XSLT transformation to region and replace it with
+the result.  This uses XSLT processor xsltproc available as
+part of the libxslt package."
+  (declare (special emacspeak-xslt-program))
+  (let ((parameters (when params 
+                      (mapconcat 
+                       #'(lambda (pair)
+                           (format "--param %s %s "
+                                   (car pair)
+                                   (cdr pair)))
+                       params
+                       " "))))
+    (shell-command-on-region start end
+                             (format "%s %s  --html --nonet --novalid %s -"
+                                     emacspeak-xslt-program
+                                     (or parameters "")
+                                     xsl )
+                             (current-buffer)
+                             'replace
+                             "*xslt errors*")))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
