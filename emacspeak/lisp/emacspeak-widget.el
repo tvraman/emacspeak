@@ -75,6 +75,27 @@
 ;;}}}
 ;;{{{  define summarizer
 
+(defun emacspeak-widget-help ()
+  "Speak help for widget under point."
+  (interactive)
+  (let* ((widget (widget-at (point)))
+         (tag (widget-get widget :tag))
+         (type (widget-type widget))
+         (help-echo
+          (when widget (widget-get widget :help-echo)))
+         (parent (widget-get widget :parent))
+         (parent-help
+          (when  parent (widget-get  parent :help-echo))))
+    (cond
+     (help-echo (message help-echo))
+     (parent-help (message " %s %s "
+                           parent-help
+                           (or tag type)))
+     (widget (message (format " %s " (widget-type widget))))
+     (t (message " Not on a widget. ")))))
+
+            
+        
 (defun emacspeak-widget-summarize-parent ()
   "Summarize parent of widget at point."
   (interactive)
@@ -676,17 +697,25 @@ widget before summarizing."
 
 
 (defadvice widget-setup (after emacspeak pre act comp)
-  "Fix widget keymaps so we dont loose the emacspeak
-prefix."
-  (declare (special emacspeak-prefix))
-  (define-key widget-field-keymap  emacspeak-prefix 'emacspeak-prefix-command)
-  (define-key widget-field-keymap  "\C-ee"
-    'widget-end-of-line)
-  (define-key widget-text-keymap  emacspeak-prefix 'emacspeak-prefix-command)
-  (define-key widget-text-keymap  "\C-ee" 'widget-end-of-line)
-  )
+  "Update widget keymaps."
+  (declare (special emacspeak-prefix
+                    widget-keymap widget-field-keymap widget-text-keymap))
+  (loop for map in
+        (list widget-keymap
+              widget-field-keymap
+              widget-text-keymap)
+        do
+        (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
+        (define-key map  "\C-ee" 'widget-end-of-line)
+  
+        (define-key map "\M-h" 'emacspeak-widget-help)
+        (define-key map "\M-p" 'emacspeak-widget-summarize-parent)
+        (define-key map "\M-\C-m"
+          'emacspeak-widget-update-from-minibuffer)))
+
 ;;}}}
 ;;{{{ augment widgets 
+
 (defun emacspeak-widget-update-from-minibuffer (point)
   "Sets widget at point by invoking its prompter."
   (interactive "d")
@@ -701,9 +730,10 @@ prefix."
     (widget-apply w :notify)
     (emacspeak-widget-summarize w)))
 
-(declaim (special widget-keymap))
-(define-key widget-keymap "\M-p" 'emacspeak-widget-summarize-parent)
-(define-key widget-field-keymap "\M-\C-m" 'emacspeak-widget-update-from-minibuffer)
+(declaim (special widget-keymap
+                  widget-field-keymap
+                  widget-text-keymap))
+
 
 ;;}}}
 (provide  'emacspeak-widget)
