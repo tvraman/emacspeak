@@ -258,7 +258,7 @@ facility to look up help on these commands.
 Mode @dfn{emacspeak-ocr-mode} provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned
 images and the resulting text are saved under directory
-@code{@~/ocr}; see variable @var{emacspeak-ocr-working-directory}.
+@code{~/ocr}; see variable @var{emacspeak-ocr-working-directory}.
 Invoking command @dfn{emacspeak-ocr-open-working-directory} bound
 to @kbd{d} will open this directory.
 
