@@ -1122,7 +1122,7 @@ in completion buffers"
   :type  'symbol
   :group 'emacspeak
   :group 'comint)
-
+(add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 (defvar shell-voice-lock-keywords
   nil
   "Additional expressions to highlight in Shell mode.")
