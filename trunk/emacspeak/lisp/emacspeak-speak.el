@@ -794,7 +794,10 @@ are indicated with auditory icon ellipses."
                         (y-or-n-p
                          (format "Speak  this  %s long line? "
                                  l))))
-            (when confirm 
+            (when confirm
+              ;update threshold
+              (setq emacspeak-speak-maximum-line-length l)
+              (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
               ;; record the y answer
               (ems-modify-buffer-safely
                (put-text-property start end
