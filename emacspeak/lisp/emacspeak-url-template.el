@@ -347,33 +347,7 @@ prompting for a template.")
    "//*[@class=\"article\"]//td[1]"
    url))
 
-(emacspeak-url-template-define
- "My Yahoo "
- "http://my.yahoo.com"
- nil
- nil
- "Apply content.xsl to my.yahoo.com and speak the relevant contents."
- #'(lambda (url)
-     (declare (special emacspeak-xslt-directory
-                       emacspeak-w3-url-rewrite-rule))
-     (emacspeak-w3-browse-url-with-style
-      (expand-file-name "content.xsl"
-                        emacspeak-xslt-directory)
-      url)
-     (search-forward
-      (format-time-string "%A") nil t)
-     (setq emacspeak-w3-url-rewrite-rule
-           '("$" "&print=1"))
-     (beginning-of-line)
-     (emacspeak-speak-rest-of-buffer)))
 
-(emacspeak-url-template-define
- "Yahoo Daily News"
- "http://dailynews.yahoo.com/"
- nil
- nil
- "Retrieve articles from   Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
 
 (emacspeak-url-template-define
  "Yahoo Politics"

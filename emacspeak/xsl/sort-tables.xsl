@@ -138,7 +138,7 @@ Sort keys were number of text nodes in a table and the width
           <xsl:apply-templates select="./tr/td/*"/>
         </xsl:when>
         <xsl:otherwise>
-[<xsl:value-of select="$rows"/>,<xsl:value-of select="$cols"/>]
+[<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text> </xsl:text>
