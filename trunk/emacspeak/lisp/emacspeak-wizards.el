@@ -681,7 +681,7 @@ See /etc/sudoers for how to set up sudo."
 
 (defun emacspeak-cvs-done-alert (process state)
   "Alert user of cvs status."
-  (message "Done getting CVS snapshot from sourceforge.")
+  (message "Done getting CVS snapshot.")
   (emacspeak-auditory-icon 'task-done))
 
 (defcustom emacspeak-cvs-anonymous-cvsroot
