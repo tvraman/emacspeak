@@ -334,9 +334,6 @@ emacspeak-wizards.
    Automatically generated documentation for commands defined in module
 nil.
 
- - emacspeak-w3-jump-to-submit:
-     Jump to next available submit button.
-
  - emacspeak-speak-current-field:
      ` control e . '
 
