@@ -671,7 +671,8 @@ name of the list.")
  "CNN Money"
  #'(lambda (url)
      (emacspeak-w3-extract-tables-by-position-list
-      '(10 12 15 18 20 21) url 'speak)))
+      '(10 12 15 18 20 21)
+      url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Market Data "
