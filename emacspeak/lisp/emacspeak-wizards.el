@@ -1113,27 +1113,29 @@ the emacspeak table clipboard instead."
 ;;}}}
 ;;{{{ utilities
 
-(defun emacspeak-show-list-variable (var)
+(defun emacspeak-wizards-show-list-variable (var)
   "Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed."
   (interactive "SDisplay variable:")
-  (let ((buffer (get-buffer-create
-                 (format "*emacspeak:%s*"
-                         var)))
+  (let ((buffer 
+                 (format "*emacspeak:%s*" var))
         (symbol (symbol-value var)))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (cond
-       ((listp symbol)
-        (loop for element in symbol
-              do
-              (insert (format "%s\n"
-                              element))))
-       (t (insert (format "%s\n" symbol))))
+      (with-output-to-temp-buffer buffer
+               (prin1 symbol))
+      (save-excursion
+        (set-buffer buffer)
+        (setq buffer-read-only nil)
       (goto-char (point-min))
+      (while (re-search-forward "\n" nil t)
+        (replace-match " "))
+      (goto-char (point-min))
+      (while (re-search-forward "(" nil t)
+      (replace-match "\n("))
+      (goto-char (point-min))
+      (lisp-indent-region (point-min)
+                     (point-max))
       (emacs-lisp-mode))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
