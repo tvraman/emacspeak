@@ -99,6 +99,10 @@
 (defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
 (let ((v (tts-list-voices)))
+  (setq v
+        (cons 
+(list 'symbol :tag "Other")
+v))
   (cons 'choice v)))
 
 ;;}}}
@@ -266,7 +270,7 @@ command \\[customize-variable] on <personality>-settings."
 
 
 (defvoice voice-bolden 
-(list nil 1 8 8 nil)
+(list nil 1 6 6  nil)
 "Bolden current voice.")
 
 (defvoice voice-lighten
@@ -280,39 +284,38 @@ command \\[customize-variable] on <personality>-settings."
 ;;}}}
 ;;{{{  Define some voice personalities:
 
-(def-voice-font voice-lock-highlight-personality 'voice-animate
+(def-voice-font voice-lock-highlight-personality voice-animate
   'highlight
   "Personality used for highlighting text.")
 
-(def-voice-font voice-lock-comment-personality 'voice-monotone
+(def-voice-font voice-lock-comment-personality voice-monotone
   'font-lock-comment-face
   "Personality to use for comments.")
           
-(def-voice-font voice-lock-underline-personality 'voice-brighten
+(def-voice-font voice-lock-underline-personality voice-brighten
   'underline
   "Personality to use for underline text.")
   
-(def-voice-font voice-lock-bold-personality 'voice-bolden
+(def-voice-font voice-lock-bold-personality voice-bolden
   'bold
   "Personality to use for bold  text.")
-  
 
 (def-voice-font voice-lock-italic-personality 
-  'voice-animate
+  voice-animate
   'italic
   "Personality to use for italic  text.")
 
 (def-voice-font voice-lock-bold-italic-personality 
-  'voice-bolden-and-animate
+  voice-bolden-and-animate
   'bold-italic
   "Personality to use for bold  text.")
   
 (def-voice-font voice-lock-doc-string-personality
-  'voice-smoothen
+  voice-smoothen
   'font-lock-doc-string-face
   "Personality to use for documentation strings.")
   
-(def-voice-font voice-lock-constant-personality 'voice-lighten
+(def-voice-font voice-lock-constant-personality voice-lighten
   'font-lock-constant-face
   "Personality to use for  constants.")
   
@@ -320,7 +323,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-string-face
   "Personality to use for string constants.")
 
-(def-voice-font voice-lock-function-name-personality 'voice-bolden
+(def-voice-font voice-lock-function-name-personality voice-bolden
   'font-lock-function-name-face
   "Personality to use for function names.")
   
@@ -336,15 +339,15 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-builtin-face
   "Personality to use for built-in keywords.")
 
-(def-voice-font voice-lock-variable-name-personality 'voice-animate
+(def-voice-font voice-lock-variable-name-personality voice-animate
   'font-lock-variable-name-face
   "Personality to use for variables.")
   
-(def-voice-font voice-lock-type-personality 'voice-smoothen
+(def-voice-font voice-lock-type-personality voice-smoothen
   'font-lock-type-face
   "Personality to use for data types.")
   
-(def-voice-font voice-lock-reference-personality 'voice-animate
+(def-voice-font voice-lock-reference-personality voice-animate
   'font-lock-reference-face
   "Personality to use for references.")
 
