@@ -148,11 +148,6 @@ Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct."
   (interactive)
-  (declare (special dtk-speaker-process))
-  (when (and dtk-speaker-process
-             (or (eq 'run (process-status dtk-speaker-process))
-             (eq 'open (process-status dtk-speaker-process))))
-    (delete-process dtk-speaker-process))
   (emacspeak-remote-connect-to-server
    (emacspeak-remote-get-current-remote-hostname)
    (string-to-number  emacspeak-remote-default-port-to-connect)))
