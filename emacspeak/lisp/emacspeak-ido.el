@@ -90,7 +90,8 @@
      (if ido-process-ignore-lists 'on 'off))
     (dtk-speak
      (format "Case %s"
-             (if ido-process-ignore-lists 'on 'off)))))
+             (if ido-process-ignore-lists
+ 'on 'off)))))
 
 (defadvice ido-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
@@ -126,6 +127,11 @@
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (car (last ido-matches)))))
+
+(defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
