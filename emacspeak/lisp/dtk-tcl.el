@@ -44,13 +44,13 @@
 ;;; Interface to speech server.
 ;;; Code:
 ;;{{{  required modules 
-
-(require 'cl)
+(eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-interp)
 (require 'dtk-voices)
-(require 'emacspeak-sounds)
+(eval-when-compile
+(require 'emacspeak-sounds))
 (require 'emacspeak-pronounce)
 (eval-when (compile)
   (provide 'dtk-tcl);;keep byte compiler from recursing

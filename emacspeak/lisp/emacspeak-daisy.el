@@ -53,7 +53,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
-(require 'voice-lock)
 (require 'emacspeak-sounds)
 (require 'derived)
 (require 'xml-parse)
@@ -71,11 +70,11 @@
 
 ;;; Book structure 
 
-(defstruct  (emacspeak-daisy-book
-             (:constructor emacspeak-daisy-book-constructor))
+(defstruct  emacspeak-daisy-book
   base
   title
   content
+  audio-process
   nav-center)
 
 ;;}}}
@@ -387,7 +386,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   (declare (special emacspeak-daisy-this-book))
   (let ((buffer (get-buffer-create "*daisy*"))
         (ncx (find-file-noselect filename))
-        (book (emacspeak-daisy-book-constructor
+        (book (make-emacspeak-daisy-book
                :base (file-name-directory filename))))
   (setf (emacspeak-daisy-book-content book)
         (make-hash-table))
@@ -436,7 +435,7 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
