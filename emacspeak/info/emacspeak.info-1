@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by Makeinfo version 3.12f from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -42,7 +42,7 @@ Copyright
 
    This manual documents  Emacspeak, a speech extension to Emacs.
 
-   Copyright (C)1994 - 1998 T. V. Raman All Rights Reserved.
+   Copyright (C)1994 - 2001 T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
@@ -359,7 +359,7 @@ text editor; indeed, it can more aptly be characterized as a true
 modality.
 
    Emacspeak implements a special minor mode, known as "voice lock
-mode" (*note Voice-lock::.) which uses distinct speech characteristics
+mode" (*note Voice-lock::) which uses distinct speech characteristics
 to provide aural highlighting of specific textual constructs, such as
 comments in program code, quoted strings and reserved words. This
 facility is further extended when Emacspeak is used with the W3 World
@@ -586,7 +586,7 @@ terminology for the editing cursor).
      start of sexp to point.  If option  `voice-lock-mode' is on, then
      uses the personality.
 
-` control e meta control  '
+` control e meta control @ '
      emacspeak-speak-spaces-at-point  Speak the white space at point.
 
 
@@ -605,7 +605,7 @@ controlling the text to speech (TTS) system.
 * Miscellaneous:: Miscellaneous TTS Commands.
 
 
-File: emacspeak.info,  Node: Controlling Echo,  Next: Speech Output  Control,  Up: Speech System
+File: emacspeak.info,  Node: Controlling Echo,  Next: Speech Output Control,  Up: Speech System
 
 Character, Word And Line Echo.
 ------------------------------
@@ -638,7 +638,7 @@ prefix arg_.
      then set the current local  value to the result.
 
 
-File: emacspeak.info,  Node: Speech Output  Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
+File: emacspeak.info,  Node: Speech Output Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
 
 Setting Various Characteristics Of Speech Output.
 -------------------------------------------------
@@ -729,7 +729,7 @@ working with program source.
      values.  Automatically becomes local in any buffer where it is set.
 
 
-File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output  Control,  Up: Speech System
+File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output Control,  Up: Speech System
 
 Miscellaneous Speech Commands
 -----------------------------
@@ -915,7 +915,7 @@ Commands For Speaking Status Information.
      emacspeak-view-register  Display the contents of a register, and
      then speak it.
 
-` control e control  '
+` control e control @ '
      emacspeak-speak-current-mark  Speak the line containing the mark.
      With no argument, speaks the line containing the mark-this is
      where `exchange-point-and-mark' C-x C-x would jump.  Numeric
