@@ -34,8 +34,11 @@ emacspeak.dvi:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
+emacspeak.html: emacspeak.texi
+	texi2html -monolithic emacspeak.texi
+	perl add-css.pl emacspeak.html
+
 pub: emacspeak.html
-	texi2html emacspeak.texi
-	scp *.html    raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
+	scp emacspeak.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
 
 clean: 

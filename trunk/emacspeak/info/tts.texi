@@ -8,9 +8,6 @@
 This section documents Emacspeak's  various user commands for controlling the
 text to speech (TTS) system.
 
-
-
-
 @menu
 * Controlling Echo::             Character, Word and Line Echo.
 * Speech Output  Control::       Indicating case, capitalization and indentation.
@@ -19,14 +16,6 @@ text to speech (TTS) system.
 
 @node  Controlling Echo
 @subsection   Character, Word And Line Echo.
-
-
-
-
-
-
-
-
 
 @cindex line echo
 @cindex character echo
