@@ -496,4 +496,10 @@ font-lock.  Voicification is effective only if font lock is on."
 ;;; end: 
 
 ;;}}}
+(def-voice-font voice-lock-button-personality voice-bolden
+  'button
+  "Personality for buttons.")
 
+(def-voice-font voice-lock-gui-button-personality voice-bolden
+  'gui-button
+  "Personality for buttons.")
