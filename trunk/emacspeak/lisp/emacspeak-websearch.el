@@ -1350,6 +1350,13 @@ With optional interactive prefix arg MAP shows the location map instead."
   "Perform an Yahoo News search"
   (interactive
    (list (emacspeak-websearch-read-query "Yahoo News Query: ")))
+  (add-hook 'emacspeak-w3-post-process-hook
+        #'(lambda nil
+            (declare (special  emacspeak-w3-url-rewrite-rule
+                               emacspeak-w3-class-filter))
+            (setq emacspeak-w3-class-filter "article"
+		  emacspeak-w3-url-rewrite-rule
+                  '("$" "&printer=1"))))
   (emacspeak-w3-xslt-filter
    "/html/body/table[6]//p"
    (concat emacspeak-websearch-news-yahoo-uri
