@@ -54,6 +54,13 @@
 ;;}}}
 ;;{{{ advice functions
 
+(defadvice newsticker--cache-remove (around emacspeak pre act
+                                             comp)
+  "Silence messages temporarily to avoid chatter."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
+
 (defadvice newsticker-callback-enter (around emacspeak pre act
                                              comp)
   "Silence messages temporarily to avoid chatter."
