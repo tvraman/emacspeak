@@ -195,13 +195,13 @@ generators  ; list of param generator
 (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN HotStocks "
-                                "http://cgi.cnnfn.com/output/pfv/%s/markets/hotstox"
+                                "http://cgi.cnnfn.com/output/pfv/%s/markets/hotstox/"
  (list 
 'emacspeak-url-template-date-year/month/date))
 
 
 (emacspeak-url-template-define "CNN Markets New York"
-                                "http://cgi.cnnfn.com/output/pfv/%s/markets/markets_newyork"
+                                "http://cgi.cnnfn.com/output/pfv/%s/markets/markets_newyork/"
  (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
