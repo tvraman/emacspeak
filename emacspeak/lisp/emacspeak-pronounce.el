@@ -142,7 +142,7 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
 ;;; parent stored as a property on child symbol.
 ;;; when dictionary composed for a buffer, inherited dictionaries are
 ;;; also looked up.
-
+;;;###autoload
 (defun emacspeak-pronounce-add-super  (parent child)
   "Make CHILD inherit PARENT's pronunciations."
   (let ((orig (get child 'emacspeak-pronounce-supers)))
