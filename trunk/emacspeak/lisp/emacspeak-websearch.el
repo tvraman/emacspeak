@@ -472,41 +472,20 @@ archives, type +redhat"
 (emacspeak-websearch-set-key ?c 'cnn)
 
 (defvar emacspeak-websearch-cnn-uri
-  "http://search.cnn.com/query.html?qt="
+  "http://search.cnn.com/cnn/search?sites=cnn&source=cnn&"
   "*URI for launching a CNN Interactive  search.")
 
-(defvar emacspeak-websearch-cnn-options
-  "&col=cnni&lk=1&rf=1"
-  "*Additional default options to pass to CNN.")
-
-(defun emacspeak-websearch-cnn-search (query &optional prefix)
-  "Perform an CNN search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-cnn-options to an appropriate string."
+(defun emacspeak-websearch-cnn-search (query )
+  "Perform an CNN search.  "
   (interactive
    (list
-    (emacspeak-websearch-read-query "CNN Interactive Query:
-")
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-cnn-uri
-                    emacspeak-websearch-cnn-options))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-cnn-uri
-             (webjump-url-encode query)
-             emacspeak-websearch-cnn-options
-             (if prefix 
-                 (read-from-minibuffer
-                  "Additional query parameters: ")
-               ""))))
-  (emacspeak-websearch-post-process "Results"
-                                    'w3-table-focus-on-this-cell)
+    (emacspeak-websearch-read-query "CNN Interactive Query: ")))
+  (declare (special emacspeak-websearch-cnn-uri))
+  (browse-url 
+   (concat emacspeak-websearch-cnn-uri
+           (format "query=%s&qt=%s"
+                   (webjump-url-encode query)
+                   (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Results"
    'emacspeak-speak-line))
