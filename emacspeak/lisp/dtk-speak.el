@@ -49,12 +49,15 @@
 ;;}}}
 ;;{{{ required modules
 
+;;;Code:
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-interp)
 (require 'dtk-voices)
 (require 'outloud-voices)
+
 ;;}}}
 ;;{{{  user customizations:
 
@@ -103,8 +106,6 @@ dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 The default is dtk-exp.")
 
-;;}}}
-;;{{{  User customizations:
 
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
@@ -131,6 +132,7 @@ of a specified pattern is found, the TTS engine replaces it
 with a repeat count. "
   :type '(repeat  (string :tag "pattern"))
   :group 'tts)
+
 
 ;;}}}
 ;;{{{  internal variables
