@@ -1840,8 +1840,6 @@ Indicate change of selection with
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (unless emacspeak-show-point
-      (emacspeak-toggle-show-point))
     (let ((extent nil))
       (save-excursion
         (goto-char (point-min))
