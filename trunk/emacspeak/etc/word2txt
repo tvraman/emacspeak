@@ -1,5 +1,7 @@
 #!/bin/sh
 #for use in vm
+#Description: Install  package wv to obtain wvText
+
 cd /tmp
 wmf=/tmp/mswordfile*.wmf
 wordfile=mswordviewfile$$.doc
