@@ -890,8 +890,8 @@ plays entire program."
  nil
  "Display project usage statistics."
  #'(lambda (url)
-     (emacspeak-w3-extract-nested-table-list
-      (list 5 6)
+     (emacspeak-w3-extract-tables-by-position-list
+      (list 11 12)
       url)))
 
 (emacspeak-url-template-define
