@@ -147,17 +147,28 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
+(defadvice jde-bug-clear-breakpoint (after emacspeak pre act comp)
+  "Produce auditory icon."
+  (emacspeak-auditory-icon 'off))
+
+(defadvice jde-bug-toggle-breakpoint (after emacspeak pre
+                                            act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (message "toggled breakpoint.")))
+
 (defadvice jde-bug-set-breakpoint (after emacspeak pre act comp)
   "Speak the line we set the break point at "
   (when (interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
-    (emacspeak-speak-line)))
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice jde-bug-clear-breakpoint (after emacspeak pre act comp)
   "Speak the line we nuked the breakpoint  "
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line)))
+
 (defadvice jde-bug-highlight-breakpoint (after emacspeak pre act comp)
   "Annotate line with an auditory icon. "
   (let ((start nil))
