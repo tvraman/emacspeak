@@ -2238,6 +2238,14 @@ Provide an auditory icon if possible."
     (emacspeak-speak-mode-line )))
 
 ;;}}}
+;;{{{ view echo area
+(defadvice view-echo-area-messages (after emacspeak pre act comp)
+  "Speak mode-line and play auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 ;;{{{ selective display
 
 (defadvice set-selective-display (after emacspeak pre act comp)
