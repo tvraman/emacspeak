@@ -1698,13 +1698,20 @@ See the documentation for function
   "Announce version information for running emacspeak."
   (interactive)
   (declare (special emacspeak-version
+                    emacspeak-play-emacspeak-startup-icon
                     emacspeak-codename))
   (let ((signature "You are using  ")
         (version (format "Emacspeak %s" emacspeak-version)))
     (put-text-property 0 (length version)
                        'personality 'paul-animated version)
     (put-text-property 0 (length emacspeak-codename)
-                       'personality 'harry emacspeak-codename)
+                       'personality 'harry
+                       emacspeak-codename)
+    (when (and  emacspeak-play-emacspeak-startup-icon 
+                (file-exists-p "/usr/bin/mpg123"))
+      (start-process "mp3" nil "mpg123"
+                     "-q"
+                     (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat signature
