@@ -478,6 +478,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
 (emacspeak-do-package-setup "compile" 'emacspeak-compile)
 (emacspeak-do-package-setup "cperl-mode" 'emacspeak-cperl)
+(emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
 (emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
 (emacspeak-do-package-setup "dired" 'emacspeak-dired )
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)

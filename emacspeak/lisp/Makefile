@@ -106,6 +106,7 @@ emacspeak-dictation.elc \
 emacspeak-dictionary.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
+emacspeak-ecb.elc \
 emacspeak-dmacro.elc \
 emacspeak-ediff.elc \
 emacspeak-enriched.elc \
@@ -262,6 +263,7 @@ emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc
 emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc
 emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc
+emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc
