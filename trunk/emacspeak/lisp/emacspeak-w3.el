@@ -870,8 +870,8 @@ current page."
   (let ((filename
          (format "/tmp/%s.html"
                  (make-temp-name "w3"))))
-    (write-region (point-min) 
-                  (point-max)
+    (write-region start 
+                  end
                   filename)
     (w3-open-local filename)
     (delete-file filename)))
