@@ -548,7 +548,10 @@ libxslt package."
     (emacspeak-w3-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
-     (point-max))))
+     (point-max))
+    (goto-char (point-min))
+    (while (search-forward "&nbsp;" nil t)
+      (replace-match " "))))
 
 
 
