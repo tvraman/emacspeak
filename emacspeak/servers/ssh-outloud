@@ -7,10 +7,7 @@
 # Running TTS server remotely.
 # }}}
 remote=`cat $HOME/.emacspeak/.current-remote-hostname`
-tcl=/usr/bin/tcl
-EMACSPEAK_DIR=$HOME/emacs/lisp/emacspeak
-echo $EMACSPEAK_DIR
-export EMACSPEAK_DIR
+TCL=/usr/bin/tcl
 OUTLOUD=$HOME/emacs/lisp/emacspeak/servers/outloud
 
 ssh $remote  $TCL $OUTLOUD
