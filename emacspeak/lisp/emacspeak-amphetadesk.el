@@ -129,6 +129,9 @@
            "my_channels.html?add_url="
            (webjump-url-encode
             url))))
+(declaim (special w3-mode-map))
+(when (boundp 'w3-mode-map)
+  (define-key w3-mode-map "aa" 'emacspeak-amphetadesk-quick-add))
 
 ;;}}}
 (provide 'emacspeak-amphetadesk)
