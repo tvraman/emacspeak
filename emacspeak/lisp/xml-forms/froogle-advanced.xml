@@ -2,94 +2,102 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <base href="http://froogle.google.com/"/>
     <title>Advanced Froogle Search</title>
   </head>
   <body>
-    <form method="GET" action="/froogle" name="f">
-      <table width="99%" border="0" cellpadding="0" cellspacing="2"><tr>
-          <td rowspan="2" width="1%"><a href="/froogle"><img src="/froogle/images/froogle_180.gif" width="179" height="70" alt="Froogle" border="0"></a></td>
-          <td valign="bottom" align="right"><font face="arial,sans-serif" size="-1"><a href="/froogle/about.html">What is Froogle?</a><tr><td valign="top"><table cellspacing="2" cellpadding="2" border="0" width="100%"><tr bgcolor="#329262"><td><font color="#ffffff"><b> Froogle Advanced Search</b></font></td></tr></table></td></tr></font></td>
-        </tr></table>
-      <table cellspacing="0" cellpadding="3" border="0" width="99%"><tr bgcolor="#B1DAC1"><td><table width="100%" cellspacing="0" cellpadding="0" border="0">
-              <tr bgcolor="#B1DAC1"><td><table width="100%" cellspacing="0" cellpadding="2" border="0"><tr><td width="85%"><table width="100%" cellpadding="2" cellspacing="0" border="0">
-                          <tr>
-                            <td width="15%"><font size="-1"><b>Find products</b></font></td>
-                            <td><font size="-1">with <b>all</b> of the words</font></td>
-                            <td><input type="text" value="" name="as_q" size="25"></td>
-                            <td valign="top" rowspan="4"><font size="-1"><select name="num"><option value="10" selected>10 results</option>
-                                  <option value="20">20 results</option>
-                                  <option value="30">30 results</option>
-                                  <option value="50">50 results</option>
-                                  <option value="100">100 results</option></select> <input type="submit" name="btnG" value="Froogle Search"></font></td>
-                          </tr>
-                          <tr>
-                            <td> </td>
-                            <td nowrap><font size="-1">with the <b>exact phrase</b></font></td>
-                            <td><input type="text" size="25" value="" name="as_epq"></td>
-                          </tr>
-                          <tr>
-                            <td> </td>
-                            <td nowrap><font size="-1">with <b>at least one</b> of the words</font></td>
-                            <td><input type="text" size="25" value="" name="as_oq"></td>
-                          </tr>
-                          <tr>
-                            <td> </td>
-                            <td nowrap><font size="-1"><b>without</b> the words</font></td>
-                            <td><input type="text" size="25" value="" name="as_eq"></td>
-                          </tr>
-                        </table></td></tr></table></td></tr>
-              <tr bgcolor="#ffffff"><td><table width="100%" cellpadding="2" cellspacing="0" border="0">
-                    <tr>
-                      <td width="15%" valign="top"><font size="-1"><b>Price</b></font></td>
-                      <td width="40%" nowrap valign="top"><font size="-1">Display products whose typical price is</font></td>
-                      <td width="45%"><table cellpadding="0" cellspacing="2" border="0">
-                          <tr>
-                            <td><font size="-1"><input type="radio" name="price" value="under" checked>Less than </font></td>
-                            <td><font size="-1">$<input size="6" value="" name="price0"></font></td>
-                            <td><font size="-1"> </font></td>
-                          </tr>
-                          <tr>
-                            <td><font size="-1"><input type="radio" name="price" value="between">Between </font></td>
-                            <td><font size="-1">$<input size="6" value="" name="price1"> and $<input size="6" value="" name="price2"></font></td>
-                            <td><font size="-1"> </font></td>
-                          </tr>
-                        </table></td>
-                    </tr>
-                    <tr height="9"><td colspan="3" bgcolor="white"><img height="1" alt="" width="1"></td></tr>
-                  </table></td></tr>
-              <tr><td><table width="100%" cellspacing="0" cellpadding="2" border="0">
-                    <tr bgcolor="#ffffff" height="30">
-                      <td width="15%" valign="top"><font size="-1"><b>Occurrences</b></font></td>
-                      <td nowrap width="40%" valign="top"><font size="-1">Return products where my words occur</font></td>
-                      <td valign="top"><font size="-1"><select name="as_occt"><option value="any" selected>in the product name or description</option>
-                            <option value="title">only in the product name</option>
-                            <option value="body">only in the product description</option></select></font></td>
-                    </tr>
-                    <tr height="9"><td colspan="3" bgcolor="white"><img height="1" alt="" width="1"></td></tr>
-                  </table></td></tr>
-              <tr><td><table width="100%" cellspacing="0" cellpadding="2" border="0">
-                    <tr bgcolor="#ffffff" height="30">
-                      <td width="15%" valign="top"><font size="-1"><b>Category</b></font></td>
-                      <td nowrap width="40%" valign="top"><font size="-1">Return products from the category</font></td>
-                      <td valign="top"><font size="-1"><select name="cat"><option value="0" selected>Any Category</option>
-                            <option value="1">Apparel &amp; Accessories</option>
-                            <option value="1538">Arts &amp; Entertainment</option>
-                            <option value="139">Auto &amp; Vehicles</option>
-                            <option value="155">Baby</option>
-                            <option value="193">Books, Music &amp; Video</option>
-                            <option value="389">Computers</option>
-                            <option value="433">Electronics</option>
-                            <option value="522">Flowers</option>
-                            <option value="527">Food &amp; Gourmet</option>
-                            <option value="627">Health &amp; Personal Care</option>
-                            <option value="726">Home &amp; Garden</option>
-                            <option value="1085">Office</option>
-                            <option value="1140">Sports &amp; Outdoors</option>
-                            <option value="1272">Toys &amp; Games</option></select></font></td>
-                    </tr>
-                    <tr height="9"><td colspan="3" bgcolor="white"><img height="1" alt="" width="1"></td></tr>
-                  </table></td></tr>
-            </table></td></tr></table>
+    <form method="get" action="http://froogle.google.com/froogle" name="f">
+      <table>
+        <tr>
+          <td>
+            <label for="as_q">Find what?</label>
+            <input id="as_q" type="text" value="" name="as_q" size="25"/>
+          </td>
+          <td>
+            <label for="as_epq">Exact Phrase</label>
+            <input id="as_epq" type="text" size="25" value="" name="as_epq"/>
+          </td>
+        </tr>
+<tr>
+          <td>
+            <label for="as_oq">Partial match</label>
+            <input id="as_oq" type="text" size="25" value="" name="as_oq"/>
+          </td>
+          <td>
+            <label for="as_eq">Not Containing</label>
+            <input id="as_eq" type="text" size="25" value="" name="as_eq"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="limit">Price Limit </label>
+<input id="limit" type="radio" name="price" value="under" checked="checked"/>
+          </td>
+          <td><label for="price0">Less than</label>
+                             $<input id="price0" size="6" value="" name="price0"/></td>
+        </tr>
+        <tr>
+          <td>Price Range <input type="radio" name="price" value="between"/> </td>
+          <td>$<input id="price1" size="6" value="" name="price1"/>
+                            and $
+                            <input size="6" value="" name="price2"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cat">Category</label>
+              <select id="cat" name="cat">
+                <option value="0" selected="selected">Any
+                          Category</option>
+                <option value="1">Apparel &amp;
+                          Accessories</option>
+                <option value="1538">Arts &amp;
+                          Entertainment</option>
+                <option value="139">Auto &amp;
+                          Vehicles</option>
+                <option value="155">Baby</option>
+                <option value="193">Books, Music &amp;
+                          Video</option>
+                <option value="389">Computers</option>
+                <option value="433">Electronics</option>
+                <option value="522">Flowers</option>
+                <option value="527">Food &amp;
+                          Gourmet</option>
+                <option value="627">Health &amp; Personal
+                          Care</option>
+                <option value="726">Home &amp;
+                          Garden</option>
+                <option value="1085">Office</option>
+                <option value="1140">Sports &amp;
+                          Outdoors</option>
+                <option value="1272">Toys &amp;
+                          Games</option>
+              </select>
+            </td>
+          <td>
+            <label for="num">Matches</label>
+            <select id="num" name="num">
+              <option value="10" selected="selected">10
+                                results</option>
+              <option value="20">20
+                                results</option>
+              <option value="30">30
+                                results</option>
+              <option value="50">50
+                                results</option>
+              <option value="100">100
+                                results</option>
+            </select>
+          </td>
+          <td>
+            <input type="submit" name="btnG" value="Froogle Search"/>
+          </td>
+        </tr>
+      </table>
     </form>
+    <p>
+      <a href="http://froogle.google.com/froogle/about.html">What
+      is Froogle?</a>
+    </p>
   </body>
 </html>
