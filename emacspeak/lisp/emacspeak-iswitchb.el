@@ -59,6 +59,13 @@
 
 ;;}}}
 ;;{{{ speech-enable feedback routines
+
+(defadvice iswitchb-kill-buffer (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+
+
 (defadvice iswitchb-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
   (dtk-speak
