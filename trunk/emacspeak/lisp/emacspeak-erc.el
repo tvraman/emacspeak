@@ -64,7 +64,7 @@
 
 (declaim (special emacspeak-sounds-directory))
 
-(add-to-list 'erc-sound-path emacspeak-sounds-directory)
+
 
 ;;}}}
 ;;{{{ personalities 
