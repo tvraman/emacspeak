@@ -113,6 +113,7 @@ emacspeak-dired.elc \
 emacspeak-dismal.elc \
 emacspeak-dmacro.elc \
 emacspeak-ecb.elc \
+emacspeak-ediary.elc \
 emacspeak-ediff.elc \
 eflite-voices.elc \
 emacspeak-enriched.elc \
@@ -282,6 +283,7 @@ emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc
 emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc
 emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc
+emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
 eflite-voices.elc: eflite-voices.el
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
