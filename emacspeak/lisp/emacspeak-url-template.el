@@ -996,11 +996,14 @@ plays entire program."
  "Retrieve download page at Sourceforge for specified project.")
 
 (emacspeak-url-template-define
- "sourceforge download for North America" 
- "http://unc.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
+ "sourceforge download" 
+ "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
  nil
- "Retrieve download page at Sourceforge for specified project.")
+ "Retrieve download page at Sourceforge for specified project."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match "Current"
+                                          url)))
 
 ;;}}}
 ;;{{{  MLB scores
