@@ -977,6 +977,31 @@ Argument VAR specifies variable whose value is to be displayed."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ emergency tts restart 
+
+(defcustom emacspeak-emergency-tts-server
+  "dtk-exp"
+  "TTS server to use in an emergency.
+Set this to a TTS server that is known to work at all times.
+If you are debugging another speech servre and that server
+gets wedged for some reason,
+you can use command emacspeak-emergency-tts-restart
+to get speech back using the reliable TTS server.
+It's useful to bind the above command to a convenient key."
+:type 'string
+:group 'emacspeak)
+
+
+(defun emacspeak-emergency-tts-restart ()
+  "For use in an emergency.
+Will start TTS engine specified by 
+emacspeak-emergency-tts-server."
+  (interactive)
+  (declare (special emacspeak-emergency-tts-server))
+  (dtk-select-server emacspeak-emergency-tts-server)
+  (dtk-initialize))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
