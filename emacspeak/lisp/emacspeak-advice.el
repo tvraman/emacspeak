@@ -854,8 +854,7 @@ Produce an auditory icon as well."
     (let ((prompt  (ad-get-arg 0)))
       (if  prompt
         (tts-with-punctuations "all"
-                               (dtk-speak prompt))
-        (emacspeak-speak-message-again))))
+                               (dtk-speak prompt)))))
 
   (defadvice read-command(around emacspeak pre act )
     "Prompt using speech as well. "
@@ -2647,12 +2646,13 @@ Produce auditory icons if possible."
   "Actions to take when entering the minibuffer with
 emacspeak running."
   (declare (special emacspeak-last-command-needs-minibuffer-spoken))
+  (let ((inhibit-field-text-motion t))
   (emacspeak-auditory-icon 'open-object)
   (when  emacspeak-last-command-needs-minibuffer-spoken
     (unwind-protect
         (tts-with-punctuations "all"
                                (emacspeak-speak-buffer))
-      (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
+      (setq emacspeak-last-command-needs-minibuffer-spoken nil)))))
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
