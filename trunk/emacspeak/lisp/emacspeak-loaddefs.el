@@ -1,7 +1,7 @@
 ;;;Auto generated
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart ems-generate-switcher)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16507 64758))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16508 22464))
 ;;; Generated autoloads from dtk-speak.el
 
 (autoload (quote ems-generate-switcher) "dtk-speak" "\
@@ -59,7 +59,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps.
 ;;;***
 
 ;;;### (autoloads (emacspeak-amphetadesk) "emacspeak-amphetadesk"
-;;;;;;  "emacspeak-amphetadesk.el" (16507 64759))
+;;;;;;  "emacspeak-amphetadesk.el" (16508 22489))
 ;;; Generated autoloads from emacspeak-amphetadesk.el
 
 (autoload (quote emacspeak-amphetadesk) "emacspeak-amphetadesk" "\
@@ -72,7 +72,7 @@ Open amphetadesk.
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
 ;;;;;;  emacspeak-aumix-reset emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
-;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (16507 64759))
+;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (16508 20912))
 ;;; Generated autoloads from emacspeak-aumix.el
 
 (defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
@@ -131,7 +131,7 @@ Jump to custom toolbar when in a customization buffer.
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (16507 64759))
+;;;;;;  (16508 26743))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -335,7 +335,7 @@ node-spec.
 
 ;;;### (autoloads (emacspeak-keymap-remove-emacspeak-edit-commands
 ;;;;;;  emacspeak-keymap-choose-new-emacspeak-prefix) "emacspeak-keymap"
-;;;;;;  "emacspeak-keymap.el" (16507 64776))
+;;;;;;  "emacspeak-keymap.el" (16508 22624))
 ;;; Generated autoloads from emacspeak-keymap.el
 
 (defvar emacspeak-keymap nil "\
@@ -425,7 +425,7 @@ Existing personality properties on the text range are preserved.
 ;;;;;;  emacspeak-pronounce-toggle-use-of-dictionaries emacspeak-pronounce-clear-dictionaries
 ;;;;;;  emacspeak-pronounce-load-dictionaries emacspeak-pronounce-save-dictionaries
 ;;;;;;  emacspeak-pronounce-add-super emacspeak-pronounce-add-dictionary-entry)
-;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16507 64777))
+;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16508 22652))
 ;;; Generated autoloads from emacspeak-pronounce.el
 
 (autoload (quote emacspeak-pronounce-add-dictionary-entry) "emacspeak-pronounce" "\
@@ -599,7 +599,7 @@ host is listening on for speech requests.
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (16508 12562))
+;;;;;;  "emacspeak-rss.el" (16508 22661))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -649,7 +649,7 @@ pronunciation dictionaries are stored. ")
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-play-program emacspeak-sounds-default-theme
 ;;;;;;  emacspeak-sounds-define-theme) "emacspeak-sounds" "emacspeak-sounds.el"
-;;;;;;  (16507 64778))
+;;;;;;  (16508 22684))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defsubst emacspeak-using-midi-p nil "\
@@ -845,7 +845,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16507 64779))
+;;;;;;  (16508 26761))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -1755,8 +1755,8 @@ part of the libxslt package.
 
 ;;;***
 
-;;;### (autoloads (tts-eflite) "flite-voices" "flite-voices.el" (16507
-;;;;;;  64780))
+;;;### (autoloads (tts-eflite) "flite-voices" "flite-voices.el" (16508
+;;;;;;  22708))
 ;;; Generated autoloads from flite-voices.el
 
 (autoload (quote tts-eflite) "flite-voices" "\
@@ -1829,7 +1829,7 @@ Note that this only works if the opening tag starts at column 0.
 ;;;***
 
 ;;;### (autoloads (xml-sexp-read-region xml-sexp-read-file) "xml-sexp"
-;;;;;;  "xml-sexp.el" (16507 64781))
+;;;;;;  "xml-sexp.el" (16508 22720))
 ;;; Generated autoloads from xml-sexp.el
 
 (autoload (quote xml-sexp-read-file) "xml-sexp" "\
@@ -1883,7 +1883,7 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view.el" "emacspeak-vm.el" "emacspeak-w3m.el"
 ;;;;;;  "emacspeak-windmove.el" "emacspeak-winring.el" "emacspeak-wrolo.el"
 ;;;;;;  "emacspeak-xslide.el" "emacspeak-xslt-process.el" "html-outline.el"
-;;;;;;  "outloud-voices.el" "tapestry.el") (16508 14629 142660))
+;;;;;;  "outloud-voices.el" "tapestry.el") (16508 26775 118553))
 
 ;;;***
 

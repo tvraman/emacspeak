@@ -1662,7 +1662,6 @@ Argument TEXT  is the list of strings to speak."
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
