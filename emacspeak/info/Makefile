@@ -2,7 +2,7 @@
 TEXINDEX=texindex
 MAKEINFO = makeinfo 
 TEXI2HTML=texi2html
-infodir =/usr/info#normally supplied by caller
+infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 
 info: *.texi
