@@ -110,7 +110,6 @@ dont
 DONT
 Dorman
 downcase
-DTD
 dtk
 DTK
 du
@@ -214,7 +213,6 @@ imenu
 Indices
 INITSTR
 insertcopying
-intalled
 internet
 IRC
 itemx
@@ -334,7 +332,6 @@ searchable
 Searchable
 sel
 setenv
-setfilename
 setq
 settitle
 sexp
@@ -367,11 +364,9 @@ Stallman
 stty
 subjob
 submap
-substute
 subsubsection
 sudo
 SUDo
-summarycontents
 sunos
 supercite
 symlink

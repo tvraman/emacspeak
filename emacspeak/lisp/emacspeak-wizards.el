@@ -1929,7 +1929,6 @@ emacspeak-websearch-personal-portfolio."
                       (const "-ok")
                       (const "-newer")
                       (const "-anewer")
-                      (const "-newer")
                       (const "-cnewer")
                       (const "-used")
                       (const "-user")
