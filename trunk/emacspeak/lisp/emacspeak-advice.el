@@ -768,7 +768,17 @@ Produce an auditory icon as well."
 
 ;;}}}
 ;;{{{  advice various input functions to speak:
-
+(defadvice read-key-sequence(around emacspeak pre act )
+    "Prompt using speech as well. "
+    (let ((prompt (ad-get-arg 0)))
+      (when prompt
+        (tts-with-punctuations "all"
+                               (dtk-speak prompt)))
+      ad-do-it
+      (tts-with-punctuations "all"
+                             (dtk-speak (format "%s" ad-return-value)))
+      ad-return-value))
+(emacspeak-fix-interactive
 (unless emacspeak-xemacs-p
 ; we need to advice these only for FSF Emacs
   (defadvice completing-read (around emacspeak pre act )
@@ -827,16 +837,7 @@ Produce an auditory icon as well."
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
-  (defadvice read-key-sequence(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0)))
-      (when prompt
-        (tts-with-punctuations "all"
-                               (dtk-speak prompt)))
-      ad-do-it
-      (tts-with-punctuations "all"
-                             (dtk-speak (format "%s" ad-return-value)))
-      ad-return-value))
+  
 
   (defadvice read-string(around emacspeak pre act )
     "Prompt using speech as well. "
