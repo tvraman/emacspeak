@@ -505,6 +505,7 @@ HTML.")
 (defvar emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. ")
+
 (defcustom emacspeak-w3-xsl-nuke-nulls nil
   "Turn this on when browsing sites like my.yahoo.com that produce
 spurious null chars."
