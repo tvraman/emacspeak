@@ -261,51 +261,42 @@
  "Yahoo Politics"
  "http://dailynews.yahoo.com/htx/pl/?u"
  nil
- #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Politics section from Yahoo Daily News.")
+ nil
+ "Retrieve and speak Politics section from Yahoo Daily News."
+#'(lambda (url)
+       (emacspeak-w3-extract-by-class "article" url)
+       ))
 
 (emacspeak-url-template-define
  "Yahoo Entertainment"
  "http://dailynews.yahoo.com/htx/en/?u"
  nil
- #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 3)
-     (emacspeak-speak-rest-of-buffer))
+ nil
+ #'(lambda (url)
+       (emacspeak-w3-extract-by-class "article" url)
+       )
  "Retrieve and speak Entertainment section from Yahoo Daily News.")
 
 (emacspeak-url-template-define
  "Yahoo Sports"
  "http://dailynews.yahoo.com/htx/sp/?u"
  nil
- #'(lambda nil
-     (search-forward "Sources:")
-     (forward-line 2)
-     (emacspeak-speak-rest-of-buffer))
+nil
+"Entertainment news from Yahoo."
+ #'(lambda (url)
+       (emacspeak-w3-extract-by-class "article" url)
+       )
  "Retrieve and speak Sports section from Yahoo Daily News.")
 
 (emacspeak-url-template-define
  "Yahoo Business News"
  "http://story.news.yahoo.com/news?tmpl=index&cid=749"
  nil
- #'(lambda nil
-     (declare (special  emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
-           '("$" "&print=1"))
-     (search-forward "News Stories")
-     (emacspeak-w3-next-doc-element)
-     (w3-table-move-to-table-start)
-     (w3-table-move-to-next-table-column)
-     (w3-table-speak-this-cell))
+ nil
  "Retrieve and speak business  section from Yahoo Daily News."
  #'(lambda (url)
-     (declare (special emacspeak-w3-xsl-p
-                       emacspeak-w3-xsl-transform))
-     (let ((emacspeak-w3-xsl-p nil))
-       (w3-fetch url))))
+       (emacspeak-w3-extract-by-class "article" url)
+       ))
 
 (emacspeak-url-template-define
  "Yahoo Science"
@@ -368,24 +359,13 @@ Francisco ny for New york etc.")
 
 (emacspeak-url-template-define
  "Yahoo Technology  News"
-                                        ;"http://dailynews.yahoo.com/htx/tc/nm/?u"
  "http://dailynews.yahoo.com/h/tc/?u"
  nil
- #'(lambda nil
-     (declare (special  emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
-           '("$" "&print=1"))
-     (search-forward "News Stories")
-     (emacspeak-w3-next-doc-element)
-     (w3-table-move-to-table-start)
-     (w3-table-move-to-next-table-column)
-     (w3-table-speak-this-cell))
- "Retrieve and speak Technology  section from Yahoo Daily News."
+ nil
+ "Yahoo Technology News."
  #'(lambda (url)
-     (declare (special emacspeak-w3-xsl-p
-                       emacspeak-w3-xsl-transform))
-     (let ((emacspeak-w3-xsl-p nil))
-       (w3-fetch url))))
+       (emacspeak-w3-extract-by-class "article" url)
+       ))
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
