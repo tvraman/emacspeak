@@ -1,4 +1,5 @@
 #$Id$
+SF_HOME=raman@emacspeak.sf.net:~/www-emacspeak/htdocs
 TEXINDEX=texindex
 FILES=*.texi
 MAKEINFO = makeinfo 
@@ -65,6 +66,7 @@ print: emacspeak.dvi
 
 html/index.html: emacspeak.texi 
 	makeinfo -o html  --html  emacspeak.texi
+	perl add-css.pl html/*.html
 
 
 introducing-emacspeak.html: introducing-emacspeak.texi
@@ -72,9 +74,8 @@ introducing-emacspeak.html: introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
 
 pub:  html/index.html introducing-emacspeak.html
-	scp introducing-emacspeak.html
-raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
-	scp -r html raman@emacspeak.sf.net:~/www-emacspeak/htdocs/info/
+	scp introducing-emacspeak.html ${SF_HOME}/info
+	scp -r html ${SF_HOME}/info/
 
 %.pdf: %.ps
 	ps2pdf    $<
