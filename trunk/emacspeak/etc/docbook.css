@@ -26,13 +26,17 @@ copy it. */
 	/* begin body type */	/* 1 - humanist sans a */
 
 body	{	
-	font-size:	1em;
-	font-weight:	normal;
+  font-size:	1em;
+  font-weight:	normal;
 	word-spacing:	normal;
 	letter-spacing:	normal;
 	text-transform:	none;
 	font-family:	verdana, myriad web, syntax, sans-serif;
 	font-size-adjust:	.58;
+background-image: url(http://emacspeak.sf.net/emacspeak.jpg);
+background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 	}	
 
 p, blockquote, ul, ol, dl, dd, li, dir, menu	{	
