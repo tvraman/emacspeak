@@ -53,9 +53,11 @@
 ;;}}}
 ;;{{{  Interactive defun 
 ;;;###autoload
-(defun emacspeak-tapestry-describe-tapestry ()
-  "Describe the current layout of visible buffers in current frame."
-  (interactive)
+(defun emacspeak-tapestry-describe-tapestry (&optional details)
+  "Describe the current layout of visible buffers in current frame.
+Use interactive prefix arg to get coordinate positions of the
+displayed buffers."
+  (interactive "P")
   (let* ((buffer-map (tapestry-buffer-map ))
          (count (length buffer-map))
          (window-list  (tapestry-window-list))
@@ -68,6 +70,8 @@
                        'personality  'annotation-voice
                        description)
     (setq windows 
+    (cond
+     (details 
           (loop for buffer in buffer-map
                 and window in window-list
                 collect
@@ -92,10 +96,16 @@
 			  tl
 			  " and bottom right "
 			  br))))
+     (t
+          (loop for buffer in buffer-map
+                collect
+                (second buffer)))))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat description
-                                    (apply 'concat windows ))))))
+                                    (mapconcat #'identity
+                                               windows
+                                               ", "))))))
 
 ;;}}}
 (provide  'emacspeak-tapestry)
