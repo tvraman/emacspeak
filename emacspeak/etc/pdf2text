@@ -8,6 +8,8 @@ then
     cat > $tempfile
     pdftotext $tempfile -
     rm -f $tempfile
+    exit 0
 else 
     echo "pdftotext not found --install package XPDF."
+    exit 1
 fi
