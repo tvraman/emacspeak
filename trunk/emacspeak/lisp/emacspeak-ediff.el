@@ -37,20 +37,26 @@
 
 ;;}}}
 
+;;{{{  required 
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
+(require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
 (require 'emacspeak-fix-interactive)
 (require 'voice-lock)
 (eval-when (compile)
-(condition-case nil 
-(progn 
-  (require 'ediff)
-(require 'ediff-init))
-(error (message "Looks like you use an older version of ediff ..."))))
+  (condition-case nil 
+      (progn 
+        (require 'ediff)
+        (require 'ediff-init))
+    (error (message "Looks like you use an older version of
+ediff ..."))))
+
+;;}}}
 ;;{{{  Introduction:
 
 ;;;Ediff provides a nice visual interface to diff.  ;;;Comparing and
@@ -65,6 +71,13 @@
 
 ;;}}}
 ;;{{{  macros
+
+(defgroup  emacspeak-ediff nil
+  "Emacspeak support for EDiff."
+  :link '(custom-group-link :tag "ediff"
+                            ediff)
+  :group 'emacspeak
+  :prefix "emacspeak-ediff-")
 
 (defmacro emacspeak-ediff-modify-buffer-safely   (&rest body )
   (`
@@ -83,35 +96,17 @@
 ;;}}}
 ;;{{{  Mapping faces to personalities:
 
-(defvar emacspeak-ediff-A-personality 'paul-smooth
-  "Personality used to voiceify difference chunk A")
+(defcustom emacspeak-ediff-A-personality 'paul-smooth
+  "Personality used to voiceify difference chunk A"
+  :type 'symbol
+  :group 'emacspeak-ediff)
 
-(defvar emacspeak-ediff-B-personality
+(defcustom emacspeak-ediff-B-personality
   'paul-monotone
-  "Personality used to voiceify difference chunk B")
+  "Personality used to voiceify difference chunk B"
+  :type 'symbol
+:group 'emacspeak-ediff)
 
-(defvar emacspeak-ediff-fine-A-personality 'harry
-  "Personality used to voiceify fine differences in chunk A")
-
-(defvar emacspeak-ediff-fine-B-personality 'harry
-  "Personality used to voiceify fine differences in chunk B")
-
-(defvar emacspeak-ediff-current-diff-face-A
-    'ursula 
-    "Personality for aurally  highlighting the selected difference in buffer A.")
-
-(defvar emacspeak-ediff-current-diff-face-B
-    'betty 
-    "Personality for aurally  highlighting the selected difference in buffer
-A.")
-
-(defvar emacspeak-ediff-fine-diff-face-A
-  'harry
-  "Face for highlighting the refinement of the selected diff in buffer A.")
-
-(defvar emacspeak-ediff-fine-diff-face-B
-  'harry
-  "Face for highlighting the refinement of the selected diff in buffer B.")
 
 ;;}}}
 ;;{{{ Helper functions:
@@ -121,16 +116,16 @@ A.")
 ;;;Please tell me what control buffer you're using--
 
 (defadvice ediff-setup-control-buffer (after emacspeak pre act )
-(declare (special emacspeak-ediff-control-buffer))
-(setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
+  (declare (special emacspeak-ediff-control-buffer))
+  (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
 
 
 (defsubst emacspeak-ediff-control-panel ()
   (declare (special emacspeak-ediff-control-buffer ))
-   emacspeak-ediff-control-buffer)
+  emacspeak-ediff-control-buffer)
 
 (defsubst emacspeak-ediff-difference-a-overlay (n)
-    (declare (special ediff-difference-vector-A
+  (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -138,7 +133,7 @@ A.")
   (aref (aref ediff-difference-vector-A n) 0))
   
 (defsubst emacspeak-ediff-difference-b-overlay (n)
-    (declare (special ediff-difference-vector-B
+  (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -146,7 +141,7 @@ A.")
   (aref (aref ediff-difference-vector-B n) 0))
 
 (defsubst emacspeak-ediff-difference-c-overlay (n)
-    (declare (special ediff-difference-vector-B
+  (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -155,7 +150,7 @@ A.")
 
 
 (defsubst emacspeak-ediff-fine-difference-a-overlays (n)
-    (declare (special ediff-difference-vector-A
+  (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -163,7 +158,7 @@ A.")
   (aref (aref ediff-difference-vector-A n) 1))
   
 (defsubst emacspeak-ediff-fine-difference-b-overlays (n)
-    (declare (special ediff-difference-vector-B
+  (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -171,7 +166,7 @@ A.")
   (aref (aref ediff-difference-vector-B n) 1))
 
 (defsubst emacspeak-ediff-fine-difference-c-overlays (n)
-    (declare (special ediff-difference-vector-B
+  (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -369,17 +364,19 @@ A.")
   (emacspeak-ediff-speak-difference
    (cond
     ((minusp ediff-current-difference) 0)
-   ((>= ediff-current-difference ediff-number-of-differences)
-   (1- ediff-number-of-differences))
+    ((>= ediff-current-difference ediff-number-of-differences)
+     (1- ediff-number-of-differences))
     (t ediff-current-difference))))
 
 ;;}}}
 ;;{{{ Advice:
 
 (emacspeak-fix-interactive-command-if-necessary 'vc-ediff)
-(defvar emacspeak-ediff-always-autorefine-diffs t
+(defcustom emacspeak-ediff-always-autorefine-diffs t
   "Says if emacspeak should try computing fine differences each time.
-Set this to nil if things get too slow.")
+Set this to nil if things get too slow."
+  :type 'boolean
+  :group 'emacspeak-ediff)
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
@@ -454,7 +451,7 @@ Set this to nil if things get too slow.")
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object )))
 (defadvice ediff-next-meta-item (after emacspeak pre act
-                                           comp)
+                                       comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-speak-line)
@@ -468,14 +465,14 @@ Set this to nil if things get too slow.")
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act
-                                        comp)
+                                      comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre
-                                               act comp)
+                                                   act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (message "turned %s file name truncation in Ediff registry"
