@@ -57,7 +57,6 @@
 
 ;;}}}
 
-
 ;;{{{ module emms:
 
 (defun emacspeak-emms-speak-current-track ()
@@ -68,14 +67,13 @@
 
 (loop for f in
       '(emms-next emms-next-noerror
-        emms-previous)
+		  emms-previous)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Speak track name."
           (when (interactive-p)
             (emacspeak-emms-speak-current-track)))))
-
 
 (defadvice emms-start (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -86,7 +84,6 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (dtk-speak "Stopped playing.")))
-
 
 (defadvice emms-shuffle (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -120,20 +117,19 @@
           (when (interactive-p)
             (emacspeak-emms-speak-current-track)))))
 
-
 ;;}}}
 ;;{{{ Module emms-streaming:
 
 (loop for f in
       '(emms-streams emms-stream-quit
                      emms-stream-popup emms-stream-popup-revert
-)
-do
-(eval
- `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (interactive-p)
-      (emacspeak-speak-mode-line)))))
+		     )
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (when (interactive-p)
+	    (emacspeak-speak-mode-line)))))
 (loop for f in
       '(emms-stream-next-line emms-stream-previous-line)
       do

@@ -2539,6 +2539,11 @@ Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-speak-comint-send-input ()
+Causes output to be spoken i.e., as if comint autospeak were turned
+on.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-speak-completions ()
 Speak completions  buffer if one present.
 @end deffn
@@ -3276,8 +3281,7 @@ Save out filter settings.
 
 @deffn {Interactive Command} emacspeak-table-view-csv-buffer (&optional BUFFER-NAME)
 Process a csv (comma separated values) data. 
-The processed  data and presented using emacspeak table
-navigation. 
+The processed  data and presented using emacspeak table navigation. 
 @end deffn
 
 @node emacspeak-tabulate
@@ -3517,8 +3521,9 @@ Browses RSS url under point.
 Browse URL with specified XSL style.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-browse-xml (LOCATION)
+@deffn {Interactive Command} emacspeak-w3-browse-xml (LOCATION &optional PROMPT-STYLE)
 Browse XML+CSS using W3.
+With interactive prefix arg, also prompt for an  XSL stylesheet.
 XML files can be rendered by an XML browser that is CSS aware.
 Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
 good enough job for many things, especially the XML files from
@@ -3533,8 +3538,7 @@ XML files is quite usable:
 0) You get Aural CSS support.
 
 1) You get a navigable buffer using imenu if you have w3-imenu
-loaded.
-
+loaded. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-browse-xml-url-with-style (STYLE URL &optional UNESCAPE-CHARENT)
