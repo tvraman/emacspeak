@@ -146,7 +146,24 @@ name)
     name))
 
 ;;}}}
-;;{{{ additional motion commands
+;;{{{ additional  commands
+(defun emacspeak-eperiodic-previous-line ()
+  "Move to next row and speak element."
+  (interactive)
+  (previous-line)
+(emacspeak-eperiodic-speak-current-element)
+(emacspeak-auditory-icon 'select-object))
+
+(defun emacspeak-eperiodic-next-line ()
+  "Move to next row and speak element."
+  (interactive)
+  (next-line)
+(emacspeak-eperiodic-speak-current-element)
+(emacspeak-auditory-icon 'select-object))
+(defun emacspeak-eperiodic-speak-current-element ()
+  "Speak element at point."
+  (interactive)
+  (dtk-speak (emacspeak-eperiodic-name-element-at-point)))
 
 (defun emacspeak-eperiodic-goto-property-section ()
   "Mark position and jump to properties section."
@@ -159,7 +176,11 @@ name)
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'large-movement))
 (declaim (special eperiodic-mode-map))
+(define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
 (define-key  eperiodic-mode-map "x" 'emacspeak-eperiodic-goto-property-section)
+(define-key eperiodic-mode-map "n"
+  'emacspeak-eperiodic-next-line)
+(define-key eperiodic-mode-map "p" 'emacspeak-eperiodic-previous-line)
 
 ;;}}}
 ;;{{{ advice interactive commands
