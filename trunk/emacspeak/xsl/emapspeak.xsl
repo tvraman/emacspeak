@@ -17,7 +17,11 @@ Description: Transformation rules for speaking map metadata from google maps.
       <body>
         <h1><xsl:apply-templates select="title"/></h1>
         <table summary="Coordinates">
-          <tr>
+          </table>
+        <xsl:apply-templates select="overlay/location"/>
+        <xsl:apply-templates select="directions"/>
+        <table summary="info">
+<tr>
             <td>
               <a>
                 <xsl:attribute name="href">
@@ -26,9 +30,8 @@ Description: Transformation rules for speaking map metadata from google maps.
 Reference Point</a></td>
 <td>Lat: <xsl:value-of select="center/@lat"/></td>
             <td>Lng: <xsl:value-of select="center/@lng"/></td>
-        </tr></table>
-        <xsl:apply-templates select="overlay/location"/>
-        <xsl:apply-templates select="directions"/>
+        </tr>
+        </table>
       </body>
     </html>
   </xsl:template>
