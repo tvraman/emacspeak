@@ -70,8 +70,11 @@ you like after a command.
 /* ugly ugly */
 #define DSP "/dev/dsp"
 int  dsp;
-static int _flushSpeech = 0;
-//1 second using 11025k samples.
+//static int _flushSpeech = 0;
+//.1 second using 11025k samples.
+//note that in the tcl server we select for 0.09 seconds so
+//that we dont queue up too many speech samples,
+//This is important for stopping speech immediately.
 #define BUFSIZE 1100
 short waveBuffer[BUFSIZE];
 
@@ -293,10 +296,10 @@ int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONS
 int playTTS (int samples) {
   int i;
   short stereo[2*samples];
-  // stop processing  if we are asked to stop talking.
-  if (_flushSpeech == 1) {
-    return eciDataProcessed;
-  }
+  // dont play samples   if we are asked to stop talking.
+  //if (_flushSpeech == 1) {
+  //return eciDataProcessed;
+  //}
   /* mono to stereo */
   for (i=0; i<samples; i++) {
     stereo[2*i] =waveBuffer[i];
@@ -305,8 +308,6 @@ int playTTS (int samples) {
   write (dsp, stereo,  4*samples);
   return eciDataProcessed;
 }
-
-
 
 int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   int rc;
@@ -362,7 +363,6 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
 
 int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   int i, rc, index, length;
-  _flushSpeech=0;
   for (i=1; i<objc; i++) {
     // if string begins with -, assume it is an index value
     char *txt = Tcl_GetStringFromObj(objv[i], &length);
@@ -395,7 +395,9 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
       }
     }
   }
-  if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0],NULL), "synth")) {
+  if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0],NULL),
+                      "synth")) {
+    //_flushSpeech=0;
     rc = _eciSynthesize(eciHandle);
     if (!rc) {
       Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
@@ -412,12 +414,13 @@ int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
     Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
     return TCL_ERROR;
   }
+  //_flushSpeech=0;
   return TCL_OK;
 }
 
 int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
          Tcl_Obj *CONST objv[]) {
-  _flushSpeech = 1;
+  //_flushSpeech = 1;
   if (_eciStop(eciHandle)) return TCL_OK;
   Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
   return TCL_ERROR;
@@ -425,11 +428,12 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
 
 int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int
               objc, Tcl_Obj *CONST objv[]) {
-  if (_flushSpeech == 1) {
-    _eciClearInput(eciHandle);
-    _eciStop (eciHandle);
-    Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));
-  } else if ( _eciSpeaking(eciHandle)) {
+  //if (_flushSpeech == 1) {
+  //_eciClearInput(eciHandle);
+  //_eciStop (eciHandle);
+  //Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));
+  //} else 
+  if ( _eciSpeaking(eciHandle)) {
     Tcl_SetObjResult( interp, Tcl_NewIntObj( 1 ));
   } else {
     Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));

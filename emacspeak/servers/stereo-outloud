@@ -64,7 +64,6 @@ proc tts_set_character_scale {factor} {
 
 proc tts_say {text} {
     global    tts
-    s
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     regsub -all {\[\*\]} $text { `p1 } text 
@@ -84,6 +83,7 @@ proc l {text} {
     }
     synth "$prefix  `ts2 $text`ts0"
     service
+    s
     return ""
 }
 
