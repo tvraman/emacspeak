@@ -1,3 +1,4 @@
+
 ;;; emacspeak-url-template.el --- Create library of URI templates
 ;;; $Id$
 ;;; $Author$
@@ -536,11 +537,10 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-w3-extract-by-class-list
       (list "cnnMainT1"
-                                               "cnnMainNewT2"
-                                               "cnnMainSections")
-                                         url
-                                         'speak)))
-
+            "cnnMainNewT2"
+            "cnnMainSections")
+      url
+      'speak)))
 
 (emacspeak-url-template-define
  "CNN Markets New York"
