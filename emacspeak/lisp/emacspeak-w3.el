@@ -1683,9 +1683,13 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 (when (featurep 'w3-wget)
   (defadvice w3-wget (before emacspeak pre act comp)
   "Become aware of emacspeak w3 url rewrite rule,
-and make the redirect available via the minibuffer history."
+and make the redirect available via the minibuffer history.
+If a rewrite rule is defined in the current buffer, we change
+  this command to behave as if it were called with an
+  interactive prefix."
   (when (and (interactive-p)
-             (ad-get-arg 0))
+             emacspeak-w3-url-rewrite-rule)
+    (ad-set-arg 0 t)
   (let ((url (w3-view-this-url t))
         (redirect nil))
     (unless url
