@@ -2298,21 +2298,23 @@ Optional interactive prefix arg
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
-if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.."
+if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
   (interactive "P")
   (declare (special emacspeak-last-message
                     emacspeak-speak-message-again-should-copy-to-kill-ring))
   (cond
    (from-message-cache
     (dtk-speak   emacspeak-last-message )
-    (when emacspeak-speak-message-again-should-copy-to-kill-ring
+    (when (and (interactive-p)
+               emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
    (t (save-excursion
         (set-buffer "*Messages*")
         (goto-char (point-max))
         (skip-syntax-backward " ")
         (emacspeak-speak-line)
-        (when emacspeak-speak-message-again-should-copy-to-kill-ring
+        (when (and (interactive-p)
+                   emacspeak-speak-message-again-should-copy-to-kill-ring)
           (kill-new
            (buffer-substring (line-beginning-position)
                              (line-end-position))))))))
