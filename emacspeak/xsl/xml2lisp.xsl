@@ -5,6 +5,7 @@ Author: T. V. Raman
 Copyright:GPL
 Description:Convert XML to a Lisp S-expression.
 Goal: Replace Emacs' xml-parse.el with equivalent functionality
+Shortcomings: Quotes in  PCDATA will be lost
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -12,7 +13,10 @@ Goal: Replace Emacs' xml-parse.el with equivalent functionality
   
   <xsl:output method="text"/>
   <xsl:template match="text()">
-    "<xsl:copy-of select="."/>"
+    <xsl:variable name="text" select="normalize-space()"/>
+    <xsl:if test="$text">
+    "<xsl:copy-of select="translate($text, '&quot;', '')"/>"
+    </xsl:if>
   </xsl:template>
   <xsl:template match="node()">
     (<xsl:choose>
@@ -26,7 +30,7 @@ Goal: Replace Emacs' xml-parse.el with equivalent functionality
     </xsl:choose>
     <xsl:apply-templates select="node()"/>)
   </xsl:template>
-
+  
   <xsl:template match="@*">
     ("<xsl:value-of  select="name()"/>" . "<xsl:value-of select="."/>")
   </xsl:template>
