@@ -614,13 +614,16 @@ The selected server is started immediately."
                                 dtk-servers-alist))
                           nil
                           t  )))
-  (declare (special  dtk-tcl dtk-program dtk-servers-alist))
+  (declare (special  dtk-tcl dtk-program dtk-servers-alist
+                     emacspeak-aumix-multichannel-capable-p))
   (setq dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
-    (and (string= "outloud" dtk-program)
+    (when (and (string= "outloud" dtk-program)
          emacspeak-use-auditory-icons
+         (not emacspeak-aumix-multichannel-capable-p)
          (not emacspeak-use-midi-icons)
+         emacspeak-aumix-midi-available-p)
          (emacspeak-toggle-midi-icons))
     (dtk-initialize)))
 
