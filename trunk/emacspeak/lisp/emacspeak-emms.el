@@ -63,7 +63,7 @@
 (defun emacspeak-emms-speak-current-track ()
   "Speak current track."
   (interactive)
-  (dtk-speak
+  (message
    (cdr (assoc 'name (emms-playlist-current-track)))))
 
 (loop for f in

@@ -736,7 +736,7 @@ sourceforge.
 Typically %s is replaced by project name.")
 
 (defvar emacspeak-cvs-gnu-anonymous-cvsroot-pattern
-  ":pserver:anoncvs@subversions.gnu.org:/cvsroot/%s"
+  ":ext:anoncvs@subversions.gnu.org:/cvsroot/%s"
   "CVSROOT pattern for project CVS repository at
 GNU.
 Typically %s is replaced by project name.")
