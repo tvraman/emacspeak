@@ -789,7 +789,8 @@ minibuffer."
   "XSL transform to extract  elements matching a specified
 XPath locator.")
 
-(defun emacspeak-w3-xslt-filter (path   &optional prompt-url speak-result)
+(defun emacspeak-w3-xslt-filter (path   &optional prompt-url
+                                        speak-result deletor)
   "Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -834,6 +835,10 @@ prefix arg causes url to be read from the minibuffer."
         (cons "locator"
               (format "'%s'"
                       path))
+        (cons "deletor"
+              (format "'%s'"
+                      deletor))
+
         (cons "base"
               (format "\"'%s'\""
                       (or source-url
