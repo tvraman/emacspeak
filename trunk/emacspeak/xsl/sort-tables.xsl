@@ -34,12 +34,24 @@ We sort the nested tables before they are output so the most
 relevant tables bubble to the top.
 -->
 <!-- } -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  version="1.0">
+<xsl:param name="base"/>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
   <xsl:include href="identity.xsl"/>
 <!-- { html body  -->
 <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
+<xsl:template match="/html/head">
+<head>
+<xsl:apply-templates select="title"/>
+<xsl:element name="base">
+<xsl:attribute name="href">
+<xsl:value-of select="$base"/>
+        </xsl:attribute>
+      </xsl:element>
+    </head>
+  </xsl:template>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>

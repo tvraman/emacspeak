@@ -1942,27 +1942,22 @@ directory to where find is to be launched."
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-w3-post-process-hook))
-  (save-excursion
-    (set-buffer (url-retrieve-synchronously url))
-    (let ((src-buffer (current-buffer))
-          (emacspeak-w3-xsl-p nil))
-      (goto-char (point-min))
-      (search-forward "\n\n" nil t)
-      (delete-region (point-min) (point))
-      (emacspeak-xslt-region
-       style
-       (point-min)
-       (point-max)
-       (list
-	(cons "base"
-	      (format "\"'%s'\""
-		      url))))
+    (let ((src-buffer
+           (emacspeak-xslt-url
+            style
+            url
+            (list
+             (cons "base"
+                   (format "\"'%s'\""
+                           url))))))
       (add-hook 'emacspeak-w3-post-process-hook
 		#'(lambda nil
 		    (emacspeak-speak-mode-line)
 		    (emacspeak-auditory-icon 'open-object)))
-      (emacspeak-w3-preview-this-buffer)
-      (kill-buffer src-buffer))))
+      (save-excursion
+        (set-buffer src-buffer)
+      (emacspeak-w3-preview-this-buffer))
+      (kill-buffer src-buffer)))
 
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
