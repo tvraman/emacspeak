@@ -299,7 +299,7 @@ proc speech_task {} {
     set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "\[_ :sa c :np :ra $r :pu $mode]"
+    set prefix "\[_]\[:sa c]\[:np]\[:ra $r]\[:pu $mode]"
     tts_gobble_acknowledgements
     puts -nonewline $tts(write) $prefix
     loop index 0 $length {
