@@ -317,7 +317,7 @@ qmp3cut."))
                  emacspeak-realaudio-this-resource)))
     (shell-command command)
     (message "Executing %s asynchronously."
-            command)))
+	     command)))
 
 (defun emacspeak-realaudio-trplayer-command (char)
   "Execute TRPlayer command."

@@ -481,8 +481,8 @@ from English to German.")
  (list "Search news for: ")
  #'(lambda nil
      (or 
-     (search-forward "Sorted by" (point-max) 'no-error)
-     (search-forward "Top Stories" (point-max) 'no-error))
+      (search-forward "Sorted by" (point-max) 'no-error)
+      (search-forward "Top Stories" (point-max) 'no-error))
      (forward-line 4)
      (emacspeak-speak-line))
  "Search Google news."
