@@ -978,9 +978,20 @@ plays entire program."
  nil
  "Display baseball team summary."
  #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-position-list 
-      '(7 8    31 46)
+     (emacspeak-w3-extract-table-by-match 
+      "PCT"
       url 'speak)))
+(emacspeak-url-template-define
+ "Baseball standings" 
+ "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp"
+ nil
+ nil
+ "Display MLB standings."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match 
+      "Standings"
+      url 'speak)))
+
 
 (emacspeak-url-template-define
  "Baseball Game Index" 
