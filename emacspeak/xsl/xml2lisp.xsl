@@ -15,26 +15,19 @@ Goal: Replace Emacs' xml-parse.el with equivalent functionality
     "<xsl:copy-of select="."/>"
   </xsl:template>
   <xsl:template match="node()">
-    <xsl:choose>
+    (<xsl:choose>
       <xsl:when test="@*">
         ("<xsl:value-of select="name()"/>"
         <xsl:apply-templates select="@*"/>)
       </xsl:when>
       <xsl:otherwise>
-        ("<xsl:value-of select="name()"/>"
+        "<xsl:value-of select="name()"/>"
       </xsl:otherwise>
     </xsl:choose>
     <xsl:apply-templates select="node()"/>)
   </xsl:template>
-  
+
   <xsl:template match="@*">
     ("<xsl:value-of  select="name()"/>" . "<xsl:value-of select="."/>")
   </xsl:template>
-
-    
-
-  <xsl:template match="/">
-    (<xsl:apply-templates select="*"/>)
-  </xsl:template>
-  
 </xsl:stylesheet>
