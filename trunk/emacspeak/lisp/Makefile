@@ -95,6 +95,7 @@ emacspeak-bs.elc \
 emacspeak-buff-menu.elc \
 emacspeak-buff-sel.elc \
 emacspeak-c.elc \
+emacspeak-cmuscheme.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
@@ -252,6 +253,7 @@ emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc
 emacspeak-buff-sel.elc: emacspeak-buff-sel.el dtk-speak.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc
+emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc
 emacspeak-calc.elc: emacspeak-calc.el 
 emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
