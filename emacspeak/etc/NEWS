@@ -52,6 +52,13 @@ for holding Internet smileys.
 This dictionary is used by all  messaging tools including mail and
 instant messaging tools.
 
+
+Added custom dictionary
+emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+that can be customized to hold common XML namespace URIs along with
+their pronunciation.
+This is used in XML and HTML modes.
+
 ** emacspeak-ecb.el:
 
 Enhanced ECB support.
