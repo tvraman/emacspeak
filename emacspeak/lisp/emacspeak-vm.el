@@ -578,7 +578,6 @@ Emacspeak."
             vm-frame-per-summary 
             vm-index-file-suffix
             vm-primary-inbox
-            vm-keep-sent-messages
             vm-folder-directory
             vm-forwarding-subject-format
             vm-startup-with-summary
@@ -603,7 +602,6 @@ Emacspeak."
 
   (setq vm-index-file-suffix ".idx"
         vm-primary-inbox "~/mbox"
-        vm-keep-sent-messages t
         vm-folder-directory "~/Mail/"
         vm-forwarding-subject-format "[%s]"
         vm-startup-with-summary nil
