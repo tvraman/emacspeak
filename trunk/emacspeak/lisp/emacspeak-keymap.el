@@ -129,6 +129,112 @@ field in the customization buffer.  You can use the notation
   'emacspeak-personal-keymap)
 
 ;;}}}
+;;{{{ Create a super keymap that users can put personal commands
+
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-super-keymap nil
+  "Emacspeak super keymap")
+
+(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
+
+(defcustom emacspeak-super-keys
+  (when emacspeak-super-keymap
+    (mapcar
+     (lambda (binding)
+       (cond
+        ((numberp (car binding))
+         (cons (format "%c" (car binding))
+               (cdr binding)))
+        (t binding)))
+     (cdr emacspeak-super-keymap)))
+  "*Specifies super key bindings for the audio desktop.
+Bindings specified here are available on prefix key C-e x
+for example, if you bind 
+`s' to command emacspeak-emergency-tts-restart 
+then that command will be available on key C-e x s
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+	  (cons  :tag "Key Binding"
+		(string :tag "Key")
+		(symbol :tag "Command")))
+  :set '(lambda (sym val)
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-super-keymap key command)))
+           val)
+	  (set-default sym val)))
+
+(global-set-key "\C-x@s"
+  'emacspeak-super-keymap)
+
+;;}}}
+;;{{{ Create a hyper keymap that users can put personal commands
+
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-hyper-keymap nil
+  "Emacspeak hyper keymap")
+
+(define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
+
+(defcustom emacspeak-hyper-keys
+  (when emacspeak-hyper-keymap
+    (mapcar
+     (lambda (binding)
+       (cond
+        ((numberp (car binding))
+         (cons (format "%c" (car binding))
+               (cdr binding)))
+        (t binding)))
+     (cdr emacspeak-hyper-keymap)))
+  "*Specifies hyper key bindings for the audio desktop.
+Bindings specified here are available on prefix key C-e x
+for example, if you bind 
+`s' to command emacspeak-emergency-tts-restart 
+then that command will be available on key C-e x s
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+	  (cons  :tag "Key Binding"
+		(string :tag "Key")
+		(symbol :tag "Command")))
+  :set '(lambda (sym val)
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-hyper-keymap key command)))
+           val)
+	  (set-default sym val)))
+
+(global-set-key "\C-x@hs"
+  'emacspeak-hyper-keymap)
+
+;;}}}
 ;;{{{  The actual bindings.
 (define-key help-map "e"
   'emacspeak-websearch-emacspeak-archive)
