@@ -7,6 +7,13 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Emacspeak 16.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
+** emacspeak-daisy: Digital Talking Book Reader
+
+Module emacspeak-daisy.el implements a browser for working with
+Digital Audio Books conforming to the Daisy3 specification --invoked
+by command emacspeak-daisy-open-book.
+
+
 ** Speech-enables W3M
 
 W3M is an alternative to using Emacs W3.
