@@ -22,7 +22,10 @@ View an RSS feed as clean HTML
         </ul>
         <p>
           <xsl:apply-templates select="rss:description"/>
+<xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
+RSS </xsl:element>
         </p>
+        
       </body>
     </html>
   </xsl:template>
@@ -42,6 +45,7 @@ View an RSS feed as clean HTML
   </xsl:template>
 <!-- } -->
 <!-- {rss 0.9 -naked namespaces -->
+
   <xsl:template match="/">
     <xsl:apply-templates select="//channel|//rdf:RDF"/>
   </xsl:template>
@@ -78,6 +82,7 @@ RSS </xsl:element>
   <xsl:template match="title|description">
     <xsl:apply-templates/>
   </xsl:template>
+
 <!-- } -->
 <!-- {identity default  -->
   <xsl:template match="*|@*">
