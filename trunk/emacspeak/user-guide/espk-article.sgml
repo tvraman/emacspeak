@@ -1,7 +1,7 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
 <article>
 	<articleinfo>
-		<title>Using Emacspeak HOWTO</title>
+		<title>Emacspeak User's Guide</title>
 		<author>
 			<firstname>Jennifer</firstname>
 			<surname>Jobst</surname>
@@ -17,29 +17,42 @@
 			the Emacs applications available to perform those tasks. 
 			</para>
 		</abstract>
-		<pubdate>October 19, 2001</pubdate>
-		<legalnotice>
-			<para>
-			This document may be reproduced or distributed
-			in any form without prior permission provided
-			the copyright notice is retained on all
-			copies.  Modified versions of this document
-			may be freely distributed, provided that they
-			are clearly identified as such, and this
-			copyright is included intact.  This document
-			is provided "AS IS," with no express or
-			implied warranties.  Use the information in
-			this document at your own risk.
-			</para>
-		</legalnotice>
+		<pubdate>December 4, 2001</pubdate>
 		<revhistory>
 			<revision>
-				<revnumber>1.0</revnumber>
+				<revnumber>1.2</revnumber>
+				<date>December 3, 2001</date>
+				<authorinitials>JEJ</authorinitials>
+				<revremark>Changed license to GFDL</revremark>
+			</revision>
+			
+			<revision>
+				<revnumber>1.1</revnumber>
+				<date>November 12, 2001</date>
+				<authorinitials>JEJ</authorinitials>
+			</revision>
+
+			<revision>
+				<revnumber>1.0 DRAFT</revnumber>
 				<date>October 19, 2001</date>
 				<authorinitials>JEJ</authorinitials>
 			</revision>
 		</revhistory>
 	</articleinfo>
+
+
+<sect1 id="legal-notice">
+<title>Legal Notice</title>
+
+	<para>
+	This document is Copyright &copy 2001 IBM. Permission is
+	granted to copy, distribute and/or modify this document under
+	the terms of the GNU Free Documentation License, Version 1.1
+	or any later version published by the Free Software Foundation with no Invariant Sections, no
+	Front-Cover Texts, and no Back-Cover Texts. A copy of the
+	license can be found at <ulink url="http://www.gnu.org/license/fdl.txt"></ulink>.
+	</para>
+</sect1>
 
 <sect1 ID="introduction">
 <title>Introduction</title>
@@ -193,6 +206,12 @@
 			</para>		
 		</listitem>
 	</itemizedlist>
+
+	<para>
+	Finally, you might want to peruse <ulink
+	url="http://www.gnusoftware.com/WebRing/zone.cgi?list"></ulink>,
+	which provides a list of Emacs resource sites.
+	</para>
 </sect2>
 
 <sect2 ID="emacs-conventions">
@@ -467,6 +486,17 @@
 		</varlistentry>
 
 	</variablelist>
+
+	<para>
+	In addition to the general Emacs commands that are Emacspeak
+	enabled, many applications have their own Emacspeak-enabled
+	commands.  To get a list of these commands, invoke the
+	application of choice (for example, W3 for viewing web sites)
+	and then type <command>C-h k</command> for a list of key
+	bindings, or <command>C-h m</command> to list the commands
+	associated with the cirretn active modes.
+	</para> 
+
 </sect3>
 
 <sect3 id="man-pages">
@@ -530,21 +560,14 @@
 	</para>
 
 	<para>
-	Changing your password is done in the Emacs shell.  By
-	default, not only is
-	your password visible on the screen, but it will also be
-	spoken aloud. However, you can customize Emacs by adding the
-	following line to your
-	<filename>.emacs</filename> file to keep Emacs from echoing
-	your password either visually or orally:
-	</para>
-
-	<programlisting>
-	(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt)
-	</programlisting>
-
-	<para> It's always a good idea to change your password in a
-	secure area where no-one is likely to watch you type it in. To change your password: 
+	Changing your password is done in the Emacs shell. Normally,
+	changing your password in the Emacs shell displays it on the
+	screen and also speaks it aloud. However, Emacspeak adds a line to your
+	<filename>.emacs</filename> file that keeps Emacs from echoing
+	your password either visually or orally. Of course, it's still
+	a good idea to change your password in a secure area where
+	no-one is likely to watch you type it in. To change your
+	password: 
 	</para> 
 
 	<orderedlist>
@@ -647,7 +670,7 @@
 				file for the application, if you want
 				to run it directly from Emacs and have
 				it Emacspeak-enabled. Check
-				in the /Emacspeak/site-lisp directory
+				in the /emacspeak/lisp directory
 				to see if one exists for your
 				application.
 				</para>
@@ -1255,7 +1278,7 @@
 		<listitem>
 			<para>
 			Open an Emacs shell as root, using the command
-			<command>C-e emacspeak-root</command>.
+			<command>M-x emacspeak-root</command>.
 			</para>
 		</listitem>
 
@@ -1317,7 +1340,7 @@
 			<para>
 			At the command prompt, type
 			<command>/.configure</command>. Your makefile
-			will be configued as is
+			will be configured as is
 			appropriate for your system.
 			</para>
 		</listitem>
@@ -1535,7 +1558,7 @@
 		<listitem>
 			<para>
 			Open an Emacs command shell as root, using the
-			command <command>C-e emacspeak-root</command>.
+			command <command>M-x emacspeak-root</command>.
 			</para>
 		</listitem>
 
@@ -1825,10 +1848,11 @@
 
 	<para>
 	Emacs has "major modes" (essentially editors) for Lisp,
-	Scheme, Awk, C, C++, Fortran, Icon, Java, Objective-C, Pascal,
-	Perl, and Tcl. You can invoke a major mode by creating a file
-	with the appropriate extension - for example, to invoke the
-	c++ major mode, create a file with a .cpp extension. You can
+	Scheme, Awk, C, C++, FORTRAN, Icon, Java, Objective-C, Pascal,
+	Perl, and Tcl. You can invoke a major mode by creating and/or opening a file
+	with the appropriate extension. For example, to invoke the
+	c++ major mode, create a file with a <filename>.cpp</filename>
+	extension and then open that file. You can
 	also download additional major modes, such as SGML.
 	</para>
 
@@ -1888,6 +1912,60 @@
 	</para>
 
 	<para>
+	If you want to use auditory icons and ViaVoice is your speech
+	synthesizer, check to see whether or not you have a
+	multi-channel sound card (try playing a CD and a .au file at
+	the same time - if it works, you have a multi-channel
+	card). If your card is not multi-channel, you must install the
+	application <application>stdiom</application> as follows:
+	</para>
+
+	<orderedlist>
+		<listitem>
+			<para>
+			Download the application
+			<application>stdiosynth</application> from
+			<ulink
+			url="http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz"></ulink>.  
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Log in to your machine as root, then change to
+					the directory where you placed the
+					downloaded file
+					<filename>stdiom.tar.gz</filename>.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Unzip the file using the command
+			<command>gunzip stdiom.tar.gz</command>.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Untar the resulting file using the command
+			<command>tar -xvf stdiom.tar</command>.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Change directories to the resulting
+					<filename>stdio_musician1.0</filename>
+					directory and type
+					<command>make</command>. You
+					should get a message that says,
+					"stdiosynth is up to date."
+			</para>
+		</listitem>
+	</orderedlist>
+
+	<para>
 	Currently there are two auditory icon themes that you can
 	download from the Emacspeak website, called Chimes and
 	Cartoons.  Chimes is made up of different chimes and
@@ -1903,27 +1981,27 @@
 	To install either of these themes, download and unpack the
 	archives into the emacspeak/sounds directory in your emacspeak
 	installation. You can then select themes you have already
-	installed by using the Emacspeak command <command>C-e
+	installed by using the Emacspeak command <command>M-x
 	emacspeak-sounds-select-theme</command>. Alternatively, you
 	can add the following lines to your
 	<filename>.emacspeak</filename> file:
 	</para>
 
 	<programlisting>
-	(emacspeak-toggle-auditory-icons t)
+	(setq emacspeak-toggle-auditory-icons t)
 	(when (emacspeak-sounds-theme-p "chimes-mono")
    		(emacspeak-sounds-select-theme "chimes-mono/" ))
 	</programlisting>
 
 	<para>
-	Some people use soundcards that can play multiple channels to
+	Some people use sound cards that can play multiple channels to
 	produce their auditory icons.  For this option, set
 	<command>emacspeak-aumix-multichannel-capable-p</command> to
 	<command>t</command> in your <filename>.emacs</filename> file:
 	</para>
 
 	<programlisting>
-	(emacspeak-aumix-multichannel-capable-p t) 
+	(setq emacspeak-aumix-multichannel-capable-p t) 
 	</programlisting>
 </sect3>
 </sect2>
@@ -1933,7 +2011,7 @@
 
 	<para>
 	There are two ways to view an Adobe Acrobat PDF file with
-	Emacspeak. The first option is to generate a text verison of
+	Emacspeak. The first option is to generate a text version of
 	the PDF using <application>Xpdf</application>, then read the text version.  The second option is the
 	use Adobe's PDF to HTML converter, then read the HTML file.
 	</para>	
@@ -2169,15 +2247,18 @@
 	scientific documentation, and in addition to allowing for
 	detailed formatting, it also provides support for mathematical
 	functions, automatic generation of bibliographies and indexes,
-	graphics support, and much more.  If you know anyone who wrote
-	a Ph.D. dissertation, chances are they used
-	<application>LaTeX</application> to do it.
+	graphics support, and much more. You can find out more about
+	<application>LaTeX</application> from <ulink
+	url="http://www.latex-project.org"></ulink>. In the
+	documentation section at the <application>LaTeX</application>
+	site, you will find an introduction to
+	<application>LaTeX</application>, as well as a complete
+	reference manual.
 	</para>
 
 	<para>
-	<application>LaTeX</application> was not written specifically
-	for Emacs, but a variant of it, called <application>AUC
-	Tex</application>, was developed for Emacs.  The <application>AUC
+ 	<application>AUC Tex</application> is the Emacs editing mode
+	for <application>LaTeX</application>. The <application>AUC
 	Tex</application> home page is located at 
 	<ulink
 	url="http://mirrors.sunsite.dk/auctex/www/auctex/"></ulink>.
@@ -2191,7 +2272,7 @@
 		<listitem>
 			<para>
 			Open an Emacs command shell as root, using the
-			command <command>C-e emacspeak-root</command>.
+			command <command>M-x emacspeak-root</command>.
 			</para>
 		</listitem>
 
@@ -2270,6 +2351,15 @@
 			<filename>.emacs</filename> file.
 			</para>
 		</listitem>
+		
+		<listitem>
+			<para>
+			To invoke the <application>AUC
+		Tex</application> editing mode, create a new file with
+		a <filename>.tex</filename> extension.
+			</para>
+		</listitem>
+
 	</orderedlist>
 
 	<para>
@@ -2309,7 +2399,7 @@
 	</para>
 
 	<para>
-	Since <application>AUC TeX</application> is an extension of
+	Since <application>AUC TeX</application> is a part of
 	<application>LaTeX</application>, you'll need to know
 	<application>LaTeX</application> to use it. There's a good
 	<application>LaTeX</application> manual by David R. Wilkins
@@ -2598,7 +2688,7 @@
 
 	<para>
 	To start playing mp3s, use the command <command>M-x
-	mpg123</command>.  You'll be asked for a filename to play.
+	mpg123</command>.  You'll be asked for a file name to play.
 	Type in the name of the mp3 to play, then press Return. It
 	should start playing immediately.
 	</para>
@@ -2682,7 +2772,7 @@
 	quit the application, it doesn't seem to relinquish control of
 	the sound card. You'll see evidence of this behavior if you
 	try to play a CD or restart <application>mpg123</application>
-	- you'll get an error message saying that your soundcard is
+	- you'll get an error message saying that your sound card is
 	busy or that it's not installed correctly. If you check the
 	list of open Emacs buffers, you'll see that
 	<application>mpg123</application> is still there, although
@@ -2769,7 +2859,7 @@
 
 	<para>
 	Dr. T.V. Raman, who not only suggested a task-oriented HOWTO,
-	but who always answered Emacspeak my questions, no matter how
+	but who always answered my Emacspeak questions, no matter how
 	odd.
 	</para>
 
@@ -2777,6 +2867,12 @@
 	Mr. James Van Zandt, the original author of the Emacspeak
 	HOWTO, who graciously allowed me maintainership of the
 	original HOWTO from which this document stemmed.
+	</para>
+
+	<para>
+	Robert J. Chassell, Saqib Shaikh, Doug Smith, Tyler Spivey,
+	Kristin Thomas, and Jason White, for their comments,
+	suggestions, and excellent proofreading skills.
 	</para>
 
 	<para>
@@ -2792,6 +2888,116 @@
 	correct it. If you did the work, you certainly deserve the
 	credit!
 	</para>
+</sect1>
+
+<sect1 id="wish-list">
+<title>Wish list for version 2.0</title>
+
+	<para>
+	The following is a list of suggestions (in no particular
+	order) that I did not have
+	time to implement for this version of the User's Guide. I hope
+	to include these items in a future release.
+	</para>
+
+	<itemizedlist mark=bullet>
+		<listitem>
+			<para>
+			New section on remote Emacspeak.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			New section on getting Emacspeak and Speakup
+			to work together.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			New section on using Real Audio.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			New section on the Emacs
+			configuration/customization wizard (M-x
+			customize, Applications group).
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Section on using the enriched package for
+			working with RTF files.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Information on what to add to your .emacs file
+			for rmail or vm to know your smtp/pop3
+			settings. Also information on how to tell W3
+			to work with a proxy server.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Add information on using M-x rpm to manipulate
+			RPM files.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Add information on using jide (java ide).
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			New sections on using calc and bbdb.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			New section on spell checking using ispell.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Add information on using M-x tar to manipulate
+			tar files.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Discuss the outline and folding-mode features
+			of Emacs.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			Include key bindings along with the Emacs/Emacspeak
+			command names.
+			</para>
+		</listitem>
+
+		<listitem>
+			<para>
+			List or reference the Emacspeak-specific
+			commands available in various Emacs
+			applications like vm, W3, etc.
+			</para>
+		</listitem>
+	</itemizedlist>
 </sect1>
 
 </article> 

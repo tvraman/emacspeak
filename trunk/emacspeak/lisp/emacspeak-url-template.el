@@ -452,6 +452,23 @@ Computing News at CNN.")
  "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
+;;{{{  times of india 
+
+;;; create url rewrite url to get print page 
+(emacspeak-url-template-define
+ "Times Of India"
+ "http://www.timesofindia.com"
+                               nil
+#'(lambda ()
+    (declare (special emacspeak-w3-url-rewrite-rule))
+    (setq emacspeak-w3-url-rewrite-rule
+          (list "$" "&prtPage=1")))
+                               "Retrieve Times Of India.
+Set up URL rewrite rule to get print page."
+                               )
+
+
+;;}}}
 ;;{{{ India Today 
 
 (emacspeak-url-template-define
