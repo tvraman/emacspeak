@@ -1008,7 +1008,7 @@ used as well."
     (when (or prompt 
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter 
-            (read-from-minibuffer  "Specify xpath: "
+            (read-from-minibuffer  "Specify XPath: "
                                    emacspeak-w3-most-recent-xpath-filter))
       (setq emacspeak-w3-most-recent-xpath-filter
             emacspeak-w3-xpath-filter))
