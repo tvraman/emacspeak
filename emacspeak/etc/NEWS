@@ -33,6 +33,10 @@ Additional wizrds.
  Enhanced XSLT support.
 Added new custom options.
 
+** emacspeak-iswitchb.el
+
+Speech-enables iswitchb.el
+
 ** emacspeak-m-player.el
 
 MPlayer output is handled using comint features.
