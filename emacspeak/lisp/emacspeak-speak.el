@@ -442,7 +442,7 @@ setting.."
     ("tone" . "tone"))
   "Possible methods of indicating indentation.")
 
-(defcustom emacspeak-audio-indentation-method (quote (quote speak))
+(defcustom emacspeak-audio-indentation-method  (quote speak)
   "*Current technique used to cue indentation.  Default is
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
