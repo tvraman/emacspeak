@@ -45,7 +45,6 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'voice-lock)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 
 ;;}}}
@@ -100,11 +99,6 @@
 
 ;;}}}
 ;;{{{ fix interactive commands 
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-       (list 'rpm-locate-package
-'rpm-install
-))
 
 ;;}}}
 (provide 'emacspeak-rpm)
