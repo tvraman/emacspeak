@@ -1,7 +1,7 @@
 /*$Id$*/
 /* <copyright*/
 /**
-*Copyright (C) 1995 -- 2000, T. V. Raman 
+*Copyright (C) 1995 -- 2001, T. V. Raman 
 *All Rights Reserved
 *
 * This file is not part of GNU Emacs, but the same permissions apply.
