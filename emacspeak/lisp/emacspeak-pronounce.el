@@ -473,7 +473,7 @@ After this, the pronunciations will be applied whenever text in the
 buffer is spoken.
 Optional argument state can be used from Lisp programs to
 explicitly turn pronunciations on or off."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-pronounce-pronunciation-table))
   (cond
    ((or (eq state 'on)
