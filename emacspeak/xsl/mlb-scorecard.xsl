@@ -14,7 +14,12 @@
       <body>
         <h1>Major League Baseball Scores For <xsl:value-of
         select="/scoreboard/@date"/></h1>
-        <xsl:if test="/scoreborad/ig_game">
+<xsl:if test="/scoreboard/sg_game">
+          <h2> <xsl:value-of
+              select="count(/scoreboard/sg_game)"/> Games To Be Played</h2>
+          <xsl:apply-templates select="/scoreboard/sg_game"/>
+        </xsl:if>
+        <xsl:if test="/scoreboard/ig_game">
           <h2> <xsl:value-of select="count(/scoreboard/ig_game)"/> Games In Progress</h2>
           <xsl:apply-templates select="/scoreboard/ig_game"/>
         </xsl:if>
@@ -24,6 +29,23 @@
         </xsl:if>
       </body>
     </html>
+  </xsl:template>
+<xsl:template match="sg_game">
+    
+    <h3>The <xsl:value-of select="team[1]/@name"/> 
+      Play The 
+    <xsl:value-of select="team[2]/@name"/> Starting At 
+<xsl:value-of select="game/@start_time"/></h3>
+    <p>
+      In the 
+<xsl:value-of select="game/@league"/>
+<xsl:apply-templates select="team[1]"/> 
+      play 
+      <xsl:apply-templates select="team[2]"/>.
+
+      
+      <xsl:apply-templates select="p_pitcher"/>
+    </p>    
   </xsl:template>
   <xsl:template match="ig_game">
     <xsl:variable name="status">
@@ -100,10 +122,22 @@
     The
     <strong><xsl:value-of select="@name"/></strong>
     <xsl:if test="@code=../game/@home_code"> at home </xsl:if>
+    <xsl:if test="../game/@status != 'PRE_GAME' or ../game/@status != 'IMMEDIATE_PREGAME'">
     with 
     <xsl:value-of select="gameteam/@R"/> runs on 
     <xsl:value-of select="gameteam/@H"/> hits and  
     <xsl:value-of select="gameteam/@E"/> errors
+    </xsl:if>
+  </xsl:template>
+<xsl:template match="p_pitcher">
+    <xsl:variable name="tc" select="@teamcode"/>
+<xsl:value-of select="pitcher/@name"/>
+will be pitching for 
+<xsl:value-of select="(../team[@code =$tc])/@name"/>
+and he is currently 
+ <xsl:value-of select="@wins"/> and <xsl:value-of
+      select="@losses"/>
+with an ERA of <xsl:value-of select="@era"/>
   </xsl:template>
   <xsl:template match="w_pitcher">
     The winning pitcher  was 
