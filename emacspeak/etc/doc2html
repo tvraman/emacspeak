@@ -10,7 +10,7 @@ then
     cat > $wordfile
     wvHtml $wordfile $htmlfile
     cat   $htmlfile 
-    /bin/rm $htmlfile  $wmf
+    /bin/rm $htmlfile  $wmf || echo
 else
     echo "wvHtml not found --install package wv."
 fi
