@@ -1530,10 +1530,13 @@ semantic to do the work."
         (put-text-property 0 (length recursion-info)
                            'personality voice-smoothen
                            recursion-info))
-      (when(and (not (eq major-mode 'shell-mode))
-                (not (eq major-mode 'comint-mode))
-                (buffer-modified-p ) )(dtk-tone 700 70))
-      (when buffer-read-only (dtk-tone 250 50))
+      (unless (and buffer-read-only
+                   (buffer-modified-p)) ;avoid pathological case
+        (when(and (not (eq major-mode 'shell-mode))
+                  (not (eq major-mode 'comint-mode))
+                  (buffer-modified-p))
+          (dtk-tone 700 70))
+        (when buffer-read-only (dtk-tone 250 50)))
       (put-text-property 0 (length global-info)
                          'personality voice-smoothen global-info)
       (tts-with-punctuations 'all
@@ -1551,12 +1554,15 @@ semantic to do the work."
                                       frame-info
                                       recursion-info
                                       global-info
-                                      (unless 
-                                          (or
-                                           (eq major-mode 'shell-mode) (eq major-mode 'comint-mode)
-                                           (not (buffer-modified-p)))
-                                        "Modified ")
-                                      (when buffer-read-only "ReadOnly "))))))))
+                                      (unless (and buffer-read-only
+                                                   (buffer-modified-p)) ;avoid pathological case
+                                        (unless 
+                                            (or
+                                             (eq major-mode 'shell-mode) (eq major-mode 'comint-mode)
+                                             (not
+                                              (buffer-modified-p)))
+                                          "Modified ")
+                                        (when buffer-read-only "ReadOnly ")))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
