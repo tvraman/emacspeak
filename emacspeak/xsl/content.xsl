@@ -7,17 +7,7 @@
   
   <xsl:output method="html" indent="yes"/>
   
-  <!-- {identity default  -->   
-  <xsl:template match="*|@*" >
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
-  </xsl:template>
-
-
-
-  <!-- } -->
+  <xsl:include href="identity.xsl"/>
   <!-- { html body  --> 
 
   <xsl:template match="//script|meta|link"/>
