@@ -1196,6 +1196,7 @@ Signals beginning  of buffer."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
+  (require 'term)
   (delete-other-windows)
   (switch-to-buffer
    (term-ansi-make-term
@@ -1207,9 +1208,9 @@ Signals beginning  of buffer."
     "-show-cursor=yes"
     url))
   (emacspeak-eterm-record-window   1 
-(cons 0 1)
-(cons 79 20)
-                                    'right-stretch 'left-stretch)
+                                   (cons 0 1)
+                                   (cons 79 20)
+                                   'right-stretch 'left-stretch)
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
