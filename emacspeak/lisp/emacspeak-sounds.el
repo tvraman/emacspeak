@@ -540,6 +540,7 @@ Optional interactive PREFIX arg toggles global value."
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
+emacspeak-queue-auditory-icon when using software TTS.
 emacspeak-play-midi-icon for midi device. "
   (interactive
    (list
@@ -548,11 +549,10 @@ emacspeak-play-midi-icon for midi device. "
                     emacspeak-auditory-icon-function))
   (cond
    ((and (not emacspeak-aumix-midi-available-p)
-         (memq player '(emacspeak-play-midi-icon
-                        emacspeak-queue-midi-icon
-                        emacspeak-play-midi-icon)))
-    (message "Cannot use midi icons in your current
-environment."))
+         (memq player
+               '(emacspeak-play-midi-icon emacspeak-queue-midi-icon)))
+    (message
+     "Cannot use midi icons in your current environment."))
    (t (setq emacspeak-auditory-icon-function player)))
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
@@ -592,6 +592,29 @@ audio player."
        emacspeak-play-args "-i"
        emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon)))
 
+;;}}}
+;;{{{  flush sound driver
+
+
+(defcustom emacspeak-sounds-reset-snd-module-command nil
+  "Command to reset sound module."
+  :type '(choice
+          :tag "Command to reset sound modules: "
+          (const nil :tag "None")
+(string :tag "Command "))
+:group 'emacspeak-sounds)
+;;;###autoload
+(defun emacspeak-sounds-reset-sound  ()
+  "Reload sound drivers."
+  (interactive)
+  (declare (special emacspeak-sounds-reset-snd-module-command))
+  (when emacspeak-sounds-reset-snd-module-command
+  (shell-command emacspeak-sounds-reset-snd-module-command)))
+
+(defun emacspeak-aumix-reload-sound ()
+  "Reload sound drivers."
+  (interactive)
+  (shell-command "sudo rmmod snd-intel8x0"))
 ;;}}}
 (provide  'emacspeak-sounds)
 ;;{{{  emacs local variables

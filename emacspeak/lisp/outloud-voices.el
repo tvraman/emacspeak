@@ -453,20 +453,18 @@ and TABLE gives the values along that dimension."
   (declare (special tts-default-speech-rate
                     outloud-default-speech-rate
                     emacspeak-use-auditory-icons
-                    emacspeak-aumix-midi-available-p
-                    emacspeak-aumix-multichannel-capable-p))
+                    emacspeak-aumix-midi-available-p))
   (fset 'tts-list-voices'outloud-list-voices)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-get-voice-command 'outloud-get-voice-command)
-  (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
   (setq tts-default-speech-rate outloud-default-speech-rate)
-  (set-default 'tts-default-speech-rate outloud-default-speech-rate)
-  (when (and emacspeak-use-auditory-icons
-             (not emacspeak-aumix-multichannel-capable-p)
-             (not (emacspeak-using-midi-p))
+  (set-default 'tts-default-speech-rate
+  outloud-default-speech-rate)
+  (if (and emacspeak-use-auditory-icons
              emacspeak-aumix-midi-available-p)
-    (emacspeak-set-auditory-icon-player 'emacspeak-play-midi-icon)))
+    (emacspeak-set-auditory-icon-player 'emacspeak-play-midi-icon)
+    (emacspeak-set-auditory-icon-player 'emacspeak-queue-auditory-icon)))
 
 ;;}}}
 (provide 'outloud-voices)

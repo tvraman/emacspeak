@@ -425,7 +425,7 @@ indent:
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc 
+	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-loads.el
 
 # }}}
 # {{{ end of file 

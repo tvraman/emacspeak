@@ -432,6 +432,8 @@ functions for details.   "
   (when emacspeak-unibyte
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
+  (require 'emacspeak-aumix)
+  (require 'emacspeak-sounds)
   (dtk-initialize)
   (require 'emacspeak-personality)
   (require 'emacspeak-redefine)
