@@ -43,6 +43,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-speak)
+(require 'emacspeak-sounds)
 
 ;;{{{  Introduction:
 
@@ -165,6 +166,14 @@ They have to be redefined and rebound to make them talk. " )
     (emacspeak-rebind f
                       (intern (format "emacspeak-%s" f )))))
  emacspeak-functions-that-bypass-function-cell )
+
+;;}}}
+;;{{{  fix ding 
+(when (subrp 'ding)
+(fset 'orig-ding (symbol-function 'ding))
+(defun ding ( &optional arg)
+(old-ding arg)
+(emacspeak-auditory-icon 'warn-user)))
 
 ;;}}}
 (provide 'emacspeak-redefine)
