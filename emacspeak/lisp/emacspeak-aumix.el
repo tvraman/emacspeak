@@ -92,9 +92,12 @@
 ;;{{{ emacspeak-aumix
 ;;;###autoload
 (defcustom emacspeak-aumix-reset-options
-  "-f /etc/.aumixrc -L 2>&1 >/dev/null"
-  "*Option to pass to aumix for resetting to default
-values."
+(format 
+  "-f %s -L 2>&1 >/dev/null"
+(if file-exists-p (expand-file-name ".aumixrc" emacspeak-resource-directory))
+(expand-file-name ".aumixrc" emacspeak-resource-directory)
+"/etc/.aumixrc")
+  "*Option to pass to aumix for resetting to default values."
   :group 'emacspeak
 :type 'string)
 
