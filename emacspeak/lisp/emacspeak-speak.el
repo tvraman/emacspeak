@@ -57,6 +57,7 @@
   (require 'backquote))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'time-date)
 (require 'voice-setup)
 (require 'thingatpt)
 (eval-when-compile
@@ -1337,8 +1338,7 @@ Alert the user only if mail has arrived since this time in the
 (defsubst emacspeak-mail-get-last-mail-arrival-time (f)
   "Return time when mail  last arrived."
   (condition-case                                nil
-      (nth
-       1(emacspeak-get-file-modification-time f))
+      (time-to-seconds (emacspeak-get-file-modification-time f))
     (error 0)))
                                      
 (defcustom emacspeak-mail-alert-interval 300
@@ -1355,12 +1355,12 @@ Alert the user only if mail has arrived since this time in the
          (size (emacspeak-get-file-size f))
          (result (and
                   (or (> mod-time emacspeak-mail-last-alerted-time)
-                      (> (nth 1 (current-time))
+                      (> (time-to-seconds (current-time))
                          (+ emacspeak-mail-last-alerted-time
                             emacspeak-mail-alert-interval)))
                   (> size 0))))
     (when result 
-      (setq emacspeak-mail-last-alerted-time (nth 1 (current-time))))
+      (setq emacspeak-mail-last-alerted-time (time-to-seconds (current-time))))
     result))
       
      
