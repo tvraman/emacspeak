@@ -265,9 +265,8 @@ Modifies text in buffer."
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
 
-(defvar emacspeak-pronounce-dictionaries-file  nil
-  "File that holds the persistent emacspeak pronunciation
-dictionaries."
+(defcustom emacspeak-pronounce-dictionaries-file  nil
+  "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
                :group 'emacspeak)
 
