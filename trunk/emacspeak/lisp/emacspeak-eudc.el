@@ -43,19 +43,19 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(eval-when (compile)
-  (condition-case nil
-      (progn (require 'widget)
-             (require 'wid-edit)
-             (message "Compiling against widget libraries %s %s"
-                      (locate-library "widget")
-                      (locate-library "wid-edit")))
-    (error
-     (message  "Widget libraries not found, widget support may not work correctly."))))
-(require 'emacspeak-widget)
-
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (condition-case nil
+                       (progn (require 'widget)
+                              (require 'wid-edit)
+                              (message "Compiling against widget libraries %s %s"
+                                       (locate-library "widget")
+                                       (locate-library "wid-edit")))
+                     (error
+                      (message  "Widget libraries not found, widget support may not work correctly.")))
+                   (require 'emacspeak-widget)
+                   )
 ;;}}}
 ;;{{{  Introduction:
 

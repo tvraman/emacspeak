@@ -42,10 +42,11 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'custom)
-(require 'dtk-voices)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(eval-when (compile)
+(eval-when-compile
+  (require 'dtk-voices)
+  (require 'dtk-speak)
+  (require 'emacspeak-speak)
+  (require 'emacspeak-sounds)
   (load-library "replace"))
 ;;{{{  Introduction:
 

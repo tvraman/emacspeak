@@ -42,7 +42,7 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(eval-when (compile)
+(eval-when-compile (require 'dtk-speak)
   (require 'emacspeak-speak)
   (require 'voice-lock)
   (require 'emacspeak-keymap)

@@ -38,11 +38,11 @@
 ;;}}}
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(eval-when (compile)
-  (and (locate-library "cc-mode")
-(require 'cc-mode )))
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (and (locate-library "cc-mode")
+                        (require 'cc-mode )))
 ;;{{{ Introduction:
 
 ;;; Make some of C and C++ mode more emacspeak friendly

@@ -48,6 +48,7 @@
  (eval-when-compile
    (provide 'emacspeak-speak) ;avoid recursive include
    (require 'dtk-speak )
+   (require 'voice-lock)
    (require 'emacspeak-sounds)
    (require 'shell)
    (require 'which-func nil)
@@ -2920,12 +2921,7 @@ typed. If no such group exists, then we dont move. "
 
 ;;}}}
 ;;{{{ customize emacspeak
-(defun emacspeak-customize ()
-  "Customize Emacspeak."
-  (interactive)
-  (customize-group 'emacspeak)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-custom-goto-group))
+
 
 ;;}}}
 (provide 'emacspeak-speak )

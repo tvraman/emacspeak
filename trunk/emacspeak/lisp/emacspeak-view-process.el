@@ -40,9 +40,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'emacspeak-sounds)
-(require 'emacspeak-speak)
-(require 'voice-lock)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds)
+                   (require 'voice-lock))
 ;;{{{  Introduction
 
 ;;; Powerful speech interface to viewing and administering processes

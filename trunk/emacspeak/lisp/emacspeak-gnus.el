@@ -42,10 +42,12 @@
   (when (locate-library "gnus")
     (require 'gnus)
     (require 'gnus-sum)))
+(eval-when-compile (require 'dtk-speak)
 (require 'voice-lock)
 (require 'emacspeak-keymap)
 (require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+(require 'emacspeak-sounds))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:

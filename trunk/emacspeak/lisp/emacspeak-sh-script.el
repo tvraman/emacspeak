@@ -42,10 +42,11 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(eval-when-compile (require 'sh-script))
-(require 'voice-lock)
-(require 'emacspeak-sounds)
+(eval-when-compile (require 'dtk-speak)
+                   (require 'emacspeak-speak)
+                   (require 'sh-script)
+                   (require 'voice-lock)
+                   (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Introduction:
