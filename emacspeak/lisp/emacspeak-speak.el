@@ -1489,10 +1489,8 @@ semantic to do the work."
 (defun emacspeak-speak-mode-line ()
   "Speak the mode-line."
   (interactive)
-  (declare (special  mode-name  major-mode
-                     voice-annotate
-                     emacspeak-which-function-mode
-                     global-mode-string
+  (declare (special  mode-name  major-mode voice-annotate
+                     emacspeak-which-function-mode global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
@@ -1503,20 +1501,21 @@ semantic to do the work."
         (frame-info nil)
         (recursion-depth (recursion-depth))
         (recursion-info nil)
-        (dir-info (when (eq major-mode 'shell-mode)
+        (dir-info (when (or
+                         (eq major-mode 'shell-mode)
+                         (eq major-mode 'comint-mode))
                     default-directory)))
     (when (and  emacspeak-which-function-mode
                 (fboundp 'which-function)
                 (which-function))
       (emacspeak-speak-which-function))
-    (when  (and emacspeak-mail-alert (emacspeak-mail-alert-user))
-      (dtk-tone 450 75))
+    (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
     (cond
      ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t                                 ;process modeline
       (when dir-info
-      (put-text-property 0 (length dir-info)
-                         'personality voice-annotate dir-info) )
+        (put-text-property 0 (length dir-info)
+                           'personality voice-annotate dir-info))
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
@@ -1531,30 +1530,34 @@ semantic to do the work."
         (put-text-property 0 (length recursion-info)
                            'personality voice-smoothen
                            recursion-info))
-      (when (buffer-modified-p ) (dtk-tone 700 70))
+      (when(and (not (eq major-mode 'shell-mode))
+                (not (eq major-mode 'comint-mode))
+                (buffer-modified-p ) )(dtk-tone 700 70))
       (when buffer-read-only (dtk-tone 250 50))
+      (put-text-property 0 (length global-info)
+                         'personality voice-smoothen global-info)
       (tts-with-punctuations 'all
                              (dtk-speak
-                              (concat
-                               (or dir-info " ")
-                               (format  "%s %s %s %s  %s  "
-                                        (buffer-name)
-                                        (if line-number-mode
-                                            (format "line %d"
-                                                    (emacspeak-get-current-line-number))
-                                          "")
-                                        (if column-number-mode
-                                            (format "Column %d"
-                                                    (current-column))
-                                          "")
-                                        mode-name
-                                        (emacspeak-get-current-percentage-verbously))
-                               frame-info
-                               recursion-info
-                               global-info
-                               (when (buffer-modified-p)
-  "Modified ")
-                               (when buffer-read-only "ReadOnly "))))))))
+                              (concat dir-info
+                                      (buffer-name)
+                                      (when line-number-mode
+                                        (format " line %d"
+                                                (emacspeak-get-current-line-number)))
+                                      (when column-number-mode
+                                        (format " Column %d"
+                                                (current-column)))
+                                      mode-name
+                                      (emacspeak-get-current-percentage-verbously)
+                                      frame-info
+                                      recursion-info
+                                      global-info
+                                      (unless 
+                                          (or
+                                           (eq major-mode 'shell-mode) (eq major-mode 'comint-mode)
+                                           (not (buffer-modified-p)))
+                                        "Modified ")
+                                      (when buffer-read-only "ReadOnly "))))))))
+
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
