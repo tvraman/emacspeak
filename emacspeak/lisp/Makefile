@@ -81,6 +81,7 @@ emacspeak-re-builder.elc \
 
 AUX_OBJECTS =  cd-tool.elc \
 emacspeak-add-log.elc \
+emacspeak-alsaplayer.elc \
 emacspeak-amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
@@ -266,6 +267,7 @@ dectalk-voices.elc: dectalk-voices.el voice-setup.elc
 outloud-voices.elc: outloud-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc
 html-outline.elc: html-outline.el
+emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 emacspeak-amphetadesk.elc: emacspeak-amphetadesk.el
 cd-tool.elc: cd-tool.el
 emacspeak-actions.elc: emacspeak-actions.el
