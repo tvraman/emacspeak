@@ -1928,6 +1928,7 @@ directory to where find is to be launched."
   (emacspeak-custom-goto-group))
 ;;}}}
 ;;{{{  browse url using specified style
+
 (defun emacspeak-wizards-browse-url-with-style (style url)
   "Browse URL with specified XSL style."
   (interactive
