@@ -166,33 +166,6 @@ Return nil if not set."
 (setq voice-lock-maximum-decoration t)
 
 ;;}}}
-;;{{{ turn on lazy lock
-(autoload 'lazy-voice-lock-mode
-  "lazy-voice-lock"
-  "lazy lock support for voice locking ")
-(declaim (special voice-lock-support-mode))
-
-(setq voice-lock-support-mode
-      '(
-        (xae-mode . lazy-voice-lock-mode)
-        (xml-mode . lazy-voice-lock-mode)
-        (sgml-mode . lazy-voice-lock-mode)
-        (c-mode . lazy-voice-lock-mode)
-        (c++-mode . lazy-voice-lock-mode)
-        (java-mode . lazy-voice-lock-mode)
-        (objc-mode . lazy-voice-lock-mode)
-        (lisp-mode . lazy-voice-lock-mode)
-        (emacs-lisp-mode . lazy-voice-lock-mode)
-        (lisp-interaction-mode . lazy-voice-lock-mode)
-        (perl-mode . lazy-voice-lock-mode)
-        (tex-mode . lazy-voice-lock-mode)
-        (tcl-mode . lazy-voice-lock-mode)
-        (tex-mode . lazy-voice-lock-mode)
-        (latex-mode . lazy-voice-lock-mode)
-        (latex2e-mode . lazy-voice-lock-mode)
-        (vm-mode . lazy-voice-lock-mode)
-        (dired-mode . lazy-voice-lock-mode)))
-;;}}}
 (provide 'voice-settings)
 ;;{{{ end of file 
 
