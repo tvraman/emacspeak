@@ -330,7 +330,7 @@ sed "s@<version>@$(LABEL)@g" \
 rpm: emacspeak.spec
 	@cp emacspeak.tar.gz /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
-	rpm -ba --sign  --target noarch  /usr/src/redhat/SPECS/emacspeak.spec
+	rpm  -ba --sign  --clean --target noarch  /usr/src/redhat/SPECS/emacspeak.spec
 
 
 # }}}
