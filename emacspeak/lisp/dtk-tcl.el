@@ -913,9 +913,10 @@ current local  value to the result."
      (t (make-local-variable 'dtk-punctuation-mode)
         (setq dtk-punctuation-mode mode )))
     (dtk-interp-set-punctuations mode)
+    (when (interactive-p)
     (message "set punctuation mode to %s %s"
              mode
-             (if prefix "" "locally"))))
+             (if prefix "" "locally")))))
 
 (defun dtk-set-punctuations-to-all (&optional prefix )
   "Set punctuation  mode to all.
