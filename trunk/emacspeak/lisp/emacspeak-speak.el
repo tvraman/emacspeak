@@ -94,19 +94,19 @@
   (`
    (progn
      (declare (special inhibit-point-motion-hooks))
-         (let    ((save-read-only buffer-read-only)
-                  (buffer-read-only nil )
-                  (save-inhibit-read-only inhibit-read-only)
-                  (inhibit-read-only t)
-                  (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
-                  (inhibit-point-motion-hooks t)
-                  (modification-flag (buffer-modified-p)))
-           (unwind-protect
-               (,@ body )
-             (setq buffer-read-only save-read-only
-                   inhibit-read-only save-inhibit-read-only
-                   inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
-             (set-buffer-modified-p modification-flag ))))))
+     (let    ((save-read-only buffer-read-only)
+              (buffer-read-only nil )
+              (save-inhibit-read-only inhibit-read-only)
+              (inhibit-read-only t)
+              (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
+              (inhibit-point-motion-hooks t)
+              (modification-flag (buffer-modified-p)))
+       (unwind-protect
+           (,@ body )
+         (setq buffer-read-only save-read-only
+               inhibit-read-only save-inhibit-read-only
+               inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
+         (set-buffer-modified-p modification-flag ))))))
 
 (defmacro ems-set-personality-temporarily (start end value
                                                  &rest body)
@@ -116,34 +116,34 @@ Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   (`
-       (progn
-         (declare (special voice-lock-mode ))
-         (let ((save-voice-lock voice-lock-mode)
-               (saved-personality (get-text-property
-                                   (, start) 'personality))
-               (save-read-only buffer-read-only)
-               (buffer-read-only nil )
-               (save-inhibit-read-only inhibit-read-only)
-               (inhibit-read-only t)
-               (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
-               (inhibit-point-motion-hooks t)
-               (modification-flag (buffer-modified-p)))
-           (unwind-protect
-               (progn
-                 (setq voice-lock-mode t )
-                 (put-text-property
-                  (max (point-min) (, start))
-                  (min (point-max) (, end))
-                  'personality (, value))
-                 (,@ body))
+   (progn
+     (declare (special voice-lock-mode ))
+     (let ((save-voice-lock voice-lock-mode)
+           (saved-personality (get-text-property
+                               (, start) 'personality))
+           (save-read-only buffer-read-only)
+           (buffer-read-only nil )
+           (save-inhibit-read-only inhibit-read-only)
+           (inhibit-read-only t)
+           (save-inhibit-point-motion-hooks (ems-inhibit-point-motion-hooks))
+           (inhibit-point-motion-hooks t)
+           (modification-flag (buffer-modified-p)))
+       (unwind-protect
+           (progn
+             (setq voice-lock-mode t )
              (put-text-property
               (max (point-min) (, start))
-              (min (point-max)  (, end)) 'personality saved-personality)
-             (setq buffer-read-only save-read-only
-                   inhibit-read-only save-inhibit-read-only
-                   inhibit-point-motion-hooks save-inhibit-point-motion-hooks
-                   voice-lock-mode save-voice-lock )
-             (set-buffer-modified-p modification-flag ))))))
+              (min (point-max) (, end))
+              'personality (, value))
+             (,@ body))
+         (put-text-property
+          (max (point-min) (, start))
+          (min (point-max)  (, end)) 'personality saved-personality)
+         (setq buffer-read-only save-read-only
+               inhibit-read-only save-inhibit-read-only
+               inhibit-point-motion-hooks save-inhibit-point-motion-hooks
+               voice-lock-mode save-voice-lock )
+         (set-buffer-modified-p modification-flag ))))))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
