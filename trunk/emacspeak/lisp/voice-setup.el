@@ -191,17 +191,22 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{  special form defvoice 
-(defcustom voice-setup-acss-dimensions
-  (list :family
-        :average-pitch
-        :pitch-range
-        :stress
-        :richness
-        :gain )
-  "Dimensions implemented from ACSS."
-  :type '(repeat
-  (symbol :tag "Keyword"))
-  :group 'tts)
+(defvar voice-setup-personality-table (make-hash-table)
+  "Maps personality names to ACSS  settings.")
+
+(defsubst voice-setup-personality-from-style (style-list)
+  "Define a personality given a list of speech style settings."
+  (declare (special voice-setup-personality-table))
+  (let ((voice
+         (dtk-personality-from-speech-style
+          (make-dtk-speech-style
+           :family (first style-list)
+           :average-pitch (second style-list)
+           :pitch-range (third style-list)
+           :stress (fourth style-list)
+           :richness (fifth style-list)))))
+    (puthash  voice style-list voice-setup-personality-table)
+    voice))
 
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.
@@ -223,14 +228,7 @@ calling command
 (integer :tag "Richness"))
      :group 'tts
      :set '(lambda  (sym val)
-             (let ((voice-name
-                    (dtk-personality-from-speech-style
-                     (make-dtk-speech-style
-                      :family (first val)
-                      :average-pitch (second val)
-                      :pitch-range (third val)
-                      :stress (fourth val)
-                      :richness (fifth val)))))
+             (let ((voice-name (voice-setup-personality-from-style val)))
                (setq (, personality) voice-name)
                (dtk-define-voice-alias '(, personality) voice-name)
                (set-default sym val))))))
