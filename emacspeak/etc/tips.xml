@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE article PUBLIC "-//Arbortext//DTD DocBk XML V2.0//EN" "/usr/share/sgml/docbook/xml-dtd-4.1.2-1.0-8/docbookx.dtd">
-<?xml-stylesheet href="/usr/share/sgml/docbook/xsl-stylesheets-1.49-1/html/docbook.xsl"
+<?xml-stylesheet href="/usr/share/sgml/docbook/xsl-stylesheets/html/docbook.xsl"
 type="text/xsl"?>
 
 <article>
@@ -567,7 +567,7 @@ Thus, one can organize electronic texts by placing  files for a given
         </answer>
       </qandaentry>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="multimedia">
       <title>Multimedia On The Emacspeak Audio
         Desktop</title>
       <para>
@@ -732,8 +732,20 @@ can be used to conveniently play Windows Media streams.</para>
             <command>emacspeak-realaudio</command>. </para>
         </answer>
       </qandaentry>
+      <qandaentry>
+        <question>
+Manipulating Digital Images        </question>
+        <answer>
+          <para>
+The ImageMagick  package provides a powerful set of image
+            manipulation tools --for an excellent  overview see 
+the online article 
+            <ulink
+              url="http://www.ibm.com/developerworks/linux/library/l-graf/?ca=dgr-lnxw02ImageMagick">command-line graphics</ulink></para>
+        </answer>
+      </qandaentry>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="author">
       <title>Authoring Tools</title>
       <para>This section contains tips on authoring
         structured documents for online and print
@@ -744,7 +756,7 @@ can be used to conveniently play Windows Media streams.</para>
           document authoring on the Emacspeak desktop.</ulink>
       </para>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="messaging">
       <title>Electronic Messaging</title>
       <para>
         This section contains tips about electronic messaging  on
@@ -754,7 +766,7 @@ can be used to conveniently play Windows Media streams.</para>
         <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
           electronic messaging.</ulink></para>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="web">
       <title>Web Browsing</title>
       <qandaentry>
         <question>
@@ -827,12 +839,12 @@ Moral: Get out of my way or I will turn you into a shell script.             </p
         </answer>
       </qandaentry>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="admin">
       <title>System Management And System
         Administration</title>
       <para>This section contains tips on managing your system.</para>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="utils">
       <title>Emacspeak Utilities</title>
       <para>This section gives tips on using some of the built-in
         productivity tools bundled with Emacspeak.
