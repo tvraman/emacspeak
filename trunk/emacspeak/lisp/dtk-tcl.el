@@ -50,10 +50,10 @@
 (require 'dtk-interp)
 (require 'dtk-voices)
 (eval-when-compile
-(require 'emacspeak-sounds))
+  (require 'emacspeak-sounds))
 (require 'emacspeak-pronounce)
 (eval-when (compile)
-  (provide 'dtk-tcl);;keep byte compiler from recursing
+  (provide 'dtk-tcl) ;;keep byte compiler from recursing
   (require 'dtk-speak))
 
 ;;}}}
@@ -70,7 +70,6 @@
   "Switch indicating if the speech synthesizer is to keep quiet.
 Do not set this variable by hand.
 See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
-
 
 (defvar dtk-split-caps t
   "Flag indicating whether to use split caps when speaking.
@@ -112,7 +111,6 @@ Non-nil means produce a beep to indicate upper case words in conjunction with
 split caps Do not set this variable by hand, use command
 `dtk-toggle-allcaps-beep' bound to \\[dtk-toggle-allcaps-beep].")
 
-
 (defconst dtk-punctuation-mode-alist
   '(("some" . "some" )
     ("all" . "all")
@@ -124,7 +122,6 @@ split caps Do not set this variable by hand, use command
     ("spell" . "spell")
     ("name" . "name"))
   "Alist of valid pronunciation  modes.")
-
 
 (defvar dtk-last-output nil
   "Variable holding last output.")
@@ -139,13 +136,11 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 ;;;declared here to help compilation
 (defvar voice-lock-mode nil)
 
-
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
 
 (defsubst text-visible-p (position)
   (not (get-text-property position 'invisible )))
-
 
 (defsubst text-invisible-p (position)
   (get-text-property position 'invisible ))
@@ -192,7 +187,6 @@ Optional argument FORCE  flushes the command to the speech server."
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
-
 (defsubst dtk-notes-initialize()
   "Initialize midi system."
   (dtk-interp-notes-initialize))
@@ -201,7 +195,6 @@ Optional argument FORCE  flushes the command to the speech server."
   "Shutdown midi system."
   (interactive)
   (dtk-interp-notes-shutdown))
-
 
 (defsubst dtk-queue-note (instrument pitch duration
                                      &optional target step)
@@ -360,7 +353,6 @@ Argument MODE  specifies the current pronunciation mode."
                            'personality personality)))
     (goto-char (point-min))))
 
-
 (defsubst  dtk-quote(mode )
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
@@ -395,7 +387,6 @@ Argument MODE  specifies the current pronunciation mode."
   ;;; fix control chars
     (dtk-fix-control-chars)))
 
-
 ;;; Moving  across a chunk of text.
 ;;; A chunk  is specified by a punctuation followed by whitespace
 ;;; or  multiple blank lines
@@ -424,7 +415,6 @@ Argument MODE  specifies the current pronunciation mode."
         (remove-if (function (lambda (x)
                                (= x 32 )))
                    dtk-chunk-separator-syntax)))
-
 
 ;;; invariance: looking at complement
 ;;; move across the complement and the following separator
@@ -507,7 +497,6 @@ Arguments START and END specify region to speak."
   (interactive)
   (declare (special dtk-speaker-process))
   (dtk-interp-stop))
-
 
 (defsubst dtk-reset-default-voice()
   (declare (special tts-default-voice ))
@@ -636,8 +625,8 @@ only speak upto the first ctrl-m."
                                         ;if we matched a punctuation,
                                         ;treat this as a chunk only if the punctuation is followed
                                         ;by white space
-          ;dtk-speak-treat-embedded-punctuations-specially
-          ;has been T for a long time
+					;dtk-speak-treat-embedded-punctuations-specially
+					;has been T for a long time
           (unless
               (and (char-after  (point))
                    (= (char-syntax (preceding-char )) ?.)
@@ -663,9 +652,9 @@ Argument TEXT  is the list of strings to speak."
       (loop  for element in text
              do
              (insert
-             (if (stringp element)
-              element 
-             (format "%s" element)))
+	      (if (stringp element)
+		  element 
+		(format "%s" element)))
              (insert "\n"))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
@@ -724,9 +713,6 @@ current local  value to the result."
                rate
                (if prefix "" "locally")))))
 
-
-
-
 (defun dtk-set-predefined-speech-rate (&optional prefix)
   "Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -734,7 +720,7 @@ Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (declare (special dtk-speech-rate-step
-dtk-speech-rate-base
+		    dtk-speech-rate-base
                     last-input-char))
   (let ((level
          (condition-case nil
@@ -755,9 +741,8 @@ speech rate:")))
          prefix )
         (when (interactive-p)
           (message "Set speech rate to level %s %s"
-level
-(if prefix " globaly " " locally ")))))))
-
+		   level
+		   (if prefix " globaly " " locally ")))))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set scale FACTOR for   speech rate.
@@ -820,7 +805,6 @@ Optional argument PREFIX specifies if the setting applies to all buffers."
   (message "%s turned %s immediate flushing of speech when typing "
            (if prefix "" " locally")
            (if dtk-stop-immediately-while-typing "on" "off" )))
-
 
 (defun dtk-toggle-split-caps (&optional prefix )
   "Toggle split caps mode.
@@ -891,8 +875,6 @@ value, and then set the current local value to the result."
              (if dtk-speak-nonprinting-chars  "on" "off" )
              (if prefix "" " locally"))))
 
-
-
 (defun dtk-toggle-allcaps-beep  (&optional prefix)
   "Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
@@ -941,9 +923,9 @@ current local  value to the result."
         (setq dtk-punctuation-mode mode )))
     (dtk-interp-set-punctuations mode)
     (when (interactive-p)
-    (message "set punctuation mode to %s %s"
-             mode
-             (if prefix "" "locally")))))
+      (message "set punctuation mode to %s %s"
+	       mode
+	       (if prefix "" "locally")))))
 
 (defun dtk-set-punctuations-to-all (&optional prefix )
   "Set punctuation  mode to all.
@@ -972,7 +954,6 @@ Interactive PREFIX arg makes the new setting global."
     (message "set punctuation mode to %s %s"
              dtk-punctuation-mode
              (if prefix "" "locally"))))
-
 
 (defun dtk-set-pronunciation-mode  (mode state  )
   "Set pronunciation MODE.
@@ -1055,7 +1036,6 @@ and variable `dtk-resume-should-toggle' is t
    (t (dtk-interp-resume)
       (emacspeak-auditory-icon 'button)
       (setq dtk-paused nil))))
-
 
 ;;}}}
 (provide 'dtk-tcl)

@@ -109,9 +109,9 @@ Interactive XML browser.
                        emacspeak-xml-shell-command
                        nil
                        (append emacspeak-xml-shell-options
-(if (string-match ".html?$" system-id)
-    (list "--html")
- nil )
+			       (if (string-match ".html?$" system-id)
+				   (list "--html")
+				 nil )
                                (list system-id)))))
     (save-excursion
       (set-buffer buffer)
@@ -197,7 +197,6 @@ Interactive XML browser.
 (defvar emacspeak-xml-shell-display-buffer nil
   "Buffer that displays processed output.")
 
-
 (defun emacspeak-xml-shell-create-accumulator (accumulate terminator post-processor)
   "Create a function that is suitable for use as a filter function for
 the XML shell process. The returned function will accumulate process
@@ -234,7 +233,6 @@ and end."
              (comint-send-input)))
           (t (insert output))))))))
 
-
 (defun emacspeak-xml-shell-process-node ( xpath display-function)
   "Apply display-function to the contents of node specified by xpath.
 Display function accepts two arguments, start and end that specify the
@@ -262,17 +260,16 @@ region of text to process."
   :type 'string
   :group 'emacspeak-xml-shell)
 
-
 (defsubst emacspeak-xml-shell-setup-html-base (base)
   "Locate HTML head in current buffer and add document base.  Creates
 HTML head if none found."
   (goto-char (point-min))
-   (let ((head   (search-forward "<head>" nil t)))
-     (or head
-         (insert "<head>\n"))
-     (insert
-      (format "<base href=\"%s\">\n" base))
-     (or head (insert "</head>\n"))))
+  (let ((head   (search-forward "<head>" nil t)))
+    (or head
+	(insert "<head>\n"))
+    (insert
+     (format "<base href=\"%s\">\n" base))
+    (or head (insert "</head>\n"))))
       
    
 
@@ -286,7 +283,6 @@ HTML head if none found."
   (emacspeak-xml-shell-setup-html-base emacspeak-xml-shell-document)
   (w3-preview-this-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
-
 
 (defun emacspeak-xml-shell-browse-current ()
   "Display current node."

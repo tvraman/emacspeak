@@ -85,8 +85,6 @@
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed region.")))
 
-
-
 (defadvice hs-hide-level (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)

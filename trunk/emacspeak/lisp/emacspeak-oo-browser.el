@@ -72,8 +72,6 @@
                          (end-of-line)
                          (buffer-substring start (point )))))))))
 
-
-
 (defadvice br-children (after emacspeak pre act )
   "Provide spoken feedback. "
   (when (and ad-return-value  (interactive-p))
@@ -115,8 +113,6 @@
                          (setq start (point ))
                          (end-of-line)
                          (buffer-substring start (point )))))))))
-
-
 
 (defadvice br-categories (after emacspeak pre act )
   "Provide spoken feedback. "
@@ -190,7 +186,6 @@
                          (end-of-line)
                          (buffer-substring start (point )))))))))
 
-
 (defadvice br-parents (after emacspeak pre act )
   "Provide spoken feedback. "
   (when (and ad-return-value  (interactive-p))
@@ -204,8 +199,6 @@
                          (setq start (point ))
                          (end-of-line)
                          (buffer-substring start (point )))))))))
-
-
 
 (defadvice br-unique (after emacspeak pre act )
   "Provide spoken feedback."

@@ -272,21 +272,20 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (load compile)
-  (provide 'lazy-voice-lock) ;prevent byte compiler from recursing
+  (provide 'lazy-voice-lock)	 ;prevent byte compiler from recursing
   (require 'voice-lock))
-
 
 ;; Make sure lazy-voice-lock.el is supported.
 ;;commenting out  
-;(if (if (save-match-data (string-match "Lucid\\|XEmacs" (emacs-version)))
-;	t
-;      (and (= emacs-major-version 19) (< emacs-minor-version 30)))
-;    (error "`lazy-voice-lock' was written for Emacs 19.30 or later"))
+					;(if (if (save-match-data (string-match "Lucid\\|XEmacs" (emacs-version)))
+					;	t
+					;      (and (= emacs-major-version 19) (< emacs-minor-version 30)))
+					;    (error "`lazy-voice-lock' was written for Emacs 19.30 or later"))
 
 ;; Flush out those lusers who didn't read all of the Commentary.
-;(if (or (memq 'turn-on-defer-lock voice-lock-mode-hook)
-;	(memq 'defer-lock-mode voice-lock-mode-hook))
-;    (error "`lazy-voice-lock' was written for use without `defer-lock'"))
+					;(if (or (memq 'turn-on-defer-lock voice-lock-mode-hook)
+					;	(memq 'defer-lock-mode voice-lock-mode-hook))
+					;    (error "`lazy-voice-lock' was written for use without `defer-lock'"))
   
 (eval-when-compile
   ;;
@@ -304,10 +303,10 @@
   (defmacro save-buffer-state (varlist &rest body)
     "Bind variables according to VARLIST and eval BODY restoring buffer state."
     (` (let* ((,@ (append varlist
-		   '((modified (buffer-modified-p))
-		     (inhibit-read-only t) (buffer-undo-list t)
-		     before-change-functions after-change-functions
-		     deactivate-mark buffer-file-name buffer-file-truename))))
+			  '((modified (buffer-modified-p))
+			    (inhibit-read-only t) (buffer-undo-list t)
+			    before-change-functions after-change-functions
+			    deactivate-mark buffer-file-name buffer-file-truename))))
 	 (,@ body)
 	 (when (and (not modified) (buffer-modified-p))
 	   (set-buffer-modified-p nil)))))
@@ -394,8 +393,8 @@ taking longer to voiceify, you could increase the value of this variable.")
   "*If non-nil, means stealth voiceification should show status messages.")
 
 (defvar lazy-voice-lock-mode nil)
-(defvar lazy-voice-lock-buffers nil)			; for deferral
-(defvar lazy-voice-lock-timers (cons nil nil))	; for deferral and stealth
+(defvar lazy-voice-lock-buffers nil)	; for deferral
+(defvar lazy-voice-lock-timers (cons nil nil)) ; for deferral and stealth
 
 ;; User Functions:
 
@@ -457,11 +456,11 @@ Use \\[lazy-voice-lock-submit-bug-report] to send bug reports or feedback."
   (interactive)
   (let ((reporter-prompt-for-summary-p t))
     (reporter-submit-bug-report "simon@gnu.ai.mit.edu" "lazy-voice-lock 2.06"
-     '(lazy-voice-lock-minimum-size lazy-voice-lock-defer-driven lazy-voice-lock-defer-time
-       lazy-voice-lock-stealth-time lazy-voice-lock-stealth-nice lazy-voice-lock-stealth-lines
-       lazy-voice-lock-stealth-verbose)
-     nil nil
-     (concat "Hi Si.,
+				'(lazy-voice-lock-minimum-size lazy-voice-lock-defer-driven lazy-voice-lock-defer-time
+							       lazy-voice-lock-stealth-time lazy-voice-lock-stealth-nice lazy-voice-lock-stealth-lines
+							       lazy-voice-lock-stealth-verbose)
+				nil nil
+				(concat "Hi Si.,
 
 I want to report a bug.  I've read the `Bugs' section of `Info' on Emacs, so I
 know how to make a clear and unambiguous report.  To reproduce the bug:
@@ -540,13 +539,13 @@ In the `*scratch*' buffer, evaluate:"))))
       (when (cdr defer)
 	(cancel-timer (cdr defer)))
       (setcar lazy-voice-lock-timers (cons dtime (and dtime
-	      (run-with-idle-timer dtime t 'lazy-voice-lock-voiceify-after-defer))))))
+						      (run-with-idle-timer dtime t 'lazy-voice-lock-voiceify-after-defer))))))
   (unless (eq stime (car (cdr lazy-voice-lock-timers)))
     (let ((stealth (cdr lazy-voice-lock-timers)))
       (when (cdr stealth)
 	(cancel-timer (cdr stealth)))
       (setcdr lazy-voice-lock-timers (cons stime (and stime
-	      (run-with-idle-timer stime t 'lazy-voice-lock-voiceify-after-idle)))))))
+						      (run-with-idle-timer stime t 'lazy-voice-lock-voiceify-after-idle)))))))
 
 (defun lazy-voice-lock-unstall ()
   ;;
@@ -597,10 +596,10 @@ In the `*scratch*' buffer, evaluate:"))))
     (save-selected-window
       (select-frame frame)
       (walk-windows (function (lambda (window)
-		       (set-buffer (window-buffer window))
-		       (when lazy-voice-lock-mode
-			 (lazy-voice-lock-voiceify-conservatively window))
-		       (set-window-redisplay-end-trigger window nil)))
+				(set-buffer (window-buffer window))
+				(when lazy-voice-lock-mode
+				  (lazy-voice-lock-voiceify-conservatively window))
+				(set-window-redisplay-end-trigger window nil)))
 		    'nomini frame))))
 
 (defun lazy-voice-lock-arrange-before-change (beg end)
@@ -628,10 +627,10 @@ In the `*scratch*' buffer, evaluate:"))))
   ;; Defer voiceification of the current line.  Save the current buffer so that
   ;; we subsequently voiceify in all windows showing the buffer.
   (save-buffer-state nil
-    (unless (memq (current-buffer) lazy-voice-lock-buffers)
-      (push (current-buffer) lazy-voice-lock-buffers))
-    (remove-text-properties
-     (max (1- beg) (point-min)) (min (1+ end) (point-max)) '(lazy-voice-lock nil))))
+		     (unless (memq (current-buffer) lazy-voice-lock-buffers)
+		       (push (current-buffer) lazy-voice-lock-buffers))
+		     (remove-text-properties
+		      (max (1- beg) (point-min)) (min (1+ end) (point-max)) '(lazy-voice-lock nil))))
 
 (defun lazy-voice-lock-voiceify-after-defer ()
   ;; Called from `timer-idle-list'.
@@ -659,20 +658,20 @@ In the `*scratch*' buffer, evaluate:"))))
           (continue t) message message-log-max)
       (save-excursion
 	(do-while (and buffers continue)
-	  (set-buffer (car buffers))
-	  (if (not (and lazy-voice-lock-mode (lazy-voice-lock-unvoiceified-p)))
-	      (setq continue (not (input-pending-p)))
-	    ;; Voiceify regions in this buffer while there is no input.
-	    (do-while (and (lazy-voice-lock-unvoiceified-p)
-			   (setq continue (sit-for lazy-voice-lock-stealth-nice)))
-	      (when lazy-voice-lock-stealth-verbose
-		(if message
-		    (message "Voiceifying stealthily... %2d%% of %s"
-			     (lazy-voice-lock-percent-voiceified) (buffer-name))
-		  (message "Voiceifying stealthily...")
-		  (setq message t)))
-	      (lazy-voice-lock-voiceify-chunk)))
-	  (setq buffers (cdr buffers))))
+		  (set-buffer (car buffers))
+		  (if (not (and lazy-voice-lock-mode (lazy-voice-lock-unvoiceified-p)))
+		      (setq continue (not (input-pending-p)))
+		    ;; Voiceify regions in this buffer while there is no input.
+		    (do-while (and (lazy-voice-lock-unvoiceified-p)
+				   (setq continue (sit-for lazy-voice-lock-stealth-nice)))
+			      (when lazy-voice-lock-stealth-verbose
+				(if message
+				    (message "Voiceifying stealthily... %2d%% of %s"
+					     (lazy-voice-lock-percent-voiceified) (buffer-name))
+				  (message "Voiceifying stealthily...")
+				  (setq message t)))
+			      (lazy-voice-lock-voiceify-chunk)))
+		  (setq buffers (cdr buffers))))
       (when message
 	(message "Voiceifying stealthily...%s" (if continue "done" "quit"))))))
 
@@ -690,14 +689,14 @@ In the `*scratch*' buffer, evaluate:"))))
   ;; Mark the current buffer as voiceified.
   ;; This is a conspiracy hack between lazy-voice-lock.el and voice-lock.el.
   (save-buffer-state nil
-    (add-text-properties (point-min) (point-max) '(lazy-voice-lock t))))
+		     (add-text-properties (point-min) (point-max) '(lazy-voice-lock t))))
 
 (defun lazy-voice-lock-after-unvoiceify-buffer ()
   ;; Called from `voice-lock-after-unvoiceify-buffer'.
   ;; Mark the current buffer as unvoiceified.
   ;; This is a conspiracy hack between lazy-voice-lock.el and voice-lock.el.
   (save-buffer-state nil
-    (remove-text-properties (point-min) (point-max) '(lazy-voice-lock nil))))
+		     (remove-text-properties (point-min) (point-max) '(lazy-voice-lock nil))))
 
 ;; Voiceification functions.
 
@@ -709,26 +708,26 @@ In the `*scratch*' buffer, evaluate:"))))
     (save-excursion
       (save-match-data
 	(save-buffer-state
-	    ;; Ensure syntactic voiceification is always correct.
-	    (voice-lock-beginning-of-syntax-function next)
-	  ;; Find successive unvoiceified regions between BEG and END.
-	  (condition-case data
-	      (do-while beg
-		(setq next (or (text-property-any beg end 'lazy-voice-lock t) end))
-		;; Make sure the region end points are at beginning of line.
-		(goto-char beg)
-		(unless (bolp)
-		  (beginning-of-line)
-		  (setq beg (point)))
-		(goto-char next)
-		(unless (bolp)
-		  (forward-line)
-		  (setq next (point)))
-		;; Voiceify the region, then flag it as voiceified.
-		(voice-lock-voiceify-region beg next)
-		(add-text-properties beg next '(lazy-voice-lock t))
-		(setq beg (text-property-any next end 'lazy-voice-lock nil)))
-	    ((error quit) (message "Voiceifying region...%s" data))))))))
+	 ;; Ensure syntactic voiceification is always correct.
+	 (voice-lock-beginning-of-syntax-function next)
+	 ;; Find successive unvoiceified regions between BEG and END.
+	 (condition-case data
+	     (do-while beg
+		       (setq next (or (text-property-any beg end 'lazy-voice-lock t) end))
+		       ;; Make sure the region end points are at beginning of line.
+		       (goto-char beg)
+		       (unless (bolp)
+			 (beginning-of-line)
+			 (setq beg (point)))
+		       (goto-char next)
+		       (unless (bolp)
+			 (forward-line)
+			 (setq next (point)))
+		       ;; Voiceify the region, then flag it as voiceified.
+		       (voice-lock-voiceify-region beg next)
+		       (add-text-properties beg next '(lazy-voice-lock t))
+		       (setq beg (text-property-any next end 'lazy-voice-lock nil)))
+	   ((error quit) (message "Voiceifying region...%s" data))))))))
 
 (defun lazy-voice-lock-voiceify-chunk ()
   ;; Voiceify the nearest chunk, for stealth, in the current buffer.

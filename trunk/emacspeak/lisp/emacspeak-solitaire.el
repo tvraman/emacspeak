@@ -43,10 +43,10 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'dtk-speak)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-  (and (locate-library "solitaire")
-       (require 'solitaire)))
+		   (require 'emacspeak-speak)
+		   (require 'emacspeak-sounds)
+		   (and (locate-library "solitaire")
+			(require 'solitaire)))
 
 ;;}}}
 ;;{{{  Introduction 
@@ -59,9 +59,9 @@
 (defsubst emacspeak-solitaire-current-row ()
   (declare (special solitaire-start-y))
   (+ 1 (/ 
-     (- (solitaire-current-line)
-          solitaire-start-y)
-     2)))
+	(- (solitaire-current-line)
+	   solitaire-start-y)
+	2)))
 
 (defsubst emacspeak-solitaire-current-column()
   (declare (special solitaire-start-x))
@@ -93,18 +93,18 @@
     (skip-syntax-forward " ")
     (let ((row (emacspeak-solitaire-current-row))
           (count 1))
-    (while (not (eolp))
-      (case (char-after (point))
-        (?o (emacspeak-solitaire-stone))
-        (?. (emacspeak-solitaire-hole)))
-      (incf count)
-      (when (and (>= row 3)
-           (<= row 5)
-           (= 0 (% count 3)))
-      (dtk-silence 1))
-      (forward-char 1))
+      (while (not (eolp))
+	(case (char-after (point))
+	  (?o (emacspeak-solitaire-stone))
+	  (?. (emacspeak-solitaire-hole)))
+	(incf count)
+	(when (and (>= row 3)
+		   (<= row 5)
+		   (= 0 (% count 3)))
+	  (dtk-silence 1))
+	(forward-char 1))
       (skip-syntax-forward " "))
-  (dtk-force)))
+    (dtk-force)))
 
 (defun emacspeak-solitaire-show-column ()
   "Display current row auditorallly"
@@ -116,8 +116,8 @@
             do
             (solitaire-up))
       (case (char-after (point))
-                (?o (emacspeak-solitaire-stone))
-                (?. (emacspeak-solitaire-hole)))
+	(?o (emacspeak-solitaire-stone))
+	(?. (emacspeak-solitaire-hole)))
       (cond
        ((and (>= column 3)
              (<= column 5))
@@ -130,17 +130,15 @@
                 (?o (emacspeak-solitaire-stone))
                 (?. (emacspeak-solitaire-hole)))))
        (t (loop for count from 2 to 3
-              do
-              (solitaire-down)
-              (case (char-after (point))
-                (?o (emacspeak-solitaire-stone))
-                (?. (emacspeak-solitaire-hole)))))))
+		do
+		(solitaire-down)
+		(case (char-after (point))
+		  (?o (emacspeak-solitaire-stone))
+		  (?. (emacspeak-solitaire-hole)))))))
     (dtk-force)))
 
 ;;}}}
 ;;{{{ advice commands
-
-
 
 ;;}}}
 ;;{{{ advice commands
@@ -152,40 +150,39 @@
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((dtk-stop-immediately nil))
-    (emacspeak-auditory-icon 'select-object)
-    (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-column))
-    (emacspeak-solitaire-speak-coordinates))))
+      (emacspeak-auditory-icon 'select-object)
+      (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-column))
+      (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-right (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((dtk-stop-immediately nil))
-    (emacspeak-auditory-icon 'select-object)
-    (and emacspeak-solitaire-autoshow  (emacspeak-solitaire-show-column))
-    (emacspeak-solitaire-speak-coordinates))))
+      (emacspeak-auditory-icon 'select-object)
+      (and emacspeak-solitaire-autoshow  (emacspeak-solitaire-show-column))
+      (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-up (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((dtk-stop-immediately nil))
-    (emacspeak-auditory-icon 'select-object)
-    (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
-    (emacspeak-solitaire-speak-coordinates))))
+      (emacspeak-auditory-icon 'select-object)
+      (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
+      (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-down (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((dtk-stop-immediately nil))
-    (emacspeak-auditory-icon 'select-object)
-    (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
-    (emacspeak-solitaire-speak-coordinates))))
+      (emacspeak-auditory-icon 'select-object)
+      (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
+      (emacspeak-solitaire-speak-coordinates))))
 
 (defadvice solitaire-center-point (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-solitaire-speak-coordinates)))
-
 
 (defadvice solitaire-move (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -218,7 +215,6 @@ Emacspeak specific commands:
     (emacspeak-solitaire-setup-keymap)
     (emacspeak-solitaire-speak-coordinates)))
 
-
 (defadvice solitaire-quit (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -231,17 +227,17 @@ Emacspeak specific commands:
 (defun emacspeak-solitaire-setup-keymap ()
   "Setup emacspeak keybindings for solitaire"
   (declare (special solitaire-mode-map))
-(define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
-(define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
-(define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)
-(define-key solitaire-mode-map "f" 'solitaire-move-right)
-(define-key solitaire-mode-map "b" 'solitaire-move-left)
-(define-key solitaire-mode-map "p" 'solitaire-move-up)
-(define-key solitaire-mode-map "n" 'solitaire-move-down)
-(define-key solitaire-mode-map "l" 'solitaire-right)
-(define-key solitaire-mode-map "h" 'solitaire-left)
-(define-key solitaire-mode-map "k" 'solitaire-up)
-(define-key solitaire-mode-map "j" 'solitaire-down))
+  (define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
+  (define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
+  (define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)
+  (define-key solitaire-mode-map "f" 'solitaire-move-right)
+  (define-key solitaire-mode-map "b" 'solitaire-move-left)
+  (define-key solitaire-mode-map "p" 'solitaire-move-up)
+  (define-key solitaire-mode-map "n" 'solitaire-move-down)
+  (define-key solitaire-mode-map "l" 'solitaire-right)
+  (define-key solitaire-mode-map "h" 'solitaire-left)
+  (define-key solitaire-mode-map "k" 'solitaire-up)
+  (define-key solitaire-mode-map "j" 'solitaire-down))
 
 ;;}}}
 

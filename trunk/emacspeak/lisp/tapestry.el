@@ -164,7 +164,7 @@ ROOT-WINDOW-EDGES will be used."
 	(root-window nil))
     (if root-window-edges
 	(let (w-list w-edges w-area
-	      exact-w inside-w overlap-w max-overlap overlap)
+		     exact-w inside-w overlap-w max-overlap overlap)
 	  (while (null root-window)
 	    (setq exact-w nil
 		  inside-w nil
@@ -373,11 +373,11 @@ ROOT-WINDOW-EDGES will be used."
 		   window-map (cdr window-map))
 	     (while (and result map window-map)
 	       (setq result (tapestry-windows-match-map (car map)
-						       map-width
-						       map-height
-						       (car window-map)
-						       window-map-width
-						       window-map-height)
+							map-width
+							map-height
+							(car window-map)
+							window-map-width
+							window-map-height)
 		     map (cdr map)
 		     window-map (cdr window-map)))
 	     (and result (null map) (null window-map))))
@@ -388,11 +388,11 @@ ROOT-WINDOW-EDGES will be used."
 		   window-map (cdr window-map))
 	     (while (and result map window-map)
 	       (setq result (tapestry-windows-match-map (car map)
-						       map-width
-						       map-height
-						       (car window-map)
-						       window-map-width
-						       window-map-height)
+							map-width
+							map-height
+							(car window-map)
+							window-map-width
+							window-map-height)
 		     map (cdr map)
 		     window-map (cdr window-map)))
 	     (and result (null map) (null window-map)))))))
@@ -444,8 +444,8 @@ ROOT-WINDOW-EDGES will be used."
       (setq params (cdr params)))))
 
 (defun tapestry-nullify-tapestry-elements (map &optional buf-file-name buf-name
-					window-start window-point
-					window-hscroll selected-window)
+					       window-start window-point
+					       window-hscroll selected-window)
   (let (p)
     (setq map (nth 1 map))
     (while map
@@ -467,16 +467,16 @@ ROOT-WINDOW-EDGES will be used."
   (let (mapi mapj p old new)
     (cond ((eq what 'buffer-file-name)
 	   (setq mapi 1 mapj 0))
-	   ((eq what 'buffer-name)
-	    (setq mapi 1 mapj 1))
-	   ((eq what 'window-start)
-	    (setq mapi 2 mapj 0))
-	   ((eq what 'window-point)
-	    (setq mapi 2 mapj 1))
-	   ((eq what 'window-hscroll)
-	    (setq mapi 2 mapj 2))
-	   ((eq what 'selected-window)
-	    (setq mapi 2 mapj 3)))
+	  ((eq what 'buffer-name)
+	   (setq mapi 1 mapj 1))
+	  ((eq what 'window-start)
+	   (setq mapi 2 mapj 0))
+	  ((eq what 'window-point)
+	   (setq mapi 2 mapj 1))
+	  ((eq what 'window-hscroll)
+	   (setq mapi 2 mapj 2))
+	  ((eq what 'selected-window)
+	   (setq mapi 2 mapj 3)))
     (setq map (nth 1 map))
     (while map
       (setq p (nth mapi (car map)))

@@ -91,7 +91,7 @@
    (t ad-do-it))
   ad-return-value)
 (defadvice sc-insert-citation (after emacspeak pre act
-                                       comp)
+				     comp)
   "Speak what we inserted"
   (when (interactive-p)
     (emacspeak-speak-line)

@@ -63,9 +63,9 @@
    ((= (following-char) 0)
     (message "No file on this line"))
    (t(save-excursion
-     (end-of-line)
-    (skip-syntax-backward "^ ")
-    (emacspeak-speak-line 1)))))
+       (end-of-line)
+       (skip-syntax-backward "^ ")
+       (emacspeak-speak-line 1)))))
 
 ;;}}}
 ;;{{{ Advice
@@ -102,7 +102,6 @@
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-tar-speak-line)))
 
-
 (defadvice tar-extract (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -120,7 +119,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
 
 ;;}}}
 ;;{{{ additional interactive commands
@@ -178,9 +176,9 @@
       (message "No file on this line"))
      (t (message  "Modified on  %s "
                   (format-time-string
-                  emacspeak-speak-time-format-string
-                  (tar-header-date
-                   (tar-desc-tokens entry))))))))
+		   emacspeak-speak-time-format-string
+		   (tar-header-date
+		    (tar-desc-tokens entry))))))))
 
 (defun emacspeak-tar-setup-keys ()
   "Setup emacspeak keys for tar mode"
@@ -190,7 +188,6 @@
   (define-key tar-mode-map "/" 'emacspeak-tar-speak-file-permissions)
   (define-key tar-mode-map "c" 'emacspeak-tar-speak-file-date)
   )
-
 
 (eval-when (load)
   (emacspeak-tar-setup-keys))

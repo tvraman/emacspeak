@@ -111,8 +111,6 @@
 
 ;;}}}
 
-
-
 ;;; emacspeak-rpm.el --- search utilities
 ;;; $Id$
 ;;; $Author$

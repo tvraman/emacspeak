@@ -210,10 +210,6 @@ pronunciations only once.")
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-dired-speak-line)))
 
-
-
-
-
 (defadvice dired-next-dirline (after emacspeak pre act)
   "Speak the filename name."
   (when (interactive-p )
@@ -309,15 +305,15 @@ unless `dired-listing-switches' contains -al"
 ;;{{{ Additional status speaking commands
 (if (fboundp 'dired-show-file-type)
     (defalias 'emacspeak-dired-show-file-type 'dired-show-file-type)
-(defun emacspeak-dired-show-file-type ()
-  "Displays type of current file by running command file."
-  (interactive)
-  (let ((filename (dired-get-filename t t)))
-    (if filename 
-        (shell-command 
-         (format "file %s"
-                 filename))
-      (message "No file on this line")))))
+  (defun emacspeak-dired-show-file-type ()
+    "Displays type of current file by running command file."
+    (interactive)
+    (let ((filename (dired-get-filename t t)))
+      (if filename 
+	  (shell-command 
+	   (format "file %s"
+		   filename))
+	(message "No file on this line")))))
 
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "

@@ -64,7 +64,6 @@
     (emacspeak-analog-update-edit-keys)
     (emacspeak-speak-mode-line)))
 
-
 (defadvice analog-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -113,7 +112,6 @@ Nil means no field specified."
           'analog-entry-start)
          'fields)))))
 
-
 (defun emacspeak-analog-forward-field-or-char ()
   "Move forward to next field if field specification is available.
 Otherwise move to next char.
@@ -137,7 +135,6 @@ Speak field or char moved to."
              (emacspeak-analog-speak-field fields)
              (emacspeak-auditory-icon 'large-movement))
      (t (call-interactively 'emacspeak-backward-char)))))
-
 
 (defun emacspeak-analog-speak-field (fields)
   "Speak field containing point."
@@ -238,14 +235,14 @@ Speak field or char moved to."
 emacspeak-speak-and-skip-extent-upto-char "
   (declare (special analog-mode-map))
   (mapcar 
-#'(lambda (cmd)
-  (loop for k in
-        (where-is-internal cmd)
-        do
-        (define-key analog-mode-map k
-          'emacspeak-speak-and-skip-extent-upto-this-char )))
-(list 'emacspeak-self-insert-command
-      'completion-separator-self-insert-command)))
+   #'(lambda (cmd)
+       (loop for k in
+	     (where-is-internal cmd)
+	     do
+	     (define-key analog-mode-map k
+	       'emacspeak-speak-and-skip-extent-upto-this-char )))
+   (list 'emacspeak-self-insert-command
+	 'completion-separator-self-insert-command)))
 
 ;;}}}
 (provide 'emacspeak-analog)

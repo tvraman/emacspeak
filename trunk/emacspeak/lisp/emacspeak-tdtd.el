@@ -45,7 +45,6 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
-
 ;;}}}
 ;;{{{  Introduction:
 
@@ -62,25 +61,25 @@
 
 (defadvice dtd-mode (after emacspeak pre act comp)
   "set up for voice locking."
-(emacspeak-tdtd-voice-lock-setup)
-(voice-lock-mode 1)
-(dtk-set-punctuations "all"))
+  (emacspeak-tdtd-voice-lock-setup)
+  (voice-lock-mode 1)
+  (dtk-set-punctuations "all"))
 
 (defun emacspeak-tdtd-voice-lock-setup()
   "Setup voice locking for tdtd mode."
   (declare (special voice-lock-defaults
-            dtd-xml-flag 
-        dtd-decl-flag dtd-sys-decl-flag ))
-    (make-local-variable 'voice-lock-defaults)
-    (cond
-     (dtd-xml-flag
-      (setq voice-lock-defaults '(dtd-xml-voice-lock-keywords t)))
-     (dtd-decl-flag
-      (setq voice-lock-defaults '(dtd-decl-voice-lock-keywords t)))
-     (dtd-sys-decl-flag
-      (setq voice-lock-defaults '(dtd-sys-decl-voice-lock-keywords t)))
-     (t
-      (setq voice-lock-defaults '(dtd-sgml-voice-lock-keywords t)))))
+		    dtd-xml-flag 
+		    dtd-decl-flag dtd-sys-decl-flag ))
+  (make-local-variable 'voice-lock-defaults)
+  (cond
+   (dtd-xml-flag
+    (setq voice-lock-defaults '(dtd-xml-voice-lock-keywords t)))
+   (dtd-decl-flag
+    (setq voice-lock-defaults '(dtd-decl-voice-lock-keywords t)))
+   (dtd-sys-decl-flag
+    (setq voice-lock-defaults '(dtd-sys-decl-voice-lock-keywords t)))
+   (t
+    (setq voice-lock-defaults '(dtd-sgml-voice-lock-keywords t)))))
 
 ;;}}}
 ;;{{{ voice locking 

@@ -1343,7 +1343,7 @@ WIth prefix argument N, move N items (negative N means move backward)."
         (make-sparse-keymap ))
     (define-key completion-list-mode-map '[right] 'next-completion)
     (define-key completion-list-mode-map '[left] 'previous-completion)
-    ));; end emacs pre-19.30 specials
+    )) ;; end emacs pre-19.30 specials
 
 (defun emacspeak-get-current-completion-from-completions  ()
   "Return the completion string under point in the *Completions* buffer."
@@ -1678,14 +1678,14 @@ Interactive prefix arg `filename' speaks only the final path
 component.
 The result is put in the kill ring for convenience."
   (interactive "P")
-(let ((location (or (buffer-file-name)
-               default-directory)))
-  (when filename
-    (setq location
-          (file-name-nondirectory location)))
-  (kill-new location)
-  (dtk-speak
-   location))) 
+  (let ((location (or (buffer-file-name)
+		      default-directory)))
+    (when filename
+      (setq location
+	    (file-name-nondirectory location)))
+    (kill-new location)
+    (dtk-speak
+     location))) 
 ;;}}}
 ;;{{{  Speak text without moving point
 
@@ -2200,7 +2200,7 @@ Will be improved if it proves useful."
   (interactive)
   (declare (special inhibit-field-text-motion))
   (let((inhibit-field-text-motiont)
-      (start nil ))
+       (start nil ))
     (skip-syntax-forward "^ ")
     (skip-syntax-forward " ")
     (setq start (point ))
@@ -2215,7 +2215,7 @@ Will be improved if it proves useful."
   (interactive)
   (declare (special inhibit-field-text-motion))
   (let ((inhibit-field-text-motion t)
-      (start nil ))
+	(start nil ))
     (skip-syntax-backward " ")
     (setq start (point ))
     (skip-syntax-backward "^ ")

@@ -140,10 +140,7 @@ speech flush as you type."
    (t (ding)
       (message "Beginning of buffer"))))
 
-
-
 ;;{{{  kill buffer for emacs 21
-
 
 ;;;There is a bug in emacs 21
 ;;; that causes the normal emacspeak advice  to fire too late
@@ -162,7 +159,6 @@ speech flush as you type."
   (kill-buffer buffer)
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-speak-mode-line))
-
 
 ;;}}}
 
@@ -190,7 +186,7 @@ They have to be redefined and rebound to make them talk. " )
 
 (when (string-match "^21" emacs-version)
   (push 'kill-buffer 
-emacspeak-functions-that-bypass-function-cell))
+	emacspeak-functions-that-bypass-function-cell))
 (mapcar 
  (function
   (lambda (f)

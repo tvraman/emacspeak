@@ -91,10 +91,6 @@
     (emacspeak-auditory-icon 'search-hit)
     (emacspeak-speak-line)))
 
-
-
-
-
 (defadvice dictionary-previous (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -106,20 +102,11 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
 (defadvice dictionary-next-link (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
-
-
-
-
-
-
-
 
 ;;}}}
 (provide 'emacspeak-dictionary)

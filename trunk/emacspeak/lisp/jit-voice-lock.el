@@ -65,7 +65,6 @@ Preserves the `buffer-modified-p' state of the current buffer."
   :type 'integer
   :group 'jit-lock)
 
-
 (defcustom jit-lock-stealth-time 3
   "*Time in seconds to wait before beginning stealth voiceification.
 Stealth voiceification occurs if there is no input within this time.
@@ -75,7 +74,6 @@ The value of this variable is used when JIT Lock mode is turned on."
   :type '(choice (const :tag "never" nil)
 		 (number :tag "seconds"))
   :group 'jit-lock)
-
 
 (defcustom jit-lock-stealth-nice 0.125
   "*Time in seconds to pause between chunks of stealth voiceification.
@@ -106,12 +104,10 @@ See also `jit-lock-stealth-nice'."
 	  '(const :format "%t: unsupported\n" nil))
   :group 'jit-lock)
 
-
 (defcustom jit-lock-stealth-verbose nil
   "*If non-nil, means stealth voiceification should show status messages."
   :type 'boolean
   :group 'jit-lock)
-
 
 (defcustom jit-lock-defer-contextually 'syntax-driven
   "*If non-nil, means deferred voiceification should be syntactically true.
@@ -131,7 +127,6 @@ The value of this variable is used when JIT Lock mode is turned on."
 		 (other :tag "syntax-driven" syntax-driven))
   :group 'jit-lock)
 
-
 
 ;;; Variables that are not customizable.
 
@@ -139,15 +134,12 @@ The value of this variable is used when JIT Lock mode is turned on."
   "Non-nil means Just-in-time Lock mode is active.")
 (make-variable-buffer-local 'jit-lock-mode)
 
-
 (defvar jit-lock-first-unvoiceify-pos nil
   "Consider text after this position as unvoiceified.")
 (make-variable-buffer-local 'jit-lock-first-unvoiceify-pos)
 
-
 (defvar jit-lock-stealth-timer nil
   "Timer for stealth voiceification in Just-in-time Lock mode.")
-
 
 
 ;;; JIT lock mode
@@ -234,12 +226,10 @@ the variable `jit-lock-stealth-nice' and `jit-lock-stealth-lines'."
 	 (remove-hook 'after-change-functions 'jit-lock-after-change)
 	 (remove-hook 'voiceification-functions 'jit-lock-function))))
 
-
 ;;;###autoload
 (defun turn-on-jit-lock ()
   "Unconditionally turn on Just-in-time Lock mode."
   (jit-lock-mode 1))
-
 
 
 ;;; On demand voiceification.
@@ -302,20 +292,17 @@ is active."
 	 ;; Restore previous buffer settings.
 	 (set-syntax-table old-syntax-table))))))
 
-
 (defun jit-lock-after-voiceify-buffer ()
   "Mark the current buffer as voiceified.
 Called from `voice-lock-after-voiceify-buffer."
   (with-buffer-prepared-for-voice-lock
    (add-text-properties (point-min) (point-max) '(voiceified t))))
 
-
 (defun jit-lock-after-unvoiceify-buffer ()
   "Mark the current buffer as unvoiceified.
 Called from `voice-lock-after-voiceify-buffer."
   (with-buffer-prepared-for-voice-lock
    (remove-text-properties (point-min) (point-max) '(voiceified nil))))
-
 
 
 ;;; Stealth voiceification.
@@ -426,7 +413,6 @@ This functions is called after Emacs has been idle for
 		    ;; Unless there's input pending now, voiceify.
 		    (unless (input-pending-p)
 		      (jit-lock-function-1 start))))))))))))
-
 
 
 ;;; Deferred voiceification.

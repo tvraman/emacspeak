@@ -79,14 +79,14 @@ mode. ")
                      'voice-lock-keyword-personality)))))
     ;; Other voice-lock expressions
     (when expressions
-         (setq generic-voice-lock-expressions
-               (append expressions
-                generic-voice-lock-expressions)))
-(setq emacspeak-generic-voice-lock-expressions  generic-voice-lock-expressions)
+      (setq generic-voice-lock-expressions
+	    (append expressions
+		    generic-voice-lock-expressions)))
+    (setq emacspeak-generic-voice-lock-expressions  generic-voice-lock-expressions)
     (when (or expressions keywords)
-         (make-local-variable 'voice-lock-defaults)
-	 (setq voice-lock-defaults
-               '(emacspeak-generic-voice-lock-expressions nil)))))
+      (make-local-variable 'voice-lock-defaults)
+      (setq voice-lock-defaults
+	    '(emacspeak-generic-voice-lock-expressions nil)))))
 
 (defadvice generic-mode-set-font-lock (after emacspeak pre act com)
   (emacspeak-generic-voice-lock-setup (ad-get-arg 0)

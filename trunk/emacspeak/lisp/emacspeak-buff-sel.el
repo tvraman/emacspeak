@@ -82,11 +82,7 @@
 (define-key buffer-select-minibuffer-map "\C-p" 'buffer-select-prev)
 (define-key buffer-select-minibuffer-map "\C-n" 'buffer-select-next)
 
-
 ;;}}}
-
-
-
 
 (provide  'emacspeak-buff-sel)
 ;;{{{  emacs local variables 

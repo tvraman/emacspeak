@@ -62,116 +62,116 @@
 ;;{{{  voice locking 
 
 (defvar emacspeak-metapost-voice-lock-keywords
-      (let ((input-keywords
-             "\\(input\\|generate\\)")
-            (begin-keywords
-             (concat "\\(begin\\(char\\|fig\\|graph\\|logochar\\)\\|"
-                     "\\cmchar\\|dcchar\\|ecchar\\)"))
-            (end-keywords
-             "\\(end\\(char\\|fig\\|graph\\)\\)")
-            (macro-keywords-1
-             "\\(def\\|let\\|mode_def\\|vardef\\)")
-            (macro-keywords-2
-             "\\(primarydef\\|secondarydef\\|tertiarydef\\)")
-;(make-regexp
-; '("expr" "suffix" "text" "primary" "secondary" "tertiary") t)
-            (args-keywords
-             (concat "\\(expr\\|primary\\|s\\(econdary\\|uffix\\)\\|"
-                     "te\\(rtiary\\|xt\\)\\)"))
-;(make-regexp
-; '("boolean" "color" "numeric" "pair" "path" "pen" "picture"
-;   "string" "transform" "newinternal") t)
-            (type-keywords
-             (concat "\\(boolean\\|color\\|n\\(ewinternal\\|umeric\\)\\|"
-                     "p\\(a\\(ir\\|th\\)\\|en\\|icture\\)\\|string\\|"
-                     "transform\\)"))
-;(make-regexp
-; '("for" "forever" "forsuffixes" "endfor"
-;   "step" "until" "upto" "downto" "thru" "within"
-;   "iff" "if" "elseif" "else" "fi" "exitif" "exitunless"
-;   "let" "def" "vardef" "enddef" "mode_def"
-;   "true" "false" "known" "unknown" "and" "or" "not"
-;   "save" "interim" "inner" "outer" "relax"
-;   "begingroup" "endgroup" "expandafter" "scantokens"
-;   "generate" "input" "endinput" "end" "bye"
-;   "message" "errmessage" "errhelp" "special" "numspecial"
-;   "readstring" "readfrom" "write") t)
-            (syntactic-keywords
-             (concat "\\(and\\|b\\(egingroup\\|ye\\)\\|"
-                     "d\\(ef\\|ownto\\)\\|e\\(lse\\(\\|if\\)"
-                     "\\|nd\\(\\|def\\|for\\|group\\|input\\)"
-                     "\\|rr\\(help\\|message\\)"
-                     "\\|x\\(it\\(if\\|unless\\)\\|pandafter\\)\\)\\|"
-                     "f\\(alse\\|i\\|or\\(\\|ever\\|suffixes\\)\\)\\|"
-                     "generate\\|i\\(ff?\\|n\\(ner\\|put\\|terim\\)\\)\\|"
-                     "known\\|let\\|m\\(essage\\|ode_def\\)\\|"
-                     "n\\(ot\\|umspecial\\)\\|o\\(r\\|uter\\)\\|"
-                     "re\\(ad\\(from\\|string\\)\\|lax\\)\\|"
-                     "s\\(ave\\|cantokens\\|pecial\\|tep\\)\\|"
-                     "t\\(hru\\|rue\\)\\|"
-                     "u\\(n\\(known\\|til\\)\\|pto\\)\\|"
-                     "vardef\\|w\\(ithin\\|rite\\)\\)"))
-            )
-        (list
-         ;; embedded TeX code in btex ... etex
-         (cons (concat "\\(btex\\|verbatimtex\\)"
-                       "[ \t]+\\(.*\\)[ \t]+"
-                       "\\(etex\\)")
-               '((1 voice-lock-keyword-personality)
-                 (2 voice-lock-string-personality)
-                 (3 voice-lock-keyword-personality)))
-         ;; unary macro definitions: def, vardef, let
-         (cons (concat "\\<" macro-keywords-1 "\\>"
-                       "[ \t]+\\(\\sw+\\|\\s_+\\|\\s.+\\)")
-               '((1 voice-lock-keyword-personality)
-                 (2 voice-lock-function-name-personality)))
-         ;; binary macro definitions: <leveldef> x operator y
-         (cons (concat "\\<" macro-keywords-2 "\\>"
-                       "[ \t]+\\(\\sw+\\)"
-                       "[ \t]*\\(\\sw+\\|\\s.+\\)"
-                       "[ \t]*\\(\\sw+\\)")
-               '((1 voice-lock-keyword-personality)
-                 (2 voice-lock-variable-name-personality nil t)
-                 (3 voice-lock-function-name-personality nil t)
-                 (4 voice-lock-variable-name-personality nil t)))
-         ;; variable declarations: numeric, pair, color, ...
-         (cons (concat "\\<" type-keywords "\\>"
-                       "\\([ \t]+\\(\\sw+\\)\\)*")
-               '((1 voice-lock-type-personality)
-                 (voice-lock-match-meta-declaration-item-and-skip-to-next
-                  (goto-char (match-end 1)) nil
-                  (1 voice-lock-variable-name-personality nil t))))
-         ;; argument declarations: expr, suffix, text, ...
-         (cons (concat "\\<" args-keywords "\\>"
-                       "\\([ \t]+\\(\\sw+\\|\\s_+\\)\\)*")
-               '((1 voice-lock-type-personality)
-                 (voice-lock-match-meta-declaration-item-and-skip-to-next
-                  (goto-char (match-end 1)) nil
-                  (1 voice-lock-variable-name-personality nil t))))
-         ;; special case of arguments: expr x of y
-         (cons (concat "\\(expr\\)[ \t]+\\(\\sw+\\)"
-                       "[ \t]+\\(of\\)[ \t]+\\(\\sw+\\)")
-               '((1 voice-lock-type-personality)
-                 (2 voice-lock-variable-name-personality)
-                 (3 voice-lock-keyword-personality nil t)
-                 (4 voice-lock-variable-name-personality nil t)))
-         ;; syntactic keywords
-         (cons (concat "\\<" syntactic-keywords "\\>")
-               'voice-lock-keyword-personality)
-         ;; beginchar, beginfig
-         (cons (concat "\\<" begin-keywords "\\>")
-               'voice-lock-keyword-personality)
-         ;; endchar, endfig
-         (cons (concat "\\<" end-keywords "\\>")
-               'voice-lock-keyword-personality)
-         ;; input, generate
-         (cons (concat "\\<" input-keywords "\\>"
-                       "[ \t]+\\(\\sw+\\)")
-               '((1 voice-lock-keyword-personality)
-                 (2 'voice-lock-constant-personality)))
-         ;; embedded Metafont/MetaPost code in comments
-         (cons "|\\([^|]+\\)|" 
-               '(1 'voice-lock-constant-personality t))
+  (let ((input-keywords
+	 "\\(input\\|generate\\)")
+	(begin-keywords
+	 (concat "\\(begin\\(char\\|fig\\|graph\\|logochar\\)\\|"
+		 "\\cmchar\\|dcchar\\|ecchar\\)"))
+	(end-keywords
+	 "\\(end\\(char\\|fig\\|graph\\)\\)")
+	(macro-keywords-1
+	 "\\(def\\|let\\|mode_def\\|vardef\\)")
+	(macro-keywords-2
+	 "\\(primarydef\\|secondarydef\\|tertiarydef\\)")
+					;(make-regexp
+					; '("expr" "suffix" "text" "primary" "secondary" "tertiary") t)
+	(args-keywords
+	 (concat "\\(expr\\|primary\\|s\\(econdary\\|uffix\\)\\|"
+		 "te\\(rtiary\\|xt\\)\\)"))
+					;(make-regexp
+					; '("boolean" "color" "numeric" "pair" "path" "pen" "picture"
+					;   "string" "transform" "newinternal") t)
+	(type-keywords
+	 (concat "\\(boolean\\|color\\|n\\(ewinternal\\|umeric\\)\\|"
+		 "p\\(a\\(ir\\|th\\)\\|en\\|icture\\)\\|string\\|"
+		 "transform\\)"))
+					;(make-regexp
+					; '("for" "forever" "forsuffixes" "endfor"
+					;   "step" "until" "upto" "downto" "thru" "within"
+					;   "iff" "if" "elseif" "else" "fi" "exitif" "exitunless"
+					;   "let" "def" "vardef" "enddef" "mode_def"
+					;   "true" "false" "known" "unknown" "and" "or" "not"
+					;   "save" "interim" "inner" "outer" "relax"
+					;   "begingroup" "endgroup" "expandafter" "scantokens"
+					;   "generate" "input" "endinput" "end" "bye"
+					;   "message" "errmessage" "errhelp" "special" "numspecial"
+					;   "readstring" "readfrom" "write") t)
+	(syntactic-keywords
+	 (concat "\\(and\\|b\\(egingroup\\|ye\\)\\|"
+		 "d\\(ef\\|ownto\\)\\|e\\(lse\\(\\|if\\)"
+		 "\\|nd\\(\\|def\\|for\\|group\\|input\\)"
+		 "\\|rr\\(help\\|message\\)"
+		 "\\|x\\(it\\(if\\|unless\\)\\|pandafter\\)\\)\\|"
+		 "f\\(alse\\|i\\|or\\(\\|ever\\|suffixes\\)\\)\\|"
+		 "generate\\|i\\(ff?\\|n\\(ner\\|put\\|terim\\)\\)\\|"
+		 "known\\|let\\|m\\(essage\\|ode_def\\)\\|"
+		 "n\\(ot\\|umspecial\\)\\|o\\(r\\|uter\\)\\|"
+		 "re\\(ad\\(from\\|string\\)\\|lax\\)\\|"
+		 "s\\(ave\\|cantokens\\|pecial\\|tep\\)\\|"
+		 "t\\(hru\\|rue\\)\\|"
+		 "u\\(n\\(known\\|til\\)\\|pto\\)\\|"
+		 "vardef\\|w\\(ithin\\|rite\\)\\)"))
+	)
+    (list
+     ;; embedded TeX code in btex ... etex
+     (cons (concat "\\(btex\\|verbatimtex\\)"
+		   "[ \t]+\\(.*\\)[ \t]+"
+		   "\\(etex\\)")
+	   '((1 voice-lock-keyword-personality)
+	     (2 voice-lock-string-personality)
+	     (3 voice-lock-keyword-personality)))
+     ;; unary macro definitions: def, vardef, let
+     (cons (concat "\\<" macro-keywords-1 "\\>"
+		   "[ \t]+\\(\\sw+\\|\\s_+\\|\\s.+\\)")
+	   '((1 voice-lock-keyword-personality)
+	     (2 voice-lock-function-name-personality)))
+     ;; binary macro definitions: <leveldef> x operator y
+     (cons (concat "\\<" macro-keywords-2 "\\>"
+		   "[ \t]+\\(\\sw+\\)"
+		   "[ \t]*\\(\\sw+\\|\\s.+\\)"
+		   "[ \t]*\\(\\sw+\\)")
+	   '((1 voice-lock-keyword-personality)
+	     (2 voice-lock-variable-name-personality nil t)
+	     (3 voice-lock-function-name-personality nil t)
+	     (4 voice-lock-variable-name-personality nil t)))
+     ;; variable declarations: numeric, pair, color, ...
+     (cons (concat "\\<" type-keywords "\\>"
+		   "\\([ \t]+\\(\\sw+\\)\\)*")
+	   '((1 voice-lock-type-personality)
+	     (voice-lock-match-meta-declaration-item-and-skip-to-next
+	      (goto-char (match-end 1)) nil
+	      (1 voice-lock-variable-name-personality nil t))))
+     ;; argument declarations: expr, suffix, text, ...
+     (cons (concat "\\<" args-keywords "\\>"
+		   "\\([ \t]+\\(\\sw+\\|\\s_+\\)\\)*")
+	   '((1 voice-lock-type-personality)
+	     (voice-lock-match-meta-declaration-item-and-skip-to-next
+	      (goto-char (match-end 1)) nil
+	      (1 voice-lock-variable-name-personality nil t))))
+     ;; special case of arguments: expr x of y
+     (cons (concat "\\(expr\\)[ \t]+\\(\\sw+\\)"
+		   "[ \t]+\\(of\\)[ \t]+\\(\\sw+\\)")
+	   '((1 voice-lock-type-personality)
+	     (2 voice-lock-variable-name-personality)
+	     (3 voice-lock-keyword-personality nil t)
+	     (4 voice-lock-variable-name-personality nil t)))
+     ;; syntactic keywords
+     (cons (concat "\\<" syntactic-keywords "\\>")
+	   'voice-lock-keyword-personality)
+     ;; beginchar, beginfig
+     (cons (concat "\\<" begin-keywords "\\>")
+	   'voice-lock-keyword-personality)
+     ;; endchar, endfig
+     (cons (concat "\\<" end-keywords "\\>")
+	   'voice-lock-keyword-personality)
+     ;; input, generate
+     (cons (concat "\\<" input-keywords "\\>"
+		   "[ \t]+\\(\\sw+\\)")
+	   '((1 voice-lock-keyword-personality)
+	     (2 'voice-lock-constant-personality)))
+     ;; embedded Metafont/MetaPost code in comments
+     (cons "|\\([^|]+\\)|" 
+	   '(1 'voice-lock-constant-personality t))
      ))
   "Default expressions to highlight in Metafont or MetaPost mode.")
 
@@ -199,7 +199,7 @@
 
 ;;; setup the keywords 
 (voice-lock-set-major-mode-keywords 'metapost-mode
-                                                      'emacspeak-metapost-voice-lock-keywords)
+				    'emacspeak-metapost-voice-lock-keywords)
 
 ;;}}}
 ;;{{{  completion 
@@ -271,32 +271,28 @@
 (defadvice meta-uncomment-defun (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
-      (message "Uncommented environment containing %s lines"
-               (count-lines (point) (mark 'force)))))
-
-
-
-
+    (message "Uncommented environment containing %s lines"
+	     (count-lines (point) (mark 'force)))))
 
 (defadvice meta-uncomment-region (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
-      (message "Uncommented  region containing %s lines"
-               (count-lines (point) (mark 'force)))))
+    (message "Uncommented  region containing %s lines"
+	     (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-region (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'fill-object)
-      (message "Indented  region containing %s lines"
-               (count-lines (point) (mark 'force)))))
+    (message "Indented  region containing %s lines"
+	     (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-buffer (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'fill-object)
-      (message "Indented  buffer containing %s lines"
-               (count-lines (point-min) (point-max 'force)))))
+    (message "Indented  buffer containing %s lines"
+	     (count-lines (point-min) (point-max 'force)))))
 
 (defadvice meta-mark-defun (after emacspeak pre act)
   "Produce an auditory icon if possible."
@@ -306,13 +302,11 @@
              (count-lines (point)
                           (mark 'force)))))
 
-
 (defadvice meta-indent-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current defun. ")))
-
 
 ;;}}}
 (provide 'emacspeak-metapost)

@@ -43,8 +43,8 @@
 (require 'emacspeak-table)
 (require 'emacspeak-tabulate)
 (eval-when-compile (require 'dtk-speak)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds))
+		   (require 'emacspeak-speak)
+		   (require 'emacspeak-sounds))
 (require 'thingatpt)
 ;;{{{  Introduction
 
@@ -58,7 +58,6 @@
   :group 'emacspeak
   :prefix "emacspeak-table-")
 
-
 (defcustom emacspeak-table-column-header-personality 'paul-smooth
   "personality for speaking column headers."
   :type 'symbol
@@ -66,8 +65,8 @@
 
 (defcustom emacspeak-table-row-header-personality 'harry
   "Personality for speaking row headers"
-:type 'symbol
-:group 'emacspeak-table)
+  :type 'symbol
+  :group 'emacspeak-table)
 
 ;;}}}
 ;;{{{  emacspeak table mode
@@ -219,7 +218,6 @@ specifies the filter"
     (scroll-left (- (current-column)
                     (+ (/ width  2)
                        (window-hscroll))))))
-
 
 (defsubst  emacspeak-table-speak-coordinates ()
   "Speak current table coordinates."
@@ -619,10 +617,10 @@ the documentation on the table browser."
       (insert text)
       (goto-char (point-min))
       (flush-lines "^ *$")
-    (setq table (emacspeak-table-make-table
-                 (ems-tabulate-parse-region
-                  (point-min)
-                  (point-max)))))
+      (setq table (emacspeak-table-make-table
+		   (ems-tabulate-parse-region
+		    (point-min)
+		    (point-max)))))
     (kill-buffer workspace)
     (save-excursion
       (set-buffer buffer)
@@ -952,7 +950,6 @@ table markup.")
                                    :col-end "</TD>\n"
                                    :col-separator ""))
 
-
 (emacspeak-table-markup-set-table 'latex2e-mode
                                   (emacspeak-table-make-markup
                                    :table-start "\\begin{tabular}\n"
@@ -997,8 +994,6 @@ table markup.")
                                    :col-end ""
                                    :col-separator "\t"))
 
-
-
 ;;}}}
 ;;{{{ copy and paste tables 
 
@@ -1017,7 +1012,6 @@ emacspeak-table-mode. "))
     (setq emacspeak-table-clipboard emacspeak-table)
     (message "Copied current table to emacspeak table clipboard."))
    (t (error "Cannot find table in current buffer"))))
-
 
 (defun emacspeak-table-paste-from-clipboard ()
   "Paste the emacspeak table clipboard into the current buffer.
@@ -1141,7 +1135,6 @@ future  use."
          (expand-file-name  file emacspeak-resource-directory)))
     (error (message "Error loading resources from %s "
                     file))))
-
 
 (defun emacspeak-table-ui-filter-save (file)
   "Save out filter settings."

@@ -59,8 +59,6 @@
 (defvar Info-voiceify-maximum-menu-size 30000
   "*Maximum size of menu to voiceify if `Info-voiceify' is non-nil.")
 
-
-
 ;;}}}
 ;;{{{  Voices 
 
@@ -72,7 +70,7 @@
 The alist key is the character the title is underlined with (?*, ?= or ?-).")
   
 (defvar emacspeak-info-node   'harry
-"Personality to indicate the node name.")
+  "Personality to indicate the node name.")
 
 (defvar emacspeak-info-xref
   'ursula
@@ -81,7 +79,6 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
 (defvar emacspeak-info-menu-5
   'betty
   "Personality for menu items.")
-
 
 ;;}}}
 ;;{{{  Voiceify a node 
@@ -123,7 +120,7 @@ The alist key is the character the title is underlined with (?*, ?= or ?-).")
 	  (let ((n 0))
 	    (while (re-search-forward "^\\* \\([^:\t\n]*\\):" nil t)
 	      (setq n (1+ n))
-	      (if (memq n '(5 9))       ; visual aids to help with 1-9 keys
+	      (if (memq n '(5 9))  ; visual aids to help with 1-9 keys
 		  (put-text-property (match-beginning 0)
 				     (1+ (match-beginning 0))
 				     'personality emacspeak-info-menu-5))
@@ -142,15 +139,14 @@ See variable `Info-voiceify`"
   (Info-voiceify-node))
 
 (defcustom  emacspeak-info-select-node-speak-chunk 'screenfull 
-"*Specifies how much of the selected node gets spoken.
+  "*Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node."
-:type '(menu-choice
-(const screenful)
-(const node))
-:group 'emacspeak)
-
+  :type '(menu-choice
+	  (const screenful)
+	  (const node))
+  :group 'emacspeak)
 
 (defsubst emacspeak-info-speak-current-window ()
   "Speak current window in info buffer."
@@ -176,13 +172,11 @@ emacspeak-info-select-node-speak-chunk"
       (emacspeak-speak-buffer ))
      (t (emacspeak-speak-line)))))
 
-
 (defadvice info (after emacspeak pre act)
   "Cue user that info is up."
   (when (interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-line)))
-
 
 (defadvice Info-scroll-up (after emacspeak pre act) 
   "Speak the screenful."
@@ -212,7 +206,6 @@ and then cue the next selected buffer."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-
 (defadvice Info-next-reference (after emacspeak pre act)
   "Speak the line. "
   (when (interactive-p)
@@ -230,16 +223,16 @@ and then cue the next selected buffer."
   "Speak info header line."
   (interactive)
   (declare (special Info-use-header-line
-Info-header-line))
+		    Info-header-line))
   (let ((voice-lock-mode t))
-  (cond
-   ((and (boundp 'Info-use-header-line)
-        (boundp 'Info-header-line)
-        Info-header-line)
-   (dtk-speak Info-header-line))
-   (t (save-excursion
-        (beginning-of-buffer)
-        (emacspeak-speak-line))))))
+    (cond
+     ((and (boundp 'Info-use-header-line)
+	   (boundp 'Info-header-line)
+	   Info-header-line)
+      (dtk-speak Info-header-line))
+     (t (save-excursion
+	  (beginning-of-buffer)
+	  (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{  Emacs 21 

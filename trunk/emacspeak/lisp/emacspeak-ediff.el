@@ -44,12 +44,12 @@
 (require 'backquote)
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
-(require 'emacspeak-speak)
-(require 'emacspeak-keymap)
-(require 'emacspeak-sounds)
-(require 'voice-lock)
-        (require 'ediff)
-        (require 'ediff-init))
+		   (require 'emacspeak-speak)
+		   (require 'emacspeak-keymap)
+		   (require 'emacspeak-sounds)
+		   (require 'voice-lock)
+		   (require 'ediff)
+		   (require 'ediff-init))
     
 
 ;;}}}
@@ -88,7 +88,6 @@
        (setq buffer-read-only save-read-only )
        (set-buffer-modified-p modification-flag )))))
 
-
 ;;}}}
 ;;{{{  Mapping faces to personalities:
 
@@ -101,7 +100,7 @@
   'paul-monotone
   "Personality used to voiceify difference chunk B"
   :type 'symbol
-:group 'emacspeak-ediff)
+  :group 'emacspeak-ediff)
 
 (defcustom emacspeak-ediff-fine-A-personality 'harry
   "Personality used to voiceify difference chunk A"
@@ -112,8 +111,7 @@
   'harry
   "Personality used to voiceify difference chunk B"
   :type 'symbol
-:group 'emacspeak-ediff)
-
+  :group 'emacspeak-ediff)
 
 ;;}}}
 ;;{{{ Helper functions:
@@ -125,7 +123,6 @@
 (defadvice ediff-setup-control-buffer (after emacspeak pre act )
   (declare (special emacspeak-ediff-control-buffer))
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
-
 
 (defsubst emacspeak-ediff-control-panel ()
   (declare (special emacspeak-ediff-control-buffer ))
@@ -154,7 +151,6 @@
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-C n) 0))
-
 
 (defsubst emacspeak-ediff-fine-difference-a-overlays (n)
   (declare (special ediff-difference-vector-A
@@ -188,7 +184,6 @@
 
 (defsubst  emacspeak-ediff-diff-overlay-from-difference  (diff counter )
   (aref (aref diff counter) 0))
-
 
 (defsubst emacspeak-ediff-fine-overlays-from-difference  (diff counter )
   (aref (aref diff counter) 1))
@@ -341,7 +336,6 @@
 ;;; If you see keyboard activity, shut up
 ;;; and offer to speak difference b.
 
-
 (defun emacspeak-ediff-speak-difference (n)
   "Speak a difference chunk"
   (let ((a-overlay (emacspeak-ediff-difference-a-overlay n ))
@@ -484,8 +478,6 @@ Set this to nil if things get too slow."
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))
 
-
-
 ;;}}}
 (provide  'emacspeak-ediff)
 ;;{{{  emacs local variables 
@@ -494,6 +486,5 @@ Set this to nil if things get too slow."
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end: 
-
 
 ;;}}}

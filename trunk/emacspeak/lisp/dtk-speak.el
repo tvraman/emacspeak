@@ -53,7 +53,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'custom)
-  (require 'dtk-tcl)
+(require 'dtk-tcl)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -93,7 +93,6 @@ hook."
                     "tcl")
   "Interpreter  used to run the speech server.
 Extended tcl --tcl-- for all of the currently available servers.")
-
 
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
@@ -706,7 +705,6 @@ Default is to use pipes.")
   "Use this to nuke the currently running TTS server and restart it."
   (interactive)
   (dtk-initialize ))
-
 
 (defun tts-show-debug-buffer ()
   "Select TTS debugging buffer."

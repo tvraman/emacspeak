@@ -62,7 +62,6 @@
     (outline-next-visible-heading 1)
     (emacspeak-speak-line )))
 
-
 ;;; editing rolodex: uses an interactive prompt
 
 ;;; An after advice speaks the line that is to be edited
@@ -91,8 +90,7 @@
                     (end-of-line)
                     (buffer-substring start (point )))))))
      (t (emacspeak-auditory-icon 'search-miss)
-      (dtk-speak "No matches found")))))
-
+	(dtk-speak "No matches found")))))
 
 (defadvice rolo-grep (after emacspeak pre act )
   "Speak the number of hits and the first match if any."
@@ -119,14 +117,14 @@
       (outline-next-visible-heading 1)
       (emacspeak-auditory-icon 'search-hit)
       (dtk-speak
-     (format  "%s hits. First hit is %s"
-              ad-return-value
-              (let ((start (point)))
-                (save-excursion
-                  (end-of-line)
-                  (buffer-substring start (point )))))))
+       (format  "%s hits. First hit is %s"
+		ad-return-value
+		(let ((start (point)))
+		  (save-excursion
+		    (end-of-line)
+		    (buffer-substring start (point )))))))
      (t(emacspeak-auditory-icon 'search-miss)
-      (dtk-speak "No matches found")))))
+       (dtk-speak "No matches found")))))
 
 ;;; Killing a rolodex entry:
 ;;; First fix the interactive prompt.
@@ -166,7 +164,6 @@
   "Confirm aurally after you are done"
   (when (interactive-p)
     (message "Ordered entries in rolodex")))
-
 
 ;;;Around advice to provide feedback on what you did
 (defadvice rolo-yank (after   emacspeak pre act comp)

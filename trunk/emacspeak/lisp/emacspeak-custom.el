@@ -43,13 +43,13 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'dtk-speak)
-  (require 'emacspeak-speak)
-  (require 'voice-lock)
-  (require 'emacspeak-keymap)
-  (require 'emacspeak-sounds)
-  (require 'widget)
-  (require 'wid-edit)
-  (require 'emacspeak-widget))
+		   (require 'emacspeak-speak)
+		   (require 'voice-lock)
+		   (require 'emacspeak-keymap)
+		   (require 'emacspeak-sounds)
+		   (require 'widget)
+		   (require 'wid-edit)
+		   (require 'emacspeak-widget))
 
 ;;}}}
 ;;{{{  Introduction
@@ -68,7 +68,7 @@
     (message "Saved customizations.")))
 
 (defadvice custom-save-all (after emacspeak pre
-                                            act comp)
+				  act comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'save-object)
@@ -78,7 +78,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Set all updates.")))
-
 
 (defadvice customize (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -121,7 +120,6 @@
       (voice-lock-mode 1)
       (beginning-of-line)
       (emacspeak-speak-line))))
-
 
 (defadvice customize-variable (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -168,7 +166,6 @@
                        nil t)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
 
 (defcustom emacspeak-custom-toolbar-regexp
   "^Operate on everything in this buffer:"
