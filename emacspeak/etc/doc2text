@@ -10,7 +10,9 @@ then
     cat > $wordfile
     wvText $wordfile $txtfile
     cat   $txtfile 
-    /bin/rm $txtfile  #$wmf
+    /bin/rm $txtfile  $wmf
+    exit 0
 else
     echo "wvText not found --install package wv."
+    exit 1
 fi
