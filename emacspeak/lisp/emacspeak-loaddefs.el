@@ -76,7 +76,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (16002 61673))
+;;;;;;  "emacspeak-eterm.el" (16002 64929))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -87,7 +87,7 @@ Start a terminal-emulator in a new buffer." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-filtertext) "emacspeak-filtertext" "emacspeak-filtertext.el"
-;;;;;;  (15978 38312))
+;;;;;;  (16002 64929))
 ;;; Generated autoloads from emacspeak-filtertext.el
 
 (autoload (quote emacspeak-filtertext) "emacspeak-filtertext" "\
@@ -97,7 +97,7 @@ preparation for interactively filtering text. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-forms-find-file) "emacspeak-forms" "emacspeak-forms.el"
-;;;;;;  (15978 38312))
+;;;;;;  (16002 64930))
 ;;; Generated autoloads from emacspeak-forms.el
 
 (autoload (quote emacspeak-forms-find-file) "emacspeak-forms" "\
@@ -107,7 +107,7 @@ Visit a forms file" t nil)
 
 ;;;### (autoloads (emacspeak-freeamp emacspeak-freeamp-freeamp-call-command
 ;;;;;;  emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "emacspeak-freeamp.el"
-;;;;;;  (15978 38312))
+;;;;;;  (16002 64930))
 ;;; Generated autoloads from emacspeak-freeamp.el
 
 (autoload (quote emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "\
@@ -125,7 +125,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (16001 44245))
+;;;;;;  (16002 64931))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -141,7 +141,7 @@ Apply grid to region." t nil)
 
 ;;;### (autoloads (emacspeak-hide-speak-block-sans-prefix emacspeak-hide-or-expose-all-blocks
 ;;;;;;  emacspeak-hide-or-expose-block) "emacspeak-hide" "emacspeak-hide.el"
-;;;;;;  (15978 38313))
+;;;;;;  (16002 64931))
 ;;; Generated autoloads from emacspeak-hide.el
 
 (autoload (quote emacspeak-hide-or-expose-block) "emacspeak-hide" "\
@@ -165,7 +165,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (16001 44245))
+;;;;;;  (16002 64938))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -398,11 +398,24 @@ set the current local value to the result." t nil)
 
 ;;;***
 
+;;;### (autoloads (emacspeak-table-make-table) "emacspeak-table"
+;;;;;;  "emacspeak-table.el" (16002 64939))
+;;; Generated autoloads from emacspeak-table.el
+
+(autoload (quote emacspeak-table-make-table) "emacspeak-table" "\
+Construct a table object from elements." nil nil)
+
+;;;***
+
 ;;;### (autoloads (emacspeak-table-copy-to-clipboard emacspeak-table-display-table-in-region
 ;;;;;;  emacspeak-table-view-csv-buffer emacspeak-table-find-csv-file
 ;;;;;;  emacspeak-table-find-file) "emacspeak-table-ui" "emacspeak-table-ui.el"
-;;;;;;  (15978 38316))
+;;;;;;  (16002 64939))
 ;;; Generated autoloads from emacspeak-table-ui.el
+
+(defsubst emacspeak-table-prepare-table-buffer (table buffer &optional filename) "\
+Prepare tabular data." (declare (special positions)) (save-excursion (set-buffer buffer) (let ((i 0) (j 0) (count 0) (row-start 1) (column-start 1) (inhibit-read-only t)) (setq truncate-lines t) (erase-buffer) (set (make-local-variable (quote emacspeak-table)) table) (set (make-local-variable (quote positions)) (make-hash-table)) (when filename (setq buffer-file-name filename)) (setq count (1- (emacspeak-table-num-columns table))) (loop for row across (emacspeak-table-elements table) do (loop for element across row do (setf (gethash (intern (format "element:%s:%s" i j)) positions) (point)) (insert (format "%s%s" (emacspeak-table-this-element table i j) (if (= j count) "
+" "	"))) (put-text-property column-start (point) (quote column) j) (setq column-start (point)) (incf j)) (setq j 0) (put-text-property row-start (point) (quote row) i) (setq row-start (point)) (incf i)) (emacspeak-table-mode) (goto-char (point-min)))) (switch-to-buffer buffer) (setq truncate-lines t) (message "Use Emacspeak Table UI to browse this table."))
 
 (autoload (quote emacspeak-table-find-file) "emacspeak-table-ui" "\
 Open a file containing table data and display it in table mode.
@@ -640,7 +653,7 @@ Optional interactive prefix arg results in prompting for a search term." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-widget-summarize emacspeak-widget-summarize-parent)
-;;;;;;  "emacspeak-widget" "emacspeak-widget.el" (16002 61857))
+;;;;;;  "emacspeak-widget" "emacspeak-widget.el" (16002 64939))
 ;;; Generated autoloads from emacspeak-widget.el
 
 (autoload (quote emacspeak-widget-summarize-parent) "emacspeak-widget" "\
@@ -1016,7 +1029,7 @@ Start Xml-Shell on contents of system-id." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xslt-xml-url emacspeak-xslt-url emacspeak-xslt-region)
-;;;;;;  "emacspeak-xslt" "emacspeak-xslt.el" (16002 61321))
+;;;;;;  "emacspeak-xslt" "emacspeak-xslt.el" (16002 64939))
 ;;; Generated autoloads from emacspeak-xslt.el
 
 (defvar emacspeak-xslt-directory (expand-file-name "xsl/" emacspeak-directory) "\
