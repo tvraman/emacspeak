@@ -252,7 +252,7 @@ Echo output and return it as a string."
            (* 60 (second fields))
            (third fields)))
     (when (interactive-p)
-      (push (format "%ds" second)
+      (push (format "%d" seconds)
 kill-ring)
       (dtk-speak (format "%d" seconds)))
     seconds))
