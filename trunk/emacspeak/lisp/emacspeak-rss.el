@@ -87,7 +87,7 @@
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))
-  (emacspeak-wizards-browse-xml-url-with-style
+  (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl"
                      emacspeak-xslt-directory)
    rss-url))

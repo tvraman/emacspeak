@@ -2152,3 +2152,4 @@ for `word' and displays hits in a compilation buffer."
 ;;; end:
 
 ;;}}}
+
