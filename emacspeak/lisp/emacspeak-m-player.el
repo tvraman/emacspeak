@@ -77,8 +77,7 @@
              emacspeak-use-auditory-icons)
     (emacspeak-toggle-auditory-icons))
   (setq emacspeak-m-player-process (get-buffer-process
-                                    (current-buffer)))
-  (ansi-color-for-comint-mode-on))
+                                    (current-buffer))))
   
 (declaim (special emacspeak-m-player-mode-map))
 
@@ -141,7 +140,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                  "m-player" "m-player" emacspeak-m-player-program
                  options))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
-    (emacspeak-m-player-mode)))
+    (emacspeak-m-player-mode)
+    (ansi-color-for-comint-mode-on)))
 
 ;;}}}
 ;;{{{ commands 
