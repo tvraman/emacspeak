@@ -149,7 +149,7 @@ will be placed."
 (defsubst emacspeak-ocr-get-text-name ()
   "Return name of current text document."
   (declare (special emacspeak-ocr-document-name))
-  (format "%s.tiff" emacspeak-ocr-document-name))
+  (format "%s.text" emacspeak-ocr-document-name))
 
 (defsubst emacspeak-ocr-get-image-name ()
   "Return name of current image."
