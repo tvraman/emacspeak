@@ -126,6 +126,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
   (interactive
    (list
     (let ((completion-ignore-case t)
+          (ido-mode nil)
           (emacspeak-speak-messages nil)
           (minibuffer-history emacspeak-realaudio-history)
           (file nil))
