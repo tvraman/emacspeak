@@ -33,6 +33,8 @@ speech-enabled access to the evolving semantic WWW.
 
 Major Enhancements:
 -------------------
+
+0)   Provides template-based pronunciation entries.
 1)   Speech-enables nxml-mode ---a powerful XML environment.
 2)   etc/ocr-client.pl provides support for ocrxtr from Vividata.
 3)   Updated EPeriodic support.
@@ -43,7 +45,7 @@ Major Enhancements:
 8)   Speech-enables keyboard macro package kmacro.
 9)   Emacspeak now provides a world clock for travellers.
 10)  Speech-enables package sigbegone.
-11)  Provides template-based pronunciation entries.
+
 
 See the NEWS file for additional details. 
 
