@@ -1492,7 +1492,7 @@ semantic to do the work."
 (defun emacspeak-speak-mode-line ()
   "Speak the mode-line."
   (interactive)
-  (declare (special  mode-name 
+  (declare (special  mode-name  major-mode
                      emacspeak-which-function-mode
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
@@ -1502,7 +1502,9 @@ semantic to do the work."
   (let ((dtk-stop-immediately nil )
         (frame-info nil)
         (recursion-depth (recursion-depth))
-        (recursion-info nil))
+        (recursion-info nil)
+        (dir-info (when (eq major-mode 'shell-mode)
+                    default-directory)))
     (when (and  emacspeak-which-function-mode
                 (fboundp 'which-function)
                 (which-function))
@@ -1531,7 +1533,7 @@ semantic to do the work."
       (tts-with-punctuations "all"
                              (dtk-speak
                               (concat 
-                               (format  "%s %s %s %s %s "
+                               (format  "%s %s %s %s  %s %s "
                                         (buffer-name)
                                         (if line-number-mode
                                             (format "line %d"
@@ -1542,6 +1544,7 @@ semantic to do the work."
                                                     (current-column))
                                           "")
                                         mode-name
+                                        (or dir-info " ")
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
                                recursion-info)))))))
