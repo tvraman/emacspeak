@@ -232,13 +232,10 @@ Precomputing this saves time at start-up.")
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
-
 (defvar emacspeak-unibyte t
-  "Emacspeak will force emacs to unibyte unless this
-variable is set to nil.
-To use emacspeak with emacs running in multibyte mode, this
-variable should be set to nil *before* 
-emacspeak is started.")
+  "Set this to nil before starting  emacspeak 
+if you are running in a multibyte enabled environment.")
+
 
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
