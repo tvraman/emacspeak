@@ -43,6 +43,7 @@
 (eval-when-compile (require 'dtk-speak)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
+                   (require 'voice-setup)
                    (require 'emacspeak-personality))
 ;;{{{  Introduction
 
@@ -227,23 +228,23 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-single-line-personality 'paul-monotone
+(defcustom View-process-single-line-personality voice-monotone
   "Personality for voice lock in view process mode"
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-signal-line-personality 'paul-smooth
+(defcustom View-process-signal-line-personality voice-smooth
   "Indicate a signal"
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-signaled-line-personality 'paul-animated
+(defcustom View-process-signaled-line-personality voice-animate
   "Personality for indicating a signalled process"
   :type 'symbol
   :group 'emacspeak-view-process)
 
 	 
-(defcustom View-process-renice-line-personality 'paul-monotone
+(defcustom View-process-renice-line-personality voice-monotone-medium
   "Indicate a reniced process"
   :type 'symbol
   :group 'emacspeak-view-process)

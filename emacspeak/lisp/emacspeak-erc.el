@@ -45,6 +45,7 @@
 (require 'custom)
 (require 'advice)
 (require 'thingatpt)
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-personality)
@@ -124,7 +125,7 @@ server."
   :group 'emacspeak-erc)
 
 (defcustom emacspeak-erc-action-personality 
-  'paul-monotone
+  voice-monotone
   "Personality for actions in erc."
   :type 'symbol
   :group 'emacspeak-erc)
@@ -181,62 +182,59 @@ server."
 (provide 'emacspeak-erc)
 ;;{{{ advice for voicefication 
 
-(defcustom emacspeak-erc-faces-to-personalities
-  '((erc-default-face paul)
-    (erc-direct-msg-face paul-animated)
-    (erc-input-face paul-smooth)
-    (erc-bold-face paul-bold)
-    (erc-inverse-face betty)
-    (erc-underline-face ursula)
-    (erc-prompt-face harry)
-    (erc-notice-face paul-italic)
-    (erc-action-face paul-monotone)
-    (erc-error-face kid)
-    (erc-dangerous-host-face paul-smooth)
-    (erc-pal-face paul-animated)
-    (erc-fool-face 'harry)
-    (erc-keyword-face paul-animated))
-  "Maps faces used in erc to speaker personalities in emacspeak."
-  :group 'emacspeak-erc
-  :type '(repeat
-	  (list :tag "mapping"
-		(symbol :tag "face")
-		(symbol :tag "personality"))))
 
-(defadvice erc-put-text-property (after emacspeak pre act comp)
-  "Voiceify faces."
-  (declare (special emacspeak-erc-faces-to-personalities))
-  (let ((start (ad-get-arg 0))
-        (end (ad-get-arg 1))
-        (property (ad-get-arg 2))
-        (value (ad-get-arg 3))
-        (object (or (ad-get-arg 4)
-                    nil))
-        (personality nil))
-    (setq personality
-          (cadr (assq value emacspeak-erc-faces-to-personalities)))
-    (when personality 
-      (ems-modify-buffer-safely
-       (put-text-property  start end
-                           'personality personality object)))))
+  
+(def-voice-font emacspeak-erc-direct-msg-personality
+      voice-animate
+      'erc-direct-msg-face
+      "Personality for direct messages.")
 
+(def-voice-font  emacspeak-erc-input-personality 
+voice-smoothen
+'erc-input-face
+"personality for input.")
+
+(def-voice-font emacspeak-erc-bold-personality
+  voice-bolden 'erc-bold-face
+  "Bold personality for ERC.")
+
+(def-voice-font emacspeak-erc-inverse-personality
+  'betty 'erc-inverse-face
+  "Inverse highlight in ERC.")
+
+(def-voice-font emacsepak-erc-underline 'underline
+  'erc-underline-face
+  "Underline in ERC.")
+
+    (def-voice-font emacspeak-erc-prompt-personality 'harry
+      'erc-prompt-face
+      "Personality for prompts.")
+
+(def-voice-font emacspeak-erc-notice-personality
+  voice-italic 'erc-notice-face
+  "Personality for notices.")
+
+(def-voice-font emacspeak-erc-action-personality
+  voice-monotone
+  'erc-action-face
+  "Personality for actions.")
+
+    (def-voice-font emacspeak-erc-error-face
+      voice-bolden-and-animate 'erc-error-face
+      "Error personality for ERC.")
+
+    (def-voice-font emacspeak-erc-dangerous-host-personality 
+      voice-brighten-extra 'erc-dangerous-host-face
+      "Personality for dangerous hosts.")
+
+      
+    (def-voice-font emacspeak-erc-pal-personality 
+voice-animate-extra 'erc-pal-face
+"Personality for pals.")
     
-
-(defadvice erc-highlight-error (after emacspeak pre act
-                                      comp)
-  "Apply aural highlighting as well."
-  (put-text-property 0 (length ad-return-value)
-                     'personality emacspeak-erc-error-personality
-                     ad-return-value)
-  ad-return-value)
-
-(defadvice erc-highlight-notice (after emacspeak pre act
-                                       comp)
-  "Apply aural highlighting as well."
-  (put-text-property 0 (length ad-return-value)
-                     'personality emacspeak-erc-notice-personality
-                     ad-return-value)
-  ad-return-value)
+    (def-voice-font emacspeak-erc-keyword-personality 
+voice-animate 'erc-keyword-face
+"Personality for keywords.")
 
 ;;}}}
 ;;{{{ monitoring chatrooms 

@@ -48,6 +48,7 @@
 		   (require 'emacspeak-keymap)
 		   (require 'emacspeak-sounds)
 		   (require 'emacspeak-personality)
+                   (require 'voice-setup)
 		   (require 'ediff)
 		   (require 'ediff-init))
     
@@ -97,7 +98,7 @@
   :group 'emacspeak-ediff)
 
 (defcustom emacspeak-ediff-B-personality
-  'paul-monotone
+  voice-monotone
   "Personality used to voiceify difference chunk B"
   :type 'symbol
   :group 'emacspeak-ediff)
