@@ -1753,10 +1753,6 @@ Indicate change of selection with an auditory icon
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
-(defadvice execute-extended-command (before emacspeak pre act)
-  "Prompt using speech."
-  (dtk-speak "Command "))
-
 (defadvice rename-buffer  (around emacspeak pre act)
   "Provide spoken feedback."
   (cond
