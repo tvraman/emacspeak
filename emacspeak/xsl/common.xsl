@@ -11,10 +11,10 @@ Description: common rules
   
   <xsl:output method="html" indent="yes"
   encoding="iso8859-15"/>
-<xsl:template match="/">
+  <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
-<xsl:template match="head">
+  <xsl:template match="head">
     <head>
       <xsl:apply-templates select="title"/>
       <xsl:if test="string-length($base) &gt; 0">
