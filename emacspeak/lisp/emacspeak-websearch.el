@@ -222,12 +222,14 @@ When using W3,  this interface attempts to speak the most relevant information o
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (when (eq browse-url-browser-function 'browse-url-w3)
+  (when (or   (eq browse-url-browser-function 'w3-fetch)
+      (eq browse-url-browser-function 'browse-url-w3))
     (cond
      ((search-forward locator nil t)
       (recenter 0)
       (apply speaker args))
      (t (message "Your search appears to have ffailed.")))))
+
 
 ;;}}}
 
@@ -1081,10 +1083,10 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                 (webjump-url-encode
                  "I'm Feeling Lucky")))))
     (if lucky-flag
-        (emacspeak-websearch-post-process
+        (emacspeak-speak-line)
+      (emacspeak-websearch-post-process
        "Results"
-       'emacspeak-speak-line)
-      (emacspeak-speak-mode-line))))
+       'emacspeak-speak-line))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
