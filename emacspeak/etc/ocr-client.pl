@@ -27,4 +27,5 @@ open (OUT, "cat -s $output |");
   while (<OUT>) {
     print;
   }
+qx(ssh $host rm $input $output);
 }
