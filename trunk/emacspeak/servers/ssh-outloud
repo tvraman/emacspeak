@@ -1,0 +1,12 @@
+#!/bin/sh
+#$Id$
+#Description: Launch a TTS server on a remote host.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
+# {{{  documentation
+
+# Running TTS server remotely.
+# }}}
+remote=`cat $HOME/.emacspeak/.current-remote-hostname`
+tcl=/usr/bin/tcl
+
+echo "ssh $remote $tcl $1"

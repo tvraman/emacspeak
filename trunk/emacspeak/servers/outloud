@@ -283,6 +283,7 @@ notes_initialize
 set tclTTS $env(EMACSPEAK_DIR)/servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
+ cd /tmp
     synth {`v1 Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
 synth
