@@ -880,7 +880,8 @@ for commands defined in module  %s.\n\n"
                   (error nil)))
             (insert
              (or
-              (ems-texinfo-escape(documentation f))
+              (ems-texinfo-escape
+               (documentation f))
               ""))
             (insert "\n@end deffn\n\n"))))
        (emacspeak-list-emacspeak-commands))
