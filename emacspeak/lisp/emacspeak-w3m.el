@@ -1,9 +1,11 @@
 ;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el
-;;; This file is not part of Emacspeak, but the same terms and
+;;{{{ Copyright
+
+;;; This file is not part of Emacs, but the same terms and
 ;;; conditions apply.
 ;; Copyright (C) 2001,2002  Dimitri V. Paduchih
 
-;; Author: Dimitri Paduchih <paduch@imm.uran.ru>
+;; Initial version: Author: Dimitri Paduchih <paduch@imm.uran.ru>
 ;;;author: T. V. Raman (integration with Emacspeak, and sections marked TVR)
 ;; Keywords: emacspeak, w3m
 
@@ -26,6 +28,7 @@
 
 ;; 
 
+;;}}}
 
 ;;; Code:
 ;;{{{  required modules
@@ -45,7 +48,7 @@
 ;;}}}
 ;;{{{ keybindings 
 (declaim (special w3m-mode-map))
-(define-key w3m-mode-map "\C-e" 'emacspeak-prefix-command)
+(define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
@@ -80,22 +83,6 @@
 		       'personality personality
 		       newstring)
     newstring))
-
-;;}}}
-;;{{{ personalities
-
-(defcustom emacspeak-w3m-form-personality voice-animate
-  "personality used for forms."
-  :type 'symbol
-  :group 'emacspeak-w3m)
-(defcustom emacspeak-w3m-button-personality voice-bolden
-  "Button personality in W3M."
-  :type 'symbol
-  :group 'emacspeak-w3m)
-(defcustom emacspeak-w3m-disabled-personality voice-bolden
-  "Personality for disabled fields in W3M."
-  :type 'symbol
-  :group 'emacspeak-w3m)
 
 ;;}}}
 ;;{{{ anchors
@@ -384,7 +371,7 @@
 ;;{{{ tvr: mapping font faces to personalities 
 
 (def-voice-font  w3m-arrived-anchor-personality
-  'betty
+  voice-lighten
   'w3m-arrived-anchor-face
   "w3m-arrived-anchor-face")
 
@@ -394,12 +381,12 @@
   "w3m-anchor-face")
 
 (def-voice-font emacspeak-w3m-bold-personality
-  'bold
+  voice-bolden
   'w3m-bold-face
   "w3m-bold-face")
 
 (def-voice-font  emacspeak-w3m-underline-personality
-  'underlined
+  voice-brighten
   'w3m-underline-face
   "w3m-underline-face")
 
@@ -408,7 +395,7 @@
   'w3m-header-line-location-title-face
   "w3m-header-line-location-title-face")
 
-(def-voice-font  personality
+(def-voice-font  w3m-header-line-location-content-personality
   voice-animate
   'w3m-header-line-location-content-face
   "w3m-header-line-location-content-face")
@@ -429,14 +416,15 @@
   "w3m-tab-unselected-face")
 
 (def-voice-font  emacspeak-w3m-tab-selected-personality
-  voice-animate
+  voice-animate-extra
   'w3m-tab-selected-face
   "w3m-tab-selected-face")
 
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode."
   (declare (special dtk-punctuation-mode))
-  (setq dtk-punctuation-mode "some"))
+  (setq dtk-punctuation-mode "some")
+  (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
 (provide 'emacspeak-w3m)
