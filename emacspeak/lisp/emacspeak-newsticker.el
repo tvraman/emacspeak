@@ -66,6 +66,24 @@
     ad-return-value))
 
 ;;}}}
+;;{{{ advice interactive commands
+
+(defadvice newsticker-previous-new-item (after emacspeak pre act
+                                           comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice newsticker-next-new-item (after emacspeak pre act
+                                           comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+
+;;}}}
 (provide 'emacspeak-newsticker)
 ;;{{{ end of file
 
