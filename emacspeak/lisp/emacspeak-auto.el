@@ -57,7 +57,7 @@
 (declaim (special emacspeak-lisp-directory))
 (defcustom emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"
-   emacspeak-lisp-directory)
+		    emacspeak-lisp-directory)
   "File that holds automatically generated autoloads for Emacspeak."
   :type 'file
   :group 'emacspeak-auto)
@@ -70,7 +70,7 @@
   (let ((dtk-quiet t)
         (source-directory emacspeak-directory)
         (generated-autoload-file emacspeak-auto-autoloads-file))
-(update-autoloads-from-directories emacspeak-lisp-directory)))
+    (update-autoloads-from-directories emacspeak-lisp-directory)))
 
 ;;}}}
 ;;{{{ generate autoloads for all custom groups in current directory

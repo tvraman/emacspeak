@@ -1266,12 +1266,12 @@ personal customizations."
                     custom-file)))
   (declare (special custom-file))
   (let* ((buffer (find-file-noselect custom-file))
-       (settings  
-        (save-excursion
-          (set-buffer buffer)
-          (goto-char (point-min))
-          (cdr (read  buffer))))
-       (found nil))
+	 (settings  
+	  (save-excursion
+	    (set-buffer buffer)
+	    (goto-char (point-min))
+	    (cdr (read  buffer))))
+	 (found nil))
     (setq found
           (mapcar #'(lambda (s)
                       (list (car (second s))
@@ -1986,7 +1986,6 @@ directory to where find is to be launched."
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
-
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
@@ -2137,12 +2136,10 @@ for `word' and displays hits in a compilation buffer."
   "Major mode for interactively viewing virtual console contents.\n\n
 \\{emacspeak-wizards-vc-viewer-mode-map}")
 
-
 (defvar emacspeak-wizards-vc-console nil
   "Buffer local value specifying console we are viewing.")
 
 (make-variable-buffer-local 'emacspeak-wizards-vc-console)
-
 
 (defun emacspeak-wizards-vc-viewer (console)
   "View contents of specified virtual console."
