@@ -1777,12 +1777,6 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
-** emacspeak-dtk-speak-version	Key Sequence: control e d  cap V  
-
-Use this to find out which version of the Dectalk firmware you are running.
-
-------------------------------------------------------------
-
 ** emacspeak-execute-repeatedlyExecute COMMAND repeatedly.
 
 This function is advised.
@@ -3149,7 +3143,7 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-emacspeak-archive	Key Sequence: control h e 
+** emacspeak-websearch-emacspeak-archive	Key Sequence: control h  cap E  
 
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -3955,6 +3949,10 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-voice-samplerRead a personality  and apply it to the current line.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-vpn-toggleBring up or bring down vpn.
 
 ------------------------------------------------------------
 
