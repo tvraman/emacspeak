@@ -84,7 +84,8 @@
     (completing-read "Feed:"
                      emacspeak-rss-feeds))))
   (let ((uri (cdr
-              (assoc feed emacspeak-rss-feeds))))))
+              (assoc feed emacspeak-rss-feeds))))
+    (emacspeak-wizards-rss-view uri 'speak)))
 
 ;;}}}
 (provide 'emacspeak-rss)
