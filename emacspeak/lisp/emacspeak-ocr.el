@@ -202,12 +202,14 @@ Pick a short but meaningful name."
 (defun emacspeak-ocr-scan-image ()
   "Acquire page image."
   (interactive)
-  (declare (special emacspeak-ocr-scan-image
+  (declare (special emacspeak-speak-messages 
+            emacspeak-ocr-scan-image
                     emacspeak-ocr-scan-image-options
                     emacspeak-ocr-compress-image
                     emacspeak-ocr-compress-image-options
                     emacspeak-ocr-document-name))
   (let ((image-name (emacspeak-ocr-get-image-name)))
+    (let ((emacspeak-speak-messages nil))
     (shell-command
      (concat
       (format "%s %s > temp.tiff;\n"
@@ -217,7 +219,7 @@ Pick a short but meaningful name."
               emacspeak-ocr-compress-image
               emacspeak-ocr-compress-image-options 
               image-name)
-      (format "rm -f temp.tiff")))
+      (format "rm -f temp.tiff"))))
     (message "Acquired  image to file %s"
              image-name)))
 
@@ -226,6 +228,7 @@ Pick a short but meaningful name."
 
 (defun emacspeak-ocr-process-sentinel  (process state)
   "Alert user when OCR is complete."
+  (goto-char (point-max))
   (emacspeak-auditory-icon 'task-done)
   (backward-page 1))
 
@@ -259,6 +262,16 @@ corectly by themselves."
   (interactive)
   (emacspeak-ocr-scan-image)
   (emacspeak-ocr-recognize-image))
+
+
+(defun emacspeak-ocr-toggle-read-only ()
+  "Toggle read-only state of OCR buffer."
+  (interactive)
+  (declare (special buffer-read-only))
+  (setq buffer-read-only
+        (not buffer-read-only))
+  (emacspeak-auditory-icon 'button)
+  (emacspeak-speak-mode-line))
 
 ;;}}}
 (provide 'emacspeak-ocr)
