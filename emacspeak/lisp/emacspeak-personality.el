@@ -57,7 +57,6 @@
 ;;; This also kept things stable as font-lock itself evolved and
 ;;; changed.
 
-
 ;;; 8 years later, font-lock is now stable.
 ;;; It is also active outside windowing systems, since Emacs can now
 ;;; colorize terminals.
@@ -138,7 +137,6 @@ font-lock.  Voicification is effective only if font lock is on."
 
 (unless (assq 'voice-lock-mode minor-mode-alist)
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
-
 
 ;;}}}
 ;;{{{ attach voice lock to global font lock
@@ -258,7 +256,7 @@ preserved."
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-put
+  'emacspeak-personality-append
   "Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
@@ -280,10 +278,8 @@ displayed in the messages area."
   :type 'boolean
   :group 'emacspeak-personality)
 
-
 (defvar emacspeak-personality-unmapped-faces (make-hash-table)
   "Records faces that we have not yet mapped to personalities.")
-
 
 (defadvice put-text-property (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
@@ -314,6 +310,19 @@ displayed in the messages area."
                          value))
          (t (puthash  value t emacspeak-personality-unmapped-faces)))))))
 
+(defadvice remove-text-properties (before emacspeak-personality pre act comp)
+  "Undo any voiceification if needed."
+  (let  ((start (ad-get-arg 0))
+         (end (ad-get-arg 1))
+         (props (ad-get-arg 2))
+         (object (ad-get-arg 3))
+         (voice nil)
+         (face nil))
+    (when (member 'face props) ;;; simple minded for now
+    (put-text-property start end
+                       'personality nil object))))
+
+          
 ;;}}}
 ;;{{{ advice overlay-put 
 
