@@ -284,6 +284,16 @@ documentation   Documents this template resource.
 ;;{{{ bbc
 
 (emacspeak-url-template-define
+ "BBC World Service Programs"
+ "http://www.bbc.co.uk/radio/aod/domworldservice.shtml"
+ nil
+ nil
+ "Use this to play a BBC stream by its directory/stream-name locator."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match "LISTEN"
+                                          url 'speak)))
+
+(emacspeak-url-template-define
  "BBC Streams on demand"
  "rtsp://rmv8.bbc.net.uk/radio4/%s"
  (list "Stream: (directory/stream.ra): ")
