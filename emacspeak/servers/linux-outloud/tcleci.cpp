@@ -294,9 +294,6 @@ int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONS
   return TCL_OK;
 }
 
-/* Play wave file 16bit stereo only */
-/* incomplete for now --need to integrate with libst from sox */
-
 int playTTS (int samples) {
   int i;
   short stereo[2*samples];
