@@ -184,6 +184,7 @@
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
  #'(lambda (url)
+     (declare (special emacspeak-xslt-directory))
 (emacspeak-wizards-browse-url-with-style
       (expand-file-name "google-hits.xsl"
                         emacspeak-xslt-directory)
@@ -672,6 +673,7 @@ Optional interactive prefix arg displays documentation for specified resource."
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (url-be-asynchronous nil)
+(url-http-asynchronous-p nil)
         (name nil)
         (table
          (loop for key being the hash-keys of
