@@ -30,8 +30,15 @@ Additional wizrds.
 
 ** emacspeak-w3.el
 
-** Enhanced XSLT support.
+ Enhanced XSLT support.
 
+** emacspeak-m-player.el
+
+MPlayer output is handled using comint features.
+
+** emacspeak-daisy.el:
+
+Adding outline and bookmark support.
 
 
 Local variables:
