@@ -243,11 +243,6 @@ will say ``aw fifteen dot'' when speaking the string
 Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -2486,11 +2481,12 @@ completions. Hit space to use this completion list.
 
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
-the audio desktop as C-e ;.
-Alternatively,  switch to buffer *realaudo* if you
-wish to issue many nvigation commands.  Note that buffer
-*realaudio* uses a special major mode that provides the
-various navigation commands via single keystrokes.
+the audio desktop as `C-e ;'.
+Alternatively, switch to buffer *realaudo* using
+`C-e ;;' if you wish to issue many
+navigation commands.  Note that buffer *realaudio* uses a
+special major mode that provides the various navigation
+commands via single keystrokes.
 @end deffn
 
 
@@ -2803,6 +2799,12 @@ Speak completions  buffer if one present.
 Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
+@end deffn
+
+
+
+@deffn emacspeak-speak-and-skip-extent-upto-this-char
+Speak extent delimited by point and last character typed.
 @end deffn
 
 
@@ -3233,6 +3235,18 @@ two or three.
 Argument ARG determines the 'other' window to speak.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'.
+@end deffn
+
+
+
+@deffn emacspeak-speak-and-skip-extent-upto-char
+Search forward from point until we hit char.
+Speak text between point and the char we hit.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -4096,6 +4110,12 @@ VM mode line information.
 
 
 
+@deffn emacspeak-vm-catch-up-all-messages
+Mark all messages in folder to be deleted. Use with caution.
+@end deffn
+
+
+
 @deffn emacspeak-vm-browse-message
 Browse an email message --read it paragraph at a time. 
 @end deffn
@@ -4285,6 +4305,12 @@ specifies by how many eleemnts to move.
 
 @deffn emacspeak-w3-xslt-apply
 Apply specified transformation to current page.
+@end deffn
+
+
+
+@deffn emacspeak-w3-browse-link-with-style
+Browse link with specified XSL style.
 @end deffn
 
 @node emacspeak-w3search
@@ -4833,6 +4859,13 @@ key             binding
 
 
 
+@deffn emacspeak-wizards-google-hits
+Filter Google results after performing search to show just the
+hits.
+@end deffn
+
+
+
 @deffn emacspeak-view-emacspeak-faq
 @kbd{ control e  cap F  }
 
@@ -4922,6 +4955,12 @@ Browse  Emacspeak productivity tips.
 
 
 
+@deffn emacspeak-wizards-show-environment-vvariable
+Display value of specified environment variable.
+@end deffn
+
+
+
 @deffn emacspeak-wizards-get-table-content-from-file
 Extract table specified by depth and count from HTML
 content at file.
@@ -4960,6 +4999,12 @@ Signals beginning  of buffer.
 
 
 
+@deffn emacspeak-wizards-squeeze-blanks
+Squeeze multiple blank lines in current buffer.
+@end deffn
+
+
+
 @deffn emacspeak-learn-mode
 @kbd{ control e control h }
 
@@ -4992,6 +5037,17 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-occur-header-lines
+If you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches header lines, you can use this command to conveniently
+run `occur' 
+to find matching header lines. With prefix arg, prompts for and sets
+value of the file local pattern.
 @end deffn
 
 
@@ -5057,6 +5113,16 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+@end deffn
+
+
+
+@deffn emacspeak-wizards-how-many-matches
+If you define a file local variable 
+called `emacspeak-occur-pattern' that holds a regular expression 
+that matches  lines of interest, you can use this command to conveniently
+run `how-many'to count  matching header lines.
+With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 
 
@@ -5280,6 +5346,12 @@ With prefix arg, opens the phone book for editting.
 @kbd{ control e  cap N  }
 
 Display info on recent change to Emacspeak.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-count-slides-in-region
+Count slides starting from point.
 @end deffn
 
 

@@ -71,11 +71,6 @@ dtk-tcl.
      the global default value, and then set the current local  value to
      the result.
 
-     This function is advised.
-
-     Before-advice `emacspeak-auto': Automatically defined advice to
-     speak interactive prompts.
-
  - dtk-set-punctuations-to-all:
      Set punctuation  mode to all.  Interactive PREFIX arg sets
      punctuation mode globally.

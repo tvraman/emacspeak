@@ -305,6 +305,10 @@ emacspeak-wizards.
      key             binding --             ------
 
 
+ - emacspeak-wizards-google-hits:
+     Filter Google results after performing search to show just the
+     hits.
+
  - emacspeak-view-emacspeak-faq:
      ` control e  cap F  '
 
@@ -360,6 +364,9 @@ emacspeak-wizards.
 
      Browse  Emacspeak productivity tips.
 
+ - emacspeak-wizards-show-environment-vvariable:
+     Display value of specified environment variable.
+
  - emacspeak-wizards-get-table-content-from-file:
      Extract table specified by depth and count from HTML content at
      file.  Extracted content is placed as a csv file in task.csv.
@@ -382,6 +389,9 @@ emacspeak-wizards.
 
      Move backward  across blank lines.  The line under point is   then
      spoken.  Signals beginning  of buffer.
+
+ - emacspeak-wizards-squeeze-blanks:
+     Squeeze multiple blank lines in current buffer.
 
  - emacspeak-learn-mode:
      ` control e control h '
@@ -406,6 +416,13 @@ emacspeak-wizards.
      copied   to that directory under its current name ; if location
      names   a file in an existing directory, the specified name is
      used.  Signals an error if target already exists.
+
+ - emacspeak-wizards-occur-header-lines:
+     If you define a file local variable called
+     `emacspeak-occur-pattern' that holds a regular expression that
+     matches header lines, you can use this command to conveniently run
+     `occur' to find matching header lines. With prefix arg, prompts
+     for and sets value of the file local pattern.
 
  - emacspeak-wizards-ppt-display:
      Called to set up preview of an XL file.  Assumes we are in a
@@ -452,6 +469,14 @@ emacspeak-wizards.
 
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
+
+ - emacspeak-wizards-how-many-matches:
+     If you define a file local variable called
+     `emacspeak-occur-pattern' that holds a regular expression that
+     matches  lines of interest, you can use this command to
+     conveniently run `how-many'to count  matching header lines.  With
+     interactive prefix arg, prompts for and remembers the file local
+     pattern.
 
  - emacspeak-frame-read-frame-label:
      Read a frame label with completion.
@@ -602,6 +627,9 @@ emacspeak-wizards.
      ` control e  cap N  '
 
      Display info on recent change to Emacspeak.
+
+ - emacspeak-wizards-count-slides-in-region:
+     Count slides starting from point.
 
  - emacspeak-generate-texinfo-command-documentation:
      Generate texinfo documentation  for all emacspeak commands into
