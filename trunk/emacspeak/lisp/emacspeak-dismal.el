@@ -178,7 +178,7 @@ The `column header' is the entry in row 0."
 (setq-default emacspeak-dismal-row-summarizer-list nil)
 (setq-default emacspeak-dismal-col-summarizer-list nil)
 (setq-default emacspeak-dismal-sheet-summarizer-list nil)
-(defcustom emacspeak-dismal-value-personality voice-aniamte
+(defcustom emacspeak-dismal-value-personality voice-animate
   "Personality used for speaking cell values in summaries."
   :group 'emacspeak-dismal
   :type 'symbol)

@@ -91,7 +91,7 @@ Note that some badly formed mime messages  cause trouble."
   :type 'symbol
   :group 'emacspeak-vm)
 
-(defcustom emacspeak-vm-to-voice  voice-aniamte
+(defcustom emacspeak-vm-to-voice  voice-animate
   "Personality for To field. "
   :type 'symbol
   :group 'emacspeak-vm)
