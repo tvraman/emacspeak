@@ -62,7 +62,9 @@
       '(analog-next-group
         analog-previous-group
         analog-next-entry
-        analog-previous-entry)
+        analog-previous-entry
+        analog-refresh-display-buffer
+        analog-toggle-timer-and-redisplay)
       do
       (eval
        (`
