@@ -239,8 +239,10 @@ install:
 	  $(INSTALL) -d $(libdir)/lisp
 	  $(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
+	$(INSTALL) -d $(libdir)/user-guide
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
+	$(INSTALL) -m 0644  user-guide/*.html   $(libdir)/user-guide
 	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
