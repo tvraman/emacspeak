@@ -608,7 +608,7 @@ emacspeak-wizards-root-buffer
   (declare (special emacspeak-cvs-local-directory
                     emacspeak-cvs-anonymous-cvsroot))
   (unless (file-exists-p emacspeak-cvs-local-directory)
-    (make-directory emacspeak-cvs-local-directory))
+    (make-directory emacspeak-cvs-local-directory 'parents))
   (cd emacspeak-cvs-local-directory)
   (let ((cvs-process nil))
     (setq cvs-process
