@@ -145,7 +145,7 @@ Cap VVectorVestVectorVest Stock Reports
 y       yahoo                       Master Yahoo Index
 
 When using W3,  this interface attempts to speak the most relevant information on the result page."
-  (interactive)
+  (interactive "P")
   (let ((engine nil)
         (saved-syntax-table (copy-syntax-table  (syntax-table)))
         (searcher nil))
