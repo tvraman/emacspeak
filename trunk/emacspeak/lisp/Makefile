@@ -80,6 +80,7 @@ emacspeak-re-builder.elc \
 	emacspeak-tabulate.elc 
 
 AUX_OBJECTS =  cd-tool.elc \
+emacspeak-add-log.elc \
 emacspeak-amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
@@ -264,7 +265,8 @@ voice-setup.elc: voice-setup.el acss-structure.elc
 html-outline.elc: html-outline.el
 emacspeak-amphetadesk.elc: emacspeak-amphetadesk.el
 cd-tool.elc: cd-tool.el
-emacspeak-actions.elc: emacspeak-actions.el  
+emacspeak-actions.elc: emacspeak-actions.el
+emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
 emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc voice-setup.elc
