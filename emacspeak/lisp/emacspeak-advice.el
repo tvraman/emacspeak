@@ -42,7 +42,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 ;;; Commentary:
 ;;{{{  Introduction:
 
@@ -56,6 +55,8 @@
 ;;; Code:
 
 ;;}}}
+;;{{{ Required modules
+
 (require 'advice)
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -63,6 +64,8 @@
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
+
+;;}}}
 ;;{{{  advice cursor movement commands to speak
 
 (defadvice next-line (before emacspeak pre act com)
@@ -2926,7 +2929,33 @@ Variable mark-even-if-inactive is set true ."
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object))) ;;}}}
+    (emacspeak-auditory-icon 'select-object)))
+;;}}}
+;;{{{ elint
+(defadvice elint-current-buffer (around emacspeak pre act comp)
+  "Silence messages while elint is running."
+  (cond
+   ((interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (emacspeak-auditory-icon 'task-done)
+      (message "Displayed lint results in other window. ")))
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice elint-defun (around emacspeak pre act comp)
+  "Silence messages while elint is running."
+  (cond
+   ((interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (emacspeak-auditory-icon 'task-done)
+      (message "Displayed lint results in other window. ")))
+   (t ad-do-it))
+  ad-return-value)
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 

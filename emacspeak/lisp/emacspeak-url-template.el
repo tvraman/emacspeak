@@ -268,7 +268,7 @@ prompting for a template.")
  "Only show Google hits."
  #'(lambda (url)
      (declare (special emacspeak-xslt-directory))
-     (emacspeak-wizards-browse-url-with-style
+     (emacspeak-w3-browse-url-with-style
       (expand-file-name "google-hits.xsl"
                         emacspeak-xslt-directory)
       url)))
@@ -345,7 +345,7 @@ prompting for a template.")
  #'(lambda (url)
      (declare (special emacspeak-xslt-directory
                        emacspeak-w3-url-rewrite-rule))
-     (emacspeak-wizards-browse-url-with-style
+     (emacspeak-w3-browse-url-with-style
       (expand-file-name "content.xsl"
                         emacspeak-xslt-directory)
       url)
