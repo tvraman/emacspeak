@@ -220,8 +220,13 @@ spoken.")
   (read-from-minibuffer
    (format "%s person" action)
    (save-excursion
-     (search-backward  "<" (point-min) nil)
-     (thing-at-point 'sexp))))
+     (let ((start (point)))
+     (search-backward  "<" (point-min) t)
+     (when (not (= start (point)))
+       (setq start (point))
+       (search-forward " ")
+       (buffer-substring start (point)))))))
+     
 
 (defun emacspeak-erc-add-name-to-monitor (name)
   "Add people to monitor in this room."
