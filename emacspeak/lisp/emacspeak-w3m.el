@@ -37,7 +37,7 @@
 (require 'w3m-form nil t)
 (require 'dtk-speak)
 (require 'emacspeak-speak)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 (require 'emacspeak-wizards)
 (require 'emacspeak-xslt)

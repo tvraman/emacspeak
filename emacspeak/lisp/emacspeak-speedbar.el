@@ -60,7 +60,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-keymap)
 (require 'emacspeak-sounds)
 					;(eval-when-compile (require 'speedbar))

@@ -46,7 +46,7 @@
   (require 'emacspeak-fix-interactive))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 
 ;;}}}
 ;;{{{ Introduction:

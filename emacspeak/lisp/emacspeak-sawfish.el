@@ -46,7 +46,7 @@
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'emacspeak)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 

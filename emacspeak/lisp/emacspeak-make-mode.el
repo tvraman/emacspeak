@@ -45,7 +45,7 @@
 (require 'advice)
 (eval-when-compile (require 'dtk-speak)
                    (require 'emacspeak-speak)
-                   (require 'voice-lock)
+                   (require 'emacspeak-personality)
                    (require 'emacspeak-sounds))
 
 ;;}}}

@@ -47,7 +47,7 @@
 (require 'thingatpt)
 (require 'emacspeak-speak)
 (require 'emacspeak-pronounce)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-sounds)
 
 ;;}}}

@@ -95,6 +95,11 @@
 ;;}}}
 ;;{{{ Deactivate old voice lock routines.
 ;;; First, we deactivate the voice lock code from module voice-lock.el
+
+(defun voice-lock-set-major-mode-keywords (&rest ignore)
+  "Redefined to be a no-op."
+  t)
+
 ;;; by redefining its entry points to be no-ops.
 
 (defun voice-lock-voiceify-buffer (&rest ignore)
@@ -122,6 +127,8 @@ voicified."
   :group 'emacspeak)
 
 
+
+;;;###autoload
 (defun voice-lock-mode (&optional arg)
   "Toggle Voice Lock mode.
 With arg, turn Voice Lock mode on if and only if arg is positive.

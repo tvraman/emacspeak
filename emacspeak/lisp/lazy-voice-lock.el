@@ -273,7 +273,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (load compile)
   (provide 'lazy-voice-lock)	 ;prevent byte compiler from recursing
-  (require 'voice-lock))
+  (require 'emacspeak-personality))
 
 ;; Make sure lazy-voice-lock.el is supported.
 ;;commenting out  

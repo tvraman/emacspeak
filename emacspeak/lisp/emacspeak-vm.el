@@ -41,7 +41,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'dtk-voices)
-(require 'voice-lock)
+(require 'emacspeak-personality)
 (require 'emacspeak-keymap)
 (require 'dtk-speak)
 (require 'emacspeak-sounds)
