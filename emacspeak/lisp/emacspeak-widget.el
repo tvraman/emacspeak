@@ -231,7 +231,7 @@
               (unwind-protect 
                   (let ((inhibit-read-only t))
                     (erase-buffer)
-                    (insert "edit field")
+                    (insert "edit field ")
                     (insert format)
                     (put-text-property (point-min) (point-max) 'read-only nil)
                     (goto-char (point-min))
@@ -493,6 +493,26 @@ prefix."
   (define-key widget-text-keymap  emacspeak-prefix 'emacspeak-prefix-command)
   (define-key widget-text-keymap  "\C-ee" 'widget-end-of-line)
   )
+;;}}}
+;;{{{ augment widgets 
+(defun emacspeak-widget-update-from-minibuffer (point)
+  "Sets widget at point by invoking its prompter."
+  (interactive "d")
+  (let ((w (widget-at (point))))
+    (widget-value-set w
+                      (widget-apply w
+                                    :prompt-value
+                                    (widget-get w :tag)
+                                    (widget-value w)
+                                    nil))
+    (widget-setup)
+    (widget-apply w :notify)
+    (emacspeak-widget-summarize w)))
+
+(declaim (special widget-keymap))
+
+(define-key emacspeak-widget-field-keymap "\M-\C-m" 'widget-update-from-minibuffer)
+
 ;;}}}
 (provide  'emacspeak-widget)
 ;;{{{  emacs local variables 
