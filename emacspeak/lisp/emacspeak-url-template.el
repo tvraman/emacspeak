@@ -1029,7 +1029,7 @@ plays entire program."
 #'(lambda ()
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-           ("prdownloads.sourceforge.net"
+           '("prdownloads.sourceforge.net"
             "umn.dl.sourceforge.net/sourceforge")))
  "Retrieve download table  at Sourceforge for specified project."
  #'(lambda (url)

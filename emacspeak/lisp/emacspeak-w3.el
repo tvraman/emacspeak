@@ -1679,6 +1679,25 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
    (t ad-do-it))
   ad-return-value)
 ;;}}}
+;;{{{  make wget aware of emacspeak w3 url rewrite functionality 
+(when (featurep 'w3-wget)
+  (defadvice w3-wget (before emacspeak pre act comp)
+  "Become aware of emacspeak w3 url rewrite rule,
+and make the redirect available via the minibuffer history."
+  (when (and (interactive-p)
+             (ad-get-arg 0))
+  (let ((url (w3-view-this-url t))
+        (redirect nil))
+    (unless url
+      (error "Not on a link."))
+    (setq redirect
+          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                url
+                                (second
+                                 emacspeak-w3-url-rewrite-rule)))
+    (push redirect minibuffer-history)))))
+
+;;}}}
 ;;{{{  emacs local variables 
 
 ;;; local variables:
