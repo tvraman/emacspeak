@@ -222,7 +222,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "," 'emacspeak-speak-browse-buffer )
 (define-key emacspeak-keymap ";" 'emacspeak-realaudio )
 (define-key emacspeak-keymap ":" 'emacspeak-realaudio-browse )
-(define-key emacspeak-keymap "C" 'emacspeak-speak-display-char)
+(define-key emacspeak-keymap "C" 'emacspeak-customize)
 (define-key emacspeak-keymap "\C-o" 'emacspeak-ocr )
 (define-key emacspeak-keymap "\C-c"
   'emacspeak-clipboard-copy)
