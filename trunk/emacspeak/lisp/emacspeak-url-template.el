@@ -467,15 +467,18 @@ content."
       (nxml-mode)
       (indent-region (point-min) (point-max))
       )
-    (switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (goto-char (point-min))
+    (forward-line 1)))
 
 (emacspeak-url-template-define
   "Google Maps Give Me XML"
-  "http://maps.google.com/maps?q=%s&what=%s&where=%s&start=%s&end=%s&btnG=Search"
+  "http://maps.google.com/maps?q=%s&what=%s&where=%s&near=%s&start=%s&end=%s&btnG=Search"
   (list
    "Search For:"
+   "What:"
    "Where: "
-   "What: "
+   "Near: "
    "Start: "
    "End: ")
   nil
