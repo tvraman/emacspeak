@@ -96,7 +96,7 @@
 
 ;;}}}
 ;;{{{  helper for voice custom items:
-(fset 'tts-list-voices 'dtk-list-voices)
+(defalias 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
 (let ((v (tts-list-voices)))
   (cons 'choice v)))

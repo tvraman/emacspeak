@@ -458,6 +458,7 @@ collect (list 'const  k)))
   (declare (special tts-default-speech-rate
                     outloud-default-speech-rate
                     emacspeak-use-auditory-icons
+                    emacspeak-aumix-midi-available-p
                     emacspeak-aumix-multichannel-capable-p))
   (fset 'tts-list-voices'outloud-list-voices)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
