@@ -47,12 +47,12 @@
 (require 'custom)
 (require 'voice-setup)
 (require 'thingatpt)
-(require 'dtk-speak )
 (eval-when-compile
   (require 'dtk-interp)
   (require 'shell)
   (require 'which-func nil)
-  (require 'emacspeak-sounds))
+  
+(require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{  Introduction:
@@ -266,8 +266,6 @@ Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode )))
   
 
-(ems-generate-switcher 
-
 ;;; Execute action at point
 (defsubst emacspeak-handle-action-at-point ()
   "Execute action specified at point."
@@ -277,6 +275,7 @@ Argument MODE defines action mode."
       (condition-case nil
           (funcall  action-spec )
         (error (message "Invalid actionat %s" (point )))))))
+
 (ems-generate-switcher 'emacspeak-toggle-action-mode
                        'emacspeak-action-mode
                         "Toggle state of  Emacspeak  action mode.
