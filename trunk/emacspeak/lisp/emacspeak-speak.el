@@ -704,16 +704,14 @@ lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode voice-animate
-                    voice-indent
-                    dtk-stop-immediately
+                    voice-indent dtk-stop-immediately
                     inhibit-field-text-motion
                     emacspeak-speak-line-invert-filter
                     dtk-punctuation-mode
                     emacspeak-speak-space-regexp
                     emacspeak-speak-maximum-line-length
                     emacspeak-show-point
-                    emacspeak-decoration-rule
-                    emacspeak-horizontal-rule
+                    emacspeak-decoration-rule emacspeak-horizontal-rule
                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
@@ -729,10 +727,18 @@ are indicated with auditory icon ellipses."
       (setq start (point))
       (end-of-line)
       (setq end (point))
+                                        ;determine what to speak based on prefix arg
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
+      (setq line 
+            (if emacspeak-show-point
+                (ems-set-personality-temporarily
+                 orig (1+ orig)
+                 voice-animate
+                 (buffer-substring  start end ))
+              (buffer-substring start end )))
       (when (and emacspeak-audio-indentation
                  (null arg ))
         (let ((limit (line-end-position)))
@@ -741,16 +747,9 @@ are indicated with auditory icon ellipses."
 	  (setq indent  (current-column )))
         (when (string= emacspeak-audio-indentation-method "tone")
           (emacspeak-indent indent )))
-      (setq line 
-            (if emacspeak-show-point
-                (ems-set-personality-temporarily
-                 orig (1+ orig)
-                 voice-animate
-                 (buffer-substring  start end ))
-              (buffer-substring start end )))
-      (when(or  (get-text-property  start
-  'emacspeak-hidden-block)
-                (text-invisible-p end))
+      (when
+          (or (text-invisible-p end)
+              (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
        ((string= ""  line)              ;blank line
@@ -763,16 +762,14 @@ are indicated with auditory icon ellipses."
         (dtk-tone 300   120 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'blank-line)))
-       ((and
-         (not (string= "all" dtk-punctuation-mode))
-         (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
+       ((and (not (string= "all" dtk-punctuation-mode))
+             (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'horizontal-rule)))
-       ((and
-         (not (string= "all" dtk-punctuation-mode))
-         (string-match  emacspeak-decoration-rule line) ) ;decorative rule
+       ((and (not (string= "all" dtk-punctuation-mode))
+             (string-match  emacspeak-decoration-rule line) ) ;decorative rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
         (when (emacspeak-using-midi-p)
@@ -783,41 +780,36 @@ are indicated with auditory icon ellipses."
         (dtk-tone 550   100 'force)
         (when (emacspeak-using-midi-p)
           (emacspeak-play-midi-icon 'unspeakable-rule)))
-       (t
-        (let ((l (length line))
-              (confirm nil))
-          (when
-              (or selective-display
-                  (< l emacspeak-speak-maximum-line-length)
-                  (get-text-property start
-                                     'emacspeak-speak-this-long-line)
-                  (setq confirm 
-                        (y-or-n-p
-                         (format "Speak  this  %s long line? "
-                                 l))))
-            (when confirm
-                                        ;update threshold
-              (setq emacspeak-speak-maximum-line-length (1+ l))
-              (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
-              ;; record the y answer
-              (ems-modify-buffer-safely
-               (put-text-property start end
-                                  'emacspeak-speak-this-long-line t)))
-            (when (and (null arg)
-                       emacspeak-speak-line-column-filter)
-              (setq line
-                    (emacspeak-speak-line-apply-column-filter line
-                                                              emacspeak-speak-line-invert-filter)))
-            (if (and (string= "speak" emacspeak-audio-indentation-method )
-                     (null arg )
-                     indent
-                     (> indent 0))
-                (progn
-                  (setq indent (format "indent %d" indent))
-                  (put-text-property   0 (length indent)
-                                       'personality voice-indent   indent )
-                  (dtk-speak (concat indent line)))
-              (dtk-speak line)))))))))
+       (t (let ((l (length line))
+                (confirm nil))
+            (when (or selective-display
+                      (< l emacspeak-speak-maximum-line-length)
+                      (get-text-property start 'emacspeak-speak-this-long-line)
+                      (setq confirm 
+                            (y-or-n-p
+                             (format "Speak  this  %s long line? " l))))
+              (when confirm             ;update threshold
+                (setq emacspeak-speak-maximum-line-length (1+ l))
+                (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
+                ;; record the y answer
+                (ems-modify-buffer-safely
+                 (put-text-property start end
+                                    'emacspeak-speak-this-long-line t)))
+              (when (and (null arg)
+                         emacspeak-speak-line-column-filter)
+                (setq line
+                      (emacspeak-speak-line-apply-column-filter line
+                                                                emacspeak-speak-line-invert-filter)))
+              (if (and (string= "speak" emacspeak-audio-indentation-method )
+                       (null arg )
+                       indent
+                       (> indent 0))
+                  (progn
+                    (setq indent (format "indent %d" indent))
+                    (put-text-property   0 (length indent)
+                                         'personality voice-indent   indent )
+                    (dtk-speak (concat indent line)))
+                (dtk-speak line)))))))))
 
 (defvar emacspeak-speak-last-spoken-word-position nil
   "Records position of the last word that was spoken.
