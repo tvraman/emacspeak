@@ -627,18 +627,55 @@ by cut -c on UNIX."
 
 (make-variable-buffer-local 'emacspeak-speak-line-column-filter)
 
-(defsubst emacspeak-speak-line-apply-column-filter (line)
+(defcustom emacspeak-speak-line-invert-filter nil
+  "Non-nil means the sense of `filter' is inverted when filtering
+columns in a line --see 
+command emacspeak-speak-line-set-column-filter."
+  :type 'boolean
+  :group 'emacspeak-speak)
+
+(make-variable-buffer-local 'emacspeak-speak-line-invert-filter)
+
+(defun emacspeak-toggle-speak-line-invert-filter (&optional prefix)
+  "Toggle state of   how column filter is interpreted.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result."
+  (interactive  "P")
+  (declare  (special  emacspeak-speak-line-invert-filter ))
+  (cond
+   (prefix
+    (setq-default  emacspeak-speak-line-invert-filter
+                   (not  (default-value 'emacspeak-speak-line-invert-filter )))
+    (setq emacspeak-speak-line-invert-filter (default-value 'emacspeak-speak-line-invert-filter )))
+   (t (make-local-variable 'emacspeak-speak-line-invert-filter)
+      (setq emacspeak-speak-line-invert-filter
+	    (not emacspeak-speak-line-invert-filter ))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-speak-line-invert-filter 'on 'off))
+    (message "Turned %s invert filter %s "
+             (if emacspeak-speak-line-invert-filter "on" "off" )
+             (if prefix "" " locally"))))
+
+
+
+(defsubst emacspeak-speak-line-apply-column-filter (line &optional invert-filter)
   (declare (special emacspeak-speak-line-column-filter))
   (let ((filter emacspeak-speak-line-column-filter)
-        (l (1+ (length line)))
-        (pair nil))
+        (l  (length line))
+        (pair nil)
+        (personality (if invert-filter nil
+                       'inaudible)))
+    (when invert-filter
+      (put-text-property  0   l
+                          'personality 'inaudible line))
     (while filter 
       (setq pair (pop filter))
-      (when (and (< (first pair) l)
-                 (< (second pair) l))
+      (when (and (<= (first pair) l)
+                 (<= (second pair) l))
         (put-text-property (first pair)
                            (second pair)
-                           'personality 'inaudible
+                           'personality personality
                            line)))
     line))
 
@@ -752,9 +789,9 @@ turned on --see command `emacspeak-show-point' bound to
 text, e.g.  outline header lines, or header lines of blocks
 created by command `emacspeak-hide-or-expose-block' are
 indicated with auditory icon ellipses."
-
   (interactive "P")
   (declare (special voice-lock-mode
+                    emacspeak-speak-line-invert-filter
                     emacspeak-speak-space-regexp
                     outline-minor-mode folding-mode
                     emacspeak-speak-maximum-line-length
@@ -849,7 +886,8 @@ indicated with auditory icon ellipses."
             (when (and (null arg)
                        emacspeak-speak-line-column-filter)
               (setq line
-                    (emacspeak-speak-line-apply-column-filter line)))
+                    (emacspeak-speak-line-apply-column-filter line
+                                                              emacspeak-speak-line-invert-filter)))
             (if (and (string= "speak" emacspeak-audio-indentation )
                      (null arg )
                      indent
