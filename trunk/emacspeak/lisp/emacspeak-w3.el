@@ -853,10 +853,10 @@ current page."
          (format "/tmp/%s.html"
                  (make-temp-name "w3"))))
     (write-region (point-min) 
-(point-max)
-filename)
-(w3-open-local filename)
-(delete-file filename)))
+                  (point-max)
+                  filename)
+    (w3-open-local filename)
+    (delete-file filename)))
 
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this buffer."
@@ -865,10 +865,10 @@ filename)
          (format "/tmp/%s.html"
                  (make-temp-name "w3"))))
     (write-region (point-min) 
-(point-max)
-filename)
-(w3-open-local filename)
-(delete-file filename)))
+                  (point-max)
+                  filename)
+    (w3-open-local filename)
+    (delete-file filename)))
 
 ;;}}}
 ;;{{{ fix bug in W3 under emacs 21 
