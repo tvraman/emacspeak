@@ -160,7 +160,7 @@ personality settings."
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
   (ems-modify-buffer-safely
-   (let ((orig (get-text-property start 'personality))
+   (let ((orig (get-text-property start 'personality object))
          (new nil)
          (extent
           (next-single-property-change
@@ -192,7 +192,7 @@ Existing personality properties on the text range are preserved."
   "Prepend specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
   (ems-modify-buffer-safely
-   (let ((orig (get-text-property start 'personality))
+   (let ((orig (get-text-property start 'personality object))
          (new nil)
          (extent
           (next-single-property-change
@@ -226,7 +226,7 @@ Existing personality properties on the text range are preserved."
 Other existing personality properties on the text range are
 preserved."
   (ems-modify-buffer-safely
-   (let ((orig (get-text-property start 'personality))
+   (let ((orig (get-text-property start 'personality object))
 	 (new nil)
 	 (extent
 	  (next-single-property-change
