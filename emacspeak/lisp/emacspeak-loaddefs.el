@@ -28,7 +28,7 @@ cap C   Save clip to disk
 ;;;***
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16005 60040))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16006 14092))
 ;;; Generated autoloads from dtk-speak.el
 
 (autoload (quote tts-restart) "dtk-speak" "\
@@ -889,7 +889,7 @@ Fall back summarizer for all widgets" nil nil)
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16005 60041))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16006 1972))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1252,8 +1252,8 @@ part of the libxslt package." nil nil)
 
 ;;;***
 
-;;;### (autoloads (voice-lock-mode) "voice-setup" "voice-setup.el"
-;;;;;;  (16005 60041))
+;;;### (autoloads (turn-on-voice-lock voice-lock-mode) "voice-setup"
+;;;;;;  "voice-setup.el" (16006 3170))
 ;;; Generated autoloads from voice-setup.el
 
 (autoload (quote voice-lock-mode) "voice-setup" "\
@@ -1262,6 +1262,9 @@ With arg, turn Voice Lock mode on if and only if arg is positive.
 
 This light-weight voice lock engine leverages work already done by
 font-lock.  Voicification is effective only if font lock is on." t nil)
+
+(autoload (quote turn-on-voice-lock) "voice-setup" "\
+Turn on Voice Lock mode ." nil nil)
 
 ;;;***
 

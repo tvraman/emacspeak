@@ -73,7 +73,8 @@ a local  Emacspeak terminal buffer.")
 
 (defun emacspeak-remote-default-hook ()
   "Function run by default  when we launch a remote session"
-  (declare (special emacspeak-remote-update-keymap))
+  (declare (special emacspeak-remote-update-keymap
+                    emacspeak-auditory-icon-function))
   (when emacspeak-remote-update-keymap
     (emacspeak-keymap-choose-new-emacspeak-prefix
      (format "%c" 18)))
