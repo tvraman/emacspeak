@@ -466,10 +466,10 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Weather "
- "http://weather.cnnaudience.com/cgi-bin/weather/redirect?zip=%s"
+ "http://weather.cnn.com/weather/forecast.jsp?locCode=%s"
  (list
   #'(lambda nil
-      (read-from-minibuffer "US Zip Code: ")))
+      (read-from-minibuffer "City Code: ")))
  nil
  "Weather Forecast from CNN"
  #'(lambda (url)
