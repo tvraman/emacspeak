@@ -430,7 +430,7 @@ First loads any persistent dictionaries if not already loaded."
       (emacspeak-pronounce-load-dictionaries))
     (unless  (string= key-type  "buffer")
       (emacspeak-pronounce-add-dictionary-entry key word pronunciation)
-      (funcall 'emacspeak-pronounce-refresh-pronunciations))
+      (emacspeak-pronounce-refresh-pronunciations))
     (when (string= key-type  "buffer")
       (emacspeak-pronounce-add-buffer-local-dictionary-entry  word pronunciation))))
 
