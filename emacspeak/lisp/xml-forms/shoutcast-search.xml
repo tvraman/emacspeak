@@ -15,7 +15,9 @@
 <td><label for="find">Find </label>
  <input name="s" id="find" />
 </td>
-<td><label for="genre">Genre</label> <select id="genre"
+<td>
+            <label for="genre">Genre</label>
+            <select id="genre"
 name="genre">
 <option value="TopTen">[Top 25 Streams]</option>
 <option value="Alternative">Alternative</option>
