@@ -2123,7 +2123,6 @@ Non-nil means we split speech on newlines in comint buffer."
              (when emacspeak-comint-split-speech-on-newline
                (modify-syntax-entry 10 ">")))
 
-
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
 ;;}}}
