@@ -75,8 +75,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
-      ;(when (emacspeak-sounds-theme-p "chimes-mono/")
-        ;(emacspeak-sounds-select-theme "chimes-mono/"))
+                                        ;(when (emacspeak-sounds-theme-p "chimes-mono/")
+                                        ;(emacspeak-sounds-select-theme "chimes-mono/"))
       (tts-configure-synthesis-setup)
       (dtk-set-rate tts-default-speech-rate 'global))
 
@@ -334,7 +334,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "psgml-prepare")
     (load-library-if-available "xae-prepare")
     (load-library-if-available "tdtd-prepare")
-    ;(load-library-if-available "xslide-prepare")
+                                        ;(load-library-if-available "xslide-prepare")
     (load-library-if-available "xslt-process-prepare")
     ;;}}}
     ;;{{{ sql
@@ -430,9 +430,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "color-theme")
     (color-theme-emacs-21)
     ;;}}}
-;;{{{ newsticker
-(load-library-if-available "newsticker")
-;;}}}
+    ;;{{{ newsticker
+    (load-library-if-available "newsticker")
+    ;;}}}
+    ;;{{{ kmacro
+
+    (load-library-if-available "kmacro")
+
+    ;;}}}
     ;;{{{ bib-find
     (load-library-if-available "bibfind")
     ;;}}}
