@@ -1437,55 +1437,55 @@ ad-do-it
            (stringp vc-mode))
       (substring id 5  nil ))
      (t " "))))
-
+(when (locate-library "vc")
 ;;; Advice for most used vc functions:
 
-(defadvice vc-toggle-read-only (around emacspeak pre act)
-  "Provide auditory feedback."
-  (cond
-   ((interactive-p)
-    (let ((message (format  "Checking %s version %s "
-                            (if buffer-read-only  "out previous " " in new  ")
-                            (emacspeak-vc-get-version-id))))
-      (if buffer-read-only
-          (emacspeak-auditory-icon 'open-object )
-        (emacspeak-auditory-icon 'close-object))
-      ad-do-it
-      (message message )))
-   (t ad-do-it ))
-  ad-return-value )
+  (defadvice vc-toggle-read-only (around emacspeak pre act)
+    "Provide auditory feedback."
+    (cond
+     ((interactive-p)
+      (let ((message (format  "Checking %s version %s "
+                              (if buffer-read-only  "out previous " " in new  ")
+                              (emacspeak-vc-get-version-id))))
+        (if buffer-read-only
+            (emacspeak-auditory-icon 'open-object )
+          (emacspeak-auditory-icon 'close-object))
+        ad-do-it
+        (message message )))
+     (t ad-do-it ))
+    ad-return-value )
 
-(defadvice vc-next-action (around  emacspeak pre act)
-  "Provide auditory feedback."
-  (cond
-   ((interactive-p)
-    (let ((message (format  "Checking %s version %s "
-                            (if buffer-read-only  "out previous " " in new  ")
-                            (emacspeak-vc-get-version-id))))
-      (if buffer-read-only
-          (emacspeak-auditory-icon 'close-object)
-        (emacspeak-auditory-icon 'open-object ))
-      ad-do-it
-      (message message)))
-   (t ad-do-it ))
-  ad-return-value )
+  (defadvice vc-next-action (around  emacspeak pre act)
+    "Provide auditory feedback."
+    (cond
+     ((interactive-p)
+      (let ((message (format  "Checking %s version %s "
+                              (if buffer-read-only  "out previous " " in new  ")
+                              (emacspeak-vc-get-version-id))))
+        (if buffer-read-only
+            (emacspeak-auditory-icon 'close-object)
+          (emacspeak-auditory-icon 'open-object ))
+        ad-do-it
+        (message message)))
+     (t ad-do-it ))
+    ad-return-value )
 
-(defadvice vc-revert-buffer (after emacspeak pre act)
-  "Provide auditory feedback."
-  (when (interactive-p  )
-    (emacspeak-auditory-icon 'open-object)))
+  (defadvice vc-revert-buffer (after emacspeak pre act)
+    "Provide auditory feedback."
+    (when (interactive-p  )
+      (emacspeak-auditory-icon 'open-object)))
 
-(defadvice vc-finish-logentry (after emacspeak pre act)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon  'close-object)
-    (message "Checked   in  version %s "
-             (emacspeak-vc-get-version-id))))
+  (defadvice vc-finish-logentry (after emacspeak pre act)
+    "Provide auditory feedback."
+    (when (interactive-p)
+      (emacspeak-auditory-icon  'close-object)
+      (message "Checked   in  version %s "
+               (emacspeak-vc-get-version-id))))
 
-(progn
-  (require 'vc)
-  (emacspeak-fix-interactive-command-if-necessary 'vc-create-snapshot)
-  (emacspeak-fix-interactive-command-if-necessary 'vc-retrieve-snapshot))
+  (progn
+    (require 'vc)
+    (emacspeak-fix-interactive-command-if-necessary 'vc-create-snapshot)
+    (emacspeak-fix-interactive-command-if-necessary 'vc-retrieve-snapshot)))
 
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
