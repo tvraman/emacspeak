@@ -2902,6 +2902,15 @@ Variable mark-even-if-inactive is set true ."
 
 
 ;;}}}
+;;{{{ advice load and friends 
+
+
+(defadvice load (after emacspeak pre act comp)
+  "Fix interactive commands just defined."
+  (emacspeak-fix-all-recent-commands
+   (file-name-sans-extension
+    (ad-get-arg 0))))
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
