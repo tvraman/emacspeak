@@ -13,6 +13,7 @@ This style-sheet is here mostly as  a sample template.
   <xsl:output method="html" indent="yes" encoding="iso8859-1"/>
   <xsl:param name="class"/>
   <xsl:param name="base"/>
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
   <!--add base uri if available. -->

@@ -15,6 +15,7 @@ Parameter base specifies base URL of source document.
   encoding="iso8859-15"/>
   <xsl:param name="table-index">1</xsl:param>
   <xsl:param name="base"/>
+  <xsl:include href="object.xsl"/>
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
   <!--add base uri if available. -->
