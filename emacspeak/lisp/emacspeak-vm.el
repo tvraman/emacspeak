@@ -503,7 +503,7 @@ Leave point at front of decoded attachment."
           (function
            (lambda nil
              (emacspeak-pronounce-refresh-pronunciations))))
-
+(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'vm-presentation-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 

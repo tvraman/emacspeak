@@ -58,6 +58,7 @@
   "Provide additional auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
+(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'tnt-im-mode
 					    emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'tnt-chat-mode
