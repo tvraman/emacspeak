@@ -701,7 +701,7 @@ widget before summarizing."
 (defadvice widget-setup (after emacspeak pre act comp)
   "Update widget keymaps."
   (declare (special emacspeak-prefix
-                    widget-keymap widget-field-keymap widget-text-keymap))
+                    widget-keymap widget-field-keymap ))
   (loop for map in
         (list widget-keymap
               widget-field-keymap
