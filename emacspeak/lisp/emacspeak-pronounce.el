@@ -255,16 +255,38 @@ Modifies text and point in buffer."
                 (pronunciation (gethash  key pronunciation-table ))
                 (personality nil))
             (goto-char (point-min))
-            (while (search-forward  word nil t)
-              (setq personality
-                    (get-text-property (point) 'personality))
-              (replace-match  pronunciation t t  )
-              (put-text-property
-               (match-beginning 0)
-               (+ (match-beginning 0) (length pronunciation))
-               'personality
-               (or emacspeak-pronounce-pronunciation-personality
-                   personality)))))))
+            (cond
+             ((stringp pronunciation)
+              (while (search-forward  word nil t)
+                (setq personality
+                      (get-text-property (point) 'personality))
+                (replace-match  pronunciation t t  )
+                (put-text-property
+                 (match-beginning 0)
+                 (+ (match-beginning 0) (length pronunciation))
+                 'personality
+                 (or emacspeak-pronounce-pronunciation-personality
+                     personality))))
+             ((consp pronunciation )
+              (let ((matcher (car pronunciation))
+                    (pronouncer (cdr pronunciation))
+                    (pronunciation ""))
+                (while (funcall matcher   word nil t)
+                  (setq personality
+                        (get-text-property (point) 'personality))
+                  (setq pronunciation 
+                        (funcall pronouncer
+                                 (buffer-substring 
+                                  (match-beginning 0)
+                                  (match-end 0))))
+                  (replace-match pronunciation t t  )
+                  (put-text-property
+                   (match-beginning 0)
+                   (+ (match-beginning 0) (length pronunciation))
+                   'personality
+                   (or emacspeak-pronounce-pronunciation-personality
+                       personality)))))
+             (t nil))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
