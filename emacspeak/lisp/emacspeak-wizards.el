@@ -464,6 +464,7 @@ specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking."
   (interactive "P")
   (declare (special emacspeak-speak-network-interfaces
+                    emacspeak-speak-message-again-should-copy-to-kill-ring
                     emacspeak-last-message
                     emacspeak-speak-show-active-network-interfaces-command
                     emacspeak-speak-show-active-network-interfaces-addresses))
@@ -479,7 +480,8 @@ also copied to the kill ring for convenient yanking."
      (t (setq command 
               emacspeak-speak-show-active-network-interfaces-command)))
     (shell-command command )
-    (when address 
+    (when (and address
+               (not emacspeak-speak-message-again-should-copy-to-kill-ring))
       (kill-new emacspeak-last-message))))
 
 ;;}}}
