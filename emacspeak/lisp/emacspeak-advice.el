@@ -2414,41 +2414,45 @@ Produce auditory icons if possible."
 (defadvice isearch-yank-word (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (dtk-speak isearch-string)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-yank-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (dtk-speak isearch-string)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-yank-line (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (dtk-speak isearch-string)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice isearch-ring-advance (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line )))
+    (dtk-speak isearch-string)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice isearch-ring-retreat (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line )))
+    (dtk-speak isearch-string)))
 
 (defadvice isearch-ring-advance-edit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line )))
+    (dtk-speak isearch-string)))
 
 (defadvice isearch-ring-retreat-edit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line )))
+    (dtk-speak isearch-string)))
+
 ;;; Note the advice on the next two toggle commands 
 ;;; checks the variable being toggled.
 ;;; When our advice is called, emacs has not yet reflected
