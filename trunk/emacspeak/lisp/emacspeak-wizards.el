@@ -1272,14 +1272,11 @@ Extracted content is placed as a csv file in task.csv."
 ;;; while reading and commenting on large documents.
 
 (defsubst emacspeak-annotate-make-buffer-list  (&optional buffer-list)
-  "Returns names from BUFFER-LIST excluding those beginning
-with a space."
+  "Returns names from BUFFER-LIST excluding those beginning with a space."
   (let (buf-name)
     (delq nil (mapcar
                (function
                 (lambda (b)
-                  ;; b might be a killed buffer, so buffer-name could
-                  ;; be nil.
                   (setq buf-name (buffer-name b))
                   (and (stringp buf-name)
                        (/= (length buf-name) 0)
@@ -1320,14 +1317,15 @@ annotation is inserted into the working buffer when complete."
   (unless emacspeak-annotate-working-buffer
     (setq emacspeak-annotate-working-buffer
           (read-buffer "Annotation working buffer: "
-                       (cadr
-                        (emacspeak-annotate-make-buffer-list)))))
+                       (cadr (emacspeak-annotate-make-buffer-list)))))
   (let ((annotation nil)
+        (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
     (message "Adding annotation to %s" emacspeak-annotate-working-buffer)
     (save-excursion
-      (set-buffer emacspeak-annotate-working-buffer)
-      (setq annotation    (emacspeak-annotate-get-annotation))
+      (setq annotation
+            (emacspeak-annotate-get-annotation))
+      (set-buffer work-buffer)
       (insert annotation)
       (insert "\n"))
     (pop-to-buffer parent-buffer)
