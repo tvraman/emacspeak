@@ -39,7 +39,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{ required packages:
 
-
 ;;; Commentary:
 ;;{{{  Introduction:
 ;;; This module makes eterm talk.
@@ -142,7 +141,7 @@
   (define-key emacspeak-eterm-keymap "\C-y" 'emacspeak-eterm-yank-window)
   (define-key emacspeak-eterm-keymap "\C-f"
     'emacspeak-eterm-set-focus-window)
-(define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
+  (define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
   (define-key emacspeak-eterm-keymap "\C-m" 'emacspeak-eterm-speak-window)
   (define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-toggle-review)
@@ -204,7 +203,6 @@ Useful when eterm is in review mode.")
   :type 'symbol
   :group 'emacspeak-eterm)
 
-
 ;;}}}
 ;;{{{  functions
 
@@ -247,7 +245,6 @@ in a non eterm buffer if executed via C-e C-e"
     (message 
      "Pointer at row %s column %s "
      (cdr coordinates ) (car coordinates ))))
-
 
 (defun emacspeak-eterm-speak-screen (&optional flag )
   "Speak the screen.  Default is to speak from the emacspeak pointer  to point.
@@ -751,7 +748,7 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
               end (emacspeak-eterm-coordinates-to-position bottom-right))
         (setq contents
               (cond
-               ((and left-stretch right-stretch );; stretchable window
+               ((and left-stretch right-stretch ) ;; stretchable window
                 (goto-char start )
                 (beginning-of-line )
                 (setq start (point))
@@ -884,10 +881,6 @@ Argument ID specifies the window."
        (emacspeak-eterm-return-window-contents
         (emacspeak-eterm-get-window id ))))))
 
-
-
-
-
 (defun emacspeak-eterm-yank-window (id)
   "Yank contents of  an eterm window at point."
   (interactive "nYank contents of window")
@@ -957,7 +950,6 @@ non-negative integer ")
         (setq emacspeak-eterm-focus-window window-id )
         (message "Set emacspeak eterm focus window  to %d " window-id )))))))
 
-
 (defun emacspeak-eterm-toggle-focus-window ()
   "Toggle active state of focus window."
   (interactive)
@@ -967,8 +959,8 @@ non-negative integer ")
     (setq emacspeak-eterm-focus-window 1))
   (dtk-stop)
   (emacspeak-auditory-icon
-     (if emacspeak-eterm-focus-window
-         'on 'off)))
+   (if emacspeak-eterm-focus-window
+       'on 'off)))
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
@@ -1059,13 +1051,11 @@ all output to the terminal is automatically spoken.
 (defvar eterm-char-mode t
   "Flag indicating if eterm is in char mode.")
 
-
 (defvar emacspeak-eterm-pointer-mode t 
   "If T then the emacspeak pointer will not track the terminal cursor.
 Do not set this by hand.
 Use command emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
-
 
 (defadvice  term-emulate-terminal (around emacspeak pre act compile )
   "Record position, emulate, then speak what happened.
@@ -1241,7 +1231,6 @@ there is terminal activity."
   "Speak the line. "
   (when (interactive-p)
     (emacspeak-speak-line )))
-
 
 (defadvice term-previous-input (after emacspeak pre act)
   "Speak the line. "

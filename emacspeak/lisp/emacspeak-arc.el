@@ -60,11 +60,11 @@
 (defun emacspeak-archive-speak-line ()
   "Speak line in archive mode intelligently"
   (end-of-line)
-(cond
-((null (char-after (1+ (point))))
-(emacspeak-speak-line))
-(t (skip-syntax-backward "^ ")  
-  (emacspeak-speak-line 1))))
+  (cond
+   ((null (char-after (1+ (point))))
+    (emacspeak-speak-line))
+   (t (skip-syntax-backward "^ ")  
+      (emacspeak-speak-line 1))))
 
 ;;}}}
 ;;{{{ fix interactive commands that need fixing 
@@ -73,10 +73,10 @@
 ;;{{{ Advice
 
 (defadvice archive-mark (after emacspeak pre act comp)
-"Provide auditory feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'mark-object)
-(emacspeak-archive-speak-line)))
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-archive-speak-line)))
 
 (defadvice archive-next-line (after emacspeak pre act comp)
   "Provide spoken feedback"
@@ -104,7 +104,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-archive-speak-line)))
-
 
 (defadvice archive-extract (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -159,7 +158,6 @@ first initializing it if necessary."
         (1- position)
       position )))
 
-
 (defun emacspeak-arc-speak-file-name ()
   "Speak the name of the file on current line"
   (interactive)
@@ -170,9 +168,9 @@ first initializing it if necessary."
      ((null entry)
       (message "No file on this line"))
      (t
-  (message "File: %s"
-           (nth  (emacspeak-arc-get-field-index "File")
-                 (split-string (thing-at-point 'line))))))))
+      (message "File: %s"
+	       (nth  (emacspeak-arc-get-field-index "File")
+		     (split-string (thing-at-point 'line))))))))
 
 (defun emacspeak-arc-speak-file-size ()
   "Speak the size of the file on current line"
@@ -184,9 +182,9 @@ first initializing it if necessary."
      ((null entry)
       (message "No file on this line"))
      (t
-  (message "Size: %s"
-           (nth  (emacspeak-arc-get-field-index "Length")
-                 (split-string (thing-at-point 'line))))))))
+      (message "Size: %s"
+	       (nth  (emacspeak-arc-get-field-index "Length")
+		     (split-string (thing-at-point 'line))))))))
 
 (defun emacspeak-arc-speak-file-modification-time ()
   "Speak modification time of the file on current line"
@@ -198,14 +196,13 @@ first initializing it if necessary."
      ((null entry)
       (message "No file on this line"))
      (t
-  (let* ((fields (split-string (thing-at-point 'line)))
-         (date (nth  (emacspeak-arc-get-field-index "Date")
-                     fields))
-         (time (nth  (emacspeak-arc-get-field-index "Time")
-                     fields)))
-    (message "Modified on %s at %s"
-             date time))))))
-
+      (let* ((fields (split-string (thing-at-point 'line)))
+	     (date (nth  (emacspeak-arc-get-field-index "Date")
+			 fields))
+	     (time (nth  (emacspeak-arc-get-field-index "Time")
+			 fields)))
+	(message "Modified on %s at %s"
+		 date time))))))
 
 (defun emacspeak-arc-speak-file-permissions()
   "Speak permissions of file current entry "
@@ -220,7 +217,7 @@ first initializing it if necessary."
      (t
       (setq mode
             (archive-int-to-mode
-            (aref entry 3)))
+	     (aref entry 3)))
       (message  "Permissions  %s "
                 mode)))))
 (defun emacspeak-arc-setup-keys ()

@@ -435,11 +435,11 @@ previous window configuration."
   "Command that displays names of active network interfaces."
   :type 'string
   :group 'emacspeak-wizards)
-;"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed
-;'s/addr://'`"
+					;"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed
+					;'s/addr://'`"
 
 (defcustom emacspeak-speak-show-active-network-interfaces-addresses
-"ifconfig %s |grep inet |cut -d : -f 2 |cut -d \\  -f 1"
+  "ifconfig %s |grep inet |cut -d : -f 2 |cut -d \\  -f 1"
   "Command that displays address of  a specific interface."
   :type 'string
   :group 'emacspeak-wizards

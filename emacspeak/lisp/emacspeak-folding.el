@@ -52,7 +52,6 @@
 ;;}}}
 ;;{{{ Advice
 
-
 (defadvice fold-goto-line (after emacspeak pre act)
   "Speak the line. "
   (when (interactive-p)
@@ -66,7 +65,7 @@
 
 (defadvice fold-enter (after emacspeak pre act)
   "Produce an auditory icon and then speak the line. "
-(when (interactive-p)
+  (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
@@ -78,10 +77,10 @@ Then speak the folded line."
     (emacspeak-speak-line)))
 
 (defadvice fold-fold-region (after emacspeak pre act)
-"Produce an auditory icon. "
-(when (interactive-p )
-(emacspeak-auditory-icon 'open-object)
-(message "Specify a meaningful name for the new fold ")))
+  "Produce an auditory icon. "
+  (when (interactive-p )
+    (emacspeak-auditory-icon 'open-object)
+    (message "Specify a meaningful name for the new fold ")))
 
 (defadvice fold-hide (after emacspeak pre act )
   "Provide auditory feedback"

@@ -122,8 +122,6 @@ Provide an auditory icon if possible."
     (emacspeak-dtk-sync)
     (emacspeak-speak-line)))
 
-
-
 ;;}}}
 ;;{{{ advice em-hist 
 
@@ -153,7 +151,6 @@ Provide an auditory icon if possible."
   :group 'emacspeak
   :group 'eshell
   :prefix "emacspeak-eshell-")
-
 
 (defcustom emacspeak-eshell-ls-use-personalities t
   "Indicates if ls in eshell uses different voice
@@ -215,7 +212,6 @@ personalities."
   "Personality for transients."
   :type 'symbol
   :group 'emacspeak-eshell)
-
 
 (defadvice  eshell-ls-decorated-name (around emacspeak pre act comp)
   "Voiceify the name if requested."
@@ -372,7 +368,6 @@ personalities."
       (emacspeak-speak-line))
      (t (emacspeak-speak-mode-line)))
     (emacspeak-auditory-icon 'select-object)))
-
 
 ;;}}}
 

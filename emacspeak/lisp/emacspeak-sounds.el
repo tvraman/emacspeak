@@ -85,8 +85,6 @@ use `emacspeak-toggle-auditory-icons' bound to
 ;;}}}
 ;;{{{ Record if using midi 
 
-
-
 (defsubst emacspeak-using-midi-p ()
   "Predicate to test if we are using midi."
   (declare (special emacspeak-auditory-icon-function))
@@ -225,8 +223,6 @@ Do not set this by hand;
   (emacspeak-sounds-define-theme-if-necessary theme)
   (emacspeak-auditory-icon 'select-object))
 
-
-
            
 
                
@@ -249,8 +245,6 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  define themes 
 
-
-
 ;;}}}
 ;;{{{  queue an auditory icon
 
@@ -268,8 +262,8 @@ Do not set this by hand;
   "Play auditory icon using native Emacs player."
   (play-sound
    (list 'sound :file
-                       (format "%s"
-                               (emacspeak-get-sound-filename sound-name )))))
+	 (format "%s"
+		 (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -335,7 +329,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
-(const emacspeak-queue-auditory-icon)
+	  (const emacspeak-queue-auditory-icon)
           (const emacspeak-midi-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
@@ -354,8 +348,6 @@ When producing midi icons, other modules should use names defined here.")
 (defvar emacspeak-default-midi-note nil
   "Default note to play if requested icon not found.")
 
-
-
 (defun emacspeak-define-midi (midi-name midi-note)
   "Define a midi  icon named midi-NAME.
 midi-note is a list specifying
@@ -365,13 +357,11 @@ is a .1ms note on instrument 60."
   (declare (special emacspeak-midi-table))
   (setf (gethash  midi-name emacspeak-midi-table) midi-note ))
 
-
 (defsubst emacspeak-get-midi-note (midi-name)
   "Retrieve midi note that produces midi icon midi-name."
   (declare (special emacspeak-midi-table emacspeak-default-midi-note))
   (or  (gethash midi-name emacspeak-midi-table)
        emacspeak-default-midi-note))
-
 
 (defsubst emacspeak-list-midi-icons ()
   "Return the  list of midi icons that are currently defined."
@@ -467,7 +457,6 @@ is a .1ms note on instrument 60."
 (emacspeak-define-midi 'new-mail
                        '(14 60 .5 70))
 
-
 ;;;blank lines etc 
 
 (emacspeak-define-midi 'horizontal-rule
@@ -518,7 +507,6 @@ Optional interactive PREFIX arg toggles global value."
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
 
-
 (defvar emacspeak-sounds-auditory-icon-players  
   '(
     ("emacspeak-serve-auditory-icon" . "emacspeak-serve-auditory-icon")
@@ -535,7 +523,6 @@ Optional interactive PREFIX arg toggles global value."
                     emacspeak-sounds-auditory-icon-players
                     nil nil 
                     "emacspeak-")))
-
 
 (defun  emacspeak-set-auditory-icon-player (player)
   "Select  player used for producing auditory icons.
@@ -558,7 +545,6 @@ environment."))
    (t (setq emacspeak-auditory-icon-function player)))
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
-
 
 ;;}}}
 ;;{{{ Show all icons

@@ -55,7 +55,7 @@
 
 ;;; Prompting in the minibuffer is useful:
 
-  (declaim  (special tempo-interactive ))
+(declaim  (special tempo-interactive ))
 (setq tempo-interactive t)
 (add-hook 'tempo-insert-string-hook
           (function (lambda (string)
@@ -80,14 +80,9 @@
   (when (interactive-p)
     (emacspeak-speak-line)))
 
-
-
 ;;}}}
 
-
-
 (provide 'emacspeak-tempo)
-
 
 ;;{{{ end of file 
 

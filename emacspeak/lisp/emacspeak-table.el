@@ -59,8 +59,8 @@
             (:constructor cons-emacspeak-table))
   row-header                            ;pointer to column  0
   column-header                         ;pointer to row 0
-current-row ;row containing point 
-current-column ;column containing point 
+  current-row				;row containing point 
+  current-column			;column containing point 
   elements                              ;  vector of  elements 
   )
 
@@ -88,14 +88,14 @@ current-column ;column containing point
 
 (defsubst emacspeak-table-this-element (table row column)
   (let ((elements (emacspeak-table-elements  table)))
-            (aref
+    (aref
      (aref elements row)
      column)))
 
 (defsubst emacspeak-table-current-element (table)
   (emacspeak-table-this-element table 
-   (emacspeak-table-current-row table )
-   (emacspeak-table-current-column table)))
+				(emacspeak-table-current-row table )
+				(emacspeak-table-current-column table)))
 
 (defsubst emacspeak-table-this-row (table index)
   (aref  (emacspeak-table-elements table) index))
@@ -193,9 +193,9 @@ Calls callback once per column."
           (<= 0 column)
           (>= column column-count))
       (setf (emacspeak-table-current-row table) row)
-        (setf (emacspeak-table-current-column table) column))
+      (setf (emacspeak-table-current-column table) column))
      (t (error "Current table has %s rows and %s columns"
-             row-count column-count )))))
+	       row-count column-count )))))
         
 
 (defun emacspeak-table-move-up (table &optional count)
@@ -245,8 +245,6 @@ Calls callback once per column."
                count current )))))
 
 ;;}}}
-
-
 
 (provide  'emacspeak-table)
 ;;{{{  emacs local variables 

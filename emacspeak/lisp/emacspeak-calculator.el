@@ -45,12 +45,10 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 
-
 ;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
-
 
 ;;; Speech enable desktop calculator 
 
@@ -120,7 +118,6 @@
    (t ad-do-it))
   ad-return-value)
 
-
 (defadvice calculator-close-paren (around emacspeak pre act comp)
   "Speak the digit."
   (cond
@@ -131,16 +128,13 @@
    (t ad-do-it))
   ad-return-value)
 
-
-
-
 (defadvice calculator-saved-up (around emacspeak pre act comp)
   "Speak the digit."
   (cond
    ((interactive-p)
-      ad-do-it
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-calculator-summarize))
+    ad-do-it
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-calculator-summarize))
    (t ad-do-it))
   ad-return-value)
 
@@ -148,14 +142,11 @@
   "Speak the digit."
   (cond
    ((interactive-p)
-      ad-do-it
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-calculator-summarize))
+    ad-do-it
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-calculator-summarize))
    (t ad-do-it))
   ad-return-value)
-
-
-
 
 (defadvice calculator-save-on-list (after emacspeak pre act
                                           comp)
@@ -177,7 +168,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize)))
 
-
 (defadvice calculator-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
@@ -192,7 +182,7 @@
   ad-return-value)
 
 (defadvice calculator-clear (after emacspeak pre act
-                                         comp)
+				   comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
@@ -207,7 +197,6 @@
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
-
 
 (defadvice calculator-get-register (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -234,10 +223,10 @@
 ;;{{{  keys 
 (declaim (special calculator-mode-map))
 (when (boundp 'calculator-mode-map)
-(define-key calculator-mode-map "k" 'calculator-copy)
-(define-key calculator-mode-map "p" 'calculator-paste)
-(define-key calculator-mode-map "\d" 'calculator-backspace)
-)
+  (define-key calculator-mode-map "k" 'calculator-copy)
+  (define-key calculator-mode-map "p" 'calculator-paste)
+  (define-key calculator-mode-map "\d" 'calculator-backspace)
+  )
 ;;}}}
 (provide 'emacspeak-calculator)
 ;;{{{ end of file

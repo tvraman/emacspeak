@@ -64,7 +64,6 @@
     (emacspeak-auditory-icon 'button)
     (message "Removed all text properties from region")))
 
-
 ;;}}}
 ;;{{{  customize keybindings
 

@@ -42,7 +42,6 @@
 
 ;;; Commentary:
 
-
 ;;; Package  windmove (bundled with Emacs 21)
 ;;; provides commands for navigating to windows based on
 ;;; relative position.
@@ -67,17 +66,15 @@
             'windmove-up
             'windmove-down)
       do
-(eval
- (`
-  (defadvice  (, f) (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-mode-line))))))
+      (eval
+       (`
+	(defadvice  (, f) (after emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'select-object)
+	    (emacspeak-speak-mode-line))))))
 
 ;;}}}
-
-
 
 (provide 'emacspeak-windmove)
 ;;{{{ end of file

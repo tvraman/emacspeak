@@ -88,12 +88,10 @@ emacspeak is compiled or started.")
   "Directory where Emacspeak resource files such as
 pronunciation dictionaries are stored. ")
 
-
-
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
   :group 'tts
-:type 'integer)
+  :type 'integer)
 
 (defcustom dtk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
@@ -109,17 +107,17 @@ pronunciation dictionaries are stored. ")
               load-path )))
 (defconst  emacspeak-xemacs-p
   (when
-  (or (boundp 'running-xemacs)
-   (string-match "Lucid\\|XEmacs" emacs-version))
-  t)
-"T if we are running under XEmacs.")
+      (or (boundp 'running-xemacs)
+	  (string-match "Lucid\\|XEmacs" emacs-version))
+    t)
+  "T if we are running under XEmacs.")
 
 (load-library "emacspeak")
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
-                      (dtk-set-rate tts-default-speech-rate t)
-                      (dtk-interp-sync))
+  (dtk-set-rate tts-default-speech-rate t)
+  (dtk-interp-sync))
 
 (add-hook 'dtk-startup-hook 
           'emacspeak-tts-startup-hook)

@@ -76,7 +76,6 @@
 (define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
 
-
 (define-derived-mode emacspeak-m-player-mode fundamental-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
@@ -84,7 +83,7 @@
   (when (and (not  emacspeak-aumix-multichannel-capable-p)
              emacspeak-use-auditory-icons)
     (emacspeak-toggle-auditory-icons))
-(setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
+  (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
 
 (declaim (special emacspeak-m-player-mode-map))
 
@@ -95,16 +94,16 @@
   "Emacspeak media player settings.")
 (defcustom emacspeak-m-player-program "mplayer"
   "Media player program."
-:type 'string
-:group 'emacspeak-m-player)
+  :type 'string
+  :group 'emacspeak-m-player)
 
 (defcustom emacspeak-m-player-options 
-(list "-slave" "-quiet"
-      "-nortc")
+  (list "-slave" "-quiet"
+	"-nortc")
   "Options passed to mplayer."
-:type  '(repeat
-         (string :tag "option"))
-:group 'emacspeak-m-player)
+  :type  '(repeat
+	   (string :tag "option"))
+  :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player (resource)
   "Play specified resource using m-player.
@@ -128,8 +127,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (setq options
           (nconc options
                  (if playlist-p
-                 (list "-playlist" resource)
-                 (list resource))))
+		     (list "-playlist" resource)
+		   (list resource))))
     (setq emacspeak-m-player-process
           (apply 'start-process
                  "m-player" "m-player" emacspeak-m-player-program
@@ -144,7 +143,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
   (process-send-string                                                                                                                   emacspeak-m-player-process
-   (format "%s\n" command)))
+																	 (format "%s\n" command)))
 
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
@@ -162,7 +161,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch
    (format "pt_up %d" step)))
 
-
 (defun emacspeak-m-player-alt-src-step (step)
   "Move within an ASF playlist."
   (interactive
@@ -170,7 +168,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "alt_src_step %d" step)))
-
 
 (defun emacspeak-m-player-seek-relative (offset)
   "Seek  by offset into stream from current position."

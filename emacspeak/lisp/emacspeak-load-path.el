@@ -39,15 +39,14 @@
   (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
 
-
 (defvar emacspeak-lisp-directory
   (expand-file-name "lisp/" emacspeak-directory)
   "Directory containing lisp files for  Emacspeak.. ")  
 
 (or (member emacspeak-lisp-directory load-path )
-(setq load-path
-      (cons emacspeak-lisp-directory 
-                              load-path )))
+    (setq load-path
+	  (cons emacspeak-lisp-directory 
+		load-path )))
 
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")

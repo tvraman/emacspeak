@@ -40,9 +40,9 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile) (require 'tapestry))
- (condition-case nil 
-     (require 'tapestry)
-   (error "Could not locate tapestry.el"))
+(condition-case nil 
+    (require 'tapestry)
+  (error "Could not locate tapestry.el"))
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'emacspeak-fix-interactive)
@@ -87,16 +87,15 @@
                                      'personality 'harry tl)
                   (put-text-property 0 (length br)
                                      'personality 'harry br)
-                        (concat w
-                                " with top left "
-                                tl
-                                " and bottom right "
-                                br))))
+		  (concat w
+			  " with top left "
+			  tl
+			  " and bottom right "
+			  br))))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat description
                                     (apply 'concat windows ))))))
-
 
 ;;}}}
 (provide  'emacspeak-tapestry)

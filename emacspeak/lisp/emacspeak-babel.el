@@ -58,12 +58,10 @@
 ;;}}}
 ;;{{{ speech-enable commands
 
-
-
 (defun emacspeak-babel-done ()
   "Announce  completion of the translation request."
   (message "Displayed translation in other window")
-(emacspeak-auditory-icon 'task-done))
+  (emacspeak-auditory-icon 'task-done))
 
 (add-hook 'babel-mode-hook 'emacspeak-babel-done)
 ;;}}}

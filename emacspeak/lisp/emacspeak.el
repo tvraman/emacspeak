@@ -38,7 +38,6 @@
 ;;}}}
 ;;{{{ required modules
 
-
 ;;; Commentary:
 ;;;The complete audio desktop.
 ;;; Code:
@@ -89,8 +88,6 @@
   :group 'applications
   :group 'accessibility
   )
-
-
 
 ;;}}}
 ;;{{{  Setting up things:
@@ -242,7 +239,6 @@ Precomputing this saves time at start-up.")
 (defvar emacspeak-unibyte t
   "Set this to nil before starting  emacspeak 
 if you are running in a multibyte enabled environment.")
-
 
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -458,7 +454,6 @@ Useful in reading email, block comments in program source etc." t)
 the block. Use in conjunction with emacspeak-hide-or-expose-block"
   t)
 
-
 (autoload 'emacspeak-realaudio "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
 (autoload 'emacspeak-realaudio-browse "emacspeak-realaudio"
@@ -472,7 +467,6 @@ the block. Use in conjunction with emacspeak-hide-or-expose-block"
 
 (autoload 'emacspeak-realaudio-stop "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
-
 
 ;;}}}
 ;;{{{ Package Setup Helper
@@ -630,7 +624,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
   "raman@cs.cornell.edu"
   "Address of the maintainer of this package.")
 
-
 (defun emacspeak-submit-bug ()
   "Function to submit a bug to the programs maintainer."
   (interactive)
@@ -706,7 +699,6 @@ Emacs 20.3"
 ;;{{{ setup programming modes 
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
-
 
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode. Turns on audio indentation and

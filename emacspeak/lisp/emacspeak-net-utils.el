@@ -70,7 +70,7 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (message "Displayed results of %s in other window"
-                      (quote (, f))))))))
+		     (quote (, f))))))))
 
 ;;}}}
 (provide 'emacspeak-net-utils)

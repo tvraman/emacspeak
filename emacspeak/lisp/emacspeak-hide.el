@@ -40,7 +40,6 @@
 
 ;;{{{  Required modules
 
-
 ;;; Commentary:
 ;; 
 ;;{{{  Introduction
@@ -58,7 +57,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
-(require 'emacspeak-speak))
+		   (require 'emacspeak-speak))
 ;;}}}
 ;;{{{ voice locking for block header lines
 
@@ -113,7 +112,7 @@ the table that matches what is at point.")
   '(
     "^[ ]*$"
     "^[ \t]*[a-zA-Z]+ "
-   )
+    )
   "List of regexps that can never be a token.
 Before trying the regular expressions in emacspeak-hide-prefix-token-table,
 the regexps in this list are tried.  If any regexp in this list
@@ -171,16 +170,14 @@ STRING is the token's text."
 
 (defsubst emacspeak-hide-prefix-matches-this-line (prefix)
   (unless (eobp)
-  (string= (nth 2 prefix)
-           (buffer-substring-no-properties  (point)
-(+ (point) (nth 1  prefix))))))
+    (string= (nth 2 prefix)
+	     (buffer-substring-no-properties  (point)
+					      (+ (point) (nth 1  prefix))))))
 
 ;;}}}
 
 ;;}}}
 ;;{{{  hiding a block
-
-
 
 (defun emacspeak-hide-current-block (prefix)
   "Hide block starting on current line identified by  PREFIX.
@@ -225,7 +222,6 @@ Returns t if a block was found and hidden."
                    count (first prefix))
           t)
          (t (message "Not on a block") nil)))))))
-
 
 ;;}}}
 ;;{{{  Exposing a block
@@ -279,33 +275,33 @@ Returns t if a block was found and hidden."
         (setq prefix (emacspeak-hide-parse-prefix))
         (cond
          ((and prefix
-          (emacspeak-hide-current-block prefix))
-                 (incf count)
-                 (goto-char
-                  (next-single-property-change (point)
-                                                         'emacspeak-hidden-block
-                                                         (current-buffer)
-                                                         (point-max))))
+	       (emacspeak-hide-current-block prefix))
+	  (incf count)
+	  (goto-char
+	   (next-single-property-change (point)
+					'emacspeak-hidden-block
+					(current-buffer)
+					(point-max))))
          (t (forward-line 1)))))
     (dtk-speak
      (format "Hid %s blocks" count))))
 
 (defun emacspeak-hide-expose-hidden-blocks-in-buffer ()
   "Expose any hidden blocks in current buffer."
-(declare (special emacspeak-speak-messages))
+  (declare (special emacspeak-speak-messages))
   (let ((count 0)
         (emacspeak-speak-messages nil)
         (block-end nil))
-(save-excursion
-  (goto-char (point-min))
-  (while (not (eobp))
-    (setq block-end (emacspeak-hide-expose-block))
-    (cond
-     (block-end
-      (goto-char block-end)
-      (incf count))
-     (t (forward-line 1)))))
-(dtk-speak (format "Exposed %s blocks" count))))
+    (save-excursion
+      (goto-char (point-min))
+      (while (not (eobp))
+	(setq block-end (emacspeak-hide-expose-block))
+	(cond
+	 (block-end
+	  (goto-char block-end)
+	  (incf count))
+	 (t (forward-line 1)))))
+    (dtk-speak (format "Exposed %s blocks" count))))
 
 ;;}}}
 ;;{{{ User interface
@@ -315,7 +311,7 @@ Returns t if a block was found and hidden."
   (let ((block-prefix nil))
     (or (emacspeak-hide-parse-prefix)
         (when (and (not (looking-at "^[ \t]*$"))
-            (y-or-n-p "Define a new block prefix? "))
+		   (y-or-n-p "Define a new block prefix? "))
           (setq block-prefix
                 (read-from-minibuffer "Specify prefix: "))
           (push
@@ -360,7 +356,6 @@ blocks in current buffer to be hidden or exposed."
              (emacspeak-hide-get-block-prefix)))
         (when block-prefix
           (emacspeak-hide-current-block  block-prefix )))))))
-
 
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."

@@ -64,13 +64,13 @@
 
 (defadvice  calc-do (after emacspeak pre act comp)
   "Speak previous line of output."
-    (emacspeak-read-previous-line)
-    (emacspeak-auditory-icon 'select-object))
+  (emacspeak-read-previous-line)
+  (emacspeak-auditory-icon 'select-object))
 
 (defadvice  calc-trail-here (after emacspeak pre act comp)
   "Speak previous line of output."
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object))
 
 ;;}}}
 (provide 'emacspeak-calc)

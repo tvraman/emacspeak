@@ -54,7 +54,7 @@
 (add-hook 'view-mode-hook
           (function (lambda ()
                       (local-unset-key emacspeak-prefix )
-(emacspeak-view-setup-keys))))
+		      (emacspeak-view-setup-keys))))
 ;;; Generate automatic advise:
 
 ;;}}}
@@ -71,14 +71,14 @@
 ;;{{{ Advise additional interactive commands:
 (defadvice view-file (after emacspeak pre act comp)
   "Load directory specific settings"
-(emacspeak-speak-load-directory-settings))
+  (emacspeak-speak-load-directory-settings))
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Entered view mode Press %s to exit"
-(key-description
-             (where-is-internal 'View-exit view-mode-map 'firstonly)))))
+	     (key-description
+	      (where-is-internal 'View-exit view-mode-map 'firstonly)))))
 
 (defadvice View-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -97,36 +97,33 @@
   (when (interactive-p)
     (emacspeak-speak-mode-line)))
 
-
 (defadvice View-search-regexp-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((emacspeak-show-point t))
-    (emacspeak-speak-line ))
+      (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice View-search-regexp-backward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((emacspeak-show-point t))
-    (emacspeak-speak-line ))
+      (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'search-hit)))
-
 
 (defadvice View-search-last-regexp-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((emacspeak-show-point t))
-    (emacspeak-speak-line ))
+      (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'search-hit)))
 
 (defadvice View-search-last-regexp-backward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (let ((emacspeak-show-point t))
-    (emacspeak-speak-line ))
+      (emacspeak-speak-line ))
     (emacspeak-auditory-icon 'search-hit)))
-
 
 (defadvice view-exit (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -194,8 +191,6 @@
    (t ad-do-it))
   ad-return-value)
 
-
-
 (defadvice View-scroll-lines-forward-set-scroll-size (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -205,13 +200,11 @@
         (forward-line (window-height))
         (emacspeak-speak-region start (point ))))))
 
-
-
 (defadvice View-scroll-lines-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-      (emacspeak-auditory-icon 'scroll)
-      (dtk-speak (emacspeak-get-window-contents))))
+    (emacspeak-auditory-icon 'scroll)
+    (dtk-speak (emacspeak-get-window-contents))))
 
 (defadvice View-scroll-lines-backward (around  emacspeak pre act comp)
   "provide auditory feedback"
@@ -244,10 +237,10 @@
           (voice-lock-mode t))
       (put-text-property 0 (length line-number)
                          'personality 'annotation-voice line-number)
-    (emacspeak-auditory-icon 'large-movement)
-    (dtk-speak
-     (concat line-number
-             (thing-at-point 'line))))))
+      (emacspeak-auditory-icon 'large-movement)
+      (dtk-speak
+       (concat line-number
+	       (thing-at-point 'line))))))
 (defadvice View-scroll-to-buffer-end (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)

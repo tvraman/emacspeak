@@ -371,7 +371,7 @@ Returns a string with appropriate personality."
   (let ((value (widget-get widget :value))
         (tag (widget-get widget :tag)))
     (format "Commentary  link   %s %s"
-(or tag "")
+	    (or tag "")
             value)))
 
 (widget-put (get 'emacs-commentary-link 'widget-type)
@@ -408,8 +408,6 @@ Returns a string with appropriate personality."
             help-echo
             (if value " is on "
               " is off "))))
-
-
 
 (widget-put (get 'toggle 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-toggle)
@@ -503,8 +501,8 @@ Returns a string with appropriate personality."
           (cond
            (choice (widget-get choice :tag))
            (t (if value 
-(prin1-to-string value)
-                  " no item ")))))
+		  (prin1-to-string value)
+		" no item ")))))
     (put-text-property 0  (length selected)
                        'personality emacspeak-widget-value-personality selected)
     (concat label
@@ -616,7 +614,6 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{ voice lock widget buffers:
 
-
 (defadvice widget-specify-field-update (after emacspeak pre act comp)
   "Voiceify the field"
   (put-text-property (ad-get-arg 1) (ad-get-arg 2)
@@ -697,7 +694,6 @@ widget before summarizing."
 ;;{{{ update widget related keymaps so we dont loose the
 ;;emacspeak prefix 
 
-
 (defadvice widget-setup (after emacspeak pre act comp)
   "Update widget keymaps."
   (declare (special emacspeak-prefix
@@ -705,7 +701,7 @@ widget before summarizing."
   (loop for map in
         (list widget-keymap
               widget-field-keymap
-              ;widget-text-keymap
+					;widget-text-keymap
               )
         do
         (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
@@ -736,7 +732,6 @@ widget before summarizing."
                   widget-field-keymap
                   widget-text-keymap))
 
-
 ;;}}}
 
 ;;}}}
@@ -759,7 +754,7 @@ widget before summarizing."
                 (loop for key being the hash-keys of dtk-voice-table 
                       collect
                       (list 'personality :value key )))
-w))
+    w))
 
 ;;}}}
 (provide  'emacspeak-widget)

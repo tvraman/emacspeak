@@ -73,8 +73,8 @@
 
 (defadvice mspools-revert-buffer (after emacspeak pre act comp)
   "Provide auditory feedback"
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line))
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-line))
 ;;}}}
 ;;{{{ keymaps
 (declaim (special mspools-mode-map))

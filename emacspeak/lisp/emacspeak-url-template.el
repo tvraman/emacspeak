@@ -50,7 +50,6 @@
 
 ;;; Commentary:
 
-
 ;;; It is often useful to have ``parameterized hot list entries''
 ;;; i.e., hotlist entries  that are ``templates'' for the
 ;;; actual URL.
@@ -65,7 +64,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action                           ;action to perform after opening
+  post-action			      ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -134,7 +133,6 @@
     (error (message "Error loading resources from %s "
                     file))))
 
-
 (defun emacspeak-url-template-save (file)
   "Save out url templates."
   (interactive
@@ -199,13 +197,13 @@
  (list
   #'(lambda ()
       (webjump-url-encode
-      (read-from-minibuffer "Google search:"))))
+       (read-from-minibuffer "Google search:"))))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
  #'(lambda (url)
      (declare (special emacspeak-xslt-directory))
-(emacspeak-wizards-browse-url-with-style
+     (emacspeak-wizards-browse-url-with-style
       (expand-file-name "google-hits.xsl"
                         emacspeak-xslt-directory)
       url)))
@@ -222,15 +220,14 @@
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Google News Overview.")
 
-
 (emacspeak-url-template-define
  "Google News Search"
  "http://news.google.com/news?hl=en&q=%s&btnG=Google+Search"
  (list
   #'(lambda ()
       (webjump-url-encode
-      (read-from-minibuffer
-       "Search news for: "))))
+       (read-from-minibuffer
+	"Search news for: "))))
  #'(lambda nil
      (search-forward "Sorted by")
      (forward-line 4)
@@ -320,7 +317,6 @@
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Science section from Yahoo Daily News.")
 
-
 (emacspeak-url-template-define
  "Yahoo Local"
  "http://dailynews.yahoo.com/htx/lo/me/%s/"
@@ -369,7 +365,6 @@ Francisco ny for New york etc.")
      (forward-line 2)
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Oddity section from Yahoo Daily News.")
-
 
 (emacspeak-url-template-define
  "Yahoo Technology  News"
@@ -526,89 +521,85 @@ Computing News at CNN.")
  "Speak CNN Market Update."
  #'(lambda (url)
      (emacspeak-w3-extract-table 7 url)
-     ;(w3-fetch url)
-))
-
+					;(w3-fetch url)
+     ))
 
 ;;}}}
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define
  "Weekend All Things Considered Stream from NPR"
-"http://www.npr.org/ramfiles/watc/%s.watc.ram"
+ "http://www.npr.org/ramfiles/watc/%s.watc.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR Weekend All Things Considered stream."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
-"http://www.npr.org/ramfiles/atc/%s.atc.ram"
+ "http://www.npr.org/ramfiles/atc/%s.atc.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR All Things Considered stream."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "Talk Of The Nation  Stream from NPR"
-"http://www.npr.org/ramfiles/totn/%s.totn.ram"
+ "http://www.npr.org/ramfiles/totn/%s.totn.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR Talk Of The Nation  stream."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 (emacspeak-url-template-define
  "Morning Edition  Stream from NPR"
-"http://www.npr.org/ramfiles/me/%s.me.ram"
+ "http://www.npr.org/ramfiles/me/%s.me.ram"
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR Morning Edition  stream."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "Talk Of The Nation from NPR"
  "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
  (list
   'emacspeak-url-template-date-YearMonthDate
-#'(lambda nil
-(read-from-minibuffer "Segment: ")))
+  #'(lambda nil
+      (read-from-minibuffer "Segment: ")))
  nil
  "Play NPR Talk Of The Nation segment."
-'emacspeak-realaudio-play)
-
-
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "Weekend All Things Considered  from NPR"
-"http://www.npr.org/ramfiles/watc/%s.watc.%s.ram"
+ "http://www.npr.org/ramfiles/watc/%s.watc.%s.ram"
  (list 'emacspeak-url-template-date-YearMonthDate
-#'(lambda nil
-    (read-from-minibuffer "Segment: ")))
+       #'(lambda nil
+	   (read-from-minibuffer "Segment: ")))
  nil
  "Play NPR Weekend All Things Considered segment."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "All Things Considered from NPR" 
  "rtsp://audio.npr.org/atc/%s_atc_%s.rm"
  (list
   'emacspeak-url-template-date-YearMonthDate
-#'(lambda nil
-(read-from-minibuffer "Segment: ")))
+  #'(lambda nil
+      (read-from-minibuffer "Segment: ")))
  nil
  "Play All Things Considered segment."
-'emacspeak-realaudio-play)
+ 'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
  "Morning Edition from NPR" 
-"rtsp://audio.npr.org/me/%s_me_%s.rm" 
+ "rtsp://audio.npr.org/me/%s_me_%s.rm" 
  (list
   'emacspeak-url-template-date-YearMonthDate
-#'(lambda nil
-(read-from-minibuffer "Segment: ")))
+  #'(lambda nil
+      (read-from-minibuffer "Segment: ")))
  nil
  "Play Morning Edition segment."
-'emacspeak-realaudio-play)
-
+ 'emacspeak-realaudio-play)
 
 ;;}}}
 ;;{{{ technet cast from DDJ
@@ -654,10 +645,9 @@ Computing News at CNN.")
  nil
  "Open specified project page at SourceForge.")
 
-
 (emacspeak-url-template-define
  "sourceforge browse download" 
-"http://prdownloads.sourceforge.net/%s"
+ "http://prdownloads.sourceforge.net/%s"
  (list
   (lambda nil 
     (read-from-minibuffer "Project name")))
@@ -712,9 +702,9 @@ Computing News at CNN.")
  "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W&emailAddr=%s"
  (list
   #'(lambda nil 
-    (read-from-minibuffer "Record Locator: "))
+      (read-from-minibuffer "Record Locator: "))
   #'(lambda nil 
-    (read-from-minibuffer "User Name"))
+      (read-from-minibuffer "User Name"))
   #'(lambda nil
       (read-from-minibuffer "Email: ")))
  nil
@@ -728,7 +718,6 @@ Computing News at CNN.")
                                         ;        (delete-file temp-file)))
  )
 
-
 ;;}}}
 ;;{{{  viewtrip --travel reports
 (emacspeak-url-template-define
@@ -737,15 +726,13 @@ Computing News at CNN.")
  nil
  nil
  "Display Trip Details"
-#'(lambda (url)
-    (let ((pnr (read-from-minibuffer "Record locator: "))
-          (name (read-from-minibuffer "Last name: ")))
-    (emacspeak-websearch-do-post "POST"
-url
-(format "rloc=%s&lastname=%s"
-        pnr name)))))
-
-
+ #'(lambda (url)
+     (let ((pnr (read-from-minibuffer "Record locator: "))
+	   (name (read-from-minibuffer "Last name: ")))
+       (emacspeak-websearch-do-post "POST"
+				    url
+				    (format "rloc=%s&lastname=%s"
+					    pnr name)))))
 
 ;;}}}
 
@@ -763,7 +750,6 @@ url
  "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
  )
-
 
 ;;}}}
 ;;{{{ India Today 
@@ -819,7 +805,7 @@ Optional interactive prefix arg displays documentation for specified resource."
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (url-be-asynchronous nil)
-(url-http-asynchronous-p nil)
+	(url-http-asynchronous-p nil)
         (name nil)
         (table
          (loop for key being the hash-keys of

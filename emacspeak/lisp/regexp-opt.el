@@ -203,7 +203,7 @@ in REGEXP."
   ;; The basic idea is to find character ranges.  Also we take care in the
   ;; position of character set meta characters in the character set regexp.
   ;;
-  (let* ((charwidth 256)				; Yeah, right.
+  (let* ((charwidth 256)		; Yeah, right.
 	 (charmap (make-bool-vector charwidth nil))
 	 (charset "")
 	 (bracket "") (dash "") (caret ""))

@@ -49,7 +49,6 @@
 ;;}}}
 ;;{{{ voice locking:
 
-
 (defvar tex-voice-lock-keywords
   (list
    '("\\(\\\\\\([a-zA-Z@]+\\|.\\)\\)" 1 voice-lock-keyword-personality t)
@@ -59,19 +58,19 @@
    '("\\\\\\(begin\\|end\\){\\([a-zA-Z0-9\\*]+\\)}"
      2 voice-lock-function-name-personality t)
    '("[^\\\\]\\$\\([^$]*\\)\\$" 1 voice-lock-string-personality t)
-;   '("\\$\\([^$]*\\)\\$" 1 voice-lock-string-personality t)
+					;   '("\\$\\([^$]*\\)\\$" 1 voice-lock-string-personality t)
    )
   "Additional expressions to highlight in TeX mode.")
 
 (mapcar 
-(function
- (lambda (mode)
-   (voice-lock-set-major-mode-keywords mode 'tex-voice-lock-keywords)))
-(list 
-    'plain-tex-mode  
-		   'latex-mode      
-		   'slitex-mode     
-		   'latex2e-mode))
+ (function
+  (lambda (mode)
+    (voice-lock-set-major-mode-keywords mode 'tex-voice-lock-keywords)))
+ (list 
+  'plain-tex-mode  
+  'latex-mode      
+  'slitex-mode     
+  'latex2e-mode))
 
 ;;}}}
 ;;{{{  Marking structured objects:
@@ -81,18 +80,18 @@
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice LaTeX-mark-section (after emacspeak pre act)
-"Speak the first line. 
+  "Speak the first line. 
 Also provide an auditory icon. "
-(when (interactive-p) 
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'mark-object)))
+  (when (interactive-p) 
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice LaTeX-mark-environment (after emacspeak pre act)
-"Speak the first line. 
+  "Speak the first line. 
 Also provide an auditory icon. "
-(when (interactive-p) 
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'mark-object)))
+  (when (interactive-p) 
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice LaTeX-format-paragraph (after emacspeak pre act )
   "Provide auditory feedback"
@@ -116,14 +115,14 @@ Provide auditory feedback after formatting region"
 ;;{{{  delimiter matching:
 
 (defadvice LaTeX-find-matching-begin (after emacspeak pre act)
-"Provide auditory feedback. "
-(when (interactive-p)
-(emacspeak-speak-line)))
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defadvice LaTeX-find-matching-end (after emacspeak pre act)
-"Provide auditory feedback. "
-(when (interactive-p)
-(emacspeak-speak-line)))
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-speak-line)))
 
 (defadvice LaTeX-close-environment (after emacspeak pre act)
   "Speak the inserted line. "
@@ -140,22 +139,22 @@ Provide auditory feedback after formatting region"
 ;;{{{  Inserting structures
 
 (defadvice LaTeX-insert-item (after emacspeak pre act)
-"Provide auditory feedback. "
-(when (interactive-p)
-(emacspeak-speak-line )))
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-speak-line )))
 
 (defadvice LaTeX-environment (after emacspeak pre act)
-"Provide auditory feedback, by speaking 
+  "Provide auditory feedback, by speaking 
 the opening line of the newly inserted environment. "
-(when (interactive-p)
-(emacspeak-auditory-icon 'open-object)
-(emacspeak-read-previous-line)))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-read-previous-line)))
 
 (defadvice TeX-insert-macro (around  emacspeak pre act)
-"Provide spoken feedback."
-(let ((opoint (point )))
-ad-do-it
-(emacspeak-speak-region opoint (point))))
+  "Provide spoken feedback."
+  (let ((opoint (point )))
+    ad-do-it
+    (emacspeak-speak-region opoint (point))))
 
 ;;}}}
 ;;{{{  Commenting chunks:
@@ -202,15 +201,15 @@ ad-do-it
 (add-hook  'LaTeX-mode-hook
            (function
             (lambda ()
-    (declare (special imenu-generic-expression
-                    imenu-create-index-function))
-    (require 'imenu)
-    (setq imenu-create-index-function 'imenu-default-create-index-function)
-  (setq imenu-generic-expression
-        '(
-          (nil
-            "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
-            2))))))
+	      (declare (special imenu-generic-expression
+				imenu-create-index-function))
+	      (require 'imenu)
+	      (setq imenu-create-index-function 'imenu-default-create-index-function)
+	      (setq imenu-generic-expression
+		    '(
+		      (nil
+		       "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
+		       2))))))
               
 
 ;;}}}

@@ -113,7 +113,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-
 (defadvice bookmark-bmenu-2-window (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -185,8 +184,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line)))
-
-
 
 ;;}}}
 (provide 'emacspeak-bookmark)

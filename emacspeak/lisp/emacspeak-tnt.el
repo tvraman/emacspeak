@@ -53,7 +53,6 @@
 
 ;;; Commentary:
 
-
 ;;; Speech-enables TNT -- the Emacs AOL Instant Messenger
 ;;; client 
 
@@ -150,7 +149,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-
 (defadvice tnt-edit-buddies (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -173,9 +171,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'warn-user)))
 
-
-
-
 (defadvice tnt-prev-event (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -188,13 +183,11 @@
 
 ;;}}}
 
-
 ;;{{{  advice builtins
 (defadvice tnt-push-event (after emacspeak pre act comp)
   "Alert user to event being pushed."
   (message (ad-get-arg 0))
   (emacspeak-auditory-icon 'item))
-
 
 (defadvice tnt-im-mode (after emacspeak pre act comp)
   "Turn on outline minor mode to enable navigation. "

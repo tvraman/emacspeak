@@ -54,7 +54,6 @@
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
-
 ;;}}}
 ;;{{{  Fix default hyperbole menu:
 (declaim (special hyperb:kotl-p))
@@ -67,33 +66,33 @@
  hui:menus
  (list (cons
 	'hyperbole
-	 (delq nil
-	       (list
-                (list "")
-		'("Act"         hui:hbut-act
-		  "Activates button at point or prompts for explicit button.")
-		'("ButFile/"    (menu . butfile)
-		  "Quick access button files menus.")
-		'("Doc/"        (menu . doc)
-		  "Quick access to Hyperbole documentation.")
-		'("ExpBut/"       (menu . ebut)
-		  "Explicit button commands.")
-		'("GloBut/"       (menu . gbut)
-		  "Global button commands.")
-		'("ImpBut/"       (menu . ibut)
-		  "Implicit button and button type commands.")
-		'("Msg/"        (menu . msg)
-		  "Mail and News messaging facilities.")
-		(if hyperb:kotl-p
-		    '("OutLin/"        (menu . otl)
-		      "Autonumbered outlining and hyper-node facilities."))
-		'("RoloDex/"       (menu . rolo)
-		  "Hierarchical, multi-file rolodex lookup and edit commands.")
-		'("WinConf/"       (menu . win)
-		  "Window configuration management command.")
-                '("Hist"        (hhist:remove current-prefix-arg)
-		  "Jumps back to location prior to last Hyperbole button follow.")
-		)))
+	(delq nil
+	      (list
+	       (list "")
+	       '("Act"         hui:hbut-act
+		 "Activates button at point or prompts for explicit button.")
+	       '("ButFile/"    (menu . butfile)
+		 "Quick access button files menus.")
+	       '("Doc/"        (menu . doc)
+		 "Quick access to Hyperbole documentation.")
+	       '("ExpBut/"       (menu . ebut)
+		 "Explicit button commands.")
+	       '("GloBut/"       (menu . gbut)
+		 "Global button commands.")
+	       '("ImpBut/"       (menu . ibut)
+		 "Implicit button and button type commands.")
+	       '("Msg/"        (menu . msg)
+		 "Mail and News messaging facilities.")
+	       (if hyperb:kotl-p
+		   '("OutLin/"        (menu . otl)
+		     "Autonumbered outlining and hyper-node facilities."))
+	       '("RoloDex/"       (menu . rolo)
+		 "Hierarchical, multi-file rolodex lookup and edit commands.")
+	       '("WinConf/"       (menu . win)
+		 "Window configuration management command.")
+	       '("Hist"        (hhist:remove current-prefix-arg)
+		 "Jumps back to location prior to last Hyperbole button follow.")
+	       )))
        '(butfile .
                  (("Butfile>")
                   ("DirFile"      (find-file hbmap:filename)
@@ -274,43 +273,41 @@
 ;;}}}
 ;;{{{  implicit button: dial the phone.
 
-
 (defvar emacspeak-hyperbole-phone-regexp
   "[0-9]+"
   "Regexp that matches phone numbers.")
-
 
 (defun emacspeak-phone-number-at-point ()
   "Return phone number  a string, that point is within or nil."
   (save-excursion
     (save-match-data
-    (skip-chars-backward "0-9")
-    (if (looking-at emacspeak-hyperbole-phone-regexp)
-	(buffer-substring (match-beginning 0) (match-end 0))))))
+      (skip-chars-backward "0-9")
+      (if (looking-at emacspeak-hyperbole-phone-regexp)
+	  (buffer-substring (match-beginning 0) (match-end 0))))))
 
 ;;; will work only if evaluated.
 (eval-when (eval)
-(defib emacspeak:dial ()
-  "If on a phone number in a specific buffer type, dial it.
+  (defib emacspeak:dial ()
+    "If on a phone number in a specific buffer type, dial it.
 Applies to the rolodex match buffer, any buffer attached to a file in
 'rolo-file-list', or any buffer with \"mail\" or \"rolo\" (case-insensitive)
 within its name."
-  (if (or (and (let ((case-fold-search t))
-		 (string-match "mail\\|rolo" (buffer-name)))
-	       ;; Don't want this to trigger in a mail/news summary buffer.
-	       (not (or (hmail:lister-p) (hnews:lister-p))))
-	  (if (boundp 'rolo-display-buffer)
-	      (equal (buffer-name) rolo-display-buffer))
-	  (and buffer-file-name
-	       (boundp 'rolo-file-list)
-	       (set:member (current-buffer)
-			   (mapcar 'get-file-buffer rolo-file-list))))
-      (let ((phone (emacspeak-phone-number-at-point)))
-	(if phone
-	    (progn
-	      (ibut:label-set phone (match-beginning 1) (match-end 1))
-	      (hact 'emacspeak-dial-dtk  phone))))))
-)
+    (if (or (and (let ((case-fold-search t))
+		   (string-match "mail\\|rolo" (buffer-name)))
+		 ;; Don't want this to trigger in a mail/news summary buffer.
+		 (not (or (hmail:lister-p) (hnews:lister-p))))
+	    (if (boundp 'rolo-display-buffer)
+		(equal (buffer-name) rolo-display-buffer))
+	    (and buffer-file-name
+		 (boundp 'rolo-file-list)
+		 (set:member (current-buffer)
+			     (mapcar 'get-file-buffer rolo-file-list))))
+	(let ((phone (emacspeak-phone-number-at-point)))
+	  (if phone
+	      (progn
+		(ibut:label-set phone (match-beginning 1) (match-end 1))
+		(hact 'emacspeak-dial-dtk  phone))))))
+  )
 
   
 

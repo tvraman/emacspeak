@@ -75,12 +75,12 @@
 (declaim (special mpuz-silent ))
 (setq mpuz-silent t )
 (defadvice mpuz-correct-guess (after emacspeak pre act )
-               "Provide an auditory icon"
-               (emacspeak-auditory-icon 'search-hit ))
+  "Provide an auditory icon"
+  (emacspeak-auditory-icon 'search-hit ))
 
 (defadvice mpuz-congratulate (after emacspeak pre act )
-               "Produce auditory icon"
-               (emacspeak-auditory-icon 'alarm ))
+  "Produce auditory icon"
+  (emacspeak-auditory-icon 'alarm ))
 
 ;;}}}
 ;;{{{ dunnet 
@@ -110,8 +110,8 @@
 (defun emacspeak-hangman-setup-pronunciations ()
   "Setup pronunciation dictionaries."
   (declare (special emacspeak-pronounce-pronunciation-table))
-(emacspeak-pronounce-add-dictionary-entry 'hm-mode "_" ".")
-(when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
+  (emacspeak-pronounce-add-dictionary-entry 'hm-mode "_" ".")
+  (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
             (not emacspeak-pronounce-pronunciation-table))
     (emacspeak-pronounce-toggle-use-of-dictionaries)))
 
@@ -131,9 +131,9 @@
           do
           (aset  string  i
                  (aref hm-current-guess-string (* i 2 ))))
-     (message  "%s:  %s "
-             (length string)
-             (downcase string))))
+    (message  "%s:  %s "
+	      (length string)
+	      (downcase string))))
 
 (defadvice hangman (after emacseak pre act comp)
   "Speech enable hangman."
@@ -142,10 +142,10 @@
     (emacspeak-auditory-icon 'open-object)))
 (declaim (special hm-map))
 (when (boundp 'hm-map)
-(declaim (special hm-map))
-(define-key hm-map " " 'emacspeak-hangman-speak-guess)
-(define-key hm-map "=" 'emacspeak-hangman-speak-statistics)
-)
+  (declaim (special hm-map))
+  (define-key hm-map " " 'emacspeak-hangman-speak-guess)
+  (define-key hm-map "=" 'emacspeak-hangman-speak-statistics)
+  )
 
 ;;}}}
 (provide 'emacspeak-entertain)

@@ -204,7 +204,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (load compile)
   (require 'dtk-voices)
-  (provide 'fast-voice-lock) ;prevent byte compiler from recursing
+  (provide 'fast-voice-lock)	 ;prevent byte compiler from recursing
   (require 'voice-lock))
 
 (eval-when-compile
@@ -219,10 +219,10 @@
   (defmacro save-buffer-state (varlist &rest body)
     "Bind variables according to VARLIST and eval BODY restoring buffer state."
     (` (let* ((,@ (append varlist
-		   '((modified (buffer-modified-p))
-		     (inhibit-read-only t) (buffer-undo-list t)
-		     before-change-functions after-change-functions
-		     deactivate-mark buffer-file-name buffer-file-truename))))
+			  '((modified (buffer-modified-p))
+			    (inhibit-read-only t) (buffer-undo-list t)
+			    before-change-functions after-change-functions
+			    deactivate-mark buffer-file-name buffer-file-truename))))
 	 (,@ body)
 	 (when (and (not modified) (buffer-modified-p))
 	   (set-buffer-modified-p nil)))))
@@ -233,10 +233,10 @@
   (interactive)
   (let ((reporter-prompt-for-summary-p t))
     (reporter-submit-bug-report "simon@gnu.ai.mit.edu" "fast-voice-lock 3.10"
-     '(fast-voice-lock-cache-directories fast-voice-lock-minimum-size
-       fast-voice-lock-save-others fast-voice-lock-save-events fast-voice-lock-save-personalities)
-     nil nil
-     (concat "Hi Si.,
+				'(fast-voice-lock-cache-directories fast-voice-lock-minimum-size
+								    fast-voice-lock-save-others fast-voice-lock-save-events fast-voice-lock-save-personalities)
+				nil nil
+				(concat "Hi Si.,
 
 I want to report a bug.  I've read the `Bugs' section of `Info' on Emacs, so I
 know how to make a clear and unambiguous report.  To reproduce the bug:
@@ -245,14 +245,14 @@ Start a fresh Emacs via `" invocation-name " -no-init-file -no-site-file'.
 In the `*scratch*' buffer, evaluate:"))))
 
 (defvar fast-voice-lock-mode nil)
-(defvar fast-voice-lock-cache-timestamp nil)	; for saving/reading
-(defvar fast-voice-lock-cache-filename nil)	; for deleting
+(defvar fast-voice-lock-cache-timestamp nil) ; for saving/reading
+(defvar fast-voice-lock-cache-filename nil) ; for deleting
 
 ;; User Variables:
 
 (defvar fast-voice-lock-cache-directories '("." "~/.emacs-flc")
-; - `internal', keep each file's Voice Lock cache file in the same file.
-; - `external', keep each file's Voice Lock cache file in the same directory.
+					; - `internal', keep each file's Voice Lock cache file in the same file.
+					; - `external', keep each file's Voice Lock cache file in the same directory.
   "*Directories in which Voice Lock cache files are saved and read.
 Each item should be either DIR or a cons pair of the form (REGEXP . DIR) where
 DIR is a directory name (relative or absolute) and REGEXP is a regexp.
@@ -290,7 +290,6 @@ buffer, then you should add `save-buffer' to this list.")
   "*If non-nil, save Voice Lock cache files irrespective of file owner.
 If nil, means only buffer files known to be owned by you can have associated
 Voice Lock cache files saved.  Ownership may be unknown for networked files.")
-
 
 
 ;; User Functions:
@@ -394,27 +393,27 @@ See `fast-voice-lock-mode'."
     (let ((min-size (voice-lock-value-in-major-mode fast-voice-lock-minimum-size))
 	  (file-timestamp (visited-file-modtime)) (saved nil))
       (when (and fast-voice-lock-mode
-	     ;;
-	     ;; "Only save if the buffer matches the file, the file has
-	     ;; changed, and it was changed by the current emacs session."
-	     ;;
-	     ;; Only save if the buffer is not modified,
-	     ;; (i.e., so we don't save for something not on disk)
-	     (not (buffer-modified-p))
-	     ;; and the file's timestamp is the same as the buffer's,
-	     ;; (i.e., someone else hasn't written the file in the meantime)
-	     (verify-visited-file-modtime (current-buffer))
-	     ;; and the file's timestamp is different from the cache's.
-	     ;; (i.e., a save has occurred since the cache was read)
-	     (not (equal fast-voice-lock-cache-timestamp file-timestamp))
-	     ;;
-	     ;; Only save if user's restrictions are satisfied.
-	     (and min-size (>= (buffer-size) min-size))
-	     (or fast-voice-lock-save-others
-		 (eq (user-uid) (nth 2 (file-attributes buffer-file-name))))
-	     ;;
-	     ;; Only save if there are `personality' properties to save.
-	     (text-property-not-all (point-min) (point-max) 'personality nil))
+		 ;;
+		 ;; "Only save if the buffer matches the file, the file has
+		 ;; changed, and it was changed by the current emacs session."
+		 ;;
+		 ;; Only save if the buffer is not modified,
+		 ;; (i.e., so we don't save for something not on disk)
+		 (not (buffer-modified-p))
+		 ;; and the file's timestamp is the same as the buffer's,
+		 ;; (i.e., someone else hasn't written the file in the meantime)
+		 (verify-visited-file-modtime (current-buffer))
+		 ;; and the file's timestamp is different from the cache's.
+		 ;; (i.e., a save has occurred since the cache was read)
+		 (not (equal fast-voice-lock-cache-timestamp file-timestamp))
+		 ;;
+		 ;; Only save if user's restrictions are satisfied.
+		 (and min-size (>= (buffer-size) min-size))
+		 (or fast-voice-lock-save-others
+		     (eq (user-uid) (nth 2 (file-attributes buffer-file-name))))
+		 ;;
+		 ;; Only save if there are `personality' properties to save.
+		 (text-property-not-all (point-min) (point-max) 'personality nil))
 	;;
 	;; Try each directory until we manage to save or the user quits.
 	(let ((directories fast-voice-lock-cache-directories))
@@ -553,7 +552,7 @@ See `fast-voice-lock-cache-directory'."
     saved))
 
 (defun fast-voice-lock-cache-data (version timestamp keywords properties
-			     &rest ignored)
+					   &rest ignored)
   ;; Change from (HIGH LOW) for back compatibility.  Remove for version 3!
   (when (consp (cdr-safe timestamp))
     (setcdr timestamp (nth 1 timestamp)))
@@ -586,23 +585,23 @@ See `fast-voice-lock-cache-directory'."
 
 ;; This is faster, but fails if adjacent characters have different `personality' text
 ;; properties.  Maybe that's why I dropped it in the first place?
-;(defun fast-voice-lock-get-personality-properties ()
-;  "Return a list of all `personality' text properties in the current buffer.
-;Each element of the list is of the form (VALUE START1 END1 START2 END2 ...)
-;where VALUE is a `personality' property value and STARTx and ENDx are positions."
-;  (save-restriction
-;    (widen)
-;    (let ((start (text-property-not-all (point-min) (point-max) 'personality nil))
-;	  (limit (point-max)) end properties value cell)
-;      (while start
-;	(setq end (next-single-property-change start 'personality nil limit)
-;	      value (get-text-property start 'personality))
-;	;; Make, or add to existing, list of regions with same `personality'.
-;	(if (setq cell (assq value properties))
-;	    (setcdr cell (cons start (cons end (cdr cell))))
-;	  (setq properties (cons (list value start end) properties)))
-;	(setq start (next-single-property-change end 'personality)))
-;      properties)))
+					;(defun fast-voice-lock-get-personality-properties ()
+					;  "Return a list of all `personality' text properties in the current buffer.
+					;Each element of the list is of the form (VALUE START1 END1 START2 END2 ...)
+					;where VALUE is a `personality' property value and STARTx and ENDx are positions."
+					;  (save-restriction
+					;    (widen)
+					;    (let ((start (text-property-not-all (point-min) (point-max) 'personality nil))
+					;	  (limit (point-max)) end properties value cell)
+					;      (while start
+					;	(setq end (next-single-property-change start 'personality nil limit)
+					;	      value (get-text-property start 'personality))
+					;	;; Make, or add to existing, list of regions with same `personality'.
+					;	(if (setq cell (assq value properties))
+					;	    (setcdr cell (cons start (cons end (cdr cell))))
+					;	  (setq properties (cons (list value start end) properties)))
+					;	(setq start (next-single-property-change end 'personality)))
+					;      properties)))
 
 (defun fast-voice-lock-get-personality-properties ()
   "Return a list of all `personality' text properties in the current buffer.
@@ -629,17 +628,17 @@ Only those `personality' VALUEs in `fast-voice-lock-save-personalities' are retu
 Any existing `personality' text properties are removed first.
 See `fast-voice-lock-get-personality-properties' for the format of PROPERTIES."
   (save-buffer-state (plist regions)
-    (save-restriction
-      (widen)
-      (voice-lock-unvoiceify-region (point-min) (point-max))
-      (while properties
-	(setq plist (list 'personality (car (car properties)))
-	      regions (cdr (car properties))
-	      properties (cdr properties))
-	;; Set the `personality' property for each start/end region.
-	(while regions
-	  (set-text-properties (nth 0 regions) (nth 1 regions) plist)
-	  (setq regions (nthcdr 2 regions)))))))
+		     (save-restriction
+		       (widen)
+		       (voice-lock-unvoiceify-region (point-min) (point-max))
+		       (while properties
+			 (setq plist (list 'personality (car (car properties)))
+			       regions (cdr (car properties))
+			       properties (cdr properties))
+			 ;; Set the `personality' property for each start/end region.
+			 (while regions
+			   (set-text-properties (nth 0 regions) (nth 1 regions) plist)
+			   (setq regions (nthcdr 2 regions)))))))
 
 ;; Functions for XEmacs:
 

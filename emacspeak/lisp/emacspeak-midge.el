@@ -57,10 +57,10 @@
 ;;; This module speech enables  midge.
 ;;; Midge is a MIDI composer/editor tool.
 ;;;From the package README file:
-    ; Midge, for midi generator, is a text to midi translator.
-    ; It creates type 1 (ie multitrack) midi files from text
-    ; descriptions of music. It is a single perl script, which
-    ; does not require any additional modules.
+					; Midge, for midi generator, is a text to midi translator.
+					; It creates type 1 (ie multitrack) midi files from text
+					; descriptions of music. It is a single perl script, which
+					; does not require any additional modules.
 ;;;The package also provides a convenient emacs mode for
 ;;;editing and playing  midge files.
 ;;;Midge's homepage is at:
@@ -100,8 +100,6 @@
     (emacspeak-auditory-icon 'open-object)
     (message "Started repeat block")))
 
-
-
 (defadvice midge-choose-block(after emacspeak pre act comp)
   "Announce insertion of choose block"
   (when (interactive-p)
@@ -113,7 +111,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Started bend block")))
-
 
 (defadvice midge-define-block(after emacspeak pre act comp)
   "Announce insertion of define block"
@@ -133,13 +130,11 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-
 (defadvice midge-define-line(after emacspeak pre act comp)
   "Announce insertion of define block"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
 
 (defadvice midge-choose-line(after emacspeak pre act comp)
   "Announce insertion of choose block"
@@ -172,26 +167,26 @@
 ;;{{{ voice lock
 
 (voice-lock-set-major-mode-keywords 'midge-mode
-                                                      'midge-voice-lock-keywords)
+				    'midge-voice-lock-keywords)
 
 (defvar midge-voice-lock-keywords nil
   "Voice lock keywords for midge mode.")
 
 (setq midge-voice-lock-keywords
-'(("^#[ \t].*$"  . voice-lock-comment-personality)
-  ("[%@]\\([-+a-zA-Z0-9_*]+\\)" . voice-lock-function-name-personality)
-  ("\\$[a-zA-Z0-9]+"  . voice-lock-variable-name-personality)))
+      '(("^#[ \t].*$"  . voice-lock-comment-personality)
+	("[%@]\\([-+a-zA-Z0-9_*]+\\)" . voice-lock-function-name-personality)
+	("\\$[a-zA-Z0-9]+"  . voice-lock-variable-name-personality)))
 
 ;;}}}
 ;;{{{ midge-mode-hook
 (defgroup emacspeak-midge nil
-"Midge group for Emacspeak."
-:group 'emacspeak)
+  "Midge group for Emacspeak."
+  :group 'emacspeak)
 
 (defcustom midge-mode-hook nil
   "set in emacspeak-setup"
-:type 'hook
-:group 'emacspeak-midge)
+  :type 'hook
+  :group 'emacspeak-midge)
 
 (defadvice midge-mode (after emacspeak pre act comp)
   "Run midge-mode-hook"

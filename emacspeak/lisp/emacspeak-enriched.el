@@ -52,7 +52,6 @@
   (list 'bold 'italic   'bold-italic 'underlined)
   "List of font faces we voiceify")
 
-
 (defun emacspeak-enriched-voiceify-faces (start end)
   "Map base fonts to voices.
 Useful in voicifying rich text."
@@ -122,7 +121,7 @@ Useful in voicifying rich text."
   "Map faces to voices. "
   (cond
    (enriched-mode
-       (emacspeak-enriched-voiceify-faces (point-min) (point-max))))
+    (emacspeak-enriched-voiceify-faces (point-min) (point-max))))
   ad-return-value)
 
 ;;}}}

@@ -100,7 +100,7 @@
   "Association list of dtk voice names and control codes.")
 
 (defsubst dtk-set-family-code (name code)
-"Set control code for voice family NAME  to CODE."
+  "Set control code for voice family NAME  to CODE."
   (declare (special dtk-family-table))
   (when (stringp name)
     (setq name (intern name)))
@@ -135,18 +135,18 @@ Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
 (defsubst dtk-css-set-code-table (family dimension table)
-"Set up voice FAMILY.
+  "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-(declare (special dtk-css-code-tables))
-(let ((key (intern (format "%s-%s" family dimension))))
-(setf  (gethash key dtk-css-code-tables) table )))
+  (declare (special dtk-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (setf  (gethash key dtk-css-code-tables) table )))
 
 (defsubst dtk-css-get-code-table (family dimension)
-"Retrieve table of values for specified FAMILY and DIMENSION."
-(declare (special dtk-css-code-tables))
-(let ((key (intern (format "%s-%s" family dimension))))
-(gethash key dtk-css-code-tables)))
+  "Retrieve table of values for specified FAMILY and DIMENSION."
+  (declare (special dtk-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (gethash key dtk-css-code-tables)))
 
 ;;}}}
 ;;{{{ volume
@@ -167,88 +167,88 @@ and TABLE gives the values along that dimension."
 
 ;;{{{  paul average pitch
 
- (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " ap %s hs % s"
-                  (second setting)
-                  (third setting)))))
-'(
-(0 96 115)
-(1 101 112)
-(2 108 109)
-(3 112 106)
-(4 118 103 )
-(5 122  100)
-(6 128 98)
-(7 134 96)
-(8 140 94)
-(9 147 91)
-))
-(dtk-css-set-code-table 'paul 'average-pitch table ))
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " ap %s hs % s"
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 96 115)
+     (1 101 112)
+     (2 108 109)
+     (3 112 106)
+     (4 118 103 )
+     (5 122  100)
+     (6 128 98)
+     (7 134 96)
+     (8 140 94)
+     (9 147 91)
+     ))
+  (dtk-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}
 ;;{{{  harry average pitch
 
- (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " ap %s hs % s"
-                  (second setting)
-                  (third setting)))))
-'(
-(0 50 125)
-(1 59 123)
-(2 68 121)
-(3 77 120)
-(4 83  118 )
-(5 89 115)
-(6 95 112)
-(7 110 105)
-(8 125 100)
-(9 140 95)
-))
-(dtk-css-set-code-table 'harry 'average-pitch table ))
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " ap %s hs % s"
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 50 125)
+     (1 59 123)
+     (2 68 121)
+     (3 77 120)
+     (4 83  118 )
+     (5 89 115)
+     (6 95 112)
+     (7 110 105)
+     (8 125 100)
+     (9 140 95)
+     ))
+  (dtk-css-set-code-table 'harry 'average-pitch table ))
 
 ;;}}}
 ;;{{{  betty average pitch
 
- (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " ap %s hs % s"
-                  (second setting)
-                  (third setting)))))
-'(
-(0 160 115)
-(1 170 112)
-(2 181 109)
-(3 192 106)
-(4 200 103 )
-(5 208  100)
-(6 219 98)
-(7 225  96)
-(8 240 94)
-(9 260  91)
-))
-(dtk-css-set-code-table 'betty 'average-pitch table ))
+(let ((table (make-vector 10 "")))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " ap %s hs % s"
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 160 115)
+     (1 170 112)
+     (2 181 109)
+     (3 192 106)
+     (4 200 103 )
+     (5 208  100)
+     (6 219 98)
+     (7 225  96)
+     (8 240 94)
+     (9 260  91)
+     ))
+  (dtk-css-set-code-table 'betty 'average-pitch table ))
 
 ;;}}}
 
 (defsubst dtk-get-average-pitch-code (value family)
-"Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
+  "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (aref (dtk-css-get-code-table family 'average-pitch)
-   value))
+	value))
 
 ;;}}}
 ;;{{{  pitch range
@@ -262,86 +262,86 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " pr %s as %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 0 0)
-(1 20 10)
-(2 40 20)
-(3 60 30)
-(4 80 40 )
-(5 100 50 )
-(6 137 60)
-(7 174 70)
-(8 211 80)
-(9 250 100)
-))
-(dtk-css-set-code-table 'paul 'pitch-range table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " pr %s as %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 0 0)
+     (1 20 10)
+     (2 40 20)
+     (3 60 30)
+     (4 80 40 )
+     (5 100 50 )
+     (6 137 60)
+     (7 174 70)
+     (8 211 80)
+     (9 250 100)
+     ))
+  (dtk-css-set-code-table 'paul 'pitch-range table ))
 
 ;;}}}
 ;;{{{  harry pitch range
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " pr %s as %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 0 0)
-(1 16 20)
-(2 32 40)
-(3 48 60)
-(4 64 80 )
-(5 80 100 )
-(6 137 100)
-(7 174 100)
-(8 211 100)
-(9 250 100)
-))
-(dtk-css-set-code-table 'harry 'pitch-range table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " pr %s as %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 0 0)
+     (1 16 20)
+     (2 32 40)
+     (3 48 60)
+     (4 64 80 )
+     (5 80 100 )
+     (6 137 100)
+     (7 174 100)
+     (8 211 100)
+     (9 250 100)
+     ))
+  (dtk-css-set-code-table 'harry 'pitch-range table ))
 
 ;;}}}
 ;;{{{  betty pitch range
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " pr %s as %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 0 0)
-(1 50 10)
-(2 80 20)
-(3 100 25)
-(4 110 30 )
-(5 140 35)
-(6 165 57)
-(7 190 75)
-(8 220 87)
-(9 250 100)
-))
-(dtk-css-set-code-table 'betty 'pitch-range table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " pr %s as %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 0 0)
+     (1 50 10)
+     (2 80 20)
+     (3 100 25)
+     (4 110 30 )
+     (5 140 35)
+     (6 165 57)
+     (7 190 75)
+     (8 220 87)
+     (9 250 100)
+     ))
+  (dtk-css-set-code-table 'betty 'pitch-range table ))
 
 ;;}}}
 (defsubst dtk-get-pitch-range-code (value family)
-"Get pitch-range code for specified VALUE and FAMILY."
+  "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (aref (dtk-css-get-code-table family 'pitch-range)
-  value))
+	value))
 
 ;;}}}
 ;;{{{  stress
@@ -358,85 +358,85 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " hr %s sr %s qu %s bf %s "
-                  (second setting)
-                  (third setting)
-                  (fourth setting)
-                  (fifth setting)))))
-'(
-(0  0 0 0 0)
-(1 3 6  20 3)
-(2 6 12  40 6)
-(3 9 18  60 9 )
-(4 12 24 80 14)
-(5 18 32  100 18)
-(6 34 50 100 20)
-(7 48  65 100 35)
-(8 63 82 100 60)
-(9 80  90 100  40)
-))
-(dtk-css-set-code-table 'paul 'stress table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " hr %s sr %s qu %s bf %s "
+		    (second setting)
+		    (third setting)
+		    (fourth setting)
+		    (fifth setting)))))
+   '(
+     (0  0 0 0 0)
+     (1 3 6  20 3)
+     (2 6 12  40 6)
+     (3 9 18  60 9 )
+     (4 12 24 80 14)
+     (5 18 32  100 18)
+     (6 34 50 100 20)
+     (7 48  65 100 35)
+     (8 63 82 100 60)
+     (9 80  90 100  40)
+     ))
+  (dtk-css-set-code-table 'paul 'stress table))
 
 ;;}}}
 ;;{{{  harry stress
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " hr %s sr %s qu %s bf %s "
-                  (second setting)
-                  (third setting)
-                  (fourth setting)
-                  (fifth setting)))))
-'(
-(0  0 0 0 0)
-(1 4 6 2 2 )
-(2 8 12 4 4 )
-(3 12 18 6 6 )
-(4 16 24 8 8 )
-(5 20 30 10 9)
-(6 40  48 32 16)
-(7 60 66 54 22)
-(8 80 78 77 34)
-(9 100 100 100 40)
-))
-(dtk-css-set-code-table 'harry 'stress table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " hr %s sr %s qu %s bf %s "
+		    (second setting)
+		    (third setting)
+		    (fourth setting)
+		    (fifth setting)))))
+   '(
+     (0  0 0 0 0)
+     (1 4 6 2 2 )
+     (2 8 12 4 4 )
+     (3 12 18 6 6 )
+     (4 16 24 8 8 )
+     (5 20 30 10 9)
+     (6 40  48 32 16)
+     (7 60 66 54 22)
+     (8 80 78 77 34)
+     (9 100 100 100 40)
+     ))
+  (dtk-css-set-code-table 'harry 'stress table))
 
 ;;}}}
 ;;{{{  betty stress
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " hr %s sr %s qu %s bf %s "
-                  (second setting)
-                  (third setting)
-                  (fourth setting)
-                  (fifth setting)))))
-'(
-(0  1 1 0 0)
-(1 3 4 11 0)
-(2 5 8 22 0)
-(3 8 12 33 0 )
-(4 11  16 44 0)
-(5 14 20 55 0)
-(6 35 40 65 10)
-(7 56 80 75 20)
-(8 77 90 85 30)
-(9 100 100 100 40)
-))
-(dtk-css-set-code-table 'betty 'stress table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " hr %s sr %s qu %s bf %s "
+		    (second setting)
+		    (third setting)
+		    (fourth setting)
+		    (fifth setting)))))
+   '(
+     (0  1 1 0 0)
+     (1 3 4 11 0)
+     (2 5 8 22 0)
+     (3 8 12 33 0 )
+     (4 11  16 44 0)
+     (5 14 20 55 0)
+     (6 35 40 65 10)
+     (7 56 80 75 20)
+     (8 77 90 85 30)
+     (9 100 100 100 40)
+     ))
+  (dtk-css-set-code-table 'betty 'stress table))
 
 ;;}}}
 (defsubst dtk-get-stress-code (value family)
@@ -451,76 +451,76 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table (first setting)
-          (format " ri %s sm %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 0 100)
-(1 14 80)
-(2 28 60)
-(3 42 40 )
-(4 56 20)
-(5 70  3 )
-(6 60 24 )
-(7 70 16)
-(8 80 8 20)
-(9 100  0)
-))
-(dtk-css-set-code-table 'paul 'richness table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table (first setting)
+	    (format " ri %s sm %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 0 100)
+     (1 14 80)
+     (2 28 60)
+     (3 42 40 )
+     (4 56 20)
+     (5 70  3 )
+     (6 60 24 )
+     (7 70 16)
+     (8 80 8 20)
+     (9 100  0)
+     ))
+  (dtk-css-set-code-table 'paul 'richness table))
 
 ;;}}}
 ;;{{{  harry richness
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table (first setting)
-          (format " ri %s sm %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 100 0)
-(1 96 3)
-(2 93 6)
-(3 90 9)
-(4 88 11)
-(5 86 12)
-(6 60 24 )
-(7 40 44)
-(8 20 65)
-(9 0 70)
-))
-(dtk-css-set-code-table 'harry 'richness table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table (first setting)
+	    (format " ri %s sm %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 100 0)
+     (1 96 3)
+     (2 93 6)
+     (3 90 9)
+     (4 88 11)
+     (5 86 12)
+     (6 60 24 )
+     (7 40 44)
+     (8 20 65)
+     (9 0 70)
+     ))
+  (dtk-css-set-code-table 'harry 'richness table))
 
 ;;}}}
 ;;{{{  betty richness
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table (first setting)
-          (format " ri %s sm %s "
-                  (second setting)
-                  (third setting)))))
-'(
-(0 0 100)
-(1 8 76)
-(2 16 52)
-(3 24  28)
-(4 32 10)
-(5 40 4)
-(6 50 3 )
-(7 65 3)
-(8 80 8 2)
-(9 100  0)
-))
-(dtk-css-set-code-table 'betty 'richness table))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table (first setting)
+	    (format " ri %s sm %s "
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 0 100)
+     (1 8 76)
+     (2 16 52)
+     (3 24  28)
+     (4 32 10)
+     (5 40 4)
+     (6 50 3 )
+     (7 65 3)
+     (8 80 8 2)
+     (9 100  0)
+     ))
+  (dtk-css-set-code-table 'betty 'richness table))
 
 ;;}}}
 
@@ -537,21 +537,19 @@ and TABLE gives the values along that dimension."
 (defun dtk-define-voice-from-speech-style (name style)
   "Define NAME to be a dtk voice as specified by settings in STYLE."
   (let* ((family(dtk-speech-style-family style))
-          (command
-         (concat "["
-                 (dtk-get-family-code family)
-                 " :dv "
-(dtk-get-average-pitch-code (dtk-speech-style-average-pitch style) family)
-(dtk-get-pitch-range-code (dtk-speech-style-pitch-range style) family)
-(dtk-get-stress-code (dtk-speech-style-stress style ) family)
-(dtk-get-richness-code (dtk-speech-style-richness style) family)
-"]")))
-(dtk-define-voice name command)))
+	 (command
+	  (concat "["
+		  (dtk-get-family-code family)
+		  " :dv "
+		  (dtk-get-average-pitch-code (dtk-speech-style-average-pitch style) family)
+		  (dtk-get-pitch-range-code (dtk-speech-style-pitch-range style) family)
+		  (dtk-get-stress-code (dtk-speech-style-stress style ) family)
+		  (dtk-get-richness-code (dtk-speech-style-richness style) family)
+		  "]")))
+    (dtk-define-voice name command)))
 
 ;;}}}
 ;;{{{  dtk-personality-from-speech-style
-
-
 
 (defun dectalk-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.

@@ -50,9 +50,6 @@
 
 ;;; This module speech enables flyspell.
 
-
-
-
 ;;}}}
 ;;{{{  define personalities
 
@@ -65,7 +62,7 @@
 (defcustom emacspeak-flyspell-highlight-personality 'harry
   "Voice used to highlight spelling errors. "
   :type 'symbol
-:group 'emacspeak-flyspell)
+  :group 'emacspeak-flyspell)
 
 ;;}}}
 ;;{{{ advice
@@ -84,14 +81,14 @@
 (defadvice flyspell-unhighlight-at (before debug pre act comp)
 
   (let ((overlay-list (overlays-at pos))
-(o nil))
+	(o nil))
     (while overlay-list 
-(setq o (car overlay-list))
-          (when (flyspell-overlay-p o)
-          (put-text-property (overlay-start o)
-                             (overlay-end o)
-                             'personality  nil))
-(setq overlay-list (cdr overlay-list)))))
+      (setq o (car overlay-list))
+      (when (flyspell-overlay-p o)
+	(put-text-property (overlay-start o)
+			   (overlay-end o)
+			   'personality  nil))
+      (setq overlay-list (cdr overlay-list)))))
 ;;}}}
 ;;{{{  Highlighting the error 
 

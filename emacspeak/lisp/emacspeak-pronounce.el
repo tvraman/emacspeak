@@ -65,7 +65,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'wid-edit)
- (require 'voice-lock))
+		   (require 'voice-lock))
 (require 'thingatpt)
 (eval-when (compile)
                                         ;avoid recursive include during compile
@@ -212,7 +212,6 @@ modes."
 
 ;;; c++ mode inherits from C mode
 (emacspeak-pronounce-add-super  'c-mode 'c++-mode)
-
 
 ;;; latex-mode and latex2e-mode inherit from plain-tex-mode
 
@@ -438,7 +437,6 @@ First loads any persistent dictionaries if not already loaded."
     (when (string= key-type  "buffer")
       (emacspeak-pronounce-add-buffer-local-dictionary-entry  word pronunciation))))
 
-
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
 
@@ -512,8 +510,6 @@ Activates pronunciation dictionaries if not already active."
 ;;}}}
 ;;{{{  dictionary editor 
 
-
-
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
   "Generate a widget-enabled edit buffer for editting the
 pronunciation dictionary for the specified key."
@@ -566,28 +562,28 @@ pronunciation dictionary for the specified key."
         value)))))
 
 (defun emacspeak-pronounce-edit-pronunciations (key)
-   "Prompt for and launch a pronunciation editor on the
+  "Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key."
-   (interactive
-    (list
-     (let ((keys
-            (loop for k being the hash-keys of
-                  emacspeak-pronounce-dictionaries
-                  collect
-                  (symbol-name k))))
-       (completing-read "Edit dictionary: "
-                        (mapcar
-                         #'(lambda (k)
-                             (cons k k ))
-                         keys)
-                        nil
-                        'REQUIRE-MATCH 
-                        nil
-                        'keys
-                        (car keys))))) 
-   (declare (special emacspeak-pronounce-dictionaries))
-   (emacspeak-pronounce-edit-generate-pronunciation-editor
-    (intern key)))
+  (interactive
+   (list
+    (let ((keys
+	   (loop for k being the hash-keys of
+		 emacspeak-pronounce-dictionaries
+		 collect
+		 (symbol-name k))))
+      (completing-read "Edit dictionary: "
+		       (mapcar
+			#'(lambda (k)
+			    (cons k k ))
+			keys)
+		       nil
+		       'REQUIRE-MATCH 
+		       nil
+		       'keys
+		       (car keys))))) 
+  (declare (special emacspeak-pronounce-dictionaries))
+  (emacspeak-pronounce-edit-generate-pronunciation-editor
+   (intern key)))
 
 ;;}}}
 ;;{{{ top level dispatch routine

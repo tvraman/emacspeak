@@ -48,7 +48,6 @@
 ;;}}}
 ;;{{{  advice interactive commands
 
-
 (defadvice message-goto-to (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -67,13 +66,11 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
 (defadvice message-goto-cc (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
 
 (defadvice message-goto-bcc (after emacspeak pre act comp)
   "Provide auditory feedback"
@@ -110,7 +107,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
 (defadvice message-goto-body (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -135,7 +131,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
 (defadvice message-insert-to (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -152,7 +147,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
 
 (defadvice message-insert-courtesy-copy (after emacspeak pre act comp)
   "Provide auditory feedback"

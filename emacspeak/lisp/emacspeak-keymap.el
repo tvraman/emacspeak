@@ -273,7 +273,6 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "\C-d" 'emacspeak-toggle-show-point)
 ;;; speaking specific windows:
 
-
 (dotimes (i 10)
   (define-key emacspeak-keymap
     (format "%s" i )
@@ -316,7 +315,6 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-dtk-submap "b" 'dtk-toggle-debug)
 (define-key emacspeak-dtk-submap "\M-\C-b" 'tts-show-debug-buffer)
 (define-key emacspeak-dtk-submap "a" 'dtk-add-cleanup-pattern)
-
 
 (dotimes (i 10)
   (define-key emacspeak-dtk-submap

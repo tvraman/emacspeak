@@ -63,7 +63,6 @@
 (defvar emacspeak-aumix-channel-table (make-hash-table)
   "Hash table holding mapping from  channel options to descriptions.")
 
-
 (defsubst emacspeak-aumix-set-channel  (channel description)
   (declare (special emacspeak-aumix-channel-table))
   (setf (gethash channel emacspeak-aumix-channel-table) description))
@@ -92,7 +91,7 @@
 (defgroup emacspeak-aumix nil
   "Customization group for setting the Emacspeak auditory
 display."
-:group 'emacspeak)
+  :group 'emacspeak)
 
 (defcustom emacspeak-aumix-multichannel-capable-p nil
   "*Set to T if the sound card is capable of mixing multiple channels of audio."
@@ -108,7 +107,6 @@ display."
   "*Set to T if   midi is available."
   :group 'emacspeak-aumix
   :type 'boolean)
-
 
 (setq emacspeak-aumix-midi-available-p
       (file-exists-p "/usr/bin/stdiosynth"))
@@ -133,7 +131,6 @@ display."
   :group 'emacspeak-aumix
   :type 'string)
 
-
 (defun emacspeak-aumix-reset ()
   "Reset to default audio settings."
   (interactive)
@@ -153,10 +150,10 @@ after saving the settings to have them take effect."
   (declare (special emacspeak-etc-directory))
   (let ((emacspeak-speak-messages nil)
         (dtk-stop-immediately nil))
-  (emacspeak-forms-find-file
-   (expand-file-name "forms/aumix-rc.el" emacspeak-etc-directory))
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-forms-speak-field)))
+    (emacspeak-forms-find-file
+     (expand-file-name "forms/aumix-rc.el" emacspeak-etc-directory))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-forms-speak-field)))
 
 (defun emacspeak-aumix ()
   "Setup output parameters of the auditory display.
@@ -203,10 +200,10 @@ you are done."
   (interactive "P")
   (unless (numberp gain) (setq gain 1 ))
   (let ((emacspeak-speak-messages nil))
-  (shell-command
-   (format "%s -w +%s"
-           emacspeak-aumix-program  gain))
-  (emacspeak-auditory-icon 'select-object) ))
+    (shell-command
+     (format "%s -w +%s"
+	     emacspeak-aumix-program  gain))
+    (emacspeak-auditory-icon 'select-object) ))
 
 ;;;###autoload
 (defun emacspeak-aumix-wave-decrease  (&optional gain)
@@ -214,10 +211,10 @@ you are done."
   (interactive "P")
   (unless (numberp gain) (setq gain 1 ))
   (let ((emacspeak-speak-messages nil))
-  (shell-command
-   (format "%s -w -%s"
-           emacspeak-aumix-program  gain))
-  (emacspeak-auditory-icon 'select-object)))
+    (shell-command
+     (format "%s -w -%s"
+	     emacspeak-aumix-program  gain))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
 (defun emacspeak-aumix-volume-increase (&optional gain)
@@ -225,10 +222,10 @@ you are done."
   (interactive "P")
   (unless (numberp gain) (setq gain 1 ))
   (let ((emacspeak-speak-messages nil))
-  (shell-command
-   (format "%s -v +%s"
-           emacspeak-aumix-program  gain))
-  (emacspeak-auditory-icon 'select-object)))
+    (shell-command
+     (format "%s -v +%s"
+	     emacspeak-aumix-program  gain))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
 (defun emacspeak-aumix-volume-decrease  (&optional gain)
@@ -236,11 +233,10 @@ you are done."
   (interactive "P")
   (unless (numberp gain) (setq gain 1 ))
   (let ((emacspeak-speak-messages nil))
-  (shell-command
-   (format "%s -v -%s"
-           emacspeak-aumix-program  gain))
-  (emacspeak-auditory-icon 'select-object)))
-
+    (shell-command
+     (format "%s -v -%s"
+	     emacspeak-aumix-program  gain))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 (provide 'emacspeak-aumix)

@@ -70,7 +70,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
-
 (defadvice eperiodic-show-element-info (after emacspeak pre act comp)
   "Speak displayed info."
   (when (interactive-p)

@@ -38,14 +38,14 @@
  (function
   (lambda ()
     (declare (special imenu-generic-expression
-                    imenu-create-index-function))
+		      imenu-create-index-function))
     (require 'imenu)
     (setq imenu-create-index-function 'imenu-default-create-index-function)
-  (setq imenu-generic-expression
-        '(
-          (nil
-           "^ *<[hH][1-6] *><[aA][^>]+>\\(.*\\)</[aA]></[hH][1-6]>" 1)
-          (nil "^ *<[hH][1-6] *>\\([^<]*\\)</[hH][1-6]>" 1))))))
+    (setq imenu-generic-expression
+	  '(
+	    (nil
+	     "^ *<[hH][1-6] *><[aA][^>]+>\\(.*\\)</[aA]></[hH][1-6]>" 1)
+	    (nil "^ *<[hH][1-6] *>\\([^<]*\\)</[hH][1-6]>" 1))))))
 
 ;;}}}
 (provide 'html-outline)

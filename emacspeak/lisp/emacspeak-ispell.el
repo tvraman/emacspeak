@@ -65,21 +65,21 @@
 ;;{{{  first set up voice  highlighting in 2.30:
 (declaim (special ispell-version))
 (when  (string-lessp ispell-version "2.37")
-     (fset 'ispell-highlight-spelling-error
-           (symbol-function 'ispell-highlight-spelling-error-overlay))
+  (fset 'ispell-highlight-spelling-error
+	(symbol-function 'ispell-highlight-spelling-error-overlay))
 
- (defadvice ispell-highlight-spelling-error (after emacspeak act )
-   "Use voice locking to highlight the error.
+  (defadvice ispell-highlight-spelling-error (after emacspeak act )
+    "Use voice locking to highlight the error.
 Will clobber any existing personality property defined on start end"
-   (let ((start (ad-get-arg 0))
-         (end (ad-get-arg 1 ))
-         (highlight (ad-get-arg 2 )))
-     (if highlight
-         (put-text-property  start end
-                             'personality  ispell-highlight-personality )
-       (put-text-property start end
-                          'personality  nil ))))
-)
+    (let ((start (ad-get-arg 0))
+	  (end (ad-get-arg 1 ))
+	  (highlight (ad-get-arg 2 )))
+      (if highlight
+	  (put-text-property  start end
+			      'personality  ispell-highlight-personality )
+	(put-text-property start end
+			   'personality  nil ))))
+  )
 
 ;;}}}
 ;;{{{  ispell command loop:
@@ -92,58 +92,58 @@ Will clobber any existing personality property defined on start end"
 ;;; Advice speaks the line containing the error with the erroneous
 ;;; word highlighted.
 (if (string-lessp ispell-version "2.37")
-;;{{{  old version
+    ;;{{{  old version
 
-(defadvice ispell-command-loop (before emacspeak pre act )
-  "Speak the line containing the incorrect word.
+    (defadvice ispell-command-loop (before emacspeak pre act )
+      "Speak the line containing the incorrect word.
  Then speak  the possible corrections. "
-  (let ((choices  (ad-get-arg 0 ))
-        (emacspeak-speak-messages nil)
-        (save-dtk-capitalize dtk-capitalize)
-        (position 0))
-    (or dtk-capitalize 
-        (dtk-toggle-capitalization))
-    (emacspeak-speak-line nil )
-    (unwind-protect
-        (progn
-          (dtk-toggle-splitting-on-white-space)
-          (while (and choices)
-            (dtk-say (format "%s %s" position (car choices )))
-            (incf position)
-            (setq choices (cdr choices ))))
-      (dtk-toggle-splitting-on-white-space)
-      (unless save-dtk-capitalize
-        (dtk-toggle-capitalization)))))
+      (let ((choices  (ad-get-arg 0 ))
+	    (emacspeak-speak-messages nil)
+	    (save-dtk-capitalize dtk-capitalize)
+	    (position 0))
+	(or dtk-capitalize 
+	    (dtk-toggle-capitalization))
+	(emacspeak-speak-line nil )
+	(unwind-protect
+	    (progn
+	      (dtk-toggle-splitting-on-white-space)
+	      (while (and choices)
+		(dtk-say (format "%s %s" position (car choices )))
+		(incf position)
+		(setq choices (cdr choices ))))
+	  (dtk-toggle-splitting-on-white-space)
+	  (unless save-dtk-capitalize
+	    (dtk-toggle-capitalization)))))
 
-;;}}}
-;;{{{  new version
+  ;;}}}
+  ;;{{{  new version
 
-(defadvice ispell-command-loop (before emacspeak pre act )
-  "Speak the line containing the incorrect word.
+  (defadvice ispell-command-loop (before emacspeak pre act )
+    "Speak the line containing the incorrect word.
  Then speak  the possible corrections. "
-  (let ((choices  (ad-get-arg 0 ))
-        (scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (line nil)
-        (start (ad-get-arg 3))
-        (end (ad-get-arg 4))
-        (position 0))
-    (setq line 
-          (ems-set-personality-temporarily start end ispell-highlight-personality
-                                           (thing-at-point 'line)))
-    (save-excursion
-      (set-buffer scratch-buffer)
-      (dtk-set-punctuations "all")
-      (modify-syntax-entry 10 ".")
-      (erase-buffer)
-      (insert line)
-      (loop for choice in choices
-            do
-            (insert (format "%s %s\n" position choice))
-            (incf position))
-      (dtk-speak (buffer-string )))))
+    (let ((choices  (ad-get-arg 0 ))
+	  (scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
+	  (line nil)
+	  (start (ad-get-arg 3))
+	  (end (ad-get-arg 4))
+	  (position 0))
+      (setq line 
+	    (ems-set-personality-temporarily start end ispell-highlight-personality
+					     (thing-at-point 'line)))
+      (save-excursion
+	(set-buffer scratch-buffer)
+	(dtk-set-punctuations "all")
+	(modify-syntax-entry 10 ".")
+	(erase-buffer)
+	(insert line)
+	(loop for choice in choices
+	      do
+	      (insert (format "%s %s\n" position choice))
+	      (incf position))
+	(dtk-speak (buffer-string )))))
 
-;;}}}
-)
+  ;;}}}
+  )
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp) 
   "Stop chatter by turning off messages"
   (cond
