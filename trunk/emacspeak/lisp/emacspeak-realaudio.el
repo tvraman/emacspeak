@@ -369,6 +369,11 @@ commands via single keystrokes."
         ?[ ?] ?{ ?})
   "Keys accepted by TRPlayer.")
 
+(defvar emacspeak-realaudio-this-resource nil
+  "Records location of resource being played.")
+
+(make-variable-buffer-local 'emacspeak-realaudio-this-resource)
+
 (defun emacspeak-realaudio-trplayer-call-command ()
   "Call appropriate TRPlayer command."
   (interactive)
