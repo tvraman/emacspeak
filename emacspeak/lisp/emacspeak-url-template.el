@@ -192,7 +192,8 @@ generators  ; list of param generator
 
 
 (emacspeak-url-template-define "CNN headlines "
-                               "http://www.cnn.com/quicknews/print.html")
+                               "http://www.cnn.com/quicknews/print.html"
+                               nil)
 
 (emacspeak-url-template-define "CNN Tecnology "
 "http://www.cnn.com/2001/TECH/%s/"
