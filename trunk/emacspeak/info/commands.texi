@@ -3472,6 +3472,14 @@ Jump to next available submit button.
 Jumps to the occurrence of document title in page body.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-junk-by-class-list (CLASSES &optional PROMPT-URL SPEAK)
+Junk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. 
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-lynx-url-under-point ()
 Display contents of URL under point using LYNX.  The
 document is displayed in a separate buffer. Note that the
@@ -3550,6 +3558,14 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-xpath-junk-and-follow (&optional PROMPT)
+Follow url and point, and filter the result by junking
+elements specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-xsl-toggle ()
 Toggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
@@ -3560,11 +3576,16 @@ libxslt package.
 Apply specified transformation to current page.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-xslt-filter (PATH &optional PROMPT-URL SPEAK-RESULT)
+@deffn {Interactive Command} emacspeak-w3-xslt-filter (PATH &optional PROMPT-URL SPEAK-RESULT COMPLEMENT)
 Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  
+specifies the page to extract table from.
+Optional arg COMPLEMENT inverts the filter.  
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-xslt-junk (PATH &optional PROMPT-URL)
+Junk elements matching specified locator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-xslt-select (XSL)
@@ -4289,6 +4310,11 @@ Browse  Emacspeak productivity tips.
 Count slides starting from point.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-edit-file-as-root (FILENAME)
+Edit file as root using sudo vi.
+See /etc/sudoers for how to set up sudo.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-find-grep (GLOB PATTERN)
 Run compile using find and grep. 
 Interactive  arguments specify filename pattern and search pattern.
@@ -4383,6 +4409,10 @@ Bring up detailed stock quotes for portfolio specified by
 emacspeak-websearch-personal-portfolio.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-ppp-toggle ()
+Bring up or bring down ppp.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-ppt-display ()
 Called to set up preview of an PPT file.
 Assumes we are in a buffer visiting a .ppt file.
@@ -4446,6 +4476,11 @@ Squeeze multiple blank lines in current buffer.
 
 @deffn {Interactive Command} emacspeak-wizards-tpctl-display-status ()
 Show display status on thinkpads using tpctl.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-tramp-open-location (LOCATION)
+Open specified tramp location.
+Location is specified by name.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-use-w3-or-w3m ()
