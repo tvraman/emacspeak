@@ -2,73 +2,42 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@cs.cornell.edu>
 
-* Emacspeak 16.0 Additions And Changes:
+* Emacspeak 17.0 Additions And Changes:
 
-Emacspeak 16.0 provides the following user level enhancements:
+Emacspeak 17.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
-** emacspeak-daisy: Digital Talking Book Reader
+** Enhanced Emacs 21 support:
 
-Module emacspeak-daisy.el implements a browser for working with
-Digital Audio Books conforming to the Daisy3 specification --invoked
-by command emacspeak-daisy-open-book.
+I have now switched to Emacs 21 on all my machines.
 
+** emacspeak-rpm-spec.el: 
 
-** Speech-enables W3M
-
-W3M is an alternative to using Emacs W3.
-
-** IMCom for Jabber:
-
-Module emacspeak-imcom provides a speech-enabled wrapper for
-Jabber client IMCom.
-
-** XML Shell:
-
-Module emacspeak-xml-shell implements an XML Shell for walking
- XML trees interactively.
-
-** emacspeak-analog.el: Log Analyzer
-
-Speech-enables package analog --a convenient means for viewing
-multiple log files.
-
-** eperiodic: Periodic Table Of Eleements 
-
-Speech-enables a simple periodic table of elements.
+Speech-enable rpm spec editor.
 
 
-** Pronunciation Dictionaries
+** emacspeak-m-player.el:
 
-New Command to interactively edit Emacspeak pronunciation
-dictionaries.
-
-** Tools:
-
-*** Wizards for Viewing XL and PowerPoint Files:
+New module  for easy access to media player mplayer.
 
 
-Install package xlhtml http://www.xlhtml.org --this provides
-convertors xlhtml and ppthtml that convert .xls and .ppt
-files to HTML.  If installed, Emacspeak can use this tool to
-preview .xls and .ppt files using W3 when a .xls or .ppt
-file is opened in emacs.
+** emacspeak-reftex.el:
 
-*** emacspeak-wizards-shell-toggle:
+Enhanced reftex support.
 
-Switches to shell buffer and automatically changes directory
-to the default directory of the previously current buffer.
+** emacspeak-ecb.el:
+
+Enhanced ECB support.
 
 
+** emacspeak-wizards:
 
-*** Shell mode mode-line format:
+Many new wizards for productivity --see online documentation for
+details.
 
-Speak directory as part of the mode-line.
+** emacspeak-url-template.el
 
-** stereo-outloud:
-
-New speech server stereo-outloud implements a speech server
-for ViaVoice TTS using in-memory synthesis.
+New url templates.
 
 
 Local variables:
