@@ -775,11 +775,28 @@ documentation.\n\n")
                 (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
-              (setq commentary
-                    (lm-commentary  (finder-find-library this-module)))
               (setq this-module
-                    (file-name-sans-extension
-                     (file-name-nondirectory this-module))))
+                    (file-name-sans-extension this-module))
+              (setq commentary
+                    (lm-commentary
+                     (concat this-module ".el")))
+              (when commentary
+                (setq commentary 
+                      (save-excursion
+                        (set-buffer
+                         (get-buffer-create " *doc-temp*"))
+                        (erase-buffer)
+                        (insert commentary)
+                        (goto-char (point-min))
+                        (delete-blank-lines)
+                        (goto-char (point-max))
+                        (delete-blank-lines)
+                        (goto-char (point-min))
+                        (while (re-search-forward "^;+ ?" nil t)
+                          (replace-match "" nil nil))
+                        (buffer-string))))
+              (setq this-module
+                    (file-name-nondirectory this-module)))
             (unless (string-equal module this-module)
               (if this-module 
                   (setq module this-module)
@@ -790,7 +807,7 @@ documentation.\n\n")
                 module module ))
               (insert
                (format "\n\n%s\n\n" 
-(or commentary "")))
+                       (or commentary "")))
               (insert
                (format
                 "Automatically generated documentation
