@@ -77,6 +77,7 @@
 
 ;;}}}
 ;;{{{ Create a keymap that users can put personal commands
+
 ;;on
 ;;; Adding keys using custom:
 (defvar  emacspeak-personal-keymap nil
@@ -101,9 +102,9 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Personal Keymap"
-	  (cons  :tag "Key Binding"
-		(string :tag "Key")
-		(symbol :tag "Command")))
+                 (cons  :tag "Key Binding"
+                        (string :tag "Key")
+                        (symbol :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -112,7 +113,9 @@ field in the customization buffer.  You can use the notation
                (when (string-match "\\[.+]" key)
                  (setq key  (car (read-from-string key))))
                (define-key emacspeak-personal-keymap  key command)))
-           val)
+           (sort val
+                 #'(lambda (a b)
+                     (string-lessp(car a) (car b)))))
 	  (set-default sym val)))
 
 (define-key  emacspeak-keymap "x"
@@ -149,9 +152,9 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Super Keymap"
-	  (cons  :tag "Key Binding"
-		(string :tag "Key")
-		(symbol :tag "Command")))
+                 (cons  :tag "Key Binding"
+                        (string :tag "Key")
+                        (symbol :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -160,7 +163,9 @@ field in the customization buffer.  You can use the notation
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
                (define-key emacspeak-super-keymap key command)))
-           val)
+           (sort val
+                 #'(lambda (a b)
+                     (string-lessp (car a) (car b )))))
 	  (set-default sym val)))
 
 (global-set-key "\C-x@s"
@@ -198,9 +203,9 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Alt Keymap"
-	  (cons  :tag "Key Binding"
-		(string :tag "Key")
-		(symbol :tag "Command")))
+                 (cons  :tag "Key Binding"
+                        (string :tag "Key")
+                        (symbol :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -209,7 +214,9 @@ field in the customization buffer.  You can use the notation
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
                (define-key emacspeak-alt-keymap key command)))
-           val)
+           (sort val
+                 #'(lambda (a b)
+                     (string-lessp (car a) (car b)))))
 	  (set-default sym val)))
 
 (global-set-key "\C-x@a"
@@ -247,9 +254,9 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat :tag "Emacspeak Hyper Keys"
-	  (cons  :tag "Key Binding"
-		(string :tag "Key")
-		(symbol :tag "Command")))
+                 (cons  :tag "Key Binding"
+                        (string :tag "Key")
+                        (symbol :tag "Command")))
   :set '(lambda (sym val)
           (mapc
            (lambda (binding)
@@ -258,7 +265,9 @@ field in the customization buffer.  You can use the notation
                (when (string-match "\\[.+]" key)
                  (setq key (car (read-from-string key))))
                (define-key emacspeak-hyper-keymap key command)))
-           val)
+           (sort val
+                 #'(lambda (a b)
+                     (string-lessp (car a) (car b)))))
 	  (set-default sym val)))
 
 (global-set-key "\C-x@h"

@@ -24,7 +24,7 @@
 (put 'forms 'custom-loads '(emacspeak-forms))
 (put 'tts 'custom-loads '(emacspeak-setup dtk-speak))
 (put 'emacspeak-pronounce 'custom-loads '(emacspeak-pronounce))
-(put 'emacspeak 'custom-loads '("emacspeak-loaddefs" emacspeak-dismal emacspeak-ediff emacspeak-wizards emacspeak-erc emacspeak-eshell emacspeak-eudc emacspeak-flyspell emacspeak-forms emacspeak-keymap emacspeak-ispell emacspeak-midge emacspeak-nxml emacspeak-ocr emacspeak emacspeak-pronounce emacspeak-replace emacspeak-rss emacspeak-speak emacspeak-speedbar emacspeak-table-ui emacspeak-view-process emacspeak-vm emacspeak-w3 emacspeak-websearch emacspeak-widget dtk-speak voice-setup))
+(put 'emacspeak 'custom-loads '(emacspeak-keymap "emacspeak-loaddefs" emacspeak-dismal emacspeak-ediff emacspeak-wizards emacspeak-erc emacspeak-eshell emacspeak-eudc emacspeak-flyspell emacspeak-forms emacspeak-ido emacspeak-ispell emacspeak-midge emacspeak-nxml emacspeak-ocr emacspeak emacspeak-pronounce emacspeak-replace emacspeak-rss emacspeak-speak emacspeak-speedbar emacspeak-table-ui emacspeak-view-process emacspeak-vm emacspeak-w3 emacspeak-websearch emacspeak-widget dtk-speak voice-setup))
 (put 'emacspeak-xml-shell 'custom-loads '(emacspeak-xml-shell))
 (put 'emacspeak-calendar 'custom-loads '(emacspeak-calendar))
 (put 'emacspeak-amphetadesk 'custom-loads '(emacspeak-amphetadesk))
