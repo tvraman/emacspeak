@@ -448,7 +448,7 @@ The scanned image is converted to JPEG."
             (read-from-minibuffer "Enter picture description: "))
       (let ((tempfile (format "temp%s.jpg" (gensym))))
         (shell-command
-         (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
+         (format  "mv %s %s; %s -c '%s' %s > %s; rm -f %s"
                   jpg  tempfile
                   emacspeak-ocr-jpeg-metadata-writer metadata 
                   tempfile jpg
