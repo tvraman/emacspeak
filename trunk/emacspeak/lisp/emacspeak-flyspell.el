@@ -66,6 +66,7 @@
 
 ;;}}}
 ;;{{{ advice
+
 (declaim (special flyspell-delayed-commands))
 (push 'emacspeak-self-insert-command flyspell-delayed-commands)
 (defadvice flyspell-auto-correct-word (around emacspeak pre act comp)
@@ -89,17 +90,19 @@
 			   (overlay-end o)
 			   'personality  nil))
       (setq overlay-list (cdr overlay-list)))))
+
 ;;}}}
 ;;{{{  Highlighting the error 
 
-(defun emacspeak-flyspell-highlight-incorrect-word (beg end)
+(defun emacspeak-flyspell-highlight-incorrect-word (beg end ignore)
   "Put property personality with value
 `emacspeak-flyspell-highlight-personality' from beg to end"
   (declare (special emacspeak-flyspell-highlight-personality))
   (ems-modify-buffer-safely
    (put-text-property beg end 'personality
                       emacspeak-flyspell-highlight-personality))
-  (emacspeak-speak-region beg end))
+  (emacspeak-speak-region beg end)
+  nil)
 
 (add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)
 
