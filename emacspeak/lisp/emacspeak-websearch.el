@@ -115,26 +115,26 @@
                         (< (car a)
                            (car b)))))
     (with-output-to-temp-buffer "*Help*"
+      (save-excursion
+        (set-buffer "*Help*")
       (princ "Websearch Keys:\n\n")
       (loop for m in map 
             do 
             (princ (key-description (list (car m))))
-            (princ "\t")
-            (princ (cdr m))
-            (princ "\t")
+            (move-to-column-force 16 )
             (princ "`")
             (princ (emacspeak-websearch-get-searcher (cdr m)))
             (princ "'")
             (princ "\n"))
       (help-setup-xref
        (list #'emacspeak-websearch-help)
-       (interactive-p)))
+       (interactive-p))))
     (pop-to-buffer "*Help*")
     (help-mode)
     (goto-char (point-min))
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'help)))
-
+                                
 (emacspeak-websearch-set-searcher  'help
 'emacspeak-websearch-help)
 
@@ -244,7 +244,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-searcher 'display-form
                                   'emacspeak-websearch-display-form)
 
-(emacspeak-websearch-set-key 6 'display-form)
+(emacspeak-websearch-set-key ?/ 'display-form)
 
 
 (defun emacspeak-websearch-display-form (form-markup)
