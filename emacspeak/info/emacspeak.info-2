@@ -994,7 +994,6 @@ source-level documentation.
 * emacspeak-websearch::
 * emacspeak-widget::
 * emacspeak::
-* dis-quote::
 * emacspeak-arc::
 * emacspeak-dismal::
 * emacspeak-eudc::
@@ -1003,7 +1002,6 @@ source-level documentation.
 * emacspeak-tar::
 * emacspeak-tetris::
 * emacspeak-view-process::
-* emacspeak-w3search::
 * emacspeak-wizards::
 * ANONYMOUS::
 
