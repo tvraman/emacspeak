@@ -122,6 +122,8 @@
     ("emacspeak-hideshow"  . nil )
                                         ;("emacspeak-hyperbole"  . ("hyperbole-prepare"))
     ("emacspeak-ibuffer"  . nil )
+    ("emacspeak-iswitchb" . nil)
+    ("emacspeak-ido" . nil)
     ("emacspeak-imcom"  . nil )
     ("emacspeak-imenu"  . nil )
     ("emacspeak-info"  . ("info"))
