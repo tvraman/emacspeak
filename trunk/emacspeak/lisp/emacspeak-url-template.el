@@ -763,7 +763,9 @@ the broadcast. You must have mplayer installed."
   (lambda nil 
     (read-from-minibuffer "Stream Id")))
  nil
- "Play Technetcast stream from DDJ.")
+ "Play Technetcast stream from DDJ."
+ #'(lambda (url)
+(emacspeak-realaudio-play url)))
 
 ;;}}}
 ;;{{{  linux today 
