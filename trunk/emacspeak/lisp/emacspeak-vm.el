@@ -317,7 +317,6 @@ Then speak the screenful. "
   (if (interactive-p)
       (let ((dtk-stop-immediately nil))
         (message "Forwarding message")
-        (emacspeak-vm-summarize-message)
         ad-do-it
         (emacspeak-speak-line ))
     ad-do-it)
