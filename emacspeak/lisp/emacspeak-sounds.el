@@ -268,7 +268,7 @@ Do not set this by hand;
   "Play auditory icon using native Emacs player."
   (play-sound
    (list 'sound :file
-                       (format "a %s\n"
+                       (format "%s"
                                (emacspeak-get-sound-filename sound-name )))))
 
 ;;}}}
@@ -522,6 +522,7 @@ Optional interactive PREFIX arg toggles global value."
   '(
     ("emacspeak-serve-auditory-icon" . "emacspeak-serve-auditory-icon")
     ("emacspeak-play-auditory-icon" . "emacspeak-play-auditory-icon")
+    ("emacspeak-native-auditory-icon" . "emacspeak-native-auditory-icon")
     ("emacspeak-midi-icon" . "emacspeak-midi-icon"))
   "Table of auditory icon players used  when selecting a player.")
 
