@@ -1584,7 +1584,7 @@ running under.")
   "Return buffer coding system info if releant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
-  (declare (special buffer-file-coding-system voice-annotateannotatate
+  (declare (special buffer-file-coding-system voice-annotate
                     emacspeak-speak-default-os-coding-system))
   (cond
    ((and (boundp 'buffer-file-coding-system)
@@ -1598,6 +1598,7 @@ current coding system, then we return an empty string."
                          value)
       value))
    (t "")))
+
 (defvar emacspeak-minor-mode-prefix
   "Active minor modes "
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
@@ -1640,7 +1641,7 @@ current coding system, then we return an empty string."
                             (concat
                              emacspeak-minor-mode-prefix
                              vc-mode
-                             (mapconcat #'identity info ", ")
+                             (mapconcat #'identity info " ")
                              (emacspeak-speak-buffer-coding-system-info))))))
   
 ;;; obseleted by what-line in simple.el
