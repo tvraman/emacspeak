@@ -87,7 +87,11 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
-
+(defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'select-object)))
 ;;}}}
 ;;{{{  inform tree browser about emacspeak
 
