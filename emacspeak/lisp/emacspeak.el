@@ -197,6 +197,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "midge-mode" 'emacspeak-midge)
 (emacspeak-do-package-setup "mpuz" 'emacspeak-entertain)
 (emacspeak-do-package-setup "mspools" 'emacspeak-mspools)
+(emacspeak-do-package-setup "nero" 'emacspeak-nero)
 (emacspeak-do-package-setup "net-utils" 'emacspeak-net-utils)
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
