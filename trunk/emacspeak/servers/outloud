@@ -87,6 +87,7 @@ proc l {text} {
 #formerly called tts_speak
 proc d {} {
     speech_task
+    service
 }
 
 proc tts_resume  {} {
@@ -179,6 +180,21 @@ proc trackIndex {index} {
     global tts
     set tts(last_index) $index
 }
+
+proc service {} {
+    set talking [speakingP]
+    while $talking {
+        set status   [lsearch [select [list  stdin]  {} {} 0] stdin]
+        puts stderr $status
+        if { $status >= 0} {
+            break
+        } else {
+            set talking [speakingP]
+        }
+    }
+    return
+}
+
 
 proc speech_task {} {
     global queue tts 
