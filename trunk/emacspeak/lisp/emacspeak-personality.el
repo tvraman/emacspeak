@@ -175,14 +175,14 @@ Existing personality properties on the text range are preserved."
          (emacspeak-personality-append extent end
                                        personality object)))
       (t                               ;accumulate the new personality
-       (unless (or (eq personality orig)
+       (unless (or (equal  personality orig)
                    (and (listp orig)
                         (member personality orig)))
          (setq new
                (remove-duplicates
-               (append
-                (if (listp orig) orig (list orig))
-                    (if (listp personality) personality (list personality)))))
+                (append
+                 (if (listp orig) orig (list orig))
+                 (if (listp personality) personality (list personality)))))
          (put-text-property start extent
                             'personality new object))
        (when (< extent end)
@@ -207,7 +207,7 @@ Existing personality properties on the text range are preserved."
          (emacspeak-personality-prepend extent end
                                         personality object)))
       (t                               ;accumulate the new personality
-      (unless (or (eq personality orig)
+      (unless (or (equal personality orig)
                    (and (listp orig)
                         (member personality orig))) 
        (setq new
@@ -239,7 +239,7 @@ preserved."
      (t                                 ;remove the new personality
       (setq new
             (cond
-             ((eq orig personality) nil)
+             ((equal orig personality) nil)
              ((listp orig)
               (remove personality orig))
              (t nil)))
