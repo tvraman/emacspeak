@@ -717,35 +717,28 @@ end:\n\n")
 (defsubst emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
   (interactive)
-  (completing-read  "Frame label: "
-(loop for f in (frame-list)
-                        collect
- (cons (frame-parameter f 'emacspeak-label)
-        (frame-parameter f 'emacspeak-label)))))
+  (let* ((frame-names-alist (make-frame-names-alist))
+	   (default (car (car frame-names-alist)))
+	   (input (completing-read
+		   (format "Select Frame (default %s): " default)
+		   frame-names-alist nil t nil 'frame-name-history)))
+     (if (= (length input) 0)
+	  default
+        input)))
  
                         
-(defun emacspeak-frame-label-or-switch-to-labelled-frame (label
-                                                          &optional prefix)
+(defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
   "Switch to labelled frame.
 With optional PREFIX argument, label current frame."
-  (interactive
-   (list
-    (emacspeak-frame-read-frame-label)
-    current-prefix-arg))
+  (interactive "P")
   (cond
    (prefix
-    (modify-frame-parameters (selected-frame)
-                             (list (cons 'emacspeak-label label))))
-   (t(let ((frame (loop for f in (frame-list)
-                        if (string= label (frame-parameter f 'emacspeak-label))
-                        return f)))
-       (cond
-        ( frame
-          (select-frame frame)
-          (emacspeak-auditory-icon 'select-object)
-          (emacspeak-speak-mode-line))
-        (t
-         (message "No frame labelled %s" label)))))))
+    (call-interactively 'set-frame-name))
+   (t (select-frame-by-name
+       (emacspeak-frame-read-frame-label))))
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'select-object)))
 
 
 (defun emacspeak-next-frame ()
