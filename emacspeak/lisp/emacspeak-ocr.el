@@ -104,7 +104,8 @@ OCR engine for optical character recognition."
 
 (defcustom emacspeak-ocr-engine-options nil
   "Command line options to pass to OCR engine."
-  :type'string
+  :type'(repeat
+         (string :tag "Option"))
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-working-directory
@@ -515,18 +516,17 @@ Prompts for image file if file corresponding to the expected
     (insert
      (format "\n%c\nPage %s\n" 12
              emacspeak-ocr-last-page-number))
-    (message "%s %s"
-             emacspeak-ocr-engine
-             image-name)
     (setq emacspeak-ocr-process
-          (start-process 
+          (apply 'start-process 
            "ocr"
            (current-buffer)
            emacspeak-ocr-engine
-           image-name))
+           image-name
+           emacspeak-ocr-engine-options))
     (set-process-sentinel emacspeak-ocr-process
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
+
 (defun emacspeak-ocr-scan-and-recognize ()
   "Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
