@@ -382,7 +382,11 @@ use rsh on your local desktop."
 (autoload 'emacspeak-tabulate-region "emacspeak-tabulate"
       "Identify columns in the region."  t)
     
-
+(autoload 'emacspeak-table-find-csv-file "emacspeak-table-ui"
+  "Browse tables. Beginners: please do C-e C-t and specify one of the
+.tab files in the tables subdirectory of emacspeak.
+Describe function of emacspeak-table-find-file will then give you
+detailed documentation on the table browser" t )
 (autoload 'emacspeak-table-find-file "emacspeak-table-ui"
   "Browse tables. Beginners: please do C-e C-t and specify one of the
 .tab files in the tables subdirectory of emacspeak.
