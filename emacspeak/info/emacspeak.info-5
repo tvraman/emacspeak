@@ -16,36 +16,36 @@ emacspeak-websearch
    Automatically generated documentation for commands defined in module
 emacspeak-websearch.
 
- - emacspeak-websearch-alltheweb-search:
+ - emacspeak-websearch-alltheweb-search: (QUERY &optional PREFIX)
      Perform an AllTheWeb  search.  Optional prefix arg prompts for
      type of search: -use `all' `phrase' or  `any' to specify the type
      of search.
 
- - emacspeak-websearch-altavista-search:
+ - emacspeak-websearch-altavista-search: (QUERY)
      Perform an Altavista search
 
- - emacspeak-websearch-amazon-search:
+ - emacspeak-websearch-amazon-search: ()
      Amazon search.
 
- - emacspeak-websearch-appwatch-search:
+ - emacspeak-websearch-appwatch-search: (QUERY)
      Search AppWatch  Site.
 
- - emacspeak-websearch-ask-jeeves:
+ - emacspeak-websearch-ask-jeeves: (QUERY)
      Ask Jeeves for the answer.
 
- - emacspeak-websearch-bbc-search:
+ - emacspeak-websearch-bbc-search: (QUERY)
      Search BBC archives.
 
- - emacspeak-websearch-biblio-search:
+ - emacspeak-websearch-biblio-search: (QUERY)
      Search Computer Science Bibliographies.
 
- - emacspeak-websearch-britannica-search:
+ - emacspeak-websearch-britannica-search: (QUERY)
      Search Encyclopedia Britannica.
 
- - emacspeak-websearch-citeseer-search:
+ - emacspeak-websearch-citeseer-search: (TERM)
      Perform a CiteSeer search.
 
- - emacspeak-websearch-cnn-search:
+ - emacspeak-websearch-cnn-search: (QUERY &optional PREFIX)
      Perform an CNN search.  Optional interactive prefix arg prompts
      for additional search parameters.  The default is to sort by date
      and show summaries.  To sort by relevance specify additional
@@ -53,20 +53,20 @@ emacspeak-websearch.
      &lk=2.  You can customize the defaults by setting variable
      emacspeak-websearch-cnn-options to an appropriate string.
 
- - emacspeak-websearch-company-news:
+ - emacspeak-websearch-company-news: (TICKER &optional PREFIX)
      Perform an company news lookup.  Retrieves company news, research,
      profile, insider trades,  or upgrades/downgrades.
 
- - emacspeak-websearch-cpan-search:
+ - emacspeak-websearch-cpan-search: (QUERY)
      Search CPAN  Comprehensive Perl Archive Network   Site.
 
- - emacspeak-websearch-ctan-search:
+ - emacspeak-websearch-ctan-search: (QUERY)
      Search CTAN Comprehensive TeX Archive Network   Site.
 
- - emacspeak-websearch-dictionary-hypertext-webster-search:
+ - emacspeak-websearch-dictionary-hypertext-webster-search: (QUERY)
      Search the Webster Dictionary.
 
- - emacspeak-websearch-dispatch:
+ - emacspeak-websearch-dispatch: (&optional PREFIX)
      ` control e ? '
 
      Launches specific websearch queries.  Press `?' to list available
@@ -75,22 +75,22 @@ emacspeak-websearch.
      interface attempts to speak the most relevant information on the
      result page.
 
- - emacspeak-websearch-display-form:
+ - emacspeak-websearch-display-form: (FORM-MARKUP)
      Display form specified by form-markup.
 
- - emacspeak-websearch-ebay-search:
+ - emacspeak-websearch-ebay-search: ()
      Ebay search.
 
- - emacspeak-websearch-emacspeak-archive:
+ - emacspeak-websearch-emacspeak-archive: (QUERY)
      ` control h e '
 
      Search Emacspeak mail archives.  For example to find messages
      about Redhat at the Emacspeak archives, type +redhat
 
- - emacspeak-websearch-exchange-rate-convertor:
+ - emacspeak-websearch-exchange-rate-convertor: ()
      Currency convertor.
 
- - emacspeak-websearch-fn-cnn-search:
+ - emacspeak-websearch-fn-cnn-search: (QUERY &optional PREFIX)
      Perform an CNN FNsearch.  Optional interactive prefix arg prompts
      for additional search parameters.  The default is to sort by date
      and show summaries.  To sort by relevance specify additional
@@ -98,36 +98,36 @@ emacspeak-websearch.
      &lk=2.  You can customize the defaults by setting variable
      emacspeak-websearch-fn-cnn-options to an appropriate string.
 
- - emacspeak-websearch-foldoc-search:
+ - emacspeak-websearch-foldoc-search: (QUERY)
      Perform a FolDoc search.
 
- - emacspeak-websearch-freshmeat-search:
+ - emacspeak-websearch-freshmeat-search: (QUERY)
      Search Freshmeat  Site.
 
- - emacspeak-websearch-google:
+ - emacspeak-websearch-google: (QUERY &optional LUCKY)
      Perform an Google search.  Optional interactive prefix arg `lucky'
      is equivalent to hitting the I'm Feeling Lucky button on Google.
      Meaning of the `lucky' flag can be inverted by setting option
      emacspeak-websearch-google-feeling-lucky.
 
- - emacspeak-websearch-google-advanced:
+ - emacspeak-websearch-google-advanced: ()
      Present Google advanced search form simplified for speech
      interaction.
 
- - emacspeak-websearch-google-feeling-lucky:
+ - emacspeak-websearch-google-feeling-lucky: (QUERY)
      Do a I'm Feeling Lucky Google search.
 
- - emacspeak-websearch-google-usenet-advanced:
+ - emacspeak-websearch-google-usenet-advanced: ()
      Present Google Usenet advanced search form simplified for speech
      interaction.
 
- - emacspeak-websearch-gutenberg:
+ - emacspeak-websearch-gutenberg: (TYPE QUERY)
      Perform an Gutenberg search
 
- - emacspeak-websearch-help:
+ - emacspeak-websearch-help: ()
      Displays key mapping used by Emacspeak Websearch.
 
- - emacspeak-websearch-hotbot-search:
+ - emacspeak-websearch-hotbot-search: (QUERY &optional PREFIX)
      Perform a Hotbot  search.  Optional interactive prefix arg prompts
      for additional search parameters.  The default is to sort by date
      and show summaries.  To sort by relevance specify additional
@@ -135,35 +135,35 @@ emacspeak-websearch.
      &lk=2.  You can customize the defaults by setting variable
      emacspeak-websearch-hotbot-options to an appropriate string.
 
- - emacspeak-websearch-inference-search:
+ - emacspeak-websearch-inference-search: (QUERY)
      Perform an Inference search.
 
- - emacspeak-websearch-machine-translate:
+ - emacspeak-websearch-machine-translate: (LANG QUERY)
      Perform a machine translation request
 
- - emacspeak-websearch-map-directions-search:
+ - emacspeak-websearch-map-directions-search: (QUERY &optional MAP)
      Get driving directions from Yahoo.  With optional interactive
      prefix arg MAP shows the location map instead.
 
- - emacspeak-websearch-merriam-webster-search:
+ - emacspeak-websearch-merriam-webster-search: (QUERY)
      Search the Merriam Webster Dictionary.
 
- - emacspeak-websearch-news-yahoo:
+ - emacspeak-websearch-news-yahoo: (QUERY)
      Perform an Yahoo News search
 
- - emacspeak-websearch-northern-light:
+ - emacspeak-websearch-northern-light: (QUERY)
      Perform a Northern Light  search
 
- - emacspeak-websearch-open-directory-search:
+ - emacspeak-websearch-open-directory-search: (QUERY)
      Perform an Open Directory search
 
- - emacspeak-websearch-packages-linux:
+ - emacspeak-websearch-packages-linux: (QUERY)
      Search for Linux packages.
 
- - emacspeak-websearch-people-yahoo:
+ - emacspeak-websearch-people-yahoo: ()
      Perform an Yahoo  people search
 
- - emacspeak-websearch-quotes-yahoo-search:
+ - emacspeak-websearch-quotes-yahoo-search: (QUERY &optional PREFIX)
      Perform a Quotes Yahoo .  Default tickers to look up is taken from
      variable emacspeak-websearch-personal-portfolio.  Default is to
      present the data in emacspeak's table browsing mode -optional
@@ -171,52 +171,53 @@ emacspeak-websearch.
      page.  You can customize the defaults by setting variable
      emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
- - emacspeak-websearch-real-tuner:
+ - emacspeak-websearch-real-tuner: ()
      Search using Real Tuner from Real Networks.
 
- - emacspeak-websearch-recorded-books-search:
+ - emacspeak-websearch-recorded-books-search: ()
      Present advanced search form for recorded books.
 
- - emacspeak-websearch-redhat:
+ - emacspeak-websearch-redhat: (QUERY)
      Search RedHat site.
 
- - emacspeak-websearch-rpm-find:
+ - emacspeak-websearch-rpm-find: (QUERY)
      Search RPM  catalog  site.
 
- - emacspeak-websearch-shoutcast-search:
+ - emacspeak-websearch-shoutcast-search: ()
      Ebay search.
 
- - emacspeak-websearch-software-search:
+ - emacspeak-websearch-software-search: ()
      Search SourceForge, Freshmeat and other sites.
 
- - emacspeak-websearch-sourceforge-search:
+ - emacspeak-websearch-sourceforge-search: (QUERY)
      Search SourceForge Site.
 
- - emacspeak-websearch-streaming-audio-search:
+ - emacspeak-websearch-streaming-audio-search: (QUERY)
      Search for streaming audio.
 
- - emacspeak-websearch-usenet:
+ - emacspeak-websearch-usenet: (GROUP &optional PREFIX)
      ` control e  cap U  '
 
      Prompt and browse a Usenet newsgroup.  Optional interactive prefix
      arg results in prompting for a search term.
 
- - emacspeak-websearch-vector-vest-search:
+ - emacspeak-websearch-vector-vest-search: (QUERY)
      Look up VectorVest reports .
 
- - emacspeak-websearch-vickers-search:
+ - emacspeak-websearch-vickers-search: (QUERY)
      Search Vickers insider trading.
 
- - emacspeak-websearch-w3c-search:
+ - emacspeak-websearch-w3c-search: (QUERY)
      Search the W3C Site.
 
- - emacspeak-websearch-weather:
+ - emacspeak-websearch-weather: (ZIP)
      Get weather forecast for specified zip code.
 
- - emacspeak-websearch-yahoo:
+ - emacspeak-websearch-yahoo: (QUERY)
      Perform an Yahoo  search
 
- - emacspeak-websearch-yahoo-historical-chart:
+ - emacspeak-websearch-yahoo-historical-chart: (TICKER &optional
+          AS-HTML)
      Look up historical stock data.  Optional second arg as-html
      processes the results as HTML rather than data.
 
@@ -229,21 +230,21 @@ emacspeak-widget
    Automatically generated documentation for commands defined in module
 emacspeak-widget.
 
- - emacspeak-widget-browse-widget-interactively:
+ - emacspeak-widget-browse-widget-interactively: ()
      Allows you to browse a widget
 
- - emacspeak-widget-help:
+ - emacspeak-widget-help: ()
      Speak help for widget under point.
 
- - emacspeak-widget-summarize-parent:
+ - emacspeak-widget-summarize-parent: ()
      Summarize parent of widget at point.
 
- - emacspeak-widget-summarize-widget-under-point:
+ - emacspeak-widget-summarize-widget-under-point: (&optional LEVEL)
      Summarize a widget if any under point.  Optional interactive
      prefix specifies how many levels to go up from current widget
      before summarizing.
 
- - emacspeak-widget-update-from-minibuffer:
+ - emacspeak-widget-update-from-minibuffer: (POINT)
      Sets widget at point by invoking its prompter.
 
 
@@ -255,14 +256,14 @@ emacspeak-wizards
    Automatically generated documentation for commands defined in module
 emacspeak-wizards.
 
- - emacspeak-annotate-add-annotation:
+ - emacspeak-annotate-add-annotation: (&optional RESET)
      Add annotation to the annotation working buffer.  Prompt for
      annotation buffer if not already set.  Interactive prefix arg
      `reset' prompts for the annotation buffer even if one is already
      set.  Annotation is entered in a temporary buffer and the
      annotation is inserted into the working buffer when complete.
 
- - emacspeak-clipboard-copy:
+ - emacspeak-clipboard-copy: (START END &optional PROMPT)
      ` control e control c '
 
      Copy contents of the region to the emacspeak clipboard.  Previous
@@ -276,7 +277,7 @@ emacspeak-wizards.
      specifies  region.  Optional argument PROMPT  specifies whether we
      prompt for the name of a clipboard file.
 
- - emacspeak-clipboard-paste:
+ - emacspeak-clipboard-paste: (&optional PASTE-TABLE)
      ` control e control y '
 
      Yank contents of the Emacspeak clipboard at point.  The Emacspeak
@@ -287,7 +288,7 @@ emacspeak-wizards.
      light-weight.  Optional interactive prefix arg pastes from the
      emacspeak table clipboard instead.
 
- - emacspeak-copy-current-file:
+ - emacspeak-copy-current-file: ()
      ` control e meta c '
 
      Copy file visited in current buffer to new location.  Prompts for
@@ -297,39 +298,39 @@ emacspeak-wizards.
      directory, the specified name is   used.  Asks for confirmation if
      the copy will result in an   existing file being overwritten.
 
- - emacspeak-customize:
+ - emacspeak-customize: ()
      ` control e  cap C  '
 
      Customize Emacspeak.
 
- - emacspeak-customize-personal-settings:
+ - emacspeak-customize-personal-settings: (FILE)
      ` control e <f1> '
 
      Create a customization buffer for browsing and updating personal
      customizations.
 
- - emacspeak-cvs-get-anonymous:
+ - emacspeak-cvs-get-anonymous: ()
      ` control e <control down> '
 
      Get latest cvs snapshot of emacspeak.
 
- - emacspeak-cvs-get-project-snapshot:
+ - emacspeak-cvs-get-project-snapshot: (PROJECT)
      Grab CVS snapshot  of specified project from Sourceforge.
 
- - emacspeak-emergency-tts-restart:
+ - emacspeak-emergency-tts-restart: ()
      For use in an emergency.  Will start TTS engine specified by
      emacspeak-emergency-tts-server.
 
- - emacspeak-frame-label-or-switch-to-labelled-frame:
+ - emacspeak-frame-label-or-switch-to-labelled-frame: (&optional PREFIX)
      ` control e meta f '
 
      Switch to labelled frame.  With optional PREFIX argument, label
      current frame.
 
- - emacspeak-frame-read-frame-label:
+ - emacspeak-frame-read-frame-label: ()
      Read a frame label with completion.
 
- - emacspeak-generate-documentation:
+ - emacspeak-generate-documentation: (FILENAME)
      Generate docs for all emacspeak commands.  Prompts for FILENAME in
      which to save the documentation.  Warning! Contents of file
      filename will be overwritten.
@@ -339,7 +340,7 @@ emacspeak-wizards.
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
 
- - emacspeak-generate-texinfo-command-documentation:
+ - emacspeak-generate-texinfo-command-documentation: (FILENAME)
      Generate texinfo documentation  for all emacspeak commands into
      file commands.texi.  Warning! Contents of file commands.texi will
      be overwritten.
@@ -349,16 +350,16 @@ emacspeak-wizards.
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
 
- - emacspeak-kill-buffer-quietly:
+ - emacspeak-kill-buffer-quietly: ()
      Kill current buffer without asking for confirmation.
 
- - emacspeak-learn-mode:
+ - emacspeak-learn-mode: ()
      ` control e control h '
 
      Helps you learn the keys.  You can press keys and hear what they
      do.  To leave, press C-g.
 
- - emacspeak-link-current-file:
+ - emacspeak-link-current-file: ()
      ` control e meta l '
 
      Link (hard link) file visited in current buffer to new location.
@@ -368,30 +369,30 @@ emacspeak-wizards.
      in an existing directory, the specified name is   used.  Signals
      an error if target already exists.
 
- - emacspeak-links:
+ - emacspeak-links: (URL)
      Launch links on  specified URL in a new terminal.
 
- - emacspeak-lynx:
+ - emacspeak-lynx: (URL)
      Launch lynx on  specified URL in a new terminal.
 
- - emacspeak-next-frame:
+ - emacspeak-next-frame: ()
      ` <control right> '
 
      Move to next frame.
 
- - emacspeak-previous-frame:
+ - emacspeak-previous-frame: ()
      ` <control left> '
 
      Move to next frame.
 
- - emacspeak-root:
+ - emacspeak-root: (&optional CD)
      ` control e control r '
 
      Start a root shell or switch to one that already exists.  Optional
      interactive prefix arg `cd' executes cd default-directory after
      switching.
 
- - emacspeak-select-this-buffer-next-display:
+ - emacspeak-select-this-buffer-next-display: ()
      ` control e <control right> '
 
      Select this buffer as displayed in a `next' frame.  See
@@ -399,7 +400,7 @@ emacspeak-wizards.
      `emacspeak-select-this-buffer-other-window-display' for the
      meaning of `next'.
 
- - emacspeak-select-this-buffer-other-window-display:
+ - emacspeak-select-this-buffer-other-window-display: (&optional ARG)
      Switch  to this buffer as displayed in a different frame.  Emacs
      allows you to display the same buffer in multiple windows or
      frames.  These different windows can display different portions of
@@ -411,7 +412,7 @@ emacspeak-wizards.
      display is 0, the next is 1, and so on.  Optional argument ARG
      specifies the display to select.
 
- - emacspeak-select-this-buffer-previous-display:
+ - emacspeak-select-this-buffer-previous-display: ()
      ` control e <control left> '
 
      Select this buffer as displayed in a `previous' window.  See
@@ -419,12 +420,12 @@ emacspeak-wizards.
      `emacspeak-select-this-buffer-other-window-display' for the
      meaning of `previous'.
 
- - emacspeak-show-personality-at-point:
+ - emacspeak-show-personality-at-point: ()
      ` control e meta v '
 
      Show value of property personality at point.
 
- - emacspeak-show-property-at-point:
+ - emacspeak-show-property-at-point: (&optional PROPERTY)
      ` control e meta p '
 
      Show value of PROPERTY at point.  If optional arg property is not
@@ -432,41 +433,41 @@ emacspeak-wizards.
      properties that are of interest.  If no property is set, show a
      message and exit.
 
- - emacspeak-skip-blank-lines-backward:
+ - emacspeak-skip-blank-lines-backward: ()
      ` <shift up> '
 
      Move backward  across blank lines.  The line under point is   then
      spoken.  Signals beginning  of buffer.
 
- - emacspeak-skip-blank-lines-forward:
+ - emacspeak-skip-blank-lines-forward: ()
      ` <shift down> '
 
      Move forward across blank lines.  The line under point is then
      spoken.  Signals end of buffer.
 
- - emacspeak-speak-browse-linux-howto:
+ - emacspeak-speak-browse-linux-howto: (HOWTO)
      ` control e  cap H  '
 
      Browse a Linux Howto file.  We cleanup underlining, and set up
      outline mode correctly.
 
- - emacspeak-speak-hostname:
+ - emacspeak-speak-hostname: ()
      ` control e meta h '
 
      Speak host name.
 
- - emacspeak-speak-load-directory-settings:
+ - emacspeak-speak-load-directory-settings: ()
      Load a directory specific Emacspeak settings file.  This is
      typically used to load up settings that are specific to an
      electronic book consisting of many files in the same directory.
 
- - emacspeak-speak-popup-messages:
+ - emacspeak-speak-popup-messages: ()
      ` control h  cap M  '
 
      Pop up messages buffer.  If it is already selected then hide it
      and try to restore previous window configuration.
 
- - emacspeak-speak-run-shell-command:
+ - emacspeak-speak-run-shell-command: (COMMAND &optional AS-ROOT)
      ` control e ! '
 
      Invoke shell COMMAND and display its output as a table.  The
@@ -480,7 +481,7 @@ emacspeak-wizards.
      `emacspeak-table-display-table-in-region' normally bound to C-e
      TAB.
 
- - emacspeak-speak-show-active-network-interfaces:
+ - emacspeak-speak-show-active-network-interfaces: (&optional ADDRESS)
      ` control e  cap I  '
 
      Shows all active network interfaces in the echo area.  With
@@ -488,15 +489,15 @@ emacspeak-wizards.
      interface and shows its address. The address is also copied to the
      kill ring for convenient yanking.
 
- - emacspeak-speak-show-memory-used:
+ - emacspeak-speak-show-memory-used: ()
      Convenience command to view state of memory used in this session
      so far.
 
- - emacspeak-speak-telephone-directory:
+ - emacspeak-speak-telephone-directory: (&optional EDIT)
      Lookup and display a phone number.  With prefix arg, opens the
      phone book for editting.
 
- - emacspeak-speak-this-buffer-next-display:
+ - emacspeak-speak-this-buffer-next-display: ()
      ` control e <right> '
 
      Speak this buffer as displayed in a `previous' window.  See
@@ -504,7 +505,7 @@ emacspeak-wizards.
      `emacspeak-speak-this-buffer-other-window-display' for the meaning
      of `next'.
 
- - emacspeak-speak-this-buffer-other-window-display:
+ - emacspeak-speak-this-buffer-other-window-display: (&optional ARG)
      ` control e / '
 
      Speak this buffer as displayed in a different frame.  Emacs allows
@@ -518,7 +519,7 @@ emacspeak-wizards.
      display is 0, the next is 1, and so on.  Optional argument ARG
      specifies the display to speak.
 
- - emacspeak-speak-this-buffer-previous-display:
+ - emacspeak-speak-this-buffer-previous-display: ()
      ` control e <left> '
 
      Speak this buffer as displayed in a `previous' window.  See
@@ -526,13 +527,13 @@ emacspeak-wizards.
      `emacspeak-speak-this-buffer-other-window-display' for the meaning
      of `previous'.
 
- - emacspeak-sudo:
+ - emacspeak-sudo: (COMMAND)
      SUDo command -run command as super user.
 
- - emacspeak-switch-to-previous-buffer:
+ - emacspeak-switch-to-previous-buffer: ()
      Switch to most recently used interesting buffer.
 
- - emacspeak-symlink-current-file:
+ - emacspeak-symlink-current-file: ()
      ` control e meta s '
 
      Link (symbolic link) file visited in current buffer to new
@@ -542,37 +543,37 @@ emacspeak-wizards.
      names   a file in an existing directory, the specified name is
      used.  Signals an error if target already exists.
 
- - emacspeak-view-emacspeak-doc:
+ - emacspeak-view-emacspeak-doc: ()
      ` control e  cap D  '
 
      Display a summary of all Emacspeak commands.
 
- - emacspeak-view-emacspeak-faq:
+ - emacspeak-view-emacspeak-faq: ()
      ` control e  cap F  '
 
      Browse the Emacspeak FAQ.
 
- - emacspeak-view-emacspeak-news:
+ - emacspeak-view-emacspeak-news: ()
      ` control e  cap N  '
 
      Display info on recent change to Emacspeak.
 
- - emacspeak-view-emacspeak-tips:
+ - emacspeak-view-emacspeak-tips: ()
      ` control e  cap T  '
 
      Browse  Emacspeak productivity tips.
 
- - emacspeak-wizards-browse-url-with-style:
+ - emacspeak-wizards-browse-url-with-style: (STYLE URL)
      Browse URL with specified XSL style.
 
- - emacspeak-wizards-count-slides-in-region:
+ - emacspeak-wizards-count-slides-in-region: ()
      Count slides starting from point.
 
- - emacspeak-wizards-finder-find:
+ - emacspeak-wizards-finder-find: (DIRECTORY)
      Run find-dired on specified switches after prompting for the
      directory to where find is to be launched.
 
- - emacspeak-wizards-finder-mode:
+ - emacspeak-wizards-finder-mode: ()
      Emacspeak Finder
 
      This mode runs the hook `emacspeak-wizards-finder-mode-hook', as
@@ -581,22 +582,23 @@ emacspeak-wizards.
      key             binding --             ------
 
 
- - emacspeak-wizards-generate-finder:
+ - emacspeak-wizards-generate-finder: ()
      Generate a widget-enabled finder wizard.
 
- - emacspeak-wizards-get-table-content-from-file:
+ - emacspeak-wizards-get-table-content-from-file: (TASK FILE DEPTH
+          COUNT)
      Extract table specified by depth and count from HTML content at
      file.  Extracted content is placed as a csv file in task.csv.
 
- - emacspeak-wizards-get-table-content-from-url:
+ - emacspeak-wizards-get-table-content-from-url: (TASK URL DEPTH COUNT)
      Extract table specified by depth and count from HTML content at
      URL.  Extracted content is placed as a csv file in task.csv.
 
- - emacspeak-wizards-google-hits:
+ - emacspeak-wizards-google-hits: ()
      Filter Google results after performing search to show just the
      hits.
 
- - emacspeak-wizards-how-many-matches:
+ - emacspeak-wizards-how-many-matches: (PREFIX)
      If you define a file local variable called
      `emacspeak-occur-pattern' that holds a regular expression that
      matches  lines of interest, you can use this command to
@@ -604,23 +606,23 @@ emacspeak-wizards.
      interactive prefix arg, prompts for and remembers the file local
      pattern.
 
- - emacspeak-wizards-occur-header-lines:
+ - emacspeak-wizards-occur-header-lines: (PREFIX)
      If you define a file local variable called
      `emacspeak-occur-pattern' that holds a regular expression that
      matches header lines, you can use this command to conveniently run
      `occur' to find matching header lines. With prefix arg, prompts
      for and sets value of the file local pattern.
 
- - emacspeak-wizards-portfolio-quotes:
+ - emacspeak-wizards-portfolio-quotes: ()
      Bring up detailed stock quotes for portfolio specified by
      emacspeak-websearch-personal-portfolio.
 
- - emacspeak-wizards-ppt-display:
+ - emacspeak-wizards-ppt-display: ()
      Called to set up preview of an PPT file.  Assumes we are in a
      buffer visiting a .ppt file.  Previews those contents as HTML and
      nukes the buffer visiting the ppt file.
 
- - emacspeak-wizards-ppt-mode:
+ - emacspeak-wizards-ppt-mode: ()
      Major mode for browsing PPT slides.
 
      PPT files  are converted to HTML and previewed using W3.
@@ -632,19 +634,19 @@ emacspeak-wizards.
      key             binding --             ------
 
 
- - emacspeak-wizards-rpm-query-in-dired:
+ - emacspeak-wizards-rpm-query-in-dired: ()
      Run rpm -qi on current dired entry.
 
- - emacspeak-wizards-shell-toggle:
+ - emacspeak-wizards-shell-toggle: ()
      ` control e <f11> '
 
      Switch to the shell buffer and cd to  the directory of the current
      buffer.
 
- - emacspeak-wizards-show-environment-vvariable:
+ - emacspeak-wizards-show-environment-vvariable: (V)
      Display value of specified environment variable.
 
- - emacspeak-wizards-show-list-variable:
+ - emacspeak-wizards-show-list-variable: (VAR)
      Convenience command to view Emacs variables that are long lists.
      Prompts for a variable name and displays its value in a separate
      buffer.  Lists are displayed one element per line.  Argument VAR
@@ -655,22 +657,22 @@ emacspeak-wizards.
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
 
- - emacspeak-wizards-spot-words:
+ - emacspeak-wizards-spot-words: (EXT WORD)
      Searches recursively in all files with extension `ext' for `word'
      and siplays hits in a compilation buffer.
 
- - emacspeak-wizards-squeeze-blanks:
+ - emacspeak-wizards-squeeze-blanks: (START END)
      Squeeze multiple blank lines in current buffer.
 
- - emacspeak-wizards-use-w3-or-w3m:
+ - emacspeak-wizards-use-w3-or-w3m: ()
      Alternates between using W3 and W3M for browse-url.
 
- - emacspeak-wizards-xl-display:
+ - emacspeak-wizards-xl-display: ()
      Called to set up preview of an XL file.  Assumes we are in a
      buffer visiting a .xls file.  Previews those contents as HTML and
      nukes the buffer visiting the xls file.
 
- - emacspeak-wizards-xl-mode:
+ - emacspeak-wizards-xl-mode: ()
      Major mode for browsing XL spreadsheets.
 
      XL Sheets are converted to HTML and previewed using W3.
@@ -691,25 +693,25 @@ emacspeak-xml-shell
    Automatically generated documentation for commands defined in module
 emacspeak-xml-shell.
 
- - emacspeak-xml-shell:
+ - emacspeak-xml-shell: (SYSTEM-ID)
      Start Xml-Shell on contents of system-id.
 
- - emacspeak-xml-shell-browse-current:
+ - emacspeak-xml-shell-browse-current: ()
      Display current node.
 
- - emacspeak-xml-shell-goto-children:
+ - emacspeak-xml-shell-goto-children: ()
      Navigate down to the children of current node.
 
- - emacspeak-xml-shell-goto-next-child:
+ - emacspeak-xml-shell-goto-next-child: ()
      Navigate forward  to the next child  of current node.
 
- - emacspeak-xml-shell-goto-parent:
+ - emacspeak-xml-shell-goto-parent: ()
      Navigate up to the parent of current node.
 
- - emacspeak-xml-shell-goto-previous-child:
+ - emacspeak-xml-shell-goto-previous-child: ()
      Navigate backward  to the previous child  of current node.
 
- - emacspeak-xml-shell-mode:
+ - emacspeak-xml-shell-mode: ()
      XML Shell
 
      Interactive XML browser.  key             binding --
@@ -729,17 +731,17 @@ emacspeak-xml-shell.
    Automatically generated documentation for commands defined in module
 nil.
 
- - emacspeak-m-player:
+ - emacspeak-m-player: ()
      ` control e : '
 
      Emacspeak media player access.
 
- - emacspeak-speak-current-field:
+ - emacspeak-speak-current-field: ()
      ` control e . '
 
      Speak current field.  A field is defined  by Emacs 21.
 
- - emacspeak-w3-google-on-this-site:
+ - emacspeak-w3-google-on-this-site: ()
      Perform a google search restricted to the current WWW site.
 
 
