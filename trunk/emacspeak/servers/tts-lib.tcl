@@ -245,10 +245,22 @@ proc notes_initialize {} {
 
 # }}}
 # {{{beep  
+
 #you need to have beep installed 
+
+proc beeps_initialize {} {
+    global tts
+    if {[file executable /usr/bin/stdiosynth]} {
+        set tts(beep) 1
+    }
+}
+
 proc beep {{freq 523} {length 100} {repeat 1} {delay 10}} {
     global tts
-    exec beep -f $freq -l $length -r $repeat -d $delay
+    if {[info exists tts(beep)]
+        && $tts(beep) == 1}  {
+        exec beep -f $freq -l $length -r $repeat -d $delay
+    }
 }
 
 # }}}
