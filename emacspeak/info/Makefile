@@ -10,7 +10,7 @@ info: *.texi
 
 
 install: emacspeak.info
-	if test  -e /sbin/install-info ; then \
+	if test  -x /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
 	fi
 	$(INSTALL)  -m 644 emacspeak.info* $(infodir)
