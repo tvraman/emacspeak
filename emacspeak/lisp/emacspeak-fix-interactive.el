@@ -188,6 +188,7 @@ speak its prompts. "
             (,@
              (mapcar
               #'(lambda (prompt)
+                  (when (> (length prompt) 0)
                   (` (let
                          ((dtk-stop-immediately nil)
                           (emacspeak-last-command-needs-minibuffer-spoken t)
@@ -209,7 +210,7 @@ speak its prompts. "
                        (call-interactively
                         #'(lambda (&rest args)
                             (interactive (, prompt))
-                            args) nil))))
+                            args) nil)))))
               interactive-list)))))))
       (push sym  emacspeak-commands-that-are-fixed )))
   t)
