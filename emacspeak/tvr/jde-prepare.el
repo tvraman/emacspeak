@@ -2,21 +2,21 @@
 ;;; Setup Emacs JDE
 ;;{{{ locations 
 (augment-load-path "eieio" "eieio")
-(augment-load-path "semantic" "semantic")
 (augment-load-path "elib" "stack-f")
 (augment-load-path "jde/lisp" "jde")
+;(load-library "cedet-prepare")
 (load-library "speedbar-prepare")
 (load-library "jde")
-(load-library "semantic-prepare")
 ;;}}}
 
 ;;{{{  jde and senator 
-(add-hook  'jde-mode-hook
-           (function
-            (lambda nil
-              (define-key jde-mode-map "\M-\t" 'jde-complete-at-point)
-              (senator-minor-mode 1)
-              (define-key senator-prefix-map "j" 'senator-jump))))
+(add-hook
+ 'jde-mode-hook
+ (function
+  (lambda nil
+    (define-key jde-mode-map "\M-\t" 'jde-complete-at-point)
+    (senator-minor-mode 1)
+    (define-key senator-prefix-map "j" 'senator-jump))))
 
 ;;}}}
 ;;{{{ setup folding 
@@ -32,6 +32,7 @@
 
 ;;}}}
 ;;{{{ put jdebug on hyper-j 
+
 (defvar tvr-jdebug-key-prefix "\C-x@hj"
 "My personal key prefix for jdebug ")
 
@@ -61,13 +62,10 @@ tvr-jdebug-key-prefix"
    ("t" jde-bug-trace-method-entry)
    ("T" jde-bug-thread-show-thread-info)))
 
-
-;;}}}
-;;{{{  misc libs 
-;(load-library "jmaker")
-;(load-library "jdok")
-;(load-library "jsee")
-;(load-library "jpack")
 ;;}}}
 (add-to-list 'compilation-error-regexp-alist 
 	       '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
+
+
+
+(load-library "ajdee")
