@@ -134,6 +134,7 @@ int playWaveFile(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 
 void TclEciFree(ClientData eciHandle) {
   _eciDelete(eciHandle);
+  close (dsp);
 }
 
 int Tcleci_Init(Tcl_Interp *interp) {
