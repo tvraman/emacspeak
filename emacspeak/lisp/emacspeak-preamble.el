@@ -47,11 +47,9 @@
 (require 'widget)
 (require 'wid-edit)
 (require 'thingatpt)
-
+(require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-speak)
-;(require 'emacspeak-sounds)
-
 ;;}}}
 
 (provide  'emacspeak-preamble)
