@@ -136,6 +136,7 @@ SRC = $(shell pwd)
 # How to install files
 INSTALL = install
 CP=cp
+
 # }}}
 ############## no user servicable parts beyond this point ###################
 # {{{ setup distribution 
@@ -164,11 +165,8 @@ servers/outloud \
 servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server
-
 ELISP = lisp/*.el lisp/*.def lisp/Makefile
-
-TEMPLATES = etc/emacspeak.sh.def \
-etc/play.def etc/Makefile 
+TEMPLATES = etc/emacspeak.sh.def etc/Makefile 
 MISC=etc/extract-table.pl etc/last-log.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
@@ -248,7 +246,6 @@ install:
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
-	$(INSTALL) -m 0755   etc/play   $(libdir)/etc
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
 	$(INSTALL) -m 0644  ${MISC}   $(libdir)/etc
 	$(CP) -r $(SOUNDS) $(libdir)/sounds
