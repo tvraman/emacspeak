@@ -68,7 +68,7 @@
   :group 'emacspeak)
 
 (defcustom emacspeak-imcom-personal-directory
-  (expand-file-name "~/.imcom")
+  (expand-file-name "~/.imcom/")
   "Directory where IMCom stores personalization files."
   :type 'string
   :group 'emacspeak-imcom)
@@ -132,8 +132,51 @@
 ;;{{{  Define commands
 
 ;;}}}
-;;{{{  bind keys 
+;;{{{ View chat session
 
+;;;View a chat session in a W3 buffer.
+
+(defvar emacspeak-imcom-xsl-jabber
+  (expand-file-name
+   "jabber-messages.xsl"
+   emacspeak-xslt-directory)
+  "Name of XSL transformation used to view jabber chat
+sessions.")
+
+(defun emacspeak-imcom-view-chat-session (session)
+  "Display specified chat session."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "Chat session:"
+                     emacspeak-imcom-personal-directory
+                     nil t))))
+  (declare (special emacspeak-imcom-personal-directory
+                    emacspeak-imcom-xsl-jabber))
+  (let ((buffer  (get-buffer-create " *view-chat*")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert "<jabber>\n")
+      (insert-file session)
+      (goto-char (point-max))
+      (insert "\n</jabber>\n")
+      (emacspeak-xslt-region
+       emacspeak-imcom-xsl-jabber
+       (point-min)
+       (point-max)
+       (list
+        (cons "session"
+              (format "\"'%s'\""
+                      session))))
+      (w3-preview-this-buffer)
+      (kill-buffer buffer))))
+
+;;}}}
+;;{{{  bind keys 
+(declaim (special emacspeak-imcom-mode-map))
+(define-key emacspeak-imcom-mode-map
+  "\C-cv" 'emacspeak-imcom-view-chat-session)
 ;;}}}
 (provide 'emacspeak-imcom)
 ;;{{{ end of file
