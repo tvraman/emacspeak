@@ -36,6 +36,7 @@ applies rules from the first pass.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
+        <caption>Tables Unravelled</caption>
 <tr>
 <td><a href="#__about_unravel_tables">About This
               Style</a></td>
