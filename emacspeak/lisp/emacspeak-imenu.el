@@ -209,8 +209,11 @@
 
 ;;}}}
 ;;{{{ customize settings
-(declaim (special imenu-space-replacement))
-(setq imenu-space-replacement ".")
+
+(declaim (special imenu-space-replacement
+                  imenu-max-items))
+(setq imenu-space-replacement "."
+imenu-max-items 200)
 
 ;;}}}
 (provide 'emacspeak-imenu )
