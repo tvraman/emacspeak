@@ -47,7 +47,8 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-  (let ((voice-lock-mode t))
+  (let ((voice-lock-mode t)
+        (emacspeak-use-auditory-icons nil))
   (dtk-speak
    (format
     "%s %d Choices: %s"
