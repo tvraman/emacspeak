@@ -69,6 +69,32 @@
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
+(defadvice iswitchb-toggle-case (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if iswitchb-case 'on 'off))
+    (dtk-speak
+     (format "Case %s"
+             (if iswitchb-case 'on 'off)))))
+
+(defadvice iswitchb-toggle-regexp (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if iswitchb-regexp 'on 'off))
+    (dtk-speak
+     (format "Case %s"
+             (if iswitchb-regexp 'on 'off)))))
+
+(defadvice iswitchb-toggle-ignore (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if iswitchb-ignore 'on 'off))
+    (dtk-speak
+     (format "Case %s"
+             (if iswitchb-ignore 'on 'off)))))
 
 (defadvice iswitchb-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
