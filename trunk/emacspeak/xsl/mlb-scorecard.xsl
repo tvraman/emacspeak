@@ -59,9 +59,11 @@
         tie   </xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <h3>The <xsl:value-of select="team[1]/@name"/> 
+    <h3>The <xsl:value-of select="team[1]/@name"/>
+      <xsl:value-of select="team[1]/gameteam/@R"/>
       <xsl:value-of select="$status"/>
-    <xsl:value-of select="team[2]/@name"/></h3>
+    <xsl:value-of select="team[2]/@name"/>
+    <xsl:value-of select="team[2]/gameteam/@R"/></h3>
     <p>
       <xsl:apply-templates select="team[1]"/> 
       <xsl:value-of select="$status"/>
