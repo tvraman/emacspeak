@@ -162,7 +162,22 @@
 
 ;;}}}
 ;;{{{  template resources 
+ 
+;;{{{ bbc 
+(emacspeak-url-template-define
+ "BBC News"
+ "http://news.bbc.co.uk/text_only.stm"
+ nil
+ #'(lambda nil
+     (search-forward "BBC News Online:")
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-rest-of-buffer))
+ "BBC News text version."
+ )
+
+;;}}}
 ;;{{{  google filters 
+
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s"
