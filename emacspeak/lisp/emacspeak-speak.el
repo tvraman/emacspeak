@@ -1547,10 +1547,14 @@ semantic to do the work."
      (car spec)
      (ems-process-mode-line-format (cdr spec))))
    ((and (listp spec)
+         (symbolp (car spec))
+         (null (car spec)))
+     (ems-process-mode-line-format (cdr spec)))
+   ((and (listp spec)
          (symbolp (car spec)))
     (concat
      (ems-process-mode-line-format (symbol-value (car spec)))
-     (ems-process-mode-line-format (cadr spec))))))
+     (ems-process-mode-line-format (cdr spec))))))
 
 
 (defun emacspeak-speak-mode-line ()
