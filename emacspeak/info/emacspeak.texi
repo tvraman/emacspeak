@@ -22,6 +22,7 @@
 @include eterm.texi
 @include commands.texi
 @include options.texi
+@include tts-server.texi
 @include acknowledge.texi
 @c trailer
      
