@@ -2035,7 +2035,8 @@ value of the file local pattern."
 (defun emacspeak-switch-to-previous-buffer  ()
   "Switch to most recently used interesting buffer."
   (interactive)
-  (switch-to-buffer (other-buffer))
+  (switch-to-buffer (other-buffer
+                     (current-buffer) 'visible-ok))
   (emacspeak-speak-mode-line )
   (emacspeak-auditory-icon 'select-object ))
 
