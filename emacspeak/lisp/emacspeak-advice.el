@@ -1455,6 +1455,11 @@ in completion buffers"
   "Provide auditory feedback to indicate indentation."
   (when (interactive-p)
     (emacspeak-speak-line)))
+(defadvice indent-region (after emacspeak pre act comp)
+  "Provide auditory feedback to indicate indentation."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (message "Indented region")))
 
 (defadvice indent-relative (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."
