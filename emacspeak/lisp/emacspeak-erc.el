@@ -64,8 +64,6 @@
 
 (declaim (special emacspeak-sounds-directory))
 
-
-
 ;;}}}
 ;;{{{ personalities 
 

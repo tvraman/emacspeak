@@ -168,9 +168,8 @@ If we add new icons we should declare them here. ")
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext ))
 
-
 (defgroup emacspeak-sounds nil
-"Emacspeak auditory icons.")
+  "Emacspeak auditory icons.")
 ;;;###autoload
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
@@ -505,8 +504,8 @@ Optional interactive PREFIX arg toggles global value."
   ;; when using software tts  use midi if we cant mix channels.
   (when (and emacspeak-use-auditory-icons
              (or
-             (string= dtk-program "outloud")
-             (string= dtk-program "stereo-outloud"))
+	      (string= dtk-program "outloud")
+	      (string= dtk-program "stereo-outloud"))
              (not emacspeak-aumix-multichannel-capable-p))
     (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon))
   (message "Turned %s auditory icons %s"

@@ -3,7 +3,7 @@
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
 ;;;;;;  emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
-;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15893 50525))
+;;;;;;  "emacspeak-aumix" "emacspeak-aumix.el" (15893 50317))
 ;;; Generated autoloads from emacspeak-aumix.el
 
 (defgroup emacspeak-aumix nil "Customization group for setting the Emacspeak auditory\ndisplay." :group (quote emacspeak))
@@ -29,7 +29,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50318))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -40,7 +40,7 @@ Open Digital Talking Book specified by navigation file filename." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-eterm-remote-term) "emacspeak-eterm"
-;;;;;;  "emacspeak-eterm.el" (15893 49008))
+;;;;;;  "emacspeak-eterm.el" (15893 50319))
 ;;; Generated autoloads from emacspeak-eterm.el
 
 (defgroup emacspeak-eterm nil "Terminal emulator for the Emacspeak Desktop." :group (quote emacspeak) :prefix "emacspeak-eterm-")
@@ -51,7 +51,7 @@ Start a terminal-emulator in a new buffer." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-filtertext) "emacspeak-filtertext" "emacspeak-filtertext.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50319))
 ;;; Generated autoloads from emacspeak-filtertext.el
 
 (autoload (quote emacspeak-filtertext) "emacspeak-filtertext" "\
@@ -61,7 +61,7 @@ preparation for interactively filtering text. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-forms-find-file) "emacspeak-forms" "emacspeak-forms.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50320))
 ;;; Generated autoloads from emacspeak-forms.el
 
 (autoload (quote emacspeak-forms-find-file) "emacspeak-forms" "\
@@ -71,7 +71,7 @@ Visit a forms file" t nil)
 
 ;;;### (autoloads (emacspeak-freeamp emacspeak-freeamp-freeamp-call-command
 ;;;;;;  emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "emacspeak-freeamp.el"
-;;;;;;  (15892 55431))
+;;;;;;  (15892 56379))
 ;;; Generated autoloads from emacspeak-freeamp.el
 
 (autoload (quote emacspeak-freeamp-freeamp-command) "emacspeak-freeamp" "\
@@ -89,7 +89,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode." t nil)
 
 ;;;### (autoloads (emacspeak-gridtext-apply emacspeak-gridtext-save
 ;;;;;;  emacspeak-gridtext-load) "emacspeak-gridtext" "emacspeak-gridtext.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50320))
 ;;; Generated autoloads from emacspeak-gridtext.el
 
 (autoload (quote emacspeak-gridtext-load) "emacspeak-gridtext" "\
@@ -105,7 +105,7 @@ Apply grid to region." t nil)
 
 ;;;### (autoloads (emacspeak-hide-speak-block-sans-prefix emacspeak-hide-or-expose-all-blocks
 ;;;;;;  emacspeak-hide-or-expose-block) "emacspeak-hide" "emacspeak-hide.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50320))
 ;;; Generated autoloads from emacspeak-hide.el
 
 (autoload (quote emacspeak-hide-or-expose-block) "emacspeak-hide" "\
@@ -129,7 +129,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50320))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -140,7 +140,7 @@ Start IMCom." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-m-player) "emacspeak-m-player" "emacspeak-m-player.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50321))
 ;;; Generated autoloads from emacspeak-m-player.el
 
 (defgroup emacspeak-m-player nil "Emacspeak media player settings.")
@@ -153,7 +153,7 @@ The player is placed in a buffer in emacspeak-m-player-mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-ocr) "emacspeak-ocr" "emacspeak-ocr.el"
-;;;;;;  (15893 50525))
+;;;;;;  (15893 50322))
 ;;; Generated autoloads from emacspeak-ocr.el
 
 (defgroup emacspeak-ocr nil "Emacspeak front end for scanning and OCR.\nPre-requisites:\nSANE for image acquisition.\nOCR engine for optical character recognition." :group (quote emacspeak) :prefix "emacspeak-ocr-")
@@ -174,7 +174,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-play-url-at-point emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15893 49008))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15893 50323))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\
@@ -218,7 +218,7 @@ Browse RAM file before playing the selected component." t nil)
 
 ;;;### (autoloads (emacspeak-remote-connect-to-server emacspeak-remote-ssh-to-server
 ;;;;;;  emacspeak-remote-quick-connect-to-server) "emacspeak-remote"
-;;;;;;  "emacspeak-remote.el" (15893 49008))
+;;;;;;  "emacspeak-remote.el" (15893 50323))
 ;;; Generated autoloads from emacspeak-remote.el
 
 (defgroup emacspeak-remote nil "Emacspeak remote group." :group (quote emacspeak-remote))
@@ -241,7 +241,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15893 49008))
+;;;;;;  "emacspeak-rss.el" (15893 50323))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -256,7 +256,7 @@ Browse specified RSS feed." t nil)
 
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15893 49008))
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15893 50324))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
@@ -279,7 +279,7 @@ emacspeak-midi-icon for midi device. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (15893 49388))
+;;;;;;  "emacspeak-speak.el" (15893 50324))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
@@ -294,7 +294,7 @@ set the current local value to the result." t nil)
 ;;;### (autoloads (emacspeak-table-copy-to-clipboard emacspeak-table-display-table-in-region
 ;;;;;;  emacspeak-table-view-csv-buffer emacspeak-table-find-csv-file
 ;;;;;;  emacspeak-table-find-file) "emacspeak-table-ui" "emacspeak-table-ui.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50325))
 ;;; Generated autoloads from emacspeak-table-ui.el
 
 (autoload (quote emacspeak-table-find-file) "emacspeak-table-ui" "\
@@ -334,7 +334,7 @@ Current buffer must be in emacspeak-table mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tabulate-region) "emacspeak-tabulate"
-;;;;;;  "emacspeak-tabulate.el" (15893 49008))
+;;;;;;  "emacspeak-tabulate.el" (15893 50325))
 ;;; Generated autoloads from emacspeak-tabulate.el
 
 (autoload (quote emacspeak-tabulate-region) "emacspeak-tabulate" "\
@@ -345,7 +345,7 @@ in the white-space." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry"
-;;;;;;  "emacspeak-tapestry.el" (15893 49008))
+;;;;;;  "emacspeak-tapestry.el" (15893 50325))
 ;;; Generated autoloads from emacspeak-tapestry.el
 
 (autoload (quote emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry" "\
@@ -355,7 +355,7 @@ Describe the current layout of visible buffers in current frame." t nil)
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
 ;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15893
-;;;;;;  49008))
+;;;;;;  50325))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
@@ -372,7 +372,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-emacspeak-archive
 ;;;;;;  emacspeak-websearch-dispatch) "emacspeak-websearch" "emacspeak-websearch.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50327))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -395,7 +395,7 @@ Optional interactive prefix arg results in prompting for a search term." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xml-shell) "emacspeak-xml-shell" "emacspeak-xml-shell.el"
-;;;;;;  (15893 49008))
+;;;;;;  (15893 50327))
 ;;; Generated autoloads from emacspeak-xml-shell.el
 
 (defgroup emacspeak-xml-shell nil "XML browser for the Emacspeak desktop.")
@@ -406,7 +406,7 @@ Start Xml-Shell on contents of system-id." t nil)
 ;;;***
 
 ;;;### (autoloads (turn-on-fast-voice-lock fast-voice-lock-mode)
-;;;;;;  "fast-voice-lock" "fast-voice-lock.el" (15838 64633))
+;;;;;;  "fast-voice-lock" "fast-voice-lock.el" (15838 55773))
 ;;; Generated autoloads from fast-voice-lock.el
 
 (autoload (quote fast-voice-lock-mode) "fast-voice-lock" "\
@@ -444,7 +444,7 @@ Unconditionally turn on Fast Lock mode." nil nil)
 ;;;***
 
 ;;;### (autoloads (turn-on-jit-lock jit-voice-lock-mode) "jit-voice-lock"
-;;;;;;  "jit-voice-lock.el" (15838 64633))
+;;;;;;  "jit-voice-lock.el" (15838 55773))
 ;;; Generated autoloads from jit-voice-lock.el
 
 (autoload (quote jit-voice-lock-mode) "jit-voice-lock" "\
@@ -485,7 +485,7 @@ Unconditionally turn on Just-in-time Lock mode." nil nil)
 ;;;***
 
 ;;;### (autoloads (turn-on-lazy-voice-lock lazy-voice-lock-mode)
-;;;;;;  "lazy-voice-lock" "lazy-voice-lock.el" (15838 64633))
+;;;;;;  "lazy-voice-lock" "lazy-voice-lock.el" (15838 55773))
 ;;; Generated autoloads from lazy-voice-lock.el
 
 (autoload (quote lazy-voice-lock-mode) "lazy-voice-lock" "\
@@ -532,7 +532,7 @@ Unconditionally turn on Lazy Lock mode." nil nil)
 ;;;***
 
 ;;;### (autoloads (regexp-opt-depth regexp-opt) "regexp-opt" "regexp-opt.el"
-;;;;;;  (15838 64633))
+;;;;;;  (15838 55773))
 ;;; Generated autoloads from regexp-opt.el
 
 (autoload (quote regexp-opt) "regexp-opt" "\
@@ -558,7 +558,7 @@ in REGEXP." nil nil)
 ;;;### (autoloads (voice-lock-voiceify-buffer global-voice-lock-mode
 ;;;;;;  turn-on-voice-lock voice-lock-mode voice-lock-maximum-size
 ;;;;;;  voice-lock-maximum-decoration) "voice-lock" "voice-lock.el"
-;;;;;;  (15838 64633))
+;;;;;;  (15838 55773))
 ;;; Generated autoloads from voice-lock.el
 
 (defvar voice-lock-maximum-decoration nil "\
@@ -678,7 +678,7 @@ Voiceify the current buffer the way `voice-lock-mode' would." t nil)
 ;;;***
 
 ;;;### (autoloads (xml-reformat-tags insert-xml read-xml) "xml-parse"
-;;;;;;  "xml-parse.el" (15838 64633))
+;;;;;;  "xml-parse.el" (15837 2418))
 ;;; Generated autoloads from xml-parse.el
 
 (autoload (quote read-xml) "xml-parse" "\
@@ -713,7 +713,7 @@ Note that this only works if the opening tag starts at column 0." t nil)
 
 ;;;***
 
-;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15893 49008))
+;;;### (autoloads (cd-tool) "cd-tool" "cd-tool.el" (15893 50317))
 ;;; Generated autoloads from cd-tool.el
 
 (autoload (quote cd-tool) "cd-tool" "\

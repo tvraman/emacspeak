@@ -75,18 +75,18 @@
           (emacspeak-use-auditory-icons nil))
       ad-do-it)
     (tts-with-punctuations "all"
-    (emacspeak-read-previous-line))
+			   (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))
   ad-return-value )
 
 (defadvice  calc-do (around emacspeak pre act comp)
   "Speak previous line of output."
-    (let ((emacspeak-speak-messages nil))
+  (let ((emacspeak-speak-messages nil))
     ad-do-it
-  (tts-with-punctuations "all"
-  (emacspeak-read-previous-line))
-  (emacspeak-auditory-icon 'select-object))
+    (tts-with-punctuations "all"
+			   (emacspeak-read-previous-line))
+    (emacspeak-auditory-icon 'select-object))
   ad-return-value)
 
 (defadvice  calc-trail-here (after emacspeak pre act comp)
