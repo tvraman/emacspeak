@@ -161,6 +161,7 @@ emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
 emacspeak-oo-browser.elc \
+emacspeak-nxml.elc \
 emacspeak-outline.elc \
 emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
