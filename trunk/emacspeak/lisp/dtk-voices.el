@@ -575,29 +575,6 @@ and TABLE gives the values along that dimension."
     (dtk-define-voice name command)))
 
 ;;}}}
-;;{{{  dectalk-personality-from-speech-style
-
-;; (defun dectalk-personality-from-speech-style (style)               ;;
-;;   "First compute a symbol that will be name for this STYLE.        ;;
-;; Then see if a voice defined for it.                                ;;
-;; Finally return the symbol"                                         ;;
-;;   (cond                                                            ;;
-;;    ((and (acss-gain style)                                         ;;
-;;      (= 0 (acss-gain style)))                                      ;;
-;;     'inaudible)                                                    ;;
-;;    (t                                                              ;;
-;;     (let ((name (intern                                            ;;
-;;                  (format "%s-a%s-p%s-s%s-r%s"                      ;;
-;;                          (acss-family style)                       ;;
-;;                          (acss-average-pitch style)                ;;
-;;                          (acss-pitch-range style)                  ;;
-;;                          (acss-stress style)                       ;;
-;;                          (acss-richness style)))))                 ;;
-;;       (unless (dtk-voice-defined-p name)                           ;;
-;;         (dtk-define-voice-from-speech-style name style))           ;;
-;;       name))))                                                     ;;
-
-;;}}}
 ;;{{{ list voices 
 
 (defun dtk-list-voices ()
@@ -618,7 +595,6 @@ collect (list 'const  k)))
   (fset 'tts-get-voice-command 'dtk-get-voice-command)
   (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'dtk-define-voice-from-speech-style)
-  ;(fset 'tts-personality-from-speech-style 'dectalk-personality-from-speech-style)
   (setq tts-default-speech-rate dtk-default-speech-rate))
 
 ;;}}}
