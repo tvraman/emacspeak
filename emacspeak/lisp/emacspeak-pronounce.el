@@ -749,18 +749,21 @@ specified pronunciation dictionary key."
 ;;}}}
 ;;{{{ Helpers: pronouncers
 
+;;{{{ dates
+
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
 
-
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
   (save-match-data
-(let ((fields (mapcar
+(let ((result nil)
+      (fields (mapcar
 #'read 
 (split-string string "-"))))
-(calendar-date-string
+(setq result
+      (calendar-date-string
 (list (second fields)
 (first fields)
 (cond
@@ -768,7 +771,46 @@ specified pronunciation dictionary key."
  (+ 2000 (third fields)))
  ((< (third fields) 100)
   (+ 1900 (third fields)))
-(t (third fields))))))))
+(t (third fields))))))
+(put-text-property 0 (1- (length result))
+                         'personality voice-punctuations-some
+                         result)
+                   result)))
+
+;;}}}
+;;{{{ phone numbers
+
+(defvar emacspeak-pronounce-us-phone-number-pattern "1?[0-9]\\{3\\}-[0-9]\\{3}-[0-9]\\{4\\}"
+  "Pattern that matches US phone numbers."
+  )
+
+(defun emacspeak-pronounce-us-phone-number (phone)
+  "Return pronunciation for US phone number."
+  (when (= 14 (length phone))
+    (setq phone (substring phone 2)))
+  (let ((result nil)
+        (area-code (substring  phone 0 3))
+        (prefix-code  (substring  phone 4 7))
+        (suffix-code  (substring  phone 8 12)))
+    (unless (string-equal "800" area-code)
+      (setq area-code
+            (replace-regexp-in-string
+             "[0-9]" " \\&" area-code)))
+    (setq prefix-code
+          (replace-regexp-in-string
+           "[0-9]" " \\&" prefix-code))
+    (setq suffix-code
+          (replace-regexp-in-string
+           "[0-9]\\{2\\}" " \\&"  suffix-code))
+    (setq result
+          (format "(%s) %s, %s. "
+                  area-code prefix-code suffix-code))
+    (put-text-property 0 (1- (length result))
+                       'personality voice-punctuations-some
+                       result)
+    result))
+
+;;}}}
 
 ;;}}}
 (provide  'emacspeak-pronounce)

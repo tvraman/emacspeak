@@ -417,7 +417,6 @@ and TABLE gives the values along that dimension."
 
 (defsubst outloud-get-punctuations-code (value)
   "Return string needed to set specified punctuations mode."
-  (declare (special dtk-punctuation-mode))
   "")
 
 ;;}}}
