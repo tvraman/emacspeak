@@ -281,7 +281,17 @@ documentation   Documents this template resource.
  nil
  "Analyze WWW site using Netcraft.")
 ;;}}}
-;;{{{ bbc 
+;;{{{ bbc
+
+(emacspeak-url-template-define
+ "BBC Streams on demand"
+ "rtsp://rmv8.bbc.net.uk/radio4/%s"
+ (list "Stream: (directory/stream.ra): ")
+ nil
+ "Use this to play a BBC stream by its directory/stream-name locator."
+ #'(lambda (url)
+     (emacspeak-realaudio-play url)))
+
 (emacspeak-url-template-define
  "BBC 7 Schedule"
  "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
