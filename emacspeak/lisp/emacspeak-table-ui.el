@@ -64,7 +64,7 @@
   :type 'symbol
   :group 'emacspeak-table)
 
-(defcustom emacspeak-table-row-header-personality 'harry
+(defcustom emacspeak-table-row-header-personality voice-bolden
   "Personality for speaking row headers"
   :type 'symbol
   :group 'emacspeak-table)

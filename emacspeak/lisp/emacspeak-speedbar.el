@@ -273,7 +273,7 @@ An automatically updating speedbar consumes resources.")
 ;;{{{  voice locking 
 ;;; Map speedbar faces to voices
 ;;
-(defcustom emacspeak-speedbar-button-personality  'harry
+(defcustom emacspeak-speedbar-button-personality  voice-bolden
   "personality used for speedbar buttons"
   :type 'symbol
   :group 'emacspeak-speedbar)

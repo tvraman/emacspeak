@@ -83,7 +83,7 @@
   :group 'emacspeak-widget
   :type 'symbol)
 
-(defcustom emacspeak-widget-button-personality 'harry
+(defcustom emacspeak-widget-button-personality voice-bolden
   "Personality for buttons"
   :group 'emacspeak-widget
   :type 'symbol)

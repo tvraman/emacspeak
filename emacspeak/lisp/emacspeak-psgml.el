@@ -356,14 +356,14 @@ window")))
 
 (defvar emacspeak-sgml-markup-voices
   (list 
-(cons 'start-tag 	  'harry)
-    (cons 'end-tag 	  'harry)
+(cons 'start-tag 	  voice-bolden)
+    (cons 'end-tag 	  voice-bolden)
     (cons 'comment 	  voice-monotone)
     (cons 'pi 	   voice-animate)
     (cons 'sgml 	  voice-animate)
     (cons 'doctype 	  voice-lock-italic-personality)
     (cons 'entity 	  voice-lock-italic-personality)
-    (cons 'shortref     'harry))
+    (cons 'shortref     voice-bolden))
   "*List of markup to personality mappings.
 Element are of the form (MARKUP-TYPE . personality).
 Possible values for MARKUP-TYPE is:

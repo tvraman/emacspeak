@@ -130,7 +130,7 @@
 (defcustom xsl-other-element-personality voice-animate
   "Personality used in XSL highlighting.")
 
-(defvar xsl-xsl-main-personality 'harry 
+(defvar xsl-xsl-main-personality voice-bolden 
   "Personality used for highlighting in XSL.")
 ;;; keep byte compiler happy 
 

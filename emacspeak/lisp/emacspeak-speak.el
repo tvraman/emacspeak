@@ -454,7 +454,7 @@ current local  value to the result."
                                         ; 	   ((= 100 percent) " bottom ")
                                         ; 	   (t (format " %d percent " percent))))
                                         ;     (put-text-property 0 (length message)
-                                        ; 		       'property 'harry message)
+                                        ; 		       'property voice-bolden message)
                                         ;     message))
 
 ;;}}}
@@ -1796,7 +1796,7 @@ See the documentation for function
     (put-text-property 0 (length version)
                        'personality voice-animate version)
     (put-text-property 0 (length emacspeak-codename)
-                       'personality 'harry
+                       'personality voice-bolden
                        emacspeak-codename)
     (when (and  emacspeak-play-emacspeak-startup-icon 
                 (file-exists-p "/usr/bin/mpg123"))

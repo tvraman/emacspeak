@@ -69,7 +69,7 @@
   "*Alist of personality or list of personalities to use for pseudo-underlined titles.
 The alist key is the character the title is underlined with (?*, ?= or ?-).")
   
-(defvar emacspeak-info-node   'harry
+(defvar emacspeak-info-node   voice-bolden
   "Personality to indicate the node name.")
 
 (defvar emacspeak-info-xref
