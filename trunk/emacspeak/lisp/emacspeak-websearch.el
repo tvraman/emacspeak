@@ -1777,7 +1777,7 @@ Light for: ")))
   <input type=\"hidden\" name=\"page\" value=\"advanced\">
 <fieldset>  
     <p> 
-      <label for=\"authinput\" > Author: </label>
+      <label for=\"authinput\" > Author </label>
 <input type =\"text\" id=\"authinput\" name=\"authinput\" size=\"30\" >
       <input name=\"screentitle\" type=\"hidden\" value=\"Personal Author Search For:\">
       <input name=\"searchtype2\" type=\"hidden\" value=\"author\">
@@ -1785,36 +1785,36 @@ Light for: ")))
       <input name=\"querybphp\" type=\"hidden\">
     </p>
     <p> 
-      <label for=\"titleinput\" > Title: </label> 
+      <label for=\"titleinput\" > Title </label> 
         <input type=\"text\" id=\"titleinput\" name=\"titleinput\" size=\"30\" >
       <input name=\"searchtype3\" type=\"hidden\" value=\"title\">
     </p>
     <p> 
-      <label for=\"subjinput\"> Subject: 
+      <label for=\"subjinput\"> Subject 
       </label>   
         <input type=\"text\" id=\"subjinput\" name=\"subjinput\" size=\"30\" >
       <input name=\"searchtype4\" type=\"hidden\" value=\"subject\">
     </p>
     <p> 
-      <label for=\"bookinput\" > Book Number: 
+      <label for=\"bookinput\" > Book Number 
       </label>   
         <input type=\"text\" id=\"bookinput\" name=\"bookinput\" size=\"30\" >
       <input name=\"searchtype\" type=\"hidden\" value=\"numbers\">
     </p>
     <p> 
-      <label for=\"annotinput\" > Annotation, Notes, Contents: 
+      <label for=\"annotinput\" > Annotation, Notes, Contents 
       </label>   
         <input type=\"text\" id=\"annotinput\" name=\"annotinput\" size=\"30\" >
       <input name=\"searchtype\" type=\"hidden\" value=\"annot\">
     </p>
   </fieldset>  
-  <h2> Global search: </h2>
+  <h2> Global search </h2>
   <fieldset> 
     <p> Searches author, title, subject, annotation, contents and notes. This search 
       ignores terms in preceding boxes. Use alone or with limits below. 
     </p>
     <p> 
-      <label for=\"globalinput\" > Keyword: 
+      <label for=\"globalinput\" > Keyword 
       </label>
       <input name=\"searchtype\" type=\"hidden\" value=\"global\">
       <input name=\"searchtype5\" type=\"hidden\" value=\"basic\">
