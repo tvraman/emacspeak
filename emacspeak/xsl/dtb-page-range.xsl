@@ -15,6 +15,8 @@ are extracted. All other nodes are ignored.
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/> 
   <xsl:template match="/">
+    <xsl:variable name="first"/>
+    <xsl:variable name="last"/>
     <html>
       <head>
         <link>
@@ -38,6 +40,16 @@ are extracted. All other nodes are ignored.
         <xsl:choose>
           <xsl:when test="count($pages)  &gt; 0">
             <strong>Book has pages</strong>
+            <xsl:for-each select="//*">
+              <xsl:choose>
+<xsl:when test="name() = 'pagenum' and $start = number(text())">
+Got start.
+                </xsl:when>
+<xsl:when test="name()='pagenum' and $end  &lt;  number(text())">
+Got end
+                </xsl:when>
+              </xsl:choose>
+            </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
             <strong>This book has no page boundary markers.</strong>
