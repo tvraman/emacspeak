@@ -834,7 +834,7 @@ documentation.\n\n")
                 "Automatically generated documentation
 for commands defined in module  %s.\n\n"
                 module)))
-            (insert (format "\n\n@unnumberedsec %s\n" f))
+            (insert (format "\n\n@deffn %s\n" f))
             (insert 
              (format "@findex %s\n" f))
             (if key
@@ -855,7 +855,7 @@ for commands defined in module  %s.\n\n"
              (or
               (ems-texinfo-escape(documentation f))
               ""))
-            (insert "\n\n"))))
+            (insert "\n@end deffn\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (texinfo-all-menus-update)
       (save-buffer)))
