@@ -117,8 +117,7 @@ personality settings."
      (put-text-property start end 'personality v object)))))
 
 ;;;###autoload
-(defun emacspeak-personality-append  (start end personality
-                                            &optional object )
+(defun emacspeak-personality-append  (start end personality &optional object )
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
   (when (and (integer-or-marker-p start)
@@ -140,7 +139,7 @@ Existing personality properties on the text range are preserved."
 	(t                        ;accumulate the new personality
 	 (unless (or (equal  v orig)
                      (listp orig)
-                     (memq v orig))
+                     (and (listp orig) (memq v orig)))
 	   (setq new
 		 (remove-duplicates
 		  (append
@@ -176,7 +175,7 @@ Existing personality properties on the text range are preserved."
 	(t			       ;accumulate the new personality
 	 (unless (or (equal v orig)
 		      (listp orig)
-			  (memq personality orig))
+			  (and (listp orig) (memq v orig)))
 	   (setq new
 		 (remove-duplicates
 		  (append
