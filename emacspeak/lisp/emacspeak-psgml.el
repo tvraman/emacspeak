@@ -338,7 +338,7 @@ window")))
   (lambda ()
     (declare (special sgml-mode-map
                       sgml-set-face))
-    (setq sgml-set-face t)
+    (setq sgml-set-face nil)
     (emacspeak-setup-programming-mode)
     (define-key sgml-mode-map "\C-c\C-b"
       'emacspeak-xml-browse-mode))))
