@@ -117,7 +117,9 @@ Element is the result of parsing an XML element structure."
   "Play clip specified by clip.
 Clip is the result of parsing element <audio .../> as defined by Daisy 3."
   (declare (special emacspeak-daisy-mpg123-player))
-  (unless (eq 'audio (car clip))
+  (unless
+      (and (listp clip)
+ (eq 'audio (caar clip)))
     (error "Invalid audio clip."))
   (let ((src (emacspeak-daisy-get-attribute clip 'src))
         (begin (emacspeak-daisy-get-attribute clip 'clipBegin))
