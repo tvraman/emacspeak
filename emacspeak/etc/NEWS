@@ -8,6 +8,11 @@ Emacspeak 21.0 provides the following user level enhancements:
 
 * user Visible Changes:
 
+** emacspeak-emms.el:
+
+Speech-enables EMMS --- an Emacs interface to multimedia players.
+
+
 ** emacspeak-cedet.el:
 
 Speech-enables cedet-1.0

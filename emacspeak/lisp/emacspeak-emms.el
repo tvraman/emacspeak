@@ -43,7 +43,7 @@
 ;;; Commentary:
 ;;;Speech-enables EMMS --- the Emacs equivalent of XMMS
 ;;; See
-;;; http://savannah.gnu.org/search/?words=emms*&type_of_search=soft&group_id=0&Search=Search&exact=0&max_rows=25&type=1
+;;; http://savannah.gnu.org/project/emms
 ;;; EMMS is under active development,
 ;;; to get the current CVS version, use Emacspeak command
 ;;; M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
