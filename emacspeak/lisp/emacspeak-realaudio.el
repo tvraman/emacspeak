@@ -122,6 +122,7 @@ emacspeak-realaudio-shortcuts-directory. "
   (interactive
    (list
     (let ((completion-ignore-case t)
+          (emacspeak-speak-messages nil)
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
