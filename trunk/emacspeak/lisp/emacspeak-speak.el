@@ -337,11 +337,12 @@ current local  value to the result."
    (t (make-local-variable 'emacspeak-line-echo)
       (setq emacspeak-line-echo
 	    (not emacspeak-line-echo ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-line-echo 'on 'off))
   (message "Turned %s line echo%s "
            (if emacspeak-line-echo "on" "off" )
-	   (if prefix "" " locally")))
+	   (if prefix "" " locally"))))
 
 (defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
@@ -364,11 +365,12 @@ current local  value to the result."
    (t (make-local-variable 'emacspeak-word-echo )
       (setq emacspeak-word-echo
 	    (not emacspeak-word-echo ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-word-echo 'on 'off ))
   (message "Turned %s word echo%s "
            (if emacspeak-word-echo "on" "off" )
-	   (if prefix "" " locally")))
+	   (if prefix "" " locally"))))
 
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
@@ -392,11 +394,12 @@ current local  value to the result."
    (t (make-local-variable 'emacspeak-character-echo)
       (setq emacspeak-character-echo
 	    (not emacspeak-character-echo ))))
-  (emacspeak-auditory-icon
-   (if emacspeak-character-echo 'on 'off))
-  (message "Turned %s character echo%s "
-           (if emacspeak-character-echo "on" "off" )
-	   (if prefix "" " locally")))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-character-echo 'on 'off))
+    (message "Turned %s character echo%s "
+             (if emacspeak-character-echo "on" "off" )
+             (if prefix "" " locally"))))
 
 ;;}}}
 ;;{{{ Showing the point:
@@ -423,11 +426,12 @@ current local  value to the result."
    (t (make-local-variable 'emacspeak-show-point)
       (setq emacspeak-show-point
 	    (not emacspeak-show-point ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-show-point 'on 'off))
   (message "Turned %s show point %s "
            (if emacspeak-show-point "on" "off" )
-	   (if prefix "" " locally")))
+	   (if prefix "" " locally"))))
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
@@ -532,11 +536,12 @@ results in the number of initial spaces being spoken."
     (and prefix
          (setq-default emacspeak-audio-indentation
                        emacspeak-audio-indentation )))
-  (emacspeak-auditory-icon
-   (if emacspeak-audio-indentation 'on 'off))
-  (message "Turned %s audio indentation %s "
-           (if emacspeak-audio-indentation "on" "off" )
-	   (if prefix "" "locally")))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-audio-indentation 'on 'off))
+    (message "Turned %s audio indentation %s "
+             (if emacspeak-audio-indentation "on" "off" )
+             (if prefix "" "locally"))))
 
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
@@ -1407,11 +1412,12 @@ indicating the arrival  of new mail when displaying the mode line."
    (t (make-local-variable'emacspeak-mail-alert)
       (setq emacspeak-mail-alert
 	    (not emacspeak-mail-alert ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-mail-alert 'on 'off))
   (message "Turned %s mail alert  %s "
            (if emacspeak-mail-alert "on" "off" )
-	   (if prefix "" "locally")))
+	   (if prefix "" "locally"))))
 
 ;;}}}
 ;;{{{  Speak mode line information
@@ -1457,6 +1463,7 @@ semantic-toplevel-bovine-cache ))
    (t
     (setq emacspeak-which-function-mode
           (not emacspeak-which-function-mode ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-which-function-mode 'on 'off ))
   (message "Turned %s which function mode%s %s"
@@ -1464,7 +1471,7 @@ semantic-toplevel-bovine-cache ))
 	   (if prefix "" " locally")
            (if semantic-toplevel-bovine-cache
                ""
-             "Rebuild imenu index to  hear function name in mode line." )))
+             "Rebuild imenu index to  hear function name in mode line." ))))
 
 (defsubst emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
@@ -1976,7 +1983,7 @@ set the current local value to the result."
 
   (interactive  "P")
   (declare  (special  emacspeak-comint-autospeak
-emacspeak-comint-split-speech-on-newline ))
+                      emacspeak-comint-split-speech-on-newline ))
   (cond
    (prefix
     (setq-default  emacspeak-comint-autospeak
@@ -1988,11 +1995,12 @@ emacspeak-comint-split-speech-on-newline ))
   (and emacspeak-comint-autospeak
        emacspeak-comint-split-speech-on-newline
        (modify-syntax-entry 10 ">"))
-  (emacspeak-auditory-icon
-   (if emacspeak-comint-autospeak 'on 'off))
-  (message "Turned %s comint autospeak %s "
-           (if emacspeak-comint-autospeak "on" "off" )
-	   (if prefix "" "locally")))
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if emacspeak-comint-autospeak 'on 'off))
+    (message "Turned %s comint autospeak %s "
+             (if emacspeak-comint-autospeak "on" "off" )
+             (if prefix "" "locally"))))
 
 (defvar emacspeak-comint-output-monitor nil
 "Switch to monitor comint output.
@@ -2018,11 +2026,12 @@ set the current local value to the result."
    (t (make-local-variable 'emacspeak-comint-output-monitor)
       (setq emacspeak-comint-output-monitor
 	    (not emacspeak-comint-output-monitor ))))
+  (when (interactive-p)
   (emacspeak-auditory-icon
    (if emacspeak-comint-output-monitor 'on 'off))
   (message "Turned %s comint monitor %s "
            (if emacspeak-comint-output-monitor "on" "off" )
-	   (if prefix "" "locally")))
+	   (if prefix "" "locally"))))
 
 (defcustom emacspeak-comint-split-speech-on-newline  t
   "*Option to have comint split speech on newlines.
@@ -2070,11 +2079,12 @@ message area.  You can use command
                 (if emacspeak-speak-messages " stop " " start ")))
        (setq  emacspeak-speak-messages
               (not emacspeak-speak-messages))
+       (when (interactive-p)
        (emacspeak-auditory-icon
         (if emacspeak-speak-messages  'on 'off))
        (dtk-speak
         (format "Turned  speaking of emacs messages %s"
-                (if emacspeak-speak-messages  " on" " off")))))
+                (if emacspeak-speak-messages  " on" " off"))))))
 
 ;;}}}
 ;;{{{  Moving across fields:
