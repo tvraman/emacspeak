@@ -621,7 +621,7 @@ before the message is spoken."
                        'personality voice-animate
                        emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value	  ;we really do have a message
+                 ad-return-value     ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time
 			   (nth 1  (current-time)))))
@@ -655,11 +655,11 @@ before the message is spoken."
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
   (when emacspeak-speak-cue-errors
-  (let ((dtk-stop-immediately t)
-        (message (and (not (eq 'error (ad-get-arg 0)))
-                      (get (ad-get-arg 0) 'error-message))))
-    (when  message
-      (dtk-speak message)))))
+    (let ((dtk-stop-immediately t)
+          (message (and (not (eq 'error (ad-get-arg 0)))
+                        (get (ad-get-arg 0) 'error-message))))
+      (when  message
+        (dtk-speak message)))))
 
 ;;}}}
 
@@ -1015,7 +1015,7 @@ in completion buffers"
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value	  ;we really do have a message
+                 ad-return-value     ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time
 			   (nth 1    (current-time)))))
@@ -1815,9 +1815,9 @@ Indicate change of selection with
         (shift-regexp "S-\\(.\\)")
         (ctrl-regexp "C-\\(.\\)")
         (meta-regexp "M-\\(.\\)")
-        (alt-regexp "A-\\(.\\)")
         (caps-regexp "\\b[A-Z]\\b")
         (hyper-regexp "C-x @ h")
+        (alt-regexp "C-x @ a")
         (super-regexp "C-x @ s"))
     (condition-case nil
         (progn
@@ -1840,6 +1840,9 @@ Indicate change of selection with
               (goto-char (point-min))
 	      (while (re-search-forward hyper-regexp  nil t )
 		(replace-match "hyper "))
+              (goto-char (point-min))
+              (while (re-search-forward alt-regexp  nil t )
+		(replace-match "alt "))
 	      (goto-char (point-min))
 	      (while (re-search-forward super-regexp  nil t )
 		(replace-match "super "))

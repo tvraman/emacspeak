@@ -156,7 +156,9 @@
       (emacspeak-auditory-icon 'large-movement)
       (if emacspeak-imenu-autospeak
 	  (emacspeak-imenu-speak-this-section)
-	(emacspeak-speak-line)))))
+	(emacspeak-speak-line))
+      (when (overlays-at (point))
+        (goto-char (overlay-end (car (overlays-at (point)))))))))
 
 (defun emacspeak-imenu-goto-previous-index-position ()
   "Goto the previous index position in current buffer"
