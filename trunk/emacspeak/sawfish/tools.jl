@@ -1,3 +1,4 @@
+;;;$Id$
 ;;; tools.jl --- Emacs tool for sawfish
 ;;; $Author$
 ;;; Description:   Commands for launching or switching to
