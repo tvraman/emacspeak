@@ -51,7 +51,7 @@ shown in the output.
     <xsl:include href="object.xsl"/>
     <xsl:include href="identity.xsl"/>
     <!-- nuke these -->
-    <xsl:template match="//script|//meta//style"/>
+    <xsl:template match="//script|//meta//iframe"/>
     <!-- } -->
 </xsl:stylesheet>
 <!--

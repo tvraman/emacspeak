@@ -41,7 +41,7 @@ used as the table-index for extract-tables.xsl.
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
   <!-- nuke these -->
-  <xsl:template match="//script|//meta"/>
+  <xsl:template match="//script|//meta|//iframe"/>
   <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>

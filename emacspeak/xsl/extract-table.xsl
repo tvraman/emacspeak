@@ -35,7 +35,7 @@ Parameter base specifies base URL of source document.
     </head>
   </xsl:template>
   <!-- nuke these -->
-  <xsl:template match="//script|//meta"/>
+  <xsl:template match="//script|//meta|//iframe"/>
   <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
