@@ -606,14 +606,14 @@ This is setup on a per engine basis.")
 Argument PROGRAM specifies the speech server program.
 The selected server is started immediately."
   (interactive
-   (list (completing-read "Select speech server:"
+   (list
+    (completing-read "Select speech server:"
                           (or dtk-servers-alist
                               (progn
                                 (tts-setup-servers-alist)
                                 dtk-servers-alist))
                           nil
-                          t  )
-         current-prefix-arg))
+                          t  )))
   (declare (special  dtk-tcl dtk-program dtk-servers-alist))
   (setq dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
