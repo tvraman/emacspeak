@@ -101,7 +101,7 @@
 ;;; configured.
 (defalias 'tts-voice-defined-p 'dectalk-voice-defined-p)
 (defalias 'tts-define-voice-from-speech-style
-  'dtk-define-voice-from-speech-style)
+  'dectalk-define-voice-from-speech-style)
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.
