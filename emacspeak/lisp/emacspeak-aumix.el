@@ -114,7 +114,7 @@ display."
 ;;}}}
 ;;{{{ emacspeak-aumix
 
-
+;;;###autoload
 (defcustom emacspeak-aumix-settings-file
   (when
       (file-exists-p (expand-file-name ".aumixrc"
