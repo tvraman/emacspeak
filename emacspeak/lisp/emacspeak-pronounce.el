@@ -530,6 +530,56 @@ Activates pronunciation dictionaries if not already active."
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+;;{{{  dictionary editor 
+(require 'widget)
+
+(defun emacspeak-pronounce-edit-generate-pronunciation-editor  (key)
+  "Generate a widget-enabled edit buffer for editting the
+pronunciation dictionary for the specified key."
+  (declare (special emacspeak-pronounce-dictionaries))
+  (unless emacspeak-pronounce-pronunciation-table
+    (emacspeak-pronounce-toggle-use-of-dictionaries))
+  (let ((value (gethash key emacspeak-pronounce-dictionaries))
+        (notify (emacspeak-pronounce-edit-generate-callback key))
+        (buffer-name (format "*Dictionary-%s" key))
+        (buffer nil)
+        (inhibit-read-only t))
+    (when (get-buffer buffer-name) (kill-buffer buffer-name))
+    (setq buffer (get-buffer-create buffer-name))
+    (save-excursion
+      (set-buffer  buffer)
+      (voice-lock-mode t)
+      (widget-insert "\n")
+      (widget-insert
+       (format "Editting pronunciation dictionary for %s\n\n" key))
+      (widget-create 'repeat
+                     :help-echo "Edit Pronunciations"
+                     :tag "Pronunciations"
+                     :value value
+                     :notify notify
+                     '(cons :tag "Dictionary Entry"
+                            (string :tag "Phrase")
+                            (string :tag "Pronounce as")))
+      (widget-insert "\n")
+      (use-local-map widget-keymap)
+      (widget-setup)
+      (goto-char (point-min)))
+    (pop-to-buffer buffer)))
+
+(defun emacspeak-pronounce-edit-generate-callback (field-name)
+  "Generate a callback for use in the pronunciation editor widget."
+  (`
+   (lambda (widget &rest ignore)
+     (declare (special emacspeak-pronounce-dictionaries))
+     (let ((value (widget-value widget)))
+       (setf
+        (gethash 
+         (quote (, field-name))
+         emacspeak-pronounce-dictionaries)
+        value)))))
+
+
+;;}}}
 (provide  'emacspeak-pronounce)
 ;;{{{  emacs local variables
 
