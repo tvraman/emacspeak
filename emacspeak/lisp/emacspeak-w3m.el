@@ -367,56 +367,24 @@
 ;;}}}
 ;;{{{ TVR: applying XSL
 
-(defvar emacspeak-w3m-xsl-p nil
-  "*T means we apply XSL transformation before displaying HTML.")
-
-(defvar emacspeak-w3m-xsl-transform nil
-  "Specifies transform to use before displaying a page.
-Nil means no transform is used.")
-
 (defadvice  w3m-w3m-dump-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
-  (when (and emacspeak-w3m-xsl-p emacspeak-w3m-xsl-transform)
+  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
-     emacspeak-w3m-xsl-transform
+     emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
 
 (defadvice  w3m-w3m-dump-head-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
-  (when (and emacspeak-w3m-xsl-p emacspeak-w3m-xsl-transform)
+  (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (emacspeak-xslt-region
-     emacspeak-w3m-xsl-transform
+     emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
-(defun emacspeak-w3m-xslt-select (xsl)
-  "Select transformation to apply."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))))
-  (declare (special emacspeak-w3m-xsl-transform))
-  (setq emacspeak-w3m-xsl-transform xsl
-	emacspeak-w3m-xsl-p	    t)
-  (message "Will apply %s before displaying HTML pages."
-           (file-name-sans-extension
-            (file-name-nondirectory
-             xsl)))
-  (emacspeak-auditory-icon 'select-object))
 
-(defun emacspeak-w3m-xsl-toggle ()
-  "Toggle  XSL transformations before displaying HTML.
-This uses XSLT Processor xsltproc available as part of the
-libxslt package."
-  (interactive)
-  (declare (special emacspeak-w3m-xsl-p))
-  (setq emacspeak-w3m-xsl-p
-        (not emacspeak-w3m-xsl-p))
-  (emacspeak-auditory-icon
-   (if emacspeak-w3m-xsl-p 'on 'off))
-  (message "Turned %s XSL"
-           (if emacspeak-w3m-xsl-p 'on 'off)))
+
+
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 
 
