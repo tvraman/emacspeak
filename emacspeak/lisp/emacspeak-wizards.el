@@ -1,3 +1,20 @@
+;;{{{ spot words 
+
+(defun emacspeak-wizards-spot-words (ext word)
+  "Searches recursively in all files with extension `ext'
+for `word' and siplays hits in a compilation buffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Extension: "
+                          ".tex")
+    (read-from-minibuffer "Word: "
+                          (thing-at-point 'word))))
+  (compile 
+   (format
+    "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
+    ext word))
+  (emacspeak-auditory-icon 'task-done))
+
 ;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards
 ;;; $Id$
 ;;; $Author$
@@ -2047,6 +2064,8 @@ value of the file local pattern."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line )))
+
+;;}}}
 
 ;;}}}
 (provide 'emacspeak-wizards)
