@@ -259,6 +259,26 @@
     (message "Turned %s context markers. "
              (if reftex-index-include-context 'on 'off))))
 
+(defadvice reftex-display-index (after emacspeak pre act comp)
+  "Speech enable index mode."
+  (when (interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice reftex-index-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice reftex-index-quit-and-kill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+
+
 ;;}}}
 (provide 'emacspeak-reftex)
 ;;{{{ end of file
