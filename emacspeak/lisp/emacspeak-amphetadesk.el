@@ -75,6 +75,11 @@
   "Port where AmphetaDesk listens."
   :type 'integer
   :group 'emacspeak-amphetadesk)
+(defcustom emacspeak-amphetadesk-uri
+  "http://127.0.0.1:8888/"
+  "URI for Amphetadesk home."
+  :type 'string
+  :group 'emacspeak-amphetadesk)
 
 (defsubst emacspeak-amphetadesk-ensure-live ()
   "Ensure AmphetaDesk is alive, and start it if necessary."
@@ -109,7 +114,21 @@
     (emacspeak-w3-without-xsl
      (w3-fetch "http://127.0.0.1:8888/")))
    (t
-    (browse-url "http://127.0.0.1:8888/"))))
+    (browse-url emacspeak-amphetadesk-uri))))
+
+;;;###autoload
+
+(defun emacspeak-amphetadesk-quick-add (url)
+  "Quick add URL to Amphetadesk by prompting for URL."
+  (interactive
+   (list
+    (read-from-minibuffer "URL:")))
+  (declare (special emacspeak-amphetadesk-uri))
+  (browse-url 
+   (concat emacspeak-amphetadesk-uri
+           "my_channels.html?add_url="
+           (webjump-url-encode
+            url))))
 
 ;;}}}
 (provide 'emacspeak-amphetadesk)
