@@ -76,6 +76,8 @@
 (setq emacspeak-freeamp-process (get-buffer-process (current-buffer))))
 
 (declaim (special emacspeak-freeamp-mode-map))
+
+
 (defvar emacspeak-freeamp-freeamp-keys
   (list ?p ?+ ?-  ?f ?b ?s ?= ?q)
   "Keys accepted by freeamp.")
