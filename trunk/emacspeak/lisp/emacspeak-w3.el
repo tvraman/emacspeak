@@ -975,6 +975,8 @@ used as well."
 urls.")
 
 (make-variable-buffer-local 'emacspeak-w3-xpath-filter)
+(defvar emacspeak-w3-most-recent-xpath-filter nil
+  "Caches most recently used xpath filter.")
 
 (defun emacspeak-w3-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
@@ -983,6 +985,7 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
   (declare (special emacspeak-w3-xpath-filter
+                    emacspeak-w3-most-recent-xpath-filter
 		    emacspeak-w3-url-rewrite-rule))
   (unless (fboundp 'string-replace-match)
     (error "Install and load the elib package to use this feature."))
@@ -1001,7 +1004,8 @@ used as well."
     (when (or prompt 
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter 
-            (read-from-minibuffer  "Specify xpath: ")))
+            (read-from-minibuffer  "Specify xpath: "
+                                   emacspeak-w3-most-recent-xpath-filter)))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
 			      (or redirect url)
 			      'speak)
