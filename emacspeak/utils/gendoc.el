@@ -1,5 +1,7 @@
 ;;;$Id$
 ;;; Generate Documentation.
+;;; this is legacy code  written in 1995
+;;; preserved for posterity.
 (require 'cl)
 ;;{{{ Design:
 

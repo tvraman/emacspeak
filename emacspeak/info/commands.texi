@@ -9,6 +9,8 @@ documentation.
 @menu
 * dtk-speak::                   
 * dtk-tcl::                     
+* emacspeak::                   
+* emacspeak-arc::               
 * emacspeak-aumix::             
 * emacspeak-bs::                
 * emacspeak-buff-menu::         
@@ -17,6 +19,7 @@ documentation.
 * emacspeak-compile::           
 * emacspeak-custom::            
 * emacspeak-dired::             
+* emacspeak-dismal::            
 * emacspeak-ediff::             
 * emacspeak-enriched::          
 * emacspeak-entertain::         
@@ -34,6 +37,7 @@ documentation.
 * emacspeak-ibuffer::           
 * emacspeak-imcom::             
 * emacspeak-imenu::             
+* emacspeak-info::              
 * emacspeak-keymap::            
 * emacspeak-kotl::              
 * emacspeak-man::               
@@ -57,21 +61,15 @@ documentation.
 * emacspeak-tar::               
 * emacspeak-tetris::            
 * emacspeak-url-template::      
-* emacspeak-view-process::      
 * emacspeak-view::              
+* emacspeak-view-process::      
 * emacspeak-vm::                
 * emacspeak-w3::                
+* emacspeak-w3search::          
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
-* emacspeak::                   
-* dis-quote::                   
-* emacspeak-arc::               
-* emacspeak-dismal::            
-* emacspeak-info::              
-* emacspeak-personal::          
-* emacspeak-w3search::          
 @end menu
 
 @node dtk-speak
@@ -80,8 +78,6 @@ documentation.
 
 
 
-Commentary:
-Defines the TTS interface.
 
 
 Automatically generated documentation
@@ -162,8 +158,6 @@ Select TTS debugging buffer.
 
 
 
-Commentary:
-Interface to speech server.
 
 
 Automatically generated documentation
@@ -372,8 +366,6 @@ However it is irritating to have it on when reading documents.
 
 
 @deffn dtk-toggle-punctuation-mode
-@kbd{ delete }
-
 Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
 @end deffn
@@ -384,15 +376,74 @@ Interactive PREFIX arg makes the new setting global.
 Shutdown midi system.
 @end deffn
 
+@node emacspeak
+@section emacspeak
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak.
+
+
+
+@deffn emacspeak-submit-bug
+@kbd{ control e control b }
+
+Function to submit a bug to the programs maintainer.
+@end deffn
+
+
+
+@deffn emacspeak-describe-emacspeak
+@kbd{ control h control e }
+
+Give a brief overview of emacspeak.
+@end deffn
+
+@node emacspeak-arc
+@section emacspeak-arc
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-arc.
+
+
+
+@deffn emacspeak-arc-speak-file-permissions
+Speak permissions of file current entry 
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-modification-time
+Speak modification time of the file on current line
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-name
+Speak the name of the file on current line
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-size
+Speak the size of the file on current line
+@end deffn
+
 @node emacspeak-aumix
 @section emacspeak-aumix
 
 
 
 
-Commentary:
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
 
 
 Automatically generated documentation
@@ -458,9 +509,6 @@ after saving the settings to have them take effect.
 
 
 
-Commentary:
-speech-enable bs.el
-this is an alternative to list-buffers
 
 
 Automatically generated documentation
@@ -555,9 +603,6 @@ Speaks the most recently displayed appointment message if any.
 
 
 
-Commentary:
-This module makes compiling code from inside Emacs speech friendly.
-It is an example of how a little amount of code can make Emacspeak even better.
 
 
 Automatically generated documentation
@@ -598,11 +643,6 @@ Jump to custom group when in a customization buffer.
 
 
 
-Commentary:
-This module speech enables dired.
-It reduces the amount of speech you hear:
-Typically you hear the file names as you move through the dired buffer
-Voicification is used to indicate directories, marked files etc.
 
 
 Automatically generated documentation
@@ -657,6 +697,110 @@ unless `dired-listing-switches' contains -al
 
 @deffn emacspeak-dired-speak-file-modification-time
 Speak modification time  of the current file.
+@end deffn
+
+@node emacspeak-dismal
+@section emacspeak-dismal
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-dismal.
+
+
+
+@deffn emacspeak-dismal-forward-col-and-summarize
+Move forward by arg columns
+ (the next column by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-value
+Display the cell value in the message area
+@end deffn
+
+
+
+@deffn emacspeak-dismal-sheet-summarize
+Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-row-summarizer-list
+Specify or reset row summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-with-col-header
+Display current cell along with its column header.
+The `column header' is the entry in row 0.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-with-row-header
+Displays current cell along with its row header.
+The `row header' is the entry in column 0.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-forward-row-and-summarize
+Move forward by arg rows
+ (the next row by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-sheet-summarizer-list
+Specify or reset sheet summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-row-summarize
+Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-col-summarize
+Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-col-summarizer-list
+Specify or reset col summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-backward-col-and-summarize
+Move backward by arg columns
+ (the previous column by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-backward-row-and-summarize
+Move backward by arg rows
+ (the previous row by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-expression
+Display the expression in the message area
 @end deffn
 
 @node emacspeak-ediff
@@ -763,15 +907,6 @@ Add people to monitor in this room.
 
 
 
-Commentary:
-This module makes eterm talk.
-Eterm is the new terminal emulator for Emacs.
-Use of emacspeak with eterm really needs an info page.
-At present, the only documentation is the source level documentation.
-This module uses Control-t as an additional prefix key to allow the user
-To move around the terminal and have different parts spoken. 
-
-
 
 
 Automatically generated documentation
@@ -828,6 +963,11 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -842,6 +982,11 @@ Speak current pointer position.
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -875,6 +1020,11 @@ Speak a predefined eterm window between 1 and 10.
 
 @deffn emacspeak-eterm-yank-window
 Yank contents of  an eterm window at point.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -895,6 +1045,11 @@ Search backward on the terminal.
 
 @deffn emacspeak-eterm-goto-line
 Move emacspeak eterm pointer to a specified LINE.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -902,6 +1057,11 @@ Move emacspeak eterm pointer to a specified LINE.
 @deffn emacspeak-eterm-describe-window
 Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -998,6 +1158,11 @@ The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -1027,6 +1192,11 @@ Start a terminal-emulator in a new buffer.
 @deffn emacspeak-eterm-speak-window
 Speak an eterm window.
 Argument ID specifies the window.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -1062,11 +1232,6 @@ emacspeak eterm pointer.
 
 
 
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
 
 
 Automatically generated documentation
@@ -1098,9 +1263,9 @@ Major mode for FilterText interaction.
 key             binding
 ---             -------
 
-r               emacspeak-filtertext-revert
-^               flush-lines
-=               keep-lines
+r		emacspeak-filtertext-revert
+^		flush-lines
+=		keep-lines
 
 
 
@@ -1227,17 +1392,17 @@ Major mode for freeamp interaction.
 key             binding
 ---             -------
 
-right           emacspeak-aumix-wave-increase
-left            emacspeak-aumix-wave-decrease
-q               emacspeak-freeamp-freeamp-call-command
-=               emacspeak-freeamp-freeamp-call-command
-s               emacspeak-freeamp-freeamp-call-command
-b               emacspeak-freeamp-freeamp-call-command
-f               emacspeak-freeamp-freeamp-call-command
--               emacspeak-freeamp-freeamp-call-command
-+               emacspeak-freeamp-freeamp-call-command
-p               emacspeak-freeamp-freeamp-call-command
-o               emacspeak-freeamp
+right		emacspeak-aumix-wave-increase
+left		emacspeak-aumix-wave-decrease
+q		emacspeak-freeamp-freeamp-call-command
+=		emacspeak-freeamp-freeamp-call-command
+s		emacspeak-freeamp-freeamp-call-command
+b		emacspeak-freeamp-freeamp-call-command
+f		emacspeak-freeamp-freeamp-call-command
+-		emacspeak-freeamp-freeamp-call-command
++		emacspeak-freeamp-freeamp-call-command
+p		emacspeak-freeamp-freeamp-call-command
+o		emacspeak-freeamp
 
 
 
@@ -1249,6 +1414,11 @@ during initialization.
 
 @deffn emacspeak-freeamp-freeamp-command
 Execute FreeAmp command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -1382,15 +1552,6 @@ Load saved grid settings.
 
 
 
-Commentary:
-
-
-Flexible hide and show for emacspeak.
-This module allows one to easily hide or expose
-blocks of lines starting with a common prefix.
-It is motivated by the need to flexibly hide quoted text in email
-but is designed to be more general.
-the prefix parsing is inspired by filladapt.el
 
 
 Automatically generated documentation
@@ -1433,9 +1594,6 @@ blocks in current buffer to be hidden or exposed.
 
 
 
-Commentary:
-speech-enable ibuffer.el
-this is an alternative to buffer-menu
 
 
 Automatically generated documentation
@@ -1467,8 +1625,6 @@ Display specified chat session.
 
 
 @deffn emacspeak-imcom
-@kbd{ control e x j }
-
 Start IMCom.
 @end deffn
 
@@ -1481,40 +1637,9 @@ Major mode for Jabber interaction using IMCom.
 key             binding
 ---             -------
 
-C-c             Prefix Command
-C-d             comint-delchar-or-maybe-eof
-RET             comint-send-input
-C-down          comint-next-input
-C-up            comint-previous-input
-ESC             Prefix Command
+C-c		Prefix Command
 
-C-c v           emacspeak-imcom-view-chat-session
-C-c C-d         comint-send-eof
-C-c C-p         comint-previous-prompt
-C-c C-n         comint-next-prompt
-C-c C-l         comint-dynamic-list-input-ring
-C-c C-e         comint-show-maximum-output
-C-c C-r         comint-show-output
-C-c C-o         comint-kill-output
-C-c RET         comint-copy-old-input
-C-c C-\         comint-quit-subjob
-C-c C-z         comint-stop-subjob
-C-c C-c         comint-interrupt-subjob
-C-c C-w         backward-kill-word
-C-c C-u         comint-kill-input
-C-c C-a         comint-bol-or-process-mark
-C-c C-x         comint-get-next-from-history
-C-c SPC         comint-accumulate
-C-c ESC         Prefix Command
-
-ESC C-l         comint-show-output
-ESC s           comint-next-matching-input
-ESC r           comint-previous-matching-input
-ESC n           comint-next-input
-ESC p           comint-previous-input
-
-C-c ESC s       comint-next-matching-input-from-input
-C-c ESC r       comint-previous-matching-input-from-input
+C-c v		emacspeak-imcom-view-chat-session
 
 
 
@@ -1550,6 +1675,23 @@ Goto the previous index position in current buffer
 
 @deffn emacspeak-imenu-goto-next-index-position
 Goto the next index position in current buffer
+@end deffn
+
+@node emacspeak-info
+@section emacspeak-info
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-info.
+
+
+
+@deffn emacspeak-info-speak-header
+Speak info header line.
 @end deffn
 
 @node emacspeak-keymap
@@ -1633,9 +1775,6 @@ Speak current section
 
 
 
-Commentary:
-This module speech-enables  MPG123
-MPG123 is an MP3 player.
 
 
 Automatically generated documentation
@@ -1703,20 +1842,6 @@ Move back by specified number of minutes.
 
 
 
-
-Commentary:
-This module defines Emacspeak front-end to OCR.
-This module assumes that sane is installed and working
-for image acquisition,
-and that there is an OCR engine that can take acquired
-images and produce text.
-Prerequisites:
-Sane installed and working.
-scanimage to generate tiff files from scanner.
-tiffcp to compress the tiff file.
-working ocr executable 
-by default this module assumes that the OCR executable
-is named "ocr"
 
 
 
@@ -1824,31 +1949,31 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
 key             binding
 ---             -------
 
-9               emacspeak-ocr-page
-8               emacspeak-ocr-page
-7               emacspeak-ocr-page
-6               emacspeak-ocr-page
-5               emacspeak-ocr-page
-4               emacspeak-ocr-page
-3               emacspeak-ocr-page
-2               emacspeak-ocr-page
-1               emacspeak-ocr-page
-C               emacspeak-ocr-set-compress-image-options
-I               emacspeak-ocr-set-scan-image-options
-SPC             emacspeak-ocr-read-current-page
-s               emacspeak-ocr-save-current-page
-p               emacspeak-ocr-page
-]               emacspeak-ocr-forward-page
-[               emacspeak-ocr-backward-page
-d               emacspeak-ocr-open-working-directory
-n               emacspeak-ocr-name-document
-o               emacspeak-ocr-recognize-image
-i               emacspeak-ocr-scan-image
-RET             emacspeak-ocr-scan-and-recognize
-w               emacspeak-ocr-write-document
-q               bury-buffer
-c               emacspeak-ocr-customize
-?               describe-mode
+9		emacspeak-ocr-page
+8		emacspeak-ocr-page
+7		emacspeak-ocr-page
+6		emacspeak-ocr-page
+5		emacspeak-ocr-page
+4		emacspeak-ocr-page
+3		emacspeak-ocr-page
+2		emacspeak-ocr-page
+1		emacspeak-ocr-page
+C		emacspeak-ocr-set-compress-image-options
+I		emacspeak-ocr-set-scan-image-options
+SPC		emacspeak-ocr-read-current-page
+s		emacspeak-ocr-save-current-page
+p		emacspeak-ocr-page
+]		emacspeak-ocr-forward-page
+[		emacspeak-ocr-backward-page
+d		emacspeak-ocr-open-working-directory
+n		emacspeak-ocr-name-document
+o		emacspeak-ocr-recognize-image
+i		emacspeak-ocr-scan-image
+RET		emacspeak-ocr-scan-and-recognize
+w		emacspeak-ocr-write-document
+q		bury-buffer
+c		emacspeak-ocr-customize
+?		describe-mode
 
 
 
@@ -1939,8 +2064,6 @@ Move to specified page.
 
 
 
-Commentary:
-Provide additional advice to outline-mode
 
 
 Automatically generated documentation
@@ -1949,8 +2072,6 @@ for commands defined in module  emacspeak-outline.
 
 
 @deffn emacspeak-outline-speak-previous-heading
-@kbd{ control l p }
-
 Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 @end deffn
@@ -1958,16 +2079,12 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-this-heading
-@kbd{ control l SPACE }
-
 Speak current outline section starting from point
 @end deffn
 
 
 
 @deffn emacspeak-outline-speak-backward-heading
-@kbd{ control l b }
-
 Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
 @end deffn
@@ -1975,8 +2092,6 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-next-heading
-@kbd{ control l n }
-
 Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 @end deffn
@@ -1984,8 +2099,6 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-forward-heading
-@kbd{ control l f }
-
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 @end deffn
@@ -1994,23 +2107,6 @@ except that the outline section is optionally spoken
 @section emacspeak-pronounce
 
 
-
-
-Commentary:
-This module implements user customizable pronunciation dictionaries
-for emacspeak. Custom pronunciations can be defined per file, per
-directory and/or per major mode. Emacspeak maintains a persistent
-user dictionary upon request and loads these in new emacspeak
-sessions. This module implements the user interface to the custom
-dictionary as well as providing the internal API used by the rest
-of emacspeak in using the dictionary.
-Algorithm:
-
-The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names. The hash values
-are association lists defining the dictionary. Users of this module
-can retrieve a dictionary made up of all applicable association
-lists for a given file.
 
 
 
@@ -2174,14 +2270,6 @@ Move forward to the beginning of the next block.
 
 
 
-Commentary:
-Assuming you have a correctly configured RealAudio
-player, this package provides single click access to
-starting and stopping a RealAudio stream from anywhere
-on the Emacspeak desktop.  Before using this package,
-make sure that your realaudio player works outside
-Emacs. Then set variable Emacspeak-realaudio-player to
-point to the program you use to play RealAudio streams.
 
 
 Automatically generated documentation
@@ -2225,24 +2313,24 @@ Major mode for streaming audio.
 key             binding
 ---             -------
 
-right           emacspeak-aumix-wave-increase
-left            emacspeak-aumix-wave-decrease
-@}               emacspeak-realaudio-trplayer-call-command
-@{               emacspeak-realaudio-trplayer-call-command
-]               emacspeak-realaudio-trplayer-call-command
-[               emacspeak-realaudio-trplayer-call-command
-9               emacspeak-realaudio-trplayer-call-command
-0               emacspeak-realaudio-trplayer-call-command
-,               emacspeak-realaudio-trplayer-call-command
-.               emacspeak-realaudio-trplayer-call-command
->               emacspeak-realaudio-trplayer-call-command
-<               emacspeak-realaudio-trplayer-call-command
-i               emacspeak-realaudio-trplayer-call-command
-l               emacspeak-realaudio-trplayer-call-command
-e               emacspeak-realaudio-trplayer-call-command
-s               emacspeak-realaudio-trplayer-call-command
-t               emacspeak-realaudio-trplayer-call-command
-p               emacspeak-realaudio-trplayer-call-command
+right		emacspeak-aumix-wave-increase
+left		emacspeak-aumix-wave-decrease
+@}		emacspeak-realaudio-trplayer-call-command
+@{		emacspeak-realaudio-trplayer-call-command
+]		emacspeak-realaudio-trplayer-call-command
+[		emacspeak-realaudio-trplayer-call-command
+9		emacspeak-realaudio-trplayer-call-command
+0		emacspeak-realaudio-trplayer-call-command
+,		emacspeak-realaudio-trplayer-call-command
+.		emacspeak-realaudio-trplayer-call-command
+>		emacspeak-realaudio-trplayer-call-command
+<		emacspeak-realaudio-trplayer-call-command
+i		emacspeak-realaudio-trplayer-call-command
+l		emacspeak-realaudio-trplayer-call-command
+e		emacspeak-realaudio-trplayer-call-command
+s		emacspeak-realaudio-trplayer-call-command
+t		emacspeak-realaudio-trplayer-call-command
+p		emacspeak-realaudio-trplayer-call-command
 
 
 
@@ -2324,7 +2412,7 @@ Backward-char redefined to speak char moved to.
 
 
 @deffn emacspeak-self-insert-command
-@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
+@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   @}   |   @{   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2373,8 +2461,6 @@ host is listening on for speech requests.
 
 
 @deffn emacspeak-remote-quick-connect-to-server
-@kbd{ f8 }
-
 Connect to remote server.
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
@@ -2439,26 +2525,6 @@ Display current row auditorallly
 
 
 
-Commentary:
-This module provides the interface for generating auditory icons in emacspeak.
-Design goal:
-1) Auditory icons should be used to provide additional feedback,
-not as a gimmick.
-2) The interface should be usable at all times without the icons:
-e.g. when on a machine without a sound card.
-3) General principle for when to use an icon:
-Convey information about events taking place in parallel.
-For instance, if making a selection automatically moves the current focus
-to the next choice,
-We speak the next choice, while indicating the fact that something was selected with a sound cue.
- This interface will assume the availability of a shell command "play"
-that can take one or more sound files and play them.
-This module will also provide a mapping between names in the elisp world and actual sound files.
-Modules that wish to use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes
-architecture for  auditory icons.
-Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
 
 
 Automatically generated documentation
@@ -2515,11 +2581,6 @@ audio player.
 
 
 
-Commentary:
-This module defines the core speech services used by emacspeak.
-It depends on the speech server interface modules
-It protects other parts of emacspeak
-from becoming dependent on the speech server modules
 
 
 Automatically generated documentation
@@ -2528,8 +2589,6 @@ for commands defined in module  emacspeak-speak.
 
 
 @deffn emacspeak-kill-buffer-quietly
-@kbd{ kp-f4   f4 }
-
 Kill current buffer without asking for confirmation.
 @end deffn
 
@@ -3389,15 +3448,6 @@ Default is to read the next word.
 
 
 
-Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
---emacspeak-speedbar-goto-speedbar-- and binds this
 
 
 Automatically generated documentation
@@ -3476,7 +3526,7 @@ all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The etc/tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command `describe-mode' bound to
-C-c ? in a buffer that is in emacspeak table mode to read
+C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 
 This function is advised.
@@ -3615,7 +3665,7 @@ all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command `describe-mode' bound to
-C-c ? in a buffer that is in emacspeak table mode to read
+C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end deffn
 
@@ -3853,6 +3903,23 @@ Use Emacs completion to obtain a list of available
 resources.
 @end deffn
 
+@node emacspeak-view
+@section emacspeak-view
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-view.
+
+
+
+@deffn emacspeak-view-line-to-top
+Moves current line to top of window
+@end deffn
+
 @node emacspeak-view-process
 @section emacspeak-view-process
 
@@ -3874,23 +3941,6 @@ Speak current field
 
 @deffn emacspeak-view-process-goto-current-field-next-line
 Set point to the current field in the next line.
-@end deffn
-
-@node emacspeak-view
-@section emacspeak-view
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-view.
-
-
-
-@deffn emacspeak-view-line-to-top
-Moves current line to top of window
 @end deffn
 
 @node emacspeak-vm
@@ -3949,11 +3999,6 @@ Save attachment under point
 
 
 
-Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
 
 
 Automatically generated documentation
@@ -3982,8 +4027,6 @@ Toggle drawing of W3 table borders
 
 
 @deffn emacspeak-w3-xslt-filter
-@kbd{ control e x e f }
-
 Extract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -4021,8 +4064,6 @@ Jump to next available submit button.
 
 
 @deffn emacspeak-w3-xsl-toggle
-@kbd{ control e x e t }
-
 Toggle  XSL transformations before displaying HTML.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
@@ -4041,8 +4082,6 @@ the table structure extraction code in W3.
 
 
 @deffn emacspeak-w3-extract-table
-@kbd{ control e x e x }
-
 Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from.
@@ -4053,8 +4092,6 @@ minibuffer.
 
 
 @deffn emacspeak-w3-xslt-select
-@kbd{ control e x e s }
-
 Select transformation to apply.
 @end deffn
 
@@ -4074,8 +4111,6 @@ Jumps to the occurrence of document title in page body.
 
 
 @deffn emacspeak-w3-extract-by-class
-@kbd{ control e x e c }
-
 Extract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
@@ -4108,9 +4143,36 @@ specifies by how many eleemnts to move.
 
 
 @deffn emacspeak-w3-xslt-apply
-@kbd{ control e x e a }
-
 Apply specified transformation to current page.
+@end deffn
+
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+
+
+@deffn emacspeak-websearch-blue-pages
+Search IBM Blue Pages
+@end deffn
+
+
+
+@deffn emacspeak-websearch-ibm-internal
+Search IBM My News
+@end deffn
+
+
+
+@deffn emacspeak-websearch-ibm-my-news
+Search IBM My News
 @end deffn
 
 @node emacspeak-websearch
@@ -4119,8 +4181,6 @@ Apply specified transformation to current page.
 
 
 
-Commentary:
-This module provides utility functions for searching the WWW
 
 
 Automatically generated documentation
@@ -4496,9 +4556,6 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 
 
-Commentary:
-This module implements the necessary extensions to provide talking
-widgets.
 
 
 Automatically generated documentation
@@ -4507,16 +4564,12 @@ for commands defined in module  emacspeak-widget.
 
 
 @deffn emacspeak-widget-help
-@kbd{ meta h }
-
 Speak help for widget under point.
 @end deffn
 
 
 
 @deffn emacspeak-widget-summarize-parent
-@kbd{ meta p }
-
 Summarize parent of widget at point.
 @end deffn
 
@@ -4529,8 +4582,6 @@ Allows you to browse a widget
 
 
 @deffn emacspeak-widget-update-from-minibuffer
-@kbd{ META RETURN }
-
 Sets widget at point by invoking its prompter.
 @end deffn
 
@@ -4548,8 +4599,6 @@ widget before summarizing.
 
 
 
-Commentary:
-Contains various wizards for the Emacspeak desktop.
 
 
 Automatically generated documentation
@@ -4617,8 +4666,6 @@ Browse the Emacspeak FAQ.
 
 
 @deffn emacspeak-emergency-tts-restart
-@kbd{ control e x s }
-
 For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
@@ -4660,8 +4707,6 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-lynx
-@kbd{ control e x l }
-
 Launch lynx on  specified URL in a new terminal.
 @end deffn
 
@@ -4761,8 +4806,6 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-show-list-variable
-@kbd{ control e x v }
-
 Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
@@ -4901,8 +4944,6 @@ With optional PREFIX argument, label current frame.
 
 
 @deffn emacspeak-annotate-add-annotation
-@kbd{ control e x a }
-
 Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
 Interactive prefix arg `reset' prompts for the annotation
@@ -5015,7 +5056,7 @@ Move to next frame.
 
 
 @deffn emacspeak-customize-personal-settings
-@kbd{ control e f1   control e x c }
+@kbd{ control e f1 }
 
 Create a customization buffer for browsing and updating
 personal customizations.
@@ -5024,8 +5065,6 @@ personal customizations.
 
 
 @deffn emacspeak-speak-telephone-directory
-@kbd{ control e x t }
-
 Lookup and display a phone number.
 With prefix arg, opens the phone book for editting.
 @end deffn
@@ -5111,8 +5150,6 @@ Navigate down to the children of current node.
 
 
 @deffn emacspeak-xml-shell
-@kbd{ control e x x }
-
 Start Xml-Shell on contents of system-id.
 @end deffn
 
@@ -5126,13 +5163,13 @@ Interactive XML browser.
 key             binding
 ---             -------
 
-C-c             Prefix Command
-down            emacspeak-xml-shell-goto-children
-up              emacspeak-xml-shell-goto-parent
-right           emacspeak-xml-shell-goto-next-child
-left            emacspeak-xml-shell-goto-previous-child
+C-c		Prefix Command
+down		emacspeak-xml-shell-goto-children
+up		emacspeak-xml-shell-goto-parent
+right		emacspeak-xml-shell-goto-next-child
+left		emacspeak-xml-shell-goto-previous-child
 
-C-c v           emacspeak-xml-shell-browse-current
+C-c v		emacspeak-xml-shell-browse-current
 
 
 
@@ -5157,254 +5194,6 @@ Display current node.
 
 @deffn emacspeak-xml-shell-goto-next-child
 Navigate forward  to the next child  of current node.
-@end deffn
-
-@node emacspeak
-@section emacspeak
-
-
-
-
-Commentary:
-The complete audio desktop.
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak.
-
-
-
-@deffn emacspeak-submit-bug
-@kbd{ control e control b }
-
-Function to submit a bug to the programs maintainer.
-@end deffn
-
-
-
-@deffn emacspeak-describe-emacspeak
-@kbd{ control h control e }
-
-Give a brief overview of emacspeak.
-@end deffn
-
-@node dis-quote
-@section dis-quote
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  dis-quote.
-
-
-
-@deffn quotes-setup-emacspeak-portfolio
-Set up variable emacspeak-websearch-personal-portfolio. 
-@end deffn
-
-@node emacspeak-arc
-@section emacspeak-arc
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-arc.
-
-
-
-@deffn emacspeak-arc-speak-file-permissions
-Speak permissions of file current entry 
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-modification-time
-Speak modification time of the file on current line
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-name
-Speak the name of the file on current line
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-size
-Speak the size of the file on current line
-@end deffn
-
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-
-
-@deffn emacspeak-dismal-forward-col-and-summarize
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-value
-Display the cell value in the message area
-@end deffn
-
-
-
-@deffn emacspeak-dismal-sheet-summarize
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-row-summarizer-list
-Specify or reset row summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-with-col-header
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-with-row-header
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-forward-row-and-summarize
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-sheet-summarizer-list
-Specify or reset sheet summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-row-summarize
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-col-summarize
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-col-summarizer-list
-Specify or reset col summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-backward-col-and-summarize
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-backward-row-and-summarize
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-expression
-Display the expression in the message area
-@end deffn
-
-@node emacspeak-info
-@section emacspeak-info
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-info.
-
-
-
-@deffn emacspeak-info-speak-header
-Speak info header line.
-@end deffn
-
-@node emacspeak-personal
-@section emacspeak-personal
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-personal.
-
-
-
-@deffn emacspeak-sf-stats
-Show emacspeak sf statistics.
-@end deffn
-
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-
-
-@deffn emacspeak-websearch-blue-pages
-Search IBM Blue Pages
-@end deffn
-
-
-
-@deffn emacspeak-websearch-ibm-internal
-Search IBM My News
-@end deffn
-
-
-
-@deffn emacspeak-websearch-ibm-my-news
-Search IBM My News
 @end deffn
 
 

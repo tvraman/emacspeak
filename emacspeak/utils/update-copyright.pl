@@ -4,7 +4,7 @@
 #
 
 my $old = "1995 -- 2000, T. V. Raman";
-my $new = "1995 -- 2001, T. V. Raman";
+my $new = "1995 -- 2002, T. V. Raman";
 
 while (<>) {
     s/$old/$new/o;
