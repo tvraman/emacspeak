@@ -524,7 +524,10 @@ Nil means no transform is used. ")
 :group 'emacspeak-w3)
 
 (defun emacspeak-w3-xslt-region (xsl start end )
-  "Apply XSLT transformation to region and replace it with the result."
+  "Apply XSLT transformation to region and replace it with
+the result.
+This uses XSLT processor xsltproc available as part of the
+libxslt package."
   (declare (special emacspeak-w3-xsl-program))
   (let ((tempfile
          (format "/tmp/trans%s.xml"
@@ -565,8 +568,9 @@ Nil means no transform is used. ")
   (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-w3-xsl-toggle ()
-  "Toggle use of XSL transformations before displaying
-HTML."
+  "Toggle  XSL transformations before displaying HTML.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package."
   (interactive)
   (declare (special emacspeak-w3-xsl-p))
   (setq emacspeak-w3-xsl-p
