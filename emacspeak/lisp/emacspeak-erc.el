@@ -357,6 +357,14 @@ set the current local value to the result."
 	   (if prefix "" "locally")))
 
 ;;}}}
+;;{{{ silence server messages 
+(defadvice erc-parse-line-from-server (around emacspeak pre
+                                              act comp)
+  "Silence server messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
+;;}}}
 ;;{{{ define emacspeak keys
 (declaim (special erc-mode-map))
 (define-key erc-mode-map "\C-cm"
