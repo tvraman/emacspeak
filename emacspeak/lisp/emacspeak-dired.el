@@ -110,6 +110,18 @@ pronunciations only once.")
 ;;}}}
 ;;{{{  advice:
 
+(defadvice dired-sort-toggle-or-edit (around emacspeak pre
+                                             act comp)
+  "Provide auditory feedback."
+  (cond
+   ((interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-speak-mode-line)))
+   (t ad-do-it))
+  ad-return-value)
+
 (defadvice dired-query (before emacspeak pre act comp)
   "Produce auditory icon."
   (emacspeak-auditory-icon 'ask-short-question))
