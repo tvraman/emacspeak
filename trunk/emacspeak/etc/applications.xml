@@ -326,8 +326,6 @@ Chat sessions can be viewed within W3  with full ACSS support.
 Analog.el provides a log analyzer that can be customized to
       display system log files with a few convenient
       keystrokes.</application>
-    <application name="eperiodic">EPeriodic implements a
-      periodic table of elements.</application>
     <application name="emacspeak-daisy">
 Implements a digital talking book reader for DAISY3  talking books.</application>
     <application name="table-ui">
