@@ -584,7 +584,10 @@ This is setup on a per engine basis.")
   (declare (special dtk-default-speech-rate
                     tts-default-speech-rate
                     outloud-default-speech-rate
-                    dtk-program))
+                    emacspeak-aumix-multichannel-capable-p emacspeak-aumix-midi-available-p
+                    emacspeak-use-midi-icons emacspeak-use-auditory-icons
+                    dtk-program
+                    ))
   (unless tts-name
     (setq tts-name dtk-program))
   (cond
@@ -600,36 +603,40 @@ This is setup on a per engine basis.")
       (fset 'dtk-personality-from-speech-style
             'dectalk-personality-from-speech-style)
       (setq tts-default-speech-rate dtk-default-speech-rate)))
-  (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
+  (setq tts-voice-reset-code (tts-get-voice-command
+                              tts-default-voice))
+  (when (and (string= "outloud" dtk-program)
+             emacspeak-use-auditory-icons
+             (not emacspeak-aumix-multichannel-capable-p)
+             (not emacspeak-use-midi-icons)
+             emacspeak-aumix-midi-available-p)
+    (emacspeak-toggle-midi-icons)))
+
 ;;; forward declaration.
 (defvar emacspeak-aumix-multichannel-capable-p nil)
 (defvar emacspeak-aumix-midi-available-p nil)
-(defun dtk-select-server (program)
+(defun dtk-select-server (program )
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
-The selected server is started immediately."
+When called  interactively, The selected server is started immediately. "
   (interactive
    (list
-    (completing-read "Select speech server:"
-                     (or dtk-servers-alist
-                         (progn
-                           (tts-setup-servers-alist)
-                           dtk-servers-alist))
-                     nil
-                     t  )))
-  (declare (special  dtk-tcl dtk-program dtk-servers-alist
-                     emacspeak-aumix-multichannel-capable-p))
+    (completing-read
+     "Select speech server:"
+     (or dtk-servers-alist
+         (progn
+           (tts-setup-servers-alist)
+           dtk-servers-alist))
+     nil
+     t  )))
+  (declare (special  dtk-tcl dtk-program dtk-servers-alist))
   (setq dtk-program program)
-  (setq-default dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
-    (when (and (string= "outloud" dtk-program)
-               emacspeak-use-auditory-icons
-               (not emacspeak-aumix-multichannel-capable-p)
-               (not emacspeak-use-midi-icons)
-               emacspeak-aumix-midi-available-p)
-      (emacspeak-toggle-midi-icons))
     (dtk-initialize)))
+        
+ 
+
 
 ;;}}}
 ;;{{{  initialize the speech process
