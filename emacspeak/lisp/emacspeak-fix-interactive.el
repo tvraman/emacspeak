@@ -88,10 +88,9 @@ interactive prompts speak. ")
 
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
-  (declare (special emacspeak-commands-that-are-fixed 
-                    emacspeak-commands-dont-fix-regexp))
+  (declare (special emacspeak-commands-dont-fix-regexp))
   (and (commandp sym)
-       (not (memq  sym emacspeak-commands-that-are-fixed))
+       (not (get  sym 'emacspeak-fixed))
        (stringp (second (ad-interactive-form (symbol-function sym))))
        (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
@@ -170,6 +169,8 @@ speak its prompts. "
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
+    ;memoize call
+    (put sym 'emacspeak-fixed t)
                                         ; advice if necessary
     (when
         (some
