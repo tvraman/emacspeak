@@ -120,6 +120,24 @@ will be placed."
 ;;}}}
 ;;{{{  helpers
 
+(defvar emacspeak-ocr-current-page-number  nil
+  "Number of current page in document.")
+
+(make-variable-buffer-local
+ 'emacspeak-ocr-current-page-number)
+
+(defvar emacspeak-ocr-last-page-number nil
+  "Number of last page in document.")
+
+(make-variable-buffer-local 'emacspeak-ocr-last-page-number)
+
+(defvar emacspeak-ocr-page-positions nil
+  "Vector holding page start positions.")
+
+(make-variable-buffer-local 'emacspeak-ocr-page-positions)
+
+
+
 (defvar emacspeak-ocr-buffer-name "*ocr*"
   "Name of OCR working buffer.")
 
@@ -133,13 +151,37 @@ will be placed."
   (declare (special emacspeak-ocr-document-name))
   (format "%s.tiff" emacspeak-ocr-document-name))
 
+(defsubst emacspeak-ocr-get-mode-line-format ()
+  "Return string suitable for use as the mode line."
+  (declare (special major-mode
+                    emacspeak-ocr-current-page-number))
+  (format "%s Page-%s %s"
+          (buffer-name)
+          emacspeak-ocr-current-page-number
+          major-mode))
+
+
+(defsubst emacspeak-ocr-update-mode-line()
+  "Update mode line for OCR mode."
+  (declare (special mode-line-format))
+  (setq mode-line-format
+        (emacspeak-ocr-get-mode-line-format)))
+
+
 ;;}}}
 ;;{{{  emacspeak-ocr mode
 
 (define-derived-mode emacspeak-ocr-mode fundamental-mode 
   "Major mode for document scanning and  OCR."
   "Major mode for document scanning and OCR\n\n
-\\{emacspeak-ocr-mode-map}")
+\\{emacspeak-ocr-mode-map}"
+  (progn
+    (setq emacspeak-ocr-current-page-number 0
+          emacspeak-ocr-last-page-number 0
+          emacspeak-ocr-page-positions
+          (make-vector 25 nil))
+    (emacspeak-ocr-update-mode-line)))
+
 
 (declaim (special emacspeak-ocr-mode-map))
 
@@ -151,8 +193,8 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
 (define-key emacspeak-ocr-mode-map "a" 'emacspeak-ocr-append-page)
 (define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
-(define-key emacspeak-ocr-mode-map "[" 'backward-page)
-(define-key emacspeak-ocr-mode-map "]"'forward-page)
+(define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
+(define-key emacspeak-ocr-mode-map "]"'emacspeak-ocr-forward-page)
 
 ;;}}}
 ;;{{{ interactive commands
@@ -191,11 +233,13 @@ Pick a short but meaningful name."
   (interactive
    (list
     (read-from-minibuffer "Document name: ")))
-  (declare (special emacspeak-ocr-document-name))
+  (declare (special emacspeak-ocr-document-name
+                    mode-line-format))
   (setq emacspeak-ocr-document-name name)
   (rename-buffer
    (format "*%s-ocr*" name)
    'unique)
+  (emacspeak-ocr-update-mode-line)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
@@ -203,23 +247,23 @@ Pick a short but meaningful name."
   "Acquire page image."
   (interactive)
   (declare (special emacspeak-speak-messages 
-            emacspeak-ocr-scan-image
+                    emacspeak-ocr-scan-image
                     emacspeak-ocr-scan-image-options
                     emacspeak-ocr-compress-image
                     emacspeak-ocr-compress-image-options
                     emacspeak-ocr-document-name))
   (let ((image-name (emacspeak-ocr-get-image-name)))
     (let ((emacspeak-speak-messages nil))
-    (shell-command
-     (concat
-      (format "%s %s > temp.tiff;\n"
-              emacspeak-ocr-scan-image
-              emacspeak-ocr-scan-image-options )
-      (format "%s %s  temp.tiff %s ;\n"
-              emacspeak-ocr-compress-image
-              emacspeak-ocr-compress-image-options 
-              image-name)
-      (format "rm -f temp.tiff"))))
+      (shell-command
+       (concat
+        (format "%s %s > temp.tiff;\n"
+                emacspeak-ocr-scan-image
+                emacspeak-ocr-scan-image-options )
+        (format "%s %s  temp.tiff %s ;\n"
+                emacspeak-ocr-compress-image
+                emacspeak-ocr-compress-image-options 
+                image-name)
+        (format "rm -f temp.tiff"))))
     (message "Acquired  image to file %s"
              image-name)))
 
@@ -230,7 +274,7 @@ Pick a short but meaningful name."
   "Alert user when OCR is complete."
   (goto-char (point-max))
   (emacspeak-auditory-icon 'task-done)
-  (backward-page 1))
+  (emacspeak-ocr-backward-page 1))
 
 
 (defun emacspeak-ocr-recognize-image ()
@@ -238,20 +282,28 @@ Pick a short but meaningful name."
   (interactive)
   (declare (special emacspeak-ocr-engine
                     emacspeak-ocr-engine-options
-                    emacspeak-ocr-process))
+                    emacspeak-ocr-process
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-page-positions))
   (let ((inhibit-read-only t))
-  (goto-char (point-max))
-  (insert
-   (format "\n%c\n" 12))
-  (setq emacspeak-ocr-process
-        (start-process 
-         "ocr"
-         (current-buffer)
-         emacspeak-ocr-engine
-         (emacspeak-ocr-get-image-name)))
-  (set-process-sentinel emacspeak-ocr-process
-                        'emacspeak-ocr-process-sentinel)
-  (message "Launched OCR engine.")))
+    (goto-char (point-max))
+    (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number))
+    (aset emacspeak-ocr-page-positions
+          emacspeak-ocr-last-page-number
+          (point))
+    (insert
+     (format "\n%c\nPage %s\n" 12
+             emacspeak-ocr-last-page-number))
+    (setq emacspeak-ocr-process
+          (start-process 
+           "ocr"
+           (current-buffer)
+           emacspeak-ocr-engine
+           (emacspeak-ocr-get-image-name)))
+    (set-process-sentinel emacspeak-ocr-process
+                          'emacspeak-ocr-process-sentinel)
+    (message "Launched OCR engine.")))
 
 
 (defun emacspeak-ocr-scan-and-recognize ()
@@ -282,6 +334,40 @@ corectly by themselves."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
+(defun emacspeak-ocr-forward-page (&optional count-ignored)
+  "Like forward page, but tracks page number of current document."
+  (interactive "p")
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-last-page-number
+                    emacspeak-ocr-current-page-number))
+  (cond
+   ((= emacspeak-ocr-last-page-number
+       emacspeak-ocr-current-page-number)
+    (message "This is the last page."))
+   (t (setq emacspeak-ocr-current-page-number
+            (1+ emacspeak-ocr-current-page-number))
+      (goto-char (aref emacspeak-ocr-page-positions
+                       emacspeak-ocr-current-page-number))
+      (emacspeak-ocr-update-mode-line)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defun emacspeak-ocr-backward-page (&optional count-ignored)
+  "Like backward page, but tracks page number of current document."
+  (interactive "p")
+  (declare (special emacspeak-ocr-page-positions
+                    emacspeak-ocr-current-page-number))
+  (cond
+   ((= 1
+       emacspeak-ocr-current-page-number)
+    (message "This is the first page."))
+   (t (setq emacspeak-ocr-current-page-number
+            (1- emacspeak-ocr-current-page-number))
+      (emacspeak-ocr-update-mode-line)
+      (goto-char (aref emacspeak-ocr-page-positions
+                       emacspeak-ocr-current-page-number))
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
 
 
 ;;}}}
