@@ -85,7 +85,7 @@
   "Personality to use for documentation strings.")
 
 (defvar voice-lock-constant-personality
-  'dennis 
+  'paul-smooth 
   "Personality to use for  constants.")
 
 (defvar voice-lock-string-personality

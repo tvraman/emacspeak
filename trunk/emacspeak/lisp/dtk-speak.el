@@ -621,7 +621,7 @@ This is setup on a per engine basis.")
       (setq tts-default-speech-rate dtk-default-speech-rate)))
   (setq tts-voice-reset-code (tts-get-voice-command
                               tts-default-voice))
-  (when (and (string= "outloud" dtk-program)
+  (when (and (string-match  "outloud" dtk-program)
              emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p))
