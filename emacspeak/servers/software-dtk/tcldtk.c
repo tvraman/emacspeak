@@ -175,7 +175,7 @@ int Pause(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST obj
 }
 
 int Resume(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  if (TextToSpeechResume(dtkHandle)) return TCL_OK;
+  if (TextToSpeechResume(dtkHandle) == 0) return TCL_OK;
   Tcl_SetResult(interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
