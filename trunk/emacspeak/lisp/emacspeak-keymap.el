@@ -69,7 +69,6 @@
   'emacspeak-dtk-submap )
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 
-
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 
 ;;; fix what we just broke:-
@@ -183,7 +182,7 @@ field in the customization buffer.  You can use the notation
 	  (set-default sym val)))
 
 (global-set-key "\C-x@s"
-  'emacspeak-super-keymap)
+		'emacspeak-super-keymap)
 
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
@@ -241,7 +240,7 @@ field in the customization buffer.  You can use the notation
 	  (set-default sym val)))
 
 (global-set-key "\C-x@h"
-  'emacspeak-hyper-keymap)
+		'emacspeak-hyper-keymap)
 
 ;;}}}
 ;;{{{  The actual bindings.
