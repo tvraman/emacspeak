@@ -270,12 +270,12 @@ Modifies text and point in buffer."
             (setq personality
                   (get-text-property (point) 'personality))
             (replace-match  pronunciation t t  )
-                (put-text-property
-                 (match-beginning 0)
-                 (+ (match-beginning 0) (length pronunciation))
-                 'personality
-                 (or
-  emacspeak-pronounce-pronunciation-personality personality))))))
+	    (put-text-property
+	     (match-beginning 0)
+	     (+ (match-beginning 0) (length pronunciation))
+	     'personality
+	     (or
+	      emacspeak-pronounce-pronunciation-personality personality))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries

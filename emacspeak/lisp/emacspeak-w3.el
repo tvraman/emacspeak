@@ -473,27 +473,27 @@ HTML."
   "Execute body with XSL turned off."
   (`
    (progn
-   (declare (special emacspeak-w3-xsl-p))
-   (when emacspeak-w3-xsl-p
-      (setq emacspeak-w3-xsl-p nil)
-      (add-hook 'emacspeak-w3-post-process-hook
-                #'(lambda ()
-                    (declare (special emacspeak-w3-xsl-p))
-                    (setq emacspeak-w3-xsl-p t))))
-   (,@ body))))
+     (declare (special emacspeak-w3-xsl-p))
+     (when emacspeak-w3-xsl-p
+       (setq emacspeak-w3-xsl-p nil)
+       (add-hook 'emacspeak-w3-post-process-hook
+		 #'(lambda ()
+		     (declare (special emacspeak-w3-xsl-p))
+		     (setq emacspeak-w3-xsl-p t))))
+     (,@ body))))
 
 (defmacro emacspeak-w3-with-xsl (&rest body)
   "Execute body with XSL turned on."
   (`
    (progn
-   (declare (special emacspeak-w3-xsl-p))
-   (unless emacspeak-w3-xsl-p
-      (setq emacspeak-w3-xsl-p t)
-      (add-hook 'emacspeak-w3-post-process-hook
-                #'(lambda ()
-                    (declare (special emacspeak-w3-xsl-p))
-                    (setq emacspeak-w3-xsl-p nil))))
-   (,@ body))))
+     (declare (special emacspeak-w3-xsl-p))
+     (unless emacspeak-w3-xsl-p
+       (setq emacspeak-w3-xsl-p t)
+       (add-hook 'emacspeak-w3-post-process-hook
+		 #'(lambda ()
+		     (declare (special emacspeak-w3-xsl-p))
+		     (setq emacspeak-w3-xsl-p nil))))
+     (,@ body))))
 
 ;;}}}
 
@@ -645,21 +645,21 @@ Optional arg COMPLEMENT inverts the filter.  "
          (keep-result emacspeak-w3-xsl-keep-result))
     (setq src-buffer
           (emacspeak-xslt-url
-       (if complement
-           emacspeak-w3-xsl-junk
-         emacspeak-w3-xsl-filter)
-       source-url
-       (list
-        (cons "path"
-              (format "\"'%s'\""
-                      path))
-        (cons "locator"
-              (format "'%s'"
-                      path))
-        (cons "base"
-              (format "\"'%s'\""
-                      (or source-url
-                          prompt-url))))))
+	   (if complement
+	       emacspeak-w3-xsl-junk
+	     emacspeak-w3-xsl-filter)
+	   source-url
+	   (list
+	    (cons "path"
+		  (format "\"'%s'\""
+			  path))
+	    (cons "locator"
+		  (format "'%s'"
+			  path))
+	    (cons "base"
+		  (format "\"'%s'\""
+			  (or source-url
+			      prompt-url))))))
     (save-excursion
       (set-buffer src-buffer)
       (setq emacspeak-w3-xsl-keep-result keep-result)
@@ -692,10 +692,10 @@ Optional arg COMPLEMENT inverts the filter.  "
    ".asx"
    ".mp3"
    ".m3u"
-".wma"
-".wmv"
-".avi"
-".mpg")
+   ".wma"
+   ".wmv"
+   ".avi"
+   ".mpg")
   "Suffixes to look for in detecting URLs that point to media
 streams."
   :type  '(repeat
@@ -1255,7 +1255,7 @@ used as well."
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-w3-xsl-p
-emacspeak-w3-xsl-transform))
+		    emacspeak-w3-xsl-transform))
   (let ((emacspeak-w3-xsl-p t)
         (emacspeak-w3-xsl-transform style)
         (src-buffer
@@ -1315,7 +1315,7 @@ emacspeak-w3-xsl-transform))
       (goto-char (point-min))
       (while (search-forward "&amp;" nil t)
 	(replace-match "&"))
-(emacspeak-w3-preview-this-buffer))
+      (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
 ;;}}}

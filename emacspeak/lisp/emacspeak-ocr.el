@@ -167,9 +167,9 @@ will be placed."
 
 (defsubst emacspeak-ocr-get-buffer ()
   "Return OCR working buffer."
-(get-buffer-create
- (format  "*%s-ocr*"
- (emacspeak-ocr-default-name))))
+  (get-buffer-create
+   (format  "*%s-ocr*"
+	    (emacspeak-ocr-default-name))))
 
 (defsubst emacspeak-ocr-get-text-name ()
   "Return name of current text document."

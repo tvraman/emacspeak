@@ -129,7 +129,7 @@
     'emacspeak-eterm-set-filter-window)
   (define-key emacspeak-eterm-keymap "\C-f"
     'emacspeak-eterm-set-focus-window)
-(define-key emacspeak-eterm-keymap "A" 'emacspeak-eterm-toggle-filter-window)
+  (define-key emacspeak-eterm-keymap "A" 'emacspeak-eterm-toggle-filter-window)
   (define-key emacspeak-eterm-keymap "\C-a" 'emacspeak-eterm-toggle-focus-window)
   (define-key emacspeak-eterm-keymap "\C-d" 'emacspeak-eterm-describe-window)
   (define-key emacspeak-eterm-keymap "\C-m" 'emacspeak-eterm-speak-window)
@@ -917,7 +917,6 @@ and bottom right at %s %s"
   "Current window that emacspeak eterm focuses on")
 (make-variable-buffer-local 'emacspeak-eterm-filter-window)
 
-
 (defun emacspeak-eterm-set-focus-window (flag)
   "Prompt for the id of a predefined window,
 and set the `focus' window to it.
@@ -978,9 +977,6 @@ activity within the filter window."
         (setq emacspeak-eterm-filter-window window-id )
         (message "Set emacspeak eterm filter window  to %d " window-id )))))))
 
-
-
-
 (defun emacspeak-eterm-toggle-focus-window ()
   "Toggle active state of focus window."
   (interactive)
@@ -1004,7 +1000,6 @@ activity within the filter window."
   (emacspeak-auditory-icon
    (if emacspeak-eterm-filter-window
        'on 'off)))
-
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
@@ -1069,7 +1064,7 @@ Use command emacspeak-toggle-eterm-autospeak bound to
   
 (ems-generate-switcher 'emacspeak-toggle-eterm-autospeak
                        'emacspeak-eterm-autospeak
-"Toggle state of eterm autospeak.
+		       "Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
@@ -1186,8 +1181,8 @@ See command emacspeak-toggle-eterm-autospeak bound to
         (emacspeak-eterm-pointer-to-cursor)))))
 
 (ems-generate-switcher 'emacspeak-eterm-toggle-pointer-mode
-'emacspeak-eterm-pointer-mode
-"Toggle emacspeak eterm pointer mode.
+		       'emacspeak-eterm-pointer-mode
+		       "Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
 stays where it is rather than automatically moving to the terminal cursor when

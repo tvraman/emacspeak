@@ -258,7 +258,7 @@ display. String is the original message."
 (ems-generate-switcher
  'emacspeak-erc-toggle-speak-all-participants
  'emacspeak-erc-speak-all-participants
-"Toggle state of ERC speak all participants..
+ "Toggle state of ERC speak all participants..
 Interactive 
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
@@ -305,8 +305,8 @@ set the current local value to the result.")
 				   (dtk-speak  msg))))))))
 
 (ems-generate-switcher 'emacspeak-erc-toggle-room-monitor
-'emacspeak-erc-room-monitor
-"Toggle state of ERC room monitor.
+		       'emacspeak-erc-room-monitor
+		       "Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
@@ -316,7 +316,6 @@ set the current local value to the result.")
                        "Toggle state of ERC  monitor of my messages.
 Interactive PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
-
 
 ;;}}}
 ;;{{{ silence server messages 

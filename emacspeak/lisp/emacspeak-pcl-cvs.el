@@ -79,7 +79,6 @@
   'cvs-need-action-face
   "Personality for CVS lines needing an action.")
 
-
 ;;}}}
 
 ;;{{{  speech enable interactive commands 
@@ -87,7 +86,7 @@
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
-(emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 (defadvice cvs-mode-kill-buffers (after emacspeak pre act
                                         comp)
   "Produce an auditory icon."

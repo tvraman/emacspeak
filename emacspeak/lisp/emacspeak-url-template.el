@@ -61,7 +61,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action                    ;action to perform after opening
+  post-action			      ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -889,14 +889,13 @@ the broadcast. You must have mplayer installed."
                (second fields)
                (third fields)))
         result))
-)
-'emacspeak-speak-buffer
-"Show MLB Scorecard."
-#'(lambda (url)
-(emacspeak-w3-browse-xml-url-with-style
-   (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
-   url)))
-
+  )
+ 'emacspeak-speak-buffer
+ "Show MLB Scorecard."
+ #'(lambda (url)
+     (emacspeak-w3-browse-xml-url-with-style
+      (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
+      url)))
 
 (emacspeak-url-template-define
  "Baseball summary" 
@@ -912,10 +911,9 @@ the broadcast. You must have mplayer installed."
       '(7 8    31 46)
       url 'speak)))
 
-
 (emacspeak-url-template-define
  "Baseball Play By Play" 
-"http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/playbyplay.html"
+ "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/playbyplay.html"
  (list
   #'(lambda nil
       (let ((date 
