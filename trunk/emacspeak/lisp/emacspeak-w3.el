@@ -85,7 +85,9 @@
   (let ((url (if (eq major-mode 'w3-mode)
                  (or (w3-view-this-url 'no-show)
                      (url-view-url 'no-show))
-               (read-from-minibuffer "URL: "))))
+               (read-from-minibuffer "URL: "
+                                     nil nil nil nil 
+                                     "http://"))))
     (shell-command
      (format "%s -de %s"
              emacspeak-w3-lwp-request url))
