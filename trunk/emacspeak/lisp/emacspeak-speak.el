@@ -2196,10 +2196,14 @@ Otherwise just display a message."
       (buffer-substring start (point)))))
 
 (defun emacspeak-speak-window-information ()
-  "Speaks information about current windows."
+  "Speaks information about current window."
   (interactive)
-  (message "Current window has %s lines and %s columns"
-           (window-height) (window-width)))
+  (message "Current window has %s lines and %s columns with
+top left %s %s "
+           (window-height)
+           (window-width)
+           (first (window-edges))
+           (second (window-edges))))
 
 (defun emacspeak-speak-current-window ()
   "Speak contents of current window.
