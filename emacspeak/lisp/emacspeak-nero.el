@@ -126,8 +126,16 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)
     (message "Turned %s display of links"
-             (if nero-links-visible " on " " off "))));;}}}
+             (if nero-links-visible " on " " off "))))
 
+
+(defadvice nero-browse-url (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 (provide 'emacspeak-nero)
 ;;{{{ end of file 
 
