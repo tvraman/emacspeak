@@ -7,8 +7,6 @@ Copyright: GPL
 Group: Applications/Editors
 Source: http://emacspeak.sf.net/emacspeak.tar.gz
 URL: http://emacspeak.sf.net
-Source: http://www.cs.cornell.edu/home/raman/emacspeak/emacspeak.tar.gz
-URL: http://www.cs.cornell.edu/home/raman/emacspeak/emacspeak.html
 Vendor: Emacspeak Inc 
 Packager: T. V. Raman <raman@cs.cornell.edu>
 Requires: emacs tcl tclx

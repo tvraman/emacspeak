@@ -280,6 +280,17 @@ Optional PREFIX arg flushes any previously paused speech.
 
 
 
+@deffn dtk-toggle-speak-nonprinting-chars
+@kbd{ control e d n }
+
+Toggle speak-nonprinting-chars.
+Switches behavior of how characters with the high bit set are handled.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+@end deffn
+
+
+
 @deffn dtk-set-pronunciation-mode
 @kbd{ control e d m }
 
@@ -657,7 +668,6 @@ Pre-requisites:
 1) libxml and libxslt packages 
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
-
 The Emacspeak DAISY front-end is launched by command
 emacspeak-daisy bound to M-x emacspeak-daisy.  
 
@@ -735,7 +745,9 @@ Speak the permissions of the current file.
 
 
 @deffn emacspeak-dired-show-file-type
-Displays type of current file by running command file.
+Print the type of FILE, according to the `file' command.
+If FILE is a symbolic link and the optional argument DEREF-SYMLINKS is
+true then the type of the file linked to by FILE is printed instead.
 @end deffn
 
 
@@ -891,6 +903,30 @@ Display the expression in the message area
 
 Automatically generated documentation
 for commands defined in module  emacspeak-ecb.
+
+
+
+@deffn emacspeak-ecb-speak-window-methods
+Speak contents of methods window.
+@end deffn
+
+
+
+@deffn emacspeak-ecb-speak-window-directories
+Speak contents of directories window.
+@end deffn
+
+
+
+@deffn emacspeak-ecb-speak-window-sources
+Speak contents of sources window.
+@end deffn
+
+
+
+@deffn emacspeak-ecb-speak-window-history
+Speak contents of history window.
+@end deffn
 
 
 
@@ -2408,8 +2444,6 @@ Switch to realaudio buffer.
 
 
 @deffn emacspeak-realaudio-browse
-@kbd{ control e : }
-
 Browse RAM file before playing the selected component.
 @end deffn
 
@@ -2875,6 +2909,12 @@ If option  `voice-lock-mode' is on, then it will use any defined personality.
 
 
 
+@deffn emacspeak-speak-line-number-obselete
+Speak the line number of the current line.
+@end deffn
+
+
+
 @deffn emacspeak-speak-browse-buffer
 @kbd{ control e , }
 
@@ -3003,7 +3043,10 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file.
+or when the buffer is not visiting any file. 
+Interactive prefix arg `filename' speaks only the final path
+component.
+The result is put in the kill ring for convenience.
 @end deffn
 
 
@@ -3404,7 +3447,7 @@ Will be improved if it proves useful.
 @deffn emacspeak-speak-line-number
 @kbd{ control e control l }
 
-Speak the line number of the current line.
+Print the current buffer line number and narrowed line number of point.
 @end deffn
 
 
@@ -4239,9 +4282,7 @@ the table structure extraction code in W3.
 @deffn emacspeak-w3-extract-table
 Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
-Interactive prefix arg causes url to be read from the
-minibuffer.
+Optional arg url specifies the page to extract table from. 
 @end deffn
 
 
@@ -4255,6 +4296,12 @@ Select transformation to apply.
 @deffn emacspeak-w3-show-anchor-class
 Display any class attributes set on corresponding anchor
 element. 
+@end deffn
+
+
+
+@deffn emacspeak-w3-preview-this-buffer
+Preview this buffer.
 @end deffn
 
 
@@ -4279,6 +4326,12 @@ minibuffer.
 
 @deffn emacspeak-w3-javascript-follow-link
 Follow URL hidden inside a javascript link
+@end deffn
+
+
+
+@deffn emacspeak-w3-preview-this-region
+Preview this buffer.
 @end deffn
 
 
@@ -4989,6 +5042,12 @@ meaning of `previous'.
 
 
 
+@deffn emacspeak-sudo
+SUDo command --run command as super user.
+@end deffn
+
+
+
 @deffn emacspeak-skip-blank-lines-backward
 @kbd{ <shift up> }
 
@@ -5053,10 +5112,10 @@ value of the file local pattern.
 
 
 @deffn emacspeak-wizards-ppt-display
-Called to set up preview of an XL file.
-Assumes we are in a buffer visiting a .ppts file.
+Called to set up preview of an PPT file.
+Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
-visiting the ppts file.
+visiting the ppt file.
 @end deffn
 
 
@@ -5175,7 +5234,7 @@ Convenience command to view state of memory used in this session so far.
 
 
 @deffn emacspeak-wizards-ppt-mode
-Major mode for browsing XL spreadsheets.
+Major mode for browsing PPT slides.
 
 
 XL Sheets are converted to HTML and previewed using W3.
@@ -5369,6 +5428,12 @@ Automatically defined advice to speak interactive prompts.
 
 
 
+@deffn emacspeak-links
+Launch links on  specified URL in a new terminal.
+@end deffn
+
+
+
 @deffn emacspeak-clipboard-paste
 @kbd{ control e control y }
 
@@ -5479,6 +5544,14 @@ Navigate forward  to the next child  of current node.
 
 Automatically generated documentation
 for commands defined in module  nil.
+
+
+
+@deffn emacspeak-m-player
+@kbd{ control e : }
+
+Emacspeak media player access.
+@end deffn
 
 
 

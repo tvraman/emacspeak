@@ -28,8 +28,6 @@ emacspeak-realaudio.
      Switch to realaudio buffer.
 
  - emacspeak-realaudio-browse:
-     ` control e : '
-
      Browse RAM file before playing the selected component.
 
  - emacspeak-realaudio-mode:
@@ -390,6 +388,9 @@ emacspeak-speak.
      If option  `voice-lock-mode' is on, then it will use any defined
      personality.
 
+ - emacspeak-speak-line-number-obselete:
+     Speak the line number of the current line.
+
  - emacspeak-speak-browse-buffer:
      ` control e , '
 
@@ -474,7 +475,9 @@ emacspeak-speak.
 
      Speak name of file being visited in current buffer.  Speak default
      directory if invoked in a dired buffer, or when the buffer is not
-     visiting any file.
+     visiting any file.  Interactive prefix arg `filename' speaks only
+     the final path component.  The result is put in the kill ring for
+     convenience.
 
  - emacspeak-audio-annotate-paragraphs:
      Set property auditory-icon at front of all paragraphs.
@@ -737,7 +740,8 @@ emacspeak-speak.
  - emacspeak-speak-line-number:
      ` control e control l '
 
-     Speak the line number of the current line.
+     Print the current buffer line number and narrowed line number of
+     point.
 
  - emacspeak-read-previous-line:
      ` control e <up> '
@@ -1260,14 +1264,16 @@ emacspeak-w3.
  - emacspeak-w3-extract-table:
      Extract tables from HTML.  Extracts specified table from current
      WWW page and displays it in a separate buffer.  Optional arg url
-     specifies the page to extract table from.  Interactive prefix arg
-     causes url to be read from the minibuffer.
+     specifies the page to extract table from.
 
  - emacspeak-w3-xslt-select:
      Select transformation to apply.
 
  - emacspeak-w3-show-anchor-class:
      Display any class attributes set on corresponding anchor element.
+
+ - emacspeak-w3-preview-this-buffer:
+     Preview this buffer.
 
  - emacspeak-w3-jump-to-title-in-content:
      Jumps to the occurrence of document title in page body.
@@ -1281,6 +1287,9 @@ emacspeak-w3.
 
  - emacspeak-w3-javascript-follow-link:
      Follow URL hidden inside a javascript link
+
+ - emacspeak-w3-preview-this-region:
+     Preview this buffer.
 
  - emacspeak-w3-do-onclick:
      Do  onclick action.
