@@ -2680,6 +2680,16 @@ emacspeak running."
 ;;}}}
 ;;{{{ Advice occur
 
+(defadvice occur-prev (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
+(defadvice occur-next (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
 (defadvice occur-mode-goto-occurrence (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
