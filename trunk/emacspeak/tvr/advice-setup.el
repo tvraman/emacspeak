@@ -8,15 +8,6 @@
       (make-directory "RCS")))
 
 ;;}}}
-;;{{{   save .bbdb when quitting vm
-
-(defadvice vm-quit (after save-bbdb-after-vm activate)
-  "Save .bbdb when vm is quit. "
-  (if (get-buffer ".bbdb")
-      (set-buffer ".bbdb")
-    (save-buffer)))
-
-;;}}}
 ;;{{{  emacs local variables
 
 ;;; local variables:
