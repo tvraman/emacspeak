@@ -826,19 +826,18 @@ or header lines of blocks created by command
         (when emacspeak-use-midi-icons
           (emacspeak-midi-icon 'unspeakable-rule)))
        (t
-        (let ((l (length line)))
-          (when (or
-                 (and (boundp 'outline-minor-mode) outline-minor-mode)
-                 (and (boundp 'folding-mode) folding-mode)
+        (let ((l (length line))
+              (confirm nil))
+          (when
+              (or selective-display
                  (< l emacspeak-speak-maximum-line-length)
-                 (get-text-property start 'emacspeak-speak-this-long-line)
+                 (get-text-property start
+                                    'emacspeak-speak-this-long-line)
+                 (setq confirm 
                  (y-or-n-p
                   (format "Speak  this  %s long line? "
-                          l)))
-            (unless (or
-                     (and (boundp 'outline-minor-mode) outline-minor-mode)
-                     (and (boundp 'folding-mode) folding-mode)
-                     (< l emacspeak-speak-maximum-line-length))
+                          l))))
+            (when confirm 
               ;; record the y answer
               (ems-modify-buffer-safely
                (put-text-property start end
