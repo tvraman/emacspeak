@@ -1616,14 +1616,12 @@ Light for: ")))
   (interactive
    (list (emacspeak-websearch-read-query "Zip Code: ")))
   (declare (special emacspeak-websearch-weather-uri))
-  (let (
-	)
-    (browse-url 
+    (emacspeak-w3-extract-nested-table-list
+     (list 4 5)
      (concat emacspeak-websearch-weather-uri
-             zip)))
-  (emacspeak-websearch-post-process
-   zip
-   'emacspeak-speak-line))
+             zip)
+             'speak))
+  
 
 ;;}}}
 ;;{{{ W3C
