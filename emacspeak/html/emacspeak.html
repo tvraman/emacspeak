@@ -95,19 +95,25 @@ background-position: top left;
     reliable, stable speech-friendly solution that opens up the
     Internet to visually impaired users around the world.</p>
 
-    <p>You can search this site using Google.</p>
 
     <form method="get" action="http://www.google.com/custom">
-      <input type="text" size="15" name="q" maxlength="255" value=
-      "" /> <input type="submit" value="Go" name="sa" /><br />
-       <input type="radio" name="sitesearch" checked="checked"
-      value="emacspeak.sourceforge.net" />Search
-      emacspeak.sf.net<br />
-       <input type="hidden" name="domains" value=
-      "emacspeak.sf.net" /><input type="radio" name="sitesearch"
-      value="" />Search WWW
-    </form>
-    <br />
+<p>
+<strong>Search Using Google</strong><br/>
+<label for="q">Look for:</label>
+      <input id="q" type="text" size="15" name="q" maxlength="255" /> 
+<input type="submit" value="Go"/><br />
+<label for="emsearch" >Search
+      emacspeak.sf.net</label>
+       <input id="emsearch" type="radio" name="sitesearch" checked="checked"
+value="emacspeak.sourceforge.net" />
+<label for="web">Search WWW</label>
+<input type ="radio" name="sitesearch"
+      id="web" value="" />
+<input type="hidden" name="domains" value= "emacspeak.sf.net" />
+</p></form>
+    
+    
+
      <br />
      
 
@@ -261,7 +267,7 @@ background-position: top left;
       "publications/semantic-www.pdf">PDF version</a></li>
 <li><a href="acb-19991204-raman.mp3">ACB Live Interview</a>
       Describes  audio formatting, speech-enabling applications
-      and the overall philosophy behind Linux/Emacspeak</a>
+      and the overall philosophy behind Linux/Emacspeak
       December 4, 1999
       (local copy of 
 <strong>http://www.acbradio.org/archives/blindline/raman.mp3</strong>).
