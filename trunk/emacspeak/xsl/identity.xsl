@@ -6,7 +6,7 @@ Identity transform used in all style sheets.
  
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="utf-8"
+  <xsl:output encoding="iso8859-15"
               method="html"  indent="yes"/>
   <!-- {identity default  -->   
   <xsl:template match="*|@*" >
@@ -15,16 +15,6 @@ Identity transform used in all style sheets.
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
-  <!-- fix to avoid a bizarre bug in xsltproc 
-  where entity &nbsp; gets changed to &#0302; &#0240;
-  when using the -html option.  -->
-  <xsl:template match="//body//text()">
-    <xsl:value-of select="translate(., '&#160;', ' ')"/>
-  </xsl:template>
-
-
-
-
   <!-- } -->
 </xsl:stylesheet>
 <!--
