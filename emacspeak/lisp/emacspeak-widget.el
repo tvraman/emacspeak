@@ -117,7 +117,8 @@
 (defsubst emacspeak-widget-label (w)
   "Construct a label for a widget.
 Returns a string with appropriate personality."
-  (let ((type   (widget-type w))
+  (let ((inhibit-read-only t)
+        (type   (widget-type w))
         (tag (widget-get w :tag)))
     (unless tag (setq tag (format " %s " type)))
     (put-text-property 0 (length tag)
@@ -127,7 +128,8 @@ Returns a string with appropriate personality."
 (defsubst emacspeak-widget-help-echo (w)
   "Return help-echo with appropriate personality."
   (declare (special voice-animate))
-  (let ((h (widget-get w :help-echo))
+  (let ((inhibit-read-only t)
+        (h (widget-get w :help-echo))
         (help nil))
     (setq help
           (cond
@@ -176,8 +178,7 @@ Returns a string with appropriate personality."
 (defun emacspeak-widget-summarize(widget)
   "Summarize specified widget."
   (let ((emacspeak-help (widget-get widget :emacspeak-help))
-        (emacspeak-speak-messages nil)
-        (voice-lock-mode t))
+        (emacspeak-speak-messages nil))
     (cond
      ((and emacspeak-help
            (fboundp emacspeak-help))
@@ -193,7 +194,8 @@ Returns a string with appropriate personality."
 ;;;###autoload 
 (defun emacspeak-widget-default-summarize (widget)
   "Fall back summarizer for all widgets"
-  (let* ((label (emacspeak-widget-label widget))
+  (let* ((inhibit-read-only t)
+         (label (emacspeak-widget-label widget))
          (help-echo (emacspeak-widget-help-echo widget))
          (v  (widget-value widget ))
          (value
@@ -391,8 +393,7 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-menu-choice  (widget)
   "Summarize a pull down list"
-  (let* (
-         (help-echo (emacspeak-widget-help-echo widget))(label (emacspeak-widget-label widget))
+  (let* ((help-echo (emacspeak-widget-help-echo widget))(label (emacspeak-widget-label widget))
          (value (format " %s " (widget-get widget :value)))
          (child (car (widget-get widget :children))))
     (concat label
@@ -426,7 +427,8 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-checklist  (widget)
   "Summarize a check list"
-  (let* ((label (emacspeak-widget-label widget))
+  (let* ((inhibit-read-only t)
+         (label (emacspeak-widget-label widget))
          (value (widget-value widget))
          (selections (cond
                       (value (prin1-to-string value))
@@ -503,7 +505,8 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-radio-button-choice  (widget)
   "Summarize a radio group "
-  (let* ((value (widget-value widget))
+  (let* ((inhibit-read-only t)
+         (value (widget-value widget))
          (label (emacspeak-widget-label widget))
          (choice (widget-get widget :choice))
          (selected
@@ -526,7 +529,8 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-editable-list (widget)
   "Summarize a editable list"
-  (let ((value (prin1-to-string (widget-value widget)))
+  (let ((inhibit-read-only t)
+        (value (prin1-to-string (widget-value widget)))
         (label (emacspeak-widget-label widget))
         (help-echo (emacspeak-widget-help-echo widget)))
     (when value
@@ -666,7 +670,8 @@ widget before summarizing."
 
 (defadvice widget-convert-text (around emacspeak pre act comp)
   "Protect value of personality if set originally"
-  (let ((start (ad-get-arg 1))
+  (let ((inhibit-read-only t)
+        (start (ad-get-arg 1))
         (end (ad-get-arg 2))
         (orig nil ))
     (setq orig (get-text-property start 'personality))
