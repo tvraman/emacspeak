@@ -45,17 +45,18 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
-  (condition-case nil
-      (cond
-       ((locate-library lib)
-        (load-library lib)
-        (message "Loaded %s" lib)
-        t)
-       (t (message "Could not locate library %s" lib)
-          nil))
-    (error (message
-            "Error loading %s"
-            lib))))
+  (let ((emacspeak-speak-messages nil))
+    (condition-case nil
+        (cond
+         ((locate-library lib)
+          (load-library lib)
+          (message "Loaded %s" lib)
+          t)
+         (t (message "Could not locate library %s" lib)
+            nil))
+      (error (message
+              "Error loading %s"
+              lib)))))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -90,9 +91,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "my-functions")
           
     ;; (add-hook 'text-mode-hook
-;;               (function (lambda nil
-;;                           (local-unset-key "\M-s")
-;;                           (outline-minor-mode 1))))
+    ;;               (function (lambda nil
+    ;;                           (local-unset-key "\M-s")
+    ;;                           (outline-minor-mode 1))))
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -108,7 +109,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  completion: tmc 
 
     (require 'completion)
-      (dynamic-completion-mode)
+    (dynamic-completion-mode)
     (condition-case nil
         (initialize-completions)
       (error (message "Completions not started cleanly.")))
@@ -179,7 +180,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
 ;;; Mode hooks.
     
-      (declaim (special  completion-ignored-extensions))
+    (declaim (special  completion-ignored-extensions))
     (add-hook 'comint-mode-hook 'emacspeak-toggle-comint-autospeak)
     (push  ".class" completion-ignored-extensions)
 
@@ -221,8 +222,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;; Personal defaults for AUC-TeX mode
 ;;; variable settings:
     (declare (special 
-tex-mode-hook))
-     ; find overful underful boxes in debugger. 
+              tex-mode-hook))
+                                        ; find overful underful boxes in debugger. 
 
     (setq tex-mode-hook
           #'(lambda()
@@ -315,11 +316,11 @@ tex-mode-hook))
 
     ;;}}}
     ;;{{{ buffer selection 
-    (load-library "buff-sel")
+    (load-library-if-available"buff-sel")
     ;;}}}
     ;;{{{ mail spools 
 
-    (load-library "mspools")
+    (load-library-if-available"mspools")
     (and (featurep 'vm)
          (declare (special vm-mode-map))
          (define-key vm-mode-map "o" 'mspools-show))
@@ -347,14 +348,14 @@ tex-mode-hook))
     ;;}}}
     ;;{{{ CPerl if available
 
-    (load-library "cperl-mode")
+    (load-library-if-available "cperl-mode")
     (defalias 'perl-mode 'cperl-mode)
 
     ;;}}}
     ;;{{{ mp3
 
     (load-library-if-available "mpg123")
-(emacspeak-aumix-reset)
+    (emacspeak-aumix-reset)
 
     ;;}}}
     ;;{{{  eudc 
@@ -397,7 +398,7 @@ tex-mode-hook))
     (load-library-if-available "analog-prepare")
     ;;}}}
     ;;{{{  dictionary
-    (load-library "dictionary-prepare")
+    (load-library-if-available "dictionary-prepare")
 
     ;;}}}
     ;;{{{ fff
@@ -416,11 +417,18 @@ tex-mode-hook))
 
     (require 'calendar)
     (global-set-key "\M-\C-c" 'calendar)
-    ;;}}}    
+    ;;}}}
+    ;;{{{ dirvars
+    (load-library-if-available "dirvars")
+    ;;}}}
+;;{{{ sys-apropos
+(load-library-if-available  "sys-apropos")
+
+;;}}}
     ;;{{{ color
     (global-font-lock-mode t)
-    (load-library "color-theme")
-    (color-theme-blue-sea)
+    (load-library-if-available "color-theme")
+    (color-theme-emacs-21)
     ;;}}}
     ))                                  ; end defun 
 
