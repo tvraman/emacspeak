@@ -361,8 +361,8 @@ set the current local value to the result."
    ((not emacspeak-erc-ignore-notices )
     ad-do-it
     ad-return-value)
-   (t ad-do-it
-      " ")))
+   (t ;ad-do-it
+      ". ")))
 
 ;;}}}
 ;;{{{ define emacspeak keys

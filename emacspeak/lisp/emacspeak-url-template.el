@@ -538,13 +538,12 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN headlines "
- "http://www.cnn.com/QUICKNEWS/print.html"
+ "http://www.cnn.com"
  nil
- #'(lambda nil
-     (search-forward "TOP STORIES" nil t)
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak headline news from CNN.")
+     nil
+ "Retrieve and speak headline news from CNN."
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class "cnnMainT1" url 'speak)))
 
 (defun emacspeak-url-template-date-YearMonthDate ()
   "Return today as yyyymmdd"
