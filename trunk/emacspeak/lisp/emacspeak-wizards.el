@@ -1966,39 +1966,44 @@ hits."
 emacspeak-wizards-occur-header-lines.")
 (make-variable-buffer-local 'emacspeak-occur-pattern)
 
-(defun emacspeak-wizards-how-many-matches ()
+(defun emacspeak-wizards-how-many-matches (prefix)
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
-run `how-many' bound to \\[how-many]
-to count  matching header lines."
-  (interactive)
+run `how-many'to count  matching header lines.
+With interactive prefix arg, prompts for and remembers the file local pattern."
+  (interactive "P")
   (declare (special emacspeak-occur-pattern))
   (cond
-   ((and (boundp 'emacspeak-occur-pattern)
+   ((and (not prefix)
+     (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
     (how-many  emacspeak-occur-pattern))
    (t
-    (how-many
-     (read-from-minibuffer "Regular expression: ")))))
+    (let ((pattern  (read-from-minibuffer "Regular expression: ")))
+      (setq emacspeak-occur-pattern pattern)
+    (how-many pattern)))))
 
-(defun emacspeak-wizards-occur-header-lines ()
+(defun emacspeak-wizards-occur-header-lines (prefix)
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches header lines, you can use this command to conveniently
-run `occur' bound to \\[occur]
-to find matching header lines."
-  (interactive)
+run `occur' 
+to find matching header lines. With prefix arg, prompts for and sets
+value of the file local pattern."
+  (interactive "P")
   (declare (special emacspeak-occur-pattern))
   (cond
-   ((and (boundp 'emacspeak-occur-pattern)
+   ((and (not prefix)
+         (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
     (occur emacspeak-occur-pattern)
     (message "Displayed header lines in other window.")
     (emacspeak-auditory-icon 'open-object))
    (t
-    (occur
-     (read-from-minibuffer "Regular expression: ")))))
+    (let ((pattern  (read-from-minibuffer "Regular expression: ")))
+      (setq emacspeak-occur-pattern pattern)
+      (occur pattern)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
