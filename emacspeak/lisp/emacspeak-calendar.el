@@ -374,6 +374,8 @@
        (save-excursion
          (set-buffer appt-buffer-name)
          (erase-buffer))))
+(declaim (special appt-delete-window
+                  appt-disp-window-function))
 
 (setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
 (setq appt-delete-window 'emacspeak-appt-delete-display)

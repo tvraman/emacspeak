@@ -63,6 +63,7 @@
 ;;; Play an auditory icon as you display the prompt 
 (defun emacspeak-eshell-prompt-function ()
   "Play auditory icon for prompt."
+  (declare (special eshell-last-command-status))
   (cond
    ((= 0 eshell-last-command-status)
     (emacspeak-serve-auditory-icon 'item))
