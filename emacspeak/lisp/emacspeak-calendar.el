@@ -375,6 +375,7 @@
 
 (defun emacspeak-appt-speak-appointment (minutes-left new-time message )
   "Speak the appointment in addition to  displaying it visually."
+  (message "I was called.")
   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
     (emacspeak-auditory-icon 'alarm)
     (dtk-pause t)
@@ -388,6 +389,9 @@
        (save-excursion
          (set-buffer appt-buffer-name)
          (erase-buffer))))
+
+(setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
+(setq appt-delete-window 'emacspeak-appt-delete-display)
 
 
 
