@@ -60,10 +60,10 @@
 
   :group 'emacspeak-auctex)
 
-;; (def-voice-font emacspeak-latex-sedate-personality 'paul-smooth        ;;
-;;   'font-latex-sedate-face                                          ;;
-;;   "Personality used  on macro names."                              ;;
-;;   :group 'emacspeak-auctex)                                        ;;
+(def-voice-font emacspeak-latex-sedate-personality 'voice-smoothen
+  'font-latex-sedate-face                                          
+  "Personality used  on macro names."                              
+  :group 'emacspeak-auctex)                                        
 
 ;;}}}
 ;;{{{  Marking structured objects:
