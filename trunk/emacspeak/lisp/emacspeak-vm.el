@@ -88,16 +88,21 @@ Note that some badly formed mime messages  cause trouble."
                                     'vm-summary-voice-lock-keywords)
 
 (add-hook 'vm-mode-hook
-          (function
-           (lambda ()
-             (setq dtk-punctuation-mode "some")
-             (when dtk-allcaps-beep
-               (dtk-toggle-allcaps-beep))
-             (emacspeak-dtk-sync)
-             (when emacspeak-vm-voice-lock-messages
-               (condition-case nil
-                   (voice-lock-mode 1)
-                 (error nil ))))))
+          'emacspeak-vm-mode-setup)
+
+(defun emacspeak-vm-mode-setup ()
+  "Setup function placed on vm-mode-hook by Emacspeak."
+  (declare (special  dtk-punctuation-mode
+                     dtk-allcaps-beep
+                     emacspeak-vm-voice-lock-messages))
+  (setq dtk-punctuation-mode "some")
+  (when dtk-allcaps-beep
+    (dtk-toggle-allcaps-beep))
+  (emacspeak-dtk-sync)
+  (when emacspeak-vm-voice-lock-messages
+    (condition-case nil
+        (voice-lock-mode 1)
+      (error nil ))))
 
 ;;}}}
 ;;{{{  vm voices:
@@ -503,6 +508,141 @@ Leave point at front of decoded attachment."
 (defadvice vm-count-messages-in-file (around emacspeak-fix pre act comp)
   (ad-set-arg 1 'quiet)
   ad-do-it)
+
+;;}}}
+;;{{{  button motion in vm 
+
+(defun emacspeak-vm-next-button (n)
+  "Move point to N buttons forward.
+If N is negative, move backward instead."
+  (interactive "p")
+  (let ((function (if (< n 0) 'previous-single-property-change
+		    'next-single-property-change))
+	(inhibit-point-motion-hooks t)
+	(backward (< n 0))
+	(limit (if (< n 0) (point-min) (point-max))))
+    (setq n (abs n))
+    (while (and (not (= limit (point)))
+		(> n 0))
+      ;; Skip past the current button.
+      (when (get-text-property (point) 'w3-hyperlink-info)
+	(goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
+      ;; Go to the next (or previous) button.
+      (goto-char (funcall function (point) 'w3-hyperlink-info nil limit))
+      ;; Put point at the start of the button.
+      (when (and backward (not (get-text-property (point) 'w3-hyperlink-info)))
+	(goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
+      ;; Skip past intangible buttons.
+      (when (get-text-property (point) 'intangible)
+	(incf n))
+      (decf n))
+    (unless (zerop n)
+      (message  "No more buttons"))
+    n))
+
+;;}}}
+;;{{{ saving mime attachment under point 
+
+(defun emacspeak-vm-mime-save-attachment-under-point ()
+  "Save attachment under point"
+  (interactive)
+  (vm-mime-run-display-function-at-point
+   'vm-mime-send-body-to-file))
+
+;;}}}
+;;{{{ configure and customize vm 
+
+;;; This is how I customize VM
+
+(defcustom emacspeak-vm-use-tvr-settings nil
+  "Should VM  use the customizations used by the author of Emacspeak."
+  :type 'boolean
+  :group 'emacspeak)
+
+(defun emacspeak-vm-use-tvr-settings ()
+  "Customization settings for VM used by the author of Emacspeak."
+(declare (special 
+          vm-mime-decode-for-preview emacspeak-vm-voice-lock-messages
+          vm-infer-mime-types
+          vm-group-by vm-move-after-deleting  vm-confirm-new-folders
+          vm-circular-folders vm-url-browser vm-delete-after-saving 
+          vm-group-by vm-visible-headers vm-preview-lines 
+          vm-inhibit-startup-message vm-mail-window-percentage
+          vm-startup-with-summary
+          vm-forwarding-subject-format vm-folder-directory
+          vm-keep-sent-messages 
+          vm-primary-inbox vm-index-file-suffix 
+          ))
+  (setq vm-index-file-suffix ".idx")
+  (setq vm-primary-inbox "~/mbox");; Default UNIX location.
+  (setq vm-keep-sent-messages t)
+  (setq vm-folder-directory "~/Mail/");; Default location
+  (setq vm-forwarding-subject-format
+        "[%s]")
+  (setq vm-startup-with-summary nil);; do not Show headers by default.
+  (setq vm-mail-window-percentage 50);; Split 50/50.
+  (setq vm-inhibit-startup-message t);; No junk, please.
+  (setq vm-preview-lines nil);; Show everything.
+  (setq vm-visible-headers 
+        '("From:" "To:" "Subject:" "Date:" "Cc:"
+          ))
+  (setq vm-group-by 'sort)
+  (setq vm-delete-after-saving t)
+  (setq vm-url-browser 'w3-fetch)
+  (setq vm-circular-folders nil)
+  (setq vm-confirm-new-folders t)
+  (setq vm-move-after-deleting nil)
+  (setq vm-group-by "subject")
+  (setq vm-infer-mime-types t)
+  (setq emacspeak-vm-voice-lock-messages nil)
+  (setq vm-mime-decode-for-preview nil)
+  (add-hook 'vm-mode-hook
+            (function
+             (lambda nil
+               )
+             (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
+             (define-key vm-mode-map "\M-\t"
+               'emacspeak-vm-next-button))))
+
+  
+(when emacspeak-vm-use-tvr-settings
+(emacspeak-vm-use-tvr-settings))
+
+
+(defcustom emacspeak-vm-customize-mime-settings nil
+  "Non-nil will cause Emacspeak to configure VM mime
+settings to match what the author of Emacspeak uses."
+  :type 'boolean
+  :group 'emacspeak-vm)
+
+(defun emacspeak-vm-customize-mime-settings ()
+  "Customize VM mime settings."
+  (setq vm-auto-decode-mime-messages t)
+  (setq vm-auto-displayed-mime-content-type-exceptions
+        '("text/html"))
+  (setq vm-mime-type-converter-alist
+        '(
+          ("application/pdf"
+           "text/plain"
+           emacspeak-vm-pdf2text)
+          ("application/msword"
+           "text/plain"	
+           emacspeak-vm-word2txt)))
+  (setq  vm-mime-attachment-save-directory
+         (expand-file-name "~/Mail/attachments/"))
+
+  (setq vm-mime-base64-encoder-program "base64-encode")
+  (setq vm-mime-base64-decoder-program "base64-decode")
+
+  (setq vm-mime-attachment-auto-type-alist
+        (append vm-mime-attachment-auto-type-alist
+                '(("\.pdf"
+                   . "Application/pdf"))))
+
+  )
+
+(when emacspeak-vm-customize-mime-settings
+  (emacspeak-vm-customize-mime-settings))
 
 ;;}}}
 (provide 'emacspeak-vm)
