@@ -9,17 +9,7 @@ Description: Show list of anchors.
   
   <xsl:output method="html" indent="yes"/>
   
-  <!-- {identity default  -->   
-  <xsl:template match="*|@*" >
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
-  </xsl:template>
-
-
-
-  <!-- } -->
+  <xsl:include href="identity.xsl"/>
 <!-- {nuke these elements. --> 
 
 <xsl:template match="script|meta|link"/>
@@ -44,3 +34,14 @@ Description: Show list of anchors.
 <!-- } -->
    
 </xsl:stylesheet>
+
+<!--
+Local Variables:
+mode: xae
+sgml-indent-step: 2
+sgml-indent-data: t
+sgml-set-face: nil
+sgml-insert-missing-element-comment: nil
+folded-file: t
+End:
+--> 

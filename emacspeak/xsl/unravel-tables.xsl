@@ -27,19 +27,11 @@ applies rules from the first pass.
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
-  <!-- {identity default  -->   
-  <xsl:template match="*|@*" >
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
-  </xsl:template>
-
-
-
-  <!-- } -->
+  <xsl:include href="identity.xsl"/>
   <!-- { html body  --> 
 
+<!-- nuke these -->
+<xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
