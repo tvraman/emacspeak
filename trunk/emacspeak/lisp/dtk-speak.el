@@ -394,15 +394,15 @@ Argument MODE  specifies the current pronunciation mode."
         (put-text-property start (point)
                            'personality personality)))
     (goto-char (point-min))))
-
-(defsubst  dtk-quote(mode )
+(defsubst dtk-handle-repeating-patterns (mode)
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
-      ;;; First cleanup  repeated patterns:
   (mapc
-   (function (lambda (str)
-               (dtk-replace-duplicates str mode )))
-   dtk-cleanup-patterns )
+   #'(lambda (str)
+       (dtk-replace-duplicates str mode ))
+   dtk-cleanup-patterns ))
+
+(defsubst  dtk-quote(mode )
     ;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
   ;;; fix control chars
@@ -538,7 +538,7 @@ Arguments START and END specify region to speak."
         (setq start  last
               personality
 	      (get-text-property last  'personality))) ; end while
-      ))					       ; end clause
+      ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
@@ -1573,7 +1573,9 @@ only speak upto the first ctrl-m."
           (insert  text)
           (delete-invisible-text)
           (when pronunciation-table
-            (emacspeak-pronounce-apply-pronunciations pronunciation-table))
+            (emacspeak-pronounce-apply-pronunciations
+             pronunciation-table))
+          (dtk-handle-repeating-patterns mode)
           (dtk-quote mode))
         (goto-char (point-min))
         (skip-syntax-forward inherit-chunk-separator-syntax)
