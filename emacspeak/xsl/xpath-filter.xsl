@@ -39,7 +39,7 @@ Filters out nodes matching param deletor if specified.
     </xsl:element>
   </xsl:template>
   <xsl:template match="/html/body">
-    <xsl:element name="body">
+    <body>
 <xsl:apply-templates select="$locator" mode="copy"/>
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
@@ -47,7 +47,7 @@ Filters out nodes matching param deletor if specified.
 in  
 <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
 document </xsl:element>.</p>
-    </xsl:element>
+    </body>
   </xsl:template>
 <xsl:include href="identity.xsl"/>
 <!-- nuke these -->
