@@ -317,7 +317,6 @@ Then speak the screenful. "
 (define-key vm-mode-map  "\M-g" 'vm-goto-message)
 (define-key vm-mode-map "J" 'vm-discard-cached-data)
 (define-key vm-mode-map "." 'emacspeak-vm-browse-message)
-(define-key vm-mode-map "," 'emacspeak-vm-mime-save-attachment-under-point)
 (define-key vm-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 ;;}}}
 ;;{{{  deleting and killing
@@ -545,12 +544,6 @@ If N is negative, move backward instead."
 
 ;;}}}
 ;;{{{ saving mime attachment under point 
-
-(defun emacspeak-vm-mime-save-attachment-under-point ()
-  "Save attachment under point"
-  (interactive)
-  (vm-mime-run-display-function-at-point
-   'vm-mime-send-body-to-file))
 
 ;;}}}
 ;;{{{ configure and customize vm 

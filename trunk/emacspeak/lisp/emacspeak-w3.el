@@ -61,7 +61,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'wid-edit)
-;(require 'emacspeak-wizards)
+                                        ;(require 'emacspeak-wizards)
 ;;}}}
 ;;{{{  custom
 
@@ -533,13 +533,13 @@ HTML."
                      emacspeak-xslt-directory))))
   (declare (special major-mode
                     emacspeak-xslt-directory))
-   (let
-       ((emacspeak-w3-xsl-transform xsl)
-                    (emacspeak-w3-xsl-p t))
-     (unless (eq major-mode 'w3-mode)
-       (error "Not in a W3 buffer."))
-     (w3-reload-document)
-  (emacspeak-auditory-icon 'select-object)))
+  (let
+      ((emacspeak-w3-xsl-transform xsl)
+       (emacspeak-w3-xsl-p t))
+    (unless (eq major-mode 'w3-mode)
+      (error "Not in a W3 buffer."))
+    (w3-reload-document)
+    (emacspeak-auditory-icon 'select-object)))
 
 
 (defun emacspeak-w3-xslt-select (xsl)
@@ -750,9 +750,9 @@ current page."
   (unless (eq major-mode 'w3-mode)
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
-    (format "+link:%s"
-            (url-view-url 'no-show))))
-
+   (format "+link:%s"
+           (url-view-url 'no-show))))
+(eval-when  (load)
 (defun emacspeak-w3-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
   (interactive)
@@ -760,10 +760,10 @@ current page."
   (unless (eq major-mode 'w3-mode)
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
-    (format "+site:%s %s"
-            (url-host
-             (url-generic-parse-url (url-view-url 'no-show)))
-            (read-from-minibuffer "Search this site for: "))))
+   (format "+site:%s %s"
+           (url-host
+            (url-generic-parse-url (url-view-url 'no-show)))
+           (read-from-minibuffer "Search this site for: ")))))
 
 ;;}}}
 (provide 'emacspeak-w3)
