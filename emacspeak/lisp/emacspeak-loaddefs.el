@@ -208,7 +208,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 ;;;***
 
 ;;;### (autoloads (voice-lock-mode) "emacspeak-personality" "emacspeak-personality.el"
-;;;;;;  (15950 32910))
+;;;;;;  (15950 41550))
 ;;; Generated autoloads from emacspeak-personality.el
 
 (autoload (quote voice-lock-mode) "emacspeak-personality" "\
