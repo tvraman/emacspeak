@@ -10,3 +10,4 @@ emacspeak.toc
 emacspeak.tp
 emacspeak.vr
 texput.log
+*.info*
