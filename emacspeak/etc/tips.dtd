@@ -20,3 +20,5 @@
 
 <!--                    A topic in Emacs online info pages         -->
 <!ELEMENT  topic                                                     ANY>
+<!--                    Key Sequence                               -->
+<!ELEMENT  key          ANY                                          >

@@ -7,21 +7,32 @@ href="file:////home/raman/emacs/lisp/emacspeak/etc/tips.xsl"
 type="text/xsl"?>
 
 <tips id="01">
-  <tip id="dired_files" title="Managing Files And Folders">
-Files and folders are best managed using Emacs' dired mode
+  <tip id="KnowYourInfo" title="Emacs Hypertext
+       Documentation System">
+Make sure you have learnt to use Emacs' online documentation
+    available as hypertext info pages.
+</tip>
+  <tip id="InfoPageForCommandKey"
+       title="Opening info page that documents  command  on
+       a given key">
+Use <key>C-h C-k</key>
+and then press  the key whose documentation you wish to lookup.
+</tip>
+  <tip id="DiredFilesAndFolders" title="Managing Files And Folders">
+    Files and folders are best managed using Emacs' dired mode
     invoked by  
-<command> dired</command>.
-Files and folders matching a specific selection 
-criterion can be  located using either  <command>
-    find-dired</command>
-and friends, or more efficiently via 
+    <command> dired</command>.
+    Files and folders matching a specific selection 
+    criterion can be  located using either  <command>
+      find-dired</command>
+    and friends, or more efficiently via 
     <command>locate</command> and
     <command>locate-with-filter</command>.
-All of these commands present a directory listing of the
+    All of these commands present a directory listing of the
     selected files and folders with the same browsing
     interface; see the Emacs online info pages for
     <topic>dired</topic>.
-</tip>
+  </tip>
   <postamble></postamble>
 </tips>
 <!--
