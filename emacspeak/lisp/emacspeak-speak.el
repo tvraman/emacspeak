@@ -2121,7 +2121,8 @@ Non-nil means we split speech on newlines in comint buffer."
                        emacspeak-comint-split-speech-on-newline ))
              (dtk-set-punctuations "all")
              (when emacspeak-comint-split-speech-on-newline
-               (modify-syntax-entry 10 ">")))
+               (modify-syntax-entry 10 ">"))
+             (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
