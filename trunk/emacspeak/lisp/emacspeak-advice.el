@@ -622,7 +622,7 @@ before the message is spoken."
                        'personality voice-animate
                        emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value        ;we really do have a message
+                 ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
       ;; so we really need to speak it
@@ -688,12 +688,12 @@ before the message is spoken."
   "Speak the error message.
 Also produces an auditory icon if possible."
   (when emacspeak-speak-cue-errors
-  (let ((dtk-stop-immediately nil ))
-    (emacspeak-auditory-icon 'warn-user)
-    (tts-with-punctuations "all"
-                           (message
-                            (apply #'format
-                                   (ad-get-args  0)))))))
+    (let ((dtk-stop-immediately nil ))
+      (emacspeak-auditory-icon 'warn-user)
+      (tts-with-punctuations "all"
+			     (message
+			      (apply #'format
+				     (ad-get-args  0)))))))
 
 (defadvice eval-minibuffer (before emacspeak pre act com)
   "Speak the prompt."
@@ -1026,7 +1026,7 @@ in completion buffers"
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (when (and   emacspeak-speak-messages ; speaking messages
-                 ad-return-value        ;we really do have a message
+                 ad-return-value	  ;we really do have a message
                  (/= emacspeak-lazy-message-time ;; previous message not recent
                      (setq emacspeak-lazy-message-time  (nth 1 (current-time)))))
       ;; so we really need to speak it
@@ -1118,8 +1118,6 @@ in completion buffers"
   'comint-highlight-input
   "Personality used for highlighting comint inputs --emacs 21."
   :group 'comint)
-
-
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 

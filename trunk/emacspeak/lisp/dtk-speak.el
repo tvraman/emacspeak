@@ -548,7 +548,7 @@ Arguments START and END specify region to speak."
         (setq start  last
               personality
 	      (get-text-property last  'personality))) ; end while
-      ))                                ; end clause
+      ))					       ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
@@ -633,21 +633,21 @@ Argument OUTPUT is the newly arrived output."
   "Generate desired command to switch the specified state."
   (eval
    `(defun ,command  (&optional prefix)
-  ,documentation
-  (interactive "P")
-  (declare (special dtk-speaker-process ,switch ))
-  (cond
-   (prefix
-    (setq-default  ,switch
-                   (not  (default-value  ',switch)))
-    (setq ,switch (default-value ',switch )))
-   (t (setq ,switch (not ,switch ))))
-  (when (interactive-p)
-  (emacspeak-auditory-icon (if ,switch 'on 'off))
-  (message "Turned %s %s  %s."
-           (if ,switch "on" "off" )
-            ',switch 
-           (if prefix "" " locally"))))))
+      ,documentation
+      (interactive "P")
+      (declare (special dtk-speaker-process ,switch ))
+      (cond
+       (prefix
+	(setq-default  ,switch
+		       (not  (default-value  ',switch)))
+	(setq ,switch (default-value ',switch )))
+       (t (setq ,switch (not ,switch ))))
+      (when (interactive-p)
+	(emacspeak-auditory-icon (if ,switch 'on 'off))
+	(message "Turned %s %s  %s."
+		 (if ,switch "on" "off" )
+		 ',switch 
+		 (if prefix "" " locally"))))))
 
 ;;}}}
 ;;{{{  sending commands
@@ -731,43 +731,43 @@ current local  value to the result."
              (if  prefix ""  "locally"))))
 
 (ems-generate-switcher 'dtk-toggle-quiet
-                                   'dtk-quiet
-                                   "Toggles state of  dtk-quiet.
+		       'dtk-quiet
+		       "Toggles state of  dtk-quiet.
 Turning on this switch silences speech.
 Optional interactive prefix arg causes this setting to become global.")
 
 (ems-generate-switcher 'dtk-toggle-stop-immediately-while-typing
-                                   'dtk-stop-immediately-while-typing
-                                   "Toggle state of variable `dtk-stop-immediately-while-typing'.
+		       'dtk-stop-immediately-while-typing
+		       "Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
 type.  Optional argument PREFIX specifies if the setting applies
 to all buffers.")
 
 (ems-generate-switcher 'dtk-toggle-split-caps
-                                   'dtk-split-caps
-                                   "Toggle split caps mode.
+		       'dtk-split-caps
+		       "Toggle split caps mode.
 Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.")
 
 (ems-generate-switcher' dtk-toggle-capitalization
-                                   'dtk-capitalize
-                                   "Toggle capitalization.
+			'dtk-capitalize
+			"Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
 (ems-generate-switcher' dtk-toggle-speak-nonprinting-chars
-                                   'dtk-speak-nonprinting-chars
-                                   "Toggle speak-nonprinting-chars.
+			'dtk-speak-nonprinting-chars
+			"Toggle speak-nonprinting-chars.
 Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
 (ems-generate-switcher'dtk-toggle-allcaps-beep
-                                   'dtk-allcaps-beep
-                                   "Toggle allcaps-beep.
+ 'dtk-allcaps-beep
+ "Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
@@ -775,18 +775,12 @@ Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
 (ems-generate-switcher 'dtk-toggle-debug
-                                   'dtk-debug
-"Toggle state of the debug FLAG.
+		       'dtk-debug
+		       "Toggle state of the debug FLAG.
 When debugging is on, you can switch to the buffer
 *speaker* to examine the output from the process
 that talks to the speech device by using command \\[tts-show-debug-buffer].
 Note: *speaker* is a hidden buffer, ie it has a leading space in its name.")
-
-
-
-
-
-
 
 (defun dtk-set-punctuations  (mode &optional prefix )
   "Set punctuation mode to MODE.
@@ -1496,8 +1490,6 @@ Default is to use pipes.")
   (declare (special tts-debug-buffer))
   (switch-to-buffer tts-debug-buffer))
   
-
-
 
 ;;}}}
 ;;{{{  interactively select how text is split:

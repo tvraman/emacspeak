@@ -56,12 +56,7 @@
 ;;}}}
 ;;{{{  Voices 
 
-
   
-
-
-
-
 
 (def-voice-font emacspeak-info-title-1-face voice-bolden
   'Info-title-1-face

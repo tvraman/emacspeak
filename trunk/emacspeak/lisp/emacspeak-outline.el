@@ -297,7 +297,6 @@ except that the outline section is optionally spoken"
   "Level 3 outline headings."
   :group 'emacspeak-outline)
 
-
 (def-voice-font emacspeak-outline-4  voice-lighten-extra
   'outline-4
   "Level 4outline headings."

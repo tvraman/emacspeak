@@ -1052,16 +1052,16 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                         (not lucky)
                       lucky)))
     (emacspeak-w3-without-xsl
-    (browse-url 
-     (concat emacspeak-websearch-google-uri
-             (webjump-url-encode query)
-             (format "&num=%s"
-                     emacspeak-websearch-google-number-of-results)
-             (when lucky-flag
-               (concat 
-                "&btnI="
-                (webjump-url-encode
-                 "I'm Feeling Lucky"))))))
+     (browse-url 
+      (concat emacspeak-websearch-google-uri
+	      (webjump-url-encode query)
+	      (format "&num=%s"
+		      emacspeak-websearch-google-number-of-results)
+	      (when lucky-flag
+		(concat 
+		 "&btnI="
+		 (webjump-url-encode
+		  "I'm Feeling Lucky"))))))
     (if lucky-flag
         (emacspeak-speak-line)
       (emacspeak-websearch-post-process
@@ -1103,7 +1103,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
   (declaim (special calendar-mode-map))
   (define-key calendar-mode-map "gg"
     'emacspeak-websearch-google-search-in-date-range))
-
 
 ;;}}}
 ;;{{{ froogle

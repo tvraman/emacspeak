@@ -200,8 +200,8 @@ emacspeak-dismal-row-summarizer-list"
                  ((numberp token)
                   (setq value
                         (format "%s"
-                        (emacspeak-dismal-cell-value
-                               dismal-current-row token)))
+				(emacspeak-dismal-cell-value
+				 dismal-current-row token)))
                   (put-text-property  0   (length value)
                                       'personality  emacspeak-dismal-value-personality 
                                       value )
@@ -211,9 +211,9 @@ emacspeak-dismal-row-summarizer-list"
                        (numberp (second token )))
                   (setq value
                         (format "%s"
-                        (emacspeak-dismal-cell-value
-                               (first token)
-                               (second token))))
+				(emacspeak-dismal-cell-value
+				 (first token)
+				 (second token))))
                   (put-text-property 0   (length value )
                                      'personality emacspeak-dismal-value-personality 
                                      value)
@@ -248,7 +248,7 @@ emacspeak-dismal-col-summarizer-list"
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value token
-                                                           dismal-current-col)))
+							     dismal-current-col)))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
@@ -259,8 +259,8 @@ emacspeak-dismal-col-summarizer-list"
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
-                               (first token)
-                               (second token))))
+				 (first token)
+				 (second token))))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)

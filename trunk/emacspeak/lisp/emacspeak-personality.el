@@ -113,8 +113,8 @@ personality settings."
     (let ((v (if (listp personality)
                  (remove-duplicates personality :test #'eq)
                personality)))
-    (ems-modify-buffer-safely
-     (put-text-property start end 'personality v object)))))
+      (ems-modify-buffer-safely
+       (put-text-property start end 'personality v object)))))
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object )
@@ -136,7 +136,7 @@ Existing personality properties on the text range are preserved."
 	 (put-text-property start extent 'personality v object)
 	 (when (< extent end)
 	   (emacspeak-personality-append extent end v object)))
-	(t                        ;accumulate the new personality
+	(t			       ;accumulate the new personality
 	 (unless (or (equal  v orig)
                      (listp orig)
                      (and (listp orig) (memq v orig)))
@@ -160,8 +160,8 @@ Existing personality properties on the text range are preserved."
     (ems-modify-buffer-safely
      (let ((v (if
                   (listp personality)
-                 (remove-duplicates personality :test #'eq)
-               personality))
+		  (remove-duplicates personality :test #'eq)
+		personality))
            (orig (get-text-property start 'personality object))
 	   (new nil)
 	   (extent
@@ -174,8 +174,8 @@ Existing personality properties on the text range are preserved."
 	   (emacspeak-personality-prepend extent end v object)))
 	(t			       ;accumulate the new personality
 	 (unless (or (equal v orig)
-		      (listp orig)
-			  (and (listp orig) (memq v orig)))
+		     (listp orig)
+		     (and (listp orig) (memq v orig)))
 	   (setq new
 		 (remove-duplicates
 		  (append
@@ -229,10 +229,10 @@ preserved."
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
 (defsubst ems-plain-cons-p (value)
-"Help identify (a . b)."
- (and (consp value)	
-                    (equal value (last value))
-(cdr value)))
+  "Help identify (a . b)."
+  (and (consp value)	
+       (equal value (last value))
+       (cdr value)))
 
 ;;}}}
 ;;{{{ advice put-text-personality
@@ -278,7 +278,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face value)))
-             ((ems-plain-cons-p value)) ;;pass on plain cons
+             ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -314,7 +314,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-((ems-plain-cons-p value)) ;;pass on plain cons
+	     ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -350,7 +350,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((ems-plain-cons-p value)) ;;pass on plain cons
+             ((ems-plain-cons-p value))	;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -370,7 +370,6 @@ displayed in the messages area."
         (error nil))
       )))
 
-
 (defadvice propertize (around emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((string (ad-get-arg 0))
@@ -381,7 +380,7 @@ displayed in the messages area."
     (setq facep (emacspeak-personality-plist-face-p properties))
     (cond
      ((and  emacspeak-personality-voiceify-faces
-		facep)
+	    facep)
       ad-do-it
       (setq value (second facep))
       (condition-case nil
@@ -390,8 +389,8 @@ displayed in the messages area."
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
              ;; ((and (consp value)	;check for plain cons and pass
-;;                    (equal value (last value)))
-;; 	      nil)
+	     ;;                    (equal value (last value)))
+	     ;; 	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -399,7 +398,7 @@ displayed in the messages area."
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces 0
-  (length ad-return-value) voice ad-return-value)
+		       (length ad-return-value) voice ad-return-value)
               )
             (when (and emacspeak-personality-show-unmapped-faces
                        (not voice))
