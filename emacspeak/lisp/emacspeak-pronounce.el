@@ -228,7 +228,8 @@ modes."
 (emacspeak-pronounce-add-super 'text-mode 'latex-mode)
 (emacspeak-pronounce-add-super 'text-mode 'latex2e-mode)
 (emacspeak-pronounce-add-super 'text-mode 'plain-tex-mode)
-
+;;;xsl inherits from xml
+(emacspeak-pronounce-add-super 'xml-mode 'xsl-mode)
 ;;}}}
 ;;{{{  Composing and applying dictionaries:
 

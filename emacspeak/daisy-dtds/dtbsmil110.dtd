@@ -1,0 +1,141 @@
+<!--SMIL 2.0 DTB-specific DTD Version 1.1.0 2002-02-12
+file: dtbsmil110.dtd 
+
+Authors: Michael Moodie, Tom McLaughlin, Lloyd Rasmussen
+Change list:
+2002-02-12  M. Moodie. Dropped version attribute on smil element, as this attribute is not present in SMIL specification.
+
+Description:	
+This DTD is intended for use only with DTB applications.  Documents valid to this DTD will also be valid to the DTB SMIL Profile, but not necessarily vice versa, as this DTD contains only a subset of the elements and attributes present in the DTB SMIL Profile.  This DTD is in some areas more restrictive than the Profile (e.g., requiring IDs on some elements), to enforce structure critical to the DTB application.
+
+The following identifiers apply to this DTD: 
+"-//NISO//DTD dtbsmil v1.1.0//EN"
+"http://www.loc.gov/nls/z3986/v100/dtbsmil110.dtd"
+-->
+
+
+<!ENTITY	% Core.attrib
+	"id	ID	#IMPLIED
+	class		CDATA		#IMPLIED
+	title		CDATA		#IMPLIED"
+>
+
+<!ENTITY % URI "CDATA">
+    <!-- a Uniform Resource Identifier, see [RFC2396] -->
+
+<!ELEMENT	smil	(head, body) >
+<!ATTLIST	smil
+	%Core.attrib;
+	xml:lang	NMTOKEN		#IMPLIED
+>
+
+<!ELEMENT	head	((meta)*, (layout)?, (customAttributes)? ) >
+<!ATTLIST	head
+	%Core.attrib;
+	xml:lang	NMTOKEN		#IMPLIED
+>
+
+
+<!ELEMENT	meta	EMPTY >
+<!ATTLIST	meta
+	name		CDATA		#REQUIRED
+	content		CDATA		#IMPLIED
+>
+
+<!-- only smil basic layout allowed; not CSS2. 
+     root-layout not included, is implementation dependent.
+-->
+<!ELEMENT	layout	(region)+ >
+<!ATTLIST	layout
+	%Core.attrib;
+	xml:lang	NMTOKEN		#IMPLIED
+>
+
+<!ELEMENT	region	EMPTY >
+<!ATTLIST	region
+	id				ID		#REQUIRED
+	height			CDATA		'auto'
+	width			CDATA		'auto'
+	bottom			CDATA		'auto'
+	top				CDATA		'auto'
+	left			CDATA		'auto'
+	right			CDATA		'auto'
+	fit				(hidden|fill|meet|scroll|slice)	'hidden'
+	z-index			CDATA		#IMPLIED
+	backgroundColor	CDATA		#IMPLIED
+	showBackground	(always|whenActive)	'always'
+>
+
+<!ELEMENT	customAttributes	(customTest)+ >
+<!ATTLIST	customAttributes
+	%Core.attrib;
+	xml:lang	NMTOKEN		#IMPLIED
+>
+	
+<!ELEMENT	customTest	EMPTY >
+<!ATTLIST	customTest
+	id				ID			#REQUIRED
+	class			CDATA		#IMPLIED
+	defaultState	(true|false) 	'false'
+	title			CDATA		#IMPLIED
+	xml:lang		NMTOKEN		#IMPLIED
+	override		(visible|hidden) 'hidden'
+>
+
+<!-- Even though body functions as a seq, and you don't need a base set of seqs wrapping the whole presentation, for DTB applications a base set of seqs should be used.  The dur attribute on the first seq is used by the player to determine the length of the SMIL presentation. -->
+<!ELEMENT	body	(par|seq|text|audio|img|a)+ >
+<!ATTLIST	body
+	%Core.attrib;
+	xml:lang	NMTOKEN		#IMPLIED
+>
+
+<!ELEMENT	seq	(par|seq|text|audio|img|a)+ >
+<!ATTLIST	seq	
+	id			ID			#REQUIRED 
+	class		CDATA		#IMPLIED
+	customTest 	IDREF		#IMPLIED
+	dur			CDATA		#IMPLIED
+
+>
+
+<!-- pars are not allowed to nest.
+-->
+<!ELEMENT	par	(seq|text|audio|img|a)+ >
+<!ATTLIST	par
+	id		ID		#REQUIRED
+	class		CDATA		#IMPLIED
+	customTest 	IDREF		#IMPLIED
+>
+
+<!ELEMENT	text	EMPTY >
+<!ATTLIST	text
+	id			ID			#IMPLIED
+	region		CDATA		#IMPLIED
+	src			CDATA		#REQUIRED
+	type		CDATA		#IMPLIED
+>
+	
+<!ELEMENT	audio	EMPTY >
+<!ATTLIST	audio
+	id			ID			#IMPLIED
+	src			CDATA		#REQUIRED
+	type		CDATA		#IMPLIED
+	clipBegin	CDATA		#IMPLIED
+	clipEnd		CDATA		#IMPLIED
+	region		CDATA		#IMPLIED
+>
+
+<!ELEMENT	img	EMPTY >
+<!ATTLIST	img
+	id			ID		#IMPLIED
+	region		CDATA		#IMPLIED
+	src			CDATA		#REQUIRED
+	type		CDATA		#IMPLIED
+>
+
+<!ELEMENT	a	(text|audio|img)* >
+<!ATTLIST	a
+	href		%URI;		#REQUIRED
+	xml:lang	NMTOKEN		#IMPLIED
+	%Core.attrib;
+>
