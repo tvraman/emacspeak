@@ -588,6 +588,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "tex-site" 'emacspeak-auctex)
 (emacspeak-do-package-setup "texinfo" 'emacspeak-texinfo)
 (emacspeak-do-package-setup "tmm" 'emacspeak-facemenu)
+(emacspeak-do-package-setup "todo-mode" 'emacspeak-todo-mode)
 (emacspeak-do-package-setup "view" 'emacspeak-view)
 (emacspeak-do-package-setup "view-process-mode" 'emacspeak-view-process)
 (emacspeak-do-package-setup "vm" 'emacspeak-vm)
