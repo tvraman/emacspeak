@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
-<!--Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) 2001  All Rights Reserved.
+<!--
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+License: GPL
 Identity transform used in all style sheets.
 -->
  
