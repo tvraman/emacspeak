@@ -99,6 +99,12 @@ OCR engine for optical character recognition."
   :type 'string
   :group 'emacspeak-ocr)
 
+
+(defcustom emacspeak-ocr-image-extension ".tiff"
+  "Filename extension used for acquired image."
+  :type 'string
+  :group 'emacspeak-ocr)
+
 (defcustom emacspeak-ocr-compress-image-options   
   "-c g3 "
   "Options used for compressing tiff image."
@@ -160,10 +166,12 @@ will be placed."
 (defsubst emacspeak-ocr-get-image-name ()
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
+                    emacspeak-ocr-image-extension
                     emacspeak-ocr-current-page-number))
-  (format "%s-%s.tiff"
+  (format "%s-%s%s"
           emacspeak-ocr-document-name
-          (1+ emacspeak-ocr-current-page-number)))
+          (1+ emacspeak-ocr-current-page-number))
+  emacspeak-ocr-image-extension)
 
 (defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
@@ -351,10 +359,18 @@ Pick a short but meaningful name."
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
+
+(defcustom emacspeak-ocr-keep-uncompressed-image nil
+  "If set to T, uncompressed image is not removed."
+  :type 'boolean
+  :group 'emacspeak-ocr)
+
 (defun emacspeak-ocr-scan-image ()
   "Acquire page image."
   (interactive)
-  (declare (special emacspeak-speak-messages 
+  (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-image-extension
+                    emacspeak-ocr-keep-uncompressed-image
                     emacspeak-ocr-scan-image
                     emacspeak-ocr-scan-image-options
                     emacspeak-ocr-compress-image
@@ -364,14 +380,19 @@ Pick a short but meaningful name."
     (let ((emacspeak-speak-messages nil))
       (shell-command
        (concat
-        (format "%s %s > temp.tiff;\n"
+        (format "%s %s > temp%s;\n"
                 emacspeak-ocr-scan-image
-                emacspeak-ocr-scan-image-options )
-        (format "%s %s  temp.tiff %s ;\n"
+                emacspeak-ocr-scan-image-options 
+                emacspeak-ocr-image-extension)
+        (format "%s %s  temp%s %s ;\n"
                 emacspeak-ocr-compress-image
-                emacspeak-ocr-compress-image-options 
+                emacspeak-ocr-compress-image-options
+                emacspeak-ocr-image-extension
                 image-name)
-        (format "rm -f temp.tiff"))))
+        (if emacspeak-ocr-keep-uncompressed-image
+            (format "echo \'Uncompressed image not removed.'")
+        (format "rm -f temp%s"
+                emacspeak-ocr-image-extension)))))
     (message "Acquired  image to file %s"
              image-name)))
 
