@@ -1307,14 +1307,17 @@ Extracted content is placed as a csv file in task.csv."
     (bury-buffer)
     annotation))
 
-(defun emacspeak-annotate-add-annotation ()
+(defun emacspeak-annotate-add-annotation (&optional reset)
   "Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
+Interactive prefix arg `reset' prompts for the annotation
+buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-annotate-working-buffer))
-  (unless emacspeak-annotate-working-buffer
+  (when  (or reset
+             (null emacspeak-annotate-working-buffer))
     (setq emacspeak-annotate-working-buffer
           (read-buffer "Annotation working buffer: "
                        (cadr (emacspeak-annotate-make-buffer-list)))))

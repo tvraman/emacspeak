@@ -2275,7 +2275,9 @@ Produce an auditory icon if possible."
 
 (defadvice recenter (before emacspeak pre act)
   "Stop speech first."
-  (when (interactive-p) (dtk-stop )))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'scroll)
+    (dtk-stop )))
 
 ;;}}}
 ;;{{{  yanking and popping
