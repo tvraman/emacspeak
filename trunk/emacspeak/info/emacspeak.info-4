@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.5 from
+This is ./emacspeak.info, produced by makeinfo version 4.5 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -699,7 +699,7 @@ emacspeak-speak.
      interactive prefix arg `from-message-cache' speaks message cached
      from the most recent call to function `message'.  The message is
      also placed in the kill ring for convenient yanking if
-     `emacspeak-speak-message-again-should-copy-to-kill-ring' is set..
+     `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.
 
  - emacspeak-speak-message-at-time: (TIME MESSAGE)
      ` control e @ '

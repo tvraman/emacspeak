@@ -13,7 +13,10 @@ all: emacspeak.info
 info: *.texi
 	$(MAKEINFO) emacspeak.texi
 .PHONY: commands.texi 
+
 commands.texi: 
+	$(EMACS) -batch -q -l ../utils/document-commands.el
+options.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 
 install: emacspeak.info
