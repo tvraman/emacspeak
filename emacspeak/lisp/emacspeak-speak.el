@@ -163,57 +163,6 @@ Argument BODY specifies forms to execute."
   (dtk-speak (emacspeak-speak-get-text-range property)))
 
 ;;}}}
-;;{{{ convert faces to voices in specified range
-(defvar emacspeak-speak-face-voice-table (make-hash-table)
-  "Hash table holding face to voice mapping.")
-
-(defsubst emacspeak-speak-set-voice-for-face (face voice)
-  "Map face --a symbol-- to relevant voice."
-  (declare (special  emacspeak-speak-face-voice-table))
-  (setf (gethash face emacspeak-speak-face-voice-table) voice))
-
-(defsubst emacspeak-speak-get-voice-for-face (face)
-  "Map face --a symbol-- to relevant voice."
-  (declare (special  emacspeak-speak-face-voice-table))
-  (gethash face emacspeak-speak-face-voice-table))
-
-;;; voiceifies faces not already voiceified as specified in
-;;; emacspeak-speak-face-voice-table
-
-(defun emacspeak-speak-face-to-voice (start end)
-  "Voiceify faces in specified region that are not already voicefied.
-Face to voice mapping is specified in
-emacspeak-speak-face-voice-table.
-This function forces voice-lock mode on."
-  (declare (special voice-lock-mode))
-  (setq voice-lock-mode t)
-  (ems-modify-buffer-safely
-   (save-excursion
-     (goto-char start)
-     (let ((face nil )
-           (voice nil)
-           (orig start)
-           (pos nil))
-       
-       (goto-char orig)
-       (while (and  (not (eobp))
-                    (< start end))
-         (setq face (get-text-property (point) 'face ))
-         (goto-char
-          (or
-           (next-single-property-change (point) 'face
-                                        (current-buffer) end)
-           end))
-         (when(and face  (symbolp face))
-           (setq voice (emacspeak-speak-get-voice-for-face face))
-           (when (and face
-                      voice 
-                      (not (get-text-property (point) 'personality)))
-             (put-text-property start  (point)
-                                'personality voice))
-           (setq start (point))))))))
-
-;;}}}
 ;;{{{  Apply audio annotations
 
 ;;; prompt for auditory icon with completion
