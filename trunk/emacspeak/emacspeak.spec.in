@@ -42,6 +42,8 @@ However, you need to obtain and install the ViaVoice Outloud
 RPMs  before you can use software TTS with Emacspeak 
 --See  file  docs/VIAVOICE for details.
 
+To use Software Dectalk for Linux, see  docs/DTK.
+
 NEWS file for a  summary of new features        --control e cap n in Emacs
 FAQ for Frequently Asked Questions              -- control e cap F in Emacs
 Custom for customizations              -- control e cap C in Emacs
@@ -53,7 +55,10 @@ Make sure you read the Emacs info pages
 %files 
  /usr/share/emacs/site-lisp/emacspeak/
 %doc servers/linux-outloud/VIAVOICE
+%doc servers/software-dtk/DTK
 %doc etc/NEWS
+%doc etc/NEWS-16.0
+%doc etc/NEWS-15.0
 %doc etc/NEWS-14.0
 %doc etc/NEWS-13.0
 %doc etc/NEWS-12.0
