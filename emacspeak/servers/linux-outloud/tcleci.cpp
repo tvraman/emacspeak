@@ -46,8 +46,6 @@ The only difference bewtween say and synth is that synth calls
 eciSynthesize and say doesn't.  You can put as many text blocks as
 you like after a command.
 */
-#include <linux/soundcard.h>
-#include <sys/ioctl.h>
 #include <sox/st.h>
 
 #include <tcl.h>
@@ -108,21 +106,9 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int eciCallback(void *, int, long, void *);
-int setMono (void);
 
-int setMono () {
-  ft_t ft;
-  char* ofile="/dev/dsp";
-  ft->fp = fopen(ofile, WRITEBINARY);
-  if (ft->fp == NULL) {
-    fprintf(stderr, "Cannot open output device %s\n", ofile);
-   return (TCL_ERROR);
-  }
-  ft->info.channels = 1;
-  ioctl(fileno(ft->fp), SNDCTL_DSP_RESET, 0);
-  fprintf(stderr, "Successful ioctl on /%s\n", ofile);
-  return (TCL_OK);
-    }
+
+
 
 void TclEciFree(ClientData eciHandle) {
   _eciDelete(eciHandle);
@@ -190,7 +176,6 @@ int Tcleci_Init(Tcl_Interp *interp) {
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
     return TCL_ERROR;
   }
-  /*setMono();*/
   if (   (_eciSetParam(eciHandle, eciInputType, 1) == -1) 
          || (_eciSetParam(eciHandle, eciSynthMode, 1) == -1)
          || (_eciSetParam(eciHandle, eciSampleRate, 0) == -1)
