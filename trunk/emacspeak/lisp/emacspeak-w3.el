@@ -61,7 +61,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 (require 'wid-edit)
-
+;(require 'emacspeak-wizards)
 ;;}}}
 ;;{{{  custom
 
@@ -502,10 +502,6 @@ even if one is already defined."
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
 
-(defvar emacspeak-w3-xsl-directory
-  (expand-file-name "xsl/" emacspeak-directory)
-  "Directory holding XSL transformations.")
-
 (define-prefix-command 'emacspeak-w3-xsl-map )
 (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)  
 
@@ -517,43 +513,14 @@ HTML.")
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. ")
 
-(defcustom emacspeak-xslt-program "xsltproc"
-  "Name of XSLT transformation engine."
-  :type 'string
-  :group 'emacspeak-w3)
-
-(defun emacspeak-w3-xslt-region (xsl start end &optional params )
-  "Apply XSLT transformation to region and replace it with
-the result.  This uses XSLT processor xsltproc available as
-part of the libxslt package."
-  (declare (special emacspeak-w3-xsl-program))
-  (let ((parameters (when params 
-                      (mapconcat 
-                       #'(lambda (pair)
-                           (format "--param %s %s "
-                                   (car pair)
-                                   (cdr pair)))
-                       params
-                       " "))))
-    (shell-command-on-region start end
-                             (format "%s %s  --html --nonet --novalid %s -"
-                                     emacspeak-xslt-program
-                                     (or parameters "")
-                                     xsl )
-                             (current-buffer)
-                             'replace
-                             "*xslt errors*")))
-
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
-    (emacspeak-w3-xslt-region
+    (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
-
-
 
 (defun emacspeak-w3-xslt-apply (xsl)
   "Apply specified transformation to current page."
@@ -561,7 +528,7 @@ HTML."
    (list
     (expand-file-name
      (read-file-name "XSL Transformation: "
-                     emacspeak-w3-xsl-directory))))
+                     emacspeak-xslt-directory))))
   (declare (special major-mode))
    (let
        ((emacspeak-w3-xsl-transform xsl)
@@ -578,7 +545,7 @@ HTML."
    (list
     (expand-file-name
      (read-file-name "XSL Transformation: "
-                     emacspeak-w3-xsl-directory))))
+                     emacspeak-xslt-directory))))
   (declare (special emacspeak-w3-xsl-transform))
   (setq emacspeak-w3-xsl-transform xsl)
   (message "Will apply %s before displaying HTML pages."
@@ -602,7 +569,7 @@ libxslt package."
 
 (defvar emacspeak-w3-extract-table-xsl
   (expand-file-name "extract-table.xsl"
-                    emacspeak-w3-xsl-directory)
+                    emacspeak-xslt-directory)
   "XSL transform to extract a table.")
 
 (defun emacspeak-w3-extract-table (table-index   &optional prompt)
@@ -636,7 +603,7 @@ minibuffer."
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
-        (emacspeak-w3-xslt-region
+        (emacspeak-xslt-region
          emacspeak-w3-extract-table-xsl
          (point-min)
          (point-max)
@@ -652,7 +619,7 @@ minibuffer."
 
 (defvar emacspeak-w3-extract-by-class-xsl
   (expand-file-name "extract-by-class.xsl"
-                    emacspeak-w3-xsl-directory)
+                    emacspeak-xslt-directory)
   "XSL transform to extract a elements having a specified class.")
 
 (defun emacspeak-w3-extract-by-class (class   &optional prompt)
@@ -688,7 +655,7 @@ minibuffer."
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
-        (emacspeak-w3-xslt-region
+        (emacspeak-xslt-region
          emacspeak-w3-extract-by-class-xsl
          (point-min)
          (point-max)
@@ -702,10 +669,11 @@ minibuffer."
                             w3-url)))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
+(declaim (special emacspeak-xslt-directory))
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
-                    emacspeak-w3-xsl-directory)
+                    emacspeak-xslt-directory)
   "XSL transform to extract  elements matching a specified
 XPath locator.")
 
@@ -740,7 +708,7 @@ prefix arg causes url to be read from the minibuffer."
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
-        (emacspeak-w3-xslt-region
+        (emacspeak-xslt-region
          emacspeak-w3-xsl-filter
          (point-min)
          (point-max)
@@ -757,8 +725,6 @@ prefix arg causes url to be read from the minibuffer."
                             w3-url)))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
-
-
 
 (declaim (special emacspeak-w3-xsl-map))
 (define-key emacspeak-w3-xsl-map "a"
