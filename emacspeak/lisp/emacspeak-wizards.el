@@ -703,7 +703,8 @@ end:\n\n")
 (loop for f in (frame-list)
                         collect
  (cons (frame-parameter f 'emacspeak-label)
-        (frame-parameter f 'emacspeak-label)))))
+        (frame-parameter f 'emacspeak-label)))
+nil t))
  
                         
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (label
