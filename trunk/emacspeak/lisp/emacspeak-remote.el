@@ -137,7 +137,9 @@ a local  Emacspeak terminal buffer.")
 (defvar emacspeak-remote-use-telnet-to-connect nil
   "*If set to t, then use a telnet subprocess
 to connect to the remote host that is running the speech
-server. Default is to use Emacs' built-in open-network-stream.")
+server. Default is to use Emacs' built-in
+open-network-stream.")
+
 (defun emacspeak-remote-quick-connect-to-server()
   "Connect to remote server.
 Does not prompt for host or port, but quietly uses the
@@ -147,6 +149,16 @@ Use this once you are sure the guesses are usually correct."
   (emacspeak-remote-connect-to-server
    (emacspeak-remote-get-current-remote-hostname)
    (string-to-number  emacspeak-remote-default-port-to-connect)))
+
+(defun emacspeak-remote-auto-connect-to-server ()
+  "Invoked via gnudoit --typically from a login sequence--
+to have the running emacspeak connect to a server running on
+the host we just logged in from."
+  (let ((host (emacspeak-remote-get-current-remote-hostname)))
+    (when (and  (> (length host) 0)
+                (not (eq host (system-name))))
+      (emacspeak-remote-quick-connect-to-server))))
+
 
 (defun  emacspeak-remote-connect-to-server (host port)
   "Connect to and start using remote speech server running on host host
