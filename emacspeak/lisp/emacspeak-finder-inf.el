@@ -77,6 +77,9 @@
     ("emacspeak-checkdoc.el"
         "Speech-enable checkdoc"
         (emacspeak  speak  spoken output  maintain code ))
+    ("emacspeak-cmuscheme.el"
+        "Scheme support for emacspeak"
+        (emacspeak  cmuscheme))
     ("emacspeak-compile.el"
         "Speech enable  navigation of  compile errors, grep matches"
         (emacspeak compile))
@@ -101,6 +104,9 @@
     ("emacspeak-dmacro.el"
         "Speech enable DMacro -- Dynamic  Macros "
         (emacspeak  audio interface to emacs dmacro))
+    ("emacspeak-ecb.el"
+        "speech-enable Emacs Class Browser"
+        (emacspeak  ecb))
     ("emacspeak-ediff.el"
         "Speech enable Emacs interface to diff and merge"
         (emacspeak  audio interface to emacs  comparing files ))
@@ -110,6 +116,9 @@
     ("emacspeak-entertain.el"
         "Speech enable misc games"
         (emacspeak  speak  spoken output  games))
+    ("emacspeak-erc.el"
+        "speech-enable erc irc client"
+        (emacspeak  erc))
     ("emacspeak-eshell.el"
         "Speech-enable EShell - Emacs Shell"
         (emacspeak  audio desktop))
@@ -212,6 +221,9 @@
     ("emacspeak-message.el"
         "Speech enable Message -- Used to compose news postings and replies"
         (emacspeak  audio interface to emacs posting messages))
+    ("emacspeak-metapost.el"
+        "speech-enable metapost mode"
+        (emacspeak  metapost))
     ("emacspeak-midge.el"
         "Speech-enable MIDI editor"
         (emacspeak  midi ))
@@ -224,6 +236,9 @@
     ("emacspeak-net-utils.el"
         "Speech enable net-utils"
         (emacspeak  network utilities ))
+    ("emacspeak-ocr.el"
+        "ocr Front-end for emacspeak desktop"
+        (emacspeak  ocr))
     ("emacspeak-oo-browser.el"
         "Speech enable OO Browser -- For Browsing large OO Systems"
         (emacspeak  speech access  browsing source code.))
@@ -353,6 +368,9 @@
     ("emacspeak-winring.el"
         "Speech enable WinRing -- Manage multiple Emacs window configurations"
         (emacspeak  speak  spoken output  winring))
+    ("emacspeak-wizards.el"
+        "Implements Emacspeak  convenience wizards"
+        (emacspeak   audio desktop wizards))
     ("emacspeak-wrolo.el"
         "Speech enable hyperbole's Rolodex"
         (emacspeak  rolodex  spoken output))

@@ -75,6 +75,14 @@
 ;;}}}
 ;;{{{  define summarizer
 
+(defun emacspeak-widget-summarize-parent ()
+  "Summarize parent of widget at point."
+  (interactive)
+  (let* ((w (widget-at (point)))
+         (p (when w (widget-get w :parent))))
+    (cond
+     (p (emacspeak-widget-summarize p))
+     (t (message "Widget at point has no parent")))))
 ;;; Find summarizer for a specific widget type and dispatch.
 
 (defun emacspeak-widget-summarize(widget)
@@ -291,23 +299,50 @@ e.g. for repeat lists."
 ;;{{{  toggle  
 
 (defun emacspeak-widget-help-toggle (widget)
-  "Summarize a toggle.
-Is smart about summarizing the parent where it makes sense."
+  "Summarize a toggle."
   (let* ((type (widget-type widget))
          (value (widget-value widget))
-         (tag (widget-get widget :tag))
-         (parent (widget-get widget :parent))
-         (parent-help(when parent
-                       (widget-apply parent :emacspeak-help))))
+         (tag (widget-get widget :tag)))
     (concat
      (or tag 
      (format " %s " type))
-     (or value " ")
-     (or parent-help " "))))
+     (if value " is on "
+       " is off "))))
+
 ;;; shared for checkbox 
 
 (widget-put (get 'toggle 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-toggle)
+
+;;}}}
+;;{{{  checklist
+
+(defun emacspeak-widget-help-checklist  (widget)
+  "Summarize a check list"
+  (let* ((tag (widget-get widget :tag))
+         (value (widget-value widget))
+         (type (widget-type widget ))
+         (selections (cond
+                      (value 
+                       (mapconcat
+                        #'(lambda (s)
+                            (format " %s " s))
+                        value " "))
+                      (t " no items  "))))
+    (put-text-property 0  (length selections)
+                       'personality 'paul-animated selections)
+    (put-text-property 0 (length tag)
+                       'personality 'harry tag)
+    (concat
+     (or tag (format " %s " type))
+     " has "
+     selections 
+     " checked ")))
+     
+      
+
+(widget-put (get 'checklist 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-checklist)
 
 ;;}}}
 ;;{{{ choice-item
@@ -315,61 +350,83 @@ Is smart about summarizing the parent where it makes sense."
 (defun emacspeak-widget-help-choice-item (widget)
   "Summarize a choice item"
   (let ((value (widget-value widget))
-        (tag (widget-get widget :tag))
-        (parent-type   (widget-type
-                        (widget-get widget :parent)))
-        (parent-name nil)
-        (parent-value nil))
-    (setq parent-name
-          (cond
-           ((eq parent-type 'radio-button-choice) "radio group ")
-           ((eq parent-type 'radio) "radio group ")
-           ((eq parent-type 'menu-choice) "menu ")
-           ((eq parent-type 'checkbox) " check list ")
-           (t (format "%s" parent-type))))
+        (tag (widget-get widget :tag)))
     (concat 
-     parent-name
      (or tag  "")
+(or value " ")
      " is "
-     (cond
-      ((eq parent-type 'checkbox)
-       (if value "checked" "unchecked"))
-      ((eq parent-type 'radio-button-choice)
-       (if value " pressed " "not pressed "))
-      (t (if value " on " " off "))))))
-
+     (widget-apply (widget-get widget :parent)
+                   :emacspeak-help))))
 
 (widget-put (get 'choice-item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-choice-item)
-(widget-put (get 'radio-button 'widget-type)
-            :emacspeak-help 'emacspeak-widget-help-choice-item)
+
 ;;}}}
 ;;{{{ checkbox
 
 (defun emacspeak-widget-help-checkbox (widget)
   "Summarize a checkbox"
-  (let ((value (widget-value widget))
-        (tag (widget-get widget :tag)))
-    (format "%s %s"
-            (or tag "")
+  (let* ((value (widget-value widget))
+                                        ;sibling has the lable
+         (sibling (widget-get-sibling widget))
+         (tag (widget-get widget :tag))
+         (label
+          (if sibling
+              (widget-get sibling :tag)
+            tag)))
+    (put-text-property 0 (length label)
+                       'personality 'paul-animated label)
+    (concat 
+            label 
             (if value "checked" "unchecked"))))
+
 (widget-put (get 'checkbox 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checkbox)
 
 ;;}}}
+;;{{{ radio-button
+
+(defun emacspeak-widget-help-radio-button (widget)
+  "Summarize a radio button"
+  (let* ((value (widget-value widget))
+        (tag (widget-get widget :tag))
+        ;sibling has the lable
+         (sibling (widget-get-sibling widget))
+         (label (if sibling
+              (widget-get sibling :tag)
+            tag)))
+    (concat 
+     (or label tag )
+     " is "
+     (if value
+         " pressed "
+       " not pressed "))))
+
+(widget-put (get 'radio-button 'widget-type)
+            :emacspeak-help 'emacspeak-widget-help-radio-button)
+
+;;}}}
 ;;{{{ radio-button-choice
 
-(defun emacspeak-widget-help-radio-button-choice (widget)
-  "Summarize a radio group"
-  (let ((value (widget-value widget))
-        (tag (widget-get widget :tag))
-        (type (widget-type  widget)))
-    (format "%s %s   is %s"
-            (if (eq type 'radio-button-choice )
-                "radio button"
-              (or type ""))
-            (or tag  "")
-            (or value ""))))
+(defun emacspeak-widget-help-radio-button-choice  (widget)
+  "Summarize a radio group "
+  (let* ((tag (widget-get widget :tag))
+         (value (widget-value widget))
+         (choice (widget-get widget :choice))
+         (type (widget-type widget ))
+         (selected
+          (cond
+           (choice (widget-get choice :tag))
+           (t (or value
+                  " no item ")))))
+    (put-text-property 0  (length selected)
+                       'personality 'paul-animated selected)
+    (put-text-property 0 (length tag)
+                       'personality 'harry tag)
+    (concat
+     (or tag (format " %s " type))
+     " is "
+     selected)))
 
 (widget-put (get 'radio-button-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-radio-button-choice)
@@ -609,7 +666,7 @@ prefix."
     (emacspeak-widget-summarize w)))
 
 (declaim (special widget-keymap))
-
+(define-key widget-keymap "\M-p" 'emacspeak-widget-summarize-parent)
 (define-key widget-field-keymap "\M-\C-m" 'emacspeak-widget-update-from-minibuffer)
 
 ;;}}}
