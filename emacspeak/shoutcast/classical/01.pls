@@ -1,0 +1,21 @@
+[playlist]
+numberofentries=6
+File1=http://205.188.234.35:8034
+Title1=(#1 - 171/500) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length1=-1
+File2=http://205.188.234.68:8004
+Title2=(#2 - 171/500) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length2=-1
+File3=http://205.188.234.67:8034
+Title3=(#3 - 86/250) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length3=-1
+File4=http://66.9.105.2:8400
+Title4=(#4 - 4/5) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length4=-1
+File5=http://160.79.1.141:8400
+Title5=(#5 - 4/5) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length5=-1
+File6=http://66.9.105.2:80
+Title6=(#6 - 5/5) M O S T L Y - C L A S S I C A L - Relax... it`s good for you! (powered by Digitally Imported)
+Length6=-1
+Version=2
