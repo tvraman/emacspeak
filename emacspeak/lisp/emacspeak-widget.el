@@ -737,7 +737,7 @@ widget before summarizing."
 ;;}}}
 ;;{{{ voice widgets 
 
-(define-widget 'voice  'radio
+(define-widget 'voice  'menu-choice
   :help-echo "Voice selector"
   "Widget for selecting a voice.")
 
@@ -746,29 +746,14 @@ widget before summarizing."
 
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
-  (widget-create 'voice
-                 :tag "voices"
-                 :args 
-(loop for key being the hash-keys of dtk-voice-table 
-collect
- (list 'personality :tag (prin1-to-string key)
-       :value key ))))
-
-(defun emacspeak-widget-help-personality (widget)
-  "Summarize voice  button."
-  (let* ((button-help (funcall
-                       'emacspeak-widget-help-radio-button widget))
-         (this-voice (widget-radio-value-get
-                      (widget-get widget :parent)))
-         (sample (format "This is %s" this-voice)))
-    (put-text-property 0 (length sample)
-                       'personality this-voice sample)
-    (concat  button-help 
-             " "
-             sample)))
-
-(widget-put (get 'personality 'widget-type)
-            :emacspeak-help 'emacspeak-widget-help-personality)
+  (let ((w
+         (widget-create 'voice
+                        :tag "voices")))
+    (widget-put w :args 
+                (loop for key being the hash-keys of dtk-voice-table 
+                      collect
+                      (list 'personality :value key )))
+w))
 
 ;;}}}
 (provide  'emacspeak-widget)
