@@ -330,7 +330,8 @@ Set this once per emacspeak session for efficiency.")
   "Replace repeating patterns.
 Argument STRING  specifies the repeating string to replace.
 Argument MODE  specifies the current pronunciation mode."
-  (let* ((pattern (regexp-quote string))
+  (let* ((len (length string))
+         (pattern (regexp-quote string))
          (reg (concat
                pattern pattern
                "\\(" pattern  "\\)+"))
@@ -344,9 +345,9 @@ Argument MODE  specifies the current pronunciation mode."
             (if  (string= "all" mode)
                 (format " aw %s %s"
                         (/ (- (match-end 0 ) (match-beginning 0))
-                           (length string))
+                           len)
                         (if (string= " " pattern)
-                            " space " string) )
+                            " space " string))
               ""))
       (replace-match replacement)
       (setq start (- (point) (length replacement)))
