@@ -86,6 +86,8 @@
 ;;}}}
 ;;{{{ Create and launch IMCom process
 
+
+
 (defvar emacspeak-imcom-process nil
   "Handle to running IMCom process.")
 
@@ -117,8 +119,10 @@
   "Start IMCom."
   (interactive)
   (declare (special emacspeak-imcom-process))
-  (unless (eq 'run 
-      (process-status  emacspeak-imcom-process))
+  (unless
+      (and (processp emacspeak-imcom-process)
+      (eq 'run 
+      (process-status  emacspeak-imcom-process)))
   (emacspeak-imcom-start-process))
   (emacspeak-auditory-icon 'open-object)
   (switch-to-buffer (process-buffer
