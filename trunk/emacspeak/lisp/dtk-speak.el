@@ -58,7 +58,7 @@
 (defgroup tts nil
   "Text To Speech (TTS) customizations for the Emacspeak
 audio desktop."
-:group 'emacspeak)
+  :group 'emacspeak)
 (defcustom dtk-stop-immediately-while-typing t
   "*Set it to nil if you dont want speech to flush as you type.
 You can use  command
@@ -73,8 +73,8 @@ to toggle this setting."
 This determines step size used when setting speech rate via command
 `dtk-set-predefined-speech-rate'.  Formula used is
 180 +  dtk-speech-rate-step*level"
-:type 'integer
-:group 'tts)
+  :type 'integer
+  :group 'tts)
 (defvar dtk-startup-hook nil
   "List of hooks to be run after starting up the speech server.  .
 Set things like speech rate, punctuation mode etc in this hook.")
@@ -138,12 +138,12 @@ no line --with no white space."
       (while (not (eobp))
         (setq start (point))
         (unless 
-      (looking-at  "^#")
-        (end-of-line)
-        (setq this (buffer-substring-no-properties start (point)))
-        (push
-         (cons this this)
-         result))
+            (looking-at  "^#")
+          (end-of-line)
+          (setq this (buffer-substring-no-properties start (point)))
+          (push
+           (cons this this)
+           result))
         (forward-line 1)))
     (setq dtk-servers-alist result)))
 
@@ -159,18 +159,18 @@ no line --with no white space."
   "Safely set punctuation mode for duration of body form."
   (`
    (progn
-   (declare (special dtk-punctuation-mode))
-   (let    ((save-punctuation-mode dtk-punctuation-mode))
-     (unwind-protect
-         (progn      
-           (setq dtk-punctuation-mode (, setting))
-           (dtk-interp-sync)
-           (,@ body)
-           (dtk-force))
-       (setq dtk-punctuation-mode
-             save-punctuation-mode)
-       (dtk-interp-sync)
-       (dtk-force))))))
+     (declare (special dtk-punctuation-mode))
+     (let    ((save-punctuation-mode dtk-punctuation-mode))
+       (unwind-protect
+           (progn      
+             (setq dtk-punctuation-mode (, setting))
+             (dtk-interp-sync)
+             (,@ body)
+             (dtk-force))
+         (setq dtk-punctuation-mode
+               save-punctuation-mode)
+         (dtk-interp-sync)
+         (dtk-force))))))
 
 ;;}}}
 ;;{{{  Mapping characters to speech:
@@ -459,115 +459,115 @@ no line --with no white space."
 (defvar dtk-iso-ascii-character-to-speech-table
   (and (boundp 'dtk-character-to-speech-table)
        (vectorp dtk-character-to-speech-table)
-        (copy-sequence dtk-character-to-speech-table))
+       (copy-sequence dtk-character-to-speech-table))
   "Table that records how ISO ascii characters are spoken.")
 
 (let ((table dtk-iso-ascii-character-to-speech-table))
-(aset table 160 " no-break space ")
-(aset table 161 " inverted exclamation mark ")
-(aset table 162 " cent sign ")
-(aset table 163 " sterling ")
-(aset table 164 " general currency sign ")
-(aset table 165 " yen sign ")
-(aset table 166 " broken vertical line ")
-(aset table 167 " section sign ")
-(aset table 168 " diaeresis ")
-(aset table 169 " copyright sign ")
-(aset table 170 " ordinal indicator, feminine ")
-(aset table 171 " left angle quotation mark ")
-(aset table 172 " not sign ")
-(aset table 173 " soft hyphen ")
-(aset table 174 " registered sign ")
-(aset table 175 " macron ")
-(aset table 176 " degree sign ")
-(aset table 177 " plus or minus sign ")
-(aset table 178 " superscript two ")
-(aset table 179 " superscript three ")
-(aset table 180 " acute ")
-(aset table 181 " mu ")
-(aset table 182 " pilcrow ")
-(aset table 183 " middle dot ")
-(aset table 184 " cedilla ")
-(aset table 185 " superscript one ")
-(aset table 186 " ordinal indicator, masculine ")
-(aset table 187 " right angle quotation mark ")
-(aset table 188 " fraction one-quarter ")
-(aset table 189 " fraction one-half ")
-(aset table 190 " fraction three-quarters ")
-(aset table 191 " inverted question mark ")
-(aset table 192 " A graav ")
-(aset table 193 " A acute ")
-(aset table 194 " A circumflex ")
-(aset table 195 " A tilde ")
-(aset table 196 " A diaeresis ")
-(aset table 197 " A ring ")
-(aset table 198 " AE diphthong ")
-(aset table 199 " C cedilla ")
-(aset table 200 " E graav ")
-(aset table 201 " E acute ")
-(aset table 202 " E circumflex ")
-(aset table 203 " E diaeresis ")
-(aset table 204 " I graav ")
-(aset table 205 " I acute ")
-(aset table 206 " I circumflex ")
-(aset table 207 " I diaeresis ")
-(aset table 208 " D stroke, Icelandic eth ")
-(aset table 209 " N tilde ")
-(aset table 210 " O graav ")
-(aset table 211 " O acute ")
-(aset table 212 " O circumflex ")
-(aset table 213 " O tilde ")
-(aset table 214 " O diaeresis ")
-(aset table 215 " multiplication sign ")
-(aset table 216 " O slash ")
-(aset table 217 " U graav ")
-(aset table 218 " U acute ")
-(aset table 219 " U circumflex ")
-(aset table 220 " U diaeresis ")
-(aset table 221 " Y acute ")
-(aset table 222 " capital thorn, Icelandic ")
-(aset table 223 " small sharp s, German ")
-(aset table 224 " a graav ")
-(aset table 225 " a acute ")
-(aset table 226 " a circumflex ")
-(aset table 227 " a tilde ")
-(aset table 228 " a diaeresis ")
-(aset table 229 " a ring ")
-(aset table 230 " ae diphthong ")
-(aset table 231 " c cedilla ")
-(aset table 232 " e graav ")
-(aset table 233 " e acute ")
-(aset table 234 " e circumflex ")
-(aset table 235 " e diaeresis ")
-(aset table 236 " i graav ")
-(aset table 237 " i acute ")
-(aset table 238 " i circumflex ")
-(aset table 239 " i diaeresis ")
-(aset table 240 " d stroke, Icelandic eth ")
-(aset table 241 " n tilde ")
-(aset table 242 " o graav ")
-(aset table 243 " o acute ")
-(aset table 244 " o circumflex ")
-(aset table 245 " o tilde ")
-(aset table 246 " o diaeresis ")
-(aset table 247 " division sign ")
-(aset table 248 " o slash ")
-(aset table 249 " u graav ")
-(aset table 250 " u acute ")
-(aset table 251 " u circumflex ")
-(aset table 252 " u diaeresis ")
-(aset table 253 " y acute ")
-(aset table 254 " small thorn, Icelandic ")
-(aset table 255 " small y diaeresis ")
-)
+  (aset table 160 " no-break space ")
+  (aset table 161 " inverted exclamation mark ")
+  (aset table 162 " cent sign ")
+  (aset table 163 " sterling ")
+  (aset table 164 " general currency sign ")
+  (aset table 165 " yen sign ")
+  (aset table 166 " broken vertical line ")
+  (aset table 167 " section sign ")
+  (aset table 168 " diaeresis ")
+  (aset table 169 " copyright sign ")
+  (aset table 170 " ordinal indicator, feminine ")
+  (aset table 171 " left angle quotation mark ")
+  (aset table 172 " not sign ")
+  (aset table 173 " soft hyphen ")
+  (aset table 174 " registered sign ")
+  (aset table 175 " macron ")
+  (aset table 176 " degree sign ")
+  (aset table 177 " plus or minus sign ")
+  (aset table 178 " superscript two ")
+  (aset table 179 " superscript three ")
+  (aset table 180 " acute ")
+  (aset table 181 " mu ")
+  (aset table 182 " pilcrow ")
+  (aset table 183 " middle dot ")
+  (aset table 184 " cedilla ")
+  (aset table 185 " superscript one ")
+  (aset table 186 " ordinal indicator, masculine ")
+  (aset table 187 " right angle quotation mark ")
+  (aset table 188 " fraction one-quarter ")
+  (aset table 189 " fraction one-half ")
+  (aset table 190 " fraction three-quarters ")
+  (aset table 191 " inverted question mark ")
+  (aset table 192 " A graav ")
+  (aset table 193 " A acute ")
+  (aset table 194 " A circumflex ")
+  (aset table 195 " A tilde ")
+  (aset table 196 " A diaeresis ")
+  (aset table 197 " A ring ")
+  (aset table 198 " AE diphthong ")
+  (aset table 199 " C cedilla ")
+  (aset table 200 " E graav ")
+  (aset table 201 " E acute ")
+  (aset table 202 " E circumflex ")
+  (aset table 203 " E diaeresis ")
+  (aset table 204 " I graav ")
+  (aset table 205 " I acute ")
+  (aset table 206 " I circumflex ")
+  (aset table 207 " I diaeresis ")
+  (aset table 208 " D stroke, Icelandic eth ")
+  (aset table 209 " N tilde ")
+  (aset table 210 " O graav ")
+  (aset table 211 " O acute ")
+  (aset table 212 " O circumflex ")
+  (aset table 213 " O tilde ")
+  (aset table 214 " O diaeresis ")
+  (aset table 215 " multiplication sign ")
+  (aset table 216 " O slash ")
+  (aset table 217 " U graav ")
+  (aset table 218 " U acute ")
+  (aset table 219 " U circumflex ")
+  (aset table 220 " U diaeresis ")
+  (aset table 221 " Y acute ")
+  (aset table 222 " capital thorn, Icelandic ")
+  (aset table 223 " small sharp s, German ")
+  (aset table 224 " a graav ")
+  (aset table 225 " a acute ")
+  (aset table 226 " a circumflex ")
+  (aset table 227 " a tilde ")
+  (aset table 228 " a diaeresis ")
+  (aset table 229 " a ring ")
+  (aset table 230 " ae diphthong ")
+  (aset table 231 " c cedilla ")
+  (aset table 232 " e graav ")
+  (aset table 233 " e acute ")
+  (aset table 234 " e circumflex ")
+  (aset table 235 " e diaeresis ")
+  (aset table 236 " i graav ")
+  (aset table 237 " i acute ")
+  (aset table 238 " i circumflex ")
+  (aset table 239 " i diaeresis ")
+  (aset table 240 " d stroke, Icelandic eth ")
+  (aset table 241 " n tilde ")
+  (aset table 242 " o graav ")
+  (aset table 243 " o acute ")
+  (aset table 244 " o circumflex ")
+  (aset table 245 " o tilde ")
+  (aset table 246 " o diaeresis ")
+  (aset table 247 " division sign ")
+  (aset table 248 " o slash ")
+  (aset table 249 " u graav ")
+  (aset table 250 " u acute ")
+  (aset table 251 " u circumflex ")
+  (aset table 252 " u diaeresis ")
+  (aset table 253 " y acute ")
+  (aset table 254 " small thorn, Icelandic ")
+  (aset table 255 " small y diaeresis ")
+  )
 
 ;;}}}
 (defsubst dtk-char-to-speech (char)
   "Translate CHAR to speech string."
   (declare (special dtk-character-to-speech-table))
-(if (> char 127 )
-(format "octal %o"  char )
-  (aref dtk-character-to-speech-table char )))
+  (if (> char 127 )
+      (format "octal %o"  char )
+    (aref dtk-character-to-speech-table char )))
 
 ;;}}}
 ;;{{{  interactively selecting the server:
@@ -611,12 +611,12 @@ The selected server is started immediately."
   (interactive
    (list
     (completing-read "Select speech server:"
-                          (or dtk-servers-alist
-                              (progn
-                                (tts-setup-servers-alist)
-                                dtk-servers-alist))
-                          nil
-                          t  )))
+                     (or dtk-servers-alist
+                         (progn
+                           (tts-setup-servers-alist)
+                           dtk-servers-alist))
+                     nil
+                     t  )))
   (declare (special  dtk-tcl dtk-program dtk-servers-alist
                      emacspeak-aumix-multichannel-capable-p))
   (setq dtk-program program)
@@ -624,11 +624,11 @@ The selected server is started immediately."
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
     (when (and (string= "outloud" dtk-program)
-         emacspeak-use-auditory-icons
-         (not emacspeak-aumix-multichannel-capable-p)
-         (not emacspeak-use-midi-icons)
-         emacspeak-aumix-midi-available-p)
-         (emacspeak-toggle-midi-icons))
+               emacspeak-use-auditory-icons
+               (not emacspeak-aumix-multichannel-capable-p)
+               (not emacspeak-use-midi-icons)
+               emacspeak-aumix-midi-available-p)
+      (emacspeak-toggle-midi-icons))
     (dtk-initialize)))
 
 ;;}}}
@@ -655,46 +655,37 @@ Default is to use pipes.")
                     dtk-speaker-process  dtk-debug
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
-  (let ((global-process (default-value 'dtk-speaker-process))
-        (new-process nil)
+  (let ((new-process nil)
         (process-connection-type  dtk-speak-process-connection-type))
-    (when (and dtk-speaker-process
-               (or (eq 'run (process-status dtk-speaker-process ))
-                   (eq 'open (process-status dtk-speaker-process ))
-                   (eq 'stop (process-status dtk-speaker-process ))))
-      (delete-process dtk-speaker-process ))
-    (when (or (eq window-system 'win32)
-              (eq window-system 'w32))
-      (dtk-select-server "dtk-sapi"))
     (setq new-process
           (apply 'start-process
                  "speaker"
                  (and dtk-debug tts-debug-buffer)
                  dtk-tcl
-                 (unless (string= dtk-program "dtk-sapi")
-                   (list (concat emacspeak-servers-directory
-                                 dtk-program)))))
+                 (list
+                  (expand-file-name dtk-program
+                                    emacspeak-servers-directory))))
     (process-kill-without-query new-process)
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
-    (setq dtk-speaker-process new-process)
-    (when (or (null global-process)
-              (null (process-status global-process))
-              (eq 'close (process-status global-process))
-              (eq 'exit (process-status global-process)))
-      (setq-default dtk-speaker-process new-process))
-    (when (eq dtk-program (default-value 'dtk-program))
-      (setq-default dtk-speaker-process new-process))
-    (tts-configure-synthesis-setup dtk-program)
-    (run-hooks 'dtk-startup-hook )
-    (dtk-interp-sync)
-    (unless dtk-speak-server-initialized
-      (message "The speech server is not running"))))
+    (cond
+     (dtk-speak-server-initialized
+      ;; nuke old server
+      (when (and dtk-speaker-process
+                 (or (eq 'run (process-status dtk-speaker-process ))
+                     (eq 'open (process-status dtk-speaker-process ))
+                     (eq 'stop (process-status dtk-speaker-process ))))
+        (delete-process dtk-speaker-process ))
+      (setq dtk-speaker-process new-process)
+      (tts-configure-synthesis-setup dtk-program)
+      (run-hooks 'dtk-startup-hook )
+      (dtk-interp-sync))
+     (t 
+      (message "The speech server is not running.")))))
 
 (defun tts-restart ()
-  "Use this to nuke the currently running TTS server and restart it.
-Useful if you want to switch to another synthesizer while emacspeak is running."
+  "Use this to nuke the currently running TTS server and restart it."
   (interactive)
   (dtk-initialize ))
 
