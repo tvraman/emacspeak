@@ -174,6 +174,7 @@ emacspeak-make-mode.elc \
 emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-ediff.elc \
+emacspeak-erc.elc \
 emacspeak-eshell.elc \
 emacspeak-generic.elc \
 emacspeak-gnus.elc\
@@ -261,6 +262,7 @@ emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc
+emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc
@@ -344,110 +346,6 @@ emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc
 emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc 
 emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc
 emacspeak.elc: emacspeak.el
-
-# }}}
-# {{{  shortcuts for building subsystems 
-
-#Compiling support for different packages:
-#this is done as part of make all.
-
-#You can recompile support for individual packages, e.g. calendar by typing
-# make calendar
-#
-actions: emacspeak-actions.elc 
-cd-tool: cd-tools.elc
-calendar: emacspeak-calendar.elc
-calc: emacspeak-calc.elc 
-calculator: emacspeak-calculator.elc
-c: emacspeak-c.elc
-jde: emacspeak-jde.elc
-sh-script: emacspeak-sh-script.elc
-speedbar: emacspeak-speedbar.elc
-sawfish: emacspeak-sawfish.elc
-realaudio: emacspeak-realaudio.elc
-freeamp: emacspeak-freeamp.elc
-python: emacspeak-python.elc
-compile: emacspeak-compile.elc
-auctex: emacspeak-auctex.elc
-reftex: emacspeak-reftex.elc
-aumix: emacspeak-aumix.elc
-bibtex: emacspeak-bibtex.elc
-dired: emacspeak-dired.elc  
-folding: emacspeak-folding.elc
-outline:emacspeak-outline.elc
-hyperbole: emacspeak-hyperbole.elc
-kotl: emacspeak-kotl.elc
-bbdb: emacspeak-bbdb.elc
-dmacro: emacspeak-dmacro.elc 
-wrolo: emacspeak-wrolo.elc
-oo-browser: emacspeak-oo-browser.elc
-table: emacspeak-table.elc
-table-ui: emacspeak-table-ui.elc
-tabulate: emacspeak-tabulate.elc
-tempo: emacspeak-tempo.elc
-url-template: emacspeak-url-template.elc
-tnt: emacspeak-tnt.elc
-pcl-cvs: emacspeak-pcl-cvs.elc
-tcl: emacspeak-tcl.elc
-perl: emacspeak-perl.elc
-cperl: emacspeak-cperl.elc
-gud: emacspeak-gud.elc 
-mpg123: emacspeak-mpg123.elc
-midge: emacspeak-midge.elc
-forms: emacspeak-forms.elc
-view: emacspeak-view.elc
-message: emacspeak-message.elc
-dismal: emacspeak-dismal.elc
-dictation: emacspeak-dictation.elc
-dictionary: emacspeak-dictionary.elc
-buff-sel: emacspeak-buff-sel.elc
-bs: emacspeak-bs.elc
-view-process: emacspeak-view-process.elc
-vm: emacspeak-vm.elc
-mspools: emacspeak-mspools.elc
-tapestry: emacspeak-tapestry.elc
-winring: emacspeak-winring.elc
-solitaire: emacspeak-solitaire.elc
-tetris: emacspeak-tetris.elc
-entertain: emacspeak-entertain.elc
-bookmark: emacspeak-bookmark.elc
-buff-menu: emacspeak-buff-menu.elc
-tar-mode: emacspeak-tar.elc
-tdtd: emacspeak-tdtd.elc 
-xslide: emacspeak-xslide.elc 
-arc: emacspeak-arc.elc
-imenu: emacspeak-imenu.elc
-ibuffer: emacspeak-ibuffer.elc
-remote: emacspeak-remote.elc
-sql: emacspeak-sql.elc
-supercite: emacspeak-supercite.elc
-sgml-mode: emacspeak-sgml-mode.elc
-psgml: emacspeak-psgml.elc
-enriched: emacspeak-enriched.elc
-facemenu: emacspeak-facemenu.elc
-checkdoc: emacspeak-checkdoc.elc
-websearch: emacspeak-websearch.elc
-babel: emacspeak-babel.elc
-hide: emacspeak-hide.elc
-filtertext: emacspeak-filtertext.elc
-gridtext: emacspeak-gridtext.elc
-hideshow: emacspeak-hideshow.elc
-widget: emacspeak-widget.elc
-custom: emacspeak-custom.elc
-w3: emacspeak-w3.elc  
-ispell: emacspeak-ispell.elc
-flyspell: emacspeak-flyspell.elc  
-find-func: emacspeak-find-func.elc
-find-dired: emacspeak-find-dired.elc
-make-mode: emacspeak-make-mode.elc
-net-utils: emacspeak-net-utils.elc
-eterm: emacspeak-eterm.elc
-eudc: emacspeak-eudc.elc
-ediff: emacspeak-ediff.elc
-old-ediff: emacspeak-old-ediff.elc
-gnus: emacspeak-gnus.elc
-generic: emacspeak-generic.elc
-gnuplot: emacspeak-gnuplot.elc
 
 # }}}
 # {{{  user level target-- clean
