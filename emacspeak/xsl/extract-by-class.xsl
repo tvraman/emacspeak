@@ -27,13 +27,6 @@ Param class specifies the class to extract.
 <!-- nuke these -->
   <xsl:template match="//script|//meta"/>
   <xsl:template match="/html/body">
-<head>
-      <xsl:element name="base">
-        <xsl:attribute name="href">
-          <xsl:value-of select="$base"/>
-        </xsl:attribute>
-      </xsl:element>
-    </head>
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <xsl:for-each select="//*[@class=$class]">
