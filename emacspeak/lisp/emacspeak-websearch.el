@@ -142,24 +142,18 @@
 
 (defun emacspeak-websearch-dispatch  (&optional prefix)
   "Launches specific websearch queries.
-Once selected, the selected searcher prompts for additional information as appropriate.
 Press `?' to list available search engines.
-
+Once selected, the selected searcher prompts for additional information as appropriate.
 When using W3,  this interface attempts to speak the most relevant information on the result page."
   (interactive "P")
   (let ((engine nil)
-        (saved-syntax-table (copy-syntax-table  (syntax-table)))
         (searcher nil))
-    (unwind-protect
-        (progn
-          (modify-syntax-entry 10  ">")
           (while (null engine)
             (setq engine
                   (emacspeak-websearch-get-engine 
                    (read-char 
                     (concat "Websearch? "
-                            (documentation this-command)))))))
-      (set-syntax-table saved-syntax-table))
+                            (documentation this-command))))))
     (setq searcher (emacspeak-websearch-get-searcher engine))
     (if searcher
         (call-interactively searcher)
