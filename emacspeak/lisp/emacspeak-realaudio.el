@@ -107,6 +107,18 @@ specifies the actual location of the realaudio stream
 
 (defvar emacspeak-realaudio-buffer "*realaudio*"
   "Name of realaudio process buffer")
+
+(defvar emacspeak-realaudio-start-time-mark nil
+  "Record mark of start time in seconds.")
+
+(make-variable-buffer-local 'emacspeak-realaudio-start-time-mark)
+
+(defvar emacspeak-realaudio-end-time-mark nil
+  "Record mark of end time in seconds.")
+
+(make-variable-buffer-local 'emacspeak-realaudio-end-time-mark)
+
+
 ;;;###autoload
 (defun emacspeak-realaudio-play (resource &optional prompt-time)
   "Play a realaudio stream.  Uses files from your Realaudio
