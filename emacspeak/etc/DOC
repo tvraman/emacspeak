@@ -63,6 +63,8 @@ Select TTS debugging buffer.
 
 Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
+Formula used is:
+rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 
 ------------------------------------------------------------
 
@@ -234,22 +236,6 @@ Interactive PREFIX arg makes the new setting global.
 
 ------------------------------------------------------------
 
-** emacspeak-arc-speak-file-permissionsSpeak permissions of file current entry 
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-modification-timeSpeak modification time of the file on current line
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-nameSpeak the name of the file on current line
-
-------------------------------------------------------------
-
-** emacspeak-arc-speak-file-sizeSpeak the size of the file on current line
-
-------------------------------------------------------------
-
 ** emacspeak-aumix-volume-decreaseDecrease overall volume. 
 
 ------------------------------------------------------------
@@ -371,71 +357,6 @@ unless `dired-listing-switches' contains -al
 
 ------------------------------------------------------------
 
-** emacspeak-dismal-forward-col-and-summarizeMove forward by arg columns
- (the next column by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-valueDisplay the cell value in the message area
-
-------------------------------------------------------------
-
-** emacspeak-dismal-sheet-summarizeSummarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-row-summarizer-listSpecify or reset row summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-col-headerDisplay current cell along with its column header.
-The `column header' is the entry in row 0.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-with-row-headerDisplays current cell along with its row header.
-The `row header' is the entry in column 0.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-forward-row-and-summarizeMove forward by arg rows
- (the next row by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-sheet-summarizer-listSpecify or reset sheet summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-row-summarizeSummarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-col-summarizeSummarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-
-------------------------------------------------------------
-
-** emacspeak-dismal-set-col-summarizer-listSpecify or reset col summarizer list.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-col-and-summarizeMove backward by arg columns
- (the previous column by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-backward-row-and-summarizeMove backward by arg rows
- (the previous row by default)and summarize it.
-
-------------------------------------------------------------
-
-** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
-
-------------------------------------------------------------
-
 ** emacspeak-ediff-speak-current-differenceSpeak the current difference
 
 ------------------------------------------------------------
@@ -450,6 +371,12 @@ Useful in voicifying rich text.
 ------------------------------------------------------------
 
 ** emacspeak-hangman-speak-statisticsSpeak statistics.
+
+------------------------------------------------------------
+
+** emacspeak-erc-toggle-my-monitorToggle state of ERC  monitor of my messages.
+Interactive PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
 
 ------------------------------------------------------------
 
@@ -782,6 +709,10 @@ Call appropriate freeamp command.
 
 ------------------------------------------------------------
 
+** emacspeak-gnus-summary-catchup-quietly-and-exitCatch up on all articles in current group.
+
+------------------------------------------------------------
+
 ** emacspeak-gomoku-speak-emacs-previous-moveSpeak emacs' previous move
 
 ------------------------------------------------------------
@@ -862,6 +793,65 @@ blocks in current buffer to be hidden or exposed.
 ------------------------------------------------------------
 
 ** emacspeak-ibuffer-speak-buffer-lineSpeak information about this buffer
+
+------------------------------------------------------------
+
+** emacspeak-imcom-view-chat-sessionDisplay specified chat session.
+
+------------------------------------------------------------
+
+** emacspeak-imcom	Key Sequence: control e x j 
+
+Start IMCom.
+
+------------------------------------------------------------
+
+** emacspeak-imcom-modeMajor mode for Jabber interaction using IMCom.
+
+
+key             binding
+---             -------
+
+C-c             Prefix Command
+C-d             comint-delchar-or-maybe-eof
+RET             comint-send-input
+C-down          comint-next-input
+C-up            comint-previous-input
+ESC             Prefix Command
+
+C-c v           emacspeak-imcom-view-chat-session
+C-c C-d         comint-send-eof
+C-c C-p         comint-previous-prompt
+C-c C-n         comint-next-prompt
+C-c C-l         comint-dynamic-list-input-ring
+C-c C-e         comint-show-maximum-output
+C-c C-r         comint-show-output
+C-c C-o         comint-kill-output
+C-c RET         comint-copy-old-input
+C-c C-\         comint-quit-subjob
+C-c C-z         comint-stop-subjob
+C-c C-c         comint-interrupt-subjob
+C-c C-w         backward-kill-word
+C-c C-u         comint-kill-input
+C-c C-a         comint-bol-or-process-mark
+C-c C-x         comint-get-next-from-history
+C-c SPC         comint-accumulate
+C-c ESC         Prefix Command
+
+ESC C-l         comint-show-output
+ESC s           comint-next-matching-input
+ESC r           comint-previous-matching-input
+ESC n           comint-next-input
+ESC p           comint-previous-input
+
+C-c ESC s       comint-next-matching-input-from-input
+C-c ESC r       comint-previous-matching-input-from-input
+
+
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
+during initialization.
 
 ------------------------------------------------------------
 
@@ -1124,34 +1114,34 @@ Pick a short but meaningful name.
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-previous-heading	Key Sequence: control l p   control c p 
+** emacspeak-outline-speak-previous-heading	Key Sequence: control l p 
 
 Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-this-heading	Key Sequence: control l SPACE   control c SPACE 
+** emacspeak-outline-speak-this-heading	Key Sequence: control l SPACE 
 
 Speak current outline section starting from point
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-backward-heading	Key Sequence: control l b   control c b 
+** emacspeak-outline-speak-backward-heading	Key Sequence: control l b 
 
 Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-next-heading	Key Sequence: control l n   control c n 
+** emacspeak-outline-speak-next-heading	Key Sequence: control l n 
 
 Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-forward-heading	Key Sequence: control l f   control c f 
+** emacspeak-outline-speak-forward-heading	Key Sequence: control l f 
 
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
@@ -1173,6 +1163,11 @@ explicitly turn pronunciations on or off.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-clear-dictionariesClear all current pronunciation dictionaries.
+
+------------------------------------------------------------
+
+** emacspeak-pronounce-edit-pronunciationsPrompt for and launch a pronunciation editor on the
+specified pronunciation dictionary key.
 
 ------------------------------------------------------------
 
@@ -1363,6 +1358,10 @@ speech flush as you type.
 
 ------------------------------------------------------------
 
+** emacspeak-kill-bufferSpeech-enabled version of kill-buffer for Emacs 21.
+
+------------------------------------------------------------
+
 ** emacspeak-forward-char	Key Sequence: control f   right 
 
 Forward-char redefined to speak char moved to. 
@@ -1450,16 +1449,16 @@ Kill current buffer without asking for confirmation.
 
 ** emacspeak-speak-line-set-column-filter	Key Sequence: control e | 
 
-Set up filter for selectively ignoring portions of lines.
+Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
-For example, to filter out columns 1 -- 10 and 20 -- 25,
+For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as 
-((0 9) (20 25)). Filter settings are persisted across
-sessions.
-A persisted filter is used as the default when prompting for
-a filter.
-This allows one to accumulate a set of filters for specific
-files like /var/adm/messages and /var/adm/maillog over time.
+((0 9) (20 25)). Filter settings are persisted across sessions.  A
+persisted filter is used as the default when prompting for a filter.
+This allows one to accumulate a set of filters for specific files like
+/var/adm/messages and /var/adm/maillog over time.
+Option emacspeak-speak-line-invert-filter determines 
+the sense of the filter. 
 
 ------------------------------------------------------------
 
@@ -1590,6 +1589,9 @@ paragraph-separate.
 ** emacspeak-speak-message-again	Key Sequence: control e a 
 
 Speak the last message from Emacs once again.
+Optional interactive prefix arg 
+`from-message-cache' speaks message cached from the most
+recent call to function `message'.
 
 ------------------------------------------------------------
 
@@ -1899,6 +1901,12 @@ Will be improved if it proves useful.
 ** emacspeak-toggle-word-echo	Key Sequence: control e d w 
 
 Toggle state of  Emacspeak  word echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+
+------------------------------------------------------------
+
+** emacspeak-toggle-speak-line-invert-filterToggle state of   how column filter is interpreted.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
@@ -2419,24 +2427,40 @@ that has been forwarded multiple times.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-next-doc-elementt 'byte-optimizer 'byte-compile-inline-expand)
-#@129 Move forward  to the next document element.
+** emacspeak-vm-next-buttonMove point to N buttons forward.
+If N is negative, move backward instead.
+
+------------------------------------------------------------
+
+** emacspeak-vm-mime-save-attachment-under-pointSave attachment under point
+
+------------------------------------------------------------
+
+** emacspeak-w3-next-doc-elementMove forward  to the next document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-speak-this-elements-element])
+** emacspeak-w3-speak-this-elementSpeak document element under point.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-toggle-table-borders-silent-border (make-vector 16 32) (#$ . 5433))
-#@36 Toggle drawing of W3 table borders
+** emacspeak-w3-toggle-table-bordersToggle drawing of W3 table borders
 
 ------------------------------------------------------------
 
-** emacspeak-w3-url-rewrite-and-followe-buffer-local 'emacspeak-w3-url-rewrite-rule)
-#@539 Apply a url rewrite rule as specified in the current buffer
+** emacspeak-w3-xslt-filter	Key Sequence: control e x e f 
+
+Extract elements matching specified XPath path locator
+from HTML.  Extracts specified elements from current WWW
+page and displays it in a separate buffer.  Optional arg url
+specifies the page to extract table from.  Interactive
+prefix arg causes url to be read from the minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-url-rewrite-and-followApply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
 form `(from to)' where from and to are strings.  Typically,
@@ -2449,34 +2473,84 @@ even if one is already defined.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-speak-next-element-function])
+** emacspeak-w3-speak-next-elementSpeak next document element.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-lynx-url-under-pointk-speak-line])
+** emacspeak-w3-jump-to-submitJump to next available submit button.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-show-anchor-classk "t" emacspeak-w3-jump-to-title-in-content] 4)
-#@68 Display any class attributes set on corresponding anchor
+** emacspeak-w3-xsl-toggle	Key Sequence: control e x e t 
+
+Toggle  XSL transformations before displaying HTML.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package.
+
+------------------------------------------------------------
+
+** emacspeak-w3-lynx-url-under-pointDisplay contents of URL under point using LYNX.  The
+document is displayed in a separate buffer. Note that the
+hyperlinks in that display are not active-- this facility is
+present only to help me iron out the remaining problems with
+the table structure extraction code in W3.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-table	Key Sequence: control e x e x 
+
+Extract tables from HTML.  Extracts specified table from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-xslt-select	Key Sequence: control e x e s 
+
+Select transformation to apply.
+
+------------------------------------------------------------
+
+** emacspeak-w3-show-anchor-classDisplay any class attributes set on corresponding anchor
 element. 
 
 ------------------------------------------------------------
 
-** emacspeak-w3-jump-to-title-in-contentunction])
+** emacspeak-w3-jump-to-title-in-contentJumps to the occurrence of document title in page body.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-javascript-follow-link3-fetch])
+** emacspeak-w3-extract-by-class	Key Sequence: control e x e c 
+
+Extract elements having specified class attribute  from
+HTML.  
+Extracts specified elements from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-do-onclickup-buffer " *javascript-cleanup*" (#$ . 10213))
-#@21 Do  onclick action.
+** emacspeak-w3-javascript-follow-linkFollow URL hidden inside a javascript link
 
 ------------------------------------------------------------
 
-** emacspeak-w3-previous-doc-element-element])
+** emacspeak-w3-do-onclickDo  onclick action.
+
+------------------------------------------------------------
+
+** emacspeak-w3-previous-doc-elementMove back  to the previous document element.
+Optional interactive prefix argument COUNT 
+specifies by how many eleemnts to move.
+
+------------------------------------------------------------
+
+** emacspeak-w3-xslt-apply	Key Sequence: control e x e a 
+
+Apply specified transformation to current page.
 
 ------------------------------------------------------------
 
@@ -2485,10 +2559,6 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google-usenet-advancedPresent Google Usenet advanced search form simplified for speech interaction.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-rfb-searchSearch RFB&D catalog.
 
 ------------------------------------------------------------
 
@@ -2503,47 +2573,8 @@ element.
 ** emacspeak-websearch-dispatch	Key Sequence: control e ? 
 
 Launches specific websearch queries.
-Search engine is selected by keystrokes listed below.
+Press `?' to list available search engines.
 Once selected, the selected searcher prompts for additional information as appropriate.
-
-Key     Engine              Search
-a       AltaVista                   AltaVista Simple Search
-Cap A     AllTheWeb                   All The Web
-b       BBC                         BBC Archives
-C-b     Biblio                      Computer Science Bibliography
-c       CNN                         CNN Interactive
-Cap C   Company News                Lookup Company News By Ticker
-C-c     CiteSeer                    Computer Science Citation  Index
-d       usenet                    Usenet Archives (formerly Dejanews)
-Cap D   Dictionary                  Hypertext Websters Dictionary
-e   Encyclopedia                    Encyclopedia Britannica
-f       CNN-FN                      CNN  Financial Network
-cap F   FolDoc                      Free Online Dictionary Of Computing
-g       Google                      The Google WWW Index
-.       Advanced Google                      Advanced Google WWW Index
-Cap G   Gutenberg Locate Gutenberg Etexts
-h       HotBot                      HotBot WWW Index
-i       Inference                   Inference WWW Search 
-j       jeeves                      Ask Jeeves
-k       kerbango                    Kerbango Radio Tuner
-m       Map                         Driving directions from Yahoo
-Cap M   Dictionary                  Merriam Webster Dictionary
-n       news-yahoo                  News Wire at Yahoo
-Cap N   NLight                      Northern Light Search
-o       open-directory              Open Directory Search 
-p       People                      People Search (Yahoo)
-r       RedHat                      Search RedHat Via Google
-Cap R   RFBD                        RFB&D Catalog search
-C-r RPMFind                         Find RPM packages
-s       Software                  Search for software
-t       translate                 Machine translation 
-u       usenet            Usenet Index from Google
-w       Weather                     Weather Channel  By Zip Code
-cap W   W3C                         Search W3C Site
-v   Vickers                         Vickers Insider Trades
-Cap VVectorVestVectorVest Stock Reports
-y       yahoo                       Master Yahoo Index
-
 When using W3,  this interface attempts to speak the most relevant information on the result page.
 
 ------------------------------------------------------------
@@ -2568,6 +2599,10 @@ archives, type +redhat
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-helpDisplays key mapping used by Emacspeak Websearch.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-alltheweb-searchPerform an AllTheWeb  search.
 Optional prefix arg prompts for type of search:
 --use `all' `phrase' or  `any'
@@ -2579,7 +2614,7 @@ to specify the type of search.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-kerbango-searchSearch Kerbango radio tuner.
+** emacspeak-websearch-exchange-rate-convertorCurrency convertor.
 
 ------------------------------------------------------------
 
@@ -2606,6 +2641,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-software-searchSearch SourceForge, Freshmeat and other sites. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-display-formDisplay form specified by form-markup.
 
 ------------------------------------------------------------
 
@@ -2639,7 +2678,7 @@ With optional interactive prefix arg MAP shows the location map instead.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-yahoo-historical-chartLook up historical stock data.
-Optional second arg data processes the results as data rather than HTML.
+Optional second arg as-html processes the results as HTML rather than data.
 
 ------------------------------------------------------------
 
@@ -2647,6 +2686,10 @@ Optional second arg data processes the results as data rather than HTML.
 
 Prompt and browse a Usenet newsgroup.
 Optional interactive prefix arg results in prompting for a search term.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-shoutcast-searchEbay search.
 
 ------------------------------------------------------------
 
@@ -2681,6 +2724,10 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-real-tunerSearch using Real Tuner from Real Networks.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-open-directory-searchPerform an Open Directory search
 
 ------------------------------------------------------------
@@ -2689,11 +2736,19 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-streaming-audio-searchSearch for streaming audio. 
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-redhatSearch RedHat site.
 
 ------------------------------------------------------------
 
 ** emacspeak-websearch-sourceforge-searchSearch SourceForge Site. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-amazon-searchAmazon search.
 
 ------------------------------------------------------------
 
@@ -2716,6 +2771,10 @@ emacspeak-websearch-hotbot-options to an appropriate string.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-recorded-books-searchPresent advanced search form for recorded books.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-yahooPerform an Yahoo  search
 
 ------------------------------------------------------------
@@ -2733,6 +2792,10 @@ emacspeak-websearch-hotbot-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-northern-lightPerform a Northern Light  search
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ebay-searchEbay search.
 
 ------------------------------------------------------------
 
@@ -2777,40 +2840,16 @@ widget before summarizing.
 
 ------------------------------------------------------------
 
-** emacspeak-submit-bug	Key Sequence: control e control b 
-
-Function to submit a bug to the programs maintainer.
-
-------------------------------------------------------------
-
-** emacspeak-describe-emacspeak	Key Sequence: control h control e 
-
-Give a brief overview of emacspeak.
-
-------------------------------------------------------------
-
-** quotes-setup-emacspeak-portfolioSet up variable emacspeak-websearch-personal-portfolio. 
-
-------------------------------------------------------------
-
-** emacspeak-websearch-blue-pagesSearch IBM Blue Pages
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internalSearch IBM My News
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-newsSearch IBM My News
-
-------------------------------------------------------------
-
 ** emacspeak-speak-this-buffer-previous-display	Key Sequence: control e left 
 
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
 meaning of `previous'.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-rpm-query-in-diredRun rpm -qi on current dired entry.
 
 ------------------------------------------------------------
 
@@ -2823,6 +2862,22 @@ Move to next frame.
 ** emacspeak-view-emacspeak-doc	Key Sequence: control e  cap D  
 
 Display a summary of all Emacspeak commands.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-xl-modeMajor mode for browsing XL spreadsheets.
+
+
+XL Sheets are converted to HTML and previewed using W3.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-xl-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 
 ------------------------------------------------------------
 
@@ -2894,6 +2949,13 @@ Extracted content is placed as a csv file in task.csv.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-xl-displayCalled to set up preview of an XL file.
+Assumes we are in a buffer visiting a .xls file.
+Previews those contents as HTML and nukes the buffer
+visiting the xls file.
+
+------------------------------------------------------------
+
 ** emacspeak-select-this-buffer-previous-display	Key Sequence: control e control left 
 
 Select this buffer as displayed in a `previous' window.
@@ -2950,6 +3012,13 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-ppt-displayCalled to set up preview of an XL file.
+Assumes we are in a buffer visiting a .ppts file.
+Previews those contents as HTML and nukes the buffer
+visiting the ppts file.
 
 ------------------------------------------------------------
 
@@ -3025,6 +3094,22 @@ Get latest cvs snapshot of emacspeak.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-ppt-modeMajor mode for browsing XL spreadsheets.
+
+
+XL Sheets are converted to HTML and previewed using W3.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
+
+------------------------------------------------------------
+
 ** emacspeak-frame-label-or-switch-to-labelled-frame	Key Sequence: control e meta f 
 
 Switch to labelled frame.
@@ -3096,6 +3181,8 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 ** emacspeak-root	Key Sequence: control e control r 
 
 Start a root shell or switch to one that already exists.
+Optional interactive prefix arg `cd' executes cd
+default-directory after switching.
 
 ------------------------------------------------------------
 
@@ -3176,7 +3263,176 @@ If no property is set, show a message and exit.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-jump-to-submitJump to next available submit button.
+** emacspeak-wizards-shell-toggle	Key Sequence: control e f11 
+
+Switch to the shell buffer and cd to 
+ the directory of the current buffer.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-goto-parentNavigate up to the parent of current node.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-goto-childrenNavigate down to the children of current node.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell	Key Sequence: control e x x 
+
+Start Xml-Shell on contents of system-id.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-modeXML Shell
+
+
+Interactive XML browser.
+key             binding
+---             -------
+
+C-c             Prefix Command
+down            emacspeak-xml-shell-goto-children
+up              emacspeak-xml-shell-goto-parent
+right           emacspeak-xml-shell-goto-next-child
+left            emacspeak-xml-shell-goto-previous-child
+
+C-c v           emacspeak-xml-shell-browse-current
+
+
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-goto-previous-childNavigate backward  to the previous child  of current node.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-browse-currentDisplay current node.
+
+------------------------------------------------------------
+
+** emacspeak-xml-shell-goto-next-childNavigate forward  to the next child  of current node.
+
+------------------------------------------------------------
+
+** emacspeak-submit-bug	Key Sequence: control e control b 
+
+Function to submit a bug to the programs maintainer.
+
+------------------------------------------------------------
+
+** emacspeak-describe-emacspeak	Key Sequence: control h control e 
+
+Give a brief overview of emacspeak.
+
+------------------------------------------------------------
+
+** quotes-setup-emacspeak-portfolioSet up variable emacspeak-websearch-personal-portfolio. 
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-permissionsSpeak permissions of file current entry 
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-modification-timeSpeak modification time of the file on current line
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-nameSpeak the name of the file on current line
+
+------------------------------------------------------------
+
+** emacspeak-arc-speak-file-sizeSpeak the size of the file on current line
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-col-and-summarizeMove forward by arg columns
+ (the next column by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-valueDisplay the cell value in the message area
+
+------------------------------------------------------------
+
+** emacspeak-dismal-sheet-summarizeSummarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-row-summarizer-listSpecify or reset row summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-col-headerDisplay current cell along with its column header.
+The `column header' is the entry in row 0.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-with-row-headerDisplays current cell along with its row header.
+The `row header' is the entry in column 0.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-forward-row-and-summarizeMove forward by arg rows
+ (the next row by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-sheet-summarizer-listSpecify or reset sheet summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-row-summarizeSummarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-col-summarizeSummarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+
+------------------------------------------------------------
+
+** emacspeak-dismal-set-col-summarizer-listSpecify or reset col summarizer list.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-col-and-summarizeMove backward by arg columns
+ (the previous column by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-backward-row-and-summarizeMove backward by arg rows
+ (the previous row by default)and summarize it.
+
+------------------------------------------------------------
+
+** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
+
+------------------------------------------------------------
+
+** emacspeak-info-speak-headerSpeak info header line.
+
+------------------------------------------------------------
+
+** emacspeak-sf-statsShow emacspeak sf statistics.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-blue-pagesSearch IBM Blue Pages
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internalSearch IBM My News
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-my-newsSearch IBM My News
 
 ------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -65,6 +65,9 @@ emacspeak-redefine.
      emacspeak-toggle-word-echo bound to C-e d w.  Toggle variable
      dtk-stop-immediately-while-typing if you want to have speech flush
      as you type.
+
+ - emacspeak-kill-buffer:
+     Speech-enabled version of kill-buffer for Emacs 21.
 
  - emacspeak-forward-char:
      ` control f   right '
@@ -206,13 +209,15 @@ emacspeak-speak.
  - emacspeak-speak-line-set-column-filter:
      ` control e | '
 
-     Set up filter for selectively ignoring portions of lines.  The
-     filter is specified as a list of pairs.  For example, to filter
-     out columns 1 - 10 and 20 - 25, specify filter as ((0 9) (20 25)).
-     Filter settings are persisted across sessions.  A persisted filter
-     is used as the default when prompting for a filter.  This allows
-     one to accumulate a set of filters for specific files like
-     /var/adm/messages and /var/adm/maillog over time.
+     Set up filter for selectively speaking or ignoring portions of
+     lines.  The filter is specified as a list of pairs.  For example,
+     to filter  columns 1 - 10 and 20 - 25, specify filter as ((0 9)
+     (20 25)). Filter settings are persisted across sessions.  A
+     persisted filter is used as the default when prompting for a
+     filter.  This allows one to accumulate a set of filters for
+     specific files like /var/adm/messages and /var/adm/maillog over
+     time.  Option emacspeak-speak-line-invert-filter determines the
+     sense of the filter.
 
  - emacspeak-speak-current-percentage:
      ` control e % '
@@ -316,7 +321,9 @@ emacspeak-speak.
  - emacspeak-speak-message-again:
      ` control e a '
 
-     Speak the last message from Emacs once again.
+     Speak the last message from Emacs once again.  Optional
+     interactive prefix arg `from-message-cache' speaks message cached
+     from the most recent call to function `message'.
 
  - emacspeak-speak-line:
      ` control e l '
@@ -573,6 +580,11 @@ emacspeak-speak.
      Toggle state of  Emacspeak  word echo.  Interactive PREFIX arg
      means toggle  the global default value, and then set the current
      local  value to the result.
+
+ - emacspeak-toggle-speak-line-invert-filter:
+     Toggle state of   how column filter is interpreted.  Interactive
+     PREFIX arg means toggle  the global default value, and then set the
+     current local  value to the result.
 
  - emacspeak-toggle-show-point:
      ` control e control d '
@@ -1064,7 +1076,7 @@ emacspeak-view.
      Moves current line to top of window
 
 
-File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-websearch,  Prev: emacspeak-view,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view,  Up: Emacspeak Commands
 
 emacspeak-vm
 ============
@@ -1085,8 +1097,120 @@ emacspeak-vm.
      Locates the subject line in a message being read.  Useful when
      you're reading a message that has been forwarded multiple times.
 
+ - emacspeak-vm-next-button:
+     Move point to N buttons forward.  If N is negative, move backward
+     instead.
+
+ - emacspeak-vm-mime-save-attachment-under-point:
+     Save attachment under point
+
 
-File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-vm,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-websearch,  Prev: emacspeak-vm,  Up: Emacspeak Commands
+
+emacspeak-w3
+============
+
+   Commentary: Ensure that speech support for W3 gets installed and
+loaded correctly.  The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3.
+
+ - emacspeak-w3-next-doc-element:
+     Move forward  to the next document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-speak-this-element:
+     Speak document element under point.
+
+ - emacspeak-w3-toggle-table-borders:
+     Toggle drawing of W3 table borders
+
+ - emacspeak-w3-xslt-filter:
+     ` control e x e f '
+
+     Extract elements matching specified XPath path locator from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer.  Optional arg url specifies the page to
+     extract table from.  Interactive prefix arg causes url to be read
+     from the minibuffer.
+
+ - emacspeak-w3-url-rewrite-and-follow:
+     Apply a url rewrite rule as specified in the current buffer before
+     following link under point.  If no rewrite rule is defined, first
+     prompt for one.  Rewrite rules are of the form `(from to)' where
+     from and to are strings.  Typically, the rewrite rule is
+     automatically set up by Emacspeak tools like websearch where a
+     rewrite rule is known.  Rewrite rules are useful in jumping
+     directly to the printer friendly version of an article for example.
+     Optional interactive prefix arg  prompts for a rewrite rule even
+     if one is already defined.
+
+ - emacspeak-w3-speak-next-element:
+     Speak next document element.
+
+ - emacspeak-w3-jump-to-submit:
+     Jump to next available submit button.
+
+ - emacspeak-w3-xsl-toggle:
+     ` control e x e t '
+
+     Toggle  XSL transformations before displaying HTML.  This uses
+     XSLT Processor xsltproc available as part of the libxslt package.
+
+ - emacspeak-w3-lynx-url-under-point:
+     Display contents of URL under point using LYNX.  The document is
+     displayed in a separate buffer. Note that the hyperlinks in that
+     display are not active- this facility is present only to help me
+     iron out the remaining problems with the table structure
+     extraction code in W3.
+
+ - emacspeak-w3-extract-table:
+     ` control e x e x '
+
+     Extract tables from HTML.  Extracts specified table from current
+     WWW page and displays it in a separate buffer.  Optional arg url
+     specifies the page to extract table from.  Interactive prefix arg
+     causes url to be read from the minibuffer.
+
+ - emacspeak-w3-xslt-select:
+     ` control e x e s '
+
+     Select transformation to apply.
+
+ - emacspeak-w3-show-anchor-class:
+     Display any class attributes set on corresponding anchor element.
+
+ - emacspeak-w3-jump-to-title-in-content:
+     Jumps to the occurrence of document title in page body.
+
+ - emacspeak-w3-extract-by-class:
+     ` control e x e c '
+
+     Extract elements having specified class attribute  from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer.  Optional arg url specifies the page to
+     extract table from.  Interactive prefix arg causes url to be read
+     from the minibuffer.
+
+ - emacspeak-w3-javascript-follow-link:
+     Follow URL hidden inside a javascript link
+
+ - emacspeak-w3-do-onclick:
+     Do  onclick action.
+
+ - emacspeak-w3-previous-doc-element:
+     Move back  to the previous document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-xslt-apply:
+     ` control e x e a '
+
+     Apply specified transformation to current page.
+
+
+File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev: emacspeak-w3,  Up: Emacspeak Commands
 
 emacspeak-websearch
 ===================
@@ -1104,9 +1228,6 @@ emacspeak-websearch.
      Present Google Usenet advanced search form simplified for speech
      interaction.
 
- - emacspeak-websearch-rfb-search:
-     Search RFB&D catalog.
-
  - emacspeak-websearch-freshmeat-search:
      Search Freshmeat  Site.
 
@@ -1116,111 +1237,11 @@ emacspeak-websearch.
  - emacspeak-websearch-dispatch:
      ` control e ? '
 
-     Launches specific websearch queries.  Search engine is selected by
-     keystrokes listed below.  Once selected, the selected searcher
-     prompts for additional information as appropriate.
-    `a'
-          AltaVista Simple Search
-
-    `Cap-A'
-          All The Web
-
-    `b'
-          BBC Archives
-
-    `C-b'
-          Computer Science Bibliography
-
-    `c'
-          CNN Interactive
-
-    `Cap-C'
-          Company News By Ticker
-
-    `C-c'
-          Computer Science Citation  Index
-
-    `d'
-          Usenet Archives (formerly Dejanews)
-
-    `Cap-D'
-          Hypertext Websters Dictionary
-
-    `e'
-          Encyclopedia Britannica
-
-    `f'
-          CNN  Financial Network
-
-    `cap-F'
-          Free Online Dictionary Of Computing
-
-    `g'
-          Google search
-
-    `.'
-          Advanced Google WWW Index
-
-    `Cap-G'
-          Locate Gutenberg Etexts
-
-    `h'
-          HotBot WWW Index
-
-    `j'
-          Ask Jeeves
-
-    `m'
-          Maps from Yahoo
-
-    `Cap-M'
-          Merriam Webster Dictionary
-
-    `n'
-          News Wire at Yahoo
-
-    `Cap-N'
-          Northern Light Search
-
-    `o'
-          Open Directory Search
-
-    `p'
-          People Search (Yahoo)
-
-    `r'
-          Search RedHat Via Google
-
-    `Cap R'
-          RFBD Catalog search
-
-    `C-r'
-          Find RPM packages
-
-    `s'
-          Software search
-
-    `t'
-          Machine translation
-
-    `u'
-          Usenet Index from Google
-
-    `w'
-          Weather Channel  By Zip Code
-
-    `cap W'
-          W3C Site
-
-    `v'
-          Vickers Insider Trades
-
-    `Cap V'
-          VectorVest Stock  Reports
-
-    `y'
-          Master Yahoo Index When using W3,  this interface attempts to
-     speak the most relevant information on the result page.
+     Launches specific websearch queries.  Press `?' to list available
+     search engines.  Once selected, the selected searcher prompts for
+     additional information as appropriate.  When using W3,  this
+     interface attempts to speak the most relevant information on the
+     result page.
 
  - emacspeak-websearch-google:
      Perform an Google search
@@ -1237,6 +1258,9 @@ emacspeak-websearch.
  - emacspeak-websearch-citeseer-search:
      Perform a CiteSeer search.
 
+ - emacspeak-websearch-help:
+     Displays key mapping used by Emacspeak Websearch.
+
  - emacspeak-websearch-alltheweb-search:
      Perform an AllTheWeb  search.  Optional prefix arg prompts for
      type of search: -use `all' `phrase' or  `any' to specify the type
@@ -1245,8 +1269,8 @@ emacspeak-websearch.
  - emacspeak-websearch-gutenberg:
      Perform an Gutenberg search
 
- - emacspeak-websearch-kerbango-search:
-     Search Kerbango radio tuner.
+ - emacspeak-websearch-exchange-rate-convertor:
+     Currency convertor.
 
  - emacspeak-websearch-cnn-search:
      Perform an CNN search.  Optional interactive prefix arg prompts
@@ -1266,6 +1290,9 @@ emacspeak-websearch.
 
  - emacspeak-websearch-software-search:
      Search SourceForge, Freshmeat and other sites.
+
+ - emacspeak-websearch-display-form:
+     Display form specified by form-markup.
 
  - emacspeak-websearch-weather:
      Get weather forecast for specified zip code.
@@ -1290,14 +1317,17 @@ emacspeak-websearch.
      Search BBC archives.
 
  - emacspeak-websearch-yahoo-historical-chart:
-     Look up historical stock data.  Optional second arg data processes
-     the results as data rather than HTML.
+     Look up historical stock data.  Optional second arg as-html
+     processes the results as HTML rather than data.
 
  - emacspeak-websearch-usenet:
      ` control e  cap U  '
 
      Prompt and browse a Usenet newsgroup.  Optional interactive prefix
      arg results in prompting for a search term.
+
+ - emacspeak-websearch-shoutcast-search:
+     Ebay search.
 
  - emacspeak-websearch-vickers-search:
      Search Vickers insider trading.
@@ -1322,17 +1352,26 @@ emacspeak-websearch.
  - emacspeak-websearch-packages-linux:
      Search for Linux packages.
 
+ - emacspeak-websearch-real-tuner:
+     Search using Real Tuner from Real Networks.
+
  - emacspeak-websearch-open-directory-search:
      Perform an Open Directory search
 
  - emacspeak-websearch-appwatch-search:
      Search AppWatch  Site.
 
+ - emacspeak-websearch-streaming-audio-search:
+     Search for streaming audio.
+
  - emacspeak-websearch-redhat:
      Search RedHat site.
 
  - emacspeak-websearch-sourceforge-search:
      Search SourceForge Site.
+
+ - emacspeak-websearch-amazon-search:
+     Amazon search.
 
  - emacspeak-websearch-vector-vest-search:
      Look up VectorVest reports .
@@ -1347,6 +1386,9 @@ emacspeak-websearch.
      parameter &rf=0.  To hide summaries, specify additional parameter
      &lk=2.  You can customize the defaults by setting variable
      emacspeak-websearch-hotbot-options to an appropriate string.
+
+ - emacspeak-websearch-recorded-books-search:
+     Present advanced search form for recorded books.
 
  - emacspeak-websearch-yahoo:
      Perform an Yahoo  search
@@ -1363,6 +1405,9 @@ emacspeak-websearch.
  - emacspeak-websearch-northern-light:
      Perform a Northern Light  search
 
+ - emacspeak-websearch-ebay-search:
+     Ebay search.
+
  - emacspeak-websearch-google-advanced:
      Present Google advanced search form simplified for speech
      interaction.
@@ -1375,7 +1420,7 @@ emacspeak-websearch.
      profile, insider trades,  or upgrades/downgrades.
 
 
-File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-wizards,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
 
 emacspeak-widget
 ================
@@ -1408,37 +1453,4 @@ emacspeak-widget.
      Summarize a widget if any under point.  Optional interactive
      prefix specifies how many levels to go up from current widget
      before summarizing.
-
-
-File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-widget,  Up: Emacspeak Commands
-
-emacspeak
-=========
-
-   Commentary: The complete audio desktop.
-
-   Automatically generated documentation for commands defined in module
-emacspeak.
-
- - emacspeak-submit-bug:
-     ` control e control b '
-
-     Function to submit a bug to the programs maintainer.
-
- - emacspeak-describe-emacspeak:
-     ` control h control e '
-
-     Give a brief overview of emacspeak.
-
-
-File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-w3,  Prev: emacspeak,  Up: Emacspeak Commands
-
-dis-quote
-=========
-
-   Automatically generated documentation for commands defined in module
-dis-quote.
-
- - quotes-setup-emacspeak-portfolio:
-     Set up variable emacspeak-websearch-personal-portfolio.
 
