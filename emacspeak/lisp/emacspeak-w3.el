@@ -724,6 +724,7 @@ of tables found in the page."
                    (cons v v ))
                values)))))
 
+
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
   "Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -737,6 +738,24 @@ Interactive prefix arg causes url to be read from the minibuffer."
     current-prefix-arg))
   (emacspeak-w3-xslt-filter
    (format "//*[@class=\"%s\"]"
+           class)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+(defun emacspeak-w3-exclude-by-class (class   &optional prompt-url speak)
+  "Exclude elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion.
+Interactive prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (completing-read "Class: "
+                     (emacspeak-w3-css-class-cache))
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "//*[not(@class=\"%s\")]"
            class)
    prompt-url
    (or (interactive-p)
@@ -776,6 +795,29 @@ minibuffer."
           (mapconcat
            #'(lambda  (c)
                (format "(@class=\"%s\")" c))
+           classes
+           " or "))
+    (emacspeak-w3-xslt-filter
+     (format "//*[%s]" filter)
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defun emacspeak-w3-exclude-by-class-list(classes   &optional prompt-url speak)
+  "Exclude elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. Interactive prefix arg causes url to be read from the
+minibuffer."
+  (interactive
+   (list
+    (emacspeak-w3-css-get-class-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(not(@class=\"%s\"))" c))
            classes
            " or "))
     (emacspeak-w3-xslt-filter
@@ -860,7 +902,10 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
-(define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
+(define-key emacspeak-w3-xsl-map "C"
+  'emacspeak-w3-extract-by-class-list)
+(define-key emacspeak-w3-xsl-map "d" 'emacspeak-w3-exclude-by-class)
+(define-key emacspeak-w3-xsl-map "D" 'emacspeak-w3-exclude-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x"
   'emacspeak-w3-extract-nested-table)
