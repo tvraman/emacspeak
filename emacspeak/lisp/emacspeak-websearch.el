@@ -51,9 +51,6 @@
 (require 'emacspeak-sounds)
 (require 'webjump)
 (require 'browse-url)
-(when (locate-library "url-vars")
-  (load-library "url-vars"))
-;(require 'emacspeak-w3)
 ;;}}}
 ;;{{{  Introduction:
 
