@@ -135,6 +135,22 @@
 ;;}}}
 ;;{{{  custom navigation
 
+(defvar emacspeak-custom-group-regexp
+  "^/-"
+  "Pattern identifying start of custom group.")
+
+(defun emacspeak-custom-goto-group ()
+  "Jump to custom group when in a customization buffer."
+  (interactive)
+  (declare (special emacspeak-custom-group-regexp))
+  (when (eq major-mode 'custom-mode)
+    (goto-char (point-min))
+    (re-search-forward emacspeak-custom-group-regexp
+                       nil t)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+
 (defvar emacspeak-custom-toolbar-regexp
   "^Operate on everything in this buffer:"
   "Pattern that identifies toolbar section.")
@@ -154,14 +170,17 @@
 ;;{{{  bind emacspeak commands 
 
 (declaim (special custom-mode-map))
+(define-key custom-mode-map "," 'backward-paragraph)
+(define-key custom-mode-map "." 'forward-paragraph)
 (define-key custom-mode-map  "\M-t" 'emacspeak-custom-goto-toolbar)
+(define-key custom-mode-map  "\M-g"
+  'emacspeak-custom-goto-group)
 
 ;;}}}
 ;;{{{ augment custom widgets
 
 ;;}}}
 (provide 'emacspeak-custom)
-
 ;;{{{ end of file 
 
 ;;; local variables:
