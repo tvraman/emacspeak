@@ -189,7 +189,7 @@ Argument BODY specifies forms to execute."
 
 (defsubst emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceeded by a blank line.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer."
   (interactive)
   (declare (special emacspeak-speak-paragraph-personality
@@ -1686,7 +1686,7 @@ current coding system, then we return an empty string."
   
 ;;; obseleted by what-line in simple.el
 
-(defun emacspeak-speak-line-number-obselete ()
+(defun emacspeak-speak-line-number-obsolete ()
   "Speak the line number of the current line."
   (interactive)
   (message "line %d"
@@ -2953,7 +2953,7 @@ Speak text between point and the char we hit."
 ;;}}}
 ;;{{{  speak message at time
 (defun emacspeak-speak-message-at-time (time message)
-  "Set up rin-at-time to speak message at specified time.
+  "Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec."
   (interactive

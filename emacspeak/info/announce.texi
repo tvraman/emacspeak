@@ -32,7 +32,7 @@ I'll integrate new content as it comes in.
 @section Authoring Guidelines
 
 For this manual to hang together and make sense to the new user at whom
-it is targetted, contributors need to stick to a consistent style.
+it is targeted, contributors need to stick to a consistent style.
 If you plan to contribute content, you should take some time to read the
 existing sections --note that many of these are skeletal and 
 the first contributions will be to flesh these sections out.

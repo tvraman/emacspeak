@@ -179,7 +179,7 @@ Useful when eterm is in review mode.")
   :group 'emacspeak-eterm)
 
 (defcustom emacspeak-eterm-bold-personality voice-bolden
-  "Persnality to indicate terminal bold."
+  "Personality to indicate terminal bold."
   :type 'symbol
   :group 'emacspeak-eterm)
 

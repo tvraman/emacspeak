@@ -995,7 +995,7 @@ there is terminal activity.
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-review ()
 Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contnets 
+In review mode, you can move around the terminal and listen to the contents 
 without sending input to the terminal itself.
 @end deffn
 
@@ -4210,7 +4210,7 @@ hits.
 If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
-run `how-many'to count  matching header lines.
+run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 

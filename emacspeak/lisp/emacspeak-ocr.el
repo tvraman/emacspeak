@@ -531,7 +531,7 @@ Prompts for image file if file corresponding to the expected
   "Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
 steps of acquiring an image and running the OCR engine work
-corectly by themselves."
+correctly by themselves."
   (interactive)
   (emacspeak-ocr-scan-image)
   (emacspeak-ocr-recognize-image))
@@ -544,7 +544,7 @@ corectly by themselves."
   (emacspeak-auditory-icon 'button)
   (emacspeak-speak-mode-line))
 (defun emacspeak-ocr-open-working-directory ()
-  "Launch dired on OCR workng directory."
+  "Launch dired on OCR working directory."
   (interactive)
   (declare (special emacspeak-ocr-working-directory))
   (switch-to-buffer

@@ -247,7 +247,7 @@ to skip to the next track. "
 ;;{{{ additional temporal navigation
 
 (defun emacspeak-mpg123-forward-minute (arg)
-  "Forw by ARG minutes."
+  "Forward by ARG minutes."
   (interactive "p")
   (mpg123-forward (* 60 arg)))
 
