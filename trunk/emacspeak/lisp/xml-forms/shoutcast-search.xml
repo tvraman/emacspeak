@@ -103,11 +103,24 @@
               <option value="Instrumental">- Instrumental</option>
             </select>
           </td>
+<td>
+<SELECT name="l" id='count'>
+      <OPTION value="5">5
+      <OPTION value="10">10
+      <OPTION value="25" selected>25
+      <OPTION value="30">30
+      <OPTION value="50">50
+      <OPTION value="100">100
+      </SELECT> 
+<label for='count'>Results</label>
+</td>
         </tr>
         <tr>
           <td>
             <input id="rg" name="st" type="radio" value="gs" checked="checked"/>
             <label for="rg">Genre</label>
+          </td>
+<td>
             <input id="rp" name="st" type="radio" value="st"/>
             <label for="rp">Recent</label>
           </td>
