@@ -160,94 +160,117 @@
 ;;{{{  template resources 
 ;;{{{ yahoo daily news 
 
-(emacspeak-url-template-define "Yahoo Politics"
-                               "http://dailynews.yahoo.com/htx/pl/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Politics"
+ "http://dailynews.yahoo.com/htx/pl/?u"
+ nil
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Politics section from Yahoo Daily News.")
 
-(emacspeak-url-template-define "Yahoo Entertainment"
+(emacspeak-url-template-define
+ "Yahoo Entertainment"
                                "http://dailynews.yahoo.com/htx/en/?u"
                                nil
                                #'(lambda nil
                                    (search-forward "Sources:")
                                    (forward-line 3)
-                                   (emacspeak-speak-rest-of-buffer)))
+                                   (emacspeak-speak-rest-of-buffer))
+                               "Retrieve and speak Entertainment section from Yahoo Daily News.")
 
-(emacspeak-url-template-define "Yahoo Sports"
-                               "http://dailynews.yahoo.com/htx/sp/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Sports"
+ "http://dailynews.yahoo.com/htx/sp/?u"
+ nil
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Sports section from Yahoo Daily News.")
 
-(emacspeak-url-template-define "Yahoo Business"
-                               "http://dailynews.yahoo.com/htx/bs/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 3)
-                                   (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Business"
+ "http://dailynews.yahoo.com/htx/bs/?u"
+ nil
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 3)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Business section from Yahoo Daily News.")
 
-(emacspeak-url-template-define "Yahoo Science"
-                               "http://dailynews.yahoo.com/htx/sc/nm/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
-
-
-(emacspeak-url-template-define "Yahoo Local"
-                               "http://dailynews.yahoo.com/htx/lo/me/%s/"
-                               (list
-                                #'(lambda nil
-                                    (read-from-minibuffer
-                                     "Two-letter Area Code")))
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 3)
-                                   (emacspeak-speak-rest-of-buffer)))
-
-(emacspeak-url-template-define "Yahoo Top Stories"
-                               "http://dailynews.yahoo.com/htx/ts/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward
-                                    "Sources:" nil t)
-                                   (forward-line 1)
-                                   (emacspeak-speak-rest-of-buffer)))
-
-(emacspeak-url-template-define "Yahoo Health"
-                               "http://dailynews.yahoo.com/htx/hl/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward
-                                    "Sources:" nil t)
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
-
-(emacspeak-url-template-define "Yahoo Oddly"
-                               "http://dailynews.yahoo.com/htx/od//?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward
-                                    "Sources:" nil t)
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Science"
+ "http://dailynews.yahoo.com/htx/sc/nm/?u"
+ nil
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Science section from Yahoo Daily News.")
 
 
-(emacspeak-url-template-define "Yahoo Technology  News"
-                               "http://dailynews.yahoo.com/htx/tc/nm/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward
-                                    "Sources:" nil t)
-                                   (forward-line 2)
-                                   (emacspeak-speak-rest-of-buffer)))
+(emacspeak-url-template-define
+ "Yahoo Local"
+ "http://dailynews.yahoo.com/htx/lo/me/%s/"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer
+       "Two-letter Area Code")))
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 3)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Local
+section from Yahoo Daily News.
+Area is specified as a two-letter code --sf for San
+Francisco ny for New york etc.")
+
+(emacspeak-url-template-define
+ "Yahoo Top Stories"
+ "http://dailynews.yahoo.com/htx/ts/?u"
+ nil
+ #'(lambda nil
+     (search-forward
+      "Sources:" nil t)
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Top Stories  section from Yahoo Daily News.")
+
+(emacspeak-url-template-define
+ "Yahoo Health"
+ "http://dailynews.yahoo.com/htx/hl/?u"
+ nil
+ #'(lambda nil
+     (search-forward
+      "Sources:" nil t)
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Health section from Yahoo Daily News.")
+
+(emacspeak-url-template-define
+ "Yahoo Oddly"
+ "http://dailynews.yahoo.com/htx/od//?u"
+ nil
+ #'(lambda nil
+     (search-forward
+      "Sources:" nil t)
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Oddity section from Yahoo Daily News.")
+
+
+(emacspeak-url-template-define
+ "Yahoo Technology  News"
+ "http://dailynews.yahoo.com/htx/tc/nm/?u"
+ nil
+ #'(lambda nil
+     (search-forward
+      "Sources:" nil t)
+     (forward-line 2)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Technology  section from Yahoo Daily News.")
 
 ;;}}}
 ;;{{{ Adobe pdf conversion 
@@ -269,11 +292,16 @@ accessible
 ;;}}}
 ;;{{{ w3c 
 
-(emacspeak-url-template-define "w3c Lists"
-                               "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
-                               (list
-                                'emacspeak-url-template-get-w3c-group 
-                                'emacspeak-url-template-get-w3c-year/month))
+(emacspeak-url-template-define
+ "w3c Lists"
+ "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
+ (list
+  'emacspeak-url-template-get-w3c-group 
+  'emacspeak-url-template-get-w3c-year/month)
+ nil
+ "Use this to pull up the
+archived  mail from the W3C list. You need to know the exact
+name of the list.")
 
 (defun emacspeak-url-template-get-w3c-group ()
   "Get name of W3C group "
@@ -292,7 +320,12 @@ accessible
 (emacspeak-url-template-define
  "CNN headlines "
  "http://www.cnn.com/QUICKNEWS/print.html"
- nil)
+ nil
+ #'(lambda nil
+     (search-forward "TOP STORIES" nil t)
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak headline news from CNN.")
 
 (defun emacspeak-url-template-date-YearMonthDate ()
   "Return today as yyyymmdd"
@@ -316,21 +349,33 @@ accessible
 
 
 
-(emacspeak-url-template-define "CNN Tecnology "
+(emacspeak-url-template-define
+ "CNN Tecnology "
                                "http://www.cnn.com/2001/TECH/science/%s/"
-                               (list 'emacspeak-url-template-date-month/date))
+                               (list
+                                'emacspeak-url-template-date-month/date)
+                               nil
+                               "Browse to the plain index of
+technology articles at CNN.")
 
-(emacspeak-url-template-define "CNN computing "
+(emacspeak-url-template-define
+ "CNN computing "
                                "http://www.cnn.com/2001/TECH/computing/%s/"
-                               (list 'emacspeak-url-template-date-month/date))
+                               (list
+                                'emacspeak-url-template-date-month/date)
+                               nil
+                               "Browse to the plain index of
+Computing News at CNN.")
 
-(emacspeak-url-template-define "CNN HotStocks "
-                               "http://money.cnn.com/%s/markets/hotstox/"
-                               (list 
-                                'emacspeak-url-template-date-year/month/date))
+(emacspeak-url-template-define
+ "CNN HotStocks "
+ "http://money.cnn.com/%s/markets/hotstox/"
+ (list 
+  'emacspeak-url-template-date-year/month/date))
 
 
-(emacspeak-url-template-define "CNN Markets New York"
+(emacspeak-url-template-define
+ "CNN Markets New York"
                                "http://money.cnn.com/%s/markets/markets_newyork/"
                                (list 'emacspeak-url-template-date-year/month/date))
 
@@ -344,35 +389,49 @@ accessible
  "http://technetcast.ddj.com/tnc_save_mp3.html?stream_id=%s"
  (list
   (lambda nil 
-    (read-from-minibuffer "Download Stream "))))
+    (read-from-minibuffer "Download Stream ")))
+ nil
+ "Browse to a specified DDJ Technetcast stream and save  it.")
 
 (emacspeak-url-template-define
  "TechNetCast Play" 
  "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
  (list
   (lambda nil 
-    (read-from-minibuffer "Stream Id"))))
+    (read-from-minibuffer "Stream Id")))
+ nil
+ "Play Technetcast stream from DDJ.")
 
 ;;{{{ sourceforge
 
-(emacspeak-url-template-define "sourceforge project" 
-                               "http://sourceforge.net/projects/%s"
-                               (list
-                                (lambda nil 
-                                  (read-from-minibuffer "Project name"))))
+(emacspeak-url-template-define
+ "sourceforge project" 
+ "http://sourceforge.net/projects/%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Project name")))
+ nil
+ "Open specified project page at SourceForge.")
 
-(emacspeak-url-template-define "sourceforge download" 
-                               "http://prdownloads.sourceforge.net/%s"
-                               (list
-                                (lambda nil 
-                                  (read-from-minibuffer "Project name"))))
+(emacspeak-url-template-define
+ "sourceforge download" 
+ "http://prdownloads.sourceforge.net/%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Project name")))
+ nil
+ "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
 ;;{{{ India Today 
 
-(emacspeak-url-template-define "India Today "
+(emacspeak-url-template-define
+ "India Today "
                                "http://www.india-today.com/itoday/%s/index.shtml"
-                               (list  'emacspeak-url-template-date-YearMonthDate))
+                               (list
+                                'emacspeak-url-template-date-YearMonthDate)
+                               "Retrieve India
+Today. Published every Monday --specified appropriate date.")
 
 ;;}}}
 
