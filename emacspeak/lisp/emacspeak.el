@@ -310,12 +310,12 @@ documentation is up-to-date, please use it.  "
 ;;}}}
 ;;{{{ autoloads
 (autoload 'emacspeak-gridtext "emacspeak-gridtext"
-"Utilities for gridtext " t)
+  "Utilities for gridtext " t)
 
 (autoload 'emacspeak-gridtext-load "emacspeak-gridtext"
-"Utilities for gridtext " t)
+  "Utilities for gridtext " t)
 (autoload 'emacspeak-filtertext "emacspeak-filtertext"
-"Utilities for filtering text." t)
+  "Utilities for filtering text." t)
 (autoload 'emacspeak-url-template-load
   "emacspeak-url-template"
   "URL Template utility. " t)
@@ -323,13 +323,13 @@ documentation is up-to-date, please use it.  "
   "emacspeak-url-template"
   "URL Template utility. " t)
 (autoload 'emacspeak-freeamp-prefix-command "emacspeak-freeamp"
-"Emacs interface to freeamp" t)
+  "Emacs interface to freeamp" t)
 (autoload 'emacspeak-freeamp "emacspeak-freeamp"
-"Emacs interface to freeamp" t)
+  "Emacs interface to freeamp" t)
 (autoload 'emacspeak-freeamp-mode  "emacspeak-freeamp"
-"Emacs interface to freeamp" t)
+  "Emacs interface to freeamp" t)
 (autoload 'cd-tool "cd-tool" 
-"Play music CDs from Emacs" t)
+  "Play music CDs from Emacs" t)
 
 (mapcar 
  (function
@@ -345,7 +345,7 @@ documentation is up-to-date, please use it.  "
   'emacspeak-aumix-wave-increase ))
 (autoload 'emacspeak-websearch-dispatch
   "emacspeak-websearch"
-"Perform a  websearch" t)
+  "Perform a  websearch" t)
 (autoload 'emacspeak-dejanews-browse-group
   "emacspeak-websearch"
   "Browse Usenet Via Dejanews" t)
@@ -354,10 +354,10 @@ documentation is up-to-date, please use it.  "
   "Perform a simple Altavista search" t)
 
 (autoload 'emacspeak-forms-find-file "emacspeak-forms"
-"Visit a forms file" t)
+  "Visit a forms file" t)
 
 (autoload 'emacspeak-remote-connect-to-server "emacspeak-remote"
-"Connect to a remote speech server.
+  "Connect to a remote speech server.
 Use this when you are running emacspeak on a remote machine and want
 to have speech output on the local desktop.
 Unlike the simpler rsh based remote-tcl solution
@@ -368,7 +368,7 @@ use rsh on your local desktop."
   t)
 
 (autoload 'emacspeak-remote-quick-connect-to-server "emacspeak-remote"
-"Connect to a remote speech server.
+  "Connect to a remote speech server.
 Use this when you are running emacspeak on a remote machine and want
 to have speech output on the local desktop.
 Unlike the simpler rsh based remote-tcl solution
@@ -379,15 +379,15 @@ use rsh on your local desktop."
   t)
 
 (autoload 'emacspeak-eterm-remote-term "emacspeak-eterm"
-   "Create a terminal to rlogin into a remote host" t)
+  "Create a terminal to rlogin into a remote host" t)
 
 (autoload 'voice-lock-mode "voice-lock" "voice lock mode" t)
 
-    (autoload 'emacspeak-toggle-auditory-icons "emacspeak-sounds"
-      "Ask emacspeak to use auditory icons" t)
+(autoload 'emacspeak-toggle-auditory-icons "emacspeak-sounds"
+  "Ask emacspeak to use auditory icons" t)
 
 (autoload 'emacspeak-tabulate-region "emacspeak-tabulate"
-      "Identify columns in the region."  t)
+  "Identify columns in the region."  t)
     
 (autoload 'emacspeak-table-find-csv-file "emacspeak-table-ui"
   "Browse tables. Beginners: please do C-e C-t and specify one of the
@@ -401,12 +401,12 @@ Describe function of emacspeak-table-find-file will then give you
 detailed documentation on the table browser" t )
 
 (autoload 'emacspeak-table-display-table-in-region "emacspeak-table-ui"
-"Parse contents of region as tabular data and display it in table
+  "Parse contents of region as tabular data and display it in table
 browsing mode.  Beginners: please do C-e C-t and specify one of the
 .tab files in the tables subdirectory of emacspeak.  Describe function
 of emacspeak-table-find-file will then give you detailed documentation
 on the table browser"
- t )
+  t )
 
 (autoload 'emacspeak-tapestry-describe-tapestry  "emacspeak-tapestry"
   "Describe layout of buffers in current frame.
@@ -424,7 +424,7 @@ Useful in reading email, block comments in program source etc." t)
 (autoload 'emacspeak-hide-speak-block-sans-prefix "emacspeak-hide"
   "Speak a block of text sans the prefix that appears on every line of
 the block. Use in conjunction with emacspeak-hide-or-expose-block"
-   t)
+  t)
 
 
 (autoload 'emacspeak-realaudio "emacspeak-realaudio"
@@ -453,11 +453,11 @@ package.
 Argument MODULE specifies the emacspeak module that implements the speech-enabling extensions."
   (declare (special load-history))
   (if (assoc package load-history)
-       (require module)
-  (add-hook 'after-load-alist
-            (`
-             ((, package)
-             (require (quote (, module ))))))))
+      (require module)
+    (add-hook 'after-load-alist
+              (`
+               ((, package)
+                (require (quote (, module ))))))))
 
 ;;}}}
 ;;{{{ Setup package extensions
