@@ -8,15 +8,15 @@ San Jose, Calif., (November 23, 2002)
     --Zero cost of ownership makes priceless software affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
-announces the immediate world-wide availability of Emacspeak
-17.0 --a powerful audio desktop for leveraging today's
-evolving semantic WWW.
+announces the immediate world-wide availability of Emacspeak 17.0
+--a powerful audio desktop for leveraging today's evolving
+semantic WWW.
 
 Investors Note:
 ---------------
 
-With several prominent analysts recently initiating coverage, NASDOG:
-ESPK is now trading over the net at levels close to that recently
+With several prominent analysts initiating coverage, NASDOG: ESPK
+is now trading over the net at levels close to that recently
 attained by last year's DogCom high-fliers.
 
 What Is It?
@@ -27,42 +27,53 @@ complete eyes-free access to all major 32 and 64 bit operating
 environments. By seamlessly blending all aspects of the Internet
 such as Web-surfing and electronic messaging into the audio
 desktop, Emacspeak enables speech access to local and remote
-information with a consistent and well-integrated user
-interface. A rich suite of task-oriented tools provides efficient
-speech-enabled access to the evolving semantic WWW. 
+information with a consistent and well-integrated user interface.
+A rich suite of task-oriented tools provides efficient
+speech-enabled access to the evolving semantic WWW.
 
 Major Enhancements:
 -------------------
 
- <insert>
+
+1)  Enhanced Emacs 21 support.
+2) emacspeak-w3.el --smart content filters using XSLT.
+3) emacspeak-websearch.el --Search wizards using content filters.
+4) emacspeak-url-template.el --Programmable url templates using content filters.
+5) emacspeak-wizards.el --Additional productivity wizards.
+6) Software Dectalk --Speech server for Software Dectalk TTS.
+7) emacspeak-rpm-spec.el --Editing RPM spec files.
+8) emacspeak-m-player.el --Media player interface.
+9) emacspeak-pronounce.el Custom dictionaries for smileys and XMl namespaces.
+10) emacspeak-ecb.el --Enhanced ECB support.
 
 See the NEWS file for additional details. 
 
 Establishing Freedom:
 ---------------------
 
-All of Emacspeak is now voluntarily bundled with all major Linux
-distributions.  Though designed to be modular, distributors have
+  Emacspeak is now voluntarily bundled with all major Linux
+distributions. Though designed to be modular, distributors have
 freely chosen to bundle the entire system without any undue
-pressure.  The integrity of the Emacspeak codebase is ensured by the
-reliable and secure Linux platform used to develop the software.
+pressure. The integrity of the Emacspeak codebase is ensured by
+the reliable and secure Linux platform used to develop the
+software.
 
 Extensive studies have shown that thanks to these features, users
 consider Emacspeak to be absolutely priceless. Thanks to this
-wide-spread user demand, the present version is being made available
-at the same zero-cost as earlier releases.
+wide-spread user demand, the present version is being made
+available at the same zero-cost as earlier releases.
 
 At the same time, Emacspeak-2003 continues to innovate in the
 area of speech and multimodal interaction and carries forward the
 well-established Open Source tradition of introducing user
-interface features that eventually show up in  luser
-environments. On this theme, when once challenged by a proponent
-of a crash-prone but well-marketed windowing system with the
-assertion "Emacs is a system from the 70's", the creator of
-Emacspeak expressed surprise at the unusual candor manifest in
-the assertion that it would take popular idiot-proven interfaces
+interface features that eventually show up in luser environments.
+On this theme, when once challenged by a proponent of a
+crash-prone but well-marketed windowing system with the assertion
+"Emacs is a system from the 70's", the creator of Emacspeak
+expressed surprise at the unusual candor manifest in the
+assertion that it would take popular idiot-proven interfaces
 until the year 2070 to catch up to where the Emacspeak audio
-desktop is today.  Industry experts welcomed this refreshing
+desktop is today. Industry experts welcomed this refreshing
 breath of Courage Certainty and Clarity (CCC) at a time when
 users are reeling from the Fear Uncertainty and Doubt (FUD)
 unleashed by complex software systems backed by even more
@@ -71,14 +82,15 @@ convoluted press releases.
 Independent Test Results:
 -------------------------
 
-Independent test results have proven that unlike some modern software,
-Emacspeak can be safely uninstalled without adversely affecting the
-continued performance of the computer. These same tests also revealed
-that once uninstalled, the user stopped functioning altogether.
-Speaking with Aster Labrador, the creator of Emacspeak once pointed
-out that these results re-emphasize the user-centric design of
-Emacspeak; "It is the user --and not the computer-- that stops
-functioning when Emacspeak is uninstalled!".
+Independent test results have proven that unlike some modern
+software, Emacspeak can be safely uninstalled without adversely
+affecting the continued performance of the computer. These same
+tests also revealed that once uninstalled, the user stopped
+functioning altogether. Speaking with Aster Labrador, the creator
+of Emacspeak once pointed out that these results re-emphasize the
+user-centric design of Emacspeak; "It is the user --and not the
+computer-- that stops functioning when Emacspeak is
+uninstalled!".
 
 Note from Aster and Bubbles:
 ----------------------------
@@ -90,20 +102,18 @@ Obtaining Emacspeak:
 --------------------
 
 Emacspeak can be downloaded from sourceforge --see
- http://prdownloads.sourceforge.net/emacspeak/  You can visit
+http://prdownloads.sourceforge.net/emacspeak/ You can visit
 Emacspeak on the WWW at http://emacspeak.sf.net or
-http://www.cs.cornell.edu/home/raman/emacspeak.
-You can subscribe to the emacspeak mailing list
-emacspeak@cs.vassar.edu by sending mail to the list request
-address emacspeak-request@cs.vassar.edu.  The latest
-development snapshot of Emacspeak is available via anonymous
-CVS from sourceforge.
+http://www.cs.cornell.edu/home/raman/emacspeak. You can subscribe
+to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
+mail to the list request address emacspeak-request@cs.vassar.edu.
+The latest development snapshot of Emacspeak is available via
+anonymous CVS from sourceforge.
 
 History:
- -------- 
+-------- 
 
-
-Emacspeak-17.0 --code-named HappyDog-- enhances user productivity by
+Emacspeak-17.0 --code named HappyDog-- enhances user productivity by
 exploiting today's evolving WWW standards. Emacspeak-16.0 --code named
 CleverDog-- the follow-up to SmartDog-- continued the tradition of
 working better, faster, smarter. Emacspeak-15.0 --code named
