@@ -63,7 +63,7 @@ Use eflite TTS server." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-setup-programming-mode) "emacspeak"
-;;;;;;  "emacspeak.el" (16005 60040))
+;;;;;;  "emacspeak.el" (16005 62686))
 ;;; Generated autoloads from emacspeak.el
 
 (autoload (quote emacspeak-setup-programming-mode) "emacspeak" "\
@@ -334,7 +334,7 @@ Existing personality properties on the text range are preserved." nil nil)
 ;;;;;;  emacspeak-pronounce-toggle-use-of-dictionaries emacspeak-pronounce-clear-dictionaries
 ;;;;;;  emacspeak-pronounce-load-dictionaries emacspeak-pronounce-save-dictionaries
 ;;;;;;  emacspeak-pronounce-add-super emacspeak-pronounce-add-dictionary-entry)
-;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16005 62467))
+;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16005 62686))
 ;;; Generated autoloads from emacspeak-pronounce.el
 
 (autoload (quote emacspeak-pronounce-add-dictionary-entry) "emacspeak-pronounce" "\
@@ -352,6 +352,9 @@ Modifies text and point in buffer." (declare (special emacspeak-pronounce-pronun
 
 (autoload (quote emacspeak-pronounce-save-dictionaries) "emacspeak-pronounce" "\
 Writes out the persistent emacspeak pronunciation dictionaries." t nil)
+
+(defvar emacspeak-pronounce-dictionaries-loaded nil "\
+Indicates if dictionaries already loaded.")
 
 (autoload (quote emacspeak-pronounce-load-dictionaries) "emacspeak-pronounce" "\
 Load pronunciation dictionaries.

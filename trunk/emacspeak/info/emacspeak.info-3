@@ -8,15 +8,15 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: dtk-tcl,  Next: emacspeak,  Prev: dtk-speak,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: dtk-speak,  Next: emacspeak,  Up: Emacspeak Commands
 
-dtk-tcl
-=======
+dtk-speak
+=========
 
-   Commentary: Interface to speech server.
+   Commentary: Defines the TTS interface.
 
    Automatically generated documentation for commands defined in module
-dtk-tcl.
+dtk-speak.
 
  - dtk-add-cleanup-pattern: (&optional DELETE)
      ` control e d a '
@@ -60,6 +60,13 @@ dtk-tcl.
      `dtk-resume-should-toggle' is t  then this command will pause
      ongoing speech.
 
+ - dtk-select-server: (PROGRAM)
+     ` control e d d '
+
+     Select a speech server interactively.  Argument PROGRAM specifies
+     the speech server program.  When called  interactively, The
+     selected server is started immediately.
+
  - dtk-set-character-scale: (FACTOR &optional PREFIX)
      ` control e d f '
 
@@ -72,6 +79,14 @@ dtk-tcl.
 
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
+
+ - dtk-set-chunk-separator-syntax: (S)
+     ` control e d RETURN '
+
+     Interactively set how text is split in chunks.  See the Emacs
+     documentation on syntax tables for details on how characters are
+     classified into various syntactic classes.  Argument S specifies
+     the syntax class.
 
  - dtk-set-predefined-speech-rate: (&optional PREFIX)
      ` control e d 9   control e d 8   control e d 7   control e d 6
@@ -133,6 +148,15 @@ dtk-tcl.
      short beep.  Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.
 
+ - dtk-toggle-debug: (&optional FLAG)
+     ` control e d b '
+
+     Toggle state of the debug FLAG.  When debugging is on, you can
+     switch to the buffer *speaker* to examine the output from the
+     process that talks to the speech device by using command C-e d
+     C-M-b.  Note: *speaker* is a hidden buffer, ie it has a leading
+     space in its name.
+
  - dtk-toggle-punctuation-mode: (&optional PREFIX)
      Toggle punctuation mode between "some" and "all".  Interactive
      PREFIX arg makes the new setting global.
@@ -162,6 +186,22 @@ dtk-tcl.
      means toggle the global default value, and then set the current
      local value to the result.
 
+ - dtk-toggle-splitting-on-white-space: ()
+     ` control e d SPACE '
+
+     Toggle splitting of speech on white space.  This affects the
+     internal state of emacspeak that decides if we split text purely
+     by clause boundaries, or also include whitespace.  By default,
+     emacspeak sends a clause at a time to the speech device.  This
+     produces fluent speech for normal use.  However in modes such as
+     `shell-mode' and some programming language modes, clause markers
+     appear infrequently, and this can result in large amounts of text
+     being sent to the speech device at once, making the system
+     unresponsive when asked to stop talking.  Splitting on white space
+     makes emacspeak's stop command responsive.  However, when
+     splitting on white space, the speech sounds choppy since the
+     synthesizer is getting a word at a time.
+
  - dtk-toggle-stop-immediately-while-typing: (&optional PREFIX)
      ` control e d  cap I  '
 
@@ -171,7 +211,7 @@ dtk-tcl.
      buffers.
 
 
-File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-arc,  Prev: dtk-tcl,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-arc,  Prev: dtk-speak,  Up: Emacspeak Commands
 
 emacspeak
 =========
@@ -1160,7 +1200,7 @@ emacspeak-keymap.
      speak interactive prompts.
 
 
-File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-m-player,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-kotl,  Next: emacspeak-man,  Prev: emacspeak-keymap,  Up: Emacspeak Commands
 
 emacspeak-kotl
 ==============
@@ -1176,60 +1216,7 @@ emacspeak-kotl.
      speaks entire cell contents
 
 
-File: emacspeak.info,  Node: emacspeak-m-player,  Next: emacspeak-man,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
-
-emacspeak-m-player
-==================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-m-player.
-
- - emacspeak-m-player: (RESOURCE)
-     ` control e : '
-
-     Play specified resource using m-player.  Resource is an  MP3 file
-     or m3u playlist.  The player is placed in a buffer in
-     emacspeak-m-player-mode.
-
- - emacspeak-m-player-alt-src-step: (STEP)
-     Move within an ASF playlist.
-
- - emacspeak-m-player-mode: ()
-     Major mode for m-player interaction.
-
-     key             binding --             ------
-
-     q		emacspeak-m-player-quit SPC		emacspeak-m-player-pause
-     a		emacspeak-m-player-alt-src-step P		emacspeak-m-player-play-tree-up
-     p		emacspeak-m-player-play-tree-step
-     S		emacspeak-m-player-seek-absolute
-     s		emacspeak-m-player-seek-relative
-     <right>		emacspeak-aumix-wave-increase
-     <left>		emacspeak-aumix-wave-decrease
-
-     This mode runs the hook `emacspeak-m-player-mode-hook', as the
-     final step during initialization.
-
- - emacspeak-m-player-pause: ()
-     Pause or unpause media player.
-
- - emacspeak-m-player-play-tree-step: (STEP)
-     Move within the play tree.
-
- - emacspeak-m-player-play-tree-up: (STEP)
-     Move within the play tree.
-
- - emacspeak-m-player-quit: ()
-     Quit media player.
-
- - emacspeak-m-player-seek-absolute: (POSITION)
-     Seek  to absolute specified position.
-
- - emacspeak-m-player-seek-relative: (OFFSET)
-     Seek  by offset into stream from current position.
-
-
-File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-mpg123,  Prev: emacspeak-m-player,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-mpg123,  Prev: emacspeak-kotl,  Up: Emacspeak Commands
 
 emacspeak-man
 =============
@@ -1289,14 +1276,6 @@ File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-outline,  Prev: ema
 
 emacspeak-ocr
 =============
-
-   Commentary: This module defines Emacspeak front-end to OCR.  This
-module assumes that sane is installed and working for image acquisition,
-and that there is an OCR engine that can take acquired images and
-produce text.  Prerequisites: Sane installed and working.  scanimage to
-generate tiff files from scanner.  tiffcp to compress the tiff file.
-working ocr executable by default this module assumes that the OCR
-executable is named "ocr"
 
    Automatically generated documentation for commands defined in module
 emacspeak-ocr.
