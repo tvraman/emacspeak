@@ -3516,6 +3516,44 @@ also copied to the kill ring for convenient yanking."
       (kill-new emacspeak-last-message))))
 
 ;;}}}
+;;{{{  simple phone book 
+(defcustom emacspeak-speak-telephone-directory
+  (expand-file-name "tel-dir" emacspeak-resource-directory)
+  "File holding telephone directory.
+This is just a text file, and we use grep to search it."
+  :group 'emacspeak-speak
+  :type 'string)
+
+(defcustom emacspeak-speak-telephone-directory-command
+  "grep -i "
+  "Command used to look up names in the telephone
+directory."
+  :group 'emacspeak-speak
+  :type 'string)
+
+(defun emacspeak-speak-telephone-directory (&optional edit)
+  "Lookup and display a phone number.
+With prefix arg, opens the phone book for editting."
+  (interactive "P")
+  (cond
+   (edit
+    (find-file emacspeak-speak-telephone-directory)
+    (emacspeak-speak-mode-line)
+(emacspeak-auditory-icon 'open-object))
+   ((file-exists-p emacspeak-speak-telephone-directory)
+  (shell-command
+   (format "%s %s %s"
+           emacspeak-speak-telephone-directory-command
+           (read-from-minibuffer "Lookup number for: ")
+           emacspeak-speak-telephone-directory)))
+(t (error "First create your phone directory in %s"
+          emacspeak-speak-telephone-directory))))
+
+                                 
+   
+
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
