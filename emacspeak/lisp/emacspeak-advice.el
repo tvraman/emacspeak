@@ -2674,10 +2674,7 @@ emacspeak running."
   (when  emacspeak-last-command-needs-minibuffer-spoken
     (unwind-protect
         (tts-with-punctuations "all"
-                               (if (fboundp
-                                    'emacspeak-speak-current-field)
-                                   (emacspeak-speak-current-field)
-                                 (emacspeak-speak-line)))
+                               (emacspeak-speak-buffer))
       (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
 
 
