@@ -210,17 +210,16 @@ speak its prompts. "
                         #'(lambda (&rest args)
                             (interactive (, prompt))
                             args) nil))))
-              interactive-list)))))))))
+              interactive-list)))))))
+      (push command  emacspeak-commands-that-are-fixed )))
   t)
 
 ;;; inline function for use from other modules:
 
 
 (defsubst  emacspeak-fix-interactive-command-if-necessary (command)
-  (declare (special emacspeak-commands-that-are-fixed))
   (and (emacspeak-should-i-fix-interactive-p command)
-       (emacspeak-fix-interactive command)
-       (push command  emacspeak-commands-that-are-fixed )))
+       (emacspeak-fix-interactive command)))
 
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
