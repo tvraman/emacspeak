@@ -2,7 +2,7 @@
 @node Installation
 @chapter Installation Instructions
 
-This chapter gives brief and detailed installation instructions.
+This chapter gives brief and detailed installation instructions
 for configuring, installing and starting Emacspeak.
 
 @menu
@@ -20,7 +20,9 @@ for configuring, installing and starting Emacspeak.
 Emacspeak is available on the Internet at:
 @table @b
 @item WWW
- http://cs.cornell.edu/home/raman/emacspeak/
+ http://emacspeak.sf.net
+@item WWW
+ http://www.cs.cornell.edu/home/raman/emacspeak/
  @item FTP
    ftp://ftp.cs.cornell.edu/pub/raman/emacspeak
 @item Mail List
@@ -40,30 +42,34 @@ the request address.
 Here are the quick installation instructions.
 See the next section for detailed installation instructions.
 
+
+Prepackaged RPM files are available on the Emacspeak site.
+Packages for other Linux distributions such as Debian typically become
+available on the WWW a few days after a new version is released.
+The instructions below are for building and installing Emacspeak from
+the source distribution.
+
 @itemize @bullet
-@item
- Look over the Makefile and edit site-specific variables.
 @item
  Type @samp{make config} to configure the sources for your site.
 @item
- Type @samp{make emacspeak} to compile the files.
+ Type @samp{make} to compile the files.
+@item Install the system by typing 
+@samp{make install}
 @item
  Run it by doing one of:
 @itemize @bullet
-@item
-  Start Emacs as follows:
-@example
-emacs -l <emacspeak-dir>/emacspeak-setup.el -l ~/.emacs
-@end example
+@item @samp{emacspeak}
+  
 @item
 Add the line
 @example
-(load-file "<emacspeak-dir>/emacspeak-setup.el")
+(load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
 @end example
 to the top of your .emacs file.
 @item
- Run the shell script emacspeak.sh
-found in the directory <emacspeak-dir>
+ 
+
 @end itemize
 In the above, @code{<emacspeak-dir>} refers to the directory where you unpacked
 the sources. 
@@ -138,7 +144,7 @@ stty -a < serial_port
 @end itemize
 
 Quit this TCL
-session by typing control-D.
+session by typing @kbd{C-D}.
 
 Next, compile the elisp files by typing 
 @example
