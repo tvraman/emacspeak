@@ -266,10 +266,7 @@ term package that comes with emacs-19.29 and later.
 \\{emacspeak-keymap}
 
 See the online documentation for individual commands and
-functions for details. There is an info manual for
-Emacspeak, but it is still preliminary. The source code
-documentation available through the various C-h commands 
-is up-to-date, please use it.  "
+functions for details.   "
   (interactive)
   (declare (special mark-even-if-inactive
                     default-enable-multibyte-characters
