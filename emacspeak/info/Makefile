@@ -35,4 +35,7 @@ emacspeak.dvi:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
+pub: emacspeak.html
+	scp *.html    raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
+
 clean: 
