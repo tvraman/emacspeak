@@ -65,6 +65,8 @@
   "Keymap for using in table browsing mode")
 
 (progn
+  (define-key  emacspeak-table-keymap "\M-l" 'emacspeak-table-ui-filter-load)
+(define-key  emacspeak-table-keymap "\M-s" 'emacspeak-table-ui-filter-save)
   (define-key emacspeak-table-keymap "#"
     'emacspeak-table-sort-on-current-column)
   (define-key emacspeak-table-keymap "q"
@@ -338,10 +340,16 @@ Optional prefix arg prompts for a new filter."
   (declare (special emacspeak-table-speak-row-filter
                     emacspeak-table))
   (unless (and  emacspeak-table-speak-row-filter
-                    (listp emacspeak-table-speak-row-filter)
-                    (not prefix))
+                (listp emacspeak-table-speak-row-filter)
+                (not prefix))
     (setq emacspeak-table-speak-row-filter
-          (read-minibuffer "Specify row filter as a list: " "(")))
+          (read-minibuffer "Specify row filter as a list: "
+                           (format "%s"
+                           (or (emacspeak-table-ui-filter-get
+                                (emacspeak-table-ui-generate-key))
+                               "("))))
+    (emacspeak-table-ui-filter-set
+     (emacspeak-table-ui-generate-key )emacspeak-table-speak-row-filter))
   (dtk-speak
    (mapconcat
     (function
@@ -1066,6 +1074,73 @@ markup to use."
      (emacspeak-table-make-table  sorted-table)
      buffer)
     (emacspeak-speak-mode-line)))
+
+;;}}}
+;;{{{  persistent store 
+
+(defun emacspeak-table-ui-generate-key ()
+  "Generates a key for current context.
+The key is used when persisting out the filter setting for
+future  use."
+(declare (special  major-mode))
+  (or (buffer-file-name)
+      (format "%s:%s" (buffer-name) major-mode)))
+
+(defvar emacspeak-table-ui-filter-table (make-hash-table :test 'equal)
+  "Stores table filter  settings.")
+
+(defun emacspeak-table-ui-filter-set (key filter)
+  "Map filter to key."
+  (declare (special emacspeak-table-ui-filter-table))
+  (setf (gethash key emacspeak-table-ui-filter-table ) filter))
+
+(defun emacspeak-table-ui-filter-get (key)
+  "Lookup key and return corresponding filter. "
+  (declare (special emacspeak-table-ui-filter-table))
+  (gethash key emacspeak-table-ui-filter-table))
+
+(defun emacspeak-table-ui-filter-load (file)
+  "Load saved filter settings."
+  (interactive
+   (list
+    (read-file-name "Load filter settings  from file: "
+                    emacspeak-resource-directory
+                    ".table-ui-filter")))
+  (condition-case nil
+      (progn
+        (load
+         (expand-file-name  file emacspeak-resource-directory)))
+    (error (message "Error loading resources from %s "
+                    file))))
+
+
+(defun emacspeak-table-ui-filter-save (file)
+  "Save out filter settings."
+  (interactive
+   (list
+    (read-file-name "Save table-ui-filter settings  to file: "
+                    emacspeak-resource-directory
+                    ".table-ui-filter")))
+  (declare (special emacspeak-resource-directory))
+  (let ((buffer (find-file-noselect
+                 (expand-file-name file
+                                   emacspeak-resource-directory))))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (loop for key being the hash-keys of
+            emacspeak-table-ui-filter-table
+            do
+            (insert
+             (format
+              "\n(setf
+ (gethash %s emacspeak-table-ui-filter-table)
+ (quote %s))"
+              (prin1-to-string key)
+               (prin1-to-string (emacspeak-table-ui-filter-get
+                                 key)))))
+      (basic-save-buffer)
+      (kill-buffer buffer))))
 
 ;;}}}
 (provide  'emacspeak-table-ui)
