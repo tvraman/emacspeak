@@ -2727,7 +2727,6 @@ emacspeak running."
   "Speak what you displayed"
   (cond
    ((interactive-p)
-    (dtk-stop)
     ad-do-it
     (let ((dtk-stop-immediately nil))
     (dtk-speak ad-return-value)))
