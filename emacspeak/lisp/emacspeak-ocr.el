@@ -151,6 +151,14 @@ will be placed."
   (declare (special emacspeak-ocr-document-name))
   (format "%s.tiff" emacspeak-ocr-document-name))
 
+(defvar emacspeak-ocr-mode-line-format
+  '(
+   (buffer-name)
+   " "
+   "page-"
+   emacspeak-ocr-current-page-number)
+  "Mode line format for OCR buffer.")
+
 (defsubst emacspeak-ocr-get-mode-line-format ()
   "Return string suitable for use as the mode line."
   (declare (special major-mode
