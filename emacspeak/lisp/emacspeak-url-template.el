@@ -372,6 +372,14 @@ to play a BBC Radio7 program on demand."
       url)))
 
 (emacspeak-url-template-define
+ "BBC Channel On Demand"
+ "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
+ (list "BBC Channel: ")
+ nil
+ "Display BBC Channel on demand."
+ )
+
+(emacspeak-url-template-define
  "BBC Programs On Demand"
  "http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
  (list "BBC Program: ")
@@ -693,9 +701,7 @@ from English to German.")
  (list "PDF URL: ")
  nil
  "Use access.adobe.com to  convert a remote PDF document to HTML.
-The PDF document needs to be available on the public Internet."
- #'(lambda (url)
-(w3m url)))
+The PDF document needs to be available on the public Internet.")
 
 
 ;;}}}
