@@ -1026,8 +1026,8 @@ plays entire program."
  "sourceforge browse mirrors" 
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
- nil
- "Retrieve download page at Sourceforge for specified project."
+nil
+ "Retrieve download table  at Sourceforge for specified project."
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match "Current"
                                           url)))
