@@ -620,6 +620,7 @@ The selected server is started immediately."
   (declare (special  dtk-tcl dtk-program dtk-servers-alist
                      emacspeak-aumix-multichannel-capable-p))
   (setq dtk-program program)
+  (setq-default dtk-program program)
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
     (when (and (string= "outloud" dtk-program)
