@@ -128,6 +128,7 @@
 
 (defun emacspeak-imenu-goto-next-index-position ()
   "Goto the next index position in current buffer"
+  (interactive)
   (declare (special emacspeak-imenu-flattened-index-alist
                     emacspeak-imenu-autospeak
                     imenu--index-alist))
