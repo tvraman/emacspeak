@@ -141,19 +141,29 @@ font-lock.  Voicification is effective only if font lock is on."
 ;;}}}
 ;;{{{ advice put-text-personality
 
+(defcustom emacspeak-personality-show-unmapped-faces nil
+  "If set, faces that dont have a corresponding personality are
+displayed in the messages area."
+  :type 'boolean
+  :group 'emacspeak-personality)
+
+
 (defadvice put-text-property (after emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((start (ad-get-arg 0))
-        (end (ad-get-arg 1 ))
-        (prop (ad-get-arg 2))
-        (value (ad-get-arg 3 ))
-        (object (ad-get-arg 4))
-        (voice nil))
-    (when (eq prop 'face)
-      (setq voice (voice-setup-get-voice-for-face   value))
-      (and voice 
-           (put-text-property start end
-                              'personality voice object)))))
+         (end (ad-get-arg 1 ))
+         (prop (ad-get-arg 2))
+         (value (ad-get-arg 3 ))
+         (object (ad-get-arg 4))
+         (voice nil))
+     (when (eq prop 'face)
+       (setq voice (voice-setup-get-voice-for-face   value))
+       (when voice
+            (put-text-property start end
+                               'personality voice object))
+       (when (and emacspeak-personality-show-unmapped-faces
+                  (not voice))
+         (message "Unmapped face %s" face)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
