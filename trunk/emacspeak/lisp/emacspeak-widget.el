@@ -88,7 +88,7 @@
           (when  parent (widget-get  parent :help-echo))))
     (cond
      (help-echo (message help-echo))
-     (parent-help (message " %s for %s "
+     (parent-help (message " %s to %s "
                            (or tag type)
                            parent-help))
      (widget (message (format " %s " (widget-type widget))))
@@ -126,9 +126,8 @@
   "Fall back summarizer for all widgets"
   (let ((emacspeak-lazy-message-time 0)
         (tag (widget-get widget :tag ))
-        (value (widget-value widget ))
-        (emacspeak-speak-messages nil)
-        (voice-lock-mode t))
+        (value (format " %s "
+                       (widget-value widget ))))
     (if (or tag value                                )
         (when tag
           (put-text-property 0 (length tag)
@@ -138,7 +137,7 @@
                            'personality 'paul-smooth value))
       (cond
        ((or tag value)
-        (message
+        (dtk-speak
          (concat
           (or tag " ")
           (or value " "))))
@@ -176,7 +175,7 @@
 
 (defun emacspeak-widget-help-item (widget)
   "Summarize a  item"
-  (let* ((value (widget-value widget))
+  (let* ((value (format " %s "  (widget-value widget)))
          (tag (widget-get widget :tag)))
     (concat
      (or tag value))))
@@ -345,8 +344,8 @@
      (or tag (format " %s " type))
      " is "
      (if child
-         (widget-apply child :emacspeak-help)
-       (format " %s " value)))))
+(widget-apply child :emacspeak-help)
+        (format " %s "value)))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
