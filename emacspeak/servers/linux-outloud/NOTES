@@ -61,7 +61,9 @@ support for Emacspeak you should first install Emacspeak the
 normal way.  See the Emacspeak Makefile for instructions.
 
 ** Compiling Outloud Support For Emacspeak:
+
 You need not do this step with Emacspeak 15.0 and later.
+
 Change to the linux-outloud subdirectory 
 of the Emacspeak source distribution.
    make 
@@ -139,7 +141,7 @@ server sporadically dying.
 In my own use, I've found the Outloud server to be mostly
 usable with character echo turned off.  However, expect to
 have to restart the server at times by hitting C-e C-s until
-this bug in the Outloud engine goes away.
+this bug in the Linux soundcard support goes away.
 
 *** Sound Device Should be Free:
 
@@ -147,15 +149,12 @@ If you have other programs using the sound device, the
 Outloud engine will not work.
 If you use the Outloud engine for your primary TTS,
 you will not get any speech feedback if you play realaudio
-or use other programs that open and hold the wave device.
+or use other programs that open and hold the wave device
+--unless you are using a new soundcard like the SBLive
+capable of playing multiple streams of audio.
 
-This problem will eventually go away when the Enlightenment
-Sound Daemon (ESD)
-becomes robust enough to be used by both Outloud and
-Realaudio.
 Alternatively, get a sound card like the Soundblaster SBLive
- capable 
-of mixing multiple channels of audio.
+ capable of mixing multiple channels of audio.
 
 
 Local variables: 
