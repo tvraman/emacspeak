@@ -53,7 +53,7 @@
 (require 'backquote)
   (require 'emacspeak-speak)
   (require 'emacspeak-sounds)
-(require voice-setup)
+(require 'voice-setup)
 
 ;;}}}
 ;;{{{ advice interactive commands
