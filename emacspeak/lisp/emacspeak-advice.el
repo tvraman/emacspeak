@@ -1811,7 +1811,9 @@ Indicate change of selection with
         (shift-regexp "S-\\(.\\)")
         (ctrl-regexp "C-\\(.\\)")
         (meta-regexp "M-\\(.\\)")
-        (caps-regexp "\\b[A-Z]\\b"))
+        (caps-regexp "\\b[A-Z]\\b")
+        (hyper-regexp "C-x @ h")
+        (super-regexp "C-x @ s"))
     (condition-case nil
         (progn
           ad-do-it
@@ -1831,6 +1833,12 @@ Indicate change of selection with
               (while (search-forward "RET"  nil t )
                 (replace-match "return"))
               (goto-char (point-min))
+            (while (re-search-forward hyper-regexp  nil t )
+              (replace-match "hyper "))
+            (goto-char (point-min))
+            (while (re-search-forward super-regexp  nil t )
+              (replace-match "super "))
+            (goto-char (point-min))
               (while (re-search-forward shift-regexp  nil t )
                 (replace-match "shift \\1"))
               (goto-char (point-min))
