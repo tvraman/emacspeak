@@ -81,16 +81,56 @@
         (defadvice (, f) (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
-            (emacspeak-speak-mode-line)
+            (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
 
 ;;}}}
 ;;{{{  inform tree browser about emacspeak
 
+;;; define emacspeak versions of these special tree search
+;;; commands
+;;; need these to get ECB working outside X
+
+(defun emacspeak-ecb-tree-backspace ()
+  "Back up during incremental search in tree buffers."
+  (interactive)
+  (declare (special tree-buffer-incr-searchpattern))
+  ;; reduce by one from the end
+  (setq tree-buffer-incr-searchpattern
+        (substring tree-buffer-incr-searchpattern
+                   0
+                   (max 0 (1- (length
+                               tree-buffer-incr-searchpattern))))))
+
+             
+(defun emacspeak-ecb-tree-clear ()
+  "Clear search pattern during incremental search in tree buffers."
+  (interactive)
+(declare (special tree-buffer-incr-searchpattern))  
+  (setq tree-buffer-incr-searchpattern ""))
+
+(defun emacspeak-ecb-tree-expand-common-prefix ()
+  "Expand to longest common prefix in tree buffer."
+  (interactive)
+(declare (special tree-buffer-incr-searchpattern
+                  tree-buffer-root))
+             ;; expand to the max. common prefix
+              (let* ((node-name-list (tree-node-get-all-visible-node-names
+                                      tree-buffer-root))
+                     (common-prefix (tree-buffer-find-common-substring
+                                     node-name-list tree-buffer-incr-searchpattern
+                                     (if (equal tree-buffer-incr-search 'prefix) t))))
+                (if (stringp common-prefix)
+                    (setq tree-buffer-incr-searchpattern
+  common-prefix))))
+
+              
+             
 (defun emacspeak-ecb-tree-shift-return ()
   "Do shift return in ECB tree browser."
   (interactive)
   (tree-buffer-return-pressed 'shift nil))
+
 (defadvice tree-buffer-create (after emacspeak pre act comp)
   "Fixes up keybindings so incremental tree search is
 available."
@@ -101,12 +141,20 @@ available."
                                  tree-buffer-key-map
                                  global-map))
     (define-key tree-buffer-key-map "\M-\C-m"
-      'emacspeak-ecb-tree-shift-return)))
+      'emacspeak-ecb-tree-shift-return)
+    (define-key tree-buffer-key-map "\d"
+      'emacspeak-ecb-tree-backspace)
+    (define-key tree-buffer-key-map '[delete]
+      'emacspeak-ecb-tree-backspace)
+    (define-key tree-buffer-key-map '[home]
+      'emacspeak-ecb-tree-clear)
+    (define-key tree-buffer-key-map '[end]
+      'emacspeak-ecb-tree-expand-common-prefix)))
 
 (defadvice tree-buffer-incremental-node-search 
   (around emacspeak pre act comp)
   "Track search and provide appropriate auditory feedback."
-  (declare (special tree-buffer-incr-searchpattern))
+  
   (cond
    ((interactive-p)
     (let ((start (point))
