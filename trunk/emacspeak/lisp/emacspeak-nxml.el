@@ -264,6 +264,11 @@
   'nxml-hash-face
   "Personality for hash marks."
   :group 'emacspeak-nxml)
+(def-voice-font emacspeak-rng-error-personality'betty
+  'rng-error-face
+  "Personality for validation errors."
+  :group 'emacspeak-nxml)
+
 
 ;;}}}
 ;;{{{ pronunciations 
