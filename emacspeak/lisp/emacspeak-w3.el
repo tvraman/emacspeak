@@ -648,9 +648,6 @@ specifies the page to extract table from.  "
           (rename-buffer  emacspeak-w3-xsl-keep-result  'unique)))
        (t (kill-buffer src-buffer))))))
 
-
-
-
 (defcustom emacspeak-w3-media-stream-suffixes
   (list
    ".ram"
