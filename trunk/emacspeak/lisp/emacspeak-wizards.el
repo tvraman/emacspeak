@@ -2375,8 +2375,8 @@ for the current voice family."
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-wizards-zoneinfo-directory))
   (shell-command
-   (format "(export TZ=%s; date +\"%s\")"
-            zone  
+   (format "(echo -n \"%s \"; export TZ=%s; date +\"%s\")"
+           zone zone  
            (concat emacspeak-speak-time-format-string
                    " %Z %z "))))
 
