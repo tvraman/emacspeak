@@ -733,6 +733,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'sh-mode-hook
          'sql-mode-hook
          'sgml-mode-hook
+         'xml-mode-hook
          'makefile-mode-hook
          'tex-mode-hook
          'tcl-mode-hook
