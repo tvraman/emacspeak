@@ -801,6 +801,21 @@ the broadcast. You must have mplayer installed."
 
 ;;}}}
 ;;{{{  MLB scores
+
+(emacspeak-url-template-define
+ "Baseball summary" 
+ "http://www.mlb.com/NASApp/mlb/index.jsp?c_id=%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer  "Team Code: "
+                             "sf")))
+ nil
+ "Display baseball team summary."
+ #'(lambda (url)
+     (emacspeak-w3-extract-tables-by-position-list 
+'(7 8  22 23 39)
+url 'speak)))
+
 (emacspeak-url-template-define
  "Baseball scores" 
  "http://www.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"

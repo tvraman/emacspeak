@@ -941,6 +941,36 @@ XPath locator.")
       (emacspeak-w3-preview-this-buffer))))
 
 ;;}}}
+;;{{{ Browse XML files:
+
+(defun emacspeak-w3-browse-xml(location)
+  "Browse XML+CSS using W3.
+XML files can be rendered by an XML browser that is CSS aware.
+Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
+good enough job for many things, especially the XML files from
+bookshare.org.
+Setting W3 up at present to display any and all XML files at
+present would be a bug, since W3 is an HTML browser --not a true
+XML browser.
+This command opens a specified XML file under the covers and has
+W3 render it using CSS as available. The result on bookshare.org
+XML files is quite usable:
+
+0) You get Aural CSS support.
+
+1) You get a navigable buffer using imenu if you have w3-imenu
+loaded.
+"
+(interactive
+ (list
+  (read-file-name "XML File: ")))
+(let ((buffer (find-file-noselect location)))
+  (save-excursion
+    (set-buffer buffer)
+    (emacspeak-w3-preview-this-buffer)
+    (emacspeak-auditory-icon 'open-object))))
+
+;;}}}
 ;;{{{  xsl keymap
 
 (declaim (special emacspeak-w3-xsl-map))
