@@ -7,11 +7,13 @@ Description: Strip attributes on table cells -utility sheet
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="xml" indent="yes" encoding="iso8859-15"/>
-  <xsl:include href="identity.xsl"/>
-  <xsl:template match="table |tr |td">
-    <xsl:element name="name()">
-      <xsl:apply-templates/>
-    </xsl:element>
+  <xsl:template match="*|@*">
+    <xsl:copy>
+      <xsl:if test="not (name(.)='table')         and not(name(.) ='tr')         and not(name(.)='td')">
+        <xsl:apply-templates select="@*"/>
+      </xsl:if>
+      <xsl:apply-templates select="node()"/>
+    </xsl:copy>
   </xsl:template>
 </xsl:stylesheet>
 <!--
