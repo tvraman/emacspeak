@@ -41,6 +41,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(eval-when-compile (require  'emacspeak-w3))
 (require 'webjump)
 ;;}}}
 ;;{{{  Introduction:
