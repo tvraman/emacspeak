@@ -59,7 +59,6 @@
 ;;}}}
 ;;{{{  advice interactive commands.
 
-
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -74,12 +73,17 @@
 
 
 (loop for f in 
-      '( ecb-goto-window-directories 
-         ecb-goto-window-sources 
-         ecb-goto-window-methods 
-         ecb-goto-window-history 
-         ecb-goto-window-edit1 
-         ecb-goto-window-edit2 )
+      '(
+        ecb-nav-goto-next
+        ecb-nav-goto-previous
+        ecb-goto-window-compilation
+        ecb-eshell-goto-eshell
+        ecb-goto-window-directories 
+        ecb-goto-window-sources 
+        ecb-goto-window-methods 
+        ecb-goto-window-history 
+        ecb-goto-window-edit1 
+        ecb-goto-window-edit2 )
       do
       (eval 
        (`
@@ -92,6 +96,10 @@
 ;;}}}
 ;;{{{  inform tree browser about emacspeak
 
+(defun emacspeak-ecb-tree-shift-return ()
+  "Do shift return in ECB tree browser."
+  (interactive)
+  (tree-buffer-return-pressed 'shift nil))
 (defadvice tree-buffer-create (after emacspeak pre act comp)
   "Fixes up keybindings so incremental tree search is
 available."
@@ -100,7 +108,9 @@ available."
       (substitute-key-definition 'emacspeak-self-insert-command
                                  'tree-buffer-incremental-node-search
                                  tree-buffer-key-map
-                                 global-map))))
+                                 global-map))
+    (define-key tree-buffer-key-map "\M-\C-m"
+      'emacspeak-ecb-tree-shift-return)))
 
 (defadvice tree-buffer-incremental-node-search 
   (around emacspeak pre act comp)
@@ -155,6 +165,26 @@ beg end   'harry
                                             act comp)
   "Speak the message."
   (dtk-speak ad-return-value))
+
+(defadvice tree-buffer-arrow-pressed (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-line)))
+
+(defadvice tree-buffer-tab-pressed (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-line)))
+
+(defadvice tree-buffer-return-pressed (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-line)))
+
+
 ;;}}}
 (provide 'emacspeak-ecb)
 ;;{{{ end of file
