@@ -703,13 +703,14 @@ Emacs 20.3"
 
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode. Turns on audio indentation and
-sets punctuation mode to all, and turns on split caps."
+sets punctuation mode to all, activates the dictionary and turns on split caps."
   (declare (special dtk-split-caps
                     emacspeak-audio-indentation))
   (voice-lock-mode 1)
   (dtk-set-punctuations "all")
   (or dtk-split-caps
       (dtk-toggle-split-caps))
+  (emacspeak-pronounce-refresh-pronunciations)
   (or emacspeak-audio-indentation
       (emacspeak-toggle-audio-indentation))
   (emacspeak-dtk-sync))
