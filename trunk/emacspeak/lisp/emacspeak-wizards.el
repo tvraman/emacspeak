@@ -2061,7 +2061,8 @@ value of the file local pattern."
     (emacspeak-speak-mode-line )))
 
 ;;}}}
-;;{{{ 
+;;{{{  spotting words 
+
 (defcustom emacspeak-wizards-spot-words-extension ".tex"
   "Default file extension  used when spotting words."
   :type 'string
@@ -2084,7 +2085,6 @@ for `word' and siplays hits in a compilation buffer."
   (emacspeak-auditory-icon 'task-done)) 
 
 ;;}}}
-
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
