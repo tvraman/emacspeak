@@ -1265,8 +1265,12 @@ used as well."
 urls.")
 
 (make-variable-buffer-local 'emacspeak-w3-xpath-filter)
-(defvar emacspeak-w3-most-recent-xpath-filter nil
-  "Caches most recently used xpath filter.")
+(defcustom emacspeak-w3-most-recent-xpath-filter
+  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote"
+  "Caches most recently used xpath filter.
+Can be customized to set up initial default."
+  :type 'string
+  :group 'emacspeak-w3)
 ;;;###autoload
 (defun emacspeak-w3-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
@@ -1277,8 +1281,6 @@ used as well."
   (declare (special emacspeak-w3-xpath-filter
                     emacspeak-w3-most-recent-xpath-filter
 		    emacspeak-w3-url-rewrite-rule))
-  (unless (fboundp 'string-replace-match)
-    (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -1286,6 +1288,8 @@ used as well."
     (unless url
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
+      (unless (fboundp 'string-replace-match)
+    (error "Install and load the elib package to use this feature."))
       (setq redirect
 	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
 				  url
