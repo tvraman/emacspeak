@@ -354,6 +354,13 @@ command \\[customize-variable] on <personality>-settings."
 (def-voice-font voice-lock-highlight-personality voice-animate
   'highlight
   "Personality used for highlighting text.")
+(def-voice-font voice-lock-fixed-personality voice-monotone
+  'fixed
+  "Personality to use for fixed pitch  text.")
+
+(def-voice-font voice-lock-fixed-pitch-personality voice-monotone
+  'fixed-pitch
+  "Personality to use for fixed pitch  text.")
 
 (def-voice-font voice-lock-comment-personality voice-monotone
   'font-lock-comment-face
@@ -402,6 +409,10 @@ command \\[customize-variable] on <personality>-settings."
 (def-voice-font voice-lock-warning-personality voice-bolden-and-animate
   'font-lock-warning-face
   "Personality to use for warnings.")
+
+(def-voice-font voice-lock-preprocessor-personality voice-monotone-medium
+  'font-lock-preprocessor-face
+  "Personality to use for preprocessor directives.")
 
 (def-voice-font voice-lock-keyword-personality voice-animate-extra
   'font-lock-keyword-face
