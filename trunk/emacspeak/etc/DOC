@@ -93,11 +93,6 @@ when speaking characters.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** dtk-set-chunk-separator-syntax	Key Sequence: control e d RETURN 
@@ -198,10 +193,9 @@ Interactive PREFIX arg makes the new setting global.
 
 ** dtk-toggle-quiet	Key Sequence: control e d q 
 
-Toggle state of the speech device between being quiet and talkative.
-Useful if you want to continue using an Emacs session that has
-emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
+Toggles state of  dtk-quiet.
+Turning on this switch silences speech.
+Optional interactive prefix arg causes this setting to become global.
 
 ------------------------------------------------------------
 
@@ -246,8 +240,8 @@ since the synthesizer is getting a word at a time.
 
 Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
-type.
-Optional argument PREFIX specifies if the setting applies to all buffers.
+type.  Optional argument PREFIX specifies if the setting applies
+to all buffers.
 
 ------------------------------------------------------------
 
@@ -616,6 +610,13 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-erc-toggle-speak-all-participantsToggle state of ERC speak all participants..
+Interactive 
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+
+------------------------------------------------------------
+
 ** emacspeak-eterm-copy-region-to-registerCopy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
@@ -634,29 +635,14 @@ the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-eterm-describe-windowDescribe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-eterm-goto-lineMove emacspeak eterm pointer to a specified LINE.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -676,11 +662,6 @@ in a non eterm buffer if executed via C-e C-e
 ** emacspeak-eterm-paste-registerPaste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -822,11 +803,6 @@ the Emacspeak pointer to be spoken.
 ** emacspeak-eterm-speak-windowSpeak an eterm window.
 Argument ID specifies the window.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-eterm-toggle-filter-windowToggle active state of filter window.
@@ -852,11 +828,6 @@ without sending input to the terminal itself.
 ------------------------------------------------------------
 
 ** emacspeak-eterm-yank-windowYank contents of  an eterm window at point.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1117,6 +1088,15 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-info-wizard	Key Sequence: control h TAB 
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+------------------------------------------------------------
+
 ** emacspeak-keymap-choose-new-emacspeak-prefixInteractively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command
 lets you switch the prefix to something else.  This is a useful thing
@@ -1138,6 +1118,16 @@ Automatically defined advice to speak interactive prompts.
 
 ** emacspeak-kotl-speak-cellSpeak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+
+------------------------------------------------------------
+
+** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
 
 ------------------------------------------------------------
 
@@ -1421,10 +1411,6 @@ Setting persists for current Emacs session.
 
 ------------------------------------------------------------
 
-** emacspeak-ocr-toggle-read-onlyToggle read-only state of OCR buffer.
-
-------------------------------------------------------------
-
 ** emacspeak-ocr-write-documentWrites out recognized text from all pages in current document.
 
 ------------------------------------------------------------
@@ -1651,12 +1637,6 @@ Forward-char redefined to speak char moved to.
 
 ------------------------------------------------------------
 
-** emacspeak-kill-buffer	Key Sequence: control x k 
-
-Speech-enabled version of kill-buffer for Emacs 21.
-
-------------------------------------------------------------
-
 ** emacspeak-self-insert-command	Key Sequence: Character set JISX0213-2   Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional): ISO-IR-187   Character set CNS11643-6 (Chinese traditional): ISO-IR-186   Character set CNS11643-5 (Chinese traditional): ISO-IR-185   Character set CNS11643-4 (Chinese traditional): ISO-IR-184   Character set CNS11643-3 (Chinese traditional): ISO-IR-183   Character set Ethiopic characters   Character set Unicode subset ( cap U +0100.. cap U +24FF)   Character set Unicode subset ( cap U +E000+FFFF)   Character set Unicode subset ( cap U +2500.. cap U +33FF)   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F   Character set JISX0213-1   Character set CNS11643-2 (Chinese traditional): ISO-IR-172   Character set CNS11643-1 (Chinese traditional): ISO-IR-171   Character set JISX0212 (Japanese): ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149   Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese): ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)   Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4): ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109   Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101   Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;   :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +   *   )   (   '   &   %   $   #   "   !   SPACE 
 
 Insert a character.
@@ -1769,11 +1749,6 @@ typed. If no such group exists, then we dont move.
 ** emacspeak-dial-dtk	Key Sequence: control e d t 
 
 Prompt for and dial a phone NUMBER with the Dectalk.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1936,6 +1911,14 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 ** emacspeak-speak-current-column	Key Sequence: control e = 
 
 Speak the current column.
+
+------------------------------------------------------------
+
+** emacspeak-speak-current-field	Key Sequence: control e . 
+
+Speak current field.
+A field is
+defined  by Emacs 21.
 
 ------------------------------------------------------------
 
@@ -2116,11 +2099,6 @@ Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'.
 Optional argument ARG  specifies `other' window to speak.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-speak-page	Key Sequence: control e [ 
@@ -2258,9 +2236,7 @@ Speak the white space at point.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-spell-current-word	Key Sequence: control e  cap W  
-
-Spell word at  point.
+** emacspeak-speak-spell-current-wordSpell word at  point.
 
 ------------------------------------------------------------
 
@@ -2346,16 +2322,6 @@ current local  value to the result.
 ** emacspeak-toggle-comint-autospeak	Key Sequence: control e control q 
 
 Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-
-------------------------------------------------------------
-
-** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
-
-Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -2491,11 +2457,6 @@ the documentation on the table browser.
 ** emacspeak-table-find-csv-fileProcess a csv (comma separated values) file. 
 The processed  data and presented using emacspeak table navigation. 
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-table-find-file	Key Sequence: control e control t 
@@ -2509,11 +2470,6 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-table-get-entry-with-headersReturn   both row and column header and table element
@@ -2521,11 +2477,6 @@ Automatically defined advice to speak interactive prompts.
 ------------------------------------------------------------
 
 ** emacspeak-table-gotoPrompt for a table cell coordinates and jump to it.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -2649,6 +2600,15 @@ in the white-space.
 Describe the current layout of visible buffers in current frame.
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
+
+------------------------------------------------------------
+
+** emacspeak-tapestry-select-window-by-name	Key Sequence: control e  cap W  
+
+Select window by the name of the buffer it displays.
+This is useful when using modes like ECB or the new GDB UI where
+  you want to preserve the window layout 
+but quickly switch to a window by name.
 
 ------------------------------------------------------------
 
@@ -2975,11 +2935,6 @@ specifies by how many eleemnts to move.
 ------------------------------------------------------------
 
 ** emacspeak-w3-set-xsl-keep-resultSet value of `emacspeak-w3-xsl-keep-result'.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -3456,32 +3411,17 @@ With optional PREFIX argument, label current frame.
 Prompts for FILENAME in which to save the documentation.
 Warning! Contents of file filename will be overwritten.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-generate-texinfo-command-documentationGenerate texinfo documentation  for all emacspeak
 commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-generate-texinfo-option-documentationGenerate texinfo documentation  for all emacspeak
 options  into file options.texi.
 Warning! Contents of file options.texi will be overwritten.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -3798,11 +3738,6 @@ Use with caution.
 ** emacspeak-wizards-generate-voice-samplerGenerate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-wizards-get-table-content-from-fileExtract table specified by depth and count from HTML
@@ -3830,12 +3765,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-occur-header-linesIf you define a file local variable 
-called `emacspeak-occur-pattern' that holds a regular expression 
-that matches header lines, you can use this command to conveniently
-run `occur' 
-to find matching header lines. With prefix arg, prompts for and sets
-value of the file local pattern.
+** emacspeak-wizards-occur-header-linesIf you define a file local variable called
+`emacspeak-occur-pattern' that holds a regular expression that
+matches header lines, you can use this command to conveniently
+run `occur' to find matching header lines. With prefix arg,
+prompts for and sets value of the file local pattern.
 
 ------------------------------------------------------------
 
@@ -3894,11 +3828,6 @@ Switch to the shell buffer and cd to
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -3989,11 +3918,6 @@ key             binding
 
 ** emacspeak-xml-shell-browse-resultDisplay XPath  and display its result using W3.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-xml-shell-goto-childrenNavigate down to the children of current node.
@@ -4033,14 +3957,6 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
-
-------------------------------------------------------------
-
-** emacspeak-speak-current-field	Key Sequence: control e . 
-
-Speak current field.
-A field is
-defined  by Emacs 21.
 
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"

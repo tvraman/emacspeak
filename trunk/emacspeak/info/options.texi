@@ -15,10 +15,13 @@ documentation.
 * emacspeak-analog Options::    
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
+* emacspeak-buff-menu Options::  
 * emacspeak-calendar Options::  
 * emacspeak-custom Options::    
+* emacspeak-daisy Options::     
 * emacspeak-dismal Options::    
 * emacspeak-ediff Options::     
+* emacspeak-entertain Options::  
 * emacspeak-erc Options::       
 * emacspeak-eshell Options::    
 * emacspeak-eterm Options::     
@@ -36,6 +39,7 @@ documentation.
 * emacspeak-m-player Options::  
 * emacspeak-ocr Options::       
 * emacspeak-outline Options::   
+* emacspeak-pcl-cvs Options::   
 * emacspeak-personality Options::  
 * emacspeak-pronounce Options::  
 * emacspeak-realaudio Options::  
@@ -49,6 +53,7 @@ documentation.
 * emacspeak-speedbar Options::  
 * emacspeak-table-ui Options::  
 * emacspeak-tnt Options::       
+* emacspeak-url-template Options::  
 * emacspeak-vm Options::        
 * emacspeak-w3 Options::        
 * emacspeak-w3m Options::       
@@ -182,7 +187,7 @@ current after deletion.
 @end defvar
 
 @defvar {User Option} emacspeak-comint-input-personality
-Personality used for highlighting comint input --emacs 21.
+Personality used for highlighting comint inputs --emacs 21.
 @end defvar
 
 @defvar {User Option} emacspeak-comint-prompt-personality
@@ -282,6 +287,17 @@ These options are customizable via Emacs' Custom interface.
 *Name of file containing personal aumix settings.
 @end defvar
 
+@node emacspeak-buff-menu Options
+@section emacspeak-buff-menu Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-buff-menu.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-buffer-menu-buffer-face
+Personality for highlighting buffer name in buffer-menu.
+@end defvar
+
 @node emacspeak-calendar Options
 @section emacspeak-calendar Options
 
@@ -293,6 +309,14 @@ These options are customizable via Emacs' Custom interface.
 Personality to use when showing marked calendar entries.
 @end defvar
 
+@defvar {User Option} emacspeak-diary-personality
+Personality for header line in diary.
+@end defvar
+
+@defvar {User Option} emacspeak-holiday-personality
+holiday personality for calendar.
+@end defvar
+
 @node emacspeak-custom Options
 @section emacspeak-custom Options
 
@@ -300,8 +324,56 @@ Automatically generated documentation
 for options defined in module  emacspeak-custom.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-custom-button-personality
+Personality for custom-button-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-button-pressed-personality
+Personality for custom-button-pressed-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-changed-personality
+Personality for custom-changed-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-comment-personality
+Personality for custom-comment-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-comment-tag-personality
+Personality for custom-comment-tag-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-documentation-personality
+Personality for custom-documentation-face
+@end defvar
+
 @defvar {User Option} emacspeak-custom-group-regexp
 Pattern identifying start of custom group.
+@end defvar
+
+@defvar {User Option} emacspeak-custom-group-tag-personality
+Personality for custom-group-tag-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-invalid-personality
+Personality for custom-invalid-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-modified-personality
+Personality for custom-modified-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-personality
+Personality for custom-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-saved-personality
+Personality for custom-saved-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-set-personality
+Personality for custom-set-face
 @end defvar
 
 @defvar {User Option} emacspeak-custom-state-face
@@ -310,6 +382,34 @@ Personality used for showing custom state.
 
 @defvar {User Option} emacspeak-custom-toolbar-regexp
 Pattern that identifies toolbar section.
+@end defvar
+
+@defvar {User Option} emacspeak-custom-variable-button-personality
+Personality for custom-variable-button-face
+@end defvar
+
+@defvar {User Option} emacspeak-custom-variable-tag-personality
+Personality for custom-variable-tag-face
+@end defvar
+
+@node emacspeak-daisy Options
+@section emacspeak-daisy Options
+
+Commentary:
+Daisy Digital Talking Book Reader
+
+Automatically generated documentation
+for options defined in module  emacspeak-daisy.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-daisy-books-directory
+Customize this to the root of where books are organized.
+@end defvar
+
+@defvar {User Option} emacspeak-daisy-completion-extensions-to-ignore
+These file name extensions are ignored when locating the
+navigation file for a book. Include all extensions except `.ncx'
+  for optimal performance.
 @end defvar
 
 @node emacspeak-dismal Options
@@ -349,6 +449,25 @@ Personality used to voiceify difference chunk A
 
 @defvar {User Option} emacspeak-ediff-fine-B-personality
 Personality used to voiceify difference chunk B
+@end defvar
+
+@node emacspeak-entertain Options
+@section emacspeak-entertain Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-entertain.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-mpuz-solved-personality
+
+@end defvar
+
+@defvar {User Option} emacspeak-mpuz-trivial-personality
+
+@end defvar
+
+@defvar {User Option} emacspeak-mpuz-unsolved-personality
+
 @end defvar
 
 @node emacspeak-erc Options
@@ -411,6 +530,10 @@ Personality for pals.
 Personality for prompts.
 @end defvar
 
+@defvar {User Option} emacspeak-erc-speak-all-participants
+Speak all things said if t.
+@end defvar
+
 @node emacspeak-eshell Options
 @section emacspeak-eshell Options
 
@@ -450,10 +573,6 @@ Personality for files that can be recreated.
 Personality for read only files.
 @end defvar
 
-@defvar {User Option} emacspeak-eshell-ls-special-personality
-Personality for special files.
-@end defvar
-
 @defvar {User Option} emacspeak-eshell-ls-symlink-personality
 Personality for symlinks.
 @end defvar
@@ -465,6 +584,14 @@ Personality for files that are not readable.
 @defvar {User Option} emacspeak-eshell-ls-use-personalities
 Indicates if ls in eshell uses different voice
 personalities.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-prompt-personality
+Personality used for highlighting eshell prompts --emacs 21.
+@end defvar
+
+@defvar {User Option} emacspeak-eshell-special-personality
+Personality for specials.
 @end defvar
 
 @node emacspeak-eterm Options
@@ -606,11 +733,51 @@ Automatically generated documentation
 for options defined in module  emacspeak-info.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-info-header-node
+Personality used for info-header-node.
+@end defvar
+
+@defvar {User Option} emacspeak-info-header-xref
+Personality used for info-header-xref.
+@end defvar
+
+@defvar {User Option} emacspeak-info-menu-5
+Personality used for info-menu-5.
+@end defvar
+
+@defvar {User Option} emacspeak-info-menu-header
+Personality used for info-menu-header.
+@end defvar
+
+@defvar {User Option} emacspeak-info-node
+Personality used for info-node.
+@end defvar
+
 @defvar {User Option} emacspeak-info-select-node-speak-chunk
 *Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-1-face
+Personality used for Info-title-1-face.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-2-face
+Personality used for Info-title-2-face.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-3-face
+Personality used for Info-title-3-face.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-4-face
+Personality used for Info-title-4-face.
+@end defvar
+
+@defvar {User Option} emacspeak-info-xref
+Personality used for info-xref.
 @end defvar
 
 @node emacspeak-ispell Options
@@ -856,6 +1023,40 @@ Level 6 outline headings.
 @defvar {User Option} emacspeak-outline-dont-query-before-speaking
 *Option to control prompts when speaking  outline
 sections.
+@end defvar
+
+@node emacspeak-pcl-cvs Options
+@section emacspeak-pcl-cvs Options
+
+Commentary:
+Speech-enabled CVS access via package pcl-cvs.el
+
+Automatically generated documentation
+for options defined in module  emacspeak-pcl-cvs.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-pcl-cvs-filename-face
+Personality used for file names in CVS buffers.
+@end defvar
+
+@defvar {User Option} emacspeak-pcl-cvs-handled-face
+Personality to match cvs-handle-face.
+@end defvar
+
+@defvar {User Option} emacspeak-pcl-cvs-header-face
+Personality for CVS header lines.
+@end defvar
+
+@defvar {User Option} emacspeak-pcl-cvs-marked-face
+Personality for marked lines in CVS.
+@end defvar
+
+@defvar {User Option} emacspeak-pcl-cvs-msg-face
+Personality for CVS messages.
+@end defvar
+
+@defvar {User Option} emacspeak-pcl-cvs-need-action-face
+Personality for CVS lines needing an action.
 @end defvar
 
 @node emacspeak-personality Options
@@ -1330,16 +1531,23 @@ Personality for pounce buddies.
 tnt-my-name-face
 @end defvar
 
+@node emacspeak-url-template Options
+@section emacspeak-url-template Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-url-template.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-bookshare-user-id
+Bookshare user Id.
+@end defvar
+
 @node emacspeak-vm Options
 @section emacspeak-vm Options
 
 Automatically generated documentation
 for options defined in module  emacspeak-vm.
 These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-vm-cite-voice
-Personality for citation lines. 
-@end defvar
 
 @defvar {User Option} emacspeak-vm-customize-mime-settings
 Non-nil will cause Emacspeak to configure VM mime
@@ -1351,10 +1559,6 @@ Executable that converts MSWord documents on standard input to plain
 text using wvText.
 @end defvar
 
-@defvar {User Option} emacspeak-vm-from-voice
-Personality for From field. 
-@end defvar
-
 @defvar {User Option} emacspeak-vm-pdf2text
 Executable that converts PDF on standard input to plain
 text using pdftotext.
@@ -1363,14 +1567,6 @@ text using pdftotext.
 @defvar {User Option} emacspeak-vm-ppt2html
 Executable that converts MSPPT documents on standard input to HTML
  using xlhtml.
-@end defvar
-
-@defvar {User Option} emacspeak-vm-subject-voice
-Personality for Subject field. 
-@end defvar
-
-@defvar {User Option} emacspeak-vm-to-voice
-Personality for To field. 
 @end defvar
 
 @defvar {User Option} emacspeak-vm-use-raman-settings
@@ -1713,7 +1909,7 @@ When this minor mode is on, the voices of the current line are
 updated with every insertion or deletion.
 
 How faces map to voices:
-TTS engine specific modules e.g., dtk-voices.el and
+TTS engine specific modules e.g., dectalk-voices.el and
 outloud-voices.el 
 define a standard set of voice names.
 This module maps standard "personality" names to these pre-defined
@@ -1799,7 +1995,7 @@ Lighten current voice.
 @end defvar
 
 @defvar {User Option} voice-lock-bold-italic-personality
-Personality to use for bold  text.
+Personality to use for bold  italic text.
 @end defvar
 
 @defvar {User Option} voice-lock-bold-personality
@@ -1810,6 +2006,10 @@ Personality to use for bold  text.
 Personality to use for built-in keywords.
 @end defvar
 
+@defvar {User Option} voice-lock-button-personality
+Personality for buttons.
+@end defvar
+
 @defvar {User Option} voice-lock-comment-personality
 Personality to use for comments.
 @end defvar
@@ -1818,12 +2018,28 @@ Personality to use for comments.
 Personality to use for  constants.
 @end defvar
 
+@defvar {User Option} voice-lock-doc-personality
+Personality to use for documentation.
+@end defvar
+
 @defvar {User Option} voice-lock-doc-string-personality
 Personality to use for documentation strings.
 @end defvar
 
+@defvar {User Option} voice-lock-fixed-personality
+Personality to use for fixed pitch  text.
+@end defvar
+
+@defvar {User Option} voice-lock-fixed-pitch-personality
+Personality to use for fixed pitch  text.
+@end defvar
+
 @defvar {User Option} voice-lock-function-name-personality
 Personality to use for function names.
+@end defvar
+
+@defvar {User Option} voice-lock-gui-button-personality
+Personality for buttons.
 @end defvar
 
 @defvar {User Option} voice-lock-highlight-personality
@@ -1841,6 +2057,10 @@ Personality to use for keywords.
 @defvar {User Option} voice-lock-mode
 Determines  if property personality results in text being
 voicified.
+@end defvar
+
+@defvar {User Option} voice-lock-preprocessor-personality
+Personality to use for preprocessor directives.
 @end defvar
 
 @defvar {User Option} voice-lock-reference-personality
