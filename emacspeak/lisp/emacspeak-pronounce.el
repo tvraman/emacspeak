@@ -165,48 +165,32 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
 buffer. Handles inheritance of pronunciation dictionaries between
 modes."
   (setq buffer (or buffer (current-buffer )))
-  (let* ((table (make-hash-table))
+  (let* ((table (make-hash-table :test #'equal))
          (filename (buffer-file-name buffer))
-         (directory (and filename
-                         (file-name-directory  filename)))
+         (directory (and filename (file-name-directory  filename)))
          (mode  (save-excursion
                   (set-buffer buffer)
                   major-mode))
          (mode-supers (emacspeak-pronounce-get-supers mode))
-         (file-alist (and filename
-                          (emacspeak-pronounce-get-dictionary filename)))
-         (dir-alist (and directory
-                         (emacspeak-pronounce-get-dictionary directory)))
+         (file-alist (and filename (emacspeak-pronounce-get-dictionary filename)))
+         (dir-alist (and directory (emacspeak-pronounce-get-dictionary directory)))
          (mode-alist (emacspeak-pronounce-get-dictionary mode))
          (super-alist nil))
     (loop for super in mode-supers
           do
-          (setq super-alist
-                (emacspeak-pronounce-get-dictionary super))
+          (setq super-alist (emacspeak-pronounce-get-dictionary super))
           (loop for element in super-alist
                 do
-                (setf (gethash
-                       (intern (car element))
-                       table)
-                      (cdr element ))))
+                (puthash (car element) (cdr element ) table)))
     (loop for element in mode-alist
           do
-          (setf (gethash
-                 (intern (car element))
-                 table)
-                (cdr element )))
+          (puthash (car element) (cdr element ) table))
     (loop for element in dir-alist
           do
-          (setf (gethash
-                 (intern (car element))
-                 table)
-                (cdr element )))
+          (puthash (car element) (cdr element ) table))
     (loop for element in file-alist
           do
-          (setf (gethash
-                 (intern (car element))
-                 table)
-                (cdr element )))
+          (puthash (car element) (cdr element ) table))
     table))
 
 ;;}}}
@@ -259,17 +243,15 @@ applied."
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
-  (declare (special
-	    emacspeak-pronounce-pronunciation-personality))
+  (declare (special emacspeak-pronounce-pronunciation-personality))
   (let ((words
          (sort 
           (loop for  key  being the hash-keys  of pronunciation-table collect key)
           #'(lambda (a b ) 
-              (> (length (symbol-name a))
-                 (length (symbol-name b)))))))
+              (> (length  a) (length  b))))))
     (loop for key in words 
           do
-          (let ((word (symbol-name key))
+          (let ((word  key)
                 (pronunciation (gethash  key pronunciation-table ))
                 (personality nil))
             (goto-char (point-min))
@@ -281,8 +263,8 @@ Modifies text and point in buffer."
                (match-beginning 0)
                (+ (match-beginning 0) (length pronunciation))
                'personality
-               (or
-                emacspeak-pronounce-pronunciation-personality personality)))))))
+               (or emacspeak-pronounce-pronunciation-personality
+                   personality)))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
