@@ -129,6 +129,29 @@ will be placed."
   :group 'emacspeak-ocr
   :type 'string)
 
+
+(defcustom emacspeak-ocr-scan-photo-options 
+  "-mode color -format=pnm"
+  "Options  used when scanning in photographs."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-photo-compress "cjpeg"
+  "Program to create JPEG compressed images."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-compress-photo-options
+  "-optimize -progressive"
+  "Options used when created JPEG from  scanned photographs."
+  :type 'string
+  :group 'emacspeak-ocr)
+
+(defcustom emacspeak-ocr-keep-uncompressed-image nil
+  "If set to T, uncompressed image is not removed."
+  :type 'boolean
+  :group 'emacspeak-ocr)
+
 ;;}}}
 ;;{{{  helpers
 
@@ -183,10 +206,10 @@ will be placed."
 
 (defvar emacspeak-ocr-mode-line-format
   '(
-   (buffer-name)
-   " "
-   "page-"
-   emacspeak-ocr-current-page-number)
+    (buffer-name)
+    " "
+    "page-"
+    emacspeak-ocr-current-page-number)
   "Mode line format for OCR buffer.")
 
 (defsubst emacspeak-ocr-get-mode-line-format ()
@@ -281,6 +304,7 @@ Here is a list of all emacspeak OCR commands along with their key-bindings:
 (define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)
 (define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
 (define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
+(define-key emacspeak-ocr-mode-map "j" 'emacspeak-ocr-scan-photo)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
 (define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
 (define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
@@ -360,10 +384,7 @@ Pick a short but meaningful name."
   (emacspeak-speak-mode-line))
 
 
-(defcustom emacspeak-ocr-keep-uncompressed-image nil
-  "If set to T, uncompressed image is not removed."
-  :type 'boolean
-  :group 'emacspeak-ocr)
+
 
 (defun emacspeak-ocr-scan-image ()
   "Acquire page image."
@@ -391,10 +412,44 @@ Pick a short but meaningful name."
                 image-name)
         (if emacspeak-ocr-keep-uncompressed-image
             (format "echo \'Uncompressed image not removed.'")
-        (format "rm -f temp%s"
-                emacspeak-ocr-image-extension)))))
+          (format "rm -f temp%s"
+                  emacspeak-ocr-image-extension)))))
     (message "Acquired  image to file %s"
              image-name)))
+
+(defun emacspeak-ocr-scan-photo ()
+  "Scan in a photograph.
+The scanned image is converted to JPEG."
+  (interactive)
+  (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-photo-compress-options
+                    emacspeak-ocr-scan-photo-options
+                    emacspeak-ocr-keep-uncompressed-image
+                    emacspeak-ocr-scan-image
+                    emacspeak-ocr-compress-photo
+                    emacspeak-ocr-image-extension
+                    emacspeak-ocr-document-name))
+  (let* ((emacspeak-ocr-image-extension ".pnm")
+         (image-name (emacspeak-ocr-get-image-name)))
+    (let ((emacspeak-speak-messages nil))
+      (shell-command
+       (concat
+        (format "%s %s > temp%s;\n"
+                emacspeak-ocr-scan-image
+                emacspeak-ocr-scan-photo-options 
+                emacspeak-ocr-image-extension)
+        (format "%s %s  temp%s %s ;\n"
+                emacspeak-ocr-compress-photo
+                emacspeak-ocr-compress-photo-options
+                emacspeak-ocr-image-extension
+                image-name)
+        (if emacspeak-ocr-keep-uncompressed-image
+            (format "echo \'Uncompressed image not removed.'")
+          (format "rm -f temp%s"
+                  emacspeak-ocr-image-extension)))))
+    (message "Acquired  image to file %s"
+             image-name)))
+
 
 (defvar emacspeak-ocr-process nil
   "Handle to OCR process.")
@@ -405,11 +460,11 @@ Pick a short but meaningful name."
   (cond
    ((= 0 emacspeak-ocr-current-page-number)
     (message "No pages in current document."))
-  (t (write-region
-      (point-min)
-          (point-max)
-     (emacspeak-ocr-get-text-name))
-(emacspeak-auditory-icon 'save-object))))
+   (t (write-region
+       (point-min)
+       (point-max)
+       (emacspeak-ocr-get-text-name))
+      (emacspeak-auditory-icon 'save-object))))
 
 (defun emacspeak-ocr-save-current-page ()
   "Writes out recognized text from current page
@@ -420,16 +475,16 @@ to an appropriately named file."
   (cond
    ((= 0 emacspeak-ocr-current-page-number)
     (message "No pages in current document."))
-  (t (write-region
-      (aref emacspeak-ocr-page-positions
-            emacspeak-ocr-current-page-number)
-      (if (= emacspeak-ocr-current-page-number
-             emacspeak-ocr-last-page-number)
-          (point-max)
-        (aref emacspeak-ocr-page-positions (1+
-                                            emacspeak-ocr-current-page-number)))
-     (emacspeak-ocr-get-page-name))
-(emacspeak-auditory-icon 'save-object))))
+   (t (write-region
+       (aref emacspeak-ocr-page-positions
+             emacspeak-ocr-current-page-number)
+       (if (= emacspeak-ocr-current-page-number
+              emacspeak-ocr-last-page-number)
+           (point-max)
+         (aref emacspeak-ocr-page-positions (1+
+                                             emacspeak-ocr-current-page-number)))
+       (emacspeak-ocr-get-page-name))
+      (emacspeak-auditory-icon 'save-object))))
 
 (defun emacspeak-ocr-process-sentinel  (process state)
   "Alert user when OCR is complete."
@@ -461,7 +516,7 @@ Prompts for image file if file corresponding to the expected
          (if (file-exists-p (emacspeak-ocr-get-image-name))
              (emacspeak-ocr-get-image-name)
            (expand-file-name 
-           (read-file-name "Image file to recognize: ")))))
+            (read-file-name "Image file to recognize: ")))))
     (goto-char (point-max))
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))
@@ -472,8 +527,8 @@ Prompts for image file if file corresponding to the expected
      (format "\n%c\nPage %s\n" 12
              emacspeak-ocr-last-page-number))
     (message "%s %s"
-emacspeak-ocr-engine
-           image-name)
+             emacspeak-ocr-engine
+             image-name)
     (setq emacspeak-ocr-process
           (start-process 
            "ocr"
