@@ -2,6 +2,18 @@
 @node Emacspeak Commands
 @chapter Emacspeak Commands
 
+This chapter is generated automatically from the source-level documentation.
+Any errors or corrections should be made to the source-level
+documentation.
+
+@node dtk-tcl
+@section dtk-tcl
+
+
+Automatically generated documentation
+for commands defined in module  dtk-tcl.
+
+
 
 @unnumberedsec dtk-add-cleanup-pattern
 @findex dtk-add-cleanup-pattern
@@ -67,6 +79,13 @@ If speech has not been paused,
 and variable `dtk-resume-should-toggle' is t
  then this command will pause ongoing speech.
 
+@node dtk-speak
+@section dtk-speak
+
+
+Automatically generated documentation
+for commands defined in module  dtk-speak.
+
 
 
 @unnumberedsec dtk-select-server
@@ -77,6 +96,13 @@ and variable `dtk-resume-should-toggle' is t
 Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
 When called  interactively, The selected server is started immediately. 
+
+@node dtk-tcl
+@section dtk-tcl
+
+
+Automatically generated documentation
+for commands defined in module  dtk-tcl.
 
 
 
@@ -96,6 +122,13 @@ This function is advised.
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 
+@node dtk-speak
+@section dtk-speak
+
+
+Automatically generated documentation
+for commands defined in module  dtk-speak.
+
 
 
 @unnumberedsec dtk-set-chunk-separator-syntax
@@ -107,6 +140,13 @@ Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
 classified into various syntactic classes.
 Argument S specifies the syntax class.
+
+@node dtk-tcl
+@section dtk-tcl
+
+
+Automatically generated documentation
+for commands defined in module  dtk-tcl.
 
 
 
@@ -212,6 +252,13 @@ when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
+@node dtk-speak
+@section dtk-speak
+
+
+Automatically generated documentation
+for commands defined in module  dtk-speak.
+
 
 
 @unnumberedsec dtk-toggle-debug
@@ -224,6 +271,13 @@ When debugging is on, you can switch to the buffer
 *speaker* to examine the output from the process
 that talks to the speech device by using command C-e d M-C-b.
 Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
+
+@node dtk-tcl
+@section dtk-tcl
+
+
+Automatically generated documentation
+for commands defined in module  dtk-tcl.
 
 
 
@@ -260,6 +314,13 @@ Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.
 
+@node dtk-speak
+@section dtk-speak
+
+
+Automatically generated documentation
+for commands defined in module  dtk-speak.
+
 
 
 @unnumberedsec dtk-toggle-splitting-on-white-space
@@ -281,6 +342,13 @@ space makes emacspeak's stop command responsive.  However,
 when splitting on white space, the speech sounds choppy
 since the synthesizer is getting a word at a time.
 
+@node dtk-tcl
+@section dtk-tcl
+
+
+Automatically generated documentation
+for commands defined in module  dtk-tcl.
+
 
 
 @unnumberedsec dtk-toggle-stop-immediately-while-typing
@@ -293,18 +361,27 @@ As the name implies, if T then speech flushes immediately as you
 type.
 Optional argument PREFIX specifies if the setting applies to all buffers.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-annotate-add-annotation
 @findex emacspeak-annotate-add-annotation
  No global keybinding
 
-Add annotation to the annotation working buffer.
-Prompt for annotation buffer if not already set.
-Interactive prefix arg `reset' prompts for the annotation
-buffer even if one is already set.
-Annotation is entered in a temporary buffer and the
-annotation is inserted into the working buffer when complete.
+er])
+
+@node emacspeak-calendar
+@section emacspeak-calendar
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-calendar.
 
 
 
@@ -314,6 +391,13 @@ annotation is inserted into the working buffer when complete.
  control e  cap A  
 
 Speaks the most recently displayed appointment message if any.
+
+@node emacspeak-arc
+@section emacspeak-arc
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-arc.
 
 
 
@@ -347,6 +431,13 @@ Speak permissions of file current entry
 
 Speak the size of the file on current line
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-audio-annotate-paragraphs
@@ -355,6 +446,13 @@ Speak the size of the file on current line
 
 Set property auditory-icon at front of all paragraphs.
 Interactive PREFIX arg prompts for sound cue to use
+
+@node emacspeak-aumix
+@section emacspeak-aumix
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-aumix.
 
 
 
@@ -423,6 +521,13 @@ Decrease volume of wave output.
 
 Increase volume of wave output. 
 
+@node emacspeak-redefine
+@section emacspeak-redefine
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-redefine.
+
 
 
 @unnumberedsec emacspeak-backward-char
@@ -432,6 +537,13 @@ Increase volume of wave output.
 
 Backward-char redefined to speak char moved to. 
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-blink-matching-open
@@ -439,6 +551,13 @@ Backward-char redefined to speak char moved to.
  No global keybinding
 
 Display matching delimiter in the minibuffer.
+
+@node emacspeak-bs
+@section emacspeak-bs
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-bs.
 
 
 
@@ -448,6 +567,13 @@ Display matching delimiter in the minibuffer.
 
 Speak information about this buffer
 
+@node emacspeak-c
+@section emacspeak-c
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-c.
+
 
 
 @unnumberedsec emacspeak-c-speak-semantics
@@ -456,6 +582,13 @@ Speak information about this buffer
 
 Speak the C semantics of this line. 
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-clipboard-copy
@@ -463,7 +596,8 @@ Speak the C semantics of this line.
 @kindex  control e control c 
  control e control c 
 
-Copy contents of the region to the emacspeak clipboard.
+:group 'emacspeak-speak :type 'string)
+#@621 Copy contents of the region to the emacspeak clipboard.
 Previous contents of the clipboard will be overwritten.  The Emacspeak
 clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
@@ -481,13 +615,21 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 @kindex  control e control y 
  control e control y 
 
-Yank contents of the Emacspeak clipboard at point.
+$ . 28791) nil 5 (#$ . 28097) "r\nP"])
+#@418 Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
 session --Emacs' register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
+
+@node emacspeak-compile
+@section emacspeak-compile
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-compile.
 
 
 
@@ -497,6 +639,13 @@ the emacspeak table clipboard instead.
 
 Speech feedback about the compilation error. 
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-completions-move-to-completion-group
@@ -505,6 +654,13 @@ Speech feedback about the compilation error.
 
 Move to group of choices beginning with character last
 typed. If no such group exists, then we dont move. 
+
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
 
 
 
@@ -520,6 +676,13 @@ Prompts for the new location and preserves modification time
   a file in an existing directory, the specified name is
   used.  Asks for confirmation if the copy will result in an
   existing file being overwritten.
+
+@node emacspeak-custom
+@section emacspeak-custom
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-custom.
 
 
 
@@ -537,6 +700,13 @@ Jump to custom group when in a customization buffer.
 
 Jump to custom toolbar when in a customization buffer.
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-customize
@@ -546,6 +716,13 @@ Jump to custom toolbar when in a customization buffer.
 
 Customize Emacspeak.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-customize-personal-settings
@@ -553,8 +730,7 @@ Customize Emacspeak.
 @kindex  control e f1 
  control e f1 
 
-Create a customization buffer for browsing and updating
-personal customizations.
+)
 
 
 
@@ -573,6 +749,13 @@ Get latest cvs snapshot of emacspeak.
 
 Grab CVS snapshot  of specified project from Sourceforge.
 
+@node emacspeak-websearch
+@section emacspeak-websearch
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-websearch.
+
 
 
 @unnumberedsec emacspeak-dejanews-browse-group
@@ -582,6 +765,13 @@ Grab CVS snapshot  of specified project from Sourceforge.
 
 Prompt and browse a newsgroup on Dejanews.
 
+@node emacspeak
+@section emacspeak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak.
+
 
 
 @unnumberedsec emacspeak-describe-emacspeak
@@ -590,6 +780,13 @@ Prompt and browse a newsgroup on Dejanews.
  control h control e 
 
 Give a brief overview of emacspeak.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -604,6 +801,13 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+
+@node emacspeak-dired
+@section emacspeak-dired
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-dired.
 
 
 
@@ -671,6 +875,13 @@ Speak the header line of the dired buffer.
  No global keybinding
 
 Speaks the target of the symlink on the current line.
+
+@node emacspeak-dismal
+@section emacspeak-dismal
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-dismal.
 
 
 
@@ -793,6 +1004,13 @@ Specify or reset sheet summarizer list.
 Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-dtk-speak-version
@@ -802,6 +1020,13 @@ emacspeak-dismal-sheet-summarizer-list
 
 Use this to find out which version of the Dectalk firmware you are running.
 
+@node emacspeak-ediff
+@section emacspeak-ediff
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-ediff.
+
 
 
 @unnumberedsec emacspeak-ediff-speak-current-difference
@@ -810,6 +1035,13 @@ Use this to find out which version of the Dectalk firmware you are running.
 
 Speak the current difference
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-emergency-tts-restart
@@ -817,9 +1049,17 @@ Speak the current difference
 @kindex  control e x s 
  control e x s 
 
-For use in an emergency.
+31557) :type 'string :group 'emacspeak)
+#@94 For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
+
+@node emacspeak-enriched
+@section emacspeak-enriched
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-enriched.
 
 
 
@@ -829,6 +1069,13 @@ emacspeak-emergency-tts-server.
 
 Map base fonts to voices.
 Useful in voicifying rich text.
+
+@node emacspeak-eterm
+@section emacspeak-eterm
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eterm.
 
 
 
@@ -1172,6 +1419,13 @@ without sending input to the terminal itself.
 
 Yank contents of  an eterm window at point.
 
+@node emacspeak-eudc
+@section emacspeak-eudc
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eudc.
+
 
 
 @unnumberedsec emacspeak-eudc-send-mail
@@ -1179,6 +1433,13 @@ Yank contents of  an eterm window at point.
  No global keybinding
 
 Send email to the address given by the current record. 
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -1192,6 +1453,13 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+
+@node emacspeak-filtertext
+@section emacspeak-filtertext
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-filtertext.
 
 
 
@@ -1229,6 +1497,13 @@ r               emacspeak-filtertext-revert
 
 Revert to original text.
 
+@node emacspeak-fix-interactive
+@section emacspeak-fix-interactive
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-fix-interactive.
+
 
 
 @unnumberedsec emacspeak-fix-all-recent-commands
@@ -1246,6 +1521,13 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
  No global keybinding
 
 Fix all commands loaded from a specified module.
+
+@node emacspeak-forms
+@section emacspeak-forms
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-forms.
 
 
 
@@ -1296,6 +1578,13 @@ Summarize current position in list of records
 
 Summarize current record
 
+@node emacspeak-redefine
+@section emacspeak-redefine
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-redefine.
+
 
 
 @unnumberedsec emacspeak-forward-char
@@ -1305,6 +1594,13 @@ Summarize current record
 
 Forward-char redefined to speak char moved to. 
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-frame-label-or-switch-to-labelled-frame
@@ -1312,7 +1608,8 @@ Forward-char redefined to speak char moved to.
 @kindex  control e meta f 
  control e meta f 
 
-Switch to labelled frame.
+-optimizer 'byte-compile-inline-expand)
+#@79 Switch to labelled frame.
 With optional PREFIX argument, label current frame.
 
 
@@ -1322,6 +1619,13 @@ With optional PREFIX argument, label current frame.
  No global keybinding
 
 Read a frame label with completion.
+
+@node emacspeak-freeamp
+@section emacspeak-freeamp
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-freeamp.
 
 
 
@@ -1382,6 +1686,13 @@ o               emacspeak-freeamp
 
 
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-generate-documentation
@@ -1411,6 +1722,13 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
+
+@node emacspeak-gomoku
+@section emacspeak-gomoku
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-gomoku.
 
 
 
@@ -1484,6 +1802,13 @@ Speak number of moves so far
 
 Speak coordinates and state of square at point
 
+@node emacspeak-gridtext
+@section emacspeak-gridtext
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-gridtext.
+
 
 
 @unnumberedsec emacspeak-gridtext-apply
@@ -1511,6 +1836,13 @@ Load saved grid settings.
 
 Save out grid settings.
 
+@node emacspeak-entertain
+@section emacspeak-entertain
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-entertain.
+
 
 
 @unnumberedsec emacspeak-hangman-speak-guess
@@ -1526,6 +1858,13 @@ Speak current guessed string.
  No global keybinding
 
 Speak statistics.
+
+@node emacspeak-hide
+@section emacspeak-hide
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-hide.
 
 
 
@@ -1562,6 +1901,13 @@ This is useful because as you locate blocks, you can invoke this
 command to listen to the block,
 and when you have heard enough navigate easily  to move past the block.
 
+@node emacspeak-ibuffer
+@section emacspeak-ibuffer
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-ibuffer.
+
 
 
 @unnumberedsec emacspeak-ibuffer-speak-buffer-line
@@ -1569,6 +1915,13 @@ and when you have heard enough navigate easily  to move past the block.
  No global keybinding
 
 Speak information about this buffer
+
+@node emacspeak-imenu
+@section emacspeak-imenu
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-imenu.
 
 
 
@@ -1594,6 +1947,13 @@ Goto the previous index position in current buffer
 
 Speak upto start of next index entry
 
+@node emacspeak-keymap
+@section emacspeak-keymap
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-keymap.
+
 
 
 @unnumberedsec emacspeak-keymap-choose-new-emacspeak-prefix
@@ -1613,6 +1973,13 @@ This function is advised.
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-kill-buffer-quietly
@@ -1621,6 +1988,13 @@ Automatically defined advice to speak interactive prompts.
  kp-f4   f4 
 
 Kill current buffer without asking for confirmation.
+
+@node emacspeak-kotl
+@section emacspeak-kotl
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-kotl.
 
 
 
@@ -1638,6 +2012,13 @@ Setup additional keybindings
 
 Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
 
 
 
@@ -1662,6 +2043,13 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+
+@node emacspeak-buff-menu
+@section emacspeak-buff-menu
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-buff-menu.
 
 
 
@@ -1695,13 +2083,27 @@ Speak information about this buffer
 
 Speak the name of the buffer on this line
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-lynx
 @findex emacspeak-lynx
  No global keybinding
 
-Launch lynx on  specified URL in a new terminal.
+)
+
+@node emacspeak-man
+@section emacspeak-man
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-man.
 
 
 
@@ -1718,6 +2120,13 @@ Browse the man page --read it a paragraph at a time
  No global keybinding
 
 Speak current section
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -1736,6 +2145,13 @@ Cycle backward through the mark ring.
  control down 
 
 Cycle forward through the mark ring.
+
+@node emacspeak-mpg123
+@section emacspeak-mpg123
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-mpg123.
 
 
 
@@ -1813,6 +2229,13 @@ Speak duration of the current song.
 
 Speak title of the current song.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-next-frame
@@ -1820,7 +2243,14 @@ Speak title of the current song.
 @kindex  control right 
  control right 
 
-Move to next frame.
+)
+
+@node emacspeak-ocr
+@section emacspeak-ocr
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-ocr.
 
 
 
@@ -2061,6 +2491,13 @@ Toggle read-only state of OCR buffer.
 
 Writes out recognized text from all pages in current document.
 
+@node emacspeak-outline
+@section emacspeak-outline
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-outline.
+
 
 
 @unnumberedsec emacspeak-outline-speak-backward-heading
@@ -2109,6 +2546,13 @@ except that the outline section is optionally spoken
  control l SPACE 
 
 Speak current outline section starting from point
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2159,6 +2603,13 @@ Speak the window contents after scrolling.
 
 Speak the current line in the other window.
 
+@node emacspeak-sounds
+@section emacspeak-sounds
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sounds.
+
 
 
 @unnumberedsec emacspeak-play-all-icons
@@ -2167,6 +2618,13 @@ Speak the current line in the other window.
 
 Plays all defined icons and speaks their names.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-previous-frame
@@ -2174,7 +2632,14 @@ Plays all defined icons and speaks their names.
 @kindex  control left 
  control left 
 
-Move to next frame.
+)
+
+@node emacspeak-pronounce
+@section emacspeak-pronounce
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-pronounce.
 
 
 
@@ -2265,6 +2730,13 @@ explicitly turn pronunciations on or off.
 
 Yank word at point into minibuffer.
 
+@node emacspeak-psgml
+@section emacspeak-psgml
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-psgml.
+
 
 
 @unnumberedsec emacspeak-psgml-speak-current-element
@@ -2291,6 +2763,13 @@ Toggles variable sgml-set-face.
 When turned on, the  buffer is voice locked interactively.
 Leave this off in general while editting.
 
+@node emacspeak-python
+@section emacspeak-python
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
 
 
 @unnumberedsec emacspeak-py-next-block
@@ -2307,6 +2786,13 @@ Move forward to the beginning of the next block.
 
 Move backward to the beginning of the current block.
 If already at the beginning then move to previous block.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2345,6 +2831,13 @@ Default is to read the previous line.
 
 Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
+
+@node emacspeak-realaudio
+@section emacspeak-realaudio
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-realaudio.
 
 
 
@@ -2474,6 +2967,13 @@ This function is advised.
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
 
+@node emacspeak-remote
+@section emacspeak-remote
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-remote.
+
 
 
 @unnumberedsec emacspeak-remote-connect-to-server
@@ -2497,6 +2997,13 @@ Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct.
 
+@node emacspeak-rmail
+@section emacspeak-rmail
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-rmail.
+
 
 
 @unnumberedsec emacspeak-rmail-speak-current-message-labels
@@ -2512,6 +3019,13 @@ Speak labels of current message
  No global keybinding
 
 Summarize current message
+
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
 
 
 
@@ -2529,10 +3043,7 @@ Start a root shell or switch to one that already exists.
 @kindex  control e control right 
  control e control right 
 
-Select this buffer as displayed in a `next' frame.
-See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `next'.
+
 
 
 
@@ -2540,17 +3051,7 @@ meaning of `next'.
 @findex emacspeak-select-this-buffer-other-window-display
  No global keybinding
 
-Switch  to this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-move to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to select.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to select.
+
 
 
 
@@ -2559,10 +3060,14 @@ the display to select.
 @kindex  control e control left 
  control e control left 
 
-Select this buffer as displayed in a `previous' window.
-See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `previous'.
+
+
+@node emacspeak-redefine
+@section emacspeak-redefine
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-redefine.
 
 
 
@@ -2578,6 +3083,13 @@ C-e d w.
 Toggle variable dtk-stop-immediately-while-typing if you want to have
 speech flush as you type.
 
+@node emacspeak-sounds
+@section emacspeak-sounds
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sounds.
+
 
 
 @unnumberedsec emacspeak-set-auditory-icon-player
@@ -2591,16 +3103,20 @@ Recommended choices:
 emacspeak-serve-auditory-icon for  the wave device.
 emacspeak-midi-icon for midi device. 
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-show-list-variable
 @findex emacspeak-show-list-variable
  No global keybinding
 
-Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed.
+
 
 This function is advised.
 
@@ -2614,7 +3130,8 @@ Automatically defined advice to speak interactive prompts.
 @kindex  control e meta v 
  control e meta v 
 
-Show value of property personality at point.
+") ("action" . "action")) (#$ . 32817))
+#@46 Show value of property personality at point.
 
 
 
@@ -2623,10 +3140,7 @@ Show value of property personality at point.
 @kindex  control e meta p 
  control e meta p 
 
-Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
-If no property is set, show a message and exit.
+
 
 
 
@@ -2635,9 +3149,7 @@ If no property is set, show a message and exit.
 @kindex  shift up 
  shift up 
 
-Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer.
+
 
 
 
@@ -2646,9 +3158,17 @@ Signals beginning  of buffer.
 @kindex  shift down 
  shift down 
 
-Move forward across blank lines.
+e "No property set at point " nil] 5)])
+#@94 Move forward across blank lines.
 The line under point is then spoken.
 Signals end of buffer.
+
+@node emacspeak-solitaire
+@section emacspeak-solitaire
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-solitaire.
 
 
 
@@ -2674,6 +3194,13 @@ Display current row auditorallly
 
 Speak coordinates of current position
 
+@node emacspeak-sounds
+@section emacspeak-sounds
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sounds.
+
 
 
 @unnumberedsec emacspeak-sounds-reset-local-player
@@ -2695,6 +3222,13 @@ audio player.
 
 Select theme for auditory icons.
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-speak-browse-buffer
@@ -2708,6 +3242,13 @@ Optional interactive prefix arg define-paragraph
 prompts for regexp that defines paragraph start and
 paragraph-separate. 
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-browse-linux-howto
@@ -2717,6 +3258,13 @@ paragraph-separate.
 
 Browse a Linux Howto file.
 We cleanup underlining, and set up outline mode correctly.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2754,6 +3302,13 @@ Speak the start of, rest of, or the entire buffer.
 'r' to speak the rest.
 any other key to speak entire buffer.
 
+@node emacspeak-calendar
+@section emacspeak-calendar
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-calendar.
+
 
 
 @unnumberedsec emacspeak-speak-calendar-date
@@ -2761,6 +3316,13 @@ any other key to speak entire buffer.
  No global keybinding
 
 Speak the date under point when called in Calendar Mode. 
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2804,6 +3366,13 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 
 Speak the current column.
 
+@node ANONYMOUS
+@section ANONYMOUS
+
+
+Automatically generated documentation
+for commands defined in module  ANONYMOUS.
+
 
 
 @unnumberedsec emacspeak-speak-current-field
@@ -2814,6 +3383,13 @@ Speak the current column.
 Speak current field.
 A field is defined currently as a sequence of non-white space characters.  may be made
   mode specific later.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2907,6 +3483,13 @@ Speak the start of, rest of, or the entire help.
 'r' to speak the rest.
 any other key to speak entire help.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-hostname
@@ -2915,6 +3498,13 @@ any other key to speak entire help.
  control e meta h 
 
 Speak host name.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -2974,6 +3564,13 @@ a filter.
 This allows one to accumulate a set of filters for specific
 files like /var/adm/messages and /var/adm/maillog over time.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-load-directory-settings
@@ -2984,6 +3581,13 @@ Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3107,6 +3711,13 @@ Speak the start of, rest of, or the entire paragraph.
 'r' to speak the rest.
 any other key to speak entire paragraph.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-popup-messages
@@ -3117,6 +3728,13 @@ any other key to speak entire paragraph.
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
 previous window configuration.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3184,6 +3802,13 @@ Argument START  and END specify region to speak.
 
 Speak remainder of the buffer starting at point
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-run-shell-command
@@ -3201,6 +3826,13 @@ The results are placed in a buffer in Emacspeak's table
   Verify this first by running the command in a shell and
   executing command `emacspeak-table-display-table-in-region'
   normally bound to C-e TAB.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3246,6 +3878,13 @@ Speak the start of, rest of, or the entire sexp.
 'r' to speak the rest.
 any other key to speak entire sexp.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-show-active-network-interfaces
@@ -3264,7 +3903,15 @@ also copied to the kill ring for convenient yanking.
 @findex emacspeak-speak-show-memory-used
  No global keybinding
 
-Convenience command to view state of memory used in this session so far.
+l 4 (#$ . 30141) "SDisplay variable:"])
+#@74 Convenience command to view state of memory used in this session so far.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3311,6 +3958,13 @@ Speak the white space at point.
 
 Spell word at  point.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-speak-telephone-directory
@@ -3327,10 +3981,7 @@ With prefix arg, opens the phone book for editting.
 @kindex  control e right 
  control e right 
 
-Speak this buffer as displayed in a `previous' window.
-See documentation for command
-`emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `next'.
+
 
 
 
@@ -3339,17 +3990,7 @@ meaning of `next'.
 @kindex  control e / 
  control e / 
 
-Speak this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-listen to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to speak.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to speak.
+
 
 
 
@@ -3358,10 +3999,14 @@ the display to speak.
 @kindex  control e left 
  control e left 
 
-Speak this buffer as displayed in a `previous' window.
-See documentation for command
-`emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `previous'.
+
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3424,6 +4069,13 @@ Speak the start of, rest of, or the entire word.
 'r' to speak the rest.
 any other key to speak entire word.
 
+@node emacspeak-speedbar
+@section emacspeak-speedbar
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speedbar.
+
 
 
 @unnumberedsec emacspeak-speedbar-click
@@ -3441,6 +4093,13 @@ Does the equivalent of the mouse click from the keyboard
 
 Switch to the speedbar
 
+@node emacspeak
+@section emacspeak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak.
+
 
 
 @unnumberedsec emacspeak-submit-bug
@@ -3449,6 +4108,13 @@ Switch to the speedbar
  control e control b 
 
 Function to submit a bug to the programs maintainer.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3470,6 +4136,13 @@ to reduce chatter.
 
 Switch to most recently used interesting buffer.
 
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
+
 
 
 @unnumberedsec emacspeak-symlink-current-file
@@ -3483,6 +4156,13 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+
+@node emacspeak-table-ui
+@section emacspeak-table-ui
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-table-ui.
 
 
 
@@ -3782,6 +4462,13 @@ Process a csv (comma separated values) data.
 The processed  data and presented using emacspeak table
 navigation. 
 
+@node emacspeak-tabulate
+@section emacspeak-tabulate
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tabulate.
+
 
 
 @unnumberedsec emacspeak-tabulate-region
@@ -3793,6 +4480,13 @@ Voicifies the white-space of a table if one found.  Optional interactive prefix
 arg mark-fields specifies if the header row information is used to mark fields
 in the white-space.
 
+@node emacspeak-tapestry
+@section emacspeak-tapestry
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tapestry.
+
 
 
 @unnumberedsec emacspeak-tapestry-describe-tapestry
@@ -3801,6 +4495,13 @@ in the white-space.
  control e meta t 
 
 Describe the current layout of visible buffers in current frame.
+
+@node emacspeak-tar
+@section emacspeak-tar
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tar.
 
 
 
@@ -3825,6 +4526,13 @@ Speak permissions of file current entry
  No global keybinding
 
 Speak size of file current entry 
+
+@node emacspeak-tetris
+@section emacspeak-tetris
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tetris.
 
 
 
@@ -3914,6 +4622,13 @@ Speak the score
 
 Speak current position
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-toggle-action-mode
@@ -3939,6 +4654,13 @@ results in the Dectalk producing a tone whose length is a function of the
 line's indentation.  Specifying `speak'
 results in the number of initial spaces being spoken.
 
+@node emacspeak-sounds
+@section emacspeak-sounds
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sounds.
+
 
 
 @unnumberedsec emacspeak-toggle-auditory-icons
@@ -3948,6 +4670,13 @@ results in the number of initial spaces being spoken.
 
 Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value.
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -3986,6 +4715,13 @@ you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
 
+@node emacspeak-eterm
+@section emacspeak-eterm
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eterm.
+
 
 
 @unnumberedsec emacspeak-toggle-eterm-autospeak
@@ -3997,6 +4733,13 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
+
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
 
 
 
@@ -4064,6 +4807,13 @@ Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
+@node emacspeak-url-template
+@section emacspeak-url-template
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-url-template.
+
 
 
 @unnumberedsec emacspeak-url-template-fetch
@@ -4089,6 +4839,13 @@ Load URL template resources from specified location.
 
 Save out url templates.
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-use-customized-blink-paren
@@ -4099,6 +4856,13 @@ A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs
 is anal and loads its own builtin blink-paren function
 which does not talk.
+
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
 
 
 
@@ -4136,6 +4900,13 @@ Display info on recent change to Emacspeak.
 
 Browse  Emacspeak productivity tips.
 
+@node emacspeak-view
+@section emacspeak-view
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-view.
+
 
 
 @unnumberedsec emacspeak-view-line-to-top
@@ -4143,6 +4914,13 @@ Browse  Emacspeak productivity tips.
  No global keybinding
 
 Moves current line to top of window
+
+@node emacspeak-view-process
+@section emacspeak-view-process
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-view-process.
 
 
 
@@ -4160,6 +4938,13 @@ Set point to the current field in the next line.
 
 Speak current field
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-view-register
@@ -4168,6 +4953,13 @@ Speak current field
  control e v 
 
 Display the contents of a register, and then speak it.
+
+@node emacspeak-vm
+@section emacspeak-vm
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-vm.
 
 
 
@@ -4203,6 +4995,13 @@ VM mode line information.
 
 Speak a message's labels
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-voicify-rectangle
@@ -4224,6 +5023,13 @@ Voicify the current region.
 When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively.
+
+@node emacspeak-w3
+@section emacspeak-w3
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3.
 
 
 
@@ -4331,6 +5137,13 @@ version of an article for example.
 Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined.
 
+@node emacspeak-websearch
+@section emacspeak-websearch
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-websearch.
+
 
 
 @unnumberedsec emacspeak-websearch-alltheweb-search
@@ -4382,6 +5195,13 @@ Search BBC archives.
 
 Search Computer Science Bibliographies.
 
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
 
 
 @unnumberedsec emacspeak-websearch-blue-pages
@@ -4389,6 +5209,13 @@ Search Computer Science Bibliographies.
  No global keybinding
 
 Search IBM Blue Pages
+
+@node emacspeak-websearch
+@section emacspeak-websearch
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-websearch.
 
 
 
@@ -4778,6 +5605,13 @@ Perform an Yahoo  search
 Look up historical stock data.
 Optional second arg data processes the results as data rather than HTML.
 
+@node emacspeak-widget
+@section emacspeak-widget
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-widget.
+
 
 
 @unnumberedsec emacspeak-widget-browse-widget-interactively
@@ -4790,7 +5624,8 @@ Allows you to browse a widget
 
 @unnumberedsec emacspeak-widget-help
 @findex emacspeak-widget-help
- No global keybinding
+@kindex  meta h 
+ meta h 
 
 Speak help for widget under point.
 
@@ -4798,7 +5633,8 @@ Speak help for widget under point.
 
 @unnumberedsec emacspeak-widget-summarize-parent
 @findex emacspeak-widget-summarize-parent
- No global keybinding
+@kindex  meta p 
+ meta p 
 
 Summarize parent of widget at point.
 
@@ -4816,9 +5652,17 @@ widget before summarizing.
 
 @unnumberedsec emacspeak-widget-update-from-minibuffer
 @findex emacspeak-widget-update-from-minibuffer
- No global keybinding
+@kindex  META RETURN 
+ META RETURN 
 
 Sets widget at point by invoking its prompter.
+
+@node emacspeak-wizards
+@section emacspeak-wizards
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-wizards.
 
 
 
@@ -4826,7 +5670,8 @@ Sets widget at point by invoking its prompter.
 @findex emacspeak-wizard-get-table-content-from-file
  No global keybinding
 
-Extract table specified by depth and count from HTML
+") (read-from-minibuffer "Count: "))])
+#@126 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is placed as a csv file in task.csv.
 
@@ -4836,9 +5681,17 @@ Extracted content is placed as a csv file in task.csv.
 @findex emacspeak-wizard-get-table-content-from-url
  No global keybinding
 
-Extract table specified by depth and count from HTML
+emacspeak-etc-directory) (#$ . 36230))
+#@125 Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
+
+@node emacspeak-psgml
+@section emacspeak-psgml
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-psgml.
 
 
 
@@ -4853,6 +5706,13 @@ Mode for browsing XML documents.
 Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
 
+@node emacspeak-speak
+@section emacspeak-speak
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speak.
+
 
 
 @unnumberedsec emacspeak-zap-tts
@@ -4862,6 +5722,13 @@ Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
 Send this command to the TTS directly.
 
+@node dis-quote
+@section dis-quote
+
+
+Automatically generated documentation
+for commands defined in module  dis-quote.
+
 
 
 @unnumberedsec quotes-setup-emacspeak-portfolio
@@ -4869,6 +5736,13 @@ Send this command to the TTS directly.
  No global keybinding
 
 Set up variable emacspeak-websearch-personal-portfolio. 
+
+@node dtk-speak
+@section dtk-speak
+
+
+Automatically generated documentation
+for commands defined in module  dtk-speak.
 
 
 
