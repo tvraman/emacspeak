@@ -1626,10 +1626,6 @@ audio player.
 
 ------------------------------------------------------------
 
-** emacspeak-kill-buffer-quietlyKill current buffer without asking for confirmation.
-
-------------------------------------------------------------
-
 ** emacspeak-speak-line-set-column-filter	Key Sequence: control e | 
 
 Set up filter for selectively speaking or ignoring portions of lines.
@@ -1942,10 +1938,6 @@ Speak the next window.
 ** emacspeak-speak-previous-window	Key Sequence: control e control p 
 
 Speak the previous window.
-
-------------------------------------------------------------
-
-** emacspeak-switch-to-previous-bufferSwitch to most recently used interesting buffer.
 
 ------------------------------------------------------------
 
@@ -2584,8 +2576,7 @@ Describe the current layout of visible buffers in current frame.
 ** emacspeak-url-template-fetch	Key Sequence: control e u 
 
 Fetch a pre-defined resource.
-Use Emacs completion to obtain a list of available
-resources.
+Use Emacs completion to obtain a list of available resources.
 Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource.
@@ -3078,6 +3069,10 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
+** emacspeak-kill-buffer-quietlyKill current buffer without asking for confirmation.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-rpm-query-in-diredRun rpm -qi on current dired entry.
 
 ------------------------------------------------------------
@@ -3274,6 +3269,10 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
+** emacspeak-switch-to-previous-bufferSwitch to most recently used interesting buffer.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-occur-header-linesIf you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches header lines, you can use this command to conveniently
@@ -3386,7 +3385,7 @@ Get latest cvs snapshot of emacspeak.
 ** emacspeak-wizards-ppt-modeMajor mode for browsing PPT slides.
 
 
-XL Sheets are converted to HTML and previewed using W3.
+PPT files  are converted to HTML and previewed using W3.
 
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
@@ -3511,6 +3510,11 @@ directory to where find is to be launched.
 
 Create a customization buffer for browsing and updating
 personal customizations.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-spot-wordsSearches recursively in all files with extension `ext'
+for `word' and siplays hits in a compilation buffer.
 
 ------------------------------------------------------------
 

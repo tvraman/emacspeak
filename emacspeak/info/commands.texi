@@ -2734,12 +2734,6 @@ for commands defined in module  emacspeak-speak.
 
 
 
-@deffn emacspeak-kill-buffer-quietly
-Kill current buffer without asking for confirmation.
-@end deffn
-
-
-
 @deffn emacspeak-speak-line-set-column-filter
 @kbd{ control e | }
 
@@ -3133,12 +3127,6 @@ Speak the next window.
 @kbd{ control e control p }
 
 Speak the previous window.
-@end deffn
-
-
-
-@deffn emacspeak-switch-to-previous-buffer
-Switch to most recently used interesting buffer.
 @end deffn
 
 
@@ -4067,8 +4055,7 @@ Save out url templates.
 @kbd{ control e u }
 
 Fetch a pre-defined resource.
-Use Emacs completion to obtain a list of available
-resources.
+Use Emacs completion to obtain a list of available resources.
 Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource.
@@ -4846,6 +4833,12 @@ meaning of `previous'.
 
 
 
+@deffn emacspeak-kill-buffer-quietly
+Kill current buffer without asking for confirmation.
+@end deffn
+
+
+
 @deffn emacspeak-wizards-rpm-query-in-dired
 Run rpm -qi on current dired entry.
 @end deffn
@@ -5100,6 +5093,12 @@ Prompts for the new location and preserves modification time
 
 
 
+@deffn emacspeak-switch-to-previous-buffer
+Switch to most recently used interesting buffer.
+@end deffn
+
+
+
 @deffn emacspeak-wizards-occur-header-lines
 If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
@@ -5237,7 +5236,7 @@ Convenience command to view state of memory used in this session so far.
 Major mode for browsing PPT slides.
 
 
-XL Sheets are converted to HTML and previewed using W3.
+PPT files  are converted to HTML and previewed using W3.
 
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
@@ -5390,6 +5389,13 @@ directory to where find is to be launched.
 
 Create a customization buffer for browsing and updating
 personal customizations.
+@end deffn
+
+
+
+@deffn emacspeak-wizards-spot-words
+Searches recursively in all files with extension `ext'
+for `word' and siplays hits in a compilation buffer.
 @end deffn
 
 
