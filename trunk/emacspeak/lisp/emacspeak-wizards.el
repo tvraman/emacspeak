@@ -789,7 +789,8 @@ documentation.\n\n")
                 "@node %s\n@section %s\n\n\n"
                 module module ))
               (insert
-               (format "\n\n%s\n\n" commentary))
+               (format "\n\n%s\n\n" 
+(or commentary "")))
               (insert
                (format
                 "Automatically generated documentation
