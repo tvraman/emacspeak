@@ -222,8 +222,8 @@ config: emacspeak-loaddefs.el
 emacspeak-loaddefs.el:
 	rm -f emacspeak-loaddefs.el
 	echo ";;;Auto generated" > emacspeak-loaddefs.el
-	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el  \
-	-l $(SRC)/lisp/emacspeak-autoload.el  \
+	$(EMACS) $(BATCH)  -l ./emacspeak-load-path.el  \
+	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
 # }}}
