@@ -1,4 +1,4 @@
-jem;;; emacspeak-m-player.el --- Control mplayer from Emacs
+;;; emacspeak-m-player.el --- Control mplayer from Emacs
 ;;; $Id$
 ;;; $Author$
 ;;; Description: Controlling mplayer from emacs 
