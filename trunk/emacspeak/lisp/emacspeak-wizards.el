@@ -350,7 +350,8 @@ settings? "))
         (error (message "Error loading settings %s" settings))))))
 
 ;;}}}
-;;;###autoload;;{{{ linux howtos
+;;{{{ linux howtos
+;;;###autoload
 (defun emacspeak-speak-browse-linux-howto (howto)
   "Browse a Linux Howto file.
 We cleanup underlining, and set up outline mode correctly."
@@ -429,7 +430,8 @@ previous window configuration."
     (emacspeak-speak-line))))
 
 ;;}}}
-;;;###autoload;;{{{ Show active network interfaces
+;;{{{ Show active network interfaces
+;;;###autoload
 (defun emacspeak-speak-hostname ()
   "Speak host name."
   (interactive)
@@ -1294,7 +1296,8 @@ emacspeak-emergency-tts-server."
   (dtk-initialize))
 
 ;;}}}
-;;;###autoload;;{{{ customization wizard
+;;{{{ customization wizard
+;;;###autoload
 (defun emacspeak-customize-personal-settings (file)
   "Create a customization buffer for browsing and updating
 personal customizations."
@@ -1438,7 +1441,8 @@ Signals beginning  of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
 
 ;;}}}
-;;;###autoload;;{{{  launch lynx 
+;;{{{  launch lynx 
+;;;###autoload
 (defun emacspeak-links (url)
   "Launch links on  specified URL in a new terminal."
   (interactive
@@ -1617,7 +1621,8 @@ annotation is inserted into the working buffer when complete."
 ;;; inspired by eshell-toggle 
 ;;; switch to the shell buffer, and cd to the directory 
 ;;; that is the default-directory for the previously current
-;;;###autoload;;; buffer.
+;;; buffer.
+;;;###autoload
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to 
  the directory of the current buffer."
@@ -1636,7 +1641,8 @@ annotation is inserted into the working buffer when complete."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;;###autoload;;{{{  run rpm -qi on current dired entry
+;;{{{  run rpm -qi on current dired entry
+;;;###autoload
 (defun emacspeak-wizards-rpm-query-in-dired ()
   "Run rpm -qi on current dired entry."
   (interactive)
@@ -1948,7 +1954,8 @@ directory to where find is to be launched."
     (emacspeak-speak-line)))
 
 ;;}}}
-;;;###autoload;;{{{ alternate between w3 and w3m
+;;{{{ alternate between w3 and w3m
+;;;###autoload
 (defun emacspeak-wizards-use-w3-or-w3m ()
   "Alternates between using W3 and W3M for browse-url."
   (interactive)
@@ -1966,7 +1973,8 @@ directory to where find is to be launched."
       (message "Restoring sanity by switching to W3."))))
 
 ;;}}}
-;;;###autoload;;{{{ customize emacspeak
+;;{{{ customize emacspeak
+;;;###autoload
 (defun emacspeak-customize ()
   "Customize Emacspeak."
   (interactive)
@@ -1974,7 +1982,8 @@ directory to where find is to be launched."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-custom-goto-group))
 ;;}}}
-;;;###autoload;;{{{ display environment variable
+;;{{{ display environment variable
+;;;###autoload
 (defun emacspeak-wizards-show-environment-vvariable (v)
   "Display value of specified environment variable."
   (interactive
@@ -1996,7 +2005,8 @@ directory to where find is to be launched."
                            'replace))
 
 ;;}}}
-;;;###autoload;;{{{  count slides in region: (LaTeX specific.
+;;{{{  count slides in region: (LaTeX specific.
+;;;###autoload
 (defun emacspeak-wizards-count-slides-in-region ()
   "Count slides starting from point."
   (interactive )
@@ -2205,7 +2215,8 @@ Use with caution."
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
-;;;###autoload;;{{{ google hits 
+;;{{{ google hits 
+;;;###autoload
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
@@ -2242,7 +2253,8 @@ Moves to the longest line when called interactively."
     max))
 
 ;;}}}
-;;;###autoload;;{{{ longest para in region 
+;;{{{ longest para in region 
+;;;###autoload
 (defun emacspeak-wizards-find-longest-paragraph-in-region (start end)
   "Find longest paragraph in region.
 Moves to the longest paragraph when called interactively."
@@ -2267,7 +2279,8 @@ Moves to the longest paragraph when called interactively."
     max))
 
 ;;}}}
-;;;###autoload;;{{{ face wizard
+;;{{{ face wizard
+;;;###autoload
 (defun emacspeak-wizards-show-face (face)
   "Show salient properties of specified face."
   (interactive
@@ -2300,7 +2313,8 @@ Moves to the longest paragraph when called interactively."
    
 
 ;;}}}
-;;;###autoload;;{{{ voice sample
+;;{{{ voice sample
+;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
   (interactive
@@ -2339,6 +2353,32 @@ for the current voice family."
     (switch-to-buffer  buffer)
     (voice-lock-mode 1)
     (goto-char (point-min))))
+
+;;}}}
+;;{{{ world clock
+
+(defcustom emacspeak-wizards-zoneinfo-directory
+  "/usr/share/zoneinfo/"
+  "Directory containing timezone data."
+  :type 'filename
+  :group 'emacspeak-wizards)
+;;;###autoload
+(defun emacspeak-wizards-world-clock (zone)
+  "Display current date and time  for specified zone."
+  (interactive
+   (list
+    (substring
+     (read-file-name
+      "Timezone: "
+      emacspeak-wizards-zoneinfo-directory)
+     (length emacspeak-wizards-zoneinfo-directory))))
+  (declare (special emacspeak-speak-time-format-string
+                    emacspeak-wizards-zoneinfo-directory))
+  (shell-command
+   (format "(export TZ=%s; date +\"%s\")"
+            zone  
+           (concat emacspeak-speak-time-format-string
+                   " %Z %z "))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
