@@ -70,6 +70,7 @@
 (defadvice tnt-open (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (emacspeak-pronounce-refresh-pronunciations)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice tnt-im (after emacspeak pre act comp)
@@ -247,6 +248,11 @@ automatically."
 ;;{{{ set up face to voice mapping
 
 (voice-setup-set-voice-for-face 'tnt-my-name-face 'paul-smooth)
+
+;;}}}
+;;{{{  Activate pronunciations 
+(add-hook 'tnt-buddy-list-mode-hook
+          'emacspeak-pronounce-refresh-pronunciations)
 
 ;;}}}
 (provide 'emacspeak-tnt)
