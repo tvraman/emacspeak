@@ -187,8 +187,7 @@ prompting for a template.")
  'speak)))
 
 ;;}}}
- 
- old time radio 
+;;{{{  old time radio 
 (emacspeak-url-template-define
  "Old Time Radio"
 "http://www.oldtimeradioprograms.com"
@@ -200,6 +199,8 @@ nil
  (list 2 3 )
  url)));;{{{  Linksys IP
 
+;;}}}
+;;{{{ linksys 
 
 (emacspeak-url-template-define
  "Linksys IP"
@@ -209,7 +210,7 @@ nil
  "Linksys Router"
  #'(lambda (url)
      (emacspeak-w3-extract-nested-table 3 url)))
- 
+
 ;;}}}
 ;;{{{ Netcraft surveys 
 (emacspeak-url-template-define
@@ -271,6 +272,21 @@ nil
                         emacspeak-xslt-directory)
       url)))
 
+;;}}}
+;;{{{  cnet news 
+(emacspeak-url-template-define
+ "Tech News From CNET"
+ "http://news.com.com/"
+ nil
+ nil
+ "Display tech news from CNET"
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "(//table)[4]//td[5]"
+      url
+      'speak)))
+
+ 
 ;;}}}
 ;;{{{ google OverviewOfNews 
 
