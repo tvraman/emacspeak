@@ -43,30 +43,30 @@ relevant tables bubble to the top.
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-<xsl:if test="count(//table//table)  &gt; 0">
-      <table>
-        <caption>
-          <a href="#__about_sorted_tables">Tables Sorted</a>
-        </caption>
-        <tr>
-          <td>
-            <a href="#__nested_tables">
-<xsl:value-of select="count(//table)"/> 
+      <xsl:if test="count(//table//table)  &gt; 0">
+        <table>
+          <caption>
+            <a href="#__about_sorted_tables">Tables Sorted</a>
+          </caption>
+          <tr>
+            <td>
+              <a href="#__nested_tables"><xsl:value-of select="count(//table)"/> 
 tables of which 
 <xsl:value-of select="count(//table//table)"/>
 are nested</a>
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
       </xsl:if>
       <xsl:apply-templates/>
-      <h2>
-        <a name="__nested_tables" id="__nested_tables"><xsl:value-of select="count(//table//table)"/>
+      <xsl:if test="count(//table//table)  &gt; 0">
+        <h2>
+          <a name="__nested_tables" id="__nested_tables"><xsl:value-of select="count(//table//table)"/>
 Nested Tables </a>
-      </h2>
-      <xsl:for-each select="//table//table">
-        <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
-        <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
+        </h2>
+        <xsl:for-each select="//table//table">
+          <xsl:sort select="count(.//span|.//text()|.//p)" order="descending"/>
+          <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
 <!--<xsl:sort select="@width" order="descending"/>-->
 <!--
 <p> sorting keys:
@@ -74,20 +74,20 @@ Text <xsl:value-of select="count(.//text() | .//p)"/>
 table width: <xsl:value-of select="@width"/>
         </p>
 -->
-        <h2><xsl:element name="a"><xsl:attribute name="href">
+          <h2><xsl:element name="a"><xsl:attribute name="href">
             #src-<xsl:value-of select="generate-id(.)"/>
           </xsl:attribute><xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/></xsl:attribute><em>Table <xsl:value-of select="position()"/> </em><br/></xsl:element><xsl:value-of select="count(./tr)"/> Rows 
  And <xsl:value-of select="count(./tr/td)"/> Cells
         </h2>
-        <xsl:element name="table">
-          <xsl:apply-templates select="@*"/>
-          <xsl:apply-templates/>
-        </xsl:element>
-      </xsl:for-each>
-      <h2>
-        <a name="__about_sorted_tables">About This Style</a>
-      </h2>
-      <p>
+          <xsl:element name="table">
+            <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates/>
+          </xsl:element>
+        </xsl:for-each>
+        <h2>
+          <a name="__about_sorted_tables">About This Style</a>
+        </h2>
+        <p>
         Note that nested tables have been moved to  section <a href="#__nested_tables">nested tables</a>.
         The table cell that contained the nested table has been
         replaced with a hyperlink that navigates to the actual
@@ -100,7 +100,8 @@ I have sorted them  so the most
       relevant tables occur first.
 Sort keys were number of text nodes in a table and the width
         of the table (where specified).
-      </p>
+        </p>
+      </xsl:if>
     </xsl:element>
   </xsl:template>
   <xsl:template match="//table//table">
