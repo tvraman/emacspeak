@@ -53,7 +53,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'dired))
-
+(require 'derived)
 (require 'custom)
 (require 'thingatpt)
 (require 'voice-lock)
@@ -1570,7 +1570,7 @@ part of the libxslt package."
 
 ;;;
 
-(require 'derived)
+
 (define-derived-mode emacspeak-wizards-xl-mode text-mode
   "Browsing XL Files."
   "Major mode for browsing XL spreadsheets.\n\n
@@ -1700,6 +1700,87 @@ emacspeak-websearch-personal-portfolio."
     (emacspeak-table-find-csv-file temp-file)
     (rename-buffer "Portfolio")
     (delete-file temp-file)))
+
+;;}}}
+;;{{{ find wizard 
+(define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode 
+  "Emacspeak Finder"
+  "Emacspeak Finder\n\n
+
+\\{emacspeak-wizards-finder-mode-map")
+
+(defvar emacspeak-wizards-finder-args nil
+  "List of switches to use as test arguments to find.")
+
+(make-variable-buffer-local 'emacspeak-wizards-finder-args)
+
+(defun emacspeak-wizards-generate-finder   ()
+  "Generate a widget-enabled finder wizard."
+  (interactive)
+  (declare (special default-directory))
+  (let ((value nil)
+        (notify (emacspeak-wizards-generate-finder-callback))
+        (buffer-name "*Emacspeak Finder*")
+        (buffer nil)
+        (inhibit-read-only t))
+    (when (get-buffer buffer-name) (kill-buffer buffer-name))
+    (setq buffer (get-buffer-create buffer-name))
+    (save-excursion
+      (set-buffer  buffer)
+      (voice-lock-mode t)
+      (widget-insert "\n")
+      (widget-insert "Emacspeak Finder\n\n")
+      (widget-create 'repeat
+                     :help-echo "Find Criteria"
+                     :tag "Find Criteria"
+                     :value value
+                     :notify notify
+                     '(cons :tag "Find Expression"
+                            (string :tag "Test")
+                            (string :tag "Value")))
+      (widget-insert "\n")
+      (widget-create 'push-button
+                     :tag "Find Matching Files"
+                     :notify
+                     #'(lambda (&rest ignore)
+                         (call-interactively 'emacspeak-wizards-finder-find)))
+      (widget-insert "\n\n")
+      (emacspeak-wizards-finder-mode)
+      (use-local-map widget-keymap)
+      (widget-setup)
+      (goto-char (point-min)))
+    (pop-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+(defun emacspeak-wizards-generate-finder-callback ()
+  "Generate a callback for use in the Emacspeak Finder."
+  (`
+   (lambda (widget &rest ignore)
+     (declare (special emacspeak-wizards-finder-args))
+     (let ((value (widget-value widget)))
+       (setq emacspeak-wizards-finder-args value)))))
+
+(defun emacspeak-wizards-finder-find (directory)
+  "Run find-dired on specified switches after prompting for the
+directory to where find is to be launched."
+  (interactive
+   (list
+    (file-name-directory(read-file-name "Directory:"))))
+  (declare (special emacspeak-wizards-finder-args))
+  (let ((find-args
+         (mapconcat
+          #'(lambda (pair)
+              (format "%s '%s'"
+                      (car pair)
+                      (cdr pair)))
+          emacspeak-wizards-finder-args
+          " ")))
+    (find-dired directory   find-args)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
 
 ;;}}}
 (provide 'emacspeak-wizards)
