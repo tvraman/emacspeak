@@ -117,7 +117,7 @@
     ("emacspeak-gud"  . nil )
     ("emacspeak-hide"  . nil )
     ("emacspeak-hideshow"  . nil )
-    ("emacspeak-hyperbole"  . ("hyperbole-prepare"))
+    ;("emacspeak-hyperbole"  . ("hyperbole-prepare"))
     ("emacspeak-ibuffer"  . nil )
     ("emacspeak-imcom"  . nil )
     ("emacspeak-imenu"  . nil )
@@ -201,7 +201,8 @@ This helps pull in all emacspeak modules cleanly.")
 (defun emacspeak-utils-generate-commands-documentation ()
   "Generate commands.texi and DOC ."
   (declare (special emacspeak-modules-dependency-alist))
-  (let ((emacspeak-speak-messages nil))
+  (let ((emacspeak-speak-messages nil)
+        (dtk-quiet t))
     (mapcar
      #'(lambda (pair)
 	 (mapcar #'load-library (cdr pair))

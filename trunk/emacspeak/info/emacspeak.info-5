@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.0 from
+This is ./emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -384,6 +384,9 @@ emacspeak-wizards.
      `emacspeak-select-this-buffer-other-window-display' for the
      meaning of `previous'.
 
+ - emacspeak-sudo:
+     SUDo command -run command as super user.
+
  - emacspeak-skip-blank-lines-backward:
      ` <shift up> '
 
@@ -425,9 +428,9 @@ emacspeak-wizards.
      for and sets value of the file local pattern.
 
  - emacspeak-wizards-ppt-display:
-     Called to set up preview of an XL file.  Assumes we are in a
-     buffer visiting a .ppts file.  Previews those contents as HTML and
-     nukes the buffer visiting the ppts file.
+     Called to set up preview of an PPT file.  Assumes we are in a
+     buffer visiting a .ppt file.  Previews those contents as HTML and
+     nukes the buffer visiting the ppt file.
 
  - emacspeak-speak-run-shell-command:
      ` control e ! '
@@ -511,7 +514,7 @@ emacspeak-wizards.
      so far.
 
  - emacspeak-wizards-ppt-mode:
-     Major mode for browsing XL spreadsheets.
+     Major mode for browsing PPT slides.
 
      XL Sheets are converted to HTML and previewed using W3.
 
@@ -641,6 +644,9 @@ emacspeak-wizards.
      Before-advice `emacspeak-auto': Automatically defined advice to
      speak interactive prompts.
 
+ - emacspeak-links:
+     Launch links on  specified URL in a new terminal.
+
  - emacspeak-clipboard-paste:
      ` control e control y '
 
@@ -712,6 +718,11 @@ emacspeak-xml-shell.
 
    Automatically generated documentation for commands defined in module
 nil.
+
+ - emacspeak-m-player:
+     ` control e : '
+
+     Emacspeak media player access.
 
  - emacspeak-w3-google-on-this-site:
      Perform a google search restricted to the current WWW site.

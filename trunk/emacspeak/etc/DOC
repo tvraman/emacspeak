@@ -151,6 +151,15 @@ Optional PREFIX arg flushes any previously paused speech.
 
 ------------------------------------------------------------
 
+** dtk-toggle-speak-nonprinting-chars	Key Sequence: control e d n 
+
+Toggle speak-nonprinting-chars.
+Switches behavior of how characters with the high bit set are handled.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+
+------------------------------------------------------------
+
 ** dtk-set-pronunciation-mode	Key Sequence: control e d m 
 
 Set pronunciation MODE.
@@ -351,7 +360,6 @@ Pre-requisites:
 1) libxml and libxslt packages 
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
-
 The Emacspeak DAISY front-end is launched by command
 emacspeak-daisy bound to M-x emacspeak-daisy.  
 
@@ -406,7 +414,9 @@ Open Digital Talking Book specified by navigation file filename.
 
 ------------------------------------------------------------
 
-** emacspeak-dired-show-file-typeDisplays type of current file by running command file.
+** emacspeak-dired-show-file-typePrint the type of FILE, according to the `file' command.
+If FILE is a symbolic link and the optional argument DEREF-SYMLINKS is
+true then the type of the file linked to by FILE is printed instead.
 
 ------------------------------------------------------------
 
@@ -499,6 +509,22 @@ emacspeak-dismal-col-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-dismal-display-cell-expressionDisplay the expression in the message area
+
+------------------------------------------------------------
+
+** emacspeak-ecb-speak-window-methodsSpeak contents of methods window.
+
+------------------------------------------------------------
+
+** emacspeak-ecb-speak-window-directoriesSpeak contents of directories window.
+
+------------------------------------------------------------
+
+** emacspeak-ecb-speak-window-sourcesSpeak contents of sources window.
+
+------------------------------------------------------------
+
+** emacspeak-ecb-speak-window-historySpeak contents of history window.
 
 ------------------------------------------------------------
 
@@ -1419,9 +1445,7 @@ emacspeak-realaudio-shortcuts-directory.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio-browse	Key Sequence: control e : 
-
-Browse RAM file before playing the selected component.
+** emacspeak-realaudio-browseBrowse RAM file before playing the selected component.
 
 ------------------------------------------------------------
 
@@ -1739,6 +1763,10 @@ If option  `voice-lock-mode' is on, then it will use any defined personality.
 
 ------------------------------------------------------------
 
+** emacspeak-speak-line-number-obseleteSpeak the line number of the current line.
+
+------------------------------------------------------------
+
 ** emacspeak-speak-browse-buffer	Key Sequence: control e , 
 
 Browse the current buffer by reading it a paragraph at a
@@ -1842,7 +1870,10 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file.
+or when the buffer is not visiting any file. 
+Interactive prefix arg `filename' speaks only the final path
+component.
+The result is put in the kill ring for convenience.
 
 ------------------------------------------------------------
 
@@ -2159,7 +2190,7 @@ Will be improved if it proves useful.
 
 ** emacspeak-speak-line-number	Key Sequence: control e control l 
 
-Speak the line number of the current line.
+Print the current buffer line number and narrowed line number of point.
 
 ------------------------------------------------------------
 
@@ -2678,9 +2709,7 @@ the table structure extraction code in W3.
 
 ** emacspeak-w3-extract-tableExtract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
-Interactive prefix arg causes url to be read from the
-minibuffer.
+Optional arg url specifies the page to extract table from. 
 
 ------------------------------------------------------------
 
@@ -2690,6 +2719,10 @@ minibuffer.
 
 ** emacspeak-w3-show-anchor-classDisplay any class attributes set on corresponding anchor
 element. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-preview-this-bufferPreview this buffer.
 
 ------------------------------------------------------------
 
@@ -2708,6 +2741,10 @@ minibuffer.
 ------------------------------------------------------------
 
 ** emacspeak-w3-javascript-follow-linkFollow URL hidden inside a javascript link
+
+------------------------------------------------------------
+
+** emacspeak-w3-preview-this-regionPreview this buffer.
 
 ------------------------------------------------------------
 
@@ -3193,6 +3230,10 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
+** emacspeak-sudoSUDo command --run command as super user.
+
+------------------------------------------------------------
+
 ** emacspeak-skip-blank-lines-backward	Key Sequence: <shift up> 
 
 Move backward  across blank lines.
@@ -3242,10 +3283,10 @@ value of the file local pattern.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-ppt-displayCalled to set up preview of an XL file.
-Assumes we are in a buffer visiting a .ppts file.
+** emacspeak-wizards-ppt-displayCalled to set up preview of an PPT file.
+Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
-visiting the ppts file.
+visiting the ppt file.
 
 ------------------------------------------------------------
 
@@ -3342,7 +3383,7 @@ Get latest cvs snapshot of emacspeak.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-ppt-modeMajor mode for browsing XL spreadsheets.
+** emacspeak-wizards-ppt-modeMajor mode for browsing PPT slides.
 
 
 XL Sheets are converted to HTML and previewed using W3.
@@ -3499,6 +3540,10 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
+** emacspeak-linksLaunch links on  specified URL in a new terminal.
+
+------------------------------------------------------------
+
 ** emacspeak-clipboard-paste	Key Sequence: control e control y 
 
 Yank contents of the Emacspeak clipboard at point.
@@ -3571,6 +3616,12 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-xml-shell-goto-next-childNavigate forward  to the next child  of current node.
+
+------------------------------------------------------------
+
+** emacspeak-m-player	Key Sequence: control e : 
+
+Emacspeak media player access.
 
 ------------------------------------------------------------
 

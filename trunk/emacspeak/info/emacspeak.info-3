@@ -94,6 +94,14 @@ dtk-tcl.
      executed.  Optional PREFIX arg flushes any previously paused
      speech.
 
+ - dtk-toggle-speak-nonprinting-chars:
+     ` control e d n '
+
+     Toggle speak-nonprinting-chars.  Switches behavior of how
+     characters with the high bit set are handled.  Interactive PREFIX
+     arg means toggle the global default value, and then set the
+     current local value to the result.
+
  - dtk-set-pronunciation-mode:
      ` control e d m '
 
@@ -399,7 +407,10 @@ emacspeak-dired.
      Speak the permissions of the current file.
 
  - emacspeak-dired-show-file-type:
-     Displays type of current file by running command file.
+     Print the type of FILE, according to the `file' command.  If FILE
+     is a symbolic link and the optional argument DEREF-SYMLINKS is
+     true then the type of the file linked to by FILE is printed
+     instead.
 
  - emacspeak-dired-speak-symlink-target:
      Speaks the target of the symlink on the current line.
@@ -489,6 +500,18 @@ emacspeak-ecb
 
    Automatically generated documentation for commands defined in module
 emacspeak-ecb.
+
+ - emacspeak-ecb-speak-window-methods:
+     Speak contents of methods window.
+
+ - emacspeak-ecb-speak-window-directories:
+     Speak contents of directories window.
+
+ - emacspeak-ecb-speak-window-sources:
+     Speak contents of sources window.
+
+ - emacspeak-ecb-speak-window-history:
+     Speak contents of history window.
 
  - emacspeak-ecb-tree-shift-return:
      Do shift return in ECB tree browser.
