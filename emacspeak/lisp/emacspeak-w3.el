@@ -580,9 +580,7 @@ libxslt package."
 (defun emacspeak-w3-extract-table (table-index   &optional prompt)
   "Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
-Interactive prefix arg causes url to be read from the
-minibuffer."
+Optional arg url specifies the page to extract table from. "
   (interactive
    (list
     (read-from-minibuffer "Table index: ")
@@ -604,7 +602,7 @@ minibuffer."
     (save-excursion
       (cond
        (source-url
-        (set-buffer (cdr (url-retrieve source-url))))
+        (set-buffer (url-retrieve-synchronously source-url)))
        (t (w3-source-document nil)))
       (let ((src-buffer (current-buffer))
             (emacspeak-w3-xsl-p nil))
