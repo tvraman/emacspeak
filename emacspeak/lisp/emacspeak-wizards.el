@@ -1324,14 +1324,16 @@ annotation is inserted into the working buffer when complete."
   (let ((annotation nil)
         (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
-    (message "Adding annotation to %s" emacspeak-annotate-working-buffer)
+    (message "Adding annotation to %s"
+             emacspeak-annotate-working-buffer)
+    (save-window-excursion
     (save-excursion
       (setq annotation
             (emacspeak-annotate-get-annotation))
       (set-buffer work-buffer)
       (insert annotation)
       (insert "\n"))
-    (pop-to-buffer parent-buffer)
+    (switch-to-buffer parent-buffer))
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
