@@ -227,6 +227,7 @@ tar:
 	${SOUNDS}   
 
 dist: $(DISTFILES)
+	(cd servers/software-dtk; make clean)
 	$(MAKE) tar
 
 # }}}
@@ -325,20 +326,20 @@ release: #supply LABEL=NN.NN
 	cd ..; \
 	rm -f emacspeak.tar ; \
 	tar cvf emacspeak.tar emacspeak-$(LABEL); \
-	gzip -9 emacspeak.tar; \
-	mv  emacspeak.tar.gz ../emacspeak.tar.gz; \
+	bzip2  -9 emacspeak.tar; \
+	mv  emacspeak.tar.bz2 ../; \
 	cd .. ; \
 	/bin/rm -rf release ; \
 	rm -f emacspeak.spec ; \
 sed "s@<version>@$(LABEL)@g" \
 	emacspeak.spec.in > emacspeak.spec
-	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.gz"
+	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.bz2"
 
 # }}}
 # {{{ rpm 
 
 rpm: emacspeak.spec
-	@cp emacspeak.tar.gz /usr/src/redhat/SOURCES/
+	@cp emacspeak.tar.bz2 /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
 	rpm  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
 
@@ -357,11 +358,11 @@ changelog:
 
 # {{{upload to sourceforge 
 
-TARBALL=emacspeak-${LABEL}.tar.gz
+TARBALL=emacspeak-${LABEL}.tar.bz2
 RPM=/usr/src/redhat/RPMS/i386/emacspeak-${LABEL}-1.i386.rpm
 SF_HOME='raman@emacspeak.sf.net:~/www-emacspeak/htdocs'
 sourceforge: 
-	mv emacspeak.tar.gz ${TARBALL}
+	mv emacspeak.tar.bz2 ${TARBALL}
 	( echo 'anonymous';				\
 	  echo prompt;					\
 	  echo hash;					\
