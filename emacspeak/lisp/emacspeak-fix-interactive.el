@@ -98,21 +98,21 @@ interactive prompts speak. ")
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advices interactive commands to speak prompts.
 Updates and returns the list of commands that have been so fixed."
-  (declare (special emacspeak-commands-that-are-fixed))
   (mapatoms
    (function
     (lambda (sym)
       (when
           (and (emacspeak-should-i-fix-interactive-p sym)
-               (emacspeak-fix-interactive sym))
-        (push sym emacspeak-commands-that-are-fixed ))))))
-  
+               (emacspeak-fix-interactive sym)))))))
 
 ;;{{{  Understanding aid 
-(defun emacspeak-show-auto-advice-for-interactive (sym)
-  "Show the auto advice that will be genrated 
-by emacspeak to make 
-function definition of sym to make its interactive form speak its prompts. "
+
+
+(defun emacspeak-show-interactive (sym)
+  "Auto-advice interactive command to speak its prompt.  Fix
+the function definition of sym to make its interactive form
+speak its prompts. "
+  (declare (special emacspeak-commands-that-are-fixed))
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
@@ -122,10 +122,13 @@ function definition of sym to make its interactive form speak its prompts. "
         (some
          (function
           (lambda (prompt)
+            (declare (special emacspeak-xemacs-p))
             (not
              (or
-                (string-match  "^\\*?[dpPr]" prompt )
-              (string= "*" prompt )))))
+              (string-match  "^[@*]?[depPr]" prompt )
+              (string= "*" prompt )
+              (and emacspeak-xemacs-p
+                   (not (string-match  "^\\*?[ck]" prompt )))))))
          interactive-list )
       (progn
         (`
@@ -156,13 +159,13 @@ function definition of sym to make its interactive form speak its prompts. "
                            args) nil)))))
                interactive-list))))))))))
 
-
 ;;}}}
 
 (defun emacspeak-fix-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  Fix
 the function definition of sym to make its interactive form
 speak its prompts. "
+  (declare (special emacspeak-commands-that-are-fixed))
   (let ((interactive-list
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
@@ -207,16 +210,18 @@ speak its prompts. "
                        '(lambda (&rest args)
                           (interactive (, prompt))
                           args) nil)))))
-              interactive-list))))))))))
+              interactive-list)))))))))
+  (push sym emacspeak-commands-that-are-fixed )
+  t)
 
 ;;; inline function for use from other modules:
 
 
 (defsubst  emacspeak-fix-interactive-command-if-necessary (command)
-(declare (special emacspeak-commands-that-are-fixed))
-(and (emacspeak-should-i-fix-interactive-p command)
-(emacspeak-fix-interactive command)
-(push command  emacspeak-commands-that-are-fixed )))
+  (declare (special emacspeak-commands-that-are-fixed))
+  (and (emacspeak-should-i-fix-interactive-p command)
+       (emacspeak-fix-interactive command)
+       (push command  emacspeak-commands-that-are-fixed )))
 
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
