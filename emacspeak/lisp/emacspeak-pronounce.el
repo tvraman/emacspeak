@@ -520,16 +520,16 @@ Activates pronunciation dictionaries if not already active."
     (":)" . " grin ")
     (":-(" . " frown ") 
     (":(" . " sigh ")
-  (":-I" .  " shrug ")
-(":->" . " sarcastic smile ")
-(">:->" . " devillish smile ")
-(">;->" . " lews smile ")
-  (";-)" . " wink "))
+    (":-I" .  " shrug ")
+    (":->" . " sarcastic smile ")
+    (">:->" . " devillish smile ")
+    (">;->" . " lews smile ")
+    (";-)" . " wink "))
   "Pronunciation dictionary used in all instant messenger and IRC chat
 modes.
 See http://oz.uc.edu/~solkode/smileys.html for a full list."
-:link '(url-link :tag "Smileys Dictionary "
-"http://oz.uc.edu/~solkode/smileys.html")
+  :link '(url-link :tag "Smileys Dictionary "
+		   "http://oz.uc.edu/~solkode/smileys.html")
   :type '(repeat
 	  (cons :tag "Dictionary Entry"
 		(string :tag "String")
@@ -569,7 +569,7 @@ for the specified mode."
           do
           (unless (assoc (car e)
                          mode-alist)
-          (push e mode-alist)))
+	    (push e mode-alist)))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
 
 ;;}}}

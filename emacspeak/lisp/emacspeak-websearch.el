@@ -226,15 +226,15 @@ ARGS specifies additional arguments to SPEAKER if any."
   (when (or   (eq browse-url-browser-function 'w3-fetch)
 	      (eq browse-url-browser-function 'browse-url-w3))
     (add-hook  'emacspeak-w3-post-process-hook
-          (`
-           (lambda nil
-             (cond
-              ((search-forward (, locator) nil t)
-               (recenter 0)
-               (apply(quote 
-                      (, speaker))
-                     (, args)))
-              (t (message "Your search appears to have ffailed."))))))))
+	       (`
+		(lambda nil
+		  (cond
+		   ((search-forward (, locator) nil t)
+		    (recenter 0)
+		    (apply(quote 
+			   (, speaker))
+			  (, args)))
+		   (t (message "Your search appears to have ffailed."))))))))
 
 ;;}}}
 
@@ -268,11 +268,11 @@ ARGS specifies additional arguments to SPEAKER if any."
       (erase-buffer)
       (insert-file  form-markup)
       (add-hook 'emacspeak-w3-post-process-hook
-            #'(lambda ()
-                (goto-char (point-min))
-		(widget-forward 1)
-		(emacspeak-auditory-icon 'open-object)
-		(emacspeak-widget-summarize (widget-at (point)))))
+		#'(lambda ()
+		    (goto-char (point-min))
+		    (widget-forward 1)
+		    (emacspeak-auditory-icon 'open-object)
+		    (emacspeak-widget-summarize (widget-at (point)))))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer buffer))))
 
@@ -854,7 +854,6 @@ Optional second arg as-html processes the results as HTML rather than data."
     (webjump-url-encode query))))
   
 
-
 (defvar emacspeak-websearch-freshmeat-search-uri 
   "http://www.freshmeat.net/search?q="
   "URI for searching Freshmeat site. ")
@@ -1328,10 +1327,10 @@ With optional interactive prefix arg MAP shows the location map instead."
      'emacspeak-speak-line))
    (t 
     (emacspeak-w3-extract-table-by-position 20
-                              (concat
-                               emacspeak-websearch-map-directions-uri
-                               query)
-                              'speak))))
+					    (concat
+					     emacspeak-websearch-map-directions-uri
+					     query)
+					    'speak))))
          
 ;;}}}
 ;;{{{  news yahoo
@@ -1349,12 +1348,12 @@ With optional interactive prefix arg MAP shows the location map instead."
   (interactive
    (list (emacspeak-websearch-read-query "Yahoo News Query: ")))
   (add-hook 'emacspeak-w3-post-process-hook
-        #'(lambda nil
-            (declare (special  emacspeak-w3-url-rewrite-rule
-                               emacspeak-w3-class-filter))
-            (setq emacspeak-w3-class-filter "article"
-		  emacspeak-w3-url-rewrite-rule
-                  '("$" "&printer=1"))))
+	    #'(lambda nil
+		(declare (special  emacspeak-w3-url-rewrite-rule
+				   emacspeak-w3-class-filter))
+		(setq emacspeak-w3-class-filter "article"
+		      emacspeak-w3-url-rewrite-rule
+		      '("$" "&printer=1"))))
   (emacspeak-w3-xslt-filter
    "/html/body/table[6]//p"
    (concat emacspeak-websearch-news-yahoo-uri
@@ -1615,11 +1614,11 @@ Light for: ")))
   (interactive
    (list (emacspeak-websearch-read-query "Zip Code: ")))
   (declare (special emacspeak-websearch-weather-uri))
-    (emacspeak-w3-extract-nested-table-list
-     (list 4 5)
-     (concat emacspeak-websearch-weather-uri
-             zip)
-             'speak))
+  (emacspeak-w3-extract-nested-table-list
+   (list 4 5)
+   (concat emacspeak-websearch-weather-uri
+	   zip)
+   'speak))
   
 
 ;;}}}

@@ -187,12 +187,12 @@ Note that some badly formed mime messages  cause trouble."
             (to (vm-su-to message ))
             (header nil))
       (while (not header)
-      (setq header 
-      (case
-          (read-char "f From s Subject t To")
-        (?s subject)
-        (?f from)
-        (?t to))))
+	(setq header 
+	      (case
+		  (read-char "f From s Subject t To")
+		(?s subject)
+		(?f from)
+		(?t to))))
       (kill-new header)
       (message header)))
    (t (error "No current message." ))))

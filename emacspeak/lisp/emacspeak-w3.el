@@ -620,7 +620,7 @@ specifies the page to extract table from.  "
       (when  (or (interactive-p)
                  speak-result)
         (add-hook 'emacspeak-w3-post-process-hook
-              'emacspeak-speak-buffer))
+		  'emacspeak-speak-buffer))
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer src-buffer))))
 
