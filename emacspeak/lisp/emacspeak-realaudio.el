@@ -111,8 +111,7 @@ specifies the actual location of the realaudio stream
 (defun emacspeak-realaudio-play (resource &optional prompt-time)
   "Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
-user configurable variable
-emacspeak-realaudio-shortcuts-directory. "
+user configurable variable emacspeak-realaudio-shortcuts-directory. "
   (interactive
    (list
     (let ((completion-ignore-case t)
@@ -126,7 +125,7 @@ emacspeak-realaudio-shortcuts-directory. "
                           (dired-get-filename)
                         emacspeak-realaudio-last-url)))
     current-prefix-arg))
-  (declare (special emacspeak-realaudio-player
+  (declare (special emacspeak-realaudio-player emacspeak-realaudio-this-resource
                     emacspeak-realaudio-buffer 
                     emacspeak-realaudio-player-options
                     emacspeak-aumix-multichannel-capable-p
@@ -163,7 +162,8 @@ emacspeak-realaudio-shortcuts-directory. "
                         emacspeak-realaudio-player)
       (save-excursion
         (set-buffer emacspeak-realaudio-buffer)
-        (emacspeak-realaudio-mode)))
+        (emacspeak-realaudio-mode)
+        (setq emacspeak-realaudio-this-resource resource)))
     (unless (eq 'run (process-status emacspeak-realaudio-process))
       (error "Failed to start RealAudio"))
     (set-process-sentinel emacspeak-realaudio-process 'emacspeak-realaudio-process-sentinel)
