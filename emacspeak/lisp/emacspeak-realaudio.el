@@ -280,9 +280,43 @@ Mark is specified in seconds."
     (message "Set end mark to %s"
              emacspeak-realaudio-end-time-mark)))
 
-    
-                 
-  
+;;;###autoload
+(defcustom emacspeak-realaudio-mp3-clipper 
+  "/usr/local/bin/qmp3cut"
+  "Executable used to clip MP3 files."
+  :type 'string
+  :group 'emacspeak-realaudio)
+
+;;;###autoload
+(defun emacspeak-realaudio-write-mp3-clip (start end file)
+  "Writes specified clip from current mp3 stream.
+Prompts for start and end times as well as file  to save the clippi"
+  (interactive
+   (list
+    (read-from-minibuffer "Start time in seconds:"
+                          emacspeak-realaudio-start-time-mark)
+    (read-from-minibuffer "End time in seconds: "
+                          emacspeak-realaudio-end-time-mark)
+    (read-file-name "File to save clip to")))
+  (declare (special emacspeak-realaudio-end-time-mark
+                    emacspeak-realaudio-start-time-mark
+                    emacspeak-realaudio-this-resource
+                    emacspeak-realaudio-mp3-clipper))
+  (unless (string="mp3"
+                  (file-name-extension emacspeak-realaudio-this-resource))
+    (error  "Can only clip MP3  files."))
+  (unless (file-executable-p emacspeak-realaudio-mp3-clipper)
+    (error
+     "I cannot find an MP3 clipper. Install package quelcome to obtain
+qmp3cut."))
+  (let ((command
+         (format "%s -B %ss -E %ss -o %s %s &"
+                 emacspeak-realaudio-mp3-clipper
+                 start end   filename 
+                 emacspeak-realaudio-this-resource)))
+    (shell-command command)
+    (message "Executing %s asynchronously."
+            command)))
 
 (defun emacspeak-realaudio-trplayer-command (char)
   "Execute TRPlayer command."
@@ -408,6 +442,8 @@ commands via single keystrokes."
     'emacspeak-realaudio-set-start-mark)
   (define-key emacspeak-realaudio-mode-map "M"
     'emacspeak-realaudio-set-end-mark)
+  (define-key emacspeak-realaudio-mode-map "w"
+    'emacspeak-realaudio-write-mp3-clip)
   (define-key emacspeak-realaudio-mode-map [left] 'emacspeak-aumix-wave-decrease)
   (define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
   (loop for c in emacspeak-realaudio-trplayer-keys
