@@ -304,6 +304,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "jde-prepare")
     ;(load-library-if-available "ecb-prepare")
     ;;}}}    
+;;{{{ bind  iswitchb 
+(global-set-key '[insert] 'iswitchb-buffer)
+;;}}}
     ;;{{{  load yasb 
 
     (load-library-if-available "yasb-prepare")
@@ -446,8 +449,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{ crontab
     (load-library-if-available "crontab-mode")
-    (when (featurep 'crontab-mode)
-      (augment-auto-mode-alist ".crontab$" 'crontab-mode))
 ;;}}}
     ))                                  ; end defun 
 ;;{{{ customize custom
