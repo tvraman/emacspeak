@@ -58,11 +58,17 @@
             (delete-if-not
              (lambda (x)
                (string= (window-class x) "Emacs"))
-             (window-order)))))
+             (managed-windows)))))
     (if w
 	(display-window w)
       (system emacs-program))
     (and (tts-running-p) (tts-say-current-window))))
+
+(defun delete-this-window-safely ()
+  "Delete current window safely."
+  (interactive)
+  (delete-window-safely (car (managed-windows))))
+
 ;;{{{ end of file
 
 ;;; local variables:
