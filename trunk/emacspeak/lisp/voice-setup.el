@@ -337,9 +337,6 @@ punctuations.")
 (defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
   "Apply first female voice.")
 
-(defvoice voice-womanize-2 (list 'ursula 5 nil nil nil nil)
-  "Apply first female voice.")
-
 ;;}}}
 ;;{{{  indentation and annotation 
 
