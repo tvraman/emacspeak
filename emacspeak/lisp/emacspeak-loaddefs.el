@@ -431,7 +431,7 @@ pronunciation dictionaries are stored. ")
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defsubst emacspeak-using-midi-p nil "\
-Predicate to test if we are using midi." (declare (special emacspeak-auditory-icon-function)) (or (eq emacspeak-auditory-icon-function (quote emacspeak-midi-icon)) (eq emacspeak-auditory-icon-function (quote emacspeak-queue-midi-icon))))
+Predicate to test if we are using midi." (declare (special emacspeak-auditory-icon-function)) (or (eq emacspeak-auditory-icon-function (quote emacspeak-play-midi-icon)) (eq emacspeak-auditory-icon-function (quote emacspeak-queue-midi-icon))))
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
 Default theme for auditory icons. ")
@@ -454,7 +454,7 @@ Select  player used for producing auditory icons.
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-midi-icon for midi device. " t nil)
+emacspeak-play-midi-icon for midi device. " t nil)
 
 ;;;***
 

@@ -172,7 +172,7 @@ emacspeak-realaudio-shortcuts-directory. "
         (and emacspeak-use-auditory-icons
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p)))
-      (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon))))
+      (emacspeak-set-auditory-icon-player 'emacspeak-play-midi-icon))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
