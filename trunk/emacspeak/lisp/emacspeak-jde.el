@@ -68,22 +68,23 @@
     ad-return-value))
 
 (defadvice jde-compile (after emacspeak pre act comp)
-"Provide auditory feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'select-object)
-(dtk-speak "Compiling current java project")))
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (dtk-speak "Compiling current java project")))
 
 (defadvice jde-run (after emacspeak pre act comp)
-"Provide auditory feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'select-object)
-(emacspeak-speak-mode-line)))
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (setq emacspeak-comint-autospeak nil)
+    (emacspeak-speak-mode-line)))
 
 (defadvice jde-db (after emacspeak pre act comp)
-"Provide auditory feedback"
-(when (interactive-p)
-(emacspeak-auditory-icon 'select-object)
-(emacspeak-speak-mode-line)))
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{  fix interactive prompts
@@ -109,34 +110,34 @@
        'jde-set-compile-options
        'jde-set-compiler
        'jde-set-global-classpath)
-do
-(emacspeak-fix-interactive-command-if-necessary command))
+      do
+      (emacspeak-fix-interactive-command-if-necessary command))
 
 ;;}}}
 ;;{{{ voice lock 
 
 (declaim (special voice-lock-defaults-alist))
 (if (not (assq 'jde-mode voice-lock-defaults-alist))
-      (setq voice-lock-defaults-alist
-	    (cons
-	     (cons 'jde-mode
+    (setq voice-lock-defaults-alist
+          (cons
+           (cons 'jde-mode
 
-		   ;; jde-mode-defaults
-		   '((java-voice-lock-keywords java-voice-lock-keywords-1
-		      java-voice-lock-keywords-2 java-voice-lock-keywords-3)
-		     nil nil ((?_ . "w") (?$ . "w")) nil
-		     (voice-lock-mark-block-function . mark-defun)))
+                 ;; jde-mode-defaults
+                 '((java-voice-lock-keywords java-voice-lock-keywords-1
+                                             java-voice-lock-keywords-2 java-voice-lock-keywords-3)
+                   nil nil ((?_ . "w") (?$ . "w")) nil
+                   (voice-lock-mark-block-function . mark-defun)))
 
-	     voice-lock-defaults-alist)))
+           voice-lock-defaults-alist)))
 
 ;;}}}
 ;;{{{ jdebug 
 
 (defadvice jde-debug (after emacspeak pre act comp)
   "Speak the line where we eventually stop. "
-(when (interactive-p)
-  (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'large-movement)))
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
 
 
 (defadvice jde-bug-step-over (after emacspeak pre act comp)
@@ -199,8 +200,8 @@ do
       (back-to-indentation)
       (ems-modify-buffer-safely
        (remove-text-properties
- start (point)
-                          (list 'auditory-icon 'mark-object))))))
+        start (point)
+        (list 'auditory-icon 'mark-object))))))
 
 (defadvice jde-bug-up-stack (after emacspeak pre act comp)
   "Speak the line we stepped to "
@@ -217,25 +218,25 @@ do
 
 ;;{{{ fix interactive commands 
 (loop for f in 
-'(jde-bug-display-object
-jde-gen-jfc-app-buffer
-jde-bug-show-object-monitors
-jde-bug-set-target-process
-jde-find-class-source
-jde-menu1
-jde-bug-evaluate-expression
-jde-bug-suspend-thread
-jde-bug-resume-thread
-jde-bug-interrupt-thread
-jde-bug-display-array
-jde-bug-display-string
-jde-bug-attach-via-shared-memory
-jde-bug-stop-thread
-jde-bug-menu1
-jde-bug-attach-local-host
-jde-bug-attach-remote-host)
-do
-(emacspeak-fix-interactive-command-if-necessary f))
+      '(jde-bug-display-object
+        jde-gen-jfc-app-buffer
+        jde-bug-show-object-monitors
+        jde-bug-set-target-process
+        jde-find-class-source
+        jde-menu1
+        jde-bug-evaluate-expression
+        jde-bug-suspend-thread
+        jde-bug-resume-thread
+        jde-bug-interrupt-thread
+        jde-bug-display-array
+        jde-bug-display-string
+        jde-bug-attach-via-shared-memory
+        jde-bug-stop-thread
+        jde-bug-menu1
+        jde-bug-attach-local-host
+        jde-bug-attach-remote-host)
+      do
+      (emacspeak-fix-interactive-command-if-necessary f))
 
 
 ;;}}}
