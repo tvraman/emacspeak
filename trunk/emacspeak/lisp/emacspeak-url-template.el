@@ -354,18 +354,17 @@ to play a BBC Radio4 program on demand."
 
 (emacspeak-url-template-define
  "Tech News From CNet"
- "http://news.com.com/"
+ "http://rss.com.com/2547-12-0-20.xml"
  nil
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-	   (list "feed" "ni_print")))
+	   (list "feed" "st_util__print"))
+     (search-forward "print")
+     (emacspeak-speak-rest-of-buffer))
  "Display tech news from CNET"
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "(//table)[4]//td[5]"
-      url
-      'speak))) 
+     (emacspeak-rss-display url))) 
 ;;}}}
 ;;{{{ Infoworld RSS
 (emacspeak-url-template-define
