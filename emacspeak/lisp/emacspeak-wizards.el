@@ -1185,8 +1185,22 @@ Signals beginning  of buffer."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
-  (ansi-term  "/usr/bin/lynx"
-              "*lynx*"))
+  (delete-other-windows)
+  (switch-to-buffer
+   (term-ansi-make-term
+    (generate-new-buffer-name
+     (format "lynx-%s"
+             (substring url 7)))
+    "/usr/bin/lynx"
+    nil
+    "-show-cursor=yes"
+    url))
+  (emacspeak-eterm-record-window   1 
+(cons 0 1)
+(cons 79 20)
+                                    'right-stretch 'left-stretch)
+  (term-char-mode)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'emacspeak-wizards)
