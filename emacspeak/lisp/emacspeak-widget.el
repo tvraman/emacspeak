@@ -511,7 +511,7 @@ prefix."
 
 (declaim (special widget-keymap))
 
-(define-key emacspeak-widget-field-keymap "\M-\C-m" 'widget-update-from-minibuffer)
+(define-key widget-field-keymap "\M-\C-m" 'emacspeak-widget-update-from-minibuffer)
 
 ;;}}}
 (provide  'emacspeak-widget)
