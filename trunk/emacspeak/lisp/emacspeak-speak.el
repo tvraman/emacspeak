@@ -1227,7 +1227,7 @@ Useful to listen to a buffer while in a different context."
   (interactive
    (list
     (read-buffer "Speak buffer: "
-                 nil t)))
+nil t)))
   (save-excursion
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
