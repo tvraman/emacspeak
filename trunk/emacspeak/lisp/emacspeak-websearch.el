@@ -723,7 +723,6 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-searcher 'dejanews
                                   'emacspeak-websearch-usenet-search)
 
-
 (emacspeak-websearch-set-key ?d 'dejanews)
 
 ;;;###autoload
@@ -1237,21 +1236,21 @@ With optional interactive prefix arg MAP shows the location map instead."
                     emacspeak-xslt-use-wget-to-download
                     emacspeak-websearch-map-maps-uri))
   (let ((emacspeak-xslt-use-wget-to-download t))
-  (cond
-   (map
-    (browse-url 
-     (concat
-      emacspeak-websearch-map-maps-uri
-      query))
-    (emacspeak-websearch-post-process
-     "Nearby"
-     'emacspeak-speak-line))
-   (t 
-    (emacspeak-w3-extract-table-by-match "Start"
-                                         (concat
-                                          emacspeak-websearch-map-directions-uri
-                                          query)
-                                         'speak)))))
+    (cond
+     (map
+      (browse-url 
+       (concat
+	emacspeak-websearch-map-maps-uri
+	query))
+      (emacspeak-websearch-post-process
+       "Nearby"
+       'emacspeak-speak-line))
+     (t 
+      (emacspeak-w3-extract-table-by-match "Start"
+					   (concat
+					    emacspeak-websearch-map-directions-uri
+					    query)
+					   'speak)))))
          
 ;;}}}
 ;;{{{  news yahoo
@@ -1670,8 +1669,8 @@ Optional interactive prefix arg results in prompting for a search term."
                     (format "meta=group%%3D%s&q=%s&scoring=d"
                             group
                             (webjump-url-encode
-                            (read-from-minibuffer
-                             (format "Search %s for:" group)))))))
+			     (read-from-minibuffer
+			      (format "Search %s for:" group)))))))
      (t                                 ;browse
       (setq url 
             (concat emacspeak-usenet-uri
