@@ -265,13 +265,12 @@ Modifies text in buffer."
 ;;{{{  loading, clearing  and saving dictionaries
 
 (defvar emacspeak-pronounce-dictionaries-file  nil
-  "File that holds the persistent emacspeak pronunciation dictionaries."
-  )
+  "File that holds the persistent emacspeak pronunciation dictionaries.")
 
 (declaim (special emacspeak-resource-directory))
 (setq emacspeak-pronounce-dictionaries-file
-      (concat emacspeak-resource-directory "/"
-              ".dictionary"))
+      (expand-file-name  ".dictionary" 
+                         emacspeak-resource-directory))
 
 
 (defun emacspeak-pronounce-save-dictionaries  ()
@@ -280,7 +279,7 @@ Modifies text in buffer."
   (declare (special emacspeak-pronounce-dictionaries ))
   (let ((filename (read-file-name
                    "Save pronunciation dictionaries to file: "
-                   default-directory
+                   emacspeak-resource-directory
                    emacspeak-pronounce-dictionaries-file ))
         (buffer nil ))
     (setq buffer (find-file-noselect filename))
@@ -306,7 +305,7 @@ Optional argument FILENAME specifies the dictionary file."
   (interactive
    (list (read-file-name
           "Load pronunciation dictionaries from file: "
-          default-directory
+          emacspeak-resource-directory
           emacspeak-pronounce-dictionaries-file )))
   (declare (special emacspeak-pronounce-dictionaries-loaded))
   (load-file filename)
