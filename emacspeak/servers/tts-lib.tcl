@@ -244,6 +244,14 @@ proc notes_initialize {} {
 }
 
 # }}}
+# {{{beep  
+#you need to have beep installed 
+proc beep {{freq 523} {length 100} {repeat 1} {delay 10}} {
+    global tts
+    exec beep -f $freq -l $length -r $repeat -d $delay
+}
+
+# }}}
 # {{{self test 
 
 proc tts_selftest {} {
