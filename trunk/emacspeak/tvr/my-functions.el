@@ -100,3 +100,4 @@
    (choose-completion)))))
 (define-key minibuffer-local-must-match-map "\C-s" 'complete-isearch)
 (define-key minibuffer-local-map "\C-s" 'complete-isearch)
+(define-key minibuffer-local-completion-map "\C-s" 'complete-isearch)
