@@ -310,7 +310,7 @@ Prompts for start and end times as well as file  to save the clippi"
                     emacspeak-realaudio-this-resource
                     emacspeak-realaudio-mp3-clipper))
   (unless (string-equal"mp3"
-                  (file-name-extension emacspeak-realaudio-this-resource))
+		       (file-name-extension emacspeak-realaudio-this-resource))
     (error  "Can only clip MP3  files."))
   (unless (file-executable-p emacspeak-realaudio-mp3-clipper)
     (error

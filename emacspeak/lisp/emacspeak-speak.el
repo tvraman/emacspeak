@@ -683,7 +683,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ; ;	; ; ;
+;;}}}					; ; ; ;	; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -752,7 +752,7 @@ are indicated with auditory icon ellipses."
               (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
-       ((string-equal ""  line)              ;blank line
+       ((string-equal ""  line)		;blank line
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
         (when (emacspeak-using-midi-p)

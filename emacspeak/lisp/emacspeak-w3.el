@@ -1289,7 +1289,7 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (unless (fboundp 'string-replace-match)
-    (error "Install and load the elib package to use this feature."))
+	(error "Install and load the elib package to use this feature."))
       (setq redirect
 	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
 				  url
