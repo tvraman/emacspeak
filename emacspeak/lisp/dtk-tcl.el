@@ -300,8 +300,12 @@ it seems some accented characters in certain contexts.")
 (defsubst dtk-fix-control-chars ()
   "Handle control characters in speech stream."
   (declare (special dtk-character-to-speech-table
+                    emacspeak-unibyte
                     dtk-speak-nonprinting-chars))
-  (let ((specials "[\000-\037\177-\377]")
+  (let ((specials
+         (if emacspeak-unibyte
+             "[\000-\037\177-\377]"
+           "[\000-\037]"))
         (char nil))
     (goto-char (point-min ))
     (when  dtk-speak-nonprinting-chars

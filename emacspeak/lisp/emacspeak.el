@@ -228,6 +228,12 @@ Precomputing this saves time at start-up.")
 ;;}}}
 (defvar emacspeak-play-emacspeak-startup-icon t
   "If set to T, emacspeak plays its icon as it launches.")
+(defvar emacspeak-unibyte t
+  "Emacspeak will force emacs to unibyte unless this
+variable is set to nil.
+To use emacspeak with emacs running in multibyte mode, this
+variable should be set to nil *before* 
+emacspeak is started.")
 
 (defun emacspeak()
   "Starts the Emacspeak speech subsystem.  Use emacs as you
@@ -261,6 +267,7 @@ Emacspeak, but it is still preliminary. The source code
 documentation is up-to-date, please use it.  "
   (interactive)
   (declare (special default-enable-multibyte-characters
+                    emacspeak-unibyte
                     emacspeak-play-program
                     emacspeak-sounds-directory
                     emacspeak-emacs-commands-to-fix))
@@ -275,7 +282,7 @@ documentation is up-to-date, please use it.  "
   (require 'emacspeak-replace)
   (require 'emacspeak-buff-menu)
   (when (and  emacspeak-play-emacspeak-startup-icon 
- (file-exists-p "/usr/bin/mpg123"))
+              (file-exists-p "/usr/bin/mpg123"))
     (start-process "mp3" nil "mpg123"
                    "-q"
                    (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
@@ -285,7 +292,8 @@ documentation is up-to-date, please use it.  "
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-dtk-sync)
     ;;; force unibyte
-  (setq default-enable-multibyte-characters nil)
+  (when emacspeak-unibyte
+    (setq default-enable-multibyte-characters nil))
   (emacspeak-setup-programming-modes)
   (require 'emacspeak-wizards)
   (message
@@ -627,8 +635,10 @@ Additionally, we set EMACS_UNIBYTE to avoid problems under
 Emacs 20.3"
   (declare (special emacspeak-directory
                     emacspeak-play-program
-                    emacspeak-sounds-directory))
-  (setenv "EMACS_UNIBYTE" "1")
+                    emacspeak-sounds-directory
+                    emacspeak-unibyte))
+  (when emacspeak-unibyte
+    (setenv "EMACS_UNIBYTE" "1"))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
   (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program)
