@@ -498,6 +498,46 @@ emacspeak-w3-url-rewrite-rule))
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
+;;{{{ xpath  filter 
+
+(defvar emacspeak-w3-xpath-filter nil
+  "Buffer local variable specifying a XPath filter for following
+urls.")
+
+(make-variable-buffer-local 'emacspeak-w3-xpath-filter)
+
+(defun emacspeak-w3-xpath-filter-and-follow (&optional prompt)
+  "Follow url and point, and filter the result by specified xpath.
+XPath can be set locally for a buffer, and overridden with an
+interactive prefix arg. If there is a known rewrite url rule, that is
+used as well."
+  (interactive "P")
+  (declare (special emacspeak-w3-xpath-filter
+emacspeak-w3-url-rewrite-rule))
+(unless (fboundp 'string-replace-match)
+    (error "Install and load the elib package to use this feature."))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command is only useful in W3 buffers."))
+  (let ((url (w3-view-this-url t))
+        (redirect nil))
+    (unless url
+      (error "Not on a link."))
+    (when emacspeak-w3-url-rewrite-rule
+      (setq redirect
+          (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                url
+                                (second
+                                 emacspeak-w3-url-rewrite-rule))))
+    (when (or prompt 
+              (null emacspeak-w3-xpath-filter))
+      (setq emacspeak-w3-xpath-filter 
+            (read-from-minibuffer  "Specify xpath: ")))
+    (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
+                                   (or redirect url)
+                                   'speak)
+    (emacspeak-auditory-icon 'open-object)))
+
+;;}}}
 ;;{{{  jump to title in document
 
 (defun emacspeak-w3-jump-to-title-in-content ()
@@ -811,6 +851,7 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "a"
   'emacspeak-w3-xslt-apply)
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
+(define-key emacspeak-w3-xsl-map "p" 'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
