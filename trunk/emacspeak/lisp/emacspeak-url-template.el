@@ -121,8 +121,7 @@ generators      List of prompters.
 post-action     Function called to apply post actions.
                 Possible actions include speaking the result.
 fetcher         Unless specified, browse-url retrieves URL.
-                If specified, fetcher is a function of one
-                argument
+                If specified, fetcher is a function of one arg
                 that is called with the URI to retrieve.
 documentation   Documents this template resource.
 "
