@@ -100,12 +100,12 @@ displayed buffers."
           (loop for buffer in buffer-map
                 collect
                 (second buffer)))))
-    (tts-with-punctuations "some"
+    (tts-with-punctuations "all"
                            (dtk-speak
                             (concat description
                                     (mapconcat #'identity
                                                windows
-                                               ", "))))))
+                                               " "))))))
 
 ;;}}}
 (provide  'emacspeak-tapestry)
