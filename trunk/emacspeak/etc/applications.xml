@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--$Id$-->
 <!DOCTYPE applications PUBLIC " applications // t. v. raman 1.0" "applications.dtd">
 <?xml-stylesheet href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
 type="text/xsl"?>
@@ -59,6 +60,49 @@ type="text/xsl"?>
     <application name="yasg">
       Pattern-based selection of open buffers.
     </application>
+  </category>
+  <category name="finders">
+    <application name="dired">
+      Browse and operate on files and folders.
+    </application>
+    <application name="find-dired">
+      Seamless integration between the file browser and 
+      finder.
+    </application>
+    <application name="locate">
+      File browser interface for finding files.
+    </application>
+    <application name="efs">
+      Front-end to remote file access using an FTP
+    back-end.</application>
+    <application name="tramp">
+    Front-end to remote file access using SSH backend.</application>
+    <application name="finder">
+      Package browser for locating  installed  applications.
+    </application>
+  </category>
+  <category name="shell">
+    <application name="shell">
+      Runs interactive command interpreters like BASH and TCSH.
+    </application>
+    <application name="ansi-colors">
+      Applies Aural CSS ACSS properties to convert ansi color
+      codes to appropriate voice changes to produce
+      audio formatted output.
+    </application>
+    <application name="eterm">
+      Speech-enabled  terminal client for running full-screen
+      applications like VI, Lynx and PINE.
+    </application>
+    <application name="ssh">
+    Front-end to SSH.</application>
+    <application name="eshell">
+      Command shell implemented in Emacs Lisp, making it
+      independent of the underlying operating system.
+    </application>
+    <application name="comint">
+      Support for running generic command interpreters.
+    </application>  
   </category>
   <category name="Multimedia">
     <application name="aumix">
@@ -243,19 +287,6 @@ type="text/xsl"?>
     <application name="babel">
       Access Internet  translation services.
     </application>
-    <application name="dired">
-      Browse and operate on files and folders.
-    </application>
-    <application name="find-dired">
-      Seamless integration between the file browser and 
-      finder.
-    </application>
-    <application name="locate">
-      File browser interface for finding files.
-    </application>
-    <application name="finder">
-      Package browser for locating  installed  applications.
-    </application>
     <application name="rpm">
       Client for browsing installed RPM packages.
     </application>
@@ -265,29 +296,6 @@ type="text/xsl"?>
       patches etc.
       Voice locking is used to advantage in 
     aurally highlighting the differences.</application>
-    <application name="shell">
-      Runs interactive command interpreters like BASH and TCSH.
-    </application>
-    <application name="ansi-colors">
-      Applies Aural CSS ACSS properties to convert ansi color
-      codes to appropriate voice changes to produce
-      audio formatted output.
-    </application>
-    <application name="eterm">
-      Speech-enabled  terminal client for running full-screen
-      applications like VI, Lynx and PINE.
-    </application>
-    <application name="ssh">
-    Front-end to SSH.</application>
-    <application name="efs">
-      Front-end to remote file access using an FTP
-    back-end.</application>
-    <application name="tramp">
-    Front-end to remote file access using SSH backend.</application>
-    <application name="eshell">
-      Command shell implemented in Emacs Lisp, making it
-      independent of the underlying operating system.
-    </application>
     <application name="outline">
       Context-sensitive outline support for browsing documents.
     </application>
