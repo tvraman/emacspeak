@@ -943,7 +943,7 @@ the emacspeak table clipboard instead."
 ;;}}}
 ;;{{{ utilities
 
-(defun emacspeak-speak-show-list-variable (var)
+(defun emacspeak-show-list-variable (var)
   "Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
 Lists are displayed one element per line.
