@@ -1327,7 +1327,20 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Display flight arrival and departure information.")
       
 ;;}}}
+;;{{{ weather underground
 
+(emacspeak-url-template-define
+ "Weather forecast from Weather Underground"
+ "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
+ (list "Zip: ")
+ nil
+ "Weather forecast from weather underground mobile."
+ #'(lambda (url)
+     (emacspeak-w3-extract-tables-by-match-list
+      (list "Today" "Observed")
+      url 'speak)))
+
+;;}}}
 ;;}}}
 ;;{{{ Interactive commands 
 ;;;###autoload
