@@ -237,13 +237,13 @@ post-action ;action to perform after opening
 (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN HotStocks "
-                                "http://cgi.cnnfn.com/output/pfv/%s/markets/hotstox/"
+                                "http://money.cnn.com/%s/markets/hotstox/"
  (list 
 'emacspeak-url-template-date-year/month/date))
 
 
 (emacspeak-url-template-define "CNN Markets New York"
-                                "http://cgi.cnnfn.com/output/pfv/%s/markets/markets_newyork/"
+                                "http://money.cnn.com/%s/markets/markets_newyork/"
  (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
