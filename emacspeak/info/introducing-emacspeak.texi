@@ -7,7 +7,7 @@
 @comment %**end of header
 
 @set update-month April 2003
-@set update-date 2003 Apr 26
+@set update-date 2003 Apr 28
 
 @ignore
  ## Summary of shell commands to create various output formats:
@@ -41,6 +41,7 @@
 
        xdvi introducing-emacspeak.dvi &
        gv introducing-emacspeak.ps &
+       galeon introducing-emacspeak.html &
 
     ## DocBook output
     makeinfo --docbook --no-split --paragraph-indent=0 --verbose \
@@ -105,11 +106,9 @@ all copies.
 @insertcopying
 @end titlepage
 
-@contents
-
 @ifnottex
 @node Top, This Essay, (dir), (dir)
-@top Emacspeak
+@top Introducing Emacspeak
 @insertcopying
 
 This essay is about Emacspeak and how to introduce it to a friend.
@@ -125,6 +124,13 @@ It is not a substitute for the Emacspeak manual, but an addendum.
 * Software Synthesizers::
 * Installation::
 @end menu
+
+@iftex
+@contents
+@end iftex
+@ifplaintext
+@contents
+@end ifplaintext
 
 @node This Essay, Questions, Top, Top
 @unnumbered This Essay
@@ -1108,15 +1114,18 @@ emacspeak-espeak
 @end iftex
 
 @noindent
-The two commands are shell scripts in the /usr/bin/ directory.
+The two commands are shell scripts in the /usr/local/bin/ directory.
 
-(I am also running two other non-Emacspeak instances of Emacs: an
-Emacs version 21 owned by user `bob', and an Emacs version 20.7 owned
-by user `root'.  That way, I separate dangerous system administration
-task from ordinary work.  Moreover, since I tend to run the most
-recent CVS development snapshot of Emacs 21, I like to keep a
+The regular Emacspeak command is in the /usr/bin/ directory, but since
+these two commands are experimental, I am putting them into the
+/usr/local/bin/ directory, to remind me that I created them locally.
+
+(Incidentally, I am also running two other non-Emacspeak instances of
+Emacs: an Emacs version 21 owned by user `bob', and an Emacs version
+20.7 owned by user `root'.  That way, I separate dangerous system
+administration task from ordinary work.  Moreover, since I tend to run
+the most recent CVS development snapshot of Emacs 21, I like to keep a
 known-to-work Emacs version 20.7 handy.)
-
 
 @node Installation,  , Software Synthesizers, Top
 @unnumbered Installation: Debian and @code{espeakf}
@@ -1193,12 +1202,14 @@ awkward, non-standard system that I am, but instead are using a well
 configured, modern, standard system, what I just told you should work.
 
 Since I run both the @code{eflite} and @code{espeakf} text-to-speech
-synthesizers, I renamed the shell script that starts Emacspeak with
-eflite to @file{/usr/bin/emacspeak-eflite}.
+synthesizers, and at this stage am running them in what amounts to a
+local experiment, I copied the shell script that starts Emacspeak with
+eflite from the /usr/bin/ directory to the /usr/local/bin/ directory
+and renamed it to @file{/usr/local/bin/emacspeak-eflite}.
 
 I start Emacspeak with @code{espeakf} with a different shell script,
-called @file{/usr/bin/emacspeak-epeakf}.  (These names are not very
-imaginative, but I can remember them.)
+called @file{/usr/local/bin/emacspeak-epeakf}.  (These names are not
+very imaginative, but I can remember them.)
 
 As I write this in @value{update-month}, @code{espeakf} is available only from
 CVS on SourceForge.  Fortunately, it is easy to download and install.
@@ -1279,8 +1290,9 @@ text-to-speech synthesizer, Emacspeak runs an executable Perl script
 called @code{espeakf.pl}.  CVS installs that Perl script properly, so
 you do not need to do anything.
 
-However, you do need to modify your @file{/usr/bin/emacspeak-eflite}
-and @file{/usr/bin/emacspeak-espeakf} start up scripts for the two
+However, you do need to modify your
+@file{/usr/local/bin/emacspeak-eflite} and
+@file{/usr/local/bin/emacspeak-espeakf} start up scripts for the two
 different text-to-speech synthesizers.
 
 I use a variation on the @code{/usr/bin/emacspeak} script that
@@ -1288,7 +1300,7 @@ Emacspeak creates automatically.  That script uses information from a
 @file{/etc/emacspeak.conf} file.  I ignore that configuration file
 because the configuration for Emacspeak with the two synthesizers is
 different.  Instead, I put all the configuration information into the
-two @file{/usr/bin/} scripts.
+two @file{/usr/local/bin/} scripts.
 
 The two scripts contain sharp signs, exclamation marks, left and right
 brackets, and much else.  To listen to all the characters in them, you
@@ -1303,12 +1315,12 @@ Control-e}:
 
 @need 1200
 @noindent
-First, the @file{/usr/bin/emacspeak-eflite} script. 
+First, the @file{/usr/local/bin/emacspeak-eflite} script. 
 
 @smallexample
 @group
 #!/bin/sh
-## /usr/bin/emacspeak-eflite - execute emacs with speech enhancements
+## /usr/local/bin/emacspeak-eflite - execute emacs with speech enhancements
 ## use EFLITE
 
 ## based on
@@ -1339,23 +1351,23 @@ done
 
 @group
 export EMACS_UNIBYTE=1
-export DTK_TCL=/usr/bin/eflite
+export DTK_TCL=/usr/local/bin/eflite
 
 exec emacs -q \
 -l /usr/share/emacs/site-lisp/emacspeak/lisp/emacspeak-setup.el \
 $INITSTR $CL_ALL
-### end /usr/bin/emacspeak-eflite
+### end /usr/local/bin/emacspeak-eflite
 @end group
 @end smallexample
 
 @need 1200
 @noindent
-Second, the @file{/usr/bin/emacspeak-espeakf} script:
+Second, the @file{/usr/local/bin/emacspeak-espeakf} script:
 
 @smallexample
 @group
 #!/bin/sh
-## /usr/bin/emacspeak-espeakf - execute emacs with speech enhancements
+## /usr/local/bin/emacspeak-espeakf - execute emacs with speech enhancements
 ## use ESPEAKF
 
 ## based on
@@ -1392,7 +1404,7 @@ export EMACS_UNIBYTE=1
 exec emacs -q \
 -l /usr/share/emacs/site-lisp/emacspeak/lisp/emacspeak-setup.el \
 $INITSTR $CL_ALL
-### end /usr/bin/emacspeak-espeakf
+### end /usr/local/bin/emacspeak-espeakf
 @end group
 @end smallexample
 
@@ -1406,5 +1418,9 @@ chmod 755 emacspeak-*
 
 @noindent
 in a shell as user @samp{root}.
+
+@ifnottex
+### End of document
+@end ifnottex
 
 @bye
