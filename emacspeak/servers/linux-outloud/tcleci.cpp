@@ -69,7 +69,7 @@ you like after a command.
 
 /* ugly ugly */
 #define DSP "/dev/dsp"
-int  dsp;
+int  dsp = -1;
 //static int _flushSpeech = 0;
 //.1 second using 11025k samples.
 //note that in the tcl server we select for 0.09 seconds so
@@ -124,7 +124,7 @@ static int (*_eciSetVoiceParam)(void *, int, int, int);
 static int (*_eciSetOutputBuffer)(void *, int, short *);
 static int (*_eciSetOutputDevice)(void *, int);
 static void (*_eciRegisterCallback)(void*,int(*)(void*,int,long,void*),void*);
-
+static int openDSP();
 extern "C" EXPORT int Tcleci_Init(Tcl_Interp *interp);
 int SetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int GetRate(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
@@ -143,6 +143,7 @@ int playWaveFile(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 void TclEciFree(ClientData eciHandle) {
   _eciDelete(eciHandle);
   close (dsp);
+  dsp = -1;
 }
 
 int Tcleci_Init(Tcl_Interp *interp) {
@@ -305,6 +306,7 @@ int playTTS (int samples) {
     stereo[2*i] =waveBuffer[i];
     stereo[2*i+1] = waveBuffer[i];
   }
+  if (dsp == -1) openDSP();
   write (dsp, stereo,  4*samples);
   return eciDataProcessed;
 }
@@ -421,7 +423,13 @@ int Synchronize(ClientData eciHandle, Tcl_Interp *interp,
 int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
          Tcl_Obj *CONST objv[]) {
   //_flushSpeech = 1;
-  if (_eciStop(eciHandle)) return TCL_OK;
+  if (_eciStop(eciHandle)) {
+    if (dsp != -1) {
+      close (dsp);
+      dsp = -1;
+    }
+    return TCL_OK;
+  }
   Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
@@ -454,6 +462,28 @@ int Resume(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST ob
   return TCL_ERROR;
 }
 
+
+int openDSP() {
+  int tmp, _dsp;
+  _dsp = open(DSP, O_WRONLY);
+    if (_dsp == -1) {
+      return -1;
+    }
+    dsp = _dsp;
+    fprintf(stderr, "open dsp is %d\n", dsp);
+    ioctl(dsp, SNDCTL_DSP_RESET, 0);
+    tmp=11025;
+    ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
+    tmp=1;
+    ioctl(dsp, SNDCTL_DSP_STEREO, &tmp);
+    tmp=16;
+    ioctl(dsp, SNDCTL_DSP_SAMPLESIZE, &tmp);
+    tmp=11025;
+    ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
+    return dsp;
+}
+
+
 int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   int  rc, length, tmp;
   char* output;
@@ -476,22 +506,12 @@ int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST
       Tcl_AppendResult(interp, "Error setting output buffer.\n", NULL);
       return TCL_ERROR;
     }
-    dsp = open(DSP, O_WRONLY);
+    openDSP();
     if (dsp == -1) {
-      Tcl_AppendResult(interp, "Could not open output device %s\n",
+      Tcl_AppendResult(interp, "Could not open output device ",
                        DSP, NULL);
       return (TCL_ERROR);
     }
-    ioctl(dsp, SNDCTL_DSP_RESET, 0);
-    tmp=11025;
-    ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
-    tmp=1;
-    ioctl(dsp, SNDCTL_DSP_STEREO, &tmp);
-    tmp=16;
-    ioctl(dsp, SNDCTL_DSP_SAMPLESIZE, &tmp);
-    tmp=11025;
-    ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
-
     //>
   } else if (Tcl_StringMatch(output, "default")) {
     //stop using wave buffers
