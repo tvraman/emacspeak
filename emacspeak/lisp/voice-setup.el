@@ -201,7 +201,7 @@ Keys are personality names.")
   (declare (special voice-setup-personality-table))
   (let ((voice
          (tts-personality-from-speech-style
-          (make-dtk-speech-style
+          (make-acss
            :family (first style-list)
            :average-pitch (second style-list)
            :pitch-range (third style-list)
