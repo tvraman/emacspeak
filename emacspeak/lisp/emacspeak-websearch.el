@@ -1448,7 +1448,7 @@ Light for: ")))
              (format "?lang=%s" lang)
              "&text="
              (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
+  (emacspeak-websearch-post-process ""
    'emacspeak-speak-line))
 
 ;;}}}

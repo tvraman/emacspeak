@@ -140,6 +140,7 @@
   (when (interactive-p)
     (emacspeak-hangman-setup-pronunciations)
     (emacspeak-auditory-icon 'open-object)))
+(declaim (special hm-map))
 (when (boundp 'hm-map)
 (declaim (special hm-map))
 (define-key hm-map " " 'emacspeak-hangman-speak-guess)
