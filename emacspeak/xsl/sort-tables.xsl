@@ -56,13 +56,11 @@ nested tables</a>
       </table>
       <xsl:apply-templates/>
       <h2>
-        <a name="__nested_tables" id="__nested_tables"> Nested Tables </a>
-      </h2>
-      <p>
-There are 
+        <a name="__nested_tables" id="__nested_tables"> 
 <xsl:value-of select="count(//table//table)"/>
- nested tables in this page. 
-</p>
+Nested Tables </a>
+      </h2>
+      
       <xsl:for-each select="//table//table">
         <xsl:sort select="count(.//table)" data-type="number" order="ascending"/>
         <xsl:sort select="count(.//text()|.//p)" order="descending"/>
