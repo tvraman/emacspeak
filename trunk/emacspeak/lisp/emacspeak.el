@@ -107,131 +107,6 @@
 ;;}}}
 ;;{{{ Emacspeak:
 
-;;{{{  Make these interactive commands speak:
-
-(defvar emacspeak-emacs-commands-to-fix
-  '(
-    add-completions-from-file
-    ange-ftp-copy-file
-    ange-ftp-delete-file
-    ange-ftp-kill-ftp-process
-    ange-ftp-nslookup-host
-    ange-ftp-rename-file
-    ange-ftp-set-user
-    append-to-file
-    append-to-register
-    byte-force-recompile
-    byte-recompile-directory
-    cd
-    comint-run
-    command-apropos
-    copy-rectangle-to-register
-    copy-to-buffer
-    copy-to-register
-    customize-apropos
-    customize-apropos-faces
-    customize-apropos-groups
-    customize-apropos-options
-    debug-on-entry
-    debugger-return-value
-    define-mail-abbrev
-    define-mail-alias
-    describe-key
-    describe-key-briefly
-    desktop-save
-    dmacro-load
-    dtk-set-character-scale
-    dtk-set-rate
-    emacspeak-dial-dtk
-    emacspeak-frame-label-or-switch-to-labelled-frame
-    emacspeak-generate-documentation
-    emacspeak-keymap-choose-new-emacspeak-prefix
-    find-file
-    find-file-literally
-    find-file-other-frame
-    find-file-other-window
-    find-file-read-only
-    find-file-read-only-other-frame
-    find-file-read-only-other-window
-    fold-goto-line
-    global-unset-key
-    goto-line
-    help-make-xrefs
-    ielm-change-working-buffer
-    increment-register
-    insert-file
-    insert-file-literally
-    insert-register
-    insert-variable
-    jump-to-register
-    list-text-properties-at
-    load-file
-    load-library
-    local-unset-key
-    locate-library
-    mail-attach-file
-    mail-fcc
-    make-frame-on-display
-    make-obsolete
-    makefile-insert-macro
-    makefile-insert-target
-    message-resend
-    mime-include-audio
-    mime-include-external-anonftp
-    mime-include-external-ftp
-    mime-include-gif
-    mime-include-jpeg
-    mime-include-postscript
-    mime-include-raw-binary
-    mime-include-raw-nonbinary
-    nonincremental-re-search-backward
-    nonincremental-re-search-forward
-    nonincremental-search-backward
-    nonincremental-search-forward
-    number-to-register
-    point-to-register
-    prefer-coding-system
-    prepend-to-buffer
-    prepend-to-register
-    read-abbrev-file
-    recover-file
-    rename-buffer
-    run-at-time
-    run-with-timer
-    search-backward
-    search-forward
-    select-frame-by-name
-    set-background-color
-    set-border-color
-    set-buffer-file-coding-system
-    set-buffer-process-coding-system
-    set-cursor-color
-    set-foreground-color
-    set-frame-font
-    set-frame-name
-    set-left-margin
-    set-mouse-color
-    set-right-margin
-    set-selection-coding-system
-    set-visited-file-name
-    sort-regexp-fields
-    string-rectangle
-    switch-to-buffer-other-frame
-    switch-to-buffer-other-window
-    vc-comment-search-forward
-    vc-comment-search-reverse
-    vc-directory
-    vc-rename-file
-    vc-version-diff
-    vc-version-other-window
-    view-register
-    window-configuration-to-register
-    zap-to-char
-    )
-  "Precomputed list of interactive functions that have to be fixed.
-Precomputing this saves time at start-up.")
-
-;;}}}
 (defcustom emacspeak-play-emacspeak-startup-icon nil
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
@@ -275,8 +150,7 @@ functions for details.   "
                     default-enable-multibyte-characters
                     emacspeak-unibyte
                     emacspeak-play-program
-                    emacspeak-sounds-directory
-                    emacspeak-emacs-commands-to-fix))
+                    emacspeak-sounds-directory))
   ;;; fixes transient mark mode in emacspeak 
   (setq mark-even-if-inactive t)
   ;;; force unibyte
@@ -298,8 +172,6 @@ functions for details.   "
                    "-q"
                    (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
-  (mapcar 'emacspeak-fix-interactive-command-if-necessary
-          emacspeak-emacs-commands-to-fix)
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
   (run-hooks 'emacspeak-startup-hook)
