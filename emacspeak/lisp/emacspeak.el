@@ -662,9 +662,19 @@ Emacs 20.3"
 
 (defun emacspeak-personal-keybindings ()
   "Load user's personal keybindings for the audio desktop."
-  (interactive)
+  (declare (special emacspeak-personal-keys))
   (when (locate-library "emacspeak-personal")
-    (load-library "emacspeak-personal")))
+    (load-library "emacspeak-personal")
+    (when emacspeak-personal-keymap
+      (setq emacspeak-personal-keys 
+            (mapcar
+             (lambda (binding)
+               (cond
+                ((numberp (car binding))
+                 (cons (format "%c" (car binding))
+                       (cdr binding)))
+                (t binding)))
+             (cdr emacspeak-personal-keymap))))))
 
 (add-hook 'emacspeak-startup-hook 'emacspeak-personal-keybindings)
 
