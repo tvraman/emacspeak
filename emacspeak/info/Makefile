@@ -52,7 +52,9 @@ emacspeak.dvi:		emacspeak.texi
 
 emacspeak.pdf:		emacspeak.texi
 	$(PDFTEX) emacspeak.texi
-	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
+	$(PDFTEX) emacspeak.texi	
+	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky emacspeak.pg  emacspeak.tp  emacspeak.vr
+	$(PDFTEX) emacspeak.texi
 	$(PDFTEX) emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
