@@ -379,7 +379,7 @@
   (define-key gomoku-mode-map "." 'emacspeak-gomoku-speak-square)
   (define-key gomoku-mode-map "," 'emacspeak-gomoku-display-statistics)
   (define-key gomoku-mode-map '[left] 'gomoku-move-left)
-  (define-key gomoku-mode-map '[right] 'emacspeak-gomoku-move-right)
+  (define-key gomoku-mode-map '[right] 'gomoku-move-right)
   (define-key gomoku-mode-map "r" 'emacspeak-gomoku-show-current-row)
   (define-key gomoku-mode-map "c" 'emacspeak-gomoku-show-current-column)
   (define-key gomoku-mode-map "\\"
