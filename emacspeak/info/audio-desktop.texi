@@ -150,7 +150,7 @@ building block for the entire desktop.  Every Emacs buffer is searchable
 via a uniform and powerful search interface.  Emacs' incremental search
 works efficiently and consistently to enable you locate "objects" of
 interest either within a given document or to locate a given object from
-amongst the various objects that are currently open on the Emacspeak
+among the various objects that are currently open on the Emacspeak
 desktop.  This is @b{very powerful} --where a GUI user is typically
 limited to quickly locating an object from a relatively small collection
 --the size of the collection being a direct function of available

@@ -1,5 +1,6 @@
 #$Id$
 TEXINDEX=texindex
+FILES=*.texi
 MAKEINFO = makeinfo 
 TEX=tex
 PDFTEX=pdftex
@@ -68,3 +69,9 @@ pub:  emacspeak.html introducing-emacspeak.html
 	scp *.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
 
 clean: 
+
+
+spell:
+	@mv .spell.words .spell.tex
+	@cat ${FILES} | aspell -t -l | sort | uniq > .spell.words
+	@diff .spell.tex .spell.words

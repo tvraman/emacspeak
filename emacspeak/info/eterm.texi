@@ -217,7 +217,7 @@ C-t > (to the bottom of the screen), C-t n (to the next line), C-t p (to
 the previous line), and C-t . (to the cursor).  Each of these also
 speaks the line the pointer moves to.  You can also search forward with
 C-t s.  
-@c , or search backwards with C-t r.
+@c , or search backward with C-t r.
 
 These commands speak without moving the pointer: C-t l (current line),
 C-t w (current word), C-t c (current character), and C-t [space] (from
