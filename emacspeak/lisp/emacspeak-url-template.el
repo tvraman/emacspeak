@@ -517,6 +517,29 @@ Computing News at CNN.")
 ;;{{{  NPR programs 
 
 (emacspeak-url-template-define
+ "All Things Considered Stream from NPR"
+"http://www.npr.org/ramfiles/atc/%s.atc.ram"
+ (list 'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Play NPR All Things Considered stream."
+'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
+ "Talk Of The Nation  Stream from NPR"
+"http://www.npr.org/ramfiles/totn/%s.totn.ram"
+ (list 'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Play NPR Talk Of The Nation  stream."
+'emacspeak-realaudio-play)
+(emacspeak-url-template-define
+ "Morning Edition  Stream from NPR"
+"http://www.npr.org/ramfiles/me/%s.me.ram"
+ (list 'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Play NPR Morning Edition  stream."
+'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
  "Talk Of The Nation from NPR"
  "rtsp://audio.npr.org/totn/%s_totn_%s.rm"
  (list
