@@ -20,19 +20,24 @@
   <!-- } -->
   <!-- { html body  --> 
 
-<xsl:template match="//script|meta|link"/>
+  <xsl:template match="//script|meta|link"/>
   <xsl:template match="html/body">
     <xsl:element name="body">
-<xsl:apply-templates 
-select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
+      <xsl:apply-templates 
+                           select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
     </xsl:element>
   </xsl:template>
 
   <!-- } -->
 </xsl:stylesheet>
-<!-- {end of file  --> 
+
 <!--
-local variables:
+Local Variables:
+mode: xae
+sgml-indent-step: 2
+sgml-indent-data: t
+sgml-set-face: nil
+sgml-insert-missing-element-comment: nil
 folded-file: t
-end:
- <!-- } -->
+End:
+--> 
