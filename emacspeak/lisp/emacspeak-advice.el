@@ -2854,6 +2854,16 @@ running."))
 
 
 ;;}}}
+;;{{{ provide auditory icon when window config changes 
+(defun emacspeak-window-configuration-change (ignore)
+  "Play window config icon."
+  (emacspeak-auditory-icon 'window-config))
+
+(when emacspeak-aumix-multichannel-capable-p
+(add-hook 'window-size-change-functions
+          'emacspeak-window-configuration-change))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
