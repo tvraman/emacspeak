@@ -970,8 +970,8 @@ for commands defined in module  %s.\n\n"
                  (format "Select Frame (default %s): " default)
                  frame-names-alist nil t nil 'frame-name-history)))
     (if (= (length input) 0)
-        default
-;;;###autoload      input)))
+        default)))
+
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
   "Switch to labelled frame.
 With optional PREFIX argument, label current frame."
@@ -984,6 +984,7 @@ With optional PREFIX argument, label current frame."
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
+
 ;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
   "Move to next buffer.
@@ -1323,8 +1324,8 @@ at point."
   (interactive )
   (let ((p (get-text-property (point) 'personality))
         (f (get-text-property (point) 'face)))
-    (message "Personality %s Face %s"
-;;;###autoload             p f )))
+    (message "Personality %s Face %s" p f )))
+;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
