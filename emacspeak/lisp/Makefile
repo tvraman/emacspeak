@@ -45,7 +45,7 @@ SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file
 # How to compile 
-COMPILE = -eval "(setq byte-compile-dynamic t)" -f batch-byte-compile
+COMPILE =  -f batch-byte-compile
 %.elc:  %.el
 	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el $(COMPILE) $<
 
