@@ -2319,7 +2319,16 @@ Also produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{  customize isearch:
+;;{{{ fix isearch keys:
+(declaim (special isearch-mode-map 
+minibuffer-local-isearch-map
+emacspeak-prefix))
 
+(define-key minibuffer-local-isearch-map emacspeak-prefix
+  'emacspeak-prefix-command)
+(define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+ 
+;;}}}
 ;;{{{  temporarily disable message advice during searches.
 (defvar emacspeak-isearch-save-syntax-table  nil
   "Saved syntax table before we enter isearch mode.")
