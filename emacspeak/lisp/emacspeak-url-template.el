@@ -766,8 +766,11 @@ the broadcast. You must have mplayer installed."
  'emacspeak-realaudio-play)
 (emacspeak-url-template-define
  "Morning Edition Stream from NPR"
- "http://www.npr.org/ramfiles/me/%s.me.ram"
- (list 'emacspeak-url-template-date-YearMonthDate)
+ "http://www.npr.org/dmg/dmg.php?prgCode=ME&showDate=%s&segNum=&mediaPref=RM"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "Date:"
+                            (format-time-string "%d-%b-%Y"))))
  nil
  "Play NPR Morning Edition  stream."
  'emacspeak-realaudio-play)
