@@ -67,7 +67,8 @@
 (defstruct  emacspeak-daisy-book
   base
   title
-  smil-content
+  smil-content ;hash of smil structures 
+  text-content ; hash of text xml structures 
   audio-process
   nav-center)
 
@@ -152,8 +153,7 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 (defun emacspeak-daisy-play-text (clip)
   "Play text clip specified by clip.
 Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
-  (declare (special 
-            emacspeak-daisy-this-book))
+  (declare (special emacspeak-daisy-this-book))
   (unless
       (string-equal "text" (xml-tag-name clip))
     (error "Invalid audio clip."))
@@ -200,7 +200,34 @@ after fetching it  if necessary."
     (cond
      (smil-content smil-content)
      (t (emacspeak-daisy-book-add-smil-content book src)
-        (gethash src (emacspeak-daisy-book-smil-content book))))))
+        (gethash src (emacspeak-daisy-book-smil-content
+                      book))))))
+
+(defun emacspeak-daisy-book-add-text-content (book src)
+  "Parse text xml content   in src and store it as book text--contents.
+Contents are indexed by src."
+  (let ((text
+         (find-file-noselect
+          (emacspeak-daisy-resolve-uri src book))))
+    (save-excursion
+      (set-buffer smil)
+      (goto-char (point-min))
+      (search-forward"<dtbook3")
+      (beginning-of-line)
+      (setf
+       (gethash src (emacspeak-daisy-book-text-content book))
+       (read-xml))
+      (kill-buffer text))))
+    
+(defun emacspeak-daisy-fetch-text-content (book src)
+  "Return text-content particle from book,
+after fetching it  if necessary."
+  (let ((text-content
+         (gethash src (emacspeak-daisy-book-text-content book))))
+    (cond
+     (text-content text-content)
+     (t (emacspeak-daisy-book-add-text-content book src)
+        (gethash src (emacspeak-daisy-book-text-content book))))))
 
 (defun emacspeak-daisy-play-smil (clip)
   "Play a SMIL clip."
