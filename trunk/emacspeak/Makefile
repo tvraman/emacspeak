@@ -171,7 +171,8 @@ lisp/xml-forms/*.xml \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile 
 MISC=etc/extract-table.pl etc/last-log.pl \
-etc/show-text etc/word2txt \
+etc/pdf2text etc/doc2text \
+etc/xls2html etc/ppt2html  \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi info/add-css.pl
@@ -255,7 +256,7 @@ install:
 	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
-	$(INSTALL) -m 0644  ${MISC}   $(libdir)/etc
+	cp   ${MISC}   $(libdir)/etc
 	$(CP) -r $(SOUNDS) $(libdir)/sounds
 	chmod -R go+rX  $(libdir)/sounds
 	$(CP) -r $(REALAUDIO) $(libdir)

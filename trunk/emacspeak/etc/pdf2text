@@ -1,0 +1,13 @@
+#!/bin/sh
+#$Id$
+#
+
+if which pdftotext   > /dev/null
+then
+    tempfile=/tmp/pdftotext-$$.pdf
+    cat > $tempfile
+    pdftotext $tempfile -
+    rm -f $tempfile
+else 
+    echo "pdftotext not found --install package XPDF."
+fi

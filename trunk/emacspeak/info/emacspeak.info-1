@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.0 from
+This is emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -43,7 +43,7 @@ Copyright
 
    This manual documents  Emacspeak, a speech extension to Emacs.
 
-   Copyright (C)1994 - 2001 T. V. Raman All Rights Reserved.
+   Copyright (C)1994 - 2002 T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission

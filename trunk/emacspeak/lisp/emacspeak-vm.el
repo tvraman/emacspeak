@@ -606,7 +606,7 @@ settings to match what the author of Emacspeak uses."
   :group 'emacspeak-vm)
 
 (defcustom emacspeak-vm-pdf2text
-  (expand-file-name "pdf2txt" emacspeak-etc-directory)
+  (expand-file-name "pdf2text" emacspeak-etc-directory)
   "Executable that converts PDF on standard input to plain
 text using pdftotext."
   :type 'string
