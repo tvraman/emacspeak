@@ -3,9 +3,11 @@
 @chapter Emacspeak Commands
 
 
-@unnumberedsec dtk-add-cleanup-pattern@findex dtk-add-cleanup-pattern
+@unnumberedsec dtk-add-cleanup-pattern
+@findex dtk-add-cleanup-pattern
 @kindex  control e d a 
  control e d a 
+
 Add this pattern to the list of repeating patterns that
 are cleaned up.  Optional interactive prefix arg deletes
 this pattern if previously added.  Cleaning up repeated
@@ -19,16 +21,19 @@ will say ``aw fifteen dot'' when speaking the string
 
 
 
-@unnumberedsec dtk-notes-shutdown@findex dtk-notes-shutdown
+@unnumberedsec dtk-notes-shutdown
+@findex dtk-notes-shutdown
  No global keybinding
 
 Shutdown midi system.
 
 
 
-@unnumberedsec dtk-pause@findex dtk-pause
+@unnumberedsec dtk-pause
+@findex dtk-pause
 @kindex  control e p 
  control e p 
+
 Pause ongoing speech.
 The speech can be resumed with command `dtk-resume'
 normally bound to C-e SPC.  Pausing speech is useful when one needs to
@@ -40,17 +45,21 @@ Optional PREFIX arg flushes any previously paused speech.
 
 
 
-@unnumberedsec dtk-reset-state@findex dtk-reset-state
+@unnumberedsec dtk-reset-state
+@findex dtk-reset-state
 @kindex  control e d  cap R  
  control e d  cap R  
+
 Restore sanity to the Dectalk.
 Typically used after the Dectalk has been power   cycled.
 
 
 
-@unnumberedsec dtk-resume@findex dtk-resume
+@unnumberedsec dtk-resume
+@findex dtk-resume
 @kindex  control e SPACE 
  control e SPACE 
+
 Resume paused speech.
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to C-e p.
@@ -60,18 +69,22 @@ and variable `dtk-resume-should-toggle' is t
 
 
 
-@unnumberedsec dtk-select-server@findex dtk-select-server
+@unnumberedsec dtk-select-server
+@findex dtk-select-server
 @kindex  control e d d 
  control e d d 
+
 Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
 When called  interactively, The selected server is started immediately. 
 
 
 
-@unnumberedsec dtk-set-character-scale@findex dtk-set-character-scale
+@unnumberedsec dtk-set-character-scale
+@findex dtk-set-character-scale
 @kindex  control e d f 
  control e d f 
+
 Set scale FACTOR for   speech rate.
 Speech rate is scaled by this factor
 when speaking characters.
@@ -85,9 +98,11 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec dtk-set-chunk-separator-syntax@findex dtk-set-chunk-separator-syntax
+@unnumberedsec dtk-set-chunk-separator-syntax
+@findex dtk-set-chunk-separator-syntax
 @kindex  control e d RETURN 
  control e d RETURN 
+
 Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
 classified into various syntactic classes.
@@ -95,17 +110,21 @@ Argument S specifies the syntax class.
 
 
 
-@unnumberedsec dtk-set-predefined-speech-rate@findex dtk-set-predefined-speech-rate
+@unnumberedsec dtk-set-predefined-speech-rate
+@findex dtk-set-predefined-speech-rate
 @kindex  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
+
 Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 
 
 
-@unnumberedsec dtk-set-pronunciation-mode@findex dtk-set-pronunciation-mode
+@unnumberedsec dtk-set-pronunciation-mode
+@findex dtk-set-pronunciation-mode
 @kindex  control e d m 
  control e d m 
+
 Set pronunciation MODE.
 This command is valid only for newer
 Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
@@ -114,9 +133,11 @@ Argument STATE specifies new state.
 
 
 
-@unnumberedsec dtk-set-punctuations@findex dtk-set-punctuations
+@unnumberedsec dtk-set-punctuations
+@findex dtk-set-punctuations
 @kindex  control e d p 
  control e d p 
+
 Set punctuation mode to MODE.
 Possible values are `some', `all', or `none'.
 Interactive PREFIX arg means set   the global default value, and then set the
@@ -124,7 +145,8 @@ current local  value to the result.
 
 
 
-@unnumberedsec dtk-set-punctuations-to-all@findex dtk-set-punctuations-to-all
+@unnumberedsec dtk-set-punctuations-to-all
+@findex dtk-set-punctuations-to-all
  No global keybinding
 
 Set punctuation  mode to all.
@@ -132,7 +154,8 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 
 
-@unnumberedsec dtk-set-punctuations-to-some@findex dtk-set-punctuations-to-some
+@unnumberedsec dtk-set-punctuations-to-some
+@findex dtk-set-punctuations-to-some
  No global keybinding
 
 Set punctuation  mode to some.
@@ -140,9 +163,11 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 
 
-@unnumberedsec dtk-set-rate@findex dtk-set-rate
+@unnumberedsec dtk-set-rate
+@findex dtk-set-rate
 @kindex  control e d r 
  control e d r 
+
 Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
@@ -154,16 +179,20 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec dtk-stop@findex dtk-stop
+@unnumberedsec dtk-stop
+@findex dtk-stop
 @kindex  pause   control e s   ESCAPE [  cap P  
  pause   control e s   ESCAPE [  cap P  
+
 Stop speech now.
 
 
 
-@unnumberedsec dtk-toggle-allcaps-beep@findex dtk-toggle-allcaps-beep
+@unnumberedsec dtk-toggle-allcaps-beep
+@findex dtk-toggle-allcaps-beep
 @kindex  control e d  cap C  
  control e d  cap C  
+
 Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
@@ -173,9 +202,11 @@ However it is irritating to have it on when reading documents.
 
 
 
-@unnumberedsec dtk-toggle-capitalization@findex dtk-toggle-capitalization
+@unnumberedsec dtk-toggle-capitalization
+@findex dtk-toggle-capitalization
 @kindex  control e d c 
  control e d c 
+
 Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
@@ -183,9 +214,11 @@ value, and then set the current local value to the result.
 
 
 
-@unnumberedsec dtk-toggle-debug@findex dtk-toggle-debug
+@unnumberedsec dtk-toggle-debug
+@findex dtk-toggle-debug
 @kindex  control e d b 
  control e d b 
+
 Toggle state of the debug FLAG.
 When debugging is on, you can switch to the buffer
 *speaker* to examine the output from the process
@@ -194,17 +227,21 @@ Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 
 
 
-@unnumberedsec dtk-toggle-punctuation-mode@findex dtk-toggle-punctuation-mode
+@unnumberedsec dtk-toggle-punctuation-mode
+@findex dtk-toggle-punctuation-mode
 @kindex  delete 
  delete 
+
 Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
 
 
 
-@unnumberedsec dtk-toggle-quiet@findex dtk-toggle-quiet
+@unnumberedsec dtk-toggle-quiet
+@findex dtk-toggle-quiet
 @kindex  control e d q 
  control e d q 
+
 Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
 emacspeak loaded but wish to make the speech shut up.
@@ -212,9 +249,11 @@ Optional argument PREFIX specifies whether speech is turned off in the current b
 
 
 
-@unnumberedsec dtk-toggle-split-caps@findex dtk-toggle-split-caps
+@unnumberedsec dtk-toggle-split-caps
+@findex dtk-toggle-split-caps
 @kindex  control e d s 
  control e d s 
+
 Toggle split caps mode.
 Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
@@ -223,9 +262,11 @@ value to the result.
 
 
 
-@unnumberedsec dtk-toggle-splitting-on-white-space@findex dtk-toggle-splitting-on-white-space
+@unnumberedsec dtk-toggle-splitting-on-white-space
+@findex dtk-toggle-splitting-on-white-space
 @kindex  control e d SPACE 
  control e d SPACE 
+
 Toggle splitting of speech on white space.
 This affects the internal state of emacspeak that decides if we split
 text purely by clause boundaries, or also include
@@ -242,9 +283,11 @@ since the synthesizer is getting a word at a time.
 
 
 
-@unnumberedsec dtk-toggle-stop-immediately-while-typing@findex dtk-toggle-stop-immediately-while-typing
+@unnumberedsec dtk-toggle-stop-immediately-while-typing
+@findex dtk-toggle-stop-immediately-while-typing
 @kindex  control e d  cap I  
  control e d  cap I  
+
 Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
 type.
@@ -252,7 +295,8 @@ Optional argument PREFIX specifies if the setting applies to all buffers.
 
 
 
-@unnumberedsec emacspeak-annotate-add-annotation@findex emacspeak-annotate-add-annotation
+@unnumberedsec emacspeak-annotate-add-annotation
+@findex emacspeak-annotate-add-annotation
  No global keybinding
 
 Add annotation to the annotation working buffer.
@@ -264,42 +308,49 @@ annotation is inserted into the working buffer when complete.
 
 
 
-@unnumberedsec emacspeak-appt-repeat-announcement@findex emacspeak-appt-repeat-announcement
+@unnumberedsec emacspeak-appt-repeat-announcement
+@findex emacspeak-appt-repeat-announcement
 @kindex  control e  cap A  
  control e  cap A  
+
 Speaks the most recently displayed appointment message if any.
 
 
 
-@unnumberedsec emacspeak-arc-speak-file-modification-time@findex emacspeak-arc-speak-file-modification-time
+@unnumberedsec emacspeak-arc-speak-file-modification-time
+@findex emacspeak-arc-speak-file-modification-time
  No global keybinding
 
 Speak modification time of the file on current line
 
 
 
-@unnumberedsec emacspeak-arc-speak-file-name@findex emacspeak-arc-speak-file-name
+@unnumberedsec emacspeak-arc-speak-file-name
+@findex emacspeak-arc-speak-file-name
  No global keybinding
 
 Speak the name of the file on current line
 
 
 
-@unnumberedsec emacspeak-arc-speak-file-permissions@findex emacspeak-arc-speak-file-permissions
+@unnumberedsec emacspeak-arc-speak-file-permissions
+@findex emacspeak-arc-speak-file-permissions
  No global keybinding
 
 Speak permissions of file current entry 
 
 
 
-@unnumberedsec emacspeak-arc-speak-file-size@findex emacspeak-arc-speak-file-size
+@unnumberedsec emacspeak-arc-speak-file-size
+@findex emacspeak-arc-speak-file-size
  No global keybinding
 
 Speak the size of the file on current line
 
 
 
-@unnumberedsec emacspeak-audio-annotate-paragraphs@findex emacspeak-audio-annotate-paragraphs
+@unnumberedsec emacspeak-audio-annotate-paragraphs
+@findex emacspeak-audio-annotate-paragraphs
  No global keybinding
 
 Set property auditory-icon at front of all paragraphs.
@@ -307,9 +358,11 @@ Interactive PREFIX arg prompts for sound cue to use
 
 
 
-@unnumberedsec emacspeak-aumix@findex emacspeak-aumix
+@unnumberedsec emacspeak-aumix
+@findex emacspeak-aumix
 @kindex  control e ( 
  control e ( 
+
 Setup output parameters of the auditory display.
 Luanch this tool while you have auditory output on
 multiple channels playing so you can
@@ -318,7 +371,8 @@ you are done.
 
 
 
-@unnumberedsec emacspeak-aumix-edit@findex emacspeak-aumix-edit
+@unnumberedsec emacspeak-aumix-edit
+@findex emacspeak-aumix-edit
  No global keybinding
 
 Edit aumix settings interactively. 
@@ -327,72 +381,88 @@ after saving the settings to have them take effect.
 
 
 
-@unnumberedsec emacspeak-aumix-reset@findex emacspeak-aumix-reset
+@unnumberedsec emacspeak-aumix-reset
+@findex emacspeak-aumix-reset
  No global keybinding
 
 Reset to default audio settings.
 
 
 
-@unnumberedsec emacspeak-aumix-volume-decrease@findex emacspeak-aumix-volume-decrease
+@unnumberedsec emacspeak-aumix-volume-decrease
+@findex emacspeak-aumix-volume-decrease
 @kindex  volume-down 
  volume-down 
+
 Decrease overall volume. 
 
 
 
-@unnumberedsec emacspeak-aumix-volume-increase@findex emacspeak-aumix-volume-increase
+@unnumberedsec emacspeak-aumix-volume-increase
+@findex emacspeak-aumix-volume-increase
 @kindex  volume-up 
  volume-up 
+
 Increase overall volume. 
 
 
 
-@unnumberedsec emacspeak-aumix-wave-decrease@findex emacspeak-aumix-wave-decrease
+@unnumberedsec emacspeak-aumix-wave-decrease
+@findex emacspeak-aumix-wave-decrease
 @kindex  control e control f left 
  control e control f left 
+
 Decrease volume of wave output. 
 
 
 
-@unnumberedsec emacspeak-aumix-wave-increase@findex emacspeak-aumix-wave-increase
+@unnumberedsec emacspeak-aumix-wave-increase
+@findex emacspeak-aumix-wave-increase
 @kindex  control e control f right 
  control e control f right 
+
 Increase volume of wave output. 
 
 
 
-@unnumberedsec emacspeak-backward-char@findex emacspeak-backward-char
+@unnumberedsec emacspeak-backward-char
+@findex emacspeak-backward-char
 @kindex  control b   left 
  control b   left 
+
 Backward-char redefined to speak char moved to. 
 
 
 
-@unnumberedsec emacspeak-blink-matching-open@findex emacspeak-blink-matching-open
+@unnumberedsec emacspeak-blink-matching-open
+@findex emacspeak-blink-matching-open
  No global keybinding
 
 Display matching delimiter in the minibuffer.
 
 
 
-@unnumberedsec emacspeak-bs-speak-buffer-line@findex emacspeak-bs-speak-buffer-line
+@unnumberedsec emacspeak-bs-speak-buffer-line
+@findex emacspeak-bs-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
 
 
 
-@unnumberedsec emacspeak-c-speak-semantics@findex emacspeak-c-speak-semantics
+@unnumberedsec emacspeak-c-speak-semantics
+@findex emacspeak-c-speak-semantics
  No global keybinding
 
 Speak the C semantics of this line. 
 
 
 
-@unnumberedsec emacspeak-clipboard-copy@findex emacspeak-clipboard-copy
+@unnumberedsec emacspeak-clipboard-copy
+@findex emacspeak-clipboard-copy
 @kindex  control e control c 
  control e control c 
+
 Copy contents of the region to the emacspeak clipboard.
 Previous contents of the clipboard will be overwritten.  The Emacspeak
 clipboard is a convenient way of sharing information between
@@ -406,9 +476,11 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 
 
 
-@unnumberedsec emacspeak-clipboard-paste@findex emacspeak-clipboard-paste
+@unnumberedsec emacspeak-clipboard-paste
+@findex emacspeak-clipboard-paste
 @kindex  control e control y 
  control e control y 
+
 Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
@@ -419,14 +491,16 @@ the emacspeak table clipboard instead.
 
 
 
-@unnumberedsec emacspeak-compilation-speak-error@findex emacspeak-compilation-speak-error
+@unnumberedsec emacspeak-compilation-speak-error
+@findex emacspeak-compilation-speak-error
  No global keybinding
 
 Speech feedback about the compilation error. 
 
 
 
-@unnumberedsec emacspeak-completions-move-to-completion-group@findex emacspeak-completions-move-to-completion-group
+@unnumberedsec emacspeak-completions-move-to-completion-group
+@findex emacspeak-completions-move-to-completion-group
  No global keybinding
 
 Move to group of choices beginning with character last
@@ -434,9 +508,11 @@ typed. If no such group exists, then we dont move.
 
 
 
-@unnumberedsec emacspeak-copy-current-file@findex emacspeak-copy-current-file
+@unnumberedsec emacspeak-copy-current-file
+@findex emacspeak-copy-current-file
 @kindex  control e meta c 
  control e meta c 
+
 Copy file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
   when copying.  If location is a directory, the file is copied
@@ -447,66 +523,81 @@ Prompts for the new location and preserves modification time
 
 
 
-@unnumberedsec emacspeak-custom-goto-group@findex emacspeak-custom-goto-group
+@unnumberedsec emacspeak-custom-goto-group
+@findex emacspeak-custom-goto-group
  No global keybinding
 
 Jump to custom group when in a customization buffer.
 
 
 
-@unnumberedsec emacspeak-custom-goto-toolbar@findex emacspeak-custom-goto-toolbar
+@unnumberedsec emacspeak-custom-goto-toolbar
+@findex emacspeak-custom-goto-toolbar
  No global keybinding
 
 Jump to custom toolbar when in a customization buffer.
 
 
 
-@unnumberedsec emacspeak-customize@findex emacspeak-customize
+@unnumberedsec emacspeak-customize
+@findex emacspeak-customize
 @kindex  control e  cap C  
  control e  cap C  
+
 Customize Emacspeak.
 
 
 
-@unnumberedsec emacspeak-customize-personal-settings@findex emacspeak-customize-personal-settings
+@unnumberedsec emacspeak-customize-personal-settings
+@findex emacspeak-customize-personal-settings
 @kindex  control e f1 
  control e f1 
+
 Create a customization buffer for browsing and updating
 personal customizations.
 
 
 
-@unnumberedsec emacspeak-cvs-get-anonymous@findex emacspeak-cvs-get-anonymous
+@unnumberedsec emacspeak-cvs-get-anonymous
+@findex emacspeak-cvs-get-anonymous
 @kindex  control e control down 
  control e control down 
+
 Get latest cvs snapshot of emacspeak.
 
 
 
-@unnumberedsec emacspeak-cvs-get-project-snapshot@findex emacspeak-cvs-get-project-snapshot
+@unnumberedsec emacspeak-cvs-get-project-snapshot
+@findex emacspeak-cvs-get-project-snapshot
  No global keybinding
 
 Grab CVS snapshot  of specified project from Sourceforge.
 
 
 
-@unnumberedsec emacspeak-dejanews-browse-group@findex emacspeak-dejanews-browse-group
+@unnumberedsec emacspeak-dejanews-browse-group
+@findex emacspeak-dejanews-browse-group
 @kindex  control e  cap U  
  control e  cap U  
+
 Prompt and browse a newsgroup on Dejanews.
 
 
 
-@unnumberedsec emacspeak-describe-emacspeak@findex emacspeak-describe-emacspeak
+@unnumberedsec emacspeak-describe-emacspeak
+@findex emacspeak-describe-emacspeak
 @kindex  control h control e 
  control h control e 
+
 Give a brief overview of emacspeak.
 
 
 
-@unnumberedsec emacspeak-dial-dtk@findex emacspeak-dial-dtk
+@unnumberedsec emacspeak-dial-dtk
+@findex emacspeak-dial-dtk
 @kindex  control e d t 
  control e d t 
+
 Prompt for and dial a phone NUMBER with the Dectalk.
 
 This function is advised.
@@ -516,7 +607,8 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-dired-label-fields@findex emacspeak-dired-label-fields
+@unnumberedsec emacspeak-dired-label-fields
+@findex emacspeak-dired-label-fields
  No global keybinding
 
 Labels the fields of the listing in the dired buffer.
@@ -525,35 +617,40 @@ unless `dired-listing-switches' contains -al
 
 
 
-@unnumberedsec emacspeak-dired-show-file-type@findex emacspeak-dired-show-file-type
+@unnumberedsec emacspeak-dired-show-file-type
+@findex emacspeak-dired-show-file-type
  No global keybinding
 
 Displays type of current file by running command file.
 
 
 
-@unnumberedsec emacspeak-dired-speak-file-access-time@findex emacspeak-dired-speak-file-access-time
+@unnumberedsec emacspeak-dired-speak-file-access-time
+@findex emacspeak-dired-speak-file-access-time
  No global keybinding
 
 Speak access time  of the current file.
 
 
 
-@unnumberedsec emacspeak-dired-speak-file-modification-time@findex emacspeak-dired-speak-file-modification-time
+@unnumberedsec emacspeak-dired-speak-file-modification-time
+@findex emacspeak-dired-speak-file-modification-time
  No global keybinding
 
 Speak modification time  of the current file.
 
 
 
-@unnumberedsec emacspeak-dired-speak-file-permissions@findex emacspeak-dired-speak-file-permissions
+@unnumberedsec emacspeak-dired-speak-file-permissions
+@findex emacspeak-dired-speak-file-permissions
  No global keybinding
 
 Speak the permissions of the current file.
 
 
 
-@unnumberedsec emacspeak-dired-speak-file-size@findex emacspeak-dired-speak-file-size
+@unnumberedsec emacspeak-dired-speak-file-size
+@findex emacspeak-dired-speak-file-size
  No global keybinding
 
 Speak the size of the current file.
@@ -561,21 +658,24 @@ On a directory line, run du -s on the directory to speak its size.
 
 
 
-@unnumberedsec emacspeak-dired-speak-header-line@findex emacspeak-dired-speak-header-line
+@unnumberedsec emacspeak-dired-speak-header-line
+@findex emacspeak-dired-speak-header-line
  No global keybinding
 
 Speak the header line of the dired buffer. 
 
 
 
-@unnumberedsec emacspeak-dired-speak-symlink-target@findex emacspeak-dired-speak-symlink-target
+@unnumberedsec emacspeak-dired-speak-symlink-target
+@findex emacspeak-dired-speak-symlink-target
  No global keybinding
 
 Speaks the target of the symlink on the current line.
 
 
 
-@unnumberedsec emacspeak-dismal-backward-col-and-summarize@findex emacspeak-dismal-backward-col-and-summarize
+@unnumberedsec emacspeak-dismal-backward-col-and-summarize
+@findex emacspeak-dismal-backward-col-and-summarize
  No global keybinding
 
 Move backward by arg columns
@@ -583,7 +683,8 @@ Move backward by arg columns
 
 
 
-@unnumberedsec emacspeak-dismal-backward-row-and-summarize@findex emacspeak-dismal-backward-row-and-summarize
+@unnumberedsec emacspeak-dismal-backward-row-and-summarize
+@findex emacspeak-dismal-backward-row-and-summarize
  No global keybinding
 
 Move backward by arg rows
@@ -591,7 +692,8 @@ Move backward by arg rows
 
 
 
-@unnumberedsec emacspeak-dismal-col-summarize@findex emacspeak-dismal-col-summarize
+@unnumberedsec emacspeak-dismal-col-summarize
+@findex emacspeak-dismal-col-summarize
  No global keybinding
 
 Summarizes a col using the specification in list
@@ -599,21 +701,24 @@ emacspeak-dismal-col-summarizer-list
 
 
 
-@unnumberedsec emacspeak-dismal-display-cell-expression@findex emacspeak-dismal-display-cell-expression
+@unnumberedsec emacspeak-dismal-display-cell-expression
+@findex emacspeak-dismal-display-cell-expression
  No global keybinding
 
 Display the expression in the message area
 
 
 
-@unnumberedsec emacspeak-dismal-display-cell-value@findex emacspeak-dismal-display-cell-value
+@unnumberedsec emacspeak-dismal-display-cell-value
+@findex emacspeak-dismal-display-cell-value
  No global keybinding
 
 Display the cell value in the message area
 
 
 
-@unnumberedsec emacspeak-dismal-display-cell-with-col-header@findex emacspeak-dismal-display-cell-with-col-header
+@unnumberedsec emacspeak-dismal-display-cell-with-col-header
+@findex emacspeak-dismal-display-cell-with-col-header
  No global keybinding
 
 Display current cell along with its column header.
@@ -621,7 +726,8 @@ The `column header' is the entry in row 0.
 
 
 
-@unnumberedsec emacspeak-dismal-display-cell-with-row-header@findex emacspeak-dismal-display-cell-with-row-header
+@unnumberedsec emacspeak-dismal-display-cell-with-row-header
+@findex emacspeak-dismal-display-cell-with-row-header
  No global keybinding
 
 Displays current cell along with its row header.
@@ -629,7 +735,8 @@ The `row header' is the entry in column 0.
 
 
 
-@unnumberedsec emacspeak-dismal-forward-col-and-summarize@findex emacspeak-dismal-forward-col-and-summarize
+@unnumberedsec emacspeak-dismal-forward-col-and-summarize
+@findex emacspeak-dismal-forward-col-and-summarize
  No global keybinding
 
 Move forward by arg columns
@@ -637,7 +744,8 @@ Move forward by arg columns
 
 
 
-@unnumberedsec emacspeak-dismal-forward-row-and-summarize@findex emacspeak-dismal-forward-row-and-summarize
+@unnumberedsec emacspeak-dismal-forward-row-and-summarize
+@findex emacspeak-dismal-forward-row-and-summarize
  No global keybinding
 
 Move forward by arg rows
@@ -645,7 +753,8 @@ Move forward by arg rows
 
 
 
-@unnumberedsec emacspeak-dismal-row-summarize@findex emacspeak-dismal-row-summarize
+@unnumberedsec emacspeak-dismal-row-summarize
+@findex emacspeak-dismal-row-summarize
  No global keybinding
 
 Summarizes a row using the specification in list
@@ -653,28 +762,32 @@ emacspeak-dismal-row-summarizer-list
 
 
 
-@unnumberedsec emacspeak-dismal-set-col-summarizer-list@findex emacspeak-dismal-set-col-summarizer-list
+@unnumberedsec emacspeak-dismal-set-col-summarizer-list
+@findex emacspeak-dismal-set-col-summarizer-list
  No global keybinding
 
 Specify or reset col summarizer list.
 
 
 
-@unnumberedsec emacspeak-dismal-set-row-summarizer-list@findex emacspeak-dismal-set-row-summarizer-list
+@unnumberedsec emacspeak-dismal-set-row-summarizer-list
+@findex emacspeak-dismal-set-row-summarizer-list
  No global keybinding
 
 Specify or reset row summarizer list.
 
 
 
-@unnumberedsec emacspeak-dismal-set-sheet-summarizer-list@findex emacspeak-dismal-set-sheet-summarizer-list
+@unnumberedsec emacspeak-dismal-set-sheet-summarizer-list
+@findex emacspeak-dismal-set-sheet-summarizer-list
  No global keybinding
 
 Specify or reset sheet summarizer list.
 
 
 
-@unnumberedsec emacspeak-dismal-sheet-summarize@findex emacspeak-dismal-sheet-summarize
+@unnumberedsec emacspeak-dismal-sheet-summarize
+@findex emacspeak-dismal-sheet-summarize
  No global keybinding
 
 Summarizes a sheet using the specification in list
@@ -682,30 +795,36 @@ emacspeak-dismal-sheet-summarizer-list
 
 
 
-@unnumberedsec emacspeak-dtk-speak-version@findex emacspeak-dtk-speak-version
+@unnumberedsec emacspeak-dtk-speak-version
+@findex emacspeak-dtk-speak-version
 @kindex  control e d  cap V  
  control e d  cap V  
+
 Use this to find out which version of the Dectalk firmware you are running.
 
 
 
-@unnumberedsec emacspeak-ediff-speak-current-difference@findex emacspeak-ediff-speak-current-difference
+@unnumberedsec emacspeak-ediff-speak-current-difference
+@findex emacspeak-ediff-speak-current-difference
  No global keybinding
 
 Speak the current difference
 
 
 
-@unnumberedsec emacspeak-emergency-tts-restart@findex emacspeak-emergency-tts-restart
+@unnumberedsec emacspeak-emergency-tts-restart
+@findex emacspeak-emergency-tts-restart
 @kindex  control e x s 
  control e x s 
+
 For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
 
 
 
-@unnumberedsec emacspeak-enriched-voiceify-faces@findex emacspeak-enriched-voiceify-faces
+@unnumberedsec emacspeak-enriched-voiceify-faces
+@findex emacspeak-enriched-voiceify-faces
  No global keybinding
 
 Map base fonts to voices.
@@ -713,7 +832,8 @@ Useful in voicifying rich text.
 
 
 
-@unnumberedsec emacspeak-eterm-copy-region-to-register@findex emacspeak-eterm-copy-region-to-register
+@unnumberedsec emacspeak-eterm-copy-region-to-register
+@findex emacspeak-eterm-copy-region-to-register
  No global keybinding
 
 Copy text from terminal to an Emacs REGISTER.
@@ -723,7 +843,8 @@ emacspeak eterm pointer to a register.
 
 
 
-@unnumberedsec emacspeak-eterm-define-window@findex emacspeak-eterm-define-window
+@unnumberedsec emacspeak-eterm-define-window
+@findex emacspeak-eterm-define-window
  No global keybinding
 
 Prompt for a window ID.
@@ -734,7 +855,8 @@ eterm.
 
 
 
-@unnumberedsec emacspeak-eterm-describe-window@findex emacspeak-eterm-describe-window
+@unnumberedsec emacspeak-eterm-describe-window
+@findex emacspeak-eterm-describe-window
  No global keybinding
 
 Describe an eterm  window.
@@ -742,14 +864,16 @@ Description indicates eterm window coordinates and whether it is stretchable
 
 
 
-@unnumberedsec emacspeak-eterm-goto-line@findex emacspeak-eterm-goto-line
+@unnumberedsec emacspeak-eterm-goto-line
+@findex emacspeak-eterm-goto-line
  No global keybinding
 
 Move emacspeak eterm pointer to a specified LINE.
 
 
 
-@unnumberedsec emacspeak-eterm-kill-ring-save-region@findex emacspeak-eterm-kill-ring-save-region
+@unnumberedsec emacspeak-eterm-kill-ring-save-region
+@findex emacspeak-eterm-kill-ring-save-region
  No global keybinding
 
 Copy text from terminal to kill ring.
@@ -759,7 +883,8 @@ emacspeak eterm pointer.
 
 
 
-@unnumberedsec emacspeak-eterm-maybe-send-raw@findex emacspeak-eterm-maybe-send-raw
+@unnumberedsec emacspeak-eterm-maybe-send-raw
+@findex emacspeak-eterm-maybe-send-raw
  No global keybinding
 
 Send a raw character through if in the terminal buffer.
@@ -768,7 +893,8 @@ in a non eterm buffer if executed via C-e C-e
 
 
 
-@unnumberedsec emacspeak-eterm-paste-register@findex emacspeak-eterm-paste-register
+@unnumberedsec emacspeak-eterm-paste-register
+@findex emacspeak-eterm-paste-register
  No global keybinding
 
 Paste contents of REGISTER at current location.
@@ -777,7 +903,8 @@ sent to the terminal as if it were typed by the user.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-backward-word@findex emacspeak-eterm-pointer-backward-word
+@unnumberedsec emacspeak-eterm-pointer-backward-word
+@findex emacspeak-eterm-pointer-backward-word
  No global keybinding
 
 Move the pointer backward  by words. 
@@ -786,7 +913,8 @@ Argument COUNT specifies number of words by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-down@findex emacspeak-eterm-pointer-down
+@unnumberedsec emacspeak-eterm-pointer-down
+@findex emacspeak-eterm-pointer-down
  No global keybinding
 
 Move the pointer down a line.
@@ -794,7 +922,8 @@ Argument COUNT specifies number of lines by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-forward-word@findex emacspeak-eterm-pointer-forward-word
+@unnumberedsec emacspeak-eterm-pointer-forward-word
+@findex emacspeak-eterm-pointer-forward-word
  No global keybinding
 
 Move the pointer forward by words. 
@@ -803,7 +932,8 @@ Argument COUNT specifies number of words by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-left@findex emacspeak-eterm-pointer-left
+@unnumberedsec emacspeak-eterm-pointer-left
+@findex emacspeak-eterm-pointer-left
  No global keybinding
 
 Move the pointer left.
@@ -811,7 +941,8 @@ Argument COUNT specifies number of columns by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-right@findex emacspeak-eterm-pointer-right
+@unnumberedsec emacspeak-eterm-pointer-right
+@findex emacspeak-eterm-pointer-right
  No global keybinding
 
 Move the pointer right.
@@ -819,28 +950,32 @@ Argument COUNT specifies number of columns by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-bottom@findex emacspeak-eterm-pointer-to-bottom
+@unnumberedsec emacspeak-eterm-pointer-to-bottom
+@findex emacspeak-eterm-pointer-to-bottom
  No global keybinding
 
 Move the pointer to the bottom  of the screen.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-cursor@findex emacspeak-eterm-pointer-to-cursor
+@unnumberedsec emacspeak-eterm-pointer-to-cursor
+@findex emacspeak-eterm-pointer-to-cursor
  No global keybinding
 
 Move the pointer to the cursor.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-left-edge@findex emacspeak-eterm-pointer-to-left-edge
+@unnumberedsec emacspeak-eterm-pointer-to-left-edge
+@findex emacspeak-eterm-pointer-to-left-edge
  No global keybinding
 
 Move the pointer to the right edge.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-next-color-change@findex emacspeak-eterm-pointer-to-next-color-change
+@unnumberedsec emacspeak-eterm-pointer-to-next-color-change
+@findex emacspeak-eterm-pointer-to-next-color-change
  No global keybinding
 
 Move the eterm pointer to the next color change.
@@ -849,7 +984,8 @@ Optional argument COUNT specifies how many changes to skip.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-previous-color-change@findex emacspeak-eterm-pointer-to-previous-color-change
+@unnumberedsec emacspeak-eterm-pointer-to-previous-color-change
+@findex emacspeak-eterm-pointer-to-previous-color-change
  No global keybinding
 
 Move the eterm pointer to the next color change.
@@ -858,21 +994,24 @@ Optional argument COUNT specifies how many changes to skip.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-right-edge@findex emacspeak-eterm-pointer-to-right-edge
+@unnumberedsec emacspeak-eterm-pointer-to-right-edge
+@findex emacspeak-eterm-pointer-to-right-edge
  No global keybinding
 
 Move the pointer to the right edge.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-to-top@findex emacspeak-eterm-pointer-to-top
+@unnumberedsec emacspeak-eterm-pointer-to-top
+@findex emacspeak-eterm-pointer-to-top
  No global keybinding
 
 Move the pointer to the top of the screen.
 
 
 
-@unnumberedsec emacspeak-eterm-pointer-up@findex emacspeak-eterm-pointer-up
+@unnumberedsec emacspeak-eterm-pointer-up
+@findex emacspeak-eterm-pointer-up
  No global keybinding
 
 Move the pointer up a line.
@@ -880,28 +1019,33 @@ Argument COUNT .specifies number of lines by which to move.
 
 
 
-@unnumberedsec emacspeak-eterm-remote-term@findex emacspeak-eterm-remote-term
+@unnumberedsec emacspeak-eterm-remote-term
+@findex emacspeak-eterm-remote-term
 @kindex  control e meta control r 
  control e meta control r 
+
 Start a terminal-emulator in a new buffer.
 
 
 
-@unnumberedsec emacspeak-eterm-search-backward@findex emacspeak-eterm-search-backward
+@unnumberedsec emacspeak-eterm-search-backward
+@findex emacspeak-eterm-search-backward
  No global keybinding
 
 Search backward on the terminal.
 
 
 
-@unnumberedsec emacspeak-eterm-search-forward@findex emacspeak-eterm-search-forward
+@unnumberedsec emacspeak-eterm-search-forward
+@findex emacspeak-eterm-search-forward
  No global keybinding
 
 Search forward on the terminal.
 
 
 
-@unnumberedsec emacspeak-eterm-set-focus-window@findex emacspeak-eterm-set-focus-window
+@unnumberedsec emacspeak-eterm-set-focus-window
+@findex emacspeak-eterm-set-focus-window
  No global keybinding
 
 Prompt for the id of a predefined window,
@@ -914,7 +1058,8 @@ and speaking that window upon seeing screen activity.
 
 
 
-@unnumberedsec emacspeak-eterm-set-marker@findex emacspeak-eterm-set-marker
+@unnumberedsec emacspeak-eterm-set-marker
+@findex emacspeak-eterm-set-marker
  No global keybinding
 
 Set Emacspeak eterm marker.
@@ -923,21 +1068,24 @@ to by the emacspeak eterm pointer.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-cursor@findex emacspeak-eterm-speak-cursor
+@unnumberedsec emacspeak-eterm-speak-cursor
+@findex emacspeak-eterm-speak-cursor
  No global keybinding
 
 Speak cursor position.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-pointer@findex emacspeak-eterm-speak-pointer
+@unnumberedsec emacspeak-eterm-speak-pointer
+@findex emacspeak-eterm-speak-pointer
  No global keybinding
 
 Speak current pointer position.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-pointer-char@findex emacspeak-eterm-speak-pointer-char
+@unnumberedsec emacspeak-eterm-speak-pointer-char
+@findex emacspeak-eterm-speak-pointer-char
  No global keybinding
 
 Speak char under eterm pointer.
@@ -945,28 +1093,32 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-pointer-line@findex emacspeak-eterm-speak-pointer-line
+@unnumberedsec emacspeak-eterm-speak-pointer-line
+@findex emacspeak-eterm-speak-pointer-line
  No global keybinding
 
 Speak the line the pointer is on.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-pointer-word@findex emacspeak-eterm-speak-pointer-word
+@unnumberedsec emacspeak-eterm-speak-pointer-word
+@findex emacspeak-eterm-speak-pointer-word
  No global keybinding
 
 Speak the word  the pointer is on.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-predefined-window@findex emacspeak-eterm-speak-predefined-window
+@unnumberedsec emacspeak-eterm-speak-predefined-window
+@findex emacspeak-eterm-speak-predefined-window
  No global keybinding
 
 Speak a predefined eterm window between 1 and 10.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-screen@findex emacspeak-eterm-speak-screen
+@unnumberedsec emacspeak-eterm-speak-screen
+@findex emacspeak-eterm-speak-screen
  No global keybinding
 
 Speak the screen.  Default is to speak from the emacspeak pointer  to point.
@@ -975,7 +1127,8 @@ the Emacspeak pointer to be spoken.
 
 
 
-@unnumberedsec emacspeak-eterm-speak-window@findex emacspeak-eterm-speak-window
+@unnumberedsec emacspeak-eterm-speak-window
+@findex emacspeak-eterm-speak-window
  No global keybinding
 
 Speak an eterm window.
@@ -983,14 +1136,16 @@ Argument ID specifies the window.
 
 
 
-@unnumberedsec emacspeak-eterm-toggle-focus-window@findex emacspeak-eterm-toggle-focus-window
+@unnumberedsec emacspeak-eterm-toggle-focus-window
+@findex emacspeak-eterm-toggle-focus-window
  No global keybinding
 
 Toggle active state of focus window.
 
 
 
-@unnumberedsec emacspeak-eterm-toggle-pointer-mode@findex emacspeak-eterm-toggle-pointer-mode
+@unnumberedsec emacspeak-eterm-toggle-pointer-mode
+@findex emacspeak-eterm-toggle-pointer-mode
  No global keybinding
 
 Toggle emacspeak eterm pointer mode.
@@ -1001,7 +1156,8 @@ there is terminal activity.
 
 
 
-@unnumberedsec emacspeak-eterm-toggle-review@findex emacspeak-eterm-toggle-review
+@unnumberedsec emacspeak-eterm-toggle-review
+@findex emacspeak-eterm-toggle-review
  No global keybinding
 
 Toggle state of eterm review. 
@@ -1010,21 +1166,24 @@ without sending input to the terminal itself.
 
 
 
-@unnumberedsec emacspeak-eterm-yank-window@findex emacspeak-eterm-yank-window
+@unnumberedsec emacspeak-eterm-yank-window
+@findex emacspeak-eterm-yank-window
  No global keybinding
 
 Yank contents of  an eterm window at point.
 
 
 
-@unnumberedsec emacspeak-eudc-send-mail@findex emacspeak-eudc-send-mail
+@unnumberedsec emacspeak-eudc-send-mail
+@findex emacspeak-eudc-send-mail
  No global keybinding
 
 Send email to the address given by the current record. 
 
 
 
-@unnumberedsec emacspeak-execute-repeatedly@findex emacspeak-execute-repeatedly
+@unnumberedsec emacspeak-execute-repeatedly
+@findex emacspeak-execute-repeatedly
  No global keybinding
 
 Execute COMMAND repeatedly.
@@ -1036,15 +1195,18 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-filtertext@findex emacspeak-filtertext
+@unnumberedsec emacspeak-filtertext
+@findex emacspeak-filtertext
 @kindex  control e \ 
  control e \ 
+
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. 
 
 
 
-@unnumberedsec emacspeak-filtertext-mode@findex emacspeak-filtertext-mode
+@unnumberedsec emacspeak-filtertext-mode
+@findex emacspeak-filtertext-mode
  No global keybinding
 
 Major mode for FilterText interaction. 
@@ -1061,14 +1223,16 @@ r               emacspeak-filtertext-revert
 
 
 
-@unnumberedsec emacspeak-filtertext-revert@findex emacspeak-filtertext-revert
+@unnumberedsec emacspeak-filtertext-revert
+@findex emacspeak-filtertext-revert
  No global keybinding
 
 Revert to original text.
 
 
 
-@unnumberedsec emacspeak-fix-all-recent-commands@findex emacspeak-fix-all-recent-commands
+@unnumberedsec emacspeak-fix-all-recent-commands
+@findex emacspeak-fix-all-recent-commands
  No global keybinding
 
 Fix recently loaded interactive commands.
@@ -1077,35 +1241,40 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
 
 
 
-@unnumberedsec emacspeak-fix-commands-loaded-from@findex emacspeak-fix-commands-loaded-from
+@unnumberedsec emacspeak-fix-commands-loaded-from
+@findex emacspeak-fix-commands-loaded-from
  No global keybinding
 
 Fix all commands loaded from a specified module.
 
 
 
-@unnumberedsec emacspeak-forms-find-file@findex emacspeak-forms-find-file
+@unnumberedsec emacspeak-forms-find-file
+@findex emacspeak-forms-find-file
  No global keybinding
 
 Visit a forms file
 
 
 
-@unnumberedsec emacspeak-forms-flush-unwanted-records@findex emacspeak-forms-flush-unwanted-records
+@unnumberedsec emacspeak-forms-flush-unwanted-records
+@findex emacspeak-forms-flush-unwanted-records
  No global keybinding
 
 Prompt for pattern and flush matching lines
 
 
 
-@unnumberedsec emacspeak-forms-rerun-filter@findex emacspeak-forms-rerun-filter
+@unnumberedsec emacspeak-forms-rerun-filter
+@findex emacspeak-forms-rerun-filter
  No global keybinding
 
 Rerun  filter --allows us to nuke more matching records
 
 
 
-@unnumberedsec emacspeak-forms-speak-field@findex emacspeak-forms-speak-field
+@unnumberedsec emacspeak-forms-speak-field
+@findex emacspeak-forms-speak-field
  No global keybinding
 
 Speak current form field name and value.
@@ -1113,59 +1282,71 @@ Assumes that point is at the front of a field value.
 
 
 
-@unnumberedsec emacspeak-forms-summarize-current-position@findex emacspeak-forms-summarize-current-position
+@unnumberedsec emacspeak-forms-summarize-current-position
+@findex emacspeak-forms-summarize-current-position
  No global keybinding
 
 Summarize current position in list of records
 
 
 
-@unnumberedsec emacspeak-forms-summarize-current-record@findex emacspeak-forms-summarize-current-record
+@unnumberedsec emacspeak-forms-summarize-current-record
+@findex emacspeak-forms-summarize-current-record
  No global keybinding
 
 Summarize current record
 
 
 
-@unnumberedsec emacspeak-forward-char@findex emacspeak-forward-char
+@unnumberedsec emacspeak-forward-char
+@findex emacspeak-forward-char
 @kindex  control f   right 
  control f   right 
+
 Forward-char redefined to speak char moved to. 
 
 
 
-@unnumberedsec emacspeak-frame-label-or-switch-to-labelled-frame@findex emacspeak-frame-label-or-switch-to-labelled-frame
+@unnumberedsec emacspeak-frame-label-or-switch-to-labelled-frame
+@findex emacspeak-frame-label-or-switch-to-labelled-frame
 @kindex  control e meta f 
  control e meta f 
+
 Switch to labelled frame.
 With optional PREFIX argument, label current frame.
 
 
 
-@unnumberedsec emacspeak-frame-read-frame-label@findex emacspeak-frame-read-frame-label
+@unnumberedsec emacspeak-frame-read-frame-label
+@findex emacspeak-frame-read-frame-label
  No global keybinding
 
 Read a frame label with completion.
 
 
 
-@unnumberedsec emacspeak-freeamp@findex emacspeak-freeamp
+@unnumberedsec emacspeak-freeamp
+@findex emacspeak-freeamp
 @kindex  control e control f o 
  control e control f o 
+
 Play specified resource using freeamp.
 Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-freeamp-mode.
 
 
 
-@unnumberedsec emacspeak-freeamp-freeamp-call-command@findex emacspeak-freeamp-freeamp-call-command
+@unnumberedsec emacspeak-freeamp-freeamp-call-command
+@findex emacspeak-freeamp-freeamp-call-command
 @kindex  control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p 
  control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p 
+
 Call appropriate freeamp command.
 
 
 
-@unnumberedsec emacspeak-freeamp-freeamp-command@findex emacspeak-freeamp-freeamp-command
+@unnumberedsec emacspeak-freeamp-freeamp-command
+@findex emacspeak-freeamp-freeamp-command
  No global keybinding
 
 Execute FreeAmp command.
@@ -1177,7 +1358,8 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-freeamp-mode@findex emacspeak-freeamp-mode
+@unnumberedsec emacspeak-freeamp-mode
+@findex emacspeak-freeamp-mode
  No global keybinding
 
 Major mode for freeamp interaction. 
@@ -1202,7 +1384,8 @@ o               emacspeak-freeamp
 
 
 
-@unnumberedsec emacspeak-generate-documentation@findex emacspeak-generate-documentation
+@unnumberedsec emacspeak-generate-documentation
+@findex emacspeak-generate-documentation
  No global keybinding
 
 Generate docs for all emacspeak commands.
@@ -1216,7 +1399,8 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-generate-texinfo-command-documentation@findex emacspeak-generate-texinfo-command-documentation
+@unnumberedsec emacspeak-generate-texinfo-command-documentation
+@findex emacspeak-generate-texinfo-command-documentation
  No global keybinding
 
 Generate texinfo documentation  for all emacspeak
@@ -1230,114 +1414,134 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-gomoku-display-statistics@findex emacspeak-gomoku-display-statistics
+@unnumberedsec emacspeak-gomoku-display-statistics
+@findex emacspeak-gomoku-display-statistics
  No global keybinding
 
 Display statistics from previous games
 
 
 
-@unnumberedsec emacspeak-gomoku-show-current-column@findex emacspeak-gomoku-show-current-column
+@unnumberedsec emacspeak-gomoku-show-current-column
+@findex emacspeak-gomoku-show-current-column
  No global keybinding
 
 Aurally display current column
 
 
 
-@unnumberedsec emacspeak-gomoku-show-current-negative-diagonal@findex emacspeak-gomoku-show-current-negative-diagonal
+@unnumberedsec emacspeak-gomoku-show-current-negative-diagonal
+@findex emacspeak-gomoku-show-current-negative-diagonal
  No global keybinding
 
 Aurally display current negative sloped diagonal 
 
 
 
-@unnumberedsec emacspeak-gomoku-show-current-positive-diagonal@findex emacspeak-gomoku-show-current-positive-diagonal
+@unnumberedsec emacspeak-gomoku-show-current-positive-diagonal
+@findex emacspeak-gomoku-show-current-positive-diagonal
  No global keybinding
 
 Aurally display current positively sloped diagonal
 
 
 
-@unnumberedsec emacspeak-gomoku-show-current-row@findex emacspeak-gomoku-show-current-row
+@unnumberedsec emacspeak-gomoku-show-current-row
+@findex emacspeak-gomoku-show-current-row
  No global keybinding
 
 Aurally display current row
 
 
 
-@unnumberedsec emacspeak-gomoku-speak-emacs-previous-move@findex emacspeak-gomoku-speak-emacs-previous-move
+@unnumberedsec emacspeak-gomoku-speak-emacs-previous-move
+@findex emacspeak-gomoku-speak-emacs-previous-move
  No global keybinding
 
 Speak emacs' previous move
 
 
 
-@unnumberedsec emacspeak-gomoku-speak-humans-previous-move@findex emacspeak-gomoku-speak-humans-previous-move
+@unnumberedsec emacspeak-gomoku-speak-humans-previous-move
+@findex emacspeak-gomoku-speak-humans-previous-move
  No global keybinding
 
 Speak human' previous move
 
 
 
-@unnumberedsec emacspeak-gomoku-speak-number-of-moves@findex emacspeak-gomoku-speak-number-of-moves
+@unnumberedsec emacspeak-gomoku-speak-number-of-moves
+@findex emacspeak-gomoku-speak-number-of-moves
  No global keybinding
 
 Speak number of moves so far
 
 
 
-@unnumberedsec emacspeak-gomoku-speak-square@findex emacspeak-gomoku-speak-square
+@unnumberedsec emacspeak-gomoku-speak-square
+@findex emacspeak-gomoku-speak-square
  No global keybinding
 
 Speak coordinates and state of square at point
 
 
 
-@unnumberedsec emacspeak-gridtext-apply@findex emacspeak-gridtext-apply
+@unnumberedsec emacspeak-gridtext-apply
+@findex emacspeak-gridtext-apply
 @kindex  control e # a 
  control e # a 
+
 Apply grid to region.
 
 
 
-@unnumberedsec emacspeak-gridtext-load@findex emacspeak-gridtext-load
+@unnumberedsec emacspeak-gridtext-load
+@findex emacspeak-gridtext-load
 @kindex  control e # l 
  control e # l 
+
 Load saved grid settings.
 
 
 
-@unnumberedsec emacspeak-gridtext-save@findex emacspeak-gridtext-save
+@unnumberedsec emacspeak-gridtext-save
+@findex emacspeak-gridtext-save
 @kindex  control e # s 
  control e # s 
+
 Save out grid settings.
 
 
 
-@unnumberedsec emacspeak-hangman-speak-guess@findex emacspeak-hangman-speak-guess
+@unnumberedsec emacspeak-hangman-speak-guess
+@findex emacspeak-hangman-speak-guess
  No global keybinding
 
 Speak current guessed string. 
 
 
 
-@unnumberedsec emacspeak-hangman-speak-statistics@findex emacspeak-hangman-speak-statistics
+@unnumberedsec emacspeak-hangman-speak-statistics
+@findex emacspeak-hangman-speak-statistics
  No global keybinding
 
 Speak statistics.
 
 
 
-@unnumberedsec emacspeak-hide-or-expose-all-blocks@findex emacspeak-hide-or-expose-all-blocks
+@unnumberedsec emacspeak-hide-or-expose-all-blocks
+@findex emacspeak-hide-or-expose-all-blocks
  No global keybinding
 
 Hide or expose all blocks in buffer.
 
 
 
-@unnumberedsec emacspeak-hide-or-expose-block@findex emacspeak-hide-or-expose-block
+@unnumberedsec emacspeak-hide-or-expose-block
+@findex emacspeak-hide-or-expose-block
 @kindex  control e j 
  control e j 
+
 Hide or expose a block of text.
 This command either hides or exposes a block of text
 starting on the current line.  A block of text is defined as
@@ -1347,9 +1551,11 @@ blocks in current buffer to be hidden or exposed.
 
 
 
-@unnumberedsec emacspeak-hide-speak-block-sans-prefix@findex emacspeak-hide-speak-block-sans-prefix
+@unnumberedsec emacspeak-hide-speak-block-sans-prefix
+@findex emacspeak-hide-speak-block-sans-prefix
 @kindex  control e control j 
  control e control j 
+
 Speaks current block after stripping its prefix.
 If the current block is not hidden, it first hides it.
 This is useful because as you locate blocks, you can invoke this
@@ -1358,35 +1564,40 @@ and when you have heard enough navigate easily  to move past the block.
 
 
 
-@unnumberedsec emacspeak-ibuffer-speak-buffer-line@findex emacspeak-ibuffer-speak-buffer-line
+@unnumberedsec emacspeak-ibuffer-speak-buffer-line
+@findex emacspeak-ibuffer-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
 
 
 
-@unnumberedsec emacspeak-imenu-goto-next-index-position@findex emacspeak-imenu-goto-next-index-position
+@unnumberedsec emacspeak-imenu-goto-next-index-position
+@findex emacspeak-imenu-goto-next-index-position
  No global keybinding
 
 Goto the next index position in current buffer
 
 
 
-@unnumberedsec emacspeak-imenu-goto-previous-index-position@findex emacspeak-imenu-goto-previous-index-position
+@unnumberedsec emacspeak-imenu-goto-previous-index-position
+@findex emacspeak-imenu-goto-previous-index-position
  No global keybinding
 
 Goto the previous index position in current buffer
 
 
 
-@unnumberedsec emacspeak-imenu-speak-this-section@findex emacspeak-imenu-speak-this-section
+@unnumberedsec emacspeak-imenu-speak-this-section
+@findex emacspeak-imenu-speak-this-section
  No global keybinding
 
 Speak upto start of next index entry
 
 
 
-@unnumberedsec emacspeak-keymap-choose-new-emacspeak-prefix@findex emacspeak-keymap-choose-new-emacspeak-prefix
+@unnumberedsec emacspeak-keymap-choose-new-emacspeak-prefix
+@findex emacspeak-keymap-choose-new-emacspeak-prefix
  No global keybinding
 
 Interactively select a new prefix key to use for all emacspeak
@@ -1404,21 +1615,25 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-kill-buffer-quietly@findex emacspeak-kill-buffer-quietly
+@unnumberedsec emacspeak-kill-buffer-quietly
+@findex emacspeak-kill-buffer-quietly
 @kindex  kp-f4   f4 
  kp-f4   f4 
+
 Kill current buffer without asking for confirmation.
 
 
 
-@unnumberedsec emacspeak-kotl-setup-keys@findex emacspeak-kotl-setup-keys
+@unnumberedsec emacspeak-kotl-setup-keys
+@findex emacspeak-kotl-setup-keys
  No global keybinding
 
 Setup additional keybindings
 
 
 
-@unnumberedsec emacspeak-kotl-speak-cell@findex emacspeak-kotl-speak-cell
+@unnumberedsec emacspeak-kotl-speak-cell
+@findex emacspeak-kotl-speak-cell
  No global keybinding
 
 Speak cell contents from point to end of cell.
@@ -1426,17 +1641,21 @@ Speak cell contents from point to end of cell.
 
 
 
-@unnumberedsec emacspeak-learn-mode@findex emacspeak-learn-mode
+@unnumberedsec emacspeak-learn-mode
+@findex emacspeak-learn-mode
 @kindex  control e control h 
  control e control h 
+
 Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press C-g.
 
 
 
-@unnumberedsec emacspeak-link-current-file@findex emacspeak-link-current-file
+@unnumberedsec emacspeak-link-current-file
+@findex emacspeak-link-current-file
 @kindex  control e meta l 
  control e meta l 
+
 Link (hard link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
   when linking.  If location is a directory, the file is copied
@@ -1446,70 +1665,82 @@ Prompts for the new location and preserves modification time
 
 
 
-@unnumberedsec emacspeak-list-buffers-next-line@findex emacspeak-list-buffers-next-line
+@unnumberedsec emacspeak-list-buffers-next-line
+@findex emacspeak-list-buffers-next-line
  No global keybinding
 
 Speech enabled buffer menu navigation
 
 
 
-@unnumberedsec emacspeak-list-buffers-previous-line@findex emacspeak-list-buffers-previous-line
+@unnumberedsec emacspeak-list-buffers-previous-line
+@findex emacspeak-list-buffers-previous-line
  No global keybinding
 
 Speech enabled buffer menu navigation
 
 
 
-@unnumberedsec emacspeak-list-buffers-speak-buffer-line@findex emacspeak-list-buffers-speak-buffer-line
+@unnumberedsec emacspeak-list-buffers-speak-buffer-line
+@findex emacspeak-list-buffers-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
 
 
 
-@unnumberedsec emacspeak-list-buffers-speak-buffer-name@findex emacspeak-list-buffers-speak-buffer-name
+@unnumberedsec emacspeak-list-buffers-speak-buffer-name
+@findex emacspeak-list-buffers-speak-buffer-name
  No global keybinding
 
 Speak the name of the buffer on this line
 
 
 
-@unnumberedsec emacspeak-lynx@findex emacspeak-lynx
+@unnumberedsec emacspeak-lynx
+@findex emacspeak-lynx
  No global keybinding
 
 Launch lynx on  specified URL in a new terminal.
 
 
 
-@unnumberedsec emacspeak-man-browse-man-page@findex emacspeak-man-browse-man-page
+@unnumberedsec emacspeak-man-browse-man-page
+@findex emacspeak-man-browse-man-page
  No global keybinding
 
 Browse the man page --read it a paragraph at a time
 
 
 
-@unnumberedsec emacspeak-man-speak-this-section@findex emacspeak-man-speak-this-section
+@unnumberedsec emacspeak-man-speak-this-section
+@findex emacspeak-man-speak-this-section
  No global keybinding
 
 Speak current section
 
 
 
-@unnumberedsec emacspeak-mark-backward-mark@findex emacspeak-mark-backward-mark
+@unnumberedsec emacspeak-mark-backward-mark
+@findex emacspeak-mark-backward-mark
 @kindex  control up 
  control up 
+
 Cycle backward through the mark ring.
 
 
 
-@unnumberedsec emacspeak-mark-forward-mark@findex emacspeak-mark-forward-mark
+@unnumberedsec emacspeak-mark-forward-mark
+@findex emacspeak-mark-forward-mark
 @kindex  control down 
  control down 
+
 Cycle forward through the mark ring.
 
 
 
-@unnumberedsec emacspeak-mp3-playlist-play@findex emacspeak-mp3-playlist-play
+@unnumberedsec emacspeak-mp3-playlist-play
+@findex emacspeak-mp3-playlist-play
  No global keybinding
 
 Play a playlist. 
@@ -1519,72 +1750,85 @@ to skip to the next track.
 
 
 
-@unnumberedsec emacspeak-mp3-playlist-skip@findex emacspeak-mp3-playlist-skip
+@unnumberedsec emacspeak-mp3-playlist-skip
+@findex emacspeak-mp3-playlist-skip
 @kindex  control x @ h n 
  control x @ h n 
+
 Skip currently playing track. 
 
 
 
-@unnumberedsec emacspeak-mp3-playlist-stop@findex emacspeak-mp3-playlist-stop
+@unnumberedsec emacspeak-mp3-playlist-stop
+@findex emacspeak-mp3-playlist-stop
  No global keybinding
 
 Kill currently playing playlist. 
 
 
 
-@unnumberedsec emacspeak-mpg123-backward-minute@findex emacspeak-mpg123-backward-minute
+@unnumberedsec emacspeak-mpg123-backward-minute
+@findex emacspeak-mpg123-backward-minute
  No global keybinding
 
 Move back by specified number of minutes.
 
 
 
-@unnumberedsec emacspeak-mpg123-forward-minute@findex emacspeak-mpg123-forward-minute
+@unnumberedsec emacspeak-mpg123-forward-minute
+@findex emacspeak-mpg123-forward-minute
  No global keybinding
 
 Forw by ARG minutes.
 
 
 
-@unnumberedsec emacspeak-mpg123-speak-current-time@findex emacspeak-mpg123-speak-current-time
+@unnumberedsec emacspeak-mpg123-speak-current-time
+@findex emacspeak-mpg123-speak-current-time
  No global keybinding
 
 Speak time in current track.
 
 
 
-@unnumberedsec emacspeak-mpg123-speak-filename@findex emacspeak-mpg123-speak-filename
+@unnumberedsec emacspeak-mpg123-speak-filename
+@findex emacspeak-mpg123-speak-filename
  No global keybinding
 
 Speak filename of the current song.
 
 
 
-@unnumberedsec emacspeak-mpg123-speak-length@findex emacspeak-mpg123-speak-length
+@unnumberedsec emacspeak-mpg123-speak-length
+@findex emacspeak-mpg123-speak-length
  No global keybinding
 
 Speak duration of the current song.
 
 
 
-@unnumberedsec emacspeak-mpg123-speak-title@findex emacspeak-mpg123-speak-title
+@unnumberedsec emacspeak-mpg123-speak-title
+@findex emacspeak-mpg123-speak-title
  No global keybinding
 
 Speak title of the current song.
 
 
 
-@unnumberedsec emacspeak-next-frame@findex emacspeak-next-frame
+@unnumberedsec emacspeak-next-frame
+@findex emacspeak-next-frame
 @kindex  control right 
  control right 
+
 Move to next frame.
 
 
 
-@unnumberedsec emacspeak-ocr@findex emacspeak-ocr
+@unnumberedsec emacspeak-ocr
+@findex emacspeak-ocr
 @kindex  control e control o 
  control e control o 
+
 An OCR front-end for the Emacspeak desktop.  
 
 Page image is acquired using tools from the SANE package.
@@ -1598,28 +1842,32 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 
 
 
-@unnumberedsec emacspeak-ocr-backward-page@findex emacspeak-ocr-backward-page
+@unnumberedsec emacspeak-ocr-backward-page
+@findex emacspeak-ocr-backward-page
  No global keybinding
 
 Like backward page, but tracks page number of current document.
 
 
 
-@unnumberedsec emacspeak-ocr-customize@findex emacspeak-ocr-customize
+@unnumberedsec emacspeak-ocr-customize
+@findex emacspeak-ocr-customize
  No global keybinding
 
 Customize OCR settings.
 
 
 
-@unnumberedsec emacspeak-ocr-forward-page@findex emacspeak-ocr-forward-page
+@unnumberedsec emacspeak-ocr-forward-page
+@findex emacspeak-ocr-forward-page
  No global keybinding
 
 Like forward page, but tracks page number of current document.
 
 
 
-@unnumberedsec emacspeak-ocr-mode@findex emacspeak-ocr-mode
+@unnumberedsec emacspeak-ocr-mode
+@findex emacspeak-ocr-mode
  No global keybinding
 
  An OCR front-end for the Emacspeak desktop.
@@ -1708,7 +1956,8 @@ c               emacspeak-ocr-customize
 
 
 
-@unnumberedsec emacspeak-ocr-name-document@findex emacspeak-ocr-name-document
+@unnumberedsec emacspeak-ocr-name-document
+@findex emacspeak-ocr-name-document
  No global keybinding
 
 Name document being scanned in the current OCR buffer.
@@ -1716,28 +1965,32 @@ Pick a short but meaningful name.
 
 
 
-@unnumberedsec emacspeak-ocr-open-working-directory@findex emacspeak-ocr-open-working-directory
+@unnumberedsec emacspeak-ocr-open-working-directory
+@findex emacspeak-ocr-open-working-directory
  No global keybinding
 
 Launch dired on OCR workng directory.
 
 
 
-@unnumberedsec emacspeak-ocr-page@findex emacspeak-ocr-page
+@unnumberedsec emacspeak-ocr-page
+@findex emacspeak-ocr-page
  No global keybinding
 
 Move to specified page.
 
 
 
-@unnumberedsec emacspeak-ocr-read-current-page@findex emacspeak-ocr-read-current-page
+@unnumberedsec emacspeak-ocr-read-current-page
+@findex emacspeak-ocr-read-current-page
  No global keybinding
 
 Speaks current page.
 
 
 
-@unnumberedsec emacspeak-ocr-recognize-image@findex emacspeak-ocr-recognize-image
+@unnumberedsec emacspeak-ocr-recognize-image
+@findex emacspeak-ocr-recognize-image
  No global keybinding
 
 Run OCR engine on current image.
@@ -1746,7 +1999,8 @@ Prompts for image file if file corresponding to the expected
 
 
 
-@unnumberedsec emacspeak-ocr-save-current-page@findex emacspeak-ocr-save-current-page
+@unnumberedsec emacspeak-ocr-save-current-page
+@findex emacspeak-ocr-save-current-page
  No global keybinding
 
 Writes out recognized text from current page
@@ -1754,7 +2008,8 @@ to an appropriately named file.
 
 
 
-@unnumberedsec emacspeak-ocr-scan-and-recognize@findex emacspeak-ocr-scan-and-recognize
+@unnumberedsec emacspeak-ocr-scan-and-recognize
+@findex emacspeak-ocr-scan-and-recognize
  No global keybinding
 
 Scan in a page and run OCR engine on it.
@@ -1764,14 +2019,16 @@ corectly by themselves.
 
 
 
-@unnumberedsec emacspeak-ocr-scan-image@findex emacspeak-ocr-scan-image
+@unnumberedsec emacspeak-ocr-scan-image
+@findex emacspeak-ocr-scan-image
  No global keybinding
 
 Acquire page image.
 
 
 
-@unnumberedsec emacspeak-ocr-set-compress-image-options@findex emacspeak-ocr-set-compress-image-options
+@unnumberedsec emacspeak-ocr-set-compress-image-options
+@findex emacspeak-ocr-set-compress-image-options
  No global keybinding
 
 Interactively update  image compression options.
@@ -1780,7 +2037,8 @@ Setting persists for current Emacs session.
 
 
 
-@unnumberedsec emacspeak-ocr-set-scan-image-options@findex emacspeak-ocr-set-scan-image-options
+@unnumberedsec emacspeak-ocr-set-scan-image-options
+@findex emacspeak-ocr-set-scan-image-options
  No global keybinding
 
 Interactively update scan image options.
@@ -1789,128 +2047,157 @@ Setting persists for current Emacs session.
 
 
 
-@unnumberedsec emacspeak-ocr-toggle-read-only@findex emacspeak-ocr-toggle-read-only
+@unnumberedsec emacspeak-ocr-toggle-read-only
+@findex emacspeak-ocr-toggle-read-only
  No global keybinding
 
 Toggle read-only state of OCR buffer.
 
 
 
-@unnumberedsec emacspeak-ocr-write-document@findex emacspeak-ocr-write-document
+@unnumberedsec emacspeak-ocr-write-document
+@findex emacspeak-ocr-write-document
  No global keybinding
 
 Writes out recognized text from all pages in current document.
 
 
 
-@unnumberedsec emacspeak-outline-speak-backward-heading@findex emacspeak-outline-speak-backward-heading
+@unnumberedsec emacspeak-outline-speak-backward-heading
+@findex emacspeak-outline-speak-backward-heading
 @kindex  control l b 
  control l b 
+
 Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
 
 
 
-@unnumberedsec emacspeak-outline-speak-forward-heading@findex emacspeak-outline-speak-forward-heading
+@unnumberedsec emacspeak-outline-speak-forward-heading
+@findex emacspeak-outline-speak-forward-heading
 @kindex  control l f 
  control l f 
+
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
 
 
 
-@unnumberedsec emacspeak-outline-speak-next-heading@findex emacspeak-outline-speak-next-heading
+@unnumberedsec emacspeak-outline-speak-next-heading
+@findex emacspeak-outline-speak-next-heading
 @kindex  control l n 
  control l n 
+
 Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
 
 
 
-@unnumberedsec emacspeak-outline-speak-previous-heading@findex emacspeak-outline-speak-previous-heading
+@unnumberedsec emacspeak-outline-speak-previous-heading
+@findex emacspeak-outline-speak-previous-heading
 @kindex  control l p 
  control l p 
+
 Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken
 
 
 
-@unnumberedsec emacspeak-outline-speak-this-heading@findex emacspeak-outline-speak-this-heading
+@unnumberedsec emacspeak-outline-speak-this-heading
+@findex emacspeak-outline-speak-this-heading
 @kindex  control l SPACE 
  control l SPACE 
+
 Speak current outline section starting from point
 
 
 
-@unnumberedsec emacspeak-owindow-next-line@findex emacspeak-owindow-next-line
+@unnumberedsec emacspeak-owindow-next-line
+@findex emacspeak-owindow-next-line
 @kindex  ESCAPE down 
  ESCAPE down 
+
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move.
 
 
 
-@unnumberedsec emacspeak-owindow-previous-line@findex emacspeak-owindow-previous-line
+@unnumberedsec emacspeak-owindow-previous-line
+@findex emacspeak-owindow-previous-line
 @kindex  ESCAPE up 
  ESCAPE up 
+
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move.
 
 
 
-@unnumberedsec emacspeak-owindow-scroll-down@findex emacspeak-owindow-scroll-down
+@unnumberedsec emacspeak-owindow-scroll-down
+@findex emacspeak-owindow-scroll-down
 @kindex  ESCAPE prior 
  ESCAPE prior 
+
 Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling.
 
 
 
-@unnumberedsec emacspeak-owindow-scroll-up@findex emacspeak-owindow-scroll-up
+@unnumberedsec emacspeak-owindow-scroll-up
+@findex emacspeak-owindow-scroll-up
 @kindex  ESCAPE next 
  ESCAPE next 
+
 Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling.
 
 
 
-@unnumberedsec emacspeak-owindow-speak-line@findex emacspeak-owindow-speak-line
+@unnumberedsec emacspeak-owindow-speak-line
+@findex emacspeak-owindow-speak-line
 @kindex  ESCAPE select 
  ESCAPE select 
+
 Speak the current line in the other window.
 
 
 
-@unnumberedsec emacspeak-play-all-icons@findex emacspeak-play-all-icons
+@unnumberedsec emacspeak-play-all-icons
+@findex emacspeak-play-all-icons
  No global keybinding
 
 Plays all defined icons and speaks their names.
 
 
 
-@unnumberedsec emacspeak-previous-frame@findex emacspeak-previous-frame
+@unnumberedsec emacspeak-previous-frame
+@findex emacspeak-previous-frame
 @kindex  control left 
  control left 
+
 Move to next frame.
 
 
 
-@unnumberedsec emacspeak-pronounce-clear-dictionaries@findex emacspeak-pronounce-clear-dictionaries
+@unnumberedsec emacspeak-pronounce-clear-dictionaries
+@findex emacspeak-pronounce-clear-dictionaries
  No global keybinding
 
 Clear all current pronunciation dictionaries.
 
 
 
-@unnumberedsec emacspeak-pronounce-define-local-pronunciation@findex emacspeak-pronounce-define-local-pronunciation
+@unnumberedsec emacspeak-pronounce-define-local-pronunciation
+@findex emacspeak-pronounce-define-local-pronunciation
 @kindex  control e meta b 
  control e meta b 
+
 Define buffer local pronounciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 
 
 
-@unnumberedsec emacspeak-pronounce-define-pronunciation@findex emacspeak-pronounce-define-pronunciation
+@unnumberedsec emacspeak-pronounce-define-pronunciation
+@findex emacspeak-pronounce-define-pronunciation
  No global keybinding
 
 Interactively define entries in the pronunciation dictionaries.
@@ -1919,14 +2206,17 @@ First loads any persistent dictionaries if not already loaded.
 
 
 
-@unnumberedsec emacspeak-pronounce-dispatch@findex emacspeak-pronounce-dispatch
+@unnumberedsec emacspeak-pronounce-dispatch
+@findex emacspeak-pronounce-dispatch
 @kindex  control e meta d 
  control e meta d 
+
 Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 
 
 
-@unnumberedsec emacspeak-pronounce-load-dictionaries@findex emacspeak-pronounce-load-dictionaries
+@unnumberedsec emacspeak-pronounce-load-dictionaries
+@findex emacspeak-pronounce-load-dictionaries
  No global keybinding
 
 Load pronunciation dictionaries.
@@ -1934,7 +2224,8 @@ Optional argument FILENAME specifies the dictionary file.
 
 
 
-@unnumberedsec emacspeak-pronounce-refresh-pronunciations@findex emacspeak-pronounce-refresh-pronunciations
+@unnumberedsec emacspeak-pronounce-refresh-pronunciations
+@findex emacspeak-pronounce-refresh-pronunciations
  No global keybinding
 
 Refresh pronunciation table for current buffer.
@@ -1942,14 +2233,16 @@ Activates pronunciation dictionaries if not already active.
 
 
 
-@unnumberedsec emacspeak-pronounce-save-dictionaries@findex emacspeak-pronounce-save-dictionaries
+@unnumberedsec emacspeak-pronounce-save-dictionaries
+@findex emacspeak-pronounce-save-dictionaries
  No global keybinding
 
 Writes out the persistent emacspeak pronunciation dictionaries.
 
 
 
-@unnumberedsec emacspeak-pronounce-toggle-use-of-dictionaries@findex emacspeak-pronounce-toggle-use-of-dictionaries
+@unnumberedsec emacspeak-pronounce-toggle-use-of-dictionaries
+@findex emacspeak-pronounce-toggle-use-of-dictionaries
  No global keybinding
 
 Toggle use of pronunciation dictionaries in current buffer.
@@ -1966,28 +2259,32 @@ explicitly turn pronunciations on or off.
 
 
 
-@unnumberedsec emacspeak-pronounce-yank-word@findex emacspeak-pronounce-yank-word
+@unnumberedsec emacspeak-pronounce-yank-word
+@findex emacspeak-pronounce-yank-word
  No global keybinding
 
 Yank word at point into minibuffer.
 
 
 
-@unnumberedsec emacspeak-psgml-speak-current-element@findex emacspeak-psgml-speak-current-element
+@unnumberedsec emacspeak-psgml-speak-current-element
+@findex emacspeak-psgml-speak-current-element
  No global keybinding
 
 Speak contents of current element. 
 
 
 
-@unnumberedsec emacspeak-psgml-summarize-element@findex emacspeak-psgml-summarize-element
+@unnumberedsec emacspeak-psgml-summarize-element
+@findex emacspeak-psgml-summarize-element
  No global keybinding
 
 Context-sensitive element summarizer.
 
 
 
-@unnumberedsec emacspeak-psgml-toggle-interactive-voice-locking@findex emacspeak-psgml-toggle-interactive-voice-locking
+@unnumberedsec emacspeak-psgml-toggle-interactive-voice-locking
+@findex emacspeak-psgml-toggle-interactive-voice-locking
  No global keybinding
 
 Toggles variable sgml-set-face.
@@ -1996,14 +2293,16 @@ Leave this off in general while editting.
 
 
 
-@unnumberedsec emacspeak-py-next-block@findex emacspeak-py-next-block
+@unnumberedsec emacspeak-py-next-block
+@findex emacspeak-py-next-block
  No global keybinding
 
 Move forward to the beginning of the next block.
 
 
 
-@unnumberedsec emacspeak-py-previous-block@findex emacspeak-py-previous-block
+@unnumberedsec emacspeak-py-previous-block
+@findex emacspeak-py-previous-block
  No global keybinding
 
 Move backward to the beginning of the current block.
@@ -2011,15 +2310,18 @@ If already at the beginning then move to previous block.
 
 
 
-@unnumberedsec emacspeak-read-next-line@findex emacspeak-read-next-line
+@unnumberedsec emacspeak-read-next-line
+@findex emacspeak-read-next-line
 @kindex  control e down 
  control e down 
+
 Read next line, specified by an offset, without moving.
 Default is to read the next line. 
 
 
 
-@unnumberedsec emacspeak-read-next-word@findex emacspeak-read-next-word
+@unnumberedsec emacspeak-read-next-word
+@findex emacspeak-read-next-word
  No global keybinding
 
 Read next word, specified as a numeric  arg, without moving.
@@ -2027,15 +2329,18 @@ Default is to read the next word.
 
 
 
-@unnumberedsec emacspeak-read-previous-line@findex emacspeak-read-previous-line
+@unnumberedsec emacspeak-read-previous-line
+@findex emacspeak-read-previous-line
 @kindex  control e up 
  control e up 
+
 Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
 
 
 
-@unnumberedsec emacspeak-read-previous-word@findex emacspeak-read-previous-word
+@unnumberedsec emacspeak-read-previous-word
+@findex emacspeak-read-previous-word
  No global keybinding
 
 Read previous word, specified as a prefix arg, without moving.
@@ -2043,9 +2348,11 @@ Default is to read the previous word.
 
 
 
-@unnumberedsec emacspeak-realaudio@findex emacspeak-realaudio
+@unnumberedsec emacspeak-realaudio
+@findex emacspeak-realaudio
 @kindex  control e ; 
  control e ; 
+
 Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
 trplayer control commands if a stream is already playing.
@@ -2071,14 +2378,17 @@ various navigation commands via single keystrokes.
 
 
 
-@unnumberedsec emacspeak-realaudio-browse@findex emacspeak-realaudio-browse
+@unnumberedsec emacspeak-realaudio-browse
+@findex emacspeak-realaudio-browse
 @kindex  control e : 
  control e : 
+
 Browse RAM file before playing the selected component.
 
 
 
-@unnumberedsec emacspeak-realaudio-mode@findex emacspeak-realaudio-mode
+@unnumberedsec emacspeak-realaudio-mode
+@findex emacspeak-realaudio-mode
  No global keybinding
 
 Major mode for streaming audio. 
@@ -2110,7 +2420,8 @@ p               emacspeak-realaudio-trplayer-call-command
 
 
 
-@unnumberedsec emacspeak-realaudio-play@findex emacspeak-realaudio-play
+@unnumberedsec emacspeak-realaudio-play
+@findex emacspeak-realaudio-play
  No global keybinding
 
 Play a realaudio stream.  Uses files from your Realaudio
@@ -2120,35 +2431,40 @@ emacspeak-realaudio-shortcuts-directory.
 
 
 
-@unnumberedsec emacspeak-realaudio-play-url-at-point@findex emacspeak-realaudio-play-url-at-point
+@unnumberedsec emacspeak-realaudio-play-url-at-point
+@findex emacspeak-realaudio-play-url-at-point
  No global keybinding
 
 Play url under point as realaudio
 
 
 
-@unnumberedsec emacspeak-realaudio-select-realaudio-buffer@findex emacspeak-realaudio-select-realaudio-buffer
+@unnumberedsec emacspeak-realaudio-select-realaudio-buffer
+@findex emacspeak-realaudio-select-realaudio-buffer
  No global keybinding
 
 Switch to realaudio buffer.
 
 
 
-@unnumberedsec emacspeak-realaudio-stop@findex emacspeak-realaudio-stop
+@unnumberedsec emacspeak-realaudio-stop
+@findex emacspeak-realaudio-stop
  No global keybinding
 
 Stop playing realaudio
 
 
 
-@unnumberedsec emacspeak-realaudio-trplayer-call-command@findex emacspeak-realaudio-trplayer-call-command
+@unnumberedsec emacspeak-realaudio-trplayer-call-command
+@findex emacspeak-realaudio-trplayer-call-command
  No global keybinding
 
 Call appropriate TRPlayer command.
 
 
 
-@unnumberedsec emacspeak-realaudio-trplayer-command@findex emacspeak-realaudio-trplayer-command
+@unnumberedsec emacspeak-realaudio-trplayer-command
+@findex emacspeak-realaudio-trplayer-command
  No global keybinding
 
 Execute TRPlayer command.
@@ -2160,9 +2476,11 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-remote-connect-to-server@findex emacspeak-remote-connect-to-server
+@unnumberedsec emacspeak-remote-connect-to-server
+@findex emacspeak-remote-connect-to-server
 @kindex  kp-3   control e meta r 
  kp-3   control e meta r 
+
 Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
 server, typically the desktop machine.  Port is the tcp port that that
@@ -2170,7 +2488,8 @@ host is listening on for speech requests.
 
 
 
-@unnumberedsec emacspeak-remote-quick-connect-to-server@findex emacspeak-remote-quick-connect-to-server
+@unnumberedsec emacspeak-remote-quick-connect-to-server
+@findex emacspeak-remote-quick-connect-to-server
  No global keybinding
 
 Connect to remote server.
@@ -2180,30 +2499,36 @@ Use this once you are sure the guesses are usually correct.
 
 
 
-@unnumberedsec emacspeak-rmail-speak-current-message-labels@findex emacspeak-rmail-speak-current-message-labels
+@unnumberedsec emacspeak-rmail-speak-current-message-labels
+@findex emacspeak-rmail-speak-current-message-labels
  No global keybinding
 
 Speak labels of current message
 
 
 
-@unnumberedsec emacspeak-rmail-summarize-current-message@findex emacspeak-rmail-summarize-current-message
+@unnumberedsec emacspeak-rmail-summarize-current-message
+@findex emacspeak-rmail-summarize-current-message
  No global keybinding
 
 Summarize current message
 
 
 
-@unnumberedsec emacspeak-root@findex emacspeak-root
+@unnumberedsec emacspeak-root
+@findex emacspeak-root
 @kindex  control e control r 
  control e control r 
+
 Start a root shell or switch to one that already exists.
 
 
 
-@unnumberedsec emacspeak-select-this-buffer-next-display@findex emacspeak-select-this-buffer-next-display
+@unnumberedsec emacspeak-select-this-buffer-next-display
+@findex emacspeak-select-this-buffer-next-display
 @kindex  control e control right 
  control e control right 
+
 Select this buffer as displayed in a `next' frame.
 See documentation for command
 `emacspeak-select-this-buffer-other-window-display' for the
@@ -2211,7 +2536,8 @@ meaning of `next'.
 
 
 
-@unnumberedsec emacspeak-select-this-buffer-other-window-display@findex emacspeak-select-this-buffer-other-window-display
+@unnumberedsec emacspeak-select-this-buffer-other-window-display
+@findex emacspeak-select-this-buffer-other-window-display
  No global keybinding
 
 Switch  to this buffer as displayed in a different frame.  Emacs
@@ -2228,9 +2554,11 @@ the display to select.
 
 
 
-@unnumberedsec emacspeak-select-this-buffer-previous-display@findex emacspeak-select-this-buffer-previous-display
+@unnumberedsec emacspeak-select-this-buffer-previous-display
+@findex emacspeak-select-this-buffer-previous-display
 @kindex  control e control left 
  control e control left 
+
 Select this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-select-this-buffer-other-window-display' for the
@@ -2238,9 +2566,11 @@ meaning of `previous'.
 
 
 
-@unnumberedsec emacspeak-self-insert-command@findex emacspeak-self-insert-command
+@unnumberedsec emacspeak-self-insert-command
+@findex emacspeak-self-insert-command
 @kindex  Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
  Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
+
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
@@ -2250,9 +2580,11 @@ speech flush as you type.
 
 
 
-@unnumberedsec emacspeak-set-auditory-icon-player@findex emacspeak-set-auditory-icon-player
+@unnumberedsec emacspeak-set-auditory-icon-player
+@findex emacspeak-set-auditory-icon-player
 @kindex  control e meta a 
  control e meta a 
+
 Select  player used for producing auditory icons.
 Recommended choices:
 
@@ -2261,7 +2593,8 @@ emacspeak-midi-icon for midi device.
 
 
 
-@unnumberedsec emacspeak-show-list-variable@findex emacspeak-show-list-variable
+@unnumberedsec emacspeak-show-list-variable
+@findex emacspeak-show-list-variable
  No global keybinding
 
 Convenience command to view Emacs variables that are long lists.
@@ -2276,16 +2609,20 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-show-personality-at-point@findex emacspeak-show-personality-at-point
+@unnumberedsec emacspeak-show-personality-at-point
+@findex emacspeak-show-personality-at-point
 @kindex  control e meta v 
  control e meta v 
+
 Show value of property personality at point.
 
 
 
-@unnumberedsec emacspeak-show-property-at-point@findex emacspeak-show-property-at-point
+@unnumberedsec emacspeak-show-property-at-point
+@findex emacspeak-show-property-at-point
 @kindex  control e meta p 
  control e meta p 
+
 Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
@@ -2293,46 +2630,54 @@ If no property is set, show a message and exit.
 
 
 
-@unnumberedsec emacspeak-skip-blank-lines-backward@findex emacspeak-skip-blank-lines-backward
+@unnumberedsec emacspeak-skip-blank-lines-backward
+@findex emacspeak-skip-blank-lines-backward
 @kindex  shift up 
  shift up 
+
 Move backward  across blank lines.
 The line under point is   then spoken.
 Signals beginning  of buffer.
 
 
 
-@unnumberedsec emacspeak-skip-blank-lines-forward@findex emacspeak-skip-blank-lines-forward
+@unnumberedsec emacspeak-skip-blank-lines-forward
+@findex emacspeak-skip-blank-lines-forward
 @kindex  shift down 
  shift down 
+
 Move forward across blank lines.
 The line under point is then spoken.
 Signals end of buffer.
 
 
 
-@unnumberedsec emacspeak-solitaire-show-column@findex emacspeak-solitaire-show-column
+@unnumberedsec emacspeak-solitaire-show-column
+@findex emacspeak-solitaire-show-column
  No global keybinding
 
 Display current row auditorallly
 
 
 
-@unnumberedsec emacspeak-solitaire-show-row@findex emacspeak-solitaire-show-row
+@unnumberedsec emacspeak-solitaire-show-row
+@findex emacspeak-solitaire-show-row
  No global keybinding
 
 Display current row auditorallly
 
 
 
-@unnumberedsec emacspeak-solitaire-speak-coordinates@findex emacspeak-solitaire-speak-coordinates
+@unnumberedsec emacspeak-solitaire-speak-coordinates
+@findex emacspeak-solitaire-speak-coordinates
  No global keybinding
 
 Speak coordinates of current position
 
 
 
-@unnumberedsec emacspeak-sounds-reset-local-player@findex emacspeak-sounds-reset-local-player
+@unnumberedsec emacspeak-sounds-reset-local-player
+@findex emacspeak-sounds-reset-local-player
  No global keybinding
 
 Ask Emacspeak to use a local audio player.
@@ -2343,16 +2688,20 @@ audio player.
 
 
 
-@unnumberedsec emacspeak-sounds-select-theme@findex emacspeak-sounds-select-theme
+@unnumberedsec emacspeak-sounds-select-theme
+@findex emacspeak-sounds-select-theme
 @kindex  control e ) 
  control e ) 
+
 Select theme for auditory icons.
 
 
 
-@unnumberedsec emacspeak-speak-browse-buffer@findex emacspeak-speak-browse-buffer
+@unnumberedsec emacspeak-speak-browse-buffer
+@findex emacspeak-speak-browse-buffer
 @kindex  control e , 
  control e , 
+
 Browse the current buffer by reading it a paragraph at a
 time.
 Optional interactive prefix arg define-paragraph 
@@ -2361,17 +2710,21 @@ paragraph-separate.
 
 
 
-@unnumberedsec emacspeak-speak-browse-linux-howto@findex emacspeak-speak-browse-linux-howto
+@unnumberedsec emacspeak-speak-browse-linux-howto
+@findex emacspeak-speak-browse-linux-howto
 @kindex  control e  cap H  
  control e  cap H  
+
 Browse a Linux Howto file.
 We cleanup underlining, and set up outline mode correctly.
 
 
 
-@unnumberedsec emacspeak-speak-buffer@findex emacspeak-speak-buffer
+@unnumberedsec emacspeak-speak-buffer
+@findex emacspeak-speak-buffer
 @kindex  control e b 
  control e b 
+
 Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
@@ -2380,18 +2733,22 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
 
 
-@unnumberedsec emacspeak-speak-buffer-filename@findex emacspeak-speak-buffer-filename
+@unnumberedsec emacspeak-speak-buffer-filename
+@findex emacspeak-speak-buffer-filename
 @kindex  control e f 
  control e f 
+
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
 or when the buffer is not visiting any file.
 
 
 
-@unnumberedsec emacspeak-speak-buffer-interactively@findex emacspeak-speak-buffer-interactively
+@unnumberedsec emacspeak-speak-buffer-interactively
+@findex emacspeak-speak-buffer-interactively
 @kindex  control e  cap B  
  control e  cap B  
+
 Speak the start of, rest of, or the entire buffer.
 's' to speak the start.
 'r' to speak the rest.
@@ -2399,31 +2756,37 @@ any other key to speak entire buffer.
 
 
 
-@unnumberedsec emacspeak-speak-calendar-date@findex emacspeak-speak-calendar-date
+@unnumberedsec emacspeak-speak-calendar-date
+@findex emacspeak-speak-calendar-date
  No global keybinding
 
 Speak the date under point when called in Calendar Mode. 
 
 
 
-@unnumberedsec emacspeak-speak-char@findex emacspeak-speak-char
+@unnumberedsec emacspeak-speak-char
+@findex emacspeak-speak-char
 @kindex  control e c 
  control e c 
+
 Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
 
 
 
-@unnumberedsec emacspeak-speak-completions@findex emacspeak-speak-completions
+@unnumberedsec emacspeak-speak-completions
+@findex emacspeak-speak-completions
  No global keybinding
 
 Speak completions  buffer if one present.
 
 
 
-@unnumberedsec emacspeak-speak-continuously@findex emacspeak-speak-continuously
+@unnumberedsec emacspeak-speak-continuously
+@findex emacspeak-speak-continuously
 @kindex  control e RETURN 
  control e RETURN 
+
 Speak a buffer continuously.
 First prompts using the minibuffer for the kind of action to perform after
 speaking each chunk.
@@ -2434,25 +2797,31 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 
 
 
-@unnumberedsec emacspeak-speak-current-column@findex emacspeak-speak-current-column
+@unnumberedsec emacspeak-speak-current-column
+@findex emacspeak-speak-current-column
 @kindex  control e = 
  control e = 
+
 Speak the current column.
 
 
 
-@unnumberedsec emacspeak-speak-current-field@findex emacspeak-speak-current-field
+@unnumberedsec emacspeak-speak-current-field
+@findex emacspeak-speak-current-field
 @kindex  control e . 
  control e . 
+
 Speak current field.
 A field is defined currently as a sequence of non-white space characters.  may be made
   mode specific later.
 
 
 
-@unnumberedsec emacspeak-speak-current-kill@findex emacspeak-speak-current-kill
+@unnumberedsec emacspeak-speak-current-kill
+@findex emacspeak-speak-current-kill
 @kindex  control e k 
  control e k 
+
 Speak the current kill entry.
 This is the text that will be yanked in by the next C-y.
 Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
@@ -2464,9 +2833,11 @@ to command yank.
 
 
 
-@unnumberedsec emacspeak-speak-current-mark@findex emacspeak-speak-current-mark
+@unnumberedsec emacspeak-speak-current-mark
+@findex emacspeak-speak-current-mark
 @kindex  control e control @ 
  control e control @ 
+
 Speak the line containing the mark.
 With no argument, speaks the
 line containing the mark--this is where `exchange-point-and-mark'
@@ -2478,14 +2849,17 @@ achieved by a change in voice personality.
 
 
 
-@unnumberedsec emacspeak-speak-current-percentage@findex emacspeak-speak-current-percentage
+@unnumberedsec emacspeak-speak-current-percentage
+@findex emacspeak-speak-current-percentage
 @kindex  control e % 
  control e % 
+
 Announce the percentage into the current buffer.
 
 
 
-@unnumberedsec emacspeak-speak-current-window@findex emacspeak-speak-current-window
+@unnumberedsec emacspeak-speak-current-window
+@findex emacspeak-speak-current-window
  No global keybinding
 
 Speak contents of current window.
@@ -2493,7 +2867,8 @@ Speaks entire window irrespective of point.
 
 
 
-@unnumberedsec emacspeak-speak-display-char@findex emacspeak-speak-display-char
+@unnumberedsec emacspeak-speak-display-char
+@findex emacspeak-speak-display-char
  No global keybinding
 
 Display char under point using current speech display table.
@@ -2504,23 +2879,27 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
 
 
 
-@unnumberedsec emacspeak-speak-front-of-buffer@findex emacspeak-speak-front-of-buffer
+@unnumberedsec emacspeak-speak-front-of-buffer
+@findex emacspeak-speak-front-of-buffer
  No global keybinding
 
 Speak   the buffer from start to   point
 
 
 
-@unnumberedsec emacspeak-speak-help@findex emacspeak-speak-help
+@unnumberedsec emacspeak-speak-help
+@findex emacspeak-speak-help
 @kindex  control e h 
  control e h 
+
 Speak help buffer if one present.
 With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
 
 
 
-@unnumberedsec emacspeak-speak-help-interactively@findex emacspeak-speak-help-interactively
+@unnumberedsec emacspeak-speak-help-interactively
+@findex emacspeak-speak-help-interactively
  No global keybinding
 
 Speak the start of, rest of, or the entire help.
@@ -2530,16 +2909,20 @@ any other key to speak entire help.
 
 
 
-@unnumberedsec emacspeak-speak-hostname@findex emacspeak-speak-hostname
+@unnumberedsec emacspeak-speak-hostname
+@findex emacspeak-speak-hostname
 @kindex  control e meta h 
  control e meta h 
+
 Speak host name.
 
 
 
-@unnumberedsec emacspeak-speak-line@findex emacspeak-speak-line
+@unnumberedsec emacspeak-speak-line
+@findex emacspeak-speak-line
 @kindex  control e l 
  control e l 
+
 Speaks current line.  With prefix ARG, speaks the rest of
 the line from point.  Negative prefix optional arg speaks
 from start of line to point.  Voicifies if option
@@ -2554,9 +2937,11 @@ indicated with auditory icon ellipses.
 
 
 
-@unnumberedsec emacspeak-speak-line-interactively@findex emacspeak-speak-line-interactively
+@unnumberedsec emacspeak-speak-line-interactively
+@findex emacspeak-speak-line-interactively
 @kindex  control e  cap L  
  control e  cap L  
+
 Speak the start of, rest of, or the entire line.
 's' to speak the start.
 'r' to speak the rest.
@@ -2564,16 +2949,20 @@ any other key to speak entire line.
 
 
 
-@unnumberedsec emacspeak-speak-line-number@findex emacspeak-speak-line-number
+@unnumberedsec emacspeak-speak-line-number
+@findex emacspeak-speak-line-number
 @kindex  control e control l 
  control e control l 
+
 Speak the line number of the current line.
 
 
 
-@unnumberedsec emacspeak-speak-line-set-column-filter@findex emacspeak-speak-line-set-column-filter
+@unnumberedsec emacspeak-speak-line-set-column-filter
+@findex emacspeak-speak-line-set-column-filter
 @kindex  control e | 
  control e | 
+
 Set up filter for selectively ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter out columns 1 -- 10 and 20 -- 25,
@@ -2587,7 +2976,8 @@ files like /var/adm/messages and /var/adm/maillog over time.
 
 
 
-@unnumberedsec emacspeak-speak-load-directory-settings@findex emacspeak-speak-load-directory-settings
+@unnumberedsec emacspeak-speak-load-directory-settings
+@findex emacspeak-speak-load-directory-settings
  No global keybinding
 
 Load a directory specific Emacspeak settings file.
@@ -2597,14 +2987,17 @@ directory.
 
 
 
-@unnumberedsec emacspeak-speak-message-again@findex emacspeak-speak-message-again
+@unnumberedsec emacspeak-speak-message-again
+@findex emacspeak-speak-message-again
 @kindex  control e a 
  control e a 
+
 Speak the last message from Emacs once again.
 
 
 
-@unnumberedsec emacspeak-speak-minibuffer@findex emacspeak-speak-minibuffer
+@unnumberedsec emacspeak-speak-minibuffer
+@findex emacspeak-speak-minibuffer
  No global keybinding
 
 Speak the minibuffer contents
@@ -2613,37 +3006,46 @@ Negative prefix arg speaks from start of buffer to point.
 
 
 
-@unnumberedsec emacspeak-speak-minor-mode-line@findex emacspeak-speak-minor-mode-line
+@unnumberedsec emacspeak-speak-minor-mode-line
+@findex emacspeak-speak-minor-mode-line
 @kindex  control e  cap M  
  control e  cap M  
+
 Speak the minor mode-information.
 
 
 
-@unnumberedsec emacspeak-speak-mode-line@findex emacspeak-speak-mode-line
+@unnumberedsec emacspeak-speak-mode-line
+@findex emacspeak-speak-mode-line
 @kindex  control e m 
  control e m 
+
 Speak the mode-line.
 
 
 
-@unnumberedsec emacspeak-speak-next-field@findex emacspeak-speak-next-field
+@unnumberedsec emacspeak-speak-next-field
+@findex emacspeak-speak-next-field
 @kindex  control e > 
  control e > 
+
 Skip across and speak the next contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
 
 
 
-@unnumberedsec emacspeak-speak-next-window@findex emacspeak-speak-next-window
+@unnumberedsec emacspeak-speak-next-window
+@findex emacspeak-speak-next-window
 @kindex  control e control n 
  control e control n 
+
 Speak the next window.
 
 
 
-@unnumberedsec emacspeak-speak-other-window@findex emacspeak-speak-other-window
+@unnumberedsec emacspeak-speak-other-window
+@findex emacspeak-speak-other-window
  No global keybinding
 
 Speak contents of `other' window.
@@ -2659,9 +3061,11 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-speak-page@findex emacspeak-speak-page
+@unnumberedsec emacspeak-speak-page
+@findex emacspeak-speak-page
 @kindex  control e [ 
  control e [ 
+
 Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
@@ -2669,9 +3073,11 @@ If option  `voice-lock-mode' is on, then it will use any defined personality.
 
 
 
-@unnumberedsec emacspeak-speak-page-interactively@findex emacspeak-speak-page-interactively
+@unnumberedsec emacspeak-speak-page-interactively
+@findex emacspeak-speak-page-interactively
 @kindex  control e ] 
  control e ] 
+
 Speak the start of, rest of, or the entire page.
 's' to speak the start.
 'r' to speak the rest.
@@ -2679,9 +3085,11 @@ any other key to speak entire page.
 
 
 
-@unnumberedsec emacspeak-speak-paragraph@findex emacspeak-speak-paragraph
+@unnumberedsec emacspeak-speak-paragraph
+@findex emacspeak-speak-paragraph
 @kindex  control e @{ 
  control e @{ 
+
 Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
@@ -2689,9 +3097,11 @@ If voice-lock-mode is on, then it will use any defined personality.
 
 
 
-@unnumberedsec emacspeak-speak-paragraph-interactively@findex emacspeak-speak-paragraph-interactively
+@unnumberedsec emacspeak-speak-paragraph-interactively
+@findex emacspeak-speak-paragraph-interactively
 @kindex  control e  cap P  
  control e  cap P  
+
 Speak the start of, rest of, or the entire paragraph.
 's' to speak the start.
 'r' to speak the rest.
@@ -2699,18 +3109,22 @@ any other key to speak entire paragraph.
 
 
 
-@unnumberedsec emacspeak-speak-popup-messages@findex emacspeak-speak-popup-messages
+@unnumberedsec emacspeak-speak-popup-messages
+@findex emacspeak-speak-popup-messages
 @kindex  control h  cap M  
  control h  cap M  
+
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
 previous window configuration.
 
 
 
-@unnumberedsec emacspeak-speak-predefined-window@findex emacspeak-speak-predefined-window
+@unnumberedsec emacspeak-speak-predefined-window
+@findex emacspeak-speak-predefined-window
 @kindex  control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
  control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
+
 Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
 In general, you'll never have Emacs split the screen into more than
@@ -2721,25 +3135,31 @@ Semantics  of `other' is the same as for the builtin Emacs command
 
 
 
-@unnumberedsec emacspeak-speak-previous-field@findex emacspeak-speak-previous-field
+@unnumberedsec emacspeak-speak-previous-field
+@findex emacspeak-speak-previous-field
 @kindex  control e < 
  control e < 
+
 Skip backwards across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
 
 
 
-@unnumberedsec emacspeak-speak-previous-window@findex emacspeak-speak-previous-window
+@unnumberedsec emacspeak-speak-previous-window
+@findex emacspeak-speak-previous-window
 @kindex  control e control p 
  control e control p 
+
 Speak the previous window.
 
 
 
-@unnumberedsec emacspeak-speak-rectangle@findex emacspeak-speak-rectangle
+@unnumberedsec emacspeak-speak-rectangle
+@findex emacspeak-speak-rectangle
 @kindex  control e  cap R  
  control e  cap R  
+
 Speak a rectangle of text.
 Rectangle is delimited by point and mark.
 When call from a program,
@@ -2747,24 +3167,30 @@ arguments specify the START and END of the rectangle.
 
 
 
-@unnumberedsec emacspeak-speak-region@findex emacspeak-speak-region
+@unnumberedsec emacspeak-speak-region
+@findex emacspeak-speak-region
 @kindex  control e r 
  control e r 
+
 Speak region.
 Argument START  and END specify region to speak.
 
 
 
-@unnumberedsec emacspeak-speak-rest-of-buffer@findex emacspeak-speak-rest-of-buffer
+@unnumberedsec emacspeak-speak-rest-of-buffer
+@findex emacspeak-speak-rest-of-buffer
 @kindex  control e n 
  control e n 
+
 Speak remainder of the buffer starting at point
 
 
 
-@unnumberedsec emacspeak-speak-run-shell-command@findex emacspeak-speak-run-shell-command
+@unnumberedsec emacspeak-speak-run-shell-command
+@findex emacspeak-speak-run-shell-command
 @kindex  control e ! 
  control e ! 
+
 Invoke shell COMMAND and display its output as a table.
 The results are placed in a buffer in Emacspeak's table
   browsing mode.
@@ -2778,7 +3204,8 @@ The results are placed in a buffer in Emacspeak's table
 
 
 
-@unnumberedsec emacspeak-speak-sentence@findex emacspeak-speak-sentence
+@unnumberedsec emacspeak-speak-sentence
+@findex emacspeak-speak-sentence
  No global keybinding
 
 Speak current sentence.
@@ -2787,7 +3214,8 @@ Negative prefix arg speaks from start of sentence to point.
 
 
 
-@unnumberedsec emacspeak-speak-set-display-table@findex emacspeak-speak-set-display-table
+@unnumberedsec emacspeak-speak-set-display-table
+@findex emacspeak-speak-set-display-table
  No global keybinding
 
 Sets up buffer specific speech display table that controls how
@@ -2796,9 +3224,11 @@ setting to be global.
 
 
 
-@unnumberedsec emacspeak-speak-sexp@findex emacspeak-speak-sexp
+@unnumberedsec emacspeak-speak-sexp
+@findex emacspeak-speak-sexp
 @kindex  control e ' 
  control e ' 
+
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
@@ -2806,9 +3236,11 @@ If option  `voice-lock-mode' is on, then uses the personality.
 
 
 
-@unnumberedsec emacspeak-speak-sexp-interactively@findex emacspeak-speak-sexp-interactively
+@unnumberedsec emacspeak-speak-sexp-interactively
+@findex emacspeak-speak-sexp-interactively
 @kindex  control e " 
  control e " 
+
 Speak the start of, rest of, or the entire sexp.
 's' to speak the start.
 'r' to speak the rest.
@@ -2816,9 +3248,11 @@ any other key to speak entire sexp.
 
 
 
-@unnumberedsec emacspeak-speak-show-active-network-interfaces@findex emacspeak-speak-show-active-network-interfaces
+@unnumberedsec emacspeak-speak-show-active-network-interfaces
+@findex emacspeak-speak-show-active-network-interfaces
 @kindex  control e  cap I  
  control e  cap I  
+
 Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
@@ -2826,28 +3260,32 @@ also copied to the kill ring for convenient yanking.
 
 
 
-@unnumberedsec emacspeak-speak-show-memory-used@findex emacspeak-speak-show-memory-used
+@unnumberedsec emacspeak-speak-show-memory-used
+@findex emacspeak-speak-show-memory-used
  No global keybinding
 
 Convenience command to view state of memory used in this session so far.
 
 
 
-@unnumberedsec emacspeak-speak-skim-buffer@findex emacspeak-speak-skim-buffer
+@unnumberedsec emacspeak-speak-skim-buffer
+@findex emacspeak-speak-skim-buffer
  No global keybinding
 
 Skim the current buffer  a paragraph at a time.
 
 
 
-@unnumberedsec emacspeak-speak-skim-next-paragraph@findex emacspeak-speak-skim-next-paragraph
+@unnumberedsec emacspeak-speak-skim-next-paragraph
+@findex emacspeak-speak-skim-next-paragraph
  No global keybinding
 
 Skim next paragraph.
 
 
 
-@unnumberedsec emacspeak-speak-skim-paragraph@findex emacspeak-speak-skim-paragraph
+@unnumberedsec emacspeak-speak-skim-paragraph
+@findex emacspeak-speak-skim-paragraph
  No global keybinding
 
 Skim paragraph.
@@ -2857,21 +3295,26 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 
 
-@unnumberedsec emacspeak-speak-spaces-at-point@findex emacspeak-speak-spaces-at-point
+@unnumberedsec emacspeak-speak-spaces-at-point
+@findex emacspeak-speak-spaces-at-point
 @kindex  control e meta control @ 
  control e meta control @ 
+
 Speak the white space at point.
 
 
 
-@unnumberedsec emacspeak-speak-spell-current-word@findex emacspeak-speak-spell-current-word
+@unnumberedsec emacspeak-speak-spell-current-word
+@findex emacspeak-speak-spell-current-word
 @kindex  control e  cap W  
  control e  cap W  
+
 Spell word at  point.
 
 
 
-@unnumberedsec emacspeak-speak-telephone-directory@findex emacspeak-speak-telephone-directory
+@unnumberedsec emacspeak-speak-telephone-directory
+@findex emacspeak-speak-telephone-directory
  No global keybinding
 
 Lookup and display a phone number.
@@ -2879,9 +3322,11 @@ With prefix arg, opens the phone book for editting.
 
 
 
-@unnumberedsec emacspeak-speak-this-buffer-next-display@findex emacspeak-speak-this-buffer-next-display
+@unnumberedsec emacspeak-speak-this-buffer-next-display
+@findex emacspeak-speak-this-buffer-next-display
 @kindex  control e right 
  control e right 
+
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
@@ -2889,9 +3334,11 @@ meaning of `next'.
 
 
 
-@unnumberedsec emacspeak-speak-this-buffer-other-window-display@findex emacspeak-speak-this-buffer-other-window-display
+@unnumberedsec emacspeak-speak-this-buffer-other-window-display
+@findex emacspeak-speak-this-buffer-other-window-display
 @kindex  control e / 
  control e / 
+
 Speak this buffer as displayed in a different frame.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
@@ -2906,9 +3353,11 @@ the display to speak.
 
 
 
-@unnumberedsec emacspeak-speak-this-buffer-previous-display@findex emacspeak-speak-this-buffer-previous-display
+@unnumberedsec emacspeak-speak-this-buffer-previous-display
+@findex emacspeak-speak-this-buffer-previous-display
 @kindex  control e left 
  control e left 
+
 Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
@@ -2916,21 +3365,26 @@ meaning of `previous'.
 
 
 
-@unnumberedsec emacspeak-speak-time@findex emacspeak-speak-time
+@unnumberedsec emacspeak-speak-time
+@findex emacspeak-speak-time
 @kindex  control e t 
  control e t 
+
 Speak the time.
 
 
 
-@unnumberedsec emacspeak-speak-version@findex emacspeak-speak-version
+@unnumberedsec emacspeak-speak-version
+@findex emacspeak-speak-version
 @kindex  control e  cap V  
  control e  cap V  
+
 Announce version information for running emacspeak.
 
 
 
-@unnumberedsec emacspeak-speak-voice-annotate-paragraphs@findex emacspeak-speak-voice-annotate-paragraphs
+@unnumberedsec emacspeak-speak-voice-annotate-paragraphs
+@findex emacspeak-speak-voice-annotate-paragraphs
  No global keybinding
 
 Locate paragraphs and voice annotate the first word.
@@ -2939,16 +3393,20 @@ Useful to do this before you listen to an entire buffer.
 
 
 
-@unnumberedsec emacspeak-speak-window-information@findex emacspeak-speak-window-information
+@unnumberedsec emacspeak-speak-window-information
+@findex emacspeak-speak-window-information
 @kindex  control e control w 
  control e control w 
+
 Speaks information about current window.
 
 
 
-@unnumberedsec emacspeak-speak-word@findex emacspeak-speak-word
+@unnumberedsec emacspeak-speak-word
+@findex emacspeak-speak-word
 @kindex  control e w 
  control e w 
+
 Speak current word.
 With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
@@ -2957,7 +3415,8 @@ spelt instead of being spoken.
 
 
 
-@unnumberedsec emacspeak-speak-word-interactively@findex emacspeak-speak-word-interactively
+@unnumberedsec emacspeak-speak-word-interactively
+@findex emacspeak-speak-word-interactively
  No global keybinding
 
 Speak the start of, rest of, or the entire word.
@@ -2967,28 +3426,34 @@ any other key to speak entire word.
 
 
 
-@unnumberedsec emacspeak-speedbar-click@findex emacspeak-speedbar-click
+@unnumberedsec emacspeak-speedbar-click
+@findex emacspeak-speedbar-click
  No global keybinding
 
 Does the equivalent of the mouse click from the keyboard
 
 
 
-@unnumberedsec emacspeak-speedbar-goto-speedbar@findex emacspeak-speedbar-goto-speedbar
+@unnumberedsec emacspeak-speedbar-goto-speedbar
+@findex emacspeak-speedbar-goto-speedbar
 @kindex  insert 
  insert 
+
 Switch to the speedbar
 
 
 
-@unnumberedsec emacspeak-submit-bug@findex emacspeak-submit-bug
+@unnumberedsec emacspeak-submit-bug
+@findex emacspeak-submit-bug
 @kindex  control e control b 
  control e control b 
+
 Function to submit a bug to the programs maintainer.
 
 
 
-@unnumberedsec emacspeak-switch-to-completions-window@findex emacspeak-switch-to-completions-window
+@unnumberedsec emacspeak-switch-to-completions-window
+@findex emacspeak-switch-to-completions-window
  No global keybinding
 
 Jump to the *Completions* buffer if it is active.
@@ -2998,16 +3463,20 @@ to reduce chatter.
 
 
 
-@unnumberedsec emacspeak-switch-to-previous-buffer@findex emacspeak-switch-to-previous-buffer
+@unnumberedsec emacspeak-switch-to-previous-buffer
+@findex emacspeak-switch-to-previous-buffer
 @kindex  l10 
  l10 
+
 Switch to most recently used interesting buffer.
 
 
 
-@unnumberedsec emacspeak-symlink-current-file@findex emacspeak-symlink-current-file
+@unnumberedsec emacspeak-symlink-current-file
+@findex emacspeak-symlink-current-file
 @kindex  control e meta s 
  control e meta s 
+
 Link (symbolic link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
   when linking.  If location is a directory, the file is copied
@@ -3017,7 +3486,8 @@ Prompts for the new location and preserves modification time
 
 
 
-@unnumberedsec emacspeak-table-copy-current-element-to-register@findex emacspeak-table-copy-current-element-to-register
+@unnumberedsec emacspeak-table-copy-current-element-to-register
+@findex emacspeak-table-copy-current-element-to-register
  No global keybinding
 
 Speak current table element
@@ -3029,7 +3499,8 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-table-copy-to-clipboard@findex emacspeak-table-copy-to-clipboard
+@unnumberedsec emacspeak-table-copy-to-clipboard
+@findex emacspeak-table-copy-to-clipboard
  No global keybinding
 
 Copy table in current buffer to the table clipboard.
@@ -3037,9 +3508,11 @@ Current buffer must be in emacspeak-table mode.
 
 
 
-@unnumberedsec emacspeak-table-display-table-in-region@findex emacspeak-table-display-table-in-region
+@unnumberedsec emacspeak-table-display-table-in-region
+@findex emacspeak-table-display-table-in-region
 @kindex  control e TAB 
  control e TAB 
+
 Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.
 emacspeak table mode is designed to let you browse tabular data using
@@ -3052,7 +3525,8 @@ the documentation on the table browser.
 
 
 
-@unnumberedsec emacspeak-table-find-csv-file@findex emacspeak-table-find-csv-file
+@unnumberedsec emacspeak-table-find-csv-file
+@findex emacspeak-table-find-csv-file
  No global keybinding
 
 Process a csv (comma separated values) file. 
@@ -3065,9 +3539,11 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-table-find-file@findex emacspeak-table-find-file
+@unnumberedsec emacspeak-table-find-file
+@findex emacspeak-table-find-file
 @kindex  control e control t 
  control e control t 
+
 Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
@@ -3084,14 +3560,16 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-table-get-entry-with-headers@findex emacspeak-table-get-entry-with-headers
+@unnumberedsec emacspeak-table-get-entry-with-headers
+@findex emacspeak-table-get-entry-with-headers
  No global keybinding
 
 Return   both row and column header and table element
 
 
 
-@unnumberedsec emacspeak-table-goto@findex emacspeak-table-goto
+@unnumberedsec emacspeak-table-goto
+@findex emacspeak-table-goto
  No global keybinding
 
 Prompt for a table cell coordinates and jump to it.
@@ -3103,49 +3581,56 @@ Automatically defined advice to speak interactive prompts.
 
 
 
-@unnumberedsec emacspeak-table-goto-bottom@findex emacspeak-table-goto-bottom
+@unnumberedsec emacspeak-table-goto-bottom
+@findex emacspeak-table-goto-bottom
  No global keybinding
 
 Goes to the bottom of the current column.
 
 
 
-@unnumberedsec emacspeak-table-goto-left@findex emacspeak-table-goto-left
+@unnumberedsec emacspeak-table-goto-left
+@findex emacspeak-table-goto-left
  No global keybinding
 
 Goes to the left of the current row.
 
 
 
-@unnumberedsec emacspeak-table-goto-right@findex emacspeak-table-goto-right
+@unnumberedsec emacspeak-table-goto-right
+@findex emacspeak-table-goto-right
  No global keybinding
 
 Goes to the right of the current row.
 
 
 
-@unnumberedsec emacspeak-table-goto-top@findex emacspeak-table-goto-top
+@unnumberedsec emacspeak-table-goto-top
+@findex emacspeak-table-goto-top
  No global keybinding
 
 Goes to the top of the current column.
 
 
 
-@unnumberedsec emacspeak-table-next-column@findex emacspeak-table-next-column
+@unnumberedsec emacspeak-table-next-column
+@findex emacspeak-table-next-column
  No global keybinding
 
 Move to the next column if possible
 
 
 
-@unnumberedsec emacspeak-table-next-row@findex emacspeak-table-next-row
+@unnumberedsec emacspeak-table-next-row
+@findex emacspeak-table-next-row
  No global keybinding
 
 Move to the next row if possible
 
 
 
-@unnumberedsec emacspeak-table-paste-from-clipboard@findex emacspeak-table-paste-from-clipboard
+@unnumberedsec emacspeak-table-paste-from-clipboard
+@findex emacspeak-table-paste-from-clipboard
  No global keybinding
 
 Paste the emacspeak table clipboard into the current buffer.
@@ -3154,21 +3639,24 @@ markup to use.
 
 
 
-@unnumberedsec emacspeak-table-previous-column@findex emacspeak-table-previous-column
+@unnumberedsec emacspeak-table-previous-column
+@findex emacspeak-table-previous-column
  No global keybinding
 
 Move to the previous column  if possible
 
 
 
-@unnumberedsec emacspeak-table-previous-row@findex emacspeak-table-previous-row
+@unnumberedsec emacspeak-table-previous-row
+@findex emacspeak-table-previous-row
  No global keybinding
 
 Move to the previous row if possible
 
 
 
-@unnumberedsec emacspeak-table-search@findex emacspeak-table-search
+@unnumberedsec emacspeak-table-search
+@findex emacspeak-table-search
  No global keybinding
 
 Search the table for matching elements.  Interactively prompts for
@@ -3177,7 +3665,8 @@ the matching cell current.
 
 
 
-@unnumberedsec emacspeak-table-search-headers@findex emacspeak-table-search-headers
+@unnumberedsec emacspeak-table-search-headers
+@findex emacspeak-table-search-headers
  No global keybinding
 
 Search the table row or column headers.  Interactively prompts for
@@ -3186,7 +3675,8 @@ match, makes the matching row or column current.
 
 
 
-@unnumberedsec emacspeak-table-select-automatic-speaking-method@findex emacspeak-table-select-automatic-speaking-method
+@unnumberedsec emacspeak-table-select-automatic-speaking-method
+@findex emacspeak-table-select-automatic-speaking-method
  No global keybinding
 
 Interactively select the kind of automatic speech to produce when
@@ -3194,21 +3684,24 @@ browsing table elements
 
 
 
-@unnumberedsec emacspeak-table-sort-on-current-column@findex emacspeak-table-sort-on-current-column
+@unnumberedsec emacspeak-table-sort-on-current-column
+@findex emacspeak-table-sort-on-current-column
  No global keybinding
 
 Sort table on current column. 
 
 
 
-@unnumberedsec emacspeak-table-speak-both-headers-and-element@findex emacspeak-table-speak-both-headers-and-element
+@unnumberedsec emacspeak-table-speak-both-headers-and-element
+@findex emacspeak-table-speak-both-headers-and-element
  No global keybinding
 
 Speak  both row and column header and table element
 
 
 
-@unnumberedsec emacspeak-table-speak-column-filtered@findex emacspeak-table-speak-column-filtered
+@unnumberedsec emacspeak-table-speak-column-filtered
+@findex emacspeak-table-speak-column-filtered
  No global keybinding
 
 Speaks a table column after applying a specified column filter.
@@ -3216,35 +3709,40 @@ Optional prefix arg prompts for a new filter.
 
 
 
-@unnumberedsec emacspeak-table-speak-column-header-and-element@findex emacspeak-table-speak-column-header-and-element
+@unnumberedsec emacspeak-table-speak-column-header-and-element
+@findex emacspeak-table-speak-column-header-and-element
  No global keybinding
 
 Speak  column header and table element
 
 
 
-@unnumberedsec emacspeak-table-speak-coordinates@findex emacspeak-table-speak-coordinates
+@unnumberedsec emacspeak-table-speak-coordinates
+@findex emacspeak-table-speak-coordinates
  No global keybinding
 
 Speak current table coordinates.
 
 
 
-@unnumberedsec emacspeak-table-speak-current-element@findex emacspeak-table-speak-current-element
+@unnumberedsec emacspeak-table-speak-current-element
+@findex emacspeak-table-speak-current-element
  No global keybinding
 
 Speak current table element
 
 
 
-@unnumberedsec emacspeak-table-speak-dimensions@findex emacspeak-table-speak-dimensions
+@unnumberedsec emacspeak-table-speak-dimensions
+@findex emacspeak-table-speak-dimensions
  No global keybinding
 
 Speak current table dimensions.
 
 
 
-@unnumberedsec emacspeak-table-speak-row-filtered@findex emacspeak-table-speak-row-filtered
+@unnumberedsec emacspeak-table-speak-row-filtered
+@findex emacspeak-table-speak-row-filtered
  No global keybinding
 
 Speaks a table row after applying a specified row filter.
@@ -3252,28 +3750,32 @@ Optional prefix arg prompts for a new filter.
 
 
 
-@unnumberedsec emacspeak-table-speak-row-header-and-element@findex emacspeak-table-speak-row-header-and-element
+@unnumberedsec emacspeak-table-speak-row-header-and-element
+@findex emacspeak-table-speak-row-header-and-element
  No global keybinding
 
 Speak  row header and table element
 
 
 
-@unnumberedsec emacspeak-table-ui-filter-load@findex emacspeak-table-ui-filter-load
+@unnumberedsec emacspeak-table-ui-filter-load
+@findex emacspeak-table-ui-filter-load
  No global keybinding
 
 Load saved filter settings.
 
 
 
-@unnumberedsec emacspeak-table-ui-filter-save@findex emacspeak-table-ui-filter-save
+@unnumberedsec emacspeak-table-ui-filter-save
+@findex emacspeak-table-ui-filter-save
  No global keybinding
 
 Save out filter settings.
 
 
 
-@unnumberedsec emacspeak-table-view-csv-buffer@findex emacspeak-table-view-csv-buffer
+@unnumberedsec emacspeak-table-view-csv-buffer
+@findex emacspeak-table-view-csv-buffer
  No global keybinding
 
 Process a csv (comma separated values) data. 
@@ -3282,121 +3784,140 @@ navigation.
 
 
 
-@unnumberedsec emacspeak-tabulate-region@findex emacspeak-tabulate-region
+@unnumberedsec emacspeak-tabulate-region
+@findex emacspeak-tabulate-region
 @kindex  control e i 
  control e i 
+
 Voicifies the white-space of a table if one found.  Optional interactive prefix
 arg mark-fields specifies if the header row information is used to mark fields
 in the white-space.
 
 
 
-@unnumberedsec emacspeak-tapestry-describe-tapestry@findex emacspeak-tapestry-describe-tapestry
+@unnumberedsec emacspeak-tapestry-describe-tapestry
+@findex emacspeak-tapestry-describe-tapestry
 @kindex  control e meta t 
  control e meta t 
+
 Describe the current layout of visible buffers in current frame.
 
 
 
-@unnumberedsec emacspeak-tar-speak-file-date@findex emacspeak-tar-speak-file-date
+@unnumberedsec emacspeak-tar-speak-file-date
+@findex emacspeak-tar-speak-file-date
  No global keybinding
 
 Speak date of file current entry 
 
 
 
-@unnumberedsec emacspeak-tar-speak-file-permissions@findex emacspeak-tar-speak-file-permissions
+@unnumberedsec emacspeak-tar-speak-file-permissions
+@findex emacspeak-tar-speak-file-permissions
  No global keybinding
 
 Speak permissions of file current entry 
 
 
 
-@unnumberedsec emacspeak-tar-speak-file-size@findex emacspeak-tar-speak-file-size
+@unnumberedsec emacspeak-tar-speak-file-size
+@findex emacspeak-tar-speak-file-size
  No global keybinding
 
 Speak size of file current entry 
 
 
 
-@unnumberedsec emacspeak-tetris-goto-bottom-row@findex emacspeak-tetris-goto-bottom-row
+@unnumberedsec emacspeak-tetris-goto-bottom-row
+@findex emacspeak-tetris-goto-bottom-row
  No global keybinding
 
 Move to and speak bottom row
 
 
 
-@unnumberedsec emacspeak-tetris-goto-top-row@findex emacspeak-tetris-goto-top-row
+@unnumberedsec emacspeak-tetris-goto-top-row
+@findex emacspeak-tetris-goto-top-row
  No global keybinding
 
 Move to and speak the top row
 
 
 
-@unnumberedsec emacspeak-tetris-speak-column@findex emacspeak-tetris-speak-column
+@unnumberedsec emacspeak-tetris-speak-column
+@findex emacspeak-tetris-speak-column
  No global keybinding
 
 Speak  column --default is to speak current column
 
 
 
-@unnumberedsec emacspeak-tetris-speak-coordinates@findex emacspeak-tetris-speak-coordinates
+@unnumberedsec emacspeak-tetris-speak-coordinates
+@findex emacspeak-tetris-speak-coordinates
  No global keybinding
 
 Speak current position
 
 
 
-@unnumberedsec emacspeak-tetris-speak-current-shape@findex emacspeak-tetris-speak-current-shape
+@unnumberedsec emacspeak-tetris-speak-current-shape
+@findex emacspeak-tetris-speak-current-shape
  No global keybinding
 
 Speak current shape
 
 
 
-@unnumberedsec emacspeak-tetris-speak-current-shape-and-coordinates@findex emacspeak-tetris-speak-current-shape-and-coordinates
+@unnumberedsec emacspeak-tetris-speak-current-shape-and-coordinates
+@findex emacspeak-tetris-speak-current-shape-and-coordinates
  No global keybinding
 
 Speak shape orientation and coordinates
 
 
 
-@unnumberedsec emacspeak-tetris-speak-next-shape@findex emacspeak-tetris-speak-next-shape
+@unnumberedsec emacspeak-tetris-speak-next-shape
+@findex emacspeak-tetris-speak-next-shape
  No global keybinding
 
 Speak next shape
 
 
 
-@unnumberedsec emacspeak-tetris-speak-row@findex emacspeak-tetris-speak-row
+@unnumberedsec emacspeak-tetris-speak-row
+@findex emacspeak-tetris-speak-row
  No global keybinding
 
 Speak current tetris row
 
 
 
-@unnumberedsec emacspeak-tetris-speak-row-number@findex emacspeak-tetris-speak-row-number
+@unnumberedsec emacspeak-tetris-speak-row-number
+@findex emacspeak-tetris-speak-row-number
  No global keybinding
 
 Speak where on the tetris board we are
 
 
 
-@unnumberedsec emacspeak-tetris-speak-score@findex emacspeak-tetris-speak-score
+@unnumberedsec emacspeak-tetris-speak-score
+@findex emacspeak-tetris-speak-score
  No global keybinding
 
 Speak the score
 
 
 
-@unnumberedsec emacspeak-tetris-speak-x-coordinate@findex emacspeak-tetris-speak-x-coordinate
+@unnumberedsec emacspeak-tetris-speak-x-coordinate
+@findex emacspeak-tetris-speak-x-coordinate
  No global keybinding
 
 Speak current position
 
 
 
-@unnumberedsec emacspeak-toggle-action-mode@findex emacspeak-toggle-action-mode
+@unnumberedsec emacspeak-toggle-action-mode
+@findex emacspeak-toggle-action-mode
  No global keybinding
 
 Toggle state of  Emacspeak  action mode.
@@ -3405,9 +3926,11 @@ current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-audio-indentation@findex emacspeak-toggle-audio-indentation
+@unnumberedsec emacspeak-toggle-audio-indentation
+@findex emacspeak-toggle-audio-indentation
 @kindex  control e d i 
  control e d i 
+
 Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
@@ -3418,26 +3941,32 @@ results in the number of initial spaces being spoken.
 
 
 
-@unnumberedsec emacspeak-toggle-auditory-icons@findex emacspeak-toggle-auditory-icons
+@unnumberedsec emacspeak-toggle-auditory-icons
+@findex emacspeak-toggle-auditory-icons
 @kindex  control e control a 
  control e control a 
+
 Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value.
 
 
 
-@unnumberedsec emacspeak-toggle-character-echo@findex emacspeak-toggle-character-echo
+@unnumberedsec emacspeak-toggle-character-echo
+@findex emacspeak-toggle-character-echo
 @kindex  control e d k 
  control e d k 
+
 Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-comint-autospeak@findex emacspeak-toggle-comint-autospeak
+@unnumberedsec emacspeak-toggle-comint-autospeak
+@findex emacspeak-toggle-comint-autospeak
 @kindex  control e control q 
  control e control q 
+
 Toggle state of Emacspeak comint autospeak.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
@@ -3446,9 +3975,11 @@ set the current local value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-comint-output-monitor@findex emacspeak-toggle-comint-output-monitor
+@unnumberedsec emacspeak-toggle-comint-output-monitor
+@findex emacspeak-toggle-comint-output-monitor
 @kindex  control e o 
  control e o 
+
 Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
@@ -3457,7 +3988,8 @@ set the current local value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-eterm-autospeak@findex emacspeak-toggle-eterm-autospeak
+@unnumberedsec emacspeak-toggle-eterm-autospeak
+@findex emacspeak-toggle-eterm-autospeak
  No global keybinding
 
 Toggle state of eterm autospeak.
@@ -3468,18 +4000,22 @@ all output to the terminal is automatically spoken.
 
 
 
-@unnumberedsec emacspeak-toggle-line-echo@findex emacspeak-toggle-line-echo
+@unnumberedsec emacspeak-toggle-line-echo
+@findex emacspeak-toggle-line-echo
 @kindex  control e d l 
  control e d l 
+
 Toggle state of  Emacspeak  line echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-mail-alert@findex emacspeak-toggle-mail-alert
+@unnumberedsec emacspeak-toggle-mail-alert
+@findex emacspeak-toggle-mail-alert
 @kindex  control e meta m 
  control e meta m 
+
 Toggle state of  Emacspeak  mail alert.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
@@ -3488,62 +4024,75 @@ indicating the arrival  of new mail when displaying the mode line.
 
 
 
-@unnumberedsec emacspeak-toggle-show-point@findex emacspeak-toggle-show-point
+@unnumberedsec emacspeak-toggle-show-point
+@findex emacspeak-toggle-show-point
 @kindex  control e control d 
  control e control d 
+
 Toggle state of  Emacspeak-show-point.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-speak-messages@findex emacspeak-toggle-speak-messages
+@unnumberedsec emacspeak-toggle-speak-messages
+@findex emacspeak-toggle-speak-messages
 @kindex  control e q 
  control e q 
+
 Toggle the state of whether emacspeak echoes messages.
 
 
 
-@unnumberedsec emacspeak-toggle-which-function@findex emacspeak-toggle-which-function
+@unnumberedsec emacspeak-toggle-which-function
+@findex emacspeak-toggle-which-function
 @kindex  control e meta w 
  control e meta w 
+
 Toggle state of  Emacspeak  which function mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-toggle-word-echo@findex emacspeak-toggle-word-echo
+@unnumberedsec emacspeak-toggle-word-echo
+@findex emacspeak-toggle-word-echo
 @kindex  control e d w 
  control e d w 
+
 Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 
 
 
-@unnumberedsec emacspeak-url-template-fetch@findex emacspeak-url-template-fetch
+@unnumberedsec emacspeak-url-template-fetch
+@findex emacspeak-url-template-fetch
 @kindex  control e u 
  control e u 
+
 Prompt for  URL template and fetch specified resource.
 
 
 
-@unnumberedsec emacspeak-url-template-load@findex emacspeak-url-template-load
+@unnumberedsec emacspeak-url-template-load
+@findex emacspeak-url-template-load
  No global keybinding
 
 Load URL template resources from specified location.
 
 
 
-@unnumberedsec emacspeak-url-template-save@findex emacspeak-url-template-save
+@unnumberedsec emacspeak-url-template-save
+@findex emacspeak-url-template-save
  No global keybinding
 
 Save out url templates.
 
 
 
-@unnumberedsec emacspeak-use-customized-blink-paren@findex emacspeak-use-customized-blink-paren
+@unnumberedsec emacspeak-use-customized-blink-paren
+@findex emacspeak-use-customized-blink-paren
  No global keybinding
 
 A customized blink-paren to speak  matching opening paren.
@@ -3553,70 +4102,85 @@ which does not talk.
 
 
 
-@unnumberedsec emacspeak-view-emacspeak-doc@findex emacspeak-view-emacspeak-doc
+@unnumberedsec emacspeak-view-emacspeak-doc
+@findex emacspeak-view-emacspeak-doc
 @kindex  control e  cap D  
  control e  cap D  
+
 Display a summary of all Emacspeak commands.
 
 
 
-@unnumberedsec emacspeak-view-emacspeak-faq@findex emacspeak-view-emacspeak-faq
+@unnumberedsec emacspeak-view-emacspeak-faq
+@findex emacspeak-view-emacspeak-faq
 @kindex  control e  cap F  
  control e  cap F  
+
 Browse the Emacspeak FAQ.
 
 
 
-@unnumberedsec emacspeak-view-emacspeak-news@findex emacspeak-view-emacspeak-news
+@unnumberedsec emacspeak-view-emacspeak-news
+@findex emacspeak-view-emacspeak-news
 @kindex  control e  cap N  
  control e  cap N  
+
 Display info on recent change to Emacspeak.
 
 
 
-@unnumberedsec emacspeak-view-emacspeak-tips@findex emacspeak-view-emacspeak-tips
+@unnumberedsec emacspeak-view-emacspeak-tips
+@findex emacspeak-view-emacspeak-tips
 @kindex  control e  cap T  
  control e  cap T  
+
 Browse  Emacspeak productivity tips.
 
 
 
-@unnumberedsec emacspeak-view-line-to-top@findex emacspeak-view-line-to-top
+@unnumberedsec emacspeak-view-line-to-top
+@findex emacspeak-view-line-to-top
  No global keybinding
 
 Moves current line to top of window
 
 
 
-@unnumberedsec emacspeak-view-process-goto-current-field-next-line@findex emacspeak-view-process-goto-current-field-next-line
+@unnumberedsec emacspeak-view-process-goto-current-field-next-line
+@findex emacspeak-view-process-goto-current-field-next-line
  No global keybinding
 
 Set point to the current field in the next line.
 
 
 
-@unnumberedsec emacspeak-view-process-speak-current-field@findex emacspeak-view-process-speak-current-field
+@unnumberedsec emacspeak-view-process-speak-current-field
+@findex emacspeak-view-process-speak-current-field
  No global keybinding
 
 Speak current field
 
 
 
-@unnumberedsec emacspeak-view-register@findex emacspeak-view-register
+@unnumberedsec emacspeak-view-register
+@findex emacspeak-view-register
 @kindex  control e v 
  control e v 
+
 Display the contents of a register, and then speak it.
 
 
 
-@unnumberedsec emacspeak-vm-browse-message@findex emacspeak-vm-browse-message
+@unnumberedsec emacspeak-vm-browse-message
+@findex emacspeak-vm-browse-message
  No global keybinding
 
 Browse an email message --read it paragraph at a time. 
 
 
 
-@unnumberedsec emacspeak-vm-locate-subject-line@findex emacspeak-vm-locate-subject-line
+@unnumberedsec emacspeak-vm-locate-subject-line
+@findex emacspeak-vm-locate-subject-line
  No global keybinding
 
 Locates the subject line in a message being read.
@@ -3625,21 +4189,24 @@ that has been forwarded multiple times.
 
 
 
-@unnumberedsec emacspeak-vm-mode-line@findex emacspeak-vm-mode-line
+@unnumberedsec emacspeak-vm-mode-line
+@findex emacspeak-vm-mode-line
  No global keybinding
 
 VM mode line information. 
 
 
 
-@unnumberedsec emacspeak-vm-speak-labels@findex emacspeak-vm-speak-labels
+@unnumberedsec emacspeak-vm-speak-labels
+@findex emacspeak-vm-speak-labels
  No global keybinding
 
 Speak a message's labels
 
 
 
-@unnumberedsec emacspeak-voicify-rectangle@findex emacspeak-voicify-rectangle
+@unnumberedsec emacspeak-voicify-rectangle
+@findex emacspeak-voicify-rectangle
  No global keybinding
 
 Voicify the current rectangle.
@@ -3649,7 +4216,8 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 
 
-@unnumberedsec emacspeak-voicify-region@findex emacspeak-voicify-region
+@unnumberedsec emacspeak-voicify-region
+@findex emacspeak-voicify-region
  No global keybinding
 
 Voicify the current region.
@@ -3659,28 +4227,32 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 
 
-@unnumberedsec emacspeak-w3-do-onclick@findex emacspeak-w3-do-onclick
+@unnumberedsec emacspeak-w3-do-onclick
+@findex emacspeak-w3-do-onclick
  No global keybinding
 
 Do  onclick action.
 
 
 
-@unnumberedsec emacspeak-w3-javascript-follow-link@findex emacspeak-w3-javascript-follow-link
+@unnumberedsec emacspeak-w3-javascript-follow-link
+@findex emacspeak-w3-javascript-follow-link
  No global keybinding
 
 Follow URL hidden inside a javascript link
 
 
 
-@unnumberedsec emacspeak-w3-jump-to-title-in-content@findex emacspeak-w3-jump-to-title-in-content
+@unnumberedsec emacspeak-w3-jump-to-title-in-content
+@findex emacspeak-w3-jump-to-title-in-content
  No global keybinding
 
 Jumps to the occurrence of document title in page body.
 
 
 
-@unnumberedsec emacspeak-w3-lynx-url-under-point@findex emacspeak-w3-lynx-url-under-point
+@unnumberedsec emacspeak-w3-lynx-url-under-point
+@findex emacspeak-w3-lynx-url-under-point
  No global keybinding
 
 Display contents of URL under point using LYNX.  The
@@ -3691,7 +4263,8 @@ the table structure extraction code in W3.
 
 
 
-@unnumberedsec emacspeak-w3-next-doc-element@findex emacspeak-w3-next-doc-element
+@unnumberedsec emacspeak-w3-next-doc-element
+@findex emacspeak-w3-next-doc-element
  No global keybinding
 
 Move forward  to the next document element.
@@ -3700,7 +4273,8 @@ specifies by how many eleemnts to move.
 
 
 
-@unnumberedsec emacspeak-w3-previous-doc-element@findex emacspeak-w3-previous-doc-element
+@unnumberedsec emacspeak-w3-previous-doc-element
+@findex emacspeak-w3-previous-doc-element
  No global keybinding
 
 Move back  to the previous document element.
@@ -3709,7 +4283,8 @@ specifies by how many eleemnts to move.
 
 
 
-@unnumberedsec emacspeak-w3-show-anchor-class@findex emacspeak-w3-show-anchor-class
+@unnumberedsec emacspeak-w3-show-anchor-class
+@findex emacspeak-w3-show-anchor-class
  No global keybinding
 
 Display any class attributes set on corresponding anchor
@@ -3717,28 +4292,32 @@ element.
 
 
 
-@unnumberedsec emacspeak-w3-speak-next-element@findex emacspeak-w3-speak-next-element
+@unnumberedsec emacspeak-w3-speak-next-element
+@findex emacspeak-w3-speak-next-element
  No global keybinding
 
 Speak next document element.
 
 
 
-@unnumberedsec emacspeak-w3-speak-this-element@findex emacspeak-w3-speak-this-element
+@unnumberedsec emacspeak-w3-speak-this-element
+@findex emacspeak-w3-speak-this-element
  No global keybinding
 
 Speak document element under point.
 
 
 
-@unnumberedsec emacspeak-w3-toggle-table-borders@findex emacspeak-w3-toggle-table-borders
+@unnumberedsec emacspeak-w3-toggle-table-borders
+@findex emacspeak-w3-toggle-table-borders
  No global keybinding
 
 Toggle drawing of W3 table borders
 
 
 
-@unnumberedsec emacspeak-w3-url-rewrite-and-follow@findex emacspeak-w3-url-rewrite-and-follow
+@unnumberedsec emacspeak-w3-url-rewrite-and-follow
+@findex emacspeak-w3-url-rewrite-and-follow
  No global keybinding
 
 Apply a url rewrite rule as specified in the current buffer
@@ -3754,7 +4333,8 @@ even if one is already defined.
 
 
 
-@unnumberedsec emacspeak-websearch-alltheweb-search@findex emacspeak-websearch-alltheweb-search
+@unnumberedsec emacspeak-websearch-alltheweb-search
+@findex emacspeak-websearch-alltheweb-search
  No global keybinding
 
 Perform an AllTheWeb  search.
@@ -3764,63 +4344,72 @@ to specify the type of search.
 
 
 
-@unnumberedsec emacspeak-websearch-altavista-search@findex emacspeak-websearch-altavista-search
+@unnumberedsec emacspeak-websearch-altavista-search
+@findex emacspeak-websearch-altavista-search
  No global keybinding
 
 Perform an Altavista search
 
 
 
-@unnumberedsec emacspeak-websearch-appwatch-search@findex emacspeak-websearch-appwatch-search
+@unnumberedsec emacspeak-websearch-appwatch-search
+@findex emacspeak-websearch-appwatch-search
  No global keybinding
 
 Search AppWatch  Site. 
 
 
 
-@unnumberedsec emacspeak-websearch-ask-jeeves@findex emacspeak-websearch-ask-jeeves
+@unnumberedsec emacspeak-websearch-ask-jeeves
+@findex emacspeak-websearch-ask-jeeves
  No global keybinding
 
 Ask Jeeves for the answer.
 
 
 
-@unnumberedsec emacspeak-websearch-bbc-search@findex emacspeak-websearch-bbc-search
+@unnumberedsec emacspeak-websearch-bbc-search
+@findex emacspeak-websearch-bbc-search
  No global keybinding
 
 Search BBC archives.
 
 
 
-@unnumberedsec emacspeak-websearch-biblio-search@findex emacspeak-websearch-biblio-search
+@unnumberedsec emacspeak-websearch-biblio-search
+@findex emacspeak-websearch-biblio-search
  No global keybinding
 
 Search Computer Science Bibliographies.
 
 
 
-@unnumberedsec emacspeak-websearch-blue-pages@findex emacspeak-websearch-blue-pages
+@unnumberedsec emacspeak-websearch-blue-pages
+@findex emacspeak-websearch-blue-pages
  No global keybinding
 
 Search IBM Blue Pages
 
 
 
-@unnumberedsec emacspeak-websearch-britannica-search@findex emacspeak-websearch-britannica-search
+@unnumberedsec emacspeak-websearch-britannica-search
+@findex emacspeak-websearch-britannica-search
  No global keybinding
 
 Search Encyclopedia Britannica.
 
 
 
-@unnumberedsec emacspeak-websearch-citeseer-search@findex emacspeak-websearch-citeseer-search
+@unnumberedsec emacspeak-websearch-citeseer-search
+@findex emacspeak-websearch-citeseer-search
  No global keybinding
 
 Perform a CiteSeer search. 
 
 
 
-@unnumberedsec emacspeak-websearch-cnn-search@findex emacspeak-websearch-cnn-search
+@unnumberedsec emacspeak-websearch-cnn-search
+@findex emacspeak-websearch-cnn-search
  No global keybinding
 
 Perform an CNN search.  
@@ -3834,7 +4423,8 @@ emacspeak-websearch-cnn-options to an appropriate string.
 
 
 
-@unnumberedsec emacspeak-websearch-company-news@findex emacspeak-websearch-company-news
+@unnumberedsec emacspeak-websearch-company-news
+@findex emacspeak-websearch-company-news
  No global keybinding
 
 Perform an company news lookup.
@@ -3842,37 +4432,43 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 
 
-@unnumberedsec emacspeak-websearch-cpan-search@findex emacspeak-websearch-cpan-search
+@unnumberedsec emacspeak-websearch-cpan-search
+@findex emacspeak-websearch-cpan-search
  No global keybinding
 
 Search CPAN  Comprehensive Perl Archive Network   Site. 
 
 
 
-@unnumberedsec emacspeak-websearch-ctan-search@findex emacspeak-websearch-ctan-search
+@unnumberedsec emacspeak-websearch-ctan-search
+@findex emacspeak-websearch-ctan-search
  No global keybinding
 
 Search CTAN Comprehensive TeX Archive Network   Site. 
 
 
 
-@unnumberedsec emacspeak-websearch-dejanews-search@findex emacspeak-websearch-dejanews-search
+@unnumberedsec emacspeak-websearch-dejanews-search
+@findex emacspeak-websearch-dejanews-search
  No global keybinding
 
 Perform a Dejanews search
 
 
 
-@unnumberedsec emacspeak-websearch-dictionary-hypertext-webster-search@findex emacspeak-websearch-dictionary-hypertext-webster-search
+@unnumberedsec emacspeak-websearch-dictionary-hypertext-webster-search
+@findex emacspeak-websearch-dictionary-hypertext-webster-search
  No global keybinding
 
 Search the Webster Dictionary.
 
 
 
-@unnumberedsec emacspeak-websearch-dispatch@findex emacspeak-websearch-dispatch
+@unnumberedsec emacspeak-websearch-dispatch
+@findex emacspeak-websearch-dispatch
 @kindex  control e ? 
  control e ? 
+
 Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
 Once selected, the selected searcher prompts for additional information as appropriate.
@@ -3918,16 +4514,19 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 
 
-@unnumberedsec emacspeak-websearch-emacspeak-archive@findex emacspeak-websearch-emacspeak-archive
+@unnumberedsec emacspeak-websearch-emacspeak-archive
+@findex emacspeak-websearch-emacspeak-archive
 @kindex  control h e 
  control h e 
+
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
 archives, type +redhat
 
 
 
-@unnumberedsec emacspeak-websearch-fn-cnn-search@findex emacspeak-websearch-fn-cnn-search
+@unnumberedsec emacspeak-websearch-fn-cnn-search
+@findex emacspeak-websearch-fn-cnn-search
  No global keybinding
 
 Perform an CNN FNsearch.  
@@ -3941,35 +4540,40 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 
 
-@unnumberedsec emacspeak-websearch-foldoc-search@findex emacspeak-websearch-foldoc-search
+@unnumberedsec emacspeak-websearch-foldoc-search
+@findex emacspeak-websearch-foldoc-search
  No global keybinding
 
 Perform a FolDoc search. 
 
 
 
-@unnumberedsec emacspeak-websearch-freshmeat-search@findex emacspeak-websearch-freshmeat-search
+@unnumberedsec emacspeak-websearch-freshmeat-search
+@findex emacspeak-websearch-freshmeat-search
  No global keybinding
 
 Search Freshmeat  Site. 
 
 
 
-@unnumberedsec emacspeak-websearch-google@findex emacspeak-websearch-google
+@unnumberedsec emacspeak-websearch-google
+@findex emacspeak-websearch-google
  No global keybinding
 
 Perform an Google search
 
 
 
-@unnumberedsec emacspeak-websearch-gutenberg@findex emacspeak-websearch-gutenberg
+@unnumberedsec emacspeak-websearch-gutenberg
+@findex emacspeak-websearch-gutenberg
  No global keybinding
 
 Perform an Gutenberg search
 
 
 
-@unnumberedsec emacspeak-websearch-hotbot-search@findex emacspeak-websearch-hotbot-search
+@unnumberedsec emacspeak-websearch-hotbot-search
+@findex emacspeak-websearch-hotbot-search
  No global keybinding
 
 Perform a Hotbot  search.  
@@ -3983,28 +4587,32 @@ emacspeak-websearch-hotbot-options to an appropriate string.
 
 
 
-@unnumberedsec emacspeak-websearch-inference-search@findex emacspeak-websearch-inference-search
+@unnumberedsec emacspeak-websearch-inference-search
+@findex emacspeak-websearch-inference-search
  No global keybinding
 
 Perform an Inference search.
 
 
 
-@unnumberedsec emacspeak-websearch-kerbango-search@findex emacspeak-websearch-kerbango-search
+@unnumberedsec emacspeak-websearch-kerbango-search
+@findex emacspeak-websearch-kerbango-search
  No global keybinding
 
 Search Kerbango radio tuner.
 
 
 
-@unnumberedsec emacspeak-websearch-machine-translate@findex emacspeak-websearch-machine-translate
+@unnumberedsec emacspeak-websearch-machine-translate
+@findex emacspeak-websearch-machine-translate
  No global keybinding
 
 Perform a machine translation request
 
 
 
-@unnumberedsec emacspeak-websearch-map-directions-search@findex emacspeak-websearch-map-directions-search
+@unnumberedsec emacspeak-websearch-map-directions-search
+@findex emacspeak-websearch-map-directions-search
  No global keybinding
 
 Get driving directions from Yahoo.
@@ -4012,49 +4620,56 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 
 
-@unnumberedsec emacspeak-websearch-merriam-webster-search@findex emacspeak-websearch-merriam-webster-search
+@unnumberedsec emacspeak-websearch-merriam-webster-search
+@findex emacspeak-websearch-merriam-webster-search
  No global keybinding
 
 Search the Merriam Webster Dictionary.
 
 
 
-@unnumberedsec emacspeak-websearch-news-yahoo@findex emacspeak-websearch-news-yahoo
+@unnumberedsec emacspeak-websearch-news-yahoo
+@findex emacspeak-websearch-news-yahoo
  No global keybinding
 
 Perform an Yahoo News search
 
 
 
-@unnumberedsec emacspeak-websearch-northern-light@findex emacspeak-websearch-northern-light
+@unnumberedsec emacspeak-websearch-northern-light
+@findex emacspeak-websearch-northern-light
  No global keybinding
 
 Perform a Northern Light  search
 
 
 
-@unnumberedsec emacspeak-websearch-open-directory-search@findex emacspeak-websearch-open-directory-search
+@unnumberedsec emacspeak-websearch-open-directory-search
+@findex emacspeak-websearch-open-directory-search
  No global keybinding
 
 Perform an Open Directory search
 
 
 
-@unnumberedsec emacspeak-websearch-packages-linux@findex emacspeak-websearch-packages-linux
+@unnumberedsec emacspeak-websearch-packages-linux
+@findex emacspeak-websearch-packages-linux
  No global keybinding
 
 Search for Linux packages.
 
 
 
-@unnumberedsec emacspeak-websearch-people-yahoo@findex emacspeak-websearch-people-yahoo
+@unnumberedsec emacspeak-websearch-people-yahoo
+@findex emacspeak-websearch-people-yahoo
  No global keybinding
 
 Perform an Yahoo  people search
 
 
 
-@unnumberedsec emacspeak-websearch-quotes-yahoo-search@findex emacspeak-websearch-quotes-yahoo-search
+@unnumberedsec emacspeak-websearch-quotes-yahoo-search
+@findex emacspeak-websearch-quotes-yahoo-search
  No global keybinding
 
 Perform a Quotes Yahoo .  
@@ -4068,84 +4683,96 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 
 
-@unnumberedsec emacspeak-websearch-redhat@findex emacspeak-websearch-redhat
+@unnumberedsec emacspeak-websearch-redhat
+@findex emacspeak-websearch-redhat
  No global keybinding
 
 Search RedHat site.
 
 
 
-@unnumberedsec emacspeak-websearch-rfb-search@findex emacspeak-websearch-rfb-search
+@unnumberedsec emacspeak-websearch-rfb-search
+@findex emacspeak-websearch-rfb-search
  No global keybinding
 
 Search RFB&D catalog.
 
 
 
-@unnumberedsec emacspeak-websearch-rpm-find@findex emacspeak-websearch-rpm-find
+@unnumberedsec emacspeak-websearch-rpm-find
+@findex emacspeak-websearch-rpm-find
  No global keybinding
 
 Search RPM  catalog  site.
 
 
 
-@unnumberedsec emacspeak-websearch-software-search@findex emacspeak-websearch-software-search
+@unnumberedsec emacspeak-websearch-software-search
+@findex emacspeak-websearch-software-search
  No global keybinding
 
 Search SourceForge, Freshmeat and other sites. 
 
 
 
-@unnumberedsec emacspeak-websearch-sourceforge-search@findex emacspeak-websearch-sourceforge-search
+@unnumberedsec emacspeak-websearch-sourceforge-search
+@findex emacspeak-websearch-sourceforge-search
  No global keybinding
 
 Search SourceForge Site. 
 
 
 
-@unnumberedsec emacspeak-websearch-usenet-altavista-search@findex emacspeak-websearch-usenet-altavista-search
+@unnumberedsec emacspeak-websearch-usenet-altavista-search
+@findex emacspeak-websearch-usenet-altavista-search
  No global keybinding
 
 Perform a Usenet  Altavista search
 
 
 
-@unnumberedsec emacspeak-websearch-vector-vest-search@findex emacspeak-websearch-vector-vest-search
+@unnumberedsec emacspeak-websearch-vector-vest-search
+@findex emacspeak-websearch-vector-vest-search
  No global keybinding
 
 Look up VectorVest reports .
 
 
 
-@unnumberedsec emacspeak-websearch-vickers-search@findex emacspeak-websearch-vickers-search
+@unnumberedsec emacspeak-websearch-vickers-search
+@findex emacspeak-websearch-vickers-search
  No global keybinding
 
 Search Vickers insider trading.
 
 
 
-@unnumberedsec emacspeak-websearch-w3c-search@findex emacspeak-websearch-w3c-search
+@unnumberedsec emacspeak-websearch-w3c-search
+@findex emacspeak-websearch-w3c-search
  No global keybinding
 
 Search the W3C Site.
 
 
 
-@unnumberedsec emacspeak-websearch-weather@findex emacspeak-websearch-weather
+@unnumberedsec emacspeak-websearch-weather
+@findex emacspeak-websearch-weather
  No global keybinding
 
 Get weather forecast for specified zip code.
 
 
 
-@unnumberedsec emacspeak-websearch-yahoo@findex emacspeak-websearch-yahoo
+@unnumberedsec emacspeak-websearch-yahoo
+@findex emacspeak-websearch-yahoo
  No global keybinding
 
 Perform an Yahoo  search
 
 
 
-@unnumberedsec emacspeak-websearch-yahoo-historical-chart@findex emacspeak-websearch-yahoo-historical-chart
+@unnumberedsec emacspeak-websearch-yahoo-historical-chart
+@findex emacspeak-websearch-yahoo-historical-chart
  No global keybinding
 
 Look up historical stock data.
@@ -4153,28 +4780,32 @@ Optional second arg data processes the results as data rather than HTML.
 
 
 
-@unnumberedsec emacspeak-widget-browse-widget-interactively@findex emacspeak-widget-browse-widget-interactively
+@unnumberedsec emacspeak-widget-browse-widget-interactively
+@findex emacspeak-widget-browse-widget-interactively
  No global keybinding
 
 Allows you to browse a widget
 
 
 
-@unnumberedsec emacspeak-widget-help@findex emacspeak-widget-help
+@unnumberedsec emacspeak-widget-help
+@findex emacspeak-widget-help
  No global keybinding
 
 Speak help for widget under point.
 
 
 
-@unnumberedsec emacspeak-widget-summarize-parent@findex emacspeak-widget-summarize-parent
+@unnumberedsec emacspeak-widget-summarize-parent
+@findex emacspeak-widget-summarize-parent
  No global keybinding
 
 Summarize parent of widget at point.
 
 
 
-@unnumberedsec emacspeak-widget-summarize-widget-under-point@findex emacspeak-widget-summarize-widget-under-point
+@unnumberedsec emacspeak-widget-summarize-widget-under-point
+@findex emacspeak-widget-summarize-widget-under-point
  No global keybinding
 
 Summarize a widget if any under point.
@@ -4183,14 +4814,16 @@ widget before summarizing.
 
 
 
-@unnumberedsec emacspeak-widget-update-from-minibuffer@findex emacspeak-widget-update-from-minibuffer
+@unnumberedsec emacspeak-widget-update-from-minibuffer
+@findex emacspeak-widget-update-from-minibuffer
  No global keybinding
 
 Sets widget at point by invoking its prompter.
 
 
 
-@unnumberedsec emacspeak-wizard-get-table-content-from-file@findex emacspeak-wizard-get-table-content-from-file
+@unnumberedsec emacspeak-wizard-get-table-content-from-file
+@findex emacspeak-wizard-get-table-content-from-file
  No global keybinding
 
 Extract table specified by depth and count from HTML
@@ -4199,7 +4832,8 @@ Extracted content is placed as a csv file in task.csv.
 
 
 
-@unnumberedsec emacspeak-wizard-get-table-content-from-url@findex emacspeak-wizard-get-table-content-from-url
+@unnumberedsec emacspeak-wizard-get-table-content-from-url
+@findex emacspeak-wizard-get-table-content-from-url
  No global keybinding
 
 Extract table specified by depth and count from HTML
@@ -4208,7 +4842,8 @@ Extracted content is placed as a csv file in task.csv.
 
 
 
-@unnumberedsec emacspeak-xml-browse-mode@findex emacspeak-xml-browse-mode
+@unnumberedsec emacspeak-xml-browse-mode
+@findex emacspeak-xml-browse-mode
  No global keybinding
 
 Mode for browsing XML documents.
@@ -4220,29 +4855,36 @@ Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
 
 
-@unnumberedsec emacspeak-zap-tts@findex emacspeak-zap-tts
+@unnumberedsec emacspeak-zap-tts
+@findex emacspeak-zap-tts
 @kindex  control e d z 
  control e d z 
+
 Send this command to the TTS directly.
 
 
 
-@unnumberedsec quotes-setup-emacspeak-portfolio@findex quotes-setup-emacspeak-portfolio
+@unnumberedsec quotes-setup-emacspeak-portfolio
+@findex quotes-setup-emacspeak-portfolio
  No global keybinding
 
 Set up variable emacspeak-websearch-personal-portfolio. 
 
 
 
-@unnumberedsec tts-restart@findex tts-restart
+@unnumberedsec tts-restart
+@findex tts-restart
 @kindex  control e control s 
  control e control s 
+
 Use this to nuke the currently running TTS server and restart it.
 
 
 
-@unnumberedsec tts-show-debug-buffer@findex tts-show-debug-buffer
+@unnumberedsec tts-show-debug-buffer
+@findex tts-show-debug-buffer
 @kindex  control e d meta control b 
  control e d meta control b 
+
 Select TTS debugging buffer.
 
