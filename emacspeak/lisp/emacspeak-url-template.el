@@ -322,10 +322,10 @@ to play a BBC Radio4 program on demand."
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list "Google search:")
-  #'(lambda nil
-      (declare (special  emacspeak-websearch-google-number-of-results))
-      emacspeak-websearch-google-number-of-results))
+ (list "Google search:"
+       #'(lambda nil
+           (declare (special  emacspeak-websearch-google-number-of-results))
+           emacspeak-websearch-google-number-of-results))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
@@ -547,7 +547,7 @@ The PDF document needs to be available on the public Internet.")
 (emacspeak-url-template-define
  "OASIS  Lists"
  "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
- (list "OASIS Group: ")
+ (list "OASIS Group: "
   #'(lambda ()
       (read-from-minibuffer  "YearMonth: "
                              (format-time-string "%Y%m")
@@ -821,6 +821,7 @@ plays entire program."
  "rtsp://audio.npr.org/me/%s_me_%s.rm" 
  (list
   'emacspeak-url-template-date-YearMonthDate
+  "Segment:")
  nil
  "Play Morning Edition segment."
  'emacspeak-realaudio-play)
