@@ -614,7 +614,8 @@ before the message is spoken."
   (declare (special emacspeak-last-message
                     emacspeak-speak-messages-should-pause-ongoing-speech
                     emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((dtk-stop-immediately t ))
+  (let ((dtk-stop-immediately t )
+        (inhibit-read-only t))
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (put-text-property 0 (length emacspeak-last-message)
@@ -1050,7 +1051,8 @@ in completion buffers"
 (defadvice tmm-add-prompt (around emacspeak pre act comp)
   "Speaks the list of completions we have available."
   ad-do-it
-  (let ((cap "cap "))
+  (let ((inhibit-read-only t)
+        (cap "cap "))
     (put-text-property 0 (length cap)
                        'personality voice-animate  cap)
     (put-text-property 0  (length tmm-mid-prompt)
