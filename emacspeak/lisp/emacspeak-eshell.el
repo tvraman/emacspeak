@@ -44,6 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'backquote)
+(require 'voice-setup)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (eval-when (load)
@@ -215,7 +216,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom  emacspeak-eshell-ls-clutter-personality 'voice-lighten-extra
+(defcustom  emacspeak-eshell-ls-clutter-personality voice-lighten-extra
   "Personality for transients."
   :type 'symbol
   :group 'emacspeak-eshell)

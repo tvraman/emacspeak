@@ -222,7 +222,8 @@ Existing personality properties on the text range are preserved."
                                         personality)))))))
 
 (defun emacspeak-personality-remove  (start end
-                                                        personality object)
+                                                        personality
+                                                        &optional object)
   "Remove specified personality from text bounded by start and end.
 Other existing personality properties on the text range are
 preserved."
@@ -257,7 +258,7 @@ preserved."
 ;;{{{ advice put-text-personality
 
 (defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-put
+  'emacspeak-personality-append
   "Determines how and if we voiceify faces.
 
 None means that  faces are not mapped to voices.
