@@ -135,6 +135,8 @@ int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int setOutput(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int closeDSP(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int eciCallback(void *, int, long, void *);
+int playWaveFile(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
+
 void TclEciFree(ClientData eciHandle) {
   _eciDelete(eciHandle);
   close (dsp);
@@ -253,12 +255,38 @@ int Tcleci_Init(Tcl_Interp *interp) {
                        eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "setOutput", setOutput, (ClientData)
                        eciHandle, TclEciFree);
+  Tcl_CreateObjCommand(interp, "playWave", playWaveFile, (ClientData)
+                       NULL, NULL );
   Tcl_CreateObjCommand(interp, "closeDSP", closeDSP, (ClientData)
                        eciHandle, TclEciFree);
   //>
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; 
 set tts(last_index) $x}");
+  return TCL_OK;
+}
+/* will play wave files 16 bit stereo and sample rate 11025k */
+int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+  size_t  count;
+  int length;
+  char* filename;
+  FILE* fp;
+  short samples [2*BUFSIZE];
+  if (objc !=2) {
+    Tcl_AppendResult(interp, "Usage: playWave filename", NULL);
+    return TCL_ERROR;
+  }
+  filename = Tcl_GetStringFromObj(objv[1], &length);
+  fp =fopen(filename, "r");
+  if (fp == NULL) {
+    Tcl_AppendResult(interp, "Error opening wave file.", NULL);
+    return TCL_ERROR;
+  }
+  fprintf(stderr, "Playing %s\n", filename);
+  while ((count =fread(  samples, 2, 2*BUFSIZE, fp)) >0) {
+    write (dsp, samples, count);
+  }
+  fclose(fp);
   return TCL_OK;
 }
 
