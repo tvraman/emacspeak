@@ -720,11 +720,21 @@ from English to German.")
 ;;{{{ Adobe pdf conversion 
 
 (emacspeak-url-template-define
- "pdf2html"
- "http://access-sjc0.adobe.com/access/convert.do?acceptLanguage=en&convertTo=text&visuallyImpaired=true&platform=Linux&srcPdfUrl=%s"
+ "pdf2txt"
+ "http://access.adobe.com/access/convert.do?acceptLanguage=en&srcPdfUrl=%s&convertTo=text&visuallyImpaired=true&preferHTMLReason=&platform=Linux&comments=&submit=Convert"
  (list "PDF URL: ")
  nil
- "Use access.adobe.com to  convert a remote PDF document to HTML.
+ "Use access.adobe.com to  convert a remote PDF document to plain
+ text.
+The PDF document needs to be available on the public Internet.")
+
+(emacspeak-url-template-define
+ "pdf2html"
+ "http://access.adobe.com/access/convert.do?acceptLanguage=en&srcPdfUrl=%s&convertTo=html&visuallyImpaired=true&preferHTMLReason=&platform=Linux&comments=&submit=Convert"
+ (list "PDF URL: ")
+ nil
+ "Use access.adobe.com to  convert a remote PDF document to plain
+ text.
 The PDF document needs to be available on the public Internet.")
 
 
