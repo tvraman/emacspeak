@@ -14,12 +14,12 @@
        to_browser(qq{\n});
 to_browser(qq{<h2>});
 to_browser(qq{<a href="$channel->{htmlurl}">$channel->{title}</a>});
-to_browser(qq{<em>$channel->{date_downloaded}</em>});
+#to_browser(qq{<em>$channel->{date_downloaded}</em>});
        # we create an encoded 'xmlurl' for our del_url.
        # this is so we don't get confused with channel
        # query_strings being interpreted as part of our own.
        my $encoded_xmlurl = encode_to_dec($channel->{xmlurl});
-       to_browser(qq{               <a href="$channel->{xmlurl}" >RSS</a>\n});
+       to_browser(qq{               <a href="$channel->{xmlurl}" >$channel->{date_downloaded}</a>\n});
        to_browser(qq{<a href="index.html?del_url=$encoded_xmlurl&amp;go=1">Remove</a></h2>\n});
        # if there are no channel items, say so.
        if ( not defined($data->{item}) or scalar @{$data->{item}} <= 0) {
