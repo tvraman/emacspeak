@@ -45,7 +45,7 @@
 (require 'custom)
 (require 'advice)
 (require 'voice-setup)
-
+(require 'emacspeak-sounds)
 ;;}}}
 ;;{{{  Introduction:
 
@@ -91,29 +91,6 @@
 ;;; Finally, I may add better support for overlays --again this was a
 ;;; part of Emacs that was at its nascent stage in 1994, but is now
 ;;; stable.
-
-;;}}}
-;;{{{ Deactivate old voice lock routines.
-;;; First, we deactivate the voice lock code from module voice-lock.el
-
-
-
-;;; by redefining its entry points to be no-ops.
-
-(defun voice-lock-voiceify-buffer (&rest ignore)
-  "Redefined by module emacspeak-personality to be a no-op."
-  'no-op)
-
-(defun voice-lock-voiceify-region (&rest ignore)
-  "Redefined by module emacspeak-personality to be a no-op."
-  'no-op)
-
-(declaim (special voice-lock-support-mode))
-(setq voice-lock-support-mode nil)
-
-(defun lazy-voice-lock-mode (&rest ignore)
-  "Redefined by emacspeak-personality to be a no-op."
-  'no-op)
 
 ;;}}}
 ;;{{{ new light-weight voice lock 

@@ -455,9 +455,6 @@
     ("html-voice.el"
         "Voice locking for html-helper-mode"
         (voice lock  html-helper-mode  emacspeak  speech ))
-    ("lazy-voice-lock.el"
-        "Support mode for voice locking  parts of a buffer"
-        nil)
     ("outloud-css-speech.el"
         "CSS -- Cascaded Speech Style Interface"
         (emacspeak  audio interface to emacs css))
@@ -469,12 +466,6 @@
         (strings  regexps))
     ("tapestry.el"
         nil
-        nil)
-    ("voice-lock.el"
-        "Provide voice locking for Emacspeak"
-        (emacspeak  voices  speech voices))
-    ("voice-settings.el"
-        "Defines voice settings used to voice lock different modes"
         nil)
     ("voice-setup.el"
         "Setup voices for voice-lock"
