@@ -9,8 +9,8 @@ INSTALL = install
 EMACS=emacs
 info: *.texi
 	$(MAKEINFO) emacspeak.texi
-
-commands.texi: ../lisp/emacspeak-setup.el
+.SECONDARY: commands.texi 
+commands.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 
 install: emacspeak.info
