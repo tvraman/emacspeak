@@ -361,7 +361,7 @@ functions for details.   "
 (autoload 'emacspeak-websearch-dispatch
   "emacspeak-websearch"
   "Perform a  websearch" t)
-(autoload 'emacspeak-dejanews-browse-group
+(autoload 'emacspeak-websearch-usenet
   "emacspeak-websearch"
   "Browse Usenet Via Dejanews" t)
 (autoload 'emacspeak-websearch-emacspeak-archive
