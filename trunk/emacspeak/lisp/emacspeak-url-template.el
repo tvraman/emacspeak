@@ -47,6 +47,9 @@
 (require 'emacspeak-websearch)
 (eval-when-compile (require 'webjump))
 (require 'emacspeak-xslt)
+(require 'emacspeak-w3)
+(require 'emacspeak-realaudio)
+(require 'emacspeak-m-player)
 ;;}}}
 ;;{{{  Introduction:
 
