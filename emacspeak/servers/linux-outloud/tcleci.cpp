@@ -255,14 +255,14 @@ set tts(last_index) $x}");
 int playTTS (int samples) {
   int i;
   short stereo[2*samples];
-  fprintf(stderr, "In play callback.\n");
+  //fprintf(stderr, "In play callback.\n");
   /* mono to stereo */
   for (i=0; i<samples; i++) {
     stereo[2*i] =waveBuffer[i];
     stereo[2*i+1] = waveBuffer[i];
   }
   write (dsp, stereo,  4*samples);
-  fprintf(stderr, "Wrote %d samples\n", samples);
+  //fprintf(stderr, "Wrote %d samples\n", samples);
   return 1;
 }
 
@@ -307,14 +307,14 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST o
   if (rc != TCL_OK) return rc;
   rc = Tcl_GetIntFromObj(interp, objv[2], &rate);
   if (rc != TCL_OK) return rc;
-  fprintf(stderr, "Setting rate to %d for voice %d\n",
+  //fprintf(stderr, "Setting rate to %d for voice %d\n",
           rate, voice);
   rc = _eciSetVoiceParam (eciHandle, voice,  6/*eciSpeed*/, rate);
   if (rc == -1) {
     Tcl_AppendResult(interp, "Could not set rate", TCL_STATIC);
     return TCL_ERROR;
   }
-  fprintf(stderr, "setRate returned %d\n", rc);
+  //fprintf(stderr, "setRate returned %d\n", rc);
   rate = _eciGetVoiceParam(eciHandle, voice, 6/*eciSpeed*/);
   fprintf(stderr, "eciGetVoiceParam returned %d for voice %d \n",
           rate, voice );
@@ -362,8 +362,6 @@ int Say(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[
       Tcl_SetResult(interp, "Internal tts synth error", TCL_STATIC);
       return TCL_ERROR;
     }
-    //_eciSynchronize(eciHandle); //causes tcl to hang
-    //_eciSpeaking(eciHandle); // should this be here!?
   }
   return TCL_OK;
 }
