@@ -193,15 +193,14 @@ will be placed."
   (declare (special emacspeak-ocr-document-name))
   (format "%s.text" emacspeak-ocr-document-name))
 
-(defsubst emacspeak-ocr-get-image-name ()
+(defsubst emacspeak-ocr-get-image-name (extension)
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
-                    emacspeak-ocr-image-extension
                     emacspeak-ocr-current-page-number))
   (format "%s-%s%s"
           emacspeak-ocr-document-name
           (1+ emacspeak-ocr-current-page-number)
-  emacspeak-ocr-image-extension))
+  extension))
 
 (defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
@@ -404,7 +403,8 @@ Pick a short but meaningful name."
                     emacspeak-ocr-compress-image
                     emacspeak-ocr-compress-image-options
                     emacspeak-ocr-document-name))
-  (let ((image-name (emacspeak-ocr-get-image-name)))
+  (let ((image-name (emacspeak-ocr-get-image-name
+                     emacspeak-ocr-image-extension)))
     (let ((emacspeak-speak-messages nil))
       (shell-command
        (concat
@@ -437,39 +437,35 @@ The scanned image is converted to JPEG."
                     emacspeak-ocr-compress-photo
                     emacspeak-ocr-image-extension
                     emacspeak-ocr-document-name))
-  (let* ((emacspeak-ocr-image-extension ".pnm")
-         (image-name (emacspeak-ocr-get-image-name)))
-    (let ((emacspeak-speak-messages nil))
-      (shell-command
-       (concat
-        (format "%s %s > temp%s;\n"
-                emacspeak-ocr-scan-image
-                emacspeak-ocr-scan-photo-options 
-                emacspeak-ocr-image-extension)
-        (let ((emacspeak-ocr-image-extension ".jpg"))
-          (format "%s %s  temp%s > %s ;\n"
-                  emacspeak-ocr-compress-photo
-                  emacspeak-ocr-compress-photo-options
-                  image-name))
-        (if emacspeak-ocr-keep-uncompressed-image
-            (format "echo \'Uncompressed image not removed.'")
-          (format "rm -f temp%s"
-                  emacspeak-ocr-image-extension)))))
+  (let ((emacspeak-speak-messages nil)
+        (jpg (emacspeak-ocr-get-image-name ".jpg"))
+        (pnm (emacspeak-ocr-get-image-name ".pnm")))
+    (shell-command
+     (concat
+      (format "%s %s > temp.pnm;\n"
+              emacspeak-ocr-scan-image
+              emacspeak-ocr-scan-photo-options)
+      (format "%s %s  temp.pnm > %s ;\n"
+              emacspeak-ocr-compress-photo
+              emacspeak-ocr-compress-photo-options
+              jpg)
+      (if emacspeak-ocr-keep-uncompressed-image
+          (format "mv temp.pnm %s"
+                  pnm)
+        (format "rm -f temp.pnm"))))
     (when (and metadata
                (interactive-p))
       (setq metadata
             (read-from-minibuffer "Enter picture description: "))
-      (let* ((emacspeak-ocr-image-extension ".jpg")
-             (image (emacspeak-ocr-get-image-name))
-             (tempfile (format "temp%s.jpg" (gensym))))
-      (shell-command
-       (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
-                image tempfile
-                emacspeak-ocr-jpeg-metadata-writer metadata 
-                tempfile image
-                tempfile))))
-    (message "Acquired  image to file %s"
-             image-name)))
+      (let ((tempfile (format "temp%s.jpg" (gensym))))
+        (shell-command
+         (format  "mv %s %s; wrjpgcom -c '%s' %s > %s; rm -f %s"
+                  jpg  tempfile
+                  emacspeak-ocr-jpeg-metadata-writer metadata 
+                  tempfile jpg
+                  tempfile))))
+    (message "Acquired  image to file %s" jpg)))
+
 
 
 
