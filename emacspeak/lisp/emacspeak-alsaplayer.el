@@ -78,7 +78,6 @@
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
 
-
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
   "Alsaplayer executable."
@@ -96,13 +95,13 @@
 (defsubst emacspeak-alsaplayer-get-session-id ()
   "Return session id from alsaplayer output."
   (substring
-  (second
-   (split-string
-    (buffer-string)))
-  (+ 1 
-(length emacspeak-alsaplayer-program)
-1)
--1))
+   (second
+    (split-string
+     (buffer-string)))
+   (+ 1 
+      (length emacspeak-alsaplayer-program)
+      1)
+   -1))
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-launch ()
@@ -119,16 +118,21 @@ Alsaplayer session."
       (set-buffer buffer)
       (emacspeak-alsaplayer-mode)
       (setq process
-      (start-process
-       "alsaplayer"
-       emacspeak-alsaplayer-buffer-name
-       emacspeak-alsaplayer-program
-       "-i" "daemon"))
+            (start-process
+             "alsaplayer"
+             emacspeak-alsaplayer-buffer-name
+             emacspeak-alsaplayer-program
+             "-i" "daemon"))
       (accept-process-output process)
       (setq emacspeak-alsaplayer-session
             (emacspeak-alsaplayer-get-session-id))
       (erase-buffer)
-      )
+      (setq process
+            (start-process
+             "alsaplayer" emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-program
+             "-n"
+             (format "%s" emacspeak-alsaplayer-session)
+             "--status")))
     (switch-to-buffer emacspeak-alsaplayer-buffer-name)))
 
 ;;}}}
@@ -141,9 +145,17 @@ Alsaplayer session."
     (setq process
           (apply 'start-process
                  "alsaplayer" nil emacspeak-alsaplayer-program
-                         ;"-n"
-                         ;(format "%s" emacspeak-alsaplayer-session)
-                         command-list))))
+                 "-n"
+                 (format "%s" emacspeak-alsaplayer-session)
+                 command-list))
+    (when (eq major-mode 'emacspeak-alsaplayer-mode)
+      (erase-buffer)
+      (setq process
+            (start-process
+             "alsaplayer" emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-program
+             "-n"
+             (format "%s" emacspeak-alsaplayer-session)
+             "--status")))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -155,16 +167,16 @@ Alsaplayer session."
 		      (dired-get-filename)))))
   (emacspeak-alsaplayer-send-command
    (cond
-                  ((file-directory-p resource)
-   (nconc
-    (list "--enqueue")
-                   (directory-files
-                    (expand-file-name resource)
-                    'full
-                    "mp3$")))
-                  (t
-                      (list "--enqueue"
-                   (expand-file-name resource))))))
+    ((file-directory-p resource)
+     (nconc
+      (list "--enqueue")
+      (directory-files
+       (expand-file-name resource)
+       'full
+       "mp3$")))
+    (t
+     (list "--enqueue"
+           (expand-file-name resource))))))
 
 (defun emacspeak-alsaplayer-replace-queue (resource)
   "Add specified resource to queue."
@@ -176,23 +188,99 @@ Alsaplayer session."
 		      (dired-get-filename)))))
   (emacspeak-alsaplayer-send-command
    (cond
-                  ((file-directory-p resource)
-   (nconc
-    (list "--replace")
-                   (directory-files
-                    (expand-file-name resource)
-                    'full
-                    "mp3$")))
-                  (t
-                      (list "--replace"
-                   (expand-file-name resource))))))
+    ((file-directory-p resource)
+     (nconc
+      (list "--replace")
+      (directory-files
+       (expand-file-name resource)
+       'full
+       "mp3$")))
+    (t
+     (list "--replace"
+           (expand-file-name resource))))))
+
+(defun emacspeak-alsaplayer-status ()
+  "Show alsaplayer status"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--status")))
+
     
 (defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--pause")))
+
+(defun emacspeak-alsaplayer-next ()
+  "Next  alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--next")))
+
+(defun emacspeak-alsaplayer-previous ()
+  "Previous  alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--prev")))
     
+(defun emacspeak-alsaplayer-start ()
+  "Start  alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--start")))
+
+(defun emacspeak-alsaplayer-stop ()
+  "Stop  alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--stop")))
+
+(defun emacspeak-alsaplayer-relative (offset)
+  "Relative seek  alsaplayer"
+  (interactive "sOffset")
+  (emacspeak-alsaplayer-send-command
+   (list "--relative"
+         offset)))
+
+(defun emacspeak-alsaplayer-speed (setting)
+  "Set speed in alsaplayer."
+  (interactive "sSpeed")
+  (emacspeak-alsaplayer-send-command
+   (list "--speed"
+         setting)))
+
+(defun emacspeak-alsaplayer-volume (setting)
+  "Set volume."
+  (interactive "sVolume")
+  (emacspeak-alsaplayer-send-command
+   (list "--volume"
+         setting)))
+
+(defun emacspeak-alsaplayer-seek (offset)
+  "Absolute seek  alsaplayer"
+  (interactive "sOffset")
+  (emacspeak-alsaplayer-send-command
+   (list "--seek"
+         offset)))
+
+(defun emacspeak-alsaplayer-jump (track)
+  "Jump to specified track."
+  (interactive "sTrack Number:")
+  (emacspeak-alsaplayer-send-command
+   (list "--jump"
+         track)))
+(defun emacspeak-alsaplayer-clear ()
+  "Clear or resume alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--clear")))
+
+(defun emacspeak-alsaplayer-quit ()
+  "Quit or resume alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--quit")))
 
 ;;}}}
 (provide 'emacspeak-alsaplayer)
