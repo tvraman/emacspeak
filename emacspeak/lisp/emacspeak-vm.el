@@ -446,7 +446,6 @@ Leave point at front of decoded attachment."
    ((interactive-p)
     (let ((orig (point )))
       ad-do-it
-      (emacspeak-auditory-icon 'task-done)
       (goto-char orig)
       (message "Decoded attachment")))
    (t ad-do-it))
