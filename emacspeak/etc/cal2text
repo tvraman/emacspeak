@@ -7,6 +7,10 @@ my  %fields =qw(
                 DTEND End
                 DTSTART;TZID="Eastern" Start
                 DTEND;TZID="Eastern" End
+DTSTART;TZID="Pacific" Start
+                DTEND;TZID="Pacific" End
+DTSTART;TZID="Central" Start
+                DTEND;TZID="Central" End
                 DESCRIPTION Description
                 SUMMARY Summary
                 LOCATION Location
