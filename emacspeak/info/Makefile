@@ -1,16 +1,17 @@
 #$Id$
 TEXINDEX=texindex
 MAKEINFO = makeinfo 
+TEX=tex
+PDFTEX=pdftex
 TEXI2HTML=texi2html
 infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
-
+EMACS=emacs
 info: *.texi
-	makeinfo emacspeak.texi
+	$(MAKEINFO) emacspeak.texi
 
 commands.texi: ../lisp/emacspeak-setup.el
-	emacs -batch -q -l ../utils/document-commands.el
-
+	$(EMACS) -batch -q -l ../utils/document-commands.el
 
 install: emacspeak.info
 	if test  -x /sbin/install-info ; then \
@@ -26,23 +27,22 @@ uninstall:
 emacspeak.info: emacspeak.texi
 
 emacspeak.dvi:		emacspeak.texi
-	tex emacspeak.texi
-	tex emacspeak.texi
+	$(TEX) emacspeak.texi
+	$(TEX) emacspeak.texi
 	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
-	tex emacspeak.texi
+	$(TEX) emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
 
 
 emacspeak.pdf:		emacspeak.texi
-	pdftex emacspeak.texi
+	$(PDFTEX) emacspeak.texi
 	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
-	pdftex emacspeak.texi
+	$(PDTEX) emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
-
 
 print: emacspeak.dvi
 	dvips emacspeak.dvi
