@@ -60,7 +60,6 @@ SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
         emacspeak-actions.elc \
 	voice-setup.elc \
-        html-voice.elc \
 	html-outline.elc \
 	emacspeak-personality.elc \
         emacspeak-pronounce.elc \
@@ -252,7 +251,6 @@ outloud-voices.elc: outloud-voices.el
 #voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
 voice-setup.elc: voice-setup.el
 #voice lock helpers 
-html-voice.elc: html-voice.el 
 html-outline.elc: html-outline.el
 amphetadesk.elc: amphetadesk.el
 cd-tool.elc: cd-tool.el

@@ -60,12 +60,32 @@
 
 ;;
 
+
+
+;;; How faces map to voices:
+;;; TTS engine specific modules e.g., dtk-voices.el and
+;;; outloud-voices.el 
+;;; define a standard set of voice names.
+;;; This module maps standard "personality" names to these pre-defined
+;;; voices.
+;;; It  does this via special form def-voice-map 
+;;; which takes a personality name, a voice name and a face name to
+;;; set up the mapping between face and personality, and personality
+;;; and voice.
+;;; See many instances of this usage in this module.
+;;; This special form is available for use from other emacspeak
+;;; modules.
+
+;;; Special form def-voice-map sets up the personality name to be
+;;; available via custom.
+
 ;;}}}
 ;;{{{ Required modules
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'backquote)
 
 ;;}}}
 ;;{{{  additional convenience functions:
@@ -154,6 +174,9 @@ This function forces voice-lock mode on."
                       inhibit-read-only save-inhibit-read-only
                       inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
                 (set-buffer-modified-p modification-flag )))))))
+
+;;}}}
+;;{{{ special form def-voice-map 
 
 ;;}}}
 ;;{{{  Define some voice personalities:
