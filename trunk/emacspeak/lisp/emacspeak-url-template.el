@@ -349,6 +349,8 @@ to play a BBC Radio4 program on demand."
 ;;}}}
 ;;{{{  cnet news 
 
+
+
 (emacspeak-url-template-define
  "Tech News From CNet"
  "http://news.com.com/"
@@ -362,9 +364,7 @@ to play a BBC Radio4 program on demand."
      (emacspeak-w3-xslt-filter
       "(//table)[4]//td[5]"
       url
-      'speak)))
-
- 
+      'speak))) 
 ;;}}}
 ;;{{{ Infoworld RSS
 (emacspeak-url-template-define
