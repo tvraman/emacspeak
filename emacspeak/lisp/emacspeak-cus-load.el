@@ -19,7 +19,7 @@
 (put 'emacspeak-ocr 'custom-loads '("emacspeak-ocr"))
 (put 'emacspeak-websearch 'custom-loads '("emacspeak-websearch"))
 (put 'forms 'custom-loads '("emacspeak-forms"))
-(put 'tts 'custom-loads '("dtk-speak" "dtk-tcl" "emacspeak-setup"))
+(put 'tts 'custom-loads '("dtk-speak" "dtk-tcl" "emacspeak-setup" "voice-setup"))
 (put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
 (put 'emacspeak 'custom-loads '("dtk-speak" "emacspeak-advice" "emacspeak-loaddefs" "emacspeak-dismal" "emacspeak-ediff" "emacspeak-erc" "emacspeak-eshell" "emacspeak-eudc" "emacspeak-flyspell" "emacspeak-forms" "emacspeak-imcom" "emacspeak-info" "emacspeak-ispell" "emacspeak-ocr" "emacspeak-rss" "emacspeak-websearch" "emacspeak-midge" "emacspeak-outline" "emacspeak-pronounce" "emacspeak-replace" "emacspeak-speak" "emacspeak-speedbar" "emacspeak-table-ui" "emacspeak-view-process" "emacspeak-vm" "emacspeak-w3" "emacspeak-widget" "emacspeak-wizards" "emacspeak" "voice-lock"))
 (put 'emacspeak-xml-shell 'custom-loads '("emacspeak-xml-shell"))

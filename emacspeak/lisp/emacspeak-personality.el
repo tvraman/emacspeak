@@ -43,6 +43,8 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'advice)
+(require 'voice-setup)
 
 ;;}}}
 ;;{{{  Introduction:
@@ -51,8 +53,6 @@
 
 ;;; This module defines a personality interface for implementing voice
 ;;; lock via font lock.
-
-
 ;;; Context:
 
 ;;; At the time I implemented Emacspeak's voice lock feature in late
@@ -105,6 +105,28 @@
   "Redefined by module emacspeak-personality to be a no-op."
   'no-op)
 
+(declaim (special voice-lock-support-mode))
+(setq voice-lock-support-mode nil)
+
+(defun lazy-voice-lock-mode (&rest ignore)
+  "Redefined by emacspeak-personality to be a no-op."
+  'no-op)
+
+;;}}}
+;;{{{ advice put-text-personality
+
+(defadvice put-text-property (after emacspeak-personality  pre act) 
+  "Used by emacspeak to augment font lock."
+  (let ((start (ad-get-arg 0))
+        (end (ad-get-arg 1 ))
+        (prop (ad-get-arg 2))
+        (value (ad-get-arg 3 ))
+        (voice nil))
+    (when (eq prop 'face)
+      (setq voice (voice-setup-get-voice-for-face   value))
+      (and voice 
+           (put-text-property start end
+                              'personality voice)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
