@@ -140,7 +140,7 @@ Cap R   RFBD                        RFB&D Catalog search
 C-r RPMFind                         Find RPM packages
 s       Software                  Search for software
 t       translate                 Machine translation 
-u       usenet-altavista            Usenet Index At AltaVista
+u       usenet            Usenet Index from Google
 w       Weather                     Weather Channel  By Zip Code
 cap W   W3C                         Search W3C Site
 v   Vickers                         Vickers Insider Trades
@@ -1182,7 +1182,7 @@ Optional second arg data processes the results as data rather than HTML."
 (defvar emacspeak-websearch-google-usenet-advanced-form
   "
 <title>Advanced Usenet Search</title>
-<form method=\"GET\" action=\"http://groups.google.com/groups\" >
+<form method=GET action=\"http://groups.google.com/groups\" >
   <table >
     <tr >
       <td > <label for=\"1\">All Words</label> </td>
@@ -1845,31 +1845,6 @@ Light for: ")))
              "&text="
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process ""
-   'emacspeak-speak-line))
-
-;;}}}
-;;{{{  usenet altavista 
-
-(emacspeak-websearch-set-searcher 'usenet-altavista
-                                  'emacspeak-websearch-usenet-altavista-search)
-(emacspeak-websearch-set-key ?u 'usenet-altavista)
-
-(defvar emacspeak-websearch-usenet-altavista-uri 
-  "http://www.altavista.com/cgi-bin/query?pg=q&what=news&KL=en&enc=iso88591&text=yes"
-  "URI for Usenet  Altavista search")
-
-(defun emacspeak-websearch-usenet-altavista-search (query)
-  "Perform a Usenet  Altavista search"
-  (interactive
-   (list (emacspeak-websearch-read-query "Usenet Altavista Query: ")))
-  (declare (special emacspeak-websearch-usenet-altavista-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-usenet-altavista-uri
-             "&q="
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "AltaVista found"
    'emacspeak-speak-line))
 
 ;;}}}
