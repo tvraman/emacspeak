@@ -2143,6 +2143,16 @@ for `word' and displays hits in a compilation buffer."
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
+;;{{{ google hits 
+(defun emacspeak-wizards-google-hits ()
+  "Filter Google results after performing search to show just the
+hits."
+  (interactive)
+  (let ((name   "Google Hits"))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
