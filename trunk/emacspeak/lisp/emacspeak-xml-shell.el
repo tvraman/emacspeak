@@ -251,9 +251,6 @@ region of text to process."
 (define-key emacspeak-xml-shell-mode-map [down] 
 'emacspeak-xml-shell-goto-children)
 
-(define-key emacspeak-xml-shell-mode-map " "
-  'emacspeak-xml-shell-current)
-
 ;;}}}
 (provide 'emacspeak-xml-shell)
 ;;{{{ end of file
