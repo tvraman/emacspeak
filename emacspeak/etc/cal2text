@@ -5,7 +5,6 @@ use strict;
 my  %fields =qw(
                 DTSTART  Start
                 DTEND End
-ATTENDEE Attendee 
                 DESCRIPTION Description
                 SUMMARY Summary
                 LOCATION Location
