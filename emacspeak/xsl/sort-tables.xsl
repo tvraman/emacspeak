@@ -61,6 +61,7 @@ relevant tables bubble to the top.
     <xsl:template match="body">
         <body>
             <xsl:apply-templates select="@*"/>
+            <xsl:call-template name="generate-rss"/>
             <xsl:variable name="i" select="//table//table"/>
             <xsl:if test="count($i)  &gt; 0">
                 <table>
@@ -121,7 +122,6 @@ relevant tables bubble to the top.
                     of the table (where specified).
                 </p>
             </xsl:if>
-            <xsl:call-template name="generate-rss"/>
         </body>
     </xsl:template>
     
