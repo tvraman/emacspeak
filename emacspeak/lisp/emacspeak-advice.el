@@ -1114,12 +1114,12 @@ in completion buffers"
   'comint-highlight-prompt
   "Personality used for highlighting comint prompts --emacs 21."
   :group 'comint)
-
-(defcustom emacspeak-comint-input-personality voice-animate
-  "Personality used for highlighting comint input --emacs 21."
-  :type  'symbol
-  :group 'emacspeak
+(def-voice-font  emacspeak-comint-input-personality voice-bolden-medium
+  'comint-highlight-input
+  "Personality used for highlighting comint inputs --emacs 21."
   :group 'comint)
+
+
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
