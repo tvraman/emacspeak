@@ -2218,19 +2218,22 @@ Moves to the longest line when called interactively."
       (set-buffer output)
       (setq buffer-read-only nil)
       (erase-buffer)
+      (insert (format "Face: %s\n" face))
       (loop for a in
-            (list
-             :width :height :weight :slant
-             :foreground :background)
+            (mapcar #'car face-attribute-name-alist)
             do
-            (insert
-             (format "%s %s\n"
-                     a
-                     (face-attribute face a))))
+            (unless (eq 'unspecified (face-attribute face a))
+              (insert
+               (format "%s\t%s\n"
+                       a
+                       (face-attribute face a)))))
+      (insert
+       (format "Documentation: %s\n"
+               (face-documentation face)))
       (setq buffer-read-only t))
     (when (interactive-p)
       (switch-to-buffer output)
-      (goto-char (point-max))
+      (goto-char (point-min))
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
              
