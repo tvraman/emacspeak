@@ -3365,15 +3365,17 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
-** emacspeak-next-frame	Key Sequence: <control right> 
+** emacspeak-next-frame-or-buffer	Key Sequence: <control right> 
 
-Move to next frame.
+Move to next buffer.
+With optional interactive prefix arg `frame', move to next frame instead.
 
 ------------------------------------------------------------
 
-** emacspeak-previous-frame	Key Sequence: <control left> 
+** emacspeak-previous-frame-or-buffer	Key Sequence: <control left> 
 
-Move to next frame.
+Move to previous buffer.
+With optional interactive prefix arg `frame', move to previous frame instead.
 
 ------------------------------------------------------------
 

@@ -56,7 +56,8 @@
 (defun emacspeak-compilation-speak-error ()
   "Speech feedback about the compilation error. "
   (interactive)
-  (let ((dtk-stop-immediately nil))
+  (let ((dtk-stop-immediately nil)
+        (emacspeak-show-point t))
     (emacspeak-speak-line)))
 
 ;;}}}
