@@ -1593,7 +1593,7 @@ annotation is inserted into the working buffer when complete."
 
 ;;}}}
 ;;{{{  xslt 
-(defgroup  emacspeak-xslt nil
+(defgroup emacspeak-xslt nil
   "XSL transformation group.")
 
 (defvar emacspeak-xslt-directory
@@ -2291,13 +2291,14 @@ defgroup declarations found in current directory."
       (cd directory)
       (setq matches 
       (shell-command
-       "grep defgroup *.el | cut -d ':' -f 1"
+       "grep '^(defgroup ' *.el | cut -d ' ' -f 2"
                      (current-buffer)))
       (when (= 0 matches) ;;;grep succeeded 
       (goto-char (point-min))
       (while (not (eobp))
-        (push  (thing-at-point 'sexp)
-               module-list)
+        (pushnew  (thing-at-point 'sexp)
+               module-list
+               :test #'eql)
         (forward-line 1))))
     (save-excursion
       (set-buffer result-buffer)

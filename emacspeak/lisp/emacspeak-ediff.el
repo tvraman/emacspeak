@@ -68,7 +68,7 @@
 ;;}}}
 ;;{{{  macros
 
-(defgroup  emacspeak-ediff nil
+(defgroup emacspeak-ediff nil
   "Emacspeak support for EDiff."
   :link '(custom-group-link :tag "ediff"
                             ediff)
