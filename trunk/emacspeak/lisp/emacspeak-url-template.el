@@ -277,7 +277,8 @@ nil
   #'(lambda ()
       (webjump-url-encode
        (read-from-minibuffer "Google search:")))
-  emacspeak-websearch-google-number-of-results)
+  #'(lambda nil
+      emacspeak-websearch-google-number-of-results))
  #'(lambda nil
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
