@@ -135,6 +135,7 @@
 ;;{{{ View chat session
 
 ;;;View a chat session in a W3 buffer.
+(declaim (special emacspeak-xslt-directory))
 
 (defvar emacspeak-imcom-xsl-jabber
   (expand-file-name

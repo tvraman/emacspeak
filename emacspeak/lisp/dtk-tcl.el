@@ -658,11 +658,13 @@ Argument TEXT  is the list of strings to speak."
     (save-excursion
       (set-buffer dtk-scratch-buffer )
       (erase-buffer)
-      (goto-char (point-min))
       (loop  for element in text
              do
              (insert
-              (format "%s \n" element)))
+             (if (stringp element)
+              element 
+             (format "%s" element)))
+             (insert "\n"))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
 
