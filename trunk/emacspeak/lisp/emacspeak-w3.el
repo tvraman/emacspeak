@@ -1075,12 +1075,12 @@ loaded.
   (interactive
    (list
     (read-file-name "XML File: ")))
-  (let ((buffer (find-file-noselect location)))
+  (let ((buffer (find-file-noselect location 'no-warn 'raw)))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-w3-preview-this-buffer)
-      (emacspeak-auditory-icon 'open-object))
-    (kill-buffer buffer)))
+      (kill-buffer buffer)
+      (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
 ;;{{{  xsl keymap
