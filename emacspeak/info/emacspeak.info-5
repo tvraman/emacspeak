@@ -30,6 +30,9 @@ emacspeak-wizards.
  - emacspeak-wizards-use-w3-or-w3m:
      Alternates between using W3 and W3M for browse-url.
 
+ - emacspeak-wizards-browse-url-with-style:
+     Browse URL with specified XSL style.
+
  - emacspeak-next-frame:
      ` <control right> '
 
@@ -55,13 +58,6 @@ emacspeak-wizards.
      Major mode for browsing XL spreadsheets.
 
      XL Sheets are converted to HTML and previewed using W3.
-
-     In addition to any hooks its parent mode `text-mode' might have
-     run, this mode runs the hook `emacspeak-wizards-xl-mode-hook', as
-     the final step during initialization.
-
-     key             binding --             ------
-
 
  - emacspeak-view-emacspeak-faq:
      ` control e  cap F  '
@@ -195,11 +191,6 @@ emacspeak-wizards.
  - emacspeak-wizards-finder-mode:
      Emacspeak Finder
 
-     This mode runs the hook `emacspeak-wizards-finder-mode-hook', as
-     the final step during initialization.
-
-     key             binding --             ------
-
 
  - emacspeak-generate-documentation:
      Generate docs for all emacspeak commands.  Prompts for FILENAME in
@@ -247,13 +238,6 @@ emacspeak-wizards.
      Major mode for browsing XL spreadsheets.
 
      XL Sheets are converted to HTML and previewed using W3.
-
-     In addition to any hooks its parent mode `text-mode' might have
-     run, this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as
-     the final step during initialization.
-
-     key             binding --             ------
-
 
  - emacspeak-frame-label-or-switch-to-labelled-frame:
      ` control e meta f '

@@ -345,7 +345,7 @@ emacspeak-daisy
 emacspeak-daisy.
 
  - emacspeak-daisy-mode:
-     An DAISY front-end for the Emacspeak desktop.
+     A DAISY front-end for the Emacspeak desktop.
 
      Pre-requisites:
 
@@ -373,9 +373,6 @@ emacspeak-daisy.
      SPC		emacspeak-daisy-play-audio-under-point
      q		bury-buffer s		emacspeak-daisy-stop-audio ?		describe-mode
 
-     In addition to any hooks its parent mode `text-mode' might have
-     run, this mode runs the hook `emacspeak-daisy-mode-hook', as the
-     final step during initialization.
 
  - emacspeak-daisy-stop-audio:
      Stop audio.
@@ -427,7 +424,7 @@ emacspeak-dired.
      Speak modification time  of the current file.
 
 
-File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-ediff,  Prev: emacspeak-dired,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-ecb,  Prev: emacspeak-dired,  Up: Emacspeak Commands
 
 emacspeak-dismal
 ================
@@ -487,7 +484,19 @@ emacspeak-dismal.
      Display the expression in the message area
 
 
-File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-ecb,  Next: emacspeak-ediff,  Prev: emacspeak-dismal,  Up: Emacspeak Commands
+
+emacspeak-ecb
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-ecb.
+
+ - emacspeak-ecb-tree-shift-return:
+     Do shift return in ECB tree browser.
+
+
+File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-enriched,  Prev: emacspeak-ecb,  Up: Emacspeak Commands
 
 emacspeak-ediff
 ===============
