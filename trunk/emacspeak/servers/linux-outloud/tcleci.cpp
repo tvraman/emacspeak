@@ -391,10 +391,11 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv
 
 int SpeakingP(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   if ( _eciSpeaking(eciHandle)) {
-    return 1;
+    Tcl_SetObjResult( interp, Tcl_NewIntObj( 1 ));
   } else {
-    return 0;
+    Tcl_SetObjResult( interp, Tcl_NewIntObj( 0 ));
   }
+  return TCL_OK;
 }  
 
 int Pause(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
