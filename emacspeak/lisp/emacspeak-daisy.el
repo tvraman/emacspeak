@@ -73,8 +73,8 @@
 (defsubst emacspeak-daisy-book-name (this-book)
   "Return a canonical name for the book."
   (expand-file-name
-               (emacspeak-daisy-book-basename this-book)
-               (emacspeak-daisy-book-base this-book)))
+   (emacspeak-daisy-book-basename this-book)
+   (emacspeak-daisy-book-base this-book)))
 
 ;;}}}
 ;;{{{  helpers
@@ -544,12 +544,12 @@ navigation buffer that can be used to browse and read the book."
        (emacspeak-daisy-book-nav-center book)))
     (switch-to-buffer buffer)
     (cd (emacspeak-daisy-book-base emacspeak-daisy-this-book))
-(emacspeak-speak-load-directory-settings)
-(when (emacspeak-daisy-get-bookmarks 
-       (emacspeak-daisy-book-name emacspeak-daisy-this-book))
-  (emacspeak-daisy-add-bookmarks-to-buffer
-   (emacspeak-daisy-get-bookmarks
-    (emacspeak-daisy-book-name emacspeak-daisy-this-book))))
+    (emacspeak-speak-load-directory-settings)
+    (when (emacspeak-daisy-get-bookmarks 
+           (emacspeak-daisy-book-name emacspeak-daisy-this-book))
+      (emacspeak-daisy-add-bookmarks-to-buffer
+       (emacspeak-daisy-get-bookmarks
+        (emacspeak-daisy-book-name emacspeak-daisy-this-book))))
     (goto-char (point-min))
     (rename-buffer
      (format "*Daisy: %s"
@@ -570,8 +570,8 @@ navigation buffer that can be used to browse and read the book."
 
 (defun emacspeak-daisy-set-bookmarks (book bookmarks)
   "Set bookmarks."
-                               (puthash book bookmarks
-  emacspeak-daisy-bookmarks))
+  (puthash book bookmarks
+           emacspeak-daisy-bookmarks))
 
 (defun emacspeak-daisy-collect-bookmarks-in-buffer ()
   "Return  list of bookmarks set in this buffer."
@@ -618,7 +618,6 @@ navigation buffer that can be used to browse and read the book."
 
 (defun emacspeak-daisy-add-bookmarks-to-buffer (bookmarks)
   "Applies specified list of bookmarks to navigation buffer."
-  (declare (special voice-bolden))
   (unless (eq major-mode 'emacspeak-daisy-mode)
     (error "Not in emacspeak-daisy-mode."))
   (ems-modify-buffer-safely
@@ -626,33 +625,32 @@ navigation buffer that can be used to browse and read the book."
      (goto-char (point-min))
      (let ((entry nil)
            (start nil)
-(end nil)
-(bookmark nil))
-(while bookmarks
-  (setq entry (pop bookmarks))
-  (setq start (car (first entry))
-                   end (cdr (first entry))
-                   bookmark (second entry))
-  (put-text-property start end
-                     'bookmark bookmark)
-  (put-text-property start end
-                     'personality voice-bolden))))))
+           (end nil)
+           (bookmark nil))
+       (while bookmarks
+         (setq entry (pop bookmarks))
+         (setq start (car (first entry))
+               end (cdr (first entry))
+               bookmark (second entry))
+         (put-text-property start end
+                            'bookmark bookmark)
+         (put-text-property start end
+                            'face 'highlight))))))
 
 (defun emacspeak-daisy-mark-position-in-content-under-point ()
   "Mark current position in displayed content.
 No-op if content under point is not currently displayed."
   (interactive)
-  (declare (special voice-bolden))
   (cond
    ((get-text-property (point) 'viewer)
     (ems-modify-buffer-safely
      (put-text-property (line-beginning-position) (line-end-position)
                         'bookmark
-                              (save-excursion
-                                (set-buffer (get-text-property (point) 'viewer))
-                                (point)))
+                        (save-excursion
+                          (set-buffer (get-text-property (point) 'viewer))
+                          (point)))
      (put-text-property (line-beginning-position) (line-end-position)
-                        'personality voice-bolden))
+                        'face 'highlight))
     (message "Marked position."))
    (t (message "Content not currently displayed."))))
 
@@ -691,7 +689,7 @@ No-op if content under point is not currently displayed."
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
 (defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center
-  start  end bookmark)
+                                                      start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks W3 to record the viewer in the navigation center when done."
   (declare (special emacspeak-w3-post-process-hook))
