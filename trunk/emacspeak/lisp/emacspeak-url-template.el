@@ -992,7 +992,6 @@ plays entire program."
       "Standings"
       url 'speak)))
 
-
 (emacspeak-url-template-define
  "Baseball Game Index" 
  "http://gd.mlb.com/components/game/%s"
