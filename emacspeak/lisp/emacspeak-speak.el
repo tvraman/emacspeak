@@ -2147,7 +2147,7 @@ Will be improved if it proves useful."
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
   (interactive)
-  (message "Point is  %d%% into  the current buffer"
+  (message "Point is  %s into  the current buffer"
            (emacspeak-get-current-percentage-into-buffer )))
 
 ;;}}}

@@ -74,6 +74,18 @@ All Emacspeak convenience commands have been moved to module
 emacspeak-wizards.
 
 
+** Key Bindings:
+
+There is a new keymap emacspeak-personal-keymap
+for user's personal keybindings --and available through
+prefix key C-e x
+To bind a command you would write 
+(define-key emacspeak-personal-keymap "a"
+'emacspeak-speak-other-window)
+
+To accomodate this change, command emacspeak-view-register
+is moved to C-e v
+and command emacspeak-speak-version is moved to C-e V
 
 
 Local variables:
