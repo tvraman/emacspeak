@@ -144,26 +144,28 @@ Speak field or char moved to."
     (let ((col (current-column))
           (start nil)
           (end nil)
-          (prev 0)
-          (current  (first fields)))
+          (left 0)
+          (right  (first fields)))
       (beginning-of-line)
       (while (and fields 
-                  (< current col))
-        (setq prev current
-              current (pop fields)))
+                  (<=  right col))
+        (setq left right 
+              right (pop fields)))
+      (beginning-of-line)
+      (forward-char left)
+      (setq start (point))
       (cond
-       ((> col current)
-        (beginning-of-line)
-        (forward-char current)
-        (setq start (point))
+((or (null right)
+  (<= right col))
+(beginning-of-line)
+(forward-char right)
+(setq start (point))
         (end-of-line)
         (setq end (point)))
-       (t (beginning-of-line)
-(forward-char prev)
-      (setq start (point))
-(beginning-of-line)
-          (forward-char  (1- current))
-          (setq end (point))))
+       (t
+        (beginning-of-line)
+        (forward-char  right)
+        (setq end (point))))
       (emacspeak-speak-region start end))))
 
 (defun emacspeak-analog-speak-this-field ()
@@ -187,16 +189,19 @@ Speak field or char moved to."
 (defun emacspeak-analog-previous-field (fields)
   "Move to previous field."
   (let ((col (current-column))
-        (start 0)
         (prev 0)
+        (start 0)
         (end (first fields)))
     (while (and fields 
                 (< end col))
-      (setq prev start 
+      (setq prev start
             start end 
             end (pop fields)))
     (beginning-of-line)
-    (forward-char prev)))
+    (cond
+     ((<= start col)
+      (forward-char start))
+     (t (forward-char prev)))))
 
 ;;}}}
 ;;{{{ key bindings
