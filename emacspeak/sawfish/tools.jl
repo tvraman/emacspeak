@@ -112,6 +112,8 @@
       (system program))
     (and (tts-running-p) (tts-say-current-window))))
 
+(message "Loaded tools.jl")
+
 ;;{{{ end of file
 
 ;;; local variables:
