@@ -402,30 +402,6 @@ Set this to nil if things get too slow.")
                  ediff-current-difference)))
     (emacspeak-ediff-voiceify-fine-diff counter)))
 
-;;{{{  reimplement these 
-
-;(defadvice ediff-toggle-read-only (after emacspeak pre act comp)
-;  "Provide auditory feedback"
-;  (when (interactive-p)
-;    (save-excursion
-;      (set-buffer 
-;    (if (eq last-command-char ?A) ediff-A-buffer ediff-B-buffer))
-;      (cond
-;       (buffer-read-only
-;         (message "Ediff buffer %c   named %s is now read only"
-;                  last-input-char (buffer-name )))
-;       (t (message "Ediff buffer %c   named %s can now be editted"
-;                  last-input-char (buffer-name )))))))
-
-;(defadvice ediff-toggle-help (after emacspeak pre act )
-;  "Provide auditory feedback"
-;  (when (interactive-p)
-;    (if (string= ediff-help-message ediff-help-message-long)
-;	(message "Showing help window")
-;      (message "Hid help window"))))
-
-;;}}}
-
 (defadvice ediff-status-info (after emacspeak pre act )
   "Speak the status information"
   (when (interactive-p)
