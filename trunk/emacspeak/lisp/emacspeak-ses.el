@@ -50,9 +50,11 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'emacspeak-redefine)
 
 ;;}}}
-;;{{{ Accessors:
+;;{{{ SES Accessors:
+
 ;;; these are defined as macros in ses.el 
 ;;; and are cloned here as defsubst forms for now.
 
@@ -78,8 +80,111 @@
   "From a cell-symbol SYM, gets the cons (row . col).  A1 => (0 . 0).  Result
 is nil if SYM is not a symbol that names a cell."
   (and (symbolp  sym) (get  sym 'ses-cell)))
-;;}}}
 
+;;}}}
+;;{{{ emacspeak ses accessors 
+
+;;; these additional accessors are defined in terms of the
+;;;earlier helpers by Emacspeak.
+(defsubst emacspeak-ses-current-cell-symbol ()
+  "Return symbol for current cell."
+  (declare (special curcell))
+  (or (get-text-property (point) 'intangible)
+  curcell))
+
+(defsubst emacspeak-ses-current-cell-value ()
+  "Return current cell value."
+  (emacspeak-ses-cell-value
+   (car (emacspeak-ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))
+   (cdr (emacspeak-ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))))
+
+(defsubst emacspeak-ses-get-cell-value-by-name (cell-name)
+  "Return current  value of cell specified by name."
+  (emacspeak-ses-cell-value
+   (car (emacspeak-ses-sym-rowcol cell-name))
+   (cdr (emacspeak-ses-sym-rowcol cell-name))))
+
+;;}}}
+;;{{{ emacspeak ses summarizers 
+
+(defun emacspeak-ses-summarize-cell (cell-name)
+  "Summarize specified  cell."
+  (interactive
+   (list
+    (read-minibuffer "Cell: ")))
+  (message
+   (format "%s: %s"
+           cell-name
+           (emacspeak-ses-get-cell-value-by-name cell-name))))
+
+(defun emacspeak-ses-summarize-current-cell (&rest ignore)
+  "Summarize current cell."
+  (interactive)
+  (emacspeak-ses-summarize-cell
+   (emacspeak-ses-current-cell-symbol)))
+
+;;}}}
+;;{{{ advice internals
+
+;;}}}
+;;{{{ new navigation commands 
+
+;;; ses uses intangible properties to enable cell navigation
+;;; here we define navigation primitives that call built-ins and
+;;then speak the right information.
+
+(defun emacspeak-ses-forward-column-and-summarize ()
+  "Move to next column and summarize."
+  (interactive)
+  (forward-char)
+  (emacspeak-ses-summarize-current-cell))
+
+(defun emacspeak-ses-backward-column-and-summarize ()
+  "Move to previous column and summarize."
+  (interactive)
+  (forward-char -1)
+  (emacspeak-ses-summarize-current-cell))
+
+(defun emacspeak-ses-forward-row-and-summarize ()
+  "Move to next row and summarize."
+  (interactive)
+  (forward-line)
+  (emacspeak-ses-summarize-current-cell))
+
+(defun emacspeak-ses-backward-row-and-summarize ()
+  "Move to previous row  and summarize."
+  (interactive)
+  (forward-line -1)
+  (emacspeak-ses-summarize-current-cell))
+
+;;}}}
+;;{{{ advice interactive commands
+
+(defun emacspeak-ses-setup ()
+  "Setup SES for use with emacspeak."
+  (declare (special ses-mode-map))
+  (emacspeak-rebind 'emacspeak-forward-char
+                    'emacspeak-ses-forward-column-and-summarize
+                    ses-mode-map)
+  (emacspeak-rebind 'emacspeak-backward-char
+                    'emacspeak-ses-backward-column-and-summarize
+                    ses-mode-map)
+  (emacspeak-rebind 'next-line
+                    'emacspeak-ses-forward-row-and-summarize
+                    ses-mode-map)
+  (emacspeak-rebind 'previous-line
+                    'emacspeak-ses-backward-row-and-summarize
+                    ses-mode-map)
+  )
+        
+        
+(defadvice ses-forward-or-insert (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-ses-summarize-current-cell)))
+
+;;}}}
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 

@@ -168,16 +168,19 @@ speech flush as you type."
 ;;}}}
 ;;{{{  Rebinding functions to keys:
 
-(defun emacspeak-rebind(old-fn new-fn)
+(defun emacspeak-rebind(old-fn new-fn &optional keymap)
   "Rebinds new-fn to all those keys that normally invoke old-fn"
   (let
-      ((keys (where-is-internal old-fn)))
-    (mapcar 
+      ((keys (where-is-internal old-fn keymap)))
+    (mapcar
+     (if keymap
+         (function
+      (lambda (key)
+        (define-key keymap  key new-fn )))
      (function
       (lambda (key)
-        (global-set-key key new-fn )))
-     keys ))
-  )
+        (global-set-key key new-fn ))))
+     keys )))
 
 (defvar emacspeak-functions-that-bypass-function-cell 
   (list 'backward-char 'forward-char 'self-insert-command )
