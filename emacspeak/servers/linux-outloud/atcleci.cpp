@@ -88,21 +88,20 @@
 #define DEFAULT_FORMAT		SND_PCM_FORMAT_S16
 #define DEFAULT_SPEED 		11025
 
-
 /* globals */
 static snd_pcm_stream_t stream = SND_PCM_STREAM_PLAYBACK;
 char *device = "default";
 
-static snd_pcm_t *AHandle;
+static snd_pcm_t *AHandle = NULL;
 
 short *waveBuffer = NULL;
 
-static size_t bits_per_sample, bits_per_frame;
+static size_t bits_per_sample, bits_per_frame = 0;
 static snd_pcm_uframes_t chunk_size = 0;
-static size_t chunk_bytes;
+static size_t chunk_bytes=0;
 
-static unsigned period_time = 0;
-static unsigned buffer_time = 0;
+static unsigned int period_time = 0;
+static unsigned int buffer_time = 0;
 static snd_pcm_uframes_t period_frames = 0;
 static snd_pcm_uframes_t buffer_frames = 0;
 
@@ -224,14 +223,11 @@ static void set_params(void) {
     err = snd_pcm_hw_params_get_buffer_time_max(params,
                                                 &buffer_time, 0);
     assert(err >= 0);
-    if (buffer_time > 500000)
-      buffer_time = 500000;
+    if (buffer_time > 500000) buffer_time = 500000;
   }
   if (period_time == 0 && period_frames == 0) {
-    if (buffer_time > 0)
-      period_time = buffer_time / 4;
-    else
-      period_frames = buffer_frames / 4;
+    if (buffer_time > 0) period_time = buffer_time / 4;
+    else period_frames = buffer_frames / 4;
   }
   if (period_time > 0)
     err = snd_pcm_hw_params_set_period_time_near(AHandle, params,
@@ -589,9 +585,9 @@ int Atcleci_Init (Tcl_Interp * interp) {
   }
   rc = _eciSetOutputBuffer (eciHandle, chunk_bytes, waveBuffer);
   if (!rc) {
-      Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
-      return TCL_ERROR;
-    }
+    Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
+    return TCL_ERROR;
+  }
   fprintf(stderr,"output buffered to waveBuffer with size %d\n",
           chunk_bytes);
 
