@@ -858,7 +858,7 @@ the broadcast. You must have mplayer installed."
 ;;{{{  MLB scores
 (emacspeak-url-template-define
  "MLB Scorecard"
- "http://gd.mlb.com/components/game/year_2003/month_07/day_27/scoreboard.xml"
+ "http://gd.mlb.com/components/game/%s/scoreboard.xml"
  (list
   #'(lambda nil
       (let ((date 
