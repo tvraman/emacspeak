@@ -80,9 +80,8 @@
 (defadvice forward-word (after emacspeak pre act)
   "Speak the word you just moved to."
   (when (interactive-p)
-    (save-excursion
     (skip-syntax-forward " ")
-    (emacspeak-speak-word ))))
+    (emacspeak-speak-word )))
 
 (defadvice backward-word (after emacspeak pre act)
   "Speak the word you just moved to."
