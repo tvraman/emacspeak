@@ -462,8 +462,8 @@ Reset to default audio settings.
 
 @unnumberedsec emacspeak-aumix-wave-decrease
 @findex emacspeak-aumix-wave-decrease
-@kindex  control e control f left 
-@kbd{ control e control f left }
+@kindex  Control  cap E  Control  cap F  left 
+@kbd{ Control  cap E  Control  cap F  left }
 
 Decrease volume of wave output. 
 
@@ -471,8 +471,8 @@ Decrease volume of wave output.
 
 @unnumberedsec emacspeak-aumix-wave-increase
 @findex emacspeak-aumix-wave-increase
-@kindex  control e control f right 
-@kbd{ control e control f right }
+@kindex  Control  cap E  Control  cap F  right 
+@kbd{ Control  cap E  Control  cap F  right }
 
 Increase volume of wave output. 
 
@@ -593,8 +593,8 @@ Speak the date under point when called in Calendar Mode.
 
 @unnumberedsec emacspeak-appt-repeat-announcement
 @findex emacspeak-appt-repeat-announcement
-@kindex  control e  cap A  
-@kbd{ control e  cap A  }
+@kindex  Control  cap E   cap A  
+@kbd{ Control  cap E   cap A  }
 
 Speaks the most recently displayed appointment message if any.
 
@@ -1689,15 +1689,15 @@ for commands defined in module  emacspeak-mpg123.
 
 Play a playlist. 
 Optional interactive prefix arg says not to shuffle  the list. 
-Use command C-x @ h n 
+Use command C-x @@ h n 
 to skip to the next track. 
 
 
 
 @unnumberedsec emacspeak-mp3-playlist-skip
 @findex emacspeak-mp3-playlist-skip
-@kindex  control x @ h n 
-@kbd{ control x @ h n }
+@kindex  Control  cap X  @@ h n 
+@kbd{ Control  cap X  @@ h n }
 
 Skip currently playing track. 
 
@@ -2048,8 +2048,8 @@ except that the outline section is optionally spoken
 
 @unnumberedsec emacspeak-outline-speak-this-heading
 @findex emacspeak-outline-speak-this-heading
-@kindex  Control  cap L  SPACE 
-@kbd{ Control  cap L  SPACE }
+@kindex  control l SPACE 
+@kbd{ control l SPACE }
 
 Speak current outline section starting from point
 
@@ -2057,8 +2057,8 @@ Speak current outline section starting from point
 
 @unnumberedsec emacspeak-outline-speak-backward-heading
 @findex emacspeak-outline-speak-backward-heading
-@kindex  Control  cap L  b 
-@kbd{ Control  cap L  b }
+@kindex  control l b 
+@kbd{ control l b }
 
 Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
@@ -2067,8 +2067,8 @@ except that the outline section is optionally spoken
 
 @unnumberedsec emacspeak-outline-speak-next-heading
 @findex emacspeak-outline-speak-next-heading
-@kindex  Control  cap L  n 
-@kbd{ Control  cap L  n }
+@kindex  control l n 
+@kbd{ control l n }
 
 Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
@@ -2077,8 +2077,8 @@ except that the outline section is optionally spoken
 
 @unnumberedsec emacspeak-outline-speak-forward-heading
 @findex emacspeak-outline-speak-forward-heading
-@kindex  Control  cap L  f 
-@kbd{ Control  cap L  f }
+@kindex  control l f 
+@kbd{ control l f }
 
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
@@ -2151,8 +2151,8 @@ First loads any persistent dictionaries if not already loaded.
 
 @unnumberedsec emacspeak-pronounce-dispatch
 @findex emacspeak-pronounce-dispatch
-@kindex  Control  cap E  Meta  cap D  
-@kbd{ Control  cap E  Meta  cap D  }
+@kindex  control e meta d 
+@kbd{ control e meta d }
 
 Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 
@@ -2300,8 +2300,8 @@ Switch to realaudio buffer.
 
 @unnumberedsec emacspeak-realaudio-browse
 @findex emacspeak-realaudio-browse
-@kindex  Control  cap E  : 
-@kbd{ Control  cap E  : }
+@kindex  control e : 
+@kbd{ control e : }
 
 Browse RAM file before playing the selected component.
 
@@ -2358,8 +2358,8 @@ Call appropriate TRPlayer command.
 
 @unnumberedsec emacspeak-realaudio
 @findex emacspeak-realaudio
-@kindex  Control  cap E  ; 
-@kbd{ Control  cap E  ; }
+@kindex  control e ; 
+@kbd{ control e ; }
 
 Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -2412,8 +2412,8 @@ for commands defined in module  emacspeak-redefine.
 
 @unnumberedsec emacspeak-backward-char
 @findex emacspeak-backward-char
-@kindex  Control  cap B    left 
-@kbd{ Control  cap B    left }
+@kindex  control b   left 
+@kbd{ control b   left }
 
 Backward-char redefined to speak char moved to. 
 
@@ -2421,8 +2421,8 @@ Backward-char redefined to speak char moved to.
 
 @unnumberedsec emacspeak-self-insert-command
 @findex emacspeak-self-insert-command
-@kindex  Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
-@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
+@kindex  Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
+@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2435,8 +2435,8 @@ speech flush as you type.
 
 @unnumberedsec emacspeak-forward-char
 @findex emacspeak-forward-char
-@kindex  Control  cap F    right 
-@kbd{ Control  cap F    right }
+@kindex  control f   right 
+@kbd{ control f   right }
 
 Forward-char redefined to speak char moved to. 
 
@@ -2455,8 +2455,8 @@ for commands defined in module  emacspeak-remote.
 
 @unnumberedsec emacspeak-remote-connect-to-server
 @findex emacspeak-remote-connect-to-server
-@kindex  kp-3   Control  cap E  Meta  cap R  
-@kbd{ kp-3   Control  cap E  Meta  cap R  }
+@kindex  kp-3   control e meta r 
+@kbd{ kp-3   control e meta r }
 
 Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
@@ -2809,8 +2809,8 @@ any other key to speak entire page.
 
 @unnumberedsec emacspeak-speak-paragraph
 @findex emacspeak-speak-paragraph
-@kindex  control e@{ 
-@kbd{ control e@{ }
+@kindex  control e @{ 
+@kbd{ control e @{ }
 
 Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
@@ -3027,8 +3027,8 @@ any other key to speak entire buffer.
 
 @unnumberedsec emacspeak-speak-spaces-at-point
 @findex emacspeak-speak-spaces-at-point
-@kindex  control e meta control @ 
-@kbd{ control e meta control @ }
+@kindex  control e meta control @@ 
+@kbd{ control e meta control @@ }
 
 Speak the white space at point.
 
@@ -3325,8 +3325,8 @@ Negative prefix arg speaks from start of buffer to point.
 
 @unnumberedsec emacspeak-speak-current-mark
 @findex emacspeak-speak-current-mark
-@kindex  control e control @ 
-@kbd{ control e control @ }
+@kindex  control e control @@ 
+@kbd{ control e control @@ }
 
 Speak the line containing the mark.
 With no argument, speaks the
@@ -3701,8 +3701,8 @@ Optional prefix arg prompts for a new filter.
 
 @unnumberedsec emacspeak-table-find-file
 @findex emacspeak-table-find-file
-@kindex  control e control t 
-@kbd{ control e control t }
+@kindex  Control  cap E  Control  cap T  
+@kbd{ Control  cap E  Control  cap T  }
 
 Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -3981,8 +3981,8 @@ for commands defined in module  emacspeak-tapestry.
 
 @unnumberedsec emacspeak-tapestry-describe-tapestry
 @findex emacspeak-tapestry-describe-tapestry
-@kindex  control e meta t 
-@kbd{ control e meta t }
+@kindex  Control  cap E  Meta  cap T  
+@kbd{ Control  cap E  Meta  cap T  }
 
 Describe the current layout of visible buffers in current frame.
 
@@ -4009,8 +4009,8 @@ Save out url templates.
 
 @unnumberedsec emacspeak-url-template-fetch
 @findex emacspeak-url-template-fetch
-@kindex  control e u 
-@kbd{ control e u }
+@kindex  Control  cap E  u 
+@kbd{ Control  cap E  u }
 
 Prompt for  URL template and fetch specified resource.
 
@@ -4257,8 +4257,8 @@ Search Encyclopedia Britannica.
 
 @unnumberedsec emacspeak-websearch-dispatch
 @findex emacspeak-websearch-dispatch
-@kindex  Control  cap E  ? 
-@kbd{ Control  cap E  ? }
+@kindex  control e ? 
+@kbd{ control e ? }
 
 Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
@@ -4315,8 +4315,8 @@ Perform an Google search
 
 @unnumberedsec emacspeak-websearch-emacspeak-archive
 @findex emacspeak-websearch-emacspeak-archive
-@kindex  Control  cap H  e 
-@kbd{ Control  cap H  e }
+@kindex  control h e 
+@kbd{ control h e }
 
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -4696,8 +4696,8 @@ Speak help for widget under point.
 
 @unnumberedsec emacspeak-widget-summarize-parent
 @findex emacspeak-widget-summarize-parent
-@kindex  meta p 
-@kbd{ meta p }
+@kindex  Meta  cap P  
+@kbd{ Meta  cap P  }
 
 Summarize parent of widget at point.
 

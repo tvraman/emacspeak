@@ -769,6 +769,18 @@ end:\n\n")
                         (while (re-search-forward "^;+ ?" nil t)
                           (replace-match "" nil nil))
                         (buffer-string)))
+
+(defsubst ems-texinfo-escape (string)
+  "Escape texinfo special chars"
+  (save-excursion
+    (set-buffer (get-buffer-create " *doc-temp*"))
+    (erase-buffer)
+    (insert string)
+    (goto-char (point-min))
+    (while (re-search-forward "[{}@]" nil t)
+      (replace-match "@\\&"))
+(buffer-string)))
+
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
@@ -790,6 +802,7 @@ documentation.\n\n")
        (function
         (lambda (f)
           (let ((key (where-is-internal f))
+                (key-description nil)
                 (commentary nil)
                 (this-module (symbol-file f)))
             (when this-module
@@ -824,18 +837,22 @@ for commands defined in module  %s.\n\n"
              (format "@findex %s\n" f))
             (if key
                 (condition-case nil
-                    (insert (format "@kindex %s\n@kbd{%s}\n\n"
-                                    (mapconcat
-                                     'key-description
-                                     key " ")
-                                    (mapconcat
-                                     'key-description
-                                     key " ")))
+                    (progn
+                      (setq key-description
+                            (ems-texinfo-escape
+                             (mapconcat
+                              'key-description
+                              key " ")))
+                      (insert
+                       (format "@kindex %s\n@kbd{%s}\n\n"
+                               key-description
+                               key-description)))
                   (error nil))
               (insert " No global keybinding\n\n"))
             (insert
-             (or (documentation f)
-                 ""))
+             (or
+              (ems-texinfo-escape(documentation f))
+              ""))
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (texinfo-all-menus-update t)

@@ -34,7 +34,8 @@ emacspeak.dvi:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-emacspeak.html: emacspeak.texi
+emacspeak.html:
+	rm -f emacspeak.html
 	texi2html -monolithic emacspeak.texi
 	perl add-css.pl emacspeak.html
 

@@ -49,7 +49,7 @@ emacspeak-realaudio-select-realaudio-buffer
 emacspeak-realaudio-browse
 ==========================
 
-   ` Control  cap E  : '
+   ` control e : '
 
    Browse RAM file before playing the selected component.
 
@@ -98,7 +98,7 @@ emacspeak-realaudio-trplayer-call-command
 emacspeak-realaudio
 ===================
 
-   ` Control  cap E  ; '
+   ` control e ; '
 
    Start or control streaming audio including MP3 and realaudio.  If
 using `TRPlayer' as the player, accepts trplayer control commands if a
@@ -143,7 +143,7 @@ emacspeak-redefine.
 emacspeak-backward-char
 =======================
 
-   ` Control  cap B    left '
+   ` control b   left '
 
    Backward-char redefined to speak char moved to.
 
@@ -182,8 +182,8 @@ r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a
 _   \    cap Z     cap Y     cap X     cap W     cap V     cap U
 cap T     cap S     cap R     cap Q     cap P     cap O     cap N
 cap M     cap L     cap K     cap J     cap I     cap H     cap G
-cap F     cap E     cap D     cap C     cap B     cap A       >   <   9
- 8   7   6   5   4   3   2   1   0   /   -   +   *   $ '
+cap F     cap E     cap D     cap C     cap B     cap A    @   >   <
+9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ '
 
    Insert a character.  Speaks the character if
 emacspeak-character-echo is true.  See  command
@@ -194,7 +194,7 @@ you type.
 emacspeak-forward-char
 ======================
 
-   ` Control  cap F    right '
+   ` control f   right '
 
    Forward-char redefined to speak char moved to.
 
@@ -210,7 +210,7 @@ emacspeak-remote.
 emacspeak-remote-connect-to-server
 ==================================
 
-   ` kp-3   Control  cap E  Meta  cap R  '
+   ` kp-3   control e meta r '
 
    Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote server,
@@ -499,7 +499,7 @@ start.  'r' to speak the rest.  any other key to speak entire page.
 emacspeak-speak-paragraph
 =========================
 
-   ` control e{ '
+   ` control e { '
 
    Speak paragraph.  With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
@@ -669,7 +669,7 @@ start.  'r' to speak the rest.  any other key to speak entire buffer.
 emacspeak-speak-spaces-at-point
 ===============================
 
-   ` control e meta control  '
+   ` control e meta control @ '
 
    Speak the white space at point.
 
@@ -912,7 +912,7 @@ buffer to point.
 emacspeak-speak-current-mark
 ============================
 
-   ` control e control  '
+   ` control e control @ '
 
    Speak the line containing the mark.  With no argument, speaks the
 line containing the mark-this is where `exchange-point-and-mark' C-x
@@ -1221,7 +1221,7 @@ Optional prefix arg prompts for a new filter.
 emacspeak-table-find-file
 =========================
 
-   ` control e control t '
+   ` Control  cap E  Control  cap T  '
 
    Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -1466,7 +1466,7 @@ emacspeak-tapestry.
 emacspeak-tapestry-describe-tapestry
 ====================================
 
-   ` control e meta t '
+   ` Control  cap E  Meta  cap T  '
 
    Describe the current layout of visible buffers in current frame.
 
@@ -1489,7 +1489,7 @@ emacspeak-url-template-save
 emacspeak-url-template-fetch
 ============================
 
-   ` control e u '
+   ` Control  cap E  u '
 
    Prompt for  URL template and fetch specified resource.
 
