@@ -38,26 +38,28 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module defines the various voices used in voice-lock mode.
 ;;; This module is Dectalk specific.
 
 ;;}}}
-;; 
+;;{{{ required modules
+
 ;;; Code:
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (load-library "cl-extra"))
+
+;;}}}
 ;;{{{  voice table
 
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
 (defvar dtk-default-voice-string "[:np]"
-  "Default dtk string for the default voice.")
+  "dtk string for the default voice.")
 
 (defvar dtk-voice-table (make-hash-table)
   "Association between symbols and strings to set dtk voices.
@@ -68,14 +70,12 @@ The string can set any dtk parameter.")
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
   (declare (special dtk-voice-table ))
-  (setf (gethash name dtk-voice-table )
-	command-string))
+  (setf (gethash name dtk-voice-table ) command-string))
 
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-voice-table ))
-  (or  (gethash name dtk-voice-table)
-       dtk-default-voice-string))
+  (or  (gethash name dtk-voice-table) dtk-default-voice-string))
 
 (defsubst dtk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
