@@ -274,6 +274,22 @@ automatically."
           'emacspeak-pronounce-refresh-pronunciations)
 
 ;;}}}
+;;{{{ avoid chatter
+(defadvice tnt-handle-closed(around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+(defadvice tnt-handle-opened(around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+(defadvice tnt-handle-sign-on(around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
 (provide 'emacspeak-tnt)
 ;;{{{ end of file
 
