@@ -75,16 +75,16 @@
   "Speak first of the displayed matches."
   (when ido-matches
     (emacspeak-auditory-icon 'select-object))
-    (dtk-speak
-     (concat 
-      (car ido-matches)
-      (format " %d choices: " (length ido-matches))
-      (minibuffer-contents)
-      (if(or (null ido-current-directory)
-             (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
-          " "
-        (format "In directory: %s"
-                ido-current-directory)))))
+  (dtk-speak
+   (concat 
+    (car ido-matches)
+    (format " %d choices: " (length ido-matches))
+    (minibuffer-contents)
+    (if(or (null ido-current-directory)
+	   (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
+	" "
+      (format "In directory: %s"
+	      ido-current-directory)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
@@ -228,7 +228,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defgroup emacspeak-ido nil
   "Emacspeak ido customizations."
   :group  'emacspeak
-)
+  )
 
 (def-voice-font emacspeak-ido-first-match-personality voice-animate-medium
   'ido-first-match-face
