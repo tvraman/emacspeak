@@ -14,7 +14,7 @@
         <table>
           <tr>
             <td>
-              <label for="p">Search for</label>
+              <label for="p">Search for </label>
               <input id="p" name="p" size="30" value=""/>
             </td>
             <td>
@@ -59,7 +59,10 @@
               <input type="radio" name="2" value="1">  1 day </input>
               <input type="radio" name="2" value="3"> 3 days </input>
               <input type="radio" name="2" value="7"> 1 week </input>
-              <input type="radio" name="2" value="14"> 2 weeks </input>
+              <input type="radio" name="2" value="14"> 2 weeks
+              </input>
+            </td>
+<td>
               <input type="radio" name="2" value=""> Specify a date or date range </input>
               <label for="d">Date range mm/dd/yy</label>
               <input id="d"name="3" size="17" maxlength="17" type="text"> </input>
