@@ -83,7 +83,8 @@
   :type 'string 
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-scan-image-options "--format tiff"
+(defcustom emacspeak-ocr-scan-image-options 
+  "--format tiff --resolution 400"
   "Command line options to pass to image acquisition program."
   :type 'string 
   :group 'emacspeak-ocr)
@@ -94,7 +95,7 @@
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-compress-image-options   
-  "-c -g3 "
+  "-c g3 "
   "Options used for compressing tiff image."
   :type 'string
   :group 'emacspeak-ocr)
@@ -139,6 +140,9 @@ will be placed."
   "Major mode for document scanning and  OCR."
   "Major mode for document scanning and OCR\n\n
 \\{emacspeak-ocr-mode-map}")
+
+(declaim (special emacspeak-ocr-mode-map))
+
 
 (define-key emacspeak-ocr-mode-map "\C-x\C-q" 'emacspeak-ocr-toggle-read-only)
 (define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
@@ -209,7 +213,7 @@ Pick a short but meaningful name."
       (format "%s %s > temp.tiff;\n"
               emacspeak-ocr-scan-image
               emacspeak-ocr-scan-image-options )
-      (format "%s %s  temp.tiff %s;\n"
+      (format "%s %s  temp.tiff %s ;\n"
               emacspeak-ocr-compress-image
               emacspeak-ocr-compress-image-options 
               image-name)
