@@ -58,11 +58,11 @@ print: emacspeak.dvi
 	dvips emacspeak.dvi
 
 emacspeak.html: emacspeak.texi
-	makeinfo --no-split --html --verbose emacspeak.texi
+	makeinfo --no-split --html  emacspeak.texi
 	perl add-css.pl emacspeak.html
 
 introducing-emacspeak.html: introducing-emacspeak.texi
-	makeinfo --no-split --html --verbose introducing-emacspeak.texi
+	makeinfo --no-split --html  introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
 
 pub:  emacspeak.html introducing-emacspeak.html

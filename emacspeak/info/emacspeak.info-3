@@ -170,7 +170,7 @@ dtk-speak.
      talkative.  Useful if you want to continue using an Emacs session
      that has emacspeak loaded but wish to make the speech shut up.
      Optional argument PREFIX specifies whether speech is turned off in
-     the current buffer o rin all buffers.
+     the current buffer or in all buffers.
 
  - Interactive Command: dtk-toggle-speak-nonprinting-chars (&optional
           PREFIX)
@@ -271,10 +271,10 @@ emacspeak-aumix.
  - Interactive Command: emacspeak-aumix ()
      ` control e ( '
 
-     Setup output parameters of the auditory display.  Luanch this tool
-     while you have auditory output on multiple channels playing so you
-     can adjust the settings to your preference.  Hit q to quit when
-     you are done.
+     Setup output parameters of the auditory display.   Launch this
+     tool while you have auditory output on multiple channels playing
+     so you can adjust the settings to your preference.  Hit q to quit
+     when you are done.
 
  - Interactive Command: emacspeak-aumix-edit ()
      Edit aumix settings interactively.  Run command M-x
@@ -1279,7 +1279,7 @@ emacspeak-mpg123.
      Move back by specified number of minutes.
 
  - Interactive Command: emacspeak-mpg123-forward-minute (ARG)
-     Forw by ARG minutes.
+     Forward by ARG minutes.
 
  - Interactive Command: emacspeak-mpg123-speak-current-time ()
      Speak time in current track.
