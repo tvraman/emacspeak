@@ -942,6 +942,17 @@ plays entire program."
 ;;}}}
 ;;{{{  MLB scores
 (emacspeak-url-template-define
+ "MLB Alerts"
+ "http://gd2.mlb.com/components/game/year_2004/alerts.xml"
+ nil
+ 'emacspeak-speak-buffer
+ "Show MLB Scorecard."
+ #'(lambda (url)
+     (emacspeak-w3-browse-xml-url-with-style
+      (expand-file-name "mlb-alerts.xsl" emacspeak-xslt-directory)
+      url)))
+
+(emacspeak-url-template-define
  "MLB Scorecard"
  "http://gd.mlb.com/components/game/%s/scoreboard.xml"
  (list
