@@ -200,19 +200,18 @@ proc trackIndex {index} {
 }
 
 proc service {} {
-    global tts
-    set tts(talking?) [speakingP]
-    while {$tts(talking?) == 1} {
+    set talking [speakingP]
+    while {$talking == 1} {
         set status   [lsearch [select [list  stdin]  {} {} 0.9] stdin]
         if { $status >= 0} {
             s
-            set tts(talking?) 0
+            set talking 0
             break
         } else {
-            set tts(talking?) [speakingP]
+            set talking [speakingP]
         }
     }
-    return $tts(talking?)
+    return $talking
 }
 
 proc speech_task {} {
