@@ -175,29 +175,29 @@ prompting for a template.")
  "Shoutcast Search"
  "http://yp.shoutcast.com/directory?s=%s&l=25"
  (list
- #'(lambda ()
-     (webjump-url-encode
-      (read-from-minibuffer "Shoutcast search: "))))
+  #'(lambda ()
+      (webjump-url-encode
+       (read-from-minibuffer "Shoutcast search: "))))
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
       "(//table//table)[8]//td[position()=3 or position()=5]"
- url
- 'speak)))
+      url
+      'speak)))
 
 ;;}}}
 ;;{{{  old time radio 
 (emacspeak-url-template-define
  "Old Time Radio"
-"http://www.oldtimeradioprograms.com"
-nil
-nil
-"This months Old Time Radio Programing"
-#'(lambda (url)
-    (emacspeak-w3-extract-nested-table-list
- (list 2 3 )
- url)));;{{{  Linksys IP
+ "http://www.oldtimeradioprograms.com"
+ nil
+ nil
+ "This months Old Time Radio Programing"
+ #'(lambda (url)
+     (emacspeak-w3-extract-nested-table-list
+      (list 2 3 )
+      url))) ;;{{{  Linksys IP
 
 ;;}}}
 ;;{{{ linksys 
@@ -323,13 +323,13 @@ nil
   "Process and speak Yahoo news."
   (declare (special emacspeak-w3-post-process-hook))
   (add-hook 'emacspeak-w3-post-process-hook
-        #'(lambda nil
-            (declare (special  emacspeak-w3-url-rewrite-rule
-                               emacspeak-w3-class-filter))
-            (setq emacspeak-w3-class-filter "article"
-		  emacspeak-w3-url-rewrite-rule
-                  '("$" "&printer=1"))
-            (emacspeak-speak-buffer)))
+	    #'(lambda nil
+		(declare (special  emacspeak-w3-url-rewrite-rule
+				   emacspeak-w3-class-filter))
+		(setq emacspeak-w3-class-filter "article"
+		      emacspeak-w3-url-rewrite-rule
+		      '("$" "&printer=1"))
+		(emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
    "//*[@class=\"article\"]//td[1]"
    url))
@@ -906,10 +906,10 @@ Set up URL rewrite rule to get print page."
                      'browse-url)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
-                (eq browse-url-browser-function 'w3-fetch)
-                     (eq browse-url-browser-function 'browse-url-w3)))
+		   (eq browse-url-browser-function 'w3-fetch)
+		   (eq browse-url-browser-function 'browse-url-w3)))
       (add-hook 'emacspeak-w3-post-process-hook
-            (emacspeak-url-template-post-action ut)))
+		(emacspeak-url-template-post-action ut)))
     (funcall fetcher   (emacspeak-url-template-url ut))))
 
 (defsubst emacspeak-url-template-help-internal (name)
