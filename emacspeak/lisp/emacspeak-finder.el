@@ -1,7 +1,7 @@
 ;;; emacspeak-finder.el --- Generate a database of keywords and descriptions for all Emacspeak  packages
 ;;; $Id$
 ;;; $Author$ 
-;;; Description: Auditory interface to speedbar
+;;; Description: Auditory interface 
 ;;; Keywords: Emacspeak, Finder
 ;;{{{  LCD Archive entry: 
 
@@ -112,13 +112,12 @@ emacspeak-finder-inf.el."
 
 ;;}}}
 ;;{{{ advice
+
 (defadvice finder-mode (after emacspeak pre act comp)
   "Provide auditory feedback"
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
-      
-
 (provide 'emacspeak-finder)
 ;;{{{ end of file 
 
