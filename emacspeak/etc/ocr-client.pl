@@ -15,7 +15,7 @@ my $output = "/tmp/ocr-output-$$.txt";
 $host ='localhost' unless defined ($host);
 if ( $host =~ m/localhost/) {
   qx($OCR -out_text_name $output $image);
-open (OUT, "cat -s $output |");
+  open (OUT, "cat -s $output |");
   while ( <OUT>) {
     print;
   }
@@ -27,5 +27,5 @@ open (OUT, "cat -s $output |");
   while (<OUT>) {
     print;
   }
-qx(ssh $host rm $input $output);
+  qx(ssh $host rm $input $output);
 }

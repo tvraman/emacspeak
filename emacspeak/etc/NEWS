@@ -2,34 +2,29 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@cs.cornell.edu>
 
-* Emacspeak 18.0 Additions And Changes:
+* Emacspeak 19.0 Additions And Changes:
 
-Emacspeak 18.0 provides the following user level enhancements:
+Emacspeak 19.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
 
-** emacspeak-rss.el --Browsing RSS feeds.
+** emacspeak-ocr.el:
 
-Command emacspeak-rss-browse allows you to browse RSS feeds of your
-choice.
-** emacspeak-wizards:
+etc/ocr-client.pl implements the Emacspeak OCR interface 
+for OCRXTR from Vividata.
 
-Many new productivity wizards.
+** emacspeak-wizards.el:
 
-** Viewing Virtual Consoles:
+New productivity wizards.
 
-Wizard emacspeak-wizards-vc-viewer implements a VC viewer for Linux.
-Allows you to view VCs on the Linux console, including the VC that
-Emacspeak itself is running on.
+** emacspeak-websearch.el:
 
-** voice-setup.el
+Updated websearch templates.
 
-New voice lock engine.
+** emacspeak-url-template.el:
 
+Additional smart URL templates.
 
-** emacspeak-desktop.el
-
-Speech-enables the desktop package.
 
 
 Local variables:
