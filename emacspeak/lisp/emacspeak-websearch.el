@@ -807,27 +807,12 @@ Optional second arg as-html processes the results as HTML rather than data."
    "search results"
    'emacspeak-speak-line))
 
-(defvar emacspeak-websearch-appwatch-search-uri 
-  "http://appwatch.com/Linux/Users/find?q="
-  "URI for searching Freshmeat site. ")
 
-(defun emacspeak-websearch-appwatch-search (query)
-  "Search AppWatch  Site. "
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search AppWatch  for: ")))
-  (declare (special emacspeak-websearch-appwatch-search-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-appwatch-search-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "Search results"
-   'emacspeak-speak-line))
+
+
 
 (defvar emacspeak-websearch-ctan-search-uri 
-  "http://www.ctan.org/tools/filesearch?action=/search/&filename=%s"
+  "http://www.ctan.org/tools/filesearch?action=/search/&filename="
   "URI for searching CTAN archives for tex and latex utilities. ")
 
 (defun emacspeak-websearch-ctan-search (query)
@@ -867,7 +852,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    'emacspeak-speak-line))
 
 (defvar emacspeak-websearch-software-sites
-  "a AppWatch f FreshMeat l Linux p Perl s SourceForge t TEX "
+  "f FreshMeat l Linux p Perl s SourceForge t TEX "
   "Sites searched for open source software. ")
 
 ;;; top level dispatcher for searching source locations 
