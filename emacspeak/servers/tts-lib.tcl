@@ -89,6 +89,7 @@ proc q {{element ""}} {
         return ""
     }
 }
+
 #queue a note 
 proc n {instrument note length {target 0} {step 5}} {
     global queue tts env

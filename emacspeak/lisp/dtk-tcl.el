@@ -475,31 +475,24 @@ Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
                     emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
-             (or (tts-get-overlay-auditory-icon start)
-             (get-text-property start 'auditory-icon)))
+             (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon
-     (or (tts-get-overlay-auditory-icon start)
-     (get-text-property start 'auditory-icon))))
+     (get-text-property start 'auditory-icon)))
   (cond
    (voice-lock-mode
     (let ((last  nil)
-          (personality
-           (or (tts-get-overlay-personality start)
-           (get-text-property start 'personality ))))
+          (personality (get-text-property start 'personality )))
       (while (and (< start end )
                   (setq last
-                        (min
-                         (next-overlay-change  start)
                         (next-single-property-change  start 'personality
-                                                      (current-buffer) end))))
+                                                      (current-buffer) end)))
         (if personality
             (dtk-speak-using-voice personality
                                    (buffer-substring start last ))
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
               personality
-              (or (tts-get-overlay-personality  last)
-                  (get-text-property last  'personality)))) ; end while
+                  (get-text-property last  'personality))) ; end while
       ))                                ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
