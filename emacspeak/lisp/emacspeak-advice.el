@@ -863,7 +863,9 @@ Produce an auditory icon as well."
 
 (defadvice read-file-name (around emacspeak pre act )
   "Prompt using speech as well."
-  (let ((directory (ad-get-arg 1))
+  (let ((directory (or
+                    (ad-get-arg 1)
+                    default-directory))
         (default (ad-get-arg 2 )))
     (tts-with-punctuations "all"
                            (dtk-speak
