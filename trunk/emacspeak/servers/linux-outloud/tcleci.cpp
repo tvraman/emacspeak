@@ -423,14 +423,6 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
       close (dsp);
       dsp = -1;
     }
-    _eciReset(eciHandle);
-      if (   (_eciSetParam(eciHandle, 1/*eciInputType*/, 1) == -1) 
-             || (_eciSetParam(eciHandle, 0/*eciSynthMode*/, 1) == -1)) {
-        Tcl_AppendResult(interp,
-                         "Error resetting  TTS after stop.",
-                         NULL);
-        return TCL_ERROR;
-      }
     return TCL_OK;
   }
   Tcl_SetResult(interp, "Could not stop synthesis", TCL_STATIC);
