@@ -28,6 +28,12 @@ Jabber client IMCom.
 Module emacspeak-xml-shell implements an XML Shell for walking
  XML trees interactively.
 
+** emacspeak-analog.el: Log Analyzer
+
+Speech-enables package analog --a convenient means for viewing
+multiple log files.
+
+
 ** Pronunciation Dictionaries
 
 New Command to interactively edit Emacspeak pronunciation
