@@ -329,7 +329,11 @@ Chat sessions can be viewed within W3  with full ACSS support.
       Front-end for monitoring and controlling  processes.
     </application>
     <application name="w3">
-      Standards-compliant WWW browser with Aural CSS support.</application>
+      Standards-compliant WWW browser with Aural CSS
+      support.</application>
+    <application name="w3m">
+Light-weight WWW browser.
+Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
     <application name="url-template">
       Emacspeak client  that provides programmable  URL templates.
       Pre-defined templates offer easy access to W3C mailing
@@ -413,6 +417,14 @@ Chat sessions can be viewed within W3  with full ACSS support.
     <application name="dmacro">
       Dynamic macro package for template-based editting.
     </application>
+    <application name="analog">
+Analog.el provides a log analyzer that can be customized to
+      display system log files with a few convenient
+      keystrokes.</application>
+    <application name="eperiodic">EPeriodic implements a
+      periodic table of elements.</application>
+    <application name="emacspeak-daisy">
+Implements a digital talking book reader for DAISY3  talking books.</application>
   </category>
   <category name="Distractions">
     <application name="entertain">

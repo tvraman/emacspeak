@@ -383,6 +383,10 @@ s		emacspeak-daisy-stop-audio
 
 
 
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
+during initialization.
+
 ------------------------------------------------------------
 
 ** emacspeak-daisy-stop-audioStop audio.
@@ -799,6 +803,10 @@ r		emacspeak-filtertext-revert
 
 
 
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
+during initialization.
+
 ------------------------------------------------------------
 
 ** emacspeak-filtertext-revertRevert to original text.
@@ -875,6 +883,9 @@ o		emacspeak-freeamp
 
 
 
+This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
+during initialization.
+
 ------------------------------------------------------------
 
 ** emacspeak-freeamp-freeamp-commandExecute FreeAmp command.
@@ -897,6 +908,10 @@ Call appropriate freeamp command.
 ------------------------------------------------------------
 
 ** emacspeak-gomoku-speak-emacs-previous-moveSpeak emacs' previous move
+
+------------------------------------------------------------
+
+** emacspeak-gomoku-goto-x-yPrompt for and go to that square.
 
 ------------------------------------------------------------
 
@@ -998,6 +1013,10 @@ C-c		Prefix Command
 C-c v		emacspeak-imcom-view-chat-session
 
 
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-imcom-mode-hook', as the final step
+during initialization.
 
 ------------------------------------------------------------
 
@@ -1206,6 +1225,10 @@ c		emacspeak-ocr-customize
 
 
 
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
+during initialization.
+
 ------------------------------------------------------------
 
 ** emacspeak-ocr-save-current-pageWrites out recognized text from current page
@@ -1357,6 +1380,10 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
 
+In addition to any hooks its parent mode `xml-mode' might have run,
+this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
+during initialization.
+
 ------------------------------------------------------------
 
 ** emacspeak-psgml-toggle-interactive-voice-lockingToggles variable sgml-set-face.
@@ -1429,6 +1456,9 @@ t		emacspeak-realaudio-trplayer-call-command
 p		emacspeak-realaudio-trplayer-call-command
 
 
+
+This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
+during initialization.
 
 ------------------------------------------------------------
 
@@ -2517,6 +2547,7 @@ Use Emacs completion to obtain a list of available
 resources.
 Resources typically prompt for the relevant information
 before completing the request.
+Optional interactive prefix arg displays documentation for specified resource.
 
 ------------------------------------------------------------
 
@@ -3033,6 +3064,15 @@ Display a summary of all Emacspeak commands.
 
 XL Sheets are converted to HTML and previewed using W3.
 
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-xl-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
+
 ------------------------------------------------------------
 
 ** emacspeak-view-emacspeak-faq	Key Sequence: control e  cap F  
@@ -3196,6 +3236,14 @@ also copied to the kill ring for convenient yanking.
 
 
 
+This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
+
 ------------------------------------------------------------
 
 ** emacspeak-generate-documentationGenerate docs for all emacspeak commands.
@@ -3250,6 +3298,15 @@ Get latest cvs snapshot of emacspeak.
 
 
 XL Sheets are converted to HTML and previewed using W3.
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
 
 ------------------------------------------------------------
 
@@ -3446,6 +3503,10 @@ C-c		Prefix Command
 C-c v		emacspeak-xml-shell-browse-current
 
 
+
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
+during initialization.
 
 ------------------------------------------------------------
 
