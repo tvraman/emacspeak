@@ -54,6 +54,10 @@ Added outline and bookmark support.
 Speech-enables the new full screen GDB interface under Emacs
 (emacs 21.3.50)
 
+** emacspeak-re-builder.el:
+
+Speech-enables re-builder.
+
 ** Console keymaps:
 
 The CVS repository has been updated with keymap files

@@ -362,6 +362,26 @@ punctuations.")
   (list nil nil 4 0 4)
   "Indicate annotation.")
 ;;}}}
+;;{{{ voice overlays 
+
+;;; these are suitable to use as "overlay voices".
+(defvoice voice-lock-overlay-0
+  (list nil 8 nil nil nil nil)
+  "Overlay voice that sets dimension 0 of ACSS structure to 8.")
+
+(defvoice voice-lock-overlay-1
+  (list nil nil 8 nil nil nil)
+  "Overlay voice that sets dimension 1 of ACSS structure to 8.")
+
+(defvoice voice-lock-overlay-2
+  (list nil nil nil 8 nil nil)
+  "Overlay voice that sets dimension 2 of ACSS structure to 8.")
+
+(defvoice voice-lock-overlay-3
+  (list nil  nil nil nil 8 nil)
+  "Overlay voice that sets dimension 3 of ACSS structure to 8.")
+
+;;}}}
 ;;{{{  Define some voice personalities:
 
 (def-voice-font voice-lock-highlight-personality voice-animate

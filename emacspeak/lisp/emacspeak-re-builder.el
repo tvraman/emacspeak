@@ -54,8 +54,69 @@
 ;;}}}
 ;;{{{ Map faces to personalities 
 
+(def-voice-font emacspeak-re-builder-0-personality
+  voice-lock-overlay-0
+  'reb-match-0
+  "Personality used for match 0. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-1-personality
+  voice-lock-overlay-1
+  'reb-match-1
+  "Personality used for match 1. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-2-personality
+  voice-lock-overlay-2
+  'reb-match-2
+  "Personality used for match 2. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
+(def-voice-font emacspeak-re-builder-3-personality
+  voice-lock-overlay-3
+  'reb-match-3
+  "Personality used for match 3. Set this to one of the overlay voices."
+  :group 'emacspeak-re-builder)
+
 ;;}}}
 ;;{{{ Speech-enable interactive commands.
+
+(defadvice  re-builder (after emacspeak pre act comp)
+  "Speak status information."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+(defadvice reb-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+
+
+
+(defadvice reb-next-match (after emacspeak pre act comp)
+  "Speak matched line."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defadvice reb-prev-match (after emacspeak pre act comp)
+  "Speak matched line."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))))
+
+(defadvice reb-toggle-case (after emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (save-excursion
+      (set-buffer reb-target-buffer)
+    (emacspeak-auditory-icon
+     (if case-fold-search 'on 'off)))))
+    
 
 ;;}}}
 (provide 'emacspeak-re-builder)
