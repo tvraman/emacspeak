@@ -129,7 +129,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15898 1059))
+;;;;;;  (15898 1418))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -404,7 +404,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;***
 
 ;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
-;;;;;;  "emacspeak-w3.el" (15898 801))
+;;;;;;  "emacspeak-w3.el" (15898 1420))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
@@ -414,7 +414,7 @@ Play url under point as realaudio" t nil)
 
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google
 ;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15898 1300))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15898 6775))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
