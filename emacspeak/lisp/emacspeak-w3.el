@@ -506,22 +506,11 @@ HTML.")
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. ")
 
-(defcustom emacspeak-w3-xsl-nuke-nulls nil
-  "Turn this on when browsing sites like my.yahoo.com that produce
-spurious null chars."
-  :type 'boolean
-  :group 'emacs-eak-w3)
-
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (let ((case-fold-search t))
-      (when emacspeak-w3-xsl-nuke-nulls
-        (goto-char (point-min))
-        (while (search-forward
-                (format "%c" 0) nil t)
-          (replace-match "")))
       (goto-char (point-min))
       (search-forward "<html>" nil  t)
       (beginning-of-line)
@@ -819,7 +808,7 @@ urls.")
 
 (make-variable-buffer-local 'emacspeak-w3-class-filter)
 
-(defun emacspeak-w3-class-filter-and-follow (&optional prompt)
+(defun emacspeak-w3-class-filter-and-follow (&optional prompt-class)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -839,13 +828,12 @@ used as well."
       (setq redirect
 	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
 				  url
-				  (second
-				   emacspeak-w3-url-rewrite-rule))))
-    (when (or prompt 
+				  (second emacspeak-w3-url-rewrite-rule))))
+    (when (or prompt-class 
               (null emacspeak-w3-class-filter))
       (setq emacspeak-w3-class-filter 
             (read-from-minibuffer  "Specify class: ")))
-    (emacspeak-w3-xslt-filter
+    (emacspeak-w3-extract-by-class
       emacspeak-w3-class-filter
                                    (or redirect url)
                                    'speak)
