@@ -73,8 +73,6 @@
 \\{emacspeak-alsaplayer-mode-map}"
   )
 
-
-
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
 
@@ -136,8 +134,8 @@ Alsaplayer session."
     (switch-to-buffer buffer)
     (rename-buffer
      (format "%s-%s"
-                           emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
-    'unique)))
+             emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
+     'unique)))
 
 ;;}}}
 ;;{{{  Invoke commands:
@@ -156,10 +154,11 @@ Alsaplayer session."
       (erase-buffer)
       (setq process
             (start-process
-             "alsaplayer" emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-program
+             "alsaplayer" (buffer-name) emacspeak-alsaplayer-program
              "-n"
              (format "%s" emacspeak-alsaplayer-session)
              "--status"))
+      (accept-process-output process 1)
       (goto-char (point-min))
       (emacspeak-speak-line))))
 
@@ -182,7 +181,9 @@ Alsaplayer session."
        "mp3$")))
     (t
      (list "--enqueue"
-           (expand-file-name resource))))))
+           (expand-file-name resource)))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-replace-queue (resource)
   "Add specified resource to queue."
@@ -203,90 +204,120 @@ Alsaplayer session."
        "mp3$")))
     (t
      (list "--replace"
-           (expand-file-name resource))))))
+           (expand-file-name resource)))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-status ()
   "Show alsaplayer status"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--status")))
+   (list "--status"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
     
 (defun emacspeak-alsaplayer-pause ()
   "Pause or resume alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--pause")))
+   (list "--pause"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'button)))
 
 (defun emacspeak-alsaplayer-next ()
   "Next  alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--next")))
+   (list "--next"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-previous ()
   "Previous  alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--prev")))
+   (list "--prev"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+
     
 (defun emacspeak-alsaplayer-start ()
   "Start  alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--start")))
+   (list "--start"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-alsaplayer-stop ()
   "Stop  alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--stop")))
+   (list "--stop"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defun emacspeak-alsaplayer-relative (offset)
   "Relative seek  alsaplayer"
   (interactive "sOffset")
   (emacspeak-alsaplayer-send-command
    (list "--relative"
-         offset)))
+         offset))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-speed (setting)
   "Set speed in alsaplayer."
   (interactive "sSpeed")
   (emacspeak-alsaplayer-send-command
    (list "--speed"
-         setting)))
+         setting))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-volume (setting)
   "Set volume."
   (interactive "sVolume")
   (emacspeak-alsaplayer-send-command
    (list "--volume"
-         setting)))
+         setting))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-seek (offset)
   "Absolute seek  alsaplayer"
   (interactive "sOffset")
   (emacspeak-alsaplayer-send-command
    (list "--seek"
-         offset)))
+         offset))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-jump (track)
   "Jump to specified track."
   (interactive "sTrack Number:")
   (emacspeak-alsaplayer-send-command
    (list "--jump"
-         track)))
+         track))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)))
+
 (defun emacspeak-alsaplayer-clear ()
   "Clear or resume alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--clear")))
+   (list "--clear"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-alsaplayer-quit ()
   "Quit or resume alsaplayer"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--quit")))
+   (list "--quit"))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
 ;;{{{ bind keys
