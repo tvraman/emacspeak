@@ -79,7 +79,7 @@
 
 (when (locate-library "w3-speak") (require 'w3-speak))
 
-(defcustom emacspeak-w3-pronunciation-mode "some"
+(defcustom emacspeak-w3-punctuation-mode "some"
   "Pronunciation mode to use for W3 buffers."
   :type '(choice
           (string "some" :tag "some")
@@ -89,9 +89,9 @@
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
   (declare (special emacspeak-w3-post-process-hook
-                    emacspeak-w3-pronunciation-mode))
+                    emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
-  (setq dtk-punctuation-mode emacspeak-w3-pronunciation-mode)
+  (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode)
   (emacspeak-auditory-icon 'open-object)
   (unless emacspeak-w3-post-process-hook
     (emacspeak-speak-mode-line)))
