@@ -274,11 +274,7 @@ By default, the document being scanned is named `untitled'.
 You can name the document by using command
 emacspeak-ocr-name-document bound to
 \\[emacspeak-ocr-name-document].  The document name is used
-in constructing the name of the image and text files.
-
-Here is a list of all emacspeak OCR commands along with their key-bindings:
-
-\\{emacspeak-ocr-mode-map}"
+in constructing the name of the image and text files."
   (progn
     (setq emacspeak-ocr-current-page-number 0
           emacspeak-ocr-last-page-number 0
