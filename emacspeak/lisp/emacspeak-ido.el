@@ -47,12 +47,13 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
+  (let ((voice-lock-mode t))
   (dtk-speak
    (format
     "%s %d Choices: %s"
     (car ido-matches)
     (length ido-matches)
-    (or ido-text ""))))
+    (minibuffer-contents)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
@@ -100,8 +101,9 @@
 (defadvice  ido-find-file (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
+
 
 (defadvice  ido-switch-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -137,6 +139,43 @@
   "Provide auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
+
+;;}}}
+;;{{{ define personalities 
+
+(defgroup emacspeak-ido nil
+  "Emacspeak ido customizations."
+  :group  'emacspeak)
+
+(def-voice-font emacspeak-ido-first-match-personality voice-animate-medium
+  'ido-first-match-face
+  "Personality for first match in ido."
+  :group 'emacspeak-ido)
+(def-voice-font emacspeak-ido-only-match-personality voice-bolden-extra
+  'ido-only-match-face
+  "Personality for only match in ido."
+  :group 'emacspeak-ido)
+
+(def-voice-font emacspeak-ido-only-match-personality voice-bolden-extra
+  'ido-only-match-face
+  "Personality for only match in ido."
+  :group 'emacspeak-ido)
+
+(def-voice-font emacspeak-ido-subdir-personality voice-smoothen
+  'ido-subdir-face
+  "Personality for subdirs in ido."
+  :group 'emacspeak-ido)
+(def-voice-font emacspeak-ido-indicator-personality voice-lighten
+  'ido-indicator-face
+  "Personality for indicator in ido."
+  :group 'emacspeak-ido)
+
+;;}}}
+;;{{{ Additional keybindings 
+
+(defun emacspeak-ido-keys ()
+  "Setup additional  keybindings within ido."
+  (define-key ido-mode-map "\C-f" 'ido-enter-find-file))
 
 ;;}}}
 (provide 'emacspeak-ido)
