@@ -69,21 +69,21 @@
   documentation                         ;documentation for this resource
   )
 
-  ;;}}}
+;;}}}
 ;;{{{ Helpers
 
 (defun emacspeak-url-template-url (ut)
   "Instnatiate URL identified by URL template."
-        (apply 'format
-               ( emacspeak-url-template-template ut)
-               (mapcar
-                (function
-                 (lambda (g)
-                   (cond
-                    ((stringp g)
-                     (read-from-minibuffer g))
-                    (t (funcall g)))))
-                (emacspeak-url-template-generators ut))))
+  (apply 'format
+         ( emacspeak-url-template-template ut)
+         (mapcar
+          (function
+           (lambda (g)
+             (cond
+              ((stringp g)
+               (read-from-minibuffer g))
+              (t (funcall g)))))
+          (emacspeak-url-template-generators ut))))
 
 ;;}}}
 ;;{{{  persistent store 
@@ -113,22 +113,22 @@
    (emacspeak-url-template-constructor :name name
                                        :template template
                                        :generators generators
-:post-action post-action
-:documentation documentation)))
+                                       :post-action post-action
+                                       :documentation documentation)))
                                
 
 (defun emacspeak-url-template-load (file)
   "Load URL template resources from specified location."
-(interactive
+  (interactive
    (list
     (read-file-name "Load URL templates from file: "
                     emacspeak-resource-directory)))
   (condition-case nil
-                  (progn
-  (load
-   (expand-file-name  file emacspeak-resource-directory)))
-  (error (message "Error loading resources from %s "
-                  file))))
+      (progn
+        (load
+         (expand-file-name  file emacspeak-resource-directory)))
+    (error (message "Error loading resources from %s "
+                    file))))
 
 
 (defun emacspeak-url-template-save (file)
@@ -152,7 +152,7 @@
               "\n(setf
  (gethash %s emacspeak-url-template-table)\n %s)"
               (prin1-to-string key)
-               (prin1-to-string (emacspeak-url-template-get key)))))
+              (prin1-to-string (emacspeak-url-template-get key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 
@@ -256,10 +256,15 @@
  "pdf2html"
  "http://access.adobe.com/perl/convertPDF.pl?url=%s"
  (list
-  (lambda ()
-    (webjump-url-encode
-     (read-from-minibuffer
-      "PDF URL: ")))))
+  #'(lambda ()
+      (webjump-url-encode
+       (read-from-minibuffer "PDF URL: "))))
+ nil
+ "Use access.adobe.com to  convert a remote PDF document to
+HTML.
+The PDF document needs to be available on the public Internet.")
+accessible 
+     
 
 ;;}}}
 ;;{{{ w3c 
@@ -287,7 +292,7 @@
 (emacspeak-url-template-define
  "CNN headlines "
  "http://www.cnn.com/QUICKNEWS/print.html"
-                               nil)
+ nil)
 
 (defun emacspeak-url-template-date-YearMonthDate ()
   "Return today as yyyymmdd"
@@ -312,22 +317,22 @@
 
 
 (emacspeak-url-template-define "CNN Tecnology "
-"http://www.cnn.com/2001/TECH/science/%s/"
-(list 'emacspeak-url-template-date-month/date))
+                               "http://www.cnn.com/2001/TECH/science/%s/"
+                               (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN computing "
-"http://www.cnn.com/2001/TECH/computing/%s/"
-(list 'emacspeak-url-template-date-month/date))
+                               "http://www.cnn.com/2001/TECH/computing/%s/"
+                               (list 'emacspeak-url-template-date-month/date))
 
 (emacspeak-url-template-define "CNN HotStocks "
-                                "http://money.cnn.com/%s/markets/hotstox/"
- (list 
-'emacspeak-url-template-date-year/month/date))
+                               "http://money.cnn.com/%s/markets/hotstox/"
+                               (list 
+                                'emacspeak-url-template-date-year/month/date))
 
 
 (emacspeak-url-template-define "CNN Markets New York"
-                                "http://money.cnn.com/%s/markets/markets_newyork/"
- (list 'emacspeak-url-template-date-year/month/date))
+                               "http://money.cnn.com/%s/markets/markets_newyork/"
+                               (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
 ;;{{{ technet cast from DDJ
@@ -354,13 +359,13 @@
                                "http://sourceforge.net/projects/%s"
                                (list
                                 (lambda nil 
-(read-from-minibuffer "Project name"))))
+                                  (read-from-minibuffer "Project name"))))
 
 (emacspeak-url-template-define "sourceforge download" 
                                "http://prdownloads.sourceforge.net/%s"
                                (list
                                 (lambda nil 
-(read-from-minibuffer "Project name"))))
+                                  (read-from-minibuffer "Project name"))))
 
 ;;}}}
 ;;{{{ India Today 
@@ -399,7 +404,33 @@ before completing the request."
     (emacspeak-url-template-open
      (emacspeak-url-template-get
       (completing-read "Resource: "
-                       table)))))
+                       table)))
+    (emacspeak-auditory-icon 'open-object)))
+
+(defun emacspeak-url-template-help ()
+  "Display documentation for  a URL template.
+Use Emacs completion to obtain a list of available
+resources."
+  (interactive)
+  (declare (special emacspeak-url-template-table))
+  (let ((completion-ignore-case t)
+        (name nil)
+        (table
+         (loop for key being the hash-keys of
+               emacspeak-url-template-table
+               collect (list 
+                        (format "%s" key)
+                        (format "%s" key)))))
+    (setq name
+          (completing-read "Resource: "
+                           table))
+    (with-output-to-temp-buffer "*Help*"
+      (princ
+       (emacspeak-url-template-documentation
+        (emacspeak-url-template-get name)))
+      (print-help-return-message))
+    (emacspeak-speak-help)
+    (emacspeak-auditory-icon 'help-object)))
 
 ;;}}}
 (provide 'emacspeak-url-template)
