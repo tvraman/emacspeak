@@ -52,6 +52,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'lisp-mnt)
 (eval-when-compile (require 'dired))
 (require 'derived)
 (require 'eldoc)
@@ -902,7 +903,9 @@ documentation.\n\n")
                     (file-name-sans-extension this-module))
               (setq commentary
                     (lm-commentary
-                     (concat this-module ".el")))
+                     (expand-file-name
+                      (format "%s.el" this-module)
+                      emacspeak-lisp-directory)))
               (when commentary
                 (setq commentary 
                       (ems-cleanup-commentary commentary)))
