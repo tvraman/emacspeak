@@ -11,7 +11,7 @@ into a paragraph.
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
-  
+  <xsl:param name="base"/>
   <xsl:output method="html" indent="yes"
   encoding="iso8859-15"/>
   <xsl:include href="object.xsl"/>
@@ -22,6 +22,18 @@ into a paragraph.
   
   <!-- } -->
   <!-- {listify tables --> 
+<xsl:template match="/html/head">
+    <head>
+      <xsl:apply-templates select="title"/>
+      <xsl:if test="string-length($base) &gt; 0">
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
+      </xsl:if>
+    </head>
+  </xsl:template>
   <xsl:template match="/html/body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
