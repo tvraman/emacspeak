@@ -477,10 +477,9 @@ the documentation on the table browser."
         (data nil)
         (table nil))
     (setq data (find-file-noselect filename))
-    (setq table (make-emacspeak-table (read data)))
+    (setq table (emacspeak-table-make-table (read data)))
     (kill-buffer data )
     (emacspeak-table-prepare-table-buffer table buffer filename )))
-
 
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file. 
@@ -488,6 +487,10 @@ The processed  data and presented using emacspeak table navigation. "
   (interactive "FFind CSV file: ")
   (let ((scratch (get-buffer-create "*csv-scratch*"))
         (table nil)
+        (elements nil)
+        (this-row nil)
+        (this-line nil)
+        (fields nil)
         (buffer (get-buffer-create
                  (format "*%s-table*"
                          (file-name-nondirectory filename)))))
@@ -496,30 +499,22 @@ The processed  data and presented using emacspeak table navigation. "
       (erase-buffer)
       (insert-file filename)
       (goto-char (point-min))
-      (flush-lines "^ *$")
-      (insert "[\n")
-      (while (re-search-forward "^" nil t)
-        (replace-match "[\""))
-      (goto-char (point-min))
-      (while (re-search-forward "," nil t)
-        (replace-match "\" \""))
-      (goto-char (point-min))
-      (forward-line 1)
-      (while (and (not (eobp))
-                  (re-search-forward "$" nil t))
-        (replace-match "\"]")
-        (forward-line 1))
-      (goto-char (point-min))
-      (when (search-forward "[\"\"]" nil t)
-        (replace-match ""))
-      (goto-char (point-max))
-      (insert "]\n")
-      (goto-char (point-min))
-      (setq table (make-emacspeak-table (read scratch))))
-                                        ;(kill-buffer scratch)
+      (setq elements (make-vector (count-lines (point-min)
+                                               (point-max)) nil))
+      (loop for i from 0 to (1- (length elements))
+            do
+            (setq this-line (thing-at-point 'line))
+            (setq fields (split-string this-line ","))
+            (setq this-row (make-vector (length fields) nil))
+            (loop for j from 0 to (1- (length  fields))
+                  do
+                  (aset this-row j (nth j fields)))
+            (forward-line 1)
+            (aset elements i this-row))
+      (setq table (emacspeak-table-make-table elements)))
+    (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer
-                                          filename )))
-    
+                                          filename )))    
 
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data. 
@@ -556,7 +551,7 @@ navigation. "
       (goto-char (point-max))
       (insert "]\n")
       (goto-char (point-min))
-      (setq table (make-emacspeak-table (read scratch))))
+      (setq table (emacspeak-table-make-table (read scratch))))
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer)))
 
@@ -587,7 +582,7 @@ the documentation on the table browser."
         (count 0)
         (row-start 1)
         (column-start 1))
-    (setq table (make-emacspeak-table
+    (setq table (emacspeak-table-make-table
                  (ems-tabulate-parse-region start end)))
     (save-excursion
       (set-buffer buffer)
@@ -874,7 +869,9 @@ match, makes the matching row or column current."
 ;;}}}
 ;;{{{  define table markup structure and accessors 
 
-(defstruct emacspeak-table-markup
+(defstruct (emacspeak-table-markup
+(:constructor
+             emacspeak-table-make-markup))
   table-start
   table-end
   row-start
@@ -900,7 +897,7 @@ table markup.")
 ;;{{{  define table markup for the various modes of interest
 
 (emacspeak-table-markup-set-table 'xml-mode
-                                  (make-emacspeak-table-markup
+                                  (emacspeak-table-make-markup
                                    :table-start "<TABLE>\n"
                                    :table-end "</TABLE>\n"
                                    :row-start "<TR>\n"
@@ -909,7 +906,7 @@ table markup.")
                                    :col-end "</TD>\n"
                                    :col-separator ""))
 (emacspeak-table-markup-set-table 'html-helper-mode
-                                  (make-emacspeak-table-markup
+                                  (emacspeak-table-make-markup
                                    :table-start "<TABLE>\n"
                                    :table-end "</TABLE>\n"
                                    :row-start "<TR>\n"
@@ -920,7 +917,7 @@ table markup.")
 
 
 (emacspeak-table-markup-set-table 'latex2e-mode
-                                  (make-emacspeak-table-markup
+                                  (emacspeak-table-make-markup
                                    :table-start "\\begin{tabular}\n"
                                    :table-end "\\end{tabular}\n"
                                    :row-start ""
@@ -942,7 +939,7 @@ table markup.")
                                    'latex2e-mode))
 
 (emacspeak-table-markup-set-table 'fundamental-mode
-                                  (make-emacspeak-table-markup
+                                  (emacspeak-table-make-markup
                                    :table-start ""
                                    :table-end ""
                                    :row-start ""
@@ -952,7 +949,7 @@ table markup.")
                                    :col-separator ", "))
 
 (emacspeak-table-markup-set-table 'text-mode
-                                  (make-emacspeak-table-markup
+                                  (emacspeak-table-make-markup
                                    :table-start
                                    "\n------------------------------------------------------------\n"
                                    :table-end
@@ -1039,22 +1036,35 @@ markup to use."
   (unless (eq major-mode  'emacspeak-table-mode )
     (error "This command should be used in emacspeak table mode."))
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
-         (buff (format "sorted-on-%d" column )))
-    (emacspeak-table-copy-to-clipboard)
-    (save-excursion
-      (set-buffer (get-buffer-create buff))
-      (erase-buffer)
-      (fundamental-mode)
-      (emacspeak-table-paste-from-clipboard)
-      (goto-char (point-min))
-      (while (re-search-forward "^ +" nil t)
-        (replace-match ""))
-      (goto-char (point-min))
-      (while (re-search-forward " +," nil t)
-        (replace-match ","))
-      (sort-numeric-fields (+ 1  column) (point-min)
-                           (point-max)))
-    (emacspeak-table-view-csv-buffer buff)
+         (elements
+          (loop for e across (emacspeak-table-elements emacspeak-table)
+                collect e))
+         (sorted-table nil)
+         (sorted-list nil)
+         (buffer(get-buffer-create  (format "sorted-on-%d" column ))))
+    (setq sorted-list
+          (sort
+           elements 
+           (function
+            (lambda (x y)
+              (cond
+               ((and (stringp  (aref x column))
+                               (stringp (aref y column)))
+                     (string-lessp (aref x column)
+                                   (aref y column)))
+               ((and (numberp (aref x column))
+                     (numberp (aref y column)))
+                (< (aref x column) (aref y column)))
+               (t (string-lessp
+                   (format "%s" (aref x column))
+                   (format "%s" (aref y column)))))))))
+    (setq sorted-table (make-vector (length sorted-list) nil))
+    (loop for i from 0 to (1- (length sorted-list))
+          do
+          (aset sorted-table i (nth i sorted-list)))
+    (emacspeak-table-prepare-table-buffer
+     (emacspeak-table-make-table  sorted-table)
+     buffer)
     (emacspeak-speak-mode-line)))
 
 ;;}}}

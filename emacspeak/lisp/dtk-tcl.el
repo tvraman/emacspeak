@@ -193,8 +193,9 @@ Optional argument FORCE  flushes the command to the speech server."
   "Initialize midi system."
   (dtk-interp-notes-initialize))
 
-(defsubst dtk-notes-shutdown()
+(defun dtk-notes-shutdown()
   "Shutdown midi system."
+  (interactive)
   (dtk-interp-notes-shutdown))
 
 
