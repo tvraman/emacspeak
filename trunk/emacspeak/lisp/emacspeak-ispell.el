@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{  define personalities
 
-(defcustom ispell-highlight-personality 'harry
+(defcustom ispell-highlight-personality voice-bolden
   "Voice used to highlight spelling errors. "
   :type 'symbol
   :group 'emacspeak-ispell)

@@ -86,7 +86,7 @@ Note that some badly formed mime messages  cause trouble."
 ;;}}}
 ;;{{{  vm voices:
 
-(defcustom emacspeak-vm-from-voice  'harry
+(defcustom emacspeak-vm-from-voice  voice-bolden
   "Personality for From field. "
   :type 'symbol
   :group 'emacspeak-vm)

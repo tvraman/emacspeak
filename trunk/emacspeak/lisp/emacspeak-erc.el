@@ -104,7 +104,7 @@ voice-smoothen
   'erc-underline-face
   "Underline in ERC.")
 
-    (def-voice-font emacspeak-erc-prompt-personality 'harry
+    (def-voice-font emacspeak-erc-prompt-personality voice-bolden
       'erc-prompt-face
       "Personality for prompts.")
 

@@ -59,7 +59,7 @@
   :group 'flyspell
   :prefix "emacspeak-flyspell-")
 
-(defcustom emacspeak-flyspell-highlight-personality 'harry
+(defcustom emacspeak-flyspell-highlight-personality voice-bolden
   "Voice used to highlight spelling errors. "
   :type 'symbol
   :group 'emacspeak-flyspell)

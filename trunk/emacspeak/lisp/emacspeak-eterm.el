@@ -189,7 +189,7 @@ Useful when eterm is in review mode.")
 ;;}}}
 ;;{{{  voice definitions  for eterm  highlight, underline etc
 
-(defcustom emacspeak-eterm-highlight-personality 'harry
+(defcustom emacspeak-eterm-highlight-personality voice-bolden
   "Personality to show terminal highlighting."
   :type 'symbol
   :group 'emacspeak-eterm)
