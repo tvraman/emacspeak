@@ -555,12 +555,14 @@ Nil means no transform is used. ")
   (interactive
    (list
     (expand-file-name
-    (read-file-name "XSL Transformation: "
-                    emacspeak-w3-xsl-directory))))
+     (read-file-name "XSL Transformation: "
+                     emacspeak-w3-xsl-directory))))
   (declare (special emacspeak-w3-xsl-transform))
   (setq emacspeak-w3-xsl-transform xsl)
   (message "Will apply %s before displaying HTML pages."
-           xsl)
+           (file-name-sans-extension
+            (file-name-nondirectory
+             xsl)))
   (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-w3-xsl-toggle ()
