@@ -218,16 +218,22 @@ Echo output and return it as a string."
 
 (defun emacspeak-realaudio-get-current-time-in-seconds ()
   "Return current time in seconds."
+  (interactive)
   (let* ((emacspeak-speak-messages nil)
+         (seconds 0)
          (timespec (emacspeak-realaudio-dispatch ?t))
-        (fields (split-string  timespec ":")))
-    (pop fields) ;discard "time"
+         (fields (split-string  timespec ":")))
+    (pop fields)                        ;discard "time"
     (setq fields 
-(mapcar #'string-to-number fields))
-(+
-(* 60 (first fields))
-(* 60 (second fields))
-(third fields))))
+          (mapcar #'string-to-number fields))
+    (setq seconds 
+          (+
+           (* 60 (first fields))
+           (* 60 (second fields))
+           (third fields)))
+    (when (interactive-p)
+(dtk-speak (format "%d" seconds)))
+    seconds))
 
 (defun emacspeak-realaudio-trplayer-command (char)e
   "Execute TRPlayer command."
@@ -347,6 +353,7 @@ commands via single keystrokes."
   (declare (special emacspeak-realaudio-mode-map
                     emacspeak-realaudio-trplayer-keys))
   (define-key emacspeak-realaudio-mode-map " " 'dtk-stop)
+  (define-key emacspeak-realaudio-mode-map "C"  'emacspeak-realaudio-get-current-time-in-seconds)
   (define-key emacspeak-realaudio-mode-map [left] 'emacspeak-aumix-wave-decrease)
   (define-key emacspeak-realaudio-mode-map [right] 'emacspeak-aumix-wave-increase)
   (loop for c in emacspeak-realaudio-trplayer-keys
