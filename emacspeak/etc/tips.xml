@@ -649,17 +649,20 @@
             A playlist file contains names of MP3 files, one per line.
             To create  a playlist file for use with
             <application>freeamp</application>,
-          you might execute the following command from
+            you might execute the following command from
             within a <application>shell</application>
             buffer:  
-<blockquote>
-<para>
-            <computeroutput>
-              cd $HOME/music; find . -name '*.mp3'  > playlist.m3u
-            </computeroutput>
+            <blockquote>
+              <para>
+                
+                
+                <programlisting format="linespecific">
+                  cd $HOME/music
+                  find . -name '*.mp3'  > playlist.m3u
+                </programlisting>
               </para>
             </blockquote>
-        </para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -668,26 +671,26 @@
         </question>
         <answer>
           <para>
-Install <application>real player</application>
---this is Real Networks' Real Media player.
-Next, install  command-line interface
-<application>trplayer</application>.
-Once you have this installed and configured, you can use
+            Install <application>real player</application>
+            --this is Real Networks' Real Media player.
+            Next, install  command-line interface
+            <application>trplayer</application>.
+            Once you have this installed and configured, you can use
             Emacspeak's built-in 
-RealMedia front-end provided by module
+            RealMedia front-end provided by module
             <application>emacspeak-realaudio.el</application>
-to conveniently play streaming media from anywhere on the
+            to conveniently play streaming media from anywhere on the
             audio desktop --see command
             <command>emacspeak-realaudio</command>.
-Note that when playing a stream, you can use all the
+            Note that when playing a stream, you can use all the
             single-keystroke navigation commands provided by
             <application>trplayer</application>
-by prefixing them with <keysym>C-e ;</keysym>
-from anywhere on the audio desktop; alternatively,
-you can use <keysym>C-e ;;</keysym> to switch to a special
+            by prefixing them with <keysym>C-e ;</keysym>
+            from anywhere on the audio desktop; alternatively,
+            you can use <keysym>C-e ;;</keysym> to switch to a special
             Emacs buffer that contains
             <application>trplayer</application>
-and then execute <application>trplayer</application>
+            and then execute <application>trplayer</application>
             commands directly.
           </para>
         </answer>
@@ -698,15 +701,15 @@ and then execute <application>trplayer</application>
         </question>
         <answer>
           <para>Streaming media on the WWW is often
-          well-hidden behind several mouse clicks.
-          Emacspeak allows you to configure your favorite
-          streams as an organized hierarchy.  The Emacspeak
-          distribution comes with such a collection of
-          streams I listen to on a frequent basis.  You can
-          access these by using standard Emacs completion
-          when prompted for a <computeroutput>RealAudio
-          Resource</computeroutput> by command
-          <command>emacspeak-realaudio</command>. </para>
+            well-hidden behind several mouse clicks.
+            Emacspeak allows you to configure your favorite
+            streams as an organized hierarchy.  The Emacspeak
+            distribution comes with such a collection of
+            streams I listen to on a frequent basis.  You can
+            access these by using standard Emacs completion
+            when prompted for a <computeroutput>RealAudio
+              Resource</computeroutput> by command
+            <command>emacspeak-realaudio</command>. </para>
         </answer>
       </qandaentry>
     </qandadiv>
