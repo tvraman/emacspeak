@@ -110,6 +110,7 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+    (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
     (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
     (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
     (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
@@ -1121,6 +1122,21 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   "Silence spoken messages while url history is being saved."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))(provide 'emacspeak-w3)
+
+;;}}}
+;;{{{ pull RSS feed
+
+(defun emacspeak-w3-browse-rss-at-point ()
+  "Browses RSS url under point."
+  (interactive)
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in a W3 buffer."))
+  (let ((url (w3-view-this-url  'no-show)))
+    (cond
+     (url
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-rss-display url 'speak))
+     (t (error "No URL under point.")))))
 
 ;;}}}
 ;;{{{  emacs local variables 
