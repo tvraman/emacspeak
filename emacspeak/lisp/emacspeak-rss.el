@@ -86,7 +86,7 @@
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
    ;'unescape-charent
-   nil))
+   ))
 
 ;;;###autoload
 (defun emacspeak-rss-browse (feed)
