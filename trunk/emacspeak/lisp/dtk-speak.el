@@ -623,8 +623,11 @@ This is setup on a per engine basis.")
     (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
 
 ;;; forward declaration.
-(defvar emacspeak-aumix-multichannel-capable-p nil)
-(defvar emacspeak-aumix-midi-available-p nil)
+(or (boundp 'emacspeak-aumix-multichannel-capable-p)
+    (defvar emacspeak-aumix-multichannel-capable-p nil))
+(or (boundp 'emacspeak-aumix-midi-available-p)
+    (defvar emacspeak-aumix-midi-available-p nil))
+
 (defun dtk-select-server (program )
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.
@@ -644,9 +647,6 @@ When called  interactively, The selected server is started immediately. "
   (tts-configure-synthesis-setup dtk-program)
   (when (interactive-p)
     (dtk-initialize)))
-        
- 
-
 
 ;;}}}
 ;;{{{  initialize the speech process

@@ -76,8 +76,12 @@
 		   "http://www.cs.cornell.edu/home/raman/emacspeak")
   :link '(url-link :tag "Applications" 
 		   "http://emacspeak.sf.net/applications.html")
+:link '(url-link :tag "Tips" 
+		   "http://emacspeak.sf.net/tips.html")
   :link '(url-link :tag "Discussion" 
                    "http://www.cs.vassar.edu/~priestdo/emacspeak/")
+  :link '(url-link :tag "Publications" 
+                   "http://emacspeak.sf.net/publications")
   :prefix "emacspeak-"
   :group 'applications
   :group 'accessibility

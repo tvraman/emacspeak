@@ -112,6 +112,17 @@ navigate this document."
    (format "Welcome to a summary of Emacspeak commands")))
 
 
+
+(defun emacspeak-view-emacspeak-tips ()
+  "Browse  Emacspeak productivity tips."
+  (interactive)
+  (declare (special emacspeak-etc-directory))
+  (browse-url
+   (format "file:///%stips.html"
+           emacspeak-etc-directory))
+  (emacspeak-auditory-icon 'help)
+  (emacspeak-speak-mode-line))
+
 (defun emacspeak-view-emacspeak-faq ()
   "Browse the Emacspeak FAQ."
   (interactive)
