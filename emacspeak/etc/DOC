@@ -1200,6 +1200,45 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-madplayPlay specified resource using madplay.
+Resource is an  MP3 file or directory containing mp3 files.
+The player is placed in a buffer in emacspeak-madplay-mode.
+
+------------------------------------------------------------
+
+** emacspeak-madplay-madplay-call-commandCall appropriate madplay command.
+
+------------------------------------------------------------
+
+** emacspeak-madplay-madplay-commandExecute Madplay command.
+
+------------------------------------------------------------
+
+** emacspeak-madplay-modeMajor mode for madplay interaction. 
+
+
+key             binding
+---             -------
+
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
+t		emacspeak-madplay-madplay-call-command
+q		emacspeak-madplay-madplay-call-command
+-		emacspeak-madplay-madplay-call-command
++		emacspeak-madplay-madplay-call-command
+s		emacspeak-madplay-madplay-call-command
+p		emacspeak-madplay-madplay-call-command
+b		emacspeak-madplay-madplay-call-command
+f		emacspeak-madplay-madplay-call-command
+o		emacspeak-madplay
+
+
+
+This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
 ** emacspeak-man-browse-man-pageBrowse the man page --read it a paragraph at a time
 
 ------------------------------------------------------------
@@ -3172,10 +3211,9 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-googlePerform an Google search.
+** emacspeak-websearch-googlePerform a Google search.
 Optional interactive prefix arg `lucky' is equivalent to hitting the 
 I'm Feeling Lucky button on Google.
-Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p.
 
 ------------------------------------------------------------
 
@@ -3188,6 +3226,12 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google-search-in-date-rangeUse this from inside the calendar to do Google date-range searches.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-google-specializePerform a specialized Google search. See the Google site for
+  what is possible here:
+http://www.google.com/options/specialsearches.html 
 
 ------------------------------------------------------------
 
@@ -3216,7 +3260,8 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-news-yahooPerform an Yahoo News search
+** emacspeak-websearch-news-yahooPerform an Yahoo News search.
+Optional prefix arg no-rss scrapes information from HTML.
 
 ------------------------------------------------------------
 
@@ -3283,6 +3328,10 @@ Optional interactive prefix arg results in prompting for a search term.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-weatherGet weather forecast for specified zip code.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-wikipedia-searchSearch Wikipedia
 
 ------------------------------------------------------------
 

@@ -77,6 +77,8 @@
 
 ;;}}}
 ;;{{{ emacspeak-alsaplayer
+(defvar emacspeak-alsaplayer-session-count 0
+  "Track how many sessions we are running.")
 
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
@@ -94,44 +96,37 @@
   "Name of alsaplayer buffer.")
 
 ;;;###autoload
-(defun emacspeak-alsaplayer (resource)
-  "Play specified resource using alsaplayer.
-Resource is an  MP3 file or directory containing mp3 files.
-The player is placed in a buffer in emacspeak-alsaplayer-mode."
-  (interactive
-   (list
-    (read-file-name "MP3 Resource: "
-                    emacspeak-alsaplayer-media-directory
-                    (when (eq major-mode 'dired-mode)
-		      (dired-get-filename)))))
+(defun emacspeak-alsaplayer-launch ()
+  "Launch Alsaplayer.
+user is placed in a buffer associated with the newly created
+Alsaplayer session."
+  (interactive)
   (declare (special emacspeak-alsaplayer-buffer-name
-                    emacspeak-alsaplayer-process
-                    emacspeak-alsaplayer-media-directory))
-  ;;; crank up alsaplayer daemon if needed
-  (let ((process-connection-type t)
-        (buffer (get-buffer-create
-                 emacspeak-alsaplayer-buffer-name)))
+                    emacspeak-alsaplayer-session-count
+                    emacspeak-alsaplayer-session))
+  (let ((process-connection-type nil)
+        (process nil)
+        (buffer (get-buffer-create emacspeak-alsaplayer-buffer-name)))
     (save-excursion
       (set-buffer buffer)
-      (erase-buffer)
-    (setq emacspeak-alsaplayer-process
-          (cond
-                  ((file-directory-p resource)
-          (apply 'start-process
-                 "alsaplayer" emacspeak-alsaplayer-buffer-name
-                 emacspeak-alsaplayer-program
-                   (directory-files
-                    (expand-file-name resource)
-                    'full
-                    "mp3$")))
-                  (t (start-process
-                      "alsaplayer" emacspeak-alsaplayer-buffer-name
-                      emacspeak-alsaplayer-program
-                   (expand-file-name resource))))))
+      (setq emacspeak-alsaplayer-session
+            (format "alsaplayer-%s"
+                                           emacspeak-alsaplayer-session-count))
+      (incf emacspeak-alsaplayer-session-count)
+      (setq process
+            (start-process "alsaplayer"
+                                   emacspeak-alsaplayer-buffer-name
+                                   emacspeak-alsaplayer-program
+                                   "-i" "daemon"
+                                   "--session"
+                                   emacspeak-alsaplayer-session)))
     (switch-to-buffer buffer)
+    (rename-buffer emacspeak-alsaplayer-session 'unique)
     (emacspeak-alsaplayer-mode)))
 
-;;}}}
+;;}}} 
+
+Process alsaplayer segmentation fault
 (provide 'emacspeak-alsaplayer)
 ;;{{{ end of file 
 
