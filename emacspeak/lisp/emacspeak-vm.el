@@ -408,7 +408,8 @@ Then speak the screenful. "
   (interactive)
   (declare (special vm-ml-highest-message-number))
   (vm-goto-message 1)
-  (vm-delete-message  vm-ml-highest-message-number)
+  (vm-delete-message
+   (read vm-ml-highest-message-number))
   (message "All messages have been marked as deleted.")
   (emacspeak-auditory-icon 'delete-object))
 
