@@ -4,14 +4,15 @@
 
 ;;; Code:
 (require 'cl)
-(defvar emacs-personal-library-directory
-  (expand-file-name "~/emacs/lisp/site-lisp")
+(defvar emacs-site-lisp-directory
+  (expand-file-name "../../site-lisp"
+                                     (file-name-directory load-file-name))
   "Directory where we keep personal libraries")
 
 (defsubst augment-load-path (path &optional library whence at-end)
   "add directory to load path"
   (interactive "Denter directory name: ")
-  (declare (special emacs-personal-library-directory))
+  (declare (special emacs-site-lisp-directory))
   (cond
    ((and library
 	 (locate-library library))
@@ -20,8 +21,8 @@
    (t (setq path (expand-file-name path
 				   (or whence
 				       (and (boundp
-					     'emacs-personal-library-directory)
-					    emacs-personal-library-directory))))
+					     'emacs-site-lisp-directory)
+					    emacs-site-lisp-directory))))
       (if at-end
 	  (setq load-path (append (delete path load-path) (list path))
 		(debug-on-error t))
@@ -203,8 +204,9 @@
 This helps pull in all emacspeak modules cleanly.")
 
 (declaim (special load-path))
-(augment-load-path (expand-file-name "~/emacs/lisp/emacspeak/lisp"))
-(augment-load-path emacs-personal-library-directory)
+(augment-load-path (expand-file-name "../lisp"
+                                     (file-name-directory load-file-name)))
+(augment-load-path emacs-site-lisp-directory)
 
 (defun emacspeak-utils-generate-commands-documentation ()
   "Generate commands.texi and DOC ."
