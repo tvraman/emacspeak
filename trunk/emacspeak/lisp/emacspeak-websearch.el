@@ -136,7 +136,9 @@ o       open-directory              Open Directory Search
 p       People                      People Search (Yahoo)
 r       RedHat                      Search RedHat Via Google
 Cap R   RFBD                        RFB&D Catalog search
+C-r RPMFind                         Find RPM packages
 s       Software                  Search for software
+t       translate                 Machine translation 
 u       usenet-altavista            Usenet Index At AltaVista
 w       Weather                     Weather Channel  By Zip Code
 cap W   W3C                         Search W3C Site
@@ -1342,6 +1344,33 @@ Light for: ")))
    'emacspeak-speak-line))
 
 ;;}}}
+;;{{{ RPMFind
+
+(emacspeak-websearch-set-searcher 'rpm-find
+                                  'emacspeak-websearch-rpm-find)
+
+(emacspeak-websearch-set-key 18 'rpm-find)
+
+
+(defvar emacspeak-websearch-rpm-find-uri
+  "http://rpmfind.net/linux/rpm2html/search.php?query="
+  "*URI for RPM  Site search")
+
+(defun emacspeak-websearch-rpm-find (query)
+  "Search RPM  catalog  site."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Find RPM: ")))
+  (declare (special emacspeak-websearch-rpm-find-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-rpm-find-uri
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   query
+   'emacspeak-speak-line))
+
+;;}}}
 ;;{{{  RFB
 
 (emacspeak-websearch-set-searcher 'rfb
@@ -1419,7 +1448,7 @@ Light for: ")))
              (format "?lang=%s" lang)
              "&text="
              (webjump-url-encode query))))
-  (emacspeak-websearch-post-process ""
+  (emacspeak-websearch-post-process
    'emacspeak-speak-line))
 
 ;;}}}
