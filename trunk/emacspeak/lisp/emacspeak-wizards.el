@@ -2745,6 +2745,8 @@ RIVO is implemented by rivo.pl ---
 
 ;;}}}
 ;;{{{ show commentary:
+;;;###autoload
+
 (defun emacspeak-wizards-show-commentary (&optional file)
   "Display commentary. Default is to display commentary from current buffer."
   (interactive "P")
