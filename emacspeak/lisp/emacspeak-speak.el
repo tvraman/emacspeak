@@ -1305,7 +1305,15 @@ WIth prefix argument N, move N items (negative N means move backward)."
 arrived mail."
   :type '(file :tag "Mail drop location")
   :group 'emacspeak-speak)
-               
+
+(defcustom emacspeak-voicemail-spool-file
+  nil
+  "Mail spool file examined  to alert you about newly
+arrived voicemail."
+  :type '(file :tag "VoiceMail drop location")
+  :group 'emacspeak-speak)
+
+
   
 (defsubst emacspeak-get-file-modification-time (filename)
   "Return file modification time for file FILENAME."
@@ -1321,29 +1329,41 @@ arrived mail."
   "Least  significant 16 digits of the time when mail alert was last issued.
 Alert the user only if mail has arrived since this time in the future.")
 
-(defsubst emacspeak-mail-get-last-mail-arrival-time ()
+(defsubst emacspeak-mail-get-last-mail-arrival-time (f)
   "Return time when mail was last checked."
-  (declare (special emacspeak-mail-spool-file))
   (condition-case                                nil
-
       (nth
-       1(emacspeak-get-file-modification-time emacspeak-mail-spool-file))
+       1(emacspeak-get-file-modification-time f))
     (error 0)))
                                      
 
-(defun emacspeak-mail-alert-user ()
-  "Alerts user about the arrival of new mail."
-  (declare (special emacspeak-mail-last-alerted-time
-                    emacspeak-mail-spool-file))
-  (let ((mod-time (emacspeak-mail-get-last-mail-arrival-time))
-        (size (emacspeak-get-file-size emacspeak-mail-spool-file)))
+
+(defsubst  emacspeak-mail-alert-user-p (spool)
+  "Predicate to check if we need to play an alert for the
+specified spool."
+  (declare (special emacspeak-mail-last-alerted-time))
+  (let ((mod-time (emacspeak-mail-get-last-mail-arrival-time f))
+        (size (emacspeak-get-file-size f)))
     (cond
      ((and (> mod-time emacspeak-mail-last-alerted-time)
            (> size 0))
-      (emacspeak-auditory-icon 'new-mail)
-      (setq emacspeak-mail-last-alerted-time mod-time ))
+      (setq emacspeak-mail-last-alerted-time mod-time )
+      t)
      (t(setq emacspeak-mail-last-alerted-time mod-time )
        nil))))
+
+(defun emacspeak-mail-alert-user ()
+  "Alerts user about the arrival of new mail."
+  (declare (special emacspeak-mail-spool-file
+                    emacspeak-voicemail-spool-file))
+  (when (and emacspeak-mail-spool-file
+             (emacspeak-mail-alert-user-p
+              emacspeak-mail-spool-file))
+    (emacspeak-auditory-icon 'new-mail))
+  (when (and emacspeak-voicemail-spool-file
+             (emacspeak-mail-alert-user-p
+              emacspeak-voicemail-spool-file))
+    (emacspeak-auditory-icon 'voice-mail)))
 
 (defcustom emacspeak-mail-alert t
   "*Option to indicate cueing of new mail.

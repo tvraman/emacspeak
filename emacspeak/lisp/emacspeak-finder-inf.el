@@ -9,485 +9,485 @@
 
 (setq emacspeak-finder-package-info '(
     ("acss-structure.el"
-        "CSS -- Cascaded Speech Style structure"
-        (emacspeak  audio interface to emacs css))
+        nil
+        nil)
     ("cd-tool.el"
-        "Play  CDs from Emacs"
+        nil
         nil)
     ("dectalk-voices.el"
-        "Define various device independent voices in terms of Dectalk codes."
-        (voice  personality  dectalk))
+        nil
+        nil)
     ("dtk-interp.el"
-        "Language specific (e.g. TCL) interface to speech server"
-        (tts  dectalk  speech server))
+        nil
+        nil)
     ("dtk-speak.el"
-        "Provides Emacs Lisp interface to speech server"
-        (dectalk emacs elisp))
+        nil
+        nil)
     ("emacspeak-actions.el"
-        "Emacspeak actions -- callbacks that can be associated with portions of a buffer"
-        (emacspeak  audio interface to emacs actions))
+        nil
+        nil)
     ("emacspeak-advice.el"
-        "Advice all core Emacs functionality to speak intelligently"
-        (emacspeak  speech  advice  spoken  output))
+        nil
+        nil)
     ("emacspeak-amphetadesk.el"
-        "Emacspeak News Portal Interface"
-        (emacspeak   audio desktop rss))
+        nil
+        nil)
     ("emacspeak-analog.el"
-        "Speech-enable"
-        (emacspeak  analog ))
+        nil
+        nil)
     ("emacspeak-ansi-color.el"
-        "Voiceify ansi-color "
-        (emacspeak  ansi-color))
+        nil
+        nil)
     ("emacspeak-arc.el"
-        "Speech enable archive-mode -- a  Emacs interface to zip and friends"
-        (emacspeak  speak  spoken output  archive))
+        nil
+        nil)
     ("emacspeak-auctex.el"
-        "Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment"
-        (emacspeak  audio interface to emacs auctex))
+        nil
+        nil)
     ("emacspeak-aumix.el"
-        "Setting Audio Mixer"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-autoload.el"
-        "Emacspeak Autoload Generator"
-        (emacspeak   audio desktop rss))
+        nil
+        nil)
     ("emacspeak-babel.el"
-        "Speech-enable BabelFish"
-        (emacspeak  www interaction))
+        nil
+        nil)
     ("emacspeak-bbdb.el"
-        "Speech enable BBDB -- a powerful address manager"
-        (emacspeak  audio interface to emacs bbdb ))
+        nil
+        nil)
     ("emacspeak-bibtex.el"
-        "Speech enable bibtex -- Supports maintaining bibliographies in bibtex format"
-        (emacspeak  audio interface to emacs  bibtex))
+        nil
+        nil)
     ("emacspeak-bookmark.el"
-        "Speech enable Emacs' builtin bookmarks"
-        (emacspeak  speak  spoken output  bookmark))
+        nil
+        nil)
     ("emacspeak-browse-kill-ring.el"
-        "browse-kill-ring  for emacspeak desktop"
-        (emacspeak  browse-kill-ring))
+        nil
+        nil)
     ("emacspeak-bs.el"
-        "speech-enable bs buffer selection"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-buff-menu.el"
-        "Speech enable Buffer Menu Mode -- used to manage buffers"
-        (emacspeak  speak  spoken output  buff-menu))
+        nil
+        nil)
     ("emacspeak-buff-sel.el"
-        "Speech enable buf-sel -- an alternative technique for switching buffers"
-        (emacspeak  audio interface to emacs interactive buffer selection))
+        nil
+        nil)
     ("emacspeak-c.el"
-        "Speech enable CC-mode and friends -- supports C, C++, Java "
-        (emacspeak  audio interface to emacs c  c++))
+        nil
+        nil)
     ("emacspeak-calc.el"
-        "Speech enable the Emacs Calculator -- a powerful symbolic algebra system"
+        nil
         nil)
     ("emacspeak-calculator.el"
-        "Speech enable  desktop calculator"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-calendar.el"
-        "Speech enable Emacs Calendar -- maintain a diary and appointments"
-        (emacspeak  calendar  spoken output))
+        nil
+        nil)
     ("emacspeak-checkdoc.el"
-        "Speech-enable checkdoc"
-        (emacspeak  speak  spoken output  maintain code ))
+        nil
+        nil)
     ("emacspeak-cmuscheme.el"
-        "Scheme support for emacspeak"
-        (emacspeak  cmuscheme))
+        nil
+        nil)
     ("emacspeak-compile.el"
-        "Speech enable  navigation of  compile errors, grep matches"
-        (emacspeak compile))
+        nil
+        nil)
     ("emacspeak-cperl.el"
-        "Speech enable CPerl Mode "
-        (emacspeak  audio interface to emacs cperl))
+        nil
+        nil)
     ("emacspeak-cus-load.el"
-        "automatically extracted custom dependencies"
+        nil
         nil)
     ("emacspeak-custom.el"
-        "Speech enable interactive Emacs customization "
-        (emacspeak  speak  spoken output  custom))
+        nil
+        nil)
     ("emacspeak-daisy.el"
-        "daisy Front-end for emacspeak desktop"
-        (emacspeak  daisy digital talking books))
+        nil
+        nil)
     ("emacspeak-damlite.el"
-        "Speech-enable damlite"
-        (emacspeak  damlite ))
+        nil
+        nil)
     ("emacspeak-desktop.el"
-        "Speech-enable Emacspeak  desktop "
-        (emacspeak   audio desktop  desktop))
+        nil
+        nil)
     ("emacspeak-dictation.el"
-        "Speech enable dictation -- Dictation Interface"
-        (emacspeak  speak  spoken output  dictation))
+        nil
+        nil)
     ("emacspeak-dictionary.el"
-        "speech-enable dictionaries "
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-dired.el"
-        "Speech enable Dired Mode -- A powerful File Manager"
-        (emacspeak  dired  spoken output))
+        nil
+        nil)
     ("emacspeak-dismal.el"
-        "Speech enable Dismal -- An Emacs Spreadsheet program"
-        (emacspeak  audio interface to emacs spread sheets))
+        nil
+        nil)
     ("emacspeak-dmacro.el"
-        "Speech enable DMacro -- Dynamic  Macros "
-        (emacspeak  audio interface to emacs dmacro))
+        nil
+        nil)
     ("emacspeak-ecb.el"
-        "speech-enable Emacs Class Browser"
-        (emacspeak  ecb))
+        nil
+        nil)
     ("emacspeak-ediary.el"
-        "Speech-enable ediary"
-        (emacspeak  diary))
+        nil
+        nil)
     ("emacspeak-ediff.el"
-        "Speech enable Emacs interface to diff and merge"
-        (emacspeak  audio interface to emacs  comparing files ))
+        nil
+        nil)
     ("emacspeak-enriched.el"
-        "Audio Formatting for Emacs' WYSIWYG RichText  mode"
-        (emacspeak  audio interface to emacs rich text))
+        nil
+        nil)
     ("emacspeak-entertain.el"
-        "Speech enable misc games"
-        (emacspeak  speak  spoken output  games))
+        nil
+        nil)
     ("emacspeak-eperiodic.el"
-        "Speech-enable Periodic Table"
-        (emacspeak  periodic  table))
+        nil
+        nil)
     ("emacspeak-erc.el"
-        "speech-enable erc irc client"
-        (emacspeak  erc))
+        nil
+        nil)
     ("emacspeak-eshell.el"
-        "Speech-enable EShell - Emacs Shell"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-eterm.el"
-        "Speech enable eterm -- Emacs' terminal emulator  term.el"
-        (emacspeak  eterm  terminal emulation  spoken output))
+        nil
+        nil)
     ("emacspeak-eudc.el"
-        "Speech enable  directory client "
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-facemenu.el"
-        "Map default Emacs faces like bold to appropriate speech personalities "
-        (emacspeak  audio interface to emacs rich text))
+        nil
+        nil)
     ("emacspeak-filtertext.el"
-        "Utilities to filter text"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-find-dired.el"
-        "Speech enable  find-dired"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-find-func.el"
-        "Speech enable emacs' code finder"
-        (emacspeak  find-func))
+        nil
+        nil)
     ("emacspeak-finder-inf.el"
         nil
-        (help))
+        nil)
     ("emacspeak-finder.el"
-        "Generate a database of keywords and descriptions for all Emacspeak  packages"
-        (emacspeak  finder))
+        nil
+        nil)
     ("emacspeak-fix-interactive.el"
-        "Tools to make  Emacs' builtin prompts   speak"
-        (emacspeak  advice  automatic advice  interactive))
+        nil
+        nil)
     ("emacspeak-flyspell.el"
-        "Speech enable Ispell -- Emacs' interactive spell checker"
-        (emacspeak  ispell  spoken output  fly spell checking))
+        nil
+        nil)
     ("emacspeak-folding.el"
-        "Speech enable Folding Mode -- enables structured editting"
-        (emacspeak  audio interface to emacs folding editor))
+        nil
+        nil)
     ("emacspeak-forms.el"
-        "Speech enable Emacs' forms mode  -- provides  a convenient database interface"
-        (emacspeak  audio interface to emacs forms ))
+        nil
+        nil)
     ("emacspeak-freeamp.el"
-        "Control freeamp from Emacs"
-        (emacspeak  freeamp))
+        nil
+        nil)
     ("emacspeak-generic.el"
-        "Speech enable  generic modes"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-gnuplot.el"
-        "speech-enable gnuplot mode"
-        (emacspeak  www interaction))
+        nil
+        nil)
     ("emacspeak-gnus.el"
-        "Speech enable GNUS -- Fluent spoken access to usenet"
-        (emacspeak  gnus  advice  spoken output  news))
+        nil
+        nil)
     ("emacspeak-gomoku.el"
-        "Speech enable the game of Gomoku"
-        (emacspeak  speak  spoken output  gomoku))
+        nil
+        nil)
     ("emacspeak-gridtext.el"
-        "gridtext"
-        (emacspeak  gridtext))
+        nil
+        nil)
     ("emacspeak-gud.el"
-        "Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB"
-        (emacspeak  audio interface to emacs debuggers ))
+        nil
+        nil)
     ("emacspeak-hide.el"
-        "Provides user commands for hiding and exposing blocks of text"
-        (emacspeak  speak  spoken output  hide))
+        nil
+        nil)
     ("emacspeak-hideshow.el"
-        "speech-enable hideshow"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-hyperbole.el"
-        "Speech enable Hyperbole -- A Powerful Information Manager"
-        (emacspeak  speech access  hyperbole))
+        nil
+        nil)
     ("emacspeak-ibuffer.el"
-        "speech-enable ibuffer buffer selection"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-imcom.el"
-        "Emacspeak interface to IMCom/Jabber"
-        (emacspeak   audio desktop imcom))
+        nil
+        nil)
     ("emacspeak-imenu.el"
-        "Speech enable Imenu -- produce buffer-specific table of contents"
-        (emacspeak  speak  spoken output  indices))
+        nil
+        nil)
     ("emacspeak-info.el"
-        "Speech enable Info -- Emacs' online documentation viewer"
-        (emacspeak  audio interface to emacs))
+        nil
+        nil)
     ("emacspeak-ispell.el"
-        "Speech enable Ispell -- Emacs' interactive spell checker"
-        (emacspeak  ispell  spoken output  ispell version 2.30))
+        nil
+        nil)
     ("emacspeak-jde.el"
-        "Speech enable JDE -- An integrated Java Development Environment"
-        (emacspeak  speak  spoken output  java))
+        nil
+        nil)
     ("emacspeak-keymap.el"
-        "Setup all keymaps and keybindings provided by Emacspeak"
-        (emacspeak))
+        nil
+        nil)
     ("emacspeak-kmacro.el"
-        "Speech-enable kbd macro interface"
-        (emacspeak  kmacro ))
+        nil
+        nil)
     ("emacspeak-kotl.el"
-        "Speech enable KOtl -- Hyperbole's outlining editor"
-        (emacspeak  speech access  hyperbole  outliner))
+        nil
+        nil)
     ("emacspeak-load-path.el"
-        "Setup Emacs load-path for compiling Emacspeak"
-        (emacspeak  speech extension for emacs))
+        nil
+        nil)
     ("emacspeak-loaddefs.el"
         nil
         nil)
     ("emacspeak-m-player.el"
-        "Control mplayer from Emacs"
-        (emacspeak  m-player streaming media ))
+        nil
+        nil)
     ("emacspeak-make-mode.el"
-        "Speech enable make-mode"
-        (emacspeak  make))
+        nil
+        nil)
     ("emacspeak-man.el"
-        "Speech enable Man mode -- Use this for UNIX Man pages"
-        (emacspeak  audio interface to emacs man ))
+        nil
+        nil)
     ("emacspeak-message.el"
-        "Speech enable Message -- Used to compose news postings and replies"
-        (emacspeak  audio interface to emacs posting messages))
+        nil
+        nil)
     ("emacspeak-metapost.el"
-        "speech-enable metapost mode"
-        (emacspeak  metapost))
+        nil
+        nil)
     ("emacspeak-midge.el"
-        "Speech-enable MIDI editor"
-        (emacspeak  midi ))
+        nil
+        nil)
     ("emacspeak-mpg123.el"
-        "Speech enable MP3 Player"
-        (emacspeak  www interaction))
+        nil
+        nil)
     ("emacspeak-mspools.el"
-        "Speech enable MSpools -- Monitor multiple mail drops"
-        (emacspeak  speak  spoken output  mspools))
+        nil
+        nil)
     ("emacspeak-net-utils.el"
-        "Speech enable net-utils"
-        (emacspeak  network utilities ))
+        nil
+        nil)
     ("emacspeak-newsticker.el"
-        "Speech-enable newsticker"
-        (emacspeak  newsticker ))
+        nil
+        nil)
     ("emacspeak-nxml.el"
-        "Speech enable nxml mode"
-        (emacspeak  nxml streaming media ))
+        nil
+        nil)
     ("emacspeak-ocr.el"
-        "ocr Front-end for emacspeak desktop"
-        (emacspeak  ocr))
+        nil
+        nil)
     ("emacspeak-oo-browser.el"
-        "Speech enable OO Browser -- For Browsing large OO Systems"
-        (emacspeak  speech access  browsing source code.))
+        nil
+        nil)
     ("emacspeak-outline.el"
-        "Speech enable Outline --   Browsing  Structured Documents"
-        (emacspeak  audio interface to emacs outlines))
+        nil
+        nil)
     ("emacspeak-pcl-cvs.el"
-        "Speech enabled CVS access "
-        (emacspeak  cvs  audio desktop))
+        nil
+        nil)
     ("emacspeak-perl.el"
-        "Speech enable Perl Mode "
-        (emacspeak  audio interface to emacs perl))
+        nil
+        nil)
     ("emacspeak-personality.el"
         nil
-        (emacspeak   spoken output))
+        nil)
     ("emacspeak-preamble.el"
-        "standard  include for Emacspeak modules"
-        (emacspeak  audio interface to emacs auctex))
+        nil
+        nil)
     ("emacspeak-pronounce.el"
-        "Implements Emacspeak pronunciation dictionaries"
-        (emacspeak  audio interface to emacs customized pronunciation))
+        nil
+        nil)
     ("emacspeak-psgml.el"
-        "Speech enable psgml package"
-        (emacspeak  audio interface to emacs psgml))
+        nil
+        nil)
     ("emacspeak-python.el"
-        "Speech enable Python development environment"
-        (emacspeak  speak  spoken output  python))
+        nil
+        nil)
     ("emacspeak-realaudio.el"
-        "Play realaudio from Emacs"
-        (emacspeak  realaudio))
+        nil
+        nil)
     ("emacspeak-redefine.el"
-        "Redefines some key Emacs builtins to speak"
-        (emacspeak  redefine  spoken output))
+        nil
+        nil)
     ("emacspeak-reftex.el"
-        "speech enable reftex"
-        (emacspeak  reftex))
+        nil
+        nil)
     ("emacspeak-remote.el"
-        "Enables running remote Emacspeak sessions"
-        (emacspeak  speak  spoken output  remote server))
+        nil
+        nil)
     ("emacspeak-replace.el"
-        "Speech enable interactive search and replace"
-        (emacspeak  speech feedback  query replace (replace.el)))
+        nil
+        nil)
     ("emacspeak-rmail.el"
-        "Speech enable RMail -- Emacs' default mail agent"
-        (emacspeak  audio interface to emacs mail))
+        nil
+        nil)
     ("emacspeak-rpm-spec.el"
-        "Speech enable rpm spec editor"
-        (emacspeak  rpm-spec streaming media ))
+        nil
+        nil)
     ("emacspeak-rpm.el"
-        "speech-enable RPM"
-        (emacspeak  rpm  red hat package manager))
+        nil
+        nil)
     ("emacspeak-rss.el"
-        "Emacspeak RSS Wizard"
-        (emacspeak   audio desktop rss))
+        nil
+        nil)
     ("emacspeak-sawfish.el"
-        "speech-enable sawfish mode"
-        (emacspeak  sawfish interaction ))
+        nil
+        nil)
     ("emacspeak-ses.el"
-        "Speech-enable ses spread-sheet"
-        (emacspeak  ses ))
+        nil
+        nil)
     ("emacspeak-setup.el"
-        "Setup Emacspeak environment --loaded to start Emacspeak"
-        (emacspeak  setup  spoken output))
+        nil
+        nil)
     ("emacspeak-sgml-mode.el"
-        "Speech enable SGML mode"
-        (emacspeak  audio interface to emacs sgml ))
+        nil
+        nil)
     ("emacspeak-sh-script.el"
-        "Speech enable  sh-script mode"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-sigbegone.el"
-        "Speech-enable sigbegone"
-        (emacspeak  sigbegone ))
+        nil
+        nil)
     ("emacspeak-solitaire.el"
-        "Speech enable Solitaire game"
-        (emacspeak  speak  spoken output  solitaire))
+        nil
+        nil)
     ("emacspeak-sounds.el"
-        "Defines Emacspeak auditory icons"
-        (emacspeak  audio interface to emacs  auditory icons))
+        nil
+        nil)
     ("emacspeak-speak.el"
-        "Implements Emacspeak's core speech services"
-        (emacspeak   spoken output))
+        nil
+        nil)
     ("emacspeak-speedbar.el"
-        "Speech enable speedbar -- Tool for context-sensitive navigation"
-        (emacspeak  speedbar))
+        nil
+        nil)
     ("emacspeak-sql.el"
-        "Speech enable sql-mode"
-        (emacspeak  database interaction))
+        nil
+        nil)
     ("emacspeak-supercite.el"
-        "Speech enable supercite"
-        (emacspeak  supercite  mail))
+        nil
+        nil)
     ("emacspeak-swbuff.el"
-        "speech-enable swbuff mode"
-        (emacspeak  swbuff))
+        nil
+        nil)
     ("emacspeak-table-ui.el"
-        "Emacspeak's current notion of an ideal table UI"
-        (emacspeak  audio interface to emacs tables are structured))
+        nil
+        nil)
     ("emacspeak-table.el"
-        "Implements data model for table browsing"
-        (emacspeak  audio interface to emacs tables are structured))
+        nil
+        nil)
     ("emacspeak-tabulate.el"
-        "Interpret tabulated information as a table"
-        (emacspeak  tabulated data   visual layout gives structure))
+        nil
+        nil)
     ("emacspeak-tapestry.el"
-        "Speak information about current layout of windows"
-        (emacspeak  audio interface to emacs tapestry))
+        nil
+        nil)
     ("emacspeak-tar.el"
-        "Speech enable Tar Mode -- Manipulate tar archives from Emacs"
-        (emacspeak  speak  spoken output  tar))
+        nil
+        nil)
     ("emacspeak-tcl.el"
-        "Speech enable TCL development environment"
-        (emacspeak  audio interface to emacs tcl))
+        nil
+        nil)
     ("emacspeak-tdtd.el"
-        "Speech enable  DTD authoring "
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-tempo.el"
-        "Speech enable tempo -- template library used for Java and HTML authoring"
-        (emacspeak  spoken feedback  template filling  html editing))
+        nil
+        nil)
     ("emacspeak-tetris.el"
-        "Speech enable game of Tetris"
-        (emacspeak  speak  spoken output  tetris))
+        nil
+        nil)
     ("emacspeak-texinfo.el"
-        "Speech enable texinfo mode"
-        (emacspeak  texinfo))
+        nil
+        nil)
     ("emacspeak-tnt.el"
-        "Instant Messenger "
-        (emacspeak  instant messaging ))
+        nil
+        nil)
     ("emacspeak-todo-mode.el"
-        "speech-enable todo-mode"
-        (emacspeak  todo-mode ))
+        nil
+        nil)
     ("emacspeak-url-template.el"
-        "Create library of URI templates"
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-view-process.el"
-        "Speech enable View Processes -- A powerful task manager"
-        (emacspeak  audio interface to emacs administering processes))
+        nil
+        nil)
     ("emacspeak-view.el"
-        "Speech enable View mode -- Efficient browsing of read-only content"
-        (emacspeak  audio interface to emacs  view-mode))
+        nil
+        nil)
     ("emacspeak-vm.el"
-        "Speech enable VM -- A powerful mail agent (and the one I use)"
-        (emacspeak  vm  email  spoken output  voice annotations))
+        nil
+        nil)
     ("emacspeak-w3.el"
-        "Speech enable W3 WWW browser -- includes ACSS Support"
-        (emacspeak  w3  www))
+        nil
+        nil)
     ("emacspeak-w3m.el"
         nil
-        (emacspeak  w3m))
+        nil)
     ("emacspeak-websearch.el"
-        "search utilities"
-        (emacspeak  www interaction))
+        nil
+        nil)
     ("emacspeak-widget.el"
-        "Speech enable Emacs' native GUI widget library"
-        (emacspeak  audio interface to emacs customized widgets))
+        nil
+        nil)
     ("emacspeak-windmove.el"
-        "speech-enable windmove "
-        (emacspeak  windmove))
+        nil
+        nil)
     ("emacspeak-winring.el"
-        "Speech enable WinRing -- Manage multiple Emacs window configurations"
-        (emacspeak  speak  spoken output  winring))
+        nil
+        nil)
     ("emacspeak-wizards.el"
-        "Implements Emacspeak  convenience wizards"
-        (emacspeak   audio desktop wizards))
+        nil
+        nil)
     ("emacspeak-wrolo.el"
-        "Speech enable hyperbole's Rolodex"
-        (emacspeak  rolodex  spoken output))
+        nil
+        nil)
     ("emacspeak-xml-shell.el"
-        "Implements a simple XML browser"
-        (emacspeak   audio desktop xml-shell))
+        nil
+        nil)
     ("emacspeak-xslide.el"
-        "Speech enable  XSL authoring "
-        (emacspeak  audio desktop))
+        nil
+        nil)
     ("emacspeak-xslt-process.el"
-        "speech-enable xslt-process "
-        (emacspeak  xslt-process))
+        nil
+        nil)
     ("emacspeak-xslt.el"
-        "Implements Emacspeak  xslt transform engine"
-        (emacspeak   audio desktop xslt))
+        nil
+        nil)
     ("emacspeak.el"
-        "Emacspeak -- The Complete Audio Desktop"
-        (emacspeak  speech  dectalk ))
+        nil
+        nil)
     ("flite-voices.el"
-        "Emacspeak FLite"
-        (emacspeak   audio desktop flite))
+        nil
+        nil)
     ("html-outline.el"
-        "Extends html-helper-mode to provide outline and imenu support"
+        nil
         nil)
     ("outloud-voices.el"
-        "Define various device independent voices in terms of OutLoud tags"
-        (voice  personality  ibm viavoice outloud))
+        nil
+        nil)
     ("tapestry.el"
         nil
         nil)
     ("voice-setup.el"
-        "Setup voices for voice-lock"
+        nil
         nil)
     ("xml-parse.el"
-        "code to efficiently read/write XML data with Elisp"
-        (convenience languages lisp xml parse data))
+        nil
+        nil)
     ("xml-sexp.el"
-        "Convert XML to S-Expressions"
-        (emacspeak  xml ))
+        nil
+        nil)
 ))
 
 (loop for l  in (reverse emacspeak-finder-package-info) do
