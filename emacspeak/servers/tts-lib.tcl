@@ -227,7 +227,6 @@ proc notes_initialize {} {
     }
     set tts(midi) 0
     if {![file executable /usr/bin/stdiosynth]} {
-        puts stderr "stdiosynth executable not found "
         return
     }
     set result [catch {set tts(notes) [open "|stdiosynth " w]} err]
