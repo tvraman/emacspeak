@@ -1093,17 +1093,17 @@ Set up URL rewrite rule to get print page."
 ;;}}}
 ;;{{{  flight arrival 
 (emacspeak-url-template-define
-  "Flight Tracker"
-  "http://tracker.flightview.com/fvAirwise/fvCPL.exe?qtype=htm&AL=%s&acid=%s&FIND1=Find+flight"
-  (list
-   #'(lambda nil
-       (read-from-minibuffer "Airline: "))
-#'(lambda nil
-    (read-from-minibuffer "Flight number: ")))
+ "Flight Tracker"
+ "http://tracker.flightview.com/fvAirwise/fvCPL.exe?qtype=htm&AL=%s&acid=%s&FIND1=Find+flight"
+ (list
   #'(lambda nil
-      (search-forward "Airline: " nil t)
-      (emacspeak-speak-line))
-  "Display flight arrival and departure information.")
+      (read-from-minibuffer "Airline: "))
+  #'(lambda nil
+      (read-from-minibuffer "Flight number: ")))
+ #'(lambda nil
+     (search-forward "Airline: " nil t)
+     (emacspeak-speak-line))
+ "Display flight arrival and departure information.")
       
 ;;}}}
 ;;}}}

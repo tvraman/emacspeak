@@ -230,7 +230,7 @@ node-spec."
   (interactive
    (list
     (read-from-minibuffer "Node: "
-"(")))
+			  "(")))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
