@@ -84,6 +84,7 @@ emacspeak-rss.elc \
 	emacspeak-tabulate.elc 
 
 AUX_OBJECTS =  cd-tool.elc \
+amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
 emacspeak-arc.elc \
