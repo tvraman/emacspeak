@@ -259,7 +259,8 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defun emacspeak-ido-keys ()
   "Setup additional  keybindings within ido."
   (declare (special ido-mode-map))
-  (define-key ido-mode-map "\C-f" 'ido-enter-find-file))
+  (define-key ido-mode-map "\C-f" 'ido-enter-find-file)
+  (define-key ido-mode-map "\M-\d" 'ido-delete-backward-word-updir))
 
 ;;}}}
 (provide 'emacspeak-ido)

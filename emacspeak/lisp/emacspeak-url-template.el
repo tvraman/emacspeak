@@ -644,6 +644,19 @@ archived  mail from the OASIS list. You need to know the exact name of the list.
 ;;{{{ w3c 
 
 (emacspeak-url-template-define
+ "w3c IRC Logs"
+ "http://www.w3.org/%s-%s-irc "
+ (list
+  #'(lambda nil
+   (emacspeak-url-template-collect-date "Date: "
+                                           "%Y/%m/%d"))
+"Channel Name: ")
+ nil
+ "Use this to pull up the
+archived  logs from the W3C IRC. You need to know the exact
+name of the channel.")
+
+(emacspeak-url-template-define
  "w3c Lists"
  "http://lists.w3.org/Archives/Member/%s/%s/"
  (list
