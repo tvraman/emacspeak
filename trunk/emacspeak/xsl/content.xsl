@@ -18,7 +18,7 @@
         </strong></p>
       <xsl:apply-templates 
                            select =
-        "//h1|//h2|//h3|//p|//ul|//ol|//dl"/>
+        "//h1|//h2|//h3|//p|//ul|//ol|//dl|//div//li"/>
 <h2><a name="__about_this_style">About This Style</a></h2>
 <p>
 This style extracts content from a layout-rich WWW page.
