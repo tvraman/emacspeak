@@ -277,7 +277,7 @@ Mark is specified in seconds."
                  
   
 
-(defun emacspeak-realaudio-trplayer-command (char)e
+(defun emacspeak-realaudio-trplayer-command (char)
   "Execute TRPlayer command."
   (interactive "cTRPlayer Command:")
   (declare (special emacspeak-realaudio-process))
