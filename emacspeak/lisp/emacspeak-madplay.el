@@ -161,20 +161,20 @@ The player is placed in a buffer in emacspeak-madplay-mode."
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
-    (setq emacspeak-madplay-process
-          (cond
-                  ((file-directory-p resource)
-          (apply 'start-process
-                 "madplay" emacspeak-madplay-buffer-name
-                 emacspeak-madplay-program
-                   (directory-files
-                    (expand-file-name resource)
-                    'full
-                    "mp3$")))
-                  (t (start-process
-                      "madplay" emacspeak-madplay-buffer-name
-                      emacspeak-madplay-program
-                   (expand-file-name resource))))))
+      (setq emacspeak-madplay-process
+	    (cond
+	     ((file-directory-p resource)
+	      (apply 'start-process
+		     "madplay" emacspeak-madplay-buffer-name
+		     emacspeak-madplay-program
+		     (directory-files
+		      (expand-file-name resource)
+		      'full
+		      "mp3$")))
+	     (t (start-process
+		 "madplay" emacspeak-madplay-buffer-name
+		 emacspeak-madplay-program
+		 (expand-file-name resource))))))
     (switch-to-buffer buffer)
     (emacspeak-madplay-mode)))
 

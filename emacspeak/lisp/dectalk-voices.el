@@ -576,11 +576,11 @@ and TABLE gives the values along that dimension."
                             (acss-pitch-range style)
                             (acss-stress style )
                             (acss-richness style))
-		  (concat " :dv "
-		  (dectalk-get-average-pitch-code (acss-average-pitch style) family)
-		  (dectalk-get-pitch-range-code (acss-pitch-range style) family)
-		  (dectalk-get-stress-code (acss-stress style ) family)
-		  (dectalk-get-richness-code (acss-richness style) family)))
+		    (concat " :dv "
+			    (dectalk-get-average-pitch-code (acss-average-pitch style) family)
+			    (dectalk-get-pitch-range-code (acss-pitch-range style) family)
+			    (dectalk-get-stress-code (acss-stress style ) family)
+			    (dectalk-get-richness-code (acss-richness style) family)))
 		  "]")))
     (dectalk-define-voice name command)))
 

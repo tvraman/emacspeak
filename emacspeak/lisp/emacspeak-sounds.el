@@ -224,7 +224,7 @@ Do not set this by hand;
    (list
     (expand-file-name
      (read-directory-name "Theme: "
-                     emacspeak-sounds-directory))))
+			  emacspeak-sounds-directory))))
   (declare (special emacspeak-sounds-current-theme
                     emacspeak-sounds-themes-table))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
@@ -273,10 +273,10 @@ Do not set this by hand;
   "Play auditory icon using native Emacs player."
   (declare (special emacspeak-use-auditory-icons))
   (when emacspeak-use-auditory-icons
-  (play-sound
-   (list 'sound :file
-	 (format "%s"
-		 (emacspeak-get-sound-filename sound-name ))))))
+    (play-sound
+     (list 'sound :file
+	   (format "%s"
+		   (emacspeak-get-sound-filename sound-name ))))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -350,7 +350,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   (declare (special emacspeak-auditory-icon-function
                     emacspeak-use-auditory-icons))
   (when emacspeak-use-auditory-icons
-  (funcall emacspeak-auditory-icon-function icon)))
+    (funcall emacspeak-auditory-icon-function icon)))
 
 ;;}}}
 ;;{{{  Map names to midi
@@ -594,21 +594,20 @@ audio player."
 ;;}}}
 ;;{{{  flush sound driver
 
-
 (defcustom emacspeak-sounds-reset-snd-module-command nil
   "Command to reset sound module."
   :type '(choice
           :tag "Command to reset sound modules: "
           (const nil :tag "None")
-(string :tag "Command "))
-:group 'emacspeak-sounds)
+	  (string :tag "Command "))
+  :group 'emacspeak-sounds)
 ;;;###autoload
 (defun emacspeak-sounds-reset-sound  ()
   "Reload sound drivers."
   (interactive)
   (declare (special emacspeak-sounds-reset-snd-module-command))
   (when emacspeak-sounds-reset-snd-module-command
-  (shell-command emacspeak-sounds-reset-snd-module-command)))
+    (shell-command emacspeak-sounds-reset-snd-module-command)))
 
 (defun emacspeak-aumix-reload-sound ()
   "Reload sound drivers."

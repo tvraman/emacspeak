@@ -63,7 +63,6 @@
   "Personality used for warnings in compilation lines."
   :group 'emacspeak-compile)
 
-
 ;;}}}
 ;;{{{  functions
 
