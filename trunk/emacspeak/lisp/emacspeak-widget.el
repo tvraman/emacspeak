@@ -73,30 +73,38 @@
   :group 'emacspeak
   :group 'widgets
   :prefix "emacspeak-widget-")
-(defcustom emacspeak-widget-edit-personality  voice-smoothen
+(def-voice-font  emacspeak-widget-field-personality  voice-smoothen
+  'widget-field-face
   "Personality for edit fields"
   :group 'emacspeak-widget
   :type 'symbol)
 
+(def-voice-font  emacspeak-widget-single-line-field-personality  voice-smoothen
+  'widget-single-line-field-face
+  "Personality for edit fields"
+  :group 'emacspeak-widget
+  :type 'symbol)
+
+
 (defcustom emacspeak-widget-value-personality voice-animate
   "Personality for values"
-  :group 'emacspeak-widget
-  :type 'symbol)
+  :group 'emacspeak-widget)
 
-(defcustom emacspeak-widget-button-personality voice-bolden
+(def-voice-font emacspeak-widget-button-personality voice-bolden
+  'widget-button-face
   "Personality for buttons"
-  :group 'emacspeak-widget
-  :type 'symbol)
+  :group 'emacspeak-widget)
 
-(defcustom emacspeak-widget-documentation-personality voice-smoothen-extra
+(def-voice-font emacspeak-widget-documentation-personality
+  voice-smoothen-extra
+  'widget-documentation-face
   "Personality for documentation"
-  :group 'emacspeak-widget
-  :type 'symbol)
+  :group 'emacspeak-widget)
 
-(defcustom emacspeak-widget-inactive-personality  voice-lighten
+(def-voice-font emacspeak-widget-inactive-personality  voice-lighten
+  'widget-inactive-face
   "Personality for inactive fields"
-  :group 'emacspeak-widget
-  :type 'symbol)
+  :group 'emacspeak-widget)
 
 (declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
@@ -612,30 +620,6 @@ Returns a string with appropriate personality."
                  (emacspeak-speak-line))))))
      (t ad-do-it))
     ad-return-value))
-
-;;}}}
-;;{{{ voice lock widget buffers:
-
-(defadvice widget-specify-field-update (after emacspeak pre act comp)
-  "Voiceify the field"
-  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                     'personality
-                     emacspeak-widget-edit-personality))
-
-(defadvice  widget-specify-inactive(after emacspeak pre act comp)
-  "Voiceify the field"
-  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                     'personality emacspeak-widget-inactive-personality))
-
-(defadvice widget-specify-button (after emacspeak pre act  comp)
-  "Voiceify the button"
-  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                     'personality emacspeak-widget-button-personality))  
-
-(defadvice widget-specify-doc (after emacspeak pre act comp)
-  "Voiceify the documentation of a widget"
-  (put-text-property (ad-get-arg 1) (ad-get-arg 2)
-                     'personality emacspeak-widget-documentation-personality))
 
 ;;}}}
 ;;{{{  Interactively summarize a widget and its parents.
