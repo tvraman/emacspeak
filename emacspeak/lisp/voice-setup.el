@@ -192,6 +192,9 @@ This function forces voice-lock mode on."
 
 ;;}}}
 ;;{{{  Define some voice personalities:
+(def-voice-font voice-lock-highlight-personality 'paul-animated
+  'highlight
+  "Personality used for highlighting text.")
 
 (def-voice-font voice-lock-comment-personality
   'paul-monotone
