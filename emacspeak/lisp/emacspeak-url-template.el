@@ -367,7 +367,7 @@ content."
   (declare (special  emacspeak-url-template-bbc-channels-content))
 (let ((content (second
                 (split-string url "?")))
-      (url nil))
+      (uri nil))
   (cond
    ((null content)
     (error "Cannot locate content particle in %s" url))
