@@ -242,6 +242,9 @@
     ("emacspeak-keymap.el"
         "Setup all keymaps and keybindings provided by Emacspeak"
         (emacspeak))
+    ("emacspeak-kmacro.el"
+        "Speech-enable kbd macro interface"
+        (emacspeak  kmacro ))
     ("emacspeak-kotl.el"
         "Speech enable KOtl -- Hyperbole's outlining editor"
         (emacspeak  speech access  hyperbole  outliner))
