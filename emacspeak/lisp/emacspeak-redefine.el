@@ -42,6 +42,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'dtk-tcl)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 

@@ -50,7 +50,6 @@
 (require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-xslt)
-(require 'emacspeak-w3)
 (require 'emacspeak-wizards)
 
 ;;}}}
