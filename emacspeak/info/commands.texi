@@ -9,6 +9,7 @@ documentation.
 @menu
 * dtk-speak::                   
 * dtk-tcl::                     
+* emacspeak-arc::               
 * emacspeak-aumix::             
 * emacspeak-bs::                
 * emacspeak-buff-menu::         
@@ -17,10 +18,13 @@ documentation.
 * emacspeak-compile::           
 * emacspeak-custom::            
 * emacspeak-dired::             
+* emacspeak-dismal::            
 * emacspeak-ediff::             
 * emacspeak-enriched::          
 * emacspeak-entertain::         
+* emacspeak-erc::               
 * emacspeak-eterm::             
+* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -32,11 +36,13 @@ documentation.
 * emacspeak-imenu::             
 * emacspeak-keymap::            
 * emacspeak-kotl::              
+* emacspeak-man::               
 * emacspeak-mpg123::            
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
 * emacspeak-psgml::             
+* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -48,22 +54,19 @@ documentation.
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
+* emacspeak-tar::               
+* emacspeak-tetris::            
 * emacspeak-url-template::      
+* emacspeak-view-process::      
 * emacspeak-view::              
 * emacspeak-vm::                
 * emacspeak-w3::                
 * emacspeak-websearch::         
 * emacspeak-widget::            
-* emacspeak::                   
-* emacspeak-arc::               
-* emacspeak-dismal::            
-* emacspeak-eudc::              
-* emacspeak-man::               
-* emacspeak-python::            
-* emacspeak-tar::               
-* emacspeak-tetris::            
-* emacspeak-view-process::      
 * emacspeak-wizards::           
+* emacspeak::                   
+* dis-quote::                   
+* emacspeak-w3search::          
 * ANONYMOUS::                   
 @end menu
 
@@ -329,7 +332,7 @@ value, and then set the current local value to the result.
 
 
 @deffn dtk-stop
-@kbd{ pause   control e s   ESCAPE [  cap P  }
+@kbd{ pause   control e s }
 
 Stop speech now.
 @end deffn
@@ -381,6 +384,49 @@ Interactive PREFIX arg makes the new setting global.
 Shutdown midi system.
 @end deffn
 
+@node emacspeak-arc
+@section emacspeak-arc
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-arc.
+
+
+
+@deffn emacspeak-arc-speak-file-permissions
+ No global keybinding
+
+Speak permissions of file current entry 
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-modification-time
+ No global keybinding
+
+Speak modification time of the file on current line
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-name
+ No global keybinding
+
+Speak the name of the file on current line
+@end deffn
+
+
+
+@deffn emacspeak-arc-speak-file-size
+ No global keybinding
+
+Speak the size of the file on current line
+@end deffn
+
 @node emacspeak-aumix
 @section emacspeak-aumix
 
@@ -398,7 +444,7 @@ for commands defined in module  emacspeak-aumix.
 
 
 @deffn emacspeak-aumix-volume-decrease
-@kbd{ volume-down }
+ No global keybinding
 
 Decrease overall volume. 
 @end deffn
@@ -406,7 +452,7 @@ Decrease overall volume.
 
 
 @deffn emacspeak-aumix-volume-increase
-@kbd{ volume-up }
+ No global keybinding
 
 Increase overall volume. 
 @end deffn
@@ -700,6 +746,138 @@ unless `dired-listing-switches' contains -al
 Speak modification time  of the current file.
 @end deffn
 
+@node emacspeak-dismal
+@section emacspeak-dismal
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-dismal.
+
+
+
+@deffn emacspeak-dismal-forward-col-and-summarize
+ No global keybinding
+
+Move forward by arg columns
+ (the next column by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-value
+ No global keybinding
+
+Display the cell value in the message area
+@end deffn
+
+
+
+@deffn emacspeak-dismal-sheet-summarize
+ No global keybinding
+
+Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-row-summarizer-list
+ No global keybinding
+
+Specify or reset row summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-with-col-header
+ No global keybinding
+
+Display current cell along with its column header.
+The `column header' is the entry in row 0.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-with-row-header
+ No global keybinding
+
+Displays current cell along with its row header.
+The `row header' is the entry in column 0.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-forward-row-and-summarize
+ No global keybinding
+
+Move forward by arg rows
+ (the next row by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-sheet-summarizer-list
+ No global keybinding
+
+Specify or reset sheet summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-row-summarize
+ No global keybinding
+
+Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-col-summarize
+ No global keybinding
+
+Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+@end deffn
+
+
+
+@deffn emacspeak-dismal-set-col-summarizer-list
+ No global keybinding
+
+Specify or reset col summarizer list.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-backward-col-and-summarize
+ No global keybinding
+
+Move backward by arg columns
+ (the previous column by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-backward-row-and-summarize
+ No global keybinding
+
+Move backward by arg rows
+ (the previous row by default)and summarize it.
+@end deffn
+
+
+
+@deffn emacspeak-dismal-display-cell-expression
+ No global keybinding
+
+Display the expression in the message area
+@end deffn
+
 @node emacspeak-ediff
 @section emacspeak-ediff
 
@@ -764,6 +942,44 @@ Speak current guessed string.
  No global keybinding
 
 Speak statistics.
+@end deffn
+
+@node emacspeak-erc
+@section emacspeak-erc
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-erc.
+
+
+
+@deffn emacspeak-erc-delete-name-from-monitor
+ No global keybinding
+
+Remove name to monitor in this room.
+@end deffn
+
+
+
+@deffn emacspeak-erc-toggle-room-monitor
+ No global keybinding
+
+Toggle state of ERC room monitor.
+Interactive 
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end deffn
+
+
+
+@deffn emacspeak-erc-add-name-to-monitor
+ No global keybinding
+
+Add people to monitor in this room.
 @end deffn
 
 @node emacspeak-eterm
@@ -1139,6 +1355,30 @@ set by command M-x emacspeak-eterm-set-marker and the
 emacspeak eterm pointer.
 @end deffn
 
+@node emacspeak-eudc
+@section emacspeak-eudc
+
+
+
+
+Commentary:
+EUDC --Emacs Universal Directory Client 
+provides a unified interface to directory servers
+e.g. ldap servers
+this module speech enables eudc 
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eudc.
+
+
+
+@deffn emacspeak-eudc-send-mail
+ No global keybinding
+
+Send email to the address given by the current record. 
+@end deffn
+
 @node emacspeak-filtertext
 @section emacspeak-filtertext
 
@@ -1166,6 +1406,10 @@ r               emacspeak-filtertext-revert
 =               keep-lines
 
 
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -1319,6 +1563,9 @@ p               emacspeak-freeamp-freeamp-call-command
 o               emacspeak-freeamp
 
 
+
+This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -1327,11 +1574,6 @@ o               emacspeak-freeamp
  No global keybinding
 
 Execute FreeAmp command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 
@@ -1628,6 +1870,33 @@ Speak cell contents from point to end of cell.
 Setup additional keybindings
 @end deffn
 
+@node emacspeak-man
+@section emacspeak-man
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-man.
+
+
+
+@deffn emacspeak-man-browse-man-page
+ No global keybinding
+
+Browse the man page --read it a paragraph at a time
+@end deffn
+
+
+
+@deffn emacspeak-man-speak-this-section
+ No global keybinding
+
+Speak current section
+@end deffn
+
 @node emacspeak-mpg123
 @section emacspeak-mpg123
 
@@ -1649,14 +1918,14 @@ for commands defined in module  emacspeak-mpg123.
 
 Play a playlist. 
 Optional interactive prefix arg says not to shuffle  the list. 
-Use command C-x @@ h n 
+Use command M-x emacspeak-mp3-playlist-skip 
 to skip to the next track. 
 @end deffn
 
 
 
 @deffn emacspeak-mp3-playlist-skip
-@kbd{ control x @@ h n }
+ No global keybinding
 
 Skip currently playing track. 
 @end deffn
@@ -1886,6 +2155,10 @@ c               emacspeak-ocr-customize
 ?               describe-mode
 
 
+
+In addition to any hooks its parent mode `text-mode' might have run,
+this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -2174,6 +2447,10 @@ Mode for browsing XML documents.
 
 Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
+
+In addition to any hooks its parent mode `xml-mode' might have run,
+this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -2200,6 +2477,34 @@ Context-sensitive element summarizer.
  No global keybinding
 
 Speak contents of current element. 
+@end deffn
+
+@node emacspeak-python
+@section emacspeak-python
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
+
+
+@deffn emacspeak-py-previous-block
+ No global keybinding
+
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
+@end deffn
+
+
+
+@deffn emacspeak-py-next-block
+ No global keybinding
+
+Move forward to the beginning of the next block.
 @end deffn
 
 @node emacspeak-realaudio
@@ -2287,6 +2592,9 @@ t               emacspeak-realaudio-trplayer-call-command
 p               emacspeak-realaudio-trplayer-call-command
 
 
+
+This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
+during initialization.
 @end deffn
 
 
@@ -2369,7 +2677,7 @@ Backward-char redefined to speak char moved to.
 
 
 @deffn emacspeak-self-insert-command
-@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
+@kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set emacs/w3-dingbats   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
 
 Insert a character.
 Speaks the character if emacspeak-character-echo is true.
@@ -2401,7 +2709,7 @@ for commands defined in module  emacspeak-remote.
 
 
 @deffn emacspeak-remote-connect-to-server
-@kbd{ kp-3   control e meta r }
+@kbd{ control e meta r }
 
 Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
@@ -2412,7 +2720,7 @@ host is listening on for speech requests.
 
 
 @deffn emacspeak-remote-quick-connect-to-server
- No global keybinding
+@kbd{ f8 }
 
 Connect to remote server.
 Does not prompt for host or port, but quietly uses the
@@ -2986,7 +3294,7 @@ Speak the previous window.
 
 
 @deffn emacspeak-switch-to-previous-buffer
-@kbd{ l10 }
+ No global keybinding
 
 Switch to most recently used interesting buffer.
 @end deffn
@@ -3508,7 +3816,7 @@ Does the equivalent of the mouse click from the keyboard
 
 
 @deffn emacspeak-speedbar-goto-speedbar
-@kbd{ insert }
+ No global keybinding
 
 Switch to the speedbar
 @end deffn
@@ -3860,6 +4168,140 @@ for commands defined in module  emacspeak-tapestry.
 Describe the current layout of visible buffers in current frame.
 @end deffn
 
+@node emacspeak-tar
+@section emacspeak-tar
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tar.
+
+
+
+@deffn emacspeak-tar-speak-file-permissions
+ No global keybinding
+
+Speak permissions of file current entry 
+@end deffn
+
+
+
+@deffn emacspeak-tar-speak-file-date
+ No global keybinding
+
+Speak date of file current entry 
+@end deffn
+
+
+
+@deffn emacspeak-tar-speak-file-size
+ No global keybinding
+
+Speak size of file current entry 
+@end deffn
+
+@node emacspeak-tetris
+@section emacspeak-tetris
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-tetris.
+
+
+
+@deffn emacspeak-tetris-speak-current-shape-and-coordinates
+ No global keybinding
+
+Speak shape orientation and coordinates
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-column
+ No global keybinding
+
+Speak  column --default is to speak current column
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-coordinates
+ No global keybinding
+
+Speak current position
+@end deffn
+
+
+
+@deffn emacspeak-tetris-goto-top-row
+ No global keybinding
+
+Move to and speak the top row
+@end deffn
+
+
+
+@deffn emacspeak-tetris-goto-bottom-row
+ No global keybinding
+
+Move to and speak bottom row
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-score
+ No global keybinding
+
+Speak the score
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-row-number
+ No global keybinding
+
+Speak where on the tetris board we are
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-x-coordinate
+ No global keybinding
+
+Speak current position
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-current-shape
+ No global keybinding
+
+Speak current shape
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-row
+ No global keybinding
+
+Speak current tetris row
+@end deffn
+
+
+
+@deffn emacspeak-tetris-speak-next-shape
+ No global keybinding
+
+Speak next shape
+@end deffn
+
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -3884,7 +4326,11 @@ Save out url templates.
 @deffn emacspeak-url-template-fetch
 @kbd{ control e u }
 
-Prompt for  URL template and fetch specified resource.
+Fetch a pre-defined resource.
+Use Emacs completion to obtain a list of available
+resources.
+Resources typically prompt for the relevant information
+before completing the request.
 @end deffn
 
 
@@ -3893,6 +4339,43 @@ Prompt for  URL template and fetch specified resource.
  No global keybinding
 
 Load URL template resources from specified location.
+@end deffn
+
+
+
+@deffn emacspeak-url-template-help
+ No global keybinding
+
+Display documentation for  a URL template.
+Use Emacs completion to obtain a list of available
+resources.
+@end deffn
+
+@node emacspeak-view-process
+@section emacspeak-view-process
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-view-process.
+
+
+
+@deffn emacspeak-view-process-speak-current-field
+ No global keybinding
+
+Speak current field
+@end deffn
+
+
+
+@deffn emacspeak-view-process-goto-current-field-next-line
+ No global keybinding
+
+Set point to the current field in the next line.
 @end deffn
 
 @node emacspeak-view
@@ -4104,6 +4587,14 @@ Perform an Inference search.
 
 
 
+@deffn emacspeak-websearch-google-usenet-advanced
+ No global keybinding
+
+Present Google Usenet advanced search form simplified for speech interaction.
+@end deffn
+
+
+
 @deffn emacspeak-websearch-rfb-search
  No global keybinding
 
@@ -4143,12 +4634,13 @@ C-b     Biblio                      Computer Science Bibliography
 c       CNN                         CNN Interactive
 Cap C   Company News                Lookup Company News By Ticker
 C-c     CiteSeer                    Computer Science Citation  Index
-d       dejanews                    Usenet Archives At Dejanews
+d       usenet                    Usenet Archives (formerly Dejanews)
 Cap D   Dictionary                  Hypertext Websters Dictionary
 e   Encyclopedia                    Encyclopedia Britannica
 f       CNN-FN                      CNN  Financial Network
 cap F   FolDoc                      Free Online Dictionary Of Computing
 g       Google                      The Google WWW Index
+.       Advanced Google                      Advanced Google WWW Index
 Cap G   Gutenberg Locate Gutenberg Etexts
 h       HotBot                      HotBot WWW Index
 i       Inference                   Inference WWW Search 
@@ -4165,7 +4657,7 @@ Cap R   RFBD                        RFB&D Catalog search
 C-r RPMFind                         Find RPM packages
 s       Software                  Search for software
 t       translate                 Machine translation 
-u       usenet-altavista            Usenet Index At AltaVista
+u       usenet            Usenet Index from Google
 w       Weather                     Weather Channel  By Zip Code
 cap W   W3C                         Search W3C Site
 v   Vickers                         Vickers Insider Trades
@@ -4230,14 +4722,6 @@ Perform an Gutenberg search
 
 
 
-@deffn emacspeak-dejanews-browse-group
-@kbd{ control e  cap U  }
-
-Prompt and browse a newsgroup on Dejanews.
-@end deffn
-
-
-
 @deffn emacspeak-websearch-kerbango-search
  No global keybinding
 
@@ -4280,14 +4764,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
  No global keybinding
 
 Search SourceForge, Freshmeat and other sites. 
-@end deffn
-
-
-
-@deffn emacspeak-websearch-usenet-altavista-search
- No global keybinding
-
-Perform a Usenet  Altavista search
 @end deffn
 
 
@@ -4358,10 +4834,11 @@ Optional second arg data processes the results as data rather than HTML.
 
 
 
-@deffn emacspeak-websearch-dejanews-search
- No global keybinding
+@deffn emacspeak-websearch-usenet
+@kbd{ control e  cap U  }
 
-Perform a Dejanews search
+Prompt and browse a Usenet newsgroup.
+Optional interactive prefix arg results in prompting for a search term.
 @end deffn
 
 
@@ -4524,6 +5001,14 @@ Perform a Northern Light  search
 
 
 
+@deffn emacspeak-websearch-google-advanced
+ No global keybinding
+
+Present Google advanced search form simplified for speech interaction.
+@end deffn
+
+
+
 @deffn emacspeak-websearch-ctan-search
  No global keybinding
 
@@ -4595,451 +5080,14 @@ Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
 @end deffn
 
-@node emacspeak
-@section emacspeak
-
-
-
-
-Commentary:
-The complete audio desktop.
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak.
-
-
-
-@deffn emacspeak-submit-bug
-@kbd{ control e control b }
-
-Function to submit a bug to the programs maintainer.
-@end deffn
-
-
-
-@deffn emacspeak-describe-emacspeak
-@kbd{ control h control e }
-
-Give a brief overview of emacspeak.
-@end deffn
-
-@node emacspeak-arc
-@section emacspeak-arc
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-arc.
-
-
-
-@deffn emacspeak-arc-speak-file-permissions
- No global keybinding
-
-Speak permissions of file current entry 
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-modification-time
- No global keybinding
-
-Speak modification time of the file on current line
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-name
- No global keybinding
-
-Speak the name of the file on current line
-@end deffn
-
-
-
-@deffn emacspeak-arc-speak-file-size
- No global keybinding
-
-Speak the size of the file on current line
-@end deffn
-
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-dismal.
-
-
-
-@deffn emacspeak-dismal-forward-col-and-summarize
- No global keybinding
-
-Move forward by arg columns
- (the next column by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-value
- No global keybinding
-
-Display the cell value in the message area
-@end deffn
-
-
-
-@deffn emacspeak-dismal-sheet-summarize
- No global keybinding
-
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-row-summarizer-list
- No global keybinding
-
-Specify or reset row summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-with-col-header
- No global keybinding
-
-Display current cell along with its column header.
-The `column header' is the entry in row 0.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-with-row-header
- No global keybinding
-
-Displays current cell along with its row header.
-The `row header' is the entry in column 0.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-forward-row-and-summarize
- No global keybinding
-
-Move forward by arg rows
- (the next row by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-sheet-summarizer-list
- No global keybinding
-
-Specify or reset sheet summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-row-summarize
- No global keybinding
-
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-col-summarize
- No global keybinding
-
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end deffn
-
-
-
-@deffn emacspeak-dismal-set-col-summarizer-list
- No global keybinding
-
-Specify or reset col summarizer list.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-backward-col-and-summarize
- No global keybinding
-
-Move backward by arg columns
- (the previous column by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-backward-row-and-summarize
- No global keybinding
-
-Move backward by arg rows
- (the previous row by default)and summarize it.
-@end deffn
-
-
-
-@deffn emacspeak-dismal-display-cell-expression
- No global keybinding
-
-Display the expression in the message area
-@end deffn
-
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-
-
-@deffn emacspeak-eudc-send-mail
- No global keybinding
-
-Send email to the address given by the current record. 
-@end deffn
-
-@node emacspeak-man
-@section emacspeak-man
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-man.
-
-
-
-@deffn emacspeak-man-browse-man-page
- No global keybinding
-
-Browse the man page --read it a paragraph at a time
-@end deffn
-
-
-
-@deffn emacspeak-man-speak-this-section
- No global keybinding
-
-Speak current section
-@end deffn
-
-@node emacspeak-python
-@section emacspeak-python
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-python.
-
-
-
-@deffn emacspeak-py-previous-block
- No global keybinding
-
-Move backward to the beginning of the current block.
-If already at the beginning then move to previous block.
-@end deffn
-
-
-
-@deffn emacspeak-py-next-block
- No global keybinding
-
-Move forward to the beginning of the next block.
-@end deffn
-
-@node emacspeak-tar
-@section emacspeak-tar
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-tar.
-
-
-
-@deffn emacspeak-tar-speak-file-permissions
- No global keybinding
-
-Speak permissions of file current entry 
-@end deffn
-
-
-
-@deffn emacspeak-tar-speak-file-date
- No global keybinding
-
-Speak date of file current entry 
-@end deffn
-
-
-
-@deffn emacspeak-tar-speak-file-size
- No global keybinding
-
-Speak size of file current entry 
-@end deffn
-
-@node emacspeak-tetris
-@section emacspeak-tetris
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-tetris.
-
-
-
-@deffn emacspeak-tetris-speak-current-shape-and-coordinates
- No global keybinding
-
-Speak shape orientation and coordinates
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-column
- No global keybinding
-
-Speak  column --default is to speak current column
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-coordinates
- No global keybinding
-
-Speak current position
-@end deffn
-
-
-
-@deffn emacspeak-tetris-goto-top-row
- No global keybinding
-
-Move to and speak the top row
-@end deffn
-
-
-
-@deffn emacspeak-tetris-goto-bottom-row
- No global keybinding
-
-Move to and speak bottom row
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-score
- No global keybinding
-
-Speak the score
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-row-number
- No global keybinding
-
-Speak where on the tetris board we are
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-x-coordinate
- No global keybinding
-
-Speak current position
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-current-shape
- No global keybinding
-
-Speak current shape
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-row
- No global keybinding
-
-Speak current tetris row
-@end deffn
-
-
-
-@deffn emacspeak-tetris-speak-next-shape
- No global keybinding
-
-Speak next shape
-@end deffn
-
-@node emacspeak-view-process
-@section emacspeak-view-process
-
-
-
-
-
-
-Automatically generated documentation
-for commands defined in module  emacspeak-view-process.
-
-
-
-@deffn emacspeak-view-process-speak-current-field
- No global keybinding
-
-Speak current field
-@end deffn
-
-
-
-@deffn emacspeak-view-process-goto-current-field-next-line
- No global keybinding
-
-Set point to the current field in the next line.
-@end deffn
-
 @node emacspeak-wizards
 @section emacspeak-wizards
 
 
 
 
+Commentary:
+Contains various wizards for the Emacspeak desktop.
 
 
 Automatically generated documentation
@@ -5126,7 +5174,7 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-lynx
- No global keybinding
+@kbd{ control e x l }
 
 Launch lynx on  specified URL in a new terminal.
 @end deffn
@@ -5222,7 +5270,7 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-show-list-variable
- No global keybinding
+@kbd{ control e x v }
 
 Convenience command to view Emacs variables that are long lists.
 Prompts for a variable name and displays its value in a separate buffer.
@@ -5343,7 +5391,7 @@ With optional PREFIX argument, label current frame.
 
 
 @deffn emacspeak-annotate-add-annotation
- No global keybinding
+@kbd{ control e x a }
 
 Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
@@ -5459,7 +5507,7 @@ Move to next frame.
 
 
 @deffn emacspeak-customize-personal-settings
-@kbd{ control e f1 }
+@kbd{ control e f1   control e x c }
 
 Create a customization buffer for browsing and updating
 personal customizations.
@@ -5468,7 +5516,7 @@ personal customizations.
 
 
 @deffn emacspeak-speak-telephone-directory
- No global keybinding
+@kbd{ control e x t }
 
 Lookup and display a phone number.
 With prefix arg, opens the phone book for editting.
@@ -5520,6 +5568,89 @@ Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
 If no property is set, show a message and exit.
+@end deffn
+
+@node emacspeak
+@section emacspeak
+
+
+
+
+Commentary:
+The complete audio desktop.
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak.
+
+
+
+@deffn emacspeak-submit-bug
+@kbd{ control e control b }
+
+Function to submit a bug to the programs maintainer.
+@end deffn
+
+
+
+@deffn emacspeak-describe-emacspeak
+@kbd{ control h control e }
+
+Give a brief overview of emacspeak.
+@end deffn
+
+@node dis-quote
+@section dis-quote
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  dis-quote.
+
+
+
+@deffn quotes-setup-emacspeak-portfolio
+ No global keybinding
+
+Set up variable emacspeak-websearch-personal-portfolio. 
+@end deffn
+
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+
+
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+
+
+@deffn emacspeak-websearch-blue-pages
+ No global keybinding
+
+Search IBM Blue Pages
+@end deffn
+
+
+
+@deffn emacspeak-websearch-ibm-internal
+ No global keybinding
+
+Search IBM My News
+@end deffn
+
+
+
+@deffn emacspeak-websearch-ibm-my-news
+ No global keybinding
+
+Search IBM My News
 @end deffn
 
 @node ANONYMOUS
