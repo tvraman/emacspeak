@@ -389,7 +389,7 @@ howto document.")))
   (message (system-name)))
 
 (defvar emacspeak-speak-show-active-network-interfaces-command
-"echo `ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
+"echo `/sbin/ifconfig | grep -v '^lo' | grep '^[a-z]' | awk '{print $1}'`"
 "Command that displays names of active network interfaces.")
 
 (defvar emacspeak-speak-show-active-network-interfaces-addresses
@@ -777,7 +777,7 @@ the display to speak."
                window-list))
     (save-window-excursion
       (emacspeak-speak-region
-       (window-start win)
+       (window-point win)
        (window-end win)))))
 
 (defun emacspeak-speak-this-buffer-previous-display ()
