@@ -303,7 +303,33 @@ Nil means no transform is used.")
      emacspeak-w3m-xsl-transform
      (point-min)
      (point-max))))
+(defun emacspeak-w3m-xslt-select (xsl)
+  "Select transformation to apply."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))))
+  (declare (special emacspeak-w3m-xsl-transform))
+  (setq emacspeak-w3m-xsl-transform xsl)
+  (message "Will apply %s before displaying HTML pages."
+           (file-name-sans-extension
+            (file-name-nondirectory
+             xsl)))
+  (emacspeak-auditory-icon 'select-object))
 
+(defun emacspeak-w3m-xsl-toggle ()
+  "Toggle  XSL transformations before displaying HTML.
+This uses XSLT Processor xsltproc available as part of the
+libxslt package."
+  (interactive)
+  (declare (special emacspeak-w3m-xsl-p))
+  (setq emacspeak-w3m-xsl-p
+        (not emacspeak-w3m-xsl-p))
+  (emacspeak-auditory-icon
+   (if emacspeak-w3m-xsl-p 'on 'off))
+  (message "Turned %s XSL"
+           (if emacspeak-w3m-xsl-p 'on 'off)))
 ;;}}}
 (provide 'emacspeak-w3m)
 ;;; emacspeak-w3m.el ends here
