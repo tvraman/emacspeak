@@ -182,17 +182,19 @@ Keys are personality names.")
   (let ((voice
          (acss-personality-from-speech-style
           (make-acss
-           :family (first style-list)
-           :average-pitch (second style-list)
-           :pitch-range (third style-list)
-           :stress (fourth style-list)
-           :richness (fifth style-list)))))
+           :family (nth 0 style-list)
+           :average-pitch (nth 1 style-list)
+           :pitch-range (nth 2 style-list)
+           :stress (nth 3 style-list)
+           :richness (nth 4  style-list)
+           :punctuations (nth 5  style-list)))))
     (puthash  voice style-list voice-setup-personality-table)
     voice))
 
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
-(list paul 5 5 5 5 ) which defines a standard male voice.  Once
+(list paul 5 5 5 5 \"all\") which defines a standard male voice
+that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
 command \\[customize-variable] on <personality>-settings."
   (`
@@ -214,7 +216,12 @@ command \\[customize-variable] on <personality>-settings."
                (integer :tag "Number"))
               (choice :tag "Richness"
                (const :tag "Unspecified" nil)
-               (integer :tag "Number")))
+               (integer :tag "Number"))
+(choice :tag "Punctuation Mode "
+               (const :tag "Unspecified" nil)
+               (const :tag "All punctuations" "all")
+(const :tag "Some punctuations" "some")
+(const :tag "No punctuations" "none")))
      :group 'voice-fonts
      :set
      '(lambda  (sym val)
@@ -230,8 +237,8 @@ command \\[customize-variable] on <personality>-settings."
 ;;; they will eventually replace most of the device specific voices 
 
   
-(defvoice  voice-monotone (list nil nil 0 0 nil)
-  "Turns current voice into a monotone.")
+(defvoice  voice-monotone (list nil nil 0 0 nil "all")
+  "Turns current voice into a monotone and speaks all punctuations.")
 
 (defvoice  voice-monotone-medium
   (list nil nil 2 2  nil)
