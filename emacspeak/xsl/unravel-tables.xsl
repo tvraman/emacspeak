@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<!-- { introduction --> 
+
 <!--Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) 2001  All Rights Reserved.
 
@@ -23,6 +25,8 @@ processed by calling apply-templates which by default
 applies rules from the first pass.
 
 -->
+
+<!-- } -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" indent="yes"/>
   <xsl:include href="identity.xsl"/>
@@ -33,11 +37,9 @@ applies rules from the first pass.
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
       <table>
-        <caption>Tables Unravelled</caption>
+        <caption>
+<a href="##__about_unravel_tables">Tables Unravelled</a></caption>
         <tr>
-          <td>
-            <a href="#__about_unravel_tables">About This Style</a>
-          </td>
           <td>
             <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
 nested tables</a>
@@ -58,8 +60,7 @@ There are
       <a name="__about_unravel_tables">About This Style</a>
     </h2>
     <p>
-        Note that nested tables have been moved to the end of this
-        document under section <a href="#__nested_tables">nested tables</a>.
+        Note that nested tables have been moved to  section <a href="#__nested_tables">nested tables</a>.
         The table cell that contained the nested table has been
         replaced with a hyperlink that navigates to the actual
         table. If the author has provided a summary and or
@@ -69,8 +70,7 @@ There are
   </xsl:template>
   <xsl:template match="//table//table">
     <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-      Table <xsl:value-of select="position()"/>
- <xsl:value-of select="@summary"/></xsl:element>
+      Table <xsl:value-of select="position()"/><xsl:value-of select="@summary"/></xsl:element>
   </xsl:template>
   <xsl:template match="//table//table" mode="second-pass">
     <xsl:element name="a">
