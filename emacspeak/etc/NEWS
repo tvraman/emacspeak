@@ -7,6 +7,9 @@ Author: T. V. Raman <raman@users.sf.net>
 Emacspeak 22.0 provides the following user level enhancements:
 
 * user Visible Changes:
+** emacspeak-madplay.el:
+
+Emacspeak jukebox interface using madplay and alsa.
 
 ** Updated modeline feedback:
 
