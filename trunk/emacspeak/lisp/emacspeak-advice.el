@@ -1094,7 +1094,7 @@ in completion buffers"
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 
-(def-voice-font  emacspeak-comint-prompt-personality voice-monotone
+(def-voice-font  emacspeak-comint-prompt-personality voice-monotone-medium
 'comint-highlight-prompt
   "Personality used for highlighting comint prompts --emacs 21."
   :group 'comint)
@@ -1111,13 +1111,14 @@ in completion buffers"
   "Silence messages so we dont hear stutter."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
+
 (defadvice completion-setup-function (around emacspeak pre
                                              act com)
   "Indicate that we popped up a completion buffer."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     (emacspeak-auditory-icon 'help)
-    (dtk-speak "Displayed completions.")))
+    (message "Displayed completions.")))
 
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
@@ -1162,6 +1163,7 @@ in completion buffers"
           (voice-lock-mode t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
+
 (defadvice comint-previous-matching-input-from-input  (after
                                                        emacspeak
                                                        pre act com)
