@@ -58,6 +58,16 @@
 ;;; Code:
 
 ;;}}}
+;;{{{ speech-enable feedback routines
+(defadvice iswitchb-exhibit (after emacspeak pre act comp)
+  "Speak first of the displayed matches."
+  (dtk-speak
+   (format
+    "%s (%d matches)"
+           (car iswitchb-matches)
+(length iswitchb-matches))))
+
+;;}}}
 ;;{{{ speech-enable interactive commands:
 (defadvice iswitchb-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
