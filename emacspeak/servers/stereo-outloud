@@ -43,6 +43,7 @@ source $wd/tts-lib.tcl
 proc tts_set_punctuations {mode} {
     global tts
     set tts(punctuations) $mode
+    service
     return ""
 }
 
@@ -51,6 +52,7 @@ proc tts_set_speech_rate {rate} {
     set factor $tts(char_factor) 
     set tts(speech_rate) $rate
     synth "`vs$rate "
+    service
     return ""
 }
 
@@ -59,6 +61,7 @@ proc tts_set_character_scale {factor} {
     set tts(say_rate) [round \
                                        [expr $tts(speech_rate) * $factor ]]
     set tts(char_factor) $factor
+    service
     return ""
 }
 
@@ -132,6 +135,7 @@ proc t  {{pitch 440} {duration 50}} {
         n $inst $note $len
         return ""
     }
+    service
 }
 proc sh  {{duration 50}} {
     global tts queue 
@@ -145,18 +149,21 @@ proc sh  {{duration 50}} {
 proc tts_split_caps {flag} {
     global tts 
     set tts(split_caps) $flag
+    service
     return ""
 }
 
 proc tts_capitalize {flag} {
     global tts 
     set tts(capitalize) $flag
+    service
     return ""
 }
 
 proc tts_allcaps_beep {flag} {
     global tts 
     set tts(allcaps_beep) $flag
+    service
     return ""
 }
 
@@ -178,6 +185,7 @@ proc useStereoOutput {} {
     global tts
         setOutput buffer
 }
+
 # }}}
 # {{{ speech task 
 
@@ -233,7 +241,7 @@ proc speech_task {} {
         if {$tts(talking?) == 0} {break;} 
     }
     set tts(talking?) 0
-    synchronize
+    service
     return ""
 }
 
