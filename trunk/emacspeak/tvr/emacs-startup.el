@@ -117,6 +117,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  gnus: 
 
     ;;; gnus now customized through custom.
+    
 
     ;;}}}
     ;;{{{  dired
@@ -457,9 +458,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
              (message "Successfully initialized Emacs")
              (shell-command "play ~/cues/highbells.au")))
 
-(provide 'emacs-startup)
-
 ;;}}}
+(provide 'emacs-startup)
 ;;{{{  emacs local variables
 
 ;;;local variables:
