@@ -74,6 +74,12 @@
     (emacspeak-auditory-icon 'unmodified-object)
     (dtk-speak "Reset to saved")))
 
+(defadvice Custom-reset-standard (after emacspeak act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (dtk-speak "Erase customization")))
+
 (defadvice Custom-set (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -219,6 +225,7 @@
 ;;{{{  bind emacspeak commands 
 
 (declaim (special custom-mode-map))
+(define-key custom-mode-map "e" 'Custom-reset-standard)
 (define-key custom-mode-map "r" 'Custom-reset-current)
 (define-key custom-mode-map "R" 'Custom-reset-saved)
 (define-key custom-mode-map "s" 'Custom-set)
