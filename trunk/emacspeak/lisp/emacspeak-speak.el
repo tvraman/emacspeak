@@ -1413,7 +1413,7 @@ indicating the arrival  of new mail when displaying the mode line."
   (interactive)
   (declare (special  mode-name major-mode
                      column-number-mode line-number-mode
-                     emacspeak-mail-alert))
+                     emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
   (emacspeak-dtk-sync)
   (force-mode-line-update)
@@ -1434,20 +1434,24 @@ indicating the arrival  of new mail when displaying the mode line."
     (when  emacspeak-mail-alert
       (and (emacspeak-mail-alert-user)
            (dtk-tone 450 75)))
-    (dtk-speak
-     (concat frame-info
-             (format  "%s %s %s  %d%%  %s"
-                      (if line-number-mode
-                          (format "line %d"
-                                  (emacspeak-get-current-line-number))
-                        "")
-                      (if column-number-mode
-                          (format "Column %d"
-                                  (current-column))
-                        "")
-                      (buffer-name)
-                      (emacspeak-get-current-percentage-into-buffer)
-                      (if  major-mode major-mode ""))))))
+    (cond
+     ((stringp mode-line-format)
+      (dtk-speak mode-line-format ))
+     (t 
+      (dtk-speak
+       (concat frame-info
+               (format  "%s %s %s  %d%%  %s"
+                        (if line-number-mode
+                            (format "line %d"
+                                    (emacspeak-get-current-line-number))
+                          "")
+                        (if column-number-mode
+                            (format "Column %d"
+                                    (current-column))
+                          "")
+                        (buffer-name)
+                        (emacspeak-get-current-percentage-into-buffer)
+                        (if  major-mode major-mode ""))))))))
 
 ;;}}}
 ;;{{{  personality based mode line speaker

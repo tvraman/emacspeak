@@ -195,6 +195,13 @@ will be placed."
 (define-key emacspeak-ocr-mode-map "d" 'emacspeak-ocr-open-working-directory)
 (define-key emacspeak-ocr-mode-map "[" 'emacspeak-ocr-backward-page)
 (define-key emacspeak-ocr-mode-map "]"'emacspeak-ocr-forward-page)
+(define-key emacspeak-ocr-mode-map "p" 'emacspeak-ocr-page)
+
+(loop for i from 1 to 9
+      do
+      (define-key emacspeak-ocr-mode-map
+        (format "%s" i)
+        'emacspeak-ocr-page))
 
 ;;}}}
 ;;{{{ interactive commands
@@ -369,6 +376,30 @@ corectly by themselves."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
 
+
+(defsubst emacspeak-ocr-goto-page (page)
+  "Move to specified page."
+  (declare (special emacspeak-ocr-page-positions))
+  (goto-char
+   (aref emacspeak-ocr-page-positions page))
+  (emacspeak-ocr-update-mode-line)
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-speak-line)
+  )
+
+(defun emacspeak-ocr-page ()
+  "Move to specified page."
+  (interactive )
+  (let ((page
+         (condition-case nil
+             (read (format "%c" last-input-event ))
+           (error nil ))))
+    (or (numberp page)
+        (setq page
+              (read-minibuffer
+               (format "Page number between 1 and %s: "
+                       emacspeak-ocr-last-page-number))))
+    (emacspeak-ocr-goto-page page)))
 
 ;;}}}
 (provide 'emacspeak-ocr)
