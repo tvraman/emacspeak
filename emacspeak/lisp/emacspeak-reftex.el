@@ -141,6 +141,48 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
+(defadvice reftex-toc-toggle-follow (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if reftex-toc-follow-mode
+         'on
+       'off))
+    (message "Turned %s follow mode. "
+             (if reftex-toc-follow-mode 'on 'off))))
+(defadvice reftex-toc-toggle-labels (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if reftex-toc-include-labels
+         'on
+       'off))
+    (message "Turned %s labels. "
+             (if reftex-toc-include-labels 'on 'off))))
+
+(defadvice reftex-toc-toggle-file-boundary (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if reftex-toc-include-file-boundaries
+         'on
+       'off))
+    (message "Turned %s file boundary markers. "
+             (if reftex-toc-include-file-boundaries 'on 'off))))
+
+
+(defadvice reftex-toc-toggle-context (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if reftex-toc-include-context
+         'on
+       'off))
+    (message "Turned %s context markers. "
+             (if reftex-toc-include-context 'on 'off))))
+
+
+
 ;;}}}
 (provide 'emacspeak-reftex)
 ;;{{{ end of file
