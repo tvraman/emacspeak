@@ -92,6 +92,7 @@ emacspeak-babel.elc \
 emacspeak-bbdb.elc \
 emacspeak-bibtex.elc \
 emacspeak-bookmark.elc \
+emacspeak-browse-kill-ring.elc \
 emacspeak-bs.elc \
 emacspeak-buff-menu.elc \
 emacspeak-buff-sel.elc \
@@ -251,6 +252,7 @@ emacspeak-babel.elc: emacspeak-babel.el dtk-speak.elc
 emacspeak-bbdb.elc: emacspeak-bbdb.el dtk-speak.elc
 emacspeak-bibtex.elc: emacspeak-bibtex.el dtk-speak.elc
 emacspeak-bookmark.elc: emacspeak-bookmark.el dtk-speak.elc
+emacspeak-browse-kill-ring.elc: emacspeak-browse-kill-ring.el dtk-speak.elc
 emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc
 emacspeak-buff-sel.elc: emacspeak-buff-sel.el dtk-speak.elc

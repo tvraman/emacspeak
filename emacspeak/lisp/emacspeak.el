@@ -485,10 +485,11 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 
 (emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)                            
 (emacspeak-do-package-setup "arc-mode" 'emacspeak-arc)
-(emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb )
 (emacspeak-do-package-setup "babel" 'emacspeak-babel )
+(emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb )
 (emacspeak-do-package-setup "bibtex" 'emacspeak-bibtex)
 (emacspeak-do-package-setup "bookmark" 'emacspeak-bookmark)
+(emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
 (emacspeak-do-package-setup "buff-sel" 'emacspeak-buff-sel)
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
 (emacspeak-do-package-setup "c-mode" 'emacspeak-c)
