@@ -40,6 +40,7 @@
 ;;{{{ Required modules 
 
 (require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'backquote)
 (require 'custom)
@@ -47,10 +48,10 @@
 (require 'wid-edit)
 (require 'thingatpt)
 
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-speak)
 (require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+;(require 'emacspeak-sounds)
+
 ;;}}}
 
 (provide  'emacspeak-preamble)

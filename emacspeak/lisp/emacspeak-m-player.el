@@ -1,4 +1,4 @@
-;;; emacspeak-m-player.el --- Control mplayer from Emacs
+jem;;; emacspeak-m-player.el --- Control mplayer from Emacs
 ;;; $Id$
 ;;; $Author$
 ;;; Description: Controlling mplayer from emacs 
@@ -67,7 +67,8 @@
 
 (define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
-(declaim (special emacspeak-aumix-multichannel-capable-p))
+(declaim (special emacspeak-aumix-multichannel-capable-p
+                  emacspeak-use-auditory-icons))
 (define-derived-mode emacspeak-m-player-mode fundamental-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
