@@ -285,6 +285,13 @@ documentation is up-to-date, please use it.  "
     ;;; force unibyte
   (setq default-enable-multibyte-characters nil)
   (emacspeak-setup-programming-modes)
+  (add-hook 'kill-emacs-hook 
+            (function
+             (lambda nil 
+               (and (featurep 'emacspeak)
+                    (kill-process dtk-speaker-process))))
+            'at-end)
+
   (message
    (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
