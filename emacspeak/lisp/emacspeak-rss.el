@@ -85,7 +85,8 @@
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
-   'unescape-charent))
+   ;'unescape-charent
+   nil))
 
 ;;;###autoload
 (defun emacspeak-rss-browse (feed)
