@@ -41,6 +41,30 @@ Use the same format as above, but say "FAQ:Update" in the
 subject line. The "* <Question>" line should match the
 section you are contributing an update to.
 
+* Contributing code and patches to Emacspeak:
+
+emacspeak is hosted at sourceforge and you can get access to
+the latest  snapshot of the code via anonymous cvs.
+
+If you intend contributing code or patches to emacspeak,
+
+0: first check out the latest working copy from the CVS
+   repository,
+
+1: Integrate and test your code in that  checked out
+   version,
+
+2: Mail the patch to the emacspeak mailing list.
+
+The easiest way to check out the emacspeak code from  CVS 
+is to use CVS from the shell.
+
+Emacspeak comes with a convenience command
+`emacspeak-cvs-get-anonymous' that will get the code into
+your home directory under ~/cvs-emacspeak/emacspeak
+
+Subsequent invocations of that  command will update this
+working copy.
 
 * How to join the Emacspeak user group:
 
