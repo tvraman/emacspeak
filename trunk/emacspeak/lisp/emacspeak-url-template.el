@@ -243,7 +243,7 @@ prompting for a template.")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&q=%s&btnG=Google+Search"
+ "http://news.google.com/news?hl=en&q=%s&scoring=d&btnG=Google+Search"
  (list
   #'(lambda ()
       (webjump-url-encode
