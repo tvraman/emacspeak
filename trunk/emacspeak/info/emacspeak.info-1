@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by Makeinfo version 3.12f from
+This is ./emacspeak.info, produced by makeinfo version 4.0 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -365,7 +365,7 @@ text editor; indeed, it can more aptly be characterized as a true
 modality.
 
    Emacspeak implements a special minor mode, known as "voice lock
-mode" (*note Voice-lock::.) which uses distinct speech characteristics
+mode" (*note Voice-lock::) which uses distinct speech characteristics
 to provide aural highlighting of specific textual constructs, such as
 comments in program code, quoted strings and reserved words. This
 facility is further extended when Emacspeak is used with the W3 World
@@ -611,7 +611,7 @@ controlling the text to speech (TTS) system.
 * Miscellaneous:: Miscellaneous TTS Commands.
 
 
-File: emacspeak.info,  Node: Controlling Echo,  Next: Speech Output  Control,  Up: Speech System
+File: emacspeak.info,  Node: Controlling Echo,  Next: Speech Output Control,  Up: Speech System
 
 Character, Word And Line Echo.
 ------------------------------
@@ -644,7 +644,7 @@ prefix arg_.
      then set the current local  value to the result.
 
 
-File: emacspeak.info,  Node: Speech Output  Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
+File: emacspeak.info,  Node: Speech Output Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
 
 Setting Various Characteristics Of Speech Output.
 -------------------------------------------------
@@ -735,7 +735,7 @@ working with program source.
      values.  Automatically becomes local in any buffer where it is set.
 
 
-File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output  Control,  Up: Speech System
+File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output Control,  Up: Speech System
 
 Miscellaneous Speech Commands
 -----------------------------
