@@ -358,6 +358,11 @@ command \\[customize-variable] on <personality>-settings."
 (def-voice-font voice-lock-comment-personality voice-monotone
   'font-lock-comment-face
   "Personality to use for comments.")
+
+(def-voice-font voice-lock-doc-personality voice-monotone-medium
+  'font-lock-doc-face
+  "Personality to use for documentation.")
+
           
 (def-voice-font voice-lock-underline-personality voice-brighten-medium
   'underline

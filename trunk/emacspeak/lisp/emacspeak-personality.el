@@ -110,8 +110,11 @@
 personality settings."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end ))
+    (let ((v (if (listp personality)
+                 (remove-duplicates personality :test #'eq)
+               personality)))
     (ems-modify-buffer-safely
-     (put-text-property start end 'personality personality object))))
+     (put-text-property start end 'personality v object)))))
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality
@@ -121,32 +124,32 @@ Existing personality properties on the text range are preserved."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end ))
     (ems-modify-buffer-safely
-     (let ((orig (get-text-property start 'personality object))
+     (let ((v (if (listp personality)
+                  (remove-duplicates personality :test #'eq)
+                personality))
+           (orig (get-text-property start 'personality object))
 	   (new nil)
 	   (extent
 	    (next-single-property-change
 	     start 'personality object end)))
        (cond
 	((null orig)			;simple case
-	 (put-text-property start extent
-			    'personality personality object)
+	 (put-text-property start extent 'personality v object)
 	 (when (< extent end)
-	   (emacspeak-personality-append extent end
-					 personality object)))
-	(t			       ;accumulate the new personality
-	 (unless (or (equal  personality orig)
-		     (and (listp orig)
-			  (memq personality orig)))
+	   (emacspeak-personality-append extent end v object)))
+	(t                        ;accumulate the new personality
+	 (unless (or (equal  v orig)
+                     (listp orig)
+                     (memq v orig))
 	   (setq new
 		 (remove-duplicates
 		  (append
 		   (if (listp orig) orig (list orig))
-		   (if (listp personality) personality (list personality)))))
+		   (if (listp v) v (list v)))))
 	   (put-text-property start extent
 			      'personality new object))
 	 (when (< extent end)
-	   (emacspeak-personality-append extent end
-					 personality object))))))))
+	   (emacspeak-personality-append extent end v object))))))))
 
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end
@@ -156,32 +159,33 @@ Existing personality properties on the text range are preserved."
   (when (and (integer-or-marker-p start)
              (integer-or-marker-p end ))
     (ems-modify-buffer-safely
-     (let ((orig (get-text-property start 'personality object))
+     (let ((v (if
+                  (listp personality)
+                 (remove-duplicates personality :test #'eq)
+               personality))
+           (orig (get-text-property start 'personality object))
 	   (new nil)
 	   (extent
 	    (next-single-property-change
 	     start 'personality object end)))
        (cond
 	((null orig)			;simple case
-	 (put-text-property start extent
-			    'personality personality object)
+	 (put-text-property start extent 'personality v object)
 	 (when (< extent end)
-	   (emacspeak-personality-prepend extent end
-					  personality object)))
+	   (emacspeak-personality-prepend extent end v object)))
 	(t			       ;accumulate the new personality
-	 (unless (or (equal personality orig)
-		     (and (listp orig)
-			  (memq personality orig))) 
+	 (unless (or (equal v orig)
+		      (listp orig)
+			  (memq personality orig))
 	   (setq new
 		 (remove-duplicates
 		  (append
-		   (if (listp personality) personality (list personality))
+		   (if (listp v) v (list v))
 		   (if (listp orig) orig (list orig)))))
 	   (put-text-property start extent
 			      'personality new object))
 	 (when (< extent end)
-	   (emacspeak-personality-prepend extent end
-					  personality))))))))
+	   (emacspeak-personality-prepend extent end v object))))))))
 
 (defun emacspeak-personality-remove  (start end
 					    personality
@@ -269,10 +273,12 @@ displayed in the messages area."
           (progn
             (cond
              ((symbolp value)
-              (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value)	;check for plain cons and pass
-                   (equal value (last value)))
-	      nil)
+              (setq voice (voice-setup-get-voice-for-face
+                           value)));; the following test for
+             ;; consp is not good enough
+             ;; ((and (consp value)	;check for plain cons and pass
+;;                    (equal value (last value)))
+;; 	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -308,9 +314,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value)	;check for plain cons and pass
-                   (equal value (last value)))
-	      nil)
+             ;; ((and (consp value)	;check for plain cons and pass
+;;                    (equal value (last value)))
+;; 	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -346,9 +352,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value)	;check for plain cons and pass
-                   (equal value (last value)))
-	      nil)
+             ;; ((and (consp value)	;check for plain cons and pass
+;;                    (equal value (last value)))
+;; 	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -387,9 +393,9 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((and (consp value)	;check for plain cons and pass
-                   (equal value (last value)))
-	      nil)
+             ;; ((and (consp value)	;check for plain cons and pass
+;;                    (equal value (last value)))
+;; 	      nil)
              ( (listp value)
                (setq voice
                      (delete nil 
