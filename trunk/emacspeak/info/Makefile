@@ -21,7 +21,7 @@ commands.texi:
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 	rm -f *.info* emacspeak.html
 	make
-	#make htm
+	make htm
 
 options.texi:  
 	$(EMACS) -batch -q -l ../utils/document-commands.el

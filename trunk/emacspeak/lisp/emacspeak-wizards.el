@@ -1038,9 +1038,12 @@ Warning! Contents of file commands.texi will be overwritten."
       (insert
        "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
+       (format 
        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation.\n\n")
+documentation.
+This chapter documents a total of %d commands.\n\n"
+       (length (emacspeak-list-emacspeak-commands))))
       (mapcar
        (function
         (lambda (f)
@@ -1124,9 +1127,13 @@ Warning! Contents of file filename will be overwritten."
       (insert
        "@node Emacspeak Customizations\n@chapter Emacspeak Customizations \n\n")
       (insert
+       (format 
        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
-documentation.\n\n")
+documentation.
+This chapter documents a total of %d user customizable
+  options.\n\n"
+       (length (emacspeak-list-emacspeak-options))))
       (mapcar
        #'(lambda (o)
 	   (let ((this-module (ems-variable-symbol-file  o))
