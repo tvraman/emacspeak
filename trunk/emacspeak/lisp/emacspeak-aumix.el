@@ -88,6 +88,12 @@
 (emacspeak-aumix-set-channel ?3 "3")
 (emacspeak-aumix-set-channel ?o "output gain")
 (emacspeak-aumix-set-channel ?v "volume")
+
+(defgroup emacspeak-aumix nil
+  "Customization group for setting the Emacspeak auditory
+display."
+:group 'emacspeak)
+
 (defcustom emacspeak-aumix-multichannel-capable-p nil
   "*Set to T if the sound card is capable of mixing multiple channels of audio."
   :group 'emacspeak-aumix
