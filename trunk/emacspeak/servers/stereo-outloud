@@ -332,6 +332,10 @@ signal ignore {sigint}
 tts_initialize
 set tts(speech_rate)  75
 notes_initialize
+set tts(input) file0
+        if {[info exists server_p]} {
+            set tts(input) sock0
+        }
 set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
