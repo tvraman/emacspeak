@@ -298,7 +298,7 @@ to specify the type of search."
 ;;{{{ altavista emacspeak archive
 
 (defvar emacspeak-websearch-emacspeak-archive-uri
-  "http://www.cs.vassar.edu/cgi-bin/wwwwais?selection=Emacspeak+E-list+Archive&sorttype=score&useicons=no&maxhits=40"
+  "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
   "URI to search Emacspeak mail archive at Vassar.")
 
 (defun emacspeak-websearch-emacspeak-archive (query)
