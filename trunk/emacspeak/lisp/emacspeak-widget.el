@@ -121,8 +121,6 @@ Returns a string with appropriate personality."
         (type   (widget-type w))
         (tag (widget-get w :tag)))
     (unless tag (setq tag (format " %s " type)))
-    (put-text-property 0 (length tag)
-                       'personality emacspeak-widget-button-personality tag)
     tag))
 
 (defsubst emacspeak-widget-help-echo (w)
