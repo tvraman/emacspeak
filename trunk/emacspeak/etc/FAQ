@@ -66,6 +66,22 @@ your home directory under ~/cvs-emacspeak/emacspeak
 Subsequent invocations of that  command will update this
 working copy.
 
+** Coding Guidelines:
+
+Emacspeak is a large system with a consistent coding style.
+If you contribute patches, your patches *must* adhere to the coding
+conventions used in the rest 
+of the Emacspeak code-base.
+
+Here are some of the key coding guidelines:
+
+A) Consistent naming  --study some of the core modules for guidance.
+B) Consistent use of CL --Common Lisp 
+C) Consistent declaration of dynamic variables via CL macro declare 
+D) Clear documentation of user level commands
+E) Use package checkdoc to check your coding style.
+F) Byte compile your code and make sure it compiles with no warnings or errors.
+
 * How to join the Emacspeak user group:
 
 The Emacspeak mailing list at <emacspeak@cs.vassar.edu> is
