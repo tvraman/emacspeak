@@ -34,6 +34,7 @@ shown in the output.
   </xsl:template>
   <xsl:template match="/html/body">
     <body>
+<!-- note that this will give us duplicates -->
 <xsl:apply-templates select="$locator" mode="copy"/>
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
