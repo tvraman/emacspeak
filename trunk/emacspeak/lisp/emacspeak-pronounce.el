@@ -391,7 +391,7 @@ Optional argument FILENAME specifies the dictionary file."
 (defsubst emacspeak-pronounce-read-pattern (key)
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
-  (read-minibuffer "Pattern"))
+  (eval (read-minibuffer "Pattern")))
         
     
     
@@ -460,7 +460,7 @@ First loads any persistent dictionaries if not already loaded."
      (t (error "Cannot define pronunciations with key type %s" key-type)))
     (setq word (emacspeak-pronounce-read-pattern key))
     (setq pronunciation
-          (cons 
+          (cons
           (read-minibuffer
            (format "Matcher for  %s: " word))
           (read-minibuffer
