@@ -260,7 +260,7 @@ applied."
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
   (declare (special
-  emacspeak-pronounce-pronunciation-personality))
+	    emacspeak-pronounce-pronunciation-personality))
   (let ((words
          (sort 
           (loop for  key  being the hash-keys  of pronunciation-table collect key)

@@ -84,16 +84,7 @@
 
 (define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
 
-(defcustom emacspeak-personal-keys
-  (when emacspeak-personal-keymap
-    (mapcar
-     (lambda (binding)
-       (cond
-        ((numberp (car binding))
-         (cons (format "%c" (car binding))
-               (cdr binding)))
-        (t binding)))
-     (cdr emacspeak-personal-keymap)))
+(defcustom emacspeak-personal-keys nil
   "*Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind 
@@ -138,16 +129,7 @@ field in the customization buffer.  You can use the notation
 
 (define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
 
-(defcustom emacspeak-super-keys
-  (when emacspeak-super-keymap
-    (mapcar
-     (lambda (binding)
-       (cond
-        ((numberp (car binding))
-         (cons (format "%c" (car binding))
-               (cdr binding)))
-        (t binding)))
-     (cdr emacspeak-super-keymap)))
+(defcustom emacspeak-super-keys nil
   "*Specifies super key bindings for the audio desktop.
 You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
 on Linux by having it emit the sequence `C-x@s'.
@@ -195,16 +177,7 @@ field in the customization buffer.  You can use the notation
 
 (define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
 
-(defcustom emacspeak-hyper-keys
-  (when emacspeak-hyper-keymap
-    (mapcar
-     (lambda (binding)
-       (cond
-        ((numberp (car binding))
-         (cons (format "%c" (car binding))
-               (cdr binding)))
-        (t binding)))
-     (cdr emacspeak-hyper-keymap)))
+(defcustom emacspeak-hyper-keys nil
   "*Specifies hyper key bindings for the audio desktop.
 Emacs can use the `hyper' key as a modifier key.
 You can turn the `windows' keys on your Linux PC keyboard into a `hyper' key

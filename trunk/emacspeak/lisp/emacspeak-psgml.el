@@ -410,7 +410,7 @@ shortref- short reference")
 (defadvice sgml-message (around emacspeak pre act comp)
   "Silence messages."
   (let ((emacspeak-speak-messages nil))
-ad-do-it))
+    ad-do-it))
 (defun emacspeak-psgml-toggle-interactive-font-lock()
   "Toggles variable sgml-set-face.
 When turned on, the  buffer is font locked interactively.

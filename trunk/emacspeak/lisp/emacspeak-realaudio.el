@@ -79,7 +79,7 @@ icons once a realaudio stream is done playing."
   :type 'string)
 
 (defcustom emacspeak-realaudio-player-options 
-    (list "-l" "-i" "-b" "-c" )
+  (list "-l" "-i" "-b" "-c" )
   "*Options for realplayer."
   :group 'emacspeak-realaudio
   :type '(repeat :tag "RealAudio Options"

@@ -652,7 +652,6 @@ before the message is spoken."
   
 ;;{{{ advising signal
 
-
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
   (let ((dtk-stop-immediately t)
