@@ -150,10 +150,10 @@ Provide an auditory icon if possible."
 ;;{{{  advice em-ls
 
 (defgroup emacspeak-eshell nil
-  "Emacspeak extension for EShell."
+  "EShell on the Emacspeak Audio Desktop."
   :group 'emacspeak
   :group 'eshell
-  :prefix "emacspeak-eshell")
+  :prefix "emacspeak-eshell-")
 
 
 (defcustom emacspeak-eshell-ls-use-personalities t
@@ -187,7 +187,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak- eshell-ls-special-personality 'paul-smooth
+(defcustom emacspeak-eshell-ls-special-personality 'ppaul-smooth 
   "Personality for special files."
   :type 'symbol
   :group 'emacspeak-eshell)
