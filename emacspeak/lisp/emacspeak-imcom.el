@@ -84,7 +84,7 @@
 ;;{{{  define IMCom mode
 
 (define-derived-mode emacspeak-imcom-mode comint-mode 
-  "Jabber interaction using IMCom. "
+  "Jabber interaction "
   "Major mode for Jabber interaction using IMCom.\n\n
 \\{emacspeak-imcom-mode-map}")
 
