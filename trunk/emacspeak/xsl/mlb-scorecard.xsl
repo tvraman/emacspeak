@@ -175,8 +175,8 @@ with an ERA of <xsl:value-of select="@era"/>
   </xsl:template>
   <xsl:template match="sv_pitcher">
     
-    <xsl:value-of select="pitcher/@name"/> got the save 
-    and he now has <xsl:value-of select="@saves"/> saves.
+    <xsl:value-of select="pitcher/@name"/> picks up his 
+     <xsl:value-of select="@saves"/> save.
   </xsl:template>
   <xsl:template match="*|@*" >
     <xsl:copy>
