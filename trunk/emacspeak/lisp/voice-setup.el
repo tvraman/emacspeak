@@ -193,14 +193,7 @@ This function forces voice-lock mode on."
 ;;{{{  special form defvoice 
 (defvar voice-setup-personality-table (make-hash-table)
   "Maps personality names to ACSS  settings.
-Keys are personality names.
-If value is a symbol, it has been aliased to key.")
-
-(defadvice dtk-define-voice-alias (after emacspeak pre act comp)
-  "Record the voice we just aliased."
-  (puthash (ad-get-arg 0)
-(ad-get-arg 1)
-voice-setup-personality-table))
+Keys are personality names.")
 
 (defsubst voice-setup-personality-from-style (style-list)
   "Define a personality given a list of speech style settings."
@@ -237,7 +230,6 @@ command \\[customize-variable] on <personality>-settings."
         (let ((voice-name
  (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
-          (dtk-define-voice-alias '(, personality) voice-name)
           (set-default sym val))))))
 
 ;;}}}
