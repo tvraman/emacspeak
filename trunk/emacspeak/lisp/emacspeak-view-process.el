@@ -233,7 +233,7 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-signal-line-personality voice-smooth
+(defcustom View-process-signal-line-personality voice-smoothen
   "Indicate a signal"
   :type 'symbol
   :group 'emacspeak-view-process)
