@@ -79,7 +79,7 @@
     </xsl:copy>
   </xsl:template>
   <xsl:template name="toc">
-    <h2>Table Of Cntents</h2>
+    <h2>Application Categories</h2>  
     <p>
       As of the last update, there are a total of
       <em><xsl:value-of select="count(//application)"/></em>
