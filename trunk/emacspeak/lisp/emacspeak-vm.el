@@ -283,6 +283,7 @@ Then speak the screenful. "
 
 (declaim (special vm-mode-map))
 (eval-when (load)
+  (load-library "vm-vars")
   (emacspeak-keymap-remove-emacspeak-edit-commands
    vm-mode-map))
 
