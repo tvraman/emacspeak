@@ -57,7 +57,22 @@ used as the table-index for extract-tables.xsl.
       </xsl:if>
     </head>
   </xsl:template>
-  <xsl:template match="/html/body">
+  <xsl:template match="/">
+    <xsl:apply-templates/>
+  </xsl:template>
+  <xsl:template match="head">
+    <head>
+      <xsl:apply-templates select="title"/>
+      <xsl:if test="string-length($base) &gt; 0">
+        <xsl:element name="base">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+        </xsl:element>
+      </xsl:if>
+    </head>
+  </xsl:template>
+  <xsl:template match="body">
     <body>
       <xsl:apply-templates select="@*"/>
       <xsl:if test="count($all)  &gt; 0">
