@@ -236,7 +236,7 @@
 (when (boundp 'calculator-mode-map)
 (define-key calculator-mode-map "k" 'calculator-copy)
 (define-key calculator-mode-map "p" 'calculator-paste)
-(define-key calculator-mode-map [DEL] 'calculator-backspace)
+(define-key calculator-mode-map "\d" 'calculator-backspace)
 )
 ;;}}}
 (provide 'emacspeak-calculator)
