@@ -236,8 +236,7 @@ region of text to process."
   "Display current node."
   (interactive)
   (emacspeak-xml-shell-process-node "."
-                                    'emacspeak-xml-shell-display-as-html)
-  (w3-preview-this-buffer))
+                                    'emacspeak-xml-shell-display-as-html))
 
 ;;}}}
 ;;{{{ keybindings
