@@ -1963,6 +1963,29 @@ v
   (getenv v)))
 
 ;;}}}
+;;{{{ speaking an extent of text delimited by specified char 
+
+(defun emacspeak-wizards-speak-and-skip-extent-upto-char (char)
+  "Search forward from point until we hit char.
+Speak text between point and the char we hit."
+  (interactive "%c")
+  (let ((start (point)))
+      (cond
+       ((search-forward (format "%c" char)
+                       (point-max)
+                       'no-error)
+       (emacspeak-speak-region start (point))
+       (emacspeak-auditory-icon 'select-object))
+       (t (error "Could not find %c" char)))))
+
+(defun emacspeak-wizards-speak-extent-upto-this-char ()
+  "Speak extent delimited by point and last character typed."
+  (interactive)
+  (declare (special last-input-char))
+  (emacspeak-wizards-speak-and-skip-extent-upto-char last-input-char))
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
