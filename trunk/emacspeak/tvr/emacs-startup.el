@@ -68,7 +68,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
         (message-log-max 1024))
     (when (file-exists-p  emacs-private-library-directory)
       (augment-load-path emacs-private-library-directory ))
-    (augment-load-path emacs-personal-library-directory)
+    (when (file-exists-p  emacs-personal-library-directory)
+    (augment-load-path emacs-personal-library-directory))
     ;;{{{ Load and customize emacspeak 
 
     (unless (featurep 'emacspeak)
@@ -91,11 +92,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  initial stuff
 
     (load-library-if-available "my-functions")
-          
-    ;; (add-hook 'text-mode-hook
-    ;;               (function (lambda nil
-    ;;                           (local-unset-key "\M-s")
-    ;;                           (outline-minor-mode 1))))
+    
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -126,8 +123,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  dired
 
     (require 'dired)
-    (load-library-if-available "dired-x")
-    (load-library-if-available  "dired-aux")
+    (require 'dired-x)
+    (require 'dired-aux)
 
     ;;}}}
     ;;{{{  ange ftp:
@@ -148,6 +145,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (bbdb-insinuate-vm)
     
     (require 'supercite)
+    (declare (special sc-mode-map-prefix))
+    (setq sc-mode-map-prefix "\C-c\C-o")
     
     (loop for hook in
           (list 'vm-mail-mode-hook 'mail-mode-hook)

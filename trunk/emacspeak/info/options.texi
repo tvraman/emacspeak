@@ -72,9 +72,6 @@ This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
 cdda2wav is a cd to wav convertor.
 
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-
 Automatically generated documentation
 for options defined in module  cd-tool.
 These options are customizable via Emacs' Custom interface.
