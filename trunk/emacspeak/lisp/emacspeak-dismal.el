@@ -49,6 +49,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
+                   (require 'voice-setup)
                    (require 'emacspeak-sounds)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-keymap))
@@ -177,7 +178,7 @@ The `column header' is the entry in row 0."
 (setq-default emacspeak-dismal-row-summarizer-list nil)
 (setq-default emacspeak-dismal-col-summarizer-list nil)
 (setq-default emacspeak-dismal-sheet-summarizer-list nil)
-(defcustom emacspeak-dismal-value-personality 'paul-animated
+(defcustom emacspeak-dismal-value-personality voice-aniamte
   "Personality used for speaking cell values in summaries."
   :group 'emacspeak-dismal
   :type 'symbol)

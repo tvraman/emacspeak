@@ -42,6 +42,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'custom)
+(require 'voice-setup)
 (eval-when-compile
   (require 'dtk-voices)
   (require 'dtk-speak)
@@ -56,7 +57,7 @@
 ;;{{{  define personalities
 
 (defcustom emacspeak-replace-personality
-  'paul-animated
+  voice-animate
   "Personality used in search and replace to indicate word
 that is being replaced."
   :group 'isearch
