@@ -133,7 +133,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (require 'dired)
     (require 'dired-x)
     (require 'dired-aux)
-
+    (require 'wdired)
+    (define-key dired-mode-map "W" 'wdired-change-to-wdired-mode)
     ;;}}}
     ;;{{{  ange ftp:
 
@@ -478,7 +479,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
                                         ; HIDE
     (define-key cm-map "q" 'hide-sublevels) ; Hide everything but the top-level headings
     (define-key cm-map "t" 'hide-body) ; Hide everything but headings (all body lines)
-    (define-key cm-map "o" 'hide-other)    ; Hide other branches
+    (define-key cm-map "o" 'hide-other) ; Hide other branches
     (define-key cm-map "c" 'hide-entry) ; Hide this entry's body
     (define-key cm-map "l" 'hide-leaves) ; Hide body lines in this entry and sub-entries
     (define-key cm-map "d" 'hide-subtree) ; Hide everything in this entry and sub-entries
