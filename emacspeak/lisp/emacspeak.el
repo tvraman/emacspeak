@@ -289,7 +289,7 @@ documentation is up-to-date, please use it.  "
             (function
              (lambda nil 
                (and (featurep 'emacspeak)
-                    (kill-process dtk-speaker-process))))
+                    (delete-process dtk-speaker-process))))
             'at-end)
 
   (message
