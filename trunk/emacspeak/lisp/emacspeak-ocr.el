@@ -409,7 +409,7 @@ Pick a short but meaningful name."
                   emacspeak-ocr-image-extension)))))
     (when (interactive-p)
       (setq emacspeak-ocr-last-page-number
-          (1+ emacspeak-ocr-last-page-number)))
+	    (1+ emacspeak-ocr-last-page-number)))
     (message "Acquired  image to file %s"
              image-name)))
 

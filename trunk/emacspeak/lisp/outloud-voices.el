@@ -346,10 +346,10 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapcar
-    #'(lambda (setting)
-      (aset table (first setting)
-            (format " `vr%s  "
-                    (second setting))))
+   #'(lambda (setting)
+       (aset table (first setting)
+	     (format " `vr%s  "
+		     (second setting))))
     ;;; stress markers not used for now.
    '(
      (0 0 "`00")

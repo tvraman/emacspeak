@@ -131,7 +131,7 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
-    (puthash    string pronunciation emacspeak-pronounce-pronunciation-table)
+  (puthash    string pronunciation emacspeak-pronounce-pronunciation-table)
   (message "Added  local pronunciation in buffer %s"
            (buffer-name)))
 

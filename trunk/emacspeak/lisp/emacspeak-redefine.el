@@ -146,8 +146,6 @@ speech flush as you type."
    (t (ding)
       (message "Beginning of buffer"))))
 
-
-
 ;;}}}
 ;;{{{  Rebinding functions to keys:
 

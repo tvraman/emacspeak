@@ -1043,8 +1043,8 @@ documentation.\n\n")
                 (source-file nil))
             (when this-module
               (setq source-file (locate-library this-module ))
-                    (if (char-equal (aref source-file (1- (length source-file))) ?c)
-                        (setq source-file (substring  source-file 0 -1)))
+	      (if (char-equal (aref source-file (1- (length source-file))) ?c)
+		  (setq source-file (substring  source-file 0 -1)))
               (setq commentary (lm-commentary source-file))
               (setq this-module
                     (file-name-sans-extension this-module))
@@ -2627,7 +2627,6 @@ Location is specified by name."
 ;;}}}
 ;;{{{ ISO dates 
 ;;; implementation based on icalendar.el
-
 
 (defun emacspeak-wizards-speak-iso-datetime (iso)
   "Make ISO date-time speech friendly."

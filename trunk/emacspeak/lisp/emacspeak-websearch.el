@@ -54,7 +54,6 @@
 
 ;;}}}
 
-
 ;;}}}
 ;;{{{ searcher table
 ;;;###autoload
@@ -277,10 +276,10 @@ ARGS specifies additional arguments to SPEAKER if any."
    (list
     (emacspeak-websearch-read-query "All The Web Query: ")))
   (declare (special emacspeak-websearch-alltheweb-uri))
-    (browse-url 
-     (concat emacspeak-websearch-alltheweb-uri
-             "&q="
-             (webjump-url-encode query)))
+  (browse-url 
+   (concat emacspeak-websearch-alltheweb-uri
+	   "&q="
+	   (webjump-url-encode query)))
   (emacspeak-websearch-post-process
    "documents found"
    'emacspeak-speak-line))
