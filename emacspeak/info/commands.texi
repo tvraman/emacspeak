@@ -83,8 +83,6 @@ for commands defined in module  dtk-speak.
 
 
 @deffn dtk-toggle-splitting-on-white-space
-@findex dtk-toggle-splitting-on-white-space
-@kindex  control e d SPACE 
 @kbd{ control e d SPACE }
 
 Toggle splitting of speech on white space.
@@ -105,8 +103,6 @@ since the synthesizer is getting a word at a time.
 
 
 @deffn dtk-set-chunk-separator-syntax
-@findex dtk-set-chunk-separator-syntax
-@kindex  control e d RETURN 
 @kbd{ control e d RETURN }
 
 Interactively set how text is split in chunks.
@@ -118,8 +114,6 @@ Argument S specifies the syntax class.
 
 
 @deffn tts-restart
-@findex tts-restart
-@kindex  control e control s 
 @kbd{ control e control s }
 
 Use this to nuke the currently running TTS server and restart it.
@@ -128,8 +122,6 @@ Use this to nuke the currently running TTS server and restart it.
 
 
 @deffn dtk-select-server
-@findex dtk-select-server
-@kindex  control e d d 
 @kbd{ control e d d }
 
 Select a speech server interactively.
@@ -140,8 +132,6 @@ When called  interactively, The selected server is started immediately.
 
 
 @deffn dtk-toggle-debug
-@findex dtk-toggle-debug
-@kindex  control e d b 
 @kbd{ control e d b }
 
 Toggle state of the debug FLAG.
@@ -154,8 +144,6 @@ Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
 
 
 @deffn tts-show-debug-buffer
-@findex tts-show-debug-buffer
-@kindex  control e d meta control b 
 @kbd{ control e d meta control b }
 
 Select TTS debugging buffer.
@@ -177,8 +165,6 @@ for commands defined in module  dtk-tcl.
 
 
 @deffn dtk-set-predefined-speech-rate
-@findex dtk-set-predefined-speech-rate
-@kindex  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
 @kbd{ control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 }
 
 Set speech rate to one of nine predefined levels.
@@ -188,8 +174,6 @@ Interactive PREFIX arg says to set the rate globally.
 
 
 @deffn dtk-reset-state
-@findex dtk-reset-state
-@kindex  control e d  cap R  
 @kbd{ control e d  cap R  }
 
 Restore sanity to the Dectalk.
@@ -199,8 +183,6 @@ Typically used after the Dectalk has been power   cycled.
 
 
 @deffn dtk-resume
-@findex dtk-resume
-@kindex  control e SPACE 
 @kbd{ control e SPACE }
 
 Resume paused speech.
@@ -214,7 +196,6 @@ and variable `dtk-resume-should-toggle' is t
 
 
 @deffn dtk-set-punctuations-to-some
-@findex dtk-set-punctuations-to-some
  No global keybinding
 
 Set punctuation  mode to some.
@@ -224,8 +205,6 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 
 @deffn dtk-toggle-split-caps
-@findex dtk-toggle-split-caps
-@kindex  control e d s 
 @kbd{ control e d s }
 
 Toggle split caps mode.
@@ -238,8 +217,6 @@ value to the result.
 
 
 @deffn dtk-add-cleanup-pattern
-@findex dtk-add-cleanup-pattern
-@kindex  control e d a 
 @kbd{ control e d a }
 
 Add this pattern to the list of repeating patterns that
@@ -257,8 +234,6 @@ will say ``aw fifteen dot'' when speaking the string
 
 
 @deffn dtk-set-rate
-@findex dtk-set-rate
-@kindex  control e d r 
 @kbd{ control e d r }
 
 Set speaking RATE for the tts.
@@ -274,7 +249,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn dtk-set-punctuations-to-all
-@findex dtk-set-punctuations-to-all
  No global keybinding
 
 Set punctuation  mode to all.
@@ -284,8 +258,6 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 
 @deffn dtk-set-punctuations
-@findex dtk-set-punctuations
-@kindex  control e d p 
 @kbd{ control e d p }
 
 Set punctuation mode to MODE.
@@ -297,8 +269,6 @@ current local  value to the result.
 
 
 @deffn dtk-pause
-@findex dtk-pause
-@kindex  control e p 
 @kbd{ control e p }
 
 Pause ongoing speech.
@@ -314,8 +284,6 @@ Optional PREFIX arg flushes any previously paused speech.
 
 
 @deffn dtk-set-pronunciation-mode
-@findex dtk-set-pronunciation-mode
-@kindex  control e d m 
 @kbd{ control e d m }
 
 Set pronunciation MODE.
@@ -328,8 +296,6 @@ Argument STATE specifies new state.
 
 
 @deffn dtk-toggle-quiet
-@findex dtk-toggle-quiet
-@kindex  control e d q 
 @kbd{ control e d q }
 
 Toggle state of the speech device between being quiet and talkative.
@@ -341,8 +307,6 @@ Optional argument PREFIX specifies whether speech is turned off in the current b
 
 
 @deffn dtk-toggle-stop-immediately-while-typing
-@findex dtk-toggle-stop-immediately-while-typing
-@kindex  control e d  cap I  
 @kbd{ control e d  cap I  }
 
 Toggle state of variable `dtk-stop-immediately-while-typing'.
@@ -354,8 +318,6 @@ Optional argument PREFIX specifies if the setting applies to all buffers.
 
 
 @deffn dtk-toggle-capitalization
-@findex dtk-toggle-capitalization
-@kindex  control e d c 
 @kbd{ control e d c }
 
 Toggle capitalization.
@@ -367,8 +329,6 @@ value, and then set the current local value to the result.
 
 
 @deffn dtk-stop
-@findex dtk-stop
-@kindex  pause   control e s   ESCAPE [  cap P  
 @kbd{ pause   control e s   ESCAPE [  cap P  }
 
 Stop speech now.
@@ -377,8 +337,6 @@ Stop speech now.
 
 
 @deffn dtk-set-character-scale
-@findex dtk-set-character-scale
-@kindex  control e d f 
 @kbd{ control e d f }
 
 Set scale FACTOR for   speech rate.
@@ -396,8 +354,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn dtk-toggle-allcaps-beep
-@findex dtk-toggle-allcaps-beep
-@kindex  control e d  cap C  
 @kbd{ control e d  cap C  }
 
 Toggle allcaps-beep.
@@ -411,8 +367,6 @@ However it is irritating to have it on when reading documents.
 
 
 @deffn dtk-toggle-punctuation-mode
-@findex dtk-toggle-punctuation-mode
-@kindex  delete 
 @kbd{ delete }
 
 Toggle punctuation mode between "some" and "all".
@@ -422,7 +376,6 @@ Interactive PREFIX arg makes the new setting global.
 
 
 @deffn dtk-notes-shutdown
-@findex dtk-notes-shutdown
  No global keybinding
 
 Shutdown midi system.
@@ -445,8 +398,6 @@ for commands defined in module  emacspeak-aumix.
 
 
 @deffn emacspeak-aumix-volume-decrease
-@findex emacspeak-aumix-volume-decrease
-@kindex  volume-down 
 @kbd{ volume-down }
 
 Decrease overall volume. 
@@ -455,8 +406,6 @@ Decrease overall volume.
 
 
 @deffn emacspeak-aumix-volume-increase
-@findex emacspeak-aumix-volume-increase
-@kindex  volume-up 
 @kbd{ volume-up }
 
 Increase overall volume. 
@@ -465,8 +414,6 @@ Increase overall volume.
 
 
 @deffn emacspeak-aumix
-@findex emacspeak-aumix
-@kindex  control e ( 
 @kbd{ control e ( }
 
 Setup output parameters of the auditory display.
@@ -479,7 +426,6 @@ you are done.
 
 
 @deffn emacspeak-aumix-reset
-@findex emacspeak-aumix-reset
  No global keybinding
 
 Reset to default audio settings.
@@ -488,8 +434,6 @@ Reset to default audio settings.
 
 
 @deffn emacspeak-aumix-wave-decrease
-@findex emacspeak-aumix-wave-decrease
-@kindex  control e control f left 
 @kbd{ control e control f left }
 
 Decrease volume of wave output. 
@@ -498,8 +442,6 @@ Decrease volume of wave output.
 
 
 @deffn emacspeak-aumix-wave-increase
-@findex emacspeak-aumix-wave-increase
-@kindex  control e control f right 
 @kbd{ control e control f right }
 
 Increase volume of wave output. 
@@ -508,7 +450,6 @@ Increase volume of wave output.
 
 
 @deffn emacspeak-aumix-edit
-@findex emacspeak-aumix-edit
  No global keybinding
 
 Edit aumix settings interactively. 
@@ -533,7 +474,6 @@ for commands defined in module  emacspeak-bs.
 
 
 @deffn emacspeak-bs-speak-buffer-line
-@findex emacspeak-bs-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
@@ -553,7 +493,6 @@ for commands defined in module  emacspeak-buff-menu.
 
 
 @deffn emacspeak-list-buffers-previous-line
-@findex emacspeak-list-buffers-previous-line
  No global keybinding
 
 Speech enabled buffer menu navigation
@@ -562,7 +501,6 @@ Speech enabled buffer menu navigation
 
 
 @deffn emacspeak-list-buffers-speak-buffer-line
-@findex emacspeak-list-buffers-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
@@ -571,7 +509,6 @@ Speak information about this buffer
 
 
 @deffn emacspeak-list-buffers-next-line
-@findex emacspeak-list-buffers-next-line
  No global keybinding
 
 Speech enabled buffer menu navigation
@@ -580,7 +517,6 @@ Speech enabled buffer menu navigation
 
 
 @deffn emacspeak-list-buffers-speak-buffer-name
-@findex emacspeak-list-buffers-speak-buffer-name
  No global keybinding
 
 Speak the name of the buffer on this line
@@ -600,7 +536,6 @@ for commands defined in module  emacspeak-c.
 
 
 @deffn emacspeak-c-speak-semantics
-@findex emacspeak-c-speak-semantics
  No global keybinding
 
 Speak the C semantics of this line. 
@@ -620,7 +555,6 @@ for commands defined in module  emacspeak-calendar.
 
 
 @deffn emacspeak-speak-calendar-date
-@findex emacspeak-speak-calendar-date
  No global keybinding
 
 Speak the date under point when called in Calendar Mode. 
@@ -629,8 +563,6 @@ Speak the date under point when called in Calendar Mode.
 
 
 @deffn emacspeak-appt-repeat-announcement
-@findex emacspeak-appt-repeat-announcement
-@kindex  control e  cap A  
 @kbd{ control e  cap A  }
 
 Speaks the most recently displayed appointment message if any.
@@ -653,7 +585,6 @@ for commands defined in module  emacspeak-compile.
 
 
 @deffn emacspeak-compilation-speak-error
-@findex emacspeak-compilation-speak-error
  No global keybinding
 
 Speech feedback about the compilation error. 
@@ -673,7 +604,6 @@ for commands defined in module  emacspeak-custom.
 
 
 @deffn emacspeak-custom-goto-toolbar
-@findex emacspeak-custom-goto-toolbar
  No global keybinding
 
 Jump to custom toolbar when in a customization buffer.
@@ -682,7 +612,6 @@ Jump to custom toolbar when in a customization buffer.
 
 
 @deffn emacspeak-custom-goto-group
-@findex emacspeak-custom-goto-group
  No global keybinding
 
 Jump to custom group when in a customization buffer.
@@ -707,7 +636,6 @@ for commands defined in module  emacspeak-dired.
 
 
 @deffn emacspeak-dired-speak-file-permissions
-@findex emacspeak-dired-speak-file-permissions
  No global keybinding
 
 Speak the permissions of the current file.
@@ -716,7 +644,6 @@ Speak the permissions of the current file.
 
 
 @deffn emacspeak-dired-show-file-type
-@findex emacspeak-dired-show-file-type
  No global keybinding
 
 Displays type of current file by running command file.
@@ -725,7 +652,6 @@ Displays type of current file by running command file.
 
 
 @deffn emacspeak-dired-speak-symlink-target
-@findex emacspeak-dired-speak-symlink-target
  No global keybinding
 
 Speaks the target of the symlink on the current line.
@@ -734,7 +660,6 @@ Speaks the target of the symlink on the current line.
 
 
 @deffn emacspeak-dired-speak-file-size
-@findex emacspeak-dired-speak-file-size
  No global keybinding
 
 Speak the size of the current file.
@@ -744,7 +669,6 @@ On a directory line, run du -s on the directory to speak its size.
 
 
 @deffn emacspeak-dired-speak-file-access-time
-@findex emacspeak-dired-speak-file-access-time
  No global keybinding
 
 Speak access time  of the current file.
@@ -753,7 +677,6 @@ Speak access time  of the current file.
 
 
 @deffn emacspeak-dired-speak-header-line
-@findex emacspeak-dired-speak-header-line
  No global keybinding
 
 Speak the header line of the dired buffer. 
@@ -762,7 +685,6 @@ Speak the header line of the dired buffer.
 
 
 @deffn emacspeak-dired-label-fields
-@findex emacspeak-dired-label-fields
  No global keybinding
 
 Labels the fields of the listing in the dired buffer.
@@ -773,7 +695,6 @@ unless `dired-listing-switches' contains -al
 
 
 @deffn emacspeak-dired-speak-file-modification-time
-@findex emacspeak-dired-speak-file-modification-time
  No global keybinding
 
 Speak modification time  of the current file.
@@ -793,7 +714,6 @@ for commands defined in module  emacspeak-ediff.
 
 
 @deffn emacspeak-ediff-speak-current-difference
-@findex emacspeak-ediff-speak-current-difference
  No global keybinding
 
 Speak the current difference
@@ -813,7 +733,6 @@ for commands defined in module  emacspeak-enriched.
 
 
 @deffn emacspeak-enriched-voiceify-faces
-@findex emacspeak-enriched-voiceify-faces
  No global keybinding
 
 Map base fonts to voices.
@@ -834,7 +753,6 @@ for commands defined in module  emacspeak-entertain.
 
 
 @deffn emacspeak-hangman-speak-guess
-@findex emacspeak-hangman-speak-guess
  No global keybinding
 
 Speak current guessed string. 
@@ -843,7 +761,6 @@ Speak current guessed string.
 
 
 @deffn emacspeak-hangman-speak-statistics
-@findex emacspeak-hangman-speak-statistics
  No global keybinding
 
 Speak statistics.
@@ -872,7 +789,6 @@ for commands defined in module  emacspeak-eterm.
 
 
 @deffn emacspeak-eterm-pointer-up
-@findex emacspeak-eterm-pointer-up
  No global keybinding
 
 Move the pointer up a line.
@@ -882,7 +798,6 @@ Argument COUNT .specifies number of lines by which to move.
 
 
 @deffn emacspeak-eterm-pointer-to-right-edge
-@findex emacspeak-eterm-pointer-to-right-edge
  No global keybinding
 
 Move the pointer to the right edge.
@@ -891,7 +806,6 @@ Move the pointer to the right edge.
 
 
 @deffn emacspeak-eterm-search-forward
-@findex emacspeak-eterm-search-forward
  No global keybinding
 
 Search forward on the terminal.
@@ -900,7 +814,6 @@ Search forward on the terminal.
 
 
 @deffn emacspeak-eterm-pointer-to-top
-@findex emacspeak-eterm-pointer-to-top
  No global keybinding
 
 Move the pointer to the top of the screen.
@@ -909,7 +822,6 @@ Move the pointer to the top of the screen.
 
 
 @deffn emacspeak-eterm-set-focus-window
-@findex emacspeak-eterm-set-focus-window
  No global keybinding
 
 Prompt for the id of a predefined window,
@@ -924,7 +836,6 @@ and speaking that window upon seeing screen activity.
 
 
 @deffn emacspeak-eterm-speak-pointer-char
-@findex emacspeak-eterm-speak-pointer-char
  No global keybinding
 
 Speak char under eterm pointer.
@@ -934,7 +845,6 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 
 @deffn emacspeak-eterm-copy-region-to-register
-@findex emacspeak-eterm-copy-region-to-register
  No global keybinding
 
 Copy text from terminal to an Emacs REGISTER.
@@ -946,7 +856,6 @@ emacspeak eterm pointer to a register.
 
 
 @deffn emacspeak-eterm-speak-pointer
-@findex emacspeak-eterm-speak-pointer
  No global keybinding
 
 Speak current pointer position.
@@ -955,7 +864,6 @@ Speak current pointer position.
 
 
 @deffn emacspeak-eterm-paste-register
-@findex emacspeak-eterm-paste-register
  No global keybinding
 
 Paste contents of REGISTER at current location.
@@ -966,7 +874,6 @@ sent to the terminal as if it were typed by the user.
 
 
 @deffn emacspeak-eterm-pointer-to-next-color-change
-@findex emacspeak-eterm-pointer-to-next-color-change
  No global keybinding
 
 Move the eterm pointer to the next color change.
@@ -977,7 +884,6 @@ Optional argument COUNT specifies how many changes to skip.
 
 
 @deffn emacspeak-eterm-pointer-to-bottom
-@findex emacspeak-eterm-pointer-to-bottom
  No global keybinding
 
 Move the pointer to the bottom  of the screen.
@@ -986,7 +892,6 @@ Move the pointer to the bottom  of the screen.
 
 
 @deffn emacspeak-eterm-pointer-down
-@findex emacspeak-eterm-pointer-down
  No global keybinding
 
 Move the pointer down a line.
@@ -996,7 +901,6 @@ Argument COUNT specifies number of lines by which to move.
 
 
 @deffn emacspeak-eterm-speak-predefined-window
-@findex emacspeak-eterm-speak-predefined-window
  No global keybinding
 
 Speak a predefined eterm window between 1 and 10.
@@ -1005,7 +909,6 @@ Speak a predefined eterm window between 1 and 10.
 
 
 @deffn emacspeak-eterm-yank-window
-@findex emacspeak-eterm-yank-window
  No global keybinding
 
 Yank contents of  an eterm window at point.
@@ -1014,7 +917,6 @@ Yank contents of  an eterm window at point.
 
 
 @deffn emacspeak-eterm-speak-screen
-@findex emacspeak-eterm-speak-screen
  No global keybinding
 
 Speak the screen.  Default is to speak from the emacspeak pointer  to point.
@@ -1025,7 +927,6 @@ the Emacspeak pointer to be spoken.
 
 
 @deffn emacspeak-eterm-search-backward
-@findex emacspeak-eterm-search-backward
  No global keybinding
 
 Search backward on the terminal.
@@ -1034,7 +935,6 @@ Search backward on the terminal.
 
 
 @deffn emacspeak-eterm-goto-line
-@findex emacspeak-eterm-goto-line
  No global keybinding
 
 Move emacspeak eterm pointer to a specified LINE.
@@ -1043,7 +943,6 @@ Move emacspeak eterm pointer to a specified LINE.
 
 
 @deffn emacspeak-eterm-describe-window
-@findex emacspeak-eterm-describe-window
  No global keybinding
 
 Describe an eterm  window.
@@ -1053,7 +952,6 @@ Description indicates eterm window coordinates and whether it is stretchable
 
 
 @deffn emacspeak-eterm-speak-pointer-line
-@findex emacspeak-eterm-speak-pointer-line
  No global keybinding
 
 Speak the line the pointer is on.
@@ -1062,7 +960,6 @@ Speak the line the pointer is on.
 
 
 @deffn emacspeak-eterm-speak-pointer-word
-@findex emacspeak-eterm-speak-pointer-word
  No global keybinding
 
 Speak the word  the pointer is on.
@@ -1071,7 +968,6 @@ Speak the word  the pointer is on.
 
 
 @deffn emacspeak-toggle-eterm-autospeak
-@findex emacspeak-toggle-eterm-autospeak
  No global keybinding
 
 Toggle state of eterm autospeak.
@@ -1084,7 +980,6 @@ all output to the terminal is automatically spoken.
 
 
 @deffn emacspeak-eterm-pointer-left
-@findex emacspeak-eterm-pointer-left
  No global keybinding
 
 Move the pointer left.
@@ -1094,7 +989,6 @@ Argument COUNT specifies number of columns by which to move.
 
 
 @deffn emacspeak-eterm-pointer-to-cursor
-@findex emacspeak-eterm-pointer-to-cursor
  No global keybinding
 
 Move the pointer to the cursor.
@@ -1103,7 +997,6 @@ Move the pointer to the cursor.
 
 
 @deffn emacspeak-eterm-pointer-right
-@findex emacspeak-eterm-pointer-right
  No global keybinding
 
 Move the pointer right.
@@ -1113,7 +1006,6 @@ Argument COUNT specifies number of columns by which to move.
 
 
 @deffn emacspeak-eterm-pointer-backward-word
-@findex emacspeak-eterm-pointer-backward-word
  No global keybinding
 
 Move the pointer backward  by words. 
@@ -1124,7 +1016,6 @@ Argument COUNT specifies number of words by which to move.
 
 
 @deffn emacspeak-eterm-pointer-to-previous-color-change
-@findex emacspeak-eterm-pointer-to-previous-color-change
  No global keybinding
 
 Move the eterm pointer to the next color change.
@@ -1135,7 +1026,6 @@ Optional argument COUNT specifies how many changes to skip.
 
 
 @deffn emacspeak-eterm-set-marker
-@findex emacspeak-eterm-set-marker
  No global keybinding
 
 Set Emacspeak eterm marker.
@@ -1146,7 +1036,6 @@ to by the emacspeak eterm pointer.
 
 
 @deffn emacspeak-eterm-toggle-focus-window
-@findex emacspeak-eterm-toggle-focus-window
  No global keybinding
 
 Toggle active state of focus window.
@@ -1155,7 +1044,6 @@ Toggle active state of focus window.
 
 
 @deffn emacspeak-eterm-pointer-forward-word
-@findex emacspeak-eterm-pointer-forward-word
  No global keybinding
 
 Move the pointer forward by words. 
@@ -1166,7 +1054,6 @@ Argument COUNT specifies number of words by which to move.
 
 
 @deffn emacspeak-eterm-speak-cursor
-@findex emacspeak-eterm-speak-cursor
  No global keybinding
 
 Speak cursor position.
@@ -1175,7 +1062,6 @@ Speak cursor position.
 
 
 @deffn emacspeak-eterm-define-window
-@findex emacspeak-eterm-define-window
  No global keybinding
 
 Prompt for a window ID.
@@ -1188,7 +1074,6 @@ eterm.
 
 
 @deffn emacspeak-eterm-toggle-review
-@findex emacspeak-eterm-toggle-review
  No global keybinding
 
 Toggle state of eterm review. 
@@ -1199,7 +1084,6 @@ without sending input to the terminal itself.
 
 
 @deffn emacspeak-eterm-pointer-to-left-edge
-@findex emacspeak-eterm-pointer-to-left-edge
  No global keybinding
 
 Move the pointer to the right edge.
@@ -1208,8 +1092,6 @@ Move the pointer to the right edge.
 
 
 @deffn emacspeak-eterm-remote-term
-@findex emacspeak-eterm-remote-term
-@kindex  control e meta control r 
 @kbd{ control e meta control r }
 
 Start a terminal-emulator in a new buffer.
@@ -1218,7 +1100,6 @@ Start a terminal-emulator in a new buffer.
 
 
 @deffn emacspeak-eterm-speak-window
-@findex emacspeak-eterm-speak-window
  No global keybinding
 
 Speak an eterm window.
@@ -1228,7 +1109,6 @@ Argument ID specifies the window.
 
 
 @deffn emacspeak-eterm-maybe-send-raw
-@findex emacspeak-eterm-maybe-send-raw
  No global keybinding
 
 Send a raw character through if in the terminal buffer.
@@ -1239,7 +1119,6 @@ in a non eterm buffer if executed via C-e C-e
 
 
 @deffn emacspeak-eterm-toggle-pointer-mode
-@findex emacspeak-eterm-toggle-pointer-mode
  No global keybinding
 
 Toggle emacspeak eterm pointer mode.
@@ -1252,7 +1131,6 @@ there is terminal activity.
 
 
 @deffn emacspeak-eterm-kill-ring-save-region
-@findex emacspeak-eterm-kill-ring-save-region
  No global keybinding
 
 Copy text from terminal to kill ring.
@@ -1275,7 +1153,6 @@ for commands defined in module  emacspeak-filtertext.
 
 
 @deffn emacspeak-filtertext-mode
-@findex emacspeak-filtertext-mode
  No global keybinding
 
 Major mode for FilterText interaction. 
@@ -1294,7 +1171,6 @@ r               emacspeak-filtertext-revert
 
 
 @deffn emacspeak-filtertext-revert
-@findex emacspeak-filtertext-revert
  No global keybinding
 
 Revert to original text.
@@ -1303,8 +1179,6 @@ Revert to original text.
 
 
 @deffn emacspeak-filtertext
-@findex emacspeak-filtertext
-@kindex  control e \ 
 @kbd{ control e \ }
 
 Copy over text in region to special filtertext buffer in
@@ -1325,7 +1199,6 @@ for commands defined in module  emacspeak-fix-interactive.
 
 
 @deffn emacspeak-fix-commands-loaded-from
-@findex emacspeak-fix-commands-loaded-from
  No global keybinding
 
 Fix all commands loaded from a specified module.
@@ -1334,7 +1207,6 @@ Fix all commands loaded from a specified module.
 
 
 @deffn emacspeak-fix-all-recent-commands
-@findex emacspeak-fix-all-recent-commands
  No global keybinding
 
 Fix recently loaded interactive commands.
@@ -1356,7 +1228,6 @@ for commands defined in module  emacspeak-forms.
 
 
 @deffn emacspeak-forms-find-file
-@findex emacspeak-forms-find-file
  No global keybinding
 
 Visit a forms file
@@ -1365,7 +1236,6 @@ Visit a forms file
 
 
 @deffn emacspeak-forms-flush-unwanted-records
-@findex emacspeak-forms-flush-unwanted-records
  No global keybinding
 
 Prompt for pattern and flush matching lines
@@ -1374,7 +1244,6 @@ Prompt for pattern and flush matching lines
 
 
 @deffn emacspeak-forms-summarize-current-record
-@findex emacspeak-forms-summarize-current-record
  No global keybinding
 
 Summarize current record
@@ -1383,7 +1252,6 @@ Summarize current record
 
 
 @deffn emacspeak-forms-speak-field
-@findex emacspeak-forms-speak-field
  No global keybinding
 
 Speak current form field name and value.
@@ -1393,7 +1261,6 @@ Assumes that point is at the front of a field value.
 
 
 @deffn emacspeak-forms-rerun-filter
-@findex emacspeak-forms-rerun-filter
  No global keybinding
 
 Rerun  filter --allows us to nuke more matching records
@@ -1402,7 +1269,6 @@ Rerun  filter --allows us to nuke more matching records
 
 
 @deffn emacspeak-forms-summarize-current-position
-@findex emacspeak-forms-summarize-current-position
  No global keybinding
 
 Summarize current position in list of records
@@ -1422,8 +1288,6 @@ for commands defined in module  emacspeak-freeamp.
 
 
 @deffn emacspeak-freeamp
-@findex emacspeak-freeamp
-@kindex  control e control f o 
 @kbd{ control e control f o }
 
 Play specified resource using freeamp.
@@ -1434,7 +1298,6 @@ The player is placed in a buffer in emacspeak-freeamp-mode.
 
 
 @deffn emacspeak-freeamp-mode
-@findex emacspeak-freeamp-mode
  No global keybinding
 
 Major mode for freeamp interaction. 
@@ -1461,7 +1324,6 @@ o               emacspeak-freeamp
 
 
 @deffn emacspeak-freeamp-freeamp-command
-@findex emacspeak-freeamp-freeamp-command
  No global keybinding
 
 Execute FreeAmp command.
@@ -1475,8 +1337,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-freeamp-freeamp-call-command
-@findex emacspeak-freeamp-freeamp-call-command
-@kindex  control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p 
 @kbd{ control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p }
 
 Call appropriate freeamp command.
@@ -1496,7 +1356,6 @@ for commands defined in module  emacspeak-gomoku.
 
 
 @deffn emacspeak-gomoku-speak-emacs-previous-move
-@findex emacspeak-gomoku-speak-emacs-previous-move
  No global keybinding
 
 Speak emacs' previous move
@@ -1505,7 +1364,6 @@ Speak emacs' previous move
 
 
 @deffn emacspeak-gomoku-speak-number-of-moves
-@findex emacspeak-gomoku-speak-number-of-moves
  No global keybinding
 
 Speak number of moves so far
@@ -1514,7 +1372,6 @@ Speak number of moves so far
 
 
 @deffn emacspeak-gomoku-display-statistics
-@findex emacspeak-gomoku-display-statistics
  No global keybinding
 
 Display statistics from previous games
@@ -1523,7 +1380,6 @@ Display statistics from previous games
 
 
 @deffn emacspeak-gomoku-speak-humans-previous-move
-@findex emacspeak-gomoku-speak-humans-previous-move
  No global keybinding
 
 Speak human' previous move
@@ -1532,7 +1388,6 @@ Speak human' previous move
 
 
 @deffn emacspeak-gomoku-show-current-negative-diagonal
-@findex emacspeak-gomoku-show-current-negative-diagonal
  No global keybinding
 
 Aurally display current negative sloped diagonal 
@@ -1541,7 +1396,6 @@ Aurally display current negative sloped diagonal
 
 
 @deffn emacspeak-gomoku-show-current-row
-@findex emacspeak-gomoku-show-current-row
  No global keybinding
 
 Aurally display current row
@@ -1550,7 +1404,6 @@ Aurally display current row
 
 
 @deffn emacspeak-gomoku-show-current-column
-@findex emacspeak-gomoku-show-current-column
  No global keybinding
 
 Aurally display current column
@@ -1559,7 +1412,6 @@ Aurally display current column
 
 
 @deffn emacspeak-gomoku-show-current-positive-diagonal
-@findex emacspeak-gomoku-show-current-positive-diagonal
  No global keybinding
 
 Aurally display current positively sloped diagonal
@@ -1568,7 +1420,6 @@ Aurally display current positively sloped diagonal
 
 
 @deffn emacspeak-gomoku-speak-square
-@findex emacspeak-gomoku-speak-square
  No global keybinding
 
 Speak coordinates and state of square at point
@@ -1588,8 +1439,6 @@ for commands defined in module  emacspeak-gridtext.
 
 
 @deffn emacspeak-gridtext-apply
-@findex emacspeak-gridtext-apply
-@kindex  control e # a 
 @kbd{ control e # a }
 
 Apply grid to region.
@@ -1598,8 +1447,6 @@ Apply grid to region.
 
 
 @deffn emacspeak-gridtext-save
-@findex emacspeak-gridtext-save
-@kindex  control e # s 
 @kbd{ control e # s }
 
 Save out grid settings.
@@ -1608,8 +1455,6 @@ Save out grid settings.
 
 
 @deffn emacspeak-gridtext-load
-@findex emacspeak-gridtext-load
-@kindex  control e # l 
 @kbd{ control e # l }
 
 Load saved grid settings.
@@ -1638,8 +1483,6 @@ for commands defined in module  emacspeak-hide.
 
 
 @deffn emacspeak-hide-speak-block-sans-prefix
-@findex emacspeak-hide-speak-block-sans-prefix
-@kindex  control e control j 
 @kbd{ control e control j }
 
 Speaks current block after stripping its prefix.
@@ -1652,7 +1495,6 @@ and when you have heard enough navigate easily  to move past the block.
 
 
 @deffn emacspeak-hide-or-expose-all-blocks
-@findex emacspeak-hide-or-expose-all-blocks
  No global keybinding
 
 Hide or expose all blocks in buffer.
@@ -1661,8 +1503,6 @@ Hide or expose all blocks in buffer.
 
 
 @deffn emacspeak-hide-or-expose-block
-@findex emacspeak-hide-or-expose-block
-@kindex  control e j 
 @kbd{ control e j }
 
 Hide or expose a block of text.
@@ -1690,7 +1530,6 @@ for commands defined in module  emacspeak-ibuffer.
 
 
 @deffn emacspeak-ibuffer-speak-buffer-line
-@findex emacspeak-ibuffer-speak-buffer-line
  No global keybinding
 
 Speak information about this buffer
@@ -1710,7 +1549,6 @@ for commands defined in module  emacspeak-imenu.
 
 
 @deffn emacspeak-imenu-speak-this-section
-@findex emacspeak-imenu-speak-this-section
  No global keybinding
 
 Speak upto start of next index entry
@@ -1719,7 +1557,6 @@ Speak upto start of next index entry
 
 
 @deffn emacspeak-imenu-goto-previous-index-position
-@findex emacspeak-imenu-goto-previous-index-position
  No global keybinding
 
 Goto the previous index position in current buffer
@@ -1728,7 +1565,6 @@ Goto the previous index position in current buffer
 
 
 @deffn emacspeak-imenu-goto-next-index-position
-@findex emacspeak-imenu-goto-next-index-position
  No global keybinding
 
 Goto the next index position in current buffer
@@ -1748,7 +1584,6 @@ for commands defined in module  emacspeak-keymap.
 
 
 @deffn emacspeak-keymap-choose-new-emacspeak-prefix
-@findex emacspeak-keymap-choose-new-emacspeak-prefix
  No global keybinding
 
 Interactively select a new prefix key to use for all emacspeak
@@ -1779,7 +1614,6 @@ for commands defined in module  emacspeak-kotl.
 
 
 @deffn emacspeak-kotl-speak-cell
-@findex emacspeak-kotl-speak-cell
  No global keybinding
 
 Speak cell contents from point to end of cell.
@@ -1789,7 +1623,6 @@ Speak cell contents from point to end of cell.
 
 
 @deffn emacspeak-kotl-setup-keys
-@findex emacspeak-kotl-setup-keys
  No global keybinding
 
 Setup additional keybindings
@@ -1812,7 +1645,6 @@ for commands defined in module  emacspeak-mpg123.
 
 
 @deffn emacspeak-mp3-playlist-play
-@findex emacspeak-mp3-playlist-play
  No global keybinding
 
 Play a playlist. 
@@ -1824,8 +1656,6 @@ to skip to the next track.
 
 
 @deffn emacspeak-mp3-playlist-skip
-@findex emacspeak-mp3-playlist-skip
-@kindex  control x @@ h n 
 @kbd{ control x @@ h n }
 
 Skip currently playing track. 
@@ -1834,7 +1664,6 @@ Skip currently playing track.
 
 
 @deffn emacspeak-mpg123-speak-length
-@findex emacspeak-mpg123-speak-length
  No global keybinding
 
 Speak duration of the current song.
@@ -1843,7 +1672,6 @@ Speak duration of the current song.
 
 
 @deffn emacspeak-mp3-playlist-stop
-@findex emacspeak-mp3-playlist-stop
  No global keybinding
 
 Kill currently playing playlist. 
@@ -1852,7 +1680,6 @@ Kill currently playing playlist.
 
 
 @deffn emacspeak-mpg123-speak-title
-@findex emacspeak-mpg123-speak-title
  No global keybinding
 
 Speak title of the current song.
@@ -1861,7 +1688,6 @@ Speak title of the current song.
 
 
 @deffn emacspeak-mpg123-speak-filename
-@findex emacspeak-mpg123-speak-filename
  No global keybinding
 
 Speak filename of the current song.
@@ -1870,7 +1696,6 @@ Speak filename of the current song.
 
 
 @deffn emacspeak-mpg123-speak-current-time
-@findex emacspeak-mpg123-speak-current-time
  No global keybinding
 
 Speak time in current track.
@@ -1879,7 +1704,6 @@ Speak time in current track.
 
 
 @deffn emacspeak-mpg123-forward-minute
-@findex emacspeak-mpg123-forward-minute
  No global keybinding
 
 Forw by ARG minutes.
@@ -1888,7 +1712,6 @@ Forw by ARG minutes.
 
 
 @deffn emacspeak-mpg123-backward-minute
-@findex emacspeak-mpg123-backward-minute
  No global keybinding
 
 Move back by specified number of minutes.
@@ -1922,7 +1745,6 @@ for commands defined in module  emacspeak-ocr.
 
 
 @deffn emacspeak-ocr-forward-page
-@findex emacspeak-ocr-forward-page
  No global keybinding
 
 Like forward page, but tracks page number of current document.
@@ -1931,7 +1753,6 @@ Like forward page, but tracks page number of current document.
 
 
 @deffn emacspeak-ocr-backward-page
-@findex emacspeak-ocr-backward-page
  No global keybinding
 
 Like backward page, but tracks page number of current document.
@@ -1940,7 +1761,6 @@ Like backward page, but tracks page number of current document.
 
 
 @deffn emacspeak-ocr-scan-image
-@findex emacspeak-ocr-scan-image
  No global keybinding
 
 Acquire page image.
@@ -1949,7 +1769,6 @@ Acquire page image.
 
 
 @deffn emacspeak-ocr-customize
-@findex emacspeak-ocr-customize
  No global keybinding
 
 Customize OCR settings.
@@ -1958,7 +1777,6 @@ Customize OCR settings.
 
 
 @deffn emacspeak-ocr-open-working-directory
-@findex emacspeak-ocr-open-working-directory
  No global keybinding
 
 Launch dired on OCR workng directory.
@@ -1967,7 +1785,6 @@ Launch dired on OCR workng directory.
 
 
 @deffn emacspeak-ocr-read-current-page
-@findex emacspeak-ocr-read-current-page
  No global keybinding
 
 Speaks current page.
@@ -1976,7 +1793,6 @@ Speaks current page.
 
 
 @deffn emacspeak-ocr-toggle-read-only
-@findex emacspeak-ocr-toggle-read-only
  No global keybinding
 
 Toggle read-only state of OCR buffer.
@@ -1985,7 +1801,6 @@ Toggle read-only state of OCR buffer.
 
 
 @deffn emacspeak-ocr-mode
-@findex emacspeak-ocr-mode
  No global keybinding
 
  An OCR front-end for the Emacspeak desktop.
@@ -2076,7 +1891,6 @@ c               emacspeak-ocr-customize
 
 
 @deffn emacspeak-ocr-save-current-page
-@findex emacspeak-ocr-save-current-page
  No global keybinding
 
 Writes out recognized text from current page
@@ -2086,8 +1900,6 @@ to an appropriately named file.
 
 
 @deffn emacspeak-ocr
-@findex emacspeak-ocr
-@kindex  control e control o 
 @kbd{ control e control o }
 
 An OCR front-end for the Emacspeak desktop.  
@@ -2105,7 +1917,6 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 
 
 @deffn emacspeak-ocr-recognize-image
-@findex emacspeak-ocr-recognize-image
  No global keybinding
 
 Run OCR engine on current image.
@@ -2116,7 +1927,6 @@ Prompts for image file if file corresponding to the expected
 
 
 @deffn emacspeak-ocr-set-scan-image-options
-@findex emacspeak-ocr-set-scan-image-options
  No global keybinding
 
 Interactively update scan image options.
@@ -2127,7 +1937,6 @@ Setting persists for current Emacs session.
 
 
 @deffn emacspeak-ocr-write-document
-@findex emacspeak-ocr-write-document
  No global keybinding
 
 Writes out recognized text from all pages in current document.
@@ -2136,7 +1945,6 @@ Writes out recognized text from all pages in current document.
 
 
 @deffn emacspeak-ocr-set-compress-image-options
-@findex emacspeak-ocr-set-compress-image-options
  No global keybinding
 
 Interactively update  image compression options.
@@ -2147,7 +1955,6 @@ Setting persists for current Emacs session.
 
 
 @deffn emacspeak-ocr-scan-and-recognize
-@findex emacspeak-ocr-scan-and-recognize
  No global keybinding
 
 Scan in a page and run OCR engine on it.
@@ -2159,7 +1966,6 @@ corectly by themselves.
 
 
 @deffn emacspeak-ocr-name-document
-@findex emacspeak-ocr-name-document
  No global keybinding
 
 Name document being scanned in the current OCR buffer.
@@ -2169,7 +1975,6 @@ Pick a short but meaningful name.
 
 
 @deffn emacspeak-ocr-page
-@findex emacspeak-ocr-page
  No global keybinding
 
 Move to specified page.
@@ -2191,8 +1996,6 @@ for commands defined in module  emacspeak-outline.
 
 
 @deffn emacspeak-outline-speak-previous-heading
-@findex emacspeak-outline-speak-previous-heading
-@kindex  control l p 
 @kbd{ control l p }
 
 Analogous to outline-previous-visible-heading,
@@ -2202,8 +2005,6 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-this-heading
-@findex emacspeak-outline-speak-this-heading
-@kindex  control l SPACE 
 @kbd{ control l SPACE }
 
 Speak current outline section starting from point
@@ -2212,8 +2013,6 @@ Speak current outline section starting from point
 
 
 @deffn emacspeak-outline-speak-backward-heading
-@findex emacspeak-outline-speak-backward-heading
-@kindex  control l b 
 @kbd{ control l b }
 
 Analogous to outline-backward-same-level
@@ -2223,8 +2022,6 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-next-heading
-@findex emacspeak-outline-speak-next-heading
-@kindex  control l n 
 @kbd{ control l n }
 
 Analogous to outline-next-visible-heading,
@@ -2234,8 +2031,6 @@ except that the outline section is optionally spoken
 
 
 @deffn emacspeak-outline-speak-forward-heading
-@findex emacspeak-outline-speak-forward-heading
-@kindex  control l f 
 @kbd{ control l f }
 
 Analogous to outline-forward-same-level,
@@ -2273,7 +2068,6 @@ for commands defined in module  emacspeak-pronounce.
 
 
 @deffn emacspeak-pronounce-toggle-use-of-dictionaries
-@findex emacspeak-pronounce-toggle-use-of-dictionaries
  No global keybinding
 
 Toggle use of pronunciation dictionaries in current buffer.
@@ -2292,7 +2086,6 @@ explicitly turn pronunciations on or off.
 
 
 @deffn emacspeak-pronounce-clear-dictionaries
-@findex emacspeak-pronounce-clear-dictionaries
  No global keybinding
 
 Clear all current pronunciation dictionaries.
@@ -2301,7 +2094,6 @@ Clear all current pronunciation dictionaries.
 
 
 @deffn emacspeak-pronounce-define-pronunciation
-@findex emacspeak-pronounce-define-pronunciation
  No global keybinding
 
 Interactively define entries in the pronunciation dictionaries.
@@ -2312,8 +2104,6 @@ First loads any persistent dictionaries if not already loaded.
 
 
 @deffn emacspeak-pronounce-dispatch
-@findex emacspeak-pronounce-dispatch
-@kindex  control e meta d 
 @kbd{ control e meta d }
 
 Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
@@ -2322,7 +2112,6 @@ Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
 
 
 @deffn emacspeak-pronounce-load-dictionaries
-@findex emacspeak-pronounce-load-dictionaries
  No global keybinding
 
 Load pronunciation dictionaries.
@@ -2332,7 +2121,6 @@ Optional argument FILENAME specifies the dictionary file.
 
 
 @deffn emacspeak-pronounce-yank-word
-@findex emacspeak-pronounce-yank-word
  No global keybinding
 
 Yank word at point into minibuffer.
@@ -2341,7 +2129,6 @@ Yank word at point into minibuffer.
 
 
 @deffn emacspeak-pronounce-save-dictionaries
-@findex emacspeak-pronounce-save-dictionaries
  No global keybinding
 
 Writes out the persistent emacspeak pronunciation dictionaries.
@@ -2350,7 +2137,6 @@ Writes out the persistent emacspeak pronunciation dictionaries.
 
 
 @deffn emacspeak-pronounce-refresh-pronunciations
-@findex emacspeak-pronounce-refresh-pronunciations
  No global keybinding
 
 Refresh pronunciation table for current buffer.
@@ -2360,8 +2146,6 @@ Activates pronunciation dictionaries if not already active.
 
 
 @deffn emacspeak-pronounce-define-local-pronunciation
-@findex emacspeak-pronounce-define-local-pronunciation
-@kindex  control e meta b 
 @kbd{ control e meta b }
 
 Define buffer local pronounciation.
@@ -2382,7 +2166,6 @@ for commands defined in module  emacspeak-psgml.
 
 
 @deffn emacspeak-xml-browse-mode
-@findex emacspeak-xml-browse-mode
  No global keybinding
 
 Mode for browsing XML documents.
@@ -2396,7 +2179,6 @@ Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
 
 
 @deffn emacspeak-psgml-toggle-interactive-voice-locking
-@findex emacspeak-psgml-toggle-interactive-voice-locking
  No global keybinding
 
 Toggles variable sgml-set-face.
@@ -2407,7 +2189,6 @@ Leave this off in general while editting.
 
 
 @deffn emacspeak-psgml-summarize-element
-@findex emacspeak-psgml-summarize-element
  No global keybinding
 
 Context-sensitive element summarizer.
@@ -2416,7 +2197,6 @@ Context-sensitive element summarizer.
 
 
 @deffn emacspeak-psgml-speak-current-element
-@findex emacspeak-psgml-speak-current-element
  No global keybinding
 
 Speak contents of current element. 
@@ -2444,7 +2224,6 @@ for commands defined in module  emacspeak-realaudio.
 
 
 @deffn emacspeak-realaudio-play-url-at-point
-@findex emacspeak-realaudio-play-url-at-point
  No global keybinding
 
 Play url under point as realaudio
@@ -2453,7 +2232,6 @@ Play url under point as realaudio
 
 
 @deffn emacspeak-realaudio-play
-@findex emacspeak-realaudio-play
  No global keybinding
 
 Play a realaudio stream.  Uses files from your Realaudio
@@ -2465,7 +2243,6 @@ emacspeak-realaudio-shortcuts-directory.
 
 
 @deffn emacspeak-realaudio-select-realaudio-buffer
-@findex emacspeak-realaudio-select-realaudio-buffer
  No global keybinding
 
 Switch to realaudio buffer.
@@ -2474,8 +2251,6 @@ Switch to realaudio buffer.
 
 
 @deffn emacspeak-realaudio-browse
-@findex emacspeak-realaudio-browse
-@kindex  control e : 
 @kbd{ control e : }
 
 Browse RAM file before playing the selected component.
@@ -2484,7 +2259,6 @@ Browse RAM file before playing the selected component.
 
 
 @deffn emacspeak-realaudio-mode
-@findex emacspeak-realaudio-mode
  No global keybinding
 
 Major mode for streaming audio. 
@@ -2518,7 +2292,6 @@ p               emacspeak-realaudio-trplayer-call-command
 
 
 @deffn emacspeak-realaudio-stop
-@findex emacspeak-realaudio-stop
  No global keybinding
 
 Stop playing realaudio
@@ -2527,7 +2300,6 @@ Stop playing realaudio
 
 
 @deffn emacspeak-realaudio-trplayer-call-command
-@findex emacspeak-realaudio-trplayer-call-command
  No global keybinding
 
 Call appropriate TRPlayer command.
@@ -2536,8 +2308,6 @@ Call appropriate TRPlayer command.
 
 
 @deffn emacspeak-realaudio
-@findex emacspeak-realaudio
-@kindex  control e ; 
 @kbd{ control e ; }
 
 Start or control streaming audio including MP3 and
@@ -2567,7 +2337,6 @@ various navigation commands via single keystrokes.
 
 
 @deffn emacspeak-realaudio-trplayer-command
-@findex emacspeak-realaudio-trplayer-command
  No global keybinding
 
 Execute TRPlayer command.
@@ -2592,8 +2361,6 @@ for commands defined in module  emacspeak-redefine.
 
 
 @deffn emacspeak-backward-char
-@findex emacspeak-backward-char
-@kindex  control b   left 
 @kbd{ control b   left }
 
 Backward-char redefined to speak char moved to. 
@@ -2602,8 +2369,6 @@ Backward-char redefined to speak char moved to.
 
 
 @deffn emacspeak-self-insert-command
-@findex emacspeak-self-insert-command
-@kindex  Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ 
 @kbd{ Character set Tibetan 2 column   Character set Indian 2 Column   Character set CNS11643-7 (Chinese traditional)   Character set CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese traditional)   Character set CNS11643-4 (Chinese traditional)   Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic characters   Character set Tibetan 1 column   Character set Indian 1 Column   Character set Indian IS 13194   Character set Arabic 2-column   Character set Lao   Character set ASCII with right-to-left direction   Character set Arabic 1-column   Character set Arabic digit   Character set VISCII upper-case   Character set VISCII lower-case   Character set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5 (Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2 (Chinese traditional)   Character set CNS11643-1 (Chinese traditional)   Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)   Character set JISX0208.1983/1990 (Japanese)   Character set GB2312   Character set JISX0208.1978 (Japanese)   Character set ISO8859-9 (Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6 (Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620 (Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3 (Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1 (Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a   _   \    cap Z     cap Y     cap X     cap W     cap V     cap U     cap T     cap S     cap R     cap Q     cap P     cap O     cap N     cap M     cap L     cap K     cap J     cap I     cap H     cap G     cap F     cap E     cap D     cap C     cap B     cap A    @@   >   <   9   8   7   6   5   4   3   2   1   0   /   -   +   *   $ }
 
 Insert a character.
@@ -2617,8 +2382,6 @@ speech flush as you type.
 
 
 @deffn emacspeak-forward-char
-@findex emacspeak-forward-char
-@kindex  control f   right 
 @kbd{ control f   right }
 
 Forward-char redefined to speak char moved to. 
@@ -2638,8 +2401,6 @@ for commands defined in module  emacspeak-remote.
 
 
 @deffn emacspeak-remote-connect-to-server
-@findex emacspeak-remote-connect-to-server
-@kindex  kp-3   control e meta r 
 @kbd{ kp-3   control e meta r }
 
 Connect to and start using remote speech server running on host host
@@ -2651,7 +2412,6 @@ host is listening on for speech requests.
 
 
 @deffn emacspeak-remote-quick-connect-to-server
-@findex emacspeak-remote-quick-connect-to-server
  No global keybinding
 
 Connect to remote server.
@@ -2674,7 +2434,6 @@ for commands defined in module  emacspeak-rmail.
 
 
 @deffn emacspeak-rmail-summarize-current-message
-@findex emacspeak-rmail-summarize-current-message
  No global keybinding
 
 Summarize current message
@@ -2683,7 +2442,6 @@ Summarize current message
 
 
 @deffn emacspeak-rmail-speak-current-message-labels
-@findex emacspeak-rmail-speak-current-message-labels
  No global keybinding
 
 Speak labels of current message
@@ -2703,7 +2461,6 @@ for commands defined in module  emacspeak-solitaire.
 
 
 @deffn emacspeak-solitaire-show-column
-@findex emacspeak-solitaire-show-column
  No global keybinding
 
 Display current row auditorallly
@@ -2712,7 +2469,6 @@ Display current row auditorallly
 
 
 @deffn emacspeak-solitaire-speak-coordinates
-@findex emacspeak-solitaire-speak-coordinates
  No global keybinding
 
 Speak coordinates of current position
@@ -2721,7 +2477,6 @@ Speak coordinates of current position
 
 
 @deffn emacspeak-solitaire-show-row
-@findex emacspeak-solitaire-show-row
  No global keybinding
 
 Display current row auditorallly
@@ -2761,8 +2516,6 @@ for commands defined in module  emacspeak-sounds.
 
 
 @deffn emacspeak-toggle-auditory-icons
-@findex emacspeak-toggle-auditory-icons
-@kindex  control e control a 
 @kbd{ control e control a }
 
 Toggle use of auditory icons.
@@ -2772,7 +2525,6 @@ Optional interactive PREFIX arg toggles global value.
 
 
 @deffn emacspeak-play-all-icons
-@findex emacspeak-play-all-icons
  No global keybinding
 
 Plays all defined icons and speaks their names.
@@ -2781,8 +2533,6 @@ Plays all defined icons and speaks their names.
 
 
 @deffn emacspeak-set-auditory-icon-player
-@findex emacspeak-set-auditory-icon-player
-@kindex  control e meta a 
 @kbd{ control e meta a }
 
 Select  player used for producing auditory icons.
@@ -2795,8 +2545,6 @@ emacspeak-midi-icon for midi device.
 
 
 @deffn emacspeak-sounds-select-theme
-@findex emacspeak-sounds-select-theme
-@kindex  control e ) 
 @kbd{ control e ) }
 
 Select theme for auditory icons.
@@ -2805,7 +2553,6 @@ Select theme for auditory icons.
 
 
 @deffn emacspeak-sounds-reset-local-player
-@findex emacspeak-sounds-reset-local-player
  No global keybinding
 
 Ask Emacspeak to use a local audio player.
@@ -2834,8 +2581,6 @@ for commands defined in module  emacspeak-speak.
 
 
 @deffn emacspeak-kill-buffer-quietly
-@findex emacspeak-kill-buffer-quietly
-@kindex  kp-f4   f4 
 @kbd{ kp-f4   f4 }
 
 Kill current buffer without asking for confirmation.
@@ -2844,8 +2589,6 @@ Kill current buffer without asking for confirmation.
 
 
 @deffn emacspeak-speak-line-set-column-filter
-@findex emacspeak-speak-line-set-column-filter
-@kindex  control e | 
 @kbd{ control e | }
 
 Set up filter for selectively ignoring portions of lines.
@@ -2863,8 +2606,6 @@ files like /var/adm/messages and /var/adm/maillog over time.
 
 
 @deffn emacspeak-speak-current-percentage
-@findex emacspeak-speak-current-percentage
-@kindex  control e % 
 @kbd{ control e % }
 
 Announce the percentage into the current buffer.
@@ -2873,7 +2614,6 @@ Announce the percentage into the current buffer.
 
 
 @deffn emacspeak-execute-repeatedly
-@findex emacspeak-execute-repeatedly
  No global keybinding
 
 Execute COMMAND repeatedly.
@@ -2887,8 +2627,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-speak-char
-@findex emacspeak-speak-char
-@kindex  control e c 
 @kbd{ control e c }
 
 Speak character under point.
@@ -2898,8 +2636,6 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 
 @deffn emacspeak-speak-rest-of-buffer
-@findex emacspeak-speak-rest-of-buffer
-@kindex  control e n 
 @kbd{ control e n }
 
 Speak remainder of the buffer starting at point
@@ -2908,8 +2644,6 @@ Speak remainder of the buffer starting at point
 
 
 @deffn emacspeak-toggle-comint-output-monitor
-@findex emacspeak-toggle-comint-output-monitor
-@kindex  control e o 
 @kbd{ control e o }
 
 Toggle state of Emacspeak comint monitor.
@@ -2922,7 +2656,6 @@ set the current local value to the result.
 
 
 @deffn emacspeak-speak-help-interactively
-@findex emacspeak-speak-help-interactively
  No global keybinding
 
 Speak the start of, rest of, or the entire help.
@@ -2934,8 +2667,6 @@ any other key to speak entire help.
 
 
 @deffn emacspeak-speak-region
-@findex emacspeak-speak-region
-@kindex  control e r 
 @kbd{ control e r }
 
 Speak region.
@@ -2945,7 +2676,6 @@ Argument START  and END specify region to speak.
 
 
 @deffn emacspeak-speak-completions
-@findex emacspeak-speak-completions
  No global keybinding
 
 Speak completions  buffer if one present.
@@ -2954,7 +2684,6 @@ Speak completions  buffer if one present.
 
 
 @deffn emacspeak-speak-set-display-table
-@findex emacspeak-speak-set-display-table
  No global keybinding
 
 Sets up buffer specific speech display table that controls how
@@ -2965,8 +2694,6 @@ setting to be global.
 
 
 @deffn emacspeak-owindow-speak-line
-@findex emacspeak-owindow-speak-line
-@kindex  ESCAPE select 
 @kbd{ ESCAPE select }
 
 Speak the current line in the other window.
@@ -2975,7 +2702,6 @@ Speak the current line in the other window.
 
 
 @deffn emacspeak-voicify-rectangle
-@findex emacspeak-voicify-rectangle
  No global keybinding
 
 Voicify the current rectangle.
@@ -2987,8 +2713,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 
 @deffn emacspeak-mark-forward-mark
-@findex emacspeak-mark-forward-mark
-@kindex  control down 
 @kbd{ control down }
 
 Cycle forward through the mark ring.
@@ -2997,8 +2721,6 @@ Cycle forward through the mark ring.
 
 
 @deffn emacspeak-speak-spell-current-word
-@findex emacspeak-speak-spell-current-word
-@kindex  control e  cap W  
 @kbd{ control e  cap W  }
 
 Spell word at  point.
@@ -3007,8 +2729,6 @@ Spell word at  point.
 
 
 @deffn emacspeak-speak-page-interactively
-@findex emacspeak-speak-page-interactively
-@kindex  control e ] 
 @kbd{ control e ] }
 
 Speak the start of, rest of, or the entire page.
@@ -3020,8 +2740,6 @@ any other key to speak entire page.
 
 
 @deffn emacspeak-speak-paragraph
-@findex emacspeak-speak-paragraph
-@kindex  control e @{ 
 @kbd{ control e @{ }
 
 Speak paragraph.
@@ -3033,8 +2751,6 @@ If voice-lock-mode is on, then it will use any defined personality.
 
 
 @deffn emacspeak-speak-page
-@findex emacspeak-speak-page
-@kindex  control e [ 
 @kbd{ control e [ }
 
 Speak a page.
@@ -3046,8 +2762,6 @@ If option  `voice-lock-mode' is on, then it will use any defined personality.
 
 
 @deffn emacspeak-speak-browse-buffer
-@findex emacspeak-speak-browse-buffer
-@kindex  control e , 
 @kbd{ control e , }
 
 Browse the current buffer by reading it a paragraph at a
@@ -3060,8 +2774,6 @@ paragraph-separate.
 
 
 @deffn emacspeak-speak-message-again
-@findex emacspeak-speak-message-again
-@kindex  control e a 
 @kbd{ control e a }
 
 Speak the last message from Emacs once again.
@@ -3070,8 +2782,6 @@ Speak the last message from Emacs once again.
 
 
 @deffn emacspeak-speak-line
-@findex emacspeak-speak-line
-@kindex  control e l 
 @kbd{ control e l }
 
 Speaks current line.  With prefix ARG, speaks the rest of
@@ -3090,8 +2800,6 @@ indicated with auditory icon ellipses.
 
 
 @deffn emacspeak-speak-word
-@findex emacspeak-speak-word
-@kindex  control e w 
 @kbd{ control e w }
 
 Speak current word.
@@ -3104,8 +2812,6 @@ spelt instead of being spoken.
 
 
 @deffn emacspeak-toggle-speak-messages
-@findex emacspeak-toggle-speak-messages
-@kindex  control e q 
 @kbd{ control e q }
 
 Toggle the state of whether emacspeak echoes messages.
@@ -3114,8 +2820,6 @@ Toggle the state of whether emacspeak echoes messages.
 
 
 @deffn emacspeak-owindow-scroll-up
-@findex emacspeak-owindow-scroll-up
-@kindex  ESCAPE next 
 @kbd{ ESCAPE next }
 
 Scroll up the window that command `other-window' would move to.
@@ -3125,7 +2829,6 @@ Speak the window contents after scrolling.
 
 
 @deffn emacspeak-use-customized-blink-paren
-@findex emacspeak-use-customized-blink-paren
  No global keybinding
 
 A customized blink-paren to speak  matching opening paren.
@@ -3137,8 +2840,6 @@ which does not talk.
 
 
 @deffn emacspeak-view-register
-@findex emacspeak-view-register
-@kindex  control e v 
 @kbd{ control e v }
 
 Display the contents of a register, and then speak it.
@@ -3147,7 +2848,6 @@ Display the contents of a register, and then speak it.
 
 
 @deffn emacspeak-speak-minibuffer
-@findex emacspeak-speak-minibuffer
  No global keybinding
 
 Speak the minibuffer contents
@@ -3158,8 +2858,6 @@ Negative prefix arg speaks from start of buffer to point.
 
 
 @deffn emacspeak-speak-sexp-interactively
-@findex emacspeak-speak-sexp-interactively
-@kindex  control e " 
 @kbd{ control e " }
 
 Speak the start of, rest of, or the entire sexp.
@@ -3171,8 +2869,6 @@ any other key to speak entire sexp.
 
 
 @deffn emacspeak-speak-minor-mode-line
-@findex emacspeak-speak-minor-mode-line
-@kindex  control e  cap M  
 @kbd{ control e  cap M  }
 
 Speak the minor mode-information.
@@ -3181,7 +2877,6 @@ Speak the minor mode-information.
 
 
 @deffn emacspeak-speak-skim-paragraph
-@findex emacspeak-speak-skim-paragraph
  No global keybinding
 
 Skim paragraph.
@@ -3193,8 +2888,6 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 
 @deffn emacspeak-speak-buffer-filename
-@findex emacspeak-speak-buffer-filename
-@kindex  control e f 
 @kbd{ control e f }
 
 Speak name of file being visited in current buffer.
@@ -3205,7 +2898,6 @@ or when the buffer is not visiting any file.
 
 
 @deffn emacspeak-audio-annotate-paragraphs
-@findex emacspeak-audio-annotate-paragraphs
  No global keybinding
 
 Set property auditory-icon at front of all paragraphs.
@@ -3215,8 +2907,6 @@ Interactive PREFIX arg prompts for sound cue to use
 
 
 @deffn emacspeak-speak-current-kill
-@findex emacspeak-speak-current-kill
-@kindex  control e k 
 @kbd{ control e k }
 
 Speak the current kill entry.
@@ -3232,8 +2922,6 @@ to command yank.
 
 
 @deffn emacspeak-toggle-which-function
-@findex emacspeak-toggle-which-function
-@kindex  control e meta w 
 @kbd{ control e meta w }
 
 Toggle state of  Emacspeak  which function mode.
@@ -3244,8 +2932,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-speak-buffer-interactively
-@findex emacspeak-speak-buffer-interactively
-@kindex  control e  cap B  
 @kbd{ control e  cap B  }
 
 Speak the start of, rest of, or the entire buffer.
@@ -3257,8 +2943,6 @@ any other key to speak entire buffer.
 
 
 @deffn emacspeak-speak-spaces-at-point
-@findex emacspeak-speak-spaces-at-point
-@kindex  control e meta control @@ 
 @kbd{ control e meta control @@ }
 
 Speak the white space at point.
@@ -3267,8 +2951,6 @@ Speak the white space at point.
 
 
 @deffn emacspeak-speak-mode-line
-@findex emacspeak-speak-mode-line
-@kindex  control e m 
 @kbd{ control e m }
 
 Speak the mode-line.
@@ -3277,8 +2959,6 @@ Speak the mode-line.
 
 
 @deffn emacspeak-speak-paragraph-interactively
-@findex emacspeak-speak-paragraph-interactively
-@kindex  control e  cap P  
 @kbd{ control e  cap P  }
 
 Speak the start of, rest of, or the entire paragraph.
@@ -3290,8 +2970,6 @@ any other key to speak entire paragraph.
 
 
 @deffn emacspeak-speak-next-window
-@findex emacspeak-speak-next-window
-@kindex  control e control n 
 @kbd{ control e control n }
 
 Speak the next window.
@@ -3300,8 +2978,6 @@ Speak the next window.
 
 
 @deffn emacspeak-speak-previous-window
-@findex emacspeak-speak-previous-window
-@kindex  control e control p 
 @kbd{ control e control p }
 
 Speak the previous window.
@@ -3310,8 +2986,6 @@ Speak the previous window.
 
 
 @deffn emacspeak-switch-to-previous-buffer
-@findex emacspeak-switch-to-previous-buffer
-@kindex  l10 
 @kbd{ l10 }
 
 Switch to most recently used interesting buffer.
@@ -3320,7 +2994,6 @@ Switch to most recently used interesting buffer.
 
 
 @deffn emacspeak-speak-skim-buffer
-@findex emacspeak-speak-skim-buffer
  No global keybinding
 
 Skim the current buffer  a paragraph at a time.
@@ -3329,7 +3002,6 @@ Skim the current buffer  a paragraph at a time.
 
 
 @deffn emacspeak-blink-matching-open
-@findex emacspeak-blink-matching-open
  No global keybinding
 
 Display matching delimiter in the minibuffer.
@@ -3338,8 +3010,6 @@ Display matching delimiter in the minibuffer.
 
 
 @deffn emacspeak-toggle-mail-alert
-@findex emacspeak-toggle-mail-alert
-@kindex  control e meta m 
 @kbd{ control e meta m }
 
 Toggle state of  Emacspeak  mail alert.
@@ -3352,7 +3022,6 @@ indicating the arrival  of new mail when displaying the mode line.
 
 
 @deffn emacspeak-speak-display-char
-@findex emacspeak-speak-display-char
  No global keybinding
 
 Display char under point using current speech display table.
@@ -3365,7 +3034,6 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
 
 
 @deffn emacspeak-speak-voice-annotate-paragraphs
-@findex emacspeak-speak-voice-annotate-paragraphs
  No global keybinding
 
 Locate paragraphs and voice annotate the first word.
@@ -3376,8 +3044,6 @@ Useful to do this before you listen to an entire buffer.
 
 
 @deffn emacspeak-toggle-comint-autospeak
-@findex emacspeak-toggle-comint-autospeak
-@kindex  control e control q 
 @kbd{ control e control q }
 
 Toggle state of Emacspeak comint autospeak.
@@ -3390,8 +3056,6 @@ set the current local value to the result.
 
 
 @deffn emacspeak-mark-backward-mark
-@findex emacspeak-mark-backward-mark
-@kindex  control up 
 @kbd{ control up }
 
 Cycle backward through the mark ring.
@@ -3400,8 +3064,6 @@ Cycle backward through the mark ring.
 
 
 @deffn emacspeak-zap-tts
-@findex emacspeak-zap-tts
-@kindex  control e d z 
 @kbd{ control e d z }
 
 Send this command to the TTS directly.
@@ -3410,8 +3072,6 @@ Send this command to the TTS directly.
 
 
 @deffn emacspeak-speak-continuously
-@findex emacspeak-speak-continuously
-@kindex  control e RETURN 
 @kbd{ control e RETURN }
 
 Speak a buffer continuously.
@@ -3426,8 +3086,6 @@ Pressing  C-g breaks out, leaving point on last chunk that was spoken.
 
 
 @deffn emacspeak-speak-sexp
-@findex emacspeak-speak-sexp
-@kindex  control e ' 
 @kbd{ control e ' }
 
 Speak current sexp.
@@ -3439,7 +3097,6 @@ If option  `voice-lock-mode' is on, then uses the personality.
 
 
 @deffn emacspeak-voicify-region
-@findex emacspeak-voicify-region
  No global keybinding
 
 Voicify the current region.
@@ -3451,8 +3108,6 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 
 @deffn emacspeak-dial-dtk
-@findex emacspeak-dial-dtk
-@kindex  control e d t 
 @kbd{ control e d t }
 
 Prompt for and dial a phone NUMBER with the Dectalk.
@@ -3466,8 +3121,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-speak-current-column
-@findex emacspeak-speak-current-column
-@kindex  control e = 
 @kbd{ control e = }
 
 Speak the current column.
@@ -3476,8 +3129,6 @@ Speak the current column.
 
 
 @deffn emacspeak-speak-predefined-window
-@findex emacspeak-speak-predefined-window
-@kindex  control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
 @kbd{ control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 }
 
 Speak one of the first 10 windows on the screen.
@@ -3492,8 +3143,6 @@ Semantics  of `other' is the same as for the builtin Emacs command
 
 
 @deffn emacspeak-toggle-line-echo
-@findex emacspeak-toggle-line-echo
-@kindex  control e d l 
 @kbd{ control e d l }
 
 Toggle state of  Emacspeak  line echo.
@@ -3504,7 +3153,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-speak-front-of-buffer
-@findex emacspeak-speak-front-of-buffer
  No global keybinding
 
 Speak   the buffer from start to   point
@@ -3513,7 +3161,6 @@ Speak   the buffer from start to   point
 
 
 @deffn emacspeak-toggle-action-mode
-@findex emacspeak-toggle-action-mode
  No global keybinding
 
 Toggle state of  Emacspeak  action mode.
@@ -3524,7 +3171,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-speak-sentence
-@findex emacspeak-speak-sentence
  No global keybinding
 
 Speak current sentence.
@@ -3535,8 +3181,6 @@ Negative prefix arg speaks from start of sentence to point.
 
 
 @deffn emacspeak-speak-previous-field
-@findex emacspeak-speak-previous-field
-@kindex  control e < 
 @kbd{ control e < }
 
 Skip backwards across and speak  contiguous sequence of non-blank characters.
@@ -3547,8 +3191,6 @@ Will be improved if it proves useful.
 
 
 @deffn emacspeak-toggle-word-echo
-@findex emacspeak-toggle-word-echo
-@kindex  control e d w 
 @kbd{ control e d w }
 
 Toggle state of  Emacspeak  word echo.
@@ -3559,8 +3201,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-toggle-show-point
-@findex emacspeak-toggle-show-point
-@kindex  control e control d 
 @kbd{ control e control d }
 
 Toggle state of  Emacspeak-show-point.
@@ -3571,8 +3211,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-speak-help
-@findex emacspeak-speak-help
-@kindex  control e h 
 @kbd{ control e h }
 
 Speak help buffer if one present.
@@ -3583,8 +3221,6 @@ Negative prefix arg speaks from start of buffer to point.
 
 
 @deffn emacspeak-speak-current-mark
-@findex emacspeak-speak-current-mark
-@kindex  control e control @@ 
 @kbd{ control e control @@ }
 
 Speak the line containing the mark.
@@ -3600,7 +3236,6 @@ achieved by a change in voice personality.
 
 
 @deffn emacspeak-speak-skim-next-paragraph
-@findex emacspeak-speak-skim-next-paragraph
  No global keybinding
 
 Skim next paragraph.
@@ -3609,8 +3244,6 @@ Skim next paragraph.
 
 
 @deffn emacspeak-speak-line-interactively
-@findex emacspeak-speak-line-interactively
-@kindex  control e  cap L  
 @kbd{ control e  cap L  }
 
 Speak the start of, rest of, or the entire line.
@@ -3622,8 +3255,6 @@ any other key to speak entire line.
 
 
 @deffn emacspeak-owindow-previous-line
-@findex emacspeak-owindow-previous-line
-@kindex  ESCAPE up 
 @kbd{ ESCAPE up }
 
 Move to the next line in the other window and speak it.
@@ -3633,8 +3264,6 @@ Numeric prefix arg COUNT specifies number of lines to move.
 
 
 @deffn emacspeak-customize
-@findex emacspeak-customize
-@kindex  control e  cap C  
 @kbd{ control e  cap C  }
 
 Customize Emacspeak.
@@ -3643,7 +3272,6 @@ Customize Emacspeak.
 
 
 @deffn emacspeak-switch-to-completions-window
-@findex emacspeak-switch-to-completions-window
  No global keybinding
 
 Jump to the *Completions* buffer if it is active.
@@ -3655,8 +3283,6 @@ to reduce chatter.
 
 
 @deffn emacspeak-dtk-speak-version
-@findex emacspeak-dtk-speak-version
-@kindex  control e d  cap V  
 @kbd{ control e d  cap V  }
 
 Use this to find out which version of the Dectalk firmware you are running.
@@ -3665,8 +3291,6 @@ Use this to find out which version of the Dectalk firmware you are running.
 
 
 @deffn emacspeak-speak-next-field
-@findex emacspeak-speak-next-field
-@kindex  control e > 
 @kbd{ control e > }
 
 Skip across and speak the next contiguous sequence of non-blank characters.
@@ -3677,8 +3301,6 @@ Will be improved if it proves useful.
 
 
 @deffn emacspeak-speak-line-number
-@findex emacspeak-speak-line-number
-@kindex  control e control l 
 @kbd{ control e control l }
 
 Speak the line number of the current line.
@@ -3687,8 +3309,6 @@ Speak the line number of the current line.
 
 
 @deffn emacspeak-read-previous-line
-@findex emacspeak-read-previous-line
-@kindex  control e up 
 @kbd{ control e up }
 
 Read previous line, specified by an offset, without moving.
@@ -3698,7 +3318,6 @@ Default is to read the previous line.
 
 
 @deffn emacspeak-read-previous-word
-@findex emacspeak-read-previous-word
  No global keybinding
 
 Read previous word, specified as a prefix arg, without moving.
@@ -3708,8 +3327,6 @@ Default is to read the previous word.
 
 
 @deffn emacspeak-owindow-scroll-down
-@findex emacspeak-owindow-scroll-down
-@kindex  ESCAPE prior 
 @kbd{ ESCAPE prior }
 
 Scroll down  the window that command `other-window' would move to.
@@ -3719,8 +3336,6 @@ Speak the window contents after scrolling.
 
 
 @deffn emacspeak-speak-time
-@findex emacspeak-speak-time
-@kindex  control e t 
 @kbd{ control e t }
 
 Speak the time.
@@ -3729,7 +3344,6 @@ Speak the time.
 
 
 @deffn emacspeak-completions-move-to-completion-group
-@findex emacspeak-completions-move-to-completion-group
  No global keybinding
 
 Move to group of choices beginning with character last
@@ -3739,7 +3353,6 @@ typed. If no such group exists, then we dont move.
 
 
 @deffn emacspeak-speak-word-interactively
-@findex emacspeak-speak-word-interactively
  No global keybinding
 
 Speak the start of, rest of, or the entire word.
@@ -3751,8 +3364,6 @@ any other key to speak entire word.
 
 
 @deffn emacspeak-toggle-character-echo
-@findex emacspeak-toggle-character-echo
-@kindex  control e d k 
 @kbd{ control e d k }
 
 Toggle state of  Emacspeak  character echo.
@@ -3763,8 +3374,6 @@ current local  value to the result.
 
 
 @deffn emacspeak-speak-rectangle
-@findex emacspeak-speak-rectangle
-@kindex  control e  cap R  
 @kbd{ control e  cap R  }
 
 Speak a rectangle of text.
@@ -3776,8 +3385,6 @@ arguments specify the START and END of the rectangle.
 
 
 @deffn emacspeak-speak-buffer
-@findex emacspeak-speak-buffer
-@kindex  control e b 
 @kbd{ control e b }
 
 Speak current buffer  contents.
@@ -3790,7 +3397,6 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
 
 @deffn emacspeak-speak-current-window
-@findex emacspeak-speak-current-window
  No global keybinding
 
 Speak contents of current window.
@@ -3800,8 +3406,6 @@ Speaks entire window irrespective of point.
 
 
 @deffn emacspeak-speak-version
-@findex emacspeak-speak-version
-@kindex  control e  cap V  
 @kbd{ control e  cap V  }
 
 Announce version information for running emacspeak.
@@ -3810,8 +3414,6 @@ Announce version information for running emacspeak.
 
 
 @deffn emacspeak-speak-window-information
-@findex emacspeak-speak-window-information
-@kindex  control e control w 
 @kbd{ control e control w }
 
 Speaks information about current window.
@@ -3820,8 +3422,6 @@ Speaks information about current window.
 
 
 @deffn emacspeak-toggle-audio-indentation
-@findex emacspeak-toggle-audio-indentation
-@kindex  control e d i 
 @kbd{ control e d i }
 
 Toggle state of  Emacspeak  audio indentation.
@@ -3836,8 +3436,6 @@ results in the number of initial spaces being spoken.
 
 
 @deffn emacspeak-owindow-next-line
-@findex emacspeak-owindow-next-line
-@kindex  ESCAPE down 
 @kbd{ ESCAPE down }
 
 Move to the next line in the other window and speak it.
@@ -3847,7 +3445,6 @@ Numeric prefix arg COUNT can specify number of lines to move.
 
 
 @deffn emacspeak-speak-other-window
-@findex emacspeak-speak-other-window
  No global keybinding
 
 Speak contents of `other' window.
@@ -3865,8 +3462,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-read-next-line
-@findex emacspeak-read-next-line
-@kindex  control e down 
 @kbd{ control e down }
 
 Read next line, specified by an offset, without moving.
@@ -3876,7 +3471,6 @@ Default is to read the next line.
 
 
 @deffn emacspeak-read-next-word
-@findex emacspeak-read-next-word
  No global keybinding
 
 Read next word, specified as a numeric  arg, without moving.
@@ -3906,7 +3500,6 @@ for commands defined in module  emacspeak-speedbar.
 
 
 @deffn emacspeak-speedbar-click
-@findex emacspeak-speedbar-click
  No global keybinding
 
 Does the equivalent of the mouse click from the keyboard
@@ -3915,8 +3508,6 @@ Does the equivalent of the mouse click from the keyboard
 
 
 @deffn emacspeak-speedbar-goto-speedbar
-@findex emacspeak-speedbar-goto-speedbar
-@kindex  insert 
 @kbd{ insert }
 
 Switch to the speedbar
@@ -3936,7 +3527,6 @@ for commands defined in module  emacspeak-table-ui.
 
 
 @deffn emacspeak-table-get-entry-with-headers
-@findex emacspeak-table-get-entry-with-headers
  No global keybinding
 
 Return   both row and column header and table element
@@ -3945,7 +3535,6 @@ Return   both row and column header and table element
 
 
 @deffn emacspeak-table-speak-dimensions
-@findex emacspeak-table-speak-dimensions
  No global keybinding
 
 Speak current table dimensions.
@@ -3954,7 +3543,6 @@ Speak current table dimensions.
 
 
 @deffn emacspeak-table-speak-coordinates
-@findex emacspeak-table-speak-coordinates
  No global keybinding
 
 Speak current table coordinates.
@@ -3963,7 +3551,6 @@ Speak current table coordinates.
 
 
 @deffn emacspeak-table-previous-column
-@findex emacspeak-table-previous-column
  No global keybinding
 
 Move to the previous column  if possible
@@ -3972,7 +3559,6 @@ Move to the previous column  if possible
 
 
 @deffn emacspeak-table-search-headers
-@findex emacspeak-table-search-headers
  No global keybinding
 
 Search the table row or column headers.  Interactively prompts for
@@ -3983,7 +3569,6 @@ match, makes the matching row or column current.
 
 
 @deffn emacspeak-table-speak-column-filtered
-@findex emacspeak-table-speak-column-filtered
  No global keybinding
 
 Speaks a table column after applying a specified column filter.
@@ -3993,8 +3578,6 @@ Optional prefix arg prompts for a new filter.
 
 
 @deffn emacspeak-table-find-file
-@findex emacspeak-table-find-file
-@kindex  control e control t 
 @kbd{ control e control t }
 
 Open a file containing table data and display it in table mode.
@@ -4015,7 +3598,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-table-copy-current-element-to-register
-@findex emacspeak-table-copy-current-element-to-register
  No global keybinding
 
 Speak current table element
@@ -4029,7 +3611,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-table-goto-right
-@findex emacspeak-table-goto-right
  No global keybinding
 
 Goes to the right of the current row.
@@ -4038,7 +3619,6 @@ Goes to the right of the current row.
 
 
 @deffn emacspeak-table-paste-from-clipboard
-@findex emacspeak-table-paste-from-clipboard
  No global keybinding
 
 Paste the emacspeak table clipboard into the current buffer.
@@ -4049,7 +3629,6 @@ markup to use.
 
 
 @deffn emacspeak-table-search
-@findex emacspeak-table-search
  No global keybinding
 
 Search the table for matching elements.  Interactively prompts for
@@ -4060,7 +3639,6 @@ the matching cell current.
 
 
 @deffn emacspeak-table-speak-column-header-and-element
-@findex emacspeak-table-speak-column-header-and-element
  No global keybinding
 
 Speak  column header and table element
@@ -4069,7 +3647,6 @@ Speak  column header and table element
 
 
 @deffn emacspeak-table-ui-filter-save
-@findex emacspeak-table-ui-filter-save
  No global keybinding
 
 Save out filter settings.
@@ -4078,7 +3655,6 @@ Save out filter settings.
 
 
 @deffn emacspeak-table-goto
-@findex emacspeak-table-goto
  No global keybinding
 
 Prompt for a table cell coordinates and jump to it.
@@ -4092,7 +3668,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-table-select-automatic-speaking-method
-@findex emacspeak-table-select-automatic-speaking-method
  No global keybinding
 
 Interactively select the kind of automatic speech to produce when
@@ -4102,7 +3677,6 @@ browsing table elements
 
 
 @deffn emacspeak-table-copy-to-clipboard
-@findex emacspeak-table-copy-to-clipboard
  No global keybinding
 
 Copy table in current buffer to the table clipboard.
@@ -4112,7 +3686,6 @@ Current buffer must be in emacspeak-table mode.
 
 
 @deffn emacspeak-table-speak-row-header-and-element
-@findex emacspeak-table-speak-row-header-and-element
  No global keybinding
 
 Speak  row header and table element
@@ -4121,7 +3694,6 @@ Speak  row header and table element
 
 
 @deffn emacspeak-table-goto-left
-@findex emacspeak-table-goto-left
  No global keybinding
 
 Goes to the left of the current row.
@@ -4130,7 +3702,6 @@ Goes to the left of the current row.
 
 
 @deffn emacspeak-table-next-column
-@findex emacspeak-table-next-column
  No global keybinding
 
 Move to the next column if possible
@@ -4139,7 +3710,6 @@ Move to the next column if possible
 
 
 @deffn emacspeak-table-speak-both-headers-and-element
-@findex emacspeak-table-speak-both-headers-and-element
  No global keybinding
 
 Speak  both row and column header and table element
@@ -4148,7 +3718,6 @@ Speak  both row and column header and table element
 
 
 @deffn emacspeak-table-goto-bottom
-@findex emacspeak-table-goto-bottom
  No global keybinding
 
 Goes to the bottom of the current column.
@@ -4157,7 +3726,6 @@ Goes to the bottom of the current column.
 
 
 @deffn emacspeak-table-ui-filter-load
-@findex emacspeak-table-ui-filter-load
  No global keybinding
 
 Load saved filter settings.
@@ -4166,7 +3734,6 @@ Load saved filter settings.
 
 
 @deffn emacspeak-table-next-row
-@findex emacspeak-table-next-row
  No global keybinding
 
 Move to the next row if possible
@@ -4175,7 +3742,6 @@ Move to the next row if possible
 
 
 @deffn emacspeak-table-speak-current-element
-@findex emacspeak-table-speak-current-element
  No global keybinding
 
 Speak current table element
@@ -4184,8 +3750,6 @@ Speak current table element
 
 
 @deffn emacspeak-table-display-table-in-region
-@findex emacspeak-table-display-table-in-region
-@kindex  control e TAB 
 @kbd{ control e TAB }
 
 Recognize tabular data in current region and display it in table
@@ -4202,7 +3766,6 @@ the documentation on the table browser.
 
 
 @deffn emacspeak-table-sort-on-current-column
-@findex emacspeak-table-sort-on-current-column
  No global keybinding
 
 Sort table on current column. 
@@ -4211,7 +3774,6 @@ Sort table on current column.
 
 
 @deffn emacspeak-table-previous-row
-@findex emacspeak-table-previous-row
  No global keybinding
 
 Move to the previous row if possible
@@ -4220,7 +3782,6 @@ Move to the previous row if possible
 
 
 @deffn emacspeak-table-goto-top
-@findex emacspeak-table-goto-top
  No global keybinding
 
 Goes to the top of the current column.
@@ -4229,7 +3790,6 @@ Goes to the top of the current column.
 
 
 @deffn emacspeak-table-view-csv-buffer
-@findex emacspeak-table-view-csv-buffer
  No global keybinding
 
 Process a csv (comma separated values) data. 
@@ -4240,7 +3800,6 @@ navigation.
 
 
 @deffn emacspeak-table-find-csv-file
-@findex emacspeak-table-find-csv-file
  No global keybinding
 
 Process a csv (comma separated values) file. 
@@ -4255,7 +3814,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-table-speak-row-filtered
-@findex emacspeak-table-speak-row-filtered
  No global keybinding
 
 Speaks a table row after applying a specified row filter.
@@ -4276,8 +3834,6 @@ for commands defined in module  emacspeak-tabulate.
 
 
 @deffn emacspeak-tabulate-region
-@findex emacspeak-tabulate-region
-@kindex  control e i 
 @kbd{ control e i }
 
 Voicifies the white-space of a table if one found.  Optional interactive prefix
@@ -4299,8 +3855,6 @@ for commands defined in module  emacspeak-tapestry.
 
 
 @deffn emacspeak-tapestry-describe-tapestry
-@findex emacspeak-tapestry-describe-tapestry
-@kindex  control e meta t 
 @kbd{ control e meta t }
 
 Describe the current layout of visible buffers in current frame.
@@ -4320,7 +3874,6 @@ for commands defined in module  emacspeak-url-template.
 
 
 @deffn emacspeak-url-template-save
-@findex emacspeak-url-template-save
  No global keybinding
 
 Save out url templates.
@@ -4329,8 +3882,6 @@ Save out url templates.
 
 
 @deffn emacspeak-url-template-fetch
-@findex emacspeak-url-template-fetch
-@kindex  control e u 
 @kbd{ control e u }
 
 Prompt for  URL template and fetch specified resource.
@@ -4339,7 +3890,6 @@ Prompt for  URL template and fetch specified resource.
 
 
 @deffn emacspeak-url-template-load
-@findex emacspeak-url-template-load
  No global keybinding
 
 Load URL template resources from specified location.
@@ -4359,7 +3909,6 @@ for commands defined in module  emacspeak-view.
 
 
 @deffn emacspeak-view-line-to-top
-@findex emacspeak-view-line-to-top
  No global keybinding
 
 Moves current line to top of window
@@ -4379,7 +3928,6 @@ for commands defined in module  emacspeak-vm.
 
 
 @deffn emacspeak-vm-speak-labels
-@findex emacspeak-vm-speak-labels
  No global keybinding
 
 Speak a message's labels
@@ -4388,7 +3936,6 @@ Speak a message's labels
 
 
 @deffn emacspeak-vm-mode-line
-@findex emacspeak-vm-mode-line
  No global keybinding
 
 VM mode line information. 
@@ -4397,7 +3944,6 @@ VM mode line information.
 
 
 @deffn emacspeak-vm-browse-message
-@findex emacspeak-vm-browse-message
  No global keybinding
 
 Browse an email message --read it paragraph at a time. 
@@ -4406,7 +3952,6 @@ Browse an email message --read it paragraph at a time.
 
 
 @deffn emacspeak-vm-locate-subject-line
-@findex emacspeak-vm-locate-subject-line
  No global keybinding
 
 Locates the subject line in a message being read.
@@ -4433,7 +3978,6 @@ for commands defined in module  emacspeak-w3.
 
 
 @deffn emacspeak-w3-next-doc-element
-@findex emacspeak-w3-next-doc-element
  No global keybinding
 
 Move forward  to the next document element.
@@ -4444,7 +3988,6 @@ specifies by how many eleemnts to move.
 
 
 @deffn emacspeak-w3-speak-this-element
-@findex emacspeak-w3-speak-this-element
  No global keybinding
 
 Speak document element under point.
@@ -4453,7 +3996,6 @@ Speak document element under point.
 
 
 @deffn emacspeak-w3-toggle-table-borders
-@findex emacspeak-w3-toggle-table-borders
  No global keybinding
 
 Toggle drawing of W3 table borders
@@ -4462,7 +4004,6 @@ Toggle drawing of W3 table borders
 
 
 @deffn emacspeak-w3-url-rewrite-and-follow
-@findex emacspeak-w3-url-rewrite-and-follow
  No global keybinding
 
 Apply a url rewrite rule as specified in the current buffer
@@ -4480,7 +4021,6 @@ even if one is already defined.
 
 
 @deffn emacspeak-w3-speak-next-element
-@findex emacspeak-w3-speak-next-element
  No global keybinding
 
 Speak next document element.
@@ -4489,7 +4029,6 @@ Speak next document element.
 
 
 @deffn emacspeak-w3-lynx-url-under-point
-@findex emacspeak-w3-lynx-url-under-point
  No global keybinding
 
 Display contents of URL under point using LYNX.  The
@@ -4502,7 +4041,6 @@ the table structure extraction code in W3.
 
 
 @deffn emacspeak-w3-show-anchor-class
-@findex emacspeak-w3-show-anchor-class
  No global keybinding
 
 Display any class attributes set on corresponding anchor
@@ -4512,7 +4050,6 @@ element.
 
 
 @deffn emacspeak-w3-jump-to-title-in-content
-@findex emacspeak-w3-jump-to-title-in-content
  No global keybinding
 
 Jumps to the occurrence of document title in page body.
@@ -4521,7 +4058,6 @@ Jumps to the occurrence of document title in page body.
 
 
 @deffn emacspeak-w3-javascript-follow-link
-@findex emacspeak-w3-javascript-follow-link
  No global keybinding
 
 Follow URL hidden inside a javascript link
@@ -4530,7 +4066,6 @@ Follow URL hidden inside a javascript link
 
 
 @deffn emacspeak-w3-do-onclick
-@findex emacspeak-w3-do-onclick
  No global keybinding
 
 Do  onclick action.
@@ -4539,7 +4074,6 @@ Do  onclick action.
 
 
 @deffn emacspeak-w3-previous-doc-element
-@findex emacspeak-w3-previous-doc-element
  No global keybinding
 
 Move back  to the previous document element.
@@ -4563,7 +4097,6 @@ for commands defined in module  emacspeak-websearch.
 
 
 @deffn emacspeak-websearch-inference-search
-@findex emacspeak-websearch-inference-search
  No global keybinding
 
 Perform an Inference search.
@@ -4572,7 +4105,6 @@ Perform an Inference search.
 
 
 @deffn emacspeak-websearch-rfb-search
-@findex emacspeak-websearch-rfb-search
  No global keybinding
 
 Search RFB&D catalog.
@@ -4581,7 +4113,6 @@ Search RFB&D catalog.
 
 
 @deffn emacspeak-websearch-freshmeat-search
-@findex emacspeak-websearch-freshmeat-search
  No global keybinding
 
 Search Freshmeat  Site. 
@@ -4590,7 +4121,6 @@ Search Freshmeat  Site.
 
 
 @deffn emacspeak-websearch-britannica-search
-@findex emacspeak-websearch-britannica-search
  No global keybinding
 
 Search Encyclopedia Britannica.
@@ -4599,8 +4129,6 @@ Search Encyclopedia Britannica.
 
 
 @deffn emacspeak-websearch-dispatch
-@findex emacspeak-websearch-dispatch
-@kindex  control e ? 
 @kbd{ control e ? }
 
 Launches specific websearch queries.
@@ -4650,7 +4178,6 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 
 @deffn emacspeak-websearch-google
-@findex emacspeak-websearch-google
  No global keybinding
 
 Perform an Google search
@@ -4659,8 +4186,6 @@ Perform an Google search
 
 
 @deffn emacspeak-websearch-emacspeak-archive
-@findex emacspeak-websearch-emacspeak-archive
-@kindex  control h e 
 @kbd{ control h e }
 
 Search Emacspeak mail archives.
@@ -4671,7 +4196,6 @@ archives, type +redhat
 
 
 @deffn emacspeak-websearch-w3c-search
-@findex emacspeak-websearch-w3c-search
  No global keybinding
 
 Search the W3C Site.
@@ -4680,7 +4204,6 @@ Search the W3C Site.
 
 
 @deffn emacspeak-websearch-citeseer-search
-@findex emacspeak-websearch-citeseer-search
  No global keybinding
 
 Perform a CiteSeer search. 
@@ -4689,7 +4212,6 @@ Perform a CiteSeer search.
 
 
 @deffn emacspeak-websearch-alltheweb-search
-@findex emacspeak-websearch-alltheweb-search
  No global keybinding
 
 Perform an AllTheWeb  search.
@@ -4701,7 +4223,6 @@ to specify the type of search.
 
 
 @deffn emacspeak-websearch-gutenberg
-@findex emacspeak-websearch-gutenberg
  No global keybinding
 
 Perform an Gutenberg search
@@ -4710,8 +4231,6 @@ Perform an Gutenberg search
 
 
 @deffn emacspeak-dejanews-browse-group
-@findex emacspeak-dejanews-browse-group
-@kindex  control e  cap U  
 @kbd{ control e  cap U  }
 
 Prompt and browse a newsgroup on Dejanews.
@@ -4720,7 +4239,6 @@ Prompt and browse a newsgroup on Dejanews.
 
 
 @deffn emacspeak-websearch-kerbango-search
-@findex emacspeak-websearch-kerbango-search
  No global keybinding
 
 Search Kerbango radio tuner.
@@ -4729,7 +4247,6 @@ Search Kerbango radio tuner.
 
 
 @deffn emacspeak-websearch-cnn-search
-@findex emacspeak-websearch-cnn-search
  No global keybinding
 
 Perform an CNN search.  
@@ -4745,7 +4262,6 @@ emacspeak-websearch-cnn-options to an appropriate string.
 
 
 @deffn emacspeak-websearch-quotes-yahoo-search
-@findex emacspeak-websearch-quotes-yahoo-search
  No global keybinding
 
 Perform a Quotes Yahoo .  
@@ -4761,7 +4277,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 
 
 @deffn emacspeak-websearch-software-search
-@findex emacspeak-websearch-software-search
  No global keybinding
 
 Search SourceForge, Freshmeat and other sites. 
@@ -4770,7 +4285,6 @@ Search SourceForge, Freshmeat and other sites.
 
 
 @deffn emacspeak-websearch-usenet-altavista-search
-@findex emacspeak-websearch-usenet-altavista-search
  No global keybinding
 
 Perform a Usenet  Altavista search
@@ -4779,7 +4293,6 @@ Perform a Usenet  Altavista search
 
 
 @deffn emacspeak-websearch-weather
-@findex emacspeak-websearch-weather
  No global keybinding
 
 Get weather forecast for specified zip code.
@@ -4788,7 +4301,6 @@ Get weather forecast for specified zip code.
 
 
 @deffn emacspeak-websearch-altavista-search
-@findex emacspeak-websearch-altavista-search
  No global keybinding
 
 Perform an Altavista search
@@ -4797,7 +4309,6 @@ Perform an Altavista search
 
 
 @deffn emacspeak-websearch-foldoc-search
-@findex emacspeak-websearch-foldoc-search
  No global keybinding
 
 Perform a FolDoc search. 
@@ -4806,7 +4317,6 @@ Perform a FolDoc search.
 
 
 @deffn emacspeak-websearch-news-yahoo
-@findex emacspeak-websearch-news-yahoo
  No global keybinding
 
 Perform an Yahoo News search
@@ -4815,7 +4325,6 @@ Perform an Yahoo News search
 
 
 @deffn emacspeak-websearch-map-directions-search
-@findex emacspeak-websearch-map-directions-search
  No global keybinding
 
 Get driving directions from Yahoo.
@@ -4825,7 +4334,6 @@ With optional interactive prefix arg MAP shows the location map instead.
 
 
 @deffn emacspeak-websearch-rpm-find
-@findex emacspeak-websearch-rpm-find
  No global keybinding
 
 Search RPM  catalog  site.
@@ -4834,7 +4342,6 @@ Search RPM  catalog  site.
 
 
 @deffn emacspeak-websearch-bbc-search
-@findex emacspeak-websearch-bbc-search
  No global keybinding
 
 Search BBC archives.
@@ -4843,7 +4350,6 @@ Search BBC archives.
 
 
 @deffn emacspeak-websearch-yahoo-historical-chart
-@findex emacspeak-websearch-yahoo-historical-chart
  No global keybinding
 
 Look up historical stock data.
@@ -4853,7 +4359,6 @@ Optional second arg data processes the results as data rather than HTML.
 
 
 @deffn emacspeak-websearch-dejanews-search
-@findex emacspeak-websearch-dejanews-search
  No global keybinding
 
 Perform a Dejanews search
@@ -4862,7 +4367,6 @@ Perform a Dejanews search
 
 
 @deffn emacspeak-websearch-vickers-search
-@findex emacspeak-websearch-vickers-search
  No global keybinding
 
 Search Vickers insider trading.
@@ -4871,7 +4375,6 @@ Search Vickers insider trading.
 
 
 @deffn emacspeak-websearch-biblio-search
-@findex emacspeak-websearch-biblio-search
  No global keybinding
 
 Search Computer Science Bibliographies.
@@ -4880,7 +4383,6 @@ Search Computer Science Bibliographies.
 
 
 @deffn emacspeak-websearch-ask-jeeves
-@findex emacspeak-websearch-ask-jeeves
  No global keybinding
 
 Ask Jeeves for the answer.
@@ -4889,7 +4391,6 @@ Ask Jeeves for the answer.
 
 
 @deffn emacspeak-websearch-fn-cnn-search
-@findex emacspeak-websearch-fn-cnn-search
  No global keybinding
 
 Perform an CNN FNsearch.  
@@ -4905,7 +4406,6 @@ emacspeak-websearch-fn-cnn-options to an appropriate string.
 
 
 @deffn emacspeak-websearch-cpan-search
-@findex emacspeak-websearch-cpan-search
  No global keybinding
 
 Search CPAN  Comprehensive Perl Archive Network   Site. 
@@ -4914,7 +4414,6 @@ Search CPAN  Comprehensive Perl Archive Network   Site.
 
 
 @deffn emacspeak-websearch-packages-linux
-@findex emacspeak-websearch-packages-linux
  No global keybinding
 
 Search for Linux packages.
@@ -4923,7 +4422,6 @@ Search for Linux packages.
 
 
 @deffn emacspeak-websearch-open-directory-search
-@findex emacspeak-websearch-open-directory-search
  No global keybinding
 
 Perform an Open Directory search
@@ -4932,7 +4430,6 @@ Perform an Open Directory search
 
 
 @deffn emacspeak-websearch-appwatch-search
-@findex emacspeak-websearch-appwatch-search
  No global keybinding
 
 Search AppWatch  Site. 
@@ -4941,7 +4438,6 @@ Search AppWatch  Site.
 
 
 @deffn emacspeak-websearch-redhat
-@findex emacspeak-websearch-redhat
  No global keybinding
 
 Search RedHat site.
@@ -4950,7 +4446,6 @@ Search RedHat site.
 
 
 @deffn emacspeak-websearch-sourceforge-search
-@findex emacspeak-websearch-sourceforge-search
  No global keybinding
 
 Search SourceForge Site. 
@@ -4959,7 +4454,6 @@ Search SourceForge Site.
 
 
 @deffn emacspeak-websearch-vector-vest-search
-@findex emacspeak-websearch-vector-vest-search
  No global keybinding
 
 Look up VectorVest reports .
@@ -4968,7 +4462,6 @@ Look up VectorVest reports .
 
 
 @deffn emacspeak-websearch-people-yahoo
-@findex emacspeak-websearch-people-yahoo
  No global keybinding
 
 Perform an Yahoo  people search
@@ -4977,7 +4470,6 @@ Perform an Yahoo  people search
 
 
 @deffn emacspeak-websearch-hotbot-search
-@findex emacspeak-websearch-hotbot-search
  No global keybinding
 
 Perform a Hotbot  search.  
@@ -4993,7 +4485,6 @@ emacspeak-websearch-hotbot-options to an appropriate string.
 
 
 @deffn emacspeak-websearch-yahoo
-@findex emacspeak-websearch-yahoo
  No global keybinding
 
 Perform an Yahoo  search
@@ -5002,7 +4493,6 @@ Perform an Yahoo  search
 
 
 @deffn emacspeak-websearch-dictionary-hypertext-webster-search
-@findex emacspeak-websearch-dictionary-hypertext-webster-search
  No global keybinding
 
 Search the Webster Dictionary.
@@ -5011,7 +4501,6 @@ Search the Webster Dictionary.
 
 
 @deffn emacspeak-websearch-machine-translate
-@findex emacspeak-websearch-machine-translate
  No global keybinding
 
 Perform a machine translation request
@@ -5020,7 +4509,6 @@ Perform a machine translation request
 
 
 @deffn emacspeak-websearch-merriam-webster-search
-@findex emacspeak-websearch-merriam-webster-search
  No global keybinding
 
 Search the Merriam Webster Dictionary.
@@ -5029,7 +4517,6 @@ Search the Merriam Webster Dictionary.
 
 
 @deffn emacspeak-websearch-northern-light
-@findex emacspeak-websearch-northern-light
  No global keybinding
 
 Perform a Northern Light  search
@@ -5038,7 +4525,6 @@ Perform a Northern Light  search
 
 
 @deffn emacspeak-websearch-ctan-search
-@findex emacspeak-websearch-ctan-search
  No global keybinding
 
 Search CTAN Comprehensive TeX Archive Network   Site. 
@@ -5047,7 +4533,6 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 
 
 @deffn emacspeak-websearch-company-news
-@findex emacspeak-websearch-company-news
  No global keybinding
 
 Perform an company news lookup.
@@ -5071,8 +4556,6 @@ for commands defined in module  emacspeak-widget.
 
 
 @deffn emacspeak-widget-help
-@findex emacspeak-widget-help
-@kindex  meta h 
 @kbd{ meta h }
 
 Speak help for widget under point.
@@ -5081,8 +4564,6 @@ Speak help for widget under point.
 
 
 @deffn emacspeak-widget-summarize-parent
-@findex emacspeak-widget-summarize-parent
-@kindex  meta p 
 @kbd{ meta p }
 
 Summarize parent of widget at point.
@@ -5091,7 +4572,6 @@ Summarize parent of widget at point.
 
 
 @deffn emacspeak-widget-browse-widget-interactively
-@findex emacspeak-widget-browse-widget-interactively
  No global keybinding
 
 Allows you to browse a widget
@@ -5100,8 +4580,6 @@ Allows you to browse a widget
 
 
 @deffn emacspeak-widget-update-from-minibuffer
-@findex emacspeak-widget-update-from-minibuffer
-@kindex  META RETURN 
 @kbd{ META RETURN }
 
 Sets widget at point by invoking its prompter.
@@ -5110,7 +4588,6 @@ Sets widget at point by invoking its prompter.
 
 
 @deffn emacspeak-widget-summarize-widget-under-point
-@findex emacspeak-widget-summarize-widget-under-point
  No global keybinding
 
 Summarize a widget if any under point.
@@ -5134,8 +4611,6 @@ for commands defined in module  emacspeak.
 
 
 @deffn emacspeak-submit-bug
-@findex emacspeak-submit-bug
-@kindex  control e control b 
 @kbd{ control e control b }
 
 Function to submit a bug to the programs maintainer.
@@ -5144,8 +4619,6 @@ Function to submit a bug to the programs maintainer.
 
 
 @deffn emacspeak-describe-emacspeak
-@findex emacspeak-describe-emacspeak
-@kindex  control h control e 
 @kbd{ control h control e }
 
 Give a brief overview of emacspeak.
@@ -5165,7 +4638,6 @@ for commands defined in module  emacspeak-arc.
 
 
 @deffn emacspeak-arc-speak-file-permissions
-@findex emacspeak-arc-speak-file-permissions
  No global keybinding
 
 Speak permissions of file current entry 
@@ -5174,7 +4646,6 @@ Speak permissions of file current entry
 
 
 @deffn emacspeak-arc-speak-file-modification-time
-@findex emacspeak-arc-speak-file-modification-time
  No global keybinding
 
 Speak modification time of the file on current line
@@ -5183,7 +4654,6 @@ Speak modification time of the file on current line
 
 
 @deffn emacspeak-arc-speak-file-name
-@findex emacspeak-arc-speak-file-name
  No global keybinding
 
 Speak the name of the file on current line
@@ -5192,7 +4662,6 @@ Speak the name of the file on current line
 
 
 @deffn emacspeak-arc-speak-file-size
-@findex emacspeak-arc-speak-file-size
  No global keybinding
 
 Speak the size of the file on current line
@@ -5212,7 +4681,6 @@ for commands defined in module  emacspeak-dismal.
 
 
 @deffn emacspeak-dismal-forward-col-and-summarize
-@findex emacspeak-dismal-forward-col-and-summarize
  No global keybinding
 
 Move forward by arg columns
@@ -5222,7 +4690,6 @@ Move forward by arg columns
 
 
 @deffn emacspeak-dismal-display-cell-value
-@findex emacspeak-dismal-display-cell-value
  No global keybinding
 
 Display the cell value in the message area
@@ -5231,7 +4698,6 @@ Display the cell value in the message area
 
 
 @deffn emacspeak-dismal-sheet-summarize
-@findex emacspeak-dismal-sheet-summarize
  No global keybinding
 
 Summarizes a sheet using the specification in list
@@ -5241,7 +4707,6 @@ emacspeak-dismal-sheet-summarizer-list
 
 
 @deffn emacspeak-dismal-set-row-summarizer-list
-@findex emacspeak-dismal-set-row-summarizer-list
  No global keybinding
 
 Specify or reset row summarizer list.
@@ -5250,7 +4715,6 @@ Specify or reset row summarizer list.
 
 
 @deffn emacspeak-dismal-display-cell-with-col-header
-@findex emacspeak-dismal-display-cell-with-col-header
  No global keybinding
 
 Display current cell along with its column header.
@@ -5260,7 +4724,6 @@ The `column header' is the entry in row 0.
 
 
 @deffn emacspeak-dismal-display-cell-with-row-header
-@findex emacspeak-dismal-display-cell-with-row-header
  No global keybinding
 
 Displays current cell along with its row header.
@@ -5270,7 +4733,6 @@ The `row header' is the entry in column 0.
 
 
 @deffn emacspeak-dismal-forward-row-and-summarize
-@findex emacspeak-dismal-forward-row-and-summarize
  No global keybinding
 
 Move forward by arg rows
@@ -5280,7 +4742,6 @@ Move forward by arg rows
 
 
 @deffn emacspeak-dismal-set-sheet-summarizer-list
-@findex emacspeak-dismal-set-sheet-summarizer-list
  No global keybinding
 
 Specify or reset sheet summarizer list.
@@ -5289,7 +4750,6 @@ Specify or reset sheet summarizer list.
 
 
 @deffn emacspeak-dismal-row-summarize
-@findex emacspeak-dismal-row-summarize
  No global keybinding
 
 Summarizes a row using the specification in list
@@ -5299,7 +4759,6 @@ emacspeak-dismal-row-summarizer-list
 
 
 @deffn emacspeak-dismal-col-summarize
-@findex emacspeak-dismal-col-summarize
  No global keybinding
 
 Summarizes a col using the specification in list
@@ -5309,7 +4768,6 @@ emacspeak-dismal-col-summarizer-list
 
 
 @deffn emacspeak-dismal-set-col-summarizer-list
-@findex emacspeak-dismal-set-col-summarizer-list
  No global keybinding
 
 Specify or reset col summarizer list.
@@ -5318,7 +4776,6 @@ Specify or reset col summarizer list.
 
 
 @deffn emacspeak-dismal-backward-col-and-summarize
-@findex emacspeak-dismal-backward-col-and-summarize
  No global keybinding
 
 Move backward by arg columns
@@ -5328,7 +4785,6 @@ Move backward by arg columns
 
 
 @deffn emacspeak-dismal-backward-row-and-summarize
-@findex emacspeak-dismal-backward-row-and-summarize
  No global keybinding
 
 Move backward by arg rows
@@ -5338,7 +4794,6 @@ Move backward by arg rows
 
 
 @deffn emacspeak-dismal-display-cell-expression
-@findex emacspeak-dismal-display-cell-expression
  No global keybinding
 
 Display the expression in the message area
@@ -5358,7 +4813,6 @@ for commands defined in module  emacspeak-eudc.
 
 
 @deffn emacspeak-eudc-send-mail
-@findex emacspeak-eudc-send-mail
  No global keybinding
 
 Send email to the address given by the current record. 
@@ -5378,7 +4832,6 @@ for commands defined in module  emacspeak-man.
 
 
 @deffn emacspeak-man-browse-man-page
-@findex emacspeak-man-browse-man-page
  No global keybinding
 
 Browse the man page --read it a paragraph at a time
@@ -5387,7 +4840,6 @@ Browse the man page --read it a paragraph at a time
 
 
 @deffn emacspeak-man-speak-this-section
-@findex emacspeak-man-speak-this-section
  No global keybinding
 
 Speak current section
@@ -5407,7 +4859,6 @@ for commands defined in module  emacspeak-python.
 
 
 @deffn emacspeak-py-previous-block
-@findex emacspeak-py-previous-block
  No global keybinding
 
 Move backward to the beginning of the current block.
@@ -5417,7 +4868,6 @@ If already at the beginning then move to previous block.
 
 
 @deffn emacspeak-py-next-block
-@findex emacspeak-py-next-block
  No global keybinding
 
 Move forward to the beginning of the next block.
@@ -5437,7 +4887,6 @@ for commands defined in module  emacspeak-tar.
 
 
 @deffn emacspeak-tar-speak-file-permissions
-@findex emacspeak-tar-speak-file-permissions
  No global keybinding
 
 Speak permissions of file current entry 
@@ -5446,7 +4895,6 @@ Speak permissions of file current entry
 
 
 @deffn emacspeak-tar-speak-file-date
-@findex emacspeak-tar-speak-file-date
  No global keybinding
 
 Speak date of file current entry 
@@ -5455,7 +4903,6 @@ Speak date of file current entry
 
 
 @deffn emacspeak-tar-speak-file-size
-@findex emacspeak-tar-speak-file-size
  No global keybinding
 
 Speak size of file current entry 
@@ -5475,7 +4922,6 @@ for commands defined in module  emacspeak-tetris.
 
 
 @deffn emacspeak-tetris-speak-current-shape-and-coordinates
-@findex emacspeak-tetris-speak-current-shape-and-coordinates
  No global keybinding
 
 Speak shape orientation and coordinates
@@ -5484,7 +4930,6 @@ Speak shape orientation and coordinates
 
 
 @deffn emacspeak-tetris-speak-column
-@findex emacspeak-tetris-speak-column
  No global keybinding
 
 Speak  column --default is to speak current column
@@ -5493,7 +4938,6 @@ Speak  column --default is to speak current column
 
 
 @deffn emacspeak-tetris-speak-coordinates
-@findex emacspeak-tetris-speak-coordinates
  No global keybinding
 
 Speak current position
@@ -5502,7 +4946,6 @@ Speak current position
 
 
 @deffn emacspeak-tetris-goto-top-row
-@findex emacspeak-tetris-goto-top-row
  No global keybinding
 
 Move to and speak the top row
@@ -5511,7 +4954,6 @@ Move to and speak the top row
 
 
 @deffn emacspeak-tetris-goto-bottom-row
-@findex emacspeak-tetris-goto-bottom-row
  No global keybinding
 
 Move to and speak bottom row
@@ -5520,7 +4962,6 @@ Move to and speak bottom row
 
 
 @deffn emacspeak-tetris-speak-score
-@findex emacspeak-tetris-speak-score
  No global keybinding
 
 Speak the score
@@ -5529,7 +4970,6 @@ Speak the score
 
 
 @deffn emacspeak-tetris-speak-row-number
-@findex emacspeak-tetris-speak-row-number
  No global keybinding
 
 Speak where on the tetris board we are
@@ -5538,7 +4978,6 @@ Speak where on the tetris board we are
 
 
 @deffn emacspeak-tetris-speak-x-coordinate
-@findex emacspeak-tetris-speak-x-coordinate
  No global keybinding
 
 Speak current position
@@ -5547,7 +4986,6 @@ Speak current position
 
 
 @deffn emacspeak-tetris-speak-current-shape
-@findex emacspeak-tetris-speak-current-shape
  No global keybinding
 
 Speak current shape
@@ -5556,7 +4994,6 @@ Speak current shape
 
 
 @deffn emacspeak-tetris-speak-row
-@findex emacspeak-tetris-speak-row
  No global keybinding
 
 Speak current tetris row
@@ -5565,7 +5002,6 @@ Speak current tetris row
 
 
 @deffn emacspeak-tetris-speak-next-shape
-@findex emacspeak-tetris-speak-next-shape
  No global keybinding
 
 Speak next shape
@@ -5585,7 +5021,6 @@ for commands defined in module  emacspeak-view-process.
 
 
 @deffn emacspeak-view-process-speak-current-field
-@findex emacspeak-view-process-speak-current-field
  No global keybinding
 
 Speak current field
@@ -5594,7 +5029,6 @@ Speak current field
 
 
 @deffn emacspeak-view-process-goto-current-field-next-line
-@findex emacspeak-view-process-goto-current-field-next-line
  No global keybinding
 
 Set point to the current field in the next line.
@@ -5614,8 +5048,6 @@ for commands defined in module  emacspeak-wizards.
 
 
 @deffn emacspeak-speak-this-buffer-previous-display
-@findex emacspeak-speak-this-buffer-previous-display
-@kindex  control e left 
 @kbd{ control e left }
 
 Speak this buffer as displayed in a `previous' window.
@@ -5627,8 +5059,6 @@ meaning of `previous'.
 
 
 @deffn emacspeak-next-frame
-@findex emacspeak-next-frame
-@kindex  control right 
 @kbd{ control right }
 
 Move to next frame.
@@ -5637,8 +5067,6 @@ Move to next frame.
 
 
 @deffn emacspeak-view-emacspeak-doc
-@findex emacspeak-view-emacspeak-doc
-@kindex  control e  cap D  
 @kbd{ control e  cap D  }
 
 Display a summary of all Emacspeak commands.
@@ -5647,8 +5075,6 @@ Display a summary of all Emacspeak commands.
 
 
 @deffn emacspeak-view-emacspeak-faq
-@findex emacspeak-view-emacspeak-faq
-@kindex  control e  cap F  
 @kbd{ control e  cap F  }
 
 Browse the Emacspeak FAQ.
@@ -5657,8 +5083,6 @@ Browse the Emacspeak FAQ.
 
 
 @deffn emacspeak-emergency-tts-restart
-@findex emacspeak-emergency-tts-restart
-@kindex  control e x s 
 @kbd{ control e x s }
 
 For use in an emergency.
@@ -5669,8 +5093,6 @@ emacspeak-emergency-tts-server.
 
 
 @deffn emacspeak-speak-popup-messages
-@findex emacspeak-speak-popup-messages
-@kindex  control h  cap M  
 @kbd{ control h  cap M  }
 
 Pop up messages buffer.
@@ -5681,8 +5103,6 @@ previous window configuration.
 
 
 @deffn emacspeak-skip-blank-lines-forward
-@findex emacspeak-skip-blank-lines-forward
-@kindex  shift down 
 @kbd{ shift down }
 
 Move forward across blank lines.
@@ -5693,8 +5113,6 @@ Signals end of buffer.
 
 
 @deffn emacspeak-link-current-file
-@findex emacspeak-link-current-file
-@kindex  control e meta l 
 @kbd{ control e meta l }
 
 Link (hard link) file visited in current buffer to new location.
@@ -5708,7 +5126,6 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-lynx
-@findex emacspeak-lynx
  No global keybinding
 
 Launch lynx on  specified URL in a new terminal.
@@ -5717,8 +5134,6 @@ Launch lynx on  specified URL in a new terminal.
 
 
 @deffn emacspeak-select-this-buffer-next-display
-@findex emacspeak-select-this-buffer-next-display
-@kindex  control e control right 
 @kbd{ control e control right }
 
 Select this buffer as displayed in a `next' frame.
@@ -5730,8 +5145,6 @@ meaning of `next'.
 
 
 @deffn emacspeak-view-emacspeak-tips
-@findex emacspeak-view-emacspeak-tips
-@kindex  control e  cap T  
 @kbd{ control e  cap T  }
 
 Browse  Emacspeak productivity tips.
@@ -5740,7 +5153,6 @@ Browse  Emacspeak productivity tips.
 
 
 @deffn emacspeak-wizard-get-table-content-from-file
-@findex emacspeak-wizard-get-table-content-from-file
  No global keybinding
 
 Extract table specified by depth and count from HTML
@@ -5751,8 +5163,6 @@ Extracted content is placed as a csv file in task.csv.
 
 
 @deffn emacspeak-select-this-buffer-previous-display
-@findex emacspeak-select-this-buffer-previous-display
-@kindex  control e control left 
 @kbd{ control e control left }
 
 Select this buffer as displayed in a `previous' window.
@@ -5764,8 +5174,6 @@ meaning of `previous'.
 
 
 @deffn emacspeak-skip-blank-lines-backward
-@findex emacspeak-skip-blank-lines-backward
-@kindex  shift up 
 @kbd{ shift up }
 
 Move backward  across blank lines.
@@ -5776,8 +5184,6 @@ Signals beginning  of buffer.
 
 
 @deffn emacspeak-learn-mode
-@findex emacspeak-learn-mode
-@kindex  control e control h 
 @kbd{ control e control h }
 
 Helps you learn the keys.  You can press keys and hear what they do.
@@ -5787,8 +5193,6 @@ To leave, press C-g.
 
 
 @deffn emacspeak-speak-hostname
-@findex emacspeak-speak-hostname
-@kindex  control e meta h 
 @kbd{ control e meta h }
 
 Speak host name.
@@ -5797,7 +5201,6 @@ Speak host name.
 
 
 @deffn emacspeak-cvs-get-project-snapshot
-@findex emacspeak-cvs-get-project-snapshot
  No global keybinding
 
 Grab CVS snapshot  of specified project from Sourceforge.
@@ -5806,8 +5209,6 @@ Grab CVS snapshot  of specified project from Sourceforge.
 
 
 @deffn emacspeak-symlink-current-file
-@findex emacspeak-symlink-current-file
-@kindex  control e meta s 
 @kbd{ control e meta s }
 
 Link (symbolic link) file visited in current buffer to new location.
@@ -5821,7 +5222,6 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-show-list-variable
-@findex emacspeak-show-list-variable
  No global keybinding
 
 Convenience command to view Emacs variables that are long lists.
@@ -5838,8 +5238,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-speak-run-shell-command
-@findex emacspeak-speak-run-shell-command
-@kindex  control e ! 
 @kbd{ control e ! }
 
 Invoke shell COMMAND and display its output as a table.
@@ -5857,8 +5255,6 @@ The results are placed in a buffer in Emacspeak's table
 
 
 @deffn emacspeak-speak-show-active-network-interfaces
-@findex emacspeak-speak-show-active-network-interfaces
-@kindex  control e  cap I  
 @kbd{ control e  cap I  }
 
 Shows all active network interfaces in the echo area.
@@ -5870,7 +5266,6 @@ also copied to the kill ring for convenient yanking.
 
 
 @deffn emacspeak-generate-documentation
-@findex emacspeak-generate-documentation
  No global keybinding
 
 Generate docs for all emacspeak commands.
@@ -5886,7 +5281,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-frame-read-frame-label
-@findex emacspeak-frame-read-frame-label
  No global keybinding
 
 Read a frame label with completion.
@@ -5895,7 +5289,6 @@ Read a frame label with completion.
 
 
 @deffn emacspeak-select-this-buffer-other-window-display
-@findex emacspeak-select-this-buffer-other-window-display
  No global keybinding
 
 Switch  to this buffer as displayed in a different frame.  Emacs
@@ -5914,8 +5307,6 @@ the display to select.
 
 
 @deffn emacspeak-speak-this-buffer-next-display
-@findex emacspeak-speak-this-buffer-next-display
-@kindex  control e right 
 @kbd{ control e right }
 
 Speak this buffer as displayed in a `previous' window.
@@ -5927,8 +5318,6 @@ meaning of `next'.
 
 
 @deffn emacspeak-cvs-get-anonymous
-@findex emacspeak-cvs-get-anonymous
-@kindex  control e control down 
 @kbd{ control e control down }
 
 Get latest cvs snapshot of emacspeak.
@@ -5937,7 +5326,6 @@ Get latest cvs snapshot of emacspeak.
 
 
 @deffn emacspeak-speak-show-memory-used
-@findex emacspeak-speak-show-memory-used
  No global keybinding
 
 Convenience command to view state of memory used in this session so far.
@@ -5946,8 +5334,6 @@ Convenience command to view state of memory used in this session so far.
 
 
 @deffn emacspeak-frame-label-or-switch-to-labelled-frame
-@findex emacspeak-frame-label-or-switch-to-labelled-frame
-@kindex  control e meta f 
 @kbd{ control e meta f }
 
 Switch to labelled frame.
@@ -5957,7 +5343,6 @@ With optional PREFIX argument, label current frame.
 
 
 @deffn emacspeak-annotate-add-annotation
-@findex emacspeak-annotate-add-annotation
  No global keybinding
 
 Add annotation to the annotation working buffer.
@@ -5971,8 +5356,6 @@ annotation is inserted into the working buffer when complete.
 
 
 @deffn emacspeak-speak-this-buffer-other-window-display
-@findex emacspeak-speak-this-buffer-other-window-display
-@kindex  control e / 
 @kbd{ control e / }
 
 Speak this buffer as displayed in a different frame.  Emacs
@@ -5991,7 +5374,6 @@ the display to speak.
 
 
 @deffn emacspeak-speak-load-directory-settings
-@findex emacspeak-speak-load-directory-settings
  No global keybinding
 
 Load a directory specific Emacspeak settings file.
@@ -6003,8 +5385,6 @@ directory.
 
 
 @deffn emacspeak-copy-current-file
-@findex emacspeak-copy-current-file
-@kindex  control e meta c 
 @kbd{ control e meta c }
 
 Copy file visited in current buffer to new location.
@@ -6019,8 +5399,6 @@ Prompts for the new location and preserves modification time
 
 
 @deffn emacspeak-clipboard-copy
-@findex emacspeak-clipboard-copy
-@kindex  control e control c 
 @kbd{ control e control c }
 
 Copy contents of the region to the emacspeak clipboard.
@@ -6038,8 +5416,6 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 
 
 @deffn emacspeak-root
-@findex emacspeak-root
-@kindex  control e control r 
 @kbd{ control e control r }
 
 Start a root shell or switch to one that already exists.
@@ -6048,7 +5424,6 @@ Start a root shell or switch to one that already exists.
 
 
 @deffn emacspeak-wizard-get-table-content-from-url
-@findex emacspeak-wizard-get-table-content-from-url
  No global keybinding
 
 Extract table specified by depth and count from HTML
@@ -6059,8 +5434,6 @@ Extracted content is placed as a csv file in task.csv.
 
 
 @deffn emacspeak-show-personality-at-point
-@findex emacspeak-show-personality-at-point
-@kindex  control e meta v 
 @kbd{ control e meta v }
 
 Show value of property personality at point.
@@ -6069,8 +5442,6 @@ Show value of property personality at point.
 
 
 @deffn emacspeak-speak-browse-linux-howto
-@findex emacspeak-speak-browse-linux-howto
-@kindex  control e  cap H  
 @kbd{ control e  cap H  }
 
 Browse a Linux Howto file.
@@ -6080,8 +5451,6 @@ We cleanup underlining, and set up outline mode correctly.
 
 
 @deffn emacspeak-previous-frame
-@findex emacspeak-previous-frame
-@kindex  control left 
 @kbd{ control left }
 
 Move to next frame.
@@ -6090,8 +5459,6 @@ Move to next frame.
 
 
 @deffn emacspeak-customize-personal-settings
-@findex emacspeak-customize-personal-settings
-@kindex  control e f1 
 @kbd{ control e f1 }
 
 Create a customization buffer for browsing and updating
@@ -6101,7 +5468,6 @@ personal customizations.
 
 
 @deffn emacspeak-speak-telephone-directory
-@findex emacspeak-speak-telephone-directory
  No global keybinding
 
 Lookup and display a phone number.
@@ -6111,8 +5477,6 @@ With prefix arg, opens the phone book for editting.
 
 
 @deffn emacspeak-view-emacspeak-news
-@findex emacspeak-view-emacspeak-news
-@kindex  control e  cap N  
 @kbd{ control e  cap N  }
 
 Display info on recent change to Emacspeak.
@@ -6121,7 +5485,6 @@ Display info on recent change to Emacspeak.
 
 
 @deffn emacspeak-generate-texinfo-command-documentation
-@findex emacspeak-generate-texinfo-command-documentation
  No global keybinding
 
 Generate texinfo documentation  for all emacspeak
@@ -6137,8 +5500,6 @@ Automatically defined advice to speak interactive prompts.
 
 
 @deffn emacspeak-clipboard-paste
-@findex emacspeak-clipboard-paste
-@kindex  control e control y 
 @kbd{ control e control y }
 
 Yank contents of the Emacspeak clipboard at point.
@@ -6153,8 +5514,6 @@ the emacspeak table clipboard instead.
 
 
 @deffn emacspeak-show-property-at-point
-@findex emacspeak-show-property-at-point
-@kindex  control e meta p 
 @kbd{ control e meta p }
 
 Show value of PROPERTY at point.
@@ -6177,8 +5536,6 @@ for commands defined in module  ANONYMOUS.
 
 
 @deffn emacspeak-speak-current-field
-@findex emacspeak-speak-current-field
-@kindex  control e . 
 @kbd{ control e . }
 
 Speak current field.
