@@ -6,6 +6,20 @@
 
 <article>
   <articleinfo>
+    <legalnotice>
+      <para>
+        This work is being made available under the same
+        copyright as that used by the Linux Documentation
+        Project see
+        <ulink url="http://www.linuxdoc.org/LDP-COPYRIGHT.html">
+          LDP Copyright Notice </ulink>.
+        
+      </para>
+    </legalnotice>
+    <copyright>
+      <year>2001</year>
+      <holder>T. V. Raman</holder>
+    </copyright>
     <author>
       <firstname>T. V.</firstname>
       <surname>Raman</surname>
@@ -14,20 +28,28 @@
     </title>
     <abstract>
       <para>
-        This document is a collection of productivity tips for using the
-        Emacspeak audio desktop.
+        This document is a collection of productivity tips
+        for using the Emacspeak audio desktop.  Make sure
+        you listen to this document with punctuation mode
+        set to <emphasis>all</emphasis> to ensure that you
+        do not miss important concepts.  Note that this
+        document is to be used in concert with the built-in
+        online help facilities.  Toward this end, the first
+        section gives help on using Emacs online help;
+        subsequent sections are intentionally brief since
+        the interested user is expected to lookup the
+        details of a command using these facilities.
       </para>
     </abstract>
   </articleinfo>
   
   <qandaset>
-    <qandadiv>
+    <qandadiv id="help">
       <title>Online Help</title>
+      <para>
+Tips on using Emacs online help facilities.</para>
       <qandaentry>
-        <question>
-          <para>
-            Interactie help.</para>
-        </question>
+        <question> <para> Interactive help.</para> </question>
         <answer>
           <para>
             Online documentation is accessed using commands available on key
@@ -37,24 +59,22 @@
             <simplelist type="vert">
               <member>
                 <command><keysym>c</keysym></command>
-                 looks up  command run by a given key.
+                looks up  command run by a given key.
               </member>
               <member>
                 <command><keysym>k</keysym></command>
-                  looks up documentation for a given key.
+                looks up documentation for a given key.
               </member>
               <member>
                 <command><keysym>w</keysym></command>
-looks up key that invokes specified command.
-</member>
+                looks up key that invokes specified command.
+              </member>
             </simplelist>
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para> Online hypertext help.</para>
-        </question>
+        <question> <para> Online hypertext help.</para> </question>
         <answer>
           <para>
             Invoke the online hypertext help system
@@ -67,10 +87,7 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>
-            Opening info page that documents  a given key.</para>
-        </question>
+        <question> <para> Opening info page that documents  a given key.</para> </question>
         <answer>
           <para>
             Press <command><keysym> C-h C-k </keysym></command>followed
@@ -80,10 +97,7 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>
-            Opening info page that documents a given command.
-          </para>
+        <question> <para> Opening info page that documents a given command. </para>
         </question>
         <answer>
           <para>
@@ -93,10 +107,7 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>
-            Picking from available choices.</para>
-        </question>
+        <question> <para> Picking from available choices.</para> </question>
         <answer>
           <para>
             Hitting  <command><keysym>tab</keysym></command>
@@ -106,17 +117,14 @@ looks up key that invokes specified command.
             auditory icon <emphasis>help</emphasis>
             and speaks the available choices.  At this point, you can
             input more characters to unambiguously specify the
-            choice. Alternative, you can browse the
+            choice. Alternatively, you can browse the
             completion list which is typically displayed in
             another window in a buffer called 
             <literal>*Completions*</literal>.</para>
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>
-            Minibuffer prompting and completion.</para>
-        </question>
+        <question> <para> Minibuffer prompting and completion.</para> </question>
         <answer>
           <para>
             Emacs uses the <emphasis>minibuffer</emphasis> when
@@ -130,13 +138,14 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
     </qandadiv>
-    <qandadiv>
+    <qandadiv id="folders">
       <title>Files And Folders</title>
+      <para>
+        This section  contains tips  on working efficiently
+        with files and folders, both local and remote.
+</para>
       <qandaentry>
-        <question>
-          <para>
-            Working on files and folders.</para>
-        </question>
+        <question> <para> Working on files and folders.</para> </question>
         <answer>
           <para>
             Use command <command>
@@ -149,9 +158,22 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>Locating files.</para>
-        </question>
+        <question> <para> Working with remote directories.</para> </question> <answer> <para> Built-in Emacs package
+            <application>ange-ftp</application>
+provides seamless access to remote files and folders by
+            using UNIX <command>ftp</command>
+behind the scenes.
+To open a remote directory, specify the directory location  as 
+<command>/username@host:/path</command>
+when prompted by command <command>dired</command>.
+            Note that in the above,
+            <emphasis>username</emphasis>
+defaults to <emphasis>anonymous</emphasis>.
+</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para>Locating files.</para> </question>
         <answer>
           <para>
             Use <command>locate</command>
@@ -169,10 +191,7 @@ looks up key that invokes specified command.
         </answer>
       </qandaentry>
       <qandaentry>
-        <question>
-          <para>
-            Using UNIX <command>find</command> from within Emacs.</para>
-        </question>
+        <question> <para> Using UNIX <command>find</command> from within Emacs.</para> </question>
         <answer>
           <para>
             Use commands <command>
@@ -181,6 +200,226 @@ looks up key that invokes specified command.
             <application>find</application> to locate files
             and folders on your hard drive.
           </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para> Searching all files in a directory hierarchy. </para> </question>
+        <answer>
+          <para>
+            Install and use Emacs package
+            <application>igrep</application>
+            ---an extended Emacs interface to UNIX
+            <application>grep</application>
+            to search all files in a directory.
+            For simpler tasks use command 
+            <command>grep-dired</command> and command <command>find-grep-dired</command>.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para> Search and replace across a collection of files. </para> </question>
+        <answer>
+          <para>
+            When working on a project consisting of many files, 
+            build a tags table using UNIX command
+            <command>etags</command>
+            and use it to advantage from within Emacs with commands such
+            as 
+            <simplelist type="vert">
+              <member><command>find-tag</command></member>
+              <member><command>tags-search</command></member>
+              <member><command>tags-query-replace</command></member>
+            </simplelist>
+          </para>
+        </answer>
+      </qandaentry>
+    </qandadiv>
+    <qandadiv id="read">
+      <title>Reading, Browsing And Skimming</title>
+      <para>
+This section contains tips for efficiently working with
+        large amounts of content using speech output.</para>
+      <qandaentry>
+        <question> <para> Hiding and exposing text blocks. </para> </question>
+        <answer>
+          <para>
+            You can hide <emphasis>blocks of text</emphasis>
+            when skimming a file.
+            A <emphasis>block of text</emphasis>
+            is defined as a sequence of contiguous lines starting with
+            a common prefix e.g., cited lines in an email message or blocks of
+            comments in programming languages.
+            See commands 
+            <simplelist type="vert">
+              <member> <command> <keysym>C-e j</keysym></command>
+                <command> emacspeak-hide-or-expose-block</command></member>
+              <member> <command><keysym>C-e C-j</keysym></command>
+                <command> emacspeak-hide-speak-block-sans-prefix</command>
+              </member>
+            </simplelist>
+            to use these features.
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para>Skipping  across blank lines</para>
+        </question>
+        <answer>
+          <para>
+          Use commands
+            <simplelist type="vert">
+              <member><command>emacspeak-skip-blank-lines-backward</command></member>
+              <member><command>emacspeak-skip-blank-lines-forward</command></member>
+            </simplelist>
+to move across contiguous blank lines.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para><emphasis>Everything</emphasis> is
+        searchable.</para> </question>
+        <answer>
+          <para>
+            Everything
+            is <emphasis>searchable</emphasis>
+in Emacs. Use this to advantage when working with all forms
+            of content, since it is often more efficient to
+            use Emacs commands 
+<command><keycap>C-s</keycap></command>
+and  <command><keycap>C-r</keycap></command>
+to perform forward or backward incremental search to locate
+            relevant information  than to listen to  the  content.
+ </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para>Saving positions in a file.</para>
+        </question>
+        <answer>
+          <para>
+Use Emacs <emphasis>mark</emphasis> to save temporary
+            positions in a file.
+Use built-in Emacs <application>bookmark</application>
+to save the position across Emacs sessions. Use built-in
+            Emacs package <application>desktop</application>
+to have Emacs automatically recreate the state of the audio
+            desktop on restart.
+</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question> <para>Working with  different portions of
+        a file at the same time.</para> </question>
+        <answer>
+          <para>
+            Display the file in different Emacs
+            <emphasis>windows</emphasis> 
+            or <emphasis>frames</emphasis>;
+Emacs allows you to display different portions 
+ of the file in each window or frame. Use Emacspeak commands 
+            <simplelist type="vert">
+              <member><command>emacspeak-speak-predefined-window</command></member>
+              <member><command>emacspeak-speak-this-buffer-other-window-display</command></member>
+              <member><command>emacspeak-speak-this-buffer-previous-display</command></member>
+              <member><command>emacspeak-speak-this-buffer-next-display</command></member>
+            </simplelist>
+to listen to a given  portion of a file whilst working on a
+            different portion of the same file.
+</para>
+        </answer>
+      </qandaentry>
+    </qandadiv>
+    <qandadiv>
+      <title>Emacspeak Utilities</title>
+<para>This section gives tips on using some of the built-in
+        productivity tools bundled with Emacspeak.
+Most of these are implemented in module
+        <application>emacspeak-wizards</application>.
+      </para>
+      <qandaentry>
+        <question>
+<para>
+Launch a <command>root</command> shell.</para></question>
+        <answer>
+          <para>
+<emphasis>Never</emphasis> run Emacspeak as the
+            <command>root</command> user.
+Instead use Emacspeak command 
+<command>emacspeak-root</command>
+to create a <command>root shell</command> after starting Emacspeak.
+</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Emacspeak Clipboard</para>
+        </question>
+        <answer>
+          <para>
+Emacspeak provides a clipboard facility to enabling cut and
+            paste across different emacspeak sessions,
+see commands
+            <simplelist type="vert">
+              <member><command>emacspeak-clipboard-copy</command></member>
+              <member><command>emacspeak-clipboard-paste</command></member>
+            </simplelist>
+          </para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Copying current file.</para>
+        </question>
+        <answer>
+          <para>Emacspeak command
+          <command>emacspeak-copy-current-file</command>
+            lets you copy the file being visited to a
+          different location ---this is a convenient way of
+          publishing to a  WWW server.
+</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Personal telephone directory.</para>
+        </question>
+        <answer>
+          <para>
+Emacspeak command
+            <command>emacspeak-speak-telephone-directory</command>
+lets you maintain a telephone directory as a simple text file.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Tabbulating shell command output.</para>
+        </question>
+        <answer>
+          <para>Many UNIX commands produce tabulated output,
+          e.g., command <command>df</command> for displaying
+          a disk usage summary.
+You can use Emacspeak command
+          <command>emacspeak-speak-run-shell-command</command>
+to run such commands and have the tabular output available
+          for browsing using Emacspeak's table browsing facilities.</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Filtering  specific columns of all lines.</para>
+        </question>
+        <answer>
+          <para>
+This is most useful when working with log files.
+Command <command>
+              emacspeak-speak-line-set-column-filter</command>
+            enables you to filter out uninteresting columns
+            of each line as it is spoken.
+            Note that columns are filtered out by making
+            them <emphasis>inaudible</emphasis>
+---in order for this to take effect,
+            <command>voice-lock</command> needs to be active
+            in the current buffer.
+</para>
         </answer>
       </qandaentry>
     </qandadiv>
