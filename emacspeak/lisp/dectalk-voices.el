@@ -1,4 +1,4 @@
-;;; dtk-voices.el --- Define various device independent voices in terms of Dectalk codes.
+;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes.
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Module to set up dtk voices and personalities
@@ -60,7 +60,7 @@
 (defvar dtk-default-voice-string ""
   "dtk string for  default voice --set to be a no-op.")
 
-(defvar dtk-voice-table (make-hash-table)
+(defvar dectalk-voice-table (make-hash-table)
   "Association between symbols and strings to set dtk voices.
 The string can set any dtk parameter.")
 
@@ -68,22 +68,22 @@ The string can set any dtk parameter.")
   "Define a dtk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
-  (declare (special dtk-voice-table ))
-  (puthash  name command-string  dtk-voice-table))
+  (declare (special dectalk-voice-table ))
+  (puthash  name command-string  dectalk-voice-table))
 
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (declare (special dtk-voice-table ))
+  (declare (special dectalk-voice-table ))
   (cond
    ((listp name)
     (mapconcat #'dtk-get-voice-command name " "))
-   (t (or  (gethash name dtk-voice-table)
+   (t (or  (gethash name dectalk-voice-table)
            dtk-default-voice-string))))
 
-(defsubst dtk-voice-defined-p (name)
+(defsubst dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special dtk-voice-table ))
-  (gethash name dtk-voice-table ))
+  (declare (special dectalk-voice-table ))
+  (gethash name dectalk-voice-table ))
 
 ;;}}}
 ;;{{{ voice definitions
@@ -587,8 +587,8 @@ and TABLE gives the values along that dimension."
 
 (defun dtk-list-voices ()
   "List defined voices."
-  (declare (special dtk-voice-table))
-  (loop for k being the hash-keys of dtk-voice-table 
+  (declare (special dectalk-voice-table))
+  (loop for k being the hash-keys of dectalk-voice-table 
 	collect   k))
 
 ;;}}}
@@ -599,14 +599,14 @@ and TABLE gives the values along that dimension."
   (declare (special  dtk-default-speech-rate
                      tts-default-speech-rate))
   (fset 'tts-list-voices 'dtk-list-voices)
-  (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
+  (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dtk-get-voice-command)
-  (fset 'tts-voice-defined-p 'dtk-voice-defined-p)
+  (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-define-voice-from-speech-style 'dtk-define-voice-from-speech-style)
   (setq tts-default-speech-rate dtk-default-speech-rate))
 
 ;;}}}
-(provide 'dtk-voices)
+(provide 'dectalk-voices)
 ;;{{{  emacs local variables
 
 ;;; local variables:

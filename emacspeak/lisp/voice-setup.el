@@ -60,7 +60,7 @@
 ;;
 
 ;;; How faces map to voices:
-;;; TTS engine specific modules e.g., dtk-voices.el and
+;;; TTS engine specific modules e.g., dectalk-voices.el and
 ;;; outloud-voices.el 
 ;;; define a standard set of voice names.
 ;;; This module maps standard "personality" names to these pre-defined
@@ -91,7 +91,7 @@
 (require 'backquote)
 (require 'acss-structure)
 (require 'outloud-voices)
-(require 'dtk-voices)
+(require 'dectalk-voices)
 ;;}}}
 ;;{{{ customization group 
 (defgroup voice-fonts nil

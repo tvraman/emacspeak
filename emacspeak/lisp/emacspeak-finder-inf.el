@@ -20,7 +20,7 @@
     ("dtk-speak.el"
         "Provides Emacs Lisp interface to speech server"
         (dectalk emacs elisp))
-    ("dtk-voices.el"
+    ("dectalk-voices.el"
         "Define various device independent voices in terms of Dectalk codes."
         (voice  personality  dectalk))
     ("eflite-voices.el"
