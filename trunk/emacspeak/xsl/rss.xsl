@@ -5,48 +5,49 @@ Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 View an RSS feed as clean HTML
 -->
- 
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output encoding="iso8859-15"
-              method="html"  indent="yes"/>
-<xsl:template match="/rss/channel">
-<html>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:output encoding="iso8859-15" method="html" indent="yes"/>
+<xsl:template match="/">
+<xsl:apply-templates select="//channel"/>
+  </xsl:template>
+  <xsl:template match="channel">
+    <html>
       <head>
         <title>
           <xsl:apply-templates select="title"/>
         </title>
       </head>
-<body>
-<p>
-<xsl:apply-templates select="description"/>
+      <body>
+        <p>
+          <xsl:apply-templates select="description"/>
         </p>
-<ul>
-<xsl:apply-templates select="item"/>
+        <ul>
+          <xsl:apply-templates select="item"/>
         </ul>
       </body>
     </html>
   </xsl:template>
-<xsl:template match="item">
-<li>
+  <xsl:template match="item">
+    <li>
       <xsl:element name="a">
-<xsl:attribute name="href">
-<xsl:apply-templates select="link"/>
+        <xsl:attribute name="href">
+          <xsl:apply-templates select="link"/>
         </xsl:attribute>
       </xsl:element>
-<xsl:apply-templates select="description"/>
+      <xsl:apply-templates select="description"/>
     </li>
   </xsl:template>
-  <!-- {identity default  -->   
-
-  <xsl:template match="*|@*" >
+  <xsl:template match="title|description">
+    <xsl:apply-templates/>
+  </xsl:template>
+<!-- {identity default  -->
+  <xsl:template match="*|@*">
     <xsl:copy>
-       <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
-
-  <!-- } -->
+<!-- } -->
 </xsl:stylesheet>
 <!--
 Local Variables:
@@ -57,4 +58,4 @@ sgml-set-face: nil
 sgml-insert-missing-element-comment: nil
 folded-file: t
 End:
---> 
+-->
