@@ -382,7 +382,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
                   window-system-version
                   emacs-version
                   system-type
-                  emacspeak-version dtk-tcl dtk-program
+                  emacspeak-version  dtk-program
                   dtk-speech-rate dtk-character-scale
                   dtk-split-caps dtk-capitalize
                   dtk-punctuation-mode
