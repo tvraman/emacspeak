@@ -147,7 +147,6 @@ emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jde.elc \
 emacspeak-kotl.elc \
-emacspeak-loaddefs.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
@@ -214,6 +213,7 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 
 all: $(OBJECTS)  
 config: emacspeak-loaddefs.el
+
 # }}}
 # {{{build time target --loaddefs
 
