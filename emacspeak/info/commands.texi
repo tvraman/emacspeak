@@ -592,7 +592,7 @@ Pre-requisites:
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
 The Emacspeak DAISY front-end is launched by command
-emacspeak-daisy bound to M-x emacspeak-daisy.  
+emacspeak-daisy-open-book  bound to C-e C-b.  
 
 This command switches to a special buffer that has DAISY
 commands bounds to single keystrokes-- see the ke-binding
@@ -4111,8 +4111,8 @@ Warning! Contents of file commands.texi will be overwritten.
 
 @deffn {Interactive Command} emacspeak-generate-texinfo-option-documentation (FILENAME)
 Generate texinfo documentation  for all emacspeak
-options  into file options.texi.
-Warning! Contents of file options.texi will be overwritten.
+options  into file filename.
+Warning! Contents of file filename will be overwritten.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-kill-buffer-quietly ()
