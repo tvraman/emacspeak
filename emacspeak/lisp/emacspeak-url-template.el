@@ -1026,7 +1026,11 @@ plays entire program."
  "sourceforge browse mirrors" 
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
-nil
+#'(lambda ()
+     (declare (special emacspeak-w3-url-rewrite-rule))
+     (setq emacspeak-w3-url-rewrite-rule
+           ("prdownloads.sourceforge.net"
+            "umn.dl.sourceforge.net/sourceforge")))
  "Retrieve download table  at Sourceforge for specified project."
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match "Current"
