@@ -578,6 +578,7 @@ source buffer."
 :type 'string
 :group 'emacspeak-w3)
 
+(make-variable-buffer-local 'emacspeak-w3-xsl-keep-result)
 (defun emacspeak-w3-set-xsl-keep-result (value)
   "Set value of `emacspeak-w3-xsl-keep-result'."
   (interactive  "sEnter name of result buffer: ")
