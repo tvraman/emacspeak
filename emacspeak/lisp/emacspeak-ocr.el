@@ -196,9 +196,61 @@ will be placed."
 ;;{{{  emacspeak-ocr mode
 (declaim (special emacspeak-ocr-mode-map))
 
-(define-derived-mode emacspeak-ocr-mode fundamental-mode 
-  "Major mode for document scanning and  OCR."
-  "Major mode for document scanning and OCR\n\n
+(define-derived-mode emacspeak-ocr-mode text-mode 
+  "Major mode for document scanning and  OCR.\n"
+  " An OCR front-end for the Emacspeak desktop.
+
+Pre-requisites:
+
+1) A working scanner back-end like SANE on Linux.
+
+2) An OCR engine.
+
+1: Make sure your scanner back-end works, and that you have
+the utilities to scan a document and acquire an image as a
+tiff file.  Then set variable
+emacspeak-ocr-scan-image-program to point at this utility.
+By default, this is set to `scanimage' which is the image
+scanning utility provided by SANE.
+
+By default, this front-end attempts to compress the acquired
+tiff image; make sure you have a utility like tiffcp.
+Variable emacspeak-ocr-compress-image is set to `tiffcp' by
+default; if you use something else, you should customize
+this variable.
+
+2: Next, make sure you have an OCR engine installed and
+working.  By default this front-end assumes that OCR is
+available as /usr/bin/ocr.
+
+Once you have ensured that acquiring an image and applying
+OCR to it work independently of Emacs, you can use this
+Emacspeak front-end to enable easy OCR access from within
+Emacspeak.
+
+The Emacspeak OCR front-end is launched by command
+emacspeak-ocr bound to \\[emacspeak-ocr].  
+
+This command switches to a special buffer that has OCR
+commands bounds to single keystrokes-- see the ke-binding
+list at the end of this description.  Use Emacs online help
+facility to look up help on these commands.
+
+emacspeak-ocr-mode provides the necessary functionality to
+scan, OCR, read and save documents.  By default, scanned
+images and the resulting text are saved under directory
+~/ocr; see variable emacspeak-ocr-working-directory.
+Invoking command emacspeak-ocr-open-working-directory bound
+to \\[emacspeak-ocr-open-working-directory] will open this directory.
+
+By default, the document being scanned is named `untitled'.
+You can name the document by using command
+emacspeak-ocr-name-document bound to
+\\[emacspeak-ocr-name-document].  The document name is used
+in constructing the name of the image and text files.
+
+Here is a list of all emacspeak OCR commands along with their key-bindings:
+
 \\{emacspeak-ocr-mode-map}"
   (progn
     (setq emacspeak-ocr-current-page-number 0
@@ -206,8 +258,10 @@ will be placed."
           emacspeak-ocr-page-positions
           (make-vector 25 nil))
     (emacspeak-ocr-update-mode-line)
-    (emacspeak-keymap-remove-emacspeak-edit-commands emacspeak-ocr-mode-map)))
+    (emacspeak-keymap-remove-emacspeak-edit-commands
+     emacspeak-ocr-mode-map)))
 
+(define-key emacspeak-ocr-mode-map "?" 'describe-mode)
 (define-key emacspeak-ocr-mode-map "q" 'bury-buffer)
 (define-key emacspeak-ocr-mode-map "w" 'emacspeak-ocr-write-document)
 (define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
@@ -234,11 +288,17 @@ will be placed."
 ;;{{{ interactive commands
 
 (defun emacspeak-ocr ()
-  "OCR front-end for Emacspeak desktop.  
-Page image is acquired
-using user space tools from the SANE package.  The acquired
-image is run through the OCR engine if one is available, and
-the results placed in a buffer that is suitable for browsing the results."
+  "An OCR front-end for the Emacspeak desktop.  
+
+Page image is acquired using tools from the SANE package.
+The acquired image is run through the OCR engine if one is
+available, and the results placed in a buffer that is
+suitable for browsing the results.
+
+For detailed help, invoke command emacspeak-ocr bound to
+\\[emacspeak-ocr] to launch emacspeak-ocr-mode, and press
+`?' to display mode-specific help for emacspeak-ocr-mode."
+
   (interactive)
   (declare (special emacspeak-ocr-working-directory
                     buffer-read-only))
