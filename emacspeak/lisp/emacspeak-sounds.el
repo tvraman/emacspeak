@@ -501,7 +501,6 @@ is a .1ms note on instrument 60."
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (declare (special emacspeak-use-auditory-icons
-                    emacspeak-aumix-multichannel-capable-p
                     dtk-program emacspeak-auditory-icon-function))
   (require 'emacspeak-aumix)
   (cond
@@ -512,13 +511,6 @@ Optional interactive PREFIX arg toggles global value."
                   emacspeak-use-auditory-icons))
    (t (setq emacspeak-use-auditory-icons
             (not emacspeak-use-auditory-icons))))
-  ;; when using software tts  use midi if we cant mix channels.
-  (when (and emacspeak-use-auditory-icons
-             (or
-	      (string-equal dtk-program "outloud")
-	      (string-equal dtk-program "stereo-outloud"))
-             (not emacspeak-aumix-multichannel-capable-p))
-    (setq emacspeak-auditory-icon-function 'emacspeak-play-midi-icon))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  "on" "off" )
            (if prefix "" "locally"))
