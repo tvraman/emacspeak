@@ -47,6 +47,7 @@
 ;;{{{ required modules
 
 ;;; Code:
+(require 'cl)
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ advice interactive commands

@@ -49,21 +49,15 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'voice-setup)
-(eval-when-compile (require 'dtk-speak)
-                   (condition-case nil
-                       (progn (require 'widget)
-                              (require 'wid-edit)
-                              (message "Compiling against widget libraries %s %s"
-                                       (locate-library "widget")
-                                       (locate-library "wid-edit")))
-                     (error
-                      (message  "Widget libraries not found, widget support may not work correctly.")))
-                   (require 'emacspeak-speak)
-                   (require 'emacspeak-sounds))
+(require 'dtk-speak)
+(require 'widget)
+(require 'wid-edit)
+(require 'emacspeak-speak)
+(require 'emacspeak-sounds)
 
 ;;}}}
 ;;{{{  Customize global behavior
