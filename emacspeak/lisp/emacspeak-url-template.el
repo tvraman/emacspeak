@@ -66,7 +66,8 @@
   template                              ;template URL string 
   generators                            ; list of param generator
   post-action                           ;action to perform after opening
-  documentation                         ;documentation for this resource
+  documentation                         ;resource  documentation
+  fetcher                               ; custom fetcher 
   )
 
 ;;}}}
@@ -105,7 +106,8 @@
 
 (defun emacspeak-url-template-define (name template
                                            &optional generators
-                                           post-action documentation)
+                                           post-action
+                                           documentation fetcher)
   "Define a URL template."
   (declare (special emacspeak-url-template-table))
   (emacspeak-url-template-set
@@ -114,7 +116,9 @@
                                        :template template
                                        :generators generators
                                        :post-action post-action
-                                       :documentation documentation)))
+                                       :documentation
+                                       documentation
+                                       :fetcher fetcher)))
                                
 
 (defun emacspeak-url-template-load (file)
@@ -286,8 +290,6 @@ Francisco ny for New york etc.")
  "Use access.adobe.com to  convert a remote PDF document to
 HTML.
 The PDF document needs to be available on the public Internet.")
-accessible 
-     
 
 ;;}}}
 ;;{{{ w3c 
@@ -345,10 +347,6 @@ name of the list.")
                         (format-time-string "%m/%d") nil nil nil 
                         (format-time-string "%m/%d")))
 
-
-
-
-
 (emacspeak-url-template-define
  "CNN Tecnology "
                                "http://www.cnn.com/2001/TECH/science/%s/"
@@ -403,6 +401,16 @@ Computing News at CNN.")
  "Play Technetcast stream from DDJ.")
 
 ;;{{{ sourceforge
+(emacspeak-url-template-define
+ "sourceforge Stats" 
+ "http://sourceforge.net/project/stats?group_id=%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Project Id")))
+ nil
+ "Display project usage statistics."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table 9 url)))
 
 (emacspeak-url-template-define
  "sourceforge project" 
@@ -441,9 +449,12 @@ nil
 
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (browse-url  (emacspeak-url-template-url ut))
-  (when (emacspeak-url-template-post-action ut)
-    (funcall (emacspeak-url-template-post-action ut))))
+  (let
+      ((fetcher (or (emacspeak-url-template-fetcher ut)
+                    'browse-url)))
+    (funcall fetcher   (emacspeak-url-template-url ut))
+(when (emacspeak-url-template-post-action ut)
+    (funcall (emacspeak-url-template-post-action ut)))))
 
 (defun emacspeak-url-template-fetch ()
   "Fetch a pre-defined resource.
@@ -507,3 +518,4 @@ resources."
 ;;; end:
 
 ;;}}}
+
