@@ -450,6 +450,25 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; causes the sound
 ;;; to be queued.
 
+
+(defsubst tts-overlay-personality-at-point ()
+  "Return personality at the front of the overlay list at point."
+  (car
+   (remove nil
+           (mapcar
+            #'(lambda (o)
+                (overlay-get o 'personality))
+                 (overlays-at (point))))))
+
+(defsubst tts-overlay-auditory-icon-at-point ()
+  "Return auditory icon  at the front of the overlay list at point."
+  (car
+   (remove nil
+           (mapcar
+            #'(lambda (o)
+                (overlay-get o 'auditory-icon))
+                 (overlays-at (point))))))
+
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
 Arguments START and END specify region to speak."
@@ -461,7 +480,9 @@ Arguments START and END specify region to speak."
   (cond
    (voice-lock-mode
     (let ((last  nil)
-          (personality (get-text-property start 'personality )))
+          (personality
+           (or (tts-overlay-personality-at-point)
+           (get-text-property start 'personality ))))
       (while (and (< start end )
                   (setq last
                         (next-single-property-change  start 'personality
