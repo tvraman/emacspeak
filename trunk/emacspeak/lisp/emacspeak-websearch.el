@@ -1704,7 +1704,7 @@ Optional interactive prefix arg results in prompting for a search term."
     (browse-url  url)
     (emacspeak-websearch-post-process
      (if prefix
-         "Sorted " 
+         "Sort by " 
        "Threads" )
      'emacspeak-speak-line)))
 
