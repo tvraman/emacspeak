@@ -84,6 +84,10 @@
   'dennis  
   "Personality to use for documentation strings.")
 
+(defvar voice-lock-constant-personality
+  'dennis 
+  "Personality to use for  constants.")
+
 (defvar voice-lock-string-personality
   'betty 
   "Personality to use for string constants.")
