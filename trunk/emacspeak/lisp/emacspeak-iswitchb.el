@@ -134,6 +134,13 @@
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+;;{{{ update keybindings
+
+(defun emacspeak-iswitchb-keys ()
+  "Add emacspeak keybindings for iswitchb."
+  (define-key iswitchb-mode-map  [left]  'iswitchb-prev-match)
+  (define-key iswitchb-mode-map  [right]  'iswitchb-next-match))
+;;}}}
 (provide 'emacspeak-iswitchb)
 ;;{{{ end of file
 
