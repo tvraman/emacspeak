@@ -1495,46 +1495,46 @@ in completion buffers"
 
 
 (defadvice vc-toggle-read-only (around emacspeak pre act)
-    "Provide auditory feedback."
-    (cond
-     ((interactive-p)
-      (let ((message (format  "Checking %s version %s "
-                              (if buffer-read-only  "out previous " " in new  ")
-                              (emacspeak-vc-get-version-id))))
-        (if buffer-read-only
-            (emacspeak-auditory-icon 'open-object )
-          (emacspeak-auditory-icon 'close-object))
-        ad-do-it
-        (message message )))
-     (t ad-do-it ))
-    ad-return-value )
+  "Provide auditory feedback."
+  (cond
+   ((interactive-p)
+    (let ((message (format  "Checking %s version %s "
+                            (if buffer-read-only  "out previous " " in new  ")
+                            (emacspeak-vc-get-version-id))))
+      (if buffer-read-only
+          (emacspeak-auditory-icon 'open-object )
+        (emacspeak-auditory-icon 'close-object))
+      ad-do-it
+      (message message )))
+   (t ad-do-it ))
+  ad-return-value )
 
 (defadvice vc-next-action (around  emacspeak pre act)
-    "Provide auditory feedback."
-    (cond
-     ((interactive-p)
-      (let ((message (format  "Checking %s version %s "
-                              (if buffer-read-only  "out previous " " in new  ")
-                              (emacspeak-vc-get-version-id))))
-        (if buffer-read-only
-            (emacspeak-auditory-icon 'close-object)
-          (emacspeak-auditory-icon 'open-object ))
-        ad-do-it
-        (message message)))
-     (t ad-do-it ))
-    ad-return-value )
+  "Provide auditory feedback."
+  (cond
+   ((interactive-p)
+    (let ((message (format  "Checking %s version %s "
+                            (if buffer-read-only  "out previous " " in new  ")
+                            (emacspeak-vc-get-version-id))))
+      (if buffer-read-only
+          (emacspeak-auditory-icon 'close-object)
+        (emacspeak-auditory-icon 'open-object ))
+      ad-do-it
+      (message message)))
+   (t ad-do-it ))
+  ad-return-value )
 
 (defadvice vc-revert-buffer (after emacspeak pre act)
-    "Provide auditory feedback."
-    (when (interactive-p  )
-      (emacspeak-auditory-icon 'open-object)))
+  "Provide auditory feedback."
+  (when (interactive-p  )
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice vc-finish-logentry (after emacspeak pre act)
-    "Provide auditory feedback."
-    (when (interactive-p)
-      (emacspeak-auditory-icon  'close-object)
-      (message "Checked   in  version %s "
-               (emacspeak-vc-get-version-id))))
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon  'close-object)
+    (message "Checked   in  version %s "
+             (emacspeak-vc-get-version-id))))
   
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
@@ -2949,6 +2949,15 @@ Variable mark-even-if-inactive is set true ."
   (emacspeak-fix-commands-loaded-from 
    (file-name-sans-extension
     (ad-get-arg 0))))
+;;}}}
+;;{{{ eldoc 
+(defadvice eldoc-message (around  emacspeak pre act comp)
+  "Speech enable ELDoc for the rare times we use it."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    (when eldoc-last-message
+      (dtk-speak eldoc-last-message))
+    ad-return-value))
 ;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
