@@ -600,7 +600,8 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 the documentation on the table browser."
   (interactive "r")
   (declare (special positions))
-  (let ((buffer (get-buffer-create
+  (let ((workspace (get-buffer-create " table workspace  "))
+        (buffer (get-buffer-create
                  (format  "*table-%s*"
                           (or (buffer-name)
                               "scratch"))))
@@ -610,9 +611,19 @@ the documentation on the table browser."
         (j 0)
         (count 0)
         (row-start 1)
-        (column-start 1))
+        (column-start 1)
+        (text (buffer-substring start end)))
+    (save-excursion
+      (set-buffer workspace)
+      (erase-buffer)
+      (insert text)
+      (goto-char (point-min))
+      (flush-lines "^ *$")
     (setq table (emacspeak-table-make-table
-                 (ems-tabulate-parse-region start end)))
+                 (ems-tabulate-parse-region
+                  (point-min)
+                  (point-max)))))
+    (kill-buffer workspace)
     (save-excursion
       (set-buffer buffer)
       (let ((inhibit-read-only t))
