@@ -4,7 +4,7 @@ INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/linux-outloud
-CFLAGS= -g -fPIC  -DPIC -pedantic -ansi -Wall
+CFLAGS= -g  -fPIC  -DPIC -pedantic -ansi -Wall 
 CPPFLAGS=    -DUNIX -fPIC -DPIC  -g
 
 TTS=tcleci.so eci.ini VIAVOICE
