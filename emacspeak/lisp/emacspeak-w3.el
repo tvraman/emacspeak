@@ -864,6 +864,7 @@ current page."
     (w3-open-local filename)
     (delete-file filename)))
 
+
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this buffer."
   (interactive "r")
@@ -875,6 +876,8 @@ current page."
                   filename)
     (w3-open-local filename)
     (delete-file filename)))
+;;; w3-region is broken with respect to handling  some html
+(defalias 'w3-region 'emacspeak-w3-preview-this-region)
 
 ;;}}}
 ;;{{{ fix bug in W3 under emacs 21 
