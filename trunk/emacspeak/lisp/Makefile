@@ -202,7 +202,7 @@ emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
 emacspeak-xslt-process.elc 
 
-ADDON_OBJECTS= tapestry.elc   xml-parse.elc regexp-opt.elc
+ADDON_OBJECTS= tapestry.elc   xml-parse.elc 
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 	$(AUX_OBJECTS) $(ADDON_OBJECTS)
