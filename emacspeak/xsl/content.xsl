@@ -19,13 +19,20 @@
 
   <!-- } -->
   <!-- { html body  --> 
-<xsl:template match="script|meta|link"/>
+
+<xsl:template match="//script|meta|link"/>
   <xsl:template match="html/body">
     <xsl:element name="body">
 <xsl:apply-templates 
 select = "//h1|//h2|//h3|//p|//ul|//ol|//dl|//li|//blockquote"/>
     </xsl:element>
   </xsl:template>
-  
+
   <!-- } -->
 </xsl:stylesheet>
+<!-- {end of file  --> 
+<!--
+local variables:
+folded-file: t
+end:
+ <!-- } -->
