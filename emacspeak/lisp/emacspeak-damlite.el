@@ -72,7 +72,7 @@ voice-lock-keyword-personality
 "Personality for keywords in DAML.")
 
 (def-voice-font emacspeak-daml-normal-face
-  voice-monotone-medium
+  'paul
 'daml-normal-face
 "Normal face in DAML.")
 
