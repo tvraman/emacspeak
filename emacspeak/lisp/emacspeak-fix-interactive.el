@@ -90,26 +90,21 @@ interactive prompts speak. ")
   "Predicate to test if this function should be fixed. "
   (declare (special emacspeak-commands-that-are-fixed 
                     emacspeak-commands-dont-fix-regexp))
-  (save-match-data 
-    (and (fboundp  sym)
-         (commandp sym)
-         (not (memq  sym emacspeak-commands-that-are-fixed))
-         (not
-          (string-match emacspeak-commands-dont-fix-regexp
-                        (symbol-name sym )))
-         (stringp (second (ad-interactive-form (symbol-function sym )))))))
+  (and (commandp sym)
+       (stringp (second (ad-interactive-form (symbol-function sym))))
+       (not (memq  sym emacspeak-commands-that-are-fixed))
+       (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))))
  
 (defun emacspeak-fix-commands-that-use-interactive ()
-  "Auto advices interactive commands to speak prompts where
-necessary.
+  "Auto advices interactive commands to speak prompts.
 Updates and returns the list of commands that have been so fixed."
-  (declare (special emacspeak-commands-that-are-fixed ))
+  (declare (special emacspeak-commands-that-are-fixed))
   (mapatoms
    (function
     (lambda (sym)
       (when
           (and (emacspeak-should-i-fix-interactive-p sym)
-             (emacspeak-fix-interactive sym))
+               (emacspeak-fix-interactive sym))
         (push sym emacspeak-commands-that-are-fixed ))))))
   
 
@@ -227,20 +222,56 @@ speak its prompts. "
 
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
+
+;;; Code initially contributed by  Dmitry Paduchih
+;;; <paduch@imm.uran.ru>
+;;; Updated by <raman@cs.cornell.edu> to avoid unnecessary
+;;; globals
+
 (defun emacspeak-fix-commands-loaded-from (module)
   "Fix all commands loaded from a specified module."
   (interactive
    (list
     (read-from-minibuffer "Module:")))
-  (dolist (item (rest (assoc module load-history)))
+  (dolist (item
+           (rest (assoc module load-history)))
     (and (symbolp item)
 	 (commandp item)
-	 (emacspeak-fix-interactive-command-if-necessary
-          item)))
+	 (emacspeak-fix-interactive-command-if-necessary item)))
   (when (interactive-p)
-    (message "Fixed interactive commands defined in module
-%s" module)))
+    (message "Fixed interactive commands defined in module %s" module)))
 
+(defvar emacspeak-load-history-pointer load-history
+  "Internal variable used by command 
+emacspeak-fix-all-recent-commands to track load-history.")
+
+(defun emacspeak-fix-all-recent-commands ()
+  "Fix recently loaded interactive commands.
+This command looks through `load-history' and fixes commands if necessary.
+Memoizes call in emacspeak-load-history-pointer to memoize this call. "
+  (interactive)
+  (declare (special load-history
+                    emacspeak-load-history-pointer))
+  (let ((lh load-history)
+        (emacspeak-speak-messages nil))
+;;; cdr down lh till we hit emacspeak-load-history-pointer
+    (while (and lh
+                (not (eq lh
+                         emacspeak-load-history-pointer)))
+      ;;; fix commands in this module
+      (dolist (item (rest (first lh)))
+	(and (symbolp item)
+	     (commandp item)
+                                        ; so fix it if possible
+	     (emacspeak-fix-interactive-command-if-necessary item)))
+      (when (interactive-p)
+	(message "Fixed commands in %s" (first (first lh))))
+      (setq lh (rest lh)))
+;;;memoize for future call
+    (setq emacspeak-load-history-pointer load-history))
+  (when (interactive-p)
+    (message "Fixed recently defined  interactive commands"))
+  t)
 
 ;;}}}
 (provide 'emacspeak-fix-interactive)
