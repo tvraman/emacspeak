@@ -152,16 +152,7 @@
 ;;; voice-setup-face-voice-table
 
 ;;}}}
-;;{{{ color to voices 
-
-;;}}}
 ;;{{{ special form def-voice-font 
-(defsubst voice-setup-properties-from-plist  (plist)
-  "Take a plist and return  only the property names."
-  (let ((l (1- (length plist))))
-    (loop for i from 0 to l by 2
-          collect (nth i plist))))
-
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
@@ -172,6 +163,7 @@
      :type (voice-setup-custom-menu)
      :group 'voice-fonts
      :set '(lambda  (sym val)
+             ;record  personality as an observer of  voice
              (put  '(, voice)
                           '(, personality) t)
              (voice-setup-set-voice-for-face (, face) '(, personality))
@@ -180,6 +172,7 @@
 
 ;;}}}
 ;;{{{  special form defvoice 
+
 (defvar voice-setup-personality-table (make-hash-table)
   "Maps personality names to ACSS  settings.
 Keys are personality names.")
@@ -198,18 +191,22 @@ Keys are personality names.")
            :punctuations (nth 5  style-list)))))
     (puthash  voice style-list voice-setup-personality-table)
     voice))
+(defsubst voice-setup-observing-personalities  (voice-name)
+  "Return a list of personalities that are `observing' VOICE-NAME.
+Observing personalities are automatically updated when settings for
+VOICE-NAME are  changed."
+  (let* ((plist (symbol-plist voice-name))
+         (l (1- (length plist))))
+    (loop for i from 0 to l by 2
+          collect (nth i plist))))
 
 (defun voice-setup-update-personalities (personality)
   "Update  personalities  that use this voice to  new setting."
   (let ((value (symbol-value personality))
-        (users (voice-setup-properties-from-plist
-                (symbol-plist personality))))
+        (users (voice-setup-observing-personalities personality)))
     (loop for u in users
-          do
+          do ;u is already quoted 
           (set u value))))
-               
-
-
 
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
@@ -245,9 +242,9 @@ command \\[customize-variable] on <personality>-settings."
      :group 'voice-fonts
      :set
      '(lambda  (sym val)
-        (let ((voice-name
-               (voice-setup-personality-from-style val)))
+        (let ((voice-name (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
+;;; update all observers
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 

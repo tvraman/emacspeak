@@ -121,15 +121,24 @@ directory."
 ;;}}}
 ;;{{{ generate autoloadms
 
+(defvar emacspeak-update-autoloads-from-directories
+  (cond
+   ((fboundp 'update-autoloads-from-directories)
+    'update-autoloads-from-directories)
+   ((fboundp  'update-directory-autoloads)
+    'update-directory-autoloads))
+  "Function used to extract autoloads.")
+
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
   (declare (special emacspeak-directory
-                    emacspeak-lisp-directory
-                    emacspeak-auto-autoloads-file))
+                    emacspeak-update-autoloads-from-directories emacspeak-lisp-directory
+                    emacspeak-auto-autoloads-file
+                    ))
   (let ((dtk-quiet t)
         (source-directory emacspeak-directory)
         (generated-autoload-file emacspeak-auto-autoloads-file))
-    (update-autoloads-from-directories emacspeak-lisp-directory)))
+    (funcall emacspeak-update-autoloads-from-directories emacspeak-lisp-directory)))
 
 ;;}}}
 (provide 'emacspeak-autoload)
