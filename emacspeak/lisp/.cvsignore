@@ -5,3 +5,5 @@ emacspeak-load-path.el
 emacspeak-setup.el
 semantic.cache
 update
+emacspeak-loaddefs.el
+emacspeak-cus-load.el
