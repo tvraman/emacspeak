@@ -46,6 +46,7 @@
   (require 'emacspeak-fix-interactive))
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
+(require 'voice-setup)
 (require 'emacspeak-personality)
 
 ;;}}}
@@ -161,18 +162,49 @@
 ;;}}}
 ;;{{{ voice locking 
 
-(defvar rpm-spec-macro-personality 'harry
-  "*Personality for macros")
-(defvar rpm-spec-tag-personality 'paul-smooth
-  "*Personality for tags")
-(defvar rpm-spec-package-personality 'paul-animated
-  "*Personality for package tag")
-(defvar rpm-spec-dir-personality 'betty
-  "*Personality for directory entries")
-(defvar rpm-spec-doc-personality 'paul-monotone
-  "*Personality for documentation entries")
-(defvar rpm-spec-ghost-personality 'annotation-voice
-  "*Personality for %ghost files")
+(defcustom rpm-spec-macro-personality  'harry
+  "*Personality for macros"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+(voice-setup-set-voice-for-face 'rpm-spec-macro-face
+                                'rpm-spec-macro-face)
+
+(defcustom rpm-spec-tag-personality 'paul-smooth
+  "*Personality for tags"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+
+(voice-setup-set-voice-for-face 'rpm-spec-tag-face rpm-spec-tag-personality)
+
+(defcustom rpm-spec-package-personality 'paul-animated
+  "*Personality for package tag"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+
+(voice-setup-set-voice-for-face 'rpm-spec-tag-face
+rpm-spec-tag-personality)
+
+
+(defcustom rpm-spec-dir-personality 'betty
+  "*Personality for directory entries"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+
+(voice-setup-set-voice-for-face 'rpm-spec-tag-face
+                                rpm-spec-tag-personality)
+
+(defcustom rpm-spec-doc-personality 'paul-monotone
+  "*Personality for documentation entries"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+
+(voice-setup-set-voice-for-face 'rpm-spec-doc-face  rpm-spec-doc-personality)
+(defcustom rpm-spec-ghost-personality 'annotation-voice
+  "*Personality for %ghost files"
+  :type 'symbol
+  :group 'emacspeak-rpm)
+(voice-setup-set-voice-for-face  'rpm-spec-ghost-face
+rpm-spec-ghost-personality)
 
 
 

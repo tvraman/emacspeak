@@ -160,8 +160,8 @@ Summarize the form to welcome the user. "
 
 (defadvice eudc-mode (before emacspeak pre act comp)
   "Setup for voiceification"
-  (setq lazy-voice-lock-mode nil)
   (voice-lock-mode 1))
+
 (defgroup emacspeak-eudc nil
   "Emacspeak add-on to the Emacs Universal Directory Client."
   :group 'emacspeak
