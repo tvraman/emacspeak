@@ -60,12 +60,18 @@ from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
  /usr/share/emacs/site-lisp/emacspeak/
 %doc servers/linux-outloud/NOTES
 %doc etc/NEWS
+%doc etc/NEWS-14.0
+%doc etc/NEWS-13.0
 %doc etc/NEWS-12.0
 %doc etc/NEWS-11.0
 %doc etc/NEWS-10.0
 %doc etc/NEWS-9.0
 %doc etc/NEWS-8.0
 %doc etc/FAQ
+%doc etc/HELP
+%doc etc/COPYRIGHT
+%doc etc/tips.html
+%doc etc/applications.html
 /usr/bin/emacspeak
 /usr/info/emacspeak.info
 /usr/info/emacspeak.info-1
