@@ -39,10 +39,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -52,6 +48,40 @@
 ;;; Code:
 
 ;;}}}
+;;{{{ required modules
+
+(require 'emacspeak-preamble)
+;;}}}
+;;{{{  define voices 
+(def-voice-font emacspeak-pcl-cvs-filename-face voice-bolden
+  'cvs-filename-face
+  "Personality used for file names in CVS buffers.")
+
+(def-voice-font emacspeak-pcl-cvs-handled-face
+  voice-monotone-medium
+  'cvs-handled-face
+  "Personality to match cvs-handle-face.")
+
+(def-voice-font emacspeak-pcl-cvs-header-face voice-bolden
+  'cvs-header-face
+  "Personality for CVS header lines.")
+
+(def-voice-font emacspeak-pcl-cvs-marked-face
+  voice-brighten-medium
+  'cvs-marked-face
+  "Personality for marked lines in CVS.")
+
+(def-voice-font emacspeak-pcl-cvs-msg-face voice-monotone-medium
+  'cvs-msg-face
+  "Personality for CVS messages.")
+
+(def-voice-font emacspeak-pcl-cvs-need-action-face voice-brighten
+  'cvs-need-action-face
+  "Personality for CVS lines needing an action.")
+
+
+;;}}}
+
 ;;{{{  speech enable interactive commands 
 
 (defadvice cvs-mode-kill-buffers (after emacspeak pre act
