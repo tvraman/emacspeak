@@ -78,7 +78,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
       (when (emacspeak-sounds-theme-p "chimes-mono/")
         (emacspeak-sounds-select-theme "chimes-mono/"))
       (tts-configure-synthesis-setup)
-      (dtk-set-rate dtk-default-speech-rate 'global))
+      (dtk-set-rate tts-default-speech-rate 'global))
 
     ;;}}}
     ;;{{{  handle terminal weirdnesses and function keys
@@ -451,7 +451,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
           #'(lambda ()
              (emacspeak-aumix-reset)
              (shell)
-             (dtk-set-rate dtk-default-speech-rate 'global)
+             (dtk-set-rate tts-default-speech-rate 'global)
              (calendar)
              (message "Successfully initialized Emacs")
              (shell-command "play ~/cues/highbells.au")))
