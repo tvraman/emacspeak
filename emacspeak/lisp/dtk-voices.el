@@ -101,15 +101,7 @@ COMMAND-STRING to the Dectalk."
 (dtk-define-voice 'wendy "[:nw]")
 (dtk-define-voice 'kit "[:nk]")
 
-;;; Modified voices:
-;;; Modifications for paul:
-(dtk-define-voice 'paul-bold "[:np  :dv sm 50 ri 30 pr 200 ap 132]")
-(dtk-define-voice 'paul-italic "[:np :dv ap 132 hs 99 pr 200 hr 20 sr 32 qu 100]")
-(dtk-define-voice 'paul-smooth "[:np  :dv sm 15 ri 65 sr 50 as 100 qu 100]")
-(dtk-define-voice 'annotation-voice "[:np :dv  sm 30 ri 50  hr 0 sr 0 ]")
-(dtk-define-voice 'indent-voice  "[:np :dv  sm 40 ri 40  hr 7  sr 10 ]")
-(dtk-define-voice 'paul-animated "[:np  :dv pr 200 hr  30 sr 50 as 100 qu 100]")
-(dtk-define-voice 'paul-monotone "[:np  :dv pr 0 hr 1 sr 2 as 0 ]")
+
 
 ;;}}}
 ;;{{{  the inaudible voice

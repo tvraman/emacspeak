@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'lisp-mnt)
@@ -1381,7 +1381,7 @@ Signals end of buffer."
                     (format "skip %d " newlines))
               (put-text-property  0 (length skipped)
                                   'personality
-                                  'annotation-voice skipped))
+                                  voice-annotate skipped))
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak
              (concat skipped
@@ -1416,7 +1416,7 @@ Signals beginning  of buffer."
               (setq skipped  (format "skip %d " newlines))
               (put-text-property  0 (length skipped)
                                   'personality
-                                  'annotation-voice skipped))
+                                  voice-annotate skipped))
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak
              (concat skipped
@@ -2279,7 +2279,6 @@ Moves to the longest line when called interactively."
   "Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family."
   (interactive "nStep:")
-  (interactive)
   (let ((buffer (get-buffer-create "*Voice Sampler*"))
         (voice nil))
     (save-excursion

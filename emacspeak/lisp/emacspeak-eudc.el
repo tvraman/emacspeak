@@ -122,7 +122,7 @@ Summarize the form to welcome the user. "
                        'personality voice-animate
                        host)
     (put-text-property 0  (length server)
-                       'personality 'annotation-voice
+                       'personality voice-annotate
                        server)
     (dtk-speak 
      (concat server 

@@ -111,7 +111,7 @@
          (put-text-property start end
                             'auditory-icon 'mark-object)
          (put-text-property start end
-                            'personality 'paul-animated))
+                            'personality voice-animate))
         (emacspeak-speak-line)
         (emacspeak-auditory-icon 'mark-object)))))
 (defadvice xslt-process-remove-breakpoint (after emacspeak pre

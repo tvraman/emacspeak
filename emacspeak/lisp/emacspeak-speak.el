@@ -769,6 +769,7 @@ lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode voice-animate
+                    voice-indent
                     dtk-stop-immediately
                     inhibit-field-text-motion
                     emacspeak-speak-line-invert-filter
@@ -875,7 +876,7 @@ are indicated with auditory icon ellipses."
                 (progn
                   (setq indent (format "indent %d" indent))
                   (put-text-property   0 (length indent)
-                                       'personality 'indent-voice  indent )
+                                       'personality voice-indent   indent )
                   (dtk-speak (concat indent line)))
               (dtk-speak line)))))))))
 
@@ -1540,6 +1541,7 @@ semantic to do the work."
   "Speak the mode-line."
   (interactive)
   (declare (special  mode-name  major-mode
+                     voice-annotate
                      emacspeak-which-function-mode
                      global-mode-string
                      column-number-mode line-number-mode
@@ -1564,7 +1566,7 @@ semantic to do the work."
      ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t                                 ;process modeline
       (put-text-property 0 (length dir-info)
-                         'personality 'annotation-voice dir-info) 
+                         'personality voice-annotate dir-info) 
       (cond
        ((> (length (frame-list)) 1)
         (setq frame-info
@@ -1622,7 +1624,7 @@ running under.")
   "Return buffer coding system info if releant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
-  (declare (special buffer-file-coding-system
+  (declare (special buffer-file-coding-system voice-annotateannotatate
                     emacspeak-speak-default-os-coding-system))
   (cond
    ((and (boundp 'buffer-file-coding-system)
@@ -1632,7 +1634,7 @@ current coding system, then we return an empty string."
     (let ((value (format "%s" buffer-file-coding-system)))
       (put-text-property 0  (length value)
                          'personality
-                         'annotation-voice
+                         voice-annotate
                          value)
       value))
    (t "")))
@@ -1641,7 +1643,7 @@ current coding system, then we return an empty string."
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
 
 (put-text-property 0 (length emacspeak-minor-mode-prefix)
-                   'personality 'annotation-voice emacspeak-minor-mode-prefix)
+                   'personality voice-annotate emacspeak-minor-mode-prefix)
 
 (defun emacspeak-speak-minor-mode-line ()
   "Speak the minor mode-information."
@@ -1822,7 +1824,7 @@ to command yank."
          (format "kill %s "
                  (if current-prefix-arg (+ 1 count)  1 ))))
     (put-text-property 0 (length context)
-                       'personality 'annotation-voice context )
+                       'personality voice-annotate context )
     (dtk-speak
      (concat
       context
@@ -1915,7 +1917,7 @@ achieved by a change in voice personality."
          (format "mark %s "
                  (if current-prefix-arg count   0 ))))
     (put-text-property 0 (length context)
-                       'personality 'annotation-voice context )
+                       'personality voice-annotate context )
     (setq position
           (if current-prefix-arg
               (elt mark-ring(1-  count))
@@ -2067,6 +2069,7 @@ set the current local value to the result."
 
   (interactive  "P")
   (declare  (special  emacspeak-comint-autospeak
+                      voice-annotate
                       voice-animate
                       emacspeak-comint-split-speech-on-newline ))
   (cond
@@ -2172,11 +2175,12 @@ message area.  You can use command
 ;;; helper function: speak a field
 (defsubst  emacspeak-speak-field (start end )
   "Speaks field delimited by arguments START and END."
+  (declare (special voice-annotate))
   (let ((header (or (get-text-property start  'field-name) "")))
     (dtk-speak
      (concat
       (progn (put-text-property 0 (length header )
-                                'personality 'annotation-voice
+                                'personality voice-annotate
                                 header )
              header )
       " "
