@@ -705,7 +705,7 @@ the broadcast. You must have mplayer installed."
  #'(lambda (url)
      (emacspeak-w3-extract-table-list
       (list 5 6)
- url)))
+      url)))
 
 (emacspeak-url-template-define
  "sourceforge project" 

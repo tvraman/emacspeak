@@ -2648,10 +2648,6 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-browse-link-with-styleBrowse link with specified XSL style.
-
-------------------------------------------------------------
-
 ** emacspeak-w3-class-filter-and-followFollow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -2663,14 +2659,11 @@ used as well.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-by-classExtract elements having specified class attribute  from
-HTML.  
-Extracts specified elements from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract content  from.
+** emacspeak-w3-extract-by-classExtract elements having specified class attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
 Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the
-minibuffer.
+Interactive prefix arg causes url to be read from the minibuffer.
 
 ------------------------------------------------------------
 
@@ -2690,6 +2683,23 @@ minibuffer.
 ** emacspeak-w3-extract-tableExtract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-table-by-positionExtract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion.
+Interactive prefix arg causes url to be read from the minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-table-listExtract specified list of tables from a WWW page.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-tables-by-position-listExtract specified list of tables from a WWW page.
+Tables are specified by their position in the list 
+of tables found in the page.
 
 ------------------------------------------------------------
 

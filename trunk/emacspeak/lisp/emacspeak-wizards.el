@@ -1956,20 +1956,20 @@ directory to where find is to be launched."
     (set-buffer (url-retrieve-synchronously url))
     (let ((src-buffer (current-buffer))
           (emacspeak-w3-xsl-p nil))
-          (emacspeak-xslt-region
-           style
-           (point-min)
-           (point-max)
-           (list
-            (cons "base"
-                  (format "\"'%s'\""
-                          url))))
-          (setq emacspeak-w3-post-process-hook
-                #'(lambda nil
-                    (emacspeak-speak-mode-line)
-                    (emacspeak-auditory-icon 'open-object)))
-          (emacspeak-w3-preview-this-buffer)
-          (kill-buffer src-buffer))))
+      (emacspeak-xslt-region
+       style
+       (point-min)
+       (point-max)
+       (list
+	(cons "base"
+	      (format "\"'%s'\""
+		      url))))
+      (setq emacspeak-w3-post-process-hook
+	    #'(lambda nil
+		(emacspeak-speak-mode-line)
+		(emacspeak-auditory-icon 'open-object)))
+      (emacspeak-w3-preview-this-buffer)
+      (kill-buffer src-buffer))))
 
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
@@ -2084,7 +2084,7 @@ value of the file local pattern."
 
 (defun emacspeak-wizards-spot-words (ext word)
   "Searches recursively in all files with extension `ext'
-for `word' and siplays hits in a compilation buffer."
+for `word' and displays hits in a compilation buffer."
   (interactive
    (list
     (read-from-minibuffer "Extension: "
