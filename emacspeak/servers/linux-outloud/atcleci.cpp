@@ -1,4 +1,6 @@
 /*$Id$*/
+//<copyright info
+
 /* Tcl ViaVoiceOutloud Interface program
    (c) Copyright 1999 by Paige Phault
 
@@ -32,6 +34,10 @@
 
 February 2005 TVR: Updating to use alsalib output routines
 */
+
+//>
+//<Usage:
+
 /* TCL usage
 	package require tts
 
@@ -48,6 +54,10 @@ The only difference bewtween say and synth is that synth calls
 eciSynthesize and say doesn't.  You can put as many text blocks as
 you like after a command.
 */
+
+//>
+//<CPP Directives
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
@@ -55,7 +65,6 @@ you like after a command.
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <alsa/asoundlib.h>
-
 
 #include <tcl.h>
 #include <dlfcn.h>
@@ -71,6 +80,9 @@ you like after a command.
 
 #define ECILIBRARYNAME "libibmeci.so"
 
+//>
+//< alsa: define  format and rate defaults
+
 snd_pcm_t *AHandle;
 char *device = "default";                    /* playback device */
 //.04  second using 11025k samples.
@@ -79,8 +91,6 @@ char *device = "default";                    /* playback device */
 //This is important for stopping speech immediately.
 #define BUFSIZE 512
 short *waveBuffer;
-//< alsa: define  format and rate defaults
-
 snd_pcm_format_t format = SND_PCM_FORMAT_S16;   /* sample format */
 unsigned int rate = 11025;                      /* stream rate */
 unsigned int channels = 1;                      /* count of channels */
@@ -161,8 +171,6 @@ int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int alsa_close (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int eciCallback (void *, int, long, void *);
-int playWaveFile (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
-
 //>
 //<alsa: set hw and sw params
 
@@ -335,15 +343,16 @@ static int write_loop(snd_pcm_t *handle,
 }
 
 //>
-void
-TclEciFree (ClientData eciHandle)
-{
+//<eciFree
+
+void TclEciFree (ClientData eciHandle) {
   _eciDelete (eciHandle);
 }
 
-int
-Tcleci_Init (Tcl_Interp * interp)
-{
+//>
+//<tcleci_init
+
+int Tcleci_Init (Tcl_Interp * interp) {
   int rc;
   void *eciHandle;
   void *eciLib;
@@ -482,6 +491,7 @@ Tcleci_Init (Tcl_Interp * interp)
     }
 
   //>
+  //<setup package, create tts handle
 
   if (Tcl_PkgProvide (interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK)
     {
@@ -495,13 +505,15 @@ Tcleci_Init (Tcl_Interp * interp)
       Tcl_AppendResult (interp, "Could not open text-to-speech engine", NULL);
       return TCL_ERROR;
     }
+
+  //>
   //<initialize TTS 
 
   if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
       || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
       || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1)
       //|| (_eciSetParam(eciHandle,8/*eciRealWorldUnits*/, 1) == -1)
-    )
+      )
     {
       Tcl_AppendResult (interp, "Could not initialized tts", NULL);
       _eciDelete (eciHandle);
@@ -509,6 +521,13 @@ Tcleci_Init (Tcl_Interp * interp)
     }
   _eciRegisterCallback (eciHandle, eciCallback, interp);
 
+  //>
+  //<initialize alsa
+  rc=alsa_init();
+  if (!rc) {
+    fprintf(stderr, "Could not initialize ALSA");
+    exit (1);
+  }
   //>
   //<register tcl commands 
 
@@ -533,77 +552,48 @@ Tcleci_Init (Tcl_Interp * interp)
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
 			(ClientData) eciHandle, TclEciFree);
-  Tcl_CreateObjCommand (interp, "playWave", playWaveFile, (ClientData) NULL,
-			NULL);
   Tcl_CreateObjCommand (interp, "alsa_close", alsa_close, (ClientData) eciHandle,
 			TclEciFree);
   //>
+  //<set up index processing 
+
   rc = Tcl_Eval (interp, "proc index x {global tts; \
 set tts(last_index) $x}");
+
+  //>
   return TCL_OK;
 }
 
-/* will play wave files 16 bit stereo and sample rate 11025k */
-int
-playWaveFile (ClientData unused, Tcl_Interp * interp, int objc,
-	      Tcl_Obj * CONST objv[])
-{
-  size_t count;
-  int length;
-  char *filename;
-  FILE *fp;
-  short samples[2 * BUFSIZE];
-  if (objc != 2)
-    {
-      Tcl_AppendResult (interp, "Usage: playWave filename", NULL);
-      return TCL_ERROR;
-    }
-  filename = Tcl_GetStringFromObj (objv[1], &length);
-  fp = fopen (filename, "r");
-  if (fp == NULL)
-    {
-      Tcl_AppendResult (interp, "Error opening wave file.", NULL);
-      return TCL_ERROR;
-    }
-  while ((count = fread (samples, 2, 2 * BUFSIZE, fp)) > 0)
-    {
-      //write (dsp, samples, count);
-    }
-  fclose (fp);
-  fprintf (stderr, "Played %s\n", filename);
-  return TCL_OK;
-}
+//>
+//<playTTS 
 
-int
-playTTS (int samples)
-{/*converted to alsa*/
+int playTTS (int samples) {
   return eciDataProcessed;
 }
 
-int
-eciCallback (void *eciHandle, int msg, long lparam, void *data)
-{
+//>
+
+//<eciCallBack
+
+int eciCallback (void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
-  if (msg == eciIndexReply /* eciIndexReply */ )
-    {
+  if (msg == eciIndexReply) {
       char buffer[128];
       sprintf (buffer, "index %ld", lparam);
       rc = Tcl_Eval (interp, buffer);
       if (rc != TCL_OK)
 	Tcl_BackgroundError (interp);
-    }
-  else if ((msg == eciWaveformBuffer) && (lparam > 0))
-    {
+    } else if ((msg == eciWaveformBuffer) && (lparam > 0)) {
       playTTS (lparam);
     }
   return 1;
 }
 
-int
-GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
-{
+//>
+//<getRate, setRate
+
+int GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[]) {
   int rc, rate, voice;
   if (objc != 2)
     {
@@ -618,10 +608,7 @@ GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_OK;
 }
 
-int
-SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
-{
+int SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[]) {
   int rc, rate, voice;
   if (objc != 3)
     {
@@ -648,31 +635,25 @@ SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_OK;
 }
 
+//>
+//<say
 
-int
-Say (ClientData eciHandle, Tcl_Interp * interp, int objc,
-     Tcl_Obj * CONST objv[])
-{
+int Say (ClientData eciHandle, Tcl_Interp * interp,
+         int objc, Tcl_Obj * CONST objv[]) {
   int i, rc, index, length;
-  for (i = 1; i < objc; i++)
-    {
+  for (i = 1; i < objc; i++) {
       // if string begins with -, assume it is an index value
       char *txt = Tcl_GetStringFromObj (objv[i], &length);
-      if (Tcl_StringMatch (txt, "-reset"))
-	{
+      if (Tcl_StringMatch (txt, "-reset")) {
 	  _eciReset (eciHandle);
 	  if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
-	      || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1))
-	    {
+	      || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1)) {
 	      Tcl_AppendResult (interp, "Could not initialized tts", NULL);
 	      return TCL_ERROR;
 	    }
-	}
-      else if (Tcl_StringMatch (txt, "-index"))
-	{
+	} else if (Tcl_StringMatch (txt, "-index")) {
 	  i++;
-	  if (i == objc)
-	    {
+	  if (i == objc) {
 	      Tcl_AppendResult (interp, "missing index parameter",
 				TCL_STATIC);
 	      return TCL_ERROR;
@@ -710,10 +691,13 @@ Say (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_OK;
 }
 
-int
-Synchronize (ClientData eciHandle, Tcl_Interp * interp,
-	     int objc, Tcl_Obj * CONST objv[])
-{
+//>
+//<stop, pause, resume 
+
+//<synchronize, stop
+
+int Synchronize (ClientData eciHandle, Tcl_Interp * interp,
+	     int objc, Tcl_Obj * CONST objv[]) {
   int rc = _eciSynchronize (eciHandle);
   if (!rc)
     {
@@ -723,10 +707,8 @@ Synchronize (ClientData eciHandle, Tcl_Interp * interp,
   return TCL_OK;
 }
 
-int
-Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
-      Tcl_Obj * CONST objv[])
-{
+int Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
+      Tcl_Obj * CONST objv[]) {
   if (_eciStop (eciHandle))
     {
       //possibly call alsa stop here 
@@ -736,10 +718,9 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_ERROR;
 }
 
-int
-SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int
-	   objc, Tcl_Obj * CONST objv[])
-{
+//>
+
+int SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int objc, Tcl_Obj * CONST objv[]) {
   if (_eciSpeaking (eciHandle))
     {
       Tcl_SetObjResult (interp, Tcl_NewIntObj (1));
@@ -751,28 +732,27 @@ SpeakingP (ClientData eciHandle, Tcl_Interp * interp, int
   return TCL_OK;
 }
 
-int
-Pause (ClientData eciHandle, Tcl_Interp * interp, int objc,
-       Tcl_Obj * CONST objv[])
-{
+int Pause (ClientData eciHandle, Tcl_Interp * interp, int objc,
+       Tcl_Obj * CONST objv[]) {
   if (_eciPause (eciHandle, 1))
     return TCL_OK;
   Tcl_SetResult (interp, "Could not pause synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
 
-int
-Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	Tcl_Obj * CONST objv[])
-{
+int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
+	Tcl_Obj * CONST objv[]) {
   if (_eciPause (eciHandle, 0))
     return TCL_OK;
   Tcl_SetResult (interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
 }
-/* initialize and open alsa device */
-int
-alsa_init () {
+
+//>
+
+//<alsa_init
+
+int alsa_init () {
   int err;
   snd_pcm_hw_params_t *hwparams;
   snd_pcm_sw_params_t *swparams;
@@ -824,87 +804,34 @@ alsa_init () {
   return TCL_OK;
 }
 
-int
-alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	  Tcl_Obj * CONST objv[])
-{
-  
+//>
+
+//<alsa_close
+
+int alsa_close (ClientData eciHandle, Tcl_Interp * interp, int objc,
+	  Tcl_Obj * CONST objv[]) {
   //shut down alsa
   snd_pcm_close(AHandle);
   free(waveBuffer);
   return TCL_OK;
 }
 
-int
-setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	   Tcl_Obj * CONST objv[])
-{
-  int rc, length;
-  char *output;
-  if (objc != 2)
-    {
-      Tcl_AppendResult (interp, "Usage: setOutput [buffer | default] ",
-			TCL_STATIC);
-      return TCL_ERROR;
-    }
-  output = Tcl_GetStringFromObj (objv[1], &length);
-  if (Tcl_StringMatch (output, "buffer"))
-    {
-      fprintf (stderr, "setting output to buffer using alsa\n");
-      //<set output wave buffer 
-      rc = _eciSynchronize (eciHandle);
-      if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error  resetting TTS engine.\n", NULL);
-	  return TCL_ERROR;
-	}
-      rc = _eciSetOutputBuffer (eciHandle, BUFSIZE, waveBuffer);
-      if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error setting output buffer.\n", NULL);
-	  return TCL_ERROR;
-	}
-      rc = alsa_init ();
-      if (!rc) {
-	  Tcl_AppendResult (interp, "Could not open output device ",
-			    device, NULL);
-	  return (TCL_ERROR);
-	}
-      //>
-    }
-  else if (Tcl_StringMatch (output, "default"))
-    {
-      //stop using wave buffers
-      fprintf (stderr, "switching to default device.\n");
-      rc = _eciSetOutputDevice (eciHandle, -1);
-      if (!rc)
-	{
-	  Tcl_AppendResult (interp,
-			    "Failed to set output to default device. \n",
-			    NULL);
-	  return TCL_ERROR;
-	}
-      rc = _eciSetOutputBuffer (eciHandle, 0, NULL);
-      if (!rc)
-	{
-	  Tcl_AppendResult (interp, "Error unsetting output buffer.\n", NULL);
-	  return TCL_OK;
-	}
-    }
-  else
-    {
-      Tcl_AppendResult (interp, "Usage: setOutput [buffer | default] ",
-			TCL_STATIC);
-      return TCL_ERROR;
-    }
-  fprintf (stderr, "Set output to %s\n", output);
+//>
+//<setOutput:NoOp
+
+int setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
+               Tcl_Obj * CONST objv[]) {
+  Tcl_AppendResult(interp,"setOuputput: No-Op under Alsa\n",
+                   TCL_STATIC);
   return TCL_OK;
 }
 
-int
-getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	       Tcl_Obj * CONST objv[])
-{
+//>
+
+//<getVersion
+
+int getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
+	       Tcl_Obj * CONST objv[]) {
   char *version = (char *) malloc (16);
   if (objc != 1)
     {
@@ -916,6 +843,7 @@ getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_OK;
 }
 
+//>
 //<end of file 
 //local variables:
 //folded-file: t
