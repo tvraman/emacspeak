@@ -409,7 +409,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-dtk-submap "z" 'emacspeak-zap-tts)
 (define-key emacspeak-dtk-submap "t" 'emacspeak-dial-dtk)
 (define-key emacspeak-dtk-submap "w" 'emacspeak-toggle-word-echo)
-(define-key emacspeak-dtk-submap "V" 'emacspeak-tts-speak-version)
+(define-key emacspeak-dtk-submap "V" 'tts-speak-version)
 (define-key emacspeak-dtk-submap "v" 'voice-lock-mode)
 (define-key emacspeak-dtk-submap "n" 'dtk-toggle-speak-nonprinting-chars)
 (define-key emacspeak-dtk-submap "s" 'dtk-toggle-split-caps)
