@@ -268,16 +268,19 @@ Modifies text and point in buffer."
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
 
-(defcustom emacspeak-pronounce-dictionaries-file  nil
+(declaim (special emacspeak-resource-directory))
+
+(defcustom emacspeak-pronounce-dictionaries-file  
+  (expand-file-name  ".dictionary" 
+                     emacspeak-resource-directory)
   "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
   :group 'emacspeak)
 
-(declaim (special emacspeak-resource-directory))
-(setq emacspeak-pronounce-dictionaries-file
-      (expand-file-name  ".dictionary" 
-                         emacspeak-resource-directory))
-
+(defcustom emacspeak-pronounce-load-pronunciations-on-startup  t
+  "Says if user dictionaries loaded on  emacspeak startup."
+  :type 'boolean
+  :group 'emacspeak-pronounce)
 
 (defun emacspeak-pronounce-save-dictionaries  ()
   "Writes out the persistent emacspeak pronunciation dictionaries."

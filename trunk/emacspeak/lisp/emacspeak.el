@@ -274,6 +274,8 @@ See the online documentation for individual commands and
 functions for details.   "
   (interactive)
   (declare (special mark-even-if-inactive
+                    emacspeak-pronounce-load-pronunciations-on-startup
+                    emacspeak-pronounce-dictionaries-file
                     default-enable-multibyte-characters
                     emacspeak-unibyte
                     emacspeak-play-program
@@ -302,6 +304,8 @@ functions for details.   "
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (mapcar 'emacspeak-fix-interactive-command-if-necessary
           emacspeak-emacs-commands-to-fix)
+  (when emacspeak-pronounce-load-pronunciations-on-startup
+    (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-dtk-sync)
   (emacspeak-setup-programming-modes)
