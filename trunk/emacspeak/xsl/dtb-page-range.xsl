@@ -14,24 +14,6 @@ are extracted. All other nodes are ignored.
   <xsl:param name="base" />
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/> 
-  <xsl:variable name="include" select="0"/>
-<xsl:template match="*|@*" mode="copy">
-    <xsl:value-of select="name()"/> has <xsl:value-of
-    select="$include"/>
-<xsl:text>
-    </xsl:text>
-<xsl:choose>
-    <xsl:when test="$include = 1">
-      <xsl:copy>
-        <xsl:apply-templates select="@*"/>
-        <xsl:apply-templates select="node()" mode="copy"/>
-      </xsl:copy>
-    </xsl:when>
-<xsl:otherwise>
-<xsl:apply-templates select="*" mode="copy"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
   <xsl:template match="/">
     <html>
       <head>
@@ -55,7 +37,7 @@ are extracted. All other nodes are ignored.
         <xsl:variable name="pages" select="//pagenum"/>
         <xsl:choose>
           <xsl:when test="count($pages)  &gt; 0">
-            <xsl:apply-templates select="*" mode="copy"/>
+            <strong>Book has pages</strong>
           </xsl:when>
           <xsl:otherwise>
             <strong>This book has no page boundary markers.</strong>
@@ -64,17 +46,4 @@ are extracted. All other nodes are ignored.
       </body>
     </html>
   </xsl:template>
-  <xsl:template match="//pagenum" mode="copy">
-    <xsl:variable name="page-number" select="number(text())"/>
-    <xsl:choose>
-      <xsl:when test="$start &lt;= $page-number and $page-number &lt;= $end">
-        page number is <xsl:value-of select="$page-number"/>
-        <xsl:variable name="include" select="1"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="include" select="0"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
 </xsl:stylesheet>
