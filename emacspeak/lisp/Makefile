@@ -140,6 +140,7 @@ emacspeak-kotl.elc \
 emacspeak-make-mode.elc \
 emacspeak-man.elc \
 emacspeak-message.elc \
+emacspeak-metapost.elc \
 emacspeak-midge.elc \
 emacspeak-mpg123.elc \
 emacspeak-mspools.elc \
@@ -298,6 +299,7 @@ emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc
+emacspeak-metapost.elc: emacspeak-metapost.el dtk-speak.elc
 emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc
 emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc
