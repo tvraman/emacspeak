@@ -117,18 +117,18 @@
     (with-output-to-temp-buffer "*Help*"
       (save-excursion
         (set-buffer "*Help*")
-      (princ "Websearch Keys:\n\n")
-      (loop for m in map 
-            do 
-            (princ (key-description (list (car m))))
-            (move-to-column-force 16 )
-            (princ "`")
-            (princ (emacspeak-websearch-get-searcher (cdr m)))
-            (princ "'")
-            (princ "\n"))
-      (help-setup-xref
-       (list #'emacspeak-websearch-help)
-       (interactive-p))))
+        (princ "Websearch Keys:\n\n")
+        (loop for m in map 
+              do 
+              (princ (key-description (list (car m))))
+              (move-to-column-force 16 )
+              (princ "`")
+              (princ (emacspeak-websearch-get-searcher (cdr m)))
+              (princ "'")
+              (princ "\n"))
+        (help-setup-xref
+         (list #'emacspeak-websearch-help)
+         (interactive-p))))
     (pop-to-buffer "*Help*")
     (help-mode)
     (goto-char (point-min))
@@ -136,7 +136,7 @@
     (emacspeak-auditory-icon 'help)))
                                 
 (emacspeak-websearch-set-searcher  'help
-'emacspeak-websearch-help)
+                                   'emacspeak-websearch-help)
 
 (emacspeak-websearch-set-key ?? 'help)
 
@@ -148,12 +148,12 @@ When using W3,  this interface attempts to speak the most relevant information o
   (interactive "P")
   (let ((engine nil)
         (searcher nil))
-          (while (null engine)
-            (setq engine
-                  (emacspeak-websearch-get-engine 
-                   (read-char 
-                    (concat "Websearch? "
-                            (documentation this-command))))))
+    (while (null engine)
+      (setq engine
+            (emacspeak-websearch-get-engine 
+             (read-char 
+              (concat "Websearch? "
+                      (documentation this-command))))))
     (setq searcher (emacspeak-websearch-get-searcher engine))
     (if searcher
         (call-interactively searcher)
@@ -250,8 +250,8 @@ ARGS specifies additional arguments to SPEAKER if any."
        (expand-file-name "xml-forms"
                          emacspeak-lisp-directory)
        " xml forms ")
-    (read-file-name "Display Form: "
-                    (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
+      (read-file-name "Display Form: "
+                      (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
   (declare (special emacspeak-w3-xsl-p
                     emacspeak-lisp-directory))
   (let ((buffer (get-buffer-create " *search-form*"))
@@ -307,7 +307,7 @@ to specify the type of search."
 (emacspeak-websearch-set-key ?a 'altavista)
 
 (defvar emacspeak-websearch-altavista-uri 
-"http://www.altavista.com/sites/search/res_text?sc=on&hl=on&amb=txt&kl=en&search=Search&q="
+  "http://www.altavista.com/sites/search/res_text?sc=on&hl=on&amb=txt&kl=en&search=Search&q="
   "URI for simple Altavista search")
 
 (defun emacspeak-websearch-altavista-search (query)
@@ -340,9 +340,9 @@ archives, type +redhat"
   (declare (special emacspeak-websearch-emacspeak-archive-uri))
   (let ((url-be-asynchronous nil))
     (emacspeak-websearch-do-post "POST"
-      emacspeak-websearch-emacspeak-archive-uri
-             (format "query=%s"
-             (webjump-url-encode query))))
+                                 emacspeak-websearch-emacspeak-archive-uri
+                                 (format "query=%s"
+                                         (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Here is"
    'emacspeak-speak-line))
@@ -663,8 +663,8 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   "*URI for locating historical chart data.")
 
 (defvar emacspeak-websearch-yahoo-company-news-quotes-uri 
-"http://finance.yahoo.com/q?d=t&o=t"
-"URI for looking up detailed quote information. ")
+  "http://finance.yahoo.com/q?d=t&o=t"
+  "URI for looking up detailed quote information. ")
 
 (defun emacspeak-websearch-company-news (ticker &optional prefix)
   "Perform an company news lookup.
@@ -719,7 +719,7 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query "Stock ticker:")
     current-prefix-arg))
   (declare (special emacspeak-websearch-lynx-program
-   emacspeak-websearch-yahoo-charts-uri
+                    emacspeak-websearch-yahoo-charts-uri
                     emacspeak-websearch-yahoo-csv-charts-uri))
   (let (
         (start-month
@@ -979,9 +979,9 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-key ?e 'britannica)
 
 ;;; this requires a password
-;(defvar emacspeak-websearch-britannica-uri 
-  ;"http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
-  ;"URI for searching Britannica online.")
+                                        ;(defvar emacspeak-websearch-britannica-uri 
+                                        ;"http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
+                                        ;"URI for searching Britannica online.")
 
 (defvar emacspeak-websearch-britannica-uri 
   "http://search.britannica.com/search?query="
@@ -1042,18 +1042,29 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.google.com/search?q="
   "*URI for Google search")
 
-(defun emacspeak-websearch-google (query)
-  "Perform an Google search"
+(defun emacspeak-websearch-google (query &optional lucky)
+  "Perform an Google search.
+Optional interactive prefix arg `lucky' is equivalent to hitting the 
+I'm Feeling Lucky button on Google."
   (interactive
-   (list (emacspeak-websearch-read-query "Google Query: ")))
+   (list
+    (emacspeak-websearch-read-query 
+     (format "Google %s: "
+             (if current-prefix-arg "feeling lucky" "query ")))
+    current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri))
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-google-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "Results"
-   'emacspeak-speak-line))
+             (webjump-url-encode query)
+             (when lucky
+               (concat 
+                "&btnI="
+                (webjump-url-encode
+                 "I'm Feeling Lucky")))))
+    (emacspeak-websearch-post-process
+     "Results"
+     'emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ google advanced search 
@@ -1067,7 +1078,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar emacspeak-websearch-google-advanced-form
   (expand-file-name "xml-forms/google-advanced.xml"
                     emacspeak-lisp-directory)
-"Markup for Google advanced search form.")
+  "Markup for Google advanced search form.")
 
 (defun emacspeak-websearch-google-advanced ()
   "Present Google advanced search form simplified for speech interaction."
@@ -1087,7 +1098,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar emacspeak-websearch-google-usenet-advanced-form
   (expand-file-name "xml-forms/google-usenet-advanced.xml"
                     emacspeak-lisp-directory)
-"Usenet advanced search from google.")
+  "Usenet advanced search from google.")
 
 (defun emacspeak-websearch-google-usenet-advanced ()
   "Present Google Usenet advanced search form simplified for speech interaction."
@@ -1401,9 +1412,9 @@ Light for: ")))
 (emacspeak-websearch-set-key ?R 'recorded-books)
 
 (defvar emacspeak-websearch-recorded-books-advanced-form
-(expand-file-name "xml-forms/recorded-books-advanced.xml"
+  (expand-file-name "xml-forms/recorded-books-advanced.xml"
                     emacspeak-lisp-directory)
-"Search form for finding recorded books.")
+  "Search form for finding recorded books.")
 
 (defun emacspeak-websearch-recorded-books-search ()
   "Present advanced search form for recorded books."
@@ -1462,7 +1473,7 @@ Light for: ")))
              "&text="
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process ""
-   'emacspeak-speak-line))
+                                    'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Vickers Insider Trading
@@ -1526,7 +1537,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-"http://www.weather.com/weather/tendayprint/"
+  "http://www.weather.com/weather/tendayprint/"
   "*URI for getting weather forecast.")
 
 (defun emacspeak-websearch-weather (zip)
@@ -1585,11 +1596,11 @@ Light for: ")))
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-people-yahoo-uri
-(format "FirstName=%s&LastName=%s&City=%s&State=%s"
-        (webjump-url-encode (read-from-minibuffer "First name: "))
-                            (webjump-url-encode (read-from-minibuffer "Last name: "))
-                            (webjump-url-encode (read-from-minibuffer "City: "))
-                                                (webjump-url-encode (read-from-minibuffer "State: "))))))
+             (format "FirstName=%s&LastName=%s&City=%s&State=%s"
+                     (webjump-url-encode (read-from-minibuffer "First name: "))
+                     (webjump-url-encode (read-from-minibuffer "Last name: "))
+                     (webjump-url-encode (read-from-minibuffer "City: "))
+                     (webjump-url-encode (read-from-minibuffer "State: "))))))
   (emacspeak-websearch-post-process
    "First"
    'emacspeak-speak-line))
@@ -1629,7 +1640,7 @@ Light for: ")))
 (defvar emacspeak-websearch-real-tuner-form
   (expand-file-name "xml-forms/real-radio-tuner.xml"
                     emacspeak-lisp-directory)
-"Real tuner from Real Networks.")
+  "Real tuner from Real Networks.")
 
 (defun emacspeak-websearch-real-tuner ()
   "Search using Real Tuner from Real Networks."
@@ -1650,12 +1661,12 @@ Light for: ")))
   (declare (special emacspeak-websearch-streaming-audio-search-uri))
   (let ((url-be-asynchronous nil))
     (browse-url
-                                 (concat
-                                  emacspeak-websearch-streaming-audio-search-uri
-                                  (webjump-url-encode query)))
-  (emacspeak-websearch-post-process
-   query
-   'emacspeak-speak-line)))
+     (concat
+      emacspeak-websearch-streaming-audio-search-uri
+      (webjump-url-encode query)))
+    (emacspeak-websearch-post-process
+     query
+     'emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ Exchange rate convertor 
@@ -1666,9 +1677,9 @@ Light for: ")))
 (emacspeak-websearch-set-key ?x 'exchange-rate-convertor)
 
 (defvar emacspeak-websearch-exchange-rate-form 
-(expand-file-name "xml-forms/exchange-rate-convertor.xml"
+  (expand-file-name "xml-forms/exchange-rate-convertor.xml"
                     emacspeak-lisp-directory)
-"Form for performing currency conversion.")
+  "Form for performing currency conversion.")
 
 (defun emacspeak-websearch-exchange-rate-convertor ()
   "Currency convertor."
@@ -1687,9 +1698,9 @@ Light for: ")))
 (emacspeak-websearch-set-key 1 'amazon-search)
 
 (defvar emacspeak-websearch-amazon-search-form
-(expand-file-name "xml-forms/amazon-search.xml"
+  (expand-file-name "xml-forms/amazon-search.xml"
                     emacspeak-lisp-directory)
-"Form for Amazon store search.")
+  "Form for Amazon store search.")
 
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."
@@ -1708,9 +1719,9 @@ Light for: ")))
 (emacspeak-websearch-set-key 5 'ebay-search)
 
 (defvar emacspeak-websearch-ebay-search-form
-(expand-file-name "xml-forms/ebay-search.xml"
+  (expand-file-name "xml-forms/ebay-search.xml"
                     emacspeak-lisp-directory)
-"Form for Ebay store search.")
+  "Form for Ebay store search.")
 
 (defun emacspeak-websearch-ebay-search ()
   "Ebay search."
@@ -1729,9 +1740,9 @@ Light for: ")))
 (emacspeak-websearch-set-key ?S 'shoutcast-search)
 
 (defvar emacspeak-websearch-shoutcast-search-form
-(expand-file-name "xml-forms/shoutcast-search.xml"
+  (expand-file-name "xml-forms/shoutcast-search.xml"
                     emacspeak-lisp-directory)
-"Form for Shoutcast  search.")
+  "Form for Shoutcast  search.")
 
 (defun emacspeak-websearch-shoutcast-search ()
   "Ebay search."
