@@ -976,8 +976,8 @@ Warning! Contents of file filename will be overwritten."
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (goto-char (point-max))
-      (insert " 
-Local variables: mode: outline paragraph-separate: \"[ ]*$\"
+      (insert "  Local variables:\n
+ mode: outline\nparagraph-separate: \"[ ]*$\"
 end:\n\n")
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
