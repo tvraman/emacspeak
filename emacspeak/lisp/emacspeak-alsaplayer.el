@@ -76,7 +76,7 @@
 (declaim (special emacspeak-alsaplayer-mode-map))
 
 ;;}}}
-;;{{{ emacspeak-alsaplayer
+;;{{{ launch  emacspeak-alsaplayer
 
 
 (defcustom emacspeak-alsaplayer-program
@@ -132,8 +132,69 @@ Alsaplayer session."
     (switch-to-buffer emacspeak-alsaplayer-buffer-name)))
 
 ;;}}}
+;;{{{  Invoke commands:
 
-Process alsaplayer segmentation fault
+(defun emacspeak-alsaplayer-send-command(command-list)
+  "Send command to Alsaplayer."
+  (declare (special emacspeak-alsaplayer-session))
+  (let ((process nil))
+    (setq process
+          (apply 'start-process
+                 "alsaplayer" nil emacspeak-alsaplayer-program
+                         ;"-n"
+                         ;(format "%s" emacspeak-alsaplayer-session)
+                         command-list))))
+
+(defun emacspeak-alsaplayer-add-to-queue (resource)
+  "Add specified resource to queue."
+  (interactive
+   (list
+    (read-file-name "MP3 Resource: "
+                    emacspeak-alsaplayer-media-directory
+                    (when (eq major-mode 'dired-mode)
+		      (dired-get-filename)))))
+  (emacspeak-alsaplayer-send-command
+   (cond
+                  ((file-directory-p resource)
+   (nconc
+    (list "--enqueue")
+                   (directory-files
+                    (expand-file-name resource)
+                    'full
+                    "mp3$")))
+                  (t
+                      (list "--enqueue"
+                   (expand-file-name resource))))))
+
+(defun emacspeak-alsaplayer-replace-queue (resource)
+  "Add specified resource to queue."
+  (interactive
+   (list
+    (read-file-name "MP3 Resource: "
+                    emacspeak-alsaplayer-media-directory
+                    (when (eq major-mode 'dired-mode)
+		      (dired-get-filename)))))
+  (emacspeak-alsaplayer-send-command
+   (cond
+                  ((file-directory-p resource)
+   (nconc
+    (list "--replace")
+                   (directory-files
+                    (expand-file-name resource)
+                    'full
+                    "mp3$")))
+                  (t
+                      (list "--replace"
+                   (expand-file-name resource))))))
+    
+(defun emacspeak-alsaplayer-pause ()
+  "Pause or resume alsaplayer"
+  (interactive)
+  (emacspeak-alsaplayer-send-command
+   (list "--pause")))
+    
+
+;;}}}
 (provide 'emacspeak-alsaplayer)
 ;;{{{ end of file 
 
