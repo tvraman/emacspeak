@@ -2617,8 +2617,8 @@ emacspeak running."
                            (emacspeak-speak-line)
                            (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
 
-(declaim (special minibuffer-setup-hook))
-(setq minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
+;(declaim (special minibuffer-setup-hook))
+(add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
