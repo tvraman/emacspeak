@@ -231,9 +231,8 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key ?e  'emaps)
 
 (defvar emacspeak-websearch-google-maps-uri
-"http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
-"URL template for Google maps.")
-
+  "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
+  "URL template for Google maps.")
 
 (defcustom emacspeak-websearch-emapspeak-my-location ""
   "Specifies location near we look by default."
@@ -257,9 +256,9 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (require 'emacspeak-url-template)
   (let ((near-p
          (unless use-near 
-         (save-match-data
-           (and (string-match "near" query)
-                (match-end 0)))))
+           (save-match-data
+             (and (string-match "near" query)
+                  (match-end 0)))))
         (near "")
         (uri nil))
     (when near-p
@@ -270,17 +269,16 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (use-near
             (format emacspeak-websearch-google-maps-uri
                     (webjump-url-encode
-(format "%s near %s"
-                            query emacspeak-websearch-emapspeak-my-location))))
+                     (format "%s near %s"
+                             query emacspeak-websearch-emapspeak-my-location))))
            (t (format emacspeak-websearch-google-maps-uri
                       (webjump-url-encode query)))))
     (emacspeak-url-template-google-maps-speak uri
                                               (webjump-url-encode
-(if use-near
-    emacspeak-websearch-emapspeak-my-location
-  near))
-'speak)))
-
+                                               (if use-near
+                                                   emacspeak-websearch-emapspeak-my-location
+                                                 near))
+                                              'speak)))
 
 ;;;###autoload 
 (defun emacspeak-websearch-emapspeak-near-my-location (query)
@@ -288,19 +286,19 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (interactive
    (list
     (emacspeak-websearch-read-query
-         (format "Find what near  %s: "
-                 emacspeak-websearch-emapspeak-my-location))))
-       (declare (special
-                 emacspeak-websearch-emapspeak-my-location))
-       (let ((uri
-              (format emacspeak-websearch-google-maps-uri
-                      (webjump-url-encode
-                       (format "%s near %s" query
-                               emacspeak-websearch-emapspeak-my-location)))))
-(emacspeak-url-template-google-maps-speak uri
+     (format "Find what near  %s: "
+             emacspeak-websearch-emapspeak-my-location))))
+  (declare (special
+            emacspeak-websearch-emapspeak-my-location))
+  (let ((uri
+         (format emacspeak-websearch-google-maps-uri
+                 (webjump-url-encode
+                  (format "%s near %s" query
+                          emacspeak-websearch-emapspeak-my-location)))))
+    (emacspeak-url-template-google-maps-speak uri
                                               (webjump-url-encode
-    emacspeak-websearch-emapspeak-my-location)
-'speak)))
+                                               emacspeak-websearch-emapspeak-my-location)
+                                              'speak)))
          
 ;;}}}
 ;;{{{ display form 
@@ -1301,23 +1299,39 @@ With optional interactive prefix arg MAP shows the location map instead."
   "http://search.news.yahoo.com/search/news?"
   "*URI for launching a Yahoo News search")
 
-(defun emacspeak-websearch-news-yahoo (query)
-  "Perform an Yahoo News search"
+(defvar emacspeak-websearch-news-yahoo-rss-uri
+  "http://news.search.yahoo.com/news/rss?"  
+  "*RSS URI for launching a Yahoo News search")
+
+(defun emacspeak-websearch-news-yahoo (query &optional no-rss)
+  "Perform an Yahoo News search.
+Optional prefix arg no-rss scrapes information from HTML."
   (interactive
-   (list (emacspeak-websearch-read-query "Yahoo News Query: ")))
+   (list
+    (emacspeak-websearch-read-query "Yahoo News Query: ")
+    current-prefix-arg))
   (add-hook 'emacspeak-w3-post-process-hook
 	    #'(lambda nil
 		(declare (special  emacspeak-w3-url-rewrite-rule
+                                   emacspeak-websearch-news-yahoo-rss-uri
 				   emacspeak-w3-class-filter))
 		(setq emacspeak-w3-class-filter "article"
 		      emacspeak-w3-url-rewrite-rule
 		      '("$" "&printer=1"))))
-  (emacspeak-w3-xslt-filter
-   "//ol"
-   (concat emacspeak-websearch-news-yahoo-uri
-           (format "p=%s&n=20&c=news"
-                   (webjump-url-encode query)))
-   'speak-result))
+  (cond
+   ((null no-rss)                       ;use rss feed
+    (emacspeak-rss-display
+     (concat emacspeak-websearch-news-yahoo-rss-uri
+             (format "p=%s&n=20&c=news"
+                     (webjump-url-encode query)))
+     'speak-result))
+   (t
+    (emacspeak-w3-xslt-filter
+     "//ol"
+     (concat emacspeak-websearch-news-yahoo-uri
+             (format "p=%s&n=20&c=news"
+                     (webjump-url-encode query)))
+     'speak-result))))
 
 ;;}}}
 ;;{{{  Northern Lights Search
@@ -1705,10 +1719,10 @@ Optional interactive prefix arg results in prompting for a search term."
 		    emacspeak-usenet-uri
 		    group group))))
     (emacspeak-w3-without-xsl
-    (browse-url  url)
-    (emacspeak-websearch-post-process
-     "Sort by"
-     'emacspeak-speak-line))))
+     (browse-url  url)
+     (emacspeak-websearch-post-process
+      "Sort by"
+      'emacspeak-speak-line))))
 
 ;;}}}
 
