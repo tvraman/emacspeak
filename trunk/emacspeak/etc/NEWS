@@ -76,7 +76,17 @@ emacspeak-wizards.
 
 ** Key Bindings:
 
-There is a new keymap emacspeak-personal-keymap
+*** Midi Icons:
+
+Command emacspeak-toggle-midi-icons has been nuked.
+In its place, key C-e M-a runs command 
+emacspeak-set-auditory-icon-player which can be used to
+interactively select the kind of auditory icons used.
+
+
+*** Personal keys:
+
+ There is a new keymap emacspeak-personal-keymap
 for user's personal keybindings --and available through
 prefix key C-e x
 To bind a command you would write 

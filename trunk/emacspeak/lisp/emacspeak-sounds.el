@@ -67,32 +67,32 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when (compile)
-(require 'dtk-speak)
-(require 'emacspeak-load-path))
+  (require 'dtk-speak)
+  (require 'emacspeak-load-path)
+  (require 'emacspeak-aumix))
 
 ;;}}}
 ;;{{{  state of auditory icons
 
-(defcustom emacspeak-use-auditory-icons nil
+(defvar emacspeak-use-auditory-icons nil
 "Tells if emacspeak should use auditory icons.
 Do not set this variable by hand,
 use `emacspeak-toggle-auditory-icons' bound to
-\\[emacspeak-toggle-auditory-icons]."
-:type 'boolean
-:group 'emacspeak)
+\\[emacspeak-toggle-auditory-icons].")
 
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
-;;{{{ Use midi if requested
+;;{{{ Record if using midi 
 
-(defcustom emacspeak-use-midi-icons nil
-  "*T  tells Emacspeak to use midi.
-Do not set this by hand --
-use `emacspeak-toggle-auditory-icons' bound to
-\\[emacspeak-toggle-midi-icons]."
-  :type 'boolean
-:group 'emacspeak)
+
+
+(defsubst emacspeak-using-midi-p ()
+  "Predicate to test if we are using midi."
+  (declare (special emacspeak-auditory-icon-function))
+  (or (eq emacspeak-auditory-icon-function
+          'emacspeak-midi-icon)
+      (eq emacspeak-auditory-icon-function 'emacspeak-queue-midi-icon)))
 
 ;;}}}
 ;;{{{  Setup sound themes 
@@ -255,7 +255,7 @@ emacspeak-sounds-current-theme)))
 ;;{{{  queue an auditory icon
 
 (defsubst emacspeak-queue-auditory-icon (sound-name)
-  "Queue auditory icon SOUND-NAME.."
+  "Queue auditory icon SOUND-NAME."
   (declare (special dtk-speaker-process))
          (process-send-string dtk-speaker-process
                             (format "a %s\n"
@@ -303,13 +303,12 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
 ;;}}}
 ;;{{{  queue a midi icon
 
-(defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
-
 (defsubst emacspeak-queue-midi-icon (midi-name)
   "Queue midi icon midi-NAME."
          (apply 'dtk-queue-note
                 (emacspeak-get-midi-note midi-name)))
 
+(defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
 
 (defsubst emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
@@ -325,7 +324,8 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-queue-auditory-icon)
-          (const emacspeak-serve-auditory-icon)))
+          (const emacspeak-serve-auditory-icon)
+          (const emacspeak-play-midi-icon)))
 
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
@@ -486,8 +486,7 @@ Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (declare (special emacspeak-use-auditory-icons
                     emacspeak-aumix-multichannel-capable-p
-                    dtk-program
-                    emacspeak-auditory-icon-function))
+                    dtk-program emacspeak-auditory-icon-function))
   (require 'emacspeak-aumix)
   (cond
    (prefix
@@ -501,32 +500,51 @@ Optional interactive PREFIX arg toggles global value."
   (when (and emacspeak-use-auditory-icons
              (string= dtk-program "outloud")
              (not emacspeak-aumix-multichannel-capable-p))
-    (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon
-          emacspeak-use-midi-icons t))
+    (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  "on" "off" )
            (if prefix "" "locally"))
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
 
-(defun emacspeak-toggle-midi-icons ()
-  "Toggle use of midi icons."
-  (interactive )
-  (declare (special emacspeak-use-midi-icons
-                    emacspeak-aumix-midi-available-p
+
+(defvar emacspeak-sounds-auditory-icon-players  
+  '(
+    ("emacspeak-serve-auditory-icon" . "emacspeak-serve-auditory-icon")
+    ("emacspeak-play-auditory-icon" . "emacspeak-play-auditory-icon")
+    ("emacspeak-midi-icon" . "emacspeak-midi-icon"))
+  "Table of auditory icon players used  when selecting a player.")
+
+(defsubst emacspeak-select-auditory-icon-player ()
+  "Pick a player for producing auditory icons."
+  (declare (special emacspeak-sounds-auditory-icon-players))
+  (read 
+  (completing-read "Select auditory icon player: "
+                   emacspeak-sounds-auditory-icon-players
+                   nil nil 
+                   "emacspeak-")))
+
+
+(defun  emacspeak-set-auditory-icon-player (player)
+  "Select  player used for producing auditory icons.
+Recommended choices:
+
+emacspeak-serve-auditory-icon for  the wave device.
+emacspeak-midi-icon for midi device. "
+  (interactive
+   (list
+    (emacspeak-select-auditory-icon-player )))
+(declare (special emacspeak-aumix-midi-available-p
                     emacspeak-auditory-icon-function))
-  (require 'emacspeak-aumix)
-  (cond
-   (emacspeak-aumix-midi-available-p
-    (setq emacspeak-use-midi-icons (not emacspeak-use-midi-icons))
     (cond
-     (emacspeak-use-midi-icons
-      (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon)
-      (dtk-notes-initialize))
-     (t (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)))
-    (message "Turned %s midi icons "
-             (if emacspeak-use-midi-icons  "on" "off" )))
-   (t (message "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
+     ((and (not emacspeak-aumix-midi-available-p)
+           (memq player '(emacspeak-midi-icon
+                          emacspeak-queue-midi-icon
+                          emacspeak-play-midi-icon)))
+      (message "Cannot use midi icons in your current
+environment."))
+     (t (setq emacspeak-auditory-icon-function player))))
+
 
 ;;}}}
 ;;{{{ Show all icons
