@@ -76,8 +76,10 @@
   (when (and (not  emacspeak-aumix-multichannel-capable-p)
              emacspeak-use-auditory-icons)
     (emacspeak-toggle-auditory-icons))
-  (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
-
+  (setq emacspeak-m-player-process (get-buffer-process
+                                    (current-buffer)))
+  (ansi-color-for-comint-mode-on))
+  
 (declaim (special emacspeak-m-player-mode-map))
 
 ;;}}}
