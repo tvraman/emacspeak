@@ -1536,8 +1536,8 @@ semantic to do the work."
         (when(and (not (eq major-mode 'shell-mode))
                   (not (eq major-mode 'comint-mode))
                   (buffer-modified-p))
-          (dtk-tone 700 70))
-        (when buffer-read-only (dtk-tone 250 50)))
+          (dtk-tone 950 100))
+        (when buffer-read-only (dtk-tone 250 100)))
       (put-text-property 0 (length global-info)
                          'personality voice-smoothen global-info)
       (tts-with-punctuations 'all
