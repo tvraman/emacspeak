@@ -967,8 +967,8 @@ in completion buffers"
     (let ((completions-buffer (get-buffer "*Completions*")))
       (cond
        ((> (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-substring prior (point ))))
+	(tts-with-punctuations 'all
+			       (dtk-speak (buffer-substring prior (point ))))
         (when (and completions-buffer
                    (window-live-p (get-buffer-window completions-buffer )))
           (save-excursion
@@ -978,16 +978,16 @@ in completion buffers"
 				   (dtk-speak (buffer-string
                                                ))))))
        ((< (point) prior)
-          (tts-with-punctuations 'all
-                                 (dtk-speak (buffer-string))))
+	(tts-with-punctuations 'all
+			       (dtk-speak (buffer-string))))
        ((and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
-            (tts-with-punctuations 'all
-				   (dtk-speak (buffer-string ))))))
-    ad-return-value)))
+	     (window-live-p (get-buffer-window completions-buffer )))
+	(save-excursion
+	  (set-buffer completions-buffer )
+	  (emacspeak-prepare-completions-buffer)
+	  (tts-with-punctuations 'all
+				 (dtk-speak (buffer-string ))))))
+      ad-return-value)))
 
 (defadvice lisp-complete-symbol (around emacspeak pre act)
   "Say what you completed."

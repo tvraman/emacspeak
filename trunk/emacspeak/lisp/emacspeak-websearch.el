@@ -1593,7 +1593,7 @@ Light for: ")))
 ;;{{{ Browse usenet 
 
 (defvar emacspeak-usenet-uri 
-  ;"http://groups.google.com/groups?"
+					;"http://groups.google.com/groups?"
   "http://groups-beta.google.com/group/"
   "URI to open a group on Usenet archive.")
 ;;;###autoload
@@ -1609,21 +1609,21 @@ Optional interactive prefix arg results in prompting for a search term."
     (cond
      (prefix                            ;search
       (setq url
-                    (format
-                    "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group"
-                     emacspeak-usenet-uri
-                            group group 
-                            (webjump-url-encode
-			     (read-from-minibuffer
-			      (format "Search %s for:" group))))))
+	    (format
+	     "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group"
+	     emacspeak-usenet-uri
+	     group group 
+	     (webjump-url-encode
+	      (read-from-minibuffer
+	       (format "Search %s for:" group))))))
      (t                                 ;browse
       (setq url 
-                    (format "%s%s/threads?gvc=2"
-                            emacspeak-usenet-uri
-                            group group))))
+	    (format "%s%s/threads?gvc=2"
+		    emacspeak-usenet-uri
+		    group group))))
     (browse-url  url)
     (emacspeak-websearch-post-process
-         "Sort by"
+     "Sort by"
      'emacspeak-speak-line)))
 
 ;;}}}
