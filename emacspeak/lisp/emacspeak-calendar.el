@@ -36,19 +36,15 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-(require 'advice)
-(require 'emacspeak-keymap)
-(require 'cl)
+(eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-
 (require 'dtk-speak)
-(require 'dtk-voices)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(require 'calendar)
-(eval-when-compile
-  (require 'calendar )
-           )
+(require 'advice)
+(require 'emacspeak-keymap)
+(eval-when-compile (require 'calendar))
+
 
 ;;{{{  Introduction:
 
