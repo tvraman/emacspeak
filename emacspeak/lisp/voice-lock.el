@@ -748,10 +748,10 @@ turned on in a buffer if its major mode is one of `voice-lock-global-modes'."
 ;; themselves.
 
 ;;;###autoload
-(defvar voice-lock-support-mode nil
+(defcustom voice-lock-support-mode 'lazy-voice-lock-mode
   "*Support mode for Voice Lock mode.
 Support modes speed up Voice Lock mode by being choosy about when voiceification
-occurs.  Known support modes are Fast Lock mode (symbol `fast-voice-lock-mode') and
+occurs.  Known support modes are 
 Lazy Lock mode (symbol `lazy-voice-lock-mode').  See those modes for more info.
 If nil, means support for Voice Lock mode is never performed.
 If a symbol, use that support mode.
@@ -761,7 +761,9 @@ where MAJOR-MODE is a symbol or t (meaning the default).  For example:
 means that Fast Lock mode is used to support Voice Lock mode for buffers in C or
 C++ modes, and Lazy Lock mode is used to support Voice Lock mode otherwise.
 
-The value of this variable is used when Voice Lock mode is turned on.")
+The value of this variable is used when Voice Lock mode is turned on."
+  :type 'symbol
+  :group 'voice-lock)
 
 (defun voice-lock-turn-on-thing-lock ()
   (let ((thing-mode (voice-lock-value-in-major-mode voice-lock-support-mode)))
