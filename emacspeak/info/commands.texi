@@ -5,6 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
+This chapter documents a total of 650 commands.
 
 @menu
 * cd-tool::                     

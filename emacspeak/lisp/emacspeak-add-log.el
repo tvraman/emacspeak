@@ -42,10 +42,12 @@
 ;;; Commentary:
 
 ;;; speech-enables change-log-mode 
+;;;Code:
+
 ;;}}}
 ;;{{{  Required modules
 
-;;;Code:
+
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
