@@ -92,6 +92,7 @@
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'dtk-voices)
+(require 'ansi-color)
 
 ;;}}}
 ;;{{{ customization group 
@@ -201,6 +202,46 @@ This function forces voice-lock mode on."
                       inhibit-read-only save-inhibit-read-only
                       inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
                 (set-buffer-modified-p modification-flag )))))))
+
+;;}}}
+;;{{{ color to voices 
+
+(defun voice-setup-ansi-color-to-voice (face-spec)
+  "Return a voice corresponding to specified face-spec."
+  (declare (special ansi-color-names-vector
+                    ansi-color-faces-vector))
+  (let* ((voice-name nil)
+         (style (cadr face-spec))
+         (style-index (position style ansi-color-faces-vector))
+         (color (cdr (assq 'foreground-color  face-spec)))
+         (color-index
+          (when color
+            (position  color ansi-color-names-vector
+                       :test #'string-equal)))
+         (style nil)
+         (color-parameter nil)
+         (style-parameter nil))
+    (setq voice-name
+          (intern (format "emacspeak-ansi-color-%s-%s"
+                          (if color color "default")
+                          (if style style "default"))))
+    (unless (tts-voice-defined-p voice-name)
+      (setq style (make-acss ))
+      (setq style-parameter
+            (if style-index
+                (+ 1 style-index)
+              1))
+      (setq color-parameter
+            (if color-index
+                (+ 1 color-index)
+              1))
+      (setf (acss-average-pitch style) color-parameter)
+      (setf (acss-pitch-range style) style-parameter)
+      (setf (acss-richness style) color-parameter)
+      (setf (acss-stress style) style-parameter)
+      (tts-define-voice-from-speech-style voice-name style))
+    voice-name))
+
 
 ;;}}}
 ;;{{{ special form def-voice-font 
