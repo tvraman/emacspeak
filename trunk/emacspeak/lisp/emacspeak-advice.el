@@ -2916,6 +2916,11 @@ Variable mark-even-if-inactive is set true ."
       (dtk-speak eldoc-last-message))
     ad-return-value))
 ;;}}}
+;;{{{ mail aliases 
+(defadvice expand-mail-aliases (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)));;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
