@@ -226,6 +226,23 @@ speak its prompts. "
 (push command  emacspeak-commands-that-are-fixed )))
 
 ;;}}}
+;;{{{  fixing all commands defined in a given module:
+(defun emacspeak-fix-commands-loaded-from (module)
+  "Fix all commands loaded from a specified module."
+  (interactive
+   (list
+    (read-from-minibuffer "Module:")))
+  (dolist (item (rest (assoc module load-history)))
+    (and (symbolp item)
+	 (commandp item)
+	 (emacspeak-fix-interactive-command-if-necessary
+          item)))
+  (when (interactive-p)
+    (message "Fixed interactive commands defined in module
+%s" module)))
+
+
+;;}}}
 (provide 'emacspeak-fix-interactive)
 ;;{{{  end of file
 ;;; local variables:
