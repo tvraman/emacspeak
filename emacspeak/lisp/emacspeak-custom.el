@@ -60,6 +60,19 @@
 ;;; which speech-enables the widget libraries.
 
 ;;}}}
+;;{{{ auto-fix interactive prompts
+
+(loop for f in
+      '(customize-apropos
+customize-changed-options
+customize-apropos-faces
+customize-apropos-groups
+customize-apropos-options)
+      do
+(emacspeak-fix-interactive-command-if-necessary f))
+
+
+;;}}}
 ;;{{{ Advice
 
 (defadvice customize-save-customized (after emacspeak pre act comp)
@@ -113,6 +126,17 @@
       (beginning-of-line)
       (voice-lock-mode 1)
       (emacspeak-speak-line))))
+
+(defadvice customize-apropos (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (let ((symbol (ad-get-arg 0)))
+      (emacspeak-auditory-icon 'open-object)
+      (voice-lock-mode 1)
+      (search-forward (custom-unlispify-tag-name symbol))
+      (beginning-of-line)
+      (emacspeak-speak-line))))
+
 
 (defadvice customize-variable (after emacspeak pre act comp)
   "Provide auditory feedback"
