@@ -172,6 +172,8 @@
      (voice-setup-set-voice-for-face (, face) '(, personality))
                                         ;record  personality as an
                                         ;observer of  voice
+     (when (symbolp '(, personality))
+     (put  '(, personality) 'observing '(, voice)))
      (when (symbolp '(, voice))
        (put  '(, voice) '(, personality) t)))))
 
