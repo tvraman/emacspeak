@@ -97,9 +97,6 @@
   :group 'emacspeak-widget
   :type 'symbol)
 
-
-
-
 (declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
 
