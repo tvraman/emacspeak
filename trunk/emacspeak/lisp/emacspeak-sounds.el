@@ -67,7 +67,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
 (require 'dtk-speak)
-(require 'emacspeak-load-path))
+(require 'emacspeak-load-path)
+(require 'emacspeak-aumix))
 ;;{{{  state of auditory icons
 
 (defvar emacspeak-use-auditory-icons nil
@@ -464,6 +465,7 @@ is a .1ms note on instrument 60."
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (declare (special emacspeak-use-auditory-icons
+                    emacspeak-aumix-multichannel-capable-p
                     dtk-program emacspeak-auditory-icon-function))
   (cond
    (prefix
@@ -473,8 +475,10 @@ Optional interactive PREFIX arg toggles global value."
                   emacspeak-use-auditory-icons))
    (t (setq emacspeak-use-auditory-icons
             (not emacspeak-use-auditory-icons))))
+  ;; when using software tts  use midi if we cant mix channels.
   (when (and emacspeak-use-auditory-icons
-             (string= dtk-program "outloud"))
+             (string= dtk-program "outloud")
+             (not emacspeak-aumix-multichannel-capable-p))
     (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon
           emacspeak-use-midi-icons t))
   (message "Turned %s auditory icons %s"
@@ -487,19 +491,20 @@ Optional interactive PREFIX arg toggles global value."
   "Toggle use of midi icons."
   (interactive )
   (declare (special emacspeak-use-midi-icons
+                    emacspeak-aumix-midi-available-p
                     emacspeak-auditory-icon-function))
-  (setq emacspeak-use-midi-icons (not emacspeak-use-midi-icons))
   (cond
-   (emacspeak-use-midi-icons
-    (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon)
-    (dtk-notes-initialize))
-   (t (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)
-      ;(dtk-notes-shutdown)
-      ))
-  (message "Turned %s midi icons "
-           (if emacspeak-use-midi-icons  "on" "off" ))
-  (when emacspeak-use-midi-icons
-    (emacspeak-midi-icon 'on)))
+   (emacspeak-aumix-midi-available-p
+    (setq emacspeak-use-midi-icons (not emacspeak-use-midi-icons))
+    (cond
+     (emacspeak-use-midi-icons
+      (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon)
+      (dtk-notes-initialize))
+     (t (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)))
+    (message "Turned %s midi icons "
+             (if emacspeak-use-midi-icons  "on" "off" )))
+   (t
+    (error "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
 
 ;;}}}
 ;;{{{ Show all icons
