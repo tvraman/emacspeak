@@ -440,7 +440,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{ igrep
 
-    ;(load-library-if-available "igrep")
+(autoload 'igrep "igrep" "Advanced grep")
 
     ;;}}}
     ;;{{{ nxml
