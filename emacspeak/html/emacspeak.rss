@@ -125,62 +125,6 @@ Emacspeak is a speech interface that allows visually
       <description>Google</description>
     </item>
     <item>
-      <link></link>
-      <title>Contents</title>
-      <description>Contents</description>
-    </item>
-    <item>
-      <link>#releases</link>
-      <title>Press Releases And
-      Announcements</title>
-      <description>Press Releases And
-      Announcements</description>
-    </item>
-    <item>
-      <link>#benefits</link>
-      <title>Benefits</title>
-      <description>Benefits</description>
-    </item>
-    <item>
-      <link>#publications</link>
-      <title>Publications And Talks</title>
-      <description>Publications And Talks</description>
-    </item>
-    <item>
-      <link>#innovators</link>
-      <title>Innovative Internet projects that
-      use Emacspeak</title>
-      <description>Innovative Internet projects that
-      use Emacspeak</description>
-    </item>
-    <item>
-      <link>#mailingList</link>
-      <title>Emacspeak Mailing List</title>
-      <description>Emacspeak Mailing List</description>
-    </item>
-    <item>
-      <link>#support</link>
-      <title>Support And Documentation</title>
-      <description>Support And Documentation</description>
-    </item>
-    <item>
-      <link>#synths</link>
-      <title>Synthesizer Support</title>
-      <description>Synthesizer Support</description>
-    </item>
-    <item>
-      <link>#themes</link>
-      <title>Auditory Icon Themes</title>
-      <description>Auditory Icon Themes</description>
-    </item>
-    <item>
-      <link></link>
-      <title>Press Releases And
-    Announcements</title>
-      <description>Press Releases And
-    Announcements</description>
-    </item>
-    <item>
       <link>release-17.0.html</link>
       <title>Announcing Emacspeak 17.0
       (HappyDog)</title>
@@ -343,21 +287,9 @@ Emacspeak is a speech interface that allows visually
       (Labrador)</description>
     </item>
     <item>
-      <link></link>
-      <title>Benefits</title>
-      <description>Benefits</description>
-    </item>
-    <item>
       <link>smithsonian/study.html</link>
       <title>case study</title>
       <description>case study</description>
-    </item>
-    <item>
-      <link></link>
-      <title>Publications And
-    Talks</title>
-      <description>Publications And
-    Talks</description>
     </item>
     <item>
       <link>publications/semantic-www.html</link>
@@ -387,23 +319,9 @@ Emacspeak is a speech interface that allows visually
       <description>in the publications directory.</description>
     </item>
     <item>
-      <link></link>
-      <title>Innovative Internet
-    Projects Known To Be Using Emacspeak</title>
-      <description>Innovative Internet
-    Projects Known To Be Using Emacspeak</description>
-    </item>
-    <item>
       <link>http://www.etc-edu.com</link>
       <title>ETC</title>
       <description>ETC</description>
-    </item>
-    <item>
-      <link></link>
-      <title>Emacspeak Mailing
-    List</title>
-      <description>Emacspeak Mailing
-    List</description>
     </item>
     <item>
       <link>mailto:emacspeak-request@cs.vassar.edu</link>
@@ -416,13 +334,6 @@ Emacspeak is a speech interface that allows visually
       <link>release.html</link>
       <title>the news page</title>
       <description>the news page</description>
-    </item>
-    <item>
-      <link></link>
-      <title>Support And
-    Documentation</title>
-      <description>Support And
-    Documentation</description>
     </item>
     <item>
       <link>./release.html</link>
@@ -452,11 +363,6 @@ Emacspeak is a speech interface that allows visually
       <description>emacspeak-request@cs.vassar.edu</description>
     </item>
     <item>
-      <link></link>
-      <title>Synthesizer Support</title>
-      <description>Synthesizer Support</description>
-    </item>
-    <item>
       <link>http://www.fonix.com/products/dectalk/rt_linux/</link>
       <title>Fonix Software Dectalk</title>
       <description>Fonix Software Dectalk</description>
@@ -467,11 +373,6 @@ Emacspeak is a speech interface that allows visually
     page</title>
       <description>Jim Van Zandt's home
     page</description>
-    </item>
-    <item>
-      <link></link>
-      <title>Auditory Icon Themes</title>
-      <description>Auditory Icon Themes</description>
     </item>
     <item>
       <link>themes.html</link>
