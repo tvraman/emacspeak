@@ -1324,6 +1324,7 @@ annotation is inserted into the working buffer when complete."
                         (emacspeak-annotate-make-buffer-list)))))
   (let ((annotation nil)
         (parent-buffer (current-buffer)))
+    (message "Adding annotation to %s" emacspeak-annotate-working-buffer)
     (save-excursion
       (set-buffer emacspeak-annotate-working-buffer)
       (setq annotation    (emacspeak-annotate-get-annotation))
