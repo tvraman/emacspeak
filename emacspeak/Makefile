@@ -188,7 +188,7 @@ emacspeak:
 	@echo "See Makefile for instructions." 
 	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs" 
 	@echo "See the FAQ for Frequently Asked Questions -- control e cap F in Emacs"
-@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs" 
+	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs" 
 	@echo "Use C-h p in Emacs for a package overview" 
 	@echo "Make sure you read the Emacs info pages" 
 
