@@ -71,13 +71,14 @@ Text <xsl:value-of select="count(.//text() | .//p)"/>
 table width: <xsl:value-of select="@width"/>
         </p>
 -->
+<h2>
         <xsl:element name="a">
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
           </xsl:attribute>
           <em>Table <xsl:value-of select="position()"/></em>
         </xsl:element>
-        <br/>
+        </h2>
         <xsl:element name="table">
           <xsl:apply-templates select="@*"/>
           <xsl:apply-templates/>
