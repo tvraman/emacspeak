@@ -132,7 +132,7 @@
   "Speech-enable bs mode"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-spea-mode-line)))
+    (emacspeak-speak-mode-line)))
 (defadvice bs-set-configuration-and-refresh (after emacspeak pre act comp)
   "Speech-enable bs mode"
   (when (interactive-p)
