@@ -3988,42 +3988,75 @@ Search Encyclopedia Britannica.
 Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
 Once selected, the selected searcher prompts for additional information as appropriate.
-@table @kbd
-Key                   Search
-a                          AltaVista Simple Search
-Cap-A                        All The Web
-b                                BBC Archives
-C-b                           Computer Science Bibliography
-c                                CNN Interactive
-Cap-C    Company News By Ticker
-C-c                         Computer Science Citation  Index
-d                           Usenet Archives (formerly Dejanews)
-Cap-D                  Hypertext Websters Dictionary
-e                       Encyclopedia Britannica
-f                             CNN  Financial Network
-cap-F                         Free Online Dictionary Of Computing
-g                             The Google WWW Index
-.                             Advanced Google WWW Index
-Cap-G    Locate Gutenberg Etexts
-h                             HotBot WWW Index
-j                             Ask Jeeves
-m                                Maps from Yahoo
-Cap-M                     Merriam Webster Dictionary
-n                         News Wire at Yahoo
-Cap-N                       Northern Light Search
-o                     Open Directory Search 
-p                             People Search (Yahoo)
-r                             Search RedHat Via Google
-Cap R                           RFBD Catalog search
-C-r                          Find RPM packages
-s                         Search for software
-t                        Machine translation 
-u                   Usenet Index from Google
-w                            Weather Channel  By Zip Code
-cap W                             W3C Site
-v                            Vickers Insider Trades
-Cap V VectorVest Stock  Reports
-y                              Master Yahoo Index
+ @table @kbd
+@item a                          
+AltaVista Simple Search
+@item Cap-A                        
+All The Web
+@item b                                
+BBC Archives
+@item C-b                           
+Computer Science Bibliography
+@item c                                
+CNN Interactive
+@item Cap-C    
+Company News By Ticker
+@item C-c                         
+Computer Science Citation  Index
+@item d                           
+Usenet Archives (formerly Dejanews)
+@item Cap-D                  
+Hypertext Websters Dictionary
+@item e                       
+Encyclopedia Britannica
+@item f                             
+CNN  Financial Network
+@item cap-F                         
+Free Online Dictionary Of Computing
+@item g                             
+ Google search
+@item .                             
+Advanced Google WWW Index
+@item Cap-G    
+Locate Gutenberg Etexts
+@item h
+HotBot WWW Index
+@item j
+Ask Jeeves
+@item m
+Maps from Yahoo
+@item Cap-M
+Merriam Webster Dictionary
+@item n
+News Wire at Yahoo
+@item Cap-N
+Northern Light Search
+@item o
+Open Directory Search 
+@item p
+People Search (Yahoo)
+@item r
+Search RedHat Via Google
+@item Cap R
+RFBD Catalog search
+@item C-r
+Find RPM packages
+@item s
+Software search
+@item t
+Machine translation 
+@item u
+Usenet Index from Google
+@item w
+Weather Channel  By Zip Code
+@item cap W
+W3C Site
+@item v
+Vickers Insider Trades
+@item Cap V
+VectorVest Stock  Reports
+@item y
+Master Yahoo Index
 @end table
 When using W3,  this interface attempts to speak the most relevant information on the result page.
 @end deffn
