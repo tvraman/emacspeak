@@ -87,7 +87,7 @@ Authoring Guidelines
 ====================
 
    For this manual to hang together and make sense to the new user at
-whom it is targetted, contributors need to stick to a consistent style.
+whom it is targeted, contributors need to stick to a consistent style.
 If you plan to contribute content, you should take some time to read the
 existing sections -note that many of these are skeletal and the first
 contributions will be to flesh these sections out.
@@ -466,7 +466,7 @@ terminology for the editing cursor).
      emacspeak-speak-word  Speak current word.  With prefix ARG, speaks
      the rest of the word from point.  Negative prefix arg speaks from
      start of word to point.  If executed  on the same buffer position
-     a second time, the word is spelt instead of being spoken.
+     a second time, the word is spelled instead of being spoken.
 
 ` control e l '
      emacspeak-speak-line  Speaks current line.  With prefix ARG,
@@ -1093,7 +1093,7 @@ building block for the entire desktop.  Every Emacs buffer is searchable
 via a uniform and powerful search interface.  Emacs' incremental search
 works efficiently and consistently to enable you locate "objects" of
 interest either within a given document or to locate a given object from
-amongst the various objects that are currently open on the Emacspeak
+among the various objects that are currently open on the Emacspeak
 desktop.  This is very powerful -where a GUI user is typically limited
 to quickly locating an object from a relatively small collection -the
 size of the collection being a direct function of available display

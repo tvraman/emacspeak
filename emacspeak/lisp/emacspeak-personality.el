@@ -103,17 +103,23 @@
 
 ;;}}}
 ;;{{{ cumulative personalities 
+
 ;;;###autoload
 (defun emacspeak-personality-put (start end personality object)
   "Apply personality to specified region, over-writing any current
 personality settings."
+  (when (and (integer-or-marker-p start)
+             (integer-or-marker-p end ))
   (ems-modify-buffer-safely
-   (put-text-property start end 'personality personality object)))
+   (put-text-property start end 'personality personality object))))
+
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality
                                             &optional object )
   "Append specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (when (and (integer-or-marker-p start)
+             (integer-or-marker-p end ))
   (ems-modify-buffer-safely
    (let ((orig (get-text-property start 'personality object))
          (new nil)
@@ -140,12 +146,15 @@ Existing personality properties on the text range are preserved."
                             'personality new object))
        (when (< extent end)
          (emacspeak-personality-append extent end
-                                       personality object)))))))
+                                       personality object))))))))
+
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end
                                              personality &optional object)
   "Prepend specified personality to text bounded by start and end.
 Existing personality properties on the text range are preserved."
+  (when (and (integer-or-marker-p start)
+             (integer-or-marker-p end ))
   (ems-modify-buffer-safely
    (let ((orig (get-text-property start 'personality object))
          (new nil)
@@ -172,7 +181,7 @@ Existing personality properties on the text range are preserved."
 			    'personality new object))
        (when (< extent end)
          (emacspeak-personality-prepend extent end
-                                        personality)))))))
+                                        personality))))))))
 
 (defun emacspeak-personality-remove  (start end
 					    personality
@@ -180,6 +189,8 @@ Existing personality properties on the text range are preserved."
   "Remove specified personality from text bounded by start and end.
 Other existing personality properties on the text range are
 preserved."
+  (when (and (integer-or-marker-p start)
+             (integer-or-marker-p end ))
   (ems-modify-buffer-safely
    (let ((orig (get-text-property start 'personality object))
 	 (new nil)
@@ -205,7 +216,7 @@ preserved."
 				 object))
        (when (< extent end)
 	 (emacspeak-personality-remove extent end
-				       personality)))))))
+				       personality))))))))
 
 ;;}}}
 ;;{{{ advice put-text-personality
@@ -348,7 +359,9 @@ Append means place corresponding personality at the end."
         (prop (ad-get-arg 1))
         (value (ad-get-arg 2))
         (voice nil))
-    (when (eq prop 'face)
+    (when (and (eq prop 'face)
+               (integer-or-marker-p (overlay-start overlay))
+               (integer-or-marker-p (overlay-end overlay)))
       (cond
        ((symbolp value)
         (setq voice (voice-setup-get-voice-for-face   value)))
@@ -374,6 +387,7 @@ Append means place corresponding personality at the end."
 		  value))
          (t (puthash  value t
                       emacspeak-personality-unmapped-faces)))))))
+
 (defadvice move-overlay (before emacspeak-personality  pre act) 
   "Used by emacspeak to augment font lock."
   (let ((overlay (ad-get-arg 0))
@@ -383,7 +397,9 @@ Append means place corresponding personality at the end."
         (voice nil))
     (setq voice (overlay-get  overlay 'personality))
     (when (and voice
-               emacspeak-personality-voiceify-overlays)
+               emacspeak-personality-voiceify-overlays
+               (integer-or-marker-p (overlay-start overlay))
+               (integer-or-marker-p (overlay-end overlay)))
       (emacspeak-personality-remove
        (overlay-start overlay)
        (overlay-end overlay)

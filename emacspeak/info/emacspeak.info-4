@@ -118,7 +118,7 @@ emacspeak-ocr.
      short but meaningful name.
 
  - Interactive Command: emacspeak-ocr-open-working-directory ()
-     Launch dired on OCR workng directory.
+     Launch dired on OCR working directory.
 
  - Interactive Command: emacspeak-ocr-page ()
      Move to specified page.
@@ -137,7 +137,7 @@ emacspeak-ocr.
  - Interactive Command: emacspeak-ocr-scan-and-recognize ()
      Scan in a page and run OCR engine on it.  Use this command once
      you've verified that the separate steps of acquiring an image and
-     running the OCR engine work corectly by themselves.
+     running the OCR engine work correctly by themselves.
 
  - Interactive Command: emacspeak-ocr-scan-image ()
      Acquire page image.
@@ -220,7 +220,7 @@ emacspeak-pronounce.
 
  - Interactive Command: emacspeak-pronounce-define-local-pronunciation
           (WORD PRONUNCIATION)
-     Define buffer local pronounciation.  Argument WORD specifies the
+     Define buffer local pronunciation.  Argument WORD specifies the
      word which should be pronounced as specified by PRONUNCIATION.
 
  - Interactive Command: emacspeak-pronounce-define-pronunciation ()
@@ -253,7 +253,7 @@ emacspeak-pronounce.
  - Interactive Command: emacspeak-pronounce-toggle-use-of-dictionaries
           (&optional STATE)
      Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be dfined on a per file, per directory and/or
+     Pronunciations can be defined on a per file, per directory and/or
      per mode basis.  Pronunciations are activated on a per buffer
      basis.  Turning on the use of pronunciation dictionaries results
      in emacspeak composing a pronunciation table based on the
@@ -345,7 +345,7 @@ emacspeak-realaudio.
 
      If using TRPlayer, you can either give one-shot commands using
      command emacspeak-realaudio available from anywhere on the audio
-     desktop as `C-e ;'.  Alternatively, switch to buffer *realaudo*
+     desktop as `C-e ;'.  Alternatively, switch to buffer *realaudio*
      using `C-e ;;' if you wish to issue many navigation commands.
      Note that buffer *realaudio* uses a special major mode that
      provides the various navigation commands via single keystrokes.
@@ -871,7 +871,7 @@ emacspeak-speak.
      Print the current buffer line number and narrowed line number of
      point.
 
- - Interactive Command: emacspeak-speak-line-number-obselete ()
+ - Interactive Command: emacspeak-speak-line-number-obsolete ()
      Speak the line number of the current line.
 
  - Interactive Command: emacspeak-speak-line-set-column-filter (FILTER)
@@ -900,7 +900,7 @@ emacspeak-speak.
  - Interactive Command: emacspeak-speak-message-at-time (TIME MESSAGE)
      ` control e @ '
 
-     Set up rin-at-time to speak message at specified time.  Provides
+     Set up ring-at-time to speak message at specified time.  Provides
      simple stop watch functionality in addition to other things.  See
      documentation for command run-at-time for details on time-spec.
 
@@ -1076,7 +1076,7 @@ emacspeak-speak.
 
  - Interactive Command: emacspeak-speak-voice-annotate-paragraphs ()
      Locate paragraphs and voice annotate the first word.  Here,
-     paragraph is taken to mean a chunk of text preceeded by a blank
+     paragraph is taken to mean a chunk of text preceded by a blank
      line.  Useful to do this before you listen to an entire buffer.
 
  - Interactive Command: emacspeak-speak-window-information ()
