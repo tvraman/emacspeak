@@ -119,7 +119,7 @@
 Argument START   specifies the start of the region to operate on.
 Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
-Argument BODY specifies forms to execute.."
+Argument BODY specifies forms to execute."
   (`
    (unwind-protect
        (progn
@@ -140,7 +140,7 @@ Argument BODY specifies forms to execute.."
                  (put-text-property
                   (max (point-min) (, start))
                   (min (point-max) (, end))
-                  'personality (, value) )
+                  'personality (, value))
                  (,@ body))
              (put-text-property
               (max (point-min) (, start))
