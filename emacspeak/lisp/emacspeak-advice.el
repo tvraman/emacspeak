@@ -652,22 +652,6 @@ before the message is spoken."
   
 ;;{{{ advising signal
 
-                                        ; (defadvice signal (before emacspeak pre act compile)
-                                        ;   "Speak the error message as well."
-                                        ;   (let ((dtk-stop-immediately t))
-                                        ;     (dtk-speak
-                                        ;      (format "%s %s"
-                                        ;              (or (get (ad-get-arg 0) 'error-message)
-                                        ;                  "Peculiar error ")
-             
-                                        ;              (mapconcat
-                                        ;               (function 
-                                        ;                (lambda (x)
-                                        ;                  (format "%s" x)))
-                                        ;               (ad-get-arg 1)
-                                        ;               " ")))))
-
-;;; lighter weight version:
 
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."

@@ -126,7 +126,7 @@ speech flush as you type."
     (forward-char arg)
     (when (interactive-p)
       (and dtk-stop-immediately (dtk-stop))
-      (emacspeak-speak-char t )))
+      (emacspeak-speak-char t  )))
    (t(ding)
      (message "End of buffer"))))
 
