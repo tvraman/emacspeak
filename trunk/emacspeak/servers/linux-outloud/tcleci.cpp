@@ -135,11 +135,8 @@ int Synchronize(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int setOutput(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
+int closeDSP(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
 int eciCallback(void *, int, long, void *);
-int playWaveFile(ClientData, Tcl_Interp *, int, Tcl_Obj * CONST []);
-
-
-
 void TclEciFree(ClientData eciHandle) {
   _eciDelete(eciHandle);
   close (dsp);
@@ -258,8 +255,8 @@ int Tcleci_Init(Tcl_Interp *interp) {
                        eciHandle, TclEciFree);
   Tcl_CreateObjCommand(interp, "setOutput", setOutput, (ClientData)
                        eciHandle, TclEciFree);
-Tcl_CreateObjCommand(interp, "playWave", playWaveFile, (ClientData)
-                     NULL, NULL );
+  Tcl_CreateObjCommand(interp, "closeDSP", closeDSP, (ClientData)
+                       eciHandle, TclEciFree);
   //>
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; 
@@ -269,30 +266,6 @@ set tts(last_index) $x}");
 
 /* Play wave file 16bit stereo only */
 /* incomplete for now --need to integrate with libst from sox */
-
-int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
-  size_t  count;
-  int length;
-  char* filename;
-  FILE* fp;
-  short samples [2*BUFSIZE];
-  if (objc !=2) {
-    Tcl_AppendResult(interp, "Usage: playWave filename", NULL);
-    return TCL_ERROR;
-  }
-  filename = Tcl_GetStringFromObj(objv[1], &length);
-  fp =fopen(filename, "r");
-  if (fp == NULL) {
-    Tcl_AppendResult(interp, "Error opening wave file.", NULL);
-    return TCL_ERROR;
-  }
-  fprintf(stderr, "Playing %s\n", filename);
-  while ((count =fread(  samples, 2, 2*BUFSIZE, fp)) >0) {
-    write (dsp, samples, count);
-  }
-  fclose(fp);
-  return TCL_OK;
-}
 
 int playTTS (int samples) {
   int i;
@@ -470,7 +443,6 @@ int openDSP() {
       return -1;
     }
     dsp = _dsp;
-    fprintf(stderr, "open dsp is %d\n", dsp);
     ioctl(dsp, SNDCTL_DSP_RESET, 0);
     tmp=11025;
     ioctl(dsp, SNDCTL_DSP_SPEED,&tmp);
@@ -482,6 +454,12 @@ int openDSP() {
     ioctl(dsp, SNDCTL_DSP_GETBLKSIZE, &tmp);
     return dsp;
 }
+int closeDSP(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
+  close(dsp);
+  dsp = -1;
+  return TCL_OK;
+}
+
 
 
 int setOutput(ClientData eciHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
