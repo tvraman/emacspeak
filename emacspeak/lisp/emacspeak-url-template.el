@@ -1006,7 +1006,7 @@ plays entire program."
                                           url)))
 
 (emacspeak-url-template-define
- "sourceforge  download" 
+ "sourceforge download" 
  "http://unc.dl.sourceforge.net/sourceforge/%s/"
  (list "Project name")
  nil
