@@ -201,6 +201,7 @@ and end."
   (`
    (lambda (process output)
      (let ((stream  (, accumulate))
+           (processor (function (, post-processor)))
            (done  (, terminator)))
        (save-excursion
          (set-buffer stream)
@@ -214,7 +215,7 @@ and end."
            (beginning-of-line)
            (kill-line)
            (set-process-filter process 'comint-output-filter)
-           (funcall (, post-processor)
+           (funcall processor)
                     (point-min) (point-max))
            (set-buffer (process-buffer process))
            (goto-char (point-max))
