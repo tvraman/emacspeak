@@ -4,12 +4,12 @@
 
 
 Emacs -- The extensible, self-documenting editor, derives its
-functionality from its powerful extension mechnaism. This extension
+functionality from its powerful extension mechanism. This extension
 mechanism is used to implement many user-level applications such as mail
 readers, WWW browsers, software development environments and so on.
 This chapter gives directions on how to locate the right Emacs package
 for addressing specific tasks.  The chapter is organized into logical
-sections that each pertain to a specific class of tasks; in dividual
+sections that each pertain to a specific class of tasks; in individual
 subsections within a section give a brief overview of particular Emacs
 packages that have been speech-enabled.
 
@@ -251,7 +251,7 @@ The Emacspeak OCR front-end is launched by command @dfn{emacspeak-ocr} bound
 to @kbd{C-e C-o}.
 
 This command switches to a special buffer that has OCR
-commands bounds to single keystrokes-- see the ke-binding
+commands bounds to single keystrokes-- see the key-binding
 list at the end of this description.  Use Emacs online help
 facility to look up help on these commands.
 

@@ -24,7 +24,7 @@ computer.
 Before authoring a document, decide its primary audience 
 if the document contains relatively simple content e.g., no mathematical
 equations etc. 
-and is primarily targetted at the WWW,  you are probably better off
+and is primarily targeted at the WWW,  you are probably better off
 using HTML.
 You can create well-structured HTML documents with the help of package 
 @code{html-helper-mode} available from 
@@ -48,7 +48,7 @@ to format the document for good visual presentation.
 
 The auctex package is an Emacs extension that facilitates authoring and
 maintaining structured documents in TeX and LaTeX.  Package
-@code{bibtex} facilitates maintainance and use of @code{bibtex}
+@code{bibtex} facilitates maintenance and use of @code{bibtex}
 bibliography databases.  The Texinfo package allows creation of software
 documentation that is suitable for both printing as well as online
 viewing as hypertext.  Emacspeak speech-enables packages @code{auctex},

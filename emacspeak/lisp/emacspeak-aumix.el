@@ -159,7 +159,7 @@ after saving the settings to have them take effect."
 
 (defun emacspeak-aumix ()
   "Setup output parameters of the auditory display.
-Luanch this tool while you have auditory output on
+ Launch this tool while you have auditory output on
 multiple channels playing so you can
 adjust the settings to your preference.  Hit q to quit when
 you are done."

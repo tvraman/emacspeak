@@ -63,7 +63,7 @@
   :prefix "emacspeak-erc-")
 
 (defcustom emacspeak-erc-ignore-notices nil
-  "Set to T if you dont want to see notifcation messages from the
+  "Set to T if you dont want to see notification  messages from the
 server."
   :type 'boolean
   :group 'eamcspeak-erc)

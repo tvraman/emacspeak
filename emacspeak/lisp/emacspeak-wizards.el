@@ -1020,7 +1020,7 @@ Warning! Contents of file options.texi will be overwritten."
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
-       "@node Emacspeak Options\n@chapter Emacspeak Customizations \n\n")
+       "@node Emacspeak Customizations\n@chapter Emacspeak Customizations \n\n")
       (insert
        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
@@ -1263,7 +1263,7 @@ meaning of `next'."
 (defcustom emacspeak-clipboard-file
   (concat emacspeak-resource-directory "/" "clipboard")
   "File used to save Emacspeak clipboard.
-The emacspeak clipboard provides a convenient mechnaism for exchanging
+The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions."
   :group 'emacspeak-speak
   :type 'string)
@@ -1384,7 +1384,7 @@ Argument VAR specifies variable whose value is to be displayed."
   "dtk-exp"
   "TTS server to use in an emergency.
 Set this to a TTS server that is known to work at all times.
-If you are debugging another speech servre and that server
+If you are debugging another speech server and that server
 gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.
@@ -2090,7 +2090,7 @@ directory to where find is to be launched."
 ;;}}}
 ;;{{{ display environment variable
 ;;;###autoload
-(defun emacspeak-wizards-show-environment-vvariable (v)
+(defun emacspeak-wizards-show-environment-variable (v)
   "Display value of specified environment variable."
   (interactive
    (list
@@ -2130,7 +2130,7 @@ emacspeak-wizards-occur-header-lines.")
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
-run `how-many'to count  matching header lines.
+run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern."
   (interactive "P")
   (declare (special emacspeak-occur-pattern))
