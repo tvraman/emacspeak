@@ -540,8 +540,6 @@ ROOT-WINDOW-EDGES will be used."
 	   (setq bottom (nth 3 e0))))
     (and left top right bottom (list left top right bottom))))
 
-
-
 ;; We call these functions instead of calling the Emacs 19 frame
 ;; functions directly to let this package work with v18 Emacs.
 

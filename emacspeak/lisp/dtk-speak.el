@@ -106,7 +106,6 @@ dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 The default is dtk-exp.")
 
-
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
 Do not set this variable by hand.
@@ -132,7 +131,6 @@ of a specified pattern is found, the TTS engine replaces it
 with a repeat count. "
   :type '(repeat  (string :tag "pattern"))
   :group 'tts)
-
 
 ;;}}}
 ;;{{{  internal variables
