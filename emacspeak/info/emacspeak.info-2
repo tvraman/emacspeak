@@ -994,6 +994,7 @@ Key Index
 * control e a:                           Status Information.
 * control e b:                           Reading.
 * control e c:                           Reading.
+* control e cap V:                       Status Information.
 * control e control @:                   Status Information.
 * control e control l:                   Status Information.
 * control e control n:                   Reading.
@@ -1038,7 +1039,6 @@ Key Index
 * control e up:                          Reading.
 * control e v:                           Status Information.
 * control e w:                           Reading.
-* control e x:                           Status Information.
 * control e {:                           Reading.
 * ESCAPE down:                           Reading.
 * ESCAPE next:                           Reading.

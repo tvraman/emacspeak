@@ -10,7 +10,7 @@ END-INFO-DIR-ENTRY
 
 Indirect:
 emacspeak.info-1: 232
-emacspeak.info-2: 47452
+emacspeak.info-2: 47416
 
 Tag Table:
 (Indirect)
@@ -21,46 +21,46 @@ Node: Contributing1776
 Node: Authoring Guidelines2394
 Node: Credits3277
 Node: Introduction3636
-Ref: Introduction-Footnote-16172
-Node: Installation6277
-Node: Obtaining Emacspeak6820
-Node: Quick Installation7404
-Node: Configuring and Installing Emacspeak8444
-Node: Basic Usage11466
-Node: Overview12746
-Node: Working15096
-Ref: Working-Footnote-117325
-Ref: Working-Footnote-217371
-Node: Reading17406
-Node: Speech System24165
-Node: Controlling Echo24624
-Node: Speech Output Control26056
-Node: Miscellaneous30147
-Node: Voice-lock34524
-Node: Status Information36320
-Node: Audio Desktop38842
-Node: Desktop Objects40825
-Node: Object Oriented Desktop41671
-Node: Context-Sensitive Interaction42409
-Node: Using Online Help47452
-Node: Emacs Packages51666
-Node: Document Authoring52843
-Node: Creating Well-formatted Documents53528
-Node: Search replace and spell check57420
-Node: Structured Editing62631
-Node: Outline Editing64636
-Node: Template-based Authoring68352
-Node: Maintaining Structured Data69979
-Node: Browsing Structure71437
-Node: Messaging71884
-Node: Editting Program Source72482
-Node: Development Environment73488
-Node: Desktop Management74060
-Node: Personal Information Management74825
-Node: Desktop Applications75168
-Node: Running Terminal Based Applications81641
-Node: Acknowledgements89628
-Node: Concept Index89802
-Node: Key Index90285
+Ref: Introduction-Footnote-16134
+Node: Installation6237
+Node: Obtaining Emacspeak6780
+Node: Quick Installation7364
+Node: Configuring and Installing Emacspeak8404
+Node: Basic Usage11426
+Node: Overview12706
+Node: Working15056
+Ref: Working-Footnote-117285
+Ref: Working-Footnote-217331
+Node: Reading17366
+Node: Speech System24125
+Node: Controlling Echo24584
+Node: Speech Output Control26016
+Node: Miscellaneous30107
+Node: Voice-lock34484
+Node: Status Information36280
+Node: Audio Desktop38806
+Node: Desktop Objects40789
+Node: Object Oriented Desktop41635
+Node: Context-Sensitive Interaction42373
+Node: Using Online Help47416
+Node: Emacs Packages51630
+Node: Document Authoring52807
+Node: Creating Well-formatted Documents53492
+Node: Search replace and spell check57384
+Node: Structured Editing62595
+Node: Outline Editing64600
+Node: Template-based Authoring68316
+Node: Maintaining Structured Data69943
+Node: Browsing Structure71401
+Node: Messaging71848
+Node: Editting Program Source72446
+Node: Development Environment73452
+Node: Desktop Management74024
+Node: Personal Information Management74789
+Node: Desktop Applications75132
+Node: Running Terminal Based Applications81605
+Node: Acknowledgements89592
+Node: Concept Index89766
+Node: Key Index90249
 
 End Tag Table
