@@ -278,9 +278,8 @@ displayed in the messages area."
           (progn
             (cond
              ((symbolp value)
-              (setq voice (voice-setup-get-voice-for-face
-                           value)));; the following test for
-             (ems-plain-cons-p value)) ;;pass on plain cons
+              (setq voice (voice-setup-get-voice-for-face value)))
+             ((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -316,7 +315,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-(ems-plain-cons-p value)) ;;pass on plain cons
+((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
@@ -352,7 +351,7 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             (ems-plain-cons-p value)) ;;pass on plain cons
+             ((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delete nil 
