@@ -111,7 +111,7 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. "
   :group 'emacspeak
   :type '(repeat
-	  (cons 
+	  (cons  :tag "Key Binding"
 		(string :tag "Key")
 		(symbol :tag "Command")))
   :set '(lambda (sym val)
