@@ -482,7 +482,15 @@ even if one is already defined."
      ((and (boundp 'emacspeak-w3-url-executor)
       (fboundp emacspeak-w3-url-executor))
       (funcall emacspeak-w3-url-executor url))
-     (t (error "No expander defined.")))))
+     (t
+      (setq emacspeak-w3-url-executor
+            (read-minibuffer"Executor Function: " "emacspeak-url-"))
+      (if (and (boundp 'emacspeak-w3-url-executor)
+      (fboundp emacspeak-w3-url-executor))
+      (funcall emacspeak-w3-url-executor url)
+      (error "Invalid executor %s"
+emacspeak-w3-url-executor))))))
+      
 
 ;;}}}
 ;;{{{  jump to title in document
