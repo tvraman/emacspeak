@@ -245,7 +245,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Display form specified by form-markup."
   (interactive
    (list
-    (progn
+    (let ((emacspeak-speak-messages nil))
       (emacspeak-pronounce-define-local-pronunciation
        (expand-file-name "xml-forms"
                          emacspeak-lisp-directory)
@@ -263,7 +263,7 @@ ARGS specifies additional arguments to SPEAKER if any."
       (w3-preview-this-buffer)
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line)
+      (emacspeak-widget-summarize (widget-at (point)))
       (kill-buffer buffer))))
 
 ;;}}}
