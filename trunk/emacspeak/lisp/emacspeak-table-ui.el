@@ -44,6 +44,7 @@
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
+(require 'emacspeak-table)
 
 ;;}}}
 ;;{{{ define personalities

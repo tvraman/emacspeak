@@ -53,6 +53,7 @@
 ;;; Code:
 
 (require 'emacspeak-preamble)
+(require 'term)
 ;;}}}
 ;;{{{ custom
 ;;;###autoload
@@ -146,7 +147,8 @@ Useful when eterm is in review mode.")
 
 (defun emacspeak-eterm-setup-raw-keys ()
   "Setup emacspeak keys for raw terminal mode."
-  (declare (special term-raw-map 
+  (declare (special term-raw-map
+                    emacspeak-prefix term-raw-escape-map
                     emacspeak-eterm-keymap
                     emacspeak-eterm-raw-prefix))
   (when term-raw-map 
@@ -788,7 +790,7 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
   "Vector of window positions.
 A terminal window is recorded by the  positions of its top left
 and bottom right.")
-
+;;;###autoload
 (defun emacspeak-eterm-record-window  (window-id top-left bottom-right
                                                  &optional right-stretch left-stretch )
   "Insert this window definition into the table of terminal windows.
@@ -1303,7 +1305,7 @@ emacspeak-eterm-remote-hostnames")
 
 (eval-when (load)
   (emacspeak-eterm-load-remote-hosts-cache))
-
+;;;###autoload
 (defun emacspeak-eterm-cache-remote-host (host)
   "Add this hostname to cache of remote hostnames"
   (declare (special emacspeak-eterm-remote-hosts-table

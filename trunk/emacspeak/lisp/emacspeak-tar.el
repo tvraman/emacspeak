@@ -41,6 +41,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'tar-mode)
 ;;}}}
 ;;{{{  Introduction 
 

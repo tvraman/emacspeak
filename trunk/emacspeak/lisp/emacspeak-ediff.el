@@ -134,6 +134,7 @@
 
 (defsubst emacspeak-ediff-difference-c-overlay (n)
   (declare (special ediff-difference-vector-B
+                    ediff-difference-vector-C
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -158,6 +159,7 @@
 
 (defsubst emacspeak-ediff-fine-difference-c-overlays (n)
   (declare (special ediff-difference-vector-B
+                    ediff-difference-vector-C
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
           "There are only %s differences"
@@ -250,6 +252,7 @@
   "Voicify all the difference chunks"
   (declare (special ediff-buffer-A ediff-buffer-B
                     ediff-number-of-differences
+ediff-difference-vector-a ediff-difference-vector-b
                     emacspeak-ediff-A-personality
                     emacspeak-ediff-B-personality
                     emacspeak-ediff-fine-A-personality
