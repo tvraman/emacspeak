@@ -127,7 +127,6 @@
 
 (defvar xsl-xsl-main-personality voice-bolden 
   "Personality used for highlighting in XSL.")
-;;; keep byte compiler happy 
 
 ;;}}}
 (provide 'emacspeak-xslide)
