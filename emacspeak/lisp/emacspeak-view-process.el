@@ -224,29 +224,29 @@
 :group 'emacspeak-view-process)
 
 
-(defvar View-process-parent-line-personality 'harry
+(defcustom View-process-parent-line-personality 'harry
   "Personality for parent "
   :type 'symbol
 :group 'emacspeak-view-process)
 
-(defvar View-process-single-line-personality 'parul-monotone
+(defcustom View-process-single-line-personality 'parul-monotone
   "Personality for voice lock in view process mode"
   :type 'symbol
 :group 'emacspeak-view-process)
 
 
-(defvar View-process-signal-line-personality 'paul-disgusted
+(defcustom View-process-signal-line-personality 'paul-disgusted
   "Indicate a signal"
   :type 'symbol
 :group 'emacspeak-view-process)
 
-(defvar View-process-signaled-line-personality 'paul-animated
+(defcustom View-process-signaled-line-personality 'paul-animated
   "Personality for indicating a signalled process"
   :type 'symbol
 :group 'emacspeak-view-process)
 
 	 
-(defvar View-process-renice-line-personality 'paul-smooth
+(defcustom View-process-renice-line-personality 'paul-smooth
   "Indicate a reniced process"
   :type 'symbol
 :group 'emacspeak-view-process)
