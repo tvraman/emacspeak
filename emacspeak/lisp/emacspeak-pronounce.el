@@ -296,7 +296,7 @@ Modifies text and point in buffer."
   "Says if user dictionaries loaded on  emacspeak startup."
   :type 'boolean
   :group 'emacspeak-pronounce)
-
+;;;###autoload
 (defun emacspeak-pronounce-save-dictionaries  ()
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
@@ -322,7 +322,7 @@ Modifies text and point in buffer."
       (save-buffer))))
 (defvar emacspeak-pronounce-dictionaries-loaded nil
   "Indicates if dictionaries already loaded.")
-
+;;;###autoload
 (defun emacspeak-pronounce-load-dictionaries  (&optional filename)
   "Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file."
@@ -335,7 +335,7 @@ Optional argument FILENAME specifies the dictionary file."
   (when (file-exists-p filename)
     (load-file filename)
     (setq emacspeak-pronounce-dictionaries-loaded t)))
-
+;;;###autoload
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."
   (interactive)

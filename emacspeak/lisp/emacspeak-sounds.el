@@ -89,7 +89,7 @@ use `emacspeak-toggle-auditory-icons' bound to
   "Predicate to test if we are using midi."
   (declare (special emacspeak-auditory-icon-function))
   (or (eq emacspeak-auditory-icon-function
-          'emacspeak-midi-icon)
+          'emacspeak-play-midi-icon)
       (eq emacspeak-auditory-icon-function 'emacspeak-queue-midi-icon)))
 
 ;;}}}
@@ -321,7 +321,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   (apply 'dtk-queue-note
          (emacspeak-get-midi-note midi-name)))
 
-(defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
+
 ;;;###autoload
 (defsubst emacspeak-play-midi-icon (midi-name)
   "Play midi icon midi-NAME."
@@ -339,7 +339,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
 	  (const emacspeak-queue-auditory-icon)
-          (const emacspeak-midi-icon)))
+          (const emacspeak-play-midi-icon)))
 ;;;###autoload 
 (defsubst emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
@@ -512,7 +512,7 @@ Optional interactive PREFIX arg toggles global value."
 	      (string= dtk-program "outloud")
 	      (string= dtk-program "stereo-outloud"))
              (not emacspeak-aumix-multichannel-capable-p))
-    (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon))
+    (setq emacspeak-auditory-icon-function 'emacspeak-play-midi-icon))
   (message "Turned %s auditory icons %s"
            (if emacspeak-use-auditory-icons  "on" "off" )
            (if prefix "" "locally"))
@@ -524,7 +524,7 @@ Optional interactive PREFIX arg toggles global value."
     ("emacspeak-serve-auditory-icon" . "emacspeak-serve-auditory-icon")
     ("emacspeak-play-auditory-icon" . "emacspeak-play-auditory-icon")
     ("emacspeak-native-auditory-icon" . "emacspeak-native-auditory-icon")
-    ("emacspeak-midi-icon" . "emacspeak-midi-icon"))
+    ("emacspeak-play-midi-icon" . "emacspeak-play-midi-icon"))
   "Table of auditory icon players used  when selecting a player.")
 
 (defsubst emacspeak-select-auditory-icon-player ()
@@ -541,7 +541,7 @@ Optional interactive PREFIX arg toggles global value."
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-midi-icon for midi device. "
+emacspeak-play-midi-icon for midi device. "
   (interactive
    (list
     (emacspeak-select-auditory-icon-player )))
@@ -549,7 +549,7 @@ emacspeak-midi-icon for midi device. "
                     emacspeak-auditory-icon-function))
   (cond
    ((and (not emacspeak-aumix-midi-available-p)
-         (memq player '(emacspeak-midi-icon
+         (memq player '(emacspeak-play-midi-icon
                         emacspeak-queue-midi-icon
                         emacspeak-play-midi-icon)))
     (message "Cannot use midi icons in your current

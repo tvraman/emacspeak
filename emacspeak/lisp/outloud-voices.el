@@ -456,7 +456,7 @@ and TABLE gives the values along that dimension."
              (not emacspeak-aumix-multichannel-capable-p)
              (not (emacspeak-using-midi-p))
              emacspeak-aumix-midi-available-p)
-    (emacspeak-set-auditory-icon-player 'emacspeak-midi-icon)))
+    (emacspeak-set-auditory-icon-player 'emacspeak-play-midi-icon)))
 
 ;;}}}
 (provide 'outloud-voices)

@@ -825,32 +825,32 @@ are indicated with auditory icon ellipses."
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
         (when (emacspeak-using-midi-p)
-          (emacspeak-midi-icon 'empty-line)))
+          (emacspeak-play-midi-icon 'empty-line)))
        ((string-match  emacspeak-speak-space-regexp  line) ;only white space
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 300   120 'force)
         (when (emacspeak-using-midi-p)
-          (emacspeak-midi-icon 'blank-line)))
+          (emacspeak-play-midi-icon 'blank-line)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-horizontal-rule line)) ;horizontal rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 350   100 'force)
         (when (emacspeak-using-midi-p)
-          (emacspeak-midi-icon 'horizontal-rule)))
+          (emacspeak-play-midi-icon 'horizontal-rule)))
        ((and
          (not (string= "all" dtk-punctuation-mode))
          (string-match  emacspeak-decoration-rule line) ) ;decorative rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 450   100 'force)
         (when (emacspeak-using-midi-p)
-          (emacspeak-midi-icon 'decorative-rule)))
+          (emacspeak-play-midi-icon 'decorative-rule)))
        ((and (not (string= "all" dtk-punctuation-mode))
              (string-match  emacspeak-unspeakable-rule line) ) ;unspeakable rule
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 550   100 'force)
         (when (emacspeak-using-midi-p)
-          (emacspeak-midi-icon 'unspeakable-rule)))
+          (emacspeak-play-midi-icon 'unspeakable-rule)))
        (t
         (let ((l (length line))
               (confirm nil))
