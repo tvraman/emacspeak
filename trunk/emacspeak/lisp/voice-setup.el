@@ -382,6 +382,12 @@ punctuations.")
   'highlight-face
   "Personality used for highlighting text.")
 
+(def-voice-font voice-lock-region-personality voice-brighten
+  'region
+  "Personality used for highlighting region.")
+(def-voice-font voice-lock-button-personality voice-bolden
+  'button
+  "Personality used for button text.")
 (def-voice-font voice-lock-fixed-personality voice-monotone
   'fixed
   "Personality to use for fixed pitch  text.")
