@@ -124,6 +124,7 @@ This function is sensitive to calendar mode when prompting."
 
 ;;}}}
 ;;{{{  define resources 
+
 (defvar emacspeak-url-template-name-alist nil
   "Alist of url template names --used by completing-read when
 prompting for a template.")
@@ -202,6 +203,7 @@ documentation   Documents this template resource.
 
 ;;}}}
 ;;{{{  template resources 
+
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
@@ -445,13 +447,17 @@ content."
 
 (defun emacspeak-url-template-google-maps-xml (url)
   "Set up buffer containing XML data from google maps."
+  (switch-to-buffer (emacspeak-url-template-google-maps-get-xml
+                     url))
   (let ((nxml-auto-insert-xml-declaration-flag nil))
-  (switch-to-buffer
-   (emacspeak-url-template-google-maps-get-xml  url))
-  (nxml-mode)
-  (indent-region (point-min) (point-max))
-  (goto-char (point-min))
-  (forward-line 1)))
+    (goto-char (point-min))
+    (nxml-mode)
+    (goto-char (point-min))
+    (search-forward "?>" nil t)
+    (while (search-forward "<" nil t)
+      (replace-match "
+<"))
+    (indent-region (point-min) (point-max))))
 
 (defun emacspeak-url-template-google-maps-get-xml (url)
   "Return buffer containing XML from google."
@@ -464,28 +470,22 @@ content."
        (format "lynx -source %s" url)
        (current-buffer))
       (goto-char (point-min))
-      (while (search-forward "<" nil t)
-        (replace-match "
-<"  ))
-      (goto-char (point-min))
       (search-forward "<page" nil t)
       (search-backward "<?" nil t)
       (delete-region (point-min) (point))
       (search-forward "</page>" nil t)
       (delete-region (point) (point-max))
       (goto-char (point-min))
-      (delete-region (line-beginning-position) (line-end-position))
-      (insert 
-"<?xml version=\"1.0\"
-encoding=\"iso-8859-14\"?>")
-      )
-buffer))
+      (while (search-forward "<?xml version=\"1.0\"?>" nil t)
+        (replace-match
+         "<?xml version=\"1.0\" encoding=\"iso-8859-14\"?>"))
+      (goto-char (point-min))
+      buffer)))
   
 (emacspeak-url-template-define
   "Google Maps Give Me XML"
-  "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
-  (list
-   "Query: ")
+  "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+  (list "Query: ")
   nil
   "Get me XML from Google Maps.
 Specify the query using English and  addresses as complete as
@@ -507,29 +507,38 @@ Here are some examples:
 "
   'emacspeak-url-template-google-maps-xml)
 
-(defun emacspeak-url-template-google-maps-speak (url)
-  "Audio format map information from Google Maps."
-  (let ((buffer (emacspeak-url-template-google-maps-get-xml
-  url))
-        (emacspeak-xslt-options ""))
-  (save-excursion
-    (set-buffer buffer)
-    (emacspeak-xslt-region
-     (expand-file-name "emapspeak.xsl"
-                       emacspeak-xslt-directory)
-     (point-min) (point-max)
-     (list
-     (cons "base"
-(format "\"'%s'\""
-			  url))))
-    (emacspeak-w3-preview-this-buffer))))
+(defun emacspeak-url-template-google-maps-speak (url &optional near)
+  "Audio format map information from Google Maps.
+Optional arg `near' specifies reference location for generating
+  direction links."
+  (let ((buffer (emacspeak-url-template-google-maps-get-xml url))
+        (emacspeak-xslt-options "")
+        (params
+         (cond
+          (near
+           (list (cons "base" (format "\"'%s'\"" url))
+                 (cons "near" (format "\"'%s'\"" near))))
+          (t
+           (list (cons "base" (format "\"'%s'\"" url)))))))
+    (save-excursion
+      (set-buffer buffer)
+      (emacspeak-xslt-region
+       (expand-file-name "emapspeak.xsl"
+                         emacspeak-xslt-directory)
+       (point-min) (point-max) params)
+      (add-hook 'emacspeak-w3-post-process-hook
+                #'(lambda ()
+                    (setq emacspeak-w3-url-executor
+                          'emacspeak-url-template-google-maps-speak)
+                    (emacspeak-speak-buffer)))
+      (emacspeak-w3-preview-this-buffer)
+      )))
 
 (emacspeak-url-template-define
   "EmapSpeak Via Google"
-  "http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
-  (list
-   "Query: ")
-  'emacspeak-speak-buffer
+  "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+  (list "Query: ")
+  nil
   "EmapSpeak Via Google.
 
 Specify the query using English and  addresses as complete as
@@ -1585,6 +1594,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
       url 'speak)))
 
 ;;}}}
+
 ;;}}}
 ;;{{{ Interactive commands 
 ;;;###autoload

@@ -224,6 +224,44 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ websearch utilities
 
+;;{{{  EmapSpeak
+(emacspeak-websearch-set-searcher 'emaps
+                                  'emacspeak-websearch-emaps-search)
+
+(emacspeak-websearch-set-key ?e  'emaps)
+
+(defvar emacspeak-websearch-google-maps-uri
+"http://maps.google.com/maps?q=%s&what=&where=&near=&start=&end=&btnG=Search"
+"URL template for Google maps.")
+
+
+(defun emacspeak-websearch-emaps-search (query)
+  "Perform EmapSpeak search.
+Query is a Google Maps query in plain English."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Map Query: ")))
+  (declare (special emacspeak-websearch-google-maps-uri))
+  (require 'emacspeak-url-template)
+  (let ((near-p
+         (save-match-data
+           (and (string-match "near" query)
+                (match-end 0))))
+        (near nil))
+    (when near-p
+      (setq near (substring query near-p)))
+    (emacspeak-url-template-google-maps-speak
+     (format emacspeak-websearch-google-maps-uri
+             (webjump-url-encode query))
+     (webjump-url-encode near))
+    (dtk-stop) ;; need this for now -html chatter?
+))
+    
+         
+                    
+
+
+;;}}}
 ;;{{{ display form 
 
 (emacspeak-websearch-set-searcher 'display-form
@@ -876,7 +914,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 (emacspeak-websearch-set-searcher 'britannica
                                   'emacspeak-websearch-britannica-search)
-(emacspeak-websearch-set-key ?e 'britannica)
+(emacspeak-websearch-set-key ?E 'britannica)
 
 ;;; this requires a password
                                         ;(defvar emacspeak-websearch-britannica-uri 

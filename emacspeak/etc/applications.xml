@@ -114,6 +114,11 @@ This is also available through the
       Pre-defined templates offer easy access to W3C mailing
       lists, CNN sites etc.
     </application>
+    <application name="EmapSpeak">
+      <a
+          href="http://emacspeak.sf.net/releases/release-EmapSpeak.html">Audio-formatted
+      access to Google Maps</a>
+    </application>
     <application name="websearch">
       Emacspeak websearch client with single click access to
       popular search engines.
