@@ -711,7 +711,8 @@ spoken automatically."
     current-prefix-arg))
   (let ((filter
          (format 
-          "//a[contains(@href,'%s')]")))
+          "//a[contains(@href,'%s')]"
+          pattern)))
     (emacspeak-w3-xslt-filter
      filter
      prompt-url
