@@ -10,16 +10,20 @@ shown in the output.
 This is a good XSLT/XPath puzzle for now.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:set="http://exslt.org/sets"
   version="1.0">
 
   <xsl:param name="locator"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
+<xsl:variable name="j" select="$locator"/>
   <xsl:template match="*|@*" mode="copy" >
-    <xsl:copy>
+      <xsl:if test="not(set:intersection(., $j))">
+<xsl:copy>
        <xsl:apply-templates select="@*"/>
       <xsl:apply-templates select="node()" mode="copy"/>
-    </xsl:copy>
+      </xsl:copy>
+      </xsl:if>
   </xsl:template>
 <!-- { html   -->
 <!--add base uri if available. -->
@@ -36,10 +40,10 @@ This is a good XSLT/XPath puzzle for now.
   </xsl:template>
   <xsl:template match="/html/body">
     <body>
-<xsl:apply-templates select="$locator" mode="copy"/>
-      <h2> Nodes Not Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/> not matching
-      elements
+<xsl:apply-templates  mode="copy"/>
+      <h2> Skipped Nodes  Matching   <xsl:value-of select="$path"/></h2>
+      <p>Found <xsl:value-of select="count($locator)"/>  matching
+      elements to skip in 
 in  
 <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
 document </xsl:element>.</p>
