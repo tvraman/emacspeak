@@ -94,7 +94,7 @@ unsigned int buffer_time = 500000;              /* ring buffer in us */
 unsigned int period_time = 100000;		/* period time in us */
 
 snd_pcm_uframes_t buffer_size;
-snd_pcm_uframes_t period_size=4096;
+snd_pcm_uframes_t period_size;
 snd_output_t *output = NULL;
 
 //>
