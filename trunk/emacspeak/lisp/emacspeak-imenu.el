@@ -62,7 +62,8 @@
   ;; name and a space concatenated to the names of the children.
   ;; Third argument PREFIX is for internal use only.
 
-  (declare (special imenu-level-separator))(mapcan
+  (declare (special imenu-level-separator))
+  (mapcan
    (function
     (lambda (item)
       (let* ((name (car item))
