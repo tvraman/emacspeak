@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <!DOCTYPE applications PUBLIC " applications // t. v. raman 1.0" "applications.dtd">
 <?xml-stylesheet href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
 type="text/xsl"?>
@@ -69,10 +67,10 @@ type="text/xsl"?>
     context-sensitive help  based on current DTD.</application>
     <application name="tdtd">Author and maintain XML and
     SGML DTD files.</application>
-
     <application name="xslt-process">
       Interactive environment for working with XSLT.
-      </application><application name="auctex">
+    </application>
+    <application name="auctex">
       Authoring environment for TeX
       and LaTeX documents;
       template based authoring, voice locking support and structured browsing.
@@ -114,7 +112,6 @@ type="text/xsl"?>
     </application>
     <application name="amphetadesk">
       Emacs front-end to AmphetaDesk
-      
     </application>
     <application name="rss">
       Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
@@ -204,7 +201,6 @@ type="text/xsl"?>
     <application name="calendar">
       Desktop calendar with an integrated appointment book.
     </application>
-
     <application name="diary">
       Speech-enabled diary via EDiary.
     </application>
@@ -429,10 +425,10 @@ type="text/xsl"?>
       support using the Java Platform Debug Architecture
       (JPDA). Provides a speech-enabled inspector and wizards.
     </application>
-
     <application name="cedet">
       Integrated Emacs Development Environment
-      </application><application name="ecb">
+    </application>
+    <application name="ecb">
       Emacs Class Browser with support for Java, C++, C
       and other popular languages.
       Provides navigable table of contents as well as a browsable method and
@@ -535,9 +531,7 @@ type="text/xsl"?>
      end:
 -->
 <!--
-
-local variables:
-sgml-set-face: nil
-end:
-
+    local variables:
+    sgml-set-face: nil
+    end:
 -->
