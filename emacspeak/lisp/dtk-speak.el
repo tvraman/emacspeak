@@ -38,7 +38,7 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
+;;{{{ introduction:
 
 ;;; Commentary:
 ;;;Defines the TTS interface.
@@ -46,15 +46,17 @@
 ;;; Code:
 ;; 
 
+;;}}}
+;;{{{ required modules
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'backquote)
 (require 'custom)
 (require 'dtk-tcl)
-(eval-when (compile) (require 'emacspeak-keymap))
-
-
+;;}}}
 ;;{{{  user customizations:
+
 (defgroup tts nil
   "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
   :group 'emacspeak
@@ -115,11 +117,13 @@ Possible values are some, all or none.
 You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
+
 ;;; forward declaration 
 (defvar emacspeak-servers-directory
   (expand-file-name
    "servers/"
    emacspeak-directory))
+
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers. 
 File .servers is expected to contain name of one server per
@@ -157,10 +161,9 @@ server to use.
 This variable is automatically setup to reflect the
 available TTS servers.")
 
-
-
 ;;}}}
 ;;{{{ macros
+
 (defmacro tts-with-punctuations (setting &rest body)
   "Safely set punctuation mode for duration of body form."
   (`
@@ -750,7 +753,6 @@ unresponsive when asked to stop talking.  Splitting on white
 space makes emacspeak's stop command responsive.  However,
 when splitting on white space, the speech sounds choppy
 since the synthesizer is getting a word at a time."
-
   (interactive)
   (declare (special dtk-chunk-separator-syntax))
   (cond
