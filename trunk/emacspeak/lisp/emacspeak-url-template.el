@@ -677,26 +677,32 @@ Computing News at CNN.")
 ;;{{{  MLB scores
 (emacspeak-url-template-define
  "Baseball scores" 
- "http://www.mlb.com/components/game/year_%s/month_%s/day_%s/gid_%s_%s_%s_%smlb_%smlb_1/boxscore.html"
+ "http://www.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"
  (list
-  #'(lambda nil 
-    (format-time-string "%Y"))
-#'(lambda nil 
-    (format-time-string "%m"))
-#'(lambda nil 
-    (format-time-string "%d"))
-#'(lambda nil 
-    (format-time-string "%Y"))
-#'(lambda nil 
-    (format-time-string "%m"))
-#'(lambda nil 
-    (format-time-string "%d"))
-  #'(lambda nil 
-    (read-from-minibuffer "Team: "))
   #'(lambda nil
-      (read-from-minibuffer "Team: ")))
-nil
- "Display baseball scores for one of today's games."
+      (let ((date 
+             (read-from-minibuffer
+              "Date: "
+              (format-time-string "%Y-%m-%d")))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result 
+              (format 
+               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+               (first fields)
+               (second fields)
+               (third fields)
+               (first fields)
+               (second fields)
+               (third fields)))
+        result))
+  #'(lambda nil 
+      (read-from-minibuffer "Visiting Team: "))
+  #'(lambda nil
+      (read-from-minibuffer "Home Team: ")))
+ nil
+ "Display baseball scores."
  )
 
 ;;}}}
