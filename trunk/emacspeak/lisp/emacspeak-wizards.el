@@ -381,14 +381,46 @@ howto document.")))
 ;;}}}
 ;;{{{ pop up messages buffer 
 
+; Internal variables to memoize window configurations
+
+(defvar emacspeak-popup-messages-config-0 nil
+  "Memoizes window configuration.")
+
+(defvar emacspeak-popup-messages-config-1 nil
+  "Memoizes window configuration.")
+
 (defun emacspeak-speak-popup-messages ()
-  "Pop up messages buffer. "
+  "Pop up messages buffer.
+If it is already selected then hide it."
   (interactive)
-  (pop-to-buffer "*Messages*")
-  (goto-char (point-max))
-  (emacspeak-auditory-icon 'select-object)
-  (forward-line -1)
-  (emacspeak-speak-line))
+  (if (string-equal (buffer-name (window-buffer (selected-window)))
+		    "*Messages*")
+                                        ; Buffer selected so hide it
+      (progn
+	(if (and
+	     (window-configuration-p emacspeak-popup-messages-config-0)
+	     (window-configuration-p emacspeak-popup-messages-config-1)
+	     (compare-window-configurations
+	      (current-window-configuration)
+	      emacspeak-popup-messages-config-1))
+	    (set-window-configuration emacspeak-popup-messages-config-0)
+	  (bury-buffer)
+          (emacspeak-speak-mode-line))
+	(setq emacspeak-popup-messages-config-0 nil
+	      emacspeak-popup-messages-config-1 nil)
+	(emacspeak-auditory-icon 'select-object)
+	(emacspeak-speak-mode-line))
+                                        ; else popup Messages buffer
+                                        ; Memoize current window configuration only if buffer isn't yet visible
+    (if (get-buffer-window "*Messages*")
+	(pop-to-buffer "*Messages*" nil t)
+      (setq emacspeak-popup-messages-config-0 (current-window-configuration))
+      (pop-to-buffer "*Messages*" nil t)
+      (setq emacspeak-popup-messages-config-1 (current-window-configuration)))
+    (goto-char (point-max))
+    (emacspeak-auditory-icon 'select-object)
+    (and (bolp) (forward-line -1))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ Show active network interfaces
