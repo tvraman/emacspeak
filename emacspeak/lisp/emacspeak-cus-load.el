@@ -49,7 +49,6 @@
 (put 'aplications 'custom-loads '("amphetadesk"))
 (put 'emacspeak-ediff 'custom-loads '("emacspeak-ediff"))
 (put 'emacspeak-remote 'custom-loads '("emacspeak-remote"))
-(put 'emacspeak-hide 'custom-loads '("emacspeak-hide"))
 ;;; These are for handling :version.  We need to have a minimum of
 ;;; information so `custom-changed-variables' could do its job.  
 ;;; For both groups and variables we have to set `custom-version'.

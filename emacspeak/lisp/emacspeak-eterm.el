@@ -1176,26 +1176,11 @@ there is terminal activity."
     ad-return-value )
   )
 
-(defadvice put-text-property (after eterm pre act) 
-  "Used by emacspeak to highlight successfully in eterm. "
-  (let ((start (ad-get-arg 0))
-        (end (ad-get-arg 1 ))
-        (prop (ad-get-arg 2))
-        (value (ad-get-arg 3 )))
-    (if (eq prop 'face) 
-        (save-match-data
-          (cond
-           ((eq value 'bold)
-            (put-text-property start end
-                               'personality emacspeak-eterm-bold-personality))
-           ((eq value 'highlight)
-            (put-text-property start end
-                               'personality emacspeak-eterm-highlight-personality ))
-           ((eq value 'term-underline-face )
-            (put-text-property start end
-                               'personality emacspeak-eterm-underline-personality))
-           (t  nil )))))
-  )
+(def-voice-font emacspeak-eterm-underline-personality
+  voice-lock-underline-personality
+  'term-underline
+  "Underline personality for eterm.")
+
 
 (defadvice term-line-mode (after emacspeak pre act)
   "Announce that you entered line mode. "
