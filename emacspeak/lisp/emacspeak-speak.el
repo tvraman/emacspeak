@@ -197,8 +197,10 @@ Useful to do this before you listen to an entire buffer."
   (when emacspeak-speak-paragraph-personality
     (save-excursion
       (goto-char (point-min))
+      (condition-case nil
       (let ((start nil)
-            (blank-line "\n[ \t\n\r]*\n"))
+            (blank-line "\n[ \t\n\r]*\n")
+            (inhibit-point-motion-hooks t))
         (ems-modify-buffer-safely
          (while (re-search-forward blank-line nil t)
            (skip-syntax-forward " ")
@@ -208,6 +210,7 @@ Useful to do this before you listen to an entire buffer."
              (put-text-property start (point)
                                 'personality
                                 emacspeak-speak-paragraph-personality)))))
+      (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
