@@ -376,7 +376,6 @@ content."
  (emacspeak-realaudio-play uri)
       (message "Playing content under point.")))))
 
-
 (emacspeak-url-template-define
  "BBC Channel On Demand"
  "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
