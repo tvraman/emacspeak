@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<!--
-<!DOCTYPE applications PUBLIC " applications // t. v. raman
-1.0"  "applications.dtd">
--->
+<!DOCTYPE applications
+PUBLIC " applications // t. v. raman 1.0"
+ "applications.dtd">
+
 <?xml-stylesheet
 href="file:////home/raman/emacs/lisp/emacspeak/etc/applications.xsl"
 type="text/xsl"?>
