@@ -36,7 +36,6 @@ type="text/xsl"?>
     <p>
       Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
     </p>
-
     <applications caption="Speech-enabled applications  on the Emacspeak audio desktop.">
       <category name="Multimedia">
         <application name="aumix">
@@ -85,6 +84,10 @@ type="text/xsl"?>
           documentation.  Texinfo enables the production of both
           online hypertext and high-quality print documentation
           from a single source.</application>
+        <application name="metapost">
+          Speech-enabled metapost mode for creating drawings using the
+          metapost language.
+        </application>
         <application name="enriched">
           Rich-text authoring to provide a simple word
           processor.</application>
@@ -142,6 +145,10 @@ type="text/xsl"?>
         <application name="yasg">
           Pattern-based selection of open buffers.
         </application>
+        <application name="browse-kill-ring">
+          Speech-enabled browsable kill ring.
+          Allows easy browsing of Emacs' builtin clipboard faclity.
+        </application>
         <application name="calc">
           Calculator  with  financial and
           scientific functions.</application>
@@ -195,6 +202,11 @@ type="text/xsl"?>
           aurally highlighting the differences.</application>
         <application name="shell">
           Runs interactive command interpreters like BASH and TCSH.
+        </application>
+        <application name="ansi-colors">
+          Applies Aural CSS ACSS properties to convert ansi color
+          codes to appropriate voice changes to produce
+          audio formatted output.
         </application>
         <application name="eterm">
           Speech-enabled  terminal client for running full-screen
@@ -266,6 +278,12 @@ type="text/xsl"?>
         </application>
         <application name="oo-browser">
           Tool for browsing  object oriented software codebases.
+        </application>
+        <application name="ocr">
+          Emacs front-end  to OCR engines.
+          This module provides speech-enabled access to image
+          aquisition and  document recognition tools
+          available on the underlying platform.
         </application>
         <application name="vc">
           Front-end to version control systems like CVS and RCS.</application>
@@ -342,10 +360,10 @@ type="text/xsl"?>
           support using the Java Platform Debug Architecture
           (JPDA). Provides a speech-enabled inspector and wizards.
         </application>
-<application name="ecb">
+        <application name="ecb">
           Emacs Class Browser with support for Java, C++, C
           and other popular languages.
-Provides navigable table of contents as well as a browsable method and
+          Provides navigable table of contents as well as a browsable method and
           function index  for the file being editted.
         </application>
         <application name="gud">
