@@ -2209,54 +2209,6 @@ for `word' and displays hits in a compilation buffer."
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
-;;{{{ generate autoloads for all custom groups in current directory
-
-(defun emacspeak-wizards-generate-custom-loads (directory)
-  "Generates  buffer containing the needed statements to set up
-autloading for all 
-defgroup declarations found in current directory."
-  (interactive "DDirectory: ")
-  (let ((scratch-buffer (get-buffer-create "*defgroup-locater*"))
-        (result-buffer (get-buffer-create "*defgroup-loads*"))
-        (matches nil)
-        (module-list nil))
-    (save-excursion
-      (set-buffer scratch-buffer)
-      (erase-buffer)
-      (cd directory)
-      (setq matches 
-            (shell-command
-             "grep '^(defgroup ' *.el | cut -d ' ' -f 2"
-             (current-buffer)))
-      (when (= 0 matches) ;;;grep succeeded 
-        (goto-char (point-min))
-        (while (not (eobp))
-          (pushnew  (thing-at-point 'sexp)
-                    module-list
-                    :test #'eql)
-          (forward-line 1))))
-    (save-excursion
-      (set-buffer result-buffer)
-      (erase-buffer)
-      (loop for m in module-list
-            do
-            (insert
-             (format
-              "(put '%s 'custom-loads '(\"%s\"))\n"
-              m m))))
-    (kill-buffer scratch-buffer)
-    (switch-to-buffer result-buffer)
-    (emacs-lisp-mode)
-    (goto-char (point-min))
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line))))
-
-      
-   
-    
-
-;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

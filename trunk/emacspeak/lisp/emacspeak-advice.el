@@ -649,7 +649,7 @@ before the message is spoken."
         (dtk-pause))
       (tts-with-punctuations "all"
                              (dtk-speak ad-return-value)))
-  ad-return-value))
+    ad-return-value))
 
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
@@ -853,8 +853,8 @@ Produce an auditory icon as well."
     "Speak the prompt"
     (let ((prompt  (ad-get-arg 0)))
       (if  prompt
-        (tts-with-punctuations "all"
-                               (dtk-speak prompt)))))
+	  (tts-with-punctuations "all"
+				 (dtk-speak prompt)))))
 
   (defadvice read-command(around emacspeak pre act )
     "Prompt using speech as well. "
@@ -983,7 +983,7 @@ in completion buffers"
             (set-buffer completions-buffer )
             (emacspeak-prepare-completions-buffer)
             (tts-with-punctuations "all"
-            (dtk-speak (buffer-string )))))))
+				   (dtk-speak (buffer-string )))))))
     ad-return-value))
 
 (defadvice lisp-complete-symbol (around emacspeak pre act)
@@ -1115,13 +1115,13 @@ in completion buffers"
   "Personality used for highlighting comint prompts --emacs 21."
   :type  'symbol
   :group 'emacspeak
-:group 'comint)
+  :group 'comint)
 
 (defcustom emacspeak-comint-input-personality 'paul-animated
   "Personality used for highlighting comint input --emacs 21."
   :type  'symbol
   :group 'emacspeak
-:group 'comint)
+  :group 'comint)
 
 (defvar shell-voice-lock-keywords
   nil
@@ -1262,9 +1262,9 @@ in completion buffers"
          (overlay-start comint-last-prompt-overlay)
          (overlay-end comint-last-prompt-overlay)
          (list 
-         'personality
-         emacspeak-comint-prompt-personality
-         'rear-sticky nil)))
+	  'personality
+	  emacspeak-comint-prompt-personality
+	  'rear-sticky nil)))
       (when (and  emacspeak-comint-autospeak
                   (or monitor 
                       (eq (selected-window)
@@ -2647,12 +2647,12 @@ Produce auditory icons if possible."
 emacspeak running."
   (declare (special emacspeak-last-command-needs-minibuffer-spoken))
   (let ((inhibit-field-text-motion t))
-  (emacspeak-auditory-icon 'open-object)
-  (when  emacspeak-last-command-needs-minibuffer-spoken
-    (unwind-protect
-        (tts-with-punctuations "all"
-                               (emacspeak-speak-buffer))
-      (setq emacspeak-last-command-needs-minibuffer-spoken nil)))))
+    (emacspeak-auditory-icon 'open-object)
+    (when  emacspeak-last-command-needs-minibuffer-spoken
+      (unwind-protect
+	  (tts-with-punctuations "all"
+				 (emacspeak-speak-buffer))
+	(setq emacspeak-last-command-needs-minibuffer-spoken nil)))))
 
 (add-hook  'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
@@ -2729,7 +2729,7 @@ emacspeak running."
    ((interactive-p)
     ad-do-it
     (let ((dtk-stop-immediately nil))
-    (dtk-speak ad-return-value)))
+      (dtk-speak ad-return-value)))
    (t ad-do-it))
   ad-return-value)
 
@@ -2926,7 +2926,7 @@ Variable mark-even-if-inactive is set true ."
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)));;}}}
+    (emacspeak-auditory-icon 'select-object))) ;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 

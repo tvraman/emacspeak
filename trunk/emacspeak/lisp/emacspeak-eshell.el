@@ -65,12 +65,11 @@
   "Play auditory icon for prompt."
   (cond
    ((= 0 eshell-last-command-status)
-             (emacspeak-serve-auditory-icon 'item))
+    (emacspeak-serve-auditory-icon 'item))
    (t (emacspeak-auditory-icon 'warn-user))))
 
 (add-hook 'eshell-after-prompt-hook
           'emacspeak-eshell-prompt-function)
-
 
 ;;; Speak command output 
 (add-hook 'eshell-post-command-hook

@@ -284,8 +284,8 @@
   (let ((beg (ad-get-arg 1))
         (end (ad-get-arg 2)))
     (ems-modify-buffer-safely
-    (put-text-property beg end
-                       'personality 'harry))
+     (put-text-property beg end
+			'personality 'harry))
     (emacspeak-speak-line)
     (sit-for 2)))
 
