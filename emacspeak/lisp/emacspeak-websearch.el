@@ -837,7 +837,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-key ?s 'software)
 
 (defvar emacspeak-websearch-sourceforge-search-uri 
-  "http://sourceforge.net/search/"
+  "http://sourceforge.net/search/?"
   "URI for searching the SourceForge site.")
 
 (defun emacspeak-websearch-sourceforge-search (query)
@@ -846,18 +846,17 @@ Optional second arg as-html processes the results as HTML rather than data."
    (list
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
-  (let (
-	)
-    (emacspeak-websearch-do-post "POST"
-                                 emacspeak-websearch-sourceforge-search-uri
-                                 (concat 
-                                  "type_of_search=soft"
-                                  "&exact=1"
-                                  "&words="
-                                  (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   query
-   'w3-table-focus-on-this-cell))
+                                        ;(emacspeak-websearch-do-post "POST"
+  (emacspeak-w3-extract-tables-by-position-list
+   (list 5 6)
+   (concat
+    emacspeak-websearch-sourceforge-search-uri
+    "type_of_search=soft"
+    "&exact=1"
+    "&words="
+    (webjump-url-encode query))))
+  
+
 
 (defvar emacspeak-websearch-freshmeat-search-uri 
   "http://www.freshmeat.net/search?q="
