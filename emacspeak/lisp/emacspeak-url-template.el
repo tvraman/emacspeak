@@ -248,7 +248,7 @@ Francisco ny for New york etc.")
  #'(lambda nil
      (search-forward
       "Sources:" nil t)
-     (forward-line 2)
+     (forward-line 3)
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Top Stories  section from Yahoo Daily News.")
 
@@ -282,7 +282,7 @@ Francisco ny for New york etc.")
  #'(lambda nil
      (search-forward
       "Sources:" nil t)
-     (forward-line 3)
+     (forward-line 4)
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Technology  section from Yahoo Daily News.")
 
