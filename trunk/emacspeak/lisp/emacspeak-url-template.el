@@ -224,11 +224,21 @@ generators  ; list of param generator
 ;;}}}
 ;;{{{ technet cast from DDJ
 
-(emacspeak-url-template-define "TechNetCast Stream ID" 
-                               "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
-                               (list
-                                (lambda nil 
-(read-from-minibuffer "Stream Id"))))
+
+
+(emacspeak-url-template-define
+ "TechNetCast Save" 
+ "http://technetcast.ddj.com/tnc_save_mp3.html?stream_id=%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Download Stream "))))
+
+(emacspeak-url-template-define
+ "TechNetCast Play" 
+ "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
+ (list
+  (lambda nil 
+    (read-from-minibuffer "Stream Id"))))
 
 ;;{{{ sourceforge
 
