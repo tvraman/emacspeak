@@ -72,7 +72,8 @@
 (defsubst emacspeak-widget-summarize(widget)
   (when widget
     (let ((emacspeak-help (widget-get widget ':emacspeak-help))
-          (emacspeak-speak-messages nil))
+          (emacspeak-speak-messages nil)
+          (voice-lock-mode t))
       (cond
        ((and emacspeak-help
              (fboundp emacspeak-help))
@@ -84,10 +85,19 @@
   (let ((emacspeak-lazy-message-time 0)
         (tag (widget-get widget ':tag ))
         (value (widget-value widget ))
-        (emacspeak-speak-messages nil))
+        (emacspeak-speak-messages nil)
+        (voice-lock-mode t))
     (if (or tag value                                )
-        (dtk-speak (message "%s"
-                            (or tag value  "")))
+        (when tag
+          (put-text-property 0 (length tag)
+                             'personality 'paul-animated  tag))
+      (when value 
+        (put-text-property 0 (length value)
+                           'personality 'paul-smooth value))
+      (message
+       (concat
+        (or tag " ")
+        (or value " ")))
       (dtk-speak (current-message)))))
 
 ;;}}}
@@ -98,15 +108,29 @@
 
 (defun emacspeak-widget-help-editable-list (widget)
   "Summarize a choice item"
-  (let ((value (widget-value widget))
+  (let ((value
+         (mapconcat 
+          (function
+           (lambda (x)
+             (format "%s" x)))
+          (widget-value widget)
+          ""))
         (tag (widget-get widget ':tag))
-        (type (emacspeak-widget-type  widget)))
-    (format "%s %s   is %s"
-            (if (eq type 'editable-list)
-                "editable list"
-              (or type ""))
-            (or tag  "")
-            (or value ""))))
+        (type(format "%s"
+                     (emacspeak-widget-type  widget))))
+    (put-text-property 0 (length type)
+                       'personality 'harry
+                       type)
+    (when tag
+      (put-text-property 0 (length tag)
+                         'personality 'paul-animated tag))
+    (when value
+      (put-text-property 0 (length value)
+                         'personality 'paul-smooth value))
+    (concat 
+     type
+     (or tag  "")
+     (or value ""))))
 
 (widget-put (get 'editable-list 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-list)
@@ -116,22 +140,28 @@
 
 (defun emacspeak-widget-help-choice-item (widget)
   "Summarize a choice item"
-  (let ((value (widget-value widget))
-        (tag (widget-get widget ':tag))
-        (parent-type (emacspeak-widget-type  (widget-get widget ':parent))))
-    (format "%s %s   is %s"
-            (cond
-             ((eq parent-type 'radio-button) "radio button ")
-             ((eq parent-type 'menu-choice) "menu choice ")
-             ((eq parent-type 'checkbox) " check box ")
-             (t parent-type))
-            (or tag  "")
-            (cond
-             ((eq parent-type 'checkbox)
-              (if value "checked" "unchecked"))
-             ((eq parent-type 'radio-button)
-              (if value " pressed " "not pressed "))
-             (t (if value " on " " off "))))))
+  (let ((value (format "%s"(widget-value widget)))
+        (tag (format "%s"  (widget-get widget ':tag)))
+        (parent-type   (emacspeak-widget-type
+                        (widget-get widget ':parent)))
+        (parent-name nil))
+    (setq parent-name
+          (cond
+           ((eq parent-type 'radio-button) "radio button ")
+           ((eq parent-type 'menu-choice) "menu choice ")
+           ((eq parent-type 'checkbox) " check box ")
+           (t 
+            (format "%s" parent-type))))
+    (concat 
+parent-name
+     (or tag  "")
+     " is "
+     (cond
+      ((eq parent-type 'checkbox)
+       (if value "checked" "unchecked"))
+      ((eq parent-type 'radio-button)
+       (if value " pressed " "not pressed "))
+      (t (if value " on " " off "))))))
 
 (widget-put (get 'choice-item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-choice-item)
@@ -154,20 +184,25 @@
 
 (defun emacspeak-widget-help-menu-choice  (widget)
   "Summarize a pull down list"
-  (let (
-        (tag (widget-get widget ':tag))
-        (value (widget-get widget ':value))
-        (type (emacspeak-widget-type widget ))
-        (emacspeak-speak-messages nil))
-    (format "%s %s   is %s"
-            (if (eq type 'menu-choice)
-                "menu choice"
-              (or type ""))
-            (or tag "")
-            (cond
-             ((stringp value) value)
-             ((numberp value) value)
-             (t  (if value "on" "off" ))))))
+  (let* ((tag (widget-get widget ':tag))
+         (value (widget-get widget ':value))
+         (type (emacspeak-widget-type widget ))
+         (type-name nil)
+         (emacspeak-speak-messages nil))
+    (setq type-name 
+          (if (eq type 'menu-choice)
+              "menu choice"
+            (format "%s" type)))
+    (put-text-property 0 (length type-name)
+                       'personality 'harry type-name)
+    (concat 
+     type-name        
+     (or tag "")
+     " is "
+     (cond
+      ((stringp value) value)
+      ((numberp value) value)
+      (t  (if value "on" "off" ))))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
@@ -180,7 +215,12 @@
   "Summarize an editable field"
   (let ((format (widget-get widget ':format))
         (value (widget-value widget))
-        (scratch-buffer (get-buffer-create " *dtk-scratch-buffer* ")))
+        (help-echo (widget-get  widget ':help-echo))
+        (scratch-buffer (get-buffer-create "
+*dtk-scratch-buffer* ")))
+    (when help-echo
+      (put-text-property 0 (length help-echo)
+                         'personality 'paul-animated help-echo))
     (setq format
           (when format 
             (save-excursion
@@ -196,7 +236,8 @@
                       (replace-match  value))
                     (buffer-string ))
                 (setq inhibit-read-only nil)))))
-    (format "%s"
+    (concat 
+            (or help-echo " ")
             (or format value))))
 
 (widget-put (get 'editable-field 'widget-type)
@@ -218,17 +259,29 @@
 ;;{{{ push button 
 
 (defun emacspeak-widget-help-push-button (widget)
-  "Summarize a push button"
-  (let ((type (emacspeak-widget-type widget))
-        (value (widget-value widget))
-        (tag (widget-get widget ':tag)))
-    (format "%s  %s"
-            (cond
-             ((eq type 'push-button) "push button")
-             ((eq type 'insert-button) " insert button ")
-             ((eq type 'delete-button) " delete button ")
-             (t (or  type "")))
-            (or tag value ""))))
+  "Summarize a push button.
+Is smart about summarizing the parent where it makes sense,
+e.g. for repeat lists."
+  (let* ((type (emacspeak-widget-type widget))
+         (value (widget-value widget))
+         (tag (widget-get widget ':tag))
+         (parent (widget-get widget ':parent))
+         (parent-help (widget-get 
+                       parent
+                       ':emacspeak-help)))
+    (concat
+     (cond
+      ((eq type 'push-button) "push button")
+      ((eq type 'insert-button) " insert button ")
+      ((eq type 'delete-button) " delete button ")
+      (t (or  type "")))
+     (or tag value "")
+     (or
+      (and (fboundp parent-help)
+           (concat " for "
+           (funcall parent-help parent)))
+      ""))))
+
 
 (widget-put (get 'push-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-push-button)
