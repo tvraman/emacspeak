@@ -1782,7 +1782,7 @@ See the documentation for function
                            emacspeak-speak-time-format-string))))
                              
 (defconst emacspeak-codename
-  "HappyDog"
+  "GoodDog"
   "Code name of present release.")
 
 (defun emacspeak-speak-version ()
