@@ -82,7 +82,7 @@
           (intern (format "emacspeak-ansi-color-%s-%s"
                           color
                           (if style style "default"))))
-    (unless (dtk-voice-defined-p voice-name)
+    (unless (tts-voice-defined-p voice-name)
       (setq style (make-acss ))
       (setq style-parameter
             (if style-index

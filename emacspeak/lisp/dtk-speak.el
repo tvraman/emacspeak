@@ -602,23 +602,25 @@ This is setup on a per engine basis.")
                     tts-default-speech-rate
                     outloud-default-speech-rate
                     emacspeak-aumix-multichannel-capable-p emacspeak-aumix-midi-available-p emacspeak-use-auditory-icons
-                    dtk-program
-                    ))
-  (unless tts-name
-    (setq tts-name dtk-program))
+                    dtk-program))
+  (unless tts-name (setq tts-name dtk-program))
   (cond
    ((string-match "outloud" tts-name)
     (require 'outloud-voices)
     (fset 'tts-get-voice-command 'outloud-get-voice-command)
-(fset 'tts-define-voice-from-speech-style
+    (fset 'tts-voice-defined-p
+          'outloud-voice-defined-p)
+    (fset 'tts-define-voice-from-speech-style
           'outloud-define-voice-from-speech-style)
     (fset 'tts-personality-from-speech-style
           'outloud-personality-from-speech-style)
     (setq tts-default-speech-rate outloud-default-speech-rate))
    (t (require 'dtk-voices)
       (fset 'tts-get-voice-command 'dtk-get-voice-command)
-(fset 'tts-define-voice-from-speech-style
-          'dtk-define-voice-from-speech-style)
+      (fset 'tts-voice-defined-p
+            'dtk-voice-defined-p)
+      (fset 'tts-define-voice-from-speech-style
+            'dtk-define-voice-from-speech-style)
       (fset 'tts-personality-from-speech-style
             'dectalk-personality-from-speech-style)
       (setq tts-default-speech-rate dtk-default-speech-rate)))
