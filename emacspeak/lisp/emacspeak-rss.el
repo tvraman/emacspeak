@@ -46,6 +46,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'browse-url)
 ;;}}}
 ;;{{{ RSS feed cache
 ;;;###autoload

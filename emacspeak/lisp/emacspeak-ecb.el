@@ -124,6 +124,7 @@
   "Expand to longest common prefix in tree buffer."
   (interactive)
   (declare (special tree-buffer-incr-searchpattern
+                    tree-buffer-incr-search
                     tree-buffer-root))
   ;; expand to the max. common prefix
   (let* ((node-name-list (tree-node-get-all-visible-node-names
