@@ -263,9 +263,9 @@ command \\[customize-variable] on <personality>-settings."
           (set-default sym val))))))
 
 ;;}}}					;
-;;{{{ voices defined using ACSS.	; ; ; ;	; ; ;
+;;{{{ voices defined using ACSS
 
-;;; these voices are device independent. ; ; ; ; ; ; ;
+;;; these voices are device independent
 
 (defvoice  voice-punctuations-all
   (list nil nil nil nil  nil 'all)
@@ -383,6 +383,9 @@ punctuations.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
+(def-voice-font voice-lock-highlight-personality voice-bolden
+  'match
+  "Personality used for  matched text.")
 
 (def-voice-font voice-lock-highlight-personality voice-animate
   'highlight
