@@ -424,7 +424,7 @@ element. "
 
 (make-variable-buffer-local 'emacspeak-w3-url-rewrite-rule)
 
-(defun emacspeak-w3-url-rewrite-and-follow ()
+(defun emacspeak-w3-url-rewrite-and-follow (&optional prompt)
   "Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -432,7 +432,9 @@ form `(from to)' where from and to are strings.  Typically,
 the rewrite rule is automatically set up by Emacspeak tools
 like websearch where a rewrite rule is known.  Rewrite rules
 are useful in jumping directly to the printer friendly
-version of an article for example."
+version of an article for example.
+Optional interactive prefix arg  prompts for a rewrite rule
+even if one is already defined."
   (interactive)
   (declare (special emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
@@ -441,7 +443,8 @@ version of an article for example."
         (redirect nil))
     (unless url
       (error "Not on a link."))
-    (when (null emacspeak-w3-url-rewrite-rule)
+    (when (or prompt 
+        (null emacspeak-w3-url-rewrite-rule))
       (setq emacspeak-w3-url-rewrite-rule 
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
