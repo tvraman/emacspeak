@@ -1591,6 +1591,7 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist
+                    global-mode-string
                     emacspeak-minor-mode-prefix 
                     voice-lock-mode))
   (force-mode-line-update)
@@ -1604,11 +1605,17 @@ current coding system, then we return an empty string."
                  ((and (boundp var) (eval var ))
                   (if (symbolp value) (eval value) value))
                  (t nil))))
-          minor-mode-alist)))
+          minor-mode-alist))
+        (global-info (mapconcat 
+#'(lambda (s)
+(if (stringp s) s " "))
+(mapcar 'eval global-mode-string)
+"")))
     (setq info (delete nil info))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat
+global-info
                              emacspeak-minor-mode-prefix
                              (mapconcat #'identity info ", ")
                              (emacspeak-speak-buffer-coding-system-info))))))
