@@ -53,7 +53,6 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
-(require 'mailcap)
 ;;}}}
 ;;{{{  custom
 
