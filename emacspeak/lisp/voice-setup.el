@@ -85,6 +85,17 @@
 (require 'backquote)
 
 ;;}}}
+;;{{{  A speech style structure
+
+(defstruct  voice-setup-aural-style
+  family
+  gain left-volume right-volume
+  average-pitch
+  pitch-range
+  stress
+  richness)
+
+;;}}}
 ;;{{{  additional convenience functions:
 
 (defun voice-lock-set-personality (start end personality)
