@@ -72,6 +72,7 @@
   (declare (special emacspeak-aumix-channel-table))
   (gethash channel emacspeak-aumix-channel-table))
 (emacspeak-aumix-set-channel ?r "reset")
+(emacspeak-aumix-set-channel ?e "edit")
 (emacspeak-aumix-set-channel ?b "bass")
 (emacspeak-aumix-set-channel ?c "CD Audio")
 (emacspeak-aumix-set-channel ?i "input gain")
@@ -101,6 +102,7 @@
   :group 'emacspeak
   :type 'string)
 
+
 (defun emacspeak-aumix-reset ()
   "Reset to default audio settings."
   (interactive)
@@ -111,6 +113,14 @@
            emacspeak-aumix-program
            emacspeak-aumix-reset-options))
   (emacspeak-auditory-icon 'close-object))
+
+(defun emacspeak-aumix-edit ()
+  "Edit aumix settings interactively. 
+Run command \\[emacspeak-aumix-reset]
+after saving the settings to have them take effect."
+  (interactive)
+  (emacspeak-forms-find-file
+   (expand-file-name "forms/aumix-rc.el" emacspeak-etc-directory)))
 
 (defun emacspeak-aumix ()
   "Setup output parameters of the auditory display.
@@ -129,9 +139,13 @@ you are done."
       (setq description (emacspeak-aumix-get-channel channel))
       (cond
        ((and description
+             (string-equal "edit" description))
+        (emacspeak-aumix-edit)
+        (setq done t))
+       ((and description
              (string-equal "reset" description))
-         (emacspeak-aumix-reset)
-         (setq done t))
+        (emacspeak-aumix-reset)
+        (setq done t))
        (description
         (setq setting
               (read-from-minibuffer
