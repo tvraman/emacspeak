@@ -1,2 +1,3 @@
 ;http://support.bbc.co.uk/support/rmlive/streams.shtml
-pnm://rm.bbc.co.uk/worldservice/live24/liveinfent.ra
+rtsp://rmlivev8.bbc.net.uk/farm/*/ev7/live24/worldservice/livenews.ra
+
