@@ -1727,8 +1727,9 @@ emacspeak-websearch-personal-portfolio."
                              (const "-mmin")
                              (const "-cmin")
                              (const "-size")
-                             (const "-type")
-                            (string :tag "Value"))))
+                             (const "-type"))
+                            (string :tag "Value")))
+                            
 
 (defvar emacspeak-wizards-finder-args nil
   "List of switches to use as test arguments to find.")
