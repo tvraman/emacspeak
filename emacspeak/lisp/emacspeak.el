@@ -163,6 +163,7 @@ functions for details.   "
   (load-library "voice-setup")
   (require 'emacspeak-speak)
   (require 'emacspeak-personality)
+  (require 'emacspeak-pronounce)
   (require 'emacspeak-redefine)
   (require 'emacspeak-fix-interactive)
   (require 'emacspeak-keymap)

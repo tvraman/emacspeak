@@ -456,7 +456,7 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
-
+;;;###autoload
 (defvar emacspeak-pronounce-pronunciation-table nil
   "Variable holding association list of pronunciations for a buffer.
 Becomes automatically buffer local.")
