@@ -1602,6 +1602,7 @@ No-op if variable `dtk-quiet' is set to nil.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
+                    inhibit-point-motion-hooks
                     dtk-speak-server-initialized emacspeak-use-auditory-icons
                     dtk-speech-rate
                     dtk-speak-nonprinting-chars
@@ -1630,7 +1631,8 @@ only speak upto the first ctrl-m."
         (and ctrl-m
              (setq text (substring  text 0 ctrl-m ))
              (emacspeak-auditory-icon 'ellipses))))
-    (let ((syntax-table (syntax-table ))
+    (let ((inhibit-point-motion-hooks t)
+          (syntax-table (syntax-table ))
           (inherit-speaker-process dtk-speaker-process)
           (pronunciation-table emacspeak-pronounce-pronunciation-table)
           (use-auditory-icons emacspeak-use-auditory-icons)
@@ -1685,6 +1687,7 @@ only speak upto the first ctrl-m."
         (or  (= start (point-max))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
+
 ;;;###autoload
 (defun dtk-speak-list (text )
   "Speak a  list of strings.

@@ -537,14 +537,16 @@ results in the number of initial spaces being spoken."
 Argument START  and END specify region to speak."
   (interactive "r" )
   (declare (special emacspeak-speak-voice-annotated-paragraphs
+                    inhibit-point-motion-hooks
                     voice-lock-mode))
+  (let ((inhibit-point-motion-hooks t))
   (when (and voice-lock-mode
              (not emacspeak-speak-voice-annotated-paragraphs))
     (save-restriction
       (narrow-to-region start end )
       (emacspeak-speak-voice-annotate-paragraphs)))
   (emacspeak-handle-action-at-point)
-  (dtk-speak (buffer-substring start end )))
+  (dtk-speak (buffer-substring start end ))))
 
 (defsubst emacspeak-speak-string (string personality)
   "Apply personality to string and speak it."
@@ -1210,7 +1212,9 @@ Negative prefix arg speaks from start of buffer to point.
 voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'."
   (interactive "P" )
   (declare (special emacspeak-speak-voice-annotated-paragraphs
+                    inhibit-point-motion-hooks
                     voice-lock-mode))
+  (let ((inhibit-point-motion-hooks t))
   (when (and voice-lock-mode
              (not emacspeak-speak-voice-annotated-paragraphs))
     (emacspeak-speak-voice-annotate-paragraphs))
@@ -1226,7 +1230,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
             end (point-max)))
      (t (setq start (point-min)
               end (point))))
-    (dtk-speak (buffer-substring start end ))))
+    (dtk-speak (buffer-substring start end )))))
 
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
