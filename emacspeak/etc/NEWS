@@ -40,6 +40,15 @@ Place-holder for eventual FLite support.
 ** emacspeak-kmacro.el:
 
 Speech-enables kmacro --- a new keyboard macro package.
+
+** world clock:
+Command  emacspeak-speak-time implements a world clock when
+called                                 with an interactive
+prefix                                 arg (C-u).
+When called with two prefix args i.e. C-u twice, it sets the
+timezone                                 as well --- useful for
+international                                 travel.
+
 ** TTS Support:
 
 TTS specific code is now restricted in modules of the form
