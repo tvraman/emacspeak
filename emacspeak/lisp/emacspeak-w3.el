@@ -134,6 +134,9 @@
 (add-hook                                'w3-load-hook
                                          (function
                                           (lambda ()
+                                            (declare (special
+                                                      emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                                                      emacspeak-pronounce-load-pronunciations-on-startup))
                                             (and
                                              emacspeak-pronounce-load-pronunciations-on-startup
                                              (emacspeak-pronounce-augment-pronunciations 'w3-mode
