@@ -515,15 +515,26 @@ HTML.")
 (defvar emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. ")
+(defcustom emacspeak-w3-xsl-nuke-nulls nil
+  "Turn this on when browsing sites like my.yahoo.com that produce
+spurious null chars."
+  :type 'boolean
+  :group 'emacs-eak-w3)
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
 HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
+    (when emacspeak-w3-xsl-nuke-nulls
+      (goto-char (point-min))
+      (while (search-forward
+              (format "%c" 0) nil t)
+        (replace-match "")))
     (emacspeak-xslt-region
      emacspeak-w3-xsl-transform
      (point-min)
      (point-max))))
+
 (declaim (special emacspeak-xslt-directory))
 (defun emacspeak-w3-xslt-apply (xsl)
   "Apply specified transformation to current page."
