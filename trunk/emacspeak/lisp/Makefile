@@ -67,6 +67,7 @@ SPEAK_OBJECTS =   \
 	voice-settings.elc \
         html-voice.elc \
 	html-outline.elc \
+	emacspeak-personality.elc \
         emacspeak-pronounce.elc \
 	emacspeak-sounds.elc 
 
@@ -351,6 +352,7 @@ emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
+emacspeak-personality.elc: emacspeak-personality.el
 emacspeak-psgml.elc: emacspeak-psgml.el dtk-speak.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc
 emacspeak-realaudio.elc: emacspeak-realaudio.el dtk-speak.elc
