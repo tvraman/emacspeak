@@ -51,10 +51,10 @@
 (define-key function-key-map "\eOy" [kp-9])
 ;;; shift arrows
 
-(define-key function-key-map  "\e[E" '[S-up])
-(define-key function-key-map "\e[F" '[S-down])
-(define-key function-key-map "\e[G" '[S right])
-(define-key function-key-map "\e[H" '[S left])
+(define-key function-key-map  "\e[E" '[shift up])
+(define-key function-key-map "\e[F" '[shift down])
+(define-key function-key-map "\e[G" '[shift right])
+(define-key function-key-map "\e[H" '[shift left])
 ;;; Get control arrows:
 
 (define-key function-key-map "\e[I" '[C-up])

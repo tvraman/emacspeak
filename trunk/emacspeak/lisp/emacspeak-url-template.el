@@ -868,6 +868,36 @@ plays entire program."
  'emacspeak-realaudio-play)
 
 ;;}}}
+;;{{{  The Linux Show 
+(emacspeak-url-template-define
+ "Geek Linux Daily" 
+ "http://thelinuxdaily.com/shows/%s.m3u"
+ (list
+  #'(lambda ()
+             (read-from-minibuffer
+              "Date:"
+              (format-time-string "%Y/%m/%d"))))
+ nil
+ "Play specified edition of Geek  Linux DailyShow"
+ 'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
+ "Redhat Linux Show" 
+ "http://www.thelinuxshow.com/archives/%s.mp3"
+ (list
+  #'(lambda ()
+      (let ((mm-dd-yy
+             (read-from-minibuffer
+              "Date: (Tuesday)"
+              (format-time-string "%m-%d-%Y"))))
+        (format "%s/tls-%s"
+                 (third (split-string mm-dd-yy "-"))
+                mm-dd-yy))))
+ nil
+ "Play specified edition of Redhat Linux Show"
+ 'emacspeak-realaudio-play)
+
+;;}}}
 ;;{{{ technet cast from DDJ
 
 (emacspeak-url-template-define
