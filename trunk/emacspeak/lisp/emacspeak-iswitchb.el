@@ -52,13 +52,40 @@
 ;;; provided by package iswitchb.el  is visual feedback.
 ;;; Speech UI Challenge: What  is the most efficient means of
 ;;; conveying a dynamically updating set of choices?
+;;; current strategy is to walk the list using c-s and c-r as
+;;; provided by iswitchb
 
 ;;; Code:
 
 ;;}}}
 
+;;{{{ speech-enable interactive commands:
 
+(defadvice  iswitchb-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
+;;; note that though these are after advice fragments,
+;;; iswitchb-matches does not reflect the change at the time we
+;;; get called.
+;;; hence the off-by-one hack
+
+(defadvice iswitchb-next-match (after emacspeak pre act comp)
+  "Speak match at the front of the list."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (dtk-speak
+     (second iswitchb-matches))))
+
+(defadvice iswitchb-prev-match (after emacspeak pre act comp)
+  "Speak match at the front of the list."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (dtk-speak
+     (car (last iswitchb-matches)))))
+;;}}}
 (provide 'emacspeak-iswitchb)
 ;;{{{ end of file
 
