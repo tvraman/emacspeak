@@ -745,23 +745,47 @@ Warning! Contents of file filename will be overwritten."
 Local variables: mode: outline paragraph-separate: \"[ ]*$\"
 end:\n\n")
       (save-buffer)))
-    (emacspeak-auditory-icon 'task-done))
+  (emacspeak-auditory-icon 'task-done))
 
 (defun emacspeak-generate-texinfo-command-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
 commands into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
   (interactive "FEnter filename to save DOC in: ")
-  (let ((buffer (find-file-noselect filename)))
+  (let ((buffer (find-file-noselect filename))
+        (module nil))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
       (insert"@c $Id$\n")
-      (insert "@node Emacspeak Commands\n@chapter Emacspeak Commands\n")
+      (insert
+       "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
+      (insert
+       "This chapter is generated automatically from the source-level documentation.
+Any errors or corrections should be made to the source-level
+documentation.\n\n")
       (mapcar
        (function
         (lambda (f)
-          (let ((key (where-is-internal f)))
+          (let ((key (where-is-internal f))
+                (this-module (symbol-file f)))
+            (when this-module
+              (setq this-module
+                    (file-name-sans-extension
+                     (file-name-nondirectory this-module))))
+            (unless (string-equal module this-module)
+              (if this-module 
+                  (setq module this-module)
+                (setq module "ANONYMOUS"))
+              (insert
+               (format
+                "@node %s\n@section %s\n\n\n"
+                module module ))
+              (insert
+               (format
+                "Automatically generated documentation
+for commands defined in module  %s.\n\n"
+                module)))
             (insert (format "\n\n@unnumberedsec %s\n" f))
             (insert 
              (format "@findex %s\n" f))
