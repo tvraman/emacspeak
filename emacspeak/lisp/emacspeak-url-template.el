@@ -1025,7 +1025,8 @@ name of the list.")
 
 (emacspeak-url-template-define
  "American Life On Demand."
- "http://www.wbez.org/ta/%s.rm"
+ ;"http://www.wbez.org/ta/%s.rm"
+ "http://www.thislife.org/ra/%s.ram"
  (list "Episode: ")
  nil
  "Play This American Life  shows on demand."
