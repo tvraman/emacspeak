@@ -122,20 +122,149 @@
 
 ;;}}}
 ;;{{{ voice lock 
+;;{{{  additional voice locking 
 
+(defvar java-voice-lock-keywords-4 nil
+"Additional voice lock keywords for java.")
+;;; shamelessly cloned from jde-font-lock.el
+
+(defun emacspeak-jde-java-voice-lock-setup-keywords (&optional rebuild)
+  "Setup voice lock keywords in `java-voice-lock-keywords-4'.
+If optional REBUILD flag is non-nil create a new cache of regular
+expressions."
+  (interactive "P")
+  (declare (special java-voice-lock-keywords-4
+                    jde-java-font-lock-capital-letter 
+                    jde-java-font-lock-capital-letter-or-digit))
+  (and (interactive-p)
+       (consp current-prefix-arg)
+       (setq rebuild t))
+  (setq
+   java-voice-lock-keywords-4
+   (append
+    ;; Feature scoping: These must come first or the Special
+    ;; constants, Modifiers and Packages from keywords-1 will catch
+    ;; them.
+;;; Compatibility
+    (if (featurep 'xemacs)
+        (list
+
+         ;; Special keywords and constants
+         '("\\<\\(this\\|super\\)\\>"
+           (1 voice-lock-keyword-personality))
+         '("\\<\\(false\\|null\\|true\\)\\>"
+           (1 voice-lock-constant-personality))
+         ))
+       
+    (list
+
+     ;; Voiceify default as keyword
+     '("\\<\\(default\\)\\>" (1 voice-lock-keyword-personality))
+
+     ;; Voiceify const and goto with warning personality. These keywords are
+     ;; reserved, even though they are not currently used.
+     '("\\<\\(const\\|goto\\)\\>" (1 voice-lock-warning-personality))
+
+     ;; Voiceify modifiers.
+     (cons (concat "\\<\\("
+                   (eval-when-compile
+                     (regexp-opt
+                      '(
+                        "abstract"
+                        "const"
+                        "final"
+                        "native"
+                        "private"
+                        "protected"
+                        "public"
+                        "static"
+                        "strictfp"
+                        "synchronized"
+                        "transient"
+                        "volatile"
+                        )))
+                   "\\)\\>")
+           voice-lock-keyword-personality)
+        
+     ;; Voiceify package directives
+     '("\\<\\(package\\)\\>\\s-+\\(\\sw+\\)"
+       (1 voice-lock-keyword-personality)
+       (2 voice-lock-function-name-personality nil t)
+       ("\\=\\.\\(\\sw+\\)" nil nil
+        (1 voice-lock-function-name-personality nil t)))
+        
+     ;; Voiceify import directives
+     '("\\<\\(import\\)\\>\\s-+\\(\\sw+\\)"
+       (1 voice-lock-keyword-personality)
+       (2 (if (equal (char-after (match-end 0)) ?\.)
+              'voice-lock-function-name-personality
+            'voice-lock-type-personality))
+       ("\\=\\.\\(\\*\\|\\sw+\\)" nil nil
+        (1 (if (equal (char-after (match-end 0)) ?\.)
+               'voice-lock-function-name-personality
+             (if (equal (char-before (match-end 0)) ?\*)
+                 voice-lock-constant-personality
+               'voice-lock-type-personality)))))
+     )
+
+    ;; Voiceify user's defined names
+    (jde-java-font-lock-api-keywords rebuild)
+       
+;;; Compatibility
+    ;; Some extra voiceification
+    (list
+        
+     ;; Voiceify numbers
+     '("\\<[0-9]+[.][0-9]+\\([eE][-+]?[0-9]+\\)?[fFdD]?\\>"
+       . voice-lock-constant-personality)
+     '("\\<[0-9]+[.][eE][-+]?[0-9]+[fFdD]?\\>"
+       . voice-lock-constant-personality)
+     '("\\<[0-9]+[.][fFdD]\\>"
+       . voice-lock-constant-personality)
+     '("\\<[0-9]+[.]"
+       . voice-lock-constant-personality)
+     '("[.][0-9]+\\([eE][-+]?[0-9]+\\)?[fFdD]?\\>"
+       . voice-lock-constant-personality)
+     '("\\<[0-9]+[eE][-+]?[0-9]+[fFdD]?\\>"
+       . voice-lock-constant-personality)
+     '("\\<0[xX][0-9a-fA-F]+[lL]?\\>"
+       . voice-lock-constant-personality)
+     '("\\<[0-9]+[lLfFdD]?\\>"
+       . voice-lock-constant-personality)
+     
+     ;; Voiceify capitalised identifiers as constant
+     (cons
+      (concat "\\(\\b[" jde-java-font-lock-capital-letter
+              "]+[" jde-java-font-lock-capital-letter-or-digit
+              "]*\\b\\)")
+      '(1 voice-lock-constant-personality))
+
+     ;; Voiceify text between `' in comments
+     )
+
+    ;; Voiceify javadoc comments
+    
+       
+    ))
+  
+  ;; Update voiceification of buffers in `java-mode' and `jde-mode'
+  )
+
+;;}}}
 (declaim (special voice-lock-defaults-alist))
-(if (not (assq 'jde-mode voice-lock-defaults-alist))
-    (setq voice-lock-defaults-alist
-          (cons
-           (cons 'jde-mode
+(when  (not (assq 'jde-mode voice-lock-defaults-alist))
+  (emacspeak-jde-java-voice-lock-setup-keywords)
+  (setq voice-lock-defaults-alist
+        (cons
+         (cons 'jde-mode
+               ;; jde-mode-defaults
+               '((java-voice-lock-keywords java-voice-lock-keywords-1
+                                           java-voice-lock-keywords-2 java-voice-lock-keywords-3
+                                           java-voice-lock-keywords-4)
+                 nil nil ((?_ . "w") (?$ . "w")) nil
+                 (voice-lock-mark-block-function . mark-defun)))
+         voice-lock-defaults-alist)))
 
-                 ;; jde-mode-defaults
-                 '((java-voice-lock-keywords java-voice-lock-keywords-1
-                                             java-voice-lock-keywords-2 java-voice-lock-keywords-3)
-                   nil nil ((?_ . "w") (?$ . "w")) nil
-                   (voice-lock-mark-block-function . mark-defun)))
-
-           voice-lock-defaults-alist)))
 
 ;;}}}
 ;;{{{ jdebug 
@@ -248,6 +377,7 @@
 
 ;;}}}
 ;;}}}
+
 (provide 'emacspeak-jde )
 ;;{{{ end of file 
 
