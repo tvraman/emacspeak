@@ -15,7 +15,7 @@
 # }}}
 # {{{ Copyright:  
 
-#Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved. 
@@ -44,7 +44,7 @@
 # cd to the  directory where you placed the sources.
 # This directory is referred to henceforth as EMACSPEAK_DIR.
 # and then type
-#    make config
+#    make config SRC=`pwd`
 # Now type
 #    make emacspeak 
 # to compile the files, then (as superuser)
@@ -130,7 +130,8 @@ infodir = ${prefix}/info
 libparentdir = ${prefix}/share/emacs/site-lisp
 # where  all emacspeak  files should go
 libdir =$(libparentdir)/emacspeak
-ROOT = 
+#directory where we are building
+SRC = `pwd`
 # How to install files
 INSTALL = install
 CP=cp
@@ -142,10 +143,10 @@ SNAPSHOT = `date "+%h-%d-%y-%H-%M"`
 
 # source files to distribute
 ID = README
-TABLE_SAMPLES=etc/tables
+TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
-ECI="servers/linux-outloud"
+ECI=servers/linux-outloud
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/tcleci.cpp  \
 ${ECI}/NOTES \
@@ -154,17 +155,18 @@ ${ECI}/Makefile
 NEWS = etc/NEWS*  etc/FAQ etc/HELP etc/COPYRIGHT 
 SOUNDS=sounds/*.au
 
-TCL_PROGRAMS = servers/dtk-exp \
+TCL_PROGRAMS = servers/.servers \
+servers/dtk-exp \
 servers/dtk-mv \
 servers/outloud \
 servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server
 
-ELISP = lisp/*.el lisp/*.def
+ELISP = lisp/*.el lisp/*.def lisp/Makefile
 
 TEMPLATES = etc/emacspeak.sh.def \
-etc/play.def
+etc/play.def etc/Makefile 
 
 INFO = info/Makefile info/*.texi
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) \
@@ -177,11 +179,12 @@ ${NEWS} Makefile
 # {{{  User level targets emacspeak info print 
 
 emacspeak:
-	cd lisp; make  ROOT=..
+	cd lisp; make  SRC=..
+	touch $(ID)
+	chmod 644 $(ID)
 	@echo "Compiled on $(SNAPSHOT) by `whoami` on `hostname`" >> $(ID)
 	@echo "Now check installation of  the speech server. "  
 	@echo "See Makefile for instructions." 
-	@echo "Type make info for  the online  manual." 
 	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs" 
 	@echo "See the FAQ for Frequently Asked Questions -- control e cap F in Emacs" 
 	@echo "Use C-h p in Emacs for a package overview" 
@@ -195,7 +198,7 @@ print:
 
 # }}}
 # {{{  Maintainance targets tar snapshot dist 
-
+EXCLUDES=--exclude='*/CVS' --exclude='*/RCS'
 tar:
 	rm -f $(ID)
 	@echo "This is Emacspeak from  $(SNAPSHOT)" > $(ID)
@@ -204,7 +207,7 @@ tar:
 	@echo "And type make config " >> $(ID)
 	@echo "To configure the source files. Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
-	tar cvf  emacspeak.tar $(DISTFILES)   $(ID) \
+	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
 	$(OUTLOUD) \
 	${TABLE_SAMPLES} ${REALAUDIO} ${FORMS} \
 	${SOUNDS}   $(INFO)
@@ -221,22 +224,24 @@ dist: $(DISTFILES) $(INFO)
 # {{{ User level target--  config 
 
 config:
-	cd lisp; make config  ROOT=$(ROOT)
-	cd etc; make config  ROOT=$(ROOT)
-	@echo "Configured emacspeak in directory $(ROOT). Now type make emacspeak"
+	cd lisp; make config  SRC=$(SRC)
+	cd etc; make config  SRC=$(SRC)
+	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
 # {{{  user level target-- install uninstall
 
 install:
-	make config ROOT=$(libdir)
+	make config SRC=$(libdir)
 	  $(INSTALL)  -d $(libparentdir) 
 	  $(INSTALL) -d $(libdir) 
 	  $(INSTALL) -d $(libdir)/lisp
 	  $(INSTALL) -d $(libdir)/etc
 	  chmod 755 $(libdir)
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
-	$(INSTALL) -d $(libdir)/servers 
+	$(INSTALL) -d $(libdir)/servers
+	$(INSTALL) -d $(libdir)/servers/linux-outloud
+	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL)  etc/play   $(libdir)/etc 
 	$(INSTALL)  ${NEWS}   $(libdir)/etc  
@@ -245,7 +250,9 @@ install:
 	$(CP) -r $(REALAUDIO) $(libdir) 
 	$(INSTALL)  -m 0644 $(SOUNDS) $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/etc/forms
-	$(INSTALL)  -m 0644 $(FORMS) $(libdir)
+	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
+	$(INSTALL) -d $(libdir)/etc/tables
+	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
 	$(INSTALL) -d $(bindir)
 	$(INSTALL) etc/emacspeak.sh $(bindir)/emacspeak
 	$(INSTALL) -d $(infodir)
