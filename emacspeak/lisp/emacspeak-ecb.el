@@ -133,7 +133,7 @@ available."
             (setq end (point))
             (ems-modify-buffer-safely
 	     (ems-set-personality-temporarily
-	      beg end   'harry
+	      beg end   voice-bolden
               (emacspeak-speak-line)))
             (emacspeak-auditory-icon 'search-hit))))
        (t (emacspeak-auditory-icon 'search-miss)))))

@@ -93,9 +93,9 @@
                 (+ 1 color-index)
               1))
       (setf (acss-average-pitch style) color-parameter)
-      (setf (acss-pitch-range style) style-parameter)
+      (setf (acss-pitch-range style) color-parameter)
       (setf (acss-richness style) color-parameter)
-      (setf (acss-stress style) style-parameter)
+      (setf (acss-stress style) color-parameter)
       (tts-define-voice-from-speech-style voice-name style))
     voice-name))
 
