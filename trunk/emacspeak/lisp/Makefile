@@ -163,6 +163,7 @@ emacspeak-psgml.elc \
 emacspeak-python.elc \
 emacspeak-realaudio.elc \
 emacspeak-reftex.elc \
+emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
 emacspeak-rmail.elc \
 emacspeak-rpm.elc  \
@@ -339,6 +340,7 @@ emacspeak-python.elc: emacspeak-python.el dtk-speak.elc
 emacspeak-realaudio.elc: emacspeak-realaudio.el dtk-speak.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc
+emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc
 emacspeak-remote.elc: emacspeak-remote.el
 emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc
