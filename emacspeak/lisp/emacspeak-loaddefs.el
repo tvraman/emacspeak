@@ -336,7 +336,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15978 38315))
+;;;;;;  "emacspeak-rss.el" (16004 46494))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -426,7 +426,7 @@ set the current local value to the result." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-table-make-table) "emacspeak-table"
-;;;;;;  "emacspeak-table.el" (16002 64939))
+;;;;;;  "emacspeak-table.el" (16004 46502))
 ;;; Generated autoloads from emacspeak-table.el
 
 (autoload (quote emacspeak-table-make-table) "emacspeak-table" "\
@@ -437,7 +437,7 @@ Construct a table object from elements." nil nil)
 ;;;### (autoloads (emacspeak-table-copy-to-clipboard emacspeak-table-display-table-in-region
 ;;;;;;  emacspeak-table-view-csv-buffer emacspeak-table-find-csv-file
 ;;;;;;  emacspeak-table-find-file) "emacspeak-table-ui" "emacspeak-table-ui.el"
-;;;;;;  (16002 64939))
+;;;;;;  (16004 46500))
 ;;; Generated autoloads from emacspeak-table-ui.el
 
 (defsubst emacspeak-table-prepare-table-buffer (table buffer &optional filename) "\
@@ -481,7 +481,7 @@ Current buffer must be in emacspeak-table mode." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tabulate-region) "emacspeak-tabulate"
-;;;;;;  "emacspeak-tabulate.el" (15978 38316))
+;;;;;;  "emacspeak-tabulate.el" (16004 46504))
 ;;; Generated autoloads from emacspeak-tabulate.el
 
 (autoload (quote emacspeak-tabulate-region) "emacspeak-tabulate" "\
@@ -492,7 +492,7 @@ in the white-space." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry"
-;;;;;;  "emacspeak-tapestry.el" (15978 38316))
+;;;;;;  "emacspeak-tapestry.el" (16004 46507))
 ;;; Generated autoloads from emacspeak-tapestry.el
 
 (autoload (quote emacspeak-tapestry-describe-tapestry) "emacspeak-tapestry" "\
@@ -503,8 +503,8 @@ displayed buffers." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-load)
-;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (15994
-;;;;;;  4039))
+;;;;;;  "emacspeak-url-template" "emacspeak-url-template.el" (16004
+;;;;;;  46517))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-load) "emacspeak-url-template" "\
@@ -532,7 +532,7 @@ Optional interactive prefix arg displays documentation for specified resource." 
 ;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
 ;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
 ;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
-;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16001 44247))
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16004 46526))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
@@ -650,8 +650,9 @@ Play url under point as realaudio" t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google
-;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15978 38317))
+;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-do-post
+;;;;;;  emacspeak-websearch-dispatch) "emacspeak-websearch" "emacspeak-websearch.el"
+;;;;;;  (16004 46678))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -661,6 +662,9 @@ Launches specific websearch queries.
 Press `?' to list available search engines.
 Once selected, the selected searcher prompts for additional information as appropriate.
 When using W3,  this interface attempts to speak the most relevant information on the result page." t nil)
+
+(autoload (quote emacspeak-websearch-do-post) "emacspeak-websearch" "\
+Submit a post request. " nil nil)
 
 (autoload (quote emacspeak-websearch-emacspeak-archive) "emacspeak-websearch" "\
 Search Emacspeak mail archives.
@@ -1045,7 +1049,7 @@ for the current voice family." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-xml-shell) "emacspeak-xml-shell" "emacspeak-xml-shell.el"
-;;;;;;  (15978 38318))
+;;;;;;  (16004 46536))
 ;;; Generated autoloads from emacspeak-xml-shell.el
 
 (defgroup emacspeak-xml-shell nil "XML browser for the Emacspeak desktop.")
