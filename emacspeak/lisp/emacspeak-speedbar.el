@@ -278,7 +278,7 @@ An automatically updating speedbar consumes resources.")
   :type 'symbol
   :group 'emacspeak-speedbar)
 
-(defcustom emacspeak-speedbar-selected-personality  voice-aniamte
+(defcustom emacspeak-speedbar-selected-personality  voice-animate
   "Personality used to indicate speedbar selection"
   :type 'symbol
   :group 'emacspeak-speedbar)
