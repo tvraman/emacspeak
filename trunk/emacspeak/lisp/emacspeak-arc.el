@@ -173,8 +173,7 @@ first initializing it if necessary."
   (interactive)
   (unless (eq major-mode 'archive-mode)
     (error "This command should be called only in archive mode"))
-  (let ((entry (archive-get-descr 'no-error))
-        (mode nil))
+  (let ((entry (archive-get-descr 'no-error)))
     (cond
      ((null entry)
       (message "No file on this line"))
@@ -188,8 +187,7 @@ first initializing it if necessary."
   (interactive)
   (unless (eq major-mode 'archive-mode)
     (error "This command should be called only in archive mode"))
-  (let ((entry (archive-get-descr 'no-error))
-        (mode nil))
+  (let ((entry (archive-get-descr 'no-error)))
     (cond
      ((null entry)
       (message "No file on this line"))
@@ -203,8 +201,7 @@ first initializing it if necessary."
   (interactive)
   (unless (eq major-mode 'archive-mode)
     (error "This command should be called only in archive mode"))
-  (let ((entry (archive-get-descr 'no-error))
-        (mode nil))
+  (let ((entry (archive-get-descr 'no-error)))
     (cond
      ((null entry)
       (message "No file on this line"))
@@ -223,8 +220,7 @@ first initializing it if necessary."
   (interactive)
   (unless (eq major-mode 'archive-mode)
     (error "This command should be called only in archive mode"))
-  (let ((entry (archive-get-descr 'no-error))
-        (mode nil))
+  (let ((entry (archive-get-descr 'no-error)))
     (cond
      ((null entry)
       (message "No file on this line"))
