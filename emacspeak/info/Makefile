@@ -5,6 +5,9 @@ TEXI2HTML=texi2html
 infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 
+commands.texi: ../lisp/emacspeak.el
+	emacs -batch -q -l ../utils/document-commands.el
+
 info: *.texi
 	makeinfo emacspeak.texi
 

@@ -960,6 +960,7 @@ source-level documentation.
 * emacspeak-daisy::
 * emacspeak-dired::
 * emacspeak-dismal::
+* emacspeak-ecb::
 * emacspeak-ediff::
 * emacspeak-enriched::
 * emacspeak-entertain::
