@@ -50,7 +50,11 @@
 
 ;;}}}
 ;;{{{  advice interactive commands.
-
+(defadvice ecb-activate (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 (defadvice ecb-cancel-dialog (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
