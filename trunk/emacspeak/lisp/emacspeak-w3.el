@@ -657,6 +657,22 @@ Interactive prefix arg causes url to be read from the minibuffer."
    (or (interactive-p)
        speak)))
 
+(defun emacspeak-w3-extract-table-by-position (position   &optional prompt-url speak)
+  "Extract table at specified position.
+ Optional arg url specifies the page to extract content from.
+Interactive use provides list of class values as completion.
+Interactive prefix arg causes url to be read from the minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Table: ")
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "/descendant::table[%s]"
+           position)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
 (defsubst  emacspeak-w3-css-get-class-list ()
   "Collect a list of classes by prompting repeatedly in the
 minibuffer.
@@ -766,6 +782,8 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
 (define-key emacspeak-w3-xsl-map "p" 'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
+(define-key emacspeak-w3-xsl-map "T"
+  'emacspeak-w3-extract-table-by-position)
 (define-key emacspeak-w3-xsl-map "t"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
