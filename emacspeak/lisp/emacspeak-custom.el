@@ -133,6 +133,30 @@
              (voice-lock-mode 1))))
 
 ;;}}}
+;;{{{  custom navigation
+
+(defvar emacspeak-custom-toolbar-regexp
+  "^Operate on everything in this buffer:"
+  "Pattern that identifies toolbar section.")
+
+(defun emacspeak-custom-goto-toolbar ()
+  "Jump to custom toolbar when in a customization buffer."
+  (interactive)
+  (declare (special emacspeak-custom-toolbar-regexp))
+  (when (eq major-mode 'custom-mode)
+    (goto-char (point-min))
+    (re-search-forward emacspeak-custom-toolbar-regexp nil
+                       t)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+;;}}}
+;;{{{  bind emacspeak commands 
+
+(declaim (special custom-mode-map))
+(define-key custom-mode-map  "\M-t" 'emacspeak-custom-goto-toolbar)
+
+;;}}}
 ;;{{{ augment custom widgets
 
 ;;}}}

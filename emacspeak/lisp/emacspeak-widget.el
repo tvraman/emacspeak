@@ -88,9 +88,9 @@
           (when  parent (widget-get  parent :help-echo))))
     (cond
      (help-echo (message help-echo))
-     (parent-help (message " %s %s "
-                           parent-help
-                           (or tag type)))
+     (parent-help (message " %s for %s "
+                           (or tag type)
+                           parent-help))
      (widget (message (format " %s " (widget-type widget))))
      (t (message " Not on a widget. ")))))
 
