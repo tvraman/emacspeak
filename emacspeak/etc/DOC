@@ -255,30 +255,6 @@ Function to submit a bug to the programs maintainer.
 
 ------------------------------------------------------------
 
-** emacspeak-analog-backward-field-or-charMove back to next field if field specification is available.
-Otherwise move to previous char.
-Speak field or char moved to.
-
-------------------------------------------------------------
-
-** emacspeak-analog-forward-field-or-charMove forward to next field if field specification is available.
-Otherwise move to next char.
-Speak field or char moved to.
-
-------------------------------------------------------------
-
-** emacspeak-analog-next-lineMove down and speak current field.
-
-------------------------------------------------------------
-
-** emacspeak-analog-previous-lineMove up and speak current field.
-
-------------------------------------------------------------
-
-** emacspeak-analog-speak-this-fieldSpeak current field.
-
-------------------------------------------------------------
-
 ** emacspeak-arc-speak-file-modification-timeSpeak modification time of the file on current line
 
 ------------------------------------------------------------
@@ -639,7 +615,9 @@ Useful in voicifying rich text.
 
 ------------------------------------------------------------
 
-** emacspeak-erc-add-name-to-monitorAdd people to monitor in this room.
+** emacspeak-erc-add-name-to-monitorAdd people to moniter in this room.
+Optional interactive prefix  arg defines a pronunciation that
+  silences speaking of this perso's name.
 
 ------------------------------------------------------------
 
@@ -675,11 +653,6 @@ set the current local value to the result.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -961,14 +934,6 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
-** emacspeak-freeamp	Key Sequence: control e control f o 
-
-Play specified resource using freeamp.
-Resource is an  MP3 file or m3u playlist.
-The player is placed in a buffer in emacspeak-freeamp-mode.
-
-------------------------------------------------------------
-
 ** emacspeak-freeamp-freeamp-call-command	Key Sequence: control e control f q   control e control f =   control e control f s   control e control f b   control e control f f   control e control f -   control e control f +   control e control f p 
 
 Call appropriate freeamp command.
@@ -976,11 +941,6 @@ Call appropriate freeamp command.
 ------------------------------------------------------------
 
 ** emacspeak-freeamp-freeamp-commandExecute FreeAmp command.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1158,11 +1118,6 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1605,34 +1560,6 @@ If already at the beginning then move to previous block.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio	Key Sequence: control e ; 
-
-Start or control streaming audio including MP3 and
-realaudio.  If using `TRPlayer' as the player, accepts
-trplayer control commands if a stream is already playing.
-Otherwise, the playing stream is simply stopped.  If no
-stream is playing, this command prompts for a realaudio
-resource.  Realaudio resources can be specified either as a
-Realaudio URL, the location of a local Realaudio file, or as
-the name of a local Realaudio metafile. Realaudio resources
-you have played in this session are available in the
-minibuffer history.  The default is to play the resource you
-played most recently. Emacspeak uses the contents of the
-directory specified by variable
-emacspeak-realaudio-shortcuts-directory to offer a set of
-completions. Hit space to use this completion list.
-
-If using TRPlayer, you can either give one-shot commands
-using command emacspeak-realaudio available from anywhere on
-the audio desktop as `C-e ;'.
-Alternatively, switch to buffer *realaudio* using
-`C-e ;;' if you wish to issue many
-navigation commands.  Note that buffer *realaudio* uses a
-special major mode that provides the various navigation
-commands via single keystrokes.
-
-------------------------------------------------------------
-
 ** emacspeak-realaudio-browseBrowse RAM file before playing the selected component.
 
 ------------------------------------------------------------
@@ -1769,6 +1696,10 @@ Browse specified RSS feed.
 
 ------------------------------------------------------------
 
+** emacspeak-aumix-reload-soundReload sound drivers.
+
+------------------------------------------------------------
+
 ** emacspeak-play-all-iconsPlays all defined icons and speaks their names.
 
 ------------------------------------------------------------
@@ -1779,6 +1710,7 @@ Select  player used for producing auditory icons.
 Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
+emacspeak-queue-auditory-icon when using software TTS.
 emacspeak-play-midi-icon for midi device. 
 
 ------------------------------------------------------------
@@ -1788,6 +1720,10 @@ This lets me have Emacspeak switch to using audioplay on
 solaris after I've used it for a while from a remote session
 where it would use the more primitive speech-server based
 audio player.
+
+------------------------------------------------------------
+
+** emacspeak-sounds-reset-soundReload sound drivers.
 
 ------------------------------------------------------------
 
@@ -1824,11 +1760,6 @@ Prompt for and dial a phone NUMBER with the Dectalk.
 ------------------------------------------------------------
 
 ** emacspeak-execute-repeatedlyExecute COMMAND repeatedly.
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1905,11 +1836,6 @@ Default is to read the previous word.
 ** emacspeak-speak-and-skip-extent-upto-charSearch forward from point until we hit char.
 Speak text between point and the char we hit.
 
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
-
 ------------------------------------------------------------
 
 ** emacspeak-speak-and-skip-extent-upto-this-charSpeak extent delimited by point and last character typed.
@@ -1959,6 +1885,11 @@ any other key to speak entire buffer.
 
 Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
+
+------------------------------------------------------------
+
+** emacspeak-speak-comint-send-inputCauses output to be spoken i.e., as if comint autospeak were turned
+on.
 
 ------------------------------------------------------------
 
@@ -2512,20 +2443,7 @@ Send this command to the TTS directly.
 
 ------------------------------------------------------------
 
-** emacspeak-speedbar-clickDoes the equivalent of the mouse click from the keyboard
-
-------------------------------------------------------------
-
-** emacspeak-speedbar-goto-speedbarSwitch to the speedbar
-
-------------------------------------------------------------
-
 ** emacspeak-table-copy-current-element-to-registerSpeak current table element
-
-This function is advised.
-
-Before-advice `emacspeak-auto':
-Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -2676,8 +2594,7 @@ Optional prefix arg prompts for a new filter.
 ------------------------------------------------------------
 
 ** emacspeak-table-view-csv-bufferProcess a csv (comma separated values) data. 
-The processed  data and presented using emacspeak table
-navigation. 
+The processed  data and presented using emacspeak table navigation. 
 
 ------------------------------------------------------------
 
@@ -2833,6 +2750,42 @@ If N is negative, move backward instead.
 
 ------------------------------------------------------------
 
+** emacspeak-freeamp	Key Sequence: control e control f o 
+
+Play specified resource using freeamp.
+Resource is an  MP3 file or m3u playlist.
+The player is placed in a buffer in emacspeak-freeamp-mode.
+
+------------------------------------------------------------
+
+** emacspeak-realaudio	Key Sequence: control e ; 
+
+Start or control streaming audio including MP3 and
+realaudio.  If using `TRPlayer' as the player, accepts
+trplayer control commands if a stream is already playing.
+Otherwise, the playing stream is simply stopped.  If no
+stream is playing, this command prompts for a realaudio
+resource.  Realaudio resources can be specified either as a
+Realaudio URL, the location of a local Realaudio file, or as
+the name of a local Realaudio metafile. Realaudio resources
+you have played in this session are available in the
+minibuffer history.  The default is to play the resource you
+played most recently. Emacspeak uses the contents of the
+directory specified by variable
+emacspeak-realaudio-shortcuts-directory to offer a set of
+completions. Hit space to use this completion list.
+
+If using TRPlayer, you can either give one-shot commands
+using command emacspeak-realaudio available from anywhere on
+the audio desktop as `C-e ;'.
+Alternatively, switch to buffer *realaudio* using
+`C-e ;;' if you wish to issue many
+navigation commands.  Note that buffer *realaudio* uses a
+special major mode that provides the various navigation
+commands via single keystrokes.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-browse-rss-at-pointBrowses RSS url under point.
 
 ------------------------------------------------------------
@@ -2842,6 +2795,7 @@ If N is negative, move backward instead.
 ------------------------------------------------------------
 
 ** emacspeak-w3-browse-xmlBrowse XML+CSS using W3.
+With interactive prefix arg, also prompt for an  XSL stylesheet.
 XML files can be rendered by an XML browser that is CSS aware.
 Emacs/W3 is not quite a complete XML+CSS browser, but it  does a
 good enough job for many things, especially the XML files from
@@ -2856,8 +2810,7 @@ XML files is quite usable:
 0) You get Aural CSS support.
 
 1) You get a navigable buffer using imenu if you have w3-imenu
-loaded.
-
+loaded. 
 
 ------------------------------------------------------------
 
@@ -3065,6 +3018,10 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-url-expand-and-executeApplies buffer-specific URL expander/executor function.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-url-rewrite-and-followApply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
@@ -3186,6 +3143,16 @@ When using W3,  this interface attempts to speak the most relevant information o
 ------------------------------------------------------------
 
 ** emacspeak-websearch-ebay-searchEbay search.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-emaps-searchPerform EmapSpeak search.
+Query is a Google Maps query in plain English.
+Interactive prefix arg `use-near' searches near our previously cached  location.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-emapspeak-near-my-locationPerform search relative to `my-location'.
 
 ------------------------------------------------------------
 
@@ -3708,6 +3675,28 @@ Browse  Emacspeak productivity tips.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-dvi-displayCalled to set up preview of an DVI file.
+Assumes we are in a buffer visiting a .DVI file.
+Previews those contents as text and nukes the buffer
+visiting the DVI file.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-dvi-modeMajor mode for browsing DVI files.
+
+
+DVI files  are converted to text and previewed using text mode.
+
+This mode runs the hook `emacspeak-wizards-dvi-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-edit-file-as-rootEdit file as root using sudo vi.
 See /etc/sudoers for how to set up sudo.
 
@@ -3858,6 +3847,10 @@ RIVO is implemented by rivo.pl ---
 
 Switch to the shell buffer and cd to 
  the directory of the current buffer.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-show-commentaryDisplay commentary. Default is to display commentary from current buffer.
 
 ------------------------------------------------------------
 
@@ -4022,8 +4015,9 @@ In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
 
-  Local variables:
+  
 
+Local variables:
  mode: outline
 paragraph-separate: "[ ]*$"
 end:
