@@ -72,12 +72,12 @@
   :group 'emacspeak-xml-shell)
 
 (defcustom emacspeak-xml-shell-options
-   (list "--shell"
+  (list "--shell"
         "--format"
         "--noent")
   "Command-line options for XML browse command."
   :type  '(repeat string)
-:group 'emacspeak-xml-shell)
+  :group 'emacspeak-xml-shell)
 
 ;;}}}
 ;;{{{ xml browse mode
@@ -104,10 +104,10 @@ Interactive XML browser.
                     emacspeak-xml-shell-command
                     emacspeak-xml-shell-options))
   (let ((buffer (apply 'make-comint "Xml-Shell"
-                             emacspeak-xml-shell-command
-                             nil
-                             (append emacspeak-xml-shell-options
-                                      (list system-id)))))
+                       emacspeak-xml-shell-command
+                       nil
+                       (append emacspeak-xml-shell-options
+                               (list system-id)))))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-xml-shell-mode)
@@ -128,21 +128,21 @@ Interactive XML browser.
   (interactive
    (list
     (if (and (processp emacspeak-xml-shell-process)
-      (eq 'run 
-      (process-status  emacspeak-xml-shell-process)))
-emacspeak-xml-shell-document
-    (read-file-name
-     "Browse XML: "))))
+             (eq 'run 
+                 (process-status  emacspeak-xml-shell-process)))
+        emacspeak-xml-shell-document
+      (read-file-name
+       "Browse XML: "))))
   (declare (special emacspeak-xml-shell-process
-emacspeak-xml-shell-document))
+                    emacspeak-xml-shell-document))
   (unless (string-match "^http:" system-id)
     (setq system-id (expand-file-name system-id)))
   (unless
       (and (processp emacspeak-xml-shell-process)
-      (eq 'run 
-      (process-status  emacspeak-xml-shell-process)))
-  (emacspeak-xml-shell-start-process system-id)
-  (setq emacspeak-xml-shell-document system-id))
+           (eq 'run 
+               (process-status  emacspeak-xml-shell-process)))
+    (emacspeak-xml-shell-start-process system-id)
+    (setq emacspeak-xml-shell-document system-id))
   (set-process-sentinel emacspeak-xml-shell-process 'emacspeak-xml-shell-process-sentinel)
   (emacspeak-auditory-icon 'open-object)
   (switch-to-buffer (process-buffer
@@ -160,11 +160,11 @@ emacspeak-xml-shell-document))
     (set-buffer (process-buffer emacspeak-xml-shell-process))
     (goto-char (point-max))
     (insert
-   (format "cd %s"
-           xpath))
+     (format "cd %s"
+             xpath))
     (comint-send-input))
   (when (eq (current-buffer)
-             (process-buffer emacspeak-xml-shell-process))
+            (process-buffer emacspeak-xml-shell-process))
     (goto-char (process-mark emacspeak-xml-shell-process))))
 
 (defun emacspeak-xml-shell-goto-children()
@@ -189,6 +189,10 @@ emacspeak-xml-shell-document))
 ;;}}}
 ;;{{{ showing nodes
 
+(defvar emacspeak-xml-shell-display-buffer nil
+  "Buffer that displays processed output.")
+
+
 (defun emacspeak-xml-shell-create-accumulator (accumulate terminator post-processor)
   "Create a function that is suitable for use as a filter function for
 the XML shell process. The returned function will accumulate process
@@ -198,6 +202,7 @@ When accumulation is done, post-processor is called to process the
 content.
 Post-processor accepts a region of text to process specified by start
 and end."
+  (declare (special emacspeak-xml-shell-display-buffer))
   (`
    (lambda (process output)
      (let ((stream  (, accumulate))
@@ -215,11 +220,13 @@ and end."
            (beginning-of-line)
            (kill-line)
            (set-process-filter process 'comint-output-filter)
-           (funcall processor)
+           (funcall processor
                     (point-min) (point-max))
-           (set-buffer (process-buffer process))
-           (goto-char (point-max))
-           (comint-send-input))
+           (kill-buffer stream)
+           (save-excursion
+             (set-buffer (process-buffer process))
+             (goto-char (point-max))
+             (comint-send-input)))
           (t (insert output))))))))
 
 
@@ -240,23 +247,48 @@ region of text to process."
       (setq terminator (thing-at-point 'line))
       (setq accumulator (emacspeak-xml-shell-create-accumulator
                          accumulate  terminator 
-display-function))
+                         display-function))
       (set-process-filter emacspeak-xml-shell-process accumulator)
       (insert (format "cat %s" xpath))
       (comint-send-input))))
+
+(defcustom emacspeak-xml-shell-xslt nil
+  "XSL transform to apply when displaying current node."
+  :type 'string
+  :group 'emacspeak-xml-shell)
+
+
+(defun emacspeak-xml-shell-display-as-html (start end)
+  "Suitable for use in displaying current node as HTML."
+  (declare (special emacspeak-xml-shell-xslt))
+  (emacspeak-xslt-region
+   emacspeak-xml-shell-xslt
+   start end)
+  (w3-preview-this-buffer)
+  (setq emacspeak-xml-shell-display-buffer (current-buffer)))
+
+
+(defun emacspeak-xml-shell-browse-current ()
+  "Display current node."
+  (interactive)
+  (declare (special emacspeak-xml-shell-display-buffer))
+  (emacspeak-xml-shell-process-node "."
+                                    'emacspeak-xml-shell-display-as-html)
+  (switch-to-buffer emacspeak-xml-shell-display-buffer))
 
 ;;}}}
 ;;{{{ keybindings
 
 (declaim (special emacspeak-xml-shell-mode-map))
 (define-key emacspeak-xml-shell-mode-map [left] 
-'emacspeak-xml-shell-goto-previous-child)
+  'emacspeak-xml-shell-goto-previous-child)
 (define-key emacspeak-xml-shell-mode-map [right] 
-'emacspeak-xml-shell-goto-next-child)
+  'emacspeak-xml-shell-goto-next-child)
 (define-key emacspeak-xml-shell-mode-map [up] 
-'emacspeak-xml-shell-goto-parent)
+  'emacspeak-xml-shell-goto-parent)
 (define-key emacspeak-xml-shell-mode-map [down] 
-'emacspeak-xml-shell-goto-children)
+  'emacspeak-xml-shell-goto-children)
+(define-key emacspeak-xml-shell-mode-map "\C-cv" 'emacspeak-xml-shell-browse-current)
 
 ;;}}}
 (provide 'emacspeak-xml-shell)
