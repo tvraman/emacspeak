@@ -1802,15 +1802,14 @@ Light for: ")))
 (emacspeak-websearch-set-key 1 'amazon-search)
 
 (defvar emacspeak-websearch-amazon-search-form
-  (expand-file-name "xml-forms/amazon-search.xml"
-                    emacspeak-lisp-directory)
+  "http://www.amazon.com/access"
   "Form for Amazon store search.")
 
 (defun emacspeak-websearch-amazon-search ()
   "Amazon search."
   (interactive)
   (declare (special emacspeak-websearch-amazon-search-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-amazon-search-form))
+  (browse-url emacspeak-websearch-amazon-search-form))
 
 ;;}}}
 ;;{{{ Shopping at ebay 
