@@ -1265,10 +1265,10 @@ in completion buffers"
 	  'rear-sticky nil)))
       (when (and
              (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-                  (or monitor 
-                      (eq (selected-window)
-                          (get-buffer-window
-                           (process-buffer (ad-get-arg 0))))))
+	     (or monitor 
+		 (eq (selected-window)
+		     (get-buffer-window
+		      (process-buffer (ad-get-arg 0))))))
         (setq emacspeak-speak-comint-output nil)
 	(when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
         (condition-case nil
