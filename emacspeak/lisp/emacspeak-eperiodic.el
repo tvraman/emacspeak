@@ -149,14 +149,14 @@
 (defun emacspeak-eperiodic-previous-line ()
   "Move to next row and speak element."
   (interactive)
-  (previous-line)
+  (forward-line -1)
   (emacspeak-eperiodic-speak-current-element)
   (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-eperiodic-next-line ()
   "Move to next row and speak element."
   (interactive)
-  (next-line)
+  (forward-line 1)
   (emacspeak-eperiodic-speak-current-element)
   (emacspeak-auditory-icon 'select-object))
 (defun emacspeak-eperiodic-speak-current-element ()
