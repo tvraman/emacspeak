@@ -38,6 +38,7 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Commentary:
 ;;{{{  Introduction:
 
 ;;; Speech-enables package analog --convenient log analyzer 

@@ -162,6 +162,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
                 (auto-fill-mode 1))))
           
     (load-library-if-available "mailcrypt-prepare")
+    (load-library-if-available "sigbegone")
 
     ;;}}}
     ;;{{{ html helper mode: 
@@ -425,7 +426,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  calendar
     (require 'ediary)
     (require 'calendar)
-    (global-set-key "\M-\C-c" 'calendar)
     ;;}}}
     ;;{{{ dirvars
     (load-library-if-available "dirvars")

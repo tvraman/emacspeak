@@ -359,9 +359,14 @@ Append means place corresponding personality at the end."
         (prop (ad-get-arg 1))
         (value (ad-get-arg 2))
         (voice nil))
-    (when (and (eq prop 'face)
-               (integer-or-marker-p (overlay-start overlay))
-               (integer-or-marker-p (overlay-end overlay)))
+    (when (and
+           (or (eq prop 'face)
+               (and (eq prop 'category)
+                    (get value 'face)))
+           (integer-or-marker-p (overlay-start overlay))
+           (integer-or-marker-p (overlay-end overlay)))
+      (and (eq prop 'category)
+           (setq value (get value 'face)))
       (cond
        ((symbolp value)
         (setq voice (voice-setup-get-voice-for-face   value)))
