@@ -1454,6 +1454,30 @@ annotation is inserted into the working buffer when complete."
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+;;{{{ shell-toggle
+
+;;; inspired by eshell-toggle 
+;;; switch to the shell buffer, and cd to the directory 
+;;; that is the default-directory for the previously current
+;;; buffer.
+(defun shell-toggle ()
+  "Switch to the shell buffer and cd to 
+the directory of the current buffer."
+  (interactive)
+  (declare (special default-directory))
+  (let ((dir default-directory))
+    (shell)
+    (unless (string-equal (expand-file-name dir)
+                          (expand-file-name
+                           default-directory))
+      (goto-char (point-max))
+      (insert (format "cd %s" dir))
+      (comint-send-input)
+    (shell-process-cd dir))
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
