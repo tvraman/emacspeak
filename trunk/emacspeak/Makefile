@@ -171,12 +171,10 @@ MISC=etc/extract-table.pl etc/last-log.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi
-DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) \
+XSL=xsl
+DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} \
 ${INFO} ${GUIDE} ${NEWS} ${MISC} Makefile 
-
-# }}}
-# {{{  define make variables and file groupings
 
 # }}}
 # {{{  User level targets emacspeak info print 
@@ -237,9 +235,11 @@ install:
 	  $(INSTALL) -d $(libdir)/lisp
 	  $(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/sawfish
+	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/user-guide
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
+	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -m 0644  ${GUIDE}   $(libdir)/user-guide
 	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
