@@ -9,6 +9,11 @@ View an RSS feed as clean HTML
   <xsl:param name="base"/>
   <xsl:output encoding="iso8859-15" method="xml" indent="yes"/>
   <!-- {rss 1.0 -->
+  <xsl:template match="img">
+    <xsl:if test="@alt">
+      <xsl:value-of select="@alt"/>
+    </xsl:if>
+  </xsl:template>
   <xsl:template match="rdf:RDF">
     <html>
       <head>

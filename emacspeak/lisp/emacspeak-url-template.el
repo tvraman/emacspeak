@@ -64,7 +64,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action                    ;action to perform after opening
+  post-action			      ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -96,10 +96,10 @@ This function is sensitive to calendar mode when prompting."
       (let ((date (calendar-cursor-to-nearest-date)))
         (setq default (format-time-string time-format-string
                                           (apply 'encode-time 0 0
-  0
-  (second date)
-  (first date)
-  (list (third date )))))))
+						 0
+						 (second date)
+						 (first date)
+						 (list (third date )))))))
     (read-from-minibuffer prompt
                           default
                           nil nil nil
@@ -996,7 +996,7 @@ plays entire program."
  "Retrieve download page at Sourceforge for specified project.")
 
 (emacspeak-url-template-define
- "sourceforge download" 
+ "sourceforge browse mirrors" 
  "http://prdownloads.sourceforge.net/%s/?sort_by=date"
  (list "Project name")
  nil
@@ -1004,6 +1004,13 @@ plays entire program."
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match "Current"
                                           url)))
+
+(emacspeak-url-template-define
+ "sourceforge  download" 
+ "http://unc.dl.sourceforge.net/sourceforge/%s/"
+ (list "Project name")
+ nil
+ "Retrieve download page at Sourceforge for specified project.")
 
 ;;}}}
 ;;{{{  MLB scores
@@ -1155,7 +1162,7 @@ plays entire program."
       (let ((date 
              (emacspeak-url-template-collect-date
               "Date: "
-               "%Y-%m-%d"))
+	      "%Y-%m-%d"))
             (fields nil)
             (result nil))
         (setq fields (split-string date "-"))

@@ -127,7 +127,7 @@
            (w3-view-this-url 'no-show))
       (w3-view-this-url 'no-show))
      (t
-    (read-from-minibuffer "URL:")))))
+      (read-from-minibuffer "URL:")))))
   (declare (special emacspeak-amphetadesk-uri))
   (browse-url 
    (concat emacspeak-amphetadesk-uri
