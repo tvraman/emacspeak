@@ -43,8 +43,6 @@
 (require 'dtk-voices)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (load)
-  (require 'wrolo))
 ;;{{{  Introduction:
 
 ;;; This module extends the Rolodex that ships with Hyperbole, wrolo.el to
