@@ -659,9 +659,6 @@ It reduces the amount of speech you hear:
 Typically you hear the file names as you move through the dired buffer
 Voicification is used to indicate directories, marked files etc.
 
-@}@}@}
-@{@{@{  required packages 
-
 
 Automatically generated documentation
 for commands defined in module  emacspeak-dired.
@@ -806,7 +803,6 @@ Speak statistics.
 
 
 Commentary:
-@{@{@{  Introduction:
 This module makes eterm talk.
 Eterm is the new terminal emulator for Emacs.
 Use of emacspeak with eterm really needs an info page.
@@ -814,7 +810,6 @@ At present, the only documentation is the source level documentation.
 This module uses Control-t as an additional prefix key to allow the user
 To move around the terminal and have different parts spoken. 
 
-@}@}@}
 
 
 
@@ -1216,8 +1211,8 @@ Revert to original text.
 
 @unnumberedsec emacspeak-filtertext
 @findex emacspeak-filtertext
-@kindex  Control  cap E  \ 
- Control  cap E  \ 
+@kindex  control e \ 
+ control e \ 
 
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. 
@@ -1479,8 +1474,8 @@ for commands defined in module  emacspeak-gridtext.
 
 @unnumberedsec emacspeak-gridtext-apply
 @findex emacspeak-gridtext-apply
-@kindex  control e # a 
- control e # a 
+@kindex  Control  cap E  # a 
+ Control  cap E  # a 
 
 Apply grid to region.
 
@@ -1488,8 +1483,8 @@ Apply grid to region.
 
 @unnumberedsec emacspeak-gridtext-save
 @findex emacspeak-gridtext-save
-@kindex  control e # s 
- control e # s 
+@kindex  Control  cap E  # s 
+ Control  cap E  # s 
 
 Save out grid settings.
 
@@ -1497,8 +1492,8 @@ Save out grid settings.
 
 @unnumberedsec emacspeak-gridtext-load
 @findex emacspeak-gridtext-load
-@kindex  control e # l 
- control e # l 
+@kindex  Control  cap E  # l 
+ Control  cap E  # l 
 
 Load saved grid settings.
 
@@ -1510,7 +1505,6 @@ Load saved grid settings.
 
 Commentary:
 
-@{@{@{  Introduction
 
 Flexible hide and show for emacspeak.
 This module allows one to easily hide or expose
@@ -1518,8 +1512,6 @@ blocks of lines starting with a common prefix.
 It is motivated by the need to flexibly hide quoted text in email
 but is designed to be more general.
 the prefix parsing is inspired by filladapt.el
-
-@}@}@}
 
 
 Automatically generated documentation
@@ -1529,8 +1521,8 @@ for commands defined in module  emacspeak-hide.
 
 @unnumberedsec emacspeak-hide-speak-block-sans-prefix
 @findex emacspeak-hide-speak-block-sans-prefix
-@kindex  control e control j 
- control e control j 
+@kindex  Control  cap E  Control  cap J  
+ Control  cap E  Control  cap J  
 
 Speaks current block after stripping its prefix.
 If the current block is not hidden, it first hides it.
@@ -1550,8 +1542,8 @@ Hide or expose all blocks in buffer.
 
 @unnumberedsec emacspeak-hide-or-expose-block
 @findex emacspeak-hide-or-expose-block
-@kindex  control e j 
- control e j 
+@kindex  Control  cap E  j 
+ Control  cap E  j 
 
 Hide or expose a block of text.
 This command either hides or exposes a block of text
@@ -1704,8 +1696,8 @@ to skip to the next track.
 
 @unnumberedsec emacspeak-mp3-playlist-skip
 @findex emacspeak-mp3-playlist-skip
-@kindex  Control  cap X  @ h n 
- Control  cap X  @ h n 
+@kindex  control x @ h n 
+ control x @ h n 
 
 Skip currently playing track. 
 
@@ -1785,9 +1777,6 @@ working ocr executable
 by default this module assumes that the OCR executable
 is named "ocr"
 
-
-@}@}@}
-@{@{@{ required modules
 
 
 Automatically generated documentation
@@ -2068,8 +2057,8 @@ Speak current outline section starting from point
 
 @unnumberedsec emacspeak-outline-speak-backward-heading
 @findex emacspeak-outline-speak-backward-heading
-@kindex  Control  cap L  b 
- Control  cap L  b 
+@kindex  control l b 
+ control l b 
 
 Analogous to outline-backward-same-level
 except that the outline section is optionally spoken
@@ -2078,8 +2067,8 @@ except that the outline section is optionally spoken
 
 @unnumberedsec emacspeak-outline-speak-next-heading
 @findex emacspeak-outline-speak-next-heading
-@kindex  Control  cap L  n 
- Control  cap L  n 
+@kindex  control l n 
+ control l n 
 
 Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken
@@ -2088,8 +2077,8 @@ except that the outline section is optionally spoken
 
 @unnumberedsec emacspeak-outline-speak-forward-heading
 @findex emacspeak-outline-speak-forward-heading
-@kindex  Control  cap L  f 
- Control  cap L  f 
+@kindex  control l f 
+ control l f 
 
 Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken
@@ -2101,8 +2090,6 @@ except that the outline section is optionally spoken
 
 
 Commentary:
-@{@{@{  Introduction
-
 This module implements user customizable pronunciation dictionaries
 for emacspeak. Custom pronunciations can be defined per file, per
 directory and/or per major mode. Emacspeak maintains a persistent
@@ -2118,7 +2105,6 @@ are association lists defining the dictionary. Users of this module
 can retrieve a dictionary made up of all applicable association
 lists for a given file.
 
-@}@}@}
 
 
 
@@ -2208,8 +2194,8 @@ Activates pronunciation dictionaries if not already active.
 
 @unnumberedsec emacspeak-pronounce-define-local-pronunciation
 @findex emacspeak-pronounce-define-local-pronunciation
-@kindex  control e meta b 
- control e meta b 
+@kindex  Control  cap E  Meta  cap B  
+ Control  cap E  Meta  cap B  
 
 Define buffer local pronounciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
@@ -2372,8 +2358,8 @@ Call appropriate TRPlayer command.
 
 @unnumberedsec emacspeak-realaudio
 @findex emacspeak-realaudio
-@kindex  Control  cap E  ; 
- Control  cap E  ; 
+@kindex  control e ; 
+ control e ; 
 
 Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -2426,8 +2412,8 @@ for commands defined in module  emacspeak-redefine.
 
 @unnumberedsec emacspeak-backward-char
 @findex emacspeak-backward-char
-@kindex  control b   left 
- control b   left 
+@kindex  Control  cap B    left 
+ Control  cap B    left 
 
 Backward-char redefined to speak char moved to. 
 
@@ -2449,8 +2435,8 @@ speech flush as you type.
 
 @unnumberedsec emacspeak-forward-char
 @findex emacspeak-forward-char
-@kindex  control f   right 
- control f   right 
+@kindex  Control  cap F    right 
+ Control  cap F    right 
 
 Forward-char redefined to speak char moved to. 
 
@@ -2469,8 +2455,8 @@ for commands defined in module  emacspeak-remote.
 
 @unnumberedsec emacspeak-remote-connect-to-server
 @findex emacspeak-remote-connect-to-server
-@kindex  kp-3   control e meta r 
- kp-3   control e meta r 
+@kindex  kp-3   Control  cap E  Meta  cap R  
+ kp-3   Control  cap E  Meta  cap R  
 
 Connect to and start using remote speech server running on host host
 and listening on port port.  Host is the hostname of the remote
@@ -2577,9 +2563,6 @@ architecture for  auditory icons.
 Sound files corresponding to a given theme are found in
 appropriate subdirectories of emacspeak-sounds-directory
 
-@}@}@}
-@{@{@{ required modules
-
 
 Automatically generated documentation
 for commands defined in module  emacspeak-sounds.
@@ -2588,8 +2571,8 @@ for commands defined in module  emacspeak-sounds.
 
 @unnumberedsec emacspeak-toggle-auditory-icons
 @findex emacspeak-toggle-auditory-icons
-@kindex  control e control a 
- control e control a 
+@kindex  Control  cap E  Control  cap A  
+ Control  cap E  Control  cap A  
 
 Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value.
@@ -2606,8 +2589,8 @@ Plays all defined icons and speaks their names.
 
 @unnumberedsec emacspeak-set-auditory-icon-player
 @findex emacspeak-set-auditory-icon-player
-@kindex  control e meta a 
- control e meta a 
+@kindex  Control  cap E  Meta  cap A  
+ Control  cap E  Meta  cap A  
 
 Select  player used for producing auditory icons.
 Recommended choices:
@@ -2665,8 +2648,8 @@ Kill current buffer without asking for confirmation.
 
 @unnumberedsec emacspeak-speak-line-set-column-filter
 @findex emacspeak-speak-line-set-column-filter
-@kindex  Control  cap E  | 
- Control  cap E  | 
+@kindex  control e | 
+ control e | 
 
 Set up filter for selectively ignoring portions of lines.
 The filter is specified as a list of pairs.
@@ -2683,8 +2666,8 @@ files like /var/adm/messages and /var/adm/maillog over time.
 
 @unnumberedsec emacspeak-speak-current-percentage
 @findex emacspeak-speak-current-percentage
-@kindex  Control  cap E  % 
- Control  cap E  % 
+@kindex  control e % 
+ control e % 
 
 Announce the percentage into the current buffer.
 
@@ -2705,8 +2688,8 @@ Automatically defined advice to speak interactive prompts.
 
 @unnumberedsec emacspeak-speak-char
 @findex emacspeak-speak-char
-@kindex  Control  cap E  c 
- Control  cap E  c 
+@kindex  control e c 
+ control e c 
 
 Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
@@ -2715,8 +2698,8 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 @unnumberedsec emacspeak-speak-rest-of-buffer
 @findex emacspeak-speak-rest-of-buffer
-@kindex  Control  cap E  n 
- Control  cap E  n 
+@kindex  control e n 
+ control e n 
 
 Speak remainder of the buffer starting at point
 
@@ -3718,8 +3701,8 @@ Optional prefix arg prompts for a new filter.
 
 @unnumberedsec emacspeak-table-find-file
 @findex emacspeak-table-find-file
-@kindex  control e control t 
- control e control t 
+@kindex  Control  cap E  Control  cap T  
+ Control  cap E  Control  cap T  
 
 Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -4274,8 +4257,8 @@ Search Encyclopedia Britannica.
 
 @unnumberedsec emacspeak-websearch-dispatch
 @findex emacspeak-websearch-dispatch
-@kindex  control e ? 
- control e ? 
+@kindex  Control  cap E  ? 
+ Control  cap E  ? 
 
 Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
@@ -4332,8 +4315,8 @@ Perform an Google search
 
 @unnumberedsec emacspeak-websearch-emacspeak-archive
 @findex emacspeak-websearch-emacspeak-archive
-@kindex  control h e 
- control h e 
+@kindex  Control  cap H  e 
+ Control  cap H  e 
 
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
@@ -4695,9 +4678,6 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 Commentary:
 This module implements the necessary extensions to provide talking
 widgets.
-
-@}@}@}
-@{@{@{ required modules 
 
 
 Automatically generated documentation
@@ -5245,10 +5225,7 @@ for commands defined in module  emacspeak-wizards.
 @kindex  control e left 
  control e left 
 
-Speak this buffer as displayed in a `previous' window.
-See documentation for command
-`emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `previous'.
+ncall action-spec) ((error (byte-code "\300\301`\"\207" [message "Invalid actionat %s"] 3))) dtk-speak blank-line buffer-read-only inhibit-read-only modification-flag save-inhibit-point-motion-hooks save-inhibit-read-only save-read-only action-spec emacspeak-action-mode] 7))])
 
 
 
@@ -5257,7 +5234,7 @@ meaning of `previous'.
 @kindex  control right 
  control right 
 
-Move to next frame.
+ [prefix frame-names-alist default input icon emacspeak-auditory-icon-function call-interactively set-frame-name select-frame-by-name make-frame-names-alist completing-read format "Select Frame (default %s): " nil t frame-name-history 0 emacspeak-speak-mode-line select-object])
 
 
 
@@ -5284,9 +5261,11 @@ Browse the Emacspeak FAQ.
 @kindex  control e x s 
  control e x s 
 
-For use in an emergency.
-Will start TTS engine specified by 
-emacspeak-emergency-tts-server.
+t server
+gets wedged for some reason,
+you can use command emacspeak-emergency-tts-restart
+to get speech back using the reliable TTS server.
+It's useful to bind the above command to a convenient key.
 
 
 
@@ -5306,9 +5285,7 @@ previous window configuration.
 @kindex  shift down 
  shift down 
 
-Move forward across blank lines.
-The line under point is then spoken.
-Signals end of buffer.
+sage "%s" get-text-property])
 
 
 
@@ -5330,7 +5307,7 @@ Prompts for the new location and preserves modification time
 @findex emacspeak-lynx
  No global keybinding
 
-Launch lynx on  specified URL in a new terminal.
+ntry 10 format "%c"] 5)) modify-syntax-entry " " skip-syntax-backward message "Did not move " "At start  of buffer" count-lines format "skip %d " put-text-property personality annotation-voice select-object dtk-speak thing-at-point line icon emacspeak-auditory-icon-function])
 
 
 
@@ -5339,10 +5316,8 @@ Launch lynx on  specified URL in a new terminal.
 @kindex  control e control right 
  control e control right 
 
-Select this buffer as displayed in a `next' frame.
-See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `next'.
+acspeak-select-this-buffer-other-window-display' for the
+meaning of `previous'.
 
 
 
@@ -5359,9 +5334,7 @@ Browse  Emacspeak productivity tips.
 @findex emacspeak-wizard-get-table-content-from-file
  No global keybinding
 
-Extract table specified by depth and count from HTML
-content at file.
-Extracted content is placed as a csv file in task.csv.
+pth count format "/tmp/%s.csv" shell-command "%s --task=%s --url='%s' --depth=%s --count=%s" emacspeak-table-find-csv-file delete-file])
 
 
 
@@ -5370,10 +5343,7 @@ Extracted content is placed as a csv file in task.csv.
 @kindex  control e control left 
  control e control left 
 
-Select this buffer as displayed in a `previous' window.
-See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `previous'.
+window-list win window icon emacspeak-auditory-icon-function nil (byte-code "\301\302\303\"!\207" [last-input-event read format "%c"] 4) ((error)) get-buffer-window-list visible read-minibuffer "Display to select" select-frame window-frame emacspeak-speak-line select-object])
 
 
 
@@ -5382,9 +5352,7 @@ meaning of `previous'.
 @kindex  shift up 
  shift up 
 
-Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer.
+x-entry 10 format "%c"] 5)) modify-syntax-entry " " skip-syntax-forward message "Did not move " "At end of buffer" count-lines format "skip %d " put-text-property personality annotation-voice select-object dtk-speak thing-at-point line icon emacspeak-auditory-icon-function])
 
 
 
@@ -5433,10 +5401,7 @@ Prompts for the new location and preserves modification time
 @findex emacspeak-show-list-variable
  No global keybinding
 
-Convenience command to view Emacs variables that are long lists.
-Prompts for a variable name and displays its value in a separate buffer.
-Lists are displayed one element per line.
-Argument VAR specifies variable whose value is to be displayed.
+210\307\310\311\n`\"\203# \312\202$ 	#*\207" . [emacspeak-clipboard-file clipboard-file start paste-table emacspeak-table-paste-from-clipboard insert-file-contents exchange-point-and-mark message "Yanked %s lines from  Emacspeak clipboard %s" count-lines "table clipboard"])
 
 This function is advised.
 
@@ -5494,7 +5459,7 @@ Automatically defined advice to speak interactive prompts.
 @findex emacspeak-frame-read-frame-label
  No global keybinding
 
-Read a frame label with completion.
+nds fboundp commandp string-match "ad-Orig" symbol-name emacspeak "emacspeak" "dtk" "tts"] 4] sort #[(a b) "\302!\302	!\231\207" [a b symbol-file] 3] re-search-forward "[@{@}]" t replace-match "@\\&" texinfo-all-menus-update save-buffer task-done])
 
 
 
@@ -5502,17 +5467,10 @@ Read a frame label with completion.
 @findex emacspeak-select-this-buffer-other-window-display
  No global keybinding
 
-Switch  to this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-move to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to select.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to select.
+isplayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `next'.
 
 
 
@@ -5521,10 +5479,8 @@ the display to select.
 @kindex  control e right 
  control e right 
 
-Speak this buffer as displayed in a `previous' window.
-See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `next'.
+meaning of `previous'.
 
 
 
@@ -5541,7 +5497,7 @@ Get latest cvs snapshot of emacspeak.
 @findex emacspeak-speak-show-memory-used
  No global keybinding
 
-Convenience command to view state of memory used in this session so far.
+\314 \210)\315\n!\210\316!\210)\317 *\207" . [var symbol buffer #1=#:G300 element icon get-buffer-create format "*emacspeak:%s*" erase-buffer nil "%s\n" emacs-lisp-mode pop-to-buffer open-object emacspeak-speak-mode-line emacspeak-auditory-icon-function])
 
 
 
@@ -5550,8 +5506,7 @@ Convenience command to view state of memory used in this session so far.
 @kindex  control e meta f 
  control e meta f 
 
-Switch to labelled frame.
-With optional PREFIX argument, label current frame.
+\307\310\307\311&\211G\312U\203 	\202  \n+\207" . [frame-names-alist default input make-frame-names-alist completing-read format "Select Frame (default %s): " nil t frame-name-history 0])
 
 
 
@@ -5559,12 +5514,7 @@ With optional PREFIX argument, label current frame.
 @findex emacspeak-annotate-add-annotation
  No global keybinding
 
-Add annotation to the annotation working buffer.
-Prompt for annotation buffer if not already set.
-Interactive prefix arg `reset' prompts for the annotation
-buffer even if one is already set.
-Annotation is entered in a temporary buffer and the
-annotation is inserted into the working buffer when complete.
+et-annotation #[nil #@255 ("\302\303\304	!!\210\305 \210\306\307!\210\310 \210\311 \312 \210)\207" . [annotation emacspeak-annotate-edit-buffer nil pop-to-buffer get-buffer-create erase-buffer message "Exit recursive edit when done." recursive-edit buffer-string bury-buffer])
 
 
 
@@ -5573,17 +5523,7 @@ annotation is inserted into the working buffer when complete.
 @kindex  control e / 
  control e / 
 
-Speak this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-listen to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to speak.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to speak.
+ emacspeak-speak-mode-line])
 
 
 
@@ -5618,16 +5558,9 @@ Prompts for the new location and preserves modification time
 @kindex  control e control c 
  control e control c 
 
-Copy contents of the region to the emacspeak clipboard.
-Previous contents of the clipboard will be overwritten.  The Emacspeak
-clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
-light-weight.  Optional interactive prefix arg results in Emacspeak
-prompting for the clipboard file to use.
-Argument START and END specifies  region.
-Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file.
+File used to save Emacspeak clipboard.
+The emacspeak clipboard provides a convenient mechnaism for exchanging
+information between different Emacs sessions.
 
 
 
@@ -5644,9 +5577,7 @@ Start a root shell or switch to one that already exists.
 @findex emacspeak-wizard-get-table-content-from-url
  No global keybinding
 
-Extract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv.
+erm-char-mode open-object])
 
 
 
@@ -5655,7 +5586,7 @@ Extracted content is placed as a csv file in task.csv.
 @kindex  control e meta v 
  control e meta v 
 
-Show value of property personality at point.
+"*Customize Personal Options*"])
 
 
 
@@ -5674,7 +5605,7 @@ We cleanup underlining, and set up outline mode correctly.
 @kindex  control left 
  control left 
 
-Move to next frame.
+ak-speak-mode-line select-object])
 
 
 
@@ -5683,8 +5614,10 @@ Move to next frame.
 @kindex  control e f1 
  control e f1 
 
-Create a customization buffer for browsing and updating
-personal customizations.
+type 'string :group 'emacspeak)
+#@94 For use in an emergency.
+Will start TTS engine specified by 
+emacspeak-emergency-tts-server.
 
 
 
@@ -5726,13 +5659,7 @@ Automatically defined advice to speak interactive prompts.
 @kindex  control e control y 
  control e control y 
 
-Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead.
+ emacspeak-clipboard-file clipboard buffer-substring-no-properties read-file-name "Copy region to clipboard file: " nil find-file-noselect erase-buffer save-buffer message "Copied %s lines to Emacspeak clipboard %s" count-lines clipboard-file clip emacspeak-speak-messages])
 
 
 
@@ -5741,10 +5668,8 @@ the emacspeak table clipboard instead.
 @kindex  control e meta p 
  control e meta p 
 
-Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
-If no property is set, show a message and exit.
+sonality" . "personality") ("auditory-icon" . "auditory-icon") ("action" . "action")) (#$ . 33880))
+#@46 Show value of property personality at point.
 
 @node ANONYMOUS,  , emacspeak-wizards, Emacspeak Commands
 @section ANONYMOUS
