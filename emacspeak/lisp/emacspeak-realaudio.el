@@ -131,6 +131,7 @@ emacspeak-realaudio-shortcuts-directory. "
   (declare (special emacspeak-realaudio-player
                     emacspeak-realaudio-buffer 
                     emacspeak-realaudio-player-options
+                    emacspeak-aumix-multichannel-capable-p
                     emacspeak-use-midi-icons
                     emacspeak-realaudio-process
                     emacspeak-realaudio-shortcuts-directory
@@ -162,9 +163,11 @@ emacspeak-realaudio-shortcuts-directory. "
     (set-process-sentinel emacspeak-realaudio-process 'emacspeak-realaudio-process-sentinel)
     (message "Launched audio stream")
     (setq emacspeak-realaudio-last-url resource)
-    (when emacspeak-use-auditory-icons
-      (unless emacspeak-use-midi-icons
-        (emacspeak-toggle-midi-icons)))))
+    (when
+        (and emacspeak-use-auditory-icons
+             (not emacspeak-aumix-multichannel-capable-p)
+       (not emacspeak-use-midi-icons))
+        (emacspeak-toggle-midi-icons))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio
