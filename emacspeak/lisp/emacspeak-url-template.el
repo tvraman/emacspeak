@@ -997,7 +997,7 @@ plays entire program."
 
 (emacspeak-url-template-define
  "sourceforge download for North America" 
- "http://osdn.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
+ "http://unc.dl.sourceforge.net/sourceforge/%s/?C=M&O=A"
  (list "Project name")
  nil
  "Retrieve download page at Sourceforge for specified project.")
