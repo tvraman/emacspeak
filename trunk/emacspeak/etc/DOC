@@ -1319,6 +1319,41 @@ emacspeak-ocr-name-document bound to
 M-x emacspeak-ocr-name-document.  The document name is used
 in constructing the name of the image and text files.
 
+Key Bindings: 
+
+See key             binding
+---             -------
+
+9		emacspeak-ocr-page
+8		emacspeak-ocr-page
+7		emacspeak-ocr-page
+6		emacspeak-ocr-page
+5		emacspeak-ocr-page
+4		emacspeak-ocr-page
+3		emacspeak-ocr-page
+2		emacspeak-ocr-page
+1		emacspeak-ocr-page
+C		emacspeak-ocr-set-compress-image-options
+I		emacspeak-ocr-set-scan-image-options
+SPC		emacspeak-ocr-read-current-page
+s		emacspeak-ocr-save-current-page
+p		emacspeak-ocr-page
+]		emacspeak-ocr-forward-page
+[		emacspeak-ocr-backward-page
+d		emacspeak-ocr-open-working-directory
+n		emacspeak-ocr-name-document
+o		emacspeak-ocr-recognize-image
+j		emacspeak-ocr-scan-photo
+i		emacspeak-ocr-scan-image
+RET		emacspeak-ocr-scan-and-recognize
+w		emacspeak-ocr-write-document
+q		bury-buffer
+c		emacspeak-ocr-customize
+?		describe-mode
+
+.
+
+
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
 during initialization.
@@ -2976,18 +3011,6 @@ Optional arg COMPLEMENT inverts the filter.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xslt-selectSelect XSL transformation applied to WWW pages before they are displayed .
-
-------------------------------------------------------------
-
-** emacspeak-websearch-blue-pagesSearch IBM Blue Pages
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internalSearch IBM My News
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-my-newsSearch IBM My News
 
 ------------------------------------------------------------
 

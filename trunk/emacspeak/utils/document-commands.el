@@ -56,7 +56,7 @@
     ("emacspeak-speak"  . nil )
     ("emacspeak"  . nil )
     ("cd-tool"   . nil)
-    ("emacspeak-amphetadesk.el" . nil)
+    ("emacspeak-amphetadesk" . nil)
     ("dtk-interp" . nil)
     ("dtk-speak" . nil)
     ("voice-setup" . nil)
