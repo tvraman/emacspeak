@@ -71,20 +71,22 @@ interactive prompts speak. ")
 
 (defsubst emacspeak-should-i-fix-interactive-p (sym)
   "Predicate to test if this function should be fixed. "
-  (declare (special
-            emacspeak-interactive-functions-that-are-fixed 
-emacspeak-fix-interactive-dont-fix-regexp))
-  (save-match-data 
-    (let ((interactive-string nil )
-          (dont-fix-regexp emacspeak-fix-interactive-dont-fix-regexp))
-      (and (fboundp  sym)
-           (commandp sym)
-           (not
-            (memq  sym emacspeak-interactive-functions-that-are-fixed))
-           (not (string-match dont-fix-regexp (symbol-name sym )))
-           (stringp
-            (setq interactive-string
-                  (second (ad-interactive-form (symbol-function sym )))))))))
+  (declare (special emacspeak-xemacs-p
+                    emacspeak-interactive-functions-that-are-fixed 
+                    emacspeak-fix-interactive-dont-fix-regexp))
+  (unless emacspeak-xemacs-p
+      ; we dont need to fix interactive commands for xemacs.
+    (save-match-data 
+      (let ((interactive-string nil )
+            (dont-fix-regexp emacspeak-fix-interactive-dont-fix-regexp))
+        (and (fboundp  sym)
+             (commandp sym)
+             (not
+              (memq  sym emacspeak-interactive-functions-that-are-fixed))
+             (not (string-match dont-fix-regexp (symbol-name sym )))
+             (stringp
+              (setq interactive-string
+                    (second (ad-interactive-form (symbol-function sym ))))))))))
 
 (defun emacspeak-split-interactive-string-on-newline(string)
   "Helper function used to split the interactive string. "
