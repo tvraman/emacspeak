@@ -203,6 +203,7 @@
 ("emacspeak-swbuff" . nil)
 ("emacspeak-todo-mode" . nil)
 ("emacspeak-w3m" . ("w3m-prepare"))
+("emacspeak-wdired"  . nil)
 ("emacspeak-xslt" .  nil)
     )
   "Association list that specifies dependency relations.
