@@ -519,15 +519,6 @@ name of the list.")
  )
 
 (emacspeak-url-template-define
- "CNN computing "
- "http://www.cnn.com/2002/TECH/computing/%s/index.html"
- (list
-  'emacspeak-url-template-date-month/date)
- nil
- "Browse to the plain index of
-Computing News at CNN.")
-
-(emacspeak-url-template-define
  "CNN HotStocks "
  "http://money.cnn.com/%s/markets/hotstox/"
  (list 
@@ -536,6 +527,18 @@ Computing News at CNN.")
  "CNN Hot Stocks"
  #'(lambda (url)
      (emacspeak-w3-extract-table 9 url)))
+(emacspeak-url-template-define
+ "CNN Content "
+ "http://www.cnn.com"
+ nil
+ nil
+ "CNN Hot Stocks"
+ #'(lambda (url)
+     (emacspeak-w3-extract-by-class-list (list "cnnMainT1"
+                                               "cnnMainSections")
+                                         url
+                                         'speak)))
+
 
 (emacspeak-url-template-define
  "CNN Markets New York"
