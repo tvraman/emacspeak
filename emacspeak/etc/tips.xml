@@ -24,7 +24,7 @@
     </title>
     <abstract>
       <para>
-        <inlinegraphic fileref="http://emacspeak.sf.net/emacspeak.jpg" width="150" align="center" role="Logo"/>
+        <inlinegraphic fileref="emacspeak.jpg" width="150" align="center" role="Logo"/>
       </para>
       <para>
         This document is a collection of productivity tips
@@ -47,7 +47,8 @@
       <para>
         The latest copy of this document is always available via CVS
         from the Emacspeak CVS repository ---thanks to the
-        <inlinegraphic fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"/>
+        <inlinegraphic
+        fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"/>
         --- SourceForge project and on the 
         <ulink url="http://emacspeak.sf.net/tips.html">Emacspeak
         WWW site</ulink>.
