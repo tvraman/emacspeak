@@ -551,8 +551,28 @@ Computing News at CNN.")
  nil
  "Pick out NFL broadcast links."
  #'(lambda (url)
+     (define-key w3-mode-map "N" 'emacspeak-url-template-nfl-play-broadcast)
      (emacspeak-w3-extract-table 9 url)
-     "Displays the table giving the broadcast links for this week."))
+     "Displays the table giving the NFL broadcast links for this
+week. Use command emacspeak-url-template-nfl-play-broadcast to play
+the broadcast. You must have mplayer installed."
+     ))
+
+(defun emacspeak-url-template-nfl-play-broadcast ()
+  "Play NFL url under point."
+  (interactive)
+  (let ((url (w3-view-this-url 'no-show))
+        (fields nil))
+    (cond
+     (url
+      (setq fields (split-string url "file="))
+      (emacspeak-m-player
+       (first
+        (split-string (second fields)
+                      "'"))))
+     (t "No url under point."))))
+
+
 ;;}}}
 ;;{{{  NPR programs 
 
