@@ -422,6 +422,22 @@ Command <command>
 </para>
         </answer>
       </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Browsing Linux HOWTO Documentation.</para>
+        </question>
+        <answer>
+          <para>
+Use command
+            <command>emacspeak-speak-browse-linux-howto</command>
+to browse Linux HOWTO documentation installed on your
+            system.
+          The command opens the specified HOWTO file and
+sets things up so you can use Emacs' outline facilities to
+            browse the document.
+             </para>
+        </answer>
+      </qandaentry>
     </qandadiv>
   </qandaset>
 </article>
