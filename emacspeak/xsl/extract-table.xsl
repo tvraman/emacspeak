@@ -42,6 +42,14 @@ Parameter base specifies base URL of source document.
           </xsl:element>
         </xsl:if>
       </xsl:for-each>
+<p>
+<xsl:element name="a">
+        <xsl:attribute name="href">
+          <xsl:value-of select="$base"/>
+        </xsl:attribute>
+Source Document
+      </xsl:element>
+      </p>
     </xsl:element>
   </xsl:template>
 <!-- } -->
