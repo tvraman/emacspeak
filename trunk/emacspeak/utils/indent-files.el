@@ -7,7 +7,7 @@
   "Batch indent  elisp files in directory.."
   (let ((file-list (directory-files default-directory
                                     nil
-                                    ".el$")))
+                                    "\\.el\\'")))
     (loop for f in file-list
           do
           (find-file f)
