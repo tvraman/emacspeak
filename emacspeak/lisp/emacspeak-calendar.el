@@ -142,9 +142,7 @@ active.")
   (when (interactive-p)
     (let ((emacspeak-lazy-message-time 0))
       (emacspeak-auditory-icon 'open-object)
-      (setq mode-line-format
-            (mapconcat 'eval emacspeak-calendar-mode-line-format
-                       " "))
+      (setq calendar-mode-line-format emacspeak-calendar-mode-line-format)
       (message "Welcome to the calendar"))))
 
 (defadvice calendar-goto-date (after emacspeak pre act)
