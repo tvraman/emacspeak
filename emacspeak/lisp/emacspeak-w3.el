@@ -512,7 +512,7 @@ HTML."
   (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
     (let ((case-fold-search t))
       (goto-char (point-min))
-      (search-forward "<html>" nil  t)
+      (search-forward "\n\n" nil  t)
       (beginning-of-line)
       (emacspeak-xslt-region
        emacspeak-w3-xsl-transform
@@ -592,12 +592,15 @@ Optional arg url specifies the page to extract table from. "
                                   "http://www."))
            (t
             (or prompt-url
-                 base-url))))
+                base-url))))
          (src-buffer (current-buffer))
          (emacspeak-w3-xsl-p nil))
     (save-excursion
       (set-buffer (url-retrieve-synchronously source-url))
       (setq src-buffer (current-buffer))
+      (goto-char (point-min))
+      (search-forward "\n\n" nil t)
+      (delete-region (point-min) (point))
       (emacspeak-xslt-region
        emacspeak-w3-extract-table-xsl
        (point-min)
@@ -730,12 +733,15 @@ prefix arg causes url to be read from the minibuffer."
             (read-from-minibuffer "URL: "
                                   "http://www."))
            (t  (or prompt-url
-                    base-url))))
+                   base-url))))
          (src-buffer nil)
          (emacspeak-w3-xsl-p nil))
     (save-excursion
       (set-buffer  (url-retrieve-synchronously source-url))
       (setq src-buffer (current-buffer))
+      (goto-char (point-min))
+      (search-forward "\n\n" nil t)
+      (delete-region (point-min) (point))
       (emacspeak-xslt-region
        emacspeak-w3-xsl-filter
        (point-min)
@@ -834,9 +840,9 @@ used as well."
       (setq emacspeak-w3-class-filter 
             (read-from-minibuffer  "Specify class: ")))
     (emacspeak-w3-extract-by-class
-      emacspeak-w3-class-filter
-                                   (or redirect url)
-                                   'speak)
+     emacspeak-w3-class-filter
+     (or redirect url)
+     'speak)
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
