@@ -54,45 +54,6 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ voice locking in 20.3
-(defun outline-voice-lock-level ()
-  (save-excursion
-    (beginning-of-line)
-    (outline-level)))
-
-(defvar outline-voice-lock-keywords
-  nil
-  "Additional expressions to highlight in Outline mode.")
-(make-variable-buffer-local 'outline-regexp)
-
-(setq outline-voice-lock-keywords
-      '( ;;
-	;; Highlight headings according to the level.
-	(eval . (list (concat "^" outline-regexp ".+")
-		      0 '(or (cdr (assq (outline-voice-lock-level)
-					'((1 . voice-lock-function-name-personality)
-					  (2 . voice-lock-variable-name-personality)
-					  (3 . voice-lock-keyword-personality)
-					  (4 . voice-lock-builtin-personality)
-					  (5 . voice-lock-comment-personality)
-					  (6 . voice-lock-constant-personality)
-					  (7 . voice-lock-type-personality)
-					  (8 . voice-lock-string-personality))))
-			     voice-lock-warning-personality)
-		      nil t))))
-
-(defun emacspeak-outline-conditional-voice-lock-setup ()
-  "Conditionally setup voice locking for outline headers"
-  (unless voice-lock-keywords
-    (make-local-variable 'voice-lock-defaults)
-    (setq voice-lock-defaults '(outline-voice-lock-keywords t))))
-
-(defun emacspeak-outline-voice-lock-setup ()
-  "Setup voice locking for outline headers"
-  (make-local-variable 'voice-lock-defaults)
-  (setq voice-lock-defaults '(outline-voice-lock-keywords t)))
-
-;;}}}
 ;;{{{  Navigating through an outline:
 
 (defadvice outline-next-heading (after emacspeak pre act comp)

@@ -59,40 +59,6 @@
 ;;}}}
 ;;{{{ voice locking 
 
-(defvar emacspeak-generic-voice-lock-expressions nil
-  "Records voice lock expressions for a specific generic
-mode. ")
-
-(make-variable-buffer-local 'emacspeak-generic-voice-lock-expressions)
-
-(defun emacspeak-generic-voice-lock-setup (keywords expressions)
-  "Set up voice-lock functionality for generic mode."
-  (declare (special voice-lock-defaults))
-  (let ((generic-voice-lock-expressions))
-    ;; Keywords
-    (when  keywords
-      (setq generic-voice-lock-expressions
-            (list
-             (let ((regexp (regexp-opt keywords)))
-               (list (concat "\\<\\(" regexp "\\)\\>")
-                     1
-                     'voice-lock-keyword-personality)))))
-    ;; Other voice-lock expressions
-    (when expressions
-      (setq generic-voice-lock-expressions
-	    (append expressions
-		    generic-voice-lock-expressions)))
-    (setq emacspeak-generic-voice-lock-expressions  generic-voice-lock-expressions)
-    (when (or expressions keywords)
-      (make-local-variable 'voice-lock-defaults)
-      (setq voice-lock-defaults
-	    '(emacspeak-generic-voice-lock-expressions nil)))))
-
-(defadvice generic-mode-set-font-lock (after emacspeak pre act com)
-  (emacspeak-generic-voice-lock-setup (ad-get-arg 0)
-                                      (ad-get-arg 1)))
-  
-
 ;;}}}
 ;;{{{  generic setup 
 

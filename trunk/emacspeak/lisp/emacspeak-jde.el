@@ -113,23 +113,6 @@
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{ voice lock 
-
-(declaim (special voice-lock-defaults-alist))
-(if (not (assq 'jde-mode voice-lock-defaults-alist))
-    (setq voice-lock-defaults-alist
-          (cons
-           (cons 'jde-mode
-
-                 ;; jde-mode-defaults
-                 '((java-voice-lock-keywords java-voice-lock-keywords-1
-                                             java-voice-lock-keywords-2 java-voice-lock-keywords-3)
-                   nil nil ((?_ . "w") (?$ . "w")) nil
-                   (voice-lock-mark-block-function . mark-defun)))
-
-           voice-lock-defaults-alist)))
-
-;;}}}
 ;;{{{ jdebug 
 
 (defadvice jde-debug (after emacspeak pre act comp)

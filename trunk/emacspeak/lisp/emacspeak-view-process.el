@@ -255,38 +255,6 @@
                   View-process-signal-line-mark
                   View-process-renice-line-mark))
 
-(defvar View-process-voice-lock-keywords
-  (list
-   (cons (concat "^" 
-		 (char-to-string View-process-child-line-mark) 
-		 " .*")
-	 'View-process-child-line-personality)
-   (cons (concat "^" 
-		 (char-to-string View-process-parent-line-mark) 
-		 " .*")
-	 'View-process-parent-line-personality)
-   (cons (concat "^\\" 
-		 (char-to-string View-process-single-line-mark) 
-		 " .*")
-	 'View-process-single-line-personality)
-   (cons (concat "^" 
-		 (char-to-string View-process-signaled-line-mark) 
-		 " .*")
-	 'View-process-signaled-line-personality)
-   (cons (concat "^" 
-		 (char-to-string View-process-signal-line-mark) 
-		 " .*")
-	 'View-process-signal-line-personality)
-   (cons (concat "^" 
-		 (char-to-string View-process-renice-line-mark) 
-		 " .*")
-	 'View-process-renice-line-personality)
-   )
-  "The font lock keywords for the `View-process-mode'."
-  )
-
-
-
 ;;}}}
 (provide  'emacspeak-view-process)
 ;;{{{  emacs local variables 

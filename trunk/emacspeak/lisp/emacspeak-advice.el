@@ -1103,9 +1103,6 @@ in completion buffers"
   :group 'emacspeak
   :group 'comint)
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
-(defvar shell-voice-lock-keywords
-  nil
-  "Additional expressions to highlight in Shell mode.")
 
 (defadvice shell-dirstack-message (around emacspeak pre act
                                           comp)
