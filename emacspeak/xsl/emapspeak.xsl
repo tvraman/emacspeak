@@ -6,8 +6,9 @@ Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 Description: Transformation rules for speaking map metadata from google maps.
 -->
-<xsl:stylesheet  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output  method="html"/>
+<xsl:stylesheet  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                 version="1.0">
+  <xsl:param name="base"/>
   <xsl:template match="/page">
     <html>
       <head>
@@ -17,7 +18,12 @@ Description: Transformation rules for speaking map metadata from google maps.
         <h1><xsl:apply-templates select="title"/></h1>
         <table summary="Coordinates">
           <tr>
-            <td>Reference Point</td>
+            <td>
+              <a>
+                <xsl:attribute name="href">
+                  <xsl:value-of select="$base"/>
+                </xsl:attribute>
+Reference Point</a></td>
 <td>Lat: <xsl:value-of select="center/@lat"/></td>
             <td>Lng: <xsl:value-of select="center/@lng"/></td>
         </tr></table>
