@@ -172,6 +172,7 @@ emacspeak-nxml.elc \
 emacspeak-outline.elc \
 emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
+emacspeak-php-mode.elc \
 emacspeak-psgml.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
@@ -363,6 +364,7 @@ emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
+emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-personality.elc: emacspeak-personality.el
 emacspeak-psgml.elc: emacspeak-psgml.el dtk-speak.elc voice-setup.elc
