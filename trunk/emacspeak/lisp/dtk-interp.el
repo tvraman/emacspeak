@@ -1,15 +1,8 @@
-
-cd
-
-cd
-
-
-
 ;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Interfacing to the speech server
-;;; Keywords: Dectalk, Speech Server
+;;; Keywords: TTS, Dectalk, Speech Server
 ;;{{{  LCD Archive entry: 
 
 ;;; LCD Archive Entry:
@@ -76,6 +69,7 @@ cd
                        (format "t %d %d%s\n"
                                pitch duration
                                (if force "\nd" ""))))
+
 (defsubst dtk-interp-notes-initialize()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "notes_initialize\n"))
@@ -94,8 +88,6 @@ cd
                                (or target 0)
                                (or step 5)
                                (if force "\nd" ""))))
-
-
 
 ;;}}}
 ;;{{{  queue 
@@ -117,7 +109,7 @@ cd
 (defsubst dtk-interp-speak ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                            "d\n"))
+                       "d\n"))
 
 ;;}}}
 ;;{{{ say
@@ -125,8 +117,8 @@ cd
 (defsubst dtk-interp-say (string)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                              (format  "tts_say { %s}\n"
-                                       string )))
+                       (format  "tts_say { %s}\n"
+                                string )))
 
 ;;}}}
 ;;{{{ dispatch
@@ -135,8 +127,8 @@ cd
 (defsubst dtk-interp-dispatch (string)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                              (format  "tts_say { %s}\n"
-                                       string )))
+                       (format  "tts_say { %s}\n"
+                                string )))
 
 ;;}}}
 ;;{{{ stop
@@ -175,8 +167,8 @@ cd
 (defsubst dtk-interp-set-rate (rate)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
-                         (format "tts_set_speech_rate %s\n"
-                                 rate)))
+                       (format "tts_set_speech_rate %s\n"
+                               rate)))
 
 ;;}}}
 ;;{{{ character scale
@@ -211,9 +203,9 @@ cd
 (defsubst dtk-interp-toggle-allcaps-beep  (dtk-allcaps-beep)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process 
-                         (format "tts_allcaps_beep  %s\n"
-                                 (if dtk-allcaps-beep  1 0
-                                     ))))
+                       (format "tts_allcaps_beep  %s\n"
+                               (if dtk-allcaps-beep  1 0
+                                   ))))
 
 ;;}}}
 ;;{{{ punctuations
@@ -221,8 +213,8 @@ cd
 (defsubst dtk-interp-set-punctuations(mode)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process  
-                         (format "tts_set_punctuations %s\n"
-                                 mode)))
+                       (format "tts_set_punctuations %s\n"
+                               mode)))
 
 ;;}}}
 ;;{{{ reset
