@@ -3837,10 +3837,6 @@ Speak current field.
 A field is
 defined  by Emacs 21.
 
-------------------------------------------------------------
-
-** emacspeak-wizards-show-environment-vvariableDisplay value of specified environment variable.
-
  
 Local variables: mode: outline paragraph-separate: "[ ]*$"
 end:

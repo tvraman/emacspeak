@@ -304,6 +304,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "rpm-spec-mode" 'emacspeak-rpm-spec)
 (emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
+(emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
 (emacspeak-do-package-setup "sawfish" 'emacspeak-sawfish)
