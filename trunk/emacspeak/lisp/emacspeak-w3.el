@@ -808,6 +808,7 @@ nested of tables found in the page."
                #'(lambda (v)
                    (cons v v ))
                values)))))
+
 ;;;###autoload
 (defun emacspeak-w3-extract-by-class (class   &optional prompt-url speak)
   "Extract elements having specified class attribute from HTML. Extracts
@@ -825,6 +826,9 @@ Interactive use provides list of class values as completion."
    prompt-url
    (or (interactive-p)
        speak)))
+
+
+
 
 (defsubst  emacspeak-w3-css-get-class-list ()
   "Collect a list of classes by prompting repeatedly in the
@@ -891,8 +895,7 @@ XPath locator.")
 (define-key emacspeak-w3-xsl-map "o"
   'emacspeak-w3-xsl-toggle)
 (define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
-(define-key emacspeak-w3-xsl-map "C"
-  'emacspeak-w3-extract-by-class-list)
+(define-key emacspeak-w3-xsl-map "C" 'emacspeak-w3-extract-by-class-list)
 (define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "x"
   'emacspeak-w3-extract-nested-table)
