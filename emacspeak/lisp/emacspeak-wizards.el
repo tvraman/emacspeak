@@ -2432,6 +2432,7 @@ Use with caution."
     (when (interactive-p)
       (emacspeak-speak-line))))
 
+;;;###autoload
 (defun emacspeak-wizards-vc-n ()
   "Accelerator for VC viewer."
   (interactive)
