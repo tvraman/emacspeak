@@ -173,8 +173,8 @@ prompting for a template.")
 ;;{{{  Linksys IP
 
 (emacspeak-url-template-define
+ "Linksys IP"
  "http://192.168.1.1/st_po.htm"
- "Display IP information from Linksys router."
  nil
  nil
  "Linksys Router"
