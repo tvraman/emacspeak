@@ -107,7 +107,6 @@
             completion list which is typically displayed in
             another window in a buffer called 
             <literal>*Completions*</literal>.</para>
-          
         </answer>
       </qandaentry>
       <qandaentry>
@@ -118,9 +117,9 @@
         <answer>
           <para>
             Emacs uses the <emphasis>minibuffer</emphasis> when
-            obtaining user input for a given command.
-            While using completion in the minibuffer by
-            hitting <command><keysym>tab</keysym></command>
+            prompting  for user input.
+            When using completion in the minibuffer by
+            hitting <command><keysym>tab</keysym></command>,
             you can switch to the 
             <literal>*Completions*</literal>
             buffer by pressing command <command><keysym>C-o</keysym></command>.

@@ -52,6 +52,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
+(require 'emacspeak-keymap)
 (require 'voice-lock)
 (require 'emacspeak-sounds)
 
@@ -135,6 +136,10 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+;;}}}
+;;{{{ add keybinding on emacspeak desktop
+(eval-when (load)
+  (define-key emacspeak-keymap "\C-k" 'browse-kill-ring))
 ;;}}}
 (provide 'emacspeak-browse-kill-ring)
 ;;{{{ end of file
