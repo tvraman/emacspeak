@@ -97,11 +97,11 @@ emacspeak-bs.elc \
 emacspeak-buff-menu.elc \
 emacspeak-buff-sel.elc \
 emacspeak-c.elc \
-emacspeak-cmuscheme.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
 emacspeak-checkdoc.elc \
+emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
@@ -109,8 +109,8 @@ emacspeak-dictation.elc \
 emacspeak-dictionary.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
-emacspeak-ecb.elc \
 emacspeak-dmacro.elc \
+emacspeak-ecb.elc \
 emacspeak-ediff.elc \
 emacspeak-enriched.elc \
 emacspeak-entertain.elc \
@@ -186,7 +186,8 @@ emacspeak-widget.elc \
 emacspeak-winring.elc \
 emacspeak-wizards.elc  \
 emacspeak-wrolo.elc \
-emacspeak-xslide.elc  
+emacspeak-xslide.elc  \
+emacspeak-xslt-process.elc 
 
 ADDON_OBJECTS= tapestry.elc  
 
@@ -359,6 +360,7 @@ emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc
 emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc 
 emacspeak-xslide.elc: emacspeak-xslide.el dtk-speak.elc
+emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc
 emacspeak.elc: emacspeak.el
 
 # }}}

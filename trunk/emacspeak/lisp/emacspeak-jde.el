@@ -152,6 +152,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
+
 (defadvice jde-bug-clear-breakpoint (after emacspeak pre act comp)
   "Speak the line we nuked the breakpoint  "
   (when (interactive-p)
