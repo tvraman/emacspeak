@@ -731,7 +731,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "Search a Usenet newsgroup."
   (interactive
    (list
-    (read-from-minibuffer "Newsgroup: ")))
+    (read-from-minibuffer "Newsgroup search: ")))
   (emacspeak-websearch-usenet group 'search))
 
 ;;}}}
@@ -1691,10 +1691,11 @@ Optional interactive prefix arg results in prompting for a search term."
      (prefix                            ;search
       (setq url
             (concat emacspeak-usenet-uri
-                    (format "meta=group%%3D%s&q=%s"
+                    (format "meta=group%%3D%s&q=%s&scoring=d"
                             group
+                            (webjump-url-encode
                             (read-from-minibuffer
-                             (format "Search %s for:" group))))))
+                             (format "Search %s for:" group)))))))
      (t                                 ;browse
       (setq url 
             (concat emacspeak-usenet-uri
