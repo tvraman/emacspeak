@@ -130,7 +130,7 @@ this-buffer-mode-name)
   "Speech-enable bs mode"
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-spea-mode-line)))
+    (emacspeak-speak-mode-line)))
 
 (defadvice bs-abort (after emacspeak pre act comp)
   "Speech-enable bs mode"
