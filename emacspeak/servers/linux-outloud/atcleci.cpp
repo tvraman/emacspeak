@@ -90,20 +90,15 @@
 
 /* globals */
 char *device = "default";
-
 static snd_pcm_t *AHandle = NULL;
-
 short *waveBuffer = NULL;
-
 static size_t bits_per_sample, bits_per_frame = 0;
 static snd_pcm_uframes_t chunk_size = 0;
 static size_t chunk_bytes=0;
-
 static unsigned int period_time = 0;
 static unsigned int buffer_time = 0;
 static snd_pcm_uframes_t period_frames = 0;
 static snd_pcm_uframes_t buffer_frames = 0;
-
 static int start_delay = 0;
 static int stop_delay = 0;
 
@@ -183,6 +178,8 @@ int eciCallback (void *, int, long, void *);
 //<alsa: set hw and sw params
 
 static void set_params(void) {
+  //<init:
+
   snd_pcm_hw_params_t *params;
   snd_pcm_sw_params_t *swparams;
   snd_pcm_uframes_t buffer_size;
@@ -193,30 +190,48 @@ static void set_params(void) {
   snd_pcm_uframes_t start_threshold, stop_threshold;
   snd_pcm_hw_params_alloca(&params);
   snd_pcm_sw_params_alloca(&swparams);
+
+  //>
+  //<defaults:
   err = snd_pcm_hw_params_any(AHandle, params);
   if (err < 0) {
     fprintf(stderr, "Broken configuration for this PCM: no configurations available");
     exit(EXIT_FAILURE);
   }
+  //>
+  //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
                                      SND_PCM_ACCESS_RW_INTERLEAVED);
   if (err < 0) {
     fprintf(stderr, "Access type not available");
     exit(EXIT_FAILURE);
   }
+  //>
+  //<Format:
+
   err = snd_pcm_hw_params_set_format(AHandle, params, DEFAULT_FORMAT);
   if (err < 0) {
     fprintf(stderr, "Sample format non available");
     exit(EXIT_FAILURE);
   }
+
+  //>
+  //<Channels:
+
   err = snd_pcm_hw_params_set_channels(AHandle, params, 1);
   if (err < 0) {
     fprintf(stderr, "Channels count non available");
     exit(EXIT_FAILURE);
   }
-  
+
+  //>
+  //<Rate:
+
   err = snd_pcm_hw_params_set_rate_near(AHandle, params, &rate, 0);
   assert(err >= 0);
+
+  //>
+  //<Compute buffer_time:
 
   if (buffer_time == 0 && buffer_frames == 0) {
     err = snd_pcm_hw_params_get_buffer_time_max(params,
@@ -224,6 +239,10 @@ static void set_params(void) {
     assert(err >= 0);
     if (buffer_time > 500000) buffer_time = 500000;
   }
+
+  //>
+  //<Compute period_time:
+
   if (period_time == 0 && period_frames == 0) {
     if (buffer_time > 0) period_time = buffer_time / 4;
     else period_frames = buffer_frames / 4;
@@ -243,17 +262,29 @@ static void set_params(void) {
                                                  &buffer_frames);
   }
   assert(err >= 0);
+
+  //>
+  //<Commit hw params:
+
   err = snd_pcm_hw_params(AHandle, params);
   if (err < 0) {
     fprintf(stderr, "Unable to install hw params:");
     exit(EXIT_FAILURE);
   }
+
+  //>
+  //<final chunk_size and buffer_size:
+
   snd_pcm_hw_params_get_period_size(params, &chunk_size, 0);
   snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
   if (chunk_size == buffer_size) {
     fprintf(stderr, "Can't use period equal to buffer size (%lu == %lu)", chunk_size, buffer_size);
     exit(EXIT_FAILURE);
   }
+
+  //>
+  //<SW Params Configure transfer:
+
   snd_pcm_sw_params_current(AHandle, swparams);
   err = snd_pcm_sw_params_get_xfer_align(swparams, &xfer_align);
   if (err < 0) {
@@ -290,13 +321,18 @@ static void set_params(void) {
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;
   chunk_bytes = chunk_size * bits_per_frame / 8;
+
+  //>
+  //<Finally, allocate  waveBuffer
+
   fprintf(stderr, "allocating %d samples\n", chunk_bytes);
   waveBuffer = (short *) malloc( chunk_bytes *sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
     exit(EXIT_FAILURE);
   }
-  
+
+  //>
 }
 
 //>
@@ -329,8 +365,7 @@ static void xrun(void) {
     gettimeofday(&now, 0);
     snd_pcm_status_get_trigger_tstamp(status, &tstamp);
     timersub(&now, &tstamp, &diff);
-    fprintf(stderr, "%s!!! (at least %.3f ms long)\n",
-            "underrun",
+    fprintf(stderr, "Underrun!!! (at least %.3f ms long)\n",
             diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
     if ((res = snd_pcm_prepare(AHandle))<0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
@@ -368,8 +403,6 @@ static void suspend(void) {
 static ssize_t pcm_write(short *data, size_t count) {
   ssize_t r;
   ssize_t result = 0;
-
-	
   while (count > 0) {
     r = snd_pcm_writei(AHandle, data, count);
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
