@@ -261,11 +261,15 @@ after fetching it  if necessary."
    "head"
    "title"
    "doctitle"
+   "docTitle"
    "text"
    "audio"
    "content"
    "navStruct"
-   "navObject")
+   "navObject"
+   "navLisp"
+   "navMap"
+   "navTarget")
   "Daisy XML elements.")
 
 (loop for e in emacspeak-daisy-xml-elements
@@ -334,7 +338,12 @@ after fetching it  if necessary."
     (emacspeak-daisy-text-handler   text)
     (put-text-property start (point)
                        'audio audio)))
+;;; register by hand 
+(emacspeak-daisy-set-handler "docTitle"
+                             'emacspeak-daisy-doctitle-handler)
 
+;;; Ignore navMap for now 
+(emacspeak-daisy-set-handler "navMap" 'ignore)
 ;;}}}
 ;;{{{  emacspeak-daisy mode
 
