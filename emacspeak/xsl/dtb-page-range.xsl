@@ -25,6 +25,7 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="start" select="1"/>
   <xsl:param name="end" select="1"/>
   <xsl:param name="base" />
+  <xsl:param name="uniquify" select="1"/>
   <xsl:param name="css">revstd.css</xsl:param>
   <xsl:output method="html" indent="yes" encoding="iso8859-15"/> 
   <xsl:template match="/">
@@ -50,24 +51,33 @@ and the final intersection is computed using set:intersection.
         <xsl:variable name="pages" select="//pagenum"/>
         <xsl:choose>
           <xsl:when test="count($pages)  &gt; 0">
-            <xsl:variable name="all" select="//*"/>
             <xsl:variable name="first"
             select="//pagenum[number(text())=$start]"/>
             <xsl:variable name="last"
             select="//pagenum[number(text()) &gt; $end]"/>
+            <xsl:variable name="all"
+            select="//*"/>
             <xsl:variable name="after" select="set:trailing($all, $first)"/>
             <xsl:variable name="before" select="set:leading($all, $last)"/>
             <xsl:for-each
-            select="set:intersection($before,
-            $after)">
-              <!-- the following test is needed to avoid
-  duplicating nodes 
-but it is linear in size and a very slow solution -->
-              <xsl:if test="not(set:intersection(ancestor::*, $after))">
-              <xsl:copy-of select="."/>
-              </xsl:if>
-              <!-- Still looking for a better solution for the
-  test above -->
+              select="set:intersection($before,
+              $after)">
+              
+              <xsl:choose>
+                <xsl:when test="$uniquify">
+                  <!-- the following test is needed to avoid duplicates 
+                  but it is linear in size and a very slow solution -->
+                  <xsl:if test="not(set:intersection(ancestor::*, $after))">
+                    <xsl:copy-of select="."/>
+                  </xsl:if>
+                  <!-- Still looking for a better solution for the
+                  test above -->
+                </xsl:when>
+                <xsl:otherwise>
+                  <!-- this will produce duplicates -->
+                  <xsl:copy-of select="."/>
+                </xsl:otherwise>
+              </xsl:choose>
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
