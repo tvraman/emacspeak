@@ -39,7 +39,7 @@
 # }}}
 # {{{xml -> html 
 %.html: %.xml
-	xsltproc $< > $@
+	xsltproc --stringparam html.stylesheet docbook.css  $< > $@
 
 # }}}
 # {{{ User level target--  config 
