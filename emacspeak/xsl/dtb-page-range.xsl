@@ -69,4 +69,7 @@ and the final intersection is computed using set:intersection.
       </body>
     </html>
   </xsl:template>
+  <xsl:template match="pagenum">
+    <p><strong><xsl:apply-templates/></strong></p>
+  </xsl:template>
 </xsl:stylesheet>
