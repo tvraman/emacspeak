@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<!--Author: T. V. Raman <raman@cs.cornell.edu>
-Copyright: (C) 2001  All Rights Reserved.
-
+<!--
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+License: GPL
 Extract content as specified by param locator.
 Param locator is an XPath expression.
 Param path is the same expression, but quoted so it can be

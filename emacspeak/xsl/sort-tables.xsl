@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <!-- { introduction -->
-<!--Author: T. V. Raman <raman@cs.cornell.edu>
+<!--
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 -- 2002,   All Rights Reserved.
+License: GPL
 Copyright: (C) 2001  All Rights Reserved.
 
 Description: Factor out nested tables to the end of document.
