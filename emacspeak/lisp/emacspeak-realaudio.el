@@ -337,7 +337,6 @@ commands via single keystrokes."
           (format "%c" c)
           'emacspeak-realaudio-trplayer-call-command)))
 
-
 ;;;###autoload
 (defvar emacspeak-realaudio-trplayer-keys
   (list ?p ?t ?s ?e ?l ?i
