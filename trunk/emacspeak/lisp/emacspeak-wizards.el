@@ -2385,6 +2385,21 @@ Moves to the longest paragraph when called interactively."
     max))
 
 ;;}}}
+;;{{{ find grep using compile 
+
+(defun emacspeak-wizards-find-grep (glob pattern)
+  "Run compile using find and grep. 
+Interactive  arguments specify filename pattern and search pattern."
+  (interactive
+   (list
+    (read-from-minibuffer "Look in files: ")
+    (read-from-minibuffer "Look for: ")))
+  (compile
+   (format
+    "find . -name '%s' | xargs grep -n -e '%s'"
+    glob pattern))
+  (emacspeak-auditory-icon 'task-done))
+;;}}}
 ;;{{{ face wizard
 ;;;###autoload
 (defun emacspeak-wizards-show-face (face)
