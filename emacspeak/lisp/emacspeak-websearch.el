@@ -1332,7 +1332,7 @@ With optional interactive prefix arg MAP shows the location map instead."
    query
    'emacspeak-speak-line)
   (setq emacspeak-w3-url-rewrite-rule
-        '("/h/" "/htx/")))
+        '("$" "&printer=1")))
 
 ;;}}}
 ;;{{{  Northern Lights Search

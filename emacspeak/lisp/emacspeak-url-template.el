@@ -192,7 +192,8 @@
  nil
  "Apply content.xsl to my.yahoo.com and speak the relevant contents."
  #'(lambda (url)
-     (declare (special emacspeak-xslt-directory))
+     (declare (special emacspeak-xslt-directory
+                       emacspeak-w3-url-rewrite-rule))
      (emacspeak-wizards-browse-url-with-style
       (expand-file-name "content.xsl"
                         emacspeak-xslt-directory)
