@@ -60,6 +60,20 @@
 ;;}}}
 ;;{{{  advice interactive commands.
 
+
+(defadvice ecb-cancel-dialog (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice ecb-show-help (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (emacspeak-speak-mode-line)))
+
+
 (loop for f in 
       '( ecb-goto-window-directories 
          ecb-goto-window-sources 
@@ -97,20 +111,24 @@ available."
   (cond
    ((interactive-p)
     (let ((start (point))
-          (beg nil))
+          (beg nil)
+          (end nil))
       ad-do-it
       (cond
        ((not (=  start (point)))
-        (let ((emacspeak-speak-messages nil))
+        (let ((emacspeak-speak-messages nil)
+              (case-fold-search t))
           (save-excursion
             (beginning-of-line)
             (setq beg (point))
+            (backward-char 1)
             (search-forward tree-buffer-incr-searchpattern)
+            (setq end (point))
             (ems-modify-buffer-safely
-             (put-text-property beg (point)
-                                'personality 'harry)))
-          (emacspeak-speak-line)
-          (emacspeak-auditory-icon 'search-hit)))
+            (ems-set-personality-temporarily
+beg end   'harry
+              (emacspeak-speak-line)))
+            (emacspeak-auditory-icon 'search-hit))))
        (t (emacspeak-auditory-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
