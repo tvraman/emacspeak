@@ -567,6 +567,14 @@ default-directory after switching."
         (insert (format "pushd %s" dir))
         (comint-send-input)
         (shell-process-cd dir)))))
+
+(defun emacspeak-sudo (command)
+  "SUDo command --run command as super user."
+  (interactive
+   (list
+    (read-from-minibuffer "SUDO Command: ")))
+  (shell-command
+   (format "sudo %s" command)))
   
   
     
