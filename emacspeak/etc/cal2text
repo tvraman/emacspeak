@@ -5,16 +5,24 @@ use strict;
 my  %fields =qw(
                 DTSTART  Start
                 DTEND End
-                DTSTART;TZID="Eastern" Start
-                DTEND;TZID="Eastern" End
-DTSTART;TZID="Pacific" Start
-                DTEND;TZID="Pacific" End
-DTSTART;TZID="Central" Start
-                DTEND;TZID="Central" End
+                DTSTART;TZID="Eastern" StartEastern
+                DTEND;TZID="Eastern" EndEastern
+DTSTART;TZID="Pacific" StartPacific
+                DTEND;TZID="Pacific" EndPacific
+DTSTART;TZID="Central" StartCentral
+                DTEND;TZID="Central" EndCentral
                 DESCRIPTION Description
                 SUMMARY Summary
                 LOCATION Location
                );
+my $marker ='^BEGIN:VEVENT';
+my $start;
+while (<> ) {
+  last if (m/$marker/ ) ;
+    
+  
+}
+
 print "\n\n";
 my @lines;
 my $i=0;
