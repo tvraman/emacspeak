@@ -156,7 +156,7 @@ ${ECI}/VIAVOICE \
 ${ECI}/Makefile 
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
-etc/FAQ etc/HELP etc/applications.html   etc/tips.html
+etc/remote.txt etc/FAQ etc/HELP etc/applications.html   etc/tips.html
 SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 
 TCL_PROGRAMS = servers/.servers \
