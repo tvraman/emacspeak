@@ -113,6 +113,7 @@
           'emacspeak-toggle-comint-autospeak)
 (add-hook 'emacspeak-imcom-hooks
           'emacspeak-toggle-comint-output-monitor)
+
 (defun emacspeak-imcom ()
   "Start IMCom."
   (interactive)
