@@ -1604,7 +1604,7 @@ current coding system, then we return an empty string."
   (interactive)
   (declare (special minor-mode-alist
                     emacspeak-minor-mode-prefix 
-                    voice-lock-mode))
+                    voice-lock-mode vc-mode))
   (force-mode-line-update)
   (let ((voice-lock-mode t)
         (info
@@ -1633,6 +1633,7 @@ current coding system, then we return an empty string."
                            (dtk-speak
                             (concat
                              emacspeak-minor-mode-prefix
+                             vc-mode
                              (mapconcat #'identity info ", ")
                              (emacspeak-speak-buffer-coding-system-info))))))
   
