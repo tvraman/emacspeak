@@ -111,6 +111,7 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+    (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
     (define-key w3-mode-map ";"
       'emacspeak-w3-speak-this-element)
@@ -740,6 +741,17 @@ prefix arg causes url to be read from the minibuffer."
 
 ;;}}}
 ;;{{{  google tool
+
+(defun emacspeak-w3-google-who-links-to-this-page ()
+  "Perform a google search to locate documents that link to the
+current page."
+  (interactive)
+  (declare (special major-mode))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command cannot be used outside W3 buffers."))
+  (emacspeak-websearch-google
+    (format "+link:%s"
+            (url-view-url 'no-show))))
 
 (defun emacspeak-w3-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
