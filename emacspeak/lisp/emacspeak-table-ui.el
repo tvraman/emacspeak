@@ -443,7 +443,7 @@ Optional prefix arg prompts for a new filter."
 (defsubst emacspeak-table-prepare-table-buffer (table buffer
                                                       &optional filename)
   "Prepare tabular data."
-  (declare (special positions ))
+  (declare (special emacspeak-table positions ))
   (save-excursion
     (set-buffer buffer)
     (let ((i 0)
@@ -597,7 +597,8 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 \\[describe-mode] in a buffer that is in emacspeak table mode to read
 the documentation on the table browser."
   (interactive "r")
-  (declare (special positions))
+  (declare (special emacspeak-table
+                    positions))
   (let ((workspace (get-buffer-create " table workspace  "))
         (buffer (get-buffer-create
                  (format  "*table-%s*"
