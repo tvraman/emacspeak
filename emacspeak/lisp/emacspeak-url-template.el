@@ -201,8 +201,9 @@ post-action ;action to perform after opening
 ;;}}}
 ;;{{{ cnn 
 
-(emacspeak-url-template-define "CNN headlines "
-                               "http://www.cnn.com/quicknews/print.html"
+(emacspeak-url-template-define
+ "CNN headlines "
+ "http://www.cnn.com/QUICKNEWS/print.html"
                                nil)
 
 (defun emacspeak-url-template-date-YearMonthDate ()
