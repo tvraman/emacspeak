@@ -2536,7 +2536,7 @@ Locations added here via custom can be opened using command
 emacspeak-wizards-tramp-open-location
 bound to \\[emacspeak-wizards-tramp-open-location]."
   :type '(repeat
-          (cons "Tramp"
+          (cons :tag "Tramp"
            (string :tag "Name")
            (string :tag "Location")))
   :group 'emacspeak-wizards)
