@@ -709,7 +709,7 @@ No-op if content under point is not currently displayed."
   (declare (special outline-regexp))
   (unless (eq 'emacspeak-daisy-mode major-mode)
     (error "This command should be used in emacspeak-daisy-mode."))
-  (setq utline-regexp regexp)
+  (setq outline-regexp regexp)
   (let ((buffer (find-file-noselect (emacspeak-speak-get-directory-settings))))
     (save-excursion
       (set-buffer buffer)
