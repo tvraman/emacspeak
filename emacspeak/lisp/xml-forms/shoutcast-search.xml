@@ -8,19 +8,12 @@
 <title>Locate Shoutcast Streams</title>
 </head>
 <body>
-<form action="http://yp.shoutcast.com/directory"><select name="l"
-id="count">
-<option value="5">5</option>
-<option value="10">10</option>
-<option value="25" selected="selected">25</option>
-<option value="30">30</option>
-<option value="50">50</option>
-<option value="100">100</option>
-</select> <label for="count">Results</label> 
-
+<p/>
+<form action="http://yp.shoutcast.com/directory">
 <table>
 <tr>
-<td><label for="find">Find</label> <input name="s" id="find" />
+<td><label for="find">Find </label>
+ <input name="s" id="find" />
 </td>
 <td><label for="genre">Genre</label> <select id="genre"
 name="genre">
