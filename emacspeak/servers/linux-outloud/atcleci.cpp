@@ -171,10 +171,15 @@ static int set_hwparams(snd_pcm_t *handle,
 			snd_pcm_hw_params_t *params,
 			snd_pcm_access_t access)
 {
+	unsigned int rrate;
 	int err, dir;
-        unsigned int rrate;
 
-	
+	/* choose all parameters */
+	err = snd_pcm_hw_params_any(handle, params);
+	if (err < 0) {
+		printf("Broken configuration for playback: no configurations available: %s\n", snd_strerror(err));
+		return err;
+	}
 	/* set the interleaved read/write format */
 	err = snd_pcm_hw_params_set_access(handle, params, access);
 	if (err < 0) {
@@ -787,12 +792,6 @@ alsa_init () {
             snd_strerror(err));
     return TCL_ERROR;
   }
-/* choose all parameters */
-	err = snd_pcm_hw_params_any(AHandle, hwparams);
-	if (err < 0) {
-		printf("Broken configuration for playback: no configurations available: %s\n", snd_strerror(err));
-		return TCL_ERROR;
-	}
         if ((err = set_hwparams(AHandle, hwparams, SND_PCM_ACCESS_RW_INTERLEAVED)) < 0) {
     fprintf(stderr,
             "Setting of hwparams failed: %s\n",
