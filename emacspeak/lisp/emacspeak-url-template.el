@@ -449,6 +449,7 @@ Computing News at CNN.")
  (list 'emacspeak-url-template-date-year/month/date)
  #'(lambda nil
      (declare (special emacspeak-w3-xsl-p
+                       emacspeak-xslt-directory
                        emacspeak-w3-xsl-transform))
      (let ((emacspeak-w3-xsl-p t)
            (emacspeak-w3-xsl-transform (expand-file-name
