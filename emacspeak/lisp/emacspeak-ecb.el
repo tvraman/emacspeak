@@ -182,6 +182,41 @@ available."
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ commands to speak ECB windows without  moving
+
+(defun emacspeak-ecb-speak-window-methods ()
+  "Speak contents of methods window."
+  (interactive)
+  (save-excursion
+    (save-window-excursion
+      (ecb-goto-window-methods)
+      (emacspeak-speak-buffer))))
+
+(defun emacspeak-ecb-speak-window-directories ()
+  "Speak contents of directories window."
+  (interactive)
+  (save-excursion
+    (save-window-excursion
+      (ecb-goto-window-directories)
+      (emacspeak-speak-buffer))))
+
+(defun emacspeak-ecb-speak-window-history ()
+  "Speak contents of history window."
+  (interactive)
+  (save-excursion
+    (save-window-excursion
+      (ecb-goto-window-history)
+      (emacspeak-speak-buffer))))
+
+(defun emacspeak-ecb-speak-window-sources ()
+  "Speak contents of sources window."
+  (interactive)
+  (save-excursion
+    (save-window-excursion
+      (ecb-goto-window-sources)
+      (emacspeak-speak-buffer))))
+
+;;}}}
 (provide 'emacspeak-ecb)
 ;;{{{ end of file
 
