@@ -1494,17 +1494,20 @@ semantic to do the work."
   (interactive)
   (declare (special  mode-name  major-mode
                      emacspeak-which-function-mode
+                     global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
   (force-mode-line-update)
   (emacspeak-dtk-sync)
   (let ((dtk-stop-immediately nil )
+        (global-info (mapcar 'eval global-mode-string))
         (frame-info nil)
         (recursion-depth (recursion-depth))
         (recursion-info nil)
         (dir-info (when (eq major-mode 'shell-mode)
                     default-directory)))
+(setq global-info (delete nil global-info))
     (when (and  emacspeak-which-function-mode
                 (fboundp 'which-function)
                 (which-function))
@@ -1549,7 +1552,9 @@ semantic to do the work."
                                         mode-name
                                         (emacspeak-get-current-percentage-verbously))
                                frame-info
-                               recursion-info)))))))
+                               recursion-info
+                               (mapconcat #'identity
+                                          global-info " "))))))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
@@ -1591,7 +1596,6 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist
-global-mode-string
                     emacspeak-minor-mode-prefix 
                     voice-lock-mode))
   (force-mode-line-update)
@@ -1605,16 +1609,13 @@ global-mode-string
                  ((and (boundp var) (eval var ))
                   (if (symbolp value) (eval value) value))
                  (t nil))))
-          minor-mode-alist))
-        (global-info (mapcar 'eval global-mode-string)))
+          minor-mode-alist)))
     (setq info (delete nil info))
-    (setq global-info (delete nil global-info))
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat
                              emacspeak-minor-mode-prefix
                              (mapconcat #'identity info ", ")
-(mapconcat #'identity global-info ", ")
                              (emacspeak-speak-buffer-coding-system-info))))))
   
 
