@@ -220,9 +220,12 @@ the opening line of the newly inserted environment. "
    ((interactive-p)
     (let ((orig (point)))
       ad-do-it
-      (emacspeak-speak-region orig (point))))
+      (if (ad-get-arg 0)
+          (emacspeak-speak-line)
+      (emacspeak-speak-region orig (point)))))
    (t ad-do-it))
   ad-return-value)
+
 ;;}}}
 (provide  'emacspeak-auctex)
 ;;{{{  emacs local variables 

@@ -577,15 +577,17 @@ emacspeak-wizards.
  - emacspeak-lynx: (URL)
      Launch lynx on  specified URL in a new terminal.
 
- - emacspeak-next-frame: ()
+ - emacspeak-next-frame-or-buffer: (&optional FRAME)
      ` <control right> '
 
-     Move to next frame.
+     Move to next buffer.  With optional interactive prefix arg
+     `frame', move to next frame instead.
 
- - emacspeak-previous-frame: ()
+ - emacspeak-previous-frame-or-buffer: (&optional FRAME)
      ` <control left> '
 
-     Move to next frame.
+     Move to previous buffer.  With optional interactive prefix arg
+     `frame', move to previous frame instead.
 
  - emacspeak-root: (&optional CD)
      ` control e control r '
