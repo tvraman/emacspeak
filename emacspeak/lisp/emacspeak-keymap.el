@@ -278,6 +278,7 @@
 (define-key help-map "\C-m" 'man)
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
+(define-key emacspeak-keymap '[insert] 'emacspeak-emergency-tts-)
 ;;}}}
 ;;{{{ Hacking minibuffer maps:
 
