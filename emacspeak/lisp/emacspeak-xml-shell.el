@@ -67,7 +67,10 @@
   "XML browser for the Emacspeak desktop.")
 
 (defcustom emacspeak-xml-shell-command "xmllint"
-  "Executable that provides the XML browser shell."
+  "Executable that provides the XML browser shell.
+Default is xmllint.
+If you want an XML Shell on steroids get XSH and use emacs custom to
+customize the default to be xsh."
   :type 'string
   :group 'emacspeak-xml-shell)
 
@@ -233,11 +236,21 @@ and end."
              (comint-send-input)))
           (t (insert output))))))))
 
+(defvar emacspeak-xml-shell-cat
+  (cond
+   ((string-equal "xmllint" emacspeak-xml-shell-command)
+    "cat")
+   ((string-equal emacspeak-xml-shell-command "xsh")
+    "ls")
+   (t ""))
+  "Set according to the XML Shell in use.")
+
 (defun emacspeak-xml-shell-process-node ( xpath display-function)
   "Apply display-function to the contents of node specified by xpath.
 Display function accepts two arguments, start and end that specify the
 region of text to process."
-  (declare (special emacspeak-xml-shell-process))
+  (declare (special emacspeak-xml-shell-process
+                    emacspeak-xml-shell-cat))
   (let ((accumulator nil)
         (terminator nil)
         (accumulate (get-buffer-create "*xml-shell-accumulator*")))
@@ -252,7 +265,9 @@ region of text to process."
                          accumulate  terminator 
                          display-function))
       (set-process-filter emacspeak-xml-shell-process accumulator)
-      (insert (format "cat %s" xpath))
+      (insert (format "%s %s"
+                      emacspeak-xml-shell-cat
+                      xpath))
       (comint-send-input))))
 
 (defcustom emacspeak-xml-shell-xslt nil
