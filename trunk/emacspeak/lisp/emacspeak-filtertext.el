@@ -98,12 +98,14 @@
   "Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. "
   (interactive "r")
-  (declare (special emacspeak-filtertext-info))
+  (declare (special emacspeak-filtertext-info
+                    case-fold-search))
   (let ((this (buffer-substring-no-properties start end))
         (buffer (get-buffer-create
                  (format "filter-%s" (buffer-name)))))
     (save-excursion
       (set-buffer buffer)
+      (setq case-fold-search t)
       (erase-buffer)
       (make-local-variable 'emacspeak-filtertext-info)
       (insert this)
