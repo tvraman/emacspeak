@@ -2655,6 +2655,18 @@ used as well.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-count-matchesCount matches for locator  in HTML.
+
+------------------------------------------------------------
+
+** emacspeak-w3-count-nested-tablesCount nested tables in HTML.
+
+------------------------------------------------------------
+
+** emacspeak-w3-count-tablesCount  tables in HTML.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-do-onclickDo  onclick action.
 
 ------------------------------------------------------------
@@ -2663,7 +2675,6 @@ used as well.
 specified elements from current WWW page and displays it in a separate
 buffer. Optional arg url specifies the page to extract content from.
 Interactive use provides list of class values as completion.
-Interactive prefix arg causes url to be read from the minibuffer.
 
 ------------------------------------------------------------
 
@@ -2671,8 +2682,25 @@ Interactive prefix arg causes url to be read from the minibuffer.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Optional arg url specifies the page to extract
 content from. Interactive use provides list of class values as
-completion. Interactive prefix arg causes url to be read from the
-minibuffer.
+completion. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-nested-tableExtract nested table specified by `table-index'. Default is to
+operate on current web page when in a W3 buffer; otherwise
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-nested-table-listExtract specified list of tables from a WWW page.
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-nested-tables-by-position-listExtract specified list of nested tables from a WWW page.
+Tables are specified by their position in the list 
+nested of tables found in the page.
 
 ------------------------------------------------------------
 
@@ -2680,26 +2708,9 @@ minibuffer.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-extract-tableExtract tables from HTML.  Extracts specified table from
-current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-extract-table-by-positionExtract table at specified position.
  Optional arg url specifies the page to extract content from.
-Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the minibuffer.
-
-------------------------------------------------------------
-
-** emacspeak-w3-extract-table-listExtract specified list of tables from a WWW page.
-
-------------------------------------------------------------
-
-** emacspeak-w3-extract-tables-by-position-listExtract specified list of tables from a WWW page.
-Tables are specified by their position in the list 
-of tables found in the page.
 
 ------------------------------------------------------------
 
@@ -2789,7 +2800,7 @@ used as well.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xsl-toggleToggle  XSL transformations before displaying HTML.
+** emacspeak-w3-xsl-toggleToggle  application of XSL transformations.
 This uses XSLT Processor xsltproc available as part of the
 libxslt package.
 
@@ -2802,12 +2813,11 @@ libxslt package.
 ** emacspeak-w3-xslt-filterExtract elements matching specified XPath path locator
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract table from.  Interactive
-prefix arg causes url to be read from the minibuffer.
+specifies the page to extract table from.  
 
 ------------------------------------------------------------
 
-** emacspeak-w3-xslt-selectSelect transformation to apply.
+** emacspeak-w3-xslt-selectSelect XSL transformation applied to WWW pages before they are displayed .
 
 ------------------------------------------------------------
 
@@ -3599,7 +3609,7 @@ Automatically defined advice to speak interactive prompts.
 ------------------------------------------------------------
 
 ** emacspeak-wizards-spot-wordsSearches recursively in all files with extension `ext'
-for `word' and siplays hits in a compilation buffer.
+for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
