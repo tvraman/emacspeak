@@ -1062,11 +1062,11 @@ dtk-speak.
      Toggle state of the debug FLAG.  When debugging is on, you can
      switch to the buffer *speaker* to examine the output from the
      process that talks to the speech device by using command C-e d
-     M-C-b.  Note: *speaker* is a hidden buffer, ie it has a leading
+     C-M-b.  Note: *speaker* is a hidden buffer, ie it has a leading
      space in its name.
 
  - tts-show-debug-buffer:
-     ` control e d meta control b '
+     ` control e d CONTROL meta b '
 
      Select TTS debugging buffer.
 

@@ -132,7 +132,7 @@ dtk-tcl.
      value, and then set the current local value to the result.
 
  - dtk-stop:
-     ` pause   control e s '
+     ` <pause>   control e s '
 
      Stop speech now.
 
@@ -175,7 +175,7 @@ emacspeak
 emacspeak.
 
  - emacspeak-submit-bug:
-     ` control e control b '
+     ` control e CONTROL meta b '
 
      Function to submit a bug to the programs maintainer.
 
@@ -232,12 +232,12 @@ emacspeak-aumix.
      Reset to default audio settings.
 
  - emacspeak-aumix-wave-decrease:
-     ` control e control f left '
+     ` control e control f <left> '
 
      Decrease volume of wave output.
 
  - emacspeak-aumix-wave-increase:
-     ` control e control f right '
+     ` control e control f <right> '
 
      Increase volume of wave output.
 
@@ -668,7 +668,7 @@ emacspeak-eterm.
      Move the pointer to the right edge.
 
  - emacspeak-eterm-remote-term:
-     ` control e meta control r '
+     ` control e CONTROL meta r '
 
      Start a terminal-emulator in a new buffer.
 
@@ -723,15 +723,12 @@ emacspeak-filtertext.
 
      r		emacspeak-filtertext-revert ^		flush-lines =		keep-lines
 
-     In addition to any hooks its parent mode `text-mode' might have
-     run, this mode runs the hook `emacspeak-filtertext-mode-hook', as
-     the final step during initialization.
 
  - emacspeak-filtertext-revert:
      Revert to original text.
 
  - emacspeak-filtertext:
-     ` control e \ '
+     ` control e ^ '
 
      Copy over text in region to special filtertext buffer in
      preparation for interactively filtering text.
@@ -802,8 +799,8 @@ emacspeak-freeamp.
 
      key             binding --             ------
 
-     right		emacspeak-aumix-wave-increase
-     left		emacspeak-aumix-wave-decrease
+     <right>		emacspeak-aumix-wave-increase
+     <left>		emacspeak-aumix-wave-decrease
      q		emacspeak-freeamp-freeamp-call-command
      =		emacspeak-freeamp-freeamp-call-command
      s		emacspeak-freeamp-freeamp-call-command
@@ -813,8 +810,6 @@ emacspeak-freeamp.
      +		emacspeak-freeamp-freeamp-call-command
      p		emacspeak-freeamp-freeamp-call-command o		emacspeak-freeamp
 
-     This mode runs the hook `emacspeak-freeamp-mode-hook', as the
-     final step during initialization.
 
  - emacspeak-freeamp-freeamp-command:
      Execute FreeAmp command.
@@ -970,9 +965,6 @@ emacspeak-imcom.
 
      C-c v		emacspeak-imcom-view-chat-session
 
-     In addition to any hooks its parent mode `comint-mode' might have
-     run, this mode runs the hook `emacspeak-imcom-mode-hook', as the
-     final step during initialization.
 
 
 File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-info,  Prev: emacspeak-imcom,  Up: Emacspeak Commands
@@ -1108,6 +1100,9 @@ emacspeak-ocr.
  - emacspeak-ocr-forward-page:
      Like forward page, but tracks page number of current document.
 
+ - emacspeak-ocr-scan-photo:
+     Scan in a photograph.  The scanned image is converted to JPEG.
+
  - emacspeak-ocr-backward-page:
      Like backward page, but tracks page number of current document.
 
@@ -1189,13 +1184,11 @@ emacspeak-ocr.
      ]		emacspeak-ocr-forward-page [		emacspeak-ocr-backward-page
      d		emacspeak-ocr-open-working-directory
      n		emacspeak-ocr-name-document o		emacspeak-ocr-recognize-image
-     i		emacspeak-ocr-scan-image RET		emacspeak-ocr-scan-and-recognize
+     j		emacspeak-ocr-scan-photo i		emacspeak-ocr-scan-image
+     RET		emacspeak-ocr-scan-and-recognize
      w		emacspeak-ocr-write-document q		bury-buffer c		emacspeak-ocr-customize
      ?		describe-mode
 
-     In addition to any hooks its parent mode `text-mode' might have
-     run, this mode runs the hook `emacspeak-ocr-mode-hook', as the
-     final step during initialization.
 
  - emacspeak-ocr-save-current-page:
      Writes out recognized text from current page to an appropriately
@@ -1345,9 +1338,6 @@ emacspeak-psgml.
      Uses keymap "emacspeak-xml-browse-mode", which is not currently
      defined.
 
-     In addition to any hooks its parent mode `xml-mode' might have run,
-     this mode runs the hook `emacspeak-xml-browse-mode-hook', as the
-     final step during initialization.
 
  - emacspeak-psgml-toggle-interactive-voice-locking:
      Toggles variable sgml-set-face.  When turned on, the  buffer is
@@ -1406,8 +1396,8 @@ emacspeak-realaudio.
 
      key             binding --             ------
 
-     right		emacspeak-aumix-wave-increase
-     left		emacspeak-aumix-wave-decrease
+     <right>		emacspeak-aumix-wave-increase
+     <left>		emacspeak-aumix-wave-decrease
      }		emacspeak-realaudio-trplayer-call-command
      {		emacspeak-realaudio-trplayer-call-command
      ]		emacspeak-realaudio-trplayer-call-command
@@ -1425,8 +1415,6 @@ emacspeak-realaudio.
      t		emacspeak-realaudio-trplayer-call-command
      p		emacspeak-realaudio-trplayer-call-command
 
-     This mode runs the hook `emacspeak-realaudio-mode-hook', as the
-     final step during initialization.
 
  - emacspeak-realaudio-stop:
      Stop playing realaudio

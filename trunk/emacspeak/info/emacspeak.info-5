@@ -17,7 +17,7 @@ emacspeak-wizards
 emacspeak-wizards.
 
  - emacspeak-speak-this-buffer-previous-display:
-     ` control e left '
+     ` control e <left> '
 
      Speak this buffer as displayed in a `previous' window.  See
      documentation for command
@@ -27,10 +27,24 @@ emacspeak-wizards.
  - emacspeak-wizards-rpm-query-in-dired:
      Run rpm -qi on current dired entry.
 
+ - emacspeak-wizards-use-w3-or-w3m:
+     Alternates between using W3 and W3M for browse-url.
+
  - emacspeak-next-frame:
-     ` control right '
+     ` <control right> '
 
      Move to next frame.
+
+ - emacspeak-wizards-show-list-variable:
+     Convenience command to view Emacs variables that are long lists.
+     Prompts for a variable name and displays its value in a separate
+     buffer.  Lists are displayed one element per line.  Argument VAR
+     specifies variable whose value is to be displayed.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
 
  - emacspeak-view-emacspeak-doc:
      ` control e  cap D  '
@@ -65,7 +79,7 @@ emacspeak-wizards.
      and try to restore previous window configuration.
 
  - emacspeak-skip-blank-lines-forward:
-     ` shift down '
+     ` <shift down> '
 
      Move forward across blank lines.  The line under point is then
      spoken.  Signals end of buffer.
@@ -92,7 +106,7 @@ emacspeak-wizards.
      Launch lynx on  specified URL in a new terminal.
 
  - emacspeak-select-this-buffer-next-display:
-     ` control e control right '
+     ` control e <control right> '
 
      Select this buffer as displayed in a `next' frame.  See
      documentation for command
@@ -114,7 +128,7 @@ emacspeak-wizards.
      nukes the buffer visiting the xls file.
 
  - emacspeak-select-this-buffer-previous-display:
-     ` control e control left '
+     ` control e <control left> '
 
      Select this buffer as displayed in a `previous' window.  See
      documentation for command
@@ -122,7 +136,7 @@ emacspeak-wizards.
      meaning of `previous'.
 
  - emacspeak-skip-blank-lines-backward:
-     ` shift up '
+     ` <shift up> '
 
      Move backward  across blank lines.  The line under point is   then
      spoken.  Signals beginning  of buffer.
@@ -150,17 +164,6 @@ emacspeak-wizards.
      copied   to that directory under its current name ; if location
      names   a file in an existing directory, the specified name is
      used.  Signals an error if target already exists.
-
- - emacspeak-show-list-variable:
-     Convenience command to view Emacs variables that are long lists.
-     Prompts for a variable name and displays its value in a separate
-     buffer.  Lists are displayed one element per line.  Argument VAR
-     specifies variable whose value is to be displayed.
-
-     This function is advised.
-
-     Before-advice `emacspeak-auto': Automatically defined advice to
-     speak interactive prompts.
 
  - emacspeak-wizards-ppt-display:
      Called to set up preview of an XL file.  Assumes we are in a
@@ -224,7 +227,7 @@ emacspeak-wizards.
      specifies the display to select.
 
  - emacspeak-speak-this-buffer-next-display:
-     ` control e right '
+     ` control e <right> '
 
      Speak this buffer as displayed in a `previous' window.  See
      documentation for command
@@ -232,7 +235,7 @@ emacspeak-wizards.
      of `next'.
 
  - emacspeak-cvs-get-anonymous:
-     ` control e control down '
+     ` control e <control down> '
 
      Get latest cvs snapshot of emacspeak.
 
@@ -282,6 +285,11 @@ emacspeak-wizards.
  - emacspeak-wizards-generate-finder:
      Generate a widget-enabled finder wizard.
 
+ - emacspeak-customize:
+     ` control e  cap C  '
+
+     Customize Emacspeak.
+
  - emacspeak-speak-load-directory-settings:
      Load a directory specific Emacspeak settings file.  This is
      typically used to load up settings that are specific to an
@@ -330,7 +338,7 @@ emacspeak-wizards.
      outline mode correctly.
 
  - emacspeak-previous-frame:
-     ` control left '
+     ` <control left> '
 
      Move to next frame.
 
@@ -339,7 +347,7 @@ emacspeak-wizards.
      directory to where find is to be launched.
 
  - emacspeak-customize-personal-settings:
-     ` control e f1 '
+     ` control e <f1> '
 
      Create a customization buffer for browsing and updating personal
      customizations.
@@ -383,7 +391,7 @@ emacspeak-wizards.
      message and exit.
 
  - emacspeak-wizards-shell-toggle:
-     ` control e f11 '
+     ` control e <f11> '
 
      Switch to the shell buffer and cd to  the directory of the current
      buffer.
@@ -412,16 +420,13 @@ emacspeak-xml-shell.
      Interactive XML browser.  key             binding --
      ------
 
-     C-c		Prefix Command down		emacspeak-xml-shell-goto-children
-     up		emacspeak-xml-shell-goto-parent
-     right		emacspeak-xml-shell-goto-next-child
-     left		emacspeak-xml-shell-goto-previous-child
+     C-c		Prefix Command <down>		emacspeak-xml-shell-goto-children
+     <up>		emacspeak-xml-shell-goto-parent
+     <right>		emacspeak-xml-shell-goto-next-child
+     <left>		emacspeak-xml-shell-goto-previous-child
 
      C-c v		emacspeak-xml-shell-browse-current
 
-     In addition to any hooks its parent mode `comint-mode' might have
-     run, this mode runs the hook `emacspeak-xml-shell-mode-hook', as
-     the final step during initialization.
 
  - emacspeak-xml-shell-goto-previous-child:
      Navigate backward  to the previous child  of current node.
@@ -441,8 +446,12 @@ nil.
  - emacspeak-speak-current-field:
      ` control e . '
 
-     Speak current field.  A field is defined currently as a sequence
-     of non-white space characters.  may be made   mode specific later.
+     Speak current field.  A field is defined  by Emacs 21.
+
+ - emacspeak-daisy-open-book:
+     ` control e control b '
+
+     Digital Talking Books on the Emacspeak Desktop.
 
 
 File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
