@@ -253,9 +253,8 @@ Query is a Google Maps query in plain English."
     (emacspeak-url-template-google-maps-speak
      (format emacspeak-websearch-google-maps-uri
              (webjump-url-encode query))
-     (webjump-url-encode near))
-    (dtk-stop) ;; need this for now -html chatter?
-))
+     (webjump-url-encode near)
+     'speak)))
     
          
                     
