@@ -51,7 +51,7 @@ proc tts_set_speech_rate {rate} {
     global tts
     set factor $tts(char_factor) 
     set tts(speech_rate) $rate
-    synth "`vs$rate "
+    say "`vs$rate "
     service
     return ""
 }
@@ -67,6 +67,7 @@ proc tts_set_character_scale {factor} {
 
 proc tts_say {text} {
     global    tts
+    service 
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     regsub -all {\[\*\]} $text { `p1 } text 
@@ -78,14 +79,15 @@ proc tts_say {text} {
 #formerly called tts_letter
 
 proc l {text} {
-    global tts 
+    global tts
+    service
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
     synth "$prefix  `ts2 $text`ts0"
-    synchronize
+    service
     return ""
 }
 
@@ -99,19 +101,6 @@ proc tts_resume  {} {
         resume
     return ""
 }
-
-proc tts_repeat  {} {
-    global tts 
-    queue_rewind
-    if {[queue_empty?]} {
-        synth  {No speech to repeat.}
-        set tts(not_stopped) 1
-    } else {
-        speech_task
-    }
-    return ""
-}
-
 proc tts_pause {} {
     pause
     return ""
@@ -138,11 +127,13 @@ proc t  {{pitch 440} {duration 50}} {
     }
     service
 }
+
 proc sh  {{duration 50}} {
     global tts queue 
     set silence "`p$duration "
     set queue($tts(q_tail)) [list t $silence]
     incr tts(q_tail)
+    service
     return ""
 }
 
@@ -331,7 +322,7 @@ load $tclTTS/tcleci.so
 set tts(stereo) 1
 useStereoOutput
 synth {`v1 Using in memory synthesis.}
-synchronize 
+service
 
 #Start the main command loop:
 
