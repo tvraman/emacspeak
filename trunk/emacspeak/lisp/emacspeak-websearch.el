@@ -53,13 +53,7 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ let's use W3 if it is available:
 
-(eval-when (load)
-  (declaim (special browse-url-browser-function))
-  (when (locate-library "w3")
-    (setq browse-url-browser-function 
-          'browse-url-w3)))
 
 ;;}}}
 ;;{{{ searcher table
