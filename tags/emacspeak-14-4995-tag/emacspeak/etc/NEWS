@@ -1,0 +1,58 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+
+* Emacspeak 15.0 Additions And Changes:
+
+Emacspeak 15.0 provides the following user level enhancements:
+
+* New Emacspeak Features:
+
+
+** OCR Front-End:
+
+Module emacspeak-ocr provides a convenient to use OCR
+front-end for document scanning.
+Uses SANE for image acquisition and can be configured to use
+any available OCR engine.
+
+** Speedch-enabled ECB:
+
+ECB --Emacs Class Browser-- provides a powerful class
+browser 
+for aiding in software development using a variety of
+languages including Java and Emacs Lisp.
+
+** Semantic Support Within JDE
+
+Uses knowledge computed by the semantic package in better
+speech-enabling JDE.
+
+** URL Templates 
+
+
+New URL templates for Sourceforge, DDJ TechNetCast etc.
+
+** Speech-enables ERC:
+
+Enhanced with room monitors and the ability to hear things
+said by specific people.
+
+** Speech-enables MetaPost Mode:
+
+metapost mode helps authoring and maintaining metapost
+drawings.
+
+** Convenience Commands:
+
+All Emacspeak convenience commands have been moved to module
+emacspeak-wizards.
+
+
+
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:
+
