@@ -305,13 +305,16 @@ Francisco ny for New york etc.")
 
 (emacspeak-url-template-define
  "Yahoo Technology  News"
- "http://dailynews.yahoo.com/htx/tc/nm/?u"
+                                        ;"http://dailynews.yahoo.com/htx/tc/nm/?u"
+ "http://dailynews.yahoo.com/h/tc/?u"
  nil
  #'(lambda nil
-     (search-forward
-      "Sources:" nil t)
-     (forward-line 4)
-     (emacspeak-speak-rest-of-buffer))
+     (let ((emacspeak-w3-xsl-p nil))
+       (search-forward "News Stories")
+       (emacspeak-w3-next-doc-element)
+       (w3-table-move-to-table-start)
+       (w3-table-move-to-next-table-column)
+       (w3-table-speak-this-cell)))
  "Retrieve and speak Technology  section from Yahoo Daily News.")
 
 ;;}}}
