@@ -1768,8 +1768,10 @@ Second interactive prefix sets clock to new timezone."
    (t
     (tts-with-punctuations "some"
                            (dtk-speak
+                            (propertize 
                             (format-time-string
-                             emacspeak-speak-time-format-string))))))
+                             emacspeak-speak-time-format-string)
+                            'personality voice-punctuations-some))))))
                             
  
 (defconst emacspeak-codename
