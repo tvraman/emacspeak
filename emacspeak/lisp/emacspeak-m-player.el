@@ -210,6 +210,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 ;;}}}
 ;;{{{ keys 
+
+(define-key emacspeak-m-player-mode-map [left]
+  'emacspeak-aumix-wave-decrease)
+(define-key emacspeak-m-player-mode-map [right] 'emacspeak-aumix-wave-increase)
 (define-key emacspeak-m-player-mode-map "s"
   'emacspeak-m-player-seek-relative)
 (define-key emacspeak-m-player-mode-map "S"
