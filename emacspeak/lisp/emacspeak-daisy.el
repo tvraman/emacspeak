@@ -431,7 +431,7 @@ Pre-requisites:
 2) xml-parse.el for parsing XML in Emacs Lisp.
 
 The Emacspeak DAISY front-end is launched by command
-emacspeak-daisy bound to \\[emacspeak-daisy].  
+emacspeak-daisy-open-book  bound to \\[emacspeak-daisy-open-book].  
 
 This command switches to a special buffer that has DAISY
 commands bounds to single keystrokes-- see the ke-binding
