@@ -336,7 +336,7 @@ prompting for a template.")
 		      '("$" "&printer=1"))
 		(emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
-   "(//*[@class=\"article\"])//td[1]"
+   "//*[@class=\"article\"]"
    url))
 
 (emacspeak-url-template-define
