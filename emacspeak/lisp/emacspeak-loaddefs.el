@@ -131,7 +131,7 @@ Jump to custom toolbar when in a customization buffer.
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (16319 45991))
+;;;;;;  (16342 25975))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -695,8 +695,8 @@ emacspeak-play-midi-icon for midi device.
 
 ;;;***
 
-;;;### (autoloads (emacspeak-speak-world-clock) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (16319 45997))
+;;;### (autoloads (emacspeak-speak-load-directory-settings emacspeak-speak-world-clock)
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16342 26049))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
@@ -706,6 +706,14 @@ Optional second arg `set' sets the TZ environment variable as well.
 \(fn ZONE &optional SET)" t nil)
 
 (ems-generate-switcher (quote emacspeak-toggle-comint-output-monitor) (quote emacspeak-comint-output-monitor) "Toggle state of Emacspeak comint monitor.\nWhen turned on, comint output is automatically spoken.  Turn this on if\nyou want your shell to speak its results.  Interactive\nPREFIX arg means toggle the global default value, and then\nset the current local value to the result.")
+
+(autoload (quote emacspeak-speak-load-directory-settings) "emacspeak-speak" "\
+Load a directory specific Emacspeak settings file.
+This is typically used to load up settings that are specific to
+an electronic book consisting of many files in the same
+directory.
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -818,7 +826,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16319 45997))
+;;;;;;  (16341 4356))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -1163,11 +1171,10 @@ Fall back summarizer for all widgets
 ;;;;;;  emacspeak-wizards-edit-file-as-root emacspeak-sudo emacspeak-root
 ;;;;;;  emacspeak-speak-telephone-directory emacspeak-speak-show-active-network-interfaces
 ;;;;;;  emacspeak-speak-hostname emacspeak-speak-popup-messages emacspeak-speak-browse-linux-howto
-;;;;;;  emacspeak-speak-load-directory-settings emacspeak-speak-run-shell-command
-;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
-;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
+;;;;;;  emacspeak-speak-run-shell-command emacspeak-symlink-current-file
+;;;;;;  emacspeak-link-current-file emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16325 32690))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16342 26039))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1228,14 +1235,6 @@ command `emacspeak-table-display-table-in-region' normally bound to
 \\[emacspeak-table-display-table-in-region].
 
 \(fn COMMAND &optional AS-ROOT)" t nil)
-
-(autoload (quote emacspeak-speak-load-directory-settings) "emacspeak-wizards" "\
-Load a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory.
-
-\(fn)" t nil)
 
 (autoload (quote emacspeak-speak-browse-linux-howto) "emacspeak-wizards" "\
 Browse a Linux Howto file.
@@ -1859,8 +1858,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16333
-;;;;;;  60489 155339))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16342
+;;;;;;  26068 95274))
 
 ;;;***
 
