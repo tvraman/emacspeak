@@ -442,15 +442,16 @@ setting.."
     ("tone" . "tone"))
   "Possible methods of indicating indentation.")
 
-(defcustom emacspeak-audio-indentation-method "speak"
+(defcustom emacspeak-audio-indentation-method (quote (quote speak))
   "*Current technique used to cue indentation.  Default is
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set."
   :group 'emacspeak-speak
   :type '(choice
-          (const "speak")
-          (const "tone")))
+          (const :tag "Ignore" nil)
+          (const :tag "speak" 'speak)
+          (const :tag "tone" 'tone)))
 
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)
@@ -745,7 +746,7 @@ are indicated with auditory icon ellipses."
           (beginning-of-line 1)
 	  (skip-syntax-forward " " limit)
 	  (setq indent  (current-column )))
-        (when (string-equal emacspeak-audio-indentation-method "tone")
+        (when (eq emacspeak-audio-indentation-method 'tone)
           (emacspeak-indent indent )))
       (when
           (or (text-invisible-p end)
@@ -800,7 +801,7 @@ are indicated with auditory icon ellipses."
                 (setq line
                       (emacspeak-speak-line-apply-column-filter line
                                                                 emacspeak-speak-line-invert-filter)))
-              (if (and (string-equal "speak" emacspeak-audio-indentation-method )
+              (if (and (eq 'speak emacspeak-audio-indentation-method )
                        (null arg )
                        indent
                        (> indent 0))
