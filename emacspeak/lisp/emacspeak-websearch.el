@@ -1076,7 +1076,6 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                     emacspeak-w3-xsl-p ))
   (let ((url-be-asynchronous nil)
         (emacspeak-w3-xsl-p nil)
-	
         (lucky-flag (if emacspeak-websearch-google-feeling-lucky
                         (not lucky)
                       lucky)))
