@@ -537,7 +537,7 @@ HTML."
   (declare (special major-mode
                     emacspeak-xslt-directory))
   (let ((url (url-view-url t))
-       (emacspeak-w3-xsl-p t))
+        (emacspeak-w3-xsl-p t))
     (unless (eq major-mode 'w3-mode)
       (error "Not in a W3 buffer."))
     (emacspeak-wizards-browse-url-with-style url xsl)
@@ -623,20 +623,53 @@ Optional arg url specifies the page to extract table from. "
                     emacspeak-xslt-directory)
   "XSL transform to extract a elements having a specified class.")
 
+(defvar emacspeak-w3-buffer-css-class-cache nil
+  "Caches class attribute values for current buffer.")
+
+(make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
+(defun emacspeak-w3-css-class-cache ()
+  "Build CSS class cache for buffer if needed."
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in W3 buffer."))
+  (or emacspeak-w3-buffer-css-class-cache
+      (let ((values nil)
+            (buffer
+             (emacspeak-xslt-url
+              (expand-file-name "list-attribute-values.xsl"
+                                emacspeak-xslt-directory)
+              (url-view-url 'no-show))))
+        (setq values 
+              (save-excursion
+                (set-buffer buffer)
+                (shell-command-on-region (point-min) (point-max)
+                                         "sort | uniq "
+                                         (current-buffer))
+                (split-string (buffer-string))))
+        (setq emacspeak-w3-buffer-css-class-cache
+              (mapcar
+               #'(lambda (v)
+                   (cons v v ))
+               values)))))
+      
+        
+
 (defun emacspeak-w3-extract-by-class (class   &optional prompt)
   "Extract elements having specified class attribute  from
 HTML.  
 Extracts specified elements from
 current WWW page and displays it in a separate buffer.
-Optional arg url specifies the page to extract table from.
+Optional arg url specifies the page to extract content  from.
+Interactive use provides list of class values as completion.
 Interactive prefix arg causes url to be read from the
 minibuffer."
   (interactive
    (list
-    (read-from-minibuffer "Class: ")
+      
+    (completing-read "Class: "
+                     (emacspeak-w3-css-class-cache))
     current-prefix-arg))
   (declare (special emacspeak-w3-post-process-hook
-   emacspeak-xslt-program
+                    emacspeak-xslt-program
                     emacspeak-w3-extract-by-class-xsl))
   (unless (or prompt
               (eq major-mode 'w3-mode))
@@ -691,7 +724,7 @@ prefix arg causes url to be read from the minibuffer."
     (read-from-minibuffer "XPath: ")
     current-prefix-arg))
   (declare (special emacspeak-w3-post-process-hook
-   emacspeak-xslt-program
+                    emacspeak-xslt-program
                     emacspeak-w3-xsl-filter))
   (unless (or prompt
               (eq major-mode 'w3-mode))
@@ -866,7 +899,6 @@ current page."
     (delete-file filename)
     ))
 
-
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this region."
   (interactive "r")
@@ -878,8 +910,6 @@ current page."
                   filename)
     (w3-open-local filename)
     (delete-file filename)))
-
-
 
 ;;}}}
 ;;{{{ fix bug in W3 under emacs 21 
