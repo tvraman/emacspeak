@@ -203,7 +203,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "\C-m"  'emacspeak-speak-continuously)
 (define-key emacspeak-keymap "\C-i" 'emacspeak-table-display-table-in-region)
 (define-key emacspeak-keymap "\C-h" 'emacspeak-learn-mode)
-(define-key emacspeak-keymap "\M-h" 'emacspeak-speak-browse-linux-howto)
+(define-key emacspeak-keymap "H" 'emacspeak-speak-browse-linux-howto)
 (define-key emacspeak-keymap "\C-b" 'emacspeak-submit-bug )
 (define-key emacspeak-keymap "\"" 'emacspeak-speak-sexp-interactively)
 (define-key emacspeak-keymap "p" 'dtk-pause)
@@ -213,7 +213,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "P" 'emacspeak-speak-paragraph-interactively)
 (define-key emacspeak-keymap "M" 'emacspeak-speak-minor-mode-line)
 (define-key emacspeak-keymap "L" 'emacspeak-speak-line-interactively)
-(define-key emacspeak-keymap "H" 'emacspeak-speak-hostname)
+(define-key emacspeak-keymap "\M-h" 'emacspeak-speak-hostname)
 (define-key emacspeak-keymap "B" 'emacspeak-speak-buffer-interactively)
 (define-key emacspeak-keymap "A" 'emacspeak-appt-repeat-announcement)
 (define-key emacspeak-keymap "?"
