@@ -3,7 +3,7 @@
 #$Id$
     if [ -f /etc/emacspeak.conf ]
     then
-    source /etc/emacspeak.conf
+    . /etc/emacspeak.conf
 fi
 
 if [ -e $HOME/.emacs ]
@@ -29,4 +29,4 @@ done
 
 EMACS_UNIBYTE=1
 export EMACS_UNIBYTE
-exec emacs -q -l /home/raman/emacs/lisp/emacspeak/lisp/emacspeak-setup.el $INITSTR $CL_ALL
+exec emacs -q -l /home/tvraman/emacs/lisp/emacspeak/lisp/emacspeak-setup.el $INITSTR $CL_ALL

@@ -42,7 +42,7 @@
 #or /dev/dsp #
 #If no pathname specified try to find it in /usr/sounds 
 
-	SOUNDDIR=/home/raman/emacs/lisp/emacspeak//sounds
+	SOUNDDIR=/home/tvraman/emacs/lisp/emacspeak//sounds
 for i in $* 
 do 
 if [ ! -f $i ]
