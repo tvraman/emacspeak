@@ -345,6 +345,32 @@
       </qandaentry>
       <qandaentry>
         <question>
+          <para>Browsing structured text using Emacs outline mode</para>
+        </question>
+        <answer>
+          <para>
+Emacs outline facility provides a powerful tool for browsing textual
+            material based on its implicit structure.
+            By default, command <command>outline-minor-mode</command>
+            sets up Emacs to recognize lines beginning with
+            <literal>***</literal>
+as header lines. This can be changed on a per buffer basis by setting
+            up Emacs variable <varname>outline-regexp</varname>
+to a regular expression that matches header lines.
+            When using Emacs <command>view-mode</command>
+to read text, this feature is especially useful when combined with
+            Emacspeak built-in feature that loads a directory specific
+            file to customize  Emacspeak on a per-directory basis.
+Thus, one can organize electronic texts by placing  files for a given
+            book  in a specific directory, and then creating a file
+            called <literal>.espeak.el</literal>
+            in that directory that sets up things like Emacs variable
+            <varname>outline-regexp</varname>.
+</para>
+        </answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
           <para><emphasis>Everything</emphasis> is
             searchable.</para>
         </question>
@@ -413,6 +439,7 @@
             its use.</para>
         </answer>
       </qandaentry>
+
     </qandadiv>
     <qandadiv id="status">
       <title>State Of The Emacspeak Audio Desktop</title>
