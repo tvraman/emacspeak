@@ -7,9 +7,11 @@ Any errors or corrections should be made to the source-level
 documentation.
 
 @menu
+* cd-tool Options::             
 * dtk-speak Options::           
 * emacspeak Options::           
 * emacspeak-advice Options::    
+* emacspeak-amphetadesk Options::  
 * emacspeak-analog Options::    
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
@@ -56,6 +58,30 @@ documentation.
 * emacspeak-xslt Options::      
 * voice-setup Options::         
 @end menu
+
+@node cd-tool Options
+@section cd-tool Options
+
+Commentary:
+Provide an emacs front-end to cdtool.
+cdtool can be obtained as an rpm
+check using rpmfind
+or from its home site at 
+  sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
+This module also provides the ability to play or save 
+clips from a CD if you have cdda2wav installed.
+cdda2wav is a cd to wav convertor.
+
+(eval-when-compile (require 'cl))
+(declaim  (optimize  (safety 0) (speed 3)))
+
+Automatically generated documentation
+for options defined in module  cd-tool.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} cd-tool-start-command
+*Name of cdstart command; most likely either "cdstart" or "cdplay".
+@end defvar
 
 @node dtk-speak Options
 @section dtk-speak Options
@@ -169,6 +195,21 @@ Personality used for highlighting comint prompts --emacs 21.
 * Option to make messages pause speech.
 If t then all messages will pause ongoing speech if any
 before the message is spoken.
+@end defvar
+
+@node emacspeak-amphetadesk Options
+@section emacspeak-amphetadesk Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-amphetadesk.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-amphetadesk-port
+Port where AmphetaDesk listens.
+@end defvar
+
+@defvar {User Option} emacspeak-amphetadesk-program
+Script that launches amphetadesk.
 @end defvar
 
 @node emacspeak-analog Options
