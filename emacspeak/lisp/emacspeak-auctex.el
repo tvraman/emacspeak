@@ -52,7 +52,7 @@
   "Face used for italics."
   :group 'emacspeak-auctex)
 
-(def-voice-font emacspeak-latex-bold-face 'bold
+(def-voice-font emacspeak-latex-bold-face voice-bolden
   'font-latex-bold-face
   "Face used for bold."
 
