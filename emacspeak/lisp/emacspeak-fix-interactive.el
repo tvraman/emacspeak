@@ -192,19 +192,19 @@ speak its prompts. "
                          ((dtk-stop-immediately nil)
                           (emacspeak-last-command-needs-minibuffer-spoken t)
                           (emacspeak-speak-messages nil))
-                       (when (or (string-lessp emacs-version "21")
-                                 (= ?c (aref  (, prompt) 0))
-                                 (= ?K (aref  (, prompt) 0))
-                                 (= ?k (aref  (, prompt) 0)))
-			 (tts-with-punctuations "all"
-						(dtk-speak
-						 (,
-						  (format " %s "
-							  (or
-							   (if (= ?* (aref  prompt 0))
-							       (substring prompt 2 )
-							     (substring prompt 1 ))
-							   ""))))))
+                        (when (or 
+                                  (= ?c (aref  (, prompt) 0))
+                                  (= ?K (aref  (, prompt) 0))
+                                  (= ?k (aref  (, prompt) 0)))
+ 			 (tts-with-punctuations "all"
+ 						(dtk-speak
+ 						 (,
+ 						  (format " %s "
+ 							  (or
+ 							   (if (= ?* (aref  prompt 0))
+ 							       (substring prompt 2 )
+ 							     (substring prompt 1 ))
+ 							   ""))))))
                        (call-interactively
                         #'(lambda (&rest args)
                             (interactive (, prompt))
