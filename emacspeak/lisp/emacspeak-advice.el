@@ -1674,16 +1674,14 @@ Produce an auditory icon if possible."
 ;;; These functions have to be advised by hand:
 
 (defadvice kill-buffer (around emacspeak pre act)
-  "Speak the prompt, please:."
+  "Speech-enabled by emacspeak."
   (cond
    ((interactive-p)
-    (let ((dtk-stop-immediately nil))
-      (dtk-speak (format "Kill buffer:  default  %s"
-                         (buffer-name)))
-      ad-do-it
-      (emacspeak-auditory-icon 'close-object)
-      (emacspeak-speak-mode-line)))
-   (t ad-do-it))
+    (setq emacspeak-last-command-needs-minibuffer-spoken t)
+    ad-do-it
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line))
+    (t ad-do-it))
   ad-return-value)
     
 (defadvice quit-window (after emacspeak pre act)
