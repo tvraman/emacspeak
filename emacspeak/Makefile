@@ -165,7 +165,7 @@ servers/outloud \
 servers/tts-lib.tcl \
 servers/remote-tcl \
 servers/speech-server
-ELISP = lisp/*.el lisp/*.def lisp/Makefile
+ELISP = lisp/*.el  lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile 
 MISC=etc/extract-table.pl etc/last-log.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
