@@ -52,7 +52,33 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Accessors:
+;;; these are defined as macros in ses.el 
+;;; and are cloned here as defsubst forms for now.
 
+(defsubst emacspeak-ses-get-cell (row col)
+  "Return the cell structure that stores information about cell
+  (ROW,COL)."
+  (declare (special cells))
+  (aref (aref cells row) col))
+
+(defsubst emacspeak-ses-cell-symbol (row &optional col)
+  "From a CELL or a pair (ROW,COL), get the symbol that names the local-variable holding its value.  (0,0) => A1."
+  (aref (if col (emacspeak-ses-get-cell  row  col) row) 0))
+
+(defsubst emacspeak-ses-cell-formula (row &optional col)
+  "From a CELL or a pair (ROW,COL), get the function that computes its value."
+  (aref  (if col (emacspeak-ses-get-cell  row  col) row) 1))
+
+(defsubst emacspeak-ses-cell-value (row &optional col)
+  "From a CELL or a pair (ROW,COL), get the current value for that cell."
+  (symbol-value (emacspeak-ses-cell-symbol row col)))
+
+(defsubst emacspeak-ses-sym-rowcol (sym)
+  "From a cell-symbol SYM, gets the cons (row . col).  A1 => (0 . 0).  Result
+is nil if SYM is not a symbol that names a cell."
+  (and (symbolp  sym) (get  sym 'ses-cell)))
+;;}}}
 
 (provide 'emacspeak-ses)
 ;;{{{ end of file
