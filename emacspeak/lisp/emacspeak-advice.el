@@ -657,13 +657,17 @@ before the message is spoken."
 (defadvice signal (before emacspeak pre act compile)
   "Speak the error message as well."
   (let ((dtk-stop-immediately t))
-  (dtk-speak
-   (format "%s %s"
-           (or (get (ad-get-arg 0) 'error-message)
-               "Peculiar error ")
-           (mapconcat 'identity
-                      (ad-get-arg 1)
-                      " ")))))
+    (dtk-speak
+     (format "%s %s"
+             (or (get (ad-get-arg 0) 'error-message)
+                 "Peculiar error ")
+             (cond
+ ((sequencep  (ad-get-arg 1))
+               (mapconcat 'identity
+                          (ad-get-arg 1)
+               " "))
+ (t (ad-get-arg 1)))))))
+
 
 (defadvice error (after emacspeak pre act)
   "Speak the error message.
