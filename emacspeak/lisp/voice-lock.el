@@ -186,12 +186,21 @@
 (require 'regexp-opt)
 ;;}}}
 ;; User variables.
-(defvar voice-lock-verbose (* 0 1024)
+
+(defgroup voice-lock nil
+  "Voice lock is responsible for adding audible face information to text."
+  :group 'emacspeak)
+
+(defcustom voice-lock-verbose (* 10 1024)
   "*If non-nil, means show status messages for buffer voiceification.
-If a number, only buffers greater than this size have voiceification messages.")
+If a number, only buffers greater than this size have voiceification messages."
+  :group 'voice-lock
+  :type '(choice (const :tag "No" nil)
+		 (const :tag "Yes" t)
+		 (integer :tag "limit")))
 
 ;;;###autoload
-(defvar voice-lock-maximum-decoration nil
+(defcustom voice-lock-maximum-decoration nil
   "*Maximum decoration level for voiceification.
 If nil, use the default decoration (typically the minimum available).
 If t, use the maximum decoration available.
@@ -200,10 +209,20 @@ If a list, each element should be a cons pair of the form (MAJOR-MODE . LEVEL),
 where MAJOR-MODE is a symbol or t (meaning the default).  For example:
  ((c-mode . t) (c++-mode . 2) (t . 1))
 means use the maximum decoration available for buffers in C mode, level 2
-decoration for buffers in C++ mode, and level 1 decoration otherwise.")
+decoration for buffers in C++ mode, and level 1 decoration otherwise."
+  :group 'voice-lock
+  :type '(choice (const :tag "No" nil) (const :tag "Yes" t)
+		 (integer :tag "limit")
+		 (repeat (cons (choice :tag "Major Mode"
+				       (const :tag "Default" t)
+				       (symbol :tag "Mode"))
+			       (choice :tag "Maximum Decoration"
+				       (const :tag "No" nil)
+				       (const :tag "Yes" t)
+				       (integer :tag "limit"))))))
 
 ;;;###autoload
-(defvar voice-lock-maximum-size (* 250 1024)
+(defcustom voice-lock-maximum-size (* 250 1024)
   "*Maximum size of a buffer for buffer voiceification.
 Only buffers less than this can be voiceified when Voice Lock mode is turned on.
 If nil, means size is irrelevant.
@@ -211,7 +230,14 @@ If a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),
 where MAJOR-MODE is a symbol or t (meaning the default).  For example:
  ((c-mode . 256000) (c++-mode . 256000) (rmail-mode . 1048576))
 means that the maximum size is 250K for buffers in C or C++ modes, one megabyte
-for buffers in Rmail mode, and size is irrelevant otherwise.")
+for buffers in Rmail mode, and size is irrelevant otherwise."
+  :group 'voice-lock
+  :type '(choice (const :tag "disabled" nil) integer
+		 (repeat (cons (choice :tag "Major Mode"
+				       (const :tag "Default" t)
+				       (symbol :tag "Mode"))
+			       (choice (const :tag "disabled" nil)
+				       integer)))))
 
 ;; Voiceification variables --personalities defined in voice-aux.el
 (defvar voice-lock-keywords nil
@@ -363,7 +389,7 @@ The value should be like the `cdr' of an item in `voice-lock-defaults-alist'.")
      (cons 'c++-mode			c++-mode-defaults)
      (cons 'idl-mode			idl-mode-defaults)
      (cons 'c-mode			c-mode-defaults)
-(cons 'objc-mode			objc-mode-defaults)
+     (cons 'objc-mode			objc-mode-defaults)
      (cons 'java-mode			java-mode-defaults)
      (cons 'elec-c-mode			c-mode-defaults)
      (cons 'emacs-lisp-mode		lisp-mode-defaults)

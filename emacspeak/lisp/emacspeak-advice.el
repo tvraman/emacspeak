@@ -1712,6 +1712,12 @@ Indicate change of selection with an auditory icon
     (emacspeak-speak-mode-line)))
 
 
+(defadvice delete-other-frames (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Deleted all other frames.")))
+
 (defadvice other-frame (after emacspeak pre act )
   "Speak modeline.
 Indicate change of selection with an auditory icon
