@@ -1968,17 +1968,21 @@ v
 (defun emacspeak-wizards-speak-and-skip-extent-upto-char (char)
   "Search forward from point until we hit char.
 Speak text between point and the char we hit."
-  (interactive "%c")
-  (let ((start (point)))
+  (interactive "c")
+  (let ((start (point))
+        (goal nil))
+    (save-excursion
       (cond
        ((search-forward (format "%c" char)
                        (point-max)
                        'no-error)
-       (emacspeak-speak-region start (point))
+        (setq goal (point))
+       (emacspeak-speak-region start goal)
        (emacspeak-auditory-icon 'select-object))
-       (t (error "Could not find %c" char)))))
+       (t (error "Could not find %c" char))))
+    (when goal (goto-char goal))))
 
-(defun emacspeak-wizards-speak-extent-upto-this-char ()
+(defun emacspeak-wizards-speak-and-skip-extent-upto-this-char ()
   "Speak extent delimited by point and last character typed."
   (interactive)
   (declare (special last-input-char))
