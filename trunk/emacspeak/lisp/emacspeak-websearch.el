@@ -1480,11 +1480,25 @@ Light for: ")))
                     emacspeak-lisp-directory)
   "Form for performing currency conversion.")
 
-(defun emacspeak-websearch-exchange-rate-convertor ()
+(defvar emacspeak-websearch-exchange-rate-convertor-uri
+  "http://www.xe.com/ucc/convert.cgi?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
+"URI template  for currency conversion.")
+
+(defun emacspeak-websearch-exchange-rate-convertor (conversion-spec)
   "Currency convertor."
-  (interactive)
-  (declare (special emacspeak-websearch-exchange-rate-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-exchange-rate-form))
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Currency Convertor: FROM|TO:")))
+  (declare (special emacspeak-websearch-exchange-rate-convertor-uri))
+  (let ((fields (split-string conversion-spec "|")))
+    (browse-url
+     (format emacspeak-websearch-exchange-rate-convertor-uri
+             (upcase (first fields))
+             (upcase (second fields))))
+    (emacspeak-websearch-post-process " = "
+                                      'emacspeak-speak-line)))
+      
 
 ;;}}}
 ;;{{{ my rss

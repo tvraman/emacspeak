@@ -6,7 +6,7 @@
     <title>Currency Convertor</title>
   </head>
   <body>
-    <form method="POST" action="http://www.xe.com/ucc/convert.cgi">
+    <form method="GET" action="http://www.xe.com/ucc/convert.cgi">
       <table>
         <tr>
           <td>
