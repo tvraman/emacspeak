@@ -10,7 +10,8 @@ sound card. Note that ViaVoice TTS is no longer available on the Internet.
 
 You need to obtain  and install the IBM ViaVoice TTS
 (previously called Outloud) engine.  The The ViaVoice TTS  engine
-itself is not distributed as part of this package.
+itself is not distributed as part of this package --see 
+http://www.redhat.com/services/techsupport/accessibility/s1-access-install.html
 
 
 
