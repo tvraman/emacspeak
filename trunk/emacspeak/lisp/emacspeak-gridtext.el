@@ -101,7 +101,9 @@ end   as specified by grid."
     (save-excursion
       (save-restriction
         (narrow-to-region start end)
+        (if (< start end )
         (goto-char start)
+        (goto-char end ))
         (loop for i from 0 to (1- num-rows)
               do
               (beginning-of-line)
@@ -114,7 +116,7 @@ end   as specified by grid."
                             this-line
                             (if (= j 0 ) 
                                 0
-                              (nth  (1- j) grid))
+                               (nth  (1- j) grid))
                             (1- (nth j grid )))))
               (aset this-row (length grid)
                     (substring this-line
@@ -176,9 +178,11 @@ end   as specified by grid."
             (insert
              (format
               "\n(setf
- (gethash %s emacspeak-gridtext-table)\n %s)"
+ (gethash %s emacspeak-gridtext-table)
+ (quote %s))"
               (prin1-to-string key)
-               (prin1-to-string (emacspeak-gridtext-get key)))))
+               (prin1-to-string (emacspeak-gridtext-get
+                                 key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 
@@ -193,7 +197,7 @@ end   as specified by grid."
     (mark)
     (read-minibuffer "Specify grid as a list: "
                       (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
-  (let ((grid-table (make-emacspeak-table
+  (let ((grid-table (emacspeak-table-make-table
                      (emacspeak-gridtext-vector-region start
                                                        end
                                                        grid)))
@@ -202,7 +206,6 @@ end   as specified by grid."
                          (buffer-name)))))
     (emacspeak-gridtext-set
      (emacspeak-gridtext-generate-key) grid)
-
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
 
 

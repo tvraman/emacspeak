@@ -64,7 +64,7 @@ current-column ;column containing point
   elements                              ;  vector of  elements 
   )
 
-(defun make-emacspeak-table (elements)
+(defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
   (assert (vectorp elements) t
           "Elements should be a vector of vectors" )
