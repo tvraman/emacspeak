@@ -561,7 +561,7 @@ Arguments START and END specify region to speak."
   (dtk-interp-stop))
 
 (defsubst dtk-reset-default-voice()
-  (declare (special tts-default-voice ))
+  (declare (special tts-default-voice))
   (dtk-dispatch (tts-get-voice-command tts-default-voice )))
 
 ;;}}}

@@ -1260,7 +1260,7 @@ part of the libxslt package." nil nil)
 ;;;***
 
 ;;;### (autoloads (turn-on-voice-lock voice-lock-mode) "voice-setup"
-;;;;;;  "voice-setup.el" (16006 3170))
+;;;;;;  "voice-setup.el" (16007 12197))
 ;;; Generated autoloads from voice-setup.el
 
 (autoload (quote voice-lock-mode) "voice-setup" "\
