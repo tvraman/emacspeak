@@ -75,6 +75,10 @@
 
 ;;}}}
 ;;{{{  Marking structured objects:
+(defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice LaTeX-mark-section (after emacspeak pre act)
 "Speak the first line. 
