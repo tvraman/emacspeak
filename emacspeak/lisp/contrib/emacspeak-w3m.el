@@ -1,7 +1,6 @@
 ;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el
 ;;; This file is not part of Emacspeak, but the same terms and
 ;;; conditions apply.
-
 ;; Copyright (C) 2001,2002  Dimitri V. Paduchih
 
 ;; Author: Dimitri Paduchih <paduch@imm.uran.ru>
@@ -95,7 +94,8 @@
     (w3m-form-input-textarea . emacspeak-w3m-speak-form-input-textarea)
     (w3m-form-submit . emacspeak-w3m-speak-form-submit)
     (w3m-form-input-password . emacspeak-w3m-speak-form-input-password)
-    (w3m-form-reset . emacspeak-w3m-speak-form-reset)))
+    (w3m-form-reset . emacspeak-w3m-speak-form-reset))
+  )
 
 
 (defun emacspeak-w3m-anchor-text (&optional default)
@@ -201,36 +201,68 @@
 ;;{{{  advice interactive commands.
 
 (defadvice w3m-goto-url (around emacspeak pre act)
+  "Speech-enable W3M."
+  (cond
+   ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
   (when (stringp w3m-current-title)
     (message "%s" w3m-current-title)))
+   (t ad-do-it))ad-return-value)
+
+  
 
 (defadvice w3m-next-anchor (around emacspeak pre act)
+  "Speech-enable W3M."
+  (cond
+   ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
   (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-w3m-speak-this-anchor)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice w3m-previous-anchor (around emacspeak pre act)
+  "Speech-enable link navigation."
+  (cond
+   ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
   (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-w3m-speak-this-anchor)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice w3m-next-form (around emacspeak pre act comp)
+  "Speech-enable form navigation."
+  (cond
+   ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
   (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-w3m-speak-this-anchor)))
+(t ad-do-it))
+ad-return-value)
 
 (defadvice w3m-previous-form (around emacspeak pre act comp)
+  "Speech enable form navigation."
+  (cond
+   ((interactive-p)
   (let ((emacspeak-speak-messages nil))
     ad-do-it)
   (when (interactive-p)
-    (emacspeak-w3m-speak-this-anchor)))
+    (emacspeak-w3m-speak-this-anchor)
+    (emacspeak-auditory-icon 'large-movement)))
+(t ad-do-it)))
 
 (defadvice w3m-view-this-url (around emacspeak pre act comp)
+  "Speech-enable W3M."
+  (cond
+   ((interactive-p)
   (let ((url (emacspeak-w3m-anchor))
 	(act (emacspeak-w3m-action)))
     ad-do-it
@@ -241,38 +273,53 @@
 		     '(w3m-form-input
 		       w3m-form-input-radio
 		       w3m-form-input-password)))
-      (emacspeak-w3m-speak-this-anchor))))
+      (emacspeak-w3m-speak-this-anchor))
+    (emacspeak-auditory-icon 'select-object)))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice w3m-scroll-up-or-next-url (around emacspeak pre act comp)
+  "Speech-enable scrolling."
+  (cond
+   ((interactive-p)
   (let ((opoint (save-excursion
 		  (beginning-of-line)
 		  (point))))
     ;; hide opoint from advised function
     (let (opoint) ad-do-it)
-    (when (interactive-p)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
 			      (save-excursion (end-of-line)
-					      (point))))))
+					      (point)))))
+   (t ad-do-it))
+  ad-return-value)
 
-(defadvice w3m-scroll-down-or-previous-url (around emacspeak pre act comp)
+(defadvice w3m-scroll-down-or-previous-url (around emacspeak pre act
+                                                   comp)
+  "Speech-enable scrolling."
+  (cond
+   ((interactive-p)
   (let ((opoint (save-excursion
 		  (end-of-line)
 		  (point))))
     ;; hide opoint from advised function
     (let (opoint) ad-do-it)
-    (when (interactive-p)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
 			      (save-excursion (beginning-of-line)
-					      (point))))))
+					      (point)))))
+   (t ad-do-it))
+  ad-return-value)
+
 
 (defadvice w3m-close-window (after emacspeak pre act comp)
+  "Produce auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice w3m-quit (after emacspeak pre act comp)
+  "Produce auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
