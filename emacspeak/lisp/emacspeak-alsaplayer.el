@@ -59,7 +59,7 @@
   "Process handle to alsaplayer." )
 (make-variable-buffer-local 'emacspeak-alsaplayer-process)
 
-(defvar emacspeak-alsaplayer-session nil
+(defvar emacspeak-alsaplayer-session 0
   "Alsaplayer session name associated with this buffer.")
 (make-variable-buffer-local 'emacspeak-alsaplayer-session)
 ;;;###autoload
@@ -99,7 +99,10 @@
   (second
    (split-string
     (buffer-string)))
-  1 -1))
+  (+ 1 
+(length emacspeak-alsaplayer-program)
+1)
+-1))
 
 ;;;###autoload
 (defun emacspeak-alsaplayer-launch ()
@@ -126,8 +129,7 @@ Alsaplayer session."
             (emacspeak-alsaplayer-get-session-id))
       (erase-buffer)
       )
-    (switch-to-buffer emacspeak-alsaplayer-buffer-name)
-    (rename-buffer emacspeak-alsaplayer-session 'unique)))
+    (switch-to-buffer emacspeak-alsaplayer-buffer-name)))
 
 ;;}}}
 
