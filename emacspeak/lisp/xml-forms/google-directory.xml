@@ -8,10 +8,27 @@
   <body>
     <form method="GET" action="http://www.google.com/search">
       <p>
-        <label id="q">Search for</label>
+        <label id="q">Find </label>
         <input type="text" name="q" size="25" id="q"/>
-        <label for="cat">in category</label>
-        <input type="text" name="cat" value="gwd/Top" id="cat"/>
+        <label for="cat">in </label>
+        <select name="cat" id="cat">
+          <option value="gwd/Top/Arts/">Arts</option>
+          <option value="gwd/Top/Business/">Business</option>
+          <option value="gwd/Top/Computers/">Computers</option>
+          <option value="gwd/Top/Games/">Games</option>
+          <option value="gwd/Top/Health/">Health</option>
+          <option value="gwd/Top/Home/">Home</option>
+          <option value="gwd/Top/Kids_and_Teens/">Kids and Teens</option>
+          <option value="gwd/Top/News/">News</option>
+          <option value="gwd/Top/Recreation/">Recreation</option>
+          <option value="gwd/Top/Reference/">Reference</option>
+          <option value="gwd/Top/Regional/">Regional</option>
+          <option value="gwd/Top/Science/">Science</option>
+          <option value="gwd/Top/Shopping/">Shopping</option>
+          <option value="gwd/Top/Society/">Society</option>
+          <option value="gwd/Top/Sports/">Sports</option>
+          <option value="gwd/Top/World/">World</option>
+        </select>
         <input type="hidden" name="hl" value="(null)"/>
         <input type="submit" name="sa" value="Search Google Directory "/>
       </p>
