@@ -162,6 +162,10 @@ post-action ;action to perform after opening
                                "http://dailynews.yahoo.com/htx/ts/nm/?u"
                                nil)
 
+(emacspeak-url-template-define "Yahoo Technology  News"
+                               "http://dailynews.yahoo.com/htx/tc/nm/?u"
+                               nil)
+
 ;;}}}
 ;;{{{ Adobe pdf conversion 
 
