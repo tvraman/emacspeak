@@ -82,9 +82,10 @@
   "Retrieve and display RSS news feed."
   (interactive
    (list
-    (read-from-minibuffer "RSS Feed: ")))
+    (car
+    (browse-url-interactive-arg "RSS Feed: "))))
   (declare (special emacspeak-xslt-directory))
-  (when speak
+  (when (or (interactive-p)speak)
   (add-hook 'emacspeak-w3-post-process-hook
             'emacspeak-speak-buffer))
   (emacspeak-wizards-browse-xml-url-with-style
