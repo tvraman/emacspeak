@@ -235,6 +235,11 @@ Useful to do this before you listen to an entire buffer."
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time
+
+(defvar emacspeak-speak-iso-datetime-pattern
+  "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)?Z?"
+  "Regexp pattern that matches ISO date-time.")
+
 (defsubst emacspeak-speak-decode-iso-datetime (iso)
   "Return a speakable string description."
   (declare (special emacspeak-speak-time-format-string))
@@ -253,8 +258,8 @@ Useful to do this before you listen to an entire buffer."
                (char-equal ?Z (aref iso 15)))
       (setq second (+ (car (current-time-zone)) second)))
     ;; create the decoded date-time
-(format-time-string emacspeak-speak-time-format-string
-    (encode-time second minute hour day month year))))
+    (format-time-string emacspeak-speak-time-format-string
+                        (encode-time second minute hour day month year))))
 
 ;;}}}
 ;;{{{  Actions
