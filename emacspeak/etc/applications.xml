@@ -18,7 +18,7 @@ type="text/xsl"?>
       archives or by using popular WWW search engines. For
       one such comprehensive index, see
       the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html" shape="rect">
-        the Emacs Lisp Library</a>.
+      the Emacs Lisp Library</a>.
     </p>
     <h2>Applications List</h2>
     <p>
@@ -26,15 +26,12 @@ type="text/xsl"?>
     </p>
   </introduction>
   <category name="Multimedia">
-    <application name="emms">
-      Emacs Multimedia Front-End
-    </application>
     <application name="aumix">
       Emacspeak front-end for configuring  the 
       auditory display.
     </application>
     <application name="cd-tool">
-      Control CD player from anywhere on the audio desktop.</application>
+    Control CD player from anywhere on the audio desktop.</application>
     <application name="freeamp">
       Ubiquitous access to Freeamp mp3  with a single
       keystroke.
@@ -53,46 +50,49 @@ type="text/xsl"?>
       favorite streams.
     </application>
     <application name="midge">
-      Compose and play MIDI files.</application>
+    Compose and play MIDI files.</application>
+    <application name="emms">
+      Emacs Multimedia Front-End
+    </application>
   </category>
   <category name="Document Authoring">
     <application name="nxml">
       XML authoring environment by James Clark.
-      Provides on the fly validation and voice locking.</application>
+    Provides on the fly validation and voice locking.</application>
     <application name="xae">
       XML authoring environment based on PSGML and XSL.
-      Enables structured document authoring and interactive preview.</application>
+    Enables structured document authoring and interactive preview.</application>
     <application name="psgml">
       Environment for authoring and maintaining XML and SGML
       documents.
       Provides structured authoring support including
-      context-sensitive help  based on current DTD.</application>
+    context-sensitive help  based on current DTD.</application>
     <application name="tdtd">Author and maintain XML and
-      SGML DTD files.</application>
+    SGML DTD files.</application>
 
-      <application name="xslt-process">
-Interactive environment for working with XSLT.
+    <application name="xslt-process">
+      Interactive environment for working with XSLT.
       </application><application name="auctex">
       Authoring environment for TeX
       and LaTeX documents;
       template based authoring, voice locking support and structured browsing.
     </application>
     <application name="bibtex">
-      Maintain BIBTeX bibliographies.</application>
+    Maintain BIBTeX bibliographies.</application>
     <application name="reftex">
       Browse cross-references in LaTeX
-      documents.</application>
+    documents.</application>
     <application name="texinfo">Authoring support for creating texinfo
-      documentation.  Texinfo enables the production of both
-      online hypertext and high-quality print documentation
-      from a single source.</application>
+    documentation.  Texinfo enables the production of both
+    online hypertext and high-quality print documentation
+    from a single source.</application>
     <application name="metapost">
       Speech-enabled metapost mode for creating drawings using the
       metapost language.
     </application>
     <application name="enriched">
       Rich-text authoring to provide a simple word
-      processor.</application>
+    processor.</application>
   </category>
   <category name="Messaging">
     <application name="vm">
@@ -104,28 +104,28 @@ Interactive environment for working with XSLT.
     </application>
     <application name="eudc">
       Universal Directory Client including LDAP support and
-      seamless integration with messaging applications.</application>
+    seamless integration with messaging applications.</application>
     <application name="gnus">
       Usenet news and email client
       with support for exotic information backends such as
-      Slashdot etc.</application>
+    Slashdot etc.</application>
     <application name="message">
       Email composition   from
-      within other applications.</application>
+    within other applications.</application>
     <application name="supercite">
-      Enables flexible citations when composing  email.</application>
+    Enables flexible citations when composing  email.</application>
     <application name="tnt">
       Instant Messenger (AIM) client,
       with support for multiple parallel chat
-      sessions.</application>
+    sessions.</application>
     <application name="erc">
       Internet Relay Chat (IRC) client
-      with  voice locking support and parallel chat sessions.</application>
+    with  voice locking support and parallel chat sessions.</application>
     <application name="imcom">
       IMCom is a Python-based jabber client.
-Module emacspeak-imcom speech-enables IMCom with full audio
+      Module emacspeak-imcom speech-enables IMCom with full audio
       formatting support.
-Chat sessions can be viewed within W3  with full ACSS support.
+      Chat sessions can be viewed within W3  with full ACSS support.
     </application>
     <application name="gnuyahoo">
       GNUYahoo is a Yahoo messenger client.
@@ -135,9 +135,9 @@ Chat sessions can be viewed within W3  with full ACSS support.
       allows easy browsing of automatically archived mail.
     </application>
     <application name="mh-e">
-      Interface to the MH suite of email tools.</application>
+    Interface to the MH suite of email tools.</application>
     <application name="rmail">
-      Email client.</application>
+    Email client.</application>
   </category>
   <category name="General Productivity Applications">
     <application name="search-and-replace">
@@ -145,22 +145,22 @@ Chat sessions can be viewed within W3  with full ACSS support.
       is available throughout the audio desktop.
       Audio formatting is used to aurally highlight search hits,
       and is used to advantage when providing spoken
-      feedback during  search and replace. </application>
-<application name="iswitchb">
+    feedback during  search and replace. </application>
+    <application name="iswitchb">
       Quickly switch to buffers on the audio desktop.
     </application>
-<application name="ido">
+    <application name="ido">
       Efficiently find buffers and files on the audio desktop
       --- the IDo way.
     </application>
-<application name="ibuffer">
+    <application name="ibuffer">
       Tool for locating open buffers on the audio desktop.
     </application>
     <application name="bs">
       Tool for locating open buffers on the audio desktop.
     </application>
     <application name="buff-menu">
-      Browsing and selecting buffers on the audio desktop.</application>
+    Browsing and selecting buffers on the audio desktop.</application>
     <application name="buff-sel">
       Interactive selection of buffers on the audio desktop.
     </application>
@@ -173,13 +173,13 @@ Chat sessions can be viewed within W3  with full ACSS support.
     </application>
     <application name="calc">
       Calculator  with  financial and
-      scientific functions.</application>
+    scientific functions.</application>
     <application name="gnuplot">
       Front-end to Gnuplot  for plotting graphs; integrates with
       the symbolic calculator.
     </application>
     <application name="calculator">
-      Simple but powerful desktop calculator.</application>
+    Simple but powerful desktop calculator.</application>
     <application name="calendar">
       Desktop calendar with an integrated appointment book.
     </application>
@@ -221,7 +221,7 @@ Chat sessions can be viewed within W3  with full ACSS support.
       enables easy merging of different file versions, applying
       patches etc.
       Voice locking is used to advantage in 
-      aurally highlighting the differences.</application>
+    aurally highlighting the differences.</application>
     <application name="shell">
       Runs interactive command interpreters like BASH and TCSH.
     </application>
@@ -235,12 +235,12 @@ Chat sessions can be viewed within W3  with full ACSS support.
       applications like VI, Lynx and PINE.
     </application>
     <application name="ssh">
-      Front-end to SSH.</application>
+    Front-end to SSH.</application>
     <application name="efs">
       Front-end to remote file access using an FTP
-      back-end.</application>
+    back-end.</application>
     <application name="tramp">
-      Front-end to remote file access using SSH backend.</application>
+    Front-end to remote file access using SSH backend.</application>
     <application name="eshell">
       Command shell implemented in Emacs Lisp, making it
       independent of the underlying operating system.
@@ -284,13 +284,13 @@ Chat sessions can be viewed within W3  with full ACSS support.
     </application>
     <application name="man">
       UNIX online manual browser with full aural highlighting and
-      structured browsing.</application>
+    structured browsing.</application>
     <application name="howto">
-      Emacspeak wizard for browsing Linux HOWTO documents.</application>
+    Emacspeak wizard for browsing Linux HOWTO documents.</application>
     <application name="ispell">
       Front-end to interactive spell checker.
       Errors are aurally highlighted and available corrections
-      automatically spoken.</application>
+    automatically spoken.</application>
     <application name="flyspell">
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
@@ -308,7 +308,7 @@ Chat sessions can be viewed within W3  with full ACSS support.
       available on the underlying platform.
     </application>
     <application name="vc">
-      Front-end to version control systems like CVS and RCS.</application>
+    Front-end to version control systems like CVS and RCS.</application>
     <application name="pcl-cvs">
       Front-end for working with CVS repositories.
     </application>
@@ -334,13 +334,13 @@ Chat sessions can be viewed within W3  with full ACSS support.
     </application>
     <application name="dismal">
       Spread-sheet application with suport for customizing
-      spoken feedback on a per-sheet basis.</application>
+    spoken feedback on a per-sheet basis.</application>
     <application name="analog">
-Analog.el provides a log analyzer that can be customized to
+      Analog.el provides a log analyzer that can be customized to
       display system log files with a few convenient
-      keystrokes.</application>
+    keystrokes.</application>
     <application name="emacspeak-daisy">
-Implements a digital talking book reader for DAISY3  talking books.</application>
+    Implements a digital talking book reader for DAISY3  talking books.</application>
     <application name="table-ui">
       Emacspeak's rich table browsing interface.
       See Auditory User Interfaces (AUI) at
@@ -362,10 +362,10 @@ Implements a digital talking book reader for DAISY3  talking books.</application
     </application>
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
-      support.</application>
+    support.</application>
     <application name="w3m">
-Light-weight WWW browser.
-Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
+      Light-weight WWW browser.
+    Does not support table navigation, CSS or Aural CSS, but can be fast and light-weight.</application>
     <application name="url-template">
       Emacspeak client  that provides programmable  URL templates.
       Pre-defined templates offer easy access to W3C mailing
@@ -382,12 +382,12 @@ Does not support table navigation, CSS or Aural CSS, but can be fast and light-w
     </application>
     <application name="clipboard">
       Emacspeak clipboard for cut and paste among different
-      emacspeak sessions, possibly running on different hosts.</application>
+    emacspeak sessions, possibly running on different hosts.</application>
     <application name="help">
       Speech-enabled online help across the audio
-      desktop.</application>
-<application name="eperiodic">
-Periodic table of elements.</application>
+    desktop.</application>
+    <application name="eperiodic">
+    Periodic table of elements.</application>
   </category>
   <category name=" Software Development ">
     <application name="jde">
@@ -395,7 +395,10 @@ Periodic table of elements.</application>
       support using the Java Platform Debug Architecture
       (JPDA). Provides a speech-enabled inspector and wizards.
     </application>
-    <application name="ecb">
+
+    <application name="cedet">
+      Integrated Emacs Development Environment
+      </application><application name="ecb">
       Emacs Class Browser with support for Java, C++, C
       and other popular languages.
       Provides navigable table of contents as well as a browsable method and
@@ -492,10 +495,10 @@ Periodic table of elements.</application>
   </postamble>
 </applications>
 <!-- 
-local variables:
-major-mode: xml-mode
-sgml-set-face: nil
-end:
+     local variables:
+     major-mode: xml-mode
+     sgml-set-face: nil
+     end:
 -->
 <!--
 
