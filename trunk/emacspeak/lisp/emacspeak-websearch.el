@@ -1081,10 +1081,10 @@ Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearc
                 (webjump-url-encode
                  "I'm Feeling Lucky")))))
     (if lucky-flag
-        (emacspeak-speak-mode-line)
-      (emacspeak-websearch-post-process
+        (emacspeak-websearch-post-process
        "Results"
-       'emacspeak-speak-line))))
+       'emacspeak-speak-line)
+      (emacspeak-speak-mode-line))))
 
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
