@@ -56,8 +56,7 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-  (let ((voice-lock-mode t)
-        (emacspeak-use-auditory-icons nil))
+    (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (concat 
       (car ido-matches)
@@ -67,10 +66,11 @@
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
           " "
         (format "In directory: %s"
-                ido-current-directory))))))
+                ido-current-directory)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
+
 (defadvice ido-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -141,11 +141,17 @@
       do
       (eval
        (`
-        (defadvice   (, f)(after emacspeak pre act comp)
+        (defadvice   (, f)(around emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-mode-line))))))
+          (cond
+           ((interactive-p)
+            (let ((emacspeak-minibuffer-enter-auditory-icon nil))
+              (emacspeak-auditory-icon 'open-object)
+              ad-do-it
+              (emacspeak-auditory-icon 'open-object)
+              (emacspeak-speak-mode-line)))
+           (t ad-do-it))
+          ad-return-value))))
 
 (loop for f in
       '(ido-switch-buffer ido-switch-buffer-other-window
@@ -154,11 +160,17 @@
       do
       (eval
        (`
-        (defadvice   (, f)(after emacspeak pre act comp)
+        (defadvice   (, f)(around emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-mode-line))))))
+          (cond
+           ((interactive-p)
+            (let ((emacspeak-minibuffer-enter-auditory-icon nil))
+              (emacspeak-auditory-icon 'open-object)
+              ad-do-it
+              (emacspeak-auditory-icon 'select-object)
+              (emacspeak-speak-mode-line)))
+           (t ad-do-it))
+          ad-return-value))))
 
 ;;; note that though these are after advice fragments,
 ;;; ido-matches does not reflect the change at the time we
@@ -194,7 +206,8 @@
 
 (defgroup emacspeak-ido nil
   "Emacspeak ido customizations."
-  :group  'emacspeak)
+  :group  'emacspeak
+)
 
 (def-voice-font emacspeak-ido-first-match-personality voice-animate-medium
   'ido-first-match-face

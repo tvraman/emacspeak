@@ -2688,12 +2688,16 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ setup minibuffer hooks:
+(defvar emacspeak-minibuffer-enter-auditory-icon t
+  "Produce auditory icon when entering the minibuffer.")
 
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with
 emacspeak running."
+  (declare (special emacspeak-minibuffer-enter-auditory-icon))
   (let ((inhibit-field-text-motion t))
-    (emacspeak-auditory-icon 'open-object)
+    (when emacspeak-minibuffer-enter-auditory-icon
+      (emacspeak-auditory-icon 'open-object))
     (unwind-protect
         (tts-with-punctuations "all"
                                (emacspeak-speak-buffer)))))
