@@ -452,16 +452,17 @@ Returns a pair of the form (key-type . key)."
   (declare (special emacspeak-pronounce-pronunciation-keys))
   (let ((key nil)
         (key-type
-         (completing-read  "Define pronunciation that is specific to: " emacspeak-pronounce-pronunciation-keys nil t )))
+         (read
+          (completing-read  "Define pronunciation that is specific to: " emacspeak-pronounce-pronunciation-keys nil t ))))
     (cond
-     ((string-equal key-type "buffer")
+     ((eq key-type 'buffer)
       (setq key (buffer-name )))        ;handled differently
-     ((string-equal key-type "file")
+     ((eq key-type 'file)
       (setq key (buffer-file-name))
       (or key
           (error "Current buffer is not associated with a file"))
       (setq key (intern key)))
-     ((string-equal key-type "directory")
+     ((eq key-type 'directory)
       (setq key
             (or
              (condition-case nil
@@ -470,7 +471,7 @@ Returns a pair of the form (key-type . key)."
              default-directory))
       (or key (error "No directory associated with current buffer"))
       (setq key (intern key)))
-     ((string-equal key-type "mode")
+     ((eq key-type 'mode)
       (setq key
             major-mode)
       (or key (error "No major mode found for current buffer")))
@@ -496,10 +497,10 @@ First loads any persistent dictionaries if not already loaded."
     (when (and (not emacspeak-pronounce-dictionaries-loaded)
                (y-or-n-p "Load pre existing  pronunciation dictionaries first? "))
       (emacspeak-pronounce-load-dictionaries))
-    (unless  (string-equal (car key-pair)  "buffer")
+    (unless  (eq (car key-pair)  'buffer)
       (emacspeak-pronounce-add-dictionary-entry (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
-    (when (string-equal (car key-pair)  "buffer")
+    (when (eq (car key-pair)  'buffer)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
 
 (defun emacspeak-pronounce-define-pronunciation ()
@@ -518,10 +519,10 @@ First loads any persistent dictionaries if not already loaded."
     (when (and (not emacspeak-pronounce-dictionaries-loaded)
                (y-or-n-p "Load pre existing  pronunciation dictionaries first? "))
       (emacspeak-pronounce-load-dictionaries))
-    (unless  (string-equal (car key-pair)  "buffer")
+    (unless  (eq (car key-pair)  'buffer)
       (emacspeak-pronounce-add-dictionary-entry (cdr key-pair) word pronunciation)
       (emacspeak-pronounce-refresh-pronunciations))
-    (when (string-equal (car key-pair)  "buffer")
+    (when (eq (car key-pair)  'buffer)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry  word pronunciation))))
 
 ;;}}}
