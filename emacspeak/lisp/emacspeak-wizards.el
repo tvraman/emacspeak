@@ -2002,15 +2002,15 @@ this requires Perl module Finance::YahooQuote."
   :group 'emacspeak-wizards)
 (defcustom emacspeak-wizards-quote-row-filter
   '(1 " closed at " 2
-"giving it a P/E ratio of " 16 
-" and a market cap of " 20 ". "
-"The intra-day range was " 13
-", and the 52 week range is " 14 ". ")
+      "giving it a P/E ratio of " 16 
+      " and a market cap of " 20 ". "
+      "The intra-day range was " 13
+      ", and the 52 week range is " 14 ". ")
   "Format used to filter rows."
   :type '(repeat
           (choice :tag "Entry"
                   (integer :tag "Column Number:")
-(string :tag "Text: ")))
+		  (string :tag "Text: ")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload

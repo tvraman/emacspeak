@@ -1068,7 +1068,7 @@ markup to use."
   (unless (eq major-mode  'emacspeak-table-mode )
     (error "This command should be used in emacspeak table mode."))
   (let* ((column  (emacspeak-table-current-column
-  emacspeak-table))
+		   emacspeak-table))
          (row-filter emacspeak-table-speak-row-filter)
          (elements
           (loop for e across (emacspeak-table-elements emacspeak-table)
