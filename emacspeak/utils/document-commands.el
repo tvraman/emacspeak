@@ -139,6 +139,7 @@
     ("emacspeak-midge"  . nil )
     ("emacspeak-mpg123"  . ("mpg123"))
     ("emacspeak-madplay" . nil)
+    ("emacspeak-alsaplayer" . nil)
     ("emacspeak-mspools"  . ("mspools") )
     ("emacspeak-net-utils"  . nil )
     ("emacspeak-nxml-mode" . ("nxml-prepare"))

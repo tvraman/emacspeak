@@ -247,6 +247,100 @@ Function to submit a bug to the programs maintainer.
 
 ------------------------------------------------------------
 
+** emacspeak-alsaplayer-add-to-queueAdd specified resource to queue.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-clearClear or resume alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-jumpJump to specified track.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-launchLaunch Alsaplayer.
+user is placed in a buffer associated with the newly created
+Alsaplayer session.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-modeMajor mode for alsaplayer interaction. 
+
+
+key             binding
+---             -------
+
+v		emacspeak-alsaplayer-status
+S		emacspeak-alsaplayer-stop
+s		emacspeak-alsaplayer-start
+r		emacspeak-alsaplayer-relative
+q		emacspeak-alsaplayer-quit
+p		emacspeak-alsaplayer-previous
+n		emacspeak-alsaplayer-next
+SPC		emacspeak-alsaplayer-pause
+l		emacspeak-alsaplayer-launch
+j		emacspeak-alsaplayer-jump
+g		emacspeak-alsaplayer-seek
+c		emacspeak-alsaplayer-clear
+A		emacspeak-alsaplayer-replace-queue
+a		emacspeak-alsaplayer-add-to-queue
+
+
+
+This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
+during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-nextNext  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-pausePause or resume alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-previousPrevious  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-quitQuit or resume alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-relativeRelative seek  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-replace-queueAdd specified resource to queue.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-seekAbsolute seek  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-speedSet speed in alsaplayer.
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-startStart  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-statusShow alsaplayer status
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-stopStop  alsaplayer
+
+------------------------------------------------------------
+
+** emacspeak-alsaplayer-volumeSet volume.
+
+------------------------------------------------------------
+
 ** emacspeak-amphetadeskOpen amphetadesk.
 
 ------------------------------------------------------------
