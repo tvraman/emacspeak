@@ -91,14 +91,14 @@
 (require 'custom)
 (require 'backquote)
 (require 'acss-structure)
-(require 'dtk-voices)
 (require 'outloud-voices)
+(require 'dtk-voices)
+
 ;;}}}
 ;;{{{  helper for voice custom items:
+(fset 'tts-list-voices 'dtk-list-voices)
 (defun voice-setup-custom-menu ()
-(let ((v
-       (loop for k being the hash-keys of dtk-voice-table 
-collect (list 'const  k))))
+(let ((v (tts-list-voices)))
   (cons 'choice v)))
 
 ;;}}}
