@@ -1,20 +1,3 @@
-;;{{{ spot words 
-
-(defun emacspeak-wizards-spot-words (ext word)
-  "Searches recursively in all files with extension `ext'
-for `word' and siplays hits in a compilation buffer."
-  (interactive
-   (list
-    (read-from-minibuffer "Extension: "
-                          ".tex")
-    (read-from-minibuffer "Word: "
-                          (thing-at-point 'word))))
-  (compile 
-   (format
-    "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
-    ext word))
-  (emacspeak-auditory-icon 'task-done))
-
 ;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards
 ;;; $Id$
 ;;; $Author$
@@ -1674,11 +1657,9 @@ visiting the xls file."
                  emacspeak-wizards-xlhtml-program filename)
          'replace
          (current-buffer))
-        (emacspeak-w3-preview-this-buffer)
-        (setq emacspeak-wizards-xl-preview-buffer (current-buffer)))
+        (emacspeak-w3-preview-this-buffer))
       (kill-buffer buffer)
-      (kill-buffer xl-buffer)
-      (switch-to-buffer emacspeak-wizards-xl-preview-buffer)))))
+      (kill-buffer xl-buffer)))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.xls$"
@@ -1693,12 +1674,12 @@ visiting the xls file."
 (define-derived-mode emacspeak-wizards-ppt-mode text-mode
   "Browsing PPT Files."
   "Major mode for browsing PPT slides.\n\n
-XL Sheets are converted to HTML and previewed using W3."
+PPT files  are converted to HTML and previewed using W3."
   (emacspeak-wizards-ppt-display))
 
 (defcustom emacspeak-wizards-ppthtml-program "ppthtml"
-  "Program for converting XL to HTML.
-Set this to nil if you do not want to use the XLHTML wizard."
+  "Program for converting PPT  to HTML.
+Set this to nil if you do not want to use the PPTHTML wizard."
   :type 'string
   :group 'emacspeak-wizards)
 
@@ -1715,7 +1696,7 @@ visiting the ppt file."
                     emacspeak-wizards-ppt-preview-buffer))
   (cond
    ((null emacspeak-wizards-ppthtml-program)
-    (message "Not using Emacspeak XLHTML wizard."))
+    (message "Not using Emacspeak PPTHTML wizard."))
    (t 
     (let ((filename (buffer-file-name))
           (ppt-buffer (current-buffer))
@@ -1727,11 +1708,9 @@ visiting the ppt file."
                  emacspeak-wizards-ppthtml-program filename)
          'replace
          (current-buffer))
-        (emacspeak-w3-preview-this-buffer)
-        (setq emacspeak-wizards-ppt-preview-buffer (current-buffer)))
+        (call-interactively 'emacspeak-w3-preview-this-buffer))
       (kill-buffer buffer)
-      (kill-buffer ppt-buffer)
-      (switch-to-buffer emacspeak-wizards-ppt-preview-buffer)))))
+      (kill-buffer ppt-buffer)))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
@@ -2066,8 +2045,23 @@ value of the file local pattern."
     (emacspeak-speak-mode-line )))
 
 ;;}}}
-
+;;{{{ 
+(defun emacspeak-wizards-spot-words (ext word)
+  "Searches recursively in all files with extension `ext'
+for `word' and siplays hits in a compilation buffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Extension: "
+                          ".tex")
+    (read-from-minibuffer "Word: "
+                          (thing-at-point 'word))))
+  (compile 
+   (format
+    "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
+    ext word))
+  (emacspeak-auditory-icon 'task-done)) 
 ;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
