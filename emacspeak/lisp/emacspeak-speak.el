@@ -1910,6 +1910,7 @@ To leave, press \\[keyboard-quit]."
 
 (require 'comint)
 
+
 ;;; convenience to launch a root shell.
 
 (defun emacspeak-root ()
