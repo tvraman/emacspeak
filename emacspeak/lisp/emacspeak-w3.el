@@ -112,6 +112,7 @@ that is no longer supported by Emacspeak.")))
   (lambda ()
     (modify-syntax-entry 10 " ")
     (define-key w3-mode-map ";" 'emacspeak-w3-speak-this-element)
+    (define-key w3-mode-map "y" 'emacspeak-w3-url-rewrite-and-follow)
     (define-key w3-mode-map "n"
       'emacspeak-w3-next-doc-element)
     (define-key w3-mode-map "p" 'emacspeak-w3-previous-doc-element)
@@ -414,6 +415,45 @@ element. "
             (mailcap-add (concat "audio/" type) 'emacspeak-w3-freeamp
                          '(fboundp 'emacspeak-freeamp)))
           '("x-mpegurl" "x-mpeg" "x-mp3" "scpls" "mpegurl" "mpeg" "mp3")))
+
+;;}}}
+;;{{{ url rewrite
+
+(defvar emacspeak-w3-url-rewrite-rule nil
+  "URL rewrite rule to use in current buffer.")
+
+(make-variable-buffer-local 'emacspeak-w3-url-rewrite-rule)
+
+(defun emacspeak-w3-url-rewrite-and-follow ()
+  "Apply a url rewrite rule as specified in the current
+buffer before following link under  point.
+If no rewrite  rule is defined, first prompt for one.
+Rewrite rules are of the form 
+`(from to)'
+where from and to are strings.
+Typically, the rewrite rule is automatically set up by
+Emacspeak tools like websearch where a rewrite rule is
+known.
+Rewrite rules are useful in jumping directly to the printer
+friendly version of an article for example."
+  (interactive)
+  (declare (special emacspeak-w3-url-rewrite-rule))
+  (unless (eq major-mode 'w3-mode)
+    (error "This command is only useful in W3 buffers."))
+  (when (null emacspeak-w3-url-rewrite-rule)
+    (setq emacspeak-w3-url-rewrite-rule 
+          (read-minibuffer  "Specify rewrite rule: " "("))
+    (let ((url (w3-view-this-url t))
+          (redirect nil))
+      (unless url
+        (error "Not on a link."))
+      (setq rewrite
+            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                  url
+                                  (second emacspeak-w3-url-rewrite-rule)))
+      (browse-url rewrite)
+      (emacspeak-speak-mode-line)
+      (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
 (provide 'emacspeak-w3)
