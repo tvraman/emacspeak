@@ -670,24 +670,24 @@ sent to the terminal as if it were typed by the user."
   "Predicate to test if COORDINATE is within window.
 Argument ID specifies the window."
   (when coordinate
-  (let*  ((window  (emacspeak-eterm-get-window id ))
-          (row (cdr coordinate))
-          (column (car coordinate ))
-          (left-stretch (emacspeak-eterm-window-left-stretch window ))
-          (right-stretch (emacspeak-eterm-window-right-stretch window ))
-          (top-left-row (cdr
-                         (emacspeak-eterm-window-top-left window )))
-          (top-left-column (car
-                            (emacspeak-eterm-window-top-left window)))
-          (bottom-right-row (cdr 
-                             (emacspeak-eterm-window-bottom-right window )))
-          (bottom-right-column (car
-                                (emacspeak-eterm-window-bottom-right window  ))))
-    (not
-     (or  (< row top-left-row )
-          (> row bottom-right-row )
-          (and (not left-stretch ) (< column top-left-column ))
-          (and (not right-stretch ) (> column bottom-right-column )))))))
+    (let*  ((window  (emacspeak-eterm-get-window id ))
+	    (row (cdr coordinate))
+	    (column (car coordinate ))
+	    (left-stretch (emacspeak-eterm-window-left-stretch window ))
+	    (right-stretch (emacspeak-eterm-window-right-stretch window ))
+	    (top-left-row (cdr
+			   (emacspeak-eterm-window-top-left window )))
+	    (top-left-column (car
+			      (emacspeak-eterm-window-top-left window)))
+	    (bottom-right-row (cdr 
+			       (emacspeak-eterm-window-bottom-right window )))
+	    (bottom-right-column (car
+				  (emacspeak-eterm-window-bottom-right window  ))))
+      (not
+       (or  (< row top-left-row )
+	    (> row bottom-right-row )
+	    (and (not left-stretch ) (< column top-left-column ))
+	    (and (not right-stretch ) (> column bottom-right-column )))))))
  
 ;;; Translate a screen position to a buffer position
 

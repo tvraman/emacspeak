@@ -84,19 +84,18 @@
   (setq dtk-punctuation-mode "some")
   (emacspeak-auditory-icon 'open-object)
   (unless emacspeak-w3-post-process-hook
-  (emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line)))
 
 (add-hook 'w3-mode-hook 'emacspeak-w3-speak-mode-hook)
 (add-hook 'w3-mode-hook
           'emacspeak-pronounce-refresh-pronunciations)
 (setq w3-echo-link
-        (list 'text 'title 'name 'url))
-
+      (list 'text 'title 'name 'url))
 
 (when (and (locate-library "w3-speak-table")
            (not (featurep 'w3-speak-table)))
-    (load-library "w3-speak-table")
-    (provide 'w3-speak-table))
+  (load-library "w3-speak-table")
+  (provide 'w3-speak-table))
 (setq url-show-status nil)
   
 
@@ -704,7 +703,7 @@ Optional arg COMPLEMENT inverts the filter.  "
    ".rm"
    ".ra"
    ".pls"
-".asf"
+   ".asf"
    ".asx"
    ".mp3"
    ".m3u"
