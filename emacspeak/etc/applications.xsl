@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		version="1.0">
+                version="1.0">
   
   <xsl:output method="html" media-type="text/html"/>
   <xsl:strip-space elements="*"/>
@@ -12,6 +12,11 @@
       <xsl:apply-templates select="preamble"/>
       <body>
         <xsl:apply-templates select="introduction"/>
+        <p>
+          As of the last update, there are a total of
+          <em><xsl:value-of select="count(//application)"/></em>
+          speech-enabled applications on the Emacspeak audio desktop.
+        </p>
         <table>
           <caption>
             <xsl:value-of select="@caption"/>
@@ -34,7 +39,7 @@
     </head>
   </xsl:template>
 
-<xsl:template match="introduction">
+  <xsl:template match="introduction">
     <xsl:apply-templates/>
   </xsl:template>
 
@@ -44,14 +49,16 @@
 
   <xsl:template match="category">
     <tr>
-      <td colspan="2">
+      <td colspan="3">
         <xsl:value-of select="@name"/>
-      </td></tr>
+        (<xsl:value-of select="count(./application)"/>)
+    </td></tr>
     <xsl:apply-templates />
   </xsl:template>
   
   <xsl:template match="application">
     <tr>
+      <td><xsl:value-of select="position()"/></td>
       <td><xsl:value-of select="@name"/></td>
       <td> <xsl:apply-templates/></td>
     </tr>
