@@ -33,7 +33,7 @@ This style-sheet is here mostly as  a sample template.
     </head>
   </xsl:template>
   <!-- nuke these -->
-  <xsl:template match="//script|//meta"/>
+  <xsl:template match="//script|//meta|//iframe"/>
   <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>

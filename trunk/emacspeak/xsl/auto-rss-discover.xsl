@@ -14,30 +14,25 @@ Description: Display all RSS links
   <xsl:output method="xml" indent="yes" encoding="iso8859-1"/>
   <xsl:template name="generate-rss">
     <xsl:if test="count(//link[@type='application/rss+xml'])">
-      <h2 id="__auto_rss"><a name="__auto_rss">RSS Links</a></h2>
-      <ol>
-        <xsl:apply-templates select="//link" mode="rss"/>
-      </ol>
+      <xsl:apply-templates select="//link" mode="rss"/>
     </xsl:if>
   </xsl:template>
   
   <xsl:template match="h:link|link" mode="rss">
     <xsl:variable name="amphetadesk">http://127.0.0.1:8888/my_channels.html</xsl:variable>
     <xsl:if test="@type='application/rss+xml'">
-      <li>
+      <p>
         <a>
           <xsl:attribute name="href">
             <xsl:value-of select="@href"/>
           </xsl:attribute>
           <xsl:value-of select="@title"/>
-        </a><br/>
-      
-      <form action="{$amphetadesk}" method="POST">
-<label for="uri">URI </label>
-<input id="uri" type="text" name="add_url" value="{@href}" size="35" />
-      <input type="submit" name="submit" value="Add This Channel" />
-   </form>
-      </li></xsl:if>
+        </a>
+        <form action="{$amphetadesk}" method="POST">
+          <input type="hidden" name="add_url" value="{@href}"/>
+          <input type="submit" name="submit" value="Add to AmphetaDesk" />
+        </form>
+    </p></xsl:if>
   </xsl:template>
 </xsl:stylesheet>
 <!--

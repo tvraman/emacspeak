@@ -15,7 +15,7 @@ Param attr  specifies the attribute to list.
   <xsl:param name="selector">//@<xsl:value-of select="$attr"/></xsl:param>
   
   <!-- { html body  -->
-  <xsl:template match="//script|//head"/>
+  <xsl:template match="//script|//meta|//iframe|//head"/>
   <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
