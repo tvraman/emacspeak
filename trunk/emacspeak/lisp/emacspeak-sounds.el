@@ -125,6 +125,7 @@ use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-midi-icons].
     search-miss
     section
     select-object
+    shutdown
     task-done
     unmodified-object
     warn-user
@@ -503,8 +504,7 @@ Optional interactive PREFIX arg toggles global value."
      (t (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)))
     (message "Turned %s midi icons "
              (if emacspeak-use-midi-icons  "on" "off" )))
-   (t
-    (message "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
+   (t (message "Midi synthesis is not available --see variable emacspeak-aumix-midi-available-p"))))
 
 ;;}}}
 ;;{{{ Show all icons

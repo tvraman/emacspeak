@@ -291,7 +291,6 @@ documentation is up-to-date, please use it.  "
                (and (featurep 'emacspeak)
                     (delete-process dtk-speaker-process))))
             'at-end)
-
   (message
    (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
