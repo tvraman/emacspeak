@@ -1482,7 +1482,7 @@ Light for: ")))
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-  "http://www.weather.com/weather/us/zips/"
+"http://www.weather.com/weather/local/"
   "*URI for getting weather forecast.")
 
 (defun emacspeak-websearch-weather (zip)
@@ -1493,8 +1493,7 @@ Light for: ")))
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-weather-uri
-             zip
-             ".html")))
+             zip)))
   (emacspeak-websearch-post-process
    zip
    'w3-table-speak-this-cell))
