@@ -52,7 +52,7 @@
 
 ;;}}}
 ;;{{{  Interactive defun 
-
+;;;###autoload
 (defun emacspeak-tapestry-describe-tapestry ()
   "Describe the current layout of visible buffers in current frame."
   (interactive)

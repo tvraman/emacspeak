@@ -48,11 +48,6 @@ BATCH = -batch -q -no-site-file
 COMPILE =  -f batch-byte-compile
 %.elc:  %.el
 	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el $(COMPILE) $<
-
-emacspeak-loaddefs.el: emacspeak-auto.el
-	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el  \
-	-l $(SRC)/lisp/emacspeak-auto.el  \
--f emacspeak-auto-generate-autoloads
 # }}}
 # {{{  grouping files into dependent modules
 
@@ -216,6 +211,14 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 # {{{  User level targets all  
 
 all: $(OBJECTS)
+
+# }}}
+# {{{build time target --loaddefs
+
+emacspeak-loaddefs.el: emacspeak-auto.el
+	$(EMACS) $(BATCH)  -l $(SRC)/lisp/emacspeak-load-path.el  \
+	-l $(SRC)/lisp/emacspeak-auto.el  \
+-f emacspeak-auto-generate-autoloads
 
 # }}}
 # {{{ User level target--  config  junked

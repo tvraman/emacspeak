@@ -323,7 +323,7 @@ Returns t if a block was found and hidden."
                 (list 'custom
                       (length block-prefix)
                       block-prefix))))))
-
+;;;###autoload
 (defun emacspeak-hide-or-expose-block (&optional prefix)
   "Hide or expose a block of text.
 This command either hides or exposes a block of text
@@ -356,7 +356,7 @@ blocks in current buffer to be hidden or exposed."
              (emacspeak-hide-get-block-prefix)))
         (when block-prefix
           (emacspeak-hide-current-block  block-prefix )))))))
-
+;;;###autoload
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."
   (interactive)
@@ -365,6 +365,7 @@ blocks in current buffer to be hidden or exposed."
 ;;}}}
 ;;{{{  speaking blocks sans prefix
 
+;;;###autoload
 (defun emacspeak-hide-speak-block-sans-prefix ()
   "Speaks current block after stripping its prefix.
 If the current block is not hidden, it first hides it.
@@ -407,7 +408,6 @@ and when you have heard enough navigate easily  to move past the block."
        (t (message "Not on a hidden block"))))))
 
 ;;}}}
-
 (provide 'emacspeak-hide )
 ;;{{{ end of file
 

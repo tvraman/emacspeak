@@ -62,7 +62,7 @@
 
 ;;}}}
 ;;{{{ Customizations
-
+;;;###autoload
 (defgroup emacspeak-xml-shell nil
   "XML browser for the Emacspeak desktop.")
 
@@ -130,7 +130,7 @@ Interactive XML browser.
   "Process sentinel for XML shell."
   (declare (special emacspeak-xml-shell-document))
   (setq emacspeak-xml-shell-document nil))
-
+;;;###autoload
 (defun emacspeak-xml-shell (system-id)
   "Start Xml-Shell on contents of system-id."
   (interactive

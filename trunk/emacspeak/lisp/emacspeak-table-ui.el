@@ -489,7 +489,7 @@ Optional prefix arg prompts for a new filter."
   (switch-to-buffer buffer)
   (setq truncate-lines t)
   (message "Use Emacspeak Table UI to browse this table."))
-
+;;;###autoload
 (defun emacspeak-table-find-file (filename)
   "Open a file containing table data and display it in table mode.
 emacspeak table mode is designed to let you browse tabular data using
@@ -510,6 +510,7 @@ the documentation on the table browser."
     (kill-buffer data )
     (emacspeak-table-prepare-table-buffer table buffer filename )))
 
+;;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file. 
 The processed  data and presented using emacspeak table navigation. "
@@ -544,7 +545,7 @@ The processed  data and presented using emacspeak table navigation. "
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer
                                           filename )))    
-
+;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data. 
 The processed  data and presented using emacspeak table
@@ -586,6 +587,7 @@ navigation. "
 
 ;;}}}
 ;;{{{ Processing a region of tabular data
+;;;###autoload
 (defun emacspeak-table-display-table-in-region (start end)
   "Recognize tabular data in current region and display it in table
 browsing mode in a a separate buffer.
@@ -996,7 +998,7 @@ table markup.")
 
 ;;}}}
 ;;{{{ copy and paste tables 
-
+;;;###autoload
 (defun emacspeak-table-copy-to-clipboard ()
   "Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode."

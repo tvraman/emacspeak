@@ -60,7 +60,7 @@
 
 ;;}}}
 ;;{{{ Custom
-
+;;;###autoload
 (defgroup emacspeak-imcom nil
   "Jabber access from the Emacspeak audio desktop.")
 
@@ -119,7 +119,7 @@
           'emacspeak-toggle-comint-autospeak)
 (add-hook 'emacspeak-imcom-hooks
           'emacspeak-toggle-comint-output-monitor)
-
+;;;###autoload
 (defun emacspeak-imcom ()
   "Start IMCom."
   (interactive)

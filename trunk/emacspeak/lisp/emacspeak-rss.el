@@ -55,7 +55,7 @@
 
 ;;}}}
 ;;{{{ RSS feed cache
-
+;;;###autoload
 (defgroup emacspeak-rss nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
