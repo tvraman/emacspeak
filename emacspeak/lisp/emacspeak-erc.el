@@ -97,7 +97,7 @@ voice-smoothen
   "Bold personality for ERC.")
 
 (def-voice-font emacspeak-erc-inverse-personality
-  'betty 'erc-inverse-face
+  voice-lighten-extra  'erc-inverse-face
   "Inverse highlight in ERC.")
 
 (def-voice-font emacsepak-erc-underline 'underline

@@ -283,7 +283,7 @@ An automatically updating speedbar consumes resources.")
   :type 'symbol
   :group 'emacspeak-speedbar)
 
-(defcustom emacspeak-speedbar-directory-personality 'betty
+(defcustom emacspeak-speedbar-directory-personality voice-lock-function-name-personality
   "Speedbar personality for directory buttons"
   :type 'symbol
   :group 'emacspeak-speedbar)
