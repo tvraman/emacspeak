@@ -127,7 +127,7 @@
 (princ "'")
             (princ "\n"))
       (help-setup-xref
-        (list #'emacspeak-websearch-show-keys)
+        (list #'emacspeak-websearch-help)
                        (interactive-p)))
     (pop-to-buffer "*Help*")
 (help-mode)
