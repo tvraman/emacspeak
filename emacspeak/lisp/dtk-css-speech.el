@@ -146,7 +146,7 @@ and TABLE gives the values along that dimension."
 "Retrieve table of values for specified FAMILY and DIMENSION."
 (declare (special dtk-css-code-tables))
 (let ((key (intern (format "%s-%s" family dimension))))
-(cl-gethash key dtk-css-code-tables)))
+(gethash key dtk-css-code-tables)))
 
 ;;}}}
 ;;{{{ volume

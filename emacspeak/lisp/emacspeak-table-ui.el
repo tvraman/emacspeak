@@ -927,8 +927,8 @@ table markup.")
 
 (defsubst emacspeak-table-markup-get-table (mode )
   (declare (special emacspeak-table-markup-table))
-  (or (cl-gethash mode emacspeak-table-markup-table)
-      (cl-gethash 'fundamental-mode emacspeak-table-markup-table)))
+  (or (gethash mode emacspeak-table-markup-table)
+      (gethash 'fundamental-mode emacspeak-table-markup-table)))
 
 ;;}}}
 ;;{{{  define table markup for the various modes of interest

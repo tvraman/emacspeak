@@ -78,13 +78,13 @@ COMMAND-STRING to the Dectalk."
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-voice-table ))
-  (or  (cl-gethash name dtk-voice-table)
+  (or  (gethash name dtk-voice-table)
         dtk-default-voice-string))
 
 (defsubst dtk-voice-defined-p (name)
 "Check if there is a voice named NAME defined."
   (declare (special dtk-voice-table ))
-  (cl-gethash name dtk-voice-table ))
+  (gethash name dtk-voice-table ))
 
 (defsubst dtk-define-voice-alias (alias voice )
 "Alias  ALIAS to be same as voice VOICE."
