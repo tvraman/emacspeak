@@ -908,7 +908,8 @@ Tables are specified by containing  match pattern
               (url-view-url 'no-show)
               (list
                (cons "base"
-                     (url-view-url 'no-show)))
+                     (format "\"'%s'\""
+                     (url-view-url 'no-show))))
  'no-comment)))
         (setq values 
               (save-excursion
