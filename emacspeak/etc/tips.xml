@@ -410,7 +410,13 @@
     <qandadiv id="status">
       <title>State Of The Emacspeak Audio Desktop</title>
       <para>This section contains tips on querying and updating
-        the status of the Emacspeak audio desktop.</para>
+        the status of the Emacspeak audio desktop.
+See section 
+        <ulink
+               url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
+status commands</ulink>
+in the Emacspeak online manual for additional details.
+</para>
       <qandaentry>
         <question> <para>Hearing The Current Context
           </para></question>
