@@ -49,8 +49,7 @@
 
 ;;; Code:
 
-(eval-when-compile (require 'cl)
-                   (load-library "cl-macs"))
+(eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
