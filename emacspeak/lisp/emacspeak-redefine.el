@@ -90,8 +90,12 @@ speech flush as you type."
   (interactive "p")
   (declare (special last-input-char
                     dtk-stop-immediately-while-typing dtk-program 
-                    buffer-undo-list 
-                    emacspeak-character-echo emacspeak-word-echo))
+                    buffer-undo-list  buffer-read-only
+                    emacspeak-character-echo
+                    emacspeak-word-echo))
+  (when buffer-read-only
+    (signal 'buffer-read-only
+            (list (current-buffer))))
   (unless (car buffer-undo-list)
     (pop buffer-undo-list ))
   (self-insert-command  arg )
