@@ -117,11 +117,11 @@
                            'personality 'paul-smooth value))
       (cond
        ((or tag value)
-      (message
-       (concat
-        (or tag " ")
-        (or value " "))))
-(t (dtk-speak (current-message)))))))
+        (message
+         (concat
+          (or tag " ")
+          (or value " "))))
+       (t (dtk-speak (current-message)))))))
 
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
@@ -160,18 +160,24 @@
 ;;{{{  push button 
 
 (defun emacspeak-widget-help-push-button (widget)
-  "Summarize a push button.
-Is smart about summarizing the parent where it makes sense,
-e.g. for repeat lists."
+  "Summarize a push button."
   (let* ((type (widget-type widget))
          (tag (widget-get widget :tag))
-         (parent (widget-get widget :parent))
-         (parent-help(when parent
-                       (widget-apply parent :emacspeak-help))))
-    (concat
-      (format " %s " type) 
-     tag
-     (or parent-help " "))))
+         (context-widget (widget-get widget :widget))
+         (context
+          (when  context-widget
+            (widget-apply context-widget
+                          :emacspeak-help))))
+    (when tag
+      (put-text-property 0 (length tag)
+                         'personality 'harry tag)
+      (when context
+        (put-text-property  0 (length context )
+                            'personality 'paul-animated context))
+      (concat
+       (or tag (format " %s " type))
+       context ))))
+       
 
 (widget-put (get 'push-button 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-push-button)
@@ -289,7 +295,7 @@ e.g. for repeat lists."
      " is "
      (if child
          (widget-apply child :emacspeak-help)
-(format " %s " value)))))
+       (format " %s " value)))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
@@ -305,7 +311,7 @@ e.g. for repeat lists."
          (tag (widget-get widget :tag)))
     (concat
      (or tag 
-     (format " %s " type))
+         (format " %s " type))
      (if value " is on "
        " is off "))))
 
@@ -353,7 +359,7 @@ e.g. for repeat lists."
         (tag (widget-get widget :tag)))
     (concat 
      (or tag  "")
-(or value " ")
+     (or value " ")
      " is "
      (widget-apply (widget-get widget :parent)
                    :emacspeak-help))))
@@ -377,8 +383,8 @@ e.g. for repeat lists."
     (put-text-property 0 (length label)
                        'personality 'paul-animated label)
     (concat 
-            label 
-            (if value "checked" "unchecked"))))
+     label 
+     (if value "checked" "unchecked"))))
 
 (widget-put (get 'checkbox 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-checkbox)
@@ -389,12 +395,12 @@ e.g. for repeat lists."
 (defun emacspeak-widget-help-radio-button (widget)
   "Summarize a radio button"
   (let* ((value (widget-value widget))
-        (tag (widget-get widget :tag))
-        ;sibling has the lable
+         (tag (widget-get widget :tag))
+                                        ;sibling has the lable
          (sibling (widget-get-sibling widget))
          (label (if sibling
-              (widget-get sibling :tag)
-            tag)))
+                    (widget-get sibling :tag)
+                  tag)))
     (concat 
      (or label tag )
      " is "
