@@ -218,11 +218,11 @@ the table structure extraction code in W3."
 ;;; In the meantime, here is a toggle that allows you to
 ;;; turn borders on and off:
 
-(defcustom emacspeak-w3-table-draw-border
+(defvar emacspeak-w3-table-draw-border
 nil
-"Reflects whether we allow W3 to draw table borders. "
-:group 'emacspeak-w3
-:type 'boolean)
+"Reflects whether we allow W3 to draw table borders. ")
+
+
 
 (defvar emacspeak-w3-table-silent-border (make-vector 16 32)
   "Used to draw empty W3 table borders. ")
