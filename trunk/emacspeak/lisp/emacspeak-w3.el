@@ -536,7 +536,7 @@ Nil means no transform is used. ")
              emacspeak-xslt-program
              xsl tempfile)
      (current-buffer)
-     standard-output)
+     "*xslt errors*")
     (delete-file tempfile)))
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
