@@ -256,7 +256,7 @@ Browse specified RSS feed." t nil)
 
 ;;;### (autoloads (emacspeak-set-auditory-icon-player emacspeak-toggle-auditory-icons
 ;;;;;;  emacspeak-sounds-select-theme emacspeak-sounds-default-theme)
-;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15894 11399))
+;;;;;;  "emacspeak-sounds" "emacspeak-sounds.el" (15895 22724))
 ;;; Generated autoloads from emacspeak-sounds.el
 
 (defvar emacspeak-sounds-default-theme (expand-file-name "default-8k/" emacspeak-sounds-directory) "\
