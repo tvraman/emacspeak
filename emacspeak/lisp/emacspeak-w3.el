@@ -111,6 +111,7 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
+(define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
 (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
     (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
@@ -837,6 +838,26 @@ current page."
     ad-do-it
     (when rule
       (setq emacspeak-w3-url-rewrite-rule rule))))
+
+;;}}}
+;;{{{ browse link wtih style 
+(defun emacspeak-w3-browse-link-with-style (style )
+  "Browse link with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))))
+   (declare (special emacspeak-xslt-directory
+                     emacspeak-w3-xsl-p
+                     emacspeak-w3-xsl-transform))
+   (unless (eq major-mode 'w3-mode)
+     (error "Not in a W3 buffer."))
+   (let ((emacspeak-w3-xsl-p t)
+         (url (w3-view-this-url 'no-show))
+         (emacspeak-w3-xsl-transform style))
+   (browse-url url)
+   (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-w3)
