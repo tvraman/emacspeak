@@ -256,6 +256,7 @@ is active."
   "Fontify current buffer starting at position START.
 This function is added to `voiceification-functions' when `jit-lock-mode'
 is active."
+  (declare (special voice-lock-syntactic-keywords))
   (with-buffer-prepared-for-voice-lock
    (save-excursion
      (save-restriction

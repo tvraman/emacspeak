@@ -643,56 +643,6 @@ See `fast-voice-lock-get-personality-properties' for the format of PROPERTIES."
 
 ;; Functions for XEmacs:
 
-(when (save-match-data (string-match "XEmacs" (emacs-version)))
-  ;;
-  ;; It would be better to use XEmacs' `map-extents' over extents with a
-  ;; `voice-lock' property, but `personality' properties are on different extents.
-  (defun fast-voice-lock-get-personality-properties ()
-    "Return a list of all `personality' text properties in the current buffer.
-Each element of the list is of the form (VALUE START1 END1 START2 END2 ...)
-where VALUE is a `personality' property value and STARTx and ENDx are positions.
-Only those `personality' VALUEs in `fast-voice-lock-save-personalities' are returned."
-    (save-restriction
-      (widen)
-      (let ((properties ()) cell)
-	(map-extents
-	 (function (lambda (extent ignore)
-	    (let ((value (extent-personality extent)))
-	      ;; We're only interested if it's one of `fast-voice-lock-save-personalities'.
-	      (when (and value (or (null fast-voice-lock-save-personalities)
-				   (memq value fast-voice-lock-save-personalities)))
-		(let ((start (extent-start-position extent))
-		      (end (extent-end-position extent)))
-		  ;; Make or add to existing list of regions with the same
-		  ;; `personality' property value.
-		  (if (setq cell (assq value properties))
-		      (setcdr cell (cons start (cons end (cdr cell))))
-		    (push (list value start end) properties))))
-	      ;; Return nil to keep `map-extents' going.
-	      nil))))
-	properties)))
-  ;;
-  ;; Make extents just like XEmacs' voice-lock.el does.
-  (defun fast-voice-lock-set-personality-properties (properties)
-    "Set all `personality' text properties to PROPERTIES in the current buffer.
-Any existing `personality' text properties are removed first.
-See `fast-voice-lock-get-personality-properties' for the format of PROPERTIES."
-    (save-restriction
-      (widen)
-      (voice-lock-unvoiceify-region (point-min) (point-max))
-      (while properties
-	(let ((personality (car (car properties)))
-	      (regions (cdr (car properties))))
-	  ;; Set the `personality' property, etc., for each start/end region.
-	  (while regions
-	    (voice-lock-set-personality (nth 0 regions) (nth 1 regions) personality)
-	    (setq regions (nthcdr 2 regions)))
-	  (setq properties (cdr properties))))))
-  ;;
-  ;; XEmacs 19.12 voice-lock.el's `voice-lock-voiceify-buffer' runs a hook.
-  (add-hook 'voice-lock-after-voiceify-buffer-hook
-	    'fast-voice-lock-after-voiceify-buffer))
-
 (unless (boundp 'voice-lock-inhibit-thing-lock)
   (defvar voice-lock-inhibit-thing-lock nil
     "List of Voice Lock mode related modes that should not be turned on."))
