@@ -111,7 +111,7 @@
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
   (when emacspeak-w3-punctuation-mode
-  (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
+    (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
   (unless emacspeak-w3-post-process-hook
     (emacspeak-speak-mode-line)))
@@ -480,16 +480,19 @@ even if one is already defined."
       (error "Not on a link."))
     (cond
      ((and (boundp 'emacspeak-w3-url-executor)
-      (fboundp emacspeak-w3-url-executor))
+           (fboundp emacspeak-w3-url-executor))
       (funcall emacspeak-w3-url-executor url))
      (t
       (setq emacspeak-w3-url-executor
-            (read-minibuffer"Executor Function: " "emacspeak-url-"))
+            (completing-read 
+             "Executor function: "
+             obarray 'fboundp t
+             "emacspeak-" nil ))
       (if (and (boundp 'emacspeak-w3-url-executor)
-      (fboundp emacspeak-w3-url-executor))
-      (funcall emacspeak-w3-url-executor url)
-      (error "Invalid executor %s"
-emacspeak-w3-url-executor))))))
+               (fboundp emacspeak-w3-url-executor))
+          (funcall emacspeak-w3-url-executor url)
+        (error "Invalid executor %s"
+               emacspeak-w3-url-executor))))))
       
 
 ;;}}}
