@@ -771,24 +771,23 @@ or header lines of blocks created by command
       (setq start (point))
       (end-of-line)
       (setq end (point))
-      (goto-char orig)
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
       (when (and emacspeak-audio-indentation
                  (null arg ))
-        (save-excursion
-          (back-to-indentation )
-          (setq indent  (current-column )))
-      (when (string= emacspeak-audio-indentation "tone")
-        (emacspeak-indent indent )))
-      (if emacspeak-show-point
-          (ems-set-personality-temporarily
-           (point) (1+ (point))
-           'paul-animated
-           (setq line (buffer-substring  start end )))
-        (setq line (buffer-substring start end )))
+        (back-to-indentation )
+        (setq indent  (current-column ))
+        (when (string= emacspeak-audio-indentation "tone")
+          (emacspeak-indent indent )))
+      (setq line 
+            (if emacspeak-show-point
+                (ems-set-personality-temporarily
+                 orig (1+ orig)
+                 'paul-animated
+                 (buffer-substring  start end ))
+              (buffer-substring start end )))
       (when (get-text-property  start 'emacspeak-hidden-block)
         (emacspeak-auditory-icon 'ellipses))
       (cond
