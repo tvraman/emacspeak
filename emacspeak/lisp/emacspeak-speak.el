@@ -46,8 +46,9 @@
 (require 'custom)
 (require 'thingatpt)
 (require 'dtk-speak)
-(eval-when (compile)
+(eval-when-compile
   (require 'voice-lock)
+  (require 'which-func)
            (require 'emacspeak-table-ui)
            (require 'emacspeak-sounds)
 (require 'shell))
