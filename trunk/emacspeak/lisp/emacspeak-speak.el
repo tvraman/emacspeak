@@ -796,7 +796,7 @@ are indicated with auditory icon ellipses."
                                  l))))
             (when confirm
               ;update threshold
-              (setq emacspeak-speak-maximum-line-length l)
+              (setq emacspeak-speak-maximum-line-length (1+ l))
               (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
               ;; record the y answer
               (ems-modify-buffer-safely
