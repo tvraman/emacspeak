@@ -61,34 +61,28 @@
 ;;; You can expose some of the headers with "T" in summary mode.
 
 
-;;; Keybindings for summary mode:
-(and (boundp 'gnus-summary-mode-map)
-     (emacspeak-keymap-remove-emacspeak-edit-commands
-      gnus-summary-mode-map))
+;;; Keybindings 
+(defun emacspeak-gnus-setup-keys ()
+  "Setup Emacspeak keys."
+  (declare (special gnus-summary-mode-map
+                    gnus-group-mode-map
+                    gnus-article-mode-map))
+  (when (boundp 'gnus-summary-mode-map)
+    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-summary-mode-map))
+  (when (boundp 'gnus-article-mode-map)
+    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-article-mode-map))
+  (when (boundp 'gnus-group-mode-map)
+    (emacspeak-keymap-remove-emacspeak-edit-commands gnus-group-mode-map))
+  (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
+  (define-key gnus-summary-mode-map "T" 'gnus-summary-hide-all-headers )
+  (define-key gnus-summary-mode-map "t"
+    'gnus-summary-show-some-headers)
+  (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
+  (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
+  (define-key gnus-group-mode-map '[right]
+    'gnus-group-read-group))
 
-(and (boundp 'gnus-article-mode-map)
-     (emacspeak-keymap-remove-emacspeak-edit-commands
-      gnus-article-mode-map))
-
-(and (boundp 'gnus-group-mode-map)
-     (emacspeak-keymap-remove-emacspeak-edit-commands
-      gnus-group-mode-map))
-
-(add-hook 'gnus-summary-mode-hook
-          (function (lambda ()
-                      (define-key gnus-summary-mode-map "\C-t"
-                        'gnus-summary-toggle-header)
-                      (define-key gnus-summary-mode-map "T" 'gnus-summary-hide-all-headers )
-                      (define-key gnus-summary-mode-map "t"
-                        'gnus-summary-show-some-headers)
-                      (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
-                      (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article))))
-
-(add-hook 'gnus-group-mode-hook
-          (function
-           (lambda ()
-             (define-key gnus-group-mode-map '[right] 'gnus-group-read-group)
-             )))
+(add-hook 'gnus-load-hook 'emacspeak-gnus-setup-keys)
 
 ;;}}}
 ;;{{{  Hiding headers
@@ -140,6 +134,7 @@ reading news."
 
 ;;}}}
 ;;{{{ Advise top-level gnus command
+
 ;;; emacs can hang if too many message sfly by as gnus starts
 (defadvice gnus (around emacspeak pre act )
   "Temporarily deactivate advice on message"
