@@ -345,17 +345,29 @@ unless `dired-listing-switches' contains -al"
 
 ;;}}}
 ;;{{{ Additional status speaking commands
-(if (fboundp 'dired-show-file-type)
-    (defalias 'emacspeak-dired-show-file-type 'dired-show-file-type)
-  (defun emacspeak-dired-show-file-type ()
-    "Displays type of current file by running command file."
-    (interactive)
-    (let ((filename (dired-get-filename t t)))
-      (if filename 
-	  (shell-command 
-	   (format "file %s"
-		   filename))
-	(message "No file on this line")))))
+(defcustom emacspeak-dired-file-cmd-options "-b"
+  "Options passed to Unix builtin `file' command."
+  :type '(choice
+          (const :tag "Brief" "-b")
+          (const :tag "Detailed" nil))
+  :group 'emacspeak-dired)
+
+(defun emacspeak-dired-show-file-type (&optional file deref-symlinks)
+  "Displays type of current file by running command file.
+Like Emacs' built-in dired-show-file-type but allows user to customize
+options passed to command `file'."
+  (interactive (list (dired-get-filename t) current-prefix-arg))
+  (declare (special emacspeak-dired-file-cmd-options))
+  (with-temp-buffer 
+    (if deref-symlinks
+	(call-process "file" nil t t  "-l"
+                      emacspeak-dired-file-cmd-options  file)
+      (call-process "file" nil t t
+                    emacspeak-dired-file-cmd-options file))
+    (when (bolp)
+      (backward-delete-char 1))
+    (message (buffer-string))))
+    
 
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
