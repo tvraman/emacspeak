@@ -131,7 +131,7 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
-  (setf (gethash  (intern string) emacspeak-pronounce-pronunciation-table) pronunciation)
+    (puthash    string pronunciation emacspeak-pronounce-pronunciation-table)
   (message "Added  local pronunciation in buffer %s"
            (buffer-name)))
 
@@ -600,10 +600,10 @@ pronunciation dictionary for the specified key."
                      '(cons :tag "Dictionary Entry"
                             (string :tag "Phrase")
                             (choice  :tag "Pronunciation"
-(string :tag "Pronounce as")
-(cons :tag "Pronouncer"
-(function :tag "Matcher")
-(function :tag "Pronouncer")))))
+                                     (string :tag "Pronounce as")
+                                     (cons :tag "Pronouncer"
+                                           (symbol :tag "Matcher")
+                                           (symbol :tag "Pronouncer")))))
       (widget-insert "\n")
       (widget-create 'push-button
                      :tag "Save Dictionary"
