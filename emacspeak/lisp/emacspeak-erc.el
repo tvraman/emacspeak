@@ -164,16 +164,31 @@ ad-return-value)
 user is notified about activity in the room.")
 (make-variable-buffer-local 'emacspeak-erc-room-monitor)
 
-(defadvice erc-process-filter (after emacspeak pre act comp)
-  "If this chat room is being monitored, indicate that there
-is some activity."
+
+
+defvar emacspeak-erc-people-to-monitor nil
+"List of strings specifying people to monitor in a given
+room.")
+(make-variable-buffer-local
+ 'emacspeak-erc-people-to-monitor)
+
+(defun emacspeak-erc-compute-message (string buffer)
+  "Uses environment of buffer to decide what message to
+display. String is the original message."
+string)
+
+
+
+(defadvice erc-display-line-buffer  (after emacspeak pre act comp)
   (declare (special emacspeak-erc-room-monitor))
-  (let ((buffer (get-process-buffer (ad-get-arg 0))))
+  (let ( (buffer (ad-get-arg 1)))
     (save-excursion
       (set-buffer buffer)
       (when emacspeak-erc-room-monitor
         (emacspeak-auditory-icon 'progress)
-        (message (buffer-name ))))))
+        (message 
+         (emacspeak-erc-compute-message (ad-get-arg 0)
+                                        buffer))))))
 
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
   "Toggle state of ERC room monitor.
