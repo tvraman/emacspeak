@@ -19,10 +19,7 @@ asks that nodes be processed only once -use with care.
   <xsl:param name="base"/>
   
   <xsl:template  name="do-copy">
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()" mode="do-copy"/>
-    </xsl:copy>
+    <xsl:copy-of select="."/>
   </xsl:template>
   
   <xsl:template match="*|@*" mode="copy" >
@@ -30,11 +27,11 @@ asks that nodes be processed only once -use with care.
       <xsl:when test="$uniquify=1">
         <xsl:variable name="i" select="$locator"/>
         <xsl:if test="not(set:intersection(ancestor::*, $i))">
-          <xsl:call-template name="do-copy" select="."/>
+          <xsl:copy-of select="."/>
         </xsl:if>
       </xsl:when>      
       <xsl:otherwise>
-        <xsl:call-template name="do-copy" select="."/>
+        <xsl:copy-of select="."/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -52,11 +49,11 @@ asks that nodes be processed only once -use with care.
       <xsl:apply-templates select="title" mode="copy"/>
     </xsl:element>
   </xsl:template>
-
+  
   <xsl:template match="/html/body">
     <body>
       <xsl:apply-templates select="$locator" mode="copy"/>
-
+      
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
         elements
