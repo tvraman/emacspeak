@@ -117,6 +117,7 @@ emacspeak-dismal.elc \
 emacspeak-dmacro.elc \
 emacspeak-ecb.elc \
 emacspeak-ediff.elc \
+emacspeak-eflite.elc \
 emacspeak-enriched.elc \
 emacspeak-entertain.elc \
 emacspeak-eperiodic.elc \
@@ -298,6 +299,7 @@ emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc
 emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc
 emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc
+emacspeak-eflite.elc: emacspeak-eflite.el
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc
