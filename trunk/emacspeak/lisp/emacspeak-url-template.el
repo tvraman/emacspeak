@@ -264,7 +264,9 @@ documentation   Documents this template resource.
  nil
  "Retrieve BBC7 schedule for specified day."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-position 13 url 'speak)))
+     (emacspeak-w3-extract-table-by-match
+      "Morning"
+      url 'speak)))
 
 (emacspeak-url-template-define
  "BBC Radio4 On Demand"
