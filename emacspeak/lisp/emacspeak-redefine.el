@@ -40,12 +40,6 @@
 ;;}}}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'dtk-tcl)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-
 ;;{{{  Introduction:
 
 ;;; This module redefines a few vital functions,
@@ -58,6 +52,10 @@
 ;;; In the case of backward-char, forward-char, and self-insert-command
 ;;; mere redefinition of the function will not do:
 ;;; We will need to bind the new functions explicitly to the keys. 
+
+;;}}}
+;;{{{ requires
+(require 'emacspeak-preamble)
 
 ;;}}}
 ;;{{{  How to redefine and restore a function: 

@@ -437,7 +437,7 @@ Emacs 20.3"
 ;;{{{ setup programming modes 
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
-
+;;;###autoload
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode. Turns on audio indentation and
 sets punctuation mode to all, activates the dictionary and turns on split caps."

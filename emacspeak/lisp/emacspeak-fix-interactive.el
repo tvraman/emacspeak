@@ -214,7 +214,7 @@ speak its prompts. "
   t)
 
 ;;; inline function for use from other modules:
-
+;;;###autoload
 (defsubst  emacspeak-fix-interactive-command-if-necessary
   (command)
   "Fix command if necessary."
