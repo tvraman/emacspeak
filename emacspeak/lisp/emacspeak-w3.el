@@ -477,6 +477,36 @@ HTML."
   :type 'boolean
   :group 'emacspeak-w3)
 
+;;{{{ helper macros:
+
+(defmacro emacspeak-w3-without-xsl (&rest body)
+  "Execute body with XSL turned off."
+  (`
+   (progn
+   (declare (special emacspeak-w3-xsl-p))
+   (when emacspeak-w3-xsl-p
+      (setq emacspeak-w3-xsl-p nil)
+      (add-hook 'emacspeak-w3-post-process-hook
+                #'(lambda ()
+                    (declare (special emacspeak-w3-xsl-p))
+                    (setq emacspeak-w3-xsl-p t))))
+   (,@ body))))
+
+(defmacro emacspeak-w3-with-xsl (&rest body)
+  "Execute body with XSL turned on."
+  (`
+   (progn
+   (declare (special emacspeak-w3-xsl-p))
+   (unless emacspeak-w3-xsl-p
+      (setq emacspeak-w3-xsl-p t)
+      (add-hook 'emacspeak-w3-post-process-hook
+                #'(lambda ()
+                    (declare (special emacspeak-w3-xsl-p))
+                    (setq emacspeak-w3-xsl-p nil))))
+   (,@ body))))
+
+;;}}}
+
 (defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. "

@@ -51,24 +51,19 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
 (require 'lisp-mnt)
 (eval-when-compile (require 'dired))
 (require 'derived)
 (require 'eldoc)
 (require 'find-dired)
-(require 'thingatpt)
-(eval-when-compile
-  (require 'dtk-speak)
-  (require 'emacspeak-speak)
-  (require 'emacspeak-sounds))
+(require 'emacspeak-preamble)
 (require 'emacspeak-table-ui)
 (require 'shell)
 (require 'texinfo)
 (require 'term)
 (eval-when-compile (require 'cus-edit))
 (require 'emacspeak-xslt)
-
+(require 'emacspeak-w3)
 ;;}}}
 ;;{{{ custom
 
