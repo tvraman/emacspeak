@@ -179,7 +179,7 @@ proc s {} {
         queue_clear
         #allow dtk to recover
         read $tts(read) 1
-        select {} {} {} 0.01
+        select {} {} {} 0.05
     }
 }
 
@@ -297,7 +297,7 @@ proc speech_task {} {
     set mode  $tts(punctuations) 
     set r $tts(speech_rate)
     set length [queue_length]
-    set prefix "\[:sa c :ra $r :pu $mode]"
+    set prefix "\[:np]\[:sa c]\[:ra $r]\[:pu $mode]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
