@@ -799,7 +799,6 @@ are indicated with auditory icon ellipses."
        (t (setq end orig)))
       (when (and emacspeak-audio-indentation
                  (null arg ))
- 
         (let ((limit (line-end-position)))
           (beginning-of-line 1)
     (skip-syntax-forward " " limit)

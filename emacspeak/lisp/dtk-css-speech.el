@@ -38,9 +38,9 @@
 
 ;;}}}
 
-;;; Commentary:
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; The CSS Speech Style Sheet specification defines a number of
 ;;; abstract device independent voice properties.
 ;;; A setting conforming to the CSS speech specification can be
@@ -58,12 +58,12 @@
 ;;; Think of a buffer of formatted text along with the text-property
 ;;; 'personality appropriately set as a "aural display list".
 ;;; Applications like W3 that produce such formatted buffers  call function
-;;; dtk-personality-from-speech-style  with a  "speech-style"
+;;; tts-personality-from-speech-style  with a  "speech-style"
 ;;; --a structure as defined in this module and get back a symbol that
 ;;; they then assign to the value of property 'personality.
 ;;;Emacspeak's rendering engine then does the needful at the time
 ;;;speech is produced.
-;;; Function dtk-personality-from-speech-style does the following:
+;;; Function tts-personality-from-speech-style does the following:
 ;;; Takes as input a "speech style"
 ;;;(1)  Computes a symbol that will be used henceforth to refer to this
 ;;; specific speech style.

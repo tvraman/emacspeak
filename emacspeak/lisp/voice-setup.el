@@ -83,17 +83,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'backquote)
-
-;;}}}
-;;{{{  A speech style structure
-
-(defstruct  voice-setup-aural-style
-  family
-  gain left-volume right-volume
-  average-pitch
-  pitch-range
-  stress
-  richness)
+(require 'acss-structure)
 
 ;;}}}
 ;;{{{  additional convenience functions:
@@ -210,7 +200,7 @@ Keys are personality names.")
   "Define a personality given a list of speech style settings."
   (declare (special voice-setup-personality-table))
   (let ((voice
-         (dtk-personality-from-speech-style
+         (tts-personality-from-speech-style
           (make-dtk-speech-style
            :family (first style-list)
            :average-pitch (second style-list)

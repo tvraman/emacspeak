@@ -53,6 +53,7 @@ COMPILE =  -f batch-byte-compile
 
 #The various modules:
 DTK_OBJECTS = dtk-css-speech.elc	dtk-speak.elc		dtk-voices.elc\
+acss-structure.elc \
 outloud-voices.elc outloud-css-speech.elc \
 dtk-interp.elc		dtk-tcl.elc
 
@@ -244,12 +245,12 @@ cus-load.el:
 dtk-css-speech.elc: dtk-css-speech.el dtk-voices.elc
 dtk-interp.elc: dtk-interp.el
 dtk-speak.elc: dtk-speak.el dtk-tcl.el dtk-interp.elc
+acss-structure.elc: acss-structure.el
 dtk-tcl.elc: dtk-tcl.el dtk-interp.elc dtk-voices.elc
 dtk-voices.elc: dtk-voices.el
 outloud-css-speech.elc: outloud-css-speech.el outloud-voices.elc
 outloud-voices.elc: outloud-voices.el
-#voice-lock.elc: voice-lock.el voice-settings.elc voice-setup.elc
-voice-setup.elc: voice-setup.el
+voice-setup.elc: voice-setup.el acss-structure.elc
 #voice lock helpers 
 html-outline.elc: html-outline.el
 amphetadesk.elc: amphetadesk.el
