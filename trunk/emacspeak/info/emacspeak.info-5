@@ -1,4 +1,4 @@
-This is ./emacspeak.info, produced by makeinfo version 4.1 from
+This is emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -317,7 +317,10 @@ emacspeak-wizards.
 
      Get latest cvs snapshot of emacspeak.
 
- - emacspeak-cvs-get-project-snapshot: (PROJECT)
+ - emacspeak-cvs-gnu-get-project-snapshot: (PROJECT)
+     Grab CVS snapshot  of specified project from GNU.
+
+ - emacspeak-cvs-sf-get-project-snapshot: (PROJECT)
      Grab CVS snapshot  of specified project from Sourceforge.
 
  - emacspeak-emergency-tts-restart: ()
@@ -665,7 +668,7 @@ emacspeak-wizards.
 
  - emacspeak-wizards-spot-words: (EXT WORD)
      Searches recursively in all files with extension `ext' for `word'
-     and siplays hits in a compilation buffer.
+     and displays hits in a compilation buffer.
 
  - emacspeak-wizards-squeeze-blanks: (START END)
      Squeeze multiple blank lines in current buffer.
@@ -705,6 +708,14 @@ emacspeak-xml-shell.
  - emacspeak-xml-shell-browse-current: ()
      Display current node.
 
+ - emacspeak-xml-shell-browse-result: (XPATH)
+     Display XPath  and display its result using W3.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
  - emacspeak-xml-shell-goto-children: ()
      Navigate down to the children of current node.
 
@@ -728,7 +739,8 @@ emacspeak-xml-shell.
      <right>		emacspeak-xml-shell-goto-next-child
      <left>		emacspeak-xml-shell-goto-previous-child
 
-     C-c v		emacspeak-xml-shell-browse-current
+     C-c v		emacspeak-xml-shell-browse-current C-c
+     C-v		emacspeak-xml-shell-browse-result
 
      In addition to any hooks its parent mode `comint-mode' might have
      run, this mode runs the hook `emacspeak-xml-shell-mode-hook', as
