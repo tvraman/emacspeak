@@ -27,6 +27,14 @@ cap C   Save clip to disk
 
 ;;;***
 
+;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15933 51396))
+;;; Generated autoloads from eflite.el
+
+(autoload (quote tts-eflite) "eflite" "\
+Use eflite TTS server." t nil)
+
+;;;***
+
 ;;;### (autoloads (emacspeak-aumix-volume-decrease emacspeak-aumix-volume-increase
 ;;;;;;  emacspeak-aumix-wave-decrease emacspeak-aumix-wave-increase
 ;;;;;;  emacspeak-aumix-reset-options emacspeak-aumix-settings-file)
@@ -63,15 +71,6 @@ Decrease overall volume. " t nil)
 
 (autoload (quote emacspeak-daisy-open-book) "emacspeak-daisy" "\
 Open Digital Talking Book specified by navigation file filename." t nil)
-
-;;;***
-
-;;;### (autoloads (emacspeak-eflite) "emacspeak-eflite" "emacspeak-eflite.el"
-;;;;;;  (15932 38850))
-;;; Generated autoloads from emacspeak-eflite.el
-
-(autoload (quote emacspeak-eflite) "emacspeak-eflite" "\
-Use eflite TTS server." t nil)
 
 ;;;***
 
