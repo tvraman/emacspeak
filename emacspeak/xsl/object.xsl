@@ -22,6 +22,9 @@ Transform HTML Object element into an anchor usable in W3.
       </a>
     </xsl:for-each>
   </xsl:template>
+<xsl:template match="frameset">
+    <xsl:apply-templates select="frame"/>
+  </xsl:template>
 <xsl:template match="embed">
     <xsl:for-each select="@src|@SRC">
       <a>
