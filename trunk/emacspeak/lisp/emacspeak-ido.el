@@ -74,7 +74,8 @@
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
   (when ido-matches
-    (emacspeak-auditory-icon 'select-object))
+    (and (sit-for 0.5)
+    (emacspeak-auditory-icon 'progress))
   (dtk-speak
    (concat 
     (car ido-matches)
@@ -84,7 +85,7 @@
 	   (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
 	" "
       (format "In directory: %s"
-	      ido-current-directory)))))
+	      ido-current-directory))))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
