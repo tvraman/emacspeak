@@ -37,13 +37,6 @@
 
 ;;}}}
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'voice-lock)
-(require 'emacspeak-keymap)
-(eval-when-compile (require 'man))
 ;;{{{  Introduction:
 
 ;;; Provide additional advice to man-mode 
@@ -52,11 +45,29 @@
 
 
 ;;}}}
+;;{{{ Required modules
+
+;;; Code:
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-speak)
+(require 'emacspeak-sounds)
+(require 'voice-lock)
+(require 'emacspeak-keymap)
+(eval-when-compile (require 'man))
+
+;;}}}
 ;;{{{  Configure man
 
 ;;; Please show it to me when you are ready:
-(declaim (special Man-notify))
+(declaim (special Man-notify
+                  Man-switches
+                  system-type))
 (setq Man-notify 'bully)
+
+(when (eq system-type 'gnu/linux)
+  (setq Man-switches "-a"))
+
 (defvar Man-voice-lock-keywords nil
   "Keywords to highlight in Man mode")
 (declaim (special Man-voice-lock-keywords
@@ -92,6 +103,22 @@ Also provide an auditory icon"
   (emacspeak-auditory-icon 'help))
 
 (defadvice   Man-goto-section  (after emacspeak pre act )
+  "Speak the line"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line )))
+
+(defadvice   Man-goto-page  (after emacspeak pre act )
+  "Speak the line"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line )))
+(defadvice   Man-next-manpage  (after emacspeak pre act )
+  "Speak the line"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line )))
+(defadvice   Man-previous-manpage  (after emacspeak pre act )
   "Speak the line"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
