@@ -161,6 +161,7 @@ functions for details.   "
   (emacspeak-export-environment)
   (require 'dtk-speak)
   (dtk-initialize)
+  (load-library "voice-setup")
   (require 'emacspeak-speak)
   (require 'emacspeak-personality)
   (require 'emacspeak-redefine)

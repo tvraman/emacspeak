@@ -2266,7 +2266,9 @@ Moves to the longest line when called interactively."
 ;;{{{ voice sample
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
-(interactive "SPersonality: ")
+(interactive
+ (list
+  (voice-setup-read-personality)))
 (put-text-property (line-beginning-position)
                    (line-end-position)
                    'personality
