@@ -189,7 +189,8 @@
 (define-key emacspeak-keymap "\C-w" 'emacspeak-speak-window-information)
 (define-key emacspeak-keymap   "\C-a"
   'emacspeak-toggle-auditory-icons )
-(define-key emacspeak-keymap "\C-r" 'emacspeak-eterm-remote-term)
+(define-key emacspeak-keymap "\C-r" 'emacspeak-root)
+(define-key emacspeak-keymap "\M-\C-r" 'emacspeak-eterm-remote-term)
 (define-key emacspeak-keymap "\M-r"
   'emacspeak-remote-connect-to-server)
 (define-key emacspeak-keymap "\M-d"
