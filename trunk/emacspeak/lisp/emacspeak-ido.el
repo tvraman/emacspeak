@@ -101,7 +101,7 @@
 (defadvice  ido-find-file (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 
