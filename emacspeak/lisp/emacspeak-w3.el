@@ -786,6 +786,29 @@ spoken automatically."
      (or (interactive-p)
 	 speak))))
 
+
+;;;###autoload
+(defun emacspeak-w3-extract-print-streams ( &optional prompt-url speak)
+  "Extract links to printable  streams.
+operate on current web page when in a W3 buffer; otherwise prompt for url.
+`prompt-url' is the URL to process. Prompts for URL when called
+interactively. Optional arg `speak' specifies if the result should be
+spoken automatically."
+  (interactive
+   (list current-prefix-arg))
+  (unless (and
+	   (or (null prompt-url) (stringp prompt-url))
+	   (eq major-mode 'w3-mode))
+    (setq prompt-url
+          (read-from-minibuffer "URL:")))
+  (declare (special emacspeak-w3-media-stream-suffixes))
+  (let ((filter "//a[contains(@href,\".pdf\")]"))
+    (emacspeak-w3-xslt-filter
+     filter
+     prompt-url
+     (or (interactive-p)
+	 speak))))
+
 (defun emacspeak-w3-extract-media-streams-under-point ()
   "In W3 mode buffers, extract media streams from url under point."
   (interactive)
@@ -1154,6 +1177,8 @@ loaded.
   'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "\C-p"
   'emacspeak-w3-xpath-junk-and-follow)
+(define-key emacspeak-w3-xsl-map "P"
+  'emacspeak-w3-extract-print-streams))
 (define-key emacspeak-w3-xsl-map "R"
   'emacspeak-w3-extract-media-streams-under-point)
 (define-key emacspeak-w3-xsl-map "r"
