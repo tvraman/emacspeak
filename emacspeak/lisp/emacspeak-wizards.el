@@ -737,8 +737,7 @@ Warning! Contents of file filename will be overwritten."
                                     (mapconcat
                                      'key-description
                                      key " ")))
-                  (error nil))
-              (insert " No global keybinding\n\n"))
+                  (error nil)))
             (insert
              (or (documentation f)
                  ""))
@@ -847,8 +846,7 @@ for commands defined in module  %s.\n\n"
                       (insert
                        (format "@kbd{%s}\n\n"
                                key-description)))
-                  (error nil))
-              (insert " No global keybinding\n\n"))
+                  (error nil)))
             (insert
              (or
               (ems-texinfo-escape(documentation f))
