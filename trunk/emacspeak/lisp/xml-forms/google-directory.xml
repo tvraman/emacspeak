@@ -29,7 +29,7 @@
           <option value="gwd/Top/Sports/">Sports</option>
           <option value="gwd/Top/World/">World</option>
         </select>
-        <input type="hidden" name="hl" value="(null)"/>
+        <input type="hidden" name="hl" value="n"/>
         <input type="submit" name="sa" value="Search Google Directory "/>
       </p>
     </form>
