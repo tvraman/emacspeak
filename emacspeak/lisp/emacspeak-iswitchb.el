@@ -58,8 +58,11 @@
 ;;; Code:
 
 ;;}}}
-
 ;;{{{ speech-enable interactive commands:
+(defadvice iswitchb-complete (after emacspeak pre act comp)
+  "Speak completion at the head of the list."
+  (when (interactive-p)
+    (dtk-speak (car iswitchb-matches))))
 
 (defadvice  iswitchb-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -85,6 +88,7 @@
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (car (last iswitchb-matches)))))
+
 ;;}}}
 (provide 'emacspeak-iswitchb)
 ;;{{{ end of file
