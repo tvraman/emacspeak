@@ -138,7 +138,7 @@ Finally return the symbol"
                          (format "-r%s" r)
                        "")
                      (if m
-                         (format "-m%s" m)
+                         (format "-%s" m)
                        ""))))
       (unless (tts-voice-defined-p name)
         (tts-define-voice-from-speech-style name style))

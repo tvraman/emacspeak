@@ -28,7 +28,7 @@ cap C   Save clip to disk
 ;;;***
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16007 9983))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16007 11000))
 ;;; Generated autoloads from dtk-speak.el
 
 (defvar dtk-punctuation-mode "all" "\
