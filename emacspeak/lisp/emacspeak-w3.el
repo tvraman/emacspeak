@@ -502,7 +502,7 @@ HTML."
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
   (let ((url (url-view-url t)))
-    (emacspeak-wizards-browse-url-with-style xsl url)))
+    (emacspeak-w3-browse-url-with-style xsl url)))
 
 (defun emacspeak-w3-xslt-select (xsl)
   "Select XSL transformation applied to WWW pages before they are displayed ."
@@ -1012,6 +1012,69 @@ used as well."
 			      (or redirect url)
 			      'speak)
     (emacspeak-auditory-icon 'open-object)))
+
+;;}}}
+;;{{{  browse url using specified style
+
+(defun emacspeak-w3-browse-url-with-style (style url)
+  "Browse URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (declare (special emacspeak-w3-post-process-hook))
+  (let ((src-buffer
+         (emacspeak-xslt-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object)))
+    (save-excursion
+      (set-buffer src-buffer)
+      (emacspeak-w3-preview-this-buffer))
+    (kill-buffer src-buffer)))
+
+(defun emacspeak-wizards-browse-xml-url-with-style (style url)
+  "Browse XML URL with specified XSL style."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (declare (special emacspeak-w3-post-process-hook))
+  (let ((src-buffer
+         (emacspeak-xslt-xml-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (add-hook 'emacspeak-w3-post-process-hook
+              #'(lambda nil
+                  (emacspeak-speak-mode-line)
+                  (emacspeak-auditory-icon 'open-object)))
+    (save-excursion
+      (set-buffer src-buffer)
+      (emacspeak-w3-preview-this-buffer))
+    (kill-buffer src-buffer)))
+
+(defun emacspeak-wizards-google-hits ()
+  "Filter Google results after performing search to show just the
+hits."
+  (interactive)
+  (let ((name   "Google Hits"))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
 
 ;;}}}
 ;;{{{  google tool
