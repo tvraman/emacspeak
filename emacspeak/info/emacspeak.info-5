@@ -777,11 +777,6 @@ emacspeak-wizards.
  - emacspeak-wizards-fix-read-only-text: (START END)
      Nuke read-only property on text range.
 
- - emacspeak-wizards-generate-custom-loads: (DIRECTORY)
-     Generates  buffer containing the needed statements to set up
-     autloading for all defgroup declarations found in current
-     directory.
-
  - emacspeak-wizards-generate-finder: ()
      Generate a widget-enabled finder wizard.
 
