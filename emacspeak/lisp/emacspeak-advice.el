@@ -1110,12 +1110,17 @@ in completion buffers"
 
 
 ;;; Customize comint:
-(add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
-    (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-    (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
+
+(add-hook 'comint-output-filter-functions
+          'comint-truncate-buffer)
+(when (locate-library "ansi-color")
+  (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+  (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on))
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 
 (defvar emacspeak-comint-prompt-personality 'paul-monotone
-  "Personality used for highlighting comint prompts.")
+  "Personality used for highlighting comint prompts --emacs 21.")
 
 (defvar shell-voice-lock-keywords
   nil
