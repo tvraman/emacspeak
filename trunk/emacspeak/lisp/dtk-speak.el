@@ -605,7 +605,7 @@ This is setup on a per engine basis.")
   (unless tts-name
     (setq tts-name dtk-program))
   (cond
-   ((string= tts-name "outloud")
+   ((string-match "outloud" tts-name)
     (require 'outloud-voices)
     (require 'outloud-css-speech)
     (fset 'tts-get-voice-command 'outloud-get-voice-command)
