@@ -28,7 +28,8 @@ if (defined ($options{file})) {
 
 my $te;
 if ( defined ($options{headers})) {
-  $te = new HTML::TableExtract(headers=>$options{headers});
+my @headers =[qw($options{headers})];
+  $te = new HTML::TableExtract(headers=>\@headers);
 } else {
  $te = new HTML::TableExtract( depth => $options{depth}, count=>$options{count}); 
 }
