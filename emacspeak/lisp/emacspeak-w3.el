@@ -1277,6 +1277,30 @@ used as well."
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
+(defcustom emacspeak-w3-charent-alist
+  '(("&lt;" . "<")
+("&gt;" . ">")
+("&quot;" . "\"")
+("&apos;" . "'")
+("&amp;" . "&"))
+"Entities to unescape when treating badly escaped XML."
+:type '(repeat  :tag "Char Entity"
+(cons :tag "Entry"
+      (string :tag "CharEnt")
+      (string :tag "Replacement")))
+:group 'emacspeak-w3)
+
+(defsubst emacspeak-w3-unescape-charent ()
+  "Clean up bad XML usage."
+  (declare (special emacspeak-w3-charent-alist))
+  (loop for entry in emacspeak-w3-charent-alist
+        do
+        (let ((entity (car  entry))
+              (replacement (cdr entry )))
+          (goto-char (point-min))
+          (while (search-forward entity nil t)
+            (replace-match replacement )))))
+
 ;;;###autoload
 (defun emacspeak-w3-browse-xml-url-with-style (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
@@ -1302,21 +1326,7 @@ used as well."
     (save-excursion
       (set-buffer src-buffer)
       (when unescape-charent
-        (goto-char (point-min))
-        (while (search-forward "&lt;" nil t)
-          (replace-match "<"))
-        (goto-char (point-min))
-        (while (search-forward "&gt;" nil t)
-          (replace-match ">"))
-        (goto-char (point-min))
-        (while (search-forward "&apos;" nil t)
-          (replace-match "\""))
-        (goto-char (point-min))
-        (while (search-forward "&quot;" nil t)
-          (replace-match "'")))
-      (goto-char (point-min))
-      (while (search-forward "&amp;" nil t)
-	(replace-match "&"))
+        (emacspeak-w3-unescape-charent))
       (emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
