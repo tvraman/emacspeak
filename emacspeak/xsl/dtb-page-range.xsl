@@ -27,34 +27,35 @@ and the final intersection is computed using set:intersection.
   <xsl:param name="base" />
   <xsl:param name="uniquify" select="1"/>
   <xsl:param name="css">revstd.css</xsl:param>
-  <xsl:output method="html" indent="yes" encoding="iso8859-15"/> 
+  <xsl:output method="html" indent="yes" encoding="iso8859-15"/>
+  <xsl:key name="pageKey" match="pagenum" use="number(text())"/>
   <xsl:template match="/">
-    <html>
-      <head>
-        <link>
-          <xsl:attribute name="type"> text/css</xsl:attribute>
-          <xsl:attribute name="href" >
-            <xsl:value-of select="$css"/>
-        </xsl:attribute></link>
-        <xsl:element name="base">
-          <xsl:attribute name="href">
-            <xsl:value-of select="$base"/>
-          </xsl:attribute>
-        </xsl:element>
-        <title>
-          Pages
-          <xsl:value-of select="$start"/>--<xsl:value-of select="$end"/>
-          from  <xsl:value-of select="/dtbook3/head/title"/>
-        </title>
-      </head>
-      <body>
-        <xsl:variable name="pages" select="//pagenum"/>
-        <xsl:choose>
-          <xsl:when test="count($pages)  &gt; 0">
-            <xsl:variable name="first"
-            select="//pagenum[number(text())=$start]"/>
-            <xsl:variable name="last"
-            select="//pagenum[number(text()) &gt; $end]"/>
+      <html>
+        <head>
+          <link>
+            <xsl:attribute name="type"> text/css</xsl:attribute>
+            <xsl:attribute name="href" >
+              <xsl:value-of select="$css"/>
+          </xsl:attribute></link>
+          <xsl:element name="base">
+            <xsl:attribute name="href">
+              <xsl:value-of select="$base"/>
+            </xsl:attribute>
+          </xsl:element>
+          <title>
+            Pages
+            <xsl:value-of select="$start"/>--<xsl:value-of select="$end"/>
+            from  <xsl:value-of select="/dtbook3/head/title"/>
+          </title>
+        </head>
+        <body>
+          <xsl:variable name="pages" select="//pagenum"/>
+          <xsl:choose>
+            <xsl:when test="count($pages)  &gt; 0">
+              <xsl:variable name="first"
+                select="key('pageKey', $start)"/>
+              <xsl:variable name="last"
+                select="key('pageKey', $end+1)"/>
             <xsl:variable name="all"
             select="//*"/>
             <xsl:variable name="after" select="set:trailing($all, $first)"/>
