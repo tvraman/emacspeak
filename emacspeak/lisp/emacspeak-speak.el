@@ -2085,7 +2085,7 @@ buffer is not current or its window live.")
 
 (make-variable-buffer-local
  'emacspeak-comint-output-monitor)
-
+;;;###autoload
 (defun emacspeak-toggle-comint-output-monitor (&optional prefix)
   "Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
