@@ -2009,8 +2009,8 @@ this requires Perl module Finance::YahooQuote."
   "Format used to filter rows."
   :type '(repeat
           (choice :tag "Entry"
-                  '(integer :tag "Column Number:")
-'(string :tag "Label: ")))
+                  (integer :tag "Column Number:")
+(string :tag "Text: ")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
