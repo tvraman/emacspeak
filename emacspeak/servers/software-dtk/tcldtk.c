@@ -159,7 +159,7 @@ int Synchronize(ClientData dtkHandle, Tcl_Interp *interp,
 int Stop(ClientData dtkHandle, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]) {
   TextToSpeechReset (dtkHandle, FALSE);
   TextToSpeechSpeak(dtkHandle,
-                    "[:phoneme arpabet speak on :say clause]", TTS_FORCE);
+                    "[:phoneme arpabet speak on :say clause]", TTS_NORMAL);
   return TCL_OK;
 }
 
