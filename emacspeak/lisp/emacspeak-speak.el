@@ -1520,14 +1520,14 @@ semantic to do the work."
         (setq frame-info
               (format " %s " (frame-parameter (selected-frame) 'name)))
         (put-text-property 0 (length frame-info)
-                           'personality 'annotation-voice frame-info))
+                           'personality voice-smoothen frame-info))
        (t (setq frame-info "")))
       (when (> recursion-depth 0)
         (setq  recursion-info
                (format " Recursive Edit %d "
                        recursion-depth))
         (put-text-property 0 (length recursion-info)
-                           'personality 'annotation-voice
+                           'personality voice-smoothen
                            recursion-info))
       (when (buffer-modified-p ) (dtk-tone 700 70))
       (when buffer-read-only (dtk-tone 250 50))
