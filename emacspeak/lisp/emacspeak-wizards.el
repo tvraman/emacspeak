@@ -1103,6 +1103,7 @@ for commands defined in module  %s.\n\n"
               ""))
             (insert "\n@end deffn\n\n"))))
        (emacspeak-list-emacspeak-commands))
+      (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)
 			       "cat -s"
