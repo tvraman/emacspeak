@@ -100,29 +100,34 @@
         (substring tree-buffer-incr-searchpattern
                    0
                    (max 0 (1- (length
-                               tree-buffer-incr-searchpattern))))))
+                               tree-buffer-incr-searchpattern)))))
+  (dtk-speak  tree-buffer-incr-searchpattern)
+  (emacspeak-auditory-icon 'delete-object))
 
              
 (defun emacspeak-ecb-tree-clear ()
   "Clear search pattern during incremental search in tree buffers."
   (interactive)
 (declare (special tree-buffer-incr-searchpattern))  
-  (setq tree-buffer-incr-searchpattern ""))
+  (setq tree-buffer-incr-searchpattern "")
+(dtk-speak "Cleared search pattern."))
 
 (defun emacspeak-ecb-tree-expand-common-prefix ()
   "Expand to longest common prefix in tree buffer."
   (interactive)
-(declare (special tree-buffer-incr-searchpattern
-                  tree-buffer-root))
-             ;; expand to the max. common prefix
-              (let* ((node-name-list (tree-node-get-all-visible-node-names
-                                      tree-buffer-root))
-                     (common-prefix (tree-buffer-find-common-substring
-                                     node-name-list tree-buffer-incr-searchpattern
-                                     (if (equal tree-buffer-incr-search 'prefix) t))))
-                (if (stringp common-prefix)
-                    (setq tree-buffer-incr-searchpattern
-  common-prefix))))
+  (declare (special tree-buffer-incr-searchpattern
+                    tree-buffer-root))
+  ;; expand to the max. common prefix
+  (let* ((node-name-list (tree-node-get-all-visible-node-names
+                          tree-buffer-root))
+         (common-prefix (tree-buffer-find-common-substring
+                         node-name-list tree-buffer-incr-searchpattern
+                         (if (equal tree-buffer-incr-search 'prefix) t))))
+    (if (stringp common-prefix)
+        (setq tree-buffer-incr-searchpattern
+              common-prefix))
+    (end-of-line)
+(emacspeak-speak-line)))
 
               
              
