@@ -2230,12 +2230,15 @@ defgroup declarations found in current directory."
 
 ;;}}}
 ;;{{{ view RSS feed
-(defun emacspeak-wizards-rss-view (rss-url)
+(defun emacspeak-wizards-rss-view (rss-url &optional speak)
   "Retrieve and display RSS news feed."
   (interactive
    (list
     (read-from-minibuffer "RSS Feed: ")))
   (declare (special emacspeak-xslt-directory))
+  (when speak
+  (add-hook 'emacspeak-w3-post-process-hook
+            'emacspeak-speak-buffer))
   (emacspeak-wizards-browse-url-with-style
    (expand-file-name "rss.xsl"
                      emacspeak-xslt-directory)

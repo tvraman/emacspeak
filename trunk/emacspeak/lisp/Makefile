@@ -79,6 +79,7 @@ CORE_OBJECTS =  \
 emacspeak-freeamp.elc \
 	emacspeak-redefine.elc\
 	emacspeak-replace.elc \
+emacspeak-rss.elc \
         emacspeak-table.elc \
         emacspeak-table-ui.elc \
 	emacspeak-tabulate.elc 
@@ -347,6 +348,7 @@ emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc
 emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc
 emacspeak-remote.elc: emacspeak-remote.el
 emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc
+emacspeak-rss.elc: emacspeak-rss.el dtk-speak.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc
 emacspeak-sawfish.elc: emacspeak-sawfish.el dtk-speak.elc
 emacspeak-setup.elc: emacspeak-setup.el

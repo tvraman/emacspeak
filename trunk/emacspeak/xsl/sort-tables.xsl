@@ -45,11 +45,13 @@ relevant tables bubble to the top.
 <xsl:template match="/html/head">
 <head>
 <xsl:apply-templates select="title"/>
+      <xsl:if test="string-length($base) &gt; 0">
 <xsl:element name="base">
 <xsl:attribute name="href">
 <xsl:value-of select="$base"/>
         </xsl:attribute>
       </xsl:element>
+      </xsl:if>
     </head>
   </xsl:template>
   <xsl:template match="/html/body">

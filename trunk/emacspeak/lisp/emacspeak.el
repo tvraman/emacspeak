@@ -323,7 +323,9 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
-
+(autoload 'emacspeak-rss-browse  "emacspeak-rss"
+"Browse RSS  feeds." t)
+  
 (autoload 'emacspeak-m-player "emacspeak-m-player"
   "Emacspeak media player access."
   t)
@@ -482,6 +484,7 @@ the block. Use in conjunction with emacspeak-hide-or-expose-block"
 (put 'emacspeak-table-ui 'custom-loads '("emacspeak-table-ui"))
 (put 'emacspeak-speedbar 'custom-loads '("emacspeak-speedbar"))
 (put 'emacspeak-speak 'custom-loads '("emacspeak-speak"))
+(put 'emacspeak-rss 'custom-loads '("emacspeak-rss"))
 (put 'emacspeak-remote 'custom-loads '("emacspeak-remote"))
 (put 'emacspeak-pronounce 'custom-loads '("emacspeak-pronounce"))
 (put 'emacspeak-ocr 'custom-loads '("emacspeak-ocr"))
