@@ -323,9 +323,10 @@ functions for details.   "
 
 ;;}}}
 ;;{{{ autoloads
+(autoload 'emacspeak-rss-display  "emacspeak-rss"
+  "Browse RSS  feeds." t)
 (autoload 'emacspeak-rss-browse  "emacspeak-rss"
-"Browse RSS  feeds." t)
-  
+  "Browse RSS  feeds." t)
 (autoload 'emacspeak-m-player "emacspeak-m-player"
   "Emacspeak media player access."
   t)
@@ -335,10 +336,8 @@ functions for details.   "
 (autoload 'emacspeak-ocr "emacspeak-ocr"
   "OCR front-end for Emacspeak desktop"
   t)
-
 (autoload 'emacspeak-gridtext "emacspeak-gridtext"
   "Utilities for gridtext " t)
-
 (autoload 'emacspeak-gridtext-load "emacspeak-gridtext"
   "Utilities for gridtext " t)
 (autoload 'emacspeak-filtertext "emacspeak-filtertext"
@@ -361,7 +360,6 @@ functions for details.   "
   "Emacs interface to freeamp" t)
 (autoload 'cd-tool "cd-tool" 
   "Play music CDs from Emacs" t)
-
 (mapcar 
  (function
   (lambda (f)
@@ -383,10 +381,8 @@ functions for details.   "
 (autoload 'emacspeak-websearch-emacspeak-archive
   "emacspeak-websearch"
   "Perform a simple Altavista search" t)
-
 (autoload 'emacspeak-forms-find-file "emacspeak-forms"
   "Visit a forms file" t)
-
 (autoload 'emacspeak-remote-connect-to-server "emacspeak-remote"
   "Connect to a remote speech server.
 Use this when you are running emacspeak on a remote machine and want
@@ -397,7 +393,6 @@ this command emacspeak-remote-connect-to-server allows you
 to get remote speech feedback in cases where the remote machine cannot
 use rsh on your local desktop."
   t)
-
 (autoload 'emacspeak-remote-quick-connect-to-server "emacspeak-remote"
   "Connect to a remote speech server.
 Use this when you are running emacspeak on a remote machine and want
@@ -408,18 +403,13 @@ this command emacspeak-remote-connect-to-server allows you
 to get remote speech feedback in cases where the remote machine cannot
 use rsh on your local desktop."
   t)
-
 (autoload 'emacspeak-eterm-remote-term "emacspeak-eterm"
   "Create a terminal to rlogin into a remote host" t)
-
 (autoload 'voice-lock-mode "voice-lock" "voice lock mode" t)
-
 (autoload 'emacspeak-toggle-auditory-icons "emacspeak-sounds"
   "Ask emacspeak to use auditory icons" t)
-
 (autoload 'emacspeak-tabulate-region "emacspeak-tabulate"
   "Identify columns in the region."  t)
-    
 (autoload 'emacspeak-table-find-csv-file "emacspeak-table-ui"
   "Browse tables. Beginners: please do C-e C-t and specify one of the
 .tab files in the tables subdirectory of emacspeak.
@@ -430,7 +420,6 @@ detailed documentation on the table browser" t )
 .tab files in the tables subdirectory of emacspeak.
 Describe function of emacspeak-table-find-file will then give you
 detailed documentation on the table browser" t )
-
 (autoload 'emacspeak-table-display-table-in-region "emacspeak-table-ui"
   "Parse contents of region as tabular data and display it in table
 browsing mode.  Beginners: please do C-e C-t and specify one of the
@@ -438,39 +427,30 @@ browsing mode.  Beginners: please do C-e C-t and specify one of the
 of emacspeak-table-find-file will then give you detailed documentation
 on the table browser"
   t )
-
 (autoload 'emacspeak-tapestry-describe-tapestry  "emacspeak-tapestry"
   "Describe layout of buffers in current frame.
 This needs the tapestry.el package used by many Emacs systems like the
 vm mail reader." t)
-
 (autoload 'emacspeak-hide-or-expose-block "emacspeak-hide"
   "Hide or expose blocks of text that share a common prefix.
 Useful in reading email, block comments in program source etc." t)
-
 (autoload 'emacspeak-hide-or-expose-all-blocks "emacspeak-hide"
   "Hide or expose blocks of text that share a common prefix.
 Useful in reading email, block comments in program source etc." t)
-
 (autoload 'emacspeak-hide-speak-block-sans-prefix "emacspeak-hide"
   "Speak a block of text sans the prefix that appears on every line of
 the block. Use in conjunction with emacspeak-hide-or-expose-block"
   t)
-
 (autoload 'emacspeak-realaudio "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
 (autoload 'emacspeak-realaudio-browse "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
-
 (autoload 'emacspeak-realaudio-play-url-at-point "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
-
 (autoload 'emacspeak-realaudio-play "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
-
 (autoload 'emacspeak-realaudio-stop "emacspeak-realaudio"
   "Single click interface to RealAudio" t)
-
 ;;}}}
 ;;{{{ autoload  custom groups 
 (put 'voice-lock 'custom-loads '("voice-lock"))
