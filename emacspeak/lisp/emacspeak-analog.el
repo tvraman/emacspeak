@@ -52,8 +52,8 @@
 (require 'advice)
 (require 'backquote)
 (eval-when-compile
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds))
+  (require 'emacspeak-speak)
+  (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{ advice interactive commands
