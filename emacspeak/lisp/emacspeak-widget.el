@@ -742,10 +742,8 @@ widget before summarizing."
 (define-widget 'voice  'menu-choice
   :help-echo "Voice selector"
   "Widget for selecting a voice.")
-
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
-
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
   (declare (special dtk-voice-table))

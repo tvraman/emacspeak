@@ -323,7 +323,7 @@ command \\[customize-variable] on <personality>-settings."
   "Add medium lighten current voice.")
 
 (defvoice voice-lighten-extra
-  (list nil 8 8 0   nil)
+  (list nil 9 8 7   9)
   "Add extra lighten current voice.")
 
 (defvoice voice-bolden-and-animate
@@ -368,7 +368,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-constant-face
   "Personality to use for  constants.")
   
-(def-voice-font voice-lock-string-personality 'betty
+(def-voice-font voice-lock-string-personality voice-lighten-extra
   'font-lock-string-face
   "Personality to use for string constants.")
 
