@@ -924,7 +924,7 @@ end:\n\n")
   "Generate texinfo documentation  for all emacspeak
 commands  into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
-  (interactive "FEnter filename to save DOC in: ")
+  (interactive "FEnter filename to save commands documentation  in: ")
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
@@ -1010,7 +1010,7 @@ for commands defined in module  %s.\n\n"
   "Generate texinfo documentation  for all emacspeak
 options  into file options.texi.
 Warning! Contents of file options.texi will be overwritten."
-  (interactive "FEnter filename to save DOC in: ")
+  (interactive "FEnter filename to save options documentation in: ")
   (let ((emacspeak-speak-messages nil)
         (dtk-quiet t)
         (buffer (find-file-noselect filename))
@@ -1020,7 +1020,7 @@ Warning! Contents of file options.texi will be overwritten."
       (erase-buffer)
       (insert"@c $Id$\n")
       (insert
-       "@node Emacspeak Options\n@chapter Emacspeak Options\n\n")
+       "@node Emacspeak Options\n@chapter Emacspeak Customizations \n\n")
       (insert
        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
@@ -1066,7 +1066,7 @@ These options are customizable via Emacs' Custom interface.\n\n"
             (insert
              (or
               (ems-texinfo-escape
-               (documentation-property  symbol 'variable-documentation))                        
+               (documentation-property  o 'variable-documentation))                        
               ""))
             (insert "\n@end defvar\n\n"))))
        (emacspeak-list-emacspeak-options))
