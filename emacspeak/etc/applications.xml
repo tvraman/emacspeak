@@ -26,6 +26,9 @@ type="text/xsl"?>
     </p>
   </introduction>
   <category name="Multimedia">
+    <application name="emms">
+      Emacs Multimedia Front-End
+    </application>
     <application name="aumix">
       Emacspeak front-end for configuring  the 
       auditory display.
