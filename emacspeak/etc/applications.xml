@@ -109,6 +109,27 @@ type="text/xsl"?>
       Usenet news and email client
       with support for exotic information backends such as
     Slashdot etc.</application>
+    <application name="newsticker">
+      Speech-enabled NewsTicker, a native Emacs RSS reader.
+    </application>
+    <application name="amphetadesk">
+      Emacs front-end to AmphetaDesk
+      
+    </application>
+    <application name="rss">
+      Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
+    </application>
+    <application name="rdf-edit">
+      Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
+    </application>
+    <application name="xslt">
+      Ability to apply XSL transforms to Web content before it is
+      displayed.
+    </application>
+    <application name="xml-shell">
+      Interactive shell for browsing XML structures via libxml and
+      XMLLint.
+    </application>
     <application name="message">
       Email composition   from
     within other applications.</application>
@@ -182,6 +203,16 @@ type="text/xsl"?>
     Simple but powerful desktop calculator.</application>
     <application name="calendar">
       Desktop calendar with an integrated appointment book.
+    </application>
+
+    <application name="diary">
+      Speech-enabled diary via EDiary.
+    </application>
+    <application name="appointments">
+      Speech-enabled appointments via the Emacs calendar.
+    </application>
+    <application name="todo">
+      Speech-enabled ToDo Lists.
     </application>
     <application name="custom">
       Intuitive interface to customize Emacs' extensive set of
@@ -350,6 +381,9 @@ type="text/xsl"?>
     <application name="tar">
       Front-end for browsing  tar,
       jar and zip archives.
+    </application>
+    <application name="arc">
+      Browse various compressed archives.
     </application>
     <application name="view">
       File browser for reading etexts.
