@@ -345,29 +345,41 @@ Optional prefix arg prompts for a new filter."
     (setq emacspeak-table-speak-row-filter
           (read-minibuffer "Specify row filter as a list: "
                            (format "%s"
-                           (or (emacspeak-table-ui-filter-get
-                                (emacspeak-table-ui-generate-key))
-                               "("))))
+                                   (or (emacspeak-table-ui-filter-get
+                                        (emacspeak-table-ui-generate-key))
+                                       "("))))
     (emacspeak-table-ui-filter-set
-     (emacspeak-table-ui-generate-key )emacspeak-table-speak-row-filter))
-  (dtk-speak
-   (mapconcat
-    (function
-     (lambda (token)
-       (cond
-        ((stringp token) token)
-        ((numberp token)
-         (emacspeak-table-get-entry-with-headers
-          (emacspeak-table-current-row emacspeak-table) token))
-        ((and (listp token)
-              (numberp (first token))
-              (numberp (second token )))
-         (emacspeak-table-get-entry-with-headers
-          (first token)
-          (second token)))
-        (t  (format "%s" token)))))
-    emacspeak-table-speak-row-filter 
-    " ")))
+     (emacspeak-table-ui-generate-key
+      )emacspeak-table-speak-row-filter))
+  (let ((voice-lock-mode t))
+    (dtk-speak
+     (mapconcat
+      (function
+       (lambda (token)
+         (let ((value nil))
+           (cond
+            ((stringp token) token)
+            ((numberp token)
+             (setq value 
+                   (emacspeak-table-get-entry-with-headers
+                    (emacspeak-table-current-row emacspeak-table)
+                    token))
+             (put-text-property 0 (length value)
+                                'personality 'paul-smooth value)
+             value)
+            ((and (listp token)
+                  (numberp (first token))
+                  (numberp (second token )))
+             (setq value 
+                   (emacspeak-table-get-entry-with-headers
+                    (first token)
+                    (second token)))
+             (put-text-property 0 (length value)
+                                'personality 'paul-smooth value)
+             value)
+            (t  (format "%s" token))))))
+      emacspeak-table-speak-row-filter
+      " "))))
 
 (defvar emacspeak-table-speak-column-filter nil
   "Template specifying how a column is filtered before it is spoken.")
