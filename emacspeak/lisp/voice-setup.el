@@ -467,6 +467,10 @@ font-lock.  Voicification is effective only if font lock is on."
     (emacspeak-auditory-icon
      (if voice-lock-mode
          'on 'off ))))
+;;;###autoload
+(defun turn-on-voice-lock ()
+  "Turn on Voice Lock mode ."
+  (unless voice-lock-mode (voice-lock-mode)))
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
