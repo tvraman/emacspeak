@@ -573,9 +573,12 @@ emacspeak-play-midi-icon for midi device. " t nil)
 
 ;;;***
 
-;;;### (autoloads (emacspeak-toggle-comint-output-monitor) "emacspeak-speak"
-;;;;;;  "emacspeak-speak.el" (16024 53928))
+;;;### (autoloads (emacspeak-toggle-comint-output-monitor emacspeak-speak-world-clock)
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16025 34117))
 ;;; Generated autoloads from emacspeak-speak.el
+
+(autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
+Display current date and time  for specified zone." t nil)
 
 (autoload (quote emacspeak-toggle-comint-output-monitor) "emacspeak-speak" "\
 Toggle state of Emacspeak comint monitor.
@@ -869,12 +872,12 @@ Fall back summarizer for all widgets" nil nil)
 
 ;;;***
 
-;;;### (autoloads (emacspeak-wizards-world-clock emacspeak-wizards-generate-voice-sampler
-;;;;;;  emacspeak-wizards-voice-sampler emacspeak-wizards-show-face
-;;;;;;  emacspeak-wizards-find-longest-paragraph-in-region emacspeak-wizards-find-longest-line-in-region
-;;;;;;  emacspeak-wizards-google-hits emacspeak-wizards-vc-viewer-refresh
-;;;;;;  emacspeak-wizards-vc-viewer emacspeak-wizards-fix-read-only-text
-;;;;;;  emacspeak-wizards-fix-typo emacspeak-wizards-spot-words emacspeak-kill-buffer-quietly
+;;;### (autoloads (emacspeak-wizards-generate-voice-sampler emacspeak-wizards-voice-sampler
+;;;;;;  emacspeak-wizards-show-face emacspeak-wizards-find-longest-paragraph-in-region
+;;;;;;  emacspeak-wizards-find-longest-line-in-region emacspeak-wizards-google-hits
+;;;;;;  emacspeak-wizards-vc-viewer-refresh emacspeak-wizards-vc-viewer
+;;;;;;  emacspeak-wizards-fix-read-only-text emacspeak-wizards-fix-typo
+;;;;;;  emacspeak-wizards-spot-words emacspeak-kill-buffer-quietly
 ;;;;;;  emacspeak-switch-to-previous-buffer emacspeak-wizards-occur-header-lines
 ;;;;;;  emacspeak-wizards-how-many-matches emacspeak-wizards-count-slides-in-region
 ;;;;;;  emacspeak-wizards-squeeze-blanks emacspeak-wizards-show-environment-vvariable
@@ -902,7 +905,7 @@ Fall back summarizer for all widgets" nil nil)
 ;;;;;;  emacspeak-symlink-current-file emacspeak-link-current-file
 ;;;;;;  emacspeak-copy-current-file emacspeak-view-emacspeak-faq
 ;;;;;;  emacspeak-view-emacspeak-tips emacspeak-view-emacspeak-doc)
-;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16024 54502))
+;;;;;;  "emacspeak-wizards" "emacspeak-wizards.el" (16025 33799))
 ;;; Generated autoloads from emacspeak-wizards.el
 
 (autoload (quote emacspeak-view-emacspeak-doc) "emacspeak-wizards" "\
@@ -1258,9 +1261,6 @@ Read a personality  and apply it to the current line." t nil)
 (autoload (quote emacspeak-wizards-generate-voice-sampler) "emacspeak-wizards" "\
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family." t nil)
-
-(autoload (quote emacspeak-wizards-world-clock) "emacspeak-wizards" "\
-Display current date and time  for specified zone." t nil)
 
 ;;;***
 
