@@ -1,6 +1,6 @@
 [playlist]
 numberofentries=1
-File1=http://24.157.160.3:8000
-Title1=(#1 - 1/60) 24hrs Live Indian Music Radio Also Known as Radio Chaatpapri
+File1=http://4.10.102.174:8000
+Title1=(#1 - 0/10) Hindi
 Length1=-1
 Version=2
