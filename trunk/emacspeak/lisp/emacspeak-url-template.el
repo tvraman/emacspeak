@@ -529,12 +529,14 @@ name of the list.")
      (emacspeak-w3-extract-table 9 url)))
 (emacspeak-url-template-define
  "CNN Content "
- "http://www.cnn.com"
+ "http://www.cnn.com/"
  nil
  nil
- "CNN Hot Stocks"
+ "CNN Content"
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class-list (list "cnnMainT1"
+     (emacspeak-w3-extract-by-class-list
+      (list "cnnMainT1"
+                                               "cnnMainNewT2"
                                                "cnnMainSections")
                                          url
                                          'speak)))
