@@ -172,6 +172,47 @@
 (provide 'emacspeak-erc)
 ;;{{{ advice for voicefication 
 
+(defcustom emacspeak-erc-faces-to-personalities
+  '((erc-default-face paul)
+				     (erc-direct-msg-face paul-animated)
+				     (erc-input-face paul-smooth)
+				     (erc-bold-face paul-bold)
+				     (erc-inverse-face betty)
+				     (erc-underline-face ursula)
+				     (erc-prompt-face harry)
+				     (erc-notice-face paul-italic)
+				     (erc-action-face paul-monotone)
+				     (erc-error-face kid)
+				     (erc-dangerous-host-face paul-surprized)
+				     (erc-pal-face paul-animated)
+				     (erc-fool-face paul-angry)
+				     (erc-keyword-face paul-animated))
+  "Maps faces used in erc to speaker personalities in emacspeak."
+  :group 'emacspeak-erc
+  :type '(repeat
+	  (list :tag "mapping"
+		(symbol :tag "face")
+		(symbol :tag "personality"))))
+
+(defadvice erc-put-text-property (after emacspeak pre act comp)
+  "Voiceify faces."
+  (declare (special emacspeak-erc-faces-to-personalities))
+  (let ((start (ad-get-arg 0))
+        (end (ad-get-arg 1))
+        (property (ad-get-arg 2))
+        (value (ad-get-arg 3))
+        (object (or (ad-get-arg 4)
+                    nil))
+        (personality nil))
+    (setq personality
+          (cadr (assq value emacspeak-erc-faces-to-personalities)))
+    (when personality 
+      (ems-modify-buffer-safely
+       (put-text-property  start end
+                           'personality personality object)))))
+
+    
+
 (defadvice erc-highlight-error (after emacspeak pre act
                                       comp)
   "Apply aural highlighting as well."
