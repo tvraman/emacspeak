@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 4.1 from
+This is ./emacspeak.info, produced by makeinfo version 4.1 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -1207,6 +1207,9 @@ emacspeak-vm.
 
  - emacspeak-vm-speak-labels: ()
      Speak a message's labels
+
+ - emacspeak-vm-yank-header: ()
+     Yank specified header into kill ring.
 
 
 File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: emacspeak-vm,  Up: Emacspeak Commands
