@@ -825,26 +825,26 @@ the broadcast. You must have mplayer installed."
 
 ;;}}}
 ;;{{{  Virtually There --Sabre Trip Reports 
-(emacspeak-url-template-define
- "Sabre Travel From Virtually There" 
- "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W&emailAddr=%s"
- (list
-  #'(lambda nil 
-      (read-from-minibuffer "Record Locator: "))
-  #'(lambda nil 
-      (read-from-minibuffer "User Name"))
-  #'(lambda nil
-      (read-from-minibuffer "Email: ")))
- nil
- "Display Trip Details"
-                                        ; #'(lambda (url)
-                                        ;      (let ((temp-file (format "/tmp/sabre-%s.html" (gensym))))
-                                        ;        (shell-command
-                                        ;         (format "lynx -base '%s' -source '%s' > %s"
-                                        ;                 url url temp-file))
-                                        ;        (w3-open-local temp-file)
-                                        ;        (delete-file temp-file)))
- )
+;; (emacspeak-url-template-define
+;;  "Sabre Travel From Virtually There" 
+;;  "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W&emailAddr=%s"
+;;  (list
+;;   #'(lambda nil 
+;;       (read-from-minibuffer "Record Locator: "))
+;;   #'(lambda nil 
+;;       (read-from-minibuffer "User Name"))
+;;   #'(lambda nil
+;;       (read-from-minibuffer "Email: ")))
+;;  nil
+;;  "Display Trip Details"
+;;                                         ; #'(lambda (url)
+;;                                         ;      (let ((temp-file (format "/tmp/sabre-%s.html" (gensym))))
+;;                                         ;        (shell-command
+;;                                         ;         (format "lynx -base '%s' -source '%s' > %s"
+;;                                         ;                 url url temp-file))
+;;                                         ;        (w3-open-local temp-file)
+;;                                         ;        (delete-file temp-file)))
+;;  )
 
 ;;}}}
 ;;{{{  viewtrip --travel reports
