@@ -255,6 +255,18 @@ documentation   Documents this template resource.
 ;;}}}
 ;;{{{ bbc 
 (emacspeak-url-template-define
+ "BBC7 Schedule"
+ "http://www.bbc.co.uk/bbc7/listings/index.shtml?%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer"Day:"
+                           "Today")))
+ nil
+ "Retrieve BBC7 schedule for specified day."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-position 13 url 'speak)))
+
+(emacspeak-url-template-define
  "BBC Radio4 On Demand"
  "rtsp://rmv8.bbc.net.uk/radio4/%s.ra"
  (list "WeekdayTime: ")
