@@ -387,6 +387,8 @@ set the current local value to the result.")
   "Set up #cricket channels."
   (interactive)
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
+   "km/h," " kays, ")
+  (emacspeak-pronounce-add-buffer-local-dictionary-entry
    emacspeak-erc-cricket-bowling-figures-pattern
    (cons 're-search-forward
          'emacspeak-erc-cricket-convert-bowling-figures))
