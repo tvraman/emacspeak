@@ -62,6 +62,7 @@ documentation.
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
 * emacspeak-speak::             
+* emacspeak-speedbar::          
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -3043,6 +3044,30 @@ Prompts for PERSONALITY  with completion when called interactively.
 Send this command to the TTS directly.
 @end deffn
 
+@node emacspeak-speedbar
+@section emacspeak-speedbar
+
+Commentary:
+This module advises speedbar.el for use with Emacs.  The
+latest speedbar can be obtained from
+ftp://ftp.ultranet.com/pub/zappo/ This module ensures
+that speedbar works smoothly outside a windowing system
+in addition to speech enabling all interactive
+commands. Emacspeak also adds an Emacspeak environment
+specific entry point to speedbar
+--emacspeak-speedbar-goto-speedbar-- and binds this
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speedbar.
+
+@deffn {Interactive Command} emacspeak-speedbar-click ()
+Does the equivalent of the mouse click from the keyboard
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speedbar-goto-speedbar ()
+Switch to the speedbar
+@end deffn
+
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -3867,6 +3892,16 @@ Display form specified by form-markup.
 
 @deffn {Interactive Command} emacspeak-websearch-ebay-search ()
 Ebay search.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-emaps-search (QUERY &optional USE-NEAR)
+Perform EmapSpeak search.
+Query is a Google Maps query in plain English.
+Interactive prefix arg `use-near' searches near our previously cached  location.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-emapspeak-near-my-location (QUERY)
+Perform search relative to `my-location'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor (CONVERSION-SPEC)
