@@ -395,21 +395,22 @@ If it is already selected then hide it."
   (interactive)
   (if (string-equal (buffer-name (window-buffer (selected-window)))
 		    "*Messages*")
-                                        ; Buffer selected so hide it
       (progn
-	(if (and
-	     (window-configuration-p emacspeak-popup-messages-config-0)
-	     (window-configuration-p emacspeak-popup-messages-config-1)
-	     (compare-window-configurations
-	      (current-window-configuration)
-	      emacspeak-popup-messages-config-1))
-	    (set-window-configuration emacspeak-popup-messages-config-0)
-	  (bury-buffer)
-          (emacspeak-speak-mode-line))
-	(setq emacspeak-popup-messages-config-0 nil
-	      emacspeak-popup-messages-config-1 nil)
-	(emacspeak-auditory-icon 'select-object)
-	(emacspeak-speak-mode-line))
+                                        ; Buffer selected so
+                                        ; hide it
+	(when (and
+	       (window-configuration-p emacspeak-popup-messages-config-0)
+	       (window-configuration-p emacspeak-popup-messages-config-1)
+	       (compare-window-configurations
+		(current-window-configuration)
+		emacspeak-popup-messages-config-1))
+	  (set-window-configuration
+           emacspeak-popup-messages-config-0))
+        (setq emacspeak-popup-messages-config-0 nil
+ 	      emacspeak-popup-messages-config-1 nil)
+	(bury-buffer "*Messages*")
+ 	(emacspeak-auditory-icon 'select-object)
+ 	(emacspeak-speak-mode-line))
                                         ; else popup Messages buffer
                                         ; Memoize current window configuration only if buffer isn't yet visible
     (if (get-buffer-window "*Messages*")
