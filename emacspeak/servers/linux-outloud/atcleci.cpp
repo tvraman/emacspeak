@@ -93,12 +93,6 @@
 static snd_pcm_t *AHandle = NULL;
 short *waveBuffer = NULL;
 
-
-static size_t chunk_bytes=0;
-static unsigned int period_time = 0;
-static unsigned int buffer_time = 0;
-static snd_pcm_uframes_t period_frames = 0;
-static snd_pcm_uframes_t buffer_frames = 0;
 static int start_delay = 0;
 static int stop_delay = 0;
 
@@ -159,7 +153,7 @@ static void (*_eciRegisterCallback) (void *,
 				     int (*)(void *, int, long, void *),
 				     void *);
 static int alsa_init ();
-static void set_params (void);
+static size_t alsa_configure (void);
 extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -177,13 +171,17 @@ int eciCallback (void *, int, long, void *);
 //>
 //<alsa: set hw and sw params
 
-static void set_params(void) {
+static size_t alsa_configure(void) {
   //<init:
-  size_t bits_per_sample, bits_per_frame = 0;
+  size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
   snd_pcm_uframes_t chunk_size = 0;
   snd_pcm_hw_params_t *params;
   snd_pcm_sw_params_t *swparams;
   snd_pcm_uframes_t buffer_size;
+  unsigned int period_time = 0;
+  unsigned int buffer_time = 0;
+  snd_pcm_uframes_t period_frames = 0;
+  snd_pcm_uframes_t buffer_frames = 0;
   int err;
   size_t n;
   snd_pcm_uframes_t xfer_align;
@@ -334,6 +332,7 @@ static void set_params(void) {
   }
 
   //>
+  return chunk_bytes;
 }
 
 //>
@@ -437,6 +436,7 @@ void TclEciFree (ClientData eciHandle) {
 
 int Atcleci_Init (Tcl_Interp * interp) {
   int rc;
+  size_t chunk_bytes = 0;
   void *eciHandle;
   void *eciLib;
   //< configure shared library symbols
@@ -591,8 +591,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
 
   //>
   //<initialize alsa
-  rc=alsa_init();
-  
+  chunk_bytes=alsa_init();
   //>
   //<initialize TTS 
 
@@ -600,8 +599,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
       || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
       || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1)
       //|| (_eciSetParam(eciHandle,8/*eciRealWorldUnits*/, 1) == -1)
-      )
-    {
+      ) {
       Tcl_AppendResult (interp, "Could not initialized tts", NULL);
       _eciDelete (eciHandle);
       return TCL_ERROR;
@@ -849,14 +847,15 @@ int Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
 int alsa_init () {
   int err;
   char *device = "default";
+  size_t chunk_bytes = 0;
   if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
     fprintf(stderr,
             "Playback open error: %s\n",
             snd_strerror(err));
-    return TCL_ERROR;
+    exit (1);
   }
-  set_params();
-  return TCL_OK;
+  chunk_bytes = alsa_configure();
+  return chunk_bytes;
 }
 
 //>
