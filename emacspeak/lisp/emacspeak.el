@@ -489,7 +489,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
                ((, package)
                 (progn
                   (require (quote (, module )))
-                  (emacspeak-fix-commands-loaded-from (,package)))))))))
+                  (emacspeak-fix-commands-loaded-from (, package)))))))))
 
 ;;}}}
 ;;{{{ Setup package extensions
