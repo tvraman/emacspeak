@@ -300,9 +300,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ jde
+    (load-library-if-available "semantic-prepare")
     (load-library-if-available "jde-prepare")
-    (load-library-if-available "ecb-prepare")
-
+    ;(load-library-if-available "ecb-prepare")
     ;;}}}    
     ;;{{{  load yasb 
 
@@ -433,17 +433,22 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{ bib-find
     (load-library-if-available "bibfind")
     ;;}}}
-;;{{{ igrep
-(load-library-if-available "igrep")
-;;}}}
+    ;;{{{ igrep
+    (load-library-if-available "igrep")
+    ;;}}}
     ;;{{{ nxml
 
     (load-library-if-available "nxml-prepare")
-    ;(load-library-if-available "xae-prepare")
+                                        ;(load-library-if-available "xae-prepare")
     (load-library-if-available "tdtd-prepare")
                                         
     (load-library-if-available "xslt-process-prepare")
     ;;}}}
+    ;;{{{ crontab
+    (load-library-if-available "crontab-mode")
+    (when (featurep 'crontab-mode)
+      (augment-auto-mode-alist ".crontab$" 'crontab-mode))
+;;}}}
     ))                                  ; end defun 
 ;;{{{ customize custom
 
@@ -451,7 +456,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 (setq custom-file (expand-file-name "~/.customize-emacs"))
 (when (file-exists-p custom-file)
   (load-file custom-file))
-
 ;;}}}
 ;;{{{  start it up 
 
@@ -467,6 +471,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
              (shell-command "play ~/cues/highbells.au")))
 
 ;;}}}
+
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
