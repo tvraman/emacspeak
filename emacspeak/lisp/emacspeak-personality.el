@@ -121,12 +121,13 @@
         (end (ad-get-arg 1 ))
         (prop (ad-get-arg 2))
         (value (ad-get-arg 3 ))
+        (object (ad-get-arg 4))
         (voice nil))
     (when (eq prop 'face)
       (setq voice (voice-setup-get-voice-for-face   value))
       (and voice 
            (put-text-property start end
-                              'personality voice)))))
+                              'personality voice object)))))
 
 ;;}}}
 (provide 'emacspeak-personality )
