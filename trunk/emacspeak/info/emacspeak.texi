@@ -2,8 +2,6 @@
 @c$Id$
 @setfilename./emacspeak.info 
 @settitle Emacspeak User's Manual --2nd Edition.
-
-
 @dircategory Accessibility
 @dircategory Emacs
      @direntry

@@ -27,6 +27,7 @@ emacspeak.info: emacspeak.texi
 
 emacspeak.dvi:		emacspeak.texi
 	tex emacspeak.texi
+	tex emacspeak.texi
 	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
 	tex emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
