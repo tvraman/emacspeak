@@ -121,7 +121,8 @@
 (defsubst voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
-  (gethash face voice-setup-face-voice-table))
+   (symbol-value (gethash face voice-setup-face-voice-table)))
+    
 
 ;;; voiceifies faces not already voiceified as specified in
 ;;; voice-setup-face-voice-table

@@ -48,7 +48,11 @@
 
 ;;}}}
 ;;{{{ voice locking:
-
+;;; faces from AUCTeX 11
+(def-voice-font voice-latex-sedate-personality 'paul-smooth
+  'font-latex-sedate-face
+  "Personality used  on macro names."
+  :group 'emacspeak-auctex)
 ;;}}}
 ;;{{{  Marking structured objects:
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
