@@ -180,7 +180,7 @@ proc s {} {
         set tts(talking?) 0
         queue_clear
         #allow dtk to recover 
-        select {} {} {} 0.1
+        select {} {} {} 0.05
     }
 }
 
