@@ -201,15 +201,15 @@ This function forces voice-lock mode on."
      :type  '(repeat
               (cons :tag "Setting"
                     (symbol :tag "Key")
-                    (const :tag "Value")))
+                    (sexp :tag "Value")))
      :group 'tts
      :set '(lambda  (sym val)
              (let ((voice-name (dtk-personality-from-speech-style
-                    (apply 'make-dtk-speech-style
-                           (apply 'append val)))))
-             (setq (, personality) voice-name)
-             (dtk-define-voice-alias (, personality) voice-name)
-             (set-default sym val))))))
+                                (apply 'make-dtk-speech-style
+                                       (apply 'append val)))))
+               (setq (, personality) voice-name)
+               (dtk-define-voice-alias '(, personality) voice-name)
+               (set-default sym val))))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
