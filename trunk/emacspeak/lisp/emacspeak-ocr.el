@@ -379,6 +379,7 @@ Pick a short but meaningful name."
   "Acquire page image."
   (interactive)
   (declare (special emacspeak-speak-messages
+                    emacspeak-ocr-last-page-number
                     emacspeak-ocr-image-extension
                     emacspeak-ocr-keep-uncompressed-image
                     emacspeak-ocr-scan-image
@@ -404,8 +405,12 @@ Pick a short but meaningful name."
             (format "echo \'Uncompressed image not removed.'")
           (format "rm -f temp%s"
                   emacspeak-ocr-image-extension)))))
+    (when (interactive-p)
+      (setq emacspeak-ocr-last-page-number
+          (1+ emacspeak-ocr-last-page-number)))
     (message "Acquired  image to file %s"
              image-name)))
+
 (defun emacspeak-ocr-scan-photo (&optional metadata)
   "Scan in a photograph.
 The scanned image is converted to JPEG."
