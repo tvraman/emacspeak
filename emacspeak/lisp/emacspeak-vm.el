@@ -66,39 +66,14 @@ Note that some badly formed mime messages  cause trouble."
 
 (defun emacspeak-vm-mode-setup ()
   "Setup function placed on vm-mode-hook by Emacspeak."
-  (declare (special  dtk-punctuation-mode
-                     dtk-allcaps-beep
-                     emacspeak-vm-voice-lock-messages))
+  (declare (special  dtk-punctuation-mode emacspeak-vm-voice-lock-messages
+                     dtk-allcaps-beep))
   (setq dtk-punctuation-mode "some")
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep))
   (emacspeak-dtk-sync)
   (when emacspeak-vm-voice-lock-messages
-    (condition-case nil
-        (voice-lock-mode 1)
-      (error nil ))))
-
-;;}}}
-;;{{{  vm voices:
-
-(defcustom emacspeak-vm-from-voice  voice-bolden
-  "Personality for From field. "
-  :type 'symbol
-  :group 'emacspeak-vm)
-
-(defcustom emacspeak-vm-to-voice  voice-animate
-  "Personality for To field. "
-  :type 'symbol
-  :group 'emacspeak-vm)
-(defcustom emacspeak-vm-subject-voice  voice-brighten 
-  "Personality for Subject field. "
-  :type 'symbol
-  :group 'emacspeak-vm)
-
-(defcustom emacspeak-vm-cite-voice  voice-smoothen
-  "Personality for citation lines. "
-  :type 'symbol
-  :group 'emacspeak-vm)
+    (voice-lock-mode 1)))
 
 ;;}}}
 ;;{{{ inline helpers
@@ -617,7 +592,7 @@ Emacspeak."
         vm-url-browser 'browse-url
         vm-confirm-new-folders t
         vm-move-after-deleting nil
-        emacspeak-vm-voice-lock-messages nil)
+        emacspeak-vm-voice-lock-messages t)
   t)
   
 (when emacspeak-vm-use-raman-settings
