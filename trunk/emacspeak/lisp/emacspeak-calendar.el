@@ -66,13 +66,13 @@
 ;;}}}
 ;;{{{  functions: 
 (defun emacspeak-calendar-sort-diary-entries ()
-"Sort entries in diary entries list."
-(when(and  (boundp 'diary-entries-list)
-diary-entries-list)
-(setq diary-entries-list
-(sort  diary-entries-list
-#'(lambda (a b )
-(string-lessp (cadr a) (cadr b )))))))
+  "Sort entries in diary entries list."
+  (when(and  (boundp 'diary-entries-list)
+	     diary-entries-list)
+    (setq diary-entries-list
+	  (sort  diary-entries-list
+		 #'(lambda (a b )
+		     (string-lessp (cadr a) (cadr b )))))))
 
 (defun calendar-entry-marked-p()
   "Check if diary entry is marked. "

@@ -288,12 +288,12 @@ Modifies text and point in buffer."
                         (get-text-property (point) 'personality))
                   (setq pronunciation
                         (save-match-data 
-                        (funcall pronouncer
-                                 (buffer-substring 
-                                  (match-beginning 0)
-                                  (match-end 0)))))
+			  (funcall pronouncer
+				   (buffer-substring 
+				    (match-beginning 0)
+				    (match-end 0)))))
                   (replace-match pronunciation t t  )
-                 ;; get personality if any from pronunciation
+		  ;; get personality if any from pronunciation
                   (setq pp
                         (get-text-property (match-beginning 0) 'personality))
                   (put-text-property
@@ -622,7 +622,7 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
     ("http://www.w3.org/1999/XSL/Transform" . " XSLT ")
     ("http://www.w3.org/2002/xforms" . " XForms ")
     ("http://www.w3.org/2001/xml-events" . " XEvents ")
-("http://www.w3.org/2001/vxml" . " vxml ")
+    ("http://www.w3.org/2001/vxml" . " vxml ")
     ("http://www.w3.org/2001/XMLSchema-instance". " XSchema Instance ")
     ("http://www.w3.org/2001/XMLSchema". " XSchema ")
     ("http://www.w3.org/1999/xhtml" . " xhtml ")
@@ -750,7 +750,7 @@ specified pronunciation dictionary key."
       (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
       (?d (call-interactively
            'emacspeak-pronounce-define-pronunciation t))
-(?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
+      (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
       (?e (call-interactively
            'emacspeak-pronounce-edit-pronunciations t))
       (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
@@ -783,7 +783,7 @@ specified pronunciation dictionary key."
                ((< (third fields) 100)
                 (+ 1900 (third fields)))
                (t (third fields)))))
-        'personality voice-punctuations-some))))
+       'personality voice-punctuations-some))))
                    
 ;;}}}
 ;;{{{ phone numbers
@@ -811,7 +811,7 @@ specified pronunciation dictionary key."
     (propertize 
      (format "(%s) %s, %s. "
              area-code prefix-code suffix-code)
-      'personality voice-punctuations-some)))
+     'personality voice-punctuations-some)))
 
 ;;}}}
 
