@@ -153,8 +153,6 @@ generators  ; list of param generator
 
 ;;}}}
 ;;{{{  template resources 
-
-;;{{{ cnn 
 ;;{{{ w3c 
 (emacspeak-url-template-define "w3c Lists"
                                "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
@@ -177,6 +175,18 @@ generators  ; list of param generator
   
   
 ;;}}}
+;;{{{ cnn 
+
+(emacspeak-url-template-define "CNN headlines "
+                               "http://www.cnn.com/quicknews/print.html"
+                               nil)
+
+(defun emacspeak-url-template-date-YearMonthDate ()
+  "Return today as yyyymmdd"
+  (read-from-minibuffer "Date:"
+                        (format-time-string "%Y%m%d") nil nil nil 
+                        (format-time-string "%Y%m%d")))
+
 (defun emacspeak-url-template-date-year/month/date ()
   "Return today as yyyy/mm/dd"
   (read-from-minibuffer "Date:"
@@ -191,9 +201,7 @@ generators  ; list of param generator
 
 
 
-(emacspeak-url-template-define "CNN headlines "
-                               "http://www.cnn.com/quicknews/print.html"
-                               nil)
+
 
 (emacspeak-url-template-define "CNN Tecnology "
 "http://www.cnn.com/2001/TECH/%s/"
@@ -214,7 +222,13 @@ generators  ; list of param generator
  (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
+;;{{{ India Today 
 
+(emacspeak-url-template-define "India Today "
+                               "http://www.india-today.com/itoday/%s/index.shtml"
+                               (list  'emacspeak-url-template-date-YearMonthDate))
+
+;;}}}
 ;;}}}
 ;;{{{ Interactive commands 
 
