@@ -232,7 +232,7 @@
 Precomputing this saves time at start-up.")
 
 ;;}}}
-(defcustom emacspeak-play-emacspeak-startup-icon t
+(defcustom emacspeak-play-emacspeak-startup-icon nil
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
