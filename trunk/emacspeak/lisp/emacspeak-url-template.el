@@ -562,29 +562,51 @@ Set up URL rewrite rule to get print page."
     (when (emacspeak-url-template-post-action ut)
       (funcall (emacspeak-url-template-post-action ut)))))
 
-(defun emacspeak-url-template-fetch ()
+(defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
 Use Emacs completion to obtain a list of available
 resources.
 Resources typically prompt for the relevant information
-before completing the request."
-  (interactive)
+before completing the request.
+Optional interactive prefix arg displays documentation for specified resource."
+  (interactive "P")
   (declare (special emacspeak-url-template-table
                     url-be-asynchronous emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (url-be-asynchronous nil)
+        (name nil)
         (table
          (loop for key being the hash-keys of
                emacspeak-url-template-table
                collect (list 
                         (format "%s" key)
                         (format "%s" key)))))
-    (emacspeak-url-template-open
-     (emacspeak-url-template-get
-      (completing-read "Resource: "
-                       table)))
-    (emacspeak-auditory-icon 'open-object)))
+    (setq name (completing-read "Resource: "
+                                table))
+    (cond
+     (documentation (emacspeak-url-template-help-internal name))
+     (t 
+      (emacspeak-url-template-open
+       (emacspeak-url-template-get
+        name))
+      (emacspeak-auditory-icon 'open-object)))))
+
+(defsubst emacspeak-url-template-help-internal (name)
+  "Display and speak help."
+  (with-output-to-temp-buffer "*Help*"
+    (princ name)
+    (princ "\n\n")
+    (princ
+     (emacspeak-url-template-documentation
+      (emacspeak-url-template-get name)))
+    (save-excursion
+      (set-buffer standard-output)
+      (fill-region (point-min)
+                   (point-max)))
+    (print-help-return-message))
+  (emacspeak-speak-help)
+  (emacspeak-auditory-icon 'help))
 
 (defun emacspeak-url-template-help ()
   "Display documentation for  a URL template.
@@ -603,19 +625,7 @@ resources."
     (setq name
           (completing-read "Resource: "
                            table))
-    (with-output-to-temp-buffer "*Help*"
-      (princ name)
-      (princ "\n\n")
-      (princ
-       (emacspeak-url-template-documentation
-        (emacspeak-url-template-get name)))
-      (save-excursion
-        (set-buffer standard-output)
-        (fill-region (point-min)
-                     (point-max)))
-      (print-help-return-message))
-    (emacspeak-speak-help)
-    (emacspeak-auditory-icon 'help-object)))
+    (emacspeak-url-template-help-internal  name)))
 
 ;;}}}
 (provide 'emacspeak-url-template)
