@@ -98,7 +98,7 @@
 ;;{{{ voice family codes
 
 (defsubst outloud-get-family-code (name)
-"Get control code for voice family NAME."
+  "Get control code for voice family NAME."
   (outloud-get-voice-command-internal name))
 
 ;;}}}
@@ -110,18 +110,18 @@ Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
 (defsubst outloud-css-set-code-table (family dimension table)
-"Set up voice FAMILY.
+  "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-(declare (special outloud-css-code-tables))
-(let ((key (intern (format "%s-%s" family dimension))))
-(setf  (gethash key outloud-css-code-tables) table )))
+  (declare (special outloud-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (setf  (gethash key outloud-css-code-tables) table )))
 
 (defsubst outloud-css-get-code-table (family dimension)
-"Retrieve table of values for specified FAMILY and DIMENSION."
-(declare (special outloud-css-code-tables))
-(let ((key (intern (format "%s-%s" family dimension))))
-(gethash key outloud-css-code-tables)))
+  "Retrieve table of values for specified FAMILY and DIMENSION."
+  (declare (special outloud-css-code-tables))
+  (let ((key (intern (format "%s-%s" family dimension))))
+    (gethash key outloud-css-code-tables)))
 
 ;;}}}
 ;;{{{ volume
@@ -168,7 +168,6 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
 
-
   (mapcar
    (function
     (lambda (setting)
@@ -196,34 +195,34 @@ and TABLE gives the values along that dimension."
 ;;;defalt baseline is average pitch of 81 
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " `vb%s `vh% s"
-                  (second setting)
-                  (third setting)))))
-'(
-(0 5 70)
-(1 17 66)
-(2 33 62)
-(3 49 58)
-(4 65 54 )
-(5 81  50)
-(6 85 55)
-(7 89  60)
-(8 93 65)
-(9 97 69)))
-(outloud-css-set-code-table 'betty 'average-pitch table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vb%s `vh% s"
+		    (second setting)
+		    (third setting)))))
+   '(
+     (0 5 70)
+     (1 17 66)
+     (2 33 62)
+     (3 49 58)
+     (4 65 54 )
+     (5 81  50)
+     (6 85 55)
+     (7 89  60)
+     (8 93 65)
+     (9 97 69)))
+  (outloud-css-set-code-table 'betty 'average-pitch table ))
 
 ;;}}}
 
 (defsubst outloud-get-average-pitch-code (value family)
-"Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
+  "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (aref (outloud-css-get-code-table family 'average-pitch)
-   value))
+	value))
 
 ;;}}}
 ;;{{{  pitch range
@@ -236,49 +235,49 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " `vf%s  "
-                  (second setting)))))
-'(
-(0 0 )
-(1 5 )
-(2  15)
-(3  20)
-(4  25 )
-(5  30 )
-(6  47)
-(7  64)
-(8  81)
-(9  100)))
-(outloud-css-set-code-table 'paul 'pitch-range table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vf%s  "
+		    (second setting)))))
+   '(
+     (0 0 )
+     (1 5 )
+     (2  15)
+     (3  20)
+     (4  25 )
+     (5  30 )
+     (6  47)
+     (7  64)
+     (8  81)
+     (9  100)))
+  (outloud-css-set-code-table 'paul 'pitch-range table ))
 
 ;;}}}
 ;;{{{  harry pitch range
 
 (let ((table (make-vector 10 "")))
-(mapcar
- (function
-  (lambda (setting)
-    (aset table
-          (first setting)
-          (format " `vf%s  "
-                  (second setting)))))
-'(
-(0 0 )
-(1 5 )
-(2  15)
-(3  20)
-(4  25 )
-(5  30 )
-(6  47)
-(7  64)
-(8  81)
-(9  100)))
-(outloud-css-set-code-table 'harry 'pitch-range table ))
+  (mapcar
+   (function
+    (lambda (setting)
+      (aset table
+	    (first setting)
+	    (format " `vf%s  "
+		    (second setting)))))
+   '(
+     (0 0 )
+     (1 5 )
+     (2  15)
+     (3  20)
+     (4  25 )
+     (5  30 )
+     (6  47)
+     (7  64)
+     (8  81)
+     (9  100)))
+  (outloud-css-set-code-table 'harry 'pitch-range table ))
 
 ;;}}}
 ;;{{{  betty pitch range
@@ -306,10 +305,10 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 (defsubst outloud-get-pitch-range-code (value family)
-"Get pitch-range code for specified VALUE and FAMILY."
+  "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (aref (outloud-css-get-code-table family 'pitch-range)
-  value))
+	value))
 
 ;;}}}
 ;;{{{  stress
@@ -388,14 +387,14 @@ and TABLE gives the values along that dimension."
 (defun outloud-define-voice-from-speech-style (name style)
   "Define NAME to be a outloud voice as specified by settings in STYLE."
   (let* ((family(outloud-speech-style-family style))
-          (command
-         (concat 
-                 (outloud-get-family-code family)
-(outloud-get-average-pitch-code (outloud-speech-style-average-pitch style) family)
-(outloud-get-pitch-range-code (outloud-speech-style-pitch-range style) family)
-(outloud-get-stress-code (outloud-speech-style-stress style ) family)
-(outloud-get-richness-code (outloud-speech-style-richness style) family))))
-(outloud-define-voice name command)))
+	 (command
+	  (concat 
+	   (outloud-get-family-code family)
+	   (outloud-get-average-pitch-code (outloud-speech-style-average-pitch style) family)
+	   (outloud-get-pitch-range-code (outloud-speech-style-pitch-range style) family)
+	   (outloud-get-stress-code (outloud-speech-style-stress style ) family)
+	   (outloud-get-richness-code (outloud-speech-style-richness style) family))))
+    (outloud-define-voice name command)))
 
 ;;}}}
 ;;{{{  outloud-personality-from-speech-style

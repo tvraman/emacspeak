@@ -72,9 +72,9 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (save-excursion
-    (when (looking-at  "?")
-      (forward-line 1))
-    (emacspeak-speak-line))))
+      (when (looking-at  "?")
+	(forward-line 1))
+      (emacspeak-speak-line))))
 
 (defadvice bbdb-edit-current-field (before emacspeak pre act )
   "Provide auditory feedback"
@@ -102,18 +102,18 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement )
     (save-excursion
-    (when (looking-at  "?")
-      (forward-line 1))
-    (emacspeak-speak-line ))))
+      (when (looking-at  "?")
+	(forward-line 1))
+      (emacspeak-speak-line ))))
 
 (defadvice bbdb-prev-record (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement )
     (save-excursion
-    (when (looking-at  "?")
-      (forward-line 1))
-    (emacspeak-speak-line ))))
+      (when (looking-at  "?")
+	(forward-line 1))
+      (emacspeak-speak-line ))))
 
 (defadvice bbdb-omit-record (after emacspeak pre act )
   "Provide auditory feedback"
@@ -163,25 +163,23 @@
    (t ad-do-it ))
   ad-return-value )
 
-
 ;;}}}
 ;;{{{  Advice mail-ua  specific hooks
 
 (defadvice bbdb/vm-show-sender (after emacspeak pre act comp)
-"Provide spoken feedback"
-(when (interactive-p)
-(emacspeak-speak-other-window 1)))
-
+  "Provide spoken feedback"
+  (when (interactive-p)
+    (emacspeak-speak-other-window 1)))
 
 (defadvice bbdb/rmail-show-sender (after emacspeak pre act comp)
-"Provide spoken feedback"
-(when (interactive-p)
-(emacspeak-speak-other-window 1)))
+  "Provide spoken feedback"
+  (when (interactive-p)
+    (emacspeak-speak-other-window 1)))
 
 (defadvice bbdb/mh-show-sender (after emacspeak pre act comp)
-"Provide spoken feedback"
-(when (interactive-p)
-(emacspeak-speak-other-window 1)))
+  "Provide spoken feedback"
+  (when (interactive-p)
+    (emacspeak-speak-other-window 1)))
 
 ;;}}}
 (provide  'emacspeak-bbdb)

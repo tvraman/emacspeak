@@ -47,8 +47,8 @@
 ;;; Code:
 
 (defvar cd-tool-message
-" +Next  - Previous  p play s stop = shuffle i info e eject t track"
-"Short message to display if user hits invalid key.")              
+  " +Next  - Previous  p play s stop = shuffle i info e eject t track"
+  "Short message to display if user hits invalid key.")              
 
 (defun cd-tool ()
   "Front-end to CDTool.
@@ -95,28 +95,26 @@ number: ")))
               (?c (cd-tool-get-clip-command))
               (?C (cd-tool-get-clip-command 'save))
               (otherwise (message cd-tool-message)
-(sit-for 5)
-nil))))
+			 (sit-for 5)
+			 nil))))
     (shell-command
      (format "%s &"
              command ))))
 
 (defvar cd-tool-clipper "cdda2wav"
-"Program that can clip CD audio.")
+  "Program that can clip CD audio.")
 (defvar cd-tool-clip-track-history nil
-"Used to record trac used in clipping.")
+  "Used to record trac used in clipping.")
 
 (defvar cd-tool-clip-skip-history nil
-"Used to record history of sectors skipped.")
-
+  "Used to record history of sectors skipped.")
 
 (defvar cd-tool-clip-duration-history nil
-"Used to record history of previous clip duration.")
-
+  "Used to record history of previous clip duration.")
 
 (defvar cd-tool-clipper-default-args
-"-D /dev/cdrom "
-"Default command line arguments to cdda2wav.")
+  "-D /dev/cdrom "
+  "Default command line arguments to cdda2wav.")
 
 (defun cd-tool-get-clip-command (&optional save)
   "Query for and return an appropriate CD clip command"
@@ -135,26 +133,25 @@ nil))))
                                     nil ; READ
                                     cd-tool-clip-track-history))
         (skip (read-from-minibuffer"Skip sectors: "
-                                   (car cd-tool-clip-skip-history );INITIAL-CONTENTS
+                                   (car cd-tool-clip-skip-history ) ;INITIAL-CONTENTS
                                    nil  ;KEYMAP
                                    nil  ; READ
                                    cd-tool-clip-skip-history))
         (duration  (read-from-minibuffer"Duration: "
-                                        (car cd-tool-clip-duration-history );INITIAL-CONTENTS
+                                        (car cd-tool-clip-duration-history ) ;INITIAL-CONTENTS
                                         nil ;KEYMAP
                                         nil ; READ
                                         cd-tool-clip-duration-history)))
-(pushnew track cd-tool-clip-track-history)
-(pushnew  skip cd-tool-clip-skip-history)
-(pushnew duration cd-tool-clip-duration-history)
-(format "%s %s -t %s -o %s -d %s %s"
-cd-tool-clipper
-cd-tool-clipper-default-args 
-track skip duration
-(if save filename "-e"))))
+    (pushnew track cd-tool-clip-track-history)
+    (pushnew  skip cd-tool-clip-skip-history)
+    (pushnew duration cd-tool-clip-duration-history)
+    (format "%s %s -t %s -o %s -d %s %s"
+	    cd-tool-clipper
+	    cd-tool-clipper-default-args 
+	    track skip duration
+	    (if save filename "-e"))))
 
 ;;}}}
-
 
 (provide 'cd-tool)
 ;;{{{ end of file

@@ -53,7 +53,6 @@
 
 ;;; Commentary:
 
-
 ;;; This module speech-enables  MPG123
 ;;; MPG123 is an MP3 player.
 
@@ -81,8 +80,8 @@ mpg123 defines this as a macro which causes compile trouble."
              (assoc n mpg123*music-alist))))
 
 (defsubst emacspeak-mpg123-speak-line ()
-"Speak just the title"
-(emacspeak-mpg123-speak-title))
+  "Speak just the title"
+  (emacspeak-mpg123-speak-title))
 ;;}}}
 ;;{{{ advice interactive commands to speak
 
@@ -103,9 +102,6 @@ mpg123 defines this as a macro which causes compile trouble."
   "Speak position."
   (when (interactive-p)
     (emacspeak-mpg123-speak-current-time)))
-
-
-
 
   
 
@@ -234,10 +230,10 @@ to skip to the next track. "
   "Skip currently playing track. "
   (interactive)
   (declare (special emacspeak-mp3-playlist-process))
-(process-send-string
- emacspeak-mp3-playlist-process
-(format "%c" 3))
-(message "Skipped track. "))
+  (process-send-string
+   emacspeak-mp3-playlist-process
+   (format "%c" 3))
+  (message "Skipped track. "))
 
 (defun emacspeak-mp3-playlist-stop ()
   "Kill currently playing playlist. "
@@ -245,7 +241,6 @@ to skip to the next track. "
   (declare (special emacspeak-mp3-playlist-process))
   (kill-process emacspeak-mp3-playlist-process)
   (message "Stopped playlist. "))
-
 
 (declaim (special mpg123-mode-map))
 

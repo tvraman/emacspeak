@@ -86,7 +86,7 @@ buffer.")
   "Generates a key for current context.
 The key is used when persisting out the grid setting for
 future  use."
-(declare (special  major-mode))
+  (declare (special  major-mode))
   (or (buffer-file-name)
       (format "%s:%s" (buffer-name) major-mode)))
    
@@ -102,8 +102,8 @@ end   as specified by grid."
       (save-restriction
         (narrow-to-region start end)
         (if (< start end )
-        (goto-char start)
-        (goto-char end ))
+	    (goto-char start)
+	  (goto-char end ))
         (loop for i from 0 to (1- num-rows)
               do
               (beginning-of-line)
@@ -116,7 +116,7 @@ end   as specified by grid."
                             this-line
                             (if (= j 0 ) 
                                 0
-                               (nth  (1- j) grid))
+			      (nth  (1- j) grid))
                             (1- (nth j grid )))))
               (aset this-row (length grid)
                     (substring this-line
@@ -124,7 +124,6 @@ end   as specified by grid."
               (aset result-grid i this-row)
               (forward-line 1))
         result-grid))))
-
 
           
 ;;}}}
@@ -145,18 +144,17 @@ end   as specified by grid."
 
 (defun emacspeak-gridtext-load (file)
   "Load saved grid settings."
-(interactive
+  (interactive
    (list
     (read-file-name "Load grid settings  from file: "
                     emacspeak-resource-directory
                     ".gridtext")))
   (condition-case nil
-                  (progn
-  (load
-   (expand-file-name  file emacspeak-resource-directory)))
-  (error (message "Error loading resources from %s "
-                  file))))
-
+      (progn
+	(load
+	 (expand-file-name  file emacspeak-resource-directory)))
+    (error (message "Error loading resources from %s "
+		    file))))
 
 (defun emacspeak-gridtext-save (file)
   "Save out grid settings."
@@ -181,8 +179,8 @@ end   as specified by grid."
  (gethash %s emacspeak-gridtext-table)
  (quote %s))"
               (prin1-to-string key)
-               (prin1-to-string (emacspeak-gridtext-get
-                                 key)))))
+	      (prin1-to-string (emacspeak-gridtext-get
+				key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 
@@ -196,7 +194,7 @@ end   as specified by grid."
     (point)
     (mark)
     (read-minibuffer "Specify grid as a list: "
-                      (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
+		     (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
   (let ((grid-table (emacspeak-table-make-table
                      (emacspeak-gridtext-vector-region start
                                                        end
@@ -207,7 +205,6 @@ end   as specified by grid."
     (emacspeak-gridtext-set
      (emacspeak-gridtext-generate-key) grid)
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
-
 
                          
 ;;}}}

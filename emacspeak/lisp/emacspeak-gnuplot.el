@@ -67,7 +67,7 @@
 ;;{{{ set up voice locking 
 
 (voice-lock-set-major-mode-keywords 'gnuplot-mode
-                                                      'gnuplot-voice-lock-keywords)
+				    'gnuplot-voice-lock-keywords)
 
 (defvar gnuplot-voice-lock-keywords nil
   "Voice lock keywords for gnuplot mode.")
@@ -75,49 +75,49 @@
 (setq gnuplot-voice-lock-keywords
       (list
 					; comments
-	   '("#.*$" . voice-lock-comment-personality)
+       '("#.*$" . voice-lock-comment-personality)
 					; quoted things
-	   ;'("['\"]\\([^'\"\n]*\\)['\"]"
-	   ;  1 voice-lock-string-personality)
-	   '("'[^'\n]*'?" . voice-lock-string-personality)
+					;'("['\"]\\([^'\"\n]*\\)['\"]"
+					;  1 voice-lock-string-personality)
+       '("'[^'\n]*'?" . voice-lock-string-personality)
 					; stuff in brackets, sugg. by <LB>
-	   '("\\[\\([^]]+\\)\\]"
-	     1 voice-lock-reference-personality)
+       '("\\[\\([^]]+\\)\\]"
+	 1 voice-lock-reference-personality)
 					; variable/function definitions
-	   '("\\(\\<[a-z]+[a-z_0-9()]*\\)[ \t]*="
-	     1 voice-lock-variable-name-personality)
+       '("\\(\\<[a-z]+[a-z_0-9()]*\\)[ \t]*="
+	 1 voice-lock-variable-name-personality)
 					; built-in function names
-	   (cons
-            (concat
-		  "\\<\\("
-		  "a\\(bs\\|cosh\?\\|rg\\|sinh\?\\|"
-		  "tan\\(\\|\[2h\]\\)\\)\\|"
-		  "bes\\(j\[01\]\\|y\[01\]\\)\\|"
-		  "c\\(eil\\|o\\(lumn\\|sh\?\\)\\)\\|"
-		  "e\\(rfc\?\\|xp\\)\\|floor\\|gamma\\|"
-		  "i\\(beta\\|gamma\\|mag\\|"
-		  "n\\(t\\|v\\(erf\\|norm\\)\\)\\)\\|"
-		  "l\\(gamma\\|og\\(\\|10\\)\\)\\|"
-		  "norm\\|r\\(and\\|eal\\)\\|"
-		  "s\\(gn\\|inh\?\\|qrt\\)\\|"
-		  "t\\(anh\?\\|m_\\(hour\\|m\\(day\\|in\\|on\\)\\|"
-		  "sec\\|wday\\|y\\(day\\|ear\\)\\)\\)\\|"
-		  "valid"
-		  "\\)\\>")
-		 'voice-lock-function-name-personality)
+       (cons
+	(concat
+	 "\\<\\("
+	 "a\\(bs\\|cosh\?\\|rg\\|sinh\?\\|"
+	 "tan\\(\\|\[2h\]\\)\\)\\|"
+	 "bes\\(j\[01\]\\|y\[01\]\\)\\|"
+	 "c\\(eil\\|o\\(lumn\\|sh\?\\)\\)\\|"
+	 "e\\(rfc\?\\|xp\\)\\|floor\\|gamma\\|"
+	 "i\\(beta\\|gamma\\|mag\\|"
+	 "n\\(t\\|v\\(erf\\|norm\\)\\)\\)\\|"
+	 "l\\(gamma\\|og\\(\\|10\\)\\)\\|"
+	 "norm\\|r\\(and\\|eal\\)\\|"
+	 "s\\(gn\\|inh\?\\|qrt\\)\\|"
+	 "t\\(anh\?\\|m_\\(hour\\|m\\(day\\|in\\|on\\)\\|"
+	 "sec\\|wday\\|y\\(day\\|ear\\)\\)\\)\\|"
+	 "valid"
+	 "\\)\\>")
+	'voice-lock-function-name-personality)
 					; (s)plot -- also thing (s)plotted
-	   '("\\<s?plot\\>" . voice-lock-keyword-personality)
-	   '("\\<s?plot\\s-+\\([^'\" ]+\\)[) \n,\\\\]"
-	     1 voice-lock-variable-name-personality)
+       '("\\<s?plot\\>" . voice-lock-keyword-personality)
+       '("\\<s?plot\\s-+\\([^'\" ]+\\)[) \n,\\\\]"
+	 1 voice-lock-variable-name-personality)
 					; other common commands
 					; miscellaneous commands
-	   (cons
-            (concat "\\<\\("
-			 "c\\(d\\|lear\\)\\|exit\\|fit\\|help\\|load\\|"
-			 "p\\(ause\\|rint\\|wd\\)\\|quit\\|replot\\|"
-			 "s\\(ave\\|et\\|how\\)"
-			 "\\)\\>\\|!.*$")
-		 'voice-lock-reference-personality))
+       (cons
+	(concat "\\<\\("
+		"c\\(d\\|lear\\)\\|exit\\|fit\\|help\\|load\\|"
+		"p\\(ause\\|rint\\|wd\\)\\|quit\\|replot\\|"
+		"s\\(ave\\|et\\|how\\)"
+		"\\)\\>\\|!.*$")
+	'voice-lock-reference-personality))
       )
 
 ;;}}}
@@ -132,16 +132,16 @@
     (emacspeak-speak-other-window 1)))
 
 (defadvice gnuplot-send-line-to-gnuplot (after emacspeak
-                                                 pre act
-                                                 comp)
+					       pre act
+					       comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
 (defadvice gnuplot-send-line-and-forward (after emacspeak
-                                                 pre act
-                                                 comp)
+						pre act
+						comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -155,8 +155,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 (defadvice gnuplot-send-file-to-gnuplot (after emacspeak
-                                                 pre act
-                                                 comp)
+					       pre act
+					       comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -168,16 +168,15 @@
    ((interactive-p )
     (cond
      ((= (point) (point-max))
-    (message "Sending EOF to comint process"))
-    (t (dtk-tone 500 30 'force)
-    (and emacspeak-delete-char-speak-deleted-char
-         (emacspeak-speak-char t))))
+      (message "Sending EOF to comint process"))
+     (t (dtk-tone 500 30 'force)
+	(and emacspeak-delete-char-speak-deleted-char
+	     (emacspeak-speak-char t))))
     ad-do-it
     (and emacspeak-delete-char-speak-current-char
          (emacspeak-speak-char t)))
    (t ad-do-it))
   ad-return-value)
-
 
 (defadvice gnuplot-kill-gnuplot-buffer (after emacspeak pre
                                               act comp)
@@ -204,8 +203,6 @@
       (dtk-speak (buffer-substring prior (point ))))
     ad-return-value))
 
-
-
 (defadvice gnuplot-indent-line (after emacspeak pre act
                                       comp)
   "Speak line we idnented."
@@ -218,7 +215,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-
 
 (add-hook 'gnuplot-mode-hook
           (function

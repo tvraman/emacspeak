@@ -174,7 +174,6 @@ Summarize the form to welcome the user. "
   :type 'symbol
   :group 'emacspeak-eudc)
 
-
 (defadvice eudc-print-attribute-value (around emacspeak pre
                                               act comp)
   "voiceify attribute values"

@@ -71,7 +71,6 @@
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-mode-line)))
 
-
 (loop for f in 
       '(
         ecb-nav-goto-next
@@ -133,14 +132,13 @@ available."
             (search-forward tree-buffer-incr-searchpattern)
             (setq end (point))
             (ems-modify-buffer-safely
-            (ems-set-personality-temporarily
-beg end   'harry
+	     (ems-set-personality-temporarily
+	      beg end   'harry
               (emacspeak-speak-line)))
             (emacspeak-auditory-icon 'search-hit))))
        (t (emacspeak-auditory-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
-
 
 (defadvice tree-buffer-select (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -150,7 +148,7 @@ beg end   'harry
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)
   "Provide auditory feedback."
-  (let ((node (ad-get-arg 0)));; note that logic is reversed
+  (let ((node (ad-get-arg 0))) ;; note that logic is reversed
     (cond
      ((tree-node-is-expanded node)
       (emacspeak-auditory-icon 'open-object))
@@ -159,7 +157,6 @@ beg end   'harry
 (defadvice tree-buffer-update (after emacspeak pre act comp)
   "Provide context speech feedback."
   (emacspeak-speak-line))
-
 
 (defadvice tree-buffer-nolog-message (after emacspeak pre
                                             act comp)
@@ -183,7 +180,6 @@ beg end   'harry
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
-
 
 ;;}}}
 (provide 'emacspeak-ecb)

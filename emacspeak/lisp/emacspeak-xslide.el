@@ -86,7 +86,6 @@
   (when (interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
-
 (defadvice xsl-electric-slash (after emacspeak pre act comp)
   "Speak char we inserted."
   (when (interactive-p)
@@ -110,15 +109,15 @@
     ad-return-value))
 (defadvice xsl-mode (after emacspeak pre act comp)
   "set up for voice locking."
-(emacspeak-xsl-voice-lock-setup)
-(voice-lock-mode 1)
-(dtk-set-punctuations "all"))
+  (emacspeak-xsl-voice-lock-setup)
+  (voice-lock-mode 1)
+  (dtk-set-punctuations "all"))
 
 (defun emacspeak-xsl-voice-lock-setup()
   "Setup voice locking for xsl mode."
   (declare (special voice-lock-defaults))
-    (make-local-variable 'voice-lock-defaults)
-(setq voice-lock-defaults '(xsl-voice-lock-keywords t)))
+  (make-local-variable 'voice-lock-defaults)
+  (setq voice-lock-defaults '(xsl-voice-lock-keywords t)))
 
 ;;}}}
 ;;{{{ voice locking 
@@ -127,7 +126,7 @@
   (tts-get-voice-command 'paul-animated)
   "Personality used in xsl highlighting.")
 (defvar xsl-fo-alternate-personality 'paul-monotone 
-"Personality used in XSL highlighting.")
+  "Personality used in XSL highlighting.")
 
 (defvar xsl-other-element-personality 'paul-surprized
   "Personality used in XSL highlighting.")
@@ -145,20 +144,19 @@
           xsl-element-symbol-alist
           xsl-xsl-ns-prefix))
 
-
 (defvar xsl-voice-lock-keywords
   (list
    ;;
    ;; Reserved XML Processing instruction
    ;;
    '(
-    "\\(<\\?\\)\\(xml\\)\\(\\s-+version\\s-*=\\s-*\\('[^']+'\\|\"[^\"]+\"\\)\\)?\\(\\s-+encoding\\s-*=\\s-*\\('[^']+'\\|\"[^\"]+\"\\)\\)?\\(\\s-+standalone\\s-*=\\s-*\\('\\(yes\\|no\\)'\\|\"\\(yes\\|no\\)\"\\)\\)?\\s-*\\(\\?>\\)"
-    (1 voice-lock-keyword-personality)
-    (2 voice-lock-type-personality nil)
-    (3 voice-lock-type-personality nil t)
-    (5 voice-lock-type-personality nil t)
-    (7 voice-lock-type-personality nil t)
-    (11 voice-lock-keyword-personality))
+     "\\(<\\?\\)\\(xml\\)\\(\\s-+version\\s-*=\\s-*\\('[^']+'\\|\"[^\"]+\"\\)\\)?\\(\\s-+encoding\\s-*=\\s-*\\('[^']+'\\|\"[^\"]+\"\\)\\)?\\(\\s-+standalone\\s-*=\\s-*\\('\\(yes\\|no\\)'\\|\"\\(yes\\|no\\)\"\\)\\)?\\s-*\\(\\?>\\)"
+     (1 voice-lock-keyword-personality)
+     (2 voice-lock-type-personality nil)
+     (3 voice-lock-type-personality nil t)
+     (5 voice-lock-type-personality nil t)
+     (7 voice-lock-type-personality nil t)
+     (11 voice-lock-keyword-personality))
    ;;
    ;; Non-reserved XML Processing instruction
    ;; Any XML PI that doesn't start with "<?xml"
@@ -205,7 +203,7 @@
    ;;
    (list
     (concat "\\(</?\\)\\(" xsl-xsl-ns-prefix ":\\)\\("
-;;	    (make-regexp xsl-elements)
+	    ;;	    (make-regexp xsl-elements)
 	    (make-regexp
 	     (mapcar 'car xsl-element-symbol-alist))
 	    "\\)\\(\\s-+\\([^/>]\\|/[^>]\\)+\\)*\\(/?>\\)")
@@ -218,11 +216,11 @@
    ;;
    ;; XSL attributes
    ;;
-;;   (list
-;;    (concat "\\b\\("
-;;	    (make-regexp xsl-attributes)
-;;	    "\\)[ \t]*=\"[^\"]*\"")
-;;    '(1 voice-lock-keyword-personality))
+   ;;   (list
+   ;;    (concat "\\b\\("
+   ;;	    (make-regexp xsl-attributes)
+   ;;	    "\\)[ \t]*=\"[^\"]*\"")
+   ;;    '(1 voice-lock-keyword-personality))
    (make-regexps "\\b"
 		 (list (mapcar 'car xsl-attributes-alist)
 		       xsl-xsl-alternate-personality)
@@ -305,13 +303,6 @@
      (1 voice-lock-comment-personality t))
    )
   "Additional expressions to highlight in XSL mode.")
-
-
-
-
-
-
-
 
 ;;}}}
 (provide 'emacspeak-xslide)

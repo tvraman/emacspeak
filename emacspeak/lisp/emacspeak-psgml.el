@@ -167,7 +167,6 @@ window")))
       (emacspeak-auditory-icon 'delete-object)
       (emacspeak-speak-line))))
 
-
 (defadvice sgml-next-data-field (after emacspeak pre act
                                        comp)
   "Speak line we moved to"
@@ -287,19 +286,17 @@ window")))
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
-
 (defadvice sgml-edit-attrib-field-end (after emacspeak pre
-                                               act comp)
+					     act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice sgml-edit-attrib-next (after emacspeak pre
-                                               act comp)
+					act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
-
 
 (defadvice sgml-edit-attrib-clear (after emacspeak pre act
                                          comp)
@@ -309,7 +306,7 @@ window")))
     (emacspeak-speak-line)))
 
 (defadvice sgml-edit-attrib-default  (after emacspeak pre act
-                                         comp)
+					    comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
@@ -350,13 +347,13 @@ window")))
 
 (defvar emacspeak-sgml-markup-voices
   '((start-tag 	. harry)
-			    (end-tag 	. harry)
-			    (comment 	. paul-monotone)
-			    (pi 	. paul-animated)
-			    (sgml 	. paul-animated)
-			    (doctype 	. paul-italic)
-			    (entity 	. paul-italic)
-			    (shortref   . harry))
+    (end-tag 	. harry)
+    (comment 	. paul-monotone)
+    (pi 	. paul-animated)
+    (sgml 	. paul-animated)
+    (doctype 	. paul-italic)
+    (entity 	. paul-italic)
+    (shortref   . harry))
   "*List of markup to personality mappings.
 Element are of the form (MARKUP-TYPE . personality).
 Possible values for MARKUP-TYPE is:
@@ -375,8 +372,8 @@ shortref- short reference")
 (defadvice sgml-set-face-for (after emacspeak pre act comp)
   "Apply voice locking as well."
   (let* ((start (ad-get-arg 0))
-                (end (ad-get-arg 1))
-                     (type (ad-get-arg 2))
+	 (end (ad-get-arg 1))
+	 (type (ad-get-arg 2))
          (voice (cdr (assq type
                            emacspeak-sgml-markup-voices))))
     (ems-modify-buffer-safely
@@ -390,8 +387,8 @@ shortref- short reference")
   "Speak contents of current element. "
   (interactive)
   (save-excursion
-      (sgml-mark-current-element)
-(emacspeak-speak-region (mark) (point))))
+    (sgml-mark-current-element)
+    (emacspeak-speak-region (mark) (point))))
 
 ;;}}}
 ;;{{{ sgml browsing mode 

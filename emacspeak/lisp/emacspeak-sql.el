@@ -73,19 +73,18 @@
 
 (defadvice sqlplus-back-command (after emacspeak pre act
                                        comp)"Move prompt appropriately,  and speak the line."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (forward-line 1)
-    (emacspeak-speak-line)))
+				       (when (interactive-p)
+					 (emacspeak-auditory-icon 'large-movement)
+					 (forward-line 1)
+					 (emacspeak-speak-line)))
 
 (defadvice sqlplus-forward-command (after emacspeak pre act
-                                       comp)
+					  comp)
   "Move prompt appropriately,  and speak the line."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (forward-line 1)
     (emacspeak-speak-line)))
-
 
 (defadvice sqlplus-next-command (after emacspeak pre act comp)
   "Speak the line."
@@ -98,7 +97,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-
 
 (defadvice sql-send-region (around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -133,177 +131,177 @@
 (let ((types-1				;SQL Types
        (eval-when-compile
 	 (regexp-opt '("char" "character"
-			"date" "dec" "decimal" "double[ \\n\\t]+precision"
-			"float"
-			"int" "integer"
-			"long"
-			"mlslabel"
-			"number" "raw" "real" "rowid"
-			"smallint"
-			"varchar" "varchar2"))))
+		       "date" "dec" "decimal" "double[ \\n\\t]+precision"
+		       "float"
+		       "int" "integer"
+		       "long"
+		       "mlslabel"
+		       "number" "raw" "real" "rowid"
+		       "smallint"
+		       "varchar" "varchar2"))))
       (types-2				;PL/SQL Additional Types
        (eval-when-compile
 	 (regexp-opt '("binary_integer" "boolean"
-			"cursor"))))
-      (types-3				;PL/SQL Column and Record Type Indicators
+		       "cursor"))))
+      (types-3		     ;PL/SQL Column and Record Type Indicators
        (eval-when-compile
 	 (regexp-opt '("%type"
 		       "%rowtype"))))
       (functions-1			;Single Row Number Functions
        (eval-when-compile
 	 (regexp-opt '("abs"
-			"ceil" "cos" "cosh"
-			"exp"
-			"floor"
-			"ln" "log"
-			"mod"
-			"power"
-			"round"
-			"sign" "sin" "sinh" "sqrt"
-			"tan" "tanh" "trunc"))))
-      (functions-2			;Single Row Character Functions Returning Char
+		       "ceil" "cos" "cosh"
+		       "exp"
+		       "floor"
+		       "ln" "log"
+		       "mod"
+		       "power"
+		       "round"
+		       "sign" "sin" "sinh" "sqrt"
+		       "tan" "tanh" "trunc"))))
+      (functions-2	;Single Row Character Functions Returning Char
        (eval-when-compile
 	 (regexp-opt '("chr" "concat"
-			"initcap"
-			"lower" "lpad" "ltrim"
-			"nls_initcap" "nls_lower" "nls_upper"
-			"replace" "rpad" "rtrim"
-			"soundex" "substr" "substrb"
-			"translate"
-			"upper"))))
-      (functions-3			;Single Row Character Functions Returning Number
+		       "initcap"
+		       "lower" "lpad" "ltrim"
+		       "nls_initcap" "nls_lower" "nls_upper"
+		       "replace" "rpad" "rtrim"
+		       "soundex" "substr" "substrb"
+		       "translate"
+		       "upper"))))
+      (functions-3    ;Single Row Character Functions Returning Number
        (eval-when-compile
 	 (regexp-opt '("ascii"
-			"instr" "instrb"
-			"length" "lengthb"
-			"nlssort"))))
+		       "instr" "instrb"
+		       "length" "lengthb"
+		       "nlssort"))))
       (functions-4			;Single Row Date Functions
        (eval-when-compile
 	 (regexp-opt '("add_months"
-			"last_day"
-			"months_between"
-			"new_time" "next_day"))))
-      (functions-5			;Other Single Row Functions (no parens needed!)
+		       "last_day"
+		       "months_between"
+		       "new_time" "next_day"))))
+      (functions-5     ;Other Single Row Functions (no parens needed!)
        (eval-when-compile
 	 (regexp-opt '("currval"
-			"nextval"
-			"sqlcode" "sqlerrm" "sysdate"
-			"uid" "user"))))
-      (functions-6			;Single Row Conversion Functions
+		       "nextval"
+		       "sqlcode" "sqlerrm" "sysdate"
+		       "uid" "user"))))
+      (functions-6		      ;Single Row Conversion Functions
        (eval-when-compile
 	 (regexp-opt '("chartorowid" "convert"
-			"hextoraw"
-			"rawtohex" "rowidtochar"
-			"to_char" "to_date" "to_label" "to_multi_byte" "to_number"
-			"to_single_byte"))))
-      (functions-7			;Other Single Row Functions (parens needed)
+		       "hextoraw"
+		       "rawtohex" "rowidtochar"
+		       "to_char" "to_date" "to_label" "to_multi_byte" "to_number"
+		       "to_single_byte"))))
+      (functions-7	   ;Other Single Row Functions (parens needed)
        (eval-when-compile
 	 (regexp-opt '("decode" "dump"
-			"greatest" "greatest_lb"
-			"least" "least_ub"
-			"nvl"
-			"userenv"
-			"vsize"))))
+		       "greatest" "greatest_lb"
+		       "least" "least_ub"
+		       "nvl"
+		       "userenv"
+		       "vsize"))))
       (functions-8			;Group Functions
        (eval-when-compile
 	 (regexp-opt '("avg"
-			"count"
-			"glb"
-			"lub"
-			"max" "min"
-			"stddev" "sum"
-			"variance"))))
-      (functions-9			;PL/SQL Pragma Clause and Function
+		       "count"
+		       "glb"
+		       "lub"
+		       "max" "min"
+		       "stddev" "sum"
+		       "variance"))))
+      (functions-9		    ;PL/SQL Pragma Clause and Function
        (eval-when-compile
 	 (regexp-opt '("exception_init"
-			"raise_application_error"))))
-      (cmndwords-1			;These words start SQL commands
+		       "raise_application_error"))))
+      (cmndwords-1		       ;These words start SQL commands
        (eval-when-compile
 	 (regexp-opt '("alter" "analyze" "audit"
-			"comment" "commit" "create"
-			"delete" "drop"
-			"explain\\([ \\t]+plan\\)?"
-			"grant"
-			"insert"
-			"lock\\([ \\t]+table\\)?"
-			"noaudit"
-			"rename" "revoke" "rollback\\([ \\t]+segment\\)?"
-			"savepoint" "select" "set"
-			"truncate"
-			"update"))))
-      (cmndwords-2			;These words appear in SQL command names
+		       "comment" "commit" "create"
+		       "delete" "drop"
+		       "explain\\([ \\t]+plan\\)?"
+		       "grant"
+		       "insert"
+		       "lock\\([ \\t]+table\\)?"
+		       "noaudit"
+		       "rename" "revoke" "rollback\\([ \\t]+segment\\)?"
+		       "savepoint" "select" "set"
+		       "truncate"
+		       "update"))))
+      (cmndwords-2	      ;These words appear in SQL command names
        (eval-when-compile
 	 (regexp-opt '("cluster" "column" "controlfile"
-			"database\\([ \\t]+link\\)?"
-			"function"
-			"index"
-			"package\\([ \\t]+body\\)?" "procedure" "profile"
-			"resource cost" "role"
-			"schema" "sequence" "session" "snapshot\\([ \\t]+log\\)?"
-			"synonym" "system"
-			"table" "tablespace" "transaction" "trigger"
-			"user"
-			"view"))))
-      (exceptions			;Predefined Exceptions + OTHERS
+		       "database\\([ \\t]+link\\)?"
+		       "function"
+		       "index"
+		       "package\\([ \\t]+body\\)?" "procedure" "profile"
+		       "resource cost" "role"
+		       "schema" "sequence" "session" "snapshot\\([ \\t]+log\\)?"
+		       "synonym" "system"
+		       "table" "tablespace" "transaction" "trigger"
+		       "user"
+		       "view"))))
+      (exceptions		       ;Predefined Exceptions + OTHERS
        (eval-when-compile
 	 (regexp-opt '("cursor_already_open"
-			"dup_val_on_index"
-			"invalid_cursor"
-			"invalid_number"
-			"login_denied"
-			"no_data_found"
-			"not_logged_on"
-			"program_error"
-			"storage_error"
-			"timeout_on_resource"
-			"too_many_rows"
-			"transaction_backed_out"
-			"value_error"
-			"zero_divide"
-			"others"))))
+		       "dup_val_on_index"
+		       "invalid_cursor"
+		       "invalid_number"
+		       "login_denied"
+		       "no_data_found"
+		       "not_logged_on"
+		       "program_error"
+		       "storage_error"
+		       "timeout_on_resource"
+		       "too_many_rows"
+		       "transaction_backed_out"
+		       "value_error"
+		       "zero_divide"
+		       "others"))))
       (operators			;SQL Set Operators
        (eval-when-compile
 	 (regexp-opt '("and"
-			"in" "intersect"
-			"like"
-			"minus"
-			"not"
-			"or"
-			"union\\([ \\n\\t]+all\\)?"))))
-      (keywords-1			;SQL Keywords (most, not all :-)
+		       "in" "intersect"
+		       "like"
+		       "minus"
+		       "not"
+		       "or"
+		       "union\\([ \\n\\t]+all\\)?"))))
+      (keywords-1		      ;SQL Keywords (most, not all :-)
        (eval-when-compile
 	 (regexp-opt '("add" "admin" "after" "all" "allocate\\([ \\n\\t]+extent\\)?"
-			"any" "\\(no\\)?archivelog" "as" "asc"
-			"backup" "before" "between" "by"
-			"\\(no\\)?cache" "cancel" "cascade" "change" "check"
-			"checkpoint" "connect[ \\n\\t]+by" "constraints?" "convert"
-			"\\(no\\)?cycle"
-			"datafiles?" "default" "desc" "distinct" "drop"
-			"exclusive" "execute" "externally"
-			"false" "for[ \\n\\t]+update\\(\\n\\t]+of\\)?" "foreign"
-			"from"
-			"group[ \\n\\t]+by"
-			"having"
-			"identified" "increment" "instance" "is"
-			"key"
-			"limit" "logfile\\([ \\n\\t]+member\\)?"
-			"maxtrans" "\\(no\\)?maxvalue" "\\(no\\)?minvalue"
-			"modify" "mount"
-			"nowait" "null"
-			"on" "option" "\\(no\\)?order" "order[ \\n\\t]+by"
-			"primary" "private" "public"
-			"recover" "references" "replace" "reuse"
-			"start[ \\n\\t]+with" "size" "storage"
-			"to" "true"
-			"unique" "unlimited" "using"
-			"values" "where" "with"))))
-      (keywords-2			;PL/SQL Keywords (hopefully all)
+		       "any" "\\(no\\)?archivelog" "as" "asc"
+		       "backup" "before" "between" "by"
+		       "\\(no\\)?cache" "cancel" "cascade" "change" "check"
+		       "checkpoint" "connect[ \\n\\t]+by" "constraints?" "convert"
+		       "\\(no\\)?cycle"
+		       "datafiles?" "default" "desc" "distinct" "drop"
+		       "exclusive" "execute" "externally"
+		       "false" "for[ \\n\\t]+update\\(\\n\\t]+of\\)?" "foreign"
+		       "from"
+		       "group[ \\n\\t]+by"
+		       "having"
+		       "identified" "increment" "instance" "is"
+		       "key"
+		       "limit" "logfile\\([ \\n\\t]+member\\)?"
+		       "maxtrans" "\\(no\\)?maxvalue" "\\(no\\)?minvalue"
+		       "modify" "mount"
+		       "nowait" "null"
+		       "on" "option" "\\(no\\)?order" "order[ \\n\\t]+by"
+		       "primary" "private" "public"
+		       "recover" "references" "replace" "reuse"
+		       "start[ \\n\\t]+with" "size" "storage"
+		       "to" "true"
+		       "unique" "unlimited" "using"
+		       "values" "where" "with"))))
+      (keywords-2		      ;PL/SQL Keywords (hopefully all)
        (eval-when-compile
 	 (regexp-opt '("begin" "close" "current" "declare" "deleting" "each" "else"
-			"elsif" "end" "exception" "exit\\([ \\n\\t]+when\\)?" "fetch"
-			"for" "goto" "if" "in" "inserting" "into" "is" "loop" "of"
-			"open" "out" "pragma" "raise" "record" "return" "reverse"
-			"row" "then" "type" "updating" "when" "while"))))
+		       "elsif" "end" "exception" "exit\\([ \\n\\t]+when\\)?" "fetch"
+		       "for" "goto" "if" "in" "inserting" "into" "is" "loop" "of"
+		       "open" "out" "pragma" "raise" "record" "return" "reverse"
+		       "row" "then" "type" "updating" "when" "while"))))
       )
   (setq sql-voice-lock-keywords
 	(list

@@ -277,8 +277,6 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-
-
 ;;}}}
 (provide 'emacspeak-reftex)
 ;;{{{ end of file

@@ -100,7 +100,6 @@
     (w3m-form-reset . emacspeak-w3m-speak-form-reset))
   )
 
-
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
   (if (get-text-property (point) 'w3m-anchor-sequence)
@@ -313,7 +312,6 @@
    (t ad-do-it))
   ad-return-value)
 
-
 (defadvice w3m (after emacspeak pre act comp)
   (when (and (interactive-p)
 	     (eq (ad-get-arg 0) 'popup))
@@ -382,7 +380,6 @@
         
   
 
-
 (voice-setup-set-voice-for-face 'w3m-arrived-anchor-face 'betty)
 (voice-setup-set-voice-for-face 'w3m-anchor-face 'harry)
 (voice-setup-set-voice-for-face 'w3m-bold-face 'bold)
@@ -412,8 +409,6 @@
   (setq dtk-punctuation-mode "some"))
 
 (add-hook 'w3m-fontify-after-hook 'emacspeak-w3m-voiceify-faces-in-buffer)
-
-
 
 ;;}}}
 (provide 'emacspeak-w3m)

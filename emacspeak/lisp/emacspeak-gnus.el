@@ -43,10 +43,10 @@
     (require 'gnus)
     (require 'gnus-sum)))
 (eval-when-compile (require 'dtk-speak)
-(require 'voice-lock)
-(require 'emacspeak-keymap)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds))
+		   (require 'voice-lock)
+		   (require 'emacspeak-keymap)
+		   (require 'emacspeak-speak)
+		   (require 'emacspeak-sounds))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -61,7 +61,6 @@
 ;;; You can read news mostly by using the four arrow keys.
 ;;; By default all article headers are hidden, so you hear the real news.
 ;;; You can expose some of the headers with "T" in summary mode.
-
 
 ;;; Keybindings 
 (defun emacspeak-gnus-setup-keys ()
@@ -117,7 +116,6 @@ i.e. sender name, and subject."
     (gnus-summary-toggle-header 1)
     (gnus-summary-toggle-header -1)))
 
-
 (defun gnus-summary-hide-all-headers()
   "Hide all headers in the article.
 Use this command if you don't want to listen to any article headers when
@@ -161,7 +159,6 @@ reading news."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-
 (defadvice gnus-group-get-new-news (around emacspeak pre act )
   "Temporarily deactivate advice on message"
   (dtk-speak  "Getting new  gnus")
@@ -194,7 +191,6 @@ an object has been opened."
         (emacspeak-speak-line))))
   ad-return-value)
 
-
 (defadvice gnus-group-prev-unread-group (around emacspeak pre act)
   "Speak the newsgroup line.
  Produce an auditory icon if possible."
@@ -208,7 +204,6 @@ an object has been opened."
         (emacspeak-speak-line))))
   ad-return-value)
 
-
 (defadvice gnus-group-next-group (around emacspeak pre act)
   "Speak the newsgroup line.
  Produce an auditory icon if possible."
@@ -221,7 +216,6 @@ an object has been opened."
           (dtk-speak "No more newsgroups")
         (emacspeak-speak-line)))))
 
-
 (defadvice gnus-group-next-unread-group (around emacspeak pre act)
   "Speak the newsgroup line.
  Produce an auditory icon if possible."
@@ -233,7 +227,6 @@ an object has been opened."
       (if (= saved-point (point))
           (dtk-speak "No more newsgroups")
         (emacspeak-speak-line)))))
-
 
 (defadvice gnus-group-unsubscribe-current-group (after emacspeak pre act)
   "Produce an auditory icon indicating
@@ -392,7 +385,6 @@ indicating the article is being opened."
     (emacspeak-auditory-icon'select-object)
     (emacspeak-gnus-summary-speak-subject )))
 
-
 (defadvice gnus-summary-down-thread (after emacspeak pre act)
   "Speak the line. 
 Produce an auditory icon if possible."
@@ -421,7 +413,6 @@ Produce an auditory icon if possible."
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.")
-
 
 (defsubst emacspeak-gnus-speak-article-body ()
   (declare (special emacspeak-gnus-large-article
@@ -542,7 +533,6 @@ instead you hear only the first screenful.")
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)))
-
 
 (defadvice gnus-article-goto-prev-page (after emacspeak pre act comp)
   "Provide auditory feedback."

@@ -14,41 +14,39 @@
   (declare (special emacs-personal-library-directory))
   (cond
    ((and library
-         (locate-library library))
-                                        ;do nothing
+	 (locate-library library))
+					;do nothing
     )
    (t (setq path (expand-file-name path
-                                   (or whence
-                                       (and (boundp
-                                             'emacs-personal-library-directory)
-                                            emacs-personal-library-directory))))
+				   (or whence
+				       (and (boundp
+					     'emacs-personal-library-directory)
+					    emacs-personal-library-directory))))
       (if at-end
-          (setq load-path (append (delete path load-path) (list path))
-                (debug-on-error t))
-        (setq load-path (cons path (delete path load-path)))))))
+	  (setq load-path (append (delete path load-path) (list path))
+		(debug-on-error t))
+	(setq load-path (cons path (delete path load-path)))))))
 (defsubst augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
-        (cons
-         (cons ext mode)
-         auto-mode-alist)))
-
+	(cons
+	 (cons ext mode)
+	 auto-mode-alist)))
 
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (condition-case nil
       (cond
        ((locate-library lib)
-        (load-library lib)
-        (message "Loaded %s" lib)
-        t)
+	(load-library lib)
+	(message "Loaded %s" lib)
+	t)
        (t (message "Could not locate library %s" lib)
-          nil))
+	  nil))
     (error (message
-            "Error loading %s"
-            lib))))
-
+	    "Error loading %s"
+	    lib))))
 
 (defvar emacspeak-modules-dependency-alist
   '(
@@ -179,7 +177,7 @@
     ("emacspeak-windmove"  . nil )
     ("emacspeak-winring"  . nil )
     ("emacspeak-wizards"  . nil )
-    ;("emacspeak-wrolo"  . ("wrolo"))
+					;("emacspeak-wrolo"  . ("wrolo"))
     ("emacspeak-xml-shell"  . nil )
     ("emacspeak-xslt-process"  . nil )
     ("fast-voice-lock"  . nil )
@@ -204,15 +202,15 @@ This helps pull in all emacspeak modules cleanly.")
   "Generate commands.texi and DOC ."
   (declare (special emacspeak-modules-dependency-alist))
   (let ((emacspeak-speak-messages nil))
-  (mapcar
-   #'(lambda (pair)
-       (mapcar #'load-library (cdr pair))
-(load-library (car pair))
-(message "%s\n" (car pair)))
-emacspeak-modules-dependency-alist)
-(emacspeak-generate-texinfo-command-documentation
- "commands.texi")
-(emacspeak-generate-documentation
- "../etc/DOC")))
+    (mapcar
+     #'(lambda (pair)
+	 (mapcar #'load-library (cdr pair))
+	 (load-library (car pair))
+	 (message "%s\n" (car pair)))
+     emacspeak-modules-dependency-alist)
+    (emacspeak-generate-texinfo-command-documentation
+     "commands.texi")
+    (emacspeak-generate-documentation
+     "../etc/DOC")))
 
 (emacspeak-utils-generate-commands-documentation)

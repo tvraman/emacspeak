@@ -100,7 +100,6 @@ interactive prompts speak. ")
 
 ;;{{{  Understanding aid 
 
-
 (defun emacspeak-show-interactive (sym)
   "Auto-advice interactive command to speak its prompt.  Fix
 the function definition of sym to make its interactive form
@@ -163,7 +162,7 @@ speak its prompts. "
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
-    ;memoize call
+					;memoize call
     (put sym 'emacspeak-fixed t)
                                         ; advice if necessary
     (when
@@ -210,7 +209,6 @@ speak its prompts. "
   t)
 
 ;;; inline function for use from other modules:
-
 
 (defsubst  emacspeak-fix-interactive-command-if-necessary
   (command)

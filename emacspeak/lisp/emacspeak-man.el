@@ -43,7 +43,6 @@
 
 ;;; Code:
 
-
 ;;}}}
 ;;{{{ Required modules
 
@@ -77,15 +76,15 @@
                   ))
 (setq Man-voice-lock-keywords
       (list
-              ;; Regexp describing section headers 
-	 (cons Man-heading-regexp   'voice-lock-underline-personality)
-                      ;;Regexp for SEE ALSO section (or your equiv) 
-         (cons Man-see-also-regexp    'voice-lock-italic-personality)
-                 ;;Regexp for first heading on a manpage 
-         (cons Man-first-heading-regexp     'voice-lock-underline-personality )
-                     ;; Regexp matching a references in SEE ALSO 
-         ;(cons Man-reference-regexp    'voice-lock-bold-personality)
-         ))
+       ;; Regexp describing section headers 
+       (cons Man-heading-regexp   'voice-lock-underline-personality)
+       ;;Regexp for SEE ALSO section (or your equiv) 
+       (cons Man-see-also-regexp    'voice-lock-italic-personality)
+       ;;Regexp for first heading on a manpage 
+       (cons Man-first-heading-regexp     'voice-lock-underline-personality )
+       ;; Regexp matching a references in SEE ALSO 
+					;(cons Man-reference-regexp    'voice-lock-bold-personality)
+       ))
 (voice-lock-set-major-mode-keywords 'Man-mode    'Man-voice-lock-keywords)
 ;;}}}
 ;;{{{  advice interactive commands 
@@ -124,7 +123,6 @@ Also provide an auditory icon"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
-
 
 (defadvice Man-next-section (after emacspeak pre act )
   "Speak the line"
@@ -168,8 +166,8 @@ Also provide an auditory icon"
           (progn
             (Man-next-section 1)
             (setq end (point)))
-          (error (setq end (point-max))))
-(emacspeak-auditory-icon 'select-object)
+	(error (setq end (point-max))))
+      (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start end ))))
 
 (defun emacspeak-man-browse-man-page ()
@@ -177,7 +175,7 @@ Also provide an auditory icon"
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph))
 (autoload 'emacspeak-view-line-to-top 
-"emacspeak-view" "Move current line to top of window"  t)
+  "emacspeak-view" "Move current line to top of window"  t)
 (declaim (special Man-mode-map))
 (eval-when (load)
   (emacspeak-keymap-remove-emacspeak-edit-commands Man-mode-map))
@@ -191,7 +189,6 @@ Also provide an auditory icon"
 (define-key Man-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 (define-key Man-mode-map "[" 'backward-paragraph)
 (define-key Man-mode-map "]" 'forward-paragraph)
-
 
 ;;}}}
 (provide  'emacspeak-man)

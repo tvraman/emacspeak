@@ -53,13 +53,11 @@
 (eval-when-compile (load-library "cl-extra"))
 ;;{{{  voice table
 
-
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
 (defvar outloud-default-voice-string " `v1 "
   "Default Outloud tag for the default voice.")
-
 
 (defvar outloud-voice-table (make-hash-table)
   "Association between symbols and strings to set Outloud  voices.
@@ -70,8 +68,8 @@ The string can set any voice parameter.")
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
   (declare (special outloud-voice-table ))
-   (setf (gethash name outloud-voice-table )
-              command-string))
+  (setf (gethash name outloud-voice-table )
+	command-string))
 
 (defsubst outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
@@ -86,7 +84,7 @@ COMMAND-STRING to the TTS engine."
    (format " `vs%s " dtk-speech-rate )))
 
 (defsubst outloud-voice-defined-p (name)
-"Check if there is a voice named NAME defined."
+  "Check if there is a voice named NAME defined."
   (declare (special outloud-voice-table ))
   (gethash name outloud-voice-table ))
 
@@ -116,17 +114,17 @@ COMMAND-STRING to the TTS engine."
 ")
 
 (outloud-define-voice 'paul-italic
-                  " `v1 `vh37 `vb70 `vf100  `vv100 ")
+		      " `v1 `vh37 `vb70 `vf100  `vv100 ")
 (outloud-define-voice 'paul-smooth
-                  " `v1 `vr0 `vh40 `vb60 `vf75  `vv88 ")
+		      " `v1 `vr0 `vh40 `vb60 `vf75  `vv88 ")
 
 (outloud-define-voice 'anotation-voice
-" `v1 `vr0 `vh40 `vb60 `vf75  `vv88  ")
+		      " `v1 `vr0 `vh40 `vb60 `vf75  `vv88  ")
                       
 (outloud-define-voice 'indent-voice  " `v1 `vr0 `vv65 `vh45
 `vf35 `p2  ")
 (outloud-define-voice 'paul-animated
-                  " `v1 `vf65 `vh45 `vb70 `vv100 ")
+		      " `v1 `vf65 `vh45 `vb70 `vv100 ")
 
 (outloud-define-voice 'paul-monotone " `v1 `vf0`vb50  `vv85 ")
 
@@ -150,7 +148,7 @@ COMMAND-STRING to the TTS engine."
 ;;; Also get rid of absolute changes in speech rate.
 
 (outloud-define-voice 'paul-angry
-                  " `v1 `vv100 `vb55 `vf250 `vr30 `vy25 ")
+		      " `v1 `vv100 `vb55 `vf250 `vr30 `vy25 ")
 
 (outloud-define-voice
  'paul-disgusted
@@ -165,10 +163,10 @@ COMMAND-STRING to the TTS engine."
  " `v1 `vf0 `vr0 `vv75 `vh55 `vb48 ")
 
 (outloud-define-voice 'paul-scared
-                  " `v1 `vf100 `vv100 `vb60 `vh40 `vy70 ")
+		      " `v1 `vf100 `vv100 `vb60 `vh40 `vy70 ")
 
 (outloud-define-voice 'paul-surprised
-                  " `v1 `vf100 `vv100 `vh30 `vb70 ")
+		      " `v1 `vf100 `vv100 `vh30 `vb70 ")
 
 ;;}}}
 ;;{{{  the inaudible voice
@@ -180,9 +178,9 @@ COMMAND-STRING to the TTS engine."
 
 (defun outloud-voice-personality-list ()
   "Return list of all defined voices."
-(declare (special outloud-voice-table))
-(loop for key being the hash-keys of outloud-voice-table
-      collect key ))
+  (declare (special outloud-voice-table))
+  (loop for key being the hash-keys of outloud-voice-table
+	collect key ))
 
 ;;}}}
 ;;{{{ default speech rate 
@@ -201,7 +199,7 @@ COMMAND-STRING to the TTS engine."
 (outloud-define-voice-alias 'voice-lock-keyword-personality
                             'ursula)
 (outloud-define-voice-alias 'voice-lock-builtin-personality
-                        'harry)
+			    'harry)
 (outloud-define-voice-alias 'voice-lock-variable-name-personality 'paul-italic)
 (outloud-define-voice-alias 'voice-lock-type-personality 'paul-smooth)
 (outloud-define-voice-alias 'voice-lock-reference-personality 'paul-italic)
@@ -211,7 +209,6 @@ COMMAND-STRING to the TTS engine."
 
 ;;; let's define the standard symbols used as fonts as
 ;;; personalities here.
-
 
 (outloud-define-voice-alias 'font-lock-variable-name-face 'voice-lock-variable-name-personality)
 (outloud-define-voice-alias 'font-lock-reference-face 'voice-lock-reference-personality)

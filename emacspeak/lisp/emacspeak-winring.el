@@ -44,7 +44,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
   (require 'emacspeak-speak)
-(require 'emacspeak-tapestry)
+  (require 'emacspeak-tapestry)
   (require 'emacspeak-sounds))
 ;;}}}
 ;;{{{  Introduction
@@ -59,7 +59,7 @@
 ;;{{{ Advice commands
 
 (defadvice winring-jump-to-configuration(after emacspeak pre
-                                            act comp)
+					       act comp)
   "provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -80,13 +80,13 @@
     (emacspeak-tapestry-describe-tapestry winring-name)))
 
 (defadvice winring-new-configuration(after emacspeak pre
-                                            act comp)
+					   act comp)
   "provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 (defadvice winring-delete-configuration(after emacspeak pre
-                                            act comp)
+					      act comp)
   "provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)

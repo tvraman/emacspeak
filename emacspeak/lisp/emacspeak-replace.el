@@ -63,7 +63,6 @@ that is being replaced."
   :group 'emacspeak
   :type 'symbol)
 
-
 ;;}}}
 ;;{{{  Advice
 

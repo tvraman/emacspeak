@@ -59,7 +59,6 @@
   :group 'vm
   :prefix "emacspeak-vm-")
 
-
 (defcustom emacspeak-vm-voice-lock-messages nil
   "Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble."
@@ -208,7 +207,7 @@ Note that some badly formed mime messages  cause trouble."
         (emacspeak-auditory-icon 'item))
        (self-p                          ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t                               ;got it because of a mailing list
+       (t			     ;got it because of a mailing list
         (emacspeak-auditory-icon 'select-object ))))))
 
 (defun emacspeak-vm-speak-labels ()
@@ -394,7 +393,6 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{ quitting
 
-
 (defadvice vm-quit (after emacspeak pre act )
   "Provide an auditory icon if requested"
   (when (interactive-p)
@@ -441,7 +439,6 @@ Then speak the screenful. "
        (t (emacspeak-auditory-icon 'search-miss)))))
    (t ad-do-it))
   ad-return-value)
-
 
 (defadvice vm-isearch-backward (around emacspeak pre act comp)
   "Provide auditory feedback"
@@ -517,7 +514,6 @@ Leave point at front of decoded attachment."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-text-range  'w3-hyperlink-info)))
 
-
 ;;}}}
 ;;{{{  misc 
 
@@ -568,9 +564,6 @@ If N is negative, move backward instead."
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
   :group 'emacspeak)
-
-
-
 
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
@@ -627,7 +620,6 @@ text using wvText."
   :type 'string
   :group 'emacspeak-vm)
 
-
 (defcustom emacspeak-vm-xls2html
   (expand-file-name "xls2html" emacspeak-etc-directory)
   "Executable that converts MSXL documents on standard input to HTML
@@ -641,7 +633,6 @@ text using wvText."
  using xlhtml."
   :type 'string
   :group 'emacspeak-vm)
-
 
 (defsubst emacspeak-vm-add-mime-convertor (convertor)
   "Helper to add a convertor specification."

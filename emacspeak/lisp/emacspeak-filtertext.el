@@ -70,15 +70,15 @@
 (defstruct (emacspeak-filtertext
             (:constructor
              emacspeak-filtertext-constructor))
-  text ;original text
-  filters ;chain of filters applied 
-)
+  text					;original text
+  filters				;chain of filters applied 
+  )
 
-  ;;}}}
+;;}}}
 ;;{{{ filtertext  mode 
 
 (defvar emacspeak-filtertext-info  nil
-"Holds filtertext info structure.")
+  "Holds filtertext info structure.")
 (make-variable-buffer-local 'emacspeak-filtertext-info)
 
 (define-derived-mode emacspeak-filtertext-mode text-mode 
@@ -112,7 +112,7 @@ preparation for interactively filtering text. "
       (emacspeak-filtertext-mode)
       (setq emacspeak-filtertext-info
             (emacspeak-filtertext-constructor :text this))
-            (goto-char (point-min)))
+      (goto-char (point-min)))
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))
 
@@ -123,10 +123,10 @@ preparation for interactively filtering text. "
   (unless (eq  major-mode 'emacspeak-filtertext-mode)
     (error "Not in filter text mode."))
   (when emacspeak-filtertext-info
-  (erase-buffer)
-  (insert (emacspeak-filtertext-text emacspeak-filtertext-info))
-  (emacspeak-auditory-icon 'unmodified-object)
-  (message "Reverted filtered text.")))
+    (erase-buffer)
+    (insert (emacspeak-filtertext-text emacspeak-filtertext-info))
+    (emacspeak-auditory-icon 'unmodified-object)
+    (message "Reverted filtered text.")))
 
 ;;}}}
 (provide 'emacspeak-filtertext)

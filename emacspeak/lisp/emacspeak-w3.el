@@ -48,7 +48,6 @@
 
 ;;; Code:
 
-
 ;;}}}
 ;;{{{ requires
 
@@ -111,8 +110,8 @@ that is no longer supported by Emacspeak.")))
  (function
   (lambda ()
     (modify-syntax-entry 10 " ")
-(define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
-(define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
+    (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
+    (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
     (define-key w3-mode-map "l" 'emacspeak-w3-google-who-links-to-this-page)
     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
     (define-key w3-mode-map ";"
@@ -131,7 +130,6 @@ that is no longer supported by Emacspeak.")))
     (define-key w3-mode-map "\M- " 'emacspeak-imenu-speak-this-section)
     (define-key w3-mode-map "\M-p" 'emacspeak-imenu-goto-previous-index-position)
     (define-key w3-mode-map "\M-n" 'emacspeak-imenu-goto-next-index-position))))
-
 
 (add-hook                                'w3-load-hook
                                          (function
@@ -187,7 +185,6 @@ the table structure extraction code in W3."
 ;;{{{ fixup images
 (declaim (special w3-version))
 
-
     
                                         ; simple heuristic to detect silly bullets and dots
                                         ; (by Greg Stark <gsstark@mit.edu>, enriched with regexp)
@@ -229,8 +226,6 @@ the table structure extraction code in W3."
   nil
   "Reflects whether we allow W3 to draw table borders. ")
 
-
-
 (defvar emacspeak-w3-table-silent-border (make-vector 16 32)
   "Used to draw empty W3 table borders. ")
 
@@ -247,12 +242,10 @@ the table structure extraction code in W3."
   (message "W3 will %s draw table borders from now on"
            (if emacspeak-w3-table-draw-border "" "not")))
 
-
 ;;}}}
 ;;{{{ Experimental --element navigation
 
 ;;;This should eventually be done via a DOM API
-
 
 (defsubst emacspeak-w3-html-stack () (get-text-property (point) 'html-stack))
 
@@ -308,7 +301,6 @@ implemented. ")))
   (let ((emacspeak-show-point t))
     (emacspeak-w3-speak-this-element)))
 
-
 (defun emacspeak-w3-speak-this-element ()
   "Speak document element under point."
   (interactive)
@@ -328,7 +320,6 @@ implemented. ")))
       (emacspeak-speak-region start end )
       (emacspeak-auditory-icon 'select-object))))
 
-
 (defun emacspeak-w3-speak-next-element ()
   "Speak next document element."
   (interactive)
@@ -347,7 +338,6 @@ implemented. ")))
 ;;{{{ experimental --unravel javascript urls 
 (defvar emacspeak-w3-javascript-cleanup-buffer " *javascript-cleanup*"
   "temporary scratch area")
-
 
 (defun emacspeak-w3-do-onclick ()
   "Do  onclick action."
@@ -554,7 +544,6 @@ HTML."
     (w3-reload-document)
     (emacspeak-auditory-icon 'select-object)))
 
-
 (defun emacspeak-w3-xslt-select (xsl)
   "Select transformation to apply."
   (interactive
@@ -632,7 +621,6 @@ minibuffer."
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
-
 (defvar emacspeak-w3-extract-by-class-xsl
   (expand-file-name "extract-by-class.xsl"
                     emacspeak-xslt-directory)
@@ -685,7 +673,6 @@ minibuffer."
                             w3-url)))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
-
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
@@ -753,7 +740,6 @@ prefix arg causes url to be read from the minibuffer."
 (define-key emacspeak-w3-xsl-map "x" 'emacspeak-w3-extract-table)
 (define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
 
-
 ;;; Extracting node specified by id
 (defvar emacspeak-w3-extract-node-by-id-xsl
   (expand-file-name "extract-node-by-id.xsl"
@@ -797,18 +783,18 @@ current page."
 (eval-when  (eval load)
   (require 'url-parse)
   (require 'emacspeak-websearch)
-(defun emacspeak-w3-google-on-this-site ()
-  "Perform a google search restricted to the current WWW site."
-  (interactive)
-  (declare (special major-mode))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command cannot be used outside W3 buffers."))
-  (emacspeak-websearch-google
-   (format "+site:%s %s"
-           (aref 
-            (url-generic-parse-url (url-view-url 'no-show))
-            3)
-           (read-from-minibuffer "Search this site for: ")))))
+  (defun emacspeak-w3-google-on-this-site ()
+    "Perform a google search restricted to the current WWW site."
+    (interactive)
+    (declare (special major-mode))
+    (unless (eq major-mode 'w3-mode)
+      (error "This command cannot be used outside W3 buffers."))
+    (emacspeak-websearch-google
+     (format "+site:%s %s"
+	     (aref 
+	      (url-generic-parse-url (url-view-url 'no-show))
+	      3)
+	     (read-from-minibuffer "Search this site for: ")))))
 
 (defvar emacspeak-w3-google-related-uri
   "http://www.google.com/search?hl=en&num=10&q=related:")
@@ -848,16 +834,16 @@ current page."
     (expand-file-name
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
-   (declare (special emacspeak-xslt-directory
-                     emacspeak-w3-xsl-p
-                     emacspeak-w3-xsl-transform))
-   (unless (eq major-mode 'w3-mode)
-     (error "Not in a W3 buffer."))
-   (let ((emacspeak-w3-xsl-p t)
-         (url (w3-view-this-url 'no-show))
-         (emacspeak-w3-xsl-transform style))
-   (browse-url url)
-   (emacspeak-speak-mode-line)))
+  (declare (special emacspeak-xslt-directory
+		    emacspeak-w3-xsl-p
+		    emacspeak-w3-xsl-transform))
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in a W3 buffer."))
+  (let ((emacspeak-w3-xsl-p t)
+	(url (w3-view-this-url 'no-show))
+	(emacspeak-w3-xsl-transform style))
+    (browse-url url)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-w3)

@@ -81,8 +81,6 @@ OCR engine for optical character recognition."
   :group 'emacspeak
   :prefix "emacspeak-ocr-")
 
-
-
 (defcustom emacspeak-ocr-scan-image "scanimage"
   "Name of image acquisition program."
   :type 'string 
@@ -98,7 +96,6 @@ OCR engine for optical character recognition."
   "Command used to compress the scanned tiff file."
   :type 'string
   :group 'emacspeak-ocr)
-
 
 (defcustom emacspeak-ocr-image-extension ".tiff"
   "Filename extension used for acquired image."
@@ -129,7 +126,6 @@ will be placed."
   :group 'emacspeak-ocr
   :type 'string)
 
-
 (defcustom emacspeak-ocr-scan-photo-options 
   "--mode color --format=pnm"
   "Options  used when scanning in photographs."
@@ -157,8 +153,6 @@ will be placed."
   :type 'string
   :group 'emacspeak-ocr)
 
-
-
 ;;}}}
 ;;{{{  helpers
 
@@ -177,8 +171,6 @@ will be placed."
   "Vector holding page start positions.")
 
 (make-variable-buffer-local 'emacspeak-ocr-page-positions)
-
-
 
 (defvar emacspeak-ocr-buffer-name "*ocr*"
   "Name of OCR working buffer.")
@@ -200,7 +192,7 @@ will be placed."
   (format "%s-%s%s"
           emacspeak-ocr-document-name
           (1+ emacspeak-ocr-last-page-number)
-  extension))
+	  extension))
 
 (defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
@@ -230,13 +222,11 @@ will be placed."
           emacspeak-ocr-last-page-number
           major-mode))
 
-
 (defsubst emacspeak-ocr-update-mode-line()
   "Update mode line for OCR mode."
   (declare (special mode-line-format))
   (setq mode-line-format
         (emacspeak-ocr-get-mode-line-format)))
-
 
 ;;}}}
 ;;{{{  emacspeak-ocr mode
@@ -392,9 +382,6 @@ Pick a short but meaningful name."
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
-
-
-
 (defun emacspeak-ocr-scan-image ()
   "Acquire page image."
   (interactive)
@@ -471,9 +458,6 @@ The scanned image is converted to JPEG."
     (setq emacspeak-ocr-last-page-number
           (1+ emacspeak-ocr-last-page-number))))
 
-
-
-
 (defvar emacspeak-ocr-process nil
   "Handle to OCR process.")
 
@@ -523,7 +507,6 @@ to an appropriately named file."
   (emacspeak-ocr-update-mode-line)
   (emacspeak-speak-line))
 
-
 (defun emacspeak-ocr-recognize-image ()
   "Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
@@ -563,7 +546,6 @@ Prompts for image file if file corresponding to the expected
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))
 
-
 (defun emacspeak-ocr-scan-and-recognize ()
   "Scan in a page and run OCR engine on it.
 Use this command once you've verified that the separate
@@ -572,7 +554,6 @@ corectly by themselves."
   (interactive)
   (emacspeak-ocr-scan-image)
   (emacspeak-ocr-recognize-image))
-
 
 (defun emacspeak-ocr-toggle-read-only ()
   "Toggle read-only state of OCR buffer."
@@ -637,7 +618,6 @@ corectly by themselves."
                        emacspeak-ocr-current-page-number))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
-
 
 (defsubst emacspeak-ocr-goto-page (page)
   "Move to specified page."
@@ -711,8 +691,6 @@ Setting persists for current Emacs session."
      emacspeak-ocr-compress-image-options)))
   (declare (special emacspeak-ocr-compress-image-options))
   (setq emacspeak-ocr-compress-image-options setting))
-
-
 
 ;;}}}
 (provide 'emacspeak-ocr)

@@ -63,7 +63,7 @@
 ;;{{{  User customizations
 (defgroup emacspeak-remote nil
   "Emacspeak remote group."
-:group 'emacspeak-remote)
+  :group 'emacspeak-remote)
 
 (defcustom emacspeak-remote-hooks nil
   "List of hook functions that are run after
@@ -100,12 +100,12 @@ a local  Emacspeak terminal buffer.")
 ;;; or translate it to bash syntax and place it in your
 ;;; .profile:
 
-;/bin/rm -f  ~/.emacspeak/.current-remote-hostname
-;set remote=`who am i`
-;if ( $;remote == 6 ) then
-;eval 	set remote=$remote[6]
-;echo -n  "$remote" > ~/.emacspeak/.current-remote-hostname
-;endif
+					;/bin/rm -f  ~/.emacspeak/.current-remote-hostname
+					;set remote=`who am i`
+					;if ( $;remote == 6 ) then
+					;eval 	set remote=$remote[6]
+					;echo -n  "$remote" > ~/.emacspeak/.current-remote-hostname
+					;endif
 
 ;;;Remote hostname guessing
 ;;;
@@ -131,7 +131,6 @@ a local  Emacspeak terminal buffer.")
                       (1- (point-max)))))
       (kill-buffer buffer )
       result)))
-
 
 ;;}}}
 ;;{{{  Connect to  remote server
@@ -170,7 +169,7 @@ host is listening on for speech requests."
   (interactive
    (list
     (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table ;completion table
+                     emacspeak-eterm-remote-hosts-table	;completion table
                      nil                ;predicate
                      nil                ;must-match
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
@@ -207,12 +206,10 @@ host is listening on for speech requests."
      (t (error "Failed to connect to speech server on host %s port %s"
                host port )))))
 
-
 (emacspeak-fix-interactive-command-if-necessary 'emacspeak-remote-connect-to-server)
 
 ;;}}}
 ;;{{{ start up local server
-
 
   
 

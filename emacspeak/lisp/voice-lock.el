@@ -328,7 +328,7 @@ the wrong pattern can dramatically slow things down!")
 The value should be like the `cdr' of an item in `voice-lock-defaults-alist'.")
 
 (defvar voice-lock-defaults-alist
-  (let (;; For C and Lisp modes we use `beginning-of-defun', rather than nil,
+  (let ( ;; For C and Lisp modes we use `beginning-of-defun', rather than nil,
 	;; for SYNTAX-BEGIN.  Thus the calculation of the cache is usually
 	;; faster but not infallible, so we risk mis-voiceification.  --sm.
 	(c-mode-defaults
@@ -506,7 +506,7 @@ Currently, valid mode names as `fast-voice-lock-mode' and `lazy-voice-lock-mode'
 This is normally set via `voice-lock-defaults'.")
 
 (defvar voice-lock-mode nil)		; For the modeline.
-(defvar voice-lock-voiceified nil)	; Whether we have voiceified the buffer.
+(defvar voice-lock-voiceified nil) ; Whether we have voiceified the buffer.
 
 ;;;###autoload
 (defvar voice-lock-mode-hook nil
@@ -611,7 +611,7 @@ its mode hook."
 (defun turn-on-voice-lock ()
   "Turn on Voice Lock mode conditionally.
 Turn on only if the device can display it."
-    (voice-lock-mode t))
+  (voice-lock-mode t))
 
 ;; Global Voice Lock mode.
 ;;
@@ -863,12 +863,12 @@ The value of this variable is used when Voice Lock mode is turned on.")
       (and (not modified) (buffer-modified-p) (set-buffer-modified-p nil)))))
 
 ;; The following must be rethought, since keywords can override voiceification.
-;      ;; Now scan for keywords, but not if we are inside a comment now.
-;      (or (and (not voice-lock-keywords-only)
-;	       (let ((state (parse-partial-sexp beg end nil nil 
-;						voice-lock-cache-state)))
-;		 (or (nth 4 state) (nth 7 state))))
-;	  (voice-lock-voiceify-keywords-region beg end))
+					;      ;; Now scan for keywords, but not if we are inside a comment now.
+					;      (or (and (not voice-lock-keywords-only)
+					;	       (let ((state (parse-partial-sexp beg end nil nil 
+					;						voice-lock-cache-state)))
+					;		 (or (nth 4 state) (nth 7 state))))
+					;	  (voice-lock-voiceify-keywords-region beg end))
 
 (defun voice-lock-default-unvoiceify-region (beg end)
   (let ((modified (buffer-modified-p))
@@ -909,7 +909,6 @@ delimit the region to voiceify."
 	      (funcall voice-lock-mark-block-function)
 	      (voice-lock-voiceify-region (point) (mark)))
 	  ((error quit) (message "Voiceifying block...%s" error-data)))))))
-
 
 
 ;; Syntactic voiceification functions.
@@ -1053,17 +1052,17 @@ Optional argument OBJECT is the string or buffer containing the text."
       (setq start (text-property-any next end prop nil object)))))
 
 ;; This function (from simon's unique.el) is rewritten and inlined for speed.
-;(defun unique (list function)
-;  "Uniquify LIST, deleting elements using FUNCTION.
-;Return the list with subsequent duplicate items removed by side effects.
-;FUNCTION is called with an element of LIST and a list of elements from LIST,
-;and should return the list of elements with occurrences of the element removed,
-;i.e., a function such as `delete' or `delq'.
-;This function will work even if LIST is unsorted.  See also `uniq'."
-;  (let ((list list))
-;    (while list
-;      (setq list (setcdr list (funcall function (car list) (cdr list))))))
-;  list)
+					;(defun unique (list function)
+					;  "Uniquify LIST, deleting elements using FUNCTION.
+					;Return the list with subsequent duplicate items removed by side effects.
+					;FUNCTION is called with an element of LIST and a list of elements from LIST,
+					;and should return the list of elements with occurrences of the element removed,
+					;i.e., a function such as `delete' or `delq'.
+					;This function will work even if LIST is unsorted.  See also `uniq'."
+					;  (let ((list list))
+					;    (while list
+					;      (setq list (setcdr list (funcall function (car list) (cdr list))))))
+					;  list)
 
 (defsubst voice-lock-unique (list)
   "Uniquify LIST, deleting elements using `delq'.
@@ -1128,15 +1127,15 @@ HIGHLIGHT should be of the form MATCH-HIGHLIGHT, see `voice-lock-keywords'."
 	  ((eq override 'keep)
 	   ;; Keep existing voiceification.
 	   (voice-lock-fillin-text-property start end 'personality
-					   (eval (nth 1 highlight))))
+					    (eval (nth 1 highlight))))
 	  ((eq override 'prepend)
 	   ;; Prepend to existing voiceification.
 	   (voice-lock-prepend-text-property start end 'personality
-					    (eval (nth 1 highlight))))
+					     (eval (nth 1 highlight))))
 	  ((eq override 'append)
 	   ;; Append to existing voiceification.
 	   (voice-lock-append-text-property start end 'personality
-					   (eval (nth 1 highlight)))))))
+					    (eval (nth 1 highlight)))))))
 
 (defsubst voice-lock-voiceify-anchored-keywords (keywords limit)
   "Voiceify according to KEYWORDS until LIMIT.
@@ -1208,11 +1207,11 @@ START should be at the beginning of a line."
 	 (voice-lock-compile-keyword (eval (cdr keyword))))
 	((numberp (cdr keyword))	; Specified (MATCHER . MATCH)
 	 (list (car keyword) (list (cdr keyword) 'voice-lock-keyword-personality)))
-	((symbolp (cdr keyword))	; Specified (MATCHER . VOICENAME)
+	((symbolp (cdr keyword))     ; Specified (MATCHER . VOICENAME)
 	 (list (car keyword) (list 0 (cdr keyword))))
-	((nlistp (nth 1 keyword))	; Specified (MATCHER . HIGHLIGHT)
+	((nlistp (nth 1 keyword))    ; Specified (MATCHER . HIGHLIGHT)
 	 (list (car keyword) (cdr keyword)))
-	(t				; Hopefully (MATCHER HIGHLIGHT ...)
+	(t			   ; Hopefully (MATCHER HIGHLIGHT ...)
 	 keyword)))
 
 (defun voice-lock-value-in-major-mode (alist)
@@ -1251,13 +1250,13 @@ Sets various variables using `voice-lock-defaults' (or, if nil, using
 	     (keywords
 	      (or
                (voice-lock-choose-keywords (nth 0 defaults)
-	       (voice-lock-value-in-major-mode
-                voice-lock-maximum-decoration))
-                (voice-lock-get-major-mode-keywords major-mode ))))
+					   (voice-lock-value-in-major-mode
+					    voice-lock-maximum-decoration))
+	       (voice-lock-get-major-mode-keywords major-mode ))))
 	;; Regexp voiceification?
 	(setq voice-lock-keywords (if (fboundp keywords)
-				     (funcall keywords)
-				   (eval keywords)))
+				      (funcall keywords)
+				    (eval keywords)))
 	;; Syntactic voiceification?
         (if(or
             (memq major-mode
@@ -1359,147 +1358,146 @@ resource `Emacs.voice-lock-comment-personality.attributeUnderline' can be used t
 specify the UNDERLINE-P attribute for personality `voice-lock-comment-personality'.")
 ;;{{{  junked for now
 
-;(defun voice-lock-make-personalities (&optional override)
-;  "Make personalities from `voice-lock-personality-attributes'.
-;A default list is used if this is nil.
-;If optional OVERRIDE is non-nil, personalities that already exist are reset.
-;See `voice-lock-make-personality' and `list-personalities-display'."
-;  ;; We don't need to `setq' any of these variables, but the user can see what
-;  ;; is being used if we do.
-;  (if (null voice-lock-display-type)
-;      (setq voice-lock-display-type
-;	    (let ((display-resource (x-get-resource ".displayType"
-;						    "DisplayType")))
-;	      (cond (display-resource (intern (downcase display-resource)))
-;		    ((x-display-color-p) 'color)
-;		    ((x-display-grayscale-p) 'grayscale)
-;		    (t 'mono)))))
-;  (if (null voice-lock-background-mode)
-;      (setq voice-lock-background-mode
-;	    (let ((bg-resource (x-get-resource ".backgroundMode"
-;					       "BackgroundMode"))
-;		  (params (frame-parameters)))
-;	      (cond (bg-resource (intern (downcase bg-resource)))
-;		    ((eq system-type 'ms-dos)
-;		     (if (string-match "light"
-;				       (cdr (assq 'background-color params)))
-;			 'light
-;		       'dark))
-;		    ((< (apply '+ (x-color-values
-;				   (cdr (assq 'background-color params))))
-;			(* (apply '+ (x-color-values "white")) .6))
-;		     'dark)
-;		    (t 'light)))))
-;  (if (null voice-lock-personality-attributes)
-;      (setq voice-lock-personality-attributes
-;	    (let ((light-bg (eq voice-lock-background-mode 'light)))
-;	      (cond ((memq voice-lock-display-type '(mono monochrome))
-;		     ;; Emacs 19.25's voice-lock defaults:
-;		     ;;'((voice-lock-comment-personality nil nil nil t nil)
-;		     ;;  (voice-lock-string-personality nil nil nil nil t)
-;		     ;;  (voice-lock-keyword-personality nil nil t nil nil)
-;		     ;;  (voice-lock-function-name-personality nil nil t t nil)
-;		     ;;  (voice-lock-type-personality nil nil nil t nil))
-;		     (list '(voice-lock-comment-personality nil nil t t nil)
-;			   '(voice-lock-string-personality nil nil nil t nil)
-;			   '(voice-lock-keyword-personality nil nil t nil nil)
-;			   (list
-;			    'voice-lock-function-name-personality
-;			    (cdr (assq 'background-color (frame-parameters)))
-;			    (cdr (assq 'foreground-color (frame-parameters)))
-;			    t nil nil)
-;			   '(voice-lock-variable-name-personality nil nil t t nil)
-;			   '(voice-lock-type-personality nil nil t nil t)
-;			   '(voice-lock-reference-personality nil nil t nil t)))
-;		    ((memq voice-lock-display-type '(grayscale greyscale
-;						    grayshade greyshade))
-;		     (list
-;		      (list 'voice-lock-comment-personality
-;			    nil (if light-bg "Gray80" "DimGray") t t nil)
-;		      (list 'voice-lock-string-personality
-;			    nil (if light-bg "Gray50" "LightGray") nil t nil)
-;		      (list 'voice-lock-keyword-personality
-;			    nil (if light-bg "Gray90" "DimGray") t nil nil)
-;		      (list 'voice-lock-function-name-personality
-;			    (cdr (assq 'background-color (frame-parameters)))
-;			    (cdr (assq 'foreground-color (frame-parameters)))
-;			    t nil nil)
-;		      (list 'voice-lock-variable-name-personality
-;			    nil (if light-bg "Gray90" "DimGray") t t nil)
-;		      (list 'voice-lock-type-personality
-;			    nil (if light-bg "Gray80" "DimGray") t nil t)
-;		      (list 'voice-lock-reference-personality
-;			    nil (if light-bg "LightGray" "Gray50") t nil t)))
-;		    (light-bg		; light colour background
-;		     '((voice-lock-comment-personality "Firebrick")
-;		       (voice-lock-string-personality "RosyBrown")
-;		       (voice-lock-keyword-personality "Purple")
-;		       (voice-lock-function-name-personality "Blue")
-;		       (voice-lock-variable-name-personality "DarkGoldenrod")
-;		       (voice-lock-type-personality "DarkOliveGreen")
-;		       (voice-lock-reference-personality "CadetBlue")))
-;		    (t			; dark colour background
-;		     '((voice-lock-comment-personality "OrangeRed")
-;		       (voice-lock-string-personality "LightSalmon")
-;		       (voice-lock-keyword-personality "LightSteelBlue")
-;		       (voice-lock-function-name-personality "LightSkyBlue")
-;		       (voice-lock-variable-name-personality "LightGoldenrod")
-;		       (voice-lock-type-personality "PaleGreen")
-;		       (voice-lock-reference-personality "Aquamarine")))))))
-;  ;; Now make the personalities if we have to.
-;  (mapcar (function
-;	   (lambda (face-attributes)
-;	     (let ((face (nth 0 face-attributes)))
-;	       (cond (override
-;		      ;; We can stomp all over it anyway.  Get outta my face!
-;		      (voice-lock-make-personality face-attributes))
-;		     ((and (boundp face) (facep (symbol-value face)))
-;		      ;; The variable exists and is already bound to a face.
-;		      nil)
-;		     ((facep face)
-;		      ;; We already have a personality so we bind the variable to it.
-;		      (set personality face))
-;		     (t
-;		      ;; No variable or no face.
-;		      (voice-lock-make-personality face-attributes))))))
-;	  voice-lock-personality-attributes))
+					;(defun voice-lock-make-personalities (&optional override)
+					;  "Make personalities from `voice-lock-personality-attributes'.
+					;A default list is used if this is nil.
+					;If optional OVERRIDE is non-nil, personalities that already exist are reset.
+					;See `voice-lock-make-personality' and `list-personalities-display'."
+					;  ;; We don't need to `setq' any of these variables, but the user can see what
+					;  ;; is being used if we do.
+					;  (if (null voice-lock-display-type)
+					;      (setq voice-lock-display-type
+					;	    (let ((display-resource (x-get-resource ".displayType"
+					;						    "DisplayType")))
+					;	      (cond (display-resource (intern (downcase display-resource)))
+					;		    ((x-display-color-p) 'color)
+					;		    ((x-display-grayscale-p) 'grayscale)
+					;		    (t 'mono)))))
+					;  (if (null voice-lock-background-mode)
+					;      (setq voice-lock-background-mode
+					;	    (let ((bg-resource (x-get-resource ".backgroundMode"
+					;					       "BackgroundMode"))
+					;		  (params (frame-parameters)))
+					;	      (cond (bg-resource (intern (downcase bg-resource)))
+					;		    ((eq system-type 'ms-dos)
+					;		     (if (string-match "light"
+					;				       (cdr (assq 'background-color params)))
+					;			 'light
+					;		       'dark))
+					;		    ((< (apply '+ (x-color-values
+					;				   (cdr (assq 'background-color params))))
+					;			(* (apply '+ (x-color-values "white")) .6))
+					;		     'dark)
+					;		    (t 'light)))))
+					;  (if (null voice-lock-personality-attributes)
+					;      (setq voice-lock-personality-attributes
+					;	    (let ((light-bg (eq voice-lock-background-mode 'light)))
+					;	      (cond ((memq voice-lock-display-type '(mono monochrome))
+					;		     ;; Emacs 19.25's voice-lock defaults:
+					;		     ;;'((voice-lock-comment-personality nil nil nil t nil)
+					;		     ;;  (voice-lock-string-personality nil nil nil nil t)
+					;		     ;;  (voice-lock-keyword-personality nil nil t nil nil)
+					;		     ;;  (voice-lock-function-name-personality nil nil t t nil)
+					;		     ;;  (voice-lock-type-personality nil nil nil t nil))
+					;		     (list '(voice-lock-comment-personality nil nil t t nil)
+					;			   '(voice-lock-string-personality nil nil nil t nil)
+					;			   '(voice-lock-keyword-personality nil nil t nil nil)
+					;			   (list
+					;			    'voice-lock-function-name-personality
+					;			    (cdr (assq 'background-color (frame-parameters)))
+					;			    (cdr (assq 'foreground-color (frame-parameters)))
+					;			    t nil nil)
+					;			   '(voice-lock-variable-name-personality nil nil t t nil)
+					;			   '(voice-lock-type-personality nil nil t nil t)
+					;			   '(voice-lock-reference-personality nil nil t nil t)))
+					;		    ((memq voice-lock-display-type '(grayscale greyscale
+					;						    grayshade greyshade))
+					;		     (list
+					;		      (list 'voice-lock-comment-personality
+					;			    nil (if light-bg "Gray80" "DimGray") t t nil)
+					;		      (list 'voice-lock-string-personality
+					;			    nil (if light-bg "Gray50" "LightGray") nil t nil)
+					;		      (list 'voice-lock-keyword-personality
+					;			    nil (if light-bg "Gray90" "DimGray") t nil nil)
+					;		      (list 'voice-lock-function-name-personality
+					;			    (cdr (assq 'background-color (frame-parameters)))
+					;			    (cdr (assq 'foreground-color (frame-parameters)))
+					;			    t nil nil)
+					;		      (list 'voice-lock-variable-name-personality
+					;			    nil (if light-bg "Gray90" "DimGray") t t nil)
+					;		      (list 'voice-lock-type-personality
+					;			    nil (if light-bg "Gray80" "DimGray") t nil t)
+					;		      (list 'voice-lock-reference-personality
+					;			    nil (if light-bg "LightGray" "Gray50") t nil t)))
+					;		    (light-bg		; light colour background
+					;		     '((voice-lock-comment-personality "Firebrick")
+					;		       (voice-lock-string-personality "RosyBrown")
+					;		       (voice-lock-keyword-personality "Purple")
+					;		       (voice-lock-function-name-personality "Blue")
+					;		       (voice-lock-variable-name-personality "DarkGoldenrod")
+					;		       (voice-lock-type-personality "DarkOliveGreen")
+					;		       (voice-lock-reference-personality "CadetBlue")))
+					;		    (t			; dark colour background
+					;		     '((voice-lock-comment-personality "OrangeRed")
+					;		       (voice-lock-string-personality "LightSalmon")
+					;		       (voice-lock-keyword-personality "LightSteelBlue")
+					;		       (voice-lock-function-name-personality "LightSkyBlue")
+					;		       (voice-lock-variable-name-personality "LightGoldenrod")
+					;		       (voice-lock-type-personality "PaleGreen")
+					;		       (voice-lock-reference-personality "Aquamarine")))))))
+					;  ;; Now make the personalities if we have to.
+					;  (mapcar (function
+					;	   (lambda (face-attributes)
+					;	     (let ((face (nth 0 face-attributes)))
+					;	       (cond (override
+					;		      ;; We can stomp all over it anyway.  Get outta my face!
+					;		      (voice-lock-make-personality face-attributes))
+					;		     ((and (boundp face) (facep (symbol-value face)))
+					;		      ;; The variable exists and is already bound to a face.
+					;		      nil)
+					;		     ((facep face)
+					;		      ;; We already have a personality so we bind the variable to it.
+					;		      (set personality face))
+					;		     (t
+					;		      ;; No variable or no face.
+					;		      (voice-lock-make-personality face-attributes))))))
+					;	  voice-lock-personality-attributes))
 
-;(defun voice-lock-make-personality (face-attributes)
-;  "Make a personality from VOICE-ATTRIBUTES.
-;VOICE-ATTRIBUTES should be like an element `voice-lock-personality-attributes', so that
-;the personality name is the first item in the list.  A variable with the same name as
-;the personality is also set; its value is the personality name."
-;  (let* ((face (nth 0 face-attributes))
-;	 (face-name (symbol-name face))
-;	 (set-p (function (lambda (face-name resource)
-;		 (x-get-resource (concat face-name ".attribute" resource)
-;				 (concat "Personality.Attribute" resource)))))
-;	 (on-p (function (lambda (face-name resource)
-;		(let ((set (funcall set-p face-name resource)))
-;		  (and set (member (downcase set) '("on" "true"))))))))
-;    (make-personality face)
-;    (add-to-list 'facemenu-unlisted-personalities face)
-;    ;; Set attributes not set from X resources (and therefore `make-personality').
-;    (or (funcall set-p face-name "Foreground")
-;	(condition-case nil
-;	    (set-personality-foreground personality (nth 1 face-attributes))
-;	  (error nil)))
-;    (or (funcall set-p face-name "Background")
-;	(condition-case nil
-;	    (set-personality-background personality (nth 2 face-attributes))
-;	  (error nil)))
-;    (if (funcall set-p face-name "Bold")
-;	(and (funcall on-p face-name "Bold") (make-personality-bold personality nil t))
-;      (and (nth 3 face-attributes) (make-personality-bold personality nil t)))
-;    (if (funcall set-p face-name "Italic")
-;	(and (funcall on-p face-name "Italic") (make-personality-italic personality nil t))
-;      (and (nth 4 face-attributes) (make-personality-italic personality nil t)))
-;    (or (funcall set-p face-name "Underline")
-;	(set-personality-underline-p personality (nth 5 face-attributes)))
-;    (set personality face)))
+					;(defun voice-lock-make-personality (face-attributes)
+					;  "Make a personality from VOICE-ATTRIBUTES.
+					;VOICE-ATTRIBUTES should be like an element `voice-lock-personality-attributes', so that
+					;the personality name is the first item in the list.  A variable with the same name as
+					;the personality is also set; its value is the personality name."
+					;  (let* ((face (nth 0 face-attributes))
+					;	 (face-name (symbol-name face))
+					;	 (set-p (function (lambda (face-name resource)
+					;		 (x-get-resource (concat face-name ".attribute" resource)
+					;				 (concat "Personality.Attribute" resource)))))
+					;	 (on-p (function (lambda (face-name resource)
+					;		(let ((set (funcall set-p face-name resource)))
+					;		  (and set (member (downcase set) '("on" "true"))))))))
+					;    (make-personality face)
+					;    (add-to-list 'facemenu-unlisted-personalities face)
+					;    ;; Set attributes not set from X resources (and therefore `make-personality').
+					;    (or (funcall set-p face-name "Foreground")
+					;	(condition-case nil
+					;	    (set-personality-foreground personality (nth 1 face-attributes))
+					;	  (error nil)))
+					;    (or (funcall set-p face-name "Background")
+					;	(condition-case nil
+					;	    (set-personality-background personality (nth 2 face-attributes))
+					;	  (error nil)))
+					;    (if (funcall set-p face-name "Bold")
+					;	(and (funcall on-p face-name "Bold") (make-personality-bold personality nil t))
+					;      (and (nth 3 face-attributes) (make-personality-bold personality nil t)))
+					;    (if (funcall set-p face-name "Italic")
+					;	(and (funcall on-p face-name "Italic") (make-personality-italic personality nil t))
+					;      (and (nth 4 face-attributes) (make-personality-italic personality nil t)))
+					;    (or (funcall set-p face-name "Underline")
+					;	(set-personality-underline-p personality (nth 5 face-attributes)))
+					;    (set personality face)))
 
 ;;}}}
-
 
 
 ;;; Various regexp information shared by several modes.
@@ -1527,54 +1525,53 @@ specify the UNDERLINE-P attribute for personality `voice-lock-comment-personalit
 		   (t voice-lock-function-name-personality))
 	     nil t))
    )
- "Subdued level highlighting for Lisp modes.")
+  "Subdued level highlighting for Lisp modes.")
 
 (defconst lisp-voice-lock-keywords-2
   (append lisp-voice-lock-keywords-1
-   (list
-    ;;
-    ;; Control structures.  ELisp and CLisp combined.
-;      (make-regexp
-;       '("cond" "if" "while" "let\\*?" "prog[nv12*]?" "inline" "catch" "throw"
-;	 "save-restriction" "save-excursion" "save-window-excursion"
-;	 "save-selected-window" "save-match-data" "unwind-protect"
-;	 "condition-case" "track-mouse"
-;	 "eval-after-load" "eval-and-compile" "eval-when-compile"
-;	 "when" "unless" "do" "flet" "labels" "return" "return-from"
-;	 "with-output-to-temp-buffer" "with-timeout"))
-    (cons
-     (concat
-      "(\\("
-      "c\\(atch\\|ond\\(\\|ition-case\\)\\)\\|do\\|"
-      "eval-\\(a\\(fter-load\\|nd-compile\\)\\|when-compile\\)\\|flet\\|"
-      "i\\(f\\|nline\\)\\|l\\(abels\\|et\\*?\\)\\|prog[nv12*]?\\|"
-      "return\\(\\|-from\\)\\|save-\\(excursion\\|match-data\\|restriction\\|"
-      "selected-window\\|window-excursion\\)\\|t\\(hrow\\|rack-mouse\\)\\|"
-      "un\\(less\\|wind-protect\\)\\|"
-      "w\\(h\\(en\\|ile\\)\\|ith-\\(output-to-temp-buffer\\|timeout\\)\\)"
-      "\\)\\>") 1)
-    ;;
-    ;; Feature symbols as references.
-    '("(\\(featurep\\|provide\\|require\\)\\>[ \t']*\\(\\sw+\\)?"
-      (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
-    ;;
-    ;; Words inside \\[] tend to be for `substitute-command-keys'.
-    '("\\\\\\\\\\[\\(\\sw+\\)]" 1 voice-lock-reference-personality prepend)
-    ;;
-    ;; Words inside `' tend to be symbol names.
-    '("`\\(\\sw\\sw+\\)'" 1 voice-lock-reference-personality prepend)
-    ;;
-    ;; CLisp `:' keywords as references.
-    '("\\<:\\sw+\\>" 0 voice-lock-reference-personality prepend)
-    ;;
-    ;; ELisp and CLisp `&' keywords as types.
-    '("\\<\\&\\sw+\\>" . voice-lock-type-personality)
-    ))
+	  (list
+	   ;;
+	   ;; Control structures.  ELisp and CLisp combined.
+					;      (make-regexp
+					;       '("cond" "if" "while" "let\\*?" "prog[nv12*]?" "inline" "catch" "throw"
+					;	 "save-restriction" "save-excursion" "save-window-excursion"
+					;	 "save-selected-window" "save-match-data" "unwind-protect"
+					;	 "condition-case" "track-mouse"
+					;	 "eval-after-load" "eval-and-compile" "eval-when-compile"
+					;	 "when" "unless" "do" "flet" "labels" "return" "return-from"
+					;	 "with-output-to-temp-buffer" "with-timeout"))
+	   (cons
+	    (concat
+	     "(\\("
+	     "c\\(atch\\|ond\\(\\|ition-case\\)\\)\\|do\\|"
+	     "eval-\\(a\\(fter-load\\|nd-compile\\)\\|when-compile\\)\\|flet\\|"
+	     "i\\(f\\|nline\\)\\|l\\(abels\\|et\\*?\\)\\|prog[nv12*]?\\|"
+	     "return\\(\\|-from\\)\\|save-\\(excursion\\|match-data\\|restriction\\|"
+	     "selected-window\\|window-excursion\\)\\|t\\(hrow\\|rack-mouse\\)\\|"
+	     "un\\(less\\|wind-protect\\)\\|"
+	     "w\\(h\\(en\\|ile\\)\\|ith-\\(output-to-temp-buffer\\|timeout\\)\\)"
+	     "\\)\\>") 1)
+	   ;;
+	   ;; Feature symbols as references.
+	   '("(\\(featurep\\|provide\\|require\\)\\>[ \t']*\\(\\sw+\\)?"
+	     (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
+	   ;;
+	   ;; Words inside \\[] tend to be for `substitute-command-keys'.
+	   '("\\\\\\\\\\[\\(\\sw+\\)]" 1 voice-lock-reference-personality prepend)
+	   ;;
+	   ;; Words inside `' tend to be symbol names.
+	   '("`\\(\\sw\\sw+\\)'" 1 voice-lock-reference-personality prepend)
+	   ;;
+	   ;; CLisp `:' keywords as references.
+	   '("\\<:\\sw+\\>" 0 voice-lock-reference-personality prepend)
+	   ;;
+	   ;; ELisp and CLisp `&' keywords as types.
+	   '("\\<\\&\\sw+\\>" . voice-lock-type-personality)
+	   ))
   "Gaudy level highlighting for Lisp modes.")
 
 (defvar lisp-voice-lock-keywords lisp-voice-lock-keywords-1
   "Default expressions to highlight in Lisp modes.")
-
 
 (defvar scheme-voice-lock-keywords
   (eval-when-compile
@@ -1600,15 +1597,15 @@ specify the UNDERLINE-P attribute for personality `voice-lock-comment-personalit
 	       nil t))
      ;;
      ;; Control structures.
-;(make-regexp '("begin" "call-with-current-continuation" "call/cc"
-;	       "call-with-input-file" "call-with-output-file" "case" "cond"
-;	       "do" "else" "for-each" "if" "lambda"
-;	       "let\\*?" "let-syntax" "letrec" "letrec-syntax"
-;	       ;; Hannes Haug <hannes.haug@student.uni-tuebingen.de> wants:
-;	       "and" "or" "delay"
-;	       ;; Stefan Monnier <stefan.monnier@epfl.ch> says don't bother:
-;	       ;;"quasiquote" "quote" "unquote" "unquote-splicing"
-;	       "map" "syntax" "syntax-rules"))
+					;(make-regexp '("begin" "call-with-current-continuation" "call/cc"
+					;	       "call-with-input-file" "call-with-output-file" "case" "cond"
+					;	       "do" "else" "for-each" "if" "lambda"
+					;	       "let\\*?" "let-syntax" "letrec" "letrec-syntax"
+					;	       ;; Hannes Haug <hannes.haug@student.uni-tuebingen.de> wants:
+					;	       "and" "or" "delay"
+					;	       ;; Stefan Monnier <stefan.monnier@epfl.ch> says don't bother:
+					;	       ;;"quasiquote" "quote" "unquote" "unquote-splicing"
+					;	       "map" "syntax" "syntax-rules"))
      (cons
       (concat "(\\("
 	      "and\\|begin\\|c\\(a\\(ll\\(-with-\\(current-continuation\\|"
@@ -1624,8 +1621,7 @@ specify the UNDERLINE-P attribute for personality `voice-lock-comment-personalit
      ;; Scheme `:' keywords as references.
      '("\\<:\\sw+\\>" . voice-lock-reference-personality)
      ))
-"Default expressions to highlight in Scheme modes.")
-
+  "Default expressions to highlight in Scheme modes.")
 
 (defconst c-voice-lock-keywords-1 nil
   "Subdued level highlighting for C modes.")
@@ -1654,7 +1650,6 @@ specify the UNDERLINE-P attribute for personality `voice-lock-comment-personalit
   "Medium level highlighting for Objective-C mode.
 See also `objc-voice-lock-extra-types'.")
 
-
 (defvar objc-voice-lock-extra-types '("Class" "BOOL" "IMP" "SEL")
   "*List of extra types to voiceify in Objective-C mode.
 Each list item should be a regexp not containing word-delimiters.
@@ -1662,7 +1657,7 @@ For example, a value of (\"Class\" \"BOOL\" \"IMP\" \"SEL\") means the words
 Class, BOOL, IMP and SEL are treated as type names.
 
 The value of this variable is used when Voice Lock mode is turned on."
-)
+  )
 (defvar java-voice-lock-extra-types '("[A-Z\300-\326\330-\337]\\sw+")
   "*List of extra types to voiceify in Java mode.
 Each list item should be a regexp not containing word-delimiters.
@@ -1670,7 +1665,7 @@ For example, a value of (\"[A-Z\300-\326\330-\337]\\\\sw+\") means capitalised
 words (and words conforming to the Java id spec) are treated as type names.
 
 The value of this variable is used when Voice Lock mode is turned on."
-)
+  )
 
 (defun voice-lock-match-c-style-declaration-item-and-skip-to-next (limit)
   "Match, and move over, any declaration/definition item after point.
@@ -1715,118 +1710,118 @@ See also `objc-voice-lock-extra-types'.")
 			"switch" "while" "sizeof" "self" "super") t)))
        (objc-type-types
 	`(mapconcat 'identity
-	  (cons
-	   (,@ (eval-when-compile
-		 (regexp-opt
-		  '("auto" "extern" "register" "static" "typedef" "struct"
-		    "union" "enum" "signed" "unsigned" "short" "long"
-		    "int" "char" "float" "double" "void" "volatile" "const"
-		    "id" "oneway" "in" "out" "inout" "bycopy" "byref"))))
-	   objc-voice-lock-extra-types)
-	  "\\|"))
+		    (cons
+		     (,@ (eval-when-compile
+			   (regexp-opt
+			    '("auto" "extern" "register" "static" "typedef" "struct"
+			      "union" "enum" "signed" "unsigned" "short" "long"
+			      "int" "char" "float" "double" "void" "volatile" "const"
+			      "id" "oneway" "in" "out" "inout" "bycopy" "byref"))))
+		     objc-voice-lock-extra-types)
+		    "\\|"))
        (objc-type-depth `(regexp-opt-depth (,@ objc-type-types)))
        )
- (setq objc-voice-lock-keywords-1
-  (append
-   ;;
-   ;; The list `c-voice-lock-keywords-1' less that for function names.
-   (cdr c-voice-lock-keywords-1)
-   (list
-    ;;
-    ;; Voiceify compiler directives.
-    '("@\\(\\sw+\\)\\>"
-      (1 voice-lock-keyword-personality)
-      ("\\=[ \t:<(,]*\\(\\sw+\\)" nil nil
-       (1 voice-lock-function-name-personality)))
-    ;;
-    ;; Voiceify method names and arguments.  Oh Lordy!
-    ;; First, on the same line as the function declaration.
-    '("^[+-][ \t]*\\(PRIVATE\\)?[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
-      (1 voice-lock-type-personality nil t)
-      (3 voice-lock-type-personality nil t)
-      (4 voice-lock-function-name-personality)
-      ("\\=[ \t]*\\(\\sw+\\)?:[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
-       nil nil
-       (1 voice-lock-function-name-personality nil t)
-       (3 voice-lock-type-personality nil t)
-       (4 voice-lock-variable-name-personality)))
-    ;; Second, on lines following the function declaration.
-    '(":" ("^[ \t]*\\(\\sw+\\)?:[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
-	   (beginning-of-line) (end-of-line)
-	   (1 voice-lock-function-name-personality nil t)
-	   (3 voice-lock-type-personality nil t)
-	   (4 voice-lock-variable-name-personality)))
-    )))
+  (setq objc-voice-lock-keywords-1
+	(append
+	 ;;
+	 ;; The list `c-voice-lock-keywords-1' less that for function names.
+	 (cdr c-voice-lock-keywords-1)
+	 (list
+	  ;;
+	  ;; Voiceify compiler directives.
+	  '("@\\(\\sw+\\)\\>"
+	    (1 voice-lock-keyword-personality)
+	    ("\\=[ \t:<(,]*\\(\\sw+\\)" nil nil
+	     (1 voice-lock-function-name-personality)))
+	  ;;
+	  ;; Voiceify method names and arguments.  Oh Lordy!
+	  ;; First, on the same line as the function declaration.
+	  '("^[+-][ \t]*\\(PRIVATE\\)?[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
+	    (1 voice-lock-type-personality nil t)
+	    (3 voice-lock-type-personality nil t)
+	    (4 voice-lock-function-name-personality)
+	    ("\\=[ \t]*\\(\\sw+\\)?:[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
+	     nil nil
+	     (1 voice-lock-function-name-personality nil t)
+	     (3 voice-lock-type-personality nil t)
+	     (4 voice-lock-variable-name-personality)))
+	  ;; Second, on lines following the function declaration.
+	  '(":" ("^[ \t]*\\(\\sw+\\)?:[ \t]*\\((\\([^)\n]+\\))\\)?[ \t]*\\(\\sw+\\)"
+		 (beginning-of-line) (end-of-line)
+		 (1 voice-lock-function-name-personality nil t)
+		 (3 voice-lock-type-personality nil t)
+		 (4 voice-lock-variable-name-personality)))
+	  )))
 
- (setq objc-voice-lock-keywords-2
-  (append objc-voice-lock-keywords-1
-   (list
-    ;;
-    ;; Simple regexps for speed.
-    ;;
-    ;; Voiceify all type specifiers.
-    `(eval .
-      (cons (concat "\\<\\(" (,@ objc-type-types) "\\)\\>")
-	    'voice-lock-type-personality))
-    ;;
-    ;; Voiceify all builtin keywords (except case, default and goto; see below).
-    (concat "\\<" objc-keywords "\\>")
-    ;;
-    ;; Voiceify case/goto keywords and targets, and case default/goto tags.
-    '("\\<\\(case\\|goto\\)\\>[ \t]*\\(-?\\sw+\\)?"
-      (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
-    ;; Voiceify tags iff sole statement on line, otherwise we detect selectors.
-    ;; This must come after the one for keywords and targets.
-    '(":" ("^[ \t]*\\(\\sw+\\)[ \t]*:[ \t]*$"
-	   (beginning-of-line) (end-of-line)
-	   (1 voice-lock-reference-personality)))
-    ;;
-    ;; Voiceify null object pointers.
-    '("\\<[Nn]il\\>" . voice-lock-reference-personality)
-    )))
+  (setq objc-voice-lock-keywords-2
+	(append objc-voice-lock-keywords-1
+		(list
+		 ;;
+		 ;; Simple regexps for speed.
+		 ;;
+		 ;; Voiceify all type specifiers.
+		 `(eval .
+			(cons (concat "\\<\\(" (,@ objc-type-types) "\\)\\>")
+			      'voice-lock-type-personality))
+		 ;;
+		 ;; Voiceify all builtin keywords (except case, default and goto; see below).
+		 (concat "\\<" objc-keywords "\\>")
+		 ;;
+		 ;; Voiceify case/goto keywords and targets, and case default/goto tags.
+		 '("\\<\\(case\\|goto\\)\\>[ \t]*\\(-?\\sw+\\)?"
+		   (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
+		 ;; Voiceify tags iff sole statement on line, otherwise we detect selectors.
+		 ;; This must come after the one for keywords and targets.
+		 '(":" ("^[ \t]*\\(\\sw+\\)[ \t]*:[ \t]*$"
+			(beginning-of-line) (end-of-line)
+			(1 voice-lock-reference-personality)))
+		 ;;
+		 ;; Voiceify null object pointers.
+		 '("\\<[Nn]il\\>" . voice-lock-reference-personality)
+		 )))
 
- (setq objc-voice-lock-keywords-3
-  (append objc-voice-lock-keywords-2
-   ;;
-   ;; More complicated regexps for more complete highlighting for types.
-   ;; We still have to voiceify type specifiers individually, as C is so hairy.
-   (list
-    ;;
-    ;; Voiceify all storage classes and type specifiers, plus their items.
-    `(eval .
-      (list (concat "\\<\\(" (,@ objc-type-types) "\\)\\>"
-		    "\\([ \t*&]+\\sw+\\>\\)*")
-	    ;; Voiceify each declaration item.
-	    (list 'voice-lock-match-c-style-declaration-item-and-skip-to-next
-		  ;; Start with point after all type specifiers.
-		  (list 'goto-char (list 'or (list 'match-beginning
-						   (+ (,@ objc-type-depth) 2))
-					 '(match-end 1)))
-		  ;; Finish with point after first type specifier.
-		  '(goto-char (match-end 1))
-		  ;; Voiceify as a variable or function name.
-		  '(1 (if (match-beginning 2)
-			  voice-lock-function-name-personality
-			voice-lock-variable-name-personality)))))
-    ;;
-    ;; Voiceify structures, or typedef names, plus their items.
-    '("\\(}\\)[ \t*]*\\sw"
-      (voice-lock-match-c-style-declaration-item-and-skip-to-next
-       (goto-char (match-end 1)) nil
-       (1 (if (match-beginning 2)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality))))
-    ;;
-    ;; Voiceify anything at beginning of line as a declaration or definition.
-    '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
-      (1 voice-lock-type-personality)
-      (voice-lock-match-c-style-declaration-item-and-skip-to-next
-       (goto-char (or (match-beginning 2) (match-end 1))) nil
-       (1 (if (match-beginning 2)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality))))
-    )))
- )
+  (setq objc-voice-lock-keywords-3
+	(append objc-voice-lock-keywords-2
+		;;
+		;; More complicated regexps for more complete highlighting for types.
+		;; We still have to voiceify type specifiers individually, as C is so hairy.
+		(list
+		 ;;
+		 ;; Voiceify all storage classes and type specifiers, plus their items.
+		 `(eval .
+			(list (concat "\\<\\(" (,@ objc-type-types) "\\)\\>"
+				      "\\([ \t*&]+\\sw+\\>\\)*")
+			      ;; Voiceify each declaration item.
+			      (list 'voice-lock-match-c-style-declaration-item-and-skip-to-next
+				    ;; Start with point after all type specifiers.
+				    (list 'goto-char (list 'or (list 'match-beginning
+								     (+ (,@ objc-type-depth) 2))
+							   '(match-end 1)))
+				    ;; Finish with point after first type specifier.
+				    '(goto-char (match-end 1))
+				    ;; Voiceify as a variable or function name.
+				    '(1 (if (match-beginning 2)
+					    voice-lock-function-name-personality
+					  voice-lock-variable-name-personality)))))
+		 ;;
+		 ;; Voiceify structures, or typedef names, plus their items.
+		 '("\\(}\\)[ \t*]*\\sw"
+		   (voice-lock-match-c-style-declaration-item-and-skip-to-next
+		    (goto-char (match-end 1)) nil
+		    (1 (if (match-beginning 2)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality))))
+		 ;;
+		 ;; Voiceify anything at beginning of line as a declaration or definition.
+		 '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
+		   (1 voice-lock-type-personality)
+		   (voice-lock-match-c-style-declaration-item-and-skip-to-next
+		    (goto-char (or (match-beginning 2) (match-end 1))) nil
+		    (1 (if (match-beginning 2)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality))))
+		 )))
+  )
 
 (defvar objc-voice-lock-keywords objc-voice-lock-keywords-1
   "Default expressions to highlight in Objective-C mode.
@@ -1878,124 +1873,124 @@ See also `java-voice-lock-extra-types'.")
 		    "\\|"))
        (java-other-depth `(regexp-opt-depth (,@ java-other-types)))
        )
- (setq java-voice-lock-keywords-1
-  (list
-   ;;
-   ;; Voiceify class names.
-   '("\\<\\(class\\)\\>[ \t]*\\(\\sw+\\)?"
-     (1 voice-lock-type-personality) (2 voice-lock-function-name-personality nil t))
-   ;;
-   ;; Voiceify package names in import directives.
-   '("\\<\\(import\\|package\\)\\>[ \t]*\\(\\sw+\\)?"
-     (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
-   ))
+  (setq java-voice-lock-keywords-1
+	(list
+	 ;;
+	 ;; Voiceify class names.
+	 '("\\<\\(class\\)\\>[ \t]*\\(\\sw+\\)?"
+	   (1 voice-lock-type-personality) (2 voice-lock-function-name-personality nil t))
+	 ;;
+	 ;; Voiceify package names in import directives.
+	 '("\\<\\(import\\|package\\)\\>[ \t]*\\(\\sw+\\)?"
+	   (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
+	 ))
 
- (setq java-voice-lock-keywords-2
-  (append java-voice-lock-keywords-1
-   (list
-    ;;
-    ;; Voiceify all builtin type specifiers.
-    (cons (concat "\\<\\(" java-minor-types "\\|" java-major-types "\\)\\>")
-	  'voice-lock-type-personality)
-    ;;
-    ;; Voiceify all builtin keywords (except below).
-    (concat "\\<" java-keywords "\\>")
-    ;;
-    ;; Voiceify keywords and targets, and case default/goto tags.
-    (list "\\<\\(break\\|case\\|continue\\|goto\\)\\>[ \t]*\\(-?\\sw+\\)?"
-	  '(1 voice-lock-keyword-personality) '(2 voice-lock-reference-personality nil t))
-    ;; This must come after the one for keywords and targets.
-    '(":" ("^[ \t]*\\(\\sw+\\)[ \t]*:"
-	   (beginning-of-line) (end-of-line)
-	   (1 voice-lock-reference-personality)))
-    ;;
-    ;; Voiceify keywords and types; the first can be followed by a type list.
-    (list (concat "\\<\\("
-		  "implements\\|throws\\|"
-		  "\\(extends\\|instanceof\\|new\\)"
-		  "\\)\\>[ \t]*\\(\\sw+\\)?")
-	  '(1 voice-lock-keyword-personality) '(3 voice-lock-type-personality nil t)
-	  '("\\=[ \t]*,[ \t]*\\(\\sw+\\)"
-	    (if (match-beginning 2) (goto-char (match-end 2))) nil
-	    (1 voice-lock-type-personality)))
-    ;;
-    ;; Voiceify all constants.
-    '("\\<\\(false\\|null\\|true\\)\\>" . voice-lock-reference-personality)
-    ;;
-    ;; Javadoc tags within comments.
-    '("@\\(author\\|exception\\|return\\|see\\|version\\)\\>"
-      (1 voice-lock-reference-personality prepend))
-    '("@\\(param\\)\\>[ \t]*\\(\\sw+\\)?"
-      (1 voice-lock-reference-personality prepend)
-      (2 voice-lock-variable-name-personality prepend t))
-    )))
+  (setq java-voice-lock-keywords-2
+	(append java-voice-lock-keywords-1
+		(list
+		 ;;
+		 ;; Voiceify all builtin type specifiers.
+		 (cons (concat "\\<\\(" java-minor-types "\\|" java-major-types "\\)\\>")
+		       'voice-lock-type-personality)
+		 ;;
+		 ;; Voiceify all builtin keywords (except below).
+		 (concat "\\<" java-keywords "\\>")
+		 ;;
+		 ;; Voiceify keywords and targets, and case default/goto tags.
+		 (list "\\<\\(break\\|case\\|continue\\|goto\\)\\>[ \t]*\\(-?\\sw+\\)?"
+		       '(1 voice-lock-keyword-personality) '(2 voice-lock-reference-personality nil t))
+		 ;; This must come after the one for keywords and targets.
+		 '(":" ("^[ \t]*\\(\\sw+\\)[ \t]*:"
+			(beginning-of-line) (end-of-line)
+			(1 voice-lock-reference-personality)))
+		 ;;
+		 ;; Voiceify keywords and types; the first can be followed by a type list.
+		 (list (concat "\\<\\("
+			       "implements\\|throws\\|"
+			       "\\(extends\\|instanceof\\|new\\)"
+			       "\\)\\>[ \t]*\\(\\sw+\\)?")
+		       '(1 voice-lock-keyword-personality) '(3 voice-lock-type-personality nil t)
+		       '("\\=[ \t]*,[ \t]*\\(\\sw+\\)"
+			 (if (match-beginning 2) (goto-char (match-end 2))) nil
+			 (1 voice-lock-type-personality)))
+		 ;;
+		 ;; Voiceify all constants.
+		 '("\\<\\(false\\|null\\|true\\)\\>" . voice-lock-reference-personality)
+		 ;;
+		 ;; Javadoc tags within comments.
+		 '("@\\(author\\|exception\\|return\\|see\\|version\\)\\>"
+		   (1 voice-lock-reference-personality prepend))
+		 '("@\\(param\\)\\>[ \t]*\\(\\sw+\\)?"
+		   (1 voice-lock-reference-personality prepend)
+		   (2 voice-lock-variable-name-personality prepend t))
+		 )))
 
- (setq java-voice-lock-keywords-3
-  (append java-voice-lock-keywords-2
-   ;;
-   ;; More complicated regexps for more complete highlighting for types.
-   ;; We still have to voiceify type specifiers individually, as Java is hairy.
-   (list
-    ;;
-    ;; Voiceify random types in casts.
-    `(eval .
-      (list (concat "(\\(" (,@ java-other-types) "\\))"
-		    "[ \t]*\\(\\sw\\|[\"\(]\\)")
-	    ;; Voiceify the type name.
-	    '(1 voice-lock-type-personality)))
-    ;;
-    ;; Voiceify random types immediately followed by an item or items.
-    `(eval .
-      (list (concat "\\<\\(" (,@ java-other-types) "\\)\\>"
-		    "\\([ \t]*\\[[ \t]*\\]\\)*"
-		    "[ \t]*\\sw")
-	    ;; Voiceify the type name.
-	    '(1 voice-lock-type-personality)))
-    `(eval .
-      (list (concat "\\<\\(" (,@ java-other-types) "\\)\\>"
-		    "\\([ \t]*\\[[ \t]*\\]\\)*"
-		    "\\([ \t]*\\sw\\)")
-	    ;; Voiceify each declaration item.
-	    (list 'voice-lock-match-c-style-declaration-item-and-skip-to-next
-		  ;; Start and finish with point after the type specifier.
-		  (list 'goto-char (list 'match-beginning
-					 (+ (,@ java-other-depth) 3)))
-		  (list 'goto-char (list 'match-beginning
-					 (+ (,@ java-other-depth) 3)))
-		  ;; Voiceify as a variable or function name.
-		  '(1 (if (match-beginning 2)
-			  voice-lock-function-name-personality
-			voice-lock-variable-name-personality)))))
-    ;;
-    ;; Voiceify those that are immediately followed by an item or items.
-    (list (concat "\\<\\(" java-minor-types "\\)\\>"
-		  "\\([ \t]*\\[[ \t]*\\]\\)*")
-	  ;; Voiceify each declaration item.
-	  '(voice-lock-match-c-style-declaration-item-and-skip-to-next
-	    ;; Start and finish with point after the type specifier.
-	    nil (goto-char (match-end 0))
-	    ;; Voiceify as a variable or function name.
-	    (1 (if (match-beginning 2)
-		   voice-lock-function-name-personality
-		 voice-lock-variable-name-personality))))
-    ;;
-    ;; Voiceify those that are eventually followed by an item or items.
-    (list (concat "\\<\\(" java-major-types "\\)\\>"
-		  "\\([ \t]+\\sw+\\>"
-		  "\\([ \t]*\\[[ \t]*\\]\\)*"
-		  "\\)*")
-	  ;; Voiceify each declaration item.
-	  '(voice-lock-match-c-style-declaration-item-and-skip-to-next
-	    ;; Start with point after all type specifiers.
-	    (goto-char (or (match-beginning 5) (match-end 1)))
-	    ;; Finish with point after first type specifier.
-	    (goto-char (match-end 1))
-	    ;; Voiceify as a variable or function name.
-	    (1 (if (match-beginning 2)
-		   voice-lock-function-name-personality
-		 voice-lock-variable-name-personality))))
-    )))
- )
+  (setq java-voice-lock-keywords-3
+	(append java-voice-lock-keywords-2
+		;;
+		;; More complicated regexps for more complete highlighting for types.
+		;; We still have to voiceify type specifiers individually, as Java is hairy.
+		(list
+		 ;;
+		 ;; Voiceify random types in casts.
+		 `(eval .
+			(list (concat "(\\(" (,@ java-other-types) "\\))"
+				      "[ \t]*\\(\\sw\\|[\"\(]\\)")
+			      ;; Voiceify the type name.
+			      '(1 voice-lock-type-personality)))
+		 ;;
+		 ;; Voiceify random types immediately followed by an item or items.
+		 `(eval .
+			(list (concat "\\<\\(" (,@ java-other-types) "\\)\\>"
+				      "\\([ \t]*\\[[ \t]*\\]\\)*"
+				      "[ \t]*\\sw")
+			      ;; Voiceify the type name.
+			      '(1 voice-lock-type-personality)))
+		 `(eval .
+			(list (concat "\\<\\(" (,@ java-other-types) "\\)\\>"
+				      "\\([ \t]*\\[[ \t]*\\]\\)*"
+				      "\\([ \t]*\\sw\\)")
+			      ;; Voiceify each declaration item.
+			      (list 'voice-lock-match-c-style-declaration-item-and-skip-to-next
+				    ;; Start and finish with point after the type specifier.
+				    (list 'goto-char (list 'match-beginning
+							   (+ (,@ java-other-depth) 3)))
+				    (list 'goto-char (list 'match-beginning
+							   (+ (,@ java-other-depth) 3)))
+				    ;; Voiceify as a variable or function name.
+				    '(1 (if (match-beginning 2)
+					    voice-lock-function-name-personality
+					  voice-lock-variable-name-personality)))))
+		 ;;
+		 ;; Voiceify those that are immediately followed by an item or items.
+		 (list (concat "\\<\\(" java-minor-types "\\)\\>"
+			       "\\([ \t]*\\[[ \t]*\\]\\)*")
+		       ;; Voiceify each declaration item.
+		       '(voice-lock-match-c-style-declaration-item-and-skip-to-next
+			 ;; Start and finish with point after the type specifier.
+			 nil (goto-char (match-end 0))
+			 ;; Voiceify as a variable or function name.
+			 (1 (if (match-beginning 2)
+				voice-lock-function-name-personality
+			      voice-lock-variable-name-personality))))
+		 ;;
+		 ;; Voiceify those that are eventually followed by an item or items.
+		 (list (concat "\\<\\(" java-major-types "\\)\\>"
+			       "\\([ \t]+\\sw+\\>"
+			       "\\([ \t]*\\[[ \t]*\\]\\)*"
+			       "\\)*")
+		       ;; Voiceify each declaration item.
+		       '(voice-lock-match-c-style-declaration-item-and-skip-to-next
+			 ;; Start with point after all type specifiers.
+			 (goto-char (or (match-beginning 5) (match-end 1)))
+			 ;; Finish with point after first type specifier.
+			 (goto-char (match-end 1))
+			 ;; Voiceify as a variable or function name.
+			 (1 (if (match-beginning 2)
+				voice-lock-function-name-personality
+			      voice-lock-variable-name-personality))))
+		 )))
+  )
 
 (defvar java-voice-lock-keywords java-voice-lock-keywords-3
   "Default expressions to highlight in Java mode.
@@ -2030,203 +2025,203 @@ See also `java-voice-lock-extra-types'.")
 	  (error t)))))
 
 (let ((c-keywords
-;      ("break" "continue" "do" "else" "for" "if" "return" "switch" "while")
+					;      ("break" "continue" "do" "else" "for" "if" "return" "switch" "while")
        "break\\|continue\\|do\\|else\\|for\\|if\\|return\\|switch\\|while")
       (c-type-types
-;      ("auto" "extern" "register" "static" "typedef" "struct" "union" "enum"
-;	"signed" "unsigned" "short" "long" "int" "char" "float" "double"
-;	"void" "volatile" "const"
-       ;"[A-Z]\\sw+")
+					;      ("auto" "extern" "register" "static" "typedef" "struct" "union" "enum"
+					;	"signed" "unsigned" "short" "long" "int" "char" "float" "double"
+					;	"void" "volatile" "const"
+					;"[A-Z]\\sw+")
        (concat
         "auto\\|c\\(har\\|onst\\)\\|double\\|e\\(num\\|xtern\\)\\|"
         "[A-Z]\\sw+\\|"
-	       "float\\|int\\|long\\|register\\|"
-	       "s\\(hort\\|igned\\|t\\(atic\\|ruct\\)\\)\\|typedef\\|"
-	       "un\\(ion\\|signed\\)\\|vo\\(id\\|latile\\)"))	; 6 ()s deep.
+	"float\\|int\\|long\\|register\\|"
+	"s\\(hort\\|igned\\|t\\(atic\\|ruct\\)\\)\\|typedef\\|"
+	"un\\(ion\\|signed\\)\\|vo\\(id\\|latile\\)")) ; 6 ()s deep.
       (c++-keywords
-;      ("break" "continue" "do" "else" "for" "if" "return" "switch" "while"
-;	"asm" "catch" "delete" "new" "operator" "sizeof" "this" "throw" "try"
-;       "protected" "private" "public")
+					;      ("break" "continue" "do" "else" "for" "if" "return" "switch" "while"
+					;	"asm" "catch" "delete" "new" "operator" "sizeof" "this" "throw" "try"
+					;       "protected" "private" "public")
        (concat "asm\\|break\\|c\\(atch\\|ontinue\\)\\|d\\(elete\\|o\\)\\|"
 	       "else\\|for\\|if\\|new\\|"
 	       "p\\(r\\(ivate\\|otected\\)\\|ublic\\)\\|return\\|"
 	       "s\\(izeof\\|witch\\)\\|t\\(h\\(is\\|row\\)\\|ry\\)\\|while"))
       (c++-type-types
-;      ("auto" "extern" "register" "static" "typedef" "struct" "union"
-;      "enum"
-       ;"[A-Z]\\sw+\\|"
-;	"signed" "unsigned" "short" "long" "int" "char" "float" "double"
-;	"void" "volatile" "const" "class" "inline" "friend" "bool"
-;	"virtual" "complex" "template")
+					;      ("auto" "extern" "register" "static" "typedef" "struct" "union"
+					;      "enum"
+					;"[A-Z]\\sw+\\|"
+					;	"signed" "unsigned" "short" "long" "int" "char" "float" "double"
+					;	"void" "volatile" "const" "class" "inline" "friend" "bool"
+					;	"virtual" "complex" "template")
        (concat
         "auto\\|bool\\|c\\(har\\|lass\\|o\\(mplex\\|nst\\)\\)\\|"
         "[A-Z]\\sw+\\|"
-	       "double\\|e\\(num\\|xtern\\)\\|f\\(loat\\|riend\\)\\|"
-	       "in\\(line\\|t\\)\\|long\\|register\\|"
-	       "s\\(hort\\|igned\\|t\\(atic\\|ruct\\)\\)\\|"
-	       "t\\(emplate\\|ypedef\\)\\|un\\(ion\\|signed\\)\\|"
-	       "v\\(irtual\\|o\\(id\\|latile\\)\\)"))		; 11 ()s deep.
+	"double\\|e\\(num\\|xtern\\)\\|f\\(loat\\|riend\\)\\|"
+	"in\\(line\\|t\\)\\|long\\|register\\|"
+	"s\\(hort\\|igned\\|t\\(atic\\|ruct\\)\\)\\|"
+	"t\\(emplate\\|ypedef\\)\\|un\\(ion\\|signed\\)\\|"
+	"v\\(irtual\\|o\\(id\\|latile\\)\\)")) ; 11 ()s deep.
       )
- (setq c-voice-lock-keywords-1
-  (list
-   ;;
-   ;; These are all anchored at the beginning of line for speed.
-   ;;
-   ;; Voiceify function name definitions (GNU style; without type on line).
-   (list (concat "^\\(\\sw+\\)[ \t]*(") 1 'voice-lock-function-name-personality)
-   ;;
-   ;; Voiceify filenames in #include <...> preprocessor directives as strings.
-   '("^#[ \t]*include[ \t]+\\(<[^>\"\n]+>\\)" 1 voice-lock-string-personality)
-   ;;
-   ;; Voiceify function macro names.
-   '("^#[ \t]*define[ \t]+\\(\\sw+\\)(" 1 voice-lock-function-name-personality)
-   ;;
-   ;; Voiceify symbol names in #elif or #if ... defined preprocessor directives.
-   '("^#[ \t]*\\(elif\\|if\\)\\>"
-     ("\\<\\(defined\\)\\>[ \t]*(?\\(\\sw+\\)?" nil nil
-      (1 voice-lock-reference-personality) (2 voice-lock-variable-name-personality nil t)))
-   ;;
-   ;; Voiceify otherwise as symbol names, and the preprocessor directive names.
-   '("^#[ \t]*\\(\\sw+\\)\\>[ \t]*\\(\\sw+\\)?"
-     (1 voice-lock-reference-personality) (2 voice-lock-variable-name-personality nil t))
-   ))
+  (setq c-voice-lock-keywords-1
+	(list
+	 ;;
+	 ;; These are all anchored at the beginning of line for speed.
+	 ;;
+	 ;; Voiceify function name definitions (GNU style; without type on line).
+	 (list (concat "^\\(\\sw+\\)[ \t]*(") 1 'voice-lock-function-name-personality)
+	 ;;
+	 ;; Voiceify filenames in #include <...> preprocessor directives as strings.
+	 '("^#[ \t]*include[ \t]+\\(<[^>\"\n]+>\\)" 1 voice-lock-string-personality)
+	 ;;
+	 ;; Voiceify function macro names.
+	 '("^#[ \t]*define[ \t]+\\(\\sw+\\)(" 1 voice-lock-function-name-personality)
+	 ;;
+	 ;; Voiceify symbol names in #elif or #if ... defined preprocessor directives.
+	 '("^#[ \t]*\\(elif\\|if\\)\\>"
+	   ("\\<\\(defined\\)\\>[ \t]*(?\\(\\sw+\\)?" nil nil
+	    (1 voice-lock-reference-personality) (2 voice-lock-variable-name-personality nil t)))
+	 ;;
+	 ;; Voiceify otherwise as symbol names, and the preprocessor directive names.
+	 '("^#[ \t]*\\(\\sw+\\)\\>[ \t]*\\(\\sw+\\)?"
+	   (1 voice-lock-reference-personality) (2 voice-lock-variable-name-personality nil t))
+	 ))
 
- (setq c-voice-lock-keywords-2
-  (append c-voice-lock-keywords-1
-   (list
-    ;;
-    ;; Simple regexps for speed.
-    ;;
-    ;; Voiceify all type specifiers.
-    (cons (concat "\\<\\(" c-type-types "\\)\\>") 'voice-lock-type-personality)
-    ;;
-    ;; Voiceify all builtin keywords (except case, default and goto; see below).
-    (cons (concat "\\<\\(" c-keywords "\\)\\>") 'voice-lock-keyword-personality)
-    ;;
-    ;; Voiceify case/goto keywords and targets, and case default/goto tags.
-    '("\\<\\(case\\|goto\\)\\>[ \t]*\\(\\sw+\\)?"
-      (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
-    '("^[ \t]*\\(\\sw+\\)[ \t]*:" 1 voice-lock-reference-personality)
-    )))
+  (setq c-voice-lock-keywords-2
+	(append c-voice-lock-keywords-1
+		(list
+		 ;;
+		 ;; Simple regexps for speed.
+		 ;;
+		 ;; Voiceify all type specifiers.
+		 (cons (concat "\\<\\(" c-type-types "\\)\\>") 'voice-lock-type-personality)
+		 ;;
+		 ;; Voiceify all builtin keywords (except case, default and goto; see below).
+		 (cons (concat "\\<\\(" c-keywords "\\)\\>") 'voice-lock-keyword-personality)
+		 ;;
+		 ;; Voiceify case/goto keywords and targets, and case default/goto tags.
+		 '("\\<\\(case\\|goto\\)\\>[ \t]*\\(\\sw+\\)?"
+		   (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
+		 '("^[ \t]*\\(\\sw+\\)[ \t]*:" 1 voice-lock-reference-personality)
+		 )))
 
- (setq c-voice-lock-keywords-3
-  (append c-voice-lock-keywords-2
-   ;;
-   ;; More complicated regexps for more complete highlighting for types.
-   ;; We still have to voiceify type specifiers individually, as C is so hairy.
-   (list
-    ;;
-    ;; Voiceify all storage classes and type specifiers, plus their items.
-    (list (concat "\\<\\(" c-type-types "\\)\\>"
-		  "\\([ \t*&]+\\sw+\\>\\)*")
-	  ;; Voiceify each declaration item.
-	  '(voice-lock-match-c++-style-declaration-item-and-skip-to-next
-	    ;; Start with point after all type specifiers.
-	    (goto-char (or (match-beginning 8) (match-end 1)))
-	    ;; Finish with point after first type specifier.
-	    (goto-char (match-end 1))
-	    ;; Voiceify as a variable or function name.
-	    (1 (if (match-beginning 4)
-		   voice-lock-function-name-personality
-		 voice-lock-variable-name-personality))))
-    ;;
-    ;; Voiceify structures, or typedef names, plus their items.
-    '("\\(}\\)[ \t*]*\\sw"
-      (voice-lock-match-c++-style-declaration-item-and-skip-to-next
-       (goto-char (match-end 1)) nil
-       (1 (if (match-beginning 4)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality))))
-    ;;
-    ;; Voiceify anything at beginning of line as a declaration or definition.
-    '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
-      (1 voice-lock-type-personality)
-      (voice-lock-match-c++-style-declaration-item-and-skip-to-next
-       (goto-char (or (match-beginning 2) (match-end 1))) nil
-       (1 (if (match-beginning 4)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality))))
-    )))
+  (setq c-voice-lock-keywords-3
+	(append c-voice-lock-keywords-2
+		;;
+		;; More complicated regexps for more complete highlighting for types.
+		;; We still have to voiceify type specifiers individually, as C is so hairy.
+		(list
+		 ;;
+		 ;; Voiceify all storage classes and type specifiers, plus their items.
+		 (list (concat "\\<\\(" c-type-types "\\)\\>"
+			       "\\([ \t*&]+\\sw+\\>\\)*")
+		       ;; Voiceify each declaration item.
+		       '(voice-lock-match-c++-style-declaration-item-and-skip-to-next
+			 ;; Start with point after all type specifiers.
+			 (goto-char (or (match-beginning 8) (match-end 1)))
+			 ;; Finish with point after first type specifier.
+			 (goto-char (match-end 1))
+			 ;; Voiceify as a variable or function name.
+			 (1 (if (match-beginning 4)
+				voice-lock-function-name-personality
+			      voice-lock-variable-name-personality))))
+		 ;;
+		 ;; Voiceify structures, or typedef names, plus their items.
+		 '("\\(}\\)[ \t*]*\\sw"
+		   (voice-lock-match-c++-style-declaration-item-and-skip-to-next
+		    (goto-char (match-end 1)) nil
+		    (1 (if (match-beginning 4)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality))))
+		 ;;
+		 ;; Voiceify anything at beginning of line as a declaration or definition.
+		 '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
+		   (1 voice-lock-type-personality)
+		   (voice-lock-match-c++-style-declaration-item-and-skip-to-next
+		    (goto-char (or (match-beginning 2) (match-end 1))) nil
+		    (1 (if (match-beginning 4)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality))))
+		 )))
 
- (setq c++-voice-lock-keywords-1
-  (append
-   ;;
-   ;; The list `c-voice-lock-keywords-1' less that for function names.
-   (cdr c-voice-lock-keywords-1)
-   ;;
-   ;; Voiceify function name definitions, possibly incorporating class name.
-   (list
-    '("^\\(\\sw+\\)\\(::\\(\\sw+\\)\\)?[ \t]*("
-      (1 (if (match-beginning 2)
-	     voice-lock-type-personality
-	   voice-lock-function-name-personality))
-      (3 voice-lock-function-name-personality nil t))
-    )))
+  (setq c++-voice-lock-keywords-1
+	(append
+	 ;;
+	 ;; The list `c-voice-lock-keywords-1' less that for function names.
+	 (cdr c-voice-lock-keywords-1)
+	 ;;
+	 ;; Voiceify function name definitions, possibly incorporating class name.
+	 (list
+	  '("^\\(\\sw+\\)\\(::\\(\\sw+\\)\\)?[ \t]*("
+	    (1 (if (match-beginning 2)
+		   voice-lock-type-personality
+		 voice-lock-function-name-personality))
+	    (3 voice-lock-function-name-personality nil t))
+	  )))
 
- (setq c++-voice-lock-keywords-2
-  (append c++-voice-lock-keywords-1
-   (list
-    ;;
-    ;; The list `c-voice-lock-keywords-2' for C++ plus operator overloading.
-    (cons (concat "\\<\\(" c++-type-types "\\)\\>") 'voice-lock-type-personality)
-    ;;
-    ;; Voiceify operator function name overloading.
-    '("\\<\\(operator\\)\\>[ \t]*\\([[(><!=+-][])><=+-]?\\)?"
-      (1 voice-lock-keyword-personality) (2 voice-lock-function-name-personality nil t))
-    ;;
-    ;; Voiceify case/goto keywords and targets, and case default/goto tags.
-    '("\\<\\(case\\|goto\\)\\>[ \t]*\\(\\sw+\\)?"
-      (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
-    '("^[ \t]*\\(\\sw+\\)[ \t]*:[^:]" 1 voice-lock-reference-personality)
-    ;;
-    ;; Voiceify other builtin keywords.
-    (cons (concat "\\<\\(" c++-keywords "\\)\\>") 'voice-lock-keyword-personality)
-    )))
+  (setq c++-voice-lock-keywords-2
+	(append c++-voice-lock-keywords-1
+		(list
+		 ;;
+		 ;; The list `c-voice-lock-keywords-2' for C++ plus operator overloading.
+		 (cons (concat "\\<\\(" c++-type-types "\\)\\>") 'voice-lock-type-personality)
+		 ;;
+		 ;; Voiceify operator function name overloading.
+		 '("\\<\\(operator\\)\\>[ \t]*\\([[(><!=+-][])><=+-]?\\)?"
+		   (1 voice-lock-keyword-personality) (2 voice-lock-function-name-personality nil t))
+		 ;;
+		 ;; Voiceify case/goto keywords and targets, and case default/goto tags.
+		 '("\\<\\(case\\|goto\\)\\>[ \t]*\\(\\sw+\\)?"
+		   (1 voice-lock-keyword-personality) (2 voice-lock-reference-personality nil t))
+		 '("^[ \t]*\\(\\sw+\\)[ \t]*:[^:]" 1 voice-lock-reference-personality)
+		 ;;
+		 ;; Voiceify other builtin keywords.
+		 (cons (concat "\\<\\(" c++-keywords "\\)\\>") 'voice-lock-keyword-personality)
+		 )))
 
- (setq c++-voice-lock-keywords-3
-  (append c++-voice-lock-keywords-2
-   ;;
-   ;; More complicated regexps for more complete highlighting for types.
-   (list
-    ;;
-    ;; Voiceify all storage classes and type specifiers, plus their items.
-    (list (concat "\\<\\(" c++-type-types "\\)\\>"
-		  "\\([ \t*&]+\\sw+\\>\\)*")
-	  ;; Voiceify each declaration item.
-	  '(voice-lock-match-c++-style-declaration-item-and-skip-to-next
-	    ;; Start with point after all type specifiers.
-	    (goto-char (or (match-beginning 13) (match-end 1)))
-	    ;; Finish with point after first type specifier.
-	    (goto-char (match-end 1))
-	    ;; Voiceify as a variable or function name.
-	    (1 (cond ((match-beginning 2) voice-lock-type-personality)
-		     ((match-beginning 4) voice-lock-function-name-personality)
-		     (t voice-lock-variable-name-personality)))
-	    (3 (if (match-beginning 4)
-		   voice-lock-function-name-personality
-		 voice-lock-variable-name-personality) nil t)))
-    ;;
-    ;; Voiceify structures, or typedef names, plus their items.
-    '("\\(}\\)[ \t*]*\\sw"
-      (voice-lock-match-c++-style-declaration-item-and-skip-to-next
-       (goto-char (match-end 1)) nil
-       (1 (if (match-beginning 4)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality))))
-    ;;
-    ;; Voiceify anything at beginning of line as a declaration or definition.
-    '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
-      (1 voice-lock-type-personality)
-      (voice-lock-match-c++-style-declaration-item-and-skip-to-next
-       (goto-char (or (match-beginning 2) (match-end 1))) nil
-       (1 (cond ((match-beginning 2) voice-lock-type-personality)
-		((match-beginning 4) voice-lock-function-name-personality)
-		(t voice-lock-variable-name-personality)))
-       (3 (if (match-beginning 4)
-	      voice-lock-function-name-personality
-	    voice-lock-variable-name-personality) nil t)))
-    )))
- )
+  (setq c++-voice-lock-keywords-3
+	(append c++-voice-lock-keywords-2
+		;;
+		;; More complicated regexps for more complete highlighting for types.
+		(list
+		 ;;
+		 ;; Voiceify all storage classes and type specifiers, plus their items.
+		 (list (concat "\\<\\(" c++-type-types "\\)\\>"
+			       "\\([ \t*&]+\\sw+\\>\\)*")
+		       ;; Voiceify each declaration item.
+		       '(voice-lock-match-c++-style-declaration-item-and-skip-to-next
+			 ;; Start with point after all type specifiers.
+			 (goto-char (or (match-beginning 13) (match-end 1)))
+			 ;; Finish with point after first type specifier.
+			 (goto-char (match-end 1))
+			 ;; Voiceify as a variable or function name.
+			 (1 (cond ((match-beginning 2) voice-lock-type-personality)
+				  ((match-beginning 4) voice-lock-function-name-personality)
+				  (t voice-lock-variable-name-personality)))
+			 (3 (if (match-beginning 4)
+				voice-lock-function-name-personality
+			      voice-lock-variable-name-personality) nil t)))
+		 ;;
+		 ;; Voiceify structures, or typedef names, plus their items.
+		 '("\\(}\\)[ \t*]*\\sw"
+		   (voice-lock-match-c++-style-declaration-item-and-skip-to-next
+		    (goto-char (match-end 1)) nil
+		    (1 (if (match-beginning 4)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality))))
+		 ;;
+		 ;; Voiceify anything at beginning of line as a declaration or definition.
+		 '("^\\(\\sw+\\)\\>\\([ \t*]+\\sw+\\>\\)*"
+		   (1 voice-lock-type-personality)
+		   (voice-lock-match-c++-style-declaration-item-and-skip-to-next
+		    (goto-char (or (match-beginning 2) (match-end 1))) nil
+		    (1 (cond ((match-beginning 2) voice-lock-type-personality)
+			     ((match-beginning 4) voice-lock-function-name-personality)
+			     (t voice-lock-variable-name-personality)))
+		    (3 (if (match-beginning 4)
+			   voice-lock-function-name-personality
+			 voice-lock-variable-name-personality) nil t)))
+		 )))
+  )
 
 (defvar c-voice-lock-keywords c-voice-lock-keywords-1
   "Default expressions to highlight in C mode.")
@@ -2234,19 +2229,18 @@ See also `java-voice-lock-extra-types'.")
 (defvar c++-voice-lock-keywords c++-voice-lock-keywords-3
   "Default expressions to highlight in C++ mode.")
 
-
 (defvar tex-voice-lock-keywords
-;  ;; Regexps updated with help from Ulrik Dickow <dickow@nbi.dk>.
-;  '(("\\\\\\(begin\\|end\\|newcommand\\){\\([a-zA-Z0-9\\*]+\\)}"
-;     2 voice-lock-function-name-personality)
-;    ("\\\\\\(cite\\|label\\|pageref\\|ref\\){\\([^} \t\n]+\\)}"
-;     2 voice-lock-reference-personality)
-;    ;; It seems a bit dubious to use `bold' and `italic' personalities since we might
-;    ;; not be able to display those voices.
-;    ("{\\\\bf\\([^}]+\\)}" 1 'bold keep)
-;    ("{\\\\\\(em\\|it\\|sl\\)\\([^}]+\\)}" 2 'italic keep)
-;    ("\\\\\\([a-zA-Z@]+\\|.\\)" . voice-lock-keyword-personality)
-;    ("^[ \t\n]*\\\\def[\\\\@]\\(\\w+\\)" 1 voice-lock-function-name-personality keep))
+					;  ;; Regexps updated with help from Ulrik Dickow <dickow@nbi.dk>.
+					;  '(("\\\\\\(begin\\|end\\|newcommand\\){\\([a-zA-Z0-9\\*]+\\)}"
+					;     2 voice-lock-function-name-personality)
+					;    ("\\\\\\(cite\\|label\\|pageref\\|ref\\){\\([^} \t\n]+\\)}"
+					;     2 voice-lock-reference-personality)
+					;    ;; It seems a bit dubious to use `bold' and `italic' personalities since we might
+					;    ;; not be able to display those voices.
+					;    ("{\\\\bf\\([^}]+\\)}" 1 'bold keep)
+					;    ("{\\\\\\(em\\|it\\|sl\\)\\([^}]+\\)}" 2 'italic keep)
+					;    ("\\\\\\([a-zA-Z@]+\\|.\\)" . voice-lock-keyword-personality)
+					;    ("^[ \t\n]*\\\\def[\\\\@]\\(\\w+\\)" 1 voice-lock-function-name-personality keep))
   ;; Rewritten and extended for LaTeX2e by Ulrik Dickow <dickow@nbi.dk>.
   '(("\\\\\\(begin\\|end\\|newcommand\\){\\([a-zA-Z0-9\\*]+\\)}"
      2 voice-lock-function-name-personality)

@@ -61,13 +61,13 @@
   "Setup action on right parens.
 The defined   emacspeak action   causes
 emacspeak to show the matching paren when the cursor moves across a right paren."
-    (save-excursion
-      (goto-char (point-min))
-      (ems-modify-buffer-safely
-          (while (search-forward ")" nil t )
-            (put-text-property  (point) (1+ (point))
-                                'emacspeak-action
-                                'emacspeak-blink-matching-open )))))
+  (save-excursion
+    (goto-char (point-min))
+    (ems-modify-buffer-safely
+     (while (search-forward ")" nil t )
+       (put-text-property  (point) (1+ (point))
+			   'emacspeak-action
+			   'emacspeak-blink-matching-open )))))
 (add-hook 'emacspeak-emacs-lisp-mode-actions-hook
           'emacspeak-activate-match-blinker )
 ;;}}}
@@ -86,7 +86,7 @@ emacspeak to speak the semantics of the line
                            'emacspeak-action
                            'emacspeak-c-speak-semantics )))))
 (add-hook 'emacspeak-c-mode-actions-hook
-            'emacspeak-c-speak-semantics-when-on-closing-brace)
+	  'emacspeak-c-speak-semantics-when-on-closing-brace)
 
 ;;}}}
 (provide  'emacspeak-actions)

@@ -78,8 +78,6 @@
   (message "%s" (ad-get-arg 0))
   (emacspeak-auditory-icon 'help))
 
-
-
 (defadvice jde-complete-at-point (around emacspeak pre act)
   "Say what you completed."
   (let ((emacspeak-speak-messages nil))
@@ -139,7 +137,6 @@
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
-
 
 (defadvice jde-bug-step-over (after emacspeak pre act comp)
   "Speak the line we stepped to "
@@ -224,7 +221,6 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-
 (defadvice jde-bug-down-stack (after emacspeak pre act comp)
   "Speak the line we stepped to "
   (when (interactive-p)
@@ -238,9 +234,9 @@
       '(
         jde-debug-step-into
         jde-debug-step-out
-jde-debug-step-over
-jde-debug-up
-jde-debug-down)
+	jde-debug-step-over
+	jde-debug-up
+	jde-debug-down)
       do
       (eval
        (`
@@ -249,7 +245,6 @@ jde-debug-down)
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object))))))
-
 
 (defadvice jde-db-run (after emacspeak pre act comp)
   "Provide auditory feedback."

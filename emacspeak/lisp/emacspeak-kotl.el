@@ -104,10 +104,6 @@
   "Speak  sentence  after moving. "
   (when (interactive-p) (emacspeak-speak-sentence    )))
 
-
-
-
-
 (ad-set-advice-info 'kotl-mode:forward-paragraph nil)
 (defadvice kotl-mode:forward-paragraph (after emacspeak pre act )
   "Speak the paragraph. "
@@ -166,7 +162,7 @@
   (when (interactive-p )
     (save-excursion
       (skip-syntax-forward " ")
-    (emacspeak-speak-word 1 ))
+      (emacspeak-speak-word 1 ))
     (dtk-tone 500 30)))
 (ad-set-advice-info 'kotl-mode:backward-kill-word nil)
 (defadvice kotl-mode:backward-kill-word (before emacspeak pre act)
@@ -193,9 +189,6 @@
   (when (interactive-p ) 
     (emacspeak-auditory-icon 'mark-object )
     (message "region copied to kill ring ")))
-
-
-
 
 (ad-set-advice-info 'kotl-mode:yank nil)
 (defadvice kotl-mode:yank (after emacspeak pre act)
@@ -277,7 +270,6 @@
   "Produce an auditory icon if possible. "
   (when (interactive-p )
     (emacspeak-auditory-icon 'mark-object)))
-
 
 (ad-set-advice-info 'kotl-mode:mark-paragraph nil)
 (defadvice kotl-mode:mark-paragraph(after emacspeak pre act)
@@ -408,34 +400,34 @@
 (defadvice kotl-mode:demote-tree (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:promote-tree (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:transpose-cells (after emacspeak pre act )
   "Provie auditory feedback"
   (when (interactive-p )
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:split-cell (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 
 (defadvice kotl-mode:kill-contents (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'delete-object)
-        (message "Killed cell contents")))
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Killed cell contents")))
 
 (defadvice kotl-mode:kill-tree (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'delete-object)
-        (message "Killed current tree")))
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Killed current tree")))
 
 ;;}}}
 ;;{{{ filling and centering:
@@ -484,9 +476,6 @@
     (message "Hid everything except the top  %s levels"
              (ad-get-arg 0))))
 
-
-
-
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:hide-subtree (after emacspeak pre act comp)
   "Produce an auditory icon"
@@ -494,13 +483,11 @@
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything at deeper levels from current heading")))
 
-
-
 (defadvice kotl-mode:top-cells (after emacspeak pre act)
   "provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'close-object)
-        (message "Showing only top-level headings")))
+    (emacspeak-auditory-icon 'close-object)
+    (message "Showing only top-level headings")))
 
 ;;}}}
 ;;{{{ Adding  and moving cells 
@@ -508,59 +495,58 @@
 (defadvice kotl-mode:add-parent (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon'yank-object)
-        (message "Added sibling to parent of current cell")))
+    (emacspeak-auditory-icon'yank-object)
+    (message "Added sibling to parent of current cell")))
 
 (defadvice kotl-mode:add-cell (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'yank-object)
-        (emacspeak-speak-line )))
+    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:add-child (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'yank-object)
-        (emacspeak-speak-line )))
-
+    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:move-before (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:move-after (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:exchange-cells (after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 (defadvice kotl-mode:copy-before (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:copy-after (after emacspeak pre act)
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-speak-line )))
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:mail-tree(after emacspeak pre act )
   "Provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'open-object)
-        (emacspeak-speak-line )))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line )))
 
 (defadvice kotl-mode:copy-to-buffer (after emacspeak pre act )
   "provide auditory feedback"
   (when (interactive-p)
-        (emacspeak-auditory-icon 'yank-object)
-        (message "Copied  tree %s to buffer %s"
-                 (ad-get-arg 0)
-                 (ad-get-arg 1 ))))
+    (emacspeak-auditory-icon 'yank-object)
+    (message "Copied  tree %s to buffer %s"
+	     (ad-get-arg 0)
+	     (ad-get-arg 1 ))))
 
 ;;}}}
 ;;{{{  emacspeak commands:
@@ -568,9 +554,9 @@
 (defun emacspeak-kotl-speak-cell (arg)
   "Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents"
-(interactive "P")
-(emacspeak-speak-region
-(if arg (kcell-view:start) (point))
+  (interactive "P")
+  (emacspeak-speak-region
+   (if arg (kcell-view:start) (point))
    (kcell-view:end-contents)))
 
 ;;}}}
@@ -584,9 +570,8 @@
   (define-key kotl-mode-map '[003  left] 'kotl-mode:backward-cell)
   (define-key kotl-mode-map '[003 right] 'kotl-mode:forward-cell)
   (define-key kotl-mode-map '[003 up] 'kotl-mode:previous-cell)
-(define-key kotl-mode-map '[003 down] 'kotl-mode:next-cell)
-)
-
+  (define-key kotl-mode-map '[003 down] 'kotl-mode:next-cell)
+  )
 
 (defadvice kotl-mode (after emacspeak pre act )
   "Setup emacspeak keys"

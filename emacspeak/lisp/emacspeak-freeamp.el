@@ -68,15 +68,13 @@
 (define-prefix-command 'emacspeak-freeamp-prefix-command
   'emacspeak-freeamp-mode-map)
 
-
 (define-derived-mode emacspeak-freeamp-mode fundamental-mode 
   "Freeamp Interaction"
   "Major mode for freeamp interaction. \n\n
 \\{emacspeak-freeamp-mode-map}"
-(setq emacspeak-freeamp-process (get-buffer-process (current-buffer))))
+  (setq emacspeak-freeamp-process (get-buffer-process (current-buffer))))
 
 (declaim (special emacspeak-freeamp-mode-map))
-
 
 (defvar emacspeak-freeamp-freeamp-keys
   (list ?p ?+ ?-  ?f ?b ?s ?= ?q)
@@ -96,8 +94,7 @@
        (format "%c" char))
       (accept-process-output emacspeak-freeamp-process 1)
       (message "%s"
-       (buffer-substring mark (point-max))))))
-
+	       (buffer-substring mark (point-max))))))
 
 (defun emacspeak-freeamp-freeamp-call-command ()
   "Call appropriate freeamp command."
@@ -107,7 +104,7 @@
 (loop for c in emacspeak-freeamp-freeamp-keys
       do
       (define-key emacspeak-freeamp-mode-map   (format
-                                                  "%c" c)
+						"%c" c)
         'emacspeak-freeamp-freeamp-call-command))
 (define-key emacspeak-freeamp-mode-map [left]
   'emacspeak-aumix-wave-decrease)

@@ -78,7 +78,6 @@
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "notes_shutdown\n"))
 
-
 (defsubst dtk-interp-note (instrument pitch duration
                                       &optional target step force)
   (declare (special dtk-speaker-process))

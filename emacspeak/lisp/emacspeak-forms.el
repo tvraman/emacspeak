@@ -41,9 +41,9 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'dtk-speak)
-(require 'dtk-voices)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds))
+		   (require 'dtk-voices)
+		   (require 'emacspeak-speak)
+		   (require 'emacspeak-sounds))
 (require 'forms)
 ;;{{{  Introduction:
 
@@ -59,7 +59,6 @@
 
 ;;}}}
 ;;{{{ Helper functions
-
 
 (defvar emacspeak-forms-current-record-summarizer
   'emacspeak-forms-speak-field
@@ -92,7 +91,6 @@ speak the first field")
   "Personality for read-only fields. "
   :type 'symbol
   :group 'emacspeak-forms)
-
 
 (defun emacspeak-forms-speak-field ()
   "Speak current form field name and value.
@@ -150,13 +148,11 @@ Assumes that point is at the front of a field value."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
 
-
 (defadvice forms-last-record (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-forms-summarize-current-record)))
-
 
 (defadvice forms-jump-record (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -201,7 +197,6 @@ Assumes that point is at the front of a field value."
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     ))
-
 
 (defadvice forms-insert-record (after emacspeak pre act comp)
   "Provide auditory feedback."

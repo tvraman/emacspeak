@@ -69,15 +69,14 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'button)))
 
-
 (defadvice dictation-filter (around emacspeak pre act comp)
   "Speak what you heard. "
   (let ((start nil)
         (dtk-stop-immediately nil))
-      (set-buffer dictation-buffer)
-      (setq start (point))
-      ad-do-it
-      (emacspeak-speak-region start (point))))
+    (set-buffer dictation-buffer)
+    (setq start (point))
+    ad-do-it
+    (emacspeak-speak-region start (point))))
         
 ;;}}}
 (provide 'emacspeak-dictation )

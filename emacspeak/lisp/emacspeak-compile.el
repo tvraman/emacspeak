@@ -50,7 +50,6 @@
 ;;; It is an example of how a little amount of code can make Emacspeak even better.
 ;;; Code:
 
-
 ;;}}}
 ;;{{{  functions
 
@@ -80,7 +79,6 @@
   (when (interactive-p)
     (emacspeak-compilation-speak-error)))
 
-
 (defadvice compilation-next-file (after emacspeak pre act)
   "Speak the error line. "
   (when (interactive-p) (emacspeak-compilation-speak-error ))
@@ -106,7 +104,6 @@
   (message "process %s %s"
            (process-name  (ad-get-arg 0))
            (ad-get-arg 1 )))
-
 
 ;;}}}
 (provide 'emacspeak-compile)

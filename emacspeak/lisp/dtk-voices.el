@@ -53,15 +53,11 @@
 (eval-when-compile (load-library "cl-extra"))
 ;;{{{  voice table
 
-
-
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
-
 (defvar dtk-default-voice-string "[:np]"
   "Default dtk string for the default voice.")
-
 
 (defvar dtk-voice-table (make-hash-table)
   "Association between symbols and strings to set dtk voices.
@@ -72,22 +68,22 @@ The string can set any dtk parameter.")
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
   (declare (special dtk-voice-table ))
-   (setf (gethash name dtk-voice-table )
-              command-string))
+  (setf (gethash name dtk-voice-table )
+	command-string))
 
 (defsubst dtk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-voice-table ))
   (or  (gethash name dtk-voice-table)
-        dtk-default-voice-string))
+       dtk-default-voice-string))
 
 (defsubst dtk-voice-defined-p (name)
-"Check if there is a voice named NAME defined."
+  "Check if there is a voice named NAME defined."
   (declare (special dtk-voice-table ))
   (gethash name dtk-voice-table ))
 
 (defsubst dtk-define-voice-alias (alias voice )
-"Alias  ALIAS to be same as voice VOICE."
+  "Alias  ALIAS to be same as voice VOICE."
   (dtk-define-voice alias (dtk-get-voice-command voice )))
 
 ;;}}}
@@ -116,7 +112,7 @@ COMMAND-STRING to the Dectalk."
 (dtk-define-voice 'paul-animated
                   "[:np  :dv pr 200 hr  30 sr 50 as 100 qu 100]")
 (dtk-define-voice 'paul-monotone "[:np  :dv pr 0 hr 1 sr 2 as 0 ]")
-;(dtk-define-voice 'paul-italic "[:np :dv ap 140 hs 99 pr 200  hr 10 sr 20]")
+					;(dtk-define-voice 'paul-italic "[:np :dv ap 140 hs 99 pr 200  hr 10 sr 20]")
 
 ;;}}}
 ;;{{{  Associate faces to standard voices:
@@ -167,9 +163,9 @@ COMMAND-STRING to the Dectalk."
 
 (defun voice-personality-list ()
   "Return list of all defined voices."
-(declare (special dtk-voice-table))
-(loop for key being the hash-keys of dtk-voice-table
-      collect key ))
+  (declare (special dtk-voice-table))
+  (loop for key being the hash-keys of dtk-voice-table
+	collect key ))
 ;;}}}
 ;;{{{ standard symbols as voices:
 
@@ -194,7 +190,6 @@ COMMAND-STRING to the Dectalk."
 
 ;;; let's define the standard symbols used as fonts as
 ;;; personalities here.
-
 
 (dtk-define-voice-alias 'font-lock-variable-name-face 'voice-lock-variable-name-personality)
 (dtk-define-voice-alias 'font-lock-reference-face 'voice-lock-reference-personality)
