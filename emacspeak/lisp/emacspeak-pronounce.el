@@ -100,7 +100,7 @@ Values are alists containing string.pronunciation pairs.")
   (when (stringp key)
     (setq key (intern key )))
   (gethash key emacspeak-pronounce-dictionaries))
-
+;;;###autoload
 (defun emacspeak-pronounce-add-dictionary-entry  (key string pronunciation)
   "Add dictionary entry.
 This adds pronunciation pair
@@ -462,7 +462,7 @@ First loads any persistent dictionaries if not already loaded."
 Becomes automatically buffer local.")
 (make-variable-buffer-local 'emacspeak-pronounce-pronunciation-table)
 (setq-default emacspeak-pronounce-pronunciation-table nil)
-
+;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle use of pronunciation dictionaries in current buffer.
 Pronunciations can be dfined on a per file, per directory and/or per

@@ -70,13 +70,10 @@ pronunciations only once.")
 (defun emacspeak-dired-define-pronunciations ()
   "Define pronunciations specific to Dired buffers."
   (declare (special emacspeak-dired-pronunciations-defined
-                    emacspeak-pronounce-dictionaries-loaded))
-  (require 'emacspeak-pronounce)
+                    emacspeak-pronounce-pronunciation-table emacspeak-pronounce-dictionaries-loaded))
   (unless emacspeak-dired-pronunciations-defined
     (setq emacspeak-dired-pronunciations-defined t)
-    (emacspeak-pronounce-set-dictionary
-     'dired-mode
-     '(("Dired" . " Directory Sorted "))))
+    (emacspeak-pronounce-add-dictionary-entry 'dired-mode "dired" " Directory Sorted "))
   (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
             (not emacspeak-pronounce-pronunciation-table))
     (emacspeak-pronounce-toggle-use-of-dictionaries)))
