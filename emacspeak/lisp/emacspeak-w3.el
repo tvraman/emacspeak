@@ -1079,7 +1079,8 @@ loaded.
     (save-excursion
       (set-buffer buffer)
       (emacspeak-w3-preview-this-buffer)
-      (emacspeak-auditory-icon 'open-object))))
+      (emacspeak-auditory-icon 'open-object))
+    (kill-buffer buffer)))
 
 ;;}}}
 ;;{{{  xsl keymap
