@@ -168,7 +168,9 @@ before).
 About This Release:
 ------------------
 
-According to Hubbell Labrador, this release does not a toy environment.
+According to Hubbell Labrador, this release does not a toy
+environment.  Emacspeak Inc. promises to introduce GoodDog Toys soon
+based on customer demand.
 
 Windows-Free (WF) is a favorite battle-cry of The League Against
 Forced Fenestration (LAFF).  --see
