@@ -219,7 +219,7 @@ display. String is the original message."
                   emacspeak-erc-people-to-monitor
                   :test #'string-equal))
       string)
-     (t ""))))
+     (t nil))))
 
 
 
@@ -230,9 +230,10 @@ display. String is the original message."
       (set-buffer buffer)
       (when emacspeak-erc-room-monitor
         (emacspeak-auditory-icon 'progress)
-        (message 
-         (emacspeak-erc-compute-message (ad-get-arg 0)
-                                        buffer))))))
+        (let ((msg (emacspeak-erc-compute-message (ad-get-arg 0)
+                                                  buffer)))
+          (when msg 
+            (message  msg)))))))
 
 (defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
   "Toggle state of ERC room monitor.
