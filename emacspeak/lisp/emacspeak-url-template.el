@@ -190,7 +190,7 @@
  "http://my.yahoo.com"
  nil
  nil
- "My Yahoo"
+ "Apply content.xsl to my.yahoo.com and speak the relevant contents."
  #'(lambda (url)
      (emacspeak-wizards-browse-url-with-style
       (expand-file-name "content.xsl"
@@ -213,13 +213,13 @@
 
 (emacspeak-url-template-define
  "Yahoo Entertainment"
-                               "http://dailynews.yahoo.com/htx/en/?u"
-                               nil
-                               #'(lambda nil
-                                   (search-forward "Sources:")
-                                   (forward-line 3)
-                                   (emacspeak-speak-rest-of-buffer))
-                               "Retrieve and speak Entertainment section from Yahoo Daily News.")
+ "http://dailynews.yahoo.com/htx/en/?u"
+ nil
+ #'(lambda nil
+     (search-forward "Sources:")
+     (forward-line 3)
+     (emacspeak-speak-rest-of-buffer))
+ "Retrieve and speak Entertainment section from Yahoo Daily News.")
 
 (emacspeak-url-template-define
  "Yahoo Sports"
@@ -335,12 +335,12 @@ The PDF document needs to be available on the public Internet.")
  "http://lists.oasis-open.org/archives/%s/%s/maillist.html"
  (list
   #'(lambda ()
-(read-from-minibuffer "OASIS Group: "))
+      (read-from-minibuffer "OASIS Group: "))
   #'(lambda ()
-(read-from-minibuffer  "YearMonth: "
-(format-time-string "%Y%m")
-nil nil
-(format-time-string "%Y%m"))))
+      (read-from-minibuffer  "YearMonth: "
+                             (format-time-string "%Y%m")
+                             nil nil
+                             (format-time-string "%Y%m"))))
  "Use this to pull up the
 archived  mail from the OASIS list. You need to know the exact name of the list.")
 
@@ -413,20 +413,20 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Tecnology "
-                               "http://www.cnn.com/2002/TECH/science/%s/index.html"
-                               (list
-                                'emacspeak-url-template-date-month/date)
-                               nil
-                               "Browse to the plain index of
+ "http://www.cnn.com/2002/TECH/science/%s/index.html"
+ (list
+  'emacspeak-url-template-date-month/date)
+ nil
+ "Browse to the plain index of
 technology articles at CNN.")
 
 (emacspeak-url-template-define
  "CNN computing "
-                               "http://www.cnn.com/2002/TECH/computing/%s/index.html"
-                               (list
-                                'emacspeak-url-template-date-month/date)
-                               nil
-                               "Browse to the plain index of
+ "http://www.cnn.com/2002/TECH/computing/%s/index.html"
+ (list
+  'emacspeak-url-template-date-month/date)
+ nil
+ "Browse to the plain index of
 Computing News at CNN.")
 
 (emacspeak-url-template-define
@@ -438,8 +438,8 @@ Computing News at CNN.")
 
 (emacspeak-url-template-define
  "CNN Markets New York"
-                               "http://money.cnn.com/%s/markets/markets_newyork/"
-                               (list 'emacspeak-url-template-date-year/month/date))
+ "http://money.cnn.com/%s/markets/markets_newyork/"
+ (list 'emacspeak-url-template-date-year/month/date))
 
 ;;}}}
 ;;{{{ technet cast from DDJ
@@ -500,8 +500,8 @@ Computing News at CNN.")
 ;;{{{  Virtually There --Sabre Trip Reports 
 (emacspeak-url-template-define
  "Sabre Travel From Virtually There" 
-"https://www.virtuallythere.com/new/reservations.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W"
- ;"https://www.virtuallythere.com/cgi-bin/nph-itinerary?pnr=%s&name=%s&language=0&host=1W&clocktype=12"
+ "https://www.virtuallythere.com/new/reservations.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W"
+                                        ;"https://www.virtuallythere.com/cgi-bin/nph-itinerary?pnr=%s&name=%s&language=0&host=1W&clocktype=12"
  (list
   (lambda nil 
     (read-from-minibuffer "Record Locator: "))
@@ -509,14 +509,14 @@ Computing News at CNN.")
     (read-from-minibuffer "User Name")))
  nil
  "Display Trip Details"
- ; #'(lambda (url)
-;      (let ((temp-file (format "/tmp/sabre-%s.html" (gensym))))
-;        (shell-command
-;         (format "lynx -base '%s' -source '%s' > %s"
-;                 url url temp-file))
-;        (w3-open-local temp-file)
-;        (delete-file temp-file)))
-)
+                                        ; #'(lambda (url)
+                                        ;      (let ((temp-file (format "/tmp/sabre-%s.html" (gensym))))
+                                        ;        (shell-command
+                                        ;         (format "lynx -base '%s' -source '%s' > %s"
+                                        ;                 url url temp-file))
+                                        ;        (w3-open-local temp-file)
+                                        ;        (delete-file temp-file)))
+ )
 
 
 ;;}}}
@@ -527,14 +527,14 @@ Computing News at CNN.")
 (emacspeak-url-template-define
  "Times Of India"
  "http://www.timesofindia.com"
-                               nil
-#'(lambda ()
-    (declare (special emacspeak-w3-url-rewrite-rule))
-    (setq emacspeak-w3-url-rewrite-rule
-          (list "$" "&prtPage=1")))
-                               "Retrieve Times Of India.
+ nil
+ #'(lambda ()
+     (declare (special emacspeak-w3-url-rewrite-rule))
+     (setq emacspeak-w3-url-rewrite-rule
+           (list "$" "&prtPage=1")))
+ "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
-                               )
+ )
 
 
 ;;}}}
@@ -542,11 +542,11 @@ Set up URL rewrite rule to get print page."
 
 (emacspeak-url-template-define
  "India Today "
-                               "http://www.india-today.com/itoday/%s/index.shtml"
-                               (list
-                                'emacspeak-url-template-date-YearMonthDate)
-nil
-                               "Retrieve India Today. Published every Monday --specified appropriate date.")
+ "http://www.india-today.com/itoday/%s/index.shtml"
+ (list
+  'emacspeak-url-template-date-YearMonthDate)
+ nil
+ "Retrieve India Today. Published every Monday --specified appropriate date.")
 
 ;;}}}
 
@@ -559,8 +559,8 @@ nil
       ((fetcher (or (emacspeak-url-template-fetcher ut)
                     'browse-url)))
     (funcall fetcher   (emacspeak-url-template-url ut))
-(when (emacspeak-url-template-post-action ut)
-    (funcall (emacspeak-url-template-post-action ut)))))
+    (when (emacspeak-url-template-post-action ut)
+      (funcall (emacspeak-url-template-post-action ut)))))
 
 (defun emacspeak-url-template-fetch ()
   "Fetch a pre-defined resource.
