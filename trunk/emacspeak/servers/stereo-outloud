@@ -178,14 +178,7 @@ proc r {rate} {
 
 proc useStereoOutput {} {
     global tts
-    if {$tts(stereo)} {
-        s
         setOutput buffer
-        #synth {`v1 Using stereo output Via  IBM  Via Voice,
-            #`vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
-        synth "stereo. "
-        service
-    }
 }
 # }}}
 # {{{ speech task 
@@ -324,13 +317,11 @@ set tclTTS $servers/linux-outloud
 set env(ECIINI) $tclTTS/eci.ini
 load $tclTTS/tcleci.so
 set tts(stereo) 1
-if {$tts(stereo)} {
 useStereoOutput
-} else {
-synth {`v1 Via  IBM  Via Voice,
+synth {`v1 Using stereo output Via  IBM  Via Voice,
     `vb55 `vh55 `ar this `p20,  is   Eamakspeak! }
 service 
-}
+
 #Start the main command loop:
 
 commandloop 
