@@ -114,26 +114,42 @@ Interactive XML browser.
       (run-hooks 'emacspeak-xml-shell-hooks)
       (setq emacspeak-xml-shell-process
             (get-buffer-process buffer)))))
+(defvar emacspeak-xml-shell-document
+  nil
+  "System ID of document being browsed.")
+
+(defun emacspeak-xml-shell-process-sentinel  (proc status)
+  "Process sentinel for XML shell."
+  (declare (special emacspeak-xml-shell-document))
+  (setq emacspeak-xml-shell-document nil))
 
 (defun emacspeak-xml-shell (system-id)
   "Start Xml-Shell on contents of system-id."
   (interactive
    (list
+    (if (and (processp emacspeak-xml-shell-process)
+      (eq 'run 
+      (process-status  emacspeak-xml-shell-process)))
+emacspeak-xml-shell-document
     (read-file-name
-     "Browse XML: ")))
-  (declare (special emacspeak-xml-shell-process))
+     "Browse XML: "))))
+  (declare (special emacspeak-xml-shell-process
+emacspeak-xml-shell-document))
   (unless (string-match "^http:" system-id)
     (setq system-id (expand-file-name system-id)))
   (unless
       (and (processp emacspeak-xml-shell-process)
       (eq 'run 
       (process-status  emacspeak-xml-shell-process)))
-  (emacspeak-xml-shell-start-process system-id))
+  (emacspeak-xml-shell-start-process system-id)
+  (setq emacspeak-xml-shell-document system-id))
+  (set-process-sentinel emacspeak-xml-shell-process 'emacspeak-xml-shell-process-sentinel)
   (emacspeak-auditory-icon 'open-object)
   (switch-to-buffer (process-buffer
                      emacspeak-xml-shell-process))
   (emacspeak-speak-mode-line))
-
+  
+   
 ;;}}}
 ;;{{{ Navigate the tree
 
