@@ -1,0 +1,379 @@
+;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
+;;; $Id$
+;;; $Author$ 
+;;; Description:  Emacspeak enhancements for W3
+;;; Keywords: Emacspeak, W3, WWW
+;;{{{  LCD Archive entry: 
+
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; A speech interface to Emacs |
+;;; $Date$ |
+;;;  $Revision$ | 
+;;; Location undetermined
+;;;
+
+;;}}}
+;;{{{  Copyright:
+;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
+;;; All Rights Reserved. 
+;;;
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;;
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;;
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;;
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+;;}}}
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-keymap)
+(require 'emacspeak-fix-interactive)
+(require 'emacspeak-sounds)
+(require 'emacspeak-speak)
+;;{{{  Introduction:
+
+;;; Commentary:
+
+;;; Ensure that speech support for W3 gets installed and
+;;; loaded correctly.
+;;; The emacs W3 browser comes with builtin support for
+;;; Emacspeak and ACSS
+
+;;; Code:
+
+
+;;}}}
+;;{{{  additional advice
+
+(defadvice url-write-global-history (around emacspeak pre act comp)
+  "Silence messages while this function executes"
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+;;}}}
+;;{{{ setup
+
+(declaim (special w3-echo-link
+                  url-show-status
+                  w3-mode-map))
+
+(condition-case nil
+    (progn (require 'w3-speak)
+           (add-hook 'w3-mode-hook 'w3-speak-mode-hook)
+(add-hook 'w3-mode-hook 'emacspeak-pronounce-toggle-use-of-dictionaries)
+(setq w3-echo-link
+                 (list 'text 'title 'name 'url))
+           (if (locate-library "w3-speak-table")
+             (load-library "w3-speak-table")
+             (message
+              "Please upgrade to W3 4.0.18 for spoken table support"))
+           (setq url-show-status nil))
+  (error (emacspeak-auditory-icon 'warn-user)
+         (message
+          "You appear to be using an old version of W3
+that is no longer supported by Emacspeak.")))
+
+(eval-when (load)
+  (require 'emacspeak-keymap)
+  (emacspeak-keymap-remove-emacspeak-edit-commands w3-mode-map))
+
+(add-hook
+ 'w3-mode-hook
+ (function
+  (lambda ()
+    (modify-syntax-entry 10 " ")
+    (define-key w3-mode-map ";" 'emacspeak-w3-speak-this-element)
+    (define-key w3-mode-map "n"
+      'emacspeak-w3-next-doc-element)
+    (define-key w3-mode-map "p" 'emacspeak-w3-previous-doc-element)
+    (define-key w3-mode-map "L"
+      'emacspeak-w3-lynx-url-under-point)
+    (define-key w3-mode-map "\C-f" 'w3-table-focus-on-this-cell)
+    (define-key w3-mode-map  "\C-t" 'emacspeak-w3-toggle-table-borders)
+    (define-key w3-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+    (define-key w3-mode-map "j" 'imenu)
+    (define-key w3-mode-map "\M- " 'emacspeak-imenu-speak-this-section)
+    (define-key w3-mode-map "\M-p" 'emacspeak-imenu-goto-previous-index-position)
+    (define-key w3-mode-map "\M-n" 'emacspeak-imenu-goto-next-index-position))))
+
+
+(add-hook                                'w3-load-hook
+                                         (function
+                                          (lambda ()
+                                            (when (locate-library
+                                                   "w3-imenu")
+                                              (require 'w3-imenu)))))
+
+;;}}}
+;;{{{ fix interactive commands
+
+(loop for f in
+      (list 'url-insert-file-contents
+'w3-open-local
+'w3-read-html-bookmarks
+'w3-search-forward
+'w3-find-file
+'w3-follow-url-at-point
+'w3-follow-url-at-point-other-frame
+'w3-read-html-bookmarks)
+      do
+      (emacspeak-fix-interactive-command-if-necessary f ))
+(eval-when (load eval)
+(eval-after-load  "w3-hot"
+  (progn
+    (emacspeak-fix-interactive-command-if-necessary 'w3-hotlist-apropos)
+(emacspeak-fix-interactive-command-if-necessary 'w3-hotlist-append))))
+
+;;}}}
+;;{{{  dump using lynx 
+
+(defvar emacspeak-w3-lynx-program "lynx"
+  "Name of lynx executable")
+
+(defun emacspeak-w3-lynx-done-alert (process state)
+  "Alert user when lynx is done dumping the document"
+  (declare (special view-exit-action))
+  (when (y-or-n-p
+        "Lynx is done --switch to the results?")
+       (pop-to-buffer (process-buffer process))
+       (goto-char (point-min))
+       (view-mode)
+       (setq view-exit-action 'kill-buffer)
+       (emacspeak-skip-blank-lines-forward)
+       (emacspeak-speak-line)))
+
+(defun emacspeak-w3-lynx-url-under-point ()
+  "Display contents of URL under point using LYNX.  The
+document is displayed in a separate buffer. Note that the
+hyperlinks in that display are not active-- this facility is
+present only to help me iron out the remaining problems with
+the table structure extraction code in W3."
+  (interactive )
+  (unless (eq major-mode 'w3-mode)
+    (error
+     "This command should be called only in W3 buffers"))
+  (let ((url (or (w3-view-this-url t)
+                 (url-view-url t)))
+        (process nil))
+    (unless url
+      (error "No URL under point"))
+    (setq process
+          (start-process   "lynx"
+                           (format "*lynx-%s*" url)
+                           emacspeak-w3-lynx-program
+                           "-dump"
+                           url))
+    (set-process-sentinel process 'emacspeak-w3-lynx-done-alert)))
+
+;;}}}
+;;{{{ fixup images
+(declaim (special w3-version))
+;;; smart image handling only works in w3 4.0
+(when
+    (string-match  "4\\.0" w3-version)
+; simple heuristic to detect silly bullets and dots
+; (by Greg Stark <gsstark@mit.edu>, enriched with regexp)
+
+(defvar w3-min-img-size 16
+  "*Image size under which the alt string is replaced by `w3-dummy-img-alt-repl'.
+15 is a bit aggressive, 5 pixels would be safer")
+
+(defvar w3-dummy-img-re
+  "\\(bullet\\|\\b\\(boule\\|dot\\|pebble[0-9]*[a-z]?[0-9]*\\|pixel\\)\\b\\)"
+  "Image name regexp for which the alt string is replaced by `w3-dummy-img-alt-repl'.")
+
+(defvar w3-dummy-img-alt-repl "@"
+  "*Dummy img alt replacement")
+
+(declare (special  w3-auto-image-alt))
+(setq w3-auto-image-alt
+      (function
+       (lambda (s)
+         (declare (special width height
+                           w3-auto-image-alt))
+         (if (or (and (stringp height)
+                      (< (string-to-int height) w3-min-img-size))
+                 (and (stringp width)
+                      (< (string-to-int width) w3-min-img-size))
+                 (string-match w3-dummy-img-re s))
+             w3-dummy-img-alt-repl
+           (concat "[" (file-name-sans-extension s)
+                   "]"))))))
+
+;;}}}
+;;{{{ toggle table borders:
+;;;I'd rather make the borders inaudible-- but that is hard
+;;;at present.
+;;; In the meantime, here is a toggle that allows you to
+;;; turn borders on and off:
+
+(defvar emacspeak-w3-table-draw-border
+t
+"Reflects whether we allow W3 to draw table borders. ")
+
+(defvar emacspeak-w3-table-silent-border (make-vector 16 32)
+  "Used to draw empty W3 table borders. ")
+
+(defun emacspeak-w3-toggle-table-borders ()
+  "Toggle drawing of W3 table borders"
+  (interactive)
+  (declare (special w3-table-border-chars))
+  (setq emacspeak-w3-table-draw-border (not emacspeak-w3-table-draw-border))
+  (cond
+   (emacspeak-w3-table-draw-border
+    (setq w3-table-border-chars (w3-setup-terminal-chars)))
+   (t (setq w3-table-border-chars
+            emacspeak-w3-table-silent-border)))
+  (message "W3 will %s draw table borders from now on"
+           (if emacspeak-w3-table-draw-border "" "not")))
+
+
+;;}}}
+;;{{{ Experimental --element navigation
+
+;;;This should eventually be done via a DOM API
+
+
+(defsubst emacspeak-w3-html-stack () (get-text-property (point) 'html-stack))
+
+(defsubst emacspeak-w3-html-stack-top-element (&optional stack)
+  (or stack (setq stack (emacspeak-w3-html-stack)))
+  (first (first stack )))
+
+(defun emacspeak-w3-next-doc-element (&optional count)
+  "Move forward  to the next document element.
+Optional interactive prefix argument COUNT 
+specifies by how many eleemnts to move."
+  (interactive "P")
+  (cond
+   ((null count)
+    (goto-char
+     (next-single-property-change (point)
+                                  'html-stack
+                                  (current-buffer)
+                                  (point-max)))
+    (unless (emacspeak-w3-html-stack)
+                                        ;skip over null region
+      (goto-char
+       (next-single-property-change (point)
+                                    'html-stack
+                                    (current-buffer)
+                                    (point-max)))))
+   (t (message "Moving by more than 1 not yet
+implemented. ")))
+  (let ((emacspeak-show-point t))
+    (emacspeak-w3-speak-next-element)))
+
+(defun emacspeak-w3-previous-doc-element (&optional count)
+  "Move back  to the previous document element.
+Optional interactive prefix argument COUNT 
+specifies by how many eleemnts to move."
+  (interactive "P")
+  (cond
+   ((null count)
+    (unless (emacspeak-w3-html-stack)
+      ;skip over null region
+      (goto-char
+                  (previous-single-property-change (point)
+                                               'html-stack
+                                               (current-buffer)
+                                               (point-min))))
+    (goto-char
+                  (previous-single-property-change (point)
+                                               'html-stack
+                                               (current-buffer)
+                                               (point-min))))
+   (t (message "Moving by more than 1 not yet
+implemented. ")))
+  (let ((emacspeak-show-point t))
+    (emacspeak-w3-speak-this-element)))
+
+
+(defun emacspeak-w3-speak-this-element ()
+  "Speak document element under point."
+  (interactive)
+  (let ((start nil)
+        (end nil))
+    (save-excursion
+      (goto-char (previous-single-property-change (point)
+                                                  'html-stack
+                                                  (current-buffer)
+                                                  (point-min)))
+      (setq start (point))
+      (goto-char (next-single-property-change (point)
+                                              'html-stack
+                                              (current-buffer)
+                                              (point-max)))
+      (setq end (point))
+      (emacspeak-speak-region start end )
+      (emacspeak-auditory-icon 'select-object))))
+
+
+(defun emacspeak-w3-speak-next-element ()
+  "Speak next document element."
+  (interactive)
+  (let ((start (point))
+        (end nil))
+    (save-excursion
+      
+      (goto-char (next-single-property-change (point)
+                                              'html-stack
+                                              (current-buffer)
+                                              (point-max)))
+      (setq end (point))
+      (emacspeak-speak-region start end )
+      (emacspeak-auditory-icon 'select-object))))
+;;}}}
+;;{{{ experimental --unravel javascript urls 
+(defvar emacspeak-w3-javascript-cleanup-buffer " *javascript-cleanup*"
+  "temporary scratch area")
+
+(defun emacspeak-w3-javascript-follow-link ()
+  "Follow URL hidden inside a javascript link"
+  (interactive)
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in a W3 buffer."))
+  (let ((url (w3-view-this-url 'no-show))
+        (buffer (get-buffer-create
+                emacspeak-w3-javascript-cleanup-buffer)))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert url)
+      (goto-char (point-min))
+      (search-forward "('")
+(delete-region (point-min) (point))
+(goto-char (point-max))
+(search-backward "'")
+(delete-region (point) (point-max))
+(w3-fetch 
+(buffer-string)))))
+
+
+
+
+(define-key w3-mode-map "\M-j" 'emacspeak-w3-javascript-follow-link)
+
+;;}}}
+(provide 'emacspeak-w3)
+;;{{{  emacs local variables 
+
+;;; local variables:
+;;; folded-file: t
+;;; byte-compile-dynamic: t
+;;; end: 
+
+;;}}}
