@@ -498,7 +498,9 @@ Optional interactive PREFIX arg toggles global value."
             (not emacspeak-use-auditory-icons))))
   ;; when using software tts  use midi if we cant mix channels.
   (when (and emacspeak-use-auditory-icons
+             (or
              (string= dtk-program "outloud")
+             (string= dtk-program "stereo-outloud"))
              (not emacspeak-aumix-multichannel-capable-p))
     (setq emacspeak-auditory-icon-function 'emacspeak-midi-icon))
   (message "Turned %s auditory icons %s"
