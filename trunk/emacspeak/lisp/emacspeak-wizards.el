@@ -1120,49 +1120,50 @@ Warning! Contents of file filename will be overwritten."
 Any errors or corrections should be made to the source-level
 documentation.\n\n")
       (mapcar
-       (function
-        (lambda (o)
-          (let ((this-module (symbol-file o))
-                (commentary nil)
-                (source-file nil))
-            (when this-module
-              (setq source-file (locate-library this-module ))
-	      (if (char-equal (aref source-file (1- (length source-file))) ?c)
-		  (setq source-file (substring  source-file 0 -1)))
-              (setq commentary (lm-commentary source-file))
-              (setq this-module
-                    (file-name-sans-extension this-module))
-              (when commentary
-                (setq commentary 
-                      (ems-cleanup-commentary commentary)))
-              (setq this-module
-                    (file-name-nondirectory this-module)))
-            (unless (string-equal module this-module)
-              (if this-module 
-                  (setq module this-module)
-                (setq module nil))
-              (when module 
+        #'(lambda (o)
+            ;;; note that the use of symbol-file is incorrect
+            ;;; --that only works for functions. find right call.
+            (let ((this-module (symbol-file o))
+                  (commentary nil)
+                  (source-file nil))
+              (when this-module
+                (setq source-file (locate-library this-module ))
+                (if (char-equal (aref source-file (1- (length source-file))) ?c)
+                    (setq source-file (substring  source-file 0 -1)))
+                (setq commentary (lm-commentary source-file))
+                (setq this-module
+                      (file-name-sans-extension this-module))
+                (when commentary
+                  (setq commentary 
+                        (ems-cleanup-commentary commentary)))
+                (setq this-module
+                      (file-name-nondirectory this-module)))
+              (unless (string-equal module this-module)
+                (if this-module 
+                    (setq module this-module)
+                  (setq module nil))
+                (when module 
+                  (insert
+                   (format
+                    "@node %s Options\n@section %s Options\n\n\n"
+                    module module )))
+                (insert
+                 (format "\n\n%s\n\n" 
+                         (or commentary "")))
                 (insert
                  (format
-                  "@node %s Options\n@section %s Options\n\n\n"
-                  module module )))
-              (insert
-               (format "\n\n%s\n\n" 
-                       (or commentary "")))
-              (insert
-               (format
-                "Automatically generated documentation
+                  "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-                module)))
-            (insert (format "\n\n@defvar {User Option} %s\n"
-                            o))
-            (insert
-             (or
-              (ems-texinfo-escape
-               (documentation-property  o 'variable-documentation))                        
-              ""))
-            (insert "\n@end defvar\n\n"))))
+                  module)))
+              (insert (format "\n\n@defvar {User Option} %s\n"
+                              o))
+              (insert
+               (or
+                (ems-texinfo-escape
+                 (documentation-property  o 'variable-documentation))                        
+                ""))
+              (insert "\n@end defvar\n\n")))
        (emacspeak-list-emacspeak-options))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)

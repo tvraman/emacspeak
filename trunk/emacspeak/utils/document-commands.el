@@ -221,6 +221,7 @@ This helps pull in all emacspeak modules cleanly.")
      "commands.texi")
     (emacspeak-generate-documentation
      "../etc/DOC")
+(load-library  "emacspeak-cus-load")
     (emacspeak-generate-texinfo-option-documentation
      "options.texi")))
 
