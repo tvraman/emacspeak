@@ -2239,6 +2239,7 @@ Use with caution."
   (let ((inhibit-read-only t))
     (put-text-property start end 
 		       'read-only nil)))
+
 ;;}}}
 ;;{{{ VC viewer 
 (defcustom emacspeak-wizards-vc-viewer-command

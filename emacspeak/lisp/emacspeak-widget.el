@@ -233,7 +233,7 @@ Returns a string with appropriate personality."
 ;;{{{ item 
 
 (defun emacspeak-widget-help-item (widget)
-  "Summarize a  item"
+  "Summarize an   item"
   (let* ((value  (widget-value widget))
          (label (emacspeak-widget-label widget))
          (help-echo (emacspeak-widget-help-echo widget)))
