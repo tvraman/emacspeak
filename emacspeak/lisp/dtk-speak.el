@@ -628,7 +628,7 @@ Argument OUTPUT is the newly arrived output."
 
 ;;}}}
 ;;{{{ helper --generate state switcher:
-
+;;;###autoload
 (defun ems-generate-switcher (command switch documentation )
   "Generate desired command to switch the specified state."
   (eval
