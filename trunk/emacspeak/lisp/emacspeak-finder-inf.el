@@ -11,9 +11,6 @@
     ("acss-structure.el"
         "CSS -- Cascaded Speech Style structure"
         (emacspeak  audio interface to emacs css))
-    ("amphetadesk.el"
-        "Emacspeak News Portal Interface"
-        (emacspeak   audio desktop rss))
     ("cd-tool.el"
         "Play  CDs from Emacs"
         nil)
@@ -35,6 +32,9 @@
     ("emacspeak-advice.el"
         "Advice all core Emacs functionality to speak intelligently"
         (emacspeak  speech  advice  spoken  output))
+    ("emacspeak-amphetadesk.el"
+        "Emacspeak News Portal Interface"
+        (emacspeak   audio desktop rss))
     ("emacspeak-analog.el"
         "Speech-enable"
         (emacspeak  analog ))
