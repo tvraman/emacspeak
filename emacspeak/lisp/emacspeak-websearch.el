@@ -1335,11 +1335,10 @@ With optional interactive prefix arg MAP shows the location map instead."
      "Nearby"
      'emacspeak-speak-line))
    (t 
-    (emacspeak-w3-extract-table-by-position 20
+    (w3-fetch
 					    (concat
 					     emacspeak-websearch-map-directions-uri
-					     query)
-					    'speak))))
+					     query)))))
          
 ;;}}}
 ;;{{{  news yahoo
