@@ -59,7 +59,7 @@
 (require 'emacspeak-sounds)
 (require 'emacspeak-table-ui)
 (require 'shell)
-
+(eval-when-compile (require 'cus-edit))
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
 
