@@ -47,7 +47,7 @@
 ;;}}}
 ;;{{{ voice locking:
 ;;; faces from AUCTeX 11
-(def-voice-font emacspeak-latex-italic-face 'italic
+(def-voice-font emacspeak-latex-italic-face voice-animate
   'font-latex-italic-face
   "Face used for italics."
   :group 'emacspeak-auctex)

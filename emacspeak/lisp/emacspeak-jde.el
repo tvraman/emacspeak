@@ -73,7 +73,7 @@
   'jde-java-font-lock-package-face
   "Personality used for package names.")
 
-(def-voice-font emacspeak-jde-italic-personality 'italic
+(def-voice-font emacspeak-jde-italic-personality voice-animate
   'jde-java-font-lock-italic-face
   "Personality used for italics."
   :group 'emacspeak-jde)
