@@ -1050,6 +1050,7 @@ Use command emacspeak-eterm-toggle-pointer-mode bound to
 (defadvice  term-emulate-terminal (around emacspeak pre act compile )
   "Record position, emulate, then speak what happened.
 Also keep track of terminal highlighting etc.
+Feedback is limited to current window 
 If a `current window`
 is set (see command emacspeak-eterm-set-focus-window
 bound to \\[emacspeak-eterm-set-focus-window].
