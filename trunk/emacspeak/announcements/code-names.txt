@@ -15,3 +15,4 @@
 16.0    May 2002        CleverDog
 17.0    November 2002   HappyDog
 18.0    May 2003        GoodDog
+19.0    November 2003   WorkDog
