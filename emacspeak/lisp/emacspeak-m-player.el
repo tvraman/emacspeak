@@ -106,7 +106,7 @@
   :type  '(repeat
 	   (string :tag "option"))
   :group 'emacspeak-m-player)
-
+;;;###autoload
 (defun emacspeak-m-player (resource )
   "Play specified resource using m-player.
 Resource is an  MP3 file or m3u playlist.
@@ -156,9 +156,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defsubst emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
-  (process-send-string                                                                                                                   emacspeak-m-player-process
-																	 (format "%s\n" command)))
+  (process-send-string
+   emacspeak-m-player-process
+   (format "%s\n" command)))
 
+;;;###autoload
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
   (interactive
@@ -166,7 +168,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "pt_step %d" step)))
-
+;;;###autoload
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
   (interactive
@@ -174,7 +176,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "pt_up %d" step)))
-
+;;;###autoload
 (defun emacspeak-m-player-alt-src-step (step)
   "Move within an ASF playlist."
   (interactive
@@ -182,7 +184,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
    (format "alt_src_step %d" step)))
-
+;;;###autoload
 (defun emacspeak-m-player-seek-relative (offset)
   "Seek  by offset into stream from current position."
   (interactive
@@ -190,7 +192,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Offset: ")))
   (emacspeak-m-player-dispatch
    (format "seek %d" offset)))
-
+;;;###autoload
 (defun emacspeak-m-player-seek-absolute (position)
   "Seek  to absolute specified position."
   (interactive
@@ -198,13 +200,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
    (format "seek %d 1" position )))
-
+;;;###autoload
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
   (emacspeak-m-player-dispatch
    "pause"))
-
+;;;###autoload
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)

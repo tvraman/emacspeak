@@ -77,7 +77,7 @@
 ;;}}}
 ;;{{{  view feed
 
-
+;;;###autoload
 (defun emacspeak-rss-display (rss-url &optional speak)
   "Retrieve and display RSS news feed."
   (interactive
@@ -92,7 +92,7 @@
    (expand-file-name "rss.xsl"
                      emacspeak-xslt-directory)
    rss-url))
-
+;;;###autoload
 (defun emacspeak-rss-browse (feed)
   "Browse specified RSS feed."
   (interactive
