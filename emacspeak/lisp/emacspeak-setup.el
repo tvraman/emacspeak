@@ -41,6 +41,13 @@
 (require 'custom)
 (eval-when (compile)
   (require 'emacspeak-speak))
+(defvar emacspeak-unibyte t
+  "Emacspeak will force emacs to unibyte unless this
+variable is set to nil.
+To use emacspeak with emacs running in multibyte mode, this
+variable should be set to nil *before* 
+emacspeak is compiled or started.")
+
 (defvar emacspeak-directory
   (expand-file-name  "/home/raman/emacs/lisp/emacspeak")
   "Directory where emacspeak is installed. ")
@@ -113,19 +120,6 @@ pronunciation dictionaries are stored. ")
 
 ;;; Use (add-hook 'emacspeak-startup-hook ...)
 ;;; to add your personal settings. 
-;;{{{ turn off transient mark mode before launching emacspeak
-(when (and (boundp 'transient-mark-mode)
-           transient-mark-mode)
-  (setq transient-mark-mode nil)
-  (message "Turning off transient mark mode before starting
-;;; emacspeak."))
-
-(when (and (boundp 'zmacs-regions)
-           zmacs-regions)
-  (setq zmacs-regions nil)
-  (message "Turning off transient mark mode before starting emacspeak."))
-
-;;}}}
 (emacspeak)
 ;;{{{  emacs local variables 
 
