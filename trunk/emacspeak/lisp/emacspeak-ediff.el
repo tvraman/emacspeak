@@ -107,6 +107,17 @@ ediff ..."))))
   :type 'symbol
 :group 'emacspeak-ediff)
 
+(defcustom emacspeak-ediff-fine-A-personality 'harry
+  "Personality used to voiceify difference chunk A"
+  :type 'symbol
+  :group 'emacspeak-ediff)
+
+(defcustom emacspeak-ediff-fine-B-personality
+  'harry
+  "Personality used to voiceify difference chunk B"
+  :type 'symbol
+:group 'emacspeak-ediff)
+
 
 ;;}}}
 ;;{{{ Helper functions:
