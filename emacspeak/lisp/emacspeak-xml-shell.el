@@ -189,54 +189,60 @@ emacspeak-xml-shell-document))
 ;;}}}
 ;;{{{ showing nodes
 
+(defun emacspeak-xml-shell-create-accumulator (accumulate terminator post-processor)
+  "Create a function that is suitable for use as a filter function for
+the XML shell process. The returned function will accumulate process
+output into `accumulate' --a stream or buffer. Accumulation stops when
+the accumulator encounters value specified by terminator.
+When accumulation is done, post-processor is called to process the
+content.
+Post-processor accepts a region of text to process specified by start
+and end."
+  (`
+   (lambda (process output)
+     (let ((stream  (, accumulate))
+           (done  (, terminator)))
+       (save-excursion
+         (set-buffer stream)
+         (goto-char (point-max))
+         (cond
+          ((string-match done output)
+           (insert output)
+           (goto-char (point-min))
+           (kill-line)
+           (goto-char (point-max))
+           (beginning-of-line)
+           (kill-line)
+           (set-process-filter process 'comint-output-filter)
+           (funcall (, post-processor)
+                    (point-min) (point-max))
+           (set-buffer (process-buffer process))
+           (goto-char (point-max))
+           (comint-send-input))
+          (t (insert output))))))))
+
+
 (defun emacspeak-xml-shell-process-node ( xpath display-function)
   "Apply display-function to the contents of node specified by xpath.
 Display function accepts two arguments, start and end that specify the
 region of text to process."
   (declare (special emacspeak-xml-shell-process))
-  (let ((start nil)
-        (end nil))
+  (let ((accumulator nil)
+        (terminator nil)
+        (accumulate (get-buffer-create "*xml-shell-accumulator*")))
+    (save-excursion
+      (set-buffer accumulate)
+      (erase-buffer))
     (save-excursion
       (set-buffer (process-buffer emacspeak-xml-shell-process))
-      (goto-char (point-max))
+      (goto-char (process-mark emacspeak-xml-shell-process))
+      (setq terminator (thing-at-point 'line))
+      (setq accumulator (emacspeak-xml-shell-create-accumulator
+                         accumulate  terminator 
+display-function))
+      (set-process-filter emacspeak-xml-shell-process accumulator)
       (insert (format "cat %s" xpath))
-      (comint-send-input)
-      (accept-process-output  emacspeak-xml-shell-process)
-      (sit-for 1)
-      (goto-char (marker-position comint-last-input-end))
-      (forward-line 1)
-      (setq start (point))
-      (goto-char (marker-position (process-mark emacspeak-xml-shell-process)))
-      (setq end (point))
-      (funcall display-function start end)
-      (set-buffer (process-buffer emacspeak-xml-shell-process))
-      (delete-region
-       (max (point-min)start)
-       (min (point-max) end)))))
-
-
-(defvar emacspeak-xml-shell-xslt nil
-  "XSL transform to apply to processed node.")
-
-(defun emacspeak-xml-shell-transform-current (start end)
-  "Display current node."
-  (declare (special emacspeak-xml-shell-xslt))
-  (let ((output-buffer (get-buffer-create  "*XML Shell Output*")))
-    (save-excursion
-      (set-buffer output-buffer)
-      (erase-buffer)
-      (insert-buffer-substring 
-       (process-buffer emacspeak-xml-shell-process)
-                               start end)
-      (emacspeak-xslt-region emacspeak-xml-shell-xslt
-                             (point-min) (point-max)))
-    (switch-to-buffer output-buffer)))
-
-(defun emacspeak-xml-shell-current ()
-  "Display current node."
-  (interactive)
-  (emacspeak-xml-shell-process-node "."
-                                    'emacspeak-xml-shell-display-as-html))
+      (comint-send-input))))
 
 ;;}}}
 ;;{{{ keybindings
