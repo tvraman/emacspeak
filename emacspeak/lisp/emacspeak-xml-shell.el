@@ -305,6 +305,14 @@ HTML head if none found."
                                     'emacspeak-xml-shell-display-as-html)
   (switch-to-buffer emacspeak-xml-shell-display-buffer))
 
+(defun emacspeak-xml-shell-browse-result (xpath)
+  "Display XPath  and display its result using W3."
+  (interactive "sXPath:")
+  (declare (special emacspeak-xml-shell-display-buffer))
+  (emacspeak-xml-shell-process-node xpath 
+                                    'emacspeak-xml-shell-display-as-html)
+  (switch-to-buffer emacspeak-xml-shell-display-buffer))
+
 ;;}}}
 ;;{{{ keybindings
 
@@ -317,7 +325,9 @@ HTML head if none found."
   'emacspeak-xml-shell-goto-parent)
 (define-key emacspeak-xml-shell-mode-map [down] 
   'emacspeak-xml-shell-goto-children)
-(define-key emacspeak-xml-shell-mode-map "\C-cv" 'emacspeak-xml-shell-browse-current)
+(define-key emacspeak-xml-shell-mode-map "\C-c\C-v"
+  'emacspeak-xml-shell-browse-result)
+(define-key emacspeak-xml-shell-mode-map "\C-c\v" 'emacspeak-xml-shell-browse-current)
 
 ;;}}}
 (provide 'emacspeak-xml-shell)
