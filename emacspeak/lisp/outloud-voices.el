@@ -59,7 +59,7 @@
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
-(defvar outloud-default-voice-string ""
+(defvar outloud-default-voice-string "`v1"
   "Default Outloud tag for  default voice --set to be a no-op.")
 
 (defvar outloud-voice-table (make-hash-table)
@@ -341,6 +341,7 @@ and TABLE gives the values along that dimension."
 ;;{{{  stress
 
 ;;; On the outloud we map stress to roughness
+;;; we also use stress markers `00 .. `4 
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
@@ -348,18 +349,20 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-            (format " `vr%s " (second setting)))))
+            (format " `vr%s %s "
+                    (second setting)
+                    (third setting)))))
    '(
-     (0 0 )
-     (1 0 )
-     (2  0)
-     (3  0)
-     (4  0 )
-     (5  0 )
-     (6  5)
-     (7  10)
-     (8  15)
-     (9  20)
+     (0 0 "`00")
+     (1 5 "`00")
+     (2  10 "`0")
+     (3  15 "`0")
+     (4  20 "`1" )
+     (5  25 "`1" )
+     (6  30 "`v2")
+     (7  35 "`v2")
+     (8  40 "`v3")
+     (9  45 "`v4")
      ))
   (outloud-css-set-code-table 'paul 'stress table)
   (outloud-css-set-code-table 'harry 'stress table)
@@ -384,19 +387,20 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-            (format " `vv%s "
-                    (second setting)))))
+            (format " `vy%s  `vv%s "
+                    (second setting)
+                    (third setting)))))
    '(
-     (0 60)
-     (1 78)
-     (2 80)
-     (3 84)
-     (4 88)
-     (5 92)
-     (6 93)
-     (7 95)
-     (8 97 )
-     (9 100)))
+     (0 0 60)
+     (1 4 78)
+     (2 8 80)
+     (3 12 84)
+     (4 16 88)
+     (5 20 92)
+     (6 24 93)
+     (7 28 95)
+     (8 32 97 )
+     (9 36 100)))
   (outloud-css-set-code-table 'paul 'richness table)
   (outloud-css-set-code-table 'harry 'richness table)
   (outloud-css-set-code-table 'betty 'richness table))
