@@ -81,7 +81,7 @@ proc l {text} {
         set prefix "$prefix `vb80"
     }
     synth "$prefix  `ts2 $text`ts0"
-    service
+    synchronize 
         return ""
 }
 
