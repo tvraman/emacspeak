@@ -1014,7 +1014,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-key ?g 'google)
 
 (defvar emacspeak-websearch-google-uri
-  "http://www.google.com/search?q="
+  "http://www.google.com/search?num=30&q="
   "*URI for Google search")
 
 (defcustom emacspeak-websearch-google-feeling-lucky-p nil
