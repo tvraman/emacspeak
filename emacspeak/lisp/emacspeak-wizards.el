@@ -1223,8 +1223,8 @@ With optional interactive prefix arg `frame', move to previous frame instead."
            (remove-if
             #'(lambda (b)
                 (string-equal (substring
-                          (buffer-name b)
-                          0 1) " "))
+			       (buffer-name b)
+			       0 1) " "))
             (buffer-list))))
       (switch-to-buffer (nth (1- (length l))
                              l))

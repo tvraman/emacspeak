@@ -547,7 +547,7 @@ Arguments START and END specify region to speak."
         (setq start  last
               personality
 	      (get-text-property last  'personality))) ; end while
-      ))                                ; end clause
+      ))					       ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
