@@ -1,8 +1,8 @@
-;;; emacspeak-sigbegone.el --- Speech-enable sigbegone
+;;; emacspeak-newsticker.el --- Speech-enable newsticker
 ;;; $Id$
 ;;; $Author$
-;;; Description:  Emacspeak module for SIGBEGONE --signature exorciser 
-;;; Keywords: Emacspeak, sigbegone 
+;;; Description:  Emacspeak front-end for NEWSTICKER 
+;;; Keywords: Emacspeak, newsticker 
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -41,7 +41,9 @@
 ;;; Commentary:
 ;;{{{  Introduction:
 
-;;; Speech-enables package sigbegone --voiceify sigs in email and news
+;;; Newsticker provides a continuously updating newsticker using
+;;; RSS
+;;; Provides functionality similar to amphetadesk --but in pure elisp
 
 ;;}}}
 ;;{{{ required modules
@@ -49,14 +51,17 @@
 ;;; Code:
 (require 'emacspeak-preamble)
 ;;}}}
-;;{{{ define personalities 
-(def-voice-font emacspeak-sigbegone-exorcized-personality
-  voice-smoothen-extra
-  'sigbegone-exorcized-face
-  "Personality for signatures.")
+;;{{{ advice functions
+
+(defadvice newsticker-callback-enter (around emacspeak pre act
+                                             comp)
+  "Silence messages temporarily to avoid chatter."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
 
 ;;}}}
-(provide 'emacspeak-sigbegone)
+(provide 'emacspeak-newsticker)
 ;;{{{ end of file
 
 ;;; local variables:
