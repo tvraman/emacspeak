@@ -595,25 +595,40 @@ libxslt package."
                     emacspeak-w3-xsl-directory)
   "XSL transform to extract a table.")
 
-(defun emacspeak-w3-extract-table (table-index)
-  "Extracts specified table and displays it in a separate buffer."
-  (interactive "nTable index: ")
+(defun emacspeak-w3-extract-table (table-index &optional prompt)
+  "Extract tables from HTML.  Extracts specified table from
+current WWW page and displays it in a separate buffer.
+Optional arg url specifies the page to extract table from.
+Interactive prefix arg causes url to be read from the
+minibuffer."
+  (interactive
+   (list
+    (read-from-minibuffer "Table Index: ")
+    current-prefix-arg))
   (declare (special emacspeak-xslt-program))
-  (unless (eq major-mode 'w3-mode)
+  (unless (or prompt
+              (eq major-mode 'w3-mode))
     (error "Not in a W3 buffer."))
-  (save-excursion
-    (w3-source-document nil)
-    (let ((src-buffer (current-buffer))
-          (emacspeak-w3-xsl-p nil))
-      (emacspeak-w3-xslt-region
-       emacspeak-w3-extract-table-xsl
-       (point-min)
-       (point-max)
-       (list
-        (cons "table-index"
-              table-index)))
-      (w3-preview-this-buffer)
-      (kill-buffer src-buffer))))
+  (let ((source-url
+         (cond
+          ((and (interactive-p)
+                prompt)
+           (read-from-minibuffer "URL: "
+                                 "http://www."))
+          (t  prompt))))
+    (save-excursion
+      (w3-source-document source-url)
+      (let ((src-buffer (current-buffer))
+            (emacspeak-w3-xsl-p nil))
+        (emacspeak-w3-xslt-region
+         emacspeak-w3-extract-table-xsl
+         (point-min)
+         (point-max)
+         (list
+          (cons "table-index"
+                table-index)))
+        (w3-preview-this-buffer)
+        (kill-buffer src-buffer)))))
     
 
 (declaim (special emacspeak-w3-xsl-map))
