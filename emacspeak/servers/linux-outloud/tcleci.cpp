@@ -74,7 +74,7 @@ int  dsp = -1;
 //note that in the tcl server we select for 0.09 seconds so
 //that we dont queue up too many speech samples,
 //This is important for stopping speech immediately.
-#define BUFSIZE 1024
+#define BUFSIZE 512
 short waveBuffer[BUFSIZE];
 
 /* The following declarations are derived from the publically available
