@@ -2306,10 +2306,11 @@ Argument ARG determines the 'other' window to speak.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'."
   (interactive "P")
-  (let ((window
-         (condition-case nil
-             (read (format "%c" last-input-event ))
-           (error nil ))))
+  (let* ((window-size-change-functions nil)
+         (window
+          (condition-case nil
+              (read (format "%c" last-input-event ))
+            (error nil ))))
     (or (numberp window)
         (setq window
               (read-minibuffer "Window   between 1 and 9 to speak")))
