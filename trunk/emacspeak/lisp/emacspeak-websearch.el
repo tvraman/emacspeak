@@ -106,7 +106,7 @@
         (loop for m in map 
               do 
               (princ (key-description (list (car m))))
-              (move-to-column-force 16 )
+              (move-to-column 16 )
               (princ "`")
               (princ (emacspeak-websearch-get-searcher (cdr m)))
               (princ "'")

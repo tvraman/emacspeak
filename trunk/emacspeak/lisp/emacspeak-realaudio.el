@@ -89,8 +89,10 @@ icons once a realaudio stream is done playing."
   "Process handle to running player")
 (defvar emacspeak-realaudio-last-url nil
   "Records the last RealAudio resource we played")
+;;;###autoload
 (defvar emacspeak-realaudio-history nil
   "History list holding resources we played recently")
+;;;###autoload
 (defvar emacspeak-realaudio-shortcuts-directory 
   (expand-file-name "realaudio/" emacspeak-directory)
   "*Directory where we keep realaudio shortcuts.

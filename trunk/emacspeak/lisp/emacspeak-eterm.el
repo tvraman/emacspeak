@@ -1316,6 +1316,7 @@ completions for filename at point")))
 
 ;;}}}
 ;;{{{  Launch remote terminals
+;;;###autoload
 (defvar emacspeak-eterm-remote-hosts-table
   (make-vector 127 0)
   "obarray used for completing hostnames when prompting for a remote
