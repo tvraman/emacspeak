@@ -17,6 +17,9 @@ info: *.texi
 
 commands.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
+	rm -f *.info*
+	make
+
 options.texi: 
 	$(EMACS) -batch -q -l ../utils/document-commands.el
 
@@ -49,7 +52,7 @@ emacspeak.dvi:		emacspeak.texi
 emacspeak.pdf:		emacspeak.texi
 	$(PDFTEX) emacspeak.texi
 	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
-	$(PDTEX) emacspeak.texi
+	$(PDFTEX) emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
@@ -67,6 +70,12 @@ introducing-emacspeak.html: introducing-emacspeak.texi
 
 pub:  emacspeak.html introducing-emacspeak.html
 	scp *.html     raman@emacspeak.sourceforge.net:~/www-emacspeak/htdocs/info
+
+%.pdf: %.ps
+	ps2pdf    $<
+
+%.ps: %.dvi
+	@dvips -q   -Pwww  $< 2>&1  > /dev/null 
 
 clean: 
 
