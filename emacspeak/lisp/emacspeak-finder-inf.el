@@ -26,6 +26,9 @@
     ("emacspeak-actions.el"
         "Emacspeak actions -- callbacks that can be associated with portions of a buffer"
         (emacspeak  audio interface to emacs actions))
+    ("emacspeak-add-log.el"
+        "Speech-enable add-log"
+        (emacspeak   audio desktop changelogs))
     ("emacspeak-advice.el"
         "Advice all core Emacs functionality to speak intelligently"
         (emacspeak  speech  advice  spoken  output))
