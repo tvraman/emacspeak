@@ -29,7 +29,7 @@ Decrease overall volume. " t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-daisy-open-book) "emacspeak-daisy" "emacspeak-daisy.el"
-;;;;;;  (15897 64692))
+;;;;;;  (15898 454))
 ;;; Generated autoloads from emacspeak-daisy.el
 
 (defgroup emacspeak-daisy nil "Daisy Digital Talking Books  for the Emacspeak desktop." :group (quote emacspeak))
@@ -129,7 +129,7 @@ and when you have heard enough navigate easily  to move past the block." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-imcom) "emacspeak-imcom" "emacspeak-imcom.el"
-;;;;;;  (15897 64797))
+;;;;;;  (15898 1059))
 ;;; Generated autoloads from emacspeak-imcom.el
 
 (defgroup emacspeak-imcom nil "Jabber access from the Emacspeak audio desktop.")
@@ -174,7 +174,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 
 ;;;### (autoloads (emacspeak-realaudio-browse emacspeak-realaudio
 ;;;;;;  emacspeak-realaudio-process-sentinel emacspeak-realaudio-play)
-;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15898 416))
+;;;;;;  "emacspeak-realaudio" "emacspeak-realaudio.el" (15898 461))
 ;;; Generated autoloads from emacspeak-realaudio.el
 
 (autoload (quote emacspeak-realaudio-play) "emacspeak-realaudio" "\
@@ -241,7 +241,7 @@ host is listening on for speech requests." t nil)
 ;;;***
 
 ;;;### (autoloads (emacspeak-rss-browse emacspeak-rss-display) "emacspeak-rss"
-;;;;;;  "emacspeak-rss.el" (15897 64625))
+;;;;;;  "emacspeak-rss.el" (15898 462))
 ;;; Generated autoloads from emacspeak-rss.el
 
 (defgroup emacspeak-rss nil "RSS Feeds for the Emacspeak desktop." :group (quote emacspeak))
@@ -403,9 +403,18 @@ Optional interactive prefix arg displays documentation for specified resource." 
 
 ;;;***
 
-;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-emacspeak-archive
-;;;;;;  emacspeak-websearch-dispatch) "emacspeak-websearch" "emacspeak-websearch.el"
-;;;;;;  (15896 27082))
+;;;### (autoloads (emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3"
+;;;;;;  "emacspeak-w3.el" (15898 801))
+;;; Generated autoloads from emacspeak-w3.el
+
+(autoload (quote emacspeak-w3-realaudio-play-url-at-point) "emacspeak-w3" "\
+Play url under point as realaudio" t nil)
+
+;;;***
+
+;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google
+;;;;;;  emacspeak-websearch-emacspeak-archive emacspeak-websearch-dispatch)
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (15898 1300))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -420,6 +429,12 @@ When using W3,  this interface attempts to speak the most relevant information o
 Search Emacspeak mail archives.
 For example to find messages about Redhat at the Emacspeak
 archives, type +redhat" t nil)
+
+(autoload (quote emacspeak-websearch-google) "emacspeak-websearch" "\
+Perform an Google search.
+Optional interactive prefix arg `lucky' is equivalent to hitting the 
+I'm Feeling Lucky button on Google.
+Meaning of the `lucky' flag can be inverted by setting option emacspeak-websearch-google-feeling-lucky-p." t nil)
 
 (autoload (quote emacspeak-websearch-usenet) "emacspeak-websearch" "\
 Prompt and browse a Usenet newsgroup.
