@@ -138,6 +138,10 @@ proc t  {{pitch 440} {duration 50}} {
         n $inst $note $len
         return ""
     }
+    if {$tts(beep)} {
+        b $pitch $duration
+return ""
+    }
     service
 }
 
@@ -234,6 +238,12 @@ proc speech_task {} {
             a {
                 set sound [lindex $event 1]
                 playWave $sound
+            }
+            b {
+                if {$tts(beep)} {
+                    lvarpop event 
+                    eval beep $event
+                }
             }
             n {
                 if {$tts(midi)} {
