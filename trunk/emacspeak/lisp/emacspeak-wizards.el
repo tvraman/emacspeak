@@ -906,14 +906,14 @@ To leave, press \\[keyboard-quit]."
            options
            #'(lambda (a b )
                (cond
-                     ((string-lessp
-		       (ems-variable-symbol-file a)
-		       (ems-variable-symbol-file b))
-                      t)
-                     ((string-equal (ems-variable-symbol-file a)
-                                    (ems-variable-symbol-file b))
-                      (string-lessp a b))
-                     (t nil)))))
+		((string-lessp
+		  (ems-variable-symbol-file a)
+		  (ems-variable-symbol-file b))
+		 t)
+		((string-equal (ems-variable-symbol-file a)
+			       (ems-variable-symbol-file b))
+		 (string-lessp a b))
+		(t nil)))))
     options))
            
 

@@ -96,15 +96,11 @@
   "Personality for symlinks."
   :group 'emacspeak-group)
 
-
 (def-voice-font emacspeak-dired-ignored-personality
   voice-lock-string-personality
   'dired-ignored
   "Personality for ignored lines in dired."
   :group 'emacspeak-dired)
-
-
-
 
 ;;}}}
 ;;{{{  configure dired

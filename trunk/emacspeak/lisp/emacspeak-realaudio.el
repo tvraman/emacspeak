@@ -339,7 +339,6 @@ commands via single keystrokes."
         ?[ ?] ?{ ?})
   "Keys accepted by TRPlayer.")
 
-
 (defun emacspeak-realaudio-trplayer-call-command ()
   "Call appropriate TRPlayer command."
   (interactive)

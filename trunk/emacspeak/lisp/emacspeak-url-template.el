@@ -438,9 +438,8 @@ from English to German.")
      (emacspeak-speak-line))
  "Search Google news."
  #'(lambda (url)
-(emacspeak-w3-without-xsl
-(browse-url url))))
-
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
 
 ;;}}}
 ;;{{{ mapquest
@@ -764,7 +763,6 @@ name of the list.")
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
       "//p" url 'speak)))
-
 
 ;;}}}
 ;;{{{  NPR programs 

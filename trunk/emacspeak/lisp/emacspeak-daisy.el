@@ -495,8 +495,8 @@ navigation file for a book. Include all extensions except `.ncx'
 
 (defsubst emacspeak-daisy-read-file-name()
   "Read file name."
-  ;;; we do this based on signature of read-file-name
-  (let ((read-file-name-takes-predicate ;;; emacs 21.4
+;;; we do this based on signature of read-file-name
+  (let ((read-file-name-takes-predicate	;;; emacs 21.4
          (= 7 (length
                (car (append
                      (symbol-function 'read-file-name) nil))))))

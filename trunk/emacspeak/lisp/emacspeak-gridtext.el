@@ -111,7 +111,7 @@ end   as specified by grid."
               (loop for j from 0 to (1- (length grid))
                     do
                     (when (< (1- (nth j grid )) this-length)
-                      ;;; within bounds 
+;;; within bounds 
                       (aset  this-row j
                              (substring
                               this-line

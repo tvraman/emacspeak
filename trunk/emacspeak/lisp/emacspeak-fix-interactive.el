@@ -183,7 +183,7 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
       (while (and lh
                   (not (eq lh
                            emacspeak-load-history-pointer)))
-      ;;; fix commands in this module
+;;; fix commands in this module
         (dolist (item (rest (first lh)))
           (and (symbolp item)
                (commandp item)

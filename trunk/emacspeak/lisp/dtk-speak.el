@@ -183,16 +183,16 @@ Do not modify this variable directly; use command  `dtk-set-rate'
   (cond
    ((consp buffer-invisibility-spec)
     (memq
-  (get-text-property position 'invisible )
-  buffer-invisibility-spec))
-(t (get-text-property  position 'invisible))))
+     (get-text-property position 'invisible )
+     buffer-invisibility-spec))
+   (t (get-text-property  position 'invisible))))
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
-                  (text-invisible-p (point)))
-             (goto-char
-              (next-single-property-change (point) 'invisible
-                                           (current-buffer) (point-max)))))
+	     (text-invisible-p (point)))
+    (goto-char
+     (next-single-property-change (point) 'invisible
+				  (current-buffer) (point-max)))))
 
 (defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
@@ -281,7 +281,7 @@ Optional argument FORCE  flushes the command to the speech server."
 
 ;;; Quote the string in current buffer so tcl does not barf.
 ;;; Fix brackets by changing to text.
- ;;; This is necessary because
+;;; This is necessary because
 ;;;  [] marks dtk commands; {} is special to tcl
 ;;; Optionally post-process the text with cleanup function if one is specified.
 (defconst dtk-bracket-regexp
@@ -412,9 +412,9 @@ Argument MODE  specifies the current pronunciation mode."
    dtk-cleanup-patterns ))
 
 (defsubst  dtk-quote(mode )
-    ;;; dtk will think it's processing a command otherwise:
+;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
-  ;;; fix control chars
+;;; fix control chars
   (dtk-fix-control-chars))
 
 (defsubst dtk-fix-backslash ()
@@ -432,10 +432,10 @@ Argument MODE  specifies the current pronunciation mode."
     (erase-buffer)
     (insert string)
     (goto-char (point-min))
-    ;;; dtk will think it's processing a command otherwise:
+;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets "all")
     (dtk-fix-backslash)
-  ;;; fix control chars
+;;; fix control chars
     (dtk-fix-control-chars)))
 
 ;;; Moving  across a chunk of text.
@@ -1572,7 +1572,7 @@ only speak upto the first ctrl-m."
           (erase-buffer)
                                         ; inherit environment
           (setq buffer-invisibility-spec invisibility-spec
-           dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+		dtk-chunk-separator-syntax inherit-chunk-separator-syntax
                 dtk-speaker-process inherit-speaker-process
                 dtk-speech-rate speech-rate
                 emacspeak-use-auditory-icons use-auditory-icons
@@ -1631,7 +1631,7 @@ Argument TEXT  is the list of strings to speak."
              (insert "\n"))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
-      ;;;###autoload
+;;;###autoload
 (defsubst dtk-letter (letter)
   "Speak a LETTER."
   (declare (special dtk-speaker-process
