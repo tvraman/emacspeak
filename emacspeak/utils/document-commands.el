@@ -191,7 +191,7 @@
 ("emacspeak-analog" "analog-prepare")
 ("emacspeak-desktop" . nil)
 ("emacspeak-ediary" . nil)
-("emacspeak-eperiodic" . nil)
+("emacspeak-eperiodic" . ("eperiodic"))
 ("emacspeak-m-player" . nil)
 ("emacspeak-personality" . nil)
 ("emacspeak-rpm-spec" . nil)

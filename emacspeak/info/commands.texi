@@ -27,6 +27,7 @@ documentation.
 * emacspeak-ediff::             
 * emacspeak-enriched::          
 * emacspeak-entertain::         
+* emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
 * emacspeak-eudc::              
@@ -73,6 +74,7 @@ documentation.
 * emacspeak-view-process::      
 * emacspeak-vm::                
 * emacspeak-w3::                
+* emacspeak-w3search::          
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak-wizards::           
@@ -213,16 +215,6 @@ Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
-@end deffn
-
-@deffn {Interactive Command} dtk-set-pronunciation-mode (MODE STATE)
-@kbd{ control e d m }
-
-Set pronunciation MODE.
-This command is valid only for newer
-Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
-europe, spell', all of which can be turned on or off.
-Argument STATE specifies new state.
 @end deffn
 
 @deffn {Interactive Command} dtk-set-punctuations (MODE &optional PREFIX)
@@ -582,6 +574,15 @@ Daisy Digital Talking Book Reader
 Automatically generated documentation
 for commands defined in module  emacspeak-daisy.
 
+@deffn {Interactive Command} emacspeak-daisy-define-outline-pattern (REGEXP)
+Define persistent outline regexp for this book.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-daisy-mark-position-in-content-under-point ()
+Mark current position in displayed content.
+No-op if content under point is not currently displayed.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-daisy-mode ()
 A DAISY front-end for the Emacspeak desktop.
 
@@ -608,17 +609,24 @@ key             binding
 ---             -------
 
 P		emacspeak-daisy-play-page-range
-p		previous-line
-n		next-line
 RET		emacspeak-daisy-play-content-under-point
 SPC		emacspeak-daisy-play-audio-under-point
 q		bury-buffer
+S		emacspeak-daisy-save-bookmarks
+o		emacspeak-daisy-define-outline-pattern
+p		emacspeak-daisy-previous-line
+n		emacspeak-daisy-next-line
 s		emacspeak-daisy-stop-audio
+m		emacspeak-daisy-mark-position-in-content-under-point
 ?		describe-mode
 
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
 during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-daisy-next-line ()
+Move to next line.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-daisy-open-book (FILENAME)
@@ -641,6 +649,14 @@ Play SMIL content  under point.
 
 @deffn {Interactive Command} emacspeak-daisy-play-page-range (START END)
 Play pages in specified page range.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-daisy-previous-line ()
+Move to previous line.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-daisy-save-bookmarks ()
+Save bookmarks for current book.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-daisy-stop-audio ()
@@ -789,6 +805,18 @@ Speak contents of methods window.
 Speak contents of sources window.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-ecb-tree-backspace ()
+Back up during incremental search in tree buffers.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ecb-tree-clear ()
+Clear search pattern during incremental search in tree buffers.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ecb-tree-expand-common-prefix ()
+Expand to longest common prefix in tree buffer.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-ecb-tree-shift-return ()
 Do shift return in ECB tree browser.
 @end deffn
@@ -831,6 +859,28 @@ Speak current guessed string.
 Speak statistics.
 @end deffn
 
+@node emacspeak-eperiodic
+@section emacspeak-eperiodic
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eperiodic.
+
+@deffn {Interactive Command} emacspeak-eperiodic-goto-property-section ()
+Mark position and jump to properties section.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eperiodic-next-line ()
+Move to next row and speak element.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eperiodic-previous-line ()
+Move to next row and speak element.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-eperiodic-speak-current-element ()
+Speak element at point.
+@end deffn
+
 @node emacspeak-erc
 @section emacspeak-erc
 
@@ -849,6 +899,10 @@ Add people to monitor in this room.
 
 @deffn {Interactive Command} emacspeak-erc-delete-name-from-monitor (NAME)
 Remove name to monitor in this room.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-erc-setup-cricket-rules ()
+Set up #cricket channels.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-erc-toggle-my-monitor (&optional PREFIX)
@@ -1336,6 +1390,7 @@ grid are "one line" high --but that may change in the
 future if necessary. This module is useful for browsing
 structured text files and the output from programs that
 tabulate their output.
+It's also useful for handling multicolumn text.
 
 Automatically generated documentation
 for commands defined in module  emacspeak-gridtext.
@@ -1579,7 +1634,8 @@ s		emacspeak-m-player-seek-relative
 <right>		emacspeak-aumix-wave-increase
 <left>		emacspeak-aumix-wave-decrease
 
-This mode runs the hook `emacspeak-m-player-mode-hook', as the final step
+In addition to any hooks its parent mode `comint-mode' might have run,
+this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization.
 @end deffn
 
@@ -1934,6 +1990,12 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 
 @deffn {Interactive Command} emacspeak-pronounce-define-pronunciation ()
 Interactively define entries in the pronunciation dictionaries.
+Default term to define is delimited by region.
+First loads any persistent dictionaries if not already loaded.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-pronounce-define-template-pronunciation ()
+Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded.
 @end deffn
@@ -2423,14 +2485,13 @@ Automatically defined advice to speak interactive prompts.
 Speak extent delimited by point and last character typed.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-browse-buffer (&optional DEFINE-PARAGRAPH)
+@deffn {Interactive Command} emacspeak-speak-browse-buffer (&optional BROWSE)
 @kbd{ control e , }
 
-Browse the current buffer by reading it a paragraph at a
-time.
-Optional interactive prefix arg define-paragraph 
-prompts for regexp that defines paragraph start and
-paragraph-separate. 
+Browse current buffer.
+Default is to speak chunk having current personality.
+Interactive prefix arg `browse'  repeatedly browses  through
+  chunks having same personality as the current text chunk.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-buffer (&optional ARG)
@@ -2478,12 +2539,11 @@ Speak completions  buffer if one present.
 @kbd{ control e RETURN }
 
 Speak a buffer continuously.
-First prompts using the minibuffer for the kind of action to perform after
-speaking each chunk.
-E.G.  speak a line at a time etc.
-Speaking commences at current buffer position.
-Pressing  C-g breaks out, leaving point on last chunk that was spoken.
- Any other key continues to speak the buffer.
+First prompts using the minibuffer for the kind of action to
+perform after speaking each chunk.  E.G.  speak a line at a time
+etc.  Speaking commences at current buffer position.  Pressing
+C-g breaks out, leaving point on last chunk that
+was spoken.  Any other key continues to speak the buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-current-column ()
@@ -2613,6 +2673,13 @@ Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
 @end deffn
 
+@deffn {Interactive Command} emacspeak-speak-load-directory-settings ()
+Load a directory specific Emacspeak settings file.
+This is typically used to load up settings that are specific to
+an electronic book consisting of many files in the same
+directory.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-speak-message-again (&optional FROM-MESSAGE-CACHE)
 @kbd{ control e a }
 
@@ -2656,6 +2723,11 @@ Speak the mode-line.
 Skip across and speak the next contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-next-personality-chunk ()
+Moves to the front of next chunk having current personality.
+Speak that chunk after moving.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-next-window ()
@@ -2733,6 +2805,11 @@ Semantics  of `other' is the same as for the builtin Emacs command
 Skip backwards across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
 Will be improved if it proves useful.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-previous-personality-chunk ()
+Moves to the front of previous chunk having current personality.
+Speak that chunk after moving.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-previous-window ()
@@ -2816,6 +2893,11 @@ Speak the white space at point.
 
 @deffn {Interactive Command} emacspeak-speak-spell-current-word ()
 Spell word at  point.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-this-personality-chunk ()
+Speak chunk of text around point that has current
+personality.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-time (&optional WORLD)
@@ -3474,6 +3556,10 @@ Count nested tables in HTML.
 Count  tables in HTML.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-customize-base-uri-pronunciation ()
+Defines custom buffer local pronunciation for base URI.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-do-onclick ()
 Do  onclick action.
 @end deffn
@@ -3499,7 +3585,7 @@ Extracts links whose URL matches pattern.
 
 @deffn {Interactive Command} emacspeak-w3-extract-media-streams (&optional PROMPT-URL SPEAK)
 Extract links to media streams.
-operate on current web page when in a W3 buffer; otherwise
+operate on current web page when in a W3 buffer; otherwise prompt for url.
 `prompt-url' is the URL to process. Prompts for URL when called
 interactively. Optional arg `speak' specifies if the result should be
 spoken automatically.
@@ -3689,6 +3775,41 @@ Junk elements matching specified locator.
 Select XSL transformation applied to WWW pages before they are displayed .
 @end deffn
 
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
+  "*URI for IBM internal  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM using trevi"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+    (browse-url 
+     (format  emacspeak-websearch-ibm-internal-uri
+(webjump-url-encode query)))
+  )
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
+Search IBM using trevi
+@end deffn
+
 @node emacspeak-websearch
 @section emacspeak-websearch
 
@@ -3710,10 +3831,6 @@ Perform an Altavista search
 Amazon search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-appwatch-search (QUERY)
-Search AppWatch  Site. 
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-ask-jeeves (QUERY)
 Ask Jeeves for the answer.
 @end deffn
@@ -3732,10 +3849,6 @@ Search Encyclopedia Britannica.
 
 @deffn {Interactive Command} emacspeak-websearch-citeseer-search (TERM)
 Perform a CiteSeer search. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-cnn-search (QUERY)
-Perform an CNN search.  
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-company-news (TICKER &optional PREFIX)
@@ -3772,27 +3885,8 @@ Display form specified by form-markup.
 Ebay search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-emacspeak-archive (QUERY)
-@kbd{ control h  cap E    <f1>  cap E    <help>  cap E  }
-
-Search Emacspeak mail archives.
-For example to find messages about Redhat at the Emacspeak
-archives, type +redhat
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor ()
 Currency convertor.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-fn-cnn-search (QUERY &optional PREFIX)
-Perform an CNN FNsearch.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-fn-cnn-options to an appropriate string.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-foldoc-search (QUERY)
@@ -3838,25 +3932,6 @@ Perform an Gutenberg search
 Displays key mapping used by Emacspeak Websearch.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-hotbot-search (QUERY &optional PREFIX)
-Perform a Hotbot  search.  
-Optional interactive prefix arg
-prompts for additional search parameters.  The default is to
-sort by date and show summaries.  To sort by relevance
-specify additional parameter &rf=0.  To hide summaries,
-specify additional parameter &lk=2.
-You can customize the defaults by setting variable
-emacspeak-websearch-hotbot-options to an appropriate string.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-inference-search (QUERY)
-Perform an Inference search.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-machine-translate (LANG QUERY)
-Perform a machine translation request
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-map-directions-search (QUERY &optional MAP)
 Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
@@ -3882,10 +3957,6 @@ Perform a Northern Light  search
 Perform an Open Directory search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-packages-linux (QUERY)
-Search for Linux packages.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-people-yahoo ()
 Perform an Yahoo  people search
 @end deffn
@@ -3901,16 +3972,8 @@ You can customize the defaults by setting variable
 emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-real-tuner ()
-Search using Real Tuner from Real Networks.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-recorded-books-search ()
 Present advanced search form for recorded books.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-redhat (QUERY)
-Search RedHat site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-rpm-find (QUERY)
@@ -3929,10 +3992,6 @@ Search SourceForge, Freshmeat and other sites.
 Search SourceForge Site. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-streaming-audio-search (QUERY)
-Search for streaming audio. 
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-teoma (QUERY)
 Perform an Teoma  search.
 @end deffn
@@ -3944,19 +4003,15 @@ Prompt and browse a Usenet newsgroup.
 Optional interactive prefix arg results in prompting for a search term.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-vector-vest-search (QUERY)
-Look up VectorVest reports .
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-vickers-search (QUERY)
-Search Vickers insider trading.
+@deffn {Interactive Command} emacspeak-websearch-usenet-search (GROUP)
+Search a Usenet newsgroup.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-w3c-search (QUERY)
 Search the W3C Site.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-weather (ZIP)
+@deffn {Interactive Command} emacspeak-websearch-weather (QUERY)
 Get weather forecast for specified zip code.
 @end deffn
 
@@ -4247,13 +4302,6 @@ We cleanup underlining, and set up outline mode correctly.
 Speak host name.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-load-directory-settings ()
-Load a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-speak-popup-messages ()
 @kbd{ control h  cap M    <f1>  cap M    <help>  cap M  }
 
@@ -4503,6 +4551,15 @@ key             binding
 
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-rivo (WHEN CHANNEL LENGTH OUTPUT DIRECTORY)
+Rivo wizard.
+Prompts for relevant information and schedules a rivo job using
+  UNIX AT scheduling facility.
+RIVO is implemented by rivo.pl ---
+ a Perl script  that can be used to launch realaudio and record
+   streaming media for  a specified duration.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-rpm-query-in-dired ()
 Run rpm -qi on current dired entry.
 @end deffn
@@ -4542,6 +4599,10 @@ for `word' and displays hits in a compilation buffer.
 Squeeze multiple blank lines in current buffer.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer ()
+Toggle pronunciation of mm-dd-yyyy dates.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-tpctl-display-status ()
 Show display status on thinkpads using tpctl.
 @end deffn
@@ -4549,6 +4610,10 @@ Show display status on thinkpads using tpctl.
 @deffn {Interactive Command} emacspeak-wizards-tramp-open-location (NAME)
 Open specified tramp location.
 Location is specified by name.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-units ()
+Run units in a comint sub-process.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-use-w3-or-w3m ()
@@ -4574,6 +4639,10 @@ during initialization.
 
 @deffn {Interactive Command} emacspeak-wizards-vc-viewer-refresh ()
 Refresh view of VC we're viewing.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-vi-as-su-file (FILE)
+Launch sudo vi on specified file in a terminal.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-voice-sampler (PERSONALITY)

@@ -886,6 +886,7 @@ To leave, press \\[keyboard-quit]."
   "Locate file that defines a variable."
   (or (symbol-file o)
       (symbol-file (cons 'defvar o))))
+
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
   (let ((options nil ))
@@ -901,19 +902,15 @@ To leave, press \\[keyboard-quit]."
                       (string-match "tts" (symbol-name symbol))))
            (push symbol options))))
     (setq options
-          (sort options
-                #'(lambda (a b )
-                    (cond
-                     ((string-lessp
-		       (ems-variable-symbol-file  a)
-		       (ems-variable-symbol-file  b))
-                      t)
-                     ((string-equal (symbol-file  a) (symbol-file  b))
-                      (string-lessp
-                       (symbol-name a)
-                       (symbol-name b)))
-                     (t nil)))))
+          (sort
+           options
+           #'(lambda (a b )
+               (or
+                (string-lessp a b)
+                (string-lessp (ems-variable-symbol-file  a)
+                              (ems-variable-symbol-file  b))))))
     options))
+           
 
 (defsubst emacspeak-list-emacspeak-commands ()
   "List all Emacspeak commands."
