@@ -70,7 +70,7 @@
   'emacspeak-m-player-mode-map)
 (declaim (special emacspeak-aumix-multichannel-capable-p
                   emacspeak-use-auditory-icons))
-(define-derived-mode emacspeak-m-player-mode fundamental-mode 
+(define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
