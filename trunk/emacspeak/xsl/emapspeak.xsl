@@ -4,11 +4,16 @@
 Author: T. V. Raman <raman@cs.cornell.edu>
 Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
-Description: Transformation rules for speaking map metadata from google maps.
+Description: Transformation rules for speaking map metadata from
+google maps.
+Params: base - Google Maps URI
+near: url-encoded location from where direction links are generated 
 -->
 <xsl:stylesheet  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                  version="1.0">
   <xsl:param name="base"/>
+  <xsl:param name="near"/>
+  <xsl:variable name="gm-prefix">http://maps.google.com/maps?q=</xsl:variable>
   <xsl:template match="/page">
     <html>
       <head>
@@ -17,29 +22,56 @@ Description: Transformation rules for speaking map metadata from google maps.
       <body>
         <h1><xsl:apply-templates select="title"/></h1>
         <table summary="Coordinates">
-          </table>
+        </table>
         <xsl:apply-templates select="overlay/location"/>
         <xsl:apply-templates select="directions"/>
         <table summary="info">
-<tr>
+          <tr>
             <td>
               <a>
                 <xsl:attribute name="href">
                   <xsl:value-of select="$base"/>
                 </xsl:attribute>
-Reference Point</a></td>
-<td>Lat: <xsl:value-of select="center/@lat"/></td>
+            Reference Point</a></td>
+            <td>Lat: <xsl:value-of select="center/@lat"/></td>
             <td>Lng: <xsl:value-of select="center/@lng"/></td>
-        </tr>
+          </tr>
         </table>
       </body>
     </html>
   </xsl:template>
 
   <xsl:template match="location">
-    <h2>Location
-    <xsl:value-of select="position()"/>:
-    <xsl:apply-templates select="info/title"/></h2>
+    <xsl:variable name="title">
+      Location
+      <xsl:value-of select="position()"/>:
+      <xsl:apply-templates select="info/title"/>
+    </xsl:variable>
+    <h2>
+      <xsl:choose>
+        <xsl:when test="string-length($near) &gt; 0">
+          <xsl:variable name="to">
+            <xsl:value-of select=" translate(
+                                  normalize-space(
+                                  concat(info/address/line[1],
+                                  ' ',
+                                  info/address/line[2])),
+                                  ' ', '+')"/>
+          </xsl:variable>
+          <a>
+            <xsl:attribute name="href">
+              <xsl:value-of select="concat($gm-prefix,
+                                    $near,
+                                    ' to ',
+                                    $to,
+                                    '&amp;btng=Search')"/>
+            </xsl:attribute>
+            <xsl:value-of select="$title"/>
+          </a>
+        </xsl:when>
+<xsl:otherwise><xsl:value-of select="$title"/></xsl:otherwise>
+      </xsl:choose>
+</h2>
     <table summary="info">
       <xsl:apply-templates select="info"/>
       <tr>
