@@ -140,6 +140,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "calculator" 'emacspeak-calculator)
 (emacspeak-do-package-setup "calendar" 'emacspeak-calendar)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
+(emacspeak-do-package-setup "cedet" 'emacspeak-cedet)
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
 (emacspeak-do-package-setup "cmuscheme" 'emacspeak-cmuscheme)
 (emacspeak-do-package-setup "compile" 'emacspeak-compile)
