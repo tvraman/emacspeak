@@ -68,6 +68,8 @@
 (define-prefix-command  'emacspeak-dtk-submap-command
   'emacspeak-dtk-submap )
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
+;;; put it on hypre as well --use the windows key for hyper
+(global-set-key "\C-x@h" 'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 
 ;;; fix what we just broke:-
