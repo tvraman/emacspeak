@@ -1,0 +1,13 @@
+#!/bin/sh
+#for use in vm
+#Description: Install  package xlhtml to obtain ppthtml
+#http://www.xlhtml.org
+if which ppthtml
+then
+    tempfile=/tmp/ppthtml-$$.ppt
+    cat > $tempfile
+    ppthtml   $tempfile
+    rm -f $tempfile
+else
+    echo "ppthtml not found --install package xlhtml from http://www.xlhtml.org."
+fi
