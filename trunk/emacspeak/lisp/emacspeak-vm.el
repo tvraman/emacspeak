@@ -269,7 +269,7 @@ Note that some badly formed mime messages  cause trouble."
 Useful when you're reading a message
 that has been forwarded multiple times."
   (interactive)
-  (re-search-forward "^Subject:" nil t )
+  (re-search-forward "^ *Subject:" nil t )
   (emacspeak-speak-line))
 
 (defadvice vm-scroll-forward (after emacspeak pre act)
