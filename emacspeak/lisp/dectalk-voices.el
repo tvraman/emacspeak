@@ -1,7 +1,7 @@
 ;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes.
 ;;; $Id$
 ;;; $Author$
-;;; Description:  Module to set up dtk voices and personalities
+;;; Description:  Module to set up Dectalk voices and personalities
 ;;; Keywords: Voice, Personality, Dectalk
 ;;{{{  LCD Archive entry:
 
@@ -58,14 +58,14 @@
   "Default voice used. ")
 
 (defvar dectalk-default-voice-string ""
-  "dtk string for  default voice --set to be a no-op.")
+  "Dectalk string for  default voice --set to be a no-op.")
 
 (defvar dectalk-voice-table (make-hash-table)
-  "Association between symbols and strings to set dtk voices.
-The string can set any dtk parameter.")
+  "Association between symbols and strings to set Dectalk voices.
+The string can set any Dectalk parameter.")
 
 (defsubst dectalk-define-voice (name command-string)
-  "Define a dtk voice named NAME.
+  "Define a Dectalk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
   (declare (special dectalk-voice-table ))
@@ -105,67 +105,67 @@ COMMAND-STRING to the Dectalk."
 (dectalk-define-voice 'inaudible "")
 
 ;;}}}
-;;{{{  Mapping css parameters to dtk codes
+;;{{{  Mapping css parameters to Dectalk codes
 
 ;;{{{ voice family codes
 
-(defvar dtk-family-table nil
-  "Association list of dtk voice names and control codes.")
+(defvar dectalk-family-table nil
+  "Association list of Dectalk voice names and control codes.")
 
-(defsubst dtk-set-family-code (name code)
+(defsubst dectalk-set-family-code (name code)
   "Set control code for voice family NAME  to CODE."
-  (declare (special dtk-family-table))
+  (declare (special dectalk-family-table))
   (when (stringp name)
     (setq name (intern name)))
-  (setq dtk-family-table
+  (setq dectalk-family-table
         (cons (list name code )
-              dtk-family-table)))
+              dectalk-family-table)))
 
 (defsubst dectalk-get-family-code (name)
   "Get control code for voice family NAME."
-  (declare (special dtk-family-table ))
+  (declare (special dectalk-family-table ))
   (when (stringp name)
     (setq name (intern name )))
-  (or (cadr (assq  name dtk-family-table))
+  (or (cadr (assq  name dectalk-family-table))
       ""))
 
-(dtk-set-family-code 'paul ":np")
-(dtk-set-family-code 'harry ":nh")
-(dtk-set-family-code 'dennis ":nd")
-(dtk-set-family-code 'frank ":nf")
-(dtk-set-family-code 'betty ":nb")
-(dtk-set-family-code 'ursula ":nu")
-(dtk-set-family-code 'wendy ":nw")
-(dtk-set-family-code 'rita ":nr")
-(dtk-set-family-code 'kid ":nk")
+(dectalk-set-family-code 'paul ":np")
+(dectalk-set-family-code 'harry ":nh")
+(dectalk-set-family-code 'dennis ":nd")
+(dectalk-set-family-code 'frank ":nf")
+(dectalk-set-family-code 'betty ":nb")
+(dectalk-set-family-code 'ursula ":nu")
+(dectalk-set-family-code 'wendy ":nw")
+(dectalk-set-family-code 'rita ":nr")
+(dectalk-set-family-code 'kid ":nk")
 
 ;;}}}
 ;;{{{  hash table for mapping families to their dimensions
 
-(defvar dtk-css-code-tables (make-hash-table)
-  "Hash table holding vectors of dtk codes.
+(defvar dectalk-css-code-tables (make-hash-table)
+  "Hash table holding vectors of Dectalk codes.
 Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
-(defsubst dtk-css-set-code-table (family dimension table)
+(defsubst dectalk-css-set-code-table (family dimension table)
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-  (declare (special dtk-css-code-tables))
+  (declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (puthash  key table dtk-css-code-tables )))
+    (puthash  key table dectalk-css-code-tables )))
 
-(defsubst dtk-css-get-code-table (family dimension)
+(defsubst dectalk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
-  (declare (special dtk-css-code-tables))
+  (declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (gethash key dtk-css-code-tables)))
+    (gethash key dectalk-css-code-tables)))
 
 ;;}}}
 ;;{{{ volume
 
 ;;; Note:volume settings not implemented for Dectalks.
-(defvar dtk-gain-table (make-vector  10 "")
+(defvar Dectalk-gain-table (make-vector  10 "")
   "Maps CSS volume settings to actual synthesizer codes.")
 
 ;;}}}
@@ -201,7 +201,7 @@ and TABLE gives the values along that dimension."
      (8 140 94)
      (9 147 91)
      ))
-  (dtk-css-set-code-table 'paul 'average-pitch table ))
+  (dectalk-css-set-code-table 'paul 'average-pitch table ))
 
 ;;}}}
 ;;{{{  harry average pitch
@@ -228,7 +228,7 @@ and TABLE gives the values along that dimension."
      (8 125 100)
      (9 140 95)
      ))
-  (dtk-css-set-code-table 'harry 'average-pitch table ))
+  (dectalk-css-set-code-table 'harry 'average-pitch table ))
 
 ;;}}}
 ;;{{{  betty average pitch
@@ -254,7 +254,7 @@ and TABLE gives the values along that dimension."
      (8 240 94)
      (9 260  91)
      ))
-  (dtk-css-set-code-table 'betty 'average-pitch table ))
+  (dectalk-css-set-code-table 'betty 'average-pitch table ))
 
 ;;}}}
 
@@ -262,7 +262,7 @@ and TABLE gives the values along that dimension."
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value 
-      (aref (dtk-css-get-code-table family 'average-pitch)
+      (aref (dectalk-css-get-code-table family 'average-pitch)
 	    value)
     ""))
 
@@ -298,7 +298,7 @@ and TABLE gives the values along that dimension."
      (8 211 80)
      (9 250 100)
      ))
-  (dtk-css-set-code-table 'paul 'pitch-range table ))
+  (dectalk-css-set-code-table 'paul 'pitch-range table ))
 
 ;;}}}
 ;;{{{  harry pitch range
@@ -324,7 +324,7 @@ and TABLE gives the values along that dimension."
      (8 211 100)
      (9 250 100)
      ))
-  (dtk-css-set-code-table 'harry 'pitch-range table ))
+  (dectalk-css-set-code-table 'harry 'pitch-range table ))
 
 ;;}}}
 ;;{{{  betty pitch range
@@ -350,14 +350,14 @@ and TABLE gives the values along that dimension."
      (8 220 87)
      (9 250 100)
      ))
-  (dtk-css-set-code-table 'betty 'pitch-range table ))
+  (dectalk-css-set-code-table 'betty 'pitch-range table ))
 
 ;;}}}
 (defsubst dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value 
-      (aref (dtk-css-get-code-table family 'pitch-range)
+      (aref (dectalk-css-get-code-table family 'pitch-range)
 	    value)
     ""))
 
@@ -398,7 +398,7 @@ and TABLE gives the values along that dimension."
      (8 63 82 100 60)
      (9 80  90 100  40)
      ))
-  (dtk-css-set-code-table 'paul 'stress table))
+  (dectalk-css-set-code-table 'paul 'stress table))
 
 ;;}}}
 ;;{{{  harry stress
@@ -426,7 +426,7 @@ and TABLE gives the values along that dimension."
      (8 80 78 77 34)
      (9 100 100 100 40)
      ))
-  (dtk-css-set-code-table 'harry 'stress table))
+  (dectalk-css-set-code-table 'harry 'stress table))
 
 ;;}}}
 ;;{{{  betty stress
@@ -454,13 +454,13 @@ and TABLE gives the values along that dimension."
      (8 77 90 85 30)
      (9 100 100 100 40)
      ))
-  (dtk-css-set-code-table 'betty 'stress table))
+  (dectalk-css-set-code-table 'betty 'stress table))
 
 ;;}}}
 (defsubst dectalk-get-stress-code (value family)
   (or family (setq family 'paul ))
   (if value 
-      (aref (dtk-css-get-code-table family 'stress)
+      (aref (dectalk-css-get-code-table family 'stress)
 	    value)
     ""))
 
@@ -492,7 +492,7 @@ and TABLE gives the values along that dimension."
      (8 80 8 20)
      (9 100  0)
      ))
-  (dtk-css-set-code-table 'paul 'richness table))
+  (dectalk-css-set-code-table 'paul 'richness table))
 
 ;;}}}
 ;;{{{  harry richness
@@ -517,7 +517,7 @@ and TABLE gives the values along that dimension."
      (8 20 65)
      (9 0 70)
      ))
-  (dtk-css-set-code-table 'harry 'richness table))
+  (dectalk-css-set-code-table 'harry 'richness table))
 
 ;;}}}
 ;;{{{  betty richness
@@ -542,14 +542,14 @@ and TABLE gives the values along that dimension."
      (8 80 8 2)
      (9 100  0)
      ))
-  (dtk-css-set-code-table 'betty 'richness table))
+  (dectalk-css-set-code-table 'betty 'richness table))
 
 ;;}}}
 
 (defsubst dectalk-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
-      (aref (dtk-css-get-code-table family 'richness)
+      (aref (dectalk-css-get-code-table family 'richness)
 	    value)
     ""))
 
@@ -568,7 +568,7 @@ and TABLE gives the values along that dimension."
 ;;{{{  dectalk-define-voice-from-speech-style
 
 (defun dectalk-define-voice-from-speech-style (name style)
-  "Define NAME to be a dtk voice as specified by settings in STYLE."
+  "Define NAME to be a Dectalk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
 	 (command
 	  (concat "["
@@ -585,7 +585,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ list voices 
 
-(defun dtk-list-voices ()
+(defun Dectalk-list-voices ()
   "List defined voices."
   (declare (special dectalk-voice-table))
   (loop for k being the hash-keys of dectalk-voice-table 
@@ -594,11 +594,11 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{ configurater 
 
-(defun dtk-configure-tts ()
+(defun Dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (declare (special  dtk-default-speech-rate
                      tts-default-speech-rate))
-  (fset 'tts-list-voices 'dtk-list-voices)
+  (fset 'tts-list-voices 'Dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
