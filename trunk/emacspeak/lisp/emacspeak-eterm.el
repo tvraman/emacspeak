@@ -59,6 +59,7 @@
 (eval-when-compile (require 'dtk-speak)
                    (require 'dtk-voices )
                    (require 'voice-setup)
+                   (require 'emacspeak-ansi-color)
                    (require 'emacspeak-personality)
                    (require 'emacspeak-speak)
                    (require 'emacspeak-sounds)
@@ -1091,12 +1092,7 @@ See command emacspeak-toggle-eterm-autospeak bound to
         (new-column nil )
         (old-point (point))
         (dtk-stop-immediately (not eterm-line-mode)))
-    (save-match-data 
-      (ad-enable-advice  'put-text-property 'after 'eterm )
-      (ad-activate 'put-text-property) 
       ad-do-it
-      (ad-disable-advice  'put-text-property 'after 'eterm )
-      (ad-deactivate 'put-text-property))
     (setq new-row (term-current-row )
           new-column (term-current-column )
           new-end (point-max))

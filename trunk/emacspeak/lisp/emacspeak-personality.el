@@ -38,15 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Required modules
-
-(eval-when-compile (require 'cl))
-(declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'advice)
-(require 'voice-setup)
-(require 'emacspeak-sounds)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -92,6 +83,16 @@
 ;;; part of Emacs that was at its nascent stage in 1994, but is now
 ;;; stable.
 
+;;}}}
+;;{{{  Required modules
+
+(eval-when-compile (require 'cl))
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
+(require 'emacspeak-speak)
+(require 'emacspeak-sounds)
+(require 'advice)
+(require 'voice-setup)
 ;;}}}
 ;;{{{ new light-weight voice lock 
 
