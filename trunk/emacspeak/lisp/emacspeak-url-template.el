@@ -484,9 +484,15 @@ resources."
           (completing-read "Resource: "
                            table))
     (with-output-to-temp-buffer "*Help*"
+      (princ name)
+      (princ "\n\n")
       (princ
        (emacspeak-url-template-documentation
         (emacspeak-url-template-get name)))
+      (save-excursion
+        (set-buffer standard-output)
+        (fill-region (point-min)
+                     (point-max)))
       (print-help-return-message))
     (emacspeak-speak-help)
     (emacspeak-auditory-icon 'help-object)))
