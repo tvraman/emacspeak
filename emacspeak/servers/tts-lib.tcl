@@ -248,9 +248,9 @@ proc notes_initialize {} {
 
 #you need to have beep installed 
 
-proc beeps_initialize {} {
+proc beep_initialize {} {
     global tts
-    if {[file executable /usr/bin/stdiosynth]} {
+    if {[file executable /usr/bin/beep]} {
         set tts(beep) 1
     }
 }
