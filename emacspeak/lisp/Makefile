@@ -157,6 +157,7 @@ emacspeak-midge.elc \
 emacspeak-mpg123.elc \
 emacspeak-mspools.elc \
 emacspeak-net-utils.elc \
+emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
 emacspeak-oo-browser.elc \
 emacspeak-outline.elc \
@@ -333,6 +334,7 @@ emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc voice-setup.elc
 emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc voice-setup.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
+emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
 emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc voice-setup.elc 
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
