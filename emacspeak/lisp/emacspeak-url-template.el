@@ -430,8 +430,8 @@ Computing News at CNN.")
                                "http://www.india-today.com/itoday/%s/index.shtml"
                                (list
                                 'emacspeak-url-template-date-YearMonthDate)
-                               "Retrieve India
-Today. Published every Monday --specified appropriate date.")
+nil
+                               "Retrieve India Today. Published every Monday --specified appropriate date.")
 
 ;;}}}
 
