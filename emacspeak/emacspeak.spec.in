@@ -5,7 +5,7 @@ Version: <version>
 Release: 1
 Copyright: GPL
 Group: Applications/Editors
-Source: http://emacspeak.sf.net/emacspeak.tar.gz
+Source: http://emacspeak.sf.net/emacspeak.tar.bz2
 URL: http://emacspeak.sf.net
 Vendor: Emacspeak Inc 
 Packager: T. V. Raman <raman@cs.cornell.edu>
