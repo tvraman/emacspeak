@@ -59,7 +59,6 @@ documentation.
 * emacspeak-url-template Options::  
 * emacspeak-vm Options::        
 * emacspeak-w3 Options::        
-* emacspeak-w3m Options::       
 * emacspeak-websearch Options::  
 * emacspeak-widget Options::    
 * emacspeak-wizards Options::   
@@ -157,6 +156,11 @@ Allow tones to be turned off.
 Commentary:
 The complete audio desktop.
 
+Emacspeak extends Emacs to be a fully functional audio desktop.
+This is the main emacspeak module.
+It actually does very little:
+It loads the various parts of the system.
+
 Automatically generated documentation
 for options defined in module  emacspeak.
 These options are customizable via Emacs' Custom interface.
@@ -222,6 +226,10 @@ Port where AmphetaDesk listens.
 
 @defvar {User Option} emacspeak-amphetadesk-program
 Script that launches amphetadesk.
+@end defvar
+
+@defvar {User Option} emacspeak-amphetadesk-uri
+URI for Amphetadesk home.
 @end defvar
 
 @node emacspeak-analog Options
@@ -1729,6 +1737,10 @@ Automatically generated documentation
 for options defined in module  emacspeak-realaudio.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-realaudio-mp3-clipper
+Executable used to clip MP3 files.
+@end defvar
+
 @defvar {User Option} emacspeak-realaudio-player
 *Executable that plays realaudio
 @end defvar
@@ -2207,6 +2219,10 @@ Entities to unescape when treating badly escaped XML.
 Clean up bogus Unicode chars for magic quotes.
 @end defvar
 
+@defvar {User Option} emacspeak-w3-lwp-request
+LWP Request command from perl LWP.
+@end defvar
+
 @defvar {User Option} emacspeak-w3-lynx-program
 Name of lynx executable
 @end defvar
@@ -2235,53 +2251,6 @@ HTML.
 @defvar {User Option} emacspeak-w3-xsl-transform
 Specifies transform to use before displaying a page.
 Nil means no transform is used. 
-@end defvar
-
-@node emacspeak-w3m Options
-@section emacspeak-w3m Options
-
-Commentary:
-
-
-
-Automatically generated documentation
-for options defined in module  emacspeak-w3m.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-w3m-bold-personality
-w3m-bold-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-button-personality
-w3m-form-button-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-personality
-w3m-form-button-pressed-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-personality
-Personality for forms.
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-personality
-w3m-header-line-location-title-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-personality
-Image personality.
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-personality
-w3m-tab-selected-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-personality
-w3m-tab-unselected-face
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-personality
-w3m-underline-face
 @end defvar
 
 @node emacspeak-websearch Options
@@ -2415,6 +2384,10 @@ Set this to nil if you do not want to use the PPTHTML wizard.
 @defvar {User Option} emacspeak-wizards-quote-command
 Command for pulling up detailed stock quotes.
 this requires Perl module Finance::YahooQuote.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-quote-row-filter
+Format used to filter rows.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-spot-words-extension
