@@ -172,6 +172,8 @@
      :type (voice-setup-custom-menu)
      :group 'voice-fonts
      :set '(lambda  (sym val)
+             (put  '(, voice)
+                          '(, personality) t)
              (voice-setup-set-voice-for-face (, face) '(, personality))
              (set-default sym val))
      (,@ args))))
