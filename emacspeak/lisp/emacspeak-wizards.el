@@ -1323,6 +1323,27 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{  launch lynx 
+(defun emacspeak-links (url)
+  "Launch links on  specified URL in a new terminal."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: ")))
+  (require 'term)
+  (delete-other-windows)
+  (switch-to-buffer
+   (term-ansi-make-term
+    (generate-new-buffer-name
+     (format "links-%s"
+             (substring url 7)))
+    "/usr/local/bin/links"
+    nil
+    url))
+  (emacspeak-eterm-record-window   1 
+                                   (cons 0 1)
+                                   (cons 79 20)
+                                   'right-stretch 'left-stretch)
+  (term-char-mode)
+  (emacspeak-auditory-icon 'open-object))
 
 (defun emacspeak-lynx (url)
   "Launch lynx on  specified URL in a new terminal."
