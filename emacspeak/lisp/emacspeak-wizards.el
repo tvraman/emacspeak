@@ -716,7 +716,7 @@ To leave, press \\[keyboard-quit]."
 ;;{{{  Generate documentation:
 
 (defsubst emacspeak-list-emacspeak-commands ()
-  "List all commands."
+  "List all Emacspeak commands."
   (let ((commands nil ))
     (mapatoms
      (function
@@ -733,9 +733,17 @@ To leave, press \\[keyboard-quit]."
     (setq commands
           (sort commands
                 #'(lambda (a b )
-                    (string-lessp
+                    (cond
+                     ((string-lessp
                      (symbol-file a)
-                     (symbol-file b)))))
+                     (symbol-file b))
+                      t)
+                     ((string-equal (symbol-file a)
+                                    (symbol-file b))
+                      (string-lessp
+                       (symbol-name a)
+                       (symbol-name b)))
+                     (t nil)))))
     commands))
 
 (defun emacspeak-generate-documentation (filename)
@@ -808,8 +816,8 @@ end:\n\n")
 commands into file commands.texi.
 Warning! Contents of file commands.texi will be overwritten."
   (interactive "FEnter filename to save DOC in: ")
-  (declare (special emacspeak-speak-messages))
   (let ((emacspeak-speak-messages nil)
+        (dtk-quiet t)
         (buffer (find-file-noselect filename))
         (module nil))
     (save-excursion
