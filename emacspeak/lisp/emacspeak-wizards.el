@@ -1178,6 +1178,17 @@ Signals beginning  of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax )))))
 
 ;;}}}
+;;{{{  launch lynx 
+
+(defun emacspeak-lynx (url)
+  "Launch lynx on  specified URL in a new terminal."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: ")))
+  (ansi-term  "/usr/bin/lynx"
+              "*lynx*"))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
