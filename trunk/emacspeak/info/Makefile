@@ -1,5 +1,6 @@
 #$Id$
 SF_HOME=raman@emacspeak.sf.net:~/www-emacspeak/htdocs
+HTML_FILES=$(shell find . -name '*.html' -print)
 TEXINDEX=texindex
 FILES=*.texi
 MAKEINFO = makeinfo 
@@ -67,6 +68,10 @@ print: emacspeak.dvi
 html/index.html: emacspeak.texi 
 	makeinfo -o html  --html  emacspeak.texi
 	perl add-css.pl html/*.html
+	@for f in $(HTML_FILES) ;\
+		do \
+		tidy -mic -asxml  $$f \
+		done
 
 
 introducing-emacspeak.html: introducing-emacspeak.texi

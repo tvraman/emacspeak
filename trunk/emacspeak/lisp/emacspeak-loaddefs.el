@@ -1,7 +1,7 @@
 ;;;Auto generated
 
 ;;;### (autoloads (dtk-say dtk-speak-list dtk-speak tts-restart ems-generate-switcher)
-;;;;;;  "dtk-speak" "dtk-speak.el" (16438 15454))
+;;;;;;  "dtk-speak" "dtk-speak.el" (16463 23827))
 ;;; Generated autoloads from dtk-speak.el
 
 (autoload (quote ems-generate-switcher) "dtk-speak" "\
@@ -416,7 +416,7 @@ Existing personality properties on the text range are preserved.
 ;;;;;;  emacspeak-pronounce-toggle-use-of-dictionaries emacspeak-pronounce-clear-dictionaries
 ;;;;;;  emacspeak-pronounce-load-dictionaries emacspeak-pronounce-save-dictionaries
 ;;;;;;  emacspeak-pronounce-add-super emacspeak-pronounce-add-dictionary-entry)
-;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16438 15466))
+;;;;;;  "emacspeak-pronounce" "emacspeak-pronounce.el" (16463 26962))
 ;;; Generated autoloads from emacspeak-pronounce.el
 
 (autoload (quote emacspeak-pronounce-add-dictionary-entry) "emacspeak-pronounce" "\
@@ -434,7 +434,7 @@ Make CHILD inherit PARENT's pronunciations.
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table) "\
 Applies pronunciations specified in pronunciation table to current buffer.
-Modifies text and point in buffer." (declare (special emacspeak-pronounce-pronunciation-personality)) (let ((words (sort (loop for key being the hash-keys of pronunciation-table collect key) (function (lambda (a b) (> (length a) (length b))))))) (loop for key in words do (let ((word key) (pronunciation (gethash key pronunciation-table)) (pp nil) (personality nil)) (goto-char (point-min)) (cond ((stringp pronunciation) (while (search-forward word nil t) (setq personality (get-text-property (point) (quote personality))) (replace-match pronunciation t t) (put-text-property (match-beginning 0) (+ (match-beginning 0) (length pronunciation)) (quote personality) (apply (quote append) (mapcar (function (lambda (p) (when p (if (atom p) (list p) p)))) (list emacspeak-pronounce-pronunciation-personality personality)))))) ((consp pronunciation) (let ((matcher (car pronunciation)) (pronouncer (cdr pronunciation)) (pronunciation "")) (while (funcall matcher word nil t) (setq personality (get-text-property (point) (quote personality))) (setq pronunciation (save-match-data (funcall pronouncer (buffer-substring (match-beginning 0) (match-end 0))))) (replace-match pronunciation t t) (setq pp (get-text-property (match-beginning 0) (quote personality))) (put-text-property (match-beginning 0) (+ (match-beginning 0) (length pronunciation)) (quote personality) (apply (quote append) (mapcar (function (lambda (p) (when p (if (atom p) (list p) p)))) (list emacspeak-pronounce-pronunciation-personality personality pp))))))) (t nil))))))
+Modifies text and point in buffer." (declare (special emacspeak-pronounce-pronunciation-personality)) (let ((words (sort (loop for key being the hash-keys of pronunciation-table collect key) (function (lambda (a b) (> (length a) (length b))))))) (loop for key in words do (let ((word key) (pronunciation (gethash key pronunciation-table)) (pp nil) (personality nil)) (when word (goto-char (point-min)) (cond ((stringp pronunciation) (while (search-forward word nil t) (setq personality (get-text-property (point) (quote personality))) (replace-match pronunciation t t) (put-text-property (match-beginning 0) (+ (match-beginning 0) (length pronunciation)) (quote personality) (apply (quote append) (mapcar (function (lambda (p) (when p (if (atom p) (list p) p)))) (list emacspeak-pronounce-pronunciation-personality personality)))))) ((consp pronunciation) (let ((matcher (car pronunciation)) (pronouncer (cdr pronunciation)) (pronunciation "")) (while (funcall matcher word nil t) (setq personality (get-text-property (point) (quote personality))) (setq pronunciation (save-match-data (funcall pronouncer (buffer-substring (match-beginning 0) (match-end 0))))) (replace-match pronunciation t t) (setq pp (get-text-property (match-beginning 0) (quote personality))) (put-text-property (match-beginning 0) (+ (match-beginning 0) (length pronunciation)) (quote personality) (apply (quote append) (mapcar (function (lambda (p) (when p (if (atom p) (list p) p)))) (list emacspeak-pronounce-pronunciation-personality personality pp))))))) (t nil)))))))
 
 (autoload (quote emacspeak-pronounce-save-dictionaries) "emacspeak-pronounce" "\
 Writes out the persistent emacspeak pronunciation dictionaries.
@@ -695,7 +695,7 @@ emacspeak-play-midi-icon for midi device.
 ;;;***
 
 ;;;### (autoloads (emacspeak-speak-load-directory-settings emacspeak-speak-world-clock)
-;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16438 15469))
+;;;;;;  "emacspeak-speak" "emacspeak-speak.el" (16460 48542))
 ;;; Generated autoloads from emacspeak-speak.el
 
 (autoload (quote emacspeak-speak-world-clock) "emacspeak-speak" "\
@@ -825,7 +825,7 @@ but quickly switch to a window by name.
 ;;;### (autoloads (emacspeak-url-template-fetch emacspeak-url-template-open
 ;;;;;;  emacspeak-url-template-load emacspeak-url-template-define
 ;;;;;;  emacspeak-url-template-get) "emacspeak-url-template" "emacspeak-url-template.el"
-;;;;;;  (16438 15471))
+;;;;;;  (16442 54788))
 ;;; Generated autoloads from emacspeak-url-template.el
 
 (autoload (quote emacspeak-url-template-get) "emacspeak-url-template" "\
@@ -886,7 +886,7 @@ Optional interactive prefix arg displays documentation for specified resource.
 ;;;;;;  emacspeak-w3-set-xsl-keep-result emacspeak-w3-count-tables
 ;;;;;;  emacspeak-w3-count-nested-tables emacspeak-w3-count-matches
 ;;;;;;  emacspeak-w3-xsl-toggle emacspeak-w3-xslt-select emacspeak-w3-xslt-apply)
-;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16441 539))
+;;;;;;  "emacspeak-w3" "emacspeak-w3.el" (16451 24191))
 ;;; Generated autoloads from emacspeak-w3.el
 
 (autoload (quote emacspeak-w3-xslt-apply) "emacspeak-w3" "\
@@ -1075,7 +1075,7 @@ Play url under point as realaudio
 ;;;### (autoloads (emacspeak-websearch-usenet emacspeak-websearch-google-search-in-date-range
 ;;;;;;  emacspeak-websearch-google emacspeak-websearch-usenet-search
 ;;;;;;  emacspeak-websearch-do-post emacspeak-websearch-dispatch)
-;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16438 15472))
+;;;;;;  "emacspeak-websearch" "emacspeak-websearch.el" (16451 22987))
 ;;; Generated autoloads from emacspeak-websearch.el
 
 (defgroup emacspeak-websearch nil "Websearch tools for the Emacspeak desktop." :group (quote emacspeak))
@@ -1857,8 +1857,8 @@ Return S-Expression from parsing region of XML.
 ;;;;;;  "emacspeak-view-process.el" "emacspeak-view.el" "emacspeak-vm.el"
 ;;;;;;  "emacspeak-w3m.el" "emacspeak-windmove.el" "emacspeak-winring.el"
 ;;;;;;  "emacspeak-wrolo.el" "emacspeak-xslide.el" "emacspeak-xslt-process.el"
-;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16442
-;;;;;;  40942 272822))
+;;;;;;  "html-outline.el" "outloud-voices.el" "tapestry.el") (16463
+;;;;;;  26996 264057))
 
 ;;;***
 

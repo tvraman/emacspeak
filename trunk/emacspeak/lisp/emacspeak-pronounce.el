@@ -262,6 +262,7 @@ Modifies text and point in buffer."
                 (pronunciation (gethash  key pronunciation-table))
                 (pp nil)
                 (personality nil))
+            (when word 
             (goto-char (point-min))
             (cond
              ((stringp pronunciation)
@@ -308,7 +309,7 @@ Modifies text and point in buffer."
                            (list
                             emacspeak-pronounce-pronunciation-personality
                             personality pp)))))))
-             (t nil))))))
+             (t nil)))))))
 
 ;;}}}
 ;;{{{  loading, clearing  and saving dictionaries
