@@ -326,6 +326,8 @@ window")))
 
 (emacspeak-pronounce-add-dictionary-entry 'sgml-mode"CDATA"
                                           "C DATA")
+(declaim (special emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
+
 ;;; xml mode inherits from sgml mode
 (emacspeak-pronounce-augment-pronunciations 'xml-mode
                                             emacspeak-pronounce-common-xml-namespace-uri-pronunciations)

@@ -571,7 +571,7 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
 
 ;;}}}
 ;;{{{ adding predefined dictionaries to a mode:
-
+;;;###autoload
 (defun emacspeak-pronounce-augment-pronunciations (mode dictionary)
   "Pushes pronunciations in specified dictionary on to the dictionary
 for the specified mode."
