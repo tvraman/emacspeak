@@ -19,7 +19,7 @@ if ( $host =~ m/localhost/) {
   }
 } else {
   qx(scp $image  $host:$input);
-  qx(ssh $host $OCR -out_text_name $output $input);
+  qx(ssh $host $OCR -out_text_name $output $input 2>&1 > /dev/null);
   open (OUT, "ssh $host cat $output |");
   while (<OUT>) {
     print;
