@@ -639,11 +639,18 @@ default-directory after switching."
     (set-process-sentinel cvs-process
                           'emacspeak-cvs-done-alert)))
 
-(defvar emacspeak-cvs-anonymous-cvsroot-pattern
+(defvar emacspeak-cvs-sf-anonymous-cvsroot-pattern
   ":pserver:anonymous@cvs.%s.sourceforge.net:/cvsroot/%s"
   "CVSROOT pattern for project CVS repository at
 sourceforge.
 Typically %s is replaced by project name.")
+
+(defvar emacspeak-cvs-gnu-anonymous-cvsroot-pattern
+  ":pserver:anoncvs@subversions.gnu.org:/cvsroot/%s"
+  "CVSROOT pattern for project CVS repository at
+GNU.
+Typically %s is replaced by project name.")
+
 
 (defcustom emacspeak-cvs-local-directory-pattern
   "~/sourceforge/cvs-%s"
@@ -652,15 +659,17 @@ Typically %s is replaced by project name.")
   :type 'string
   :group 'emacspeak-wizards)
 
-(defun emacspeak-cvs-get-project-snapshot  (project)
+
+
+(defun emacspeak-cvs-sf-get-project-snapshot  (project)
   "Grab CVS snapshot  of specified project from Sourceforge."
   (interactive
    (list
     (read-string "Project name: ")))
   (declare (special emacspeak-cvs-local-directory-pattern
-                    emacspeak-cvs-anonymous-cvsroot-pattern))
+                    emacspeak-cvs-sf-anonymous-cvsroot-pattern))
   (let ((cvsroot
-         (format emacspeak-cvs-anonymous-cvsroot-pattern
+         (format emacspeak-cvs-sf-anonymous-cvsroot-pattern
                  project project))
         (dir (expand-file-name
               (format emacspeak-cvs-local-directory-pattern
@@ -674,6 +683,7 @@ Typically %s is replaced by project name.")
                            (format "-d%s"
                                    cvsroot)
                            "login"))
+      (accept-process-output cvs-process)
       (process-send-string cvs-process "\n\n\n")
       (cond
        ((file-exists-p
@@ -699,6 +709,56 @@ Typically %s is replaced by project name.")
                              project))))
       (set-process-sentinel cvs-process
                             'emacspeak-cvs-done-alert))))
+
+(defun emacspeak-cvs-gnu-get-project-snapshot  (project)
+  "Grab CVS snapshot  of specified project from GNU."
+  (interactive
+   (list
+    (read-string "Project name: ")))
+  (declare (special emacspeak-cvs-local-directory-pattern
+                    emacspeak-cvs-gnu-anonymous-cvsroot-pattern))
+  (let ((cvsroot
+         (format emacspeak-cvs-gnu-anonymous-cvsroot-pattern
+                  project))
+        (dir (expand-file-name
+              (format emacspeak-cvs-local-directory-pattern
+                      project))))
+    (unless (file-exists-p dir)
+      (make-directory dir 'parents))
+    (cd dir)
+    (let ((cvs-process nil))
+      (setq cvs-process
+            (start-process "cvs" "*cvs-download*" "cvs"
+                           (format "-d%s"
+                                   cvsroot)
+                           "login"))
+      (accept-process-output cvs-process)
+      (process-send-string cvs-process "\n\n\n")
+      (cond
+       ((file-exists-p
+         (expand-file-name
+          (format "%s/CVS" project)
+          dir))
+        (cd (expand-file-name project
+                              dir))
+        (setq cvs-process
+              (start-process "cvs" "*cvs-download*" "cvs"
+                             (format "-d%s"
+                                     cvsroot)
+                             "-z3 -q"
+                             "update"
+                             "-d")))
+       (t
+        (setq cvs-process
+              (start-process "cvs" "*cvs-download*" "cvs"
+                             (format "-d%s"
+                                     cvsroot)
+                             "-z3 -q"
+                             "co"
+                             project))))
+      (set-process-sentinel cvs-process
+                            'emacspeak-cvs-done-alert))))
+
 ;;}}}
 ;;{{{  Learn mode
 
