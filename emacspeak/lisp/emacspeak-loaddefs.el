@@ -27,10 +27,11 @@ cap C   Save clip to disk
 
 ;;;***
 
-;;;### (autoloads (tts-eflite) "eflite" "eflite.el" (15953 27617))
-;;; Generated autoloads from eflite.el
+;;;### (autoloads (tts-eflite) "eflite-voices" "eflite-voices.el"
+;;;;;;  (15953 28941))
+;;; Generated autoloads from eflite-voices.el
 
-(autoload (quote tts-eflite) "eflite" "\
+(autoload (quote tts-eflite) "eflite-voices" "\
 Use eflite TTS server." t nil)
 
 ;;;***
