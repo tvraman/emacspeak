@@ -116,6 +116,7 @@
 
 (defun emacspeak-freeamp (resource)
   "Play specified resource using freeamp.
+Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-freeamp-mode."
   (interactive
    (list
@@ -129,8 +130,9 @@ The player is placed in a buffer in emacspeak-freeamp-mode."
     (setq emacspeak-freeamp-process nil))
   (let ((process-connection-type nil))
     (setq emacspeak-freeamp-process
-          (start-process "freeamp" "freeamp" "freeamp"
-                         (expand-file-name resource)))
+          (start-process
+           "freeamp" "freeamp" "freeamp"
+           (expand-file-name resource)))
     (switch-to-buffer (process-buffer
                        emacspeak-freeamp-process))
     (emacspeak-freeamp-mode)))
