@@ -934,7 +934,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive "P")
   (let ((char  (following-char )))
     (when char
-      (emacspeak-handle-action-at-point)
       (cond
        ((and (not prefix)
              (emacspeak-is-alpha-p char))
