@@ -2986,9 +2986,10 @@ Light for: ")))
 </td>
 </tr>
 <tr>
-<td colspan='2'>
+<td>
 <input type='submit' value=' Search '>
 </td>
+<td><a href='http://pages.ebay.com/help/buyerguide/search.html'>Help</a></td>
 </tr>
 </table>
 </form>
