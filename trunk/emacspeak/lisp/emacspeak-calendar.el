@@ -114,17 +114,15 @@
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (interactive-p)
-    (let ((emacspeak-speak-messages nil))
+    (let ((voice-lock-mode t)
+          (emacspeak-speak-messages nil))
       (cond
-       ((string= "Preparing diary...done"
-                 emacspeak-last-message)
-        (get-buffer "*Fancy Diary Entries*")
+       ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
         (save-excursion
           (set-buffer "*Fancy Diary Entries*")
-          (emacspeak-speak-buffer)))
-       (t (emacspeak-speak-message-again)
-          (and (get-buffer "*Fancy Diary Entries*" )
-               (kill-buffer "*Fancy Diary Entries*"))"*Fancy Diary Entries*")))))
+          (tts-with-punctuations "some"
+          (emacspeak-speak-buffer))))
+       (t (dtk-speak "No diary entries."))))))
 
 (defadvice  mark-visible-calendar-date (after emacspeak pre act )
   "Use voice locking to mark date. "
