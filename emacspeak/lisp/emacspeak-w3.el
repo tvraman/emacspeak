@@ -1318,10 +1318,13 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
   (when    emacspeak-w3-post-process-hook
-               
+    (save-excursion
+      (set-buffer (ad-get-arg 0))
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
-      (setq emacspeak-w3-post-process-hook nil))))
+      (setq emacspeak-w3-post-process-hook nil)))))
+
+
 
 ;;}}}
 ;;{{{ silence url history save
