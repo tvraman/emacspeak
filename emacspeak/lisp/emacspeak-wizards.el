@@ -1648,8 +1648,8 @@ visiting the xls file."
 
 (require 'derived)
 (define-derived-mode emacspeak-wizards-ppt-mode text-mode
-  "Browsing XL Files."
-  "Major mode for browsing XL spreadsheets.\n\n
+  "Browsing PPT Files."
+  "Major mode for browsing PPT slides.\n\n
 XL Sheets are converted to HTML and previewed using W3."
   (emacspeak-wizards-ppt-display))
 
@@ -1663,10 +1663,10 @@ Set this to nil if you do not want to use the XLHTML wizard."
   "Records buffer displaying PPT preview.")
 
 (defun emacspeak-wizards-ppt-display ()
-  "Called to set up preview of an XL file.
-Assumes we are in a buffer visiting a .ppts file.
+  "Called to set up preview of an PPT file.
+Assumes we are in a buffer visiting a .ppt file.
 Previews those contents as HTML and nukes the buffer
-visiting the ppts file."
+visiting the ppt file."
   (interactive)
   (declare (special emacspeak-wizards-ppthtml-program
                     emacspeak-wizards-ppt-preview-buffer))
