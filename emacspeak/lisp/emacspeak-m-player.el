@@ -118,12 +118,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
-      (expand-file-name
-       (read-file-name "Media resource: "
-                       emacspeak-realaudio-shortcuts-directory
-                       emacspeak-realaudio-last-url)))))
+      (read-file-name "Media resource: "
+                      emacspeak-realaudio-shortcuts-directory
+                      emacspeak-realaudio-last-url))))
   (declare (special emacspeak-m-player-process
-                    emacspeak-m-player-program emacspeak-m-player-options))
+                    emacspeak-m-player-program
+                    emacspeak-m-player-options))
+  (unless (string-match "^http:"  resource)
+    (setq resource
+          (expand-file-name resource)))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status
                        emacspeak-m-player-process))
