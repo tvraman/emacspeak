@@ -39,7 +39,7 @@
 
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'dtk-css-speech)
+(require 'voice-setup)
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 ;;{{{  Introduction
