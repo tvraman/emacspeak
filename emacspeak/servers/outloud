@@ -42,7 +42,7 @@ source $wd/tts-lib.tcl
 
 proc version {} {
     q " ViaVoice [ttsVersion]"
-d
+    d
 }
 
 proc tts_set_punctuations {mode} {
@@ -64,7 +64,7 @@ proc tts_set_speech_rate {rate} {
 proc tts_set_character_scale {factor} {
     global tts
     set tts(say_rate) [round \
-                                       [expr $tts(speech_rate) * $factor ]]
+                           [expr $tts(speech_rate) * $factor ]]
     set tts(char_factor) $factor
     service
     return ""
@@ -77,7 +77,7 @@ proc tts_say {text} {
     set prefix "`v1 `vs$r "
     regsub -all {\[\*\]} $text { `p1 } text 
     synth " $prefix $text"
-        service
+    service
     closeDSP
     return ""
 }
@@ -105,7 +105,7 @@ proc d {} {
 }
 
 proc tts_resume  {} {
-        resume
+    resume
     return ""
 }
 proc tts_pause {} {
@@ -119,11 +119,11 @@ proc s {} {
     global tts
     if {$tts(not_stopped) == 1} {
         set tts(not_stopped) 0
-    stop
-    queue_clear
+        stop
+        queue_clear
     } else {
         puts stderr StopNoOp
-}
+    }
 }
 
 #formerly called tts_tone
@@ -140,7 +140,7 @@ proc t  {{pitch 440} {duration 50}} {
     }
     if {$tts(beep)} {
         b $pitch $duration
-return ""
+        return ""
     }
     service
 }
@@ -192,7 +192,7 @@ proc r {rate} {
 
 proc useStereoOutput {} {
     global tts
-        setOutput buffer
+    setOutput buffer
 }
 
 # }}}
@@ -276,7 +276,7 @@ proc clean {element} {
             { `00 semicolen } element
         regsub -all --  {\(} $element \
             { `00 left `00 paren } element
-            regsub -all --  {\)} $element \
+        regsub -all --  {\)} $element \
             { `00 right `00 paren } element
         regsub -all --  {@} $element \
             { `00 at } element
@@ -336,18 +336,24 @@ set tts(speech_rate)  75
 notes_initialize
 beep_initialize
 set tts(input) file0
-        if {[info exists server_p]} {
-            set tts(input) sock0
-        }
+if {[info exists server_p]} {
+    set tts(input) sock0
+}
 set servers [file dirname $argv0]
 set tclTTS $servers/linux-outloud
 #set ECIINI unless already set
 if {![info exists env(ECIINI)] || ![file exists $env(ECIINI)] } {
-set env(ECIINI) $tclTTS/eci.ini
+    set env(ECIINI) $tclTTS/eci.ini
 }
-load $tclTTS/tcleci.so
-set tts(stereo) 1
-useStereoOutput
+#conditionally use alsa if available
+if {[file exists /usr/include/alsa/asoundlib.h]
+    && [file exists  $tclTTS/atcleci.so]} {
+    load $tclTTS/atcleci.so
+} else {
+    load $tclTTS/tcleci.so
+    set tts(stereo) 1
+    useStereoOutput
+}
 synth {`v1 Via Voice.}
 service
 
