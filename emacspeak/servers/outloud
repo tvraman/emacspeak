@@ -81,6 +81,7 @@ proc l {text} {
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
+    set tts(not_stopped) 1
     synth "$prefix  `ts2 $text`ts0"
         return ""
 }
