@@ -879,8 +879,7 @@ prefix arg causes url to be read from the minibuffer."
        (source-url
         (set-buffer  (url-retrieve-synchronously source-url)))
        (t (w3-source-document nil)))
-      (let ((src-buffer (current-buffer))
-            (emacspeak-w3-xsl-p nil))
+      (let ((src-buffer (current-buffer)))
         (emacspeak-xslt-region
          emacspeak-w3-xsl-filter
          (point-min)
@@ -895,11 +894,13 @@ prefix arg causes url to be read from the minibuffer."
           (cons "base"
                 (format "\"'%s'\""
                         (or source-url
+                            prompt
                             w3-url)))))
         (when  (or (interactive-p)
                    speak-result)
           (setq emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer))
+        (message "base is %s" source-url)
         (emacspeak-w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
@@ -1035,8 +1036,7 @@ current page."
                   (point-max)
                   filename)
     (w3-open-local filename)
-    (delete-file filename)
-    ))
+    (delete-file filename)))
 
 (defun emacspeak-w3-preview-this-region (start end)
   "Preview this region."
