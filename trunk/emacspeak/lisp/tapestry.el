@@ -134,7 +134,7 @@ ROOT-WINDOW-EDGES will be used."
 
 (defun tapestry-window-map ()
   (let (maps map0 map1 map0-edges map1-edges x-unchanged y-unchanged)
-    (setq maps (mapcar 'tapestry-window-edges (tapestry-window-list)))
+    (setq maps (mapcar 'window-edges (tapestry-window-list)))
     (while (cdr maps)
       (setq map0 maps)
       (while (cdr map0)
@@ -172,7 +172,7 @@ ROOT-WINDOW-EDGES will be used."
 		  max-overlap -1
 		  w-list (tapestry-window-list))
 	    (while w-list
-	      (setq w-edges (tapestry-window-edges (car w-list))
+	      (setq w-edges (window-edges (car w-list))
 		    w-area (tapestry-window-area w-edges))
 	      (if (equal w-edges root-window-edges)
 		  (setq exact-w (car w-list)
@@ -505,7 +505,7 @@ ROOT-WINDOW-EDGES will be used."
     (let ((w (selected-window))
 	  (top (or (cdr (assq 'menu-bar-lines (tapestry-frame-parameters))) 0))
 	  edges)
-      (while (or (not (= 0 (car (setq edges (tapestry-window-edges w)))))
+      (while (or (not (= 0 (car (setq edges (window-edges w)))))
 		 ;; >= instead of = because in FSF Emacs 19.2x
 		 ;; (whenever the Lucid menubar code was added) the
 		 ;; menu-bar-lines frame parameter == 1 when the
@@ -540,20 +540,7 @@ ROOT-WINDOW-EDGES will be used."
 	   (setq bottom (nth 3 e0))))
     (and left top right bottom (list left top right bottom))))
 
-(defun tapestry-window-edges (&optional window)
-  (if (fboundp 'window-pixel-edges)
-      (let ((edges (window-pixel-edges window))
-	    tmp)
-	(setq tmp edges)
-	(setcar tmp (/ (car tmp) (face-width 'default)))
-	(setq tmp (cdr tmp))
-	(setcar tmp (/ (car tmp) (face-height 'default)))
-	(setq tmp (cdr tmp))
-	(setcar tmp (/ (car tmp) (face-width 'default)))
-	(setq tmp (cdr tmp))
-	(setcar tmp (/ (car tmp) (face-height 'default)))
-	edges )
-    (window-edges window)))
+
 
 ;; We call these functions instead of calling the Emacs 19 frame
 ;; functions directly to let this package work with v18 Emacs.
