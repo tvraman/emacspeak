@@ -28,3 +28,11 @@ foreach (@lines) {
   my $key=$fields{$f};
   print "$key:\t$v\n" if defined($key);
 }
+#Process attendee list
+print "Attendees\n\n";
+foreach (@lines) {
+  my ($f) =split (/[:;]/);
+  next unless ($f =~ m/ATTENDEE/);
+  s/^ATTENDEE;//;
+  print $_,"\n";
+}
