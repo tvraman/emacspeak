@@ -432,6 +432,7 @@ functions for details.   "
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
   (dtk-initialize)
+  (require 'emacspeak-personality)
   (require 'emacspeak-redefine)
   (require 'emacspeak-fix-interactive)
   (require 'emacspeak-keymap)
