@@ -37,6 +37,9 @@ Major Enhancements:
 
 1)  Enhanced Emacs 21 support.
 2) emacspeak-wizards.el --Additional productivity wizards.
+3) New voice lock engine.
+4) VC viewer.
+5) RSS wizards.
 
 See the NEWS file for additional details. 
 
