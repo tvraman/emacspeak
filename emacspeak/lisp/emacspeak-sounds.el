@@ -129,6 +129,7 @@ use `emacspeak-toggle-auditory-icons' bound to  \\[emacspeak-toggle-midi-icons].
     task-done
     unmodified-object
     warn-user
+    window-config
     y-answer
     yank-object
     yes-answer
