@@ -785,6 +785,7 @@ indicated with auditory icon ellipses."
   (interactive "P")
   (declare (special voice-lock-mode
                     dtk-stop-immediately
+                    inhibit-field-text-motion
                     emacspeak-speak-line-invert-filter
                     dtk-punctuation-mode
                     emacspeak-speak-space-regexp
@@ -796,7 +797,8 @@ indicated with auditory icon ellipses."
                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg )))
   (save-excursion
-    (let ((start  nil)
+    (let ((inhibit-field-text-motion t)
+          (start  nil)
           (end nil )
           (inhibit-point-motion-hooks t)
           (line nil)
@@ -2190,7 +2192,9 @@ A field is defined currently as a sequence of non-white space characters.  may b
 Useful in moving across fields.
 Will be improved if it proves useful."
   (interactive)
-  (let ((start nil ))
+  (declare (special inhibit-field-text-motion))
+  (let((inhibit-field-text-motiont)
+      (start nil ))
     (skip-syntax-forward "^ ")
     (skip-syntax-forward " ")
     (setq start (point ))
@@ -2203,7 +2207,9 @@ Will be improved if it proves useful."
 Useful in moving across fields.
 Will be improved if it proves useful."
   (interactive)
-  (let ((start nil ))
+  (declare (special inhibit-field-text-motion))
+  (let ((inhibit-field-text-motion t)
+      (start nil ))
     (skip-syntax-backward " ")
     (setq start (point ))
     (skip-syntax-backward "^ ")
