@@ -256,9 +256,10 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                     emacspeak-websearch-emapspeak-my-location))
   (require 'emacspeak-url-template)
   (let ((near-p
+         (unless use-near 
          (save-match-data
            (and (string-match "near" query)
-                (match-end 0))))
+                (match-end 0)))))
         (near "")
         (uri nil))
     (when near-p
@@ -274,7 +275,11 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (t (format emacspeak-websearch-google-maps-uri
                       (webjump-url-encode query)))))
     (emacspeak-url-template-google-maps-speak uri
-                                              (webjump-url-encode near) 'speak)))
+                                              (webjump-url-encode
+(if use-near
+    emacspeak-websearch-emapspeak-my-location
+  near))
+'speak)))
          
 ;;}}}
 ;;{{{ display form 
