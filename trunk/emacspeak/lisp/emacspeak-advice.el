@@ -2343,6 +2343,10 @@ Pause ongoing speech first."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-pause)))
+(defadvice isearch-cancel (before emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice isearch-search (after emacspeak pre act)
   "Speak the search hit.
@@ -2441,14 +2445,14 @@ Produce auditory icons if possible."
    (if isearch-case-fold-search 'off 'on))
   (dtk-speak
    (format " Case is %s significant in search"
-           (if isearch-case-fold-search " not " ""))))
+           (if isearch-case-fold-search " not" " "))))
 
 (defadvice isearch-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory confirmation"
   (emacspeak-auditory-icon 
-   (if isearch-regexp 'off 'on))
+   (if isearch-regexp 'on 'off))
   (dtk-speak
-   (if isearch-regexp "text search" "Regexp search")))
+   (if isearch-regexp "Regexp search" "text search")))
 
 ;;}}}
 ;;{{{  marking objects produces auditory icons
