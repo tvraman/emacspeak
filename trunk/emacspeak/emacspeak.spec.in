@@ -72,6 +72,21 @@ from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
 %doc etc/COPYRIGHT
 %doc etc/tips.html
 %doc etc/applications.html
+%doc info/acknowledge.texi
+%doc info/announce.texi
+%doc info/audio-desktop.texi
+%doc info/copyright.texi
+%doc info/documents.texi
+%doc info/emacspeak.texi
+%doc info/eterm.texi
+%doc info/install.texi
+%doc info/introduction.texi
+%doc info/online-help.texi
+%doc info/packages.texi
+%doc info/preamble.texi
+%doc info/structure.texi
+%doc info/tts.texi
+%doc info/using.texi
 /usr/bin/emacspeak
 /usr/info/emacspeak.info
 /usr/info/emacspeak.info-1
