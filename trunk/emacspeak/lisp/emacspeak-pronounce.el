@@ -542,6 +542,7 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
 (defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations 
   '(
     ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ")
+    ("http://www.w3.org/1999/XSL/Transform" . " XSLT ")
     ("http://www.w3.org/2002/xforms/cr" . " XForms ")
     ("http://www.w3.org/2002/xml-events" . " XEvents ")
     ("http://www.w3.org/2001/XMLSchema-instance". " XSchema Instance ")
