@@ -441,16 +441,17 @@
         </question>
         <answer>
           <para>
-            Command <command>emacspeak-speak-mode-line</command> is
+            Command
+            <command>emacspeak-speak-mode-line</command> is
             optimized to convey the most relevant
             information first. Different user options
             control additional status information that may
             be spoken by this command.  When possible, this
             command uses tones, midi icons and auditory
             icons to make the spoken feedback more succinct.
-            Here is a brief summary listing the   various items of status
-            information conveyed by command
-            <command>emacspeak-speak-mode-line</command>.
+            Here is a brief summary listing the various
+            items of status information conveyed by command
+            <command>emacspeak-speak-mode-line</command>:
             <simplelist type="vert">
               <member>
                 which-function
@@ -463,27 +464,27 @@
                 mail-alert  
                 Produces an auditory icon indicating newly arrived mail  and
                 is controlled via command
-                <command>emacspeak-toggle-mail-alert</command></member>
+                <command>emacspeak-toggle-mail-alert</command>.</member>
               <member>
                 buffer-modified
-                An auditory tone indicates if the contents of the  <emphasis>current</emphasis>
+                An auditory tone when  the contents of the  <emphasis>current</emphasis>
                 buffer has been modified  since it was last
                 saved.
               </member>
               <member>
                 buffer-read-only
-                An auditory tone  if the <emphasis>current</emphasis>
+                An auditory tone  when the <emphasis>current</emphasis>
                 buffer is <emphasis>read-only</emphasis>.</member>
               <member>
                 buffer-name
                 The <emphasis>name</emphasis> of the current buffer.</member>
               <member>
                 line-number
-                Current <emphasis>line number</emphasis> if  <command>line-number-mode</command>
+                Current <emphasis>line number</emphasis> when  <command>line-number-mode</command>
                 is active.</member>
               <member>
                 column-number                                          
-                Current  <emphasis>column number</emphasis> if
+                Current  <emphasis>column number</emphasis> when
                 <command>column-number-mode</command> is
                 active.
               </member>
@@ -501,7 +502,8 @@
                 frame-info
                 If more than one <emphasis>Emacs frame</emphasis> is active, then
                 the title of the current frame is
-                spoken.</member>
+                spoken. Emacs typically uses multiple frames
+                when running in a graphical environment.</member>
               <member>
                 recursion-info
                 Current recursion level when <emphasis>recursive  edit</emphasis> is
