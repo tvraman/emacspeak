@@ -1013,6 +1013,8 @@ File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Prev: Emacspeak Command
 dtk-speak
 =========
 
+   nil
+
    Automatically generated documentation for commands defined in module
 dtk-speak.
 

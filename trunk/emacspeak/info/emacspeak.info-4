@@ -8,10 +8,81 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-remote,  Prev: emacspeak-realaudio,  Up: Emacspeak Commands
+
+emacspeak-redefine
+==================
+
+   nil
+
+   Automatically generated documentation for commands defined in module
+emacspeak-redefine.
+
+emacspeak-backward-char
+=======================
+
+   control b   left
+
+   Backward-char redefined to speak char moved to.
+
+emacspeak-self-insert-command
+=============================
+
+   Character set Tibetan 2 column   Character set Indian 2 Column
+Character set CNS11643-7 (Chinese traditional)   Character set
+CNS11643-6 (Chinese traditional)   Character set CNS11643-5 (Chinese
+traditional)   Character set CNS11643-4 (Chinese traditional)
+Character set CNS11643-3 (Chinese traditional)   Character set Ethiopic
+characters   Character set Tibetan 1 column   Character set Indian 1
+Column   Character set Indian IS 13194   Character set Arabic 2-column
+Character set Lao   Character set ASCII with right-to-left direction
+Character set Arabic 1-column   Character set Arabic digit   Character
+set VISCII upper-case   Character set VISCII lower-case   Character set
+IPA   Character set SiSheng (PinYin/ZhuYin)   Character set Big5
+(Level-2)   Character set Big5 (Level-1)   Character set CNS11643-2
+(Chinese traditional)   Character set CNS11643-1 (Chinese traditional)
+Character set JISX0212 (Japanese)   Character set KSC5601 (Korean)
+Character set JISX0208.1983/1990 (Japanese)   Character set GB2312
+Character set JISX0208.1978 (Japanese)   Character set ISO8859-9
+(Latin-5)   Character set ISO8859-5 (Cyrillic)   Character set
+JISX0201.1976 (Japanese Roman)   Character set JISX0201.1976 (Japanese
+Kana)   Character set ISO8859-8 (Hebrew)   Character set ISO8859-6
+(Arabic)   Character set ISO8859-7 (Greek)   Character set TIS620
+(Thai)   Character set ISO8859-4 (Latin-4)   Character set ISO8859-3
+(Latin-3)   Character set ISO8859-2 (Latin-2)   Character set ISO8859-1
+(Latin-1)   ÿ   þ   ý   ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ
+ð   ï   î   í   ì   ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß
+Þ   Ý   Ü   Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í
+Ì   Ë   Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »
+º   ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª   ©
+¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   z   y   x   w   v   u   t   s
+r   q   p   o   n   m   l   k   j   i   h   g   f   e   d   c   b   a
+_   \    cap Z     cap Y     cap X     cap W     cap V     cap U
+cap T     cap S     cap R     cap Q     cap P     cap O     cap N
+cap M     cap L     cap K     cap J     cap I     cap H     cap G
+cap F     cap E     cap D     cap C     cap B     cap A       >   <   9
+ 8   7   6   5   4   3   2   1   0   /   -   +   *   $
+
+   Insert a character.  Speaks the character if
+emacspeak-character-echo is true.  See  command
+emacspeak-toggle-word-echo bound to C-e d w.  Toggle variable
+dtk-stop-immediately-while-typing if you want to have speech flush as
+you type.
+
+emacspeak-forward-char
+======================
+
+   control f   right
+
+   Forward-char redefined to speak char moved to.
+
+
 File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rmail,  Prev: emacspeak-redefine,  Up: Emacspeak Commands
 
 emacspeak-remote
 ================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-remote.
@@ -41,6 +112,8 @@ File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev:
 emacspeak-rmail
 ===============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-rmail.
 
@@ -63,6 +136,8 @@ File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev
 
 emacspeak-solitaire
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-solitaire.
@@ -93,6 +168,8 @@ File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: em
 
 emacspeak-sounds
 ================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-sounds.
@@ -145,6 +222,8 @@ File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: 
 
 emacspeak-speak
 ===============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-speak.
@@ -925,6 +1004,8 @@ File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-table-ui,  Pre
 emacspeak-speedbar
 ==================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-speedbar.
 
@@ -947,6 +1028,8 @@ File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Pre
 
 emacspeak-table-ui
 ==================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-table-ui.
@@ -1220,6 +1303,8 @@ File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Pre
 emacspeak-tabulate
 ==================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-tabulate.
 
@@ -1238,6 +1323,8 @@ File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-url-template, 
 emacspeak-tapestry
 ==================
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-tapestry.
 
@@ -1253,6 +1340,8 @@ File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Pre
 
 emacspeak-url-template
 ======================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-url-template.
@@ -1284,6 +1373,8 @@ File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspe
 emacspeak-view
 ==============
 
+   nil
+
    Automatically generated documentation for commands defined in module
 emacspeak-view.
 
@@ -1299,6 +1390,8 @@ File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak
 
 emacspeak-vm
 ============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-vm.
@@ -1337,6 +1430,8 @@ File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-websearch,  Prev: em
 
 emacspeak-w3
 ============
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-w3.
@@ -1436,6 +1531,8 @@ File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-widget,  Prev
 
 emacspeak-websearch
 ===================
+
+   nil
 
    Automatically generated documentation for commands defined in module
 emacspeak-websearch.
@@ -1822,126 +1919,4 @@ emacspeak-websearch-company-news
 
    Perform an company news lookup.  Retrieves company news, research,
 profile, insider trades,  or upgrades/downgrades.
-
-
-File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak,  Prev: emacspeak-websearch,  Up: Emacspeak Commands
-
-emacspeak-widget
-================
-
-   Automatically generated documentation for commands defined in module
-emacspeak-widget.
-
-emacspeak-widget-help
-=====================
-
-   meta h
-
-   Speak help for widget under point.
-
-emacspeak-widget-summarize-parent
-=================================
-
-   meta p
-
-   Summarize parent of widget at point.
-
-emacspeak-widget-browse-widget-interactively
-============================================
-
-   No global keybinding
-
-   Allows you to browse a widget
-
-emacspeak-widget-update-from-minibuffer
-=======================================
-
-   META RETURN
-
-   Sets widget at point by invoking its prompter.
-
-emacspeak-widget-summarize-widget-under-point
-=============================================
-
-   No global keybinding
-
-   Summarize a widget if any under point.  Optional interactive prefix
-specifies how many levels to go up from current widget before
-summarizing.
-
-
-File: emacspeak.info,  Node: emacspeak,  Next: dis-quote,  Prev: emacspeak-widget,  Up: Emacspeak Commands
-
-emacspeak
-=========
-
-   Automatically generated documentation for commands defined in module
-emacspeak.
-
-emacspeak-submit-bug
-====================
-
-   control e control b
-
-   Function to submit a bug to the programs maintainer.
-
-emacspeak-describe-emacspeak
-============================
-
-   control h control e
-
-   Give a brief overview of emacspeak.
-
-
-File: emacspeak.info,  Node: dis-quote,  Next: emacspeak-arc,  Prev: emacspeak,  Up: Emacspeak Commands
-
-dis-quote
-=========
-
-   Automatically generated documentation for commands defined in module
-dis-quote.
-
-quotes-setup-emacspeak-portfolio
-================================
-
-   No global keybinding
-
-   Set up variable emacspeak-websearch-personal-portfolio.
-
-
-File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-dismal,  Prev: dis-quote,  Up: Emacspeak Commands
-
-emacspeak-arc
-=============
-
-   Automatically generated documentation for commands defined in module
-emacspeak-arc.
-
-emacspeak-arc-speak-file-permissions
-====================================
-
-   No global keybinding
-
-   Speak permissions of file current entry
-
-emacspeak-arc-speak-file-modification-time
-==========================================
-
-   No global keybinding
-
-   Speak modification time of the file on current line
-
-emacspeak-arc-speak-file-name
-=============================
-
-   No global keybinding
-
-   Speak the name of the file on current line
-
-emacspeak-arc-speak-file-size
-=============================
-
-   No global keybinding
-
-   Speak the size of the file on current line
 
