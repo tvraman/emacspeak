@@ -742,8 +742,9 @@ interactively. Optional arg `speak' specifies if the result should be
 spoken automatically."
   (interactive
    (list current-prefix-arg))
-  (when (or prompt-url
-            (not  (eq major-mode 'w3-mode)))
+  (unless (and
+         (or (null prompt-url) (stringp prompt-url))
+              (eq major-mode 'w3-mode))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))
@@ -760,6 +761,16 @@ spoken automatically."
      prompt-url
      (or (interactive-p)
 	 speak))))
+
+(defun emacspeak-w3-extract-media-streams-under-point ()
+  "In W3 mode buffers, extract media streams from url under point."
+  (interactive)
+  (cond
+   ((and (eq major-mode 'w3-mode)
+             (w3-view-this-url 'no-show))
+    (emacspeak-w3-extract-media-streams (w3-view-this-url 'no-show)
+                                        'speak))
+   (t (error "Not on a link in a W3 buffer."))))
 
 (defun emacspeak-w3-extract-matching-urls (pattern  &optional prompt-url speak)
   "Extracts links whose URL matches pattern."
@@ -1119,6 +1130,8 @@ loaded.
   'emacspeak-w3-xpath-filter-and-follow)
 (define-key emacspeak-w3-xsl-map "\C-p"
   'emacspeak-w3-xpath-junk-and-follow)
+(define-key emacspeak-w3-xsl-map "R"
+  'emacspeak-w3-extract-media-streams-under-point)
 (define-key emacspeak-w3-xsl-map "r"
   'emacspeak-w3-extract-media-streams)
 (define-key emacspeak-w3-xsl-map "u" 'emacspeak-w3-extract-matching-urls)
