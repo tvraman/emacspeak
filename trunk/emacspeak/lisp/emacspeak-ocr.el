@@ -131,7 +131,7 @@ will be placed."
 
 
 (defcustom emacspeak-ocr-scan-photo-options 
-  "-mode color -format=pnm"
+  "--mode color --format=pnm"
   "Options  used when scanning in photographs."
   :type 'string
   :group 'emacspeak-ocr)
