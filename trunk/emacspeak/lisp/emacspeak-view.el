@@ -70,11 +70,15 @@
 ;;{{{ Advise additional interactive commands:
 (defadvice view-file (after emacspeak pre act comp)
   "Load directory specific settings"
-  (emacspeak-speak-load-directory-settings))
+  (emacspeak-speak-load-directory-settings)
+  (outline-minor-mode 1))
+
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-load-directory-settings)
+    (outline-minor-mode 1)
     (message "Entered view mode Press %s to exit"
 	     (key-description
 	      (where-is-internal 'View-exit view-mode-map 'firstonly)))))
