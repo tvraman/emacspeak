@@ -1020,6 +1020,8 @@ File: emacspeak.info,  Node: dtk-speak,  Next: dtk-tcl,  Up: Emacspeak Commands
 dtk-speak
 =========
 
+   Commentary: Defines the TTS interface.
+
    Automatically generated documentation for commands defined in module
 dtk-speak.
 
