@@ -282,11 +282,11 @@ int playWaveFile (ClientData unused, Tcl_Interp *interp, int objc, Tcl_Obj *CONS
     Tcl_AppendResult(interp, "Error opening wave file.", NULL);
     return TCL_ERROR;
   }
-  fprintf(stderr, "Playing %s\n", filename);
   while ((count =fread(  samples, 2, 2*BUFSIZE, fp)) >0) {
     write (dsp, samples, count);
   }
   fclose(fp);
+  fprintf(stderr, "Played %s\n", filename);
   return TCL_OK;
 }
 
