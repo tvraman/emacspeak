@@ -149,6 +149,27 @@
           </para>
         </answer>
       </qandaentry>
+      <qandaentry>
+        <question>
+          <para>Customizing Emacs And Emacspeak</para>
+        </question>
+        <answer>
+          <para>
+            Emacspeak can now be customized using
+            <application>custom</application> and this is
+            the recommended way for users new to Emacs to
+            customize Emacs and Emacspeak.  Command
+            <command>emacspeak-customize</command> invokes
+            Emacs' customize interface for customizing
+            Emacspeak.  Use
+            <application>custom</application> to customize
+            Emacs packages that support this feature.  Note
+            that not all Emacs packages are fully
+            customizable via
+            <application>custom</application>.
+          </para>
+        </answer>
+      </qandaentry>
     </qandadiv>
     <qandadiv id="folders">
       <title>Files And Folders</title>
