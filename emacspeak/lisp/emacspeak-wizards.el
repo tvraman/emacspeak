@@ -2205,7 +2205,7 @@ for `word' and displays hits in a compilation buffer."
   (declare (special emacspeak-wizards-spot-words-extension))
   (compile 
    (format
-    "find . -name \"*%s\" | xargs grep -n -e \"\\b%s\\b\" "
+    "find . -type f -name '*%s' -print0 | xargs -0 -e grep -n -e \"\\b%s\\b\" "
     ext word))
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done)) 
@@ -2225,7 +2225,7 @@ Use with caution."
   (declare (special emacspeak-wizards-spot-words-extension))
   (compile 
    (format
-    "find . -name \"*%s\" | xargs perl -pi -e    \'s/%s/%s/g' "
+    "find . -type f -name '*%s' -print0 | xargs-0 -e  perl -pi -e    \'s/%s/%s/g' "
     ext word correction))
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done))
@@ -2397,7 +2397,7 @@ Interactive  arguments specify filename pattern and search pattern."
     (read-from-minibuffer "Look for: ")))
   (compile
    (format
-    "find . -name '%s' | xargs grep -n -e '%s'"
+    "find . -type f -name '%s' | xargs -0 -e grep -n -e '%s'"
     glob pattern))
   (emacspeak-auditory-icon 'task-done))
 ;;}}}
