@@ -4,15 +4,14 @@
 
 (augment-load-path "elib" "stack-f")
 
-(setq my-use-cedet nil)
+(setq my-use-cedet t)
 (cond
- (my-use-cedet
+ (my-use-cedet (load-library "cedet-prepare"))
+ (t
   (augment-load-path "eieio" "eieio")
   (load-library "semantic-prepare")
   (load-library "speedbar-prepare")
-  (load-library "overlay-fix")
-  )
- (t (load-library "cedet-prepare")))
+  (load-library "overlay-fix")))
 
 (augment-load-path "jde/lisp" "jde")
 (load-library "jde")
