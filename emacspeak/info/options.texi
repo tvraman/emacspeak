@@ -10,13 +10,15 @@ documentation.
 * cd-tool Options::             
 * dtk-speak Options::           
 * emacspeak Options::           
+* emacspeak-add-log Options::   
 * emacspeak-advice Options::    
 * emacspeak-amphetadesk Options::  
-* emacspeak-analog Options::    
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
+* emacspeak-bbdb Options::      
 * emacspeak-buff-menu Options::  
 * emacspeak-calendar Options::  
+* emacspeak-compile Options::   
 * emacspeak-custom Options::    
 * emacspeak-daisy Options::     
 * emacspeak-dired Options::     
@@ -36,7 +38,6 @@ documentation.
 * emacspeak-imenu Options::     
 * emacspeak-info Options::      
 * emacspeak-ispell Options::    
-* emacspeak-jde Options::       
 * emacspeak-keymap Options::    
 * emacspeak-loaddefs Options::  
 * emacspeak-m-player Options::  
@@ -53,7 +54,6 @@ documentation.
 * emacspeak-sigbegone Options::  
 * emacspeak-sounds Options::    
 * emacspeak-speak Options::     
-* emacspeak-speedbar Options::  
 * emacspeak-table-ui Options::  
 * emacspeak-tnt Options::       
 * emacspeak-url-template Options::  
@@ -173,6 +173,116 @@ If set to T, emacspeak plays its icon as it launches.
 Hook to run after starting emacspeak.
 @end defvar
 
+@node emacspeak-add-log Options
+@section emacspeak-add-log Options
+
+Commentary:
+speech-enables change-log-mode 
+
+Code:
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
+(require 'browse-url)
+(require 'emacspeak-preamble)
+(eval-when-compile
+  (condition-case nil
+      (require 'emacspeak-w3)
+    (error nil)))
+
+(defgroup emacspeak-add-log nil
+  "Customize Emacspeak for change-log-mode and friends.")
+
+(def-voice-font emacspeak-change-log-acknowledgement-personality
+  voice-smoothen
+  'change-log-acknowledgement-face
+  "Personality used for acknowledgements."
+  :group 'emacspeak-add-log)
+(def-voice-font emacspeak-change-log-conditionals-personality 
+  voice-animate
+  'change-log-conditionals-face
+  "Personality used for conditionals."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-date-personality
+  voice-brighten
+  'change-log-date-face
+  "Personality used for dates."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-email-personality
+  voice-womanize-1
+  'change-log-email-face
+  "Personality used for email address."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-file-personality
+  voice-bolden
+  'change-log-file-face
+  "Personality used for file names."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-function-personality
+  voice-bolden-extra
+  'change-log-function-face
+  "Personality used for function names."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-list-personality
+  voice-lighten
+  'change-log-list-face
+  "Personality used for lists."
+  :group 'emacspeak-add-log)
+
+(def-voice-font emacspeak-change-log-name-personality
+  voice-lighten-extra
+  'change-log-name-face
+  "Personality used for names."
+  :group 'emacspeak-add-log)
+
+(provide 'emacspeak-add-log)
+
+local variables:
+folded-file: t
+byte-compile-dynamic: t
+
+Automatically generated documentation
+for options defined in module  emacspeak-add-log.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-change-log-acknowledgement-personality
+Personality used for acknowledgements.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-conditionals-personality
+Personality used for conditionals.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-date-personality
+Personality used for dates.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-email-personality
+Personality used for email address.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-file-personality
+Personality used for file names.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-function-personality
+Personality used for function names.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-list-personality
+Personality used for lists.
+@end defvar
+
+@defvar {User Option} emacspeak-change-log-name-personality
+Personality used for names.
+@end defvar
+
 @node emacspeak-advice Options
 @section emacspeak-advice Options
 
@@ -232,20 +342,6 @@ Script that launches amphetadesk.
 URI for Amphetadesk home.
 @end defvar
 
-@node emacspeak-analog Options
-@section emacspeak-analog Options
-
-Commentary:
-Speech-enables package analog --convenient log analyzer 
-
-Automatically generated documentation
-for options defined in module  emacspeak-analog.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-analog-entry-header-personality
-Personality used for header lines.
-@end defvar
-
 @node emacspeak-auctex Options
 @section emacspeak-auctex Options
 
@@ -257,12 +353,60 @@ These options are customizable via Emacs' Custom interface.
 Face used for bold.
 @end defvar
 
+@defvar {User Option} emacspeak-latex-doctex-documentation-personality
+Personality used for documentation in doctex files.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-doctex-preprocessor-personality
+Personality used for preprocessor lines in   doctex files.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-dwarningverbatim-personality
+Personality used for warnings.
+@end defvar
+
 @defvar {User Option} emacspeak-latex-italic-face
 Face used for italics.
 @end defvar
 
+@defvar {User Option} emacspeak-latex-math-personality
+Personality used for math mode.
+@end defvar
+
 @defvar {User Option} emacspeak-latex-sedate-personality
 Personality used  on macro names.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-string-personality
+Personality used for strings.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-subscript-personality
+Personality used for subscript.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-superscript-personality
+Personality used for superscript.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-title-1-personality
+Personality used for titl11.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-title-2-personality
+Personality used for titl11.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-title-3-personality
+Personality used for titl11.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-title-4-personality
+Personality used for titl11.
+@end defvar
+
+@defvar {User Option} emacspeak-latex-verbatim-personality
+Personality used for verbatim.
 @end defvar
 
 @node emacspeak-aumix Options
@@ -296,6 +440,29 @@ These options are customizable via Emacs' Custom interface.
 *Name of file containing personal aumix settings.
 @end defvar
 
+@node emacspeak-bbdb Options
+@section emacspeak-bbdb Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-bbdb.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-bbdb-company-personality
+Personality for company name.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-field-name-personality
+Personality for field name.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-field-value-personality
+Personality for field values.
+@end defvar
+
+@defvar {User Option} emacspeak-bbdb-name
+Personality for  name.
+@end defvar
+
 @node emacspeak-buff-menu Options
 @section emacspeak-buff-menu Options
 
@@ -324,6 +491,25 @@ Personality for header line in diary.
 
 @defvar {User Option} emacspeak-holiday-personality
 holiday personality for calendar.
+@end defvar
+
+@node emacspeak-compile Options
+@section emacspeak-compile Options
+
+Commentary:
+This module makes compiling code from inside Emacs speech friendly.
+It is an example of how a little amount of code can make Emacspeak even better.
+
+Automatically generated documentation
+for options defined in module  emacspeak-compile.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-compilation-info-personality
+Personality used for information in compilation lines.
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-warning-personality
+Personality used for warnings in compilation lines.
 @end defvar
 
 @node emacspeak-custom Options
@@ -711,7 +897,7 @@ Speak command output
           (emacspeak-speak-messages nil)m)
       ad-do-it
       (when (> (point) prior)
-        (tts-with-punctuations "all"
+        (tts-with-punctuations 'all
                                (dtk-speak
                                 (buffer-substring prior
                                                   (point)))))
@@ -1290,45 +1476,6 @@ Emacspeak will not speak the choices if there are more than this
 many available corrections.
 @end defvar
 
-@node emacspeak-jde Options
-@section emacspeak-jde Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-jde.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-jde-api-personality
-Personality used for user defined API names.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-bold-personality
-Personality used for bold.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-constant-personality
-Personality used for constants.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-italic-personality
-Personality used for italics.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-number-personality
-Personality used for numbers.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-operator-personality
-Personality used for java operators.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-package-personality
-Personality used for package names.
-@end defvar
-
-@defvar {User Option} emacspeak-jde-underline-personality
-Underline personality.
-@end defvar
-
 @node emacspeak-keymap Options
 @section emacspeak-keymap Options
 
@@ -1850,6 +1997,10 @@ It's imperative that you use the -i flag to play on
 sparc20's.
 @end defvar
 
+@defvar {User Option} emacspeak-sounds-reset-snd-module-command
+Command to reset sound module.
+@end defvar
+
 @node emacspeak-speak Options
 @section emacspeak-speak Options
 
@@ -2030,51 +2181,6 @@ You can use C-e d w to toggle this
 option.
 @end defvar
 
-@node emacspeak-speedbar Options
-@section emacspeak-speedbar Options
-
-Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
---emacspeak-speedbar-goto-speedbar-- and binds this
-
-Automatically generated documentation
-for options defined in module  emacspeak-speedbar.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-speedbar-button-personality
-personality used for speedbar buttons
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-default-personality
-Default personality used in speedbar buffers
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-directory-personality
-Speedbar personality for directory buttons
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-file-personality
-Personality used for file buttons
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-highlight-personality
-Personality used for for speedbar highlight.
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-selected-personality
-Personality used to indicate speedbar selection
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-tag-personality
-Personality used for speedbar tags
-@end defvar
-
 @node emacspeak-table-ui Options
 @section emacspeak-table-ui Options
 
@@ -2232,6 +2338,11 @@ Suffixes to look for in detecting URLs that point to media
 streams.
 @end defvar
 
+@defvar {User Option} emacspeak-w3-most-recent-xpath-filter
+Caches most recently used xpath filter.
+Can be customized to set up initial default.
+@end defvar
+
 @defvar {User Option} emacspeak-w3-punctuation-mode
 Pronunciation mode to use for W3 buffers.
 @end defvar
@@ -2263,6 +2374,10 @@ Automatically generated documentation
 for options defined in module  emacspeak-websearch.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-websearch-emapspeak-my-location
+Specifies location near we look by default.
+@end defvar
+
 @defvar {User Option} emacspeak-websearch-google-feeling-lucky-p
 If non-nil, then Google search will use the 
 I'm Feeling Lucky button by default.
@@ -2270,6 +2385,11 @@ I'm Feeling Lucky button by default.
 
 @defvar {User Option} emacspeak-websearch-google-number-of-results
 Number of results to return from google search.
+@end defvar
+
+@defvar {User Option} emacspeak-websearch-personal-portfolio
+Set this to the stock tickers you want to check by
+default.
 @end defvar
 
 @node emacspeak-widget Options
@@ -2360,6 +2480,11 @@ Command used to look up names in the telephone
 directory.
 @end defvar
 
+@defvar {User Option} emacspeak-wizards-dvi2txt-program
+Program for converting dvi  to txt.
+Set this to nil if you do not want to use the DVI wizard.
+@end defvar
+
 @defvar {User Option} emacspeak-wizards-find-switches-that-need-quoting
 Find switches whose args need quoting.
 @end defvar
@@ -2370,6 +2495,10 @@ Widget to get find switch.
 
 @defvar {User Option} emacspeak-wizards-links-program
 Name of links executable.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-linux-howto-directory
+Root  of Linux Howtos.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-lynx-program
@@ -2458,6 +2587,10 @@ If non-nil, xslt errors will be preserved in an errors buffer.
 @defvar {User Option} emacspeak-xslt-nuke-null-char
 If T null chars in the region will be nuked.
 This is useful when handling bad HTML.
+@end defvar
+
+@defvar {User Option} emacspeak-xslt-options
+Options passed to xsltproc.
 @end defvar
 
 @defvar {User Option} emacspeak-xslt-program
@@ -2719,5 +2852,9 @@ Extra smoothen current voice.
 
 @defvar {User Option} voice-smoothen-settings
 Smoothen current voice.
+@end defvar
+
+@defvar {User Option} voice-womanize-1-settings
+Apply first female voice.
 @end defvar
 

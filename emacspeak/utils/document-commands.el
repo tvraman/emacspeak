@@ -193,8 +193,8 @@
     ("regexp-opt"  . nil )
     ("tapestry"  . nil )
     ("voice-setup"  . nil )
-    ("emacspeak-add-log" . "add-log")
-("emacspeak-analog" . "analog-prepare")
+    ("emacspeak-add-log" . nil)
+("emacspeak-analog" . (list "analog-prepare" "analog"))
 ("emacspeak-desktop" . nil)
 ("emacspeak-ediary" . nil)
 ("emacspeak-eperiodic" . ("eperiodic"))
@@ -214,7 +214,7 @@ This helps pull in all emacspeak modules cleanly.")
 (augment-load-path (expand-file-name "../lisp"
                                      (file-name-directory load-file-name)))
 (augment-load-path emacs-site-lisp-directory)
-
+(defvar emacspeak-speak-messages nil)
 (defun emacspeak-utils-generate-commands-documentation ()
   "Generate commands.texi and DOC ."
   (declare (special emacspeak-modules-dependency-alist))
@@ -239,3 +239,6 @@ This helps pull in all emacspeak modules cleanly.")
      "options.texi")))
 
 (emacspeak-utils-generate-commands-documentation)
+(message "Documented %d commands and %d options"
+         (length (emacspeak-list-emacspeak-commands))
+         (length (emacspeak-list-emacspeak-options)))
