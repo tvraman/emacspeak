@@ -266,7 +266,7 @@ prompting for a template.")
             (declare (special  emacspeak-w3-url-rewrite-rule
                                emacspeak-w3-class-filter))
             (setq emacspeak-w3-class-filter "article"
-             emacspeak-w3-url-rewrite-rule
+		  emacspeak-w3-url-rewrite-rule
                   '("$" "&printer=1"))
             (emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
@@ -460,8 +460,8 @@ name of the list.")
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
   (read-from-minibuffer "Date range: "
-                         (format-time-string "%Y%h"
-                                             (current-time))))
+			(format-time-string "%Y%h"
+					    (current-time))))
 
 ;;}}}
 ;;{{{ cnn 
@@ -572,7 +572,6 @@ the broadcast. You must have mplayer installed."
         (split-string (second fields)
                       "'"))))
      (t "No url under point."))))
-
 
 ;;}}}
 ;;{{{  NPR programs 
