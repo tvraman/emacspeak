@@ -681,10 +681,10 @@ Currently is a no-op  unless
 unless `dired-listing-switches' contains -al
 @end deffn
 
-@deffn {Interactive Command} emacspeak-dired-show-file-type ()
-Print the type of FILE, according to the `file' command.
-If FILE is a symbolic link and the optional argument DEREF-SYMLINKS is
-true then the type of the file linked to by FILE is printed instead.
+@deffn {Interactive Command} emacspeak-dired-show-file-type (&optional FILE DEREF-SYMLINKS)
+Displays type of current file by running command file.
+Like Emacs' built-in dired-show-file-type but allows user to customize
+options passed to command `file'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-dired-speak-file-access-time ()
@@ -2144,23 +2144,6 @@ Major mode for streaming audio.
 
 key             binding
 ---             -------
-
-@}		emacspeak-realaudio-trplayer-call-command
-@{		emacspeak-realaudio-trplayer-call-command
-]		emacspeak-realaudio-trplayer-call-command
-[		emacspeak-realaudio-trplayer-call-command
-9		emacspeak-realaudio-trplayer-call-command
-0		emacspeak-realaudio-trplayer-call-command
-,		emacspeak-realaudio-trplayer-call-command
-.		emacspeak-realaudio-trplayer-call-command
->		emacspeak-realaudio-trplayer-call-command
-<		emacspeak-realaudio-trplayer-call-command
-i		emacspeak-realaudio-trplayer-call-command
-l		emacspeak-realaudio-trplayer-call-command
-e		emacspeak-realaudio-trplayer-call-command
-s		emacspeak-realaudio-trplayer-call-command
-t		emacspeak-realaudio-trplayer-call-command
-p		emacspeak-realaudio-trplayer-call-command
 
 This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
 during initialization.
@@ -4268,7 +4251,7 @@ If no property is set, show a message and exit.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-skip-blank-lines-backward ()
-@kbd{ <shift up> }
+@kbd{ <shift> <up> }
 
 Move backward  across blank lines.
 The line under point is   then spoken.
@@ -4276,7 +4259,7 @@ Signals beginning  of buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-skip-blank-lines-forward ()
-@kbd{ <shift down> }
+@kbd{ <shift> <down> }
 
 Move forward across blank lines.
 The line under point is then spoken.
