@@ -38,7 +38,6 @@
 
 # }}}
 # {{{ User level target--  config 
-
 config:
 	@rm -f   play emacspeak.sh
 	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
