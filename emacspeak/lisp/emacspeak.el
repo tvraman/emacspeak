@@ -281,6 +281,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "hyperbole" 'emacspeak-hyperbole)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
+(emacspeak-do-package-setup "ido" 'emacspeak-ido)
 (emacspeak-do-package-setup "info" 'emacspeak-info)
 (emacspeak-do-package-setup "ispell" 'emacspeak-ispell)
 (emacspeak-do-package-setup "iswitchb" 'emacspeak-iswitchb)
