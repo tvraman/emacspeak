@@ -1263,8 +1263,7 @@ personal customizations."
                     nil
                     custom-file)))
   (declare (special custom-file))
-  (let*
-      ((buffer (find-file-noselect custom-file))
+  (let* ((buffer (find-file-noselect custom-file))
        (settings  
         (save-excursion
           (set-buffer buffer)
