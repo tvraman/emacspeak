@@ -1178,7 +1178,7 @@ loaded.
 (define-key emacspeak-w3-xsl-map "\C-p"
   'emacspeak-w3-xpath-junk-and-follow)
 (define-key emacspeak-w3-xsl-map "P"
-  'emacspeak-w3-extract-print-streams))
+  'emacspeak-w3-extract-print-streams)
 (define-key emacspeak-w3-xsl-map "R"
   'emacspeak-w3-extract-media-streams-under-point)
 (define-key emacspeak-w3-xsl-map "r"
