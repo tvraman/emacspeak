@@ -2,7 +2,7 @@
 #for use in vm
 #Description: Install  package xlhtml to obtain ppthtml
 #http://www.xlhtml.org
-if which ppthtml
+if which ppthtml > /dev/null
 then
     tempfile=/tmp/ppthtml-$$.ppt
     cat > $tempfile

@@ -2,7 +2,7 @@
 #$Id$
 #
 
-if which pdftotext 
+if which pdftotext   > /dev/null
 then
     tempfile=/tmp/pdftotext-$$.pdf
     cat > $tempfile
