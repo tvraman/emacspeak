@@ -112,18 +112,13 @@ and is expected to take <xsl:value-of select="@seconds"/> seconds
 <xsl:value-of
     select="substring-before(@time, 'min')"/> minutes).
 </p>
-<table summary="directions">
+<ol>
 <xsl:apply-templates select="segment"/>
-</table>
+</ol>
 </xsl:template>
 
 <xsl:template match="segment">
-<tr>
-<td>
-  <xsl:value-of select="@seconds"/> s
-</td>
-<td>
-  
+<li>
   <strong>
     <xsl:copy-of select="./node()"/>.
   </strong>
@@ -131,7 +126,6 @@ and is expected to take <xsl:value-of select="@seconds"/> seconds
   <em>
     <xsl:value-of select="@meters"/> meters (approximately
   <xsl:value-of select="substring-before(@distance, 'mi')"/> miles)</em>
-</td>
-</tr>
+</li>
 </xsl:template>
 </xsl:stylesheet>
