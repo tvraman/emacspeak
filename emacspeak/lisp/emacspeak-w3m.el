@@ -88,11 +88,11 @@
   "personality used for forms."
   :type 'symbol
   :group 'emacspeak-w3m)
-(defcustom emacspeak-w3m-button-personality 'harry
+(defcustom emacspeak-w3m-button-personality voice-bolden
   "Button personality in W3M."
   :type 'symbol
   :group 'emacspeak-w3m)
-(defcustom emacspeak-w3m-disabled-personality 'harry
+(defcustom emacspeak-w3m-disabled-personality voice-bolden
   "Personality for disabled fields in W3M."
 :type 'symbol
   :group 'emacspeak-w3m)
@@ -389,7 +389,7 @@
   "w3m-arrived-anchor-face")
 
 (def-voice-font  w3m-anchor-personality
-'harry
+voice-bolden
 'w3m-anchor-face
 "w3m-anchor-face")
 
@@ -404,7 +404,7 @@
 "w3m-underline-face")
 
 (def-voice-font  emacspeak-w3m-header-line-location-title-personality
-'harry
+voice-bolden
                                 'w3m-header-line-location-title-face
                                 "w3m-header-line-location-title-face")
 

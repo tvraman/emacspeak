@@ -103,13 +103,13 @@
   :type 'symbol
   :group 'emacspeak-ediff)
 
-(defcustom emacspeak-ediff-fine-A-personality 'harry
+(defcustom emacspeak-ediff-fine-A-personality voice-bolden
   "Personality used to voiceify difference chunk A"
   :type 'symbol
   :group 'emacspeak-ediff)
 
 (defcustom emacspeak-ediff-fine-B-personality
-  'harry
+  voice-bolden
   "Personality used to voiceify difference chunk B"
   :type 'symbol
   :group 'emacspeak-ediff)

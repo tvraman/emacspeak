@@ -285,7 +285,7 @@
         (end (ad-get-arg 2)))
     (ems-modify-buffer-safely
      (put-text-property beg end
-			'personality 'harry))
+			'personality voice-bolden))
     (emacspeak-speak-line)
     (sit-for 2)))
 

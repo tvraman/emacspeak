@@ -170,7 +170,7 @@ personalities."
   :type 'symbol
   :group 'emacspeak-eshell)
 
-(defcustom emacspeak-eshell-ls-symlink-personality 'harry
+(defcustom emacspeak-eshell-ls-symlink-personality voice-bolden
   "Personality for symlinks."
   :type 'symbol
   :group 'emacspeak-eshell)

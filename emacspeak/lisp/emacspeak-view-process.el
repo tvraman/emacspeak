@@ -223,7 +223,7 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-(defcustom View-process-parent-line-personality 'harry
+(defcustom View-process-parent-line-personality voice-bolden
   "Personality for parent "
   :type 'symbol
   :group 'emacspeak-view-process)
