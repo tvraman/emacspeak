@@ -218,21 +218,21 @@ command \\[customize-variable] on <personality>-settings."
      (, settings)
      (, doc)
      :type  '(list
-              (choice
+              (choice :tag "Family"
                (const :tag "Unspecified" nil)
-               (symbol :tag "Family"))
-              (choice
+               (symbol :tag "Name"))
+              (choice :tag "Average Pitch"
                (const :tag "Unspecified" nil)
-               (integer :tag "Average Pitch"))
-              (choice
+               (integer :tag "Number"))
+              (choice :tag "Pitch Range"
                (const :tag "Unspecified" nil)
-               (integer :tag "Pitch Range"))
-              (choice
+               (integer :tag "Number"))
+              (choice :tag "Stress"
                (const :tag "Unspecified" nil)
-               (integer :tag "Stress"))
-              (choice
+               (integer :tag "Number"))
+              (choice :tag "Richness"
                (const :tag "Unspecified" nil)
-               (integer :tag "Richness")))
+               (integer :tag "Number")))
      :group 'tts
      :set
      '(lambda  (sym val)
@@ -242,41 +242,77 @@ command \\[customize-variable] on <personality>-settings."
           (set-default sym val))))))
 
 ;;}}}
+;;{{{ voices defined using ACSS.
+
+;;; these voices are device independent.
+;;; they will eventually replace most of the device specific voices 
+
+(defvoice  voice-monotone
+  (list nil nil 0 0 nil)
+  "Turns current voice into a monotone.")
+
+(defvoice voice-animate
+  (list nil 7 7 nil)
+  "Animates current voice.")
+
+
+(defvoice voice-smoothen 
+(list nil nil nil 3 0)
+"Smoothen current voice.")
+
+(defvoice voice-brighten 
+(list nil nil nil 3 9)
+"Brighten current voice.")
+
+
+(defvoice voice-bolden 
+(list nil 1 8 8 nil)
+"Bolden current voice.")
+
+(defvoice voice-lighten
+(list nil 8 8 1  nil)
+"Lighten current voice.")
+
+(defvoice voice-bolden-and-animate
+(list nil 8 8 8 8 )
+"Bolden and animate  current voice.")
+
+;;}}}
 ;;{{{  Define some voice personalities:
 
-(def-voice-font voice-lock-highlight-personality 'paul-animated
+(def-voice-font voice-lock-highlight-personality 'voice-animate
   'highlight
   "Personality used for highlighting text.")
 
-(def-voice-font voice-lock-comment-personality 'paul-monotone
+(def-voice-font voice-lock-comment-personality 'voice-monotone
   'font-lock-comment-face
   "Personality to use for comments.")
           
-(def-voice-font voice-lock-underline-personality 'paul-animated
+(def-voice-font voice-lock-underline-personality 'voice-brighten
   'underline
   "Personality to use for underline text.")
   
-(def-voice-font voice-lock-bold-personality 'harry
+(def-voice-font voice-lock-bold-personality 'voice-bolden
   'bold
   "Personality to use for bold  text.")
   
 
 (def-voice-font voice-lock-italic-personality 
-  'paul-italic
+  'voice-animate
   'italic
   "Personality to use for italic  text.")
 
 (def-voice-font voice-lock-bold-italic-personality 
-  'paul-animated
+  'voice-bolden-and-animate
   'bold-italic
   "Personality to use for bold  text.")
   
 (def-voice-font voice-lock-doc-string-personality
-  'dennis
+  'voice-smoothen
   'font-lock-doc-string-face
   "Personality to use for documentation strings.")
   
-(def-voice-font voice-lock-constant-personality 'paul-smooth
+(def-voice-font voice-lock-constant-personality 'voice-lighten
   'font-lock-constant-face
   "Personality to use for  constants.")
   
@@ -284,7 +320,7 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-string-face
   "Personality to use for string constants.")
 
-(def-voice-font voice-lock-function-name-personality 'harry
+(def-voice-font voice-lock-function-name-personality 'voice-bolden
   'font-lock-function-name-face
   "Personality to use for function names.")
   
@@ -300,15 +336,15 @@ command \\[customize-variable] on <personality>-settings."
   'font-lock-builtin-face
   "Personality to use for built-in keywords.")
 
-(def-voice-font voice-lock-variable-name-personality 'paul-animated
+(def-voice-font voice-lock-variable-name-personality 'voice-animate
   'font-lock-variable-name-face
   "Personality to use for variables.")
   
-(def-voice-font voice-lock-type-personality 'paul-smooth
+(def-voice-font voice-lock-type-personality 'voice-smoothen
   'font-lock-type-face
   "Personality to use for data types.")
   
-(def-voice-font voice-lock-reference-personality 'paul-animated
+(def-voice-font voice-lock-reference-personality 'voice-animate
   'font-lock-reference-face
   "Personality to use for references.")
 
