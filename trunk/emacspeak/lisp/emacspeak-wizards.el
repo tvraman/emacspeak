@@ -994,7 +994,7 @@ If there is only frame, then move to the next buffer."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line))
    (t
-    (switch-to-buffer (other-buffer (current-buffer)))
+      (bury-buffer)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-current-buffer-name))))
 
@@ -1008,10 +1008,17 @@ If there is only one frame, then move to the previous buffer."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line))
    (t
-    (switch-to-buffer (nth (1- (length (buffer-list)))
-                           (buffer-list)))
+    (let ((l
+           (remove-if
+            #'(lambda (b)
+                (string= (substring
+                          (buffer-name b)
+                          0 1) " "))
+            (buffer-list))))
+    (switch-to-buffer (nth (1- (length l))
+                           l))
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-current-buffer-name))))
+    (emacspeak-speak-current-buffer-name)))))
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
