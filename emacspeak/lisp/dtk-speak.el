@@ -53,6 +53,7 @@
 (require 'dtk-tcl)
 (eval-when (compile) (require 'emacspeak-keymap))
 
+
 ;;{{{  user customizations:
 (defgroup tts nil
   "Text To Speech (TTS) customizations for the Emacspeak
@@ -600,7 +601,9 @@ This is setup on a per engine basis.")
             'dectalk-personality-from-speech-style)
       (setq tts-default-speech-rate dtk-default-speech-rate)))
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
-
+;;; forward declaration.
+(defvar emacspeak-aumix-multichannel-capable-p nil)
+(defvar emacspeak-aumix-midi-available-p nil)
 (defun dtk-select-server (program)
   "Select a speech server interactively.
 Argument PROGRAM specifies the speech server program.

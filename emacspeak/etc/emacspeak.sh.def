@@ -16,9 +16,6 @@ for CL in $* ; do
 	if [ "$CL" = "-o" ]; then
 		DTK_PROGRAM=outloud
 		export DTK_PROGRAM
-	elif [ "$CL" = "-m" ]; then
-		DTK_PROGRAM=mbrola
-		export DTK_PROGRAM
 	elif [ "$CL" = "-q" ]; then
 		INITSTR=""
 	else
