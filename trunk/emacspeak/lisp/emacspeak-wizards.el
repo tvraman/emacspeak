@@ -58,9 +58,9 @@
 (require 'custom)
 (require 'thingatpt)
 (eval-when-compile (require 'dtk-speak)
-(require 'voice-lock)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds))
+                   (require 'voice-lock)
+                   (require 'emacspeak-speak)
+                   (require 'emacspeak-sounds))
 (require 'emacspeak-table-ui)
 (require 'shell)
 (eval-when-compile (require 'cus-edit))
@@ -114,8 +114,6 @@ navigate this document."
   (dtk-speak
    (format "Welcome to a summary of Emacspeak commands")))
 
-
-
 (defun emacspeak-view-emacspeak-tips ()
   "Browse  Emacspeak productivity tips."
   (interactive)
@@ -162,7 +160,6 @@ navigate this document."
 
 (make-variable-buffer-local
  'emacspeak-copy-associated-location)
-
 
 (defun emacspeak-copy-current-file ()
   "Copy file visited in current buffer to new location.
@@ -235,7 +232,6 @@ Prompts for the new location and preserves modification time
     (emacspeak-auditory-icon 'select-object)
     (message "Linked current document to %s" location)))
 
-
 (defun emacspeak-symlink-current-file ()
   "Link (symbolic link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -292,7 +288,7 @@ command `emacspeak-table-display-table-in-region' normally bound to
                           nil           ; keymap
                           nil           ;read
                           'emacspeak-speak-run-shell-command-history)
-current-prefix-arg))
+    current-prefix-arg))
   (declare (special emacspeak-wizards-root-buffer))
   (let ((buffer-name (format "*%s-output*" command))
         (start nil)
@@ -401,7 +397,6 @@ howto document.")))
 (defvar emacspeak-popup-messages-config-0 nil
   "Memoizes window configuration.")
 
-
 (defun emacspeak-speak-popup-messages ()
   "Pop up messages buffer.
 If it is already selected then hide it and try to restore
@@ -453,7 +448,6 @@ previous window configuration."
 (defvar emacspeak-speak-network-interfaces-list
   (list  "eth0" "ppp0" "eth1" "ppp1" "tr0" "tr1")
   "Used whne prompting for an interface to query.")
-
 
 (defun emacspeak-speak-show-active-network-interfaces
   (&optional address)
@@ -518,19 +512,16 @@ With prefix arg, opens the phone book for editting."
                                  
    
 
-
 ;;}}}
 ;;{{{  launch a root shell 
 
 (require 'comint)
 
-
 ;;; convenience to launch a root shell.
 
 (defvar emacspeak-wizards-root-buffer 
-"*root*"
-"Name of buffer where we run as root.")
-
+  "*root*"
+  "Name of buffer where we run as root.")
 
 (defun emacspeak-root (&optional cd)
   "Start a root shell or switch to one that already exists.
@@ -538,7 +529,7 @@ Optional interactive prefix arg `cd' executes cd
 default-directory after switching."
   (interactive "P")
   (declare (special explicit-shell-file-name
-emacspeak-wizards-root-buffer
+                    emacspeak-wizards-root-buffer
                     default-directory))
   (let ((dir (expand-file-name default-directory)))
     (cond
@@ -646,7 +637,6 @@ emacspeak-wizards-root-buffer
   "CVSROOT pattern for project CVS repository at
 sourceforge.
 Typically %s is replaced by project name.")
-
 
 (defcustom emacspeak-cvs-local-directory-pattern
   "~/sourceforge/cvs-%s"
@@ -885,10 +875,8 @@ for commands defined in module  %s.\n\n"
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
-
 ;;}}}
 ;;{{{ labelled frames
-
 
 (defsubst emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
@@ -915,7 +903,6 @@ With optional PREFIX argument, label current frame."
   (when (interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
-
 
 (defun emacspeak-next-frame ()
   "Move to next frame."
@@ -1088,8 +1075,6 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
              (count-lines start end)
              clipboard-file)))
 
-
-
 (defun emacspeak-clipboard-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
@@ -1121,27 +1106,26 @@ Lists are displayed one element per line.
 Argument VAR specifies variable whose value is to be displayed."
   (interactive "SDisplay variable:")
   (let ((buffer 
-                 (format "*emacspeak:%s*" var))
+         (format "*emacspeak:%s*" var))
         (symbol (symbol-value var)))
-      (with-output-to-temp-buffer buffer
-               (prin1 symbol))
-      (save-excursion
-        (set-buffer buffer)
-        (setq buffer-read-only nil)
+    (with-output-to-temp-buffer buffer
+      (prin1 symbol))
+    (save-excursion
+      (set-buffer buffer)
+      (setq buffer-read-only nil)
       (goto-char (point-min))
       (while (re-search-forward "\n" nil t)
         (replace-match " "))
       (goto-char (point-min))
       (while (re-search-forward "(" nil t)
-      (replace-match "\n("))
+        (replace-match "\n("))
       (goto-char (point-min))
       (lisp-indent-region (point-min)
-                     (point-max))
+                          (point-max))
       (emacs-lisp-mode))
     (pop-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
 
 (defun emacspeak-speak-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
@@ -1182,7 +1166,6 @@ to get speech back using the reliable TTS server.
 It's useful to bind the above command to a convenient key."
   :type 'string
   :group 'emacspeak)
-
 
 (defun emacspeak-emergency-tts-restart ()
   "For use in an emergency.
@@ -1413,7 +1396,6 @@ Extracted content is placed as a csv file in task.csv."
             task file depth count ))
   (emacspeak-table-find-csv-file (format "/tmp/%s.csv" task)))
 
-
 ;;}}}
 ;;{{{ annotation wizard
 
@@ -1580,7 +1562,6 @@ part of the libxslt package."
       (setq modification-flag nil)
       result)))
 
-
 ;;}}}
 ;;{{{  run rpm -qi on current dired entry
 (defun emacspeak-wizards-rpm-query-in-dired ()
@@ -1612,7 +1593,6 @@ part of the libxslt package."
 ;;{{{ xl wizard
 
 ;;;
-
 
 (define-derived-mode emacspeak-wizards-xl-mode text-mode
   "Browsing XL Files."
@@ -1751,7 +1731,6 @@ emacspeak-websearch-personal-portfolio."
   "Emacspeak Finder\n\n"
   )
 
-
 (defcustom emacspeak-wizards-find-switches-widget
   '(cons :tag "Find Expression"
          (menu-choice :tag "Find Test"
@@ -1815,7 +1794,6 @@ emacspeak-websearch-personal-portfolio."
           (string))
   :group 'emacspeak-wizards)
 
-
 (defsubst emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
   "Quote find arg if necessary."
   (declare (special emacspeak-wizards-find-switches-that-need-quoting))
@@ -1868,7 +1846,6 @@ emacspeak-websearch-personal-portfolio."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (defun emacspeak-wizards-generate-finder-callback ()
   "Generate a callback for use in the Emacspeak Finder."
   (`
@@ -1911,12 +1888,12 @@ directory to where find is to be launched."
     (setq browse-url-browser-function 'w3m-browse-url)
     (message "Browse  URL will now use W3M")
     (emacspeak-auditory-icon 'select-object))
-((eq browse-url-browser-function 'w3m-browse-url)
+   ((eq browse-url-browser-function 'w3m-browse-url)
     (setq browse-url-browser-function 'browse-url-w3)
     (message "Browse  URL will now use W3")
     (emacspeak-auditory-icon 'select-object))
-(t (setq browse-url-browser-function 'w3-fetch)
-(message "Restoring sanity by switching to W3."))))
+   (t (setq browse-url-browser-function 'w3-fetch)
+      (message "Restoring sanity by switching to W3."))))
 
 ;;}}}
 ;;{{{ customize emacspeak
@@ -1936,20 +1913,20 @@ directory to where find is to be launched."
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))
     (read-string "URL: " (browse-url-url-at-point))))
-   (declare (special emacspeak-xslt-directory
-                     emacspeak-w3-xsl-p
-                     emacspeak-w3-xsl-transform))
-   (let ((emacspeak-w3-xsl-p t)
-         (emacspeak-w3-xsl-transform style))
-   (browse-url url)
-   (emacspeak-speak-mode-line)))
+  (declare (special emacspeak-xslt-directory
+                    emacspeak-w3-xsl-p
+                    emacspeak-w3-xsl-transform))
+  (let ((emacspeak-w3-xsl-p t)
+        (emacspeak-w3-xsl-transform style))
+    (browse-url url)
+    (emacspeak-speak-mode-line)))
 (defun emacspeak-wizards-google-hits ()
   "Filter Google results after performing search to show just the
 hits."
   (interactive)
   (let ((name   "Google Hits"))
-  (emacspeak-url-template-open
-       (emacspeak-url-template-get name))))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
 
 ;;}}}
 ;;{{{ display environment variable
@@ -1959,37 +1936,31 @@ hits."
    (list
     (read-envvar-name "Display environment variable: " 'exact)))
   (message "%s is %s"
-v
-  (getenv v)))
+           v
+           (getenv v)))
 
 ;;}}}
-;;{{{ speaking an extent of text delimited by specified char 
+;;{{{ squeeze blank lines in current buffer:
 
-(defun emacspeak-wizards-speak-and-skip-extent-upto-char (char)
-  "Search forward from point until we hit char.
-Speak text between point and the char we hit."
-  (interactive "c")
-  (let ((start (point))
-        (goal nil))
-    (save-excursion
-      (cond
-       ((search-forward (format "%c" char)
-                       (point-max)
-                       'no-error)
-        (setq goal (point))
-       (emacspeak-speak-region start goal)
-       (emacspeak-auditory-icon 'select-object))
-       (t (error "Could not find %c" char))))
-    (when goal (goto-char goal))))
-
-(defun emacspeak-wizards-speak-and-skip-extent-upto-this-char ()
-  "Speak extent delimited by point and last character typed."
-  (interactive)
-  (declare (special last-input-char))
-  (emacspeak-wizards-speak-and-skip-extent-upto-char last-input-char))
-
+(defun emacspeak-wizards-squeeze-blanks (start end)
+  "Squeeze multiple blank lines in current buffer."
+  (interactive "r")
+  (shell-command-on-region start end
+                           "cat -s"
+                           (current-buffer)
+                           'replace))
 
 ;;}}}
+;;{{{  count slides in region: (LaTeX specific.
+(defun emacspeak-wizards-count-slides-in-region (start end)
+  "Count slides in current region."
+  (interactive "r")
+  (shell-command-on-region
+   start end
+   "grep 'begin{slide}' | wc -l"))
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

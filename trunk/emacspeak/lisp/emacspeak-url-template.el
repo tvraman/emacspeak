@@ -660,13 +660,14 @@ Computing News at CNN.")
 ;;{{{  Virtually There --Sabre Trip Reports 
 (emacspeak-url-template-define
  "Sabre Travel From Virtually There" 
- "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W"
-                                        ;"https://www.virtuallythere.com/cgi-bin/nph-itinerary?pnr=%s&name=%s&language=0&host=1W&clocktype=12"
+ "https://www.virtuallythere.com/new/printerFriendly.html?pnr=%s&name=%s&style=3&language=0&clocktype=12&host=1W&emailAddr=%s"
  (list
-  (lambda nil 
+  #'(lambda nil 
     (read-from-minibuffer "Record Locator: "))
-  (lambda nil 
-    (read-from-minibuffer "User Name")))
+  #'(lambda nil 
+    (read-from-minibuffer "User Name"))
+  #'(lambda nil
+      (read-from-minibuffer "Email: ")))
  nil
  "Display Trip Details"
                                         ; #'(lambda (url)
