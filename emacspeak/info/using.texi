@@ -392,9 +392,9 @@ Negative prefix arg speaks from start of sexp to point.
 If option  `voice-lock-mode' is on, then uses the personality.
 
 @findex  emacspeak-speak-spaces-at-point
- @kindex  control e meta control @ 
+ @kindex  control e meta control @@ 
  
-@item @kbd{ control e meta control @ }
+@item @kbd{ control e meta control @@ }
 emacspeak-speak-spaces-at-point
  Speak the white space at point.
 
@@ -553,9 +553,9 @@ emacspeak-view-register
 
 
 @findex  emacspeak-speak-current-mark
- @kindex  control e control @ 
+ @kindex  control e control @@ 
  
-@item @kbd{ control e control @ }
+@item @kbd{ control e control @@ }
 emacspeak-speak-current-mark
  Speak the line containing the mark.
 With no argument, speaks the

@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1997 by T. V. Raman  
+;;; Copyright (c) 1995 -- 2000, T. V. Raman
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -61,17 +61,75 @@
 ;;}}}
 ;;{{{ fffffffffadvice
 
-(defadvice custom (after emacspeak pre act comp)
+(defadvice customize-save-customized (after emacspeak pre
+                                            act comp)
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (message "Saved customizations.")))
+
+(defadvice custom-save-all (after emacspeak pre
+                                            act comp)
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (message "Saved customizations.")))
+(defadvice custom-set (after emacspeak pre
+                                            act comp)
+  "Provide auditory feedback. "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Set all updates.")))
+
+
+(defadvice customize (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
+    (voice-lock-mode 1)
     (emacspeak-speak-mode-line)))
+
+(defadvice customize-group (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (voice-lock-mode 1)
+    (emacspeak-speak-mode-line)))
+
+(defadvice customize-browse (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (voice-lock-mode 1)
+    (emacspeak-speak-mode-line)))
+
+(defadvice customize-option (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (voice-lock-mode 1)
+    (emacspeak-speak-mode-line)))
+
+(defadvice customize-variable (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (voice-lock-mode 1)
+    (emacspeak-speak-mode-line)))
+
 
 (defadvice Custom-goto-parent (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
+    (voice-lock-mode 1)
     (emacspeak-speak-line)))
+;;}}}
+;;{{{ custom hook
+(add-hook 'custom-mode-hook
+          (function
+           (lambda nil
+             (voice-lock-mode 1))))
 ;;}}}
 (provide 'emacspeak-custom)
 

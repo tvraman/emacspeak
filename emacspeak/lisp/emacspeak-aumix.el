@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1999 T. V. Raman <raman@cs.cornell.edu>
+;;; Copyright (C) 1995 -- 2000, T. V. Raman<raman@cs.cornell.edu>
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -71,7 +71,7 @@
 (defsubst emacspeak-aumix-get-channel (channel)
   (declare (special emacspeak-aumix-channel-table))
   (gethash channel emacspeak-aumix-channel-table))
-
+(emacspeak-aumix-set-channel ?r "reset")
 (emacspeak-aumix-set-channel ?b "bass")
 (emacspeak-aumix-set-channel ?c "CD Audio")
 (emacspeak-aumix-set-channel ?i "input gain")
@@ -90,6 +90,24 @@
 
 ;;}}}
 ;;{{{ emacspeak-aumix
+;;;###autoload
+(defcustom emacspeak-aumix-reset-options
+  "-f /etc/.aumixrc -L 2>&1 >/dev/null"
+  "*Option to pass to aumix for resetting to default
+values."
+  :group 'emacspeak
+:type 'string)
+
+(defun emacspeak-aumix-reset ()
+  "Reset to default audio settings."
+  (interactive)
+  (declare (special emacspeak-aumix-program
+                    emacspeak-aumix-reset-options))
+  (shell-command
+   (format "%s %s"
+           emacspeak-aumix-program
+           emacspeak-aumix-reset-options))
+   (emacspeak-auditory-icon 'close-object))
 
 (defun emacspeak-aumix ()
   "Setup output parameters of the auditory display.
@@ -107,17 +125,69 @@ you are done."
       (setq channel (read-char "Set channel: "))
       (setq description (emacspeak-aumix-get-channel channel))
       (cond
+       ((and description
+             (string-equal "reset" description))
+         (emacspeak-aumix-reset)
+         (setq done t))
        (description
         (setq setting
               (read-from-minibuffer
                (format "Set %s to:" description)))
         (shell-command
          (format "%s -%c %s"
-                 emacspeak-aumix-program channel setting)))
+                 emacspeak-aumix-program channel setting))
+        (emacspeak-auditory-icon 'select-object))
        ((= channel ?q)
         (setq done t)
         (emacspeak-auditory-icon 'close-object))
-       (t (message "Invalid channel %c" channel))))))
+       (t (message "Invalid channel %c" channel)
+          (emacspeak-auditory-icon 'warn-user))))))
+
+;;;###autoload
+
+(defun emacspeak-aumix-wave-increase (&optional gain)
+  "Increase volume of wave output. "
+  (interactive "P")
+  (unless (numberp gain) (setq gain 1 ))
+  (let ((emacspeak-speak-messages nil))
+  (shell-command
+   (format "%s -w +%s"
+           emacspeak-aumix-program  gain))
+  (emacspeak-auditory-icon 'select-object) ))
+
+;;;###autoload
+(defun emacspeak-aumix-wave-decrease  (&optional gain)
+  "Decrease volume of wave output. "
+  (interactive "P")
+  (unless (numberp gain) (setq gain 1 ))
+  (let ((emacspeak-speak-messages nil))
+  (shell-command
+   (format "%s -w -%s"
+           emacspeak-aumix-program  gain))
+  (emacspeak-auditory-icon 'select-object)))
+
+;;;###autoload
+(defun emacspeak-aumix-volume-increase (&optional gain)
+  "Increase overall volume. "
+  (interactive "P")
+  (unless (numberp gain) (setq gain 1 ))
+  (let ((emacspeak-speak-messages nil))
+  (shell-command
+   (format "%s -v +%s"
+           emacspeak-aumix-program  gain))
+  (emacspeak-auditory-icon 'select-object)))
+
+;;;###autoload
+(defun emacspeak-aumix-volume-decrease  (&optional gain)
+  "Decrease overall volume. "
+  (interactive "P")
+  (unless (numberp gain) (setq gain 1 ))
+  (let ((emacspeak-speak-messages nil))
+  (shell-command
+   (format "%s -v -%s"
+           emacspeak-aumix-program  gain))
+  (emacspeak-auditory-icon 'select-object)))
+
 
 ;;}}}
 (provide 'emacspeak-aumix)

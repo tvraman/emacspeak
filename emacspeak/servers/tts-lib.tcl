@@ -11,8 +11,7 @@
 
 # }}}
 # {{{ Copyright:  
-
-# Copyright (c) 1995, 1996, 1997, 1998, 1999  T. V. Raman.
+#Copyright (C) 1995 -- 2000, T. V. Raman 
 #All Rights Reserved
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved. 
@@ -334,7 +333,7 @@ proc tts_setserial {} {
 # {{{tts initialize  
 
 proc tts_initialize {} {
-    global tts
+    global tts backup  queue
     #split caps flag: 
     set tts(split_caps) 1
     # Capitalize flag

@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -43,6 +43,7 @@
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
+(require 'wid-edit)
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -341,31 +342,78 @@ implemented. ")))
 (defvar emacspeak-w3-javascript-cleanup-buffer " *javascript-cleanup*"
   "temporary scratch area")
 
+
+(defun emacspeak-w3-do-onclick ()
+  "Do  onclick action."
+  (interactive)
+  (unless (and (eq major-mode 'w3-mode)
+               (widget-at (point)))
+    (error "Not on a W3 link"))
+  (let ((onclick (widget-get (widget-at (point)) :onclick))
+        (url nil)
+        (start nil)
+        (end nil))
+    (unless onclick
+      (error "This link has no onclick attribute"))
+    (when (setq start
+                (string-match "http" onclick))
+      (setq url (substring  onclick start ))
+      (when (setq end (string-match "'" url))
+        (setq url (substring url 0 end)))
+      (w3-fetch url))))
+
 (defun emacspeak-w3-javascript-follow-link ()
   "Follow URL hidden inside a javascript link"
   (interactive)
   (unless (eq major-mode 'w3-mode)
     (error "Not in a W3 buffer."))
-  (let ((url (w3-view-this-url 'no-show))
-        (buffer (get-buffer-create
-                emacspeak-w3-javascript-cleanup-buffer)))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (insert url)
-      (goto-char (point-min))
-      (search-forward "('")
-(delete-region (point-min) (point))
-(goto-char (point-max))
-(search-backward "'")
-(delete-region (point) (point-max))
-(w3-fetch 
-(buffer-string)))))
+  (let ((j-url (w3-view-this-url 'no-show))
+        (url nil)
+        (start nil)
+        (end nil))
+    (setq start (string-match "'" j-url))
+    (setq url (substring j-url (1+ start)))
+    (setq end (string-match "'" url))
+    (setq url (substring url 0 end))
+    (when (string-match "http" url)
+    (w3-fetch url))
+    (w3-relative-link url)))
 
-
-
-
+(define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
 (define-key w3-mode-map "\M-j" 'emacspeak-w3-javascript-follow-link)
+
+;;}}}
+;;{{{ experimental --show class attribute from anchors 
+(defun emacspeak-w3-show-anchor-class ()
+  "Display any class attributes set on corresponding anchor
+element. "
+  (interactive)
+  (when (and (eq major-mode 'w3-mode)
+             (widget-at (point)))
+    (message (mapconcat #'identity 
+    (widget-get (widget-at (point)) :class ) " "))))
+
+;;}}}
+;;{{{ load realaudio if available 
+(when (locate-library "emacspeak-realaudio")
+  (require 'emacspeak-realaudio))
+
+;;}}}
+;;{{{  freeamp for mp3 
+(require 'emacspeak-freeamp)
+(defun emacspeak-w3-freeamp ()
+  "View the current buffer using emacspeak's freeamp interface"
+  (let ((tmpname (mailcap-generate-unique-filename)))
+    (write-region (point-min) (point-max) tmpname)
+    (emacspeak-freeamp tmpname)))
+(when (and (locate-library "mailcap")
+           (or  (file-exists-p "/usr/bin/freeamp")
+                (file-exists-p "/usr/local/bin/freeamp")))
+  (require 'mailcap)
+  (mapcar (lambda (type)
+            (mailcap-add (concat "audio/" type) 'emacspeak-w3-freeamp
+                         '(fboundp 'emacspeak-freeamp)))
+          '("x-mpegurl" "x-mpeg" "x-mp3" "scpls" "mpegurl" "mpeg" "mp3")))
 
 ;;}}}
 (provide 'emacspeak-w3)

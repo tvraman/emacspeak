@@ -43,8 +43,8 @@
 (setq forms-read-only t)
 (setq forms-file
       (read-file-name  "Log file: "
-                       "/export/local/apache/logs/"
-                       "/export/local/apache/logs/access_log"))
+                       "/var/httpd/logs/"
+                       "/etc/httpd/logs/access_log"))
 
 
 (setq forms-read-file-filter 'emacspeak-forms-flush-unwanted-records)

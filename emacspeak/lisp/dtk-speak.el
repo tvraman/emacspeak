@@ -1,5 +1,5 @@
 ;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server
-;;; $Id$
+;;;$Id$
 ;;; $Author$
 ;;; Description:  Emacs interface to the dectalk
 ;;; Keywords: Dectalk Emacs Elisp
@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -48,11 +48,32 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'backquote)
+(require 'custom)
 (require 'dtk-tcl)
 (eval-when (compile) (require 'emacspeak-keymap))
 
 ;;{{{  user customizations:
+(defgroup tts nil
+  "Text To Speech (TTS) customizations for the Emacspeak
+audio desktop."
+:group 'emacspeak)
+(defcustom dtk-stop-immediately-while-typing t
+  "*Set it to nil if you dont want speech to flush as you type.
+You can use  command
+`dtk-toggle-stop-immediately-while-typing' bound to
+\\[dtk-toggle-stop-immediately-while-typing]
+to toggle this setting."
+  :group 'tts
+  :type 'boolean)
 
+(defcustom dtk-speech-rate-step 50
+  "*Value of speech rate increment.
+This determines step size used when setting speech rate via command
+`dtk-set-predefined-speech-rate'.  Formula used is
+180 +  dtk-speech-rate-step*level"
+:type 'integer
+:group 'tts)
 (defvar dtk-startup-hook nil
   "List of hooks to be run after starting up the speech server.  .
 Set things like speech rate, punctuation mode etc in this hook.")
@@ -89,19 +110,66 @@ important to be interrupted.")
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
-Use command  `dtk-set-punctuations' bound to \\[dtk-set-punctuations].  .")
+Use command  `dtk-set-punctuations' bound to
+\\[dtk-set-punctuations].  .")
+;;; forward declaration 
+(defvar emacspeak-servers-directory (expand-file-name
+                                     "servers/"
+                                     emacspeak-directory))
+(defun tts-setup-servers-alist ()
+  "Sets up tts servers alist from file servers/.servers. 
+File .servers is expected to contain name of one server per
+no line --with no white space."
+  (declare (special emacspeak-servers-directory
+                    dtk-servers-alist))
+  (let ((result nil)
+        (start nil)
+        (scratch (get-buffer-create " *servers*"))
+        (this nil))
+    (save-excursion
+      (set-buffer scratch)
+      (erase-buffer)
+      (insert-file
+       (expand-file-name ".servers"
+                         emacspeak-servers-directory))
+      (goto-char (point-min))
+      (goto-char (point-min))
+      (while (not (eobp))
+        (setq start (point))
+        (unless 
+      (looking-at  "^#")
+        (end-of-line)
+        (setq this (buffer-substring-no-properties start (point)))
+        (push
+         (cons this this)
+         result))
+        (forward-line 1)))
+    (setq dtk-servers-alist result)))
 
 (defvar dtk-servers-alist
-  '(("dtk-exp" . "dtk-exp")
-    ("dtk-mv" . "dtk-mv")
-    ("outloud" . "outloud")
-    ("mbrola" . "mbrola")
-    ("keynote" . "keynote")
-    ("dtk-sapi" . "dtk-sapi")
-    )
+  (tts-setup-servers-alist)
   "Used by `completing-read' when prompting for the dtk server to use.")
 
 
+
+;;}}}
+;;{{{ macros
+(defmacro tts-with-punctuations (setting &rest body)
+  "Safely set punctuation mode for duration of body form."
+  (`
+   (progn
+   (declare (special dtk-punctuation-mode))
+   (let    ((save-punctuation-mode dtk-punctuation-mode))
+     (unwind-protect
+         (progn      
+           (setq dtk-punctuation-mode (, setting))
+           (dtk-interp-sync)
+           (,@ body)
+           (dtk-force))
+       (setq dtk-punctuation-mode
+             save-punctuation-mode)
+       (dtk-interp-sync)
+       (dtk-force))))))
 
 ;;}}}
 ;;{{{  Mapping characters to speech:

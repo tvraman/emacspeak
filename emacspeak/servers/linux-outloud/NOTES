@@ -1,18 +1,26 @@
 $Id$
-Notes On Using IBM ViaVoice Outloud with Emacspeak:
+Notes On Using IBM ViaVoice Outloud (Software TTS) with Emacspeak:
+
+IBM ViaVoice TTS (Text To Speech) formerly known as IBM
+ViaVoice Outloud 
+is a text to speech synthesis engine that allows you produce
+synthetic speech from text using a sound card.
 
 * Pre-requisites:
 
-You need to download and install the IBM ViaVoice Outloud
-engine.
-The Outloud engine itself is not distributed as part of this
-package --you can obtain it from 
-http://www.ibm.com/software/speech/dev/downloads.html
+You need to download and install the IBM ViaVoice TTS
+(previously called Outloud) engine.  The The ViaVoice TTS  engine
+itself is not distributed as part of this package --you can
+obtain it from
+http://www-4.ibm.com/software/speech/dev/index.html
 
 The Outloud speech server uses midi for producing auditory
 icons.  You need to obtain and install package stdiosynth
 from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
-
+Note that that package comes pre-built --to compile it
+yourself you need the commercial OSS installation;
+however you do not need the commercial OSS package to use
+the pre-built binary.
 
  * Installation:
 
@@ -137,5 +145,7 @@ Realaudio.
 
 
 
-Local variables: mode: outline paragraph-separate: "[ ]*$"
+Local variables: 
+mode: outline 
+paragraph-separate: "[ ]*$"
 end:

@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1995 by T. V. Raman 
 ;;; All Rights Reserved.
 ;;;
@@ -235,12 +235,12 @@ Argument CHILD  specifies the mode whose supers are being requested."
   (get child 'emacspeak-pronounce-supers))
 
 ;;}}}
-(defvar emacspeak-pronounce-pronunciation-personality
-  nil
+(defcustom emacspeak-pronounce-pronunciation-personality nil
   "*Pronunciation personality.
 This is the personality used when speaking  things that have a pronunciation
-applied.")
-
+applied."
+  :group 'emacspeak
+:type 'symbol)
 
 (defsubst emacspeak-pronounce-apply-pronunciations (pronunciation-table )
   "Applies pronunciations specified in pronunciation table to current buffer.

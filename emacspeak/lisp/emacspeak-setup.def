@@ -14,7 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved. 
 ;;;
@@ -37,6 +37,8 @@
 ;;}}}
 
 (require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 (eval-when (compile)
   (require 'emacspeak-speak))
 (defvar emacspeak-directory
@@ -64,16 +66,18 @@
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Directory containing  Emacspeak info files.")
-(defvar emacspeak-play-program
+(defcustom emacspeak-play-program
   (cond
    ((getenv "EMACSPEAK_PLAY_PROGRAM"))
    ((file-exists-p "/usr/bin/play") "/usr/bin/play")
    ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
    ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
    (t (expand-file-name emacspeak-etc-directory "play")))
-  "Name of executable that plays sound files. ")
+  "Name of executable that plays sound files. "
+  :group 'emacspeak
+  :type 'string)
 
-(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
+(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
   "Directory where Emacspeak resource files such as
 pronunciation dictionaries are stored. ")
 

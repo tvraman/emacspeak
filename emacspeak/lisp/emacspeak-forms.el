@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; Copyright (c) 1996 by T. V. Raman 
 ;;; All Rights Reserved. 
 ;;;
@@ -173,8 +173,11 @@ speak the first field")
    (format "Record %s of %s from %s"
            forms--current-record forms--total-records forms-file)))
 
-(dtk-define-voice-alias 'emacspeak-forms-rw-voice 'paul)
-(dtk-define-voice-alias 'emacspeak-forms-ro-voice 'annotation-voice)
+(defvar emacspeak-forms-rw-voice 'paul
+"Personality for read-write fields. ")
+
+(defvar emacspeak-forms-ro-voice 'annotation-voice
+"Personality for read-only fields. ")
 
 
 (defun emacspeak-forms-speak-field ()
@@ -196,9 +199,9 @@ Assumes that point is at the front of a field value."
            (point)))  ))
     (put-text-property 0 (length name)
                        'personality
-                       'emacspeak-forms-ro-voice name)
+                       emacspeak-forms-ro-voice name)
     (put-text-property 0 (length value )
-                       'personality 'emacspeak-forms-rw-voice value)
+                       'personality emacspeak-forms-rw-voice value)
     (dtk-speak (concat name " " value ))))
 
       ;;}}}
@@ -247,7 +250,7 @@ Assumes that point is at the front of a field value."
   (interactive
    (list
     (read-file-name "Forms file: "
-                    (expand-file-name "forms" emacspeak-etc-directory))))
+                    (expand-file-name "forms/" emacspeak-etc-directory))))
   (forms-find-file filename))
 
 ;;}}}

@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;; Copyright (c) 1997 by T. V. Raman  
+;;; Copyright (c) 1995 -- 2000, T. V. Raman
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -122,6 +122,116 @@ do
 
 	     voice-lock-defaults-alist)))
 
+;;}}}
+;;{{{ jdebug 
+
+(defadvice jde-debug (after emacspeak pre act comp)
+  "Speak the line where we eventually stop. "
+(when (interactive-p)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'large-movement)))
+
+
+(defadvice jde-bug-step-over (after emacspeak pre act comp)
+  "Speak the line we stepped to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(defadvice jde-bug-step-into (after emacspeak pre act comp)
+  "Speak the line we stepped to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(defadvice jde-bug-step-out (after emacspeak pre act comp)
+  "Speak the line we stepped to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(defadvice jde-bug-continue (after emacspeak pre act comp)
+  "Speak the line we stop  to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+(defadvice jde-bug-exit (after emacspeak pre act comp)
+  "Produce auditory icon indicating successful exit "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice jde-bug-set-breakpoint (after emacspeak pre act comp)
+  "Speak the line we set the break point at "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-speak-line)))
+(defadvice jde-bug-clear-breakpoint (after emacspeak pre act comp)
+  "Speak the line we nuked the breakpoint  "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-speak-line)))
+(defadvice jde-bug-highlight-breakpoint (after emacspeak pre
+                                               act comp)
+  "Annotate line with an auditory icon. "
+  (let ((start nil))
+    (save-excursion
+      (beginning-of-line)
+      (setq  start (point))
+      (back-to-indentation)
+      (ems-modify-buffer-safely
+       (put-text-property start (point)
+                          'auditory-icon 'mark-object)))))
+(defadvice jde-bug-remove-breakpoint-highlight (after emacspeak pre act comp)
+  "Clear auditory annotation"
+  (let ((start nil))
+    (save-excursion
+      (beginning-of-line)
+      (setq  start (point))
+      (back-to-indentation)
+      (ems-modify-buffer-safely
+       (remove-text-properties
+ start (point)
+                          (list 'auditory-icon 'mark-object))))))
+
+(defadvice jde-bug-up-stack (after emacspeak pre act comp)
+  "Speak the line we stepped to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+
+(defadvice jde-bug-down-stack (after emacspeak pre act comp)
+  "Speak the line we stepped to "
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+;;{{{ fix interactive commands 
+(loop for f in 
+'(jde-bug-display-object
+jde-gen-jfc-app-buffer
+jde-bug-show-object-monitors
+jde-bug-set-target-process
+jde-find-class-source
+jde-menu1
+jde-bug-evaluate-expression
+jde-bug-suspend-thread
+jde-bug-resume-thread
+jde-bug-interrupt-thread
+jde-bug-display-array
+jde-bug-display-string
+jde-bug-attach-via-shared-memory
+jde-bug-stop-thread
+jde-bug-menu1
+jde-bug-attach-local-host
+jde-bug-attach-remote-host)
+do
+(emacspeak-fix-interactive-command-if-necessary f))
+
+
+;;}}}
 ;;}}}
 (provide 'emacspeak-jde )
 ;;{{{ end of file 

@@ -107,31 +107,35 @@
 (defun emacspeak-websearch-dispatch  (&optional prefix)
   "Launches specific websearch queries.
 Search engine is selected by keystrokes listed below.
-Once selected, the selected searcher prompts for additional
-information as appropriate.
+Once selected, the selected searcher prompts for additional information as appropriate.
 
 Key     Engine              Search
 a       AltaVista                   AltaVista Simple Search
 Cap A     AllTheWeb                   All The Web
 b       BBC                         BBC Archives
+C-b     Biblio                      Computer Science Bibliography
 c       CNN                         CNN Interactive
-Cap C   Company News            Lookup Company News By Ticker
+Cap C   Company News                Lookup Company News By Ticker
+C-c     CiteSeer                    Computer Science Citation  Index
 d       dejanews                    Usenet Archives At Dejanews
 Cap D   Dictionary                  Hypertext Websters Dictionary
 e   Encyclopedia                    Encyclopedia Britannica
 f       CNN-FN                      CNN  Financial Network
 cap F   FolDoc                      Free Online Dictionary Of Computing
 g       Google                      The Google WWW Index
+Cap G   Gutenberg Locate Gutenberg Etexts
 h       HotBot                      HotBot WWW Index
 i       Inference                   Inference WWW Search 
+j       jeeves                      Ask Jeeves
+k       kerbango                    Kerbango Radio Tuner
 m       Map                         Driving directions from Yahoo
 Cap M   Dictionary                  Merriam Webster Dictionary
 n       news-yahoo                  News Wire at Yahoo
 Cap N   NLight                      Northern Light Search
 o       open-directory              Open Directory Search 
+p       People                      People Search (Yahoo)
 r       RedHat                      Search RedHat Via Google
 Cap R   RFBD                        RFB&D Catalog search
-p       Packages                    Locate Linux Packages
 s       Software                  Search for software
 u       usenet-altavista            Usenet Index At AltaVista
 w       Weather                     Weather Channel  By Zip Code
@@ -143,13 +147,18 @@ y       yahoo                       Master Yahoo Index
 When using W3,  this interface attempts to speak the most relevant information on the result page."
   (interactive)
   (let ((engine nil)
+        (saved-syntax-table (copy-syntax-table  (syntax-table)))
         (searcher nil))
+    (unwind-protect
+        (progn
+          (modify-syntax-entry 10  ">")
     (while (null engine)
       (setq engine
             (emacspeak-websearch-get-engine 
              (read-char 
               (concat "Websearch? "
-                      (documentation this-command))))))
+                      (documentation this-command)))))))
+      (set-syntax-table saved-syntax-table))
     (setq searcher (emacspeak-websearch-get-searcher engine))
     (if searcher 
         (call-interactively searcher)
@@ -157,7 +166,38 @@ When using W3,  this interface attempts to speak the most relevant information o
 
 ;;}}}
 ;;{{{ helpers 
-
+(defun emacspeak-websearch-do-post (the-method the-url query
+                                               &optional
+                                               enctype)
+  "Submit a post request. "
+  (declare (special url-request-extra-headers))
+  ;; Adapted from w3-submit-form
+  (require 'w3)
+  (let* ((enctype (or enctype "application/x-www-form-urlencoded")))
+    (if (and (string= "GET" the-method)
+	     (string-match "\\([^\\?]*\\)\\?" the-url))
+	(setq the-url (url-match the-url 1)))
+    (cond
+     ((or (string= "POST" the-method)
+	  (string= "PUT" the-method))
+      (if (consp query)
+	  (setq enctype (concat enctype "; boundary="
+				(substring (car query) 2 nil)
+				"")
+		query (cdr query)))
+      (let ((url-request-method the-method)
+	    (url-request-data query)
+	    (url-request-extra-headers
+	     (cons (cons "Content-type" enctype) url-request-extra-headers)))
+	(w3-fetch the-url)))
+     ((string= "GET" the-method)
+      (let ((the-url (concat the-url (if (string-match "gopher" enctype)
+                                         "" "?") query)))
+	(w3-fetch the-url)))
+     (t
+      (w3-warn 'html (format "Unknown submit method: %s" the-method))
+      (let ((the-url (concat the-url "?" query)))
+	(w3-fetch the-url))))))
 ;;{{{ helpers to read the query 
 
 (defvar emacspeak-websearch-history nil
@@ -251,7 +291,7 @@ to specify the type of search."
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Results"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ altavista emacspeak archive
@@ -275,7 +315,7 @@ archives, type +redhat"
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Here is"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Computer Science Bibliography
@@ -287,7 +327,7 @@ archives, type +redhat"
 
 (defvar emacspeak-websearch-biblio-uri
   "http://liinwww.ira.uka.de/searchbib/index?partial=on&case=on&results=citation&maxnum=200&query="
-"URI to search the Computer Science Bibliographies.")
+  "URI to search the Computer Science Bibliographies.")
 
 (defun emacspeak-websearch-biblio-search (query)
   "Search Computer Science Bibliographies."
@@ -304,6 +344,62 @@ archives, type +redhat"
    'emacspeak-speak-line))
 
 ;;}}}
+;;{{{ CiteSeer Citation index 
+
+(defvar emacspeak-websearch-citeseer-uri 
+  "http://citeseer.nj.nec.com/cs?"
+  "URI for searching CiteSeer index. ")
+
+(defvar emacspeak-websearch-citeseer-citation-options 
+  "cs=1&submit=Search+Citations&cf=Any&co=Citations&cm=50"
+  "* Options for performing a citation search on CiteSeer.")
+
+
+(defvar emacspeak-websearch-citeseer-article-options 
+  "cs=1&cf=Author&co=Citations&cm=50&submit=Search+Indexed+Articles&af=Any&ao=Citations&am=50"
+  "* Options for performing an article search on CiteSeer. ")
+
+
+
+
+(emacspeak-websearch-set-searcher 'citeseer
+
+                                  'emacspeak-websearch-citeseer-search)
+
+(emacspeak-websearch-set-key 3 'citeseer)
+(defun emacspeak-websearch-citeseer-search(term )
+  "Perform a CiteSeer search. "
+  (interactive
+   (list
+    (emacspeak-websearch-read-query
+     "Enter CiteSeer query term:")))
+  (declare (special emacspeak-websearch-citeseer-uri
+                    emacspeak-websearch-citeseer-citation-options
+                    emacspeak-websearch-citeseer-article-options))
+  (let ((url-be-asynchronous nil)
+        (options nil)
+        (type-char
+         (read-char
+          "a Articles c Citations")))
+    (setq options
+          (case type-char
+            (?a
+             emacspeak-websearch-citeseer-article-options)
+            (?c emacspeak-websearch-citeseer-citation-options)))
+    (browse-url 
+     (concat emacspeak-websearch-citeseer-uri
+             "q="
+             (webjump-url-encode term)
+             "&"
+             options))
+    (cond
+     ((char-equal type-char ?a)
+      (emacspeak-websearch-post-process "documents found"
+                                        'emacspeak-speak-line))
+     ((char-equal ?c type-char)
+      (emacspeak-websearch-post-process "citations found" 'emacspeak-speak-line)))))
+
+;;}}}
 ;;{{{ bbc
 
 (emacspeak-websearch-set-searcher 'bbc
@@ -313,7 +409,7 @@ archives, type +redhat"
 
 (defvar emacspeak-websearch-bbc-uri
   "http://search.bbc.co.uk/search/search.shtml?DB=all&TOPDOC=0&DB=all&P="
-"URI to search the BBC archives.")
+  "URI to search the BBC archives.")
 
 (defun emacspeak-websearch-bbc-search (query)
   "Search BBC archives."
@@ -342,7 +438,7 @@ archives, type +redhat"
 
 (defvar emacspeak-websearch-cnn-options
   "&col=cnni&lk=1&rf=1"
-"*Additional default options to pass to CNN.")
+  "*Additional default options to pass to CNN.")
 
 
 (defun emacspeak-websearch-cnn-search (query &optional prefix)
@@ -389,7 +485,7 @@ emacspeak-websearch-cnn-options to an appropriate string."
 
 (defvar emacspeak-websearch-fn-cnn-options
   "&col=cnnfn&rq=0&qc=cnnfn&qm=1&st=1&nh=10&lk=1&rf=1&go=+seek+"
-"*Additional default options to pass to CNN.")
+  "*Additional default options to pass to CNN.")
 
 
 (defun emacspeak-websearch-fn-cnn-search (query &optional prefix)
@@ -418,7 +514,7 @@ emacspeak-websearch-fn-cnn-options to an appropriate string."
                ""))))
   (emacspeak-websearch-post-process
    "Results"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ FolDoc
@@ -443,7 +539,7 @@ emacspeak-websearch-fn-cnn-options to an appropriate string."
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    query
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ quotes from yahoo
@@ -463,18 +559,21 @@ emacspeak-websearch-fn-cnn-options to an appropriate string."
 
 (defvar emacspeak-websearch-quotes-yahoo-options
   "&d=v1"
-"*Additional default options to pass to Yahoo.")
+  "*Additional default options to pass to Yahoo.")
 
 (defvar emacspeak-websearch-personal-portfolio nil
   "Set this to the stock tickers you want to check by
 default.")
 (defvar emacspeak-websearch-lynx-program "lynx"
   "Name of lynx executable")
+
 (defun emacspeak-websearch-quotes-yahoo-search (query &optional prefix)
   "Perform a Quotes Yahoo .  
-Default tickers to look up is taken from variable emacspeak-websearch-personal-portfolio.
-Optional interactive prefix arg
-causes data to be presented in an emacspeak table.
+Default tickers to look up is taken from variable
+emacspeak-websearch-personal-portfolio.
+Default is to present the data in emacspeak's table browsing
+mode --optional interactive prefix arg
+causes data to be displayed y W3 as a WWW page.
 You can customize the defaults by setting variable
 emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (interactive
@@ -490,11 +589,14 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
                     emacspeak-websearch-quotes-csv-yahoo-uri))
   (let ((url-be-asynchronous nil))
     (cond
-     (prefix
+     ((null prefix)
       (let ((uri (concat emacspeak-websearch-quotes-csv-yahoo-uri
                          (webjump-url-encode (format "%s" query))))
-            (results (format "*%s*" query))
+            (results "*quotes-table*")
             (process nil))
+        ;;; nuke old results if any
+        (when (get-buffer results )
+          (kill-buffer results))
         (setq process
               (start-process   "lynx"
                                results 
@@ -508,8 +610,8 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
                (webjump-url-encode query)
                emacspeak-websearch-quotes-yahoo-options))
       (emacspeak-websearch-post-process
-      "Symbol"
-      'emacspeak-speak-line)))))
+       "Symbol"
+       'emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Lookup company news at Yahoo 
@@ -530,6 +632,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   "http://chart.yahoo.com/table.csv?"
   "*URI for locating historical chart data.")
 
+(defvar emacspeak-websearch-yahoo-company-news-quotes-uri 
+"http://finance.yahoo.com/q?d=t&o=t"
+"URI for looking up detailed quote information. ")
+
 (defun emacspeak-websearch-company-news (ticker )
   "Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades."
@@ -537,12 +643,13 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
    (list
     (emacspeak-websearch-read-query
      "Enter stock ticker of company to lookup: ")))
-  (declare (special emacspeak-websearch-company-news-uri))
+  (declare (special emacspeak-websearch-company-news-uri
+                    emacspeak-websearch-yahoo-company-news-quotes-uri))
   (let ((url-be-asynchronous nil)
         (type nil)
         (type-char
          (read-char
-          "c Upgrades, h history, n news, r Research, p profile, t insider trades")))
+          "c Upgrades, h history, n news, r Research, p profile, q Quotes, t insider trades")))
     (setq type
           (case type-char
             (?r "z/a")
@@ -555,6 +662,12 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
                                                   'csv)
       (emacspeak-auditory-icon 'select-object)
       (message "Fetching data --just a minute."))
+     ((char-equal type-char ?q)
+      (browse-url
+       (concat
+        emacspeak-websearch-yahoo-company-news-quotes-uri 
+        (format "&s=%s" ticker)))
+      (emacspeak-websearch-post-process "Markets close" 'emacspeak-speak-line))
      (t
       (browse-url 
        (concat emacspeak-websearch-company-news-uri
@@ -567,7 +680,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 (defun emacspeak-websearch-view-csv-data (process state )
   "Process csv data and put it in emacspeak table mode. "
-(emacspeak-table-view-csv-buffer (process-buffer process)))
+  (emacspeak-table-view-csv-buffer (process-buffer process)))
 
 (defun emacspeak-websearch-yahoo-historical-chart (ticker
                                                    &optional data)
@@ -680,8 +793,8 @@ Optional second arg data processes the results as data rather than HTML."
 (emacspeak-websearch-set-key ?D 'dictionary-hypertext-webster)
 
 (defvar emacspeak-websearch-dictionary-hypertext-webster-uri 
-"http://work.ucsd.edu:5141/cgi-bin/http_webster?isindex="
-"URI for searching the hypertext Webster dictionary.")
+  "http://work.ucsd.edu:5141/cgi-bin/http_webster?isindex="
+  "URI for searching the hypertext Webster dictionary.")
 
 (defun emacspeak-websearch-dictionary-hypertext-webster-search (query)
   "Search the Webster Dictionary."
@@ -695,7 +808,7 @@ Optional second arg data processes the results as data rather than HTML."
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    query
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ source forge 
@@ -706,8 +819,8 @@ Optional second arg data processes the results as data rather than HTML."
 (emacspeak-websearch-set-key ?s 'software)
 
 (defvar emacspeak-websearch-sourceforge-search-uri 
-"http://sourceforge.net/search/?type_of_search=soft&exact=1&forum_id=&is_bug_page=&group_id=&Search=Search&words="
-"URI for searching the SourceForge site.")
+  "http://sourceforge.net/search/"
+  "URI for searching the SourceForge site.")
 
 (defun emacspeak-websearch-sourceforge-search (query)
   "Search SourceForge Site. "
@@ -716,16 +829,20 @@ Optional second arg data processes the results as data rather than HTML."
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
   (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-sourceforge-search-uri
-             (webjump-url-encode query))))
+    (emacspeak-websearch-do-post "post"
+                                 emacspeak-websearch-sourceforge-search-uri
+                                 (concat 
+                                  "type_of_search=soft"
+                                  "&exact=1"
+                                  "&words="
+                                  (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    query
-  'w3-table-focus-on-this-cell))
+   'w3-table-focus-on-this-cell))
 
 (defvar emacspeak-websearch-freshmeat-search-uri 
-"http://www.freshmeat.net/search.php3?query="
-"URI for searching Freshmeat site. ")
+  "http://www.freshmeat.net/search?q="
+  "URI for searching Freshmeat site. ")
 
 (defun emacspeak-websearch-freshmeat-search (query)
   "Search Freshmeat  Site. "
@@ -738,12 +855,12 @@ Optional second arg data processes the results as data rather than HTML."
      (concat emacspeak-websearch-freshmeat-search-uri
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
-   query
-  'emacspeak-speak-line))
+   "search results"
+   'emacspeak-speak-line))
 
 (defvar emacspeak-websearch-appwatch-search-uri 
-"http://appwatch.com/Linux/Users/find?q="
-"URI for searching Freshmeat site. ")
+  "http://appwatch.com/Linux/Users/find?q="
+  "URI for searching Freshmeat site. ")
 
 (defun emacspeak-websearch-appwatch-search (query)
   "Search AppWatch  Site. "
@@ -757,13 +874,13 @@ Optional second arg data processes the results as data rather than HTML."
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Search results"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 
 
 (defvar emacspeak-websearch-ctan-search-uri 
-"http://theory.uwinnipeg.ca/mod_perl/ctan-search.pl?topic="
-"URI for searching CTAN archives for tex and latex utilities. ")
+  "http://theory.uwinnipeg.ca/mod_perl/ctan-search.pl?topic="
+  "URI for searching CTAN archives for tex and latex utilities. ")
 
 (defun emacspeak-websearch-ctan-search (query)
   "Search CTAN Comprehensive TeX Archive Network   Site. "
@@ -783,8 +900,8 @@ Optional second arg data processes the results as data rather than HTML."
 
 
 (defvar emacspeak-websearch-cpan-search-uri 
-"http://search.cpan.org/search?mode=module&query="
-"URI for searching CPAN  archives for perl modules . ")
+  "http://search.cpan.org/search?mode=module&query="
+  "URI for searching CPAN  archives for perl modules . ")
 
 (defun emacspeak-websearch-cpan-search (query)
   "Search CPAN  Comprehensive Perl Archive Network   Site. "
@@ -805,8 +922,8 @@ Optional second arg data processes the results as data rather than HTML."
 
 
 (defvar emacspeak-websearch-software-sites
-"a AppWatch f FreshMeat p Perl s SourceForge t TEX "
-"Sites searched for open source software. ")
+  "a AppWatch f FreshMeat l Linux p Perl s SourceForge t TEX "
+  "Sites searched for open source software. ")
 
 ;;; top level dispatcher for searching source locations 
 (defun emacspeak-websearch-software-search  ()
@@ -819,11 +936,36 @@ Optional second arg data processes the results as data rather than HTML."
       (?a (call-interactively 'emacspeak-websearch-appwatch-search))
       (?f (call-interactively
            'emacspeak-websearch-freshmeat-search))
+      (?l (call-interactively 'emacspeak-websearch-packages-linux))
       (?p (call-interactively 'emacspeak-websearch-cpan-search))
       (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
       (?t (call-interactively 'emacspeak-websearch-ctan-search))
       (otherwise (message emacspeak-websearch-software-sites )))))
 
+;;{{{ Linux Package Index
+
+
+
+
+(defvar emacspeak-websearch-packages-linux-uri
+  "http://www.firstlinux.com/cgi-bin/package/search.cgi?query="
+  "*URI for Linux Package  Site search")
+
+(defun emacspeak-websearch-packages-linux (query)
+  "Search for Linux packages."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Search Linux packagesfor: ")))
+  (declare (special emacspeak-websearch-packages-linux-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-packages-linux-uri
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   "returned"
+   'emacspeak-speak-line))
+
+;;}}}
 
 ;;}}}
 ;;{{{  Encyclopeadia Britannica 
@@ -833,8 +975,8 @@ Optional second arg data processes the results as data rather than HTML."
 (emacspeak-websearch-set-key ?e 'britannica)
 
 (defvar emacspeak-websearch-britannica-uri 
-"http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
-"URI for searching Britannica online.")
+  "http://www.eb.com:180/bol/search?type=topic&I3.x=0&I3.y=0&DBase=Articles"
+  "URI for searching Britannica online.")
 
 (defun emacspeak-websearch-britannica-search (query)
   "Search Encyclopedia Britannica."
@@ -846,10 +988,39 @@ Optional second arg data processes the results as data rather than HTML."
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-britannica-uri
-"&query="
+             "&query="
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "your search"
+   'emacspeak-speak-line))
+
+;;}}}
+;;{{{ Gutenberg
+
+(emacspeak-websearch-set-searcher 'gutenberg
+                                  'emacspeak-websearch-gutenberg)
+(emacspeak-websearch-set-key ?G 'gutenberg)
+
+(defvar emacspeak-websearch-gutenberg-uri
+  "http://digital.library.upenn.edu/webbin/book/search?"
+  "*URI for Gutenberg search")
+
+(defun emacspeak-websearch-gutenberg (type query)
+  "Perform an Gutenberg search"
+  (interactive
+   (list
+    (read-char "Author a, Title t")
+    (emacspeak-websearch-read-query "Gutenberg query: ")))
+  (declare (special emacspeak-websearch-gutenberg-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-gutenberg-uri
+             (ecase type
+               (?a "author=")
+               (?t "title="))
+             (webjump-url-encode query))))
+  (emacspeak-websearch-post-process
+   query
    'emacspeak-speak-line))
 
 ;;}}}
@@ -873,7 +1044,7 @@ Optional second arg data processes the results as data rather than HTML."
      (concat emacspeak-websearch-google-uri
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
-   "results"
+   "Results"
    'emacspeak-speak-line))
 
 ;;}}}
@@ -884,12 +1055,12 @@ Optional second arg data processes the results as data rather than HTML."
 (emacspeak-websearch-set-key ?h 'hotbot)
 
 (defvar emacspeak-websearch-hotbot-uri 
-"http://www.hotbot.com/?submit=SEARCH&_v=2"
-"URI for searching Hotbot.")
+  "http://www.hotbot.com/?submit=SEARCH&_v=2"
+  "URI for searching Hotbot.")
 
 (defvar emacspeak-websearch-hotbot-options 
-"&SM=MC&DV=30&LG=english&DC=10&DE=2"
-"*Search options for Hotbot search.
+  "&SM=MC&DV=30&LG=english&DC=10&DE=2"
+  "*Search options for Hotbot search.
 SM -- specify phrase search, title search etc.
 DV -- specify how many days to cover
 LG -- specify language 
@@ -924,7 +1095,7 @@ emacspeak-websearch-hotbot-options to an appropriate string."
                ""))))
   (emacspeak-websearch-post-process
    "Web Matches"
-  'w3-table-speak-this-cell))
+   'w3-table-speak-this-cell))
 
 ;;}}}
 ;;{{{  Inference 
@@ -972,6 +1143,34 @@ emacspeak-websearch-hotbot-options to an appropriate string."
      'emacspeak-speak-line)))
 
 ;;}}}
+;;{{{  kerbango radio tuner 
+
+(emacspeak-websearch-set-searcher 'kerbango
+                                  'emacspeak-websearch-kerbango-search)
+(emacspeak-websearch-set-key ?k 'kerbango)
+
+
+(defvar emacspeak-websearch-kerbango-uri
+  "http://www.kerbango.com/tuner/index.html"
+  "URI for searching Kerbango radio tuner.")
+
+(defun emacspeak-websearch-kerbango-search (keywords)
+  "Search Kerbango radio tuner."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Keywords:")))
+  (declare (special emacspeak-websearch-kerbango-uri))
+  (let ((url-be-asynchronous nil))
+    (emacspeak-websearch-do-post "POST" emacspeak-websearch-kerbango-uri
+                                 (concat "keywords="
+                                         (webjump-url-encode keywords)
+                                         "&bwc="
+                                         (webjump-url-encode ""))))
+  (emacspeak-websearch-post-process
+   "Your search "
+   'emacspeak-speak-line))
+
+;;}}}
 ;;{{{ Driving directions from Yahoo
 
 (emacspeak-websearch-set-searcher 'map-directions
@@ -984,7 +1183,7 @@ emacspeak-websearch-hotbot-options to an appropriate string."
 
 (defvar emacspeak-websearch-map-maps-uri 
   "http://maps.yahoo.com/py/maps.py?Pyt=Tmap&Get%A0Map=Get+Map&"
-"URI for obtaining location maps.")
+  "URI for obtaining location maps.")
 
 (defsubst emacspeak-websearch-map-maps-get-location ()
   "Convenience function for prompting and constructing the route component."
@@ -1048,7 +1247,7 @@ With optional interactive prefix arg MAP shows the location map instead."
 (emacspeak-websearch-set-key ?n 'news-yahoo)
 
 (defvar emacspeak-websearch-news-yahoo-uri
-  "http://search.news.yahoo.com/search/news?n=30&p="
+  "http://search.news.yahoo.com/search/news?"
   "*URI for launching a Yahoo News search")
 
 (defun emacspeak-websearch-news-yahoo (query)
@@ -1059,10 +1258,11 @@ With optional interactive prefix arg MAP shows the location map instead."
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-news-yahoo-uri
-             (webjump-url-encode query))))
+             (format "p=%s&n=20&c=news"
+(webjump-url-encode query)))))
   (emacspeak-websearch-post-process
    "Matches"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  Northern Lights Search
@@ -1088,7 +1288,7 @@ Light for: ")))
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Your search"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  Open Directory
@@ -1115,7 +1315,7 @@ Light for: ")))
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Search results"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ RedHat (via google)
@@ -1150,8 +1350,8 @@ Light for: ")))
 (emacspeak-websearch-set-key ?R 'rfb)
 
 (defvar emacspeak-websearch-rfb-uri
-"http://www.rfbd.org/catalog/search_process.asp"
-"URI for searching RFB catalogues.")
+  "http://www.rfbd.org/catalog/search_process.asp"
+  "URI for searching RFB catalogues.")
 
 (defun emacspeak-websearch-rfb-search (author title)
   "Search RFB&D catalog."
@@ -1162,37 +1362,12 @@ Light for: ")))
   (declare (special emacspeak-websearch-rfb-uri))
   (let ((url-be-asynchronous nil))
     (emacspeak-websearch-do-post "POST" emacspeak-websearch-rfb-uri
-			       (concat "author="
-				       (webjump-url-encode author)
-				       "&title="
-				       (webjump-url-encode title))))
+                                 (concat "author="
+                                         (webjump-url-encode author)
+                                         "&title="
+                                         (webjump-url-encode title))))
   (emacspeak-websearch-post-process
    "Number"
-  'emacspeak-speak-line))
-
-;;}}}
-;;{{{ Linux Package Index
-
-(emacspeak-websearch-set-searcher 'packages-linux
-                                  'emacspeak-websearch-packages-linux)
-(emacspeak-websearch-set-key ?p 'packages-linux)
-
-(defvar emacspeak-websearch-packages-linux-uri
-  "http://www.firstlinux.com/cgi-bin/package/search.cgi?query="
-  "*URI for Linux Package  Site search")
-
-(defun emacspeak-websearch-packages-linux (query)
-  "Search for Linux packages."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search Linux packagesfor: ")))
-  (declare (special emacspeak-websearch-packages-linux-uri))
-  (let ((url-be-asynchronous nil))
-    (browse-url 
-     (concat emacspeak-websearch-packages-linux-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "returned"
    'emacspeak-speak-line))
 
 ;;}}}
@@ -1203,8 +1378,8 @@ Light for: ")))
 (emacspeak-websearch-set-key ?M 'merriam-webster)
 
 (defvar emacspeak-websearch-merriam-webster-uri 
-"http://www.m-w.com/cgi-bin/dictionary?va="
-"URI for searching the Merriam Webster dictionary.")
+  "http://www.m-w.com/cgi-bin/dictionary?va="
+  "URI for searching the Merriam Webster dictionary.")
 
 (defun emacspeak-websearch-merriam-webster-search (query)
   "Search the Merriam Webster Dictionary."
@@ -1218,7 +1393,7 @@ Light for: ")))
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Main Entry"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  usenet altavista 
@@ -1243,7 +1418,7 @@ Light for: ")))
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "AltaVista found"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ Vickers Insider Trading
@@ -1253,8 +1428,8 @@ Light for: ")))
 (emacspeak-websearch-set-key ?v 'vickers)
 
 (defvar emacspeak-websearch-vickers-uri 
-"http://www.tscn.com/Fortune/Vickers_Insider_Trading.html?Button=Get+Report&Symbol="
-"URI for searching Vickers Insider Trading..")
+  "http://www.tscn.com/Fortune/Vickers_Insider_Trading.html?Button=Get+Report&Symbol="
+  "URI for searching Vickers Insider Trading..")
 
 (defun emacspeak-websearch-vickers-search (query)
   "Search Vickers insider trading."
@@ -1280,8 +1455,8 @@ Light for: ")))
 (emacspeak-websearch-set-key ?V 'vector-vest)
 
 (defvar emacspeak-websearch-vector-vest-uri 
-"http://www.vectorvest.com/stockreport/eval.phtml?vvnumber=1068&symbol="
-"URI for looking up VectorVest reports.")
+  "http://www.vectorvest.com/stockreport/eval.phtml?vvnumber=1068&symbol="
+  "URI for looking up VectorVest reports.")
 
 (defun emacspeak-websearch-vector-vest-search (query)
   "Look up VectorVest reports ."
@@ -1319,10 +1494,10 @@ Light for: ")))
     (browse-url 
      (concat emacspeak-websearch-weather-uri
              zip
-".html")))
+             ".html")))
   (emacspeak-websearch-post-process
    zip
-  'w3-table-speak-this-cell))
+   'w3-table-speak-this-cell))
 
 ;;}}}
 ;;{{{ W3C
@@ -1332,8 +1507,8 @@ Light for: ")))
 (emacspeak-websearch-set-key ?W 'w3c)
 
 (defvar emacspeak-websearch-w3c-search-uri 
-"http://search.w3.org/Member/cgi-bin/query?mss=simple&pg=q&what=web&filter=all&fmt=."
-"URI for searching the member area of the W3C site.")
+  "http://search.w3.org/Member/cgi-bin/query?mss=simple&pg=q&what=web&filter=all&fmt=."
+  "URI for searching the member area of the W3C site.")
 
 (defun emacspeak-websearch-w3c-search (query)
   "Search the W3C Site."
@@ -1347,7 +1522,34 @@ Light for: ")))
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "match"
-  'emacspeak-speak-line))
+   'emacspeak-speak-line))
+
+;;}}}
+;;{{{ People from yahoo
+
+(emacspeak-websearch-set-searcher 'people-yahoo
+                                  'emacspeak-websearch-people-yahoo)
+(emacspeak-websearch-set-key ?p 'people-yahoo)
+
+(defvar emacspeak-websearch-people-yahoo-uri
+  "http://people.yahoo.com/py/psPhoneSearch.py?"
+  "*URI for launching a People   search on Yahoo.")
+
+(defun emacspeak-websearch-people-yahoo ()
+  "Perform an Yahoo  people search"
+  (interactive)
+  (declare (special emacspeak-websearch-people-yahoo-uri))
+  (let ((url-be-asynchronous nil))
+    (browse-url 
+     (concat emacspeak-websearch-people-yahoo-uri
+(format "FirstName=%s&LastName=%s&City=%s&State=%s"
+        (webjump-url-encode (read-from-minibuffer "First name: "))
+                            (webjump-url-encode (read-from-minibuffer "Last name: "))
+                            (webjump-url-encode (read-from-minibuffer "City: "))
+                                                (webjump-url-encode (read-from-minibuffer "State: "))))))
+  (emacspeak-websearch-post-process
+   "First"
+   'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ yahoo
@@ -1383,15 +1585,15 @@ Light for: ")))
 ;;{{{ Browse usenet using Dejanews
 
 (defvar emacspeak-dejanews-uri 
-"http://x5.dejanews.com/[ST_rn=bg]/topics_bg.xp?search=topic&group="
-"URI to open a group on Dejanews.")
+  "http://x5.dejanews.com/[ST_rn=bg]/topics_bg.xp?search=topic&group="
+  "URI to open a group on Dejanews.")
 
 (defun emacspeak-dejanews-browse-group (group &optional prefix)
   "Prompt and browse a newsgroup on Dejanews."
   (interactive
    (list
     (read-from-minibuffer "Newsgroup: ")
-current-prefix-arg))
+    current-prefix-arg))
   (declare (special emacspeak-dejanews-uri))
   (let ((url-be-asynchronous nil))
     (browse-url 
@@ -1401,38 +1603,11 @@ current-prefix-arg))
                   "Additional query parameters: ")
                "")
              (webjump-url-encode group)
-))
+             ))
     (search-forward group)
     (w3-table-speak-this-cell)))
 
-(defun emacspeak-websearch-do-post (the-method the-url query &optional enctype)
-  ;; Adapted from w3-submit-form
-  (require 'w3)
-  (let* ((enctype (or enctype "application/x-www-form-urlencoded")))
-    (if (and (string= "GET" the-method)
-	     (string-match "\\([^\\?]*\\)\\?" the-url))
-	(setq the-url (url-match the-url 1)))
-    (cond
-     ((or (string= "POST" the-method)
-	  (string= "PUT" the-method))
-      (if (consp query)
-	  (setq enctype (concat enctype "; boundary="
-				(substring (car query) 2 nil)
-				"")
-		query (cdr query)))
-      (let ((url-request-method the-method)
-	    (url-request-data query)
-	    (url-request-extra-headers
-	     (cons (cons "Content-type" enctype) url-request-extra-headers)))
-	(w3-fetch the-url)))
-     ((string= "GET" the-method)
-      (let ((the-url (concat the-url (if (string-match "gopher" enctype)
-				       "" "?") query)))
-	(w3-fetch the-url)))
-     (t
-      (w3-warn 'html (format "Unknown submit method: %s" the-method))
-      (let ((the-url (concat the-url "?" query)))
-	(w3-fetch the-url))))))
+
 
 ;;}}}
 (provide 'emacspeak-websearch)

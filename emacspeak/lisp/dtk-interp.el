@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995, 1996, 1997, 1998, 1999   T. V. Raman  
+;;;Copyright (C) 1995 -- 2000, T. V. Raman 
 ;;; All Rights Reserved. 
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -71,13 +71,11 @@
                                (if force "\nd" ""))))
 (defsubst dtk-interp-notes-initialize()
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "notes_initialize\n")))
+  (process-send-string dtk-speaker-process "notes_initialize\n"))
 
 (defsubst dtk-interp-notes-shutdown()
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "notes_shutdown\n")))
+  (process-send-string dtk-speaker-process "notes_shutdown\n"))
 
 
 (defsubst dtk-interp-note (instrument pitch duration
@@ -138,8 +136,7 @@
 
 (defsubst dtk-interp-stop ()
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "s\n" )))
+  (process-send-string dtk-speaker-process "s\n" ))
 
 ;;}}}
 ;;{{{ sync
@@ -231,8 +228,7 @@
 
 (defsubst dtk-interp-reset-state ()
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                         (format "tts_reset \n")))
+  (process-send-string dtk-speaker-process "tts_reset \n"))
 
 ;;}}}
 ;;{{{ pause
