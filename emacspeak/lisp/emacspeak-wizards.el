@@ -1968,7 +1968,7 @@ directory to where find is to be launched."
 	(cons "base"
 	      (format "\"'%s'\""
 		      url))))
-      (setq emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-w3-post-process-hook
 	    #'(lambda nil
 		(emacspeak-speak-mode-line)
 		(emacspeak-auditory-icon 'open-object)))

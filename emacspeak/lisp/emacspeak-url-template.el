@@ -322,7 +322,7 @@ nil
 (defun emacspeak-url-template-yahoo-news-processor (url)
   "Process and speak Yahoo news."
   (declare (special emacspeak-w3-post-process-hook))
-  (setq emacspeak-w3-post-process-hook
+  (add-hook 'emacspeak-w3-post-process-hook
         #'(lambda nil
             (declare (special  emacspeak-w3-url-rewrite-rule
                                emacspeak-w3-class-filter))
@@ -908,7 +908,7 @@ Set up URL rewrite rule to get print page."
                (or (emacspeak-url-template-fetcher ut)
                 (eq browse-url-browser-function 'w3-fetch)
                      (eq browse-url-browser-function 'browse-url-w3)))
-      (setq emacspeak-w3-post-process-hook
+      (add-hook 'emacspeak-w3-post-process-hook
             (emacspeak-url-template-post-action ut)))
     (funcall fetcher   (emacspeak-url-template-url ut))))
 
