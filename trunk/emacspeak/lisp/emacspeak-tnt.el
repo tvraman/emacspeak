@@ -246,7 +246,7 @@ automatically."
 ;;}}}
 ;;{{{ set up face to voice mapping
 
-(emacspeak-speak-set-voice-for-face 'tnt-my-name-face 'paul-smooth)
+(voice-setup-set-voice-for-face 'tnt-my-name-face 'paul-smooth)
 
 ;;}}}
 (provide 'emacspeak-tnt)
