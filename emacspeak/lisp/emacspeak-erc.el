@@ -414,7 +414,8 @@ set the current local value to the result.")
     're-search-forward
     #'(lambda (pattern)
         (format "%s wides "
-                (substring pattern 0 -1))))))
+                (substring pattern 0 -1)))))
+  (dtk-set-punctuations "some"))
 
 ;;}}}
 ;;{{{ end of file
