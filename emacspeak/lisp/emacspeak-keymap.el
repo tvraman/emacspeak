@@ -281,7 +281,9 @@ field in the customization buffer.  You can use the notation
   'emacspeak-view-emacspeak-faq)
 (define-key emacspeak-keymap "D"
   'emacspeak-view-emacspeak-doc)
-(define-key emacspeak-keymap '[f1] 'emacspeak-customize-personal-settings)
+(define-key emacspeak-keymap '[f1]
+  'emacspeak-customize-personal-settings)
+(define-key emacspeak-keymap '[f11] 'emacspeak-wizards-shell-toggle)
 ;;; submap for setting dtk:
 (define-key emacspeak-dtk-submap "z" 'emacspeak-zap-tts)
 (define-key emacspeak-dtk-submap "t" 'emacspeak-dial-dtk)
