@@ -31,7 +31,7 @@ applies rules from the first pass.
   <xsl:include href="identity.xsl"/>
   <!-- { html body  -->
   <!-- nuke these -->
-  <xsl:template match="//script|//meta"/>
+  <xsl:template match="//script|//meta|//iframe"/>
   <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>

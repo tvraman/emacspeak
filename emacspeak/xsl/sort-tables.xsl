@@ -45,7 +45,7 @@ relevant tables bubble to the top.
     <xsl:include href="auto-rss-discover.xsl"/>
     <!-- { html body  -->
     <!-- nuke these -->
-    <xsl:template match="//script|//meta"/>
+    <xsl:template match="//script|//meta|//iframe|//nolayer|//ilayer|//layer"/>
     <xsl:template match="head">
         <head>
             <xsl:apply-templates select="title"/>
