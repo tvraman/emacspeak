@@ -68,7 +68,6 @@
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
   :link '(url-link :tag "SourceForge" "http://emacspeak.sf.net")
-  :link '(url-link :tag "Cornell" "http://www.cs.cornell.edu/home/raman/emacspeak")
   :link '(url-link :tag "Papers" "http://emacspeak.sf.net/publications")
   :link '(url-link :tag "Mail"
                    "http://www.cs.vassar.edu/~priestdo/emacspeak/")
