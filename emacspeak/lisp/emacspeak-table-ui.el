@@ -42,7 +42,6 @@
 (require 'custom)
 (require 'emacspeak-table)
 (require 'emacspeak-tabulate)
-(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'thingatpt)
@@ -586,8 +585,6 @@ navigation. "
     (kill-buffer scratch)
     (emacspeak-table-prepare-table-buffer table buffer)))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-table-find-file)
-
 ;;}}}
 ;;{{{ Processing a region of tabular data
 (defun emacspeak-table-display-table-in-region (start end)
@@ -744,8 +741,6 @@ browsing table elements"
       (funcall emacspeak-table-speak-element)
       (emacspeak-auditory-icon 'large-movement))))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-table-goto)
-
 (defun emacspeak-table-goto-top ()
   "Goes to the top of the current column."
   (interactive)
@@ -890,7 +885,6 @@ match, makes the matching row or column current."
   (and (boundp 'emacspeak-table)
        (set-register register 
                      (emacspeak-table-current-element emacspeak-table))))
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-table-copy-current-element-to-register)
 ;;; Implementing table editing and table clipboard.
 ;;{{{ variables 
 

@@ -61,11 +61,9 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-speak)
+(require 'emacspeak-fix-interactive)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
-(eval-when (load compile)
-  (require 'emacspeak-fix-interactive))
-
 ;;{{{  advice cursor movement commands to speak
 
 (defadvice next-line (after emacspeak pre act)
@@ -1461,10 +1459,10 @@ in completion buffers"
            (stringp vc-mode))
       (substring id 5  nil ))
      (t " "))))
-(when (locate-library "vc")
-;;; Advice for most used vc functions:
 
-  (defadvice vc-toggle-read-only (around emacspeak pre act)
+
+
+(defadvice vc-toggle-read-only (around emacspeak pre act)
     "Provide auditory feedback."
     (cond
      ((interactive-p)
@@ -1479,7 +1477,7 @@ in completion buffers"
      (t ad-do-it ))
     ad-return-value )
 
-  (defadvice vc-next-action (around  emacspeak pre act)
+(defadvice vc-next-action (around  emacspeak pre act)
     "Provide auditory feedback."
     (cond
      ((interactive-p)
@@ -1494,23 +1492,18 @@ in completion buffers"
      (t ad-do-it ))
     ad-return-value )
 
-  (defadvice vc-revert-buffer (after emacspeak pre act)
+(defadvice vc-revert-buffer (after emacspeak pre act)
     "Provide auditory feedback."
     (when (interactive-p  )
       (emacspeak-auditory-icon 'open-object)))
 
-  (defadvice vc-finish-logentry (after emacspeak pre act)
+(defadvice vc-finish-logentry (after emacspeak pre act)
     "Provide auditory feedback."
     (when (interactive-p)
       (emacspeak-auditory-icon  'close-object)
       (message "Checked   in  version %s "
                (emacspeak-vc-get-version-id))))
-
-  (progn
-    (require 'vc)
-    (emacspeak-fix-interactive-command-if-necessary 'vc-create-snapshot)
-    (emacspeak-fix-interactive-command-if-necessary 'vc-retrieve-snapshot)))
-
+  
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
 

@@ -45,8 +45,6 @@
 (require 'emacspeak-sounds)
 (eval-when (load)
   (require 'wrolo))
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
 ;;{{{  Introduction:
 
 ;;; This module extends the Rolodex that ships with Hyperbole, wrolo.el to
@@ -68,7 +66,7 @@
 
 
 ;;; editing rolodex: uses an interactive prompt
-(emacspeak-fix-interactive-command-if-necessary 'rolo-edit)
+
 ;;; An after advice speaks the line that is to be edited
 
 (defadvice rolo-edit (after emacspeak pre act comp)
@@ -78,10 +76,6 @@
     (emacspeak-speak-line )))
 
 ;;; Searching in the rolodex uses an interactive prompt
-
-(emacspeak-fix-interactive-command-if-necessary 'rolo-grep)
-(emacspeak-fix-interactive-command-if-necessary 'rolo-fgrep)
-(emacspeak-fix-interactive-command-if-necessary 'rolo-word)
 
 ;;; Now speak the number of hits and the first hit.
 (defadvice rolo-fgrep (after emacspeak pre act )
@@ -138,7 +132,7 @@
 
 ;;; Killing a rolodex entry:
 ;;; First fix the interactive prompt.
-(emacspeak-fix-interactive-command-if-necessary 'rolo-kill)
+
 ;;; And provide feedback if you did kill it.
 (defadvice rolo-kill (after emacspeak pre act )
   "Provide auditory confirmation "
@@ -175,7 +169,7 @@
   (when (interactive-p)
     (message "Ordered entries in rolodex")))
 
-(emacspeak-fix-interactive-command-if-necessary   'rolo-yank)
+
 ;;;Around advice to provide feedback on what you did
 (defadvice rolo-yank (after   emacspeak pre act comp)
   "Say what you did"

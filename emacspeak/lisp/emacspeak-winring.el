@@ -46,10 +46,6 @@
   (require 'emacspeak-speak)
 (require 'emacspeak-tapestry)
   (require 'emacspeak-sounds))
-
-(eval-when (compile)
-  (require 'emacspeak-fix-interactive))
-
 ;;}}}
 ;;{{{  Introduction
 
@@ -61,8 +57,6 @@
 
 ;;}}}
 ;;{{{ Advice commands
-
-(emacspeak-fix-interactive-command-if-necessary 'winring-rename-configuration)
 
 (defadvice winring-jump-to-configuration(after emacspeak pre
                                             act comp)

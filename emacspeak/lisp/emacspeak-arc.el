@@ -47,8 +47,7 @@
 (require 'emacspeak-keymap)
 (eval-when (compile)
   (and (locate-library "arc-mode")
-       (load-library "arc-mode"))
-  (require 'emacspeak-fix-interactive))
+       (load-library "arc-mode")))
 
 ;;}}}
 ;;{{{  Introduction 
@@ -69,13 +68,6 @@
 
 ;;}}}
 ;;{{{ fix interactive commands that need fixing 
-
-(mapcar 'emacspeak-fix-interactive-command-if-necessary
-(list 
-'archive-chgrp-entry
-'archive-chmod-entry
-'archive-rename-entry
-'archive-chown-entry))
 
 ;;}}}
 ;;{{{ Advice
