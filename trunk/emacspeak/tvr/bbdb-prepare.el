@@ -16,25 +16,25 @@
 
 ;; Configuration for bbdb
 (setq bbdb-ignore-some-messages-alist
-      '(("From" . "daemon")
-	("From" . "mailer-daemon")
-        ("From" . "postmaster")
-        ("From" . "webmaster")
-        ("From" . "root")
-	("From" . "delivery system")
-	("From" . "postmaster")
-	("From" . "listmaster")
-	("From" . "post office")
-	("From" . "root")
-	("From" . "operator")
+      '(
+      		("From" . "delivery system")
 	("From" . "delivery")
-	("From" . "administ")
-	))
-(setq bbdb/mail-auto-create-p 'bbdb-ignore-most-messages-hook)
+	("From" . "listmaster")
+	("From" . "mailer-daemon")
+	("From" . "operator")
+	("From" . "post office")
+        ("From" . "postmaster")
+        ("From" . "root")
+        ("From" . "admin")
+("From" . "online")
+("From" . "alert")
+        ("From" . "webmaster")
+("From" . "administ")
+("From" . "daemon")))
+
 (setq bbdb-ignore-most-messages-alist
       '(	
-	("To"   . "raman")		; record mail to me
-	))
+	("To"   . "tvraman")		; record mail to me))
 (setq bbdb-completion-type 'primary-or-name)
 
 
@@ -48,6 +48,6 @@
 (setq bbdb-canonicalize-redundant-nets-p t)
 
 
-(setq bbdb-quiet-about-name-mismatches t)
+
 (when (featurep 'vm)
   (add-hook 'vm-quit-hook 'bbdb-save-db))
