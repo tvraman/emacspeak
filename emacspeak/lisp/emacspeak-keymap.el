@@ -175,7 +175,8 @@ field in the customization buffer.  You can use the notation
   'emacspeak-speak-line-number)
 (define-key emacspeak-keymap "|"
   'emacspeak-speak-line-set-column-filter)
-(define-key emacspeak-keymap "\\" 'emacspeak-filtertext)
+(define-key emacspeak-keymap "^" 'emacspeak-filtertext)
+(define-key emacspeak-keymap "\\" 'emacspeak-toggle-speak-line-invert-filter)
 (define-key emacspeak-keymap "l" 'emacspeak-speak-line)
 (define-key emacspeak-keymap "k" 'emacspeak-speak-current-kill )
 (define-key emacspeak-keymap "\C-@" 'emacspeak-speak-current-mark )
@@ -239,7 +240,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "(" 'emacspeak-aumix)
 (define-key emacspeak-keymap ")" 'emacspeak-sounds-select-theme)
 (define-key emacspeak-keymap ")" 'emacspeak-sounds-select-theme)
-(define-key emacspeak-keymap "\177" 'cd-tool)
+(define-key emacspeak-keymap "\d" 'cd-tool)
 (define-key emacspeak-keymap "'" 'emacspeak-speak-sexp)
 (define-key emacspeak-keymap "=" 'emacspeak-speak-current-column)
 (define-key emacspeak-keymap "%" 'emacspeak-speak-current-percentage)
@@ -336,10 +337,10 @@ field in the customization buffer.  You can use the notation
 ;;}}}
 ;;{{{ Hacking minibuffer maps:
 
-                                        (declaim (special  minibuffer-local-must-match-map
-                                           minibuffer-local-map
-                                           minibuffer-local-completion-map
-                                           minibuffer-local-ns-map))
+(declaim (special  minibuffer-local-must-match-map
+                   minibuffer-local-map
+                   minibuffer-local-completion-map
+                   minibuffer-local-ns-map))
 (or (string-match  "Xemacs" emacs-version)
     (mapcar
      (function (lambda (map)

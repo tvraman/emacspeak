@@ -28,25 +28,39 @@
 
 
 ;;; Code:
+;;{{{  required modules
 
+(eval-when-compile (require 'cl))
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'advice)
 (require 'w3m nil t)
-(require 'dtk-tcl)
+(require 'emacspeak-speak)
+(require 'voice-lock)
 (require 'emacspeak-sounds)
 
+;;}}}
+;;{{{ keybindings 
 
 (define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
+(define-key w3m-mode-map [backtab] 'w3m-previous-anchor)
 (define-key w3m-mode-map [tab] 'w3m-next-anchor)
 (define-key w3m-mode-map [down] 'next-line)
 (define-key w3m-mode-map [up] 'previous-line)
 (define-key w3m-mode-map [right] 'emacspeak-forward-char)
 (define-key w3m-mode-map [left] 'emacspeak-backward-char)
 
-(defun emacspeak-w3m-personalize-string (string personality)
+;;}}}
+;;{{{ helpers
+
+(defsubst emacspeak-w3m-personalize-string (string personality)
   (let ((newstring (copy-sequence string)))
     (put-text-property 0 (length newstring)
 		       'personality personality
 		       newstring)
     newstring))
+
+;;}}}
+;;{{{ anchors
 
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
@@ -58,6 +72,24 @@
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
   (dtk-speak (emacspeak-w3m-anchor-text "Not found")))
+
+
+(defun emacspeak-w3m-speak-this-anchor ()
+  (let ((url (w3m-anchor))
+	(act (w3m-action)))
+    (cond
+     (url (emacspeak-w3m-speak-cursor-anchor))
+     ((consp act)
+      (let ((speak-action (cdr (assq
+				(car act)
+				emacspeak-w3m-speak-action-alist))))
+	(if (functionp speak-action)
+	    (apply speak-action (cdr act))
+	  (emacspeak-w3m-speak-cursor-anchor))))
+     (t (emacspeak-w3m-speak-cursor-anchor)))))
+
+;;}}}
+;;{{{  forms 
 
 (defun emacspeak-w3m-speak-form-input (form name type width maxlength value)
   (dtk-speak
@@ -141,22 +173,8 @@
     (w3m-form-input-password . emacspeak-w3m-speak-form-input-password)
     (w3m-form-reset . emacspeak-w3m-speak-form-reset)))
 
-(defun emacspeak-w3m-speak-this-anchor ()
-  (let ((url (w3m-anchor))
-	(act (w3m-action)))
-    (cond
-     (url (emacspeak-w3m-speak-cursor-anchor))
-     ((consp act)
-      (let ((speak-action (cdr (assq
-				(car act)
-				emacspeak-w3m-speak-action-alist))))
-	(if (functionp speak-action)
-	    (apply speak-action (cdr act))
-	  (emacspeak-w3m-speak-cursor-anchor))))
-     (t (emacspeak-w3m-speak-cursor-anchor)))))
-
-
-;;; Advices for w3m commands
+;;}}}
+;;{{{  advice interactive commands.
 
 (defadvice w3m-goto-url (around emacspeak pre act)
   (let ((emacspeak-speak-messages nil))
@@ -201,6 +219,8 @@
 		       w3m-form-input-password)))
       (emacspeak-w3m-speak-this-anchor))))
 
+;;}}}
+;;{{{ advice forms 
 
 ;;; w3m-form-input-select-mode
 
@@ -233,7 +253,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-
+;;}}}
 ;;{{{ TVR: applying XSL
 (defadvice  w3m-w3m-dump-source (after emacspeak pre act comp)
   "Apply requested transform if any after grabbing the HTML. "
