@@ -36,11 +36,9 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-
-;;; Commentary:
-;; 
 ;;{{{  Introduction:
 
+;;; Commentary:
 ;;; This module provides the interface for generating auditory icons in emacspeak.
 ;;; Design goal:
 ;;; 1) Auditory icons should be used to provide additional feedback,
@@ -62,6 +60,8 @@
 ;;; appropriate subdirectories of emacspeak-sounds-directory
 
 ;;}}}
+;;{{{ required modules
+
 ;;; Code:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -69,6 +69,8 @@
 (eval-when (compile)
 (require 'dtk-speak)
 (require 'emacspeak-load-path))
+
+;;}}}
 ;;{{{  state of auditory icons
 
 (defcustom emacspeak-use-auditory-icons nil
@@ -78,6 +80,7 @@ use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons]."
 :type 'boolean
 :group 'emacspeak)
+
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
 
 ;;}}}
@@ -180,6 +183,13 @@ If we add new icons we should declare them here. ")
 Do not set this by hand;
 --use command \\[emacspeak-sounds-select-theme].")
 
+(defsubst emacspeak-sounds-theme-get-extension (theme-name )
+  "Retrieve filename extension for specified theme. "
+  (declare (special emacspeak-sounds-themes-table))
+  (cl-gethash
+   (intern theme-name)
+   emacspeak-sounds-themes-table))
+
 (defsubst emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
   (cond
@@ -216,12 +226,7 @@ Do not set this by hand;
   (emacspeak-auditory-icon 'select-object))
 
 
-(defsubst emacspeak-sounds-theme-get-extension (theme-name )
-  "Retrieve filename extension for specified theme. "
-  (declare (special emacspeak-sounds-themes-table))
-  (cl-gethash
-   (intern theme-name)
-   emacspeak-sounds-themes-table))
+
            
 
                
@@ -294,6 +299,22 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
         "play" nil emacspeak-play-program
         ;emacspeak-play-args ;breaks sox
         (emacspeak-get-sound-filename sound-name )))))
+
+;;}}}
+;;{{{  queue a midi icon
+
+(defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
+
+(defsubst emacspeak-queue-midi-icon (midi-name)
+  "Queue midi icon midi-NAME."
+         (apply 'dtk-queue-note
+                (emacspeak-get-midi-note midi-name)))
+
+
+(defsubst emacspeak-play-midi-icon (midi-name)
+  "Play midi icon midi-NAME."
+         (apply 'dtk-force-note
+                 (emacspeak-get-midi-note midi-name)))
 
 ;;}}}
 ;;{{{  setup play function
@@ -454,22 +475,6 @@ is a .1ms note on instrument 60."
                        '(9 20 .1))
 (emacspeak-define-midi 'window-resize
                        '(107 20 .3))
-
-;;}}}
-;;{{{  queue a midi icon
-
-(defalias 'emacspeak-midi-icon 'emacspeak-play-midi-icon)
-(defsubst emacspeak-queue-midi-icon (midi-name)
-  "Queue midi icon midi-NAME."
-         (apply 'dtk-queue-note
-                (emacspeak-get-midi-note midi-name)))
-
-
-(defsubst emacspeak-play-midi-icon (midi-name)
-  "Play midi icon midi-NAME."
-         (apply 'dtk-force-note
-                 (emacspeak-get-midi-note midi-name)))
-                 
 
 ;;}}}
 ;;{{{  toggle auditory icons
