@@ -1606,12 +1606,18 @@ annotation is inserted into the working buffer when complete."
   :type 'string
   :group 'emacspeak-xslt)
 
+(defcustom emacspeak-xslt-keep-errors  nil
+  "If non-nil, xslt errors will be preserved in an errors buffer."
+  :type 'boolean
+  :group 'emacspeak-wizards)
+
 (defun emacspeak-xslt-region (xsl start end &optional params )
   "Apply XSLT transformation to region and replace it with
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
-                    modification-flag nil))
+                    emacspeak-xslt-keep-errors
+                    modification-flag ))
   (let ((parameters (when params 
                       (mapconcat 
                        #'(lambda (pair)
@@ -1621,13 +1627,18 @@ part of the libxslt package."
                        params
                        " "))))
     (shell-command-on-region start end
-                             (format "%s %s  --html --nonet --novalid %s -"
+                             (format
+                              "%s %s  --html --nonet --novalid %s - %s"
                                      emacspeak-xslt-program
                                      (or parameters "")
-                                     xsl )
+                                     xsl
+                                     (if emacspeak-xslt-keep-errors
+                                         ""
+                                       " 2>/dev/null "))
                              (current-buffer)
                              'replace
-                             "*xslt errors*")
+                             (when emacspeak-xslt-keep-errors
+                             "*xslt errors*"))
     (when (get-buffer  "*xslt errors*")
     (bury-buffer "*xslt errors*"))
     (setq modification-flag nil)))
@@ -1638,7 +1649,8 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
-                    modification-flag))
+                    modification-flag
+                    emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (parameters (when params 
                       (mapconcat 
@@ -1652,14 +1664,19 @@ part of the libxslt package."
       (set-buffer result)
       (erase-buffer)
       (shell-command
-       (format "%s %s  --html  --novalid %s '%s'"
+       (format
+        "%s %s  --html  --novalid %s '%s' %s"
                emacspeak-xslt-program
                (or parameters "")
-               xsl url )
+               xsl url
+               (if emacspeak-xslt-keep-errors
+                   ""
+                 " 2>/dev/null "))
        (current-buffer)
-       "*xslt errors*")
+       (when emacspeak-xslt-keep-errors
+         "*xslt errors*"))
       (when (get-buffer  "*xslt errors*")
-    (bury-buffer "*xslt errors*"))
+        (bury-buffer "*xslt errors*"))
       (setq modification-flag nil)
       (goto-char (point-min))
       result)))
