@@ -1223,9 +1223,6 @@ in completion buffers"
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
-(add-hook 'comint-mode-hook
-          (function (lambda ()
-                      (modify-syntax-entry 10 ">"  ))))
 (defadvice comint-copy-old-input (after emacspeak pre act
                                         comp)
   "Provide auditory feedback."
