@@ -57,7 +57,6 @@
 ;;; version. These files should be loaded before showing the
 ;;; customization buffer that `customize-changed-options' generates.
 
-
 ;;; This macro is used so we don't modify the information about
 ;;; variables and groups if it's already set. (We don't know when
 ;;; cus-load.el is going to be loaded and at that time some of the
@@ -66,9 +65,8 @@
   `(unless (get ,symbol ,propname)
      (put ,symbol ,propname ,value)))
 
-
 (defvar custom-versions-load-alist nil
- "For internal use by custom.")
+  "For internal use by custom.")
 
 (provide 'cus-load)
 
