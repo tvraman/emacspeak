@@ -237,7 +237,7 @@ Useful to do this before you listen to an entire buffer."
 ;;{{{ helper function --decode ISO date-time
 
 (defvar emacspeak-speak-iso-datetime-pattern
-  "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)?Z?"
+  "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"
   "Regexp pattern that matches ISO date-time.")
 
 (defsubst emacspeak-speak-decode-iso-datetime (iso)
