@@ -83,7 +83,6 @@ proc l {text} {
     }
     synth "$prefix  `ts2 $text`ts0"
     service
-    s
     return ""
 }
 
