@@ -134,6 +134,10 @@
 (add-hook                                'w3-load-hook
                                          (function
                                           (lambda ()
+                                            (and
+                                             emacspeak-pronounce-load-pronunciations-on-startup
+                                             (emacspeak-pronounce-augment-pronunciations 'w3-mode
+                                                                                         'emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
                                             (when (locate-library
                                                    "w3-imenu")
                                               (require 'w3-imenu)))))
