@@ -1610,10 +1610,11 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   "Defines custom buffer local pronunciation for base URI."
   (interactive)
   (declare (special emacspeak-w3-base-uri-pronunciation))
+(let ((base-url (url-view-url 'no-show)))
   (when emacspeak-w3-base-uri-pronunciation
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-(url-view-url 'no-show)
-   emacspeak-w3-base-uri-pronunciation )))
+base-url
+    emacspeak-w3-base-uri-pronunciation ))))
 
 ;;}}}
 ;;{{{  emacs local variables 
