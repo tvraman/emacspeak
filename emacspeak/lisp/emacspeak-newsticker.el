@@ -83,6 +83,23 @@
     (emacspeak-speak-line)))
 
 
+
+(defadvice newsticker-previous-item (after emacspeak pre act
+                                           comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+(defadvice newsticker-next-item (after emacspeak pre act
+                                           comp)
+  "Provide spoken feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+
+
+
 ;;}}}
 (provide 'emacspeak-newsticker)
 ;;{{{ end of file
