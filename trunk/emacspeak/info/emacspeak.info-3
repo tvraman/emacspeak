@@ -321,7 +321,7 @@ emacspeak-compile.
      Speech feedback about the compilation error.
 
 
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dired,  Prev: emacspeak-compile,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-daisy,  Prev: emacspeak-compile,  Up: Emacspeak Commands
 
 emacspeak-custom
 ================
@@ -336,7 +336,63 @@ emacspeak-custom.
      Jump to custom group when in a customization buffer.
 
 
-File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-custom,  Up: Emacspeak Commands
+File: emacspeak.info,  Node: emacspeak-daisy,  Next: emacspeak-dired,  Prev: emacspeak-custom,  Up: Emacspeak Commands
+
+emacspeak-daisy
+===============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-daisy.
+
+ - emacspeak-daisy-mode:
+     An DAISY front-end for the Emacspeak desktop.
+
+     Pre-requisites:
+
+     0) mpg123 for playing mp3 files 1) libxml and libxslt packages 2)
+     xml-parse.el for parsing XML in Emacs Lisp.
+
+     The Emacspeak DAISY front-end is launched by command
+     emacspeak-daisy bound to M-x emacspeak-daisy.
+
+     This command switches to a special buffer that has DAISY commands
+     bounds to single keystrokes- see the ke-binding list at the end of
+     this description.  Use Emacs online help facility to look up help
+     on these commands.
+
+     emacspeak-daisy-mode provides the necessary functionality to
+     navigate and listen to Daisy talking books.
+
+     Here is a list of all emacspeak DAISY commands along with their
+     key-bindings:
+
+     key             binding --             ------
+
+     p		previous-line n		next-line
+     RET		emacspeak-daisy-play-content-under-point
+     SPC		emacspeak-daisy-play-audio-under-point
+     q		bury-buffer s		emacspeak-daisy-stop-audio ?		describe-mode
+
+     In addition to any hooks its parent mode `text-mode' might have
+     run, this mode runs the hook `emacspeak-daisy-mode-hook', as the
+     final step during initialization.
+
+ - emacspeak-daisy-stop-audio:
+     Stop audio.
+
+ - emacspeak-daisy-play-content-under-point:
+     Play SMIL content  under point.
+
+ - emacspeak-daisy-play-audio-under-point:
+     Play audio clip under point.
+
+ - emacspeak-daisy-open-book:
+     ` control e control b '
+
+     Open Digital Talking Book specified by navigation file filename.
+
+
+File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-daisy,  Up: Emacspeak Commands
 
 emacspeak-dired
 ===============

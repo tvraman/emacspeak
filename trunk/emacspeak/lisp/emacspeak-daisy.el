@@ -253,18 +253,20 @@ after fetching it  if necessary."
 ;;}}}
 ;;{{{  table of handlers 
 
-(defvar emacspeak-daisy-handler-table (make-hash-table :test #'string-equal)
+(defvar emacspeak-daisy-handler-table (make-hash-table )
   "Table that maps elements to handlers.")
 
 (defsubst emacspeak-daisy-get-handler (element )
   "Get handler for element."
   (declare (special emacspeak-daisy-handler-table))
-  (gethash element emacspeak-daisy-handler-table))
+  (gethash
+   (intern element)
+ emacspeak-daisy-handler-table))
 
 (defsubst emacspeak-daisy-set-handler (element handler)
   "Set handler for element."
   (declare (special emacspeak-daisy-handler-table))
-  (setf (gethash element emacspeak-daisy-handler-table) handler))
+  (setf (gethash (intern element) emacspeak-daisy-handler-table) handler))
 
 ;;}}}
 ;;{{{ Install handlers 

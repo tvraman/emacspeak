@@ -448,11 +448,6 @@ nil.
 
      Speak current field.  A field is defined  by Emacs 21.
 
- - emacspeak-daisy-open-book:
-     ` control e control b '
-
-     Digital Talking Books on the Emacspeak Desktop.
-
 
 File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
 
