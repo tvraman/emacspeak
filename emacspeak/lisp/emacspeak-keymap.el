@@ -162,6 +162,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-keymap "W"
   'emacspeak-speak-spell-current-word)
 (define-key emacspeak-keymap "u" 'emacspeak-url-template-fetch)
+(define-key emacspeak-keymap "\C-u" 'emacspeak-rss-browse)
 (define-key emacspeak-keymap "U" 'emacspeak-websearch-usenet)
 (define-key emacspeak-keymap "V" 'emacspeak-speak-version)
 (define-key emacspeak-keymap "\C-v" 'view-mode)

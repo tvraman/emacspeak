@@ -1,4 +1,4 @@
-;;; emacspeak-xslt.el --- Emacspeak RSS Wizard
+;;; emacspeak-rss.el --- Emacspeak RSS Wizard
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  RSS Wizard for the emacspeak desktop
@@ -76,6 +76,22 @@
 
 ;;}}}
 ;;{{{  view feed
+
+
+(defun emacspeak-rss-display (rss-url &optional speak)
+  "Retrieve and display RSS news feed."
+  (interactive
+   (list
+    (read-from-minibuffer "RSS Feed: ")))
+  (declare (special emacspeak-xslt-directory))
+  (when speak
+  (add-hook 'emacspeak-w3-post-process-hook
+            'emacspeak-speak-buffer))
+  (emacspeak-wizards-browse-xml-url-with-style
+   (expand-file-name "rss.xsl"
+                     emacspeak-xslt-directory)
+   rss-url))
+
 (defun emacspeak-rss-browse (feed)
   "Browse specified RSS feed."
   (interactive
@@ -85,7 +101,7 @@
                      emacspeak-rss-feeds))))
   (let ((uri (cdr
               (assoc feed emacspeak-rss-feeds))))
-    (emacspeak-wizards-rss-view uri 'speak)))
+    (emacspeak-rss-display uri 'speak)))
 
 ;;}}}
 (provide 'emacspeak-rss)

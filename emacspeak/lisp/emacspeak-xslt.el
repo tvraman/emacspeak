@@ -126,7 +126,45 @@ part of the libxslt package."
       (erase-buffer)
       (shell-command
        (format
-        "%s %s  --html  --novalid %s '%s' %s"
+        "%s %s    --html --novalid %s '%s' %s"
+               emacspeak-xslt-program
+               (or parameters "")
+               xsl url
+               (if emacspeak-xslt-keep-errors
+                   ""
+                 " 2>/dev/null "))
+       (current-buffer)
+       (when emacspeak-xslt-keep-errors
+         "*xslt errors*"))
+      (when (get-buffer  "*xslt errors*")
+        (bury-buffer "*xslt errors*"))
+      (setq modification-flag nil)
+      (goto-char (point-min))
+      result)))
+
+(defun emacspeak-xslt-xml-url (xsl url &optional params)
+  "Apply XSLT transformation to XML url
+and return the results in a newly created buffer.
+  This uses XSLT processor xsltproc available as
+part of the libxslt package."
+  (declare (special emacspeak-xslt-program
+                    modification-flag
+                    emacspeak-xslt-keep-errors))
+  (let ((result (get-buffer-create " *xslt result*"))
+        (parameters (when params 
+                      (mapconcat 
+                       #'(lambda (pair)
+                           (format "--param %s %s "
+                                   (car pair)
+                                   (cdr pair)))
+                       params
+                       " "))))
+    (save-excursion
+      (set-buffer result)
+      (erase-buffer)
+      (shell-command
+       (format
+        "%s %s    --novalid %s '%s' %s"
                emacspeak-xslt-program
                (or parameters "")
                xsl url
