@@ -74,6 +74,16 @@ All Emacspeak convenience commands have been moved to module
 emacspeak-wizards.
 
 
+*** W3 url rewrite wizard:
+
+There is a new command emacspeak-w3-url-rewrite-and-follow
+bound to "y" in W3 buffers. This is useful in applying a URL
+rewrite rule to the link under point before opening it.
+This is most useful in jumping directly to printer friendly
+versions of articles at popular sites like Yahoo and CNN.
+
+
+
 ** Key Bindings:
 
 *** Midi Icons:
