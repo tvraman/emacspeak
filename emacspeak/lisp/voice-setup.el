@@ -93,6 +93,15 @@
 (require 'acss-structure)
 
 ;;}}}
+;;{{{  helper for voice custom items:
+(defun voice-setup-custom-menu ()
+(let ((v
+       (loop for k being the hash-keys of dtk-voice-table 
+collect (list 'const  k))))
+  (cons 'choice v)))
+
+;;}}}
+
 ;;{{{ map faces to voices 
 
 (defvar voice-setup-face-voice-table (make-hash-table)
