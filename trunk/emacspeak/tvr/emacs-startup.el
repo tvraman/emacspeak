@@ -315,12 +315,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;{{{  load yasb 
 
     (load-library-if-available "yasb-prepare")
-
+    (global-set-key "\C-cb" 'yasb)
     ;;}}}
     ;;{{{ swbuffer
-    (load-library-if-available "swbuff")
-    (global-set-key  [S right] 'swbuff-switch-to-next-buffer)
-    (global-set-key  [S left] 'swbuff-switch-to-previous-buffer)
+    ;(load-library-if-available "swbuff")
+    ;(global-set-key  [S right] 'swbuff-switch-to-next-buffer)
+    ;(global-set-key  [S left] 'swbuff-switch-to-previous-buffer)
+    ;(global-set-key "\C-cn" 'swbuff-switch-to-next-buffer)
+    ;(global-set-key "\C-cp" 'swbuff-switch-to-previous-buffer)
     ;;}}}
     ;;{{{ buffer selection 
     (load-library-if-available"buff-sel")
