@@ -105,13 +105,14 @@
 	   (string :tag "option"))
   :group 'emacspeak-m-player)
 
-(defun emacspeak-m-player (resource)
+(defun emacspeak-m-player (resource )
   "Play specified resource using m-player.
 Resource is an  MP3 file or m3u playlist.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (read-from-minibuffer "Media  Resource: ")))
+    (read-from-minibuffer "Media  Resource: ")
+    current-prefix-arg))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
@@ -121,9 +122,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (kill-buffer (process-buffer emacspeak-m-player-process))
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
-        (playlist-p (string-match ".m3u$"  resource))
+        (playlist-p (or
+                     (string-match ".m3u$"  resource)
+                     (string-match ".pls$"  resource)))
         (options (copy-sequence emacspeak-m-player-options)))
-    
     (setq options
           (nconc options
                  (if playlist-p
