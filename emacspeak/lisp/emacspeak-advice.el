@@ -1104,8 +1104,7 @@ in completion buffers"
   :group 'comint)
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
-(defadvice shell-dirstack-message (around emacspeak pre act
-                                          comp)
+(defadvice shell-dirstack-message (around emacspeak pre act comp)
   "Silence messages so we dont hear stutter."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))

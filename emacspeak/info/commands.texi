@@ -3869,7 +3869,8 @@ meaning of `previous'.
 @deffn emacspeak-show-personality-at-point ()
 @kbd{ control e meta v }
 
-Show value of property personality at point.
+Show value of property personality (and possibly face)
+at point.
 @end deffn
 
 @deffn emacspeak-show-property-at-point (&optional PROPERTY)
@@ -4140,6 +4141,10 @@ Switch to the shell buffer and cd to
 
 @deffn emacspeak-wizards-show-environment-vvariable (V)
 Display value of specified environment variable.
+@end deffn
+
+@deffn emacspeak-wizards-show-face (FACE)
+Show salient properties of specified face.
 @end deffn
 
 @deffn emacspeak-wizards-show-list-variable (VAR)
