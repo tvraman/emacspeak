@@ -89,19 +89,37 @@
 (defvar emacspeak-imcom-process nil
   "Handle to running IMCom process.")
 
-
+(defvar emacspeak-imcom-hooks nil
+  "Start up hooks run after IMCom process is started.")
 
 (defun emacspeak-imcom-start-process ()
   "Launch IMCom process."
   (declare (special emacspeak-imcom-process
+                    emacspeak-imcom-hooks
                     emacspeak-imcom-client))
   (let ((buffer (make-comint "IMCom"
                              emacspeak-imcom-client)))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-imcom-mode)
+      (run-hooks 'emacspeak-imcom-hooks)
     (setq emacspeak-imcom-process
           (get-buffer-process buffer)))))
+
+
+(add-hook 'emacspeak-imcom-hooks
+          'emacspeak-pronounce-refresh-pronunciations)
+(add-hook 'emacspeak-imcom-hooks
+          'emacspeak-toggle-comint-autospeak)
+(add-hook 'emacspeak-imcom-hooks
+          'emacspeak-toggle-comint-output-monitor)
+(defun emacspeak-imcom ()
+  "Start IMCom."
+  (interactive)
+  (declare (special emacspeak-imcom-process))
+  (emacspeak-imcom-start-process)
+  (emacspeak-auditory-icon 'open-object)
+  (switch-to-buffer (process-buffer emacspeak-imcom-process)))
 
 ;;}}}
 ;;{{{  Define commands
