@@ -227,6 +227,17 @@ prompting for a template.")
  "Analyze WWW site using Netcraft.")
 ;;}}}
 ;;{{{ bbc 
+
+(emacspeak-url-template-define
+ "BBC Programs On Demand"
+"http://www.bbc.co.uk/radio/aod/rpms/%s.rpm"
+(list
+ #'(lambda ()
+     (read-from-minibuffer "BBC Program: ")))
+nil
+"Play BBC programs on demand."
+'emacspeak-realaudio-play)
+
 (emacspeak-url-template-define
  "BBC News"
  "http://news.bbc.co.uk/2/low.html"
