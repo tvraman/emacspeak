@@ -669,7 +669,7 @@ sent to the terminal as if it were typed by the user."
 (defun  emacspeak-eterm-coordinate-within-window-p (coordinate id  )
   "Predicate to test if COORDINATE is within window.
 Argument ID specifies the window."
-  (when coordinate
+  (when (and coordinate id)
     (let*  ((window  (emacspeak-eterm-get-window id ))
 	    (row (cdr coordinate))
 	    (column (car coordinate ))
