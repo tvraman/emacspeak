@@ -59,6 +59,8 @@
 ;;}}}
 ;; 
 ;;; Code:
+;;{{{ required packages
+
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
@@ -69,6 +71,8 @@
 
   (provide 'emacspeak-pronounce)
   (require 'dtk-speak))
+
+;;}}}
 ;;{{{  Dictionary structure:
 
 (defvar emacspeak-pronounce-dictionaries (make-hash-table )
@@ -121,7 +125,7 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
   (setf (gethash  (intern string) emacspeak-pronounce-pronunciation-table) pronunciation)
   (message "Added  local pronunciation in buffer %s"
            (buffer-name)))
-  
+
 ;;}}}
 ;;{{{ setting up inheritance relations
 
