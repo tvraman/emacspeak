@@ -226,18 +226,6 @@ prompting for a template.")
      (emacspeak-w3-extract-nested-table-list
       (list 2 3 )
       url)))
- ;;{{{  Linksys IP
-;;{{{ linksys 
-
-(emacspeak-url-template-define
- "Linksys IP"
- "http://192.168.1.1/st_po.htm"
- nil
- nil
- "Linksys Router"
- #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match "IP" url)))
-
 ;;}}}
 ;;{{{ Netcraft surveys 
 (emacspeak-url-template-define
