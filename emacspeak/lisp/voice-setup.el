@@ -163,8 +163,6 @@
        (, doc)
        :type (voice-setup-custom-menu)
        :group 'voice-fonts
-       :set '(lambda  (sym val)
-               (set-default sym val))
        (,@ args))
      (voice-setup-set-voice-for-face (, face) '(, personality))
                                         ;record  personality as an observer of  voice
