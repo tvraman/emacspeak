@@ -52,6 +52,7 @@
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
 (setq byte-compile-warnings
-      '(redefine callargs free-vars unresolved obsolete))
+      '(redefine callargs free-vars
+                 unresolved obsolete))
 
 (provide 'emacspeak-load-path)

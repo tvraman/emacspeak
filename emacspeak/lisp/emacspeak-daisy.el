@@ -764,7 +764,7 @@ Also puts the displayed buffer in outline-minor-mode and gives it
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}
