@@ -382,6 +382,11 @@ emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc
 emacspeak.elc: emacspeak.el
 
 # }}}
+# {{{Development  target: indent 
+indent:
+	emacs -batch -q -l ../utils/indent-files.el
+
+# }}}
 # {{{  user level target-- clean
 
 clean:
