@@ -11,9 +11,8 @@ sound card. Note that ViaVoice TTS is no longer available on the Internet.
 You need to obtain  and install the IBM ViaVoice TTS
 (previously called Outloud) engine.  The The ViaVoice TTS  engine
 itself is not distributed as part of this package --see 
+ftp://people.redhat.com/jlamb
 http://www.redhat.com/services/techsupport/accessibility/s1-access-install.html
-
-
 
 You should only need to install the RTK (runtime toolkit).
 
