@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>AmphetaDesk (lite) [$ get_setting("app_version") $]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<table>
+<tr>
+<td>
+          <a href="my_channels.html" title="Add, delete or get information about your channels.">My Channels
+          </a> </td>
+<td><a href="quick_add.html">Quick Add</a></td>
+<td>
+          <a href="add_a_channel.html" title="Add more channels from a large list of recent updates.">Add a Channel
+          </a> </td>
+</tr>
+</table>
+
+<!-- show any messages waiting to be delivered -->
+[$ my @responses = get_response; if (@responses) { $OUT .= qq{<br /><table width="90%" align="center"><tr><td><ul>}; foreach (@responses) { $OUT .= qq{<li><font color="#ff0000">$_</font></li>}; } $OUT .= qq{</ul></td></tr></table>}; } ''; $]
