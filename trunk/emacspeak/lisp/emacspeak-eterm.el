@@ -965,10 +965,11 @@ non-negative integer ")
   (declare (special emacspeak-eterm-focus-window))
   (if emacspeak-eterm-focus-window
       (setq emacspeak-eterm-focus-window nil)
-    (setq emacspeak-eterm-focus-window 1)
-    (emacspeak-auditory-icon
+    (setq emacspeak-eterm-focus-window 1))
+  (dtk-stop)
+  (emacspeak-auditory-icon
      (if emacspeak-eterm-focus-window
-         'on 'off))))
+         'on 'off)))
 
 (defun emacspeak-eterm-speak-predefined-window ()
   "Speak a predefined eterm window between 1 and 10."
