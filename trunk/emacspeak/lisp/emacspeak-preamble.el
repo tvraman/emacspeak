@@ -49,6 +49,7 @@
 (require 'thingatpt)
 (require 'voice-setup)
 (require 'dtk-speak)
+(require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 ;;}}}
 
