@@ -234,6 +234,29 @@ Useful to do this before you listen to an entire buffer."
    (emacspeak-auditory-icon 'help)))
 
 ;;}}}
+;;{{{ helper function --decode ISO date-time
+(defsubst emacspeak-speak-decode-iso-datetime (iso)
+  "Return a speakable string description."
+  (declare (special emacspeak-speak-time-format-string))
+  (let ((year  (read (substring iso 0 4)))
+        (month (read (substring iso 4 6)))
+        (day   (read (substring iso 6 8)))
+        (hour 0)
+        (minute 0)
+        (second 0))
+    (when (> (length iso) 12) ;; hour/minute
+      (setq hour (read (substring iso 9 11)))
+      (setq minute (read (substring iso 11 13))))
+    (when (> (length iso) 14) ;; seconds
+      (setq second (read (substring iso 13 15))))
+    (when (and (> (length iso) 15) ;; utc specifier
+               (char-equal ?Z (aref iso 15)))
+      (setq second (+ (car (current-time-zone)) second)))
+    ;; create the decoded date-time
+(format-time-string emacspeak-speak-time-format-string
+    (encode-time second minute hour day month year))))
+
+;;}}}
 ;;{{{  Actions
 
 ;;; Setting value of property 'emacspeak-action to a list
