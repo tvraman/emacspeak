@@ -1321,7 +1321,7 @@ emacspeak-w3-xsl-transform))
       (goto-char (point-min))
       (while (search-forward "&amp;" nil t)
 	(replace-match "&"))
-      (emacspeak-w3-preview-this-buffer))
+(emacspeak-w3-preview-this-buffer))
     (kill-buffer src-buffer)))
 
 ;;}}}
