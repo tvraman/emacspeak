@@ -184,13 +184,13 @@ int Tcleci_Init(Tcl_Interp *interp) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
-  setMono();
+  
   eciHandle = _eciNew();
   if (eciHandle == 0) { 
     Tcl_AppendResult(interp, "Could not open text-to-speech engine", NULL);
     return TCL_ERROR;
   }
-
+setMono();
   if (   (_eciSetParam(eciHandle, eciInputType, 1) == -1) 
          || (_eciSetParam(eciHandle, eciSynthMode, 1) == -1)
          || (_eciSetParam(eciHandle, eciSampleRate, 0) == -1)
