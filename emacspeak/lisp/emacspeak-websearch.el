@@ -235,31 +235,47 @@ ARGS specifies additional arguments to SPEAKER if any."
 "URL template for Google maps.")
 
 
-(defun emacspeak-websearch-emaps-search (query)
+(defcustom emacspeak-websearch-emapspeak-my-location nil
+  "Specifies location near we look by default."
+  :type 'string
+  :group 'emacspeak-websearch)
+
+(defun emacspeak-websearch-emaps-search (query &optional use-near)
   "Perform EmapSpeak search.
-Query is a Google Maps query in plain English."
+Query is a Google Maps query in plain English.
+Interactive prefix arg `use-near' searches near our previously cached  location."
   (interactive
    (list
-    (emacspeak-websearch-read-query "Map Query: ")))
-  (declare (special emacspeak-websearch-google-maps-uri))
+    (emacspeak-websearch-read-query
+     (if current-prefix-arg
+         (format "Find what near  %s: "
+                 emacspeak-websearch-emapspeak-my-location)
+       "EMap Query: "))
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-google-maps-uri
+                    emacspeak-websearch-emapspeak-my-location))
   (require 'emacspeak-url-template)
   (let ((near-p
          (save-match-data
            (and (string-match "near" query)
                 (match-end 0))))
-        (near nil))
+        (near "")
+        (uri nil))
     (when near-p
-      (setq near (substring query near-p)))
-    (emacspeak-url-template-google-maps-speak
-     (format emacspeak-websearch-google-maps-uri
-             (webjump-url-encode query))
-     (webjump-url-encode near)
-     'speak)))
-    
+      (setq near (substring query near-p))
+      (setq emacspeak-websearch-emapspeak-my-location near))
+    (setq uri
+          (cond
+           (use-near
+            (format emacspeak-websearch-google-maps-uri
+                    (webjump-url-encode
+(format "%s near %s"
+                            query emacspeak-websearch-emapspeak-my-location))))
+           (t (format emacspeak-websearch-google-maps-uri
+                      (webjump-url-encode query)))))
+    (emacspeak-url-template-google-maps-speak uri
+                                              (webjump-url-encode near) 'speak)))
          
-                    
-
-
 ;;}}}
 ;;{{{ display form 
 
