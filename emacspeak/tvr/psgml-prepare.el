@@ -41,6 +41,29 @@
 (goto-char orig)
     (emacspeak-auditory-icon 'task-done))))
 
+(defcustom psgml-xmlindent-program "xmlindent"
+  "XML indent tool."
+  :type 'string
+  :group 'psgml)
+
+(defcustom psgml-xmlindent-spaces 2
+  "Number of spaces to use for each indent level."
+  :type 'number
+  :group 'psgml)
+
+(defun psgml-xmlindent-visited-file ()
+  "Reindents visited file and updates buffer."
+  (interactive)
+  (let ((this-file (buffer-file-name)))
+    (unless this-file
+      (error "Not visiting a file."))
+    (save-buffer)
+    (shell-command
+     (format "%s -w -i %s %s"
+             psgml-xmlindent-program
+             psgml-xmlindent-spaces
+             this-file))
+    (revert-buffer nil 'quietly)))
 (defun psgml-reindent-region (start end)
   "Reindent current region."
   (interactive "r")
