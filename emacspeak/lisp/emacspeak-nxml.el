@@ -273,6 +273,28 @@
 ;;}}}
 ;;{{{ Advice interactive commands
 
+(defadvice nxml-backward-element (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+(emacspeak-speak-line)))
+
+(defadvice nxml-forward-element (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+(emacspeak-speak-line)))
+
+(defadvice nxml-forward-paragraph (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+(emacspeak-speak-line)))
+(defadvice nxml-backward-paragraph (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+(emacspeak-speak-line)))
 (defadvice nxml-electric-slash (around emacspeak pre act comp)
   "Provide spoken feedback."
   (cond

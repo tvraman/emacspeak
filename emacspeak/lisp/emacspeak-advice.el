@@ -1248,9 +1248,8 @@ in completion buffers"
                   (or monitor 
                       (eq (selected-window)
                           (get-buffer-window
-                           (process-buffer (ad-get-arg 0))))))
-
-        (when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
+                           (process-buffer (ad-get-arg 0))))))        
+(when emacspeak-comint-split-speech-on-newline (modify-syntax-entry 10 ">"))
         (condition-case nil
             (emacspeak-speak-region prior (point ))
           (error (emacspeak-auditory-icon 'scroll)
