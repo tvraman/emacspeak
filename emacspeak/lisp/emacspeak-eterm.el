@@ -1067,27 +1067,13 @@ Use command emacspeak-toggle-eterm-autospeak bound to
   
 (make-variable-buffer-local 'emacspeak-eterm-autospeak)
   
-(defun emacspeak-toggle-eterm-autospeak (&optional prefix)
-  "Toggle state of eterm autospeak.
+(ems-generate-switcher 'emacspeak-toggle-eterm-autospeak
+                       'emacspeak-eterm-autospeak
+"Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
-  current local  value to the result. "
-  (interactive  "P")
-  (declare (special emacspeak-eterm-autospeak))
-  (let ((dtk-stop-immediately nil ))
-    (cond
-     (prefix
-      (setq-default  emacspeak-eterm-autospeak
-                     (not  (default-value 'emacspeak-eterm-autospeak )))
-      (setq emacspeak-eterm-autospeak (default-value 'emacspeak-eterm-autospeak )))
-     (t (setq emacspeak-eterm-autospeak 
-              (not emacspeak-eterm-autospeak ))))
-    (message "Turned %s eterm autospeak %s"
-             (if emacspeak-eterm-autospeak "on" "off")
-             (if prefix "globally" "locally"))
-    (emacspeak-auditory-icon
-     (if emacspeak-eterm-autospeak 'on 'off))))
+  current local  value to the result. ")
 
 (defvar eterm-line-mode nil 
   "T if eterm is in line mode.")
@@ -1199,21 +1185,13 @@ See command emacspeak-toggle-eterm-autospeak bound to
                  emacspeak-eterm-pointer)
         (emacspeak-eterm-pointer-to-cursor)))))
 
-(defun emacspeak-eterm-toggle-pointer-mode (flag)
-  "Toggle emacspeak eterm pointer mode.
+(ems-generate-switcher 'emacspeak-eterm-toggle-pointer-mode
+'emacspeak-eterm-pointer-mode
+"Toggle emacspeak eterm pointer mode.
 With optional interactive prefix  arg, turn it on.
 When emacspeak eterm is in pointer mode, the eterm read pointer
 stays where it is rather than automatically moving to the terminal cursor when
-there is terminal activity."
-  (interactive "P")
-  (declare (special emacspeak-eterm-pointer-mode ))
-  (cond
-   (flag (setq emacspeak-eterm-pointer-mode t ))
-   (t (setq emacspeak-eterm-pointer-mode
-            (not emacspeak-eterm-pointer-mode ))))
-  (message "Turned %s emacspeak eterm pointer mode"
-           (if emacspeak-eterm-pointer-mode
-               "on" "off")))
+there is terminal activity.")
 
    
 (defadvice term-dynamic-complete (around emacspeak pre act)

@@ -255,26 +255,13 @@ display. String is the original message."
       string)
      (t nil))))
 
-(defun emacspeak-erc-toggle-speak-all-participants  (&optional prefix)
-  "Toggle state of ERC speak all participants..
+(ems-generate-switcher
+ 'emacspeak-erc-toggle-speak-all-participants
+ 'emacspeak-erc-speak-all-participants
+"Toggle state of ERC speak all participants..
 Interactive 
 PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-erc-speak-all-participants))
-  (cond
-   (prefix
-    (setq-default  emacspeak-erc-speak-all-participants
-                   (not  (default-value 'emacspeak-erc-speak-all-participants )))
-    (setq emacspeak-erc-speak-all-participants (default-value 'emacspeak-erc-speak-all-participants )))
-   (t
-    (setq emacspeak-erc-speak-all-participants
-          (not emacspeak-erc-speak-all-participants ))))
-  (emacspeak-auditory-icon
-   (if emacspeak-erc-speak-all-participants 'on 'off))
-  (message "Turned %s speak participants  %s "
-           (if emacspeak-erc-speak-all-participants "on" "off" )
-	   (if prefix "" "locally")))
+set the current local value to the result.")
 
 (defadvice erc-display-line-buffer  (after emacspeak pre act
                                            comp)
@@ -317,53 +304,19 @@ set the current local value to the result."
             (tts-with-punctuations dtk-punctuation-mode
 				   (dtk-speak  msg))))))))
 
-(defun emacspeak-erc-toggle-room-monitor  (&optional prefix)
-  "Toggle state of ERC room monitor.
+(ems-generate-switcher 'emacspeak-erc-toggle-room-monitor
+'emacspeak-erc-room-monitor
+"Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
+set the current local value to the result.")
 
-  (interactive  "P")
-  (declare  (special  emacspeak-erc-room-monitor))
-  (cond
-   (prefix
-    (setq-default  emacspeak-erc-room-monitor
-                   (not  (default-value 'emacspeak-erc-room-monitor )))
-    (setq emacspeak-erc-room-monitor (default-value 'emacspeak-erc-room-monitor )))
-   (t
-    (setq emacspeak-erc-room-monitor
-          (not emacspeak-erc-room-monitor ))))
-  (and emacspeak-erc-room-monitor
-       
-       )
-  (emacspeak-auditory-icon
-   (if emacspeak-erc-room-monitor 'on 'off))
-  (message "Turned %s room monitor  %s "
-           (if emacspeak-erc-room-monitor "on" "off" )
-	   (if prefix "" "locally")))
-
-(defun emacspeak-erc-toggle-my-monitor  (&optional prefix)
-  "Toggle state of ERC  monitor of my messages.
+(ems-generate-switcher 'emacspeak-erc-toggle-my-monitor
+                       'emacspeak-erc-monitor-my-messages
+                       "Toggle state of ERC  monitor of my messages.
 Interactive PREFIX arg means toggle the global default value, and then
-set the current local value to the result."
-  (interactive  "P")
-  (declare  (special  emacspeak-erc-monitor-my-messages))
-  (cond
-   (prefix
-    (setq-default  emacspeak-erc-monitor-my-messages
-                   (not  (default-value 'emacspeak-erc-monitor-my-messages )))
-    (setq emacspeak-erc-monitor-my-messages (default-value 'emacspeak-comint-autospeak )))
-   (t
-    (setq emacspeak-erc-monitor-my-messages
-          (not emacspeak-erc-monitor-my-messages ))))
-  (and emacspeak-erc-monitor-my-messages
-       
-       )
-  (emacspeak-auditory-icon
-   (if emacspeak-erc-monitor-my-messages 'on 'off))
-  (message "Turned %s messages monitor  %s "
-           (if emacspeak-erc-monitor-my-messages "on" "off" )
-	   (if prefix "" "locally")))
+set the current local value to the result.")
+
 
 ;;}}}
 ;;{{{ silence server messages 
