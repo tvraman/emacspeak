@@ -2417,7 +2417,8 @@ Use with caution."
                   (format "vc-%s.dump"
                           emacspeak-wizards-vc-console)
                   temporary-file-directory)))
-        (inhibit-read-only t))
+        (inhibit-read-only t)
+        (orig (point)))
     (shell-command command)
     (fundamental-mode)
     (erase-buffer)
@@ -2427,9 +2428,9 @@ Use with caution."
               console)
       temporary-file-directory))
     (set-buffer-modified-p nil)
+    (goto-char orig)
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
-    (goto-char (point-min))
     (when (interactive-p)
       (emacspeak-speak-line))))
 
