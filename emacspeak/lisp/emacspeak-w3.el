@@ -595,7 +595,7 @@ libxslt package."
                     emacspeak-w3-xsl-directory)
   "XSL transform to extract a table.")
 
-(defun emacspeak-w3-extract-table (table-index  &optional prompt)
+(defun emacspeak-w3-extract-table (table-x table-y   &optional prompt)
   "Extract tables from HTML.  Extracts specified table from
 current WWW page and displays it in a separate buffer.
 Optional arg url specifies the page to extract table from.
@@ -603,7 +603,8 @@ Interactive prefix arg causes url to be read from the
 minibuffer."
   (interactive
    (list
-    (read-from-minibuffer "Table Index: ")
+    (read-from-minibuffer "Table x: ")
+    (read-from-minibuffer "Table y: ")
     current-prefix-arg))
   (declare (special emacspeak-xslt-program))
   (unless (or prompt
@@ -628,10 +629,11 @@ minibuffer."
          (point-min)
          (point-max)
          (list
-          (cons "table-index" table-index)
+          (cons "table-x" table-x)
+          (cons "table-y" table-y)
           (cons "base"
                 (format "\"'%s'\""
-source-url))))
+                        source-url))))
         (w3-preview-this-buffer)
         (kill-buffer src-buffer)))))
 
