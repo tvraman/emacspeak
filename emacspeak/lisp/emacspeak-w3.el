@@ -181,40 +181,6 @@ the table structure extraction code in W3."
     (set-process-sentinel process 'emacspeak-w3-lynx-done-alert)))
 
 ;;}}}
-;;{{{ fixup images
-(declaim (special w3-version))
-
-    
-                                        ; simple heuristic to detect silly bullets and dots
-                                        ; (by Greg Stark <gsstark@mit.edu>, enriched with regexp)
-
-(defvar w3-min-img-size 32
-  "*Image size under which the alt string is replaced by `w3-dummy-img-alt-repl'.
-15 is a bit aggressive, 5 pixels would be safer")
-
-(defvar w3-dummy-img-re
-  "\\(bullet\\|\\b\\(boule\\|dot\\|pebble[0-9]*[a-z]?[0-9]*\\|pixel\\)\\|\\(clear\\)\\b\\)"
-  "Image name regexp for which the alt string is replaced by `w3-dummy-img-alt-repl'.")
-
-(defvar w3-dummy-img-alt-repl " "
-  "*Dummy img alt replacement")
-
-(declare (special  w3-auto-image-alt))
-(setq w3-auto-image-alt
-      (function
-       (lambda (s)
-         (declare (special width height
-                           w3-auto-image-alt))
-         (if (or (and (stringp height)
-                      (< (string-to-int height) w3-min-img-size))
-                 (and (stringp width)
-                      (< (string-to-int width) w3-min-img-size))
-                 (string-match w3-dummy-img-re s))
-             w3-dummy-img-alt-repl
-           (concat "[" (file-name-sans-extension s)
-                   "]")))))
-
-;;}}}
 ;;{{{ toggle table borders:
 ;;;I'd rather make the borders inaudible-- but that is hard
 ;;;at present.
