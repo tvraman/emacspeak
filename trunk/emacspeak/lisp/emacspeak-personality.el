@@ -273,7 +273,7 @@ displayed in the messages area."
              ( (listp value)
                (setq voice
                      (delq nil 
-                             (mapcar   #'voice-setup-get-voice-for-face value))))
+			   (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -309,7 +309,7 @@ displayed in the messages area."
              ( (listp value)
                (setq voice
                      (delq nil 
-                             (mapcar   #'voice-setup-get-voice-for-face value))))
+			   (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -345,7 +345,7 @@ displayed in the messages area."
              ( (listp value)
                (setq voice
                      (delq nil 
-                             (mapcar   #'voice-setup-get-voice-for-face value))))
+			   (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -385,7 +385,7 @@ displayed in the messages area."
              ( (listp value)
                (setq voice
                      (delq nil 
-                             (mapcar   #'voice-setup-get-voice-for-face value))))
+			   (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces 0
@@ -453,8 +453,8 @@ Append means place corresponding personality at the end."
        ((listp value)
         (setq voice
               (delq nil
-                      (mapcar
-                       #'voice-setup-get-voice-for-face value))))
+		    (mapcar
+		     #'voice-setup-get-voice-for-face value))))
        (t (message "Got %s" value)))
       (when voice
         (and emacspeak-personality-voiceify-overlays

@@ -93,8 +93,6 @@
   :group 'accessibility
   :version emacspeak-version)
 
-
-
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
   :type 'hook

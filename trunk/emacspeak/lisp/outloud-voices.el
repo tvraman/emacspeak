@@ -455,7 +455,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate
-  outloud-default-speech-rate))
+	       outloud-default-speech-rate))
 
 ;;}}}
 (provide 'outloud-voices)

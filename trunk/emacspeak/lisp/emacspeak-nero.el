@@ -45,7 +45,6 @@
 ;;; wrapper for lynx. It's a very efficient wa of reading HTML
 ;;; content this module advices interactive commands from nero.
 
-
 ;;; Code:
 
 ;;}}}
@@ -71,14 +70,11 @@
       (list 'nero-back 'nero-forward)
       do
       (eval
-`(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))))
-
-
-
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'select-object)
+	    (emacspeak-speak-mode-line)))))
 
 (loop for f in
       (list
@@ -86,16 +82,16 @@
        'nero-follow-current-link)
       do
       (eval
-`(defadvice ,f (around emacspeak pre act comp)
-  "Provide auditory feedback."
-  (cond
-   ((interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    ad-do-it
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object))
-   (t ad-do-it))
-  ad-return-value)))
+       `(defadvice ,f (around emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (cond
+	   ((interactive-p)
+	    (emacspeak-auditory-icon 'select-object)
+	    ad-do-it
+	    (emacspeak-speak-mode-line)
+	    (emacspeak-auditory-icon 'open-object))
+	   (t ad-do-it))
+	  ad-return-value)))
 
 (defadvice nero-move-to-next-link (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -103,17 +99,15 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
-
 (loop for f in
       (list 'nero-hide 'nero-finished)
       do
       (eval
-      `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))))
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'close-object)
+	    (emacspeak-speak-mode-line)))))
 
 (defadvice nero-kill-ring-save-current-url (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -127,7 +121,6 @@
     (emacspeak-auditory-icon 'button)
     (message "Turned %s display of links"
              (if nero-links-visible " on " " off "))))
-
 
 (defadvice nero-browse-url (after emacspeak pre act comp)
   "Provide auditory feedback."

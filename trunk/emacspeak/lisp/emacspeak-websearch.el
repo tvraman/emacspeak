@@ -861,12 +861,12 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query "Search SourceForge for: ")))
   (declare (special emacspeak-websearch-sourceforge-search-uri))
   (emacspeak-w3-extract-table-by-match "Description"
-   (concat
-    emacspeak-websearch-sourceforge-search-uri
-    "type_of_search=soft"
-    "&exact=1"
-    "&words="
-    (webjump-url-encode query))))
+				       (concat
+					emacspeak-websearch-sourceforge-search-uri
+					"type_of_search=soft"
+					"&exact=1"
+					"&words="
+					(webjump-url-encode query))))
   
 
 (defvar emacspeak-websearch-freshmeat-search-uri 
@@ -1528,10 +1528,10 @@ Light for: ")))
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
   (declare (special emacspeak-websearch-wikipedia-search-uri))
-    (browse-url 
-     (concat emacspeak-websearch-wikipedia-search-uri
-             "&search="
-             (webjump-url-encode query)))
+  (browse-url 
+   (concat emacspeak-websearch-wikipedia-search-uri
+	   "&search="
+	   (webjump-url-encode query)))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-rest-of-buffer))
