@@ -333,43 +333,41 @@ Argument MODE  specifies the current pronunciation mode."
   (let* ((pattern (regexp-quote string))
          (reg (concat
                pattern pattern
-               "\\(" pattern  "\\)+")))
-    (save-excursion
-      (save-match-data
-        (let ((start nil)
-              (personality nil)
-              (replacement nil))
-          (while (re-search-forward reg nil t)
-            (setq personality
-                  (get-text-property (point) 'personality))
-            (setq replacement
-                  (if  (string= "all" mode)
-                      (format " aw %s %s"
-                              (/ (- (match-end 0 ) (match-beginning 0))
-                                 (length string))
-                              (if (string= " " pattern)
-                                  " space " string) )
-                    ""))
-            (replace-match replacement)
-            (setq start (- (point) (length replacement)))
-            (when personality
-              (put-text-property start (point)
-                                 'personality personality ))))))))
+               "\\(" pattern  "\\)+"))
+         (start nil)
+         (personality nil)
+         (replacement nil))
+    (while (re-search-forward reg nil t)
+      (setq personality
+            (get-text-property (point) 'personality))
+      (setq replacement
+            (if  (string= "all" mode)
+                (format " aw %s %s"
+                        (/ (- (match-end 0 ) (match-beginning 0))
+                           (length string))
+                        (if (string= " " pattern)
+                            " space " string) )
+              ""))
+      (replace-match replacement)
+      (setq start (- (point) (length replacement)))
+      (when personality
+        (put-text-property start (point)
+                           'personality personality)))
+    (goto-char (point-min))))
 
 
 (defsubst  dtk-quote(mode )
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
       ;;; First cleanup  repeated patterns:
-    (mapcar
-     (function (lambda (str)
-                 (dtk-replace-duplicates str mode )))
-     dtk-cleanup-patterns )
+  (mapc
+   (function (lambda (str)
+               (dtk-replace-duplicates str mode )))
+   dtk-cleanup-patterns )
     ;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
   ;;; fix control chars
   (dtk-fix-control-chars))
-
 
 (defsubst dtk-fix-backslash ()
   "Quote backslash characters as appropriate."
