@@ -56,6 +56,10 @@
 ;;{{{ define a derived mode for madplay interaction 
 (defvar emacspeak-madplay-process nil
   "Process handle to madplay." )
+
+
+;;;###autoload
+
 (define-prefix-command 'emacspeak-madplay-prefix-command
   'emacspeak-madplay-mode-map)
 
