@@ -35,12 +35,8 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
+;;{{{ Introduction 
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
-;;{{{  voice aadditions
-
-(require 'cl)
 ;;; Commentary:
 ;;; A voice is to audio as a font is to a visual display.
 ;;; A personality is to audio as a face is to a visual display. 
@@ -63,63 +59,13 @@
 ;; To define new reserved words or other patterns to highlight, use
 ;; the `voice-lock-keywords' variable.  This should be mode-local.
 ;;
-;;{{{  Define some voice personalities:
-
-(defvar voice-lock-comment-personality
-  'paul-monotone  
-  "Personality to use for comments.")
-(defvar voice-lock-underline-personality 
-  'paul-animated 
-  "Personality to use for underline text.")
-
-(defvar voice-lock-bold-personality 
-  'harry
-  "Personality to use for bold  text.")
-
-(defvar voice-lock-italic-personality 
-  'paul-italic 
-  "Personality to use for italic  text.")
-
-(defvar voice-lock-doc-string-personality
-  'dennis  
-  "Personality to use for documentation strings.")
-
-(defvar voice-lock-constant-personality
-  'paul-smooth 
-  "Personality to use for  constants.")
-
-(defvar voice-lock-string-personality
-  'betty 
-  "Personality to use for string constants.")
-
-(defvar voice-lock-function-name-personality
-  'harry 
-  "Personality to use for function names.")
-
-(defvar voice-lock-warning-personality
-  'paul-angry
-  "Personality to use for function names.")
-
-(defvar voice-lock-keyword-personality
-  'ursula  
-  "Personality to use for keywords.")
-
-(defvar voice-lock-builtin-personality
-  'harry
-  "Personality to use for keywords.")
-(defvar voice-lock-variable-name-personality
-  'paul-animated
-  "Personality to use for keywords.")
-
-(defvar voice-lock-type-personality
-  'paul-smooth 
-  "Personality to use for data types.")
-
-(defvar voice-lock-reference-personality
-  'paul-animated
-  "Personality to use for comments.")
 
 ;;}}}
+;;{{{ Required modules
+
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
+(require 'custom)
 
 ;;}}}
 ;;{{{  additional convenience functions:
@@ -143,6 +89,7 @@
 
 ;;}}}
 ;;{{{ map faces to voices 
+
 (defvar voice-setup-face-voice-table (make-hash-table)
   "Hash table holding face to voice mapping.")
 
@@ -208,15 +155,117 @@ This function forces voice-lock mode on."
                       inhibit-point-motion-hooks save-inhibit-point-motion-hooks)
                 (set-buffer-modified-p modification-flag )))))))
 
-            
+;;}}}
+;;{{{  Define some voice personalities:
+
+(defcustom voice-lock-comment-personality
+  'paul-monotone  
+  "Personality to use for comments."
+  :group 'tts
+  :type 'symbol)
+          
+(defcustom voice-lock-underline-personality 
+  'paul-animated 
+  "Personality to use for underline text."
+  :type 'symbol
+  :group 'tts)
+
+(defcustom voice-lock-bold-personality 
+  'harry
+  "Personality to use for bold  text."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-italic-personality 
+  'paul-italic 
+  "Personality to use for italic  text."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-doc-string-personality
+  'dennis  
+  "Personality to use for documentation strings."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-constant-personality
+  'paul-smooth 
+  "Personality to use for  constants."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-string-personality
+  'betty 
+  "Personality to use for string constants."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-function-name-personality
+  'harry 
+  "Personality to use for function names."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-warning-personality
+  'paul-angry
+  "Personality to use for function names."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-keyword-personality
+  'ursula  
+  "Personality to use for keywords."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-builtin-personality
+  'harry
+  "Personality to use for built-in keywords."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-variable-name-personality
+  'paul-animated
+  "Personality to use for keywords."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-type-personality
+  'paul-smooth 
+  "Personality to use for data types."
+  :group 'tts
+  :type 'symbol)
+
+(defcustom voice-lock-reference-personality
+  'paul-animated
+  "Personality to use for comments."
+  :group 'tts
+  :type 'symbol)
 
 ;;}}}
 ;;{{{ setup standard mappings
+
 (voice-setup-set-voice-for-face 'bold 'bold)
 (voice-setup-set-voice-for-face 'italic 'italic)
 (voice-setup-set-voice-for-face 'underline 'underline)
 (voice-setup-set-voice-for-face 'underlined 'underline)
 (voice-setup-set-voice-for-face 'bold-italic 'bold-italic)
+
+(voice-setup-set-voice-for-face  'font-lock-comment-face 'voice-lock-comment-personality)
+(voice-setup-set-voice-for-face 'font-lock-underline-face   'voice-lock-underline-personality )
+(voice-setup-set-voice-for-face 'font-lock-bold-face   'voice-lock-bold-personality )
+(voice-setup-set-voice-for-face 'font-lock-italic-face   'voice-lock-italic-personality )
+(voice-setup-set-voice-for-face 'font-lock-doc-string-personality   'voice-lock-doc-string-personality)
+(voice-setup-set-voice-for-face'font-lock-constant-face   'voice-lock-constant-personality)
+(voice-setup-set-voice-for-face'font-lock-string-face   'voice-lock-string-personality)
+(voice-setup-set-voice-for-face'font-lock-function-name-face 'voice-lock-function-name-personality)
+(voice-setup-set-voice-for-face'font-lock-warning-face   'voice-lock-warning-personality)
+(voice-setup-set-voice-for-face'font-lock-keyword-face   'voice-lock-keyword-personality)
+(voice-setup-set-voice-for-face'font-lock-builtin-face   'voice-lock-builtin-personality)
+(voice-setup-set-voice-for-face'font-lock-variable-name-face 'voice-lock-variable-name-personality)
+(voice-setup-set-voice-for-face'font-lock-type-face   'voice-lock-type-personality)
+(voice-setup-set-voice-for-face'font-lock-reference-face   'voice-lock-reference-personality)
+
 
 ;;}}}
 (provide 'voice-setup)
