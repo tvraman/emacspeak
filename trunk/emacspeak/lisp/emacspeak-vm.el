@@ -568,7 +568,14 @@ If N is negative, move backward instead."
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
 Emacspeak."
-  (declare (special 
+  (declare (special
+            vm-mime-charset-converter-alist
+            vm-mime-default-face-charsets 
+            vm-frame-per-folder 
+            vm-frame-per-composition 
+            vm-frame-per-edit 
+            vm-frame-per-help 
+            vm-frame-per-summary 
             vm-index-file-suffix
             vm-primary-inbox
             vm-keep-sent-messages
@@ -582,6 +589,18 @@ Emacspeak."
             vm-confirm-new-folders
             vm-move-after-deleting
             emacspeak-vm-voice-lock-messages))
+(setq vm-mime-charset-converter-alist
+   '(
+     ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
+    )
+)
+(setq vm-mime-default-face-charsets t)
+(setq vm-frame-per-folder nil
+      vm-frame-per-composition nil
+      vm-frame-per-edit nil
+      vm-frame-per-help nil
+      vm-frame-per-summary nil)
+
   (setq vm-index-file-suffix ".idx"
         vm-primary-inbox "~/mbox"
         vm-keep-sent-messages t
