@@ -655,20 +655,20 @@ before the message is spoken."
   
 ;;{{{ advising signal
 
-; (defadvice signal (before emacspeak pre act compile)
-;   "Speak the error message as well."
-;   (let ((dtk-stop-immediately t))
-;     (dtk-speak
-;      (format "%s %s"
-;              (or (get (ad-get-arg 0) 'error-message)
-;                  "Peculiar error ")
+                                        ; (defadvice signal (before emacspeak pre act compile)
+                                        ;   "Speak the error message as well."
+                                        ;   (let ((dtk-stop-immediately t))
+                                        ;     (dtk-speak
+                                        ;      (format "%s %s"
+                                        ;              (or (get (ad-get-arg 0) 'error-message)
+                                        ;                  "Peculiar error ")
              
-;              (mapconcat
-;               (function 
-;                (lambda (x)
-;                  (format "%s" x)))
-;               (ad-get-arg 1)
-;               " ")))))
+                                        ;              (mapconcat
+                                        ;               (function 
+                                        ;                (lambda (x)
+                                        ;                  (format "%s" x)))
+                                        ;               (ad-get-arg 1)
+                                        ;               " ")))))
 
 ;;; lighter weight version:
 
@@ -790,17 +790,17 @@ Produce an auditory icon as well."
 ;;}}}
 ;;{{{  advice various input functions to speak:
 (defadvice read-key-sequence(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0)))
-      (when prompt
-        (tts-with-punctuations "all"
-                               (dtk-speak prompt)))
-      ad-do-it
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0)))
+    (when prompt
       (tts-with-punctuations "all"
-                             (dtk-speak (format "%s" ad-return-value)))
-      ad-return-value))
+                             (dtk-speak prompt)))
+    ad-do-it
+    (tts-with-punctuations "all"
+                           (dtk-speak (format "%s" ad-return-value)))
+    ad-return-value))
 (unless emacspeak-xemacs-p
-; we need to advice these only for FSF Emacs
+                                        ; we need to advice these only for FSF Emacs
   (defadvice completing-read (around emacspeak pre act )
     "Prompt using speech."
     (let ((dtk-stop-immediately t )
@@ -913,24 +913,13 @@ Emacspeak splits chunks based on both white space and punctuations
 in completion buffers"
   (dtk-chunk-on-white-space-and-punctuations))
 
-(defadvice dabbrev-expand (around emacspeak pre act)
+(defadvice dabbrev-expand (after emacspeak pre act)
   "Say what you completed."
-  (let ((prior (save-excursion
-                 (backward-word 1)
-                 (point )))
-        (dtk-stop-immediately t))
-    ad-do-it
-    (let ((completions-buffer (get-buffer "*Completions*")))
-      (if (> (point) prior)
-          (tts-with-punctuations "all"
-                                 (dtk-speak (buffer-substring prior (point ))))
-        (when (and completions-buffer
-                   (window-live-p (get-buffer-window completions-buffer )))
-          (save-excursion
-            (set-buffer completions-buffer )
-            (emacspeak-prepare-completions-buffer)
-            (dtk-speak (buffer-string ))))))
-    ad-return-value))
+  (when (interactive-p)
+    (tts-with-punctuations "all"
+                           (dtk-speak
+                            dabbrev--last-expansion))))
+
 (defadvice complete-symbol (around emacspeak pre act)
   "Say what you completed."
   (let ((prior (save-excursion
@@ -1101,7 +1090,7 @@ in completion buffers"
 ;;{{{  Advice comint:
 (require 'shell)
 (defvar emacspeak-comint-prompt-personality 'paul-monotone
-"Personality used for highlighting comint prompts.")
+  "Personality used for highlighting comint prompts.")
 
 (defvar shell-voice-lock-keywords
   nil
@@ -1115,10 +1104,10 @@ in completion buffers"
 (defadvice completion-setup-function (around emacspeak pre
                                              act com)
   "Indicate that we popped up a completion buffer."
-(let ((emacspeak-speak-messages nil))
-ad-do-it
-(emacspeak-auditory-icon 'help)
-(dtk-speak "Displayed completions.")))
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    (emacspeak-auditory-icon 'help)
+    (dtk-speak "Displayed completions.")))
 
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
@@ -1241,12 +1230,12 @@ ad-do-it
       ad-do-it
       (when (and (boundp 'comint-last-prompt-overlay)
                  comint-last-prompt-overlay)
-                 (put-text-property (overlay-start
-                                     comint-last-prompt-overlay)
-                                    (overlay-end
-                                     comint-last-prompt-overlay)
-                                    'personality
-                                    emacspeak-comint-prompt-personality ))
+        (put-text-property (overlay-start
+                            comint-last-prompt-overlay)
+                           (overlay-end
+                            comint-last-prompt-overlay)
+                           'personality
+                           emacspeak-comint-prompt-personality ))
       (when (and  emacspeak-comint-autospeak
                   (or monitor 
                       (eq (selected-window)
@@ -2654,7 +2643,7 @@ emacspeak running."
                                (if (fboundp
                                     'emacspeak-speak-current-field)
                                    (emacspeak-speak-current-field)
-                               (emacspeak-speak-line)))
+                                 (emacspeak-speak-line)))
       (setq emacspeak-last-command-needs-minibuffer-spoken nil))))
 
 
@@ -2908,7 +2897,7 @@ Variable mark-even-if-inactive is set true ."
   "If T then window resize will produce an auditory icon.")
 
 (when emacspeak-sounds-icon-on-window-resize 
-(add-hook 'window-size-change-functions
+  (add-hook 'window-size-change-functions
             'emacspeak-window-resize))
 
 
