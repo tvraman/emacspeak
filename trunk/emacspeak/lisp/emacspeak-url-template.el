@@ -477,7 +477,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&ned=tusq=%s&scoring=d&btnG=Google+Search"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&btnG=Google+Search"
  (list "Search news for: ")
  #'(lambda nil
      (search-forward "Sorted by")
@@ -487,8 +487,6 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
-
-
 
 ;;}}}
 ;;{{{ mapquest
