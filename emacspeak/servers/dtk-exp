@@ -103,7 +103,7 @@ proc l {text} {
     set f  $tts(say_rate)
     tts_gobble_acknowledgements 
     puts -nonewline  $tts(write)\
-        "\[_]\[:ra $f]\[:sa le]$text"
+        "\[_]\[:ra $f]\[:sa le]$text\[:sa c]"
         return ""
 }
 #formerly called tts_speak
