@@ -1832,9 +1832,9 @@ Light for: ")))
       </label>
       
         <select id=\"format\" name=\"format\" >
-          <option selected value=\"\"> All Formats 
+          <option  value=\"\"> All Formats 
           </option>
-          <option value=\"ss\"> Audio Cassette Book 
+          <option selected value=\"ss\"> Audio Cassette Book 
           </option>
           <option value=\"fb\"> Braille 
           </option>
@@ -1854,9 +1854,9 @@ Light for: ")))
     </label>
     
       <select id=\"lang\" name=\"lang\" >
-        <option selected value=\"\"> All Languages
+        <option  value=\"\"> All Languages
         </option>
-        <option value=\"eng\"> English
+        <option selected value=\"eng\"> English
         </option>
         <option value=\"afr\"> Afrikans
         </option>
