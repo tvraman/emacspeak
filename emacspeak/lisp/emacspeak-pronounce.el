@@ -317,8 +317,8 @@ Optional argument FILENAME specifies the dictionary file."
           emacspeak-pronounce-dictionaries-file )))
   (declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
-  (load-file filename)
-  (setq emacspeak-pronounce-dictionaries-loaded t)))
+    (load-file filename)
+    (setq emacspeak-pronounce-dictionaries-loaded t)))
 
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."

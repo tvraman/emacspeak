@@ -790,7 +790,6 @@ Set up URL rewrite rule to get print page."
             (emacspeak-url-template-post-action ut)))
     (funcall fetcher   (emacspeak-url-template-url ut))))
 
-
 (defsubst emacspeak-url-template-help-internal (name)
   "Display and speak help."
   (with-output-to-temp-buffer "*Help*"
@@ -815,7 +814,7 @@ before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (declare (special emacspeak-url-template-table
-                     emacspeak-speak-messages))
+		    emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (name nil)

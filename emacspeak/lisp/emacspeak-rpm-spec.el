@@ -58,15 +58,15 @@
 
 (defvar emacspeak-rpm-spec-insertion-commands
   '(rpm-insert-file 
- rpm-insert-config 
- rpm-insert-doc 
- rpm-insert-ghost 
- rpm-insert-dir 
- rpm-insert-docdir 
- rpm-insert 
- rpm-insert-n
- rpm-insert-tag
- rpm-insert-packager)
+    rpm-insert-config 
+    rpm-insert-doc 
+    rpm-insert-ghost 
+    rpm-insert-dir 
+    rpm-insert-docdir 
+    rpm-insert 
+    rpm-insert-n
+    rpm-insert-tag
+    rpm-insert-packager)
   "List of rpm-spec insertion commands to speech-enable.")
 
 (loop for f in emacspeak-rpm-spec-insertion-commands
@@ -80,7 +80,7 @@
                                   (quote (, f)))))
               (setq entry
                     (car (last
-                     (split-string entry "-"))))
+			  (split-string entry "-"))))
               (message
                (format "Inserted %s entry" entry))))))))
 
@@ -88,9 +88,9 @@
 ;;{{{ Advice navigation 
 (defvar emacspeak-rpm-spec-navigation-commands
   '(rpm-backward-section rpm-beginning-of-section 
- rpm-forward-section 
- rpm-end-of-section 
- rpm-goto-section )
+			 rpm-forward-section 
+			 rpm-end-of-section 
+			 rpm-goto-section )
   "Navigation commands in rpm-spec to speech-enable.")
 (loop for f in emacspeak-rpm-spec-navigation-commands
       do
@@ -107,13 +107,13 @@
 
 (defvar emacspeak-rpm-spec-build-commands
   '(rpm-build-bp 
- rpm-build-bl 
- rpm-build-bc 
- rpm-build-bi 
- rpm-build-bb 
- rpm-build-bs 
- rpm-build-ba)
-"Build commands from rpm-spec that are speech-enabled.")
+    rpm-build-bl 
+    rpm-build-bc 
+    rpm-build-bi 
+    rpm-build-bb 
+    rpm-build-bs 
+    rpm-build-ba)
+  "Build commands from rpm-spec that are speech-enabled.")
 
 (loop for  f in emacspeak-rpm-spec-build-commands
       do
@@ -123,7 +123,7 @@
           "Provide spoken feedback."
           (when (interactive-p)
             (let ((target  (format "%s"
-                                  (quote (, f)))))
+				   (quote (, f)))))
               (setq target
                     (car (last (split-string target "-"))))
               (emacspeak-auditory-icon 'task-done)
@@ -133,12 +133,12 @@
 ;;}}}
 ;;{{{ advice toggles 
 (defvar emacspeak-rpm-spec-toggle-commands
-'(rpm-toggle-short-circuit 
- rpm-toggle-rmsource 
- rpm-toggle-clean 
- rpm-toggle-test 
- rpm-toggle-sign-gpg 
- rpm-toggle-add-attr )
+  '(rpm-toggle-short-circuit 
+    rpm-toggle-rmsource 
+    rpm-toggle-clean 
+    rpm-toggle-test 
+    rpm-toggle-sign-gpg 
+    rpm-toggle-add-attr )
   "Toggle commands from rpm-spec that are speech-enabled.")
 
 (loop for f in emacspeak-rpm-spec-toggle-commands
