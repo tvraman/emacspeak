@@ -1490,6 +1490,7 @@ semantic to do the work."
                      emacspeak-mail-alert mode-line-format ))
   (dtk-stop)
   (force-mode-line-update)
+  (emacspeak-dtk-sync)
   (let ((dtk-stop-immediately nil )
         (frame-info nil))
     (when (and  emacspeak-which-function-mode
@@ -1499,9 +1500,7 @@ semantic to do the work."
     (when  (and emacspeak-mail-alert (emacspeak-mail-alert-user))
       (dtk-tone 450 75))
     (cond
-     ((stringp mode-line-format)
-      (emacspeak-dtk-sync)
-      (dtk-speak mode-line-format ))
+     ((stringp mode-line-format) (dtk-speak mode-line-format ))
      (t                                 ;process modeline
       (cond
        ((> (length (frame-list)) 1)

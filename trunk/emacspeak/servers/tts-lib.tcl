@@ -33,6 +33,15 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
+# {{{ sync state 
+proc tts_sync_state {punct capitalize allcaps splitcaps rate} {
+    tts_set_punctuations  $punct
+    tts_capitalize  $capitalize
+    tts_allcaps_beep  $allcaps
+    tts_split_caps   $splitcaps
+    tts_set_speech_rate  $rate
+} 
+
 # {{{ queue:
 
 #currently we use an inlined version of this test in speech_task
@@ -381,6 +390,8 @@ proc tts_initialize {} {
     #flag to avoid multiple consecutive stops
     set tts(not_stopped) 1
 }
+
+# }}}
 
 # }}}
 # {{{ Emacs local variables  
