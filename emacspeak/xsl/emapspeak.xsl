@@ -56,7 +56,8 @@ Reference Point</a></td>
         <xsl:apply-templates select="address"/>
       </td>
       <td>Tel: <xsl:value-of select="phone/text()"/></td>
-      <td>Distance: <xsl:value-of select="distance/text()"/></td>
+      <td>Distance:
+      <xsl:value-of select="substring-before(distance/text(), 'mi')"/> miles</td>
     </tr>
     <tr>
       <td>Description</td>
@@ -104,7 +105,8 @@ Reference Point</a></td>
 <xsl:value-of select="count(segment)"/> segments making up a
 total of 
 <xsl:value-of select="@meters"/> meters (approximately
-<xsl:value-of select="@distance"/>)
+<xsl:value-of
+    select="substring-before(@distance, 'mi')"/> miles)
 and is expected to take <xsl:value-of select="@seconds"/>
 (approximately <xsl:value-of select="@time"/>).
 </p>
@@ -126,7 +128,7 @@ and is expected to take <xsl:value-of select="@seconds"/>
   and Go 
   <em>
     <xsl:value-of select="@meters"/> meters (approximately
-  <xsl:value-of select="@distance"/>)</em>
+  <xsl:value-of select="substring-before(@distance, 'mi')"/> miles)</em>
 </td>
 </tr>
 </xsl:template>
