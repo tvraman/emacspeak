@@ -1969,23 +1969,24 @@ visiting the ppt file."
   (interactive)
   (declare (special emacspeak-wizards-ppthtml-program
                     emacspeak-wizards-ppt-preview-buffer))
-  (cond
-   ((null emacspeak-wizards-ppthtml-program)
-    (message "Not using Emacspeak PPTHTML wizard."))
-   (t 
-    (let ((filename (buffer-file-name))
-          (ppt-buffer (current-buffer))
-          (buffer (get-buffer-create " *ppt scratch*")))
-      (save-excursion
-        (set-buffer buffer)
-        (shell-command
-         (format "%s  %s"
-                 emacspeak-wizards-ppthtml-program filename)
-         'replace
-         (current-buffer))
-        (call-interactively 'emacspeak-w3-preview-this-buffer))
-      (kill-buffer buffer)
-      (kill-buffer ppt-buffer)))))
+  (emacspeak-w3-without-xsl
+   (cond
+    ((null emacspeak-wizards-ppthtml-program)
+     (message "Not using Emacspeak PPTHTML wizard."))
+    (t 
+     (let ((filename (buffer-file-name))
+	   (ppt-buffer (current-buffer))
+	   (buffer (get-buffer-create " *ppt scratch*")))
+       (save-excursion
+	 (set-buffer buffer)
+	 (shell-command
+	  (format "%s  %s"
+		  emacspeak-wizards-ppthtml-program filename)
+	  'replace
+	  (current-buffer))
+	 (call-interactively 'emacspeak-w3-preview-this-buffer))
+       (kill-buffer buffer)
+       (kill-buffer ppt-buffer))))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
