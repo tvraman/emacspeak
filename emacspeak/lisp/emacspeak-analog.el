@@ -61,6 +61,7 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
+    (emacspeak-analog-update-edit-keys)
     (emacspeak-speak-mode-line)))
 
 
@@ -232,6 +233,20 @@ Speak field or char moved to."
 (define-key analog-mode-map '[right] 'emacspeak-analog-forward-field-or-char)
 (define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
 (define-key analog-mode-map '[down] 'emacspeak-analog-next-line)
+(defun emacspeak-analog-update-edit-keys ()
+  "We define keys that invoke editting commands to invoke emacspeak-wizards-speak-and-skip-extent-upto-char "
+  (loop for k in
+        (where-is-internal 'emacspeak-self-insert-command
+                           analog-mode-map)
+        do
+        (define-key keymap k
+          'emacspeak-wizards-speak-and-skip-extent-upto-char ))
+(loop for k in
+        (where-is-internal 'completion-separator-self-insert-autofilling
+                           analog-mode-map)
+        do
+        (define-key keymap k
+          'emacspeak-wizards-speak-and-skip-extent-upto-char )))
 
 ;;}}}
 (provide 'emacspeak-analog)
