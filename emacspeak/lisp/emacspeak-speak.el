@@ -3002,7 +3002,8 @@ directory."
   (or directory
       (setq directory default-directory))
   (let ((settings (emacspeak-speak-get-directory-settings directory)))
-    (when (and (file-exists-p  settings)
+    (when (and settings
+               (file-exists-p  settings)
                (or emacspeak-speak-load-directory-settings-quietly
                    (y-or-n-p "Load directory settings? ")
                    "Load  directory specific Emacspeak
