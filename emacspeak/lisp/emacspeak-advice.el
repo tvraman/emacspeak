@@ -1816,8 +1816,15 @@ Indicate change of selection with
 (defadvice help-with-tutorial (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
-    (emacspeak-auditory-icon 'help)
-    (message "Welcome to the Emacs tutorial")))
+    (emacspeak-auditory-icon 'open-object)
+    (unless emacspeak-show-point
+      (emacspeak-toggle-show-point))
+    (let ((extent nil))
+      (save-excursion
+        (goto-char (point-min))
+        (forward-line (window-height ))
+        (emacspeak-speak-region (point-min)
+                                (point))))))
 
 (defadvice key-description (around emacspeak pre act )
   "Change returned key description to a form that is suitable to be spoken."
