@@ -144,6 +144,11 @@ to render standard HTML.  This feature is also useful in
 working with pages that use deeply nested tables.  See
 directory emacspeak/xsl for some ideas on what XSLT can do.
 
+Also, see command  emacspeak-w3-extract-table 
+that uses this mechanism to extract a specific table out of
+a WWW page.
+
+You will need to install libxslt to use this feature.
 See commands emacspeak-w3-xsl-toggle and
 emacspeak-w3-xslt-select for details on how to use this
 feature.
