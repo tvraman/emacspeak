@@ -2243,7 +2243,17 @@ Moves to the longest line when called interactively."
    
 
 ;;}}}
+;;{{{ voice sample
+(defun emacspeak-wizards-voice-sampler (personality)
+  "Read a personality  and apply it to the current line."
+(interactive "SPersonality: ")
+(put-text-property (line-beginning-position)
+                   (line-end-position)
+                   'personality
+                   personality
+(emacspeak-speak-line))
 
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
