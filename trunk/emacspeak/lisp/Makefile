@@ -183,6 +183,7 @@ emacspeak-view-process.elc \
 emacspeak-view.elc \
 emacspeak-vm.elc \
 emacspeak-w3.elc \
+emacspeak-w3m.elc \
 emacspeak-websearch.elc \
 emacspeak-widget.elc \
 emacspeak-windmove.elc \
@@ -360,6 +361,7 @@ emacspeak-view-process.elc: emacspeak-view-process.el dtk-speak.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc
 emacspeak-w3.elc: emacspeak-w3.el dtk-speak.elc
+emacspeak-w3m.elc: emacspeak-w3m.el dtk-speak.elc
 emacspeak-websearch.elc: emacspeak-websearch.el dtk-speak.elc
 emacspeak-widget.elc: emacspeak-widget.el dtk-speak.elc
 emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc
