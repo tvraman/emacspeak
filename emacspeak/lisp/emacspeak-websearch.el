@@ -235,7 +235,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 "URL template for Google maps.")
 
 
-(defcustom emacspeak-websearch-emapspeak-my-location nil
+(defcustom emacspeak-websearch-emapspeak-my-location ""
   "Specifies location near we look by default."
   :type 'string
   :group 'emacspeak-websearch)
@@ -279,6 +279,27 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 (if use-near
     emacspeak-websearch-emapspeak-my-location
   near))
+'speak)))
+
+
+;;;###autoload 
+(defun emacspeak-websearch-emapspeak-near-my-location (query)
+  "Perform search relative to `my-location'."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query
+         (format "Find what near  %s: "
+                 emacspeak-websearch-emapspeak-my-location))))
+       (declare (special
+                 emacspeak-websearch-emapspeak-my-location))
+       (let ((uri
+              (format emacspeak-websearch-google-maps-uri
+                      (webjump-url-encode
+                       (format "%s near %s" query
+                               emacspeak-websearch-emapspeak-my-location)))))
+(emacspeak-url-template-google-maps-speak uri
+                                              (webjump-url-encode
+    emacspeak-websearch-emapspeak-my-location)
 'speak)))
          
 ;;}}}
