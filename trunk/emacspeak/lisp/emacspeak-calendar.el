@@ -136,7 +136,10 @@
 '("Calendar"  (calendar-date-string (calendar-current-date) t))
 "Mode line format for calendar to use when Emacspeak is
 active.")
-  
+(declaim (special calendar-mode-line-format))  
+(setq calendar-mode-line-format
+      emacspeak-calendar-mode-line-format)
+
 (defadvice calendar (after emacspeak pre act )
   "Announce yourself."
   (when (interactive-p)
