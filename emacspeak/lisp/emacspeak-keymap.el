@@ -191,7 +191,9 @@
 (define-key emacspeak-keymap "." 'emacspeak-speak-current-field)
 (define-key emacspeak-keymap ">"  'emacspeak-speak-next-field)
 (define-key emacspeak-keymap " " 'dtk-resume)
-(define-key emacspeak-keymap "\C-w" 'emacspeak-speak-window-information)
+(define-key emacspeak-keymap "\C-w"
+  'emacspeak-speak-window-information)
+(define-key emacspeak-keymap "\M-w" 'emacspeak-toggle-which-function)
 (define-key emacspeak-keymap   "\C-a"
   'emacspeak-toggle-auditory-icons )
 (define-key emacspeak-keymap "\C-r" 'emacspeak-root)
