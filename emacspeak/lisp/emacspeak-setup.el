@@ -42,7 +42,7 @@
 (eval-when (compile)
   (require 'emacspeak-speak))
 (defvar emacspeak-directory
-  (expand-file-name  "/home/raman/emacs/lisp/emacspeak")
+  (expand-file-name  "/home/tvraman/emacs/lisp/emacspeak")
   "Directory where emacspeak is installed. ")
 
 (defvar emacspeak-lisp-directory
