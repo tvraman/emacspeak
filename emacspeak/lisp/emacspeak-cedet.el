@@ -50,11 +50,6 @@
 ;;senator and friends
 
 ;;}}}
-
-
-
-
-
 ;;{{{ advice semantic completion
 
 (loop for f in
