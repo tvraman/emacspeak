@@ -169,7 +169,22 @@
  "http://news.bbc.co.uk/2/low.html"
  nil
  #'(lambda nil
-     (search-forward "BBC News Online:")
+     (search-forward
+      (format-time-string "%A, %d %B, %Y"
+                          (current-time)))
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-rest-of-buffer))
+ "BBC News text version."
+ )
+
+(emacspeak-url-template-define
+ "BBC Sports"
+ "http://news.bbc.co.uk/sport2/low/default.stm"
+ nil
+ #'(lambda nil
+     (search-forward
+      (format-time-string "%A, %d %B, %Y"
+                          (current-time)))
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-rest-of-buffer))
  "BBC News text version."
