@@ -596,6 +596,8 @@ default-directory after switching."
   (interactive)
   (emacspeak-sudo "tpctl --dull --sdi | tail -1"))
 
+;;{{{ ppp
+
 (defvar emacspeak-wizards-ppp-status-command
   "/sbin/ifconfig | grep ^ppp"
   "Command to obtain ppp status.")
@@ -612,6 +614,41 @@ default-directory after switching."
       (emacspeak-sudo "ifdown ppp0  1>&- 2>&- &")
     (emacspeak-sudo "ifup ppp0  1>&- 2>&- &")))
 
+;;}}}
+;;{{{ vpn
+(defvar emacspeak-wizards-vpn-status-command
+  "/sbin/ifconfig | grep ^ipsec"
+  "Command to obtain vpn status.")
+
+(defcustom emacspeak-wizards-vpn-start-command nil
+  "Command that brings up a VPN connection."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+(defcustom emacspeak-wizards-vpn-end-command nil
+  "Command that brings down a   VPN connection."
+  :type 'string
+  :group 'emacspeak-wizards)
+
+
+(defun emacspeak-wizards-vpn-status ()
+  "Return vpn status."
+  (zerop (shell-command emacspeak-wizards-vpn-status-command)))
+
+(defun emacspeak-wizards-vpn-toggle ()
+  "Bring up or bring down vpn."
+  (interactive)
+  (declare (special emacspeak-wizards-vpn-start-command
+                    emacspeak-wizards-vpn-end-command))
+  (if (emacspeak-wizards-vpn-status)
+      (shell-command
+     (format "%s &"
+             emacspeak-wizards-vpn-end-command))
+    (shell-command 
+       (format  "%s&"
+                emacspeak-wizards-vpn-start-command))))
+
+;;}}}
 ;;;###autoload 
 (defun emacspeak-wizards-edit-file-as-root (filename)
   "Edit file as root using sudo vi.
