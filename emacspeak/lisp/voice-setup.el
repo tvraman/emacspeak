@@ -204,45 +204,30 @@ This function forces voice-lock mode on."
   :group 'tts)
 
 (defmacro defvoice (personality settings doc)
-  "Define voice personality using specified CSS settings.
-CSS setting is a list of the form 
-
-((:family paul)
-(:average-pitch 5)
-(:pitch-range 5)
-(:stress 5)
-(:richness 5))
-
-which correspons  to a standard male voice.
-
-Once defined, the voice settings can be customized using
-\\[customize-variable]
-on variable <personality>-setting. "
+  "Define voice using CSS setting."
   (`
    (defcustom  (, (intern (format "%s-settings"  personality)))
      (, settings)
      (, doc)
-     :type  '(repeat
-              (list :tag "Setting"
-                    (symbol :tag "Key")
-                    (choice :tag "Value"
-                            (integer :tag "Number")
-                            (symbol :tag "Name"))))
+     :type  '(list
+(symbol :tag "Family")
+(integer :tag "Average Pitch")
+(integer :tag "Pitch Range")
+(integer :tag "Stress")
+(integer :tag "Richness"))
      :group 'tts
      :set '(lambda  (sym val)
-             (let ((message "Applied new settings to personality %s")
-                   (voice-name
+             (let ((voice-name
                     (dtk-personality-from-speech-style
-                     (apply 'make-dtk-speech-style
-                            (apply 'append val)))))
+                     (make-dtk-speech-style
+                      :family (first val)
+                      :average-pitch (second val)
+                      :pitch-range (third val)
+                      :stress (fourth val)
+                      :richness (fifth val)))))
                (setq (, personality) voice-name)
                (dtk-define-voice-alias '(, personality) voice-name)
-               (set-default sym val)
-               (setq message
-                     (format message (, personality)))
-               (put-text-property 0 (length message)
-                                  'personality voice-name)
-               (dtk-speak message))))))
+               (set-default sym val))))))
 
 ;;}}}
 ;;{{{  Define some voice personalities:
