@@ -285,9 +285,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
           '(
             (global-set-key  "\M-M" 'ffap-menu)
             (global-set-key "\M-L" 'ffap-next)
-            (global-set-key "\C-x\C-f" 'find-file-at-point)
-            (global-set-key "\C-x4f"   'ffap-other-window)
-            (global-set-key "\C-x5f"   'ffap-other-frame)))
+            ;(global-set-key "\C-x\C-f" 'find-file-at-point)
+            ;;(global-set-key "\C-x4f"   'ffap-other-window)
+            ;(global-set-key "\C-x5f"   'ffap-other-frame)
+))
 
     
     (ffap-bindings)
