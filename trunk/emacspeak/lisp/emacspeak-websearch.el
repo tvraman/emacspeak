@@ -259,6 +259,7 @@ ARGS specifies additional arguments to SPEAKER if any."
       (read-file-name "Display Form: "
                       (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
   (declare (special emacspeak-w3-xsl-p
+                    emacspeak-w3-post-process-hook
                     emacspeak-lisp-directory))
   (let ((buffer (get-buffer-create " *search-form*"))
         (emacspeak-w3-xsl-p nil))
@@ -266,10 +267,13 @@ ARGS specifies additional arguments to SPEAKER if any."
       (set-buffer buffer)
       (erase-buffer)
       (insert-file  form-markup)
-      (emacspeak-w3-preview-this-buffer)
+      (setq emacspeak-w3-post-process-hook
+            #'(lambda ()
+                (goto-char (point-min))
       (widget-forward 1)
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-widget-summarize (widget-at (point)))
+      (emacspeak-widget-summarize (widget-at (point)))))
+      (emacspeak-w3-preview-this-buffer)
       (kill-buffer buffer))))
 
 ;;}}}

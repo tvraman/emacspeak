@@ -446,7 +446,7 @@ archived  mail from the OASIS list. You need to know the exact name of the list.
 
 (emacspeak-url-template-define
  "w3c Lists"
- "http://lists.w3.org/Archives/Member/w3c-%s/%s/"
+ "http://lists.w3.org/Archives/Member/%s/%s/"
  (list
   'emacspeak-url-template-get-w3c-group 
   'emacspeak-url-template-get-w3c-year/month)
@@ -457,7 +457,8 @@ name of the list.")
 
 (defun emacspeak-url-template-get-w3c-group ()
   "Get name of W3C group "
-  (read-from-minibuffer "W3C group: "))
+  (read-from-minibuffer "W3C group: "
+                        "w3c-"))
 
 (defun emacspeak-url-template-get-w3c-year/month ()
   "Get year/month"
