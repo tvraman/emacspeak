@@ -56,8 +56,6 @@
 (require 'emacspeak-sounds)
 (require 'comint)
 (require 'derived)
-(eval-when-compile (require 'emacspeak-w3))
-
 ;;}}}
 ;;{{{ Custom
 
