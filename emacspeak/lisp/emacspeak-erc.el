@@ -38,9 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-(require 'emacspeak-preamble)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -49,6 +46,11 @@
 ;;; erc.el - an Emacs IRC client (by Alexander L. Belikoff)
 ;;; http://www.cs.cmu.edu/~berez/irc/erc.el
 
+;;; Code:
+
+;;}}}
+;;{{{ required modules
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  variables
 

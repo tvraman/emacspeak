@@ -38,11 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-
-(require 'emacspeak-preamble)
-(require 'webjump)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -53,7 +48,16 @@
 ;;; The user provides values for the parameterized portons
 ;;; of the URL e.g. the date.
 
+
+;;; Code:
+
 ;;}}}
+;;{{{ required modules
+
+(require 'emacspeak-preamble)
+(require 'webjump)
+;;}}}
+
 ;;{{{  structures 
 
 (defstruct (emacspeak-url-template

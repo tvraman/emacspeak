@@ -38,12 +38,6 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{ required modules
-
-(require 'emacspeak-preamble)
-(require 'emacspeak-table)
-(require 'emacspeak-table-ui)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -64,6 +58,14 @@
 ;;; structured text files and the output from programs that
 ;;; tabulate their output.
 
+;;; Code:
+
+;;}}}
+;;{{{ required modules
+
+(require 'emacspeak-preamble)
+(require 'emacspeak-table)
+(require 'emacspeak-table-ui)
 ;;}}}
 ;;{{{  variables
 
