@@ -2395,6 +2395,8 @@ Speak the last message from Emacs once again.
 Optional interactive prefix arg 
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
+The message is also placed in the kill ring for convenient yanking
+if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set..
 @end deffn
 
 @deffn emacspeak-speak-message-at-time (TIME MESSAGE)
@@ -2598,10 +2600,11 @@ Speak the white space at point.
 Spell word at  point.
 @end deffn
 
-@deffn emacspeak-speak-time ()
+@deffn emacspeak-speak-time (&optional WORLD)
 @kbd{ control e t }
 
 Speak the time.
+Optional interactive prefix invokes world clock.
 @end deffn
 
 @deffn emacspeak-speak-version ()
@@ -2637,6 +2640,10 @@ Speak the start of, rest of, or the entire word.
 's' to speak the start.
 'r' to speak the rest.
 any other key to speak entire word.
+@end deffn
+
+@deffn emacspeak-speak-world-clock (ZONE)
+Display current date and time  for specified zone.
 @end deffn
 
 @deffn emacspeak-switch-to-completions-window ()
