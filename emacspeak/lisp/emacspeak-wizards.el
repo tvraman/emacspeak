@@ -2605,26 +2605,42 @@ Location is specified by name."
 
 ;;}}}
 ;;{{{ ISO dates 
-(defun emacspeak-wizards-speak-iso-datetime (dt)
-  "Speak ISO date-time format values."
+;;; implementation based on icalendar.el
+(defsubst emacspeak-wizrds-decode-iso-datetime (iso)
+  "Return a speakable string description."
+  (declare (special emacspeak-speak-time-format-string))
+  (let ((year  (read (substring iso 0 4)))
+        (month (read (substring iso 4 6)))
+        (day   (read (substring iso 6 8)))
+        (hour 0)
+        (minute 0)
+        (second 0))
+    (when (> (length iso) 12) ;; hour/minute
+      (setq hour (read (substring iso 9 11)))
+      (setq minute (read (substring iso 11 13))))
+    (when (> (length iso) 14) ;; seconds
+      (setq second (read (substring iso 13 15))))
+    (when (and (> (length iso) 15) ;; utc specifier
+               (char-equal ?Z (aref iso 15)))
+      (setq second (+ (car (current-time-zone)) second)))
+    ;; create the decoded date-time
+(format-time-string emacspeak-speak-time-format-string
+    (encode-time second minute hour day month year))))
+
+(defun emacspeak-wizards-speak-iso-datetime (iso)
+  "Make ISO date-time speech friendly."
   (interactive
    (list
-    (read-from-minibuffer "ISO Date: "
+    (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
-  (let ((fields (split-string "20030826T193000Z" "T"))
-        (date nil)
-        (time nil)
-        (year nil)
-        (month nil)
-        (day nil))
-    (setq date  (first fields)
-          time  (read (substring (second fields) 0 -3))
-          year (read (substring date 0 4))
-          month (read (substring date 4 6))
-          day (read (substring date 6 8)))
-    (message 
-    "%s  on %s/%s %s"
-time month day year)))
+(let ((emacspeak-speak-messages nil)
+(time (emacspeak-wizards-decode-iso-datetime iso)))
+(tts-with-punctuations "some"
+                           (dtk-speak time))
+(message time)))
+
+)
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
