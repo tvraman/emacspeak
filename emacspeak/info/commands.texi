@@ -3424,10 +3424,6 @@ resources.
 Load URL template resources from specified location.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-url-template-nfl-play-broadcast ()
-Play NFL url under point.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-url-template-save (FILE)
 Save out url templates.
 @end deffn
@@ -3885,7 +3881,7 @@ Display form specified by form-markup.
 Ebay search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor ()
+@deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor (CONVERSION-SPEC)
 Currency convertor.
 @end deffn
 
