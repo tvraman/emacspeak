@@ -778,7 +778,6 @@ Produce an auditory icon as well."
       (tts-with-punctuations "all"
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
-(emacspeak-fix-interactive
 (unless emacspeak-xemacs-p
 ; we need to advice these only for FSF Emacs
   (defadvice completing-read (around emacspeak pre act )
