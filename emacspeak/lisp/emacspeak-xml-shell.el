@@ -83,7 +83,7 @@
 ;;{{{ xml browse mode
 
 (define-derived-mode emacspeak-xml-shell-mode comint-mode 
-  "Browsing XML documents."
+  "Browsing XML documents.
   XML Browse\n\n
 \\{emacspeak-xml-shell-mode-map}")
 
