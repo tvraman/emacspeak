@@ -1103,6 +1103,7 @@ in completion buffers"
   :type  'symbol
   :group 'emacspeak
   :group 'comint)
+
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
 (defadvice shell-dirstack-message (around emacspeak pre act comp)
@@ -1135,8 +1136,7 @@ in completion buffers"
   "Aurally highlight input."
   (let ((start (line-beginning-position))
         (end (line-end-position)))
-    (put-text-property start end 'personality
-                       emacspeak-comint-input-personality)))
+    (emacspeak-personality-append-personality start end emacspeak-comint-input-personality)))
 
 (defadvice comint-send-eof (before emacspeak pre act comp)
   "Announce what we are doing."
