@@ -574,7 +574,7 @@ default-directory after switching."
    (list
     (read-from-minibuffer "SUDO Command: ")))
   (let* ((name  (car (split-string command)))
-         (buffer (format "*sudo--%s*" name)))
+         (buffer (format "*sudo-%s*" name)))
   (shell-command
    (format "sudo %s" command)
    buffer)
