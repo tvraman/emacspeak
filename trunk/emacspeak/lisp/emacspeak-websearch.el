@@ -276,7 +276,7 @@ to specify the type of search."
 (emacspeak-websearch-set-key ?a 'altavista)
 
 (defvar emacspeak-websearch-altavista-uri 
-  "http://ragingsearch.altavista.com/cgi-bin/query?search=Search&q="
+"http://www.altavista.com/sites/search/res_text?sc=on&hl=on&amb=txt&kl=en&search=Search&q="
   "URI for simple Altavista search")
 
 (defun emacspeak-websearch-altavista-search (query)
@@ -287,7 +287,6 @@ to specify the type of search."
   (let ((url-be-asynchronous nil))
     (browse-url 
      (concat emacspeak-websearch-altavista-uri
-             "&q="
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
    "Results"
