@@ -19,6 +19,10 @@
       <table>
         <tr>
           <td>
+            <label for="find">Find</label>
+            <input name="s" id="find"/>
+          </td>
+          <td>
             <label for="genre">Genre</label>
             <select id="genre" name="genre">
               <option value="TopTen">[Top 25 Streams]</option>
@@ -99,18 +103,16 @@
               <option value="Instrumental">- Instrumental</option>
             </select>
           </td>
-          <td>
-            <input name="s" id="find"/>
-            <label for="find">Find</label>
-          </td>
+        </tr>
+        <tr>
           <td>
             <input id="rg" name="st" type="radio" value="gs" checked="checked"/>
-            <label for="rg">Genre or Stream Title</label>
+            <label for="rg">Genre</label>
             <input id="rp" name="st" type="radio" value="st"/>
-            <label for="rp">Recently Played</label>
+            <label for="rp">Recent</label>
           </td>
           <td>
-            <input type="submit" value="List"/>
+            <input type="submit" value="Search"/>
           </td>
         </tr>
       </table>
