@@ -202,7 +202,7 @@
 This helps pull in all emacspeak modules cleanly.")
 
 (declaim (special load-path))
-(augment-load-path (expand-file-name "~/emacs/lisp/emacspeak/lisp"))
+(augment-load-path "../lisp")
 (augment-load-path emacs-personal-library-directory)
 
 (defun emacspeak-utils-generate-commands-documentation ()
