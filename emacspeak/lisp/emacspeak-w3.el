@@ -1263,7 +1263,6 @@ used as well."
 emacspeak-w3-xsl-transform))
   (let ((emacspeak-w3-xsl-p t)
         (emacspeak-w3-xsl-transform style)
-                            
         (src-buffer
          (emacspeak-xslt-url
           style
