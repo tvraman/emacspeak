@@ -1524,6 +1524,7 @@ ad-do-it
 
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
+
 (defadvice zap-to-char (after emacspeak pre act comp)
   "Speak line that is left."
   (when (interactive-p)
@@ -2204,6 +2205,11 @@ Provide an auditory icon if possible."
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+(defadvice yasb (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line )))
 
 ;;}}}
 ;;{{{  Emacs server
