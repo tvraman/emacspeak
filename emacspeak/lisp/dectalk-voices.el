@@ -64,7 +64,7 @@
   "Association between symbols and strings to set dtk voices.
 The string can set any dtk parameter.")
 
-(defsubst dtk-define-voice (name command-string)
+(defsubst dectalk-define-voice (name command-string)
   "Define a dtk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
@@ -89,20 +89,20 @@ COMMAND-STRING to the Dectalk."
 ;;{{{ voice definitions
 
 ;;; the nine predefined voices:
-(dtk-define-voice 'paul "[:np ]")
-(dtk-define-voice 'harry "[:nh ]")
-(dtk-define-voice 'dennis "[:nd]")
-(dtk-define-voice 'frank "[:nf]")
-(dtk-define-voice 'betty "[:nb]")
-(dtk-define-voice 'ursula "[:nu]")
-(dtk-define-voice 'rita "[:nr]")
-(dtk-define-voice 'wendy "[:nw]")
-(dtk-define-voice 'kit "[:nk]")
+(dectalk-define-voice 'paul "[:np ]")
+(dectalk-define-voice 'harry "[:nh ]")
+(dectalk-define-voice 'dennis "[:nd]")
+(dectalk-define-voice 'frank "[:nf]")
+(dectalk-define-voice 'betty "[:nb]")
+(dectalk-define-voice 'ursula "[:nu]")
+(dectalk-define-voice 'rita "[:nr]")
+(dectalk-define-voice 'wendy "[:nw]")
+(dectalk-define-voice 'kit "[:nk]")
 
 ;;}}}
 ;;{{{  the inaudible voice
 
-(dtk-define-voice 'inaudible "")
+(dectalk-define-voice 'inaudible "")
 
 ;;}}}
 ;;{{{  Mapping css parameters to dtk codes
@@ -565,9 +565,9 @@ and TABLE gives the values along that dimension."
 ;;}}}
 
 ;;}}}
-;;{{{  dtk-define-voice-from-speech-style
+;;{{{  dectalk-define-voice-from-speech-style
 
-(defun dtk-define-voice-from-speech-style (name style)
+(defun dectalk-define-voice-from-speech-style (name style)
   "Define NAME to be a dtk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
 	 (command
@@ -580,7 +580,7 @@ and TABLE gives the values along that dimension."
 		  (dtk-get-stress-code (acss-stress style ) family)
 		  (dtk-get-richness-code (acss-richness style) family)
 		  "]")))
-    (dtk-define-voice name command)))
+    (dectalk-define-voice name command)))
 
 ;;}}}
 ;;{{{ list voices 
@@ -602,7 +602,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dtk-get-voice-command)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
-  (fset 'tts-define-voice-from-speech-style 'dtk-define-voice-from-speech-style)
+  (fset 'tts-define-voice-from-speech-style 'dectalk-define-voice-from-speech-style)
   (setq tts-default-speech-rate dtk-default-speech-rate))
 
 ;;}}}
