@@ -455,7 +455,8 @@ even if one is already defined."
                                 (second
                                  emacspeak-w3-url-rewrite-rule)))
     (emacspeak-auditory-icon 'select-object)
-    (browse-url redirect)
+    (browse-url
+     (or redirect url))
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
