@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 650 commands.
+This chapter documents a total of 654 commands.
 
 @menu
 * cd-tool::                     
@@ -47,6 +47,7 @@ This chapter documents a total of 650 commands.
 * emacspeak-kotl::              
 * emacspeak-loaddefs::          
 * emacspeak-m-player::          
+* emacspeak-madplay::           
 * emacspeak-man::               
 * emacspeak-mpg123::            
 * emacspeak-ocr::               
@@ -1616,6 +1617,53 @@ Seek  to absolute specified position.
 
 @deffn {Interactive Command} emacspeak-m-player-seek-relative (OFFSET)
 Seek  by offset into stream from current position.
+@end deffn
+
+@node emacspeak-madplay
+@section emacspeak-madplay
+
+Commentary:
+Defines a simple derived mode for interacting with
+madplay.
+madplay navigation commands  work via single keystrokes.
+
+Automatically generated documentation
+for commands defined in module  emacspeak-madplay.
+
+@deffn {Interactive Command} emacspeak-madplay (RESOURCE)
+Play specified resource using madplay.
+Resource is an  MP3 file or directory containing mp3 files.
+The player is placed in a buffer in emacspeak-madplay-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-madplay-madplay-call-command ()
+Call appropriate madplay command.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-madplay-madplay-command (CHAR)
+Execute Madplay command.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-madplay-mode ()
+Major mode for madplay interaction. 
+
+key             binding
+---             -------
+
+<right>		emacspeak-aumix-wave-increase
+<left>		emacspeak-aumix-wave-decrease
+t		emacspeak-madplay-madplay-call-command
+q		emacspeak-madplay-madplay-call-command
+-		emacspeak-madplay-madplay-call-command
++		emacspeak-madplay-madplay-call-command
+s		emacspeak-madplay-madplay-call-command
+p		emacspeak-madplay-madplay-call-command
+b		emacspeak-madplay-madplay-call-command
+f		emacspeak-madplay-madplay-call-command
+o		emacspeak-madplay
+
+This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
+during initialization.
 @end deffn
 
 @node emacspeak-man
@@ -3909,8 +3957,9 @@ Search the Merriam Webster Dictionary.
 My RSS search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-news-yahoo (QUERY)
-Perform an Yahoo News search
+@deffn {Interactive Command} emacspeak-websearch-news-yahoo (QUERY &optional NO-RSS)
+Perform an Yahoo News search.
+Optional prefix arg no-rss scrapes information from HTML.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-northern-light (QUERY)
@@ -4726,7 +4775,7 @@ during initialization.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 89 URL Templates.
+This section documents a total of 88 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5131,10 +5180,6 @@ The PDF document needs to be available on the public Internet.
 @kbd{sourceforge Stats}
 
 Display project usage statistics.
-
-@kbd{sourceforge browse download}
-
-Retrieve download page at Sourceforge for specified project.
 
 @kbd{sourceforge browse mirrors}
 
