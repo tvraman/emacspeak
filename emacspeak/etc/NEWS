@@ -50,6 +50,14 @@ New URL templates for Sourceforge, DDJ TechNetCast etc.
 Enhanced with room monitors and the ability to hear things
 said by specific people.
 
+**Speech-enables ansi-color.el
+
+Module ansi-color (bundled with Emacs 21)
+colorizes process output according to ansi escape
+sequences. Emacspeak 
+maps these colors to appropriate ACSS style settings to
+provide audio formatted output.
+
 ** Speech-enables MetaPost Mode:
 
 metapost mode helps authoring and maintaining metapost

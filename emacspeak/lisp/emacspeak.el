@@ -489,7 +489,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 ;;}}}
 ;;{{{ Setup package extensions
 
-                            
+(emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)                            
 (emacspeak-do-package-setup "arc-mode" 'emacspeak-arc)
 (emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb )
 (emacspeak-do-package-setup "babel" 'emacspeak-babel )
