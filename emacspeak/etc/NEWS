@@ -2,120 +2,72 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <raman@cs.cornell.edu>
 
-* Emacspeak 13.0 Additions And Changes:
+* Emacspeak 14.0 Additions And Changes:
 
-Emacspeak 13.0 provides the following user level enhancements:
-
-* Graphical Desktop Environments:
-
-
-** Sawfish:
-Added subdirectory `sawfish' containing a tts.jl module for
-interfacing sawfish to the Emacspeak speech servers.
-Directory sawfish also contains my personal sawfishrc file
-as an example of how to load and use this package.
-When set up, this speech-enables the sawfish window manager.
-
-
-** emacspeak-Sawfish:
-Speech-enables interaction with the sawfish window manager.
-
-* Emacspeak Logo:
-
-Emacspeak now has a visual and auditory logo.
-
-** Visual: A 
-
-picture of Hubbell --Yellow Labrador-- with a bubble coming
-out of her mouth saying "Complete Audio Desktop" and the
-caption "EMACSPEAK" under her picture; thanks to Hans
-Zoebelein for the visual design.  This logo is used on the
-Emacspeak WWW site, and is available as an XPM file in the
-emacspeak/etc directory for use on graphical desktops.
-
-** Auditory Logo:
-
-Emacspeak.mp3 is a 4 second   MP3 file containing the first
-few bars of Bach's Toccata And fugue.
-The auditory logo is played as Emacspeak starts up.
+Emacspeak 14.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
 
-** Sound Themes:
- In addition to the default 8k  auditory icons, you can now
- install alternative sound themes. Sound themes will be
- distributed separate  from the main emacspeak distribution.
+** XML Authoring Using XAE
 
-** Streaming Media:
-Added support for navigating media streams using TRPlayer.
-TRPlayer navigation commands can now be used with
-Emacspeak's default 'C-e ;' keybinding.
+XAE is an XML authoring environment  put together by the
+author of JDE.
 
-**freeamp:
-emacspeak-freeamp provides a simple interface to the Freeamp
-MP3 player.
+** Form-based Editting Of Audtory Display Settings
 
-** MP3 Playlists:
-Added command  emacspeak-mp3-play-playlist  to play MP3 playlists.
-
-** Setting auditory display: 
-Added single keystroke commands  to adjust global output
-volume of the auditory display.
-
-** Browsing XML:
-Module emacspeak-psgml defines a simple enhancement  to 
-xml-mode to allow single keystroke browsing of XML
-documents.
+Personal audio mixer settings can be  modified using a forms-based
+user interface.
 
 
-**  Desktop Calculator:
-Speech-enabled calculator.el --a simple desktop calculator
-that will be bundled with Emacs 21.0.
+** Semantic Support Within JDE
 
-** Enhanced table browsing:
-Added support for sorting tables etc.
+Uses knowledge computed by the semantic package in better
+speech-enabling JDE.
 
-** Dictation:
-Speech-enables  dictation.el  --an Emacs interface to
-ViaVoice for allowing voice dictation within Emacs.
+** URL Templates 
 
-** Buffer Navigation:
-Speech-enables package BS --an alternative to buff-menu bundled
-with  Emacs 21.
+Module emacspeak-url-template provides a programmable hot
+list mechanism.
 
-** Generic Modes:
-Speech-enables package Generic so that modes defined using
-generic.el are automatically speech-enabled.
-This provides voice locking support for several new major
-modes including javascript-generic-mode, apache-generic-mode and friends.
+** Filtering Text
 
-** Shell Scripts:
-Speech-enables module sh-script to provide 
-voice lock support for editting shell scripts.
+Allows text to be progressively refined.
 
-** JDE and JDEBug:
-Fully speech-enables all JDEBug  features.
+** Overlaying Grids On Tabulated Information
 
-** CVS Access:
-Speech-enables CVS access.
+Grid overlays allow one to quickly skim selected portions of
+every line in the buffer or given region of text.
 
-** XML And SGML:
-Enhanced to cover all aspects of  SGML and XML document
-authoring.
+** Speech-enables EShell
 
-** DTD Creation:
-Speech-enables package tdtd to enable creation and
-maintainance of XML and SGML DTDs.
+EShel is a complete shell implemented in Emacs Lisp.
+Emacspeak speech-enables eshell to provide a powerful
+integrated shell.
 
-** XSL IDE:
-Speech-enables package xslide to provide  a powerful XSL
-authoring environment.
-** ibuffer:
-Speech-enables ibuffer --an alternative to buffer-menu.
+** Table Browsing:
 
+Enhancement to how tables are handled. 
+Additional features include sorting data
+   on a specific column.
 
-** WebSearch:
-Added support for additional search engines.
+** Customizations To Auditory Display
+
+Provides customization options for use with sound cards that
+ provide multiple channels of output.
+
+** Emacs 21 Support:
+
+Supports many  new Emacs 21 packages.
+
+** Dictionary Server:
+
+Speech-enables interaction with dictionary servers.
+
+** Speech-enables ERC:
+
+ERC is a relatively modern Emacs IRC client.
+This version of emacspeak speech-enables most of this
+package.
 
 
 
