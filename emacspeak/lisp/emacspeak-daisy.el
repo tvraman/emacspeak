@@ -74,6 +74,7 @@
 
 (defstruct  (emacspeak-daisy-book
              (:constructor emacspeak-daisy-book-constructor))
+  base
   title
   content
   nav-center)
@@ -102,19 +103,12 @@
 
 
 
-(defvar emacspeak-daisy-base-uri nil
-  "Base URI of current book.
-Used to resolve relative URIs.")
 
 
-(defsubst emacspeak-daisy-resolve-uri (relative)
+
+(defsubst emacspeak-daisy-resolve-uri (relative base)
   "Resolve relative URI with respect to emacspeak-daisy-base-uri."
-  (declare (special emacspeak-daisy-base-uri))
-  (expand-file-name relative emacspeak-daisy-base-uri))
-
-
-
-
+  (expand-file-name relative base))
 
 ;;}}}
 ;;{{{ find element by id 
@@ -143,7 +137,8 @@ Used to resolve relative URIs.")
 (defun emacspeak-daisy-play-audio (clip)
   "Play clip specified by clip.
 Clip is the result of parsing element <audio .../> as defined by Daisy 3."
-  (declare (special emacspeak-daisy-mpg123-player))
+  (declare (special emacspeak-daisy-mpg123-player
+                    emacspeak-daisy-this-book))
   (unless
       (and (listp clip)
            (string-equal "audio" (caar clip)))
@@ -154,7 +149,8 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
         (first nil)
         (last nil)
         (path nil))
-    (setq path (emacspeak-daisy-resolve-uri src))
+    (setq path (emacspeak-daisy-resolve-uri src
+                                            emacspeak-daisy-this-book))
     (setq first (emacspeak-daisy-time-string-to-frame begin))
     (setq last (emacspeak-daisy-time-string-to-frame end))
     (start-process "mpg123"  nil 
@@ -171,7 +167,9 @@ Clip is the result of parsing element <audio .../> as defined by Daisy 3."
 (defun emacspeak-daisy-book-add-content (book src)
   "Parse SMIL content in src and store it as book contents.
 Contents are indexed by src."
-(let ((smil (find-file-noselect (emacspeak-daisy-resolve-uri src))))
+(let ((smil
+       (find-file-noselect
+        (emacspeak-daisy-resolve-uri src book))))
   (save-excursion
     (set-buffer smil)
     (goto-char (point-min))
@@ -212,9 +210,10 @@ after fetching it  if necessary."
          (split (split-string src "#"))
          (relative (first split))
          (fragment (second split))
+         (path (emacspeak-daisy-resolve-uri relative
+                                            emacspeak-daisy-this-book))
          (smil nil)
-         (clip nil)
-         (path (emacspeak-daisy-resolve-uri relative)))
+         (clip nil))
     (setq smil (emacspeak-daisy-fetch-content emacspeak-daisy-this-book path))
     (setq clip
           (xml-find-tag-by-id smil fragment))
@@ -378,7 +377,8 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
   (declare (special emacspeak-daisy-this-book))
   (let ((buffer (get-buffer-create "*daisy*"))
         (ncx (find-file-noselect filename))
-        (book (emacspeak-daisy-book-constructor)))
+        (book (emacspeak-daisy-book-constructor
+               :base (file-name-directory filename))))
   (setf (emacspeak-daisy-book-content book)
         (make-hash-table))
   (save-excursion
