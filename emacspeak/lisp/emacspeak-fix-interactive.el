@@ -100,13 +100,13 @@ use the minibuffer."
          (split-string
           (second (ad-interactive-form (symbol-function sym )))
           "\n")))
-					;memoize call
+                                        ;memoize call
     (put sym 'emacspeak-fixed t)
                                         ; advice if necessary
     (when
         (some
          #'(lambda (prompt)
-             (string-match  "^\\*?[ckK]" prompt ))
+             (string-match  "^[ckK]" prompt ))
          interactive-list ))
     (eval
      (`
@@ -121,7 +121,7 @@ use the minibuffer."
                 (`
                  (let ((dtk-stop-immediately nil)
                        (emacspeak-speak-messages nil))
-                   (when (string-match"^\\*?[ckK]" (, prompt))
+                   (when (string-match"^[ckK]" (, prompt))
                      (emacspeak-auditory-icon 'open-object)
                      (tts-with-punctuations "all"
                                             (dtk-speak
