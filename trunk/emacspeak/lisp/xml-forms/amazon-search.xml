@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--$Id$-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Shopping: Search Amazon</title>
+  </head>
+  <body>
+    <form method="post" action="http://www.amazon.com/exec/obidos/search-handle-form/104-2736171-1915945">
+      <table>
+        <tr>
+          <td>
+            <select name="index">
+              <option value="blended" selected="selected">All Products</option>
+              <option value="books">Books</option>
+              <option value="music">Popular Music</option>
+              <option value="music-dd">Music Downloads</option>
+              <option value="classical">Classical Music</option>
+              <option value="dvd">DVD</option>
+              <option value="vhs">VHS</option>
+              <option value="theatrical">In Theaters</option>
+              <option value="toys">Toys</option>
+              <option value="baby">Baby</option>
+              <option value="pc-hardware">Computers</option>
+              <option value="videogames">Video Games</option>
+              <option value="electronics">Electronics</option>
+              <option value="photo">Camera &amp; Photo</option>
+              <option value="software">Software</option>
+              <option value="tools">Tools &amp; Hardware</option>
+              <option value="magazines">Magazines</option>
+              <option value="garden">Outdoor Living</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="travel">Travel</option>
+              <option value="wireless-phones">Cell Phones &amp; Service</option>
+              <option value="outlet">Outlet</option>
+              <option value="auction-redirect">Auctions</option>
+              <option value="fixed-price-redirect">zShops</option>
+            </select>
+          </td>
+          <td>
+            <b>for</b>
+            <input type="text" name="field-keywords" size="15"/>
+          </td>
+          <td>
+            <input type="submit" value="Search"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
