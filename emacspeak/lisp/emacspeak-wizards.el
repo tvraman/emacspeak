@@ -1303,7 +1303,7 @@ annotation is inserted into the working buffer when complete."
   (unless emacspeak-annotate-working-buffer
     (setq emacspeak-annotate-working-buffer
           (read-buffer "Annotation working buffer: "
-                       (car (buffer-list)))))
+                       (second (buffer-list)))))
   (let ((annotation nil)
         (parent-buffer (current-buffer)))
     (save-excursion
