@@ -106,11 +106,12 @@ proc l {text} {
         "\[_]\[:ra $f]\[:sa le]$text"
         return ""
 }
-
 #formerly called tts_speak
+
 proc d {} {
     speech_task
 }
+
 
 proc tts_resume  {} {
     global tts
@@ -171,6 +172,7 @@ proc tts_pause {} {
 
 proc s {} {
     global tts
+    set mode  $tts(punctuations) 
     if {$tts(not_stopped)} {
         puts -nonewline  $tts(write)  "\003"
         set tts(not_stopped) 0
@@ -178,7 +180,9 @@ proc s {} {
         set tts(talking?) 0
         queue_clear
         #allow dtk to recover 
-        select {} {} {} 0.05   
+        select {} {} {} 0.05
+        puts -nonewline $tts(write)\
+            "\[:punc $mode]" 
     }
 }
 
@@ -190,10 +194,10 @@ proc t  {{pitch 440} {duration 50}} {
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
     if {$tts(midi)} {
-            set inst 9
-            set len .1
-            set note [expr $pitch / 10]
-            n $inst $note $len
+        set inst 9
+        set len .1
+        set note [expr $pitch / 10]
+        n $inst $note $len
     }
     return ""
 }
@@ -233,7 +237,7 @@ proc  read_pending_p  {file_handle} {
 #note that we cannot use stdin here due to a tcl bug.
 #in tcl 7.4 we could always say file0
 #in 7.5 and above  (only tested in 7.5 and 8.0)
- #we need to say sock0 when we are a server
+#we need to say sock0 when we are a server
 
 proc tts_get_acknowledgement {} {
     global tts
@@ -341,8 +345,8 @@ proc clean {element} {
     if {[string match all $tts(punctuations)] } {
         regsub -all {\#} $element \
             { pound } element
-    regsub -all {\*} $element \
-        { star } element
+        regsub -all {\*} $element \
+            { star } element
         regsub -all  {[%&;()$+=/]} $element  { \0 }   element
         regsub -all {\.,} $element \
             { dot comma [_,] } element
@@ -358,7 +362,7 @@ proc clean {element} {
             {[_,]} element
         regsub -all {([0-9a-zA-Z])([\"!;/:()=])+([0-9a-zA-z])} $element \
             {\1 \2 \3} element
-regsub -all {([a-zA-Z])(,)+([a-zA-z])} $element \
+        regsub -all {([a-zA-Z])(,)+([a-zA-z])} $element \
             {\1 \2 \3} element
         regsub -all {([a-zA-Z])(\.)([a-zA-z])} $element \
             {\1[*]dot[*]\3} element
@@ -408,12 +412,12 @@ tts_setserial
 tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
-                           [expr $tts(speech_rate) * $tts(char_factor)]]
+                       [expr $tts(speech_rate) * $tts(char_factor)]]
 notes_initialize
-    set tts(input) file0
-        if {[info exists server_p]} {
-            set tts(input) sock0
-        }
+set tts(input) file0
+if {[info exists server_p]} {
+    set tts(input) sock0
+}
 #do not die if you see a control-c
 signal ignore {sigint}
 # gobble up garbage that is returned on powerup 
