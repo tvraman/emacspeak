@@ -7,14 +7,28 @@ Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
 License: GPL
 Description: Display all RSS links
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet  xmlns:h="http://www.w3.org/1999/xhtml"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="text" indent="yes" encoding="iso8859-1"/>
+
   
-  <xsl:template match="/">
-    <xsl:for-each select="//link[@type='application/rss+xml']">
-      <xsl:value-of select="@href"/><xsl:text>
-    </xsl:text></xsl:for-each>
-  </xsl:template>
+<xsl:template match="body" mode="rss">
+  <ol>
+ <xsl:apply-templates select="//h:link|//link"/>
+  </ol>
+</xsl:template>
+<xsl:template match="h:link|link">
+<xsl:if test="@type='application/rss+xml'">
+<li>
+<a>
+<xsl:attribute name="href">
+<xsl:value-of select="@href"/>
+</xsl:attribute>
+<xsl:value-of select="@title"/>
+</a>
+</li>
+</xsl:if>
+</xsl:template>
 </xsl:stylesheet>
 <!--
 Local Variables:
