@@ -186,7 +186,7 @@ Do not set this by hand;
 (defsubst emacspeak-sounds-theme-get-extension (theme-name )
   "Retrieve filename extension for specified theme. "
   (declare (special emacspeak-sounds-themes-table))
-  (cl-gethash
+  (gethash
    (intern theme-name)
    emacspeak-sounds-themes-table))
 
@@ -369,7 +369,7 @@ is a .1ms note on instrument 60."
 (defsubst emacspeak-get-midi-note (midi-name)
   "Retrieve midi note that produces midi icon midi-name."
   (declare (special emacspeak-midi-table emacspeak-default-midi-note))
-  (or  (cl-gethash midi-name emacspeak-midi-table)
+  (or  (gethash midi-name emacspeak-midi-table)
        emacspeak-default-midi-note))
 
 

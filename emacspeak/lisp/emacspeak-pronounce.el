@@ -91,7 +91,7 @@ Values are alists containing string.pronunciation pairs.")
   (declare (special emacspeak-pronounce-dictionaries))
   (when (stringp key)
     (setq key (intern key )))
-  (cl-gethash key emacspeak-pronounce-dictionaries))
+  (gethash key emacspeak-pronounce-dictionaries))
 
 (defun emacspeak-pronounce-add-dictionary-entry  (key string pronunciation)
   "Add dictionary entry.
@@ -254,7 +254,7 @@ Modifies text and point in buffer."
   (loop for  key  being the hash-keys  of pronunciation-table
         do
         (let ((word (symbol-name key))
-              (pronunciation (cl-gethash  key pronunciation-table )))
+              (pronunciation (gethash  key pronunciation-table )))
           (goto-char (point-min))
           (while (search-forward  word nil t)
             (replace-match  pronunciation t t  )
