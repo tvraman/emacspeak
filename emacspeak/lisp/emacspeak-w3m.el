@@ -103,7 +103,7 @@
 (defun emacspeak-w3m-anchor-text (&optional default)
   "Return string containing text of anchor under point."
   (if (get-text-property (point) 'w3m-anchor-sequence)
-      (emacspeak-speak-property-range 'w3m-anchor-sequence)
+      (emacspeak-speak-text-range 'w3m-anchor-sequence)
     (or default "")))
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
