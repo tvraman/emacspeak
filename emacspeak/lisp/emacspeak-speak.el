@@ -509,10 +509,10 @@ by cut -c on UNIX."
   :group 'emacspeak-speak
   :type '(choice
           (const :tag "None" nil)
-(repeat :tag "Filter Specification"
-                 (list 
-                 (integer :tag "Start Column")
-                 (integer :tag "End Column")))))
+	  (repeat :tag "Filter Specification"
+		  (list 
+		   (integer :tag "Start Column")
+		   (integer :tag "End Column")))))
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
