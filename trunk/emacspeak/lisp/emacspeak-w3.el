@@ -648,7 +648,7 @@ Optional arg COMPLEMENT inverts the filter.  "
        (if complement
            emacspeak-w3-xsl-junk
          emacspeak-w3-xsl-filter)
-       prompt-url
+       source-url
        (list
         (cons "path"
               (format "\"'%s'\""
