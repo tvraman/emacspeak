@@ -599,6 +599,133 @@ to associating meaning to the fields of such structured data files.
 For details on it use, see the forms-mode section of the online Emacs
 info documentation.
 
+subsection OCR -Reading Print Documents
+***************************************
+
+   Module _emacspeak-ocr_ implements an OCR front-end for the Emacspeak
+desktop.
+
+   Page image is acquired using tools from package _SANE_ (Scanner
+Access Now Easy).  The acquired image is run through the OCR engine if
+one is available, and the results placed in a buffer that is suitable
+for browsing the results. This buffer is placed in mode
+_emacspeak-ocr-mode_ a specialized mode for reading and scanning
+documents.
+
+Emacspeak OCR Mode
+..................
+
+   Emacspeak OCR mode is a special major  mode for document scanning
+and  OCR.
+
+   Pre-requisites:
+
+   * A working scanner back-end like SANE on Linux.
+
+   * An OCR engine.
+
+   Make sure your scanner back-end works, and that you have the
+utilities to scan a document and acquire an image as a tiff file.  Then
+set variable EMACSPEAK-OCR-SCAN-IMAGE-PROGRAM to point at this utility.
+By default, this is set to `scanimage' which is the image scanning
+utility provided by SANE.
+
+   By default, this front-end attempts to compress the acquired tiff
+image; make sure you have a utility like `tiffcp'.  Variable
+EMACSPEAK-OCR-COMPRESS-IMAGE is set to `tiffcp' by default; if you use
+something else, you should customize this variable.
+
+   Next, make sure you have an OCR engine installed and working.  By
+default this front-end assumes that OCR is available as `/usr/bin/ocr'.
+
+   Once you have ensured that acquiring an image and applying OCR to it
+work independently of Emacs, you can use this Emacspeak front-end to
+enable easy OCR access from within Emacspeak.
+
+   The Emacspeak OCR front-end is launched by command emacspeak-ocr
+bound to `C-e C-o'.
+
+   This command switches to a special buffer that has OCR commands
+bounds to single keystrokes- see the ke-binding list at the end of this
+description.  Use Emacs online help facility to look up help on these
+commands.
+
+   emacspeak-ocr-mode provides the necessary functionality to scan,
+OCR, read and save documents.  By default, scanned images and the
+resulting text are saved under directory `~/ocr'; see variable
+EMACSPEAK-OCR-WORKING-DIRECTORY.  Invoking command
+emacspeak-ocr-open-working-directory bound to `d' will open this
+directory.
+
+   By default, the document being scanned is named `untitled'.  You can
+name the document by using command emacspeak-ocr-name-document bound to
+`n'.  The document name is used in constructing the name of the image
+and text files.
+
+   Here is a list of all emacspeak OCR commands along with their
+key-bindings and a brief description:
+`digit'
+     "emacspeak-ocr-page" Jumps to specified page in the OCR output.
+
+`c'
+     "emacspeak-ocr-set-compress-image-options"
+
+     Interactively update  image compression options.  Prompts with
+     current setting in the minibuffer.  Setting persists for current
+     Emacs session.
+
+`i'
+     "emacspeak-ocr-set-scan-image-options" Interactively update scan
+     image options.  Prompts with current setting in the minibuffer.
+     Setting persists for current Emacs session.
+
+`spc'
+     "emacspeak-ocr-read-current-page" Speaks current page.
+
+`s'
+     "emacspeak-ocr-save-current-page" Saves current page as a text
+     file.
+
+`p'
+     "emacspeak-ocr-page" Prompts for a page number and moves to the
+     specified page.
+
+`]'
+     "emacspeak-ocr-forward-page" Move forward to the next page.
+
+`['
+     "emacspeak-ocr-backward-page" Move back to the previous page.
+
+`d'
+     "emacspeak-ocr-open-working-directory" Open directory containing
+     the results of OCR.
+
+`n'
+     "emacspeak-ocr-name-document" Name current document.
+
+`o'
+     "emacspeak-ocr-recognize-image" Launch OCR engine on a scanned
+     image.
+
+`i'
+     "emacspeak-ocr-scan-image" Acquire an image using `scanimage'.
+
+`RET'
+     "emacspeak-ocr-scan-and-recognize" Scan and recognize a page.
+
+`w'
+     "emacspeak-ocr-write-document" Write all pages of current document
+     to a text file.
+
+`q'
+     "bury-buffer" Bury the OCR buffer.
+
+`c'
+     "emacspeak-ocr-customize" Customize Emacspeak OCR settings.
+
+`?'
+     "describe-mode" Describe OCR mode.
+
 
 File: emacspeak.info,  Node: Running Terminal Based Applications,  Next: Acknowledgements,  Prev: Emacs Packages,  Up: Top
 
