@@ -11,8 +11,8 @@ Description: Display all RSS links
   <xsl:output method="text" indent="yes" encoding="iso8859-1"/>
   
   <xsl:template match="/">
-    <xsl:for-each select="//link/@href">
-      <xsl:value-of select="."/><xsl:text>
+    <xsl:for-each select="//link[@type='application/rss+xml']">
+      <xsl:value-of select="@href"/><xsl:text>
     </xsl:text></xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>
