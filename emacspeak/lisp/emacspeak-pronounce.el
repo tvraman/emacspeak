@@ -549,7 +549,7 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
 '(
   ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ")
       ("http://www.w3.org/2002/xforms/cr" . " XForms ")
-      ("http://www.w3.org/2001/xml-events" . " XEvents ")
+      ("http://www.w3.org/2002/xml-events" . " XEvents ")
       ("http://www.w3.org/2001/XMLSchema-instance". " XSchema Instance ")
       ("http://www.w3.org/2001/XMLSchema". " XSchema ")
 ("http://www.w3.org/1999/xhtml" . " xhtml ")
