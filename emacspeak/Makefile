@@ -144,7 +144,8 @@ CP=cp
 # source files to distribute
 ID = README
 SAWFISH=sawfish/*.jl sawfish/sawfishrc
-GUIDE=user-guide/*.html user-guide/*.sgml
+UGUIDE=user-guide/*.html user-guide/*.sgml
+IGUIDE=install-guide/*.html install-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 REALAUDIO=realaudio
@@ -174,7 +175,7 @@ INFO = info/Makefile info/*.texi
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${SAWFISH} ${OUTLOUD} \
-${INFO} ${GUIDE} ${NEWS} ${MISC} Makefile 
+${INFO} ${UGUIDE} ${IGUIDE} ${NEWS} ${MISC} Makefile 
 
 # }}}
 # {{{  User level targets emacspeak info print 
@@ -237,10 +238,12 @@ install:
 	$(INSTALL) -d $(libdir)/sawfish
 	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/user-guide
+	$(INSTALL) -d $(libdir)/install-guide
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
 	$(INSTALL) -m 0644  sawfish/*.jl sawfish/sawfishrc   $(libdir)/sawfish
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
-	$(INSTALL) -m 0644  ${GUIDE}   $(libdir)/user-guide
+	$(INSTALL) -m 0644  ${UGUIDE}   $(libdir)/user-guide
+	$(INSTALL) -m 0644  ${IGUIDE}   $(libdir)/install-guide
 	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
