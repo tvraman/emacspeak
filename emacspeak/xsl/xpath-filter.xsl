@@ -7,21 +7,38 @@ Extract content as specified by param locator.
 Param locator is an XPath expression.
 Param path is the same expression, but quoted so it can be
 shown in the output.
+param uniquify is a boolean  that 
+asks that nodes be processed only once -use with care.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:set="http://exslt.org/sets"
   version="1.0">
   <xsl:param name="locator"/>
+  <xsl:param name="uniquify" select="1"/>
   <xsl:param name="path"/>
   <xsl:param name="base"/>
-  <xsl:template match="*|@*" mode="copy" >
-    <xsl:variable name="i" select="$locator"/>
+  
+  <xsl:template  name="do-copy">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="node()" mode="copy"/>
-    </xsl:copy>      
-    
+      <xsl:apply-templates select="node()" mode="do-copy"/>
+    </xsl:copy>
   </xsl:template>
+  
+  <xsl:template match="*|@*" mode="copy" >
+    <xsl:choose>
+      <xsl:when test="$uniquify=1">
+        <xsl:variable name="i" select="$locator"/>
+        <xsl:if test="not(set:intersection(ancestor::*, $i))">
+          <xsl:call-template name="do-copy" select="."/>
+        </xsl:if>
+      </xsl:when>      
+      <xsl:otherwise>
+        <xsl:call-template name="do-copy" select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <!-- { html   -->
   <!--add base uri if available. -->
   
@@ -35,11 +52,11 @@ shown in the output.
       <xsl:apply-templates select="title" mode="copy"/>
     </xsl:element>
   </xsl:template>
+
   <xsl:template match="/html/body">
     <body>
-      <!-- note that this will give us duplicates -->
       <xsl:apply-templates select="$locator" mode="copy"/>
-      
+
       <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
       <p>Found <xsl:value-of select="count($locator)"/> matching
         elements
