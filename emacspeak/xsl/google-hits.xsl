@@ -14,11 +14,14 @@ Description: Just show me the google hit list
   <xsl:template match="/html">
     <html>
       <head>
+<base href="http://www.google.com/"/>
         <title>Google Hits <xsl:value-of select="$query"/></title>
       </head>
       <body>
         <xsl:apply-templates select="//div"/>
-        <xsl:value-of select="position()"/>
+        <p>
+        <xsl:apply-templates select="//form[not(@name)]"/>
+        </p>
       </body>
     </html>
   </xsl:template>
