@@ -108,16 +108,33 @@ Then see if a voice defined for it.
 Finally return the symbol"
   (cond
    ((and (acss-gain style)
-     (= 0 (acss-gain style)))
+         (= 0 (acss-gain style)))
     'inaudible)
    (t
-    (let ((name (intern
-                 (format "%s-a%s-p%s-s%s-r%s"
-                         (acss-family style)
-                         (acss-average-pitch style)
-                         (acss-pitch-range style)
-                         (acss-stress style)
-                         (acss-richness style)))))
+    (let ((f (acss-family style))
+          (a (acss-average-pitch style))
+          (p (acss-pitch-range style))
+          (s (acss-stress style))
+          (r (acss-richness style))
+          (name nil))
+      (setq name 
+            (intern
+             (format "acss%s%s%s%s%s"
+                     (if f
+                         (format "-%s" f)
+                       "")
+                     (if a
+                         (format "-a%s" a)
+                       "")
+                     (if p
+                         (format "-p%s" p)
+                       "")
+                     (if s
+                         (format "-s%s" s)
+                       "")
+                     (if r
+                         (format "-r%s" r)
+                       ""))))
       (unless (tts-voice-defined-p name)
         (tts-define-voice-from-speech-style name style))
       name))))

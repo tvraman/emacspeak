@@ -81,9 +81,7 @@ COMMAND-STRING to the Dectalk."
   (declare (special dtk-voice-table ))
   (gethash name dtk-voice-table ))
 
-(defsubst dtk-define-voice-alias (alias voice )
-  "Alias  ALIAS to be same as voice VOICE."
-  (dtk-define-voice alias (dtk-get-voice-command voice )))
+
 
 ;;}}}
 ;;{{{ voice definitions
@@ -271,8 +269,10 @@ and TABLE gives the values along that dimension."
 (defsubst dtk-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
+  (if value 
   (aref (dtk-css-get-code-table family 'average-pitch)
-	value))
+	value)
+  ""))
 
 ;;}}}
 ;;{{{  pitch range
@@ -364,8 +364,10 @@ and TABLE gives the values along that dimension."
 (defsubst dtk-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
+  (if value 
   (aref (dtk-css-get-code-table family 'pitch-range)
-	value))
+	value)
+  ""))
 
 ;;}}}
 ;;{{{  stress
@@ -465,8 +467,10 @@ and TABLE gives the values along that dimension."
 ;;}}}
 (defsubst dtk-get-stress-code (value family)
   (or family (setq family 'paul ))
+  (if value 
   (aref (dtk-css-get-code-table family 'stress)
-        value))
+        value)
+  ""))
 
 ;;}}}
 ;;{{{  richness
@@ -552,8 +556,10 @@ and TABLE gives the values along that dimension."
 
 (defsubst dtk-get-richness-code (value family)
   (or family (setq family 'paul))
+  (if value 
   (aref (dtk-css-get-code-table family 'richness)
-        value))
+        value)
+  ""))
 
 ;;}}}
 
