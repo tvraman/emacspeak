@@ -41,6 +41,13 @@
 (require 'custom)
 (eval-when (compile)
   (require 'emacspeak-speak))
+(defvar emacspeak-unibyte t
+  "Emacspeak will force emacs to unibyte unless this
+variable is set to nil.
+To use emacspeak with emacs running in multibyte mode, this
+variable should be set to nil *before* 
+emacspeak is compiled or started.")
+
 (defvar emacspeak-directory
   (expand-file-name  "<emacspeak-dir>")
   "Directory where emacspeak is installed. ")

@@ -299,10 +299,9 @@ Set this to t to avoid a dectalk bug that makes the speech box die if
 it seems some accented characters in certain contexts.")
 
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
-(declaim (special emacspeak-unibyte))
 
 (defvar dtk-octal-chars 
-  (if emacspeak-unibyte
+  (if default-enable-multibyte-characters
       "[\000-\010\013-\037\177-\377]"
     "[\000-\010\013-\037]")
   "Regular expression matching control chars.
