@@ -58,6 +58,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
               lib)))))
 
 ;;}}}
+;;{{{ customize custom
+
+(declare (special custom-file))
+(setq custom-file (expand-file-name "~/.customize-emacs"))
+(when (file-exists-p custom-file)
+  (load-file custom-file))
+
+;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (interactive)
@@ -66,7 +74,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
   (let ((gc-cons-threshold 8000000)
         (message-log-max 1024))
     (when (file-exists-p  emacs-private-library-directory)
-      (augment-load-path emacs-private-library-directory "my-functions"))
+      (augment-load-path emacs-private-library-directory ))
     (when (file-exists-p  emacs-personal-library-directory)
       (augment-load-path emacs-personal-library-directory))
     ;;{{{ Load and customize emacspeak 
@@ -164,12 +172,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "sigbegone")
 
     ;;}}}
-    ;;{{{ html helper mode: 
-
-                                        ;(augment-auto-mode-alist ".css$" 'c++-mode)
-                                        ;(load-library-if-available "html-helper-prepare")
-
-    ;;}}}
     ;;{{{ python setup
 
     (autoload 'python-mode "python-mode" "Python editing mode." t)
@@ -264,7 +266,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     ;;}}}
     ;;{{{  dmacros: dynamic macros
 
-    (load-library-if-available "dmacro-prepare")
+    ;(load-library-if-available "dmacro-prepare")
 
     ;;}}}
     ;;{{{  view processes
@@ -301,7 +303,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ jde
-    (load-library-if-available "semantic-prepare")
+    
+    
     (load-library-if-available "jde-prepare")
     ;(load-library-if-available "ecb-prepare")
     ;;}}}    
@@ -399,6 +402,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ tramp
+
     (load-library-if-available "tramp-prepare")
 
     ;;}}}
@@ -415,9 +419,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ color
+
     (global-font-lock-mode t)
     (load-library-if-available "color-theme")
     (color-theme-emacs-21)
+
     ;;}}}
     ;;{{{ newsticker
     (load-library-if-available "newsticker")
@@ -428,10 +434,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
 
     ;;}}}
     ;;{{{ bib-find
+
     (load-library-if-available "bibfind")
+
     ;;}}}
     ;;{{{ igrep
-    (load-library-if-available "igrep")
+
+    ;(load-library-if-available "igrep")
+
     ;;}}}
     ;;{{{ nxml
 
@@ -445,19 +455,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
     (load-library-if-available "crontab-mode")
 ;;}}}
     ))                                  ; end defun 
-;;{{{ customize custom
-
-(declare (special custom-file))
-(setq custom-file (expand-file-name "~/.customize-emacs"))
-(when (file-exists-p custom-file)
-  (load-file custom-file))
-;;}}}
 ;;{{{  start it up 
 
 ;;; So actually start it up:
 (start-up-my-emacs)
 (add-hook 'after-init-hook
           #'(lambda ()
+              (declare (special tts-default-speech-rate))
              (emacspeak-aumix-reset)
              (shell)
              (dtk-set-rate tts-default-speech-rate 'global)
@@ -466,7 +470,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
              (shell-command "play ~/cues/highbells.au")))
 
 ;;}}}
-
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 

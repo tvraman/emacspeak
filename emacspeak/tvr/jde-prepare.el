@@ -1,20 +1,30 @@
 ;;;$Id$
 ;;; Setup Emacs JDE
-;;{{{ locations 
-(augment-load-path "eieio" "eieio")
-(augment-load-path "elib" "stack-f")
-(augment-load-path "jde/lisp" "jde")
-;(load-library "cedet-prepare")
-(load-library "speedbar-prepare")
-(load-library "jde")
-;;}}}
+;;{{{ locations
 
+(augment-load-path "elib" "stack-f")
+
+(setq my-use-cedet nil)
+(cond
+ (my-use-cedet
+  (augment-load-path "eieio" "eieio")
+  (load-library "semantic-prepare")
+  (load-library "speedbar-prepare")
+  (load-library "overlay-fix")
+  )
+ (t (load-library "cedet-prepare")))
+
+(augment-load-path "jde/lisp" "jde")
+(load-library "jde")
+(load-library "jde-ant")
+
+;;}}}
 ;;{{{  jde and senator 
 (add-hook
  'jde-mode-hook
  (function
   (lambda nil
-    (define-key jde-mode-map "\M-\t" 'jde-complete-at-point)
+    (define-key jde-mode-map "\M-\t" 'jde-complete-in-line)
     (senator-minor-mode 1)
     (define-key senator-prefix-map "j" 'senator-jump))))
 
@@ -66,6 +76,5 @@ tvr-jdebug-key-prefix"
 (add-to-list 'compilation-error-regexp-alist 
 	       '("^\\s-*\\[[^]]*\\]\\s-*\\(.+\\):\\([0-9]+\\):" 1 2))
 
-
-
-(load-library "ajdee")
+(load-library "jde-xref")
+;(load-library "ajdee")
