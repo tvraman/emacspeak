@@ -2355,32 +2355,6 @@ for the current voice family."
     (goto-char (point-min))))
 
 ;;}}}
-;;{{{ world clock
-
-(defcustom emacspeak-wizards-zoneinfo-directory
-  "/usr/share/zoneinfo/"
-  "Directory containing timezone data."
-  :type 'filename
-  :group 'emacspeak-wizards)
-;;;###autoload
-(defun emacspeak-wizards-world-clock (zone)
-  "Display current date and time  for specified zone."
-  (interactive
-   (list
-    (substring
-     (read-file-name
-      "Timezone: "
-      emacspeak-wizards-zoneinfo-directory)
-     (length emacspeak-wizards-zoneinfo-directory))))
-  (declare (special emacspeak-speak-time-format-string
-                    emacspeak-wizards-zoneinfo-directory))
-  (shell-command
-   (format "(echo -n \"%s: \"; export TZ=%s; date +\"%s\")"
-           zone zone  
-           (concat emacspeak-speak-time-format-string
-                   " %Z %z "))))
-
-;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

@@ -1771,14 +1771,41 @@ See the documentation for function
 `format-time-string'"
   :group 'emacspeak-speak
   :type 'string)
+;;{{{ world clock
 
+(defcustom emacspeak-speak-zoneinfo-directory
+  "/usr/share/zoneinfo/"
+  "Directory containing timezone data."
+  :type 'filename
+  :group 'emacspeak-speak)
+;;;###autoload
+(defun emacspeak-speak-world-clock (zone)
+  "Display current date and time  for specified zone."
+  (interactive
+   (list
+    (substring
+     (read-file-name
+      "Timezone: "
+      emacspeak-speak-zoneinfo-directory)
+     (length emacspeak-speak-zoneinfo-directory))))
+  (declare (special emacspeak-speak-time-format-string
+                    emacspeak-speak-zoneinfo-directory))
+  (shell-command
+   (format "export TZ=%s; date +\"%s\""
+            zone  
+           (concat emacspeak-speak-time-format-string
+                   (format 
+                   " in %s, %%Z, %%z "
+                   zone)))))
+
+;;}}}
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Optional interactive prefix invokes world clock."
   (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
   (if world
-      (call-interactively 'emacspeak-wizards-world-clock)
+      (call-interactively 'emacspeak-speak-world-clock)
     (tts-with-punctuations "some"
                            (dtk-speak
                             (format-time-string
