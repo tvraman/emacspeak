@@ -12,6 +12,11 @@ Emacspeak 21.0 provides the following user level enhancements:
 
 Speech-enables cedet-1.0
 
+** emacspeak-nxml-mode.el:
+
+Speech enabled NXML outliner.
+
+
 
 Local variables:
  mode: outline
