@@ -279,11 +279,6 @@ int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
   } else if ((msg == eciWaveformBuffer)
              && (lparam > 0)) {
     playTTS(lparam);
-    Tcl_ServiceAll();
-    rc = Tcl_DoOneEvent(TCL_DONT_WAIT);
-    if (rc == 0) {
-      fprintf(stderr, "did not process any pending events.\n");
-    }
   }
   return 1;
 }
