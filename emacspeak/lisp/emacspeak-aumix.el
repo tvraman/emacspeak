@@ -98,7 +98,7 @@
   :group 'emacspeak-aumix
   :type 'boolean)
 
-(defcustom emacspeak-aumix-midi-available-p nil 
+(defcustom emacspeak-aumix-midi-available-p nil
   "*Set to T if   midi is available."
   :group 'emacspeak-aumix
   :type 'boolean)

@@ -67,8 +67,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when (compile)
 (require 'dtk-speak)
-(require 'emacspeak-load-path)
-(require 'emacspeak-aumix))
+(require 'emacspeak-load-path))
 ;;{{{  state of auditory icons
 
 (defvar emacspeak-use-auditory-icons nil
@@ -470,7 +469,9 @@ Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (declare (special emacspeak-use-auditory-icons
                     emacspeak-aumix-multichannel-capable-p
-                    dtk-program emacspeak-auditory-icon-function))
+                    dtk-program
+                    emacspeak-auditory-icon-function))
+  (require 'emacspeak-aumix)
   (cond
    (prefix
     (setq  emacspeak-use-auditory-icons
@@ -497,6 +498,7 @@ Optional interactive PREFIX arg toggles global value."
   (declare (special emacspeak-use-midi-icons
                     emacspeak-aumix-midi-available-p
                     emacspeak-auditory-icon-function))
+  (require 'emacspeak-aumix)
   (cond
    (emacspeak-aumix-midi-available-p
     (setq emacspeak-use-midi-icons (not emacspeak-use-midi-icons))
