@@ -19,10 +19,8 @@ type="text/xsl"?>
       the <a href="http://anc.ed.ac.uk/~stephen/emacs/ell.html" shape="rect">
       the Emacs Lisp Library</a>.
     </p>
-    <h2>Applications List</h2>
-    <p>
-      Here is a complete list of speech-enabled applications available under the latest Emacspeak release.
-    </p>
+    <h2>Speech-Enabled Applications</h2>
+    
   </introduction>
   <category name="help">
     <application name="info">
