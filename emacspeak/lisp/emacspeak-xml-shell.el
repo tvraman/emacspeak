@@ -94,8 +94,10 @@ Interactive XML browser.
 (defvar emacspeak-xml-shell-process nil
   "Handle to running XML browser process.")
 
-(defvar emacspeak-xml-shell-hooks nil
-  "Start up hooks run after XML browser  process is started.")
+(defcustom emacspeak-xml-shell-hooks nil
+  "Start up hooks run after XML browser  process is started."
+  :type 'hook
+  :group 'emacspeak-xml-shell)
 
 (defun emacspeak-xml-shell-start-process (system-id)
   "Launch Xml-Shell process."
