@@ -38,7 +38,28 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;{{{  Introduction:
+
+;;; Commentary:
+
+;;; This module defines Emacspeak front-end to OCR.
+;;; This module assumes that sane is installed and working
+;;; for image acquisition,
+;;; and that there is an OCR engine that can take acquired
+;;; images and produce text.
+;;; Prerequisites:
+;;; Sane installed and working.
+;;; scanimage to generate tiff files from scanner.
+;;; tiffcp to compress the tiff file.
+;;; working ocr executable 
+;;; by default this module assumes that the OCR executable
+;;; is named "ocr"
+;;;
+
+;;}}}
 ;;{{{ required modules
+
+;;; Code:
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -50,38 +71,28 @@
 (require 'derived)
 
 ;;}}}
-;;{{{  Introduction:
-
-;;; Commentary:
-
-;;; This module defines Emacspeak's front-end to OCR.
-;;; This module assumes that sane is installed and working
-;;; for image acquisition,
-;;; and that there is an OCR engine that can take acquired
-;;; images and produce text.
-;;;
-
-;;}}}
-;;{{{  variables
+;;{{{  Customization variables
 
 (defgroup emacspeak-ocr  nil
-  "OCR front-end for emacspeak."
+  "OCR front-end for emacspeak desktop."
   :group 'emacspeak
   :prefix 'emacspeak-ocr)
+
 (defcustom emacspeak-ocr-scan-image "scanimage"
   "Name of image acquisition program."
   :type 'string 
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-scan-image-options nil
+(defcustom emacspeak-ocr-scan-image-options "--format tiff"
   "Command line options to pass to image acquisition program."
-  :type '(repeat (string :tag "scanner options"))
+  :type 'string 
   :group 'emacspeak-ocr)
 
 (defcustom emacspeak-ocr-compress-image "tiffcp"
   "Command used to compress the scanned tiff file."
   :type 'string
   :group 'emacspeak-ocr)
+
 (defcustom emacspeak-ocr-compress-image-options   
   "-c -g3 "
   "Options used for compressing tiff image."
@@ -126,14 +137,14 @@ will be placed."
 
 (define-derived-mode emacspeak-ocr-mode fundamental-mode 
   "Major mode for document scanning and  OCR."
-  "Major mode for document scanning and OCR\n]\n
+  "Major mode for document scanning and OCR\n\n
 \\{emacspeak-ocr-mode-map}")
+
 (define-key emacspeak-ocr-mode-map "\C-x\C-q" 'emacspeak-ocr-toggle-read-only)
-(define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-image)
+(define-key emacspeak-ocr-mode-map "\C-m"  'emacspeak-ocr-scan-and-recognize)
 (define-key emacspeak-ocr-mode-map "i" 'emacspeak-ocr-scan-image)
 (define-key emacspeak-ocr-mode-map "o" 'emacspeak-ocr-recognize-image)
-(define-key emacspeak-ocr-mode-map "n"
-  'emacspeak-ocr-name-document)
+(define-key emacspeak-ocr-mode-map "n" 'emacspeak-ocr-name-document)
 (define-key emacspeak-ocr-mode-map "a" 'emacspeak-ocr-append-page)
 (define-key emacspeak-ocr-mode-map "d" 'dired)
 (define-key emacspeak-ocr-mode-map "[" 'backward-page)
@@ -143,11 +154,11 @@ will be placed."
 ;;{{{ interactive commands
 
 (defun emacspeak-ocr ()
-  "OCR front-end for Emacspeak desktop.  Image is acquired
+  "OCR front-end for Emacspeak desktop.  
+Page image is acquired
 using user space tools from the SANE package.  The acquired
 image is run through the OCR engine if one is available, and
-the results placed in a buffer that is suitable for browsing
-the results."
+the results placed in a buffer that is suitable for browsing the results."
   (interactive)
   (declare (special emacspeak-ocr-working-directory
                     buffer-read-only))
@@ -161,16 +172,12 @@ the results."
       (setq buffer-read-only t)
       (emacspeak-ocr-name-document "untitled")
       (emacspeak-auditory-icon 'open-object)
-      (message "Hit return to start scanning."))))
+      (emacspeak-speak-mode-line))))
 
-;;; naming a document 
-
-(defcustom emacspeak-ocr-document-name nil
+(defvar emacspeak-ocr-document-name nil
   "Names document being scanned.
 This name will be used as the prefix for naming image and
-text files produced in this scan."
-  :type 'string 
-  :group 'emacspeak-ocr)
+text files produced in this scan.")
 
 (make-variable-buffer-local 'emacspeak-ocr-document-name)
 
@@ -209,12 +216,14 @@ Pick a short but meaningful name."
       (format "rm -f temp.tiff")))
     (message "Acquired  image to file %s"
              image-name)))
+
 (defvar emacspeak-ocr-process nil
   "Handle to OCR process.")
 
 (defun emacspeak-ocr-process-sentinel  (process state)
   "Alert user when OCR is complete."
-  (emacspeak-auditory-icon 'task-done))
+  (emacspeak-auditory-icon 'task-done)
+  (backward-page 1))
 
 
 (defun emacspeak-ocr-recognize-image ()
@@ -236,17 +245,16 @@ Pick a short but meaningful name."
   (set-process-sentinel emacspeak-ocr-process
                         'emacspeak-ocr-process-sentinel)
   (message "Launched OCR engine.")))
-         
-;;}}}
-;;{{{  keymaps 
-(defun emacspeak-ocr-toggle-read-only ()
-  "Toggle read only state of OCR buffer."
+
+
+(defun emacspeak-ocr-scan-and-recognize ()
+  "Scan in a page and run OCR engine on it.
+Use this command once you've verified that the separate
+steps of acquiring an image and running the OCR engine work
+corectly by themselves."
   (interactive)
-  (declare (special buffer-read-only))
-  (setq buffer-read-only (not buffer-read-only))
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'button))
-   
+  (emacspeak-ocr-scan-image)
+  (emacspeak-ocr-recognize-image))
 
 ;;}}}
 (provide 'emacspeak-ocr)
