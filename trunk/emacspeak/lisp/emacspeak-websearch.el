@@ -1077,7 +1077,7 @@ I'm Feeling Lucky button on Google."
 (emacspeak-websearch-set-searcher 'google-specialize
                                   'emacspeak-websearch-google-specialize)
 
-(emacspeak-websearch-set-key ?.  'google-specialize)
+(emacspeak-websearch-set-key ?, 'google-specialize)
 
 (defun emacspeak-websearch-google-specialize (specialize query)
   "Perform a specialized Google search. See the Google site for
