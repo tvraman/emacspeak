@@ -1,7 +1,7 @@
 /*$ID:$*/
 /* {{{Copyright*/
 
-/*  Copyright (c) 1997, 1998  T. V. Raman, Adobe Systems Incorporated. */
+/*  Copyright (c) 1997, 1998  T. V. Raman, */
 /* All Rights Reserved */
 
 /* Permission to use, copy, and distribute this software and its documentation */
