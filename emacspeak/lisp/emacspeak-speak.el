@@ -259,10 +259,10 @@ Useful to do this before you listen to an entire buffer."
       (setq second (+ (car (current-time-zone)) second)))
     ;; create the decoded date-time
     (condition-case nil 
-    (format-time-string emacspeak-speak-time-format-string
-                        (encode-time second minute hour day month
-  year))
-    (error iso))))
+        (format-time-string emacspeak-speak-time-format-string
+                            (encode-time second minute hour day month
+                                         year))
+      (error iso))))
 
 ;;}}}
 ;;{{{  Actions
@@ -1303,7 +1303,9 @@ WIth prefix argument N, move N items (negative N means move backward)."
      "/usr/spool/mail/"))
   "Mail spool file examined  to alert you about newly
 arrived mail."
-  :type '(file :tag "Mail drop location")
+  :type '(choice
+          (const :tag "None" nil)
+          (file :tag "Mail drop location"))
   :group 'emacspeak-speak)
 
 (defcustom emacspeak-voicemail-spool-file
@@ -1314,7 +1316,6 @@ arrived voicemail."
           (const :tag "None" nil)
           (file :tag "VoiceMail drop location"))
   :group 'emacspeak-speak)
-
 
   
 (defsubst emacspeak-get-file-modification-time (filename)
@@ -1338,7 +1339,6 @@ Alert the user only if mail has arrived since this time in the future.")
        1(emacspeak-get-file-modification-time f))
     (error 0)))
                                      
-
 
 (defsubst  emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the
