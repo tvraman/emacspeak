@@ -7,6 +7,12 @@ Author: T. V. Raman <raman@cs.cornell.edu>
 Emacspeak 19.0 provides the following user level enhancements:
 
 * New Emacspeak Features:
+
+** emacspeak-newsticker.el:
+
+Speech-enables package newsticker, a native Emacs RSS  agent.
+
+
 ** emacspeak-nxml.el:
 
 Speech-enables James Clark's nxml-mode --- a powerful  XML editing mode.
