@@ -862,7 +862,6 @@ The PDF document needs to be available on the public Internet.")
  text.
 The PDF document needs to be available on the public Internet.")
 
-
 ;;}}}
 ;;{{{ w3c 
 
@@ -1651,18 +1650,12 @@ Optional interactive prefix arg displays documentation for specified resource."
 Use Emacs completion to obtain a list of available
 resources."
   (interactive)
-  (declare (special emacspeak-url-template-table))
+  (declare (special emacspeak-url-template-name-alist))
   (let ((completion-ignore-case t)
-        (name nil)
-        (table
-         (loop for key being the hash-keys of
-               emacspeak-url-template-table
-               collect (list 
-                        (format "%s" key)
-                        (format "%s" key)))))
+        (name nil))
     (setq name
           (completing-read "Resource: "
-                           table))
+                           emacspeak-url-template-name-alist))
     (emacspeak-url-template-help-internal  name)))
 
 ;;}}}
