@@ -78,23 +78,19 @@
 (defun emacspeak-widget-help ()
   "Speak help for widget under point."
   (interactive)
-  (let* ((widget (widget-at (point)))
-         (tag (widget-get widget :tag))
-         (type (widget-type widget))
-         (help-echo
-          (when widget (widget-get widget :help-echo)))
-         (parent (widget-get widget :parent))
-         (parent-help
-          (when  parent (widget-get  parent :help-echo))))
+  (let* ((w (widget-at (point)))
+         (tag (widget-get w :tag))
+         (type (widget-type w))
+         (help-echo (when w (widget-get w :help-echo)))
+         (p (widget-get w :parent))
+         (parent-help (when  p (widget-get  p :help-echo))))
     (cond
      (help-echo (message help-echo))
      (parent-help (message " %s to %s "
                            (or tag type)
                            parent-help))
-     (widget (message (format " %s " (widget-type widget))))
+     (w (message (format " %s " type)))
      (t (message " Not on a widget. ")))))
-
-            
         
 (defun emacspeak-widget-summarize-parent ()
   "Summarize parent of widget at point."
@@ -104,10 +100,11 @@
     (cond
      (p (emacspeak-widget-summarize p))
      (t (message "Widget at point has no parent")))))
+
 ;;; Find summarizer for a specific widget type and dispatch.
 
 (defun emacspeak-widget-summarize(widget)
-  (when widget
+  "Summarize specified widget."
     (let ((emacspeak-help (widget-get widget :emacspeak-help))
           (emacspeak-speak-messages nil)
           (voice-lock-mode t))
@@ -115,7 +112,7 @@
        ((and emacspeak-help
              (fboundp emacspeak-help))
         (dtk-speak  (funcall emacspeak-help widget)))
-       (t (emacspeak-widget-default-summarize widget))))))
+       (t (dtk-speak (current-message))))))
 
 ;;}}}
 ;;{{{  widget specific summarizers  --as per Per's suggestion
@@ -124,24 +121,31 @@
 
 (defun emacspeak-widget-default-summarize (widget)
   "Fall back summarizer for all widgets"
-  (let ((emacspeak-lazy-message-time 0)
-        (tag (widget-get widget :tag ))
-        (value (format " %s "
-                       (widget-value widget ))))
-    (if (or tag value                                )
-        (when tag
-          (put-text-property 0 (length tag)
-                             'personality 'paul-animated  tag))
-      (when value 
-        (put-text-property 0 (length value)
-                           'personality 'paul-smooth value))
-      (cond
-       ((or tag value)
-        (dtk-speak
-         (concat
-          (or tag " ")
-          (or value " "))))
-       (t (dtk-speak (current-message)))))))
+  (let* ((tag (widget-get widget :tag ))
+         (type(format " %s "  (widget-type widget)))
+         (help-echo (widget-get widget :help-echo))
+         (v  (widget-value widget ))
+         (value
+          (cond
+           ((null v) nil)
+           ((symbolp v) (format " %s " v))
+           ((listp v)
+            (mapconcat
+             #'(lambda (s)
+                 (format "%s" s))
+             v " ")))))
+    (when tag
+      (put-text-property 0 (length tag)
+                         'personality 'harry  tag))
+    (when (and value
+               (stringp value))
+      (put-text-property 0 (length value)
+                         'personality 'paul-animated value))
+    (concat
+     (or tag type)
+     help-echo
+     value)))
+     
 
 (widget-put (get 'default 'widget-type)
             :emacspeak-help 'emacspeak-widget-default-summarize)
@@ -154,7 +158,7 @@
   (let ((value (format " %s " (widget-value widget)))
         (help-echo (widget-get  widget :help-echo))
         (tag (widget-get widget :tag))
-        (type (widget-type widget)))
+        (type (format " %s " (widget-type widget))))
     (when tag
       (put-text-property 0 (length tag)
                          'personality 'harry tag))
@@ -162,10 +166,9 @@
       (put-text-property 0 (length help-echo)
                          'personality 'paul-animated help-echo))
     (concat
-      (format " %s " type)
-       (or tag " ")
-     (or help-echo " ")
-     (or value " blank "))))
+     (or tag type)
+     help-echo
+     value)))
 
 (widget-put (get 'editable-field 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-editable-field)
@@ -176,9 +179,11 @@
 (defun emacspeak-widget-help-item (widget)
   "Summarize a  item"
   (let* ((value (format " %s "  (widget-value widget)))
-         (tag (widget-get widget :tag)))
+         (tag (widget-get widget :tag))
+         (type(format " %s "  (widget-type widget))))
     (concat
-     (or tag value))))
+     (or tag type)
+     value)))
 
 (widget-put (get 'item 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-item)
@@ -190,16 +195,16 @@
   "Summarize visibility widget"
   (let* ((value (widget-value widget))
          (help-echo (widget-get widget :help-echo))
-         (tag (widget-get widget :tag)))
+         (tag (widget-get widget :tag))
+         (type (format " %s " (widget-type widget ))))
     (when help-echo
       (put-text-property 0 (length help-echo)
-                         'personality 'paul-animated
-                         help-echo))
+                         'personality 'paul-animated help-echo))
     (if value
         (emacspeak-auditory-icon 'open-object)
       (emacspeak-auditory-icon 'close-object))
     (concat
-     (or tag " ")
+     (or tag type)
      (or  help-echo
           (if value " hide  " " show  ")))))
 
@@ -211,7 +216,7 @@
 
 (defun emacspeak-widget-help-push-button (widget)
   "Summarize a push button."
-  (let* ((type (widget-type widget))
+  (let* ((type (format " %s " (widget-type widget)))
          (tag (widget-get widget :tag))
          (context-widget (widget-get widget :widget))
          (context
@@ -225,7 +230,7 @@
         (put-text-property  0 (length context )
                             'personality 'paul-animated context))
       (concat
-       (or tag (format " %s " type))
+       (or tag type)
        context ))))
        
 
@@ -237,7 +242,7 @@
 
 (defun emacspeak-widget-help-link (widget)
   "Summarize a link"
-  (let ((value (widget-get widget :value)))
+  (let ((value  " %s "  (widget-get widget :value)))
     (format "link to %s"
             (or value ""))))
 
@@ -334,34 +339,32 @@
 (defun emacspeak-widget-help-menu-choice  (widget)
   "Summarize a pull down list"
   (let* ((tag (widget-get widget :tag))
-         (value (widget-get widget :value))
+         (value (format " %s " (widget-get widget :value)))
          (child (car (widget-get widget :children)))
-         (type (widget-type widget ))
-         (emacspeak-speak-messages nil))
+         (type(format " %s "  (widget-type widget ))))
     (put-text-property 0 (length tag)
                        'personality 'harry tag)
     (concat
-     (or tag (format " %s " type))
+     (or tagtype)
      " is "
      (if child
-(widget-apply child :emacspeak-help)
-        (format " %s "value)))))
+         (widget-apply child :emacspeak-help)
+       value))))
       
 
 (widget-put (get 'menu-choice 'widget-type)
             :emacspeak-help 'emacspeak-widget-help-menu-choice)
 
 ;;}}}
-;;{{{  toggle  
+;;{{{  toggle   and checkbox 
 
 (defun emacspeak-widget-help-toggle (widget)
   "Summarize a toggle."
-  (let* ((type (widget-type widget))
+  (let* ((type (format " %s " (widget-type widget)))
          (value (widget-value widget))
          (tag (widget-get widget :tag)))
     (concat
-     (or tag 
-         (format " %s " type))
+     (or tag type)
      (if value " is on "
        " is off "))))
 
@@ -405,11 +408,11 @@
 
 (defun emacspeak-widget-help-choice-item (widget)
   "Summarize a choice item"
-  (let ((value (widget-value widget))
+  (let ((value  (widget-value widget))
         (tag (widget-get widget :tag)))
     (concat 
-     (or tag  "")
-     (or value " ")
+     tag
+     (when value (format " %s " value))
      " is "
      (widget-apply (widget-get widget :parent)
                    :emacspeak-help))))
