@@ -100,13 +100,13 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-property-range 'link-function)))
+    (emacspeak-speak-text-range 'link-function)))
 
 (defadvice dictionary-next-link (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-property-range 'link-function)))
+    (emacspeak-speak-text-range 'link-function)))
 
 ;;}}}
 (provide 'emacspeak-dictionary)
