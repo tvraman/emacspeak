@@ -1348,7 +1348,7 @@ done
 
 @group
 export EMACS_UNIBYTE=1
-export DTK_TCL=/usr/local/bin/eflite
+export DTK_PROGRAM=/usr/local/bin/eflite
 
 exec emacs -q \
 -l /usr/share/emacs/site-lisp/emacspeak/lisp/emacspeak-setup.el \
@@ -1395,7 +1395,6 @@ done
 
 @group
 export DTK_PROGRAM=/usr/local/src/espeakf/espeakf.pl
-export DTK_TCL=/usr/bin/perl
 export EMACS_UNIBYTE=1
 
 exec emacs -q \
