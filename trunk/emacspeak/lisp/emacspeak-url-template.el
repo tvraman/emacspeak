@@ -748,7 +748,7 @@ the broadcast. You must have mplayer installed."
 ;;{{{ technet cast from DDJ
 
 (emacspeak-url-template-define
- "TechNetCast Save" 
+ "DDJ TechNetCast Save" 
  "http://technetcast.ddj.com/tnc_save_mp3.html?stream_id=%s"
  (list
   (lambda nil 
@@ -757,7 +757,7 @@ the broadcast. You must have mplayer installed."
  "Browse to a specified DDJ Technetcast stream and save  it.")
 
 (emacspeak-url-template-define
- "TechNetCast Play" 
+ "DDJ TechNetCast Play" 
  "http://technetcast.ddj.com/tnc_play.m3u?stream_id=%s"
  (list
   (lambda nil 
