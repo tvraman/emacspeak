@@ -525,31 +525,25 @@ Nil means no transform is used. ")
 
 (defun emacspeak-w3-xslt-region (xsl start end &optional params )
   "Apply XSLT transformation to region and replace it with
-the result.
-This uses XSLT processor xsltproc available as part of the
-libxslt package."
+the result.  This uses XSLT processor xsltproc available as
+part of the libxslt package."
   (declare (special emacspeak-w3-xsl-program))
-  (let ((tempfile
-         (format "/tmp/trans%s.xml"
-                 (random))))
-    (write-region start end tempfile)
-    (erase-buffer)
-    (let ((parameters (when params 
-                        (mapconcat 
-                         #'(lambda (pair)
-                             (format "--param %s %s "
-                                     (car pair)
-                                     (cdr pair)))
-                         params
-                         " "))))
-      (shell-command
-       (format "%s %s  --html --nonet --novalid %s %s"
-               emacspeak-xslt-program
-               (or parameters "")
-               xsl tempfile)
-       (current-buffer)
-       "*xslt errors*")
-      (delete-file tempfile))))
+  (let ((parameters (when params 
+                      (mapconcat 
+                       #'(lambda (pair)
+                           (format "--param %s %s "
+                                   (car pair)
+                                   (cdr pair)))
+                       params
+                       " "))))
+    (shell-command-on-region start end
+                             (format "%s %s  --html --nonet --novalid %s -"
+                                     emacspeak-xslt-program
+                                     (or parameters "")
+                                     xsl )
+                             (current-buffer)
+                             'replace
+                             "*xslt errors*")))
 
 (defadvice  w3-parse-buffer (before emacspeak pre act comp)
   "Apply requested transform if any before displaying the
