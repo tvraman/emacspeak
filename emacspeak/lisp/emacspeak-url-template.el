@@ -170,7 +170,7 @@ prompting for a template.")
 ;;}}}
 ;;{{{  template resources 
 ;;{{{ xml.com rss feed
- (emacspeak-url-template-define
+(emacspeak-url-template-define
   "XML.COM RSS Feed"
   "http://www.xml.com/xml/news.rss"
   nil
@@ -285,6 +285,16 @@ prompting for a template.")
 
 ;;}}}
 ;;{{{  cnet news 
+
+(emacspeak-url-template-define
+ "Tech News From CNet RSS Feed"
+ "http://rss.com.com/2547-12-0-5.xml"
+ nil
+ 'emacspeak-speak-buffer
+ "Display tech news from CNET using RSS Feed"
+ #'(lambda (url)
+     (emacspeak-wizards-rss-view url)))
+
 (emacspeak-url-template-define
  "Tech News From CNet"
  "http://news.com.com/"
