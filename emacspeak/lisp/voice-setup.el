@@ -180,7 +180,7 @@ This function forces voice-lock mode on."
    (defcustom (, personality)
      (, voice)
      (, doc)
-     :type 'symbol
+     :type (voice-setup-custom-menu)
      :group 'tts
      :set '(lambda  (sym val)
              (voice-setup-set-voice-for-face (, face) '(, personality))
