@@ -1,4 +1,4 @@
-;;; dtk-css-speech.el --- CSS -- Cascaded Speech Style Interface
+;;; acss-structure.el --- CSS -- Cascaded Speech Style structure
 ;;; $Id$
 ;;; $Author$
 ;;; Description: DTK Interface for Cascaded Speech Style Sheets

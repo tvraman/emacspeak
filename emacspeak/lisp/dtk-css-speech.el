@@ -81,7 +81,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'dtk-voices)
-
+(require 'acss-structure)
 ;;}}}
 ;;{{{  A speech style structure
 
@@ -542,15 +542,15 @@ and TABLE gives the values along that dimension."
 
 (defun dtk-define-voice-from-speech-style (name style)
   "Define NAME to be a dtk voice as specified by settings in STYLE."
-  (let* ((family(dtk-speech-style-family style))
+  (let* ((family(acss-family style))
 	 (command
 	  (concat "["
 		  (dtk-get-family-code family)
 		  " :dv "
-		  (dtk-get-average-pitch-code (dtk-speech-style-average-pitch style) family)
-		  (dtk-get-pitch-range-code (dtk-speech-style-pitch-range style) family)
-		  (dtk-get-stress-code (dtk-speech-style-stress style ) family)
-		  (dtk-get-richness-code (dtk-speech-style-richness style) family)
+		  (dtk-get-average-pitch-code (acss-average-pitch style) family)
+		  (dtk-get-pitch-range-code (acss-pitch-range style) family)
+		  (dtk-get-stress-code (acss-stress style ) family)
+		  (dtk-get-richness-code (acss-richness style) family)
 		  "]")))
     (dtk-define-voice name command)))
 
@@ -562,17 +562,17 @@ and TABLE gives the values along that dimension."
 Then see if a voice defined for it.
 Finally return the symbol"
   (cond
-   ((and (dtk-speech-style-gain style)
-     (= 0 (dtk-speech-style-gain style)))
+   ((and (acss-gain style)
+     (= 0 (acss-gain style)))
     'inaudible)
    (t
     (let ((name (intern
                  (format "%s-a%s-p%s-s%s-r%s"
-                         (dtk-speech-style-family style)
-                         (dtk-speech-style-average-pitch style)
-                         (dtk-speech-style-pitch-range style)
-                         (dtk-speech-style-stress style)
-                         (dtk-speech-style-richness style)))))
+                         (acss-family style)
+                         (acss-average-pitch style)
+                         (acss-pitch-range style)
+                         (acss-stress style)
+                         (acss-richness style)))))
       (unless (dtk-voice-defined-p name)
         (dtk-define-voice-from-speech-style name style))
       name))))
