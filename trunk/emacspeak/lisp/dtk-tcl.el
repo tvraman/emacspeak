@@ -515,14 +515,16 @@ Arguments START and END specify region to speak."
 ;;{{{  adding cleanup patterns:
 
 (defun dtk-add-cleanup-pattern (&optional delete )
-  "Add this pattern to the list of repeating patterns that are cleaned up.
-Optional interactive prefix arg DELETEs this pattern if
-previously added.  Cleaning up repeated patterns results in emacspeak
-speaking the pattern followed by a repeat count instead of speaking
-all the characters making up the pattern.  Thus, by adding the
-repeating pattern `.' (this is already added by default) emacspeak
+  "Add this pattern to the list of repeating patterns that
+are cleaned up.  Optional interactive prefix arg deletes
+this pattern if previously added.  Cleaning up repeated
+patterns results in emacspeak speaking the pattern followed
+by a repeat count instead of speaking all the characters
+making up the pattern.  Thus, by adding the repeating
+pattern `.' (this is already added by default) emacspeak
 will say ``aw fifteen dot'' when speaking the string
-``...............'' instead of ``period period period period ''"
+``...............'' instead of ``period period period period
+''"
 
   (interactive "P")
   (declare (special dtk-cleanup-patterns ))

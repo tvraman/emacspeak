@@ -1,0 +1,122 @@
+This is ./emacspeak.info, produced by Makeinfo version 3.12f from
+emacspeak.texi.
+
+INFO-DIR-SECTION Accessibility
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+END-INFO-DIR-ENTRY
+
+
+File: emacspeak.info,  Node: Acknowledgements,  Next: Concept Index,  Prev: Emacspeak Commands,  Up: Top
+
+Acknowledgements.
+*****************
+
+   Thanks.
+
+
+File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgements,  Up: Top
+
+Concept Index
+*************
+
+* Menu:
+
+* character echo:                        Controlling Echo.
+* line echo:                             Controlling Echo.
+* speech settings:                       Speech System.
+* speech system:                         Speech System.
+* tts:                                   Speech System.
+* word echo:                             Controlling Echo.
+
+
+File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
+
+Key Index
+*********
+
+* Menu:
+
+* C-c (:                                 Running Terminal Based Applications.
+* C-c ):                                 Running Terminal Based Applications.
+* C-c 0:                                 Running Terminal Based Applications.
+* C-c 1:                                 Running Terminal Based Applications.
+* C-c C-\:                               Running Terminal Based Applications.
+* C-c C-a:                               Running Terminal Based Applications.
+* C-c C-c:                               Running Terminal Based Applications.
+* C-c C-d:                               Running Terminal Based Applications.
+* C-c C-f:                               Running Terminal Based Applications.
+* C-c C-j:                               Running Terminal Based Applications.
+* C-c C-k:                               Running Terminal Based Applications.
+* C-c C-u:                               Running Terminal Based Applications.
+* C-c C-w:                               Running Terminal Based Applications.
+* C-c C-x C-c:                           Running Terminal Based Applications.
+* C-c C-z:                               Running Terminal Based Applications.
+* C-c e:                                 Running Terminal Based Applications.
+* C-c k:                                 Running Terminal Based Applications.
+* C-c o:                                 Running Terminal Based Applications.
+* ESCAPE down:                           Reading.
+* ESCAPE next:                           Reading.
+* ESCAPE prior:                          Reading.
+* ESCAPE up:                             Reading.
+* control e  cap M:                      Status Information.
+* control e  cap R:                      Reading.
+* control e %:                           Status Information.
+* control e ':                           Reading.
+* control e /:                           Reading.
+* control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0: Reading.
+* control e =:                           Status Information.
+* control e SPACE:                       Miscellaneous.
+* control e [:                           Reading.
+* control e a:                           Status Information.
+* control e b:                           Reading.
+* control e c:                           Reading.
+* control e cap V:                       Status Information.
+* control e control @:                   Status Information.
+* control e control l:                   Status Information.
+* control e control n:                   Reading.
+* control e control o:                   Reading.
+* control e control p:                   Reading.
+* control e control s:                   Miscellaneous.
+* control e control w:                   Status Information.
+* control e d  cap C:                    Speech Output  Control.
+* control e d  cap V:                    Miscellaneous.
+* control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0: Speech Output  Control.
+* control e d RETURN:                    Miscellaneous.
+* control e d SPACE:                     Miscellaneous.
+* control e d a:                         Miscellaneous.
+* control e d c:                         Speech Output  Control.
+* control e d d:                         Miscellaneous.
+* control e d f:                         Speech Output  Control.
+* control e d i:                         Speech Output  Control.
+* control e d k:                         Controlling Echo.
+* control e d l:                         Controlling Echo.
+* control e d m:                         Speech Output  Control.
+* control e d p:                         Speech Output  Control.
+* control e d q:                         Miscellaneous.
+* control e d r:                         Speech Output  Control.
+* control e d s:                         Speech Output  Control.
+* control e d t:                         Miscellaneous.
+* control e d w:                         Controlling Echo.
+* control e d z:                         Miscellaneous.
+* control e down:                        Reading.
+* control e f:                           Status Information.
+* control e h:                           Status Information.
+* control e k:                           Status Information.
+* control e l:                           Reading.
+* control e left:                        Reading.
+* control e m:                           Status Information.
+* control e meta control @:              Reading.
+* control e n:                           Reading.
+* control e p:                           Miscellaneous.
+* control e r:                           Reading.
+* control e right:                       Reading.
+* control e t:                           Status Information.
+* control e up:                          Reading.
+* control e v:                           Status Information.
+* control e w:                           Reading.
+* control e {:                           Reading.
+* pause   control e s:                   Miscellaneous.
+
+

@@ -10,54 +10,57 @@ END-INFO-DIR-ENTRY
 
 Indirect:
 emacspeak.info-1: 234
-emacspeak.info-2: 47424
+emacspeak.info-2: 47467
+emacspeak.info-3: 89648
+emacspeak.info-4: 182694
 
 Tag Table:
 (Indirect)
 Node: Top234
-Node: Copyright868
-Node: Announce1280
-Node: Contributing1778
-Node: Authoring Guidelines2396
-Node: Credits3279
-Node: Introduction3638
-Node: Installation6239
-Node: Obtaining Emacspeak6782
-Node: Quick Installation7366
-Node: Configuring and Installing Emacspeak8406
-Node: Basic Usage11429
-Node: Overview12709
-Node: Working15060
-Node: Reading17370
-Node: Speech System24129
-Node: Controlling Echo24588
-Node: Speech Output  Control26021
-Node: Miscellaneous30113
-Node: Voice-lock34492
-Node: Status Information36288
-Node: Audio Desktop38814
-Node: Desktop Objects40797
-Node: Object Oriented Desktop41643
-Node: Context-Sensitive Interaction42381
-Node: Using Online Help47424
-Node: Emacs Packages51639
-Node: Document Authoring52816
-Node: Creating Well-formatted Documents53501
-Node: Search replace and spell check57393
-Node: Structured Editing62604
-Node: Outline Editing64610
-Node: Template-based Authoring68326
-Node: Maintaining Structured Data69954
-Node: Browsing Structure71412
-Node: Messaging71859
-Node: Editting Program Source72457
-Node: Development Environment73463
-Node: Desktop Management74035
-Node: Personal Information Management74800
-Node: Desktop Applications75143
-Node: Running Terminal Based Applications81616
-Node: Acknowledgements89603
-Node: Concept Index89777
-Node: Key Index90260
+Node: Copyright911
+Node: Announce1323
+Node: Contributing1821
+Node: Authoring Guidelines2439
+Node: Credits3322
+Node: Introduction3681
+Node: Installation6282
+Node: Obtaining Emacspeak6825
+Node: Quick Installation7409
+Node: Configuring and Installing Emacspeak8449
+Node: Basic Usage11472
+Node: Overview12752
+Node: Working15103
+Node: Reading17413
+Node: Speech System24172
+Node: Controlling Echo24631
+Node: Speech Output  Control26064
+Node: Miscellaneous30156
+Node: Voice-lock34535
+Node: Status Information36331
+Node: Audio Desktop38857
+Node: Desktop Objects40840
+Node: Object Oriented Desktop41686
+Node: Context-Sensitive Interaction42424
+Node: Using Online Help47467
+Node: Emacs Packages51682
+Node: Document Authoring52859
+Node: Creating Well-formatted Documents53544
+Node: Search replace and spell check57436
+Node: Structured Editing62647
+Node: Outline Editing64653
+Node: Template-based Authoring68369
+Node: Maintaining Structured Data69997
+Node: Browsing Structure71455
+Node: Messaging71902
+Node: Editting Program Source72500
+Node: Development Environment73506
+Node: Desktop Management74078
+Node: Personal Information Management74843
+Node: Desktop Applications75186
+Node: Running Terminal Based Applications81659
+Node: Emacspeak Commands89648
+Node: Acknowledgements182694
+Node: Concept Index182851
+Node: Key Index183334
 
 End Tag Table
