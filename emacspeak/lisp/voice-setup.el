@@ -283,7 +283,7 @@ punctuations.")
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
-(defvoice  voice-monotone-medium (list nil nil 2 2  'all)
+(defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
   "Turns current voice into a medium monotone.")
 
 (defvoice voice-animate (list nil 7 7 6)
