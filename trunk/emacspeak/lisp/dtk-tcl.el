@@ -709,7 +709,7 @@ current local  value to the result."
     (when prefix
       (tts-configure-synthesis-setup dtk-program))
     (when (interactive-p)
-      (message "Set speech rate to %s %s\n"
+      (message "Set speech rate to %s %s"
                rate
                (if prefix "" "locally")))))
 
