@@ -1661,15 +1661,16 @@ See the documentation for function
   (interactive)
   (declare (special emacspeak-version
                     emacspeak-codename))
-  (let ((signature "You are using Emacspeak "))
-    (put-text-property 0 (length emacspeak-version)
-                       'personality 'paul-animated emacspeak-version)
+  (let ((signature "You are using  ")
+        (version (format "Emacspeak %s" emacspeak-version)))
+    (put-text-property 0 (length version)
+                       'personality 'paul-animated version)
     (put-text-property 0 (length emacspeak-codename)
                        'personality 'harry emacspeak-codename)
     (tts-with-punctuations "some"
                            (dtk-speak
                             (concat signature
-                                    emacspeak-version
+                                    version
                                     emacspeak-codename)))))
 
 (defun emacspeak-speak-current-kill (count)
