@@ -281,6 +281,7 @@ display. String is the original message."
         :test #'string-equal))
       string)
      ((and emacspeak-erc-monitor-my-messages
+           (stringp emacspeak-erc-my-nick)
            (string-match emacspeak-erc-my-nick string))
       string)
      (t nil))))
