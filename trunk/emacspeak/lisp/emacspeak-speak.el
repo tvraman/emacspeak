@@ -2406,6 +2406,11 @@ Argument PERSONALITY gives the value for property personality."
   (put-text-property start end 'personality personality ))
 
 ;;; Compute table of possible voices to use in completing-read
+;;; We rely on dectalk-voice-table as our default voice table.
+;;; Names defined in this --- and other voice tables --- are
+;;; generic --and  not device specific.
+;;;
+
 (defsubst  emacspeak-possible-voices ()
   "Return possible voices."
   (declare (special dectalk-voice-table ))
