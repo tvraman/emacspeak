@@ -143,6 +143,16 @@ Chat sessions can be viewed within W3  with full ACSS support.
       Audio formatting is used to aurally highlight search hits,
       and is used to advantage when providing spoken
       feedback during  search and replace. </application>
+<application name="iswitchb">
+      Quickly switch to buffers on the audio desktop.
+    </application>
+<application name="ido">
+      Efficiently find buffers and files on the audio desktop
+      --- the IDo way.
+    </application>
+<application name="ibuffer">
+      Tool for locating open buffers on the audio desktop.
+    </application>
     <application name="bs">
       Tool for locating open buffers on the audio desktop.
     </application>

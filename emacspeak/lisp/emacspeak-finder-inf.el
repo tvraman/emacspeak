@@ -221,6 +221,9 @@
     ("emacspeak-ibuffer.el"
         "speech-enable ibuffer buffer selection"
         (emacspeak  audio desktop))
+    ("emacspeak-ido.el"
+        "speech-enable ido"
+        (emacspeak  audio desktop))
     ("emacspeak-imcom.el"
         "Emacspeak interface to IMCom/Jabber"
         (emacspeak   audio desktop imcom))
@@ -233,6 +236,9 @@
     ("emacspeak-ispell.el"
         "Speech enable Ispell -- Emacs' interactive spell checker"
         (emacspeak  ispell  spoken output  ispell version 2.30))
+    ("emacspeak-iswitchb.el"
+        "speech-enable iswitchb buffer selection"
+        (emacspeak  audio desktop))
     ("emacspeak-jde.el"
         "Speech enable JDE -- An integrated Java Development Environment"
         (emacspeak  speak  spoken output  java))
