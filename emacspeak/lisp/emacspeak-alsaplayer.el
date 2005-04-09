@@ -75,6 +75,11 @@
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
+(defcustom emacspeak-alsaplayer-auditory-feedback nil
+  "Turn this on if you want spoken feedback and auditory icons
+;;from alsaplayer."
+  :type 'boolean
+  :group 'emacspeak-alsaplayer)
 
 (defcustom emacspeak-alsaplayer-program
   "alsaplayer"
@@ -120,7 +125,7 @@ Alsaplayer session."
              "alsaplayer"
              emacspeak-alsaplayer-buffer-name
              emacspeak-alsaplayer-program
-             "-i" "daemon"))
+             "-i" "daemon" ))
       (accept-process-output process)
       (setq emacspeak-alsaplayer-session
             (emacspeak-alsaplayer-get-session-id))
@@ -136,7 +141,7 @@ Alsaplayer session."
      (format "%s-%s"
              emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
      'unique))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -151,19 +156,8 @@ Alsaplayer session."
           (apply 'start-process
                  "alsaplayer" nil emacspeak-alsaplayer-program
                  "-n"
-                 (format "%s" emacspeak-alsaplayer-session)
-                 command-list))
-    (when (eq major-mode 'emacspeak-alsaplayer-mode)
-      (erase-buffer)
-      (setq process
-            (start-process
-             "alsaplayer" (buffer-name) emacspeak-alsaplayer-program
-             "-n"
-             (format "%s" emacspeak-alsaplayer-session)
-             "--status"))
-      (accept-process-output process 1)
-      (goto-char (point-min))
-      (emacspeak-speak-line))))
+                 (format "alsaplayer-%s" emacspeak-alsaplayer-session)
+                 command-list))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -185,7 +179,7 @@ Alsaplayer session."
     (t
      (list "--enqueue"
            (expand-file-name resource)))))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-replace-queue (resource)
@@ -208,7 +202,7 @@ Alsaplayer session."
     (t
      (list "--replace"
            (expand-file-name resource)))))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-status ()
@@ -216,7 +210,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--status"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'open-object)))
 
     
@@ -225,7 +219,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--pause"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'button)))
 
 (defun emacspeak-alsaplayer-next ()
@@ -233,7 +227,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--next"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-previous ()
@@ -241,7 +235,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--prev"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
     
@@ -250,7 +244,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--start"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-alsaplayer-stop ()
@@ -258,7 +252,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--stop"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'close-object)))
 
 (defun emacspeak-alsaplayer-relative (offset)
@@ -267,7 +261,7 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--relative"
          offset))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-speed (setting)
@@ -276,7 +270,7 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--speed"
          setting))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-volume (setting)
@@ -285,7 +279,7 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--volume"
          setting))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-alsaplayer-seek (offset)
@@ -294,7 +288,7 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--seek"
          offset))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-jump (track)
@@ -303,7 +297,7 @@ Alsaplayer session."
   (emacspeak-alsaplayer-send-command
    (list "--jump"
          track))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'large-movement)))
 
 (defun emacspeak-alsaplayer-clear ()
@@ -311,7 +305,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--clear"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-alsaplayer-quit ()
@@ -319,7 +313,7 @@ Alsaplayer session."
   (interactive)
   (emacspeak-alsaplayer-send-command
    (list "--quit"))
-  (when (interactive-p)
+  (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (when (eq major-mode 'emacspeak-alsaplayer-mode)
       (kill-buffer (current-buffer)))
     (emacspeak-auditory-icon 'close-object)
