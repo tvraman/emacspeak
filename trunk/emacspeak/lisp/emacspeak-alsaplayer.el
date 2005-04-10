@@ -62,6 +62,11 @@
 (defvar emacspeak-alsaplayer-session "alsaplayer-0"
   "Alsaplayer session name associated with this buffer.")
 (make-variable-buffer-local 'emacspeak-alsaplayer-session)
+
+(defvar emacspeak-alsaplayer-session-id "0"
+  "Alsaplayer session id associated with this buffer.")
+(make-variable-buffer-local 'emacspeak-alsaplayer-session-id)
+ 
 ;;;###autoload
 
 (define-prefix-command 'emacspeak-alsaplayer-prefix-command
@@ -95,7 +100,7 @@ from alsaplayer."
 
 
 
-(defsubst emacspeak-alsaplayer-get-session-id ()
+(defsubst emacspeak-alsaplayer-get-session ()
   "Return session id from alsaplayer output."
   (substring
    (second
@@ -110,7 +115,8 @@ from alsaplayer."
 user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
-  (declare (special emacspeak-alsaplayer-session))
+  (declare (special emacspeak-alsaplayer-session
+                    emacspeak-alsaplayer-session-id))
   (let ((process-connection-type t)
         (process nil)
         (buffer (get-buffer-create "alsaplayer")))
@@ -125,12 +131,17 @@ Alsaplayer session."
              "-i" "daemon" ))
       (accept-process-output process)
       (setq emacspeak-alsaplayer-session
-            (emacspeak-alsaplayer-get-session-id))
+            (emacspeak-alsaplayer-get-session))
+      (setq emacspeak-alsaplayer-session-id
+            (or
+             (second
+             (split-string emacspeak-alsaplayer-session "-"))
+             "0"))
       (erase-buffer)
       (setq process
             (start-process
              "alsaplayer" (current-buffer) emacspeak-alsaplayer-program
-             "-n" emacspeak-alsaplayer-session
+             "-n" emacspeak-alsaplayer-session-id
              "--status")))
     (switch-to-buffer buffer)
     (rename-buffer emacspeak-alsaplayer-session 'unique))
@@ -152,13 +163,13 @@ Optional second arg no-refresh is used to avoid getting status twice."
     (setq process
           (apply 'start-process
                  "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
-                 "-n" emacspeak-alsaplayer-session
+                 "-n" emacspeak-alsaplayer-session-id
                  command-list))
     (unless no-refresh
     (setq process
           (start-process
                  "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
-                 "-n" emacspeak-alsaplayer-session
+                 "-n" emacspeak-alsaplayer-session-id
                  "--status"))))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
