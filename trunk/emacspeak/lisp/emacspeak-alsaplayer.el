@@ -59,7 +59,7 @@
   "Process handle to alsaplayer." )
 (make-variable-buffer-local 'emacspeak-alsaplayer-process)
 
-(defvar emacspeak-alsaplayer-session 0
+(defvar emacspeak-alsaplayer-session "alsaplayer-0"
   "Alsaplayer session name associated with this buffer.")
 (make-variable-buffer-local 'emacspeak-alsaplayer-session)
 ;;;###autoload
@@ -77,7 +77,7 @@
 ;;{{{ launch  emacspeak-alsaplayer
 (defcustom emacspeak-alsaplayer-auditory-feedback nil
   "Turn this on if you want spoken feedback and auditory icons
-;;from alsaplayer."
+from alsaplayer."
   :type 'boolean
   :group 'emacspeak-alsaplayer)
 
@@ -93,17 +93,15 @@
   :type 'directory
   :group 'emacspeak-alsaplayer)
 
-(defvar emacspeak-alsaplayer-buffer-name "alsaplayer"
-  "Name of alsaplayer buffer.")
+
+
 (defsubst emacspeak-alsaplayer-get-session-id ()
   "Return session id from alsaplayer output."
   (substring
    (second
     (split-string
      (buffer-string)))
-   (+ 1 
-      (length emacspeak-alsaplayer-program)
-      1)
+   1
    -1))
 
 ;;;###autoload
@@ -112,18 +110,17 @@
 user is placed in a buffer associated with the newly created
 Alsaplayer session."
   (interactive)
-  (declare (special emacspeak-alsaplayer-buffer-name
-                    emacspeak-alsaplayer-session))
+  (declare (special emacspeak-alsaplayer-session))
   (let ((process-connection-type t)
         (process nil)
-        (buffer (get-buffer-create emacspeak-alsaplayer-buffer-name)))
+        (buffer (get-buffer-create "alsaplayer")))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-alsaplayer-mode)
       (setq process
             (start-process
              "alsaplayer"
-             emacspeak-alsaplayer-buffer-name
+             (current-buffer)
              emacspeak-alsaplayer-program
              "-i" "daemon" ))
       (accept-process-output process)
@@ -132,15 +129,11 @@ Alsaplayer session."
       (erase-buffer)
       (setq process
             (start-process
-             "alsaplayer" emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-program
-             "-n"
-             (format "%s" emacspeak-alsaplayer-session)
+             "alsaplayer" (current-buffer) emacspeak-alsaplayer-program
+             "-n" emacspeak-alsaplayer-session
              "--status")))
     (switch-to-buffer buffer)
-    (rename-buffer
-     (format "%s-%s"
-             emacspeak-alsaplayer-buffer-name emacspeak-alsaplayer-session)
-     'unique))
+    (rename-buffer emacspeak-alsaplayer-session 'unique))
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -148,36 +141,43 @@ Alsaplayer session."
 ;;}}}
 ;;{{{  Invoke commands:
 
-(defun emacspeak-alsaplayer-send-command(command-list)
-  "Send command to Alsaplayer."
+(defun emacspeak-alsaplayer-send-command(command-list &optional no-refresh)
+  "Send command to Alsaplayer.
+Optional second arg no-refresh is used to avoid getting status twice."
   (declare (special emacspeak-alsaplayer-session))
+  (save-excursion
+    (set-buffer emacspeak-alsaplayer-session)
+    (erase-buffer)
   (let ((process nil))
     (setq process
           (apply 'start-process
-                 "alsaplayer" nil emacspeak-alsaplayer-program
-                 "-n"
-                 (format "alsaplayer-%s" emacspeak-alsaplayer-session)
-                 command-list))))
+                 "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
+                 "-n" emacspeak-alsaplayer-session
+                 command-list))
+    (unless no-refresh
+    (setq process
+          (start-process
+                 "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
+                 "-n" emacspeak-alsaplayer-session
+                 "--status"))))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
   (interactive
    (list
     (read-file-name "MP3 Resource: "
-                    emacspeak-alsaplayer-media-directory
-                    (when (eq major-mode 'dired-mode)
-		      (dired-get-filename)))))
+                    emacspeak-alsaplayer-media-directory)))
   (emacspeak-alsaplayer-send-command
    (cond
     ((file-directory-p resource)
      (nconc
-      (list "--enqueue")
+      (list "-e")
       (directory-files
        (expand-file-name resource)
        'full
        "mp3$")))
     (t
-     (list "--enqueue"
+     (list "-e"
            (expand-file-name resource)))))
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'select-object)))
@@ -187,9 +187,7 @@ Alsaplayer session."
   (interactive
    (list
     (read-file-name "MP3 Resource: "
-                    emacspeak-alsaplayer-media-directory
-                    (when (eq major-mode 'dired-mode)
-		      (dired-get-filename)))))
+                    emacspeak-alsaplayer-media-directory)))
   (emacspeak-alsaplayer-send-command
    (cond
     ((file-directory-p resource)
@@ -209,7 +207,8 @@ Alsaplayer session."
   "Show alsaplayer status"
   (interactive)
   (emacspeak-alsaplayer-send-command
-   (list "--status"))
+   (list "--status")
+   'no-refresh)
   (when (and emacspeak-alsaplayer-auditory-feedback (interactive-p))
     (emacspeak-auditory-icon 'open-object)))
 
@@ -318,6 +317,80 @@ Alsaplayer session."
       (kill-buffer (current-buffer)))
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
+
+;;}}}
+;;{{{ additional temporal navigation 
+
+
+(defun emacspeak-alsaplayer-forward-second ( seconds)
+  "Skip forward by  seconds."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "%s"
+            (or seconds 1)))))
+
+(defun emacspeak-alsaplayer-backward-second ( seconds)
+  "Skip backward by  seconds."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "-%s"
+            (or seconds 1)))))
+
+(defun emacspeak-alsaplayer-forward-minute ( minutes)
+  "Skip forward by  minutes."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "%s"
+            (* 60 (or minutes 1))))))
+
+(defun emacspeak-alsaplayer-backward-minute ( minutes)
+  "Skip backwards by  minutes."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "-%s"
+            (* 60 (or minutes 1))))))
+
+
+(defun emacspeak-alsaplayer-forward-ten-minutes ( minutes)
+  "Skip forward by  chunks of ten minutes."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "%s"
+            (* 600 (or minutes 1))))))
+
+(defun emacspeak-alsaplayer-backward-ten-minutes ( minutes)
+  "Skip backwards by  chunks of minutes."
+  (interactive "p")
+  (emacspeak-alsaplayer-send-command
+   (list
+    "--relative"
+    (format "-%s"
+            (* 600 (or minutes 1))))))
+
+
+
+(define-key emacspeak-alsaplayer-mode-map "."
+  'emacspeak-alsaplayer-forward-second)
+(define-key emacspeak-alsaplayer-mode-map ","
+  'emacspeak-alsaplayer-backward-second)
+(define-key emacspeak-alsaplayer-mode-map ">"
+  'emacspeak-alsaplayer-forward-minute)
+(define-key emacspeak-alsaplayer-mode-map "<"
+  'emacspeak-alsaplayer-backward-minute)
+(define-key emacspeak-alsaplayer-mode-map "]"
+  'emacspeak-alsaplayer-forward-ten-minutes)
+(define-key emacspeak-alsaplayer-mode-map "["
+  'emacspeak-alsaplayer-backward-ten-minutes)
 
 ;;}}}
 ;;{{{ bind keys
