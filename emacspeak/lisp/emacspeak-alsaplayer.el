@@ -80,7 +80,7 @@
 
 ;;}}}
 ;;{{{ launch  emacspeak-alsaplayer
-(defcustom emacspeak-alsaplayer-auditory-feedback nil
+(defcustom emacspeak-alsaplayer-auditory-feedback t
   "Turn this on if you want spoken feedback and auditory icons
 from alsaplayer."
   :type 'boolean
@@ -100,7 +100,7 @@ from alsaplayer."
 
 
 
-(defsubst emacspeak-alsaplayer-get-session ()
+(defun emacspeak-alsaplayer-get-session ()
   "Return session id from alsaplayer output."
   (substring
    (second
@@ -132,11 +132,10 @@ Alsaplayer session."
       (accept-process-output process)
       (setq emacspeak-alsaplayer-session
             (emacspeak-alsaplayer-get-session))
+      (put 'emacspeak-alsaplayer-session 'buffer (current-buffer))
       (setq emacspeak-alsaplayer-session-id
-            (or
              (second
-             (split-string emacspeak-alsaplayer-session "-"))
-             "0"))
+             (split-string emacspeak-alsaplayer-session "-")))
       (erase-buffer)
       (setq process
             (start-process
@@ -157,18 +156,19 @@ Alsaplayer session."
 Optional second arg no-refresh is used to avoid getting status twice."
   (declare (special emacspeak-alsaplayer-session))
   (save-excursion
-    (set-buffer emacspeak-alsaplayer-session)
+    (set-buffer (get 'emacspeak-alsaplayer-session 'buffer))
     (erase-buffer)
   (let ((process nil))
     (setq process
           (apply 'start-process
-                 "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
+                 "alsaplayer"
+                 (current-buffer) emacspeak-alsaplayer-program
                  "-n" emacspeak-alsaplayer-session-id
                  command-list))
     (unless no-refresh
     (setq process
           (start-process
-                 "alsaplayer" emacspeak-alsaplayer-session   emacspeak-alsaplayer-program
+                 "alsaplayer" (current-buffer)   emacspeak-alsaplayer-program
                  "-n" emacspeak-alsaplayer-session-id
                  "--status"))))))
 
