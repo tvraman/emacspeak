@@ -37,11 +37,8 @@ pcm.sub1 {
     device 0
     subdevice -1
 }
-pcm.dsp0 {
-    type plug
-    slave.pcm "dmix"
-    rate 11025
-}
+
+
 # }}}
 # {{{end of file
 
