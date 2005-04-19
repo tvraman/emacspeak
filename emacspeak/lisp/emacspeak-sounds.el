@@ -609,10 +609,7 @@ audio player."
   (when emacspeak-sounds-reset-snd-module-command
     (shell-command emacspeak-sounds-reset-snd-module-command)))
 
-(defun emacspeak-aumix-reload-sound ()
-  "Reload sound drivers."
-  (interactive)
-  (shell-command "sudo rmmod snd-intel8x0"))
+
 ;;}}}
 (provide  'emacspeak-sounds)
 ;;{{{  emacs local variables
