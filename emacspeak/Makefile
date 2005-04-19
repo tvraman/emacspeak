@@ -81,7 +81,7 @@
 #    which tcl
 # Assuming you're using dtk-exp: 
 # Check that the dtk-exp can be run by typing
-#    tcl <emacspeak-dir>/dtk-exp 
+# <emacspeak-dir>/dtk-exp 
 # You should hear the Dectalk speak and get a TCL prompt if everything is okay.
 # Next, check that your serial port is working correctly, and that your stty 
 # settings are correct. You can do this by executing the following sequence 
