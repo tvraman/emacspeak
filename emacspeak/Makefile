@@ -262,10 +262,10 @@ install:
 	$(INSTALL) -d $(libdir)/sounds
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
-	$(INSTALL)  ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL) -d $(libdir)/servers/software-dtk
-	$(INSTALL)  ${DTKTTS}  $(libdir)/servers/software-dtk
-	$(INSTALL)  ${TCL_PROGRAMS}  $(libdir)/servers
+	$(INSTALL)  -m 755 ${DTKTTS}  $(libdir)/servers/software-dtk
+	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
 	cp   ${MISC}   $(libdir)/etc
 	$(CP) -r $(SOUNDS) $(libdir)/sounds
