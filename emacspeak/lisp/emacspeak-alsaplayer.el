@@ -140,7 +140,9 @@ Alsaplayer session."
       (setq process
             (start-process
              "alsaplayer" (current-buffer) emacspeak-alsaplayer-program
-             "-n" emacspeak-alsaplayer-session-id
+             "-n"
+             (or emacspeak-alsaplayer-session-id
+                 "0")
              "--status")))
     (switch-to-buffer buffer)
     (rename-buffer emacspeak-alsaplayer-session 'unique))
