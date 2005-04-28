@@ -1015,7 +1015,7 @@ name of the list.")
  "Read pulpit from PBS. Published on the Thursday of the week."
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
-      "//p" url 'speak)))
+      "//p|ul|ol|dl|h1|h2|h3|h4|h5|h6|blockquote" url 'speak)))
 
 ;;}}}
 ;;{{{  NPR programs 
