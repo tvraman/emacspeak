@@ -330,7 +330,6 @@ before the message is spoken.
 @section emacspeak-alsaplayer Options
 
 Commentary:
-This is work in progress:
 Defines a simple derived mode for interacting with
 alsaplayer.
 alsaplayer navigation commands  work via single keystrokes.
