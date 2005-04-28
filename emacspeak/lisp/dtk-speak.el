@@ -1373,7 +1373,9 @@ available TTS servers.")
   "Code sent to reset the voice to its default.
 This is setup on a per engine basis.")
 
-
+;;; will be reset on a per TTS engine basis.
+;(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+  
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
   (declare (special dtk-program
@@ -1382,7 +1384,10 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
-   (t (dectalk-configure-tts)))
+   ((string-match "dtk-" tts-name) ;all dectalks
+    (dectalk-configure-tts))
+   (t (dectalk-configure-tts); will become generic-configure
+      ))
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 

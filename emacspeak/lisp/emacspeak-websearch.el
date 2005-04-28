@@ -1551,18 +1551,37 @@ Light for: ")))
   "Perform an Yahoo  people search"
   (interactive)
   (declare (special emacspeak-websearch-people-yahoo-uri))
-  (let (
-	)
-    (browse-url 
-     (concat emacspeak-websearch-people-yahoo-uri
-             (format "FirstName=%s&LastName=%s&City=%s&State=%s"
-                     (webjump-url-encode (read-from-minibuffer "First name: "))
-                     (webjump-url-encode (read-from-minibuffer "Last name: "))
-                     (webjump-url-encode (read-from-minibuffer "City: "))
-                     (webjump-url-encode (read-from-minibuffer "State: "))))))
+  (browse-url 
+   (concat emacspeak-websearch-people-yahoo-uri
+           (format "FirstName=%s&LastName=%s&City=%s&State=%s"
+                   (webjump-url-encode (read-from-minibuffer "First name: "))
+                   (webjump-url-encode (read-from-minibuffer "Last name: "))
+                   (webjump-url-encode (read-from-minibuffer "City: "))
+                   (webjump-url-encode (read-from-minibuffer "State: ")))))
   (emacspeak-websearch-post-process
    "First"
    'emacspeak-speak-line))
+
+;;}}}
+;;{{{ podcasts from podscope
+
+(emacspeak-websearch-set-searcher 'podscope
+                                  'emacspeak-websearch-podscope)
+(emacspeak-websearch-set-key 16 'podscope)
+
+(defvar emacspeak-websearch-podscope-uri
+  "http://www.podscope.com/search.php?q="
+  "*URI for launching a PodScope search")
+
+(defun emacspeak-websearch-podscope ()
+  "Perform a PodScope search to locate podcasts."
+  (interactive)
+  (declare (special emacspeak-websearch-podscope-uri))
+  (browse-url 
+   (concat emacspeak-websearch-podscope-uri
+           (webjump-url-encode
+            (read-from-minibuffer "PodScope Search: ")))))
+  
 
 ;;}}}
 ;;{{{ yahoo
