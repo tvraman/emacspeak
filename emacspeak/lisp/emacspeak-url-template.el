@@ -1030,6 +1030,17 @@ name of the list.")
  'emacspeak-realaudio-play)
 
 (emacspeak-url-template-define
+ "Wait Wait, Dont Tell Me (NPR)"
+ "http://www.npr.org/dmg/dmg.php?mediaURL=/waitwait/%s_waitwait&mediaType=RM"
+ (list
+  #'(lambda ()
+      (emacspeak-url-template-collect-date "Date: (Saturdays)"
+                                           "%Y%m%d")))
+ nil
+ "Play Wait, Wait Dont Tell Me from NPR."
+ 'emacspeak-realaudio-play)
+
+(emacspeak-url-template-define
  "NPR On Demand"
  "http://www.npr.org/dmg/dmg.php?prgCode=%s&showDate=%s&segNum=%s&mediaPref=RM"
  (list
@@ -1069,6 +1080,7 @@ plays entire program."
  nil
  "Play NPR Talk Of The Nation  stream."
  'emacspeak-realaudio-play)
+
 (emacspeak-url-template-define
  "Morning Edition Stream from NPR"
  "http://www.npr.org/dmg/dmg.php?prgCode=ME&showDate=%s&segNum=&mediaPref=RM"
