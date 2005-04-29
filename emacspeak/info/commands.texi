@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 673 commands.
+This chapter documents a total of 681 commands.
 
 @menu
 * cd-tool::                     
@@ -64,6 +64,7 @@ This chapter documents a total of 673 commands.
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
 * emacspeak-speak::             
+* emacspeak-speedbar::          
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -382,8 +383,32 @@ for commands defined in module  emacspeak-alsaplayer.
 Add specified resource to queue.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-alsaplayer-backward-minute (MINUTES)
+Skip backwards by  minutes.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-backward-second (SECONDS)
+Skip backward by  seconds.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-backward-ten-minutes (MINUTES)
+Skip backwards by  chunks of minutes.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-alsaplayer-clear ()
 Clear or resume alsaplayer
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-forward-minute (MINUTES)
+Skip forward by  minutes.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-forward-second (SECONDS)
+Skip forward by  seconds.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-alsaplayer-forward-ten-minutes (MINUTES)
+Skip forward by  chunks of ten minutes.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-alsaplayer-jump (TRACK)
@@ -418,6 +443,12 @@ g		emacspeak-alsaplayer-seek
 c		emacspeak-alsaplayer-clear
 A		emacspeak-alsaplayer-replace-queue
 a		emacspeak-alsaplayer-add-to-queue
+[		emacspeak-alsaplayer-backward-ten-minutes
+]		emacspeak-alsaplayer-forward-ten-minutes
+<		emacspeak-alsaplayer-backward-minute
+>		emacspeak-alsaplayer-forward-minute
+,		emacspeak-alsaplayer-backward-second
+.		emacspeak-alsaplayer-forward-second
 
 This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization.
@@ -3160,6 +3191,30 @@ Prompts for PERSONALITY  with completion when called interactively.
 Send this command to the TTS directly.
 @end deffn
 
+@node emacspeak-speedbar
+@section emacspeak-speedbar
+
+Commentary:
+This module advises speedbar.el for use with Emacs.  The
+latest speedbar can be obtained from
+ftp://ftp.ultranet.com/pub/zappo/ This module ensures
+that speedbar works smoothly outside a windowing system
+in addition to speech enabling all interactive
+commands. Emacspeak also adds an Emacspeak environment
+specific entry point to speedbar
+--emacspeak-speedbar-goto-speedbar-- and binds this
+
+Automatically generated documentation
+for commands defined in module  emacspeak-speedbar.
+
+@deffn {Interactive Command} emacspeak-speedbar-click ()
+Does the equivalent of the mouse click from the keyboard
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speedbar-goto-speedbar ()
+Switch to the speedbar
+@end deffn
+
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
@@ -4889,7 +4944,7 @@ during initialization.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 89 URL Templates.
+This section documents a total of 90 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5214,6 +5269,10 @@ Show arrival/departure information from Travelocity.
 @kbd{UPS Packages}
 
 Display package tracking information from UPS.
+
+@kbd{Wait Wait, Dont Tell Me (NPR)}
+
+Play Wait, Wait Dont Tell Me from NPR.
 
 @kbd{Weather forecast from Weather Underground}
 
