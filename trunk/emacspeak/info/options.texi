@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 378 user customizable
+This chapter documents a total of 394 user customizable
   options.
 
 @menu
@@ -41,6 +41,7 @@ This chapter documents a total of 378 user customizable
 * emacspeak-imenu Options::     
 * emacspeak-info Options::      
 * emacspeak-ispell Options::    
+* emacspeak-jde Options::       
 * emacspeak-keymap Options::    
 * emacspeak-loaddefs Options::  
 * emacspeak-m-player Options::  
@@ -58,6 +59,7 @@ This chapter documents a total of 378 user customizable
 * emacspeak-sigbegone Options::  
 * emacspeak-sounds Options::    
 * emacspeak-speak Options::     
+* emacspeak-speedbar Options::  
 * emacspeak-table-ui Options::  
 * emacspeak-tnt Options::       
 * emacspeak-url-template Options::  
@@ -337,6 +339,11 @@ alsaplayer navigation commands  work via single keystrokes.
 Automatically generated documentation
 for options defined in module  emacspeak-alsaplayer.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-alsaplayer-auditory-feedback
+Turn this on if you want spoken feedback and auditory icons
+from alsaplayer.
+@end defvar
 
 @defvar {User Option} emacspeak-alsaplayer-media-directory
 Directory to look for media files.
@@ -1499,6 +1506,45 @@ Emacspeak will not speak the choices if there are more than this
 many available corrections.
 @end defvar
 
+@node emacspeak-jde Options
+@section emacspeak-jde Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-jde.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-jde-api-personality
+Personality used for user defined API names.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-bold-personality
+Personality used for bold.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-constant-personality
+Personality used for constants.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-italic-personality
+Personality used for italics.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-number-personality
+Personality used for numbers.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-operator-personality
+Personality used for java operators.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-package-personality
+Personality used for package names.
+@end defvar
+
+@defvar {User Option} emacspeak-jde-underline-personality
+Underline personality.
+@end defvar
+
 @node emacspeak-keymap Options
 @section emacspeak-keymap Options
 
@@ -2225,6 +2271,51 @@ arrived voicemail.
 If t, then emacspeak echoes words as you type.
 You can use C-e d w to toggle this
 option.
+@end defvar
+
+@node emacspeak-speedbar Options
+@section emacspeak-speedbar Options
+
+Commentary:
+This module advises speedbar.el for use with Emacs.  The
+latest speedbar can be obtained from
+ftp://ftp.ultranet.com/pub/zappo/ This module ensures
+that speedbar works smoothly outside a windowing system
+in addition to speech enabling all interactive
+commands. Emacspeak also adds an Emacspeak environment
+specific entry point to speedbar
+--emacspeak-speedbar-goto-speedbar-- and binds this
+
+Automatically generated documentation
+for options defined in module  emacspeak-speedbar.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-speedbar-button-personality
+personality used for speedbar buttons
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-default-personality
+Default personality used in speedbar buffers
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-directory-personality
+Speedbar personality for directory buttons
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-file-personality
+Personality used for file buttons
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-highlight-personality
+Personality used for for speedbar highlight.
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-selected-personality
+Personality used to indicate speedbar selection
+@end defvar
+
+@defvar {User Option} emacspeak-speedbar-tag-personality
+Personality used for speedbar tags
 @end defvar
 
 @node emacspeak-table-ui Options
