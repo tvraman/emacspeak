@@ -141,6 +141,7 @@ static void (*_eciRegisterCallback) (void *,
 				     int (*)(void *, int, long, void *),
 				     void *);
 static int alsa_init ();
+static void alsa_reset(); //drop handle and reset
 static size_t alsa_configure (void);
 
 extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
@@ -808,10 +809,7 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
       Tcl_Obj * CONST objv[])
 {
   if (_eciStop (eciHandle)) {
-    //figure out how to stop alsa output cleanly --- is there a
-    //better way?
-    snd_pcm_pause(AHandle,1);
-    snd_pcm_pause(AHandle,0);
+    alsa_reset ();
     return TCL_OK;
   }
   Tcl_SetResult (interp, "Could not stop synthesis", TCL_STATIC);
@@ -853,6 +851,13 @@ Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_ERROR;
 }
 
+//>
+//<alsa_reset 
+void 
+alsa_reset () {
+  snd_pcm_drop (AHandle);
+  alsa_init ();
+}
 //>
 //<alsa_init
 
