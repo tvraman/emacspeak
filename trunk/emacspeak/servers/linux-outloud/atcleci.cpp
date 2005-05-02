@@ -808,7 +808,10 @@ Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
       Tcl_Obj * CONST objv[])
 {
   if (_eciStop (eciHandle)) {
-    //possibly call alsa stop here 
+    //figure out how to stop alsa output cleanly --- is there a
+    //better way?
+    snd_pcm_pause(AHandle,1);
+    snd_pcm_pause(AHandle,0);
     return TCL_OK;
   }
   Tcl_SetResult (interp, "Could not stop synthesis", TCL_STATIC);
