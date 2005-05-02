@@ -436,6 +436,42 @@ pcm_write (short *data, size_t count)
 }
 
 //>
+//<alsa_reset 
+void 
+alsa_reset () {
+  snd_pcm_drop (AHandle);
+  alsa_init ();
+}
+//>
+//<alsa_init
+
+int
+alsa_init ()
+{
+  int err;
+  char *device = "default";
+  size_t chunk_bytes = 0;
+  if ((err = snd_pcm_open (&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+    fprintf (stderr, "Playback open error: %s\n", snd_strerror (err));
+    exit (1);
+  }
+  chunk_bytes = alsa_configure ();
+  return chunk_bytes;
+}
+
+//>
+//<alsa_close
+
+int
+alsa_close ()
+{
+  //shut down alsa
+  snd_pcm_close (AHandle);
+  free (waveBuffer);
+  return TCL_OK;
+}
+
+//>
 //<eciFree
 
 void
@@ -849,42 +885,6 @@ Resume (ClientData eciHandle, Tcl_Interp * interp, int objc,
     return TCL_OK;
   Tcl_SetResult (interp, "Could not resume synthesis", TCL_STATIC);
   return TCL_ERROR;
-}
-
-//>
-//<alsa_reset 
-void 
-alsa_reset () {
-  snd_pcm_drop (AHandle);
-  alsa_init ();
-}
-//>
-//<alsa_init
-
-int
-alsa_init ()
-{
-  int err;
-  char *device = "default";
-  size_t chunk_bytes = 0;
-  if ((err = snd_pcm_open (&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
-    fprintf (stderr, "Playback open error: %s\n", snd_strerror (err));
-    exit (1);
-  }
-  chunk_bytes = alsa_configure ();
-  return chunk_bytes;
-}
-
-//>
-//<alsa_close
-
-int
-alsa_close ()
-{
-  //shut down alsa
-  snd_pcm_close (AHandle);
-  free (waveBuffer);
-  return TCL_OK;
 }
 
 //>
