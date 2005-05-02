@@ -330,16 +330,6 @@ alsa_configure (void)
   chunk_bytes = chunk_size * bits_per_frame / 8;
 
   //>
-  //<Finally, allocate  waveBuffer
-
-  fprintf (stderr, "allocating %d samples\n", chunk_bytes);
-  waveBuffer = (short *) malloc (chunk_bytes * sizeof (short));
-  if (waveBuffer == NULL) {
-    fprintf (stderr, "not enough memory");
-    exit (EXIT_FAILURE);
-  }
-
-  //>
   return chunk_bytes;
 }
 
@@ -592,6 +582,16 @@ Atcleci_Init (Tcl_Interp * interp)
   //>
   //<initialize alsa
   chunk_bytes = alsa_init ();
+  //<Finally, allocate  waveBuffer
+
+  fprintf (stderr, "allocating %d samples\n", chunk_bytes);
+  waveBuffer = (short *) malloc (chunk_bytes * sizeof (short));
+  if (waveBuffer == NULL) {
+    fprintf (stderr, "not enough memory");
+    exit (EXIT_FAILURE);
+  }
+
+  //>
   //>
   //<initialize TTS 
 
