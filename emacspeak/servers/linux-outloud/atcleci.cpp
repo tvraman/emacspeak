@@ -233,8 +233,7 @@ alsa_configure (void)
     assert (err >= 0);
     if (buffer_time > 500000)
       buffer_time = 500000;
-  }
-
+      }
   //>
   //<Compute period_time:
 
@@ -327,7 +326,7 @@ alsa_configure (void)
   }
 
   bits_per_sample = snd_pcm_format_physical_width (DEFAULT_FORMAT);
-  bits_per_frame = bits_per_sample * 1;
+  bits_per_frame = bits_per_sample * 1;//mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
 
   //>
