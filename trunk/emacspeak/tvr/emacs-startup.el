@@ -83,7 +83,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library-d
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (or emacspeak-use-auditory-icons (emacspeak-toggle-auditory-icons t))
-                                        (when (emacspeak-sounds-theme-p "chimes-mono/")
+                                        (when (emacspeak-sounds-theme-p "chimes-stereo/")
                                         (emacspeak-sounds-select-theme "chimes-mono/"))
       (tts-configure-synthesis-setup)
       (dtk-set-rate tts-default-speech-rate 'global))
