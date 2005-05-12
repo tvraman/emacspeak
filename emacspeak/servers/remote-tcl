@@ -4,7 +4,7 @@
 #Copyright (C) 1995 -- 2003, T. V. Raman 
 # {{{  documentation
 
-# Running dectalk driver remotely.
+# Running TTS Server  remotely.
 
 # This will have to be polished up, but I've beaten on it  and it appears to
 # work like a charm.
