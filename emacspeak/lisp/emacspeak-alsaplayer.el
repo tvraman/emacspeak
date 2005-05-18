@@ -178,7 +178,7 @@ Optional second arg no-refresh is used to avoid getting status twice."
   "Add specified resource to queue."
   (interactive
    (list
-    (read-file-name "MP3 Resource: "
+    (read-file-name "Media Resource: "
                     emacspeak-alsaplayer-media-directory)))
   (emacspeak-alsaplayer-send-command
    (cond
@@ -188,7 +188,7 @@ Optional second arg no-refresh is used to avoid getting status twice."
       (directory-files
        (expand-file-name resource)
        'full
-       "mp3$")))
+       "\\(mp3\\)\\|\\(ogg\\)$")))
     (t
      (list "-e"
            (expand-file-name resource)))))
