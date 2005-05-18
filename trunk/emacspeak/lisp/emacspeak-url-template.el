@@ -564,6 +564,14 @@ Here are some examples:
       
 ;;}}}
 ;;{{{ google scholar 
+(emacspeak-url-template-define
+ "Google Print"
+ "http://print.google.com/print?oi=print&q=%s"
+ (list "Google Print Search: ")
+ #'(lambda nil
+     (search-forward "pages" nil t)
+     (emacspeak-speak-line))
+ "Google Print Search")
 
 (emacspeak-url-template-define
  "Google Scholar"
@@ -621,6 +629,15 @@ from English to German.")
 
 ;;}}}
 ;;{{{ google OverviewOfNews 
+
+(emacspeak-url-template-define
+ "Google Print"
+ "http://print.google.com/print?oi=print&q=%s"
+ (list "Google Print Search:")
+ #'(lambda nil
+     (search-forward "Print  Books" nil t)
+     (emacspeak-speak-rest-of-buffer))
+ "Google Print Search")
 
 (emacspeak-url-template-define
  "Google Text  News"
@@ -723,7 +740,7 @@ from English to German.")
 		      '("$" "&printer=1"))
 		(emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
-   "(//*[@class=\"article\"])//td[1]"
+   "//*[@id=\"ynmain\"]"
    url))
 
 (emacspeak-url-template-define
