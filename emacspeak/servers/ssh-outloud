@@ -23,4 +23,4 @@ set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $remote  $tcl $tts>"
-exec ssh $remote  $tcl $tts
+exec     ssh -o StrictHostKeyChecking=no $remote  $tcl $tts
