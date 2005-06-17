@@ -1487,13 +1487,23 @@ semantic to do the work."
      (ems-process-mode-line-format (symbol-value (car spec)))
      (ems-process-mode-line-format (cdr spec))))))
 
-(defun emacspeak-speak-mode-line ()
-  "Speak the mode-line."
-  (interactive)
+(defun emacspeak-speak-buffer-info ()
+  "Speak buffer information."
+  (message "Buffer has %s lines and %s characters "
+           (count-lines (point-min) (point-max))
+           (- (point-max) (point-min))))
+
+(defun emacspeak-speak-mode-line (&optional buffer-info)
+  "Speak the mode-line.
+Interactive prefix arg speaks buffer info."
+  (interactive "P")
   (declare (special  mode-name  major-mode voice-annotate
                      emacspeak-which-function-mode global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format ))
+  (cond
+   (buffer-info (emacspeak-speak-buffer-info))
+   (t
   (dtk-stop)
   (force-mode-line-update)
   (emacspeak-dtk-sync)
@@ -1554,7 +1564,7 @@ semantic to do the work."
                                       (emacspeak-get-current-percentage-verbously)
                                       frame-info
                                       recursion-info
-                                      global-info)))))))
+                                      global-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
