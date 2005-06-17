@@ -128,6 +128,7 @@ Alsaplayer session."
              "alsaplayer"
              (current-buffer)
              emacspeak-alsaplayer-program
+             "-r"
              "-i" "daemon" ))
       (accept-process-output process)
       (setq emacspeak-alsaplayer-session
