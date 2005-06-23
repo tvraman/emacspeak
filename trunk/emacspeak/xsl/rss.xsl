@@ -83,8 +83,18 @@ View an RSS feed as clean HTML
         <xsl:apply-templates select="title"/>
       </xsl:element>
       <xsl:apply-templates select="description"/>
+      <xsl:apply-templates select="enclosure"/>
     </li>
   </xsl:template>
+<xsl:template match="enclosure">
+<xsl:element name="a">
+        <xsl:attribute name="href">
+          <xsl:value-of select="@url"/>
+        </xsl:attribute>
+        Enclosure: Type <xsl:value-of select="@type"/>
+Lenght: <sxsl:value-of select="@length"/>
+      </xsl:element>
+</xsl:template>
   <xsl:template match="title|description">
     <xsl:apply-templates/>
   </xsl:template>
