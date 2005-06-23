@@ -92,7 +92,7 @@ View an RSS feed as clean HTML
           <xsl:value-of select="@url"/>
         </xsl:attribute>
         Enclosure: Type <xsl:value-of select="@type"/>
-Lenght: <sxsl:value-of select="@length"/>
+Lenght: <xsl:value-of select="@length"/>
       </xsl:element>
 </xsl:template>
   <xsl:template match="title|description">
