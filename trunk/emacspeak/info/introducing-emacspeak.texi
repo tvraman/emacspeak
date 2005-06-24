@@ -59,12 +59,12 @@
 
   cvs -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak -f -z6 update
 
-  cvs -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/info \
-        ci -m "Fix typos" introducing-emacspeak.texi
-  cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/info \
-        ci -m "Fix typos" introducing-emacspeak.info
-  cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/html \
-        ci -m "Fix typos" introducing-emacspeak.html
+  cvs -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
+    ci -m "Update to May 2005; minor changes" info/introducing-emacspeak.texi
+  cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
+    ci -m "Update to May 2005; minor changes" info/introducing-emacspeak.info
+  cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
+    ci -m "Update to May 2005; minor changes" html/introducing-emacspeak.html
 
 @end ignore
 
