@@ -53,9 +53,106 @@
 (require 'emacspeak-redefine)
 
 ;;}}}
+;;{{{ Structure Navigation:
 
+(loop for f in
+      '(org-cycle
+        org-goto  org-goto-ret
+        org-goto-left org-goto-right
+        org-goto-quit
+        )
+      do
+      (eval
+       `(defadvice ,f(after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'large-movement)))))
 
+;;}}}
+;;{{{ Header insertion and relocation
 
+(loop for f in
+      '(org-insert-heading org-insert-todo-heading
+                           org-promote-subtree org-demote-subtree
+                           org-do-promote org-do-demote
+                           org-move-subtree-up org-move-subtree-down
+                           )
+      do
+      (eval
+       `(defadvice ,f(after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'open-object)))))
+
+;;}}}
+;;{{{ cut and paste:
+
+(loop for f in
+      '(org-copy-subtree org-paste-subtree
+                         org-archive-subtree)
+      do
+      (eval
+       `(defadvice ,f(after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'yank-object)))))
+
+;;}}}
+;;{{{ completion:
+
+(defadvice org-complete (around emacspeak pre act)
+  "Say what you completed."
+  (let ((prior (save-excursion
+                 (backward-word 1)
+                 (point )))
+        (dtk-stop-immediately t))
+    ad-do-it
+    (let ((completions-buffer (get-buffer "*Completions*")))
+      (if (> (point) prior)
+          (tts-with-punctuations 'all
+                                 (dtk-speak (buffer-substring prior (point ))))
+        (when (and completions-buffer
+                   (window-live-p (get-buffer-window completions-buffer )))
+          (save-excursion
+            (set-buffer completions-buffer )
+            (emacspeak-prepare-completions-buffer)
+            (dtk-speak (buffer-string ))))))
+    ad-return-value))
+
+;;}}}
+;;{{{ toggles:
+
+;;}}}
+;;{{{ ToDo:
+
+;;}}}
+;;{{{ timestamps and calendar:
+
+;;}}}
+;;{{{ Agenda:
+
+;;}}}
+;;{{{ misc file commands:
+
+;;}}}
+;;{{{ Links:
+
+;;}}}
+;;{{{ tables:
+
+;;}}}
+;;{{{ table minor mode:
+
+;;}}}
+;;{{{ import/export:
+
+;;}}}
+;;{{{ Meta Navigators:
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
