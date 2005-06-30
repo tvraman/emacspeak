@@ -169,6 +169,7 @@ emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
 emacspeak-oo-browser.elc \
+emacspeak-org.elc \
 emacspeak-nxml.elc \
 emacspeak-outline.elc \
 emacspeak-pcl-cvs.elc \
@@ -361,7 +362,8 @@ emacspeak-nero.elc: emacspeak-nero.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
 emacspeak-nxml.elc: emacspeak-nxml.el dtk-speak.elc voice-setup.elc
-emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc voice-setup.elc 
+emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc voice-setup.elc
+emacspeak-org.elc: emacspeak-org.el dtk-speak.elc
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc voice-setup.elc
