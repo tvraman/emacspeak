@@ -2323,23 +2323,24 @@ directory to where find is to be launched."
 emacspeak-wizards-occur-header-lines.")
 (make-variable-buffer-local 'emacspeak-occur-pattern)
 ;;;###autoload
-(defun emacspeak-wizards-how-many-matches (prefix)
+(defun emacspeak-wizards-how-many-matches (start end &optional prefix)
   "If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern."
-  (interactive "P")
+  (interactive "rP")
   (declare (special emacspeak-occur-pattern))
   (cond
    ((and (not prefix)
          (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
-    (how-many  emacspeak-occur-pattern))
+    (how-many  emacspeak-occur-pattern start end 'interactive))
    (t
     (let ((pattern  (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
-      (how-many pattern)))))
+      (how-many pattern start end 'interactive)))))
+
 ;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (prefix)
   "If you define a file local variable called
