@@ -185,6 +185,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
           (insert
            (format "Stream: %s\n"
                    resource))
+          (set-marker (process-mark emacspeak-realaudio-process) (point))
 	  (setq emacspeak-realaudio-this-resource resource)))
       (unless (eq 'run (process-status emacspeak-realaudio-process))
 	(error "Failed to start RealAudio"))
