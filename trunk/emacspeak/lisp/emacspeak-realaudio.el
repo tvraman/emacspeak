@@ -181,6 +181,10 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
 	(save-excursion
 	  (set-buffer emacspeak-realaudio-buffer)
 	  (emacspeak-realaudio-mode)
+          (goto-char (point-min))
+          (insert
+           (format "Stream: %s\n"
+                   resource))
 	  (setq emacspeak-realaudio-this-resource resource)))
       (unless (eq 'run (process-status emacspeak-realaudio-process))
 	(error "Failed to start RealAudio"))
