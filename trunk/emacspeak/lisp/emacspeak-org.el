@@ -156,7 +156,7 @@
 ;;{{{ org-goto fixup:
 (declaim (special org-goto-map))
 (define-key org-goto-map "\C-e" 'emacspeak-prefix-command)
-(define-key org-goto-map "C-h" 'help-command)
+(define-key org-goto-map "\C-h" 'help-command)
 
 ;;}}}
 (provide 'emacspeak-org)
