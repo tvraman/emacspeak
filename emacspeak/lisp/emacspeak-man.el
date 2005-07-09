@@ -75,6 +75,7 @@ Also provide an auditory icon"
           ("*Subsections*" "^   \\([A-Z].*\\)" 1)))
   (voice-lock-mode 1)
   (dtk-set-punctuations 'all)
+  (emacspeak-pronounce-refresh-pronunciations)
   (emacspeak-auditory-icon 'help))
 
 (defadvice   Man-goto-section  (after emacspeak pre act )
