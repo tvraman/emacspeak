@@ -664,6 +664,31 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
        'emacspeak-speak-line)))))
 
 ;;}}}
+;;{{{  koders
+ 
+
+(emacspeak-websearch-set-searcher 'koders
+                                  'emacspeak-websearch-koders-search)
+(emacspeak-websearch-set-key ?k 'koders)
+
+(defvar emacspeak-websearch-koders-uri 
+  "http://www.koders.com/?_%3Abtn=Search&_%3Ala=*&_%3Ali=*&s="
+  "URI for simple Koders search")
+
+(defun emacspeak-websearch-koders-search (query)
+  "Perform a koders.com  search"
+  (interactive
+   (list (emacspeak-websearch-read-query "Koders Query: ")))
+  (declare (special emacspeak-websearch-koders-uri))
+  (browse-url 
+   (concat emacspeak-websearch-koders-uri
+           (webjump-url-encode query)))
+  (emacspeak-websearch-post-process
+   "Results"
+   'emacspeak-speak-line))
+
+
+;;}}}
 ;;{{{ Lookup company news at Yahoo 
 
 (emacspeak-websearch-set-searcher 'company-news
@@ -927,9 +952,27 @@ Optional second arg as-html processes the results as HTML rather than data."
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
+(defvar emacspeak-websearch-swik-search-uri 
+  "http://www.swik.net/project/"
+  "URI for locating project communities via swik.")
+
+
+(defun emacspeak-websearch-swik-search (query)
+  "Search swik software community site."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query
+     "SWIK Query:")))
+  (declare (special emacspeak-websearch-swik-search-uri))
+    (browse-url 
+     (concat emacspeak-websearch-swik-search-uri
+             (webjump-url-encode query)))
+  (emacspeak-websearch-post-process
+   query
+   'emacspeak-speak-line))
 
 (defvar emacspeak-websearch-software-sites
-  "f FreshMeat p Perl s SourceForge t TEX "
+  "f FreshMeat p Perl s SourceForge t TEX cap S SWIK"
   "Sites searched for open source software. ")
 
 ;;; top level dispatcher for searching source locations 
@@ -944,6 +987,7 @@ Optional second arg as-html processes the results as HTML rather than data."
       (?p (call-interactively 'emacspeak-websearch-cpan-search))
       (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
       (?t (call-interactively 'emacspeak-websearch-ctan-search))
+(?S (call-interactively 'emacspeak-websearch-swik-search))
       (otherwise (message emacspeak-websearch-software-sites )))))
 
 ;;}}}
@@ -1784,4 +1828,4 @@ Optional interactive prefix arg results in prompting for a search term."
 
 ;;}}}
 
-emacspeak-websearch-google-number-of-results
+
