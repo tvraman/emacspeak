@@ -265,6 +265,12 @@ This is also available through the
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="alsaplayer">
+      Play MP3 and OGG streams using ALSA.</application>
+    </application>
+<application name="madplay">
+      Play MP3 and OGG streams using Madplay.</application>
+    </application>
     <application name="mplayer">
       Play Windows media  and mp3  streams. Includes
       presets  for single click access to
