@@ -334,6 +334,20 @@ This is also available through the
     <application name="bookmark">
       Create bookmarks that persist across Emacs sessions.
     </application>
+<application name="org">
+  The <code>org.el</code> package is available in new versions of
+  Emacs as <code>text/org.el</code>.
+It is built on top of <code>outline mode</code> and is a useful
+way to keep organized notes.</application>
+<application name="remember">
+Package <code>remember.el</code> 
+in conjunction with <code>org mode</code> for keeping notes is a
+powerful way to remember related items of information. As an
+example, I now use the functionality provided by package
+<code>remember</code> in conjunction with <code>org mode</code>
+instead of maintaining a <em>Web HotList</em>; the
+<code>org+remember</code> solution captures a lot more context
+and keeps things far better organized.</application>
     <application name="outline">
       Context-sensitive outline support for browsing documents.
     </application>

@@ -12,6 +12,7 @@ die "Usage: $0 -c channel -d directory  -l duration -o output\n"
 chdir($options{d});
 my $wav="$$.wav";
 $options{o} .=".mp3" unless ($options{o} =~ m/\.mp$/);
+$ENV{TERM}='dumb';
 qx(vsound -t -d -f $wav trplayer -t $options{l} $options{c});
 qx(lame --quiet $wav $options{o});
 unlink($wav);
