@@ -1124,6 +1124,28 @@ completion. "
                (format "(@class=\"%s\")" c))
            classes
            " or "))
+    (emacspeak-w3-xslt-junk
+     (format "//*[%s]" filter)
+     prompt-url
+     (or (interactive-p) speak))))
+
+(defun emacspeak-w3-junk-by-class-list(classes   &optional prompt-url speak)
+  "Junk elements having class specified in list `classes' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provides list of class values as
+completion. "
+  (interactive
+   (list
+    (emacspeak-w3-css-get-class-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(@class=\"%s\")" c))
+           classes
+           " or "))
     (emacspeak-w3-xslt-filter
      (format "//*[%s]" filter)
      prompt-url

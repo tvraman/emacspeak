@@ -645,7 +645,10 @@ from English to German.")
  nil
  #'(lambda nil
      (emacspeak-speak-rest-of-buffer))
- "Retrieve and speak Google News Overview.")
+ "Retrieve and speak Google News Overview."
+ #'(lambda (url)
+(emacspeak-w3-without-xsl
+ (browse-url url))))
 
 (emacspeak-url-template-define
  "Google Headline News"
