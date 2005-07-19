@@ -492,6 +492,28 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
    'speak))
 
 ;;}}}
+;;{{{ BlinkX
+
+(emacspeak-websearch-set-searcher 'blinkx
+                                  'emacspeak-websearch-blinkx-search)
+
+(emacspeak-websearch-set-key ?B 'blinkx)
+
+(defvar emacspeak-websearch-blinkx-uri
+  "http://emea-store.blinkx.com/redirectors/SmartFeed.php?max=10&channel=reuters+revs+fox+webvideo+theonenetwork+verdictoncars+londontv+totalvid+inthebox+transmission+ifilms2+cspan+cspan2+bbcxml+bloomberg+cnn+itv+msnbc+forbes+podcast&siteId=3&oId=2100-1032-5793745&ontId=1023&lop=nl.ex&q="
+  "URI to search  BlinkX for broadcasts.")
+
+(defun emacspeak-websearch-blinkx-search (query)
+  "BlinkX RSS Generator."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Search Online Broadcasts for: ")))
+  (declare (special emacspeak-websearch-blinkx-uri))
+  (emacspeak-rss-display
+   (concat  emacspeak-websearch-blinkx-uri
+            (webjump-url-encode query))))
+
+;;}}}
 ;;{{{ CNN
 
 ;; (emacspeak-websearch-set-searcher 'cnn
@@ -686,7 +708,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (emacspeak-websearch-post-process
    "Results"
    'emacspeak-speak-line))
-
 
 ;;}}}
 ;;{{{ Lookup company news at Yahoo 
@@ -955,7 +976,6 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar emacspeak-websearch-swik-search-uri 
   "http://www.swik.net/project/"
   "URI for locating project communities via swik.")
-
 
 (defun emacspeak-websearch-swik-search (query)
   "Search swik software community site."
@@ -1827,5 +1847,4 @@ Optional interactive prefix arg results in prompting for a search term."
 ;;; end:
 
 ;;}}}
-
 
