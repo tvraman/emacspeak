@@ -2833,6 +2833,19 @@ RIVO is implemented by rivo.pl ---
 	(lm-commentary filename))))))
 
 ;;}}}
+;;{{{ unescape URIs
+
+;;;###AUTOLOAD
+(defun emacspeak-wizards-unescape-uri (uri)
+  "UnEscape URI using perl URI::Escape."
+  "UnEscape URI using perl URI::Escape."
+(interactive "sURL:")
+(shell-command 
+(format 
+"perl -MURI::Escape -e 'print uri_unescape(\"%s\"),\"\\n\";'"
+uri)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
