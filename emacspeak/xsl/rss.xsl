@@ -88,9 +88,7 @@ View an RSS feed as clean HTML
   </xsl:template>
 <xsl:template match="enclosure">
 <xsl:element name="a">
-        <xsl:attribute name="href">
-          <xsl:value-of select="@href"/>
-        </xsl:attribute>
+        <xsl:attribute name="href"> <xsl:value-of select="@href"/> </xsl:attribute>
         Enclosure: Type <xsl:value-of select="@type"/>
 Lenght: <xsl:value-of select="@length"/>
       </xsl:element>
