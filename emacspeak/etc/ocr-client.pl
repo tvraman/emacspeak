@@ -14,7 +14,7 @@ my $input = "/tmp/$$-$name.tiff";
 my $output = "/tmp/ocr-output-$$.txt";
 $host ='localhost' unless defined ($host);
 if ( $host =~ m/localhost/) {
-  qx($OCR -out_text_name $output $image);
+  qx($OCR -out_text_name $output $image 2>/dev/null);
   open (OUT, "cat -s $output |");
   while ( <OUT>) {
     print;
