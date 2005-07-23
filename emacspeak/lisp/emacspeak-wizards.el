@@ -2836,14 +2836,12 @@ RIVO is implemented by rivo.pl ---
 ;;{{{ unescape URIs
 
 ;;;###AUTOLOAD
-(defun emacspeak-wizards-unescape-uri (uri)
-  "UnEscape URI using perl URI::Escape."
-  "UnEscape URI using perl URI::Escape."
+(defun emacspeak-wizards-unhex-uri (uri)
+  "UnEscape URI"
 (interactive "sURL:")
-(shell-command 
-(format 
-"perl -MURI::Escape -e 'print uri_unescape(\"%s\"),\"\\n\";'"
-uri)))
+(message (url-unhex-string uri)))
+
+
 
 ;;}}}
 (provide 'emacspeak-wizards)
