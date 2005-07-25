@@ -5,7 +5,7 @@
 @settitle Emacspeak User's Manual --2nd Edition.
 @dircategory Accessibility
 @dircategory Emacs
-     @direntry
+@direntry
  * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 @end direntry
 
