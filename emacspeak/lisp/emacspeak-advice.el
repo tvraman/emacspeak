@@ -1578,12 +1578,16 @@ in completion buffers"
   (when (interactive-p)
     (message "Displayed mode help in other window")
     (emacspeak-auditory-icon 'help)))
-
-(defadvice describe-bindings (after emacspeak pre act comp)
+(loop for f in
+'(describe-bindings 
+describe-prefix-bindings)
+do
+(eval 
+`(defadvice ,f (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (message "Displayed key bindings  in other window")
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-auditory-icon 'help)))))
 
 (defadvice indent-for-tab-command (after emacspeak pre act comp)
   "Produce auditory feedback."
