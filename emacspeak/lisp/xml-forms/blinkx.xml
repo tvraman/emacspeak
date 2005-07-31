@@ -1,22 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <base href="http://www.blinkx.tv/SmartFeedReaders.php"/>
     <meta name="generator" content="HTML Tidy, see www.w3.org" />
-    <title></title>
+    <title>Locate Online Broadcast Feeds Using BlinkX</title>
   </head>
 
   <body>
+    <h1>Locate Online Broadcasts Using BlinkX</h1>
     <form name="foo" method="post"
-    action="SmartFeedReaders.php#result">
-      <p>Alternatively, you can follow these five easy steps:</p>
+          action="SmartFeedReaders.php#result">
+      
 
       <p>1. First, tell us what you are interested in :<br />
       <input name="q" type="text" size="32" value="" /> (3 or more
       words is best)</p>
 
       <p>2. Now say how many results you want at a time:<br />
-      <input name="max" type="text" size="2" max="3" value="10" />
+      <input name="max" type="text" size="2" max="3" value="50" />
       (max 50)</p>
 
       <p>3. Which channels do you want results from:</p>
@@ -105,7 +107,7 @@
 
       <p>4. Do you want the filter applied?<br />
       <select name="filter">
-        <option selected="selected">
+        <option >
           filtered
         </option>
 
@@ -117,7 +119,7 @@
       <p>5. And now just press the SmartFeed button to create your
       feed in the box below.<br />
       <input name="enter" type="submit"
-      value="Give me my feed!" /></p>
+             value="Give me my feed!" /></p>
     </form>
   </body>
 </html>
