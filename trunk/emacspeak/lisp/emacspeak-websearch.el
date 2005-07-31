@@ -500,7 +500,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 (emacspeak-websearch-set-key ?B 'blinkx)
 
 (defvar emacspeak-websearch-blinkx-uri
-  "http://emea-store.blinkx.com/redirectors/SmartFeed.php?max=10&channel=reuters+revs+fox+webvideo+theonenetwork+verdictoncars+londontv+totalvid+inthebox+transmission+ifilms2+cspan+cspan2+bbcxml+bloomberg+cnn+itv+msnbc+forbes+podcast&siteId=3&oId=2100-1032-5793745&ontId=1023&lop=nl.ex&q="
+  "http://emea-store.blinkx.com/redirectors/SmartFeed.php?max=50&channel=reuters+revs+fox+webvideo+theonenetwork+verdictoncars+londontv+totalvid+inthebox+transmission+ifilms2+cspan+cspan2+bbcxml+bloomberg+cnn+itv+msnbc+forbes+podcast&siteId=3&oId=2100-1032-5793745&ontId=1023&lop=nl.ex&q="
   "URI to search  BlinkX for broadcasts.")
 
 (defun emacspeak-websearch-blinkx-search (query)
