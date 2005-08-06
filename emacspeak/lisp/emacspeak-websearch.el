@@ -288,8 +288,10 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     (emacspeak-websearch-read-query
      (format "Find what near  %s: "
              emacspeak-websearch-emapspeak-my-location))))
-  (declare (special
-            emacspeak-websearch-emapspeak-my-location))
+  (declare (special emacspeak-websearch-emapspeak-my-location))
+  (unless emacspeak-websearch-emapspeak-my-location
+    (setq emacspeak-websearch-emapspeak-my-location
+          (read-from-minibuffer "Near Location: ")))
   (let ((uri
          (format emacspeak-websearch-google-maps-uri
                  (webjump-url-encode
