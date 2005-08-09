@@ -73,11 +73,11 @@
 
 ;;;###autoload
 (defun emacspeak-rss-display (rss-url &optional speak)
-  "Retrieve and display RSS news feed."
+  "Retrieve and display RSS URL."
   (interactive
    (list
     (car
-     (browse-url-interactive-arg "RSS Feed: "))))
+     (browse-url-interactive-arg "RSS URL: "))))
   (declare (special emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
