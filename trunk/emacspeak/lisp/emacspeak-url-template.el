@@ -66,7 +66,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -647,8 +647,8 @@ from English to German.")
      (emacspeak-speak-rest-of-buffer))
  "Retrieve and speak Google News Overview."
  #'(lambda (url)
-(emacspeak-w3-without-xsl
- (browse-url url))))
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
 
 (emacspeak-url-template-define
  "Google Headline News"
@@ -673,6 +673,25 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
+
+(emacspeak-url-template-define
+ "Google News Search RSS"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&ie=ISO-8859-1&output=rss"
+ (list "Search news for: ")
+ nil
+ "Search Google news."
+ #'(lambda (url)
+     (emacspeak-rss-display url 'speak)))
+
+(emacspeak-url-template-define
+ "Google Feeds"
+ "http://news.google.com/intl/en_us/news_feed_terms.html"
+ nil
+ nil
+ "List  Google news Feeds."
+ #'(lambda (url)
+     (emacspeak-w3-extract-table-by-match "Sports"
+                                          url 'speak)))
 
 ;;}}}
 ;;{{{  cnet news 
@@ -725,12 +744,15 @@ from English to German.")
  "Yahoo RSS Feeds"
  "http://news.yahoo.com/rss"
  nil
- nil
+ #'(lambda ()
+     (emacspeak-pronounce-add-buffer-local-dictionary-entry
+      "http://rss.news.yahoo.com/rss/" ""))
  "List Yahoo RSS Feeds."
  #'(lambda (url)
      (emacspeak-w3-xslt-filter
-      "//a[contains(@href,\"rss\")]"
+      "//a[not(contains(@href,\"url\"))and  contains(@href, \"rss\") ]"
       url 'speak)))
+
 (defun emacspeak-url-template-yahoo-news-processor (url)
   "Process and speak Yahoo news."
   (declare (special emacspeak-w3-post-process-hook))

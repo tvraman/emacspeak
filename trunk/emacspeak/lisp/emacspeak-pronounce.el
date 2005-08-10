@@ -139,9 +139,11 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
-  (puthash    string pronunciation emacspeak-pronounce-pronunciation-table)
+  (puthash    string pronunciation
+              emacspeak-pronounce-pronunciation-table)
+  (when (interactive-p)
   (message "Added  local pronunciation in buffer %s"
-           (buffer-name)))
+           (buffer-name))))
 
 ;;}}}
 ;;{{{ setting up inheritance relations
@@ -583,12 +585,10 @@ Activates pronunciation dictionaries if not already active."
   (cond
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
-         (emacspeak-pronounce-compose-pronunciation-table))
-    )
+         (emacspeak-pronounce-compose-pronunciation-table)))
    ( emacspeak-pronounce-pronunciation-table ;already on --refresh it
      (setq emacspeak-pronounce-pronunciation-table
-           (emacspeak-pronounce-compose-pronunciation-table))
-     )
+           (emacspeak-pronounce-compose-pronunciation-table)))
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
