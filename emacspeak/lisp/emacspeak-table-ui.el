@@ -107,7 +107,7 @@
   (define-key emacspeak-table-keymap "T" 'emacspeak-table-goto-top)
   (define-key emacspeak-table-keymap "B" 'emacspeak-table-goto-bottom)
   (define-key emacspeak-table-keymap "L" 'emacspeak-table-goto-left)
-  (define-key emacspeak-table-keymap "R" 'emacspeak-table-goto-right)
+  (define-key emacspeak-table-keymap "E" 'emacspeak-table-goto-right)
   )
 
 (defun emacspeak-table-mode ()
