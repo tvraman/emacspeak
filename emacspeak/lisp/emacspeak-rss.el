@@ -49,6 +49,7 @@
 (require 'browse-url)
 ;;}}}
 ;;{{{ RSS feed cache
+
 ;;;###autoload
 (defgroup emacspeak-rss nil
   "RSS Feeds for the Emacspeak desktop."
@@ -70,6 +71,11 @@
 
 ;;}}}
 ;;{{{  view feed
+(defcustom emacspeak-rss-unescape-html t
+  "Fix malformed  XML that results from sites attempting to
+unescape HTML tags."
+  :type 'boolean
+  :group 'emacspeak-rss)
 
 ;;;###autoload
 (defun emacspeak-rss-display (rss-url &optional speak)
@@ -78,6 +84,7 @@
    (list
     (car
      (browse-url-interactive-arg "RSS URL: "))))
+  (declare (special emacspeak-rss-unescape-html))
   (declare (special emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
@@ -85,7 +92,7 @@
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
-					;'unescape-charent
+					(and emacspeak-rss-unescape-html 'unescape-charent)
    ))
 
 ;;;###autoload

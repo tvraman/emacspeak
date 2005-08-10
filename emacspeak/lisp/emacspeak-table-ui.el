@@ -96,6 +96,9 @@
   (define-key emacspeak-table-keymap "a"
     'emacspeak-table-select-automatic-speaking-method)
   (define-key emacspeak-table-keymap "s" 'emacspeak-table-search)
+  (define-key emacspeak-table-keymap "C"
+  'emacspeak-table-search-column)
+(define-key emacspeak-table-keymap "R" 'emacspeak-table-search-row)
   (define-key emacspeak-table-keymap "f" 'emacspeak-table-speak-row-filtered)
   (define-key emacspeak-table-keymap "g" 'emacspeak-table-speak-column-filtered)
   (define-key emacspeak-table-keymap "h"
@@ -807,11 +810,12 @@ browsing table elements"
 ;;}}}
 ;;{{{ searching and finding:
 
-(defun emacspeak-table-search ()
+(defun emacspeak-table-search (&optional what)
   "Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current."
-  (interactive )
+the matching cell current. When called from a program, `what' can
+  be either `row' or `column'."
+  (interactive "P")
   (declare (special emacspeak-table))
   (unless (boundp 'emacspeak-table)
     (error "Cannot find table associated with this buffer"))
@@ -819,11 +823,12 @@ the matching cell current."
   (let* ((row (emacspeak-table-current-row emacspeak-table))
          (column (emacspeak-table-current-column emacspeak-table))
          (found nil)
-         (slice 
+         (slice
+          (or what 
           (case (read-char)
             (?r 'row)
             (?c 'column)
-            (otherwise (error "Can only search in either row or column"))))
+            (otherwise (error "Can only search in either row or column")))))
          (pattern (read-string
                    (format "Search in current  %s for: " slice ))))
     (cond
@@ -845,6 +850,16 @@ the matching cell current."
       (emacspeak-auditory-icon 'search-hit))
      (t (emacspeak-auditory-icon 'search-miss)))
     (funcall emacspeak-table-speak-element)))
+(defun emacspeak-table-search-row ()
+  "Search in current table row."
+  (interactive)
+  (emacspeak-table-search 'row))
+
+(defun emacspeak-table-search-column ()
+  "Search in current table column."
+  (interactive)
+  (emacspeak-table-search 'column))
+
 
 (defun emacspeak-table-search-headers ()
   "Search the table row or column headers.  Interactively prompts for
