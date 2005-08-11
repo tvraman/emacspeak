@@ -2099,7 +2099,7 @@ emacspeak-websearch-personal-portfolio."
     (emacspeak-table-find-csv-file temp-file)
     (setq emacspeak-table-speak-row-filter
           emacspeak-wizards-quote-row-filter)
-    (rename-buffer "Portfolio")
+    (rename-buffer "Portfolio" 'unique)
     (goto-char (point-min))
     (call-interactively 'emacspeak-table-next-row)
     (delete-file temp-file)))
