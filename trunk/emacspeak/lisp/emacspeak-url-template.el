@@ -80,16 +80,16 @@
   (apply 'format
          ( emacspeak-url-template-template ut)
          (mapcar
-           #'(lambda (g)
-             (let ((input nil))
-               (setq input
-                     (cond
-                      ((stringp g)
-                       (webjump-url-encode (read-from-minibuffer g)))
-                      (t (funcall g))))
-(setq emacspeak-url-template-current-ut
-      (nconc emacspeak-url-template-current-ut input))
-input))
+          #'(lambda (g)
+              (let ((input nil))
+                (setq input
+                      (cond
+                       ((stringp g)
+                        (webjump-url-encode (read-from-minibuffer g)))
+                       (t (funcall g))))
+                (nconc emacspeak-url-template-current-ut
+                       (list input))
+                input))
           (emacspeak-url-template-generators ut))))
 
 (defun emacspeak-url-template-collect-date (prompt time-format-string)
@@ -386,12 +386,10 @@ content."
  "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
  (list "BBC Channel: ")
  #'(lambda ()
-     (declare (special emacspeak-w3-url-executor
-                       emacspeak-url-template-current-ut))
+     (declare (special emacspeak-w3-url-executor))
      (setq emacspeak-w3-url-executor
            'emacspeak-url-template-bbc-channel-player))
- "Display BBC Channel on demand."
- )
+ "Display BBC Channel on demand.")
 
 ;;}}}
 ;;{{{ bbc Genres 
