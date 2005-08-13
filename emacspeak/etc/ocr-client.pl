@@ -6,6 +6,7 @@ use strict;
 use File::Basename;
 
 my $OCR = 'ocrxtr';
+#my $OCR = 'xtrclilite';
 my $image =shift;
 die "No image specified" unless defined ($image);
 my $host =shift;

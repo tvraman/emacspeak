@@ -76,15 +76,20 @@
 
 (defun emacspeak-url-template-url (ut)
   "Instantiate URL identified by URL template."
+  (declare (special emacspeak-url-template-current-ut))
   (apply 'format
          ( emacspeak-url-template-template ut)
          (mapcar
-          (function
-           (lambda (g)
-             (cond
-              ((stringp g)
-               (webjump-url-encode (read-from-minibuffer g)))
-              (t (funcall g)))))
+           #'(lambda (g)
+             (let ((input nil))
+               (setq input
+                     (cond
+                      ((stringp g)
+                       (webjump-url-encode (read-from-minibuffer g)))
+                      (t (funcall g))))
+(setq emacspeak-url-template-current-ut
+      (nconc emacspeak-url-template-current-ut input))
+input))
           (emacspeak-url-template-generators ut))))
 
 (defun emacspeak-url-template-collect-date (prompt time-format-string)
@@ -147,8 +152,7 @@ post-action     Function called to apply post actions.
 fetcher         Unless specified, browse-url retrieves URL.
                 If specified, fetcher is a function of one arg
                 that is called with the URI to retrieve.
-documentation   Documents this template resource.
-"
+documentation   Documents this template resource. "
   (declare (special emacspeak-url-template-table
                     emacspeak-url-template-name-alist))
   (unless (emacspeak-url-template-get  name)
@@ -382,7 +386,8 @@ content."
  "http://www.bbc.co.uk/radio/aod/networks/%s/audiolist.shtml"
  (list "BBC Channel: ")
  #'(lambda ()
-     (declare (special emacspeak-w3-url-executor))
+     (declare (special emacspeak-w3-url-executor
+                       emacspeak-url-template-current-ut))
      (setq emacspeak-w3-url-executor
            'emacspeak-url-template-bbc-channel-player))
  "Display BBC Channel on demand."
@@ -1659,8 +1664,15 @@ Meerkat realy needs an xml-rpc method for getting this.")
 		   (eq browse-url-browser-function 'w3-fetch)
 		   (eq browse-url-browser-function 'browse-url-w3)))
       (add-hook 'emacspeak-w3-post-process-hook
-		(emacspeak-url-template-post-action ut)))
-    (kill-new url)
+		(emacspeak-url-template-post-action ut))
+      (add-hook 'emacspeak-w3-post-process-hook
+		#'(lambda ()
+                    (declare (special
+                              emacspeak-url-template-current-ut))
+                    (rename-buffer
+                     (mapconcat #'identity emacspeak-url-template-current-ut ": ")
+                     'unique))))
+(kill-new url)
     (funcall fetcher   url)))
 
 (defsubst emacspeak-url-template-help-internal (name)
@@ -1678,6 +1690,11 @@ Meerkat realy needs an xml-rpc method for getting this.")
     (print-help-return-message))
   (emacspeak-speak-help)
   (emacspeak-auditory-icon 'help))
+
+(defvar emacspeak-url-template-current-ut nil
+  "Records name and args of URL template we're executing.")
+
+
 ;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)
   "Fetch a pre-defined resource.
@@ -1687,6 +1704,7 @@ before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (declare (special emacspeak-url-template-name-alist
+                    emacspeak-url-template-current-ut
 		    emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
@@ -1697,7 +1715,8 @@ Optional interactive prefix arg displays documentation for specified resource."
                                 'must-match))
     (cond
      (documentation (emacspeak-url-template-help-internal name))
-     (t 
+     (t
+      (setq emacspeak-url-template-current-ut (list name))
       (emacspeak-url-template-open
        (emacspeak-url-template-get
         name))
