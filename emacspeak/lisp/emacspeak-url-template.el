@@ -678,7 +678,7 @@ from English to German.")
       (browse-url url))))
 
 (emacspeak-url-template-define
- "Google News Search RSS"
+ "Google RSS News"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&ie=ISO-8859-1&output=rss"
  (list "Search news for: ")
  nil
