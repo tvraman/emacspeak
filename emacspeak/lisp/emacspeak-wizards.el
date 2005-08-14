@@ -1727,6 +1727,17 @@ Signals beginning  of buffer."
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
+;;{{{ ansi term 
+(defun emacspeak-wizards-terminal (program)
+  "Launch terminal and rename buffer appropriately."
+  (interactive (list (read-from-minibuffer "Run program: ")))
+  (ansi-term program
+             (first (split-string program  )))
+  (delete-other-windows)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
+;;}}}
 ;;{{{ table wizard
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
