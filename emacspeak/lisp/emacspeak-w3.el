@@ -286,7 +286,8 @@ the table structure extraction code in W3."
                                                 'html-stack ))
         (setq current (emacspeak-w3-html-stack)))
       (setq end (point))
-      (emacspeak-speak-region start end)))
+      (emacspeak-speak-region start end)
+      (emacspeak-auditory-icon 'select-object)))
 
 
 (defun emacspeak-w3-next-doc-element (&optional count)
