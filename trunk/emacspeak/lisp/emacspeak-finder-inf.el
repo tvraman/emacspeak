@@ -314,6 +314,9 @@
     ("emacspeak-oo-browser.el"
         "Speech enable OO Browser -- For Browsing large OO Systems"
         (emacspeak  speech access  browsing source code.))
+    ("emacspeak-org.el"
+        "Speech-enable org "
+        (emacspeak  org ))
     ("emacspeak-outline.el"
         "Speech enable Outline --   Browsing  Structured Documents"
         (emacspeak  audio interface to emacs outlines))

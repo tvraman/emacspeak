@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 681 commands.
+This chapter documents a total of 690 commands.
 
 @menu
 * cd-tool::                     
@@ -26,6 +26,7 @@ This chapter documents a total of 681 commands.
 * emacspeak-dismal::            
 * emacspeak-ecb::               
 * emacspeak-ediff::             
+* emacspeak-emms::              
 * emacspeak-enriched::          
 * emacspeak-entertain::         
 * emacspeak-eperiodic::         
@@ -942,6 +943,24 @@ for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference ()
 Speak the current difference
+@end deffn
+
+@node emacspeak-emms
+@section emacspeak-emms
+
+Commentary:
+Speech-enables EMMS --- the Emacs equivalent of XMMS
+See
+http://savannah.gnu.org/project/emms
+EMMS is under active development,
+to get the current CVS version, use Emacspeak command
+M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+Automatically generated documentation
+for commands defined in module  emacspeak-emms.
+
+@deffn {Interactive Command} emacspeak-emms-speak-current-track ()
+Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -2388,7 +2407,7 @@ Browse specified RSS feed.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-rss-display (RSS-URL &optional SPEAK)
-Retrieve and display RSS news feed.
+Retrieve and display RSS URL.
 @end deffn
 
 @node emacspeak-solitaire
@@ -2821,10 +2840,11 @@ Negative prefix arg speaks from start of buffer to point.
 Speak the minor mode-information.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-mode-line ()
+@deffn {Interactive Command} emacspeak-speak-mode-line (&optional BUFFER-INFO)
 @kbd{ control e m }
 
 Speak the mode-line.
+Interactive prefix arg speaks buffer info.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-next-field ()
@@ -3308,16 +3328,25 @@ Move to the previous column  if possible
 Move to the previous row if possible
 @end deffn
 
-@deffn {Interactive Command} emacspeak-table-search ()
+@deffn {Interactive Command} emacspeak-table-search (&optional WHAT)
 Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current.
+the matching cell current. When called from a program, `what' can
+  be either `row' or `column'.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-table-search-column ()
+Search in current table column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-search-headers ()
 Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-table-search-row ()
+Search in current table row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-select-automatic-speaking-method ()
@@ -3832,6 +3861,10 @@ Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-next-parsed-item ()
+Move to and speak next parsed item.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-preview-this-buffer ()
 Preview this buffer.
 @end deffn
@@ -4001,6 +4034,10 @@ Search BBC archives.
 Search Computer Science Bibliographies.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-websearch-blinkx-search (QUERY)
+BlinkX RSS Generator.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-britannica-search (QUERY)
 Search Encyclopedia Britannica.
 @end deffn
@@ -4105,6 +4142,10 @@ Perform an Gutenberg search
 Displays key mapping used by Emacspeak Websearch.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-websearch-koders-search (QUERY)
+Perform a koders.com  search
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-map-directions-search (QUERY &optional MAP)
 Get driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
@@ -4168,6 +4209,10 @@ Search SourceForge, Freshmeat and other sites.
 
 @deffn {Interactive Command} emacspeak-websearch-sourceforge-search (QUERY)
 Search SourceForge Site. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-swik-search (QUERY)
+Search swik software community site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-teoma (QUERY)
@@ -4697,7 +4742,7 @@ Filter Google results after performing search to show just the
 hits.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-how-many-matches (PREFIX)
+@deffn {Interactive Command} emacspeak-wizards-how-many-matches (START END &optional PREFIX)
 If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
@@ -4805,6 +4850,10 @@ for `word' and displays hits in a compilation buffer.
 Squeeze multiple blank lines in current buffer.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-terminal (PROGRAM)
+Launch terminal and rename buffer appropriately.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer ()
 Toggle pronunciation of mm-dd-yyyy dates.
 @end deffn
@@ -4816,6 +4865,10 @@ Show display status on thinkpads using tpctl.
 @deffn {Interactive Command} emacspeak-wizards-tramp-open-location (NAME)
 Open specified tramp location.
 Location is specified by name.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-unhex-uri (URI)
+UnEscape URI
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-units ()
@@ -4944,7 +4997,7 @@ during initialization.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 90 URL Templates.
+This section documents a total of 93 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5116,6 +5169,10 @@ Display flight arrival and departure information.
 
 Play specified edition of Geek  Linux DailyShow
 
+@kbd{Google Feeds}
+
+List  Google news Feeds.
+
 @kbd{Google Glossary}
 
 Google Glossary lookup.
@@ -5149,6 +5206,14 @@ Here are some examples:
 <what> near <location address>
 
 @kbd{Google News Search}
+
+Search Google news.
+
+@kbd{Google Print}
+
+Google Print Search
+
+@kbd{Google RSS News}
 
 Search Google news.
 
