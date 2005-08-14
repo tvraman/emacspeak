@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 394 user customizable
+This chapter documents a total of 404 user customizable
   options.
 
 @menu
@@ -65,6 +65,7 @@ This chapter documents a total of 394 user customizable
 * emacspeak-url-template Options::  
 * emacspeak-vm Options::        
 * emacspeak-w3 Options::        
+* emacspeak-w3m Options::       
 * emacspeak-websearch Options::  
 * emacspeak-widget Options::    
 * emacspeak-wizards Options::   
@@ -2035,6 +2036,11 @@ These options are customizable via Emacs' Custom interface.
 Table of RSS feeds.
 @end defvar
 
+@defvar {User Option} emacspeak-rss-unescape-html
+Fix malformed  XML that results from sites attempting to
+unescape HTML tags.
+@end defvar
+
 @node emacspeak-sigbegone Options
 @section emacspeak-sigbegone Options
 
@@ -2501,6 +2507,53 @@ HTML.
 @defvar {User Option} emacspeak-w3-xsl-transform
 Specifies transform to use before displaying a page.
 Nil means no transform is used. 
+@end defvar
+
+@node emacspeak-w3m Options
+@section emacspeak-w3m Options
+
+Commentary:
+
+
+
+Automatically generated documentation
+for options defined in module  emacspeak-w3m.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-w3m-bold-personality
+w3m-bold-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-button-personality
+w3m-form-button-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-personality
+w3m-form-button-pressed-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-personality
+Personality for forms.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-personality
+w3m-header-line-location-title-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-personality
+Image personality.
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-personality
+w3m-tab-selected-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-personality
+w3m-tab-unselected-face
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-personality
+w3m-underline-face
 @end defvar
 
 @node emacspeak-websearch Options

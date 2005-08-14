@@ -712,6 +712,10 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-emms-speak-current-trackSpeak current track.
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-facesMap base fonts to voices.
 Useful in voicifying rich text.
 
@@ -1845,7 +1849,7 @@ Browse specified RSS feed.
 
 ------------------------------------------------------------
 
-** emacspeak-rss-displayRetrieve and display RSS news feed.
+** emacspeak-rss-displayRetrieve and display RSS URL.
 
 ------------------------------------------------------------
 
@@ -2237,6 +2241,7 @@ Speak the minor mode-information.
 ** emacspeak-speak-mode-line	Key Sequence: control e m 
 
 Speak the mode-line.
+Interactive prefix arg speaks buffer info.
 
 ------------------------------------------------------------
 
@@ -2701,13 +2706,22 @@ markup to use.
 
 ** emacspeak-table-searchSearch the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current.
+the matching cell current. When called from a program, `what' can
+  be either `row' or `column'.
+
+------------------------------------------------------------
+
+** emacspeak-table-search-columnSearch in current table column.
 
 ------------------------------------------------------------
 
 ** emacspeak-table-search-headersSearch the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current.
+
+------------------------------------------------------------
+
+** emacspeak-table-search-rowSearch in current table row.
 
 ------------------------------------------------------------
 
@@ -3144,6 +3158,10 @@ specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-next-parsed-itemMove to and speak next parsed item.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-preview-this-bufferPreview this buffer.
 
 ------------------------------------------------------------
@@ -3273,6 +3291,10 @@ Optional arg COMPLEMENT inverts the filter.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-blinkx-searchBlinkX RSS Generator.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-britannica-searchSearch Encyclopedia Britannica.
 
 ------------------------------------------------------------
@@ -3377,6 +3399,10 @@ http://www.google.com/options/specialsearches.html
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-koders-searchPerform a koders.com  search
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-map-directions-searchGet driving directions from Yahoo.
 With optional interactive prefix arg MAP shows the location map instead.
 
@@ -3439,6 +3465,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-sourceforge-searchSearch SourceForge Site. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-swik-searchSearch swik software community site.
 
 ------------------------------------------------------------
 
@@ -4065,6 +4095,10 @@ for `word' and displays hits in a compilation buffer.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-terminalLaunch terminal and rename buffer appropriately.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncerToggle pronunciation of mm-dd-yyyy dates.
 
 ------------------------------------------------------------
@@ -4075,6 +4109,10 @@ for `word' and displays hits in a compilation buffer.
 
 ** emacspeak-wizards-tramp-open-locationOpen specified tramp location.
 Location is specified by name.
+
+------------------------------------------------------------
+
+** emacspeak-wizards-unhex-uriUnEscape URI
 
 ------------------------------------------------------------
 
