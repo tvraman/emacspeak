@@ -134,6 +134,8 @@
 
      (define-key w3-mode-map "P"
        'emacspeak-speak-previous-personality-chunk)
+     (define-key w3-mode-map "i"
+       'emacspeak-w3-next-parsed-item)
      (define-key w3-mode-map "N"
        'emacspeak-speak-next-personality-chunk)
      (define-key w3-mode-map "\M-r" 'emacspeak-w3-realaudio-play-url-at-point)
@@ -266,6 +268,26 @@ the table structure extraction code in W3."
 (defsubst emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
   (first (first stack )))
+
+
+(defun emacspeak-w3-next-parsed-item ()
+  "Move to and speak next parsed item."
+  (interactive)
+  (let ((current (emacspeak-w3-html-stack))
+        (start (point))
+        (end nil))
+    (unless current ;move to parsed item if needed
+      (goto-char
+       (next-single-property-change (point)
+                                    'html-stack))
+      (setq current (emacspeak-w3-html-stack)))
+      (while current
+        (goto-char (next-single-property-change (point)
+                                                'html-stack ))
+        (setq current (emacspeak-w3-html-stack)))
+      (setq end (point))
+      (emacspeak-speak-region start end)))
+
 
 (defun emacspeak-w3-next-doc-element (&optional count)
   "Move forward  to the next document element.
