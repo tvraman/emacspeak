@@ -1728,6 +1728,7 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ ansi term 
+;;;###AUTOLOAD
 (defun emacspeak-wizards-terminal (program)
   "Launch terminal and rename buffer appropriately."
   (interactive (list (read-from-minibuffer "Run program: ")))
