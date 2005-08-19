@@ -86,12 +86,12 @@ ctl.!default {
     card 0
 }
 
-pcm.mixin {
+pcm.mixin { 
     type dsnoop
-    ipc_key 5978293 # must be unique for all dmix plugins!!!!
+    ipc_key 2048 # must be unique for all dmix plugins!!!!
     ipc_key_add_uid yes
     slave {
-        pcm "hw:0,0"
+        pcm "hw:0,1"
         period_size 1024
         buffer_size 4096
         periods 0
