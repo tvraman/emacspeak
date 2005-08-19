@@ -1,0 +1,10 @@
+
+loadkeys /lib/kbd/keymaps/i386/qwerty/emacs2.kmap.gz
+loadkeys /lib/kbd/keymaps/i386/qwerty/emacspeak.kmap.gz 
+for t in 1 2 3 4 5 6 7 8 9; do
+    setterm -blank 1 >/dev/tty$t
+done
+aplay /usr/share/sounds/startup1.wav  
+TWEET=" -f 1000 -l 50 -n -f 2000 -l 50 "
+beep $TWEET -n $TWEET
+echo 1024 > /proc/sys/dev/rtc/max-user-freq 
