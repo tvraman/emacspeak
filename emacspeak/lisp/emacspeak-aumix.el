@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Variables
 
-(defvar emacspeak-aumix-program "aumix"
+(defvar emacspeak-aumix-program "/usr/bin/aumix"
   "Program that sets up the mixer.")
 
 (defvar emacspeak-aumix-channel-table (make-hash-table)
@@ -138,12 +138,15 @@ display."
   (interactive)
   (declare (special emacspeak-aumix-program
                     emacspeak-aumix-reset-options))
+  (when (and (file-exists-p emacspeak-aumix-program)
+                            (file-executable-p emacspeak-aumix-program))
   (shell-command
    (format "%s %s"
            emacspeak-aumix-program
            emacspeak-aumix-reset-options))
   (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
+    (emacspeak-auditory-icon 'close-object))))
+
 (eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 
