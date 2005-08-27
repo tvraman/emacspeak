@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'lisp-mnt)
+(require 'desktop)
 (require 'dired)
 (require 'derived)
 (require 'eldoc)

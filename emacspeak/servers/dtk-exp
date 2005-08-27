@@ -276,12 +276,12 @@ proc tts_reset {} {
     puts -nonewline     $tts(write)  {[:version status]}
     tts_gobble_acknowledgements
     set tts(not_stopped) 1
-    puts -nonewline     $tts(write)  {[:timeout 0]
+    puts -nonewline     $tts(write)  {[:timeout 60]
         [:pu s]
         [:phoneme arpabet speak on ]
         [:tsr off ]
         [:power interval 30 ]
-        [:power sleep 60]
+        [:power sleep 30]
         [:np]
         Restoring sanity to the Dectalk Express.
         [:sync :power speak]
