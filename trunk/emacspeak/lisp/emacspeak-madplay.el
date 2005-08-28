@@ -142,14 +142,17 @@ Resource is an  MP3 file or directory containing mp3 files.
 The player is placed in a buffer in emacspeak-madplay-mode."
   (interactive
    (list
+    (expand-file-name
     (read-file-name "MP3 Resource: "
-                    (or 
-(string-match
- (format ".*%s.*"
-emacspeak-madplay-media-directory  )default-directory)
-                        emacspeak-madplay-media-directory)
+                   (if 
+                       (string-match (format ".*%s.*"
+                                             emacspeak-madplay-media-directory
+                                             )
+                                     (expand-file-name default-directory))
+                       default-directory
+                     emacspeak-madplay-media-directory)
                     (when (eq major-mode 'dired-mode)
-		      (dired-get-filename)))))
+		      (dired-get-filename))))))
   (declare (special emacspeak-madplay-process
                     emacspeak-madplay-buffer-name
                     emacspeak-madplay-media-directory))
