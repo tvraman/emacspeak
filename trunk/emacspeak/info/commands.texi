@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 690 commands.
+This chapter documents a total of 687 commands.
 
 @menu
 * cd-tool::                     
@@ -60,7 +60,6 @@ This chapter documents a total of 690 commands.
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
-* emacspeak-rmail::             
 * emacspeak-rss::               
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
@@ -1636,17 +1635,15 @@ Speak upto start of next index entry
 Automatically generated documentation
 for commands defined in module  emacspeak-info.
 
-@deffn {Interactive Command} emacspeak-info-speak-header ()
-Speak info header line.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-info-wizard (NODE-SPEC)
+@deffn {Interactive Command} emacspeak-info-wizard ()
 @kbd{ control h TAB   <f1> TAB   <help> TAB }
 
 Read a node spec from the minibuffer and launch
 Info-goto-node.
 See documentation for command `Info-goto-node' for details on
 node-spec.
+
+(fn NODE-SPEC)
 @end deffn
 
 @node emacspeak-keymap
@@ -2378,20 +2375,6 @@ Use this once you are sure the guesses are usually correct.
 
 @deffn {Interactive Command} emacspeak-remote-ssh-to-server (LOGIN)
 Open ssh session to where we came from.
-@end deffn
-
-@node emacspeak-rmail
-@section emacspeak-rmail
-
-Automatically generated documentation
-for commands defined in module  emacspeak-rmail.
-
-@deffn {Interactive Command} emacspeak-rmail-speak-current-message-labels ()
-Speak labels of current message
-@end deffn
-
-@deffn {Interactive Command} emacspeak-rmail-summarize-current-message ()
-Summarize current message
 @end deffn
 
 @node emacspeak-rss

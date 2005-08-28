@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 404 user customizable
+This chapter documents a total of 393 user customizable
   options.
 
 @menu
@@ -39,7 +39,6 @@ This chapter documents a total of 404 user customizable
 * emacspeak-ido Options::       
 * emacspeak-imcom Options::     
 * emacspeak-imenu Options::     
-* emacspeak-info Options::      
 * emacspeak-ispell Options::    
 * emacspeak-jde Options::       
 * emacspeak-keymap Options::    
@@ -1439,60 +1438,6 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-imenu-autospeak
 Speak contents of sections automatically if set.
-@end defvar
-
-@node emacspeak-info Options
-@section emacspeak-info Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-info.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-info-header-node
-Personality used for info-header-node.
-@end defvar
-
-@defvar {User Option} emacspeak-info-header-xref
-Personality used for info-header-xref.
-@end defvar
-
-@defvar {User Option} emacspeak-info-menu-5
-Personality used for info-menu-5.
-@end defvar
-
-@defvar {User Option} emacspeak-info-menu-header
-Personality used for info-menu-header.
-@end defvar
-
-@defvar {User Option} emacspeak-info-node
-Personality used for info-node.
-@end defvar
-
-@defvar {User Option} emacspeak-info-select-node-speak-chunk
-*Specifies how much of the selected node gets spoken.
-Possible values are:
-screenfull  -- speak the displayed screen
-node -- speak the entire node.
-@end defvar
-
-@defvar {User Option} emacspeak-info-title-1-face
-Personality used for Info-title-1-face.
-@end defvar
-
-@defvar {User Option} emacspeak-info-title-2-face
-Personality used for Info-title-2-face.
-@end defvar
-
-@defvar {User Option} emacspeak-info-title-3-face
-Personality used for Info-title-3-face.
-@end defvar
-
-@defvar {User Option} emacspeak-info-title-4-face
-Personality used for Info-title-4-face.
-@end defvar
-
-@defvar {User Option} emacspeak-info-xref
-Personality used for info-xref.
 @end defvar
 
 @node emacspeak-ispell Options
