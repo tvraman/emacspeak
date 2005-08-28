@@ -1228,16 +1228,14 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-info-speak-headerSpeak info header line.
-
-------------------------------------------------------------
-
 ** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
 
 Read a node spec from the minibuffer and launch
 Info-goto-node.
 See documentation for command `Info-goto-node' for details on
 node-spec.
+
+(fn NODE-SPEC)
 
 ------------------------------------------------------------
 
@@ -1832,14 +1830,6 @@ Use this once you are sure the guesses are usually correct.
 ------------------------------------------------------------
 
 ** emacspeak-remote-ssh-to-serverOpen ssh session to where we came from.
-
-------------------------------------------------------------
-
-** emacspeak-rmail-speak-current-message-labelsSpeak labels of current message
-
-------------------------------------------------------------
-
-** emacspeak-rmail-summarize-current-messageSummarize current message
 
 ------------------------------------------------------------
 
