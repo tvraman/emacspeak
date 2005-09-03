@@ -332,7 +332,7 @@ to play a BBC Radio4 program on demand."
 
 (emacspeak-url-template-define
  "BBC Radio7 On Demand"
- "http://www.bbc.co.uk/radio/aod/shows/rpms/bbc7/%s.rpm"
+ "rtsp://rmv8.bbc.net.uk/bbc7/%s.ra"
  (list "WeekdayTime: hhmm_day")
  nil
  "Specify a week day (three letters -- lower case -- and a time spec
