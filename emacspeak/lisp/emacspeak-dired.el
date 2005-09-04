@@ -50,6 +50,7 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'desktop)
 (require 'dired)
 ;;}}}
 ;;{{{ Define personalities 
