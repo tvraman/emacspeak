@@ -44,6 +44,7 @@
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
+(require 'desktop)
 (require 'rmailsort)
 
 ;;}}}
