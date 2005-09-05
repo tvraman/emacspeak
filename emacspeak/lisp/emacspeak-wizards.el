@@ -1721,7 +1721,9 @@ Signals beginning  of buffer."
     url))
   (emacspeak-eterm-record-window   1 
                                    (cons 0 1)
-                                   (cons 79 20)
+                                   (cons 
+(- term-width 1)
+(- term-height 1))
                                    'right-stretch 'left-stretch)
   (emacspeak-eterm-set-filter-window 1)
   (term-char-mode)
