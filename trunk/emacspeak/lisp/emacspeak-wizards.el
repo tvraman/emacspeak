@@ -1707,7 +1707,8 @@ Signals beginning  of buffer."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
-  (declare (special emacspeak-wizards-lynx-program))
+  (declare (special emacspeak-wizards-lynx-program
+                    term-height term-width))
   (require 'term)
   (delete-other-windows)
   (switch-to-buffer
