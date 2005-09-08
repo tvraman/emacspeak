@@ -138,7 +138,9 @@
        'emacspeak-w3-next-parsed-item)
      (define-key w3-mode-map "N"
        'emacspeak-speak-next-personality-chunk)
-     (define-key w3-mode-map "\M-r" 'emacspeak-w3-realaudio-play-url-at-point)
+     (define-key w3-mode-map "\M-r"
+       'emacspeak-w3-realaudio-play-url-at-point)
+     (define-key w3-mode-map "A" 'emacspeak-w3-browse-atom-at-point)
      (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
      (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
      (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
@@ -1720,6 +1722,18 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
      (url
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-rss-display url 'speak))
+     (t (error "No URL under point.")))))
+;;;###autoload
+(defun emacspeak-w3-browse-atom-at-point ()
+  "Browses Atom url under point."
+  (interactive)
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in a W3 buffer."))
+  (let ((url (w3-view-this-url  'no-show)))
+    (cond
+     (url
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-atom-display url 'speak))
      (t (error "No URL under point.")))))
 
 ;;}}}
