@@ -1509,6 +1509,20 @@ emacspeak-emergency-tts-server."
   (dtk-select-server emacspeak-emergency-tts-server)
   (dtk-initialize))
 
+(defcustom emacspeak-ssh-tts-server
+  "ssh-dtk-exp"
+  "SSH TTS server to use by default."
+  :type 'string
+  :group 'emacspeak)
+
+;;;###autoload
+(defun emacspeak-ssh-tts-restart ()
+  "Restart specified ssh tts server."
+  (interactive)
+  (declare (special emacspeak-ssh-tts-server))
+  (dtk-select-server emacspeak-ssh-tts-server)
+  (dtk-initialize))
+
 ;;}}}
 ;;{{{ customization wizard
 ;;;###autoload
