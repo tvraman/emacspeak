@@ -321,7 +321,7 @@ documentation   Documents this template resource. "
 
 (emacspeak-url-template-define
  "BBC Radio4 On Demand"
- "http://www.bbc.co.uk/radio/aod/shows/rpms/radio4/%s.rpm"
+ "rtsp://rmv8.bbc.net.uk/radio4/%s.ra"
  (list "WeekdayTime: ")
  nil
  "Specify a week day (three letters -- lower case -- and a time spec
