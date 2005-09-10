@@ -1384,10 +1384,12 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
-   ((string-match "dtk-" tts-name) ;all dectalks
+   ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
-   (t (dectalk-configure-tts); will become generic-configure
+   (t (dectalk-configure-tts)     ; will become generic-configure
       ))
+  (when (string-match "^ssh" tts-name)  ;remote server
+    (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
   (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
 
