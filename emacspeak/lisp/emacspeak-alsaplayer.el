@@ -180,7 +180,12 @@ Optional second arg no-refresh is used to avoid getting status twice."
   (interactive
    (list
     (read-file-name "Media Resource: "
-                    emacspeak-alsaplayer-media-directory)))
+                    (if 
+                       (string-match (format ".*%s.*"
+                                             emacspeak-alsaplayer-media-directory)
+                                     (expand-file-name default-directory))
+                       default-directory
+                     emacspeak-alsaplayer-media-directory))))
   (emacspeak-alsaplayer-send-command
    (cond
     ((file-directory-p resource)
