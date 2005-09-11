@@ -1283,7 +1283,7 @@ plays entire program."
 ;;{{{  MLB scores
 (emacspeak-url-template-define
  "MLB Alerts"
- "http://gd2.mlb.com/components/game/year_2004/alerts.xml"
+ "http://gd2.mlb.com/components/game/mlb/year_2005/alerts.xml"
  nil
  'emacspeak-speak-buffer
  "Show MLB Scorecard."
@@ -1294,7 +1294,7 @@ plays entire program."
 
 (emacspeak-url-template-define
  "MLB Scorecard"
- "http://gd.mlb.com/components/game/%s/scoreboard.xml"
+ "http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
  (list
   #'(lambda nil
       (let ((date 
@@ -1395,7 +1395,7 @@ plays entire program."
 
 (emacspeak-url-template-define
  "Baseball scores" 
- "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/boxscore.html"
+ "http://gd.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.html"
  (list
   #'(lambda nil
       (let ((date 
