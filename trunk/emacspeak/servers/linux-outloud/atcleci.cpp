@@ -180,7 +180,7 @@ alsa_configure (void)
   snd_pcm_uframes_t xfer_align;
   unsigned int rate = DEFAULT_SPEED;
   snd_pcm_uframes_t start_threshold, stop_threshold;
-  int start_delay = 0;
+  int start_delay = 5;
   int stop_delay = 0;
   snd_pcm_hw_params_alloca (&params);
   snd_pcm_sw_params_alloca (&swparams);
