@@ -1744,6 +1744,36 @@ Signals beginning  of buffer."
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
+(defcustom emacspeak-wizards-curl-program "curl"
+"Name of curl executable."
+:type 'string
+:group 'emacspeak-wizards)
+
+(defun emacspeak-curl (url)
+  "Grab URL using Curl, and preview it with W3."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: ")))
+  (declare (special emacspeak-wizards-curl-program))
+  (let ((results (get-buffer-create " *curl-download* ")))
+    (shell-command
+     (format "curl %s 2>/dev/null" url)
+     results)
+    (switch-to-buffer results)
+    (emacspeak-w3-preview-this-buffer)
+    (kill-buffer results)))
+
+
+  (emacspeak-eterm-record-window   1 
+                                   (cons 0 1)
+                                   (cons 
+(- term-width 1)
+(- term-height 1))
+                                   'right-stretch 'left-stretch)
+  (emacspeak-eterm-set-filter-window 1)
+  (term-char-mode)
+  (emacspeak-auditory-icon 'open-object))
+
 ;;}}}
 ;;{{{ ansi term 
 ;;;###AUTOLOAD

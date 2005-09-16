@@ -146,6 +146,7 @@
      (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
      (define-key w3-mode-map "l"
        'emacspeak-w3-google-who-links-to-this-page)
+     (define-key w3-mode-map "c" 'emacspeak-w3-curl-url-under-point)
      (define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
      (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
      (define-key w3-mode-map ";"
@@ -231,7 +232,21 @@ the table structure extraction code in W3."
                            emacspeak-w3-lynx-program
                            "-dump"
                            url))
-    (set-process-sentinel process 'emacspeak-w3-lynx-done-alert)))
+    (set-process-sentinel process
+  'emacspeak-w3-lynx-done-alert)))
+;;;###autoload
+(defun emacspeak-w3-curl-url-under-point ()
+  "Display contents of URL under point using Curl and W3.  The
+document is displayed in a separate buffer. "
+  (interactive )
+  (unless (eq major-mode 'w3-mode)
+    (error
+     "This command should be called only in W3 buffers"))
+  (let ((url (or (w3-view-this-url t)
+                 (url-view-url t))))
+    (unless url
+      (error "No URL under point"))
+    (emacspeak-curl url)))
 
 ;;}}}
 ;;{{{ toggle table borders:

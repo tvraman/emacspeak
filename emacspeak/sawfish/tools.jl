@@ -46,7 +46,7 @@
 (require 'tts)
 ;;; Set this to the executable you wish to run  via command `emacs'
 (defcustom emacs-program
- "/usr/bin/emacs -i &"
+ "emacs -i &"
   "Emacs executable to run.")
 (defcustom xemacs-program
  "/usr/bin/xemacs -i &"
