@@ -1762,18 +1762,6 @@ Signals beginning  of buffer."
     (switch-to-buffer results)
     (emacspeak-w3-preview-this-buffer)
     (kill-buffer results)))
-
-
-  (emacspeak-eterm-record-window   1 
-                                   (cons 0 1)
-                                   (cons 
-(- term-width 1)
-(- term-height 1))
-                                   'right-stretch 'left-stretch)
-  (emacspeak-eterm-set-filter-window 1)
-  (term-char-mode)
-  (emacspeak-auditory-icon 'open-object))
-
 ;;}}}
 ;;{{{ ansi term 
 ;;;###AUTOLOAD
