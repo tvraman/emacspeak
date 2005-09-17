@@ -93,7 +93,8 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   "List of hooks to be run after starting up the speech server.  
 Set things like speech rate, punctuation mode etc in this
 hook."
-  :type 'hook)
+  :type 'hook
+:group 'tts)
 
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
@@ -1386,8 +1387,9 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
-   (t (dectalk-configure-tts)     ; will become generic-configure
-      ))
+   (t (dectalk-configure-tts)     ; will become
+                                  ; generic-configure)))
+))
   (when (string-match "^ssh" tts-name)  ;remote server
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
