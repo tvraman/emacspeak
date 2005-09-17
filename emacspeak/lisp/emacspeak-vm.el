@@ -161,9 +161,10 @@ Note that some badly formed mime messages  cause trouble."
             (subject (vm-subject-of message ))
             (to(or (vm-to-names-of message)
                    (vm-to-of message )))
-            (self-p (or
+            (self-p(and to
+                        (or
                      (string-match emacspeak-vm-user-full-name to)
-                     (string-match  (user-login-name) to)))
+                     (string-match  (user-login-name) to))))
             (lines (vm-line-count-of message)))
       (dtk-speak
        (format "%s %s %s   %s %s "
