@@ -77,7 +77,16 @@ Note that some badly formed mime messages  cause trouble."
 
 ;;}}}
 ;;{{{ inline helpers
-
+(defsubst emacspeak-vm-mime-decode-string (string)
+  "Decode and return mime encoded strings."
+  (let ((buffer (get-buffer-create " *vm decode mime *")))
+    (save-excursion
+      (set-buffer buffer)
+      (erase-buffer)
+      (insert string)
+      (goto-char (point-min))
+      (vm-decode-mime-encoded-words)
+      (buffer-string))))
 (defsubst emacspeak-vm-number-of (message) (aref (aref message 1) 0))
 
 ;;}}}
@@ -158,28 +167,31 @@ Note that some badly formed mime messages  cause trouble."
             (number (emacspeak-vm-number-of  message))
             (from(or (vm-su-full-name message)
                      (vm-su-from message )))
-            (subject (vm-so-sortable-subject message ))
+            (subject (vm-su-subject message ))
             (to(or (vm-su-to-names message)
                    (vm-su-to message )))
             (self-p (or
                      (string-match emacspeak-vm-user-full-name to)
                      (string-match  (user-login-name) to)))
-            (lines (vm-su-line-count message)))
-      (dtk-speak
-       (format "%s %s %s   %s %s "
-               number
-               (or from "")
-               (if subject (format "on %s" subject) "")
-               (if (and to (< (length to) 80))
-                   (format "to %s" to) "")
-               (if lines (format "%s lines" lines) "")))
+            (lines (vm-su-line-count message))
+            (summary nil))
+      (setq summary 
+            (format "%s %s %s   %s %s "
+                    number
+                    (or from "")
+                    (if subject (format "on %s" subject) "")
+                    (if (and to (< (length to) 80))
+                        (format "to %s" to) "")
+                    (if lines (format "%s lines" lines) "")))
+      (setq summary (emacspeak-vm-mime-decode-string summary))
+      (dtk-speak summary)
       (cond 
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others 
         (emacspeak-auditory-icon 'item))
-       (self-p                          ;mail to others including me
+       (self-p                       ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t			     ;got it because of a mailing list
+       (t                       ;got it because of a mailing list
         (emacspeak-auditory-icon 'select-object ))))))
 
 (defun emacspeak-vm-speak-labels ()
