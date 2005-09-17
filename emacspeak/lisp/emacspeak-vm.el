@@ -132,9 +132,9 @@ Note that some badly formed mime messages  cause trouble."
    (vm-message-pointer
     (dtk-stop)
     (let*  ((message (car vm-message-pointer ))
-            (from (vm-su-from message ))
-            (subject (vm-so-sortable-subject message ))
-            (to (vm-su-to message ))
+            (from (vm-from-of message ))
+            (subject (vm-subject-of  message ))
+            (to (vm-to-of message ))
             (header nil))
       (while (not header)
 	(setq header 
@@ -156,15 +156,15 @@ Note that some badly formed mime messages  cause trouble."
     (let*  ((dtk-stop-immediately t )
             (message (car vm-message-pointer ))
             (number (emacspeak-vm-number-of  message))
-            (from(or (vm-su-full-name message)
-                     (vm-su-from message )))
-            (subject (vm-so-sortable-subject message ))
-            (to(or (vm-su-to-names message)
-                   (vm-su-to message )))
+            (from(or (vm-full-name-of message)
+                     (vm-from-of message )))
+            (subject (vm-subject-of message ))
+            (to(or (vm-to-names-of message)
+                   (vm-to-of message )))
             (self-p (or
                      (string-match emacspeak-vm-user-full-name to)
                      (string-match  (user-login-name) to)))
-            (lines (vm-su-line-count message)))
+            (lines (vm-line-count-of message)))
       (dtk-speak
        (format "%s %s %s   %s %s "
                number
@@ -188,7 +188,7 @@ Note that some badly formed mime messages  cause trouble."
   (declare (special vm-message-pointer))
   (when vm-message-pointer
     (message "Labels: %s"
-             (vm-su-labels (car vm-message-pointer )))))
+             (vm-labels-of (car vm-message-pointer )))))
 
 (defun emacspeak-vm-mode-line ()
   "VM mode line information. "
