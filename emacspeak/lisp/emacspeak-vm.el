@@ -156,16 +156,15 @@ Note that some badly formed mime messages  cause trouble."
     (let*  ((dtk-stop-immediately t )
             (message (car vm-message-pointer ))
             (number (emacspeak-vm-number-of  message))
-            (from(or (vm-full-name-of message)
-                     (vm-from-of message )))
-            (subject (vm-subject-of message ))
-            (to(or (vm-to-names-of message)
-                   (vm-to-of message )))
-            (self-p(and to
-                        (or
+            (from(or (vm-su-full-name message)
+                     (vm-su-from message )))
+            (subject (vm-so-sortable-subject message ))
+            (to(or (vm-su-to-names message)
+                   (vm-su-to message )))
+            (self-p (or
                      (string-match emacspeak-vm-user-full-name to)
-                     (string-match  (user-login-name) to))))
-            (lines (vm-line-count-of message)))
+                     (string-match  (user-login-name) to)))
+            (lines (vm-su-line-count message)))
       (dtk-speak
        (format "%s %s %s   %s %s "
                number
