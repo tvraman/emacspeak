@@ -171,6 +171,7 @@ servers/dtk-soft \
 servers/outloud \
 servers/dsp-outloud \
 servers/tts-lib.tcl \
+servers/ssh-* \
 servers/remote-tcl \
 servers/speech-server
 ELISP = lisp/*.el \
