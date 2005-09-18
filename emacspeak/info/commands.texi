@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 687 commands.
+This chapter documents a total of 695 commands.
 
 @menu
 * cd-tool::                     
@@ -14,6 +14,7 @@ This chapter documents a total of 687 commands.
 * emacspeak-alsaplayer::        
 * emacspeak-amphetadesk::       
 * emacspeak-arc::               
+* emacspeak-atom::              
 * emacspeak-aumix::             
 * emacspeak-bs::                
 * emacspeak-buff-menu::         
@@ -60,6 +61,7 @@ This chapter documents a total of 687 commands.
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
+* emacspeak-rmail::             
 * emacspeak-rss::               
 * emacspeak-solitaire::         
 * emacspeak-sounds::            
@@ -536,6 +538,24 @@ Speak permissions of file current entry
 
 @deffn {Interactive Command} emacspeak-arc-speak-file-size ()
 Speak the size of the file on current line
+@end deffn
+
+@node emacspeak-atom
+@section emacspeak-atom
+
+Automatically generated documentation
+for commands defined in module  emacspeak-atom.
+
+@deffn {Interactive Command} emacspeak-atom-browse ()
+Browse specified ATOM feed.
+
+(fn FEED)
+@end deffn
+
+@deffn {Interactive Command} emacspeak-atom-display ()
+Retrieve and display ATOM URL.
+
+(fn ATOM-URL &optional SPEAK)
 @end deffn
 
 @node emacspeak-aumix
@@ -2377,6 +2397,20 @@ Use this once you are sure the guesses are usually correct.
 Open ssh session to where we came from.
 @end deffn
 
+@node emacspeak-rmail
+@section emacspeak-rmail
+
+Automatically generated documentation
+for commands defined in module  emacspeak-rmail.
+
+@deffn {Interactive Command} emacspeak-rmail-speak-current-message-labels ()
+Speak labels of current message
+@end deffn
+
+@deffn {Interactive Command} emacspeak-rmail-summarize-current-message ()
+Summarize current message
+@end deffn
+
 @node emacspeak-rss
 @section emacspeak-rss
 
@@ -3655,6 +3689,10 @@ special major mode that provides the various navigation
 commands via single keystrokes.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-browse-atom-at-point ()
+Browses Atom url under point.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-browse-rss-at-point ()
 Browses RSS url under point.
 @end deffn
@@ -3704,6 +3742,11 @@ Count nested tables in HTML.
 
 @deffn {Interactive Command} emacspeak-w3-count-tables (PROMPT-URL)
 Count  tables in HTML.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-curl-url-under-point ()
+Display contents of URL under point using Curl and W3.  The
+document is displayed in a separate buffer. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-customize-base-uri-pronunciation ()
@@ -4323,6 +4366,10 @@ Prompts for the new location and preserves modification time
   existing file being overwritten.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-curl (URL)
+Grab URL using Curl, and preview it with W3.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-customize ()
 @kbd{ control e  cap C  }
 
@@ -4584,6 +4631,10 @@ Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
 meaning of `previous'.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-ssh-tts-restart ()
+Restart specified ssh tts server.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudo (COMMAND)
