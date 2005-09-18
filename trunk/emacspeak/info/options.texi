@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 393 user customizable
+This chapter documents a total of 395 user customizable
   options.
 
 @menu
@@ -2610,6 +2610,14 @@ This is just a text file, and we use grep to search it.
 @defvar {User Option} emacspeak-speak-telephone-directory-command
 Command used to look up names in the telephone
 directory.
+@end defvar
+
+@defvar {User Option} emacspeak-ssh-tts-server
+SSH TTS server to use by default.
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-curl-program
+Name of curl executable.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-dvi2txt-program
