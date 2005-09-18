@@ -77,16 +77,7 @@ Note that some badly formed mime messages  cause trouble."
 
 ;;}}}
 ;;{{{ inline helpers
-(defsubst emacspeak-vm-mime-decode-string (string)
-  "Decode and return mime encoded strings."
-  (let ((buffer (get-buffer-create " *vm decode mime *")))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (insert string)
-      (goto-char (point-min))
-      (vm-decode-mime-encoded-words)
-      (buffer-string))))
+
 (defsubst emacspeak-vm-number-of (message) (aref (aref message 1) 0))
 
 ;;}}}
@@ -175,16 +166,15 @@ Note that some badly formed mime messages  cause trouble."
                      (string-match  (user-login-name) to)))
             (lines (vm-su-line-count message))
             (summary nil))
-      (setq summary 
-            (format "%s %s %s   %s %s "
-                    number
-                    (or from "")
-                    (if subject (format "on %s" subject) "")
-                    (if (and to (< (length to) 80))
-                        (format "to %s" to) "")
-                    (if lines (format "%s lines" lines) "")))
-      (setq summary (emacspeak-vm-mime-decode-string summary))
-      (dtk-speak summary)
+      (dtk-speak
+       (vm-decode-mime-encoded-words-in-string
+        (format "%s %s %s   %s %s "
+                number
+                (or from "")
+                (if subject (format "on %s" subject) "")
+                (if (and to (< (length to) 80))
+                    (format "to %s" to) "")
+                (if lines (format "%s lines" lines) ""))))
       (cond 
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others 
