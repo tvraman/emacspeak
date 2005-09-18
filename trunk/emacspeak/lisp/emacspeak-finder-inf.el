@@ -47,6 +47,9 @@
     ("emacspeak-arc.el"
         "Speech enable archive-mode -- a  Emacs interface to zip and friends"
         (emacspeak  speak  spoken output  archive))
+    ("emacspeak-atom.el"
+        "Emacspeak ATOM Wizard"
+        (emacspeak   audio desktop atom))
     ("emacspeak-auctex.el"
         "Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment"
         (emacspeak  audio interface to emacs auctex))
