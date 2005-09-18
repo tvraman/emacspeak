@@ -567,6 +567,7 @@ Here are some examples:
       
 ;;}}}
 ;;{{{ google scholar 
+
 (emacspeak-url-template-define
  "Google Print"
  "http://print.google.com/print?oi=print&q=%s"
@@ -584,6 +585,20 @@ Here are some examples:
      (search-forward "Results" nil t)
      (emacspeak-speak-line))
  "Google Scholar Search")
+
+;;}}}
+;;{{{ googl blogsearch
+(emacspeak-url-template-define
+ "BlogSearch Google"
+ "http://blogsearch.google.com/blogsearch?hl=en&q=%s&btnG=Search+Blogs"
+ (list "Google Blog Search: ")
+ #'(lambda nil
+     (search-forward "Results" nil t)
+     (emacspeak-speak-line))
+ "Google Print Search"
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (w3-fetch url))))
 
 ;;}}}
 ;;{{{ google translation service
