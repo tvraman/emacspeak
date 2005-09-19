@@ -1737,17 +1737,17 @@ Signals beginning  of buffer."
   (emacspeak-eterm-record-window   1 
                                    (cons 0 1)
                                    (cons 
-(- term-width 1)
-(- term-height 1))
+				    (- term-width 1)
+				    (- term-height 1))
                                    'right-stretch 'left-stretch)
   (emacspeak-eterm-set-filter-window 1)
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
 (defcustom emacspeak-wizards-curl-program "curl"
-"Name of curl executable."
-:type 'string
-:group 'emacspeak-wizards)
+  "Name of curl executable."
+  :type 'string
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with W3."
@@ -2887,10 +2887,8 @@ RIVO is implemented by rivo.pl ---
 ;;;###AUTOLOAD
 (defun emacspeak-wizards-unhex-uri (uri)
   "UnEscape URI"
-(interactive "sURL:")
-(message (url-unhex-string uri)))
-
-
+  (interactive "sURL:")
+  (message (url-unhex-string uri)))
 
 ;;}}}
 (provide 'emacspeak-wizards)

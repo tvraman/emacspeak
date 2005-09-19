@@ -139,13 +139,13 @@ display."
   (declare (special emacspeak-aumix-program
                     emacspeak-aumix-reset-options))
   (when (and (file-exists-p emacspeak-aumix-program)
-                            (file-executable-p emacspeak-aumix-program))
-  (shell-command
-   (format "%s %s"
-           emacspeak-aumix-program
-           emacspeak-aumix-reset-options))
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'close-object))))
+	     (file-executable-p emacspeak-aumix-program))
+    (shell-command
+     (format "%s %s"
+	     emacspeak-aumix-program
+	     emacspeak-aumix-reset-options))
+    (when (interactive-p)
+      (emacspeak-auditory-icon 'close-object))))
 
 (eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()

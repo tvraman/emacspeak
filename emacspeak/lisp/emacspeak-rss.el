@@ -92,7 +92,7 @@ unescape HTML tags."
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
-					(and emacspeak-rss-unescape-html 'unescape-charent)
+   (and emacspeak-rss-unescape-html 'unescape-charent)
    ))
 
 ;;;###autoload

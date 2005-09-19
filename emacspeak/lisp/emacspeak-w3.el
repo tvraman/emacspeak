@@ -233,7 +233,7 @@ the table structure extraction code in W3."
                            "-dump"
                            url))
     (set-process-sentinel process
-  'emacspeak-w3-lynx-done-alert)))
+			  'emacspeak-w3-lynx-done-alert)))
 ;;;###autoload
 (defun emacspeak-w3-curl-url-under-point ()
   "Display contents of URL under point using Curl and W3.  The
@@ -286,26 +286,24 @@ document is displayed in a separate buffer. "
   (or stack (setq stack (emacspeak-w3-html-stack)))
   (first (first stack )))
 
-
 (defun emacspeak-w3-next-parsed-item ()
   "Move to and speak next parsed item."
   (interactive)
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current ;move to parsed item if needed
+    (unless current			;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
       (setq current (emacspeak-w3-html-stack)))
-      (while current
-        (goto-char (next-single-property-change (point)
-                                                'html-stack ))
-        (setq current (emacspeak-w3-html-stack)))
-      (setq end (point))
-      (emacspeak-speak-region start end)
-      (emacspeak-auditory-icon 'select-object)))
-
+    (while current
+      (goto-char (next-single-property-change (point)
+					      'html-stack ))
+      (setq current (emacspeak-w3-html-stack)))
+    (setq end (point))
+    (emacspeak-speak-region start end)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-w3-next-doc-element (&optional count)
   "Move forward  to the next document element.

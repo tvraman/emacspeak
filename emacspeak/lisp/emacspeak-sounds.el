@@ -609,7 +609,6 @@ audio player."
   (when emacspeak-sounds-reset-snd-module-command
     (shell-command emacspeak-sounds-reset-snd-module-command)))
 
-
 ;;}}}
 (provide  'emacspeak-sounds)
 ;;{{{  emacs local variables
