@@ -82,14 +82,14 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "ATOM URL: "))))
   (declare (special emacspeak-atom-unescape-html
-   emacspeak-xslt-directory))
+		    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "atom.xsl" emacspeak-xslt-directory)
    atom-url
-					(and emacspeak-atom-unescape-html 'unescape-charent)
+   (and emacspeak-atom-unescape-html 'unescape-charent)
    ))
 
 ;;;###autoload

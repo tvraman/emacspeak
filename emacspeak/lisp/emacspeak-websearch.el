@@ -986,9 +986,9 @@ Optional second arg as-html processes the results as HTML rather than data."
     (emacspeak-websearch-read-query
      "SWIK Query:")))
   (declare (special emacspeak-websearch-swik-search-uri))
-    (browse-url 
-     (concat emacspeak-websearch-swik-search-uri
-             (webjump-url-encode query)))
+  (browse-url 
+   (concat emacspeak-websearch-swik-search-uri
+	   (webjump-url-encode query)))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1009,7 +1009,7 @@ Optional second arg as-html processes the results as HTML rather than data."
       (?p (call-interactively 'emacspeak-websearch-cpan-search))
       (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
       (?t (call-interactively 'emacspeak-websearch-ctan-search))
-(?S (call-interactively 'emacspeak-websearch-swik-search))
+      (?S (call-interactively 'emacspeak-websearch-swik-search))
       (otherwise (message emacspeak-websearch-software-sites )))))
 
 ;;}}}
