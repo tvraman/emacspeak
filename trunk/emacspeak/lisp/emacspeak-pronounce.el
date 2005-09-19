@@ -142,8 +142,8 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
   (puthash    string pronunciation
               emacspeak-pronounce-pronunciation-table)
   (when (interactive-p)
-  (message "Added  local pronunciation in buffer %s"
-           (buffer-name))))
+    (message "Added  local pronunciation in buffer %s"
+	     (buffer-name))))
 
 ;;}}}
 ;;{{{ setting up inheritance relations

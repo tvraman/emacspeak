@@ -66,7 +66,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action                    ;action to perform after opening
+  post-action			      ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -1707,7 +1707,6 @@ Meerkat realy needs an xml-rpc method for getting this.")
 
 (defvar emacspeak-url-template-current-ut nil
   "Records name and args of URL template we're executing.")
-
 
 ;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)

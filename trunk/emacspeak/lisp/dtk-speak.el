@@ -94,7 +94,7 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level."
 Set things like speech rate, punctuation mode etc in this
 hook."
   :type 'hook
-:group 'tts)
+  :group 'tts)
 
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
@@ -1375,7 +1375,7 @@ available TTS servers.")
 This is setup on a per engine basis.")
 
 ;;; will be reset on a per TTS engine basis.
-;(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+					;(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
   
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
@@ -1387,9 +1387,9 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
-   (t (dectalk-configure-tts)     ; will become
-                                  ; generic-configure)))
-))
+   (t (dectalk-configure-tts)		; will become
+					; generic-configure)))
+      ))
   (when (string-match "^ssh" tts-name)  ;remote server
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")

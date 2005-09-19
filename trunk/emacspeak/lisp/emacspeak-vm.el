@@ -179,9 +179,9 @@ Note that some badly formed mime messages  cause trouble."
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others 
         (emacspeak-auditory-icon 'item))
-       (self-p                       ;mail to others including me
+       (self-p				;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t                       ;got it because of a mailing list
+       (t			     ;got it because of a mailing list
         (emacspeak-auditory-icon 'select-object ))))))
 
 (defun emacspeak-vm-speak-labels ()

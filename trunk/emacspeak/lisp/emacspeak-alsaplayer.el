@@ -98,8 +98,6 @@ from alsaplayer."
   :type 'directory
   :group 'emacspeak-alsaplayer)
 
-
-
 (defun emacspeak-alsaplayer-get-session ()
   "Return session id from alsaplayer output."
   (substring
@@ -135,7 +133,7 @@ Alsaplayer session."
             (emacspeak-alsaplayer-get-session))
       (put 'emacspeak-alsaplayer-session 'buffer (current-buffer))
       (setq emacspeak-alsaplayer-session-id
-             (second
+	    (second
              (split-string emacspeak-alsaplayer-session "-")))
       (erase-buffer)
       (setq process
@@ -161,19 +159,19 @@ Optional second arg no-refresh is used to avoid getting status twice."
   (save-excursion
     (set-buffer (get 'emacspeak-alsaplayer-session 'buffer))
     (erase-buffer)
-  (let ((process nil))
-    (setq process
-          (apply 'start-process
-                 "alsaplayer"
-                 (current-buffer) emacspeak-alsaplayer-program
-                 "-n" emacspeak-alsaplayer-session-id
-                 command-list))
-    (unless no-refresh
-    (setq process
-          (start-process
-                 "alsaplayer" (current-buffer)   emacspeak-alsaplayer-program
-                 "-n" emacspeak-alsaplayer-session-id
-                 "--status"))))))
+    (let ((process nil))
+      (setq process
+	    (apply 'start-process
+		   "alsaplayer"
+		   (current-buffer) emacspeak-alsaplayer-program
+		   "-n" emacspeak-alsaplayer-session-id
+		   command-list))
+      (unless no-refresh
+	(setq process
+	      (start-process
+	       "alsaplayer" (current-buffer)   emacspeak-alsaplayer-program
+	       "-n" emacspeak-alsaplayer-session-id
+	       "--status"))))))
 
 (defun emacspeak-alsaplayer-add-to-queue (resource)
   "Add specified resource to queue."
@@ -181,11 +179,11 @@ Optional second arg no-refresh is used to avoid getting status twice."
    (list
     (read-file-name "Media Resource: "
                     (if 
-                       (string-match (format ".*%s.*"
-                                             emacspeak-alsaplayer-media-directory)
-                                     (expand-file-name default-directory))
-                       default-directory
-                     emacspeak-alsaplayer-media-directory))))
+			(string-match (format ".*%s.*"
+					      emacspeak-alsaplayer-media-directory)
+				      (expand-file-name default-directory))
+			default-directory
+		      emacspeak-alsaplayer-media-directory))))
   (emacspeak-alsaplayer-send-command
    (cond
     ((file-directory-p resource)
@@ -340,7 +338,6 @@ Optional second arg no-refresh is used to avoid getting status twice."
 ;;}}}
 ;;{{{ additional temporal navigation 
 
-
 (defun emacspeak-alsaplayer-forward-second ( seconds)
   "Skip forward by  seconds."
   (interactive "p")
@@ -377,7 +374,6 @@ Optional second arg no-refresh is used to avoid getting status twice."
     (format "-%s"
             (* 60 (or minutes 1))))))
 
-
 (defun emacspeak-alsaplayer-forward-ten-minutes ( minutes)
   "Skip forward by  chunks of ten minutes."
   (interactive "p")
@@ -395,8 +391,6 @@ Optional second arg no-refresh is used to avoid getting status twice."
     "--relative"
     (format "-%s"
             (* 600 (or minutes 1))))))
-
-
 
 (define-key emacspeak-alsaplayer-mode-map "."
   'emacspeak-alsaplayer-forward-second)

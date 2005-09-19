@@ -97,8 +97,8 @@
     'emacspeak-table-select-automatic-speaking-method)
   (define-key emacspeak-table-keymap "s" 'emacspeak-table-search)
   (define-key emacspeak-table-keymap "C"
-  'emacspeak-table-search-column)
-(define-key emacspeak-table-keymap "R" 'emacspeak-table-search-row)
+    'emacspeak-table-search-column)
+  (define-key emacspeak-table-keymap "R" 'emacspeak-table-search-row)
   (define-key emacspeak-table-keymap "f" 'emacspeak-table-speak-row-filtered)
   (define-key emacspeak-table-keymap "g" 'emacspeak-table-speak-column-filtered)
   (define-key emacspeak-table-keymap "h"
@@ -825,10 +825,10 @@ the matching cell current. When called from a program, `what' can
          (found nil)
          (slice
           (or what 
-          (case (read-char)
-            (?r 'row)
-            (?c 'column)
-            (otherwise (error "Can only search in either row or column")))))
+	      (case (read-char)
+		(?r 'row)
+		(?c 'column)
+		(otherwise (error "Can only search in either row or column")))))
          (pattern (read-string
                    (format "Search in current  %s for: " slice ))))
     (cond
@@ -859,7 +859,6 @@ the matching cell current. When called from a program, `what' can
   "Search in current table column."
   (interactive)
   (emacspeak-table-search 'column))
-
 
 (defun emacspeak-table-search-headers ()
   "Search the table row or column headers.  Interactively prompts for

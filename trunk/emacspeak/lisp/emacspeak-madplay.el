@@ -143,16 +143,16 @@ The player is placed in a buffer in emacspeak-madplay-mode."
   (interactive
    (list
     (expand-file-name
-    (read-file-name "MP3 Resource: "
-                   (if 
-                       (string-match (format ".*%s.*"
-                                             emacspeak-madplay-media-directory
-                                             )
-                                     (expand-file-name default-directory))
-                       default-directory
-                     emacspeak-madplay-media-directory)
-                    (when (eq major-mode 'dired-mode)
-		      (dired-get-filename))))))
+     (read-file-name "MP3 Resource: "
+		     (if 
+			 (string-match (format ".*%s.*"
+					       emacspeak-madplay-media-directory
+					       )
+				       (expand-file-name default-directory))
+			 default-directory
+		       emacspeak-madplay-media-directory)
+		     (when (eq major-mode 'dired-mode)
+		       (dired-get-filename))))))
   (declare (special emacspeak-madplay-process
                     emacspeak-madplay-buffer-name
                     emacspeak-madplay-media-directory))
