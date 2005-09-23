@@ -397,6 +397,18 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-atom-browseBrowse specified ATOM feed.
+
+(fn FEED)
+
+------------------------------------------------------------
+
+** emacspeak-atom-displayRetrieve and display ATOM URL.
+
+(fn ATOM-URL &optional SPEAK)
+
+------------------------------------------------------------
+
 ** emacspeak-aumix	Key Sequence: control e ( 
 
 Setup output parameters of the auditory display.
@@ -1833,6 +1845,14 @@ Use this once you are sure the guesses are usually correct.
 
 ------------------------------------------------------------
 
+** emacspeak-rmail-speak-current-message-labelsSpeak labels of current message
+
+------------------------------------------------------------
+
+** emacspeak-rmail-summarize-current-messageSummarize current message
+
+------------------------------------------------------------
+
 ** emacspeak-rss-browse	Key Sequence: control e control u 
 
 Browse specified RSS feed.
@@ -2959,6 +2979,10 @@ commands via single keystrokes.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-browse-atom-at-pointBrowses Atom url under point.
+
+------------------------------------------------------------
+
 ** emacspeak-w3-browse-rss-at-pointBrowses RSS url under point.
 
 ------------------------------------------------------------
@@ -3007,6 +3031,11 @@ used as well.
 ------------------------------------------------------------
 
 ** emacspeak-w3-count-tablesCount  tables in HTML.
+
+------------------------------------------------------------
+
+** emacspeak-w3-curl-url-under-pointDisplay contents of URL under point using Curl and W3.  The
+document is displayed in a separate buffer. 
 
 ------------------------------------------------------------
 
@@ -3568,6 +3597,10 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
+** emacspeak-curlGrab URL using Curl, and preview it with W3.
+
+------------------------------------------------------------
+
 ** emacspeak-customize	Key Sequence: control e  cap C  
 
 Customize Emacspeak.
@@ -3828,6 +3861,10 @@ Speak this buffer as displayed in a `previous' window.
 See documentation for command
 `emacspeak-speak-this-buffer-other-window-display' for the
 meaning of `previous'.
+
+------------------------------------------------------------
+
+** emacspeak-ssh-tts-restartRestart specified ssh tts server.
 
 ------------------------------------------------------------
 
