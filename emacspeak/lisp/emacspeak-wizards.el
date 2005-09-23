@@ -1769,8 +1769,9 @@ Signals beginning  of buffer."
 (defun emacspeak-wizards-terminal (program)
   "Launch terminal and rename buffer appropriately."
   (interactive (list (read-from-minibuffer "Run program: ")))
+  (switch-to-buffer-other-frame
   (ansi-term program
-             (first (split-string program  )))
+             (first (split-string program  ))))
   (delete-other-windows)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
