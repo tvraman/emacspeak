@@ -590,7 +590,7 @@ Here are some examples:
 ;;{{{ googl blogsearch
 (emacspeak-url-template-define
  "BlogSearch Google"
- "http://blogsearch.google.com/blogsearch?hl=en&q=%s&btnG=Search+Blogs"
+ "http://blogsearch.google.com/blogsearch?hl=en&q=%s&btnG=Search+Blogs&scoring=d"
  (list "Google Blog Search: ")
  #'(lambda nil
      (search-forward "Results" nil t)
