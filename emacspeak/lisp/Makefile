@@ -153,6 +153,7 @@ emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-iswitchb.elc \
+emacspeak-jabber.elc \
 emacspeak-jde.elc \
 emacspeak-kmacro.elc  \
 emacspeak-kotl.elc \
@@ -345,6 +346,7 @@ emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc 
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-iswitchb.elc: emacspeak-iswitchb.el dtk-speak.elc voice-setup.elc
+emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
