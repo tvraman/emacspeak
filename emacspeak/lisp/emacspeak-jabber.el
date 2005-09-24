@@ -56,6 +56,19 @@
 ;;{{{ Advice interactive commands:
 
 ;;}}}
+;;{{{ silence keepalive
+(loop for f in 
+'(jabber-keepalive-do
+  jabber-keepalive-got-response)
+do
+(eval
+`(defadvice ,f (around emacspeak pre act comp)
+   "Silence keepalive messages."
+   (let ((emacspeak-speak-messages nil))
+     ad-do-it
+ad-return-value))))
+
+;;}}}
 (provide 'emacspeak-jabber)
 ;;{{{ end of file 
 
