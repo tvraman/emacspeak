@@ -57,6 +57,7 @@
 
 ;;}}}
 ;;{{{ silence keepalive
+
 (loop for f in 
 '(jabber-keepalive-do
   jabber-keepalive-got-response)
@@ -68,6 +69,23 @@ do
      ad-do-it
 ad-return-value))))
 
+;;}}}
+;;{{{ chat buffer:
+
+(defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
+  "Produce auditory icon."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+(loop for f in 
+'(jabber-chat-with
+  jabber-chat-with-jid-at-point)
+do
+(eval
+`(defadvice ,f (after emacspeak pre act comp)
+   "Silence keepalive messages."
+   (when (interactive-p)
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-mode-line)))))
 ;;}}}
 (provide 'emacspeak-jabber)
 ;;{{{ end of file 
