@@ -87,6 +87,35 @@ do
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-mode-line)))))
 ;;}}}
+;;{{{ alerts
+(defcustom emacspeak-jabber-speak-presence-alerts nil
+  "Set to T if you want to hear presence alerts."
+:type  'boolean
+:group 'emacspeak-jabber)
+
+(defadvice jabber-presence-default-message (around emacspeak pre
+                                                   act comp)
+  "Allow emacspeak to control if the message is spoken."
+  (cond
+   ((emacspeak-jabber-speak-presence-alerts ad-do-it))
+   (t (let ((emacspeak-speak-messages nil))
+        ad-do-i)))
+  ad-return-value)
+
+;;{{{ interactive commands:
+
+(defun emacspeak-jabber-popup-roster ()
+  "Pop to Jabber roster."
+  (interactive)
+  (declare (special jabber-roster-buffer))
+  (pop-to-buffer jabber-roster-buffer)
+  (goto-char (point-min))
+  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-speak-mode-line))
+
+;;}}}
+
+;;}}}
 (provide 'emacspeak-jabber)
 ;;{{{ end of file 
 
