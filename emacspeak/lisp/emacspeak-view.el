@@ -79,9 +79,11 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-load-directory-settings)
     (outline-minor-mode 1)
-    (message "Entered view mode Press %s to exit"
-	     (key-description
-	      (where-is-internal 'View-exit view-mode-map 'firstonly)))))
+    (if view-mode
+	(message "Entered view mode Press %s to exit"
+		 (key-description
+		  (where-is-internal 'View-exit view-mode-map 'firstonly)))
+      (message "Exited view mode"))))
 
 (defadvice View-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
