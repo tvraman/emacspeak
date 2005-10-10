@@ -1671,7 +1671,7 @@ Light for: ")))
      (concat emacspeak-websearch-yahoo-uri
              (webjump-url-encode query))))
   (emacspeak-websearch-post-process
-   "Web Pages"
+   "Search Results"
    'emacspeak-speak-line))
 
 ;;}}}
