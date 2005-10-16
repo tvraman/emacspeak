@@ -23,7 +23,7 @@ near: url-encoded location from where direction links are generated
         <h1><xsl:apply-templates select="title"/></h1>
         <table summary="Coordinates">
         </table>
-        <xsl:apply-templates select="overlay/location"/>
+        <xsl:apply-templates select="overlay/locations/location"/>
         <xsl:apply-templates select="directions"/>
         <table summary="info">
           <tr>
