@@ -102,6 +102,16 @@ do
         ad-do-i)))
   ad-return-value)
 
+;;;this is what I sue as my jabber alert function:
+(defun emacspeak-jabber-message-default-message (from buffer text)
+  (when (or jabber-message-alert-same-buffer
+	    (not (memq (selected-window) (get-buffer-window-list buffer))))
+    (if (jabber-muc-sender-p from)
+	(format "Private message from %s in %s"
+		(jabber-jid-resource from)
+		(jabber-jid-displayname (jabber-jid-user from)))
+      (format "%s: %s" (jabber-jid-displayname from) text))))
+
 ;;{{{ interactive commands:
 
 (defun emacspeak-jabber-popup-roster ()
