@@ -469,7 +469,7 @@ content."
       (erase-buffer)
       (kill-all-local-variables)
       (shell-command
-       (format "lynx -source %s" url)
+       (format "lynx -source '%s'" url)
        (current-buffer))
       (goto-char (point-min))
       (search-forward "<page" nil t)
