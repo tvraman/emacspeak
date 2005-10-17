@@ -123,6 +123,11 @@ display."
   "*Name of file containing personal aumix settings."
   :group 'emacspeak-aumix
   :type 'string)
+;;;###autoload
+(defcustom emacspeak-alsactl-program "alsactl"
+  "ALSA sound controller used to restore settings."
+  :type 'string
+  :group 'emacspeak-aumix)
 
 ;;;###autoload
 (defcustom emacspeak-aumix-reset-options
@@ -132,21 +137,27 @@ display."
   "*Option to pass to aumix for resetting to default values."
   :group 'emacspeak-aumix
   :type 'string)
+
 ;;;###autoload
 (defun emacspeak-aumix-reset ()
   "Reset to default audio settings."
   (interactive)
   (declare (special emacspeak-aumix-program
+                    emacspeak-alsactl-program
                     emacspeak-aumix-reset-options))
-  (when (and (file-exists-p emacspeak-aumix-program)
-	     (file-executable-p emacspeak-aumix-program))
+  (cond
+   ((executable-find emacspeak-alsactl-program)
+    (shell-command
+     (format "%s restore"
+             emacspeak-alsactl-program)))
+   ((and (file-exists-p emacspeak-aumix-program)
+         (file-executable-p emacspeak-aumix-program))
     (shell-command
      (format "%s %s"
-	     emacspeak-aumix-program
-	     emacspeak-aumix-reset-options))
-    (when (interactive-p)
-      (emacspeak-auditory-icon 'close-object))))
-
+             emacspeak-aumix-program
+             emacspeak-aumix-reset-options))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 (eval-when-compile (require 'emacspeak-forms))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 
