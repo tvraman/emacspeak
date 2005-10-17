@@ -486,7 +486,7 @@ content."
   
 (emacspeak-url-template-define
  "Google Maps Give Me XML"
- "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+ emacspeak-websearch-google-maps-uri
  (list "Query: ")
  nil
  "Get me XML from Google Maps.
