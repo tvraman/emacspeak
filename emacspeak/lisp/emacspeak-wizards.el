@@ -1757,7 +1757,7 @@ Signals beginning  of buffer."
   (declare (special emacspeak-wizards-curl-program))
   (let ((results (get-buffer-create " *curl-download* ")))
     (shell-command
-     (format "curl -s --location-trusted %s 2>/dev/null" url)
+     (format "curl -s --location-trusted '%s' 2>/dev/null" url)
      results)
     (switch-to-buffer results)
     (emacspeak-w3-preview-this-buffer)
