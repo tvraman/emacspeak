@@ -163,6 +163,7 @@ The player is placed in a buffer in emacspeak-madplay-mode."
     (delete-process emacspeak-madplay-process)
     (setq emacspeak-madplay-process nil))
   (let ((process-connection-type t)
+        (read-file-name-completion-ignore-caset)
         (buffer (get-buffer-create
                  emacspeak-madplay-buffer-name)))
     (save-excursion
@@ -177,7 +178,7 @@ The player is placed in a buffer in emacspeak-madplay-mode."
 		     (directory-files
 		      (expand-file-name resource)
 		      'full
-		      "mp3$")))
+		      "\\(mp3$\\)\\|\\(MP3$\\)")))
 	     (t (start-process
 		 "madplay" emacspeak-madplay-buffer-name
 		 emacspeak-madplay-program
