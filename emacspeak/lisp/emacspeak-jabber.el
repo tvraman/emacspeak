@@ -102,7 +102,7 @@ do
         ad-do-i)))
   ad-return-value)
 
-;;;this is what I sue as my jabber alert function:
+;;;this is what I use as my jabber alert function:
 (defun emacspeak-jabber-message-default-message (from buffer
                                                       text)
   "Speak the message."
