@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #$Id$
 #Licence: GPL
+
 __author__ = "$Author$"
 __version__ = "$Revision$"
 __date__ = "$Date$"
@@ -20,9 +21,11 @@ functionality present in Emacspeak's Lisp layer ---specifically,
 higher level TTS functionality provided by the following
 emacspeak modules:
 
-0)dtk-speak.el
+0)  dtk-speak.el
 
-1)emacspeak-pronounce.el
+1)  emacspeak-pronounce.el
+
+2)  accs-structure.el
 
 """
 
@@ -55,7 +58,8 @@ class Speaker:
         self.__handle.flush()
     
     def addText(self, text=""):
-        "Queue text to be spoken. Output is produced by next call to speak()."
+        """Queue text to be spoken.
+        Output is produced by next call to say() or speak()."""
         self.__handle.write("q {%s}\n" %text)
 
     def stop(self):
@@ -74,6 +78,11 @@ class Speaker:
         self.__handle.write("d\n")
         self.__handle.flush()
 
+    def reset(self):
+        "Reset TTS engine."
+        self.__handle.write("tts_reset\n")
+        self.__handle.flush()
+    
     def version(self):
         "Speak TTS version info."
         self.__handle.write("version\n")
@@ -121,8 +130,10 @@ class Speaker:
         self.__handle.flush()
 
 if __name__=="__main__":
+    import time
     s=Speaker()
     s.addText(range(10))
     s.speak()
-    
-
+    print "sleeping 5 seconds while waiting for speech to complete."
+    time.sleep(5)
+    s.shutdown()
