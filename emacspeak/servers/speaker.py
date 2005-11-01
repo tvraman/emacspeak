@@ -33,10 +33,14 @@ class Speaker:
 
     location="/usr/share/emacs/site-lisp/emacspeak/servers"
 
-    def __init__ (self, engine="outloud"):
+    def __init__ (self, engine='outloud', host='localhost'):
         "Launches speech engine."
         self.__engine =engine
-        self.__server = os.path.join(Speaker.location, self.__engine)
+        if host is 'localhost':
+            self.__server = os.path.join(Speaker.location, self.__engine)
+        else:
+            self.__server = os.path.join(Speaker.location,
+                                         "ssh-%s" % self.__engine)
         self.__handle = os.popen(self.__server,"w")
         self.__handle.flush()
 
