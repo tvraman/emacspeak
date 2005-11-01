@@ -1,14 +1,5 @@
 #!/usr/bin/env python
-#$Id$
-#Licence: GPL
-
-__author__ = "$Author$"
-__version__ = "$Revision$"
-__date__ = "$Date$"
-__copyright__ = "Copyright (c) 2005 T. V. Raman"
-__license__ = "GPL"
-
-"""Speaker --- Wrapper class around Emacspeak TTS Server.
+"""Python wrapper for Emacspeak speech servers.
 
 The emacspeak TTS server provides a simple but powerful and
 well-tested speech-server abstraction. That server is implemented
@@ -29,6 +20,13 @@ emacspeak modules:
 
 """
 
+__id__ = "$Id$"
+__author__ = "$Author$"
+__version__ = "$Revision$"
+__date__ = "$Date$"
+__copyright__ = "Copyright (c) 2005 T. V. Raman"
+__license__ = "GPL"
+
 import os
 
 class Speaker:
@@ -46,7 +44,7 @@ class Speaker:
                                          "ssh-%s" % self.__engine)
         self.__handle = os.popen(self.__server,"w")
         self.__handle.flush()
-
+        
     def say(self, text=""):
         "Speaks specified text. All queued text is spoken immediately."
         self.__handle.write("q {%s}\nd\n" %text)
