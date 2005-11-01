@@ -31,7 +31,7 @@ import os
 class Speaker:
     "Provides speech servre abstraction."
 
-    location="/home/raman/emacs/lisp/emacspeak/servers"
+    location="/usr/share/emacs/site-lisp/emacspeak/servers"
 
     def __init__ (self, engine="outloud"):
         "Launches speech engine."

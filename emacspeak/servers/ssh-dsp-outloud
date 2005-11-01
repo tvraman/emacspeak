@@ -8,7 +8,11 @@
 # }}}
 set host [exec hostname]
 puts stderr "running on host <$host>"
-set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
+if [expr $argc == 0] {
+    set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
+} else {
+    set remote [lindex $argv 0]
+}
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $remote  $tcl $tts>"
