@@ -84,8 +84,8 @@
 (defadvice py-shell (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
-    (emacspeak-auditory-icon 'task-done)
-    (message "Launched Python interpreter")))
+    (emacspeak-auditory-icon 'seelct-object)
+    (emacspeak-speak-mode-line)))
 
 (defadvice py-clear-queue (after emacspeak pre act comp)
   "Provide auditory feedback"
