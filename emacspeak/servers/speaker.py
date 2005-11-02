@@ -30,12 +30,26 @@ __license__ = "GPL"
 import os
 
 class Speaker:
-    "Provides speech servre abstraction."
+    
+    """Provides speech servre abstraction.
+
+    Class variable location specifies directory where Emacspeak
+    speech servers are installed.
+
+    Speaker objects can be initialized with the following
+    parameters:
+
+    engine -- specifies TTS server to instantiate. Default:
+    outloud
+    host -- Host on which the server is run. Default:
+    localhost
+    
+    """
 
     location="/usr/share/emacs/site-lisp/emacspeak/servers"
 
     def __init__ (self, engine='outloud', host='localhost'):
-        "Launches speech engine."
+        """Launches speech engine."""
         self.__engine =engine
         if host is 'localhost':
             self.__server = os.path.join(Speaker.location, self.__engine)
@@ -46,12 +60,12 @@ class Speaker:
         self.__handle.flush()
         
     def say(self, text=""):
-        "Speaks specified text. All queued text is spoken immediately."
+        """Speaks specified text. All queued text is spoken immediately."""
         self.__handle.write("q {%s}\nd\n" %text)
         self.__handle.flush()
 
     def speak(self):
-        "Forces queued text to be spoken."
+        """Forces queued text to be spoken."""
         self.__handle.write("d\n")
         self.__handle.flush()
     
@@ -61,69 +75,70 @@ class Speaker:
         self.__handle.write("q {%s}\n" %text)
 
     def stop(self):
-        "Silence ongoing speech."
+        """Silence ongoing speech."""
         self.__handle.write("s\n")
         self.__handle.flush()
 
     def shutdown(self):
-        "Shutdown speech engine."
+        """Shutdown speech engine."""
         self.__handle.close()
 
 
     def sayUtterances(self, list):
-        "Speak list of utterances."
+        """Speak list of utterances."""
         for t in list: self.__handle.write("q { %s }\n" %str(t))
         self.__handle.write("d\n")
         self.__handle.flush()
 
     def reset(self):
-        "Reset TTS engine."
+        """Reset TTS engine."""
         self.__handle.write("tts_reset\n")
         self.__handle.flush()
     
     def version(self):
-        "Speak TTS version info."
+        """Speak TTS version info."""
         self.__handle.write("version\n")
         self.__handle.flush()
 
     def punctuations(self, mode):
-        "Set punctuation mode."
+        """Set punctuation mode."""
         self.__handle.write("tts_set_punctuations %s\n" % mode)
         self.__handle.flush()
 
 
     def rate(self, r):
-        "Set speech rate."
+        """Set speech rate."""
         self.__handle.write("tts_set_speech_rate %s\n" % r)
         self.__handle.flush()
+        
 
     def letter (self, l):
-        "Speak single character."
+        """Speak single character."""
         self.__handle.write("l {%s}\n" %l)
         self.__handle.flush()
 
     def tone(self, pitch=440, duration=50):
-        "Produce specified tone."
+        """Generate specified tone."""
         self.__handle.write("t %s %s\n " % (pitch, duration))
         self.__handle.flush()
 
     def silence( self, duration=50):
-        "Produce specified silence."
+        """Produce specified silence."""
         self.__handle.write("sh  %s" %  duration)
         self.__handle.flush()
 
     def splitcaps(self, flag):
-        "Set splitcaps mode. 1  turns on, 0 turns off"
+        """Set splitcaps mode. 1  turns on, 0 turns off"""
         self.__handle.write("tts_split_caps %s\n" % flag)
         self.__handle.flush()
 
     def capitalize(self, flag):
-        "Set capitalization  mode. 1  turns on, 0 turns off"
+        """Set capitalization  mode. 1  turns on, 0 turns off"""
         self.__handle.write("tts_capitalize %s\n" % flag)
         self.__handle.flush()
 
     def allcaps(self, flag):
-        "Set allcaps  mode. 1  turns on, 0 turns off"
+        """Set allcaps  mode. 1  turns on, 0 turns off"""
         self.__handle.write("tts_allcaps %s\n" % flag)
         self.__handle.flush()
 
@@ -132,6 +147,6 @@ if __name__=="__main__":
     s=Speaker()
     s.addText(range(10))
     s.speak()
-    print "sleeping 5 seconds while waiting for speech to complete."
-    time.sleep(5)
+    print "sleeping  while waiting for speech to complete."
+    time.sleep(7)
     s.shutdown()
