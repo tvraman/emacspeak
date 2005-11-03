@@ -83,7 +83,6 @@ class Speaker:
         """Shutdown speech engine."""
         self.__handle.close()
 
-
     def sayUtterances(self, list):
         """Speak list of utterances."""
         for t in list: self.__handle.write("q { %s }\n" %str(t))
@@ -105,12 +104,10 @@ class Speaker:
         self.__handle.write("tts_set_punctuations %s\n" % mode)
         self.__handle.flush()
 
-
     def rate(self, r):
         """Set speech rate."""
         self.__handle.write("tts_set_speech_rate %s\n" % r)
         self.__handle.flush()
-        
 
     def letter (self, l):
         """Speak single character."""
