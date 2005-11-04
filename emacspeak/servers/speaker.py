@@ -36,19 +36,30 @@ class Speaker:
     Class variable location specifies directory where Emacspeak
     speech servers are installed.
 
+    Class variable settings is a dictionary of default settings.
+    
     Speaker objects can be initialized with the following
     parameters:
 
-    engine -- specifies TTS server to instantiate. Default:
-    outloud
-    host -- Host on which the server is run. Default:
-    localhost
+    engine -- TTS server to instantiate. Default: outloud
+    host -- Host that runs   server. Default: localhost
+    settings -- Dictionary of default settings.
     
     """
 
     location="/usr/share/emacs/site-lisp/emacspeak/servers"
 
-    def __init__ (self, engine='outloud', host='localhost'):
+    settings = {'splitcaps' : 1,
+    'capitalize' : 0,
+    'allcaps' : 0,
+    'punctuations' : 'all'
+    }
+    
+
+    def __init__ (self,
+                  engine='outloud',
+                  host='localhost',
+                  initial=settings):
         """Launches speech engine."""
         self.__engine =engine
         if host is 'localhost':
@@ -58,6 +69,15 @@ class Speaker:
                                          "ssh-%s" % self.__engine)
         self.__handle = os.popen(self.__server,"w")
         self.__handle.flush()
+        self.__settings ={}
+        if initial is not None:
+            self.__settings.update(initial)
+            self.configure(__settings)
+
+    def configure(settings):
+        """Configure engine with settings."
+        for k in settings.keys():
+            if hasattr(self, k): getattr(self,k)(initial(k))
         
     def say(self, text=""):
         """Speaks specified text. All queued text is spoken immediately."""
@@ -81,6 +101,7 @@ class Speaker:
 
     def shutdown(self):
         """Shutdown speech engine."""
+        self.say("shutting down. ")
         self.__handle.close()
 
     def sayUtterances(self, list):
