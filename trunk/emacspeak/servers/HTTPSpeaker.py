@@ -13,7 +13,7 @@ class HTTPSpeaker (HTTPServer):
                  engine='outloud'):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
-        self.__speaker = Speaker(engine)
+        self.speaker = Speaker(engine)
     
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
@@ -22,9 +22,8 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         """Produce speech."""
         self.send_response(200, "It worked I hope")
-        if self.server is not None:
-            self.server.__speaker.say("this is a test. ")
-    
+        if self._server is not None:
+            self._server.speaker.say("this is a test. ")
 
 def start():
     if sys.argv[1:]:
