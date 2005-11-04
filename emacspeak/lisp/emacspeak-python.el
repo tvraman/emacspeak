@@ -316,7 +316,8 @@ If already at the beginning then move to previous block."
   (define-key py-mode-map "\C-\M-n" 'emacspeak-py-next-block)
   (define-key py-mode-map "\C-\M-p" 'emacspeak-py-previous-block)
   )
-
+(add-hook 'python-mode-hook
+          'emacspeak-setup-programming-mode)
 ;;}}}
 (provide 'emacspeak-python )
 ;;{{{ end of file 
