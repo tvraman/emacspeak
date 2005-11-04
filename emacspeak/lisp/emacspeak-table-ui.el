@@ -1095,13 +1095,14 @@ markup to use."
            (function
             (lambda (x y)
               (cond
+               ((and (numberp (read (aref x column)))
+                     (numberp (read (aref y column))))
+                (< (read (aref x column))
+                   (read (aref y column))))
                ((and (stringp  (aref x column))
                      (stringp (aref y column)))
                 (string-lessp (aref x column)
                               (aref y column)))
-               ((and (numberp (aref x column))
-                     (numberp (aref y column)))
-                (< (aref x column) (aref y column)))
                (t (string-lessp
                    (format "%s" (aref x column))
                    (format "%s" (aref y column)))))))))
