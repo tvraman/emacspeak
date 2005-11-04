@@ -27,7 +27,7 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
-import os
+import os, sys
 
 class Speaker:
     
@@ -72,13 +72,16 @@ class Speaker:
         self.__settings ={}
         if initial is not None:
             self.__settings.update(initial)
-            self.configure(__settings)
+            self.configure(self.__settings)
 
-    def configure(settings):
-        """Configure engine with settings."
+    def configure(self, settings):
+        """Configure engine with settings."""
         for k in settings.keys():
-            if hasattr(self, k): getattr(self,k)(initial(k))
-        
+            if hasattr(self, k): getattr(self,k)(settings[k])
+
+
+    
+    
     def say(self, text=""):
         """Speaks specified text. All queued text is spoken immediately."""
         self.__handle.write("q {%s}\nd\n" %text)
@@ -101,8 +104,8 @@ class Speaker:
 
     def shutdown(self):
         """Shutdown speech engine."""
-        self.say("shutting down. ")
         self.__handle.close()
+        sys.stderr.write("shut down TTS\n")
 
     def sayUtterances(self, list):
         """Speak list of utterances."""
@@ -157,7 +160,7 @@ class Speaker:
 
     def allcaps(self, flag):
         """Set allcaps  mode. 1  turns on, 0 turns off"""
-        self.__handle.write("tts_allcaps %s\n" % flag)
+        self.__handle.write("tts_allcaps_beep %s\n" % flag)
         self.__handle.flush()
 
 if __name__=="__main__":
