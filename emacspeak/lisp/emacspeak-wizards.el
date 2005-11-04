@@ -2119,7 +2119,7 @@ this requires Perl module Finance::YahooQuote."
 (defcustom emacspeak-wizards-quote-row-filter
   '(1 " closed at " 2
       "giving it a P/E ratio of " 16 
-      " and a market cap of " 20 ". "
+      " and a market cap of " 20 "at earning of " 15 " per share. "
       "The intra-day range was " 13
       ", and the 52 week range is " 14 ". ")
   "Format used to filter rows."
