@@ -4,7 +4,6 @@ from speaker import Speaker
 import sys
 
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-
 class HTTPSpeaker (HTTPServer):
     
     """Speech server via HTTP."""
@@ -18,20 +17,43 @@ class HTTPSpeaker (HTTPServer):
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
     """Handle HTTP Speak requests."""
-    handlers = ['say', 'speak',
-            'addText', 'silence',  'tone', 'stop',
-            'punctuation', 'rate', 'allcaps', 'capitalize',
-            'splitcaps',
-            'reset', 'version'
-            ]
+    handlers = ['say',
+                'speak',
+                'letter',
+                'addText',
+                'silence',
+                'tone',
+                'stop',
+                'punctuation',
+                'rate',
+                'allcaps',
+                'capitalize',
+                'splitcaps',
+                'reset',
+                'version'             ]
     
     def do_GET(self):
         """Produce speech."""
-        if self.path[1:] in self.handlers:
-            sys.stderr.write("will call %s" % self.path[1:])
+        cmd = None
+        arg = None
+        q=self.path.find('?')
+        if q is -1:
+            cmd =self.path[1:]
+        else:
+            cmd = self.path[1:q]
+            arg = self.path[q+1:]
+        if cmd not in self.handlers:
+            self.send_error(501, "unknown method")
+            return
+        
         self.send_response(200, self.path)
         if self.server is not None:
-            self.server.speaker.say("Testing %s " % self.path[1:])
+            method = getattr(self.server.speaker, cmd)
+            if arg is None:
+                method()
+            else:
+                method(arg)
+    
 
 def start():
     if sys.argv[1:]:
