@@ -106,18 +106,21 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values (sort val
-                    #'(lambda (a b)
-                        (string-lessp(car a) (car b))))))
-  (mapc
-   (lambda (binding)
-     (let ((key (car binding))
-           (command (cdr binding )))
-       (when (string-match "\\[.+]" key)
-         (setq key  (car (read-from-string key))))
-       (define-key emacspeak-personal-keymap  key command)))
-   values)
-  (set-default sym values))))
+          (let ((values
+                 (condition-case nil
+                     (sort val
+                           #'(lambda (a b)
+                               (string-lessp(car a) (car b))))
+                   (error val))))
+            (mapc
+             (lambda (binding)
+               (let ((key (car binding))
+                     (command (cdr binding )))
+                 (when (string-match "\\[.+]" key)
+                   (setq key  (car (read-from-string key))))
+                 (define-key emacspeak-personal-keymap  key command)))
+             values)
+            (set-default sym values))))
 
 (define-key  emacspeak-keymap "x"
   'emacspeak-personal-keymap)
@@ -157,9 +160,12 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values (sort val
+(let ((values
+       (condition-case nil 
+       (sort val
                     #'(lambda (a b)
-                        (string-lessp (car a) (car b ))))))
+                        (string-lessp (car a) (car b ))))
+       (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
@@ -209,9 +215,12 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values (sort val
+(let ((values
+       (condition-case nil
+           (sort val
                     #'(lambda (a b)
-                        (string-lessp (car a) (car b))))))
+                        (string-lessp (car a) (car b))))
+         (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
@@ -261,9 +270,12 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values (sort val
+(let ((values
+       (condition-case nil
+           (sort val
                     #'(lambda (a b)
-                        (string-lessp (car a) (car b))))))
+                        (string-lessp (car a) (car b))))
+         (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
