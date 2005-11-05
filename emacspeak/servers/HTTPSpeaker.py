@@ -18,12 +18,20 @@ class HTTPSpeaker (HTTPServer):
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
     """Handle HTTP Speak requests."""
-
+    handlers = ['say', 'speak',
+            'addText', 'silence',  'tone', 'stop',
+            'punctuation', 'rate', 'allcaps', 'capitalize',
+            'splitcaps',
+            'reset', 'version'
+            ]
+    
     def do_GET(self):
         """Produce speech."""
-        self.send_response(200, "It worked I hope")
-        if self._server is not None:
-            self._server.speaker.say("this is a test. ")
+        if self.path[1:] in self.handlers:
+            sys.stderr.write("will call %s" % self.path[1:])
+        self.send_response(200, self.path)
+        if self.server is not None:
+            self.server.speaker.say("Testing %s " % self.path[1:])
 
 def start():
     if sys.argv[1:]:
@@ -34,3 +42,7 @@ def start():
     httpd = HTTPSpeaker  (server_address,  SpeakHTTPRequestHandler)
     httpd.serve_forever()
     
+
+if __name__ == '__main__':
+    start()
+
