@@ -62,7 +62,7 @@ class Speaker:
                   initial=config):
         """Launches speech engine."""
         self.__engine =engine
-        if host is 'localhost':
+        if host == 'localhost':
             self.__server = os.path.join(Speaker.location, self.__engine)
         else:
             self.__server = os.path.join(Speaker.location,

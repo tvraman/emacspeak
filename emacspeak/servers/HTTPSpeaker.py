@@ -10,6 +10,14 @@ calls speaker.cmd(arg)
 
 """
 
+__id__ = "$Id$"
+__author__ = "$Author$"
+__version__ = "$Revision$"
+__date__ = "$Date$"
+__copyright__ = "Copyright (c) 2005 T. V. Raman"
+__license__ = "GPL"
+
+
 from speaker import Speaker
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import sys
@@ -23,6 +31,12 @@ class HTTPSpeaker (HTTPServer):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
         self.speaker = Speaker(engine)
+__id__ = "$Id$"
+__author__ = "$Author$"
+__version__ = "$Revision$"
+__date__ = "$Date$"
+__copyright__ = "Copyright (c) 2005 T. V. Raman"
+__license__ = "GPL"
     
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
@@ -40,7 +54,7 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
                 'capitalize',
                 'splitcaps',
                 'reset',
-                'shutdown'
+                'shutdown',
                 'version'             ]
     
     def do_GET(self):
@@ -50,26 +64,25 @@ class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
         
         # we either get a cmd or a cmd?arg
         q=self.path.find('?')
-        if q is -1:
+        if q == -1:
             cmd =self.path[1:]
         else:
             cmd = self.path[1:q]
-            arg = self.path[q+1:]
+            arg = self.path[q+1:].replace('+', ' ')
         
         if cmd not in self.handlers:
+            sys.stderr.write("cmd %s handlers %s" % (cmd, self.handlers))
             self.send_error(501, "unknown method %s" % cmd)
             return
         
-        if (self.server is not None
-            and hasattr(self.server.speaker, cmd)):
+        if hasattr(self.server.speaker, cmd):
             method = getattr(self.server.speaker, cmd)
             if arg is None:
                 method()
             else:
                 method(arg)
             self.send_response(200, self.path)
-        else:
-            self.send_error(501, "Speaker error")
+        else: self.send_error(501, "Speaker error")
     
 def start():
     if sys.argv[1:]:
