@@ -104,12 +104,12 @@ class Speaker:
         self.__handle.flush()
 
     def tone(self, pitch=440, duration=50):
-        """Generate specified tone."""
+        """Queue specified tone."""
         self.__handle.write("t %s %s\n " % (pitch, duration))
         self.__handle.flush()
 
     def silence( self, duration=50):
-        """Produce specified silence."""
+        """Queue specified silence."""
         self.__handle.write("sh  %s" %  duration)
         self.__handle.flush()
     
@@ -140,9 +140,10 @@ class Speaker:
 
     def punctuations(self, mode):
         """Set punctuation mode."""
-        self.__settings['punctuations'] = mode
-        self.__handle.write("tts_set_punctuations %s\n" % mode)
-        self.__handle.flush()
+        if mode in ['all', 'some', 'none']:
+            self.__settings['punctuations'] = mode
+            self.__handle.write("tts_set_punctuations %s\n" % mode)
+            self.__handle.flush()
 
     def rate(self, r):
         """Set speech rate."""
@@ -152,18 +153,21 @@ class Speaker:
 
     def splitcaps(self, flag):
         """Set splitcaps mode. 1  turns on, 0 turns off"""
+        flag = bool(flag) and 1 or 0
         self.__settings['splitcaps'] = flag
         self.__handle.write("tts_split_caps %s\n" % flag)
         self.__handle.flush()
 
     def capitalize(self, flag):
         """Set capitalization  mode. 1  turns on, 0 turns off"""
+        flag = bool(flag) and 1 or 0
         self.__settings['capitalize'] = flag
         self.__handle.write("tts_capitalize %s\n" % flag)
         self.__handle.flush()
 
     def allcaps(self, flag):
         """Set allcaps  mode. 1  turns on, 0 turns off"""
+        flag = bool(flag) and 1 or 0
         self.__settings['allcaps'] = flag
         self.__handle.write("tts_allcaps_beep %s\n" % flag)
         self.__handle.flush()
