@@ -28,6 +28,7 @@ __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
 import os, sys
+import acss
 
 class Speaker:
     
@@ -82,7 +83,7 @@ class Speaker:
 
     def settings(self): return self.__settings
     
-    def say(self, text=""):
+    def say(self, text="", acss=None):
         """Speaks specified text. All queued text is spoken immediately."""
         self.__handle.write("q {%s}\nd\n" %text)
         self.__handle.flush()
@@ -92,7 +93,7 @@ class Speaker:
         self.__handle.write("d\n")
         self.__handle.flush()
 
-    def sayUtterances(self, list):
+    def sayUtterances(self, list, acss=None):
         """Speak list of utterances."""
         for t in list: self.__handle.write("q { %s }\n" %str(t))
         self.__handle.write("d\n")
@@ -113,7 +114,7 @@ class Speaker:
         self.__handle.write("sh  %s" %  duration)
         self.__handle.flush()
     
-    def addText(self, text=""):
+    def addText(self, text="", acss=None):
         """Queue text to be spoken.
         Output is produced by next call to say() or speak()."""
         self.__handle.write("q {%s}\n" %text)
@@ -171,6 +172,10 @@ class Speaker:
         self.__settings['allcaps'] = flag
         self.__handle.write("tts_allcaps_beep %s\n" % flag)
         self.__handle.flush()
+
+    def __del__(self):
+        "Shutdown speech engine."
+        if not self.__handle.closed: self.shutdown()
     
 if __name__=="__main__":
     import time
