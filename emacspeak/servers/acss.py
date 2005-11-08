@@ -13,6 +13,7 @@ class ACSS(dict):
 
     settings = {
                 'family' : None,
+                'rate' : 50,
                 'gain' : 5,
                 'left-volume' : 5,
                 'right-volume' : 5,
