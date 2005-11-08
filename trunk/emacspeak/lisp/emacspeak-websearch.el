@@ -1802,6 +1802,10 @@ Results"
 ;;}}}
 ;;{{{ Browse usenet 
 
+(defvar emacspeak-usenet-feeds-uri
+  "http://groups.google.com/group/%s/feed/rss_v2_0_msgs.xml"
+  "RSS Feed from Google for Usenet groups.")
+
 (defvar emacspeak-usenet-uri 
 					;"http://groups.google.com/groups?"
   "http://groups-beta.google.com/group/"
@@ -1814,7 +1818,8 @@ Optional interactive prefix arg results in prompting for a search term."
    (list
     (read-from-minibuffer "Newsgroup: ")
     current-prefix-arg))
-  (declare (special emacspeak-usenet-uri))
+  (declare (special emacspeak-usenet-uri
+                    emacspeak-usenet-feeds-uri))
   (let ((url nil))
     (cond
      (prefix                            ;search
@@ -1826,17 +1831,16 @@ Optional interactive prefix arg results in prompting for a search term."
 	     (webjump-url-encode
 	      (read-from-minibuffer
 	       (format "Search %s for:" group)))
-             emacspeak-websearch-google-number-of-results)))
-     (t                                 ;browse
-      (setq url 
-	    (format "%s%s/threads?gvc=2&num=%s"
-		    emacspeak-usenet-uri
-		    group group))))
-    (emacspeak-w3-without-xsl
+             emacspeak-websearch-google-number-of-results))
+      (emacspeak-w3-without-xsl
      (browse-url  url)
      (emacspeak-websearch-post-process
       "Sort by"
-      'emacspeak-speak-line))))
+      'emacspeak-speak-line)))
+     (t                                 ;browse
+      (setq url 
+	    (format emacspeak-usenet-feeds-uri group))
+      (emacspeak-rss-display url 'speak)))))
 
 ;;}}}
 
