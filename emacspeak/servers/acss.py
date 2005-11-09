@@ -21,8 +21,6 @@ class ACSS(dict):
                 'family' : None,
                 'rate' : 50,
                 'gain' : 5,
-                'left-volume' : 5,
-                'right-volume' : 5,
                 'average-pitch' : 5,
                 'pitch-range' : 5, 
                 'stress' : 5,
@@ -30,8 +28,17 @@ class ACSS(dict):
                 'punctuations' : 'all'
                 }
 
-    def __init__(self,props=None):
+    def __init__(self,props={}):
         """Create and initialize ACSS structure."""
-        self.update(ACSS.settings)
-        if props is not None:
-            [self[k] = props[k] for k in props if k in ACSS.settings]
+        for k in props:
+            if k in ACSS.settings: self[k] = props[k]
+        self._name='acss-'
+        names = self.keys()
+        if names:
+            names.sort()
+            for  k in names:
+                self._name = self._name + "%s-%s:" % (k, self[k])
+        self._name = self._name[:-1]
+        
+    def name(self): return self._name
+        
