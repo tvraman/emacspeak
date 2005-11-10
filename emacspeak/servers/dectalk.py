@@ -273,6 +273,7 @@ _female_richness = [
 
 _update_map(_table, ('female', 'richness'),
             " ri %s sm %s ", _female_richness)
+def getrate(r):    return 180 + 4*r
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
@@ -292,8 +293,7 @@ def acss2voice(acss):
     if 'family'in acss:
         family = acss['family']
         code += _table['family'][family]
-    if 'rate' in acss: code += " :ra %s" % (180 +4 *
-    acss['rate'])
+    if 'rate' in acss: code += " :ra %s" % getrate(acss)
     if 'punctuations' in acss: code += " :punc %s" %acss['punctuations']
     voice = ""
     dv = ""

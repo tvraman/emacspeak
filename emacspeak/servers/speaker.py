@@ -63,7 +63,9 @@ class Speaker:
                   initial=config):
         """Launches speech engine."""
         self.__engine =engine
-        self.getvoice = __import__(_getcodes(engine)).getvoice
+        e =  __import__(_getcodes(engine))
+        self.getvoice =e.getvoice
+        self.getrate = e.getrate
         if host == 'localhost':
             self.__server = os.path.join(Speaker.location, self.__engine)
         else:
@@ -165,7 +167,7 @@ class Speaker:
     def rate(self, r):
         """Set speech rate."""
         self.__settings['rate'] = r
-        self.__handle.write("tts_set_speech_rate %s\n" % r)
+        self.__handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
         self.__handle.flush()
 
     def splitcaps(self, flag):
