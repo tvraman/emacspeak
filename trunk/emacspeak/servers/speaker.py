@@ -27,7 +27,7 @@ __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 __all__=['Speaker']
 
-import os, sys
+import os, sys, re
 
 
 class Speaker:
@@ -51,19 +51,37 @@ class Speaker:
     location="/usr/share/emacs/site-lisp/emacspeak/servers"
 
     config = {'splitcaps' : 1,
-              'rate' : 100,
+              'rate' : 70,
     'capitalize' : 0,
     'allcaps' : 0,
     'punctuations' : 'all'
     }
-    
+
+    def listEngines():
+        """Enumerate available engines."""
+        f = open(os.path.join(Speaker.location, '.servers'))
+        engines = []
+        for line in f.readlines():
+            if re.match('^\#', line): continue
+            if re.match('^\s*$', line): continue
+            engines.append(line[:-1])
+        f.close()
+        return engines
+
+    listEngines = staticmethod(listEngines)
+        
     def __init__ (self,
                   engine='outloud',
                   host='localhost',
                   initial=config):
         """Launches speech engine."""
+        
         self.__engine =engine
-        e =  __import__(_getcodes(engine))
+        if engine not in Speaker.listEngines(): raise EngineException
+        try:
+            e =  __import__(_getcodes(engine))
+        except:
+            raise EngineException
         self.getvoice =e.getvoice
         self.getrate = e.getrate
         if host == 'localhost':
@@ -117,17 +135,17 @@ class Speaker:
         self.__handle.write("l {%s}\n" %l)
         self.__handle.flush()
 
-    def tone(self, pitch=440, duration=50):
+    def qTone(self, pitch=440, duration=50):
         """Queue specified tone."""
         self.__handle.write("t %s %s\n " % (pitch, duration))
         self.__handle.flush()
 
-    def silence( self, duration=50):
+    def qSilence( self, duration=50):
         """Queue specified silence."""
         self.__handle.write("sh  %s" %  duration)
         self.__handle.flush()
     
-    def addText(self, text="", acss=None):
+    def qText(self, text="", acss=None):
         """Queue text to be spoken.
         Output is produced by next call to say() or speak()."""
         if acss is not None:
@@ -207,6 +225,7 @@ def _getcodes(engine):
 
 _codeTable = {
     'dtk-exp' : 'dectalk',
+    'dtk-mv' : 'dectalk',
     'dtk-soft' : 'dectalk',
     'outloud' : 'outloud',
     }
