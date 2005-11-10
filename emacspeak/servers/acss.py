@@ -13,7 +13,6 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
-
 class ACSS(dict):
 
     """Holds ACSS representation of a voice."""
@@ -48,6 +47,6 @@ class ACSS(dict):
             names.sort()
             for  k in names:
                 _name += "%s-%s:" % (k, self[k])
-        self.__dict__['_name'] = _name[:-1]
+        self._name = _name[:-1]
 
     def name(self): return self._name

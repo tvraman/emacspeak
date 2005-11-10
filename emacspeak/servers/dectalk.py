@@ -23,15 +23,19 @@ _table ={}
 #family codes:
 
 _table['family'] = {
+    'male' : ' :np ',
     'paul' :  ':np',
     'harry' :  ':nh',
+    'man' : ' :nh ',
     'dennis' :  ':nd',
     'frank' :  ':nf',
     'betty' :  ':nb',
+    'female' : ' :nb ',
     'ursula' :  ':nu',
     'wendy' :  ':nw',
     'rita' :  ':nr',
-    'kid' :  ':nk'
+    'kid' :  ':nk',
+    'child' : ' :nk '
     }
 
 # average-pitch :
@@ -42,15 +46,15 @@ _table['family'] = {
 # We change parameter head-size in conjunction with average pitch to
 # produce a more natural change on the Dectalk.
 
-#paul average pitch
+#male average pitch
 
-def _update_map(table, key, format, settings):
+def _update_map(table, key, format,  settings):
     """Internal function to update acss->synth mapping."""
     table[key] ={}
-    for (s, ap, hs)  in  settings:
-        _table[key][s] = format % (ap, hs)
+    for tuple  in  settings:
+        _table[key][tuple[0]] = format % tuple[1:]
 
-_paul_ap = [
+_male_ap = [
     (0, 96, 115),
     (1, 101, 112),
     (2, 108, 109),
@@ -62,8 +66,8 @@ _paul_ap = [
     (8, 140, 94),
     (9, 147, 91)]
 
-_update_map(_table, ('paul', 'average-pitch'),
-            " ap %s hs %s ",  _paul_ap)
+_update_map(_table, ('male', 'average-pitch'),
+            " ap %s hs %s ",  _male_ap)
 
 #Harry  has a big head --and a lower pitch for the middle setting
 _harry_ap = [
@@ -98,7 +102,7 @@ _betty_ap = [
 _update_map(_table, ('betty', 'average-pitch'),
             " ap %s hs %s ",_betty_ap)
 
-# pitch-range for paul:
+# pitch-range for male:
 
 #  Standard pitch range is 100 and is  mapped to
 # a setting of 5.
@@ -107,7 +111,7 @@ _update_map(_table, ('betty', 'average-pitch'),
 # Additionally, we also set the assertiveness of the voice so the
 # voice is less assertive at lower pitch ranges.
 
-_paul_pr = [
+_male_pr = [
     (0, 0, 0),
     (1, 20, 10),
     (2, 40, 20),
@@ -120,8 +124,8 @@ _paul_pr = [
     (9, 250, 100),
     ]
 
-_update_map(_table, ('paul', 'pitch-range'),
-            " pr %s as %s ", _paul_pr)
+_update_map(_table, ('male', 'pitch-range'),
+            " pr %s as %s ", _male_pr)
 
 _harry_pr = [
     (0, 0, 0),
@@ -155,6 +159,122 @@ _betty_pr = [
 _update_map(_table, ('betty', 'pitch-range'),
             " pr %s as %s ", _betty_pr)
 
+# Stress:
+
+# On the Dectalk we vary four parameters
+# The hat rise which controls the overall shape of the F0 contour
+# for sentence level intonation and stress,
+# The stress rise that controls the level of stress on stressed
+# syllables,
+# the baseline fall for paragraph level intonation
+# and the quickness --a parameter that controls whether the final
+# frequency targets are completely achieved in the phonetic transitions.
+
+
+_male_stress =[
+    (0, 0, 0, 0, 0),
+    (1, 3, 6, 20, 3),
+    (2, 6, 12, 40, 6),
+    (3, 9, 18, 60, 9, ),
+    (4, 12, 24, 80, 14),
+    (5, 18, 32, 100, 18),
+    (6, 34, 50, 100, 20),
+    (7, 48, 65, 100, 35),
+    (8, 63, 82, 100, 60),
+    (9, 80, 90, 100, 40)
+]
+
+_update_map(_table, ('male', 'stress'),
+            " hr %s sr %s qu %s bf %s ", _male_stress)
+
+_harry_stress = [
+    (0, 0, 0, 0, 0),
+    (1, 4, 6, 2, 2, ),
+    (2, 8, 12, 4, 4, ),
+    (3, 12, 18, 6, 6, ),
+    (4, 16, 24, 8, 8, ),
+    (5, 20, 30, 10, 9),
+    (6, 40, 48, 32, 16),
+    (7, 60, 66, 54, 22),
+    (8, 80, 78, 77, 34),
+    (9, 100, 100, 100, 40)
+    ]
+
+
+_update_map(_table, ('harry', 'stress'),
+            " hr %s sr %s qu %s bf %s ", _harry_stress)
+
+_betty_stress = [
+    (0, 1, 1, 0, 0),
+    (1, 3, 4, 11, 0),
+    (2, 5, 8, 22, 0),
+    (3, 8, 12, 33, 0, ),
+    (4, 11, 16, 44, 0),
+    (5, 14, 20, 55, 0),
+    (6, 35, 40, 65, 10),
+    (7, 56, 80, 75, 20),
+    (8, 77, 90, 85, 30),
+    (9, 100, 100, 100, 40)
+
+    ]
+
+_update_map(_table, ('betty', 'stress'),
+            " hr %s sr %s qu %s bf %s ", _betty_stress)
+
+#richness
+
+# Smoothness and richness vary inversely.
+# a  maximally smooth voice produces a quieter effect
+# a rich voice is "bright" in contrast.
+
+
+_male_richness = [
+    (0, 0, 100),
+    (1, 14, 80),
+    (2, 28, 60),
+    (3, 42, 40),
+    (4, 56, 30),
+    (5, 70, 28),
+    (6, 60, 24 ),
+    (7, 70, 16),
+    (8, 80, 8),
+    (9, 100, 0)
+    ]
+
+_update_map(_table, ('male', 'richness'),
+            " ri %s sm %s " ,_male_richness)
+
+_harry_richness = [
+    (0, 100, 0),
+    (1, 96, 3),
+    (2, 93, 6),
+    (3, 90, 9),
+    (4, 88, 11),
+    (5, 86, 12),
+    (6, 60, 24, ),
+    (7, 40, 44),
+    (8, 20, 65),
+    (9, 0, 70)
+    ]
+
+_update_map(_table, ('harry', 'richness'),
+            " ri %s sm %s " , _harry_richness)
+
+_betty_richness = [
+    (0, 0, 100),
+    (1, 8, 76),
+    (2, 16, 52),
+    (3, 24,28),
+    (4, 32, 10),
+    (5, 40, 4),
+    (6, 50, 3),
+    (7, 65, 3),
+    (8, 80,  2),
+    (9, 100, 0)
+    ]
+
+_update_map(_table, ('betty', 'richness'),
+            " ri %s sm %s ", _betty_richness)
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
@@ -170,7 +290,7 @@ def getvoice(acss):
 def acss2voice(acss):
     """Return synthesizer code."""
     code = ""
-    family ='paul'
+    family ='male'
     if 'family'in acss:
         family = acss['family']
         code += _table['family'][family]
