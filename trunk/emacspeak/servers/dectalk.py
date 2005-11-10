@@ -44,11 +44,11 @@ _table['family'] = {
 
 #paul average pitch
 
-def _update_map(table, key, settings):
-    "Internal function to update acss->synth mapping."
+def _update_map(table, key, format, settings):
+    """Internal function to update acss->synth mapping."""
     table[key] ={}
     for (s, ap, hs)  in  settings:
-        _table[key][s] = "ap %s hs %s" % (ap, hs)
+        _table[key][s] = format % (ap, hs)
 
 _paul_ap = [
     (0, 96, 115),
@@ -62,7 +62,8 @@ _paul_ap = [
     (8, 140, 94),
     (9, 147, 91)]
 
-_update_map(_table, ('paul', 'average-pitch'),  _paul_ap)
+_update_map(_table, ('paul', 'average-pitch'),
+            " ap %s hs %s ",  _paul_ap)
 
 #Harry  has a big head --and a lower pitch for the middle setting
 _harry_ap = [
@@ -78,8 +79,52 @@ _harry_ap = [
     (9, 140, 95)
     ]
 
-_update_map(_table,('harry', 'average-pitch'), _harry_ap)
+_update_map(_table,('harry', 'average-pitch'),
+            " ap %s hs %s ",_harry_ap)
 
+_betty_ap = [
+    (0, 160, 115),
+    (1, 170, 112),
+    (2, 181, 109),
+    (3, 192, 106),
+    (4, 200, 103, ),
+    (5, 208, 100),
+    (6, 219, 98),
+    (7, 225, 96),
+    (8, 240, 94),
+    (9, 260, 91)
+    ]
+
+_update_map(_table, ('betty', 'average-pitch'),
+            " ap %s hs %s ",_betty_ap)
+
+# pitch-range for paul:
+
+#  Standard pitch range is 100 and is  mapped to
+# a setting of 5.
+# A value of 0 produces a flat monotone voice --maximum value of 250
+# produces a highly animated voice.
+# Additionally, we also set the assertiveness of the voice so the
+# voice is less assertive at lower pitch ranges.
+
+_paul_pr = [
+    (0, 0, 0),
+    (1, 20, 10),
+    (2, 40, 20),
+    (3, 60, 30),
+    (4, 80, 40, ),
+    (5, 100, 50, ),
+    (6, 137, 60),
+    (7, 174, 70),
+    (8, 211, 80),
+    (9, 250, 100),
+    ]
+
+_update_map(_table, ('paul', 'pitch-range'),
+            " pr %s as %s ", _paul_pr)
+            
+
+#TVR: need to define __setattr__ in acss to memoize this correctly
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
@@ -98,7 +143,9 @@ def acss2voice(acss):
     if 'family'in acss:
         family = acss['family']
         code += _table['family'][family]
-    if 'rate' in acss: code += " :ra %s" % (180 +4 * acss['rate'])
+    if 'rate' in acss: code += " :ra %s" % (180 +4 *
+    acss['rate'])
+    if 'punctuations' in acss: code += " :punc %s" %acss['punctuations']
     voice = ""
     dv = ""
     for d in ['average-pitch', 'pitch-range',
@@ -106,10 +153,4 @@ def acss2voice(acss):
         if d in acss:voice += _table[(family, d)][acss[d]]
     if voice: dv = " :dv %s" % voice
     if code or voice: code = "[%s  %s]" % (code, dv)
-    return (code, "")
-
-    
-
-    
-    
-    
+    return (code, " [:np] ")
