@@ -13,6 +13,7 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
+
 class ACSS(dict):
 
     """Holds ACSS representation of a voice."""
@@ -33,6 +34,11 @@ class ACSS(dict):
         for k in props:
             if k in ACSS.settings: self[k] = props[k]
         self.updateName()
+
+    def __setitem__ (self, key, value):
+        "Update name when we change values."
+        dict.__setitem__(self, key, value)
+        self.updateName()
     
     def updateName(self):
         """Update name based on settings."""
@@ -44,7 +50,4 @@ class ACSS(dict):
                 _name += "%s-%s:" % (k, self[k])
         self.__dict__['_name'] = _name[:-1]
 
-    def name(self):
-        """Not yet memoized"""
-        self.updateName()
-        return self._name
+    def name(self): return self._name
