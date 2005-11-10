@@ -32,13 +32,19 @@ class ACSS(dict):
         """Create and initialize ACSS structure."""
         for k in props:
             if k in ACSS.settings: self[k] = props[k]
-        self._name='acss-'
+        self.updateName()
+    
+    def updateName(self):
+        """Update name based on settings."""
+        _name='acss-'
         names = self.keys()
         if names:
             names.sort()
             for  k in names:
-                self._name = self._name + "%s-%s:" % (k, self[k])
-        self._name = self._name[:-1]
-        
-    def name(self): return self._name
-        
+                _name += "%s-%s:" % (k, self[k])
+        self.__dict__['_name'] = _name[:-1]
+
+    def name(self):
+        """Not yet memoized"""
+        self.updateName()
+        return self._name
