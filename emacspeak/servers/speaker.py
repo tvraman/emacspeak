@@ -26,6 +26,7 @@ __version__ = "$Revision$"
 __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
+__all__=['Speaker']
 
 import os, sys
 import acss
@@ -63,6 +64,7 @@ class Speaker:
                   initial=config):
         """Launches speech engine."""
         self.__engine =engine
+        self.getvoice = __import__(_getcodes(engine)).getvoice
         if host == 'localhost':
             self.__server = os.path.join(Speaker.location, self.__engine)
         else:
@@ -85,7 +87,11 @@ class Speaker:
     
     def say(self, text="", acss=None):
         """Speaks specified text. All queued text is spoken immediately."""
-        self.__handle.write("q {%s}\nd\n" %text)
+        if acss is not None:
+            code =self.getvoice(acss)
+            self.__handle.write("q {%s %s %s}\nd\n" %(code[0], text, code[1]))
+        else:
+            self.__handle.write("q {%s}\nd\n" %text)
         self.__handle.flush()
 
     def speak(self):
@@ -176,7 +182,21 @@ class Speaker:
     def __del__(self):
         "Shutdown speech engine."
         if not self.__handle.closed: self.shutdown()
-    
+
+
+def _getcodes(engine):
+    """Helper function that fetches synthesizer codes for a
+    specified engine."""
+    if engine not in _codeTable: raise Error
+    return _codeTable[engine]
+
+_codeTable = {
+    'dtk-exp' : 'dectalk',
+    'dtk-soft' : 'dectalk',
+    'outloud' : 'outloud',
+    }
+
+
 if __name__=="__main__":
     import time
     s=Speaker()
