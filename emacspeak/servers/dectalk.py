@@ -122,9 +122,40 @@ _paul_pr = [
 
 _update_map(_table, ('paul', 'pitch-range'),
             " pr %s as %s ", _paul_pr)
-            
 
-#TVR: need to define __setattr__ in acss to memoize this correctly
+_harry_pr = [
+    (0, 0, 0),
+    (1, 16, 20),
+    (2, 32, 40),
+    (3, 48, 60),
+    (4, 64, 80, ),
+    (5, 80, 100, ),
+    (6, 137, 100),
+    (7, 174, 100),
+    (8, 211, 100),
+    (9, 250, 100)
+    ]
+
+_update_map(_table, ('harry', 'pitch-range'),
+            " pr %s as %s ", _harry_pr)
+
+_betty_pr = [
+    (0, 0, 0),
+    (1, 50, 10),
+    (2, 80, 20),
+    (3, 100, 25),
+    (4, 110, 30, ),
+    (5, 140, 35),
+    (6, 165, 57),
+    (7, 190, 75),
+    (8, 220, 87),
+    (9, 250, 100)
+    ]
+
+_update_map(_table, ('betty', 'pitch-range'),
+            " pr %s as %s ", _betty_pr)
+
+
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
@@ -132,7 +163,7 @@ def getvoice(acss):
     where open sets the voice, and close resets it."""
     
     name=acss.name()
-    #if name in _defined_voices: return _defined_voices[name]
+    if name in _defined_voices: return _defined_voices[name]
     _defined_voices[name] =acss2voice(acss)
     return _defined_voices[name]
 
