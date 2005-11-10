@@ -13,11 +13,11 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
-
 import acss
 
 _defined_voices = {}
-#Will hold mapping from ACSS dimensions to Dectalk settings:
+
+# Map from ACSS dimensions to Dectalk settings:
 
 _table ={}
 #family codes:
@@ -43,9 +43,14 @@ _table['family'] = {
 # produce a more natural change on the Dectalk.
 
 #paul average pitch
-_table[('paul', 'average-pitch')] ={}
 
-for (s, ap, hs)  in [
+def _update_map(table, key, settings):
+    "Internal function to update acss->synth mapping."
+    table[key] ={}
+    for (s, ap, hs)  in  settings:
+        _table[key][s] = "ap %s hs %s" % (ap, hs)
+
+_paul_ap = [
     (0, 96, 115),
     (1, 101, 112),
     (2, 108, 109),
@@ -55,13 +60,12 @@ for (s, ap, hs)  in [
     (6, 128, 98),
     (7, 134, 96),
     (8, 140, 94),
-    (9, 147, 91)]:
-    _table[('paul', 'average-pitch')][s] = "ap %s hs %s" % (ap, hs)
+    (9, 147, 91)]
+
+_update_map(_table, ('paul', 'average-pitch'),  _paul_ap)
 
 #Harry  has a big head --and a lower pitch for the middle setting
-_table[('harry', 'average-pitch')] ={}
-
-for (s, ap, hs)  in[
+_harry_ap = [
     (0, 50, 125),
     (1, 59, 123),
     (2, 68, 121),
@@ -71,16 +75,19 @@ for (s, ap, hs)  in[
     (6, 95, 112),
     (7, 110, 105),
     (8, 125, 100),
-    (9, 140, 95),]:
-    _table[('harry', 'average-pitch')][s] = "ap %s hs %s" % (ap, hs)
+    (9, 140, 95)
+    ]
+
+_update_map(_table,('harry', 'average-pitch'), _harry_ap)
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
     Synthesizer code is a tupple of the form (open,close)
     where open sets the voice, and close resets it."""
+    
     name=acss.name()
-    if name in _defined_voices: return _defined_voices[name]
+    #if name in _defined_voices: return _defined_voices[name]
     _defined_voices[name] =acss2voice(acss)
     return _defined_voices[name]
 
@@ -90,7 +97,7 @@ def acss2voice(acss):
     family ='paul'
     if 'family'in acss:
         family = acss['family']
-        code += _table[family]
+        code += _table['family'][family]
     if 'rate' in acss: code += " :ra %s" % (180 +4 * acss['rate'])
     voice = ""
     dv = ""
