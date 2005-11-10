@@ -293,7 +293,7 @@ def acss2voice(acss):
     if 'family'in acss:
         family = acss['family']
         code += _table['family'][family]
-    if 'rate' in acss: code += " :ra %s" % getrate(acss)
+    if 'rate' in acss: code += " :ra %s" % getrate(acss['rate'])
     if 'punctuations' in acss: code += " :punc %s" %acss['punctuations']
     voice = ""
     dv = ""
