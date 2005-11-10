@@ -23,7 +23,7 @@ _table ={}
 _table['family'] = {
     'male' : ' :np ',
     'paul' :  ':np',
-    'harry' :  ':nh',
+    'man' :  ':nh',
     'man' : ' :nh ',
     'dennis' :  ':nd',
     'frank' :  ':nf',
@@ -67,8 +67,8 @@ _male_ap = [
 _update_map(_table, ('male', 'average-pitch'),
             " ap %s hs %s ",  _male_ap)
 
-#Harry  has a big head --and a lower pitch for the middle setting
-_harry_ap = [
+#Man  has a big head --and a lower pitch for the middle setting
+_man_ap = [
     (0, 50, 125),
     (1, 59, 123),
     (2, 68, 121),
@@ -81,10 +81,10 @@ _harry_ap = [
     (9, 140, 95)
     ]
 
-_update_map(_table,('harry', 'average-pitch'),
-            " ap %s hs %s ",_harry_ap)
+_update_map(_table,('man', 'average-pitch'),
+            " ap %s hs %s ",_man_ap)
 
-_betty_ap = [
+_female_ap = [
     (0, 160, 115),
     (1, 170, 112),
     (2, 181, 109),
@@ -97,8 +97,8 @@ _betty_ap = [
     (9, 260, 91)
     ]
 
-_update_map(_table, ('betty', 'average-pitch'),
-            " ap %s hs %s ",_betty_ap)
+_update_map(_table, ('female', 'average-pitch'),
+            " ap %s hs %s ",_female_ap)
 
 # pitch-range for male:
 
@@ -125,7 +125,7 @@ _male_pr = [
 _update_map(_table, ('male', 'pitch-range'),
             " pr %s as %s ", _male_pr)
 
-_harry_pr = [
+_man_pr = [
     (0, 0, 0),
     (1, 16, 20),
     (2, 32, 40),
@@ -138,10 +138,10 @@ _harry_pr = [
     (9, 250, 100)
     ]
 
-_update_map(_table, ('harry', 'pitch-range'),
-            " pr %s as %s ", _harry_pr)
+_update_map(_table, ('man', 'pitch-range'),
+            " pr %s as %s ", _man_pr)
 
-_betty_pr = [
+_female_pr = [
     (0, 0, 0),
     (1, 50, 10),
     (2, 80, 20),
@@ -154,8 +154,8 @@ _betty_pr = [
     (9, 250, 100)
     ]
 
-_update_map(_table, ('betty', 'pitch-range'),
-            " pr %s as %s ", _betty_pr)
+_update_map(_table, ('female', 'pitch-range'),
+            " pr %s as %s ", _female_pr)
 
 # Stress:
 
@@ -185,7 +185,7 @@ _male_stress =[
 _update_map(_table, ('male', 'stress'),
             " hr %s sr %s qu %s bf %s ", _male_stress)
 
-_harry_stress = [
+_man_stress = [
     (0, 0, 0, 0, 0),
     (1, 4, 6, 2, 2, ),
     (2, 8, 12, 4, 4, ),
@@ -199,10 +199,10 @@ _harry_stress = [
     ]
 
 
-_update_map(_table, ('harry', 'stress'),
-            " hr %s sr %s qu %s bf %s ", _harry_stress)
+_update_map(_table, ('man', 'stress'),
+            " hr %s sr %s qu %s bf %s ", _man_stress)
 
-_betty_stress = [
+_female_stress = [
     (0, 1, 1, 0, 0),
     (1, 3, 4, 11, 0),
     (2, 5, 8, 22, 0),
@@ -216,8 +216,8 @@ _betty_stress = [
 
     ]
 
-_update_map(_table, ('betty', 'stress'),
-            " hr %s sr %s qu %s bf %s ", _betty_stress)
+_update_map(_table, ('female', 'stress'),
+            " hr %s sr %s qu %s bf %s ", _female_stress)
 
 #richness
 
@@ -242,7 +242,7 @@ _male_richness = [
 _update_map(_table, ('male', 'richness'),
             " ri %s sm %s " ,_male_richness)
 
-_harry_richness = [
+_man_richness = [
     (0, 100, 0),
     (1, 96, 3),
     (2, 93, 6),
@@ -255,10 +255,10 @@ _harry_richness = [
     (9, 0, 70)
     ]
 
-_update_map(_table, ('harry', 'richness'),
-            " ri %s sm %s " , _harry_richness)
+_update_map(_table, ('man', 'richness'),
+            " ri %s sm %s " , _man_richness)
 
-_betty_richness = [
+_female_richness = [
     (0, 0, 100),
     (1, 8, 76),
     (2, 16, 52),
@@ -271,8 +271,8 @@ _betty_richness = [
     (9, 100, 0)
     ]
 
-_update_map(_table, ('betty', 'richness'),
-            " ri %s sm %s ", _betty_richness)
+_update_map(_table, ('female', 'richness'),
+            " ri %s sm %s ", _female_richness)
 
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
