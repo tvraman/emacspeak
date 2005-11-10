@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """Python wrapper for Emacspeak speech servers.
 
 The emacspeak TTS server provides a simple but powerful and
@@ -29,7 +28,7 @@ __license__ = "GPL"
 __all__=['Speaker']
 
 import os, sys
-import acss
+
 
 class Speaker:
     
@@ -101,7 +100,13 @@ class Speaker:
 
     def sayUtterances(self, list, acss=None):
         """Speak list of utterances."""
-        for t in list: self.__handle.write("q { %s }\n" %str(t))
+        if acss is not None:
+            code =self.getvoice(acss)
+            for t in list:
+                self.__handle.write("q { %s %s %s }\n" %(code[0], str(t), code[1]))
+        else:
+            for t in list:
+                self.__handle.write("q { %s }\n" % str(t))
         self.__handle.write("d\n")
         self.__handle.flush()
     
@@ -123,7 +128,12 @@ class Speaker:
     def addText(self, text="", acss=None):
         """Queue text to be spoken.
         Output is produced by next call to say() or speak()."""
-        self.__handle.write("q {%s}\n" %text)
+        if acss is not None:
+            code =self.getvoice(acss)
+            self.__handle.write("q {%s %s %s}\n" %(code[0], text,
+        code[1]))
+        else:
+            self.__handle.write("q {%s}\n" %text)
 
     def stop(self):
         """Silence ongoing speech."""
@@ -183,11 +193,14 @@ class Speaker:
         "Shutdown speech engine."
         if not self.__handle.closed: self.shutdown()
 
+class EngineException (Exception):
+    """Engine not found."""
+    pass
 
 def _getcodes(engine):
     """Helper function that fetches synthesizer codes for a
     specified engine."""
-    if engine not in _codeTable: raise Error
+    if engine not in _codeTable: raise EngineException
     return _codeTable[engine]
 
 _codeTable = {

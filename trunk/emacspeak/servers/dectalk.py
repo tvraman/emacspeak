@@ -13,8 +13,6 @@ __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 
-import acss
-
 _defined_voices = {}
 
 # Map from ACSS dimensions to Dectalk settings:
