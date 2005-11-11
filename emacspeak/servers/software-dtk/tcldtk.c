@@ -58,7 +58,7 @@ Tcldtk_Init (Tcl_Interp * interp)
 {
   int status;
   LPTTS_HANDLE_T dtkHandle;
-  unsigned int devNo = 0;
+  unsigned int devNo = WAVE_MAPPER;
   DWORD devOptions = 0;
   devOptions |= WAVE_OPEN_SHAREABLE;
   devOptions |= WAVE_FORMAT_1S16;
