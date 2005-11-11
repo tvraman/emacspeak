@@ -41,6 +41,12 @@ pronunciation rules.
 """
 
 
+__id__ = "$Id$"
+__author__ = "$Author$"
+__version__ = "$Revision$"
+__date__ = "$Date$"
+__copyright__ = "Copyright (c) 2005 T. V. Raman"
+__license__ = "LGPL"
 
 class Speakable:
 
