@@ -135,7 +135,7 @@ class Speaker:
         self.__handle.write("l {%s}\n" %l)
         self.__handle.flush()
 
-queue   def queueTone(self, pitch=440, duration=50):
+    def queueTone(self, pitch=440, duration=50):
         """Queue specified tone."""
         self.__handle.write("t %s %s\n " % (pitch, duration))
         self.__handle.flush()
