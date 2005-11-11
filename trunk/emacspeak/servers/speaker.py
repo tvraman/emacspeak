@@ -78,10 +78,7 @@ class Speaker:
         
         self.__engine =engine
         if engine not in Speaker.listEngines(): raise EngineException
-        try:
-            e =  __import__(_getcodes(engine))
-        except:
-            raise EngineException
+        e =  __import__(_getcodes(engine))
         self.getvoice =e.getvoice
         self.getrate = e.getrate
         if host == 'localhost':
@@ -91,10 +88,10 @@ class Speaker:
                                          "ssh-%s" % self.__engine)
         self.__handle = os.popen(self.__server,"w")
         self.__handle.flush()
-        self.__settings ={}
+        self._settings ={}
         if initial is not None:
-            self.__settings.update(initial)
-            self.configure(self.__settings)
+            self._settings.update(initial)
+            self.configure(self._settings)
 
     def configure(self, settings):
         """Configure engine with settings."""
@@ -102,7 +99,7 @@ class Speaker:
             if hasattr(self, k) and callable(getattr(self,k)):
                 getattr(self,k)(settings[k])
 
-    def settings(self): return self.__settings
+    def settings(self): return self._settings
     
     def say(self, text="", acss=None):
         """Speaks specified text. All queued text is spoken immediately."""
@@ -178,44 +175,53 @@ class Speaker:
     def punctuations(self, mode):
         """Set punctuation mode."""
         if mode in ['all', 'some', 'none']:
-            self.__settings['punctuations'] = mode
+            self._settings['punctuations'] = mode
             self.__handle.write("tts_set_punctuations %s\n" % mode)
             self.__handle.flush()
 
     def rate(self, r):
         """Set speech rate."""
-        self.__settings['rate'] = r
+        self._settings['rate'] = r
+        self.__handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
+        self.__handle.flush()
+
+    def increaseRate(self, step=10):
+        """Set speech rate."""
+        self._settings['rate'] += step
+        self.__handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
+        self.__handle.flush()
+
+
+    def decreaseRate(self, step=10):
+        """Set speech rate."""
+        self._settings['rate'] -= step
         self.__handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
         self.__handle.flush()
 
     def splitcaps(self, flag):
         """Set splitcaps mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
-        self.__settings['splitcaps'] = flag
+        self._settings['splitcaps'] = flag
         self.__handle.write("tts_split_caps %s\n" % flag)
         self.__handle.flush()
 
     def capitalize(self, flag):
         """Set capitalization  mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
-        self.__settings['capitalize'] = flag
+        self._settings['capitalize'] = flag
         self.__handle.write("tts_capitalize %s\n" % flag)
         self.__handle.flush()
 
     def allcaps(self, flag):
         """Set allcaps  mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
-        self.__settings['allcaps'] = flag
+        self._settings['allcaps'] = flag
         self.__handle.write("tts_allcaps_beep %s\n" % flag)
         self.__handle.flush()
 
     def __del__(self):
         "Shutdown speech engine."
         if not self.__handle.closed: self.shutdown()
-
-class EngineException (Exception):
-    """Engine not found."""
-    pass
 
 def _getcodes(engine):
     """Helper function that fetches synthesizer codes for a
