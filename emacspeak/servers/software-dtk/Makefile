@@ -8,9 +8,15 @@ CC=gcc
 LIBS=-ltts -ltts_us -ltcl
 SERVER_DIR=/usr/share/emacs/site-lisp/emacspeak/servers/software-dtk
 FILES=tcldtk.c tcldtk.so tcldtk.o Makefile
+	libparentdir = ${PREFIX}/share/emacs/site-lisp
+libdir =$(libparentdir)/emacspeak/linux-outloud
+all: tcldtk.so
 
-tcldtk.so: tcldtk.o
-	$(CC) $< $(LIBS)  -shared -o $@
+tcldtk.lo: tcldtk.c
+	libtool --mode=compile $(CC) $(CFLAGS) -c $<
+
+tcldtk.so: tcldtk.lo
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ tcldtk.lo $(LIBS) -shared
 
 dist: software-dtk.tar.gz
 
