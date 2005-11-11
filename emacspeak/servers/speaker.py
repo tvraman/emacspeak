@@ -27,8 +27,7 @@ __copyright__ = "Copyright (c) 2005 T. V. Raman"
 __license__ = "GPL"
 __all__=['Speaker']
 
-import os, sys, re
-
+import os, sys
 
 class Speaker:
     
@@ -61,10 +60,9 @@ class Speaker:
         """Enumerate available engines."""
         f = open(os.path.join(Speaker.location, '.servers'))
         engines = []
-        for line in f.readlines():
-            if re.match('^\#', line): continue
-            if re.match('^\s*$', line): continue
-            engines.append(line[:-1])
+        for line in f:
+            if line[0] == '#' or line.strip() == '': continue
+            engines.append(line.strip())
         f.close()
         return engines
 
@@ -236,12 +234,27 @@ _codeTable = {
     'outloud' : 'outloud',
     }
 
-
-if __name__=="__main__":
+def _test():
+    """Self test."""
     import time
+    import acss
     s=Speaker()
-    s.addText(range(10))
+    a=acss.ACSS()
+    s.punctuations('some')
+    s.queueText("This is an initial test.");
+    s.queueText("Next, we'll test audio formatted output.")
+    for d in ['average-pitch', 'pitch-range',
+              'richness', 'stress']:
+        for i in range(0,10,2):
+            a[d] = i
+            s.queueText("Set %s to %i. " % (d, i), a)
+        del a[d]
+        s.queueText("Reset %s." % d, a)
     s.speak()
     print "sleeping  while waiting for speech to complete."
-    time.sleep(7)
+    time.sleep(40)
     s.shutdown()
+
+
+if __name__=="__main__": _test()
+    
