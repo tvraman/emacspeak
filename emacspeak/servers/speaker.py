@@ -135,17 +135,17 @@ class Speaker:
         self.__handle.write("l {%s}\n" %l)
         self.__handle.flush()
 
-    def qTone(self, pitch=440, duration=50):
+queue   def queueTone(self, pitch=440, duration=50):
         """Queue specified tone."""
         self.__handle.write("t %s %s\n " % (pitch, duration))
         self.__handle.flush()
 
-    def qSilence( self, duration=50):
+    def queueSilence( self, duration=50):
         """Queue specified silence."""
         self.__handle.write("sh  %s" %  duration)
         self.__handle.flush()
     
-    def qText(self, text="", acss=None):
+    def queueText(self, text="", acss=None):
         """Queue text to be spoken.
         Output is produced by next call to say() or speak()."""
         if acss is not None:
