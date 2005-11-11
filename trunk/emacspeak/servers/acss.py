@@ -35,8 +35,13 @@ class ACSS(dict):
         self.updateName()
 
     def __setitem__ (self, key, value):
-        "Update name when we change values."
+        """Update name when we change values."""
         dict.__setitem__(self, key, value)
+        self.updateName()
+
+    def __delitem__(self, key):
+        """Update name if we delete a key."""
+        dict.__delitem__(self,key)
         self.updateName()
     
     def updateName(self):
