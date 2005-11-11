@@ -15,7 +15,7 @@ __author__ = "$Author$"
 __version__ = "$Revision$"
 __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
-__license__ = "GPL"
+__license__ = "LGPL"
 
 
 from speaker import Speaker
@@ -31,13 +31,6 @@ class HTTPSpeaker (HTTPServer):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
         self.speaker = Speaker(engine)
-__id__ = "$Id$"
-__author__ = "$Author$"
-__version__ = "$Revision$"
-__date__ = "$Date$"
-__copyright__ = "Copyright (c) 2005 T. V. Raman"
-__license__ = "GPL"
-    
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
     """Handle HTTP Speak requests."""
