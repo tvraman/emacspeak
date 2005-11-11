@@ -24,7 +24,7 @@ __author__ = "$Author$"
 __version__ = "$Revision$"
 __date__ = "$Date$"
 __copyright__ = "Copyright (c) 2005 T. V. Raman"
-__license__ = "GPL"
+__license__ = "LGPL"
 __all__=['Speaker']
 
 import os, sys
