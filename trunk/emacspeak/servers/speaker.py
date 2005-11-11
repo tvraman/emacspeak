@@ -75,7 +75,6 @@ class Speaker:
         """Launches speech engine."""
         
         self._engine =engine
-        if engine not in Speaker.listEngines(): raise EngineException
         e =  __import__(_getcodes(engine))
         self.getvoice =e.getvoice
         self.getrate = e.getrate
@@ -188,14 +187,13 @@ class Speaker:
     def increaseRate(self, step=10):
         """Set speech rate."""
         self._settings['rate'] += step
-        self._handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
+        self._handle.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
         self._handle.flush()
-
 
     def decreaseRate(self, step=10):
         """Set speech rate."""
         self._settings['rate'] -= step
-        self._handle.write("tts_set_speech_rate %s\n" % self.getrate(r))
+        self._handle.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
         self._handle.flush()
 
     def splitcaps(self, flag):
@@ -223,11 +221,7 @@ class Speaker:
         "Shutdown speech engine."
         if not self._handle.closed: self.shutdown()
 
-def _getcodes(engine):
-    """Helper function that fetches synthesizer codes for a
-    specified engine."""
-    if engine not in _codeTable: raise EngineException
-    return _codeTable[engine]
+def _getcodes(engine): return _codeTable[engine]
 
 _codeTable = {
     'dtk-exp' : 'dectalk',
