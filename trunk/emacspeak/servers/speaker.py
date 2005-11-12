@@ -33,18 +33,19 @@ class Speaker:
     
     """Provides speech servre abstraction.
 
-    Class variable location specifies directory where Emacspeak
-    speech servers are installed.
+    Class Variables:
 
-    Class variable config is a dictionary of default settings.
-    
-    Speaker objects can be initialized with the following
-    parameters:
+        location -- specifies directory where Emacspeak
+        speech servers are installed.
 
-    engine -- TTS server to instantiate. Default: outloud
-    host -- Host that runs   server. Default: localhost
-    settings -- Dictionary of default settings.
+        config --  dictionary of default settings.
     
+    Speaker objects can be initialized with the following parameters:
+
+        engine -- TTS server to instantiate. Default: outloud
+        host -- Host that runs   server. Default: localhost
+        settings -- Dictionary of default settings.
+
     """
 
     location="/usr/share/emacs/site-lisp/emacspeak/servers"
