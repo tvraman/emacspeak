@@ -110,11 +110,8 @@ class Speaker:
             self._handle.write("q {%s}\nd\n" %text)
         self._handle.flush()
 
-    def speak(self):
-        """Forces queued text to be spoken."""
-        self._handle.write("d\n")
-        self._handle.flush()
-
+    def speak(self, text, acss=None): self.say(text,acss)
+    
     def sayUtterances(self, list, acss=None):
         """Speak list of utterances."""
         if acss is not None:
