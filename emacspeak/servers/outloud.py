@@ -19,8 +19,8 @@ _defined_voices = {}
 def _update_map(table, key, format,  settings):
     """Internal function to update acss->synth mapping."""
     table[key] ={}
-    for tuple  in  settings:
-        _table[key][tuple[0]] = format % tuple[1:]
+    for setting  in  settings:
+        _table[key][setting[0]] = format % setting[1:]
 
 
 _table ={}
