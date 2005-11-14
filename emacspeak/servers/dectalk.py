@@ -275,6 +275,8 @@ _update_map(_table, ('female', 'richness'),
             " ri %s sm %s ", _female_richness)
 def getrate(r):    return 180 + 4*r
 
+def getvoicelist(): return _table['family'].keys()
+
 def getvoice(acss):
     """Memoized function that returns  synthesizer code for
     specified  ACSS setting.
