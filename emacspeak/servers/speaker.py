@@ -86,7 +86,7 @@ class Speaker:
                                          "ssh-%s" %
                                          self._engine)
         cmd = '{ ' + self._server + '; } 2>&1'
-        self._output = os.popen(cmd, "w", 1)
+        (self._w, self._r, self._e) = os.popen3(cmd, "w", 1)
         self._settings ={}
         if initial is not None:
             self._settings.update(initial)
@@ -104,9 +104,9 @@ class Speaker:
         """Speaks specified text. All queued text is spoken immediately."""
         if acss is not None:
             code =self.getvoice(acss)
-            self._output.write("q {%s %s %s}\nd\n" %(code[0], text, code[1]))
+            self._w.write("q {%s %s %s}\nd\n" %(code[0], text, code[1]))
         else:
-            self._output.write("q {%s}\nd\n" %text)
+            self._w.write("q {%s}\nd\n" %text)
 
     def speak(self, text, acss=None): self.say(text,acss)
     
@@ -115,93 +115,93 @@ class Speaker:
         if acss is not None:
             code =self.getvoice(acss)
             for t in list:
-                self._output.write("q { %s %s %s }\n" %(code[0], str(t), code[1]))
+                self._w.write("q { %s %s %s }\n" %(code[0], str(t), code[1]))
         else:
             for t in list:
-                self._output.write("q { %s }\n" % str(t))
-        self._output.write("d\n")
+                self._w.write("q { %s }\n" % str(t))
+        self._w.write("d\n")
     
     def letter (self, l):
         """Speak single character."""
-        self._output.write("l {%s}\n" %l)
+        self._w.write("l {%s}\n" %l)
 
     def queueTone(self, pitch=440, duration=50):
         """Queue specified tone."""
-        self._output.write("t %s %s\n " % (pitch, duration))
+        self._w.write("t %s %s\n " % (pitch, duration))
 
     def queueSilence( self, duration=50):
         """Queue specified silence."""
-        self._output.write("sh  %s" %  duration)
+        self._w.write("sh  %s" %  duration)
     
     def queueText(self, text="", acss=None):
         """Queue text to be spoken.
         Output is produced by next call to say() or speak()."""
         if acss is not None:
             code =self.getvoice(acss)
-            self._output.write("q {%s %s %s}\n" %(code[0], text,
+            self._w.write("q {%s %s %s}\n" %(code[0], text,
         code[1]))
         else:
-            self._output.write("q {%s}\n" %text)
+            self._w.write("q {%s}\n" %text)
 
     def stop(self):
         """Silence ongoing speech."""
-        self._output.write("s\n")
+        self._w.write("s\n")
 
     def shutdown(self):
         """Shutdown speech engine."""
-        self._output.close()
+        self._w.close()
         sys.stderr.write("shut down TTS\n")
     
     def reset(self):
         """Reset TTS engine."""
-        self._output.write("tts_reset\n")
+        self._w.write("tts_reset\n")
     
     def version(self):
         """Speak TTS version info."""
-        self._output.write("version\n")
+        self._w.write("version\n")
 
     def punctuations(self, mode):
         """Set punctuation mode."""
         if mode in ['all', 'some', 'none']:
             self._settings['punctuations'] = mode
-            self._output.write("tts_set_punctuations %s\n" % mode)
+            self._w.write("tts_set_punctuations %s\n" % mode)
 
     def rate(self, r):
         """Set speech rate."""
         self._settings['rate'] = r
-        self._output.write("tts_set_speech_rate %s\n" % self.getrate(r))
+        self._w.write("tts_set_speech_rate %s\n" % self.getrate(r))
 
     def increaseRate(self, step=10):
         """Set speech rate."""
         self._settings['rate'] += step
-        self._output.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
+        self._w.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
 
     def decreaseRate(self, step=10):
         """Set speech rate."""
         self._settings['rate'] -= step
-        self._output.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
+        self._w.write("tts_set_speech_rate %s\n" % self.getrate(self._settings['rate']))
 
     def splitcaps(self, flag):
         """Set splitcaps mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
         self._settings['splitcaps'] = flag
-        self._output.write("tts_split_caps %s\n" % flag)
+        self._w.write("tts_split_caps %s\n" % flag)
 
     def capitalize(self, flag):
         """Set capitalization  mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
         self._settings['capitalize'] = flag
-        self._output.write("tts_capitalize %s\n" % flag)
+        self._w.write("tts_capitalize %s\n" % flag)
 
     def allcaps(self, flag):
         """Set allcaps  mode. 1  turns on, 0 turns off"""
         flag = bool(flag) and 1 or 0
         self._settings['allcaps'] = flag
-        self._output.write("tts_allcaps_beep %s\n" % flag)
+        self._w.write("tts_allcaps_beep %s\n" % flag)
 
     def __del__(self):
         "Shutdown speech engine."
-        if not self._output.closed: self.shutdown()
+        if not self._w.closed: self.shutdown()
 
 def _getcodes(engine): return _codeTable[engine]
 
@@ -228,7 +228,7 @@ def _test():
             s.queueText("Set %s to %i. " % (d, i), a)
         del a[d]
         s.queueText("Reset %s." % d, a)
-    s.speak()
+    s.speak("")
     print "sleeping  while waiting for speech to complete."
     time.sleep(40)
     s.shutdown()
