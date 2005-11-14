@@ -150,6 +150,8 @@ class Speaker:
     def shutdown(self):
         """Shutdown speech engine."""
         self._w.close()
+        self._r.close()
+        self._e.close()
         sys.stderr.write("shut down TTS\n")
     
     def reset(self):
