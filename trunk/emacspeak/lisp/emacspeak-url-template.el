@@ -569,9 +569,9 @@ Here are some examples:
 ;;{{{ google scholar 
 
 (emacspeak-url-template-define
- "Google Print"
- "http://print.google.com/print?oi=print&q=%s"
- (list "Google Print Search: ")
+ "Google Books"
+ "http://books.google.com/books?q=%s&btnG=Search+Books&hl=en"
+ (list "Google Book Search: ")
  #'(lambda nil
      (search-forward "pages" nil t)
      (emacspeak-speak-line))
