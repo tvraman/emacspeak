@@ -151,28 +151,36 @@ near: url-encoded location from where direction links are generated
 
   <xsl:template match="segment">
     <li>
-      
-        <xsl:copy-of select="./b|text()"/>.
+      <xsl:copy-of select="./text|./b|text()"/>.
       and Go 
       <em>
-        <xsl:value-of select="@meters"/> meters (approximately
-        <xsl:value-of select="substring-before(@distance, 'mi')"/>
-      miles)</em>
+        <xsl:value-of select="@meters"/> meters
+        <xsl:choose>
+          <xsl:when test="substring-before(@distance, 'mi')">
+            (approximately <xsl:value-of select="substring-before(@distance, 'mi')"/>
+            miles)
+          </xsl:when>
+          <xsl:when test="substring-before(@distance, 'ft')">
+            <xsl:value-of select="substring-before(@distance, 'ft')"/>
+            feet)
+          </xsl:when>
+        </xsl:choose>
+      </em>
       <xsl:apply-templates select="cross_streets"/>
     </li>
   </xsl:template>
 
   <xsl:template match="cross_streets">
-<br/>
-    There are 
-    <em>
-      <xsl:value-of select="count(cross_street)"/></em> cross-streets
-      here:
-      <ul>
-        <xsl:apply-templates select="cross_street"/>
-      </ul>
+    <br/>
+    <table>
+      <caption>Cross Streets: <em><xsl:value-of select="count(cross_street)"/></em></caption>
+      <xsl:apply-templates select="cross_street"/>
+    </table>
   </xsl:template>
   <xsl:template match="cross_street">
-    <li><xsl:apply-templates/></li>
+    <tr>
+      <td> <xsl:apply-templates/></td>
+      <td><xsl:value-of select="@meters"/> meters </td>
+    </tr>
   </xsl:template>
 </xsl:stylesheet>
