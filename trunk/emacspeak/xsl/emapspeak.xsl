@@ -166,21 +166,23 @@ near: url-encoded location from where direction links are generated
           </xsl:when>
         </xsl:choose>
       </em>
-      <xsl:apply-templates select="cross_streets"/>
+      <xsl:if test="count(cross_streets/cross_street) > 1">
+        <em><xsl:value-of select="count(cross_streets/cross_street)"/>
+        blocks </em>:<br/>
+        <xsl:apply-templates select="cross_streets"/>
+      </xsl:if>
     </li>
   </xsl:template>
 
   <xsl:template match="cross_streets">
-    <br/>
-    <table>
-      <caption>Cross Streets: <em><xsl:value-of select="count(cross_street)"/></em></caption>
+    <ul>
       <xsl:apply-templates select="cross_street"/>
-    </table>
+    </ul>
   </xsl:template>
   <xsl:template match="cross_street">
-    <tr>
-      <td> <xsl:apply-templates/></td>
-      <td><xsl:value-of select="@meters"/> meters </td>
-    </tr>
+    <li>
+      <xsl:apply-templates/>
+      <xsl:value-of select="@meters"/> meters 
+    </li>
   </xsl:template>
 </xsl:stylesheet>
