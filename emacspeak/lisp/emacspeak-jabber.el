@@ -51,7 +51,6 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
-
 ;;}}}
 ;;{{{ Advice interactive commands:
 
@@ -126,6 +125,15 @@ do
   (emacspeak-speak-mode-line))
 
 ;;}}}
+
+;;}}}
+;;{{{ Pronunciations 
+(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
+(emacspeak-pronounce-augment-pronunciations 'jabber-chat-mode
+					    emacspeak-pronounce-internet-smileys-pronunciations)
+(emacspeak-pronounce-augment-pronunciations 'jabber-mode
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
+
 
 ;;}}}
 (provide 'emacspeak-jabber)
