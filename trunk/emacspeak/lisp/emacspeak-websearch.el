@@ -1204,22 +1204,29 @@ http://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
-  "http://froogle.google.com/froogle?q=%s&btnG=Froogle+Searchs/"
+  "http://froogle.google.com/froogle?q=%s/"
   "*URI for Froogle search")
 
-(defun emacspeak-websearch-froogle (query )
+(defun emacspeak-websearch-froogle (query &optional local-flag)
   "Perform a Froogle search."
   (interactive
    (list
-    (emacspeak-websearch-read-query "Froogle Search: ")))
+    (emacspeak-websearch-read-query "Froogle Search: ")
+    current-prefix-arg))
   (declare (special emacspeak-websearch-froogle-uri))
+  (let ((local  (when local-flag
+                  (read-from-minibuffer "Search near location:"))))
   (emacspeak-w3-without-xsl
    (browse-url 
     (format emacspeak-websearch-froogle-uri
-	    (webjump-url-encode query)))
+            (concat 
+	    (webjump-url-encode query)
+            (if local-flag
+                (format "&mode=local&addr=%s" local)
+              ""))))
    (emacspeak-websearch-post-process
     query
-    'emacspeak-speak-line)))
+    'emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ teoma
