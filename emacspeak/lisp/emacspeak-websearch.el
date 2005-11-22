@@ -229,7 +229,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                                   'emacspeak-websearch-emaps-search)
 
 (emacspeak-websearch-set-key ?e  'emaps)
-
+;;;### autoload
 (defvar emacspeak-websearch-google-maps-uri
   "http://maps.google.com/maps?q=%s&csi=1&output=js"
   "URL template for Google maps.")
