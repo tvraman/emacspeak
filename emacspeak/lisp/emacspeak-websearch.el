@@ -516,6 +516,28 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
             (webjump-url-encode query))))
 
 ;;}}}
+;;{{{ PodZinger
+
+(emacspeak-websearch-set-searcher 'podzinger
+                                  'emacspeak-websearch-podzinger-search)
+
+(emacspeak-websearch-set-key ?z 'podzinger)
+
+(defvar emacspeak-websearch-podzinger-uri
+  "http://www.podzinger.com/rss.jsp?q="
+  "URI to search  Podzinger for broadcasts.")
+
+(defun emacspeak-websearch-podzinger-search (query)
+  "Podzinger RSS Generator."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "PodZinger Searchfor: ")))
+  (declare (special emacspeak-websearch-podzinger-uri))
+  (emacspeak-rss-display
+   (concat  emacspeak-websearch-podzinger-uri
+            (webjump-url-encode query))))
+
+;;}}}
 ;;{{{ CNN
 
 ;; (emacspeak-websearch-set-searcher 'cnn
