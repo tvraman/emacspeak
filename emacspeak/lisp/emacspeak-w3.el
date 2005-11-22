@@ -110,86 +110,80 @@
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
+  (modify-syntax-entry 10 " ")
   (when emacspeak-w3-punctuation-mode
     (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
+  (emacspeak-pronounce-refresh-pronunciations)
   (unless emacspeak-w3-post-process-hook
     (emacspeak-speak-mode-line)))
 
 (add-hook 'w3-mode-hook 'emacspeak-w3-speak-mode-hook)
-(add-hook 'w3-mode-hook
-          'emacspeak-pronounce-refresh-pronunciations)
-  
-(add-hook
- 'w3-mode-hook
- #'(lambda ()
-     (declare (special w3-mode-map))
-     (modify-syntax-entry 10 " ")
-     (define-key w3-mode-map "hh" 'emacspeak-w3-show-http-headers)
-     (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
-     (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
-     (define-key w3-mode-map "\M-j"
-       'emacspeak-w3-javascript-follow-link)
-     (define-key w3-mode-map "t"  'emacspeak-w3-jump-to-title-in-content)
 
-     (define-key w3-mode-map "P"
-       'emacspeak-speak-previous-personality-chunk)
-     (define-key w3-mode-map "i"
-       'emacspeak-w3-next-parsed-item)
-     (define-key w3-mode-map "N"
-       'emacspeak-speak-next-personality-chunk)
-     (define-key w3-mode-map "\M-r"
-       'emacspeak-w3-realaudio-play-url-at-point)
-     (define-key w3-mode-map "A" 'emacspeak-w3-browse-atom-at-point)
-     (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
-     (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
-     (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
-     (define-key w3-mode-map "l"
-       'emacspeak-w3-google-who-links-to-this-page)
-     (define-key w3-mode-map "c" 'emacspeak-w3-curl-url-under-point)
-     (define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
-     (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
-     (define-key w3-mode-map ";"
-       'emacspeak-w3-speak-this-element)
-     (define-key w3-mode-map "\M-s" 'emacspeak-w3-jump-to-submit)
-     (define-key w3-mode-map "y" 'emacspeak-w3-url-rewrite-and-follow)
-     (define-key w3-mode-map "n"
-       'emacspeak-w3-next-doc-element)
-     (define-key w3-mode-map "p" 'emacspeak-w3-previous-doc-element)
-     (define-key w3-mode-map "L"
-       'emacspeak-w3-lynx-url-under-point)
-     (define-key w3-mode-map "\C-f" 'w3-table-focus-on-this-cell)
-     (define-key w3-mode-map  "\C-t" 'emacspeak-w3-toggle-table-borders)
-     (define-key w3-mode-map "'" 'emacspeak-speak-rest-of-buffer)
-     (define-key w3-mode-map "j" 'imenu)
-     (define-key w3-mode-map "\M- " 'emacspeak-imenu-speak-this-section)
-     (define-key w3-mode-map "\M-p" 'emacspeak-imenu-goto-previous-index-position)
-     (define-key w3-mode-map "\M-n" 'emacspeak-imenu-goto-next-index-position)))
+(defun emacspeak-w3-load-hook ()
+  "Setup Emacspeak keys in W3 mode."
+  (declare (special w3-mode-map
+                    w3-echo-link url-show-status
+                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                    emacspeak-pronounce-load-pronunciations-on-startup))
+  (when (locate-library "w3-speak") (require 'w3-speak))
+  (when (and (locate-library "w3-speak-table")
+             (not (featurep 'w3-speak-table)))
+    (load-library "w3-speak-table")
+    (provide 'w3-speak-table))
+  (emacspeak-keymap-remove-emacspeak-edit-commands w3-mode-map)
+  (and
+   emacspeak-pronounce-load-pronunciations-on-startup
+   (emacspeak-pronounce-augment-pronunciations 'w3-mode
+                                               emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
+  (setq url-show-status nil)
+  (setq w3-echo-link
+        (list 'text 'title 'name 'url))
+  (when (locate-library
+         "w3-imenu")
+    (require 'w3-imenu))
+  (define-key w3-mode-map "hh" 'emacspeak-w3-show-http-headers)
+  (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
+  (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
+  (define-key w3-mode-map "\M-j"
+    'emacspeak-w3-javascript-follow-link)
+  (define-key w3-mode-map "t"  'emacspeak-w3-jump-to-title-in-content)
+  (define-key w3-mode-map "P"
+    'emacspeak-speak-previous-personality-chunk)
+  (define-key w3-mode-map "i"
+    'emacspeak-w3-next-parsed-item)
+  (define-key w3-mode-map "N"
+    'emacspeak-speak-next-personality-chunk)
+  (define-key w3-mode-map "\M-r"
+    'emacspeak-w3-realaudio-play-url-at-point)
+  (define-key w3-mode-map "A" 'emacspeak-w3-browse-atom-at-point)
+  (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
+  (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
+  (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
+  (define-key w3-mode-map "l"
+    'emacspeak-w3-google-who-links-to-this-page)
+  (define-key w3-mode-map "c" 'emacspeak-w3-curl-url-under-point)
+  (define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
+  (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
+  (define-key w3-mode-map ";"
+    'emacspeak-w3-speak-this-element)
+  (define-key w3-mode-map "\M-s" 'emacspeak-w3-jump-to-submit)
+  (define-key w3-mode-map "y" 'emacspeak-w3-url-rewrite-and-follow)
+  (define-key w3-mode-map "n"
+    'emacspeak-w3-next-doc-element)
+  (define-key w3-mode-map "p" 'emacspeak-w3-previous-doc-element)
+  (define-key w3-mode-map "L"
+    'emacspeak-w3-lynx-url-under-point)
+  (define-key w3-mode-map "\C-f" 'w3-table-focus-on-this-cell)
+  (define-key w3-mode-map  "\C-t" 'emacspeak-w3-toggle-table-borders)
+  (define-key w3-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+  (define-key w3-mode-map "j" 'imenu)
+  (define-key w3-mode-map "\M- " 'emacspeak-imenu-speak-this-section)
+  (define-key w3-mode-map "\M-p" 'emacspeak-imenu-goto-previous-index-position)
+  (define-key w3-mode-map "\M-n"
+    'emacspeak-imenu-goto-next-index-position))
 
-(add-hook
- 'w3-load-hook
- #'(lambda ()
-     (declare (special w3-mode-map
-                       w3-echo-link url-show-status
-                       emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                       emacspeak-pronounce-load-pronunciations-on-startup))
-     (when (locate-library "w3-speak") (require 'w3-speak))
-     (when (and (locate-library "w3-speak-table")
-                (not (featurep 'w3-speak-table)))
-       (load-library "w3-speak-table")
-       (provide 'w3-speak-table))
-     (require 'emacspeak-keymap)
-     (emacspeak-keymap-remove-emacspeak-edit-commands w3-mode-map)
-     (and
-      emacspeak-pronounce-load-pronunciations-on-startup
-      (emacspeak-pronounce-augment-pronunciations 'w3-mode
-                                                  emacspeak-pronounce-common-xml-namespace-uri-pronunciations))
-     (setq url-show-status nil)
-     (setq w3-echo-link
-           (list 'text 'title 'name 'url))
-     (when (locate-library
-            "w3-imenu")
-       (require 'w3-imenu))))
+(add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
 
 ;;}}}
 ;;{{{  dump using lynx 
@@ -292,7 +286,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current			;move to parsed item if needed
+    (unless current                ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
@@ -805,13 +799,13 @@ Optional arg COMPLEMENT inverts the filter.  "
           (rename-buffer  emacspeak-w3-xsl-keep-result  'unique)))
        (t (kill-buffer src-buffer))))))
 
-(defun emacspeak-w3-xslt-junk (path   &optional prompt-url)
+(defun emacspeak-w3-xslt-junk (path   &optional prompt-url speak)
   "Junk elements matching specified locator."
   (interactive
    (list
     (read-from-minibuffer "XPath: ")
     current-prefix-arg))
-  (emacspeak-w3-xslt-filter path prompt-url 'speak 'complement))
+  (emacspeak-w3-xslt-filter path prompt-url speak 'complement))
 
 (defcustom emacspeak-w3-media-stream-suffixes
   (list
@@ -1167,28 +1161,7 @@ completion. "
      prompt-url
      (or (interactive-p) speak))))
 
-(defun emacspeak-w3-junk-by-class-list(classes   &optional prompt-url speak)
-  "Junk elements having class specified in list `classes' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Optional arg url specifies the page to extract
-content from. Interactive use provides list of class values as
-completion. "
-  (interactive
-   (list
-    (emacspeak-w3-css-get-class-list)
-    current-prefix-arg))
-  (let ((filter nil))
-    (setq filter
-          (mapconcat
-           #'(lambda  (c)
-               (format "(@class=\"%s\")" c))
-           classes
-           " or "))
-    (emacspeak-w3-xslt-filter
-     (format "//*[%s]" filter)
-     prompt-url
-     (or (interactive-p) speak)
-     'complement)))
+
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
