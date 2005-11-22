@@ -1208,7 +1208,9 @@ http://www.google.com/options/specialsearches.html "
   "*URI for Froogle search")
 
 (defun emacspeak-websearch-froogle (query &optional local-flag)
-  "Perform a Froogle search."
+  "Perform a Froogle search.
+Optional interactive  prefix arg local-flag prompts for local
+  area in which to search."
   (interactive
    (list
     (emacspeak-websearch-read-query "Froogle Search: ")
