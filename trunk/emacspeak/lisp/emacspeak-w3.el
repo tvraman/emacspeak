@@ -105,9 +105,15 @@
           (const  :tag "all" all))
   :group 'emacspeak-w3)
 
+(defcustom emacspeak-w3-create-imenu-index nil
+  "Create IMenu index by default."
+  :type 'boolean
+  :group 'emacspeak-w3)
+
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
   (declare (special emacspeak-w3-post-process-hook
+                    emacspeak-w3-create-imenu-index
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
   (modify-syntax-entry 10 " ")
@@ -115,6 +121,8 @@
     (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-pronounce-refresh-pronunciations)
+  (when emacspeak-w3-create-imenu-index
+    (imenu--make-index-alist t))
   (unless emacspeak-w3-post-process-hook
     (emacspeak-speak-mode-line)))
 
