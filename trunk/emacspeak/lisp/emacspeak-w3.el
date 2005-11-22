@@ -113,6 +113,7 @@
 (defun emacspeak-w3-speak-mode-hook ()
   "Updated emacspeak hook for W3 mode."
   (declare (special emacspeak-w3-post-process-hook
+                    imenu-create-index-function
                     emacspeak-w3-create-imenu-index
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
@@ -121,6 +122,8 @@
     (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-pronounce-refresh-pronunciations)
+  (when (featurep 'w3-imenu)
+    (setq imenu-create-index-function 'w3-imenu-create-index))
   (when emacspeak-w3-create-imenu-index
     (imenu--make-index-alist t))
   (unless emacspeak-w3-post-process-hook
@@ -1168,8 +1171,6 @@ completion. "
      (format "//*[%s]" filter)
      prompt-url
      (or (interactive-p) speak))))
-
-
 
 (defvar emacspeak-w3-xsl-filter
   (expand-file-name "xpath-filter.xsl"
