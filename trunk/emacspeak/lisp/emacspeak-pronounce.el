@@ -627,7 +627,8 @@ See http://oz.uc.edu/~solkode/smileys.html for a full list."
 (defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations 
   '(
     ("http://www.w3.org/1999/02/22-rdf-syntax-ns#" . "RDF Syntax")
-    ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ") 
+    ("http://www.w3.org/2002/06/xhtml2" . " xhtml2 ")
+    ("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" . "XUL" )
     ("http://www.w3.org/2003/XInclude" . "xinclude")
     ("http://www.w3.org/1999/XSL/Transform" . " XSLT ")
     ("http://www.w3.org/2002/xforms" . " XForms ")
