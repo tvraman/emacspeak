@@ -14,16 +14,14 @@ Param attr  specifies the attribute to list.
   select="'class'"/>
   <xsl:param name="selector">//@<xsl:value-of select="$attr"/></xsl:param>
   <!-- nuke these -->
-  <xsl:template match="//script|//meta|//iframe"/>
   <!-- { html body  -->
-  <xsl:template match="/">
-    <xsl:apply-templates/>
-  </xsl:template>
-  <xsl:template match="body">
+  <xsl:template match="//head"/>
+  <xsl:template match="//body">
     <xsl:for-each select="//@class">
       <xsl:value-of select="."/><xsl:text>
     </xsl:text></xsl:for-each>
   </xsl:template>
+  
   <!-- } -->
 </xsl:stylesheet>
 <!--
