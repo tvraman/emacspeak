@@ -1218,17 +1218,17 @@ Optional interactive  prefix arg local-flag prompts for local
   (declare (special emacspeak-websearch-froogle-uri))
   (let ((local  (when local-flag
                   (read-from-minibuffer "Search near location:"))))
-  (emacspeak-w3-without-xsl
-   (browse-url 
-    (format emacspeak-websearch-froogle-uri
-            (concat 
-	    (webjump-url-encode query)
-            (if local-flag
-                (format "&mode=local&addr=%s" local)
-              ""))))
-   (emacspeak-websearch-post-process
-    query
-    'emacspeak-speak-line))))
+    (emacspeak-w3-without-xsl
+     (browse-url 
+      (format emacspeak-websearch-froogle-uri
+	      (concat 
+	       (webjump-url-encode query)
+	       (if local-flag
+		   (format "&mode=local&addr=%s" local)
+		 ""))))
+     (emacspeak-websearch-post-process
+      query
+      'emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ teoma
@@ -1864,10 +1864,10 @@ Optional interactive prefix arg results in prompting for a search term."
 	       (format "Search %s for:" group)))
              emacspeak-websearch-google-number-of-results))
       (emacspeak-w3-without-xsl
-     (browse-url  url)
-     (emacspeak-websearch-post-process
-      "Sort by"
-      'emacspeak-speak-line)))
+       (browse-url  url)
+       (emacspeak-websearch-post-process
+	"Sort by"
+	'emacspeak-speak-line)))
      (t                                 ;browse
       (setq url 
 	    (format emacspeak-usenet-feeds-uri group))
