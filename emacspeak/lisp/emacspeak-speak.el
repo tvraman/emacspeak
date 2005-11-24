@@ -1789,7 +1789,7 @@ Second interactive prefix sets clock to new timezone."
                             
  
 (defconst emacspeak-codename
-  "GuideDog"
+  "Retriever"
   "Code name of present release.")
 
 (defun emacspeak-speak-version ()
