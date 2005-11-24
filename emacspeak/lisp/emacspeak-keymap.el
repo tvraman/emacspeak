@@ -162,10 +162,10 @@ field in the customization buffer.  You can use the notation
   :set '(lambda (sym val)
 (let ((values
        (condition-case nil 
-       (sort val
-                    #'(lambda (a b)
-                        (string-lessp (car a) (car b ))))
-       (error val))))
+	   (sort val
+		 #'(lambda (a b)
+		     (string-lessp (car a) (car b ))))
+	 (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
@@ -218,8 +218,8 @@ field in the customization buffer.  You can use the notation
 (let ((values
        (condition-case nil
            (sort val
-                    #'(lambda (a b)
-                        (string-lessp (car a) (car b))))
+		 #'(lambda (a b)
+		     (string-lessp (car a) (car b))))
          (error val))))
   (mapc
    (lambda (binding)
@@ -273,8 +273,8 @@ field in the customization buffer.  You can use the notation
 (let ((values
        (condition-case nil
            (sort val
-                    #'(lambda (a b)
-                        (string-lessp (car a) (car b))))
+		 #'(lambda (a b)
+		     (string-lessp (car a) (car b))))
          (error val))))
   (mapc
    (lambda (binding)
