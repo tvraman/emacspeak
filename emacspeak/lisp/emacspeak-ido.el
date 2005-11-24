@@ -1,4 +1,3 @@
-
 ;;; emacspeak-ido.el --- speech-enable ido
 ;;; $Id$
 ;;; $Author$
