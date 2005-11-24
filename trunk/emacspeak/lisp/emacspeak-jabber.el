@@ -58,15 +58,15 @@
 ;;{{{ silence keepalive
 
 (loop for f in 
-'(jabber-keepalive-do
-  jabber-keepalive-got-response)
-do
-(eval
-`(defadvice ,f (around emacspeak pre act comp)
-   "Silence keepalive messages."
-   (let ((emacspeak-speak-messages nil))
-     ad-do-it
-ad-return-value))))
+      '(jabber-keepalive-do
+	jabber-keepalive-got-response)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+	  "Silence keepalive messages."
+	  (let ((emacspeak-speak-messages nil))
+	    ad-do-it
+	    ad-return-value))))
 
 ;;}}}
 ;;{{{ chat buffer:
@@ -76,21 +76,21 @@ ad-return-value))))
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 (loop for f in 
-'(jabber-chat-with
-  jabber-chat-with-jid-at-point)
-do
-(eval
-`(defadvice ,f (after emacspeak pre act comp)
-   "Silence keepalive messages."
-   (when (interactive-p)
-     (emacspeak-auditory-icon 'open-object)
-     (emacspeak-speak-mode-line)))))
+      '(jabber-chat-with
+	jabber-chat-with-jid-at-point)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+	  "Silence keepalive messages."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'open-object)
+	    (emacspeak-speak-mode-line)))))
 ;;}}}
 ;;{{{ alerts
 (defcustom emacspeak-jabber-speak-presence-alerts nil
   "Set to T if you want to hear presence alerts."
-:type  'boolean
-:group 'emacspeak-jabber)
+  :type  'boolean
+  :group 'emacspeak-jabber)
 
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
@@ -133,7 +133,6 @@ do
 					    emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'jabber-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
-
 
 ;;}}}
 (provide 'emacspeak-jabber)
