@@ -70,6 +70,7 @@
     ("emacspeak-auctex" . ("auctex-prepare"))
     ("emacspeak-aumix" . nil)
     ("emacspeak-rss" . nil)
+    ("emacspeak-atom" . nil)
     ("emacspeak-babel" . ("babel"))
     ("emacspeak-bbdb". ("bbdb-prepare"))
     ("emacspeak-bibtex" . ("bibtex"))
