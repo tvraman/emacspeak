@@ -171,7 +171,6 @@ servers/dtk-soft \
 servers/outloud  servers/ssh-outloud \
 servers/dsp-outloud \
 servers/tts-lib.tcl \
-servers/ssh-* \
 servers/remote-tcl \
 servers/speech-server
 ELISP = lisp/*.el \
@@ -345,7 +344,7 @@ rpm: emacspeak.spec
 	/bin/rm -rf /usr/share/emacs/site-lisp/emacspeak || echo ""
 	@cp emacspeak.tar.bz2 /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
-	rpm  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
+	rpmbuild  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
 
 # }}}
 # {{{list distfiles to stdout
