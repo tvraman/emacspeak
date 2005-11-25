@@ -165,10 +165,10 @@ etc/remote.txt etc/FAQ etc/HELP etc/applications.html   etc/tips.html
 SOUNDS=sounds/default-8k sounds/emacspeak.mp3
 
 TCL_PROGRAMS = servers/.servers \
-servers/dtk-exp \ servers/ssh-dtk-exp\
+servers/dtk-exp  servers/ssh-dtk-exp\
 servers/dtk-mv \
 servers/dtk-soft \
-servers/outloud \ servers/ssh-outloud \
+servers/outloud  servers/ssh-outloud \
 servers/dsp-outloud \
 servers/tts-lib.tcl \
 servers/ssh-* \
