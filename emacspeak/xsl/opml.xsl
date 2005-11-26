@@ -30,7 +30,7 @@ View OPML feeds as XHTML
 <xsl:attribute name="href">
 <xsl:value-of select="@xmlUrl|@xmlurl"/>
 </xsl:attribute>
-<xsl:value-of select="@title"/>
+<xsl:value-of select="@title|@text"/>
 </xsl:element>
 </li>
   </xsl:if>
