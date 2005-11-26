@@ -646,6 +646,27 @@ from English to German.")
       url)))
 
 ;;}}}
+;;{{{ NY Times
+(emacspeak-url-template-define
+ "NY Times RSS Feeds"
+ "http://www.nytimes.com/services/xml/rss/nyt/index.opml"
+ nil
+ nil
+ "Display browsable list of NY Times RSS Feeds."
+ #'(lambda (url)
+     (let ((buffer 
+     (emacspeak-xslt-xml-url
+      (expand-file-name "opml.xsl"
+                        emacspeak-xslt-directory)
+      url )))
+           (save-excursion
+             (set-buffer buffer)
+             (emacspeak-w3-preview-this-buffer)))))
+             
+           
+ 
+
+;;}}}
 ;;{{{ google OverviewOfNews 
 
 (emacspeak-url-template-define

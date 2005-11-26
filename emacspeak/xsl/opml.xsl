@@ -20,7 +20,7 @@ View OPML feeds as XHTML
 <body>
   <h1><xsl:value-of select="../head/title"/></h1>
   <ol>
-<xsl:apply-templates/>
+<xsl:apply-templates select=".//outline"/>
   </ol>
 </body>
   </xsl:template>
