@@ -84,16 +84,33 @@ unescape HTML tags."
    (list
     (car
      (browse-url-interactive-arg "RSS URL: "))))
-  (declare (special emacspeak-rss-unescape-html))
-  (declare (special emacspeak-xslt-directory))
+  (declare (special emacspeak-rss-unescape-html
+   emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
-   (and emacspeak-rss-unescape-html 'unescape-charent)
-   ))
+   (and emacspeak-rss-unescape-html 'unescape-charent)))
+
+;;;### autoload
+
+(defun emacspeak-opml-display (opml-url &optional speak)
+  "Retrieve and display OPML  URL."
+  (interactive
+   (list
+    (car
+     (browse-url-interactive-arg "OPML  URL: "))))
+  (declare (special emacspeak-rss-unescape-html
+   emacspeak-xslt-directory))
+  (when (or (interactive-p)speak)
+    (add-hook 'emacspeak-w3-post-process-hook
+	      'emacspeak-speak-buffer))
+  (emacspeak-w3-browse-xml-url-with-style
+   (expand-file-name "opml.xsl" emacspeak-xslt-directory)
+   opml-url
+   (and emacspeak-rss-unescape-html 'unescape-charent)))
 
 ;;;###autoload
 (defun emacspeak-rss-browse (feed)
