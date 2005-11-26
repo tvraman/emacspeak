@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+	<title>NYTimes.com RSS Feeds</title>
+    </head>
+    <body>
+	<outline type="rss" text="HomePage" title="HomePage" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"/>
+	<outline type="rss" text="Opinion" title="Opinion" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Opinion.xml"/>
+	<outline type="rss" text="pop_top" title="pop_top" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/pop_top.xml"/>
+	<outline text="News">
+	    <outline type="rss" text="Circuits" title="Circuits" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Circuits.xml"/>
+	    <outline type="rss" text="Health" title="Health" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Health.xml"/>
+	    <outline type="rss" text="International" title="International" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/International.xml"/>
+	    <outline type="rss" text="Multimedia" title="Multimedia" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Multimedia.xml"/>
+	    <outline type="rss" text="National" title="National" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/National.xml"/>
+	    <outline type="rss" text="NYRegion" title="NYRegion" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/NYRegion.xml"/>
+	    <outline type="rss" text="Olympics" title="Olympics" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Olympics.xml"/>
+	    <outline type="rss" text="Science" title="Science" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Science.xml"/>
+	    <outline type="rss" text="Sports" title="Sports" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Sports.xml"/>
+	    <outline type="rss" text="Technology" title="Technology" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Technology.xml"/>
+	    <outline type="rss" text="Education" title="Education" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Education.xml"/>
+            <outline type="rss" text="PoguesPosts" title="PoguesPosts" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/PoguesPosts.xml"/>
+	</outline>
+	<outline text="Business">
+	    <outline type="rss" text="MediaandAdvertising" title="MediaandAdvertising" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/MediaandAdvertising.xml"/>
+	    <outline type="rss" text="Business" title="Business" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Business.xml"/>
+	</outline>
+	<outline text="Washington">
+	    <outline type="rss" text="Washington" title="Washington" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Washington.xml"/>
+	</outline>
+	<outline text="Features">
+	    <outline type="rss" text="Arts" title="Arts" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Arts.xml"/>
+	    <outline type="rss" text="Books" title="Books" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Books.xml"/>
+	    <outline type="rss" text="Dining and Wine" title="Dining and Wine" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/DiningandWine.xml"/>
+	    <outline type="rss" text="Movie Reviews" title="Movie Reviews" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Movies.xml"/>
+		<outline type="rss" text="Movie News" title="Movie News" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/MovieNews.xml"/>
+	    <outline type="rss" text="Theater" title="Theater" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Theater.xml"/>
+	    <outline type="rss" text="Travel" title="Travel" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Travel.xml"/>
+	    <outline type="rss" text="FashionandStyle" title="FashionandStyle" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/FashionandStyle.xml"/>
+	    <outline type="rss" text="HomeandGarden" title="HomeandGarden" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/HomeandGarden.xml"/>
+	    <outline type="rss" text="Magazine" title="Magazine" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Magazine.xml"/>
+	</outline>
+	<outline text="Classified Services">
+	    <outline type="rss" text="Automobiles" title="Automobiles" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/Automobiles.xml"/>
+	    <outline type="rss" text="RealEstate" title="RealEstate" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/RealEstate.xml"/>
+	</outline>
+    </body>
+</opml>
