@@ -41,11 +41,21 @@ shown in the output.
   <xsl:template match="body">
     <body>
       <xsl:apply-templates  mode="copy"/>
-      <h2> Skipped Nodes  Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/>  matching
+      <h2>
+         Skipped Nodes  Matching   <xsl:value-of select="$path"/>
+      </h2>
+      <p>
+        Found <xsl:value-of select="count($locator)"/> matching
         elements to skip in 
-        in <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-      document </xsl:element>.</p>
+        in 
+        <xsl:element name="a">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+          document 
+        </xsl:element>
+        .
+      </p>
     </body>
   </xsl:template>
   <xsl:include href="object.xsl"/>

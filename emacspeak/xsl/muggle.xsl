@@ -14,7 +14,7 @@ params: what - what to look for
     <html>
       <head>
         <title>
-<xsl:apply-templates select="title"/>
+          <xsl:apply-templates select="title"/>
         </title>
       </head>
       <body>
@@ -35,6 +35,7 @@ params: what - what to look for
     </h2>
     
     <xsl:copy-of select="."/>
-  </xsl:template>  
-
+  </xsl:template>
+   
+  
 </xsl:stylesheet>

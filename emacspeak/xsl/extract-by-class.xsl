@@ -49,9 +49,16 @@ This style-sheet is here mostly as  a sample template.
       <h2>About This Document</h2>
       <p> Found <xsl:value-of select="count(//*[@class=$class])"/>
         nodes with <code>class</code> 
-        <em><xsl:value-of select="$class"/></em> in
-        <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-        source document</xsl:element>
+        <em>
+          <xsl:value-of select="$class"/>
+        </em>
+        in
+        <xsl:element name="a">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+          source document
+        </xsl:element>
       </p>
     </xsl:element>
   </xsl:template>

@@ -82,20 +82,25 @@ used as the table-index for extract-tables.xsl.
           </caption>
           <tr>
             <td>
-              <xsl:value-of select="count($all)"/> tables 
+              <xsl:value-of select="count($all)"/>
+               tables 
             </td>
           </tr>
         </table>
       </xsl:if>
       <xsl:for-each select="$all">
-        <h2>Table <xsl:value-of select="position()"/></h2>
+        <h2>
+          Table <xsl:value-of select="position()"/>
+        </h2>
         <xsl:apply-templates select="."/>
       </xsl:for-each>
       <xsl:if test="count(//table//table)  &gt; 0">
         <h2>
           <a name="__enumerated_tables"
-            id="__nested_tables"><xsl:value-of
-          select="count(//table//table)"/> Nested Tables </a>
+            id="__nested_tables">
+            <xsl:value-of
+          select="count(//table//table)"/> Nested Tables 
+          </a>
         </h2>
         
         
@@ -108,11 +113,16 @@ used as the table-index for extract-tables.xsl.
                 </xsl:attribute>
                 <xsl:attribute name="name">
                   <xsl:value-of
-                select="generate-id(.)"/></xsl:attribute>
-                <em>Table <xsl:value-of select="position()"/> </em>
+                select="generate-id(.)"/>
+                </xsl:attribute>
+                <em>
+                  Table <xsl:value-of select="position()"/> 
+                </em>
               </a>
-              <xsl:value-of select="count(./tr)"/> Rows 
-              And <xsl:value-of select="count(./tr/td)"/> Cells
+              <xsl:value-of select="count(./tr)"/>
+               Rows 
+              And <xsl:value-of select="count(./tr/td)"/>
+               Cells
             </h2>
             <table>
               <xsl:apply-templates select="@*"/>
@@ -122,7 +132,8 @@ used as the table-index for extract-tables.xsl.
         </xsl:for-each>
         <h2>
           <a name="__about_enumerated_tables">About This
-          Style</a>
+            Style
+          </a>
           <p>Tables have been enumerated ---with the numbering
             matching the position of each table in the overall list
             of tables in the document.
@@ -130,7 +141,8 @@ used as the table-index for extract-tables.xsl.
             page as a conceptual <em>card</em>
             and can be used to advantage in extracting a few select
             <em>cards</em> from the conceptual deck of cards making
-          up the Web page.</p>
+            up the Web page.
+          </p>
         </h2>
         
       </xsl:if>
@@ -157,7 +169,9 @@ used as the table-index for extract-tables.xsl.
           <xsl:apply-templates select="./tr/td/*"/>
         </xsl:when>
         <xsl:otherwise>
-          [<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
+          [<xsl:value-of select="$rows"/>
+          ,<xsl:value-of select="$cols"/>
+          ]
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text> </xsl:text>

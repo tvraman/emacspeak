@@ -68,7 +68,8 @@ used as the table-index for extract-tables.xsl.
           <tr>
             <td>
               <a href="#__nested_tables"><xsl:value-of select="count(//table//table)"/>
-              nested tables</a>
+                nested tables
+              </a>
             </td>
           </tr>
         </table>
@@ -77,7 +78,8 @@ used as the table-index for extract-tables.xsl.
       <h2>
         <a name="__nested_tables" id="__nested_tables"> 
           <xsl:value-of select="count(//table//table)"/>
-        Nested Tables </a>
+          Nested Tables 
+        </a>
       </h2>
       <xsl:variable name="i" select="//table//table"/>
       <xsl:for-each select="$i">
@@ -85,7 +87,9 @@ used as the table-index for extract-tables.xsl.
           <xsl:attribute name="name">
             <xsl:value-of select="generate-id(.)"/>
           </xsl:attribute>
-          <em>Table <xsl:value-of select="position()"/></em>
+          <em>
+            Table <xsl:value-of select="position()"/>
+          </em>
         </xsl:element>
         <br/>
         <xsl:element name="table">
@@ -109,8 +113,14 @@ used as the table-index for extract-tables.xsl.
     </xsl:element>
   </xsl:template>
   <xsl:template match="//table//table">
-    <xsl:element name="a"><xsl:attribute name="href"><xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/></xsl:attribute><xsl:value-of select="caption"/>
-    [Table <xsl:value-of select="@summary"/>]</xsl:element>
+    <xsl:element name="a">
+      <xsl:attribute name="href">
+        <xsl:text>#</xsl:text><xsl:value-of select="generate-id(.)"/>
+      </xsl:attribute>
+      <xsl:value-of select="caption"/>
+      [Table <xsl:value-of select="@summary"/>
+      ]
+    </xsl:element>
   </xsl:template>
   <!-- } -->
 </xsl:stylesheet>

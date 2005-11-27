@@ -28,7 +28,8 @@
           <!--<xsl:value-of select="@game_id"/>-->
         </xsl:attribute>
         <xsl:value-of select="@text"/>
-    </xsl:element></li>
+      </xsl:element>
+    </li>
   </xsl:template>
 </xsl:stylesheet>
 

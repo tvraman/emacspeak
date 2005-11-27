@@ -43,13 +43,19 @@ into a paragraph.
       <table>
         <caption>Tables Linearized</caption>
         <tr>
-          <td><a href="#__about_linearize_tables">About This
-          Style</a></td>
-      </tr></table>
+          <td>
+            <a href="#__about_linearize_tables">About This
+              Style
+            </a>
+          </td>
+        </tr>
+      </table>
       <xsl:apply-templates />
     </xsl:element>
     
-    <h2><a name="__about_linearize_tables">About This Style</a> </h2>
+    <h2>
+      <a name="__about_linearize_tables">About This Style</a> 
+    </h2>
     
     <p>
       Table contents are turned into a sequence of paragraphs, one per cell.

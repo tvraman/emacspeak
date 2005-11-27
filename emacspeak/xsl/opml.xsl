@@ -17,25 +17,27 @@ View OPML feeds as XHTML
     <xsl:copy-of select="."/>
   </xsl:template>
   <xsl:template match="body">
-<body>
-  <h1><xsl:value-of select="../head/title"/></h1>
-  <ol>
-<xsl:apply-templates select=".//outline"/>
-  </ol>
-</body>
+    <body>
+      <h1>
+        <xsl:value-of select="../head/title"/>
+      </h1>
+      <ol>
+        <xsl:apply-templates select=".//outline"/>
+      </ol>
+    </body>
   </xsl:template>
-<xsl:template match="outline">
-  <xsl:if test="@xmlUrl|@xmlurl">
-<li><xsl:element name="a">
-<xsl:attribute name="href">
-<xsl:value-of select="@xmlUrl|@xmlurl"/>
-</xsl:attribute>
-<xsl:value-of select="@title|@text"/>
-</xsl:element>
-</li>
-  </xsl:if>
-</xsl:template>
-
+  <xsl:template match="outline">
+    <xsl:if test="@xmlUrl|@xmlurl">
+      <li><xsl:element name="a">
+          <xsl:attribute name="href">
+            <xsl:value-of select="@xmlUrl|@xmlurl"/>
+          </xsl:attribute>
+          <xsl:value-of select="@title|@text"/>
+        </xsl:element>
+      </li>
+    </xsl:if>
+  </xsl:template>
+  
 </xsl:stylesheet>
 <!--
 

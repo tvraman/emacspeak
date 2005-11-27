@@ -25,7 +25,9 @@ button so that one can submit such forms without Javascript.
     <xsl:element name="form">
       <xsl:apply-templates select="@*"/>
       <p>
-      <input type="submit"/>Submit Button</p>
+        <input type="submit"/>
+        Submit Button
+      </p>
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>

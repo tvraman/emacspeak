@@ -17,10 +17,14 @@ near: url-encoded location from where direction links are generated
   <xsl:template match="/page">
     <html>
       <head>
-        <title><xsl:apply-templates select="title"/></title>
+        <title>
+          <xsl:apply-templates select="title"/>
+        </title>
       </head>
       <body>
-        <h1><xsl:apply-templates select="title"/></h1>
+        <h1>
+          <xsl:apply-templates select="title"/>
+        </h1>
         <table summary="Coordinates">
         </table>
         <xsl:apply-templates select="overlay/locations/location"/>
@@ -32,19 +36,26 @@ near: url-encoded location from where direction links are generated
                 <xsl:attribute name="href">
                   <xsl:value-of select="$base"/>
                 </xsl:attribute>
-            Reference Point</a></td>
-            <td>Lat: <xsl:value-of select="center/@lat"/></td>
-            <td>Lng: <xsl:value-of select="center/@lng"/></td>
+                Reference Point
+              </a>
+            </td>
+            <td>
+              Lat: <xsl:value-of select="center/@lat"/>
+            </td>
+            <td>
+              Lng: <xsl:value-of select="center/@lng"/>
+            </td>
           </tr>
         </table>
       </body>
     </html>
   </xsl:template>
-
+  
   <xsl:template match="location">
     <xsl:variable name="title">
       Location
-      <xsl:value-of select="position()"/>:
+      <xsl:value-of select="position()"/>
+      :
       <xsl:apply-templates select="info/title"/>
     </xsl:variable>
     <h2>
@@ -69,27 +80,37 @@ near: url-encoded location from where direction links are generated
             <xsl:value-of select="$title"/>
           </a>
         </xsl:when>
-        <xsl:otherwise><xsl:value-of select="$title"/></xsl:otherwise>
+        <xsl:otherwise>
+          <xsl:value-of select="$title"/>
+        </xsl:otherwise>
       </xsl:choose>
     </h2>
     <table summary="info">
       <xsl:apply-templates select="info"/>
       <tr>
         <td>Location</td>
-        <td>Lat: <xsl:value-of select="point/@lat"/></td>
-        <td>Lng: <xsl:value-of select="point/@lng"/></td>
+        <td>
+          Lat: <xsl:value-of select="point/@lat"/>
+        </td>
+        <td>
+          Lng: <xsl:value-of select="point/@lng"/>
+        </td>
       </tr>
     </table>
   </xsl:template>
-
+  
   <xsl:template match="info">
     <tr>
       <td>
         <xsl:apply-templates select="address"/>
       </td>
-      <td>Tel: <xsl:value-of select="phone/text()"/></td>
+      <td>
+        Tel: <xsl:value-of select="phone/text()"/>
+      </td>
       <td>Distance:
-      <xsl:value-of select="substring-before(distance/text(), 'mi')"/> miles</td>
+        <xsl:value-of select="substring-before(distance/text(), 'mi')"/>
+         miles
+      </td>
     </tr>
     <tr>
       <td>Description</td>
@@ -106,16 +127,18 @@ near: url-encoded location from where direction links are generated
           <xsl:attribute name="href">
             <xsl:value-of select="normalize-space(url)"/>
           </xsl:attribute>
-        local.google</a>
+          local.google
+        </a>
       </td>
     </tr>
   </xsl:template>
   <xsl:template match="address">
-
+    
     <xsl:apply-templates select="line"/>
   </xsl:template>
   <xsl:template match="line">
-    <xsl:copy-of select="."/><br/>
+    <xsl:copy-of select="."/>
+    <br/>
   </xsl:template>
   <xsl:template match="directions">
     <h2>Directions</h2>
@@ -126,7 +149,8 @@ near: url-encoded location from where direction links are generated
       </tr>
       <tr>
         <td>
-        <xsl:apply-templates select="source/address"/></td>
+          <xsl:apply-templates select="source/address"/>
+        </td>
         <td><xsl:apply-templates select="destination/address"/>
         </td>
       </tr>
@@ -134,27 +158,34 @@ near: url-encoded location from where direction links are generated
   </xsl:template>
   <xsl:template match="segments">
     <p> Route consists of 
-    <xsl:value-of select="count(segment)"/> segments making up a
-    total of 
-    <xsl:value-of select="@meters"/> meters (approximately
-    <xsl:value-of
-        select="substring-before(@distance, 'mi')"/> miles)
-    and is expected to take <xsl:value-of select="@seconds"/> seconds 
-    (approximately
-    <xsl:value-of
-        select="substring-before(@time, 'min')"/> minutes).
+      <xsl:value-of select="count(segment)"/>
+       segments making up a
+      total of 
+      <xsl:value-of select="@meters"/>
+       meters (approximately
+      <xsl:value-of
+        select="substring-before(@distance, 'mi')"/>
+       miles)
+      and is expected to take <xsl:value-of select="@seconds"/>
+       seconds 
+      (approximately
+      <xsl:value-of
+        select="substring-before(@time, 'min')"/>
+       minutes).
     </p>
     <ol>
       <xsl:apply-templates select="segment"/>
     </ol>
   </xsl:template>
-
+  
   <xsl:template match="segment">
     <li>
-      <xsl:copy-of select="./text|./b|text()"/>.
+      <xsl:copy-of select="./text|./b|text()"/>
+      .
       and Go 
       <em>
-        <xsl:value-of select="@meters"/> meters
+        <xsl:value-of select="@meters"/>
+         meters
         <xsl:choose>
           <xsl:when test="substring-before(@distance, 'mi')">
             (approximately <xsl:value-of select="substring-before(@distance, 'mi')"/>
@@ -168,12 +199,14 @@ near: url-encoded location from where direction links are generated
       </em>
       <xsl:if test="count(cross_streets/cross_street) > 1">
         <em><xsl:value-of select="count(cross_streets/cross_street)"/>
-        blocks </em>:<br/>
+          blocks 
+        </em>
+        :<br/>
         <xsl:apply-templates select="cross_streets"/>
       </xsl:if>
     </li>
   </xsl:template>
-
+  
   <xsl:template match="cross_streets">
     <ul>
       <xsl:apply-templates select="cross_street"/>
@@ -182,7 +215,8 @@ near: url-encoded location from where direction links are generated
   <xsl:template match="cross_street">
     <li>
       <xsl:apply-templates/>
-      <xsl:value-of select="@meters"/> meters 
+      <xsl:value-of select="@meters"/>
+       meters 
     </li>
   </xsl:template>
 </xsl:stylesheet>
