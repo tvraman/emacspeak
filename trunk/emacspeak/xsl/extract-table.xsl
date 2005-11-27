@@ -39,7 +39,9 @@ Parameter base specifies base URL of source document.
   <xsl:template match="body">
     <xsl:element name="body">
       <xsl:apply-templates select="@*"/>
-      <h2>Table (<xsl:value-of select="$table-index"/>) </h2>
+      <h2>
+        Table (<xsl:value-of select="$table-index"/>)
+      </h2>
       <xsl:for-each select="//table//table">
         <xsl:if test="position() = $table-index">
           <xsl:element name="table">

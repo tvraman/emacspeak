@@ -20,19 +20,25 @@ Description: Show  jabber messages.
         <style type="text/css">
           @media speech {
           span.<xsl:value-of
-          select="substring(message[1]/@from, 1, 3)"/> {
+          select="substring(message[1]/@from, 1, 3)"/>
+           {
           font-style: italic}
           span.<xsl:value-of
-          select="substring(message[1]/@from, 1, 3)"/> {
+          select="substring(message[1]/@from, 1, 3)"/>
+           {
           voice-family: paul;
           stress: 2; richness: 9; 
           pitch: 1; pitch-range: 9; }
           }
         </style>
-        <title>Messages From <xsl:value-of select="$session"/></title>
+        <title>
+          Messages From <xsl:value-of select="$session"/>
+        </title>
       </head>
       <body>
-        <h1>Messages From <xsl:value-of select="$session"/></h1>
+        <h1>
+          Messages From <xsl:value-of select="$session"/>
+        </h1>
         <table>
           <tr>
             <td>From</td>
@@ -47,9 +53,15 @@ Description: Show  jabber messages.
   </xsl:template>
   <xsl:template match="message">
     <tr>
-      <td><xsl:value-of select="substring(@from, 1, 3)"/></td>
-      <td><xsl:value-of select="@date"/></td>
-      <td><xsl:value-of select="@time"/></td>
+      <td>
+        <xsl:value-of select="substring(@from, 1, 3)"/>
+      </td>
+      <td>
+        <xsl:value-of select="@date"/>
+      </td>
+      <td>
+        <xsl:value-of select="@time"/>
+      </td>
       <td>
         <xsl:element name="span">
           <xsl:attribute name="class">

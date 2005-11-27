@@ -76,10 +76,12 @@ relevant tables bubble to the top.
           </caption>
           <tr>
             <td>
-              <a href="#__nested_tables"><xsl:value-of select="count(//table)"/> 
+              <a href="#__nested_tables">
+                <xsl:value-of select="count(//table)"/> 
                 tables of which 
                 <xsl:value-of select="count($i)"/>
-              are nested</a>
+                are nested
+              </a>
             </td>
           </tr>
         </table>
@@ -88,7 +90,8 @@ relevant tables bubble to the top.
       <xsl:if test="count($i)  &gt; 0">
         <h2>
           <a name="__nested_tables" id="__nested_tables"><xsl:value-of select="count($i)"/>
-          Nested Tables </a>
+            Nested Tables 
+          </a>
         </h2>
         
         <xsl:for-each select="$i">
@@ -96,14 +99,21 @@ relevant tables bubble to the top.
           <xsl:sort select="count(.//text()|.//p)"
           data-type="number" order="descending"/>
           <xsl:sort  select="@width" order ="descending"/>
-          <h2><xsl:element name="a"><xsl:attribute name="href">
+          <h2>
+            <xsl:element name="a"><xsl:attribute name="href">
                 #src-<xsl:value-of select="generate-id(.)"/>
               </xsl:attribute>
-              <xsl:attribute name="name"><xsl:value-of
-              select="generate-id(.)"/></xsl:attribute>
+              <xsl:attribute name="name">
+                <xsl:value-of
+              select="generate-id(.)"/>
+              </xsl:attribute>
               <em>Table <xsl:value-of select="position()"/>
-            </em><br/></xsl:element>
-            <xsl:value-of select="count(./tr)"/> Rows And <xsl:value-of select="count(./tr/td)"/> Cells
+              </em>
+              <br/>
+            </xsl:element>
+            <xsl:value-of select="count(./tr)"/>
+             Rows And <xsl:value-of select="count(./tr/td)"/>
+             Cells
           </h2>
           <table>
             <xsl:apply-templates select="@*"/>
@@ -150,7 +160,9 @@ relevant tables bubble to the top.
           <xsl:value-of select="@summary"/>
         </xsl:when>
         <xsl:otherwise>
-          [<xsl:value-of select="$rows"/>, <xsl:value-of select="$cols"/>]
+          [<xsl:value-of select="$rows"/>
+          ,<xsl:value-of select="$cols"/>
+          ]
         </xsl:otherwise>
       </xsl:choose>
       <xsl:text> </xsl:text>

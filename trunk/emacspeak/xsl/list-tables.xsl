@@ -40,13 +40,19 @@ Description: List tables  by turning each row into a list.
       <table>
         <caption>Tables As Lists</caption>
         <tr>
-          <td><a href="#__about_listify_tables">About This
-          Style</a></td>
-      </tr></table>
+          <td>
+            <a href="#__about_listify_tables">About This
+              Style
+            </a>
+          </td>
+        </tr>
+      </table>
       <xsl:apply-templates />
     </xsl:element>
     
-    <h2><a name="__about_listify_tables">About This Style</a> </h2>
+    <h2>
+      <a name="__about_listify_tables">About This Style</a> 
+    </h2>
     
     <p>
       Tables are turned into lists.

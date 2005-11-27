@@ -33,15 +33,26 @@ shown in the output.
   <xsl:template match="body">
     <body>
       <xsl:apply-templates select="$locator" mode="copy"/>
-      <h2> Nodes Matching   <xsl:value-of select="$path"/></h2>
-      <p>Found <xsl:value-of select="count($locator)"/> matching elements in  
-      <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute> document </xsl:element>.</p>
+      <h2>
+         Nodes Matching   <xsl:value-of select="$path"/>
+      </h2>
+      <p>
+        Found <xsl:value-of select="count($locator)"/> matching elements in  
+        <xsl:element name="a">
+          <xsl:attribute name="href">
+            <xsl:value-of select="$base"/>
+          </xsl:attribute>
+          document 
+        </xsl:element>
+        .
+      </p>
     </body>
   </xsl:template>
   <xsl:template match="*|@*" mode="copy" >
     <xsl:variable name="i" select="$locator"/>
     <xsl:if test="not(set:intersection(ancestor::*, $i))">
-      <xsl:copy-of select="."/><br/>
+      <xsl:copy-of select="."/>
+      <br/>
     </xsl:if>
   </xsl:template>
   <xsl:include href="object.xsl"/>

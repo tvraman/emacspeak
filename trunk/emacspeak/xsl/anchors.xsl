@@ -39,12 +39,17 @@ Description: Show list of anchors.
     <table>
       <caption>Anchors View</caption>
       <tr>
-        <td><a href="#__about_this_style">About This Style</a></td>
-    </tr></table>
+        <td>
+          <a href="#__about_this_style">About This Style</a>
+        </td>
+      </tr>
+    </table>
     <ol>
       <xsl:apply-templates select="//a"/>
     </ol>
-    <h2><a name="__about_this_style">About This Style</a></h2>
+    <h2>
+      <a name="__about_this_style">About This Style</a>
+    </h2>
     <p>This style produces a list of anchors found in the document.</p>
   </xsl:template>
   

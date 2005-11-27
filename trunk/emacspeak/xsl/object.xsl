@@ -27,7 +27,8 @@ Transform HTML Object element into an anchor usable in W3.
       <xsl:attribute name="href">
         <xsl:value-of select="@src"/>
       </xsl:attribute>
-      Frame: <xsl:value-of select="@name"/><br/>
+      Frame: <xsl:value-of select="@name"/>
+      <br/>
     </a>
   </xsl:template>
   

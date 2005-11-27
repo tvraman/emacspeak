@@ -36,7 +36,8 @@ and the final intersection is computed using set:intersection.
           <xsl:attribute name="type"> text/css</xsl:attribute>
           <xsl:attribute name="href" >
             <xsl:value-of select="$css"/>
-        </xsl:attribute></link>
+          </xsl:attribute>
+        </link>
         <xsl:element name="base">
           <xsl:attribute name="href">
             <xsl:value-of select="$base"/>
@@ -44,7 +45,8 @@ and the final intersection is computed using set:intersection.
         </xsl:element>
         <title>
           Pages
-          <xsl:value-of select="$start"/>--<xsl:value-of select="$end"/>
+          <xsl:value-of select="$start"/>
+          --<xsl:value-of select="$end"/>
           from  <xsl:value-of select="/dtbook3/head/title"/>
         </title>
       </head>
@@ -70,6 +72,10 @@ and the final intersection is computed using set:intersection.
     </html>
   </xsl:template>
   <xsl:template match="pagenum">
-    <p><strong><xsl:apply-templates/></strong></p>
+    <p>
+      <strong>
+        <xsl:apply-templates/>
+      </strong>
+    </p>
   </xsl:template>
 </xsl:stylesheet>
