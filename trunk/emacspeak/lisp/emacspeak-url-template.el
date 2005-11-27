@@ -1077,9 +1077,7 @@ name of the list.")
                    (declare (special emacspeak-w3-class-filter))
                    (setq emacspeak-w3-class-filter "cnnStoryContent")))
      (emacspeak-w3-extract-by-class-list
-      (list "cnnMainT1"
-            "cnnMainNewT2"
-            "cnnMainSections")
+      (list "cnnBulletList" "cnnT1")
       url
       'speak)))
 
