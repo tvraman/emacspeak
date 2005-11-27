@@ -32,7 +32,8 @@ Description: Display all RSS links
           <input type="hidden" name="add_url" value="{@href}"/>
           <input type="submit" name="submit" value="Add to AmphetaDesk" />
         </form>
-    </p></xsl:if>
+      </p>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
 <!--

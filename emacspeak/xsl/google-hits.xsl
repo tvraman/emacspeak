@@ -16,7 +16,9 @@ Description: Just show me the google hit list
     <html>
       <head>
         <base href="http://www.google.com/"/>
-        <title>Google Hits <xsl:value-of select="$query"/></title>
+        <title>
+          Google Hits <xsl:value-of select="$query"/>
+        </title>
       </head>
       <body>
         <xsl:apply-templates select="//div"/>

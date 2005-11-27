@@ -22,12 +22,15 @@ Extract documentation  from an XML Schema   and display as HTML
         Documentation For
         <xsl:choose>
           <xsl:when test="../../@name">
-            <em><xsl:value-of select="../../@name"/></em>
+            <em>
+              <xsl:value-of select="../../@name"/>
+            </em>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="name(../..)"/>
           </xsl:otherwise>
-      </xsl:choose></h2>
+        </xsl:choose>
+      </h2>
       <p>
         <xsl:apply-templates/>
       </p>

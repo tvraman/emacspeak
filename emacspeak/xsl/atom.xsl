@@ -16,17 +16,23 @@
   <xsl:template match="atom:feed">
     <html>
       <head>
-        <title><xsl:apply-templates select="atom:title"/> </title>
+        <title>
+          <xsl:apply-templates select="atom:title"/> 
+        </title>
       </head>
       <body>
-        <h1><xsl:apply-templates select="atom:tagline"/></h1>
+        <h1>
+          <xsl:apply-templates select="atom:tagline"/>
+        </h1>
         <xsl:apply-templates select="atom:entry"/>
       </body>
     </html>
   </xsl:template>
-
+  
   <xsl:template match="atom:entry">
-    <h2><xsl:apply-templates select="atom:title"/></h2>
+    <h2>
+      <xsl:apply-templates select="atom:title"/>
+    </h2>
     <xsl:apply-templates select="atom:content"/>
   </xsl:template>
   <xsl:template match="atom:content">
@@ -34,7 +40,7 @@
          should be made conditional on @mode=escaped -->
     <xsl:value-of disable-output-escaping="yes" select="node()"/>
   </xsl:template>
-
+  
   <!--}}}-->
   
   

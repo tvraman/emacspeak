@@ -38,8 +38,12 @@ View an RSS feed as clean HTML
         <p>
           <xsl:apply-templates select="rss:description"/>
           <xsl:apply-templates select="nsrss:description"/>
-          <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-          RSS </xsl:element>
+          <xsl:element name="a">
+            <xsl:attribute name="href">
+              <xsl:value-of select="$base"/>
+            </xsl:attribute>
+            RSS 
+          </xsl:element>
           <form action="{$amphetadesk}" method="POST">
             <input type="hidden" name="add_url" value="{$base}"/>
             <input type="submit" name="submit" value="Add to AmphetaDesk" />
@@ -80,8 +84,12 @@ View an RSS feed as clean HTML
         </ul>
         <p>
           <xsl:apply-templates select="description"/>
-          <xsl:element name="a"><xsl:attribute name="href"><xsl:value-of select="$base"/></xsl:attribute>
-          RSS </xsl:element>
+          <xsl:element name="a">
+            <xsl:attribute name="href">
+              <xsl:value-of select="$base"/>
+            </xsl:attribute>
+            RSS 
+          </xsl:element>
           <form action="{$amphetadesk}" method="POST">
             <input type="hidden" name="add_url" value="{$base}"/>
             <input type="submit" name="submit" value="Add to AmphetaDesk" />
@@ -106,11 +114,15 @@ View an RSS feed as clean HTML
     <xsl:element name="a">
       <xsl:choose>
         <xsl:when test="string-length(@url) != 0">
-          <xsl:attribute name="href"> <xsl:value-of select="str:decode-uri(@url)"/></xsl:attribute>
+          <xsl:attribute name="href">
+             <xsl:value-of select="str:decode-uri(@url)"/>
+          </xsl:attribute>
         </xsl:when>
         <xsl:when test="string-length(@href) != 0">
-          <xsl:attribute name="href"> <xsl:value-of
-          select="str:decode-uri(@href)"/></xsl:attribute>
+          <xsl:attribute name="href">
+             <xsl:value-of
+          select="str:decode-uri(@href)"/>
+          </xsl:attribute>
         </xsl:when>
         <xsl:otherwise>Boom</xsl:otherwise>
       </xsl:choose>
