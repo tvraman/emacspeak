@@ -108,8 +108,8 @@ near: url-encoded location from where direction links are generated
         Tel: <xsl:value-of select="phone/text()"/>
       </td>
       <td>Distance:
-        <xsl:value-of select="substring-before(distance/text(), 'mi')"/>
-         miles
+      <xsl:value-of select="substring-before(distance/text(), 'mi')"/>
+      miles
       </td>
     </tr>
     <tr>
@@ -158,20 +158,20 @@ near: url-encoded location from where direction links are generated
   </xsl:template>
   <xsl:template match="segments">
     <p> Route consists of 
-      <xsl:value-of select="count(segment)"/>
-       segments making up a
-      total of 
-      <xsl:value-of select="@meters"/>
-       meters (approximately
-      <xsl:value-of
+    <xsl:value-of select="count(segment)"/>
+    segments making up a
+    total of 
+    <xsl:value-of select="@meters"/>
+    meters (approximately
+    <xsl:value-of
         select="substring-before(@distance, 'mi')"/>
-       miles)
-      and is expected to take <xsl:value-of select="@seconds"/>
-       seconds 
-      (approximately
-      <xsl:value-of
+    miles)
+    and is expected to take <xsl:value-of select="@seconds"/>
+    seconds 
+    (approximately
+    <xsl:value-of
         select="substring-before(@time, 'min')"/>
-       minutes).
+    minutes).
     </p>
     <ol>
       <xsl:apply-templates select="segment"/>
@@ -182,10 +182,17 @@ near: url-encoded location from where direction links are generated
     <li>
       <xsl:copy-of select="./text|./b|text()"/>
       .
-      and Go 
+      and Go
+      <xsl:if test="count(cross_streets/cross_street) > 1">
+        <em><xsl:value-of select="count(cross_streets/cross_street)"/>
+        blocks 
+        </em>
+        :<br/>
+        <xsl:apply-templates select="cross_streets"/>
+      </xsl:if>
       <em>
         <xsl:value-of select="@meters"/>
-         meters
+        meters
         <xsl:choose>
           <xsl:when test="substring-before(@distance, 'mi')">
             (approximately <xsl:value-of select="substring-before(@distance, 'mi')"/>
@@ -197,13 +204,6 @@ near: url-encoded location from where direction links are generated
           </xsl:when>
         </xsl:choose>
       </em>
-      <xsl:if test="count(cross_streets/cross_street) > 1">
-        <em><xsl:value-of select="count(cross_streets/cross_street)"/>
-          blocks 
-        </em>
-        :<br/>
-        <xsl:apply-templates select="cross_streets"/>
-      </xsl:if>
     </li>
   </xsl:template>
   
@@ -216,7 +216,7 @@ near: url-encoded location from where direction links are generated
     <li>
       <xsl:apply-templates/>
       <xsl:value-of select="@meters"/>
-       meters 
+      meters 
     </li>
   </xsl:template>
 </xsl:stylesheet>
