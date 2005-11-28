@@ -445,6 +445,15 @@ content."
  )
 
 ;;}}}
+;;{{{  answers.com
+(emacspeak-url-template-define
+ "answers.com"
+ "http://www.answers.com/main/ntquery?s=%s"
+ (list "Search answers.com for: ")
+ nil
+ "Search answers.com")
+
+;;}}}
 ;;{{{ google maps
 
 (defun emacspeak-url-template-google-maps-xml (url)
