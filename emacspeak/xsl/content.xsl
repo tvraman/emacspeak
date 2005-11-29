@@ -36,21 +36,7 @@ License: GPL
     </span>
     <br/>
   </xsl:template>
-  <xsl:template match="/">
-    <xsl:apply-templates/>
-  </xsl:template>
-  <xsl:template match="head">
-    <head>
-      <xsl:apply-templates select="title"/>
-      <xsl:if test="string-length($base) &gt; 0">
-        <xsl:element name="base">
-          <xsl:attribute name="href">
-            <xsl:value-of select="$base"/>
-          </xsl:attribute>
-        </xsl:element>
-      </xsl:if>
-    </head>
-  </xsl:template>
+  
   <xsl:template match="body">
     <xsl:element name="body">
       <p><strong>
@@ -59,7 +45,7 @@ License: GPL
       </p>
       <xsl:apply-templates 
         select =
-      "//div|//h1|//h2|//h3|//h4|//h5|//h6|//td/strong|//td/em|//td/li|//td/font|//td/nobr|//td/span|//p|//pre|//ul|//ol|//dl"/>
+      "//div|//h1|//h2|//h3|//h4|//h5|//h6|//td/strong|//td/em|//td/li|//td/font|//td/nobr|//td/span|//p|//pre|//ul|//ol|//dl|//blockquote"/>
       
       <h2>
         <a name="__about_this_style">About This Style</a>
