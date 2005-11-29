@@ -14,7 +14,7 @@ Description: Display all RSS links
   <xsl:output method="xml" indent="yes" encoding="iso8859-1"/>
   <xsl:template name="generate-rss">
     <xsl:if test="count(//link[@type='application/rss+xml'])">
-      <xsl:apply-templates select="//link" mode="rss"/>
+      <xsl:apply-templates select="//link[@type='application/rss+xml']" mode="rss"/>
     </xsl:if>
   </xsl:template>
   
