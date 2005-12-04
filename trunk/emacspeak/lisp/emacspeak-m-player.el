@@ -159,6 +159,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    emacspeak-m-player-process
    (format "%s\n" command)))
 
+(defun emacspeak-m-player-scale-speed (factor)
+  "Scale speed by specified factor."
+  (interactive "nFactor:")
+  (emacspeak-m-player-dispatch
+   (format "speed_mult %f" factor)))
+
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
   (interactive
@@ -229,6 +235,16 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive)
   (emacspeak-m-player-seek-relative "60"))
 
+(defun emacspeak-m-player-backward-10min ()
+  "Move backward by ten minutes."
+  (interactive)
+  (emacspeak-m-player-seek-relative "-600"))
+
+(defun emacspeak-m-player-forward-10min ()
+  "Move forward by ten minutes."
+  (interactive)
+  (emacspeak-m-player-seek-relative "600"))
+
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
@@ -262,6 +278,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         )
       do
       
+
 (define-key emacspeak-m-player-mode-map (first k) (second k)))
 
 ;;}}}
