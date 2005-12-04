@@ -199,6 +199,36 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch
    (format "seek %s 1" position )))
 
+(defun emacspeak-m-player-beginning-of-track()
+  "Move to beginning of track."
+  (interactive)
+  (emacspeak-m-player-seek-absolute "0"))
+
+(defun emacspeak-m-player-end-of-track()
+  "Move to beginning of track."
+  (interactive)
+  (emacspeak-m-player-seek-absolute "99"))
+
+(defun emacspeak-m-player-backward-10s ()
+  "Move back by 10 seconds."
+  (interactive)
+  (emacspeak-m-player-seek-relative "-10"))
+
+(defun emacspeak-m-player-forward-10s ()
+  "Move forward by 10 seconds."
+  (interactive)
+  (emacspeak-m-player-seek-relative "10"))
+
+(defun emacspeak-m-player-backward-1min ()
+  "Move back by 1 minute."
+  (interactive)
+  (emacspeak-m-player-seek-relative "-60"))
+
+(defun emacspeak-m-player-forward-1min ()
+  "Move forward by 1 minute."
+  (interactive)
+  (emacspeak-m-player-seek-relative "60"))
+
 (defun emacspeak-m-player-pause ()
   "Pause or unpause media player."
   (interactive)
@@ -212,30 +242,28 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    "quit"))
 
 ;;}}}
-;;{{{ keys 
+;;{{{ keys
 
-(define-key emacspeak-m-player-mode-map [left]
-  'emacspeak-aumix-wave-decrease)
+(loop for k in 
+      '(
+      ([left] emacspeak-m-player-backward-10s)
+      ([right] emacspeak-m-player-forward-10s)
+      ([up] emacspeak-m-player-backward-1min)
+      ([down] emacspeak-m-player-forward-1min)
+      ([prior] emacspeak-m-player-backward-10min)
+      ([next] emacspeak-m-player-forward-10min)
+      ([home] emacspeak-m-player-beginning-of-track)
+      ([end] emacspeak-m-player-end-of-track)
+      ("s" emacspeak-m-player-scale-speed)
+      ("r" emacspeak-m-player-seek-relative)
+        ("g" emacspeak-m-player-seek-absolute)
+        (" " emacspeak-m-player-pause)
+        ("q" emacspeak-m-player-quit)
+        )
+      do
+      
+(define-key emacspeak-m-player-mode-map (first k) (second k)))
 
-(define-key emacspeak-m-player-mode-map [right] 'emacspeak-aumix-wave-increase)
-
-(define-key emacspeak-m-player-mode-map "s"
-  'emacspeak-m-player-seek-relative)
-
-(define-key emacspeak-m-player-mode-map "S"
-  'emacspeak-m-player-seek-absolute)
-
-(define-key emacspeak-m-player-mode-map "p" 'emacspeak-m-player-play-tree-step)
-
-(define-key emacspeak-m-player-mode-map "P"
-  'emacspeak-m-player-play-tree-up)
-
-(define-key emacspeak-m-player-mode-map "a"
-  'emacspeak-m-player-alt-src-step)
-
-(define-key emacspeak-m-player-mode-map " " 'emacspeak-m-player-pause)
-
-(define-key emacspeak-m-player-mode-map "q" 'emacspeak-m-player-quit)
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file 
