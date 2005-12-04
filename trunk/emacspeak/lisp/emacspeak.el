@@ -436,6 +436,8 @@ functions for details.   "
     (setq default-enable-multibyte-characters nil))
   (emacspeak-export-environment)
   (require 'emacspeak-aumix)
+  (when (featurep 'ido)
+    (require 'emacspeak-ido))
   (require 'emacspeak-sounds)
   (dtk-initialize)
   (require 'emacspeak-personality)

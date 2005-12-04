@@ -97,7 +97,7 @@
   :group 'emacspeak-m-player)
 
 (defcustom emacspeak-m-player-options 
-  (list "-slave" "-quiet" "-nortc")
+  (list "-slave" "-quiet" "-nortc" )
   "Options passed to mplayer."
   :type  '(repeat
 	   (string :tag "option"))
@@ -117,8 +117,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
       (read-file-name "Media resource: "
                       emacspeak-realaudio-shortcuts-directory))))
-  (declare (special comint-output-filter-functions
-                    emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
+  (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
 		    emacspeak-m-player-process
                     emacspeak-m-player-program
                     emacspeak-m-player-options))
@@ -148,7 +147,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   nil options)))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
-    (setq comint-output-filter-functions (list 'comint-carriage-motion))
     (ansi-color-for-comint-mode-on)))
 
 ;;}}}
@@ -167,7 +165,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
-   (format "pt_step %d" step)))
+   (format "pt_step %s" step)))
 
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
@@ -175,7 +173,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
-   (format "pt_up %d" step)))
+   (format "pt_up %s" step)))
 
 (defun emacspeak-m-player-alt-src-step (step)
   "Move within an ASF playlist."
@@ -183,7 +181,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (read-from-minibuffer "Move by: ")))
   (emacspeak-m-player-dispatch
-   (format "alt_src_step %d" step)))
+   (format "alt_src_step %s" step)))
 
 (defun emacspeak-m-player-seek-relative (offset)
   "Seek  by offset into stream from current position."
