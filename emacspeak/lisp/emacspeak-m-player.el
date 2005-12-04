@@ -183,6 +183,30 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive "nFactor:")
   (emacspeak-m-player-dispatch
    (format "speed_mult %f" factor)))
+(defun emacspeak-m-player-slower ()
+  "Slow down playback."
+  (interactive)
+  (emacspeak-m-player-scale-speed 0.9091))
+(defun emacspeak-m-player-faster ()
+  "Speed up  playback."
+  (interactive)
+  (emacspeak-m-player-scale-speed 1.1))
+
+(defun emacspeak-m-player-half-speed ()
+  "Scale speed by 0.5."
+  (interactive)
+  (emacspeak-m-player-scale-speed 0.5))
+
+(defun emacspeak-m-player-double-speed()
+  "Scale speed by 2.0"
+  (interactive)
+  (emacspeak-m-player-scale-speed 2.0))
+
+(defun emacspeak-m-player-reset-speed ()
+  "Reset playing speed to normal."
+  (interactive)
+  (emacspeak-m-player-dispatch
+   "speed_set 1.0"))
 
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
@@ -292,15 +316,24 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         ("t" emacspeak-m-player-play-tree-step)
         ("p" emacspeak-m-player-previous-track)
         ("n" emacspeak-m-player-next-track)
+        ("," emacspeak-m-player-backward-10s)
+        ("." emacspeak-m-player-forward-10s)
         ([left] emacspeak-m-player-backward-10s)
         ([right] emacspeak-m-player-forward-10s)
         ([up] emacspeak-m-player-backward-1min)
         ([down] emacspeak-m-player-forward-1min)
+        ("<" emacspeak-m-player-backward-1min)
+        (">" emacspeak-m-player-forward-1min)
         ([prior] emacspeak-m-player-backward-10min)
         ([next] emacspeak-m-player-forward-10min)
         ([home] emacspeak-m-player-beginning-of-track)
         ([end] emacspeak-m-player-end-of-track)
         ("s" emacspeak-m-player-scale-speed)
+        ("[" emacspeak-m-player-slower)
+        ("]" emacspeak-m-player-faster)
+        ("{" emacspeak-m-player-half-speed)
+        ("}" emacspeak-m-player-double-speed)
+        ("\d" emacspeak-m-player-reset-speed)
         ("r" emacspeak-m-player-seek-relative)
         ("g" emacspeak-m-player-seek-absolute)
         (" " emacspeak-m-player-pause)
