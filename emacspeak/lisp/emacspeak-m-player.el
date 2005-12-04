@@ -318,11 +318,32 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch
    (format "volume %f" value)))
 
+(defun emacspeak-m-player-display-position ()
+  "Display current position in track and its length."
+  (interactive)
+  (emacspeak-m-player-dispatch
+    "get_percent_pos\nget_time_length\n"))
+
+(defun emacspeak-m-player-load-file(f)
+  "Load specified file."
+  (interactive "fMedia File:")
+  (emacspeak-m-player-dispatch
+   (format "loadfile %s" f)))
+
+(defun emacspeak-m-player-load-playlist(f)
+  "Load specified playlist file."
+  (interactive "fPlaylist File:")
+  (emacspeak-m-player-dispatch
+   (format "loadlist %s" f)))
+  
 ;;}}}
 ;;{{{ keys
 
 (loop for k in 
       '(
+        ("l" emacspeak-m-player-load-file)
+        ("L" emacspeak-m-player-load-playlist)
+        ("?" emacspeak-m-player-display-position)
         ("t" emacspeak-m-player-play-tree-step)
         ("p" emacspeak-m-player-previous-track)
         ("n" emacspeak-m-player-next-track)
