@@ -149,26 +149,21 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                      (string-match ".pls$"  resource)))
         (options (copy-sequence emacspeak-m-player-options)))
     (setq options
-          (nconc options
-                 (if playlist-p
-		     (list "-playlist" resource))))
-    (cond
-	     ((file-directory-p resource)
+          (cond
+           (playlist-p
+            (nconc options (list "-playlist" resource)))
+           ((file-directory-p resource)
+            (nconc options
+                   (directory-files (expand-file-name resource)
+                    'full
+                    "\\(mp3$\\)\\|\\(MP3$\\)")))
+           (t (nconc options (list resource)))))
     (setq emacspeak-m-player-process
           (get-buffer-process
            (apply 'make-comint
                   "m-player" emacspeak-m-player-program
                   nil
-                  (append options
-                  (directory-files
-		      (expand-file-name resource)
-		      'full
-		      "\\(mp3$\\)\\|\\(MP3$\\)"))))))
-             (t (setq emacspeak-m-player-process
-          (get-buffer-process
-           (apply 'make-comint
-                  "m-player" emacspeak-m-player-program
-                  nil options)))))
+                  options)))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
     (ansi-color-for-comint-mode-on)))
@@ -328,13 +323,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Load specified file."
   (interactive "fMedia File:")
   (emacspeak-m-player-dispatch
-   (format "loadfile %s" f)))
+   (format "loadfile %s"
+           (expand-file-name f))))
 
 (defun emacspeak-m-player-load-playlist(f)
   "Load specified playlist file."
   (interactive "fPlaylist File:")
   (emacspeak-m-player-dispatch
-   (format "loadlist %s" f)))
+   (format "loadlist %s"
+           (expand-file-name f))))
   
 ;;}}}
 ;;{{{ keys
