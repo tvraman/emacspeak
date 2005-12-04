@@ -312,6 +312,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive)
   (emacspeak-m-player-dispatch
    "quit"))
+(defun emacspeak-m-player-volume (value)
+  "Increase or decrease volume."
+  (interactive "nChange Volume By:")
+  (emacspeak-m-player-dispatch
+   (format "volume %f" value)))
 
 ;;}}}
 ;;{{{ keys
@@ -342,7 +347,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         ("r" emacspeak-m-player-seek-relative)
         ("g" emacspeak-m-player-seek-absolute)
         (" " emacspeak-m-player-pause)
-        ("q" emacspeak-m-player-quit))
+        ("q" emacspeak-m-player-quit)
+        ("v" emacspeak-m-player-volume)
+        )
       do
       (define-key emacspeak-m-player-mode-map (first k) (second k)))
 
