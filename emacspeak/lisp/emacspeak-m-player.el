@@ -115,8 +115,16 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
-      (read-file-name "Media resource: "
-                      emacspeak-realaudio-shortcuts-directory))))
+      (expand-file-name
+       (read-file-name "MP3 Resource: "
+                       (if 
+                           (string-match (format ".*%s.*"
+                                                 emacspeak-realaudio-shortcuts-directory)
+                                         (expand-file-name default-directory))
+                           default-directory
+                         emacspeak-realaudio-shortcuts-directory)
+                       (when (eq major-mode 'dired-mode)
+                         (dired-get-filename)))))))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
 		    emacspeak-m-player-process
                     emacspeak-m-player-program
@@ -138,13 +146,24 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (setq options
           (nconc options
                  (if playlist-p
-		     (list "-playlist" resource)
-		   (list resource))))
+		     (list "-playlist" resource))))
+    (cond
+	     ((file-directory-p resource)
     (setq emacspeak-m-player-process
           (get-buffer-process
            (apply 'make-comint
                   "m-player" emacspeak-m-player-program
-                  nil options)))
+                  nil
+                  (append options
+                  (directory-files
+		      (expand-file-name resource)
+		      'full
+		      "\\(mp3$\\)\\|\\(MP3$\\)"))))))
+             (t (setq emacspeak-m-player-process
+          (get-buffer-process
+           (apply 'make-comint
+                  "m-player" emacspeak-m-player-program
+                  nil options)))))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
     (ansi-color-for-comint-mode-on)))
@@ -167,11 +186,19 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 (defun emacspeak-m-player-play-tree-step (step)
   "Move within the play tree."
-  (interactive
-   (list
-    (read-from-minibuffer "Move by: ")))
+  (interactive"nSkip Tracks:")
   (emacspeak-m-player-dispatch
-   (format "pt_step %s" step)))
+   (format "pt_step %d" step)))
+
+(defun emacspeak-m-player-previous-track ()
+  "Move to previous track."
+  (interactive)
+  (emacspeak-m-player-play-tree-step -1))
+
+(defun emacspeak-m-player-next-track ()
+  "Move to next track."
+  (interactive)
+  (emacspeak-m-player-play-tree-step 1))
 
 (defun emacspeak-m-player-play-tree-up (step)
   "Move within the play tree."
@@ -262,24 +289,24 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 (loop for k in 
       '(
-      ([left] emacspeak-m-player-backward-10s)
-      ([right] emacspeak-m-player-forward-10s)
-      ([up] emacspeak-m-player-backward-1min)
-      ([down] emacspeak-m-player-forward-1min)
-      ([prior] emacspeak-m-player-backward-10min)
-      ([next] emacspeak-m-player-forward-10min)
-      ([home] emacspeak-m-player-beginning-of-track)
-      ([end] emacspeak-m-player-end-of-track)
-      ("s" emacspeak-m-player-scale-speed)
-      ("r" emacspeak-m-player-seek-relative)
+        ("t" emacspeak-m-player-play-tree-step)
+        ("p" emacspeak-m-player-previous-track)
+        ("n" emacspeak-m-player-next-track)
+        ([left] emacspeak-m-player-backward-10s)
+        ([right] emacspeak-m-player-forward-10s)
+        ([up] emacspeak-m-player-backward-1min)
+        ([down] emacspeak-m-player-forward-1min)
+        ([prior] emacspeak-m-player-backward-10min)
+        ([next] emacspeak-m-player-forward-10min)
+        ([home] emacspeak-m-player-beginning-of-track)
+        ([end] emacspeak-m-player-end-of-track)
+        ("s" emacspeak-m-player-scale-speed)
+        ("r" emacspeak-m-player-seek-relative)
         ("g" emacspeak-m-player-seek-absolute)
         (" " emacspeak-m-player-pause)
-        ("q" emacspeak-m-player-quit)
-        )
+        ("q" emacspeak-m-player-quit))
       do
-      
-
-(define-key emacspeak-m-player-mode-map (first k) (second k)))
+      (define-key emacspeak-m-player-mode-map (first k) (second k)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
