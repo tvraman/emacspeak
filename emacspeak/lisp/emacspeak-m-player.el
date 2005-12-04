@@ -61,6 +61,10 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'desktop)
+(require 'dired)
+(require 'comint)
+
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction 
 
@@ -89,7 +93,8 @@
 ;;;###autoload
 
 (defgroup emacspeak-m-player nil
-  "Emacspeak media player settings.")
+  "Emacspeak media player settings."
+  :group 'emacspeak)
 
 (defcustom emacspeak-m-player-program "mplayer"
   "Media player program."
