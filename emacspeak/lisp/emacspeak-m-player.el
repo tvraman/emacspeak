@@ -332,12 +332,42 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (emacspeak-m-player-dispatch
    (format "loadlist %s"
            (expand-file-name f))))
-  
+
+(defvar emacspeak-m-player-filters
+  '(("hrtf" . "hrtf")
+    ("sweep". "sweep")
+    ("extrastereo" . "extrastereo")
+    ("volnorm" . "volnorm")
+    ("surround" . "surround")
+    ("equalizer" . "equalizer"))
+  "Table of useful MPlayer filters.")
+
+
+
+(defun emacspeak-m-player-add-filter ()
+  "Adds specified filter  to use for the next invocation of MPlayer."
+  (interactive)
+  (let ((filter-name
+         (completing-read "Filter:"
+                          emacspeak-m-player-filters)))
+    (setq emacspeak-m-player-options
+          (nconc emacspeak-m-player-options
+                 (list "-af" filter-name)))))
+
+(defun emacspeak-m-player-customize-options ()
+  "Use Customize to manipulate MPlayer options."
+  (interactive)
+  (customize-variable 'emacspeak-m-player-options)
+  (goto-char (point-min))
+  (search-forward "INS"))
+
 ;;}}}
 ;;{{{ keys
 
 (loop for k in 
       '(
+        ("o" emacspeak-m-player-customize-options)
+        ("f" emacspeak-m-player-add-filter)
         ("l" emacspeak-m-player-load-file)
         ("L" emacspeak-m-player-load-playlist)
         ("?" emacspeak-m-player-display-position)
