@@ -163,7 +163,7 @@ The player is placed in a buffer in emacspeak-madplay-mode."
     (delete-process emacspeak-madplay-process)
     (setq emacspeak-madplay-process nil))
   (let ((process-connection-type t)
-        (read-file-name-completion-ignore-caset)
+        (read-file-name-completion-ignore-case t)
         (buffer (get-buffer-create
                  emacspeak-madplay-buffer-name)))
     (save-excursion
