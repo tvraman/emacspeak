@@ -1748,6 +1748,13 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
      (t (message "%s does not look like realaudio"
 		 url)))))
 
+(defun emacspeak-w3-mplayer-play-url-at-point ()
+  "Play url under point using mplayer"
+  (interactive )
+  (let ((url (w3-view-this-url 'no-show)))
+    (emacspeak-m-player url)))
+    
+
 ;;}}}
 ;;{{{ backward compatibility 
 

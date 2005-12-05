@@ -411,6 +411,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       '(
         ("e" emacspeak-m-player-add-equalizer)
         ("o" emacspeak-m-player-customize-options)
+        ("O" emacspeak-m-player-reset-options)
         ("f" emacspeak-m-player-add-filter)
         ("l" emacspeak-m-player-load-file)
         ("L" emacspeak-m-player-load-playlist)
