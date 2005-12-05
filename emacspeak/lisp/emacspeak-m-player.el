@@ -391,7 +391,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
               (min 12 (+ 4  (aref v column)))))
        ((equal key [next])
         (aset v   column
-              (max -12 (- 4  (aref v column)))))
+              (max -12 (- (aref v column)  4))))
        ((equal key [home])
         (aset v   column 12))
        ((equal key [end])
@@ -426,6 +426,8 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 (loop for k in 
       '(
+        ("\C-m" emacspeak-m-player)
+        (":" emacspeak-m-player)
         ("e" emacspeak-m-player-add-equalizer)
         ("o" emacspeak-m-player-customize-options)
         ("O" emacspeak-m-player-reset-options)
