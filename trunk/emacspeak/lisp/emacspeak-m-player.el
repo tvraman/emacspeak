@@ -338,8 +338,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     ("sweep". "sweep")
     ("extrastereo" . "extrastereo")
     ("volnorm" . "volnorm")
-    ("surround" . "surround")
-    ("equalizer" . "equalizer"))
+    ("surround" . "surround"))
   "Table of useful MPlayer filters.")
 
 
@@ -362,10 +361,55 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (search-forward "INS"))
 
 ;;}}}
+;;{{{ equalizer 
+
+(defvar emacspeak-m-player-equalizer (make-vector 10 12)
+  "Vector holding equalizer settings.")
+
+(defun emacspeak-m-player-equalizer-control (v)
+  "Manipulate values in specified vector using minibuffer."
+  (interactive)
+  (let ((column 0)
+        (key nil)
+        (continue t))
+    (while  continue
+      (setq key  (read-key-sequence
+                  (format "%s:%s" column (aref v column))))
+      (cond
+       ((equal key [left])
+        (setq column (% (1- column) 10)))
+       ((equal key [right])
+        (setq column (% (1+ column) 10)))
+       ((equal key [up])
+        (aset v   column
+              (1+ (aref v column))))
+       ((equal key [down])
+        (aset v   column
+              (1- (aref v column))))
+       ((equal key "\C-m")
+        (setq continue nil))))
+    (mapconcat
+     #'(lambda (value) (format "%d" value))
+     v  ":")))
+
+(defun emacspeak-m-player-add-equalizer ()
+  "Add equalizer for next MPlayer invocation."
+  (interactive)
+  (declare (special emacspeak-m-player-equalizer
+                    emacspeak-m-player-options))
+  (setq emacspeak-m-player-options
+          (nconc emacspeak-m-player-options
+                 (list "-af"
+                       (format "equalizer=%s"
+                               (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))))
+
+  
+;;}}}
 ;;{{{ keys
 
 (loop for k in 
       '(
+        ("e" emacspeak-m-player-add-equalizer)
         ("o" emacspeak-m-player-customize-options)
         ("f" emacspeak-m-player-add-filter)
         ("l" emacspeak-m-player-load-file)
@@ -399,7 +443,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         ("v" emacspeak-m-player-volume)
         )
       do
-      (define-key emacspeak-m-player-mode-map (first k) (second k)))
+      (define-key emacspeak-m-player-mode-map (first k) (second
+      k)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
