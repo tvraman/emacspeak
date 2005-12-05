@@ -374,18 +374,28 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (continue t))
     (while  continue
       (setq key  (read-key-sequence
-                  (format "%s:%s" column (aref v column))))
+                  (format "G%s:%s" column (aref v column))))
       (cond
        ((equal key [left])
-        (setq column (% (1- column) 10)))
+        (setq column (% (+ 9  column) 10)))
        ((equal key [right])
         (setq column (% (1+ column) 10)))
        ((equal key [up])
         (aset v   column
-              (1+ (aref v column))))
+              (min 12 (1+ (aref v column)))))
        ((equal key [down])
         (aset v   column
-              (1- (aref v column))))
+              (max -12 (1- (aref v column)))))
+       ((equal key [prior])
+        (aset v   column
+              (min 12 (+ 4  (aref v column)))))
+       ((equal key [next])
+        (aset v   column
+              (max -12 (- 4  (aref v column)))))
+       ((equal key [home])
+        (aset v   column 12))
+       ((equal key [end])
+        (aset v   column -12))
        ((equal key "\C-m")
         (setq continue nil))))
     (mapconcat
@@ -393,7 +403,14 @@ The player is placed in a buffer in emacspeak-m-player-mode."
      v  ":")))
 
 (defun emacspeak-m-player-add-equalizer ()
-  "Add equalizer for next MPlayer invocation."
+  "Add equalizer for next MPlayer invocation.
+
+Use arrow keys, page-up, page-down, home and end keys to
+  manipulate the values.
+Hit enter to finish setting the equalizer values.
+
+The Mplayer equalizer provides 10 bands, G0 -- G9, see the
+  MPlayer man page for details."
   (interactive)
   (declare (special emacspeak-m-player-equalizer
                     emacspeak-m-player-options))
