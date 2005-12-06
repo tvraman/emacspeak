@@ -119,7 +119,7 @@ specifies the actual location of the realaudio stream
 (make-variable-buffer-local 'emacspeak-realaudio-end-time-mark)
 
 ;;;###autoload
-(defun emacspeak-realaudio-play (resource &optional prompt-time)
+(defun emacspeak-realaudio-play (resource &optional play-list)
   "Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
 user configurable variable emacspeak-realaudio-shortcuts-directory. "
@@ -167,10 +167,6 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
 		default-directory
 	      (file-name-directory resource)))
 	  (options (copy-list emacspeak-realaudio-player-options)))
-      (when prompt-time
-	(push (read-from-minibuffer "Time spec: ")
-	      options)
-	(push "-t" options))
       (setq emacspeak-realaudio-process
 	    (apply 'start-process"realaudio" emacspeak-realaudio-buffer
 		   emacspeak-realaudio-player
