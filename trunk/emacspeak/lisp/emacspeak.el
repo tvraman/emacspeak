@@ -97,6 +97,12 @@
   "Hook to run after starting emacspeak."
   :type 'hook
   :group 'emacspeak)
+;;;###autoload
+(defcustom emacspeak-media-player 'emacspeak-m-player
+  "Default media player to use.
+This is a Lisp function that takes a resource locator."
+  :type 'function
+  :group 'emacspeak)
 
 ;;}}}
 ;;{{{ Package Setup Helper
