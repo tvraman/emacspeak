@@ -414,7 +414,7 @@ content."
  (list "BBC Program: ")
  nil
  "Play BBC programs on demand."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "BBC News"
@@ -1116,7 +1116,7 @@ name of the list.")
  (list "Episode: ")
  nil
  "Play This American Life  shows on demand."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Wait Wait, Dont Tell Me (NPR)"
@@ -1127,7 +1127,7 @@ name of the list.")
                                            "%Y%m%d")))
  nil
  "Play Wait, Wait Dont Tell Me from NPR."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "NPR On Demand"
@@ -1148,7 +1148,7 @@ ATC All Things Considered
 
 Segment is specified as a two digit number --specifying a blank value
 plays entire program."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
@@ -1160,7 +1160,7 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR All Things Considered stream."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Talk Of The Nation  Stream from NPR"
@@ -1168,7 +1168,7 @@ plays entire program."
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR Talk Of The Nation  stream."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Morning Edition Stream from NPR"
@@ -1179,7 +1179,7 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR Morning Edition  stream."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Motley Fool Radio from NPR"
@@ -1190,7 +1190,7 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR Motley Fool   stream."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Talk Of The Nation from NPR"
@@ -1200,7 +1200,7 @@ plays entire program."
   "Segment: ")
  nil
  "Play NPR Talk Of The Nation segment."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "All Things Considered from NPR" 
@@ -1210,7 +1210,7 @@ plays entire program."
   "Segment: ")
  nil
  "Play All Things Considered segment."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Morning Edition from NPR" 
@@ -1220,7 +1220,7 @@ plays entire program."
   "Segment:")
  nil
  "Play Morning Edition segment."
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 ;;}}}
 ;;{{{  The Linux Show 
@@ -1233,7 +1233,7 @@ plays entire program."
                                            "%Y/%m/%d")))
  nil
  "Play specified edition of Geek  Linux DailyShow"
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 (emacspeak-url-template-define
  "Redhat Linux Show" 
@@ -1249,7 +1249,7 @@ plays entire program."
                 mm-dd-yy))))
  nil
  "Play specified edition of Redhat Linux Show"
- 'emacspeak-media-player)
+ emacspeak-media-player)
 
 ;;}}}
 ;;{{{ technet cast from DDJ
