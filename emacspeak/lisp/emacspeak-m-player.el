@@ -117,16 +117,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
           (minibuffer-history emacspeak-realaudio-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
-      (expand-file-name
-       (read-file-name "MP3 Resource: "
-                       (if 
-                           (string-match (format ".*%s.*"
-                                                 emacspeak-realaudio-shortcuts-directory)
-                                         (expand-file-name default-directory))
-                           default-directory
-                         emacspeak-realaudio-shortcuts-directory)
-                       (when (eq major-mode 'dired-mode)
-                         (dired-get-filename)))))
+      (read-file-name "MP3 Resource: "
+                      (if
+                               (string-match (format ".*%s.*"
+                                                     emacspeak-realaudio-shortcuts-directory)
+                                             (expand-file-name default-directory))
+                          default-directory
+                        emacspeak-realaudio-shortcuts-directory)
+                      (when (eq major-mode 'dired-mode)
+                        (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
 		    emacspeak-m-player-process
