@@ -105,9 +105,10 @@
   :group 'emacspeak-m-player)
 ;;;###autoload
 
-(defun emacspeak-m-player (resource )
+(defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
@@ -125,12 +126,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                            default-directory
                          emacspeak-realaudio-shortcuts-directory)
                        (when (eq major-mode 'dired-mode)
-                         (dired-get-filename)))))))
+                         (dired-get-filename)))))
+    current-prefix-arg))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
 		    emacspeak-m-player-process
                     emacspeak-m-player-program
                     emacspeak-m-player-options))
-  (unless (string-match "^http:"  resource)
+  (unless (string-match "^[a-z]+:"  resource)
     (setq resource
           (expand-file-name resource)))
   (when (and emacspeak-m-player-process
@@ -141,6 +143,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
         (playlist-p (or
+                     play-list
                      (string-match ".m3u$"  resource)
                      (string-match ".pls$"  resource)
                      (string-match ".rpm$"  resource)
