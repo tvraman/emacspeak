@@ -415,7 +415,7 @@ content."
  nil
  "Play BBC programs on demand."
  #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list))
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "BBC News"
