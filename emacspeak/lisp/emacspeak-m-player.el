@@ -73,20 +73,13 @@
 
 (define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
-(declaim (special emacspeak-aumix-multichannel-capable-p
-                  emacspeak-use-auditory-icons))
+
 
 (define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
-  (when (and (not  emacspeak-aumix-multichannel-capable-p)
-             emacspeak-use-auditory-icons)
-    (emacspeak-toggle-auditory-icons))
-  (setq emacspeak-m-player-process (get-buffer-process
-                                    (current-buffer))))
-  
-(declaim (special emacspeak-m-player-mode-map))
+  (setq emacspeak-m-player-process (get-buffer-process (current-buffer))))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
@@ -100,9 +93,12 @@
   "Media player program."
   :type 'string
   :group 'emacspeak-m-player)
+(defvar emacspeak-m-player-default-options
+  (list "-slave" "-quiet" "-nortc" )
+  "Default options for MPlayer.")
 
 (defcustom emacspeak-m-player-options 
-  (list "-slave" "-quiet" "-nortc" )
+  (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer."
   :type  '(repeat
 	   (string :tag "option"))
@@ -350,7 +346,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
          (completing-read "Filter:"
                           emacspeak-m-player-filters)))
     (setq emacspeak-m-player-options
-          (nconc emacspeak-m-player-options
+          (append emacspeak-m-player-options
                  (list "-af" filter-name)))))
 
 (defun emacspeak-m-player-customize-options ()
@@ -415,15 +411,23 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   (declare (special emacspeak-m-player-equalizer
                     emacspeak-m-player-options))
   (setq emacspeak-m-player-options
-          (nconc emacspeak-m-player-options
+          (append emacspeak-m-player-options
                  (list "-af"
                        (format "equalizer=%s"
                                (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))))
+(defun emacspeak-m-player-reset-options ()
+  "Reset MPlayer options to initial defaults."
+  (interactive)
+  (declare (special emacspeak-m-player-default-options
+                    emacspeak-m-player-options))
+  (setq emacspeak-m-player-options
+        emacspeak-m-player-default-options)
+  (message "Reset options."))
 
   
 ;;}}}
 ;;{{{ keys
-
+(declaim (special emacspeak-m-player-mode-map))
 (loop for k in 
       '(
         ("\C-m" emacspeak-m-player)
