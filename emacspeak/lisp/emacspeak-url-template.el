@@ -677,6 +677,19 @@ from English to German.")
            
  
 
+
+;;}}}
+;;{{{ Google Local:
+
+(emacspeak-url-template-define
+ "Google Local"
+ "http://local.google.com/local?output=html&q=%s"
+(list "Google Local Search:")
+#'(lambda ()
+    (search-forward "Local Search within" nil t)
+    (emacspeak-speak-line))
+"Google Local Search.")
+
 ;;}}}
 ;;{{{ google OverviewOfNews 
 
