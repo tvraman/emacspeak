@@ -142,7 +142,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (let ((process-connection-type nil)
         (playlist-p (or
                      (string-match ".m3u$"  resource)
-                     (string-match ".pls$"  resource)))
+                     (string-match ".pls$"  resource)
+                     (string-match ".rpm$"  resource)
+                     (string-match ".ram$"  resource)))
         (options (copy-sequence emacspeak-m-player-options)))
     (setq options
           (cond
