@@ -57,6 +57,7 @@
 
 (require 'emacspeak-preamble)
 (require 'webjump)
+(require 'emacspeak-websearch)
 (eval-when-compile (require 'emacspeak-w3))
 ;;}}}
 ;;{{{  structures 
