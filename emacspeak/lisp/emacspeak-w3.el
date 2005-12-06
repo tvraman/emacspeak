@@ -166,7 +166,7 @@
   (define-key w3-mode-map "N"
     'emacspeak-speak-next-personality-chunk)
   (define-key w3-mode-map "\M-r"
-    'emacspeak-w3-realaudio-play-url-at-point)
+    'emacspeak-w3-play-media-at-point)
   (define-key w3-mode-map "A" 'emacspeak-w3-browse-atom-at-point)
   (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
   (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
@@ -1734,19 +1734,14 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 ;;}}}
 ;;{{{  play url at point
 ;;;###autoload
-(defun emacspeak-w3-realaudio-play-url-at-point (&optional prompt-time)
-  "Play url under point as realaudio"
-  (interactive "P")
-  (declare (special emacspeak-realaudio-dont-insist-on-ram-url))
+(defun emacspeak-w3-play-media-at-point ()
+  "Play media url under point "
+  (interactive )
+  (declare (special emacspeak-media-player))
   (let ((url (w3-view-this-url 'no-show)))
-    (cond
-     ((or emacspeak-realaudio-dont-insist-on-ram-url
-	  (string-match ".rm?$" url)
-	  (string-match ".ram?$" url))
       (message "Playing Realaudio URL under point")
-      (emacspeak-realaudio-play url prompt-time))
-     (t (message "%s does not look like realaudio"
-		 url)))))
+      (funcall emacspeak-media-player  url)))
+     
 
 (defun emacspeak-w3-mplayer-play-url-at-point ()
   "Play url under point using mplayer"
