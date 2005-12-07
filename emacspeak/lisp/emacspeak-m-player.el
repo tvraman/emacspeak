@@ -166,7 +166,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   options)))
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
-    (set-window-text-height 3)
+    (set-window-text-height nil 3)
     (ansi-color-for-comint-mode-on)))
 
 ;;}}}
