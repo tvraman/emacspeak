@@ -174,6 +174,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defsubst emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
+  (save-excursion
+    (set-buffer (process-buffer emacspeak-m-player-process))
+    (erase-buffer))
   (process-send-string
    emacspeak-m-player-process
    (format "%s\n" command)))
