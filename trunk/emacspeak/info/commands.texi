@@ -5,12 +5,11 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 695 commands.
+This chapter documents a total of 725 commands.
 
 @menu
 * cd-tool::                     
 * dtk-speak::                   
-* emacspeak::                   
 * emacspeak-alsaplayer::        
 * emacspeak-amphetadesk::       
 * emacspeak-arc::               
@@ -45,10 +44,8 @@ This chapter documents a total of 695 commands.
 * emacspeak-ibuffer::           
 * emacspeak-imcom::             
 * emacspeak-imenu::             
-* emacspeak-info::              
 * emacspeak-keymap::            
 * emacspeak-kotl::              
-* emacspeak-loaddefs::          
 * emacspeak-m-player::          
 * emacspeak-madplay::           
 * emacspeak-man::               
@@ -74,15 +71,18 @@ This chapter documents a total of 695 commands.
 * emacspeak-tetris::            
 * emacspeak-tnt::               
 * emacspeak-url-template::      
-* emacspeak-view::              
 * emacspeak-view-process::      
+* emacspeak-view::              
 * emacspeak-vm::                
 * emacspeak-w3::                
-* emacspeak-w3search::          
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
+* emacspeak::                   
+* emacspeak-w3search::          
+* emacspeak-info::              
+* emacspeak-w3::                
 * URL Templates ::              
 @end menu
 
@@ -344,32 +344,6 @@ type.  Optional argument PREFIX specifies if the setting applies
 to all buffers.
 @end deffn
 
-@node emacspeak
-@section emacspeak
-
-Commentary:
-The complete audio desktop.
-
-Emacspeak extends Emacs to be a fully functional audio desktop.
-This is the main emacspeak module.
-It actually does very little:
-It loads the various parts of the system.
-
-Automatically generated documentation
-for commands defined in module  emacspeak.
-
-@deffn {Interactive Command} emacspeak-describe-emacspeak ()
-@kbd{ control h control e   <f1> control e   <help> control e }
-
-Give a brief overview of emacspeak.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-submit-bug ()
-@kbd{ control e CONTROL meta b }
-
-Function to submit a bug to the programs maintainer.
-@end deffn
-
 @node emacspeak-alsaplayer
 @section emacspeak-alsaplayer
 
@@ -546,16 +520,12 @@ Speak the size of the file on current line
 Automatically generated documentation
 for commands defined in module  emacspeak-atom.
 
-@deffn {Interactive Command} emacspeak-atom-browse ()
+@deffn {Interactive Command} emacspeak-atom-browse (FEED)
 Browse specified ATOM feed.
-
-(fn FEED)
 @end deffn
 
-@deffn {Interactive Command} emacspeak-atom-display ()
+@deffn {Interactive Command} emacspeak-atom-display (ATOM-URL &optional SPEAK)
 Retrieve and display ATOM URL.
-
-(fn ATOM-URL &optional SPEAK)
 @end deffn
 
 @node emacspeak-aumix
@@ -1649,23 +1619,6 @@ Goto the previous index position in current buffer
 Speak upto start of next index entry
 @end deffn
 
-@node emacspeak-info
-@section emacspeak-info
-
-Automatically generated documentation
-for commands defined in module  emacspeak-info.
-
-@deffn {Interactive Command} emacspeak-info-wizard ()
-@kbd{ control h TAB   <f1> TAB   <help> TAB }
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC)
-@end deffn
-
 @node emacspeak-keymap
 @section emacspeak-keymap
 
@@ -1697,22 +1650,6 @@ Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
 @end deffn
 
-@node emacspeak-loaddefs
-@section emacspeak-loaddefs
-
-Automatically generated documentation
-for commands defined in module  emacspeak-loaddefs.
-
-@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
-@kbd{ control e o }
-
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end deffn
-
 @node emacspeak-m-player
 @section emacspeak-m-player
 
@@ -1734,16 +1671,96 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
-@deffn {Interactive Command} emacspeak-m-player (RESOURCE)
+@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST)
 @kbd{ control e : }
 
 Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-add-equalizer ()
+Add equalizer for next MPlayer invocation.
+
+Use arrow keys, page-up, page-down, home and end keys to
+  manipulate the values.
+Hit enter to finish setting the equalizer values.
+
+The Mplayer equalizer provides 10 bands, G0 -- G9, see the
+  MPlayer man page for details.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-add-filter ()
+Adds specified filter  to use for the next invocation of MPlayer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-alt-src-step (STEP)
 Move within an ASF playlist.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-backward-10min ()
+Move backward by ten minutes.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-backward-10s ()
+Move back by 10 seconds.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-backward-1min ()
+Move back by 1 minute.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-beginning-of-track ()
+Move to beginning of track.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-customize-options ()
+Use Customize to manipulate MPlayer options.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-display-position ()
+Display current position in track and its length.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-double-speed ()
+Scale speed by 2.0
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-end-of-track ()
+Move to beginning of track.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-equalizer-control (V)
+Manipulate values in specified vector using minibuffer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-faster ()
+Speed up  playback.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-forward-10min ()
+Move forward by ten minutes.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-forward-10s ()
+Move forward by 10 seconds.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-forward-1min ()
+Move forward by 1 minute.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-half-speed ()
+Scale speed by 0.5.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-load-file (F)
+Load specified file.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-load-playlist (F)
+Load specified playlist file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-mode ()
@@ -1752,19 +1769,51 @@ Major mode for m-player interaction.
 key             binding
 ---             -------
 
++		emacspeak-m-player-volume-up
+=		emacspeak-m-player-volume-up
+-		emacspeak-m-player-volume-down
 q		emacspeak-m-player-quit
 SPC		emacspeak-m-player-pause
-a		emacspeak-m-player-alt-src-step
-P		emacspeak-m-player-play-tree-up
-p		emacspeak-m-player-play-tree-step
-S		emacspeak-m-player-seek-absolute
-s		emacspeak-m-player-seek-relative
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
+g		emacspeak-m-player-seek-absolute
+r		emacspeak-m-player-seek-relative
+DEL		emacspeak-m-player-reset-speed
+@}		emacspeak-m-player-double-speed
+@{		emacspeak-m-player-half-speed
+]		emacspeak-m-player-faster
+[		emacspeak-m-player-slower
+s		emacspeak-m-player-scale-speed
+<end>		emacspeak-m-player-end-of-track
+<home>		emacspeak-m-player-beginning-of-track
+<next>		emacspeak-m-player-forward-10min
+<prior>		emacspeak-m-player-backward-10min
+>		emacspeak-m-player-forward-1min
+<		emacspeak-m-player-backward-1min
+<down>		emacspeak-m-player-forward-1min
+<up>		emacspeak-m-player-backward-1min
+<right>		emacspeak-m-player-forward-10s
+<left>		emacspeak-m-player-backward-10s
+.		emacspeak-m-player-forward-10s
+,		emacspeak-m-player-backward-10s
+n		emacspeak-m-player-next-track
+p		emacspeak-m-player-previous-track
+t		emacspeak-m-player-play-tree-step
+?		emacspeak-m-player-display-position
+L		emacspeak-m-player-load-playlist
+l		emacspeak-m-player-load-file
+f		emacspeak-m-player-add-filter
+O		emacspeak-m-player-reset-options
+o		emacspeak-m-player-customize-options
+e		emacspeak-m-player-add-equalizer
+:		emacspeak-m-player
+RET		emacspeak-m-player
 
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-next-track ()
+Move to next track.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-pause ()
@@ -1779,8 +1828,24 @@ Move within the play tree.
 Move within the play tree.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-m-player-previous-track ()
+Move to previous track.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-m-player-quit ()
 Quit media player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-reset-options ()
+Reset MPlayer options to initial defaults.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-reset-speed ()
+Reset playing speed to normal.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-scale-speed (FACTOR)
+Scale speed by specified factor.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-seek-absolute (POSITION)
@@ -1789,6 +1854,18 @@ Seek  to absolute specified position.
 
 @deffn {Interactive Command} emacspeak-m-player-seek-relative (OFFSET)
 Seek  by offset into stream from current position.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-slower ()
+Slow down playback.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-volume-down ()
+Decrease volume.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-volume-up ()
+Increase volume.
 @end deffn
 
 @node emacspeak-madplay
@@ -2255,6 +2332,9 @@ during initialization.
 @node emacspeak-python
 @section emacspeak-python
 
+Commentary:
+This speech-enables python-mode available on sourceforge
+
 Automatically generated documentation
 for commands defined in module  emacspeak-python.
 
@@ -2300,7 +2380,7 @@ This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
 during initialization.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-realaudio-play (RESOURCE &optional PROMPT-TIME)
+@deffn {Interactive Command} emacspeak-realaudio-play (RESOURCE &optional PLAY-LIST)
 Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
 user configurable variable emacspeak-realaudio-shortcuts-directory. 
@@ -2416,6 +2496,10 @@ Summarize current message
 
 Automatically generated documentation
 for commands defined in module  emacspeak-rss.
+
+@deffn {Interactive Command} emacspeak-opml-display (OPML-URL &optional SPEAK)
+Retrieve and display OPML  URL.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-rss-browse (FEED)
 @kbd{ control e control u }
@@ -3139,6 +3223,16 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
+@kbd{ control e o }
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-toggle-line-echo (&optional PREFIX)
 @kbd{ control e d l }
 
@@ -3580,16 +3674,6 @@ Load URL template resources from specified location.
 Save out url templates.
 @end deffn
 
-@node emacspeak-view
-@section emacspeak-view
-
-Automatically generated documentation
-for commands defined in module  emacspeak-view.
-
-@deffn {Interactive Command} emacspeak-view-line-to-top ()
-Moves current line to top of window
-@end deffn
-
 @node emacspeak-view-process
 @section emacspeak-view-process
 
@@ -3602,6 +3686,16 @@ Set point to the current field in the next line.
 
 @deffn {Interactive Command} emacspeak-view-process-speak-current-field ()
 Speak current field
+@end deffn
+
+@node emacspeak-view
+@section emacspeak-view
+
+Automatically generated documentation
+for commands defined in module  emacspeak-view.
+
+@deffn {Interactive Command} emacspeak-view-line-to-top ()
+Moves current line to top of window
 @end deffn
 
 @node emacspeak-vm
@@ -3881,6 +3975,10 @@ present only to help me iron out the remaining problems with
 the table structure extraction code in W3.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-mplayer-play-url-at-point ()
+Play url under point using mplayer
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-next-doc-element (&optional COUNT)
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT 
@@ -3889,6 +3987,10 @@ specifies by how many eleemnts to move.
 
 @deffn {Interactive Command} emacspeak-w3-next-parsed-item ()
 Move to and speak next parsed item.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-play-media-at-point ()
+Play media url under point 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-preview-this-buffer ()
@@ -3903,10 +4005,6 @@ Preview this region.
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-realaudio-play-url-at-point (&optional PROMPT-TIME)
-Play url under point as realaudio
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-set-xsl-keep-result (VALUE)
@@ -3984,47 +4082,12 @@ specifies the page to extract table from.
 Optional arg COMPLEMENT inverts the filter.  
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-xslt-junk (PATH &optional PROMPT-URL)
+@deffn {Interactive Command} emacspeak-w3-xslt-junk (PATH &optional PROMPT-URL SPEAK)
 Junk elements matching specified locator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-xslt-select (XSL)
 Select XSL transformation applied to WWW pages before they are displayed .
-@end deffn
-
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-    (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
-  )
-
-(provide 'emacspeak-w3search)
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
-Search IBM using trevi
 @end deffn
 
 @node emacspeak-websearch
@@ -4128,8 +4191,10 @@ Perform a FolDoc search.
 Search Freshmeat  Site. 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-froogle (QUERY)
+@deffn {Interactive Command} emacspeak-websearch-froogle (QUERY &optional LOCAL-FLAG)
 Perform a Froogle search.
+Optional interactive  prefix arg local-flag prompts for local
+  area in which to search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google (QUERY &optional LUCKY)
@@ -4204,6 +4269,10 @@ Perform an Yahoo  people search
 
 @deffn {Interactive Command} emacspeak-websearch-podscope ()
 Perform a PodScope search to locate podcasts.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-podzinger-search (QUERY)
+Podzinger RSS Generator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search (QUERY &optional PREFIX)
@@ -5025,13 +5094,109 @@ this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
 @end deffn
 
+@node emacspeak
+@section emacspeak
+
+Commentary:
+The complete audio desktop.
+
+Emacspeak extends Emacs to be a fully functional audio desktop.
+This is the main emacspeak module.
+It actually does very little:
+It loads the various parts of the system.
+
+Automatically generated documentation
+for commands defined in module  emacspeak.
+
+@deffn {Interactive Command} emacspeak-describe-emacspeak ()
+@kbd{ control h control e   <f1> control e   <help> control e }
+
+Give a brief overview of emacspeak.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-submit-bug ()
+@kbd{ control e CONTROL meta b }
+
+Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
+  "*URI for IBM internal  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM using trevi"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+    (browse-url 
+     (format  emacspeak-websearch-ibm-internal-uri
+(webjump-url-encode query)))
+  )
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
+Search IBM using trevi
+@end deffn
+
+@node emacspeak-info
+@section emacspeak-info
+
+Automatically generated documentation
+for commands defined in module  emacspeak-info.
+
+@deffn {Interactive Command} emacspeak-info-wizard ()
+@kbd{ control h TAB   <f1> TAB   <help> TAB }
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+(fn NODE-SPEC)
+@end deffn
+
+@node emacspeak-w3
+@section emacspeak-w3
+
+Commentary:
+Ensure that speech support for W3 gets installed and
+loaded correctly.
+The emacs W3 browser comes with builtin support for
+Emacspeak and ACSS
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3.
+
+@deffn {Interactive Command} emacspeak-w3-realaudio-play-url-at-point ()
+Play url under point as realaudio
+
+(fn &optional PROMPT-TIME)
+@end deffn
+
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 93 URL Templates.
+This section documents a total of 98 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5134,6 +5299,10 @@ Display MLB standings.
 
 Display baseball team summary.
 
+@kbd{BlogSearch Google}
+
+Google Print Search
+
 @kbd{BookShare}
 
 Bookshare Login
@@ -5203,6 +5372,10 @@ Display flight arrival and departure information.
 
 Play specified edition of Geek  Linux DailyShow
 
+@kbd{Google Books}
+
+Google Print Search
+
 @kbd{Google Feeds}
 
 List  Google news Feeds.
@@ -5218,6 +5391,10 @@ Retrieve and speak Google News Overview.
 @kbd{Google Hits}
 
 Only show Google hits.
+
+@kbd{Google Local}
+
+Google Local Search.
 
 @kbd{Google Maps Give Me XML}
 
@@ -5313,6 +5490,10 @@ ATC All Things Considered
 
 Segment is specified as a two digit number --specifying a blank value
 plays entire program.
+
+@kbd{NY Times RSS Feeds}
+
+Display browsable list of NY Times RSS Feeds.
 
 @kbd{Netcraft Web Analysis}
 
@@ -5436,6 +5617,10 @@ Retrieve and speak Top Stories  section from Yahoo Daily News.
 @kbd{Yahoo World News}
 
 Yahoo World News.
+
+@kbd{answers.com}
+
+Search answers.com
 
 @kbd{fedex packages}
 
