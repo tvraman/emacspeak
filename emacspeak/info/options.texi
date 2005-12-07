@@ -5,17 +5,17 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 395 user customizable
+This chapter documents a total of 400 user customizable
   options.
 
 @menu
 * cd-tool Options::             
 * dtk-speak Options::           
-* emacspeak Options::           
 * emacspeak-add-log Options::   
 * emacspeak-advice Options::    
 * emacspeak-alsaplayer Options::  
 * emacspeak-amphetadesk Options::  
+* emacspeak-atom Options::      
 * emacspeak-auctex Options::    
 * emacspeak-aumix Options::     
 * emacspeak-bbdb Options::      
@@ -42,7 +42,6 @@ This chapter documents a total of 395 user customizable
 * emacspeak-ispell Options::    
 * emacspeak-jde Options::       
 * emacspeak-keymap Options::    
-* emacspeak-loaddefs Options::  
 * emacspeak-m-player Options::  
 * emacspeak-madplay Options::   
 * emacspeak-ocr Options::       
@@ -70,6 +69,7 @@ This chapter documents a total of 395 user customizable
 * emacspeak-wizards Options::   
 * emacspeak-xml-shell Options::  
 * emacspeak-xslt Options::      
+* emacspeak Options::           
 * voice-setup Options::         
 @end menu
 
@@ -154,29 +154,6 @@ C-e d I to toggle this setting.
 
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
-@end defvar
-
-@node emacspeak Options
-@section emacspeak Options
-
-Commentary:
-The complete audio desktop.
-
-Emacspeak extends Emacs to be a fully functional audio desktop.
-This is the main emacspeak module.
-It actually does very little:
-It loads the various parts of the system.
-
-Automatically generated documentation
-for options defined in module  emacspeak.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-play-emacspeak-startup-icon
-If set to T, emacspeak plays its icon as it launches.
-@end defvar
-
-@defvar {User Option} emacspeak-startup-hook
-Hook to run after starting emacspeak.
 @end defvar
 
 @node emacspeak-add-log Options
@@ -372,6 +349,22 @@ Script that launches amphetadesk.
 URI for Amphetadesk home.
 @end defvar
 
+@node emacspeak-atom Options
+@section emacspeak-atom Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-atom.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-atom-feeds
+Table of ATOM feeds.
+@end defvar
+
+@defvar {User Option} emacspeak-atom-unescape-html
+Fix malformed  XML that results from sites attempting to
+unescape HTML tags.
+@end defvar
+
 @node emacspeak-auctex Options
 @section emacspeak-auctex Options
 
@@ -449,6 +442,10 @@ This module is presently Linux specific
 Automatically generated documentation
 for options defined in module  emacspeak-aumix.
 These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-alsactl-program
+ALSA sound controller used to restore settings.
+@end defvar
 
 @defvar {User Option} emacspeak-aumix-full-duplex-p
 *Set to T if the sound card is truly full duplex.
@@ -1577,21 +1574,6 @@ field in the customization buffer.  You can use the notation
 [f1], [f2], etc., to specify function keys. 
 @end defvar
 
-@node emacspeak-loaddefs Options
-@section emacspeak-loaddefs Options
-
-Automatically generated documentation
-for options defined in module  emacspeak-loaddefs.
-These options are customizable via Emacs' Custom interface.
-
-@defvar {User Option} emacspeak-play-program
-Name of executable that plays sound files. 
-@end defvar
-
-@defvar {User Option} emacspeak-sounds-default-theme
-Default theme for auditory icons. 
-@end defvar
-
 @node emacspeak-m-player Options
 @section emacspeak-m-player Options
 
@@ -2040,6 +2022,14 @@ It's imperative that you use the -i flag to play on
 sparc20's.
 @end defvar
 
+@defvar {User Option} emacspeak-play-program
+Name of executable that plays sound files. 
+@end defvar
+
+@defvar {User Option} emacspeak-sounds-default-theme
+Default theme for auditory icons. 
+@end defvar
+
 @defvar {User Option} emacspeak-sounds-reset-snd-module-command
 Command to reset sound module.
 @end defvar
@@ -2415,6 +2405,10 @@ Entities to unescape when treating badly escaped XML.
 Clean up bogus Unicode chars for magic quotes.
 @end defvar
 
+@defvar {User Option} emacspeak-w3-create-imenu-index
+Create IMenu index by default.
+@end defvar
+
 @defvar {User Option} emacspeak-w3-lwp-request
 LWP Request command from perl LWP.
 @end defvar
@@ -2741,6 +2735,34 @@ Name of XSLT transformation engine.
 Set to T if you want to avoid URL downloader bugs in libxml2.
 There is a bug that bites when using Yahoo Maps that wget can
 work around.
+@end defvar
+
+@node emacspeak Options
+@section emacspeak Options
+
+Commentary:
+The complete audio desktop.
+
+Emacspeak extends Emacs to be a fully functional audio desktop.
+This is the main emacspeak module.
+It actually does very little:
+It loads the various parts of the system.
+
+Automatically generated documentation
+for options defined in module  emacspeak.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-media-player
+Default media player to use.
+This is a Lisp function that takes a resource locator.
+@end defvar
+
+@defvar {User Option} emacspeak-play-emacspeak-startup-icon
+If set to T, emacspeak plays its icon as it launches.
+@end defvar
+
+@defvar {User Option} emacspeak-startup-hook
+Hook to run after starting emacspeak.
 @end defvar
 
 @node voice-setup Options
