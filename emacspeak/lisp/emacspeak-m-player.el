@@ -111,9 +111,23 @@
     (cond
      ((and emacspeak-m-player-process
 	   (eq 'run (process-status emacspeak-m-player-process)))
-     (pop-to-buffer (process-buffer emacspeak-m-player-process))
-     (emacspeak-speak-mode-line))   
+     (call-interactively 'emacspeak-m-player-command)   )
      (t  (call-interactively 'emacspeak-m-player))))
+
+(defun emacspeak-m-player-command (command-char)
+  "Invoke MPlayer commands."
+  (interactive "cMPlayer Command:")
+  (declare (special emacspeak-m-player-process))
+  (cond
+   ((=  command-char ?\;)
+        (pop-to-buffer (process-buffer emacspeak-m-player-process))
+        (emacspeak-speak-mode-line))
+   (t (call-interactively
+       (lookup-key emacspeak-m-player-mode-map
+                   (format "%c" command-char))))))
+
+(emacspeak-fix-interactive-command-if-necessary
+ 'emacspeak-m-player-command)
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
