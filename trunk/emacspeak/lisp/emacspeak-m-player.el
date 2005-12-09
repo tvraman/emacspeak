@@ -74,7 +74,6 @@
 (define-prefix-command 'emacspeak-m-player-prefix-command
   'emacspeak-m-player-mode-map)
 
-
 (define-derived-mode emacspeak-m-player-mode comint-mode 
   "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
@@ -103,8 +102,19 @@
   :type  '(repeat
 	   (string :tag "option"))
   :group 'emacspeak-m-player)
-;;;###autoload
 
+;;;###autoload
+(defun emacspeak-multimedia  ()
+  "Start or control Emacspeak multimedia player."
+  (interactive )
+  (declare (special emacspeak-m-player-process))
+    (cond
+     ((and emacspeak-m-player-process
+	   (eq 'run (process-status emacspeak-m-player-process)))
+     (pop-to-buffer (process-buffer emacspeak-m-player-process)))   
+     (t  (call-interactively 'emacspeak-m-player))))
+
+;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
@@ -349,8 +359,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     ("volnorm" . "volnorm")
     ("surround" . "surround"))
   "Table of useful MPlayer filters.")
-
-
 
 (defun emacspeak-m-player-add-filter ()
   "Adds specified filter  to use for the next invocation of MPlayer."
