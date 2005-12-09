@@ -388,7 +388,7 @@ field in the customization buffer.  You can use the notation
   'emacspeak-websearch-dispatch )
 (define-key emacspeak-keymap "," 'emacspeak-speak-browse-buffer )
 (define-key emacspeak-keymap ":" 'emacspeak-realaudio )
-(define-key emacspeak-keymap ";" 'emacspeak-m-player)
+(define-key emacspeak-keymap ";" 'emacspeak-multimedia)
 (define-key emacspeak-keymap "C" 'emacspeak-customize)
 (define-key emacspeak-keymap "\C-o" 'emacspeak-ocr )
 (define-key emacspeak-keymap "\C-c"
