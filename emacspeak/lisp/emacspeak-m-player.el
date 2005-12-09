@@ -111,7 +111,8 @@
     (cond
      ((and emacspeak-m-player-process
 	   (eq 'run (process-status emacspeak-m-player-process)))
-     (pop-to-buffer (process-buffer emacspeak-m-player-process)))   
+     (pop-to-buffer (process-buffer emacspeak-m-player-process))
+     (emacspeak-speak-mode-line))   
      (t  (call-interactively 'emacspeak-m-player))))
 
 ;;;###autoload
