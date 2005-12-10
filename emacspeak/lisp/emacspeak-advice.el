@@ -1151,6 +1151,7 @@ in completion buffers"
     ad-do-it
     (emacspeak-auditory-icon 'help)
     (message "Displayed completions.")))
+
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
   
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act)
