@@ -1380,6 +1380,7 @@ This is setup on a per engine basis.")
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
   (declare (special dtk-program
+                    emacspeak-auditory-icon-function
                     tts-voice-reset-code))
   (unless tts-name (setq tts-name dtk-program))
   (cond
