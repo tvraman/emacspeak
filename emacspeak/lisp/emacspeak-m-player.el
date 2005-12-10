@@ -120,7 +120,10 @@
   (declare (special emacspeak-m-player-process))
   (cond
    ((=  command-char ?\;)
-        (pop-to-buffer (process-buffer emacspeak-m-player-process))
+        (pop-to-buffer (process-buffer
+                        emacspeak-m-player-process)
+                       nil 'norecord)
+        (set-window-text-height nil 3)
         (emacspeak-speak-mode-line))
    (t (call-interactively
        (lookup-key emacspeak-m-player-mode-map
