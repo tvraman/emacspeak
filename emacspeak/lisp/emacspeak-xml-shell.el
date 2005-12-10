@@ -55,7 +55,8 @@
 ;;{{{ Customizations
 ;;;###autoload
 (defgroup emacspeak-xml-shell nil
-  "XML browser for the Emacspeak desktop.")
+  "XML browser for the Emacspeak desktop."
+  :group 'emacspeak)
 
 (defcustom emacspeak-xml-shell-command "xmllint"
   "Executable that provides the XML browser shell.

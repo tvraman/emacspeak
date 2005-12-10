@@ -54,7 +54,9 @@
 ;;{{{  xslt 
 
 (defgroup emacspeak-xslt nil
-  "XSL transformation group.")
+  "XSL transformation group."
+  :group 'emacspeak)
+
 ;;;###autoload 
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)

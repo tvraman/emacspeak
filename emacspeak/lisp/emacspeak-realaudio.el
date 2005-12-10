@@ -41,6 +41,8 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'desktop)
+(require 'dired)
 ;;}}}
 ;;{{{ Introduction:
 
@@ -59,7 +61,8 @@
 ;;}}}
 ;;{{{ variables
 (defgroup emacspeak-realaudio nil
-  "Emacspeak Realaudio  customization.")
+  "Emacspeak Realaudio  customization."
+  :group 'emacspeak)
 
 (defcustom emacspeak-realaudio-revert-to-auditory-icons t
   "Set this to T if you want to switch back from using midi
