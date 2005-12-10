@@ -105,6 +105,7 @@
 (defun emacspeak-jabber-message-default-message (from buffer
                                                       text)
   "Speak the message."
+  (declare (special jabber-message-alert-same-buffer))
   (when (or jabber-message-alert-same-buffer
 	    (not (memq (selected-window) (get-buffer-window-list buffer))))
     (if (jabber-muc-sender-p from)

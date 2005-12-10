@@ -235,18 +235,6 @@ to all buffers.
 
 ------------------------------------------------------------
 
-** emacspeak-describe-emacspeak	Key Sequence: control h control e   <f1> control e   <help> control e 
-
-Give a brief overview of emacspeak.
-
-------------------------------------------------------------
-
-** emacspeak-submit-bug	Key Sequence: control e CONTROL meta b 
-
-Function to submit a bug to the programs maintainer.
-
-------------------------------------------------------------
-
 ** emacspeak-alsaplayer-add-to-queueAdd specified resource to queue.
 
 ------------------------------------------------------------
@@ -399,13 +387,9 @@ during initialization.
 
 ** emacspeak-atom-browseBrowse specified ATOM feed.
 
-(fn FEED)
-
 ------------------------------------------------------------
 
 ** emacspeak-atom-displayRetrieve and display ATOM URL.
-
-(fn ATOM-URL &optional SPEAK)
 
 ------------------------------------------------------------
 
@@ -1240,17 +1224,6 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC)
-
-------------------------------------------------------------
-
 ** emacspeak-keymap-choose-new-emacspeak-prefixInteractively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command
 lets you switch the prefix to something else.  This is a useful thing
@@ -1270,25 +1243,95 @@ relief.
 
 ------------------------------------------------------------
 
-** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
-
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-
-------------------------------------------------------------
-
 ** emacspeak-m-player	Key Sequence: control e : 
 
 Play specified resource using m-player.
-Resource is an  MP3 file or m3u playlist.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-add-equalizerAdd equalizer for next MPlayer invocation.
+
+Use arrow keys, page-up, page-down, home and end keys to
+  manipulate the values.
+Hit enter to finish setting the equalizer values.
+
+The Mplayer equalizer provides 10 bands, G0 -- G9, see the
+  MPlayer man page for details.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-add-filterAdds specified filter  to use for the next invocation of MPlayer.
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-alt-src-stepMove within an ASF playlist.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-backward-10minMove backward by ten minutes.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-backward-10sMove back by 10 seconds.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-backward-1minMove back by 1 minute.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-beginning-of-trackMove to beginning of track.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-customize-optionsUse Customize to manipulate MPlayer options.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-display-positionDisplay current position in track and its length.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-double-speedScale speed by 2.0
+
+------------------------------------------------------------
+
+** emacspeak-m-player-end-of-trackMove to beginning of track.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-equalizer-controlManipulate values in specified vector using minibuffer.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-fasterSpeed up  playback.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-forward-10minMove forward by ten minutes.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-forward-10sMove forward by 10 seconds.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-forward-1minMove forward by 1 minute.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-half-speedScale speed by 0.5.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-load-fileLoad specified file.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-load-playlistLoad specified playlist file.
 
 ------------------------------------------------------------
 
@@ -1298,21 +1341,53 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 key             binding
 ---             -------
 
++		emacspeak-m-player-volume-up
+=		emacspeak-m-player-volume-up
+-		emacspeak-m-player-volume-down
 q		emacspeak-m-player-quit
 SPC		emacspeak-m-player-pause
-a		emacspeak-m-player-alt-src-step
-P		emacspeak-m-player-play-tree-up
-p		emacspeak-m-player-play-tree-step
-S		emacspeak-m-player-seek-absolute
-s		emacspeak-m-player-seek-relative
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
+g		emacspeak-m-player-seek-absolute
+r		emacspeak-m-player-seek-relative
+DEL		emacspeak-m-player-reset-speed
+}		emacspeak-m-player-double-speed
+{		emacspeak-m-player-half-speed
+]		emacspeak-m-player-faster
+[		emacspeak-m-player-slower
+s		emacspeak-m-player-scale-speed
+<end>		emacspeak-m-player-end-of-track
+<home>		emacspeak-m-player-beginning-of-track
+<next>		emacspeak-m-player-forward-10min
+<prior>		emacspeak-m-player-backward-10min
+>		emacspeak-m-player-forward-1min
+<		emacspeak-m-player-backward-1min
+<down>		emacspeak-m-player-forward-1min
+<up>		emacspeak-m-player-backward-1min
+<right>		emacspeak-m-player-forward-10s
+<left>		emacspeak-m-player-backward-10s
+.		emacspeak-m-player-forward-10s
+,		emacspeak-m-player-backward-10s
+n		emacspeak-m-player-next-track
+p		emacspeak-m-player-previous-track
+t		emacspeak-m-player-play-tree-step
+?		emacspeak-m-player-display-position
+L		emacspeak-m-player-load-playlist
+l		emacspeak-m-player-load-file
+f		emacspeak-m-player-add-filter
+O		emacspeak-m-player-reset-options
+o		emacspeak-m-player-customize-options
+e		emacspeak-m-player-add-equalizer
+:		emacspeak-m-player
+RET		emacspeak-m-player
 
 
 
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
 during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-next-trackMove to next track.
 
 ------------------------------------------------------------
 
@@ -1328,7 +1403,23 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-previous-trackMove to previous track.
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-quitQuit media player.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-reset-optionsReset MPlayer options to initial defaults.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-reset-speedReset playing speed to normal.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-scale-speedScale speed by specified factor.
 
 ------------------------------------------------------------
 
@@ -1337,6 +1428,18 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-seek-relativeSeek  by offset into stream from current position.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-slowerSlow down playback.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-volume-downDecrease volume.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-volume-upIncrease volume.
 
 ------------------------------------------------------------
 
@@ -1850,6 +1953,10 @@ Use this once you are sure the guesses are usually correct.
 ------------------------------------------------------------
 
 ** emacspeak-rmail-summarize-current-messageSummarize current message
+
+------------------------------------------------------------
+
+** emacspeak-opml-displayRetrieve and display OPML  URL.
 
 ------------------------------------------------------------
 
@@ -2530,6 +2637,16 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
+** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+
+------------------------------------------------------------
+
 ** emacspeak-toggle-line-echo	Key Sequence: control e d l 
 
 Toggle state of  Emacspeak  line echo.
@@ -2900,15 +3017,15 @@ resources.
 
 ------------------------------------------------------------
 
-** emacspeak-view-line-to-topMoves current line to top of window
-
-------------------------------------------------------------
-
 ** emacspeak-view-process-goto-current-field-next-lineSet point to the current field in the next line.
 
 ------------------------------------------------------------
 
 ** emacspeak-view-process-speak-current-fieldSpeak current field
+
+------------------------------------------------------------
+
+** emacspeak-view-line-to-topMoves current line to top of window
 
 ------------------------------------------------------------
 
@@ -3171,6 +3288,10 @@ the table structure extraction code in W3.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-mplayer-play-url-at-pointPlay url under point using mplayer
+
+------------------------------------------------------------
+
 ** emacspeak-w3-next-doc-elementMove forward  to the next document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
@@ -3178,6 +3299,10 @@ specifies by how many eleemnts to move.
 ------------------------------------------------------------
 
 ** emacspeak-w3-next-parsed-itemMove to and speak next parsed item.
+
+------------------------------------------------------------
+
+** emacspeak-w3-play-media-at-pointPlay media url under point 
 
 ------------------------------------------------------------
 
@@ -3192,10 +3317,6 @@ specifies by how many eleemnts to move.
 ** emacspeak-w3-previous-doc-elementMove back  to the previous document element.
 Optional interactive prefix argument COUNT 
 specifies by how many eleemnts to move.
-
-------------------------------------------------------------
-
-** emacspeak-w3-realaudio-play-url-at-pointPlay url under point as realaudio
 
 ------------------------------------------------------------
 
@@ -3279,10 +3400,6 @@ Optional arg COMPLEMENT inverts the filter.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xslt-selectSelect XSL transformation applied to WWW pages before they are displayed .
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internalSearch IBM using trevi
 
 ------------------------------------------------------------
 
@@ -3379,6 +3496,8 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-frooglePerform a Froogle search.
+Optional interactive  prefix arg local-flag prompts for local
+  area in which to search.
 
 ------------------------------------------------------------
 
@@ -3453,6 +3572,10 @@ Optional prefix arg no-rss scrapes information from HTML.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-podscopePerform a PodScope search to locate podcasts.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-podzinger-searchPodzinger RSS Generator.
 
 ------------------------------------------------------------
 
@@ -4262,6 +4385,39 @@ C-c C-v		emacspeak-xml-shell-browse-result
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
 during initialization.
+
+------------------------------------------------------------
+
+** emacspeak-describe-emacspeak	Key Sequence: control h control e   <f1> control e   <help> control e 
+
+Give a brief overview of emacspeak.
+
+------------------------------------------------------------
+
+** emacspeak-submit-bug	Key Sequence: control e CONTROL meta b 
+
+Function to submit a bug to the programs maintainer.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internalSearch IBM using trevi
+
+------------------------------------------------------------
+
+** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+(fn NODE-SPEC)
+
+------------------------------------------------------------
+
+** emacspeak-w3-realaudio-play-url-at-pointPlay url under point as realaudio
+
+(fn &optional PROMPT-TIME)
 
   
 

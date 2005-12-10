@@ -52,6 +52,8 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'desktop)
+(require 'dired)
 ;;}}}
 ;;{{{ define a derived mode for madplay interaction 
 (defvar emacspeak-madplay-process nil
@@ -96,6 +98,7 @@
 (defun emacspeak-madplay-madplay-call-command ()
   "Call appropriate madplay command."
   (interactive)
+  (declare (special emacspeak-madplay-buffer-name))
   (emacspeak-madplay-madplay-command last-input-char)
   (when (char-equal last-input-char ?q)
     (emacspeak-aumix-reset)
