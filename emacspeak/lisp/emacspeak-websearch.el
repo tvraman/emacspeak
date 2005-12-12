@@ -1439,7 +1439,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 (emacspeak-websearch-set-searcher 'northern-light
                                   'emacspeak-websearch-northern-light)
 
-; (emacspeak-websearch-set-key ?N 'northern-light)
+					; (emacspeak-websearch-set-key ?N 'northern-light)
 ;;; This search engine does not exist -- here for legacy
 (defvar emacspeak-websearch-northern-light-uri
   "http://www.northernlight.com/nlquery.fcg?cb=0&orl=2%3A1&qr="

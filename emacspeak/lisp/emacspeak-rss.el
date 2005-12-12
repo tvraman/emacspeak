@@ -85,7 +85,7 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "RSS URL: "))))
   (declare (special emacspeak-rss-unescape-html
-   emacspeak-xslt-directory))
+		    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))
@@ -103,7 +103,7 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "OPML  URL: "))))
   (declare (special emacspeak-rss-unescape-html
-   emacspeak-xslt-directory))
+		    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
 	      'emacspeak-speak-buffer))

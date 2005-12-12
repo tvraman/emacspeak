@@ -54,30 +54,30 @@
   (interactive)
   (let ((row (second (sudoku-get-cell-from-point (point))))
         (column (first (sudoku-get-cell-from-point (point)))))
-  (message
-   (format "Row %s Column %s"
-   row column))))
+    (message
+     (format "Row %s Column %s"
+	     row column))))
 
 (defun emacspeak-sudoku-speak-current-row ()
   "Speak current row."
   (interactive)
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-row current-board
-                           (second cell )))))
+				(second cell )))))
 
 (defun emacspeak-sudoku-speak-current-column ()
   "Speak current column."
   (interactive)
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-column  current-board
-                           (first cell )))))
+				    (first cell )))))
 
 (defsubst emacspeak-sudoku-cell-sub-square (cell)
   "Return sub-square that this cell is in."
   (let ((row (second cell))
         (column (first cell)))
-          (+ ( * 3 (/ row 3))
-             (/ column 3))))
+    (+ ( * 3 (/ row 3))
+       (/ column 3))))
 
 (defun emacspeak-sudoku-speak-current-sub-square ()
   "Speak current sub-square."
@@ -85,7 +85,7 @@
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list
      (sudoku-subsquare  current-board
-                           (emacspeak-sudoku-cell-sub-square cell)))))
+			(emacspeak-sudoku-cell-sub-square cell)))))
 
 (defun emacspeak-sudoku-speak-current-cell-value ()
   "Speak value in current cell."
@@ -98,13 +98,13 @@
   "Provide hint for current cell."
   (interactive)
   (let* ((cell (sudoku-get-cell-from-point (point)))
-        (possibles (sudoku-cell-possibles
-    current-board
-    (first cell)
-    (second cell))))
+	 (possibles (sudoku-cell-possibles
+		     current-board
+		     (first cell)
+		     (second cell))))
     (cond
      (possibles 
-  (dtk-speak-list possibles))
+      (dtk-speak-list possibles))
      (t (message "Dead End")))))
 
 (defun emacspeak-sudoku-speak-remaining-in-row ()
@@ -130,21 +130,21 @@
     (dtk-speak
      (count 0
             (sudoku-subsquare current-board
-            (emacspeak-sudoku-cell-sub-square cell))))))
+			      (emacspeak-sudoku-cell-sub-square cell))))))
 
 ;;}}}
 ;;{{{ advice motion:
 
 (loop for f   in
       '(
-sudoku-move-point-left 
-sudoku-move-point-leftmost 
-sudoku-move-point-right 
-sudoku-move-point-rightmost 
-sudoku-move-point-up 
-sudoku-move-point-upmost 
-sudoku-move-point-down 
-sudoku-move-point-downmost )
+	sudoku-move-point-left 
+	sudoku-move-point-leftmost 
+	sudoku-move-point-right 
+	sudoku-move-point-rightmost 
+	sudoku-move-point-up 
+	sudoku-move-point-upmost 
+	sudoku-move-point-down 
+	sudoku-move-point-downmost )
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -161,8 +161,8 @@ sudoku-move-point-downmost )
       '(
         ("h" sudoku-move-point-left)
         ("l" sudoku-move-point-right)
-      ("j" sudoku-move-point-down)
-("k" sudoku-move-point-up)
+	("j" sudoku-move-point-down)
+	("k" sudoku-move-point-up)
         ("R" emacspeak-sudoku-speak-remaining-in-row)
         ("S" emacspeak-sudoku-speak-remaining-in-sub-square)
         ("C" emacspeak-sudoku-speak-remaining-in-column)
@@ -175,11 +175,11 @@ sudoku-move-point-downmost )
         ("t" sudoku-move-point-upmost)
         ("." emacspeak-sudoku-speak-current-cell-value )
         ("=" emacspeak-sudoku-speak-current-cell-coordinates)
-("\C-e" emacspeak-prefix-command)
-      ("r" emacspeak-sudoku-speak-current-row)
-      ("c" emacspeak-sudoku-speak-current-column)
-      ("s" emacspeak-sudoku-speak-current-sub-square)
-)
+	("\C-e" emacspeak-prefix-command)
+	("r" emacspeak-sudoku-speak-current-row)
+	("c" emacspeak-sudoku-speak-current-column)
+	("s" emacspeak-sudoku-speak-current-sub-square)
+	)
       do
       (define-key  sudoku-mode-map (first k) (second k)))
 

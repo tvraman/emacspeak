@@ -666,17 +666,16 @@ from English to German.")
  "Display browsable list of NY Times RSS Feeds."
  #'(lambda (url)
      (let ((buffer 
-     (emacspeak-xslt-xml-url
-      (expand-file-name "opml.xsl"
-                        emacspeak-xslt-directory)
-      url )))
-           (save-excursion
-             (set-buffer buffer)
-             (emacspeak-w3-preview-this-buffer)))))
+	    (emacspeak-xslt-xml-url
+	     (expand-file-name "opml.xsl"
+			       emacspeak-xslt-directory)
+	     url )))
+       (save-excursion
+	 (set-buffer buffer)
+	 (emacspeak-w3-preview-this-buffer)))))
              
            
  
-
 
 ;;}}}
 ;;{{{ Google Local:
@@ -684,11 +683,11 @@ from English to German.")
 (emacspeak-url-template-define
  "Google Local"
  "http://local.google.com/local?output=html&q=%s"
-(list "Google Local Search:")
-#'(lambda ()
-    (search-forward "Local Search within" nil t)
-    (emacspeak-speak-line))
-"Google Local Search.")
+ (list "Google Local Search:")
+ #'(lambda ()
+     (search-forward "Local Search within" nil t)
+     (emacspeak-speak-line))
+ "Google Local Search.")
 
 ;;}}}
 ;;{{{ google OverviewOfNews 
@@ -1130,8 +1129,8 @@ name of the list.")
  (list "Episode: ")
  nil
  "Play This American Life  shows on demand."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Wait Wait, Dont Tell Me (NPR)"
@@ -1142,8 +1141,8 @@ name of the list.")
                                            "%Y%m%d")))
  nil
  "Play Wait, Wait Dont Tell Me from NPR."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "NPR On Demand"
@@ -1164,8 +1163,8 @@ ATC All Things Considered
 
 Segment is specified as a two digit number --specifying a blank value
 plays entire program."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
@@ -1177,8 +1176,8 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR All Things Considered stream."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Talk Of The Nation  Stream from NPR"
@@ -1186,8 +1185,8 @@ plays entire program."
  (list 'emacspeak-url-template-date-YearMonthDate)
  nil
  "Play NPR Talk Of The Nation  stream."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Morning Edition Stream from NPR"
@@ -1198,8 +1197,8 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR Morning Edition  stream."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Motley Fool Radio from NPR"
@@ -1210,8 +1209,8 @@ plays entire program."
                                            "%d-%b-%Y")))
  nil
  "Play NPR Motley Fool   stream."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Talk Of The Nation from NPR"
@@ -1221,8 +1220,8 @@ plays entire program."
   "Segment: ")
  nil
  "Play NPR Talk Of The Nation segment."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "All Things Considered from NPR" 
@@ -1232,8 +1231,8 @@ plays entire program."
   "Segment: ")
  nil
  "Play All Things Considered segment."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Morning Edition from NPR" 
@@ -1243,8 +1242,8 @@ plays entire program."
   "Segment:")
  nil
  "Play Morning Edition segment."
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 ;;}}}
 ;;{{{  The Linux Show 
@@ -1257,8 +1256,8 @@ plays entire program."
                                            "%Y/%m/%d")))
  nil
  "Play specified edition of Geek  Linux DailyShow"
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 (emacspeak-url-template-define
  "Redhat Linux Show" 
@@ -1274,8 +1273,8 @@ plays entire program."
                 mm-dd-yy))))
  nil
  "Play specified edition of Redhat Linux Show"
-#'(lambda (url) 
-(funcall emacspeak-media-player url 'play-list)))
+ #'(lambda (url) 
+     (funcall emacspeak-media-player url 'play-list)))
 
 ;;}}}
 ;;{{{ technet cast from DDJ
