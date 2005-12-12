@@ -101,9 +101,9 @@ type="text/xsl"?>
     </application>
     <application name="rpm">
       Client for browsing installed RPM packages.
-  </application>
-  <application name="Find Wizard">
-    Command  <code>emacspeak-wizards-generate-finder</code>
+    </application>
+    <application name="Find Wizard">
+      Command  <code>emacspeak-wizards-generate-finder</code>
     provides an easy to use front-end to UNIX <code>find</code>.</application>
   </category>
   <category name="web">
@@ -171,7 +171,8 @@ type="text/xsl"?>
       Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
     </application>
     <application name="atom">
-      Speech-enabled ATOM viewer.</application>
+    Speech-enabled ATOM viewer.</application>
+    <application name="message">
       Email composition   from
     within other applications.</application>
     <application name="supercite">
@@ -182,11 +183,11 @@ type="text/xsl"?>
     sessions.</application>
     <application name="erc">
       Internet Relay Chat (IRC) client
-    with  voice locking support and parallel chat
+      with  voice locking support and parallel chat
     sessions.</application>
     <application name="emacs-jabber">
-Speech-enables emacs-jabber, an  Emacs Jabber client available
-from Sourceforge.</application>
+      Speech-enables emacs-jabber, an  Emacs Jabber client available
+    from Sourceforge.</application>
     <application name="imcom">
       IMCom is a Python-based jabber client.
       Module emacspeak-imcom speech-enables IMCom with full audio
@@ -573,7 +574,7 @@ from Sourceforge.</application>
 
     <application name="sudoku">
       Speech-enabled access to SuDoku --- the number placement game.
-    </application><application name="gomoku">
+      </application><application name="gomoku">
       Speech-enabled version of the traditional board game.
     </application>
     <application name="solitaire">
