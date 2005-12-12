@@ -155,7 +155,9 @@
     (setq this (+ this step))    (sudoku-goto-cell
      (list (* (% this 3) 3)
            (* (/ this 3) 3)))
-    (emacspeak-auditory-icon 'select-object)
+    (if (eq (get-text-property  (point) 'face) 'bold)
+        (emacspeak-auditory-icon 'item)
+    (emacspeak-auditory-icon 'select-object))
     (emacspeak-sudoku-speak-current-cell-value)))
 
 (defun emacspeak-sudoku-next-sub-square ()
@@ -186,7 +188,9 @@ sudoku-move-point-downmost )
           "Produce auditory output."
           (when (interactive-p)
             (emacspeak-sudoku-speak-current-cell-value)
-            (emacspeak-auditory-icon 'select-object)))))
+            (if (eq (get-text-property  (point) 'face) 'bold)
+        (emacspeak-auditory-icon 'item)
+            (emacspeak-auditory-icon 'select-object))))))
 
 ;;}}}
 ;;{{{ advice interaction:
