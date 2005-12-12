@@ -1224,6 +1224,10 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-jabber-popup-rosterPop to Jabber roster.
+
+------------------------------------------------------------
+
 ** emacspeak-keymap-choose-new-emacspeak-prefixInteractively select a new prefix key to use for all emacspeak
 commands.  The default is to use `C-e'  This command
 lets you switch the prefix to something else.  This is a useful thing
@@ -1243,9 +1247,7 @@ relief.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player	Key Sequence: control e : 
-
-Play specified resource using m-player.
+** emacspeak-m-playerPlay specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
@@ -1284,6 +1286,15 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 ------------------------------------------------------------
 
 ** emacspeak-m-player-beginning-of-trackMove to beginning of track.
+
+------------------------------------------------------------
+
+** emacspeak-m-player-commandInvoke MPlayer commands.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 
 ------------------------------------------------------------
 
@@ -1372,6 +1383,7 @@ t		emacspeak-m-player-play-tree-step
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-playlist
 l		emacspeak-m-player-load-file
+b		bury-buffer
 f		emacspeak-m-player-add-filter
 O		emacspeak-m-player-reset-options
 o		emacspeak-m-player-customize-options
@@ -1440,6 +1452,12 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-volume-upIncrease volume.
+
+------------------------------------------------------------
+
+** emacspeak-multimedia	Key Sequence: control e ; 
+
+Start or control Emacspeak multimedia player.
 
 ------------------------------------------------------------
 
@@ -3068,7 +3086,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode.
 
 ------------------------------------------------------------
 
-** emacspeak-realaudio	Key Sequence: control e ; 
+** emacspeak-realaudio	Key Sequence: control e : 
 
 Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -3087,9 +3105,9 @@ completions. Hit space to use this completion list.
 
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
-the audio desktop as `C-e ;'.
+the audio desktop as `C-e :'.
 Alternatively, switch to buffer *realaudio* using
-`C-e ;;' if you wish to issue many
+`C-e :;' if you wish to issue many
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation
 commands via single keystrokes.
@@ -4415,9 +4433,39 @@ node-spec.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-realaudio-play-url-at-pointPlay url under point as realaudio
+** emacspeak-sudoku-hintProvide hint for current cell.
 
-(fn &optional PROMPT-TIME)
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-coordinatesspeak current cell coordinates.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-valueSpeak value in current cell.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-columnSpeak current column.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-rowSpeak current row.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-sub-squareSpeak current sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-columnSpeaks number of remaining cells in current column.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-rowSpeaks number of remaining cells in current row.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-sub-squareSpeaks number of remaining cells in current sub-square.
 
   
 

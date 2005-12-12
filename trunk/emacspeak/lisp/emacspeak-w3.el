@@ -1739,8 +1739,8 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (interactive )
   (declare (special emacspeak-media-player))
   (let ((url (w3-view-this-url 'no-show)))
-      (message "Playing media  URL under point")
-      (funcall emacspeak-media-player  url)))
+    (message "Playing media  URL under point")
+    (funcall emacspeak-media-player  url)))
      
 
 (defun emacspeak-w3-mplayer-play-url-at-point ()

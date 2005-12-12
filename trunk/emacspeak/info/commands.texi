@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 725 commands.
+This chapter documents a total of 736 commands.
 
 @menu
 * cd-tool::                     
@@ -44,6 +44,7 @@ This chapter documents a total of 725 commands.
 * emacspeak-ibuffer::           
 * emacspeak-imcom::             
 * emacspeak-imenu::             
+* emacspeak-jabber::            
 * emacspeak-keymap::            
 * emacspeak-kotl::              
 * emacspeak-m-player::          
@@ -82,7 +83,6 @@ This chapter documents a total of 725 commands.
 * emacspeak::                   
 * emacspeak-w3search::          
 * emacspeak-info::              
-* emacspeak-w3::                
 * URL Templates ::              
 @end menu
 
@@ -1619,6 +1619,21 @@ Goto the previous index position in current buffer
 Speak upto start of next index entry
 @end deffn
 
+@node emacspeak-jabber
+@section emacspeak-jabber
+
+Commentary:
+emacs-jabber.el implements a  jabber client for emacs
+emacs-jabber is hosted at sourceforge.
+I use emacs-jabber with my gmail.com account
+
+Automatically generated documentation
+for commands defined in module  emacspeak-jabber.
+
+@deffn {Interactive Command} emacspeak-jabber-popup-roster ()
+Pop to Jabber roster.
+@end deffn
+
 @node emacspeak-keymap
 @section emacspeak-keymap
 
@@ -1672,8 +1687,6 @@ Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
 @deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST)
-@kbd{ control e : }
-
 Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
 Resource is a media resource or playlist containing media resources.
@@ -1713,6 +1726,15 @@ Move back by 1 minute.
 
 @deffn {Interactive Command} emacspeak-m-player-beginning-of-track ()
 Move to beginning of track.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-m-player-command (COMMAND-CHAR)
+Invoke MPlayer commands.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-m-player-customize-options ()
@@ -1800,6 +1822,7 @@ t		emacspeak-m-player-play-tree-step
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-playlist
 l		emacspeak-m-player-load-file
+b		bury-buffer
 f		emacspeak-m-player-add-filter
 O		emacspeak-m-player-reset-options
 o		emacspeak-m-player-customize-options
@@ -1866,6 +1889,12 @@ Decrease volume.
 
 @deffn {Interactive Command} emacspeak-m-player-volume-up ()
 Increase volume.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-multimedia ()
+@kbd{ control e ; }
+
+Start or control Emacspeak multimedia player.
 @end deffn
 
 @node emacspeak-madplay
@@ -3756,7 +3785,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-realaudio (&optional IGNORED)
-@kbd{ control e ; }
+@kbd{ control e : }
 
 Start or control streaming audio including MP3 and
 realaudio.  If using `TRPlayer' as the player, accepts
@@ -3775,9 +3804,9 @@ completions. Hit space to use this completion list.
 
 If using TRPlayer, you can either give one-shot commands
 using command emacspeak-realaudio available from anywhere on
-the audio desktop as `C-e ;'.
+the audio desktop as `C-e :'.
 Alternatively, switch to buffer *realaudio* using
-`C-e ;;' if you wish to issue many
+`C-e :;' if you wish to issue many
 navigation commands.  Note that buffer *realaudio* uses a
 special major mode that provides the various navigation
 commands via single keystrokes.
@@ -5172,22 +5201,43 @@ node-spec.
 (fn NODE-SPEC)
 @end deffn
 
-@node emacspeak-w3
-@section emacspeak-w3
-
-Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-
 Automatically generated documentation
-for commands defined in module  emacspeak-w3.
+for commands defined in module  nil.
 
-@deffn {Interactive Command} emacspeak-w3-realaudio-play-url-at-point ()
-Play url under point as realaudio
+@deffn {Interactive Command} emacspeak-sudoku-hint ()
+Provide hint for current cell.
+@end deffn
 
-(fn &optional PROMPT-TIME)
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates ()
+speak current cell coordinates.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value ()
+Speak value in current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-column ()
+Speak current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-row ()
+Speak current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square ()
+Speak current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column ()
+Speaks number of remaining cells in current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row ()
+Speaks number of remaining cells in current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square ()
+Speaks number of remaining cells in current sub-square.
 @end deffn
 
 @node URL Templates 
