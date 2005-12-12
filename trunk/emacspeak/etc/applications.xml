@@ -561,7 +561,10 @@ type="text/xsl"?>
       adventure, a multiplication puzzle and 
       Hangman.
     </application>
-    <application name="gomoku">
+
+    <application name="sudoku">
+      Speech-enabled access to SuDoku --- the number placement game.
+    </application><application name="gomoku">
       Speech-enabled version of the traditional board game.
     </application>
     <application name="solitaire">

@@ -12,6 +12,10 @@ Emacspeak 24.0 provides the following user level enhancements:
 
 Updated for MPlayer release 1.0.
 
+** emacspeak-sudoku.el:
+
+Speech-enables sudoku.el --- the number placement SuDoku game.
+
 
 Local variables:
  mode: outline
