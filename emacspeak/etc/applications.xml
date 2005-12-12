@@ -170,7 +170,8 @@ type="text/xsl"?>
     <application name="rss">
       Speech-enabled RSS viewer for RSS 0.9, RSS 1.0 and RSS 2.0
     </application>
-    <application name="message">
+    <application name="atom">
+      Speech-enabled ATOM viewer.</application>
       Email composition   from
     within other applications.</application>
     <application name="supercite">
