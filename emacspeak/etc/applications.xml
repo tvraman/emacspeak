@@ -177,7 +177,11 @@ type="text/xsl"?>
     sessions.</application>
     <application name="erc">
       Internet Relay Chat (IRC) client
-    with  voice locking support and parallel chat sessions.</application>
+    with  voice locking support and parallel chat
+    sessions.</application>
+    <application name="emacs-jabber">
+Speech-enables emacs-jabber, an  Emacs Jabber client available
+from Sourceforge.</application>
     <application name="imcom">
       IMCom is a Python-based jabber client.
       Module emacspeak-imcom speech-enables IMCom with full audio
