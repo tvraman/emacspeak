@@ -107,6 +107,31 @@
   (dtk-speak-list possibles))
      (t (message "Dead End")))))
 
+(defun emacspeak-sudoku-speak-remaining-in-row ()
+  "Speaks number of remaining cells in current row."
+  (interactive)
+  (let ((cell (sudoku-get-cell-from-point (point))))
+    (dtk-speak
+     (count 0
+            (sudoku-row current-board (second cell))))))
+
+(defun emacspeak-sudoku-speak-remaining-in-column ()
+  "Speaks number of remaining cells in current column."
+  (interactive)
+  (let ((cell (sudoku-get-cell-from-point (point))))
+    (dtk-speak
+     (count 0
+            (sudoku-column current-board  (first cell))))))
+
+(defun emacspeak-sudoku-speak-remaining-in-sub-square ()
+  "Speaks number of remaining cells in current sub-square."
+  (interactive)
+  (let ((cell (sudoku-get-cell-from-point (point))))
+    (dtk-speak
+     (count 0
+            (sudoku-subsquare current-board
+            (emacspeak-sudoku-cell-sub-square cell))))))
+
 ;;}}}
 ;;{{{ advice motion:
 
@@ -134,9 +159,20 @@ sudoku-move-point-downmost )
 (declaim (special sudoku-mode-map))
 (loop for k in
       '(
+        ("h" sudoku-move-point-left)
+        ("l" sudoku-move-point-right)
+      ("j" sudoku-move-point-down)
+("k" sudoku-move-point-up)
+        ("R" emacspeak-sudoku-speak-remaining-in-row)
+        ("S" emacspeak-sudoku-speak-remaining-in-sub-square)
+        ("C" emacspeak-sudoku-speak-remaining-in-column)
         ("?" emacspeak-sudoku-hint)
         ([home] sudoku-move-point-leftmost)
         ([end] sudoku-move-point-rightmost)
+        ("a" sudoku-move-point-leftmost)
+        ("e" sudoku-move-point-rightmost)
+        ("b" sudoku-move-point-downmost)
+        ("t" sudoku-move-point-upmost)
         ("." emacspeak-sudoku-speak-current-cell-value )
         ("=" emacspeak-sudoku-speak-current-cell-coordinates)
 ("\C-e" emacspeak-prefix-command)
