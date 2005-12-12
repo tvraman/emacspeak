@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 400 user customizable
+This chapter documents a total of 401 user customizable
   options.
 
 @menu
@@ -40,6 +40,7 @@ This chapter documents a total of 400 user customizable
 * emacspeak-imcom Options::     
 * emacspeak-imenu Options::     
 * emacspeak-ispell Options::    
+* emacspeak-jabber Options::    
 * emacspeak-jde Options::       
 * emacspeak-keymap Options::    
 * emacspeak-m-player Options::  
@@ -1447,6 +1448,22 @@ These options are customizable via Emacs' Custom interface.
 @defvar {User Option} emacspeak-ispell-max-choices
 Emacspeak will not speak the choices if there are more than this
 many available corrections.
+@end defvar
+
+@node emacspeak-jabber Options
+@section emacspeak-jabber Options
+
+Commentary:
+emacs-jabber.el implements a  jabber client for emacs
+emacs-jabber is hosted at sourceforge.
+I use emacs-jabber with my gmail.com account
+
+Automatically generated documentation
+for options defined in module  emacspeak-jabber.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-jabber-speak-presence-alerts
+Set to T if you want to hear presence alerts.
 @end defvar
 
 @node emacspeak-jde Options
