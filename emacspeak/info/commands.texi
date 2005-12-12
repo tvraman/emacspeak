@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 736 commands.
+This chapter documents a total of 727 commands.
 
 @menu
 * cd-tool::                     
@@ -5199,45 +5199,6 @@ See documentation for command `Info-goto-node' for details on
 node-spec.
 
 (fn NODE-SPEC)
-@end deffn
-
-Automatically generated documentation
-for commands defined in module  nil.
-
-@deffn {Interactive Command} emacspeak-sudoku-hint ()
-Provide hint for current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates ()
-speak current cell coordinates.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value ()
-Speak value in current cell.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-column ()
-Speak current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-row ()
-Speak current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square ()
-Speak current sub-square.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column ()
-Speaks number of remaining cells in current column.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row ()
-Speaks number of remaining cells in current row.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square ()
-Speaks number of remaining cells in current sub-square.
 @end deffn
 
 @node URL Templates 
