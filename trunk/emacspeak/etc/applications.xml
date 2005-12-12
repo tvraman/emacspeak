@@ -101,7 +101,11 @@ type="text/xsl"?>
     </application>
     <application name="rpm">
       Client for browsing installed RPM packages.
-  </application></category>
+  </application>
+  <application name="Find Wizard">
+    Command  <code>emacspeak-wizards-generate-finder</code>
+    provides an easy to use front-end to UNIX <code>find</code>.</application>
+  </category>
   <category name="web">
     <application name="w3">
       Standards-compliant WWW browser with Aural CSS
