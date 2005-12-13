@@ -67,6 +67,7 @@
 (defun emacspeak-sudoku-speak-current-row ()
   "Speak current row."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-row current-board
                            (second cell )))))
@@ -74,6 +75,7 @@
 (defun emacspeak-sudoku-speak-current-column ()
   "Speak current column."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-column  current-board
                            (first cell )))))
@@ -88,6 +90,7 @@
 (defun emacspeak-sudoku-speak-current-sub-square ()
   "Speak current sub-square."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list
      (sudoku-subsquare  current-board
@@ -96,6 +99,7 @@
 (defun emacspeak-sudoku-speak-current-cell-value ()
   "Speak value in current cell."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (sudoku-cell current-board (first cell) (second cell)))))
@@ -103,6 +107,7 @@
 (defun emacspeak-sudoku-hint ()
   "Provide hint for current cell."
   (interactive)
+  (declare (special current-board))
   (let* ((cell (sudoku-get-cell-from-point (point)))
         (possibles (sudoku-cell-possibles
     current-board
@@ -116,6 +121,7 @@
 (defun emacspeak-sudoku-speak-remaining-in-row ()
   "Speaks number of remaining cells in current row."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (count 0
@@ -124,6 +130,7 @@
 (defun emacspeak-sudoku-speak-remaining-in-column ()
   "Speaks number of remaining cells in current column."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (count 0
@@ -132,6 +139,7 @@
 (defun emacspeak-sudoku-speak-remaining-in-sub-square ()
   "Speaks number of remaining cells in current sub-square."
   (interactive)
+  (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (count 0
@@ -140,6 +148,7 @@
 (defun emacspeak-sudoku-how-many-remaining ()
   "Speak number of remaining squares to fill."
   (interactive)
+  (declare (special current-board))
   (message
    "%s squares remain"
    (sudoku-remaining-cells current-board)))
