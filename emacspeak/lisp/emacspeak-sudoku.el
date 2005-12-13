@@ -152,13 +152,26 @@
   sub-square."
   (let* ((cell  (sudoku-get-cell-from-point (point)))
         (this (emacspeak-sudoku-cell-sub-square cell)))
-    (setq this (+ this step))    (sudoku-goto-cell
+    (setq this
+          (max 0 (min 8 (+ this step))))
+    (sudoku-goto-cell
      (list (* (% this 3) 3)
            (* (/ this 3) 3)))
     (if (eq (get-text-property  (point) 'face) 'bold)
         (emacspeak-auditory-icon 'item)
     (emacspeak-auditory-icon 'select-object))
     (emacspeak-sudoku-speak-current-cell-value)))
+
+(defun emacspeak-sudoku-up-sub-square ()
+  "Move to top-left corner of  sub-square above current one."
+  (interactive)
+  (emacspeak-sudoku-move-to-sub-square -3))
+
+
+(defun emacspeak-sudoku-down-sub-square ()
+  "Move to top-left corner of  sub-square below current one."
+  (interactive)
+  (emacspeak-sudoku-move-to-sub-square 3))
 
 (defun emacspeak-sudoku-next-sub-square ()
   "Move to top-left corner of next sub-square."
@@ -213,6 +226,8 @@ sudoku-move-point-downmost )
 (declaim (special sudoku-mode-map))
 (loop for k in
       '(
+        ("u" emacspeak-sudoku-up-sub-square)
+        ("d" emacspeak-sudoku-down-sub-square)
         ("/" emacspeak-sudoku-how-many-remaining)
         ("n" emacspeak-sudoku-next-sub-square)
         ("p" emacspeak-sudoku-previous-sub-square)
