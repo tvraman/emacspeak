@@ -146,10 +146,16 @@ Note that some badly formed mime messages  cause trouble."
       (kill-new header)
       (message header)))
    (t (error "No current message." ))))
+(defcustom emacspeak-vm-headers-strip-octals t
+  "Specify whether non-ascii chars should be stripped when
+  speaking email headers."
+  :type 'boolean
+  :group 'emacspeak-vm)
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (declare (special vm-message-pointer
+                    emacspeak-vm-headers-strip-octals
                     emacspeak-vm-user-full-name emacspeak-vm-user-login-name))
   (when vm-message-pointer
     (dtk-stop)
