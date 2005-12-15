@@ -650,11 +650,7 @@ from English to German.")
      (emacspeak-auditory-icon 'open-object))
  "Only show Google hits."
  #'(lambda (url)
-     (declare (special emacspeak-xslt-directory))
-     (emacspeak-w3-browse-url-with-style
-      (expand-file-name "google-hits.xsl"
-                        emacspeak-xslt-directory)
-      url)))
+     (emacspeak-w3-extract-by-class "g" url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times
