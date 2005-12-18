@@ -1,1 +1,8 @@
-rtsp://real.npr.na-central.speedera.net/real.npr.na-central/real24.smil
+<smil>
+<meta name="title" content="NPR Program Stream" />
+<meta name="author" content="NPR News" />
+<meta name="copyright" content="2005" />
+<body>
+<audio src="rtsp://a1273.l1832641349.c18326.n.lr.akamaistream.net:80/live/D/1273/18326/v0001/reflector:41349" />
+</body>
+</smil>
