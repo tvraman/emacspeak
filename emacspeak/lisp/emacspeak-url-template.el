@@ -626,6 +626,16 @@ are specified as two-letter language codes, e.g. en|de translates
 from English to German.")
 
 ;;}}}
+;;{{{ yubnub
+(emacspeak-url-template-define
+ "YubNub Web Command Line"
+"http://yubnub.org/parser/parse?command=%s"
+ (list "YubNub Command: ")
+ nil
+ "YubNub Command Line"
+ )
+
+;;}}}
 ;;{{{  google filters 
 (emacspeak-url-template-define
  "Google WebQuotes"
