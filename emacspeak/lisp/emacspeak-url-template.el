@@ -598,6 +598,21 @@ Here are some examples:
  "Google Scholar Search")
 
 ;;}}}
+;;{{{ google images
+
+(emacspeak-url-template-define
+ "Google Image Search"
+ "http://images.google.com/images?hl=en&tab=wi&ie=UTF-8&q=%s"
+ (list "Google Image Search: ")
+ #'(lambda ()
+     (search-forward "Showing" nil t)
+(emacspeak-speak-line))
+ "Google Image Search"
+#'(lambda (url)
+(emacspeak-w3-without-xsl
+ (browse-url url))))
+
+;;}}}
 ;;{{{ googl blogsearch
 (emacspeak-url-template-define
  "BlogSearch Google"
@@ -624,6 +639,20 @@ Here are some examples:
  "Translate a Web page using google. Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German.")
+
+;;}}}
+;;{{{ dictionary.com:
+(emacspeak-url-template-define
+ "Dictionary Lookup"
+ "http://dictionary.reference.com/search?q=%s"
+ (list "Dictionary Lookup: ")
+ #'(lambda ()
+     (search-forward "entries found for " nil t)
+     (emacspeak-speak-line))
+ "Dictionary Lookup"
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
 
 ;;}}}
 ;;{{{ yubnub
