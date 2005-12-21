@@ -73,6 +73,7 @@ Particularly useful for web browsing."
   :type 'boolean
   :group  'dtk
   :group  'tts)
+(make-variable-buffer-local 'tts-strip-octals)
 
 (defcustom dtk-stop-immediately-while-typing t
   "*Set it to nil if you dont want speech to flush as you
@@ -772,6 +773,13 @@ to all buffers.")
 Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
+value to the result.")
+
+(ems-generate-switcher 'dtk-toggle-strip-octals
+		       'tts-strip-octals
+		       "Toggle stripping of octals.
+Interactive prefix arg means 
+ toggle the global default value, and then set the current local
 value to the result.")
 
 (ems-generate-switcher' dtk-toggle-capitalization
