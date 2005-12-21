@@ -67,6 +67,13 @@
   :group 'emacspeak
   :prefix "dtk-")
 
+(defcustom tts-strip-octals nil
+  "Set to T to strip all octal chars before speaking.
+Particularly useful for web browsing."
+  :type 'boolean
+  :group  'dtk
+  :group  'tts)
+
 (defcustom dtk-stop-immediately-while-typing t
   "*Set it to nil if you dont want speech to flush as you
 type.  You can use command
@@ -293,6 +300,17 @@ Optional argument FORCE  flushes the command to the speech server."
 <> and | are fixed to improve pronunciation.
 \\ is fixed because it tends to be a metacharacter")
 
+(defsubst dtk-strip-octals ()
+  "Remove all octal chars."
+  (let ((inhibit-read-only t))
+    (goto-char (point-min))
+      
+	    
+	(while (re-search-forward "[\177-\377]+"  nil t )
+          (replace-match ""))))
+	  
+     
+
 (defsubst  dtk-fix-brackets (mode)
   "Quote any delimiters that need special treatment.
 Argument MODE  specifies the current pronunciation mode."
@@ -416,7 +434,9 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
 ;;; fix control chars
-  (dtk-fix-control-chars))
+  (dtk-fix-control-chars)
+;;;Strip octals if asked to
+  (when tts-strip-octals (dtk-strip-octals)))
 
 (defsubst dtk-fix-backslash ()
   "Quote backslash characters as appropriate."
