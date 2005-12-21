@@ -362,8 +362,9 @@ Set this to t to avoid a dectalk bug that makes the speech box die if
 it seems some accented characters in certain contexts."
   :type 'boolean
   :group 'dtk)
+
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
-(make-variable-buffer-local 'dtk-speak-nonprinting-chars)
+
 (defvar dtk-octal-chars 
   (if
       (and (boundp 'default-enable-multibyte-characters)
@@ -384,7 +385,10 @@ Set this once per emacspeak session for efficiency.")
       (while (re-search-forward dtk-octal-chars nil t )
         (setq char (char-after (match-beginning 0)))
         (replace-match
-         (format " %s " (aref  dtk-character-to-speech-table char)))))))
+         (format " %s " (aref  dtk-character-to-speech-table
+                               char)))))
+    ;;;Strip octals if asked to
+    (when tts-strip-octals (dtk-strip-octals))))
 
 ;;; Takes a string, and replaces occurences of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -434,9 +438,7 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; dtk will think it's processing a command otherwise:
   (dtk-fix-brackets mode)
 ;;; fix control chars
-  (dtk-fix-control-chars)
-;;;Strip octals if asked to
-  (when tts-strip-octals (dtk-strip-octals)))
+  (dtk-fix-control-chars))
 
 (defsubst dtk-fix-backslash ()
   "Quote backslash characters as appropriate."
@@ -1550,6 +1552,7 @@ No-op if variable `dtk-quiet' is set to nil.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
+                    tts-strip-octals
                     inhibit-point-motion-hooks
                     dtk-speak-server-initialized emacspeak-use-auditory-icons
                     dtk-speech-rate
@@ -1586,7 +1589,9 @@ only speak upto the first ctrl-m."
           (pronunciation-table emacspeak-pronounce-pronunciation-table)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax )
-          (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
+          (inherit-speak-nonprinting-chars
+           dtk-speak-nonprinting-chars)
+          (inherit-strip-octals tts-strip-octals)
           (complement-separator(dtk-complement-chunk-separator-syntax ))
           (speech-rate dtk-speech-rate)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
@@ -1607,7 +1612,9 @@ only speak upto the first ctrl-m."
                 emacspeak-use-auditory-icons use-auditory-icons
                 dtk-punctuation-mode mode
                 dtk-split-caps split-caps
-                dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+                dtk-speak-nonprinting-chars
+                inherit-speak-nonprinting-chars
+                tts-strip-octals inherit-strip-octals
                 voice-lock-mode voice-lock)
           (set-syntax-table syntax-table )
           (insert  text)
