@@ -461,6 +461,7 @@ field in the customization buffer.  You can use the notation
 (define-key emacspeak-dtk-submap "v" 'voice-lock-mode)
 (define-key emacspeak-dtk-submap "n" 'dtk-toggle-speak-nonprinting-chars)
 (define-key emacspeak-dtk-submap "s" 'dtk-toggle-split-caps)
+(define-key emacspeak-dtk-submap "o" 'dtk-toggle-strip-octals)
 (define-key emacspeak-dtk-submap "r" 'dtk-set-rate)
 (define-key emacspeak-dtk-submap "\C-m" 'dtk-set-chunk-separator-syntax)
 (define-key emacspeak-dtk-submap " " 'dtk-toggle-splitting-on-white-space)
