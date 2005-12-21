@@ -96,25 +96,30 @@
 	 "*AmphetaDesk*"))))
 
 ;;;###autoload
-(defun emacspeak-amphetadesk ()
-  "Open amphetadesk."
-  (interactive)
+(defun emacspeak-amphetadesk (&optional use-opml)
+  "Open amphetadesk.
+Interactive prefix-arg use-opml opens the myChannels.opml file."
+  (interactive "p")
   (declare (special browse-url-browser-function
                     emacspeak-w3-post-process-hook))
-  (emacspeak-amphetadesk-ensure-live)
   (cond
-   ((and (featurep 'w3)
-	 (or (eq browse-url-browser-function 'w3-fetch)
-             (eq browse-url-browser-function 'browse-url-w3)))
-    (add-hook  'emacspeak-w3-post-process-hook
-               #'(lambda ()
-                   (imenu--make-index-alist)
-                   (goto-char (point-min))
-                   (emacspeak-speak-mode-line)))
-    (emacspeak-w3-without-xsl
-     (w3-fetch "http://127.0.0.1:8888/")))
-   (t
-    (browse-url emacspeak-amphetadesk-uri))))
+   (use-opml
+    (emacspeak-opml-display
+     (format "file:///%sdata/myChannels.opml"
+             (file-name-directory emacspeak-amphetadesk-program))))
+   (t (emacspeak-amphetadesk-ensure-live)
+      (cond
+       ((and (featurep 'w3)
+             (or (eq browse-url-browser-function 'w3-fetch)
+                 (eq browse-url-browser-function 'browse-url-w3)))
+        (add-hook  'emacspeak-w3-post-process-hook
+                   #'(lambda ()
+                       (imenu--make-index-alist)
+                       (goto-char (point-min))
+                       (emacspeak-speak-mode-line)))
+        (emacspeak-w3-without-xsl
+         (w3-fetch "http://127.0.0.1:8888/")))
+       (t (browse-url emacspeak-amphetadesk-uri))))))
 
 ;;;###autoload
 
