@@ -99,7 +99,7 @@
 (defun emacspeak-amphetadesk (&optional use-opml)
   "Open amphetadesk.
 Interactive prefix-arg use-opml opens the myChannels.opml file."
-  (interactive "p")
+  (interactive "P")
   (declare (special browse-url-browser-function
                     emacspeak-w3-post-process-hook))
   (cond
