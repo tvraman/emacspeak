@@ -4431,42 +4431,6 @@ node-spec.
 
 (fn NODE-SPEC)
 
-------------------------------------------------------------
-
-** emacspeak-sudoku-hintProvide hint for current cell.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-coordinatesspeak current cell coordinates.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-cell-valueSpeak value in current cell.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-columnSpeak current column.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-rowSpeak current row.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-current-sub-squareSpeak current sub-square.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-columnSpeaks number of remaining cells in current column.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-rowSpeaks number of remaining cells in current row.
-
-------------------------------------------------------------
-
-** emacspeak-sudoku-speak-remaining-in-sub-squareSpeaks number of remaining cells in current sub-square.
-
   
 
 Local variables:
