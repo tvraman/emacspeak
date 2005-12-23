@@ -16,6 +16,11 @@ Updated for MPlayer release 1.0.
 
 Speech-enables sudoku.el --- the number placement SuDoku game.
 
+** New Option: tts-strip-octals
+
+Added new user option tts-strip-octals and associated toggle
+dtk-strip-octals
+to strip octals chars while speaking. 
 
 Local variables:
  mode: outline
