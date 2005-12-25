@@ -307,8 +307,8 @@ Optional argument FORCE  flushes the command to the speech server."
     (goto-char (point-min))
       
 	    
-	(while (re-search-forward "[\177-\377]+"  nil t )
-          (replace-match ""))))
+    (while (re-search-forward "[\177-\377]+"  nil t )
+      (replace-match ""))))
 	  
      
 
@@ -388,7 +388,7 @@ Set this once per emacspeak session for efficiency.")
         (replace-match
          (format " %s " (aref  dtk-character-to-speech-table
                                char)))))
-    ;;;Strip octals if asked to
+;;;Strip octals if asked to
     (when tts-strip-octals (dtk-strip-octals))))
 
 ;;; Takes a string, and replaces occurences of this pattern
