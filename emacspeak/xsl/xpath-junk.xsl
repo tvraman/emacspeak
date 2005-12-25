@@ -42,10 +42,11 @@ shown in the output.
     <body>
       <xsl:apply-templates  mode="copy"/>
       <h2>
-         Skipped Nodes  Matching   <xsl:value-of select="$path"/>
+        Skipped Nodes  Matching   <xsl:value-of select="$path"/>
       </h2>
       <p>
-        Found <xsl:value-of select="count($locator)"/> matching
+        Found <xsl:value-of select="count($locator)"/>
+         matching
         elements to skip in 
         in 
         <xsl:element name="a">

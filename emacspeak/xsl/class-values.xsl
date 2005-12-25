@@ -16,7 +16,7 @@ Hard-wired to display attribute class by default.
     <xsl:text>
     </xsl:text>
   </xsl:template>
-   
+  
 </xsl:stylesheet>
 <!--
 Local Variables:

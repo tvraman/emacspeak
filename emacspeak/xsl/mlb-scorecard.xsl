@@ -20,20 +20,23 @@
         
         <xsl:if test="/scoreboard/ig_game">
           <h2>
-             <xsl:value-of select="count(/scoreboard/ig_game)"/> Games In Progress
+            <xsl:value-of select="count(/scoreboard/ig_game)"/>
+             Games In Progress
           </h2>
           <xsl:apply-templates select="/scoreboard/ig_game"/>
         </xsl:if>
         <xsl:if test="/scoreboard/go_game">
           <h2>
-              <xsl:value-of select="count(/scoreboard/go_game)"/>Completed Games
+            <xsl:value-of select="count(/scoreboard/go_game)"/>
+            Completed Games
           </h2>
           <xsl:apply-templates select="/scoreboard/go_game"/>
         </xsl:if>
         <xsl:if test="/scoreboard/sg_game">
           <h2>
-             <xsl:value-of
-          select="count(/scoreboard/sg_game)"/> Games To Be Played
+            <xsl:value-of
+          select="count(/scoreboard/sg_game)"/>
+             Games To Be Played
           </h2>
           <xsl:apply-templates select="/scoreboard/sg_game"/>
         </xsl:if>
@@ -43,17 +46,18 @@
   <xsl:template match="sg_game">
     
     <h3>
-      The <xsl:value-of select="team[1]/@name"/> 
+      The <xsl:value-of select="team[1]/@name"/>
+       
       Play The 
       <xsl:value-of select="team[2]/@name"/>
-       Starting At 
+      Starting At 
       <xsl:value-of select="game/@start_time"/>
     </h3>
     <p>
       In the 
       <xsl:value-of select="game/@league"/>
       <xsl:apply-templates select="team[1]"/>
-       
+      
       play 
       <xsl:apply-templates select="team[2]"/>
       .
@@ -61,7 +65,7 @@
       
       <xsl:apply-templates select="p_pitcher"/>
     </p>
-     
+    
   </xsl:template>
   <xsl:template match="ig_game">
     <xsl:variable name="status">
@@ -80,7 +84,7 @@
     <h3>The <xsl:value-of select="team[1]/@name"/>
       <xsl:text> 
       </xsl:text>
-       
+      
       <xsl:value-of select="team[1]/gameteam/@R"/>
       <xsl:text> 
       </xsl:text>
@@ -94,10 +98,10 @@
     </h3>
     <p>
       <xsl:apply-templates select="team[1]"/>
-       
+      
       <xsl:text> 
       </xsl:text>
-       <xsl:value-of select="$status"/>
+      <xsl:value-of select="$status"/>
       <xsl:text>
       </xsl:text>
       <xsl:apply-templates select="team[2]"/>
@@ -106,12 +110,13 @@
           <xsl:when test="inningnum/@half='B'"> bottom </xsl:when>
           <xsl:when test="inningnum/@half='T'"> top </xsl:when>
         </xsl:choose>
-         half
+        half
       </em>
       of the
       <em>
-         <xsl:value-of
-      select="inningnum/@inning"/> innings
+        <xsl:value-of
+      select="inningnum/@inning"/>
+         innings
       </em>
       .
       <em>
@@ -128,14 +133,14 @@
           <xsl:value-of select="@outs"/>
         </xsl:otherwise>
       </xsl:choose>
-       outs. 
+      outs. 
       <xsl:apply-templates select="on_base"/>
     </p>
-     
+    
   </xsl:template>
   <xsl:template match="on_base">
     <xsl:value-of select="player/@name"/>
-     is on  
+    is on  
     <xsl:choose>
       <xsl:when test="@base='1'"> first </xsl:when>
       <xsl:when test="@base='2'"> second </xsl:when>
@@ -165,7 +170,7 @@
       <xsl:value-of select="team[1]/gameteam/@R"/>
       <xsl:text> 
       </xsl:text>
-       <xsl:value-of select="$status"/>
+      <xsl:value-of select="$status"/>
       <xsl:text>
       </xsl:text>
       <xsl:value-of select="team[2]/@name"/>
@@ -175,17 +180,17 @@
     </h3>
     <p>
       <xsl:apply-templates select="team[1]"/>
-       
+      
       <xsl:text> 
       </xsl:text>
-       <xsl:value-of select="$status"/>
+      <xsl:value-of select="$status"/>
       <xsl:text>
       </xsl:text>
       <xsl:apply-templates select="team[2]"/>
       <xsl:apply-templates select="l_pitcher"/>
       <xsl:apply-templates select="sv_pitcher"/>
     </p>
-     
+    
   </xsl:template>
   <xsl:template match="team">
     The
@@ -196,11 +201,11 @@
     <xsl:if test="name(..) != 'sg_game'">
       with 
       <xsl:value-of select="gameteam/@R"/>
-       runs on 
+      runs on 
       <xsl:value-of select="gameteam/@H"/>
-       hits and  
+      hits and  
       <xsl:value-of select="gameteam/@E"/>
-       errors
+      errors
     </xsl:if>
   </xsl:template>
   <xsl:template match="p_pitcher">
@@ -210,7 +215,7 @@
     <xsl:value-of select="(../team[@code =$tc])/@name"/>
     and he is currently 
     <xsl:value-of select="@wins"/>
-     and <xsl:value-of
+    and <xsl:value-of
     select="@losses"/>
     with an ERA of <xsl:value-of select="@era"/>
   </xsl:template>
@@ -221,7 +226,8 @@
     </strong>
     and he is now 
     <em>
-      <xsl:value-of select="@wins"/> and <xsl:value-of select="@losses"/>
+      <xsl:value-of select="@wins"/>
+       and <xsl:value-of select="@losses"/>
     </em>
     .
   </xsl:template>
@@ -237,15 +243,15 @@
     <xsl:value-of select="pitcher/@name"/>
     who is  now   
     <xsl:value-of select="@wins"/>
-     and <xsl:value-of select="@losses"/>
+    and <xsl:value-of select="@losses"/>
     .
   </xsl:template>
   <xsl:template match="sv_pitcher">
     
     <xsl:value-of select="pitcher/@name"/>
-     picks up his 
+    picks up his 
     <xsl:value-of select="@saves"/>
-     save.
+    save.
   </xsl:template>
   <xsl:template match="*|@*" >
     <xsl:copy>

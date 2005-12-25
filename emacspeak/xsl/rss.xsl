@@ -115,12 +115,12 @@ View an RSS feed as clean HTML
       <xsl:choose>
         <xsl:when test="string-length(@url) != 0">
           <xsl:attribute name="href">
-             <xsl:value-of select="str:decode-uri(@url)"/>
+            <xsl:value-of select="str:decode-uri(@url)"/>
           </xsl:attribute>
         </xsl:when>
         <xsl:when test="string-length(@href) != 0">
           <xsl:attribute name="href">
-             <xsl:value-of
+            <xsl:value-of
           select="str:decode-uri(@href)"/>
           </xsl:attribute>
         </xsl:when>

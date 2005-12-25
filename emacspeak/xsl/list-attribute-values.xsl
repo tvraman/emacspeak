@@ -21,10 +21,11 @@ Param attr  specifies the attribute to list.
   <xsl:template match="/">
     <xsl:apply-templates select="$selector"/>
   </xsl:template>
-<xsl:template match="@*">
-<xsl:value-of select="."/><xsl:text>
-</xsl:text>
-</xsl:template>
+  <xsl:template match="@*">
+    <xsl:value-of select="."/>
+    <xsl:text>
+    </xsl:text>
+  </xsl:template>
 </xsl:stylesheet>
 <!--
 Local Variables:

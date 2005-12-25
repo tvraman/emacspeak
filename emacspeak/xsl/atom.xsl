@@ -17,7 +17,8 @@
     <html>
       <head>
         <title>
-          <xsl:apply-templates select="atom:title"/> 
+          <xsl:apply-templates select="atom:title"/>
+           
         </title>
       </head>
       <body>
