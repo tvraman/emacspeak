@@ -21,11 +21,11 @@ Description: Show  jabber messages.
           @media speech {
           span.<xsl:value-of
           select="substring(message[1]/@from, 1, 3)"/>
-           {
+          {
           font-style: italic}
           span.<xsl:value-of
           select="substring(message[1]/@from, 1, 3)"/>
-           {
+          {
           voice-family: paul;
           stress: 2; richness: 9; 
           pitch: 1; pitch-range: 9; }
