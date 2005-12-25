@@ -83,7 +83,7 @@ used as the table-index for extract-tables.xsl.
           <tr>
             <td>
               <xsl:value-of select="count($all)"/>
-               tables 
+              tables 
             </td>
           </tr>
         </table>
@@ -99,7 +99,8 @@ used as the table-index for extract-tables.xsl.
           <a name="__enumerated_tables"
             id="__nested_tables">
             <xsl:value-of
-          select="count(//table//table)"/> Nested Tables 
+          select="count(//table//table)"/>
+             Nested Tables 
           </a>
         </h2>
         
@@ -116,13 +117,14 @@ used as the table-index for extract-tables.xsl.
                 select="generate-id(.)"/>
                 </xsl:attribute>
                 <em>
-                  Table <xsl:value-of select="position()"/> 
+                  Table <xsl:value-of select="position()"/>
+                   
                 </em>
               </a>
               <xsl:value-of select="count(./tr)"/>
-               Rows 
+              Rows 
               And <xsl:value-of select="count(./tr/td)"/>
-               Cells
+              Cells
             </h2>
             <table>
               <xsl:apply-templates select="@*"/>

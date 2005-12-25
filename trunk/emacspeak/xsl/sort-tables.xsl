@@ -77,7 +77,8 @@ relevant tables bubble to the top.
           <tr>
             <td>
               <a href="#__nested_tables">
-                <xsl:value-of select="count(//table)"/> 
+                <xsl:value-of select="count(//table)"/>
+                 
                 tables of which 
                 <xsl:value-of select="count($i)"/>
                 are nested
@@ -112,8 +113,8 @@ relevant tables bubble to the top.
               <br/>
             </xsl:element>
             <xsl:value-of select="count(./tr)"/>
-             Rows And <xsl:value-of select="count(./tr/td)"/>
-             Cells
+            Rows And <xsl:value-of select="count(./tr/td)"/>
+            Cells
           </h2>
           <table>
             <xsl:apply-templates select="@*"/>
