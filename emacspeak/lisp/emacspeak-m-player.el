@@ -509,7 +509,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 	("+" emacspeak-m-player-volume-up)
         )
       do
-      (define-key emacspeak-m-player-mode-map (first k) (second k)))
+      (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 ;;}}}
 (provide 'emacspeak-m-player)
