@@ -1,4 +1,3 @@
-
 ;;; emacspeak-keymap.el --- Setup all keymaps and keybindings provided by Emacspeak
 ;;; $Id$
 ;;; $Author$ 
@@ -37,10 +36,6 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
 ;;{{{  Introduction:
 
 ;;;Commentary:
@@ -48,6 +43,12 @@
 ;;; This module defines the emacspeak keybindings. 
 
 ;;; Code:
+
+;;}}}
+;;{{{ requires
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'cl)
+(declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{  variables: 
