@@ -51,6 +51,7 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
+(require 'emacspeak-keymap)
 ;;}}}
 
 (provide  'emacspeak-preamble)
