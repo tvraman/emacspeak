@@ -685,7 +685,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ; ;	; ; ; ; ; ; ; ;	;
+;;}}}					; ; ; ;	; ; ; ; ; ; ; ;	; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"

@@ -606,11 +606,11 @@ Here are some examples:
  (list "Google Image Search: ")
  #'(lambda ()
      (search-forward "Showing" nil t)
-(emacspeak-speak-line))
+     (emacspeak-speak-line))
  "Google Image Search"
-#'(lambda (url)
-(emacspeak-w3-without-xsl
- (browse-url url))))
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
 
 ;;}}}
 ;;{{{ googl blogsearch
@@ -658,7 +658,7 @@ from English to German.")
 ;;{{{ yubnub
 (emacspeak-url-template-define
  "YubNub Web Command Line"
-"http://yubnub.org/parser/parse?command=%s"
+ "http://yubnub.org/parser/parse?command=%s"
  (list "YubNub Command: ")
  nil
  "YubNub Command Line"
@@ -1203,16 +1203,13 @@ wesat           Weekend Edition Saturday
 wesun           Weekend Edition Sunday
 fool            The Motley Fool
 
-
-
-
 Segment is specified as a two digit number --specifying a blank value
 plays entire program."
  #'(lambda (url)
      (funcall emacspeak-media-player url 'play-list)
      (emacspeak-w3-browse-xml-url-with-style
-   (expand-file-name "smil-anchors.xsl" emacspeak-xslt-directory)
-   url)))
+      (expand-file-name "smil-anchors.xsl" emacspeak-xslt-directory)
+      url)))
 
 (emacspeak-url-template-define
  "All Things Considered Stream from NPR"
