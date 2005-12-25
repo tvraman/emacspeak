@@ -142,7 +142,6 @@ the host we just logged in from."
 to connect to the remote host that is running the speech
 server. Default is to use Emacs' built-in open-network-stream.")
 
-
 ;;;###autoload
 (defcustom emacspeak-remote-use-ssh nil
   "Set to T to use SSH remote servers."
@@ -160,9 +159,9 @@ Use this once you are sure the guesses are usually correct."
   (interactive)
   (cond
    (emacspeak-remote-use-ssh (emacspeak-ssh-tts-restart))
-  (t (emacspeak-remote-connect-to-server
-   (emacspeak-remote-get-current-remote-hostname)
-   (string-to-number  emacspeak-remote-default-port-to-connect)))))
+   (t (emacspeak-remote-connect-to-server
+       (emacspeak-remote-get-current-remote-hostname)
+       (string-to-number  emacspeak-remote-default-port-to-connect)))))
 
 ;;;###autoload
 (defun emacspeak-remote-ssh-to-server(login)
