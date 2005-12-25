@@ -1193,8 +1193,18 @@ name of the list.")
  "Play NPR shows on demand.
 Program is specified as a program code:
 
-ME Morning Edition
-ATC All Things Considered
+ME              Morning Edition
+ATC             All Things Considered
+day             Day To Day
+newsnotes       News And Notes
+totn            Talk Of The Nation
+fa              Fresh Air
+wesat           Weekend Edition Saturday
+wesun           Weekend Edition Sunday
+fool            The Motley Fool
+
+
+
 
 Segment is specified as a two digit number --specifying a blank value
 plays entire program."
