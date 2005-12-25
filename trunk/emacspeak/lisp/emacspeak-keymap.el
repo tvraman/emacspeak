@@ -80,7 +80,6 @@
 ;;}}}
 ;;{{{ Create a keymap that users can put personal commands
 
-;;on
 ;;; Adding keys using custom:
 (defvar  emacspeak-personal-keymap nil
   "Emacspeak personal keymap")
@@ -292,7 +291,15 @@ field in the customization buffer.  You can use the notation
 		'emacspeak-hyper-keymap)
 
 ;;}}}
-;;{{{  The actual bindings.
+;;{{{ helper: emacspeak-keymap-update 
+
+(defsubst emacspeak-keymap-update (keymap binding)
+  "Update keymap with specified binding."
+  (define-key keymap (first binding) (second binding)))
+
+;;}}}
+;;{{{  The Emacspeak key  bindings.
+
 (define-key help-map "E"
   'emacspeak-websearch-emacspeak-archive)
 (define-key help-map "V" 'customize-variable)
@@ -504,6 +511,7 @@ field in the customization buffer.  You can use the notation
 (global-set-key '[left] 'emacspeak-backward-char)
 (global-set-key '[right] 'emacspeak-forward-char)
 (define-key emacspeak-keymap '[insert] 'emacspeak-emergency-tts-)
+
 ;;}}}
 ;;{{{ Hacking minibuffer maps:
 
