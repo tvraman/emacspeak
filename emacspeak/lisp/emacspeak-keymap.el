@@ -317,6 +317,7 @@ field in the customization buffer.  You can use the notation
         ( "\M-v" find-variable)
         ("\C-e"   emacspeak-describe- emacspeak)
         ("\C-i" emacspeak-info-wizard)
+        ("\C-l" emacspeak-learn-mode)
         ("\C-m" man)
         ("\C-s" customize-saved)
         )
