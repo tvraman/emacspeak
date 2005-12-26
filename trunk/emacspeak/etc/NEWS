@@ -20,7 +20,13 @@ Speech-enables sudoku.el --- the number placement SuDoku game.
 
 Added new user option tts-strip-octals and associated toggle
 dtk-strip-octals
-to strip octals chars while speaking. 
+to strip octals chars while speaking.
+
+** emacspeak-keymap.el
+
+Refactored keymaps and key-bindings.
+New modules should use emacspeak-keymap-update.
+
 
 Local variables:
  mode: outline
