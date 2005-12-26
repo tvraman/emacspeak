@@ -306,7 +306,7 @@ field in the customization buffer.  You can use the notation
       '(
         ( " " customize-group)
         ( "B" customize-browse)
-        ( "E" emacspeak-websearch- emacspeak-archive)
+        ( "E" emacspeak-websearch-emacspeak-archive)
         ( "G" customize-group)
         ( "M" emacspeak-speak-popup-messages)
         ( "V" customize-variable)
@@ -315,7 +315,7 @@ field in the customization buffer.  You can use the notation
         ( "\M-f" find-function)
         ( "\M-k" find-function-on-key)
         ( "\M-v" find-variable)
-        ("\C-e"   emacspeak-describe- emacspeak)
+        ("\C-e"   emacspeak-describe-emacspeak)
         ("\C-i" emacspeak-info-wizard)
         ("\C-l" emacspeak-learn-mode)
         ("\C-m" man)
