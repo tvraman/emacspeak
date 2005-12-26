@@ -880,7 +880,7 @@ Interactively, command is specified by pressing the key that
 ;;}}}
 ;;{{{  Learn mode
 ;;;###autoload
-(defun emacspeak-learn-mode ()
+(defun emacspeak-learn-emacs-mode ()
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
   (interactive)
