@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 401 user customizable
+This chapter documents a total of 404 user customizable
   options.
 
 @menu
@@ -155,6 +155,11 @@ C-e d I to toggle this setting.
 
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
+@end defvar
+
+@defvar {User Option} tts-strip-octals
+Set to T to strip all octal chars before speaking.
+Particularly useful for web browsing.
 @end defvar
 
 @node emacspeak-add-log Options
@@ -1957,6 +1962,10 @@ Use this to add actions you typically perform after you enter remote
 mode.
 @end defvar
 
+@defvar {User Option} emacspeak-remote-use-ssh
+Set to T to use SSH remote servers.
+@end defvar
+
 @node emacspeak-replace Options
 @section emacspeak-replace Options
 
@@ -2371,6 +2380,11 @@ settings to match what the author of Emacspeak uses.
 @defvar {User Option} emacspeak-vm-doc2text
 Executable that converts MSWord documents on standard input to plain
 text using wvText.
+@end defvar
+
+@defvar {User Option} emacspeak-vm-headers-strip-octals
+Specify whether non-ascii chars should be stripped when
+  speaking email headers.
 @end defvar
 
 @defvar {User Option} emacspeak-vm-pdf2text

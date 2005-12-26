@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 727 commands.
+This chapter documents a total of 728 commands.
 
 @menu
 * cd-tool::                     
@@ -344,6 +344,15 @@ type.  Optional argument PREFIX specifies if the setting applies
 to all buffers.
 @end deffn
 
+@deffn {Interactive Command} dtk-toggle-strip-octals (&optional PREFIX)
+@kbd{ control e d o }
+
+Toggle stripping of octals.
+Interactive prefix arg means 
+ toggle the global default value, and then set the current local
+value to the result.
+@end deffn
+
 @node emacspeak-alsaplayer
 @section emacspeak-alsaplayer
 
@@ -484,8 +493,9 @@ Set volume.
 Automatically generated documentation
 for commands defined in module  emacspeak-amphetadesk.
 
-@deffn {Interactive Command} emacspeak-amphetadesk ()
+@deffn {Interactive Command} emacspeak-amphetadesk (&optional USE-OPML)
 Open amphetadesk.
+Interactive prefix-arg use-opml opens the myChannels.opml file.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-amphetadesk-quick-add (URL)
@@ -4494,6 +4504,8 @@ Grab CVS snapshot  of specified project from Sourceforge.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-emergency-tts-restart ()
+@kbd{ control e <insert> }
+
 For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
@@ -4533,7 +4545,7 @@ Kill current buffer without asking for confirmation.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-learn-mode ()
-@kbd{ control e control h }
+@kbd{ control e <f1>   control h control l   <f1> control l   <help> control l }
 
 Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press C-g.
@@ -4620,8 +4632,6 @@ at point.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-show-property-at-point (&optional PROPERTY)
-@kbd{ control e meta p }
-
 Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
@@ -4755,8 +4765,6 @@ Prompts for the new location and preserves modification time
 @end deffn
 
 @deffn {Interactive Command} emacspeak-view-emacspeak-doc ()
-@kbd{ control e  cap D  }
-
 Display a summary of all Emacspeak commands.
 @end deffn
 
@@ -5207,7 +5215,7 @@ node-spec.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 98 URL Templates.
+This section documents a total of 101 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5354,6 +5362,10 @@ Play Technetcast stream from DDJ.
 
 Browse to a specified DDJ Technetcast stream and save  it.
 
+@kbd{Dictionary Lookup}
+
+Dictionary Lookup
+
 @kbd{EmapSpeak Via Google}
 
 EmapSpeak Via Google.
@@ -5402,6 +5414,10 @@ Retrieve and speak Google News Overview.
 @kbd{Google Hits}
 
 Only show Google hits.
+
+@kbd{Google Image Search}
+
+Google Image Search
 
 @kbd{Google Local}
 
@@ -5496,8 +5512,15 @@ Play NPR Motley Fool   stream.
 Play NPR shows on demand.
 Program is specified as a program code:
 
-ME Morning Edition
-ATC All Things Considered
+ME              Morning Edition
+ATC             All Things Considered
+day             Day To Day
+newsnotes       News And Notes
+totn            Talk Of The Nation
+fa              Fresh Air
+wesat           Weekend Edition Saturday
+wesun           Weekend Edition Sunday
+fool            The Motley Fool
 
 Segment is specified as a two digit number --specifying a blank value
 plays entire program.
@@ -5628,6 +5651,10 @@ Retrieve and speak Top Stories  section from Yahoo Daily News.
 @kbd{Yahoo World News}
 
 Yahoo World News.
+
+@kbd{YubNub Web Command Line}
+
+YubNub Command Line
 
 @kbd{answers.com}
 
