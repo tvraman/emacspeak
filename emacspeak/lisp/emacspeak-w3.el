@@ -153,46 +153,41 @@
   (when (locate-library
          "w3-imenu")
     (require 'w3-imenu))
-  (define-key w3-mode-map "hh" 'emacspeak-w3-show-http-headers)
-  (define-key w3-mode-map "e" 'emacspeak-w3-xsl-map)
-  (define-key w3-mode-map "\M-o" 'emacspeak-w3-do-onclick)
-  (define-key w3-mode-map "\M-j"
-    'emacspeak-w3-javascript-follow-link)
-  (define-key w3-mode-map "t"  'emacspeak-w3-jump-to-title-in-content)
-  (define-key w3-mode-map "P"
-    'emacspeak-speak-previous-personality-chunk)
-  (define-key w3-mode-map "i"
-    'emacspeak-w3-next-parsed-item)
-  (define-key w3-mode-map "N"
-    'emacspeak-speak-next-personality-chunk)
-  (define-key w3-mode-map "\M-r"
-    'emacspeak-w3-play-media-at-point)
-  (define-key w3-mode-map "A" 'emacspeak-w3-browse-atom-at-point)
-  (define-key w3-mode-map "R" 'emacspeak-w3-browse-rss-at-point)
-  (define-key w3-mode-map "\M-\C-m" 'emacspeak-w3-browse-link-with-style)
-  (define-key w3-mode-map "/" 'emacspeak-w3-google-similar-to-this-page)
-  (define-key w3-mode-map "l"
-    'emacspeak-w3-google-who-links-to-this-page)
-  (define-key w3-mode-map "c" 'emacspeak-w3-curl-url-under-point)
-  (define-key w3-mode-map "C" 'emacspeak-w3-google-extract-from-cache)
-  (define-key w3-mode-map "g" 'emacspeak-w3-google-on-this-site)
-  (define-key w3-mode-map ";"
-    'emacspeak-w3-speak-this-element)
-  (define-key w3-mode-map "\M-s" 'emacspeak-w3-jump-to-submit)
-  (define-key w3-mode-map "y" 'emacspeak-w3-url-rewrite-and-follow)
-  (define-key w3-mode-map "n"
-    'emacspeak-w3-next-doc-element)
-  (define-key w3-mode-map "p" 'emacspeak-w3-previous-doc-element)
-  (define-key w3-mode-map "L"
-    'emacspeak-w3-lynx-url-under-point)
-  (define-key w3-mode-map "\C-f" 'w3-table-focus-on-this-cell)
-  (define-key w3-mode-map  "\C-t" 'emacspeak-w3-toggle-table-borders)
-  (define-key w3-mode-map "'" 'emacspeak-speak-rest-of-buffer)
-  (define-key w3-mode-map "j" 'imenu)
-  (define-key w3-mode-map "\M- " 'emacspeak-imenu-speak-this-section)
-  (define-key w3-mode-map "\M-p" 'emacspeak-imenu-goto-previous-index-position)
-  (define-key w3-mode-map "\M-n"
-    'emacspeak-imenu-goto-next-index-position))
+  (loop for binding in
+        '(
+          ("hh" emacspeak-w3-show-http-headers)
+          ("e" emacspeak-w3-xsl-map)
+          ("\M-o" emacspeak-w3-do-onclick)
+          ("\M-j" emacspeak-w3-javascript-follow-link)
+          ("t"  emacspeak-w3-jump-to-title-in-content)
+          ("P" emacspeak-speak-previous-personality-chunk)
+          ("i" emacspeak-w3-next-parsed-item)
+          ("N" emacspeak-speak-next-personality-chunk)
+          ("\M-r" emacspeak-w3-play-media-at-point)
+          ("A" emacspeak-w3-browse-atom-at-point)
+          ("R" emacspeak-w3-browse-rss-at-point)
+          ("\M-\C-m" emacspeak-w3-browse-link-with-style)
+          ("/" emacspeak-w3-google-similar-to-this-page)
+          ("l" emacspeak-w3-google-who-links-to-this-page)
+          ("c" emacspeak-w3-curl-url-under-point)
+          ("C" emacspeak-w3-google-extract-from-cache)
+          ("g" emacspeak-w3-google-on-this-site)
+          (";" emacspeak-w3-speak-this-element)
+          ("\M-s" emacspeak-w3-jump-to-submit)
+          ("y" emacspeak-w3-url-rewrite-and-follow)
+          ("n" emacspeak-w3-next-doc-element)
+          ("p" emacspeak-w3-previous-doc-element)
+          ("L" emacspeak-w3-lynx-url-under-point)
+          ("\C-f" w3-table-focus-on-this-cell)
+          ( "\C-t" emacspeak-w3-toggle-table-borders)
+          ("'" emacspeak-speak-rest-of-buffer)
+          ("j" imenu)
+          ("\M- " emacspeak-imenu-speak-this-section)
+          ("\M-p" emacspeak-imenu-goto-previous-index-position)
+          ("\M-n" emacspeak-imenu-goto-next-index-position)e
+          )
+        do
+        (emacspeak-keymap-update w3-mode-map binding)))
 
 (add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
 
