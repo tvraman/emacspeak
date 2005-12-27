@@ -172,6 +172,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (playlist-p (or
                      play-list
                      (string-match ".m3u$"  resource)
+                     (string-match ".asx$"  resource)
                      (string-match ".pls$"  resource)
                      (string-match ".rpm$"  resource)
                      (string-match ".ram$"  resource)))
