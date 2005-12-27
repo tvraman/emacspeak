@@ -235,6 +235,15 @@ to all buffers.
 
 ------------------------------------------------------------
 
+** dtk-toggle-strip-octals	Key Sequence: control e d o 
+
+Toggle stripping of octals.
+Interactive prefix arg means 
+ toggle the global default value, and then set the current local
+value to the result.
+
+------------------------------------------------------------
+
 ** emacspeak-alsaplayer-add-to-queueAdd specified resource to queue.
 
 ------------------------------------------------------------
@@ -362,6 +371,7 @@ during initialization.
 ------------------------------------------------------------
 
 ** emacspeak-amphetadeskOpen amphetadesk.
+Interactive prefix-arg use-opml opens the myChannels.opml file.
 
 ------------------------------------------------------------
 
@@ -3767,7 +3777,9 @@ Get latest cvs snapshot of emacspeak.
 
 ------------------------------------------------------------
 
-** emacspeak-emergency-tts-restartFor use in an emergency.
+** emacspeak-emergency-tts-restart	Key Sequence: control e <insert> 
+
+For use in an emergency.
 Will start TTS engine specified by 
 emacspeak-emergency-tts-server.
 
@@ -3806,7 +3818,7 @@ Warning! Contents of file filename will be overwritten.
 
 ------------------------------------------------------------
 
-** emacspeak-learn-mode	Key Sequence: control e control h 
+** emacspeak-learn-mode	Key Sequence: control e <f1>   control h control l   <f1> control l   <help> control l 
 
 Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press C-g.
@@ -3893,9 +3905,7 @@ at point.
 
 ------------------------------------------------------------
 
-** emacspeak-show-property-at-point	Key Sequence: control e meta p 
-
-Show value of PROPERTY at point.
+** emacspeak-show-property-at-pointShow value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties that are of interest.
 If no property is set, show a message and exit.
@@ -4028,9 +4038,7 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
-** emacspeak-view-emacspeak-doc	Key Sequence: control e  cap D  
-
-Display a summary of all Emacspeak commands.
+** emacspeak-view-emacspeak-docDisplay a summary of all Emacspeak commands.
 
 ------------------------------------------------------------
 
