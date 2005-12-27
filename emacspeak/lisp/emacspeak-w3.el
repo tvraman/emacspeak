@@ -155,36 +155,33 @@
     (require 'w3-imenu))
   (loop for binding in
         '(
-          ("hh" emacspeak-w3-show-http-headers)
-          ("e" emacspeak-w3-xsl-map)
-          ("\M-o" emacspeak-w3-do-onclick)
-          ("\M-j" emacspeak-w3-javascript-follow-link)
-          ("t"  emacspeak-w3-jump-to-title-in-content)
-          ("P" emacspeak-speak-previous-personality-chunk)
-          ("i" emacspeak-w3-next-parsed-item)
-          ("N" emacspeak-speak-next-personality-chunk)
-          ("\M-r" emacspeak-w3-play-media-at-point)
-          ("A" emacspeak-w3-browse-atom-at-point)
-          ("R" emacspeak-w3-browse-rss-at-point)
-          ("\M-\C-m" emacspeak-w3-browse-link-with-style)
-          ("/" emacspeak-w3-google-similar-to-this-page)
-          ("l" emacspeak-w3-google-who-links-to-this-page)
-          ("c" emacspeak-w3-curl-url-under-point)
-          ("C" emacspeak-w3-google-extract-from-cache)
-          ("g" emacspeak-w3-google-on-this-site)
-          (";" emacspeak-w3-speak-this-element)
-          ("\M-s" emacspeak-w3-jump-to-submit)
-          ("y" emacspeak-w3-url-rewrite-and-follow)
-          ("n" emacspeak-w3-next-doc-element)
-          ("p" emacspeak-w3-previous-doc-element)
-          ("L" emacspeak-w3-lynx-url-under-point)
-          ("\C-f" w3-table-focus-on-this-cell)
           ( "\C-t" emacspeak-w3-toggle-table-borders)
           ("'" emacspeak-speak-rest-of-buffer)
-          ("j" imenu)
+          ("/" emacspeak-w3-google-similar-to-this-page)
+          (";" emacspeak-w3-speak-this-element)
+          ("A" emacspeak-w3-browse-atom-at-point)
+          ("C" emacspeak-w3-google-extract-from-cache)
+          ("L" emacspeak-w3-lynx-url-under-point)
+          ("N" emacspeak-speak-next-personality-chunk)
+          ("P" emacspeak-speak-previous-personality-chunk)
+          ("R" emacspeak-w3-browse-rss-at-point)
+          ("\C-f" w3-table-focus-on-this-cell)
           ("\M- " emacspeak-imenu-speak-this-section)
-          ("\M-p" emacspeak-imenu-goto-previous-index-position)
           ("\M-n" emacspeak-imenu-goto-next-index-position)e
+          ("\M-p" emacspeak-imenu-goto-previous-index-position)
+          ("\M-r" emacspeak-w3-play-media-at-point)
+          ("\M-s" emacspeak-w3-jump-to-submit)
+          ("c" emacspeak-w3-curl-url-under-point)
+          ("e" emacspeak-w3-xsl-map)
+          ("g" emacspeak-w3-google-on-this-site)
+          ("hh" emacspeak-w3-show-http-headers)
+          ("i" emacspeak-w3-next-parsed-item)
+          ("j" imenu)
+          ("l" emacspeak-w3-google-who-links-to-this-page)
+          ("n" emacspeak-w3-next-doc-element)
+          ("p" emacspeak-w3-previous-doc-element)
+          ("t"  emacspeak-w3-jump-to-title-in-content)
+          ("y" emacspeak-w3-url-rewrite-and-follow)
           )
         do
         (emacspeak-keymap-update w3-mode-map binding)))
@@ -1249,49 +1246,40 @@ loaded. "
 ;;{{{  xsl keymap
 
 (declaim (special emacspeak-w3-xsl-map))
-(define-key emacspeak-w3-xsl-map "k"
-  'emacspeak-w3-set-xsl-keep-result)
-(define-key emacspeak-w3-xsl-map "a"
-  'emacspeak-w3-xslt-apply)
-(define-key emacspeak-w3-xsl-map "f" 'emacspeak-w3-xslt-filter)
-(define-key emacspeak-w3-xsl-map "j" 'emacspeak-w3-xslt-junk)
-(define-key emacspeak-w3-xsl-map "p"
-  'emacspeak-w3-xpath-filter-and-follow)
-(define-key emacspeak-w3-xsl-map "\C-p"
-  'emacspeak-w3-xpath-junk-and-follow)
-(define-key emacspeak-w3-xsl-map "P"
-  'emacspeak-w3-extract-print-streams)
-(define-key emacspeak-w3-xsl-map "R"
-  'emacspeak-w3-extract-media-streams-under-point)
-(define-key emacspeak-w3-xsl-map "r"
-  'emacspeak-w3-extract-media-streams)
-(define-key emacspeak-w3-xsl-map "u" 'emacspeak-w3-extract-matching-urls)
-(define-key emacspeak-w3-xsl-map "s" 'emacspeak-w3-xslt-select)
-(define-key emacspeak-w3-xsl-map "\C-t"
-  'emacspeak-w3-count-tables)
-(define-key emacspeak-w3-xsl-map "t"
-  'emacspeak-w3-extract-table-by-position)
-(define-key emacspeak-w3-xsl-map "T"
-  'emacspeak-w3-extract-tables-by-position-list)
-(define-key emacspeak-w3-xsl-map "m"
-  'emacspeak-w3-extract-table-by-match)
-(define-key emacspeak-w3-xsl-map "M"
-  'emacspeak-w3-extract-tables-by-match-list)
-(define-key emacspeak-w3-xsl-map "o"
-  'emacspeak-w3-xsl-toggle)
-(define-key emacspeak-w3-xsl-map "c" 'emacspeak-w3-extract-by-class)
-(define-key emacspeak-w3-xsl-map "C"
-  'emacspeak-w3-extract-by-class-list)
-(define-key emacspeak-w3-xsl-map "\C-c" 'emacspeak-w3-junk-by-class-list)
-(define-key emacspeak-w3-xsl-map "y" 'emacspeak-w3-class-filter-and-follow)
-(define-key emacspeak-w3-xsl-map "x"
-  'emacspeak-w3-extract-nested-table)
-(define-key emacspeak-w3-xsl-map "\C-f" 'emacspeak-w3-count-matches)
-(define-key emacspeak-w3-xsl-map "\C-x" 'emacspeak-w3-count-nested-tables)
-(define-key emacspeak-w3-xsl-map "X"
-  'emacspeak-w3-extract-nested-table-list)
-(define-key emacspeak-w3-xsl-map "e" 'emacspeak-w3-url-expand-and-execute)
-(define-key emacspeak-w3-xsl-map "i" 'emacspeak-w3-extract-node-by-id)
+
+(loop for binding in
+      '(
+        ("C" emacspeak-w3-extract-by-class-list)
+        ("M" emacspeak-w3-extract-tables-by-match-list)
+        ("P" emacspeak-w3-extract-print-streams)
+        ("R" emacspeak-w3-extract-media-streams-under-point)
+        ("T" emacspeak-w3-extract-tables-by-position-list)
+        ("X" emacspeak-w3-extract-nested-table-list)
+        ("\C-c" emacspeak-w3-junk-by-class-list)
+        ("\C-f" emacspeak-w3-count-matches)
+        ("\C-p" emacspeak-w3-xpath-junk-and-follow)
+        ("\C-t" emacspeak-w3-count-tables)
+        ("\C-x" emacspeak-w3-count-nested-tables)
+        ("a" emacspeak-w3-xslt-apply)
+        ("c" emacspeak-w3-extract-by-class)
+        ("e" emacspeak-w3-url-expand-and-execute)
+        ("f" emacspeak-w3-xslt-filter)
+        ("i" emacspeak-w3-extract-node-by-id)
+        ("j" emacspeak-w3-xslt-junk)
+        ("k" emacspeak-w3-set-xsl-keep-result)
+        ("m" emacspeak-w3-extract-table-by-match)
+        ("o" emacspeak-w3-xsl-toggle)
+        ("p" emacspeak-w3-xpath-filter-and-follow)
+        ("r" emacspeak-w3-extract-media-streams)
+        ("s" emacspeak-w3-xslt-select)
+        ("t" emacspeak-w3-extract-table-by-position)
+        ("u" emacspeak-w3-extract-matching-urls)
+        ("x" emacspeak-w3-extract-nested-table)
+        ("y" emacspeak-w3-class-filter-and-follow)
+        )
+      do
+      (emacspeak-keymap-update emacspeak-w3-xsl-map binding))
+
 
 ;;}}}
 ;;{{{ class filter 
