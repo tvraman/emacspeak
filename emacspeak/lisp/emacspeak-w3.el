@@ -872,8 +872,7 @@ spoken automatically."
 	   (eq major-mode 'w3-mode))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
-  (declare (special emacspeak-w3-media-stream-suffixes))
-  (let ((filter "//a[contains(@href,\".pdf\")]"))
+  (let ((filter "//a[contains(@href,\"print\")]"))
     (emacspeak-w3-xslt-filter
      filter
      prompt-url
