@@ -152,8 +152,13 @@
         (list 'text 'title 'name 'url))
   (when (locate-library
          "w3-imenu")
-    (require 'w3-imenu))
-  (loop for binding in
+    (require 'w3-imenu)))
+
+(declaim (special w3-mode-map))
+
+(add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
+
+(loop for binding in
         '(
           ( "\C-t" emacspeak-w3-toggle-table-borders)
           ("'" emacspeak-speak-rest-of-buffer)
@@ -167,7 +172,7 @@
           ("R" emacspeak-w3-browse-rss-at-point)
           ("\C-f" w3-table-focus-on-this-cell)
           ("\M- " emacspeak-imenu-speak-this-section)
-          ("\M-n" emacspeak-imenu-goto-next-index-position)e
+          ("\M-n" emacspeak-imenu-goto-next-index-position)
           ("\M-p" emacspeak-imenu-goto-previous-index-position)
           ("\M-r" emacspeak-w3-play-media-at-point)
           ("\M-s" emacspeak-w3-jump-to-submit)
@@ -184,9 +189,7 @@
           ("y" emacspeak-w3-url-rewrite-and-follow)
           )
         do
-        (emacspeak-keymap-update w3-mode-map binding)))
-
-(add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
+        (emacspeak-keymap-update w3-mode-map binding))
 
 ;;}}}
 ;;{{{  dump using lynx 
