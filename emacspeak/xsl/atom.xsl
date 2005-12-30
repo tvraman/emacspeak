@@ -34,9 +34,11 @@
   <xsl:template match="atom:entry">
     <h2>
       <xsl:apply-templates select="atom:title"/>
+    <xsl:apply-templates
+        select="atom:link[@rel='service.edit']"/>
     </h2>
-    <xsl:apply-templates select="atom:link"/>
     <xsl:apply-templates select="atom:summary|atom:content"/>
+    <xsl:apply-templates select="atom:link[@rel='alternate']"/>
   </xsl:template>
   <xsl:template match="atom:content|atom:summary">
     <!-- hard-wiring disable-output-escaping for now 
@@ -51,8 +53,8 @@
 <xsl:attribute name="href"><xsl:value-of
 select="@href"/></xsl:attribute>
 <xsl:choose>
-<xsl:when test="@rel='service.edit'">Edit Link</xsl:when>
-<xsl:otherwise><xsl:value-of select="@title"/></xsl:otherwise>
+<xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
+<xsl:otherwise>PermaLink: <xsl:value-of select="@title"/></xsl:otherwise>
 </xsl:choose>
 </a>
 </p>
