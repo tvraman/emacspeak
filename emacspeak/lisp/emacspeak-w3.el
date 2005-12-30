@@ -133,8 +133,8 @@
 
 (defun emacspeak-w3-load-hook ()
   "Setup Emacspeak keys in W3 mode."
-  (declare (special w3-mode-map
-                    w3-echo-link url-show-status
+  (declare (special w3-echo-link url-show-status
+                    w3-mode-map
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     emacspeak-pronounce-load-pronunciations-on-startup))
   (when (locate-library "w3-speak") (require 'w3-speak))
@@ -152,12 +152,7 @@
         (list 'text 'title 'name 'url))
   (when (locate-library
          "w3-imenu")
-    (require 'w3-imenu)))
-
-(declaim (special w3-mode-map))
-
-(add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
-
+    (require 'w3-imenu))
 (loop for binding in
         '(
           ( "\C-t" emacspeak-w3-toggle-table-borders)
@@ -189,7 +184,13 @@
           ("y" emacspeak-w3-url-rewrite-and-follow)
           )
         do
-        (emacspeak-keymap-update w3-mode-map binding))
+        (emacspeak-keymap-update w3-mode-map binding)))
+
+
+
+(add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
+
+
 
 ;;}}}
 ;;{{{  dump using lynx 
