@@ -89,7 +89,6 @@ emacspeak-arc.elc \
 emacspeak-atom.elc \
 emacspeak-auctex.elc \
 emacspeak-aumix.elc \
-emacspeak-autoload.elc \
 emacspeak-babel.elc \
 emacspeak-bbdb.elc \
 emacspeak-bibtex.elc \
