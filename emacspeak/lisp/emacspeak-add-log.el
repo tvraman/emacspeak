@@ -61,7 +61,8 @@
 ;;{{{ define personalities
 
 (defgroup emacspeak-add-log nil
-  "Customize Emacspeak for change-log-mode and friends.")
+  "Customize Emacspeak for change-log-mode and friends."
+  :group 'emacspeak)
 
 (def-voice-font emacspeak-change-log-acknowledgement-personality
   voice-smoothen
