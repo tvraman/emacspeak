@@ -45,7 +45,7 @@ SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/emacspeak-cus-load.el
-COMPILE =  -f batch-byte-compile
+COMPILE =  -f batch-byte-compile 
 # How to compile 
 %.elc:  %.el
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
