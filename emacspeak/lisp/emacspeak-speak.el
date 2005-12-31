@@ -1159,7 +1159,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
-Useful to listen to a buffer while in a different context."
+Useful to listen to a buffer without switching  contexts."
   (interactive
    (list
     (read-buffer "Speak buffer: "
