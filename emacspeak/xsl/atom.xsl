@@ -9,9 +9,8 @@
                 xmlns:atom="http://purl.org/atom/ns#"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 version="1.0">
-  <xsl:param name="base"/>
   <xsl:output encoding="iso8859-15" method="xml" indent="yes"/>
-  <!-- {{{ Atom -->
+  
   <xsl:template match="atom:feed">
     <html>
       <head>
@@ -20,10 +19,10 @@
         </title>
       </head>
       <body>
-        
+        <h1><xsl:value-of select="atom:title"/> <xsl:apply-templates select="atom:link[@rel='service.post']"/></h1>
         <xsl:apply-templates select="atom:entry"/>
-        <h2>Tag Line</h2>
-<p>
+        <h2><xsl:apply-templates select="atom:link[@rel='alternate']"/></h2>
+        <p>
           <xsl:apply-templates select="atom:tagline"/>
           <xsl:apply-templates select="atom:author"/>
         </p>
@@ -34,8 +33,8 @@
   <xsl:template match="atom:entry">
     <h2>
       <xsl:apply-templates select="atom:title"/>
-    <xsl:apply-templates
-        select="atom:link[@rel='service.edit']"/>
+      <xsl:apply-templates
+          select="atom:link[@rel='service.edit']"/>
     </h2>
     <xsl:apply-templates select="atom:summary|atom:content"/>
     <xsl:apply-templates select="atom:link[@rel='alternate']"/>
@@ -46,25 +45,20 @@
     <xsl:copy-of select="node()"/>
   </xsl:template>
   <xsl:template match="xhtml:div">
-<xsl:copy/>
+    <xsl:copy/>
   </xsl:template>
-<xsl:template match="atom:link">
-<p><a>
-<xsl:attribute name="href"><xsl:value-of
-select="@href"/></xsl:attribute>
-<xsl:choose>
-<xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
-<xsl:otherwise>PermaLink: <xsl:value-of select="@title"/></xsl:otherwise>
-</xsl:choose>
-</a>
-</p>
-</xsl:template>  
-  <!--}}}-->
+  <xsl:template match="atom:link">
+    <p><a>
+      <xsl:attribute name="href"><xsl:value-of
+      select="@href"/></xsl:attribute>
+      <xsl:choose>
+        <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
+        <xsl:when test="@rel='service.post'">[Post]</xsl:when>
+        <xsl:otherwise>PermaLink: <xsl:value-of select="@title"/></xsl:otherwise>
+      </xsl:choose>
+    </a>
+    </p>
+  </xsl:template>  
+  
 
 </xsl:stylesheet>
-<!--
-
-Local Variables:
-folded-file: t
-End:
--->
