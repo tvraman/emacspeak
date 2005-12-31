@@ -73,16 +73,37 @@
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
-  :link '(url-link :tag "Web" "http://emacspeak.sf.net")
-  :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com")
-  :link '(url-link :tag "Papers" "http://emacspeak.sf.net/publications")
-  :link '(url-link :tag "Mail" "http://www.cs.vassar.edu/~priestdo/emacspeak/")
-  :link '(url-link :tag "Search" "http://www.cs.vassar.edu/cgi-bin/emacspeak-search")
-  :link '(url-link :tag "Apps" "http://emacspeak.sf.net/applications.html")
-  :link '(url-link :tag "Guide" "http://emacspeak.sf.net/user-guide")
-  :link '(url-link :tag "Tips" "http://emacspeak.sf.net/tips.html")
-  :link   (list 'file-link :tag "NEWS" (expand-file-name "etc/NEWS" emacspeak-directory))
-  :link   (list 'file-link :tag "FAQ" (expand-file-name "etc/FAQ" emacspeak-directory))
+  :link '(url-link :tag "Web" "http://emacspeak.sf.net"
+                   :help-echo "Visit Emacspeak Web Site")
+  :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com"
+                   :help-echo "Read Emacspeak Blog")
+  :link '(url-link :tag "Papers"
+                   "http://emacspeak.sf.net/publications"
+                   :help-echo "Read papers describing Emacspeak
+design and implementation.")
+  :link '(url-link :tag "Mail"
+                   "http://www.cs.vassar.edu/~priestdo/emacspeak/"
+                   :help-echo "Browse Emacspeak mail archive at Vassar.")
+  :link '(url-link :tag "Search"
+                   "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
+                   :help-echo "Search Emacspeak mail archive at Vassar.")
+  :link '(url-link :tag "Apps"
+                   "http://emacspeak.sf.net/applications.html"
+                   :help-echo "Browse available  applications on
+the Emacspeak desktop." )
+  :link '(url-link :tag "Guide"
+                   "http://emacspeak.sf.net/user-guide"
+                   :help-echo "Read online user guide.")
+  :link '(url-link :tag "Tips"
+                   "http://emacspeak.sf.net/tips.html"
+                   :help-echo "Read Emacspeak Tips and Tricks.")
+  :link   (list 'file-link :tag "NEWS" (expand-file-name
+                                        "etc/NEWS"
+                                        emacspeak-directory)
+                :help-echo "What's New In This Release")
+  :link   (list 'file-link :tag "FAQ" (expand-file-name "etc/FAQ"
+                                                        emacspeak-directory)
+                :help-echo "Read the Emacspeak FAQ")
   :link '(custom-manual "(emacspeak)Top")
 ;;; end links 
   :prefix "emacspeak-"
