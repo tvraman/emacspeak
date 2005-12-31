@@ -53,13 +53,17 @@
 ;;{{{ persoanlities 
 (def-voice-font emacspeak-compilation-info-personality
   voice-lighten
-  'compilation-info-face
+  'compilation-info
   "Personality used for information in compilation lines."
   :group 'emacspeak-compile)
-
+(def-voice-font emacspeak-compilation-error-personality
+  voice-animate-extra
+  'compilation-error
+  "Personality used for errors in compilation lines."
+  :group 'emacspeak-compile)
 (def-voice-font emacspeak-compilation-warning-personality
   voice-animate
-  'compilation-warning-face
+  'compilation-warning
   "Personality used for warnings in compilation lines."
   :group 'emacspeak-compile)
 
