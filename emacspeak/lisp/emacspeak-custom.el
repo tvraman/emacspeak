@@ -181,6 +181,9 @@
 (def-voice-font emacspeak-custom-button-personality voice-bolden
   'custom-button-face
   "Personality for custom-button-face")
+(def-voice-font emacspeak-custom-button-personality voice-bolden
+  'custom-button
+  "Personality for custom-button")
 
 (def-voice-font emacspeak-custom-button-pressed-personality  voice-bolden-extra
   'custom-button-pressed-face
