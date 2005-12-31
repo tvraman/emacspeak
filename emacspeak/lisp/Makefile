@@ -88,6 +88,7 @@ emacspeak-ansi-color.elc \
 emacspeak-arc.elc \
 emacspeak-atom.elc \
 emacspeak-auctex.elc \
+emacspeak-autoload.el \
 emacspeak-aumix.elc \
 emacspeak-babel.elc \
 emacspeak-bbdb.elc \
