@@ -5,131 +5,48 @@
   <channel>
     <title>Emacspeak --The Complete Audio Desktop</title>
     <description>
-Emacspeak is a speech interface that allows visually
-    impaired users to interact independently and efficiently with
-    the computer. Audio formatting --a technique pioneered by  
-    Audio System For Technical readings 
-(AsTeR)
--- and full support for W3C Aural CSS
-    (ACSS) allows Emacspeak to produce rich aural presentations
-    of electronic information. By seamlessly blending all aspects
-    of the Internet such as Web-surfing and messaging, Emacspeak
-    speech-enables local and remote information via a consistent
-    and well-integrated user interface. Available free of cost on
-    the Internet, Emacspeak has dramatically changed how the author
-    and hundreds of blind and visually impaired users around the
-    world interact with the personal computer and the Internet. A
-    rich suite of task-oriented
-    tools provides efficient speech-enabled access to the audio
-    desktop and evolving semantic WWW. When combined with Linux
-    running on low-cost PC hardware, Emacspeak/Linux provides a
-    reliable, stable speech-friendly solution that opens up the
-    Internet to visually impaired users around the world.
-        </description>
+      Emacspeak is a speech interface that allows visually
+      impaired users to interact independently and efficiently with
+      the computer. Audio formatting --a technique pioneered by  
+      Audio System For Technical readings 
+      (AsTeR)
+      -- and full support for W3C Aural CSS
+      (ACSS) allows Emacspeak to produce rich aural presentations
+      of electronic information. By seamlessly blending all aspects
+      of the Internet such as Web-surfing and messaging, Emacspeak
+      speech-enables local and remote information via a consistent
+      and well-integrated user interface. Available free of cost on
+      the Internet, Emacspeak has dramatically changed how the author
+      and hundreds of blind and visually impaired users around the
+      world interact with the personal computer and the Internet. A
+      rich suite of task-oriented
+      tools provides efficient speech-enabled access to the audio
+      desktop and evolving semantic WWW. When combined with Linux
+      running on low-cost PC hardware, Emacspeak/Linux provides a
+      reliable, stable speech-friendly solution that opens up the
+      Internet to visually impaired users around the world.
+    </description>
     <language>en-us</language>
     <link>http://emacspeak.sf.net/</link>
     <copyright>Copyright 2003, Emacspeak Inc</copyright>
     <managingEditor>raman@cs.cornell.edu T. V. Raman</managingEditor>
     <pubDate>Wed Jan  1 10:15:04 PST 2003
-</pubDate>
+    </pubDate>
     <lastBuildDate>Wed Jan  1 12:39:25 PST 2003
-</lastBuildDate>
+    </lastBuildDate>
     <image>
       <link>http://emacspeak.sf.net/</link>
       <url>http://emacspeak.sf.net/emacspeak.jpg</url>
       <title>Emacspeak --The Complete Audio Desktop</title>
     </image>
     <item>
-      <link>http://prdownloads.sourceforge.net/emacspeak/</link>
-      <title>Downloads</title>
-      <description>Downloads</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
-      <title>Reference</title>
-      <description>Reference</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/install-guide/</link>
-      <title>Installation</title>
-      <description>Installation</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/user-guide/</link>
-      <title>Usage</title>
-      <description>Usage</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/tips.html</link>
-      <title>Tips</title>
-      <description>Tips</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/applications.html</link>
-      <title>Tools</title>
-      <description>Tools</description>
-    </item>
-    <item>
-      <link>http://www.cs.vassar.edu/~priestdo/emacspeak/</link>
-      <title>Support</title>
-      <description>Support</description>
-    </item>
-    <item>
-      <link>http://www.cs.cornell.edu/home/raman</link>
-      <title>About the
-        author</title>
-      <description>About the
-        author</description>
-    </item>
-    <item>
-      <link>http://sourceforge.net/projects/emacspeak</link>
-      <title>
-    Emacspeak  at SourceForge
-  </title>
-      <description>
-    Emacspeak at SourceForge
-  </description>
-    </item>
-    <item>
-      <link>http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html</link>
-      <title>
-    AsTeR</title>
-      <description>
-    AsTeR</description>
-    </item>
-    <item>
-      <link>http://www.w3.org/Press/1998/CSS2-REC</link>
-      <title>W3C's Aural CSS
-    (ACSS)</title>
-      <description>W3C's Aural CSS
-    (ACSS)</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/applications.html</link>
-      <title>task-oriented
-    tools</title>
-      <description>task-oriented
-    tools</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
-      <title>online manual</title>
-      <description>online manual</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/tips.html</link>
-      <title>productivity tips</title>
-      <description>productivity tips</description>
-    </item>
-    <item>
-      <link> http://emacspeak.sf.net/applications.html</link>
-      <title>speech-enabled applications list</title>
-      <description>speech-enabled applications list</description>
-    </item>
-    <item>
-      <link>http://www.google.com/search?q=emacspeak</link>
-      <title>Google</title>
-      <description>Google</description>
+      <link> http://emacspeak.blogspot.com</link>
+      <title>Announcing Emacspeak Blog </title>
+      <description>This is to announce emacspeak.blogspot.com, an
+      Emacspeak Blog.
+      The site-feed is
+      <code>http://emacspeak.blogspot.com/atom.xml</code>
+      </description>
     </item>
     <item>
       <link> http://emacspeak.sf.net/release-23.0.html</link>
@@ -167,7 +84,7 @@ Emacspeak is a speech interface that allows visually
       <description>Announcing Emacspeak 20.0
       (LeapDog)</description>
     </item>
-<item>
+    <item>
       <link> http://emacspeak.sf.net/release-19.0.html</link>
       <title>Announcing Emacspeak 19.0
       (WorkDog)</title>
@@ -383,9 +300,9 @@ Emacspeak is a speech interface that allows visually
     <item>
       <link> http://emacspeak.sf.net/mailto:emacspeak-request@cs.vassar.edu</link>
       <title>the list request
-    address (maintained by) greg e. priest-dorman</title>
+      address (maintained by) greg e. priest-dorman</title>
       <description>the list request
-    address (maintained by) greg e. priest-dorman</description>
+      address (maintained by) greg e. priest-dorman</description>
     </item>
     <item>
       <link> http://emacspeak.sf.net/release.html</link>
@@ -405,9 +322,9 @@ Emacspeak is a speech interface that allows visually
     <item>
       <link>http://www.tuxedo.org/~esr/faqs/smart-questions.html</link>
       <title>How To
-    Ask Questions The Smart Way</title>
+      Ask Questions The Smart Way</title>
       <description>How To
-    Ask Questions The Smart Way</description>
+      Ask Questions The Smart Way</description>
     </item>
     <item>
       <link> http://emacspeak.sf.net/COPYRIGHT</link>
@@ -427,9 +344,9 @@ Emacspeak is a speech interface that allows visually
     <item>
       <link>http://www.mv.com/ipusers/vanzandt/</link>
       <title>Jim Van Zandt's home
-    page</title>
+      page</title>
       <description>Jim Van Zandt's home
-    page</description>
+      page</description>
     </item>
     <item>
       <link> http://emacspeak.sf.net/themes.html</link>
@@ -439,9 +356,101 @@ Emacspeak is a speech interface that allows visually
     <item>
       <link>http://www.cs.cornell.edu/Info/People/raman/raman.html</link>
       <title>T. V. Raman
-  </title>
+      </title>
       <description>T. V. Raman
-  </description>
+      </description>
+    </item>
+    <item>
+      <link>http://prdownloads.sourceforge.net/emacspeak/</link>
+      <title>Downloads</title>
+      <description>Downloads</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
+      <title>Reference</title>
+      <description>Reference</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/install-guide/</link>
+      <title>Installation</title>
+      <description>Installation</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/user-guide/</link>
+      <title>Usage</title>
+      <description>Usage</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/tips.html</link>
+      <title>Tips</title>
+      <description>Tips</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/applications.html</link>
+      <title>Tools</title>
+      <description>Tools</description>
+    </item>
+    <item>
+      <link>http://www.cs.vassar.edu/~priestdo/emacspeak/</link>
+      <title>Support</title>
+      <description>Support</description>
+    </item>
+    <item>
+      <link>http://www.cs.cornell.edu/home/raman</link>
+      <title>About the
+      author</title>
+      <description>About the
+      author</description>
+    </item>
+    <item>
+      <link>http://sourceforge.net/projects/emacspeak</link>
+      <title>
+        Emacspeak  at SourceForge
+      </title>
+      <description>
+        Emacspeak at SourceForge
+      </description>
+    </item>
+    <item>
+      <link>http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html</link>
+      <title>
+      AsTeR</title>
+      <description>
+      AsTeR</description>
+    </item>
+    <item>
+      <link>http://www.w3.org/Press/1998/CSS2-REC</link>
+      <title>W3C's Aural CSS
+      (ACSS)</title>
+      <description>W3C's Aural CSS
+      (ACSS)</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/applications.html</link>
+      <title>task-oriented
+      tools</title>
+      <description>task-oriented
+      tools</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/info/emacspeak.html</link>
+      <title>online manual</title>
+      <description>online manual</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/tips.html</link>
+      <title>productivity tips</title>
+      <description>productivity tips</description>
+    </item>
+    <item>
+      <link> http://emacspeak.sf.net/applications.html</link>
+      <title>speech-enabled applications list</title>
+      <description>speech-enabled applications list</description>
+    </item>
+    <item>
+      <link>http://www.google.com/search?q=emacspeak</link>
+      <title>Google</title>
+      <description>Google</description>
     </item>
   </channel>
 </rss>
