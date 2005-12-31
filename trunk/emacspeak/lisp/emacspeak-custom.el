@@ -178,6 +178,11 @@
 (def-voice-font emacspeak-custom-state-face voice-smoothen
   'custom-state-face
   "Personality used for showing custom state.")
+
+(def-voice-font emacspeak-custom-state-face voice-smoothen
+  'custom-state
+  "Personality used for showing custom state.")
+
 (def-voice-font emacspeak-custom-button-personality voice-bolden
   'custom-button-face
   "Personality for custom-button-face")
