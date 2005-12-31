@@ -73,25 +73,21 @@
 
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
-  :link '(url-link :tag "SourceForge" "http://emacspeak.sf.net")
+  :link '(url-link :tag "Web" "http://emacspeak.sf.net")
+  :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com")
   :link '(url-link :tag "Papers" "http://emacspeak.sf.net/publications")
-  :link '(url-link :tag "Mail"
-                   "http://www.cs.vassar.edu/~priestdo/emacspeak/")
+  :link '(url-link :tag "Mail" "http://www.cs.vassar.edu/~priestdo/emacspeak/")
   :link '(url-link :tag "Search" "http://www.cs.vassar.edu/cgi-bin/emacspeak-search")
-  :link '(url-link :tag "Applications"
-                   "http://emacspeak.sf.net/applications.html")
-  :link '(url-link :tag "Guide"
-                   "http://emacspeak.sf.net/user-guide")
-  :link '(url-link :tag "Tips"
-                   "http://emacspeak.sf.net/tips.html")
+  :link '(url-link :tag "Apps" "http://emacspeak.sf.net/applications.html")
+  :link '(url-link :tag "Guide" "http://emacspeak.sf.net/user-guide")
+  :link '(url-link :tag "Tips" "http://emacspeak.sf.net/tips.html")
   :link   (list 'file-link :tag "NEWS" (expand-file-name "etc/NEWS" emacspeak-directory))
   :link   (list 'file-link :tag "FAQ" (expand-file-name "etc/FAQ" emacspeak-directory))
   :link '(custom-manual "(emacspeak)Top")
 ;;; end links 
   :prefix "emacspeak-"
   :group 'applications
-  :group 'accessibility
-  :version emacspeak-version)
+  :group 'accessibility)
 
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
