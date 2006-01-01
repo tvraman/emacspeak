@@ -100,7 +100,7 @@ used as the table-index for extract-tables.xsl.
             id="__nested_tables">
             <xsl:value-of
           select="count(//table//table)"/>
-             Nested Tables 
+            Nested Tables 
           </a>
         </h2>
         
@@ -118,7 +118,7 @@ used as the table-index for extract-tables.xsl.
                 </xsl:attribute>
                 <em>
                   Table <xsl:value-of select="position()"/>
-                   
+                  
                 </em>
               </a>
               <xsl:value-of select="count(./tr)"/>

@@ -38,7 +38,7 @@ shown in the output.
       </h2>
       <p>
         Found <xsl:value-of select="count($locator)"/>
-         matching elements in  
+        matching elements in  
         <xsl:element name="a">
           <xsl:attribute name="href">
             <xsl:value-of select="$base"/>

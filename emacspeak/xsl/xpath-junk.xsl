@@ -46,7 +46,7 @@ shown in the output.
       </h2>
       <p>
         Found <xsl:value-of select="count($locator)"/>
-         matching
+        matching
         elements to skip in 
         in 
         <xsl:element name="a">
