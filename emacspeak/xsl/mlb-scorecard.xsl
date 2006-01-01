@@ -21,7 +21,7 @@
         <xsl:if test="/scoreboard/ig_game">
           <h2>
             <xsl:value-of select="count(/scoreboard/ig_game)"/>
-             Games In Progress
+            Games In Progress
           </h2>
           <xsl:apply-templates select="/scoreboard/ig_game"/>
         </xsl:if>
@@ -36,7 +36,7 @@
           <h2>
             <xsl:value-of
           select="count(/scoreboard/sg_game)"/>
-             Games To Be Played
+            Games To Be Played
           </h2>
           <xsl:apply-templates select="/scoreboard/sg_game"/>
         </xsl:if>
@@ -47,7 +47,7 @@
     
     <h3>
       The <xsl:value-of select="team[1]/@name"/>
-       
+      
       Play The 
       <xsl:value-of select="team[2]/@name"/>
       Starting At 
@@ -116,7 +116,7 @@
       <em>
         <xsl:value-of
       select="inningnum/@inning"/>
-         innings
+        innings
       </em>
       .
       <em>
@@ -227,7 +227,7 @@
     and he is now 
     <em>
       <xsl:value-of select="@wins"/>
-       and <xsl:value-of select="@losses"/>
+      and <xsl:value-of select="@losses"/>
     </em>
     .
   </xsl:template>
