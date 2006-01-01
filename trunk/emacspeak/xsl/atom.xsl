@@ -25,9 +25,9 @@
             select="atom:link[@rel='service.post']"/>
         </h1>
         <h2>Table Of Contents</h2>
-        <ul>
+        <ol>
           <xsl:apply-templates select="atom:entry" mode="toc"/>
-        </ul>
+        </ol>
         <xsl:apply-templates select="atom:entry"/>
         <h2>
           <xsl:apply-templates select="atom:link[@rel='alternate']"/>
