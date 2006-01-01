@@ -19,7 +19,13 @@
         </title>
       </head>
       <body>
-        <h1><xsl:value-of select="atom:title"/> <xsl:apply-templates select="atom:link[@rel='service.post']"/></h1>
+        <h1><xsl:value-of select="atom:title"/>
+        <xsl:apply-templates
+            select="atom:link[@rel='service.post']"/></h1>
+        <h2>Table Of Contents</h2>
+        <ul>
+<xsl:apply-templates select="atom:entry" mode="toc"/>
+        </ul>
         <xsl:apply-templates select="atom:entry"/>
         <h2><xsl:apply-templates select="atom:link[@rel='alternate']"/></h2>
         <p>
@@ -32,13 +38,26 @@
   
   <xsl:template match="atom:entry">
     <h2>
-      <xsl:apply-templates select="atom:title"/>
+      <a>
+<xsl:attribute name="name"><xsl:value-of select="generate-id(.)"/> </xsl:attribute>
+<xsl:attribute name="id"> <xsl:value-of select="generate-id(.)"/>
+</xsl:attribute>
+<xsl:apply-templates select="atom:title"/>
+      </a>
       <xsl:apply-templates
           select="atom:link[@rel='service.edit']"/>
     </h2>
     <xsl:apply-templates select="atom:summary|atom:content"/>
     <xsl:apply-templates select="atom:link[@rel='alternate']"/>
   </xsl:template>
+<xsl:template match="atom:entry" mode="toc">
+<li>
+<a>
+<xsl:attribute name="href"> #<xsl:value-of select="generate-id(.)"/> </xsl:attribute>
+<xsl:value-of select="atom:title"/>
+</a>
+</li>
+</xsl:template>
   <xsl:template match="atom:content|atom:summary">
     <!-- hard-wiring disable-output-escaping for now 
          should be made conditional on @mode=escaped -->

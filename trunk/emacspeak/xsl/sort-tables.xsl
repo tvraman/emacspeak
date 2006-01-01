@@ -173,11 +173,6 @@ relevant tables bubble to the top.
 </xsl:stylesheet>
 <!--
 Local Variables:
-mode: xae
-sgml-indent-step: 2
-sgml-indent-data: t
-sgml-set-face: nil
-sgml-insert-missing-element-comment: nil
 folded-file: t
 End:
 -->
