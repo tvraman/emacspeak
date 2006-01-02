@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!--
-    Author: T. V. Raman <raman@cs.cornell.edu>
-    Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
-    License: GPL
-    View an Atom feed as clean HTML
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright: (C) T. V. Raman, 2001 - 2002,   All Rights Reserved.
+License: GPL
+View an Atom feed as clean HTML
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:atom="http://purl.org/atom/ns#"
@@ -16,12 +16,12 @@
       <head>
         <title>
           <xsl:apply-templates select="atom:title"/>
-           
+          
         </title>
       </head>
       <body>
         <h1><xsl:value-of select="atom:title"/>
-          <xsl:apply-templates
+        <xsl:apply-templates
             select="atom:link[@rel='service.post']"/>
         </h1>
         <h2>Table Of Contents</h2>
@@ -54,13 +54,17 @@
           select="atom:link[@rel='service.edit']"/>
     </h2>
     <xsl:apply-templates select="atom:summary|atom:content"/>
-    <xsl:apply-templates select="atom:link[@rel='alternate']"/>
+    <p>
+      <xsl:apply-templates select="atom:link[@rel='alternate']"/>
+      <em><xsl:value-of  select="atom:author/atom:name"/>
+      <xsl:value-of select="atom:issued"/></em>
+    </p>
   </xsl:template>
   <xsl:template match="atom:entry" mode="toc">
     <li>
       <a>
         <xsl:attribute name="href">
-           #<xsl:value-of select="generate-id(.)"/> 
+          #<xsl:value-of select="generate-id(.)"/> 
         </xsl:attribute>
         <xsl:value-of select="atom:title"/>
       </a>
@@ -75,22 +79,21 @@
     <xsl:copy/>
   </xsl:template>
   <xsl:template match="atom:link">
-    <p><a>
-        <xsl:attribute name="href">
-          <xsl:value-of
-      select="@href"/>
-        </xsl:attribute>
-        <xsl:choose>
-          <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
-          <xsl:when test="@rel='service.post'">[Post]</xsl:when>
-          <xsl:otherwise>
-            PermaLink: <xsl:value-of select="@title"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </a>
-    </p>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:value-of
+            select="@href"/>
+      </xsl:attribute>
+      <xsl:choose>
+        <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
+        <xsl:when test="@rel='service.post'">[Post]</xsl:when>
+        <xsl:otherwise>
+          PermaLink:
+        </xsl:otherwise>
+      </xsl:choose>
+    </a>
   </xsl:template>
-   
+  
   
   
 </xsl:stylesheet>
