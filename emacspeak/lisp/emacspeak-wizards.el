@@ -864,10 +864,9 @@ Typically %s is replaced by project name.")
   "Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
-first.
-Point is left at the target position.
-Interactively, command is specified by pressing the key that
-;;invokes the command."
+first.  Point is left at the target position.  Interactively,
+command is specified by pressing the key that invokes the
+command."
   (interactive
    (list
     (lookup-key global-map
