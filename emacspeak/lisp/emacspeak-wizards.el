@@ -280,8 +280,7 @@ Prompts for the new location and preserves modification time
 (defun emacspeak-speak-run-shell-command (command &optional as-root)
   "Invoke shell COMMAND and display its output as a table.  The results
 are placed in a buffer in Emacspeak's table browsing mode.  Optional
-interactive prefix arg as-root runs the command as root (not yet
-implemented).  Use this for running shell commands that produce
+interactive prefix arg as-root runs the command as root.  Use this for running shell commands that produce
 tabulated output.  This command should be used for shell commands that
 produce tabulated output that works with Emacspeak's table recognizer.
 Verify this first by running the command in a shell and executing
@@ -298,6 +297,8 @@ command `emacspeak-table-display-table-in-region' normally bound to
   (let ((buffer-name (format "*%s-output*" command))
         (start nil)
         (end nil))
+    (when as-root
+      (setq command (format "sudo %s" command)))
     (shell-command command buffer-name)
     (pushnew   command
                emacspeak-speak-run-shell-command-history
