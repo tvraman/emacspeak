@@ -88,7 +88,7 @@ View an Atom feed as clean HTML
         <xsl:when test="@rel='service.edit'">[Edit]</xsl:when>
         <xsl:when test="@rel='service.post'">[Post]</xsl:when>
         <xsl:otherwise>
-          PermaLink:
+          Bookmark:
         </xsl:otherwise>
       </xsl:choose>
     </a>
