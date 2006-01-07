@@ -369,12 +369,12 @@ RPM=/usr/src/redhat/RPMS/i386/emacspeak-${LABEL}-1.i386.rpm
 SF_HOME='raman@emacspeak.sf.net:~/www-emacspeak/htdocs'
 sourceforge: 
 	mv emacspeak.tar.bz2 ${TARBALL}
-	( echo 'anonymous';				\
-	  echo prompt;					\
-	  echo hash;					\
-	  echo cd incoming;				\
-	  echo put ${TARBALL};			\
-	  echo put ${RPM};		\
+	( echo 'anonymous';			     \
+	  echo prompt;				  \
+	  echo hash;				    \
+	  echo cd incoming;			     \
+	  echo put ${TARBALL};		  \
+	  echo put ${RPM};	      \
 	  echo quit ) | /usr/bin/ftp upload.sourceforge.net
 	scp ${RPM} ${TARBALL} ${SF_HOME}
 
