@@ -1748,16 +1748,24 @@ Signals beginning  of buffer."
   "Name of curl executable."
   :type 'string
   :group 'emacspeak-wizards)
+(defcustom emacspeak-curl-cookie-store
+  (expand-file-name "~/.curl-cookies")
+  "Cookie store used by Curl."
+  :type 'file
+  :group 'emacspeak-wizards)
 
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with W3."
   (interactive
    (list
     (read-from-minibuffer "URL: ")))
-  (declare (special emacspeak-wizards-curl-program))
+  (declare (special emacspeak-wizards-curl-program
+                    emacspeak-curl-cookie-store))
   (let ((results (get-buffer-create " *curl-download* ")))
     (shell-command
-     (format "curl -s --location-trusted '%s' 2>/dev/null" url)
+     (format
+      "curl -s --location-trusted --cookie-jar %s --cookie %s '%s' 2>/dev/null"
+      emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
      results)
     (switch-to-buffer results)
     (emacspeak-w3-preview-this-buffer)
