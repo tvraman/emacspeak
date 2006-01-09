@@ -67,7 +67,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                    ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -1758,6 +1758,18 @@ Meerkat realy needs an xml-rpc method for getting this.")
  #'(lambda (url)
      (emacspeak-w3-extract-table-by-match "Status"
                                           url 'speak)))
+
+;;}}}
+;;{{{ emacs wiki search
+
+(emacspeak-url-template-define
+ "EmacsWiki Search"
+ "http://www.emacswiki.org/cgi-bin/wiki?search=%s"
+ (list "Search EmacsWiki For: ")
+ #'(lambda nil
+     (search-forward "Result page" nil t)
+     (emacspeak-speak-line))
+ "EmacsWiki Search")
 
 ;;}}}
 
