@@ -27,6 +27,10 @@ to strip octals chars while speaking.
 Refactored keymaps and key-bindings.
 New modules should use emacspeak-keymap-update.
 
+** lisp/atom-blogger.el
+
+Light-weight client for posting/editting blogger.com entries.
+
 
 Local variables:
  mode: outline
