@@ -382,14 +382,15 @@ Set this once per emacspeak session for efficiency.")
                     dtk-speak-nonprinting-chars))
   (let ((char nil))
     (goto-char (point-min ))
-    (when  dtk-speak-nonprinting-chars
+    (cond
+    (tts-strip-octals;;;Strip octals if asked to
+      (dtk-strip-octals))
+    (dtk-speak-nonprinting-chars
       (while (re-search-forward dtk-octal-chars nil t )
         (setq char (char-after (match-beginning 0)))
         (replace-match
          (format " %s " (aref  dtk-character-to-speech-table
-                               char)))))
-;;;Strip octals if asked to
-    (when tts-strip-octals (dtk-strip-octals))))
+                               char))))))))
 
 ;;; Takes a string, and replaces occurences of this pattern
 ;;; that are longer than 3 by a string of the form \"count
