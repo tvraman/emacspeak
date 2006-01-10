@@ -606,7 +606,7 @@ navigation buffer that can be used to browse and read the book."
                (emacspeak-daisy-book-base emacspeak-daisy-this-book)))
         (bookmarks (emacspeak-daisy-collect-bookmarks-in-buffer))
         (buffer (find-file-noselect
-                 (emacspeak-speak-get-directory-settings))))
+                 (emacspeak-speak-get-directory-settings default-directory))))
     (save-excursion
       (set-buffer buffer)
       (goto-char (point-max))
