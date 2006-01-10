@@ -187,6 +187,7 @@ emacspeak-remote.elc \
 emacspeak-rmail.elc \
 emacspeak-rpm.elc  \
 emacspeak-rss.elc \
+emacspeak-ruby.elc \
 emacspeak-sawfish.elc \
 emacspeak-ses.elc \
 emacspeak-setup.el \
@@ -386,6 +387,7 @@ emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
 emacspeak-remote.elc: emacspeak-remote.el
 emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc voice-setup.elc
 emacspeak-rss.elc: emacspeak-rss.el dtk-speak.elc voice-setup.elc
+emacspeak-ruby.elc: emacspeak-ruby.el dtk-speak.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc voice-setup.elc
 emacspeak-sawfish.elc: emacspeak-sawfish.el dtk-speak.elc voice-setup.elc
 emacspeak-ses.elc: emacspeak-ses.el dtk-speak.elc voice-setup.elc
