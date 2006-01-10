@@ -236,6 +236,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rmail" 'emacspeak-rmail)
 (emacspeak-do-package-setup "rpm-spec-mode" 'emacspeak-rpm-spec)
+(emacspeak-do-package-setup "ruby-mode" 'emacspeak-ruby)
 (emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)

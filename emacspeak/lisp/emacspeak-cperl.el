@@ -1,4 +1,4 @@
-;;; emacspeak-perl.el --- Speech enable CPerl Mode 
+;;; emacspeak-cperl.el --- Speech enable CPerl Mode 
 ;;; $Id$
 ;;; $Author$ 
 ;;; DescriptionEmacspeak extensions for CPerl mode
