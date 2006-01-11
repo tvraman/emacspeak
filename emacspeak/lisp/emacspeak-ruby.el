@@ -50,12 +50,81 @@
 
 (require 'emacspeak-preamble)
 ;;}}}
+;;{{{ Advice navigation:
+
+(loop for command   in
+      '(
+        ruby-mark-defun
+        ruby-beginning-of-defun 
+        ruby-end-of-defun 
+        ruby-beginning-of-block 
+        ruby-end-of-block 
+        ruby-forward-sexp
+        ruby-backward-sexp
+        )
+      do
+      (eval
+        `(defadvice ,command (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'large-movement)))))
+
+;;}}}
+;;{{{ Advice insertion and electric:
+
+(defadvice ruby-insert-end (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (save-excursion
+      (ruby-beginning-of-block)
+      (emacspeak-speak-line))))
+
+(defadvice ruby-reindent-then-newline-and-indent (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)))
+
+(defadvice ruby-indent-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)))
+
+(defadvice ruby-indent-exp (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'fill-object)))
+
+(defadvice ruby-electric-brace (after emacspeak pre act comp)
+          "Speak what you inserted.
+Cue electric insertion with a tone."
+          (when (interactive-p)
+            (let ((emacspeak-speak-messages nil))
+	      (emacspeak-speak-this-char last-input-char)
+	      (dtk-tone 800 50 t))))
+
+;;}}}
+;;{{{ Advice inferior ruby:
+(loop for command in
+      '(
+        ruby-run
+        switch-to-ruby
+        ruby-send-region-and-go
+        ruby-send-block-and-go
+        ruby-send-definition-and-go
+        )
+      do
+      (eval
+`(defadvice ,command (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))))
 
 
-
-
-
-
+;;}}}
 
 (provide  'emacspeak-ruby)
 ;;{{{  emacs local variables 

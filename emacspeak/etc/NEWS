@@ -8,6 +8,11 @@ Emacspeak 24.0 provides the following user level enhancements:
 
 * user Visible Changes:
 
+**emacspeak-ruby:
+
+Speech-enables ruby-mode.
+
+
 ** emacspeak-m-player:
 
 Updated for MPlayer release 1.0.
