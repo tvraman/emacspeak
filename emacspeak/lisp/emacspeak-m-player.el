@@ -432,6 +432,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (aset v   column 12))
        ((equal key [end])
         (aset v   column -12))
+       ((equal key "\C-g") (error "Did not change equalizer."))
        ((equal key "\C-m")
         (setq continue nil))))
     (mapconcat
