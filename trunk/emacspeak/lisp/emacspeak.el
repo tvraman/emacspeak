@@ -387,6 +387,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'perl-mode-hook
          'cperl-mode-hook
          'sh-mode-hook
+         'ruby-mode-hook
          'sql-mode-hook
          'sgml-mode-hook
          'xml-mode-hook
