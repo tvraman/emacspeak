@@ -87,6 +87,7 @@ emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
 emacspeak-arc.elc \
 emacspeak-atom.elc \
+emacspeak-atom-blogger.elc \
 emacspeak-auctex.elc \
 emacspeak-autoload.el \
 emacspeak-aumix.elc \
@@ -282,6 +283,7 @@ emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
 emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
 emacspeak-atom.elc: emacspeak-atom.el dtk-speak.elc
+emacspeak-atom-blogger.elc: emacspeak-atom-blogger.el dtk-speak.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc voice-setup.elc
 emacspeak-aumix.elc: emacspeak-aumix.el dtk-speak.elc voice-setup.elc
 emacspeak-autoload.elc: emacspeak-autoload.el
