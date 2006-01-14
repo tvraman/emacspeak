@@ -93,7 +93,7 @@ emacspeak is compiled or started.")
 pronunciation dictionaries are stored. ")
 
 ;;}}}
-;;{{{ speec rate 
+;;{{{ speech rate 
 
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
@@ -114,7 +114,12 @@ pronunciation dictionaries are stored. ")
 (unless (featurep 'emacspeak)
   (setq load-path
         (cons emacspeak-lisp-directory 
+              load-path ))
+(setq load-path
+        (cons
+         (expand-file-name "atom-blogger" emacspeak-lisp-directory )
               load-path )))
+
 (defconst  emacspeak-xemacs-p
   (when
       (or (boundp 'running-xemacs)
@@ -138,7 +143,16 @@ pronunciation dictionaries are stored. ")
 ;;; to add your personal settings. 
 
 ;;}}}
-
+;;{{{ auxiliarry autoloads
+(mapcar
+ #'(lambda (f)
+     (autoload f  "atom-blogger"
+       "Edit/post blogger entries using ATOM." t))
+ '(atom-blogger-new-entry atom-blogger-edit-entry
+                          atom-blogger-put-entry
+                          atom-blogger-post-entry
+                          atom-blogger-publish))
+;;}}}
 (emacspeak)
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables 
