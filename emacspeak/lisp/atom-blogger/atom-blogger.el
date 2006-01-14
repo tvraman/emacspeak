@@ -179,7 +179,7 @@
       (setq atom-blogger-this-url url
             atom-blogger-this-auth auth))
     (switch-to-buffer buffer)))
-
+;;;### autoload
 (defun atom-blogger-edit-entry (url auth)
   "Retrieve entry and prepare it for editting.
 The retrieved entry is placed in a buffer ready for editing.
@@ -203,7 +203,7 @@ The retrieved entry is placed in a buffer ready for editing.
   (search-forward "<content" nil t)
   (message
    (substitute-command-keys "Use \\[atom-blogger-publish] to publish your edits .")))
-
+;;;### autoload
 (defun atom-blogger-new-entry (url auth)
   "Create a new Blog post."
   (interactive
@@ -215,7 +215,7 @@ The retrieved entry is placed in a buffer ready for editing.
                     atom-blogger-new-entry-template
                     atom-blogger-publish-action))
   (let* ((title (read-string "Title: "))
-        (buffer (get-buffer-create title)))
+         (buffer (get-buffer-create title)))
     (save-excursion
       (set-buffer buffer)
       (erase-buffer)
@@ -226,13 +226,13 @@ The retrieved entry is placed in a buffer ready for editing.
       (insert
        (format atom-blogger-new-entry-template
                atom-blogger-author title)))
-      (switch-to-buffer buffer)
-      (setq atom-blogger-publish-action 'atom-blogger-post-entry)
-      (search-backward "<div" nil t)
-      (forward-line 1)
-      (message
-       (substitute-command-keys "Use \\[atom-blogger-publish] to publish your edits ."))))
-
+    (switch-to-buffer buffer)
+    (setq atom-blogger-publish-action 'atom-blogger-post-entry)
+    (search-backward "<div" nil t)
+    (forward-line 1)
+    (message
+     (substitute-command-keys "Use \\[atom-blogger-publish] to publish your edits ."))))
+;;;### autoload
 (defun atom-blogger-post-entry ()
   "Publish the Blog entry in the current buffer."
   (interactive)
@@ -249,7 +249,7 @@ The retrieved entry is placed in a buffer ready for editing.
                                    atom-blogger-this-auth
                                    atom-blogger-this-url))
   )
-
+;;;### autoload
 (defun atom-blogger-put-entry ()
   "Publish the editted Blog entry in the current buffer."
   (interactive)
@@ -265,6 +265,8 @@ The retrieved entry is placed in a buffer ready for editing.
                                    atom-blogger-curl-program
                                    atom-blogger-this-auth
                                    atom-blogger-this-url)))
+
+;;;### autoload
 (defun atom-blogger-publish ()
   "Publish current entry."
   (interactive)
@@ -279,7 +281,7 @@ The retrieved entry is placed in a buffer ready for editing.
     (error "Not in a correctly initialized Atom Entry."))
   (call-interactively atom-blogger-publish-action)
   (message "Publishing  to %s" atom-blogger-this-url))
-
+;;;### autoload
 (defun atom-blogger-delete-entry (url auth)
   "Delete specified entry.
 `url' is the URL of the entry, 
@@ -292,7 +294,6 @@ The retrieved entry is placed in a buffer ready for editing.
   (shell-command
    (format "%s --compressed -X DELETE -u %s %s 2>/dev/null"
            atom-blogger-curl-program auth url)))
-
 
       
 ;;}}}
