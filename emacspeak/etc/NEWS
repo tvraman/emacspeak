@@ -36,6 +36,13 @@ New modules should use emacspeak-keymap-update.
 
 Light-weight client for posting/editting blogger.com entries.
 
+
+** emacspeak-atom-blogger:
+
+Speech-enables atom-blogger
+
+
+
 
 Local variables:
  mode: outline
