@@ -118,6 +118,7 @@
                     emacspeak-w3-punctuation-mode))
   (set (make-local-variable 'voice-lock-mode) t)
   (modify-syntax-entry 10 " ")
+  (modify-syntax-entry 160 " ")
   (when emacspeak-w3-punctuation-mode
     (setq dtk-punctuation-mode emacspeak-w3-punctuation-mode))
   (emacspeak-auditory-icon 'open-object)
