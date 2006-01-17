@@ -758,7 +758,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&btnG=Google+Search"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
  (list "Search news for: ")
  #'(lambda nil
      (or 
