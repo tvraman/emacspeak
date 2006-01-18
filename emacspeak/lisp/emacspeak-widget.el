@@ -65,8 +65,9 @@
 (defgroup emacspeak-widget nil
   "Widgets on the Emacspeak Desktop."
   :group 'emacspeak
-  :group 'widgets
+  :group 'widget
   :prefix "emacspeak-widget-")
+
 (def-voice-font  emacspeak-widget-field-personality  voice-smoothen
   'widget-field-face
   "Personality for edit fields"
@@ -101,9 +102,6 @@
 
 (declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
-
-(define-widget-keywords :emacspeak-help
-  :caption)
 
 ;;}}}
 ;;{{{  helpers 
