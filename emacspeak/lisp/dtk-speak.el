@@ -305,10 +305,8 @@ Optional argument FORCE  flushes the command to the speech server."
   "Remove all octal chars."
   (let ((inhibit-read-only t))
     (goto-char (point-min))
-      
-	    
     (while (re-search-forward "[\177-\377]+"  nil t )
-      (replace-match ""))))
+      (replace-match " "))))
 	  
      
 
