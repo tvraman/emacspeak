@@ -445,6 +445,9 @@ loaddefs: emacspeak-loaddefs.elc
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
+elint:
+	$(EMACS) -batch -q -no-site-file -l ../utils/elint-files.el
+
 # }}}
 # {{{  user level target-- clean
 

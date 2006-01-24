@@ -67,7 +67,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action                    ;action to perform after opening
+  post-action			      ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )

@@ -154,7 +154,7 @@
   (when (locate-library
          "w3-imenu")
     (require 'w3-imenu))
-(loop for binding in
+  (loop for binding in
         '(
           ( "\C-t" emacspeak-w3-toggle-table-borders)
           ("'" emacspeak-speak-rest-of-buffer)
@@ -187,11 +187,7 @@
         do
         (emacspeak-keymap-update w3-mode-map binding)))
 
-
-
 (add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
-
-
 
 ;;}}}
 ;;{{{  dump using lynx 
@@ -1283,7 +1279,6 @@ loaded. "
         )
       do
       (emacspeak-keymap-update emacspeak-w3-xsl-map binding))
-
 
 ;;}}}
 ;;{{{ class filter 

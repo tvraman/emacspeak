@@ -95,7 +95,6 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-
 ;;}}}
 (provide 'emacspeak-muse)
 ;;{{{ end of file
