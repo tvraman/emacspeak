@@ -64,7 +64,7 @@
         )
       do
       (eval
-        `(defadvice ,command (after emacspeak pre act comp)
+       `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-line)
@@ -98,12 +98,12 @@
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice ruby-electric-brace (after emacspeak pre act comp)
-          "Speak what you inserted.
+  "Speak what you inserted.
 Cue electric insertion with a tone."
-          (when (interactive-p)
-            (let ((emacspeak-speak-messages nil))
-	      (emacspeak-speak-this-char last-input-char)
-	      (dtk-tone 800 50 t))))
+  (when (interactive-p)
+    (let ((emacspeak-speak-messages nil))
+      (emacspeak-speak-this-char last-input-char)
+      (dtk-tone 800 50 t))))
 
 ;;}}}
 ;;{{{ Advice inferior ruby:
@@ -117,12 +117,11 @@ Cue electric insertion with a tone."
         )
       do
       (eval
-`(defadvice ,command (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line)))))
-
+       `(defadvice ,command (after emacspeak pre act comp)
+	  "Provide auditory feedback."
+	  (when (interactive-p)
+	    (emacspeak-auditory-icon 'select-object)
+	    (emacspeak-speak-line)))))
 
 ;;}}}
 

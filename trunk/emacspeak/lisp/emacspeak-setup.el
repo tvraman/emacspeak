@@ -115,10 +115,10 @@ pronunciation dictionaries are stored. ")
   (setq load-path
         (cons emacspeak-lisp-directory 
               load-path ))
-(setq load-path
+  (setq load-path
         (cons
          (expand-file-name "atom-blogger" emacspeak-lisp-directory )
-              load-path )))
+	 load-path )))
 
 (defconst  emacspeak-xemacs-p
   (when
