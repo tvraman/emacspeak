@@ -381,9 +381,9 @@ Set this once per emacspeak session for efficiency.")
   (let ((char nil))
     (goto-char (point-min ))
     (cond
-    (tts-strip-octals;;;Strip octals if asked to
+     (tts-strip-octals ;;;Strip octals if asked to
       (dtk-strip-octals))
-    (dtk-speak-nonprinting-chars
+     (dtk-speak-nonprinting-chars
       (while (re-search-forward dtk-octal-chars nil t )
         (setq char (char-after (match-beginning 0)))
         (replace-match

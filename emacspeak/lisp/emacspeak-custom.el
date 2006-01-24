@@ -176,7 +176,6 @@
 ;;}}}
 ;;{{{ define voices
 
-
 (def-voice-font emacspeak-custom-state-personality voice-smoothen
   'custom-state
   "Personality used for showing custom state.")

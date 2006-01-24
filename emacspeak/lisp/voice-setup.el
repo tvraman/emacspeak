@@ -260,14 +260,14 @@ command \\[customize-variable] on <personality>-settings."
      '(lambda  (sym val)
         (let ((voice-name (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
-;;; update all observers		; ; ; ;	;
+;;; update all observers		; ; ; ;	; ;
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 
-;;}}}					; ; ; ;	; ;
-;;{{{ voices defined using ACSS		; ; ; ;	;
+;;}}}					; ; ; ;	; ; ;
+;;{{{ voices defined using ACSS		; ; ; ;	; ;
 
-;;; these voices are device independent	; ; ; ;	;
+;;; these voices are device independent	; ; ; ;	; ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
