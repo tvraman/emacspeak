@@ -7,6 +7,9 @@ Author: T. V. Raman <raman@users.sf.net>
 Emacspeak 24.0 provides the following user level enhancements:
 
 * user Visible Changes:
+** emacspeak-muse:
+
+Speech-enables emacs Muse
 
 **emacspeak-ruby:
 
