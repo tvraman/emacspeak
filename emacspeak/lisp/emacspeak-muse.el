@@ -87,13 +87,24 @@
   "Header personality in Muse.")
 
 ;;}}}
-;;{{{ advice interactive commands 
-(defadvice muse-follow-name-at-point (after emacspeak pre act
-                                            comp)
+;;{{{ advice interactive commands
+(loop for f in
+      '(muse-follow-name-at-point
+        muse-follow-name-at-point-other-window
+        muse-next-reference
+        muse-previous-reference)
+      do
+      (eval
+`(defadvice   ,f (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-speak-line)))))
+
+
+
+
+
 
 ;;}}}
 (provide 'emacspeak-muse)
