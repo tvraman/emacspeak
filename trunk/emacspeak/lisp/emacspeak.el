@@ -217,6 +217,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "message" 'emacspeak-message)
 (emacspeak-do-package-setup "meta-mode" 'emacspeak-metapost)
 (emacspeak-do-package-setup "mpg123" 'emacspeak-mpg123)
+(emacspeak-do-package-setup "muse-mode" 'emacspeak-muse)
 (emacspeak-do-package-setup "midge-mode" 'emacspeak-midge)
 (emacspeak-do-package-setup "mpuz" 'emacspeak-entertain)
 (emacspeak-do-package-setup "mspools" 'emacspeak-mspools)
@@ -386,6 +387,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'midge-mode-hook
          'meta-common-mode-hook
          'perl-mode-hook
+         'muse-mode-hook
          'cperl-mode-hook
          'sh-mode-hook
          'ruby-mode-hook
