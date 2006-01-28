@@ -665,6 +665,17 @@ from English to German.")
  )
 
 ;;}}}
+;;{{{ Google Reader:
+
+(emacspeak-url-template-define
+ "Google Reader"
+ "http://www.google.com/reader/atom/feed/%s"
+ (list "Feed: ")
+ nil
+ "View feed via Google Reader."
+ 'emacspeak-atom-display)
+
+;;}}}
 ;;{{{  google filters 
 (emacspeak-url-template-define
  "Google WebQuotes"
@@ -770,7 +781,12 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
-
+(emacspeak-url-template-define
+ "Google Transcoder"
+ "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+ (list "URL:")
+ "Transcode site via Google.")
+ 
 (emacspeak-url-template-define
  "Google RSS News"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d&ie=ISO-8859-1&output=rss"
