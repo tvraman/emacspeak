@@ -456,6 +456,18 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ Google Reader:
+
+(emacspeak-url-template-define
+ "Google Reader"
+ "http://www.google.com/reader/atom/feed/%s"
+ (list "Feed:")
+ nil
+ "Google Reader"
+ 'emacspeak-atom-display)
+
+
+;;}}}
 ;;{{{ google maps
 
 (defun emacspeak-url-template-google-maps-xml (url)
