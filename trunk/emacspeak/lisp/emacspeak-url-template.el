@@ -460,7 +460,7 @@ content."
 
 (emacspeak-url-template-define
  "Google Reader"
- "http://www.google.com/reader/atom/feed/%s"
+ "http://www.google.com/reader/atom/feed/%s?n=100"
  (list "Feed:")
  nil
  "Google Reader"
