@@ -94,7 +94,7 @@ unescape HTML tags."
    rss-url
    (and emacspeak-rss-unescape-html 'unescape-charent)))
 
-;;;### autoload
+;;;###autoload
 (defun emacspeak-opml-display (opml-url &optional speak)
   "Retrieve and display OPML  URL."
   (interactive
