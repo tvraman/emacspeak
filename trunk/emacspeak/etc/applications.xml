@@ -331,7 +331,12 @@ type="text/xsl"?>
     <application name="rdf-edit">
       Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
     </application>
-  </category>
+
+  <application name="muse">
+      Speech-enables <code>muse-mode</code> an Emacs publishing
+      package that enables Wiki-like authoring 
+with the ability to publish the results to multiple formats.
+    </application></category>
   <category name="Reading">
     <application name="ocr">
       Emacs front-end  to OCR engines.

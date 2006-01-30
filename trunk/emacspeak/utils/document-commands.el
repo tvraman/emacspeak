@@ -138,6 +138,7 @@
     ("emacspeak-message"  . nil )
     ("emacspeak-metapost"  . nil )
     ("emacspeak-midge"  . nil )
+    ("emacspeak-muse" . nil)
     ("emacspeak-mpg123"  . ("mpg123"))
     ("emacspeak-madplay" . nil)
     ("emacspeak-alsaplayer" . nil)
