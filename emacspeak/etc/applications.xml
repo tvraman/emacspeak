@@ -147,6 +147,11 @@ type="text/xsl"?>
     </application>
   </category>
   <category name="Messaging">
+    <application name="atom-blogger">
+      Speech-enables <code>atom-blogger</code>, a light-weight
+      blogging tool that I use to publish/edit
+      <code>blogger.com</code> blogs.
+    </application>
     <application name="vm">
       Mail reader featuring full mime support.
     </application>
