@@ -498,7 +498,7 @@ with the ability to publish the results to multiple formats.
     hosts.</application>
     <application name="units">
       Simple wizard for accessing Units tool
-      --- a powerful unts convertor.
+      --- a powerful units convertor.
     </application>
   </category>
   <category name=" programming">
