@@ -600,6 +600,10 @@ with the ability to publish the results to multiple formats.
       href="http://emacspeak.sf.net/raman/publications/assets-98/">online
       paper</a>.
     </application>
+    <application name="sudoku">
+      Speech-enabled version of the popular number placement
+      game, <em>SuDoKu</em>
+    </application>
   </category>
   <postamble>
     <p>
