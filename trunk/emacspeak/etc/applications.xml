@@ -535,6 +535,11 @@ with the ability to publish the results to multiple formats.
       Features  aural highlighting and easy access to
       online help.
     </application>
+<application name="ruby">
+      Speech-enables editting support for Ruby.
+      Features  aural highlighting and easy access to
+      online help.
+    </application>
     <application name="python">
       Editting support for interactive Python development.
       Features aural highlighting, structured browsing and debugging.
