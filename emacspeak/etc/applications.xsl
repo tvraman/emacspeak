@@ -43,25 +43,26 @@
   </xsl:template>
 
   <xsl:template match="postamble">
+    <h2>Additional Notes</h2>
     <xsl:apply-templates/>
   </xsl:template>
 
   <xsl:template match="category">
     <tr>
       <td colspan="3">
-      <a>
-        <xsl:attribute name="name">
-          <xsl:value-of select="@name"/>
-        </xsl:attribute>
-        <xsl:attribute name="id">
-          <xsl:value-of select="@name"/>
-        </xsl:attribute>
+        <h2><a>
+          <xsl:attribute name="name">
+            <xsl:value-of select="@name"/>
+          </xsl:attribute>
+          <xsl:attribute name="id">
+            <xsl:value-of select="@name"/>
+          </xsl:attribute>
           <xsl:value-of select="translate(@name,
                                 'abcdefghijklmnopqrstuvwxyz',
-'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+                                'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
           <xsl:text>     </xsl:text>
           (<xsl:value-of select="count(./application)"/>)
-      </a></td>
+      </a></h2></td>
     </tr>
     <xsl:apply-templates />
   </xsl:template>
