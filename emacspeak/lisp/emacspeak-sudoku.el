@@ -191,6 +191,60 @@
   (emacspeak-sudoku-move-to-sub-square -1))
 
 ;;}}}
+;;{{{ erase rows, columns or sub-squares:
+
+(defun emacspeak-sudoku-erase-these-cells (cell-list)
+  "Erase cells in cell-list taking account of original values."
+  (declare (special current-board))
+  (let ((original (sudoku-get-cell-from-point (point))))
+  (loop for cell in cell-list
+        do
+  (let ((x (car cell))
+           (y (cadr  cell)))
+      (when (= (sudoku-cell start-board x y) 0)
+	  (setq current-board (sudoku-change-cell current-board x y 0)))))
+      (setq buffer-read-only nil)
+      (erase-buffer)
+      (sudoku-board-print current-board
+  sudoku-onscreen-instructions)
+      (sudoku-goto-cell original)
+      (setq buffer-read-only t)))
+
+(defun emacspeak-sudoku-erase-current-row ()
+  "Erase current row."
+  (interactive)
+  (declare (special current-board))
+  (let ((cell (sudoku-get-cell-from-point (point))))
+    (emacspeak-sudoku-erase-these-cells
+     (loop for i from 0 to  8
+           collect  (list i (second cell))))))
+
+(defun emacspeak-sudoku-erase-current-column ()
+  "Erase current column."
+  (interactive)
+  (declare (special current-board))
+  (let ((cell (sudoku-get-cell-from-point (point))))
+    (emacspeak-sudoku-erase-these-cells
+     (loop for i from 0 to  8
+           collect  (list i (first cell))))))
+
+(defun emacspeak-sudoku-erase-current-sub-square ()
+  "Erase current sub-square."
+  (interactive)
+  (let ((square
+         (emacspeak-sudoku-cell-sub-square
+  (sudoku-get-cell-from-point (point)))))
+(let ((row-cells 
+(let ((row-start (* (/ square 3)  3)))
+(loop for r from row-start to (+ 2 row-start) 
+collect  r)))
+(col-cells
+(let ((col-start (* (% square 3)  3)))
+(loop for c from col-start to (+ 2 col-start) collect c)))))
+    (emacspeak-sudoku-erase-these-cells
+     )))
+
+;;}}}
 ;;{{{ advice motion:
 
 (loop for f   in
