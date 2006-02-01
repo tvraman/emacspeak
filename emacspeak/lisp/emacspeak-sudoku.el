@@ -229,7 +229,7 @@
            collect  (list i (first cell))))))
 
 
-(defsubst emacspeak-sudoku-get-square-cells (squaer)
+(defsubst emacspeak-sudoku-get-square-cells (square)
   "Return list of cells in sub-square."
   (let ((row-cells 
 (let ((row-start (* (/ square 3)  3)))
