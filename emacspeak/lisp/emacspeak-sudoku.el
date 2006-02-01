@@ -197,18 +197,18 @@
   "Erase cells in cell-list taking account of original values."
   (declare (special current-board))
   (let ((original (sudoku-get-cell-from-point (point))))
-  (loop for cell in cell-list
-        do
-  (let ((x (car cell))
-           (y (cadr  cell)))
-      (when (= (sudoku-cell start-board x y) 0)
-	  (setq current-board (sudoku-change-cell current-board x y 0)))))
-      (setq buffer-read-only nil)
-      (erase-buffer)
-      (sudoku-board-print current-board
-  sudoku-onscreen-instructions)
-      (sudoku-goto-cell original)
-      (setq buffer-read-only t)))
+    (loop for cell in cell-list
+          do
+          (let ((x (car cell))
+                (y (cadr  cell)))
+            (when (= (sudoku-cell start-board x y) 0)
+              (setq current-board (sudoku-change-cell current-board x y 0)))))
+    (setq buffer-read-only nil)
+    (erase-buffer)
+    (sudoku-board-print current-board
+                        sudoku-onscreen-instructions)
+    (sudoku-goto-cell original)
+    (setq buffer-read-only t)))
 
 (defun emacspeak-sudoku-erase-current-row ()
   "Erase current row."
@@ -217,7 +217,9 @@
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
-           collect  (list i (second cell))))))
+           collect  (list i (second cell)))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-sudoku-erase-current-column ()
   "Erase current column."
@@ -226,30 +228,30 @@
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
-           collect  (list i (first cell))))))
+           collect  (list i (first cell)))))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
 
-
-(defsubst emacspeak-sudoku-get-square-cells (square)
+(defsubst emacspeak-sudoku-sub-square-cells (square)
   "Return list of cells in sub-square."
-  (let ((row-cells 
-(let ((row-start (* (/ square 3)  3)))
-(loop for r from row-start to (+ 2 row-start) 
-collect  r)))
-(col-cells
-(let ((col-start (* (% square 3)  3)))
-(loop for c from col-start to (+ 2 col-start) collect c))))
-(loop for r in row-cells 
-nconc
-(loop  for c in col-cells collect (list c r )))))
+  (let ((row-start (* (/ square 3)  3)) 
+        (col-start (* (% square 3)  3)))
+        
+    (loop for r from row-start to (+ 2 row-start)
+          nconc
+          (loop  for c from col-start to (+ 2 col-start)
+                 collect (list c r )))))
 
 (defun emacspeak-sudoku-erase-current-sub-square ()
   "Erase current sub-square."
   (interactive)
   (let* ((square
-         (emacspeak-sudoku-cell-sub-square
-          (sudoku-get-cell-from-point (point))))
-         (square-cells (emacspeak-sudoku-get-square-cells square)))
-    (emacspeak-sudoku-erase-these-cells square-cells)))
+          (emacspeak-sudoku-cell-sub-square
+           (sudoku-get-cell-from-point (point))))
+         (square-cells (emacspeak-sudoku-sub-square-cells square)))
+    (emacspeak-sudoku-erase-these-cells square-cells))
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
      
 
 ;;}}}
@@ -321,6 +323,9 @@ nconc
 	("r" emacspeak-sudoku-speak-current-row)
 	("c" emacspeak-sudoku-speak-current-column)
 	("s" emacspeak-sudoku-speak-current-sub-square)
+        ("\M-s" emacspeak-sudoku-erase-current-sub-square)
+        ("\M-r" emacspeak-sudoku-erase-current-row)
+        ("\M-c" emacspeak-sudoku-erase-current-column)
 	)
       do
       (define-key  sudoku-mode-map (first k) (second k)))
