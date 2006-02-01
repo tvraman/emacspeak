@@ -228,13 +228,10 @@
      (loop for i from 0 to  8
            collect  (list i (first cell))))))
 
-(defun emacspeak-sudoku-erase-current-sub-square ()
-  "Erase current sub-square."
-  (interactive)
-  (let ((square
-         (emacspeak-sudoku-cell-sub-square
-  (sudoku-get-cell-from-point (point)))))
-(let ((row-cells 
+
+(defsubst emacspeak-sudoku-get-square-cells (squaer)
+  "Return list of cells in sub-square."
+  (let ((row-cells 
 (let ((row-start (* (/ square 3)  3)))
 (loop for r from row-start to (+ 2 row-start) 
 collect  r)))
@@ -242,11 +239,18 @@ collect  r)))
 (let ((col-start (* (% square 3)  3)))
 (loop for c from col-start to (+ 2 col-start) collect c))))
 (loop for r in row-cells 
-collect 
-(loop  for c in col-cells collect (list c r ))))
-)
-    (emacspeak-sudoku-erase-these-cells
-     )))
+nconc
+(loop  for c in col-cells collect (list c r )))))
+
+(defun emacspeak-sudoku-erase-current-sub-square ()
+  "Erase current sub-square."
+  (interactive)
+  (let* ((square
+         (emacspeak-sudoku-cell-sub-square
+          (sudoku-get-cell-from-point (point))))
+         (square-cells (emacspeak-sudoku-get-square-cells square)))
+    (emacspeak-sudoku-erase-these-cells square-cells)))
+     
 
 ;;}}}
 ;;{{{ advice motion:
