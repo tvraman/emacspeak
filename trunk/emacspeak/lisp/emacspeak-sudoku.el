@@ -240,7 +240,11 @@
 collect  r)))
 (col-cells
 (let ((col-start (* (% square 3)  3)))
-(loop for c from col-start to (+ 2 col-start) collect c)))))
+(loop for c from col-start to (+ 2 col-start) collect c))))
+(loop for r in row-cells 
+collect 
+(loop  for c in col-cells collect (list c r ))))
+)
     (emacspeak-sudoku-erase-these-cells
      )))
 
