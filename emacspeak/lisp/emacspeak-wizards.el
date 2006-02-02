@@ -2599,6 +2599,13 @@ hits."
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
 
+(defun emacspeak-wizards-google-transcode ()
+  "View Web through Google Transcoder."
+  (interactive)
+  (let ((name   "Google Transcoder"))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
+
 ;;}}}
 ;;{{{ longest line in region 
 ;;;###autoload
