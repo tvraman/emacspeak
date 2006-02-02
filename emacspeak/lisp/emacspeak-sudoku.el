@@ -228,7 +228,7 @@
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
-           collect  (list i (first cell)))))
+           collect  (list (first cell) i))))
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
