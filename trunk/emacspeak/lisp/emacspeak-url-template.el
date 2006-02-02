@@ -797,6 +797,7 @@ from English to German.")
  "Google Transcoder"
  "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
  (list "URL:")
+ 'emacspeak-speak-buffer
  "Transcode site via Google.")
  
 (emacspeak-url-template-define
