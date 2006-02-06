@@ -498,6 +498,11 @@ Leave point at front of decoded attachment."
       (emacspeak-pronounce-augment-pronunciations mode
                                                   emacspeak-pronounce-internet-smileys-pronunciations)
       (emacspeak-pronounce-add-dictionary-entry mode
+                                                emacspeak-speak-embedded-url-pattern
+                                                (cons 're-search-forward
+                                                      #'(lambda
+                                                          (url) " Link ")))
+      (emacspeak-pronounce-add-dictionary-entry mode
                                                 emacspeak-speak-iso-datetime-pattern
                                                 (cons 're-search-forward
                                                       'emacspeak-speak-decode-iso-datetime)))          

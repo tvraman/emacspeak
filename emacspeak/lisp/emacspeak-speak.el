@@ -269,6 +269,16 @@ Useful to do this before you listen to an entire buffer."
                                          year))
       (error iso))))
 
+
+;;}}}
+;;{{{  url link pattern:
+(defcustom emacspeak-speak-embedded-url-pattern
+  "<http:.*>"
+  "Pattern to recognize embedded URLs."
+  :type 'string
+  :group 'emacspeak-speak)
+
+
 ;;}}}
 ;;{{{  Actions
 
