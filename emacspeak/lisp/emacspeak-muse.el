@@ -55,6 +55,10 @@
 ;;}}}
 ;;{{{ Voice definitions:
 
+(def-voice-font emacspeak-muse-emphasis-1-personality voice-bolden
+  'muse-emphasis-1 
+  "Personality used for Muse emphasis.")
+
 (def-voice-font emacspeak-muse-link-personality voice-brighten
   'muse-link-face
   "Personality used for Muse links.")
