@@ -59,6 +59,14 @@
   'muse-emphasis-1 
   "Personality used for Muse emphasis.")
 
+(def-voice-font emacspeak-muse-emphasis-2-personality voice-bolden-medium
+  'muse-emphasis-2
+  "Personality used for Muse emphasis.")
+
+(def-voice-font emacspeak-muse-emphasis-3-personality voice-bolden-extra
+  'muse-emphasis-3
+  "Personality used for Muse emphasis.")
+
 (def-voice-font emacspeak-muse-link-personality voice-brighten
   'muse-link-face
   "Personality used for Muse links.")
