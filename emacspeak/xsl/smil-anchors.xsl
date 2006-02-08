@@ -18,9 +18,9 @@ navigation list
         </title>
       </head>
       <body>
-        <ul>
+        <ol>
           <xsl:apply-templates select="body/audio"/>
-        </ul>
+        </ol>
       </body>
     </html>
   </xsl:template>
