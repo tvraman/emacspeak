@@ -1720,7 +1720,8 @@ Signals beginning  of buffer."
   "Launch lynx on  specified URL in a new terminal."
   (interactive
    (list
-    (read-from-minibuffer "URL: ")))
+    (read-from-minibuffer "URL: "
+                          (browse-url-url-at-point))))
   (declare (special emacspeak-wizards-lynx-program
                     term-height term-width))
   (require 'term)
