@@ -100,7 +100,8 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (loop for r in current-board
-         collect  (count 0 r))))
+         collect  (count 0 r))
+   3))
 
 (defun emacspeak-sudoku-board-columns-summarize ()
   "Summarize columns --- speaks number of remaining cells."
@@ -108,7 +109,8 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (loop for c from 0 to 8
-         collect  (count 0 (sudoku-column current-board c)))))
+         collect  (count 0 (sudoku-column current-board c)))
+   3))
 
 (defun emacspeak-sudoku-board-sub-squares-summarize ()
   "Summarize sub-squares --- speaks number of remaining cells."
@@ -116,7 +118,8 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (loop for s from 0 to 8
-         collect  (count 0 (sudoku-subsquare current-board s)))))
+         collect  (count 0 (sudoku-subsquare current-board s)))
+   3))
              
 (defun emacspeak-sudoku-speak-current-cell-coordinates ()
 
@@ -134,7 +137,8 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-row current-board
-				(second cell )))))
+				(second cell ))
+                    3)))
 
 (defun emacspeak-sudoku-speak-current-column ()
   "Speak current column."
@@ -142,7 +146,8 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-column  current-board
-				    (first cell )))))
+				    (first cell ))
+                    3)))
 
 (defsubst emacspeak-sudoku-cell-sub-square (cell)
   "Return sub-square that this cell is in."
@@ -158,7 +163,8 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list
      (sudoku-subsquare  current-board
-			(emacspeak-sudoku-cell-sub-square cell)))))
+			(emacspeak-sudoku-cell-sub-square cell))
+     3)))
 
 (defun emacspeak-sudoku-speak-current-cell-value ()
   "Speak value in current cell."
@@ -179,7 +185,8 @@ s   Sub-square Distribution.
 		     (second cell))))
     (cond
      (possibles 
-      (dtk-speak-list possibles))
+      (dtk-speak-list possibles
+                      3))
      (t (message "Dead End")))))
 
 (defun emacspeak-sudoku-speak-remaining-in-row ()
@@ -347,6 +354,7 @@ s   Sub-square Distribution.
 (defadvice sudoku (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
+    (dtk-set-punctuations "some")
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
