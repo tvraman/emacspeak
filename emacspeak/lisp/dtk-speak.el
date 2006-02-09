@@ -1655,12 +1655,14 @@ only speak upto the first ctrl-m."
     (dtk-force)))
 
 ;;;###autoload
-(defun dtk-speak-list (text )
+(defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.
-Argument TEXT  is the list of strings to speak."
+Argument TEXT  is the list of strings to speak.
+Optional argument group-count specifies grouping for intonation."
   (declare (special dtk-speaker-process dtk-stop-immediately))
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
+        (counter 1)
         (inhibit-read-only t))
     (save-excursion
       (set-buffer dtk-scratch-buffer )
@@ -1670,10 +1672,16 @@ Argument TEXT  is the list of strings to speak."
              (insert
 	      (if (stringp element)
 		  element 
-		(format "%s" element)))
-             (insert "\n"))
+		(format "%s%s"
+                        element
+                        (if (and group-count
+                                 (zerop (% counter group-count)))
+                            ", " ""))))
+             (insert "\n")
+             (incf counter))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
+
 ;;;###autoload
 (defsubst dtk-letter (letter)
   "Speak a LETTER."
