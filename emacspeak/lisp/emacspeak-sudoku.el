@@ -53,19 +53,39 @@
 (require 'dired)
 ;;}}}
 ;;{{{ Define additional speak commands:
-(defun emacspeak-sudoku-board-summarize ()
+
+(defun emacspeak-sudoku-board-summarizer ()
+  "Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+"
+  (interactive)
+  (let ((c (read-char "Summary: ")))
+    (case c
+      (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
+      (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
+      (?c (call-interactively
+           'emacspeak-sudoku-board-columns-summarize))
+      (?s (call-interactively
+           'emacspeak-sudoku-board-sub-squares-summarize))
+      (otherwise (message "Unknown summary type?")))))
+      
+    
+    
+(defun emacspeak-sudoku-board-distribution-summarize ()
   "Shows distribution of filled numbers."
   (interactive)
   (declare (special current-board))
   (let ((msg "")
-        (counts (make-vector 10 0))
-        (values (loop for i in current-board
-                      nconc
-                      (loop for j in i
-                            collect j))))
-    (loop for v in values
+        (counts (make-vector 10 0)))
+    (loop for i in current-board
           do
-          (incf (aref counts v)))
+          (loop for v in i
+                do
+          (incf (aref counts v))))
     (loop for i from 1 to 9
           do
           (setq msg
@@ -74,8 +94,30 @@
                                  (aref counts i)))))
     (message msg)))
   
-   
-    
+(defun emacspeak-sudoku-board-rows-summarize ()
+  "Summarize rows --- speaks number of remaining cells."
+  (interactive)
+  (declare (special current-board))
+  (dtk-speak-list
+   (loop for r in current-board
+         collect  (count 0 r))))
+
+(defun emacspeak-sudoku-board-columns-summarize ()
+  "Summarize columns --- speaks number of remaining cells."
+  (interactive)
+  (declare (special current-board))
+  (dtk-speak-list
+   (loop for c from 0 to 8
+         collect  (count 0 (sudoku-column current-board c)))))
+
+(defun emacspeak-sudoku-board-sub-squares-summarize ()
+  "Summarize sub-squares --- speaks number of remaining cells."
+  (interactive)
+  (declare (special current-board))
+  (dtk-speak-list
+   (loop for s from 0 to 8
+         collect  (count 0 (sudoku-subsquare current-board s)))))
+             
 (defun emacspeak-sudoku-speak-current-cell-coordinates ()
 
   "speak current cell coordinates."
@@ -348,6 +390,7 @@
         ("\M-s" emacspeak-sudoku-erase-current-sub-square)
         ("\M-r" emacspeak-sudoku-erase-current-row)
         ("\M-c" emacspeak-sudoku-erase-current-column)
+        (","  emacspeak-sudoku-board-summarizer)
 	)
       do
       (define-key  sudoku-mode-map (first k) (second k)))
