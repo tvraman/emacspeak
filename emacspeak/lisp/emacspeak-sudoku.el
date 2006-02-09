@@ -53,7 +53,29 @@
 (require 'dired)
 ;;}}}
 ;;{{{ Define additional speak commands:
-
+(defun emacspeak-sudoku-board-summarize ()
+  "Shows distribution of filled numbers."
+  (interactive)
+  (declare (special current-board))
+  (let ((msg "")
+        (counts (make-vector 10 0))
+        (values (loop for i in current-board
+                      nconc
+                      (loop for j in i
+                            collect j))))
+    (loop for v in values
+          do
+          (incf (aref counts v)))
+    (loop for i from 1 to 9
+          do
+          (setq msg
+                (concat msg
+                        (format " %s "
+                                 (aref counts i)))))
+    (message msg)))
+  
+   
+    
 (defun emacspeak-sudoku-speak-current-cell-coordinates ()
 
   "speak current cell coordinates."
