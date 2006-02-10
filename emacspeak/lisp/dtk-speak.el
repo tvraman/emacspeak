@@ -1663,6 +1663,7 @@ Optional argument group-count specifies grouping for intonation."
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
         (counter 1)
+        (len (length text))
         (inhibit-read-only t))
     (save-excursion
       (set-buffer dtk-scratch-buffer )
@@ -1670,14 +1671,14 @@ Optional argument group-count specifies grouping for intonation."
       (loop  for element in text
              do
              (insert
-	      (if (stringp element)
-		  element 
-		(format "%s%s"
-                        element
-                        (if (and group-count
-                                 (zerop (% counter group-count)))
-                            ", " ""))))
-             (insert "\n")
+              (format "%s%s\n"
+                      element
+                      (cond
+                       ((= len counter) ". ")
+                       ((and group-count
+                             (zerop (% counter group-count)))
+                        ", ")
+                       (t ""))))
              (incf counter))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
