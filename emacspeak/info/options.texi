@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 434 user customizable
+This chapter documents a total of 435 user customizable
   options.
 
 @menu
@@ -32,6 +32,7 @@ This chapter documents a total of 434 user customizable
 * emacspeak-erc Options::       
 * emacspeak-eshell Options::    
 * emacspeak-eterm Options::     
+* emacspeak-eudc Options::      
 * emacspeak-flyspell Options::  
 * emacspeak-forms Options::     
 * emacspeak-hide Options::      
@@ -1272,6 +1273,23 @@ File where list of known remote hosts is cached
 
 @defvar {User Option} emacspeak-eterm-underline-personality
 Underline personality for eterm.
+@end defvar
+
+@node emacspeak-eudc Options
+@section emacspeak-eudc Options
+
+Commentary:
+EUDC --Emacs Universal Directory Client 
+provides a unified interface to directory servers
+e.g. ldap servers
+this module speech enables eudc 
+
+Automatically generated documentation
+for options defined in module  emacspeak-eudc.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-eudc-attribute-value-personality
+Personality t use for voiceifying attribute values. 
 @end defvar
 
 @node emacspeak-flyspell Options
