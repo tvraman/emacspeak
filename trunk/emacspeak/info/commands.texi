@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 732 commands.
+This chapter documents a total of 751 commands.
 
 @menu
 * cd-tool::                     
@@ -26,11 +26,13 @@ This chapter documents a total of 732 commands.
 * emacspeak-dismal::            
 * emacspeak-ecb::               
 * emacspeak-ediff::             
+* emacspeak-emms::              
 * emacspeak-enriched::          
 * emacspeak-entertain::         
 * emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
+* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -54,8 +56,6 @@ This chapter documents a total of 732 commands.
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
-* emacspeak-psgml::             
-* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -65,6 +65,7 @@ This chapter documents a total of 732 commands.
 * emacspeak-sounds::            
 * emacspeak-speak::             
 * emacspeak-speedbar::          
+* emacspeak-sudoku::            
 * emacspeak-table-ui::          
 * emacspeak-tabulate::          
 * emacspeak-tapestry::          
@@ -82,6 +83,7 @@ This chapter documents a total of 732 commands.
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
 * emacspeak::                   
+* emacspeak-w3search::          
 * URL Templates ::              
 @end menu
 
@@ -943,6 +945,24 @@ for commands defined in module  emacspeak-ediff.
 Speak the current difference
 @end deffn
 
+@node emacspeak-emms
+@section emacspeak-emms
+
+Commentary:
+Speech-enables EMMS --- the Emacs equivalent of XMMS
+See
+http://savannah.gnu.org/project/emms
+EMMS is under active development,
+to get the current CVS version, use Emacspeak command
+M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+Automatically generated documentation
+for commands defined in module  emacspeak-emms.
+
+@deffn {Interactive Command} emacspeak-emms-speak-current-track ()
+Speak current track.
+@end deffn
+
 @node emacspeak-enriched
 @section emacspeak-enriched
 
@@ -1268,6 +1288,22 @@ When eterm autospeak is turned on and the terminal is in line mode,
 all output to the terminal is automatically spoken. 
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
+@end deffn
+
+@node emacspeak-eudc
+@section emacspeak-eudc
+
+Commentary:
+EUDC --Emacs Universal Directory Client 
+provides a unified interface to directory servers
+e.g. ldap servers
+this module speech enables eudc 
+
+Automatically generated documentation
+for commands defined in module  emacspeak-eudc.
+
+@deffn {Interactive Command} emacspeak-eudc-send-mail ()
+Send email to the address given by the current record. 
 @end deffn
 
 @node emacspeak-filtertext
@@ -2323,58 +2359,6 @@ explicitly turn pronunciations on or off.
 Yank word at point into minibuffer.
 @end deffn
 
-@node emacspeak-psgml
-@section emacspeak-psgml
-
-Commentary:
-Speech-enable psgml --a powerful SGML support package.
-psgml can be found at 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-psgml.
-
-@deffn {Interactive Command} emacspeak-psgml-speak-current-element ()
-Speak contents of current element. 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-psgml-summarize-element ()
-Context-sensitive element summarizer.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-psgml-toggle-interactive-font-lock ()
-Toggles variable sgml-set-face.
-When turned on, the  buffer is font locked interactively.
-Leave this off in general while editting.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-xml-browse-mode ()
-Mode for browsing XML documents.
-
-Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
-
-In addition to any hooks its parent mode `xml-mode' might have run,
-this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
-during initialization.
-@end deffn
-
-@node emacspeak-python
-@section emacspeak-python
-
-Commentary:
-This speech-enables python-mode available on sourceforge
-
-Automatically generated documentation
-for commands defined in module  emacspeak-python.
-
-@deffn {Interactive Command} emacspeak-py-next-block ()
-Move forward to the beginning of the next block.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-py-previous-block ()
-Move backward to the beginning of the current block.
-If already at the beginning then move to previous block.
-@end deffn
-
 @node emacspeak-realaudio
 @section emacspeak-realaudio
 
@@ -3362,6 +3346,111 @@ Does the equivalent of the mouse click from the keyboard
 
 @deffn {Interactive Command} emacspeak-speedbar-goto-speedbar ()
 Switch to the speedbar
+@end deffn
+
+@node emacspeak-sudoku
+@section emacspeak-sudoku
+
+Commentary:
+Playing SuDoku using speech output.
+Written to discover what type of feedback one needs for  this
+task
+
+Automatically generated documentation
+for commands defined in module  emacspeak-sudoku.
+
+@deffn {Interactive Command} emacspeak-sudoku-board-columns-summarize ()
+Summarize columns --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-distribution-summarize ()
+Shows distribution of filled numbers.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-rows-summarize ()
+Summarize rows --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-sub-squares-summarize ()
+Summarize sub-squares --- speaks number of remaining cells.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-board-summarizer ()
+Dispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-down-sub-square ()
+Move to top-left corner of  sub-square below current one.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-column ()
+Erase current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-row ()
+Erase current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-erase-current-sub-square ()
+Erase current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-hint ()
+Provide hint for current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-how-many-remaining ()
+Speak number of remaining squares to fill.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-next-sub-square ()
+Move to top-left corner of next sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-previous-sub-square ()
+Move to top-left corner of previous sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-coordinates ()
+speak current cell coordinates.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-cell-value ()
+Speak value in current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-column ()
+Speak current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-row ()
+Speak current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-current-sub-square ()
+Speak current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-column ()
+Speaks number of remaining cells in current column.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-row ()
+Speaks number of remaining cells in current row.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-speak-remaining-in-sub-square ()
+Speaks number of remaining cells in current sub-square.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-up-sub-square ()
+Move to top-left corner of  sub-square above current one.
 @end deffn
 
 @node emacspeak-table-ui
@@ -4754,6 +4843,8 @@ meaning of `previous'.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-ssh-tts-restart ()
+@kbd{ control e <delete> }
+
 Restart specified ssh tts server.
 @end deffn
 
@@ -5170,6 +5261,41 @@ Give a brief overview of emacspeak.
 @kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node emacspeak-w3search
+@section emacspeak-w3search
+
+Commentary:
+Site-specific websearch enhancements
+
+(emacspeak-websearch-set-searcher 'ibm-internal
+                                  'emacspeak-websearch-ibm-internal)
+
+(emacspeak-websearch-set-key ?I'ibm-internal)
+
+(defvar emacspeak-websearch-ibm-internal-uri
+  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
+  "*URI for IBM internal  search")
+
+(defun emacspeak-websearch-ibm-internal (query )
+  "Search IBM using trevi"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "IBM Internal  Search ")))
+  (declare (special emacspeak-websearch-ibm-internal-uri))
+    (browse-url 
+     (format  emacspeak-websearch-ibm-internal-uri
+(webjump-url-encode query)))
+  )
+
+(provide 'emacspeak-w3search)
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3search.
+
+@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
+Search IBM using trevi
 @end deffn
 
 @node URL Templates 
