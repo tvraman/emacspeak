@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 728 commands.
+This chapter documents a total of 732 commands.
 
 @menu
 * cd-tool::                     
@@ -26,13 +26,11 @@ This chapter documents a total of 728 commands.
 * emacspeak-dismal::            
 * emacspeak-ecb::               
 * emacspeak-ediff::             
-* emacspeak-emms::              
 * emacspeak-enriched::          
 * emacspeak-entertain::         
 * emacspeak-eperiodic::         
 * emacspeak-erc::               
 * emacspeak-eterm::             
-* emacspeak-eudc::              
 * emacspeak-filtertext::        
 * emacspeak-fix-interactive::   
 * emacspeak-forms::             
@@ -44,9 +42,11 @@ This chapter documents a total of 728 commands.
 * emacspeak-ibuffer::           
 * emacspeak-imcom::             
 * emacspeak-imenu::             
+* emacspeak-info::              
 * emacspeak-jabber::            
 * emacspeak-keymap::            
 * emacspeak-kotl::              
+* emacspeak-loaddefs::          
 * emacspeak-m-player::          
 * emacspeak-madplay::           
 * emacspeak-man::               
@@ -76,13 +76,12 @@ This chapter documents a total of 728 commands.
 * emacspeak-view::              
 * emacspeak-vm::                
 * emacspeak-w3::                
+* emacspeak-w3m::               
 * emacspeak-websearch::         
 * emacspeak-widget::            
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
 * emacspeak::                   
-* emacspeak-w3search::          
-* emacspeak-info::              
 * URL Templates ::              
 @end menu
 
@@ -412,28 +411,28 @@ Major mode for alsaplayer interaction.
 key             binding
 ---             -------
 
-v		emacspeak-alsaplayer-volume
-?		emacspeak-alsaplayer-status
-/		emacspeak-alsaplayer-speed
-S		emacspeak-alsaplayer-stop
-s		emacspeak-alsaplayer-start
-r		emacspeak-alsaplayer-relative
-q		emacspeak-alsaplayer-quit
-p		emacspeak-alsaplayer-previous
-n		emacspeak-alsaplayer-next
 SPC		emacspeak-alsaplayer-pause
-l		emacspeak-alsaplayer-launch
-j		emacspeak-alsaplayer-jump
-g		emacspeak-alsaplayer-seek
-c		emacspeak-alsaplayer-clear
-A		emacspeak-alsaplayer-replace-queue
-a		emacspeak-alsaplayer-add-to-queue
-[		emacspeak-alsaplayer-backward-ten-minutes
-]		emacspeak-alsaplayer-forward-ten-minutes
-<		emacspeak-alsaplayer-backward-minute
->		emacspeak-alsaplayer-forward-minute
 ,		emacspeak-alsaplayer-backward-second
 .		emacspeak-alsaplayer-forward-second
+/		emacspeak-alsaplayer-speed
+<		emacspeak-alsaplayer-backward-minute
+>		emacspeak-alsaplayer-forward-minute
+?		emacspeak-alsaplayer-status
+A		emacspeak-alsaplayer-replace-queue
+S		emacspeak-alsaplayer-stop
+[		emacspeak-alsaplayer-backward-ten-minutes
+]		emacspeak-alsaplayer-forward-ten-minutes
+a		emacspeak-alsaplayer-add-to-queue
+c		emacspeak-alsaplayer-clear
+g		emacspeak-alsaplayer-seek
+j		emacspeak-alsaplayer-jump
+l		emacspeak-alsaplayer-launch
+n		emacspeak-alsaplayer-next
+p		emacspeak-alsaplayer-previous
+q		emacspeak-alsaplayer-quit
+r		emacspeak-alsaplayer-relative
+s		emacspeak-alsaplayer-start
+v		emacspeak-alsaplayer-volume
 
 This mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
 during initialization.
@@ -721,17 +720,17 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 key             binding
 ---             -------
 
-P		emacspeak-daisy-play-page-range
 RET		emacspeak-daisy-play-content-under-point
 SPC		emacspeak-daisy-play-audio-under-point
-q		bury-buffer
+?		describe-mode
+P		emacspeak-daisy-play-page-range
 S		emacspeak-daisy-save-bookmarks
+m		emacspeak-daisy-mark-position-in-content-under-point
+n		emacspeak-daisy-next-line
 o		emacspeak-daisy-define-outline-pattern
 p		emacspeak-daisy-previous-line
-n		emacspeak-daisy-next-line
+q		bury-buffer
 s		emacspeak-daisy-stop-audio
-m		emacspeak-daisy-mark-position-in-content-under-point
-?		describe-mode
 
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-daisy-mode-hook', as the final step
@@ -942,24 +941,6 @@ for commands defined in module  emacspeak-ediff.
 
 @deffn {Interactive Command} emacspeak-ediff-speak-current-difference ()
 Speak the current difference
-@end deffn
-
-@node emacspeak-emms
-@section emacspeak-emms
-
-Commentary:
-Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
-http://savannah.gnu.org/project/emms
-EMMS is under active development,
-to get the current CVS version, use Emacspeak command
-M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
-
-Automatically generated documentation
-for commands defined in module  emacspeak-emms.
-
-@deffn {Interactive Command} emacspeak-emms-speak-current-track ()
-Speak current track.
 @end deffn
 
 @node emacspeak-enriched
@@ -1289,22 +1270,6 @@ all output to the terminal is automatically spoken.
   current local  value to the result. 
 @end deffn
 
-@node emacspeak-eudc
-@section emacspeak-eudc
-
-Commentary:
-EUDC --Emacs Universal Directory Client 
-provides a unified interface to directory servers
-e.g. ldap servers
-this module speech enables eudc 
-
-Automatically generated documentation
-for commands defined in module  emacspeak-eudc.
-
-@deffn {Interactive Command} emacspeak-eudc-send-mail ()
-Send email to the address given by the current record. 
-@end deffn
-
 @node emacspeak-filtertext
 @section emacspeak-filtertext
 
@@ -1324,9 +1289,9 @@ Major mode for FilterText interaction.
 key             binding
 ---             -------
 
-r		emacspeak-filtertext-revert
-^		flush-lines
 =		keep-lines
+^		flush-lines
+r		emacspeak-filtertext-revert
 
 In addition to any hooks its parent mode `text-mode' might have run,
 this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
@@ -1414,17 +1379,16 @@ Major mode for freeamp interaction.
 key             binding
 ---             -------
 
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
-q		emacspeak-freeamp-freeamp-call-command
++		emacspeak-freeamp-freeamp-call-command
+-		emacspeak-freeamp-freeamp-call-command
 =		emacspeak-freeamp-freeamp-call-command
-s		emacspeak-freeamp-freeamp-call-command
 b		emacspeak-freeamp-freeamp-call-command
 f		emacspeak-freeamp-freeamp-call-command
--		emacspeak-freeamp-freeamp-call-command
-+		emacspeak-freeamp-freeamp-call-command
-p		emacspeak-freeamp-freeamp-call-command
 o		emacspeak-freeamp
+p .. q		emacspeak-freeamp-freeamp-call-command
+s		emacspeak-freeamp-freeamp-call-command
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
 
 This mode runs the hook `emacspeak-freeamp-mode-hook', as the final step
 during initialization.
@@ -1629,6 +1593,25 @@ Goto the previous index position in current buffer
 Speak upto start of next index entry
 @end deffn
 
+@node emacspeak-info
+@section emacspeak-info
+
+Automatically generated documentation
+for commands defined in module  emacspeak-info.
+
+@deffn {Interactive Command} emacspeak-info-speak-header ()
+Speak info header line.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-info-wizard (NODE-SPEC)
+@kbd{ control h TAB   <f1> TAB   <help> TAB }
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+@end deffn
+
 @node emacspeak-jabber
 @section emacspeak-jabber
 
@@ -1673,6 +1656,22 @@ Setup additional keybindings
 @deffn {Interactive Command} emacspeak-kotl-speak-cell (ARG)
 Speak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+@end deffn
+
+@node emacspeak-loaddefs
+@section emacspeak-loaddefs
+
+Automatically generated documentation
+for commands defined in module  emacspeak-loaddefs.
+
+@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
+@kbd{ control e o }
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
 @end deffn
 
 @node emacspeak-m-player
@@ -1801,44 +1800,44 @@ Major mode for m-player interaction.
 key             binding
 ---             -------
 
-+		emacspeak-m-player-volume-up
-=		emacspeak-m-player-volume-up
--		emacspeak-m-player-volume-down
-q		emacspeak-m-player-quit
+RET		emacspeak-m-player
 SPC		emacspeak-m-player-pause
-g		emacspeak-m-player-seek-absolute
-r		emacspeak-m-player-seek-relative
-DEL		emacspeak-m-player-reset-speed
-@}		emacspeak-m-player-double-speed
-@{		emacspeak-m-player-half-speed
-]		emacspeak-m-player-faster
-[		emacspeak-m-player-slower
-s		emacspeak-m-player-scale-speed
-<end>		emacspeak-m-player-end-of-track
-<home>		emacspeak-m-player-beginning-of-track
-<next>		emacspeak-m-player-forward-10min
-<prior>		emacspeak-m-player-backward-10min
->		emacspeak-m-player-forward-1min
-<		emacspeak-m-player-backward-1min
-<down>		emacspeak-m-player-forward-1min
-<up>		emacspeak-m-player-backward-1min
-<right>		emacspeak-m-player-forward-10s
-<left>		emacspeak-m-player-backward-10s
-.		emacspeak-m-player-forward-10s
++		emacspeak-m-player-volume-up
 ,		emacspeak-m-player-backward-10s
-n		emacspeak-m-player-next-track
-p		emacspeak-m-player-previous-track
-t		emacspeak-m-player-play-tree-step
+-		emacspeak-m-player-volume-down
+.		emacspeak-m-player-forward-10s
+:		emacspeak-m-player
+<		emacspeak-m-player-backward-1min
+=		emacspeak-m-player-volume-up
+>		emacspeak-m-player-forward-1min
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-playlist
-l		emacspeak-m-player-load-file
-b		bury-buffer
-f		emacspeak-m-player-add-filter
 O		emacspeak-m-player-reset-options
-o		emacspeak-m-player-customize-options
+[		emacspeak-m-player-slower
+]		emacspeak-m-player-faster
+b		bury-buffer
 e		emacspeak-m-player-add-equalizer
-:		emacspeak-m-player
-RET		emacspeak-m-player
+f		emacspeak-m-player-add-filter
+g		emacspeak-m-player-seek-absolute
+l		emacspeak-m-player-load-file
+n		emacspeak-m-player-next-track
+o		emacspeak-m-player-customize-options
+p		emacspeak-m-player-previous-track
+q		emacspeak-m-player-quit
+r		emacspeak-m-player-seek-relative
+s		emacspeak-m-player-scale-speed
+t		emacspeak-m-player-play-tree-step
+@{		emacspeak-m-player-half-speed
+@}		emacspeak-m-player-double-speed
+DEL		emacspeak-m-player-reset-speed
+<down>		emacspeak-m-player-forward-1min
+<end>		emacspeak-m-player-end-of-track
+<home>		emacspeak-m-player-beginning-of-track
+<left>		emacspeak-m-player-backward-10s
+<next>		emacspeak-m-player-forward-10min
+<prior>		emacspeak-m-player-backward-10min
+<right>		emacspeak-m-player-forward-10s
+<up>		emacspeak-m-player-backward-1min
 
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
@@ -1938,17 +1937,15 @@ Major mode for madplay interaction.
 key             binding
 ---             -------
 
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
-t		emacspeak-madplay-madplay-call-command
-q		emacspeak-madplay-madplay-call-command
--		emacspeak-madplay-madplay-call-command
 +		emacspeak-madplay-madplay-call-command
-s		emacspeak-madplay-madplay-call-command
-p		emacspeak-madplay-madplay-call-command
+-		emacspeak-madplay-madplay-call-command
 b		emacspeak-madplay-madplay-call-command
 f		emacspeak-madplay-madplay-call-command
 o		emacspeak-madplay
+p .. q		emacspeak-madplay-madplay-call-command
+s .. t		emacspeak-madplay-madplay-call-command
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
 
 This mode runs the hook `emacspeak-madplay-mode-hook', as the final step
 during initialization.
@@ -2121,32 +2118,24 @@ Key Bindings:
 See key             binding
 ---             -------
 
-9		emacspeak-ocr-page
-8		emacspeak-ocr-page
-7		emacspeak-ocr-page
-6		emacspeak-ocr-page
-5		emacspeak-ocr-page
-4		emacspeak-ocr-page
-3		emacspeak-ocr-page
-2		emacspeak-ocr-page
-1		emacspeak-ocr-page
+RET		emacspeak-ocr-scan-and-recognize
+SPC		emacspeak-ocr-read-current-page
+1 .. 9		emacspeak-ocr-page
+?		describe-mode
 C		emacspeak-ocr-set-compress-image-options
 I		emacspeak-ocr-set-scan-image-options
-SPC		emacspeak-ocr-read-current-page
-s		emacspeak-ocr-save-current-page
-p		emacspeak-ocr-page
-]		emacspeak-ocr-forward-page
 [		emacspeak-ocr-backward-page
+]		emacspeak-ocr-forward-page
+c		emacspeak-ocr-customize
 d		emacspeak-ocr-open-working-directory
+i		emacspeak-ocr-scan-image
+j		emacspeak-ocr-scan-photo
 n		emacspeak-ocr-name-document
 o		emacspeak-ocr-recognize-image
-j		emacspeak-ocr-scan-photo
-i		emacspeak-ocr-scan-image
-RET		emacspeak-ocr-scan-and-recognize
-w		emacspeak-ocr-write-document
+p		emacspeak-ocr-page
 q		bury-buffer
-c		emacspeak-ocr-customize
-?		describe-mode
+s		emacspeak-ocr-save-current-page
+w		emacspeak-ocr-write-document
 
 .
 
@@ -3010,7 +2999,7 @@ Speak the next window.
 @kbd{ control e meta b }
 
 Speak specified buffer.
-Useful to listen to a buffer while in a different context.
+Useful to listen to a buffer without switching  contexts.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-other-window (&optional ARG)
@@ -3256,16 +3245,6 @@ current local  value to the result.
 @kbd{ control e control q }
 
 Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
-@kbd{ control e o }
-
-Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -4129,6 +4108,40 @@ Junk elements matching specified locator.
 Select XSL transformation applied to WWW pages before they are displayed .
 @end deffn
 
+@node emacspeak-w3m
+@section emacspeak-w3m
+
+Commentary:
+
+
+
+Automatically generated documentation
+for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-xsl-add-submit-button (&optional PERSISTENT)
+Add regular submit button if needed.
+With prefix arg makes this transformation persistent.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-xsl-google-hits (&optional PERSISTENT)
+Extracts Google hits from the current page.
+With prefix argument makes this transformation persistent.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-xsl-linearize-tables (&optional PERSISTENT)
+Linearizes tables on the current page.
+With prefix argument makes this transformation persistent.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-xsl-sort-tables (&optional PERSISTENT)
+Sorts tables on the current page.
+With prefix argument makes this transformation persistent.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-xslt-apply (XSL)
+Apply specified transformation to current page.
+@end deffn
+
 @node emacspeak-websearch
 @section emacspeak-websearch
 
@@ -4544,7 +4557,7 @@ Warning! Contents of file filename will be overwritten.
 Kill current buffer without asking for confirmation.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-learn-mode ()
+@deffn {Interactive Command} emacspeak-learn-emacs-mode ()
 @kbd{ control e <f1>   control h control l   <f1> control l   <help> control l }
 
 Helps you learn the keys.  You can press keys and hear what they do.
@@ -4680,8 +4693,7 @@ previous window configuration.
 
 Invoke shell COMMAND and display its output as a table.  The results
 are placed in a buffer in Emacspeak's table browsing mode.  Optional
-interactive prefix arg as-root runs the command as root (not yet
-implemented).  Use this for running shell commands that produce
+interactive prefix arg as-root runs the command as root.  Use this for running shell commands that produce
 tabulated output.  This command should be used for shell commands that
 produce tabulated output that works with Emacspeak's table recognizer.
 Verify this first by running the command in a shell and executing
@@ -4882,6 +4894,10 @@ Filter Google results after performing search to show just the
 hits.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-google-transcode ()
+View Web through Google Transcoder.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-how-many-matches (START END &optional PREFIX)
 If you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
@@ -4894,10 +4910,9 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
-first.
-Point is left at the target position.
-Interactively, command is specified by pressing the key that
-;;invokes the command.
+first.  Point is left at the target position.  Interactively,
+command is specified by pressing the key that invokes the
+command.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-occur-header-lines (PREFIX)
@@ -5119,12 +5134,12 @@ key             binding
 
 C-c		Prefix Command
 <down>		emacspeak-xml-shell-goto-children
-<up>		emacspeak-xml-shell-goto-parent
-<right>		emacspeak-xml-shell-goto-next-child
 <left>		emacspeak-xml-shell-goto-previous-child
+<right>		emacspeak-xml-shell-goto-next-child
+<up>		emacspeak-xml-shell-goto-parent
 
-C-c v		emacspeak-xml-shell-browse-current
 C-c C-v		emacspeak-xml-shell-browse-result
+C-c v		emacspeak-xml-shell-browse-current
 
 In addition to any hooks its parent mode `comint-mode' might have run,
 this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
@@ -5157,65 +5172,13 @@ Give a brief overview of emacspeak.
 Function to submit a bug to the programs maintainer.
 @end deffn
 
-@node emacspeak-w3search
-@section emacspeak-w3search
-
-Commentary:
-Site-specific websearch enhancements
-
-(emacspeak-websearch-set-searcher 'ibm-internal
-                                  'emacspeak-websearch-ibm-internal)
-
-(emacspeak-websearch-set-key ?I'ibm-internal)
-
-(defvar emacspeak-websearch-ibm-internal-uri
-  "http://trevi.almaden.ibm.com/TreviSearch/search?query=%s&btnG=Search+IBM&mode=query&toolbarUsed=false"
-  "*URI for IBM internal  search")
-
-(defun emacspeak-websearch-ibm-internal (query )
-  "Search IBM using trevi"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "IBM Internal  Search ")))
-  (declare (special emacspeak-websearch-ibm-internal-uri))
-    (browse-url 
-     (format  emacspeak-websearch-ibm-internal-uri
-(webjump-url-encode query)))
-  )
-
-(provide 'emacspeak-w3search)
-
-Automatically generated documentation
-for commands defined in module  emacspeak-w3search.
-
-@deffn {Interactive Command} emacspeak-websearch-ibm-internal (QUERY)
-Search IBM using trevi
-@end deffn
-
-@node emacspeak-info
-@section emacspeak-info
-
-Automatically generated documentation
-for commands defined in module  emacspeak-info.
-
-@deffn {Interactive Command} emacspeak-info-wizard ()
-@kbd{ control h TAB   <f1> TAB   <help> TAB }
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC)
-@end deffn
-
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 101 URL Templates.
+This section documents a total of 104 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5366,6 +5329,10 @@ Browse to a specified DDJ Technetcast stream and save  it.
 
 Dictionary Lookup
 
+@kbd{EmacsWiki Search}
+
+EmacsWiki Search
+
 @kbd{EmapSpeak Via Google}
 
 EmapSpeak Via Google.
@@ -5455,6 +5422,10 @@ Google Print Search
 
 Search Google news.
 
+@kbd{Google Reader}
+
+View feed via Google Reader.
+
 @kbd{Google Scholar}
 
 Google Scholar Search
@@ -5462,6 +5433,10 @@ Google Scholar Search
 @kbd{Google Text  News}
 
 Retrieve and speak Google News Overview.
+
+@kbd{Google Transcoder}
+
+Transcode site via Google.
 
 @kbd{Google WebQuotes}
 
