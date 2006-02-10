@@ -47,7 +47,7 @@
 
 ;;}}}
 ;;{{{  Required modules
-
+;;; Code:
 (require 'emacspeak-preamble)
 (require 'desktop)
 (require 'dired)
