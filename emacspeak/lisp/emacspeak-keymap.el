@@ -433,6 +433,7 @@ field in the customization buffer.  You can use the notation
         ([f1] emacspeak-learn-emacs-mode)
         ([f11] emacspeak-wizards-shell-toggle)
         ([insert] emacspeak-emergency-tts-restart)
+        ([delete] emacspeak-ssh-tts-restart)
         ([right] emacspeak-speak-this-buffer-next-display)
         ([up]  emacspeak-read-previous-line)
         )
