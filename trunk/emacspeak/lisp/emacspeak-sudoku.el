@@ -79,21 +79,17 @@ s   Sub-square Distribution.
   "Shows distribution of filled numbers."
   (interactive)
   (declare (special current-board))
-  (let ((msg "")
-        (counts (make-vector 10 0)))
-    (loop for i in current-board
+  (let ((counts (make-vector 9 0)))
+    (loop for row in current-board
           do
-          (loop for v in i
+          (loop for v in row
                 do
-          (incf (aref counts v))))
-    (loop for i from 1 to 9
-          do
-          (setq msg
-                (concat msg
-                        (format " %s "
-                                 (aref counts i)))))
-    (message msg)))
-  
+                (if (> v 0)
+                    (incf (aref counts (1- v))))))
+    (dtk-speak-list
+     (loop for i across counts collect i)
+     3)))
+
 (defun emacspeak-sudoku-board-rows-summarize ()
   "Summarize rows --- speaks number of remaining cells."
   (interactive)
