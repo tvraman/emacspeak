@@ -181,8 +181,7 @@ s   Sub-square Distribution.
 		     (second cell))))
     (cond
      (possibles 
-      (dtk-speak-list possibles
-                      3))
+      (dtk-speak-list possibles))
      (t (message "Dead End")))))
 
 (defun emacspeak-sudoku-speak-remaining-in-row ()
