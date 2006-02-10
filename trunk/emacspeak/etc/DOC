@@ -292,28 +292,28 @@ Alsaplayer session.
 key             binding
 ---             -------
 
-v		emacspeak-alsaplayer-volume
-?		emacspeak-alsaplayer-status
-/		emacspeak-alsaplayer-speed
-S		emacspeak-alsaplayer-stop
-s		emacspeak-alsaplayer-start
-r		emacspeak-alsaplayer-relative
-q		emacspeak-alsaplayer-quit
-p		emacspeak-alsaplayer-previous
-n		emacspeak-alsaplayer-next
 SPC		emacspeak-alsaplayer-pause
-l		emacspeak-alsaplayer-launch
-j		emacspeak-alsaplayer-jump
-g		emacspeak-alsaplayer-seek
-c		emacspeak-alsaplayer-clear
-A		emacspeak-alsaplayer-replace-queue
-a		emacspeak-alsaplayer-add-to-queue
-[		emacspeak-alsaplayer-backward-ten-minutes
-]		emacspeak-alsaplayer-forward-ten-minutes
-<		emacspeak-alsaplayer-backward-minute
->		emacspeak-alsaplayer-forward-minute
 ,		emacspeak-alsaplayer-backward-second
 .		emacspeak-alsaplayer-forward-second
+/		emacspeak-alsaplayer-speed
+<		emacspeak-alsaplayer-backward-minute
+>		emacspeak-alsaplayer-forward-minute
+?		emacspeak-alsaplayer-status
+A		emacspeak-alsaplayer-replace-queue
+S		emacspeak-alsaplayer-stop
+[		emacspeak-alsaplayer-backward-ten-minutes
+]		emacspeak-alsaplayer-forward-ten-minutes
+a		emacspeak-alsaplayer-add-to-queue
+c		emacspeak-alsaplayer-clear
+g		emacspeak-alsaplayer-seek
+j		emacspeak-alsaplayer-jump
+l		emacspeak-alsaplayer-launch
+n		emacspeak-alsaplayer-next
+p		emacspeak-alsaplayer-previous
+q		emacspeak-alsaplayer-quit
+r		emacspeak-alsaplayer-relative
+s		emacspeak-alsaplayer-start
+v		emacspeak-alsaplayer-volume
 
 
 
@@ -522,17 +522,17 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 key             binding
 ---             -------
 
-P		emacspeak-daisy-play-page-range
 RET		emacspeak-daisy-play-content-under-point
 SPC		emacspeak-daisy-play-audio-under-point
-q		bury-buffer
+?		describe-mode
+P		emacspeak-daisy-play-page-range
 S		emacspeak-daisy-save-bookmarks
+m		emacspeak-daisy-mark-position-in-content-under-point
+n		emacspeak-daisy-next-line
 o		emacspeak-daisy-define-outline-pattern
 p		emacspeak-daisy-previous-line
-n		emacspeak-daisy-next-line
+q		bury-buffer
 s		emacspeak-daisy-stop-audio
-m		emacspeak-daisy-mark-position-in-content-under-point
-?		describe-mode
 
 
 
@@ -715,10 +715,6 @@ emacspeak-dismal-sheet-summarizer-list
 ------------------------------------------------------------
 
 ** emacspeak-ediff-speak-current-differenceSpeak the current difference
-
-------------------------------------------------------------
-
-** emacspeak-emms-speak-current-trackSpeak current track.
 
 ------------------------------------------------------------
 
@@ -1002,10 +998,6 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
-** emacspeak-eudc-send-mailSend email to the address given by the current record. 
-
-------------------------------------------------------------
-
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
 Copy over text in region to special filtertext buffer in
@@ -1019,9 +1011,9 @@ preparation for interactively filtering text.
 key             binding
 ---             -------
 
-r		emacspeak-filtertext-revert
-^		flush-lines
 =		keep-lines
+^		flush-lines
+r		emacspeak-filtertext-revert
 
 
 
@@ -1086,17 +1078,16 @@ Call appropriate freeamp command.
 key             binding
 ---             -------
 
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
-q		emacspeak-freeamp-freeamp-call-command
++		emacspeak-freeamp-freeamp-call-command
+-		emacspeak-freeamp-freeamp-call-command
 =		emacspeak-freeamp-freeamp-call-command
-s		emacspeak-freeamp-freeamp-call-command
 b		emacspeak-freeamp-freeamp-call-command
 f		emacspeak-freeamp-freeamp-call-command
--		emacspeak-freeamp-freeamp-call-command
-+		emacspeak-freeamp-freeamp-call-command
-p		emacspeak-freeamp-freeamp-call-command
 o		emacspeak-freeamp
+p .. q		emacspeak-freeamp-freeamp-call-command
+s		emacspeak-freeamp-freeamp-call-command
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
 
 
 
@@ -1234,6 +1225,19 @@ during initialization.
 
 ------------------------------------------------------------
 
+** emacspeak-info-speak-headerSpeak info header line.
+
+------------------------------------------------------------
+
+** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
+
+Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec.
+
+------------------------------------------------------------
+
 ** emacspeak-jabber-popup-rosterPop to Jabber roster.
 
 ------------------------------------------------------------
@@ -1254,6 +1258,16 @@ relief.
 
 ** emacspeak-kotl-speak-cellSpeak cell contents from point to end of cell.
   With prefix arg, speaks entire cell contents
+
+------------------------------------------------------------
+
+** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
+
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
 
 ------------------------------------------------------------
 
@@ -1362,44 +1376,44 @@ Automatically defined advice to speak interactive prompts.
 key             binding
 ---             -------
 
-+		emacspeak-m-player-volume-up
-=		emacspeak-m-player-volume-up
--		emacspeak-m-player-volume-down
-q		emacspeak-m-player-quit
+RET		emacspeak-m-player
 SPC		emacspeak-m-player-pause
-g		emacspeak-m-player-seek-absolute
-r		emacspeak-m-player-seek-relative
-DEL		emacspeak-m-player-reset-speed
-}		emacspeak-m-player-double-speed
-{		emacspeak-m-player-half-speed
-]		emacspeak-m-player-faster
-[		emacspeak-m-player-slower
-s		emacspeak-m-player-scale-speed
-<end>		emacspeak-m-player-end-of-track
-<home>		emacspeak-m-player-beginning-of-track
-<next>		emacspeak-m-player-forward-10min
-<prior>		emacspeak-m-player-backward-10min
->		emacspeak-m-player-forward-1min
-<		emacspeak-m-player-backward-1min
-<down>		emacspeak-m-player-forward-1min
-<up>		emacspeak-m-player-backward-1min
-<right>		emacspeak-m-player-forward-10s
-<left>		emacspeak-m-player-backward-10s
-.		emacspeak-m-player-forward-10s
++		emacspeak-m-player-volume-up
 ,		emacspeak-m-player-backward-10s
-n		emacspeak-m-player-next-track
-p		emacspeak-m-player-previous-track
-t		emacspeak-m-player-play-tree-step
+-		emacspeak-m-player-volume-down
+.		emacspeak-m-player-forward-10s
+:		emacspeak-m-player
+<		emacspeak-m-player-backward-1min
+=		emacspeak-m-player-volume-up
+>		emacspeak-m-player-forward-1min
 ?		emacspeak-m-player-display-position
 L		emacspeak-m-player-load-playlist
-l		emacspeak-m-player-load-file
-b		bury-buffer
-f		emacspeak-m-player-add-filter
 O		emacspeak-m-player-reset-options
-o		emacspeak-m-player-customize-options
+[		emacspeak-m-player-slower
+]		emacspeak-m-player-faster
+b		bury-buffer
 e		emacspeak-m-player-add-equalizer
-:		emacspeak-m-player
-RET		emacspeak-m-player
+f		emacspeak-m-player-add-filter
+g		emacspeak-m-player-seek-absolute
+l		emacspeak-m-player-load-file
+n		emacspeak-m-player-next-track
+o		emacspeak-m-player-customize-options
+p		emacspeak-m-player-previous-track
+q		emacspeak-m-player-quit
+r		emacspeak-m-player-seek-relative
+s		emacspeak-m-player-scale-speed
+t		emacspeak-m-player-play-tree-step
+{		emacspeak-m-player-half-speed
+}		emacspeak-m-player-double-speed
+DEL		emacspeak-m-player-reset-speed
+<down>		emacspeak-m-player-forward-1min
+<end>		emacspeak-m-player-end-of-track
+<home>		emacspeak-m-player-beginning-of-track
+<left>		emacspeak-m-player-backward-10s
+<next>		emacspeak-m-player-forward-10min
+<prior>		emacspeak-m-player-backward-10min
+<right>		emacspeak-m-player-forward-10s
+<up>		emacspeak-m-player-backward-1min
 
 
 
@@ -1491,17 +1505,15 @@ The player is placed in a buffer in emacspeak-madplay-mode.
 key             binding
 ---             -------
 
-<right>		emacspeak-aumix-wave-increase
-<left>		emacspeak-aumix-wave-decrease
-t		emacspeak-madplay-madplay-call-command
-q		emacspeak-madplay-madplay-call-command
--		emacspeak-madplay-madplay-call-command
 +		emacspeak-madplay-madplay-call-command
-s		emacspeak-madplay-madplay-call-command
-p		emacspeak-madplay-madplay-call-command
+-		emacspeak-madplay-madplay-call-command
 b		emacspeak-madplay-madplay-call-command
 f		emacspeak-madplay-madplay-call-command
 o		emacspeak-madplay
+p .. q		emacspeak-madplay-madplay-call-command
+s .. t		emacspeak-madplay-madplay-call-command
+<left>		emacspeak-aumix-wave-decrease
+<right>		emacspeak-aumix-wave-increase
 
 
 
@@ -1640,32 +1652,24 @@ Key Bindings:
 See key             binding
 ---             -------
 
-9		emacspeak-ocr-page
-8		emacspeak-ocr-page
-7		emacspeak-ocr-page
-6		emacspeak-ocr-page
-5		emacspeak-ocr-page
-4		emacspeak-ocr-page
-3		emacspeak-ocr-page
-2		emacspeak-ocr-page
-1		emacspeak-ocr-page
+RET		emacspeak-ocr-scan-and-recognize
+SPC		emacspeak-ocr-read-current-page
+1 .. 9		emacspeak-ocr-page
+?		describe-mode
 C		emacspeak-ocr-set-compress-image-options
 I		emacspeak-ocr-set-scan-image-options
-SPC		emacspeak-ocr-read-current-page
-s		emacspeak-ocr-save-current-page
-p		emacspeak-ocr-page
-]		emacspeak-ocr-forward-page
 [		emacspeak-ocr-backward-page
+]		emacspeak-ocr-forward-page
+c		emacspeak-ocr-customize
 d		emacspeak-ocr-open-working-directory
+i		emacspeak-ocr-scan-image
+j		emacspeak-ocr-scan-photo
 n		emacspeak-ocr-name-document
 o		emacspeak-ocr-recognize-image
-j		emacspeak-ocr-scan-photo
-i		emacspeak-ocr-scan-image
-RET		emacspeak-ocr-scan-and-recognize
-w		emacspeak-ocr-write-document
+p		emacspeak-ocr-page
 q		bury-buffer
-c		emacspeak-ocr-customize
-?		describe-mode
+s		emacspeak-ocr-save-current-page
+w		emacspeak-ocr-write-document
 
 .
 
@@ -2412,7 +2416,7 @@ Speak the next window.
 ** emacspeak-speak-other-buffer	Key Sequence: control e meta b 
 
 Speak specified buffer.
-Useful to listen to a buffer while in a different context.
+Useful to listen to a buffer without switching  contexts.
 
 ------------------------------------------------------------
 
@@ -2658,16 +2662,6 @@ current local  value to the result.
 ** emacspeak-toggle-comint-autospeak	Key Sequence: control e control q 
 
 Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-
-------------------------------------------------------------
-
-** emacspeak-toggle-comint-output-monitor	Key Sequence: control e o 
-
-Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -3431,6 +3425,30 @@ Optional arg COMPLEMENT inverts the filter.
 
 ------------------------------------------------------------
 
+** emacspeak-w3m-xsl-add-submit-buttonAdd regular submit button if needed.
+With prefix arg makes this transformation persistent.
+
+------------------------------------------------------------
+
+** emacspeak-w3m-xsl-google-hitsExtracts Google hits from the current page.
+With prefix argument makes this transformation persistent.
+
+------------------------------------------------------------
+
+** emacspeak-w3m-xsl-linearize-tablesLinearizes tables on the current page.
+With prefix argument makes this transformation persistent.
+
+------------------------------------------------------------
+
+** emacspeak-w3m-xsl-sort-tablesSorts tables on the current page.
+With prefix argument makes this transformation persistent.
+
+------------------------------------------------------------
+
+** emacspeak-w3m-xslt-applyApply specified transformation to current page.
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-alltheweb-searchPerform an AllTheWeb  search.
 
 ------------------------------------------------------------
@@ -3818,7 +3836,7 @@ Warning! Contents of file filename will be overwritten.
 
 ------------------------------------------------------------
 
-** emacspeak-learn-mode	Key Sequence: control e <f1>   control h control l   <f1> control l   <help> control l 
+** emacspeak-learn-emacs-mode	Key Sequence: control e <f1>   control h control l   <f1> control l   <help> control l 
 
 Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press C-g.
@@ -3953,8 +3971,7 @@ previous window configuration.
 
 Invoke shell COMMAND and display its output as a table.  The results
 are placed in a buffer in Emacspeak's table browsing mode.  Optional
-interactive prefix arg as-root runs the command as root (not yet
-implemented).  Use this for running shell commands that produce
+interactive prefix arg as-root runs the command as root.  Use this for running shell commands that produce
 tabulated output.  This command should be used for shell commands that
 produce tabulated output that works with Emacspeak's table recognizer.
 Verify this first by running the command in a shell and executing
@@ -4161,6 +4178,10 @@ hits.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-google-transcodeView Web through Google Transcoder.
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-how-many-matchesIf you define a file local variable 
 called `emacspeak-occur-pattern' that holds a regular expression 
 that matches  lines of interest, you can use this command to conveniently
@@ -4172,10 +4193,9 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 ** emacspeak-wizards-move-and-speakSpeaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
 count that specifies how many times to execute that command
-first.
-Point is left at the target position.
-Interactively, command is specified by pressing the key that
-;;invokes the command.
+first.  Point is left at the target position.  Interactively,
+command is specified by pressing the key that invokes the
+command.
 
 ------------------------------------------------------------
 
@@ -4399,12 +4419,12 @@ key             binding
 
 C-c		Prefix Command
 <down>		emacspeak-xml-shell-goto-children
-<up>		emacspeak-xml-shell-goto-parent
-<right>		emacspeak-xml-shell-goto-next-child
 <left>		emacspeak-xml-shell-goto-previous-child
+<right>		emacspeak-xml-shell-goto-next-child
+<up>		emacspeak-xml-shell-goto-parent
 
-C-c v		emacspeak-xml-shell-browse-current
 C-c C-v		emacspeak-xml-shell-browse-result
+C-c v		emacspeak-xml-shell-browse-current
 
 
 
@@ -4423,21 +4443,6 @@ Give a brief overview of emacspeak.
 ** emacspeak-submit-bug	Key Sequence: control e CONTROL meta b 
 
 Function to submit a bug to the programs maintainer.
-
-------------------------------------------------------------
-
-** emacspeak-websearch-ibm-internalSearch IBM using trevi
-
-------------------------------------------------------------
-
-** emacspeak-info-wizard	Key Sequence: control h TAB   <f1> TAB   <help> TAB 
-
-Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec.
-
-(fn NODE-SPEC)
 
   
 
