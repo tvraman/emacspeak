@@ -43,7 +43,8 @@
 
 ;;; Playing SuDoku using speech output.
 ;;; Written to discover what type of feedback one needs for  this
-;;; task
+;;; task.
+;;; See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
 
 ;;}}}
 ;;{{{  Required modules
@@ -347,7 +348,10 @@ s   Sub-square Distribution.
 ;;{{{ advice interaction:
 
 (defadvice sudoku (after emacspeak pre act comp)
-  "Provide auditory feedback."
+  "Speech-enable SuDoKu.
+See
+  http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
+  for details."
   (when (interactive-p)
     (dtk-set-punctuations "some")
     (emacspeak-auditory-icon 'open-object)
