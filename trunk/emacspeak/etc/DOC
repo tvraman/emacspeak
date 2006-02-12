@@ -718,6 +718,10 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-emms-speak-current-trackSpeak current track.
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-facesMap base fonts to voices.
 Useful in voicifying rich text.
 
@@ -998,6 +1002,10 @@ all output to the terminal is automatically spoken.
 
 ------------------------------------------------------------
 
+** emacspeak-eudc-send-mailSend email to the address given by the current record. 
+
+------------------------------------------------------------
+
 ** emacspeak-filtertext	Key Sequence: control e ^ 
 
 Copy over text in region to special filtertext buffer in
@@ -1140,21 +1148,17 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-apply	Key Sequence: control e # a 
+** emacspeak-gridtext-apply	Key Sequence: control e # 
 
 Apply grid to region.
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-load	Key Sequence: control e # l 
-
-Load saved grid settings.
+** emacspeak-gridtext-loadLoad saved grid settings.
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-save	Key Sequence: control e # s 
-
-Save out grid settings.
+** emacspeak-gridtext-saveSave out grid settings.
 
 ------------------------------------------------------------
 
@@ -1835,42 +1839,6 @@ explicitly turn pronunciations on or off.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-yank-wordYank word at point into minibuffer.
-
-------------------------------------------------------------
-
-** emacspeak-psgml-speak-current-elementSpeak contents of current element. 
-
-------------------------------------------------------------
-
-** emacspeak-psgml-summarize-elementContext-sensitive element summarizer.
-
-------------------------------------------------------------
-
-** emacspeak-psgml-toggle-interactive-font-lockToggles variable sgml-set-face.
-When turned on, the  buffer is font locked interactively.
-Leave this off in general while editting.
-
-------------------------------------------------------------
-
-** emacspeak-xml-browse-modeMode for browsing XML documents.
-
-
-
-Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
-
-
-In addition to any hooks its parent mode `xml-mode' might have run,
-this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
-during initialization.
-
-------------------------------------------------------------
-
-** emacspeak-py-next-blockMove forward to the beginning of the next block.
-
-------------------------------------------------------------
-
-** emacspeak-py-previous-blockMove backward to the beginning of the current block.
-If already at the beginning then move to previous block.
 
 ------------------------------------------------------------
 
@@ -2763,6 +2731,100 @@ Send this command to the TTS directly.
 ------------------------------------------------------------
 
 ** emacspeak-speedbar-goto-speedbarSwitch to the speedbar
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-columns-summarizeSummarize columns --- speaks number of remaining cells.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-distribution-summarizeShows distribution of filled numbers.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-rows-summarizeSummarize rows --- speaks number of remaining cells.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-sub-squares-summarizeSummarize sub-squares --- speaks number of remaining cells.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-board-summarizerDispatch to  appropriate summarizer.
+
+d   Number Distribution
+r   Row Distribution
+c   Column Distribution
+s   Sub-square Distribution.
+
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-down-sub-squareMove to top-left corner of  sub-square below current one.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-columnErase current column.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-rowErase current row.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-erase-current-sub-squareErase current sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-hintProvide hint for current cell.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-how-many-remainingSpeak number of remaining squares to fill.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-next-sub-squareMove to top-left corner of next sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-previous-sub-squareMove to top-left corner of previous sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-coordinatesspeak current cell coordinates.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-cell-valueSpeak value in current cell.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-columnSpeak current column.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-rowSpeak current row.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-current-sub-squareSpeak current sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-columnSpeaks number of remaining cells in current column.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-rowSpeaks number of remaining cells in current row.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-speak-remaining-in-sub-squareSpeaks number of remaining cells in current sub-square.
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-up-sub-squareMove to top-left corner of  sub-square above current one.
 
 ------------------------------------------------------------
 
@@ -4032,7 +4094,9 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-ssh-tts-restartRestart specified ssh tts server.
+** emacspeak-ssh-tts-restart	Key Sequence: control e <delete> 
+
+Restart specified ssh tts server.
 
 ------------------------------------------------------------
 
@@ -4443,6 +4507,10 @@ Give a brief overview of emacspeak.
 ** emacspeak-submit-bug	Key Sequence: control e CONTROL meta b 
 
 Function to submit a bug to the programs maintainer.
+
+------------------------------------------------------------
+
+** emacspeak-websearch-ibm-internalSearch IBM using trevi
 
   
 
