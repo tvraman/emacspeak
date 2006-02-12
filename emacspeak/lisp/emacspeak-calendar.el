@@ -393,7 +393,7 @@
 
 (setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
 (setq appt-delete-window 'emacspeak-appt-delete-display)
-
+;;;###autoload
 (defun emacspeak-appt-repeat-announcement ()
   "Speaks the most recently displayed appointment message if any."
   (interactive)

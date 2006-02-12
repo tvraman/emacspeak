@@ -59,6 +59,8 @@
 ;;{{{ define a derived mode for freeamp interaction 
 (defvar emacspeak-freeamp-process nil
   "Process handle to freeamp." )
+
+;;;###autoload
 (define-prefix-command 'emacspeak-freeamp-prefix-command
   'emacspeak-freeamp-mode-map)
 

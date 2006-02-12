@@ -79,7 +79,7 @@
 
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
-
+;;;###autoload
 (defun emacspeak-view-emacspeak-news ()
   "Display info on recent change to Emacspeak."
   (interactive)
@@ -1201,7 +1201,7 @@ These options are customizable via Emacs' Custom interface.\n\n"
                  frame-names-alist nil t nil 'frame-name-history)))
     (if (= (length input) 0)
         default)))
-
+;;;###autoload
 (defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
   "Switch to labelled frame.
 With optional PREFIX argument, label current frame."
