@@ -981,10 +981,11 @@ Warning! Contents of file filename will be overwritten."
                                     (mapconcat
                                      'key-description
                                      key " ")))
-                  (error nil)))
+                  (error (insert "\n\n")nil)))
             (insert
+             (format " %s "
              (or (documentation f)
-                 ""))
+                 " ")))
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (goto-char (point-max))

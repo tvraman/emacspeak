@@ -179,7 +179,7 @@
     ("emacspeak-tdtd"  . nil )
     ("emacspeak-tempo"  . nil )
     ("emacspeak-tetris"  . ("tetris"))
-    ("emacspeak-sudoku" . ("sudoko"))
+    ("emacspeak-sudoku"  . ("sudoku"))
     ("emacspeak-texinfo"  . ("texinfo"))
     ("emacspeak-tnt"  . ("tnt-prepare"))
     ("emacspeak-jabber"  . nil)
