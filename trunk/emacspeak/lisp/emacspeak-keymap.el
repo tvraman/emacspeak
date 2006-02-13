@@ -333,7 +333,7 @@ field in the customization buffer.  You can use the notation
         (" " dtk-resume)
         ("!" emacspeak-speak-run-shell-command)
         ("'" emacspeak-speak-sexp)
-        ("#" emacspeak-gridtext-apply)
+        ("#" emacspeak-gridtext)
         ("%" emacspeak-speak-current-percentage)
         ("(" emacspeak-aumix)
         (")" emacspeak-sounds-select-theme)
