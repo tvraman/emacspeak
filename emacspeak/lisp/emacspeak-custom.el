@@ -175,6 +175,14 @@
 
 ;;}}}
 ;;{{{ define voices
+(def-voice-font emacspeak-custom-link-personality voice-bolden
+  'custom-link
+"Personality used for links in custom buffers.")
+(def-voice-font emacspeak-custom-button-personality voice-bolden
+  'custom-button
+"Personality used for links in custom buffers.")
+
+
 
 (def-voice-font emacspeak-custom-state-personality voice-smoothen
   'custom-state
