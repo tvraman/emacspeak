@@ -38,6 +38,7 @@
 ;;{{{ Introduction 
 
 ;;; Commentary:
+
 ;;; A voice is to audio as a font is to a visual display.
 ;;; A personality is to audio as a face is to a visual display. 
 ;;; 
@@ -145,10 +146,6 @@
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
   (symbol-value (gethash face voice-setup-face-voice-table)))
-    
-
-;;; voiceifies faces not already voiceified as specified in
-;;; voice-setup-face-voice-table
 
 ;;}}}
 ;;{{{ special form def-voice-font 
@@ -265,9 +262,9 @@ command \\[customize-variable] on <personality>-settings."
           (set-default sym val))))))
 
 ;;}}}					; ; ; ;	; ; ;
-;;{{{ voices defined using ACSS		; ; ; ;	; ;
+;;{{{ voices defined using ACSS
 
-;;; these voices are device independent	; ; ; ;	; ;
+;;; these voices are device independent
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
