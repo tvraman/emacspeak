@@ -290,7 +290,7 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current			;move to parsed item if needed
+    (unless current                ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
@@ -473,8 +473,6 @@ Optional interactive prefix arg  prompts for a rewrite rule
 even if one is already defined."
   (interactive "P")
   (declare (special emacspeak-w3-url-rewrite-rule))
-  (unless (fboundp 'string-replace-match)
-    (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -489,7 +487,8 @@ even if one is already defined."
           (string-replace-match (first emacspeak-w3-url-rewrite-rule)
                                 url
                                 (second
-                                 emacspeak-w3-url-rewrite-rule)))
+                                 emacspeak-w3-url-rewrite-rule))
+          url)
     (emacspeak-auditory-icon 'select-object)
     (browse-url
      (or redirect url))
@@ -1297,8 +1296,6 @@ used as well."
   (interactive "P")
   (declare (special emacspeak-w3-class-filter
 		    emacspeak-w3-url-rewrite-rule))
-  (unless (fboundp 'string-replace-match)
-    (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -1351,8 +1348,6 @@ used as well."
     (unless url
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
-      (unless (fboundp 'string-replace-match)
-	(error "Install and load the elib package to use this feature."))
       (setq redirect
 	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
 				  url
@@ -1389,8 +1384,6 @@ used as well."
   (declare (special emacspeak-w3-xpath-junk
                     emacspeak-w3-most-recent-xpath-junk
 		    emacspeak-w3-url-rewrite-rule))
-  (unless (fboundp 'string-replace-match)
-    (error "Install and load the elib package to use this feature."))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
