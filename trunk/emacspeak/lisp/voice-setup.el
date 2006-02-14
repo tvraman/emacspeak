@@ -136,6 +136,40 @@
 
 ;;; copied over from elib/string.el so we have it 
 
+(defun elib-string-expand-newtext ()
+  (declare (special string newtext))
+  ;; Expand \& and \1..\9 (referring to STRING) in NEWTEXT.
+  ;; Uses match data and fluid vars `newtext', `string'.
+  ;; Note that in Emacs 18 match data are clipped to current buffer
+  ;; size...so the buffer should better not be smaller than STRING.
+  (let ((pos 0)
+	(len (length newtext))
+	(expanded-newtext ""))
+    (while (< pos len)
+      (setq expanded-newtext
+	    (concat expanded-newtext
+		    (let ((c (aref newtext pos)))
+		      (if (= ?\\ c)
+			  (cond ((= ?\& (setq c (aref newtext
+						      (setq pos (1+ pos)))))
+				 (substring string
+					    (match-beginning 0)
+					    (match-end 0)))
+				((and (>= c ?1) 
+				      (<= c ?9))
+				 ;; return empty string if N'th
+				 ;; sub-regexp did not match:
+				 (let ((n (- c ?0)))
+				   (if (match-beginning n)
+				       (substring string
+						  (match-beginning n)
+						  (match-end n))
+				     "")))
+				(t (char-to-string c)))
+			(char-to-string c)))))
+      (setq pos (1+ pos)))
+    expanded-newtext))
+
 ;; This function is a near-equivalent of the elisp function replace-match
 ;; which work on strings instead of a buffer.  The FIXEDCASE parameter
 ;; of replace-match is not implemented.
@@ -233,6 +267,19 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
      (when (symbolp '(, voice))
        (put  '(, voice) '(, personality) t)))))
 
+(defun voice-setup-map-face (face voice)
+  "Invoke def-voice-font with appropriately generated personality name."
+  (let ((doc (format "Personality used for %s" face))
+        (personality
+         (intern
+          (format "emacspeak-%s"
+                  (or
+                   (string-replace-match "face$"
+                                         (symbol-name face)
+                                         "personality")
+                   (symbol-name face))))))
+    (eval
+     `(def-voice-font ,personality ,voice  ',face  ,doc))))
 ;;}}}
 ;;{{{  special form defvoice 
 
@@ -310,14 +357,14 @@ command \\[customize-variable] on <personality>-settings."
      '(lambda  (sym val)
         (let ((voice-name (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
-;;; update all observers		; ; ; ;	; ;
+;;; update all observers		; ; ; ;	; ; ;
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 
-;;}}}					; ; ; ;	; ; ;
-;;{{{ voices defined using ACSS
+;;}}}					; ; ; ;	; ; ; ;
+;;{{{ voices defined using ACSS         ;
 
-;;; these voices are device independent
+;;; these voices are device independent ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
