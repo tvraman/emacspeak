@@ -2395,11 +2395,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
    ((and (not prefix)
          (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
-    (how-many  emacspeak-occur-pattern start end 'interactive))
+    (how-many  emacspeak-occur-pattern start end ))
    (t
     (let ((pattern  (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
-      (how-many pattern start end 'interactive)))))
+      (how-many pattern start end )))))
 
 ;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (prefix)
