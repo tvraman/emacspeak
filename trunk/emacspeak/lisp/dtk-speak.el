@@ -514,7 +514,7 @@ Argument COMPLEMENT  is the complement of separator."
     (dtk-interp-queue
      (format "%s%s %s \n"
              (tts-get-voice-command
-              (if (boundp (symbol-value voice ))
+              (if (boundp  voice )
                   (symbol-value voice )
                 voice))
              text
