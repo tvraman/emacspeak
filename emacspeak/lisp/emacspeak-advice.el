@@ -3050,7 +3050,7 @@ Variable mark-even-if-inactive is set true ."
   (ems-modify-buffer-safely
   (put-text-property beg end
                      'personality
-                     voice-lock-button-personality))))
+                     voice-bolden))))
 
 
 (defadvice make-button (after emacspeak pre act comp)
@@ -3059,7 +3059,7 @@ Variable mark-even-if-inactive is set true ."
         (end (ad-get-arg 1)))
   (ems-modify-buffer-safely
   (put-text-property beg end
-                     'personality voice-lock-button-personality))))
+                     'personality voice-bolden))))
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."

@@ -49,7 +49,7 @@
 
 ;;}}}
 ;;{{{ voice lock 
-(def-voice-font  emacspeak-jde-number-personality voice-lock-constant-personality
+(def-voice-font  emacspeak-jde-number-personality voice-lighten
   'jde-java-font-lock-number-face
   "Personality used for numbers."
   :group 'emacspeak-jde)
@@ -59,7 +59,7 @@
   "Personality used for java operators."
   :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-constant-personality voice-lock-constant-personality
+(def-voice-font emacspeak-jde-constant-personality voice-lighten
   'jde-java-font-lock-constant-face
   "Personality used for constants."
   :group 'emacspeak-jde)

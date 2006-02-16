@@ -63,12 +63,12 @@
   "Personality for delimited  data."
   :group 'emacspeak-nxml)
 
-(def-voice-font emacspeak-nxml-name-personality  voice-lock-keyword-personality
+(def-voice-font emacspeak-nxml-name-personality  voice-animate-extra
   'nxml-name-face
   "Personality used for keywords e.g., names."
   :group 'emacspeak-nxml)
 
-(def-voice-font emacspeak-nxml-ref-personality  voice-lock-reference-personality
+(def-voice-font emacspeak-nxml-ref-personality  voice-animate-medium
   'nxml-ref-face
   "Personality used for references."
   :group 'emacspeak-nxml)
@@ -78,13 +78,13 @@
   "Personality used for delimiters."
   :group 'emacspeak-nxml)
 
-(def-voice-font emacspeak-nxml-comment-content-personality  voice-lock-comment-personality
+(def-voice-font emacspeak-nxml-comment-content-personality  voice-monotone
   'nxml-comment-content-face
   "Personality used for comments."
   :group 'emacspeak-nxml)
 
 (def-voice-font emacspeak-nxml-comment-delimiter-personality
-  (list voice-lock-comment-personality voice-smoothen-medium)
+  (list voice-monotone voice-smoothen-medium)
   'nxml-comment-delimiter-face
   "Personality used for comment delimiters."
   :group 'emacspeak-nxml)
@@ -117,7 +117,7 @@
   :group 'emacspeak-nxml)
 
 (def-voice-font emacspeak-nxml-cdata-section-CDATA-personality 
-  voice-lock-keyword-personality
+  voice-animate-extra
   'nxml-cdata-section-CDATA-face
   "Personality used for CData keyword."
   :group 'emacspeak-nxml)
@@ -129,7 +129,7 @@
   :group 'emacspeak-nxml)
 
 (def-voice-font emacspeak-nxml-char-ref-number-personality 
-  voice-lock-reference-personality
+  voice-animate-medium
   'nxml-char-ref-number-face
   "Personality for character references."
   :group 'emacspeak-nxml)
@@ -139,7 +139,7 @@
   "Personality used for character ref delimiter."
   :group 'emacspeak-nxml)
 
-(def-voice-font emacspeak-nxml-entity-ref-name-personality  voice-lock-reference-personality
+(def-voice-font emacspeak-nxml-entity-ref-name-personality  voice-animate-medium
   'nxml-entity-ref-name-face
   "Personality used for entity references."
   :group 'emacspeak-nxml)
@@ -248,7 +248,7 @@
   :group 'emacspeak-nxml)
 
 (def-voice-font emacspeak-nxml-prolog-keyword-personality 
-  voice-lock-keyword-personality
+  voice-animate-extra
   'nxml-prolog-keyword-face
   "Personality for keywords in the prologue."
   :group 'emacspeak-nxml)
