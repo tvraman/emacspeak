@@ -633,7 +633,7 @@ before the message is spoken."
     ad-do-it
     (setq emacspeak-last-message ad-return-value )
     (put-text-property 0 (length emacspeak-last-message)
-                       'personality voice-animate
+                       'personality 'voice-animate
                        emacspeak-last-message)
     (when (and   emacspeak-speak-messages ; speaking messages
                  ad-return-value          ;we really do have a message
