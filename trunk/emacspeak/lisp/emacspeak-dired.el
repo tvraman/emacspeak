@@ -56,42 +56,42 @@
 ;;{{{ Define personalities 
 
 (def-voice-font emacspeak-dired-header-personality
-  voice-lock-type-personality
+  voice-smoothen
   'dired-header
   "Personality for dired header line."
   :group 'emacspeak-dired)
 
 (def-voice-font emacspeak-dired-mark-personality
-  voice-lock-constant-personality
+  voice-lighten
   'dired-mark
   "Personality for dired mark."
   :group 'emacspeak-dired)
 
 (def-voice-font emacspeak-dired-marked-personality
-  voice-lock-warning-personality
+  voice-bolden-and-animate
   'dired-marked
   "Personality for marked files in dired."
   :group 'emacspeak-dired)
 
 (def-voice-font emacspeak-dired-flag-personality
-  voice-lock-warning-personality
+  voice-bolden-and-animate
   'dired-flag
   "Personality for flag in dired."
   :group 'emacspeak-dired)
 
 (def-voice-font emacspeak-dired-warning-personality
-  voice-lock-comment-personality
+  voice-monotone
   'dired-warning
   "Personality for dired warnings."
   :group 'emacspeak-dired)
 (def-voice-font emacspeak-dired-directory-personality
-  voice-lock-function-name-personality
+  voice-bolden-medium
   'dired-directory
   "Personality for directories in dired."
   :group 'emacspeak-dired)
 
 (def-voice-font emacspeak-dired-symlink-personality
-  voice-lock-keyword-personality
+  voice-animate-extra
   'dired-symlink
   "Personality for symlinks."
   :group 'emacspeak-group)
