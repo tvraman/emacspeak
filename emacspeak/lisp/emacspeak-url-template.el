@@ -798,7 +798,8 @@ from English to German.")
  (list
   #'(lambda ()
       (read-from-minibuffer "URL: "
-                            (browse-url-url-at-point))))
+                            (or (browse-url-url-at-point)
+                                "http://"))))
  'emacspeak-speak-buffer
  "Transcode site via Google.")
  
