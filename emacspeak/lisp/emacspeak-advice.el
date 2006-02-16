@@ -1172,7 +1172,7 @@ in completion buffers"
   "Aurally highlight input."
   (let ((start (line-beginning-position))
         (end (line-end-position)))
-    (emacspeak-personality-append start end emacspeak-comint-input-personality)))
+    (emacspeak-personality-append start end 'emacspeak-comint-input-personality)))
 
 (defadvice comint-send-eof (before emacspeak pre act comp)
   "Announce what we are doing."
