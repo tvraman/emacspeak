@@ -60,27 +60,21 @@
 
 ;;
 
-;;; How faces map to voices:
-;;; TTS engine specific modules e.g., dectalk-voices.el and
-;;; outloud-voices.el 
-;;; define a standard set of voice names.
-;;; This module maps standard "personality" names to these pre-defined
-;;; voices.
-;;; It  does this via special form def-voice-font 
-;;; which takes a personality name, a voice name and a face name to
-;;; set up the mapping between face and personality, and personality
-;;; and voice.
-;;; See many instances of this usage in this module.
-;;; This special form is available for use from other emacspeak
-;;; modules.
+;;; How faces map to voices: TTS engine specific modules e.g.,
+;;; dectalk-voices.el and outloud-voices.el define a standard set
+;;; of voice names.  This module maps standard "personality"
+;;; names to these pre-defined voices.  It does this via special
+;;; form def-voice-font which takes a personality name, a voice
+;;; name and a face name to set up the mapping between face and
+;;; personality, and personality and voice.  See many instances
+;;; of this usage in this module.  This special form is available
+;;; for use from other emacspeak modules.
 
-;;; Special form def-voice-font sets up the personality name to be
-;;; available via custom.
-
-;;; new voices can be defined using CSS style specifications 
-;;; see special form defvoice
-;;; Voices defined via defvoice can be customized via custom 
-;;; see the documentation for defvoice.
+;;; Special form def-voice-font sets up the personality name to
+;;; be available via custom.  new voices can be defined using CSS
+;;; style specifications see special form defvoice Voices defined
+;;; via defvoice can be customized via custom see the
+;;; documentation for defvoice.
 
 ;;}}}
 ;;{{{ Required modules
@@ -95,6 +89,7 @@
 (require 'dectalk-voices)
 ;;}}}
 ;;{{{ customization group 
+
 (defgroup voice-fonts nil
   "Customization group for setting voices."
   :group 'emacspeak)
@@ -237,18 +232,21 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 ;;}}}
 ;;{{{ special form def-voice-font 
 
-;;; note that when defined, personalities are registered as observers
-;;; with the  voice they use
-;;; this gets unregistered when the mapping is changed via custom.
-;;; when  the personality is modified via the customize interface.
+;;; note that when defined, personalities are registered as
+;;; observers with the voice they use this gets unregistered when
+;;; the mapping is changed via custom.  
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
-  (`
+  (let ((documentation
+         (concat doc
+                 (format
+                  "\nThis personality uses  %s, and its effect can be changed globally by customizing %s-settings."
+                                       voice  voice))))  (`
    (progn
      (defcustom (, personality)
        (, voice)
-       (, doc)
+       (, documentation)
        :type (voice-setup-custom-menu)
        :group 'voice-fonts
        :set '(lambda (sym val)
@@ -265,7 +263,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
      (when (symbolp '(, personality))
        (put  '(, personality) 'observing '(, voice)))
      (when (symbolp '(, voice))
-       (put  '(, voice) '(, personality) t)))))
+       (put  '(, voice) '(, personality) t))))))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
