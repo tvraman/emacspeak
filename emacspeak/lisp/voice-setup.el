@@ -227,7 +227,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 (defsubst voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
-  (symbol-value (gethash face voice-setup-face-voice-table)))
+   (gethash face voice-setup-face-voice-table))
 
 ;;}}}
 ;;{{{ special form def-voice-font 
