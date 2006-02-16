@@ -469,6 +469,8 @@ functions for details.   "
   (require 'emacspeak-aumix)
   (when (featurep 'ido)
     (require 'emacspeak-ido))
+  (require 'emacspeak-custom)
+  (require 'emacspeak-widget)
   (require 'emacspeak-sounds)
   (dtk-initialize)
   (require 'emacspeak-personality)
