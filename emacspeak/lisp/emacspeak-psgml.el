@@ -354,8 +354,8 @@ window")))
    (cons 'comment 	  voice-monotone)
    (cons 'pi 	   voice-animate)
    (cons 'sgml 	  voice-animate)
-   (cons 'doctype 	  voice-lock-italic-personality)
-   (cons 'entity 	  voice-lock-italic-personality)
+   (cons 'doctype 	  voice-animate)
+   (cons 'entity 	  voice-animate)
    (cons 'shortref     voice-bolden))
   "*List of markup to personality mappings.
 Element are of the form (MARKUP-TYPE . personality).

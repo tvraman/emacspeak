@@ -52,7 +52,7 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ define personalities 
-(def-voice-font emacspeak-daml-class-face voice-lock-type-personality
+(def-voice-font emacspeak-daml-class-face voice-smoothen
   'daml-class-face
   "Personality used for DAML classes.")
 
@@ -62,12 +62,12 @@
   "Personality used for class references.")
 
 (def-voice-font emacspeak-daml-comment-face
-  voice-lock-comment-personality
+  voice-monotone
   'daml-comment-face
   "Personality used for DAML comments.")
 
 (def-voice-font emacspeak-daml-keyword-face
-  voice-lock-keyword-personality
+  voice-animate-extra
   'daml-keyword-face
   "Personality for keywords in DAML.")
 
@@ -92,7 +92,7 @@
   "Personality for DAML property references.")
 
 (def-voice-font emacspeak-daml-string-face
-  voice-lock-string-personality
+  voice-lighten-extra
   'daml-string-face
   "Personality for DAML strings.")
 

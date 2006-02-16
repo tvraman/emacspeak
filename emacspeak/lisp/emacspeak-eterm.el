@@ -1201,7 +1201,7 @@ there is terminal activity.")
   )
 
 (def-voice-font emacspeak-eterm-underline-personality
-  voice-lock-underline-personality
+  voice-brighten-medium
   'term-underline
   "Underline personality for eterm.")
 
