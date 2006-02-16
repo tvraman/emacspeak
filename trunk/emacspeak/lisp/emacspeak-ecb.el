@@ -189,8 +189,8 @@ available."
             (search-forward tree-buffer-incr-searchpattern)
             (setq end (point))
             (ems-modify-buffer-safely
-	     (ems-set-personality-temporarily
-	      beg end   voice-bolden
+             (ems-set-personality-temporarily
+              beg end   voice-bolden
               (emacspeak-speak-line)))
             (emacspeak-auditory-icon 'search-hit))))
        (t (emacspeak-auditory-icon 'search-miss)))))
@@ -210,7 +210,7 @@ available."
     (let ((node (ad-get-arg 0))) ;; note that logic is reversed
       (cond
        ((tree-node-is-expanded node)
-	(emacspeak-auditory-icon 'open-object))
+        (emacspeak-auditory-icon 'open-object))
        (t (emacspeak-auditory-icon 'close-object))))))
       
 (defadvice tree-buffer-update (after emacspeak pre act comp)

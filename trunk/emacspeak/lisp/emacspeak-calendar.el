@@ -69,11 +69,11 @@
   "Sort entries in diary entries list."
   (declare (special diary-entries-list))
   (when(and  (boundp 'diary-entries-list)
-	     diary-entries-list)
+             diary-entries-list)
     (setq diary-entries-list
-	  (sort  diary-entries-list
-		 #'(lambda (a b )
-		     (string-lessp (cadr a) (cadr b )))))))
+          (sort  diary-entries-list
+                 #'(lambda (a b )
+                     (string-lessp (cadr a) (cadr b )))))))
 
 (defun calendar-entry-marked-p()
   "Check if diary entry is marked. "
@@ -109,8 +109,8 @@
     (emacspeak-speak-calendar-date)))
 
 (defadvice calendar-set-mark (after emacspeak
-				    pre act
-				    comp)
+                                    pre act
+                                    comp)
   "Speak date under point"
   (when (interactive-p)
     (emacspeak-auditory-icon 'mark-object)
@@ -130,7 +130,7 @@
         (save-excursion
           (set-buffer "*Fancy Diary Entries*")
           (tts-with-punctuations "some"
-				 (emacspeak-speak-buffer))))
+                                 (emacspeak-speak-buffer))))
        (t (dtk-speak "No diary entries."))))))
 
 (defadvice  mark-visible-calendar-date (after emacspeak pre act )
@@ -142,7 +142,7 @@
           (calendar-cursor-to-visible-date date)
           (ems-modify-buffer-safely
            (put-text-property  (1-(point)) (1+ (point))
-			       'personality   emacspeak-calendar-mark-personality ))))))
+                               'personality   emacspeak-calendar-mark-personality ))))))
 
 (defvar emacspeak-calendar-mode-line-format 
   '((calendar-date-string (calendar-current-date))  "Calendar")
@@ -334,7 +334,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Monthly diary entry for %s" 
-	     (second (calendar-cursor-to-date t)))))
+             (second (calendar-cursor-to-date t)))))
 
 (defadvice calendar-cursor-holidays (after emacspeak pre act comp)
   "Speak the displayed holidays"
@@ -358,9 +358,9 @@
   )
 (add-hook 'initial-calendar-window-hook 'emacspeak-calendar-keys t)
 (add-hook 'initial-calendar-window-hook 
-	  (function (lambda () 
-		      (dtk-set-punctuations 'some)
-		      (emacspeak-dtk-sync))))
+          (function (lambda () 
+                      (dtk-set-punctuations 'some)
+                      (emacspeak-dtk-sync))))
 
 ;;}}}
 ;;{{{  Appointments:
@@ -412,14 +412,14 @@
 
 ;;}}}
 
-					; (defadvice appt-disp-window (before emacspeak activate compile)
-					;   "Speak the appointment." 
-					;   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
-					;     (dtk-pause t)
-					;     (emacspeak-auditory-icon 'alarm)
-					;     (message "You have an appointment in %s minutes, %s"
-					;              (ad-get-arg 0)
-					;              (ad-get-arg 2))))
+                                        ; (defadvice appt-disp-window (before emacspeak activate compile)
+                                        ;   "Speak the appointment." 
+                                        ;   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
+                                        ;     (dtk-pause t)
+                                        ;     (emacspeak-auditory-icon 'alarm)
+                                        ;     (message "You have an appointment in %s minutes, %s"
+                                        ;              (ad-get-arg 0)
+                                        ;              (ad-get-arg 2))))
 
 (defadvice appt-add (after emacspeak pre act )
   "Confirm that the alarm got set."

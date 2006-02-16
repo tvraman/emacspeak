@@ -60,7 +60,7 @@
     (emacspeak-auditory-icon 'close-object)))
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'tnt-im-mode
-					    emacspeak-pronounce-internet-smileys-pronunciations)
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'tnt-chat-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 
@@ -221,7 +221,7 @@ automatically."
     (setq emacspeak-tnt-autospeak (default-value 'emacspeak-tnt-autospeak )))
    (t (make-local-variable 'emacspeak-tnt-autospeak)
       (setq emacspeak-tnt-autospeak
-	    (not emacspeak-tnt-autospeak ))))
+            (not emacspeak-tnt-autospeak ))))
   (when (interactive-p)
     (emacspeak-auditory-icon
      (if emacspeak-tnt-autospeak 'on 'off))

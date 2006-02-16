@@ -79,13 +79,13 @@
 
 (defadvice flyspell-unhighlight-at (before debug pre act comp)
   (let ((overlay-list (overlays-at pos))
-	(o nil))
+        (o nil))
     (while overlay-list 
       (setq o (car overlay-list))
       (when (flyspell-overlay-p o)
-	(put-text-property (overlay-start o)
-			   (overlay-end o)
-			   'personality  nil))
+        (put-text-property (overlay-start o)
+                           (overlay-end o)
+                           'personality  nil))
       (setq overlay-list (cdr overlay-list)))))
 
 ;;}}}

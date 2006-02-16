@@ -99,8 +99,8 @@ end   as specified by grid."
       (save-restriction
         (narrow-to-region start end)
         (if (< start end )
-	    (goto-char start)
-	  (goto-char end ))
+            (goto-char start)
+          (goto-char end ))
         (loop for i from 0 to (1- num-rows)
               do
               (beginning-of-line)
@@ -154,10 +154,10 @@ end   as specified by grid."
                     ".gridtext")))
   (condition-case nil
       (progn
-	(load
-	 (expand-file-name  file emacspeak-resource-directory)))
+        (load
+         (expand-file-name  file emacspeak-resource-directory)))
     (error (message "Error loading resources from %s "
-		    file))))
+                    file))))
 ;;;###autoload
 (defun emacspeak-gridtext-save (file)
   "Save out grid settings."
@@ -182,8 +182,8 @@ end   as specified by grid."
  (gethash %s emacspeak-gridtext-table)
  (quote %s))"
               (prin1-to-string key)
-	      (prin1-to-string (emacspeak-gridtext-get
-				key)))))
+              (prin1-to-string (emacspeak-gridtext-get
+                                key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 
@@ -197,7 +197,7 @@ end   as specified by grid."
     (point)
     (mark)
     (read-minibuffer "Specify grid as a list: "
-		     (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
+                     (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
   (let ((grid-table (emacspeak-table-make-table
                      (emacspeak-gridtext-vector-region start
                                                        end
@@ -214,7 +214,6 @@ end   as specified by grid."
 ;;{{{  keymaps 
 (defvar emacspeak-gridtext-keymap nil
   "Prefix keymap used by gridtext.")
-
 
 ;;;###autoload
 (define-prefix-command  'emacspeak-gridtext 'emacspeak-gridtext-keymap)

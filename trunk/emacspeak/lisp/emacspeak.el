@@ -200,7 +200,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "gdb-ui" 'emacspeak-gud)
 (emacspeak-do-package-setup "hangman" 'emacspeak-entertain)
 (emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
-					;(emacspeak-do-package-setup "html-helper-mode" 'html-voice )
+                                        ;(emacspeak-do-package-setup "html-helper-mode" 'html-voice )
 (emacspeak-do-package-setup "hyperbole" 'emacspeak-hyperbole)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
@@ -290,10 +290,10 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
               (unless (file-newer-than-file-p
                        (expand-file-name
                         "emacspeak-finder-inf.el" 
-			emacspeak-lisp-directory)
+                        emacspeak-lisp-directory)
                        (expand-file-name
                         emacspeak-lisp-directory
-			"emacspeak.el"))
+                        "emacspeak.el"))
                 (emacspeak-finder-compile-keywords))
               (load-library "emacspeak-finder-inf")
               (push
@@ -396,7 +396,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'sql-mode-hook
          'sgml-mode-hook
          'xml-mode-hook
-	 'nxml-mode-hook
+         'nxml-mode-hook
          'xsl-mode-hook
          'makefile-mode-hook
          'TeX-mode-hook
@@ -488,14 +488,14 @@ functions for details.   "
     (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-setup-programming-modes)
-					;(require 'emacspeak-wizards)
+                                        ;(require 'emacspeak-wizards)
   (tts-with-punctuations 'some
-			 (dtk-speak
-			  (format "  Press %s to get an   overview of emacspeak  %s \
+                         (dtk-speak
+                          (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
-				  (substitute-command-keys
-				   "\\[emacspeak-describe-emacspeak]" )
-				  emacspeak-version))))
+                                  (substitute-command-keys
+                                   "\\[emacspeak-describe-emacspeak]" )
+                                  emacspeak-version))))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."

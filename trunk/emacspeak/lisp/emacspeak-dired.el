@@ -125,9 +125,9 @@ pronunciations only once.")
   (unless emacspeak-dired-pronunciations-defined
     (setq emacspeak-dired-pronunciations-defined t)
     (emacspeak-pronounce-add-dictionary-entry 'dired-mode "Dired"
-					      " DirEd  ")
+                                              " DirEd  ")
     (emacspeak-pronounce-add-dictionary-entry 'dired-mode "dired"
-					      " DirEd  "))
+                                              " DirEd  "))
   (when (or (not (boundp 'emacspeak-pronounce-pronunciation-table))
             (not emacspeak-pronounce-pronunciation-table))
     (emacspeak-pronounce-toggle-use-of-dictionaries)))
@@ -361,7 +361,7 @@ options passed to command `file'."
   (declare (special emacspeak-dired-file-cmd-options))
   (with-temp-buffer 
     (if deref-symlinks
-	(call-process "file" nil t t  "-l"
+        (call-process "file" nil t t  "-l"
                       emacspeak-dired-file-cmd-options  file)
       (call-process "file" nil t t
                     emacspeak-dired-file-cmd-options file))

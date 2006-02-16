@@ -185,7 +185,7 @@ is nil if SYM is not a symbol that names a cell."
     (emacspeak-ses-summarize-current-cell)))
 
 ;;}}}
-					;(emacspeak-ses-setup)
+                                        ;(emacspeak-ses-setup)
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 

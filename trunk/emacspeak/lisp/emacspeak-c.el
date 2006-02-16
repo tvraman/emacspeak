@@ -194,7 +194,7 @@
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'mark-object)
       (dtk-speak "Marked function containing %s lines "
-		 (count-lines (point) (mark)))
+                 (count-lines (point) (mark)))
       (emacspeak-speak-line ))))
 
 ;;}}}

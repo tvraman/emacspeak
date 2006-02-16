@@ -101,8 +101,8 @@ cap C   Save clip to disk
               (?c (cd-tool-get-clip-command))
               (?C (cd-tool-get-clip-command 'save))
               (otherwise (message cd-tool-message)
-			 (sit-for 5)
-			 nil))))
+                         (sit-for 5)
+                         nil))))
     (shell-command
      (format "%s &"
              command ))))
@@ -152,10 +152,10 @@ cap C   Save clip to disk
     (pushnew  skip cd-tool-clip-skip-history)
     (pushnew duration cd-tool-clip-duration-history)
     (format "%s %s -t %s -o %s -d %s %s"
-	    cd-tool-clipper
-	    cd-tool-clipper-default-args 
-	    track skip duration
-	    (if save filename "-e"))))
+            cd-tool-clipper
+            cd-tool-clipper-default-args 
+            track skip duration
+            (if save filename "-e"))))
 
 ;;}}}
 

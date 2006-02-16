@@ -77,16 +77,16 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice xslt-process-invoke-browser-view (after emacspeak
-						   pre act
-						   comp)
+                                                   pre act
+                                                   comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 (defadvice xslt-process-invoke-pdf-viewer (after emacspeak
-						 pre act
-						 comp)
+                                                 pre act
+                                                 comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'task-done)
@@ -109,7 +109,7 @@
         (emacspeak-speak-line)
         (emacspeak-auditory-icon 'mark-object)))))
 (defadvice xslt-process-remove-breakpoint (after emacspeak pre
-						 act comp)
+                                                 act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (save-excursion
@@ -143,28 +143,28 @@
     (emacspeak-speak-line)))
 
 (defadvice xslt-process-do-finish (after emacspeak pre act
-					 comp)
+                                         comp)
   "Provide auditory feedback."
   (when (interactive-p)
     
 
     (defadvice xslt-process-do-continue (after emacspeak pre act
-					       comp)
+                                               comp)
       "Provide auditory feedback."
       (when (interactive-p)
-	(emacspeak-auditory-icon 'select-object)))
+        (emacspeak-auditory-icon 'select-object)))
 
     (defadvice xslt-process-do-stop (after emacspeak pre act
-					   comp)
+                                           comp)
       "Provide auditory feedback."
       (when (interactive-p)
-	(emacspeak-auditory-icon 'select-object)))
+        (emacspeak-auditory-icon 'select-object)))
 
     (defadvice xslt-process-do-quit (after emacspeak pre act
-					   comp)
+                                           comp)
       "Provide auditory feedback."
       (when (interactive-p)
-	(emacspeak-auditory-icon 'select-object)))
+        (emacspeak-auditory-icon 'select-object)))
 
     (emacspeak-auditory-icon 'close-object)))
 

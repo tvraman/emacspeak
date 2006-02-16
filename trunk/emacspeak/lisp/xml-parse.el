@@ -133,10 +133,10 @@ Point is left at the end of the XML structure read."
 (defsubst xml-tag-name (tag)
   "Return the name of an xml-parse'd XML TAG."
   (cond ((xml-tag-text-p tag)
-	 (car tag))
-	((xml-tag-with-attributes-p tag)
-	 (caar tag))
-	(t (car tag))))
+         (car tag))
+        ((xml-tag-with-attributes-p tag)
+         (caar tag))
+        (t (car tag))))
 
 (defun xml-tag-text-p (tag)
   "Is the given TAG really just a text entry?"
@@ -165,9 +165,9 @@ Point is left at the end of the XML structure read."
   (catch 'found
     (let ((children (xml-tag-children tag)))
       (while children
-	(if (string-equal name (xml-tag-name (car children)))
-	    (throw 'found (car children)))
-	(setq children (cdr children))))))
+        (if (string-equal name (xml-tag-name (car children)))
+            (throw 'found (car children)))
+        (setq children (cdr children))))))
 
 ;;;###autoload
 (defun insert-xml (data &optional add-newlines public system depth ret-depth)
@@ -193,37 +193,37 @@ indentation."
   (when (and (not depth) public system)
     (insert "<?xml version=\"1.0\"?>\n")
     (insert "<!DOCTYPE " (if (stringp (car data))
-			     (car data)
-			   (caar data))
-	    " PUBLIC \"" public "\"\n  \"" system "\">\n"))
+                             (car data)
+                           (caar data))
+            " PUBLIC \"" public "\"\n  \"" system "\">\n"))
   (if (stringp data)
       (insert data)
     (let ((node (car data)) (add-nl t))
       (and depth (bolp)
-	   (insert (make-string (* depth 2) ? )))
+           (insert (make-string (* depth 2) ? )))
       (if (stringp node)
-	  (insert "<" node)
-	(setq node (caar data))
-	(insert "<" node)
-	(let ((attrs (cdar data)))
-	  (while attrs
-	    (insert " " (caar attrs) "=\"" (cdar attrs) "\"")
-	    (setq attrs (cdr attrs)))))
+          (insert "<" node)
+        (setq node (caar data))
+        (insert "<" node)
+        (let ((attrs (cdar data)))
+          (while attrs
+            (insert " " (caar attrs) "=\"" (cdar attrs) "\"")
+            (setq attrs (cdr attrs)))))
       (if (null (cdr data))
-	  (insert "/>")
-	(insert ">")
-	(setq data (cdr data))
-	(while data
-	  (and add-newlines add-nl
-	       (not (stringp (car data)))
-	       (insert ?\n))
-	  (setq add-nl (insert-xml (car data) add-newlines
-				   nil nil (1+ (or depth 0)))
-		data (cdr data)))
-	(when add-nl
-	  (and add-newlines (insert ?\n))
-	  (and depth (insert (make-string (* depth 2) ? ))))
-	(insert "</" node ">"))
+          (insert "/>")
+        (insert ">")
+        (setq data (cdr data))
+        (while data
+          (and add-newlines add-nl
+               (not (stringp (car data)))
+               (insert ?\n))
+          (setq add-nl (insert-xml (car data) add-newlines
+                                   nil nil (1+ (or depth 0)))
+                data (cdr data)))
+        (when add-nl
+          (and add-newlines (insert ?\n))
+          (and depth (insert (make-string (* depth 2) ? ))))
+        (insert "</" node ">"))
       t)))
 
 ;;;###autoload
@@ -241,23 +241,23 @@ Note that this only works if the opening tag starts at column 0."
 (defun xml-parse-profile ()
   (interactive)
   (let ((elp-function-list
-	 '(buffer-substring-no-properties
-	   char-after
-	   char-before
-	   forward-char
-	   looking-at
-	   match-string-no-properties
-	   match-beginning
-	   match-end
-	   point
-	   re-search-forward
-	   read-xml
-	   xml-parse-read
-	   search-forward
-	   string-equal
-	   stringp
-	   substring
-	   xml-parse-concat)))
+         '(buffer-substring-no-properties
+           char-after
+           char-before
+           forward-char
+           looking-at
+           match-string-no-properties
+           match-beginning
+           match-end
+           point
+           re-search-forward
+           read-xml
+           xml-parse-read
+           search-forward
+           string-equal
+           stringp
+           substring
+           xml-parse-concat)))
     (elp-instrument-list)))
 
 (defsubst xml-parse-skip-tag ()
@@ -266,29 +266,29 @@ Note that this only works if the opening tag starts at column 0."
     (search-forward "?>"))
    ((looking-at "!--")
     (search-forward "-->"))
-   (t					; must be <!...>
+   (t                                   ; must be <!...>
     (re-search-forward "[[>]")
     (if (eq (char-before) ?\[)
-	(let ((depth 1))
-	  (while (and (> depth 0)
-		      (if (re-search-forward "[][]")
-			  t
-			(error "Pos %d: Unclosed open bracket in
+        (let ((depth 1))
+          (while (and (> depth 0)
+                      (if (re-search-forward "[][]")
+                          t
+                        (error "Pos %d: Unclosed open bracket in
   <! tag"
                                (point))))
-	    (if (eq (char-before) ?\[)
-		(setq depth (1+ depth))
-	      (setq depth (1- depth))))
-	  (search-forward ">"))))))
+            (if (eq (char-before) ?\[)
+                (setq depth (1+ depth))
+              (setq depth (1- depth))))
+          (search-forward ">"))))))
 
 (defsubst xml-parse-add-non-ws (text lst)
   (let ((i 0) (l (length text)) non-ws)
     (while (< i l)
       (unless (memq (aref text i) '(?\n ?\t ? ))
-	(setq i l non-ws t))
+        (setq i l non-ws t))
       (setq i (1+ i)))
     (if (not non-ws)
-	lst
+        lst
       (setcdr lst (list text))
       (cdr lst))))
 
@@ -298,15 +298,15 @@ Note that this only works if the opening tag starts at column 0."
     (goto-char beg)
     (while (search-forward "<" end t)
       (setq lst (xml-parse-add-non-ws
-		 (buffer-substring-no-properties beg (1- (point))) lst)
-	    beg (1- (point)))
+                 (buffer-substring-no-properties beg (1- (point))) lst)
+            beg (1- (point)))
       (xml-parse-skip-tag)
       (setq lst (xml-parse-add-non-ws
-		 (buffer-substring-no-properties beg (point)) lst)
-	    beg (point)))
+                 (buffer-substring-no-properties beg (point)) lst)
+            beg (point)))
     (if (/= beg end)
-	(setq lst (xml-parse-add-non-ws
-		   (buffer-substring-no-properties beg end) lst)))
+        (setq lst (xml-parse-add-non-ws
+                   (buffer-substring-no-properties beg end) lst)))
     lst))
 
 (defun xml-parse-read (&optional inner-p)
@@ -316,54 +316,54 @@ Note that this only works if the opening tag starts at column 0."
       (setq beg (search-forward "<" nil t)))
     (when beg
       (if (eq after ?/)
-	  (progn
-	    (search-forward ">")
-	    (cons (1- beg)
-		  (buffer-substring-no-properties (1+ beg) (1- (point)))))
-	(skip-chars-forward "^ \t\n/>")
-	(cons
-	 (1- beg)
-	 (progn
-	   (setq after (point))
-	   (skip-chars-forward " \t\n")
-	   (let* ((single (eq (char-after) ?/))
-		  (tag (buffer-substring-no-properties beg after))
-		  attrs data-beg data)
-	     ;; handle the attribute list, if present
-	     (cond
-	      (single
-	       (skip-chars-forward " \t\n/>"))
-	      ((eq (char-after) ?\>)
-	       (forward-char 1))
-	      (t
-	       (let* ((attrs (list t))
-		      (lastattr attrs)
-		      (end (search-forward ">")))
-		 (goto-char after)
-		 (while (re-search-forward
-			 "\\([^ \t\n=]+\\)=\"\\([^\"]+\\)\"" end t)
-		   (let ((attr (cons (match-string-no-properties 1)
-				     (match-string-no-properties 2))))
-		     (setcdr lastattr (list attr))
-		     (setq lastattr (cdr lastattr))))
-		 (goto-char end)
-		 (setq tag (cons tag (cdr attrs))
-		       single (eq (char-before (1- end)) ?/)))))
-	     ;; return the tag and its data
-	     (if single
-		 (list tag)
-	       (setq tag (list tag))
-	       (let ((data-beg (point)) (tag-end (last tag)))
-		 (while (and (setq data (xml-parse-read t))
-			     (not (stringp (cdr data))))
-		   (setq tag-end (xml-parse-concat data-beg (car data)
-						   tag-end)
-			 data-beg (point))
-		   (setcdr tag-end (list (cdr data)))
-		   (setq tag-end (cdr tag-end)))
-		 (xml-parse-concat data-beg (or (car data)
-						(point-max)) tag-end)
-		 tag)))))))))
+          (progn
+            (search-forward ">")
+            (cons (1- beg)
+                  (buffer-substring-no-properties (1+ beg) (1- (point)))))
+        (skip-chars-forward "^ \t\n/>")
+        (cons
+         (1- beg)
+         (progn
+           (setq after (point))
+           (skip-chars-forward " \t\n")
+           (let* ((single (eq (char-after) ?/))
+                  (tag (buffer-substring-no-properties beg after))
+                  attrs data-beg data)
+             ;; handle the attribute list, if present
+             (cond
+              (single
+               (skip-chars-forward " \t\n/>"))
+              ((eq (char-after) ?\>)
+               (forward-char 1))
+              (t
+               (let* ((attrs (list t))
+                      (lastattr attrs)
+                      (end (search-forward ">")))
+                 (goto-char after)
+                 (while (re-search-forward
+                         "\\([^ \t\n=]+\\)=\"\\([^\"]+\\)\"" end t)
+                   (let ((attr (cons (match-string-no-properties 1)
+                                     (match-string-no-properties 2))))
+                     (setcdr lastattr (list attr))
+                     (setq lastattr (cdr lastattr))))
+                 (goto-char end)
+                 (setq tag (cons tag (cdr attrs))
+                       single (eq (char-before (1- end)) ?/)))))
+             ;; return the tag and its data
+             (if single
+                 (list tag)
+               (setq tag (list tag))
+               (let ((data-beg (point)) (tag-end (last tag)))
+                 (while (and (setq data (xml-parse-read t))
+                             (not (stringp (cdr data))))
+                   (setq tag-end (xml-parse-concat data-beg (car data)
+                                                   tag-end)
+                         data-beg (point))
+                   (setcdr tag-end (list (cdr data)))
+                   (setq tag-end (cdr tag-end)))
+                 (xml-parse-concat data-beg (or (car data)
+                                                (point-max)) tag-end)
+                 tag)))))))))
 
 (provide 'xml-parse)
 

@@ -74,7 +74,7 @@
           (emacspeak-use-auditory-icons nil))
       ad-do-it)
     (tts-with-punctuations 'all
-			   (emacspeak-read-previous-line))
+                           (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))
   ad-return-value )
@@ -84,7 +84,7 @@
   (let ((emacspeak-speak-messages nil))
     ad-do-it
     (tts-with-punctuations 'all
-			   (emacspeak-read-previous-line))
+                           (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'select-object))
   ad-return-value)
 

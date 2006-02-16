@@ -231,7 +231,7 @@ the table structure extraction code in W3."
                            "-dump"
                            url))
     (set-process-sentinel process
-			  'emacspeak-w3-lynx-done-alert)))
+                          'emacspeak-w3-lynx-done-alert)))
 ;;;###autoload
 (defun emacspeak-w3-curl-url-under-point ()
   "Display contents of URL under point using Curl and W3.  The
@@ -290,14 +290,14 @@ document is displayed in a separate buffer. "
   (let ((current (emacspeak-w3-html-stack))
         (start (point))
         (end nil))
-    (unless current                ;move to parsed item if needed
+    (unless current                     ;move to parsed item if needed
       (goto-char
        (next-single-property-change (point)
                                     'html-stack))
       (setq current (emacspeak-w3-html-stack)))
     (while current
       (goto-char (next-single-property-change (point)
-					      'html-stack ))
+                                              'html-stack ))
       (setq current (emacspeak-w3-html-stack)))
     (setq end (point))
     (emacspeak-speak-region start end)
@@ -521,9 +521,9 @@ even if one is already defined."
       (setq emacspeak-w3-url-executor
             (intern
              (completing-read 
-	      "Executor function: "
-	      obarray 'fboundp t
-	      "emacspeak-" nil )))
+              "Executor function: "
+              obarray 'fboundp t
+              "emacspeak-" nil )))
       (if (and (boundp 'emacspeak-w3-url-executor)
                (fboundp emacspeak-w3-url-executor))
           (funcall emacspeak-w3-url-executor url)
@@ -588,9 +588,9 @@ HTML."
      (when emacspeak-w3-xsl-p
        (setq emacspeak-w3-xsl-p nil)
        (add-hook 'emacspeak-w3-post-process-hook
-		 #'(lambda ()
-		     (declare (special emacspeak-w3-xsl-p))
-		     (setq emacspeak-w3-xsl-p t))))
+                 #'(lambda ()
+                     (declare (special emacspeak-w3-xsl-p))
+                     (setq emacspeak-w3-xsl-p t))))
      (,@ body))))
 
 (defmacro emacspeak-w3-with-xsl (&rest body)
@@ -601,9 +601,9 @@ HTML."
      (unless emacspeak-w3-xsl-p
        (setq emacspeak-w3-xsl-p t)
        (add-hook 'emacspeak-w3-post-process-hook
-		 #'(lambda ()
-		     (declare (special emacspeak-w3-xsl-p))
-		     (setq emacspeak-w3-xsl-p nil))))
+                 #'(lambda ()
+                     (declare (special emacspeak-w3-xsl-p))
+                     (setq emacspeak-w3-xsl-p nil))))
      (,@ body))))
 
 ;;}}}
@@ -772,28 +772,28 @@ Optional arg COMPLEMENT inverts the filter.  "
          (keep-result emacspeak-w3-xsl-keep-result))
     (setq src-buffer
           (emacspeak-xslt-url
-	   (if complement
-	       emacspeak-w3-xsl-junk
-	     emacspeak-w3-xsl-filter)
-	   source-url
-	   (list
-	    (cons "path"
-		  (format "\"'%s'\""
-			  path))
-	    (cons "locator"
-		  (format "'%s'"
-			  path))
-	    (cons "base"
-		  (format "\"'%s'\""
-			  (or source-url
-			      prompt-url))))))
+           (if complement
+               emacspeak-w3-xsl-junk
+             emacspeak-w3-xsl-filter)
+           source-url
+           (list
+            (cons "path"
+                  (format "\"'%s'\""
+                          path))
+            (cons "locator"
+                  (format "'%s'"
+                          path))
+            (cons "base"
+                  (format "\"'%s'\""
+                          (or source-url
+                              prompt-url))))))
     (save-excursion
       (set-buffer src-buffer)
       (setq emacspeak-w3-xsl-keep-result keep-result)
       (when  (or (interactive-p)
                  speak-result)
         (add-hook 'emacspeak-w3-post-process-hook
-		  'emacspeak-speak-buffer))
+                  'emacspeak-speak-buffer))
       (emacspeak-w3-preview-this-buffer)
       (cond
        ((> (length emacspeak-w3-xsl-keep-result) 0)
@@ -839,24 +839,24 @@ spoken automatically."
   (interactive
    (list current-prefix-arg))
   (unless (and
-	   (or (null prompt-url) (stringp prompt-url))
-	   (eq major-mode 'w3-mode))
+           (or (null prompt-url) (stringp prompt-url))
+           (eq major-mode 'w3-mode))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))
   (let ((filter "//a[%s]")
         (predicate 
-	 (mapconcat
-	  #'(lambda (suffix)
-	      (format "contains(@href,\"%s\")"
-		      suffix))
-	  emacspeak-w3-media-stream-suffixes
-	  " or ")))
+         (mapconcat
+          #'(lambda (suffix)
+              (format "contains(@href,\"%s\")"
+                      suffix))
+          emacspeak-w3-media-stream-suffixes
+          " or ")))
     (emacspeak-w3-xslt-filter
      (format filter predicate )
      prompt-url
      (or (interactive-p)
-	 speak))))
+         speak))))
 
 ;;;###autoload
 (defun emacspeak-w3-extract-print-streams ( &optional prompt-url speak)
@@ -868,8 +868,8 @@ spoken automatically."
   (interactive
    (list current-prefix-arg))
   (unless (and
-	   (or (null prompt-url) (stringp prompt-url))
-	   (eq major-mode 'w3-mode))
+           (or (null prompt-url) (stringp prompt-url))
+           (eq major-mode 'w3-mode))
     (setq prompt-url
           (read-from-minibuffer "URL:")))
   (let ((filter "//a[contains(@href,\"print\")]"))
@@ -877,14 +877,14 @@ spoken automatically."
      filter
      prompt-url
      (or (interactive-p)
-	 speak))))
+         speak))))
 
 (defun emacspeak-w3-extract-media-streams-under-point ()
   "In W3 mode buffers, extract media streams from url under point."
   (interactive)
   (cond
    ((and (eq major-mode 'w3-mode)
-	 (w3-view-this-url 'no-show))
+         (w3-view-this-url 'no-show))
     (emacspeak-w3-extract-media-streams (w3-view-this-url 'no-show)
                                         'speak))
    (t (error "Not on a link in a W3 buffer."))))
@@ -903,7 +903,7 @@ spoken automatically."
      filter
      prompt-url
      (or (interactive-p)
-	 speak))))
+         speak))))
 
 ;;;###autoload
 (defun emacspeak-w3-extract-nested-table (table-index   &optional prompt-url speak)
@@ -1069,7 +1069,7 @@ Tables are specified by containing  match pattern
                                 emacspeak-xslt-directory)
               (url-view-url 'no-show)
               nil
-	      'no-comment)))
+              'no-comment)))
         (setq values 
               (save-excursion
                 (set-buffer buffer)
@@ -1295,7 +1295,7 @@ interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
   (declare (special emacspeak-w3-class-filter
-		    emacspeak-w3-url-rewrite-rule))
+                    emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -1304,9 +1304,9 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-				  url
-				  (second emacspeak-w3-url-rewrite-rule))))
+            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                  url
+                                  (second emacspeak-w3-url-rewrite-rule))))
     (when (or prompt-class 
               (null emacspeak-w3-class-filter))
       (setq emacspeak-w3-class-filter 
@@ -1340,7 +1340,7 @@ used as well."
   (interactive "P")
   (declare (special emacspeak-w3-xpath-filter
                     emacspeak-w3-most-recent-xpath-filter
-		    emacspeak-w3-url-rewrite-rule))
+                    emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -1349,10 +1349,10 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-				  url
-				  (second
-				   emacspeak-w3-url-rewrite-rule))))
+            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                  url
+                                  (second
+                                   emacspeak-w3-url-rewrite-rule))))
     (when (or prompt 
               (null emacspeak-w3-xpath-filter))
       (setq emacspeak-w3-xpath-filter 
@@ -1361,8 +1361,8 @@ used as well."
       (setq emacspeak-w3-most-recent-xpath-filter
             emacspeak-w3-xpath-filter))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-filter
-			      (or redirect url)
-			      'speak)
+                              (or redirect url)
+                              'speak)
     (emacspeak-auditory-icon 'open-object)))
 
 (defvar emacspeak-w3-xpath-junk nil
@@ -1383,7 +1383,7 @@ used as well."
   (interactive "P")
   (declare (special emacspeak-w3-xpath-junk
                     emacspeak-w3-most-recent-xpath-junk
-		    emacspeak-w3-url-rewrite-rule))
+                    emacspeak-w3-url-rewrite-rule))
   (unless (eq major-mode 'w3-mode)
     (error "This command is only useful in W3 buffers."))
   (let ((url (w3-view-this-url t))
@@ -1392,10 +1392,10 @@ used as well."
       (error "Not on a link."))
     (when emacspeak-w3-url-rewrite-rule
       (setq redirect
-	    (string-replace-match (first emacspeak-w3-url-rewrite-rule)
-				  url
-				  (second
-				   emacspeak-w3-url-rewrite-rule))))
+            (string-replace-match (first emacspeak-w3-url-rewrite-rule)
+                                  url
+                                  (second
+                                   emacspeak-w3-url-rewrite-rule))))
     (when (or prompt 
               (null emacspeak-w3-xpath-junk))
       (setq emacspeak-w3-xpath-junk 
@@ -1404,8 +1404,8 @@ used as well."
       (setq emacspeak-w3-most-recent-xpath-junk
             emacspeak-w3-xpath-junk))
     (emacspeak-w3-xslt-filter emacspeak-w3-xpath-junk
-			      (or redirect url)
-			      'speak
+                              (or redirect url)
+                              'speak
                               'complement)
     (emacspeak-auditory-icon 'open-object)))
 
@@ -1423,7 +1423,7 @@ used as well."
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-w3-post-process-hook
                     emacspeak-w3-xsl-p
-		    emacspeak-w3-xsl-transform))
+                    emacspeak-w3-xsl-transform))
   (let ((emacspeak-w3-xsl-p t)
         (emacspeak-w3-xsl-transform style)
         (src-buffer
@@ -1451,9 +1451,9 @@ used as well."
     ("&amp;" . "&"))
   "Entities to unescape when treating badly escaped XML."
   :type '(repeat  :tag "Char Entity"
-		  (cons :tag "Entry"
-			(string :tag "CharEnt")
-			(string :tag "Replacement")))
+                  (cons :tag "Entry"
+                        (string :tag "CharEnt")
+                        (string :tag "Replacement")))
   :group 'emacspeak-w3)
 
 (defsubst emacspeak-w3-unescape-charent ()
@@ -1531,10 +1531,10 @@ current page."
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
    (format "+site:%s %s"
-	   (aref 
-	    (url-generic-parse-url (url-view-url 'no-show))
-	    3)
-	   (read-from-minibuffer "Search this site for: "))))
+           (aref 
+            (url-generic-parse-url (url-view-url 'no-show))
+            3)
+           (read-from-minibuffer "Search this site for: "))))
 
 (defvar emacspeak-w3-google-related-uri
   "http://www.google.com/search?hl=en&num=10&q=related:")

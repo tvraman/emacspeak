@@ -75,7 +75,7 @@
   "Provide auditory feedback about we are about to do."
   (cond
    ((and (interactive-p)
-	 defining-kbd-macro)
+         defining-kbd-macro)
     (message "Finished defining kbd macro."))
    (t(emacspeak-auditory-icon 'select-object)
      (message "Calling macro."))))
@@ -84,7 +84,7 @@
   "Provide auditory feedback about we are about to do."
   (cond
    ((and (interactive-p)
-	 defining-kbd-macro)
+         defining-kbd-macro)
     (message "Finished defining kbd macro."))
    (t(emacspeak-auditory-icon 'select-object)
      (message "Calling macro."))))
@@ -96,7 +96,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-lin)))
 (defadvice kmacro-call-ring-2nd-repeat (before emacspeak pre act
-					       comp)
+                                               comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (message "Calling  second macro from ring.")))

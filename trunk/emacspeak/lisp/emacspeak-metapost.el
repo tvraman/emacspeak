@@ -122,27 +122,27 @@
   "Provide spoken feedback."
   (when (interactive-p)
     (message "Uncommented environment containing %s lines"
-	     (count-lines (point) (mark 'force)))))
+             (count-lines (point) (mark 'force)))))
 
 (defadvice meta-uncomment-region (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
     (message "Uncommented  region containing %s lines"
-	     (count-lines (point) (mark 'force)))))
+             (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-region (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  region containing %s lines"
-	     (count-lines (point) (mark 'force)))))
+             (count-lines (point) (mark 'force)))))
 
 (defadvice meta-indent-buffer (after emacspeak pre act )
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  buffer containing %s lines"
-	     (count-lines (point-min) (point-max 'force)))))
+             (count-lines (point-min) (point-max 'force)))))
 
 (defadvice meta-mark-defun (after emacspeak pre act)
   "Produce an auditory icon if possible."

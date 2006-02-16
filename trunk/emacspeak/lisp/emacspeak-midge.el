@@ -49,10 +49,10 @@
 ;;; This module speech enables  midge.
 ;;; Midge is a MIDI composer/editor tool.
 ;;;From the package README file:
-					; Midge, for midi generator, is a text to midi translator.
-					; It creates type 1 (ie multitrack) midi files from text
-					; descriptions of music. It is a single perl script, which
-					; does not require any additional modules.
+                                        ; Midge, for midi generator, is a text to midi translator.
+                                        ; It creates type 1 (ie multitrack) midi files from text
+                                        ; descriptions of music. It is a single perl script, which
+                                        ; does not require any additional modules.
 ;;;The package also provides a convenient emacs mode for
 ;;;editing and playing  midge files.
 ;;;Midge's homepage is at:

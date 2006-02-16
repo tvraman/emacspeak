@@ -104,21 +104,21 @@
 ;;{{{  advice record creation
 
 ;;; list of commands that are advised:
-					;'(bibtex-Unpublished 
-					;        bibtex-string
-					;        bibtex-TechReport
-					;        bibtex-preamble
-					;        bibtex-Proceedings
-					;        bibtex-PhdThesis
-					;        bibtex-Misc
-					;        bibtex-MastersThesis
-					;        bibtex-Manual
-					;        bibtex-InProceedings
-					;        bibtex-InCollection
-					;        bibtex-InBook
-					;        bibtex-InProceedings
-					;        bibtex-Book
-					;        bibtex-Article)
+                                        ;'(bibtex-Unpublished 
+                                        ;        bibtex-string
+                                        ;        bibtex-TechReport
+                                        ;        bibtex-preamble
+                                        ;        bibtex-Proceedings
+                                        ;        bibtex-PhdThesis
+                                        ;        bibtex-Misc
+                                        ;        bibtex-MastersThesis
+                                        ;        bibtex-Manual
+                                        ;        bibtex-InProceedings
+                                        ;        bibtex-InCollection
+                                        ;        bibtex-InBook
+                                        ;        bibtex-InProceedings
+                                        ;        bibtex-Book
+                                        ;        bibtex-Article)
 
 (defadvice bibtex-Unpublished  (after emacspeak pre act comp)
   "Provide auditory feedback"

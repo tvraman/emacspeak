@@ -97,7 +97,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 (defadvice sh-end-of-command(after emacspeak pre act
-				   comp)
+                                   comp)
   "Speak point moved to."
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)

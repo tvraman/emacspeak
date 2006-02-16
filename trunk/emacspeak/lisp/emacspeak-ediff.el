@@ -252,7 +252,7 @@
   "Voicify all the difference chunks"
   (declare (special ediff-buffer-A ediff-buffer-B
                     ediff-number-of-differences
-		    ediff-difference-vector-B ediff-difference-vector-A
+                    ediff-difference-vector-B ediff-difference-vector-A
                     emacspeak-ediff-A-personality
                     emacspeak-ediff-B-personality
                     emacspeak-ediff-fine-A-personality

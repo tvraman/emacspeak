@@ -124,10 +124,10 @@
 (defun xml-children-by-name  (tag name)
   "Return list of children  matching NAME, of an xml-parse'd XML TAG."
   (let ((children (xml-tag-children tag))
-	(result nil))
+        (result nil))
     (while children
       (when (string-equal name (xml-tag-name (car children)))
-	(nconc result (car children)))
+        (nconc result (car children)))
       (setq children (cdr children)))
     result))
 
@@ -190,23 +190,23 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
                (concat
                 (emacspeak-daisy-book-basename emacspeak-daisy-this-book)
                 ".xml")
-	       emacspeak-daisy-this-book))
+               emacspeak-daisy-this-book))
         (result nil))
     (setq result
           (emacspeak-xslt-xml-url
-	   (expand-file-name "dtb-page-range.xsl"
-			     emacspeak-xslt-directory)
-	   path
-	   (list
-	    (cons "start"
-		  (format "'%s'"
-			  start ))
-	    (cons "end"
-		  (format "'%s'"
-			  end ))
-	    (cons "base"
-		  (format "'%s'"
-			  path)))))
+           (expand-file-name "dtb-page-range.xsl"
+                             emacspeak-xslt-directory)
+           path
+           (list
+            (cons "start"
+                  (format "'%s'"
+                          start ))
+            (cons "end"
+                  (format "'%s'"
+                          end ))
+            (cons "base"
+                  (format "'%s'"
+                          path)))))
     (save-excursion
       (set-buffer result)
       (emacspeak-w3-preview-this-buffer))
@@ -490,25 +490,25 @@ Here is a list of all emacspeak DAISY commands along with their key-bindings:
 navigation file for a book. Include all extensions except `.ncx'
   for optimal performance."
   :type '(repeat :tag "Extensions"
-		 (string :tag "Suffix"))
+                 (string :tag "Suffix"))
   :group 'emacspeak-daisy)
 
 (defsubst emacspeak-daisy-read-file-name()
   "Read file name."
 ;;; we do this based on signature of read-file-name
-  (let ((read-file-name-takes-predicate	;;; emacs 21.4
+  (let ((read-file-name-takes-predicate ;;; emacs 21.4
          (= 7 (length
                (car (append
                      (symbol-function 'read-file-name) nil))))))
     (if read-file-name-takes-predicate       
-	(read-file-name "Book Navigation File: "
-			emacspeak-daisy-books-directory
-			nil t  nil 
-			#'(lambda (f)
-			    (string-match "\\.ncx$" f)))
+        (read-file-name "Book Navigation File: "
+                        emacspeak-daisy-books-directory
+                        nil t  nil 
+                        #'(lambda (f)
+                            (string-match "\\.ncx$" f)))
       (read-file-name "Book Navigation File: "
-		      emacspeak-daisy-books-directory
-		      nil t  nil))))
+                      emacspeak-daisy-books-directory
+                      nil t  nil))))
 
 ;;;###autoload
 (defun emacspeak-daisy-open-book (filename)
@@ -734,7 +734,7 @@ No-op if content under point is not currently displayed."
 ;;{{{ Configure w3 post processor hook to record viewer buffer:
 
 (defun emacspeak-daisy-configure-w3-to-record-viewer (nav-center title outline 
-								 start  end bookmark)
+                                                                 start  end bookmark)
   "Attaches an automatically generated post processor function
 that asks W3 to record the viewer in the navigation center when done.
 Also puts the displayed buffer in outline-minor-mode and gives it
@@ -743,19 +743,19 @@ Also puts the displayed buffer in outline-minor-mode and gives it
   (setq emacspeak-w3-post-process-hook
         (`
          (lambda  nil
-	   (let ((buffer (current-buffer)))
+           (let ((buffer (current-buffer)))
              (outline-minor-mode 1)
              (setq outline-regexp (, outline))
              (rename-buffer title 'uniquely)
-	     (save-excursion
-	       (set-buffer (, nav-center))
-	       (put-text-property (, start) (, end)
-				  'viewer  buffer))
+             (save-excursion
+               (set-buffer (, nav-center))
+               (put-text-property (, start) (, end)
+                                  'viewer  buffer))
              (cond
               (bookmark
                (goto-char bookmark)
                (emacspeak-speak-line))
-	      (t (emacspeak-speak-mode-line))))))))
+              (t (emacspeak-speak-mode-line))))))))
 
 ;;}}}
 

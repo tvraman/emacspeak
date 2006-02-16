@@ -107,16 +107,11 @@
         muse-previous-reference)
       do
       (eval
-`(defadvice   ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))))
-
-
-
-
-
+       `(defadvice   ,f (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-muse)

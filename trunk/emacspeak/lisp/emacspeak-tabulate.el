@@ -128,14 +128,14 @@ Fields are assumed to be delimited by whitespace. "
             (setq interval
                   (ems-intersect-intervals (car try)
                                            (ems-make-interval first last )))
-	    (when interval (push interval  new-guesses))
-	    (pop try )
+            (when interval (push interval  new-guesses))
+            (pop try )
             (setq first nil
                   last nil
                   interval nil ))
           (end-of-line)
-	  (setf guesses (nreverse new-guesses) 
-		new-guesses nil))
+          (setf guesses (nreverse new-guesses) 
+                new-guesses nil))
         guesses ))))
 
 (defsubst ems-tabulate-process-column (tl tr br bl mark-headers start)
@@ -144,13 +144,13 @@ Fields are assumed to be delimited by whitespace. "
     (emacspeak-voicify-rectangle
      tl br 
      (read (completing-read
-	    (format "Personality for column %s from  %s through %s"
-		    header (- tl start) (- tr start))
-	    personality-table  nil t )))
+            (format "Personality for column %s from  %s through %s"
+                    header (- tl start) (- tr start))
+            personality-table  nil t )))
     (and mark-headers
-	 (emacspeak-put-text-property-on-rectangle
-	  tl br
-	  'field-name header ))))
+         (emacspeak-put-text-property-on-rectangle
+          tl br
+          'field-name header ))))
 
 ;;;  White space contains a list of intervals giving position of inter
 ;;;  columnal space. All calculations are done in terms of buffer
@@ -174,31 +174,31 @@ in the white-space."
     (ems-modify-buffer-safely
      (progn
        (message   "Detected %s rows and  %s columns."
-		  (count-lines start end)
-		  (+ 1 (length white-space )))
+                  (count-lines start end)
+                  (+ 1 (length white-space )))
        (sit-for 1.5)
        (save-excursion
          (goto-char end)
          (beginning-of-line)
          (setq bl  (point))
          (setq tl  start )
-					;(goto-char tl )
+                                        ;(goto-char tl )
          (setq width   (ems-interval-start (car white-space)))
          (setq tr (+ tl width)
                br (+ bl width))
          (ems-tabulate-process-column tl tr br bl mark-fields start)
          (while white-space
-					;move to beginning of next column
+                                        ;move to beginning of next column
            (goto-char (+ start (ems-interval-end (car white-space))))
            (setq tl (point))
-					; width of space between columns 
+                                        ; width of space between columns 
            (setq width (- tl tr))
            (setq bl (+ br width))
            (setq white-space (cdr white-space))
-					;Now detect right edges of this column 
+                                        ;Now detect right edges of this column 
            (cond
             (white-space
-					;white-space holds column positions, not buffer positions
+                                        ;white-space holds column positions, not buffer positions
              (setq width (- (ems-interval-start (car white-space ))
                             (- tl start)))
              (setq tr (+ tl width)
@@ -208,7 +208,7 @@ in the white-space."
                (setq tr (point)
                      br end)))
            (ems-tabulate-process-column tl tr br bl
-					mark-fields start)))))))
+                                        mark-fields start)))))))
            
 
 ;;}}}

@@ -160,8 +160,8 @@ use the minibuffer."
   (dolist (item
            (rest (assoc module load-history)))
     (and (symbolp item)
-	 (commandp item)
-	 (emacspeak-fix-interactive-command-if-necessary item)))
+         (commandp item)
+         (emacspeak-fix-interactive-command-if-necessary item)))
   (when (interactive-p)
     (message "Fixed interactive commands defined in module %s" module)))
 

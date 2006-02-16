@@ -53,7 +53,7 @@
 (add-hook 'view-mode-hook
           (function (lambda ()
                       (local-unset-key emacspeak-prefix )
-		      (emacspeak-view-setup-keys))))
+                      (emacspeak-view-setup-keys))))
 ;;; Generate automatic advise:
 
 ;;}}}
@@ -80,9 +80,9 @@
     (emacspeak-speak-load-directory-settings)
     (outline-minor-mode 1)
     (if view-mode
-	(message "Entered view mode Press %s to exit"
-		 (key-description
-		  (where-is-internal 'View-exit view-mode-map 'firstonly)))
+        (message "Entered view mode Press %s to exit"
+                 (key-description
+                  (where-is-internal 'View-exit view-mode-map 'firstonly)))
       (message "Exited view mode"))))
 
 (defadvice View-quit (after emacspeak pre act comp)
@@ -245,7 +245,7 @@
       (emacspeak-auditory-icon 'large-movement)
       (dtk-speak
        (concat line-number
-	       (thing-at-point 'line))))))
+               (thing-at-point 'line))))))
 (defadvice View-scroll-to-buffer-end (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)

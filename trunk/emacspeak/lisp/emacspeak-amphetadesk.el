@@ -87,13 +87,13 @@
                     emacspeak-amphetadesk-port))
   (let ((emacspeak-speak-messages nil))
     (if (=  1
-	    (shell-command
-	     (format "netstat -nat | grep %s"
-		     emacspeak-amphetadesk-port)))
-	(shell-command
-	 (format "nohup %s &"
-		 emacspeak-amphetadesk-program)
-	 "*AmphetaDesk*"))))
+            (shell-command
+             (format "netstat -nat | grep %s"
+                     emacspeak-amphetadesk-port)))
+        (shell-command
+         (format "nohup %s &"
+                 emacspeak-amphetadesk-program)
+         "*AmphetaDesk*"))))
 
 ;;;###autoload
 (defun emacspeak-amphetadesk (&optional use-opml)

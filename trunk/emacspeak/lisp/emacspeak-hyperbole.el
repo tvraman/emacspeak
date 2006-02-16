@@ -66,34 +66,34 @@
 (setq
  hui:menus
  (list (cons
-	'hyperbole
-	(delq nil
-	      (list
-	       (list "")
-	       '("Act"         hui:hbut-act
-		 "Activates button at point or prompts for explicit button.")
-	       '("ButFile/"    (menu . butfile)
-		 "Quick access button files menus.")
-	       '("Doc/"        (menu . doc)
-		 "Quick access to Hyperbole documentation.")
-	       '("ExpBut/"       (menu . ebut)
-		 "Explicit button commands.")
-	       '("GloBut/"       (menu . gbut)
-		 "Global button commands.")
-	       '("ImpBut/"       (menu . ibut)
-		 "Implicit button and button type commands.")
-	       '("Msg/"        (menu . msg)
-		 "Mail and News messaging facilities.")
-	       (if hyperb:kotl-p
-		   '("OutLin/"        (menu . otl)
-		     "Autonumbered outlining and hyper-node facilities."))
-	       '("RoloDex/"       (menu . rolo)
-		 "Hierarchical, multi-file rolodex lookup and edit commands.")
-	       '("WinConf/"       (menu . win)
-		 "Window configuration management command.")
-	       '("Hist"        (hhist:remove current-prefix-arg)
-		 "Jumps back to location prior to last Hyperbole button follow.")
-	       )))
+        'hyperbole
+        (delq nil
+              (list
+               (list "")
+               '("Act"         hui:hbut-act
+                 "Activates button at point or prompts for explicit button.")
+               '("ButFile/"    (menu . butfile)
+                 "Quick access button files menus.")
+               '("Doc/"        (menu . doc)
+                 "Quick access to Hyperbole documentation.")
+               '("ExpBut/"       (menu . ebut)
+                 "Explicit button commands.")
+               '("GloBut/"       (menu . gbut)
+                 "Global button commands.")
+               '("ImpBut/"       (menu . ibut)
+                 "Implicit button and button type commands.")
+               '("Msg/"        (menu . msg)
+                 "Mail and News messaging facilities.")
+               (if hyperb:kotl-p
+                   '("OutLin/"        (menu . otl)
+                     "Autonumbered outlining and hyper-node facilities."))
+               '("RoloDex/"       (menu . rolo)
+                 "Hierarchical, multi-file rolodex lookup and edit commands.")
+               '("WinConf/"       (menu . win)
+                 "Window configuration management command.")
+               '("Hist"        (hhist:remove current-prefix-arg)
+                 "Jumps back to location prior to last Hyperbole button follow.")
+               )))
        '(butfile .
                  (("Butfile>")
                   ("DirFile"      (find-file hbmap:filename)
@@ -203,39 +203,39 @@
                "Add, remove or change your entry on a hyperbole mail list.")
               ))
        (if hyperb:kotl-p
-	   '(otl
-	     . (("Otl>")
-		("All"       kotl-mode:show-all "Expand all collapsed cells.") 
-		("Below"     kotl-mode:hide-sublevels
-		 "Hide all cells in outline deeper than a particular level.")
-		("Create"    kfile:find   "Create or edit an outline file.")
-		("Example"   (find-file-read-only
-			      (expand-file-name
-			       "EXAMPLE.kotl" (concat hyperb:dir "kotl/")))
-		 "Display a self-descriptive example outline file.")
-		("Hide"      (progn (kotl-mode:is-p)
-				    (kotl-mode:hide-tree (kcell-view:label)))
-		 "Collapse tree rooted at point.")
-		("Info"
-		 (hact 'link-to-Info-node "(hyperbole.info)Outliner")
-		 "Display manual section on Hyperbole outliner.")
-		("Kill"      kotl-mode:kill-tree
-		 "Kill ARG following trees starting from point.")
-		("Link"      klink:create
-		 "Create and insert an implicit link at point.")
-		("Overview"  kotl-mode:overview
-		 "Show first line of each cell.")
-		("Show"      (progn (kotl-mode:is-p)
-				    (kotl-mode:show-tree (kcell-view:label)))
-		 "Expand tree rooted at point.")
-		("Top"       kotl-mode:top-cells
-		 "Hide all but top-level cells.") 
-		("View"      kfile:view
-		 "View an outline file in read-only mode.")
-		)))
+           '(otl
+             . (("Otl>")
+                ("All"       kotl-mode:show-all "Expand all collapsed cells.") 
+                ("Below"     kotl-mode:hide-sublevels
+                 "Hide all cells in outline deeper than a particular level.")
+                ("Create"    kfile:find   "Create or edit an outline file.")
+                ("Example"   (find-file-read-only
+                              (expand-file-name
+                               "EXAMPLE.kotl" (concat hyperb:dir "kotl/")))
+                 "Display a self-descriptive example outline file.")
+                ("Hide"      (progn (kotl-mode:is-p)
+                                    (kotl-mode:hide-tree (kcell-view:label)))
+                 "Collapse tree rooted at point.")
+                ("Info"
+                 (hact 'link-to-Info-node "(hyperbole.info)Outliner")
+                 "Display manual section on Hyperbole outliner.")
+                ("Kill"      kotl-mode:kill-tree
+                 "Kill ARG following trees starting from point.")
+                ("Link"      klink:create
+                 "Create and insert an implicit link at point.")
+                ("Overview"  kotl-mode:overview
+                 "Show first line of each cell.")
+                ("Show"      (progn (kotl-mode:is-p)
+                                    (kotl-mode:show-tree (kcell-view:label)))
+                 "Expand tree rooted at point.")
+                ("Top"       kotl-mode:top-cells
+                 "Hide all but top-level cells.") 
+                ("View"      kfile:view
+                 "View an outline file in read-only mode.")
+                )))
        '(rolo .
               (("Rolo>")
-               ("Add"              rolo-add	  "Add a new rolo entry.")
+               ("Add"              rolo-add       "Add a new rolo entry.")
                ("Display"          rolo-display-matches
                 "Display last found rolodex matches again.")
                ("Edit"             rolo-edit   "Edit an existing rolo entry.")
@@ -284,7 +284,7 @@
     (save-match-data
       (skip-chars-backward "0-9")
       (if (looking-at emacspeak-hyperbole-phone-regexp)
-	  (buffer-substring (match-beginning 0) (match-end 0))))))
+          (buffer-substring (match-beginning 0) (match-end 0))))))
 
 ;;; will work only if evaluated.
 (eval-when (eval)
@@ -294,20 +294,20 @@ Applies to the rolodex match buffer, any buffer attached to a file in
 'rolo-file-list', or any buffer with \"mail\" or \"rolo\" (case-insensitive)
 within its name."
     (if (or (and (let ((case-fold-search t))
-		   (string-match "mail\\|rolo" (buffer-name)))
-		 ;; Don't want this to trigger in a mail/news summary buffer.
-		 (not (or (hmail:lister-p) (hnews:lister-p))))
-	    (if (boundp 'rolo-display-buffer)
-		(equal (buffer-name) rolo-display-buffer))
-	    (and buffer-file-name
-		 (boundp 'rolo-file-list)
-		 (set:member (current-buffer)
-			     (mapcar 'get-file-buffer rolo-file-list))))
-	(let ((phone (emacspeak-phone-number-at-point)))
-	  (if phone
-	      (progn
-		(ibut:label-set phone (match-beginning 1) (match-end 1))
-		(hact 'emacspeak-dial-dtk  phone))))))
+                   (string-match "mail\\|rolo" (buffer-name)))
+                 ;; Don't want this to trigger in a mail/news summary buffer.
+                 (not (or (hmail:lister-p) (hnews:lister-p))))
+            (if (boundp 'rolo-display-buffer)
+                (equal (buffer-name) rolo-display-buffer))
+            (and buffer-file-name
+                 (boundp 'rolo-file-list)
+                 (set:member (current-buffer)
+                             (mapcar 'get-file-buffer rolo-file-list))))
+        (let ((phone (emacspeak-phone-number-at-point)))
+          (if phone
+              (progn
+                (ibut:label-set phone (match-beginning 1) (match-end 1))
+                (hact 'emacspeak-dial-dtk  phone))))))
   )
 
   

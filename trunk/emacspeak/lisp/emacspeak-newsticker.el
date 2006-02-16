@@ -70,7 +70,7 @@
 ;;{{{ advice functions
 
 (defadvice newsticker--cache-remove (around emacspeak pre act
-					    comp)
+                                            comp)
   "Silence messages temporarily to avoid chatter."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
@@ -98,15 +98,15 @@
 (loop for f in
       '(newsticker-next-item newsticker-previous-item
                              newsticker-next-new-item
-			     newsticker-previous-new-item)
+                             newsticker-previous-new-item)
       do
       (eval
        (`
         (defadvice (, f) (after emacspeak pre act comp)
           "Provide spoken feedback."
           (when (interactive-p)
-	    (emacspeak-auditory-icon 'large-movement)
-	    (emacspeak-newsticker-summarize-item))))))
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-newsticker-summarize-item))))))
 
 ;;}}}
 ;;{{{  silence auto activity
@@ -118,9 +118,9 @@
       do
       (eval
        `(defadvice  ,f (around emacspeak pre act comp)
-	  "Silence messages."
-	  (let ((emacspeak-speak-messages nil))
-	    ad-do-it))))
+          "Silence messages."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it))))
 ;;}}}
 (provide 'emacspeak-newsticker)
 ;;{{{ end of file

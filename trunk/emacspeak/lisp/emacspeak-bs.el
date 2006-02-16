@@ -73,7 +73,7 @@
             this-buffer-modified-p
             this-buffer-size
             this-buffer-mode-name
-	    mode-name
+            mode-name
             this-buffer-directory
             (dtk-stop-immediately nil))
         (put-text-property 0 (length document)
@@ -97,8 +97,8 @@
         (when this-buffer-modified-p (dtk-tone 700 70))
         (when this-buffer-read-only (dtk-tone 250 50))
         (put-text-property 0 (length this-buffer-mode-name)
-			   'personality voice-smoothen
-			   this-buffer-mode-name)
+                           'personality voice-smoothen
+                           this-buffer-mode-name)
         (dtk-speak
          (concat 
           name

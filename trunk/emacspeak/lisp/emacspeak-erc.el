@@ -187,12 +187,12 @@ spoken.")
      (let ((start (point)))
        (search-backward  "<" (point-min) t)
        (when (not (= start (point)))
-	 (setq start (point))
-	 (search-forward " ")
-	 (buffer-substring start (1- (point))))))))
+         (setq start (point))
+         (search-forward " ")
+         (buffer-substring start (1- (point))))))))
      
 (defun emacspeak-erc-add-name-to-monitor (name &optional
-					       quiten-pronunciation)
+                                               quiten-pronunciation)
   "Add people to moniter in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso's name."
@@ -281,7 +281,7 @@ set the current local value to the result.")
     (save-excursion
       (set-buffer buffer)
       (when (and emacspeak-erc-room-monitor
-		 emacspeak-erc-monitor-my-messages)
+                 emacspeak-erc-monitor-my-messages)
         (let ((emacspeak-speak-messages nil)
               (msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
@@ -289,7 +289,7 @@ set the current local value to the result.")
             (emacspeak-auditory-icon 'progress)
             (message msg)
             (tts-with-punctuations dtk-punctuation-mode
-				   (dtk-speak  msg))))))))
+                                   (dtk-speak  msg))))))))
 
 (defadvice erc-display-line-1  (after emacspeak pre act comp)
   "Speech-enable ERC."
@@ -301,7 +301,7 @@ set the current local value to the result.")
     (save-excursion
       (set-buffer buffer)
       (when (and emacspeak-erc-room-monitor
-		 emacspeak-erc-monitor-my-messages)
+                 emacspeak-erc-monitor-my-messages)
         (let ((emacspeak-speak-messages nil)
               (msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
@@ -309,11 +309,11 @@ set the current local value to the result.")
             (emacspeak-auditory-icon 'progress)
             (message msg)
             (tts-with-punctuations dtk-punctuation-mode
-				   (dtk-speak  msg))))))))
+                                   (dtk-speak  msg))))))))
 
 (ems-generate-switcher 'emacspeak-erc-toggle-room-monitor
-		       'emacspeak-erc-room-monitor
-		       "Toggle state of ERC room monitor.
+                       'emacspeak-erc-room-monitor
+                       "Toggle state of ERC room monitor.
 Interactive 
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")

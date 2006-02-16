@@ -90,7 +90,7 @@
        (format "%c" char))
       (accept-process-output emacspeak-freeamp-process 1)
       (message "%s"
-	       (buffer-substring mark (point-max))))))
+               (buffer-substring mark (point-max))))))
 ;;;###autoload
 (defun emacspeak-freeamp-freeamp-call-command ()
   "Call appropriate freeamp command."
@@ -105,7 +105,7 @@
 (loop for c in emacspeak-freeamp-freeamp-keys
       do
       (define-key emacspeak-freeamp-mode-map   (format
-						"%c" c)
+                                                "%c" c)
         'emacspeak-freeamp-freeamp-call-command))
 (define-key emacspeak-freeamp-mode-map [left]
   'emacspeak-aumix-wave-decrease)
@@ -122,7 +122,7 @@ The player is placed in a buffer in emacspeak-freeamp-mode."
    (list
     (read-file-name "MP3 Resource: "
                     (when (eq major-mode 'dired-mode)
-		      (dired-get-filename)))))
+                      (dired-get-filename)))))
   (declare (special emacspeak-freeamp-process))
   (when (and emacspeak-freeamp-process
              (eq 'run (process-status

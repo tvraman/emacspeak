@@ -69,8 +69,8 @@
 (defcustom emacspeak-imcom-default-jabber-server nil
   "Name of jabber server that is used by default."
   :type '(choice
-	  (const :tag "None" nil)
-	  (string :tag "Server"))
+          (const :tag "None" nil)
+          (string :tag "Server"))
   :group 'emacspeak-imcom)
 
 ;;}}}
@@ -104,7 +104,7 @@
       (emacspeak-imcom-mode)
       (run-hooks 'emacspeak-imcom-hooks)
       (setq emacspeak-imcom-process
-	    (get-buffer-process buffer)))))
+            (get-buffer-process buffer)))))
 
 (add-hook 'emacspeak-imcom-hooks
           'emacspeak-pronounce-refresh-pronunciations)
@@ -119,8 +119,8 @@
   (declare (special emacspeak-imcom-process))
   (unless
       (and (processp emacspeak-imcom-process)
-	   (eq 'run 
-	       (process-status  emacspeak-imcom-process)))
+           (eq 'run 
+               (process-status  emacspeak-imcom-process)))
     (emacspeak-imcom-start-process))
   (emacspeak-auditory-icon 'open-object)
   (switch-to-buffer (process-buffer

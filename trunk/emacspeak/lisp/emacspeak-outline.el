@@ -70,7 +70,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (and (looking-at "^$")
-	 (skip-syntax-backward " "))
+         (skip-syntax-backward " "))
     (emacspeak-speak-line )))
 
 (defadvice outline-previous-visible-heading (after emacspeak pre act comp)
@@ -192,10 +192,10 @@ commands. "
             (setq end (point)))
         (error (setq end (point-max)))))
     (when (or  emacspeak-outline-dont-query-before-speaking
-	       (y-or-n-p
-		(format  "Speak %s lines from section %s"
-			 (count-lines start end )
-			 (thing-at-point 'line))))
+               (y-or-n-p
+                (format  "Speak %s lines from section %s"
+                         (count-lines start end )
+                         (thing-at-point 'line))))
       (emacspeak-speak-region start end ))))
 
 (defun emacspeak-outline-speak-next-heading ()

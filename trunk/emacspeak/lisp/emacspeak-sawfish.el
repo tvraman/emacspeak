@@ -72,26 +72,26 @@
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-defun (after emacspeak pre act
-				     comp)
+                                     comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-expression (after emacspeak pre act
-					  comp)
+                                          comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice sawfish-eval-last-sexp (after emacspeak pre act
-					 comp)
+                                         comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-message-again)))
 
 (defadvice sawfish-eval-print-last-sexp (after emacspeak pre act
-					       comp)
+                                               comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)))
@@ -122,14 +122,14 @@
     (emacspeak-speak-buffer)))    
 
 (defadvice sawfish-info (after emacspeak pre act
-			       comp)
+                               comp)
   "Speak the info documentation. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))    
 
 (defadvice sawfish-rep-info (after emacspeak pre act
-				   comp)
+                                   comp)
   "Speak the info documentation. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'help)

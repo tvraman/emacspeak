@@ -140,8 +140,8 @@
         (personality (get-text-property (point) 'personality)))
     (add-text-properties  0 (length name)
                           (list 'face face 'personality
-				personality )
-			  name)
+                                personality )
+                          name)
     name))
 
 ;;}}}
@@ -232,7 +232,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "View %s"
-	     eperiodic-colour-element-function)))
+             eperiodic-colour-element-function)))
 
 ;;}}}
 (provide 'emacspeak-eperiodic)
