@@ -241,7 +241,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
   (let ((documentation
          (concat doc
                  (format
-                  "\nThis personality uses  %s, and its effect can be changed globally by customizing %s-settings."
+                  "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
                                        voice  voice))))  (`
    (progn
      (defcustom (, personality)
