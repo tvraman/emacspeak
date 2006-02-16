@@ -53,7 +53,8 @@
 ;;{{{ Custom
 ;;;###autoload
 (defgroup emacspeak-imcom nil
-  "Jabber access from the Emacspeak audio desktop.")
+  "Jabber access from the Emacspeak audio desktop."
+  :group 'emacspeak)
 
 (defcustom emacspeak-imcom-client "imcom"
   "Name of IMCom command-line client."
