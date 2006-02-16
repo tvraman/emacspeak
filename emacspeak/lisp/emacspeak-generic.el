@@ -64,8 +64,8 @@
   (let ((name (ad-get-arg 0)))
     (eval
      `(defadvice  ,name (after emacspeak pre act comp)
-	"Setup Emacspeak programming mode hooks."
-	(emacspeak-setup-programming-mode)))))
+        "Setup Emacspeak programming mode hooks."
+        (emacspeak-setup-programming-mode)))))
 
 ;;}}}
 (provide 'emacspeak-generic)

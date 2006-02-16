@@ -67,7 +67,7 @@
   name                                  ;Human-readable name
   template                              ;template URL string 
   generators                            ; list of param generator
-  post-action			      ;action to perform after opening
+  post-action                         ;action to perform after opening
   documentation                         ;resource  documentation
   fetcher                               ; custom fetcher 
   )
@@ -104,10 +104,10 @@ This function is sensitive to calendar mode when prompting."
       (let ((date (calendar-cursor-to-nearest-date)))
         (setq default (format-time-string time-format-string
                                           (apply 'encode-time 0 0
-						 0
-						 (second date)
-						 (first date)
-						 (list (third date )))))))
+                                                 0
+                                                 (second date)
+                                                 (first date)
+                                                 (list (third date )))))))
     (read-from-minibuffer prompt
                           default
                           nil nil nil
@@ -276,7 +276,7 @@ documentation   Documents this template resource. "
                                    nil nil
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
-		 :test #'string-equal)
+                 :test #'string-equal)
         (webjump-url-encode query))))
  nil
  "Locate and display Shoutcast streams."
@@ -368,16 +368,16 @@ to play a BBC Radio7 program on demand."
 content."
   (declare (special  emacspeak-url-template-bbc-channels-content))
   (let ((content (second
-		  (split-string url "?")))
-	(uri nil))
+                  (split-string url "?")))
+        (uri nil))
     (cond
      ((null content)
       (error "Cannot locate content particle in %s" url))
      (t
       (setq uri
-	    (concat emacspeak-url-template-bbc-channels-content
-		    content
-		    ".rpm"))
+            (concat emacspeak-url-template-bbc-channels-content
+                    content
+                    ".rpm"))
       (kill-new uri)
       (funcall emacspeak-media-player  uri 'play-list)
       (message "Playing content under point.")))))
@@ -466,7 +466,6 @@ content."
  "Google Reader"
  'emacspeak-atom-display)
 
-
 ;;}}}
 ;;{{{ google maps
 
@@ -533,7 +532,7 @@ Here are some examples:
  'emacspeak-url-template-google-maps-xml)
 
 (defun emacspeak-url-template-google-maps-speak (url &optional
-						     near speak)
+                                                     near speak)
   "Audio format map information from Google Maps.
 Optional arg `near' specifies reference location for generating direction links."
   (let ((buffer (emacspeak-url-template-google-maps-get-xml url))
@@ -724,13 +723,13 @@ from English to German.")
  "Display browsable list of NY Times RSS Feeds."
  #'(lambda (url)
      (let ((buffer 
-	    (emacspeak-xslt-xml-url
-	     (expand-file-name "opml.xsl"
-			       emacspeak-xslt-directory)
-	     url )))
+            (emacspeak-xslt-xml-url
+             (expand-file-name "opml.xsl"
+                               emacspeak-xslt-directory)
+             url )))
        (save-excursion
-	 (set-buffer buffer)
-	 (emacspeak-w3-preview-this-buffer)))))
+         (set-buffer buffer)
+         (emacspeak-w3-preview-this-buffer)))))
              
            
  
@@ -832,7 +831,7 @@ from English to German.")
  #'(lambda nil
      (declare (special emacspeak-w3-url-rewrite-rule))
      (setq emacspeak-w3-url-rewrite-rule
-	   (list "$" "&tag=st_util_print"))
+           (list "$" "&tag=st_util_print"))
      (emacspeak-speak-buffer))
  "Display tech news from CNET"
  #'(lambda (url)
@@ -886,13 +885,13 @@ from English to German.")
   "Process and speak Yahoo news."
   (declare (special emacspeak-w3-post-process-hook))
   (add-hook 'emacspeak-w3-post-process-hook
-	    #'(lambda nil
-		(declare (special  emacspeak-w3-url-rewrite-rule
-				   emacspeak-w3-class-filter))
-		(setq emacspeak-w3-class-filter "article"
-		      emacspeak-w3-url-rewrite-rule
-		      '("$" "&printer=1"))
-		(emacspeak-speak-buffer)))
+            #'(lambda nil
+                (declare (special  emacspeak-w3-url-rewrite-rule
+                                   emacspeak-w3-class-filter))
+                (setq emacspeak-w3-class-filter "article"
+                      emacspeak-w3-url-rewrite-rule
+                      '("$" "&printer=1"))
+                (emacspeak-speak-buffer)))
   (emacspeak-w3-xslt-filter
    "//*[@id=\"ynmain\"]"
    url))
@@ -1069,7 +1068,7 @@ name of the list.")
   "Get year/month"
   (emacspeak-url-template-collect-date "Date range: "
                                        "%Y%h"))
-					    
+                                            
 
 ;;}}}
 ;;{{{ cnn 
@@ -1191,7 +1190,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "American Life On Demand."
-					;"http://www.wbez.org/ta/%s.rm"
+                                        ;"http://www.wbez.org/ta/%s.rm"
  "http://www.thislife.org/ra/%s.ram"
  (list "Episode: ")
  nil
@@ -1575,7 +1574,7 @@ plays entire program."
       (let ((date 
              (emacspeak-url-template-collect-date
               "Date: "
-	      "%Y-%m-%d"))
+              "%Y-%m-%d"))
             (fields nil)
             (result nil))
         (setq fields (split-string date "-"))
@@ -1649,11 +1648,11 @@ plays entire program."
  "Display Trip Details"
  #'(lambda (url)
      (let ((pnr (read-from-minibuffer "Record locator: "))
-	   (name (read-from-minibuffer "Last name: ")))
+           (name (read-from-minibuffer "Last name: ")))
        (emacspeak-websearch-do-post "POST"
-				    url
-				    (format "rloc=%s&lastname=%s"
-					    pnr name)))))
+                                    url
+                                    (format "rloc=%s&lastname=%s"
+                                            pnr name)))))
 
 ;;}}}
 ;;{{{  times of india 
@@ -1817,12 +1816,12 @@ Meerkat realy needs an xml-rpc method for getting this.")
         (url (emacspeak-url-template-url ut)))
     (when (and (emacspeak-url-template-post-action ut)
                (or (emacspeak-url-template-fetcher ut)
-		   (eq browse-url-browser-function 'w3-fetch)
-		   (eq browse-url-browser-function 'browse-url-w3)))
+                   (eq browse-url-browser-function 'w3-fetch)
+                   (eq browse-url-browser-function 'browse-url-w3)))
       (add-hook 'emacspeak-w3-post-process-hook
-		(emacspeak-url-template-post-action ut))
+                (emacspeak-url-template-post-action ut))
       (add-hook 'emacspeak-w3-post-process-hook
-		#'(lambda ()
+                #'(lambda ()
                     (declare (special
                               emacspeak-url-template-current-ut))
                     (rename-buffer
@@ -1861,7 +1860,7 @@ Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (declare (special emacspeak-url-template-name-alist
                     emacspeak-url-template-current-ut
-		    emacspeak-speak-messages))
+                    emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (name nil))
@@ -1926,22 +1925,22 @@ As an example, the URL templates that enable access to NPR media
 streams prompt for a program id and date, and automatically
 launch the realmedia player after fetching the resource.\n\n"
     (mapconcat #'key-description
-	       (where-is-internal
-		'emacspeak-url-template-fetch)
-	       " ")))
+               (where-is-internal
+                'emacspeak-url-template-fetch)
+               " ")))
   (let ((keys
          (sort 
-	  (loop for key being the hash-keys of emacspeak-url-template-table
-		collect key)
-	  'string-lessp)))
+          (loop for key being the hash-keys of emacspeak-url-template-table
+                collect key)
+          'string-lessp)))
     (loop for key in keys
           do
-	  (insert
-	   (format "@kbd{%s}\n\n" key))
-	  (insert
-	   (emacspeak-url-template-documentation
-	    (emacspeak-url-template-get key)))
-	  (insert "\n\n"))))
+          (insert
+           (format "@kbd{%s}\n\n" key))
+          (insert
+           (emacspeak-url-template-documentation
+            (emacspeak-url-template-get key)))
+          (insert "\n\n"))))
 
 ;;}}}
 (provide 'emacspeak-url-template)

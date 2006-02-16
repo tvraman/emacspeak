@@ -132,9 +132,9 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'fill-object)))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'fill-object)))))
 
 (defadvice py-newline-and-indent(after emacspeak pre act comp)
   "Speak line so we know current indentation"

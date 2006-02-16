@@ -67,17 +67,17 @@
    (function
     (lambda (item)
       (let* ((name (car item))
-	     (pos (cdr item))
-	     (new-prefix (and concat-names
-			      (if prefix
-				  (concat prefix imenu-level-separator name)
-				name))))
-	(cond
-	 ((or (markerp pos) (numberp pos)
-	      (overlayp pos))
-	  (list (cons new-prefix pos)))
-	 (t
-	  (emacspeak-imenu-flatten-index-alist pos
+             (pos (cdr item))
+             (new-prefix (and concat-names
+                              (if prefix
+                                  (concat prefix imenu-level-separator name)
+                                name))))
+        (cond
+         ((or (markerp pos) (numberp pos)
+              (overlayp pos))
+          (list (cons new-prefix pos)))
+         (t
+          (emacspeak-imenu-flatten-index-alist pos
                                                new-prefix))))))
    index-alist))
 
@@ -155,8 +155,8 @@
     (when (interactive-p)
       (emacspeak-auditory-icon 'large-movement)
       (if emacspeak-imenu-autospeak
-	  (emacspeak-imenu-speak-this-section)
-	(emacspeak-speak-line))
+          (emacspeak-imenu-speak-this-section)
+        (emacspeak-speak-line))
       (when (overlays-at (point))
         (goto-char (overlay-end (car (overlays-at (point)))))))))
 
@@ -178,10 +178,10 @@
           (setq guess
                 (cond
                  ((overlayp (cdr item))
-		  (overlay-start (cdr item )))
+                  (overlay-start (cdr item )))
                  ((markerp (cdr item))
-		  (marker-position (cdr item )))
-		 (t (cdr item))))
+                  (marker-position (cdr item )))
+                 (t (cdr item))))
           (when (> position guess)
             (if (> guess target)
                 (setq target guess))))
@@ -189,8 +189,8 @@
     (when (interactive-p)
       (emacspeak-auditory-icon 'large-movement)
       (if emacspeak-imenu-autospeak
-	  (emacspeak-imenu-speak-this-section)
-	(emacspeak-speak-line)))))
+          (emacspeak-imenu-speak-this-section)
+        (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{  speaking logical sections

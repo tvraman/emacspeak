@@ -111,8 +111,8 @@ Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node."
   :type '(menu-choice
-	  (const :tag "First screenfull" screenfull)
-	  (const :tag "Entire node" node))
+          (const :tag "First screenfull" screenfull)
+          (const :tag "Entire node" node))
   :group 'emacspeak-info)
 
 (defsubst emacspeak-info-speak-current-window ()
@@ -193,16 +193,16 @@ and then cue the next selected buffer."
   "Speak info header line."
   (interactive)
   (declare (special Info-use-header-line
-		    Info-header-line))
+                    Info-header-line))
   (let ((voice-lock-mode t))
     (cond
      ((and (boundp 'Info-use-header-line)
-	   (boundp 'Info-header-line)
-	   Info-header-line)
+           (boundp 'Info-header-line)
+           Info-header-line)
       (dtk-speak Info-header-line))
      (t (save-excursion
-	  (beginning-of-buffer)
-	  (emacspeak-speak-line))))))
+          (beginning-of-buffer)
+          (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{  Emacs 21 
@@ -230,7 +230,7 @@ node-spec."
   (interactive
    (list
     (read-from-minibuffer "Node: "
-			  "(")))
+                          "(")))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 

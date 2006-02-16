@@ -79,21 +79,21 @@
     (emacspeak-speak-line)))
 
 (defadvice TeXinfo-insert-environment (after emacspeak pre act
-					     comp)
+                                             comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice texinfo-insert-@item (after emacspeak pre act
-				       comp)
+                                       comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
 (defadvice texinfo-insert-@node (after emacspeak pre act
-				       comp)
+                                       comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)

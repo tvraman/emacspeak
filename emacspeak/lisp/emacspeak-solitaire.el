@@ -53,9 +53,9 @@
 (defsubst emacspeak-solitaire-current-row ()
   (declare (special solitaire-start-y))
   (+ 1 (/ 
-	(- (solitaire-current-line)
-	   solitaire-start-y)
-	2)))
+        (- (solitaire-current-line)
+           solitaire-start-y)
+        2)))
 
 (defsubst emacspeak-solitaire-current-column()
   (declare (special solitaire-start-x))
@@ -88,15 +88,15 @@
     (let ((row (emacspeak-solitaire-current-row))
           (count 1))
       (while (not (eolp))
-	(case (char-after (point))
-	  (?o (emacspeak-solitaire-stone))
-	  (?. (emacspeak-solitaire-hole)))
-	(incf count)
-	(when (and (>= row 3)
-		   (<= row 5)
-		   (= 0 (% count 3)))
-	  (dtk-silence 1))
-	(forward-char 1))
+        (case (char-after (point))
+          (?o (emacspeak-solitaire-stone))
+          (?. (emacspeak-solitaire-hole)))
+        (incf count)
+        (when (and (>= row 3)
+                   (<= row 5)
+                   (= 0 (% count 3)))
+          (dtk-silence 1))
+        (forward-char 1))
       (skip-syntax-forward " "))
     (dtk-force)))
 
@@ -110,8 +110,8 @@
             do
             (solitaire-up))
       (case (char-after (point))
-	(?o (emacspeak-solitaire-stone))
-	(?. (emacspeak-solitaire-hole)))
+        (?o (emacspeak-solitaire-stone))
+        (?. (emacspeak-solitaire-hole)))
       (cond
        ((and (>= column 3)
              (<= column 5))
@@ -124,11 +124,11 @@
                 (?o (emacspeak-solitaire-stone))
                 (?. (emacspeak-solitaire-hole)))))
        (t (loop for count from 2 to 3
-		do
-		(solitaire-down)
-		(case (char-after (point))
-		  (?o (emacspeak-solitaire-stone))
-		  (?. (emacspeak-solitaire-hole)))))))
+                do
+                (solitaire-down)
+                (case (char-after (point))
+                  (?o (emacspeak-solitaire-stone))
+                  (?. (emacspeak-solitaire-hole)))))))
     (dtk-force)))
 
 ;;}}}

@@ -62,14 +62,14 @@
       (emacspeak-auditory-icon 'large-movement))))
 
 (defadvice makefile-browser-next-line (after emacspeak pre act
-					     comp)
+                                             comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice makefile-browser-previous-line (after emacspeak pre act
-						 comp)
+                                                 comp)
   "Speak line we moved to"
   (when (interactive-p)
     (emacspeak-speak-line)
@@ -97,8 +97,8 @@
   "Speak how many lines we backslashed"
   (when (interactive-p)
     (message "Backslashed region containing %s lines"
-	     (count-lines (region-beginning)
-			  (region-end)))
+             (count-lines (region-beginning)
+                          (region-end)))
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice makefile-browser-quit (after emacspeak pre act

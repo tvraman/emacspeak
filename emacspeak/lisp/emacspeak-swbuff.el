@@ -57,7 +57,7 @@
     (emacspeak-speak-current-buffer-name)))
 
 (defadvice swbuff-switch-to-next-buffer (after emacspeak pre act
-					       comp)
+                                               comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)

@@ -119,28 +119,28 @@ Existing personality properties on the text range are preserved."
                   (remove-duplicates personality :test #'eq)
                 personality))
            (orig (get-text-property start 'personality object))
-	   (new nil)
-	   (extent
-	    (next-single-property-change
-	     start 'personality object end)))
+           (new nil)
+           (extent
+            (next-single-property-change
+             start 'personality object end)))
        (cond
-	((null orig)			;simple case
-	 (put-text-property start extent 'personality v object)
-	 (when (< extent end)
-	   (emacspeak-personality-append extent end v object)))
-	(t			       ;accumulate the new personality
-	 (unless (or (equal  v orig)
+        ((null orig)                    ;simple case
+         (put-text-property start extent 'personality v object)
+         (when (< extent end)
+           (emacspeak-personality-append extent end v object)))
+        (t                             ;accumulate the new personality
+         (unless (or (equal  v orig)
                      (listp orig)
                      (and (listp orig)(memq v orig)))
-	   (setq new
-		 (remove-duplicates
-		  (append
-		   (if (listp orig) orig (list orig))
-		   (if (listp v) v (list v)))))
-	   (put-text-property start extent
-			      'personality new object))
-	 (when (< extent end)
-	   (emacspeak-personality-append extent end v object))))))))
+           (setq new
+                 (remove-duplicates
+                  (append
+                   (if (listp orig) orig (list orig))
+                   (if (listp v) v (list v)))))
+           (put-text-property start extent
+                              'personality new object))
+         (when (< extent end)
+           (emacspeak-personality-append extent end v object))))))))
 
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end
@@ -151,35 +151,35 @@ Existing personality properties on the text range are preserved."
              (integer-or-marker-p end ))
     (ems-modify-buffer-safely
      (let ((v (if (listp personality)
-		  (remove-duplicates personality :test #'eq)
-		personality))
+                  (remove-duplicates personality :test #'eq)
+                personality))
            (orig (get-text-property start 'personality object))
-	   (new nil)
-	   (extent
-	    (next-single-property-change
-	     start 'personality object end)))
+           (new nil)
+           (extent
+            (next-single-property-change
+             start 'personality object end)))
        (cond
-	((null orig)			;simple case
-	 (put-text-property start extent 'personality v object)
-	 (when (< extent end)
-	   (emacspeak-personality-prepend extent end v object)))
-	(t			       ;accumulate the new personality
-	 (unless (or (equal v orig)
-		     (listp orig)
-		     (and (listp orig) (memq v orig)))
-	   (setq new
-		 (remove-duplicates
-		  (append
-		   (if (listp v) v (list v))
-		   (if (listp orig) orig (list orig)))))
-	   (put-text-property start extent
-			      'personality new object))
-	 (when (< extent end)
-	   (emacspeak-personality-prepend extent end v object))))))))
+        ((null orig)                    ;simple case
+         (put-text-property start extent 'personality v object)
+         (when (< extent end)
+           (emacspeak-personality-prepend extent end v object)))
+        (t                             ;accumulate the new personality
+         (unless (or (equal v orig)
+                     (listp orig)
+                     (and (listp orig) (memq v orig)))
+           (setq new
+                 (remove-duplicates
+                  (append
+                   (if (listp v) v (list v))
+                   (if (listp orig) orig (list orig)))))
+           (put-text-property start extent
+                              'personality new object))
+         (when (< extent end)
+           (emacspeak-personality-prepend extent end v object))))))))
 
 (defun emacspeak-personality-remove  (start end
-					    personality
-					    &optional object)
+                                            personality
+                                            &optional object)
   "Remove specified personality from text bounded by start and end.
 Other existing personality properties on the text range are
 preserved."
@@ -187,30 +187,30 @@ preserved."
              (integer-or-marker-p end ))
     (ems-modify-buffer-safely
      (let ((orig (get-text-property start 'personality object))
-	   (new nil)
-	   (extent
-	    (next-single-property-change
-	     start 'personality (current-buffer) end)))
+           (new nil)
+           (extent
+            (next-single-property-change
+             start 'personality (current-buffer) end)))
        (cond
-	((null orig)			;simple case
-	 (when (< extent end)
-	   (emacspeak-personality-remove extent end personality)))
-	(t				;remove the new personality
-	 (setq new
-	       (cond
-		((equal orig personality) nil)
-		((listp orig)
-		 (remove personality orig))
-		(t nil)))
-	 (if new 
-	     (put-text-property start extent
-				'personality new object)
-	   (remove-text-properties start extent
-				   (list 'personality )
-				   object))
-	 (when (< extent end)
-	   (emacspeak-personality-remove extent end
-					 personality))))))))
+        ((null orig)                    ;simple case
+         (when (< extent end)
+           (emacspeak-personality-remove extent end personality)))
+        (t                              ;remove the new personality
+         (setq new
+               (cond
+                ((equal orig personality) nil)
+                ((listp orig)
+                 (remove personality orig))
+                (t nil)))
+         (if new 
+             (put-text-property start extent
+                                'personality new object)
+           (remove-text-properties start extent
+                                   (list 'personality )
+                                   object))
+         (when (< extent end)
+           (emacspeak-personality-remove extent end
+                                         personality))))))))
 
 ;;}}}
 ;;{{{ helper: face-p
@@ -221,7 +221,7 @@ preserved."
       (memq 'font-lock-face plist)))
 (defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
-  (and (consp value)	
+  (and (consp value)    
        (equal value (last value))
        (cdr value)))
 
@@ -269,11 +269,11 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face value)))
-             ((ems-plain-cons-p value))	;;pass on plain cons
+             ((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delq nil 
-			   (mapcar   #'voice-setup-get-voice-for-face value))))
+                           (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -298,18 +298,18 @@ displayed in the messages area."
         (value nil))
     (setq facep (emacspeak-personality-plist-face-p properties))
     (when (and  emacspeak-personality-voiceify-faces
-		facep)
+                facep)
       (setq value (second facep))
       (condition-case nil
           (progn
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-	     ((ems-plain-cons-p value))	;;pass on plain cons
+             ((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delq nil 
-			   (mapcar   #'voice-setup-get-voice-for-face value))))
+                           (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -334,18 +334,18 @@ displayed in the messages area."
         (value nil))
     (setq facep (emacspeak-personality-plist-face-p properties))
     (when (and  emacspeak-personality-voiceify-faces
-		facep)
+                facep)
       (setq value (second facep))
       (condition-case nil
           (progn
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ((ems-plain-cons-p value))	;;pass on plain cons
+             ((ems-plain-cons-p value)) ;;pass on plain cons
              ( (listp value)
                (setq voice
                      (delq nil 
-			   (mapcar   #'voice-setup-get-voice-for-face value))))
+                           (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))
@@ -371,7 +371,7 @@ displayed in the messages area."
     (setq facep (emacspeak-personality-plist-face-p properties))
     (cond
      ((and  emacspeak-personality-voiceify-faces
-	    facep)
+            facep)
       ad-do-it
       (setq value (second facep))
       (condition-case nil
@@ -379,17 +379,17 @@ displayed in the messages area."
             (cond
              ((symbolp value)
               (setq voice (voice-setup-get-voice-for-face   value)))
-             ;; ((and (consp value)	;check for plain cons and pass
-	     ;;                    (equal value (last value)))
-	     ;; 	      nil)
+             ;; ((and (consp value)     ;check for plain cons and pass
+             ;;                    (equal value (last value)))
+             ;;               nil)
              ( (listp value)
                (setq voice
                      (delq nil 
-			   (mapcar   #'voice-setup-get-voice-for-face value))))
+                           (mapcar   #'voice-setup-get-voice-for-face value))))
              (t (message "Got %s" value)))
             (when voice
               (funcall emacspeak-personality-voiceify-faces 0
-		       (length ad-return-value) voice ad-return-value)
+                       (length ad-return-value) voice ad-return-value)
               )
             (when (and emacspeak-personality-show-unmapped-faces
                        (not voice))
@@ -413,7 +413,7 @@ displayed in the messages area."
          (face nil))
     (when (emacspeak-personality-plist-face-p props) ;;; simple minded for now
       (put-text-property start end
-			 'personality nil object))))
+                         'personality nil object))))
 
 ;;}}}
 ;;{{{ advice overlay-put 
@@ -453,23 +453,23 @@ Append means place corresponding personality at the end."
        ((listp value)
         (setq voice
               (delq nil
-		    (mapcar
-		     #'voice-setup-get-voice-for-face value))))
+                    (mapcar
+                     #'voice-setup-get-voice-for-face value))))
        (t (message "Got %s" value)))
       (when voice
         (and emacspeak-personality-voiceify-overlays
              (funcall emacspeak-personality-voiceify-overlays
-		      (overlay-start overlay)
-		      (overlay-end overlay)
-		      voice))
+                      (overlay-start overlay)
+                      (overlay-end overlay)
+                      voice))
         (overlay-put overlay 'personality voice))
       (when (and emacspeak-personality-show-unmapped-faces
                  (not voice))
         (cond
          ((listp value)
-	  (mapcar #'(lambda (v)
-		      (puthash  v t emacspeak-personality-unmapped-faces))
-		  value))
+          (mapcar #'(lambda (v)
+                      (puthash  v t emacspeak-personality-unmapped-faces))
+                  value))
          (t (puthash  value t
                       emacspeak-personality-unmapped-faces)))))))
 

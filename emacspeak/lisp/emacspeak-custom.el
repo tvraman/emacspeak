@@ -94,7 +94,7 @@
     (message "Saved customizations.")))
 
 (defadvice custom-save-all (after emacspeak pre
-				  act comp)
+                                  act comp)
   "Provide auditory feedback. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'save-object)
@@ -177,12 +177,10 @@
 ;;{{{ define voices
 (def-voice-font emacspeak-custom-link-personality voice-bolden
   'custom-link
-"Personality used for links in custom buffers.")
+  "Personality used for links in custom buffers.")
 (def-voice-font emacspeak-custom-button-personality voice-bolden
   'custom-button
-"Personality used for links in custom buffers.")
-
-
+  "Personality used for links in custom buffers.")
 
 (def-voice-font emacspeak-custom-state-personality voice-smoothen
   'custom-state

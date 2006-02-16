@@ -67,8 +67,8 @@
    ((eq major-mode 'Buffer-menu-mode)
     (let*((buffer (Buffer-menu-buffer t)))
       (if (get-buffer buffer)
-	  (dtk-speak (buffer-name  buffer))
-	(error "No valid buffer on this line"))))
+          (dtk-speak (buffer-name  buffer))
+        (error "No valid buffer on this line"))))
    (t (error "This command can be used only in buffer menus"))))
 
 (defun emacspeak-list-buffers-speak-buffer-line ()
@@ -112,10 +112,10 @@
                     (if (or file this-buffer-directory)
                         (format "visiting %s"
                                 (or file this-buffer-directory))
-		      "")
+                      "")
                     this-buffer-size))))
        (t(emacspeak-auditory-icon 'error)
-	 (emacspeak-speak-line)))))
+         (emacspeak-speak-line)))))
    (t (error "This command can be used only in buffer menus"))))
 
 (defun emacspeak-list-buffers-next-line (count)

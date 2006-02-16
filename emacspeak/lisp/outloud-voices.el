@@ -219,10 +219,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " `vb%s `vh% s"
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " `vb%s `vh% s"
+                    (second setting)
+                    (third setting)))))
    '(
      (0 5 70)
      (1 17 66)
@@ -243,7 +243,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'average-pitch)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -261,9 +261,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " `vf%s  "
-		    (second setting)))))
+            (first setting)
+            (format " `vf%s  "
+                    (second setting)))))
    '(
      (0 0 )
      (1 5 )
@@ -285,9 +285,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " `vf%s  "
-		    (second setting)))))
+            (first setting)
+            (format " `vf%s  "
+                    (second setting)))))
    '(
      (0 0 )
      (1 5 )
@@ -331,7 +331,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'pitch-range)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -345,8 +345,8 @@ and TABLE gives the values along that dimension."
   (mapcar
    #'(lambda (setting)
        (aset table (first setting)
-	     (format " `vr%s  "
-		     (second setting))))
+             (format " `vr%s  "
+                     (second setting))))
 ;;; stress markers not used for now.
    '(
      (0 0 "`00")
@@ -368,7 +368,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul ))
   (if value 
       (aref (outloud-css-get-code-table family 'stress)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -406,7 +406,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'richness)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -423,14 +423,14 @@ and TABLE gives the values along that dimension."
 (defun outloud-define-voice-from-speech-style (name style)
   "Define NAME to be a outloud voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
-	 (command
-	  (concat 
-	   (outloud-get-family-code family)
+         (command
+          (concat 
+           (outloud-get-family-code family)
            (outloud-get-punctuations-code (acss-punctuations style))
-	   (outloud-get-average-pitch-code (acss-average-pitch style) family)
-	   (outloud-get-pitch-range-code (acss-pitch-range style) family)
-	   (outloud-get-stress-code (acss-stress style ) family)
-	   (outloud-get-richness-code (acss-richness style) family))))
+           (outloud-get-average-pitch-code (acss-average-pitch style) family)
+           (outloud-get-pitch-range-code (acss-pitch-range style) family)
+           (outloud-get-stress-code (acss-stress style ) family)
+           (outloud-get-richness-code (acss-richness style) family))))
     (outloud-define-voice name command)))
 
 ;;}}}
@@ -440,7 +440,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special outloud-voice-table))
   (loop for k being the hash-keys of outloud-voice-table 
-	collect   k))
+        collect   k))
 
 ;;}}}
 ;;{{{ Configurater 
@@ -455,7 +455,7 @@ and TABLE gives the values along that dimension."
   (fset 'tts-define-voice-from-speech-style 'outloud-define-voice-from-speech-style)
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate
-	       outloud-default-speech-rate))
+               outloud-default-speech-rate))
 
 ;;}}}
 (provide 'outloud-voices)

@@ -239,7 +239,7 @@
   :type 'symbol
   :group 'emacspeak-view-process)
 
-	 
+         
 (defcustom View-process-renice-line-personality voice-monotone-medium
   "Indicate a reniced process"
   :type 'symbol

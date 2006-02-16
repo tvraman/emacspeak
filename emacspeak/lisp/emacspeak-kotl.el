@@ -544,8 +544,8 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (message "Copied  tree %s to buffer %s"
-	     (ad-get-arg 0)
-	     (ad-get-arg 1 ))))
+             (ad-get-arg 0)
+             (ad-get-arg 1 ))))
 
 ;;}}}
 ;;{{{  emacspeak commands:

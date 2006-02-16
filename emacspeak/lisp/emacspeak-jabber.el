@@ -59,14 +59,14 @@
 
 (loop for f in 
       '(jabber-keepalive-do
-	jabber-keepalive-got-response)
+        jabber-keepalive-got-response)
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
-	  "Silence keepalive messages."
-	  (let ((emacspeak-speak-messages nil))
-	    ad-do-it
-	    ad-return-value))))
+          "Silence keepalive messages."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it
+            ad-return-value))))
 
 ;;}}}
 ;;{{{ chat buffer:
@@ -77,14 +77,14 @@
     (emacspeak-auditory-icon 'close-object)))
 (loop for f in 
       '(jabber-chat-with
-	jabber-chat-with-jid-at-point)
+        jabber-chat-with-jid-at-point)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Silence keepalive messages."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'open-object)
-	    (emacspeak-speak-mode-line)))))
+          "Silence keepalive messages."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'open-object)
+            (emacspeak-speak-mode-line)))))
 ;;}}}
 ;;{{{ alerts
 (defcustom emacspeak-jabber-speak-presence-alerts nil
@@ -107,11 +107,11 @@
   "Speak the message."
   (declare (special jabber-message-alert-same-buffer))
   (when (or jabber-message-alert-same-buffer
-	    (not (memq (selected-window) (get-buffer-window-list buffer))))
+            (not (memq (selected-window) (get-buffer-window-list buffer))))
     (if (jabber-muc-sender-p from)
-	(format "Private message from %s in %s"
-		(jabber-jid-resource from)
-		(jabber-jid-displayname (jabber-jid-user from)))
+        (format "Private message from %s in %s"
+                (jabber-jid-resource from)
+                (jabber-jid-displayname (jabber-jid-user from)))
       (format "%s: %s" (jabber-jid-displayname from) text))))
 
 ;;{{{ interactive commands:
@@ -131,7 +131,7 @@
 ;;{{{ Pronunciations 
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'jabber-chat-mode
-					    emacspeak-pronounce-internet-smileys-pronunciations)
+                                            emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'jabber-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 

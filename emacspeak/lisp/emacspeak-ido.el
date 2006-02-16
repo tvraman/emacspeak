@@ -82,10 +82,10 @@
     (format " %d choices: " (length ido-matches))
     (minibuffer-contents)
     (if(or (null ido-current-directory)
-	   (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
-	" "
+           (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
+        " "
       (format "In directory: %s"
-	      ido-current-directory)))))
+              ido-current-directory)))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:

@@ -72,12 +72,12 @@
                   (rmail-display-labels ))))
     (dtk-speak
      (format "%s %s   %s %s labelled %s "
-	     (or from "")
-	     (if (and to (< (length to) 80))
-		 (format "to %s" to) "")
-	     (if subject (format "on %s" subject) "")
-	     (if lines (format "%s lines" lines) "")
-	     labels))))
+             (or from "")
+             (if (and to (< (length to) 80))
+                 (format "to %s" to) "")
+             (if subject (format "on %s" subject) "")
+             (if lines (format "%s lines" lines) "")
+             labels))))
 
 ;;}}}
 ;;{{{  Advice some commands.
@@ -232,7 +232,7 @@
   (interactive)
   (dtk-speak
    (format "Labels are %s"
-	   (rmail-display-labels))))
+           (rmail-display-labels))))
 
 ;;}}}
 ;;{{{  key bindings

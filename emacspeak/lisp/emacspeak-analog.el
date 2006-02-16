@@ -240,12 +240,12 @@ emacspeak-speak-and-skip-extent-upto-char "
   (mapcar 
    #'(lambda (cmd)
        (loop for k in
-	     (where-is-internal cmd)
-	     do
-	     (define-key analog-mode-map k
-	       'emacspeak-speak-and-skip-extent-upto-this-char )))
+             (where-is-internal cmd)
+             do
+             (define-key analog-mode-map k
+               'emacspeak-speak-and-skip-extent-upto-this-char )))
    (list 'emacspeak-self-insert-command
-	 'completion-separator-self-insert-command)))
+         'completion-separator-self-insert-command)))
 
 ;;}}}
 (provide 'emacspeak-analog)

@@ -88,7 +88,7 @@
                     (end-of-line)
                     (buffer-substring start (point )))))))
      (t (emacspeak-auditory-icon 'search-miss)
-	(dtk-speak "No matches found")))))
+        (dtk-speak "No matches found")))))
 
 (defadvice rolo-grep (after emacspeak pre act )
   "Speak the number of hits and the first match if any."
@@ -116,11 +116,11 @@
       (emacspeak-auditory-icon 'search-hit)
       (dtk-speak
        (format  "%s hits. First hit is %s"
-		ad-return-value
-		(let ((start (point)))
-		  (save-excursion
-		    (end-of-line)
-		    (buffer-substring start (point )))))))
+                ad-return-value
+                (let ((start (point)))
+                  (save-excursion
+                    (end-of-line)
+                    (buffer-substring start (point )))))))
      (t(emacspeak-auditory-icon 'search-miss)
        (dtk-speak "No matches found")))))
 

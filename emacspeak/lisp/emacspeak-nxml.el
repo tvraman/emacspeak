@@ -304,7 +304,7 @@
    (t ad-do-it))
   ad-return-value)
 (defadvice nxml-insert-xml-declaration (after emacspeak pre act
-					      comp)
+                                              comp)
   "Provide spoken feedback."
   (when (interactive-p)
     (emacspeak-speak-line)))
@@ -312,12 +312,12 @@
       '(nxml-backward-up-element
         nxml-forward-balanced-item
         nxml-up-element
-	nxml-forward-paragraph
-	nxml-backward-paragraph
-	nxml-backward-single-paragraph
-	nxml-backward-single-balanced-item
-	nxml-forward-element
-	nxml-backward-element)
+        nxml-forward-paragraph
+        nxml-backward-paragraph
+        nxml-backward-single-paragraph
+        nxml-backward-single-balanced-item
+        nxml-forward-element
+        nxml-backward-element)
       do
       (eval
        (`
@@ -329,18 +329,18 @@
 
 (loop for f in 
       '(nxml-balanced-close-start-tag-block
-	nxml-finish-element
-	nxml-balanced-close-start-tag-inline)
+        nxml-finish-element
+        nxml-balanced-close-start-tag-inline)
       do
       (eval
        (`
-	(defadvice (, f) (after emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'close-object)
-	    (dtk-speak
-	     (format "Closed %s"
-		     (xmltok-start-tag-qname))))))))
+        (defadvice (, f) (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'close-object)
+            (dtk-speak
+             (format "Closed %s"
+                     (xmltok-start-tag-qname))))))))
 ;;{{{ speech enable outliner 
 
 (loop for f in
@@ -383,14 +383,14 @@
     (let ((o-open nil)
           (o-end nil))
       (save-excursion
-	(setq o-open (car (overlays-at (point))))
-	(next-line 1)
-	(beginning-of-line)
-	(forward-char -2)
-	(setq o-close (car (overlays-at (point))))
-	(dtk-speak (concat 
-		    (overlay-get  o-open 'display)
-		    (overlay-get o-close 'display)))))
+        (setq o-open (car (overlays-at (point))))
+        (next-line 1)
+        (beginning-of-line)
+        (forward-char -2)
+        (setq o-close (car (overlays-at (point))))
+        (dtk-speak (concat 
+                    (overlay-get  o-open 'display)
+                    (overlay-get o-close 'display)))))
     (emacspeak-auditory-icon 'ellipses))
    (t (message "Not on a hidden outline"))))
   

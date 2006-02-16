@@ -104,9 +104,9 @@ Interactive XML browser.
                        emacspeak-xml-shell-command
                        nil
                        (append emacspeak-xml-shell-options
-			       (if (string-match ".html?$" system-id)
-				   (list "--html")
-				 nil )
+                               (if (string-match ".html?$" system-id)
+                                   (list "--html")
+                                 nil )
                                (list system-id)))))
     (save-excursion
       (set-buffer buffer)
@@ -275,7 +275,7 @@ HTML head if none found."
   (goto-char (point-min))
   (let ((head   (search-forward "<head>" nil t)))
     (or head
-	(insert "<head>\n"))
+        (insert "<head>\n"))
     (insert
      (format "<base href=\"%s\">\n" base))
     (or head (insert "</head>\n"))))

@@ -175,7 +175,7 @@
   ad-return-value)
 
 (defadvice calculator-clear (after emacspeak pre act
-				   comp)
+                                   comp)
   "Provide auditory feedback"
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)

@@ -169,9 +169,9 @@
       (message "No file on this line"))
      (t (message  "Modified on  %s "
                   (format-time-string
-		   emacspeak-speak-time-format-string
-		   (tar-header-date
-		    (tar-desc-tokens entry))))))))
+                   emacspeak-speak-time-format-string
+                   (tar-header-date
+                    (tar-desc-tokens entry))))))))
 
 (defun emacspeak-tar-setup-keys ()
   "Setup emacspeak keys for tar mode"

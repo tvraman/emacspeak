@@ -170,7 +170,7 @@ will be placed."
   "Return OCR working buffer."
   (get-buffer-create
    (format  "*%s-ocr*"
-	    (emacspeak-ocr-default-name))))
+            (emacspeak-ocr-default-name))))
 
 (defsubst emacspeak-ocr-get-text-name ()
   "Return name of current text document."
@@ -184,7 +184,7 @@ will be placed."
   (format "%s-p%s%s"
           emacspeak-ocr-document-name
           (1+ emacspeak-ocr-last-page-number)
-	  extension))
+          extension))
 
 (defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
@@ -409,7 +409,7 @@ Pick a short but meaningful name."
                   emacspeak-ocr-image-extension)))))
     (when (interactive-p)
       (setq emacspeak-ocr-last-page-number
-	    (1+ emacspeak-ocr-last-page-number)))
+            (1+ emacspeak-ocr-last-page-number)))
     (message "Acquired  image to file %s"
              image-name)))
 
@@ -532,11 +532,11 @@ Prompts for image file if file corresponding to the expected
              emacspeak-ocr-last-page-number))
     (setq emacspeak-ocr-process
           (apply 'start-process 
-		 "ocr"
-		 (current-buffer)
-		 emacspeak-ocr-engine
-		 image-name
-		 emacspeak-ocr-engine-options))
+                 "ocr"
+                 (current-buffer)
+                 emacspeak-ocr-engine
+                 image-name
+                 emacspeak-ocr-engine-options))
     (set-process-sentinel emacspeak-ocr-process
                           'emacspeak-ocr-process-sentinel)
     (message "Launched OCR engine.")))

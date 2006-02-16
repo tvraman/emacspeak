@@ -65,8 +65,8 @@
 (defstruct (emacspeak-filtertext
             (:constructor
              emacspeak-filtertext-constructor))
-  text					;original text
-  filters				;chain of filters applied 
+  text                                  ;original text
+  filters                               ;chain of filters applied 
   )
 
 ;;}}}

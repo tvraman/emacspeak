@@ -81,25 +81,25 @@
 ;;{{{  advice  interactive commands
 (loop for f in 
       '(
-	next-error previous-error
-	compilation-next-file compilation-previous-file
-	compile-goto-error compile-mouse-goto-error
-	)
+        next-error previous-error
+        compilation-next-file compilation-previous-file
+        compile-goto-error compile-mouse-goto-error
+        )
       do
       (eval
        (`
-	(defadvice (, f) (after  emacspeak pre act )
-	  "Speak the line containing the error. "
-	  (when (interactive-p)
+        (defadvice (, f) (after  emacspeak pre act )
+          "Speak the line containing the error. "
+          (when (interactive-p)
             (dtk-stop)
-	    (emacspeak-compilation-speak-error))))))
+            (emacspeak-compilation-speak-error))))))
 
 (loop for f in 
       '(
-	compilation-next-error
-	compilation-previous-error
-	next-error-no-select
-	previous-error-no-select)
+        compilation-next-error
+        compilation-previous-error
+        next-error-no-select
+        previous-error-no-select)
       do
       (eval
        (`
