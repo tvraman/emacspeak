@@ -142,7 +142,7 @@ Also provide an auditory icon"
           (progn
             (Man-next-section 1)
             (setq end (point)))
-	(error (setq end (point-max))))
+        (error (setq end (point-max))))
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start end ))))
 

@@ -76,7 +76,7 @@
     (emacspeak-auditory-icon 'select-object)
     (message "Sent %s lines to scheme. "
              (count-lines (region-beginning)
-			  (region-end)))))
+                          (region-end)))))
 
 (defadvice scheme-send-definition (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -96,7 +96,7 @@
     (emacspeak-auditory-icon 'select-object)
     (message "Compiling  %s lines to scheme. "
              (count-lines (region-beginning)
-			  (region-end)))))
+                          (region-end)))))
 
 (defadvice scheme-compile-definition (after emacspeak pre act comp)
   "Provide auditory feedback."

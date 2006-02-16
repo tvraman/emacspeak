@@ -98,11 +98,11 @@
          (start (overlay-start extent))
          (end (overlay-end extent))
          (voice (when (listp face)
-		  (emacspeak-ansi-color-to-voice face))))
+                  (emacspeak-ansi-color-to-voice face))))
     (when voice
       (ems-modify-buffer-safely
        (put-text-property start end
-			  'personality voice)))))
+                          'personality voice)))))
 
 ;;}}}
 ;;{{{ advice interactive commands
@@ -115,7 +115,7 @@
     (message "Ansi escape sequences will be processed.")))
 
 (defadvice ansi-color-for-comint-mode-off (after emacspeak
-						 pre act comp)
+                                                 pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'off)

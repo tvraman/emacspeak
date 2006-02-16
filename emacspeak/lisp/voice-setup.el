@@ -138,30 +138,30 @@
   ;; Note that in Emacs 18 match data are clipped to current buffer
   ;; size...so the buffer should better not be smaller than STRING.
   (let ((pos 0)
-	(len (length newtext))
-	(expanded-newtext ""))
+        (len (length newtext))
+        (expanded-newtext ""))
     (while (< pos len)
       (setq expanded-newtext
-	    (concat expanded-newtext
-		    (let ((c (aref newtext pos)))
-		      (if (= ?\\ c)
-			  (cond ((= ?\& (setq c (aref newtext
-						      (setq pos (1+ pos)))))
-				 (substring string
-					    (match-beginning 0)
-					    (match-end 0)))
-				((and (>= c ?1) 
-				      (<= c ?9))
-				 ;; return empty string if N'th
-				 ;; sub-regexp did not match:
-				 (let ((n (- c ?0)))
-				   (if (match-beginning n)
-				       (substring string
-						  (match-beginning n)
-						  (match-end n))
-				     "")))
-				(t (char-to-string c)))
-			(char-to-string c)))))
+            (concat expanded-newtext
+                    (let ((c (aref newtext pos)))
+                      (if (= ?\\ c)
+                          (cond ((= ?\& (setq c (aref newtext
+                                                      (setq pos (1+ pos)))))
+                                 (substring string
+                                            (match-beginning 0)
+                                            (match-end 0)))
+                                ((and (>= c ?1) 
+                                      (<= c ?9))
+                                 ;; return empty string if N'th
+                                 ;; sub-regexp did not match:
+                                 (let ((n (- c ?0)))
+                                   (if (match-beginning n)
+                                       (substring string
+                                                  (match-beginning n)
+                                                  (match-end n))
+                                     "")))
+                                (t (char-to-string c)))
+                        (char-to-string c)))))
       (setq pos (1+ pos)))
     expanded-newtext))
 
@@ -186,31 +186,31 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
   (let ((data (match-data)))
     (unwind-protect
 
-	(if global
-	    (let ((result "") 
-		  (start 0)
-		  matchbeginning
-		  matchend)
-	      (while (string-match regexp string start)
-		(setq matchbeginning (match-beginning 0)
-		      matchend (match-end 0)
-		      result (concat result
-				     (substring string start matchbeginning)
-				     (if literal
-					 newtext
-				       (elib-string-expand-newtext)))
-		      start matchend))
+        (if global
+            (let ((result "") 
+                  (start 0)
+                  matchbeginning
+                  matchend)
+              (while (string-match regexp string start)
+                (setq matchbeginning (match-beginning 0)
+                      matchend (match-end 0)
+                      result (concat result
+                                     (substring string start matchbeginning)
+                                     (if literal
+                                         newtext
+                                       (elib-string-expand-newtext)))
+                      start matchend))
 
-	      (if matchbeginning	; matched at least once
-		  (concat result (substring string start))
-		nil))
+              (if matchbeginning        ; matched at least once
+                  (concat result (substring string start))
+                nil))
 
-	  ;; not GLOBAL
-	  (if (not (string-match regexp string 0))
-	      nil
-	    (concat (substring string 0 (match-beginning 0))
-		    (if literal newtext (elib-string-expand-newtext))
-		    (substring string (match-end 0)))))
+          ;; not GLOBAL
+          (if (not (string-match regexp string 0))
+              nil
+            (concat (substring string 0 (match-beginning 0))
+                    (if literal newtext (elib-string-expand-newtext))
+                    (substring string (match-end 0)))))
       (store-match-data data))))
 
 ;;}}}
@@ -242,28 +242,28 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
          (concat doc
                  (format
                   "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
-                                       voice  voice))))  (`
-   (progn
-     (defcustom (, personality)
-       (, voice)
-       (, documentation)
-       :type (voice-setup-custom-menu)
-       :group 'voice-fonts
-       :set '(lambda (sym val)
-               (let ((observing  (get sym 'observing)))
-                 (when (and (symbolp sym)
-                            (symbolp observing))
-		   (remprop observing sym))
-                 (set-default sym val)))
-       (,@ args))
+                  voice  voice))))  (`
+                                     (progn
+                                       (defcustom (, personality)
+                                         (, voice)
+                                         (, documentation)
+                                         :type (voice-setup-custom-menu)
+                                         :group 'voice-fonts
+                                         :set '(lambda (sym val)
+                                                 (let ((observing  (get sym 'observing)))
+                                                   (when (and (symbolp sym)
+                                                              (symbolp observing))
+                                                     (remprop observing sym))
+                                                   (set-default sym val)))
+                                         (,@ args))
 ;;; other actions performed at define time 
-     (voice-setup-set-voice-for-face (, face) '(, personality))
+                                       (voice-setup-set-voice-for-face (, face) '(, personality))
 ;;;record  personality as an
 ;;;observer of  voice and vice versa
-     (when (symbolp '(, personality))
-       (put  '(, personality) 'observing '(, voice)))
-     (when (symbolp '(, voice))
-       (put  '(, voice) '(, personality) t))))))
+                                       (when (symbolp '(, personality))
+                                         (put  '(, personality) 'observing '(, voice)))
+                                       (when (symbolp '(, voice))
+                                         (put  '(, voice) '(, personality) t))))))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
@@ -321,7 +321,7 @@ VOICE-NAME are  changed."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
     (loop for o in observers
-          do				;o is already quoted 
+          do                            ;o is already quoted 
           (set o value))))
 
 ;;; note that for now we dont use  gain settings 
@@ -362,14 +362,14 @@ command \\[customize-variable] on <personality>-settings."
      '(lambda  (sym val)
         (let ((voice-name (voice-setup-personality-from-style val)))
           (setq (, personality) voice-name)
-;;; update all observers		; ; ; ;	; ; ;
+;;; update all observers                ; ; ; ; ; ; ; ; ;
           (voice-setup-update-personalities '(, personality))
           (set-default sym val))))))
 
-;;}}}					; ; ; ;	; ; ; ;
-;;{{{ voices defined using ACSS         ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ;
+;;{{{ voices defined using ACSS         ; ; ;
 
-;;; these voices are device independent ;
+;;; these voices are device independent ; ; ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
@@ -590,10 +590,10 @@ font-lock.  Voicification is effective only if font lock is on."
   ;; Don't turn on Voice Lock mode if we don't have a display (we're running a
   ;; batch job) or if the buffer is invisible (the name starts with a space).
   (let ((on-p (and (not noninteractive)
-		   (not (eq (aref (buffer-name) 0) ?\ ))
-		   (if arg
-		       (> (prefix-numeric-value arg) 0)
-		     (not voice-lock-mode)))))
+                   (not (eq (aref (buffer-name) 0) ?\ ))
+                   (if arg
+                       (> (prefix-numeric-value arg) 0)
+                     (not voice-lock-mode)))))
     (set (make-local-variable 'voice-lock-mode) on-p)
     ;; Turn on Voice Lock mode.
     (when on-p

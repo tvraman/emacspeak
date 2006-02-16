@@ -64,11 +64,11 @@
       do
       (eval
        (`
-	(defadvice  (, f) (after emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'select-object)
-	    (emacspeak-speak-mode-line))))))
+        (defadvice  (, f) (after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-mode-line))))))
 
 ;;}}}
 

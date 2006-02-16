@@ -67,19 +67,19 @@
 (declaim (special ispell-version))
 (when  (string-lessp ispell-version "2.37")
   (fset 'ispell-highlight-spelling-error
-	(symbol-function 'ispell-highlight-spelling-error-overlay))
+        (symbol-function 'ispell-highlight-spelling-error-overlay))
 
   (defadvice ispell-highlight-spelling-error (after emacspeak act )
     "Use voice locking to highlight the error.
 Will clobber any existing personality property defined on start end"
     (let ((start (ad-get-arg 0))
-	  (end (ad-get-arg 1 ))
-	  (highlight (ad-get-arg 2 )))
+          (end (ad-get-arg 1 ))
+          (highlight (ad-get-arg 2 )))
       (if highlight
-	  (put-text-property  start end
-			      'personality  ispell-highlight-personality )
-	(put-text-property start end
-			   'personality  nil ))))
+          (put-text-property  start end
+                              'personality  ispell-highlight-personality )
+        (put-text-property start end
+                           'personality  nil ))))
   )
 
 ;;}}}
@@ -124,10 +124,10 @@ many available corrections."
       (cond
        ((< (length choices)
            emacspeak-ispell-max-choices)
-	(loop for choice in choices
-	      do
-	      (insert (format "%s %s\n" position choice))
-	      (incf position)))
+        (loop for choice in choices
+              do
+              (insert (format "%s %s\n" position choice))
+              (incf position)))
        (t (insert
            (format "There were %s corrections available."
                    (length choices)))))

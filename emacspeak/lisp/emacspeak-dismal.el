@@ -104,9 +104,9 @@ The `row header' is the entry in column 0."
   (interactive)
   (declare (special))
   (let ((row-head  (emacspeak-dismal-current-row-header))
-	(value (emacspeak-dismal-current-cell-value)))
+        (value (emacspeak-dismal-current-cell-value)))
     (message "%s is %s"
-	     row-head value)))
+             row-head value)))
 
 (defun emacspeak-dismal-display-cell-with-col-header ()
   "Display current cell along with its column header.
@@ -200,8 +200,8 @@ emacspeak-dismal-row-summarizer-list"
                  ((numberp token)
                   (setq value
                         (format "%s"
-				(emacspeak-dismal-cell-value
-				 dismal-current-row token)))
+                                (emacspeak-dismal-cell-value
+                                 dismal-current-row token)))
                   (put-text-property  0   (length value)
                                       'personality  emacspeak-dismal-value-personality 
                                       value )
@@ -211,9 +211,9 @@ emacspeak-dismal-row-summarizer-list"
                        (numberp (second token )))
                   (setq value
                         (format "%s"
-				(emacspeak-dismal-cell-value
-				 (first token)
-				 (second token))))
+                                (emacspeak-dismal-cell-value
+                                 (first token)
+                                 (second token))))
                   (put-text-property 0   (length value )
                                      'personality emacspeak-dismal-value-personality 
                                      value)
@@ -248,7 +248,7 @@ emacspeak-dismal-col-summarizer-list"
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value token
-							     dismal-current-col)))
+                                                             dismal-current-col)))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
@@ -259,8 +259,8 @@ emacspeak-dismal-col-summarizer-list"
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
-				 (first token)
-				 (second token))))
+                                 (first token)
+                                 (second token))))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
@@ -339,11 +339,11 @@ Checked by emacspeak specific dis-mode-hooks entry.")
              (unless emacspeak-dismal-already-customized-dismal
                (setq emacspeak-dismal-already-customized-dismal t)
                (push 'emacspeak-dismal-sheet-summarizer-list
-		     dismal-saved-variables)
-	       (push 'emacspeak-dismal-row-summarizer-list
-		     dismal-saved-variables)
-	       (push 'emacspeak-dismal-col-summarizer-list
-		     dismal-saved-variables)))))
+                     dismal-saved-variables)
+               (push 'emacspeak-dismal-row-summarizer-list
+                     dismal-saved-variables)
+               (push 'emacspeak-dismal-col-summarizer-list
+                     dismal-saved-variables)))))
 
 (declaim (special dismal-map))
 (eval-when (load)

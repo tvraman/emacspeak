@@ -68,16 +68,16 @@
     (emacspeak-speak-other-window 1)))
 
 (defadvice gnuplot-send-line-to-gnuplot (after emacspeak
-					       pre act
-					       comp)
+                                               pre act
+                                               comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
 (defadvice gnuplot-send-line-and-forward (after emacspeak
-						pre act
-						comp)
+                                                pre act
+                                                comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -91,8 +91,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 (defadvice gnuplot-send-file-to-gnuplot (after emacspeak
-					       pre act
-					       comp)
+                                               pre act
+                                               comp)
   "Speak status."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -106,8 +106,8 @@
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
      (t (dtk-tone 500 30 'force)
-	(and emacspeak-delete-char-speak-deleted-char
-	     (emacspeak-speak-char t))))
+        (and emacspeak-delete-char-speak-deleted-char
+             (emacspeak-speak-char t))))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)

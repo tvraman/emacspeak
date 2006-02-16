@@ -202,19 +202,19 @@ Useful to do this before you listen to an entire buffer."
     (save-excursion
       (goto-char (point-min))
       (condition-case nil
-	  (let ((start nil)
-		(blank-line "\n[ \t\n\r]*\n")
-		(inhibit-point-motion-hooks t))
-	    (ems-modify-buffer-safely
-	     (while (re-search-forward blank-line nil t)
-	       (skip-syntax-forward " ")
-	       (setq start (point))
-	       (unless (get-text-property start 'personality)
-		 (skip-syntax-forward "^ ")
-		 (put-text-property start (point)
-				    'personality
-				    emacspeak-speak-paragraph-personality)))))
-	(error nil))
+          (let ((start nil)
+                (blank-line "\n[ \t\n\r]*\n")
+                (inhibit-point-motion-hooks t))
+            (ems-modify-buffer-safely
+             (while (re-search-forward blank-line nil t)
+               (skip-syntax-forward " ")
+               (setq start (point))
+               (unless (get-text-property start 'personality)
+                 (skip-syntax-forward "^ ")
+                 (put-text-property start (point)
+                                    'personality
+                                    emacspeak-speak-paragraph-personality)))))
+        (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
@@ -269,7 +269,6 @@ Useful to do this before you listen to an entire buffer."
                                          year))
       (error iso))))
 
-
 ;;}}}
 ;;{{{  url link pattern:
 (defcustom emacspeak-speak-embedded-url-pattern
@@ -277,7 +276,6 @@ Useful to do this before you listen to an entire buffer."
   "Pattern to recognize embedded URLs."
   :type 'string
   :group 'emacspeak-speak)
-
 
 ;;}}}
 ;;{{{  Actions
@@ -300,8 +298,8 @@ point is spoken."
 ;;; Record in the mode line
 (or (assq 'emacspeak-action-mode minor-mode-alist)
     (setq minor-mode-alist
-	  (append minor-mode-alist
-		  '((emacspeak-action-mode " Action")))))
+          (append minor-mode-alist
+                  '((emacspeak-action-mode " Action")))))
 
 ;;; Return the appropriate action hook variable that defines actions
 ;;; for this mode.
@@ -324,7 +322,7 @@ Argument MODE defines action mode."
 
 (ems-generate-switcher 'emacspeak-toggle-action-mode
                        'emacspeak-action-mode
-		       "Toggle state of  Emacspeak  action mode.
+                       "Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 ;;}}}
@@ -351,8 +349,8 @@ option."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-word-echo
-			 'emacspeak-word-echo
-			 "Toggle state of  Emacspeak  word echo.
+                         'emacspeak-word-echo
+                         "Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -365,8 +363,8 @@ setting."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-character-echo
-			 'emacspeak-character-echo
-			 "Toggle state of  Emacspeak  character echo.
+                         'emacspeak-character-echo
+                         "Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -382,8 +380,8 @@ command `emacspeak-toggle-show-point' bound to
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-show-point
-			 'emacspeak-show-point
-			 "Toggle state of  Emacspeak-show-point.
+                         'emacspeak-show-point
+                         "Toggle state of  Emacspeak-show-point.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -394,11 +392,11 @@ current local  value to the result.")
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
   (let* ((pos (point))
-	 (total (buffer-size))
-	 (percent (if (> total 50000)
-		      ;; Avoid overflow from multiplying by 100!
-		      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
-		    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
+         (total (buffer-size))
+         (percent (if (> total 50000)
+                      ;; Avoid overflow from multiplying by 100!
+                      (/ (+ (/ total 200) (1- pos)) (max (/ total 100) 1))
+                    (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
     percent))
 
 (defsubst emacspeak-get-current-percentage-verbously ()
@@ -414,14 +412,14 @@ current local  value to the result.")
                                         ; (defsubst emacspeak-get-current-percentage-verbously ()
                                         ;   "Return percentage of position into current buffer as a string."
                                         ;   (let ((percent (emacspeak-get-current-percentage-into-buffer))
-                                        ; 	(message nil))
+                                        ;       (message nil))
                                         ;     (setq message
-                                        ; 	  (cond
-                                        ; 	   ((= 0 percent) " top")
-                                        ; 	   ((= 100 percent) " bottom ")
-                                        ; 	   (t (format " %d percent " percent))))
+                                        ;         (cond
+                                        ;          ((= 0 percent) " top")
+                                        ;          ((= 100 percent) " bottom ")
+                                        ;          (t (format " %d percent " percent))))
                                         ;     (put-text-property 0 (length message)
-                                        ; 		       'property voice-bolden message)
+                                        ;                      'property voice-bolden message)
                                         ;     message))
 
 ;;}}}
@@ -468,8 +466,8 @@ any buffer where it is set."
  'emacspeak-audio-indentation-method)
 
 (ems-generate-switcher ' emacspeak-toggle-audio-indentation
-			 'emacspeak-audio-indentation
-			 "Toggle state of  Emacspeak  audio indentation.
+                         'emacspeak-audio-indentation
+                         "Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Specifying the method of indentation as `tones'
@@ -491,10 +489,10 @@ Argument START  and END specify region to speak."
                     voice-lock-mode))
   (let ((inhibit-point-motion-hooks t))
     (when (and voice-lock-mode
-	       (not emacspeak-speak-voice-annotated-paragraphs))
+               (not emacspeak-speak-voice-annotated-paragraphs))
       (save-restriction
-	(narrow-to-region start end )
-	(emacspeak-speak-voice-annotate-paragraphs)))
+        (narrow-to-region start end )
+        (emacspeak-speak-voice-annotate-paragraphs)))
     (emacspeak-handle-action-at-point)
     (dtk-speak (buffer-substring start end ))))
 
@@ -556,10 +554,10 @@ by cut -c on UNIX."
   :group 'emacspeak-speak
   :type '(choice
           (const :tag "None" nil)
-	  (repeat :tag "Filter Specification"
-		  (list 
-		   (integer :tag "Start Column")
-		   (integer :tag "End Column")))))
+          (repeat :tag "Filter Specification"
+                  (list 
+                   (integer :tag "Start Column")
+                   (integer :tag "End Column")))))
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
@@ -695,7 +693,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}					; ; ; ;	; ; ; ; ; ; ; ;	; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -755,8 +753,8 @@ are indicated with auditory icon ellipses."
                  (null arg ))
         (let ((limit (line-end-position)))
           (beginning-of-line 1)
-	  (skip-syntax-forward " " limit)
-	  (setq indent  (current-column )))
+          (skip-syntax-forward " " limit)
+          (setq indent  (current-column )))
         (when (eq emacspeak-audio-indentation-method 'tone)
           (emacspeak-indent indent )))
       (when
@@ -764,7 +762,7 @@ are indicated with auditory icon ellipses."
               (get-text-property  start 'emacspeak-hidden-block))
         (emacspeak-auditory-icon 'ellipses))
       (cond
-       ((string-equal ""  line)		;blank line
+       ((string-equal ""  line)         ;blank line
         (when dtk-stop-immediately (dtk-stop))
         (dtk-tone 250   75 'force)
         (when (emacspeak-using-midi-p)
@@ -991,7 +989,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (cond
      ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char )))
      (t (dtk-dispatch
-	 (dtk-char-to-speech char ))))))
+         (dtk-char-to-speech char ))))))
 
 ;;{{{ emacspeak-speak-display-char
 
@@ -1151,20 +1149,20 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
                     voice-lock-mode))
   (let ((inhibit-point-motion-hooks t))
     (when (and voice-lock-mode
-	       (not emacspeak-speak-voice-annotated-paragraphs))
+               (not emacspeak-speak-voice-annotated-paragraphs))
       (emacspeak-speak-voice-annotate-paragraphs))
     (when (listp arg) (setq arg (car arg )))
     (let ((start nil )
-	  (end nil))
+          (end nil))
       (cond
        ((null arg)
-	(setq start (point-min)
-	      end (point-max)))
+        (setq start (point-min)
+              end (point-max)))
        ((> arg 0)
-	(setq start (point)
-	      end (point-max)))
+        (setq start (point)
+              end (point-max)))
        (t (setq start (point-min)
-		end (point))))
+                end (point))))
       (dtk-speak (buffer-substring start end )))))
 
 (defun emacspeak-speak-other-buffer (buffer)
@@ -1173,7 +1171,7 @@ Useful to listen to a buffer without switching  contexts."
   (interactive
    (list
     (read-buffer "Speak buffer: "
-		 nil t)))
+                 nil t)))
   (save-excursion
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
@@ -1203,9 +1201,9 @@ Negative prefix arg speaks from start of buffer to point."
     (cond
      (help-buffer
       (save-excursion
-	(set-buffer help-buffer)
+        (set-buffer help-buffer)
         (voice-lock-mode 1)
-	(emacspeak-speak-buffer arg )))
+        (emacspeak-speak-buffer arg )))
      (t (dtk-speak "First ask for help" )))))
 
 (defun emacspeak-speak-completions()
@@ -1291,11 +1289,11 @@ WIth prefix argument N, move N items (negative N means move backward)."
   "Return the completion string under point in the *Completions* buffer."
   (let (beg end)
     (if (and (not (eobp)) (get-text-property (point) 'mouse-face))
-	(setq end (point) beg (1+ (point))))
+        (setq end (point) beg (1+ (point))))
     (if (and (not (bobp)) (get-text-property (1- (point)) 'mouse-face))
-	(setq end (1- (point)) beg (point)))
+        (setq end (1- (point)) beg (point)))
     (if (null beg)
-	(error "No current  completion "))
+        (error "No current  completion "))
     (setq beg (or
                (previous-single-property-change beg 'mouse-face)
                (point-min)))
@@ -1354,15 +1352,15 @@ Alert the user only if mail has arrived since this time in the
   (defun time-add (t1 t2) ;;; for pre emacs 21.4
     "Add two time values.  One should represent a time difference."
     (let ((high (car t1))
-	  (low (if (consp (cdr t1)) (nth 1 t1) (cdr t1)))
-	  (micro (if (numberp (car-safe (cdr-safe (cdr t1))))
-		     (nth 2 t1)
-		   0))
-	  (high2 (car t2))
-	  (low2 (if (consp (cdr t2)) (nth 1 t2) (cdr t2)))
-	  (micro2 (if (numberp (car-safe (cdr-safe (cdr t2))))
-		      (nth 2 t2)
-		    0)))
+          (low (if (consp (cdr t1)) (nth 1 t1) (cdr t1)))
+          (micro (if (numberp (car-safe (cdr-safe (cdr t1))))
+                     (nth 2 t1)
+                   0))
+          (high2 (car t2))
+          (low2 (if (consp (cdr t2)) (nth 1 t2) (cdr t2)))
+          (micro2 (if (numberp (car-safe (cdr-safe (cdr t2))))
+                      (nth 2 t2)
+                    0)))
       ;; Add
       (setq micro (+ micro micro2))
       (setq low (+ low low2))
@@ -1384,12 +1382,12 @@ Alert the user only if mail has arrived since this time in the
   (let* ((mod-time (emacspeak-mail-get-last-mail-arrival-time f))
          (size (emacspeak-get-file-size f))
          (result (and (> size 0)
-		      (or
-		       (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
-		       (time-less-p	;unattended mail
-			(time-add emacspeak-mail-last-alerted-time
-				  (list 0 emacspeak-mail-alert-interval))
-			(current-time))))))
+                      (or
+                       (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
+                       (time-less-p     ;unattended mail
+                        (time-add emacspeak-mail-last-alerted-time
+                                  (list 0 emacspeak-mail-alert-interval))
+                        (current-time))))))
     (when result 
       (setq emacspeak-mail-last-alerted-time  (current-time)))
     result))
@@ -1422,8 +1420,8 @@ emacspeak-voicemail-spool-file."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-mail-alert
-			 'emacspeak-mail-alert
-			 "Toggle state of  Emacspeak  mail alert.
+                         'emacspeak-mail-alert
+                         "Toggle state of  Emacspeak  mail alert.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Turning on this option results in Emacspeak producing an auditory icon
@@ -1457,8 +1455,8 @@ indicating the arrival  of new mail when displaying the mode line.")
 (make-variable-buffer-local 'emacspeak-which-function-mode)
 
 (ems-generate-switcher ' emacspeak-toggle-which-function
-			 'emacspeak-which-function-mode
-			 "Toggle state of  Emacspeak  which function mode.
+                         'emacspeak-which-function-mode
+                         "Toggle state of  Emacspeak  which function mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
@@ -1518,69 +1516,69 @@ Interactive prefix arg speaks buffer info."
     (force-mode-line-update)
     (emacspeak-dtk-sync)
     (let ((dtk-stop-immediately nil )
-	  (global-info (ems-process-mode-line-format global-mode-string))
-	  (frame-info nil)
-	  (recursion-depth (recursion-depth))
-	  (recursion-info nil)
-	  (dir-info (when (or
-			   (eq major-mode 'shell-mode)
-			   (eq major-mode 'comint-mode))
-		      default-directory)))
+          (global-info (ems-process-mode-line-format global-mode-string))
+          (frame-info nil)
+          (recursion-depth (recursion-depth))
+          (recursion-info nil)
+          (dir-info (when (or
+                           (eq major-mode 'shell-mode)
+                           (eq major-mode 'comint-mode))
+                      default-directory)))
       (when (and  emacspeak-which-function-mode
-		  (fboundp 'which-function)
-		  (which-function))
-	(emacspeak-speak-which-function))
+                  (fboundp 'which-function)
+                  (which-function))
+        (emacspeak-speak-which-function))
       (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
-       (t				;process modeline
-	(when dir-info
-	  (put-text-property 0 (length dir-info)
-			     'personality voice-annotate dir-info))
-	(cond
-	 ((> (length (frame-list)) 1)
-	  (setq frame-info
-		(format " %s " (frame-parameter (selected-frame) 'name)))
-	  (put-text-property 0 (length frame-info)
-			     'personality voice-smoothen frame-info))
-	 (t (setq frame-info "")))
-	(when (> recursion-depth 0)
-	  (setq  recursion-info
-		 (format " Recursive Edit %d "
-			 recursion-depth))
-	  (put-text-property 0 (length recursion-info)
-			     'personality voice-smoothen
-			     recursion-info))
-	(unless (and buffer-read-only
-		     (buffer-modified-p)) ;avoid pathological case
-	  (when(and (not (eq major-mode 'shell-mode))
-		    (not (eq major-mode 'comint-mode))
-		    (buffer-modified-p))
-	    (dtk-tone 950 100))
-	  (when buffer-read-only (dtk-tone 250 100)))
-	(put-text-property 0 (length global-info)
-			   'personality voice-smoothen global-info)
-	(tts-with-punctuations 'all
-			       (dtk-speak
-				(concat dir-info
-					(buffer-name)
-					(when line-number-mode
-					  (format " line %d"
-						  (emacspeak-get-current-line-number)))
-					(when column-number-mode
-					  (format " Column %d"
-						  (current-column)))
-					mode-name
-					(emacspeak-get-current-percentage-verbously)
-					frame-info
-					recursion-info
-					global-info)))))))))
+       (t                               ;process modeline
+        (when dir-info
+          (put-text-property 0 (length dir-info)
+                             'personality voice-annotate dir-info))
+        (cond
+         ((> (length (frame-list)) 1)
+          (setq frame-info
+                (format " %s " (frame-parameter (selected-frame) 'name)))
+          (put-text-property 0 (length frame-info)
+                             'personality voice-smoothen frame-info))
+         (t (setq frame-info "")))
+        (when (> recursion-depth 0)
+          (setq  recursion-info
+                 (format " Recursive Edit %d "
+                         recursion-depth))
+          (put-text-property 0 (length recursion-info)
+                             'personality voice-smoothen
+                             recursion-info))
+        (unless (and buffer-read-only
+                     (buffer-modified-p)) ;avoid pathological case
+          (when(and (not (eq major-mode 'shell-mode))
+                    (not (eq major-mode 'comint-mode))
+                    (buffer-modified-p))
+            (dtk-tone 950 100))
+          (when buffer-read-only (dtk-tone 250 100)))
+        (put-text-property 0 (length global-info)
+                           'personality voice-smoothen global-info)
+        (tts-with-punctuations 'all
+                               (dtk-speak
+                                (concat dir-info
+                                        (buffer-name)
+                                        (when line-number-mode
+                                          (format " line %d"
+                                                  (emacspeak-get-current-line-number)))
+                                        (when column-number-mode
+                                          (format " Column %d"
+                                                  (current-column)))
+                                        mode-name
+                                        (emacspeak-get-current-percentage-verbously)
+                                        frame-info
+                                        recursion-info
+                                        global-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
   (tts-with-punctuations 'all
-			 (dtk-speak
-			  (buffer-name))))
+                         (dtk-speak
+                          (buffer-name))))
 
 ;;}}}
 ;;;Helper --return string describing coding system info if
@@ -1675,10 +1673,10 @@ component.
 The result is put in the kill ring for convenience."
   (interactive "P")
   (let ((location (or (buffer-file-name)
-		      default-directory)))
+                      default-directory)))
     (when filename
       (setq location
-	    (file-name-nondirectory location)))
+            (file-name-nondirectory location)))
     (kill-new location)
     (dtk-speak
      location))) 
@@ -1760,8 +1758,8 @@ Optional second arg `set' sets the TZ environment variable as well."
           (ido-case-fold t))
       (substring
        (read-file-name
-	"Timezone: "
-	emacspeak-speak-zoneinfo-directory)
+        "Timezone: "
+        emacspeak-speak-zoneinfo-directory)
        (length emacspeak-speak-zoneinfo-directory)))
     current-prefix-arg))
   (declare (special emacspeak-speak-time-format-string
@@ -1772,11 +1770,11 @@ Optional second arg `set' sets the TZ environment variable as well."
     (setenv "TZ" zone))
   (shell-command
    (format "export TZ=%s; date +\"%s\""
-	   zone  
+           zone  
            (concat emacspeak-speak-time-format-string
                    (format 
-		    " in %s, %%Z, %%z "
-		    zone)))))
+                    " in %s, %%Z, %%z "
+                    zone)))))
 
 ;;}}}
 (defun emacspeak-speak-time (&optional world)
@@ -1793,9 +1791,9 @@ Second interactive prefix sets clock to new timezone."
     (tts-with-punctuations 'some
                            (dtk-speak
                             (propertize 
-			     (format-time-string
-			      emacspeak-speak-time-format-string)
-			     'personality voice-punctuations-some))))))
+                             (format-time-string
+                              emacspeak-speak-time-format-string)
+                             'personality voice-punctuations-some))))))
                             
  
 (defconst emacspeak-codename
@@ -1955,7 +1953,7 @@ personality."
   (interactive)
   (let ((personality (get-text-property (point) 'personality))
         (start (previous-single-property-change (point) 'personality))
-	(end (next-single-property-change  (point) 'personality)))
+        (end (next-single-property-change  (point) 'personality)))
     (emacspeak-speak-region
      (or start (point-min))
      (or end (point-max)))))
@@ -1966,13 +1964,13 @@ Speak that chunk after moving."
   (interactive)
   (let ((personality (get-text-property (point) 'personality))
         (this-end (next-single-property-change (point)
-					       'personality))
+                                               'personality))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
            (setq next-start 
-		 (text-property-any  this-end (point-max)
-				     'personality personality)))
+                 (text-property-any  this-end (point-max)
+                                     'personality personality)))
       (goto-char next-start)
       (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
@@ -1987,20 +1985,20 @@ Speak that chunk after moving."
                                                setting.
 Return buffer position or nil on failure."
   (let ((result nil)
-	(start nil)
-	(continue t))
+        (start nil)
+        (continue t))
     (save-excursion
       (while (and continue
                   (not (bobp)))
         (backward-char 1)
-	(setq start (previous-single-property-change  (point) property))
-	(if (null start)
-	    (setq continue nil)
-	  (setq continue
-		(not (eq  value 
-			  (get-text-property start property)))))
-	(or continue 
-	    (setq result start)))
+        (setq start (previous-single-property-change  (point) property))
+        (if (null start)
+            (setq continue nil)
+          (setq continue
+                (not (eq  value 
+                          (get-text-property start property)))))
+        (or continue 
+            (setq result start)))
       result)))
 
 (defun emacspeak-speak-previous-personality-chunk ()
@@ -2013,8 +2011,8 @@ Speak that chunk after moving."
     (cond
      ((and (> this-start (point-min))
            (setq next-end
-		 (ems-backwards-text-property-any  (1- this-start) (point-min)
-						   'personality personality)))
+                 (ems-backwards-text-property-any  (1- this-start) (point-min)
+                                                   'personality personality)))
       (goto-char next-end)
       (backward-char 1)
       (emacspeak-speak-this-personality-chunk))
@@ -2145,8 +2143,8 @@ setting."
   :type 'boolean)
 
 (ems-generate-switcher ' emacspeak-toggle-comint-autospeak
-			 'emacspeak-comint-autospeak
-			 "Toggle state of Emacspeak comint autospeak.
+                         'emacspeak-comint-autospeak
+                         "Toggle state of Emacspeak comint autospeak.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -2161,8 +2159,8 @@ buffer is not current or its window live.")
  'emacspeak-comint-output-monitor)
 ;;;###autoload
 (ems-generate-switcher ' emacspeak-toggle-comint-output-monitor
-			 'emacspeak-comint-output-monitor
-			 "Toggle state of Emacspeak comint monitor.
+                         'emacspeak-comint-output-monitor
+                         "Toggle state of Emacspeak comint monitor.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
@@ -2177,7 +2175,7 @@ Non-nil means we split speech on newlines in comint buffer."
 (defun emacspeak-comint-speech-setup ()
   "Set up splitting of speech into chunks in comint modes."
   (declare (special
-	    emacspeak-comint-split-speech-on-newline ))
+            emacspeak-comint-split-speech-on-newline ))
   (dtk-set-punctuations 'all)
   (when emacspeak-comint-split-speech-on-newline
     (modify-syntax-entry 10 ">"))
@@ -2281,7 +2279,7 @@ Will be improved if it proves useful."
   (interactive)
   (declare (special inhibit-field-text-motion))
   (let ((inhibit-field-text-motion t)
-	(start nil ))
+        (start nil ))
     (skip-syntax-backward " ")
     (setq start (point ))
     (skip-syntax-backward "^ ")
@@ -2690,25 +2688,25 @@ value to apply."
        blink-matching-paren
        (let* ((oldpos (point))
               (emacspeak-blink-delay 5)
-	      (blinkpos)
-	      (mismatch))
-	 (save-excursion
-	   (save-restriction
-	     (if blink-matching-paren-distance
-		 (narrow-to-region (max (point-min)
-					(- (point) blink-matching-paren-distance))
-				   oldpos))
-	     (condition-case ()
-		 (setq blinkpos (scan-sexps oldpos -1))
-	       (error nil)))
-	   (and blinkpos (/= (char-syntax (char-after blinkpos))
-			     ?\$)
-		(setq mismatch
-		      (/= (char-after (1- oldpos))
-			  (matching-paren (char-after blinkpos)))))
-	   (if mismatch (setq blinkpos nil))
-	   (if blinkpos
-	       (progn
+              (blinkpos)
+              (mismatch))
+         (save-excursion
+           (save-restriction
+             (if blink-matching-paren-distance
+                 (narrow-to-region (max (point-min)
+                                        (- (point) blink-matching-paren-distance))
+                                   oldpos))
+             (condition-case ()
+                 (setq blinkpos (scan-sexps oldpos -1))
+               (error nil)))
+           (and blinkpos (/= (char-syntax (char-after blinkpos))
+                             ?\$)
+                (setq mismatch
+                      (/= (char-after (1- oldpos))
+                          (matching-paren (char-after blinkpos)))))
+           (if mismatch (setq blinkpos nil))
+           (if blinkpos
+               (progn
                  (goto-char blinkpos)
                  (message
                   "Matches %s"
@@ -2738,10 +2736,10 @@ value to apply."
                        "..."
                        (buffer-substring blinkpos (1+
                                                    blinkpos)))))))
-	     (cond (mismatch
-		    (message "Mismatched parentheses"))
-		   ((not blink-matching-paren-distance)
-		    (message "Unmatched parenthesis")))))
+             (cond (mismatch
+                    (message "Mismatched parentheses"))
+                   ((not blink-matching-paren-distance)
+                    (message "Unmatched parenthesis")))))
          (sit-for emacspeak-blink-delay))))
 
 (defun  emacspeak-use-customized-blink-paren ()
@@ -2832,7 +2830,7 @@ Argument O specifies overlay."
     (save-excursion
       (set-buffer (window-buffer (minibuffer-window)))
       (buffer-substring (field-beginning)
-			(field-end)))))
+                        (field-end)))))
 
 ;;; Make all occurrences of string inaudible
 (defsubst emacspeak-make-string-inaudible(string)
@@ -3015,8 +3013,8 @@ or an ascendant directory."
   (declare (special emacspeak-speak-directory-settings
                     default-directory))
   (let ((file (find emacspeak-speak-directory-settings
-		    (directory-files dir)
-		    :test 'string-equal)))
+                    (directory-files dir)
+                    :test 'string-equal)))
     (cond
      (file (expand-file-name file dir))
      ((not (emacspeak-speak-root-dir-p dir))

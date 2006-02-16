@@ -113,10 +113,10 @@ Returns a string with appropriate personality."
         (type   (widget-type w))
         (tag (widget-get w :tag)))
     (setq tag     
-	  (format " %s "
-		  (or tag type)))
+          (format " %s "
+                  (or tag type)))
     (put-text-property 0 (length tag)
-		       'personality emacspeak-widget-button-personality tag)
+                       'personality emacspeak-widget-button-personality tag)
     tag))
 
 (defsubst emacspeak-widget-help-echo (w)
@@ -376,7 +376,7 @@ Returns a string with appropriate personality."
   (let ((value (widget-get widget :value))
         (tag (widget-get widget :tag)))
     (format "Commentary  link   %s %s"
-	    (or tag "")
+            (or tag "")
             value)))
 
 (widget-put (get 'emacs-commentary-link 'widget-type)
@@ -507,8 +507,8 @@ Returns a string with appropriate personality."
           (cond
            (choice (widget-get choice :tag))
            (t (if value 
-		  (prin1-to-string value)
-		" no item ")))))
+                  (prin1-to-string value)
+                " no item ")))))
     (put-text-property 0  (length selected)
                        'personality emacspeak-widget-value-personality selected)
     (concat label
@@ -685,7 +685,7 @@ widget before summarizing."
   (loop for map in
         (list widget-keymap
               widget-field-keymap
-	      widget-text-keymap
+              widget-text-keymap
               )
         do
         (define-key map  emacspeak-prefix 'emacspeak-prefix-command)

@@ -58,24 +58,24 @@
       do
       (eval 
        `(defadvice ,f (around emacspeak pre
-			      act comp)
-	  "Provide auditory feedback."
-	  (let ((prior (point ))
-		(dtk-stop-immediately t))
-	    (emacspeak-kill-buffer-carefully "*Completions*")
-	    ad-do-it
-	    (let ((completions-buffer (get-buffer "*Completions*")))
-	      (if (> (point) prior)
-		  (tts-with-punctuations 'all
-					 (dtk-speak (buffer-substring prior (point ))))
-		(when (and completions-buffer
-			   (window-live-p (get-buffer-window completions-buffer )))
-		  (save-excursion
-		    (set-buffer completions-buffer )
-		    (emacspeak-prepare-completions-buffer)
-		    (tts-with-punctuations 'all
-					   (dtk-speak (buffer-string )))))))
-	    ad-return-value))))
+                              act comp)
+          "Provide auditory feedback."
+          (let ((prior (point ))
+                (dtk-stop-immediately t))
+            (emacspeak-kill-buffer-carefully "*Completions*")
+            ad-do-it
+            (let ((completions-buffer (get-buffer "*Completions*")))
+              (if (> (point) prior)
+                  (tts-with-punctuations 'all
+                                         (dtk-speak (buffer-substring prior (point ))))
+                (when (and completions-buffer
+                           (window-live-p (get-buffer-window completions-buffer )))
+                  (save-excursion
+                    (set-buffer completions-buffer )
+                    (emacspeak-prepare-completions-buffer)
+                    (tts-with-punctuations 'all
+                                           (dtk-speak (buffer-string )))))))
+            ad-return-value))))
 
 ;;}}}
 (provide 'emacspeak-cedet )

@@ -232,16 +232,16 @@ Assumes that point is at the front of a field value."
                                nil))))
   (let (ro)
     (setq forms--total-records
-	  (save-excursion
-	    (prog1
-		(progn
-		  ;;(message "forms: counting records...")
-		  (set-buffer forms--file-buffer)
-		  (bury-buffer (current-buffer))
-		  (setq ro buffer-read-only)
-		  (count-lines (point-min) (point-max))))))
+          (save-excursion
+            (prog1
+                (progn
+                  ;;(message "forms: counting records...")
+                  (set-buffer forms--file-buffer)
+                  (bury-buffer (current-buffer))
+                  (setq ro buffer-read-only)
+                  (count-lines (point-min) (point-max))))))
     (if ro
-	(setq forms-read-only t)))
+        (setq forms-read-only t)))
   (message "%s records after filtering"
            forms--total-records))
 

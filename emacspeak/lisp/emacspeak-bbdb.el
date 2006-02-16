@@ -95,7 +95,7 @@
     (emacspeak-auditory-icon 'delete-object)
     (save-excursion
       (when (looking-at  "?")
-	(forward-line 1))
+        (forward-line 1))
       (emacspeak-speak-line))))
 
 (defadvice bbdb-edit-current-field (before emacspeak pre act )
@@ -125,7 +125,7 @@
     (emacspeak-auditory-icon 'large-movement )
     (save-excursion
       (when (looking-at  "?")
-	(forward-line 1))
+        (forward-line 1))
       (emacspeak-speak-line ))))
 
 (defadvice bbdb-prev-record (after emacspeak pre act )
@@ -134,7 +134,7 @@
     (emacspeak-auditory-icon 'large-movement )
     (save-excursion
       (when (looking-at  "?")
-	(forward-line 1))
+        (forward-line 1))
       (emacspeak-speak-line ))))
 
 (defadvice bbdb-omit-record (after emacspeak pre act )

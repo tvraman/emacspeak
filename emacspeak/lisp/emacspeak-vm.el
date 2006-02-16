@@ -137,12 +137,12 @@ Note that some badly formed mime messages  cause trouble."
             (to (vm-to-of message ))
             (header nil))
       (while (not header)
-	(setq header 
-	      (case
-		  (read-char "f From s Subject t To")
-		(?s subject)
-		(?f from)
-		(?t to))))
+        (setq header 
+              (case
+                  (read-char "f From s Subject t To")
+                (?s subject)
+                (?f from)
+                (?t to))))
       (kill-new header)
       (message header)))
    (t (error "No current message." ))))
@@ -185,9 +185,9 @@ Note that some badly formed mime messages  cause trouble."
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others 
         (emacspeak-auditory-icon 'item))
-       (self-p				;mail to others including me
+       (self-p                          ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t			     ;got it because of a mailing list
+       (t                            ;got it because of a mailing list
         (emacspeak-auditory-icon 'select-object ))))))
 
 (defun emacspeak-vm-speak-labels ()
@@ -530,24 +530,24 @@ Leave point at front of decoded attachment."
 If N is negative, move backward instead."
   (interactive "p")
   (let ((function (if (< n 0) 'previous-single-property-change
-		    'next-single-property-change))
-	(inhibit-point-motion-hooks t)
-	(backward (< n 0))
-	(limit (if (< n 0) (point-min) (point-max))))
+                    'next-single-property-change))
+        (inhibit-point-motion-hooks t)
+        (backward (< n 0))
+        (limit (if (< n 0) (point-min) (point-max))))
     (setq n (abs n))
     (while (and (not (= limit (point)))
-		(> n 0))
+                (> n 0))
       ;; Skip past the current button.
       (when (get-text-property (point) 'w3-hyperlink-info)
-	(goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
+        (goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
       ;; Go to the next (or previous) button.
       (goto-char (funcall function (point) 'w3-hyperlink-info nil limit))
       ;; Put point at the start of the button.
       (when (and backward (not (get-text-property (point) 'w3-hyperlink-info)))
-	(goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
+        (goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
       ;; Skip past intangible buttons.
       (when (get-text-property (point) 'intangible)
-	(incf n))
+        (incf n))
       (decf n))
     (unless (zerop n)
       (message  "No more buttons"))
@@ -590,16 +590,16 @@ Emacspeak."
             vm-move-after-deleting
             emacspeak-vm-voice-lock-messages))
   (setq vm-mime-charset-converter-alist
-	'(
-	  ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
-	  )
-	)
+        '(
+          ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
+          )
+        )
   (setq vm-mime-default-face-charsets t)
   (setq vm-frame-per-folder nil
-	vm-frame-per-composition nil
-	vm-frame-per-edit nil
-	vm-frame-per-help nil
-	vm-frame-per-summary nil)
+        vm-frame-per-composition nil
+        vm-frame-per-edit nil
+        vm-frame-per-help nil
+        vm-frame-per-summary nil)
 
   (setq vm-index-file-suffix ".idx"
         vm-primary-inbox "~/mbox"
@@ -672,20 +672,20 @@ text using wvText."
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
   (declare (special vm-preview-lines
-		    vm-infer-mime-types
-		    vm-mime-decode-for-preview
-		    vm-auto-decode-mime-messages
-		    vm-auto-displayed-mime-content-type-exceptions
-		    vm-mime-attachment-save-directory
-		    vm-mime-base64-encoder-program
-		    vm-mime-base64-decoder-program
-		    vm-mime-attachment-auto-type-alist
-		    vm-mime-type-converter-alist
-		    emacspeak-vm-pdf2text
-		    emacspeak-vm-ppt2html
-		    emacspeak-vm-xls2html
-		    emacspeak-vm-doc2text
-		    emacspeak-vm-cal2text))
+                    vm-infer-mime-types
+                    vm-mime-decode-for-preview
+                    vm-auto-decode-mime-messages
+                    vm-auto-displayed-mime-content-type-exceptions
+                    vm-mime-attachment-save-directory
+                    vm-mime-base64-encoder-program
+                    vm-mime-base64-decoder-program
+                    vm-mime-attachment-auto-type-alist
+                    vm-mime-type-converter-alist
+                    emacspeak-vm-pdf2text
+                    emacspeak-vm-ppt2html
+                    emacspeak-vm-xls2html
+                    emacspeak-vm-doc2text
+                    emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-convertor
    (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-convertor

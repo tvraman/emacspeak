@@ -126,10 +126,10 @@ S-Expressions."
       (set-buffer buffer)
       (erase-buffer))
     (shell-command-on-region start end 
-			     (format "%s %s -"
-				     xml-sexp-xslt-program
-				     xml-sexp-transform)
-			     buffer)
+                             (format "%s %s -"
+                                     xml-sexp-xslt-program
+                                     xml-sexp-transform)
+                             buffer)
     (save-excursion
       (set-buffer buffer)
       (goto-char (point-min))

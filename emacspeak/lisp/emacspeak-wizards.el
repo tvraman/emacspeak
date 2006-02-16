@@ -125,7 +125,7 @@ navigate this document."
   (emacspeak-w3-without-xsl
    (browse-url
     (format "file:///%stips.html"
-	    emacspeak-etc-directory)))
+            emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
@@ -330,8 +330,8 @@ command `emacspeak-table-display-table-in-region' normally bound to
    (t nil))
   "Root  of Linux Howtos."
   :type '(choice :tag "Howto Root"
-		 (const nil :tag "None")
-		 (directory :tag "Directory"))
+                 (const nil :tag "None")
+                 (directory :tag "Directory"))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
@@ -385,7 +385,7 @@ previous window configuration."
   (cond
                                         ; First check if Messages buffer is already selected
    ((string-equal (buffer-name (window-buffer (selected-window)))
-		  "*Messages*")
+                  "*Messages*")
     (when (window-configuration-p emacspeak-popup-messages-config-0)
       (set-window-configuration emacspeak-popup-messages-config-0))
     (setq emacspeak-popup-messages-config-0 nil)
@@ -396,8 +396,8 @@ previous window configuration."
    (t
                                         ; Memoize current window configuration only if buffer isn't yet visible
     (setq emacspeak-popup-messages-config-0
-	  (and (not (get-buffer-window "*Messages*"))
-	       (current-window-configuration)))
+          (and (not (get-buffer-window "*Messages*"))
+               (current-window-configuration)))
     (pop-to-buffer "*Messages*" nil t)
                                         ; position cursor on the last message
     (goto-char (point-max))
@@ -418,8 +418,8 @@ previous window configuration."
   "Command that displays names of active network interfaces."
   :type 'string
   :group 'emacspeak-wizards)
-					;"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed
-					;'s/addr://'`"
+                                        ;"echo `/sbin/ifconfig %s | grep 'inet addr' | awk '{print $2}'| sed
+                                        ;'s/addr://'`"
 
 (defcustom emacspeak-speak-show-active-network-interfaces-addresses
   "ifconfig %s |grep inet |cut -d : -f 2 |cut -d \\  -f 1"
@@ -523,7 +523,7 @@ default-directory after switching."
       (let* ((prog (or explicit-shell-file-name
                        (getenv "ESHELL")
                        (getenv "SHELL")
-                       "/bin/sh"))		     
+                       "/bin/sh"))                   
              (name (file-name-nondirectory prog))
              (startfile (concat "~/.emacs_" name))
              (xargs-name (intern-soft (concat "explicit-" name "-args")))
@@ -628,10 +628,10 @@ default-directory after switching."
   (if (emacspeak-wizards-vpn-status)
       (shell-command
        (format "%s &"
-	       emacspeak-wizards-vpn-end-command))
+               emacspeak-wizards-vpn-end-command))
     (shell-command 
      (format  "%s&"
-	      emacspeak-wizards-vpn-start-command))))
+              emacspeak-wizards-vpn-start-command))))
 
 ;;}}}
 ;;;###autoload 
@@ -818,7 +818,7 @@ Typically %s is replaced by project name.")
                     emacspeak-cvs-gnu-anonymous-cvsroot-pattern))
   (let ((cvsroot
          (format emacspeak-cvs-gnu-anonymous-cvsroot-pattern
-		 project))
+                 project))
         (dir (expand-file-name
               (format emacspeak-cvs-local-directory-pattern
                       project))))
@@ -917,14 +917,14 @@ To leave, press \\[keyboard-quit]."
            options
            #'(lambda (a b )
                (cond
-		((string-lessp
-		  (ems-variable-symbol-file a)
-		  (ems-variable-symbol-file b))
-		 t)
-		((string-equal (ems-variable-symbol-file a)
-			       (ems-variable-symbol-file b))
-		 (string-lessp a b))
-		(t nil)))))
+                ((string-lessp
+                  (ems-variable-symbol-file a)
+                  (ems-variable-symbol-file b))
+                 t)
+                ((string-equal (ems-variable-symbol-file a)
+                               (ems-variable-symbol-file b))
+                 (string-lessp a b))
+                (t nil)))))
     options))
            
 
@@ -950,8 +950,8 @@ To leave, press \\[keyboard-quit]."
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-		       (symbol-file a)
-		       (symbol-file b))
+                       (symbol-file a)
+                       (symbol-file b))
                       t)
                      ((string-equal (symbol-file a)
                                     (symbol-file b))
@@ -984,8 +984,8 @@ Warning! Contents of file filename will be overwritten."
                   (error (insert "\n\n")nil)))
             (insert
              (format " %s "
-             (or (documentation f)
-                 " ")))
+                     (or (documentation f)
+                         " ")))
             (insert "\n\n"))))
        (emacspeak-list-emacspeak-commands))
       (goto-char (point-max))
@@ -1041,11 +1041,11 @@ Warning! Contents of file commands.texi will be overwritten."
        "@node Emacspeak Commands\n@chapter Emacspeak Commands\n\n")
       (insert
        (format 
-	"This chapter is generated automatically from the source-level documentation.
+        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d commands.\n\n"
-	(length (emacspeak-list-emacspeak-commands))))
+        (length (emacspeak-list-emacspeak-commands))))
       (mapcar
        (function
         (lambda (f)
@@ -1056,8 +1056,8 @@ This chapter documents a total of %d commands.\n\n"
                 (source-file nil))
             (when this-module
               (setq source-file (locate-library this-module ))
-	      (if (char-equal (aref source-file (1- (length source-file))) ?c)
-		  (setq source-file (substring  source-file 0 -1)))
+              (if (char-equal (aref source-file (1- (length source-file))) ?c)
+                  (setq source-file (substring  source-file 0 -1)))
               (setq commentary (lm-commentary source-file))
               (setq this-module
                     (file-name-sans-extension this-module))
@@ -1108,9 +1108,9 @@ for commands defined in module  %s.\n\n"
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)
-			       "cat -s"
-			       (current-buffer)
-			       'replace)
+                               "cat -s"
+                               (current-buffer)
+                               'replace)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
@@ -1131,61 +1131,61 @@ Warning! Contents of file filename will be overwritten."
        "@node Emacspeak Customizations\n@chapter Emacspeak Customizations \n\n")
       (insert
        (format 
-	"This chapter is generated automatically from the source-level documentation.
+        "This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
 This chapter documents a total of %d user customizable
   options.\n\n"
-	(length (emacspeak-list-emacspeak-options))))
+        (length (emacspeak-list-emacspeak-options))))
       (mapcar
        #'(lambda (o)
-	   (let ((this-module (ems-variable-symbol-file  o))
-		 (commentary nil)
-		 (source-file nil))
-	     (when this-module
-	       (setq source-file (locate-library this-module ))
-	       (if (char-equal (aref source-file (1- (length source-file))) ?c)
-		   (setq source-file (substring  source-file 0 -1)))
-	       (setq commentary (lm-commentary source-file))
-	       (setq this-module
-		     (file-name-sans-extension this-module))
-	       (when commentary
-		 (setq commentary 
-		       (ems-cleanup-commentary commentary)))
-	       (setq this-module
-		     (file-name-nondirectory this-module)))
-	     (unless (string-equal module this-module)
-	       (if this-module 
-		   (setq module this-module)
-		 (setq module nil))
-	       (when module 
-		 (insert
-		  (format
-		   "@node %s Options\n@section %s Options\n\n\n"
-		   module module )))
-	       (insert
-		(format "\n\n%s\n\n" 
-			(or commentary "")))
-	       (insert
-		(format
-		 "Automatically generated documentation
+           (let ((this-module (ems-variable-symbol-file  o))
+                 (commentary nil)
+                 (source-file nil))
+             (when this-module
+               (setq source-file (locate-library this-module ))
+               (if (char-equal (aref source-file (1- (length source-file))) ?c)
+                   (setq source-file (substring  source-file 0 -1)))
+               (setq commentary (lm-commentary source-file))
+               (setq this-module
+                     (file-name-sans-extension this-module))
+               (when commentary
+                 (setq commentary 
+                       (ems-cleanup-commentary commentary)))
+               (setq this-module
+                     (file-name-nondirectory this-module)))
+             (unless (string-equal module this-module)
+               (if this-module 
+                   (setq module this-module)
+                 (setq module nil))
+               (when module 
+                 (insert
+                  (format
+                   "@node %s Options\n@section %s Options\n\n\n"
+                   module module )))
+               (insert
+                (format "\n\n%s\n\n" 
+                        (or commentary "")))
+               (insert
+                (format
+                 "Automatically generated documentation
 for options defined in module  %s.
 These options are customizable via Emacs' Custom interface.\n\n"
-		 module)))
-	     (insert (format "\n\n@defvar {User Option} %s\n"
-			     o))
-	     (insert
-	      (or
-	       (ems-texinfo-escape
-		(documentation-property  o 'variable-documentation))                        
-	       ""))
-	     (insert "\n@end defvar\n\n")))
+                 module)))
+             (insert (format "\n\n@defvar {User Option} %s\n"
+                             o))
+             (insert
+              (or
+               (ems-texinfo-escape
+                (documentation-property  o 'variable-documentation))                        
+               ""))
+             (insert "\n@end defvar\n\n")))
        (emacspeak-list-emacspeak-options))
       (texinfo-all-menus-update)
       (shell-command-on-region (point-min) (point-max)
-			       "cat -s"
-			       (current-buffer)
-			       'replace)
+                               "cat -s"
+                               (current-buffer)
+                               'replace)
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
@@ -1244,8 +1244,8 @@ With optional interactive prefix arg `frame', move to previous frame instead."
            (remove-if
             #'(lambda (b)
                 (string-equal (substring
-			       (buffer-name b)
-			       0 1) " "))
+                               (buffer-name b)
+                               0 1) " "))
             (buffer-list))))
       (switch-to-buffer (nth (1- (length l))
                              l))
@@ -1537,12 +1537,12 @@ personal customizations."
                     custom-file)))
   (declare (special custom-file))
   (let* ((buffer (find-file-noselect custom-file))
-	 (settings  
-	  (save-excursion
-	    (set-buffer buffer)
-	    (goto-char (point-min))
-	    (cdr (read  buffer))))
-	 (found nil))
+         (settings  
+          (save-excursion
+            (set-buffer buffer)
+            (goto-char (point-min))
+            (cdr (read  buffer))))
+         (found nil))
     (setq found
           (mapcar #'(lambda (s)
                       (list (car (second s))
@@ -1571,14 +1571,14 @@ at point."
         (f (get-text-property (point) 'face))
         (o
          (delq nil
-	       (mapcar
-		#'(lambda (overlay)
-		    (overlay-get overlay 'face))
-		(overlays-at (point))))))
+               (mapcar
+                #'(lambda (overlay)
+                    (overlay-get overlay 'face))
+                (overlays-at (point))))))
     (message "Personality %s Face %s %s" p f
-	     (if o
-		 o
-	       " "))))
+             (if o
+                 o
+               " "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )
@@ -1739,8 +1739,8 @@ Signals beginning  of buffer."
   (emacspeak-eterm-record-window   1 
                                    (cons 0 1)
                                    (cons 
-				    (- term-width 1)
-				    (- term-height 1))
+                                    (- term-width 1)
+                                    (- term-height 1))
                                    'right-stretch 'left-stretch)
   (emacspeak-eterm-set-filter-window 1)
   (term-char-mode)
@@ -1781,7 +1781,7 @@ Signals beginning  of buffer."
   (interactive (list (read-from-minibuffer "Run program: ")))
   (switch-to-buffer-other-frame
    (ansi-term program
-	      (first (split-string program  ))))
+              (first (split-string program  ))))
   (delete-other-windows)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
@@ -2053,16 +2053,16 @@ visiting the ppt file."
      (message "Not using Emacspeak PPTHTML wizard."))
     (t 
      (let ((filename (buffer-file-name))
-	   (ppt-buffer (current-buffer))
-	   (buffer (get-buffer-create " *ppt scratch*")))
+           (ppt-buffer (current-buffer))
+           (buffer (get-buffer-create " *ppt scratch*")))
        (save-excursion
-	 (set-buffer buffer)
-	 (shell-command
-	  (format "%s  %s"
-		  emacspeak-wizards-ppthtml-program filename)
-	  'replace
-	  (current-buffer))
-	 (call-interactively 'emacspeak-w3-preview-this-buffer))
+         (set-buffer buffer)
+         (shell-command
+          (format "%s  %s"
+                  emacspeak-wizards-ppthtml-program filename)
+          'replace
+          (current-buffer))
+         (call-interactively 'emacspeak-w3-preview-this-buffer))
        (kill-buffer buffer)
        (kill-buffer ppt-buffer))))))
 
@@ -2104,11 +2104,11 @@ visiting the DVI file."
     (message "Not using Emacspeak DVI wizard."))
    (t 
     (let ((filename (buffer-file-name))
-	  (dvi-buffer (current-buffer))
-	  (buffer (get-buffer-create " *dvi preview*")))
+          (dvi-buffer (current-buffer))
+          (buffer (get-buffer-create " *dvi preview*")))
       (shell-command
        (format "%s  %s &"
-	       emacspeak-wizards-dvi2txt-program filename)
+               emacspeak-wizards-dvi2txt-program filename)
        buffer)
       (kill-buffer dvi-buffer)
       (switch-to-buffer buffer)))))
@@ -2136,7 +2136,7 @@ this requires Perl module Finance::YahooQuote."
   :type '(repeat
           (choice :tag "Entry"
                   (integer :tag "Column Number:")
-		  (string :tag "Text: ")))
+                  (string :tag "Text: ")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
@@ -2494,7 +2494,7 @@ Use with caution."
   (interactive "r")
   (let ((inhibit-read-only t))
     (put-text-property start end 
-		       'read-only nil)))
+                       'read-only nil)))
 
 ;;}}}
 ;;{{{ VC viewer 
@@ -2720,10 +2720,10 @@ Interactive  arguments specify filename pattern and search pattern."
    (list
     (voice-setup-read-personality)))
   (put-text-property (line-beginning-position)
-		     (line-end-position)
-		     'personality
-		     personality
-		     (emacspeak-speak-line)))
+                     (line-end-position)
+                     'personality
+                     personality
+                     (emacspeak-speak-line)))
 
 ;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler  (step)
@@ -2736,20 +2736,20 @@ for the current voice family."
       (set-buffer buffer)
       (erase-buffer)
       (loop for  s from 0 to 9 by step do 
-	    (loop for p from 0 to 9 by step do
-		  (loop for a from 0 to 9 by step do 
-			(loop for r from 0 to 9 by step do 
-			      (setq voice (voice-setup-personality-from-style
-					   (list nil a p s r )))
-			      (insert
-			       (format
-				" Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
-				a p s r ))
-			      (put-text-property (line-beginning-position)
-						 (line-end-position)
-						 'personality voice)
-			      (end-of-line)
-			      (insert "\n"))))))
+            (loop for p from 0 to 9 by step do
+                  (loop for a from 0 to 9 by step do 
+                        (loop for r from 0 to 9 by step do 
+                              (setq voice (voice-setup-personality-from-style
+                                           (list nil a p s r )))
+                              (insert
+                               (format
+                                " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
+                                a p s r ))
+                              (put-text-property (line-beginning-position)
+                                                 (line-end-position)
+                                                 'personality voice)
+                              (end-of-line)
+                              (insert "\n"))))))
     (switch-to-buffer  buffer)
     (voice-lock-mode 1)
     (goto-char (point-min))))
@@ -2763,8 +2763,8 @@ emacspeak-wizards-tramp-open-location
 bound to \\[emacspeak-wizards-tramp-open-location]."
   :type '(repeat
           (cons :tag "Tramp"
-		(string :tag "Name")
-		(string :tag "Location")))
+                (string :tag "Name")
+                (string :tag "Location")))
   :group 'emacspeak-wizards)
 
 ;;;###autoload
@@ -2818,7 +2818,7 @@ dates.")
       (emacspeak-pronounce-add-buffer-local-dictionary-entry
        emacspeak-pronounce-date-mm-dd-yyyy-pattern
        (cons 're-search-forward
-	     'emacspeak-pronounce-mm-dd-yyyy-date))))
+             'emacspeak-pronounce-mm-dd-yyyy-date))))
   (message "Will %s pronounce mm-dd-yyyy date strings in
   English."
            (if emacspeak-wizards-mm-dd-yyyy-date-pronounce "" "
@@ -2897,7 +2897,7 @@ RIVO is implemented by rivo.pl ---
       (set-buffer standard-output)
       (insert
        (ems-cleanup-commentary
-	(lm-commentary filename))))))
+        (lm-commentary filename))))))
 
 ;;}}}
 ;;{{{ unescape URIs

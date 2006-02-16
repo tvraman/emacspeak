@@ -100,7 +100,7 @@
   (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer."
   :type  '(repeat
-	   (string :tag "option"))
+           (string :tag "option"))
   :group 'emacspeak-m-player)
 
 ;;;###autoload
@@ -110,7 +110,7 @@
   (declare (special emacspeak-m-player-process))
   (cond
    ((and emacspeak-m-player-process
-	 (eq 'run (process-status emacspeak-m-player-process)))
+         (eq 'run (process-status emacspeak-m-player-process)))
     (call-interactively 'emacspeak-m-player-command)   )
    (t  (call-interactively 'emacspeak-m-player))))
 
@@ -121,8 +121,8 @@
   (cond
    ((=  command-char ?\;)
     (pop-to-buffer (process-buffer
-		    emacspeak-m-player-process)
-		   nil 'norecord)
+                    emacspeak-m-player-process)
+                   nil 'norecord)
     (set-window-text-height nil 3)
     (emacspeak-speak-mode-line))
    (t (call-interactively
@@ -147,16 +147,16 @@ The player is placed in a buffer in emacspeak-m-player-mode."
        emacspeak-realaudio-shortcuts-directory " shortcuts/ ")
       (read-file-name "MP3 Resource: "
                       (if
-			  (string-match (format ".*%s.*"
-						emacspeak-realaudio-shortcuts-directory)
-					(expand-file-name default-directory))
+                          (string-match (format ".*%s.*"
+                                                emacspeak-realaudio-shortcuts-directory)
+                                        (expand-file-name default-directory))
                           default-directory
                         emacspeak-realaudio-shortcuts-directory)
                       (when (eq major-mode 'dired-mode)
                         (dired-get-filename))))
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
-		    emacspeak-m-player-process
+                    emacspeak-m-player-process
                     emacspeak-m-player-program
                     emacspeak-m-player-options))
   (unless (string-match "^[a-z]+:"  resource)
@@ -184,8 +184,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            ((file-directory-p resource)
             (nconc options
                    (directory-files (expand-file-name resource)
-				    'full
-				    "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
+                                    'full
+                                    "\\(ogg$\\)\\|\\(mp3$\\)\\|\\(MP3$\\)")))
            (t (nconc options (list resource)))))
     (setq emacspeak-m-player-process
           (get-buffer-process
@@ -387,7 +387,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                           emacspeak-m-player-filters)))
     (setq emacspeak-m-player-options
           (append emacspeak-m-player-options
-		  (list "-af" filter-name)))))
+                  (list "-af" filter-name)))))
 
 (defun emacspeak-m-player-customize-options ()
   "Use Customize to manipulate MPlayer options."
@@ -452,10 +452,10 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
   (declare (special emacspeak-m-player-equalizer
                     emacspeak-m-player-options))
   (setq emacspeak-m-player-options
-	(append emacspeak-m-player-options
-		(list "-af"
-		      (format "equalizer=%s"
-			      (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))))
+        (append emacspeak-m-player-options
+                (list "-af"
+                      (format "equalizer=%s"
+                              (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))))
 (defun emacspeak-m-player-reset-options ()
   "Reset MPlayer options to initial defaults."
   (interactive)
@@ -508,7 +508,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
         ("q" emacspeak-m-player-quit)
         ("-" emacspeak-m-player-volume-down)
         ("=" emacspeak-m-player-volume-up)
-	("+" emacspeak-m-player-volume-up)
+        ("+" emacspeak-m-player-volume-up)
         )
       do
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))

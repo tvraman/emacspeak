@@ -221,7 +221,7 @@ you are done."
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -w +%s"
-	     emacspeak-aumix-program  gain))
+             emacspeak-aumix-program  gain))
     (emacspeak-auditory-icon 'select-object) ))
 
 ;;;###autoload
@@ -232,7 +232,7 @@ you are done."
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -w -%s"
-	     emacspeak-aumix-program  gain))
+             emacspeak-aumix-program  gain))
     (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
@@ -243,7 +243,7 @@ you are done."
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -v +%s"
-	     emacspeak-aumix-program  gain))
+             emacspeak-aumix-program  gain))
     (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
@@ -254,7 +254,7 @@ you are done."
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -v -%s"
-	     emacspeak-aumix-program  gain))
+             emacspeak-aumix-program  gain))
     (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}

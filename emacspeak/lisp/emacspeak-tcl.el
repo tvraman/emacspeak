@@ -153,11 +153,11 @@ is a Tcl expression, and the last argument is Tcl commands.")
   (when (interactive-p)
     (let* ((start nil)
            (proc-line
-	    (save-excursion
-	      (tcl-beginning-of-defun)
-	      (setq start (point))
-	      (end-of-line)
-	      (buffer-substring start (point)))))
+            (save-excursion
+              (tcl-beginning-of-defun)
+              (setq start (point))
+              (end-of-line)
+              (buffer-substring start (point)))))
       (message "Evaluated  %s" proc-line ))))
 
 (defadvice tcl-help-on-word (after emacspeak pre act comp)

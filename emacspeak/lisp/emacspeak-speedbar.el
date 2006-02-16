@@ -328,7 +328,7 @@ An automatically updating speedbar consumes resources.")
 ;;{{{ keys 
 (declaim (special emacspeak-keymap))
 
-					;(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
+                                        ;(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
 
 ;;}}}
 (provide 'emacspeak-speedbar)

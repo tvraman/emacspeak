@@ -103,7 +103,7 @@ speech flush as you type."
   (cond
    ((and emacspeak-word-echo
          (interactive-p)
-	 (= last-input-char 32 ))
+         (= last-input-char 32 ))
     (save-excursion
       (condition-case nil
           (forward-word -1)
@@ -157,11 +157,11 @@ speech flush as you type."
     (mapcar
      (if keymap
          (function
-	  (lambda (key)
-	    (define-key keymap  key new-fn )))
+          (lambda (key)
+            (define-key keymap  key new-fn )))
        (function
-	(lambda (key)
-	  (global-set-key key new-fn ))))
+        (lambda (key)
+          (global-set-key key new-fn ))))
      keys )))
 
 (defvar emacspeak-functions-that-bypass-function-cell 

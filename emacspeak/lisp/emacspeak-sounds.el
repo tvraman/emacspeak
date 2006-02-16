@@ -224,7 +224,7 @@ Do not set this by hand;
    (list
     (expand-file-name
      (read-directory-name "Theme: "
-			  emacspeak-sounds-directory))))
+                          emacspeak-sounds-directory))))
   (declare (special emacspeak-sounds-current-theme
                     emacspeak-sounds-themes-table))
   (setq theme (expand-file-name theme emacspeak-sounds-directory))
@@ -275,8 +275,8 @@ Do not set this by hand;
   (when emacspeak-use-auditory-icons
     (play-sound
      (list 'sound :file
-	   (format "%s"
-		   (emacspeak-get-sound-filename sound-name ))))))
+           (format "%s"
+                   (emacspeak-get-sound-filename sound-name ))))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -340,7 +340,7 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
           (const emacspeak-native-auditory-icon)
-	  (const emacspeak-queue-auditory-icon)
+          (const emacspeak-queue-auditory-icon)
           (const emacspeak-play-midi-icon)))
 ;;;###autoload 
 (defun emacspeak-auditory-icon (icon)
@@ -597,7 +597,7 @@ audio player."
   :type '(choice
           :tag "Command to reset sound modules: "
           (const nil :tag "None")
-	  (string :tag "Command "))
+          (string :tag "Command "))
   :group 'emacspeak-sounds)
 ;;;###autoload
 (defun emacspeak-sounds-reset-sound  ()

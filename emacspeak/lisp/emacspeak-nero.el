@@ -71,10 +71,10 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'select-object)
-	    (emacspeak-speak-mode-line)))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-mode-line)))))
 
 (loop for f in
       (list
@@ -83,15 +83,15 @@
       do
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (cond
-	   ((interactive-p)
-	    (emacspeak-auditory-icon 'select-object)
-	    ad-do-it
-	    (emacspeak-speak-mode-line)
-	    (emacspeak-auditory-icon 'open-object))
-	   (t ad-do-it))
-	  ad-return-value)))
+          "Provide auditory feedback."
+          (cond
+           ((interactive-p)
+            (emacspeak-auditory-icon 'select-object)
+            ad-do-it
+            (emacspeak-speak-mode-line)
+            (emacspeak-auditory-icon 'open-object))
+           (t ad-do-it))
+          ad-return-value)))
 
 (defadvice nero-move-to-next-link (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -104,10 +104,10 @@
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
-	  "Provide auditory feedback."
-	  (when (interactive-p)
-	    (emacspeak-auditory-icon 'close-object)
-	    (emacspeak-speak-mode-line)))))
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'close-object)
+            (emacspeak-speak-mode-line)))))
 
 (defadvice nero-kill-ring-save-current-url (after emacspeak pre act comp)
   "Provide auditory feedback."

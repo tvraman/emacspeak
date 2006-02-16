@@ -60,9 +60,9 @@
   nil
   "Table of ATOM feeds."
   :type '(repeat
-	  (list :tag "ATOM Feed"
-		(string :tag "Title")
-		(string :tag "URI")))
+          (list :tag "ATOM Feed"
+                (string :tag "Title")
+                (string :tag "URI")))
   :group 'emacspeak-atom)
 
 ;;}}}
@@ -82,10 +82,10 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "ATOM URL: "))))
   (declare (special emacspeak-atom-unescape-html
-		    emacspeak-xslt-directory))
+                    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
-	      'emacspeak-speak-buffer))
+              'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "atom.xsl" emacspeak-xslt-directory)
    atom-url
@@ -99,7 +99,7 @@ unescape HTML tags."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
-		       emacspeak-atom-feeds))))
+                       emacspeak-atom-feeds))))
   (let ((uri (cadr
               (assoc feed emacspeak-atom-feeds))))
     (emacspeak-atom-display uri 'speak)))

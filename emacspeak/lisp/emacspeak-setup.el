@@ -118,12 +118,12 @@ pronunciation dictionaries are stored. ")
   (setq load-path
         (cons
          (expand-file-name "atom-blogger" emacspeak-lisp-directory )
-	 load-path )))
+         load-path )))
 
 (defconst  emacspeak-xemacs-p
   (when
       (or (boundp 'running-xemacs)
-	  (string-match "Lucid\\|XEmacs" emacs-version))
+          (string-match "Lucid\\|XEmacs" emacs-version))
     t)
   "T if we are running under XEmacs.")
 

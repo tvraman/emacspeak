@@ -118,14 +118,14 @@
     (emacspeak-speak-mode-line)))
 
 (defadvice ibuffer-visit-buffer-other-window (after emacspeak pre act
-						    comp)
+                                                    comp)
   "Provide spoken status information."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ibuffer-visit-buffer-other-frame (after emacspeak pre act
-						   comp)
+                                                   comp)
   "Provide spoken status information."
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
@@ -168,8 +168,8 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 (defadvice  ibuffer-occur-display-occurence (after emacspeak
-						   pre act
-						   comp)
+                                                   pre act
+                                                   comp)
   "Speak line that becomes current."
   (when (interactive-p)
     (emacspeak-speak-line)
@@ -183,14 +183,14 @@
     (emacspeak-ibuffer-speak-buffer-line)))
 
 (defadvice ibuffer-unmark-forward (after emacspeak pre act
-					 comp)
+                                         comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-ibuffer-speak-buffer-line)))
 
 (defadvice ibuffer-unmark-backward (after emacspeak pre act
-					  comp)
+                                          comp)
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'deselect-object)

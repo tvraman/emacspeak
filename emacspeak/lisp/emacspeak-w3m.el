@@ -73,21 +73,21 @@
 (defun emacspeak-w3m-action ()
   (let ((act (emacspeak-w3m-get-action)))
     (if (numberp (nth 2 act))
-	(append (list (car act) (cadr act)) (nthcdr 3 act))
+        (append (list (car act) (cadr act)) (nthcdr 3 act))
       act)))
 
 (defun emacspeak-w3m-form-get (form name))
 (fset 'emacspeak-w3m-form-get
       (if (functionp 'w3m-form-get-by-name)
-	  'w3m-form-get-by-name
-	(byte-compile '(lambda (form name)
-			 (w3m-form-get form name)))))
+          'w3m-form-get-by-name
+        (byte-compile '(lambda (form name)
+                         (w3m-form-get form name)))))
 
 (defsubst emacspeak-w3m-personalize-string (string personality)
   (let ((newstring (copy-sequence string)))
     (put-text-property 0 (length newstring)
-		       'personality personality
-		       newstring)
+                       'personality personality
+                       newstring)
     newstring))
 
 ;;}}}
@@ -109,9 +109,9 @@
   (if (get-text-property (point) 'w3m-anchor-sequence)
       (buffer-substring
        (previous-single-property-change
-	(1+ (point)) 'w3m-anchor-sequence nil (point-min))
+        (1+ (point)) 'w3m-anchor-sequence nil (point-min))
        (next-single-property-change
-	(point) 'w3m-anchor-sequence nil (point-max)))
+        (point) 'w3m-anchor-sequence nil (point-max)))
     (or default "")))
 
 (defun emacspeak-w3m-speak-cursor-anchor ()
@@ -119,16 +119,16 @@
 
 (defun emacspeak-w3m-speak-this-anchor ()
   (let ((url (emacspeak-w3m-anchor))
-	(act (emacspeak-w3m-action)))
+        (act (emacspeak-w3m-action)))
     (cond
      (url (emacspeak-w3m-speak-cursor-anchor))
      ((consp act)
       (let ((speak-action (cdr (assq
-				(car act)
-				emacspeak-w3m-speak-action-alist))))
-	(if (functionp speak-action)
-	    (apply speak-action (cdr act))
-	  (emacspeak-w3m-speak-cursor-anchor))))
+                                (car act)
+                                emacspeak-w3m-speak-action-alist))))
+        (if (functionp speak-action)
+            (apply speak-action (cdr act))
+          (emacspeak-w3m-speak-cursor-anchor))))
      (t (emacspeak-w3m-speak-cursor-anchor)))))
 
 ;;}}}
@@ -140,33 +140,33 @@
   (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "%s input %s  %s"
-	   type
-	   name
-	   (emacspeak-w3m-personalize-string
-	    (or (emacspeak-w3m-form-get form name) value)
-	    emacspeak-w3m-form-personality))))
+           type
+           name
+           (emacspeak-w3m-personalize-string
+            (or (emacspeak-w3m-form-get form name) value)
+            emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-input-checkbox (form name value)
   "Speak checkbox"
   (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "checkbox %s is %s"
-	   name
-	   (emacspeak-w3m-personalize-string
-	    (if (emacspeak-w3m-form-get form name)
-		"on"
-	      "off")
-	    emacspeak-w3m-form-personality))))
+           name
+           (emacspeak-w3m-personalize-string
+            (if (emacspeak-w3m-form-get form name)
+                "on"
+              "off")
+            emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-input-password (form name)
   "Speech-enable password form element."
   (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "password input %s  %s"
-	   name
-	   (emacspeak-w3m-personalize-string
-	    (emacspeak-w3m-anchor-text)
-	    emacspeak-w3m-form-personality))))
+           name
+           (emacspeak-w3m-personalize-string
+            (emacspeak-w3m-anchor-text)
+            emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-submit (form &optional name value)
   "Speak submit button."
@@ -175,58 +175,58 @@
    (if (equal value "")
        "submit button"
      (format "button %s"
-	     (emacspeak-w3m-personalize-string
-	      value
-	      emacspeak-w3m-button-personality)))))
+             (emacspeak-w3m-personalize-string
+              value
+              emacspeak-w3m-button-personality)))))
 
 (defun emacspeak-w3m-speak-form-input-radio (form name value)
   "speech enable radio buttons."
   (declare (special emacspeak-w3m-form-personality))
   (and dtk-stop-immediately (dtk-stop))
   (let* ((active (equal value (emacspeak-w3m-form-get form name)))
-	 (personality (if active
-			  emacspeak-w3m-form-personality))
-	 (dtk-stop-immediately nil))
+         (personality (if active
+                          emacspeak-w3m-form-personality))
+         (dtk-stop-immediately nil))
     (emacspeak-auditory-icon (if active 'on 'off))
     (dtk-speak
      (if (equal value "")
-	 (emacspeak-w3m-personalize-string
-	  (format "unset radio %s" name)
-	  personality)
+         (emacspeak-w3m-personalize-string
+          (format "unset radio %s" name)
+          personality)
        (format "%s of the radio %s"
-	       (emacspeak-w3m-personalize-string
-		(concat "option " value)
-		personality)
-	       name)))))
+               (emacspeak-w3m-personalize-string
+                (concat "option " value)
+                personality)
+               name)))))
 
 (defun emacspeak-w3m-speak-form-input-select (form name)
   "speech enable select control."
   (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "select %s  %s"
-	   name
-	   (emacspeak-w3m-personalize-string
-	    (emacspeak-w3m-anchor-text)
-	    emacspeak-w3m-form-personality))))
+           name
+           (emacspeak-w3m-personalize-string
+            (emacspeak-w3m-anchor-text)
+            emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-input-textarea (form &optional hseq)
   "speech enable text area."
   (declare (special emacspeak-w3m-form-personality))
   (dtk-speak
    (format "text area %s  %s"
-	   (or (get-text-property (point) 'w3m-form-name) "")
-	   (emacspeak-w3m-personalize-string
-	    (emacspeak-w3m-anchor-text)
-	    emacspeak-w3m-form-personality))))
+           (or (get-text-property (point) 'w3m-form-name) "")
+           (emacspeak-w3m-personalize-string
+            (emacspeak-w3m-anchor-text)
+            emacspeak-w3m-form-personality))))
 
 (defun emacspeak-w3m-speak-form-reset (form)
   "Reset button."
   (declare (special emacspeak-w3m-button-personality))
   (dtk-speak
    (format "button %s"
-	   (emacspeak-w3m-personalize-string
-	    "reset"
-	    emacspeak-w3m-button-personality))))
+           (emacspeak-w3m-personalize-string
+            "reset"
+            emacspeak-w3m-button-personality))))
 
 ;;}}}
 ;;{{{  advice interactive commands.
@@ -395,17 +395,17 @@
     (let ((url (emacspeak-w3m-anchor))
           (act (emacspeak-w3m-action)))
       (when url
-	(emacspeak-auditory-icon 'select-object))
+        (emacspeak-auditory-icon 'select-object))
       ad-do-it
       (when (and (not url)
-		 (consp act)
-		 (memq (car act)
-		       '(w3m-form-input
-			 w3m-form-input-radio
-			 w3m-form-input-checkbox
-			 w3m-form-input-password)))
-	(emacspeak-auditory-icon 'select-object)
-	(emacspeak-w3m-speak-this-anchor))))
+                 (consp act)
+                 (memq (car act)
+                       '(w3m-form-input
+                         w3m-form-input-radio
+                         w3m-form-input-checkbox
+                         w3m-form-input-password)))
+        (emacspeak-auditory-icon 'select-object)
+        (emacspeak-w3m-speak-this-anchor))))
    (t ad-do-it))
   ad-return-value)
 
@@ -492,8 +492,8 @@
       (let (opoint) ad-do-it)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
-			      (save-excursion (end-of-line)
-					      (point)))))
+                              (save-excursion (end-of-line)
+                                              (point)))))
    (t ad-do-it))
   ad-return-value)
 
@@ -509,8 +509,8 @@
       (let (opoint) ad-do-it)
       (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-region opoint
-			      (save-excursion (beginning-of-line)
-					      (point)))))
+                              (save-excursion (beginning-of-line)
+                                              (point)))))
    (t ad-do-it))
   ad-return-value)
 
@@ -578,11 +578,11 @@
 ;;{{{ displaying pages
 
 (add-hook 'w3m-display-hook
-	  (lambda (url)
-	    (emacspeak-auditory-icon 'open-object)
-	    (when (stringp w3m-current-title)
-	      (message "%s" w3m-current-title)))
-	  t)
+          (lambda (url)
+            (emacspeak-auditory-icon 'open-object)
+            (when (stringp w3m-current-title)
+              (message "%s" w3m-current-title)))
+          t)
 
 ;;}}}
 ;;{{{ buffer select mode
@@ -650,9 +650,9 @@
 ;;{{{ input select mode
 
 (add-hook 'w3m-form-input-select-mode-hook
-	  (lambda ()
-	    (emacspeak-auditory-icon 'select-object)
-	    (emacspeak-speak-line)))
+          (lambda ()
+            (emacspeak-auditory-icon 'select-object)
+            (emacspeak-speak-line)))
 
 (defadvice w3m-form-input-select-set (after emacspeak pre act comp)
   (when (and (interactive-p) (w3m-anchor-sequence))
@@ -666,9 +666,9 @@
 ;;{{{ input textarea mode
 
 (add-hook 'w3m-form-input-textarea-mode-hook
-	  (lambda ()
-	    (emacspeak-auditory-icon 'open-object)
-	    (dtk-speak "edit text area")))
+          (lambda ()
+            (emacspeak-auditory-icon 'open-object)
+            (dtk-speak "edit text area")))
 
 (defadvice w3m-form-input-textarea-set (after emacspeak pre act comp)
   (when (interactive-p)
@@ -693,8 +693,8 @@
      (read-file-name "XSL Transformation: "
                      emacspeak-xslt-directory))))
   (declare (special major-mode
-		    emacspeak-w3-xsl-p
-		    emacspeak-w3-xsl-transform
+                    emacspeak-w3-xsl-p
+                    emacspeak-w3-xsl-transform
                     emacspeak-xslt-directory))
   (unless (eq major-mode 'w3m-mode)
     (error "Not in a W3m buffer."))
@@ -705,11 +705,11 @@
   "Perform XSL transformation by name on the current page
 or make it persistent if the second argument is not nil."
   (let ((xsl (expand-file-name (concat xsl-name ".xsl")
-			       emacspeak-xslt-directory)))
+                               emacspeak-xslt-directory)))
     (when persistent
       (emacspeak-w3-xslt-select xsl))
     (when (or emacspeak-w3-xsl-p
-	      (not persistent))
+              (not persistent))
       (emacspeak-w3m-xslt-apply xsl))))
 
 (defun emacspeak-w3m-xsl-add-submit-button (&optional persistent)
@@ -740,11 +740,11 @@ With prefix argument makes this transformation persistent."
   "Apply requested transform if any before displaying the HTML. "
   (if emacspeak-w3m-xsl-once
       (let ((emacspeak-w3-xsl-p t)
-	    (emacspeak-w3-xsl-transform emacspeak-w3m-xsl-once))
-	(emacspeak-xslt-region
-	 emacspeak-w3-xsl-transform
-	 (point-min)
-	 (point-max)))
+            (emacspeak-w3-xsl-transform emacspeak-w3m-xsl-once))
+        (emacspeak-xslt-region
+         emacspeak-w3-xsl-transform
+         (point-min)
+         (point-max)))
     (when (and emacspeak-w3-xsl-p emacspeak-w3-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-w3-xsl-transform
@@ -767,30 +767,30 @@ With prefix argument makes this transformation persistent."
 (define-key emacspeak-w3m-xsl-map "t" 'emacspeak-w3m-xsl-sort-tables)
 
 (add-hook 'w3m-mode-setup-functions
-	  '(lambda ()
-	     (easy-menu-define xslt-menu w3m-mode-map
-	       "XSLT menu"
-	       '("XSLT transforming"
-		 ["Enable default transforming on the fly"
-		  emacspeak-w3-xsl-toggle
-		  :included (not emacspeak-w3-xsl-p)]
-		 ["Disable default transforming on the fly"
-		  emacspeak-w3-xsl-toggle
-		  :included emacspeak-w3-xsl-p]
-		 ["Add regular submit button"
-		  emacspeak-w3m-xsl-add-submit-button t]
-		 ["Show only search hits"
-		  emacspeak-w3m-xsl-google-hits t]
-		 ["Linearize tables"
-		  emacspeak-w3m-xsl-linearize-tables t]
-		 ["Sort tables"
-		  emacspeak-w3m-xsl-sort-tables t]
-		 ["Select default transformation"
-		  emacspeak-w3-xslt-select t]
-		 ["Apply specified transformation"
-		  emacspeak-w3m-xslt-apply t]
-		 )))
-	  t)
+          '(lambda ()
+             (easy-menu-define xslt-menu w3m-mode-map
+               "XSLT menu"
+               '("XSLT transforming"
+                 ["Enable default transforming on the fly"
+                  emacspeak-w3-xsl-toggle
+                  :included (not emacspeak-w3-xsl-p)]
+                 ["Disable default transforming on the fly"
+                  emacspeak-w3-xsl-toggle
+                  :included emacspeak-w3-xsl-p]
+                 ["Add regular submit button"
+                  emacspeak-w3m-xsl-add-submit-button t]
+                 ["Show only search hits"
+                  emacspeak-w3m-xsl-google-hits t]
+                 ["Linearize tables"
+                  emacspeak-w3m-xsl-linearize-tables t]
+                 ["Sort tables"
+                  emacspeak-w3m-xsl-sort-tables t]
+                 ["Select default transformation"
+                  emacspeak-w3-xslt-select t]
+                 ["Apply specified transformation"
+                  emacspeak-w3m-xslt-apply t]
+                 )))
+          t)
 
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 

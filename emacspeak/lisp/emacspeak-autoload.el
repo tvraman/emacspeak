@@ -59,7 +59,7 @@
 (declaim (special emacspeak-lisp-directory))
 (defcustom emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"
-		    emacspeak-lisp-directory)
+                    emacspeak-lisp-directory)
   "File that holds automatically generated autoloads for Emacspeak."
   :type 'file
   :group 'emacspeak-auto)

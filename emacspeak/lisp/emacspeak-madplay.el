@@ -93,7 +93,7 @@
        (format "%c" char))
       (accept-process-output emacspeak-madplay-process 1)
       (message "%s"
-	       (buffer-substring mark (point-max))))))
+               (buffer-substring mark (point-max))))))
 ;;;###autoload
 (defun emacspeak-madplay-madplay-call-command ()
   "Call appropriate madplay command."
@@ -111,7 +111,7 @@
 (loop for c in emacspeak-madplay-madplay-keys
       do
       (define-key emacspeak-madplay-mode-map   (format
-						"%c" c)
+                                                "%c" c)
         'emacspeak-madplay-madplay-call-command))
 (define-key emacspeak-madplay-mode-map [left]
   'emacspeak-aumix-wave-decrease)
@@ -147,15 +147,15 @@ The player is placed in a buffer in emacspeak-madplay-mode."
    (list
     (expand-file-name
      (read-file-name "MP3 Resource: "
-		     (if 
-			 (string-match (format ".*%s.*"
-					       emacspeak-madplay-media-directory
-					       )
-				       (expand-file-name default-directory))
-			 default-directory
-		       emacspeak-madplay-media-directory)
-		     (when (eq major-mode 'dired-mode)
-		       (dired-get-filename))))))
+                     (if 
+                         (string-match (format ".*%s.*"
+                                               emacspeak-madplay-media-directory
+                                               )
+                                       (expand-file-name default-directory))
+                         default-directory
+                       emacspeak-madplay-media-directory)
+                     (when (eq major-mode 'dired-mode)
+                       (dired-get-filename))))))
   (declare (special emacspeak-madplay-process
                     emacspeak-madplay-buffer-name
                     emacspeak-madplay-media-directory))
@@ -173,19 +173,19 @@ The player is placed in a buffer in emacspeak-madplay-mode."
       (set-buffer buffer)
       (erase-buffer)
       (setq emacspeak-madplay-process
-	    (cond
-	     ((file-directory-p resource)
-	      (apply 'start-process
-		     "madplay" emacspeak-madplay-buffer-name
-		     emacspeak-madplay-program
-		     (directory-files
-		      (expand-file-name resource)
-		      'full
-		      "\\(mp3$\\)\\|\\(MP3$\\)")))
-	     (t (start-process
-		 "madplay" emacspeak-madplay-buffer-name
-		 emacspeak-madplay-program
-		 (expand-file-name resource))))))
+            (cond
+             ((file-directory-p resource)
+              (apply 'start-process
+                     "madplay" emacspeak-madplay-buffer-name
+                     emacspeak-madplay-program
+                     (directory-files
+                      (expand-file-name resource)
+                      'full
+                      "\\(mp3$\\)\\|\\(MP3$\\)")))
+             (t (start-process
+                 "madplay" emacspeak-madplay-buffer-name
+                 emacspeak-madplay-program
+                 (expand-file-name resource))))))
     (switch-to-buffer buffer)
     (emacspeak-madplay-mode)))
 

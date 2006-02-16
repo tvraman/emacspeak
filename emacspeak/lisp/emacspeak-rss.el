@@ -64,9 +64,9 @@
     )
   "Table of RSS feeds."
   :type '(repeat
-	  (list :tag "RSS Feed"
-		(string :tag "Title")
-		(string :tag "URI")))
+          (list :tag "RSS Feed"
+                (string :tag "Title")
+                (string :tag "URI")))
   :group 'emacspeak-rss)
 
 ;;}}}
@@ -85,10 +85,10 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "RSS URL: "))))
   (declare (special emacspeak-rss-unescape-html
-		    emacspeak-xslt-directory))
+                    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
-	      'emacspeak-speak-buffer))
+              'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "rss.xsl" emacspeak-xslt-directory)
    rss-url
@@ -102,10 +102,10 @@ unescape HTML tags."
     (car
      (browse-url-interactive-arg "OPML  URL: "))))
   (declare (special emacspeak-rss-unescape-html
-		    emacspeak-xslt-directory))
+                    emacspeak-xslt-directory))
   (when (or (interactive-p)speak)
     (add-hook 'emacspeak-w3-post-process-hook
-	      'emacspeak-speak-buffer))
+              'emacspeak-speak-buffer))
   (emacspeak-w3-browse-xml-url-with-style
    (expand-file-name "opml.xsl" emacspeak-xslt-directory)
    opml-url
@@ -118,7 +118,7 @@ unescape HTML tags."
    (list
     (let ((completion-ignore-case t))
       (completing-read "Feed:"
-		       emacspeak-rss-feeds))))
+                       emacspeak-rss-feeds))))
   (let ((uri (cadr
               (assoc feed emacspeak-rss-feeds))))
     (emacspeak-rss-display uri 'speak)))

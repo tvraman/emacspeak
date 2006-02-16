@@ -73,7 +73,7 @@
                                   (quote (, f)))))
               (setq entry
                     (car (last
-			  (split-string entry "-"))))
+                          (split-string entry "-"))))
               (message
                (format "Inserted %s entry" entry))))))))
 
@@ -81,9 +81,9 @@
 ;;{{{ Advice navigation 
 (defvar emacspeak-rpm-spec-navigation-commands
   '(rpm-backward-section rpm-beginning-of-section 
-			 rpm-forward-section 
-			 rpm-end-of-section 
-			 rpm-goto-section )
+                         rpm-forward-section 
+                         rpm-end-of-section 
+                         rpm-goto-section )
   "Navigation commands in rpm-spec to speech-enable.")
 (loop for f in emacspeak-rpm-spec-navigation-commands
       do
@@ -116,7 +116,7 @@
           "Provide spoken feedback."
           (when (interactive-p)
             (let ((target  (format "%s"
-				   (quote (, f)))))
+                                   (quote (, f)))))
               (setq target
                     (car (last (split-string target "-"))))
               (emacspeak-auditory-icon 'task-done)

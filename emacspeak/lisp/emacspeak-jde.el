@@ -257,9 +257,9 @@
       '(
         jde-debug-step-into
         jde-debug-step-out
-	jde-debug-step-over
-	jde-debug-up
-	jde-debug-down)
+        jde-debug-step-over
+        jde-debug-up
+        jde-debug-down)
       do
       (eval
        (`
@@ -333,8 +333,8 @@ If we are on the last call, do nothing."
   (emacspeak-auditory-icon 'open-object)
   (dtk-speak
    (ad-get-arg 0)))
-	    
-	    
+            
+            
 
 ;;}}}
 (provide 'emacspeak-jde )

@@ -183,10 +183,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " ap %s hs % s"
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " ap %s hs % s"
+                    (second setting)
+                    (third setting)))))
    '(
      (0 96 115)
      (1 101 112)
@@ -210,10 +210,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " ap %s hs % s"
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " ap %s hs % s"
+                    (second setting)
+                    (third setting)))))
    '(
      (0 50 125)
      (1 59 123)
@@ -236,10 +236,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " ap %s hs % s"
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " ap %s hs % s"
+                    (second setting)
+                    (third setting)))))
    '(
      (0 160 115)
      (1 170 112)
@@ -261,7 +261,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (dectalk-css-get-code-table family 'average-pitch)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -280,10 +280,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " pr %s as %s "
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " pr %s as %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 0)
      (1 20 10)
@@ -306,10 +306,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " pr %s as %s "
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " pr %s as %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 0)
      (1 16 20)
@@ -332,10 +332,10 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " pr %s as %s "
-		    (second setting)
-		    (third setting)))))
+            (first setting)
+            (format " pr %s as %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 0)
      (1 50 10)
@@ -356,7 +356,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (dectalk-css-get-code-table family 'pitch-range)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -378,12 +378,12 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " hr %s sr %s qu %s bf %s "
-		    (second setting)
-		    (third setting)
-		    (fourth setting)
-		    (fifth setting)))))
+            (first setting)
+            (format " hr %s sr %s qu %s bf %s "
+                    (second setting)
+                    (third setting)
+                    (fourth setting)
+                    (fifth setting)))))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -406,12 +406,12 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " hr %s sr %s qu %s bf %s "
-		    (second setting)
-		    (third setting)
-		    (fourth setting)
-		    (fifth setting)))))
+            (first setting)
+            (format " hr %s sr %s qu %s bf %s "
+                    (second setting)
+                    (third setting)
+                    (fourth setting)
+                    (fifth setting)))))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2 )
@@ -434,12 +434,12 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " hr %s sr %s qu %s bf %s "
-		    (second setting)
-		    (third setting)
-		    (fourth setting)
-		    (fifth setting)))))
+            (first setting)
+            (format " hr %s sr %s qu %s bf %s "
+                    (second setting)
+                    (third setting)
+                    (fourth setting)
+                    (fifth setting)))))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)
@@ -459,7 +459,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul ))
   (if value 
       (aref (dectalk-css-get-code-table family 'stress)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -475,9 +475,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-	    (format " ri %s sm %s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri %s sm %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 100)
      (1 14 80)
@@ -500,9 +500,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-	    (format " ri %s sm %s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri %s sm %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 100 0)
      (1 96 3)
@@ -525,9 +525,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-	    (format " ri %s sm %s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri %s sm %s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 100)
      (1 8 76)
@@ -548,7 +548,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (dectalk-css-get-code-table family 'richness)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -568,20 +568,20 @@ and TABLE gives the values along that dimension."
 (defun dectalk-define-voice-from-speech-style (name style)
   "Define NAME to be a Dectalk voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
-	 (command
-	  (concat "["
-		  (dectalk-get-family-code family)
+         (command
+          (concat "["
+                  (dectalk-get-family-code family)
                   (dectalk-get-punctuations-code (acss-punctuations style))
                   (when (or (acss-average-pitch style)
                             (acss-pitch-range style)
                             (acss-stress style )
                             (acss-richness style))
-		    (concat " :dv "
-			    (dectalk-get-average-pitch-code (acss-average-pitch style) family)
-			    (dectalk-get-pitch-range-code (acss-pitch-range style) family)
-			    (dectalk-get-stress-code (acss-stress style ) family)
-			    (dectalk-get-richness-code (acss-richness style) family)))
-		  "]")))
+                    (concat " :dv "
+                            (dectalk-get-average-pitch-code (acss-average-pitch style) family)
+                            (dectalk-get-pitch-range-code (acss-pitch-range style) family)
+                            (dectalk-get-stress-code (acss-stress style ) family)
+                            (dectalk-get-richness-code (acss-richness style) family)))
+                  "]")))
     (dectalk-define-voice name command)))
 
 ;;}}}
@@ -591,7 +591,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special dectalk-voice-table))
   (loop for k being the hash-keys of dectalk-voice-table 
-	collect   k))
+        collect   k))
 
 ;;}}}
 ;;{{{ configurater 
