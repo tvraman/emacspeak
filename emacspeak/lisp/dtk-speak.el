@@ -513,9 +513,10 @@ Argument COMPLEMENT  is the complement of separator."
                    (member 'inaudible voice)))
     (dtk-interp-queue
      (format "%s%s %s \n"
-             (condition-case nil
-             (tts-get-voice-command (symbol-value voice ))
-             (error ""))
+             (tts-get-voice-command
+              (if (boundp (symbol-value voice ))
+                  (symbol-value voice )
+                voice))
              text
              tts-voice-reset-code))))
 
