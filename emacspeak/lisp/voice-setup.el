@@ -475,7 +475,7 @@ punctuations.")
   'match
   "Personality used for  matched text.")
 
-(def-voice-font voice-lock-highlight-personality voice-animate
+(def-voice-font voice-lock-highlight-personality voice-bolden
   'highlight
   "Personality used for highlighting text.")
 
