@@ -198,10 +198,10 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
-	     (text-invisible-p (point)))
+             (text-invisible-p (point)))
     (goto-char
      (next-single-property-change (point) 'invisible
-				  (current-buffer) (point-max)))))
+                                  (current-buffer) (point-max)))))
 
 (defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
@@ -307,7 +307,7 @@ Optional argument FORCE  flushes the command to the speech server."
     (goto-char (point-min))
     (while (re-search-forward "[\177-\377]+"  nil t )
       (replace-match " "))))
-	  
+          
      
 
 (defsubst  dtk-fix-brackets (mode)
@@ -319,39 +319,39 @@ Argument MODE  specifies the current pronunciation mode."
     (cond
      ((eq 'all mode)
       (let ((start nil)
-	    (personality nil))
-	(while (re-search-forward dtk-bracket-regexp  nil t )
-	  (setq start (1- (point)))
-	  (setq personality
-		(get-text-property
-		 start 'personality))
-	  (cond
-	   ((= ?| (char-after (match-beginning 0 )))
-	    (replace-match " pipe "))
-	   ((= ?< (char-after (match-beginning 0 )))
-	    (replace-match " less than "))
-	   ((= ?> (char-after (match-beginning 0 )))
-	    (replace-match " greater than "))
-	   ((= ?{ (char-after (match-beginning 0 )))
-	    (replace-match " left brace "))
-	   ((= ?} (char-after (match-beginning 0 )))
-	    (replace-match " right brace "))
-	   ((=  ?\] (char-after (match-beginning 0)))
-	    (replace-match " right bracket "))
-	   ((= ?\[ (char-after  (match-beginning 0)))
-	    (replace-match " left bracket "))
-	   ((= ?\\ (char-after (match-beginning 0 )))
-	    (replace-match " backslash "))
-	   ((= ?# (char-after (match-beginning 0 )))
-	    (replace-match " pound "))
-	   ((= ?` (char-after (match-beginning 0 )))
-	    (replace-match " backquote ")))
-	  (when personality
-	    (put-text-property start (point)
-			       'personality personality)))))
+            (personality nil))
+        (while (re-search-forward dtk-bracket-regexp  nil t )
+          (setq start (1- (point)))
+          (setq personality
+                (get-text-property
+                 start 'personality))
+          (cond
+           ((= ?| (char-after (match-beginning 0 )))
+            (replace-match " pipe "))
+           ((= ?< (char-after (match-beginning 0 )))
+            (replace-match " less than "))
+           ((= ?> (char-after (match-beginning 0 )))
+            (replace-match " greater than "))
+           ((= ?{ (char-after (match-beginning 0 )))
+            (replace-match " left brace "))
+           ((= ?} (char-after (match-beginning 0 )))
+            (replace-match " right brace "))
+           ((=  ?\] (char-after (match-beginning 0)))
+            (replace-match " right bracket "))
+           ((= ?\[ (char-after  (match-beginning 0)))
+            (replace-match " left bracket "))
+           ((= ?\\ (char-after (match-beginning 0 )))
+            (replace-match " backslash "))
+           ((= ?# (char-after (match-beginning 0 )))
+            (replace-match " pound "))
+           ((= ?` (char-after (match-beginning 0 )))
+            (replace-match " backquote ")))
+          (when personality
+            (put-text-property start (point)
+                               'personality personality)))))
      (t
       (while (re-search-forward dtk-bracket-regexp   nil t )
-	(replace-match " " nil t ))))))
+        (replace-match " " nil t ))))))
 
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
@@ -533,7 +533,7 @@ Argument COMPLEMENT  is the complement of separator."
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'personality))
-	    (overlays-at position)))))
+            (overlays-at position)))))
 
 (defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
@@ -542,7 +542,7 @@ Argument COMPLEMENT  is the complement of separator."
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))
-	    (overlays-at position)))))
+            (overlays-at position)))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
@@ -569,8 +569,8 @@ Arguments START and END specify region to speak."
           (dtk-interp-queue (buffer-substring  start last)))
         (setq start  last
               personality
-	      (get-text-property last  'personality))) ; end while
-      ))					       ; end clause
+              (get-text-property last  'personality))) ; end while
+      ))                                               ; end clause
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
@@ -660,17 +660,17 @@ Argument OUTPUT is the newly arrived output."
       (declare (special dtk-speaker-process ,switch ))
       (cond
        (prefix
-	(setq-default  ,switch
-		       (not  (default-value  ',switch)))
-	(setq ,switch (default-value ',switch )))
+        (setq-default  ,switch
+                       (not  (default-value  ',switch)))
+        (setq ,switch (default-value ',switch )))
        (t  (make-local-variable ',switch)
-	   (setq ,switch (not ,switch ))))
+           (setq ,switch (not ,switch ))))
       (when (interactive-p)
-	(emacspeak-auditory-icon (if ,switch 'on 'off))
-	(message "Turned %s %s  %s."
-		 (if ,switch "on" "off" )
-		 ',switch 
-		 (if prefix "" " locally"))))))
+        (emacspeak-auditory-icon (if ,switch 'on 'off))
+        (message "Turned %s %s  %s."
+                 (if ,switch "on" "off" )
+                 ',switch 
+                 (if prefix "" " locally"))))))
 
 ;;}}}
 ;;{{{  sending commands
@@ -708,7 +708,7 @@ Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (declare (special dtk-speech-rate-step
-		    dtk-speech-rate-base
+                    dtk-speech-rate-base
                     last-input-char))
   (let ((level
          (condition-case nil
@@ -729,8 +729,8 @@ speech rate:")))
          prefix )
         (when (interactive-p)
           (message "Set speech rate to level %s %s"
-		   level
-		   (if prefix " globaly " " locally ")))))))
+                   level
+                   (if prefix " globaly " " locally ")))))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set scale FACTOR for   speech rate.
@@ -754,43 +754,43 @@ current local  value to the result."
              (if  prefix ""  "locally"))))
 
 (ems-generate-switcher 'dtk-toggle-quiet
-		       'dtk-quiet
-		       "Toggles state of  dtk-quiet.
+                       'dtk-quiet
+                       "Toggles state of  dtk-quiet.
 Turning on this switch silences speech.
 Optional interactive prefix arg causes this setting to become global.")
 
 (ems-generate-switcher 'dtk-toggle-stop-immediately-while-typing
-		       'dtk-stop-immediately-while-typing
-		       "Toggle state of variable `dtk-stop-immediately-while-typing'.
+                       'dtk-stop-immediately-while-typing
+                       "Toggle state of variable `dtk-stop-immediately-while-typing'.
 As the name implies, if T then speech flushes immediately as you
 type.  Optional argument PREFIX specifies if the setting applies
 to all buffers.")
 
 (ems-generate-switcher 'dtk-toggle-split-caps
-		       'dtk-split-caps
-		       "Toggle split caps mode.
+                       'dtk-split-caps
+                       "Toggle split caps mode.
 Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.")
 
 (ems-generate-switcher 'dtk-toggle-strip-octals
-		       'tts-strip-octals
-		       "Toggle stripping of octals.
+                       'tts-strip-octals
+                       "Toggle stripping of octals.
 Interactive prefix arg means 
  toggle the global default value, and then set the current local
 value to the result.")
 
 (ems-generate-switcher' dtk-toggle-capitalization
-			'dtk-capitalize
-			"Toggle capitalization.
+                        'dtk-capitalize
+                        "Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
 (ems-generate-switcher' dtk-toggle-speak-nonprinting-chars
-			'dtk-speak-nonprinting-chars
-			"Toggle speak-nonprinting-chars.
+                        'dtk-speak-nonprinting-chars
+                        "Toggle speak-nonprinting-chars.
 Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
@@ -805,8 +805,8 @@ Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
 (ems-generate-switcher 'dtk-toggle-debug
-		       'dtk-debug
-		       "Toggle state of the debug FLAG.
+                       'dtk-debug
+                       "Toggle state of the debug FLAG.
 When debugging is on, you can switch to the buffer
 *speaker* to examine the output from the process
 that talks to the speech device by using command \\[tts-show-debug-buffer].
@@ -838,8 +838,8 @@ current local  value to the result."
     (dtk-interp-set-punctuations mode)
     (when (interactive-p)
       (message "set punctuation mode to %s %s"
-	       mode
-	       (if prefix "" "locally")))))
+               mode
+               (if prefix "" "locally")))))
 
 (defun dtk-set-punctuations-to-all (&optional prefix )
   "Set punctuation  mode to all.
@@ -1404,7 +1404,7 @@ available TTS servers.")
 This is setup on a per engine basis.")
 
 ;;; will be reset on a per TTS engine basis.
-					;(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+                                        ;(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
   
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
@@ -1417,8 +1417,8 @@ This is setup on a per engine basis.")
     (outloud-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
-   (t (dectalk-configure-tts)		; will become
-					; generic-configure)))
+   (t (dectalk-configure-tts)           ; will become
+                                        ; generic-configure)))
       ))
   (when (string-match "^ssh" tts-name)  ;remote server
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
@@ -1613,7 +1613,7 @@ only speak upto the first ctrl-m."
           (erase-buffer)
                                         ; inherit environment
           (setq buffer-invisibility-spec invisibility-spec
-		dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+                dtk-chunk-separator-syntax inherit-chunk-separator-syntax
                 dtk-speaker-process inherit-speaker-process
                 dtk-speech-rate speech-rate
                 emacspeak-use-auditory-icons use-auditory-icons
@@ -1640,8 +1640,8 @@ only speak upto the first ctrl-m."
                                         ;if we matched a punctuation,
                                         ;treat this as a chunk only if the punctuation is followed
                                         ;by white space
-					;dtk-speak-treat-embedded-punctuations-specially
-					;has been T for a long time
+                                        ;dtk-speak-treat-embedded-punctuations-specially
+                                        ;has been T for a long time
           (unless
               (and (char-after  (point))
                    (= (char-syntax (preceding-char )) ?.)
