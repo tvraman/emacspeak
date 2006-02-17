@@ -10,6 +10,7 @@
                                     "\\.el\\'")))
     (loop for f in file-list
           do
+          (let ((indent-tabs-mode nil))
           (find-file f)
           (lisp-indent-region (point-min)
                               (point-max))
@@ -18,7 +19,8 @@
                                    "cat -s"
                                    (current-buffer)
                                    'replace)
-          (save-buffer))))
+          (untabify (point-min) (point-max))
+          (save-buffer)))))
 
   
 (batch-indent-files)
