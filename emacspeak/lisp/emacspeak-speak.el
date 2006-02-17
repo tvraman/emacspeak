@@ -187,7 +187,9 @@ Argument BODY specifies forms to execute."
   :type 'symbol)
 
 (defvar emacspeak-speak-voice-annotated-paragraphs nil
-  "Records if paragraphs in this buffer have been voice annotated.")
+  "Records if paragraphs in this buffer have been voice
+  annotated.")
+
 (make-variable-buffer-local
  'emacspeak-speak-voice-annotated-paragraphs)
 
@@ -542,7 +544,7 @@ opening a binary file and torturing the speech synthesizer
 with a long string of gibberish."
   :group 'emacspeak-speak
   :type 'number)
-
+(make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 ;;{{{ filtering columns 
 
 (defcustom emacspeak-speak-line-column-filter nil
@@ -800,7 +802,6 @@ are indicated with auditory icon ellipses."
                              (format "Speak  this  %s long line? " l))))
               (when confirm             ;update threshold
                 (setq emacspeak-speak-maximum-line-length (1+ l))
-                (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
                 ;; record the y answer
                 (ems-modify-buffer-safely
                  (put-text-property start end
