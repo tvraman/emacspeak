@@ -520,12 +520,13 @@ Argument COMPLEMENT  is the complement of separator."
                   (symbol-value voice )
                 voice)))
              ((listp voice)
-              (mapcar #'(lambda (v)
+              (mapconcat  #'(lambda (v)
 (tts-get-voice-command
               (if (boundp  v )
                   (symbol-value v )
                 v)))
-voice))
+voice
+" "))
        (t       ""))
              text
              tts-voice-reset-code))))
