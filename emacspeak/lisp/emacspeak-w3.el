@@ -181,7 +181,8 @@
           ("l" emacspeak-w3-google-who-links-to-this-page)
           ("n" emacspeak-w3-next-doc-element)
           ("p" emacspeak-w3-previous-doc-element)
-          ("t"  emacspeak-w3-jump-to-title-in-content)
+          ("t" emacspeak-w3-transcode-via-google)
+          ("T"  emacspeak-w3-jump-to-title-in-content)
           ("y" emacspeak-w3-url-rewrite-and-follow)
           )
         do
@@ -533,7 +534,18 @@ even if one is already defined."
 
 ;;}}}
 ;;{{{  jump to title in document
-
+(defun emacspeak-w3-transcode-via-google ()
+  "Transcode URL under point via Google."
+  (interactive)
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in W3 buffer."))
+  (unless (w3-view-this-url 'no-show)
+    (error "Not on a link."))
+  (browse-url
+   (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+           (webjump-url-encode
+            (w3-view-this-url 'no-show)))))
+    
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
   (interactive)
