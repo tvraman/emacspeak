@@ -1275,7 +1275,7 @@ in completion buffers"
          (overlay-end comint-last-prompt-overlay)
          (list 
           'personality
-          emacspeak-comint-prompt-personality
+          'emacspeak-comint-prompt-personality
           'rear-sticky nil)))
       (when (and
              (or emacspeak-comint-autospeak emacspeak-speak-comint-output)

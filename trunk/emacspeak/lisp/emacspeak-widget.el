@@ -116,7 +116,7 @@ Returns a string with appropriate personality."
           (format " %s "
                   (or tag type)))
     (put-text-property 0 (length tag)
-                       'personality emacspeak-widget-button-personality tag)
+                       'personality 'emacspeak-widget-button-personality tag)
     tag))
 
 (defsubst emacspeak-widget-help-echo (w)
