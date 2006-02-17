@@ -1148,17 +1148,21 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-apply	Key Sequence: control e # 
+** emacspeak-gridtext-apply	Key Sequence: control e # a 
 
  Apply grid to region. 
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-load Load saved grid settings. 
+** emacspeak-gridtext-load	Key Sequence: control e # l 
+
+ Load saved grid settings. 
 
 ------------------------------------------------------------
 
-** emacspeak-gridtext-save Save out grid settings. 
+** emacspeak-gridtext-save	Key Sequence: control e # s 
+
+ Save out grid settings. 
 
 ------------------------------------------------------------
 
