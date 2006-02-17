@@ -167,7 +167,8 @@ If we add new icons we should declare them here. ")
         file-ext ))
 
 (defgroup emacspeak-sounds nil
-  "Emacspeak auditory icons.")
+  "Emacspeak auditory icons."
+  :group 'emacspeak)
 
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
