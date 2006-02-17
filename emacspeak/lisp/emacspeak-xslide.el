@@ -118,12 +118,15 @@
 
 (defvar xsl-xsl-alternate-personality
   voice-animate
-  "Personality used in xsl highlighting.")
+  "Personality used in xsl highlighting."
+  :group 'emacspeak-xslide)
 (defcustom xsl-fo-alternate-personality voice-monotone 
-  "Personality used in XSL highlighting.")
+  "Personality used in XSL highlighting."
+  :group 'emacspeak-xslide)
 
 (defcustom xsl-other-element-personality voice-animate
-  "Personality used in XSL highlighting.")
+  "Personality used in XSL highlighting."
+  :group 'emacspeak-xslide)
 
 (defvar xsl-xsl-main-personality voice-bolden 
   "Personality used for highlighting in XSL.")
