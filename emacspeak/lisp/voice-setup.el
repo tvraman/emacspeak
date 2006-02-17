@@ -243,10 +243,13 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
           doc
           (format "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
                   voice  voice))))
-    `(progn
-       (unless (boundp ,personality)
+    (`
+     (progn
+       (unless (boundp '(, personality))
 ;;; New Personality
-         (defcustom  ,personality ,voice ,documentation
+         (defcustom  (, personality)
+           (, voice)
+           (, documentation)
            :type (voice-setup-custom-menu)
            :group 'voice-fonts
            :set '(lambda (sym val)
@@ -263,7 +266,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
        (when (symbolp '(, personality))
          (put  '(, personality) 'observing '(, voice)))
        (when (symbolp '(, voice))
-         (put  '(, voice) '(, personality) t)))))
+         (put  '(, voice) '(, personality) t))))))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."

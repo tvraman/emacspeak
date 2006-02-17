@@ -18,7 +18,7 @@
   (save-excursion
     (looking-at outline-regexp)
     (skip-chars-forward "<hH ")
-    (string-to-int (buffer-substring (point) (+ 1 (point))))))
+    (string-to-number (buffer-substring (point) (+ 1 (point))))))
 
 (declaim (special outline-level))
 (add-hook 'html-helper-mode-hook
