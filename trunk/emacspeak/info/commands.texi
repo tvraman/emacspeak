@@ -1511,16 +1511,20 @@ Automatically generated documentation
 for commands defined in module  emacspeak-gridtext.
 
 @deffn {Interactive Command} emacspeak-gridtext-apply (START END GRID)
-@kbd{ control e # }
+@kbd{ control e # a }
 
 Apply grid to region.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gridtext-load (FILE)
+@kbd{ control e # l }
+
 Load saved grid settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-gridtext-save (FILE)
+@kbd{ control e # s }
+
 Save out grid settings.
 @end deffn
 
@@ -3350,7 +3354,8 @@ Switch to the speedbar
 Commentary:
 Playing SuDoku using speech output.
 Written to discover what type of feedback one needs for  this
-task
+task.
+See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
 
 Automatically generated documentation
 for commands defined in module  emacspeak-sudoku.
