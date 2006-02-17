@@ -239,31 +239,31 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
   (let ((documentation
-         (concat doc
-                 (format
-                  "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
-                  voice  voice))))  (`
-                                     (progn
-                                       (defcustom (, personality)
-                                         (, voice)
-                                         (, documentation)
-                                         :type (voice-setup-custom-menu)
-                                         :group 'voice-fonts
-                                         :set '(lambda (sym val)
-                                                 (let ((observing  (get sym 'observing)))
-                                                   (when (and (symbolp sym)
-                                                              (symbolp observing))
-                                                     (remprop observing sym))
-                                                   (set-default sym val)))
-                                         (,@ args))
+         (concat
+          doc
+          (format "\nThis personality uses  %s whose  effect can be changed globally by customizing %s-settings."
+                  voice  voice))))
+    `(progn
+       (unless (boundp ,personality)
+;;; New Personality
+         (defcustom  ,personality ,voice ,documentation
+           :type (voice-setup-custom-menu)
+           :group 'voice-fonts
+           :set '(lambda (sym val)
+                   (let ((observing  (get sym 'observing)))
+                     (when (and (symbolp sym)
+                                (symbolp observing))
+                       (remprop observing sym))
+                     (set-default sym val)))
+           (,@ args)))
 ;;; other actions performed at define time 
-                                       (voice-setup-set-voice-for-face (, face) '(, personality))
+       (voice-setup-set-voice-for-face (, face) '(, personality))
 ;;;record  personality as an
 ;;;observer of  voice and vice versa
-                                       (when (symbolp '(, personality))
-                                         (put  '(, personality) 'observing '(, voice)))
-                                       (when (symbolp '(, voice))
-                                         (put  '(, voice) '(, personality) t))))))
+       (when (symbolp '(, personality))
+         (put  '(, personality) 'observing '(, voice)))
+       (when (symbolp '(, voice))
+         (put  '(, voice) '(, personality) t)))))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
