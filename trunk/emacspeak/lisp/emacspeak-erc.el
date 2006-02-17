@@ -88,7 +88,7 @@ server."
   voice-lighten-extra  'erc-inverse-face
   "Inverse highlight in ERC.")
 
-(def-voice-font emacsepak-erc-underline voice-brighten-medium
+(def-voice-font emacspeak-erc-underline voice-brighten-medium
   'erc-underline-face
   "Underline in ERC.")
 
