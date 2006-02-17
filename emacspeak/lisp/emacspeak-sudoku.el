@@ -262,7 +262,8 @@ s   Sub-square Distribution.
 
 (defun emacspeak-sudoku-erase-these-cells (cell-list)
   "Erase cells in cell-list taking account of original values."
-  (declare (special current-board))
+  (declare (special start-board current-board
+                    sudoku-onscreen-instructions))
   (let ((original (sudoku-get-cell-from-point (point))))
     (loop for cell in cell-list
           do

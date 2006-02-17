@@ -155,8 +155,8 @@ server. Default is to use Emacs' built-in open-network-stream.")
 Does not prompt for host or port, but quietly uses the
 guesses that appear as defaults when prompting.
 Use this once you are sure the guesses are usually correct."
-  (declare (special emacspeak-remote-use-ssh))
   (interactive)
+  (declare (special emacspeak-remote-use-ssh))
   (cond
    (emacspeak-remote-use-ssh (emacspeak-ssh-tts-restart))
    (t (emacspeak-remote-connect-to-server
