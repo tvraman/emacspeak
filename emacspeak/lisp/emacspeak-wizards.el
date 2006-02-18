@@ -2370,10 +2370,11 @@ directory to where find is to be launched."
 ;;}}}
 ;;{{{  count slides in region: (LaTeX specific.
 ;;;###autoload
-(defun emacspeak-wizards-count-slides-in-region ()
+(defun emacspeak-wizards-count-slides-in-region (start end)
   "Count slides starting from point."
-  (interactive )
-  (how-many "begin\\({slide}\\|{part}\\)"))
+  (interactive  "r")
+  (how-many "begin\\({slide}\\|{part}\\)"
+            start end 'interactive))
 
 ;;}}}
 ;;{{{  file specific  headers via occur 
@@ -2395,11 +2396,11 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
    ((and (not prefix)
          (boundp 'emacspeak-occur-pattern)
          emacspeak-occur-pattern)
-    (how-many  emacspeak-occur-pattern start end ))
+    (how-many  emacspeak-occur-pattern start end 'interactive))
    (t
     (let ((pattern  (read-from-minibuffer "Regular expression: ")))
       (setq emacspeak-occur-pattern pattern)
-      (how-many pattern start end )))))
+      (how-many pattern start end 'interactive)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-occur-header-lines (prefix)
