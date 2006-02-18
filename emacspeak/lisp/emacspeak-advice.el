@@ -803,9 +803,9 @@ Produce an auditory icon as well."
     (tts-with-punctuations 'all
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
-(unless emacspeak-xemacs-p
-                                        ; we need to advice these only for FSF Emacs
-  (defadvice completing-read (around emacspeak pre act )
+
+                                        
+(defadvice completing-read (around emacspeak pre act )
     "Prompt using speech."
     (let ((dtk-stop-immediately t )
           (prompt (ad-get-arg 0))
@@ -820,7 +820,7 @@ Produce an auditory icon as well."
                              (dtk-speak (format "%s" ad-return-value )))
       ad-return-value ))
 
-  (defadvice read-buffer(around emacspeak pre act )
+(defadvice read-buffer(around emacspeak pre act )
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0))
           (default (ad-get-arg 1 )))
@@ -834,20 +834,20 @@ Produce an auditory icon as well."
                              (dtk-speak ad-return-value))
       ad-return-value))
 
-  (defadvice read-char (before emacspeak pre act comp)
+(defadvice read-char (before emacspeak pre act comp)
     "Speak the prompt"
     (tts-with-punctuations 'all
                            (let ((prompt  (ad-get-arg 0)))
                              (and prompt (dtk-speak prompt)))))
 
-  (defadvice read-char-exclusive (before emacspeak pre act comp)
+(defadvice read-char-exclusive (before emacspeak pre act comp)
     "Speak the prompt"
     (let ((prompt  (ad-get-arg 0)))
       (if  prompt
           (tts-with-punctuations 'all
                                  (dtk-speak prompt)))))
 
-  (defadvice read-command(around emacspeak pre act )
+(defadvice read-command(around emacspeak pre act )
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0)))
       (when prompt
@@ -860,7 +860,7 @@ Produce an auditory icon as well."
 
   
 
-  (defadvice read-string(around emacspeak pre act )
+(defadvice read-string(around emacspeak pre act )
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0 ))
           (default (ad-get-arg 1 )))
@@ -874,7 +874,7 @@ Produce an auditory icon as well."
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
-  (defadvice read-variable(around emacspeak pre act )
+(defadvice read-variable(around emacspeak pre act )
     "Prompt using speech as well. "
     (let ((prompt (ad-get-arg 0)))
       (when prompt
@@ -885,7 +885,7 @@ Produce an auditory icon as well."
                              (dtk-speak (format "%s" ad-return-value)))
       ad-return-value))
 
-  (defadvice read-file-name (around emacspeak pre act )
+(defadvice read-file-name (around emacspeak pre act )
     "Prompt using speech as well."
     (let ((directory (or
                       (ad-get-arg 1)
@@ -903,8 +903,7 @@ Produce an auditory icon as well."
       (tts-with-punctuations 'all
                              (dtk-speak ad-return-value))
       ad-return-value))
-
-  )
+  
 ;;}}}
 ;;{{{  advice completion functions to speak:
 
@@ -2917,25 +2916,6 @@ changed."
     (message "Turned %s overwrite mode"
              (or  overwrite-mode "off"))))
 
-;;}}}
-;;{{{ xemacs: forard-cyhar-command and friends 
-
-(defadvice forward-char-command (after emacspeak pre act
-                                       comp)
-  "Speak character moved to. "
-  (when (interactive-p)
-    (and dtk-stop-immediately (dtk-stop))
-    (emacspeak-speak-char t)))
-
-      
-
-(defadvice backward-char-command (after emacspeak pre act
-                                        comp)
-  "Speak character moved to. "
-  (when (interactive-p)
-    (and dtk-stop-immediately (dtk-stop ))
-    (emacspeak-speak-char t )))
-   
 ;;}}}
 ;;{{{  Options mode and custom
 
