@@ -267,25 +267,26 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
          (put  '(, personality) 'observing '(, voice)))
        (when (symbolp '(, voice))
          (put  '(, voice) '(, personality) t))))))
+(defsubst voice-setup-compute-personality (face-name)
+  "Compute personality name to use."
+  (let ((name nil))
+  (setq name 
+        (or
+         (string-replace-match "face$" face-name "personality")
+         face-name))
+  (setq name 
+        (or
+         (string-replace-match "font" name "voice")
+         name))
+  (when (string-equal name face-name)
+      (setq name (format "%s-voice" name)))
+  name))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
   (let ((doc (format "Personality used for %s" face))
-        (personality nil)
-        (name nil))
-          (setq name 
-                  (or
-                   (string-replace-match "face$"
-                                         (symbol-name face)
-                                         "personality")
-                   (symbol-name face)))
-          (setq name 
-                  (or
-                   (string-replace-match "font"
-                                         name
-                                         "voice")
-                   name))
-          (setq personality (intern name))
+        (personality
+         (intern (voice-setup-compute-personality (symbol-name face)))))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
 
