@@ -481,114 +481,34 @@ punctuations.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
-
-(def-voice-font voice-lock-highlight-personality voice-bolden
-  'match
-  "Personality used for  matched text.")
-
-(def-voice-font voice-lock-highlight-personality voice-bolden
-  'highlight
-  "Personality used for highlighting text.")
-
-(def-voice-font voice-lock-highlight-personality voice-animate
-  'highlight-face
-  "Personality used for highlighting text.")
-
-(def-voice-font voice-lock-region-personality voice-brighten
-  'region
-  "Personality used for highlighting region.")
-(def-voice-font voice-lock-button-personality voice-bolden
-  'button
-  "Personality used for button text.")
-(def-voice-font voice-lock-fixed-personality voice-monotone
-  'fixed
-  "Personality to use for fixed pitch  text.")
-
-(def-voice-font voice-lock-fixed-pitch-personality voice-monotone
-  'fixed-pitch
-  "Personality to use for fixed pitch  text.")
-
-(def-voice-font voice-lock-comment-personality voice-monotone
-  'font-lock-comment-face
-  "Personality to use for comments.")
-
-(def-voice-font voice-lock-doc-personality voice-monotone-medium
-  'font-lock-doc-face
-  "Personality to use for documentation.")
-
-          
-(def-voice-font voice-lock-underline-personality voice-brighten-medium
-  'underline
-  "Personality to use for underline text.")
-  
-(def-voice-font voice-lock-bold-personality voice-bolden
-  'bold
-  "Personality to use for bold  text.")
-
-(def-voice-font voice-lock-italic-personality 
-  voice-animate
-  'italic
-  "Personality to use for italic  text.")
-
-(def-voice-font voice-lock-bold-italic-personality 
-  voice-bolden-and-animate
-  'bold-italic
-  "Personality to use for bold  italic text.")
-
-  
-(def-voice-font voice-lock-doc-string-personality
-  voice-smoothen-extra
-  'font-lock-doc-string-face
-  "Personality to use for documentation strings.")
-  
-(def-voice-font voice-lock-constant-personality voice-lighten
-  'font-lock-constant-face
-  "Personality to use for  constants.")
-  
-(def-voice-font voice-lock-string-personality voice-lighten-extra
-  'font-lock-string-face
-  "Personality to use for string constants.")
-
-(def-voice-font voice-lock-function-name-personality voice-bolden-medium
-  'font-lock-function-name-face
-  "Personality to use for function names.")
-  
-(def-voice-font voice-lock-warning-personality voice-bolden-and-animate
-  'font-lock-warning-face
-  "Personality to use for warnings.")
-
-(def-voice-font voice-lock-preprocessor-personality voice-monotone-medium
-  'font-lock-preprocessor-face
-  "Personality to use for preprocessor directives.")
-
-(def-voice-font voice-lock-keyword-personality voice-animate-extra
-  'font-lock-keyword-face
-  "Personality to use for keywords.")
-  
-(def-voice-font voice-lock-builtin-personality voice-bolden
-  'font-lock-builtin-face
-  "Personality to use for built-in keywords.")
-
-(def-voice-font voice-lock-variable-name-personality voice-animate
-  'font-lock-variable-name-face
-  "Personality to use for variables.")
-  
-(def-voice-font voice-lock-type-personality voice-smoothen
-  'font-lock-type-face
-  "Personality to use for data types.")
-  
-(def-voice-font voice-lock-reference-personality voice-animate-medium
-  'font-lock-reference-face
-  "Personality to use for references.")
-
-(def-voice-font voice-lock-button-personality voice-bolden
-  'button
-  "Personality for buttons.")
-
-(def-voice-font voice-lock-gui-button-personality voice-bolden
-  'gui-button
-  "Personality for buttons.")
-
+(voice-setup-add-map
+ '(
+   (bold voice-bolden)
+   (bold-italic voice-bolden-and-animate)
+   (button voice-bolden)
+   (fixed voice-monotone)
+   (fixed-pitch voice-monotone)
+   (font-lock-builtin-face voice-bolden)
+   (font-lock-comment-face voice-monotone)
+   (font-lock-constant-face voice-lighten)
+   (font-lock-doc-face voice-monotone-medium)
+   (font-lock-doc-string-face voice-smoothen-extra)
+   (font-lock-function-name-face voice-bolden-medium)
+   (font-lock-keyword-face voice-animate-extra)
+   (font-lock-preprocessor-face voice-monotone-medium)
+   (font-lock-reference-face voice-animate-medium)
+   (font-lock-string-face voice-lighten-extra)
+   (font-lock-type-face voice-smoothen)
+   (font-lock-variable-name-face voice-animate-medium)
+   (font-lock-warning-face voice-bolden-and-animate)
+   (gui-button voice-bolden)
+   (highlight voice-animate)
+   (highlight-face voice-animate)
+   (italic voice-animate)
+   (match voice-animate)
+   (region voice-brighten)
+   (underline voice-brighten-medium)
+   ))
 
 ;;}}}
 ;;{{{ new light-weight voice lock 
