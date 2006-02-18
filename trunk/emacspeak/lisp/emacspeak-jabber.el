@@ -60,8 +60,8 @@
  (jabber-chat-error           voice-bolden-and-animate)
    (jabber-chat-prompt-foreign  voice-brighten-medium)
 (jabber-chat-prompt-local    voice-smoothen-medium)
-   (jabber-chat-prompt-system   jabber-brighten-extra)
-   (jabber-chat-text-foreign    jabber-brighten)
+   (jabber-chat-prompt-system   voice-brighten-extra)
+   (jabber-chat-text-foreign    voice-brighten)
    (jabber-chat-text-local      voice-smoothen)
    (jabber-rare-time-face       voice-animate-extra)
    (jabber-roster-user-away     voice-smoothen-extra)
@@ -74,7 +74,7 @@
    (jabber-title-large          voice-bolden-extra)
    (jabber-title-medium         voice-bolden)
    (jabber-title-small          voice-lighten)
-)
+))
 ;;}}}
 ;;{{{ Advice interactive commands:
 
