@@ -175,118 +175,38 @@
 
 ;;}}}
 ;;{{{ define voices
-(def-voice-font emacspeak-custom-link-personality voice-bolden
-  'custom-link
-  "Personality used for links in custom buffers.")
-(def-voice-font emacspeak-custom-button-personality voice-bolden
-  'custom-button
-  "Personality used for links in custom buffers.")
+(voice-setup-add-map
+ '(
 
-(def-voice-font emacspeak-custom-state-personality voice-smoothen
-  'custom-state
-  "Personality used for showing custom state.")
-
-(def-voice-font emacspeak-custom-comment-tag-personality voice-monotone
-  'custom-comment-tag
-  "Personality used for showing custom comment tags.")
-
-(def-voice-font emacspeak-custom-button-personality voice-bolden
-  'custom-button
-  "Personality for custom-button")
-(def-voice-font emacspeak-custom-button-pressed-personality voice-bolden-extra
-  'custom-button-pressed
-  "Personality for custom-button-pressed")
-
-(def-voice-font emacspeak-custom-button-pressed-unraisedpersonality voice-bolden-medium
-  'custom-button-pressed-unraised
-  "Personality for custom-button-pressed-unraised")
-(def-voice-font emacspeak-custom-group-tag-personality voice-lighten
-  'custom-group-tag
-  "Personality for custom-group tag")
-
-(def-voice-font emacspeak-custom-group-tag-1-personality voice-lighten-medium
-  'custom-group-tag-1
-  "Personality for custom-group-tag-1")
-
-(def-voice-font emacspeak-custom-invalid-personality voice-animate-extra
-  'custom-invalid
-  "Personality for custom-invalid")
-
-(def-voice-font emacspeak-custom-modified-personality voice-lighten-medium
-  'custom-modified
-  "Personality for custom-button")
-
-(def-voice-font emacspeak-custom-saved-personality voice-lighten-extra
-  'custom-saved
-  "Personality for custom-saved")
-
-(def-voice-font emacspeak-custom-set-personality voice-lighten
-  'custom-set
-  "Personality for custom-set")
-
-(def-voice-font emacspeak-custom-button-unraised-personality voice-smoothen
-  'custom-button-unraised
-  "Personality for custom-button that are unraised.")
-
-(def-voice-font emacspeak-custom-changed-personality voice-animate
-  'custom-changed
-  "Personality for custom-changed")
-
-(def-voice-font emacspeak-custom-button-pressed-personality  voice-bolden-extra
-  'custom-button-pressed-face
-  "Personality for custom-button-pressed-face")
-
-(def-voice-font emacspeak-custom-changed-personality  voice-smoothen
-  'custom-changed-face
-  "Personality for custom-changed-face")
-
-(def-voice-font emacspeak-custom-comment-personality  voice-monotone-medium
-  'custom-comment-face
-  "Personality for custom-comment-face")
-(def-voice-font emacspeak-custom-comment-personality  voice-monotone-medium
-  'custom-comment-face
-  "Personality for custom-comment-tag-face")
-(def-voice-font emacspeak-custom-documentation-personality voice-monotone-medium
-  'custom-documentation
-  "Personality for custom-documentation")
-
-(def-voice-font emacspeak-custom-comment-tag-personality  voice-monotone
-  'custom-comment-tag-face
-  "Personality for custom-comment-tag-face")
-
-(def-voice-font emacspeak-custom-documentation-personality
-  voice-brighten-medium
-  'custom-documentation-face
-  "Personality for custom-documentation-face")
-
-(def-voice-font emacspeak-custom-personality  voice-lighten
-  'custom-face
-  "Personality for custom-face")
-(def-voice-font emacspeak-custom-group-tag-personality  voice-bolden
-  'custom-group-tag-face
-  "Personality for custom-group-tag-face")
-
-(def-voice-font emacspeak-custom-invalid-personality  voice-animate-extra
-  'custom-invalid-face
-  "Personality for custom-invalid-face")
-
-(def-voice-font emacspeak-custom-modified-personality  voice-lighten-medium
-  'custom-modified-face
-  "Personality for custom-modified-face")
-
-(def-voice-font emacspeak-custom-saved-personality  voice-smoothen-extra
-  'custom-saved-face
-  "Personality for custom-saved-face")
-(def-voice-font emacspeak-custom-set-personality  voice-smoothen-medium
-  'custom-set-face
-  "Personality for custom-set-face")
-(def-voice-font emacspeak-custom-variable-button-personality  voice-animate
-  'custom-variable-button
-  "Personality for custom-variable-button-face")
-
-(def-voice-font emacspeak-custom-variable-tag-personality  voice-bolden-medium
-  'custom-variable-tag
-  "Personality for custom-variable-tag-face")
+   (custom-button voice-bolden)
+   (custom-button-pressed voice-bolden-extra)
+   (custom-button-pressed-face voice-bolden-extra)
+   (custom-button-pressed-unraised voice-bolden-medium)
+   (custom-button-unraised voice-smoothen)
+   (custom-changed voice-smoothen)
+   (custom-changed-face voice-smoothen)
+   (custom-comment-face voice-monotone-medium)
+   (custom-comment-face voice-monotone-medium)
+   (custom-comment-tag voice-monotone)
+   (custom-comment-tag-face voice-monotone)
+   (custom-documentation voice-brighten-medium)
+   (custom-documentation-face voice-brighten-medium)
+   (custom-face voice-lighten)
+   (custom-group-tag voice-bolden)
+   (custom-group-tag-1 voice-lighten-medium)
+   (custom-group-tag-face voice-bolden)
+   (custom-invalid voice-animate-extra)
+   (custom-invalid-face voice-animate-extra)
+   (custom-link voice-bolden)
+   (custom-modified voice-lighten-medium)
+   (custom-modified-face voice-lighten-medium)
+   (custom-saved voice-smoothen-extra)
+   (custom-saved-face voice-smoothen-extra)
+   (custom-set voice-smoothen-medium)
+   (custom-set-face voice-smoothen-medium)
+   (custom-state voice-smoothen)
+   (custom-variable-button voice-animate)
+   (custom-variable-tag voice-bolden-medium)))
 
 ;;}}}
 ;;{{{  custom navigation
