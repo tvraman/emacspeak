@@ -57,217 +57,45 @@
 
 ;;}}}
 ;;{{{ voice locking 
-
-(def-voice-font emacspeak-nxml-delimited-data-personality  voice-animate-medium
-  'nxml-delimited-data-face
-  "Personality for delimited  data."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-name-personality  voice-animate-extra
-  'nxml-name-face
-  "Personality used for keywords e.g., names."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-ref-personality  voice-animate-medium
-  'nxml-ref-face
-  "Personality used for references."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-delimiter-personality  voice-bolden-medium
-  'nxml-delimiter-face
-  "Personality used for delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-comment-content-personality  voice-monotone
-  'nxml-comment-content-face
-  "Personality used for comments."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-comment-delimiter-personality
-  (list voice-monotone voice-smoothen-medium)
-  'nxml-comment-delimiter-face
-  "Personality used for comment delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-processing-instruction-delimiter-personality 
-  voice-lighten-extra
-  'nxml-processing-instruction-delimiter-face
-  "Personality used for PI delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-processing-instruction-target-personality 
-  voice-animate-extra
-  'nxml-processing-instruction-target-face
-  "Personality for PI target."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-processing-instruction-content-personality  voice-animate
-  'nxml-processing-instruction-content-face
-  "Presonality for PI content."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-cdata-section-delimiter-personality 
-  voice-monotone-medium
-  'nxml-cdata-section-delimiter-face
-  "Personality for CData section delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-cdata-section-CDATA-personality 
-  voice-animate-extra
-  'nxml-cdata-section-CDATA-face
-  "Personality used for CData keyword."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-cdata-section-content-personality
-  (list voice-monotone voice-smoothen-medium)
-  'nxml-cdata-section-content-face
-  "Personality used for CData content."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-char-ref-number-personality 
-  voice-animate-medium
-  'nxml-char-ref-number-face
-  "Personality for character references."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-char-ref-delimiter-personality  voice-smoothen
-  'nxml-char-ref-delimiter-face
-  "Personality used for character ref delimiter."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-entity-ref-name-personality  voice-animate-medium
-  'nxml-entity-ref-name-face
-  "Personality used for entity references."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-entity-ref-delimiter-personality  voice-smoothen
-  'nxml-entity-ref-delimiter-face
-  "Personality used for entity ref delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-tag-delimiter-personality  voice-smoothen
-  'nxml-tag-delimiter-face
-  "Personality used for angle brackets."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-tag-slash-personality  voice-smoothen-medium
-  'nxml-tag-slash-face
-  "Personality used for the `/' in closing tags."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-element-prefix-personality  voice-monotone-medium
-  'nxml-element-prefix-face
-  "Personality used for element prefixes."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-element-colon-personality  voice-monotone
-  'nxml-element-colon-face
-  "Personality used for `:' in prefixes."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-element-local-name-personality  voice-bolden
-  'nxml-element-local-name-face
-  "Personality used for local part of element names."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-attribute-prefix-personality  voice-monotone-medium
-  'nxml-attribute-prefix-face
-  "Personality for attribute prefixes."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-attribute-colon-personality  voice-monotone
-  'nxml-attribute-colon-face
-  "Personality used for `:' in attribute prefixes."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-attribute-local-name-personality  voice-animate
-  'nxml-attribute-local-name-face
-  "Personality used for local part of attribute names."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-namespace-attribute-xmlns-personality 
-  voice-smoothen-extra
-  'nxml-namespace-attribute-xmlns-face
-  "Personality used for xmlns."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-namespace-attribute-colon-personality 
-  voice-monotone
-  'nxml-namespace-attribute-colon-face
-  "Personality for `:' in the xmlns declaration."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-namespace-attribute-prefix-personality 
-  voice-animate
-  'nxml-namespace-attribute-prefix-face
-  "Personality for namespace prefix in xmlns declaration."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-attribute-value-personality  voice-lighten
-  'nxml-attribute-value-face
-  "Personality for attribute values."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-attribute-value-delimiter-personality  voice-smoothen
-  'nxml-attribute-value-delimiter-face
-  "Personality for attribute value delimiters."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-namespace-attribute-value-personality  voice-lighten
-  'nxml-namespace-attribute-value-face
-  "personality for namespace attribute value."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-namespace-attribute-value-delimiter-personality  voice-smoothen
-  'nxml-namespace-attribute-value-delimiter-face
-  "Persnality for namespace attribute value delimiter."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-prolog-literal-delimiter-personality 
-  voice-monotone
-  'nxml-prolog-literal-delimiter-face
-  "Personality for literals in the prologue."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-prolog-literal-content-personality 
-  voice-monotone-medium
-  'nxml-prolog-literal-content-face
-  "Personality for content in the prologue."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-prolog-keyword-personality 
-  voice-animate-extra
-  'nxml-prolog-keyword-face
-  "Personality for keywords in the prologue."
-  :group 'emacspeak-nxml)
-
-(def-voice-font
-  emacspeak-nxml-markup-declaration-delimiter-personality 
-  voice-smoothen
-  'nxml-markup-declaration-delimiter-face
-  "Personality for delimiters in markup declarations."
-  :group 'emacspeak-nxml)
-
-(def-voice-font emacspeak-nxml-hash-personality  voice-monotone
-  'nxml-hash-face
-  "Personality for hash marks."
-  :group 'emacspeak-nxml)
-(def-voice-font emacspeak-rng-error-personality'betty
-  'rng-error-face
-  "Personality for validation errors."
-  :group 'emacspeak-nxml)
+(voice-setup-add-map
+ '(
+   (nxml-attribute-colon-face voice-monotone)
+   (nxml-attribute-local-name-face voice-animate)
+   (nxml-attribute-prefix-face voice-monotone-medium)
+   (nxml-attribute-value-delimiter-face voice-smoothen)
+   (nxml-attribute-value-face voice-lighten)
+   (nxml-cdata-section-CDATA-face voice-animate-extra)
+   (nxml-cdata-section-content-face  voice-monotone )
+   (nxml-cdata-section-delimiter-face voice-monotone-medium)
+   (nxml-char-ref-delimiter-face voice-smoothen)
+   (nxml-char-ref-number-face voice-animate-medium)
+   (nxml-comment-content-face voice-monotone)
+   (nxml-comment-delimiter-face  voice-smoothen-medium)
+   (nxml-delimited-data-face voice-animate-medium)
+   (nxml-delimiter-face voice-bolden-medium)
+   (nxml-element-colon-face voice-monotone)
+   (nxml-element-local-name-face voice-bolden)
+   (nxml-element-prefix-face voice-monotone-medium)
+   (nxml-entity-ref-delimiter-face voice-smoothen)
+   (nxml-entity-ref-name-face voice-lighten-medium)
+   (nxml-hash-face voice-monotone)
+   (nxml-markup-declaration-delimiter-face voice-smoothen)
+   (nxml-name-face voice-animate-extra)
+   (nxml-namespace-attribute-colon-face voice-monotone)
+   (nxml-namespace-attribute-prefix-face voice-animate)
+   (nxml-namespace-attribute-value-delimiter-face voice-smoothen)
+   (nxml-namespace-attribute-value-face voice-lighten)
+   (nxml-namespace-attribute-xmlns-face voice-smoothen-extra)
+   (nxml-processing-instruction-content-face voice-animate)
+   (nxml-processing-instruction-delimiter-face voice-lighten-extra)
+   (nxml-processing-instruction-target-face voice-animate-extra)
+   (nxml-prolog-keyword-face voice-animate-extra)
+   (nxml-prolog-literal-content-face voice-monotone-medium)
+   (nxml-prolog-literal-delimiter-face voice-monotone)
+   (nxml-ref-face voice-animate-medium)
+   (nxml-tag-delimiter-face voice-smoothen)
+   (nxml-tag-slash-face voice-smoothen-medium)
+   (rng-error-face voice-bolden-and-animate)))
 
 ;;}}}
 ;;{{{ pronunciations 
