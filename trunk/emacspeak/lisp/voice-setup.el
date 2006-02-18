@@ -271,14 +271,21 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
   (let ((doc (format "Personality used for %s" face))
-        (personality
-         (intern
-          (format "emacspeak-%s"
+        (personality nil)
+        (name nil))
+          (setq name 
                   (or
                    (string-replace-match "face$"
                                          (symbol-name face)
                                          "personality")
-                   (symbol-name face))))))
+                   (symbol-name face)))
+          (setq name 
+                  (or
+                   (string-replace-match "font"
+                                         name
+                                         "voice")
+                   name))
+          (setq personality (intern name))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
 
