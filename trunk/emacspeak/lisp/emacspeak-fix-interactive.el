@@ -62,10 +62,7 @@
 ;;; The exception to this appear to be the code letters for
 ;;; reading characters and key sequences 
 ;;; i.e. "c" and "k"
-;;; This module has been updated to auto-advice
-;;; only those interactive commands that use "c" or "k"
-;;; when running XEmacs.
-;;; The Search for emacspeak-xemacs-p to see the test used.
+
 
 ;;}}}
 ;;{{{  functions that are  fixed.
