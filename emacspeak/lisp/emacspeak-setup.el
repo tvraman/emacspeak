@@ -120,13 +120,6 @@ pronunciation dictionaries are stored. ")
          (expand-file-name "atom-blogger" emacspeak-lisp-directory )
          load-path )))
 
-(defconst  emacspeak-xemacs-p
-  (when
-      (or (boundp 'running-xemacs)
-          (string-match "Lucid\\|XEmacs" emacs-version))
-    t)
-  "T if we are running under XEmacs.")
-
 (load-library "emacspeak")
 (defvar dtk-startup-hook nil)
 (defun emacspeak-tts-startup-hook ()
