@@ -46,6 +46,7 @@
 
 ;;}}}
 ;;{{{ voice locking:
+
 ;;; faces from AUCTeX 11
 (voice-setup-add-map
  '(
@@ -68,6 +69,7 @@
 
 ;;}}}
 ;;{{{  Marking structured objects:
+
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -103,7 +105,6 @@ Provide auditory feedback after formatting region"
     (message "Reformatted region"))
    ((not (interactive-p)) ad-do-it))
   ad-return-value)
-    
 
 ;;}}}
 ;;{{{  delimiter matching:
@@ -178,7 +179,6 @@ the opening line of the newly inserted environment. "
     (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
-
 ;;{{{  Debugging tex
 
 (defadvice TeX-next-error (after emacspeak pre act)
@@ -208,6 +208,7 @@ the opening line of the newly inserted environment. "
 
 ;;}}}
 ;;{{{ advice font changes 
+
 (defadvice TeX-font (around emacspeak pre act comp)
   "Speak the font we inserted"
   (cond 
