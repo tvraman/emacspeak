@@ -79,8 +79,8 @@ the sources.
 @node Configuring and Installing Emacspeak
 @section Configuring and Installing Emacspeak
 
-Note: You need GNU Emacs 20.2
- or later for using newer versions of Emacspeak.
+Note: You need a current version of GNU Emacs 
+  for using newer versions of Emacspeak.
 
 The speech server for the Dectalk is written in TclX.  (For example, see the
 source file @file{dtk-exp}).  
