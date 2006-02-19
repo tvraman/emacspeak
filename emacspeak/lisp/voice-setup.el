@@ -507,7 +507,7 @@ punctuations.")
    (italic voice-animate)
    (match voice-animate)
    (region voice-brighten)
-   (underline voice-brighten-medium)
+   (underline voice-lighten-medium)
    ))
 
 ;;}}}
