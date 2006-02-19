@@ -806,103 +806,103 @@ Produce an auditory icon as well."
 
                                         
 (defadvice completing-read (around emacspeak pre act )
-    "Prompt using speech."
-    (let ((dtk-stop-immediately t )
-          (prompt (ad-get-arg 0))
-          (initial (ad-get-arg 4 ))
-          (default (ad-get-arg 6)))
-      (dtk-speak
-       (format "%s %s"
-               (or prompt " ")
-               (or initial default " ")))
-      ad-do-it
-      (tts-with-punctuations 'all
-                             (dtk-speak (format "%s" ad-return-value )))
-      ad-return-value ))
+  "Prompt using speech."
+  (let ((dtk-stop-immediately t )
+        (prompt (ad-get-arg 0))
+        (initial (ad-get-arg 4 ))
+        (default (ad-get-arg 6)))
+    (dtk-speak
+     (format "%s %s"
+             (or prompt " ")
+             (or initial default " ")))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak (format "%s" ad-return-value )))
+    ad-return-value ))
 
 (defadvice read-buffer(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0))
-          (default (ad-get-arg 1 )))
-      (tts-with-punctuations 'all
-                             (dtk-speak
-                              (format "%s %s"
-                                      prompt
-                                      (or default " "))))
-      ad-do-it
-      (tts-with-punctuations 'all
-                             (dtk-speak ad-return-value))
-      ad-return-value))
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0))
+        (default (ad-get-arg 1 )))
+    (tts-with-punctuations 'all
+                           (dtk-speak
+                            (format "%s %s"
+                                    prompt
+                                    (or default " "))))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak ad-return-value))
+    ad-return-value))
 
 (defadvice read-char (before emacspeak pre act comp)
-    "Speak the prompt"
-    (tts-with-punctuations 'all
-                           (let ((prompt  (ad-get-arg 0)))
-                             (and prompt (dtk-speak prompt)))))
+  "Speak the prompt"
+  (tts-with-punctuations 'all
+                         (let ((prompt  (ad-get-arg 0)))
+                           (and prompt (dtk-speak prompt)))))
 
 (defadvice read-char-exclusive (before emacspeak pre act comp)
-    "Speak the prompt"
-    (let ((prompt  (ad-get-arg 0)))
-      (if  prompt
-          (tts-with-punctuations 'all
-                                 (dtk-speak prompt)))))
+  "Speak the prompt"
+  (let ((prompt  (ad-get-arg 0)))
+    (if  prompt
+        (tts-with-punctuations 'all
+                               (dtk-speak prompt)))))
 
 (defadvice read-command(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0)))
-      (when prompt
-        (tts-with-punctuations 'all
-                               (dtk-speak prompt)))
-      ad-do-it
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0)))
+    (when prompt
       (tts-with-punctuations 'all
-                             (dtk-speak (format "%s" ad-return-value)))
-      ad-return-value))
+                             (dtk-speak prompt)))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak (format "%s" ad-return-value)))
+    ad-return-value))
 
   
 
 (defadvice read-string(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0 ))
-          (default (ad-get-arg 1 )))
-      (tts-with-punctuations 'all
-                             (dtk-speak
-                              (format "%s %s"
-                                      prompt
-                                      (or default " "))))
-      ad-do-it
-      (tts-with-punctuations 'all
-                             (dtk-speak (format "%s" ad-return-value)))
-      ad-return-value))
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0 ))
+        (default (ad-get-arg 1 )))
+    (tts-with-punctuations 'all
+                           (dtk-speak
+                            (format "%s %s"
+                                    prompt
+                                    (or default " "))))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak (format "%s" ad-return-value)))
+    ad-return-value))
 
 (defadvice read-variable(around emacspeak pre act )
-    "Prompt using speech as well. "
-    (let ((prompt (ad-get-arg 0)))
-      (when prompt
-        (tts-with-punctuations 'all
-                               (dtk-speak prompt)))
-      ad-do-it
+  "Prompt using speech as well. "
+  (let ((prompt (ad-get-arg 0)))
+    (when prompt
       (tts-with-punctuations 'all
-                             (dtk-speak (format "%s" ad-return-value)))
-      ad-return-value))
+                             (dtk-speak prompt)))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak (format "%s" ad-return-value)))
+    ad-return-value))
 
 (defadvice read-file-name (around emacspeak pre act )
-    "Prompt using speech as well."
-    (let ((directory (or
-                      (ad-get-arg 1)
-                      default-directory))
-          (default (ad-get-arg 2 )))
-      (tts-with-punctuations 'all
-                             (dtk-speak
-                              (format "%s %s %s"
-                                      (ad-get-arg 0 )
-                                      (or directory "")
-                                      (if default
-                                          (format "Default %s" default )
-                                        ""))))
-      ad-do-it
-      (tts-with-punctuations 'all
-                             (dtk-speak ad-return-value))
-      ad-return-value))
+  "Prompt using speech as well."
+  (let ((directory (or
+                    (ad-get-arg 1)
+                    default-directory))
+        (default (ad-get-arg 2 )))
+    (tts-with-punctuations 'all
+                           (dtk-speak
+                            (format "%s %s %s"
+                                    (ad-get-arg 0 )
+                                    (or directory "")
+                                    (if default
+                                        (format "Default %s" default )
+                                      ""))))
+    ad-do-it
+    (tts-with-punctuations 'all
+                           (dtk-speak ad-return-value))
+    ad-return-value))
   
 ;;}}}
 ;;{{{  advice completion functions to speak:
