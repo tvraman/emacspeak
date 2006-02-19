@@ -380,14 +380,14 @@ command \\[customize-variable] on <personality>-settings.. "
        '(lambda  (sym val)
           (let ((voice-name (voice-setup-personality-from-style val)))
             (setq (, personality) voice-name)
-;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
             (voice-setup-update-personalities '(, personality))
             (set-default sym val)))))))
 
-;;}}}                                   ;
-;;{{{ voices defined using ACSS         ;
+;;}}}                                   ; ;
+;;{{{ voices defined using ACSS         ; ;
 
-;;; these voices are device independent ;
+;;; these voices are device independent ; ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
@@ -571,7 +571,6 @@ font-lock.  Voicification is effective only if font lock is on."
 ;;}}}
 ;;{{{ list-voices-display
 
-
 (defcustom voice-setup-sample-text
   "This is a test."
   "Sample text used  when displaying available voices."
@@ -585,7 +584,7 @@ Sample text to use comes from variable
   (interactive (list (and current-prefix-arg
                           (read-string "List faces matching regexp: "))))
   (declare (special voice-setup-sample-text
-  list-faces-sample-text))
+                    list-faces-sample-text))
   (let ((list-faces-sample-text voice-setup-sample-text))
     (list-faces-display pattern)
     (message "Displayed voice-face mappings in other window.")))
