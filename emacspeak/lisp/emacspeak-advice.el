@@ -1828,6 +1828,10 @@ Indicate change of selection with
   "Speak the help."
   (when (interactive-p) (emacspeak-speak-help )))
 
+(defadvice describe-variable (after emacspeak pre act)
+  "Speak the help."
+  (when (interactive-p) (emacspeak-speak-help )))
+
 (defadvice describe-key (after emacspeak pre act)
   "Speak the help."
   (when (interactive-p)
