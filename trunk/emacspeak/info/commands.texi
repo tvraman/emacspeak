@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 751 commands.
+This chapter documents a total of 760 commands.
 
 @menu
 * cd-tool::                     
@@ -56,6 +56,8 @@ This chapter documents a total of 751 commands.
 * emacspeak-ocr::               
 * emacspeak-outline::           
 * emacspeak-pronounce::         
+* emacspeak-psgml::             
+* emacspeak-python::            
 * emacspeak-realaudio::         
 * emacspeak-redefine::          
 * emacspeak-remote::            
@@ -83,6 +85,7 @@ This chapter documents a total of 751 commands.
 * emacspeak-wizards::           
 * emacspeak-xml-shell::         
 * emacspeak::                   
+* voice-setup::                 
 * emacspeak-w3search::          
 * URL Templates ::              
 @end menu
@@ -1005,6 +1008,10 @@ Mark position and jump to properties section.
 Move to next row and speak element.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-eperiodic-play-description ()
+Play audio description from WebElements.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-eperiodic-previous-line ()
 Move to next row and speak element.
 @end deffn
@@ -1731,7 +1738,7 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
-@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST)
+@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST NOSELECT)
 Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
 Resource is a media resource or playlist containing media resources.
@@ -2359,6 +2366,58 @@ explicitly turn pronunciations on or off.
 Yank word at point into minibuffer.
 @end deffn
 
+@node emacspeak-psgml
+@section emacspeak-psgml
+
+Commentary:
+Speech-enable psgml --a powerful SGML support package.
+psgml can be found at 
+
+Automatically generated documentation
+for commands defined in module  emacspeak-psgml.
+
+@deffn {Interactive Command} emacspeak-psgml-speak-current-element ()
+Speak contents of current element. 
+@end deffn
+
+@deffn {Interactive Command} emacspeak-psgml-summarize-element ()
+Context-sensitive element summarizer.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-psgml-toggle-interactive-font-lock ()
+Toggles variable sgml-set-face.
+When turned on, the  buffer is font locked interactively.
+Leave this off in general while editting.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-xml-browse-mode ()
+Mode for browsing XML documents.
+
+Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
+
+In addition to any hooks its parent mode `xml-mode' might have run,
+this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
+during initialization.
+@end deffn
+
+@node emacspeak-python
+@section emacspeak-python
+
+Commentary:
+This speech-enables python-mode available on sourceforge
+
+Automatically generated documentation
+for commands defined in module  emacspeak-python.
+
+@deffn {Interactive Command} emacspeak-py-next-block ()
+Move forward to the beginning of the next block.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-py-previous-block ()
+Move backward to the beginning of the current block.
+If already at the beginning then move to previous block.
+@end deffn
+
 @node emacspeak-realaudio
 @section emacspeak-realaudio
 
@@ -2392,7 +2451,7 @@ This mode runs the hook `emacspeak-realaudio-mode-hook', as the final step
 during initialization.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-realaudio-play (RESOURCE &optional PLAY-LIST)
+@deffn {Interactive Command} emacspeak-realaudio-play (RESOURCE &optional PLAY-LIST NOSELECT)
 Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
 user configurable variable emacspeak-realaudio-shortcuts-directory. 
@@ -4140,6 +4199,10 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-transcode-via-google ()
+Transcode URL under point via Google.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-url-expand-and-execute ()
 Applies buffer-specific URL expander/executor function.
 @end deffn
@@ -4890,7 +4953,7 @@ Display info on recent change to Emacspeak.
 Browse  Emacspeak productivity tips.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-count-slides-in-region ()
+@deffn {Interactive Command} emacspeak-wizards-count-slides-in-region (START END)
 Count slides starting from point.
 @end deffn
 
@@ -5262,6 +5325,53 @@ Give a brief overview of emacspeak.
 @kbd{ control e CONTROL meta b }
 
 Function to submit a bug to the programs maintainer.
+@end deffn
+
+@node voice-setup
+@section voice-setup
+
+Commentary:
+A voice is to audio as a font is to a visual display.
+A personality is to audio as a face is to a visual display. 
+
+Voice-lock-mode is a minor mode that causes your comments to be 
+spoken in one personality, strings in another, reserved words in another,
+documentation strings in another, and so on.
+
+Comments will be spoken in `voice-lock-comment-personality'.
+Strings will be spoken in `voice-lock-string-personality'.
+Doc strings will be spoken in `voice-lock-doc-string-personality'.
+Function and variable names (in their defining forms) will be
+ spoken in `voice-lock-function-name-personality'.
+Reserved words will be spoken in `voice-lock-keyword-personality'.
+
+To make the text you type be voiceified, use M-x voice-lock-mode.
+When this minor mode is on, the voices of the current line are
+updated with every insertion or deletion.
+
+How faces map to voices: TTS engine specific modules e.g.,
+dectalk-voices.el and outloud-voices.el define a standard set
+of voice names.  This module maps standard "personality"
+names to these pre-defined voices.  It does this via special
+form def-voice-font which takes a personality name, a voice
+name and a face name to set up the mapping between face and
+personality, and personality and voice.  See many instances
+of this usage in this module.  This special form is available
+for use from other emacspeak modules.
+
+Special form def-voice-font sets up the personality name to
+be available via custom.  new voices can be defined using CSS
+style specifications see special form defvoice Voices defined
+via defvoice can be customized via custom see the
+documentation for defvoice.
+
+Automatically generated documentation
+for commands defined in module  voice-setup.
+
+@deffn {Interactive Command} voice-setup-list-voices (PATTERN)
+Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  `voice-setup-sample-text'. 
 @end deffn
 
 @node emacspeak-w3search
