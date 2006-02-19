@@ -54,49 +54,20 @@
 
 ;;}}}
 ;;{{{ Voice definitions:
-
-(def-voice-font emacspeak-muse-emphasis-1-personality voice-bolden
-  'muse-emphasis-1 
-  "Personality used for Muse emphasis.")
-
-(def-voice-font emacspeak-muse-emphasis-2-personality voice-bolden-medium
-  'muse-emphasis-2
-  "Personality used for Muse emphasis.")
-
-(def-voice-font emacspeak-muse-emphasis-3-personality voice-bolden-extra
-  'muse-emphasis-3
-  "Personality used for Muse emphasis.")
-
-(def-voice-font emacspeak-muse-link-personality voice-brighten
-  'muse-link-face
-  "Personality used for Muse links.")
-
-(def-voice-font emacspeak-muse-bad-link-personality voice-animate
-  'muse-bad-link-face
-  "Personality for bad muse links.")
-
-(def-voice-font  emacspeak-muse-verbatim-personality
-  voice-monotone
-  'muse-verbatim-face
-  "Personality for verbatim text in Muse.")
-(def-voice-font emacspeak-muse-header-1 emacspeak-outline-1
-  'muse-header-1
-  "Header personality in Muse.")
-
-(def-voice-font emacspeak-muse-header-2 emacspeak-outline-2
-  'muse-header-2
-  "Header personality in Muse.")
-(def-voice-font emacspeak-muse-header-3 emacspeak-outline-3
-  'muse-header-3
-  "Header personality in Muse.")
-      
-(def-voice-font emacspeak-muse-header-4 emacspeak-outline-4
-  'muse-header-4
-  "Header personality in Muse.")
-
-(def-voice-font emacspeak-muse-header-5 emacspeak-outline-5
-  'muse-header-5
-  "Header personality in Muse.")
+(voice-setup-add-map
+ '(
+   (muse-bad-link-face voice-bolden-and-animate)
+   (muse-emphasis-1 voice-lighten)
+   (muse-emphasis-2 voice-lighten-medium)
+   (muse-emphasis-3 voice-lighten-extra)
+   (muse-header-1 voice-bolden)
+   (muse-header-2 voice-bolden-medium)
+   (muse-header-3 voice-bolden-extra)
+   (muse-header-4 voice-bolden-extra)
+   (muse-header-5 voice-bolden-extra)
+   (muse-link-face voice-brighten)
+   (muse-verbatim-face voice-monotone)
+))
 
 ;;}}}
 ;;{{{ advice interactive commands
