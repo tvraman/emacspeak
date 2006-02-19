@@ -568,6 +568,28 @@ font-lock.  Voicification is effective only if font lock is on."
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
 
 ;;}}}
+;;{{{ list-voices-display
+
+
+(defcustom voice-setup-sample-text
+  "This is a test."
+  "Sample text used  when displaying available voices."
+  :type 'string
+  :group 'voice-fonts)
+
+(defun voice-setup-list-voices (pattern)
+  "Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  `voice-setup-sample-text'. "
+  (interactive (list (and current-prefix-arg
+                          (read-string "List faces matching regexp: "))))
+  (declare (special voice-setup-sample-text
+  list-faces-sample-text))
+  (let ((list-faces-sample-text voice-setup-sample-text))
+    (list-faces-display pattern)
+    (message "Displayed voice-face mappings in other window.")))
+
+;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file 
 
