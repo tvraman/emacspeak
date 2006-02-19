@@ -50,22 +50,22 @@
 ;;; faces from AUCTeX 11
 (voice-setup-add-map
  '(
-(font-latex-bold-face voice-bolden)
-(font-latex-doctex-documentation-face voice-monotone-medium)
-(font-latex-doctex-preprocessor-face voice-brighten-medium)
-(font-latex-italic-face voice-animate)
-(font-latex-math-face voice-brighten-extra)
-(font-latex-sedate-face voice-smoothen)
-(font-latex-string-face voice-lighten)
-(font-latex-subscript-face voice-smoothen)
-(font-latex-superscript-face voice-brighten)
-(font-latex-title-1-face voice-bolden-extra)
-(font-latex-title-2-face voice-bolden-medium)
-(font-latex-title-3-face voice-bolden)
-(font-latex-title-4-face voice-smoothen-extra)
-(font-latex-verbatim-face voice-monotone)
-(font-latex-warning-face voice-bolden-and-animate)
-))
+   (font-latex-bold-face voice-bolden)
+   (font-latex-doctex-documentation-face voice-monotone-medium)
+   (font-latex-doctex-preprocessor-face voice-brighten-medium)
+   (font-latex-italic-face voice-animate)
+   (font-latex-math-face voice-brighten-extra)
+   (font-latex-sedate-face voice-smoothen)
+   (font-latex-string-face voice-lighten)
+   (font-latex-subscript-face voice-smoothen)
+   (font-latex-superscript-face voice-brighten)
+   (font-latex-title-1-face voice-bolden-extra)
+   (font-latex-title-2-face voice-bolden-medium)
+   (font-latex-title-3-face voice-bolden)
+   (font-latex-title-4-face voice-smoothen-extra)
+   (font-latex-verbatim-face voice-monotone)
+   (font-latex-warning-face voice-bolden-and-animate)
+   ))
 
 ;;}}}
 ;;{{{  Marking structured objects:
