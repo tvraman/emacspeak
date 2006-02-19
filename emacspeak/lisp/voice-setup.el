@@ -267,7 +267,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
          (put  '(, personality) 'observing '(, voice)))
        (when (symbolp '(, voice))
          (put  '(, voice) '(, personality) t))))))
-(defsubst voice-setup-compute-personality (face-name)
+(defsubst voice-setup-name-personality (face-name)
   "Compute personality name to use."
   (let ((name nil))
   (setq name 
@@ -280,17 +280,17 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
          name))
   (when (string-equal name face-name)
       (setq name (format "%s-voice" name)))
-  name))
+  (concat "emacspeak-" name)))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
   (let ((doc (format "Personality used for %s" face))
         (personality
-         (intern (voice-setup-compute-personality (symbol-name face)))))
+         (intern (voice-setup-name-personality (symbol-name face)))))
     (eval
      `(def-voice-font ,personality ,voice  ',face  ,doc))))
 
-(defun voice-setup-add-map (fv-alist)
+(defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."
   (loop for fv in fv-alist
         do
