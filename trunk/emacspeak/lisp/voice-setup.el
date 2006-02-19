@@ -227,7 +227,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 (defsubst voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
-   (gethash face voice-setup-face-voice-table))
+  (gethash face voice-setup-face-voice-table))
 
 ;;}}}
 ;;{{{ special form def-voice-font 
@@ -270,17 +270,17 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
 (defsubst voice-setup-name-personality (face-name)
   "Compute personality name to use."
   (let ((name nil))
-  (setq name 
-        (or
-         (string-replace-match "face$" face-name "personality")
-         face-name))
-  (setq name 
-        (or
-         (string-replace-match "font" name "voice")
-         name))
-  (when (string-equal name face-name)
+    (setq name 
+          (or
+           (string-replace-match "face$" face-name "personality")
+           face-name))
+    (setq name 
+          (or
+           (string-replace-match "font" name "voice")
+           name))
+    (when (string-equal name face-name)
       (setq name (format "%s-voice" name)))
-  (concat "emacspeak-" name)))
+    (concat "emacspeak-" name)))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
@@ -343,7 +343,14 @@ VOICE-NAME are  changed."
 that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
 command \\[customize-variable] on <personality>-settings.. "
-    (`
+  (`
+   (progn
+     (defvar  (, personality)
+       (voice-setup-personality-from-style (, settings))
+       (concat 
+        (, doc)
+        (, (format "Customize this overlay via %s-settings."
+                 personality ))))
      (defcustom (, (intern (format "%s-settings"  personality)))
        (, settings)
        (, doc)
@@ -373,14 +380,14 @@ command \\[customize-variable] on <personality>-settings.. "
        '(lambda  (sym val)
           (let ((voice-name (voice-setup-personality-from-style val)))
             (setq (, personality) voice-name)
-;;; update all observers                ; ; ; ; ; ; ; ; ; ;
+;;; update all observers                ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
             (voice-setup-update-personalities '(, personality))
-            (set-default sym val))))))
+            (set-default sym val)))))))
 
-;;}}}
-;;{{{ voices defined using ACSS
+;;}}}                                   ;
+;;{{{ voices defined using ACSS         ;
 
-;;; these voices are device independent
+;;; these voices are device independent ;
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
   "Turns current voice into one that  speaks all
