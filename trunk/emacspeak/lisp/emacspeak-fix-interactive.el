@@ -63,7 +63,6 @@
 ;;; reading characters and key sequences 
 ;;; i.e. "c" and "k"
 
-
 ;;}}}
 ;;{{{  functions that are  fixed.
 ;;;###autoload

@@ -127,10 +127,10 @@
 ;;}}}
 ;;{{{  listen off the web:
 (defcustom emacspeak-eperiodic-media-location 
-"http://www.webelements.com/webelements/elements/media/snds-description/%s.rm"
-"Location of streaming media describing elements."
-:type 'url
-:group 'emacspeak-eperiodic)
+  "http://www.webelements.com/webelements/elements/media/snds-description/%s.rm"
+  "Location of streaming media describing elements."
+  :type 'url
+  :group 'emacspeak-eperiodic)
 
 (defun emacspeak-eperiodic-play-description ()
   "Play audio description from WebElements."
@@ -139,9 +139,9 @@
   (let ((e (eperiodic-element-at)))
     (unless e  (error "No element under point."))
     (funcall emacspeak-media-player 
-    (format  emacspeak-eperiodic-media-location
-             (eperiodic-get-element-property e 'symbol))
-    nil 'noselect)))
+             (format  emacspeak-eperiodic-media-location
+                      (eperiodic-get-element-property e 'symbol))
+             nil 'noselect)))
    
 
 ;;}}}

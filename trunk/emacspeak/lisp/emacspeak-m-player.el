@@ -195,12 +195,12 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   nil
                   options)))
     (save-excursion
-       (set-buffer (process-buffer emacspeak-m-player-process))
-    (emacspeak-m-player-mode)
-    (ansi-color-for-comint-mode-on))
+      (set-buffer (process-buffer emacspeak-m-player-process))
+      (emacspeak-m-player-mode)
+      (ansi-color-for-comint-mode-on))
     (unless noselect
       (switch-to-buffer (process-buffer emacspeak-m-player-process))
-    (set-window-text-height nil 3))))
+      (set-window-text-height nil 3))))
 
 ;;}}}
 ;;{{{ commands 
