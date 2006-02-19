@@ -122,7 +122,7 @@ specifies the actual location of the realaudio stream
 (make-variable-buffer-local 'emacspeak-realaudio-end-time-mark)
 
 ;;;###autoload
-(defun emacspeak-realaudio-play (resource &optional play-list)
+(defun emacspeak-realaudio-play (resource &optional play-list noselect)
   "Play a realaudio stream.  Uses files from your Realaudio
 shortcuts directory for completion.  See documentation for
 user configurable variable emacspeak-realaudio-shortcuts-directory. "
@@ -144,6 +144,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
                               emacspeak-realaudio-last-url)))
       (pop kill-ring)
       file)
+    current-prefix-arg
     current-prefix-arg))
   (declare (special emacspeak-realaudio-player emacspeak-realaudio-this-resource
                     emacspeak-realaudio-buffer 
@@ -190,13 +191,7 @@ user configurable variable emacspeak-realaudio-shortcuts-directory. "
         (error "Failed to start RealAudio"))
       (set-process-sentinel emacspeak-realaudio-process 'emacspeak-realaudio-process-sentinel)
       (message "Launched audio stream")
-      (setq emacspeak-realaudio-last-url resource)
-      (when
-          (and emacspeak-use-auditory-icons
-               (not emacspeak-aumix-multichannel-capable-p)
-               (not (emacspeak-using-midi-p)))
-        (emacspeak-set-auditory-icon-player
-         'emacspeak-play-midi-icon)))))
+      (setq emacspeak-realaudio-last-url resource))))
 
 (defvar emacspeak-realaudio-dont-insist-on-ram-url t
   "*Set to nil if you want emacspeak to insist that realaudio

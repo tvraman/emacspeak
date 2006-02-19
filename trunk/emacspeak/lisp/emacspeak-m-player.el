@@ -133,7 +133,7 @@
  'emacspeak-m-player-command)
 
 ;;;###autoload
-(defun emacspeak-m-player (resource &optional play-list)
+(defun emacspeak-m-player (resource &optional play-list noselect)
   "Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
 Resource is a media resource or playlist containing media resources.
@@ -154,6 +154,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                         emacspeak-realaudio-shortcuts-directory)
                       (when (eq major-mode 'dired-mode)
                         (dired-get-filename))))
+    current-prefix-arg
     current-prefix-arg))
   (declare (special emacspeak-realaudio-history emacspeak-realaudio-shortcuts-directory
                     emacspeak-m-player-process
@@ -193,10 +194,13 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                   "m-player" emacspeak-m-player-program
                   nil
                   options)))
-    (switch-to-buffer (process-buffer emacspeak-m-player-process))
+    (save-excursion
+       (set-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-m-player-mode)
-    (set-window-text-height nil 3)
-    (ansi-color-for-comint-mode-on)))
+    (ansi-color-for-comint-mode-on))
+    (unless noselect
+      (switch-to-buffer (process-buffer emacspeak-m-player-process))
+    (set-window-text-height nil 3))))
 
 ;;}}}
 ;;{{{ commands 

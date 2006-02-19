@@ -140,7 +140,8 @@
     (unless e  (error "No element under point."))
     (funcall emacspeak-media-player 
     (format  emacspeak-eperiodic-media-location
-             (eperiodic-get-element-property e 'symbol)))))
+             (eperiodic-get-element-property e 'symbol))
+    nil 'noselect)))
    
 
 ;;}}}
