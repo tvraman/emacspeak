@@ -17,10 +17,6 @@ the amount by which you moved.
 In addition, Emacspeak provides  basic reading functions that can be
 invoked to listen to chunks of text without moving.
 
-
-
-
-
 @menu
 * Overview::                     Basic Overview.
 * Working::                      Working in Emacspeak.
