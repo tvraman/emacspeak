@@ -743,6 +743,10 @@ Useful in voicifying rich text.
 
 ------------------------------------------------------------
 
+** emacspeak-eperiodic-play-description Play audio description from WebElements. 
+
+------------------------------------------------------------
+
 ** emacspeak-eperiodic-previous-line Move to next row and speak element. 
 
 ------------------------------------------------------------
@@ -1843,6 +1847,42 @@ explicitly turn pronunciations on or off.
 ------------------------------------------------------------
 
 ** emacspeak-pronounce-yank-word Yank word at point into minibuffer. 
+
+------------------------------------------------------------
+
+** emacspeak-psgml-speak-current-element Speak contents of current element.  
+
+------------------------------------------------------------
+
+** emacspeak-psgml-summarize-element Context-sensitive element summarizer. 
+
+------------------------------------------------------------
+
+** emacspeak-psgml-toggle-interactive-font-lock Toggles variable sgml-set-face.
+When turned on, the  buffer is font locked interactively.
+Leave this off in general while editting. 
+
+------------------------------------------------------------
+
+** emacspeak-xml-browse-mode Mode for browsing XML documents.
+
+
+
+Uses keymap "emacspeak-xml-browse-mode", which is not currently defined.
+
+
+In addition to any hooks its parent mode `xml-mode' might have run,
+this mode runs the hook `emacspeak-xml-browse-mode-hook', as the final step
+during initialization. 
+
+------------------------------------------------------------
+
+** emacspeak-py-next-block Move forward to the beginning of the next block. 
+
+------------------------------------------------------------
+
+** emacspeak-py-previous-block Move backward to the beginning of the current block.
+If already at the beginning then move to previous block. 
 
 ------------------------------------------------------------
 
@@ -3433,6 +3473,10 @@ element.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-transcode-via-google Transcode URL under point via Google. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-url-expand-and-execute Applies buffer-specific URL expander/executor function. 
 
 ------------------------------------------------------------
@@ -4511,6 +4555,12 @@ during initialization.
 ** emacspeak-submit-bug	Key Sequence: control e CONTROL meta b 
 
  Function to submit a bug to the programs maintainer. 
+
+------------------------------------------------------------
+
+** voice-setup-list-voices Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  `voice-setup-sample-text'.  
 
 ------------------------------------------------------------
 
