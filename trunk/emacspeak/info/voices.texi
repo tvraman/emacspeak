@@ -1,6 +1,6 @@
 
-@node Emacspeak Voice Lock Using Aural CSS
-@chapter Emacspeak Voice Lock Using Aural CSS (ACSS)
+@node Voice Lock
+@chapter Voice Lock
 
 @enumerate
 @item
