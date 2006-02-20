@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 476 user customizable
+This chapter documents a total of 477 user customizable
   options.
 
 @menu
@@ -725,32 +725,32 @@ personalities."
 
 (voice-setup-add-map
  '(
-(eshell-ls-archive voice-lighten-extra)
-(eshell-ls-archive-face voice-lighten-extra)
-(eshell-ls-backup voice-monotone-medium)
-(eshell-ls-backup-face voice-monotone-medium)
-(eshell-ls-clutter voice-smoothen-extra)
-(eshell-ls-clutter-face voice-smoothen-extra)
-(eshell-ls-directory voice-bolden)
-(eshell-ls-directory-face voice-bolden)
-(eshell-ls-executable voice-animate-extra)
-(eshell-ls-executable-face voice-animate-extra)
-(eshell-ls-missing voice-brighten)
-(eshell-ls-missing-face voice-brighten)
-(eshell-ls-picture-face voice-lighten)
-(eshell-ls-product voice-lighten-medium)
-(eshell-ls-product-face voice-lighten-medium)
-(eshell-ls-readonly voice-monotone)
-(eshell-ls-readonly-face voice-monotone)
-(eshell-ls-special voice-lighten-extra)
-(eshell-ls-special-face voice-lighten-extra)
-(eshell-ls-symlink voice-smoothen)
-(eshell-ls-symlink-face voice-smoothen)
-(eshell-ls-unreadable voice-monotone-medium)
-(eshell-ls-unreadable-face voice-monotone-medium)
-(eshell-prompt voice-animate)
-(eshell-prompt-face voice-animate)
-))
+   (eshell-ls-archive voice-lighten-extra)
+   (eshell-ls-archive-face voice-lighten-extra)
+   (eshell-ls-backup voice-monotone-medium)
+   (eshell-ls-backup-face voice-monotone-medium)
+   (eshell-ls-clutter voice-smoothen-extra)
+   (eshell-ls-clutter-face voice-smoothen-extra)
+   (eshell-ls-directory voice-bolden)
+   (eshell-ls-directory-face voice-bolden)
+   (eshell-ls-executable voice-animate-extra)
+   (eshell-ls-executable-face voice-animate-extra)
+   (eshell-ls-missing voice-brighten)
+   (eshell-ls-missing-face voice-brighten)
+   (eshell-ls-picture-face voice-lighten)
+   (eshell-ls-product voice-lighten-medium)
+   (eshell-ls-product-face voice-lighten-medium)
+   (eshell-ls-readonly voice-monotone)
+   (eshell-ls-readonly-face voice-monotone)
+   (eshell-ls-special voice-lighten-extra)
+   (eshell-ls-special-face voice-lighten-extra)
+   (eshell-ls-symlink voice-smoothen)
+   (eshell-ls-symlink-face voice-smoothen)
+   (eshell-ls-unreadable voice-monotone-medium)
+   (eshell-ls-unreadable-face voice-monotone-medium)
+   (eshell-prompt voice-animate)
+   (eshell-prompt-face voice-animate)
+   ))
 
 (loop for f in 
       '(eshell-next-prompt eshell-previous-prompt
@@ -3071,6 +3071,11 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-gui-button-voice
 Personality used for gui-button
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-help-argument-name-voice
+Personality used for help-argument-name
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-highlight-personality

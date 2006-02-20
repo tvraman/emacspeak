@@ -1,4 +1,4 @@
-** Emacspeak Voice Lock Using Aural CSS (ACSS)
+* Voice Lock
 
   0.   Emacspeak defines a number of voice overlays such as
 =voice-bolden=, and =voice-lighten= that can be applied to a
@@ -85,7 +85,7 @@ send to the device are stored away in a hash-table keyed by the above symbol.
 
   - Finally, =voice-bolden= is assigned the above symbol.
 
-*** What this gives is:
+** What this gives is:
 
   0.     The ability to customize the voice via custom by editting
 the list of numbers in =voice-bolden-settings=
