@@ -17,6 +17,7 @@
 @include install.texi
 @include using.texi
 @include audio-desktop.texi
+@include voices.texi
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
