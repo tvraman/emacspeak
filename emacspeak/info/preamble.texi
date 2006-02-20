@@ -14,7 +14,7 @@ manual is divided into the following chapters.
 * Installation: Installation.
 * Basic Usage: Basic Usage.
 * Audio Desktop: Audio Desktop.
-* Emacspeak Voice Lock Using Aural CSS: Voice Lock.
+* Voice Lock: Voice Lock.
 * Using Online Help: Using Online Help.
 * Emacs Packages:  Emacs Packages.
 * Running Terminal Based Applications: Running Terminal Based Applications.
