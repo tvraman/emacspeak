@@ -357,7 +357,9 @@ command \\[customize-variable] on <personality>-settings.. "
        :type  '(list
                 (choice :tag "Family"
                         (const :tag "Unspecified" nil)
-                        (symbol :tag "Name"))
+                        (const  :tag "Paul" paul)
+(const :tag "Harry" harry)
+(const :tag "Betty" betty))
                 (choice :tag "Average Pitch"
                         (const :tag "Unspecified" nil)
                         (integer :tag "Number"))
