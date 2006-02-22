@@ -365,6 +365,48 @@ See
     (emacspeak-sudoku-speak-current-cell-value)))
 
 ;;}}}
+;;{{{ implement history stack:
+
+(require 'stack-f)
+(defvar emacspeak-sudoku-history-stack nil
+  "Holds history of interesting board configurations.")
+(make-variable-buffer-local 'emacspeak-sudoku-history-stack)
+
+(defun emacspeak-sudoku-history-push ()
+  "Push current state on to history stack."
+  (interactive)
+  (declare (special emacspeak-sudoku-history-stack
+                    current-board))
+  (unless emacspeak-sudoku-history-stack
+    (setq emacspeak-sudoku-history-stack
+          (stack-create)))
+  (stack-push emacspeak-sudoku-history-stack
+              current-board)
+  (emacspeak-auditory-icon 'mark-object)
+  (message "Saved state on history stack."))
+  
+(defun emacspeak-sudoku-history-pop ()
+  "Pop saved state off stack and redraw board."
+  (interactive)
+  (declare (special emacspeak-sudoku-history-stack
+                    start-board
+                    current-board))
+  (let ((original (sudoku-get-cell-from-point (point))))
+  (cond
+   ((stack-empty emacspeak-sudoku-history-stack) ;start board
+    (setq current-board start-board))
+   (t (setq current-board
+            (stack-pop emacspeak-sudoku-history-stack))))
+    (setq buffer-read-only nil)
+    (erase-buffer)
+    (sudoku-board-print current-board
+                        sudoku-onscreen-instructions)
+    (sudoku-goto-cell original)
+    (setq buffer-read-only t)
+    (emacspeak-auditory-icon 'yank-object)
+    (message "Reset board from history.")))
+
+;;}}}
 ;;{{{ setup keymap:
 
 (declaim (special sudoku-mode-map))
@@ -399,6 +441,8 @@ See
         ("\M-r" emacspeak-sudoku-erase-current-row)
         ("\M-c" emacspeak-sudoku-erase-current-column)
         (","  emacspeak-sudoku-board-summarizer)
+        ("m" emacspeak-sudoku-history-push)
+        ("M" emacspeak-sudoku-history-pop)
         )
       do
       (define-key  sudoku-mode-map (first k) (second k)))

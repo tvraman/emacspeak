@@ -87,6 +87,7 @@
 (require 'acss-structure)
 (require 'outloud-voices)
 (require 'dectalk-voices)
+(require 'string)
 ;;}}}
 ;;{{{ customization group 
 
@@ -127,93 +128,7 @@
       table))))
 
 ;;}}}
-;;{{{ elib:string:string-replace-match
 
-;;; copied over from elib/string.el so we have it 
-
-(defun elib-string-expand-newtext ()
-  (declare (special string newtext))
-  ;; Expand \& and \1..\9 (referring to STRING) in NEWTEXT.
-  ;; Uses match data and fluid vars `newtext', `string'.
-  ;; Note that in Emacs 18 match data are clipped to current buffer
-  ;; size...so the buffer should better not be smaller than STRING.
-  (let ((pos 0)
-        (len (length newtext))
-        (expanded-newtext ""))
-    (while (< pos len)
-      (setq expanded-newtext
-            (concat expanded-newtext
-                    (let ((c (aref newtext pos)))
-                      (if (= ?\\ c)
-                          (cond ((= ?\& (setq c (aref newtext
-                                                      (setq pos (1+ pos)))))
-                                 (substring string
-                                            (match-beginning 0)
-                                            (match-end 0)))
-                                ((and (>= c ?1) 
-                                      (<= c ?9))
-                                 ;; return empty string if N'th
-                                 ;; sub-regexp did not match:
-                                 (let ((n (- c ?0)))
-                                   (if (match-beginning n)
-                                       (substring string
-                                                  (match-beginning n)
-                                                  (match-end n))
-                                     "")))
-                                (t (char-to-string c)))
-                        (char-to-string c)))))
-      (setq pos (1+ pos)))
-    expanded-newtext))
-
-;; This function is a near-equivalent of the elisp function replace-match
-;; which work on strings instead of a buffer.  The FIXEDCASE parameter
-;; of replace-match is not implemented.
-
-(defun string-replace-match (regexp string newtext &optional literal global)
-  "Replace first match of REGEXP in STRING with NEWTEXT.
-If no match is found, nil is returned instead of the new string.
-
-Optional arg LITERAL non-nil means to take NEWTEXT literally. If LITERAL is 
-nil, character `\\' is the start of one of the following sequences:
-  \\\\   will be replaced by a single \\.
-  \\&   will be replaced by the text which matched the regexp.
-  \\N   where N is a number and 1 <= N <= 9, will be replaced
-       by the Nth subexpression in REGEXP. Subexpressions are grouped
-       inside \\( \\).
-
-Optional arg GLOBAL means to replace all matches instead of only the first."
-
-  (let ((data (match-data)))
-    (unwind-protect
-
-        (if global
-            (let ((result "") 
-                  (start 0)
-                  matchbeginning
-                  matchend)
-              (while (string-match regexp string start)
-                (setq matchbeginning (match-beginning 0)
-                      matchend (match-end 0)
-                      result (concat result
-                                     (substring string start matchbeginning)
-                                     (if literal
-                                         newtext
-                                       (elib-string-expand-newtext)))
-                      start matchend))
-
-              (if matchbeginning        ; matched at least once
-                  (concat result (substring string start))
-                nil))
-
-          ;; not GLOBAL
-          (if (not (string-match regexp string 0))
-              nil
-            (concat (substring string 0 (match-beginning 0))
-                    (if literal newtext (elib-string-expand-newtext))
-                    (substring string (match-end 0)))))
-      (store-match-data data))))
-
-;;}}}
 ;;{{{ map faces to voices 
 
 (defvar voice-setup-face-voice-table (make-hash-table)
