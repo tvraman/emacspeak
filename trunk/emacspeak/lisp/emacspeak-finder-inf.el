@@ -530,6 +530,12 @@
     ("outloud-voices.el"
         "Define various device independent voices in terms of OutLoud tags"
         (voice  personality  ibm viavoice outloud))
+    ("stack-f.el"
+        nil
+        (extensions  lisp))
+    ("string.el"
+        nil
+        (extensions  lisp))
     ("tapestry.el"
         nil
         nil)
