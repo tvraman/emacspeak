@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 760 commands.
+This chapter documents a total of 762 commands.
 
 @menu
 * cd-tool::                     
@@ -3463,6 +3463,14 @@ Erase current sub-square.
 
 @deffn {Interactive Command} emacspeak-sudoku-hint ()
 Provide hint for current cell.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-history-pop ()
+Pop saved state off stack and redraw board.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-sudoku-history-push ()
+Push current state on to history stack.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-sudoku-how-many-remaining ()
