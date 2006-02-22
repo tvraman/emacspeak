@@ -133,11 +133,12 @@ When that list is editted, @samp{voice-bolden} is arranged to be
 updated automatically.
 @end enumerate
 
-Other useful commands while  designing aural styles:
-@table @kbd
-@findex  emacspeak-wizards-generate-voice-sampler
+The following additional commands from module @xref{emacspeak-wizards}
+are  useful when designing aural styles.
+@enumerate
+
 @item 
-emacspeak-wizards-generate-voice-sampler
+emacspeak-wizards-generate-voice-sampler 
  
 Generate a buffer containing text that demonstrates the effect of
 various aural settings.
@@ -146,10 +147,10 @@ various aural settings.
 
 
 
-@findex  emacspeak-wizards-voice-sampler
+
 @item 
 emacspeak-wizards-voice-sampler
  
 
 Applied specified aural style to text in current region.
-@end table 
+@end enumerate
