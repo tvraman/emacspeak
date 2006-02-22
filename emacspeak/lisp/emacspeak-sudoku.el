@@ -50,8 +50,7 @@
 ;;{{{  Required modules
 ;;; Code:
 (require 'emacspeak-preamble)
-(require 'desktop)
-(require 'dired)
+(require 'stack-f)
 ;;}}}
 ;;{{{ Define additional speak commands:
 
@@ -367,7 +366,7 @@ See
 ;;}}}
 ;;{{{ implement history stack:
 
-(require 'stack-f)
+
 (defvar emacspeak-sudoku-history-stack nil
   "Holds history of interesting board configurations.")
 (make-variable-buffer-local 'emacspeak-sudoku-history-stack)
