@@ -403,7 +403,8 @@ See
     (sudoku-goto-cell original)
     (setq buffer-read-only t)
     (emacspeak-auditory-icon 'yank-object)
-    (message "Reset board from history.")))
+    (message "Reset board from history  %s squares remain."
+             (sudoku-remaining-cells current-board))))
 
 ;;}}}
 ;;{{{ setup keymap:
