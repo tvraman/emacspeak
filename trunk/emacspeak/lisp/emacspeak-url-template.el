@@ -792,6 +792,23 @@ from English to German.")
  #'(lambda (url)
      (emacspeak-w3-without-xsl
       (browse-url url))))
+
+
+(emacspeak-url-template-define
+ "Google Recent News Search"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&scoring=d"
+ (list "Search news for: ")
+ #'(lambda nil
+     (or 
+      (search-forward "Sorted by" (point-max) 'no-error)
+      (search-forward "Top Stories" (point-max) 'no-error))
+     (forward-line 4)
+     (emacspeak-speak-line))
+ "Search Google news."
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (browse-url url))))
+
 (emacspeak-url-template-define
  "Google Transcoder"
  "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
