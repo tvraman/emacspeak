@@ -357,6 +357,10 @@ See
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
+(defadvice sudoku-new (after emacspeak pre act comp)
+  "Reset history stack."
+  (setq emacspeak-sudoku-history-stack nil))
+
 (defadvice sudoku-restart (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
