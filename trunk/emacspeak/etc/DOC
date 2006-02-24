@@ -2824,6 +2824,14 @@ s   Sub-square Distribution.
 
 ------------------------------------------------------------
 
+** emacspeak-sudoku-history-pop Pop saved state off stack and redraw board. 
+
+------------------------------------------------------------
+
+** emacspeak-sudoku-history-push Push current state on to history stack. 
+
+------------------------------------------------------------
+
 ** emacspeak-sudoku-how-many-remaining Speak number of remaining squares to fill. 
 
 ------------------------------------------------------------
