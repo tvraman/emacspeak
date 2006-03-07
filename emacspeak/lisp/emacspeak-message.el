@@ -77,6 +77,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
 (defadvice message-goto-fcc (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (interactive-p)
@@ -153,6 +154,13 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
+(add-hook 'message-mode-hook
+          (lambda ()
+            (emacspeak-auditory-icon 'open-object)
+            (message "Starting message %s ... done"
+                     (buffer-name))))
+
 ;;}}}
 (provide  'emacspeak-message)
 ;;{{{  emacs local variables 
