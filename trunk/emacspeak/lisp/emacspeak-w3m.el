@@ -853,9 +853,10 @@ With prefix argument makes this transformation persistent."
   "Image personality.")
 
 (defadvice w3m-mode (after emacspeak pre act comp)
-  "Set punctuation mode."
+  "Set punctuation mode and refresh punctuations."
   (declare (special dtk-punctuation-mode))
   (setq dtk-punctuation-mode 'some)
+  (emacspeak-pronounce-refresh-pronunciations)
   (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
