@@ -5346,12 +5346,12 @@ Voice-lock-mode is a minor mode that causes your comments to be
 spoken in one personality, strings in another, reserved words in another,
 documentation strings in another, and so on.
 
-Comments will be spoken in `voice-lock-comment-personality'.
-Strings will be spoken in `voice-lock-string-personality'.
-Doc strings will be spoken in `voice-lock-doc-string-personality'.
+Comments will be spoken in `emacspeak-voice-lock-comment-personality'.
+Strings will be spoken in `emacspeak-voice-lock-string-personality'.
+Doc strings will be spoken in `emacspeak-voice-lock-doc-string-personality'.
 Function and variable names (in their defining forms) will be
- spoken in `voice-lock-function-name-personality'.
-Reserved words will be spoken in `voice-lock-keyword-personality'.
+ spoken in `emacspeak-voice-lock-function-name-personality'.
+Reserved words will be spoken in `emacspeak-voice-lock-keyword-personality'.
 
 To make the text you type be voiceified, use M-x voice-lock-mode.
 When this minor mode is on, the voices of the current line are
@@ -5363,9 +5363,16 @@ of voice names.  This module maps standard "personality"
 names to these pre-defined voices.  It does this via special
 form def-voice-font which takes a personality name, a voice
 name and a face name to set up the mapping between face and
-personality, and personality and voice.  See many instances
-of this usage in this module.  This special form is available
-for use from other emacspeak modules.
+personality, and personality and voice.  
+Newer Emacspeak modules should use voice-setup-add-map when
+defining face->personality mappings.
+Older code calls def-voice-font directly, but over time those
+calls will be changed to the more succinct form provided by
+voice-setup-add-map. For use from other moduels, also see
+function voice-setup-map-face which is useful when mapping a
+single face.
+Both voice-setup-add-map and voice-setup-map-face call
+special form def-voice-font.
 
 Special form def-voice-font sets up the personality name to
 be available via custom.  new voices can be defined using CSS
