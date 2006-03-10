@@ -804,7 +804,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google Mobile Search"
- "http://www.google.com/xhtml?q=%s&site=search&mrestrict=xhtml"
+ "http://www.google.com/xhtml?q=%s&site=search&mrestrict=xhtml&num=25"
  (list "Search For: ")
  #'(lambda ()
      (re-search-forward "^Results" nil t)
