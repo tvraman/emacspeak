@@ -830,6 +830,15 @@ from English to German.")
      (emacspeak-rss-display url 'speak)))
 
 (emacspeak-url-template-define
+ "Google Atom News"
+ "http://news.google.com/news?ned=us&topic=%s&output=atom"
+ (list "Topic Code: ")
+ nil
+ "Display specified news feed."
+ #'(lambda (url)
+     (emacspeak-atom-display url 'speak)))
+
+(emacspeak-url-template-define
  "Google Feeds"
  "http://news.google.com/intl/en_us/news_feed_terms.html"
  nil
