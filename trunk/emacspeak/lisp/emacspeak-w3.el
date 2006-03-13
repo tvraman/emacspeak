@@ -549,12 +549,16 @@ even if one is already defined."
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
   (interactive)
+  (let ((title (buffer-name)))
   (condition-case nil
       (progn
-        (search-forward (buffer-name))
+        (goto-char (point-min))
+        (goto-char
+         (search-forward
+          (substring title 0 (min 10 (length title)))))
         (emacspeak-speak-line)
         (emacspeak-auditory-icon 'large-movement))
-    (error "Title not found in body.")))
+    (error "Title not found in body."))))
 
 ;;}}}
 ;;{{{ jump to submit button
