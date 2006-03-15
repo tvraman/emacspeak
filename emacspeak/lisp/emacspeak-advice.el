@@ -3049,6 +3049,17 @@ Variable mark-even-if-inactive is set true ."
   (when (interactive-p)
     (emacspeak-auditory-icon 'push-button)))
 ;;}}}
+;;{{{ silence whitespace cleanup:
+
+
+(defadvice whitespace-cleanup (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
