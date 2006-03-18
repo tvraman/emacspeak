@@ -153,13 +153,13 @@ text-to-speech program.
 This means that you can run Emacspeak on any computer that has sound,
 as do most contemporary personal computers.  You can try out Emacspeak
 without first investing in special hardware.  However, it is also
-worth bearing in mind that at the time I am writing this, in
-March 2006, `eflite' and `espeakf' have different virtues.  Neither
-is as good as it might be.  For example, my installation of `espeakf'
-sometimes restarts its speaking of punctuation after I shift back to
-a buffer, but not always.  On the other hand `espeakf' has voices,
-which I really like.  All in all, the two software synthesizers are
-good enough.
+worth bearing in mind that at the time I am writing this, in May 2005,
+`eflite' and `espeakf' have different virtues.  Neither is as good as
+it might be.  For example, my installation of `espeakf' sometimes
+restarts its speaking of punctuation after I shift back to a buffer,
+but not always.  On the other hand `espeakf' has voices, which I
+really like.  All in all, the two software synthesizers are good
+enough.
 
 
 File: introducing-emacspeak.info,  Node: How to Introduce Emacspeak,  Next: Free Books,  Prev: Questions,  Up: Top
@@ -700,7 +700,7 @@ and you can download it using W3M mode by positioning point on the
 name and pressing the return key.  (There are other ways of
 downloading it, too; this is one of them.)
 
-As I write this in March 2006, the Gutenberg Project index is 1.8
+As I write this in March 2006, the Gutenberg Project index is 2
 megabytes long and lists more than ten thousand books, documents, and
 audio recordings.  I saved my copy to a file, since I dislike long
 downloads.
@@ -928,7 +928,7 @@ File: introducing-emacspeak.info,  Node: Software Synthesizers,  Next: Installat
 Two Software text-to-speech Synthesizers
 ****************************************
 
-At the time I write this in March 2006, I am running two instances of
+At the time I write this in May 2005, I am running two instances of
 Emacspeak, one using the `eflite' software text-to-speech synthesizer
 and the other using the `espeakf' software text-to-speech synthesizer.
 
@@ -1193,18 +1193,18 @@ Tag Table:
 Node: Top753
 Node: This Essay1830
 Node: Questions3992
-Node: How to Introduce Emacspeak6196
-Node: Info and Help8225
-Node: Movement10678
-Node: Keybindings11873
-Node: X Windows Keybindings14428
-Node: Speech Rate15503
-Node: Basic Commands Reference16508
-Node: Characteristics17842
-Node: Emacs manual19715
-Node: Free Books26169
-Node: An Initialization File28231
-Node: Software Synthesizers35403
-Node: Installation36870
+Node: How to Introduce Emacspeak6194
+Node: Info and Help8223
+Node: Movement10676
+Node: Keybindings11871
+Node: X Windows Keybindings14426
+Node: Speech Rate15501
+Node: Basic Commands Reference16506
+Node: Characteristics17840
+Node: Emacs manual19713
+Node: Free Books26167
+Node: An Initialization File28227
+Node: Software Synthesizers35399
+Node: Installation36864
 
 End Tag Table
