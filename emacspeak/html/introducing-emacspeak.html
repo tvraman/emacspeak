@@ -7,7 +7,7 @@
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
-Copyright (C) 2003, 2005 Robert J. Chassell
+Copyright (C) 2003, 2005, 2006 Robert J. Chassell
 
 In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
@@ -16,7 +16,7 @@ Emacspeak.
 In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-Last updated on: 2005 May 17
+Last updated on: 2006 Mar 18
 
      This essay uses a verbatim license, since it is a statement of my
      recommendations.
@@ -51,7 +51,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 
 <h2 class="unnumbered">Introducing Emacspeak</h2>
 
-<p>Copyright &copy; 2003, 2005 Robert J. Chassell
+<p>Copyright &copy; 2003, 2005, 2006 Robert J. Chassell
 
    <p>In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
@@ -60,7 +60,7 @@ Emacspeak.
    <p>In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-   <p>Last updated on: 2005 May 17
+   <p>Last updated on: 2006 Mar 18
 
 <!-- How should I distribute this: under an invariant license or under -->
 <!-- the GNU GPL or under the GNU Free Documentation License? -->
@@ -150,7 +150,7 @@ Gutenberg Project.
 
      <p>A discussion of <code>eflite</code> and <code>espeakf</code>.  When I first wrote
 this in April 2003, I had problems with them.  Now, in
-May 2005, they are good enough.
+March 2006, they are good enough.
 
      <li>Emacspeak Installation
 
@@ -207,7 +207,7 @@ text-to-speech program.
 as do most contemporary personal computers.  You can try out Emacspeak
 without first investing in special hardware.  However, it is also
 worth bearing in mind that at the time I am writing this, in
-May 2005, <code>eflite</code> and <code>espeakf</code> have different
+March 2006, <code>eflite</code> and <code>espeakf</code> have different
 virtues.  Neither is as good as it might be.  For example, my
 installation of <code>espeakf</code> sometimes restarts its speaking of
 punctuation after I shift back to a buffer, but not always.  On the
@@ -804,7 +804,7 @@ type it.  I hate typing and avoid it as much as possible.)
 name and pressing the return key.  (There are other ways of
 downloading it, too; this is one of them.)
 
-   <p>As I write this in May 2005, the Gutenberg Project index
+   <p>As I write this in March 2006, the Gutenberg Project index
 is 1.8 megabytes long and lists more than ten thousand books,
 documents, and audio recordings.  I saved my copy to a file, since I
 dislike long downloads.
@@ -996,12 +996,15 @@ file, write the expression as:
      ;;  Depending on how you set up Emacspeak, you may not need to
      ;;    configure your load-path manually at all.
      ;; (setq load-path (cons "/usr/local/src/emacspeak/lisp/" load-path))
+     ;;  A more modern and elegant way to set your load-path is
+     ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+     ;;  The older method reminds you what `cons' does; the newer is simpler.
      
      ;; Turn on global-font-lock for the voice lock engine
      (load "font-lock")
      (global-font-lock-mode 1)
      (setq font-lock-global-modes t)
-     (setq global-voice-lock-mode t)
+     ;; (setq global-voice-lock-mode t) ; not needed and obsolete in Emacs 21
      
      ;; Speak time in a reasonable format: `C-e t'
      (setq emacspeak-speak-time-format-string
@@ -1020,7 +1023,9 @@ file, write the expression as:
      ;;     In general, I prefer 'none   but then you will not hear
      ;;     braces and brackets spoken.  To listen to this ~/.emacs
      ;;     file, you need to set the mode to 'all.
-     ;;     That is best done using the `C-e d p' keybinding.
+     ;;    That is best done using the `C-e d p' keybinding.
+     ;;     With an interactive prefix argument, `C-u C-e d p',
+     ;;     set the global default value.
      ;; In this sample, I have set the mode to 'none.
      (dtk-set-punctuations 'none t)
      
@@ -1037,7 +1042,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <h2 class="unnumbered">Two Software text-to-speech Synthesizers</h2>
 
-<p>At the time I write this in May 2005, I am running two instances of
+<p>At the time I write this in March 2006, I am running two instances of
 Emacspeak, one using the <code>eflite</code> software text-to-speech
 synthesizer and the other using the <code>espeakf</code> software
 text-to-speech synthesizer.
@@ -1225,6 +1230,7 @@ Control-e</kbd>:
      
      ## based on
      #$Id$
+     # with minor changes, 2006 Mar 18
      
      if [ -f $HOME/.emacs ]
      then
@@ -1263,6 +1269,7 @@ Control-e</kbd>:
      
      ## based on
      #$Id$
+     # with minor changes, 2006 Mar 18
      
      if [ -f $HOME/.emacs ]
         then

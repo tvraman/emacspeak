@@ -1,7 +1,7 @@
 This is introducing-emacspeak.info, produced by makeinfo version 4.8
 from introducing-emacspeak.texi.
 
-Copyright (C) 2003, 2005 Robert J. Chassell
+Copyright (C) 2003, 2005, 2006 Robert J. Chassell
 
 In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
@@ -10,7 +10,7 @@ Emacspeak.
 In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-Last updated on: 2005 May 17
+Last updated on: 2006 Mar 18
 
      This essay uses a verbatim license, since it is a statement of my
      recommendations.
@@ -26,7 +26,7 @@ File: introducing-emacspeak.info,  Node: Top,  Next: This Essay,  Prev: (dir),  
 Introducing Emacspeak
 *********************
 
-Copyright (C) 2003, 2005 Robert J. Chassell
+Copyright (C) 2003, 2005, 2006 Robert J. Chassell
 
 In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
@@ -35,7 +35,7 @@ Emacspeak.
 In addition, the essay contains some comments on two software
 text-to-speech synthesizers and one method of installation.
 
-Last updated on: 2005 May 17
+Last updated on: 2006 Mar 18
 
      This essay uses a verbatim license, since it is a statement of my
      recommendations.
@@ -102,8 +102,8 @@ synthesizers and about one method of installation.
   5. Two software text-to-speech synthesizers
 
      A discussion of `eflite' and `espeakf'.  When I first wrote this
-     in April 2003, I had problems with them.  Now, in May 2005, they
-     are good enough.
+     in April 2003, I had problems with them.  Now, in March 2006,
+     they are good enough.
 
   6. Emacspeak Installation
 
@@ -154,8 +154,8 @@ This means that you can run Emacspeak on any computer that has sound,
 as do most contemporary personal computers.  You can try out Emacspeak
 without first investing in special hardware.  However, it is also
 worth bearing in mind that at the time I am writing this, in
-May 2005, `eflite' and `espeakf' have different virtues.  Neither is
-as good as it might be.  For example, my installation of `espeakf'
+March 2006, `eflite' and `espeakf' have different virtues.  Neither
+is as good as it might be.  For example, my installation of `espeakf'
 sometimes restarts its speaking of punctuation after I shift back to
 a buffer, but not always.  On the other hand `espeakf' has voices,
 which I really like.  All in all, the two software synthesizers are
@@ -700,7 +700,7 @@ and you can download it using W3M mode by positioning point on the
 name and pressing the return key.  (There are other ways of
 downloading it, too; this is one of them.)
 
-As I write this in May 2005, the Gutenberg Project index is 1.8
+As I write this in March 2006, the Gutenberg Project index is 1.8
 megabytes long and lists more than ten thousand books, documents, and
 audio recordings.  I saved my copy to a file, since I dislike long
 downloads.
@@ -887,12 +887,15 @@ Here is the file:
      ;;  Depending on how you set up Emacspeak, you may not need to
      ;;    configure your load-path manually at all.
      ;; (setq load-path (cons "/usr/local/src/emacspeak/lisp/" load-path))
+     ;;  A more modern and elegant way to set your load-path is
+     ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+     ;;  The older method reminds you what `cons' does; the newer is simpler.
 
      ;; Turn on global-font-lock for the voice lock engine
      (load "font-lock")
      (global-font-lock-mode 1)
      (setq font-lock-global-modes t)
-     (setq global-voice-lock-mode t)
+     ;; (setq global-voice-lock-mode t) ; not needed and obsolete in Emacs 21
 
      ;; Speak time in a reasonable format: `C-e t'
      (setq emacspeak-speak-time-format-string
@@ -911,7 +914,9 @@ Here is the file:
      ;;     In general, I prefer 'none   but then you will not hear
      ;;     braces and brackets spoken.  To listen to this ~/.emacs
      ;;     file, you need to set the mode to 'all.
-     ;;     That is best done using the `C-e d p' keybinding.
+     ;;    That is best done using the `C-e d p' keybinding.
+     ;;     With an interactive prefix argument, `C-u C-e d p',
+     ;;     set the global default value.
      ;; In this sample, I have set the mode to 'none.
      (dtk-set-punctuations 'none t)
 
@@ -923,7 +928,7 @@ File: introducing-emacspeak.info,  Node: Software Synthesizers,  Next: Installat
 Two Software text-to-speech Synthesizers
 ****************************************
 
-At the time I write this in May 2005, I am running two instances of
+At the time I write this in March 2006, I am running two instances of
 Emacspeak, one using the `eflite' software text-to-speech synthesizer
 and the other using the `espeakf' software text-to-speech synthesizer.
 
@@ -1103,6 +1108,7 @@ First, the `/usr/local/bin/emacspeak-eflite' script.
 
      ## based on
      #$Id$
+     # with minor changes, 2006 Mar 18
 
      if [ -f $HOME/.emacs ]
      then
@@ -1141,6 +1147,7 @@ Second, the `/usr/local/bin/emacspeak-espeakf' script:
 
      ## based on
      #$Id$
+     # with minor changes, 2006 Mar 18
 
      if [ -f $HOME/.emacs ]
         then
@@ -1183,21 +1190,21 @@ in a shell as user `root'.
 
 
 Tag Table:
-Node: Top747
-Node: This Essay1818
-Node: Questions3978
-Node: How to Introduce Emacspeak6180
-Node: Info and Help8209
-Node: Movement10662
-Node: Keybindings11857
-Node: X Windows Keybindings14412
-Node: Speech Rate15487
-Node: Basic Commands Reference16492
-Node: Characteristics17826
-Node: Emacs manual19699
-Node: Free Books26153
-Node: An Initialization File28213
-Node: Software Synthesizers35029
-Node: Installation36494
+Node: Top753
+Node: This Essay1830
+Node: Questions3992
+Node: How to Introduce Emacspeak6196
+Node: Info and Help8225
+Node: Movement10678
+Node: Keybindings11873
+Node: X Windows Keybindings14428
+Node: Speech Rate15503
+Node: Basic Commands Reference16508
+Node: Characteristics17842
+Node: Emacs manual19715
+Node: Free Books26169
+Node: An Initialization File28231
+Node: Software Synthesizers35403
+Node: Installation36870
 
 End Tag Table
