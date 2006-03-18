@@ -6,8 +6,8 @@
 @finalout
 @comment %**end of header
 
-@set update-month May 2005
-@set update-date 2005 May 17
+@set update-month March 2006
+@set update-date 2006 Mar 18
 
 @ignore
  ## Summary of shell commands to create various output formats:
@@ -60,16 +60,16 @@
   cvs -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak -f -z6 update
 
   cvs -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
-    ci -m "Update to May 2005; minor changes" info/introducing-emacspeak.texi
+    ci -m "Update on March 2006; minor changes" info/introducing-emacspeak.texi
   cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
-    ci -m "Update to May 2005; minor changes" info/introducing-emacspeak.info
+    ci -m "Update on March 2006; minor changes" info/introducing-emacspeak.info
   cvs  -d:ext:rjc5@cvs.sourceforge.net:/cvsroot/emacspeak/ \
-    ci -m "Update to May 2005; minor changes" html/introducing-emacspeak.html
+    ci -m "Update on March 2006; minor changes" html/introducing-emacspeak.html
 
 @end ignore
 
 @copying
-Copyright @copyright{} 2003, 2005 Robert J. Chassell
+Copyright @copyright{} 2003, 2005, 2006 Robert J. Chassell
 
 In this essay, I suggest how to introduce Emacspeak to someone new,
 and I discuss some of the notions behind GNU Emacs, which underlies
@@ -1060,12 +1060,15 @@ occurrences of `^(def'."
 ;;  Depending on how you set up Emacspeak, you may not need to
 ;;    configure your load-path manually at all.
 ;; (setq load-path (cons "/usr/local/src/emacspeak/lisp/" load-path))
+;;  A more modern and elegant way to set your load-path is
+;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+;;  The older method reminds you what `cons' does; the newer is simpler.
 
 ;; Turn on global-font-lock for the voice lock engine
 (load "font-lock")
 (global-font-lock-mode 1)
 (setq font-lock-global-modes t)
-(setq global-voice-lock-mode t)
+;; (setq global-voice-lock-mode t) ; not needed and obsolete in Emacs 21
 @end group
 
 @group
@@ -1086,7 +1089,9 @@ occurrences of `^(def'."
 ;;     In general, I prefer 'none   but then you will not hear
 ;;     braces and brackets spoken.  To listen to this ~/.emacs
 ;;     file, you need to set the mode to 'all.
-;;     That is best done using the `C-e d p' keybinding.
+;;    That is best done using the `C-e d p' keybinding.
+;;     With an interactive prefix argument, `C-u C-e d p', 
+;;     set the global default value.
 ;; In this sample, I have set the mode to 'none.
 (dtk-set-punctuations 'none t)
 
@@ -1340,6 +1345,7 @@ First, the @file{/usr/local/bin/emacspeak-eflite} script.
 
 ## based on
 #$Id$
+# with minor changes, 2006 Mar 18
 
 if [ -f $HOME/.emacs ]
 then
@@ -1388,6 +1394,7 @@ Second, the @file{/usr/local/bin/emacspeak-espeakf} script:
 
 ## based on
 #$Id$
+# with minor changes, 2006 Mar 18
 
 if [ -f $HOME/.emacs ]
    then
