@@ -728,7 +728,7 @@ See /etc/sudoers for how to set up sudo."
             (start-process "cvs" "*cvs-emacspeak*" "cvs"
                            (format "-d%s"
                                    emacspeak-cvs-anonymous-cvsroot)
-                           "-z3 -q"
+                           "-z3" "-q"
                            "update"
                            "-d")))
      (t
@@ -752,6 +752,12 @@ Typically %s is replaced by project name.")
   ":pserver:anoncvs@subversions.gnu.org:/cvsroot/%s"
   "CVSROOT pattern for project CVS repository at
 GNU.
+Typically %s is replaced by project name.")
+
+(defvar emacspeak-cvs-berlios-anonymous-cvsroot-pattern
+  ":pserver:anonymous@cvs.%s.berlios.de:/cvsroot/%s"
+  "CVSROOT pattern for project CVS repository at
+berlios.de.
 Typically %s is replaced by project name.")
 
 (defcustom emacspeak-cvs-local-directory-pattern
@@ -795,7 +801,7 @@ Typically %s is replaced by project name.")
               (start-process "cvs" "*cvs-download*" "cvs"
                              (format "-d%s"
                                      cvsroot)
-                             "-z3 -q"
+                             "-z3" "-q"
                              "update"
                              "-d")))
        (t
@@ -803,7 +809,7 @@ Typically %s is replaced by project name.")
               (start-process "cvs" "*cvs-download*" "cvs"
                              (format "-d%s"
                                      cvsroot)
-                             "-z3 -q"
+                             "-z3" "-q"
                              "co"
                              project))))
       (set-process-sentinel cvs-process
@@ -844,7 +850,7 @@ Typically %s is replaced by project name.")
               (start-process "cvs" "*cvs-download*" "cvs"
                              (format "-d%s"
                                      cvsroot)
-                             "-z3 -q"
+                             "-z3" "-q"
                              "update"
                              "-d")))
        (t
@@ -852,7 +858,56 @@ Typically %s is replaced by project name.")
               (start-process "cvs" "*cvs-download*" "cvs"
                              (format "-d%s"
                                      cvsroot)
-                             "-z3 -q"
+                             "-z3" "-q"
+                             "co"
+                             project))))
+      (set-process-sentinel cvs-process
+                            'emacspeak-cvs-done-alert))))
+;;;###autoload
+(defun emacspeak-cvs-berlios-get-project-snapshot  (project)
+  "Grab CVS snapshot  of specified project from berlios.de."
+  (interactive
+   (list
+    (read-string "Project name: ")))
+  (declare (special emacspeak-cvs-local-directory-pattern
+                    emacspeak-cvs-berlios-anonymous-cvsroot-pattern))
+  (let ((cvsroot
+         (format emacspeak-cvs-berlios-anonymous-cvsroot-pattern
+                 project project))
+        (dir (expand-file-name
+              (format emacspeak-cvs-local-directory-pattern
+                      project))))
+    (unless (file-exists-p dir)
+      (make-directory dir 'parents))
+    (cd dir)
+    (let ((cvs-process nil))
+      (setq cvs-process
+            (start-process "cvs" "*cvs-download*" "cvs"
+                           (format "-d%s"
+                                   cvsroot)
+                           "login"))
+      (accept-process-output cvs-process)
+      (process-send-string cvs-process "\n\n\n")
+      (cond
+       ((file-exists-p
+         (expand-file-name
+          (format "%s/CVS" project)
+          dir))
+        (cd (expand-file-name project
+                              dir))
+        (setq cvs-process
+              (start-process "cvs" "*cvs-download*" "cvs"
+                             (format "-d%s"
+                                     cvsroot)
+                             "-z3" "-q"
+                             "update"
+                             "-d")))
+       (t
+        (setq cvs-process
+              (start-process "cvs" "*cvs-download*" "cvs"
+                             (format "-d%s"
+                                     cvsroot)
+                             "-z3" "-q"
                              "co"
                              project))))
       (set-process-sentinel cvs-process
