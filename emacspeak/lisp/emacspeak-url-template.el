@@ -1798,10 +1798,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  (list "Zip: ")
  nil
  "Weather forecast from weather underground mobile."
- #'(lambda (url)
-     (emacspeak-w3-extract-tables-by-match-list
-      (list "Today" "Observed" "Tonight")
-      url 'speak)))
+ )
 
 ;;}}}
 ;;{{{ airport conditions:
