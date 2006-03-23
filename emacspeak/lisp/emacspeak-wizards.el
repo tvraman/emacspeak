@@ -819,7 +819,7 @@ Ask for module name if prefix argument is given"
 								   cvsroot)
 						   "-z3" "-q"
 						   "co"
-						   project))))
+						   module))))
 	(set-process-sentinel cvs-process
 						  'emacspeak-cvs-done-alert)))
 
