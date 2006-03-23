@@ -1,23 +1,23 @@
 ;;; emacspeak-gud.el --- Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB
 ;;; $Id$
-;;; $Author$ 
-;;; DescriptionEmacspeak extensions for gud interaction 
-;;; Keywords:emacspeak, audio interface to emacs debuggers 
-;;{{{  LCD Archive entry: 
+;;; $Author$
+;;; DescriptionEmacspeak extensions for gud interaction
+;;; Keywords:emacspeak, audio interface to emacs debuggers
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
-;;; Copyright (c) 1995 by T. V. Raman 
-;;; All Rights Reserved. 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
+;;; Copyright (c) 1995 by T. V. Raman
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -39,7 +39,7 @@
 
 ;;{{{  Introduction:
 
-;;; Provide additional advice to ease debugger interaction with gud 
+;;; Provide additional advice to ease debugger interaction with gud
 
 ;;}}}
 ;;{{{ requires
@@ -50,7 +50,8 @@
 
 (defadvice gud-display-line (after emacspeak pre act )
   "Speak the error line"
-  (let ((marker overlay-arrow-position ))
+  (declare (special gud-overlay-arrow-position))
+  (let ((marker gud-overlay-arrow-position ))
     (emacspeak-auditory-icon 'large-movement)
     (and marker
          (marker-buffer marker )
@@ -60,16 +61,42 @@
            (goto-char (marker-position marker ))
            (emacspeak-speak-line )))))
 
+(loop for f in
+      '(
+        gud-break
+        gud-tbreak
+
+        gud-remove
+        gud-step
+        gud-stepi
+        gud-next
+        gud-nexti
+        gud-cont
+        gud-finish
+
+        gud-jump
+        )
+do
+(eval
+ `(defadvice ,f (around emacspeak pre act comp)
+    "Silence minibuffer message that echoes command."
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      ad-return-value))))
+
+
+(defadvice
+
 ;;}}}
 ;;{{{ Advise interactive commands:
 
 ;;}}}
 (provide  'emacspeak-gud)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
