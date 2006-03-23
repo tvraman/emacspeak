@@ -85,7 +85,7 @@ do
       ad-return-value))))
 
 
-(defadvice
+
 
 ;;}}}
 ;;{{{ Advise interactive commands:
