@@ -677,7 +677,7 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google Reader"
- "http://www.google.com/reader/atom/feed/%s"
+ "http://www.google.com/reader/public/atom/feed/%s"
  (list "Feed: ")
  nil
  "View feed via Google Reader."
