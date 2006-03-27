@@ -1,23 +1,23 @@
 ;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -- maintain a diary and appointments
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  Emacspeak extensions to speech enable the calendar.
 ;;; Keywords: Emacspeak, Calendar, Spoken Output
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -40,7 +40,7 @@
 
 ;;; This module speech enables the Emacs Calendar.
 ;;; Speech enabling is not the same as speaking the screen:
-;;; This is an excellent example of this. 
+;;; This is an excellent example of this.
 
 ;;}}}
 ;;{{{ required modules
@@ -64,7 +64,7 @@
   :group 'emacspeak-calendar)
 
 ;;}}}
-;;{{{  functions: 
+;;{{{  functions:
 (defun emacspeak-calendar-sort-diary-entries ()
   "Sort entries in diary entries list."
   (declare (special diary-entries-list))
@@ -92,7 +92,7 @@
     (emacspeak-dtk-sync)
     (cond
      ((calendar-entry-marked-p)
-      (dtk-speak-using-voice emacspeak-calendar-mark-personality 
+      (dtk-speak-using-voice emacspeak-calendar-mark-personality
                              (calendar-date-string
                               (calendar-cursor-to-date t ) nil  nil ))
       (dtk-force))
@@ -144,11 +144,11 @@
            (put-text-property  (1-(point)) (1+ (point))
                                'personality   emacspeak-calendar-mark-personality ))))))
 
-(defvar emacspeak-calendar-mode-line-format 
+(defvar emacspeak-calendar-mode-line-format
   '((calendar-date-string (calendar-current-date))  "Calendar")
   "Mode line format for calendar  with Emacspeak.")
 
-(declaim (special calendar-mode-line-format))  
+(declaim (special calendar-mode-line-format))
 (setq calendar-mode-line-format
       emacspeak-calendar-mode-line-format)
 
@@ -196,7 +196,7 @@
   (when (interactive-p)
     (emacspeak-speak-calendar-date )
     (emacspeak-auditory-icon 'large-movement)))
-  
+
 (defadvice calendar-backward-month (after emacspeak pre act)
   "Speak the date. "
   (when (interactive-p)
@@ -279,7 +279,7 @@
         (setq start cursor
               end mark))
       (emacspeak-auditory-icon 'open-object)
-      (message "Block diary entry from  %s to %s" 
+      (message "Block diary entry from  %s to %s"
                (calendar-date-string start nil t)
                (calendar-date-string end nil t)))))
 
@@ -318,14 +318,14 @@
   "Speak the line. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (message "Weekly diary entry for %s" 
+    (message "Weekly diary entry for %s"
              (calendar-day-name (calendar-cursor-to-date t)))))
 
 (defadvice insert-yearly-diary-entry (before emacspeak pre act)
   "Speak the line. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (message "Yearly diary entry for %s %s" 
+    (message "Yearly diary entry for %s %s"
              (calendar-month-name(first (calendar-cursor-to-date t)))
              (second (calendar-cursor-to-date t)))))
 
@@ -333,7 +333,7 @@
   "Speak the line. "
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (message "Monthly diary entry for %s" 
+    (message "Monthly diary entry for %s"
              (second (calendar-cursor-to-date t)))))
 
 (defadvice calendar-cursor-holidays (after emacspeak pre act comp)
@@ -347,25 +347,26 @@
   (emacspeak-keymap-remove-emacspeak-edit-commands
    calendar-mode-map))
 
-(defun emacspeak-calendar-keys()
+(defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"
   (declare (special calendar-buffer calendar-mode-map emacspeak-prefix ))
   (save-excursion
     (set-buffer calendar-buffer)
     (local-unset-key emacspeak-prefix)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-speak-calendar-date)
-    (define-key calendar-mode-map  "\C-ee" 'calendar-end-of-week))
-  )
-(add-hook 'initial-calendar-window-hook 'emacspeak-calendar-keys t)
-(add-hook 'initial-calendar-window-hook 
-          (function (lambda () 
-                      (dtk-set-punctuations 'some)
-                      (emacspeak-dtk-sync))))
+    (define-key calendar-mode-map  "\C-ee"
+      'calendar-end-of-week))
+  (add-hook 'initial-calendar-window-hook
+          (function (lambda ()
+                      ))))
+
+(add-hook 'initial-calendar-window-hook 'emacspeak-calendar-setup t)
+
 
 ;;}}}
 ;;{{{  Appointments:
 
-;;{{{ take over and speak the appointment 
+;;{{{ take over and speak the appointment
 
 ;;; For the present, we just take over and speak the appointment.
 (eval-when (compile)
@@ -408,12 +409,12 @@
              (message  "No appointments are currently displayed")
            (dtk-speak (buffer-string )))))
      (t (message "You have no appointments "))))
-  (emacspeak-dtk-sync))    
+  (emacspeak-dtk-sync))
 
 ;;}}}
 
                                         ; (defadvice appt-disp-window (before emacspeak activate compile)
-                                        ;   "Speak the appointment." 
+                                        ;   "Speak the appointment."
                                         ;   (let ((emacspeak-speak-messages-should-pause-ongoing-speech nil))
                                         ;     (dtk-pause t)
                                         ;     (emacspeak-auditory-icon 'alarm)
@@ -437,7 +438,6 @@
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
-
