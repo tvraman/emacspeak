@@ -72,10 +72,22 @@ View an Atom feed as clean HTML
       </a>
     </li>
   </xsl:template>
-  <xsl:template match="atom:content|atom:summary|w3a:content|w3a:summary">
-    <!-- hard-wiring disable-output-escaping for now 
-         should be made conditional on @mode=escaped -->
+  <xsl:template
+      match="atom:content|atom:summary|w3a:content|w3a:summary">
+    <xsl:choose>
+      <xsl:when test="@type='application/xhtml+xml'">
     <xsl:copy-of select="node()"/>
+      </xsl:when>
+<xsl:when test="@type='html' or @type='text/html'">
+<xsl:value-of disable-output-escaping="yes"
+    select="node()"/>
+</xsl:when>
+<!-- for legacy atom 0.3-->
+<xsl:when test="@mode='escaped'">
+<xsl:value-of disable-output-escaping="yes"
+    select="node()"/>
+</xsl:when>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="xhtml:div">
     <xsl:copy/>
