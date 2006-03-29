@@ -1844,12 +1844,13 @@ Meerkat realy needs an xml-rpc method for getting this.")
                 (emacspeak-url-template-post-action ut))
       (add-hook 'emacspeak-w3-post-process-hook
                 #'(lambda ()
-                    (declare (special
+                    (declare (special emacspeak-w3-post-process-hook
                               emacspeak-url-template-current-ut))
                     (rename-buffer
                      (downcase
                       (mapconcat #'identity emacspeak-url-template-current-ut ": "))
-                     'unique))))
+                     'unique)
+                    (setq emacspeak-w3-post-process-hook nil))))
     (kill-new url)
     (funcall fetcher   url)))
 
