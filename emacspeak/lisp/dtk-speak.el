@@ -58,6 +58,7 @@
 (require 'dtk-interp)
 (require 'dectalk-voices)
 (require 'outloud-voices)
+(require 'multispeech-voices)
 
 ;;}}}
 ;;{{{  user customizations:
@@ -111,6 +112,7 @@ Possible choices at present:
 dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
+multispeech For Multilingual speech server
 The default is dtk-exp.")
 
 (defvar dtk-quiet nil
@@ -1429,6 +1431,8 @@ This is setup on a per engine basis.")
   (cond
    ((string-match "outloud" tts-name)
     (outloud-configure-tts))
+   ((string-match "multispeech" tts-name)
+    (multispeech-configure-tts))
    ((string-match "dtk-" tts-name)      ;all dectalks
     (dectalk-configure-tts))
    (t (dectalk-configure-tts)           ; will become
@@ -1485,7 +1489,9 @@ Default is to use pipes.")
                     dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
-        (process-connection-type  dtk-speak-process-connection-type))
+        (process-connection-type  dtk-speak-process-connection-type)
+	(dtk-program (expand-file-name dtk-program
+				       emacspeak-servers-directory)))
     (setq new-process
           (start-process
            "speaker"
@@ -1569,7 +1575,7 @@ Argument S specifies the syntax class."
 (defun dtk-speak (text &optional ignore-skim)
   "Speak the TEXT string on the  tts.
 This is achieved by sending the text to the speech server.
-No-op if variable `dtk-quiet' is set to nil.
+No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
