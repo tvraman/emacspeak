@@ -93,8 +93,10 @@
 (require 'backquote)
 (require 'acss-structure)
 (require 'outloud-voices)
+(require 'multispeech-voices)
 (require 'dectalk-voices)
 (require 'string)
+
 ;;}}}
 ;;{{{ customization group 
 
@@ -346,7 +348,7 @@ punctuations.")
   "Extra smoothen current voice.")
 
 (defvoice voice-smoothen-medium (list nil nil nil 3 3)
-  "Extra smoothen current voice.")
+  "Add medium smoothen current voice.")
 
 (defvoice voice-brighten-medium (list nil nil nil 5 6)
   "Brighten current voice.")

@@ -527,6 +527,9 @@
     ("html-outline.el"
         "Extends html-helper-mode to provide outline and imenu support"
         nil)
+    ("multispeech-voices.el"
+        "Define various device independent voices in terms of Multispeech codes."
+        (voice  personality  multispeech))
     ("outloud-voices.el"
         "Define various device independent voices in terms of OutLoud tags"
         (voice  personality  ibm viavoice outloud))
