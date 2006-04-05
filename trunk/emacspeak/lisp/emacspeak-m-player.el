@@ -342,7 +342,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
-  (emacspeak-m-player-dispatch "quit"))
+  (emacspeak-m-player-dispatch "quit")
+  (bury-buffer)
+  (emacspeak-speak-mode-line))
 
 (defun emacspeak-m-player-volume-up ()
   "Increase volume."

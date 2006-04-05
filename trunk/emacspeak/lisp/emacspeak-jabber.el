@@ -1,15 +1,15 @@
-;;; emacspeak-jabber.el --- Speech-Enable jabber 
+;;; emacspeak-jabber.el --- Speech-Enable jabber
 ;;; $Id$
 ;;; $Author$
-;;; Description: speech-enable jabber 
+;;; Description: speech-enable jabber
 ;;; Keywords: Emacspeak, jabber
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2004, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -52,7 +52,7 @@
 
 (require 'emacspeak-preamble)
 ;;}}}
-;;{{{ map voices 
+;;{{{ map voices
 
 (voice-setup-add-map
  '(
@@ -81,7 +81,7 @@
 ;;}}}
 ;;{{{ silence keepalive
 
-(loop for f in 
+(loop for f in
       '(jabber-keepalive-do
         jabber-keepalive-got-response)
       do
@@ -99,7 +99,7 @@
   "Produce auditory icon."
   (when (interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-(loop for f in 
+(loop for f in
       '(jabber-chat-with
         jabber-chat-with-jid-at-point)
       do
@@ -144,6 +144,8 @@
   "Pop to Jabber roster."
   (interactive)
   (declare (special jabber-roster-buffer))
+  (unless (buffer-live-p jabber-roster-buffer)
+    (jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'select-object)
@@ -152,7 +154,7 @@
 ;;}}}
 
 ;;}}}
-;;{{{ Pronunciations 
+;;{{{ Pronunciations
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'jabber-chat-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
@@ -161,11 +163,11 @@
 
 ;;}}}
 (provide 'emacspeak-jabber)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}

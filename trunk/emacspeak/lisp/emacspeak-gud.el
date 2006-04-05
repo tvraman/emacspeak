@@ -65,7 +65,6 @@
       '(
         gud-break
         gud-tbreak
-
         gud-remove
         gud-step
         gud-stepi
@@ -73,7 +72,6 @@
         gud-nexti
         gud-cont
         gud-finish
-
         gud-jump
         )
 do
@@ -82,6 +80,7 @@ do
     "Silence minibuffer message that echoes command."
     (let ((emacspeak-speak-messages nil))
       ad-do-it
+      (emacspeak-auditory-icon 'select-object)
       ad-return-value))))
 
 
