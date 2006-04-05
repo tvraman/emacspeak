@@ -130,18 +130,10 @@ This function  adds the appropriate form to
 `after-load-alist' to set up Emacspeak support for a given
 package.
 Argument MODULE specifies the emacspeak module that implements the speech-enabling extensions."
-  (declare (special load-history))
-  (cond
-   ((assoc package load-history)
-    (require module)
-    (emacspeak-fix-commands-loaded-from package))
-   (t
-    (add-hook 'after-load-alist
-              (`
-               ((, package)
-                (progn
-                  (require (quote (, module )))
-                  (emacspeak-fix-commands-loaded-from (, package)))))))))
+  (eval-after-load package
+    `(progn
+    (require ',module)
+    (emacspeak-fix-commands-that-use-interactive))))
 
 ;;}}}
 ;;{{{ Setup package extensions
