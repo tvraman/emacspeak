@@ -1,22 +1,22 @@
 ;;; voice-setup.el --- Setup voices for voice-lock
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  Voice lock mode for Emacspeak
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -35,14 +35,14 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ Introduction 
+;;{{{ Introduction
 
 ;;; Commentary:
 
 ;;; A voice is to audio as a font is to a visual display.
-;;; A personality is to audio as a face is to a visual display. 
-;;; 
-;; Voice-lock-mode is a minor mode that causes your comments to be 
+;;; A personality is to audio as a face is to a visual display.
+;;;
+;; Voice-lock-mode is a minor mode that causes your comments to be
 ;; spoken in one personality, strings in another, reserved words in another,
 ;; documentation strings in another, and so on.
 ;;
@@ -66,7 +66,7 @@
 ;;; names to these pre-defined voices.  It does this via special
 ;;; form def-voice-font which takes a personality name, a voice
 ;;; name and a face name to set up the mapping between face and
-;;; personality, and personality and voice.  
+;;; personality, and personality and voice.
 ;;; Newer Emacspeak modules should use voice-setup-add-map when
 ;;; defining face->personality mappings.
 ;;; Older code calls def-voice-font directly, but over time those
@@ -98,7 +98,7 @@
 (require 'string)
 
 ;;}}}
-;;{{{ customization group 
+;;{{{ customization group
 
 (defgroup voice-fonts nil
   "Customization group for setting voices."
@@ -118,7 +118,7 @@
                (list 'const voice))
            v))
     (setq menu
-          (cons 
+          (cons
            (list 'symbol :tag "Other")
            menu))
     (cons 'choice menu)))
@@ -138,7 +138,7 @@
 
 ;;}}}
 
-;;{{{ map faces to voices 
+;;{{{ map faces to voices
 
 (defvar voice-setup-face-voice-table (make-hash-table)
   "Hash table holding face to voice mapping.")
@@ -154,11 +154,11 @@
   (gethash face voice-setup-face-voice-table))
 
 ;;}}}
-;;{{{ special form def-voice-font 
+;;{{{ special form def-voice-font
 
 ;;; note that when defined, personalities are registered as
 ;;; observers with the voice they use this gets unregistered when
-;;; the mapping is changed via custom.  
+;;; the mapping is changed via custom.
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
@@ -183,7 +183,7 @@
                        (remprop observing sym))
                      (set-default sym val)))
            (,@ args)))
-;;; other actions performed at define time 
+;;; other actions performed at define time
        (voice-setup-set-voice-for-face (, face) '(, personality))
 ;;;record  personality as an
 ;;;observer of  voice and vice versa
@@ -194,11 +194,11 @@
 (defsubst voice-setup-name-personality (face-name)
   "Compute personality name to use."
   (let ((name nil))
-    (setq name 
+    (setq name
           (or
            (string-replace-match "face$" face-name "personality")
            face-name))
-    (setq name 
+    (setq name
           (or
            (string-replace-match "font" name "voice")
            name))
@@ -221,7 +221,7 @@
         (voice-setup-map-face (first fv) (second fv))))
 
 ;;}}}
-;;{{{  special form defvoice 
+;;{{{  special form defvoice
 
 (defvar voice-setup-personality-table (make-hash-table)
   "Maps personality names to ACSS  settings.
@@ -256,10 +256,10 @@ VOICE-NAME are  changed."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
     (loop for o in observers
-          do                            ;o is already quoted 
+          do                            ;o is already quoted
           (set o value))))
 
-;;; note that for now we dont use  gain settings 
+;;; note that for now we dont use  gain settings
 
 (defmacro defvoice (personality settings doc)
   "Define voice using CSS setting.  Setting is a list of the form
@@ -271,7 +271,7 @@ command \\[customize-variable] on <personality>-settings.. "
    (progn
      (defvar  (, personality)
        (voice-setup-personality-from-style (, settings))
-       (concat 
+       (concat
         (, doc)
         (, (format "Customize this overlay via %s-settings."
                  personality ))))
@@ -321,7 +321,7 @@ punctuations.")
 
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
   "Turns current voice into one that  speaks some
-punctuations.")  
+punctuations.")
 
 (defvoice  voice-punctuations-none (list nil nil nil nil  nil "none")
   "Turns current voice into one that  speaks no punctuations.")
@@ -384,7 +384,7 @@ punctuations.")
   "Apply first female voice.")
 
 ;;}}}
-;;{{{  indentation and annotation 
+;;{{{  indentation and annotation
 
 (defvoice voice-indent (list nil nil 3 1 3 )
   "Indicate indentation .")
@@ -393,7 +393,7 @@ punctuations.")
   "Indicate annotation.")
 
 ;;}}}
-;;{{{ voice overlays 
+;;{{{ voice overlays
 
 ;;; these are suitable to use as "overlay voices".
 (defvoice voice-lock-overlay-0
@@ -432,7 +432,7 @@ punctuations.")
    (font-lock-reference-face voice-animate-medium)
    (font-lock-string-face voice-lighten-extra)
    (font-lock-type-face voice-smoothen)
-   (font-lock-variable-name-face voice-animate-medium)
+   (font-lock-variable-name-face voice-bolden)
    (font-lock-warning-face voice-bolden-and-animate)
    (gui-button voice-bolden)
    (help-argument-name voice-smoothen)
@@ -445,7 +445,7 @@ punctuations.")
    ))
 
 ;;}}}
-;;{{{ new light-weight voice lock 
+;;{{{ new light-weight voice lock
 
 (defcustom voice-lock-mode t
   "Determines  if property personality results in text being
@@ -517,11 +517,11 @@ Sample text to use comes from variable
 
 ;;}}}
 (provide 'voice-setup)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
