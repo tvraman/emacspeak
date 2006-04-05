@@ -208,7 +208,6 @@ documentation   Documents this template resource. "
 
 ;;}}}
 ;;{{{  template resources
-
 ;;{{{  fedex, UPS
 (emacspeak-url-template-define
  "fedex packages"
@@ -1482,57 +1481,35 @@ plays entire program."
 
 ;;}}}
 ;;{{{  MLB scores
-(emacspeak-url-template-define
- "MLB Alerts"
- "http://gd2.mlb.com/components/game/mlb/year_2005/alerts.xml"
- nil
- 'emacspeak-speak-buffer
- "Show MLB Scorecard."
- #'(lambda (url)
-     (emacspeak-w3-browse-xml-url-with-style
-      (expand-file-name "mlb-alerts.xsl" emacspeak-xslt-directory)
-      url)))
 
 (emacspeak-url-template-define
  "MLB Scorecard"
- "http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
+ ;"http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
+ "http://gd.mlb.com/components/game/mlb/%s/scoreboard.xml"
  (list
-  #'(lambda nil
-      (let ((date
-             (emacspeak-url-template-collect-date
-              "Date: "
-              "%Y-%m-%d"))
-            (fields nil)
-            (result nil))
-        (setq fields (split-string date "-"))
-        (setq result
-              (format
-               "year_%s/month_%s/day_%s"
-               (first fields)
-               (second fields)
-               (third fields)))
-        result))
-  )
+ #'(lambda nil
+     (let ((date
+            (emacspeak-url-template-collect-date
+             "Date: "
+             "%Y-%m-%d"))
+           (fields nil)
+           (result nil))
+       (setq fields (split-string date "-"))
+       (setq result
+             (format
+              "year_%s/month_%s/day_%s"
+              (first fields)
+              (second fields)
+              (third fields)))
+       result))
+ )
  'emacspeak-speak-buffer
  "Show MLB Scorecard."
  #'(lambda (url)
-     (emacspeak-w3-browse-xml-url-with-style
-      (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
-      url)))
+ (emacspeak-w3-browse-xml-url-with-style
+  (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
+  url)))
 
-(emacspeak-url-template-define
- "Baseball summary"
- "http://www.mlb.com/NASApp/mlb/index.jsp?c_id=%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer  "Team Code: "
-                             "sf")))
- nil
- "Display baseball team summary."
- #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match
-      "PCT"
-      url 'speak)))
 (emacspeak-url-template-define
  "Baseball standings"
  "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp"
@@ -1540,28 +1517,29 @@ plays entire program."
  nil
  "Display MLB standings."
  #'(lambda (url)
-     (emacspeak-w3-extract-table-by-match
-      "Standings"
-      url 'speak)))
+ (emacspeak-w3-extract-table-by-match
+  "Standings"
+  url 'speak)))
 
 (emacspeak-url-template-define
  "Baseball Game Index"
- "http://gd.mlb.com/components/game/%s"
+ ;"http://gd.mlb.com/components/game/%s"
+"http://gd.mlb.com/components/game/mlb/%s/"
  (list
-  #'(lambda nil
-      (let ((date
-             (emacspeak-url-template-collect-date "Date: "
-                                                  "%Y-%m-%d"))
-            (fields nil)
-            (result nil))
-        (setq fields (split-string date "-"))
-        (setq result
-              (format
-               "year_%s/month_%s/day_%s/"
-               (first fields)
-               (second fields)
-               (third fields)))
-        result)))
+ #'(lambda nil
+     (let ((date
+            (emacspeak-url-template-collect-date "Date: "
+                                                 "%Y-%m-%d"))
+           (fields nil)
+           (result nil))
+       (setq fields (split-string date "-"))
+       (setq result
+             (format
+              "year_%s/month_%s/day_%s/"
+              (first fields)
+              (second fields)
+              (third fields)))
+       result)))
  nil
  "Display baseball Play By Play."
  )
@@ -1570,26 +1548,26 @@ plays entire program."
  "Baseball Play By Play"
  "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/playbyplay.html"
  (list
-  #'(lambda nil
-      (let ((date
-             (emacspeak-url-template-collect-date
-              "Date: "
-              "%Y-%m-%d"))
-            (fields nil)
-            (result nil))
-        (setq fields (split-string date "-"))
-        (setq result
-              (format
-               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
-               (third fields)
-               (first fields)
-               (second fields)
-               (third fields)))
-        result))
-  "Visiting Team: "
-  "Home Team: ")
+ #'(lambda nil
+     (let ((date
+            (emacspeak-url-template-collect-date
+             "Date: "
+             "%Y-%m-%d"))
+           (fields nil)
+           (result nil))
+       (setq fields (split-string date "-"))
+       (setq result
+             (format
+              "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+              (first fields)
+              (second fields)
+              (third fields)
+              (first fields)
+              (second fields)
+              (third fields)))
+       result))
+ "Visiting Team: "
+ "Home Team: ")
  nil
  "Display baseball Play By Play."
  )
@@ -1598,63 +1576,29 @@ plays entire program."
  "Baseball scores"
  "http://gd.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.html"
  (list
-  #'(lambda nil
-      (let ((date
-             (emacspeak-url-template-collect-date
-              "Date: "
-              "%Y-%m-%d"))
-            (fields nil)
-            (result nil))
-        (setq fields (split-string date "-"))
-        (setq result
-              (format
-               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
-               (third fields)
-               (first fields)
-               (second fields)
-               (third fields)))
-        result))
-  "Visiting Team: "
-  "Home Team: ")
+ #'(lambda nil
+     (let ((date
+            (emacspeak-url-template-collect-date
+             "Date: "
+             "%Y-%m-%d"))
+           (fields nil)
+           (result nil))
+       (setq fields (split-string date "-"))
+       (setq result
+             (format
+              "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+              (first fields)
+              (second fields)
+              (third fields)
+              (first fields)
+              (second fields)
+              (third fields)))
+       result))
+ "Visiting Team: "
+ "Home Team: ")
  nil
  "Display baseball scores."
  )
-
-(emacspeak-url-template-define
- "Baseball Results"
- "http://gd.mlb.com/components/game/%s/gameLite.txt"
- (list
-  #'(lambda nil
-      (let ((date
-             (emacspeak-url-template-collect-date
-              "Date: "
-              "%Y-%m-%d"))
-            (fields nil)
-            (result nil))
-        (setq fields (split-string date "-"))
-        (setq result
-              (format
-               "year_%s/month_%s/day_%s"
-               (first fields)
-               (second fields)
-               (third fields)))
-        result)))
- #'(lambda nil
-     (ems-modify-buffer-safely
-      (save-excursion
-        (goto-char (point-min))
-        (while (search-forward "<br>" nil t)
-          (replace-match " " nil t))
-        (goto-char (point-min))
-        (while (search-forward "&" nil t)
-          (replace-match "\n"))
-        (flush-lines"|" (point-min) (point-max))
-        (flush-lines "^ *$" (point-min) (point-max))
-        (goto-char (point-min))
-        (emacspeak-speak-line))))
- "Baseball results for a given date.")
 
 ;;}}}
 ;;{{{  Virtually There --Sabre Trip Reports
