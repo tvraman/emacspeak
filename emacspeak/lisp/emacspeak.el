@@ -132,8 +132,8 @@ package.
 Argument MODULE specifies the emacspeak module that implements the speech-enabling extensions."
   (eval-after-load package
     `(progn
-    (require ',module)
-    (emacspeak-fix-commands-that-use-interactive))))
+       (require ',module)
+       (emacspeak-fix-commands-that-use-interactive))))
 
 ;;}}}
 ;;{{{ Setup package extensions

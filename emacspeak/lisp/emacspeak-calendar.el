@@ -357,11 +357,10 @@
     (define-key calendar-mode-map  "\C-ee"
       'calendar-end-of-week))
   (add-hook 'initial-calendar-window-hook
-          (function (lambda ()
-                      ))))
+            (function (lambda ()
+                        ))))
 
 (add-hook 'initial-calendar-window-hook 'emacspeak-calendar-setup t)
-
 
 ;;}}}
 ;;{{{  Appointments:

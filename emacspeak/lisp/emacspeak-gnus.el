@@ -546,40 +546,39 @@ instead you hear only the first screenful.")
 ;;{{{ rdc: refreshing the pronunciation 
 
 (add-hook 'gnus-article-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-group-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 ;; the following is for summary mode.  By default, the 
 ;; summary mode hook is defined as gnus-agent-mode
 
 (add-hook 'gnus-agent-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'message-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-article-edit-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-category-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-score-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 (add-hook 'gnus-server-mode-hook
-	  (function (lambda ()
-		      (emacspeak-pronounce-refresh-pronunciations))))
-
+          (function (lambda ()
+                      (emacspeak-pronounce-refresh-pronunciations))))
 
 ;;}}}
 ;;{{{ rdc: mapping font faces to personalities 
@@ -693,7 +692,6 @@ instead you hear only the first screenful.")
   'gnus-header-subject-face
   "Personality used for displaying subject headers. ")
 
-
 ;; ;; summary buffer personalities
 
 ;; since there are so many distinctions, most variations
@@ -716,7 +714,6 @@ instead you hear only the first screenful.")
   'gnus-summary-low-read-face
   "Personality used for low interest read articles.")
 
-
 (def-voice-font emacspeak-gnus-summary-normal-ticked-personality
   voice-brighten
   'gnus-summary-normal-ticked-face
@@ -731,7 +728,6 @@ instead you hear only the first screenful.")
   voice-brighten
   'gnus-summary-low-ticked-face
   "Personality used for low interest ticked articles.")
-
 
 (def-voice-font emacspeak-gnus-summary-normal-ancient-personality
   voice-smoothen-extra
@@ -777,7 +773,6 @@ instead you hear only the first screenful.")
 ;;   'gnus-summary-high-unread-face
 ;;   "Personality used for high interest unread articles.")
 
-
 (def-voice-font emacspeak-gnus-summary-selected-personality
   voice-animate-extra
   'gnus-summary-selected-face
@@ -787,7 +782,6 @@ instead you hear only the first screenful.")
   voice-bolden-extra
   'gnus-summary-cancelled-face
   "Personality used for cancelled articles.")
-
 
 ;; group buffer personalities
 
@@ -906,8 +900,6 @@ instead you hear only the first screenful.")
 ;;   'gnus-group-news-low-face
 ;;   "Low level newsgroup personality ")
 
-
-
 ;; server buffer personalities
 
 (def-voice-font emacspeak-gnus-server-agent-personality
@@ -934,7 +926,6 @@ instead you hear only the first screenful.")
   voice-lighten
   'gnus-server-opened-face
   "Personality used for displaying OPENED servers")
-
 
 ;;}}}
 

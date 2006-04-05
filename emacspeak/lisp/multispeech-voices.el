@@ -154,8 +154,8 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-	    (format " pi:%s "
-		    (second setting)))))
+            (format " pi:%s "
+                    (second setting)))))
    '(
      (0 0.5)
      (1 0.6)
@@ -178,8 +178,8 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-	    (format " pi:%s "
-		    (second setting)))))
+            (format " pi:%s "
+                    (second setting)))))
    '(
      (0 0.4)
      (1 0.5)
@@ -201,9 +201,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " pi:%s "
-		    (second setting)))))
+            (first setting)
+            (format " pi:%s "
+                    (second setting)))))
    '(
      (0 0.9)
      (1 1)
@@ -224,7 +224,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value
       (aref (multispeech-css-get-code-table family 'average-pitch)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -244,9 +244,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " fr:%s "
-		    (second setting)))))
+            (first setting)
+            (format " fr:%s "
+                    (second setting)))))
    '(
      (0 15000)
      (1 15200)
@@ -268,9 +268,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-	    (first setting)
-	    (format " fr:%s "
-		    (second setting)))))
+            (first setting)
+            (format " fr:%s "
+                    (second setting)))))
    '(
      (0 14000)
      (1 14200)
@@ -293,8 +293,8 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-	    (format " fr:%s "
-		    (second setting)))))
+            (format " fr:%s "
+                    (second setting)))))
    '(
      (0 17000)
      (1 17200)
@@ -314,7 +314,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value
       (aref (multispeech-css-get-code-table family 'pitch-range)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -339,9 +339,9 @@ and TABLE gives the values along that dimension."
     (lambda (setting)
       (aset table
             (first setting)
-	    (format " ri:%s sm:%s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri:%s sm:%s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 100)
      (1 14 80)
@@ -363,9 +363,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-	    (format " ri:%s sm:%s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri:%s sm:%s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 100 0)
      (1 96 3)
@@ -388,9 +388,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table (first setting)
-	    (format " ri:%s sm:%s "
-		    (second setting)
-		    (third setting)))))
+            (format " ri:%s sm:%s "
+                    (second setting)
+                    (third setting)))))
    '(
      (0 0 100)
      (1 8 76)
@@ -410,7 +410,7 @@ and TABLE gives the values along that dimension."
   (or family (setq family 'paul))
   (if value 
       (aref (multispeech-css-get-code-table family 'richness)
-	    value)
+            value)
     ""))
 
 ;;}}}
@@ -427,16 +427,16 @@ and TABLE gives the values along that dimension."
 (defun multispeech-define-voice-from-speech-style (name style)
   "Define NAME to be a multispeech voice as specified by settings in STYLE."
   (let* ((family(acss-family style))
-	 (command
-	  (concat "[_:"
-	   (multispeech-get-family-code family)
-	   " "
-           (multispeech-get-punctuations-code (acss-punctuations style))
-	   (multispeech-get-average-pitch-code (acss-average-pitch style) family)
-	   (multispeech-get-pitch-range-code (acss-pitch-range style) family)
-	   (multispeech-get-stress-code (acss-stress style ) family)
-	   (multispeech-get-richness-code (acss-richness style) family)
-	   "]")))
+         (command
+          (concat "[_:"
+                  (multispeech-get-family-code family)
+                  " "
+                  (multispeech-get-punctuations-code (acss-punctuations style))
+                  (multispeech-get-average-pitch-code (acss-average-pitch style) family)
+                  (multispeech-get-pitch-range-code (acss-pitch-range style) family)
+                  (multispeech-get-stress-code (acss-stress style ) family)
+                  (multispeech-get-richness-code (acss-richness style) family)
+                  "]")))
     (multispeech-define-voice name command)))
 
 ;;}}}
@@ -446,7 +446,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special multispeech-voice-table))
   (loop for k being the hash-keys of multispeech-voice-table 
-	collect   k))
+        collect   k))
 
 ;;}}}
 ;;{{{ Configurater 
@@ -458,9 +458,9 @@ and TABLE gives the values along that dimension."
   "Configure TTS environment to use multilingual speech server."
   (declare (special tts-default-speech-rate
                     multispeech-default-speech-rate
-		    dtk-speaker-process
-		    emacspeak-unspeakable-rule
-		    emacspeak-speak-default-os-coding-system))
+                    dtk-speaker-process
+                    emacspeak-unspeakable-rule
+                    emacspeak-speak-default-os-coding-system))
   (fset 'tts-list-voices'multispeech-list-voices)
   (fset 'tts-voice-defined-p 'multispeech-voice-defined-p)
   (fset 'tts-get-voice-command 'multispeech-get-voice-command)
