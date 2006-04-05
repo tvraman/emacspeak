@@ -464,6 +464,37 @@ content."
  'emacspeak-atom-display)
 
 ;;}}}
+;;{{{ google finance
+;;; pull google finance search results via the transcoder
+
+(emacspeak-url-template-define
+ "Finance Google Search"
+ "http://finance.google.com/finance?q=%s"
+ (list "Finance Search: ")
+ #'(lambda nil
+     (call-interactively 'emacspeak-imenu-goto-next-index-position))
+ "Perform Google Finance search and view results through the
+mobile transcoder."
+ #'(lambda (url)
+     (declare (special
+               emacspeak-url-template-google-transcoder-url))
+     (browse-url
+      (format emacspeak-url-template-google-transcoder-url
+              (webjump-url-encode url)))))
+
+(emacspeak-url-template-define
+ "Finance News  Search"
+ "http://finance.google.com/finance?q=%s"
+ (list "Finance News For: ")
+ nil
+ "Pull news stories from Google Finance search."
+ #'(lambda (url)
+     (emacspeak-w3-xslt-filter
+      "//div[@id=\"news\"]"
+      url 'speak)))
+
+
+;;}}}
 ;;{{{ google maps
 
 (defun emacspeak-url-template-google-maps-xml (url)
