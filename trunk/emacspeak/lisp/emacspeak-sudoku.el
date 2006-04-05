@@ -370,7 +370,6 @@ See
 ;;}}}
 ;;{{{ implement history stack:
 
-
 (defvar emacspeak-sudoku-history-stack nil
   "Holds history of interesting board configurations.")
 (make-variable-buffer-local 'emacspeak-sudoku-history-stack)
@@ -395,11 +394,11 @@ See
                     start-board
                     current-board))
   (let ((original (sudoku-get-cell-from-point (point))))
-  (cond
-   ((stack-empty emacspeak-sudoku-history-stack) ;start board
-    (setq current-board start-board))
-   (t (setq current-board
-            (stack-pop emacspeak-sudoku-history-stack))))
+    (cond
+     ((stack-empty emacspeak-sudoku-history-stack) ;start board
+      (setq current-board start-board))
+     (t (setq current-board
+              (stack-pop emacspeak-sudoku-history-stack))))
     (setq buffer-read-only nil)
     (erase-buffer)
     (sudoku-board-print current-board

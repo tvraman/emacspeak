@@ -713,7 +713,6 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
 ;;}}}
 ;;{{{  koders
 
-
 (emacspeak-websearch-set-searcher 'koders
                                   'emacspeak-websearch-koders-search)
 (emacspeak-websearch-set-key ?k 'koders)
@@ -938,7 +937,6 @@ Optional second arg as-html processes the results as HTML rather than data."
                                         "&exact=1"
                                         "&words="
                                         (webjump-url-encode query))))
-
 
 (defvar emacspeak-websearch-freshmeat-search-uri
   "http://www.freshmeat.net/search?q="
@@ -1582,7 +1580,6 @@ Light for: ")))
            (webjump-url-encode query))
    'speak))
 
-
 ;;}}}
 ;;{{{ W3C
 
@@ -1680,7 +1677,6 @@ Light for: ")))
            (webjump-url-encode
             (read-from-minibuffer "PodScope Search: ")))))
 
-
 ;;}}}
 ;;{{{ yahoo
 
@@ -1740,7 +1736,6 @@ Results"
     (emacspeak-w3-extract-table-by-match
      (format "%s" (upcase  (first fields)))
      url 'speak)))
-
 
 ;;}}}
 ;;{{{ my rss

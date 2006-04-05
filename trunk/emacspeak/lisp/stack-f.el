@@ -42,25 +42,20 @@
 (provide 'stack-f)
 (setq features (delq 'stack-m features))
 
-
 ;;; ================================================================
-
 
 (defsubst stack-create ()
   "Create an empty lifo stack."
   (cons 'STACK nil))
 
-
 (defsubst stack-p (stack)
   "Return t if STACK is a stack, otherwise return nil."
   (eq (car-safe stack) 'STACK))
-
 
 (defsubst stack-push (stack element)
   "Push an element onto the stack.
 Args: STACK ELEMENT"
   (setcdr stack (cons element (cdr stack))))
-
 
 (defsubst stack-pop (stack)
   "Remove the topmost element from STACK and return it. 
@@ -69,16 +64,13 @@ If the stack is empty, return nil."
       (car-safe (cdr stack))
     (setcdr stack (cdr-safe (cdr stack)))))
 
-
 (defsubst stack-empty (stack)
   "Return t if STACK is empty, otherwise return nil."
   (null (cdr stack)))
 
-
 (defsubst stack-top (stack)
   "Return the topmost element of STACK or nil if it is empty."
   (car-safe (cdr stack)))
-
 
 (defsubst stack-nth (stack n)
   "Return nth element of a stack, but don't remove it.
@@ -88,23 +80,19 @@ If the length of the stack is less than N, return nil.
 The top stack element has number 0."
   (nth n (cdr stack)))
 
-
 (defsubst stack-all (stack)
   "Return a list of all entries in STACK.
 The element last pushed is first in the list."
   (cdr stack))
-
 
 (defsubst stack-copy (stack)
   "Return a copy of STACK.
 All entries in STACK are also copied."
   (cons 'STACK (copy-sequence (cdr stack))))
 
-
 (defsubst stack-length (stack)
   "Return the number of elements on STACK."
   (length (cdr stack)))
-
 
 (defsubst stack-clear (stack)
   "Remove all elements from STACK."
