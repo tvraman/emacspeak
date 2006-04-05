@@ -733,18 +733,18 @@ Typically %s is replaced by project name.")
 Ask for module name if prefix argument is given"
   (interactive
    (let ((project (read-string "Project name: ")))
-	 (list project 
-		   (if current-prefix-arg
-			   (read-string "Module name: ")
-			 project))))
+     (list project 
+           (if current-prefix-arg
+               (read-string "Module name: ")
+             project))))
   (declare (special emacspeak-cvs-local-directory-pattern
                     emacspeak-cvs-sf-anonymous-cvsroot-pattern))
   (emacspeak-cvs-get-project-snapshot
    (format emacspeak-cvs-sf-anonymous-cvsroot-pattern
-		   project)
+           project)
    (expand-file-name
-	(format emacspeak-cvs-local-directory-pattern
-			project))
+    (format emacspeak-cvs-local-directory-pattern
+            project))
    (or module project)))
 ;;;###autoload
 (defun emacspeak-cvs-gnu-get-project-snapshot  (project &optional module)
@@ -752,18 +752,18 @@ Ask for module name if prefix argument is given"
 Ask for module name if prefix argument is given"
   (interactive
    (let ((project (read-string "Project name: ")))
-	 (list project 
-		   (if current-prefix-arg
-			   (read-string "Module name: ")
-			 project))))
+     (list project 
+           (if current-prefix-arg
+               (read-string "Module name: ")
+             project))))
   (declare (special emacspeak-cvs-local-directory-pattern
                     emacspeak-cvs-gnu-anonymous-cvsroot-pattern))
   (emacspeak-cvs-get-project-snapshot
    (format emacspeak-cvs-gnu-anonymous-cvsroot-pattern
-		   project project)
+           project project)
    (expand-file-name
-	(format emacspeak-cvs-local-directory-pattern
-			project))
+    (format emacspeak-cvs-local-directory-pattern
+            project))
    (or module project)))
 ;;;###autoload
 (defun emacspeak-cvs-berlios-get-project-snapshot  (project &optional module)
@@ -771,57 +771,57 @@ Ask for module name if prefix argument is given"
 Ask for module name if prefix argument is given"
   (interactive
    (let ((project (read-string "Project name: ")))
-	 (list project 
-		   (if current-prefix-arg
-			   (read-string "Module name: ")
-			 project))))
+     (list project 
+           (if current-prefix-arg
+               (read-string "Module name: ")
+             project))))
   (declare (special emacspeak-cvs-local-directory-pattern
                     emacspeak-cvs-berlios-anonymous-cvsroot-pattern))
   (emacspeak-cvs-get-project-snapshot
    (format emacspeak-cvs-berlios-anonymous-cvsroot-pattern
-		   project project)
+           project project)
    (expand-file-name
-	(format emacspeak-cvs-local-directory-pattern
-			project))
+    (format emacspeak-cvs-local-directory-pattern
+            project))
    (or module project)))
 ;;;###autoload
 (defun emacspeak-cvs-get-project-snapshot  (cvsroot dir module)
   "Grab CVS snapshot  of specified project"
   (unless (file-exists-p dir)
-	(make-directory dir 'parents))
+    (make-directory dir 'parents))
   (cd dir)
   (let ((cvs-process nil))
-	(setq cvs-process
-		  (start-process "cvs" "*cvs-download*" "cvs"
-						 (format "-d%s"
-								 cvsroot)
-						 "login"))
-	(accept-process-output cvs-process)
-	(process-send-string cvs-process "\n\n\n")
-	(cond
-	 ((file-exists-p
-	   (expand-file-name
-		(format "%s/CVS" module)
-		dir))
-	  (cd (expand-file-name module
-							dir))
-	  (setq cvs-process
-			(start-process "cvs" "*cvs-download*" "cvs"
-						   (format "-d%s"
-								   cvsroot)
-						   "-z3" "-q"
-						   "update"
-						   "-d")))
-	 (t
-	  (setq cvs-process
-			(start-process "cvs" "*cvs-download*" "cvs"
-						   (format "-d%s"
-								   cvsroot)
-						   "-z3" "-q"
-						   "co"
-						   module))))
-	(set-process-sentinel cvs-process
-						  'emacspeak-cvs-done-alert)))
+    (setq cvs-process
+          (start-process "cvs" "*cvs-download*" "cvs"
+                         (format "-d%s"
+                                 cvsroot)
+                         "login"))
+    (accept-process-output cvs-process)
+    (process-send-string cvs-process "\n\n\n")
+    (cond
+     ((file-exists-p
+       (expand-file-name
+        (format "%s/CVS" module)
+        dir))
+      (cd (expand-file-name module
+                            dir))
+      (setq cvs-process
+            (start-process "cvs" "*cvs-download*" "cvs"
+                           (format "-d%s"
+                                   cvsroot)
+                           "-z3" "-q"
+                           "update"
+                           "-d")))
+     (t
+      (setq cvs-process
+            (start-process "cvs" "*cvs-download*" "cvs"
+                           (format "-d%s"
+                                   cvsroot)
+                           "-z3" "-q"
+                           "co"
+                           module))))
+    (set-process-sentinel cvs-process
+                          'emacspeak-cvs-done-alert)))
 
 ;;}}}
 ;;{{{ browse chunks 

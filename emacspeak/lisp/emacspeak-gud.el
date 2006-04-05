@@ -74,17 +74,14 @@
         gud-finish
         gud-jump
         )
-do
-(eval
- `(defadvice ,f (around emacspeak pre act comp)
-    "Silence minibuffer message that echoes command."
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it
-      (emacspeak-auditory-icon 'select-object)
-      ad-return-value))))
-
-
-
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+          "Silence minibuffer message that echoes command."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it
+            (emacspeak-auditory-icon 'select-object)
+            ad-return-value))))
 
 ;;}}}
 ;;{{{ Advise interactive commands:
