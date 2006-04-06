@@ -143,9 +143,12 @@
 (defun emacspeak-jabber-popup-roster ()
   "Pop to Jabber roster."
   (interactive)
-  (declare (special jabber-roster-buffer))
+  (declare (special jabber-roster-buffer
+                    *jabber-connected*))
   (unless (buffer-live-p jabber-roster-buffer)
     (jabber-display-roster))
+  (unless *jabber-connected*
+    (jabber-connect))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'select-object)
