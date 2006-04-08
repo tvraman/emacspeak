@@ -168,12 +168,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                        emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
-                                        ; let the process die to avoid conflict
-    (let ((max-wait-time (+ (float-time) 3)))
-      (while (and (< (float-time) max-wait-time)
-                  (not (eq 'exit
-                           (process-status emacspeak-m-player-process))))
-        (accept-process-output emacspeak-m-player-process 0 300)))
+    (unless (eq (process-status emacspeak-m-player-process) 'exit)
+      (delete-process  emacspeak-m-player-process))
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
         (playlist-p (or
