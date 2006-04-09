@@ -73,6 +73,10 @@
     'gnus-summary-show-some-headers)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
+  (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
+  (define-key gnus-group-mode-map [down] 'gnus-group-next-group)
+  (define-key gnus-group-mode-map [up] 'gnus-group-prev-group)
+  (define-key gnus-group-mode-map "\C-p" 'gnus-group-prev-group)
   (define-key gnus-group-mode-map '[right]
     'gnus-group-read-group))
 
@@ -125,6 +129,26 @@ reading news."
   (emacspeak-dtk-sync)
   (dtk-speak (gnus-summary-article-subject )))
 
+(defsubst emacspeak-gnus-speak-article-body ()
+  (declare (special emacspeak-gnus-large-article
+                    voice-lock-mode dtk-punctuation-mode))
+  (save-excursion
+    (set-buffer  "*Article*")
+    (goto-char (point-min))
+    (setq dtk-punctuation-mode 'some)
+    (voice-lock-mode 1)
+    (emacspeak-dtk-sync)
+    (cond
+     ((< (count-lines (point-min) (point-max))
+         emacspeak-gnus-large-article)
+      (emacspeak-speak-buffer  ))
+     (t (emacspeak-auditory-icon 'large-movement )
+        (let ((start (point)))
+          (move-to-window-line -1)
+          (end-of-line)
+          (emacspeak-speak-region start (point)))))))
+
+
 ;;}}}
 ;;{{{ Advise top-level gnus command
 
@@ -155,13 +179,29 @@ reading news."
 (defadvice gnus-group-get-new-news (around emacspeak pre act )
   "Temporarily deactivate advice on message"
   (dtk-speak  "Getting new  gnus")
+  (sit-for 2)
   (let ((emacspeak-speak-messages nil ))
     ad-do-it)
   (message "Gnus is ready ")
   (emacspeak-auditory-icon 'news))
 
+
+
 ;;}}}
 ;;{{{  Newsgroup selection
+
+(defadvice gnus-group-select-group (before emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice gnus-group-first-unread-group (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
 (defadvice gnus-group-read-group  (after  emacspeak pre act)
   "Speak the first article line.
@@ -228,8 +268,245 @@ this group is being deselected."
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-speak-line )))
 
+(defadvice gnus-group-catchup-current (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice gnus-group-yank-group (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-speak-line)))
+
+(defadvice gnus-group-get-new-news-this-group  (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+(defadvice gnus-group-list-groups (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Listing groups... done")))
+
+(defadvice gnus-group-list-all-groups (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Listing all groups... done")))
+
+(defadvice gnus-group-list-all-matching (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Listing all matching groups... done")))
+
+(defadvice gnus-group-list-killed (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Listing killed groups... done")))
+
+(defadvice gnus-group-list-matching (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "listing matching groups with unread articles... done")))
+
+(defadvice gnus-group-list-zombies (after emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Listing zombie groups... done")))
+
+(defadvice gnus-group-customize (before emacspeak pre act)
+  "Provide auditory feedback.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "Customizing group %s" (gnus-group-group-name))))
+
+
+
 ;;}}}
 ;;{{{  summary mode 
+
+(defadvice gnus-summary-clear-mark-backward  (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+          (emacspeak-auditory-icon 'select-object )
+          (dtk-speak (gnus-summary-article-subject )))))
+    ad-return-value ))
+
+(defadvice gnus-summary-clear-mark-forward  (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+          (emacspeak-auditory-icon 'select-object )
+          (dtk-speak (gnus-summary-article-subject )))))
+    ad-return-value ))
+
+(defadvice gnus-summary-mark-as-dormant (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+	  (emacspeak-auditory-icon 'mark-object)
+	  (emacspeak-gnus-summary-speak-subject ))))
+    ad-return-value ))
+
+(defadvice gnus-summary-mark-as-expirable (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+	  (emacspeak-auditory-icon 'mark-object)
+	  (emacspeak-gnus-summary-speak-subject ))))
+    ad-return-value ))
+
+(defadvice gnus-summary-mark-as-processable (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+	  (emacspeak-auditory-icon 'mark-object)
+	  (emacspeak-gnus-summary-speak-subject ))))
+    ad-return-value ))
+
+(defadvice gnus-summary-unmark-as-processable (after emacspeak pre act)
+  "Speak the line.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'deselect-object)
+    (emacspeak-gnus-summary-speak-subject )))
+
+(defadvice gnus-summary-tick-article-backward (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+	  (emacspeak-auditory-icon 'mark-object)
+	  (emacspeak-gnus-summary-speak-subject ))))
+    ad-return-value ))
+
+(defadvice gnus-summary-tick-article-forward (around  emacspeak pre act)
+  "Speak the article  line.
+ Produce an auditory icon if possible."
+  (let ((saved-point (point )))
+    ad-do-it
+    (when (interactive-p)
+      (if (= saved-point (point))
+          (dtk-speak "No more articles")
+        (progn 
+	  (emacspeak-auditory-icon 'mark-object)
+	  (emacspeak-gnus-summary-speak-subject ))))
+    ad-return-value ))
+
+(defadvice gnus-summary-delete-article (after emacspeak pre act)
+  "Speak the line.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon  'delete-object)
+    (emacspeak-gnus-summary-speak-subject )))
+
+(defadvice gnus-summary-catchup-from-here (after emacspeak pre act)
+  "Speak the line.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon  'mark-object)
+    (emacspeak-gnus-summary-speak-subject )))
+
+(defadvice gnus-summary-catchup-to-here (after emacspeak pre act)
+  "Speak the line.
+ Produce an auditory icon if possible."
+  (when (interactive-p)
+    (emacspeak-auditory-icon  'mark-object)
+    (emacspeak-gnus-summary-speak-subject )))
+
+(defadvice  gnus-summary-select-article-buffer (after emacspeak pre act)
+  "Speak the modeline.
+Indicate change of selection with
+  an auditory icon if possible."
+  (when (interactive-p )
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
+(defadvice gnus-summary-prev-article (after emacspeak pre act)
+  "Speak the article. "
+  (when (interactive-p)
+    (emacspeak-gnus-speak-article-body)))
+
+(defadvice gnus-summary-next-article (after emacspeak pre act)
+  "Speak the article. "
+  (when (interactive-p)
+    (emacspeak-gnus-speak-article-body)))
+
+(defadvice gnus-summary-exit-no-update  (around emacspeak pre act)
+  "Speak the modeline.
+Indicate change of selection with
+  an auditory icon if possible."
+  (let ((cur-group gnus-newsgroup-name ))
+    ad-do-it
+    (when (interactive-p )
+      (emacspeak-auditory-icon 'close-object)
+      (if (eq cur-group (gnus-group-group-name))
+          (dtk-speak "No more unread newsgroups")
+        (progn 
+	  (emacspeak-speak-line))))
+    ad-return-value ))
+
+(defadvice gnus-summary-exit  (around emacspeak pre act)
+  "Speak the modeline.
+Indicate change of selection with
+  an auditory icon if possible."
+  (let ((cur-group gnus-newsgroup-name ))
+    ad-do-it
+    (when (interactive-p )
+      (emacspeak-auditory-icon 'close-object)
+      (if (eq cur-group (gnus-group-group-name))
+          (dtk-speak "No more unread newsgroups")
+        (progn 
+	  (emacspeak-speak-line))))
+    ad-return-value ))
 
 (defadvice gnus-summary-prev-subject  (around  emacspeak pre act)
   "Speak the article  line.
@@ -394,6 +671,7 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{  Article reading
+
 (defun emacspeak-gnus-summary-catchup-quietly-and-exit ()
   "Catch up on all articles in current group."
   (interactive)
@@ -407,24 +685,7 @@ emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.")
 
-(defsubst emacspeak-gnus-speak-article-body ()
-  (declare (special emacspeak-gnus-large-article
-                    voice-lock-mode dtk-punctuation-mode))
-  (save-excursion
-    (set-buffer  "*Article*")
-    (goto-char (point-min))
-    (setq dtk-punctuation-mode 'some)
-    (voice-lock-mode 1)
-    (emacspeak-dtk-sync)
-    (cond
-     ((< (count-lines (point-min) (point-max))
-         emacspeak-gnus-large-article)
-      (emacspeak-speak-buffer  ))
-     (t (emacspeak-auditory-icon 'large-movement )
-        (let ((start (point)))
-          (move-to-window-line -1)
-          (end-of-line)
-          (emacspeak-speak-region start (point)))))))
+
            
            
 
@@ -502,6 +763,14 @@ instead you hear only the first screenful.")
   "Speak the article. "
   (when (interactive-p)
     (emacspeak-gnus-speak-article-body )))
+
+(defadvice gnus-article-show-summary  (after emacspeak pre act)
+  "Speak the modeline.
+Indicate change of selection with
+  an auditory icon if possible."
+  (when (interactive-p )
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
 
 (defadvice gnus-article-next-page (after emacspeak pre act )
   "Speak the current window full of news"
