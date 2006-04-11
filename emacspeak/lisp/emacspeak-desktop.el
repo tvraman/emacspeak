@@ -1,7 +1,7 @@
-;;; emacspeak-desktop.el ---  Speech-enable Emacspeak  desktop 
+;;; emacspeak-desktop.el ---  Speech-enable Emacspeak  desktop
 ;;; $Id$
 ;;; $Author$
-;;; Description:  desktop transformation routines 
+;;; Description:  desktop transformation routines
 ;;; Keywords: Emacspeak,  Audio Desktop, DESKTOP
 ;;{{{  LCD Archive entry:
 
@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -47,7 +47,7 @@
 
 (require 'emacspeak-preamble)
 ;;}}}
-;;{{{  desktop 
+;;{{{  desktop
 
 (defadvice desktop-clear (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -57,6 +57,12 @@
   "Provide auditory feedback."
   (when (interactive-p)
     (emacspeak-auditory-icon 'save-object)))
+
+(defadvice desktop-lazy-create-buffer (around emacspeak pre act
+                                              comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
 
 ;;}}}
 (provide 'emacspeak-desktop)
