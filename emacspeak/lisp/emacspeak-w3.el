@@ -1,23 +1,23 @@
 ;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; Description:  Emacspeak enhancements for W3
 ;;; Keywords: Emacspeak, W3, WWW
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -86,14 +86,14 @@
                  (or (w3-view-this-url 'no-show)
                      (url-view-url 'no-show))
                (read-from-minibuffer "URL: "
-                                     "http://"  nil nil nil 
+                                     "http://"  nil nil nil
                                      "http://"))))
     (shell-command
      (format "%s -de %s"
              emacspeak-w3-lwp-request url))
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-other-window 1)))
-  
+
 ;;}}}
 ;;{{{ setup
 
@@ -191,7 +191,7 @@
 (add-hook 'w3-load-hook 'emacspeak-w3-load-hook)
 
 ;;}}}
-;;{{{  dump using lynx 
+;;{{{  dump using lynx
 
 (defcustom emacspeak-w3-lynx-program "lynx"
   "Name of lynx executable"
@@ -306,7 +306,7 @@ document is displayed in a separate buffer. "
 
 (defun emacspeak-w3-next-doc-element (&optional count)
   "Move forward  to the next document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move."
   (interactive "P")
   (cond
@@ -330,7 +330,7 @@ implemented. ")))
 
 (defun emacspeak-w3-previous-doc-element (&optional count)
   "Move back  to the previous document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move."
   (interactive "P")
   (cond
@@ -377,7 +377,7 @@ implemented. ")))
   (let ((start (point))
         (end nil))
     (save-excursion
-      
+
       (goto-char (next-single-property-change (point)
                                               'html-stack
                                               (current-buffer)
@@ -386,7 +386,7 @@ implemented. ")))
       (emacspeak-speak-region start end )
       (emacspeak-auditory-icon 'select-object))))
 ;;}}}
-;;{{{ experimental --unravel javascript urls 
+;;{{{ experimental --unravel javascript urls
 (defvar emacspeak-w3-javascript-cleanup-buffer " *javascript-cleanup*"
   "temporary scratch area")
 
@@ -428,23 +428,23 @@ implemented. ")))
     (w3-relative-link url)))
 
 ;;}}}
-;;{{{ experimental --show class attribute from anchors 
+;;{{{ experimental --show class attribute from anchors
 (defun emacspeak-w3-show-anchor-class ()
   "Display any class attributes set on corresponding anchor
 element. "
   (interactive)
   (when (and (eq major-mode 'w3-mode)
              (widget-at (point)))
-    (message (mapconcat #'identity 
+    (message (mapconcat #'identity
                         (widget-get (widget-at (point)) :class ) " "))))
 
 ;;}}}
-;;{{{ load realaudio if available 
+;;{{{ load realaudio if available
 (when (locate-library "emacspeak-realaudio")
   (require 'emacspeak-realaudio))
 
 ;;}}}
-;;{{{  freeamp for mp3 
+;;{{{  freeamp for mp3
 (require 'emacspeak-freeamp)
 (defun emacspeak-w3-freeamp ()
   "View the current buffer using emacspeak's freeamp interface"
@@ -480,9 +480,9 @@ even if one is already defined."
         (redirect nil))
     (unless url
       (error "Not on a link."))
-    (when (or prompt 
+    (when (or prompt
               (null emacspeak-w3-url-rewrite-rule))
-      (setq emacspeak-w3-url-rewrite-rule 
+      (setq emacspeak-w3-url-rewrite-rule
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
           (string-replace-match (first emacspeak-w3-url-rewrite-rule)
@@ -521,7 +521,7 @@ even if one is already defined."
      (t
       (setq emacspeak-w3-url-executor
             (intern
-             (completing-read 
+             (completing-read
               "Executor function: "
               obarray 'fboundp t
               "emacspeak-" nil )))
@@ -530,7 +530,7 @@ even if one is already defined."
           (funcall emacspeak-w3-url-executor url)
         (error "Invalid executor %s"
                emacspeak-w3-url-executor))))))
-      
+
 
 ;;}}}
 ;;{{{  jump to title in document
@@ -545,7 +545,7 @@ even if one is already defined."
    (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
            (webjump-url-encode
             (w3-view-this-url 'no-show)))))
-    
+
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
   (interactive)
@@ -586,7 +586,7 @@ even if one is already defined."
 ;;{{{ applying XSL transforms before displaying
 
 (define-prefix-command 'emacspeak-w3-xsl-map )
-  
+
 
 (defcustom emacspeak-w3-xsl-p nil
   "T means we apply XSL transformation before displaying
@@ -627,7 +627,7 @@ HTML."
 (defcustom emacspeak-w3-xsl-transform nil
   "Specifies transform to use before displaying a page.
 Nil means no transform is used. "
-  :type  '(choice 
+  :type  '(choice
            (file :tag "XSL")
            (const :tag "none" nil))
   :group 'emacspeak-w3)
@@ -861,7 +861,7 @@ spoken automatically."
           (read-from-minibuffer "URL:")))
   (declare (special emacspeak-w3-media-stream-suffixes))
   (let ((filter "//a[%s]")
-        (predicate 
+        (predicate
          (mapconcat
           #'(lambda (suffix)
               (format "contains(@href,\"%s\")"
@@ -912,7 +912,7 @@ spoken automatically."
     (read-from-minibuffer "URL Pattern: ")
     current-prefix-arg))
   (let ((filter
-         (format 
+         (format
           "//a[contains(@href,\"%s\")]"
           pattern)))
     (emacspeak-w3-xslt-filter
@@ -940,7 +940,7 @@ spoken automatically."
    speak))
 
 (defsubst  emacspeak-w3-get-table-list (&optional bound)
-  "Collect a list of numbers less than bound 
+  "Collect a list of numbers less than bound
  by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
@@ -1012,7 +1012,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
 ;;;###autoload
 (defun emacspeak-w3-extract-tables-by-position-list (positions   &optional prompt-url speak)
   "Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
+Tables are specified by their position in the list
 nested of tables found in the page."
   (interactive
    (list
@@ -1023,7 +1023,7 @@ nested of tables found in the page."
           (mapconcat
            #'(lambda  (i)
                (format "(/descendant::table[%s])" i))
-           positions 
+           positions
            " | "))
     (emacspeak-w3-xslt-filter
      filter
@@ -1050,7 +1050,7 @@ Interactive prefix arg causes url to be read from the minibuffer."
 ;;;###autoload
 (defun emacspeak-w3-extract-tables-by-match-list (match-list   &optional prompt-url speak)
   "Extract specified  tables from a WWW page.
-Tables are specified by containing  match pattern 
+Tables are specified by containing  match pattern
  found in the match list."
   (interactive
    (list
@@ -1072,7 +1072,7 @@ Tables are specified by containing  match pattern
   "Caches class attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-w3-buffer-css-class-cache)
-        
+
 (defun emacspeak-w3-css-class-cache ()
   "Build CSS class cache for buffer if needed."
   (unless (eq major-mode 'w3-mode)
@@ -1086,7 +1086,7 @@ Tables are specified by containing  match pattern
               (url-view-url 'no-show)
               nil
               'no-comment)))
-        (setq values 
+        (setq values
               (save-excursion
                 (set-buffer buffer)
                 (shell-command-on-region (point-min) (point-max)
@@ -1209,7 +1209,7 @@ XPath locator.")
           emacspeak-w3-extract-node-by-id-xsl
           url
           (list
-           (cons "node-id" 
+           (cons "node-id"
                  (format "\"'%s'\"" node-id))
            (cons "base"
                  (format "\"'%s'\"" url))))))
@@ -1255,7 +1255,7 @@ loaded. "
       (emacspeak-w3-preview-this-buffer)
       (kill-buffer buffer)
       (emacspeak-auditory-icon 'open-object))))
-          
+
 
 ;;}}}
 ;;{{{  xsl keymap
@@ -1296,7 +1296,7 @@ loaded. "
       (emacspeak-keymap-update emacspeak-w3-xsl-map binding))
 
 ;;}}}
-;;{{{ class filter 
+;;{{{ class filter
 
 (defvar emacspeak-w3-class-filter nil
   "Buffer local variable specifying a class filter for following
@@ -1323,9 +1323,9 @@ used as well."
             (string-replace-match (first emacspeak-w3-url-rewrite-rule)
                                   url
                                   (second emacspeak-w3-url-rewrite-rule))))
-    (when (or prompt-class 
+    (when (or prompt-class
               (null emacspeak-w3-class-filter))
-      (setq emacspeak-w3-class-filter 
+      (setq emacspeak-w3-class-filter
             (read-from-minibuffer  "Specify class: ")))
     (emacspeak-w3-extract-by-class
      emacspeak-w3-class-filter
@@ -1334,7 +1334,7 @@ used as well."
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
-;;{{{ xpath  filter 
+;;{{{ xpath  filter
 
 (defvar emacspeak-w3-xpath-filter nil
   "Buffer local variable specifying a XPath filter for following
@@ -1369,9 +1369,9 @@ used as well."
                                   url
                                   (second
                                    emacspeak-w3-url-rewrite-rule))))
-    (when (or prompt 
+    (when (or prompt
               (null emacspeak-w3-xpath-filter))
-      (setq emacspeak-w3-xpath-filter 
+      (setq emacspeak-w3-xpath-filter
             (read-from-minibuffer  "Specify XPath: "
                                    emacspeak-w3-most-recent-xpath-filter))
       (setq emacspeak-w3-most-recent-xpath-filter
@@ -1387,7 +1387,7 @@ used as well."
 (make-variable-buffer-local 'emacspeak-w3-xpath-junk)
 
 (defvar emacspeak-w3-most-recent-xpath-junk
-  nil 
+  nil
   "Caches last XPath used to junk elements.")
 
 (defun emacspeak-w3-xpath-junk-and-follow (&optional prompt)
@@ -1412,9 +1412,9 @@ used as well."
                                   url
                                   (second
                                    emacspeak-w3-url-rewrite-rule))))
-    (when (or prompt 
+    (when (or prompt
               (null emacspeak-w3-xpath-junk))
-      (setq emacspeak-w3-xpath-junk 
+      (setq emacspeak-w3-xpath-junk
             (read-from-minibuffer  "Specify XPath: "
                                    emacspeak-w3-most-recent-xpath-junk))
       (setq emacspeak-w3-most-recent-xpath-junk
@@ -1536,8 +1536,8 @@ current page."
    (format "+cache:%s"
            (url-view-url 'no-show))))
 
-  
-  
+
+
 ;;;###autoload
 (defun emacspeak-w3-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
@@ -1547,7 +1547,7 @@ current page."
     (error "This command cannot be used outside W3 buffers."))
   (emacspeak-websearch-google
    (format "+site:%s %s"
-           (aref 
+           (aref
             (url-generic-parse-url (url-view-url 'no-show))
             3)
            (read-from-minibuffer "Search this site for: "))))
@@ -1564,16 +1564,16 @@ current page."
     (error "This command cannot be used outside W3 buffers."))
   (let ((url (url-view-url 'no-show)))
     (browse-url
-     (format 
+     (format
       "%s%s"
-      emacspeak-w3-google-related-uri 
+      emacspeak-w3-google-related-uri
       url))
     (search-forward "Similar")
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
-;;{{{ advice focus on cell 
+;;{{{ advice focus on cell
 (defadvice w3-table-focus-on-this-cell (around emacspeak pre act comp)
   "Clone any url rewrite rules."
   (let ((rule emacspeak-w3-url-rewrite-rule))
@@ -1582,18 +1582,20 @@ current page."
       (setq emacspeak-w3-url-rewrite-rule rule))))
 
 ;;}}}
-;;{{{ previewing buffers and regions 
+;;{{{ previewing buffers and regions
 
 ;;;###autoload
-(defun emacspeak-w3-preview-this-buffer ()
+(defun emacspeak-w3-preview-this-buffer (&optional buffer)
   "Preview this buffer."
   (interactive)
   (let ((filename
          (format "/tmp/%s.html"
                  (make-temp-name "w3"))))
-    (write-region (point-min) 
-                  (point-max)
-                  filename)
+    (save-excursion
+      (when buffer (set-buffer buffer))
+      (write-region (point-min)
+                    (point-max)
+                    filename))
     (cond
      ((interactive-p)
       (w3-open-local filename))
@@ -1609,7 +1611,7 @@ current page."
   (let ((filename
          (format "/tmp/%s.html"
                  (make-temp-name "w3"))))
-    (write-region start 
+    (write-region start
                   end
                   filename)
     (cond
@@ -1621,16 +1623,16 @@ current page."
     (delete-file filename)))
 
 ;;}}}
-;;{{{ fix bug in W3 under emacs 21 
+;;{{{ fix bug in W3 under emacs 21
 
 (defadvice w3-nasty-disgusting-http-equiv-handling (around fix-bug pre act comp)
   (let ((emacspeak-use-auditory-icons nil))
-    (condition-case nil 
+    (condition-case nil
         ad-do-it
       (error (message "caught an error")))))
 
 ;;}}}
-;;{{{ enable post processor functionality 
+;;{{{ enable post processor functionality
 
 (defvar emacspeak-w3-post-process-hook nil
   "Set locally to a  site specific post processor.
@@ -1732,19 +1734,19 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
   (let ((url (w3-view-this-url 'no-show)))
     (message "Playing media  URL under point")
     (funcall emacspeak-media-player  url)))
-     
+
 
 (defun emacspeak-w3-mplayer-play-url-at-point ()
   "Play url under point using mplayer"
   (interactive )
   (let ((url (w3-view-this-url 'no-show)))
     (emacspeak-m-player url)))
-    
+
 
 ;;}}}
-;;{{{ backward compatibility 
+;;{{{ backward compatibility
 
-;;; this will go away 
+;;; this will go away
 (defalias 'make-dtk-speech-style 'make-acss)
 (defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
 (provide 'dtk-css-speech)
@@ -1779,7 +1781,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
    (t ad-do-it))
   ad-return-value)
 ;;}}}
-;;{{{  make wget aware of emacspeak w3 url rewrite functionality 
+;;{{{  make wget aware of emacspeak w3 url rewrite functionality
 
 (defadvice w3-wget (before emacspeak pre act comp)
   "Become aware of emacspeak w3 url rewrite rule,
@@ -1802,11 +1804,11 @@ If a rewrite rule is defined in the current buffer, we change
       (push redirect minibuffer-history))))
 
 ;;}}}
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
