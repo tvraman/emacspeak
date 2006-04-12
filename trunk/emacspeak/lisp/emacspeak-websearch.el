@@ -336,7 +336,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                     (widget-forward 1)
                     (emacspeak-auditory-icon 'open-object)
                     (emacspeak-widget-summarize (widget-at (point)))))
-      (emacspeak-w3-preview-this-buffer)
+      (browse-url-of-buffer)
       (kill-buffer buffer))))
 
 ;;}}}

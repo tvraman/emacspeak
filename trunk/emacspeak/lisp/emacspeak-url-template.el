@@ -587,7 +587,7 @@ Optional arg `near' specifies reference location for generating direction links.
       (add-hook 'emacspeak-w3-post-process-hook
                 'emacspeak-speak-buffer
                 'at-end))
-    (emacspeak-w3-preview-this-buffer))))
+    (browse-url-of-buffer))))
 
 (emacspeak-url-template-define
  "EmapSpeak Via Google"
@@ -757,7 +757,7 @@ from English to German.")
          url )))
    (save-excursion
      (set-buffer buffer)
-     (emacspeak-w3-preview-this-buffer)))))
+     (browse-url-of-buffer)))))
 
 ;;}}}
 ;;{{{ Google Local:

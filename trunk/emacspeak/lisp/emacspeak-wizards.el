@@ -1735,7 +1735,7 @@ Signals beginning  of buffer."
       emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
      results)
     (switch-to-buffer results)
-    (emacspeak-w3-preview-this-buffer)
+    (browse-url-of-buffer)
     (kill-buffer results)))
 
 ;;}}}
@@ -1975,7 +1975,7 @@ visiting the xls file."
                  emacspeak-wizards-xlhtml-program filename)
          'replace
          (current-buffer))
-        (emacspeak-w3-preview-this-buffer))
+        (browse-url-of-buffer))
       (kill-buffer buffer)
       (kill-buffer xl-buffer)))))
 
@@ -2027,7 +2027,7 @@ visiting the ppt file."
                   emacspeak-wizards-ppthtml-program filename)
           'replace
           (current-buffer))
-         (call-interactively 'emacspeak-w3-preview-this-buffer))
+         (call-interactively 'browse-url-of-buffer))
        (kill-buffer buffer)
        (kill-buffer ppt-buffer))))))
 
@@ -2447,7 +2447,7 @@ Use with caution."
   (declare (special emacspeak-wizards-spot-words-extension))
   (compile 
    (format
-    "find . -type f -name '*%s' -print0 | xargs-0 -e  perl -pi -e    \'s/%s/%s/g' "
+    "find . -type f -name '*%s' -print0 | xargs -0 -e  perl -pi -e    \'s/%s/%s/g' "
     ext word correction))
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done))

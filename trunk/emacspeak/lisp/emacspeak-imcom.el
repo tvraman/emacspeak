@@ -175,7 +175,7 @@ sessions.")
         (cons "session"
               (format "\"'%s'\""
                       session))))
-      (emacspeak-w3-preview-this-buffer)
+      (browse-url-of-buffer)
       (kill-buffer buffer))))
 
 ;;}}}
