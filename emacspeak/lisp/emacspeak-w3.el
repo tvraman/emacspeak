@@ -1587,22 +1587,6 @@ current page."
 ;;;###autoload
 
 ;;;###autoload
-(defun emacspeak-w3-preview-this-region (start end)
-  "Preview this region."
-  (interactive "r")
-  (let ((filename
-         (format "/tmp/%s.html"
-                 (make-temp-name "w3"))))
-    (write-region start
-                  end
-                  filename)
-    (cond
-     ((interactive-p)
-      (w3-open-local filename))
-     (t
-      (emacspeak-w3-without-xsl
-       (w3-open-local filename))))
-    (delete-file filename)))
 
 ;;}}}
 ;;{{{ fix bug in W3 under emacs 21
