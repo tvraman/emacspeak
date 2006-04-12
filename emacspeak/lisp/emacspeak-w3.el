@@ -810,7 +810,7 @@ Optional arg COMPLEMENT inverts the filter.  "
                  speak-result)
         (add-hook 'emacspeak-w3-post-process-hook
                   'emacspeak-speak-buffer))
-      (emacspeak-w3-preview-this-buffer)
+      (browse-url-of-buffer)
       (cond
        ((> (length emacspeak-w3-xsl-keep-result) 0)
         (save-excursion
@@ -1215,7 +1215,7 @@ XPath locator.")
                  (format "\"'%s'\"" url))))))
     (save-excursion
       (set-buffer  result)
-      (emacspeak-w3-preview-this-buffer))))
+      (browse-url-of-buffer))))
 
 ;;}}}
 ;;{{{ Browse XML files:
@@ -1252,7 +1252,7 @@ loaded. "
         (let ((xslt (read-file-name "XSL: " emacspeak-xslt-directory)))
           (emacspeak-xslt-region xslt (point-min)
                                  (point-max))))
-      (emacspeak-w3-preview-this-buffer)
+      (browse-url-of-buffer)
       (kill-buffer buffer)
       (emacspeak-auditory-icon 'open-object))))
 
@@ -1456,7 +1456,7 @@ used as well."
                   (emacspeak-auditory-icon 'open-object)))
     (save-excursion
       (set-buffer src-buffer)
-      (emacspeak-w3-preview-this-buffer))
+      (browse-url-of-buffer))
     (kill-buffer src-buffer)))
 
 (defcustom emacspeak-w3-charent-alist
@@ -1509,7 +1509,7 @@ used as well."
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-w3-unescape-charent))
-      (emacspeak-w3-preview-this-buffer))
+      (browse-url-of-buffer))
     (kill-buffer src-buffer)))
 
 ;;}}}
@@ -1585,24 +1585,6 @@ current page."
 ;;{{{ previewing buffers and regions
 
 ;;;###autoload
-(defun emacspeak-w3-preview-this-buffer (&optional buffer)
-  "Preview this buffer."
-  (interactive)
-  (let ((filename
-         (format "/tmp/%s.html"
-                 (make-temp-name "w3"))))
-    (save-excursion
-      (when buffer (set-buffer buffer))
-      (write-region (point-min)
-                    (point-max)
-                    filename))
-    (cond
-     ((interactive-p)
-      (w3-open-local filename))
-     (t
-      (emacspeak-w3-without-xsl
-       (w3-open-local filename))))
-    (delete-file filename)))
 
 ;;;###autoload
 (defun emacspeak-w3-preview-this-region (start end)
