@@ -168,8 +168,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                        emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
-    (unless (eq (process-status emacspeak-m-player-process) 'exit)
-      (delete-process  emacspeak-m-player-process))
     (setq emacspeak-m-player-process nil))
   (let ((process-connection-type nil)
         (playlist-p (or
@@ -345,6 +343,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Quit media player."
   (interactive)
   (emacspeak-m-player-dispatch "quit")
+  (unless (eq (process-status emacspeak-m-player-process) 'exit)
+      (delete-process  emacspeak-m-player-process))
   (bury-buffer)
   (emacspeak-speak-mode-line))
 
