@@ -209,7 +209,7 @@ Clip is the result of parsing SMIL element <text .../> as used by Daisy 3."
                           path)))))
     (save-excursion
       (set-buffer result)
-      (emacspeak-w3-preview-this-buffer))
+      (browse-url-of-buffer))
     (kill-buffer result)))
 
 (defun emacspeak-daisy-stop-audio ()

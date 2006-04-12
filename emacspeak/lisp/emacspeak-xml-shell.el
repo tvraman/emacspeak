@@ -293,7 +293,7 @@ HTML head if none found."
     (goto-char (point-min))
     (while (search-forward "-------" nil t)
       (replace-match "<br>")))
-  (emacspeak-w3-preview-this-buffer)
+  (browse-url-of-buffer)
   (setq emacspeak-xml-shell-display-buffer (current-buffer)))
 
 (defun emacspeak-xml-shell-browse-current ()
