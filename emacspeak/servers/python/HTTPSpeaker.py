@@ -31,6 +31,7 @@ class HTTPSpeaker (HTTPServer):
         """Initialize HTTP listener."""
         HTTPServer.__init__(self, address, handler)
         self.speaker = Speaker(engine)
+
 class SpeakHTTPRequestHandler(BaseHTTPRequestHandler):
 
     """Handle HTTP Speak requests."""
