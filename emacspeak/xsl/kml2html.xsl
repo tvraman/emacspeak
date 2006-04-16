@@ -19,7 +19,7 @@ Transform KML to speakable XHTML
       </head>
       <body>
         <h1><xsl:value-of select="kml:name"/></h1>
-          <xsl:apply-templates select="kml:Placemark"/>
+        <xsl:apply-templates select="kml:Placemark"/>
         
       </body>
     </html>
@@ -28,9 +28,10 @@ Transform KML to speakable XHTML
     <p>
       <em><xsl:value-of select="kml:name"/></em>
       <xsl:value-of select="kml:description"
-                    disable-output-escaping="yes"/>
+                    disable-output-escaping="yes"/><br/>
       <xsl:value-of select="kml:address"
-                    disable-output-escaping="yes"/><xsl:if test="kml:LookAt/kml:heading">
+                    disable-output-escaping="yes"/><br/>
+      <xsl:if test="kml:LookAt/kml:heading">
         Heading: <xsl:value-of select="kml:LookAt/kml:heading"/>
       </xsl:if>
     </p>
