@@ -591,7 +591,7 @@ Optional arg `near' specifies reference location for generating direction links.
 
 (emacspeak-url-template-define
  "EmapSpeak Via Google"
- "http://maps.google.com/maps?q=%s&btng=Search&output=js"
+ "http://maps.google.com/maps?q=%s&output=kml"
  (list "Query: ")
  nil
  "EmapSpeak Via Google.
@@ -613,7 +613,12 @@ Here are some examples:
 
 <what> near <location address>
 "
- 'emacspeak-url-template-google-maps-speak)
+ #'(lambda (url)
+     (let ((buffer 
+            (emacspeak-xslt-xml-url
+             (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
+             url )))
+       (browse-url-of-buffer buffer))))
 
 ;;}}}
 ;;{{{ google scholar
