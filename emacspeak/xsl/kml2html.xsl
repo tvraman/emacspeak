@@ -10,7 +10,7 @@ Transform KML to speakable XHTML
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:kml="http://earth.google.com/kml/2.0">
   <xsl:output encoding="iso8859-15"
-              method="html"  indent="yes"/>
+              method="xml"  indent="yes"/>
   
   <xsl:template match="kml:Document|kml:Folder">
     <html>
@@ -19,24 +19,21 @@ Transform KML to speakable XHTML
       </head>
       <body>
         <h1><xsl:value-of select="kml:name"/></h1>
-        <ul>
           <xsl:apply-templates select="kml:Placemark"/>
-        </ul>
+        
       </body>
     </html>
   </xsl:template>
   <xsl:template match="kml:Placemark">
-    <li>
+    <p>
       <em><xsl:value-of select="kml:name"/></em>
       <xsl:value-of select="kml:description"
-                    disable-output-escaping="yes"/>
-<xsl:value-of select="kml:Snippet"
                     disable-output-escaping="yes"/>
       <xsl:value-of select="kml:address"
                     disable-output-escaping="yes"/><xsl:if test="kml:LookAt/kml:heading">
         Heading: <xsl:value-of select="kml:LookAt/kml:heading"/>
       </xsl:if>
-    </li>
+    </p>
   </xsl:template>
   
   
