@@ -31,9 +31,6 @@ Transform KML to speakable XHTML
                     disable-output-escaping="yes"/><br/>
       <xsl:value-of select="kml:address"
                     disable-output-escaping="yes"/><br/>
-      <xsl:if test="kml:LookAt/kml:heading">
-        Heading: <xsl:value-of select="kml:LookAt/kml:heading"/>
-      </xsl:if>
     </p>
   </xsl:template>
   
