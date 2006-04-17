@@ -231,7 +231,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-key ?e  'emaps)
 ;;;###autoload
 (defvar emacspeak-websearch-google-maps-uri
-  "http://maps.google.com/maps?q=%s&csi=1&output=xml"
+  "http://maps.google.com/maps?q=%s&output=kml"
   "URL template for Google maps.")
 
 (defcustom emacspeak-websearch-emapspeak-my-location ""
@@ -273,12 +273,14 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                              query emacspeak-websearch-emapspeak-my-location))))
            (t (format emacspeak-websearch-google-maps-uri
                       (webjump-url-encode query)))))
-    (emacspeak-url-template-google-maps-speak uri
-                                              (webjump-url-encode
-                                               (if use-near
-                                                   emacspeak-websearch-emapspeak-my-location
-                                                 near))
-                                              'speak)))
+    (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
+    (browse-url-of-buffer
+    (emacspeak-xslt-xml-url
+     (expand-file-name "kml2html.xsl"
+                       emacspeak-xslt-directory)
+     uri))))
+                                              
+                                              
 
 ;;;###autoload
 (defun emacspeak-websearch-emapspeak-near-my-location (query)
