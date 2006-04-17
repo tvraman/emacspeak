@@ -593,7 +593,7 @@ Optional arg `near' specifies reference location for generating direction links.
  "EmapSpeak Via Google"
  "http://maps.google.com/maps?q=%s&output=kml"
  (list "Query: ")
- nil
+ 'emacspeak-speak-buffer
  "EmapSpeak Via Google.
 
 Specify the query using English and  addresses as complete as
