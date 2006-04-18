@@ -53,7 +53,19 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
 ;;}}}
-
+;;{{{ Utilities:
+(defsubst emacspeak-url-encode (str)
+  "URL encode string."
+  (mapconcat '(lambda (c)
+		(cond ((= c 32) "+")
+		      ((or (and (>= c ?a) (<= c ?z))
+			   (and (>= c ?A) (<= c ?Z))
+			   (and (>= c ?0) (<= c ?9)))
+		       (char-to-string c))
+		      (t (upcase (format "%%%02x" c)))))
+	     str
+	     ""))
+;;}}}
 (provide  'emacspeak-preamble)
 ;;{{{  emacs local variables 
 
