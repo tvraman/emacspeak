@@ -229,7 +229,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (emacspeak-websearch-set-searcher 'google-news
                                   'emacspeak-websearch-google-news)
 
-(emacspeak-websearch-set-key ?N 'google-news )
+(emacspeak-websearch-set-key ?n 'google-news )
 
 (defun emacspeak-websearch-google-news ()
   "Invoke Google News url template."
@@ -1408,7 +1408,7 @@ With optional interactive prefix arg MAP shows the location map instead."
 
 (emacspeak-websearch-set-searcher 'news-yahoo
                                   'emacspeak-websearch-news-yahoo)
-(emacspeak-websearch-set-key ?n 'news-yahoo)
+(emacspeak-websearch-set-key ?N 'news-yahoo)
 
 (defvar emacspeak-websearch-news-yahoo-uri
   "http://search.news.yahoo.com/search/news?"
