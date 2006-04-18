@@ -56,7 +56,6 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-(require 'webjump)
 (require 'emacspeak-websearch)
 (eval-when-compile (require 'emacspeak-w3))
 ;;}}}
@@ -86,7 +85,7 @@
                 (setq input
                       (cond
                        ((stringp g)
-                        (webjump-url-encode (read-from-minibuffer g)))
+                        (emacspeak-url-encode (read-from-minibuffer g)))
                        (t (funcall g))))
                 (nconc emacspeak-url-template-current-ut
                        (list input))
@@ -274,7 +273,7 @@ documentation   Documents this template resource. "
                                    'emacspeak-url-template-shoutcast-history)))
         (pushnew query emacspeak-url-template-shoutcast-history
                  :test #'string-equal)
-        (webjump-url-encode query))))
+        (emacspeak-url-encode query))))
  nil
  "Locate and display Shoutcast streams."
  #'(lambda (url)
@@ -480,7 +479,7 @@ mobile transcoder."
                emacspeak-url-template-google-transcoder-url))
      (browse-url
       (format emacspeak-url-template-google-transcoder-url
-              (webjump-url-encode url)))))
+              (emacspeak-url-encode url)))))
 
 (emacspeak-url-template-define
  "Finance News  Search"
