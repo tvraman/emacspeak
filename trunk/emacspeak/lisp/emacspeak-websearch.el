@@ -224,6 +224,20 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ websearch utilities
 
+;;{{{ Google News
+
+(emacspeak-websearch-set-searcher 'google-news
+                                  'emacspeak-websearch-google-news)
+
+(emacspeak-websearch-set-key ?N 'google-news )
+
+(defun emacspeak-websearch-google-news ()
+  "Invoke Google News url template."
+  (interactive)
+  (let ((name "Google News Search"))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
+;;}}}
 ;;{{{  EmapSpeak
 (emacspeak-websearch-set-searcher 'emaps
                                   'emacspeak-websearch-emaps-search)
@@ -1437,29 +1451,29 @@ Optional prefix arg no-rss scrapes information from HTML."
 ;;}}}
 ;;{{{  Northern Lights Search
 
-(emacspeak-websearch-set-searcher 'northern-light
-                                  'emacspeak-websearch-northern-light)
+;; (emacspeak-websearch-set-searcher 'northern-light
+;;                                   'emacspeak-websearch-northern-light)
 
-                                        ; (emacspeak-websearch-set-key ?N 'northern-light)
-;;; This search engine does not exist -- here for legacy
-(defvar emacspeak-websearch-northern-light-uri
-  "http://www.northernlight.com/nlquery.fcg?cb=0&orl=2%3A1&qr="
-  "*URI for launching a Northern Light  search")
+;;                                         ; (emacspeak-websearch-set-key ?N 'northern-light)
+;; ;;; This search engine does not exist -- here for legacy
+;; (defvar emacspeak-websearch-northern-light-uri
+;;   "http://www.northernlight.com/nlquery.fcg?cb=0&orl=2%3A1&qr="
+;;   "*URI for launching a Northern Light  search")
 
-(defun emacspeak-websearch-northern-light (query)
-  "Perform a Northern Light  search"
-  (interactive
-   (list (emacspeak-websearch-read-query "Search Northern
-Light for: ")))
-  (declare (special emacspeak-websearch-northern-light-uri))
-  (let (
-        )
-    (browse-url
-     (concat emacspeak-websearch-northern-light-uri
-             (webjump-url-encode query))))
-  (emacspeak-websearch-post-process
-   "Your search"
-   'emacspeak-speak-line))
+;; (defun emacspeak-websearch-northern-light (query)
+;;   "Perform a Northern Light  search"
+;;   (interactive
+;;    (list (emacspeak-websearch-read-query "Search Northern
+;; Light for: ")))
+;;   (declare (special emacspeak-websearch-northern-light-uri))
+;;   (let (
+;;         )
+;;     (browse-url
+;;      (concat emacspeak-websearch-northern-light-uri
+;;              (webjump-url-encode query))))
+;;   (emacspeak-websearch-post-process
+;;    "Your search"
+;;    'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  Open Directory
