@@ -45,7 +45,6 @@
   (condition-case nil
       (require  'emacspeak-w3)
     (error nil)))
-(require 'webjump)
 ;;}}}
 ;;{{{  Introduction:
 
@@ -282,11 +281,11 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
           (cond
            (use-near
             (format emacspeak-websearch-google-maps-uri
-                    (webjump-url-encode
+                    (emacspeak-url-encode
                      (format "%s near %s"
                              query emacspeak-websearch-emapspeak-my-location))))
            (t (format emacspeak-websearch-google-maps-uri
-                      (webjump-url-encode query)))))
+                      (emacspeak-url-encode query)))))
     (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
     (browse-url-of-buffer
     (emacspeak-xslt-xml-url
@@ -310,11 +309,11 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
           (read-from-minibuffer "Near Location: ")))
   (let ((uri
          (format emacspeak-websearch-google-maps-uri
-                 (webjump-url-encode
+                 (emacspeak-url-encode
                   (format "%s near %s" query
                           emacspeak-websearch-emapspeak-my-location)))))
     (emacspeak-url-template-google-maps-speak uri
-                                              (webjump-url-encode
+                                              (emacspeak-url-encode
                                                emacspeak-websearch-emapspeak-my-location)
                                               'speak)))
 
@@ -375,7 +374,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (browse-url
    (concat emacspeak-websearch-alltheweb-uri
            "&q="
-           (webjump-url-encode query)))
+           (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
    "documents found"
    'emacspeak-speak-line))
@@ -400,7 +399,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
         )
     (browse-url
      (concat emacspeak-websearch-altavista-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "Results"
    'emacspeak-speak-line))
@@ -427,7 +426,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
         )
     (browse-url
      (concat emacspeak-websearch-biblio-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -475,7 +474,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     (browse-url
      (concat emacspeak-websearch-citeseer-uri
              "q="
-             (webjump-url-encode term)
+             (emacspeak-url-encode term)
              "&"
              options))
     (cond
@@ -506,7 +505,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (emacspeak-w3-extract-nested-table-list
    (list  4 5 6 7 8 9 10 11 12)
    (concat emacspeak-websearch-bbc-uri
-           (webjump-url-encode query))
+           (emacspeak-url-encode query))
    'speak))
 
 ;;}}}
@@ -529,7 +528,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (declare (special emacspeak-websearch-blinkx-uri))
   (emacspeak-rss-display
    (concat  emacspeak-websearch-blinkx-uri
-            (webjump-url-encode query))))
+            (emacspeak-url-encode query))))
 
 ;;}}}
 ;;{{{ PodZinger
@@ -551,7 +550,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   (declare (special emacspeak-websearch-podzinger-uri))
   (emacspeak-rss-display
    (concat  emacspeak-websearch-podzinger-uri
-            (webjump-url-encode query))))
+            (emacspeak-url-encode query))))
 
 ;;}}}
 ;;{{{ CNN
@@ -573,8 +572,8 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 ;;   (browse-url
 ;;    (concat emacspeak-websearch-cnn-uri
 ;;            (format "query=%s&qt=%s"
-;;                    (webjump-url-encode query)
-;;                    (webjump-url-encode query))))
+;;                    (emacspeak-url-encode query)
+;;                    (emacspeak-url-encode query))))
 ;;   (emacspeak-websearch-post-process
 ;;    "Results"
 ;;    'emacspeak-speak-line))
@@ -613,7 +612,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
 ;;      )
 ;;     (browse-url
 ;;      (concat emacspeak-websearch-fn-cnn-uri
-;;              (webjump-url-encode query)
+;;              (emacspeak-url-encode query)
 ;;              emacspeak-websearch-fn-cnn-options
 ;;              (if prefix
 ;;                  (read-from-minibuffer
@@ -644,7 +643,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
         )
     (browse-url
      (concat emacspeak-websearch-foldoc-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -704,7 +703,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
     (cond
      ((null prefix)
       (let ((uri (concat emacspeak-websearch-quotes-csv-yahoo-uri
-                         (webjump-url-encode (format "%s" query))))
+                         (emacspeak-url-encode (format "%s" query))))
             (results "*quotes-table*")
             (process nil))
 ;;; nuke old results if any
@@ -720,7 +719,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
      (t
       (browse-url
        (concat emacspeak-websearch-quotes-yahoo-uri
-               (webjump-url-encode query)
+               (emacspeak-url-encode query)
                emacspeak-websearch-quotes-yahoo-options))
       (emacspeak-websearch-post-process
        "Symbol"
@@ -744,7 +743,7 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string."
   (declare (special emacspeak-websearch-koders-uri))
   (browse-url
    (concat emacspeak-websearch-koders-uri
-           (webjump-url-encode query)))
+           (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
    "Results"
    'emacspeak-speak-line))
@@ -923,7 +922,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         )
     (browse-url
      (concat emacspeak-websearch-dictionary-hypertext-webster-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -952,7 +951,7 @@ Optional second arg as-html processes the results as HTML rather than data."
                                         "type_of_search=soft"
                                         "&exact=1"
                                         "&words="
-                                        (webjump-url-encode query))))
+                                        (emacspeak-url-encode query))))
 
 (defvar emacspeak-websearch-freshmeat-search-uri
   "http://www.freshmeat.net/search?q="
@@ -968,7 +967,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         )
     (browse-url
      (concat emacspeak-websearch-freshmeat-search-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "search results"
    'emacspeak-speak-line))
@@ -988,7 +987,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         )
     (browse-url
      (concat emacspeak-websearch-ctan-search-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1008,7 +1007,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         )
     (browse-url
      (concat emacspeak-websearch-cpan-search-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1025,7 +1024,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   (declare (special emacspeak-websearch-swik-search-uri))
   (browse-url
    (concat emacspeak-websearch-swik-search-uri
-           (webjump-url-encode query)))
+           (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1076,7 +1075,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         )
     (browse-url
      (concat emacspeak-websearch-britannica-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1106,7 +1105,7 @@ Optional second arg as-html processes the results as HTML rather than data."
              (ecase type
                (?a "author=")
                (?t "title="))
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1143,13 +1142,13 @@ I'm Feeling Lucky button on Google."
   (emacspeak-w3-without-xsl
    (browse-url
     (concat emacspeak-websearch-google-uri
-            (webjump-url-encode query)
+            (emacspeak-url-encode query)
             (format "&num=%s"
                     emacspeak-websearch-google-number-of-results)
             (when lucky
               (concat
                "&btnI="
-               (webjump-url-encode
+               (emacspeak-url-encode
                 "I'm Feeling Lucky"))))))
   (if lucky
       (emacspeak-speak-line)
@@ -1201,7 +1200,7 @@ http://www.google.com/options/specialsearches.html "
                                                   (error "No mark set in this buffer"))))))
     (emacspeak-websearch-google
      (concat
-      (webjump-url-encode query )
+      (emacspeak-url-encode query )
       (format " daterange:%s-%s"
               (min from to)
               (max from to))))))
@@ -1237,7 +1236,7 @@ Optional interactive  prefix arg local-flag prompts for local
      (browse-url
       (format emacspeak-websearch-froogle-uri
               (concat
-               (webjump-url-encode query)
+               (emacspeak-url-encode query)
                (if local-flag
                    (format "&mode=local&addr=%s" local)
                  ""))))
@@ -1267,7 +1266,7 @@ Optional interactive  prefix arg local-flag prompts for local
   (declare (special emacspeak-websearch-teoma-uri))
   (browse-url
    (concat emacspeak-websearch-teoma-uri
-           (webjump-url-encode query))))
+           (emacspeak-url-encode query))))
 
 ;;}}}
 ;;{{{ google advanced search
@@ -1327,7 +1326,7 @@ Optional interactive  prefix arg local-flag prompts for local
         )
     (browse-url
      (concat emacspeak-websearch-jeeves-uri
-             (webjump-url-encode query)))
+             (emacspeak-url-encode query)))
     (emacspeak-websearch-post-process
      "You asked"
      'emacspeak-speak-line)))
@@ -1351,26 +1350,26 @@ Optional interactive  prefix arg local-flag prompts for local
   "Convenience function for prompting and constructing the route component."
   (concat
    (format "&addr=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "Street Address: ")))
    (format "&csz=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))))
 
 (defsubst emacspeak-websearch-map-directions-get-locations ()
   "Convenience function for prompting and constructing the route component."
   (concat
    (format "&newaddr=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "Start Address: ")))
    (format "&newcsz=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))
    (format "&newtaddr=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "Destination Address: ")))
    (format "&newtcsz=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "City/State or Zip:")))))
 
 (defun emacspeak-websearch-map-directions-search (query
@@ -1438,14 +1437,14 @@ Optional prefix arg no-rss scrapes information from HTML."
     (emacspeak-rss-display
      (concat emacspeak-websearch-news-yahoo-rss-uri
              (format "p=%s&n=20&c=news"
-                     (webjump-url-encode query)))
+                     (emacspeak-url-encode query)))
      'speak-result))
    (t
     (emacspeak-w3-xslt-filter
      "//ol"
      (concat emacspeak-websearch-news-yahoo-uri
              (format "p=%s&n=20&c=news"
-                     (webjump-url-encode query)))
+                     (emacspeak-url-encode query)))
      'speak-result))))
 
 ;;}}}
@@ -1470,7 +1469,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 ;;         )
 ;;     (browse-url
 ;;      (concat emacspeak-websearch-northern-light-uri
-;;              (webjump-url-encode query))))
+;;              (emacspeak-url-encode query))))
 ;;   (emacspeak-websearch-post-process
 ;;    "Your search"
 ;;    'emacspeak-speak-line))
@@ -1497,7 +1496,7 @@ Optional prefix arg no-rss scrapes information from HTML."
         )
     (browse-url
      (concat emacspeak-websearch-open-directory-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "Search results"
    'emacspeak-speak-line))
@@ -1524,7 +1523,7 @@ Optional prefix arg no-rss scrapes information from HTML."
         )
     (browse-url
      (concat emacspeak-websearch-rpm-find-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
@@ -1569,7 +1568,7 @@ Optional prefix arg no-rss scrapes information from HTML."
         )
     (browse-url
      (concat emacspeak-websearch-merriam-webster-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "Main Entry"
    'emacspeak-speak-line))
@@ -1593,7 +1592,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (emacspeak-w3-extract-tables-by-position-list
    (list 5 6 7 8 9 )
    (concat emacspeak-websearch-weather-uri
-           (webjump-url-encode query))
+           (emacspeak-url-encode query))
    'speak))
 
 ;;}}}
@@ -1617,7 +1616,7 @@ Optional prefix arg no-rss scrapes information from HTML."
     (browse-url
      (concat emacspeak-websearch-w3c-search-uri
              "&q="
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "match"
    'emacspeak-speak-line))
@@ -1642,7 +1641,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (browse-url
    (concat emacspeak-websearch-wikipedia-search-uri
            "&search="
-           (webjump-url-encode query)))
+           (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-rest-of-buffer))
@@ -1665,10 +1664,10 @@ Optional prefix arg no-rss scrapes information from HTML."
   (browse-url
    (concat emacspeak-websearch-people-yahoo-uri
            (format "FirstName=%s&LastName=%s&City=%s&State=%s"
-                   (webjump-url-encode (read-from-minibuffer "First name: "))
-                   (webjump-url-encode (read-from-minibuffer "Last name: "))
-                   (webjump-url-encode (read-from-minibuffer "City: "))
-                   (webjump-url-encode (read-from-minibuffer "State: ")))))
+                   (emacspeak-url-encode (read-from-minibuffer "First name: "))
+                   (emacspeak-url-encode (read-from-minibuffer "Last name: "))
+                   (emacspeak-url-encode (read-from-minibuffer "City: "))
+                   (emacspeak-url-encode (read-from-minibuffer "State: ")))))
   (emacspeak-websearch-post-process
    "First"
    'emacspeak-speak-line))
@@ -1690,7 +1689,7 @@ Optional prefix arg no-rss scrapes information from HTML."
   (declare (special emacspeak-websearch-podscope-uri))
   (browse-url
    (concat emacspeak-websearch-podscope-uri
-           (webjump-url-encode
+           (emacspeak-url-encode
             (read-from-minibuffer "PodScope Search: ")))))
 
 ;;}}}
@@ -1713,7 +1712,7 @@ Optional prefix arg no-rss scrapes information from HTML."
         )
     (browse-url
      (concat emacspeak-websearch-yahoo-uri
-             (webjump-url-encode query))))
+             (emacspeak-url-encode query))))
   (emacspeak-websearch-post-process
    "
 Results"
@@ -1871,7 +1870,7 @@ Optional interactive prefix arg results in prompting for a search term."
              "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group&num=%s"
              emacspeak-usenet-uri
              group group
-             (webjump-url-encode
+             (emacspeak-url-encode
               (read-from-minibuffer
                (format "Search %s for:" group)))
              emacspeak-websearch-google-number-of-results))
