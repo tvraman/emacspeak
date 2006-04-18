@@ -137,7 +137,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
   (browse-url 
    (concat emacspeak-amphetadesk-uri
            "my_channels.html?add_url="
-           (webjump-url-encode
+           (emacspeak-url-encode
             url))))
 (declaim (special w3-mode-map))
 (when (boundp 'w3-mode-map)

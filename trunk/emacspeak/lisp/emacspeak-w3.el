@@ -543,7 +543,7 @@ even if one is already defined."
     (error "Not on a link."))
   (browse-url
    (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-           (webjump-url-encode
+           (emacspeak-url-encode
             (w3-view-this-url 'no-show)))))
 
 (defun emacspeak-w3-jump-to-title-in-content ()

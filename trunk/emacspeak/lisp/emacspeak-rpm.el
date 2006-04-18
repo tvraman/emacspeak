@@ -155,7 +155,6 @@
 (require 'emacspeak-personality)
 (require 'emacspeak-fix-interactive)
 (require 'emacspeak-sounds)
-(require 'webjump)
 (require 'browse-url)
 
 ;;}}}
