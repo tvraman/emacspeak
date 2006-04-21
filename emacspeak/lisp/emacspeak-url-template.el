@@ -77,6 +77,7 @@
 (defun emacspeak-url-template-url (ut)
   "Instantiate URL identified by URL template."
   (declare (special emacspeak-url-template-current-ut))
+  (setq emacspeak-url-template-current-ut nil)
   (apply 'format
          ( emacspeak-url-template-template ut)
          (mapcar
@@ -87,8 +88,8 @@
                        ((stringp g)
                         (emacspeak-url-encode (read-from-minibuffer g)))
                        (t (funcall g))))
-                (nconc emacspeak-url-template-current-ut
-                       (list input))
+                (setq emacspeak-url-template-current-ut
+                      (list (emacspeak-url-template-name ut) input))
                 input))
           (emacspeak-url-template-generators ut))))
 
@@ -1869,18 +1870,17 @@ Optional interactive prefix arg displays documentation for specified resource."
                     emacspeak-speak-messages))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
-        (name nil))
-  (setq name (completing-read "Resource: "
+        (name  nil))
+    (setq name
+        (completing-read "Resource: "
                               emacspeak-url-template-name-alist
                               nil
                               'must-match))
   (cond
    (documentation (emacspeak-url-template-help-internal name))
    (t
-    (setq emacspeak-url-template-current-ut (list name))
     (emacspeak-url-template-open
-     (emacspeak-url-template-get
-      name))
+     (emacspeak-url-template-get name))
     (emacspeak-auditory-icon 'open-object)))))
 
 (defun emacspeak-url-template-help ()
