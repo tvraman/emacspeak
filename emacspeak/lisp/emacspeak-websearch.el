@@ -266,7 +266,6 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-maps-uri
                     emacspeak-websearch-emapspeak-my-location))
-  (require 'emacspeak-url-template)
   (let ((near-p
          (unless use-near
            (save-match-data
@@ -287,6 +286,11 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
            (t (format emacspeak-websearch-google-maps-uri
                       (emacspeak-url-encode query)))))
     (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
+    (add-hook  'emacspeak-w3-post-process-hook
+               #'(lambda nil
+                   (emacspeak-pronounce-add-buffer-local-dictionary-entry
+  " mi"
+  " miles ")))
     (browse-url-of-buffer
     (emacspeak-xslt-xml-url
      (expand-file-name "kml2html.xsl"
