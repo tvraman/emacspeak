@@ -43,7 +43,9 @@ Light-weight client for posting/editting blogger.com entries.
 ** emacspeak-atom-blogger:
 
 Speech-enables atom-blogger
+** voice-setup.el
 
+Refactored voice locking code to enable better customization via custom.
 
 Local variables:
  mode: outline
