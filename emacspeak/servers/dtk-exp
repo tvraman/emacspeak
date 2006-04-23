@@ -280,8 +280,8 @@ proc tts_reset {} {
         [:pu s]
         [:phoneme arpabet speak on ]
         [:tsr off ]
-        [:power interval 30 ]
-        [:power sleep 30]
+        [:power interval 900 ]
+        [:power sleep 900]
         [:np]
         Restoring sanity to the Dectalk Express.
         [:sync :power speak]
