@@ -432,8 +432,8 @@ puts -nonewline     $tts(write)  {[:timeout 0]
     [:sa c]
     [:phoneme arpabet speak on ]
     [:tsr off ]
-    [:power interval 30]
-    [:power sleep 2]
+    [:power interval 900]
+    [:power sleep 900]
     [:sync] [:np :ra 200]
     This is the Dectalk Express.
     [zhax<15> p'arl],
