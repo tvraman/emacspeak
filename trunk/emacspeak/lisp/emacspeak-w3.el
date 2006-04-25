@@ -534,17 +534,27 @@ even if one is already defined."
 
 ;;}}}
 ;;{{{  jump to title in document
-(defun emacspeak-w3-transcode-via-google ()
-  "Transcode URL under point via Google."
-  (interactive)
+(defun emacspeak-w3-transcode-via-google (&optional untranscode)
+  "Transcode URL under point via Google.
+Reverse effect with prefix arg for links on a transcoded page."
+  (interactive "p")
   (unless (eq major-mode 'w3-mode)
     (error "Not in W3 buffer."))
   (unless (w3-view-this-url 'no-show)
     (error "Not on a link."))
+  (cond
+   ((null untranscode)
   (browse-url
    (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
            (emacspeak-url-encode
             (w3-view-this-url 'no-show)))))
+   (t
+    (let ((plain-url nil)
+          (prefix "http://www.google.com/gwt/n?u=")
+          (unhex (url-unhex-string (w3-view-this-url 'no-show))))
+      (setq plain-url (substring  unhex (length prefix)))
+      (when plain-url
+      (browse-url plain-url))))))
 
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
@@ -1606,7 +1616,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
-  (when (functionp emacspeak-w3-post-process-hook)
+  (when    (functionp emacspeak-w3-post-process-hook)
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
       (setq emacspeak-w3-post-process-hook nil))))
