@@ -1492,7 +1492,28 @@ plays entire program."
 ;;}}}
 ;;{{{  MLB scores
 ;;; standings:
-;;; http://midatlantic.comcastsportsnet.com/apfeed/sportstats/BBN/STND/mlb-standings.xml
+
+(emacspeak-url-template-define
+ "mlb standings"
+ "http://midatlantic.comcastsportsnet.com/apfeed/sportstats/BBN/STND/mlb-standings.xml"
+ nil
+ nil
+ "Get XML feed containing team standings."
+ #'(lambda (url)
+     (let ((buffer (get-buffer-create "MLB Standings")))
+       (save-excursion
+         (set-buffer  buffer)
+         (erase-buffer)
+         (shell-command
+          (format "xsltproc  %s %s 2>/dev/null"
+                   "http://midatlantic.comcastsportsnet.com/baseball-standings.xsl "
+                  url)
+          (current-buffer)))
+       (browse-url-of-buffer buffer)
+       (goto-char (point-min))
+       (emacspeak-speak-mode-line))))
+ 
+
 (emacspeak-url-template-define
  "MLB Scorecard"
  ;"http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
