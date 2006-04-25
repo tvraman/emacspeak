@@ -40,7 +40,8 @@
 
 (eval-when-compile
   (condition-case nil
-      (require 'w3m)
+      (eval-when-compile
+        (require 'w3m))
     (error nil)))
 
 (eval-when (load)
