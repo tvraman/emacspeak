@@ -37,13 +37,10 @@
 (require 'emacspeak-w3)
 (require 'easymenu)
 (require 'custom)
-
 (eval-when-compile
   (condition-case nil
-      (eval-when-compile
-        (require 'w3m))
+        (require 'w3m)
     (error nil)))
-
 (eval-when (load)
   (require 'w3m-util)
   (require 'w3m-form))
