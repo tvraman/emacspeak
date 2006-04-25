@@ -1491,7 +1491,8 @@ plays entire program."
 
 ;;}}}
 ;;{{{  MLB scores
-
+;;; standings:
+;;; http://midatlantic.comcastsportsnet.com/apfeed/sportstats/BBN/STND/mlb-standings.xml
 (emacspeak-url-template-define
  "MLB Scorecard"
  ;"http://gd.mlb.com/components/game/mlb/%s/master_scoreboard.xml"
