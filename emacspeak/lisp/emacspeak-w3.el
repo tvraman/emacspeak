@@ -537,7 +537,7 @@ even if one is already defined."
 (defun emacspeak-w3-transcode-via-google (&optional untranscode)
   "Transcode URL under point via Google.
 Reverse effect with prefix arg for links on a transcoded page."
-  (interactive "p")
+  (interactive "P")
   (unless (eq major-mode 'w3-mode)
     (error "Not in W3 buffer."))
   (unless (w3-view-this-url 'no-show)
