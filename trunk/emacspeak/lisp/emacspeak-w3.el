@@ -1616,7 +1616,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
 
 (defadvice w3-notify-when-ready (after emacspeak pre act comp)
   "Call w3 post-processor hook if set."
-  (when    (functionp emacspeak-w3-post-process-hook)
+  (when     emacspeak-w3-post-process-hook
     (unwind-protect
         (run-hooks  'emacspeak-w3-post-process-hook)
       (setq emacspeak-w3-post-process-hook nil))))
