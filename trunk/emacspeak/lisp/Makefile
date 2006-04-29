@@ -109,7 +109,6 @@ emacspeak-cedet.elc \
 emacspeak-checkdoc.elc \
 emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
-emacspeak-cyclebuffer.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
 emacspeak-daisy.elc \
