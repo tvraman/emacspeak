@@ -44,6 +44,7 @@
 (eval-when-compile
   (condition-case nil
       (require  'emacspeak-w3)
+    (require 'calendar)
     (error nil)))
 ;;}}}
 ;;{{{  Introduction:
