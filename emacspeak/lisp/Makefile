@@ -85,6 +85,8 @@ emacspeak-alsaplayer.elc \
 emacspeak-amphetadesk.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
+emacspeak-apt-sources.elc \
+emacspeak-apt-utils.elc \
 emacspeak-arc.elc \
 emacspeak-atom.elc \
 emacspeak-atom-blogger.elc \
@@ -107,6 +109,7 @@ emacspeak-cedet.elc \
 emacspeak-checkdoc.elc \
 emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
+emacspeak-cyclebuffer.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
 emacspeak-daisy.elc \
@@ -283,6 +286,8 @@ emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
 emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc voice-setup.elc
+emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.elc
+emacspeak-apt-utils.elc: emacspeak-apt-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
 emacspeak-atom.elc: emacspeak-atom.el dtk-speak.elc
 emacspeak-atom-blogger.elc: emacspeak-atom-blogger.el dtk-speak.elc
@@ -306,6 +311,7 @@ emacspeak-cedet.elc: emacspeak-cedet.el dtk-speak.elc voice-setup.elc
 emacspeak-checkdoc.elc: emacspeak-checkdoc.el dtk-speak.elc voice-setup.elc
 emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
+emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
 emacspeak-daisy.elc: emacspeak-daisy.el dtk-speak.elc voice-setup.elc
 emacspeak-damlite.elc: emacspeak-damlite.el dtk-speak.elc voice-setup.elc
 emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc voice-setup.elc
