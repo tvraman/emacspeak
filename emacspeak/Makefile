@@ -348,7 +348,7 @@ rpm: emacspeak.spec
 	/bin/rm -rf /usr/share/emacs/site-lisp/emacspeak || echo ""
 	@cp emacspeak.tar.bz2 /usr/src/redhat/SOURCES/
 	@cp emacspeak.spec /usr/src/redhat/SPECS/
-	rpmbuild  -ba --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
+	rpmbuild  -ba --target noarch --sign --clean   /usr/src/redhat/SPECS/emacspeak.spec
 
 # }}}
 # {{{list distfiles to stdout
