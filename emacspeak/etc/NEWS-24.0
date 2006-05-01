@@ -7,6 +7,7 @@ Author: T. V. Raman <raman@users.sf.net>
 Emacspeak 24.0 provides the following user level enhancements:
 
 * user Visible Changes:
+
 ** emacspeak-muse:
 
 Speech-enables emacs Muse
@@ -45,7 +46,21 @@ Light-weight client for posting/editting blogger.com entries.
 Speech-enables atom-blogger
 ** voice-setup.el
 
-Refactored voice locking code to enable better customization via custom.
+Refactored voice locking code to enable better customization via
+custom.
+
+** User Contributed Patches:
+
+*** patches to emacspeak-gnus.el, emacspeak-w3m.el from
+Robert D. Crawford <rdc1x@comcast.net>
+
+*** Patches to emacspeakk-wizards.el, emacspeak-apt*.el from
+ Lukas Loehrer <loehrerl@gmx.net>
+
+*** Multispeech Patches from
+Igor B. Poretsky <master@goga.energo.ru>
+and  Gilles Casse <gcasse@oralux.org>
+ 
 
 Local variables:
  mode: outline
