@@ -482,18 +482,6 @@ mobile transcoder."
       (format emacspeak-url-template-google-transcoder-url
               (emacspeak-url-encode url)))))
 
-(emacspeak-url-template-define
- "Finance News  Search"
- "http://finance.google.com/finance?q=%s"
- (list "Finance News For: ")
- nil
- "Pull news stories from Google Finance search."
- #'(lambda (url)
-     (emacspeak-w3-xslt-filter
-      "//div[@id=\"news\"]"
-      url 'speak)))
-
-
 ;;}}}
 ;;{{{ google maps
 
