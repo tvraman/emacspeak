@@ -35,6 +35,21 @@ service-oriented semantic Web.
 Major Enhancements:
 -------------------
 
+
+ 1)  emacspeak-muse: Speech-enabled Muse Mode
+     2)  emacspeak-ruby: Speech-enabled Ruby Mode
+ 3)  emacspeak-m-player: Updated for new MPlayer
+ 4)  emacspeak-sudoku.el: Speech-enabled SuDoKu
+ 5)  New Option: tts-strip-octals
+ 6)  emacspeak-keymap.el Updated keybindings
+ 7)  lisp/atom-blogger.el Light-weight blogging tool
+ 8)  emacspeak-atom-blogger: Speech-enables above
+ 9)  voice-setup.el Custom support
+ 10) Multispeech related patches
+ 11) User contributed patches
+
+Plus many more changes too numerous to fit in this margin ...
+
 See the NEWS file for additional details. 
 
 Establishing Liberty, Equality And Freedom:
