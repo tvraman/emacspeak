@@ -114,36 +114,39 @@ mail to the list request address emacspeak-request@cs.vassar.edu.
 The latest development snapshot of Emacspeak is available via
 anonymous CVS from sourceforge.
 
-History: -------- Emacspeak-Alive -- AKA LiveDog -- enlivens
-open, unfettered information access with a series of live updates
-tha once again demonstrate the power and agility of open source
-software development.  Emacspeak 23.0 -- AKA Retriever --- went
-the extra mile in fetching full access.  Emacspeak 22.0 -- AKA
-GuideDog -- helps users navigate the Web more effectively than
-ever before.  Emacspeak 21.0 -- AKA PlayDog -- continued the
-Emacspeak tradition of relying on enhanced productivity to
-liberate users.  Emacspeak-20.0 -- AKA LeapDog -- continues the
-long established GNU/Emacs tradition of integrated innovation to
-create a pleasurable computing environment for eyes-free
-interaction.  emacspeak-19.0 --AKA WorkDog-- is designed to
-enhance user productivity at work and leisure.  Emacspeak-18.0
---code named GoodDog-- continued the Emacspeak tradition of
-enhancing user productivity and thereby reducing total cost of
-ownership.  Emacspeak-17.0 --code named HappyDog-- enhances user
-productivity by exploiting today's evolving WWW
-standards. Emacspeak-16.0 --code named CleverDog-- the follow-up
-to SmartDog-- continued the tradition of working better, faster,
-smarter. Emacspeak-15.0 --code named SmartDog--followed up on
-TopDog as the next in a continuing a series of award-winning
-audio desktop releases from Emacspeak Inc.  Emacspeak-14.0 --code
-named TopDog--was the first release of this
-millennium. Emacspeak-13.0 --codenamed YellowLab-- was the
-closing release of the 20th. century. Emacspeak-12.0 --code named
-GoldenDog-- began leveraging the evolving semantic WWW to provide
-task-oriented speech access to Webformation. Emacspeak-11.0
---code named Aster-- went the final step in making Linux a
-zero-cost Internet access solution for blind and visually
-impaired users. Emacspeak-10.0 --(AKA Emacspeak-2000) code named
+History:
+--------
+
+Emacspeak-Alive -- AKA LiveDog -- enlivens open, unfettered
+information access with a series of live updates that once again
+demonstrate the power and agility of open source software
+development.  Emacspeak 23.0 -- AKA Retriever --- went the extra
+mile in fetching full access.  Emacspeak 22.0 -- AKA GuideDog --
+helps users navigate the Web more effectively than ever before.
+Emacspeak 21.0 -- AKA PlayDog -- continued the Emacspeak
+tradition of relying on enhanced productivity to liberate users.
+Emacspeak-20.0 -- AKA LeapDog -- continues the long established
+GNU/Emacs tradition of integrated innovation to create a
+pleasurable computing environment for eyes-free interaction.
+emacspeak-19.0 --AKA WorkDog-- is designed to enhance user
+productivity at work and leisure.  Emacspeak-18.0 --code named
+GoodDog-- continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of ownership.
+Emacspeak-17.0 --code named HappyDog-- enhances user productivity
+by exploiting today's evolving WWW standards. Emacspeak-16.0
+--code named CleverDog-- the follow-up to SmartDog-- continued
+the tradition of working better, faster, smarter. Emacspeak-15.0
+--code named SmartDog--followed up on TopDog as the next in a
+continuing a series of award-winning audio desktop releases from
+Emacspeak Inc.  Emacspeak-14.0 --code named TopDog--was the first
+release of this millennium. Emacspeak-13.0 --codenamed
+YellowLab-- was the closing release of the
+20th. century. Emacspeak-12.0 --code named GoldenDog-- began
+leveraging the evolving semantic WWW to provide task-oriented
+speech access to Webformation. Emacspeak-11.0 --code named
+Aster-- went the final step in making Linux a zero-cost Internet
+access solution for blind and visually impaired
+users. Emacspeak-10.0 --(AKA Emacspeak-2000) code named
 WonderDog-- continued the tradition of award-winning software
 releases designed to make eyes-free computing a productive and
 pleasurable experience. Emacspeak-9.0 --(AKA Emacspeak 99) code
