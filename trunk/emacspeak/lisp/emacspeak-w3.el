@@ -1519,7 +1519,8 @@ used as well."
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-w3-unescape-charent))
-      (browse-url-of-buffer))
+      (emacspeak-w3-without-xsl
+      (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
 ;;}}}
