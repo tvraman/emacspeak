@@ -45,7 +45,7 @@
 ;;; It is often useful to have ``parameterized hot list entries''
 ;;; i.e., hotlist entries  that are ``templates'' for the
 ;;; actual URL.
-;;; The user provides values for the parameterized portons
+;;; The user provides values for the parameterized portions
 ;;; of the URL e.g. the date.
 ;;; See @xref{URL Templates}, for details on the URL templates
 ;;; that are presently defined.
