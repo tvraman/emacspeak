@@ -53,10 +53,36 @@
 (require 'emacspeak-redefine)
 
 ;;}}}
+;;{{{ voice locking:
+(voice-setup-add-map
+ '(
+   (org-level-1 voice-bolden-medium)
+   (org-level-2 voice-bolden)
+   (org-level-3 voice-animate)
+   (org-level-4 voice-monotone)
+   (org-level-5 voice-smoothen)
+   (org-level-6 voice-lighten)
+   (org-level-7 voice-lighten-medium)
+   (org-level-8 voice-lighten-extra)
+   (org-special-keyword voice-lighten-extra)
+   (org-warning voice-bolden-and-animate)
+   (org-headline-done voice-lighten-extra)
+   (org-link voice-bolden)
+   (org-date voice-animate)
+   (org-tag voice-smoothen)
+   (org-todo voice-bolden-and-animate)
+   (org-done voice-smoothen)
+   (org-table voice-bolden-medium)
+   (org-formula voice-animate-extra)
+   (org-scheduled-today voice-bolden-extra)
+   (org-scheduled-previously voice-lighten-medium)
+   (org-time-grid voice-bolden)))
+ 
+;;}}}
 ;;{{{ Structure Navigation:
 
 (loop for f in
-      '(org-cycle
+      '(org-mark-ring-goto
         org-goto  org-goto-ret
         org-goto-left org-goto-right
         org-goto-quit
@@ -68,6 +94,22 @@
           (when (interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'large-movement)))))
+
+(loop for f in
+      '(org-cycle org-shifttab
+                  )
+      do
+      (eval
+       `(defadvice ,f(after emacspeak pre act comp)
+          "Provide auditory feedback."
+          (when (interactive-p)
+            (cond
+             ((org-at-table-p 'any)
+              (let ((emacspeak-show-point t))
+                (skip-syntax-forward " ")
+                (emacspeak-speak-line)
+                (emacspeak-auditory-icon 'large-movement)))
+             (t (emacspeak-auditory-icon 'select-object)))))))
 
 ;;}}}
 ;;{{{ Header insertion and relocation
@@ -138,25 +180,129 @@
 ;;{{{ misc file commands:
 
 ;;}}}
-;;{{{ Links:
-
-;;}}}
 ;;{{{ tables:
 
 ;;}}}
 ;;{{{ table minor mode:
-
+(defadvice orgtbl-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon
+     (if orgtbl-mode 'on 'off))
+     (message "Turned %s org table mode."
+              (if orgtbl-mode 'on 'off))))
+     
 ;;}}}
 ;;{{{ import/export:
 
 ;;}}}
 ;;{{{ Meta Navigators:
 
+(loop for f in
+      '(org-metadown org-metaup org-metaleft org-metaright)
+      do
+      (eval
+       `(defadvice ,f(after emacspeak pre act comp)
+          "Provide spoken feedback."
+          (when (interactive-p)
+            (emacspeak-speak-line)
+            (emacspeak-auditory-icon 'yank-object)))))
+
 ;;}}}
 ;;{{{ org-goto fixup:
-(declaim (special org-goto-map))
-(define-key org-goto-map "\C-e" 'emacspeak-prefix-command)
-(define-key org-goto-map "\C-h" 'help-command)
+(declaim (special org-goto-map org-mode-map))
+(loop for k in
+      '(
+        ([backtab]    org-shifttab)
+        ([shift up] org-shiftup)
+        ([shift down] org-shiftdown)
+        ([shift left] org-shiftleft)
+        ([shift right] org-shiftright)
+        ([27 shift down] org-shiftmetadown)
+        ([27 shift up] org-shiftmetaup)
+        ([27 shift left] org-shiftmetaleft)
+        ([27 shift right] org-shiftmetaright)
+        ([27 S-Return] org-insert-todo-heading)
+        ("\C-j" org-insert-heading)
+        )
+      do
+      (emacspeak-keymap-update  org-mode-map k))
+
+(loop for k in'(
+                ( "\C-e" emacspeak-prefix-command)
+                ( "\C-h" help-command))
+      do
+      (emacspeak-keymap-update  org-goto-map k))
+
+;;}}}
+;;{{{ deleting chars:
+
+(defadvice org-delete-backward-char (around emacspeak pre act)
+  "Speak character you're deleting."
+  (cond
+   ((interactive-p )
+    (dtk-tone 500 30 'force)
+    (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+(defadvice org-force-self-insert (after emacspeak pre act comp)
+  "speak char that was inserted."
+  (when (and emacspeak-character-echo
+             (interactive-p ))
+    (when dtk-stop-immediately-while-typing (dtk-stop))
+    (emacspeak-speak-this-char last-input-char )))
+
+(defadvice org-delete-char (around emacspeak pre act)
+  "Speak character you're deleting."
+  (cond
+   ((interactive-p )
+    (dtk-tone 500 30 'force)
+    (and emacspeak-delete-char-speak-deleted-char
+         (emacspeak-speak-char t))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice org-return (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-speak-line)))
+
+;;}}}
+;;{{{ mode hook:
+
+(defun emacspeak-org-mode-setup ()
+  "Placed on org-mode-hook to do Emacspeak setup."
+  (unless emacspeak-audio-indentation
+    (emacspeak-toggle-audio-indentation)))
+
+(add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
+
+;;}}}
+;;{{{ fix misc commands:
+(loop for f in
+      '(org-occur
+        org-insert-heading org-insert-todo-heading)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+          "Avoid outline errors bubbling up."
+          (cond
+           ((interactive-p)
+            (let ((emacspeak-speak-cue-errors nil))
+              (ad-disable-advice  'error 'before 'emacspeak )
+              (ad-deactivate 'error)
+              ad-do-it
+              (emacspeak-speak-line)
+              (emacspeak-auditory-icon 'select-object)
+              (ad-enable-advice  'error 'before 'emacspeak )
+              (ad-activate 'error)))
+           (t ad-do-it))
+          ad-return-value)))
+
+    
+  
 
 ;;}}}
 (provide 'emacspeak-org)
