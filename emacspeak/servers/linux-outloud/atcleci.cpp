@@ -162,14 +162,12 @@ int eciCallback (void *, int, long, void *);
 //>
 //<alsa: set hw and sw params
 
-static size_t
-alsa_configure (void)
-{
+static size_t alsa_configure (void) {
   //<init:
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
   snd_pcm_uframes_t chunk_size = 0;
   snd_pcm_hw_params_t *params;
-  snd_pcm_sw_params_t *swparams;
+  snd_pcm_sw_params_t *swParams;
   snd_pcm_uframes_t buffer_size;
   unsigned int period_time = 0;
   unsigned int buffer_time = 0;
@@ -179,20 +177,23 @@ alsa_configure (void)
   size_t n;
   snd_pcm_uframes_t xfer_align;
   unsigned int rate = DEFAULT_SPEED;
+  int resample = 1;
   snd_pcm_uframes_t start_threshold, stop_threshold;
   int start_delay = 5;
   int stop_delay = 0;
   snd_pcm_hw_params_alloca (&params);
-  snd_pcm_sw_params_alloca (&swparams);
+  snd_pcm_sw_params_alloca (&swParams);
 
   //>
   //<defaults:
+
   err = snd_pcm_hw_params_any (AHandle, params);
   if (err < 0) {
     fprintf (stderr,
 	     "Broken configuration for this PCM: no configurations available");
     exit (EXIT_FAILURE);
   }
+
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access (AHandle, params,
@@ -224,16 +225,18 @@ alsa_configure (void)
 
   err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
   assert (err >= 0);
-
+  /* set hardware resampling */
+  err = snd_pcm_hw_params_set_rate_resample(AHandle, params, resample);
+  assert (err >= 0);
   //>
   //<Compute buffer_time:
-
+  // affected by defined buffer_size  (e.g. via asoundrc)
   if (buffer_time == 0 && buffer_frames == 0) {
-    err = snd_pcm_hw_params_get_buffer_time_max (params, &buffer_time, 0);
+    err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
     assert (err >= 0);
-    if (buffer_time > 500000)
+    if (buffer_time > 500000) //usecs
       buffer_time = 500000;
-      }
+  }
   //>
   //<Compute period_time:
 
@@ -253,8 +256,7 @@ alsa_configure (void)
   if (buffer_time > 0) {
     err = snd_pcm_hw_params_set_buffer_time_near (AHandle, params,
 						  &buffer_time, 0);
-  }
-  else {
+  } else {
     err = snd_pcm_hw_params_set_buffer_size_near (AHandle, params,
 						  &buffer_frames);
   }
@@ -283,8 +285,8 @@ alsa_configure (void)
   //>
   //<SW Params Configure transfer:
 
-  snd_pcm_sw_params_current (AHandle, swparams);
-  err = snd_pcm_sw_params_get_xfer_align (swparams, &xfer_align);
+  snd_pcm_sw_params_current (AHandle, swParams);
+  err = snd_pcm_sw_params_get_xfer_align (swParams, &xfer_align);
   if (err < 0) {
     fprintf (stderr, "Unable to obtain xfer align\n");
     exit (EXIT_FAILURE);
@@ -303,7 +305,7 @@ alsa_configure (void)
   if (start_threshold > n)
     start_threshold = n;
   err =
-    snd_pcm_sw_params_set_start_threshold (AHandle, swparams,
+    snd_pcm_sw_params_set_start_threshold (AHandle, swParams,
 					   start_threshold);
   assert (err >= 0);
   if (stop_delay <= 0)
@@ -314,13 +316,13 @@ alsa_configure (void)
     stop_threshold =
       (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
   err =
-    snd_pcm_sw_params_set_stop_threshold (AHandle, swparams, stop_threshold);
+    snd_pcm_sw_params_set_stop_threshold (AHandle, swParams, stop_threshold);
   assert (err >= 0);
 
-  err = snd_pcm_sw_params_set_xfer_align (AHandle, swparams, xfer_align);
+  err = snd_pcm_sw_params_set_xfer_align (AHandle, swParams, xfer_align);
   assert (err >= 0);
 
-  if (snd_pcm_sw_params (AHandle, swparams) < 0) {
+  if (snd_pcm_sw_params (AHandle, swParams) < 0) {
     fprintf (stderr, "unable to install sw params:");
     exit (EXIT_FAILURE);
   }
@@ -349,9 +351,7 @@ alsa_configure (void)
   } while (0)
 #endif
 
-static void
-xrun (void)
-{
+static void xrun (void) {
   snd_pcm_status_t *status;
   int res;
 
@@ -379,9 +379,7 @@ xrun (void)
   exit (EXIT_FAILURE);
 }
 
-static void
-suspend (void)
-{
+static void suspend (void) {
   int res;
 
 
@@ -405,9 +403,7 @@ suspend (void)
 //>
 //<alsa: pcm_write
 
-static ssize_t
-pcm_write (short *data, size_t count)
-{
+static ssize_t pcm_write (short *data, size_t count) {
   ssize_t r;
   ssize_t result = 0;
   while (count > 0) {
@@ -436,17 +432,16 @@ pcm_write (short *data, size_t count)
 
 //>
 //<alsa_reset 
-void 
-alsa_reset () {
+
+void alsa_reset () {
   snd_pcm_drop (AHandle);
-  alsa_init ();
+  snd_pcm_prepare(AHandle);
 }
+
 //>
 //<alsa_init
 
-int
-alsa_init ()
-{
+int alsa_init () {
   int err;
   char *device = "default";
   size_t chunk_bytes = 0;
@@ -461,9 +456,7 @@ alsa_init ()
 //>
 //<alsa_close
 
-int
-alsa_close ()
-{
+int alsa_close () {
   //shut down alsa
   snd_pcm_close (AHandle);
   free (waveBuffer);
@@ -473,18 +466,14 @@ alsa_close ()
 //>
 //<eciFree
 
-void
-TclEciFree (ClientData eciHandle)
-{
+void TclEciFree (ClientData eciHandle) {
   _eciDelete (eciHandle);
 }
 
 //>
 //<tcleci_init
 
-int
-Atcleci_Init (Tcl_Interp * interp)
-{
+int Atcleci_Init (Tcl_Interp * interp) {
   int rc;
   size_t chunk_bytes = 0;
   void *eciHandle;
@@ -693,9 +682,7 @@ set tts(last_index) $x}");
 //>
 //<playTTS 
 
-int
-playTTS (int count)
-{
+int playTTS (int count) {
   pcm_write (waveBuffer, count);
   return eciDataProcessed;
 }
@@ -703,9 +690,7 @@ playTTS (int count)
 //>
 //<eciCallBack
 
-int
-eciCallback (void *eciHandle, int msg, long lparam, void *data)
-{
+int eciCallback (void *eciHandle, int msg, long lparam, void *data) {
   int rc;
   Tcl_Interp *interp = (Tcl_Interp *) data;
   if (msg == eciIndexReply) {
@@ -724,10 +709,8 @@ eciCallback (void *eciHandle, int msg, long lparam, void *data)
 //>
 //<getRate, setRate
 
-int
-GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
-{
+int GetRate (ClientData eciHandle, Tcl_Interp * interp,
+             int objc, Tcl_Obj * CONST objv[]) {
   int rc, rate, voice;
   if (objc != 2) {
     Tcl_AppendResult (interp, "Usage: getRate voiceCode  ", TCL_STATIC);
@@ -741,10 +724,8 @@ GetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
   return TCL_OK;
 }
 
-int
-SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	 Tcl_Obj * CONST objv[])
-{
+int SetRate (ClientData eciHandle, Tcl_Interp * interp,
+             int objc, Tcl_Obj * CONST objv[]) {
   int rc, rate, voice;
   if (objc != 3) {
     Tcl_AppendResult (interp, "Usage: setRate voiceCode speechRate ",
@@ -772,10 +753,8 @@ SetRate (ClientData eciHandle, Tcl_Interp * interp, int objc,
 //>
 //<say
 
-int
-Say (ClientData eciHandle, Tcl_Interp * interp,
-     int objc, Tcl_Obj * CONST objv[])
-{
+int Say (ClientData eciHandle, Tcl_Interp * interp,
+         int objc, Tcl_Obj * CONST objv[]) {
   int i, rc, index, length;
   for (i = 1; i < objc; i++) {
     // if string begins with -, assume it is an index value
@@ -836,6 +815,7 @@ Synchronize (ClientData eciHandle, Tcl_Interp * interp,
     Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
     return TCL_ERROR;
   }
+  //snd_pcm_drain(AHandle);
   return TCL_OK;
 }
 
