@@ -245,6 +245,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "supercite" 'emacspeak-supercite)
 (emacspeak-do-package-setup "sudoku" 'emacspeak-sudoku)
 (emacspeak-do-package-setup "swbuff" 'emacspeak-swbuff)
+(emacspeak-do-package-setup "table" 'emacspeak-etable)
 (emacspeak-do-package-setup "tar-mode" 'emacspeak-tar)
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
 (emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
