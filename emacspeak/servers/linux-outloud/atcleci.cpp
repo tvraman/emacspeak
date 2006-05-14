@@ -233,6 +233,8 @@ static size_t alsa_configure (void) {
   // affected by defined buffer_size  (e.g. via asoundrc)
   if (buffer_time == 0 && buffer_frames == 0) {
     err = snd_pcm_hw_params_get_buffer_time_max (params, &buffer_time, 0);
+    if (err <0 )
+      err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
     assert (err >= 0);
     if (buffer_time > 500000) //usecs
       buffer_time = 500000;
