@@ -105,6 +105,7 @@
      (emacspeak-character-echo
       (when dtk-stop-immediately-while-typing (dtk-stop))
       (emacspeak-speak-this-char last-input-char )))))
+
 (defadvice *table--cell-quoted-insert  (after emacspeak pre act )
   "Speak the character that was inserted."
   (when (interactive-p)
