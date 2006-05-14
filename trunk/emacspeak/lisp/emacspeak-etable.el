@@ -46,6 +46,8 @@
 ;;{{{ required modules 
 
 (require 'emacspeak-preamble)
+(eval-when-compile
+  (require 'table))
 
 ;;}}}
 ;;{{{ Update command remap list.
@@ -59,13 +61,14 @@
          (cons [backtab] 'table-backward-cell)
          (cons "\C-e ." 'emacspeak-etable-speak-cell))
        do
- (push pair table-cell-bindings))
+ (push pair table-cell-bindings)))
 
 ;;}}}
 ;;{{{ Advice edit commands
 
 (defadvice *table--cell-delete-char (around emacspeak pre act)
   "Speak character you're deleting."
+  (declare (special emacspeak-delete-char-speak-deleted-char))
   (cond
    ((interactive-p )
     (dtk-tone 500 30 'force)
