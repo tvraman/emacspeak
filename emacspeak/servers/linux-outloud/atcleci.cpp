@@ -179,7 +179,7 @@ static size_t alsa_configure (void) {
   unsigned int rate = DEFAULT_SPEED;
   int resample = 1;
   snd_pcm_uframes_t start_threshold, stop_threshold;
-  int start_delay = 5;
+  int start_delay = 0;
   int stop_delay = 0;
   snd_pcm_hw_params_alloca (&params);
   snd_pcm_sw_params_alloca (&swParams);
