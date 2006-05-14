@@ -51,17 +51,21 @@
 
 ;;}}}
 ;;{{{ Update command remap list.
-
-(eval-when '(load)
- (push
-  (cons 'emacspeak-self-insert-command '*table--cell-self-insert-command)
-       table-command-remap-alist)
- (loop for pair in
-       (list 
-         (cons [backtab] 'table-backward-cell)
-         (cons "\C-e ." 'emacspeak-etable-speak-cell))
-       do
- (push pair table-cell-bindings)))
+(defun emacspeak-etable-setup ()
+  "Set up emacspeak for table.el"
+  (declare (special table-cell-map))
+  (when  table-cell-map
+  (loop for k in
+        (where-is-internal 'emacspeak-self-insert-command
+                           table-cell-map)
+        do
+        (define-key table-cell-map k '*table--cell-self-insert-command ))
+  (loop for key in
+        (list 
+         ([backtab] table-backward-cell)
+         ("\C-e." emacspeak-etable-speak-cell))
+        do
+        (emacspeak-keymap-update table-cell-map k))))
 
 ;;}}}
 ;;{{{ Advice edit commands
@@ -174,6 +178,11 @@ Otherwise cue user to the line just created."
           (when (interactive-p)
             (table--finish-delayed-tasks)
             (emacspeak-etable-speak-cell)))))
+
+;;}}}
+;;{{{ set it up
+
+(emacspeak-etable-setup)
 
 ;;}}}
 (provide  'emacspeak-etable)
