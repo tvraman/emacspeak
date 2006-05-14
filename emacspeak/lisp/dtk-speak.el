@@ -191,12 +191,13 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 (defsubst text-invisible-p (position)
   "Check if text is invisible. Emacspeak helper."
   (declare (special buffer-invisibility-spec))
+  (let ((prop (get-text-property position 'invisible)))
   (cond
-   ((consp buffer-invisibility-spec)
-    (memq
-     (get-text-property position 'invisible )
-     buffer-invisibility-spec))
-   (t (get-text-property  position 'invisible))))
+   ((and (listp buffer-invisibility-spec)
+    (memq prop buffer-invisibility-spec)) t)
+   ((and (listp  buffer-invisibility-spec)
+    (assq prop buffer-invisibility-spec)) t)
+    (t prop))))
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
@@ -1679,6 +1680,7 @@ only speak upto the first ctrl-m."
   "Speak a  list of strings.
 Argument TEXT  is the list of strings to speak.
 Optional argument group-count specifies grouping for intonation."
+
   (declare (special dtk-speaker-process dtk-stop-immediately))
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
@@ -1694,6 +1696,7 @@ Optional argument group-count specifies grouping for intonation."
               (format "%s%s\n"
                       element
                       (cond
+                       ((null group-count) "")
                        ((= len counter) ". ")
                        ((and group-count
                              (zerop (% counter group-count)))
