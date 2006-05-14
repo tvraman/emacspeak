@@ -56,12 +56,11 @@
   (declare (special table-cell-map))
   (when  table-cell-map
   (loop for k in
-        (where-is-internal 'emacspeak-self-insert-command
-                           table-cell-map)
+        (where-is-internal 'emacspeak-self-insert-command table-cell-map)
         do
         (define-key table-cell-map k '*table--cell-self-insert-command ))
-  (loop for key in
-        (list 
+  (loop for k in
+        '(
          ([backtab] table-backward-cell)
          ("\C-e." emacspeak-etable-speak-cell))
         do
