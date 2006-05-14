@@ -51,7 +51,7 @@
 
 ;;}}}
 ;;{{{ Update command remap list.
-(defun emacspeak-etable-setup ()
+(defadvice table--make-cell-map(after emacspeak pre act comp)
   "Set up emacspeak for table.el"
   (declare (special table-cell-map))
   (when  table-cell-map
@@ -177,11 +177,6 @@ Otherwise cue user to the line just created."
           (when (interactive-p)
             (table--finish-delayed-tasks)
             (emacspeak-etable-speak-cell)))))
-
-;;}}}
-;;{{{ set it up
-
-(emacspeak-etable-setup)
 
 ;;}}}
 (provide  'emacspeak-etable)
