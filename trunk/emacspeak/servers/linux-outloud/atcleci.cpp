@@ -179,7 +179,7 @@ static size_t alsa_configure (void) {
   unsigned int rate = DEFAULT_SPEED;
   int resample = 1;
   snd_pcm_uframes_t start_threshold, stop_threshold;
-  int start_delay = 0;
+  int start_delay = 5;
   int stop_delay = 0;
   snd_pcm_hw_params_alloca (&params);
   snd_pcm_sw_params_alloca (&swParams);
@@ -806,23 +806,22 @@ int Say (ClientData eciHandle, Tcl_Interp * interp,
 
 //<synchronize, stop
 
-int
-Synchronize (ClientData eciHandle, Tcl_Interp * interp,
-	     int objc, Tcl_Obj * CONST objv[])
-{
+int Synchronize (ClientData eciHandle,
+                 Tcl_Interp * interp,
+                 int objc,
+                 Tcl_Obj * CONST objv[]) {
   int rc = _eciSynchronize (eciHandle);
   if (!rc) {
     Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
     return TCL_ERROR;
   }
-  //snd_pcm_drain(AHandle);
   return TCL_OK;
 }
 
-int
-Stop (ClientData eciHandle, Tcl_Interp * interp, int objc,
-      Tcl_Obj * CONST objv[])
-{
+int Stop (ClientData eciHandle,
+      Tcl_Interp * interp,
+      int objc,
+      Tcl_Obj * CONST objv[]) {
   if (_eciStop (eciHandle)) {
     alsa_reset ();
     return TCL_OK;
