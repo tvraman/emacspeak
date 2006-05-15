@@ -58,10 +58,10 @@
    ((interactive-p)
     (save-match-data
       (ad-enable-advice  'read-event 'before 'emacspeak-checkdoc )
-      (ad-activate-on 'read-event)
+      (ad-activate 'read-event)
       ad-do-it
       (ad-disable-advice  'read-event 'before 'emacspeak-checkdoc )
-      (ad-activate-off 'read-event)))
+      (ad-deactivate 'read-event)))
    (t  ad-do-it))
   ad-return-value)
 
