@@ -177,7 +177,6 @@ static size_t alsa_configure (void) {
   size_t n;
   snd_pcm_uframes_t xfer_align;
   unsigned int rate = DEFAULT_SPEED;
-  int resample = 1;
   snd_pcm_uframes_t start_threshold, stop_threshold;
   int start_delay = 5;
   int stop_delay = 0;
@@ -224,9 +223,6 @@ static size_t alsa_configure (void) {
   //<Rate:
 
   err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
-  assert (err >= 0);
-  /* set hardware resampling */
-  err = snd_pcm_hw_params_set_rate_resample(AHandle, params, resample);
   assert (err >= 0);
   //>
   //<Compute buffer_time:
