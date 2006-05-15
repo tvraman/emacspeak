@@ -1131,6 +1131,15 @@ Optional second arg as-html processes the results as HTML rather than data."
   "http://www.google.com/search?q="
   "*URI for Google search")
 
+(defcustom emacspeak-websearch-google-options nil
+  "Additional options to pass to Google e.g. &xx=yy..."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :tag "Options"))
+  :group 'emacspeak-websearch)
+
+
+
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)
   "Perform a Google search.
@@ -1143,13 +1152,15 @@ I'm Feeling Lucky button on Google."
              (if current-prefix-arg "Lucky Search" " Query")))
     current-prefix-arg))
   (declare (special emacspeak-websearch-google-uri
+                    emacspeak-websearch-google-options
                     emacspeak-websearch-google-number-of-results))
   (emacspeak-w3-without-xsl
    (browse-url
     (concat emacspeak-websearch-google-uri
             (emacspeak-url-encode query)
-            (format "&num=%s"
-                    emacspeak-websearch-google-number-of-results)
+            (format "&num=%s%s"
+                    emacspeak-websearch-google-number-of-results
+                    (or emacspeak-websearch-google-options ""))
             (when lucky
               (concat
                "&btnI="
