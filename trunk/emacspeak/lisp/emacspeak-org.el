@@ -305,6 +305,15 @@
   
 
 ;;}}}
+;;{{{ global input wizard
+
+;;;###autoload
+(defun emacspeak-org-popup-input ()
+  "Pops up an org input area."
+  (interactive)
+  (emacspeak-wizards-popup-input-buffer 'org-mode))
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
