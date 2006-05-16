@@ -199,6 +199,7 @@
     ("outloud-voices"  . nil )
     ("regexp-opt"  . nil )
     ("tapestry"  . nil )
+    ("emacspeak-etable" . "table")
     ("voice-setup"  . nil )
     ("emacspeak-add-log" . nil)
 ("emacspeak-analog" . (list "analog-prepare" "analog"))
