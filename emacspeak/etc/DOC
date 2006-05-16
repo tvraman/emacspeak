@@ -792,7 +792,12 @@ set the current local value to the result.
 ** emacspeak-eterm-copy-region-to-register Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register. 
+emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1080,7 +1085,12 @@ Assumes that point is at the front of a field value.
 
 ------------------------------------------------------------
 
-** emacspeak-freeamp-freeamp-command Execute FreeAmp command. 
+** emacspeak-freeamp-freeamp-command Execute FreeAmp command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1260,7 +1270,12 @@ lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
-relief. 
+relief.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1507,7 +1522,12 @@ The player is placed in a buffer in emacspeak-madplay-mode.
 
 ------------------------------------------------------------
 
-** emacspeak-madplay-madplay-command Execute Madplay command. 
+** emacspeak-madplay-madplay-command Execute Madplay command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -1752,37 +1772,27 @@ Setting persists for current Emacs session.
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-backward-heading	Key Sequence: control c b 
-
- Analogous to outline-backward-same-level
+** emacspeak-outline-speak-backward-heading Analogous to outline-backward-same-level
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-forward-heading	Key Sequence: control c f 
-
- Analogous to outline-forward-same-level,
+** emacspeak-outline-speak-forward-heading Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-next-heading	Key Sequence: control c n 
-
- Analogous to outline-next-visible-heading,
+** emacspeak-outline-speak-next-heading Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-previous-heading	Key Sequence: control c p 
-
- Analogous to outline-previous-visible-heading,
+** emacspeak-outline-speak-previous-heading Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-this-heading	Key Sequence: control c SPACE 
-
- Speak current outline section starting from point 
+** emacspeak-outline-speak-this-heading Speak current outline section starting from point 
 
 ------------------------------------------------------------
 
@@ -2085,7 +2095,12 @@ typed. If no such group exists, then we dont move.
 
 ------------------------------------------------------------
 
-** emacspeak-execute-repeatedly Execute COMMAND repeatedly. 
+** emacspeak-execute-repeatedly Execute COMMAND repeatedly.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -2160,7 +2175,12 @@ Default is to read the previous word.
 ------------------------------------------------------------
 
 ** emacspeak-speak-and-skip-extent-upto-char Search forward from point until we hit char.
-Speak text between point and the char we hit. 
+Speak text between point and the char we hit.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -2880,7 +2900,12 @@ s   Sub-square Distribution.
 
 ------------------------------------------------------------
 
-** emacspeak-table-copy-current-element-to-register Speak current table element 
+** emacspeak-table-copy-current-element-to-register Speak current table element
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts.  
 
 ------------------------------------------------------------
 
@@ -3368,13 +3393,13 @@ Interactive prefix arg causes url to be read from the minibuffer.
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-tables-by-match-list Extract specified  tables from a WWW page.
-Tables are specified by containing  match pattern 
+Tables are specified by containing  match pattern
  found in the match list. 
 
 ------------------------------------------------------------
 
 ** emacspeak-w3-extract-tables-by-position-list Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
+Tables are specified by their position in the list
 nested of tables found in the page. 
 
 ------------------------------------------------------------
@@ -3429,7 +3454,7 @@ the table structure extraction code in W3.
 ------------------------------------------------------------
 
 ** emacspeak-w3-next-doc-element Move forward  to the next document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move. 
 
 ------------------------------------------------------------
@@ -3442,16 +3467,8 @@ specifies by how many eleemnts to move.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-preview-this-buffer Preview this buffer. 
-
-------------------------------------------------------------
-
-** emacspeak-w3-preview-this-region Preview this region. 
-
-------------------------------------------------------------
-
 ** emacspeak-w3-previous-doc-element Move back  to the previous document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move. 
 
 ------------------------------------------------------------
@@ -3481,7 +3498,8 @@ element.
 
 ------------------------------------------------------------
 
-** emacspeak-w3-transcode-via-google Transcode URL under point via Google. 
+** emacspeak-w3-transcode-via-google Transcode URL under point via Google.
+Reverse effect with prefix arg for links on a transcoded page. 
 
 ------------------------------------------------------------
 
@@ -3540,6 +3558,10 @@ Optional arg COMPLEMENT inverts the filter.
 ------------------------------------------------------------
 
 ** emacspeak-w3-xslt-select Select XSL transformation applied to WWW pages before they are displayed . 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-jump-to-title-in-content Jumps to the occurrence of document title in page body. 
 
 ------------------------------------------------------------
 
@@ -3666,7 +3688,7 @@ Optional interactive  prefix arg local-flag prompts for local
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google Perform a Google search.
-Optional interactive prefix arg `lucky' is equivalent to hitting the 
+Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google. 
 
 ------------------------------------------------------------
@@ -3676,6 +3698,10 @@ I'm Feeling Lucky button on Google.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google-feeling-lucky Do a I'm Feeling Lucky Google search. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-google-news Invoke Google News url template. 
 
 ------------------------------------------------------------
 
@@ -3723,10 +3749,6 @@ Optional prefix arg no-rss scrapes information from HTML.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-northern-light Perform a Northern Light  search 
-
-------------------------------------------------------------
-
 ** emacspeak-websearch-open-directory-search Perform an Open Directory search 
 
 ------------------------------------------------------------
@@ -3743,7 +3765,7 @@ Optional prefix arg no-rss scrapes information from HTML.
 
 ------------------------------------------------------------
 
-** emacspeak-websearch-quotes-yahoo-search Perform a Quotes Yahoo .  
+** emacspeak-websearch-quotes-yahoo-search Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
 emacspeak-websearch-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
@@ -3899,17 +3921,24 @@ personal customizations.
 
 ------------------------------------------------------------
 
+** emacspeak-cvs-berlios-get-project-snapshot Grab CVS snapshot  of specified project from berlios.de.
+Ask for module name if prefix argument is given 
+
+------------------------------------------------------------
+
 ** emacspeak-cvs-get-anonymous	Key Sequence: control e <control down> 
 
  Get latest cvs snapshot of emacspeak. 
 
 ------------------------------------------------------------
 
-** emacspeak-cvs-gnu-get-project-snapshot Grab CVS snapshot  of specified project from GNU. 
+** emacspeak-cvs-gnu-get-project-snapshot Grab CVS snapshot  of specified project from gnu.
+Ask for module name if prefix argument is given 
 
 ------------------------------------------------------------
 
-** emacspeak-cvs-sf-get-project-snapshot Grab CVS snapshot  of specified project from Sourceforge. 
+** emacspeak-cvs-sf-get-project-snapshot Grab CVS snapshot  of specified project from sf.
+Ask for module name if prefix argument is given 
 
 ------------------------------------------------------------
 

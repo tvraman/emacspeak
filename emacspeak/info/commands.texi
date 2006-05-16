@@ -1085,6 +1085,11 @@ Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window (ID)
@@ -1414,6 +1419,11 @@ Call appropriate freeamp command.
 
 @deffn {Interactive Command} emacspeak-freeamp-freeamp-command (CHAR)
 Execute FreeAmp command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-freeamp-mode ()
@@ -1684,6 +1694,11 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @node emacspeak-kotl
@@ -1972,6 +1987,11 @@ Call appropriate madplay command.
 
 @deffn {Interactive Command} emacspeak-madplay-madplay-command (CHAR)
 Execute Madplay command.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-madplay-mode ()
@@ -2700,6 +2720,11 @@ Prompt for and dial a phone NUMBER with the Dectalk.
 
 @deffn {Interactive Command} emacspeak-execute-repeatedly (COMMAND)
 Execute COMMAND repeatedly.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-mark-backward-mark ()
@@ -2775,6 +2800,11 @@ Default is to read the previous word.
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-char (CHAR)
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-and-skip-extent-upto-this-char ()
@@ -3529,6 +3559,11 @@ for commands defined in module  emacspeak-table-ui.
 
 @deffn {Interactive Command} emacspeak-table-copy-current-element-to-register (REGISTER)
 Speak current table element
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-copy-to-clipboard ()
@@ -3817,7 +3852,7 @@ Commentary:
 It is often useful to have ``parameterized hot list entries''
 i.e., hotlist entries  that are ``templates'' for the
 actual URL.
-The user provides values for the parameterized portons
+The user provides values for the parameterized portions
 of the URL e.g. the date.
 See @xref{URL Templates}, for details on the URL templates
 that are presently defined.
@@ -4095,13 +4130,13 @@ Interactive prefix arg causes url to be read from the minibuffer.
 
 @deffn {Interactive Command} emacspeak-w3-extract-tables-by-match-list (MATCH-LIST &optional PROMPT-URL SPEAK)
 Extract specified  tables from a WWW page.
-Tables are specified by containing  match pattern 
+Tables are specified by containing  match pattern
  found in the match list.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-extract-tables-by-position-list (POSITIONS &optional PROMPT-URL SPEAK)
 Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list 
+Tables are specified by their position in the list
 nested of tables found in the page.
 @end deffn
 
@@ -4156,7 +4191,7 @@ Play url under point using mplayer
 
 @deffn {Interactive Command} emacspeak-w3-next-doc-element (&optional COUNT)
 Move forward  to the next document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
@@ -4168,17 +4203,9 @@ Move to and speak next parsed item.
 Play media url under point 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-preview-this-buffer ()
-Preview this buffer.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-w3-preview-this-region (START END)
-Preview this region.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-w3-previous-doc-element (&optional COUNT)
 Move back  to the previous document element.
-Optional interactive prefix argument COUNT 
+Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move.
 @end deffn
 
@@ -4207,8 +4234,9 @@ Speak document element under point.
 Toggle drawing of W3 table borders
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-transcode-via-google ()
+@deffn {Interactive Command} emacspeak-w3-transcode-via-google (&optional UNTRANSCODE)
 Transcode URL under point via Google.
+Reverse effect with prefix arg for links on a transcoded page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-url-expand-and-execute ()
@@ -4278,6 +4306,10 @@ Commentary:
 
 Automatically generated documentation
 for commands defined in module  emacspeak-w3m.
+
+@deffn {Interactive Command} emacspeak-w3m-jump-to-title-in-content ()
+Jumps to the occurrence of document title in page body.
+@end deffn
 
 @deffn {Interactive Command} emacspeak-w3m-xsl-add-submit-button (&optional PERSISTENT)
 Add regular submit button if needed.
@@ -4412,7 +4444,7 @@ Optional interactive  prefix arg local-flag prompts for local
 
 @deffn {Interactive Command} emacspeak-websearch-google (QUERY &optional LUCKY)
 Perform a Google search.
-Optional interactive prefix arg `lucky' is equivalent to hitting the 
+Optional interactive prefix arg `lucky' is equivalent to hitting the
 I'm Feeling Lucky button on Google.
 @end deffn
 
@@ -4422,6 +4454,10 @@ Present Google advanced search form simplified for speech interaction.
 
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky (QUERY)
 Do a I'm Feeling Lucky Google search.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-google-news ()
+Invoke Google News url template.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range ()
@@ -4468,10 +4504,6 @@ Perform an Yahoo News search.
 Optional prefix arg no-rss scrapes information from HTML.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-northern-light (QUERY)
-Perform a Northern Light  search
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-open-directory-search (QUERY)
 Perform an Open Directory search
 @end deffn
@@ -4489,7 +4521,7 @@ Podzinger RSS Generator.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search (QUERY &optional PREFIX)
-Perform a Quotes Yahoo .  
+Perform a Quotes Yahoo .
 Default tickers to look up is taken from variable
 emacspeak-websearch-personal-portfolio.
 Default is to present the data in emacspeak's table browsing
@@ -4663,18 +4695,25 @@ Create a customization buffer for browsing and updating
 personal customizations.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-cvs-berlios-get-project-snapshot (PROJECT &optional MODULE)
+Grab CVS snapshot  of specified project from berlios.de.
+Ask for module name if prefix argument is given
+@end deffn
+
 @deffn {Interactive Command} emacspeak-cvs-get-anonymous ()
 @kbd{ control e <control down> }
 
 Get latest cvs snapshot of emacspeak.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-cvs-gnu-get-project-snapshot (PROJECT)
-Grab CVS snapshot  of specified project from GNU.
+@deffn {Interactive Command} emacspeak-cvs-gnu-get-project-snapshot (PROJECT &optional MODULE)
+Grab CVS snapshot  of specified project from gnu.
+Ask for module name if prefix argument is given
 @end deffn
 
-@deffn {Interactive Command} emacspeak-cvs-sf-get-project-snapshot (PROJECT)
-Grab CVS snapshot  of specified project from Sourceforge.
+@deffn {Interactive Command} emacspeak-cvs-sf-get-project-snapshot (PROJECT &optional MODULE)
+Grab CVS snapshot  of specified project from sf.
+Ask for module name if prefix argument is given
 @end deffn
 
 @deffn {Interactive Command} emacspeak-emergency-tts-restart ()
@@ -5340,9 +5379,9 @@ Function to submit a bug to the programs maintainer.
 
 Commentary:
 A voice is to audio as a font is to a visual display.
-A personality is to audio as a face is to a visual display. 
+A personality is to audio as a face is to a visual display.
 
-Voice-lock-mode is a minor mode that causes your comments to be 
+Voice-lock-mode is a minor mode that causes your comments to be
 spoken in one personality, strings in another, reserved words in another,
 documentation strings in another, and so on.
 
@@ -5363,7 +5402,7 @@ of voice names.  This module maps standard "personality"
 names to these pre-defined voices.  It does this via special
 form def-voice-font which takes a personality name, a voice
 name and a face name to set up the mapping between face and
-personality, and personality and voice.  
+personality, and personality and voice.
 Newer Emacspeak modules should use voice-setup-add-map when
 defining face->personality mappings.
 Older code calls def-voice-font directly, but over time those
@@ -5430,7 +5469,7 @@ Search IBM using trevi
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 104 URL Templates.
+This section documents a total of 106 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5517,10 +5556,6 @@ Display baseball Play By Play.
 
 Display baseball Play By Play.
 
-@kbd{Baseball Results}
-
-Baseball results for a given date.
-
 @kbd{Baseball scores}
 
 Display baseball scores.
@@ -5528,10 +5563,6 @@ Display baseball scores.
 @kbd{Baseball standings}
 
 Display MLB standings.
-
-@kbd{Baseball summary}
-
-Display baseball team summary.
 
 @kbd{BlogSearch Google}
 
@@ -5606,6 +5637,11 @@ Here are some examples:
 
 <what> near <location address>
 
+@kbd{Finance Google Search}
+
+Perform Google Finance search and view results through the
+mobile transcoder.
+
 @kbd{Flight Tracker}
 
 Display flight arrival and departure information.
@@ -5613,6 +5649,10 @@ Display flight arrival and departure information.
 @kbd{Geek Linux Daily}
 
 Play specified edition of Geek  Linux DailyShow
+
+@kbd{Google Atom News}
+
+Display specified news feed.
 
 @kbd{Google Books}
 
@@ -5662,6 +5702,10 @@ Here are some examples:
 
 <what> near <location address>
 
+@kbd{Google Mobile Search}
+
+Google Mobile Search
+
 @kbd{Google News Search}
 
 Search Google news.
@@ -5677,6 +5721,10 @@ Search Google news.
 @kbd{Google Reader}
 
 View feed via Google Reader.
+
+@kbd{Google Recent News Search}
+
+Search Google news.
 
 @kbd{Google Scholar}
 
@@ -5701,10 +5749,6 @@ Produce  a set of RSS links published by InfoWorld.
 @kbd{Linux Today News}
 
 Get news column from Linux Today.
-
-@kbd{MLB Alerts}
-
-Show MLB Scorecard.
 
 @kbd{MLB Scorecard}
 
@@ -5890,6 +5934,10 @@ Search answers.com
 @kbd{fedex packages}
 
 Display package tracking information from Fedex.
+
+@kbd{mlb standings}
+
+Get XML feed containing team standings.
 
 @kbd{pdf2html}
 
