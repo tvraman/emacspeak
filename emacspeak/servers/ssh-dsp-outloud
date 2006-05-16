@@ -5,15 +5,31 @@
 # {{{  documentation
 
 # Running TTS server remotely.
+#Note that on modern  Linux installations,
+#You will need to:
+#Create  file .ssh/environment 
+# in your home directory on the local machine,
+#set up any env vars you need; e.g. for ViaVoice OUtloud 
+# Set ECIINI in that file like so:
+#ECIINI=<dirname>
+#and finally, update /etc/ssh/sshd_config 
+#to set PermitUserEnvironment to yes
+#In addition, you may need to ssh once by hand to get past the 
+#"do you want to continue connecting" question.
+
 # }}}
-set host [exec hostname]
-puts stderr "running on host <$host>"
+set localhost [exec hostname]
+puts stderr "running on host <$localhost>"
 if [expr $argc == 0] {
     set remote [exec cat $env(HOME)/.emacspeak/.current-remote-hostname]
 } else {
     set remote [lindex $argv 0]
 }
+set host_port [split $remote ":"]
+set host [lindex $host_port 0]
+set port [lindex $host_port 1]
+if {$port == ""} {set  port 22}
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
-puts stderr "Running <ssh $remote  $tcl $tts>"
-exec ssh $remote  $tcl $tts
+puts stderr "Running <ssh $host -p $port   $tcl $tts>"
+exec     ssh -o StrictHostKeyChecking=no $host -p $port  $tcl $tts
