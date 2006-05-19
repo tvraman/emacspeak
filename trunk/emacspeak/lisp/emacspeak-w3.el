@@ -542,6 +542,7 @@ Reverse effect with prefix arg for links on a transcoded page."
     (error "Not in W3 buffer."))
   (unless (w3-view-this-url 'no-show)
     (error "Not on a link."))
+  (let ((url-mime-encoding-string "gzip"))
   (cond
    ((null untranscode)
   (browse-url
@@ -554,7 +555,7 @@ Reverse effect with prefix arg for links on a transcoded page."
           (unhex (url-unhex-string (w3-view-this-url 'no-show))))
       (setq plain-url (substring  unhex (length prefix)))
       (when plain-url
-      (browse-url plain-url))))))
+      (browse-url plain-url)))))))
 
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
