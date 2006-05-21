@@ -71,26 +71,20 @@
        `(defadvice ,f (after emacspeak pre act comp)
           "Speak track name."
           (when (interactive-p)
-            (emacspeak-emms-speak-current-track)))))
+            (emacspeak-auditory-icon 'select-object)))))
 
-(defadvice emms-start (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (dtk-speak "Started playing.")))
 
-(defadvice emms-stop (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (dtk-speak "Stopped playing.")))
-
-(defadvice emms-shuffle (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (dtk-speak "Shuffled playlist.")))
-(defadvice emms-sort (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (interactive-p)
-    (dtk-speak "Sorted playlist.")))
+;;; these commands should not be made to talk since that would  interferes
+;;; with real work.
+(loop for f in
+      '(emms-start emms-stop emms-sort
+                   emms-shuffle emms-random)
+      do
+      (eval
+       `(defadvice ,f (after emacspeak pre act comp)
+          "Provide auditory icon."
+          (when (interactive-p)
+            (emacspeak-auditory-icon 'select-object)))))
 
 
 (loop for f in
@@ -106,6 +100,15 @@
 
 ;;}}}
 ;;{{{ Module emms-streaming:
+(declaim (special emms-stream-mode-map))
+(define-key emms-stream-mode-map "\C-e"
+;;'emacspeak-prefix-command)
+
+(defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (message "Saved stream bookmarks.")))
 
 (loop for f in
       '(emms-streams emms-stream-quit
