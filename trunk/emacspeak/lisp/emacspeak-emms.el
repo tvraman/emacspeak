@@ -56,7 +56,6 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-
 ;;{{{ module emms:
 
 (defun emacspeak-emms-speak-current-track ()
@@ -66,8 +65,7 @@
    (cdr (assoc 'name (emms-playlist-current-track)))))
 
 (loop for f in
-      '(emms-next emms-next-noerror
-                  emms-previous)
+      '(emms-next emms-next-noerror emms-previous)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -94,29 +92,17 @@
   (when (interactive-p)
     (dtk-speak "Sorted playlist.")))
 
-;;}}}
-;;{{{ Module emms-pbi:
+
 (loop for f in
-      '(emms-pbi emms-pbi-open-playlist
-                 emms-pbi-quit
-                 emms-pbi-popup-revert emms-pbi-popup-playlist
-                 )
+      '(emms-playlist-first
+        emms-playlist-last)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
-            (emacspeak-speak-mode-line)))))
-
-(loop for f in
-      '(emms-pbi-recenter emms-pbi-play-current-line)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (interactive-p)
-            (emacspeak-emms-speak-current-track)))))
-
+            (emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-line)))))
 ;;}}}
 ;;{{{ Module emms-streaming:
 
