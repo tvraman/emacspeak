@@ -94,8 +94,8 @@
 
 
 (loop for f in
-      '(emms-playlist-first
-        emms-playlist-last)
+      '(emms-playlist-first emms-playlist-last
+                            emms-playlist-mode-first emms-playlist-mode-last)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -103,12 +103,14 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
+
 ;;}}}
 ;;{{{ Module emms-streaming:
 
 (loop for f in
       '(emms-streams emms-stream-quit
                      emms-stream-popup emms-stream-popup-revert
+                     emms-playlist-mode-go
                      )
       do
       (eval
@@ -116,6 +118,7 @@
           "Provide auditory feedback."
           (when (interactive-p)
             (emacspeak-speak-mode-line)))))
+
 (loop for f in
       '(emms-stream-next-line emms-stream-previous-line)
       do
