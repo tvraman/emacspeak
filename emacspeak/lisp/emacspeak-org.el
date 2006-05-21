@@ -86,6 +86,8 @@
         org-goto  org-goto-ret
         org-goto-left org-goto-right
         org-goto-quit
+        org-metaleft org-metaright org-metaup org-metadown
+        org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
         )
       do
       (eval
