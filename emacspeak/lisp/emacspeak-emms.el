@@ -102,7 +102,7 @@
 ;;{{{ Module emms-streaming:
 (declaim (special emms-stream-mode-map))
 (define-key emms-stream-mode-map "\C-e"
-;;'emacspeak-prefix-command)
+'emacspeak-prefix-command)
 
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)
