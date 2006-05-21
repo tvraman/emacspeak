@@ -313,12 +313,12 @@ See command `emacspeak-toggle-auditory-icons' bound to \\[emacspeak-toggle-audit
   (declare (special  emacspeak-use-auditory-icons emacspeak-play-program))
   (and emacspeak-use-auditory-icons
        (let ((process-connection-type nil))
-		 (condition-case err
-			 (start-process
-			  "play" nil emacspeak-play-program
-			  (emacspeak-get-sound-filename sound-name))
-		   (error
-			(message (error-message-string err)))))))
+         (condition-case err
+             (start-process
+              "play" nil emacspeak-play-program
+              (emacspeak-get-sound-filename sound-name))
+           (error
+            (message (error-message-string err)))))))
 
 ;;}}}
 ;;{{{  queue a midi icon

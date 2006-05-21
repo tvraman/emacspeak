@@ -192,12 +192,12 @@ Do not modify this variable directly; use command  `dtk-set-rate'
   "Check if text is invisible. Emacspeak helper."
   (declare (special buffer-invisibility-spec))
   (let ((prop (get-text-property position 'invisible)))
-  (cond
-   ((and (listp buffer-invisibility-spec)
-    (memq prop buffer-invisibility-spec)) t)
-   ((and (listp  buffer-invisibility-spec)
-    (assq prop buffer-invisibility-spec)) t)
-    (t prop))))
+    (cond
+     ((and (listp buffer-invisibility-spec)
+           (memq prop buffer-invisibility-spec)) t)
+     ((and (listp  buffer-invisibility-spec)
+           (assq prop buffer-invisibility-spec)) t)
+     (t prop))))
 
 (defsubst skip-invisible-forward  ()
   (while (and(not (eobp))

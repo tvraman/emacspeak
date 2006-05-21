@@ -344,7 +344,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive)
   (emacspeak-m-player-dispatch "quit")
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
-      (delete-process  emacspeak-m-player-process))
+    (delete-process  emacspeak-m-player-process))
   (bury-buffer)
   (emacspeak-speak-mode-line))
 
