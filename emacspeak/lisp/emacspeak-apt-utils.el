@@ -49,8 +49,8 @@
   "Speak package name at point."
   (let ((package (apt-utils-package-at)))
     (put-text-property 0 (length package)
-		       'personality (get-text-property (point) 'personality)
-		       package)
+                       'personality (get-text-property (point) 'personality)
+                       package)
     (dtk-speak package)))
 
 (defadvice apt-utils-mode (after emacspeak pre act comp)

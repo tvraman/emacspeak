@@ -148,7 +148,6 @@ reading news."
           (end-of-line)
           (emacspeak-speak-region start (point)))))))
 
-
 ;;}}}
 ;;{{{ Advise top-level gnus command
 
@@ -184,8 +183,6 @@ reading news."
     ad-do-it)
   (message "Gnus is ready ")
   (emacspeak-auditory-icon 'news))
-
-
 
 ;;}}}
 ;;{{{  Newsgroup selection
@@ -338,8 +335,6 @@ this group is being deselected."
     (emacspeak-auditory-icon 'open-object)
     (message "Customizing group %s" (gnus-group-group-name))))
 
-
-
 ;;}}}
 ;;{{{  summary mode 
 
@@ -378,8 +373,8 @@ this group is being deselected."
       (if (= saved-point (point))
           (dtk-speak "No more articles")
         (progn 
-	  (emacspeak-auditory-icon 'mark-object)
-	  (emacspeak-gnus-summary-speak-subject ))))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-gnus-summary-speak-subject ))))
     ad-return-value ))
 
 (defadvice gnus-summary-mark-as-expirable (around  emacspeak pre act)
@@ -391,8 +386,8 @@ this group is being deselected."
       (if (= saved-point (point))
           (dtk-speak "No more articles")
         (progn 
-	  (emacspeak-auditory-icon 'mark-object)
-	  (emacspeak-gnus-summary-speak-subject ))))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-gnus-summary-speak-subject ))))
     ad-return-value ))
 
 (defadvice gnus-summary-mark-as-processable (around  emacspeak pre act)
@@ -404,8 +399,8 @@ this group is being deselected."
       (if (= saved-point (point))
           (dtk-speak "No more articles")
         (progn 
-	  (emacspeak-auditory-icon 'mark-object)
-	  (emacspeak-gnus-summary-speak-subject ))))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-gnus-summary-speak-subject ))))
     ad-return-value ))
 
 (defadvice gnus-summary-unmark-as-processable (after emacspeak pre act)
@@ -424,8 +419,8 @@ this group is being deselected."
       (if (= saved-point (point))
           (dtk-speak "No more articles")
         (progn 
-	  (emacspeak-auditory-icon 'mark-object)
-	  (emacspeak-gnus-summary-speak-subject ))))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-gnus-summary-speak-subject ))))
     ad-return-value ))
 
 (defadvice gnus-summary-tick-article-forward (around  emacspeak pre act)
@@ -437,8 +432,8 @@ this group is being deselected."
       (if (= saved-point (point))
           (dtk-speak "No more articles")
         (progn 
-	  (emacspeak-auditory-icon 'mark-object)
-	  (emacspeak-gnus-summary-speak-subject ))))
+          (emacspeak-auditory-icon 'mark-object)
+          (emacspeak-gnus-summary-speak-subject ))))
     ad-return-value ))
 
 (defadvice gnus-summary-delete-article (after emacspeak pre act)
@@ -491,7 +486,7 @@ Indicate change of selection with
       (if (eq cur-group (gnus-group-group-name))
           (dtk-speak "No more unread newsgroups")
         (progn 
-	  (emacspeak-speak-line))))
+          (emacspeak-speak-line))))
     ad-return-value ))
 
 (defadvice gnus-summary-exit  (around emacspeak pre act)
@@ -505,7 +500,7 @@ Indicate change of selection with
       (if (eq cur-group (gnus-group-group-name))
           (dtk-speak "No more unread newsgroups")
         (progn 
-	  (emacspeak-speak-line))))
+          (emacspeak-speak-line))))
     ad-return-value ))
 
 (defadvice gnus-summary-prev-subject  (around  emacspeak pre act)
@@ -684,7 +679,6 @@ Produce an auditory icon if possible."
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.")
-
 
            
            

@@ -290,13 +290,13 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
     (add-hook  'emacspeak-w3-post-process-hook
                #'(lambda nil
                    (emacspeak-pronounce-add-buffer-local-dictionary-entry
-  " mi"
-  " miles ")))
+                    " mi"
+                    " miles ")))
     (browse-url-of-buffer
-    (emacspeak-xslt-xml-url
-     (expand-file-name "kml2html.xsl"
-                       emacspeak-xslt-directory)
-     uri))))
+     (emacspeak-xslt-xml-url
+      (expand-file-name "kml2html.xsl"
+                        emacspeak-xslt-directory)
+      uri))))
                                               
                                               
 
@@ -1137,8 +1137,6 @@ Optional second arg as-html processes the results as HTML rather than data."
           (const :tag "None" nil)
           (string :tag "Options"))
   :group 'emacspeak-websearch)
-
-
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional lucky)

@@ -55,16 +55,16 @@
   "Set up emacspeak for table.el"
   (declare (special table-cell-map))
   (when  table-cell-map
-  (loop for k in
-        (where-is-internal 'emacspeak-self-insert-command table-cell-map)
-        do
-        (define-key table-cell-map k '*table--cell-self-insert-command ))
-  (loop for k in
-        '(
-         ([backtab] table-backward-cell)
-         ("\C-e." emacspeak-etable-speak-cell))
-        do
-        (emacspeak-keymap-update table-cell-map k))))
+    (loop for k in
+          (where-is-internal 'emacspeak-self-insert-command table-cell-map)
+          do
+          (define-key table-cell-map k '*table--cell-self-insert-command ))
+    (loop for k in
+          '(
+            ([backtab] table-backward-cell)
+            ("\C-e." emacspeak-etable-speak-cell))
+          do
+          (emacspeak-keymap-update table-cell-map k))))
 
 ;;}}}
 ;;{{{ Advice edit commands
@@ -164,8 +164,8 @@ Otherwise cue user to the line just created."
     (cond
      (cell
       (emacspeak-speak-rectangle
-        (car cell)
-        (cdr cell)))
+       (car cell)
+       (cdr cell)))
      (t (error "Cant identify cell.")))))
 
 (loop for f in
