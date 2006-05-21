@@ -65,6 +65,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when-compile (require 'wid-edit)
+                   (require 'calendar)
                    (require 'emacspeak-personality))
 (require 'voice-setup)
 (require 'thingatpt)

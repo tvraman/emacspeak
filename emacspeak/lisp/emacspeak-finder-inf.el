@@ -125,6 +125,9 @@
                                       ("emacspeak-custom.el"
                                        "Speech enable interactive Emacs customization "
                                        (emacspeak  speak  spoken output  custom))
+                                      ("emacspeak-cyclebuffer.el"
+                                       "Speech-enable cyclebuffer.el "
+                                       nil)
                                       ("emacspeak-daisy.el"
                                        "daisy Front-end for emacspeak desktop"
                                        (emacspeak  daisy digital talking books))
@@ -536,9 +539,6 @@
                                       ("html-outline.el"
                                        "Extends html-helper-mode to provide outline and imenu support"
                                        nil)
-                                      ("keep.el"
-                                       "Speech-enable org "
-                                       (emacspeak  org ))
                                       ("multispeech-voices.el"
                                        "Define various device independent voices in terms of Multispeech tags"
                                        (voice  personality  multispeech))
