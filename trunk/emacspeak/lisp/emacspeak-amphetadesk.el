@@ -54,6 +54,7 @@
 (require 'custom)
 (require 'browse-url)
 (require 'emacspeak-preamble)
+(require 'imenu)
 (eval-when-compile
   (condition-case nil
       (require 'emacspeak-w3)
@@ -118,7 +119,7 @@ Interactive prefix-arg use-opml opens the myChannels.opml file."
                        (goto-char (point-min))
                        (emacspeak-speak-mode-line)))
         (emacspeak-w3-without-xsl
-         (w3-fetch "http://127.0.0.1:8888/")))
+         (browse-url "http://127.0.0.1:8888/")))
        (t (browse-url emacspeak-amphetadesk-uri))))))
 
 ;;;###autoload
