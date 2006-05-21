@@ -39,7 +39,7 @@
 (require 'custom)
 (eval-when-compile
   (condition-case nil
-        (require 'w3m)
+      (require 'w3m)
     (error nil)))
 (eval-when (load)
   (require 'w3m-util)
@@ -118,15 +118,15 @@ instead of the modeline."
   (interactive)
   (declare (special w3m-current-title))
   (let ((title (w3m-current-title)))
-  (condition-case nil
-      (progn
-        (goto-char (point-min))
-        (goto-char
-         (search-forward
-          (substring title 0 (min 10 (length title)))))
-        (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'large-movement))
-    (error "Title not found in body."))))
+    (condition-case nil
+        (progn
+          (goto-char (point-min))
+          (goto-char
+           (search-forward
+            (substring title 0 (min 10 (length title)))))
+          (emacspeak-speak-line)
+          (emacspeak-auditory-icon 'large-movement))
+      (error "Title not found in body."))))
  
 ;;}}}
 ;;{{{ anchors
@@ -334,7 +334,7 @@ instead of the modeline."
     (declare (special w3m-current-title))    
     (emacspeak-auditory-icon 'select-object)
     (if emacspeak-w3m-speak-titles-on-switch 
-	(dtk-speak w3m-current-title)
+        (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-previous-buffer (after emacspeak pre act comp)
@@ -343,7 +343,7 @@ instead of the modeline."
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'select-object)
     (if emacspeak-w3m-speak-titles-on-switch 
-	(dtk-speak w3m-current-title)
+        (dtk-speak w3m-current-title)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-delete-buffer (after emacspeak pre act comp)
@@ -656,10 +656,10 @@ instead of the modeline."
 
 (add-hook 'w3m-display-hook
           (lambda (url)
-	    (declare (special w3m-current-title))
+            (declare (special w3m-current-title))
             (emacspeak-auditory-icon 'open-object)
             (when (stringp w3m-current-title)
-	      (dtk-speak w3m-current-title)))
+              (dtk-speak w3m-current-title)))
           t)
 
 ;;}}}

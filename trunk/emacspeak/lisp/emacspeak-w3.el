@@ -531,7 +531,6 @@ even if one is already defined."
         (error "Invalid executor %s"
                emacspeak-w3-url-executor))))))
 
-
 ;;}}}
 ;;{{{  jump to title in document
 (defun emacspeak-w3-transcode-via-google (&optional untranscode)
@@ -543,19 +542,19 @@ Reverse effect with prefix arg for links on a transcoded page."
   (unless (w3-view-this-url 'no-show)
     (error "Not on a link."))
   (let ((url-mime-encoding-string "gzip"))
-  (cond
-   ((null untranscode)
-  (browse-url
-   (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-           (emacspeak-url-encode
-            (w3-view-this-url 'no-show)))))
-   (t
-    (let ((plain-url nil)
-          (prefix "http://www.google.com/gwt/n?u=")
-          (unhex (url-unhex-string (w3-view-this-url 'no-show))))
-      (setq plain-url (substring  unhex (length prefix)))
-      (when plain-url
-      (browse-url plain-url)))))))
+    (cond
+     ((null untranscode)
+      (browse-url
+       (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
+               (emacspeak-url-encode
+                (w3-view-this-url 'no-show)))))
+     (t
+      (let ((plain-url nil)
+            (prefix "http://www.google.com/gwt/n?u=")
+            (unhex (url-unhex-string (w3-view-this-url 'no-show))))
+        (setq plain-url (substring  unhex (length prefix)))
+        (when plain-url
+          (browse-url plain-url)))))))
 
 (defun emacspeak-w3-jump-to-title-in-content ()
   "Jumps to the occurrence of document title in page body."
@@ -597,7 +596,6 @@ Reverse effect with prefix arg for links on a transcoded page."
 ;;{{{ applying XSL transforms before displaying
 
 (define-prefix-command 'emacspeak-w3-xsl-map )
-
 
 (defcustom emacspeak-w3-xsl-p nil
   "T means we apply XSL transformation before displaying
@@ -1267,7 +1265,6 @@ loaded. "
       (kill-buffer buffer)
       (emacspeak-auditory-icon 'open-object))))
 
-
 ;;}}}
 ;;{{{  xsl keymap
 
@@ -1521,7 +1518,7 @@ used as well."
       (when unescape-charent
         (emacspeak-w3-unescape-charent))
       (emacspeak-w3-without-xsl
-      (browse-url-of-buffer)))
+       (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
 ;;}}}
@@ -1547,8 +1544,6 @@ current page."
   (emacspeak-websearch-google
    (format "+cache:%s"
            (url-view-url 'no-show))))
-
-
 
 ;;;###autoload
 (defun emacspeak-w3-google-on-this-site ()
@@ -1713,13 +1708,11 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
     (message "Playing media  URL under point")
     (funcall emacspeak-media-player  url)))
 
-
 (defun emacspeak-w3-mplayer-play-url-at-point ()
   "Play url under point using mplayer"
   (interactive )
   (let ((url (w3-view-this-url 'no-show)))
     (emacspeak-m-player url)))
-
 
 ;;}}}
 ;;{{{ backward compatibility

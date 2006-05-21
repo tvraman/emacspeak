@@ -710,7 +710,7 @@ sourceforge.
 Typically %s is replaced by project name.")
 
 (defvar emacspeak-cvs-gnu-anonymous-cvsroot-pattern
-   ":pserver:anonymous@cvs.sv.gnu.org:/sources/%s"
+  ":pserver:anonymous@cvs.sv.gnu.org:/sources/%s"
   "CVSROOT pattern for project CVS repository at
 GNU.
 Typically %s is replaced by project name.")
@@ -2885,12 +2885,12 @@ RIVO is implemented by rivo.pl ---
   (interactive
    (list
     (intern
-               (completing-read
-                "Mode: "
-                (mapcar (lambda (e)
-                          (list (symbol-name e)))
-                        (apropos-internal "-mode$" 'commandp))
-                nil t))))
+     (completing-read
+      "Mode: "
+      (mapcar (lambda (e)
+                (list (symbol-name e)))
+              (apropos-internal "-mode$" 'commandp))
+      nil t))))
   (let ((buffer-name (generate-new-buffer-name "*input*")))
     (pop-to-buffer (make-indirect-buffer (current-buffer) buffer-name))
     (narrow-to-region (point) (point))
@@ -2903,8 +2903,6 @@ RIVO is implemented by rivo.pl ---
           (delete-window)))
       (use-local-map map))
     (shrink-window-if-larger-than-buffer)))
-
-
 
 ;;}}}
 (provide 'emacspeak-wizards)

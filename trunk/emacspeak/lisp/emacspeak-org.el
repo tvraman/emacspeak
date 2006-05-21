@@ -191,8 +191,8 @@
   (when (interactive-p)
     (emacspeak-auditory-icon
      (if orgtbl-mode 'on 'off))
-     (message "Turned %s org table mode."
-              (if orgtbl-mode 'on 'off))))
+    (message "Turned %s org table mode."
+             (if orgtbl-mode 'on 'off))))
      
 ;;}}}
 ;;{{{ import/export:

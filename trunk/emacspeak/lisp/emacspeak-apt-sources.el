@@ -85,7 +85,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon
      (if apt-sources-around-lines
-	 'on
+         'on
        'off))))
 
 ;;}}}

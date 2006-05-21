@@ -194,8 +194,6 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
       (message "Fixed recently defined  interactive commands")))
   t)
 
-
-
 ;;}}}
 (provide 'emacspeak-fix-interactive)
 ;;{{{  end of file
