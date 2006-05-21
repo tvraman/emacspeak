@@ -104,6 +104,14 @@
 (define-key emms-stream-mode-map "\C-e"
 ;;'emacspeak-prefix-command)
 
+(defadvice emms-stream-delete-bookmark (after emacspeak pre act
+                                              comp)
+  "Provide auditory feedback."
+  (when (interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+
 (defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
