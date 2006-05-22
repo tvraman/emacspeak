@@ -26,18 +26,18 @@
 ;;;; along with GNU Elib; see the file COPYING.  If not, write to
 ;;;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;;;; Boston, MA 02111-1307, USA
-;;;; 
+;;;;
 ;;;; Author: Sebastian Kremer
 ;;;;         sk@thp.Uni-Koeln.DE
-;;;; 
+;;;;
 
 ;;; Commentary:
 
 ;;;
 ;;; This file is part of the elisp library Elib.
-;;; It implements simple generic string functions for use in other 
+;;; It implements simple generic string functions for use in other
 ;;; elisp code: replace regexps in strings, split strings on regexps.
-;;; 
+;;;
 
 ;;; Code:
 
@@ -51,7 +51,7 @@
   "Replace first match of REGEXP in STRING with NEWTEXT.
 If no match is found, nil is returned instead of the new string.
 
-Optional arg LITERAL non-nil means to take NEWTEXT literally. If LITERAL is 
+Optional arg LITERAL non-nil means to take NEWTEXT literally. If LITERAL is
 nil, character `\\' is the start of one of the following sequences:
   \\\\   will be replaced by a single \\.
   \\&   will be replaced by the text which matched the regexp.
@@ -65,7 +65,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
     (unwind-protect
 
         (if global
-            (let ((result "") 
+            (let ((result "")
                   (start 0)
                   matchbeginning
                   matchend)
@@ -95,7 +95,9 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
   ;; Expand \& and \1..\9 (referring to STRING) in NEWTEXT.
   ;; Uses match data and fluid vars `newtext', `string'.
   ;; Note that in Emacs 18 match data are clipped to current buffer
-  ;; size...so the buffer should better not be smaller than STRING.
+  ;; size...so the buffer should better not be smaller than
+  ;; STRING.
+  (declare (special newtext string))
   (let ((pos 0)
         (len (length newtext))
         (expanded-newtext ""))
@@ -109,7 +111,7 @@ Optional arg GLOBAL means to replace all matches instead of only the first."
                                  (substring string
                                             (match-beginning 0)
                                             (match-end 0)))
-                                ((and (>= c ?1) 
+                                ((and (>= c ?1)
                                       (<= c ?9))
                                  ;; return empty string if N'th
                                  ;; sub-regexp did not match:
