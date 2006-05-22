@@ -1,5 +1,10 @@
 #$Id$
-# {{{ default device is a mixer 
+#these numbers work on the following:
+# aplay -l | head 1
+# Soundcard on IBM Thinkpads
+# ICH6 [Intel ICH6],
+
+# {{{ default device is a mixer
 
 pcm.!default {
     type plug
