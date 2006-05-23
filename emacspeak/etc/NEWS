@@ -29,7 +29,13 @@ table editor (orgtbl).
 
   - Added a wizard for generating a custom popup input buffer.
   -  Use this in emacspeak-org.
+** emacspeak-url-template:
 
+  - Added a Google Video searcher
+
+**  emacspeak-emms:
+
+Updated to support emms-2.0.
 
 
 Local variables:
