@@ -1,7 +1,7 @@
 #$Id$
 #these numbers work on the following:
 # aplay -l | head 1
-# Soundcard on IBM Thinkpads
+# I82801DBICH4 [Intel 82801DB-ICH4] (IBM Thinkpads)
 # ICH6 [Intel ICH6],
 
 # {{{ default device is a mixer
