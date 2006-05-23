@@ -304,6 +304,18 @@ documentation   Documents this template resource. "
  nil
  "Analyze WWW site using Netcraft.")
 ;;}}}
+;;{{{  digg
+
+(emacspeak-url-template-define
+ "Digg"
+ "http://www.digg.org/rss/index.xml"
+ nil
+ nil
+ "Display Digg Feed."
+ 'emacspeak-rss-display)
+
+
+;;}}}
 ;;{{{ bbc
 
 (emacspeak-url-template-define
