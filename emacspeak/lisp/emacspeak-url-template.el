@@ -457,11 +457,11 @@ content."
 
 (emacspeak-url-template-define
  "Google Video"
- "http://video.google.com/videofeed?type=search&q=%s&num=20&output=atom"
+ "http://video.google.com/videofeed?type=search&q=%s&num=20&output=rss"
  (list "Video Search:")
  nil
  "Retrieve Google Video search results as an atom feed."
- 'emacspeak-atom-display)
+ 'emacspeak-rss-display)
 
 ;;}}}
 ;;{{{ Google Reader:
