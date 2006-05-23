@@ -453,6 +453,17 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{  Google Video:
+
+(emacspeak-url-template-define
+ "Google Video"
+ "http://video.google.com/videofeed?type=search&q=%s&num=20&output=atom"
+ (list "Video Search:")
+ nil
+ "Retrieve Google Video search results as an atom feed."
+ 'emacspeak-atom-display)
+
+;;}}}
 ;;{{{ Google Reader:
 
 (emacspeak-url-template-define
@@ -602,7 +613,7 @@ Here are some examples:
 <what> near <location address>
 "
  #'(lambda (url)
-     (let ((buffer 
+     (let ((buffer
             (emacspeak-xslt-xml-url
              (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
              url )))
@@ -1500,7 +1511,7 @@ plays entire program."
        (browse-url-of-buffer buffer)
        (goto-char (point-min))
        (emacspeak-speak-mode-line))))
- 
+
 
 (emacspeak-url-template-define
  "MLB Scorecard"
