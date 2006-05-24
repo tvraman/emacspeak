@@ -704,7 +704,7 @@ See /etc/sudoers for how to set up sudo."
   (emacspeak-cvs-sf-get-project-snapshot "emacspeak"))
 
 (defvar emacspeak-cvs-sf-anonymous-cvsroot-pattern
-  ":pserver:anonymous@cvs.sourceforge.net:/cvsroot/%s"
+  ":pserver:anonymous@%s.cvs.sourceforge.net:/cvsroot/%s"
   "CVSROOT pattern for project CVS repository at
 sourceforge.
 Typically %s is replaced by project name.")
@@ -741,7 +741,7 @@ Ask for module name if prefix argument is given"
                     emacspeak-cvs-sf-anonymous-cvsroot-pattern))
   (emacspeak-cvs-get-project-snapshot
    (format emacspeak-cvs-sf-anonymous-cvsroot-pattern
-           project)
+           project project)
    (expand-file-name
     (format emacspeak-cvs-local-directory-pattern
             project))
