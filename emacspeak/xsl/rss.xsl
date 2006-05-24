@@ -60,6 +60,7 @@ View an RSS feed as clean HTML
         </xsl:attribute>
         <xsl:apply-templates select="rss:title|nsrss:title"/>
       </xsl:element>
+	  <br/>
       <xsl:apply-templates select="rss:description|nsrss:description"/>
     </li>
   </xsl:template>
@@ -106,7 +107,9 @@ View an RSS feed as clean HTML
         </xsl:attribute>
         <xsl:apply-templates select="title"/>
       </xsl:element>
+	  <br/>
       <xsl:apply-templates select="description"/>
+	  <br/>
       <xsl:apply-templates select="enclosure"/>
     </li>
   </xsl:template>

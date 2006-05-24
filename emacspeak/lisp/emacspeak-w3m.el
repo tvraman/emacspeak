@@ -35,7 +35,9 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-w3)
+(require 'emacspeak-rss)
 (require 'easymenu)
+(require 'emacspeak-m-player)
 (require 'custom)
 (eval-when-compile
   (condition-case nil
@@ -109,6 +111,10 @@ instead of the modeline."
                        'personality personality
                        newstring)
     newstring))
+
+(defsubst emacspeak-w3m-url-at-point ()
+  "Return the url at point in w3m."
+  (or (w3m-anchor (point)) (w3m-image (point))))
 
 ;;}}}
 ;;{{{ jump to title in document
@@ -830,6 +836,68 @@ With prefix argument makes this transformation persistent."
        (point-max))))
   (setq emacspeak-w3m-xsl-once nil))
 
+;; Helper function for xslt functionality
+;;;###autoload
+(defun emacspeak-w3m-preview-this-buffer ()
+  "Preview this buffer in w3m."
+  (interactive)
+  (let ((filename
+         (format "/tmp/%s.html"
+                 (make-temp-name "w3m"))))
+    (write-region (point-min) 
+                  (point-max)
+                  filename)
+	(w3m-find-file filename))
+  (delete-file filename))
+
+;;;###autoload
+(defun emacspeak-w3m-browse-xml-url-with-style (style url &optional unescape-charent)
+  "Browse XML URL with specified XSL style in w3m."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (let ((src-buffer
+         (emacspeak-xslt-xml-url
+          style
+          url
+          (list
+           (cons "base"
+                 (format "\"'%s'\""
+                         url))))))
+    (save-excursion
+      (set-buffer src-buffer)
+      (when unescape-charent
+        (emacspeak-w3-unescape-charent))
+      (emacspeak-w3m-preview-this-buffer))
+    (kill-buffer src-buffer)))
+
+;;;###autoload
+(defun emacspeak-w3m-browse-url-with-style (style url)
+  "Browse URL with specified XSL style. in w3m."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "XSL Transformation: "
+                     emacspeak-xslt-directory))
+    (read-string "URL: " (browse-url-url-at-point))))
+  (setq emacspeak-w3m-xsl-once style)
+  (w3m-goto-url-new-session url))
+
+(defun emacspeak-w3m-browse-rss-at-point ()
+  "Browses RSS url under point from w3m."
+  (interactive)
+  (unless (eq major-mode 'w3m-mode)
+    (error "Not in a W3m buffer."))
+  (let ((url (emacspeak-w3m-url-at-point)))
+    (cond
+     (url
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-rss-display url 'speak))
+     (t (error "No URL under point.")))))
+
 ;;}}}
 ;;{{{  xsl keymap
 
@@ -938,6 +1006,18 @@ With prefix argument makes this transformation persistent."
   (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
+;;{{{ ll: m-player integration
+
+(defun emacspeak-w3m-play-stream ()
+  "Load the URL under point in w3m into m-player."
+  (interactive)
+  (unless (eq major-mode 'w3m-mode)
+    (error "Not in a W3m buffer."))
+  (let ((url (emacspeak-w3m-url-at-point)))
+    (when url
+	  (emacspeak-m-player url))))
+
+;; }}}
 (provide 'emacspeak-w3m)
 ;;{{{ end of file 
 
