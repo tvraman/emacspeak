@@ -101,8 +101,10 @@
 ;;}}}
 ;;{{{ Module emms-streaming:
 (declaim (special emms-stream-mode-map))
-(define-key emms-stream-mode-map "\C-e"
-'emacspeak-prefix-command)
+(defadvice emms-stream-mode (after emacspeak pre act comp)
+  "Update keymaps."
+  (define-key emms-stream-mode-map "\C-e"
+    'emacspeak-prefix-command))
 
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)
