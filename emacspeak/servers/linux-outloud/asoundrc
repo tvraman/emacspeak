@@ -1,8 +1,9 @@
-#$Id$
-#these numbers work on the following:
-# aplay -l | head 1
-# I82801DBICH4 [Intel 82801DB-ICH4] (IBM Thinkpads)
-# ICH6 [Intel ICH6],
+# $Id$
+# these numbers work on the following:
+#  aplay -l | head 1
+#  I82801DBICH4 [Intel 82801DB-ICH4] (IBM Thinkpads)
+# Multimedia audio controller: VIA Technologies, Inc. VT82C686 AC97 Audio Controller (rev 50)Sony Vaio FX501 Notebook. 
+#  ICH6 [Intel ICH6],
 
 # {{{ default device is a mixer
 
