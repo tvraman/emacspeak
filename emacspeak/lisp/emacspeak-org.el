@@ -226,6 +226,8 @@
         ([27 shift right] org-shiftmetaright)
         ([27 S-Return] org-insert-todo-heading)
         ("\C-j" org-insert-heading)
+        ("\M-n" org-next-item)
+        ("\M-p" org-previous-item)
         )
       do
       (emacspeak-keymap-update  org-mode-map k))
