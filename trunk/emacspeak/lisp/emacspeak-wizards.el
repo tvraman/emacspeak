@@ -2566,7 +2566,7 @@ hits."
   (let ((name   "Google Hits"))
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
-
+;;;###autoload
 (defun emacspeak-wizards-google-transcode ()
   "View Web through Google Transcoder."
   (interactive)
