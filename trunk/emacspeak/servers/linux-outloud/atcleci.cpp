@@ -164,15 +164,12 @@ int eciCallback (void *, int, long, void *);
 
 static size_t alsa_configure (void) {
   //<init:
+
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
   snd_pcm_uframes_t chunk_size = 0;
   snd_pcm_hw_params_t *params;
   snd_pcm_sw_params_t *swParams;
   snd_pcm_uframes_t buffer_size;
-  unsigned int period_time = 0;
-  unsigned int buffer_time = 0;
-  snd_pcm_uframes_t period_frames = 0;
-  snd_pcm_uframes_t buffer_frames = 0;
   int err;
   size_t n;
   snd_pcm_uframes_t xfer_align;
@@ -212,6 +209,11 @@ static size_t alsa_configure (void) {
   }
 
   //>
+  //<Rate:
+
+  err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
+  assert (err >= 0);
+  //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access (AHandle, params,
 				      SND_PCM_ACCESS_RW_INTERLEAVED);
@@ -220,14 +222,14 @@ static size_t alsa_configure (void) {
     exit (EXIT_FAILURE);
   }
   //>
-  
-  
-  //<Rate:
+//< compute period_time, buffer_time explicitly if in debug mode
 
-  err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
-  assert (err >= 0);
-  //>
+  #ifdef DEBUG
   //<Compute buffer_time:
+  unsigned int period_time = 0;
+  unsigned int buffer_time = 0;
+  snd_pcm_uframes_t period_frames = 0;
+  snd_pcm_uframes_t buffer_frames = 0;
   // affected by defined buffer_size  (e.g. via asoundrc)
   if (buffer_time == 0 && buffer_frames == 0) {
       err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
@@ -261,16 +263,17 @@ static size_t alsa_configure (void) {
   assert (err >= 0);
 
   //>
-  //<Commit hw params:
+  #endif
 
+//>
+  //<Commit hw params:
   err = snd_pcm_hw_params (AHandle, params);
   if (err < 0) {
     fprintf (stderr, "Unable to install hw params:");
     exit (EXIT_FAILURE);
   }
-
   //>
-  //<final chunk_size and buffer_size:
+  //<finalize chunk_size and buffer_size:
 
   snd_pcm_hw_params_get_period_size (params, &chunk_size, 0);
   snd_pcm_hw_params_get_buffer_size (params, &buffer_size);
