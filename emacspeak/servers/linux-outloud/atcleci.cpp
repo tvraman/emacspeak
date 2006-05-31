@@ -222,9 +222,9 @@ static size_t alsa_configure (void) {
     exit (EXIT_FAILURE);
   }
   //>
-//< compute period_time, buffer_time explicitly if in debug mode
+  //< compute period_time, buffer_time explicitly if in debug mode
 
-  #ifdef DEBUG
+#ifdef DEBUG
   //<Compute buffer_time:
   unsigned int period_time = 0;
   unsigned int buffer_time = 0;
@@ -232,7 +232,7 @@ static size_t alsa_configure (void) {
   snd_pcm_uframes_t buffer_frames = 0;
   // affected by defined buffer_size  (e.g. via asoundrc)
   if (buffer_time == 0 && buffer_frames == 0) {
-      err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
+    err = snd_pcm_hw_params_get_buffer_time (params, &buffer_time, 0);
     assert (err >= 0);
     if (buffer_time > 500000) //usecs
       buffer_time = 500000;
@@ -263,9 +263,9 @@ static size_t alsa_configure (void) {
   assert (err >= 0);
 
   //>
-  #endif
+#endif
 
-//>
+  //>
   //<Commit hw params:
   err = snd_pcm_hw_params (AHandle, params);
   if (err < 0) {
@@ -285,14 +285,14 @@ static size_t alsa_configure (void) {
 
   //>
   //<SW Params Configure transfer:
-
+#ifdef DEBUG
   snd_pcm_sw_params_current (AHandle, swParams);
   err = snd_pcm_sw_params_get_xfer_align (swParams, &xfer_align);
   if (err < 0) {
     fprintf (stderr, "Unable to obtain xfer align\n");
     exit (EXIT_FAILURE);
   }
-  /* round up to closest transfer boundary */
+  // round up to closest transfer boundary 
   n = (buffer_size / xfer_align) * xfer_align;
   if (start_delay <= 0) {
     start_threshold =
@@ -307,12 +307,12 @@ static size_t alsa_configure (void) {
     start_threshold = n;
   err =
     snd_pcm_sw_params_set_start_threshold (AHandle, swParams,
-					   start_threshold);
+                                           start_threshold);
   assert (err >= 0);
   if (stop_delay <= 0)
     stop_threshold =
       (snd_pcm_uframes_t) (buffer_size +
-			   (double) rate * stop_delay / 1000000);
+                           (double) rate * stop_delay / 1000000);
   else
     stop_threshold =
       (snd_pcm_uframes_t) ((double) rate * stop_delay / 1000000);
@@ -327,12 +327,11 @@ static size_t alsa_configure (void) {
     fprintf (stderr, "unable to install sw params:");
     exit (EXIT_FAILURE);
   }
-
+#endif
+  //>
   bits_per_sample = snd_pcm_format_physical_width (DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;//mono
   chunk_bytes = chunk_size * bits_per_frame / 8;
-
-  //>
   return chunk_bytes;
 }
 
@@ -372,7 +371,7 @@ static void xrun (void) {
       fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
       exit (EXIT_FAILURE);
     }
-    return;			/* ok, data should be accepted again */
+    return;			// ok, data should be accepted again 
   }
 
   fprintf (stderr, "read/write error, state = %s",
@@ -821,9 +820,9 @@ int Synchronize (ClientData eciHandle,
 }
 
 int Stop (ClientData eciHandle,
-      Tcl_Interp * interp,
-      int objc,
-      Tcl_Obj * CONST objv[]) {
+          Tcl_Interp * interp,
+          int objc,
+          Tcl_Obj * CONST objv[]) {
   if (_eciStop (eciHandle)) {
     alsa_reset ();
     return TCL_OK;
