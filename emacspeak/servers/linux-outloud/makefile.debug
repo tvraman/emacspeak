@@ -4,7 +4,7 @@ INSTALL = install
 PREFIX = /usr
 libparentdir = ${PREFIX}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak/servers/linux-outloud
-CFLAGS= -m32 -g    -O2 -fPIC  -DPIC -pedantic -ansi -Wall 
+CFLAGS= -DDEBUG -g    -O2 -fPIC  -DPIC -pedantic -ansi -Wall 
 LIBS= -ltcl -ldl
 
 TTS=tcleci.so eci.ini VIAVOICE
@@ -28,9 +28,10 @@ alsaparams.o: alsaparams.c
 	libtool --mode=compile $(CC) $(CFLAGS) -c $<
 
 alsaparams: alsaparams.o
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $< -lasound 
+	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $<  -lasound 
 clean:
-	rm -f *.so *.o *.lo
+	rm -f *.so *.o *.lo \
+atcleci.so atcleci.o atcleci.lo
 
 install: tcleci.so
 	if test ! -d $(libdir) ; then mkdir $(libdir); fi ; \
