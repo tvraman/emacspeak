@@ -4,28 +4,28 @@
 /* Tcl ViaVoiceOutloud Interface program
    (c) Copyright 1999 by Paige Phault
 
-   The author hereby grants permission to use, copy, modify, distribute, and 
+   The author hereby grants permission to use, copy, modify, distribute, and
    license this software for any purpose, provided that existing copyright notices
-   are retained in all copies and that this notice is included verbatim in any 
-   distributions. No written agreement, license, or royalty fee is required for 
-   any of the authorized uses.  Modifications to this software may be copyrighted 
-   by their authors and need not follow the licensing terms described here, 
-   provided that the new terms are clearly indicated on the first page of each 
+   are retained in all copies and that this notice is included verbatim in any
+   distributions. No written agreement, license, or royalty fee is required for
+   any of the authorized uses.  Modifications to this software may be copyrighted
+   by their authors and need not follow the licensing terms described here,
+   provided that the new terms are clearly indicated on the first page of each
    file where they apply.
 
-   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY FOR 
-   DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT 
-   OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY DERIVATIVES THEREOF, 
+   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY FOR
+   DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT
+   OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY DERIVATIVES THEREOF,
    EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING, 
-   BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
-   PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN 
-   "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE 
+   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING,
+   BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
+   "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE
    MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
    dynamic loading of eci library contributed by Jeffrey Sorensen
-   --this allows a compiled version  of this 
+   --this allows a compiled version  of this
    speech server to be distributed without violating the IBM
    Viavoice license.
    This means that end-users only need install the Viavoice RTK
@@ -66,20 +66,14 @@
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
-
-#ifdef WIN32
-#define EXPORT __declspec(dllexport)
-#else
 #define EXPORT
-#endif
-
 #define ECILIBRARYNAME "libibmeci.so"
 
 //>
 //< alsa: globals  and defines
 
 #define DEFAULT_FORMAT		SND_PCM_FORMAT_S16
-#define DEFAULT_SPEED 		11025
+#define DEFAULT_SPEED		11025
 
 /* globals */
 
@@ -87,10 +81,10 @@ static snd_pcm_t *AHandle = NULL;
 short *waveBuffer = NULL;
 
 //>
-//<decls and function prototypes 
+//<decls and function prototypes
 
 /* The following declarations are derived from the publically available
-   documentation for ViaVoice TTS outloud.  
+   documentation for ViaVoice TTS outloud.
    --they are placed here to obviate the need for having the
    ViaVoice SDK installed.
 */
@@ -168,18 +162,10 @@ static size_t alsa_configure (void) {
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
   snd_pcm_uframes_t chunk_size = 0;
   snd_pcm_hw_params_t *params;
-  snd_pcm_sw_params_t *swParams;
   snd_pcm_uframes_t buffer_size;
-  int err;
-  size_t n;
-  snd_pcm_uframes_t xfer_align;
   unsigned int rate = DEFAULT_SPEED;
-  snd_pcm_uframes_t start_threshold, stop_threshold;
-  int start_delay = 5;
-  int stop_delay = 0;
+  int err;
   snd_pcm_hw_params_alloca (&params);
-  snd_pcm_sw_params_alloca (&swParams);
-
   //>
   //<defaults:
 
@@ -189,7 +175,7 @@ static size_t alsa_configure (void) {
 	     "Broken configuration for this PCM: no configurations available");
     exit (EXIT_FAILURE);
   }
-  
+
   //>
   //<Format:
 
@@ -284,15 +270,23 @@ static size_t alsa_configure (void) {
   }
 
   //>
-  //<SW Params Configure transfer:
+  //< If DEBUG: SW Params Configure transfer:
+
 #ifdef DEBUG
+  size_t n;
+  snd_pcm_uframes_t xfer_align;
+  snd_pcm_uframes_t start_threshold, stop_threshold;
+  int start_delay = 5;
+  int stop_delay = 0;
+  snd_pcm_sw_params_t *swParams;
+  snd_pcm_sw_params_alloca (&swParams);
   snd_pcm_sw_params_current (AHandle, swParams);
   err = snd_pcm_sw_params_get_xfer_align (swParams, &xfer_align);
   if (err < 0) {
     fprintf (stderr, "Unable to obtain xfer align\n");
     exit (EXIT_FAILURE);
   }
-  // round up to closest transfer boundary 
+  // round up to closest transfer boundary
   n = (buffer_size / xfer_align) * xfer_align;
   if (start_delay <= 0) {
     start_threshold =
@@ -328,6 +322,7 @@ static size_t alsa_configure (void) {
     exit (EXIT_FAILURE);
   }
 #endif
+
   //>
   bits_per_sample = snd_pcm_format_physical_width (DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;//mono
@@ -336,7 +331,7 @@ static size_t alsa_configure (void) {
 }
 
 //>
-//<xrun and suspend 
+//<xrun and suspend
 
 #ifndef timersub
 
@@ -371,7 +366,7 @@ static void xrun (void) {
       fprintf (stderr, "xrun: prepare error: %s", snd_strerror (res));
       exit (EXIT_FAILURE);
     }
-    return;			// ok, data should be accepted again 
+    return;			// ok, data should be accepted again
   }
 
   fprintf (stderr, "read/write error, state = %s",
@@ -431,7 +426,7 @@ static ssize_t pcm_write (short *data, size_t count) {
 }
 
 //>
-//<alsa_reset 
+//<alsa_reset
 
 void alsa_reset () {
   snd_pcm_drop (AHandle);
@@ -514,7 +509,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
     (int (*)(void *, int)) dlsym (eciLib, "eciSetOutputDevice");
 
   //>
-  //< check for needed symbols 
+  //< check for needed symbols
 
   int okay = 1;
   if (!_eciNew) {
@@ -618,7 +613,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
 
   //>
   //>
-  //<initialize TTS 
+  //<initialize TTS
 
   if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
       || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
@@ -630,7 +625,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
   _eciRegisterCallback (eciHandle, eciCallback, interp);
 
   //>
-  //<set output to buffer 
+  //<set output to buffer
 
   rc = _eciSynchronize (eciHandle);
   if (!rc) {
@@ -646,7 +641,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
 	   chunk_bytes);
 
   //>
-  //<register tcl commands 
+  //<register tcl commands
 
   Tcl_CreateObjCommand (interp, "setRate", SetRate,
 			(ClientData) eciHandle, TclEciFree);
@@ -670,7 +665,7 @@ int Atcleci_Init (Tcl_Interp * interp) {
   Tcl_CreateObjCommand (interp, "setOutput", setOutput,
 			(ClientData) eciHandle, TclEciFree);
   //>
-  //<set up index processing 
+  //<set up index processing
 
   rc = Tcl_Eval (interp, "proc index x {global tts; \
 set tts(last_index) $x}");
@@ -680,7 +675,7 @@ set tts(last_index) $x}");
 }
 
 //>
-//<playTTS 
+//<playTTS
 
 int playTTS (int count) {
   pcm_write (waveBuffer, count);
@@ -803,7 +798,7 @@ int Say (ClientData eciHandle, Tcl_Interp * interp,
 }
 
 //>
-//<stop, pause, resume 
+//<stop, pause, resume
 
 //<synchronize, stop
 
@@ -895,7 +890,7 @@ getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
 }
 
 //>
-//<end of file 
+//<end of file
 //local variables:
 //folded-file: t
 //end:
