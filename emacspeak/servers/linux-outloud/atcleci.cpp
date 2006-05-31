@@ -192,15 +192,7 @@ static size_t alsa_configure (void) {
 	     "Broken configuration for this PCM: no configurations available");
     exit (EXIT_FAILURE);
   }
-
-  //>
-  //<Access Mode:
-  err = snd_pcm_hw_params_set_access (AHandle, params,
-				      SND_PCM_ACCESS_RW_INTERLEAVED);
-  if (err < 0) {
-    fprintf (stderr, "Access type not available");
-    exit (EXIT_FAILURE);
-  }
+  
   //>
   //<Format:
 
@@ -220,6 +212,16 @@ static size_t alsa_configure (void) {
   }
 
   //>
+  //<Access Mode:
+  err = snd_pcm_hw_params_set_access (AHandle, params,
+				      SND_PCM_ACCESS_RW_INTERLEAVED);
+  if (err < 0) {
+    fprintf (stderr, "Access type not available");
+    exit (EXIT_FAILURE);
+  }
+  //>
+  
+  
   //<Rate:
 
   err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
