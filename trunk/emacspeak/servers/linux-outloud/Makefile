@@ -30,7 +30,7 @@ alsaparams.o: alsaparams.c
 alsaparams: alsaparams.o
 	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ $<  -lasound 
 clean:
-	rm -f tcleci.so tcleci.o tcleci.lo \
+	rm -f *.so *.o *.lo \
 atcleci.so atcleci.o atcleci.lo
 
 install: tcleci.so
