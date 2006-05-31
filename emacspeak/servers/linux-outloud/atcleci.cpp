@@ -757,9 +757,10 @@ int Say (ClientData eciHandle, Tcl_Interp * interp,
     char *txt = Tcl_GetStringFromObj (objv[i], &length);
     if (Tcl_StringMatch (txt, "-reset")) {
       _eciReset (eciHandle);
-      if ((_eciSetParam (eciHandle, 1 /*eciInputType */ , 1) == -1)
-	  || (_eciSetParam (eciHandle, 0 /*eciSynthMode */ , 1) == -1)) {
-	Tcl_AppendResult (interp, "Could not initialized tts", NULL);
+      if ((_eciSetParam (eciHandle, eciInputType, 1) == -1)
+          || (_eciSetParam (eciHandle, eciSynthMode, 1) == -1)
+          || (_eciSetParam (eciHandle, eciSampleRate, 1) == -1)) {
+	Tcl_AppendResult (interp, "Could not re-initialized tts", NULL);
 	return TCL_ERROR;
       }
     }
