@@ -178,7 +178,7 @@ proc tts_allcaps_beep {flag} {
 
 proc tts_reset {} {
     global tts 
-    synth  -reset
+    #synth  -reset
     queue_clear
     synth "Resetting engine to factory defaults."
 }
