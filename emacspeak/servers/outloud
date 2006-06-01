@@ -362,6 +362,7 @@ if {[file exists /usr/include/alsa/asoundlib.h]
 }
 
 service
+alsaState
 
 #Start the main command loop:
 

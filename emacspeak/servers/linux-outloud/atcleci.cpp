@@ -78,6 +78,7 @@
 /* globals */
 
 static snd_pcm_t *AHandle = NULL;
+static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
 
 //>
@@ -143,6 +144,7 @@ extern "C" EXPORT int Atcleci_Init (Tcl_Interp * interp);
 int SetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int GetRate (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int getTTSVersion (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+int showAlsaState (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Say (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Stop (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int SpeakingP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
@@ -444,6 +446,8 @@ int alsa_init () {
     fprintf (stderr, "Playback open error: %s\n", snd_strerror (err));
     exit (1);
   }
+  err = snd_output_stdio_attach(&Log, stderr, 0);
+  assert(err >= 0);
   chunk_bytes = alsa_configure ();
   return chunk_bytes;
 }
@@ -649,6 +653,8 @@ int Atcleci_Init (Tcl_Interp * interp) {
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "ttsVersion", getTTSVersion,
 			(ClientData) eciHandle, TclEciFree);
+  Tcl_CreateObjCommand (interp, "alsaState", showAlsaState,
+			(ClientData) NULL, TclEciFree);
   Tcl_CreateObjCommand (interp, "say", Say, (ClientData) eciHandle,
 			TclEciFree);
   Tcl_CreateObjCommand (interp, "synth", Say, (ClientData) eciHandle, NULL);
@@ -875,10 +881,8 @@ setOutput (ClientData eciHandle, Tcl_Interp * interp, int objc,
 //>
 //<getVersion
 
-int
-getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
-	       Tcl_Obj * CONST objv[])
-{
+int getTTSVersion (ClientData eciHandle, Tcl_Interp * interp,
+                   int objc, Tcl_Obj * CONST objv[]) {
   char *version = (char *) malloc (16);
   if (objc != 1) {
     Tcl_AppendResult (interp, "Usage: ttsVersion   ", TCL_STATIC);
@@ -886,6 +890,19 @@ getTTSVersion (ClientData eciHandle, Tcl_Interp * interp, int objc,
   }
   _eciVersion (version);
   Tcl_SetResult (interp, version, TCL_STATIC);
+  return TCL_OK;
+}
+
+//>
+//<show alsa state
+
+int showAlsaState (ClientData eciHandle, Tcl_Interp * interp,
+                   int objc, Tcl_Obj * CONST objv[]) {
+  if (objc != 1) {
+    Tcl_AppendResult (interp, "Usage: alsaState   ", TCL_STATIC);
+    return TCL_ERROR;
+  }
+  snd_pcm_dump(AHandle, Log);
   return TCL_OK;
 }
 
