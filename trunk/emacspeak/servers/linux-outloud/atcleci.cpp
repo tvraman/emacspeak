@@ -160,11 +160,9 @@ int eciCallback (void *, int, long, void *);
 
 static size_t alsa_configure (void) {
   //<init:
-
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
-  snd_pcm_uframes_t chunk_size = 0;
+  snd_pcm_uframes_t chunk_size, buffer_size = 0;
   snd_pcm_hw_params_t *params;
-  snd_pcm_uframes_t buffer_size;
   unsigned int rate = DEFAULT_SPEED;
   int err;
   snd_pcm_hw_params_alloca (&params);
@@ -180,13 +178,13 @@ static size_t alsa_configure (void) {
 
   //>
   //<Format:
-
+                
   err = snd_pcm_hw_params_set_format (AHandle, params, DEFAULT_FORMAT);
   if (err < 0) {
     fprintf (stderr, "Sample format non available");
     exit (EXIT_FAILURE);
   }
-
+                
   //>
   //<Channels:
 
@@ -201,6 +199,7 @@ static size_t alsa_configure (void) {
 
   err = snd_pcm_hw_params_set_rate_near (AHandle, params, &rate, 0);
   assert (err >= 0);
+
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access (AHandle, params,
@@ -210,9 +209,9 @@ static size_t alsa_configure (void) {
     exit (EXIT_FAILURE);
   }
   //>
-  //< compute period_time, buffer_time explicitly if in debug mode
-
+  //< Set things explicitly if DEBUG
 #ifdef DEBUG
+
   //<Compute buffer_time:
   unsigned int period_time = 0;
   unsigned int buffer_time = 0;
