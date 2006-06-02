@@ -16,8 +16,8 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
-;;; Copyright (c) 1995, 1996,  1997 by T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
+;;; Copyright (c) 1995, 1996,  1997 by T. V. Raman
 ;;; All Rights Reserved.
 ;;;
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
@@ -49,8 +49,8 @@
 ;;; This module defines the advice forms for making the core of Emacs speak
 ;;; Advice forms that are specific to Emacs subsystems do not belong here!
 ;;; I violate this at present by advicing completion comint and
-;;; shell here.  
-;; 
+;;; shell here.
+;;
 ;;; Code:
 
 ;;}}}
@@ -664,7 +664,7 @@ before the message is spoken."
       (emacspeak-auditory-icon 'progress)
       (dtk-speak
        (format " %s percent" ange-ftp-last-percent )))))
-  
+
 ;;{{{ advising signal
 
 (defadvice signal (before emacspeak pre act compile)
@@ -679,7 +679,7 @@ before the message is spoken."
 
 ;;}}}
 
- 
+
 (defcustom emacspeak-speak-cue-errors t
   "Specifies if error messages are cued."
   :type 'boolean
@@ -804,7 +804,7 @@ Produce an auditory icon as well."
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
 
-                                        
+
 (defadvice completing-read (around emacspeak pre act )
   "Prompt using speech."
   (let ((dtk-stop-immediately t )
@@ -858,7 +858,7 @@ Produce an auditory icon as well."
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
 
-  
+
 
 (defadvice read-string(around emacspeak pre act )
   "Prompt using speech as well. "
@@ -903,7 +903,7 @@ Produce an auditory icon as well."
     (tts-with-punctuations 'all
                            (dtk-speak ad-return-value))
     ad-return-value))
-  
+
 ;;}}}
 ;;{{{  advice completion functions to speak:
 
@@ -1114,7 +1114,7 @@ in completion buffers"
       (emacspeak-auditory-icon 'select-object)))
    (t ad-do-it))
   ad-return-value)
-      
+
 (require 'shell)
 
 ;;; Customize comint:
@@ -1152,7 +1152,7 @@ in completion buffers"
     (message "Displayed completions.")))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
-  
+
 (defadvice comint-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
@@ -1185,7 +1185,7 @@ in completion buffers"
       (comint-bol-or-process-mark)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line 1))))
-    
+
 
 (defadvice comint-next-matching-input-from-input  (after
                                                    emacspeak
@@ -1272,13 +1272,13 @@ in completion buffers"
         (add-text-properties
          (overlay-start comint-last-prompt-overlay)
          (overlay-end comint-last-prompt-overlay)
-         (list 
+         (list
           'personality
           'emacspeak-comint-prompt-personality
           'rear-sticky nil)))
       (when (and
              (or emacspeak-comint-autospeak emacspeak-speak-comint-output)
-             (or monitor 
+             (or monitor
                  (eq (selected-window)
                      (get-buffer-window
                       (process-buffer (ad-get-arg 0))))))
@@ -1297,7 +1297,7 @@ in completion buffers"
   (switch-to-buffer (get-buffer "*Completions*"))
   (next-completion 1)
   (dtk-speak (emacspeak-get-current-completion-from-completions)))
-  
+
 (defadvice comint-dynamic-complete (around emacspeak pre act)
   "Say what you completed."
   (cond
@@ -1557,7 +1557,7 @@ in completion buffers"
     (emacspeak-auditory-icon  'close-object)
     (message "Checked   in  version %s "
              (emacspeak-vc-get-version-id))))
-  
+
 ;;}}}
 ;;{{{  misc functions that have to be hand fixed:
 
@@ -1579,10 +1579,10 @@ in completion buffers"
     (message "Displayed mode help in other window")
     (emacspeak-auditory-icon 'help)))
 (loop for f in
-      '(describe-bindings 
+      '(describe-bindings
         describe-prefix-bindings)
       do
-      (eval 
+      (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
           (when (interactive-p)
@@ -1668,7 +1668,7 @@ Use an auditory icon if possible."
       (message "Killed region containing %s lines" count)))
    (t ad-do-it))
   ad-return-value)
-    
+
 (defadvice completion-kill-region (around emacspeak pre act)
   "Indicate region has been killed.
 Use an auditory icon if possible."
@@ -1711,7 +1711,7 @@ Produce an auditory icon if possible."
     (emacspeak-speak-mode-line))
    (t ad-do-it))
   ad-return-value)
-    
+
 (defadvice quit-window (after emacspeak pre act)
   "Produce an auditory icon to indicate closing of an object.
 Then indicate current buffer by speaking  the modeline."
@@ -1998,7 +1998,7 @@ Provide an auditory icon if possible."
     (save-excursion
       (beginning-of-buffer)
       (emacspeak-speak-line))))
-  
+
 
 (defadvice mail-other-window (after emacspeak pre act)
   "Give some auditory feedback."
@@ -2378,14 +2378,14 @@ Also produce an auditory icon if possible."
 ;;}}}
 ;;{{{  customize isearch:
 ;;{{{ fix isearch keys:
-(declaim (special isearch-mode-map 
+(declaim (special isearch-mode-map
                   minibuffer-local-isearch-map
                   emacspeak-prefix))
 
 (define-key minibuffer-local-isearch-map emacspeak-prefix
   'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
- 
+
 ;;}}}
 ;;{{{  temporarily disable message advice during searches.
 (defvar emacspeak-isearch-save-syntax-table  nil
@@ -2538,14 +2538,14 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-string isearch-string voice-bolden)))
 
-;;; Note the advice on the next two toggle commands 
+;;; Note the advice on the next two toggle commands
 ;;; checks the variable being toggled.
 ;;; When our advice is called, emacs has not yet reflected
 ;;; the newly toggled state.
 
 (defadvice isearch-toggle-case-fold (after emacspeak pre act comp)
   "Provide auditory confirmation"
-  (emacspeak-auditory-icon 
+  (emacspeak-auditory-icon
    (if isearch-case-fold-search 'off 'on))
   (dtk-speak
    (format " Case is %s significant in search"
@@ -2553,11 +2553,11 @@ Produce auditory icons if possible."
 
 (defadvice isearch-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory confirmation"
-  (emacspeak-auditory-icon 
+  (emacspeak-auditory-icon
    (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
-;;{{{ advice non-incremental searchers 
+;;{{{ advice non-incremental searchers
 (defadvice search-forward (after emacspeak pre act comp)
   "Speak line we land on."
   (when (interactive-p)
@@ -2579,7 +2579,7 @@ Produce auditory icons if possible."
   (when (interactive-p)
     (emacspeak-speak-line)this is last ))
 
- 
+
 ;;}}}
 ;;}}}
 ;;{{{  marking objects produces auditory icons
@@ -2833,7 +2833,7 @@ emacspeak running."
     (emacspeak-speak-message-again))
    (t ad-do-it))
   ad-return-value)
-  
+
 
 ;;}}}
 ;;{{{ apropos and friends
@@ -2966,27 +2966,27 @@ Variable mark-even-if-inactive is set true ."
 (add-hook 'change-major-mode-hook 'emacspeak-dtk-sync)
 
 ;;}}}
-;;{{{ provide auditory icon when window config changes 
+;;{{{ provide auditory icon when window config changes
 (defun emacspeak-window-resize (ignore)
   "Play window resize icon."
   (emacspeak-auditory-icon 'window-resize))
 (defvar emacspeak-sounds-icon-on-window-resize nil
   "If T then window resize will produce an auditory icon.")
 
-(when emacspeak-sounds-icon-on-window-resize 
+(when emacspeak-sounds-icon-on-window-resize
   (add-hook 'window-size-change-functions
             'emacspeak-window-resize))
 
 ;;}}}
-;;{{{ advice load and friends 
+;;{{{ advice load and friends
 
 (defadvice load (after emacspeak pre act comp)
   "Fix interactive commands just defined."
-  (emacspeak-fix-commands-loaded-from 
+  (emacspeak-fix-commands-loaded-from
    (file-name-sans-extension
     (ad-get-arg 0))))
 ;;}}}
-;;{{{ eldoc 
+;;{{{ eldoc
 (defadvice eldoc-message (around  emacspeak pre act comp)
   "Speech enable ELDoc for the rare times we use it."
   (let ((emacspeak-speak-messages nil))
@@ -2995,7 +2995,7 @@ Variable mark-even-if-inactive is set true ."
       (dtk-speak eldoc-last-message))
     ad-return-value))
 ;;}}}
-;;{{{ mail aliases 
+;;{{{ mail aliases
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (interactive-p)
@@ -3050,12 +3050,15 @@ Variable mark-even-if-inactive is set true ."
     (emacspeak-auditory-icon 'push-button)))
 ;;}}}
 ;;{{{ silence whitespace cleanup:
-
-(defadvice whitespace-cleanup (around emacspeak pre act comp)
+(loop for f in
+'(whitespace-cleanup whitespace-cleanup-internal)
+do
+(eval
+`(defadvice ,f (around emacspeak pre act comp)
   "Silence messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
-    ad-return-value))
+    ad-return-value))))
 
 ;;}}}
 (provide 'emacspeak-advice)
