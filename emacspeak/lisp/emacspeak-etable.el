@@ -177,6 +177,7 @@ Otherwise cue user to the line just created."
       contents."
           (when (interactive-p)
             (table--finish-delayed-tasks)
+            (emacspeak-auditory-icon 'select-object)
             (emacspeak-etable-speak-cell)))))
 
 ;;}}}
