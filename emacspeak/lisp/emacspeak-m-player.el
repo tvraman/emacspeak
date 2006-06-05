@@ -108,26 +108,28 @@
   "Start or control Emacspeak multimedia player."
   (interactive )
   (declare (special emacspeak-m-player-process))
-  (cond
-   ((and emacspeak-m-player-process
-         (eq 'run (process-status emacspeak-m-player-process)))
-    (call-interactively 'emacspeak-m-player-command)   )
-   (t  (call-interactively 'emacspeak-m-player))))
+  (save-window-excursion
+    (cond
+     ((and emacspeak-m-player-process
+           (eq 'run (process-status emacspeak-m-player-process)))
+      (call-interactively 'emacspeak-m-player-command)   )
+     (t  (call-interactively 'emacspeak-m-player)))))
 
 (defun emacspeak-m-player-command (command-char)
   "Invoke MPlayer commands."
   (interactive "cMPlayer Command:")
   (declare (special emacspeak-m-player-process))
-  (cond
-   ((=  command-char ?\;)
-    (pop-to-buffer (process-buffer
-                    emacspeak-m-player-process)
-                   nil 'norecord)
-    (set-window-text-height nil 3)
-    (emacspeak-speak-mode-line))
-   (t (call-interactively
-       (lookup-key emacspeak-m-player-mode-map
-                   (format "%c" command-char))))))
+  (save-window-excursion
+    (cond
+     ((=  command-char ?\;)
+      (pop-to-buffer (process-buffer
+                      emacspeak-m-player-process)
+                     nil 'norecord)
+      (set-window-text-height nil 3)
+      (emacspeak-speak-mode-line))
+     (t (call-interactively
+         (lookup-key emacspeak-m-player-mode-map
+                     (format "%c" command-char)))))))
 
 (emacspeak-fix-interactive-command-if-necessary
  'emacspeak-m-player-command)
