@@ -13,6 +13,7 @@ pcm.dmixer  {
     slave {
         pcm "hw:0,0"
         format s16_LE
+        period_time 0
         period_size 1024
         buffer_size 4096
         rate 44100
@@ -29,6 +30,7 @@ pcm.recorder  {
     slave {
         pcm "hw:0,0"
         format s16_LE
+        period_time 0
         period_size 1024
         buffer_size 4096
         rate 44100
