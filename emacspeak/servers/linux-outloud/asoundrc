@@ -7,27 +7,40 @@
 
 # {{{ default device is a mixer
 
-pcm.!default {
-    type plug
-    slave.pcm "dmixer"
-}
-
 pcm.dmixer  {
     type dmix
     ipc_key 1024
     slave {
         pcm "hw:0,0"
         format s16_LE
-        period_time 0
         period_size 1024
         buffer_size 4096
         rate 44100
     }
-    bindings {
-        0 0
-        1 1
+    #bindings {
+        #0 0
+        #1 1
+    #}
+}
+
+pcm.recorder  {
+    type dsnoop
+    ipc_key 2048
+    slave {
+        pcm "hw:0,0"
+        format s16_LE
+        period_size 1024
+        buffer_size 4096
+        rate 44100
     }
 }
+
+pcm.!default {
+        type asym
+        playback.pcm "plug:dmixer"
+        capture.pcm "plug:dsnoop"
+}
+
 
 ctl.!default {
     type hw
