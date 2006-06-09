@@ -108,28 +108,28 @@
   "Start or control Emacspeak multimedia player."
   (interactive )
   (declare (special emacspeak-m-player-process))
-  (save-window-excursion
-    (cond
-     ((and emacspeak-m-player-process
-           (eq 'run (process-status emacspeak-m-player-process)))
-      (call-interactively 'emacspeak-m-player-command)   )
-     (t  (call-interactively 'emacspeak-m-player)))))
+  (cond
+   ((and emacspeak-m-player-process
+         (eq 'run (process-status emacspeak-m-player-process)))
+    (call-interactively 'emacspeak-m-player-command)   )
+   (t  (call-interactively 'emacspeak-m-player))))
 
 (defun emacspeak-m-player-command (command-char)
   "Invoke MPlayer commands."
   (interactive "cMPlayer Command:")
   (declare (special emacspeak-m-player-process))
-  (save-window-excursion
-    (cond
-     ((=  command-char ?\;)
-      (pop-to-buffer (process-buffer
-                      emacspeak-m-player-process)
-                     nil 'norecord)
-      (set-window-text-height nil 3)
-      (emacspeak-speak-mode-line))
-     (t (call-interactively
-         (lookup-key emacspeak-m-player-mode-map
-                     (format "%c" command-char)))))))
+  (cond
+   ((=  command-char ?\;)
+    (pop-to-buffer (process-buffer
+                    emacspeak-m-player-process)
+                   nil 'norecord)
+    (set-window-text-height nil 3)
+    (emacspeak-speak-mode-line))
+   (t
+    (save-window-excursion
+      (call-interactively
+       (lookup-key emacspeak-m-player-mode-map
+                   (format "%c" command-char)))))))
 
 (emacspeak-fix-interactive-command-if-necessary
  'emacspeak-m-player-command)
@@ -345,7 +345,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Quit media player."
   (interactive)
   (when (eq (process-status emacspeak-m-player-process) 'run)
-  (emacspeak-m-player-dispatch "quit"))
+    (emacspeak-m-player-dispatch "quit"))
   (unless (eq (process-status emacspeak-m-player-process) 'exit)
     (delete-process  emacspeak-m-player-process))
   (bury-buffer)
