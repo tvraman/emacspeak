@@ -154,7 +154,7 @@ int SpeakingP (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Synchronize (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Pause (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int Resume (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
-int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
+static int setOutput (ClientData, Tcl_Interp *, int, Tcl_Obj * CONST[]);
 int alsa_close ();
 int eciCallback (void *, int, long, void *);
 
