@@ -469,7 +469,7 @@ content."
 
 (emacspeak-url-template-define
  "Google Soccer Results"
- "http://www.google.com/search?q=%s&num=3"
+ "http://www.google.com/search?q=%s+world+cup+soccer&num=1"
  (list "Countries:")
  nil
  "Display World Cup Soccer Results for specified countries."
