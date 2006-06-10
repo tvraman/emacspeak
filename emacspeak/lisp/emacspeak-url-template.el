@@ -468,6 +468,18 @@ content."
 ;;{{{  Google Video:
 
 (emacspeak-url-template-define
+ "Google Soccer Results"
+ "http://www.google.com/search?q=%s&num=3"
+ (list "Countries:")
+ nil
+ "Display World Cup Soccer Results for specified countries."
+ #'(lambda (url)
+     (emacspeak-w3-extract-nested-table 5 url 'speak)))
+
+ 
+ 
+
+(emacspeak-url-template-define
  "Google Video"
  "http://video.google.com/videofeed?type=search&q=%s&num=20&output=rss"
  (list "Video Search:")
