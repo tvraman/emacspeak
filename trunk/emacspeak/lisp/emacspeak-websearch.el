@@ -1328,7 +1328,7 @@ Optional interactive  prefix arg local-flag prompts for local
 (emacspeak-websearch-set-key ?j 'jeeves)
 
 (defvar emacspeak-websearch-jeeves-uri
-  "http://www.ask.com/web?q=%s&qsrc=0&o=0&ASKDSBHO=0"
+  "http://www.ask.com/web?qsrc=0&o=0&ASKDSBHO=0&q="
   "URI for Ask Jeeves  search")
 
 (defun emacspeak-websearch-ask-jeeves (query)
