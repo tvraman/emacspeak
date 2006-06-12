@@ -1328,7 +1328,7 @@ Optional interactive  prefix arg local-flag prompts for local
 (emacspeak-websearch-set-key ?j 'jeeves)
 
 (defvar emacspeak-websearch-jeeves-uri
-  "http://www.askjeeves.com/main/askJeeves.asp?site_name=Jeeves&metasearch=yes&ask="
+  "http://www.ask.com/web?q=%s&qsrc=0&o=0&ASKDSBHO=0"
   "URI for Ask Jeeves  search")
 
 (defun emacspeak-websearch-ask-jeeves (query)
@@ -1342,7 +1342,7 @@ Optional interactive  prefix arg local-flag prompts for local
      (concat emacspeak-websearch-jeeves-uri
              (emacspeak-url-encode query)))
     (emacspeak-websearch-post-process
-     "You asked"
+     query
      'emacspeak-speak-line)))
 
 ;;}}}
