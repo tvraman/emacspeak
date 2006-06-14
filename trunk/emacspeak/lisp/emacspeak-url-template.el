@@ -465,6 +465,22 @@ content."
  "Search answers.com")
 
 ;;}}}
+;;{{{ google music:
+
+(emacspeak-url-template-define
+ "Music Search"
+ "http://www.google.com/musicsearch?q=%s"
+ (list "Google Music Search:")
+ #'(lambda nil
+     (search-forward "results"  )
+     (emacspeak-speak-line))
+ "Music search on Google."
+ #'(lambda (url)
+     (emacspeak-w3-without-xsl
+      (browse-url url)
+      (goto-char (point-min)))))
+
+;;}}}
 ;;{{{  Google Video:
 
 (emacspeak-url-template-define
