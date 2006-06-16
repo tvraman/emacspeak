@@ -1,0 +1,15 @@
+<ASX Version="3.0">
+<TITLE>Listen To 106.2 HUM FM</TITLE>
+
+ 
+	<BANNER href ="http://www.humfm.com/humfm.bmp">
+		<MOREINFO HREF="http://www.humfm.com" />
+		<ABSTRACT>Click Here for More Info on HUM FM</ABSTRACT>	
+	</BANNER>
+	<ENTRY>
+		<REF HREF="mms://62.207.171.1/humfm"/>
+		<COPYRIGHT> Shamal Media Services L.L.C.</COPYRIGHT>
+		<AUTHOR>UAE Radio Umm Al Qaiwain</AUTHOR>
+		<TITLE>Live From 106.2 HUM FM</TITLE>
+	</ENTRY>
+</ASX>
