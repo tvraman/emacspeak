@@ -5,7 +5,7 @@ my @symbols = <>;
 chomp (@symbols);
 my @labels=qw(
               Symbol
-              Company-Name
+              Company
               Last-Price
               Last-Trade-Date
               Last-Trade-Time
@@ -15,11 +15,11 @@ my @labels=qw(
               Average-Daily-Vol
               Bid
               Ask
-               Previous-Close
+              Close
               Open
               Day-Range
               52-Week-Range
-              Earnings-per-Share
+              EPS
               P/E
               Dividend-Pay-Date
               Dividend-per-Share
@@ -27,7 +27,6 @@ my @labels=qw(
               Market-Capitalization
               Stock-Exchange
              );
-
 
 @quotes = getquote @symbols;
 print join (", ", @labels ),"\n";
