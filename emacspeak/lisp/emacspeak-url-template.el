@@ -936,14 +936,9 @@ from English to German.")
  "Tech News From CNet"
  "http://rss.com.com/2547-12-0-20.xml"
  nil
- #'(lambda nil
-     (declare (special emacspeak-w3-url-rewrite-rule))
-     (setq emacspeak-w3-url-rewrite-rule
-           (list "$" "&tag=st_util_print"))
-     (emacspeak-speak-buffer))
+ nil
  "Display tech news from CNET"
- #'(lambda (url)
-     (emacspeak-rss-display url)))
+ 'emacspeak-rss-display)
 
 ;;}}}
 ;;{{{ Infoworld RSS
