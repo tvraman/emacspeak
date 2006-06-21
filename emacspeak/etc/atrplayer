@@ -3,5 +3,6 @@
 #trplayer uses OSS by default.
 #This script wrappers it to use ALSA
 
-vsound -s trplayer  -q "$@"    \
- | aplay -f cdr - 
+
+ 
+aoss trplayer "$@"
