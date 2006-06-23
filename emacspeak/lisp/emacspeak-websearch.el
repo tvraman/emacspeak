@@ -1197,7 +1197,7 @@ http://www.google.com/options/specialsearches.html "
     (emacspeak-websearch-read-query
      "Specialize google Search On: ")
     (emacspeak-websearch-read-query
-     "Google Query:")))
+     "Google for:")))
   (let ((emacspeak-websearch-google-uri
          (format "http://www.google.com/%s?q="
                  specialize)))
