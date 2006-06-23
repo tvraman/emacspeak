@@ -1302,6 +1302,30 @@ Optional interactive  prefix arg local-flag prompts for local
   (emacspeak-websearch-display-form emacspeak-websearch-google-advanced-form))
 
 ;;}}}
+;;{{{ google mobile
+(emacspeak-websearch-set-searcher 'google-mobile
+                                  'emacspeak-websearch-google-mobile)
+
+(emacspeak-websearch-set-key ?\; 'google-mobile)
+
+(defvar emacspeak-websearch-google-mobile-uri
+  "http://www.google.com/xhtml?q="
+  "Google mobile search.")
+
+(defun emacspeak-websearch-google-mobile (query)
+  "Google mobile search."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Google for: ")))
+  (declare (special emacspeak-websearch-google-mobile-uri))
+  (browse-url
+   (concat emacspeak-websearch-google-mobile-uri
+           (emacspeak-url-encode query)))
+  (emacspeak-websearch-post-process
+     query
+     'emacspeak-speak-rest-of-buffer))
+
+;;}}}
 ;;{{{  advanced usenet search
 
 (emacspeak-websearch-set-searcher 'google-usenet-advanced
