@@ -1560,7 +1560,7 @@ current page."
            (read-from-minibuffer "Search this site for: "))))
 
 (defvar emacspeak-w3-google-related-uri
-  "http://www.google.com/search?hl=en&num=10&q=related:")
+  "http://www.google.com/search?hl=en&num=25&q=related:")
 ;;;###autoload
 (defun emacspeak-w3-google-similar-to-this-page (url)
   "Ask Google to find documents similar to this one."
