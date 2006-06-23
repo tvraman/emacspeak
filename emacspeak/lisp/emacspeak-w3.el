@@ -1562,22 +1562,23 @@ current page."
 (defvar emacspeak-w3-google-related-uri
   "http://www.google.com/search?hl=en&num=10&q=related:")
 ;;;###autoload
-(defun emacspeak-w3-google-similar-to-this-page ()
+(defun emacspeak-w3-google-similar-to-this-page (url)
   "Ask Google to find documents similar to this one."
-  (interactive)
+  (interactive
+   (list
+    (read-from-minibuffer "URL:"
+                          (cond
+                           ((eq major-mode 'w3-mode)
+                            (url-view-url 'no-show))))))
   (declare (special emacspeak-w3-google-related-uri
                     major-mode))
-  (unless (eq major-mode 'w3-mode)
-    (error "This command cannot be used outside W3 buffers."))
-  (let ((url (url-view-url 'no-show)))
-    (browse-url
-     (format
-      "%s%s"
-      emacspeak-w3-google-related-uri
-      url))
-    (search-forward "Similar")
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'open-object)))
+  (browse-url
+   (format
+    "%s%s"
+    emacspeak-w3-google-related-uri
+    url))
+  (emacspeak-websearch-post-process "Similar"
+                                    'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ advice focus on cell
