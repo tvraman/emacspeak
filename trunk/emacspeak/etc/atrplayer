@@ -4,5 +4,5 @@
 #This script wrappers it to use ALSA
 
 
- 
+export ALSA_OSS_PCM_DEVICE=default 
 aoss trplayer "$@"
