@@ -492,8 +492,8 @@ content."
  #'(lambda (url)
      (emacspeak-w3-extract-nested-table 5 url 'speak)))
 
- 
- 
+
+
 
 (emacspeak-url-template-define
  "Google Video"
@@ -775,15 +775,16 @@ from English to German.")
 (emacspeak-url-template-define
  "Google Hits"
  "http://www.google.com/search?q=%s&num=%s"
- (list "Google search:"
+ (list "Google For: "
        #'(lambda nil
            (declare (special  emacspeak-websearch-google-number-of-results))
            emacspeak-websearch-google-number-of-results))
- #'(lambda nil
-     (emacspeak-auditory-icon 'open-object))
+ nil
  "Only show Google hits."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class "g" url 'speak)))
+     (emacspeak-w3-extract-by-class-list
+      (list "j" "g")
+      url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times
