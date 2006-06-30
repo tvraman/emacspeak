@@ -93,6 +93,14 @@
             ad-return-value))))
 
 ;;}}}
+;;{{{  silence image type errors
+
+(defadvice image-type (around emacspeak pre act comp)
+  (let ((emacspeak-speak-messages nil)
+        (emacspeak-use-auditory-icons nil))
+    ad-do-it))
+
+;;}}}
 ;;{{{ chat buffer:
 
 (defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
