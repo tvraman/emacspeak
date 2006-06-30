@@ -1619,7 +1619,7 @@ Optional prefix arg no-rss scrapes information from HTML."
 (emacspeak-websearch-set-key ?w 'weather)
 
 (defvar emacspeak-websearch-weather-uri
-  "http://www.srh.noaa.gov/zipcity.php?inputstring-equal"
+  "http://www.srh.noaa.gov/zipcity.php?inputstring="
   "*URI for getting weather forecast.")
 
 (defun emacspeak-websearch-weather (query)
@@ -1627,8 +1627,8 @@ Optional prefix arg no-rss scrapes information from HTML."
   (interactive
    (list (emacspeak-websearch-read-query "City,State or Zip: ")))
   (declare (special emacspeak-websearch-weather-uri))
-  (emacspeak-w3-extract-tables-by-position-list
-   (list 5 6 7 8 9 )
+  (emacspeak-w3-extract-tables-by-match-list
+   (list "Area")
    (concat emacspeak-websearch-weather-uri
            (emacspeak-url-encode query))
    'speak))
