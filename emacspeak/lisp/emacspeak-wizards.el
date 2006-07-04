@@ -2811,7 +2811,7 @@ dates.")
 (defvar emacspeak-wizards-rivo-program
   (expand-file-name "rivo.pl" emacspeak-etc-directory)
   "Rivo script used by emacspeak.")
-
+;;;###autoload
 (defun emacspeak-wizards-rivo (when channel length output directory)
   "Rivo wizard.
 Prompts for relevant information and schedules a rivo job using
