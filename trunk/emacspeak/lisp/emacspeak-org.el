@@ -1,8 +1,8 @@
-;;; emacspeak-org.el --- Speech-enable org 
+;;; emacspeak-org.el --- Speech-enable org
 ;;; $Id$
 ;;; $Author$
-;;; Description:  Emacspeak front-end for ORG 
-;;; Keywords: Emacspeak, org 
+;;; Description:  Emacspeak front-end for ORG
+;;; Keywords: Emacspeak, org
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -77,7 +77,7 @@
    (org-scheduled-today voice-bolden-extra)
    (org-scheduled-previously voice-lighten-medium)
    (org-time-grid voice-bolden)))
- 
+
 ;;}}}
 ;;{{{ Structure Navigation:
 
@@ -194,7 +194,7 @@
      (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
-     
+
 ;;}}}
 ;;{{{ import/export:
 
@@ -295,19 +295,12 @@
           "Avoid outline errors bubbling up."
           (cond
            ((interactive-p)
-            (let ((emacspeak-speak-cue-errors nil))
-              (ad-disable-advice  'error 'before 'emacspeak )
-              (ad-deactivate 'error)
-              ad-do-it
-              (emacspeak-speak-line)
-              (emacspeak-auditory-icon 'select-object)
-              (ad-enable-advice  'error 'before 'emacspeak )
-              (ad-activate 'error)))
+            (ems-with-errors-silenced ad-do-it))
            (t ad-do-it))
           ad-return-value)))
 
-    
-  
+
+
 
 ;;}}}
 ;;{{{ global input wizard

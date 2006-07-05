@@ -1,23 +1,23 @@
 ;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge
 ;;; $Id$
-;;; $Author$ 
+;;; $Author$
 ;;; DescriptionEmacspeak extensions for ediff
-;;; Keywords:emacspeak, audio interface to emacs, Comparing files 
-;;{{{  LCD Archive entry: 
+;;; Keywords:emacspeak, audio interface to emacs, Comparing files
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ | 
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1995 by .
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -37,7 +37,7 @@
 
 ;;}}}
 
-;;{{{  required 
+;;{{{  required
 
 (require 'emacspeak-preamble)
 ;;}}}
@@ -62,19 +62,6 @@
                             ediff)
   :group 'emacspeak
   :prefix "emacspeak-ediff-")
-
-(defmacro emacspeak-ediff-modify-buffer-safely   (&rest body )
-  (`
-   (let    ((save-read-only buffer-read-only)
-            (buffer-read-only nil )
-            (inhibit-read-only t)
-            (before-change-functions nil)
-            (after-change-functions nil)
-            (modification-flag (buffer-modified-p)))
-     (unwind-protect
-         (,@ body )
-       (setq buffer-read-only save-read-only )
-       (set-buffer-modified-p modification-flag )))))
 
 ;;}}}
 ;;{{{  Mapping faces to personalities:
@@ -123,7 +110,7 @@
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 0))
-  
+
 (defsubst emacspeak-ediff-difference-b-overlay (n)
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
@@ -148,7 +135,7 @@
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 1))
-  
+
 (defsubst emacspeak-ediff-fine-difference-b-overlays (n)
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
@@ -190,7 +177,7 @@
         (counter 0))
     (save-excursion
       (set-buffer variant)
-      (emacspeak-ediff-modify-buffer-safely
+      (emacspeak-modify-buffer-safely
        (while (< counter count)
          (emacspeak-ediff-voicify-extent
           (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
@@ -213,7 +200,7 @@
           (and a-vector
                (save-excursion
                  (set-buffer ediff-buffer-A)
-                 (emacspeak-ediff-modify-buffer-safely
+                 (emacspeak-modify-buffer-safely
                   (mapcar
                    (function
                     (lambda  (o)
@@ -224,7 +211,7 @@
           (and b-vector
                (save-excursion
                  (set-buffer ediff-buffer-B)
-                 (emacspeak-ediff-modify-buffer-safely
+                 (emacspeak-modify-buffer-safely
                   (mapcar
                    (function
                     (lambda  (o)
@@ -244,7 +231,7 @@
         (end (overlay-end overlay )))
     (save-excursion
       (set-buffer buffer )
-      (emacspeak-ediff-modify-buffer-safely
+      (emacspeak-modify-buffer-safely
        (put-text-property start end
                           'personality personality)))))
 
@@ -302,14 +289,14 @@
               (lambda (overlay)
                 (emacspeak-ediff-voicify-extent overlay
                                                 emacspeak-ediff-fine-B-personality)))
-             (emacspeak-ediff-fine-difference-b-overlays  counter )) 
+             (emacspeak-ediff-fine-difference-b-overlays  counter ))
             (incf counter )))
         (message "Voicified fine differences ")))))
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
 
-  
-  
+
+
 (add-hook 'ediff-startup-hook
           (function (lambda ()
                       (declare (special ediff-mode-map
@@ -339,7 +326,7 @@
       (emacspeak-overlay-get-text  a-overlay)))
     (let ((dtk-stop-immediately nil ))
       (sit-for 2)
-      (setq key 
+      (setq key
             (read-key-sequence "Press any key to continue" )))
     (unless    (=  7  (string-to-char key ))
       (dtk-stop)
@@ -434,7 +421,7 @@ Set this to nil if things get too slow."
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
-;;; advice meta panel 
+;;; advice meta panel
 (defadvice ediff-previous-meta-item (after emacspeak pre act
                                            comp)
   "Provide auditory feedback."
@@ -471,11 +458,11 @@ Set this to nil if things get too slow."
 
 ;;}}}
 (provide  'emacspeak-ediff)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}

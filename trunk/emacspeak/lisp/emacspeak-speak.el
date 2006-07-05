@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -64,11 +64,11 @@
   (require 'dtk-interp)
   (require 'shell)
   (require 'which-func nil)
-  
+
   (require 'emacspeak-sounds))
 
 ;;}}}
-;;{{{  custom group 
+;;{{{  custom group
 (defgroup emacspeak-speak nil
   "Basic speech output commands."
   :group 'emacspeak)
@@ -142,6 +142,18 @@ Argument BODY specifies forms to execute."
                inhibit-point-motion-hooks save-inhibit-point-motion-hooks
                voice-lock-mode save-voice-lock )
          (set-buffer-modified-p modification-flag ))))))
+
+(defmacro ems-with-errors-silenced  (&rest body)
+  "Evaluate body  after temporarily silencing auditory error feedback."
+  `(progn
+     (let ((emacspeak-speak-cue-errors nil))
+       (ad-disable-advice  'error 'before 'emacspeak )
+       (ad-deactivate 'error)
+       ,@body
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)
+       (ad-enable-advice  'error 'before 'emacspeak )
+       (ad-activate 'error))))
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
@@ -260,7 +272,7 @@ Useful to do this before you listen to an entire buffer."
                             (encode-time second minute hour day month
                                          year))) second)))
     ;; create the decoded date-time
-    (condition-case nil 
+    (condition-case nil
         (format-time-string emacspeak-speak-time-format-string
                             (encode-time second minute hour day month
                                          year))
@@ -305,7 +317,7 @@ point is spoken."
   "Retrieve action hook.
 Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode )))
-  
+
 
 ;;; Execute action at point
 (defsubst emacspeak-handle-action-at-point ()
@@ -353,7 +365,7 @@ current local  value to the result.")
 
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
-You can 
+You can
 use \\[emacspeak-toggle-character-echo] to toggle this
 setting."
   :group 'emacspeak-speak
@@ -370,7 +382,7 @@ current local  value to the result.")
 
 (defcustom emacspeak-show-point nil
   " If T, then command  `emacspeak-speak-line' indicates position of point by an
-aural highlight.  You can use 
+aural highlight.  You can use
 command `emacspeak-toggle-show-point' bound to
 \\[emacspeak-toggle-show-point] to toggle this setting."
   :group 'emacspeak-speak
@@ -384,7 +396,7 @@ current local  value to the result.")
 
 ;;}}}
 ;;{{{ compute percentage into the buffer:
-;;{{{ simple percentage getter 
+;;{{{ simple percentage getter
 
 (defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
@@ -424,7 +436,7 @@ current local  value to the result.")
 
 (defcustom emacspeak-audio-indentation nil
   "Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.  
+If non-nil , then speaking a line indicates its indentation.
 You can use  command `emacspeak-toggle-audio-indentation' bound
 to \\[emacspeak-toggle-audio-indentation] to toggle this
 setting.."
@@ -499,7 +511,7 @@ Argument START  and END specify region to speak."
                      'personality personality string)
   (dtk-speak string))
 
-             
+
 (defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "*Regular expression to match horizontal rules in ascii
 text."
@@ -540,11 +552,11 @@ with a long string of gibberish."
   :group 'emacspeak-speak
   :type 'number)
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
-;;{{{ filtering columns 
+;;{{{ filtering columns
 
 (defcustom emacspeak-speak-line-column-filter nil
   "*List that specifies columns to be filtered.
-The list when set holds pairs of start-col.end-col pairs 
+The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX."
@@ -552,7 +564,7 @@ by cut -c on UNIX."
   :type '(choice
           (const :tag "None" nil)
           (repeat :tag "Filter Specification"
-                  (list 
+                  (list
                    (integer :tag "Start Column")
                    (integer :tag "End Column")))))
 
@@ -563,7 +575,7 @@ by cut -c on UNIX."
 
 (defcustom emacspeak-speak-line-invert-filter nil
   "Non-nil means the sense of `filter' is inverted when filtering
-columns in a line --see 
+columns in a line --see
 command emacspeak-speak-line-set-column-filter."
   :type 'boolean
   :group 'emacspeak-speak)
@@ -587,7 +599,7 @@ current local  value to the result.")
     (when invert-filter
       (put-text-property  0   l
                           'personality 'inaudible line))
-    (while filter 
+    (while filter
       (setq pair (pop filter))
       (when (and (<= (first pair) l)
                  (<= (second pair) l))
@@ -598,9 +610,9 @@ current local  value to the result.")
     line))
 
 (defsubst emacspeak-speak-persist-filter-entry (k v)
-  (insert 
+  (insert
    (format
-    "(cl-puthash 
+    "(cl-puthash
 (intern \"%s\")
  '%s
  emacspeak-speak-filter-table)\n" k v )))
@@ -655,19 +667,19 @@ current local  value to the result.")
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
-specify filter as 
+specify filter as
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
 /var/adm/messages and /var/adm/maillog over time.
-Option emacspeak-speak-line-invert-filter determines 
+Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. "
   (interactive
    (list
     (progn
       (emacspeak-speak-load-filter-settings)
       (read-minibuffer
-       (format 
+       (format
         "Specify columns to %s: "
         (if emacspeak-speak-line-invert-filter
             " speak"
@@ -678,7 +690,7 @@ the sense of the filter. "
                  ""))))))
   (cond
    ((and (listp filter)
-         (every 
+         (every
           #'(lambda (l)
               (and (listp l)
                    (= 2 (length l))))
@@ -686,7 +698,7 @@ the sense of the filter. "
     (setq emacspeak-speak-line-column-filter filter)
     (when (buffer-file-name)
       (emacspeak-speak-set-persistent-filter (buffer-file-name) filter)))
-   (t 
+   (t
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
@@ -739,7 +751,7 @@ are indicated with auditory icon ellipses."
        ((null arg))
        ((> arg 0) (setq start orig))
        (t (setq end orig)))
-      (setq line 
+      (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
                  orig (1+ orig)
@@ -792,7 +804,7 @@ are indicated with auditory icon ellipses."
             (when (or selective-display
                       (< l emacspeak-speak-maximum-line-length)
                       (get-text-property start 'emacspeak-speak-this-long-line)
-                      (setq confirm 
+                      (setq confirm
                             (y-or-n-p
                              (format "Speak  this  %s long line? " l))))
               (when confirm             ;update threshold
@@ -848,7 +860,7 @@ rather than speak it.")
   "Spell word at  point."
   (interactive)
   (emacspeak-speak-spell-word (word-at-point)))
-  
+
 (defun emacspeak-speak-word (&optional arg)
   "Speak current word.
 With prefix ARG, speaks the rest of the word from point.
@@ -1338,7 +1350,7 @@ Alert the user only if mail has arrived since this time in the
   (if (file-exists-p f)
       (nth 5 (file-attributes f ))
     0))
-                                     
+
 (defcustom emacspeak-mail-alert-interval  300
   "Interval in seconds between mail alerts for the same pending
   message."
@@ -1384,11 +1396,11 @@ Alert the user only if mail has arrived since this time in the
                         (time-add emacspeak-mail-last-alerted-time
                                   (list 0 emacspeak-mail-alert-interval))
                         (current-time))))))
-    (when result 
+    (when result
       (setq emacspeak-mail-last-alerted-time  (current-time)))
     result))
 
-     
+
 
 (defun emacspeak-mail-alert-user ()
   "Alerts user about the arrival of new mail."
@@ -1405,12 +1417,12 @@ Alert the user only if mail has arrived since this time in the
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
-You can use command 
+You can use command
 `emacspeak-toggle-mail-alert' bound to
 \\[emacspeak-toggle-mail-alert] to set this option.
 If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
-  voice-mail drop via custom option 
+  voice-mail drop via custom option
 emacspeak-voicemail-spool-file."
   :group 'emacspeak-speak
   :type 'boolean)
@@ -1464,7 +1476,7 @@ semantic to do the work."
   (require 'which-func)
   (when  (and (featurep 'semantic)
               semantic--buffer-cache)
-    (message  (or 
+    (message  (or
                (which-function)
                "Not inside a function."))))
 
@@ -1475,7 +1487,7 @@ semantic to do the work."
    ((stringp spec) spec)
    ((and (listp spec)
          (stringp (car spec)))
-    (concat 
+    (concat
      (car spec)
      (ems-process-mode-line-format (cdr spec))))
    ((and (listp spec)
@@ -1616,7 +1628,7 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information."
   (interactive)
   (declare (special minor-mode-alist
-                    emacspeak-minor-mode-prefix 
+                    emacspeak-minor-mode-prefix
                     voice-lock-mode vc-mode))
   (force-mode-line-update)
   (let ((voice-lock-mode t)
@@ -1649,7 +1661,7 @@ current coding system, then we return an empty string."
                              vc-mode
                              (mapconcat #'identity info " ")
                              (ems-get-buffer-coding-system))))))
-  
+
 ;;; obseleted by what-line in simple.el
 
 (defun emacspeak-speak-line-number-obsolete ()
@@ -1663,7 +1675,7 @@ current coding system, then we return an empty string."
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file. 
+or when the buffer is not visiting any file.
 Interactive prefix arg `filename' speaks only the final path
 component.
 The result is put in the kill ring for convenience."
@@ -1675,7 +1687,7 @@ The result is put in the kill ring for convenience."
             (file-name-nondirectory location)))
     (kill-new location)
     (dtk-speak
-     location))) 
+     location)))
 ;;}}}
 ;;{{{  Speak text without moving point
 
@@ -1766,9 +1778,9 @@ Optional second arg `set' sets the TZ environment variable as well."
     (setenv "TZ" zone))
   (shell-command
    (format "export TZ=%s; date +\"%s\""
-           zone  
+           zone
            (concat emacspeak-speak-time-format-string
-                   (format 
+                   (format
                     " in %s, %%Z, %%z "
                     zone)))))
 
@@ -1786,12 +1798,12 @@ Second interactive prefix sets clock to new timezone."
    (t
     (tts-with-punctuations 'some
                            (dtk-speak
-                            (propertize 
+                            (propertize
                              (format-time-string
                               emacspeak-speak-time-format-string)
                              'personality voice-punctuations-some))))))
-                            
- 
+
+
 (defconst emacspeak-codename
   "LiveDog"
   "Code name of present release.")
@@ -1896,7 +1908,7 @@ Argument STRING specifies the alphanumeric phone number."
                           (emacspeak-speak-string-to-phone-number number)))
     (sit-for 4)))
 
-  
+
 
 ;;}}}
 ;;{{{ speaking marks
@@ -1964,7 +1976,7 @@ Speak that chunk after moving."
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
-           (setq next-start 
+           (setq next-start
                  (text-property-any  this-end (point-max)
                                      'personality personality)))
       (goto-char next-start)
@@ -1991,9 +2003,9 @@ Return buffer position or nil on failure."
         (if (null start)
             (setq continue nil)
           (setq continue
-                (not (eq  value 
+                (not (eq  value
                           (get-text-property start property)))))
-        (or continue 
+        (or continue
             (setq result start)))
       result)))
 
@@ -2131,7 +2143,7 @@ Speech is scaled by the value of dtk-speak-skim-scale"
 
 (defcustom emacspeak-comint-autospeak t
   "Says if comint output is automatically spoken.
-You can use 
+You can use
   `emacspeak-toggle-comint-autospeak` bound to
   \\[emacspeak-toggle-comint-autospeak] to toggle this
 setting."
@@ -2227,8 +2239,8 @@ message area.  You can use command
       " "
       (buffer-substring  start end)))))
 
-(cond 
- ;; emacs 21 defines fields 
+(cond
+ ;; emacs 21 defines fields
  ((fboundp 'field-beginning)
   (defun emacspeak-speak-current-field ()
     "Speak current field.
@@ -2237,7 +2249,7 @@ defined  by Emacs 21."
     (interactive)
     (emacspeak-speak-region (field-beginning)
                             (field-end))))
- (t 
+ (t
   (defun emacspeak-speak-current-field ()
     "Speak current field.
 A field is defined currently as a sequence of non-white space characters.  may be made
@@ -2302,7 +2314,7 @@ Will be improved if it proves useful."
 
 (defun emacspeak-speak-message-again (&optional from-message-cache)
   "Speak the last message from Emacs once again.
-Optional interactive prefix arg 
+Optional interactive prefix arg
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
@@ -2467,7 +2479,7 @@ Semantics  of `other' is the same as for the builtin Emacs command
          (window
           (cond
            ((not (interactive-p)) arg)
-           (t 
+           (t
             (condition-case nil
                 (read (format "%c" last-input-event ))
               (error nil ))))))
@@ -2596,7 +2608,7 @@ arguments specify the START and END of the rectangle."
   (interactive  "r")
   (require 'rect)
   (dtk-speak-list (extract-rectangle start end )))
-    
+
 
 ;;; helper function: emacspeak-put-personality
 ;;; sets property 'personality to personality
@@ -2937,7 +2949,7 @@ typed. If no such group exists, then we dont move. "
 ;;{{{ customize emacspeak
 
 ;;}}}
-;;{{{ speaking an extent of text delimited by specified char 
+;;{{{ speaking an extent of text delimited by specified char
 
 (defun emacspeak-speak-and-skip-extent-upto-char (char)
   "Search forward from point until we hit char.
@@ -2998,7 +3010,7 @@ directory specific settings."
   (let ((parent (expand-file-name  "../" dir)))
     (or (or (not (file-readable-p dir))
             (not (file-readable-p parent)))
-        (and 
+        (and
          (string-equal (file-truename dir) "/")
          (string-equal (file-truename parent) "/")))))
 
