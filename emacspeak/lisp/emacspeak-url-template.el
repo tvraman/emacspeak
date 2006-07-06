@@ -937,7 +937,7 @@ from English to German.")
  "Tech News From CNet"
  "http://rss.com.com/2547-12-0-20.xml"
  nil
- nil
+ 'emacspeak-speak-buffer
  "Display tech news from CNET"
  'emacspeak-rss-display)
 
@@ -1838,7 +1838,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
  "Weather forecast from Weather Underground"
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
  (list "Zip: ")
- nil
+ 'emacspeak-speak-buffer
  "Weather forecast from weather underground mobile."
  )
 
