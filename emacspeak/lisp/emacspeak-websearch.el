@@ -1628,7 +1628,7 @@ Optional prefix arg no-rss scrapes information from HTML."
    (list (emacspeak-websearch-read-query "City,State or Zip: ")))
   (declare (special emacspeak-websearch-weather-uri))
   (emacspeak-w3-extract-tables-by-match-list
-   (list "Area")
+   (list "Area" "Humidity" )
    (concat emacspeak-websearch-weather-uri
            (emacspeak-url-encode query))
    'speak))

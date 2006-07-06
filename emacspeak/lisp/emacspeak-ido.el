@@ -230,29 +230,14 @@ The default value of 12 is too high for using ido effectively with speech. "
   "Emacspeak ido customizations."
   :group  'emacspeak
   )
-
-(def-voice-font emacspeak-ido-first-match-personality voice-animate-medium
-  'ido-first-match-face
-  "Personality for first match in ido."
-  :group 'emacspeak-ido)
-(def-voice-font emacspeak-ido-only-match-personality voice-bolden-extra
-  'ido-only-match-face
-  "Personality for only match in ido."
-  :group 'emacspeak-ido)
-
-(def-voice-font emacspeak-ido-only-match-personality voice-bolden-extra
-  'ido-only-match-face
-  "Personality for only match in ido."
-  :group 'emacspeak-ido)
-
-(def-voice-font emacspeak-ido-subdir-personality voice-smoothen
-  'ido-subdir-face
-  "Personality for subdirs in ido."
-  :group 'emacspeak-ido)
-(def-voice-font emacspeak-ido-indicator-personality voice-lighten
-  'ido-indicator-face
-  "Personality for indicator in ido."
-  :group 'emacspeak-ido)
+(voice-setup-add-map
+ '(
+   (ido-first-match voice-brighten-extra)
+   (ido-only-match voice-bolden)
+   (ido-subdir voice-smoothen)
+   (ido-indicator voice-smoothen)
+   (ido-incomplete-regexp voice-monotone)
+   ))
 
 ;;}}}
 ;;{{{ Additional keybindings 
