@@ -64,20 +64,9 @@
   "Customize Emacspeak for change-log-mode and friends."
   :group 'emacspeak)
 
-(def-voice-font emacspeak-change-log-acknowledgement-personality
-  voice-smoothen
-  'change-log-acknowledgement-face
-  "Personality used for acknowledgements."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-conditionals-personality 
-  voice-animate
-  'change-log-conditionals-face
-  "Personality used for conditionals."
-  :group 'emacspeak-add-log)
-
 (voice-setup-add-map
  '(
+   (change-log-acknowledgement voice-smoothen)
    (change-log-conditionals voice-animate)
    (change-log-email voice-womanize-1)
    (change-log-function voice-bolden-extra)

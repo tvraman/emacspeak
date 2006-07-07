@@ -47,29 +47,13 @@
 
 ;;}}}
 ;;{{{ personalities 
-(def-voice-font emacspeak-bbdb-company-personality
-  voice-brighten
-  'bbdb-company
-  "Personality for company name."
-  :group 'emacspeak-bbdb)
-(def-voice-font emacspeak-bbdb-field-name-personality
-  voice-smoothen
-  'bbdb-field-name
-  "Personality for field name."
-  :group 'emacspeak-bbdb)
 
-(def-voice-font emacspeak-bbdb-field-value-personality
-  voice-animate
-  'bbdb-field-value
-  "Personality for field values."
-  :group 'emacspeak-bbdb)
-
-(def-voice-font emacspeak-bbdb-name
-  voice-bolden
-  'bbdb-name
-  "Personality for  name."
-  :group 'emacspeak-bbdb)
-
+(voice-setup-add-map
+ '(
+   (bbdb-company voice-brighten)
+   (bbdb-field-name voice-smoothen)
+   (bbdb-field-value voice-animate)
+   (bbdb-name voice-bolden)))
 ;;{{{  Variable settings:
 
 ;;; Emacspeak will not work if bbdb is in electric mode
