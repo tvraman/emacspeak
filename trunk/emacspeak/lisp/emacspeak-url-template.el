@@ -314,7 +314,6 @@ documentation   Documents this template resource. "
  "Display Digg Feed."
  'emacspeak-rss-display)
 
-
 ;;}}}
 ;;{{{ bbc
 
@@ -491,9 +490,6 @@ content."
  "Display World Cup Soccer Results for specified countries."
  #'(lambda (url)
      (emacspeak-w3-extract-nested-table 5 url 'speak)))
-
-
-
 
 (emacspeak-url-template-define
  "Google Video"
@@ -1547,7 +1543,6 @@ plays entire program."
        (browse-url-of-buffer buffer)
        (goto-char (point-min))
        (emacspeak-speak-mode-line))))
-
 
 (emacspeak-url-template-define
  "MLB Scorecard"

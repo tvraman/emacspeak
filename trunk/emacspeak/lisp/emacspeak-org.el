@@ -299,9 +299,6 @@
            (t ad-do-it))
           ad-return-value)))
 
-
-
-
 ;;}}}
 ;;{{{ global input wizard
 

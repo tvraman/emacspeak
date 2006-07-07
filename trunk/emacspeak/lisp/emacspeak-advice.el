@@ -679,7 +679,6 @@ before the message is spoken."
 
 ;;}}}
 
-
 (defcustom emacspeak-speak-cue-errors t
   "Specifies if error messages are cued."
   :type 'boolean
@@ -804,7 +803,6 @@ Produce an auditory icon as well."
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
 
-
 (defadvice completing-read (around emacspeak pre act )
   "Prompt using speech."
   (let ((dtk-stop-immediately t )
@@ -857,8 +855,6 @@ Produce an auditory icon as well."
     (tts-with-punctuations 'all
                            (dtk-speak (format "%s" ad-return-value)))
     ad-return-value))
-
-
 
 (defadvice read-string(around emacspeak pre act )
   "Prompt using speech as well. "
@@ -1128,8 +1124,8 @@ in completion buffers"
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 (voice-setup-add-map
  '(
-(comint-highlight-prompt voice-monotone-medium)
-(comint-highlight-input voice-bolden-medium)))
+   (comint-highlight-prompt voice-monotone-medium)
+   (comint-highlight-input voice-bolden-medium)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
@@ -1180,7 +1176,6 @@ in completion buffers"
       (comint-bol-or-process-mark)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line 1))))
-
 
 (defadvice comint-next-matching-input-from-input  (after
                                                    emacspeak
@@ -1994,7 +1989,6 @@ Provide an auditory icon if possible."
       (beginning-of-buffer)
       (emacspeak-speak-line))))
 
-
 (defadvice mail-other-window (after emacspeak pre act)
   "Give some auditory feedback."
   (emacspeak-auditory-icon 'open-object)
@@ -2574,7 +2568,6 @@ Produce auditory icons if possible."
   (when (interactive-p)
     (emacspeak-speak-line)this is last ))
 
-
 ;;}}}
 ;;}}}
 ;;{{{  marking objects produces auditory icons
@@ -2829,7 +2822,6 @@ emacspeak running."
    (t ad-do-it))
   ad-return-value)
 
-
 ;;}}}
 ;;{{{ apropos and friends
 (defadvice apropos-command (after emacspeak pre act com)
@@ -3046,14 +3038,14 @@ Variable mark-even-if-inactive is set true ."
 ;;}}}
 ;;{{{ silence whitespace cleanup:
 (loop for f in
-'(whitespace-cleanup whitespace-cleanup-internal)
-do
-(eval
-`(defadvice ,f (around emacspeak pre act comp)
-  "Silence messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    ad-return-value))))
+      '(whitespace-cleanup whitespace-cleanup-internal)
+      do
+      (eval
+       `(defadvice ,f (around emacspeak pre act comp)
+          "Silence messages."
+          (let ((emacspeak-speak-messages nil))
+            ad-do-it
+            ad-return-value))))
 
 ;;}}}
 (provide 'emacspeak-advice)

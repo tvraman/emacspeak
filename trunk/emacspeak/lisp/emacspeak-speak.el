@@ -318,7 +318,6 @@ point is spoken."
 Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode )))
 
-
 ;;; Execute action at point
 (defsubst emacspeak-handle-action-at-point ()
   "Execute action specified at point."
@@ -511,7 +510,6 @@ Argument START  and END specify region to speak."
                      'personality personality string)
   (dtk-speak string))
 
-
 (defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "*Regular expression to match horizontal rules in ascii
 text."
@@ -702,7 +700,7 @@ the sense of the filter. "
     (message "Unset column filter")
     (setq emacspeak-speak-line-column-filter nil))))
 
-;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
+;;}}}                                   ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
 
 (defcustom emacspeak-speak-space-regexp
   "^[ \t\r]+$"
@@ -1400,8 +1398,6 @@ Alert the user only if mail has arrived since this time in the
       (setq emacspeak-mail-last-alerted-time  (current-time)))
     result))
 
-
-
 (defun emacspeak-mail-alert-user ()
   "Alerts user about the arrival of new mail."
   (declare (special emacspeak-mail-spool-file emacspeak-voicemail-spool-file))
@@ -1803,7 +1799,6 @@ Second interactive prefix sets clock to new timezone."
                               emacspeak-speak-time-format-string)
                              'personality voice-punctuations-some))))))
 
-
 (defconst emacspeak-codename
   "LiveDog"
   "Code name of present release.")
@@ -1907,8 +1902,6 @@ Argument STRING specifies the alphanumeric phone number."
     (dtk-dispatch (format "[:dial %s]"
                           (emacspeak-speak-string-to-phone-number number)))
     (sit-for 4)))
-
-
 
 ;;}}}
 ;;{{{ speaking marks
@@ -2608,7 +2601,6 @@ arguments specify the START and END of the rectangle."
   (interactive  "r")
   (require 'rect)
   (dtk-speak-list (extract-rectangle start end )))
-
 
 ;;; helper function: emacspeak-put-personality
 ;;; sets property 'personality to personality

@@ -135,13 +135,13 @@ instead of the modeline."
   (let ((title (w3m-current-title)))
     (condition-case nil
         (progn
- 	  (if (not (eq last-command 'emacspeak-w3m-jump-to-title-in-content))
- 	      (goto-char (point-min)))
- 	  (goto-char
- 	   (search-forward
- 	    (substring title 0 (min 10 (length title)))))
- 	  (emacspeak-speak-line)
- 	  (emacspeak-auditory-icon 'large-movement))
+          (if (not (eq last-command 'emacspeak-w3m-jump-to-title-in-content))
+              (goto-char (point-min)))
+          (goto-char
+           (search-forward
+            (substring title 0 (min 10 (length title)))))
+          (emacspeak-speak-line)
+          (emacspeak-auditory-icon 'large-movement))
       (error "Title not found in body."))))
  
 ;;}}}
@@ -857,8 +857,8 @@ With prefix argument makes this transformation persistent."
     (write-region (point-min) 
                   (point-max)
                   filename)
-	(w3m-find-file filename)
-	(delete-file filename)))
+    (w3m-find-file filename)
+    (delete-file filename)))
 
 ;;;###autoload
 (defun emacspeak-w3m-browse-xml-url-with-style (style url &optional unescape-charent)
@@ -906,8 +906,8 @@ With prefix argument makes this transformation persistent."
      (url
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-w3m-browse-xml-url-with-style
-	   (expand-file-name "rss.xsl" emacspeak-xslt-directory)
-	   url t))
+       (expand-file-name "rss.xsl" emacspeak-xslt-directory)
+       url t))
      (t (error "No URL under point.")))))
 ;;}}}
 ;;{{{  xsl keymap
@@ -1026,7 +1026,7 @@ With prefix argument makes this transformation persistent."
     (error "Not in a W3m buffer."))
   (let ((url (emacspeak-w3m-url-at-point)))
     (when url
-	  (emacspeak-m-player url))))
+      (emacspeak-m-player url))))
 
 ;; }}}
 ;;{{{ google tools
@@ -1044,7 +1044,7 @@ With prefix argument makes this transformation persistent."
   "Ask Google to find documents similar to this one."
   (interactive)
   (declare (special emacspeak-w3-google-related-uri
-		    major-mode))
+                    major-mode))
   (unless (eq major-mode 'w3m-mode)
     (error "This command cannot be used outside w3m buffers."))
   (let ((url w3m-current-url))
@@ -1072,7 +1072,6 @@ With prefix argument makes this transformation persistent."
   (emacspeak-websearch-google
    (format "cache:%s" (emacspeak-w3m-url-at-point))))
 
-
 (defun emacspeak-w3m-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
   (interactive)
@@ -1081,10 +1080,10 @@ With prefix argument makes this transformation persistent."
     (error "This command cannot be used outside W3m buffers."))
   (emacspeak-websearch-google
    (format "site:%s %s"
-	   (aref
-	    (url-generic-parse-url w3m-current-url)
-	    3)
-	   (read-from-minibuffer "Search this site for: "))))
+           (aref
+            (url-generic-parse-url w3m-current-url)
+            3)
+           (read-from-minibuffer "Search this site for: "))))
 
 (defun emacspeak-w3m-transcode-via-google (&optional untranscode)
   "Transcode URL under point via Google.
@@ -1099,15 +1098,15 @@ With prefix argument makes this transformation persistent."
      ((null untranscode)
       (browse-url
        (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-	       (emacspeak-url-encode
-		(emacspeak-w3m-url-at-point)))))
+               (emacspeak-url-encode
+                (emacspeak-w3m-url-at-point)))))
      (t
       (let ((plain-url nil)
-	    (prefix "http://www.google.com/gwt/n?u=")
-	    (unhex (url-unhex-string (emacspeak-w3m-url-at-point))))
-	(setq plain-url (substring  unhex (length prefix)))
-	(when plain-url
-	  (browse-url plain-url)))))))
+            (prefix "http://www.google.com/gwt/n?u=")
+            (unhex (url-unhex-string (emacspeak-w3m-url-at-point))))
+        (setq plain-url (substring  unhex (length prefix)))
+        (when plain-url
+          (browse-url plain-url)))))))
 
 (defun emacspeak-w3m-transcode-current-url-via-google (&optional untranscode)
   "Transcode current URL via Google.
@@ -1120,14 +1119,14 @@ With prefix argument makes this transformation persistent."
      ((null untranscode)
       (browse-url
        (format "http://www.google.com/gwt/n?_gwt_noimg=1&u=%s"
-	       (emacspeak-url-encode w3m-current-url))))
+               (emacspeak-url-encode w3m-current-url))))
      (t
       (let ((plain-url nil)
-	    (prefix "http://www.google.com/gwt/n?u=")
-	    (unhex (url-unhex-string w3m-current-url)))
-	(setq plain-url (substring  unhex (length prefix)))
-	(when plain-url
-	  (browse-url plain-url)))))))
+            (prefix "http://www.google.com/gwt/n?u=")
+            (unhex (url-unhex-string w3m-current-url)))
+        (setq plain-url (substring  unhex (length prefix)))
+        (when plain-url
+          (browse-url plain-url)))))))
 
 ;;}}}
 
