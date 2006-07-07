@@ -154,36 +154,15 @@
 ;;}}}
 ;;{{{ voice locking 
 
-(def-voice-font rpm-spec-macro-personality  voice-bolden
-  'rpm-spec-macro-face
-  ".Personality for macros"
-  :group 'emacspeak-rpm)
-
-(def-voice-font rpm-spec-tag-personality voice-smoothen
-  'rpm-spec-tag-face
-  ".Personality for tags"
-  :group 'emacspeak-rpm)
-
-(def-voice-font rpm-spec-package-personality voice-animate
-  'rpm-spec-package-face
-  ".Personality for package tag"
-  :group 'emacspeak-rpm)
-
-(def-voice-font rpm-spec-dir-personality voice-lighten
-  'rpm-spec-dir-face
-  ".Personality for directory entries"
-  :group 'emacspeak-rpm)
-
-(def-voice-font rpm-spec-doc-personality voice-smoothen-extra
-  'rpm-spec-doc-face
-  ".Personality for documentation entries"
-  :group 'emacspeak-rpm)
-
-(def-voice-font rpm-spec-ghost-personality voice-smoothen-medium
-  'rpm-spec-ghost-face
-  ".Personality for %ghost files"
-  :group 'emacspeak-rpm)
-
+(voice-setup-add-map
+ '(
+   (rpm-spec-macro-face voice-bolden)
+   (rpm-spec-tag-face voice-smoothen)
+   (rpm-spec-package-face voice-animate)
+   (rpm-spec-dir-face voice-lighten)
+   (rpm-spec-doc-face voice-smoothen-extra)
+   (rpm-spec-ghost-face voice-smoothen-medium)
+   ))
 ;;}}}
 (provide 'emacspeak-rpm-spec)
 ;;{{{ end of file 

@@ -281,36 +281,16 @@ except that the outline section is optionally spoken"
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ Personalities (emacs 21.4)
-(def-voice-font emacspeak-outline-1  voice-bolden-extra
-  'outline-1
-  "Level 1outline headings."
-  :group 'emacspeak-outline)
-
-(def-voice-font emacspeak-outline-2  voice-bolden
-  'outline-2
-  "Level 2 outline headings."
-  :group 'emacspeak-outline)
-
-(def-voice-font emacspeak-outline-3  voice-bolden-medium
-  'outline-3
-  "Level 3 outline headings."
-  :group 'emacspeak-outline)
-
-(def-voice-font emacspeak-outline-4  voice-lighten-extra
-  'outline-4
-  "Level 4outline headings."
-  :group 'emacspeak-outline)
-
-(def-voice-font emacspeak-outline-5  voice-lighten
-  'outline-5
-  "Level 5 outline headings."
-  :group 'emacspeak-outline)
-
-(def-voice-font emacspeak-outline-6  voice-lighten-medium
-  'outline-6
-  "Level 6 outline headings."
-  :group 'emacspeak-outline)
+;;{{{ Personalities (
+(voice-setup-add-map
+ '(
+   (outline-1 voice-bolden-extra)
+   (outline-2 voice-bolden-medium)
+   (outline-3 voice-bolden)
+   (outline-4 voice-lighten)
+   (outline-5 voice-lighten-medium)
+   (outline-6 voice-lighten)
+   ))
 
 ;;}}}
 ;;{{{ advise emacs 20's overlay oriented outliner to put

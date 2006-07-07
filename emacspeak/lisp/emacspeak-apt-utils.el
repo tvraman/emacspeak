@@ -173,34 +173,16 @@
 ;;}}}
 ;;{{{ mapping font faces to personalities 
 
-(def-voice-font emacspeak-apt-normal-package-personality voice-bolden
-  'apt-utils-normal-package-face
-  "Personality for apt-utils-normal-package-face")
-
-(def-voice-font emacspeak-apt-utils-virtual-package-personality voice-animate
-  'apt-utils-virtual-package-face
-  "Personality for apt-utils-virtual-package-face")
-
-(def-voice-font emacspeak-apt-utils-field-keyword-personality voice-animate-extra
-  'apt-utils-field-keyword-face
-  "Personality for apt-utils-field-keyword-face")
-
-(def-voice-font emacspeak-apt-utils-field-contents-personality voice-lighten-extra
-  'apt-utils-field-contents-face
-  "Personality for apt-utils-field-contents-face")
-
-(def-voice-font emacspeak-apt-utils-description-personality voice-smoothen-extra
-  'apt-utils-description-face
-  "Personality for apt-utils-description-face")
-
-(def-voice-font emacspeak-apt-utils-version-personality voice-lighten
-  'apt-utils-version-face
-  "Personality for apt-utils-version-face")
-
-(def-voice-font emacspeak-apt-utils-broken-personality voice-bolden-and-animate
-  'apt-utils-broken-face
-  "Personality for apt-utils-broken-face")
-
+(voice-setup-add-map
+ '(
+   (apt-utils-normal-package-face voice-bolden)
+   (apt-utils-virtual-package-face voice-animate)
+   (apt-utils-field-keyword-face voice-animate-extra)
+   (apt-utils-field-contents-face voice-lighten-extra)
+   (apt-utils-description-face voice-smoothen-extra)
+   (apt-utils-version-face voice-lighten)
+   (apt-utils-broken-face voice-bolden-and-animate)
+   ))
 ;;}}}
 (provide 'emacspeak-apt-utils)
 ;;{{{ end of file

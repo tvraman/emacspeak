@@ -951,64 +951,21 @@ With prefix argument makes this transformation persistent."
 
 ;;}}}
 ;;{{{ tvr: mapping font faces to personalities 
-
-(def-voice-font  emacspeak-w3m-arrived-anchor-personality
-  voice-lighten
-  'w3m-arrived-anchor-face
-  "w3m-arrived-anchor-face")
-
-(def-voice-font  emacspeak-w3m-anchor-personality
-  voice-bolden
-  'w3m-anchor-face
-  "w3m-anchor-face")
-
-(def-voice-font emacspeak-w3m-bold-personality
-  voice-bolden
-  'w3m-bold-face
-  "w3m-bold-face")
-
-(def-voice-font  emacspeak-w3m-underline-personality
-  voice-brighten
-  'w3m-underline-face
-  "w3m-underline-face")
-
-(def-voice-font  emacspeak-w3m-header-line-location-title-personality
-  voice-bolden
-  'w3m-header-line-location-title-face
-  "w3m-header-line-location-title-face")
-
-(def-voice-font  emacspeak-w3m-header-line-location-content-personality
-  voice-animate
-  'w3m-header-line-location-content-face
-  "w3m-header-line-location-content-face")
-
-(def-voice-font  emacspeak-w3m-button-personality
-  voice-smoothen
-  'w3m-form-button-face
-  "w3m-form-button-face")
-
-(def-voice-font  emacspeak-w3m-form-button-pressed-personality
-  voice-animate
-  'w3m-form-button-pressed-face
-  "w3m-form-button-pressed-face")
-
-(def-voice-font  emacspeak-w3m-tab-unselected-personality
-  voice-monotone
-  'w3m-tab-unselected-face
-  "w3m-tab-unselected-face")
-
-(def-voice-font  emacspeak-w3m-tab-selected-personality
-  voice-animate-extra
-  'w3m-tab-selected-face
-  "w3m-tab-selected-face")
-(def-voice-font emacspeak-w3m-form-personality voice-brighten
-  'w3m-form-face
-  "Personality for forms.")
-(def-voice-font emacspeak-w3m-image-personality
-  voice-brighten
-  'w3m-image-face
-  "Image personality.")
-
+(voice-setup-add-map
+ '(
+   (w3m-arrived-anchor-face voice-lighten)
+   (w3m-anchor-face voice-bolden)
+   (w3m-bold-face voice-bolden)
+   (w3m-underline-face voice-brighten)
+   (w3m-header-line-location-title-face voice-bolden)
+   (w3m-header-line-location-content-face voice-animate)
+   (w3m-form-button-face voice-smoothen)
+   (w3m-form-button-pressed-face voice-animate)
+   (w3m-tab-unselected-face voice-monotone)
+   (w3m-tab-selected-face voice-animate-extra)
+   (w3m-form-face voice-brighten)
+   (w3m-image-face voice-brighten)
+   ))
 (defadvice w3m-mode (after emacspeak pre act comp)
   "Set punctuation mode and refresh punctuations."
   (declare (special dtk-punctuation-mode))
