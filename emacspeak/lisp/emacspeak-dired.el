@@ -59,18 +59,11 @@
    (dired-header voice-smoothen)
    (dired-mark voice-lighten)
    (dired-marked voice-bolden-and-animate)
-   (dired-face-marked voice-bolden-and-animate)
    (dired-flag voice-bolden-and-animate)
    (dired-warning voice-animate-extra)
-   (dired-face-permissions voice-monotone)
-   (dired-face-socket voice-lighten)
    (dired-directory voice-bolden-medium)
-   (dired-face-directory voice-bolden-medium)
-   (dired-face-boring voice-monotone)
    (dired-symlink voice-animate-extra)
-   (dired-face-symlink voice-animate-extra)
    (dired-ignored voice-lighten-extra)
-   
    ))
 ;;}}}
 ;;{{{  configure dired
