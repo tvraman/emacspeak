@@ -1126,15 +1126,10 @@ in completion buffers"
   (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on))
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
-
-(def-voice-font  emacspeak-comint-prompt-personality voice-monotone-medium
-  'comint-highlight-prompt
-  "Personality used for highlighting comint prompts --emacs 21."
-  :group 'comint)
-(def-voice-font  emacspeak-comint-input-personality voice-bolden-medium
-  'comint-highlight-input
-  "Personality used for highlighting comint inputs --emacs 21."
-  :group 'comint)
+(voice-setup-add-map
+ '(
+(comint-highlight-prompt voice-monotone-medium)
+(comint-highlight-input voice-bolden-medium)))
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
