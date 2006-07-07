@@ -73,7 +73,6 @@
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 
-
 ;;; these commands should not be made to talk since that would  interferes
 ;;; with real work.
 (loop for f in
@@ -85,7 +84,6 @@
           "Provide auditory icon."
           (when (interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
-
 
 (loop for f in
       '(emms-playlist-first emms-playlist-last
@@ -112,7 +110,6 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
-
 
 (defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
   "Provide auditory feedback."

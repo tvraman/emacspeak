@@ -295,8 +295,6 @@
 (declaim (special ediff-auto-refine))
 (setq-default ediff-auto-refine 'on)
 
-
-
 (add-hook 'ediff-startup-hook
           (function (lambda ()
                       (declare (special ediff-mode-map
