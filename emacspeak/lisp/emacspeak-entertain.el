@@ -63,13 +63,13 @@
 
 ;;}}}
 ;;{{{ mpuz
-
-(def-voice-font emacspeak-mpuz-trivial-personality voice-monotone  'mpuz-trivial-face "")
-(def-voice-font emacspeak-mpuz-unsolved-personality voice-bolden  'mpuz-unsolved-face "")
-(def-voice-font emacspeak-mpuz-unsolved-personality voice-lighten  'mpuz-unsolved-face "")
-(def-voice-font emacspeak-mpuz-solved-personality voice-animate
-  'mpuz-solved-face "")
-
+(voice-setup-add-map
+ '(
+(mpuz-trivial-face voice-monotone)
+(mpuz-unsolved-face voice-bolden)
+(mpuz-unsolved-face voice-lighten)
+(mpuz-solved-face voice-animate)
+))
 ;;}}}
 ;;{{{ dunnet 
 
