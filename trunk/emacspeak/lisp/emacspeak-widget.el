@@ -66,39 +66,17 @@
   "Widgets on the Emacspeak Desktop."
   :group 'emacspeak
   :group 'widget
-  :prefix "emacspeak-widget-")
+  :prefix "emacspeak-widget")
 
-(def-voice-font  emacspeak-widget-field-personality  voice-smoothen
-  'widget-field-face
-  "Personality for edit fields"
-  :group 'emacspeak-widget
-  :type 'symbol)
-
-(def-voice-font  emacspeak-widget-single-line-field-personality  voice-smoothen
-  'widget-single-line-field-face
-  "Personality for edit fields"
-  :group 'emacspeak-widget
-  :type 'symbol)
-
-(defcustom emacspeak-widget-value-personality voice-animate
-  "Personality for values"
-  :group 'emacspeak-widget)
-
-(def-voice-font emacspeak-widget-button-personality voice-bolden
-  'widget-button-face
-  "Personality for buttons"
-  :group 'emacspeak-widget)
-
-(def-voice-font emacspeak-widget-documentation-personality
-  voice-smoothen-extra
-  'widget-documentation-face
-  "Personality for documentation"
-  :group 'emacspeak-widget)
-
-(def-voice-font emacspeak-widget-inactive-personality  voice-lighten
-  'widget-inactive-face
-  "Personality for inactive fields"
-  :group 'emacspeak-widget)
+(voice-setup-add-map
+ '(
+   (widget-field voice-smoothen)
+   (widget-single-line-field voice-smoothen)
+   (widget-button voice-bolden)
+   (widget-button-pressed voice-bolden-extra)
+   (widget-documentation voice-smoothen-extra)
+   (widget-inactive voice-lighten)
+   ))
 
 (declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
