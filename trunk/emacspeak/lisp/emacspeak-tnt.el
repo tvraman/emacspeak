@@ -240,34 +240,15 @@ automatically."
 
 ;;}}}
 ;;{{{ set up face to voice mapping
-
-(def-voice-font emacspeak-tnt-my-name-personality
-  voice-smoothen
-  'tnt-my-name-face
-  "tnt-my-name-face")
-
-(def-voice-font  emacspeak-tnt-buddy-list-active-face voice-animate
-  'tnt-buddy-list-active-face
-  "Personality for active buddies.")
-(def-voice-font emacspeak-tnt-buddy-list-inactive-face
-  voice-monotone-medium
-  'tnt-buddy-list-inactive-face
-  "Personality for inactive buddies.")
-
-(def-voice-font emacspeak-tnt-buddy-list-idle-face
-  voice-smoothen-medium
-  'tnt-buddy-list-idle-face
-  "Personality for idle buddies.")
-
-(def-voice-font emacspeak-tnt-buddy-list-away-face
-  voice-monotone
-  'tnt-buddy-list-away-face
-  "Personality for away buddies.")
-(def-voice-font emacspeak-tnt-buddy-list-pounce-face
-  'ursula
-  'tnt-buddy-list-pounce-face
-  "Personality for pounce buddies.")
-
+(voice-setup-add-map
+ '(
+   (tnt-my-name-face voice-smoothen)
+   (tnt-buddy-list-active-face voice-animate)
+   (tnt-buddy-list-inactive-face voice-monotone-medium)
+   (tnt-buddy-list-idle-face voice-smoothen-medium)
+   (tnt-buddy-list-away-face voice-monotone)
+   (tnt-buddy-list-pounce-face (quote ursula))
+   ))
 ;;}}}
 ;;{{{  Activate pronunciations 
 (add-hook 'tnt-buddy-list-mode-hook

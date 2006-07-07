@@ -68,60 +68,24 @@
   "Set to T if you dont want to see notification  messages from the
 server."
   :type 'boolean
-  :group 'eamcspeak-erc)
+  :group 'emacspeak-erc)
 
-(def-voice-font emacspeak-erc-direct-msg-personality
-  voice-animate
-  'erc-direct-msg-face
-  "Personality for direct messages.")
+(voice-setup-add-map
+ '(
+   (erc-direct-msg-face voice-animate)
+   (erc-input-face voice-smoothen)
+   (erc-bold-face voice-bolden)
+   (erc-inverse-face voice-lighten-extra)
+   (erc-underline-face voice-brighten-medium)
+   (erc-prompt-face voice-bolden)
+   (erc-notice-face (quote inaudible))
+   (erc-action-face voice-monotone)
+   (erc-error-face voice-bolden-and-animate)
+   (erc-dangerous-host-face voice-brighten-extra)
+   (erc-pal-face voice-animate-extra)
+   (erc-keyword-face voice-animate)
+   ))
 
-(def-voice-font  emacspeak-erc-input-personality 
-  voice-smoothen
-  'erc-input-face
-  "personality for input.")
-
-(def-voice-font emacspeak-erc-bold-personality
-  voice-bolden 'erc-bold-face
-  "Bold personality for ERC.")
-
-(def-voice-font emacspeak-erc-inverse-personality
-  voice-lighten-extra  'erc-inverse-face
-  "Inverse highlight in ERC.")
-
-(def-voice-font emacspeak-erc-underline voice-brighten-medium
-  'erc-underline-face
-  "Underline in ERC.")
-
-(def-voice-font emacspeak-erc-prompt-personality voice-bolden
-  'erc-prompt-face
-  "Personality for prompts.")
-
-(def-voice-font emacspeak-erc-notice-personality
-  'inaudible
-  'erc-notice-face
-  "Personality for notices.")
-
-(def-voice-font emacspeak-erc-action-personality
-  voice-monotone
-  'erc-action-face
-  "Personality for actions.")
-
-(def-voice-font emacspeak-erc-error-face
-  voice-bolden-and-animate 'erc-error-face
-  "Error personality for ERC.")
-
-(def-voice-font emacspeak-erc-dangerous-host-personality 
-  voice-brighten-extra 'erc-dangerous-host-face
-  "Personality for dangerous hosts.")
-
-      
-(def-voice-font emacspeak-erc-pal-personality 
-  voice-animate-extra 'erc-pal-face
-  "Personality for pals.")
-    
-(def-voice-font emacspeak-erc-keyword-personality 
-  voice-animate 'erc-keyword-face
-  "Personality for keywords.")
 
 ;;}}}
 ;;{{{  helpers
