@@ -54,54 +54,24 @@
 (require 'dired)
 ;;}}}
 ;;{{{ Define personalities 
-
-(def-voice-font emacspeak-dired-header-personality
-  voice-smoothen
-  'dired-header
-  "Personality for dired header line."
-  :group 'emacspeak-dired)
-
-(def-voice-font emacspeak-dired-mark-personality
-  voice-lighten
-  'dired-mark
-  "Personality for dired mark."
-  :group 'emacspeak-dired)
-
-(def-voice-font emacspeak-dired-marked-personality
-  voice-bolden-and-animate
-  'dired-marked
-  "Personality for marked files in dired."
-  :group 'emacspeak-dired)
-
-(def-voice-font emacspeak-dired-flag-personality
-  voice-bolden-and-animate
-  'dired-flag
-  "Personality for flag in dired."
-  :group 'emacspeak-dired)
-
-(def-voice-font emacspeak-dired-warning-personality
-  voice-monotone
-  'dired-warning
-  "Personality for dired warnings."
-  :group 'emacspeak-dired)
-(def-voice-font emacspeak-dired-directory-personality
-  voice-bolden-medium
-  'dired-directory
-  "Personality for directories in dired."
-  :group 'emacspeak-dired)
-
-(def-voice-font emacspeak-dired-symlink-personality
-  voice-animate-extra
-  'dired-symlink
-  "Personality for symlinks."
-  :group 'emacspeak-group)
-
-(def-voice-font emacspeak-dired-ignored-personality
-  voice-lighten-extra
-  'dired-ignored
-  "Personality for ignored lines in dired."
-  :group 'emacspeak-dired)
-
+(voice-setup-add-map
+ '(
+   (dired-header voice-smoothen)
+   (dired-mark voice-lighten)
+   (dired-marked voice-bolden-and-animate)
+   (dired-face-marked voice-bolden-and-animate)
+   (dired-flag voice-bolden-and-animate)
+   (dired-warning voice-animate-extra)
+   (dired-face-permissions voice-monotone)
+   (dired-face-socket voice-lighten)
+   (dired-directory voice-bolden-medium)
+   (dired-face-directory voice-bolden-medium)
+   (dired-face-boring voice-monotone)
+   (dired-symlink voice-animate-extra)
+   (dired-face-symlink voice-animate-extra)
+   (dired-ignored voice-lighten-extra)
+   
+   ))
 ;;}}}
 ;;{{{  configure dired
 

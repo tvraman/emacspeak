@@ -50,22 +50,15 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ persoanlities 
-(def-voice-font emacspeak-compilation-info-personality
-  voice-lighten
-  'compilation-info
-  "Personality used for information in compilation lines."
-  :group 'emacspeak-compile)
-(def-voice-font emacspeak-compilation-error-personality
-  voice-animate-extra
-  'compilation-error
-  "Personality used for errors in compilation lines."
-  :group 'emacspeak-compile)
-(def-voice-font emacspeak-compilation-warning-personality
-  voice-animate
-  'compilation-warning
-  "Personality used for warnings in compilation lines."
-  :group 'emacspeak-compile)
+;;{{{ Personalities  
+(voice-setup-add-map
+ '(
+   (compilation-line-number voice-smoothen)
+   (compilation-column-number voice-smoothen)
+   (compilation-info voice-lighten)
+   (compilation-error voice-animate-extra)
+   (compilation-warning voice-animate)
+   ))
 
 ;;}}}
 ;;{{{  functions
