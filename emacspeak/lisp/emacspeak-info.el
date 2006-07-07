@@ -55,52 +55,19 @@
 
 ;;}}}
 ;;{{{  Voices 
-
-  
-
-(def-voice-font emacspeak-info-title-1-face voice-bolden
-  'Info-title-1-face
-  "Personality used for Info-title-1-face."
-  :group 'emacspeak-info)
-
-(def-voice-font emacspeak-info-title-2-face voice-bolden
-  'Info-title-2-face
-  "Personality used for Info-title-2-face."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-title-3-face voice-bolden
-  'Info-title-3-face
-  "Personality used for Info-title-3-face."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-title-4-face voice-bolden
-  'Info-title-4-face
-  "Personality used for Info-title-4-face."
-  :group 'emacspeak-info)
-
-(def-voice-font emacspeak-info-header-node voice-smoothen
-  'info-header-node
-  "Personality used for info-header-node."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-header-xref voice-brighten
-  'info-header-xref
-  "Personality used for info-header-xref."
-  :group 'emacspeak-info)
-
-(def-voice-font emacspeak-info-menu-5 voice-lighten
-  'info-menu-5
-  "Personality used for info-menu-5."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-menu-header voice-bolden-medium
-  'info-menu-header
-  "Personality used for info-menu-header."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-node voice-monotone
-  'info-node
-  "Personality used for info-node."
-  :group 'emacspeak-info)
-(def-voice-font emacspeak-info-xref voice-animate-extra
-  'info-xref
-  "Personality used for info-xref."
-  :group 'emacspeak-info)
+(voice-setup-add-map
+ '(
+   (Info-title-1-face voice-bolden)
+   (Info-title-2-face voice-bolden)
+   (Info-title-3-face voice-bolden)
+   (Info-title-4-face voice-bolden)
+   (info-header-node voice-smoothen)
+   (info-header-xref voice-brighten)
+   (info-menu-5 voice-lighten)
+   (info-menu-header voice-bolden-medium)
+   (info-node voice-monotone)
+   (info-xref voice-animate-extra)
+   ))
 
 ;;}}}
 ;;{{{ advice

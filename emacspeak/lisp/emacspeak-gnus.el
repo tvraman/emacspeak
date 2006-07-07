@@ -851,353 +851,90 @@ Indicate change of selection with
 ;; Since citation does not normally go beyond 4 levels deep, in my 
 ;; experience, there are separate voices for the first four levels
 ;; and then they are repeated
-
-(def-voice-font emacspeak-gnus-cite-1-personality
-  voice-bolden
-  'gnus-cite-face-1
-  "level 1 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-2-personality
-  voice-lighten
-  'gnus-cite-face-2
-  "level 2 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-3-personality
-  voice-lighten-extra
-  'gnus-cite-face-3
-  "level 3 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-4-personality
-  voice-bolden-medium
-  'gnus-cite-face-4
-  "level 4 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-5-personality
-  voice-bolden
-  'gnus-cite-face-5
-  "level 5 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-6-personality
-  voice-lighten
-  'gnus-cite-face-6
-  "level 6 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-7-personality
-  voice-lighten-extra
-  'gnus-cite-face-7
-  "level 7 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-8-personality
-  voice-bolden-medium
-  'gnus-cite-face-8
-  "level 8 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-9-personality
-  voice-bolden
-  'gnus-cite-face-9
-  "level 9 citation personality.")
-
-(def-voice-font emacspeak-gnus-cite-10-personality
-  voice-lighten
-  'gnus-cite-face-10
-  "level 10 citation personality.")
-
-;; since this ends up getting changed when the text becomes cited,
-;; it is here only for completeness
-
-;; (def-voice-font emacspeak-gnus-cite-attribution-personality
-;;   voice-bolden
-;;   'gnus-cite-attribution-face
-;;  " Attribution line personality")
-
-(def-voice-font emacspeak-gnus-emphasis-bold-personality
-  voice-bolden-and-animate
-  'gnus-emphasis-bold
-  "Personality used for speaking *bold* words.")
-
-(def-voice-font emacspeak-gnus-emphasis-italic-personality
-  voice-lighten
-  'gnus-emphasis-italic
-  "Personality used for /italicized/ words.")
-
-(def-voice-font emacspeak-gnus-emphasis-underline-personality
-  voice-brighten-extra
-  'gnus-emphasis-underline
-  "Personality used for _underlined_ text.")
-
-(def-voice-font emacspeak-gnus-signature-personality
-  voice-animate
-  'gnus-signature-face
-  "Personality used to highlight signatures.")
-
-(def-voice-font emacspeak-gnus-header-content-personality
-  voice-bolden
-  'gnus-header-content-face
-  "Personality used for header content.")
-
-(def-voice-font emacspeak-gnus-header-name-personality
-  voice-animate
-  'gnus-header-name-face
-  " Personality used for displaying header names.")
-
-(def-voice-font emacspeak-gnus-header-from-personality
-  voice-bolden
-  'gnus-header-from-face
-  " Personality used for displaying from headers.")
-
-(def-voice-font emacspeak-gnus-header-newsgroups-personality
-  voice-bolden
-  'gnus-header-newsgroups-face
-  "Personality used for displaying newsgroups headers. ")
-
-(def-voice-font emacspeak-gnus-header-subject-personality
-  voice-bolden
-  'gnus-header-subject-face
-  "Personality used for displaying subject headers. ")
-
-;; ;; summary buffer personalities
-
-;; since there are so many distinctions, most variations
-;; on the same thing are given the same voice.  Any user that
-;; uses low and high interest is sufficiently advanced to change
-;; the voice to his own preferences
-
-(def-voice-font emacspeak-gnus-summary-normal-read-personality
-  voice-bolden
-  'gnus-summary-normal-read-face
-  "Personality used for read messages in the summary buffer.")
-
-(def-voice-font emacspeak-gnus-summary-high-read-personality
-  voice-bolden
-  'gnus-summary-high-read-face
-  "Personality used for high interest read articles.")
-
-(def-voice-font emacspeak-gnus-summary-low-read-personality
-  voice-bolden
-  'gnus-summary-low-read-face
-  "Personality used for low interest read articles.")
-
-(def-voice-font emacspeak-gnus-summary-normal-ticked-personality
-  voice-brighten
-  'gnus-summary-normal-ticked-face
-  "Personality used for ticked articles in the summary buffer.")
-
-(def-voice-font emacspeak-gnus-summary-high-ticked-personality
-  voice-brighten
-  'gnus-summary-high-ticked-face
-  "Personality used for high interest ticked articles.")
-
-(def-voice-font emacspeak-gnus-summary-low-ticked-personality
-  voice-brighten
-  'gnus-summary-low-ticked-face
-  "Personality used for low interest ticked articles.")
-
-(def-voice-font emacspeak-gnus-summary-normal-ancient-personality
-  voice-smoothen-extra
-  'gnus-summary-normal-ancient-face
-  "Personality used for normal interest ancient articles.")
-
-(def-voice-font emacspeak-gnus-summary-high-ancient-personality
-  voice-smoothen-extra
-  'gnus-summary-high-ancient-face
-  "Personality used for high interest ancient articles.")
-
-(def-voice-font emacspeak-gnus-summary-low-ancient-personality
-  voice-smoothen-extra
-  'gnus-summary-low-ancient-face
-  "Personality used for low interest ancient articles.")
-
-;; I believe the undownloaded articles should appear as normal text
-
-;; (def-voice-font emacspeak-gnus-summary-normal-undownloaded-personality
-;;   voice-bolden
-;;   'gnus-summary-normal-undownloaded-face
-;;   "Personality used for normal interest uncached articles.")
-
-;; (def-voice-font emacspeak-gnus-summary-high-undownloaded-personality
-;;   voice-bolden-and-animate
-;;   'gnus-summary-high-undownloaded-face
-;;   "Personality used for high interest uncached articles.")
-
-;; (def-voice-font emacspeak-gnus-summary-low-undownloaded-personality
-;;   voice-bolden
-;;   'gnus-summary-low-undownloaded-face
-;;   "Personality used for low interest uncached articles.")
-
-;; same with the below
-
-;; (def-voice-font emacspeak-gnus-summary-low-unread-personality
-;;   voice-bolden-extra
-;;   'gnus-summary-low-unread-face
-;;   "Personality used for low interest unread articles.")
-
-;; (def-voice-font emacspeak-gnus-summary-high-unread-personality
-;;   voice-bolden
-;;   'gnus-summary-high-unread-face
-;;   "Personality used for high interest unread articles.")
-
-(def-voice-font emacspeak-gnus-summary-selected-personality
-  voice-animate-extra
-  'gnus-summary-selected-face
-  "Personality used for selected articles in the summary buffer.")
-
-(def-voice-font emacspeak-gnus-summary-cancelled-personality
-  voice-bolden-extra
-  'gnus-summary-cancelled-face
-  "Personality used for cancelled articles.")
-
-;; group buffer personalities
-
-;; I think the voice used for the groups in the buffer should be the 
-;; default voice.  I might ask if there is a call for different voices 
-;; as they are only necessary if users have persistently visible groups
-;; in the case of empty groups, and voices for the various levels.
-
-;; (def-voice-font emacspeak-gnus-group-mail-1-empty-personality
-;;   voice-smoothen-extra
-;;   'gnus-group-mail-1-empty-face
-;;   "Level 1 empty mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-1-personality
-;;   voice-bolden-extra
-;;   'gnus-group-mail-1-face
-;;   "Level 1 mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-2-empty-personality
-;;   voice-smoothen-extra
-;;   'gnus-group-mail-2-empty-face
-;;   "Level 2 empty mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-2-personality
-;;   voice-bolden
-;;   'gnus-group-mail-2-face
-;;   "Level 2 mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-3-empty-personality
-;;   voice-bolden
-;;   'gnus-group-mail-3-empty-face
-;;   "Level 3 empty mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-3-personality
-;;   voice-bolden
-;;   'gnus-group-mail-3-face
-;;   "Level 3 mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-low-empty-personality
-;;   voice-bolden
-;;   'gnus-group-mail-low-empty-face
-;;   "Low level empty mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-mail-low-personality
-;;   voice-bolden
-;;   'gnus-group-mail-low-face
-;;   "Low level mailgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-1-empty-personality
-;;   voice-bolden
-;;   'gnus-group-news-1-empty-face
-;;   "Level 1 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-1-personality
-;;   voice-bolden
-;;   'gnus-group-news-1-face
-;;   "Level 1 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-2-empty-personality
-;;   voice-bolden
-;;   'gnus-group-news-2-empty-face
-;;   "Level 2 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-2-personality
-;;   voice-bolden-extra
-;;   'gnus-group-news-2-face
-;;   "Level 2 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-3-empty-personality
-;;   voice-bolden
-;;   'gnus-group-news-3-empty-face
-;;   "Level 3 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-3-personality
-;;   voice-bolden
-;;   'gnus-group-news-3-face
-;;   "Level 3 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-4-empty-personality
-;;   voice-bolden
-;;   'gnus-group-news-4-empty-face
-;;   "Level 4 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-4-face
-;;   voice-bolden
-;;   'gnus-group-news-4-face
-;;   "Level 4 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-5-empty-personality
-;;   voice-bolden
-;;   ' gnus-group-news-5-empty-face
-;;   "Level 5 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-5-personality
-;;   voice-bolden
-;;   'gnus-group-news-5-face
-;;   "Level 5 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-6-empty-personality
-;;   voice-bolden
-;;   'gnus-group-news-6-empty-face
-;;   "Level 6 empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-6-personality
-;;   voice-bolden-extra
-;;   'gnus-group-news-6-face
-;;   "Level 6 newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-low-empty-personality
-;;   voice-bolden-extra
-;;   'gnus-group-news-low-empty-face
-;;   "Low level empty newsgroup personality ")
-
-;; (def-voice-font emacspeak-gnus-group-news-low-personality
-;;   voice-bolden-extra
-;;   'gnus-group-news-low-face
-;;   "Low level newsgroup personality ")
-
-;; server buffer personalities
-
-(def-voice-font emacspeak-gnus-server-agent-personality
-  voice-bolden
-  'gnus-server-agent-face
-  "Personality used for displaying AGENTIZED servers")
-
-(def-voice-font emacspeak-gnus-server-closed-personality
-  voice-bolden-medium
-  'gnus-server-closed-face
-  "Personality used for displaying CLOSED servers")
-
-(def-voice-font emacspeak-gnus-server-denied-personality
-  voice-bolden-extra
-  'gnus-server-denied-face
-  "Personality used for displaying DENIED servers")
-
-(def-voice-font emacspeak-gnus-server-offline-personality
-  voice-animate
-  'gnus-server-offline-face
-  "Personality used for displaying OFFLINE servers")
-
-(def-voice-font emacspeak-gnus-server-opened-personality
-  voice-lighten
-  'gnus-server-opened-face
-  "Personality used for displaying OPENED servers")
-
+(voice-setup-add-map
+ '(
+   (gnus-cite-face-1 voice-bolden)
+   (gnus-cite-face-2 voice-lighten)
+   (gnus-cite-face-3 voice-lighten-extra)
+   (gnus-cite-face-4 voice-bolden-medium)
+   (gnus-cite-face-5 voice-bolden)
+   (gnus-cite-face-6 voice-lighten)
+   (gnus-cite-face-7 voice-lighten-extra)
+   (gnus-cite-face-8 voice-bolden-medium)
+   (gnus-cite-face-9 voice-bolden)
+   (gnus-cite-face-10 voice-lighten)
+   (gnus-emphasis-bold voice-bolden-and-animate)
+   (gnus-emphasis-italic voice-lighten)
+   (gnus-emphasis-underline voice-brighten-extra)
+   (gnus-signature-face voice-animate)
+   (gnus-header-content-face voice-bolden)
+   (gnus-header-name-face voice-animate)
+   (gnus-header-from-face voice-bolden)
+   (gnus-header-newsgroups-face voice-bolden)
+   (gnus-header-subject-face voice-bolden)
+   ;; ;; summary buffer personalities
+   ;; since there are so many distinctions, most variations
+   ;; on the same thing are given the same voice.  Any user that
+   ;; uses low and high interest is sufficiently advanced to change
+   ;; the voice to his own preferences
+   (gnus-summary-normal-read-face voice-bolden)
+   (gnus-summary-high-read-face voice-bolden)
+   (gnus-summary-low-read-face voice-bolden)
+   (gnus-summary-normal-ticked-face voice-brighten)
+   (gnus-summary-high-ticked-face voice-brighten)
+   (gnus-summary-low-ticked-face voice-brighten)
+   (gnus-summary-normal-ancient-face voice-smoothen-extra)
+   (gnus-summary-high-ancient-face voice-smoothen-extra)
+   (gnus-summary-low-ancient-face voice-smoothen-extra)
+   ;; (gnus-summary-normal-undownloaded-face voice-bolden)
+   ;;  (gnus-summary-high-undownloaded-face voice-bolden-and-animate)
+   ;;  (gnus-summary-low-undownloaded-face voice-bolden)
+   ;;  (gnus-summary-low-unread-face voice-bolden-extra)
+   ;;  (gnus-summary-high-unread-face voice-bolden)
+   ;; 
+   (gnus-summary-selected-face voice-animate-extra)
+   gnus-group-mail-1-empty-face
+   ;; group buffer personalities
+   ;; I think the voice used for the groups in the buffer should be the 
+   ;; default voice.  I might ask if there is a call for different voices 
+   ;; as they are only necessary if users have persistently visible groups
+   ;; in the case of empty groups, and voices for the various levels.
+   ;;(gnus-summary-cancelled-face voice-bolden-extra)
+   ;;(gnus-group-mail-1-face voice-bolden-extra)
+   (gnus-group-mail-2-empty-face voice-smoothen-extra)
+   (gnus-group-mail-2-face voice-bolden)
+   (gnus-group-mail-3-empty-face voice-bolden)
+   (gnus-group-mail-3-face voice-bolden)
+   (gnus-group-mail-low-empty-face voice-bolden)
+   (gnus-group-mail-low-face voice-bolden)
+   (gnus-group-news-1-empty-face voice-bolden)
+   (gnus-group-news-1-face voice-bolden)
+   (gnus-group-news-2-empty-face voice-bolden)
+   (gnus-group-news-2-face voice-bolden-extra)
+   (gnus-group-news-3-empty-face voice-bolden)
+   (gnus-group-news-3-face voice-bolden)
+   (gnus-group-news-4-empty-face voice-bolden)
+   (gnus-group-news-4-face voice-bolden)
+   (gnus-group-news-5-empty-face voice-bolden)
+   (gnus-group-news-5-face voice-bolden)
+   (gnus-group-news-6-empty-face voice-bolden)
+   (gnus-group-news-6-face voice-bolden-extra)
+   (gnus-group-news-low-empty-face voice-bolden-extra)
+   (gnus-group-news-low-face voice-bolden-extra)
+   
+   ;; server buffer personalities
+
+   (gnus-server-agent-face voice-bolden)
+   (gnus-server-closed-face voice-bolden-medium)
+   (gnus-server-denied-face voice-bolden-extra)
+   (gnus-server-offline-face voice-animate)
+   (gnus-server-opened-face voice-lighten)
+   ))
 ;;}}}
-
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
-
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end: 
-
 ;;}}}
