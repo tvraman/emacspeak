@@ -673,7 +673,6 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
   "&d=v1"
   "*Additional default options to pass to Yahoo.")
 
-
 (defcustom emacspeak-websearch-personal-portfolio ""
   "Set this to the stock tickers you want to check by
 default."
@@ -1322,8 +1321,8 @@ Optional interactive  prefix arg local-flag prompts for local
    (concat emacspeak-websearch-google-mobile-uri
            (emacspeak-url-encode query)))
   (emacspeak-websearch-post-process
-     query
-     'emacspeak-speak-rest-of-buffer))
+   query
+   'emacspeak-speak-rest-of-buffer))
 
 ;;}}}
 ;;{{{  advanced usenet search

@@ -502,8 +502,8 @@ Append means place corresponding personality at the end."
   (ems-with-errors-silenced ad-do-it))
 
 (defadvice font-lock-apply-highlight (around emacspeak
-                                                       pre act
-                                                       comp)
+                                             pre act
+                                             comp)
   "Silence auditory feedback from redisplay errors."
   (ems-with-errors-silenced ad-do-it))
 
