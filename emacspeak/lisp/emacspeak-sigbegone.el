@@ -50,11 +50,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ define personalities 
-(def-voice-font emacspeak-sigbegone-exorcized-personality
-  voice-smoothen-extra
-  'sigbegone-exorcized-face
-  "Personality for signatures.")
-
+(voice-setup-add-map
+ '(
+   (sigbegone-exorcized-face voice-smoothen-extra)
+   ))
 ;;}}}
 (provide 'emacspeak-sigbegone)
 ;;{{{ end of file

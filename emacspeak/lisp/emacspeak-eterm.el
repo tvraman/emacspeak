@@ -1199,12 +1199,10 @@ there is terminal activity.")
       (emacspeak-speak-region saved-point (point)))
     ad-return-value )
   )
-
-(def-voice-font emacspeak-eterm-underline-personality
-  voice-brighten-medium
-  'term-underline
-  "Underline personality for eterm.")
-
+(voice-setup-add-map
+ '(
+   (term-underline voice-brighten-medium)
+   ))
 (defadvice term-line-mode (after emacspeak pre act)
   "Announce that you entered line mode. "
   (declare (special eterm-char-mode  eterm-line-mode))
