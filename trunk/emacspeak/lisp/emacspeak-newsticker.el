@@ -53,19 +53,12 @@
 (require 'backquote)
 ;;}}}
 ;;{{{ define personalities 
-(def-voice-font emacspeak-newsticker-new-item-personality
-  voice-brighten
-  'newsticker-new-item-face
-  "Personality for new items.")
-(def-voice-font emacspeak-newsticker-old-item-personality
-  voice-monotone
-  'newsticker-old-item-face
-  "Personality for old items.")
-
-(def-voice-font emacspeak-newsticker-feed-personality
-  voice-animate
-  'newsticker-feed-face
-  "Personality for news feed.")
+(voice-setup-add-map
+ '(
+   (newsticker-new-item-face voice-brighten)
+   (newsticker-old-item-face voice-monotone)
+   (newsticker-feed-face voice-animate)
+   ))
 ;;}}}
 ;;{{{ advice functions
 

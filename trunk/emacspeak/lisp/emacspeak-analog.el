@@ -87,11 +87,10 @@
 
 ;;}}}
 ;;{{{ voice setup 
-
-(def-voice-font emacspeak-analog-entry-header-personality voice-bolden
-  'analog-entry-header-face
-  "Personality used for header lines.")
-
+(voice-setup-add-map
+ '(
+(analog-entry-header-face voice-bolden)
+))
 ;;}}}
 ;;{{{ field navigation
 

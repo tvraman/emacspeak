@@ -54,31 +54,13 @@
 
 ;;}}}
 ;;{{{ Map faces to personalities 
-
-(def-voice-font emacspeak-re-builder-0-personality
-  voice-lock-overlay-0
-  'reb-match-0
-  "Personality used for match 0. Set this to one of the overlay voices."
-  :group 'emacspeak-re-builder)
-
-(def-voice-font emacspeak-re-builder-1-personality
-  voice-lock-overlay-1
-  'reb-match-1
-  "Personality used for match 1. Set this to one of the overlay voices."
-  :group 'emacspeak-re-builder)
-
-(def-voice-font emacspeak-re-builder-2-personality
-  voice-lock-overlay-2
-  'reb-match-2
-  "Personality used for match 2. Set this to one of the overlay voices."
-  :group 'emacspeak-re-builder)
-
-(def-voice-font emacspeak-re-builder-3-personality
-  voice-lock-overlay-3
-  'reb-match-3
-  "Personality used for match 3. Set this to one of the overlay voices."
-  :group 'emacspeak-re-builder)
-
+(voice-setup-add-map
+ '(
+   (reb-match-0 voice-lock-overlay-0)
+   (reb-match-1 voice-lock-overlay-1)
+   (reb-match-2 voice-lock-overlay-2)
+   (reb-match-3 voice-lock-overlay-3)
+   ))
 ;;}}}
 ;;{{{ Speech-enable interactive commands.
 
