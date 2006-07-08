@@ -49,51 +49,25 @@
 
 ;;}}}
 ;;{{{ voice lock 
-(def-voice-font  emacspeak-jde-number-personality voice-lighten
-  'jde-java-font-lock-number-face
-  "Personality used for numbers."
-  :group 'emacspeak-jde)
 
-(def-voice-font emacspeak-jde-operator-personality voice-animate
-  'jde-java-font-lock-operator-face
-  "Personality used for java operators."
-  :group 'emacspeak-jde)
-
-(def-voice-font emacspeak-jde-constant-personality voice-lighten
-  'jde-java-font-lock-constant-face
-  "Personality used for constants."
-  :group 'emacspeak-jde)
-
-(def-voice-font emacspeak-jde-api-personality voice-animate
-  'jde-java-font-lock-api-face
-  "Personality used for user defined API names."
-  :group 'emacspeak-jde)
-
-(def-voice-font emacspeak-jde-package-personality voice-monotone
-  'jde-java-font-lock-package-face
-  "Personality used for package names.")
-
-(def-voice-font emacspeak-jde-italic-personality voice-animate
-  'jde-java-font-lock-italic-face
-  "Personality used for italics."
-  :group 'emacspeak-jde)
-
-(def-voice-font emacspeak-jde-underline-personality voice-brighten-medium
-  'jde-java-font-lock-underline-face
-  "Underline personality."
-  :group 'emacspeak-jde)
-
-(def-voice-font emacspeak-jde-bold-personality voice-bolden
-  'jde-java-font-lock-bold-face
-  "Personality used for bold."
-  :group 'emacspeak-jde)
+(voice-setup-add-map
+ '(
+   (jde-java-font-lock-number-face voice-lighten)
+   (jde-java-font-lock-operator-face voice-animate)
+   (jde-java-font-lock-constant-face voice-lighten)
+   (jde-java-font-lock-api-face voice-animate)
+   (jde-java-font-lock-package-face voice-monotone)
+   (jde-java-font-lock-italic-face voice-animate)
+   (jde-java-font-lock-underline-face voice-brighten-medium)
+   (jde-java-font-lock-bold-face voice-bolden)
+   (jde-java-font-lock-pre-face voice-monotone)
+   (jde-java-font-lock-code-face voice-monotone)
+   ))
 
                                         ;jde-java-font-lock-link-face
                                         ;jde-java-font-lock-doc-tag-face
                                         ;jde-java-font-lock-modifier-face
-                                        ;jde-java-font-lock-pre-face
-                                        ;jde-java-font-lock-code-face
-
+                                        
 ;;}}}
 ;;{{{ Advice interactive commands:
 (defadvice jde-open-class-source (after emacspeak pre act comp)

@@ -51,11 +51,10 @@
 
 ;;}}}
 ;;{{{ voice personalities
-
-(def-voice-font  emacspeak-buffer-menu-buffer-face
-  voice-bolden
-  'Buffer-menu-buffer-face
-  "Personality for highlighting buffer name in buffer-menu.")
+(voice-setup-add-map
+ '(
+   (Buffer-menu-buffer-face voice-bolden)
+   ))
 
 ;;}}}
 ;;{{{  list buffers 

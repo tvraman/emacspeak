@@ -56,12 +56,10 @@
   :group 'emacspeak
   :group 'flyspell
   :prefix "emacspeak-flyspell-")
-
-(def-voice-font  emacspeak-flyspell-highlight-personality
-  voice-bolden
-  'flyspell-incorrect-face
-  "Voice used to highlight spelling errors. ")
-
+(voice-setup-add-map
+ '(
+   (flyspell-incorrect-face voice-bolden)
+   ))
 ;;}}}
 ;;{{{ advice
 
