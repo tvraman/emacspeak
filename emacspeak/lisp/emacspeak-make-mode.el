@@ -142,6 +142,17 @@
      (buffer-name makefile-browser-client))))
 
 ;;}}}
+;;{{{ personalities 
+
+(voice-setup-add-map
+ '(
+   (makefile-space voice-monotone)
+   (makefile-targets voice-bolden)
+   (makefile-shell voice-animate)
+   (makefile-makepp-perl voice-smoothen)
+   ))
+
+;;}}}
 ;;{{{ setup mode hook:
 
 (add-hook 'makefile-mode-hook
