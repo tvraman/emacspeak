@@ -51,9 +51,11 @@
 ;;{{{  personalities
 (voice-setup-add-map
  '(
+   (calendar-today voice-lighten)
    (holiday-face voice-brighten-extra)
    (diary-face voice-bolden)
    ))
+
 (defcustom emacspeak-calendar-mark-personality 'ursula
   "Personality to use when showing marked calendar entries."
   :type 'symbol
