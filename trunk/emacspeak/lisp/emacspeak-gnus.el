@@ -893,7 +893,7 @@ Indicate change of selection with
    ;;  (gnus-summary-high-unread-face voice-bolden)
    ;; 
    (gnus-summary-selected-face voice-animate-extra)
-   gnus-group-mail-1-empty-face
+   (gnus-group-mail-1-empty-face default)
    ;; group buffer personalities
    ;; I think the voice used for the groups in the buffer should be the 
    ;; default voice.  I might ask if there is a call for different voices 
