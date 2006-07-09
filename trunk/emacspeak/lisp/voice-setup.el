@@ -498,7 +498,7 @@ font-lock.  Voicification is effective only if font lock is on."
 ;;{{{ list-voices-display
 
 (defcustom voice-setup-sample-text
-  "This is a test."
+  "Emacspeak --- The Complete Audio Desktop!"
   "Sample text used  when displaying available voices."
   :type 'string
   :group 'voice-fonts)
