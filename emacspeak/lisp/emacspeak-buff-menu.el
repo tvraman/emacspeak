@@ -53,7 +53,7 @@
 ;;{{{ voice personalities
 (voice-setup-add-map
  '(
-   (Buffer-menu-buffer-face voice-bolden)
+   (Buffer-menu-buffer voice-bolden)
    ))
 
 ;;}}}

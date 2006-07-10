@@ -38,22 +38,19 @@
 ;;}}}
 ;;{{{ Introduction:
 
+;;; Commentary:
+
 ;;; Make some of C and C++ mode more emacspeak friendly
 ;;; Works with both boring c-mode 
 ;;; and the excellent cc-mode
 
 ;;}}}
 ;;{{{  Required modules
+
+;;; Code:
+
 (require 'emacspeak-preamble)
 (require 'cc-mode)
-
-;;}}}
-;;{{{  emacs 19.30
-
-;;; things got renamed in 19.30.
-
-(when  (string-lessp emacs-version "19.29")
-  (defalias 'c-guess-basic-syntax 'c-guess-basic-semantics))
 
 ;;}}}
 ;;{{{ advice electric deletion
@@ -440,6 +437,14 @@ and their meanings. ")
                           (dtk-toggle-split-caps))
                       (or dtk-allcaps-beep
                           (dtk-toggle-allcaps-beep)))))
+
+;;}}}
+;;{{{ personalities 
+
+(voice-setup-add-map
+ '(
+   (c-nonbreakable-space-face voice-brighten)
+))
 
 ;;}}}
 (provide  'emacspeak-c)
