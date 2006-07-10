@@ -1885,7 +1885,11 @@ Meerkat realy needs an xml-rpc method for getting this.")
                                       emacspeak-url-template-current-ut))
                     (rename-buffer
                      (downcase
-                      (mapconcat #'identity emacspeak-url-template-current-ut ": "))
+                      (mapconcat #'identity
+                                 (or
+                                  emacspeak-url-template-current-ut
+                                  "Untitled")
+                                 ": "))
                      'unique)
                     (setq emacspeak-w3-post-process-hook nil))))
     (kill-new url)
