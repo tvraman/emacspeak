@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 762 commands.
+This chapter documents a total of 776 commands.
 
 @menu
 * cd-tool::                     
@@ -87,6 +87,7 @@ This chapter documents a total of 762 commands.
 * emacspeak::                   
 * voice-setup::                 
 * emacspeak-w3search::          
+* emacspeak-org::               
 * URL Templates ::              
 @end menu
 
@@ -630,6 +631,11 @@ Speak the name of the buffer on this line
 
 @node emacspeak-c
 @section emacspeak-c
+
+Commentary:
+Make some of C and C++ mode more emacspeak friendly
+Works with both boring c-mode 
+and the excellent cc-mode
 
 Automatically generated documentation
 for commands defined in module  emacspeak-c.
@@ -1753,13 +1759,6 @@ http://www.mplayerhq.hu/DOCS/
 Automatically generated documentation
 for commands defined in module  emacspeak-m-player.
 
-@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST NOSELECT)
-Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-m-player-add-equalizer ()
 Add equalizer for next MPlayer invocation.
 
@@ -2835,7 +2834,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file. 
+or when the buffer is not visiting any file.
 Interactive prefix arg `filename' speaks only the final path
 component.
 The result is put in the kill ring for convenience.
@@ -2995,12 +2994,12 @@ Speak the line number of the current line.
 Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
-specify filter as 
+specify filter as
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
 /var/adm/messages and /var/adm/maillog over time.
-Option emacspeak-speak-line-invert-filter determines 
+Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
 @end deffn
 
@@ -3015,7 +3014,7 @@ directory.
 @kbd{ control e a }
 
 Speak the last message from Emacs once again.
-Optional interactive prefix arg 
+Optional interactive prefix arg
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
@@ -3586,7 +3585,7 @@ the documentation on the table browser.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-find-csv-file (FILENAME)
-Process a csv (comma separated values) file. 
+Process a csv (comma separated values) file.
 The processed  data and presented using emacspeak table navigation. 
 @end deffn
 
@@ -3722,7 +3721,7 @@ Save out filter settings.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-view-csv-buffer (&optional BUFFER-NAME)
-Process a csv (comma separated values) data. 
+Process a csv (comma separated values) data.
 The processed  data and presented using emacspeak table navigation. 
 @end deffn
 
@@ -4148,7 +4147,7 @@ Extract current  page from the Google cache.
 Perform a google search restricted to the current WWW site.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-w3-google-similar-to-this-page ()
+@deffn {Interactive Command} emacspeak-w3-google-similar-to-this-page (URL)
 Ask Google to find documents similar to this one.
 @end deffn
 
@@ -4307,8 +4306,62 @@ Commentary:
 Automatically generated documentation
 for commands defined in module  emacspeak-w3m.
 
+@deffn {Interactive Command} emacspeak-m-player (RESOURCE &optional PLAY-LIST NOSELECT)
+Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-browse-rss-at-point ()
+Browses RSS url under point from w3m.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-browse-url-with-style (STYLE URL)
+Browse URL with specified XSL style. in w3m.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-browse-xml-url-with-style (STYLE URL &optional UNESCAPE-CHARENT)
+Browse XML URL with specified XSL style in w3m.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-google-extract-from-cache ()
+Extract url at point from the Google cache.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-google-on-this-site ()
+Perform a google search restricted to the current WWW site.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-google-similar-to-this-page ()
+Ask Google to find documents similar to this one.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-google-who-links-to-this-page ()
+Perform a google search to locate documents that link to the
+ current page.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3m-jump-to-title-in-content ()
 Jumps to the occurrence of document title in page body.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-play-stream ()
+Load the URL under point in w3m into m-player.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-preview-this-buffer ()
+Preview this buffer in w3m.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-transcode-current-url-via-google (&optional UNTRANSCODE)
+Transcode current URL via Google.
+ Reverse effect with prefix arg for links on a transcoded page.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3m-transcode-via-google (&optional UNTRANSCODE)
+Transcode URL under point via Google.
+ Reverse effect with prefix arg for links on a transcoded page.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3m-xsl-add-submit-button (&optional PERSISTENT)
@@ -4454,6 +4507,10 @@ Present Google advanced search form simplified for speech interaction.
 
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky (QUERY)
 Do a I'm Feeling Lucky Google search.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-google-mobile (QUERY)
+Google mobile search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-news ()
@@ -5125,6 +5182,10 @@ run `occur' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-popup-input-buffer (MODE)
+Provide an input buffer in a specified mode.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-portfolio-quotes ()
 Bring up detailed stock quotes for portfolio specified by 
 emacspeak-websearch-personal-portfolio.
@@ -5463,13 +5524,30 @@ for commands defined in module  emacspeak-w3search.
 Search IBM using trevi
 @end deffn
 
+@node emacspeak-org
+@section emacspeak-org
+
+Commentary:
+Speech-enable org ---
+ Org allows you to keep organized notes and todo lists.
+Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
+
+Automatically generated documentation
+for commands defined in module  emacspeak-org.
+
+@deffn {Interactive Command} emacspeak-org-popup-input ()
+Pops up an org input area.
+
+(fn)
+@end deffn
+
 @node URL Templates 
 @section  URL Templates
 
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 106 URL Templates.
+This section documents a total of 110 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -5612,6 +5690,10 @@ Browse to a specified DDJ Technetcast stream and save  it.
 
 Dictionary Lookup
 
+@kbd{Digg}
+
+Display Digg Feed.
+
 @kbd{EmacsWiki Search}
 
 EmacsWiki Search
@@ -5730,6 +5812,10 @@ Search Google news.
 
 Google Scholar Search
 
+@kbd{Google Soccer Results}
+
+Display World Cup Soccer Results for specified countries.
+
 @kbd{Google Text  News}
 
 Retrieve and speak Google News Overview.
@@ -5737,6 +5823,10 @@ Retrieve and speak Google News Overview.
 @kbd{Google Transcoder}
 
 Transcode site via Google.
+
+@kbd{Google Video}
+
+Retrieve Google Video search results as an atom feed.
 
 @kbd{Google WebQuotes}
 
@@ -5777,6 +5867,10 @@ Play Morning Edition segment.
 @kbd{Motley Fool Radio from NPR}
 
 Play NPR Motley Fool   stream.
+
+@kbd{Music Search}
+
+Music search on Google.
 
 @kbd{NPR On Demand}
 
