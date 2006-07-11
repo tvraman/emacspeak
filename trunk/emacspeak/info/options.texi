@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 504 user customizable
+This chapter documents a total of 546 user customizable
   options.
 
 @menu
@@ -43,6 +43,7 @@ This chapter documents a total of 504 user customizable
 * emacspeak-loaddefs Options::  
 * emacspeak-m-player Options::  
 * emacspeak-madplay Options::   
+* emacspeak-make-mode Options::  
 * emacspeak-muse Options::      
 * emacspeak-ocr Options::       
 * emacspeak-outline Options::   
@@ -53,6 +54,7 @@ This chapter documents a total of 504 user customizable
 * emacspeak-realaudio Options::  
 * emacspeak-remote Options::    
 * emacspeak-replace Options::   
+* emacspeak-rpm-spec Options::  
 * emacspeak-rss Options::       
 * emacspeak-sigbegone Options::  
 * emacspeak-sounds Options::    
@@ -181,52 +183,17 @@ Code:
   "Customize Emacspeak for change-log-mode and friends."
   :group 'emacspeak)
 
-(def-voice-font emacspeak-change-log-acknowledgement-personality
-  voice-smoothen
-  'change-log-acknowledgement-face
-  "Personality used for acknowledgements."
-  :group 'emacspeak-add-log)
-(def-voice-font emacspeak-change-log-conditionals-personality 
-  voice-animate
-  'change-log-conditionals-face
-  "Personality used for conditionals."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-date-personality
-  voice-brighten
-  'change-log-date-face
-  "Personality used for dates."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-email-personality
-  voice-womanize-1
-  'change-log-email-face
-  "Personality used for email address."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-file-personality
-  voice-bolden
-  'change-log-file-face
-  "Personality used for file names."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-function-personality
-  voice-bolden-extra
-  'change-log-function-face
-  "Personality used for function names."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-list-personality
-  voice-lighten
-  'change-log-list-face
-  "Personality used for lists."
-  :group 'emacspeak-add-log)
-
-(def-voice-font emacspeak-change-log-name-personality
-  voice-lighten-extra
-  'change-log-name-face
-  "Personality used for names."
-  :group 'emacspeak-add-log)
+(voice-setup-add-map
+ '(
+   (change-log-acknowledgement voice-smoothen)
+   (change-log-conditionals voice-animate)
+   (change-log-email voice-womanize-1)
+   (change-log-function voice-bolden-extra)
+   (change-log-file voice-bolden)
+   (change-log-email voice-womanize-1)
+   (change-log-list voice-lighten)
+   (change-log-name voice-lighten-extra)
+   ))
 
 (provide 'emacspeak-add-log)
 
@@ -238,43 +205,38 @@ Automatically generated documentation
 for options defined in module  emacspeak-add-log.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-change-log-acknowledgement-personality
-Personality used for acknowledgements.
+@defvar {User Option} emacspeak-change-log-acknowledgement-voice
+Personality used for change-log-acknowledgement
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-conditionals-personality
-Personality used for conditionals.
+@defvar {User Option} emacspeak-change-log-conditionals-voice
+Personality used for change-log-conditionals
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-date-personality
-Personality used for dates.
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-change-log-email-personality
-Personality used for email address.
+@defvar {User Option} emacspeak-change-log-email-voice
+Personality used for change-log-email
 This personality uses  voice-womanize-1 whose  effect can be changed globally by customizing voice-womanize-1-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-file-personality
-Personality used for file names.
+@defvar {User Option} emacspeak-change-log-file-voice
+Personality used for change-log-file
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-function-personality
-Personality used for function names.
+@defvar {User Option} emacspeak-change-log-function-voice
+Personality used for change-log-function
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-list-personality
-Personality used for lists.
+@defvar {User Option} emacspeak-change-log-list-voice
+Personality used for change-log-list
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-change-log-name-personality
-Personality used for names.
+@defvar {User Option} emacspeak-change-log-name-voice
+Personality used for change-log-name
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
@@ -285,7 +247,7 @@ Commentary:
 This module defines the advice forms for making the core of Emacs speak
 Advice forms that are specific to Emacs subsystems do not belong here!
 I violate this at present by advicing completion comint and
-shell here.  
+shell here.
 
 Automatically generated documentation
 for options defined in module  emacspeak-advice.
@@ -412,23 +374,23 @@ Automatically generated documentation
 for options defined in module  emacspeak-bbdb.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-bbdb-company-personality
-Personality for company name.
+@defvar {User Option} emacspeak-bbdb-company-voice
+Personality used for bbdb-company
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-bbdb-field-name-personality
-Personality for field name.
+@defvar {User Option} emacspeak-bbdb-field-name-voice
+Personality used for bbdb-field-name
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-bbdb-field-value-personality
-Personality for field values.
+@defvar {User Option} emacspeak-bbdb-field-value-voice
+Personality used for bbdb-field-value
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-bbdb-name
-Personality for  name.
+@defvar {User Option} emacspeak-bbdb-name-voice
+Personality used for bbdb-name
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
@@ -454,18 +416,28 @@ Automatically generated documentation
 for options defined in module  emacspeak-compile.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-compilation-error-personality
-Personality used for errors in compilation lines.
+@defvar {User Option} emacspeak-compilation-column-number-voice
+Personality used for compilation-column-number
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-error-voice
+Personality used for compilation-error
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-compilation-info-personality
-Personality used for information in compilation lines.
+@defvar {User Option} emacspeak-compilation-info-voice
+Personality used for compilation-info
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-compilation-warning-personality
-Personality used for warnings in compilation lines.
+@defvar {User Option} emacspeak-compilation-line-number-voice
+Personality used for compilation-line-number
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-warning-voice
+Personality used for compilation-warning
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
@@ -571,17 +543,17 @@ for options defined in module  emacspeak-entertain.
 These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-mpuz-solved-personality
-
+Personality used for mpuz-solved-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-mpuz-trivial-personality
-
+Personality used for mpuz-trivial-face
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-mpuz-unsolved-personality
-
+Personality used for mpuz-unsolved-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
@@ -973,24 +945,29 @@ Automatically generated documentation
 for options defined in module  emacspeak-ido.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-ido-first-match-personality
-Personality for first match in ido.
-This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
+@defvar {User Option} emacspeak-ido-first-match-voice
+Personality used for ido-first-match
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-ido-indicator-personality
-Personality for indicator in ido.
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@defvar {User Option} emacspeak-ido-incomplete-regexp-voice
+Personality used for ido-incomplete-regexp
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-ido-only-match-personality
-Personality for only match in ido.
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-ido-subdir-personality
-Personality for subdirs in ido.
+@defvar {User Option} emacspeak-ido-indicator-voice
+Personality used for ido-indicator
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ido-only-match-voice
+Personality used for ido-only-match
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-ido-subdir-voice
+Personality used for ido-subdir
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
 @node emacspeak-imcom Options
@@ -1313,6 +1290,36 @@ Emacspeak comes with a sample amadplay script in etc/amadplay
 sets up madplay to pipe output to alsa.
 @end defvar
 
+@node emacspeak-make-mode Options
+@section emacspeak-make-mode Options
+
+Commentary:
+This module speech enables make-mode
+
+Automatically generated documentation
+for options defined in module  emacspeak-make-mode.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-makefile-makepp-perl-voice
+Personality used for makefile-makepp-perl
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-makefile-shell-voice
+Personality used for makefile-shell
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-makefile-space-voice
+Personality used for makefile-space
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-makefile-targets-voice
+Personality used for makefile-targets
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
 @node emacspeak-muse Options
 @section emacspeak-muse Options
 
@@ -1477,33 +1484,33 @@ Automatically generated documentation
 for options defined in module  emacspeak-pcl-cvs.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-pcl-cvs-filename-face
-Personality used for file names in CVS buffers.
+@defvar {User Option} emacspeak-cvs-filename-personality
+Personality used for cvs-filename-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-pcl-cvs-handled-face
-Personality to match cvs-handle-face.
+@defvar {User Option} emacspeak-cvs-handled-personality
+Personality used for cvs-handled-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-pcl-cvs-header-face
-Personality for CVS header lines.
+@defvar {User Option} emacspeak-cvs-header-personality
+Personality used for cvs-header-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-pcl-cvs-marked-face
-Personality for marked lines in CVS.
+@defvar {User Option} emacspeak-cvs-marked-personality
+Personality used for cvs-marked-face
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-pcl-cvs-msg-face
-Personality for CVS messages.
+@defvar {User Option} emacspeak-cvs-msg-personality
+Personality used for cvs-msg-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-pcl-cvs-need-action-face
-Personality for CVS lines needing an action.
+@defvar {User Option} emacspeak-cvs-need-action-personality
+Personality used for cvs-need-action-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
@@ -1605,23 +1612,23 @@ Automatically generated documentation
 for options defined in module  emacspeak-re-builder.
 These options are customizable via Emacs' Custom interface.
 
-@defvar {User Option} emacspeak-re-builder-0-personality
-Personality used for match 0. Set this to one of the overlay voices.
+@defvar {User Option} emacspeak-reb-match-0-voice
+Personality used for reb-match-0
 This personality uses  voice-lock-overlay-0 whose  effect can be changed globally by customizing voice-lock-overlay-0-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-re-builder-1-personality
-Personality used for match 1. Set this to one of the overlay voices.
+@defvar {User Option} emacspeak-reb-match-1-voice
+Personality used for reb-match-1
 This personality uses  voice-lock-overlay-1 whose  effect can be changed globally by customizing voice-lock-overlay-1-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-re-builder-2-personality
-Personality used for match 2. Set this to one of the overlay voices.
+@defvar {User Option} emacspeak-reb-match-2-voice
+Personality used for reb-match-2
 This personality uses  voice-lock-overlay-2 whose  effect can be changed globally by customizing voice-lock-overlay-2-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-re-builder-3-personality
-Personality used for match 3. Set this to one of the overlay voices.
+@defvar {User Option} emacspeak-reb-match-3-voice
+Personality used for reb-match-3
 This personality uses  voice-lock-overlay-3 whose  effect can be changed globally by customizing voice-lock-overlay-3-settings.
 @end defvar
 
@@ -1693,6 +1700,43 @@ Personality used in search and replace to indicate word
 that is being replaced.
 @end defvar
 
+@node emacspeak-rpm-spec Options
+@section emacspeak-rpm-spec Options
+
+Automatically generated documentation
+for options defined in module  emacspeak-rpm-spec.
+These options are customizable via Emacs' Custom interface.
+
+@defvar {User Option} emacspeak-rpm-spec-dir-personality
+Personality used for rpm-spec-dir-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-rpm-spec-doc-personality
+Personality used for rpm-spec-doc-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-rpm-spec-ghost-personality
+Personality used for rpm-spec-ghost-face
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-rpm-spec-macro-personality
+Personality used for rpm-spec-macro-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-rpm-spec-package-personality
+Personality used for rpm-spec-package-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-rpm-spec-tag-personality
+Personality used for rpm-spec-tag-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@end defvar
+
 @node emacspeak-rss Options
 @section emacspeak-rss Options
 
@@ -1720,7 +1764,7 @@ for options defined in module  emacspeak-sigbegone.
 These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-sigbegone-exorcized-personality
-Personality for signatures.
+Personality used for sigbegone-exorcized-face
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
@@ -1783,7 +1827,7 @@ These options are customizable via Emacs' Custom interface.
 
 @defvar {User Option} emacspeak-audio-indentation
 Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.  
+If non-nil , then speaking a line indicates its indentation.
 You can use  command `emacspeak-toggle-audio-indentation' bound
 to C-e d i to toggle this
 setting..
@@ -1798,14 +1842,14 @@ any buffer where it is set.
 
 @defvar {User Option} emacspeak-character-echo
 If t, then emacspeak echoes characters  as you type.
-You can 
+You can
 use C-e d k to toggle this
 setting.
 @end defvar
 
 @defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
-You can use 
+You can use
   `emacspeak-toggle-comint-autospeak` bound to
   C-e C-q to toggle this
 setting.
@@ -1837,12 +1881,12 @@ option.
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
-You can use command 
+You can use command
 `emacspeak-toggle-mail-alert' bound to
 C-e M-m to set this option.
 If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
-  voice-mail drop via custom option 
+  voice-mail drop via custom option
 emacspeak-voicemail-spool-file.
 @end defvar
 
@@ -1858,7 +1902,7 @@ arrived mail.
 
 @defvar {User Option} emacspeak-show-point
  If T, then command  `emacspeak-speak-line' indicates position of point by an
-aural highlight.  You can use 
+aural highlight.  You can use
 command `emacspeak-toggle-show-point' bound to
 C-e C-d to toggle this setting.
 @end defvar
@@ -1877,7 +1921,7 @@ File where emacspeak filters are persisted.
 
 @defvar {User Option} emacspeak-speak-line-column-filter
 *List that specifies columns to be filtered.
-The list when set holds pairs of start-col.end-col pairs 
+The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX.
@@ -1885,7 +1929,7 @@ by cut -c on UNIX.
 
 @defvar {User Option} emacspeak-speak-line-invert-filter
 Non-nil means the sense of `filter' is inverted when filtering
-columns in a line --see 
+columns in a line --see
 command emacspeak-speak-line-set-column-filter.
 @end defvar
 
@@ -2028,33 +2072,33 @@ True means messages in this chat session will be spoken
 automatically.
 @end defvar
 
-@defvar {User Option} emacspeak-tnt-buddy-list-active-face
-Personality for active buddies.
+@defvar {User Option} emacspeak-tnt-buddy-list-active-personality
+Personality used for tnt-buddy-list-active-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-tnt-buddy-list-away-face
-Personality for away buddies.
+@defvar {User Option} emacspeak-tnt-buddy-list-away-personality
+Personality used for tnt-buddy-list-away-face
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-tnt-buddy-list-idle-face
-Personality for idle buddies.
+@defvar {User Option} emacspeak-tnt-buddy-list-idle-personality
+Personality used for tnt-buddy-list-idle-face
 This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-tnt-buddy-list-inactive-face
-Personality for inactive buddies.
+@defvar {User Option} emacspeak-tnt-buddy-list-inactive-personality
+Personality used for tnt-buddy-list-inactive-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-tnt-buddy-list-pounce-face
-Personality for pounce buddies.
+@defvar {User Option} emacspeak-tnt-buddy-list-pounce-personality
+Personality used for tnt-buddy-list-pounce-face
 This personality uses  (quote ursula) whose  effect can be changed globally by customizing (quote ursula)-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-tnt-my-name-personality
-tnt-my-name-face
+Personality used for tnt-my-name-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
@@ -2230,6 +2274,10 @@ Specifies location near we look by default.
 
 @defvar {User Option} emacspeak-websearch-google-number-of-results
 Number of results to return from google search.
+@end defvar
+
+@defvar {User Option} emacspeak-websearch-google-options
+Additional options to pass to Google e.g. &xx=yy...
 @end defvar
 
 @defvar {User Option} emacspeak-websearch-personal-portfolio
@@ -2629,6 +2677,11 @@ Automatically generated documentation
 for options defined in module  nil.
 These options are customizable via Emacs' Custom interface.
 
+@defvar {User Option} emacspeak-Buffer-menu-buffer-voice
+Personality used for Buffer-menu-buffer
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-bold-italic-voice
 Personality used for bold-italic
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
@@ -2639,23 +2692,28 @@ Personality used for bold
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-buffer-menu-buffer-face
-Personality for highlighting buffer name in buffer-menu.
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
 @defvar {User Option} emacspeak-button-voice
 Personality used for button
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-comint-input-personality
-Personality used for highlighting comint inputs --emacs 21.
+@defvar {User Option} emacspeak-c-nonbreakable-space-personality
+Personality used for c-nonbreakable-space-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-calendar-today-voice
+Personality used for calendar-today
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-comint-highlight-input-voice
+Personality used for comint-highlight-input
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-comint-prompt-personality
-Personality used for highlighting comint prompts --emacs 21.
+@defvar {User Option} emacspeak-comint-highlight-prompt-voice
+Personality used for comint-highlight-prompt
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 @end defvar
 
@@ -2780,48 +2838,48 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 @end defvar
 
 @defvar {User Option} emacspeak-diary-personality
-Personality for header line in diary.
+Personality used for diary-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-directory-personality
-Personality for directories in dired.
+@defvar {User Option} emacspeak-dired-directory-voice
+Personality used for dired-directory
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-flag-personality
-Personality for flag in dired.
+@defvar {User Option} emacspeak-dired-flag-voice
+Personality used for dired-flag
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-header-personality
-Personality for dired header line.
+@defvar {User Option} emacspeak-dired-header-voice
+Personality used for dired-header
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-ignored-personality
-Personality for ignored lines in dired.
+@defvar {User Option} emacspeak-dired-ignored-voice
+Personality used for dired-ignored
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-mark-personality
-Personality for dired mark.
+@defvar {User Option} emacspeak-dired-mark-voice
+Personality used for dired-mark
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-marked-personality
-Personality for marked files in dired.
+@defvar {User Option} emacspeak-dired-marked-voice
+Personality used for dired-marked
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-symlink-personality
-Personality for symlinks.
+@defvar {User Option} emacspeak-dired-symlink-voice
+Personality used for dired-symlink
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-warning-personality
-Personality for dired warnings.
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+@defvar {User Option} emacspeak-dired-warning-voice
+Personality used for dired-warning
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-eperiodic-discovered-after-personality
@@ -2890,62 +2948,62 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @end defvar
 
 @defvar {User Option} emacspeak-erc-action-personality
-Personality for actions.
+Personality used for erc-action-face
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-bold-personality
-Bold personality for ERC.
+Personality used for erc-bold-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-dangerous-host-personality
-Personality for dangerous hosts.
+Personality used for erc-dangerous-host-face
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-direct-msg-personality
-Personality for direct messages.
+Personality used for erc-direct-msg-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-erc-error-face
-Error personality for ERC.
+@defvar {User Option} emacspeak-erc-error-personality
+Personality used for erc-error-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-input-personality
-personality for input.
+Personality used for erc-input-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-inverse-personality
-Inverse highlight in ERC.
+Personality used for erc-inverse-face
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-keyword-personality
-Personality for keywords.
+Personality used for erc-keyword-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-notice-personality
-Personality for notices.
+Personality used for erc-notice-face
 This personality uses  (quote inaudible) whose  effect can be changed globally by customizing (quote inaudible)-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-pal-personality
-Personality for pals.
+Personality used for erc-pal-face
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-erc-prompt-personality
-Personality for prompts.
+Personality used for erc-prompt-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-erc-underline
-Underline in ERC.
+@defvar {User Option} emacspeak-erc-underline-personality
+Personality used for erc-underline-face
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
 @end defvar
 
@@ -3084,183 +3142,283 @@ Personality used for fixed
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-flyspell-highlight-personality
-Voice used to highlight spelling errors. 
+@defvar {User Option} emacspeak-flyspell-incorrect-personality
+Personality used for flyspell-incorrect-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-1-personality
-level 1 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-1-voice
+Personality used for gnus-cite-face-1
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-10-personality
-level 10 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-10-voice
+Personality used for gnus-cite-face-10
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-2-personality
-level 2 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-2-voice
+Personality used for gnus-cite-face-2
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-3-personality
-level 3 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-3-voice
+Personality used for gnus-cite-face-3
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-4-personality
-level 4 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-4-voice
+Personality used for gnus-cite-face-4
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-5-personality
-level 5 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-5-voice
+Personality used for gnus-cite-face-5
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-6-personality
-level 6 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-6-voice
+Personality used for gnus-cite-face-6
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-7-personality
-level 7 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-7-voice
+Personality used for gnus-cite-face-7
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-8-personality
-level 8 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-8-voice
+Personality used for gnus-cite-face-8
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-cite-9-personality
-level 9 citation personality.
+@defvar {User Option} emacspeak-gnus-cite-face-9-voice
+Personality used for gnus-cite-face-9
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-emphasis-bold-personality
-Personality used for speaking *bold* words.
+@defvar {User Option} emacspeak-gnus-emphasis-bold-voice
+Personality used for gnus-emphasis-bold
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-emphasis-italic-personality
-Personality used for /italicized/ words.
+@defvar {User Option} emacspeak-gnus-emphasis-italic-voice
+Personality used for gnus-emphasis-italic
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-emphasis-underline-personality
-Personality used for _underlined_ text.
+@defvar {User Option} emacspeak-gnus-emphasis-underline-voice
+Personality used for gnus-emphasis-underline
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 @end defvar
 
+@defvar {User Option} emacspeak-gnus-group-mail-1-empty-personality
+Personality used for gnus-group-mail-1-empty-face
+This personality uses  default whose  effect can be changed globally by customizing default-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-2-empty-personality
+Personality used for gnus-group-mail-2-empty-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-2-personality
+Personality used for gnus-group-mail-2-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-3-empty-personality
+Personality used for gnus-group-mail-3-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-3-personality
+Personality used for gnus-group-mail-3-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-low-empty-personality
+Personality used for gnus-group-mail-low-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-mail-low-personality
+Personality used for gnus-group-mail-low-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-1-empty-personality
+Personality used for gnus-group-news-1-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-1-personality
+Personality used for gnus-group-news-1-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-2-empty-personality
+Personality used for gnus-group-news-2-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-2-personality
+Personality used for gnus-group-news-2-face
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-3-empty-personality
+Personality used for gnus-group-news-3-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-3-personality
+Personality used for gnus-group-news-3-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-4-empty-personality
+Personality used for gnus-group-news-4-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-4-personality
+Personality used for gnus-group-news-4-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-5-empty-personality
+Personality used for gnus-group-news-5-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-5-personality
+Personality used for gnus-group-news-5-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-6-empty-personality
+Personality used for gnus-group-news-6-empty-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-6-personality
+Personality used for gnus-group-news-6-face
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-low-empty-personality
+Personality used for gnus-group-news-low-empty-face
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-gnus-group-news-low-personality
+Personality used for gnus-group-news-low-face
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-gnus-header-content-personality
-Personality used for header content.
+Personality used for gnus-header-content-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-header-from-personality
- Personality used for displaying from headers.
+Personality used for gnus-header-from-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-header-name-personality
- Personality used for displaying header names.
+Personality used for gnus-header-name-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-header-newsgroups-personality
-Personality used for displaying newsgroups headers. 
+Personality used for gnus-header-newsgroups-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-header-subject-personality
-Personality used for displaying subject headers. 
+Personality used for gnus-header-subject-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-server-agent-personality
-Personality used for displaying AGENTIZED servers
+Personality used for gnus-server-agent-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-server-closed-personality
-Personality used for displaying CLOSED servers
+Personality used for gnus-server-closed-face
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-server-denied-personality
-Personality used for displaying DENIED servers
+Personality used for gnus-server-denied-face
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-server-offline-personality
-Personality used for displaying OFFLINE servers
+Personality used for gnus-server-offline-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-server-opened-personality
-Personality used for displaying OPENED servers
+Personality used for gnus-server-opened-face
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-signature-personality
-Personality used to highlight signatures.
+Personality used for gnus-signature-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-summary-cancelled-personality
-Personality used for cancelled articles.
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-summary-high-ancient-personality
-Personality used for high interest ancient articles.
+Personality used for gnus-summary-high-ancient-face
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-high-read-personality
-Personality used for high interest read articles.
+Personality used for gnus-summary-high-read-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-high-ticked-personality
-Personality used for high interest ticked articles.
+Personality used for gnus-summary-high-ticked-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-low-ancient-personality
-Personality used for low interest ancient articles.
+Personality used for gnus-summary-low-ancient-face
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-low-read-personality
-Personality used for low interest read articles.
+Personality used for gnus-summary-low-read-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-low-ticked-personality
-Personality used for low interest ticked articles.
+Personality used for gnus-summary-low-ticked-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-normal-ancient-personality
-Personality used for normal interest ancient articles.
+Personality used for gnus-summary-normal-ancient-face
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-normal-read-personality
-Personality used for read messages in the summary buffer.
+Personality used for gnus-summary-normal-read-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-normal-ticked-personality
-Personality used for ticked articles in the summary buffer.
+Personality used for gnus-summary-normal-ticked-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-gnus-summary-selected-personality
-Personality used for selected articles in the summary buffer.
+Personality used for gnus-summary-selected-face
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
@@ -3285,57 +3443,62 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @end defvar
 
 @defvar {User Option} emacspeak-holiday-personality
-holiday personality for calendar.
+Personality used for holiday-face
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-header-node
-Personality used for info-header-node.
+@defvar {User Option} emacspeak-info-header-node-voice
+Personality used for info-header-node
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-header-xref
-Personality used for info-header-xref.
+@defvar {User Option} emacspeak-info-header-xref-voice
+Personality used for info-header-xref
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-menu-5
-Personality used for info-menu-5.
+@defvar {User Option} emacspeak-info-menu-5-voice
+Personality used for info-menu-5
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-menu-header
-Personality used for info-menu-header.
+@defvar {User Option} emacspeak-info-menu-header-voice
+Personality used for info-menu-header
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-node
-Personality used for info-node.
+@defvar {User Option} emacspeak-info-menu-star-voice
+Personality used for info-menu-star
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-info-node-voice
+Personality used for info-node
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-title-1-face
-Personality used for Info-title-1-face.
+@defvar {User Option} emacspeak-info-title-1-voice
+Personality used for info-title-1
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-2-voice
+Personality used for info-title-2
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-info-title-3-voice
+Personality used for info-title-3
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-title-2-face
-Personality used for Info-title-2-face.
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+@defvar {User Option} emacspeak-info-title-4-voice
+Personality used for info-title-4
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-info-title-3-face
-Personality used for Info-title-3-face.
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-info-title-4-face
-Personality used for Info-title-4-face.
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-info-xref
-Personality used for info-xref.
+@defvar {User Option} emacspeak-info-xref-voice
+Personality used for info-xref
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
@@ -3349,39 +3512,44 @@ Personality used for match
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-outline-1
-Level 1outline headings.
+@defvar {User Option} emacspeak-outline-1-voice
+Personality used for outline-1
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-outline-2
-Level 2 outline headings.
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-outline-3
-Level 3 outline headings.
+@defvar {User Option} emacspeak-outline-2-voice
+Personality used for outline-2
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-outline-4
-Level 4outline headings.
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@defvar {User Option} emacspeak-outline-3-voice
+Personality used for outline-3
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-outline-5
-Level 5 outline headings.
+@defvar {User Option} emacspeak-outline-4-voice
+Personality used for outline-4
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-outline-6
-Level 6 outline headings.
+@defvar {User Option} emacspeak-outline-5-voice
+Personality used for outline-5
 This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-outline-6-voice
+Personality used for outline-6
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-region-voice
 Personality used for region
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-term-underline-voice
+Personality used for term-underline
+This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-underline-voice
@@ -3469,6 +3637,11 @@ Personality used for font-lock-builtin-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
+@defvar {User Option} emacspeak-voice-lock-comment-delimiter-personality
+Personality used for font-lock-comment-delimiter-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-voice-lock-comment-personality
 Personality used for font-lock-comment-face
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
@@ -3499,6 +3672,11 @@ Personality used for font-lock-keyword-face
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
+@defvar {User Option} emacspeak-voice-lock-negation-char-personality
+Personality used for font-lock-negation-char-face
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+@end defvar
+
 @defvar {User Option} emacspeak-voice-lock-preprocessor-personality
 Personality used for font-lock-preprocessor-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
@@ -3507,6 +3685,16 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 @defvar {User Option} emacspeak-voice-lock-reference-personality
 Personality used for font-lock-reference-face
 This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-voice-lock-regexp-grouping-backslash
+Personality used for font-lock-regexp-grouping-backslash
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-voice-lock-regexp-grouping-construct
+Personality used for font-lock-regexp-grouping-construct
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-string-personality
@@ -3530,87 +3718,92 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-anchor-personality
-w3m-anchor-face
+Personality used for w3m-anchor-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-arrived-anchor-personality
-w3m-arrived-anchor-face
+Personality used for w3m-arrived-anchor-face
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-bold-personality
-w3m-bold-face
+Personality used for w3m-bold-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-w3m-button-personality
-w3m-form-button-face
+@defvar {User Option} emacspeak-w3m-form-button-personality
+Personality used for w3m-form-button-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-form-button-pressed-personality
-w3m-form-button-pressed-face
+Personality used for w3m-form-button-pressed-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-form-personality
-Personality for forms.
+Personality used for w3m-form-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-header-line-location-content-personality
-w3m-header-line-location-content-face
+Personality used for w3m-header-line-location-content-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-header-line-location-title-personality
-w3m-header-line-location-title-face
+Personality used for w3m-header-line-location-title-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-image-personality
-Image personality.
+Personality used for w3m-image-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-tab-selected-personality
-w3m-tab-selected-face
+Personality used for w3m-tab-selected-face
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-tab-unselected-personality
-w3m-tab-unselected-face
+Personality used for w3m-tab-unselected-face
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-w3m-underline-personality
-w3m-underline-face
+Personality used for w3m-underline-face
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-widget-button-personality
-Personality for buttons
+@defvar {User Option} emacspeak-widget-button-pressed-voice
+Personality used for widget-button-pressed
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+@end defvar
+
+@defvar {User Option} emacspeak-widget-button-voice
+Personality used for widget-button
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-widget-documentation-personality
-Personality for documentation
+@defvar {User Option} emacspeak-widget-documentation-voice
+Personality used for widget-documentation
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-widget-field-personality
-Personality for edit fields
+@defvar {User Option} emacspeak-widget-field-voice
+Personality used for widget-field
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-widget-inactive-personality
-Personality for inactive fields
+@defvar {User Option} emacspeak-widget-inactive-voice
+Personality used for widget-inactive
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-widget-single-line-field-personality
-Personality for edit fields
+@defvar {User Option} emacspeak-widget-single-line-field-voice
+Personality used for widget-single-line-field
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 @end defvar
 
