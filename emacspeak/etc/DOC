@@ -1298,13 +1298,6 @@ set the current local value to the result.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode. 
-
-------------------------------------------------------------
-
 ** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
 
 Use arrow keys, page-up, page-down, home and end keys to
@@ -2211,7 +2204,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 
  Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file. 
+or when the buffer is not visiting any file.
 Interactive prefix arg `filename' speaks only the final path
 component.
 The result is put in the kill ring for convenience. 
@@ -2371,12 +2364,12 @@ any other key to speak entire line.
  Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
-specify filter as 
+specify filter as
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
 /var/adm/messages and /var/adm/maillog over time.
-Option emacspeak-speak-line-invert-filter determines 
+Option emacspeak-speak-line-invert-filter determines
 the sense of the filter.  
 
 ------------------------------------------------------------
@@ -2391,7 +2384,7 @@ directory.
 ** emacspeak-speak-message-again	Key Sequence: control e a 
 
  Speak the last message from Emacs once again.
-Optional interactive prefix arg 
+Optional interactive prefix arg
 `from-message-cache' speaks message cached from the most
 recent call to function `message'.
 The message is also placed in the kill ring for convenient yanking
@@ -2928,7 +2921,7 @@ the documentation on the table browser.
 
 ------------------------------------------------------------
 
-** emacspeak-table-find-csv-file Process a csv (comma separated values) file. 
+** emacspeak-table-find-csv-file Process a csv (comma separated values) file.
 The processed  data and presented using emacspeak table navigation.  
 
 ------------------------------------------------------------
@@ -3064,7 +3057,7 @@ Optional prefix arg prompts for a new filter.
 
 ------------------------------------------------------------
 
-** emacspeak-table-view-csv-buffer Process a csv (comma separated values) data. 
+** emacspeak-table-view-csv-buffer Process a csv (comma separated values) data.
 The processed  data and presented using emacspeak table navigation.  
 
 ------------------------------------------------------------
@@ -3561,7 +3554,61 @@ Optional arg COMPLEMENT inverts the filter.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player Play specified resource using m-player.
+Optional prefix argument play-list interprets resource as a play-list.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-m-player-mode. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-browse-rss-at-point Browses RSS url under point from w3m. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-browse-url-with-style Browse URL with specified XSL style. in w3m. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-browse-xml-url-with-style Browse XML URL with specified XSL style in w3m. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-google-extract-from-cache Extract url at point from the Google cache. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-google-on-this-site Perform a google search restricted to the current WWW site. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-google-similar-to-this-page Ask Google to find documents similar to this one. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-google-who-links-to-this-page Perform a google search to locate documents that link to the
+ current page. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3m-jump-to-title-in-content Jumps to the occurrence of document title in page body. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-play-stream Load the URL under point in w3m into m-player. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-preview-this-buffer Preview this buffer in w3m. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-transcode-current-url-via-google Transcode current URL via Google.
+ Reverse effect with prefix arg for links on a transcoded page. 
+
+------------------------------------------------------------
+
+** emacspeak-w3m-transcode-via-google Transcode URL under point via Google.
+ Reverse effect with prefix arg for links on a transcoded page. 
 
 ------------------------------------------------------------
 
@@ -3698,6 +3745,10 @@ I'm Feeling Lucky button on Google.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-google-feeling-lucky Do a I'm Feeling Lucky Google search. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-google-mobile Google mobile search. 
 
 ------------------------------------------------------------
 
@@ -4356,6 +4407,10 @@ prompts for and sets value of the file local pattern.
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-popup-input-buffer Provide an input buffer in a specified mode. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-portfolio-quotes Bring up detailed stock quotes for portfolio specified by 
 emacspeak-websearch-personal-portfolio. 
 
@@ -4602,6 +4657,12 @@ Sample text to use comes from variable
 ------------------------------------------------------------
 
 ** emacspeak-websearch-ibm-internal Search IBM using trevi 
+
+------------------------------------------------------------
+
+** emacspeak-org-popup-input Pops up an org input area.
+
+(fn) 
 
   
 
