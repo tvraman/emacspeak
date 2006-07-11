@@ -57,10 +57,10 @@
 ;;{{{  Voices 
 (voice-setup-add-map
  '(
-   (Info-title-1-face voice-bolden-extra)
-   (Info-title-2-face voice-bolden-medium)
-   (Info-title-3-face voice-bolden)
-   (Info-title-4-face voice-lighten)
+   (Info-title-1 voice-bolden-extra)
+   (Info-title-2 voice-bolden-medium)
+   (Info-title-3 voice-bolden)
+   (Info-title-4 voice-lighten)
    (info-header-node voice-smoothen)
    (info-header-xref voice-brighten)
    (info-menu-5 voice-lighten)
