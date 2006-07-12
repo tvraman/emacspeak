@@ -1888,7 +1888,7 @@ Meerkat realy needs an xml-rpc method for getting this.")
                       (mapconcat #'identity
                                  (or
                                   emacspeak-url-template-current-ut
-                                  "Untitled")
+                                  (list "Untitled"))
                                  ": "))
                      'unique)
                     (setq emacspeak-w3-post-process-hook nil))))
