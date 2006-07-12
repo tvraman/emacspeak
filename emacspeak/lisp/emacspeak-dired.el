@@ -59,7 +59,6 @@
    (dired-header voice-smoothen)
    (dired-mark voice-lighten)
    (dired-marked voice-bolden-and-animate)
-   (dired-flag voice-bolden-and-animate)
    (dired-warning voice-animate-extra)
    (dired-directory voice-bolden-medium)
    (dired-symlink voice-animate-extra)

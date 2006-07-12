@@ -176,7 +176,6 @@ personalities."
    (eshell-ls-executable-face voice-animate-extra)
    (eshell-ls-missing voice-brighten)
    (eshell-ls-missing-face voice-brighten)
-   (eshell-ls-picture-face voice-lighten)
    (eshell-ls-product voice-lighten-medium)
    (eshell-ls-product-face voice-lighten-medium)
    (eshell-ls-readonly voice-monotone)
