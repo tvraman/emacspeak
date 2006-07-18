@@ -177,7 +177,7 @@
         (counter 0))
     (save-excursion
       (set-buffer variant)
-      (emacspeak-modify-buffer-safely
+      (ems-modify-buffer-safely
        (while (< counter count)
          (emacspeak-ediff-voicify-extent
           (emacspeak-ediff-diff-overlay-from-difference  diff-vector counter )
@@ -200,7 +200,7 @@
           (and a-vector
                (save-excursion
                  (set-buffer ediff-buffer-A)
-                 (emacspeak-modify-buffer-safely
+                 (ems-modify-buffer-safely
                   (mapcar
                    (function
                     (lambda  (o)
@@ -211,7 +211,7 @@
           (and b-vector
                (save-excursion
                  (set-buffer ediff-buffer-B)
-                 (emacspeak-modify-buffer-safely
+                 (ems-modify-buffer-safely
                   (mapcar
                    (function
                     (lambda  (o)
@@ -231,7 +231,7 @@
         (end (overlay-end overlay )))
     (save-excursion
       (set-buffer buffer )
-      (emacspeak-modify-buffer-safely
+      (ems-modify-buffer-safely
        (put-text-property start end
                           'personality personality)))))
 
