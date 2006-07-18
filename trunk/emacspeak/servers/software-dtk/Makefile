@@ -1,22 +1,17 @@
 #$Id$
 #
-LABEL=1.0
+LABEL=1.1
 DIST=software-dtk-$(LABEL)
-CFLAGS=-g -fpic  -pedantic -ansi -Wall
+CFLAGS=-O3 -fpic -pedantic -ansi -Wall -I/usr/include/tcl8.3 -I/usr/include/tclX8.3
+CPPFLAGS=-DSTDC_HEADERS=1 -Dclock_t=long -DRETSIGTYPE=void 
 INSTALL=install
 CC=gcc
-LIBS=-ltts -ltts_us -ltcl
+LIBS=-ltts -ltts_us -ltclx8.3
 SERVER_DIR=/usr/share/emacs/site-lisp/emacspeak/servers/software-dtk
 FILES=tcldtk.c tcldtk.so tcldtk.o Makefile
-	libparentdir = ${PREFIX}/share/emacs/site-lisp
-libdir =$(libparentdir)/emacspeak/linux-outloud
-all: tcldtk.so
 
-tcldtk.lo: tcldtk.c
-	libtool --mode=compile $(CC) $(CFLAGS) -c $<
-
-tcldtk.so: tcldtk.lo
-	libtool --mode=link $(CC) $(CFLAGS) -g -o $@ tcldtk.lo $(LIBS) -shared
+tcldtk.so: tcldtk.o
+	$(CC) $< $(LIBS)  -shared -o $@
 
 dist: software-dtk.tar.gz
 
