@@ -1169,6 +1169,30 @@ I'm Feeling Lucky button on Google."
      "results"
      'emacspeak-speak-line)))
 
+
+;;{{{ IMFA 
+
+(emacspeak-websearch-set-searcher 'agoogle
+                                  'emacspeak-websearch-accessible-google)
+
+(emacspeak-websearch-set-key ?i 'agoogle)
+;;}}}
+
+(defvar emacspeak-websearch-accessible-google-url
+  "http://www.google.com/u/accessible?cx=accessible!&q="
+  "Google Accessible Search")
+
+(defun emacspeak-websearch-accessible-google(query)
+  "Google Accessible Search"
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Google For: ")))
+  (declare (special emacspeak-websearch-accessible-google-url
+                    emacspeak-websearch-google-uri))
+  (let ((emacspeak-websearch-google-uri
+         emacspeak-websearch-accessible-google-url))
+    (emacspeak-websearch-google query)))
+
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
 
