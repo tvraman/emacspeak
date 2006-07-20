@@ -1180,10 +1180,10 @@ I'm Feeling Lucky button on Google."
 
 (defvar emacspeak-websearch-accessible-google-url
   "http://www.google.com/u/accessible?cx=accessible!&q="
-  "Google Accessible Search")
+  "Google Accessible Search -- see http://labs.google.com/accessible")
 
 (defun emacspeak-websearch-accessible-google(query)
-  "Google Accessible Search"
+  "Google Accessible Search -- see http://labs.google.com/accessible"
   (interactive
    (list
     (emacspeak-websearch-read-query "Google For: ")))
