@@ -148,7 +148,6 @@ emacspeak-gridtext.elc \
 emacspeak-gud.elc \
 emacspeak-hide.elc \
 emacspeak-hideshow.elc \
-emacspeak-hyperbole.elc \
 emacspeak-ibuffer.elc \
 emacspeak-ido.elc \
 emacspeak-imcom.elc \
@@ -159,7 +158,6 @@ emacspeak-iswitchb.elc \
 emacspeak-jabber.elc \
 emacspeak-jde.elc \
 emacspeak-kmacro.elc  \
-emacspeak-kotl.elc \
 emacspeak-madplay.elc \
 emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
@@ -174,7 +172,6 @@ emacspeak-nero.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
-emacspeak-oo-browser.elc \
 emacspeak-org.elc \
 emacspeak-nxml.elc \
 emacspeak-outline.elc \
@@ -351,7 +348,6 @@ emacspeak-gridtext.elc: emacspeak-gridtext.el dtk-speak.elc voice-setup.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc voice-setup.elc
-emacspeak-hyperbole.elc: emacspeak-hyperbole.el dtk-speak.elc voice-setup.elc
 emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-imcom.elc: emacspeak-imcom.el dtk-speak.elc voice-setup.elc
@@ -363,7 +359,6 @@ emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
-emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc voice-setup.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-madplay.elc: emacspeak-madplay.el dtk-speak.elc voice-setup.elc
@@ -380,7 +375,6 @@ emacspeak-nero.elc: emacspeak-nero.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
 emacspeak-nxml.elc: emacspeak-nxml.el dtk-speak.elc voice-setup.elc
-emacspeak-oo-browser.elc: emacspeak-oo-browser.el dtk-speak.elc voice-setup.elc
 emacspeak-org.elc: emacspeak-org.el dtk-speak.elc
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
