@@ -194,8 +194,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "gdb-ui" 'emacspeak-gud)
 (emacspeak-do-package-setup "hangman" 'emacspeak-entertain)
 (emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
-                                        ;(emacspeak-do-package-setup "html-helper-mode" 'html-voice )
-(emacspeak-do-package-setup "hyperbole" 'emacspeak-hyperbole)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
 (emacspeak-do-package-setup "ido" 'emacspeak-ido)
@@ -205,7 +203,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "jabber" 'emacspeak-jabber)
 (emacspeak-do-package-setup "jde" 'emacspeak-jde)
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
-(emacspeak-do-package-setup "kotl" 'emacspeak-kotl)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
 (emacspeak-do-package-setup "man" 'emacspeak-man)
 (emacspeak-do-package-setup "message" 'emacspeak-message)
@@ -219,7 +216,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "net-utils" 'emacspeak-net-utils)
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
-(emacspeak-do-package-setup "oobr" 'emacspeak-oo-browser)
 (emacspeak-do-package-setup "org" 'emacspeak-org)
 (emacspeak-do-package-setup "outline" 'emacspeak-outline)
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
@@ -271,8 +267,6 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
 (emacspeak-do-package-setup "widget" 'emacspeak-widget)
 (emacspeak-do-package-setup "windmove" 'emacspeak-windmove)
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
-(emacspeak-do-package-setup "wrolo" 'emacspeak-wrolo)
-
 ;;}}}
 ;;{{{ finder
 
