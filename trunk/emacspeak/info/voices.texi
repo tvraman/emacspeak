@@ -1,4 +1,3 @@
-
 @node Voice Lock
 @chapter Voice Lock
 
@@ -74,8 +73,8 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 
 @menu
-* How It All Works.::           
-* What this gives.::            
+* How It All Works.::
+* What this gives.::
 @end menu
 
 @node How It All Works.
@@ -117,7 +116,7 @@ Finally, @samp{voice-bolden} is assigned the above symbol.
 @end itemize
 
 @menu
-* What this gives.::            
+* What this gives.::
 @end menu
 
 @node What this gives.
@@ -133,13 +132,13 @@ When that list is editted, @samp{voice-bolden} is arranged to be
 updated automatically.
 @end enumerate
 
-The following additional commands from module @xref{emacspeak-wizards}
+The following additional commands from module @xref{emacspeak-wizards},
 are  useful when designing aural styles.
 @enumerate
 
-@item 
-emacspeak-wizards-generate-voice-sampler 
- 
+@item
+emacspeak-wizards-generate-voice-sampler
+
 Generate a buffer containing text that demonstrates the effect of
 various aural settings.
 
@@ -148,9 +147,9 @@ various aural settings.
 
 
 
-@item 
+@item
 emacspeak-wizards-voice-sampler
- 
+
 
 Applied specified aural style to text in current region.
 @end enumerate
