@@ -38,5 +38,5 @@ if {$user == ""} {set  user env($USER)}
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
 puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
-exec     ssh -o StrictHostKeyChecking=no $host ]\
+exec     ssh -o StrictHostKeyChecking=no $host \
     -l $user -p $port  $tcl $tts
