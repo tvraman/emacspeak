@@ -25,11 +25,18 @@ if [expr $argc == 0] {
 } else {
     set remote [lindex $argv 0]
 }
+# split out port 
 set host_port [split $remote ":"]
 set host [lindex $host_port 0]
 set port [lindex $host_port 1]
 if {$port == ""} {set  port 22}
+# split out user name
+set user_host [split $host "@"]
+set user [lindex $user_host 0]
+set host [lindex $user_host 1]
+if {$user == ""} {set  user env($USER)}
 set tcl /usr/bin/tcl 
 regsub {/ssh-}  $argv0 {/} tts
-puts stderr "Running <ssh $host -p $port   $tcl $tts>"
-exec     ssh -o StrictHostKeyChecking=no $host -p $port  $tcl $tts
+puts stderr "Running <ssh $host -l $user -p $port   $tcl $tts>"
+exec     ssh -o StrictHostKeyChecking=no $host ]\
+    -l $user -p $port  $tcl $tts
