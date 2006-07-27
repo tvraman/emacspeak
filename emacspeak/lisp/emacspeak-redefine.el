@@ -96,6 +96,8 @@ speech flush as you type."
   (when buffer-read-only
     (signal 'buffer-read-only
             (list (current-buffer))))
+  (cond
+   (last-input-char
   (when (and (listp buffer-undo-list)
              (null (car buffer-undo-list)))
     (pop buffer-undo-list ))
@@ -118,6 +120,7 @@ speech flush as you type."
    (>= (current-column) fill-column)
    auto-fill-function
    (funcall auto-fill-function)))
+  (t (self-insert-command arg))))
 
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
