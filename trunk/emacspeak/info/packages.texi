@@ -108,7 +108,6 @@ powerful  environment for eyes-free software development.
 @c  emacspeak-compile.el
 @c  emacspeak-ediff.el
 @c  emacspeak-gud.el
-@c  emacspeak-oo-browser.el
 @c  emacspeak-jde.el
 @c  emacspeak-jde-help.el
 @c  emacspeak-speedbar.el
@@ -151,8 +150,6 @@ information management such as maintaining a daily calendar.
 
 
 @c  emacspeak-calendar.el
-@c  emacspeak-hyperbole.el
-@c  emacspeak-wrolo.el
 @c  emacspeak-bbdb.el
 @c  emacspeak-bookmark.el
 
