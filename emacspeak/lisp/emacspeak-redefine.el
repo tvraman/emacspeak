@@ -169,13 +169,14 @@ speech flush as you type."
   "These commands are activated directly through C,
 rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
-(eval-when '(load)
-  (mapcar 
+
+(mapcar 
    (function
     (lambda (f)
       (emacspeak-rebind f
                         (intern (format "emacspeak-%s" f )))))
-   emacspeak-functions-that-bypass-function-cell ))
+   emacspeak-functions-that-bypass-function-cell )
+
 
 ;;}}}
 ;;{{{  fix ding 
