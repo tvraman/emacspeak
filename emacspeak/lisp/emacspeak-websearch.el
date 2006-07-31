@@ -317,10 +317,10 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                  (emacspeak-url-encode
                   (format "%s near %s" query
                           emacspeak-websearch-emapspeak-my-location)))))
-    (emacspeak-url-template-google-maps-speak uri
-                                              (emacspeak-url-encode
-                                               emacspeak-websearch-emapspeak-my-location)
-                                              'speak)))
+    (browse-url-of-buffer
+     (emacspeak-xslt-xml-url
+      (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
+      uri))))
 
 ;;}}}
 ;;{{{ display form

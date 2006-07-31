@@ -107,21 +107,15 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-          (let ((values
-                 (condition-case nil
-                     (sort val
-                           #'(lambda (a b)
-                               (string-lessp(car a) (car b))))
-                   (error val))))
-            (mapc
-             (lambda (binding)
-               (let ((key (car binding))
-                     (command (cdr binding )))
-                 (when (string-match "\\[.+]" key)
-                   (setq key  (car (read-from-string key))))
-                 (define-key emacspeak-personal-keymap  key command)))
-             values)
-            (set-default sym values))))
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key  (car (read-from-string key))))
+               (define-key emacspeak-personal-keymap  key command)))
+           val)
+          (set-default sym val)))
 
 (define-key  emacspeak-keymap "x"
   'emacspeak-personal-keymap)
@@ -161,21 +155,15 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values
-       (condition-case nil 
-           (sort val
-                 #'(lambda (a b)
-                     (string-lessp (car a) (car b ))))
-         (error val))))
-  (mapc
-   (lambda (binding)
-     (let ((key (car binding))
-           (command (cdr binding )))
-       (when (string-match "\\[.+]" key)
-         (setq key (car (read-from-string key))))
-       (define-key emacspeak-super-keymap key command)))
-   values)
-  (set-default sym values))))
+          (mapc
+           (lambda (binding)
+             (let ((key (car binding))
+                   (command (cdr binding )))
+               (when (string-match "\\[.+]" key)
+                 (setq key (car (read-from-string key))))
+               (define-key emacspeak-super-keymap key command)))
+           val)
+          (set-default sym val)))
 
 (global-set-key "\C-x@s"
                 'emacspeak-super-keymap)
@@ -216,12 +204,6 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values
-       (condition-case nil
-           (sort val
-                 #'(lambda (a b)
-                     (string-lessp (car a) (car b))))
-         (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
@@ -229,8 +211,8 @@ field in the customization buffer.  You can use the notation
        (when (string-match "\\[.+]" key)
          (setq key (car (read-from-string key))))
        (define-key emacspeak-alt-keymap key command)))
-   values)
-  (set-default sym values))))
+   val)
+  (set-default sym val)))
 
 (global-set-key "\C-x@a"
                 'emacspeak-alt-keymap)
@@ -271,12 +253,6 @@ field in the customization buffer.  You can use the notation
                         (string :tag "Key")
                         (symbol :tag "Command")))
   :set '(lambda (sym val)
-(let ((values
-       (condition-case nil
-           (sort val
-                 #'(lambda (a b)
-                     (string-lessp (car a) (car b))))
-         (error val))))
   (mapc
    (lambda (binding)
      (let ((key (car binding))
@@ -284,8 +260,8 @@ field in the customization buffer.  You can use the notation
        (when (string-match "\\[.+]" key)
          (setq key (car (read-from-string key))))
        (define-key emacspeak-hyper-keymap key command)))
-   values)
-  (set-default sym values))))
+   val)
+  (set-default sym val)))
 
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
