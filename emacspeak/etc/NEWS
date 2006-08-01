@@ -29,6 +29,16 @@ table editor (orgtbl).
 
   - Added a wizard for generating a custom popup input buffer.
   -  Use this in emacspeak-org.
+** Dropping Obsolete Extensions:
+
+The following extensions have been made obsolete --- they can
+still be found under lisp/obsolete in CVS.
+
+  - emacspeak-hyperbole.el
+  - emacspeak-oo-browser.el
+  - emacspeak-kotl.el
+  - emacspeak-wrolo.el
+
 ** emacspeak-url-template:
 
   - Added a Google Video searcher
