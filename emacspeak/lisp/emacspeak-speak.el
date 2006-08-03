@@ -150,8 +150,6 @@ Argument BODY specifies forms to execute."
        (ad-disable-advice  'error 'before 'emacspeak )
        (ad-deactivate 'error)
        ,@body
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)
        (ad-enable-advice  'error 'before 'emacspeak )
        (ad-activate 'error))))
 
