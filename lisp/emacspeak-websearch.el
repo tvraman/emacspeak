@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.19 $ |
 ;;; Location undetermined
 ;;;
 
@@ -223,106 +223,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 ;;}}}
 ;;{{{ websearch utilities
-
-;;{{{ Google News
-
-(emacspeak-websearch-set-searcher 'google-news
-                                  'emacspeak-websearch-google-news)
-
-(emacspeak-websearch-set-key ?n 'google-news )
-
-(defun emacspeak-websearch-google-news ()
-  "Invoke Google News url template."
-  (interactive)
-  (let ((name "Google News Search"))
-    (emacspeak-url-template-open
-     (emacspeak-url-template-get name))))
-;;}}}
-;;{{{  EmapSpeak
-(emacspeak-websearch-set-searcher 'emaps
-                                  'emacspeak-websearch-emaps-search)
-
-(emacspeak-websearch-set-key ?e  'emaps)
-;;;###autoload
-(defvar emacspeak-websearch-google-maps-uri
-  "http://maps.google.com/maps?q=%s&output=kml"
-  "URL template for Google maps.")
-
-(defcustom emacspeak-websearch-emapspeak-my-location ""
-  "Specifies location near we look by default."
-  :type 'string
-  :group 'emacspeak-websearch)
-
-(defun emacspeak-websearch-emaps-search (query &optional use-near)
-  "Perform EmapSpeak search.
-Query is a Google Maps query in plain English.
-Interactive prefix arg `use-near' searches near our previously cached  location."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     (if current-prefix-arg
-         (format "Find what near  %s: "
-                 emacspeak-websearch-emapspeak-my-location)
-       "EMap Query: "))
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-google-maps-uri
-                    emacspeak-websearch-emapspeak-my-location))
-  (let ((near-p
-         (unless use-near
-           (save-match-data
-             (and (string-match "near" query)
-                  (match-end 0)))))
-        (near "")
-        (uri nil))
-    (when near-p
-      (setq near (substring query near-p))
-      (setq emacspeak-websearch-emapspeak-my-location near))
-    (setq uri
-          (cond
-           (use-near
-            (format emacspeak-websearch-google-maps-uri
-                    (emacspeak-url-encode
-                     (format "%s near %s"
-                             query emacspeak-websearch-emapspeak-my-location))))
-           (t (format emacspeak-websearch-google-maps-uri
-                      (emacspeak-url-encode query)))))
-    (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
-    (add-hook  'emacspeak-w3-post-process-hook
-               #'(lambda nil
-                   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-                    " mi"
-                    " miles ")))
-    (browse-url-of-buffer
-     (emacspeak-xslt-xml-url
-      (expand-file-name "kml2html.xsl"
-                        emacspeak-xslt-directory)
-      uri))))
-                                              
-                                              
-
-;;;###autoload
-(defun emacspeak-websearch-emapspeak-near-my-location (query)
-  "Perform search relative to `my-location'."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     (format "Find what near  %s: "
-             emacspeak-websearch-emapspeak-my-location))))
-  (declare (special emacspeak-websearch-emapspeak-my-location))
-  (unless emacspeak-websearch-emapspeak-my-location
-    (setq emacspeak-websearch-emapspeak-my-location
-          (read-from-minibuffer "Near Location: ")))
-  (let ((uri
-         (format emacspeak-websearch-google-maps-uri
-                 (emacspeak-url-encode
-                  (format "%s near %s" query
-                          emacspeak-websearch-emapspeak-my-location)))))
-    (browse-url-of-buffer
-     (emacspeak-xslt-xml-url
-      (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
-      uri))))
-
-;;}}}
 ;;{{{ display form
 
 (emacspeak-websearch-set-searcher 'display-form
@@ -1170,7 +1070,7 @@ I'm Feeling Lucky button on Google."
      'emacspeak-speak-line)))
 
 
-;;{{{ IMFA 
+;;{{{ IMFA
 
 (emacspeak-websearch-set-searcher 'agoogle
                                   'emacspeak-websearch-accessible-google)
@@ -1255,7 +1155,7 @@ http://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-key 6 'froogle)
 
 (defvar emacspeak-websearch-froogle-uri
-  "http://froogle.google.com/froogle?q=%s/"
+  "http://froogle.google.com/froogle?q="
   "*URI for Froogle search")
 
 (defun emacspeak-websearch-froogle (query &optional local-flag)
@@ -1280,6 +1180,95 @@ Optional interactive  prefix arg local-flag prompts for local
      (emacspeak-websearch-post-process
       query
       'emacspeak-speak-line))))
+
+;;}}}
+;;{{{ Google Swiss Army Knife:
+(emacspeak-websearch-set-searcher 'google-sak
+                                  'emacspeak-websearch-google-sak)
+
+(emacspeak-websearch-set-key ?\' 'google-sak )
+(defvar emacspeak-websearch-google-images
+  "http://images.google.com/images?hl=en&ie=UTF-8&q="
+  "URI for Google Image Search.")
+
+(defvar emacspeak-websearch-google-news-uri
+  "http://groups.google.com/grphp?hl=en&ie=UTF-8&q="
+  "URI for Google News search.")
+
+(defvar emacspeak-websearch-froogle-uri
+  "http://froogle.google.com/frghp?hl=en&ie=UTF-8&q="
+  "URI for Google Froogle.")
+(defvar emacspeak-websearch-google-html-maps-uri
+  "http://maps.google.com/?output=html&hl=en&ie=UTF-8&q="
+  "URI for Google Maps using plain HTML.")
+
+
+(defvar emacspeak-websearch-google-scholar-uri
+  "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&num=25&q="
+  "URI for Google Scholar search.")
+
+
+(defvar emacspeak-websearch-google-books-uri
+  "http://books.google.com/books?btnG=Search+Books&hl=en&q="
+  "URI for Google Book Search.")
+
+
+(defvar emacspeak-websarch-google-videos-uri
+  "http://video.google.com/videofeed?type=search&q="
+  "URI for Google Video search.")
+
+
+(defvar emacspeak-websearch-google-launch-uris
+  (list
+   (cons "web" emacspeak-websearch-google-uri)
+    (cons "images"  emacspeak-websearch-google-images)
+    (cons "news" emacspeak-websearch-google-news-uri)
+    (cons "froogle" emacspeak-websearch-froogle-uri)
+    (cons "books" emacspeak-websearch-google-books-uri)
+    (cons "scholar" emacspeak-websearch-google-scholar-uri)
+    (cons "maps" emacspeak-websearch-google-html-maps-uri)
+    (cons "videos" emacspeak-websarch-google-videos-uri))
+  "Association list of Google search URIs.")
+
+(defun emacspeak-websearch-google-sak(engine query)
+  "Perform a Google query against a specific index."
+  (interactive
+   (list
+    (completing-read "Engine: "
+                     emacspeak-websearch-google-launch-uris)
+    (emacspeak-websearch-read-query "Google For: ")))
+  (declare (special emacspeak-websearch-read-query))
+  (browse-url
+   (concat (cdr (assoc engine
+                       emacspeak-websearch-google-launch-uris))
+           (emacspeak-url-encode query))))
+
+
+
+
+
+
+;;}}}
+;;{{{  technorati tag search:
+
+(emacspeak-websearch-set-searcher 'technorati
+                                  'emacspeak-websearch-technorati)
+
+(emacspeak-websearch-set-key ?t 'technorati)
+
+(defvar emacspeak-websearch-technorati-uri
+  "http://www.technorati.com/tags/"
+  "URI for Technorati tag search.")
+
+(defun emacspeak-websearch-technorati (query)
+  "Perform a Technorati tag search."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query "Tag: ")))
+  (declare (special emacspeak-websearch-technorati-uri))
+  (browse-url
+   (concat emacspeak-websearch-technorati-uri
+           (emacspeak-url-encode query))))
 
 ;;}}}
 ;;{{{ teoma
@@ -1347,6 +1336,106 @@ Optional interactive  prefix arg local-flag prompts for local
   (emacspeak-websearch-post-process
    query
    'emacspeak-speak-rest-of-buffer))
+
+;;}}}
+;;{{{ Google News
+
+(emacspeak-websearch-set-searcher 'google-news
+                                  'emacspeak-websearch-google-news)
+
+(emacspeak-websearch-set-key ?n 'google-news )
+
+(defun emacspeak-websearch-google-news ()
+  "Invoke Google News url template."
+  (interactive)
+  (let ((name "Google News Search"))
+    (emacspeak-url-template-open
+     (emacspeak-url-template-get name))))
+
+;;}}}
+;;{{{  EmapSpeak
+(emacspeak-websearch-set-searcher 'emaps
+                                  'emacspeak-websearch-emaps-search)
+
+(emacspeak-websearch-set-key ?e  'emaps)
+;;;###autoload
+(defvar emacspeak-websearch-google-maps-uri
+  "http://maps.google.com/maps?q=%s&output=kml"
+  "URL template for Google maps.")
+
+(defcustom emacspeak-websearch-emapspeak-my-location ""
+  "Specifies location near we look by default."
+  :type 'string
+  :group 'emacspeak-websearch)
+
+(defun emacspeak-websearch-emaps-search (query &optional use-near)
+  "Perform EmapSpeak search.
+Query is a Google Maps query in plain English.
+Interactive prefix arg `use-near' searches near our previously cached  location."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query
+     (if current-prefix-arg
+         (format "Find what near  %s: "
+                 emacspeak-websearch-emapspeak-my-location)
+       "EMap Query: "))
+    current-prefix-arg))
+  (declare (special emacspeak-websearch-google-maps-uri
+                    emacspeak-websearch-emapspeak-my-location))
+  (let ((near-p
+         (unless use-near
+           (save-match-data
+             (and (string-match "near" query)
+                  (match-end 0)))))
+        (near "")
+        (uri nil))
+    (when near-p
+      (setq near (substring query near-p))
+      (setq emacspeak-websearch-emapspeak-my-location near))
+    (setq uri
+          (cond
+           (use-near
+            (format emacspeak-websearch-google-maps-uri
+                    (emacspeak-url-encode
+                     (format "%s near %s"
+                             query emacspeak-websearch-emapspeak-my-location))))
+           (t (format emacspeak-websearch-google-maps-uri
+                      (emacspeak-url-encode query)))))
+    (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
+    (add-hook  'emacspeak-w3-post-process-hook
+               #'(lambda nil
+                   (emacspeak-pronounce-add-buffer-local-dictionary-entry
+                    " mi"
+                    " miles ")))
+    (browse-url-of-buffer
+     (emacspeak-xslt-xml-url
+      (expand-file-name "kml2html.xsl"
+                        emacspeak-xslt-directory)
+      uri))))
+
+
+
+;;;###autoload
+(defun emacspeak-websearch-emapspeak-near-my-location (query)
+  "Perform search relative to `my-location'."
+  (interactive
+   (list
+    (emacspeak-websearch-read-query
+     (format "Find what near  %s: "
+             emacspeak-websearch-emapspeak-my-location))))
+  (declare (special emacspeak-websearch-emapspeak-my-location))
+  (unless emacspeak-websearch-emapspeak-my-location
+    (setq emacspeak-websearch-emapspeak-my-location
+          (read-from-minibuffer "Near Location: ")))
+  (let ((uri
+         (format emacspeak-websearch-google-maps-uri
+                 (emacspeak-url-encode
+                  (format "%s near %s" query
+                          emacspeak-websearch-emapspeak-my-location)))))
+    (browse-url-of-buffer
+     (emacspeak-xslt-xml-url
+      (expand-file-name "kml2html.xsl" emacspeak-xslt-directory)
+      uri))))
 
 ;;}}}
 ;;{{{  advanced usenet search

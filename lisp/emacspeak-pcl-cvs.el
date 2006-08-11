@@ -10,7 +10,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.1 $ |
 ;;; Location undetermined
 ;;;
 

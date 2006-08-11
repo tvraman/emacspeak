@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.6 $ |
 ;;; Location undetermined
 ;;;
 
@@ -926,12 +926,12 @@ Optional PREFIX arg flushes any previously paused speech."
          dtk-paused)
     (dtk-interp-pause)
     (dtk-speak "Flushed previously paused speech ")
-    (setq dtk-paused nil))
+    (setq dtk-paused t))
    ((and dtk-paused
          (interactive-p))
     (emacspeak-auditory-icon 'warn-user))))
 
-(defcustom dtk-resume-should-toggle nil
+(defcustom dtk-resume-should-toggle t
   "*T means `dtk-resume' acts as a toggle."
   :type 'boolean
   :group 'tts)
@@ -941,7 +941,7 @@ Optional PREFIX arg flushes any previously paused speech."
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to \\[dtk-pause].
 If speech has not been paused,
-and variable `dtk-resume-should-toggle' is t
+and option `dtk-resume-should-toggle' is set,
  then this command will pause ongoing speech."
   (interactive)
   (declare (special dtk-speaker-process
@@ -951,6 +951,10 @@ and variable `dtk-resume-should-toggle' is t
    ((and dtk-resume-should-toggle
          (not dtk-paused))
     (dtk-pause))
+   ((and (not dtk-paused)
+         (not dtk-resume-should-toggle))
+    (dtk-speak "No speech to resume."))
+    
    (t (dtk-interp-resume)
       (emacspeak-auditory-icon 'button)
       (setq dtk-paused nil))))

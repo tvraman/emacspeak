@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.14 $ |
 ;;; Location undetermined
 ;;;
 
@@ -157,7 +157,8 @@
   (loop for binding in
         '(
           ( "\C-t" emacspeak-w3-toggle-table-borders)
-          ("'" emacspeak-speak-rest-of-buffer)
+          ("\"" emacspeak-speak-rest-of-buffer)
+          ("'" emacspeak-speak-skim-buffer)
           ("/" emacspeak-w3-google-similar-to-this-page)
           (";" emacspeak-w3-speak-this-element)
           ("A" emacspeak-w3-browse-atom-at-point)
@@ -184,6 +185,7 @@
           ("t" emacspeak-w3-transcode-via-google)
           ("T"  emacspeak-w3-jump-to-title-in-content)
           ("y" emacspeak-w3-url-rewrite-and-follow)
+          ("z" emacspeak-w3-speak-next-block)
           )
         do
         (emacspeak-keymap-update w3-mode-map binding)))
@@ -1224,7 +1226,8 @@ XPath locator.")
                  (format "\"'%s'\"" url))))))
     (save-excursion
       (set-buffer  result)
-      (browse-url-of-buffer))))
+      (browse-url-of-buffer))
+    (kill-buffer result)))
 
 ;;}}}
 ;;{{{ Browse XML files:
@@ -1350,7 +1353,7 @@ urls.")
 
 (make-variable-buffer-local 'emacspeak-w3-xpath-filter)
 (defcustom emacspeak-w3-most-recent-xpath-filter
-  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote"
+  "//p|ol|ul|dl|h1|h2|h3|h4|h5|h6|blockquote|div"
   "Caches most recently used xpath filter.
 Can be customized to set up initial default."
   :type 'string
@@ -1752,6 +1755,36 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
       (setq emacspeak-pronounce-pronunciation-table save-pronunciations)))
    (t ad-do-it))
   ad-return-value)
+;;}}}
+;;{{{ jump by block level elements (experimental:
+
+(defun emacspeak-w3-next-block ()
+  "Move by block level displays."
+  (interactive)
+  (cond
+   ((w3-table-info 0 'no-error) (w3-table-move-to-table-end))
+   (t
+    (while (and (not (eobp))
+                (emacspeak-w3-html-stack))
+      (goto-char
+       (next-single-property-change (point) 'html-stack)))))
+  (when (null (emacspeak-w3-html-stack))
+  (goto-char (next-single-property-change (point) 'html-stack)))
+  (when (interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'large-movement)))
+
+(defun emacspeak-w3-speak-next-block ()
+  "Move to next block and speak it."
+  (interactive)
+  (let ((start nil))
+    (emacspeak-w3-next-block)
+    (save-excursion
+      (setq start (point))
+      (emacspeak-w3-next-block)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-region start (point)))))
+
 ;;}}}
 ;;{{{  make wget aware of emacspeak w3 url rewrite functionality
 
