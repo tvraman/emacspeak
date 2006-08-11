@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.3 $ |
 ;;; Location undetermined
 ;;;
 
@@ -65,7 +65,7 @@
 ;;}}}
 ;;{{{  Customize groups 
 (defconst emacspeak-version
-  (let ((x "$Revision$"))
+  (let ((x "$Revision: 24.3 $"))
     (string-match "[0-9.]+" x)
     (substring x (match-beginning 0)
                (match-end 0)))

@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.17 $ |
 ;;; Location undetermined
 ;;;
 
@@ -778,9 +778,7 @@ from English to German.")
  nil
  "Only show Google hits."
  #'(lambda (url)
-     (emacspeak-w3-extract-by-class-list
-      (list "j" "g")
-      url 'speak)))
+     (emacspeak-w3-xslt-filter "//div[1]" url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times
@@ -846,18 +844,12 @@ from English to German.")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Search news for: ")
- #'(lambda nil
-     (or
-      (search-forward "Sorted by" (point-max) 'no-error)
-      (search-forward "Top Stories" (point-max) 'no-error))
-     (forward-line 4)
-     (emacspeak-speak-line))
+ nil
  "Search Google news."
  #'(lambda (url)
-     (emacspeak-w3-without-xsl
-      (browse-url url))))
+     (emacspeak-atom-display url 'speak)))
 
 (emacspeak-url-template-define
  "Google Recent News Search"

@@ -9,7 +9,7 @@
 ;;; atom-blogger| T. V. Raman |raman@google.com
 ;;; An emacs interface to Blogger|
 ;;; $Date$ |
-;;;  $Revision$ |
+;;;  $Revision: 24.0 $ |
 ;;; Location undetermined
 ;;; License: GPL
 ;;;
