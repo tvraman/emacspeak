@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 776 commands.
+This chapter documents a total of 779 commands.
 
 @menu
 * cd-tool::                     
@@ -47,7 +47,6 @@ This chapter documents a total of 776 commands.
 * emacspeak-info::              
 * emacspeak-jabber::            
 * emacspeak-keymap::            
-* emacspeak-kotl::              
 * emacspeak-loaddefs::          
 * emacspeak-m-player::          
 * emacspeak-madplay::           
@@ -187,7 +186,7 @@ Resume paused speech.
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to C-e p.
 If speech has not been paused,
-and variable `dtk-resume-should-toggle' is t
+and option `dtk-resume-should-toggle' is set,
  then this command will pause ongoing speech.
 @end deffn
 
@@ -1705,21 +1704,6 @@ This function is advised.
 
 Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts. 
-@end deffn
-
-@node emacspeak-kotl
-@section emacspeak-kotl
-
-Automatically generated documentation
-for commands defined in module  emacspeak-kotl.
-
-@deffn {Interactive Command} emacspeak-kotl-setup-keys ()
-Setup additional keybindings
-@end deffn
-
-@deffn {Interactive Command} emacspeak-kotl-speak-cell (ARG)
-Speak cell contents from point to end of cell.
-  With prefix arg, speaks entire cell contents
 @end deffn
 
 @node emacspeak-loaddefs
@@ -4188,6 +4172,10 @@ the table structure extraction code in W3.
 Play url under point using mplayer
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-next-block ()
+Move by block level displays.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-next-doc-element (&optional COUNT)
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
@@ -4219,6 +4207,10 @@ element.
 
 @deffn {Interactive Command} emacspeak-w3-show-http-headers ()
 Show HTTP headers using lwp-request
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-speak-next-block ()
+Move to next block and speak it.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-speak-next-element ()
@@ -4397,6 +4389,10 @@ This module provides utility functions for searching the WWW
 Automatically generated documentation
 for commands defined in module  emacspeak-websearch.
 
+@deffn {Interactive Command} emacspeak-websearch-accessible-google (QUERY)
+Google Accessible Search -- see http://labs.google.com/accessible
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-alltheweb-search (QUERY)
 Perform an AllTheWeb  search.
 @end deffn
@@ -4517,6 +4513,10 @@ Google mobile search.
 Invoke Google News url template.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-websearch-google-sak (ENGINE QUERY)
+Perform a Google query against a specific index.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range ()
 Use this from inside the calendar to do Google date-range searches.
 @end deffn
@@ -4610,6 +4610,10 @@ Search SourceForge Site.
 
 @deffn {Interactive Command} emacspeak-websearch-swik-search (QUERY)
 Search swik software community site.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-websearch-technorati (QUERY)
+Perform a Technorati tag search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-teoma (QUERY)
