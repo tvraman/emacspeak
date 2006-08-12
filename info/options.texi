@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 546 user customizable
+This chapter documents a total of 542 user customizable
   options.
 
 @menu
@@ -710,7 +710,6 @@ personalities."
    (eshell-ls-executable-face voice-animate-extra)
    (eshell-ls-missing voice-brighten)
    (eshell-ls-missing-face voice-brighten)
-   (eshell-ls-picture-face voice-lighten)
    (eshell-ls-product voice-lighten-medium)
    (eshell-ls-product-face voice-lighten-medium)
    (eshell-ls-readonly voice-monotone)
@@ -2847,11 +2846,6 @@ Personality used for dired-directory
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-dired-flag-voice
-Personality used for dired-flag
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-@end defvar
-
 @defvar {User Option} emacspeak-dired-header-voice
 Personality used for dired-header
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
@@ -3065,11 +3059,6 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-eshell-ls-missing-voice
 Personality used for eshell-ls-missing
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-eshell-ls-picture-personality
-Personality used for eshell-ls-picture-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-eshell-ls-product-personality
@@ -3422,19 +3411,9 @@ Personality used for gnus-summary-selected-face
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 @end defvar
 
-@defvar {User Option} emacspeak-gui-button-voice
-Personality used for gui-button
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-@end defvar
-
 @defvar {User Option} emacspeak-help-argument-name-voice
 Personality used for help-argument-name
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-@end defvar
-
-@defvar {User Option} emacspeak-highlight-personality
-Personality used for highlight-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 @end defvar
 
 @defvar {User Option} emacspeak-highlight-voice
