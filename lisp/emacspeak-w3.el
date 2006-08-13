@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.14 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -157,8 +157,8 @@
   (loop for binding in
         '(
           ( "\C-t" emacspeak-w3-toggle-table-borders)
-          ("\"" emacspeak-speak-rest-of-buffer)
-          ("'" emacspeak-speak-skim-buffer)
+          ("'" emacspeak-speak-rest-of-buffer)
+          ("\"" emacspeak-speak-skim-buffer)
           ("/" emacspeak-w3-google-similar-to-this-page)
           (";" emacspeak-w3-speak-this-element)
           ("A" emacspeak-w3-browse-atom-at-point)
