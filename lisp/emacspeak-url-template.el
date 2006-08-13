@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.17 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -778,7 +778,8 @@ from English to German.")
  nil
  "Only show Google hits."
  #'(lambda (url)
-     (emacspeak-w3-xslt-filter "//div[1]" url 'speak)))
+     (emacspeak-w3-extract-by-class "g"
+                                    url 'speak)))
 
 ;;}}}
 ;;{{{ NY Times
