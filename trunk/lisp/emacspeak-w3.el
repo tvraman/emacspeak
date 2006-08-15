@@ -1167,6 +1167,96 @@ completion. "
      (format "//*[%s]" filter)
      prompt-url
      (or (interactive-p) speak))))
+(defvar emacspeak-w3-buffer-id-cache nil
+  "Caches id attribute values for current buffer.")
+
+(make-variable-buffer-local 'emacspeak-w3-buffer-id-cache)
+
+(defun emacspeak-w3-id-cache ()
+  "Build CSS class cache for buffer if needed."
+  (unless (eq major-mode 'w3-mode)
+    (error "Not in W3 buffer."))
+  (or emacspeak-w3-buffer-id-cache
+      (let ((values nil)
+            (buffer
+             (emacspeak-xslt-url
+              (expand-file-name "class-values.xsl"
+                                emacspeak-xslt-directory)
+              (url-view-url 'no-show)
+              nil
+              'no-comment)))
+        (setq values
+              (save-excursion
+                (set-buffer buffer)
+                (shell-command-on-region (point-min) (point-max)
+                                         "sort  -u"
+                                         (current-buffer))
+                (split-string (buffer-string))))
+        (setq emacspeak-w3-buffer-id-cache
+              (mapcar
+               #'(lambda (v)
+                   (cons v v ))
+               values)))))
+
+
+
+(defun emacspeak-w3-extract-by-id (id   &optional prompt-url speak)
+  "Extract elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of id values as completion."
+  (interactive
+   (list
+    (completing-read "Id: "
+                     (emacspeak-w3-id-cache))
+    current-prefix-arg))
+  (emacspeak-w3-xslt-filter
+   (format "//*[@id=\"%s\"]"
+           id)
+   prompt-url
+   (or (interactive-p)
+       speak)))
+
+(defsubst  emacspeak-w3-get-id-list ()
+  "Collect a list of ides by prompting repeatedly in the
+minibuffer.
+Empty value finishes the list."
+  (let ((ides (emacspeak-w3-css-id-cache))
+        (result nil)
+        (c nil)
+        (done nil))
+    (while (not done)
+      (setq c
+            (completing-read "Id: "
+                             ides
+                             nil 'must-match))
+      (if (> (length c) 0)
+          (push c result)
+        (setq done t)))
+    result))
+;;;###autoload
+(defun emacspeak-w3-extract-by-id-list(ids   &optional prompt-url speak)
+  "Extract elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provids list of id values as
+completion. "
+  (interactive
+   (list
+    (emacspeak-w3-css-get-id-list)
+    current-prefix-arg))
+  (let ((filter nil))
+    (setq filter
+          (mapconcat
+           #'(lambda  (c)
+               (format "(@id=\"%s\")" c))
+           ids
+           " or "))
+    (emacspeak-w3-xslt-filter
+     (format "//*[%s]" filter)
+     prompt-url
+     (or (interactive-p) speak))))
+
 
 (defun emacspeak-w3-junk-by-class-list(classes   &optional prompt-url speak)
   "Junk elements having class specified in list `classes' from HTML.
@@ -1290,7 +1380,8 @@ loaded. "
         ("c" emacspeak-w3-extract-by-class)
         ("e" emacspeak-w3-url-expand-and-execute)
         ("f" emacspeak-w3-xslt-filter)
-        ("i" emacspeak-w3-extract-node-by-id)
+        ("i" emacspeak-w3-extract-by-id)
+        ("I" emacspeak-w3-extract-by-id-list)
         ("j" emacspeak-w3-xslt-junk)
         ("k" emacspeak-w3-set-xsl-keep-result)
         ("m" emacspeak-w3-extract-table-by-match)
