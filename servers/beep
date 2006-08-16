@@ -1,7 +1,11 @@
 #!/bin/bash
 # $Id$
 # Replacement for the simple functions of "beep" 
-# Uses the sound card instead of the pc-speaker
+# Uses the sound card instead of the pc-speaker. Useful with ViaVoice to get 
+# tones if the "beep" program that uses the pc-speaker does not work.
+# Requires the "tones" program which is part of the siggen package 
+# by Jim Jackson. siggen is available from:
+# http://www.comp.leeds.ac.uk/jj/linux/siggen.html
 
 # Set defaults
 LEN=200
