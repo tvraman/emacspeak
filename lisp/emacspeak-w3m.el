@@ -224,14 +224,14 @@ instead of the modeline."
 
 (defun emacspeak-w3m-speak-form-submit (form &optional name value)
   "Speak submit button."
-  (declare (special emacspeak-w3m-button-personality))
+  (declare (special emacspeak-w3m-form-button-personality))
   (dtk-speak
    (if (equal value "")
        "submit button"
      (format "button %s"
              (emacspeak-w3m-personalize-string
               value
-              emacspeak-w3m-button-personality)))))
+              emacspeak-w3m-form-button-personality)))))
 
 (defun emacspeak-w3m-speak-form-input-radio (form name value)
   "speech enable radio buttons."
@@ -275,12 +275,12 @@ instead of the modeline."
 
 (defun emacspeak-w3m-speak-form-reset (form)
   "Reset button."
-  (declare (special emacspeak-w3m-button-personality))
+  (declare (special emacspeak-w3m-form-button-personality))
   (dtk-speak
    (format "button %s"
            (emacspeak-w3m-personalize-string
             "reset"
-            emacspeak-w3m-button-personality))))
+            emacspeak-w3m-form-button-personality))))
 
 ;;}}}
 ;;{{{  advice interactive commands.
