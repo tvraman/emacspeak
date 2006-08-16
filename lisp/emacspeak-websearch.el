@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.19 $ |
+;;;  $Revision: 24.20 $ |
 ;;; Location undetermined
 ;;;
 
@@ -1401,6 +1401,7 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
                              query emacspeak-websearch-emapspeak-my-location))))
            (t (format emacspeak-websearch-google-maps-uri
                       (emacspeak-url-encode query)))))
+    (kill-new uri)
     (add-hook 'emacspeak-w3-post-process-hook 'emacspeak-speak-buffer)
     (add-hook  'emacspeak-w3-post-process-hook
                #'(lambda nil
