@@ -1,24 +1,24 @@
 # $Id$
-# $Author$ 
-# Description:  Makefile for Emacspeak 
-# Keywords: Emacspeak, Dectalk, Makefile 
-# {{{ LCD Entry: 
+# $Author$
+# Description:  Makefile for Emacspeak
+# Keywords: Emacspeak, Dectalk, Makefile
+# {{{ LCD Entry:
 
 # LCD Archive Entry:
-# emacspeak| T. V. Raman |raman@cs.cornell.edu 
+# emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
 # $Date$ |
-#  $Revision: 24.4 $ | 
+#  $Revision: 24.4 $ |
 # Location undetermined
 #
 
 # }}}
-# {{{ Copyright:  
+# {{{ Copyright:
 
-#Copyright (C) 1995 -- 2003, T. V. Raman 
+#Copyright (C) 1995 -- 2003, T. V. Raman
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-# All Rights Reserved. 
+# All Rights Reserved.
 #
 # This file is not part of GNU Emacs, but the same permissions apply.
 #
@@ -37,7 +37,7 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
-# {{{make rules 
+# {{{make rules
 
 # what emacs is called on your system
 EMACS = emacs
@@ -45,8 +45,8 @@ SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el -l $(SRC)/lisp/emacspeak-cus-load.el
-COMPILE =  -f batch-byte-compile 
-# How to compile 
+COMPILE =  -f batch-byte-compile
+# How to compile
 %.elc:  %.el
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 # }}}
@@ -56,7 +56,7 @@ COMPILE =  -f batch-byte-compile
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
 outloud-voices.elc multispeech-voices.elc \
-dtk-interp.elc		
+dtk-interp.elc
 
 SPEAK_OBJECTS =   \
 	emacspeak-speak.elc  \
@@ -65,7 +65,7 @@ SPEAK_OBJECTS =   \
 	html-outline.elc \
 	emacspeak-personality.elc \
         emacspeak-pronounce.elc \
-	emacspeak-sounds.elc 
+	emacspeak-sounds.elc
 
 CORE_OBJECTS =  \
 	emacspeak.elc \
@@ -77,7 +77,7 @@ emacspeak-re-builder.elc \
 	emacspeak-replace.elc \
         emacspeak-table.elc \
         emacspeak-table-ui.elc \
-	emacspeak-tabulate.elc 
+	emacspeak-tabulate.elc
 
 AUX_OBJECTS =  cd-tool.elc \
 emacspeak-add-log.elc \
@@ -228,26 +228,25 @@ emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
 emacspeak-xslt-process.elc  \
-xml-sexp.elc 
+xml-sexp.elc
 
-ADDON_OBJECTS= tapestry.elc   stack-f.elc string.elc xml-parse.elc 
+ADDON_OBJECTS= tapestry.elc   stack-f.elc string.elc xml-parse.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  \
 	$(AUX_OBJECTS) $(ADDON_OBJECTS)
 
 # }}}
-# {{{  User level targets all  
+# {{{  User level targets all
 
-all: $(OBJECTS)  
+all: $(OBJECTS)
 config: emacspeak-loaddefs.el emacspeak-cus-load.el
 
-emacspeak-cus-load.el: cus-load.el
-	mv cus-load.el emacspeak-cus-load.el
+
 # }}}
 # {{{build time target --loaddefs
 
 .PHONY: emacspeak-loaddefs.el
-.PHONY: cus-load.el
+.PHONY: emacspeak-cus-load.el
 
 emacspeak-loaddefs.el:
 	rm -f emacspeak-loaddefs.el
@@ -256,8 +255,9 @@ emacspeak-loaddefs.el:
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-cus-load.el:
-	$(EMACS) $(BATCH) -l cus-dep -f custom-make-dependencies "."
+emacspeak-cus-load.el:
+	$(EMACS) $(BATCH) -l ./emacspeak-autoload \
+-f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
 # }}}
 # {{{  Make rules for the various modules
 
@@ -301,7 +301,7 @@ emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc voice-setup.elc
 emacspeak-buff-sel.elc: emacspeak-buff-sel.el dtk-speak.elc voice-setup.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc voice-setup.elc
 emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
-emacspeak-calc.elc: emacspeak-calc.el 
+emacspeak-calc.elc: emacspeak-calc.el
 emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc voice-setup.elc
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
 emacspeak-cedet.elc: emacspeak-cedet.el dtk-speak.elc voice-setup.elc
@@ -322,7 +322,7 @@ emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
 flite-voices.elc: flite-voices.el
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc
-emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc 
+emacspeak-emms.elc: emacspeak-emms.el dtk-speak.elc
 emacspeak-entertain.elc: emacspeak-entertain.el dtk-speak.elc voice-setup.elc
 emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
@@ -351,7 +351,7 @@ emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-imcom.elc: emacspeak-imcom.el dtk-speak.elc voice-setup.elc
 emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
-emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc 
+emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-iswitchb.elc: emacspeak-iswitchb.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
@@ -402,7 +402,7 @@ emacspeak-sh-script.elc: emacspeak-sh-script.el dtk-speak.elc voice-setup.elc
 emacspeak-sigbegone.elc: emacspeak-sigbegone.el voice-setup.elc
 emacspeak-solitaire.elc: emacspeak-solitaire.el dtk-speak.elc voice-setup.elc
 emacspeak-sounds.elc: emacspeak-sounds.el
-emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc 
+emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
@@ -443,7 +443,7 @@ xml-sexp.elc: xml-sexp.el
 emacspeak.elc: emacspeak.el
 loaddefs: emacspeak-loaddefs.elc
 # }}}
-# {{{Development  target: indent 
+# {{{Development  target: indent
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
@@ -457,9 +457,9 @@ clean:
 	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-loads.el
 
 # }}}
-# {{{ end of file 
+# {{{ end of file
 
-#local variables: 
+#local variables:
 #major-mode: makefile-mode
 #eval:  (fold-set-marks "# {{{" "# }}}")
 #fill-column: 90
