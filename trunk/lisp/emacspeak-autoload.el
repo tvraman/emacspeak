@@ -48,6 +48,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'autoload)
+(load-library "cus-dep")
 (require 'emacspeak-load-path)
 
 ;;}}}
@@ -56,7 +57,13 @@
 (declaim (special emacspeak-lisp-directory))
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory)
-  "File that holds automatically generated autoloads for Emacspeak.")
+  "File that holds automatically generated autoloads for
+Emacspeak.")
+
+(defvar emacspeak-auto-custom-file
+  (expand-file-name "emacspeak-cus-load.el" emacspeak-lisp-directory)
+  "File that holds automatically generated custom dependencies for
+Emacspeak.")
 
 ;;}}}
 ;;{{{ generate autoloadms
@@ -79,6 +86,17 @@
              emacspeak-lisp-directory)
     (funcall emacspeak-update-autoloads-from-directories
              (expand-file-name "atom-blogger" emacspeak-lisp-directory))))
+
+;;}}}
+;;{{{ custom dependencies:
+
+
+(defun emacspeak-auto-custom-make-dependencies ()
+  "Generate emacspeak custom deps."
+  (declare (special  emacspeak-auto-custom-file))
+  (let ((dtk-quiet t)
+        (generated-custom-dependencies-file emacspeak-auto-custom-file))
+    (custom-make-dependencies)))
 
 ;;}}}
 (provide 'emacspeak-autoload)
