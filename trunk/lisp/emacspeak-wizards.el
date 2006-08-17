@@ -2892,9 +2892,8 @@ RIVO is implemented by rivo.pl ---
 Default is to add autoload cookies to current file."
   (interactive)
   (or f (setq f (buffer-file-name)))
-  (let ((buffer (find-file-noselect f))
-        (old-position 0))
-    ;(save-excursion
+  (let ((buffer (find-file-noselect f)))
+    (save-excursion
       (set-buffer buffer)
       (goto-char (point-min))
       (unless (eq major-mode'emacs-lisp-mode)
@@ -2908,8 +2907,8 @@ Default is to add autoload cookies to current file."
           (forward-line 1)
           (beginning-of-line)
           (insert (format "%s\n"ems-autoload-cookie)))
-        (end-of-defun)
-        (setq old-position (point)))))
+        (end-of-defun)))))
+
 ;;}}}
 
 ;;{{{ specialized input buffers:
