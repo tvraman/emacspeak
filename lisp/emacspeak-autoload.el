@@ -47,8 +47,6 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(load-library "cus-dep")
 (require 'autoload)
 (require 'emacspeak-load-path)
 
