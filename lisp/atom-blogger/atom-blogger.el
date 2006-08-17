@@ -39,8 +39,8 @@
 ;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
 ;;; GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
 ;;; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY 
-;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+;;; STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+;;; WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 ;;; SUCH DAMAGE.
 
 ;;}}}
@@ -92,7 +92,7 @@
           (const :tag "none" nil)
           (string :tag "User:Password" ""))
   :group 'atom-blogger)
-  
+
 
 (defvar atom-blogger-directory
   (and load-file-name (file-name-directory load-file-name))
@@ -154,7 +154,7 @@
 
 (defun atom-blogger-xslt (start end xsl)
   "Apply specified XSLT transform to region."
-  (shell-command-on-region start end 
+  (shell-command-on-region start end
                            (format "%s %s - 2>/dev/null"
                                    atom-blogger-xslt-program xsl)
                            'replace))
@@ -164,7 +164,7 @@
 
 (defun atom-blogger-get-entry (url auth)
   "Retrieve specified entry.
-`url' is the URL of the entry, 
+`url' is the URL of the entry,
 `auth' is of the form username:password."
   (let ((buffer (get-buffer-create "*atom entry*"))
         (nxml-auto-insert-xml-declaration-flag nil))
@@ -180,10 +180,11 @@
             atom-blogger-this-auth auth))
     (switch-to-buffer buffer)))
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-edit-entry (url auth)
   "Retrieve entry and prepare it for editting.
 The retrieved entry is placed in a buffer ready for editing.
-`url' is the URL of the entry, 
+`url' is the URL of the entry,
 `auth' is of the form username:password."
   (interactive
    (list
@@ -204,6 +205,7 @@ The retrieved entry is placed in a buffer ready for editing.
   (message
    (substitute-command-keys "Use \\[atom-blogger-publish] to publish your edits .")))
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-new-entry (url auth)
   "Create a new Blog post."
   (interactive
@@ -233,6 +235,7 @@ The retrieved entry is placed in a buffer ready for editing.
     (message
      (substitute-command-keys "Use \\[atom-blogger-publish] to publish your edits ."))))
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-post-entry ()
   "Publish the Blog entry in the current buffer."
   (interactive)
@@ -250,6 +253,7 @@ The retrieved entry is placed in a buffer ready for editing.
                                    atom-blogger-this-url))
   )
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-put-entry ()
   "Publish the editted Blog entry in the current buffer."
   (interactive)
@@ -267,6 +271,7 @@ The retrieved entry is placed in a buffer ready for editing.
                                    atom-blogger-this-url)))
 
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-publish ()
   "Publish current entry."
   (interactive)
@@ -282,9 +287,10 @@ The retrieved entry is placed in a buffer ready for editing.
   (call-interactively atom-blogger-publish-action)
   (message "Publishing  to %s" atom-blogger-this-url))
 ;;;### autoload
+;;;###autoload
 (defun atom-blogger-delete-entry (url auth)
   "Delete specified entry.
-`url' is the URL of the entry, 
+`url' is the URL of the entry,
 `auth' is of the form username:password."
   (interactive
    (list
@@ -295,7 +301,7 @@ The retrieved entry is placed in a buffer ready for editing.
    (format "%s --compressed -X DELETE -u %s %s 2>/dev/null"
            atom-blogger-curl-program auth url)))
 
-      
+
 ;;}}}
 (provide 'atom-blogger)
 ;;{{{ end of file
