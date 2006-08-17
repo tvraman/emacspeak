@@ -588,6 +588,7 @@ default-directory after switching."
   (declare (special emacspeak-wizards-ppp-status-command))
   (zerop (shell-command emacspeak-wizards-ppp-status-command)))
 
+;;;###autoload
 (defun emacspeak-wizards-ppp-toggle ()
   "Bring up or bring down ppp."
   (interactive)
@@ -657,6 +658,7 @@ See /etc/sudoers for how to set up sudo."
 
 ;;}}}
 ;;{{{ edit file as root using sudo vi
+;;;###autoload
 (defun emacspeak-wizards-vi-as-su-file (file)
   "Launch sudo vi on specified file in a terminal."
   (interactive
@@ -784,7 +786,6 @@ Ask for module name if prefix argument is given"
     (format emacspeak-cvs-local-directory-pattern
             project))
    (or module project)))
-;;;###autoload
 (defun emacspeak-cvs-get-project-snapshot  (cvsroot dir module)
   "Grab CVS snapshot  of specified project"
   (unless (file-exists-p dir)
@@ -825,6 +826,7 @@ Ask for module name if prefix argument is given"
 
 ;;}}}
 ;;{{{ browse chunks
+;;;###autoload
 (defun emacspeak-wizards-move-and-speak (command count)
   "Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
@@ -1079,6 +1081,7 @@ for commands defined in module  %s.\n\n"
       (save-buffer)))
   (emacspeak-auditory-icon 'task-done))
 
+;;;###autoload
 (defun emacspeak-generate-texinfo-option-documentation (filename)
   "Generate texinfo documentation  for all emacspeak
 options  into file filename.
@@ -1721,6 +1724,7 @@ Signals beginning  of buffer."
   :type 'file
   :group 'emacspeak-wizards)
 
+;;;###autoload
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with W3."
   (interactive
@@ -1740,7 +1744,7 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ ansi term
-;;;###AUTOLOAD
+;;;###autoload
 (defun emacspeak-wizards-terminal (program)
   "Launch terminal and rename buffer appropriately."
   (interactive (list (read-from-minibuffer "Run program: ")))
@@ -2630,6 +2634,7 @@ Moves to the longest paragraph when called interactively."
 ;;}}}
 ;;{{{ find grep using compile
 
+;;;###autoload
 (defun emacspeak-wizards-find-grep (glob pattern)
   "Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern."
@@ -2752,6 +2757,7 @@ Location is specified by name."
 ;;{{{ ISO dates
 ;;; implementation based on icalendar.el
 
+;;;###autoload
 (defun emacspeak-wizards-speak-iso-datetime (iso)
   "Make ISO date-time speech friendly."
   (interactive
@@ -2770,6 +2776,7 @@ Location is specified by name."
   "Toggled by wizard to record how we are pronouncing mm-dd-yyyy
 dates.")
 
+;;;###autoload
 (defun emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer ()
   "Toggle pronunciation of mm-dd-yyyy dates."
   (interactive)
@@ -2793,6 +2800,7 @@ dates.")
 ;;}}}
 ;;{{{ units wizard
 
+;;;###autoload
 (defun emacspeak-wizards-units ()
   "Run units in a comint sub-process."
   (interactive)
@@ -2845,8 +2853,8 @@ RIVO is implemented by rivo.pl ---
 
 ;;}}}
 ;;{{{ show commentary:
-;;;###autoload
 
+;;;###autoload
 (defun emacspeak-wizards-show-commentary (&optional file)
   "Display commentary. Default is to display commentary from current buffer."
   (interactive "P")
@@ -2868,18 +2876,47 @@ RIVO is implemented by rivo.pl ---
 ;;}}}
 ;;{{{ unescape URIs
 
-;;;###AUTOLOAD
+;;;###autoload
 (defun emacspeak-wizards-unhex-uri (uri)
   "UnEscape URI"
   (interactive "sURL:")
   (message (url-unhex-string uri)))
 
 ;;}}}
-;;{{{ specialized input buffers:
+;;{{{ Add autoload cookies:
+  "autoload cookie pattern.")
 
 ;;;###autoload
+(defun emacspeak-wizards-add-autoload-cookies (&optional f)
+  "Add autoload cookies to file f.
+Default is to add autoload cookies to current file."
+  (interactive)
+  (or f (setq f (buffer-file-name)))
+  (let ((buffer (find-file-noselect f))
+        (old-position 0))
+    ;(save-excursion
+      (set-buffer buffer)
+      (goto-char (point-min))
+      (unless (eq major-mode'emacs-lisp-mode)
+        (error "Not an Emacs Lisp file."))
+      (goto-char (point-min))
+      (while    (not (eobp))
+        (re-search-forward "^ *(interactive")
+        (beginning-of-defun)
+        (forward-line -1)
+        (unless (looking-at ems-autoload-cookie)
+          (forward-line 1)
+          (beginning-of-line)
+          (insert (format "%s\n"ems-autoload-cookie)))
+        (end-of-defun)
+        (setq old-position (point)))))
+;;}}}
+
+;;{{{ specialized input buffers:
+
 ;;; Taken from a message on the org mailing list.
 
+;;;###autoload
 (defun emacspeak-wizards-popup-input-buffer (mode)
   "Provide an input buffer in a specified mode."
   (interactive
