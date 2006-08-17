@@ -29,9 +29,9 @@
 ;;; Provide an emacs front-end to cdtool.
 ;;; cdtool can be obtained as an rpm
 ;;; check using rpmfind
-;;; or from its home site at 
+;;; or from its home site at
 ;;;   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-;;; This module also provides the ability to play or save 
+;;; This module also provides the ability to play or save
 ;;; clips from a CD if you have cdda2wav installed.
 ;;; cdda2wav is a cd to wav convertor.
 ;;;
@@ -43,7 +43,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
-;;{{{ top level 
+;;{{{ top level
 
 ;;; Code:
 
@@ -55,12 +55,12 @@
 
 (defvar cd-tool-message
   " +Next  - Previous  p play s stop = shuffle i info e eject t track"
-  "Short message to display if user hits invalid key.")              
+  "Short message to display if user hits invalid key.")
 ;;;###autoload
 (defun cd-tool ()
   "Front-end to CDTool.
 Bind this function to a convenient key-
-Emacspeak users automatically have 
+Emacspeak users automatically have
 this bound to <DEL> in the emacspeak keymap.
 
 Key     Action
@@ -131,7 +131,7 @@ cap C   Save clip to disk
   (let ((filename (when save
                     (read-file-name
                      "File name to save clip to: ")))
-        (track (read-from-minibuffer(format 
+        (track (read-from-minibuffer(format
                                      "Track to clip%s: "
                                      (if save  "to file" ""))
                                     (car cd-tool-clip-track-history) ;INITIAL-CONTENTS
@@ -153,7 +153,7 @@ cap C   Save clip to disk
     (pushnew duration cd-tool-clip-duration-history)
     (format "%s %s -t %s -o %s -d %s %s"
             cd-tool-clipper
-            cd-tool-clipper-default-args 
+            cd-tool-clipper-default-args
             track skip duration
             (if save filename "-e"))))
 

@@ -173,6 +173,7 @@ Argument BODY specifies forms to execute."
 
 ;;; prompt for auditory icon with completion
 
+;;;###autoload
 (defun emacspeak-audio-annotate-paragraphs ()
   "Set property auditory-icon at front of all paragraphs."
   (interactive )
@@ -198,6 +199,7 @@ Argument BODY specifies forms to execute."
 (make-variable-buffer-local
  'emacspeak-speak-voice-annotated-paragraphs)
 
+;;;###autoload
 (defsubst emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
@@ -486,6 +488,7 @@ results in the number of initial spaces being spoken.")
 
 ;;{{{  Speak units of text
 
+;;;###autoload
 (defsubst emacspeak-speak-region (start end )
   "Speak region.
 Argument START  and END specify region to speak."
@@ -664,6 +667,7 @@ current local  value to the result.")
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as
+;;;###autoload
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
@@ -706,6 +710,7 @@ the sense of the filter. "
   :type 'string
   :group 'emacspeak)
 
+;;;###autoload
 (defun emacspeak-speak-line (&optional arg)
   "Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
@@ -852,11 +857,13 @@ rather than speak it.")
                         char-string)))
     (dtk-speak result)))
 
+;;;###autoload
 (defun emacspeak-speak-spell-current-word ()
   "Spell word at  point."
   (interactive)
   (emacspeak-speak-spell-word (word-at-point)))
 
+;;;###autoload
 (defun emacspeak-speak-word (&optional arg)
   "Speak current word.
 With prefix ARG, speaks the rest of the word from point.
@@ -973,6 +980,7 @@ char is assumed to be one of a--z."
           " ")))
 
 ;;}}}
+;;;###autoload
 (defun emacspeak-speak-char (&optional prefix)
   "Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg."
@@ -997,6 +1005,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 
 ;;{{{ emacspeak-speak-display-char
 
+;;;###autoload
 (defun emacspeak-speak-display-char  (&optional prefix)
   "Display char under point using current speech display table.
 Behavior is the same as command `emacspeak-speak-char'
@@ -1020,6 +1029,7 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
     ("default" . "default"))
   "Available speech display tables.")
 
+;;;###autoload
 (defun emacspeak-speak-set-display-table(&optional prefix)
   "Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
@@ -1044,6 +1054,7 @@ setting to be global."
      (t (setq dtk-display-table table)))))
 
 ;;}}}
+;;;###autoload
 (defun emacspeak-speak-sentence (&optional arg)
   "Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
@@ -1066,6 +1077,7 @@ Negative prefix arg speaks from start of sentence to point."
        ((< arg 0) (setq end orig )))
       (dtk-speak (buffer-substring start end )))))
 
+;;;###autoload
 (defun emacspeak-speak-sexp (&optional arg)
   "Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
@@ -1093,6 +1105,7 @@ If option  `voice-lock-mode' is on, then uses the personality."
        ((< arg 0) (setq end orig )))
       (dtk-speak (buffer-substring  start end )))))
 
+;;;###autoload
 (defun emacspeak-speak-page (&optional arg)
   "Speak a page.
 With prefix ARG, speaks rest of current page.
@@ -1115,6 +1128,7 @@ If option  `voice-lock-mode' is on, then it will use any defined personality."
        ((< arg 0) (setq end orig )))
       (dtk-speak (buffer-substring start end )))))
 
+;;;###autoload
 (defun emacspeak-speak-paragraph(&optional arg)
   "Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
@@ -1141,6 +1155,7 @@ If voice-lock-mode is on, then it will use any defined personality. "
 ;;}}}
 ;;{{{  Speak buffer objects such as help, completions minibuffer etc
 
+;;;###autoload
 (defun emacspeak-speak-buffer (&optional arg)
   "Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
@@ -1169,6 +1184,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
                 end (point))))
       (dtk-speak (buffer-substring start end )))))
 
+;;;###autoload
 (defun emacspeak-speak-other-buffer (buffer)
   "Speak specified buffer.
 Useful to listen to a buffer without switching  contexts."
@@ -1180,17 +1196,20 @@ Useful to listen to a buffer without switching  contexts."
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
 
+;;;###autoload
 (defun emacspeak-speak-front-of-buffer()
   "Speak   the buffer from start to   point"
   (interactive)
   (emacspeak-speak-buffer -1))
 
+;;;###autoload
 (defun emacspeak-speak-rest-of-buffer()
   "Speak remainder of the buffer starting at point"
   (interactive)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-buffer 1))
 
+;;;###autoload
 (defun emacspeak-speak-help(&optional arg)
   "Speak help buffer if one present.
 With prefix arg, speaks the rest of the buffer from point.
@@ -1210,6 +1229,7 @@ Negative prefix arg speaks from start of buffer to point."
         (emacspeak-speak-buffer arg )))
      (t (dtk-speak "First ask for help" )))))
 
+;;;###autoload
 (defun emacspeak-speak-completions()
   "Speak completions  buffer if one present."
   (interactive )
@@ -1239,6 +1259,7 @@ Negative prefix arg speaks from start of buffer to point."
           (choose-completion ))))
      (t (dtk-speak "No completions" )))))
 
+;;;###autoload
 (defun emacspeak-speak-minibuffer(&optional arg)
   "Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
@@ -1248,6 +1269,7 @@ Negative prefix arg speaks from start of buffer to point."
     (save-excursion
       (set-buffer minibuff)
       (emacspeak-speak-buffer arg))))
+;;;###autoload
 (unless (fboundp 'next-completion)
   (progn
     (defun next-completion (n)
@@ -1503,6 +1525,7 @@ semantic to do the work."
            (count-lines (point-min) (point-max))
            (- (point-max) (point-min))))
 
+;;;###autoload
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
 Interactive prefix arg speaks buffer info."
@@ -1618,6 +1641,7 @@ current coding system, then we return an empty string."
 (put-text-property 0 (length emacspeak-minor-mode-prefix)
                    'personality voice-annotate emacspeak-minor-mode-prefix)
 
+;;;###autoload
 (defun emacspeak-speak-minor-mode-line ()
   "Speak the minor mode-information."
   (interactive)
@@ -1658,6 +1682,7 @@ current coding system, then we return an empty string."
 
 ;;; obseleted by what-line in simple.el
 
+;;;###autoload
 (defun emacspeak-speak-line-number-obsolete ()
   "Speak the line number of the current line."
   (interactive)
@@ -1666,6 +1691,7 @@ current coding system, then we return an empty string."
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
+;;;###autoload
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
@@ -1697,12 +1723,14 @@ offset. Default  is to speak the previous line. "
       (emacspeak-speak-line ))
      (t (dtk-speak "Not that many lines in buffer ")))))
 
+;;;###autoload
 (defun emacspeak-read-previous-line(&optional arg)
   "Read previous line, specified by an offset, without moving.
 Default is to read the previous line. "
   (interactive "p")
   (emacspeak-read-line-internal (- (or arg 1 ))))
 
+;;;###autoload
 (defun emacspeak-read-next-line(&optional arg)
   "Read next line, specified by an offset, without moving.
 Default is to read the next line. "
@@ -1721,12 +1749,14 @@ offset. Default  is to speak the previous word. "
       (emacspeak-speak-word 1 ))
      (t (dtk-speak "Not that many words ")))))
 
+;;;###autoload
 (defun emacspeak-read-previous-word(&optional arg)
   "Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. "
   (interactive "p")
   (emacspeak-read-word-internal (- (or arg 1 ))))
 
+;;;###autoload
 (defun emacspeak-read-next-word(&optional arg)
   "Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. "
@@ -1779,6 +1809,7 @@ Optional second arg `set' sets the TZ environment variable as well."
                     zone)))))
 
 ;;}}}
+;;;###autoload
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Optional interactive prefix arg `C-u'invokes world clock.
@@ -1801,6 +1832,7 @@ Second interactive prefix sets clock to new timezone."
   "LiveDog"
   "Code name of present release.")
 
+;;;###autoload
 (defun emacspeak-speak-version ()
   "Announce version information for running emacspeak."
   (interactive)
@@ -1827,6 +1859,7 @@ Second interactive prefix sets clock to new timezone."
                                     version
                                     emacspeak-codename)))))
 
+;;;###autoload
 (defun emacspeak-speak-current-kill (count)
   "Speak the current kill entry.
 This is the text that will be yanked in by the next \\[yank].
@@ -1848,6 +1881,7 @@ to command yank."
       context
       (current-kill (if current-prefix-arg count 0)t)))))
 
+;;;###autoload
 (defun emacspeak-zap-tts ()
   "Send this command to the TTS directly."
   (interactive)
@@ -1893,6 +1927,7 @@ Argument STRING specifies the alphanumeric phone number."
           (incf i))
     string))
 
+;;;###autoload
 (defun emacspeak-dial-dtk (number)
   "Prompt for and dial a phone NUMBER with the Dectalk."
   (interactive "sEnter phone number to dial:")
@@ -1907,6 +1942,7 @@ Argument STRING specifies the alphanumeric phone number."
 ;;; Intelligent mark feedback for emacspeak:
 ;;;
 
+;;;###autoload
 (defun emacspeak-speak-current-mark (count)
   "Speak the line containing the mark.
 With no argument, speaks the
@@ -1946,6 +1982,7 @@ achieved by a change in voice personality."
 ;;}}}
 ;;{{{ speaking personality chunks
 
+;;;###autoload
 (defun emacspeak-speak-this-personality-chunk ()
   "Speak chunk of text around point that has current
 personality."
@@ -1957,6 +1994,7 @@ personality."
      (or start (point-min))
      (or end (point-max)))))
 
+;;;###autoload
 (defun emacspeak-speak-next-personality-chunk ()
   "Moves to the front of next chunk having current personality.
 Speak that chunk after moving."
@@ -2000,6 +2038,7 @@ Return buffer position or nil on failure."
             (setq result start)))
       result)))
 
+;;;###autoload
 (defun emacspeak-speak-previous-personality-chunk ()
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
@@ -2020,6 +2059,7 @@ Speak that chunk after moving."
 ;;}}}
 ;;{{{  Execute command repeatedly, browse
 
+;;;###autoload
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
   (interactive "CCommand to execute repeatedly:")
@@ -2042,6 +2082,7 @@ Speak that chunk after moving."
             (setq continue nil )))))
     (dtk-speak "Exited continuous mode ")))
 
+;;;###autoload
 (defun emacspeak-speak-continuously ()
   "Speak a buffer continuously.
 First prompts using the minibuffer for the kind of action to
@@ -2056,6 +2097,7 @@ was spoken.  Any other key continues to speak the buffer."
       (error "You specified an invalid key sequence.  " ))
     (emacspeak-execute-repeatedly command)))
 
+;;;###autoload
 (defun emacspeak-speak-browse-buffer (&optional browse)
   "Browse current buffer.
 Default is to speak chunk having current personality.
@@ -2101,6 +2143,7 @@ Interactive prefix arg `browse'  repeatedly browses  through
 ;;}}}
 ;;{{{  skimming
 
+;;;###autoload
 (defun emacspeak-speak-skim-paragraph()
   "Skim paragraph.
 Skimming a paragraph results in the speech speeding up after
@@ -2118,12 +2161,14 @@ Speech is scaled by the value of dtk-speak-skim-scale"
       (dtk-speak (buffer-substring  start end )
                  'skim))))
 
+;;;###autoload
 (defun emacspeak-speak-skim-next-paragraph()
   "Skim next paragraph."
   (interactive)
   (forward-paragraph 1)
   (emacspeak-speak-skim-paragraph))
 
+;;;###autoload
 (defun emacspeak-speak-skim-buffer ()
   "Skim the current buffer  a paragraph at a time."
   (interactive)
@@ -2185,6 +2230,7 @@ Non-nil means we split speech on newlines in comint buffer."
   "Temporarily set to T by command
 emacspeak-speak-comint-send-input.")
 
+;;;###autoload
 (defun emacspeak-speak-comint-send-input ()
   "Causes output to be spoken i.e., as if comint autospeak were turned
 on."
@@ -2230,6 +2276,7 @@ message area.  You can use command
       " "
       (buffer-substring  start end)))))
 
+;;;###autoload
 (cond
  ;; emacs 21 defines fields
  ((fboundp 'field-beginning)
@@ -2256,6 +2303,7 @@ A field is defined currently as a sequence of non-white space characters.  may b
             (skip-syntax-forward "^ ")
             (emacspeak-speak-field start (point )))))))))
 
+;;;###autoload
 (defun emacspeak-speak-next-field ()
   "Skip across and speak the next contiguous sequence of non-blank characters.
 Useful in moving across fields.
@@ -2271,6 +2319,7 @@ Will be improved if it proves useful."
       (skip-syntax-forward "^ ")
       (emacspeak-speak-field start (point)))))
 
+;;;###autoload
 (defun emacspeak-speak-previous-field ()
   "Skip backwards across and speak  contiguous sequence of non-blank characters.
 Useful in moving across fields.
@@ -2284,11 +2333,13 @@ Will be improved if it proves useful."
     (skip-syntax-backward "^ ")
     (emacspeak-speak-field (point ) start)))
 
+;;;###autoload
 (defun emacspeak-speak-current-column ()
   "Speak the current column."
   (interactive)
   (message "Point at column %d" (current-column )))
 
+;;;###autoload
 (defun emacspeak-speak-current-percentage ()
   "Announce the percentage into the current buffer."
   (interactive)
@@ -2303,6 +2354,7 @@ Will be improved if it proves useful."
   :type 'boolean
   :group 'emacspeak-speak)
 
+;;;###autoload
 (defun emacspeak-speak-message-again (&optional from-message-cache)
   "Speak the last message from Emacs once again.
 Optional interactive prefix arg
@@ -2349,6 +2401,7 @@ Otherwise just display a message."
       (end-of-line)
       (buffer-substring start (point)))))
 
+;;;###autoload
 (defun emacspeak-speak-window-information ()
   "Speaks information about current window."
   (interactive)
@@ -2359,12 +2412,14 @@ top left %s %s "
            (first (window-edges))
            (second (window-edges))))
 
+;;;###autoload
 (defun emacspeak-speak-current-window ()
   "Speak contents of current window.
 Speaks entire window irrespective of point."
   (interactive)
   (emacspeak-speak-region (window-start) (window-end )))
 
+;;;###autoload
 (defun emacspeak-speak-other-window (&optional arg)
   "Speak contents of `other' window.
 Speaks entire window irrespective of point.
@@ -2381,16 +2436,19 @@ Optional argument ARG  specifies `other' window to speak."
          (max (point-min) (window-start) )
          (min (point-max)(window-end )))))))
 
+;;;###autoload
 (defun emacspeak-speak-next-window ()
   "Speak the next window."
   (interactive)
   (emacspeak-speak-other-window 1 ))
 
+;;;###autoload
 (defun emacspeak-speak-previous-window ()
   "Speak the previous window."
   (interactive)
   (emacspeak-speak-other-window -1 ))
 
+;;;###autoload
 (defun  emacspeak-owindow-scroll-up ()
   "Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling."
@@ -2400,6 +2458,7 @@ Speak the window contents after scrolling."
     (call-interactively 'scroll-up)
     (select-window window)))
 
+;;;###autoload
 (defun  emacspeak-owindow-scroll-down ()
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
@@ -2409,6 +2468,7 @@ Speak the window contents after scrolling."
     (call-interactively 'scroll-down)
     (select-window window)))
 
+;;;###autoload
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move."
@@ -2428,6 +2488,7 @@ Numeric prefix arg COUNT can specify number of lines to move."
               (emacspeak-speak-line ))))
       (set-buffer old-buffer ))))
 
+;;;###autoload
 (defun emacspeak-owindow-previous-line (count)
   "Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move."
@@ -2447,6 +2508,7 @@ Numeric prefix arg COUNT specifies number of lines to move."
               (emacspeak-speak-line ))))
       (set-buffer old-buffer ))))
 
+;;;###autoload
 (defun emacspeak-owindow-speak-line ()
   "Speak the current line in the other window."
   (interactive)
@@ -2457,6 +2519,7 @@ Numeric prefix arg COUNT specifies number of lines to move."
           (goto-char (window-point ))
           (emacspeak-speak-line))
       (set-buffer old-buffer ))))
+;;;###autoload
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
@@ -2511,6 +2574,7 @@ Argument PROMPT specifies the prompt to display."
      (t nil )))
   )
 
+;;;###autoload
 (defun emacspeak-speak-buffer-interactively ()
   "Speak the start of, rest of, or the entire buffer.
 's' to speak the start.
@@ -2520,6 +2584,7 @@ any other key to speak entire buffer."
   (emacspeak-speak-buffer
    (emacspeak-ask-how-to-speak "buffer" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-help-interactively ()
   "Speak the start of, rest of, or the entire help.
 's' to speak the start.
@@ -2529,6 +2594,7 @@ any other key to speak entire help."
   (emacspeak-speak-help
    (emacspeak-ask-how-to-speak "help" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-line-interactively ()
   "Speak the start of, rest of, or the entire line.
 's' to speak the start.
@@ -2538,6 +2604,7 @@ any other key to speak entire line."
   (emacspeak-speak-line
    (emacspeak-ask-how-to-speak "line" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-paragraph-interactively ()
   "Speak the start of, rest of, or the entire paragraph.
 's' to speak the start.
@@ -2547,6 +2614,7 @@ any other key to speak entire paragraph."
   (emacspeak-speak-paragraph
    (emacspeak-ask-how-to-speak "paragraph" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-page-interactively ()
   "Speak the start of, rest of, or the entire page.
 's' to speak the start.
@@ -2556,6 +2624,7 @@ any other key to speak entire page."
   (emacspeak-speak-page
    (emacspeak-ask-how-to-speak "page" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-word-interactively ()
   "Speak the start of, rest of, or the entire word.
 's' to speak the start.
@@ -2565,6 +2634,7 @@ any other key to speak entire word."
   (emacspeak-speak-word
    (emacspeak-ask-how-to-speak "word" (sit-for 1 0 nil ))))
 
+;;;###autoload
 (defun emacspeak-speak-sexp-interactively ()
   "Speak the start of, rest of, or the entire sexp.
 's' to speak the start.
@@ -2579,6 +2649,7 @@ any other key to speak entire sexp."
 
 ;;; Things like view-register are useful.
 
+;;;###autoload
 (defun emacspeak-view-register ()
   "Display the contents of a register, and then speak it."
   (interactive)
@@ -2591,6 +2662,7 @@ any other key to speak entire sexp."
 
 (eval-when (compile) (require 'rect))
 ;;; These help you listen to columns of text. Useful for tabulated data
+;;;###autoload
 (defun emacspeak-speak-rectangle ( start end )
   "Speak a rectangle of text.
 Rectangle is delimited by point and mark.
@@ -2621,6 +2693,7 @@ Argument PERSONALITY gives the value for property personality."
                   (symbol-name key)
                   (symbol-name key))))
 
+;;;###autoload
 (defun emacspeak-voicify-rectangle (start end &optional personality )
   "Voicify the current rectangle.
 When calling from a program,arguments are
@@ -2643,6 +2716,7 @@ Prompts for PERSONALITY  with completion when called interactively."
                   (emacspeak-put-personality start-seg  (point) personality )))
       start end  nil))))
 
+;;;###autoload
 (defun emacspeak-voicify-region (start end &optional personality )
   "Voicify the current region.
 When calling from a program,arguments are
@@ -2677,6 +2751,7 @@ value to apply."
 ;;; A modified blink-matching-open that always displays the matching line
 ;;; in the minibuffer so emacspeak can speak it.
 
+;;;###autoload
 (defun emacspeak-blink-matching-open ()
   "Display matching delimiter in the minibuffer."
   (interactive)
@@ -2740,6 +2815,7 @@ value to apply."
                     (message "Unmatched parenthesis")))))
          (sit-for emacspeak-blink-delay))))
 
+;;;###autoload
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs
@@ -2774,6 +2850,7 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{ Speaking spaces
 
+;;;###autoload
 (defun emacspeak-speak-spaces-at-point ()
   "Speak the white space at point."
   (interactive)
@@ -2847,6 +2924,7 @@ Argument O specifies overlay."
 
 (make-variable-buffer-local 'emacspeak-completions-current-prefix)
 
+;;;###autoload
 (defun emacspeak-switch-to-completions-window ()
   "Jump to the *Completions* buffer if it is active.
 We make the current minibuffer contents (which is obviously the
@@ -2874,6 +2952,7 @@ to reduce chatter."
       (emacspeak-auditory-icon 'select-object))
      (t (message "No completions")))))
 
+;;;###autoload
 (defun emacspeak-completions-move-to-completion-group()
   "Move to group of choices beginning with character last
 typed. If no such group exists, then we dont move. "
@@ -2910,6 +2989,7 @@ typed. If no such group exists, then we dont move. "
                                    voice-animate
                                    (emacspeak-speak-line)))
 
+;;;###autoload
 (defun emacspeak-mark-forward-mark ()
   "Cycle forward through the mark ring."
   (interactive)
@@ -2917,6 +2997,7 @@ typed. If no such group exists, then we dont move. "
   (when (interactive-p )
     (emacspeak-mark-speak-mark-line)))
 
+;;;###autoload
 (defun emacspeak-mark-backward-mark ()
   "Cycle backward through the mark ring."
   (interactive)
@@ -2941,6 +3022,7 @@ typed. If no such group exists, then we dont move. "
 ;;}}}
 ;;{{{ speaking an extent of text delimited by specified char
 
+;;;###autoload
 (defun emacspeak-speak-and-skip-extent-upto-char (char)
   "Search forward from point until we hit char.
 Speak text between point and the char we hit."
@@ -2958,6 +3040,7 @@ Speak text between point and the char we hit."
        (t (error "Could not find %c" char))))
     (when goal (goto-char goal))))
 
+;;;###autoload
 (defun emacspeak-speak-and-skip-extent-upto-this-char ()
   "Speak extent delimited by point and last character typed."
   (interactive)
@@ -2966,6 +3049,7 @@ Speak text between point and the char we hit."
 
 ;;}}}
 ;;{{{  speak message at time
+;;;###autoload
 (defun emacspeak-speak-message-at-time (time message)
   "Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
