@@ -256,7 +256,7 @@ emacspeak-loaddefs.el:
 	-f emacspeak-auto-generate-autoloads
 
 emacspeak-cus-load.el:
-	$(EMACS) $(BATCH) $(DEPS) -l ./emacspeak-autoload.el \
+	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
 # }}}
 # {{{  Make rules for the various modules
