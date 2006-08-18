@@ -8,7 +8,7 @@
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
 # $Date$ |
-#  $Revision: 24.4 $ |
+#  $Revision$ |
 # Location undetermined
 #
 
@@ -256,7 +256,7 @@ emacspeak-loaddefs.el:
 	-f emacspeak-auto-generate-autoloads
 
 emacspeak-cus-load.el:
-	$(EMACS) $(BATCH) -l ./emacspeak-autoload \
+	$(EMACS) $(BATCH) $(DEPS) -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."  "./atom-blogger"
 # }}}
 # {{{  Make rules for the various modules
