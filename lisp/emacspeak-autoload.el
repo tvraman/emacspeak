@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.0 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -49,8 +49,6 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'autoload)
 (load-library "cus-dep")
-(require 'emacspeak-load-path)
-
 ;;}}}
 ;;{{{ Variables
 
