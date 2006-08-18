@@ -15,7 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2004, T. V. Raman 
+;;;Copyright (C) 1995 -- 2004, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -36,7 +36,7 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ Introduction 
+;;{{{ Introduction
 
 ;;; Commentary:
 ;;;The complete audio desktop.
@@ -63,10 +63,10 @@
 (load-library "emacspeak-cus-load")
 
 ;;}}}
-;;{{{  Customize groups 
+;;{{{  Customize groups
 (defconst emacspeak-version
   (format "24.0 Revision %s"
-          (let ((x "$Revision$"))
+          (let ((x "$Revision:$"))
     (string-match "[0-9.]+" x)
     (substring x (match-beginning 0)
                (match-end 0))))
@@ -106,7 +106,7 @@ the Emacspeak desktop." )
                                                         emacspeak-directory)
                 :help-echo "Read the Emacspeak FAQ")
   :link '(custom-manual "(emacspeak)Top")
-;;; end links 
+;;; end links
   :prefix "emacspeak-"
   :group 'applications
   :group 'accessibility)
@@ -135,12 +135,12 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
     `(progn
        (require ',module)
        (emacspeak-fix-commands-that-use-interactive))))
-  
+
 ;;}}}
 ;;{{{ Setup package extensions
 (emacspeak-do-package-setup "add-log" 'emacspeak-add-log)
 (emacspeak-do-package-setup "analog" 'emacspeak-analog)
-(emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)                            
+(emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)
 (emacspeak-do-package-setup "apt-sources" 'emacspeak-apt-sources)
 (emacspeak-do-package-setup "apt-utils" 'emacspeak-apt-utils)
 (emacspeak-do-package-setup "arc-mode" 'emacspeak-arc)
@@ -279,7 +279,7 @@ Argument MODULE specifies the emacspeak module that implements the speech-enabli
               (load-library "emacspeak-finder")
               (unless (file-newer-than-file-p
                        (expand-file-name
-                        "emacspeak-finder-inf.el" 
+                        "emacspeak-finder-inf.el"
                         emacspeak-lisp-directory)
                        (expand-file-name
                         emacspeak-lisp-directory
@@ -348,7 +348,7 @@ Emacs 20.3"
   )
 
 ;;}}}
-;;{{{ setup programming modes 
+;;{{{ setup programming modes
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
 ;;;###autoload
@@ -398,7 +398,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
          'dired-mode-hook)))
 
 ;;}}}
-;;{{{ set up after-init-hook to fix interactive functions 
+;;{{{ set up after-init-hook to fix interactive functions
 
 (add-hook 'after-init-hook
           'emacspeak-fix-commands-that-use-interactive)
@@ -411,7 +411,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   :type 'boolean
   :group 'emacspeak)
 (defvar emacspeak-unibyte t
-  "Set this to nil before starting  emacspeak 
+  "Set this to nil before starting  emacspeak
 if you are running in a multibyte enabled environment.")
 
 (defun emacspeak()
@@ -450,7 +450,7 @@ functions for details.   "
                     emacspeak-unibyte
                     emacspeak-play-program
                     emacspeak-sounds-directory))
-;;; fixes transient mark mode in emacspeak 
+;;; fixes transient mark mode in emacspeak
   (setq mark-even-if-inactive t)
 ;;; force unibyte
   (when emacspeak-unibyte
@@ -470,7 +470,7 @@ functions for details.   "
   (require 'emacspeak-advice)
   (require 'emacspeak-replace)
   (require 'emacspeak-buff-menu)
-  (when (and  emacspeak-play-emacspeak-startup-icon 
+  (when (and  emacspeak-play-emacspeak-startup-icon
               (file-exists-p "/usr/bin/mpg123"))
     (start-process "mp3" nil "mpg123"
                    "-q"
