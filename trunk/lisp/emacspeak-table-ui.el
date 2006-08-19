@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -616,7 +616,7 @@ the documentation on the table browser."
         (text (buffer-substring start end)))
     (save-excursion
       (when (= 10 (string-to-char (substring text -1)))
-               (setq text (substring text 0 -1)))
+        (setq text (substring text 0 -1)))
       (set-buffer workspace)
       (erase-buffer)
       (insert text)

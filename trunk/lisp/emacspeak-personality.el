@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.5 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -494,9 +494,6 @@ Append means place corresponding personality at the end."
 
 ;;}}}
 ;;{{{ silence font-lock's error messages
-
-
-
 
 (loop for f in
       '(font-lock-default-fontify-region

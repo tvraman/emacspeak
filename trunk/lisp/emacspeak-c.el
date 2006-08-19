@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ | 
+;;;  $Revision$ | 
 ;;; Location undetermined
 ;;;
 
@@ -444,7 +444,7 @@ and their meanings. ")
 (voice-setup-add-map
  '(
    (c-nonbreakable-space-face voice-brighten)
-))
+   ))
 
 ;;}}}
 (provide  'emacspeak-c)

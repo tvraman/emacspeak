@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -85,7 +85,6 @@ server."
    (erc-pal-face voice-animate-extra)
    (erc-keyword-face voice-animate)
    ))
-
 
 ;;}}}
 ;;{{{  helpers

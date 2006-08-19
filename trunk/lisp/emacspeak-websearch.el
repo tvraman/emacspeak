@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.20 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -1069,7 +1069,6 @@ I'm Feeling Lucky button on Google."
      "results"
      'emacspeak-speak-line)))
 
-
 ;;{{{ IMFA
 
 (emacspeak-websearch-set-searcher 'agoogle
@@ -1202,32 +1201,28 @@ Optional interactive  prefix arg local-flag prompts for local
   "http://maps.google.com/?output=html&hl=en&ie=UTF-8&q="
   "URI for Google Maps using plain HTML.")
 
-
 (defvar emacspeak-websearch-google-scholar-uri
   "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&num=25&q="
   "URI for Google Scholar search.")
-
 
 (defvar emacspeak-websearch-google-books-uri
   "http://books.google.com/books?btnG=Search+Books&hl=en&q="
   "URI for Google Book Search.")
 
-
 (defvar emacspeak-websarch-google-videos-uri
   "http://video.google.com/videofeed?type=search&q="
   "URI for Google Video search.")
 
-
 (defvar emacspeak-websearch-google-launch-uris
   (list
    (cons "web" emacspeak-websearch-google-uri)
-    (cons "images"  emacspeak-websearch-google-images)
-    (cons "news" emacspeak-websearch-google-news-uri)
-    (cons "froogle" emacspeak-websearch-froogle-uri)
-    (cons "books" emacspeak-websearch-google-books-uri)
-    (cons "scholar" emacspeak-websearch-google-scholar-uri)
-    (cons "maps" emacspeak-websearch-google-html-maps-uri)
-    (cons "videos" emacspeak-websarch-google-videos-uri))
+   (cons "images"  emacspeak-websearch-google-images)
+   (cons "news" emacspeak-websearch-google-news-uri)
+   (cons "froogle" emacspeak-websearch-froogle-uri)
+   (cons "books" emacspeak-websearch-google-books-uri)
+   (cons "scholar" emacspeak-websearch-google-scholar-uri)
+   (cons "maps" emacspeak-websearch-google-html-maps-uri)
+   (cons "videos" emacspeak-websarch-google-videos-uri))
   "Association list of Google search URIs.")
 
 (defun emacspeak-websearch-google-sak(engine query)
@@ -1242,11 +1237,6 @@ Optional interactive  prefix arg local-flag prompts for local
    (concat (cdr (assoc engine
                        emacspeak-websearch-google-launch-uris))
            (emacspeak-url-encode query))))
-
-
-
-
-
 
 ;;}}}
 ;;{{{  technorati tag search:
@@ -1413,8 +1403,6 @@ Interactive prefix arg `use-near' searches near our previously cached  location.
       (expand-file-name "kml2html.xsl"
                         emacspeak-xslt-directory)
       uri))))
-
-
 
 ;;;###autoload
 (defun emacspeak-websearch-emapspeak-near-my-location (query)
