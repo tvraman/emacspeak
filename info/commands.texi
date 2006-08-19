@@ -5,7 +5,7 @@
 This chapter is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This chapter documents a total of 779 commands.
+This chapter documents a total of 783 commands.
 
 @menu
 * cd-tool::                     
@@ -97,9 +97,9 @@ Commentary:
 Provide an emacs front-end to cdtool.
 cdtool can be obtained as an rpm
 check using rpmfind
-or from its home site at 
+or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-This module also provides the ability to play or save 
+This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
 cdda2wav is a cd to wav convertor.
 
@@ -111,7 +111,7 @@ for commands defined in module  cd-tool.
 
 Front-end to CDTool.
 Bind this function to a convenient key-
-Emacspeak users automatically have 
+Emacspeak users automatically have
 this bound to <DEL> in the emacspeak keymap.
 
 Key     Action
@@ -352,7 +352,7 @@ to all buffers.
 @kbd{ control e d o }
 
 Toggle stripping of octals.
-Interactive prefix arg means 
+Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.
 @end deffn
@@ -1712,6 +1712,27 @@ Automatically defined advice to speak interactive prompts.
 Automatically generated documentation
 for commands defined in module  emacspeak-loaddefs.
 
+@deffn {Interactive Command} emacspeak-speak-current-field ()
+@kbd{ control e . }
+
+Speak current field.
+A field is
+defined  by Emacs 21.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-region (START END)
+@kbd{ control e r }
+
+Speak region.
+Argument START  and END specify region to speak.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs ()
+Locate paragraphs and voice annotate the first word.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
+Useful to do this before you listen to an entire buffer.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-toggle-comint-output-monitor (&optional PREFIX)
 @kbd{ control e o }
 
@@ -2866,14 +2887,6 @@ was spoken.  Any other key continues to speak the buffer.
 Speak the current column.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-current-field ()
-@kbd{ control e . }
-
-Speak current field.
-A field is
-defined  by Emacs 21.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-speak-current-kill (COUNT)
 @kbd{ control e k }
 
@@ -2979,6 +2992,7 @@ Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as
+;;;###autoload
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
@@ -3142,13 +3156,6 @@ When call from a program,
 arguments specify the START and END of the rectangle.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-speak-region (START END)
-@kbd{ control e r }
-
-Speak region.
-Argument START  and END specify region to speak.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-speak-rest-of-buffer ()
 @kbd{ control e n }
 
@@ -3228,12 +3235,6 @@ Second interactive prefix sets clock to new timezone.
 @kbd{ control e  cap V  }
 
 Announce version information for running emacspeak.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-speak-voice-annotate-paragraphs ()
-Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceded by a blank line.
-Useful to do this before you listen to an entire buffer.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-window-information ()
@@ -4059,6 +4060,21 @@ content from. Interactive use provides list of class values as
 completion. 
 @end deffn
 
+@deffn {Interactive Command} emacspeak-w3-extract-by-id (ID &optional PROMPT-URL SPEAK)
+Extract elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of id values as completion.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-w3-extract-by-id-list (IDS &optional PROMPT-URL SPEAK)
+Extract elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provids list of id values as
+completion. 
+@end deffn
+
 @deffn {Interactive Command} emacspeak-w3-extract-matching-urls (PATTERN &optional PROMPT-URL SPEAK)
 Extracts links whose URL matches pattern.
 @end deffn
@@ -4781,7 +4797,7 @@ Ask for module name if prefix argument is given
 @kbd{ control e <insert> }
 
 For use in an emergency.
-Will start TTS engine specified by 
+Will start TTS engine specified by
 emacspeak-emergency-tts-server.
 @end deffn
 
@@ -5061,6 +5077,11 @@ Display info on recent change to Emacspeak.
 Browse  Emacspeak productivity tips.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-add-autoload-cookies (&optional F)
+Add autoload cookies to file f.
+Default is to add autoload cookies to current file.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-count-slides-in-region (START END)
 Count slides starting from point.
 @end deffn
@@ -5090,8 +5111,12 @@ Edit file as root using sudo vi.
 See /etc/sudoers for how to set up sudo.
 @end deffn
 
+@deffn {Interactive Command} emacspeak-wizards-find-emacspeak-source ()
+Like find-file, but binds default-directory to emacspeak-directory.
+@end deffn
+
 @deffn {Interactive Command} emacspeak-wizards-find-grep (GLOB PATTERN)
-Run compile using find and grep. 
+Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
 @end deffn
 
@@ -5162,8 +5187,8 @@ View Web through Google Transcoder.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-how-many-matches (START END &optional PREFIX)
-If you define a file local variable 
-called `emacspeak-occur-pattern' that holds a regular expression 
+If you define a file local variable
+called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
@@ -5191,7 +5216,7 @@ Provide an input buffer in a specified mode.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-portfolio-quotes ()
-Bring up detailed stock quotes for portfolio specified by 
+Bring up detailed stock quotes for portfolio specified by
 emacspeak-websearch-personal-portfolio.
 @end deffn
 
@@ -5236,7 +5261,7 @@ Run rpm -qi on current dired entry.
 @deffn {Interactive Command} emacspeak-wizards-shell-toggle ()
 @kbd{ control e <f11> }
 
-Switch to the shell buffer and cd to 
+Switch to the shell buffer and cd to
  the directory of the current buffer.
 @end deffn
 

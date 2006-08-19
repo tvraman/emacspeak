@@ -81,9 +81,9 @@ Commentary:
 Provide an emacs front-end to cdtool.
 cdtool can be obtained as an rpm
 check using rpmfind
-or from its home site at 
+or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
-This module also provides the ability to play or save 
+This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
 cdda2wav is a cd to wav convertor.
 
@@ -141,7 +141,7 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 @end defvar
 
 @defvar {User Option} dtk-startup-hook
-List of hooks to be run after starting up the speech server.  
+List of hooks to be run after starting up the speech server.
 Set things like speech rate, punctuation mode etc in this
 hook.
 @end defvar
