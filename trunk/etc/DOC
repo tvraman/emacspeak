@@ -6,7 +6,7 @@ $Id$
 
  Front-end to CDTool.
 Bind this function to a convenient key-
-Emacspeak users automatically have 
+Emacspeak users automatically have
 this bound to <DEL> in the emacspeak keymap.
 
 Key     Action
@@ -72,7 +72,7 @@ Typically used after the Dectalk has been power   cycled.
 This command resumes  speech that has been suspended by executing
 command `dtk-pause' bound to C-e p.
 If speech has not been paused,
-and variable `dtk-resume-should-toggle' is t
+and option `dtk-resume-should-toggle' is set,
  then this command will pause ongoing speech. 
 
 ------------------------------------------------------------
@@ -238,7 +238,7 @@ to all buffers.
 ** dtk-toggle-strip-octals	Key Sequence: control e d o 
 
  Toggle stripping of octals.
-Interactive prefix arg means 
+Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result. 
 
@@ -1279,12 +1279,24 @@ Automatically defined advice to speak interactive prompts.
 
 ------------------------------------------------------------
 
-** emacspeak-kotl-setup-keys Setup additional keybindings 
+** emacspeak-speak-current-field	Key Sequence: control e . 
+
+ Speak current field.
+A field is
+defined  by Emacs 21. 
 
 ------------------------------------------------------------
 
-** emacspeak-kotl-speak-cell Speak cell contents from point to end of cell.
-  With prefix arg, speaks entire cell contents 
+** emacspeak-speak-region	Key Sequence: control e r 
+
+ Speak region.
+Argument START  and END specify region to speak. 
+
+------------------------------------------------------------
+
+** emacspeak-speak-voice-annotate-paragraphs Locate paragraphs and voice annotate the first word.
+Here, paragraph is taken to mean a chunk of text preceded by a blank line.
+Useful to do this before you listen to an entire buffer. 
 
 ------------------------------------------------------------
 
@@ -1765,27 +1777,37 @@ Setting persists for current Emacs session.
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-backward-heading Analogous to outline-backward-same-level
+** emacspeak-outline-speak-backward-heading	Key Sequence: control c b 
+
+ Analogous to outline-backward-same-level
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-forward-heading Analogous to outline-forward-same-level,
+** emacspeak-outline-speak-forward-heading	Key Sequence: control c f 
+
+ Analogous to outline-forward-same-level,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-next-heading Analogous to outline-next-visible-heading,
+** emacspeak-outline-speak-next-heading	Key Sequence: control c n 
+
+ Analogous to outline-next-visible-heading,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-previous-heading Analogous to outline-previous-visible-heading,
+** emacspeak-outline-speak-previous-heading	Key Sequence: control c p 
+
+ Analogous to outline-previous-visible-heading,
 except that the outline section is optionally spoken 
 
 ------------------------------------------------------------
 
-** emacspeak-outline-speak-this-heading Speak current outline section starting from point 
+** emacspeak-outline-speak-this-heading	Key Sequence: control c SPACE 
+
+ Speak current outline section starting from point 
 
 ------------------------------------------------------------
 
@@ -2253,14 +2275,6 @@ was spoken.  Any other key continues to speak the buffer.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-current-field	Key Sequence: control e . 
-
- Speak current field.
-A field is
-defined  by Emacs 21. 
-
-------------------------------------------------------------
-
 ** emacspeak-speak-current-kill	Key Sequence: control e k 
 
  Speak the current kill entry.
@@ -2365,6 +2379,7 @@ any other key to speak entire line.
 The filter is specified as a list of pairs.
 For example, to filter  columns 1 -- 10 and 20 -- 25,
 specify filter as
+;;;###autoload
 ((0 9) (20 25)). Filter settings are persisted across sessions.  A
 persisted filter is used as the default when prompting for a filter.
 This allows one to accumulate a set of filters for specific files like
@@ -2529,13 +2544,6 @@ arguments specify the START and END of the rectangle.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-region	Key Sequence: control e r 
-
- Speak region.
-Argument START  and END specify region to speak. 
-
-------------------------------------------------------------
-
 ** emacspeak-speak-rest-of-buffer	Key Sequence: control e n 
 
  Speak remainder of the buffer starting at point 
@@ -2614,12 +2622,6 @@ Second interactive prefix sets clock to new timezone.
 ** emacspeak-speak-version	Key Sequence: control e  cap V  
 
  Announce version information for running emacspeak. 
-
-------------------------------------------------------------
-
-** emacspeak-speak-voice-annotate-paragraphs Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceded by a blank line.
-Useful to do this before you listen to an entire buffer. 
 
 ------------------------------------------------------------
 
@@ -3333,6 +3335,21 @@ completion.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-extract-by-id Extract elements having specified id attribute from HTML. Extracts
+specified elements from current WWW page and displays it in a separate
+buffer. Optional arg url specifies the page to extract content from.
+Interactive use provides list of id values as completion. 
+
+------------------------------------------------------------
+
+** emacspeak-w3-extract-by-id-list Extract elements having id specified in list `ids' from HTML.
+Extracts specified elements from current WWW page and displays it in a
+separate buffer. Optional arg url specifies the page to extract
+content from. Interactive use provids list of id values as
+completion.  
+
+------------------------------------------------------------
+
 ** emacspeak-w3-extract-matching-urls Extracts links whose URL matches pattern. 
 
 ------------------------------------------------------------
@@ -3446,6 +3463,10 @@ the table structure extraction code in W3.
 
 ------------------------------------------------------------
 
+** emacspeak-w3-next-block Move by block level displays. 
+
+------------------------------------------------------------
+
 ** emacspeak-w3-next-doc-element Move forward  to the next document element.
 Optional interactive prefix argument COUNT
 specifies by how many eleemnts to move. 
@@ -3476,6 +3497,10 @@ element.
 ------------------------------------------------------------
 
 ** emacspeak-w3-show-http-headers Show HTTP headers using lwp-request 
+
+------------------------------------------------------------
+
+** emacspeak-w3-speak-next-block Move to next block and speak it. 
 
 ------------------------------------------------------------
 
@@ -3636,6 +3661,10 @@ With prefix argument makes this transformation persistent.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-accessible-google Google Accessible Search -- see http://labs.google.com/accessible 
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-alltheweb-search Perform an AllTheWeb  search. 
 
 ------------------------------------------------------------
@@ -3756,6 +3785,10 @@ I'm Feeling Lucky button on Google.
 
 ------------------------------------------------------------
 
+** emacspeak-websearch-google-sak Perform a Google query against a specific index. 
+
+------------------------------------------------------------
+
 ** emacspeak-websearch-google-search-in-date-range Use this from inside the calendar to do Google date-range searches. 
 
 ------------------------------------------------------------
@@ -3848,6 +3881,10 @@ emacspeak-websearch-quotes-yahoo-options to an appropriate string.
 ------------------------------------------------------------
 
 ** emacspeak-websearch-swik-search Search swik software community site. 
+
+------------------------------------------------------------
+
+** emacspeak-websearch-technorati Perform a Technorati tag search. 
 
 ------------------------------------------------------------
 
@@ -3996,7 +4033,7 @@ Ask for module name if prefix argument is given
 ** emacspeak-emergency-tts-restart	Key Sequence: control e <insert> 
 
  For use in an emergency.
-Will start TTS engine specified by 
+Will start TTS engine specified by
 emacspeak-emergency-tts-server. 
 
 ------------------------------------------------------------
@@ -4277,6 +4314,11 @@ Prompts for the new location and preserves modification time
 
 ------------------------------------------------------------
 
+** emacspeak-wizards-add-autoload-cookies Add autoload cookies to file f.
+Default is to add autoload cookies to current file. 
+
+------------------------------------------------------------
+
 ** emacspeak-wizards-count-slides-in-region Count slides starting from point. 
 
 ------------------------------------------------------------
@@ -4308,7 +4350,11 @@ See /etc/sudoers for how to set up sudo.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-find-grep Run compile using find and grep. 
+** emacspeak-wizards-find-emacspeak-source Like find-file, but binds default-directory to emacspeak-directory. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-find-grep Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern. 
 
 ------------------------------------------------------------
@@ -4382,8 +4428,8 @@ hits.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-how-many-matches If you define a file local variable 
-called `emacspeak-occur-pattern' that holds a regular expression 
+** emacspeak-wizards-how-many-matches If you define a file local variable
+called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern. 
@@ -4411,7 +4457,7 @@ prompts for and sets value of the file local pattern.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-portfolio-quotes Bring up detailed stock quotes for portfolio specified by 
+** emacspeak-wizards-portfolio-quotes Bring up detailed stock quotes for portfolio specified by
 emacspeak-websearch-personal-portfolio. 
 
 ------------------------------------------------------------
@@ -4458,7 +4504,7 @@ RIVO is implemented by rivo.pl ---
 
 ** emacspeak-wizards-shell-toggle	Key Sequence: control e <f11> 
 
- Switch to the shell buffer and cd to 
+ Switch to the shell buffer and cd to
  the directory of the current buffer. 
 
 ------------------------------------------------------------
