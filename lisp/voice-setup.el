@@ -7,7 +7,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.5 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -152,7 +152,6 @@
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
-
 
 (defun voice-setup-show-rogue-voices ()
   "Return list of voices that map to non-existent faces."

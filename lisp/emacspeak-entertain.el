@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ | 
+;;;  $Revision$ | 
 ;;; Location undetermined
 ;;;
 
@@ -65,11 +65,11 @@
 ;;{{{ mpuz
 (voice-setup-add-map
  '(
-(mpuz-trivial-face voice-monotone)
-(mpuz-unsolved-face voice-bolden)
-(mpuz-unsolved-face voice-lighten)
-(mpuz-solved-face voice-animate)
-))
+   (mpuz-trivial-face voice-monotone)
+   (mpuz-unsolved-face voice-bolden)
+   (mpuz-unsolved-face voice-lighten)
+   (mpuz-solved-face voice-animate)
+   ))
 ;;}}}
 ;;{{{ dunnet 
 

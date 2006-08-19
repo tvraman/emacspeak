@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -89,8 +89,8 @@
 ;;{{{ voice setup 
 (voice-setup-add-map
  '(
-(analog-entry-header-face voice-bolden)
-))
+   (analog-entry-header-face voice-bolden)
+   ))
 ;;}}}
 ;;{{{ field navigation
 

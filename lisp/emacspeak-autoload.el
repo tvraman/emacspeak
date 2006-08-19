@@ -76,7 +76,7 @@ Emacspeak.")
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
   (declare (special  emacspeak-auto-autoloads-file
-                    emacspeak-update-autoloads-from-directories emacspeak-lisp-directory))
+                     emacspeak-update-autoloads-from-directories emacspeak-lisp-directory))
   (let ((dtk-quiet t)
         (generated-autoload-file emacspeak-auto-autoloads-file))
     (funcall emacspeak-update-autoloads-from-directories
@@ -86,7 +86,6 @@ Emacspeak.")
 
 ;;}}}
 ;;{{{ custom dependencies:
-
 
 (defun emacspeak-auto-custom-make-dependencies ()
   "Generate emacspeak custom deps."
