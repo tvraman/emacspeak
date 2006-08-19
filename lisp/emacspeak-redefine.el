@@ -11,7 +11,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.3 $ | 
+;;;  $Revision$ | 
 ;;; Location undetermined
 ;;;
 
@@ -98,29 +98,29 @@ speech flush as you type."
             (list (current-buffer))))
   (cond
    (last-input-char
-  (when (and (listp buffer-undo-list)
-             (null (car buffer-undo-list)))
-    (pop buffer-undo-list ))
-  (self-insert-command  arg )
-  (cond
-   ((and emacspeak-word-echo
-         (interactive-p)
-         (= last-input-char 32 ))
-    (save-excursion
-      (condition-case nil
-          (forward-word -1)
-        (error nil))
-      (emacspeak-speak-word)))
-   ((and emacspeak-character-echo
-         (interactive-p ))
-    (when dtk-stop-immediately-while-typing (dtk-stop))
-    (emacspeak-speak-this-char last-input-char )))
-  (and
-   (= (char-syntax  last-input-char) 32)
-   (>= (current-column) fill-column)
-   auto-fill-function
-   (funcall auto-fill-function)))
-  (t (self-insert-command arg))))
+    (when (and (listp buffer-undo-list)
+               (null (car buffer-undo-list)))
+      (pop buffer-undo-list ))
+    (self-insert-command  arg )
+    (cond
+     ((and emacspeak-word-echo
+           (interactive-p)
+           (= last-input-char 32 ))
+      (save-excursion
+        (condition-case nil
+            (forward-word -1)
+          (error nil))
+        (emacspeak-speak-word)))
+     ((and emacspeak-character-echo
+           (interactive-p ))
+      (when dtk-stop-immediately-while-typing (dtk-stop))
+      (emacspeak-speak-this-char last-input-char )))
+    (and
+     (= (char-syntax  last-input-char) 32)
+     (>= (current-column) fill-column)
+     auto-fill-function
+     (funcall auto-fill-function)))
+   (t (self-insert-command arg))))
 
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
@@ -174,12 +174,11 @@ rather than through their function cell.
 They have to be redefined and rebound to make them talk. " )
 
 (mapcar 
-   (function
-    (lambda (f)
-      (emacspeak-rebind f
-                        (intern (format "emacspeak-%s" f )))))
-   emacspeak-functions-that-bypass-function-cell )
-
+ (function
+  (lambda (f)
+    (emacspeak-rebind f
+                      (intern (format "emacspeak-%s" f )))))
+ emacspeak-functions-that-bypass-function-cell )
 
 ;;}}}
 ;;{{{  fix ding 

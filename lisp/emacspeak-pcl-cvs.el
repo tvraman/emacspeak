@@ -10,7 +10,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.1 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -56,18 +56,18 @@
 
 (voice-setup-add-map
  '(
-(cvs-filename-face voice-bolden)
+   (cvs-filename-face voice-bolden)
 
-(cvs-handled-face voice-monotone-medium)
+   (cvs-handled-face voice-monotone-medium)
 
-(cvs-header-face voice-bolden)
+   (cvs-header-face voice-bolden)
 
-(cvs-marked-face voice-brighten-medium)
+   (cvs-marked-face voice-brighten-medium)
 
-(cvs-msg-face voice-monotone-medium)
+   (cvs-msg-face voice-monotone-medium)
 
-(cvs-need-action-face voice-brighten)
-))
+   (cvs-need-action-face voice-brighten)
+   ))
 
 ;;}}}
 

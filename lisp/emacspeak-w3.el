@@ -1198,8 +1198,6 @@ completion. "
                    (cons v v ))
                values)))))
 
-
-
 (defun emacspeak-w3-extract-by-id (id   &optional prompt-url speak)
   "Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -1256,7 +1254,6 @@ completion. "
      (format "//*[%s]" filter)
      prompt-url
      (or (interactive-p) speak))))
-
 
 (defun emacspeak-w3-junk-by-class-list(classes   &optional prompt-url speak)
   "Junk elements having class specified in list `classes' from HTML.
@@ -1860,7 +1857,7 @@ Note that this hook gets reset after it is used by W3 --and this is intentional.
       (goto-char
        (next-single-property-change (point) 'html-stack)))))
   (when (null (emacspeak-w3-html-stack))
-  (goto-char (next-single-property-change (point) 'html-stack)))
+    (goto-char (next-single-property-change (point) 'html-stack)))
   (when (interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))

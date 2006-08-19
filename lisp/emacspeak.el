@@ -66,10 +66,10 @@
 ;;{{{  Customize groups
 (defconst emacspeak-version
   (format "24.0 Revision %s"
-          (let ((x "$Revision:$"))
-    (string-match "[0-9.]+" x)
-    (substring x (match-beginning 0)
-               (match-end 0))))
+          (let ((x "$Revision$"))
+            (string-match "[0-9.]+" x)
+            (substring x (match-beginning 0)
+                       (match-end 0))))
   "Version number for Emacspeak.")
 
 (defgroup emacspeak nil

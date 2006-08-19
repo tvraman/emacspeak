@@ -9,7 +9,7 @@
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date$ |
-;;;  $Revision: 24.6 $ |
+;;;  $Revision$ |
 ;;; Location undetermined
 ;;;
 
@@ -311,8 +311,6 @@ Optional argument FORCE  flushes the command to the speech server."
     (goto-char (point-min))
     (while (re-search-forward "[\177-\377]+"  nil t )
       (replace-match " "))))
-
-
 
 (defsubst  dtk-fix-brackets (mode)
   "Quote any delimiters that need special treatment.
@@ -878,7 +876,6 @@ Interactive PREFIX arg sets punctuation mode globally."
 Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
   (dtk-set-punctuations 'some prefix))
-
 
 ;;;###autoload
 (defun dtk-toggle-punctuation-mode (&optional prefix)
@@ -1548,7 +1545,6 @@ Default is to use pipes.")
   (interactive)
   (declare (special tts-debug-buffer))
   (switch-to-buffer tts-debug-buffer))
-
 
 ;;}}}
 ;;{{{  interactively select how text is split:

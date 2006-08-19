@@ -894,7 +894,6 @@ To leave, press \\[keyboard-quit]."
                 (t nil)))))
     options))
 
-
 (defsubst emacspeak-list-emacspeak-commands ()
   "List all Emacspeak commands."
   (let ((commands nil ))
@@ -2679,8 +2678,6 @@ Interactive  arguments specify filename pattern and search pattern."
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
-
-
 
 ;;}}}
 ;;{{{ voice sample
