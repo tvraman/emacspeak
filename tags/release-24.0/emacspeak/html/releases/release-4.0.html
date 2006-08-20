@@ -1,0 +1,186 @@
+<html>
+  <head>
+<title>Emacspeak 4.0</title>
+</head>
+
+<body>
+<h1>Emacspeak 4.0</h1>
+
+
+These are the release notes for Emacspeak 4.0.
+See <A HREF="./emacspeak.html">Emacspeak Home</A>for an introduction to 
+Emacspeak. This release is a major upgrade to the last public release of
+Emacspeak --emacspeak-3.75 from September 1995.
+<P>
+
+The following sections give a quick overview of what is new in this release.
+
+<H2>Package Overview</H2>
+
+This section gives an overview of the various modules that make up Emacspeak
+4.0. This also serves as an introduction to those components that are new
+since 3.75.
+
+<P>
+<DL>
+
+<DT>emacspeak-actions.el
+     <DD> Have emacspeak execute certain actions, e.g. play a sound, when the
+     cursor moves over special regions of a buffer.
+<DT> emacspeak-advice.el
+     <DD> The core advise module.
+          This module advises all of basic Emacs to speak.
+<DT> emacspeak-auctex.el
+     <DD> Emacspeak extensions to the AUCTEX package.
+          AUCTEX is a powerful environment for publishing in TeX and LaTeX.
+<DT> emacspeak-bbdb.el
+     <DD> Working with the Insidious Big Brother Data Base.
+          Provides fluent spoken feedback as you use BBDB to lookup names in
+     the database, do name completion as you compose email etc.
+          
+<DT>emacspeak-c.el
+     <DD> Extensions for editting C code.
+          Optimized to work with module cc-mode.el by Barry Warsaw.
+<DT>emacspeak-calc.el
+     <DD> Speech extensions to the Emacs Calculator --a large symbolic algebra
+     system.
+<DT>emacspeak-calendar.el
+     <DD> Extensions to the calendar. Provides fluent spoken feedback as you
+     navigate through the calendar, setup appointments etc.
+<DT>emacspeak-compile.el
+     <DD> Compiling code from inside Emacs and jumping to the error line is
+     made easy with this module.
+
+<DT>emacspeak-dired.el
+     <DD> Auditory feedback when working with dired.
+          This helps you easily navigate the filesystem, copy local or remote
+     files etc. Emacspeak works fluently with both ANGE-FTP and EFS.
+<DT>emacspeak-dmacro.el
+     <DD> Auditory feedback for working with the DMACRO package.
+          DMACRO is a package that allows you to quickly generate templates
+     --useful in writing code.
+<DT>emacspeak-ediff.el
+     <DD> Spoken feedback to help you compare and merge files using the EDIFF
+     package. This is the most effective way of using programs like diff with
+     spoken feedback. Emacspeak will figure out the specific differences
+     between chunks and aurally highlight the differing pieces for you.
+<DT>emacspeak-eterm.el
+     <DD> Speech extension to the Emacs ETERM package.
+          ETERM is to Emacs as an XTERM is to X-Windows.
+          With ETERM --comes with emacs-19.29 and later by default-- you can
+     login to other machines from inside Emacs.
+          In fact, you can run the UNIX <tt>VI</tt> editor inside an eterm
+     window and get fluent spoken feedback from Emacspeak. But why run VI
+     inside emacs you may ask: --Well, I do it all the time on my laptop when
+     I need to become root and edit any of the system configuration files in
+     /etc.
+<DT>emacspeak-folding.el
+     <DD> Speech extension to folding mode --folding.el
+<DT>emacspeak-forms.el
+     <DD> Editting using Emacs' forms support.
+          Try out M-x forms-find-file on the forms-passwd demo file that is to
+     be found in the Emacs distribution.  Emacspeak provides fluents spoken
+     feedback as you tab through fields in a form etc.
+<DT> emacspeak-gnus.el
+     <DD> Reading USENET news.
+          Works with both the old GNUS 4.XX as well as the new DING-GNUS
+     --GNUS 5.0.
+          Lets you listen to USENET without taking your hands off the four
+     arrow keys.
+<DT>emacspeak-gud.el
+     <DD> Auditory feedback when using GDB from inside Emacs.
+          Speaks error messages as they pop up, as well as the source line
+     that contains the error.
+<DT>emacspeak-hyperbole.el
+     <DD> Speech extensions for working with Bob Weiner's Hyperbole package.
+<DT>emacspeak-info.el
+     <DD> Speech extensions for browsing info documentation.
+          Provides <em>audio formatted</em> output using voice-lock mode.
+<DT>emacspeak-ispell.el
+     <DT> Speech feedback from ispell --the spell checking interface.
+          The interface provided is fluent and natural --the user responds to
+     the spoken feedback instead of worrying about the cursor location on the
+     screen.
+<DT>emacspeak-kotl.el
+     <DD> Extensions for providing auditory feedback from Bob Weiner's Outline
+     mode --KOTL-- this is a part of the Hyperbole system.
+
+<DT>emacspeak-man.el
+     <DD> Speech extension for reading UNIX man pages inside Emacs. Provides
+     a fluent browsing interface, including navigating between sections,
+     following cross-references etc.
+<DT>emacspeak-oo-browser.el
+     <DD> Speech extensions for Bob Weiner's OO-BROWSER --a system for
+     browsing large software  source pools. An excellent way of browsing large
+     object oriented packages e.g. the JDK  Java release from SUN.
+<DT>emacspeak-outline.el
+     <DD> Extensions for outline-mode and outline-minor-mode.
+<DT>emacspeak-perl.el
+     <DD> Editting Perl code.
+
+<DT>emacspeak-replace.el
+     <DD> Extensions to query-replace, search and replace etc.
+          As of version 4.0 Emacspeak provides an aural highlight for the
+     search hit.
+
+<DT>emacspeak-sounds.el
+     <DD> Defines the auditory icons used by the rest of Emacspeak.
+<DT>emacspeak-speak.el
+     <DD> Implements core speech services used by the rest of the system.
+<DT>emacspeak-tabulate.el
+     <DD> Implements command  <tt>emacspeak-tabulate-region</tt>
+          Useful for listening to tabulated data, as produced by UNIX
+     <tt>PS</tt> etc.
+<DT>emacspeak-tcl.el
+     <DD> Extensions for providing spoken feedback when editting TCL code.
+<DT>emacspeak-tempo.el
+     <DD> Extensions for creating and filling templates. Used by
+     HTML-HELPER-MODE.
+<DT>emacspeak-view.el
+     <DD> Extensions for Emacs' view-mode.
+          View-mode lets you browse files without editting them.
+<DT>emacspeak-vm.el
+     <DD> Speech and audio extensions to the VM mail reader.
+<DT>emacspeak-w3.el
+     <DD> Emacspeak extensions for the Emacs W3 browser by William Perry.
+          As of emacspeak 4.0, you need versions of w3 2.3 or higher.
+          W3 is the first browser to implement the W3C CSS --cascaded style
+          sheet-- specification; emacspeak 4.0 includes a first-cut
+          implementation of a cascaded speech stylesheet. Note:
+          the speech style sheet  is still
+          preliminary but very very useful.
+<DT>emacspeak-wrolo.el
+     <DD> Speech extensions to Bob Weiner's rolodex package.
+<DT>emacspeak.el
+     <DD> The main module --basically loads everything else.
+<DT>html-voice.el
+     <DD> Like HTML-FONT.el --provides voice-lock support for HTML-HELPER-MODE
+<DT>voice-lock.el
+     <DD> Emacspeak's audio equivalent of FONT-LOCK.el
+</DL>
+
+<H2>Additional Comments</H2>
+
+This release of Emacspeak includes many enhancements as well as fixes made
+over a period of seven months. Major improvements include:
+<UL>
+<LI>  Emacspeak is better about stopping immediately when in
+     comint modes e.g. shell-mode.
+<LI> Fluent interaction when using ANGE-FTP --an auditory progress monitor cuts on
+the amount of speech you hear.
+<LI> Fixes to the DTK driver to handle split caps and capitalization modes better.
+<LI> <STRONG>Many</STRONG> more interactive commands, execute C-h C-e to get an
+overview.
+</UL>
+<H2>Acknowledgements</H2>
+
+I would like to thank Adobe Systems for providing me with an excellent
+computing environment at home --this has enabled me to continue working on
+emacspeak in my spare time.
+<hr>
+<address><A href="mailto:raman@adobe.com">Email: raman@adobe.com</a></address>
+<!-- hhmts start -->
+Last modified: Fri May 10 16:03:52 1996
+<!-- hhmts end -->
+</body>
+ </html>

@@ -1,0 +1,7 @@
+#!/bin/sh
+#Description: Emacspeak tool  to  realplay streams using ALSA
+#trplayer uses OSS by default.
+#This script wrappers it to use ALSA
+
+vsound -s trplayer  -q "$@"    \
+ | aplay -f cdr - 
