@@ -1,0 +1,70 @@
+#$Id$cho
+Summary: emacspeak -- The Complete Audio Desktop
+Name: emacspeak
+Version: 16.7707
+Release: 1
+Copyright: GPL
+Group: Applications/Editors
+Source: http://emacspeak.sf.net/emacspeak.tar.gz
+URL: http://emacspeak.sf.net
+Vendor: Emacspeak Inc 
+Packager: T. V. Raman <raman@cs.cornell.edu>
+Requires: emacs tcl tclx
+
+%description 
+Emacspeak is a speech interface that allows visually impaired users to
+interact independently and efficiently with the computer. Available free of
+cost on the Internet, Emacspeak has dramatically changed how the author and
+hundreds of blind and visually impaired users around the world interact with
+the personal computer and the Internet. A rich suite of task-oriented
+speech-enabled tools provides efficient speech-enabled access to the evolving
+semantic WWW. When combined with Linux running on low-cost PC hardware,
+Emacspeak/Linux provides a reliable, stable speech-friendly solution that
+opens up the Internet to visually impaired users around the world. 
+
+%prep
+%setup
+
+%build
+make  config SRC=`pwd`
+make
+
+%install
+make install
+
+%post 
+cd /usr/share/emacs/site-lisp/emacspeak
+find . -type d -print |xargs chmod 755
+echo "Emacspeak is now installed on your system.
+Note that this has installed the  Emacspeak speech server for
+ViaVoice Outloud  --a software speech synthesis engine.
+However, you need to obtain and install the ViaVoice Outloud
+RPMs  before you can use software TTS with Emacspeak 
+--See  file  /usr/share/docs/emacspeak-nn/VIAVOICE for details.
+
+To use Software Dectalk for Linux, see  /usr/share/docs/emacspeak-nn/DTK.
+
+NEWS file for a  summary of new features        --control e cap n in Emacs
+FAQ for Frequently Asked Questions              -- control e cap F in Emacs
+Custom for customizations              -- control e cap C in Emacs
+Tips Tips for productivity tips            -- control e cap T in Emacs
+
+Make sure you read the Emacs info pages
+"
+
+%files 
+ /usr/share/emacs/site-lisp/emacspeak/
+/usr/bin/emacspeak
+/usr/share/info/emacspeak.info
+/usr/share/info/emacspeak.info-1
+/usr/share/info/emacspeak.info-2
+/usr/share/info/emacspeak.info-3
+/usr/share/info/emacspeak.info-4
+/usr/share/info/emacspeak.info-5
+
+%doc servers/linux-outloud/VIAVOICE servers/software-dtk/DTK etc/* info/* 
+
+
+# local variables:
+# mode: rpm-spec
+# end:

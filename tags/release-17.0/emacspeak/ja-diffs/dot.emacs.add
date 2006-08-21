@@ -1,0 +1,28 @@
+;;; Startup BEP
+(defun load-bemacspeak ()
+  "Startup Emacspeak with BEP feature."
+  (interactive)
+  ;;; English-to-kana dictionary name for BEP SS(Japanese).
+;  (setenv "BEP_DIC_PATH" "/home/your/dic/path/bep-eng.dic")
+  ;;; play auditory-icon with play program
+  (setq emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon)
+  ;;; Specify filename of speech server
+  (setenv "DTK_TCL" "bep-ss")
+  ;;; It should be "bep-ss" if you use BEP SS.
+  (setenv "DTK_PROGRAM" "bep-ss")
+  ;;; Turn off unibyte mode
+  (setq emacspeak-unibyte nil)
+  ;;; Coding system for speech server. Should be shift_jis-unix
+  (setq dtk-speaker-process-coding-system '(shift_jis-unix shift_jis-unix))
+  ;;; Unspeekable rule
+  (setq emacspeak-unspeakable-rule   "^\\W+$")
+  ;;; Default language. 'ja or 'en is valid.
+  (setq dtk-default-language 'en)
+  ;;; Full pathname of emacspeak-setup.el
+  (load-file "/usr/share/emacs/site-lisp/emacspeak/lisp/bep-setup.el")
+  ;;; Speech rate
+  (dtk-set-rate 240 t)
+  ;;; Play auditory-icon
+  (emacspeak-toggle-auditory-icons t)
+;  (emacspeak-sounds-select-theme "chimes-mono/")
+)

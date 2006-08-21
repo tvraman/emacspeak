@@ -1,0 +1,1383 @@
+This is ./emacspeak.info, produced by makeinfo version 4.1 from
+emacspeak.texi.
+
+INFO-DIR-SECTION Accessibility
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+END-INFO-DIR-ENTRY
+
+
+File: emacspeak.info,  Node: emacspeak-realaudio,  Next: emacspeak-redefine,  Prev: emacspeak-python,  Up: Emacspeak Commands
+
+emacspeak-realaudio
+===================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-realaudio.
+
+ - emacspeak-realaudio: (&optional IGNORED)
+     ` control e ; '
+
+     Start or control streaming audio including MP3 and realaudio.  If
+     using `TRPlayer' as the player, accepts trplayer control commands
+     if a stream is already playing.  Otherwise, the playing stream is
+     simply stopped.  If no stream is playing, this command prompts for
+     a realaudio resource.  Realaudio resources can be specified either
+     as a Realaudio URL, the location of a local Realaudio file, or as
+     the name of a local Realaudio metafile. Realaudio resources you
+     have played in this session are available in the minibuffer
+     history.  The default is to play the resource you played most
+     recently. Emacspeak uses the contents of the directory specified
+     by variable emacspeak-realaudio-shortcuts-directory to offer a set
+     of completions. Hit space to use this completion list.
+
+     If using TRPlayer, you can either give one-shot commands using
+     command emacspeak-realaudio available from anywhere on the audio
+     desktop as `C-e ;'.  Alternatively, switch to buffer *realaudo*
+     using `C-e ;;' if you wish to issue many navigation commands.
+     Note that buffer *realaudio* uses a special major mode that
+     provides the various navigation commands via single keystrokes.
+
+ - emacspeak-realaudio-browse: (RAMFILE &optional START-TIME)
+     Browse RAM file before playing the selected component.
+
+ - emacspeak-realaudio-mode: ()
+     Major mode for streaming audio.
+
+     key             binding --             ------
+
+     <right>		emacspeak-aumix-wave-increase
+     <left>		emacspeak-aumix-wave-decrease
+     }		emacspeak-realaudio-trplayer-call-command
+     {		emacspeak-realaudio-trplayer-call-command
+     ]		emacspeak-realaudio-trplayer-call-command
+     [		emacspeak-realaudio-trplayer-call-command
+     9		emacspeak-realaudio-trplayer-call-command
+     0		emacspeak-realaudio-trplayer-call-command
+     ,		emacspeak-realaudio-trplayer-call-command
+     .		emacspeak-realaudio-trplayer-call-command
+     >		emacspeak-realaudio-trplayer-call-command
+     <		emacspeak-realaudio-trplayer-call-command
+     i		emacspeak-realaudio-trplayer-call-command
+     l		emacspeak-realaudio-trplayer-call-command
+     e		emacspeak-realaudio-trplayer-call-command
+     s		emacspeak-realaudio-trplayer-call-command
+     t		emacspeak-realaudio-trplayer-call-command
+     p		emacspeak-realaudio-trplayer-call-command
+
+     This mode runs the hook `emacspeak-realaudio-mode-hook', as the
+     final step during initialization.
+
+ - emacspeak-realaudio-play: (RESOURCE &optional PROMPT-TIME)
+     Play a realaudio stream.  Uses files from your Realaudio shortcuts
+     directory for completion.  See documentation for user configurable
+     variable emacspeak-realaudio-shortcuts-directory.
+
+ - emacspeak-realaudio-play-url-at-point: (&optional PROMPT-TIME)
+     Play url under point as realaudio
+
+ - emacspeak-realaudio-select-realaudio-buffer: ()
+     Switch to realaudio buffer.
+
+ - emacspeak-realaudio-stop: ()
+     Stop playing realaudio
+
+ - emacspeak-realaudio-trplayer-call-command: ()
+     Call appropriate TRPlayer command.
+
+ - emacspeak-realaudio-trplayer-command: (CHAR)
+     Execute TRPlayer command.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+
+File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-remote,  Prev: emacspeak-realaudio,  Up: Emacspeak Commands
+
+emacspeak-redefine
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-redefine.
+
+ - emacspeak-backward-char: (ARG)
+     ` control b   <left> '
+
+     Backward-char redefined to speak char moved to.
+
+ - emacspeak-forward-char: (ARG)
+     ` control f   <right> '
+
+     Forward-char redefined to speak char moved to.
+
+ - emacspeak-kill-buffer: (BUFFER)
+     ` control x k '
+
+     Speech-enabled version of kill-buffer for Emacs 21.
+
+ - emacspeak-self-insert-command: (ARG)
+     ` Character set JISX0213-2   Character set Tibetan 2 column
+     Character set Indian 2 Column   Character set CNS11643-7 (Chinese
+     traditional): ISO-IR-187   Character set CNS11643-6 (Chinese
+     traditional): ISO-IR-186   Character set CNS11643-5 (Chinese
+     traditional): ISO-IR-185   Character set CNS11643-4 (Chinese
+     traditional): ISO-IR-184   Character set CNS11643-3 (Chinese
+     traditional): ISO-IR-183   Character set Ethiopic characters
+     Character set Unicode subset ( cap U +0100.. cap U +24FF)
+     Character set Unicode subset ( cap U +E000+FFFF)   Character set
+     Unicode subset ( cap U +2500.. cap U +33FF)   Character set
+     Tibetan 1 column   Character set Indian 1 Column   Character set
+     Indian IS 13194   Character set Arabic 2-column   Character set
+     Lao   Character set ASCII with right-to-left direction   Character
+     set Arabic 1-column   Character set Arabic digit   Character set
+     VISCII upper-case   Character set VISCII lower-case   Character
+     set IPA   Character set SiSheng (PinYin/ZhuYin)   Character set
+     Big5 (Level-2) C940-FEFE   Character set Big5 (Level-1) A141-C67F
+     Character set JISX0213-1   Character set CNS11643-2 (Chinese
+     traditional): ISO-IR-172   Character set CNS11643-1 (Chinese
+     traditional): ISO-IR-171   Character set JISX0212 (Japanese):
+     ISO-IR-159   Character set KSC5601 (Korean): ISO-IR-149
+     Character set JISX0208.1983/1990 (Japanese): ISO-IR-87   Character
+     set GB2312: ISO-IR-58   Character set JISX0208.1978 (Japanese):
+     ISO-IR-42   Character set RHP of Latin-8 (ISO 8859-14)   Character
+     set RHP of Latin-9 (ISO 8859-15): ISO-IR-203   Character set RHP
+     of Latin-5 (ISO 8859-9): ISO-IR-148   Character set RHP of
+     Cyrillic (ISO 8859-5): ISO-IR-144   Character set Japanese Roman
+     (JISX0201.1976)   Character set Japanese Katakana (JISX0201.1976)
+     Character set RHP of Hebrew (ISO 8859-8): ISO-IR-138   Character
+     set RHP of Arabic (ISO 8859-6): ISO-IR-127   Character set RHP of
+     Greek (ISO 8859-7): ISO-IR-126   Character set RHP of Thai
+     (TIS620): ISO-IR-166   Character set RHP of Latin-4 (ISO 8859-4):
+     ISO-IR-110   Character set RHP of Latin-3 (ISO 8859-3): ISO-IR-109
+      Character set RHP of Latin-2 (ISO 8859-2): ISO-IR-101
+     Character set RHP of Latin-1 (ISO 8859-1): ISO-IR-100   ÿ   þ   ý
+     ü   û   ú   ù   ø   ÷   ö   õ   ô   ó   ò   ñ   ð   ï   î   í   ì
+      ë   ê   é   è   ç   æ   å   ä   ã   â   á   à   ß   Þ   Ý   Ü
+     Û   Ú   Ù   Ø   ×   Ö   Õ   Ô   Ó   Ò   Ñ   Ð   Ï   Î   Í   Ì   Ë
+     Ê   É   È   Ç   Æ   Å   Ä   Ã   Â   Á   À   ¿   ¾   ½   ¼   »   º
+      ¹   ¸   ·   ¶   µ   ´   ³   ²   ±   °   ¯   ®   ­   ¬   «   ª
+     ©   ¨   §   ¦   ¥   ¤   £   ¢   ¡       ~   }   |   {   z   y   x
+     w   v   u   t   s   r   q   p   o   n   m   l   k   j   i   h   g
+      f   e   d   c   b   a   `   _   ^   ]   \   [    cap Z     cap Y
+        cap X     cap W     cap V     cap U     cap T     cap S
+     cap R     cap Q     cap P     cap O     cap N     cap M     cap L
+       cap K     cap J     cap I     cap H     cap G     cap F     cap
+     E     cap D     cap C     cap B     cap A    @   ?   >   =   <   ;
+      :   9   8   7   6   5   4   3   2   1   0   /   .   -   ,   +
+     *   )   (   '   &   %   $   #   !   SPACE '
+
+     Insert a character.  Speaks the character if
+     emacspeak-character-echo is true.  See  command
+     emacspeak-toggle-word-echo bound to C-e d w.  Toggle variable
+     dtk-stop-immediately-while-typing if you want to have speech flush
+     as you type.
+
+
+File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rmail,  Prev: emacspeak-redefine,  Up: Emacspeak Commands
+
+emacspeak-remote
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-remote.
+
+ - emacspeak-remote-connect-to-server: (HOST PORT)
+     ` control e meta r '
+
+     Connect to and start using remote speech server running on host
+     host and listening on port port.  Host is the hostname of the
+     remote server, typically the desktop machine.  Port is the tcp
+     port that that host is listening on for speech requests.
+
+ - emacspeak-remote-quick-connect-to-server: ()
+     Connect to remote server.  Does not prompt for host or port, but
+     quietly uses the guesses that appear as defaults when prompting.
+     Use this once you are sure the guesses are usually correct.
+
+ - emacspeak-remote-ssh-to-server: (LOGIN)
+     Open ssh session to where we came from.
+
+
+File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-solitaire,  Prev: emacspeak-remote,  Up: Emacspeak Commands
+
+emacspeak-rmail
+===============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-rmail.
+
+ - emacspeak-rmail-speak-current-message-labels: ()
+     Speak labels of current message
+
+ - emacspeak-rmail-summarize-current-message: ()
+     Summarize current message
+
+
+File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-rmail,  Up: Emacspeak Commands
+
+emacspeak-solitaire
+===================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-solitaire.
+
+ - emacspeak-solitaire-show-column: ()
+     Display current row auditorallly
+
+ - emacspeak-solitaire-show-row: ()
+     Display current row auditorallly
+
+ - emacspeak-solitaire-speak-coordinates: ()
+     Speak coordinates of current position
+
+
+File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands
+
+emacspeak-sounds
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-sounds.
+
+ - emacspeak-play-all-icons: ()
+     Plays all defined icons and speaks their names.
+
+ - emacspeak-set-auditory-icon-player: (PLAYER)
+     ` control e meta a '
+
+     Select  player used for producing auditory icons.  Recommended
+     choices:
+
+     emacspeak-serve-auditory-icon for  the wave device.
+     emacspeak-midi-icon for midi device.
+
+ - emacspeak-sounds-reset-local-player: ()
+     Ask Emacspeak to use a local audio player.  This lets me have
+     Emacspeak switch to using audioplay on solaris after I've used it
+     for a while from a remote session where it would use the more
+     primitive speech-server based audio player.
+
+ - emacspeak-sounds-select-theme: (THEME)
+     ` control e ) '
+
+     Select theme for auditory icons.
+
+ - emacspeak-toggle-auditory-icons: (&optional PREFIX)
+     ` control e control a '
+
+     Toggle use of auditory icons.  Optional interactive PREFIX arg
+     toggles global value.
+
+
+File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands
+
+emacspeak-speak
+===============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-speak.
+
+ - emacspeak-audio-annotate-paragraphs: (&optional PREFIX)
+     Set property auditory-icon at front of all paragraphs.
+     Interactive PREFIX arg prompts for sound cue to use
+
+ - emacspeak-blink-matching-open: ()
+     Display matching delimiter in the minibuffer.
+
+ - emacspeak-completions-move-to-completion-group: ()
+     Move to group of choices beginning with character last typed. If
+     no such group exists, then we dont move.
+
+ - emacspeak-dial-dtk: (NUMBER)
+     ` control e d t '
+
+     Prompt for and dial a phone NUMBER with the Dectalk.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-dtk-speak-version: ()
+     ` control e d  cap V  '
+
+     Use this to find out which version of the Dectalk firmware you are
+     running.
+
+ - emacspeak-execute-repeatedly: (COMMAND)
+     Execute COMMAND repeatedly.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-mark-backward-mark: ()
+     ` <control up> '
+
+     Cycle backward through the mark ring.
+
+ - emacspeak-mark-forward-mark: ()
+     ` <control down> '
+
+     Cycle forward through the mark ring.
+
+ - emacspeak-owindow-next-line: (COUNT)
+     ` ESCAPE <down> '
+
+     Move to the next line in the other window and speak it.  Numeric
+     prefix arg COUNT can specify number of lines to move.
+
+ - emacspeak-owindow-previous-line: (COUNT)
+     ` ESCAPE <up> '
+
+     Move to the next line in the other window and speak it.  Numeric
+     prefix arg COUNT specifies number of lines to move.
+
+ - emacspeak-owindow-scroll-down: ()
+     ` ESCAPE <prior> '
+
+     Scroll down  the window that command `other-window' would move to.
+     Speak the window contents after scrolling.
+
+ - emacspeak-owindow-scroll-up: ()
+     ` ESCAPE <next> '
+
+     Scroll up the window that command `other-window' would move to.
+     Speak the window contents after scrolling.
+
+ - emacspeak-owindow-speak-line: ()
+     ` ESCAPE <select> '
+
+     Speak the current line in the other window.
+
+ - emacspeak-read-next-line: (&optional ARG)
+     ` control e <down> '
+
+     Read next line, specified by an offset, without moving.  Default
+     is to read the next line.
+
+ - emacspeak-read-next-word: (&optional ARG)
+     Read next word, specified as a numeric  arg, without moving.
+     Default is to read the next word.
+
+ - emacspeak-read-previous-line: (&optional ARG)
+     ` control e <up> '
+
+     Read previous line, specified by an offset, without moving.
+     Default is to read the previous line.
+
+ - emacspeak-read-previous-word: (&optional ARG)
+     Read previous word, specified as a prefix arg, without moving.
+     Default is to read the previous word.
+
+ - emacspeak-speak-and-skip-extent-upto-char: (CHAR)
+     Search forward from point until we hit char.  Speak text between
+     point and the char we hit.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-speak-and-skip-extent-upto-this-char: ()
+     Speak extent delimited by point and last character typed.
+
+ - emacspeak-speak-browse-buffer: (&optional DEFINE-PARAGRAPH)
+     ` control e , '
+
+     Browse the current buffer by reading it a paragraph at a time.
+     Optional interactive prefix arg define-paragraph prompts for
+     regexp that defines paragraph start and paragraph-separate.
+
+ - emacspeak-speak-buffer: (&optional ARG)
+     ` control e b '
+
+     Speak current buffer  contents.  With prefix ARG, speaks the rest
+     of the buffer from point.  Negative prefix arg speaks from start
+     of buffer to point.   If voice lock mode is on, the paragraphs in
+     the buffer are voice annotated first,  see command
+     `emacspeak-speak-voice-annotate-paragraphs'.
+
+ - emacspeak-speak-buffer-filename: (&optional FILENAME)
+     ` control e f '
+
+     Speak name of file being visited in current buffer.  Speak default
+     directory if invoked in a dired buffer, or when the buffer is not
+     visiting any file.  Interactive prefix arg `filename' speaks only
+     the final path component.  The result is put in the kill ring for
+     convenience.
+
+ - emacspeak-speak-buffer-interactively: ()
+     ` control e  cap B  '
+
+     Speak the start of, rest of, or the entire buffer.  's' to speak
+     the start.  'r' to speak the rest.  any other key to speak entire
+     buffer.
+
+ - emacspeak-speak-char: (&optional PREFIX)
+     ` control e c '
+
+     Speak character under point.  Pronounces character phonetically
+     unless  called with a PREFIX arg.
+
+ - emacspeak-speak-completions: ()
+     Speak completions  buffer if one present.
+
+ - emacspeak-speak-continuously: ()
+     ` control e RETURN '
+
+     Speak a buffer continuously.  First prompts using the minibuffer
+     for the kind of action to perform after speaking each chunk.  E.G.
+     speak a line at a time etc.  Speaking commences at current buffer
+     position.  Pressing  C-g breaks out, leaving point on last chunk
+     that was spoken.   Any other key continues to speak the buffer.
+
+ - emacspeak-speak-current-column: ()
+     ` control e = '
+
+     Speak the current column.
+
+ - emacspeak-speak-current-kill: (COUNT)
+     ` control e k '
+
+     Speak the current kill entry.  This is the text that will be
+     yanked in by the next C-y.  Prefix numeric arg, COUNT, specifies
+     that the text that will be yanked as a result of a C-y  followed
+     by count-1 M-y be spoken.   The kill number that is spoken says
+     what numeric prefix arg to give to command yank.
+
+ - emacspeak-speak-current-mark: (COUNT)
+     ` control e control @ '
+
+     Speak the line containing the mark.  With no argument, speaks the
+     line containing the mark-this is where `exchange-point-and-mark'
+     C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks line
+     containing mark 'n' where 'n' is one less than the number of times
+     one has to jump using `set-mark-command' to get to this marked
+     position.  The location of the mark is indicated by an aural
+     highlight achieved by a change in voice personality.
+
+ - emacspeak-speak-current-percentage: ()
+     ` control e % '
+
+     Announce the percentage into the current buffer.
+
+ - emacspeak-speak-current-window: ()
+     Speak contents of current window.  Speaks entire window
+     irrespective of point.
+
+ - emacspeak-speak-display-char: (&optional PREFIX)
+     Display char under point using current speech display table.
+     Behavior is the same as command `emacspeak-speak-char' bound to
+     C-e c for characters in the range 0-127.  Optional argument PREFIX
+     specifies that the character should be spoken phonetically.
+
+ - emacspeak-speak-front-of-buffer: ()
+     Speak   the buffer from start to   point
+
+ - emacspeak-speak-help: (&optional ARG)
+     ` control e h '
+
+     Speak help buffer if one present.  With prefix arg, speaks the
+     rest of the buffer from point.  Negative prefix arg speaks from
+     start of buffer to point.
+
+ - emacspeak-speak-help-interactively: ()
+     Speak the start of, rest of, or the entire help.  's' to speak the
+     start.  'r' to speak the rest.  any other key to speak entire help.
+
+ - emacspeak-speak-line: (&optional ARG)
+     ` control e l '
+
+     Speaks current line.  With prefix ARG, speaks the rest of the line
+     from point.  Negative prefix optional arg speaks from start of
+     line to point.  Voicifies if option `voice-lock-mode' is on.
+     Indicates indentation with a tone if audio indentation is in use.
+     Indicates position of point with an aural highlight if option
+     `emacspeak-show-point' is turned on -see command
+     `emacspeak-show-point' bound to M-x emacspeak-show-point.  Lines
+     that start hidden blocks of text, e.g.  outline header lines, or
+     header lines of blocks created by command
+     `emacspeak-hide-or-expose-block' are indicated with auditory icon
+     ellipses.
+
+ - emacspeak-speak-line-interactively: ()
+     ` control e  cap L  '
+
+     Speak the start of, rest of, or the entire line.  's' to speak the
+     start.  'r' to speak the rest.  any other key to speak entire line.
+
+ - emacspeak-speak-line-number: ()
+     ` control e control l '
+
+     Print the current buffer line number and narrowed line number of
+     point.
+
+ - emacspeak-speak-line-number-obselete: ()
+     Speak the line number of the current line.
+
+ - emacspeak-speak-line-set-column-filter: (FILTER)
+     ` control e | '
+
+     Set up filter for selectively speaking or ignoring portions of
+     lines.  The filter is specified as a list of pairs.  For example,
+     to filter  columns 1 - 10 and 20 - 25, specify filter as ((0 9)
+     (20 25)). Filter settings are persisted across sessions.  A
+     persisted filter is used as the default when prompting for a
+     filter.  This allows one to accumulate a set of filters for
+     specific files like /var/adm/messages and /var/adm/maillog over
+     time.  Option emacspeak-speak-line-invert-filter determines the
+     sense of the filter.
+
+ - emacspeak-speak-message-again: (&optional FROM-MESSAGE-CACHE)
+     ` control e a '
+
+     Speak the last message from Emacs once again.  Optional
+     interactive prefix arg `from-message-cache' speaks message cached
+     from the most recent call to function `message'.
+
+ - emacspeak-speak-message-at-time: (TIME MESSAGE)
+     ` control e @ '
+
+     Set up rin-at-time to speak message at specified time.  Provides
+     simple stop watch functionality in addition to other things.  See
+     documentation for command run-at-time for details on time-spec.
+
+ - emacspeak-speak-minibuffer: (&optional ARG)
+     Speak the minibuffer contents  With prefix arg, speaks the rest of
+     the buffer from point.  Negative prefix arg speaks from start of
+     buffer to point.
+
+ - emacspeak-speak-minor-mode-line: ()
+     ` control e  cap M  '
+
+     Speak the minor mode-information.
+
+ - emacspeak-speak-mode-line: ()
+     ` control e m '
+
+     Speak the mode-line.
+
+ - emacspeak-speak-next-field: ()
+     ` control e > '
+
+     Skip across and speak the next contiguous sequence of non-blank
+     characters.  Useful in moving across fields.  Will be improved if
+     it proves useful.
+
+ - emacspeak-speak-next-window: ()
+     ` control e control n '
+
+     Speak the next window.
+
+ - emacspeak-speak-other-window: (&optional ARG)
+     Speak contents of `other' window.  Speaks entire window
+     irrespective of point.  Semantics  of `other' is the same as for
+     the builtin Emacs command `other-window'.  Optional argument ARG
+     specifies `other' window to speak.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-speak-page: (&optional ARG)
+     ` control e [ '
+
+     Speak a page.  With prefix ARG, speaks rest of current page.
+     Negative prefix arg will read from start of current page to point.
+     If option  `voice-lock-mode' is on, then it will use any defined
+     personality.
+
+ - emacspeak-speak-page-interactively: ()
+     ` control e ] '
+
+     Speak the start of, rest of, or the entire page.  's' to speak the
+     start.  'r' to speak the rest.  any other key to speak entire page.
+
+ - emacspeak-speak-paragraph: (&optional ARG)
+     ` control e { '
+
+     Speak paragraph.  With prefix arg, speaks rest of current
+     paragraph.  Negative prefix arg will read from start of current
+     paragraph to point.  If voice-lock-mode is on, then it will use
+     any defined personality.
+
+ - emacspeak-speak-paragraph-interactively: ()
+     ` control e  cap P  '
+
+     Speak the start of, rest of, or the entire paragraph.  's' to
+     speak the start.  'r' to speak the rest.  any other key to speak
+     entire paragraph.
+
+ - emacspeak-speak-predefined-window: (&optional ARG)
+     ` control e 9   control e 8   control e 7   control e 6   control
+     e 5   control e 4   control e 3   control e 2   control e 1
+     control e 0 '
+
+     Speak one of the first 10 windows on the screen.  Speaks entire
+     window irrespective of point.  In general, you'll never have Emacs
+     split the screen into more than two or three.  Argument ARG
+     determines the 'other' window to speak.  Semantics  of `other' is
+     the same as for the builtin Emacs command `other-window'.
+
+ - emacspeak-speak-previous-field: ()
+     ` control e < '
+
+     Skip backwards across and speak  contiguous sequence of non-blank
+     characters.  Useful in moving across fields.  Will be improved if
+     it proves useful.
+
+ - emacspeak-speak-previous-window: ()
+     ` control e control p '
+
+     Speak the previous window.
+
+ - emacspeak-speak-rectangle: (START END)
+     ` control e  cap R  '
+
+     Speak a rectangle of text.  Rectangle is delimited by point and
+     mark.  When call from a program, arguments specify the START and
+     END of the rectangle.
+
+ - emacspeak-speak-region: (START END)
+     ` control e r '
+
+     Speak region.  Argument START  and END specify region to speak.
+
+ - emacspeak-speak-rest-of-buffer: ()
+     ` control e n '
+
+     Speak remainder of the buffer starting at point
+
+ - emacspeak-speak-sentence: (&optional ARG)
+     Speak current sentence.  With prefix ARG, speaks the rest of the
+     sentence  from point.  Negative prefix arg speaks from start of
+     sentence to point.
+
+ - emacspeak-speak-set-display-table: (&optional PREFIX)
+     Sets up buffer specific speech display table that controls how
+     special characters are spoken. Interactive prefix argument causes
+     setting to be global.
+
+ - emacspeak-speak-sexp: (&optional ARG)
+     ` control e ' '
+
+     Speak current sexp.  With prefix ARG, speaks the rest of the sexp
+     from point.  Negative prefix arg speaks from start of sexp to
+     point.  If option  `voice-lock-mode' is on, then uses the
+     personality.
+
+ - emacspeak-speak-sexp-interactively: ()
+     ` control e " '
+
+     Speak the start of, rest of, or the entire sexp.  's' to speak the
+     start.  'r' to speak the rest.  any other key to speak entire sexp.
+
+ - emacspeak-speak-skim-buffer: ()
+     Skim the current buffer  a paragraph at a time.
+
+ - emacspeak-speak-skim-next-paragraph: ()
+     Skim next paragraph.
+
+ - emacspeak-speak-skim-paragraph: ()
+     Skim paragraph.  Skimming a paragraph results in the speech
+     speeding up after the first clause.  Speech is scaled by the value
+     of dtk-speak-skim-scale
+
+ - emacspeak-speak-spaces-at-point: ()
+     ` control e CONTROL meta @ '
+
+     Speak the white space at point.
+
+ - emacspeak-speak-spell-current-word: ()
+     ` control e  cap W  '
+
+     Spell word at  point.
+
+ - emacspeak-speak-time: ()
+     ` control e t '
+
+     Speak the time.
+
+ - emacspeak-speak-version: ()
+     ` control e  cap V  '
+
+     Announce version information for running emacspeak.
+
+ - emacspeak-speak-voice-annotate-paragraphs: ()
+     Locate paragraphs and voice annotate the first word.  Here,
+     paragraph is taken to mean a chunk of text preceeded by a blank
+     line.  Useful to do this before you listen to an entire buffer.
+
+ - emacspeak-speak-window-information: ()
+     ` control e control w '
+
+     Speaks information about current window.
+
+ - emacspeak-speak-word: (&optional ARG)
+     ` control e w '
+
+     Speak current word.  With prefix ARG, speaks the rest of the word
+     from point.  Negative prefix arg speaks from start of word to
+     point.  If executed  on the same buffer position a second time,
+     the word is spelt instead of being spoken.
+
+ - emacspeak-speak-word-interactively: ()
+     Speak the start of, rest of, or the entire word.  's' to speak the
+     start.  'r' to speak the rest.  any other key to speak entire word.
+
+ - emacspeak-switch-to-completions-window: ()
+     Jump to the *Completions* buffer if it is active.  We make the
+     current minibuffer contents (which is obviously the prefix for
+     each entry in the completions buffer) inaudible to reduce chatter.
+
+ - emacspeak-toggle-action-mode: (&optional PREFIX)
+     Toggle state of  Emacspeak  action mode.  Interactive PREFIX arg
+     means toggle  the global default value, and then set the current
+     local  value to the result.
+
+ - emacspeak-toggle-audio-indentation: (&optional PREFIX)
+     ` control e d i '
+
+     Toggle state of  Emacspeak  audio indentation.  Interactive PREFIX
+     arg means toggle  the global default value, and then set the
+     current local  value to the result.  Specifying the method of
+     indentation as `tones' results in the Dectalk producing a tone
+     whose length is a function of the line's indentation.  Specifying
+     `speak' results in the number of initial spaces being spoken.
+
+ - emacspeak-toggle-character-echo: (&optional PREFIX)
+     ` control e d k '
+
+     Toggle state of  Emacspeak  character echo.  Interactive PREFIX
+     arg means toggle  the global default value, and then set the
+     current local  value to the result.
+
+ - emacspeak-toggle-comint-autospeak: (&optional PREFIX)
+     ` control e control q '
+
+     Toggle state of Emacspeak comint autospeak.  When turned on,
+     comint output is automatically spoken.  Turn this on if you want
+     your shell to speak its results.  Interactive PREFIX arg means
+     toggle the global default value, and then set the current local
+     value to the result.
+
+ - emacspeak-toggle-comint-output-monitor: (&optional PREFIX)
+     ` control e o '
+
+     Toggle state of Emacspeak comint monitor.  When turned on, comint
+     output is automatically spoken.  Turn this on if you want your
+     shell to speak its results.  Interactive PREFIX arg means toggle
+     the global default value, and then set the current local value to
+     the result.
+
+ - emacspeak-toggle-line-echo: (&optional PREFIX)
+     ` control e d l '
+
+     Toggle state of  Emacspeak  line echo.  Interactive PREFIX arg
+     means toggle  the global default value, and then set the current
+     local  value to the result.
+
+ - emacspeak-toggle-mail-alert: (&optional PREFIX)
+     ` control e meta m '
+
+     Toggle state of  Emacspeak  mail alert.  Interactive PREFIX arg
+     means toggle  the global default value, and then set the current
+     local  value to the result.  Turning on this option results in
+     Emacspeak producing an auditory icon indicating the arrival  of
+     new mail when displaying the mode line.
+
+ - emacspeak-toggle-show-point: (&optional PREFIX)
+     ` control e control d '
+
+     Toggle state of  Emacspeak-show-point.  Interactive PREFIX arg
+     means toggle  the global default value, and then set the current
+     local  value to the result.
+
+ - emacspeak-toggle-speak-line-invert-filter: (&optional PREFIX)
+     ` control e \ '
+
+     Toggle state of   how column filter is interpreted.  Interactive
+     PREFIX arg means toggle  the global default value, and then set the
+     current local  value to the result.
+
+ - emacspeak-toggle-speak-messages: ()
+     ` control e q '
+
+     Toggle the state of whether emacspeak echoes messages.
+
+ - emacspeak-toggle-which-function: (&optional PREFIX)
+     ` control e meta w '
+
+     Toggle state of  Emacspeak  which function mode.  Interactive
+     PREFIX arg means toggle  the global default value, and then set the
+     current local  value to the result.
+
+ - emacspeak-toggle-word-echo: (&optional PREFIX)
+     ` control e d w '
+
+     Toggle state of  Emacspeak  word echo.  Interactive PREFIX arg
+     means toggle  the global default value, and then set the current
+     local  value to the result.
+
+ - emacspeak-use-customized-blink-paren: ()
+     A customized blink-paren to speak  matching opening paren.  We
+     need to call this in case Emacs is anal and loads its own builtin
+     blink-paren function which does not talk.
+
+ - emacspeak-view-register: ()
+     ` control e v '
+
+     Display the contents of a register, and then speak it.
+
+ - emacspeak-voicify-rectangle: (START END &optional PERSONALITY)
+     Voicify the current rectangle.  When calling from a
+     program,arguments are START END personality Prompts for
+     PERSONALITY  with completion when called interactively.
+
+ - emacspeak-voicify-region: (START END &optional PERSONALITY)
+     Voicify the current region.  When calling from a program,arguments
+     are START END personality.  Prompts for PERSONALITY  with
+     completion when called interactively.
+
+ - emacspeak-zap-tts: ()
+     ` control e d z '
+
+     Send this command to the TTS directly.
+
+
+File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-table-ui,  Prev: emacspeak-speak,  Up: Emacspeak Commands
+
+emacspeak-speedbar
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-speedbar.
+
+ - emacspeak-speedbar-click: ()
+     Does the equivalent of the mouse click from the keyboard
+
+ - emacspeak-speedbar-goto-speedbar: ()
+     Switch to the speedbar
+
+
+File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands
+
+emacspeak-table-ui
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-table-ui.
+
+ - emacspeak-table-copy-current-element-to-register: (REGISTER)
+     Speak current table element
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-table-copy-to-clipboard: ()
+     Copy table in current buffer to the table clipboard.  Current
+     buffer must be in emacspeak-table mode.
+
+ - emacspeak-table-display-table-in-region: (START END)
+     ` control e TAB '
+
+     Recognize tabular data in current region and display it in table
+     browsing mode in a a separate buffer.  emacspeak table mode is
+     designed to let you browse tabular data using all the power of the
+     two-dimensional spatial layout while giving you sufficient
+     contextual information.  The tables subdirectory of the emacspeak
+     distribution contains some sample tables -these are the CalTrain
+     schedules.  Execute command `describe-mode' bound to C-h m in a
+     buffer that is in emacspeak table mode to read the documentation
+     on the table browser.
+
+ - emacspeak-table-find-csv-file: (FILENAME)
+     Process a csv (comma separated values) file.  The processed  data
+     and presented using emacspeak table navigation.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-table-find-file: (FILENAME)
+     ` control e control t '
+
+     Open a file containing table data and display it in table mode.
+     emacspeak table mode is designed to let you browse tabular data
+     using all the power of the two-dimensional spatial layout while
+     giving you sufficient contextual information.  The etc/tables
+     subdirectory of the emacspeak distribution contains some sample
+     tables -these are the CalTrain schedules.  Execute command
+     `describe-mode' bound to C-h m in a buffer that is in emacspeak
+     table mode to read the documentation on the table browser.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-table-get-entry-with-headers: (ROW COLUMN &optional
+          ROW-HEAD-P COL-HEAD-P)
+     Return   both row and column header and table element
+
+ - emacspeak-table-goto: (ROW COLUMN)
+     Prompt for a table cell coordinates and jump to it.
+
+     This function is advised.
+
+     Before-advice `emacspeak-auto': Automatically defined advice to
+     speak interactive prompts.
+
+ - emacspeak-table-goto-bottom: ()
+     Goes to the bottom of the current column.
+
+ - emacspeak-table-goto-left: ()
+     Goes to the left of the current row.
+
+ - emacspeak-table-goto-right: ()
+     Goes to the right of the current row.
+
+ - emacspeak-table-goto-top: ()
+     Goes to the top of the current column.
+
+ - emacspeak-table-next-column: (&optional COUNT)
+     Move to the next column if possible
+
+ - emacspeak-table-next-row: (&optional COUNT)
+     Move to the next row if possible
+
+ - emacspeak-table-paste-from-clipboard: ()
+     Paste the emacspeak table clipboard into the current buffer.  Use
+     the major  mode of this buffer to  decide what kind of table
+     markup to use.
+
+ - emacspeak-table-previous-column: (&optional COUNT)
+     Move to the previous column  if possible
+
+ - emacspeak-table-previous-row: (&optional COUNT)
+     Move to the previous row if possible
+
+ - emacspeak-table-search: ()
+     Search the table for matching elements.  Interactively prompts for
+     row or column to search and pattern to look for.    If there is a
+     match, makes the matching cell current.
+
+ - emacspeak-table-search-headers: ()
+     Search the table row or column headers.  Interactively prompts for
+     row or column to search and pattern to look for.  If there is a
+     match, makes the matching row or column current.
+
+ - emacspeak-table-select-automatic-speaking-method: ()
+     Interactively select the kind of automatic speech to produce when
+     browsing table elements
+
+ - emacspeak-table-sort-on-current-column: ()
+     Sort table on current column.
+
+ - emacspeak-table-speak-both-headers-and-element: ()
+     Speak  both row and column header and table element
+
+ - emacspeak-table-speak-column-filtered: (&optional PREFIX)
+     Speaks a table column after applying a specified column filter.
+     Optional prefix arg prompts for a new filter.
+
+ - emacspeak-table-speak-column-header-and-element: ()
+     Speak  column header and table element
+
+ - emacspeak-table-speak-coordinates: ()
+     Speak current table coordinates.
+
+ - emacspeak-table-speak-current-element: ()
+     Speak current table element
+
+ - emacspeak-table-speak-dimensions: ()
+     Speak current table dimensions.
+
+ - emacspeak-table-speak-row-filtered: (&optional PREFIX)
+     Speaks a table row after applying a specified row filter.
+     Optional prefix arg prompts for a new filter.
+
+ - emacspeak-table-speak-row-header-and-element: ()
+     Speak  row header and table element
+
+ - emacspeak-table-ui-filter-load: (FILE)
+     Load saved filter settings.
+
+ - emacspeak-table-ui-filter-save: (FILE)
+     Save out filter settings.
+
+ - emacspeak-table-view-csv-buffer: (&optional BUFFER-NAME)
+     Process a csv (comma separated values) data.  The processed  data
+     and presented using emacspeak table navigation.
+
+
+File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Prev: emacspeak-table-ui,  Up: Emacspeak Commands
+
+emacspeak-tabulate
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tabulate.
+
+ - emacspeak-tabulate-region: (START END &optional MARK-FIELDS)
+     ` control e i '
+
+     Voicifies the white-space of a table if one found.  Optional
+     interactive prefix arg mark-fields specifies if the header row
+     information is used to mark fields in the white-space.
+
+
+File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-tar,  Prev: emacspeak-tabulate,  Up: Emacspeak Commands
+
+emacspeak-tapestry
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tapestry.
+
+ - emacspeak-tapestry-describe-tapestry: ()
+     ` control e meta t '
+
+     Describe the current layout of visible buffers in current frame.
+
+
+File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tetris,  Prev: emacspeak-tapestry,  Up: Emacspeak Commands
+
+emacspeak-tar
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tar.
+
+ - emacspeak-tar-speak-file-date: ()
+     Speak date of file current entry
+
+ - emacspeak-tar-speak-file-permissions: ()
+     Speak permissions of file current entry
+
+ - emacspeak-tar-speak-file-size: ()
+     Speak size of file current entry
+
+
+File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-tnt,  Prev: emacspeak-tar,  Up: Emacspeak Commands
+
+emacspeak-tetris
+================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tetris.
+
+ - emacspeak-tetris-goto-bottom-row: ()
+     Move to and speak bottom row
+
+ - emacspeak-tetris-goto-top-row: ()
+     Move to and speak the top row
+
+ - emacspeak-tetris-speak-column: (&optional X)
+     Speak  column -default is to speak current column
+
+ - emacspeak-tetris-speak-coordinates: ()
+     Speak current position
+
+ - emacspeak-tetris-speak-current-shape: ()
+     Speak current shape
+
+ - emacspeak-tetris-speak-current-shape-and-coordinates: ()
+     Speak shape orientation and coordinates
+
+ - emacspeak-tetris-speak-next-shape: ()
+     Speak next shape
+
+ - emacspeak-tetris-speak-row: ()
+     Speak current tetris row
+
+ - emacspeak-tetris-speak-row-number: ()
+     Speak where on the tetris board we are
+
+ - emacspeak-tetris-speak-score: ()
+     Speak the score
+
+ - emacspeak-tetris-speak-x-coordinate: ()
+     Speak current position
+
+
+File: emacspeak.info,  Node: emacspeak-tnt,  Next: emacspeak-url-template,  Prev: emacspeak-tetris,  Up: Emacspeak Commands
+
+emacspeak-tnt
+=============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-tnt.
+
+ - emacspeak-tnt-toggle-autospeak: (&optional PREFIX)
+     Toggle TNT autospeak for this chat session.
+
+
+File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-tnt,  Up: Emacspeak Commands
+
+emacspeak-url-template
+======================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-url-template.
+
+ - emacspeak-url-template-fetch: (&optional DOCUMENTATION)
+     ` control e u '
+
+     Fetch a pre-defined resource.  Use Emacs completion to obtain a
+     list of available resources.  Resources typically prompt for the
+     relevant information before completing the request.  Optional
+     interactive prefix arg displays documentation for specified
+     resource.
+
+ - emacspeak-url-template-help: ()
+     Display documentation for  a URL template.  Use Emacs completion
+     to obtain a list of available resources.
+
+ - emacspeak-url-template-load: (FILE)
+     Load URL template resources from specified location.
+
+ - emacspeak-url-template-nfl-play-broadcast: ()
+     Play NFL url under point.
+
+ - emacspeak-url-template-save: (FILE)
+     Save out url templates.
+
+
+File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-view-process,  Prev: emacspeak-url-template,  Up: Emacspeak Commands
+
+emacspeak-view
+==============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-view.
+
+ - emacspeak-view-line-to-top: ()
+     Moves current line to top of window
+
+
+File: emacspeak.info,  Node: emacspeak-view-process,  Next: emacspeak-vm,  Prev: emacspeak-view,  Up: Emacspeak Commands
+
+emacspeak-view-process
+======================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-view-process.
+
+ - emacspeak-view-process-goto-current-field-next-line: ()
+     Set point to the current field in the next line.
+
+ - emacspeak-view-process-speak-current-field: ()
+     Speak current field
+
+
+File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-w3,  Prev: emacspeak-view-process,  Up: Emacspeak Commands
+
+emacspeak-vm
+============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-vm.
+
+ - emacspeak-vm-browse-message: ()
+     Browse an email message -read it paragraph at a time.
+
+ - emacspeak-vm-catch-up-all-messages: ()
+     Mark all messages in folder to be deleted. Use with caution.
+
+ - emacspeak-vm-locate-subject-line: ()
+     Locates the subject line in a message being read.  Useful when
+     you're reading a message that has been forwarded multiple times.
+
+ - emacspeak-vm-mode-line: ()
+     VM mode line information.
+
+ - emacspeak-vm-next-button: (N)
+     Move point to N buttons forward.  If N is negative, move backward
+     instead.
+
+ - emacspeak-vm-speak-labels: ()
+     Speak a message's labels
+
+ - emacspeak-vm-yank-header: ()
+     Yank specified header into kill ring.
+
+
+File: emacspeak.info,  Node: emacspeak-w3,  Next: emacspeak-w3search,  Prev: emacspeak-vm,  Up: Emacspeak Commands
+
+emacspeak-w3
+============
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3.
+
+ - emacspeak-w3-class-filter-and-follow: (&optional PROMPT-CLASS)
+     Follow url and point, and filter the result by specified class.
+     Class can be set locally for a buffer, and overridden with an
+     interactive prefix arg. If there is a known rewrite url rule, that
+     is used as well.
+
+ - emacspeak-w3-count-matches: (PROMPT-URL LOCATOR)
+     Count matches for locator  in HTML.
+
+ - emacspeak-w3-count-nested-tables: (PROMPT-URL)
+     Count nested tables in HTML.
+
+ - emacspeak-w3-count-tables: (PROMPT-URL)
+     Count  tables in HTML.
+
+ - emacspeak-w3-do-onclick: ()
+     Do  onclick action.
+
+ - emacspeak-w3-extract-by-class: (CLASS &optional PROMPT-URL SPEAK)
+     Extract elements having specified class attribute from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer. Optional arg url specifies the page to
+     extract content from.  Interactive use provides list of class
+     values as completion.
+
+ - emacspeak-w3-extract-by-class-list: (CLASSES &optional PROMPT-URL
+          SPEAK)
+     Extract elements having class specified in list `classes' from
+     HTML.  Extracts specified elements from current WWW page and
+     displays it in a separate buffer. Optional arg url specifies the
+     page to extract content from. Interactive use provides list of
+     class values as completion.
+
+ - emacspeak-w3-extract-nested-table: (TABLE-INDEX &optional PROMPT-URL
+          SPEAK)
+     Extract nested table specified by `table-index'. Default is to
+     operate on current web page when in a W3 buffer; otherwise
+     `prompt-url' is the URL to process. Prompts for URL when called
+     interactively. Optional arg `speak' specifies if the result should
+     be spoken automatically.
+
+ - emacspeak-w3-extract-nested-table-list: (TABLES &optional PROMPT-URL
+          SPEAK)
+     Extract specified list of tables from a WWW page.
+
+ - emacspeak-w3-extract-node-by-id: (URL NODE-ID)
+     Extract specified node from URI.
+
+ - emacspeak-w3-extract-table-by-position: (POSITION &optional
+          PROMPT-URL SPEAK)
+     Extract table at specified position.   Optional arg url specifies
+     the page to extract content from.  Interactive prefix arg causes
+     url to be read from the minibuffer.
+
+ - emacspeak-w3-extract-tables-by-position-list: (POSITIONS &optional
+          PROMPT-URL SPEAK)
+     Extract specified list of nested tables from a WWW page.  Tables
+     are specified by their position in the list nested of tables found
+     in the page.
+
+ - emacspeak-w3-google-similar-to-this-page: ()
+     Ask Google to find documents similar to this one.
+
+ - emacspeak-w3-google-who-links-to-this-page: ()
+     Perform a google search to locate documents that link to the
+     current page.
+
+ - emacspeak-w3-javascript-follow-link: ()
+     Follow URL hidden inside a javascript link
+
+ - emacspeak-w3-jump-to-submit: ()
+     Jump to next available submit button.
+
+ - emacspeak-w3-jump-to-title-in-content: ()
+     Jumps to the occurrence of document title in page body.
+
+ - emacspeak-w3-lynx-url-under-point: ()
+     Display contents of URL under point using LYNX.  The document is
+     displayed in a separate buffer. Note that the hyperlinks in that
+     display are not active- this facility is present only to help me
+     iron out the remaining problems with the table structure
+     extraction code in W3.
+
+ - emacspeak-w3-next-doc-element: (&optional COUNT)
+     Move forward  to the next document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-preview-this-buffer: ()
+     Preview this buffer.
+
+ - emacspeak-w3-preview-this-region: (START END)
+     Preview this region.
+
+ - emacspeak-w3-previous-doc-element: (&optional COUNT)
+     Move back  to the previous document element.  Optional interactive
+     prefix argument COUNT specifies by how many eleemnts to move.
+
+ - emacspeak-w3-show-anchor-class: ()
+     Display any class attributes set on corresponding anchor element.
+
+ - emacspeak-w3-speak-next-element: ()
+     Speak next document element.
+
+ - emacspeak-w3-speak-this-element: ()
+     Speak document element under point.
+
+ - emacspeak-w3-toggle-table-borders: ()
+     Toggle drawing of W3 table borders
+
+ - emacspeak-w3-url-rewrite-and-follow: (&optional PROMPT)
+     Apply a url rewrite rule as specified in the current buffer before
+     following link under point.  If no rewrite rule is defined, first
+     prompt for one.  Rewrite rules are of the form `(from to)' where
+     from and to are strings.  Typically, the rewrite rule is
+     automatically set up by Emacspeak tools like websearch where a
+     rewrite rule is known.  Rewrite rules are useful in jumping
+     directly to the printer friendly version of an article for example.
+     Optional interactive prefix arg  prompts for a rewrite rule even
+     if one is already defined.
+
+ - emacspeak-w3-xpath-filter-and-follow: (&optional PROMPT)
+     Follow url and point, and filter the result by specified xpath.
+     XPath can be set locally for a buffer, and overridden with an
+     interactive prefix arg. If there is a known rewrite url rule, that
+     is used as well.
+
+ - emacspeak-w3-xsl-toggle: ()
+     Toggle  application of XSL transformations.  This uses XSLT
+     Processor xsltproc available as part of the libxslt package.
+
+ - emacspeak-w3-xslt-apply: (XSL)
+     Apply specified transformation to current page.
+
+ - emacspeak-w3-xslt-filter: (PATH &optional PROMPT-URL SPEAK-RESULT)
+     Extract elements matching specified XPath path locator from HTML.
+     Extracts specified elements from current WWW page and displays it
+     in a separate buffer.  Optional arg url specifies the page to
+     extract table from.
+
+ - emacspeak-w3-xslt-select: (XSL)
+     Select XSL transformation applied to WWW pages before they are
+     displayed .
+
+
+File: emacspeak.info,  Node: emacspeak-w3search,  Next: emacspeak-websearch,  Prev: emacspeak-w3,  Up: Emacspeak Commands
+
+emacspeak-w3search
+==================
+
+   Automatically generated documentation for commands defined in module
+emacspeak-w3search.
+
+ - emacspeak-websearch-blue-pages: (QUERY &optional PREFIX)
+     Search IBM Blue Pages
+
+ - emacspeak-websearch-ibm-internal: (QUERY)
+     Search IBM My News
+
+ - emacspeak-websearch-ibm-my-news: (QUERY)
+     Search IBM My News
+
