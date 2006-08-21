@@ -1,0 +1,591 @@
+@c $Id$
+@node Basic Usage
+@chapter Basic Usage.
+
+This chapter gives an overview of how to use Emacspeak.  Note: This
+documentation should be used in conjunction with the online Emacs info
+pages that extensively document Emacs itself.  These sections briefly
+describe the speech-enabling extensions.  However, they should not be
+considered a substitute for reading the Emacs manual.  How successfully
+you use Emacspeak will depend on how well you learn your Emacs.
+
+All Emacs navigation and editing commands have been speech enabled. 
+Thus, moving to the next or previous word, line or paragraph results in the text
+around point being spoken.  Exactly how much text is spoken is determined by
+the amount by which you moved.
+
+In addition, Emacspeak provides  basic reading functions that can be
+invoked to listen to chunks of text without moving.
+
+
+
+
+
+@menu
+* Overview::                     Basic Overview.
+* Working::                      Working in Emacspeak.
+* Reading::                      Reading chunks of information.
+* Speech System::                Controlling Speech Output.
+* Voice-lock::                   Audio Formatting.
+* Status Information::           Speaking Status Information.
+@end menu
+
+@node Overview
+@section Overview of Emacspeak
+
+Emacspeak provides a small number of core services around which the
+remainder of the audio interface is constructed.  These essential
+features of the software are briefly outlined in the following
+paragraphs; the commands by which they can be controlled will be
+described later in the manual.
+
+
+
+@c  emacspeak.el
+
+Apart from providing a fluent spoken interface to all of Emacs' basic
+editing functions, Emacspeak also includes software modules which add
+speech feedback to a range of applications that can be run from within
+Emacs. In this sense, Emacspeak amounts to much more than a talking
+text editor; indeed, it can more aptly be characterized as a true
+``audio desktop'', in which speech is treated as a first-class output modality.
+
+
+@c  voice-lock.el
+Emacspeak implements a special minor mode, known as ``voice lock
+mode'' (@pxref{Voice-lock}) which uses distinct speech characteristics
+to provide aural highlighting of specific textual constructs, such as
+comments in program code, quoted strings and reserved words. This
+facility is further extended when Emacspeak is used with the W3 World
+Wide Web browser, to enable the semantic and structural distinctions
+captured by the HTML markup to be communicated efficiently.
+
+@c  emacspeak-pronounce.el
+
+It is often desirable to exercise control over the pronunciation of a
+word (E.G. a technical term or a reserved word in a programming
+language) within specific contexts. Emacspeak maintains pronunciation
+dictionaries for this purpose, which may be customized by the
+user. Moreover, individual dictionaries can be activated selectively,
+depending for example on the current major mode or the name of the
+file which is being visited. 
+
+@c  emacspeak-sounds.el
+
+In addition to spoken feedback, Emacspeak can generate ``auditory
+icons''---short sound cues which alert the user to significant events,
+for example the opening or deletion of a file, the completion of an
+action, the arrival of an electronic mail message or the creation of a
+completion buffer. Sound cues act as a supplement to the spoken
+interface, and are especially valuable to the experienced user in
+facilitating rapid interaction. Note that in order to support auditory
+icons, the computer must be equipped with sound hardware for which the
+operating system has been correctly configured.
+@node Working
+@section Working In Emacs Buffers.
+
+While typing in an Emacs buffer, hitting space  speaks  the recently typed
+word.  I use  completion all the time; so Emacspeak will speak the
+completion just inserted as well as the next possible completion.
+In Emacs, use @code{load-library ret completion ret} for loading
+the completion package.  
+
+The standard Emacs prompting functions have also been speech-enabled.
+Emacs prompts with available lists of completions in response to partial
+input wherever appropriate ---all forms of completion provide speech
+feedback.
+
+In addition, Emacspeak provides a number of commands for reading portions of the current buffer,
+getting status information, and modifying Emacspeak's state.
+
+All of the commands are documented in the subsequent sections.
+They can be classified into types:
+
+@itemize @bullet
+@item
+ Emacspeak commands for listening to chunks of information.  The names
+ of these commands all start with the common prefix
+ @code{emacspeak-speak-}.  All Emacspeak commands are bound to the
+ keymap @var{emacspeak-keymap} and are accessed with the key
+ @kbd{Control e}@footnote{ Control e is mnemonic for Emacspeak.}.  Thus,
+ the Emacspeak command @dfn{emacspeak-speak-line} is bound to @kbd{l} in
+ keymap @var{emacspeak-keymap} and can be accessed with the keystroke
+ @kbd{Control-e l}.  If for some reason you wish to use some key other
+ than @kbd{control-e} as the common keyboard prefix for all Emacspeak
+ commands, set the variable @var{emacspeak-prefix}.
+@item
+
+ The second category of commands provided by Emacspeak manipulate the state of the speech device.
+ The names of these commands start with the common prefix @code{dtk-} and are bound in keymap
+@var{emacspeak-dtk-submap}.
+ You can access these commands via the prefix @kbd{Control-e d}@footnote{d is mnemonic for Dectalk.}.
+Thus, the command @dfn{dtk-set-rate} is bound to @kbd{r}
+ in keymap @var{emacspeak-dtk-submap} and can be executed by
+pressing @kbd{Control e d r}.
+@end itemize
+
+Emacs has extensive online help; so does emacspeak. 
+ Please use it.
+
+This info manual is only to get you started.
+You can get a summary of Emacspeak's features by pressing @kbd{Control-h Control-e}
+
+@node  Reading
+@section Reading Without Moving The Cursor.
+Emacspeak speaks information as you move around within a buffer.  How
+much text is spoken depends on how you move, thus, when you move by
+words, you hear the current word; when you move by paragraphs, you hear
+the current paragraph spoken.  In addition, the following commands allow
+you to listen to information without moving point (point is emacs
+terminology for the editing cursor).
+
+Reading without moving point: 
+@table @kbd
+
+@findex  emacspeak-speak-char
+ @kindex  control e c 
+ 
+@item @kbd{ control e c }
+emacspeak-speak-char
+ Speak character under point.
+Pronounces character phonetically unless  called with a PREFIX arg.
+
+
+@findex  emacspeak-speak-word
+ @kindex  control e w 
+ 
+@item @kbd{ control e w }
+emacspeak-speak-word
+ Speak current word.
+With prefix ARG, speaks the rest of the word from point.
+Negative prefix arg speaks from start of word to point.
+If executed  on the same buffer position a second time, the word is
+spelt instead of being spoken.
+
+
+@findex  emacspeak-speak-line
+ @kindex  control e l 
+ 
+@item @kbd{ control e l }
+emacspeak-speak-line
+ Speaks current line.
+With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line
+  to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+  indentation with a tone if audio indentation is in use.  Indicates
+  position of point with an aural highlight if option
+  `emacspeak-show-point' is turned on --see command `emacspeak-show-point'
+  bound to M-x emacspeak-show-point.
+Lines that start hidden blocks of text,
+e.g.  outline header lines,
+or header lines of blocks created by command
+`emacspeak-hide-or-expose-block' are indicated with auditory icon ellipses.
+
+
+@findex  emacspeak-read-previous-line
+ @kindex  control e up 
+ 
+@item @kbd{ control e up }
+emacspeak-read-previous-line
+ Read previous line, specified by an offset, without moving.
+Default is to read the previous line. 
+
+@findex  emacspeak-read-next-line
+ @kindex  control e down 
+ 
+@item @kbd{ control e down }
+emacspeak-read-next-line
+ Read next line, specified by an offset, without moving.
+Default is to read the next line. 
+
+
+
+@findex  emacspeak-speak-paragraph
+ @kindex  control e @{
+ 
+@item @kbd{ control e @{}
+emacspeak-speak-paragraph
+ Speak paragraph.
+With prefix arg, speaks rest of current paragraph.
+Negative prefix arg will read from start of current paragraph to point.
+If voice-lock-mode is on, then it will use any defined personality. 
+
+@findex  emacspeak-speak-region
+ @kindex  control e r 
+ 
+@item @kbd{ control e r }
+emacspeak-speak-region
+ Speak current region delimited by @dfn{point} and @dfn{mark}.
+When called from a program, argument START  and END specify region to speak.
+
+
+@findex  emacspeak-speak-rectangle
+ @kindex  control e  cap R  
+ 
+@item @kbd{ control e  cap R  }
+emacspeak-speak-rectangle
+ Speak a rectangle of text.
+Rectangle is delimited by point and mark.
+When call from a program,
+arguments specify the START and END of the rectangle.
+
+
+@findex  emacspeak-speak-buffer
+ @kindex  control e b 
+ 
+@item @kbd{ control e b }
+emacspeak-speak-buffer
+ Speak current buffer  contents.
+With prefix ARG, speaks the rest of the buffer from point.
+Negative prefix arg speaks from start of buffer to point.
+ If voice lock mode is on, the paragraphs in the buffer are
+voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
+
+@findex  emacspeak-speak-rest-of-buffer
+ @kindex  control e n 
+ 
+@item @kbd{ control e n }
+emacspeak-speak-rest-of-buffer
+ Speak remainder of the buffer starting at point
+
+
+
+
+@findex  emacspeak-speak-this-buffer-other-window-display
+ @kindex  control e / 
+ 
+@item @kbd{ control e / }
+emacspeak-speak-this-buffer-other-window-display
+ Speak this buffer as displayed in a different frame.
+Emacs allows you to display the same buffer in multiple
+windows or frames.
+These different windows can
+display different portions of the buffer.
+This is equivalent to leaving a book open at places at once.
+This command allows you to listen to the places where you
+have left the book open.  The number used to invoke this
+command
+specifies which of the displays you wish to speak.  Typically
+you will have two or at most three such displays open.
+The current display is 0, the next is 1, and so on.
+Optional argument ARG specifies the display to speak.
+
+@findex  emacspeak-speak-this-buffer-previous-display
+ @kindex  control e left 
+ 
+@item @kbd{ control e left }
+emacspeak-speak-this-buffer-previous-display
+ Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'.
+
+
+@findex  emacspeak-speak-this-buffer-next-display
+ @kindex  control e right 
+ 
+@item @kbd{ control e right }
+emacspeak-speak-this-buffer-next-display
+ Speak this buffer as displayed in a `previous' window.
+See documentation for command
+`emacspeak-speak-this-buffer-other-window-display' for the
+meaning of `previous'.
+
+@findex  emacspeak-speak-predefined-window
+ @kindex  control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 
+ 
+
+@findex  emacspeak-speak-page
+ @kindex  control e [ 
+ 
+@item @kbd{ control e [ }
+emacspeak-speak-page
+ Speak a page.
+With prefix ARG, speaks rest of current page.
+Negative prefix arg will read from start of current page to point.
+If option  `voice-lock-mode' is on, then it will use any defined personality.
+
+@item @kbd{ control e 9   control e 8   control e 7   control e 6   control e 5   control e 4   control e 3   control e 2   control e 1   control e 0 }
+emacspeak-speak-predefined-window
+ Speak one of the first 10 windows on the screen.
+In general, you'll never have Emacs split the screen into more than
+two or three.
+Argument ARG determines the 'other' window to speak.
+ Speaks entire window irrespective of point.
+Semantics  of `other' is the same as for the builtin Emacs command
+`other-window'.
+
+
+@findex  emacspeak-speak-next-window
+ @kindex  control e control n 
+ 
+@item @kbd{ control e control n }
+emacspeak-speak-next-window
+ Speak the next window.
+
+
+@findex  emacspeak-speak-previous-window
+ @kindex  control e control p 
+ 
+@item @kbd{ control e control p }
+emacspeak-speak-previous-window
+ Speak the previous window.
+
+
+@findex  emacspeak-speak-other-window
+ @kindex  control e control o 
+ 
+@item @kbd{ control e control o }
+emacspeak-speak-other-window
+ Speak contents of `other' window.
+Speaks entire window irrespective of point.
+Semantics  of `other' is the same as for the builtin Emacs command
+`other-window'.
+Optional argument ARG  specifies `other' window to speak.
+
+
+
+@findex  emacspeak-owindow-previous-line
+ @kindex  ESCAPE up 
+ 
+@item @kbd{ ESCAPE up }
+emacspeak-owindow-previous-line
+ Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT specifies number of lines to move.
+
+
+@findex  emacspeak-owindow-next-line
+ @kindex  ESCAPE down 
+ 
+@item @kbd{ ESCAPE down }
+emacspeak-owindow-next-line
+ Move to the next line in the other window and speak it.
+Numeric prefix arg COUNT can specify number of lines to move.
+
+@findex  emacspeak-owindow-scroll-up
+ @kindex  ESCAPE next 
+ 
+@item @kbd{ ESCAPE next }
+emacspeak-owindow-scroll-up
+ Scroll up the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+
+@findex  emacspeak-owindow-scroll-down
+ @kindex  ESCAPE prior 
+ 
+@item @kbd{ ESCAPE prior }
+emacspeak-owindow-scroll-down
+ Scroll down  the window that command `other-window' would move to.
+Speak the window contents after scrolling.
+
+
+
+@findex  emacspeak-speak-sexp
+ @kindex  control e ' 
+ 
+@item @kbd{ control e ' }
+emacspeak-speak-sexp
+ Speak current sexp.
+With prefix ARG, speaks the rest of the sexp  from point.
+Negative prefix arg speaks from start of sexp to point.
+If option  `voice-lock-mode' is on, then uses the personality.
+
+@findex  emacspeak-speak-spaces-at-point
+ @kindex  control e meta control @@ 
+ 
+@item @kbd{ control e meta control @@ }
+emacspeak-speak-spaces-at-point
+ Speak the white space at point.
+
+@end table 
+@node Speech System
+@section Speech System Commands
+@include tts.texi
+
+@node Voice-lock
+@section Voice Lock Mode
+
+@c  voice-lock.el
+
+The status of voice lock mode can be toggled on and off by issuing the
+command @kbd{C-e d v (M-x voice-lock-mode)}. With a prefix arg, this
+function applies globally; otherwise, it is local to the current
+buffer. To have voice lock mode activated automatically when Emacspeak
+starts, include the following code in your @file{.emacs} file:
+
+@lisp
+(add-hook 'emacs-lisp-mode-hook
+'turn-on-voice-lock)
+@end lisp
+
+Alternatively, Emacspeak can be set to enable voice lock automatically
+in all of the major modes that support it. To do so, insert the
+following statement into your Emacs initialization file:
+
+@lisp
+(global-voice-lock-mode t)
+@end lisp
+
+ Note that the list of major modes in which
+@code{global-voice-lock-mode} will provide automatic activation is
+specified in the variable @var{voice-lock-global-modes}.
+
+@c  dtk-voices.el
+
+The characteristics of the different voice personalities deployed by
+voice lock mode vary according to the capabilities of the speech
+synthesizer. The definitions applicable to the Dectalk family of
+synthesizers are contained in @file{dtk-voices.el}, which is supplied
+as part of the Emacspeak distribution.
+
+@c  dtk-css-speech.el
+
+Using voice lock mode, Emacspeak also supports many of the aural style
+properties defined in level 2 of the World Wide Web Consortium's
+Cascading Style Sheet specification (see
+@code{http://www.w3.org/TR/REC-CSS2/}. Thus, when Emacspeak is running
+in conjunction with a cooperating user agent, such as William Perry's
+Emacspeak/W3 web browser, the rendering of HTML documents can be
+regulated by style sheets. Examples of style rules which employ the
+CSS audio properties can be found in the default style sheet which is
+supplied in the Emacs/W3 distribution.
+
+@c Is any further discussion needed here?
+
+
+@node Status Information
+@section Commands For Speaking Status Information.
+
+
+The following commands provide miscellaneous information.
+@table @kbd
+
+
+@findex  emacspeak-speak-message-again
+ @kindex  control e a 
+ 
+@item @kbd{ control e a }
+emacspeak-speak-message-again
+ Speak the last message from Emacs once again.
+
+
+@findex  emacspeak-speak-mode-line
+ @kindex  control e m 
+ 
+@item @kbd{ control e m }
+emacspeak-speak-mode-line
+ Speak the mode-line.
+
+
+@findex  emacspeak-speak-minor-mode-line
+ @kindex  control e  cap M  
+ 
+@item @kbd{ control e  cap M  }
+emacspeak-speak-minor-mode-line
+ Speak the minor mode-information.
+
+
+@findex  emacspeak-speak-window-information
+ @kindex  control e control w 
+ 
+@item @kbd{ control e control w }
+emacspeak-speak-window-information
+ Speaks information about current windows.
+
+
+@findex  emacspeak-speak-time
+ @kindex  control e t 
+ 
+@item @kbd{ control e t }
+emacspeak-speak-time
+ Speak the time.
+
+
+@findex  emacspeak-speak-version
+ @kindex  control e cap V 
+ 
+@item @kbd{ control e cap V }
+emacspeak-speak-version
+ Announce version information for running emacspeak.
+
+
+@findex  emacspeak-speak-buffer-filename
+ @kindex  control e f 
+ 
+@item @kbd{ control e f }
+emacspeak-speak-buffer-filename
+ Speak name of file being visited in current buffer.
+Speak default directory if invoked in a dired buffer,
+or when the buffer is not visiting any file.
+
+
+@findex  emacspeak-speak-help
+ @kindex  control e h 
+ 
+@item @kbd{ control e h }
+emacspeak-speak-help
+ Speak help buffer if one present.
+With prefix arg, speaks the rest of the buffer from point.
+Negative prefix arg speaks from start of buffer to point.
+
+
+@findex  emacspeak-speak-current-kill
+ @kindex  control e k 
+ 
+@item @kbd{ control e k }
+emacspeak-speak-current-kill
+ Speak the current kill entry.
+This is the text that will be yanked in by the next C-y.
+Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
+result of a
+C-y  followed by count-1 M-y
+be spoken.
+ The kill number that is spoken says what numeric prefix arg to give
+to command @code{yank}.
+
+@findex  emacspeak-view-register
+ @kindex  control e v 
+ 
+@item @kbd{ control e v }
+emacspeak-view-register
+ Display the contents of a register, and then speak it.
+
+
+@findex  emacspeak-speak-current-mark
+ @kindex  control e control @@ 
+ 
+@item @kbd{ control e control @@ }
+emacspeak-speak-current-mark
+ Speak the line containing the mark.
+With no argument, speaks the
+line containing the mark--this is where `exchange-point-and-mark'
+C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks
+line containing mark 'n' where 'n' is one less than the number of
+times one has to jump using `set-mark-command' to get to this marked
+position.  The location of the mark is indicated by an aural highlight
+achieved by a change in voice personality.
+
+@findex  emacspeak-speak-line-number
+ @kindex  control e control l 
+ 
+@item @kbd{ control e control l }
+emacspeak-speak-line-number
+ Speak the line number of the current line.
+
+@findex  emacspeak-speak-current-column
+ @kindex  control e = 
+ 
+@item @kbd{ control e = }
+emacspeak-speak-current-column
+ Speak the current column.
+
+
+@findex  emacspeak-speak-current-percentage
+ @kindex  control e % 
+ 
+@item @kbd{ control e % }
+emacspeak-speak-current-percentage
+ Announce the percentage into the current buffer.
+
+@end table

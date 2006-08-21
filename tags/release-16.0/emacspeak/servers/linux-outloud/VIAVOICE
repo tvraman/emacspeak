@@ -1,0 +1,164 @@
+$Id$
+Notes On Using IBM ViaVoice Outloud (Software TTS) with Emacspeak:
+
+IBM ViaVoice TTS (Text To Speech) formerly known as IBM
+ViaVoice Outloud is a text to speech synthesis engine that
+allows you to produce synthetic speech from text using a
+sound card. Note that ViaVoice TTS is no longer available on the Internet.
+
+* Pre-requisites:
+
+You need to obtain  and install the IBM ViaVoice TTS
+(previously called Outloud) engine.  The The ViaVoice TTS  engine
+itself is not distributed as part of this package --see 
+http://www.redhat.com/services/techsupport/accessibility/s1-access-install.html
+
+
+
+You should only need to install the RTK (runtime toolkit).
+
+
+The Outloud speech server uses midi for producing auditory
+icons.  You need to obtain and install package stdiosynth
+from http://www.leb.net/pub/blinux/emacspeak/blinux/stdiom.tar.gz
+Note that that package comes pre-built --to compile it
+yourself you need the commercial OSS installation;
+however you do not need the commercial OSS package to use
+the pre-built binary.
+
+(Hackers note: I'm looking for a stdiosynth replacement,
+if you have the cycles to work on this it will be much
+appreciated.)
+
+ * Installation:
+
+** Is Outloud Working?
+
+Once you have successfully obtained and install IBM ViaVoice
+Outloud for Linux (RTK and SDK), first verify that the
+synthesis engine works by running the sample programs that
+come with that package.  Note that the sample programs only
+come with the SDK.
+If you choose to only install the RTK  (Run Time Kit)
+and run into trouble, you'll need the SDK to troubleshoot
+your problem.
+
+
+If you have only installed the RTK,
+try starting the ViaVoice speech server by typing 
+
+bash $ tcl
+/usr/share/emacs/site-lisp/emacspeak/servers/outloud 
+at the shell prompt.
+
+Only after verifying that the TTS engine works and that you
+hear the speech output should you proceed to installing the
+Emacspeak Outloud support.
+
+**  Have You Installed Emacspeak?
+
+Before attempting to build and install ViaVoice Outloud
+support for Emacspeak you should first install Emacspeak the
+normal way.  See the Emacspeak Makefile for instructions.
+
+** Compiling Outloud Support For Emacspeak:
+
+You need not do this step with Emacspeak 15.0 and later.
+
+Change to the linux-outloud subdirectory 
+of the Emacspeak source distribution.
+   make 
+This should compile the Emacspeak Outloud TCL library to
+produce a file called tcleci.so.
+Note that you need to have the SDK installed to execute this
+step successfully.
+
+* Testing:
+
+Next, test that your installation of the Emacspeak Outloud
+support works.  The ViaVoice Outloud speech server is called
+outloud and is installed in the emacspeak directory along
+with other speech servers.
+
+To test this server, do:
+   tcl <full path to outloud>
+This should speak a welcome message and display a tcl>
+   prompt
+if all is well.
+   
+* Using Outloud With Emacspeak:
+
+Proceed to this step *only*
+after successfully completing all of the previous steps.
+You can either make the Outloud engine your default
+synthesizer by setting environment variable 
+DTK_PROGRAM as follows befoer launching Emacs:
+export DTK_PROGRAM=outloud
+
+Alternatively,  you can switch to the Outloud engine while
+emacspeak is running by 
+invoking command dtk-select-server --type
+C-e d d ret outloud ret 
+
+
+* Using outloud as the default synthesizer:
+
+Once you've confirmed that everything is working with the
+Outloud engine and Emacspeak, you can make outloud your
+default synthesizer by:
+
+** If you start emacspeak by typing emacspeak:
+
+   Supply the -o command-line option i.e. 
+start emacspeak as 
+emacspeak -o
+
+** If you have emacspeak launched from inside your .emacs:
+
+set variable dtk-program to "outloud" 
+before you load emacspeak-setup.el
+
+
+* Missing Features:
+
+The following standard emacspeak features are not yet supported:
+
+*** All caps beep 
+
+*** Capitalization beep
+
+* Known Problems:
+
+**  Outloud server dies sporadically:
+
+
+*** Avoid Character echo if possible
+
+There is a known problem with the ViaVoice Outloud engine on
+Linux with certain sound cards when stopping and starting speech in rapid succession.
+When using Emacspeak, this bug manifests itself as the speech
+server sporadically dying.
+
+In my own use, I've found the Outloud server to be mostly
+usable with character echo turned off.  However, expect to
+have to restart the server at times by hitting C-e C-s until
+this bug in the Linux soundcard support goes away.
+
+*** Sound Device Should be Free:
+
+If you have other programs using the sound device, the
+Outloud engine will not work.
+If you use the Outloud engine for your primary TTS,
+you will not get any speech feedback if you play realaudio
+or use other programs that open and hold the wave device
+--unless you are using a new soundcard like the SBLive
+capable of playing multiple streams of audio.
+
+Alternatively, get a sound card like the Soundblaster SBLive
+ capable of mixing multiple channels of audio.
+
+
+Local variables: 
+mode: outline 
+paragraph-separate: "[ ]*$"
+end:
