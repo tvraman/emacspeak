@@ -1,0 +1,64 @@
+                       Emacspeak-98 Reestablishes User-Centric Computing
+                       -------------------------------------------------------------------------
+
+For Immediate Release:
+
+San Jose, Calif.,  (December 25, 1997)   
+Emacspeak-98 reestablishes user-centric computing.
+
+Independent test results have proven that unlike some
+modern software, Emacspeak-98 can be easily uninstalled
+without adversely affecting the continued performance
+of the computer.  These same tests also revealed that
+once Emacspeak was uninstalled, the user stopped
+functioning altogether.
+
+Industry experts welcomed these results as a refreshing
+breath of Courage Certainty and Clarity (CCC) at a time
+when users are reeling from the Fear Uncertainty and
+Doubt (FUD) unleashed by complex software systems
+backed by even more convoluted press releases.
+
+Speaking with Aster Labrador this morning, the creator
+of Emacspeak pointed out that these results once again
+emphasize the user-centric design of Emacspeak; "It is
+the user --and not the computer-- that stops
+functioning when Emacspeak is uninstalled!".
+
+About Emacspeak:
+---------------
+
+Emacspeak is a fully functional audio desktop that
+provides complete eyes-free access to all major open
+32 and 64 bit operating systems.  By seamlessly
+blending all aspects of the Internet such as
+Web-surfing and electronic messaging into the audio
+desktop, Emacspeak enables speech access to local
+and remote information with a consistent and
+well-integrated user interface.
+
+Obtaining Emacspeak:
+--------------------
+
+Visit Emacspeak at http://cs.cornell.edu/home/raman
+--You can also pick up emacspeak via anonymous ftp from
+ftp://ftp.cs.cornell.edu/pub/raman/emacspeak/.
+You can subscribe to the emacspeak mailing list
+<emacspeak@cs.vassar.edu> by sending mail to the list
+owner greg e. priest-dorman <priestdo@cs.vassar.edu>.
+        
+Based at Cornell (NY)
+<http://cs.cornell.edu/home/raman> --home to some of
+the most innovative auditory interfaces on the WWW--
+Emacspeak is mirrored world-wide by an international
+netwrok of software archives.  The Emacspeak mailing
+list is archived at
+<http://www.cs.vassar.edu/~priestdo/emacspeak/>
+--thanks to Greg Priest-Dorman.
+
+Press/Analyst Contact:  Aster Labrador
+
+CopyWrite  )C( Aster Labrador. All Writes Reserved.
+Labrador (DM) Is A Registered Dogmark of Aster Labrador.
+
+Wishing you a Merry Christmas and a very productive 1998!

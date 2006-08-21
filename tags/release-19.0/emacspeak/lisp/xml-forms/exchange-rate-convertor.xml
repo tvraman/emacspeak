@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--$Id$-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Currency Convertor</title>
+  </head>
+  <body>
+    <form method="POST" action="http://www.xe.com/ucc/convert.cgi">
+      <table>
+        <tr>
+          <td>
+            <input type="text" name="Amount" value="1" size="10"/>
+            <label for="name">Amount</label>
+          </td>
+          <td>
+            <select name="From" size="5">
+              <option value="CAD">CAD Canada Dollars</option>
+              <option selected="selected" value="USD">USD United States
+              Dollars</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="GBP">GBP United Kingdom Pounds</option>
+              <option value="DEM">DEM Germany Deutsche Marks</option>
+              <option value="FRF">FRF France Francs</option>
+              <option value="JPY">JPY Japan Yen</option>
+              <option value="NLG">NLG Netherlands Guilders</option>
+              <option value="ITL">ITL Italy Lire</option>
+              <option value="CHF">CHF Switzerland Francs</option>
+              <option value="DZD">DZD Algeria Dinars</option>
+              <option value="ARS">ARS Argentina Pesos</option>
+              <option value="AUD">AUD Australia Dollars</option>
+              <option value="ATS">ATS Austria Schillings</option>
+              <option value="BSD">BSD Bahamas Dollars</option>
+              <option value="BBD">BBD Barbados Dollars</option>
+              <option value="BEF">BEF Belgium Francs</option>
+              <option value="BMD">BMD Bermuda Dollars</option>
+              <option value="BRL">BRL Brazil Real</option>
+              <option value="BGL">BGL Bulgaria Leva</option>
+              <option value="CAD">CAD Canada Dollars</option>
+              <option value="CLP">CLP Chile Pesos</option>
+              <option value="CNY">CNY China Yuan Renminbi</option>
+              <option value="CYP">CYP Cyprus Pounds</option>
+              <option value="CZK">CZK Czech Republic Koruny</option>
+              <option value="DKK">DKK Denmark Kroner</option>
+              <option value="NLG">NLG Dutch (Netherlands) Guilders</option>
+              <option value="XCD">XCD Eastern Caribbean Dollars</option>
+              <option value="EGP">EGP Egypt Pounds</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="FJD">FJD Fiji Dollars</option>
+              <option value="FIM">FIM Finland Markkaa</option>
+              <option value="FRF">FRF France Francs</option>
+              <option value="DEM">DEM Germany Deutsche Marks</option>
+              <option value="XAU">XAU Gold Ounces</option>
+              <option value="GRD">GRD Greece Drachmae</option>
+              <option value="HKD">HKD Hong Kong Dollars</option>
+              <option value="NLG">NLG Holland (Netherlands) Guilders</option>
+              <option value="HUF">HUF Hungary Forints</option>
+              <option value="ISK">ISK Iceland Kronur</option>
+              <option value="INR">INR India Rupees</option>
+              <option value="IDR">IDR Indonesia Rupiahs</option>
+              <option value="IEP">IEP Ireland Pounds</option>
+              <option value="ILS">ILS Israel New Shekels</option>
+              <option value="ITL">ITL Italy Lire</option>
+              <option value="JMD">JMD Jamaica Dollars</option>
+              <option value="JPY">JPY Japan Yen</option>
+              <option value="JOD">JOD Jordan Dinars</option>
+              <option value="KRW">KRW Korea (South) Won</option>
+              <option value="LBP">LBP Lebanon Pounds</option>
+              <option value="LUF">LUF Luxembourg Francs</option>
+              <option value="MYR">MYR Malaysia Ringgits</option>
+              <option value="MXN">MXN Mexico Pesos</option>
+              <option value="NLG">NLG Netherlands Guilders</option>
+              <option value="NZD">NZD New Zealand Dollars</option>
+              <option value="NOK">NOK Norway Kroner</option>
+              <option value="PKR">PKR Pakistan Rupees</option>
+              <option value="XPD">XPD Palladium Ounces</option>
+              <option value="PHP">PHP Philippines Pesos</option>
+              <option value="XPT">XPT Platinum Ounces</option>
+              <option value="PLN">PLN Poland Zlotych</option>
+              <option value="PTE">PTE Portugal Escudos</option>
+              <option value="ROL">ROL Romania Lei</option>
+              <option value="RUR">RUR Russia Rubles</option>
+              <option value="SAR">SAR Saudi Arabia Riyals</option>
+              <option value="XAG">XAG Silver Ounces</option>
+              <option value="SGD">SGD Singapore Dollars</option>
+              <option value="SKK">SKK Slovakia Koruny</option>
+              <option value="ZAR">ZAR South Africa Rand</option>
+              <option value="KRW">KRW South Korea Won</option>
+              <option value="ESP">ESP Spain Pesetas</option>
+              <option value="XDR">XDR Special Drawing Rights (IMF)</option>
+              <option value="SDD">SDD Sudan Dinars</option>
+              <option value="SEK">SEK Sweden Kronor</option>
+              <option value="CHF">CHF Switzerland Francs</option>
+              <option value="TWD">TWD Taiwan New Dollars</option>
+              <option value="THB">THB Thailand Baht</option>
+              <option value="TTD">TTD Trinidad and Tobago Dollars</option>
+              <option value="TRL">TRL Turkey Liras</option>
+              <option value="GBP">GBP United Kingdom Pounds</option>
+              <option value="USD">USD United States Dollars</option>
+              <option value="VEB">VEB Venezuela Bolivares</option>
+              <option value="ZMK">ZMK Zambia Kwacha</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="XCD">XCD Eastern Caribbean Dollars</option>
+              <option value="XDR">XDR Special Drawing Right (IMF)</option>
+              <option value="XAG">XAG Silver Ounces</option>
+              <option value="XAU">XAU Gold Ounces</option>
+              <option value="XPD">XPD Palladium Ounces</option>
+              <option value="XPT">XPT Platinum Ounces</option>
+            </select>
+          </td>
+          <td>
+            <select name="To" size="5" onchange="CheckMore()">
+              <option value="USD" selected="selected">USD United States
+              Dollars</option>
+              <option value="CAD">CAD Canada Dollars</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="GBP">GBP United Kingdom Pounds</option>
+              <option value="DEM">DEM Germany Deutsche Marks</option>
+              <option value="FRF">FRF France Francs</option>
+              <option value="JPY">JPY Japan Yen</option>
+              <option value="NLG">NLG Netherlands Guilders</option>
+              <option value="ITL">ITL Italy Lire</option>
+              <option value="CHF">CHF Switzerland Francs</option>
+              <option value="DZD">DZD Algeria Dinars</option>
+              <option value="ARS">ARS Argentina Pesos</option>
+              <option value="AUD">AUD Australia Dollars</option>
+              <option value="ATS">ATS Austria Schillings</option>
+              <option value="BSD">BSD Bahamas Dollars</option>
+              <option value="BBD">BBD Barbados Dollars</option>
+              <option value="BEF">BEF Belgium Francs</option>
+              <option value="BMD">BMD Bermuda Dollars</option>
+              <option value="BRL">BRL Brazil Real</option>
+              <option value="BGL">BGL Bulgaria Leva</option>
+              <option value="CAD">CAD Canada Dollars</option>
+              <option value="CLP">CLP Chile Pesos</option>
+              <option value="CNY">CNY China Yuan Renminbi</option>
+              <option value="CYP">CYP Cyprus Pounds</option>
+              <option value="CZK">CZK Czech Republic Koruny</option>
+              <option value="DKK">DKK Denmark Kroner</option>
+              <option value="NLG">NLG Dutch (Netherlands) Guilders</option>
+              <option value="XCD">XCD Eastern Caribbean Dollars</option>
+              <option value="EGP">EGP Egypt Pounds</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="FJD">FJD Fiji Dollars</option>
+              <option value="FIM">FIM Finland Markkaa</option>
+              <option value="FRF">FRF France Francs</option>
+              <option value="DEM">DEM Germany Deutsche Marks</option>
+              <option value="XAU">XAU Gold Ounces</option>
+              <option value="GRD">GRD Greece Drachmae</option>
+              <option value="HKD">HKD Hong Kong Dollars</option>
+              <option value="NLG">NLG Holland (Netherlands) Guilders</option>
+              <option value="HUF">HUF Hungary Forints</option>
+              <option value="ISK">ISK Iceland Kronur</option>
+              <option value="INR">INR India Rupees</option>
+              <option value="IDR">IDR Indonesia Rupiahs</option>
+              <option value="IEP">IEP Ireland Pounds</option>
+              <option value="ILS">ILS Israel New Shekels</option>
+              <option value="ITL">ITL Italy Lire</option>
+              <option value="JMD">JMD Jamaica Dollars</option>
+              <option value="JPY">JPY Japan Yen</option>
+              <option value="JOD">JOD Jordan Dinars</option>
+              <option value="KRW">KRW Korea (South) Won</option>
+              <option value="LBP">LBP Lebanon Pounds</option>
+              <option value="LUF">LUF Luxembourg Francs</option>
+              <option value="MYR">MYR Malaysia Ringgits</option>
+              <option value="MXN">MXN Mexico Pesos</option>
+              <option value="NLG">NLG Netherlands Guilders</option>
+              <option value="NZD">NZD New Zealand Dollars</option>
+              <option value="NOK">NOK Norway Kroner</option>
+              <option value="PKR">PKR Pakistan Rupees</option>
+              <option value="XPD">XPD Palladium Ounces</option>
+              <option value="PHP">PHP Philippines Pesos</option>
+              <option value="XPT">XPT Platinum Ounces</option>
+              <option value="PLN">PLN Poland Zlotych</option>
+              <option value="PTE">PTE Portugal Escudos</option>
+              <option value="ROL">ROL Romania Lei</option>
+              <option value="RUR">RUR Russia Rubles</option>
+              <option value="SAR">SAR Saudi Arabia Riyals</option>
+              <option value="XAG">XAG Silver Ounces</option>
+              <option value="SGD">SGD Singapore Dollars</option>
+              <option value="SKK">SKK Slovakia Koruny</option>
+              <option value="ZAR">ZAR South Africa Rand</option>
+              <option value="KRW">KRW South Korea Won</option>
+              <option value="ESP">ESP Spain Pesetas</option>
+              <option value="XDR">XDR Special Drawing Rights (IMF)</option>
+              <option value="SDD">SDD Sudan Dinars</option>
+              <option value="SEK">SEK Sweden Kronor</option>
+              <option value="CHF">CHF Switzerland Francs</option>
+              <option value="TWD">TWD Taiwan New Dollars</option>
+              <option value="THB">THB Thailand Baht</option>
+              <option value="TTD">TTD Trinidad and Tobago Dollars</option>
+              <option value="TRL">TRL Turkey Liras</option>
+              <option value="GBP">GBP United Kingdom Pounds</option>
+              <option value="USD">USD United States Dollars</option>
+              <option value="VEB">VEB Venezuela Bolivares</option>
+              <option value="ZMK">ZMK Zambia Kwacha</option>
+              <option value="EUR">EUR Euro</option>
+              <option value="XCD">XCD Eastern Caribbean Dollars</option>
+              <option value="XDR">XDR Special Drawing Right (IMF)</option>
+              <option value="XAG">XAG Silver Ounces</option>
+              <option value="XAU">XAU Gold Ounces</option>
+              <option value="XPD">XPD Palladium Ounces</option>
+              <option value="XPT">XPT Platinum Ounces</option>
+            </select>
+          </td>
+          <td>
+            <input name="submit" type="submit" value="Perform Conversion"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

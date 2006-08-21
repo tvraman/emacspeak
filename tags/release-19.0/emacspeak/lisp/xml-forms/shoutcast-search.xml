@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--$Id$-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Locate Shoutcast Streams</title>
+  </head>
+  <body>
+    <p/>
+    <form action="http://yp.shoutcast.com/directory">
+      <span>
+        <label for="find">Find</label>
+        <input name="s" id="find"/>
+      </span>
+      <span>
+        <label for="count">upto</label>
+        <select name="l" id="count">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25" selected="selected">25</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </span>
+      <span>
+        <label for="genre">from</label>
+        <select id="genre" name="genre">
+          <option value="80s">80s</option>
+          <option value="Acid Jazz">Acid Jazz</option>
+          <option value="African">African</option>
+          <option value="Alternative">Alternative</option>
+          <option value="Ambient">Ambient</option>
+          <option value="Americana">Americana</option>
+          <option value="Asian">Asian</option>
+          <option value="Big Band/Swing">Big Band/Swing</option>
+          <option value="Bluegrass">Bluegrass</option>
+          <option value="Blues">Blues</option>
+          <option value="Breakbeat">Breakbeat</option>
+          <option value="Cajun/Zydeco">Cajun/Zydeco</option>
+          <option value="Classical">Classical</option>
+          <option value="Classic">Classic</option>
+          <option value="College">College</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Contemporary">Contemporary</option>
+          <option value="Country">Country</option>
+          <option value="Downtempo">Downtempo</option>
+          <option value="Drum and Bass">Drum and Bass</option>
+          <option value="Eclectic">Eclectic</option>
+          <option value="Electronic">Electronic</option>
+          <option value="European">European</option>
+          <option value="Film">Film/Show</option>
+          <option value="Folk">Folk</option>
+          <option value="Funk">Funk</option>
+          <option value="Gospel">Gospel</option>
+          <option value="Hardcore">Hardcore</option>
+          <option value="Hardcore/Punk">Hardcore/Punk</option>
+          <option value="Hip%20Hop">HipHop/Rap</option>
+          <option value="House">House</option>
+          <option value="Industrial">Industrial</option>
+          <option value="Instrumental">Instrumental</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Latin">Latin</option>
+          <option value="Metal">Metal</option>
+          <option value="Middle Eastern">Middle Eastern</option>
+          <option value="New Country">New Country</option>
+          <option value="New School">New School</option>
+          <option value="Oldies">Oldies</option>
+          <option value="Old School">Old School</option>
+          <option value="Opera/Vocal">Opera/Vocal</option>
+          <option value="Other/Mixed">Other/Mixed</option>
+          <option value="Pop">Pop</option>
+          <option value="Pop/Rock">Pop/Rock</option>
+          <option value="R%26B/Soul">R&amp;B/Soul</option>
+          <option value="Reggae">Reggae/Island</option>
+          <option value="Rock">Rock</option>
+          <option value="Ska">Ska</option>
+          <option value="Smooth">Smooth</option>
+          <option value="Spiritual">Spiritual</option>
+          <option value="Spoken">Spoken</option>
+          <option value="Spoken Word">Spoken Word</option>
+          <option value="Symphonic">Symphonic</option>
+          <option value="Talk">Talk</option>
+          <option value="Techno">Techno</option>
+          <option selected="selected" value="TopTen">All</option>
+          <option value="Top 40">Top 40</option>
+          <option value="TopTen">[Top 25 Streams]</option>
+          <option value="Trance">Trance</option>
+          <option value="Turntablism">Turntablism</option>
+          <option value="Urban">Urban</option>
+          <option value="Western Swing">Western Swing</option>
+          <option value="World">World</option>
+        </select>
+      </span>
+      <span>
+        <label for="st">by looking in</label>
+        <select name="st" id="st">
+          <option value="gs">genre</option>
+          <option value="st">stream title</option>
+        </select>
+      </span>
+      <span>
+        <input type="submit" value="Search"/>
+      </span>
+    </form>
+    <br/>
+    <br/>
+  </body>
+</html>
