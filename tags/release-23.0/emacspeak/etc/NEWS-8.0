@@ -1,0 +1,292 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+Copyright (C) 1995 -- 2000,    T. V. Raman  
+
+* Emacspeak 8.0 Additions And Changes:
+
+Emacspeak 8.0 provides the following user level enhancements:
+** Playing RealAudio: emacspeak-realaudio.el
+
+Emacspeak now provides single click access to RealAudio
+streams from anywhere on the Emacspeak audio desktop.  For
+details, see module emacspeak-realaudio.el Directory
+realaudio in the Emacspeak source distribution contains some
+Realaudio metafiles (.ram files) that you can use as a set
+of sample shortcuts.
+
+** Customizing Emacs: emacspeak-custom.el
+
+Custom allows you to customize Emacs using a simple direct
+manipulation based interface.
+
+** Buffer specific navigation: emacspeak-imenu.el
+
+Imenu produces a buffer-specific table of contents that
+allows you to move through a buffer efficiently.
+
+** Java Development Environment: emacspeak-jde.el
+
+The JDE package provides an integrated development
+environment for developping and debugging Java software
+using Sun's JDK and associated tools.
+
+** Browsing Software: emacspeak-speedbar.el
+
+Speedbar provides a powerful tree-structured browser for
+quickly navigating through large software modules. Speedbar
+currently supports many programming languages and is fully
+integrated with the JDE.
+
+** Browsing Multiple Mail Spools: emacspeak-mspools.el
+
+The mspools package allows you to monitor multiple
+maildrops.
+
+** Developing Python Software: emacspeak-python.el
+
+Speech-enabled Python mode lets you develop Python code
+effectively in an eyes-free environment. This is a good
+example of Emacspeak's power --Python uses white-space for
+block structure and would be a hard language to program in
+using speech without Emacspeak.
+** View mode Enhancements: emacspeak-view-mode.el
+
+Editting keys in view mode now automatically get rebound to Emacspeak commands where it makes sense.
+Thus, `l' executes command emacspeak-speak-line in view-mode.
+
+** Emacs Frames:
+
+Newer versions of Emacs (19.34 and 20.x) support multiple
+frames on both terminals and graphical interfaces.  When
+using a windowing system like X, each frame is a separate X
+window. On terminals, only one frame is displayed at a time,
+but you can switch among frames.
+
+Frames in combination with Emacs' windows provides a
+convenient means of leaving a document open at two different
+places.  Emacspeak speech-enables all frame related
+commands. In addition Emacspeak 8.0 provides a useful group
+of commands for listening to the portion of the buffer
+displayed in a frame other than the current frame.
+
+*** Opening a book to two places at once:
+
+Given a book in file book.txt, open the book as usual and
+start reading.  When you reach a stage where you would like
+to leave the book open where it is and look at another
+portion of the same book, bring up a new frame by invoking
+command make-frame-command --this displays book.txt in a
+newly created frame (in addition to the existing frame).
+Now move to the portion of the book that you want to read.
+The previous frame continues to display book.txt at the
+position where you left it.  Now while reading book.txt in
+your current frame you can use Emacspeak's convenience
+commands emacspeak-speak-this-buffer-previous-display and
+emacspeak-speak-this-buffer-next-display to listen to the
+portion that you were reading earlier.
+
+For most situations two or at most three displays are more
+than adequate-- but if you find yourself in a situation
+where you need more, you can use command
+emacspeak-speak-this-buffer-other-display.
+
+*** More Sophisticated Uses
+
+For more sophisticated uses and complex arrangements of
+windows, use the above feature in conjunction with packages
+like winring --see module emacspeak-winring.el
+
+** Window Configuration Rings: emacspeak-winring.el
+
+Emacspeak 8.0 speech-enables module winring.el for working
+with multiple window configurations.
+** Enhanced Audio Formatting in Enriched Mode:
+emacspeak-enriched.el
+
+Justification such as centered and right-justification are
+now audio formatted when working with documents of type
+Text/Enriched.  For an example, open the enriched.doc file
+in the etc directory of the Emacs distribution.
+
+** Audio Indentation Changes:
+
+Emacspeak 8.0 introduces a user customizable  buffer-local
+variable
+emacspeak-audio-indentation-method that can be set to
+"speak" or "tone".
+Once this is set, emacspeak-toggle-audio-indentation uses
+this when turning indentation on, rather than prompting you
+each time
+
+** Word Speaking changes:
+
+Speaking a word the second time automatically spells it. In addition,
+command emacspeak-speak-spell-current-word spells word under point.
+
+** Dired Improvements: emacspeak-dired.el
+
+Emacspeak now provides useful hotkeys in dired buffers for
+speaking specific items of information such as file size.
+
+** Tables On WWW Pages:
+
+Starting with Emacs w3 4.0.18 Emacspeak 8.0 and W3 together
+provide enhanced navigation through tables on WWW pages.
+There is still a lot to be done-- but the current
+enhancements make browsing sites that use tables for
+multicolumn layouts a lot smoother.  Thanks to Thierry Emery
+<Thierry.Emery@aar.alcatel-alsthom.fr> who helped me write
+the support code for W3, and as always a big big THANK YOU
+to William Perry for his outstanding work on W3.
+
+
+*** TO Do:
+
+1)  Nested tables.
+2) Handle all table attributes and styles used on popular sites.
+
+To try out this feature, open file tables.html from the
+tables directory of the Emacspeak 8.0 distribution using
+w3-open-local.
+
+*** The additional commands provided in W3 mode by these enhancements are:
+
+  w3-table-move-to-top-of-table-column
+       w3-table-move-to-table-start
+       w3-table-move-to-table-end
+       w3-table-move-to-beginning-of-previous-table-row
+       w3-table-move-to-beginning-of-next-table-row
+       w3-table-speak-current-table-column
+       w3-table-move-to-previous-table-row
+       w3-table-move-to-next-table-row
+       w3-table-move-to-previous-table-column
+       w3-table-move-to-next-table-column
+
+See the online documentation for details and keybindings.
+
+** Browsing WWW Pages Based On Structure:
+
+Using a W3 addon I contributed --w3-imenu.el-- Emacspeak and
+W3 now let you browse the structure of WWW documents.
+
+** Running Remote Emacspeak Sessions: emacspeak-remote.el
+
+Enhanced Emacspeak's interface to remote speech servers by
+adding the ability to guess the name of the host from which
+you connect.
+
+** Terminal Enhancements: emacspeak-eterm.el
+
+The terminal extension now provides the ability to cut and
+paste between terminals.  See commands
+emacspeak-eterm-copy-region-to-register and
+emacspeak-eterm-paste-register for details.
+
+There is a minor change to the algorithm used in
+Emacspeak-eterm.el in speaking the character under the
+cursor inside terminal buffers within character mode.  This
+now gives correct spoken feedback when filling in form
+fields within full screen applications like LYNX --the only
+drawback is that when using VI, moving forward a character
+results in the previous character (rather than the current
+character) being spoken.
+
+** Speech-Enabled Menubar Support:
+
+Emacs 19.29 and later provide pull-down menus.  These are
+useful to get the new user exposed to the various facilities
+that are available.  These pull-down menus are now fully
+speech-enabled.
+
+** Enhanced Navigation In Completion Buffers:
+
+You can now navigate the *Completions* buffer by using the
+alphanumeric keys to jump to the first completion that
+starts with a particular letter.
+
+** Comint and Completions:
+
+Emacspeak automatically puts you in the *Completions* buffer
+if hitting tab in a comint buffer e.g., when in shell-mode,
+pops up multiple choices.
+
+** Emacspeak Clipboard:
+
+Emacspeak now provides a simple clipboard for exchanging
+information between different Emacspeak sessions. This is
+very useful if you run simultaneous Emacspeak sessions on
+different hosts on the same network.  See commands
+emacspeak-clipboard-copy and emacspeak-clipboard-paste for
+details.
+
+** Cycling through marks in a buffer:
+
+Emacs has always provided the means to cycle through the
+marks in a given buffer.  However, I have found these a bit
+inconvenient in the past. Emacspeak introduces two new
+commands --emacspeak-mark-forward-mark and
+emacspeak-mark-backward-mark that allow you to move in
+either direction through the mark ring.
+
+** Emacspeak Resources:
+
+The Emacspeak pronunciation dictionary --along with other
+resources used by Emacspeak (such as the Emacspeak
+clipboard)-- are now stored in directory $HOME/.emacspeak
+
+** Emacspeak Finder:
+
+All Emacspeak packages are now registered with the Emacs
+Finder.
+Use C-h p within Emacs to get an overview of all available packages.
+** Viewing News And Package Summaries:
+
+***  emacspeak-view-emacspeak-news  displays the latest
+Emacspeak News.
+
+*** emacspeak-view-emacspeak-doc displays automatically
+generated documentation on all Emacspeak commands.
+
+*** Emacs' finder-by-keyword (C-h p) 
+includes summaries of all emacspeak packages.
+
+** Spoken Messages:
+
+Spoken messages, e.g., appointments now pause ongoing speech
+rather than stopping it --suggested by Greg Priest Dorman
+
+* Emacspeak Developments:
+
+** Windows NT:
+
+ Emacspeak 8.0 works on Windows NT using an as yet
+unreleased speech server. I will announce availability of
+this server when I am ready to release it.
+
+** Emacs 19 Support:
+
+Note that new modules in Emacspeak will not be supported on
+Emacs 19. Many of these may work, but if they dont, that's
+just too bad-- you should upgrade to Emacs 20.
+
+** MBROLA:
+
+Bart Bunting and I have put together a preliminary Emacspeak
+speech server for the MBROLA speech synthesis system.  This
+is not yet ready for production use mostly because MBROLA
+still has problems --see file mbrola.txt in the Emacspeak
+distribution. An experimental copy of this server is
+included in this release; however it is an experimental
+release and you should use it at this time only if you are
+in a position to contribute improvements. Please do not send
+ any bug reports related to MBROLA support.
+
+Bart Bunting is continuing to work on this, and you can find
+his latest version at
+ftp://ftp.progsoc.uts.edu.au/users/bart/mbrola_server/mbrola_server.tgz
+
+
+Local variables: mode: outline paragraph-separate: "[ ]*$"
+end:
+

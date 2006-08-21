@@ -1,0 +1,51 @@
+#!/usr/bin/perl -w
+#$Id$
+#Display Calendar invites in a readable form.
+use strict;
+my  %fields =qw(
+                DTSTART  Start
+                DTEND End
+                DTSTART;TZID="Eastern" StartEastern
+                DTEND;TZID="Eastern" EndEastern
+DTSTART;TZID="Pacific" StartPacific
+                DTEND;TZID="Pacific" EndPacific
+DTSTART;TZID="Central" StartCentral
+                DTEND;TZID="Central" EndCentral
+                DESCRIPTION Description
+                SUMMARY Summary
+                LOCATION Location
+               );
+my $marker ='^BEGIN:VEVENT';
+my $start;
+while (<> ) {
+  last if (m/$marker/ ) ;
+    
+  
+}
+
+print "\n\n";
+my @lines;
+my $i=0;
+while (<>) {
+  chomp;
+  if (/^\s/) {                  #continuation line
+    s/^\s+//g;
+    $lines[$i-1] .= $_;
+  } else {
+    $lines[$i++]=$_;
+  }
+}
+#Process lines 
+foreach (@lines) {
+  my ($f, $v) =split(':');
+  my $key=$fields{$f};
+  print "$key:\t$v\n" if defined($key);
+}
+#Process attendee list
+print "\nAttendees\n\n";
+foreach (@lines) {
+  my ($f, $v) =split (':',$_,2);
+  next unless ($f =~ m/ATTENDEE/);
+  $f =~ s/^ATTENDEE;//g;
+  print $v,"\n";         # "\t", join("\t", split(';', $f)),"\n";
+}

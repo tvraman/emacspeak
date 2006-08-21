@@ -1,0 +1,17 @@
+#!/bin/sh
+#for use in emacspeak
+#Description: Install  package xpdftoobtain pdftotext
+if which pdftotext > /dev/null
+then
+    DVI=$1
+    PDF=/tmp/dviviewfile$$.pdf
+    TXT=/tmp/dviviewfile$$.txt
+    dvipdf $DVI $PDF
+    pdftotext $PDF
+    cat -s $TXT
+    /bin/rm $PDF $TXT
+    exit 0
+else
+    echo "pdftotext or dvipdf may have problems."
+    exit 1
+fi
