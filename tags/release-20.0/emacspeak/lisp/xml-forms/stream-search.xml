@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--$Id$-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Streaming Audio Search</title>
+  </head>
+  <body>
+    <p/>
+    <form action="http://www.billsparks.org/links/search.cgi" method="GET">
+      <table>
+        <tr>
+          <td>
+            <label for="s">Quick Search</label>
+            <input type="text" size="15" name="query"
+            id="s"/>
+          </td>
+          <td>
+            <input type="submit" value="Search!"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

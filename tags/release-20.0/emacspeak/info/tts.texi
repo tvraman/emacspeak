@@ -1,0 +1,378 @@
+@c $Id$
+@c @section Speech System Commands
+
+@cindex tts
+@cindex speech system
+@cindex speech settings
+
+This section documents Emacspeak's  various user commands for controlling the
+text to speech (TTS) system.
+
+@menu
+* Controlling Echo::             Character, Word and Line Echo.
+* Speech Output  Control::       Indicating case, capitalization and indentation.
+* Miscellaneous:: Miscellaneous TTS Commands.
+@end menu
+
+@node  Controlling Echo
+@subsection   Character, Word And Line Echo.
+
+@cindex line echo
+@cindex character echo
+@cindex word echo
+
+By default, Emacspeak speaks characters as they are typed --this is
+called character echo; Words are spoken as they are completed --this is
+called word echo.  Emacspeak can also optionally speak each line as it
+is typed --this is called line echo.
+
+Character, word and line echo can be toggled --either in the current
+buffer-- or for all buffers (globally).
+To toggle the specific echo functionality for all buffers, precede the
+specific command with @kbd{C-u}.
+Note that in the documentation below, this use of @kbd{C-u} is indicated 
+using the common Emacs terminology of @emph{prefix arg} or
+@emph{interactive prefix arg}.
+
+@table @kbd 
+@findex  emacspeak-toggle-character-echo
+ @kindex  control e d k 
+@item  @kbd{control e d k }
+emacspeak-toggle-character-echo
+ Toggle state of  Emacspeak  character echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+
+
+@findex  emacspeak-toggle-word-echo
+ @kindex  control e d w 
+ 
+@item @kbd{ control e d w }
+emacspeak-toggle-word-echo
+ Toggle state of  Emacspeak  word echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+
+
+@findex  emacspeak-toggle-line-echo
+ @kindex  control e d l 
+ 
+@item @kbd{ control e d l }
+emacspeak-toggle-line-echo
+ Toggle state of  Emacspeak  line echo.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+@end table
+
+@node Speech Output  Control
+@subsection Setting Various Characteristics Of Speech Output.
+
+Emacspeak user commands can set different characteristics of the speech
+output such as speech rate and  punctuations mode.
+
+
+Emacspeak provides a number of settings that affect how  attributes of
+the text such as capitalization are conveyed.
+These include settings that produce a short tone for each upper case
+letter,  as well as a smart mode for speaking mixed case words which is
+especially useful when programming.
+These settings can be made locally in a given buffer or be applied to
+all buffers by preceding these commands with @kbd{C-u}.
+
+@table @kbd 
+
+@findex  dtk-set-rate
+ @kindex  control e d r 
+ 
+@item @kbd{ control e d r }
+dtk-set-rate
+ Set speaking RATE for the tts.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+
+@findex  dtk-set-character-scale
+ @kindex  control e d f 
+ 
+@item @kbd{ control e d f }
+dtk-set-character-scale
+ Set scale FACTOR for   speech rate.
+Speech rate is scaled by this factor
+when speaking characters.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+This function is advised.
+
+Before-advice `emacspeak-auto':
+Automatically defined advice to speak interactive prompts. 
+
+
+@findex  dtk-set-predefined-speech-rate
+ @kindex  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
+ 
+@item @kbd{ control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 }
+dtk-set-predefined-speech-rate
+ Set speech rate to one of nine predefined levels.
+Interactive PREFIX arg says to set the rate globally.
+
+
+@findex  dtk-set-punctuations
+ @kindex  control e d p 
+ 
+@item @kbd{ control e d p }
+dtk-set-punctuations
+ Set punctuation mode to MODE.
+Possible values are `some', `all', or `none'.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+
+
+
+@findex  dtk-set-pronunciation-mode
+ @kindex  control e d m 
+ 
+@item @kbd{ control e d m }
+dtk-set-pronunciation-mode
+ Set pronunciation MODE.
+This command is valid only for newer
+Dectalks, e.g.  the Dectalk Express.  Possible values are `math, name,
+europe, spell', all of which can be turned on or off.
+Argument STATE specifies new state.
+
+
+
+@findex  dtk-toggle-split-caps
+ @kindex  control e d s 
+
+@item @kbd{ control e d s }
+dtk-toggle-split-caps
+ Toggle split caps mode.
+Split caps mode is useful when reading
+Hungarian notation in program source code.  Interactive PREFIX arg
+means toggle the global default value, and then set the current local
+value to the result.
+
+
+@findex  dtk-toggle-capitalization
+ @kindex  control e d c 
+ 
+@item @kbd{ control e d c }
+dtk-toggle-capitalization
+ Toggle capitalization.
+when set, capitalization is indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+
+
+@findex  dtk-toggle-allcaps-beep
+ @kindex  control e d  cap C  
+ 
+@item @kbd{ control e d  cap C  }
+dtk-toggle-allcaps-beep
+ Toggle allcaps-beep.
+when set, allcaps words  are  indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+Note that allcaps-beep is a very useful thing when programming.
+However it is irritating to have it on when reading documents.
+@end table
+
+In addition, Emacspeak can convey the indentation of lines as they are
+spoken--
+this is relevant when programming  and is the default when working with
+program source.
+
+
+
+@table @kbd
+
+@findex  emacspeak-toggle-audio-indentation
+ @kindex  control e d i 
+ 
+@item @kbd{ control e d i }
+emacspeak-toggle-audio-indentation
+ Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+Specifying the method of indentation as `tones'
+results in the Dectalk producing a tone whose length is a function of the
+line's indentation.  Specifying `speak'
+results in the number of initial spaces being spoken.
+
+Indentation feedback style is set by option 
+emacspeak-audio-indentation-method
+@vindex  emacspeak-audio-indentation-method
+
+The default value is  @code{"speak"}
+
+See variable `emacspeak-audio-indentation-methods' for
+possible values.
+Automatically becomes local in any buffer where it is set.
+
+@end table
+@node Miscellaneous
+@subsection Miscellaneous Speech Commands
+
+
+Speech can be stopped using command @code{dtk-stop}
+--though in normal use, 
+the action of moving the cursor will stop ongoing speech. Speech can
+also be paused and resumed.
+The speech server can be stopped and restarted for cases where the user
+wants to switch to a different server --or in the rare case to nuke a
+runaway speech server.
+
+
+@table @kbd
+
+@findex  dtk-stop
+ @kindex     pause   control e s   
+ 
+@item @kbd{Control e s}
+dtk-stop
+ Stop speech now.
+
+
+@findex  dtk-pause
+ @kindex  control e p 
+ 
+@item @kbd{ control e p }
+dtk-pause
+ Pause ongoing speech.
+The speech can be resumed with command `dtk-resume'
+normally bound to C-e SPC.  Pausing speech is useful when one needs to
+perform a few actions before continuing to read a large document.  Emacspeak
+gives you speech feedback as usual once speech has been paused.  `dtk-resume'
+continues the interrupted speech irrespective of the buffer
+in which it is executed.
+Optional PREFIX arg flushes any previously paused speech.
+
+
+@findex  dtk-resume
+ @kindex  control e SPACE 
+ 
+@item @kbd{ control e SPACE }
+dtk-resume
+ Resume paused speech.
+This command resumes  speech that has been suspended by executing
+command `dtk-pause' bound to C-e p.
+If speech has not been paused,
+and variable `dtk-resume-should-toggle' is t
+ then this command will pause ongoing speech.
+
+
+@findex  dtk-toggle-quiet
+ @kindex  control e d q 
+ 
+@item @kbd{ control e d q }
+dtk-toggle-quiet
+ Toggle state of the speech device between being quiet and talkative.
+Useful if you want to continue using an Emacs session that has
+emacspeak loaded but wish to make the speech shut up.
+Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
+
+
+
+@findex  dtk-emergency-restart
+ @kindex  control e control s 
+ 
+@item @kbd{ control e control s }
+dtk-emergency-restart
+ Use this to nuke the currently running dtk server and restart it.
+Useful if you want to switch to another synthesizer while emacspeak is
+running.  Also useful for emergency stopping of speech.
+
+
+@end table
+
+
+Finally, here are the remaining commands available via the TTS related
+keymap @kbd{C-e d}.
+
+@table @kbd
+
+@findex  dtk-add-cleanup-pattern
+ @kindex  control e d a 
+ 
+@item @kbd{ control e d a }
+dtk-add-cleanup-pattern
+ Add this pattern to the list of repeating patterns that are cleaned up.
+Optional interactive prefix arg deletes  this pattern if
+previously added.  Cleaning up repeated patterns results in emacspeak
+speaking the pattern followed by a repeat count instead of speaking
+all the characters making up the pattern.  Thus, by adding the
+repeating pattern `.' (this is already added by default) emacspeak
+will say ``aw fifteen dot'' when speaking the string
+``...............'' instead of ``period period period period ''.
+
+
+
+
+@findex  dtk-select-server
+ @kindex  control e d d 
+ 
+@item @kbd{ control e d d }
+dtk-select-server
+ Select a speech server interactively.
+This will be the server that is used when you next call either
+M-x dtk-initialize or C-e C-s.
+Argument PROGRAM specifies the speech server program.
+
+
+@findex  dtk-toggle-splitting-on-white-space
+ @kindex  control e d SPACE 
+ 
+@item @kbd{ control e d SPACE }
+dtk-toggle-splitting-on-white-space
+ Toggle splitting of speech on white space.
+This affects the internal state of emacspeak that decides if we split
+text purely by clause boundaries, or also include
+whitespace.  By default, emacspeak sends a clause at a time
+to the speech device.  This produces fluent speech for
+normal use.  However in modes such as `shell-mode' and some
+programming language modes, clause markers appear
+infrequently, and this can result in large amounts of text
+being sent to the speech device at once, making the system
+unresponsive when asked to stop talking.  Splitting on white
+space makes emacspeak's stop command responsive.  However,
+when splitting on white space, the speech sounds choppy
+since the synthesizer is getting a word at a time.
+
+
+
+@findex  dtk-set-chunk-separator-syntax
+ @kindex  control e d RETURN 
+ 
+@item @kbd{ control e d RETURN }
+dtk-set-chunk-separator-syntax
+ Interactively set how text is split in chunks.
+See the Emacs documentation on syntax tables for details on how characters are
+classified into various syntactic classes.
+Argument S specifies the syntax class.
+
+
+@findex  emacspeak-dial-dtk
+ @kindex  control e d t 
+ 
+@item @kbd{ control e d t }
+emacspeak-dial-dtk
+ Prompt for and dial a phone NUMBER with the Dectalk.
+
+
+@findex  emacspeak-dtk-speak-version
+ @kindex  control e d  cap V  
+ 
+@item @kbd{ control e d  cap V  }
+emacspeak-dtk-speak-version
+ Use this to find out which version of the TTS firmware you are running.
+
+
+@findex  emacspeak-zap-dtk
+ @kindex  control e d z 
+ 
+@item @kbd{ control e d z }
+emacspeak-zap-dtk
+ Send this command to the TTS engine  directly.
+
+@end table

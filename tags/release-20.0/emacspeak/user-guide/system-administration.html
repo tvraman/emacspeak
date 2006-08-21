@@ -1,0 +1,567 @@
+<HTML
+><HEAD
+><TITLE
+>System Administration</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Emacspeak User's Guide"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Before you begin"
+HREF="before-you-begin.html"><LINK
+REL="NEXT"
+TITLE="Working with files"
+HREF="working-with-files.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Emacspeak User's Guide</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="before-you-begin.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="working-with-files.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SYSTEM-ADMINISTRATION"
+>4. System Administration</A
+></H1
+><P
+>	This section contains information on common system
+	administration tasks. It is by no means an
+	exhaustive list of what goes on in Linux system administration but
+	rather a collection of a few common tasks that a new user may
+	find useful. If you would like more information on Linux
+	system administration, refer to the online Linux System
+	Administrators' Guide, found at <A
+HREF="http://www.linuxdoc.org/LDP/sag/book1.html"
+TARGET="_top"
+>http://www.linuxdoc.org/LDP/sag/book1.html</A
+>.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="CHANGING-YOUR-PASSWORD"
+>4.1. Changing your password</A
+></H2
+><P
+>	Every time you log onto a Linux system, you must provide a
+	password for your account. Occasionally you may wish to change
+	your password, and many systems require that you do so regularly
+	for added security.
+	</P
+><P
+>	Changing your password is done in the Emacs shell. Normally,
+	changing your password in the Emacs shell displays it on the
+	screen and also speaks it aloud. However, Emacspeak adds a line to your
+	<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file that keeps Emacs from echoing
+	your password either visually or orally. Of course, it's still
+	a good idea to change your password in a secure area where
+	no-one is likely to watch you type it in. To change your
+	password: 
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			From inside Emacs, type <B
+CLASS="COMMAND"
+>M-x
+			shell</B
+> to launch an Emacs shell.
+			</P
+></LI
+><LI
+><P
+>			At the prompt, type
+			<B
+CLASS="COMMAND"
+>passwd</B
+>. You will be prompted for both your
+			current password and your new password. 
+			</P
+></LI
+></OL
+><P
+>	Note that some systems require passwords to be a certain
+	length or contain certain characters such as numbers. If your
+	password entry is rejected for some reason, keep trying.  In general,
+	most 6-8 letter passwords that contain at least one number
+	work well. Of course, be sure it's easy for you to remember!
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INSTALLING-APPLICATIONS"
+>4.2. Installing applications</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="ABOUT-EMACS-APPLICATIONS"
+>4.2.1. About Emacs applications</A
+></H3
+><P
+>	As an Emacs user, you can
+	mentally divide applications into two categories: those
+	that are native to Emacs (that is, those applications written
+	specifically for Emacs),
+	and those that are not (for example, command-line applications). If an application is not
+	Emacs-native, you can still run it from the Emacs shell
+	command line.  To run the application, type the command
+	<B
+CLASS="COMMAND"
+>M-x shell</B
+> to start the shell then the appropriate command to start the
+	application. If the application is native to Emacs, you can
+	type <B
+CLASS="COMMAND"
+>M-x name-of-application</B
+> to start the
+	application. The application will run directly in the Emacs
+	buffer.
+	</P
+><P
+>	Sometimes, even though an application wasn't designed
+	specifically for Emacs, you can install a special wrapper
+	file that makes Emacs think the application is Emacs-native. These
+	special files have a <TT
+CLASS="FILENAME"
+>.el</TT
+>, or
+	Emacs-lisp, extension. After you've downloaded and
+	installed a new application, if a <TT
+CLASS="FILENAME"
+>.el</TT
+> file exists for it, you
+	can download that file too.  Place it in the correct
+	directory, add the appropriate line to your
+	<TT
+CLASS="FILENAME"
+>.emacs</TT
+> file so that Emacs will recognize
+	the application, and
+	you'll be able to run the application as if it were native to Emacs.  
+	</P
+><P
+>	As an Emacspeak user, you'll also want to know which
+	applications are Emacspeak-enabled. These Emacspeak-enabled applications have a second
+	special <TT
+CLASS="FILENAME"
+>.el</TT
+> wrapper file that contains Emacspeak-specific commands that provide
+	audio feedback just for that application. For a complete list
+	of Emacspeak-enabled applications, see <A
+HREF="http://emacspeak.sourceforge.net/applications.html"
+TARGET="_top"
+>http://emacspeak.sourceforge.net/applications.html</A
+>.
+	All avaliable <TT
+CLASS="FILENAME"
+>emacspeak-*.el</TT
+> files are
+	included with Emacspeak, so you won't have to download them.
+	</P
+><P
+>	So, when you install a new application,
+	you'll need the following three things:
+	</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>				The application.
+				</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>				A <TT
+CLASS="FILENAME"
+>.el</TT
+> file for
+				that application, if you want to run
+				it directly from Emacs instead of from
+				the Emacs shell command line.
+				</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>				An
+				<TT
+CLASS="FILENAME"
+>emacspeak-*.el</TT
+>
+				file for the application, if you want
+				to run it directly from Emacs and have
+				it Emacspeak-enabled. Check
+				in the /emacspeak/lisp directory
+				to see if one exists for your
+				application.
+				</P
+></LI
+></UL
+><P
+>	Whenever possible, this HOWTO tells you specifically
+	whether or not an application is Emacs-native, and if not,
+	where to get the special <TT
+CLASS="FILENAME"
+>.el</TT
+> wrapper files if they are
+	available.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="DOWNLOADING-APPLICATIONS"
+>4.2.2. Downloading your application</A
+></H3
+><P
+>	Once you've chosen a new application to install, you'll need
+	to download it. Typically you'll use either
+	<SPAN
+CLASS="APPLICATION"
+>FTP</SPAN
+> application or the
+	<SPAN
+CLASS="APPLICATION"
+>wget</SPAN
+> application to download your new Linux
+	application, since most of them are distributed only on the
+	Internet. If you are unfamiliar with the
+	<SPAN
+CLASS="APPLICATION"
+>FTP</SPAN
+> and
+	<SPAN
+CLASS="APPLICATION"
+>wget</SPAN
+> applications, refer to <A
+HREF="working-with-files.html#DOWNLOADING-FILES"
+>Section 5.1</A
+>, Downloading files, for information
+	on how to use these applications to get your files.
+	</P
+><P
+>	Usually, the files you download will have some sort of extension (the letters after the "dot"
+	or "period" in the file name) that denotes what type of file it
+	is. If your file has a .gz or .tar extension, refer to <A
+HREF="system-administration.html#UNCOMPRESSING-FILES"
+>Section 4.2.3</A
+> on uncompressing files.  If your file has a .rpm
+	extension, refer to <A
+HREF="system-administration.html#INSTALLING-RPMS"
+>Section 4.2.4</A
+> on
+	installing RPMs.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="UNCOMPRESSING-FILES"
+>4.2.3. Uncompressing files</A
+></H3
+><P
+>	Most files are compressed in at least one (and
+	sometimes multiple) ways. You can tell how a file was
+	compressed, and thus how to uncompress it, by the extensions
+	on the file.  The most common extensions are .tar and .gz,
+	though there are others.
+	</P
+><P
+>	If your downloaded file has multiple extensions, you'll have
+	to uncompress it one step at a time, uncompressing the last
+	extension first.  For example, if the file is named
+	<TT
+CLASS="FILENAME"
+>foo.tar.gz</TT
+>, complete the following steps:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Start the <SPAN
+CLASS="APPLICATION"
+>Emacs</SPAN
+>
+			shell using the command <B
+CLASS="COMMAND"
+>M-x shell</B
+>.
+			</P
+></LI
+><LI
+><P
+>			If necessary, use the <B
+CLASS="COMMAND"
+>cd</B
+>
+			(change directory) command to move to the
+			directory that contains your downloaded file.
+			</P
+></LI
+><LI
+><P
+>			At the Emacs shell command prompt, type
+			<B
+CLASS="COMMAND"
+>gunzip foo.tar.gz</B
+>. The
+			file will be unzipped, leaving you
+			with a file called
+			<TT
+CLASS="FILENAME"
+>foo.tar</TT
+> in your
+			directory. Files with a .tar extension are commonly known as "tarballs."
+			</P
+></LI
+><LI
+><P
+>			At the command prompt, type <B
+CLASS="COMMAND"
+>tar -xvf
+			foo.tar</B
+>. The tarball will be uncompressed, usually
+			leaving either a single file or a new
+			directory that contains a number of files.
+			</P
+><P
+>			Some recent versions of the
+			<B
+CLASS="COMMAND"
+>tar</B
+> command will both
+			uncompress and untar a file if you add the
+			<B
+CLASS="COMMAND"
+>-z</B
+> option. Thus, the
+			command <B
+CLASS="COMMAND"
+>tar -xvfz
+			foo.tar.gz</B
+> would both uncompress and
+			untar the file.
+			</P
+></LI
+></OL
+><P
+>	If you ended up with a new directory after you uncompressed
+	your files, it probably contains
+	files with names like <TT
+CLASS="FILENAME"
+>INSTALL</TT
+>,
+	<TT
+CLASS="FILENAME"
+>NOTES</TT
+>, or <TT
+CLASS="FILENAME"
+>README</TT
+>,
+	among others. These files usually include instructions for
+	installing that specific application. As each application may
+	have a different installation process, you should read these
+	files carefully and follow any instructions they may
+	provide. You'll
+	probably need to be the root user to actually install any
+	applications, as only root usually has the necessary permissions. 
+	</P
+><P
+>	If you ended up with a single file after uncompressing, it
+	probably has either a .rpm extension or some other type of
+	extension, such as .el. If it has a .rpm extension, refer to
+	<A
+HREF="system-administration.html#INSTALLING-RPMS"
+>Section 4.2.4</A
+> on installing RPMs. If the file has
+	some other extension, refer to the website where you
+	downloaded it for more information.
+	</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="INSTALLING-RPMS"
+>4.2.4. Installing RPMs</A
+></H3
+><P
+>	If you downloaded or uncompressed a file that has a .rpm
+	extension, you're in luck! It is a Red Hat Package Manager
+	file that contains all the information it needs to install itself
+	automatically. Assuming that your distribution supports RPMs,
+	you can install the file as follows:
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Open a root shell using the command <B
+CLASS="COMMAND"
+>M-x
+			emacspeak-root</B
+>, which is bound to
+			<B
+CLASS="COMMAND"
+>C-e C-r</B
+>.
+			</P
+></LI
+><LI
+><P
+>			At the command prompt, type <B
+CLASS="COMMAND"
+>rpm -xfv
+			foo.rpm</B
+>. A number of messages will scroll by,
+			and you'll be returned to the command prompt
+			once RPM finishes installing the files.
+			</P
+></LI
+></OL
+><P
+>	For additional information on RPMs, refer to Red Hat's
+	official website, <A
+HREF="http://www.redhat.com"
+TARGET="_top"
+>http://www.redhat.com</A
+>
+	or the official Red Hat Linux reference guide, at <A
+HREF="http://www.redhat.com/support/manuals/RHL-7-Manual/ref-guide/ch-rpm.html"
+TARGET="_top"
+>http://www.redhat.com/support/manuals/RHL-7-Manual/ref-guide/ch-rpm.html</A
+>.
+	</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="before-you-begin.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="working-with-files.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Before you begin</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Working with files</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
