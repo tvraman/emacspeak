@@ -1,0 +1,3 @@
+This directory includes stack-f.el and string.el from Elib 1.0.
+
+stack-f.el has been modified to use defsubst instead of defun.

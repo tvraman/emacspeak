@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--$Id$-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Locate Icecast Streams</title>
+  </head>
+  <body>
+    <form method="get" action="http://yp.icecast.org/index.html">
+      <label id="s">Find</label>
+      <input id="s" type="text" name="search" size="20"/>
+    </form>
+    <br/>
+    <br/>
+  </body>
+</html>

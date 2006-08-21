@@ -1,0 +1,94 @@
+* Voice Lock
+
+  0.   Emacspeak defines a number of voice overlays such as
+=voice-bolden=, and =voice-lighten= that can be applied to a
+given voice to change what it sounds like.
+
+  1.   Voice overlays are defined in terms of Aural CSS ([[http://www.w3.org/tr/css2/aural.html][ACSS]]) to
+keep them independent of a specific TTS engine.
+
+  2.   For each such overlay there is a corresponding
+=<overlay-name>-settings= variable that can be customized via
+custom.
+
+  3.    The numbers in =voice-bolden-settings as an example=:
+
+Setting || Value
+family | nil
+average-pitch | 1
+pitch-range | 6
+stress | 6
+richness | nil
+punctuation | nil
+
+Unset values (=nil=) show up as "unspecified" in the customize
+interface.
+
+  4.    Do not directly customize =voice-bolden= and friends, instead
+customize the corresponding =voice-bolden-settings=, since that
+ensures that all voices that are defined in terms of
+=voice-bolden= get correctly updated.
+
+  5.    Discovering what to customize:
+
+Command =emacspeak-show-personality-at-point= (bound by default
+to C-e M-v) will show you the value of properties personality and
+face at point. A recent update I implemented last weekend makes
+this more useful, so make sure you do a CVS update; earlier this
+command used to display the ACSS setting --- now it displays the
+abstract name. Describe-variable on these names should tell you
+what to customize; so as an example:
+
+Put point on a comment line, and hit =C-e M-v=:
+you will hear 
+
+<example>
+Personality emacspeak-voice-lock-comment-personality
+Face font-lock-comment-delimiter-face  
+</example>
+
+Describe-variable of =emacspeak-voice-lock-comment-personality= gives:
+
+<example>
+emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
+
+Documentation:
+Personality used for font-lock-comment-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+</example>
+
+
+** How It All Works
+
+Here is a brief explanation of the connection between
+=voice-bolden= and its associated =voice-bolden-settings=.
+
+
+  0.       Voice  settings are initially in =voice-bolden-settings= which is a list
+of numbers.
+
+  1.      That list of numbers needs to be translated to appropriate
+device-specific codes to send to the TTS engine.
+
+  2.     You do not want to do this translation *each* time you
+speak something.
+
+  3.     So when =voice-bolden= is defined, the definition happens in
+two steps:
+
+  -    The list of settings is stored away in
+=voice-bolden-settings=,
+  - A corresponding voice-name is generated ---
+=acss-a<n>-p<n>-r<n>-s<n>= and the corresponding control codes to
+send to the device are stored away in a hash-table keyed by the above symbol.
+
+  - Finally, =voice-bolden= is assigned the above symbol.
+
+** What this gives is:
+
+  0.     The ability to customize the voice via custom by editting
+the list of numbers in =voice-bolden-settings=
+
+  2.    When that list is editted, =voice-bolden= is arranged to be
+updated automatically.
