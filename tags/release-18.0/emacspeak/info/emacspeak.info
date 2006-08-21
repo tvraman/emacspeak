@@ -1,0 +1,136 @@
+This is ./emacspeak.info, produced by makeinfo version 4.1 from
+emacspeak.texi.
+
+INFO-DIR-SECTION Accessibility
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+emacspeak.info-1: 232
+emacspeak.info-2: 47461
+emacspeak.info-3: 91353
+emacspeak.info-4: 140173
+emacspeak.info-5: 190041
+
+Tag Table:
+(Indirect)
+Node: Top232
+Node: Copyright909
+Node: Announce1321
+Node: Contributing1819
+Node: Authoring Guidelines2437
+Node: Credits3320
+Node: Introduction3679
+Ref: Introduction-Footnote-16177
+Node: Installation6280
+Node: Obtaining Emacspeak6823
+Node: Quick Installation7407
+Node: Configuring and Installing Emacspeak8447
+Node: Basic Usage11470
+Node: Overview12750
+Node: Working15100
+Ref: Working-Footnote-117329
+Ref: Working-Footnote-217375
+Node: Reading17410
+Node: Speech System24169
+Node: Controlling Echo24628
+Node: Speech Output Control26060
+Node: Miscellaneous30151
+Node: Voice-lock34529
+Node: Status Information36325
+Node: Audio Desktop38851
+Node: Desktop Objects40834
+Node: Object Oriented Desktop41680
+Node: Context-Sensitive Interaction42418
+Node: Using Online Help47461
+Node: Emacs Packages51675
+Node: Document Authoring52852
+Node: Creating Well-formatted Documents53537
+Node: Search replace and spell check57429
+Node: Structured Editing62640
+Node: Outline Editing64645
+Node: Template-based Authoring68361
+Node: Maintaining Structured Data69988
+Node: Browsing Structure71446
+Node: Messaging71893
+Node: Editting Program Source72491
+Node: Development Environment73497
+Node: Desktop Management74069
+Node: Personal Information Management74834
+Node: Desktop Applications75177
+Node: Running Terminal Based Applications81650
+Node: Emacspeak Commands89639
+Node: dtk-speak91353
+Node: emacspeak99309
+Node: emacspeak-arc99795
+Node: emacspeak-aumix100395
+Node: emacspeak-bs101688
+Node: emacspeak-buff-menu102079
+Node: emacspeak-c102700
+Node: emacspeak-calendar103012
+Node: emacspeak-compile103505
+Node: emacspeak-custom104018
+Node: emacspeak-daisy104460
+Node: emacspeak-dired106326
+Node: emacspeak-dismal107872
+Node: emacspeak-ecb109874
+Node: emacspeak-ediff110529
+Node: emacspeak-enriched110857
+Node: emacspeak-entertain111232
+Node: emacspeak-erc111632
+Node: emacspeak-eterm112505
+Node: emacspeak-eudc120264
+Node: emacspeak-filtertext120757
+Node: emacspeak-fix-interactive121649
+Node: emacspeak-forms122287
+Node: emacspeak-freeamp123124
+Node: emacspeak-gnus124824
+Node: emacspeak-gomoku125171
+Node: emacspeak-gridtext126301
+Node: emacspeak-hide126835
+Node: emacspeak-ibuffer128261
+Node: emacspeak-imcom128676
+Node: emacspeak-imenu129437
+Node: emacspeak-info129975
+Node: emacspeak-keymap130281
+Node: emacspeak-kotl131162
+Node: emacspeak-man131611
+Node: emacspeak-mpg123132009
+Node: emacspeak-ocr133182
+Node: emacspeak-outline139146
+Node: emacspeak-pronounce140173
+Node: emacspeak-psgml143231
+Node: emacspeak-python144192
+Node: emacspeak-realaudio144687
+Node: emacspeak-redefine148602
+Node: emacspeak-remote152851
+Node: emacspeak-rmail153790
+Node: emacspeak-rss154204
+Node: emacspeak-solitaire154633
+Node: emacspeak-sounds155134
+Node: emacspeak-speak157436
+Node: emacspeak-speedbar178782
+Node: emacspeak-table-ui179610
+Node: emacspeak-tabulate185172
+Node: emacspeak-tapestry185715
+Node: emacspeak-tar186222
+Node: emacspeak-tetris186704
+Node: emacspeak-tnt187792
+Node: emacspeak-url-template188216
+Node: emacspeak-view189253
+Node: emacspeak-view-process189583
+Node: emacspeak-vm190041
+Node: emacspeak-w3190981
+Node: emacspeak-w3search198334
+Node: emacspeak-websearch198818
+Node: emacspeak-widget206386
+Node: emacspeak-wizards207306
+Node: emacspeak-xml-shell225563
+Node: Acknowledgements227607
+Node: Concept Index227764
+Node: Key Index228247
+
+End Tag Table

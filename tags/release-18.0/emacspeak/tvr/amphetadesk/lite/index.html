@@ -1,0 +1,55 @@
+[$ include( catfile( get_setting("dir_templates"), "tpl_header.html") ) $]
+
+   <p><strong>The newest items from your [$ count_my_channels $] channels</p>
+ [$ # display each channel that has been successfully downloaded.
+use HTTP::Date;
+    my @channels = get_my_sorted_channels("date_downloaded", "reversed_data");
+    
+    # for each channel, parse and display.
+    foreach my $channel (@channels) {
+       my $data = load_channel($channel->{filename}, $channel->{xmlurl}); next unless $data;
+
+       # if there's nothing in our date_downloaded, then we maybe
+       # coming from an importing, so we'll skip this feed for now.
+       next unless $channel->{date_downloaded};
+       to_browser(qq{\n});
+to_browser(qq{<h2>});
+to_browser(qq{<a href="$channel->{htmlurl}">$channel->{title}</a>});
+#to_browser(qq{<em>$channel->{date_downloaded}</em>});
+       # we create an encoded 'xmlurl' for our del_url.
+       # this is so we don't get confused with channel
+       # query_strings being interpreted as part of our own.
+       my $encoded_xmlurl = encode_to_dec($channel->{xmlurl});
+my $download_time=time2str(str2time($channel->{date_downloaded}));
+       to_browser(qq{               <a href="$channel->{xmlurl}" >$download_time</a>\n});
+       to_browser(qq{<a href="index.html?del_url=$encoded_xmlurl&amp;go=1">Remove</a></h2>\n});
+       # if there are no channel items, say so.
+       if ( not defined($data->{item}) or scalar @{$data->{item}} <= 0) {
+          to_browser(qq{         });
+          to_browser(qq{<p> This channel has no items that AmphetaDesk can display.</p>\n });
+       }
+
+       # each of the channel items.
+to_browser(qq{<ul>\n});
+       foreach my $item (@{$data->{item}}) {
+          $item->{description} = $item->{"content:encoded"} if defined($item->{"content:encoded"});
+
+          # display the actual item.
+          to_browser(qq{         });
+          to_browser(qq{<li> });
+          to_browser(qq{<a href="$item->{link}" >}) if $item->{link};
+          to_browser(qq{$item->{title}}) if $item->{title}; to_browser(qq{</a>}) if $item->{link};
+          to_browser(qq{ $item->{description} }) if $item->{description};
+          to_browser(qq{</li>\n});
+       }
+ 
+       
+       
+       
+       to_browser(qq{       </ul>\n});
+    }
+    # and spit it out.
+    $OUT = send_to_browser;
+ $]
+
+[$ include( catfile( get_setting("dir_templates"), "tpl_footer.html") ) $]

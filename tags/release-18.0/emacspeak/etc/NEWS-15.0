@@ -1,0 +1,235 @@
+Emacspeak News --History Of User-Visible Changes
+$Id$
+Author: T. V. Raman <raman@cs.cornell.edu>
+
+* Emacspeak 15.0 Additions And Changes:
+
+Emacspeak 15.0 provides the following user level enhancements:
+
+* Documentation:
+
+** Online Manual:
+
+*** New Chapter: Emacspeak Commands
+
+The online info manual has a new chapter documenting all
+ emacspeak commands. It is organized into sections, one per
+Emacspeak source module.
+
+
+*** Online HTML Version:
+
+An HTML version of the Emacspeak manual produced by
+texi2html is now available as 
+http://emacspeak.sf.net/info/
+
+** Productivity Tips:
+
+A new document giving productivity tips for using the
+Emacspeak desktop is available 
+as file etc/tips.html in the Emacspeak source distribution,
+and online as http://emacspeak.sf.net/tips.html.
+The source files used to create tips.html is available as
+tips.xml in the Emacspeak CVS repository.
+
+** User Guide:
+
+There is a new Emacspeak user guide, thanks to Jennifer
+Jobbst of the IBM Linux Technology Center.
+The user guide is available online at 
+http://emacspeak.sf.net/user-guide and is also bundled with
+the emacspeak sources in directory emacspeak/user-guide.
+The user-guide files are also placed in the /usr/share/docs
+directory by the Emacspeak RPM.
+
+** Speech-enabled Applications List:
+
+http://emacspeak.sf.net/applications.html gives a full list
+of speech-enabled applications available on the Emacspeak
+audio desktop.
+
+** Doc Links in Customization Buffer:
+
+The *Customizations* buffer created when
+ customizing group `emacspeak'  contains hyperlinks to
+available documentation and support resources.
+
+* New Emacspeak Features:
+
+
+** OCR Front-End:
+
+Module emacspeak-ocr provides a convenient to use OCR
+front-end for document scanning.
+Uses SANE for image acquisition and can be configured to use
+any available OCR engine.
+
+** Productivity Tips:
+
+Command emacspeak-view-emacspeak-tips bound to C-e cap T
+brings up a productivity tips document.
+
+
+** Speedch-enabled ECB:
+
+ECB --Emacs Class Browser-- provides a powerful class
+browser 
+for aiding in software development using a variety of
+languages including Java and Emacs Lisp.
+
+** Semantic Support Within JDE
+
+Uses knowledge computed by the semantic package in better
+speech-enabling JDE.
+
+** Speech-enabled browse-kill-ring
+
+Module browse-kill-ring is speech-enabled.
+
+
+** Easy Customization:
+
+Most of Emacspeak user options are now available through
+Emacs' customization interface --see command 
+emacspeak-customize bound to C-e cap C
+
+** Enhanced widget support:
+
+The speech-enabler for Emacs widgets has been completely
+overhauled.
+This results in better speech-enabling of packages like
+custom and JDE.
+
+** URL Templates 
+
+
+New URL templates for Sourceforge, DDJ TechNetCast etc.
+
+** Websearch:
+
+*** Single click access to speech-enabled Google advanced search.
+
+*** Browsing Usenet archives from Google --command C-e cap U
+
+*** Speech-enabled Usenet search from Google.
+
+** Speech-enables ERC:
+
+Enhanced with room monitors and the ability to hear things
+said by specific people.
+
+**Speech-enables ansi-color.el
+
+Module ansi-color (bundled with Emacs 21)
+colorizes process output according to ansi escape
+sequences. Emacspeak 
+maps these colors to appropriate ACSS style settings to
+provide audio formatted output.
+
+** Speech-enables MetaPost Mode:
+
+metapost mode helps authoring and maintaining metapost
+drawings.
+
+** Transient mark mode:
+
+Emacspeak  now works with transient mark mode.
+
+** W3 and XSLT:
+
+Emacspeak-w3 now provides the ability to apply an XSLT
+transformation to HTML content before it is displayed.  You
+can use this to simplify ugly HTML and leverage W3's ability
+to render standard HTML.  This feature is also useful in
+working with pages that use deeply nested tables.  See
+directory emacspeak/xsl for some ideas on what XSLT can do.
+
+Also, see command  emacspeak-w3-extract-table 
+that uses this mechanism to extract a specific table out of
+a WWW page.
+
+You will need to install libxslt to use this feature.
+See commands emacspeak-w3-xsl-toggle and
+emacspeak-w3-xslt-select for details on how to use this
+feature.
+
+** Convenience Commands:
+
+All Emacspeak convenience commands have been moved to module
+emacspeak-wizards.
+
+*** Annotation Tool:
+
+emacspeak-annotate is a tool that lets you comments in a
+designated annotation buffer as you work through a document.
+I typically use this to collect comments into an email draft
+while reading long documents --see command
+emacspeak-annotate-add-annotation for details.
+
+
+
+
+*** Simple phone book:
+
+See command  emacspeak-speak-telephone-directory for a
+simple phone book.
+
+*** W3 url rewrite wizard:
+
+There is a new command emacspeak-w3-url-rewrite-and-follow
+bound to "y" in W3 buffers. This is useful in applying a URL
+rewrite rule to the link under point before opening it.
+This is most useful in jumping directly to printer friendly
+versions of articles at popular sites like Yahoo and CNN.
+
+*** Midi Icons:
+
+Command emacspeak-toggle-midi-icons has been nuked.
+In its place, key C-e M-a runs command 
+emacspeak-set-auditory-icon-player which can be used to
+interactively select the kind of auditory icons used.
+
+** Key Bindings:
+
+*** Personal keys:
+
+ There is a new keymap emacspeak-personal-keymap
+for user's personal keybindings --and available through
+prefix key C-e x
+To bind a command you would write 
+(define-key emacspeak-personal-keymap "a"
+'emacspeak-speak-other-window)
+Alternatively, use the customize interface and customize
+variable
+emacspeak-personal-keys.
+
+To accomodate this change, command emacspeak-view-register
+is moved to C-e v
+and command emacspeak-speak-version is moved to C-e V
+
+** Viavoice Outloud:
+
+The Viavoice Outloud server is now configured so that you
+only need install the ViaVoice TTS RTK (Run Time Toolkit).
+Note that you will need the Viavoice TTS SDK if you plan to
+recompile the Emacspeak Viavoice Outloud server or build
+other ViaVoice TTS applications.
+
+**Emacs 21:
+
+Emacspeak 15 works cleanly with Emacs 21's new features.
+However, note that there are serious problems running W3
+both the pre-release 4.0.46 as well as the CVS version of W3
+under Emacs 21.  
+
+CVS version of W3:
+
+0) Aural CSS is broken
+1) Tables are broken
+2) There is a W3 timer bug that causes page download to take a lot longer
+
+
+Local variables:
+ mode: outline
+ paragraph-separate: "[ ]*$"
+end:

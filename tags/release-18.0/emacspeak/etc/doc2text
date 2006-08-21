@@ -1,0 +1,18 @@
+#!/bin/sh
+#for use in vm
+#Description: Install  package wv to obtain wvText
+if which wvText > /dev/null
+then
+    cd /tmp
+    #wmf=/tmp/mswordfile*.wmf
+    wordfile=mswordviewfile$$.doc
+    txtfile=mswordviewfile$$.txt
+    cat > $wordfile
+    wvText $wordfile $txtfile
+    cat   $txtfile 
+    /bin/rm $txtfile  $wmf
+    exit 0
+else
+    echo "wvText not found --install package wv."
+    exit 1
+fi
