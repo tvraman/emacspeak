@@ -1,8 +1,0 @@
-<smil>
-<meta name="title" content="NPR Hourly Newscast" />
-<meta name="author" content="NPR News" />
-<meta name="copyright" content="2005" />
-<body>
-<audio src="rtsp://real.npr.na-central.speedera.net:80/real.npr.na-central/news.db.rm" />
-</body>
-</smil>

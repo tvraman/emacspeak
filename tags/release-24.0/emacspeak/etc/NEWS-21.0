@@ -1,29 +1,0 @@
-Emacspeak News --History Of User-Visible Changes
-$Id$
-Author: T. V. Raman <raman@cs.cornell.edu>
-
-* Emacspeak 21.0 Additions And Changes:
-
-Emacspeak 21.0 provides the following user level enhancements:
-
-* user Visible Changes:
-
-** emacspeak-emms.el:
-
-Speech-enables EMMS --- an Emacs interface to multimedia players.
-
-
-** emacspeak-cedet.el:
-
-Speech-enables cedet-1.0
-
-** emacspeak-nxml-mode.el:
-
-Speech enabled NXML outliner.
-
-
-
-Local variables:
- mode: outline
- paragraph-separate: "[ ]*$"
-end:

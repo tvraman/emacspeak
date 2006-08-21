@@ -1,5 +1,0 @@
-(augment-load-path "w3m" "w3m")
-(load-library "w3m")
-(defvar coding-category-utf-16-be nil)
-(defvar coding-category-utf-16-le nil)
-(defvar coding-category-utf-8 nil)
