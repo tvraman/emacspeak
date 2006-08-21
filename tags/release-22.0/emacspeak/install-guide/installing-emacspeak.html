@@ -1,0 +1,332 @@
+<HTML
+><HEAD
+><TITLE
+>Installing Emacspeak</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Installing Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Requirements"
+HREF="requirements.html"><LINK
+REL="NEXT"
+TITLE="Frequently Asked Questions (FAQs)"
+HREF="troubleshooting.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Installing Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="requirements.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="troubleshooting.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INSTALLING-EMACSPEAK"
+>5. Installing Emacspeak</A
+></H1
+><P
+>	Assuming that you have all the items listed in <A
+HREF="requirements.html"
+>Section 4</A
+>, Requirements, you are ready to install
+	Emacspeak. The following steps provide the instructions to do so.
+	</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>			Go to the Emacspeak site at <A
+HREF="http://emacspeak.sourceforge.net"
+TARGET="_top"
+>http://emacspeak.sourceforge.net</A
+>
+			and, from the Support and Documentation
+			section, select an Emacspeak file to
+			download. If you select the binary file,
+			<TT
+CLASS="FILENAME"
+>emacspeak.tar.gz</TT
+>, you
+			will need to configure and make Emacspeak.
+			If you have some experience with Linux, or if
+			you're using a distribution that does not
+			support RPMs, you should download this option.
+			If your distro supports RPMs, you can download the
+			ready-to-install version of Emacspeak
+			(<TT
+CLASS="FILENAME"
+>emacspeak-14.0-1.noarch.rpm</TT
+>).
+			</P
+></LI
+><LI
+><P
+>			Download the file and place it in
+			your home directory.
+			</P
+></LI
+><LI
+><P
+>			Type <B
+CLASS="COMMAND"
+>su root</B
+> and provide
+			the root
+			password if you are not already logged onto your
+			machine as root.  You'll need root
+			permissions to install Emacspeak.
+			</P
+></LI
+><LI
+><P
+>			If you downloaded the rpm version of
+			Emacspeak, unpack it using the command
+			<B
+CLASS="COMMAND"
+>rpm -i
+			emacspeak-14.0-1.noarch.rpm</B
+>. If you
+			downloaded the binary version, unzip and untar
+			the file, then follow the installation
+			directions in the README file in the resulting
+			<TT
+CLASS="FILENAME"
+>emacspeak-14.0</TT
+> directory.
+			</P
+><P
+>			Once you have installed the rpm, you'll see a
+			message saying that Emacspeak installed
+			successfully, as well as some
+			additional instructions. 
+			</P
+></LI
+><LI
+><P
+>			If you are using Emacspeak v.14 or earlier and
+			also using ViaVoice TTS as your
+			synthesizer, change directories to the
+			<TT
+CLASS="FILENAME"
+>/usr/share/emacs/site-lisp/emacspeak/servers/linux-outloud</TT
+>
+			directory and type the command
+			<B
+CLASS="COMMAND"
+>make</B
+>. This command compiles the
+			ViaVoice TTS server. If you are not using
+			ViaVoice, or if you have Emacspeak v.15 or
+			later, you do not need to complete this step.
+			</P
+></LI
+><LI
+><P
+>			Using the <B
+CLASS="COMMAND"
+>cd</B
+> command, change directories to the
+			<TT
+CLASS="FILENAME"
+>/etc</TT
+> directory and open
+			your <TT
+CLASS="FILENAME"
+>profile</TT
+> file with
+			your favorite text editor
+			(you must be root to edit the
+			<TT
+CLASS="FILENAME"
+>profile</TT
+>). Scroll to the
+			bottom of the file, then add the following two lines:
+			</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="PROGRAMLISTING"
+>			export DTK_PROGRAM
+			DTK_PROGRAM=<TT
+CLASS="REPLACEABLE"
+><I
+>name of your speech server</I
+></TT
+>
+			</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>			The value of DTK_PROGRAM must be the name of your
+			speech server. A list of standard
+			Emacspeak-supported speech synthesizers and the
+			names of their respective speech servers is below.
+			</P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>ViaVoice TTS</TD
+><TD
+>outloud</TD
+></TR
+><TR
+><TD
+>DecTalk Xpress</TD
+><TD
+>dtk-exp</TD
+></TR
+><TR
+><TD
+>DecTalk MultiVoice</TD
+><TD
+>dtk-mv</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><P
+>			Several additional synthesizers are supported,
+			but they require add-on speech servers. Refer
+			to the documentation for each specific speech
+			server for more information.
+			</P
+></LI
+><LI
+><P
+>			Save your <TT
+CLASS="FILENAME"
+>profile</TT
+> file
+			and close it.
+			</P
+></LI
+></OL
+><P
+>	Now, you should have installed and configured everything
+	required to run Emacspeak. To use Emacspeak, log on to
+	your system as someone other than root (you should never run
+	Emacspeak as root), and type
+	<B
+CLASS="COMMAND"
+>emacspeak</B
+> at the prompt. Emacspeak should
+	start talking immediately.
+	</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="requirements.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="troubleshooting.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Requirements</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Frequently Asked Questions (FAQs)</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

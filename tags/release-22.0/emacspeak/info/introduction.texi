@@ -1,0 +1,49 @@
+@c $Id$
+
+@node Introduction
+@chapter Introduction
+
+Emacspeak provides a complete audio desktop 
+by speech-enabling all of Emacs.
+
+In the past, screen reading programs have allowed visually impaired
+users to get feedback using synthesized speech. Such programs have been
+commercially available for well over a decade. Most of them run on PC's
+under DOS, and these are now moving over to the Windows environment.
+However, screen-readers for the UNIX environment have been conspicuous
+in their absence.  Note that this is now changing with the availability
+of console-level Linux screenreaders such as @code{speakup}.  Such Linux
+screenreaders provide the same level of UNIX accessibility provided in
+the late 80's by PC terminal emulators running a DOS screenreader.  This
+means that most visually impaired computer users face the additional
+handicap of being DOS-impaired --- a far more serious problem:-)
+
+Emacspeak is an emacs subsystem that provides complete speech access.
+It is @emph{not} a screen-reader ---rather, it is a complete user
+environment with built-in speech  feedback.  Emacspeak has a
+significant advantage; since it runs inside Emacs, a
+structure-sensitive, fully customizable environment, Emacspeak has more
+context-specific information about what it is speaking than its
+screenreader counterparts.  This is why Emacspeak is not a
+``screenreader'', it is a subsystem that produces speech output.  
+
+A Traditional screen-reader speaks the content of the screen, leaving it
+to the user to interpret the visual layout.  Emacspeak,
+on the other hand, treats speech as a first-class output modality; it
+speaks the information in a manner that is easy to comprehend when
+listening.
+
+
+The basic concepts used by Emacspeak are simple; all interactive Emacs
+commands have been adapted to provide speech feedback.  Hence, you
+use Emacs as normal; Emacspeak works behind the scene to give
+audio feedback in addition to updating the screen.
+
+Emacspeak consists of a core speech system that provides speech and
+audio services to the rest of the Emacspeak desktop;
+application-specific extensions provide context-specific spoken feedback
+using these services.  Emacspeak currently comes with speech extensions
+for several popular Emacs subsystems and editing modes.  I would like to
+thank their respective authors for their wonderful work which makes
+Emacs more than a text editor@footnote{ I have now been using Emacspeak
+under Linux as the only source of speech feedback since 1994.}..

@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <base href="http://travel.airwise.com/arrivals/arrivals.html"/>
+    <meta name="generator"
+    content="HTML Tidy for Linux/x86 (vers 1st October 2002), see www.w3.org" />
+    <title>Flight Tracker</title>
+    <style type="text/css">
+      /*<![CDATA[*/
+ span.c1 {color: #003399}
+    /*]]>*/
+    </style>
+  </head>
+  <body>
+    <form action="http://tracker.flightview.com/fvAirwise/fvCPL.exe"
+      method="get">
+      <input type="hidden" name="qtype" value="htm" /> 
+      Airline: <select name="AL" size="1">
+        <option value="EI">
+          Aer Lingus - EI
+        </option>
+        <option value="AM">
+          Aeromexico - AM
+        </option>
+        <option value="9A">
+          Air Atlantic - 9A
+        </option>
+        <option value="AC">
+          Air Canada - AC
+        </option>
+        <option value="CA">
+          Air China - CA
+        </option>
+        <option value="AF">
+          Air France - AF
+        </option>
+        <option value="NZ">
+          Air New Zealand - NZ
+        </option>
+        <option value="FL">
+          Air Tran - FL
+        </option>
+        <option value="TS">
+          Air Transat (Canada) - TS
+        </option>
+        <option value="AS">
+          Alaska Airlines - AS
+        </option>
+        <option value="AZ">
+          Alitalia - AZ
+        </option>
+        <option value="NH">
+          All Nippon Airways - NH
+        </option>
+        <option value="AQ">
+          Aloha Airlines - AQ
+        </option>
+        <option value="HP">
+          America West Airlines - HP
+        </option>
+        <option value="AA" selected="selected">
+          American Airlines - AA
+        </option>
+        <option value="TZ">
+          American Trans Air - TZ
+        </option>
+        <option value="AV">
+          Avianca - AV
+        </option>
+        <option value="GQ">
+          Big Sky Airways - GQ
+        </option>
+        <option value="BD">
+          bmi british midland - BD
+        </option>
+        <option value="BA">
+          British Airways - BA
+        </option>
+        <option value="MU">
+          China Eastern Airlines - MU
+        </option>
+        <option value="CZ">
+          China Southern Airlines - CZ
+        </option>
+        <option value="CO">
+          Continental Airlines - CO
+        </option>
+        <option value="DL">
+          Delta Air Lines - DL
+        </option>
+        <option value="LY">
+          El Al Israel Airlines - LY
+        </option>
+        <option value="7F">
+          First Air - 7F
+        </option>
+        <option value="AY">
+          Finnair - AY
+        </option>
+        <option value="RF">
+          Florida West Airlines - RF
+        </option>
+        <option value="F9">
+          Frontier Airlines - F9
+        </option>
+        <option value="GA">
+          Garuda - GA
+        </option>
+        <option value="HA">
+          Hawaiian Airlines - HA
+        </option>
+        <option value="IB">
+          Iberia - IB
+        </option>
+        <option value="FI">
+          Icelandair - FI
+        </option>
+        <option value="IC">
+          Indian Airlines - IC
+        </option>
+        <option value="JL">
+          Japan Airlines - JL
+        </option>
+        <option value="JD">
+          Japan Air System - JD
+        </option>
+        <option value="B6">
+          Jet Blue - B6
+        </option>
+        <option value="KL">
+          KLM Royal Dutch Airlines - KL
+        </option>
+        <option value="KE">
+          Korean Air Lines - KE
+        </option>
+        <option value="LH">
+          Lufthansa - LH
+        </option>
+        <option value="MH">
+          Malaysian Airline - MH
+        </option>
+        <option value="YV">
+          Mesa Airlines - YV
+        </option>
+        <option value="MX">
+          Mexicana - MX
+        </option>
+        <option value="GL">
+          Miami Air Intl. - GL
+        </option>
+        <option value="JI">
+          Midway Airlines - JI
+        </option>
+        <option value="YX">
+          Midwest Express Airlines - YX
+        </option>
+        <option value="NW">
+          Northwest Airlines - NW
+        </option>
+        <option value="OA">
+          Olympic Airways - OA
+        </option>
+        <option value="PR">
+          Philippine Airlines - PR
+        </option>
+        <option value="QF">
+          Qantas Airways - QF
+        </option>
+        <option value="SV">
+          Saudi Arabian Airlines - SV
+        </option>
+        <option value="SK">
+          Scandinavian Airlines (SAS) - SK
+        </option>
+        <option value="SQ">
+          Singapore Airlines - SQ
+        </option>
+        <option value="SA">
+          South African Airways - SA
+        </option>
+        <option value="WN">
+          Southwest Airlines - WN
+        </option>
+        <option value="NK">
+          Spirit Airlines - NK
+        </option>
+        <option value="SY">
+          Sun Country Airlines - SY
+        </option>
+        <option value="LX">
+          Swiss Air Lines - LX
+        </option>
+        <option value="TG">
+          Thai Airways - TG
+        </option>
+        <option value="TK">
+          Turkish Airlines - TK
+        </option>
+        <option value="US">
+          US Airways - US
+        </option>
+        <option value="UA">
+          United Airlines - UA
+        </option>
+        <option value="VP">
+          VASP - VP
+        </option>
+        <option value="RG">
+          Varig - RG
+        </option>
+        <option value="VS">
+          Virgin Atlantic - VS
+        </option>
+        <option value="WS">
+          WestJet Airlines - WS
+        </option>
+        <option value="MF">
+          Xiamen Airlines - MF
+        </option>
+      </select>
+      Flight Number:<input type="text" name="acid" value="" size="10"
+      maxlength="6" /><br/>
+      <input type="submit" name="FIND1"
+      value="Find flight" />
+      <p>If you don't know the flight number <a
+          href="/arrivals/arrivals2.html">click
+        here</a>.
+      </p>
+    </form>
+  </body>
+</html>

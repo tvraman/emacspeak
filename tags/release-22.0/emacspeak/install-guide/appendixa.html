@@ -1,0 +1,311 @@
+<HTML
+><HEAD
+><TITLE
+>Appendix A: Installing Linux from a DOS machine</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.59"><LINK
+REL="HOME"
+TITLE="Installing Emacspeak HOWTO"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Additional resources"
+HREF="additional-resources.html"><LINK
+REL="NEXT"
+TITLE="Appendix B: Installing ViaVoice TTS"
+HREF="appendixb.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Installing Emacspeak HOWTO</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="additional-resources.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="appendixb.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="APPENDIXA"
+>8. Appendix A: Installing Linux from a DOS machine</A
+></H1
+><P
+>	In the original Emacspeak HOWTO, James Van Zandt provided
+	instructions on how to install Linux from a DOS machine using
+	a null-modem cable. As with the other instructions in this
+	HOWTO, I tried, unfortunately without success, to duplicate this procedure. However, I have provided the information
+	gathered during testing in the following section.  If you
+	successfully install Linux from a Windows&#8482; or DOS&#8482;	machine over a null-modem cable,
+	please let me know the procedure you followed and I'll include
+	it here.
+	</P
+><P
+>	Please note that the original instructions for
+	installing Linux over a null modem cable were written for a
+	DOS machine.  I first attempted to reproduce these
+	instructions with my Windows 2000 machine (from the DOS prompt) and Red Hat
+	7.1.  Although I successfully downloaded and installed
+	JAWS for DOS (available from Freedom Scientific at <A
+HREF="http://www.freedomscientific.com/fs_downloads/morejaws.asp"
+TARGET="_top"
+>http://www.freedomscientific.com/fs_downloads/morejaws.asp</A
+>),
+	I was unable to get a DOS VT100 terminal emulator installed. I
+	tried using TELIX, which was popular several years ago, but
+	when I tried to install TELIX version 3.51, I got a runtime
+	error. Since I was
+	unable to find any other DOS terminal emulators, I decided to
+	try using a Windows screenreader and terminal emulator
+	instead. This section documents the procedure I tried with the
+	Windows machine.
+	</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="APPENDIX-A-REQUIREMENTS"
+>8.1. Requirments</A
+></H2
+><P
+>	For this process, you will need a machine with a working
+	speech synthesizer and a terminal emulator program. For my
+	test, I used a Windows 2000 machine and tried both Narrarator
+	(which comes with Windows 2000) and JAWS for Windows
+	v.3.5. For the terminal emulator, I used tried both
+	Hyperterminal (which comes with Windows) and CRT (which
+	can be downloaded from <A
+HREF="http://www.vandyke.com/products/crt"
+TARGET="_top"
+>http://www.vandyke.com/products/crt</A
+>). You will also
+	need a second machine (on which to install Linux), a null
+	modem cable, and a copy of your preferred Linux distribution
+	on either floppy disk or CD-ROM. 
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SETUP"
+>8.2. Connecting the computers</A
+></H2
+><P
+>	To connect the two computers, you need a "null modem"
+	cable.  A "null modem" cable is a serial cable that connects ground to ground
+	and transmits on each end to receive on the other.  The cable
+	that comes with the DOS application
+	<SPAN
+CLASS="APPLICATION"
+>LapLink</SPAN
+> will work fine.  The
+	<SPAN
+CLASS="APPLICATION"
+>LapLink</SPAN
+> cable is particularly handy
+	because it has both a 9 pin and a 25 pin connector on each
+	end.  Alternatively, you may be able to find a null modem
+	cable at your local computer store, or you can have one made.
+	If you choose to have one made, here are the required connections:
+	</P
+><P
+></P
+><UL
+><LI
+><P
+>			For two 9 pin connectors, connect pin 2
+			(receive data) to pin 3, pin 3 (transmit data)
+			to pin 2, and pin 5 (signal ground) to pin 5.
+			</P
+></LI
+><LI
+><P
+>			For two 25 pin connectors, connect pin 2
+			(receive data) to pin 3, pin 3 (transmit data)
+			to pin 2, and pin 7 (signal ground) to pin 7.
+			</P
+></LI
+><LI
+><P
+>			For a 9 pin connector (first) to a 25 pin
+			connector (second), connect pin 2 (receive
+			data) to pin 2 (transmit data), pin 3
+			(transmit data) to pin 3 (receive data), and
+			pin 5 (signal ground) to pin 7 (signal
+			ground).
+			</P
+></LI
+></UL
+><P
+>	Once you have your null modem cable, you'll need to connect
+	the two machines while both of them are off. It's
+	easiest to use COM1 on both machines. Once you've got them
+	connected, you're ready to start them up, as discussed in the
+	next section
+	</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INSTALLING"
+>8.3. Installation</A
+></H2
+><P
+>	Once your machines are connected via the null modem cable, boot the DOS/Windows
+	machine, then start the terminal emulation program.  For my
+	test, I tried both Hyperterminal (which comes with Windows 2000) and CRT (which
+	can be downloaded from <A
+HREF="http://www.vandyke.com/products/crt"
+TARGET="_top"
+>http://www.vandyke.com/products/crt</A
+>.
+	For some reason, the arrow keys did not work in HyperTerminal,
+	making navigation within the HyperTerminal window
+	impossible. However, the arrow keys (as well as Tab and
+	Return) do work in CRT, so I recommend using CRT as your
+	terminal emulator.
+	</P
+><P
+>	Set the terminal emulator 
+	for 9600 baud, no parity, eight data bits, 1 stop bit. If
+	"Flow control" is an option, select Hardware.  Also be sure to
+	set your terminal emulation mode to VT100. Start the terminal emulator
+	connection (you won't get any data at this point, as your
+	Linux machine should still be off).
+	</P
+><P
+>	Once you've set up the terminal emulator on your
+	DOS/Windows machine, insert the "boot" floppy or CD into
+	your Linux machine and boot the machine. With Red Hat, at
+	the <TT
+CLASS="PROMPT"
+>boot:</TT
+> prompt, I typed in the
+	command <B
+CLASS="COMMAND"
+>linux text console=ttyS0</B
+>.  Note
+	that the "s" in "ttyS0" is capitalized, and that's a "zero" at the end of
+	the string, not a capital letter "o." Other distributions may
+	require other strings, so if you know the syntax required for
+	distros other than Red Hat,
+	please let me know and I will include that information here. 
+	</P
+><P
+>	Once you've typed in this string at the <TT
+CLASS="PROMPT"
+>boot:</TT
+>
+	prompt and hit <B
+CLASS="COMMAND"
+>Return</B
+>, you should get output in your terminal emulator
+	program on your DOS/Windows machine.  Unfortunately, at
+	this point I discovered that neither JAWS for Windows
+	nor Narrarator produces speech output in either the HyperTerminal or
+	CRT terminal windows. This ultimately stymied my attempts to
+	install Linux over a null modem cable.
+	</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="additional-resources.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="appendixb.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Additional resources</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Appendix B: Installing ViaVoice TTS</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

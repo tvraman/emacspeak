@@ -1,0 +1,167 @@
+           Commercializing  Emacspeak
+           -------------------------------------
+
+For Immediate Release:
+
+San Jose, Calif.,  (April 1, 2000)
+    Commercializing Emacspeak-2000: 
+    --Laughing all the way to the bank and back.
+    --Zero cost of ownership makes priceless software affordable,
+    --But only expensive software can make  customers feel rich!
+
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit
+operating environments.  By seamlessly blending all aspects
+of the Internet such as Web-surfing and electronic messaging
+into the audio desktop, Emacspeak has enabled speech access
+to local and remote information with a consistent and
+well-integrated user interface.  After years of
+unprecedented success serving free-loaders on the Internet,
+the for-sale version Emacspeak is now poised to exploit
+millions of gullible computer users across the world.
+
+Free Speech And Commercial Emacspeak:
+-------------------------------------
+
+Emacspeak will continue to evolve as an open source system.
+This is because the author believes strongly in the
+principles of free speech.  However, using the edict
+    "speech is silvern, but silence is golden", 
+the free version of Emacspeak --while promoting free
+speech-- will require users to pay for the much valued
+feature of immediately silencing speech.
+
+Speaking with Emacspeak Inc. new press contact Hubbell
+(Bubbles) Labrador, the creator of Emacspeak pointed out
+that if people wanted the right to silence free speech, then
+they should at least be made to pay for it.  Investors and
+venture capitalists alike welcome  this innovative
+business model as a fresh approach to exploiting the power
+and popularity of open source software.  Speaking
+anonymously, several Silicon Valley investors have privately
+voiced their opinion that when the company eventually goes
+public, Emacspeak (NASDOG: ESPK) will be one of the hottest
+(and perhaps loudest) IPOs of the millennium.
+
+The company is currently in the process of patenting several
+innovations including "one click silence" and "one blink
+silence".  Going forward, the company expects this extensive
+patent portfolio to contribute strongly to investor interest.
+
+Emacspeak Inc. also plans to introduce future versions that
+allow free-loaders to initially obtain their software fix
+free --and later pay each time they request the system to
+fall silent; investors are thrilled by this prospect because
+it feels exactly like a mutual fund with a large (and
+unending) back-end load.  Users wishing to pay a front-end
+load needn't however feel left out; Emacspeak Inc promises
+to introduces new bug-fixes and features (new bugs) on a
+regular basis so that loyal users can pay their half-yearly
+dues to obtain their upgrade-fix.
+
+Opening Doors To A Windows-Free 2000:
+-------------------------------------
+
+Emacspeak is now (voluntarily) bundled with all major Linux
+distributions.  Extensive studies have shown that users
+consider Emacspeak to be absolutely priceless.  Thanks to
+this wide-spread user demand, the present version is being
+made available at the same zero cost as earlier releases.
+
+And with the introduction of the for-sale version of
+Emacspeak, it now becomes possible to mesure Total Cost of
+Ownership (TCO) --something that was impossible when you
+could not buy the software.  The company promises to
+progressively reduce TCO while increasing the price of the
+software in the future --this is likely to be popular
+amongst  customers (CIOs)  and investors alike.  
+
+At the same time, Emacspeak-2000 continues to innovate in
+the area of speech interaction and carries forward the
+well-established Open Source tradition of introducing user
+interface features that eventually show up in commercial
+user environments.  On this theme, when recently challenged
+by a proponent of a crash-prone but well-marketed windowing
+system with the assertion "Emacs is a system from the 70's",
+the creator of Emacspeak expressed surprise at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proof interfaces until the year 2070 to catch up to
+where the Emacspeak audio desktop is today. Upon hearing
+this, the said proponent of the crash-prone system turned
+blue in the face (screen), crashed to the floor and refused
+to get booted (ever again).
+
+Industry experts welcomed this refreshing breath of Courage
+Certainty and Clarity (CCC) at a time when users are reeling
+from the Fear Uncertainty and Doubt (FUD) unleashed by
+complex software systems backed by even more convoluted
+press releases.
+
+Independent Test Results:
+-------------------------
+
+Independent test results have proven that unlike some modern
+software, Emacspeak can be easily uninstalled without
+adversely affecting the continued performance of the
+computer.  These same tests also revealed that once
+uninstalled, the user stopped functioning altogether.
+
+Speaking with Aster Labrador this morning, the creator
+of Emacspeak pointed out that these results once again
+emphasize the user-centric design of Emacspeak; "It is
+the user --and not the computer-- that stops
+functioning when Emacspeak is uninstalled!".
+
+Note from Aster: (UnDoctored Videos  Inc. is currently looking for
+volunteers to star in a video demonstrating such complete
+user failure).
+
+History:
+--------
+
+
+The decision to go commercial  is the start of a new 
+chapter   in Emacspeak's checkered history.
+Obtaining Emacspeak:
+--------------------
+
+Visit Emacspeak at http://cs.cornell.edu/home/raman --You
+can also pick up emacspeak via anonymous ftp from
+ftp://ftp.cs.cornell.edu/pub/raman/emacspeak/.  You can
+subscribe to the emacspeak mailing list
+<emacspeak@cs.vassar.edu> by sending mail to the request
+address <emacspeak-request@cs.vassar.edu>.
+
+About Emacspeak:
+---------------
+        
+Based at Cornell (NY) <http://cs.cornell.edu/home/raman>
+--home to Auditory User Interfaces (AUI) on the WWW--
+Emacspeak is mirrored world-wide by an international netwrok
+of software archives and voluntarily bundled with all major Linux
+distributions on CDROM.  On Monday, April 12, 1999,
+Emacspeak became part of the Permanent Research Collection
+on Information Technology at the Smithsonian's National
+Museum of American History.
+
+The Emacspeak mailing list is archived at
+<http://www.cs.vassar.edu/~priestdo/emacspeak/> --thanks to
+Greg Priest-Dorman.
+
+About This Release:
+-------------------
+
+This press release is certified to be Y2K compliant.
+More importantly,  the software described is W2K free.
+
+Press/Analyst Contact:  Aster Labrador
+              http://cs.cornell.edu/home/raman/aster/aster.gif
+
+Windows-Free (WF)  is a favorite  battle-cry of 
+The League Against Forced Fenestration (LAFF);
+--see   http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm
+for details on  the ill-effects of Forced Fenestration.
+
+CopyWrite  )C( Aster Labrador. All Writes Reserved.
+WonderDog (DM),BlackDog (DM) and Labrador (DM) are Registered Dogmarks of Aster Labrador.
+All other dogs belong to their respective owners.
